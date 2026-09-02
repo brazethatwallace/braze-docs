@@ -23,7 +23,7 @@ A integração entre a Braze e a EduMe aproveita o [Conteúdo conectado]({{site.
 | Requisito | Descrição |
 |---|---|
 | Conta EduMe | É necessário ter uma conta EduMe para aproveitar essa parceria. |
-| Chave de API or interface de programação do aplicativo (API) da EduMe | Você deve solicitar uma chave de API or interface de programação do aplicativo (API) ao seu contato de sucesso do cliente da EduMe. Essa chave é usada na sua chamada de Conteúdo conectado da Braze. |
+| Chave de API da EduMe | Você deve solicitar uma chave de API ao seu contato de sucesso do cliente da EduMe. Essa chave é usada na sua chamada de Conteúdo conectado da Braze. |
 | Segredo de assinatura de link da EduMe | Você deve solicitar ao seu contato de sucesso do cliente na EduMe a configuração de um segredo de assinatura de link para sua organização. Esse segredo é usado para ativar links contínuos no Conteúdo conectado. Você não precisa fazer nada com esse segredo. |
 | IDs de grupo e conteúdo da EduMe | Esses identificadores são necessários para configurar suas chamadas de Conteúdo conectado. Entre em contato com o atendimento ao cliente da EduMe para obter ajuda na obtenção desses identificadores. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
@@ -32,7 +32,7 @@ A integração entre a Braze e a EduMe aproveita o [Conteúdo conectado]({{site.
 
 ### Crie sua chamada de Conteúdo conectado {#create-your-connected-content-call}
 
-Para dar a um usuário acesso a um curso, lição ou pesquisa eNPS e rastrear o progresso dele em relação ao seu ID de usuário interno na EduMe, siga a chamada de API or interface de programação do aplicativo (API) mostrada neste exemplo:
+Para dar a um usuário acesso a um curso, lição ou pesquisa eNPS e rastrear o progresso dele em relação ao seu ID de usuário interno na EduMe, siga a chamada de API mostrada neste exemplo:
 
 {% raw %}
 ```
@@ -49,7 +49,7 @@ Access your onboarding course at:
 ```
 {% endraw %}
 
-1. Substitua `YOUR-EDUME-API-KEY` pela sua chave de API or interface de programação do aplicativo (API) da EduMe.<br><br>
+1. Substitua `YOUR-EDUME-API-KEY` pela sua chave de API da EduMe.<br><br>
 2. Substitua `EDUME-CONTENT-LINK-AND-CONTENT-ID` pela string de link de conteúdo correspondente e pelo identificador de módulo, lição ou pesquisa. Esses identificadores podem ser encontrados na sua conta EduMe.
   - Curso: `getCourseLink?moduleId=12087`
   - Lição: `getLessonLink?lessonId=25805`

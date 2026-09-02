@@ -1,20 +1,20 @@
 ---
-nav_title: "PUT: Update or aktualisieren des Präferenzzentrums"
-article_title: "PUT: Update or aktualisieren des Präferenzzentrums"
+nav_title: "PUT: Update des Präferenzzentrums"
+article_title: "PUT: Update des Präferenzzentrums"
 search_tag: Endpoint
 page_order: 5
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Update or aktualisieren eines Präferenzzentrums“."
+description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Update eines Präferenzzentrums“."
 
 ---
 {% api %}
-# Update or aktualisieren des Präferenzzentrums {#update-preference-center}
+# Update des Präferenzzentrums {#update-preference-center}
 {% apimethod put %}
 /preference_center/v1/{preferenceCenterExternalID}
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um ein Präferenzzentrum zu Update or aktualisieren or aktualisieren.
+> Verwenden Sie diesen Endpunkt, um ein Präferenzzentrum zu aktualisieren.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#bf1b43db-3f1b-461f-ad9a-2fbe35b804d7 {% endapiref %}
 

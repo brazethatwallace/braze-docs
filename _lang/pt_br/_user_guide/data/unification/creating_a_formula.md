@@ -11,7 +11,7 @@ tool: Reports
 
 > Ao visualizar a análise de dados na Braze, é possível combinar vários pontos de dados para obter insights valiosos sobre os dados de usuários. Esses recursos são chamados de fórmulas. Use fórmulas para normalizar os dados da série temporal com base no número total de usuários ativos mensais (MAU) e usuários ativos diários (DAU).
 
-As fórmulas ajudam você a entender as relações complexas que existem em seus dados. Por exemplo, é possível comparar quantos eventos personalizados foram concluídos por usuários ativos diários que se qualificam para um determinado Segment or segmento or segmento em comparação com a população geral (ou com outro Segment or segmento or segmento).
+As fórmulas ajudam você a entender as relações complexas que existem em seus dados. Por exemplo, é possível comparar quantos eventos personalizados foram concluídos por usuários ativos diários que se qualificam para um determinado Segment em comparação com a população geral (ou com outro Segment).
 
 ## Casos de uso {#use-cases}
 
@@ -67,7 +67,7 @@ table td {
 | --- | --- |
 | DAU | MAU |
 | Sessões | DAU |
-| | Tamanho do Segment or segmento |
+| | Tamanho do Segment |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Dashboard de visão geral" }
 
 ### Dashboard de receita {#revenue-dashboard}
@@ -84,5 +84,5 @@ table td {
 | --- | --- |
 | Contagem de eventos personalizados | MAU |
 |  | DAU |
-|  | Tamanho do Segment or segmento (somente Segments que têm o [rastreamento de análise de dados]({{site.baseurl}}/viewing_and_understanding_segment_data) ativado podem ser usados) |
+|  | Tamanho do Segment (somente Segments que têm o [rastreamento de análise de dados]({{site.baseurl}}/viewing_and_understanding_segment_data) ativado podem ser usados) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Dashboard de eventos personalizados" }

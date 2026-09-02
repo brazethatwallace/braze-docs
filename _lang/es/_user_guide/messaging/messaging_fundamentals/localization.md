@@ -14,10 +14,10 @@ tool:
 
 ## Cómo funciona {#how-it-works}
 
-La información de configuración regional se almacena en el perfil de un usuario a partir de los datos que recopilas mediante un [SDK or kit de desarrollo de software de Braze]({{site.baseurl}}/developer_guide/sdk_integration) (automáticamente) o la [REST or transferencia de estado representacional API]({{ site.baseurl }}/api/endpoints/user_data/post_user_track). La configuración regional contiene el idioma y un identificador de región. Esta información está disponible en la herramienta de segmentación de Braze en **País** e **Idioma**.
+La información de configuración regional se almacena en el perfil de un usuario a partir de los datos que recopilas mediante un [SDK de Braze]({{site.baseurl}}/developer_guide/sdk_integration) (automáticamente) o la [REST API]({{ site.baseurl }}/api/endpoints/user_data/post_user_track). La configuración regional contiene el idioma y un identificador de región. Esta información está disponible en la herramienta de segmentación de Braze en **País** e **Idioma**.
 
 {% alert tip %}
-Para obtener detalles técnicos sobre cómo nuestros SDK or kit de desarrollo de software recopilan la configuración regional, consulta la documentación oficial de [iOS](https://developer.apple.com/library/ios/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html), [Android](http://developer.android.com/reference/java/util/Locale.html) y [Web](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/language).
+Para obtener detalles técnicos sobre cómo nuestros SDK recopilan la configuración regional, consulta la documentación oficial de [iOS](https://developer.apple.com/library/ios/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html), [Android](http://developer.android.com/reference/java/util/Locale.html) y [Web](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/language).
 {% endalert %}
 
 ## Gestión de traducciones {#translation-management}
@@ -50,7 +50,7 @@ Este enfoque separa las plantillas en diferentes configuraciones regionales de e
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Una plantilla por país" }
 {% endtab %}
 
-{% tab Canvas %}
+{% tab canvas %}
 ### Un recorrido para todos {#one-journey-for-all}
 
 En este enfoque, la localización se gestiona dentro de los [conceptos básicos de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_basics#building-the-customer-journey) y Liquid para definir la mensajería para cada usuario.
@@ -122,7 +122,7 @@ Siempre recomendamos incluir una sentencia {% raw %}`{% else %}`{% endraw %} en 
 {% endtab %}
 
 {% tab Content Blocks %}
-Los [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) de Braze son bloques de contenido reutilizables. Cuando se modifica un bloque, todas las referencias a ese bloque cambian. Por ejemplo, las actualizaciones en un encabezado o pie de página de correo electrónico se reflejarán en todos los correos electrónicos o para alojar traducciones. Estos bloques también se pueden [crear]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block) y [actualizar]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block) usando la REST or transferencia de estado representacional API, y los usuarios pueden subir traducciones de forma programática.
+Los [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) de Braze son bloques de contenido reutilizables. Cuando se modifica un bloque, todas las referencias a ese bloque cambian. Por ejemplo, las actualizaciones en un encabezado o pie de página de correo electrónico se reflejarán en todos los correos electrónicos o para alojar traducciones. Estos bloques también se pueden [crear]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block) y [actualizar]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block) usando la REST API, y los usuarios pueden subir traducciones de forma programática.
 
 Al crear una Campaign en el panel, se puede hacer referencia a los Content Blocks usando la etiqueta {% raw %}`{{content_blocks.${name_of_content_block}}}`{% endraw %}. Estos bloques podrían contener todas las traducciones alojadas dentro de lógica condicional para cada idioma, como se muestra en la opción 1, o se puede usar un bloque separado para cada idioma.
 
@@ -242,7 +242,7 @@ Se puede hacer referencia a estos elementos del catálogo usando [personalizaci�
 {% endtab %}
 
 {% tab Partners de Braze %}
-Muchos partners de Braze ofrecen soluciones de localización, incluyendo [Transifex]({{site.baseurl}}/partners/message_personalization/localization/transifex#about-the-integration) y [Crowdin](https://crowdin.com/). Normalmente, los usuarios utilizan la plataforma junto con un equipo interno y una agencia de traducción. Estas traducciones se suben allí y luego son accesibles a través de la REST or transferencia de estado representacional API. Estos servicios también suelen aprovechar el [contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), lo que permite a los usuarios obtener las traducciones a través de la API.
+Muchos partners de Braze ofrecen soluciones de localización, incluyendo [Transifex]({{site.baseurl}}/partners/message_personalization/localization/transifex#about-the-integration) y [Crowdin](https://crowdin.com/). Normalmente, los usuarios utilizan la plataforma junto con un equipo interno y una agencia de traducción. Estas traducciones se suben allí y luego son accesibles a través de la REST API. Estos servicios también suelen aprovechar el [contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), lo que permite a los usuarios obtener las traducciones a través de la API.
 
 Por ejemplo, las siguientes llamadas de contenido conectado llaman a Transifex y Crowdin para obtener una traducción, aprovechando {% raw %}`{{${language}}}`{% endraw %} para identificar la traducción correcta para un usuario determinado. Esta traducción se guarda luego en el bloque JSON "strings" y se referencia.
 

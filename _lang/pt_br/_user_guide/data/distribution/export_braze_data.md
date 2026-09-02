@@ -4,7 +4,7 @@ article_title: Exportar dados da Braze
 page_order: 2
 layout: dev_guide
 guide_top_header: "Exportação de dados da Braze"
-guide_top_text: "A Braze oferece exportações CSV dos dados do dashboard, permitindo que você analise os dados com uma variedade de ferramentas. Os artigos a seguir abordam os diferentes tipos de dados que você pode exportar do dashboard, bem como dicas para abrir os dados no Excel e realizar exportações com nossa API or interface de programação do aplicativo (API).<br><br>Antes de realizar a exportação, certifique-se de ter selecionado o período de tempo correto do qual deseja visualizar os dados."
+guide_top_text: "A Braze oferece exportações CSV dos dados do dashboard, permitindo que você analise os dados com uma variedade de ferramentas. Os artigos a seguir abordam os diferentes tipos de dados que você pode exportar do dashboard, bem como dicas para abrir os dados no Excel e realizar exportações com nossa API.<br><br>Antes de realizar a exportação, certifique-se de ter selecionado o período de tempo correto do qual deseja visualizar os dados."
 
 page_type: landing
 description: "Essa landing page contém recursos sobre a exportação de dados da Braze, como a exportação de resultados de campanhas e do Canvas, dados de segmentos, visão geral e dados de receita, entre outros."

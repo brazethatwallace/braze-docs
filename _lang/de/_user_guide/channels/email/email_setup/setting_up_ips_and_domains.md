@@ -16,7 +16,7 @@ description: "Dieser Artikel erklärt Ihnen, wie Sie IP-Adressen, IP-Pools, Doma
 <br>
 
 {% alert important %}
-Ab 2026 nutzt Braze Amazon Simple Email Service (SES) als Standard-E-Mail-Anbieter (E-Mail-Anbieter or ESP) für neue E-Mail-Einrichtungen. Weitere Details finden Sie unter [Amazon SES einrichten]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/amazon_ses).
+Ab 2026 nutzt Braze Amazon Simple Email Service (SES) als Standard-E-Mail-Anbieter (E-Mail-Anbieter) für neue E-Mail-Einrichtungen. Weitere Details finden Sie unter [Amazon SES einrichten]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/amazon_ses).
 {% endalert %}
 
 ## Methode 1: Self-Service-E-Mail-Einrichtung {#method-1-self-service-email-setup}
@@ -51,7 +51,7 @@ Eine Versand-Domain wird in der „Von“-Adresse beim Versenden einer E-Mail ve
 {: start="3"}
 3. Kehren Sie zum Braze-Dashboard zurück und wählen Sie **Verifizieren** aus.
 
-Bitten Sie Ihre Entwickler:innen, diese DNS-Einträge dort hinzuzufügen, wo sie benötigt werden. Ausführliche Erklärungen zur Funktionsweise von DNS-Einträgen bei den E-Mail-Anbietern von Braze, einschließlich SPF, DKIM, DMARC und E-Mail-Anbieter or ESP-spezifischer Eintragsstrukturen, finden Sie unter [DNS-Einträge verstehen]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/understanding_dns_records).
+Bitten Sie Ihre Entwickler:innen, diese DNS-Einträge dort hinzuzufügen, wo sie benötigt werden. Ausführliche Erklärungen zur Funktionsweise von DNS-Einträgen bei den E-Mail-Anbietern von Braze, einschließlich SPF, DKIM, DMARC und E-Mail-Anbieter-spezifischer Eintragsstrukturen, finden Sie unter [DNS-Einträge verstehen]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/understanding_dns_records).
 
 {% multi_lang_include channels/email/dns_records.md %}
 

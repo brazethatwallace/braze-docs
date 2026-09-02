@@ -2,14 +2,14 @@
 nav_title: Validity
 article_title: Validity
 alias: /partners/validity/
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Validity, einer Plattform für E-Mail-Zustellbarkeit, die Everest-Seed-Listen mit Braze synchronisiert und Inbox-Placement-Tests für Campaigns und Canvase automatisiert."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Validity, einer Plattform für E-Mail-Zustellbarkeit, die Everest-Seed-Listen mit Braze synchronisiert und Inbox-Placement-Tests für Campaigns und Canvases automatisiert."
 page_type: partner
 search_tag: Partner
 ---
 
 # Validity
 
-> [Validity Everest](https://www.validity.com/everest/) ist eine Plattform für E-Mail-Zustellbarkeit, die Ihnen hilft, das Inbox-Placement zu messen und Ihre Absenderreputation zu schützen. Die Integration von Braze und Validity synchronisiert Ihre Everest-Seed-Liste mit Braze, führt automatisch Seedings für qualifizierende Campaigns und Canvase durch und überträgt Engagement-Metriken zurück in Validity Inbox, damit Sie das Seed-basierte Placement mit dem tatsächlichen Abonnent:innen-Engagement vergleichen können.
+> [Validity Everest](https://www.validity.com/everest/) ist eine Plattform für E-Mail-Zustellbarkeit, die Ihnen hilft, das Inbox-Placement zu messen und Ihre Absenderreputation zu schützen. Die Integration von Braze und Validity synchronisiert Ihre Everest-Seed-Liste mit Braze, führt automatisch Seedings für qualifizierende Campaigns und Canvases durch und überträgt Engagement-Metriken zurück in Validity Inbox, damit Sie das Seed-basierte Placement mit dem tatsächlichen Abonnent:innen-Engagement vergleichen können.
 
 _Diese Integration wird von Validity gepflegt._
 
@@ -30,8 +30,8 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 | Voraussetzung | Beschreibung |
 | ----------- | ----------- |
 | Ein Validity-Konto | Ein Validity-Konto ist erforderlich, um diese Partnerschaft zu nutzen. |
-| Ein Braze-Representational State Transfer-API-Schlüssel | Ein Braze-Representational State Transfer-API-Schlüssel mit den folgenden Berechtigungen: `users.track`, `users.delete`, `email.bounce.remove`, `email.spam.remove`, `campaigns.list`, `campaigns.details`, `campaigns.data_series`, `canvas.list`, `canvas.details`, `canvas.data_series`, `content_blocks.list`, `content_blocks.info` und `messages.send`. <br><br> Erstellen Sie diesen Schlüssel im Braze-Dashboard unter **Einstellungen** > **APIs und Bezeichner**. |
-| Ein Braze-Representational State Transfer-Endpunkt | [Ihre Representational State Transfer-Endpunkt-URL]({{site.baseurl}}/api/basics#endpoints). Ihr Endpunkt hängt von der Braze-URL Ihrer Instanz ab. Zum Beispiel `rest.iad-01.braze.com`. |
+| Ein Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit den folgenden Berechtigungen: `users.track`, `users.delete`, `email.bounce.remove`, `email.spam.remove`, `campaigns.list`, `campaigns.details`, `campaigns.data_series`, `canvas.list`, `canvas.details`, `canvas.data_series`, `content_blocks.list`, `content_blocks.info` und `messages.send`. <br><br> Erstellen Sie diesen Schlüssel im Braze-Dashboard unter **Einstellungen** > **APIs und Bezeichner**. |
+| Ein Braze-REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/api/basics#endpoints). Ihr Endpunkt hängt von der Braze-URL Ihrer Instanz ab. Zum Beispiel `rest.iad-01.braze.com`. |
 | Ein Braze-App-Bezeichner | Der Braze-App-Bezeichner, dem Seed-Sends zugeordnet werden sollen. Sie finden ihn unter **Einstellungen** > **APIs und Bezeichner** > **App-Bezeichner**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
@@ -41,8 +41,8 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 
 Validity benötigt drei Zugangsdaten aus **Einstellungen** > **APIs und Bezeichner** in Ihrem Braze-Dashboard:
 
-- Ihren Representational State Transfer-API-Schlüssel (mit den unter [Voraussetzungen](#prerequisites) aufgeführten Berechtigungen)
-- Ihren Representational State Transfer-Endpunkt
+- Ihren REST-API-Schlüssel (mit den unter [Voraussetzungen](#prerequisites) aufgeführten Berechtigungen)
+- Ihren REST-Endpunkt
 - Ihren App-Bezeichner
 
 Teilen Sie diese Zugangsdaten mit Ihrer Validity-Vertretung, die die Einrichtung der Integration für Sie abschließt. Validity validiert die Zugangsdaten mit einem Live-Testaufruf an Braze, bevor die Integration aktiviert wird. Wenn Sie nicht sicher sind, wer Ihre Validity-Kontaktperson ist, senden Sie eine E-Mail an [support@validity.com](mailto:support@validity.com).
@@ -92,7 +92,7 @@ Validity ruft den Campaign-Body, den Betreff und die Absenderadresse über die C
 
 ### Auto-Seeding-Schwellenwert {#auto-seeding-threshold}
 
-Validity erkennt, wenn eine Campaign oder ein Canvas Ihren konfigurierten Sendevolumen-Schwellenwert überschreitet (standardmäßig 10.000 Sends), und sendet den Seed-Test zu diesem Zeitpunkt. Sie müssen die Seed-Zielgruppe nicht zu Ihren Campaigns oder Canvase hinzufügen.
+Validity erkennt, wenn eine Campaign oder ein Canvas Ihren konfigurierten Sendevolumen-Schwellenwert überschreitet (standardmäßig 10.000 Sends), und sendet den Seed-Test zu diesem Zeitpunkt. Sie müssen die Seed-Zielgruppe nicht zu Ihren Campaigns oder Canvases hinzufügen.
 
 Ein Seed-Test sendet Ihre E-Mail-Campaign an die Adressen auf der Seed-Liste, sammelt Placement-Daten und hilft Ihnen, Probleme vor oder parallel zu Sends an Ihre Zielgruppe zu identifizieren. Inbox-Placement-Metriken zeigen, ob Ihre Campaign im Posteingang oder im Spam-Ordner landet oder verloren geht. Nutzen Sie diese Metriken, um das Inbox-Placement zu bestätigen und Zustellbarkeitsprobleme zu erkennen.
 
@@ -100,7 +100,7 @@ Seed-Tests können Ihnen auch helfen zu diagnostizieren, warum E-Mails im Spam-O
 
 ### Seed-Listen-Zustand {#seed-list-health}
 
-Validity überwacht Seed-Listen-Nutzer:innen und kann sie Update or aktualisieren or aktualisieren oder entfernen, wenn sie an Effektivität verlieren – zum Beispiel, wenn E-Mail-Anbieter (ESPs) beginnen, Mitglieder der Seed-Listen-Zielgruppe als Spam zu markieren. Diese Berechtigungen ermöglichen es Validity, den Zustand der Seed-Liste zu überwachen und die Liste entsprechend zu Update or aktualisieren or aktualisieren.
+Validity überwacht Seed-Listen-Nutzer:innen und kann sie aktualisieren oder entfernen, wenn sie an Effektivität verlieren – zum Beispiel, wenn E-Mail-Anbieter (ESPs) beginnen, Mitglieder der Seed-Listen-Zielgruppe als Spam zu markieren. Diese Berechtigungen ermöglichen es Validity, den Zustand der Seed-Liste zu überwachen und die Liste entsprechend zu aktualisieren.
 
 ### Umgang mit dynamischem Content {#how-dynamic-content-is-handled}
 

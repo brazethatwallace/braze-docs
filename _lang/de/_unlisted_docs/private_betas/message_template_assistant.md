@@ -13,7 +13,7 @@ page_type: reference
 {% alert important %}
 Die Generierung von HTML-E-Mail-Templates mit Operator befindet sich im Early Access. Kontaktieren Sie Ihren Braze Account Manager:in, wenn Sie an diesem Early Access teilnehmen möchten.
 
-Diese Funktionalität wird nur für den E-Mail-Kanal im HTML-Editor unterstützt, nicht in anderen Editoren (wie Drag-and-Drop oder AMP or Accelerated Mobile Pages).
+Diese Funktionalität wird nur für den E-Mail-Kanal im HTML-Editor unterstützt, nicht in anderen Editoren (wie Drag-and-Drop oder AMP).
 {% endalert %}
 
 {% multi_lang_include brazeai/generative_ai/unification_note.md %}

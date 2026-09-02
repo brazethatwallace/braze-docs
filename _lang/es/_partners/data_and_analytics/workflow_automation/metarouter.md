@@ -30,8 +30,8 @@ Antes de empezar, necesitarás lo siguiente:
 | Requisito | Descripción |
 |-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Una cuenta MetaRouter | Una [cuenta MetaRouter Enterprise](https://enterprise.metarouter.io/). |
-| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos `users.track`. Para crear una, ve a **Settings** > **API Keys**. |
-| Un punto de conexión REST or transferencia de estado representacional de Braze | [La URL de tu punto de conexión REST or transferencia de estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze de tu instancia. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. Para crear una, ve a **Settings** > **API Keys**. |
+| Un punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze de tu instancia. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Configuración de MetaRouter {#setting-up-metarouter}
@@ -40,7 +40,7 @@ Para configurar MetaRouter para tu integración con Braze:
 
 1. Ve a MetaRouter y crea un nuevo clúster.
 2. Elige los eventos que deseas rastrear.
-3. Instala un SDK or kit de desarrollo de software de MetaRouter e integra eventos en tu sitio web.
+3. Instala un SDK de MetaRouter e integra eventos en tu sitio web.
 4. Conecta tu clúster a la interfaz de usuario de tu sitio web.
 5. Crea una nueva canalización.
 6. Verifica que tu sitio web está enviando eventos a MetaRouter.

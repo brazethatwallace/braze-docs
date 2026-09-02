@@ -99,7 +99,7 @@ En outre, ces événements seront accessibles via les [objets d'événements per
 
 ### Demander la segmentation des propriétés d'événement {#request-event-property-segmentation}
 
-Avant de pouvoir utiliser la segmentation des propriétés d'événement, vous devez l'activer dans Braze. Utilisez le modèle suivant pour contacter votre CSM or gestionnaire de la satisfaction client or gestionnaire du succès des clients Braze ou l'équipe d'assistance afin d'obtenir l'accès.
+Avant de pouvoir utiliser la segmentation des propriétés d'événement, vous devez l'activer dans Braze. Utilisez le modèle suivant pour contacter votre CSM Braze ou l'équipe d'assistance afin d'obtenir l'accès.
 
    <table aria-label="Demander la segmentation des propriétés d'événement">
      <caption>Demander la segmentation des propriétés d'événement</caption>

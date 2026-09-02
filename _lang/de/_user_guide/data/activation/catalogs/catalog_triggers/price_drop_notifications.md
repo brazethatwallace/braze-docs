@@ -23,7 +23,7 @@ Sie können ein Preissenkungsabo für eine Nutzer:in und einen Katalogartikel er
 - Ein ausgewähltes angepasstes Event wird von einer Nutzer:in ausgeführt
 - Das angepasste Event hat die Eigenschaft `type`, die `price_drop` enthält (`type` muss ein Array sein)
 
-Um sowohl Preissenkungsbenachrichtigungen als auch Wieder-auf-Lager-Benachrichtigungen im selben Event festzulegen, können Sie die Eigenschaft `type` verwenden, die ein Array sein muss. Wenn ein Artikel eine Preisänderung erfährt, die Ihrer Preisregel entspricht, suchen wir alle Nutzer:innen, die diesen Artikel abonniert haben (Nutzer:innen, die das Abo-Event ausgeführt haben), und senden ein angepasstes Braze-Event, das Sie zum Trigger or triggern or triggern einer Campaign oder eines Canvas verwenden können.
+Um sowohl Preissenkungsbenachrichtigungen als auch Wieder-auf-Lager-Benachrichtigungen im selben Event festzulegen, können Sie die Eigenschaft `type` verwenden, die ein Array sein muss. Wenn ein Artikel eine Preisänderung erfährt, die Ihrer Preisregel entspricht, suchen wir alle Nutzer:innen, die diesen Artikel abonniert haben (Nutzer:innen, die das Abo-Event ausgeführt haben), und senden ein angepasstes Braze-Event, das Sie zum Triggern einer Campaign oder eines Canvas verwenden können.
 
 Die Event-Eigenschaften werden zusammen mit der Nutzer:in gesendet, sodass Sie die Artikeldetails als Template in die Campaign oder das Canvas einfügen können.
 
@@ -88,7 +88,7 @@ Die Benachrichtigungsregeln in diesen Einstellungen ersetzen nicht die Canvas-Be
 Nachdem Sie die Benachrichtigungen über Preissenkungen in einem Katalog eingerichtet haben, folgen Sie diesen Schritten, um diese Benachrichtigungen in einem Canvas zu verwenden.
 
 1. Richten Sie ein aktionsbasiertes Canvas ein.
-2. Wählen Sie als Trigger or triggern **Perform Price Drop Event**.
+2. Wählen Sie als Trigger **Perform Price Drop Event**.
 3. Wählen Sie den Namen des Katalogs mit den Preissenkungsbenachrichtigungen aus.
 4. Fahren Sie mit der [Einrichtung]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) Ihres Canvas fort, wie Sie es gewohnt sind.
 
@@ -98,7 +98,7 @@ Jetzt werden Ihre Kund:innen benachrichtigt, wenn der Preis eines Artikels sinkt
 
 Um Details zum reduzierten Katalogartikel als Template einzufügen, können Sie den Liquid-Tag `context` verwenden, um auf die `item_id` zuzugreifen.
 
-Die Verwendung von {%raw%}``{{context.${catalog_update}.item_id}}``{%endraw%} gibt die ID des Artikels zurück, dessen Preis gesunken ist. {%raw%}``{{context.${catalog_update}.previous_value}}``{%endraw%} gibt den Preiswert des Artikels vor dem Update zurück, und {%raw%}``{{context.${catalog_update}.new_value}}``{%endraw%} gibt den neuen Preiswert nach dem Update or aktualisieren zurück.
+Die Verwendung von {%raw%}``{{context.${catalog_update}.item_id}}``{%endraw%} gibt die ID des Artikels zurück, dessen Preis gesunken ist. {%raw%}``{{context.${catalog_update}.previous_value}}``{%endraw%} gibt den Preiswert des Artikels vor dem Update zurück, und {%raw%}``{{context.${catalog_update}.new_value}}``{%endraw%} gibt den neuen Preiswert nach dem Update zurück.
 
 Verwenden Sie den Liquid-Tag {%raw%}``{% catalog_items <name_of_your_catalog> {{context.${catalog_update}.item_id}} %}``{%endraw%} am Anfang Ihrer Nachricht und nutzen Sie anschließend {%raw%}`{{items[0].<field_name>}}`{%endraw%}, um auf Daten zu diesem Artikel in der gesamten Nachricht zuzugreifen.
 
@@ -110,4 +110,4 @@ Verwenden Sie den Liquid-Tag {%raw%}``{% catalog_items <name_of_your_catalog> {{
 
 - Nutzer:innen sind für 90 Tage abonniert. Wenn der Preis eines Artikels innerhalb von 90 Tagen nicht sinkt, wird die Nutzer:in aus dem Abo entfernt.
 - Wenn Sie die Benachrichtigungsregel **Notify all subscribed users** verwenden, benachrichtigt Braze 100.000 Nutzer:innen innerhalb von 10 Minuten.
-- Braze unterstützt bis zu 50.000 aktualisierte Artikel pro Tag, die für das Trigger or triggern or triggern von Preissenkungsbenachrichtigungen berechtigt sind. Sie können bis zu 100 Millionen aktive Abos gleichzeitig haben, wobei jedes Abo ein Kundenprofil or Nutzerprofil darstellt, das einen Katalogartikel beobachtet.
+- Braze unterstützt bis zu 50.000 aktualisierte Artikel pro Tag, die für das Triggern von Preissenkungsbenachrichtigungen berechtigt sind. Sie können bis zu 100 Millionen aktive Abos gleichzeitig haben, wobei jedes Abo ein Kundenprofil darstellt, das einen Katalogartikel beobachtet.

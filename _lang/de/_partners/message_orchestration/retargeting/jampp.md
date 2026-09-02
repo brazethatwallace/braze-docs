@@ -32,7 +32,7 @@ Diese Integration unterstützt iOS- und Android-Apps.
 | Jampp-Konto | Um diese Partnerschaft nutzen zu können, ist ein [Jampp-Konto](https://www.jampp.com/) erforderlich. |
 | Android-App-ID | Ihr eindeutiger Braze-Anwendungsbezeichner für Android (z. B. „com.example“). |
 | iOS-App-ID | Ihr eindeutiger Braze-Anwendungsbezeichner für iOS (z. B. „012345678“). |
-| Aktivierung der IDFA-Erfassung im Braze SDK or Software-Development-Kit | Die IDFA-Erfassung ist im Braze SDK or Software-Development-Kit optional und standardmäßig deaktiviert. |
+| Aktivierung der IDFA-Erfassung im Braze SDK | Die IDFA-Erfassung ist im Braze SDK optional und standardmäßig deaktiviert. |
 | Erfassung der Google Advertising ID über ein angepasstes Attribut | Die Erfassung der Google Advertising ID ist für Kund:innen optional und kann als [angepasstes Attribut]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#custom-attribute-data-types) erfasst werden.
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
@@ -40,7 +40,7 @@ Diese Integration unterstützt iOS- und Android-Apps.
 
 ### 1. Schritt: Erstellen Sie ein Webhook-Template in Braze {#step-1-create-a-webhook-template-in-braze}
 
-Um ein Jampp-Webhook-Template zu erstellen, das Sie in zukünftigen Campaigns oder Canvase verwenden können, navigieren Sie im Braze-Dashboard zu **Content** > **Webhook**. Wählen Sie dann **Create webhook template** aus.
+Um ein Jampp-Webhook-Template zu erstellen, das Sie in zukünftigen Campaigns oder Canvases verwenden können, navigieren Sie im Braze-Dashboard zu **Content** > **Webhook**. Wählen Sie dann **Create webhook template** aus.
 
 Wenn Sie eine einmalige Jampp-Webhook-Campaign erstellen oder ein bestehendes Template verwenden möchten, wählen Sie bei der Erstellung einer neuen Campaign **Webhook** in Braze aus.
 

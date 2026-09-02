@@ -71,8 +71,8 @@ table td {
 | Modelos de dispositivos | El número de usuarios por modelo de dispositivo, como iPhone 15 Pro y Pixel 7. <br><br> ![Captura de pantalla relacionada con las plantillas móviles.]({% image_buster /assets/img_archive/device_models.png %}){: style="max-width:50%;"} |
 | Sistemas operativos de dispositivos | El número de usuarios por sistema operativo, como 17.4 y Android 14. <br><br> ![Captura de pantalla relacionada con las plantillas móviles.]({% image_buster /assets/img_archive/os_version.png %}){: style="max-width:50%;"} |
 | Resoluciones de pantalla de dispositivos | El número de usuarios por resolución de pantalla del dispositivo, como 1179x2556 y 750x1334. <br><br> ![Captura de pantalla relacionada con las plantillas móviles.]({% image_buster /assets/img_archive/device_screen_resolutions.png %}){: style="max-width:40%;"} |
-| Códigos de error de servicio de mensajes cortos | Este informe muestra el tipo de error y el número de errores para cada código de error de servicio de mensajes cortos. <br><br>![Captura de pantalla relacionada con las plantillas móviles.]({% image_buster /assets/img_archive/sms_errors.png %}){: style="max-width:50%;"} |
-| Errores de proveedor de servicio de mensajes cortos por usuario | Este informe muestra los códigos de error de servicio de mensajes cortos para un usuario específico. |
+| Códigos de error de SMS | Este informe muestra el tipo de error y el número de errores para cada código de error de SMS. <br><br>![Captura de pantalla relacionada con las plantillas móviles.]({% image_buster /assets/img_archive/sms_errors.png %}){: style="max-width:50%;"} |
+| Errores de proveedor de SMS por usuario | Este informe muestra los códigos de error de SMS para un usuario específico. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Plantillas móviles" }
 
 ## Plantillas push {#push-templates}

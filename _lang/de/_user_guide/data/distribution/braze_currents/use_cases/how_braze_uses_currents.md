@@ -12,7 +12,7 @@ tool: Currents
 
 > Braze verwendet Currents intern mit ausgewählten [Partnern]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners).
 
-Wir filtern unsere Daten aus E-Mail- und Push-Campaigns in ein Business-Insights-Tool, Looker, aber der Weg dorthin ist etwas anders. Wir verwenden eine umgekehrte Version der ETL or Extract, Transform, Load or Extract, Transform, Load (ETL or Extract, Transform, Load)-Methode – wir ändern die Reihenfolge in Extract, Load, Transform (ELT).
+Wir filtern unsere Daten aus E-Mail- und Push-Campaigns in ein Business-Insights-Tool, Looker, aber der Weg dorthin ist etwas anders. Wir verwenden eine umgekehrte Version der ETL (ETL)-Methode – wir ändern die Reihenfolge in Extract, Load, Transform (ELT).
 
 ## 1. Schritt: Ereignisdaten eingeben und aggregieren {#step-1-intake-and-aggregate-event-data}
 
@@ -34,14 +34,14 @@ Snowflake ist nicht die einzige Warehouse-Option. Weitere Optionen sind [Redshif
 
 Snowflake Reader Accounts bieten Nutzer:innen Zugriff auf dieselben Daten und Funktionen wie die [Snowflake Datenfreigabe]({{site.baseurl}}/partners/snowflake), ohne dass ein Snowflake-Konto oder eine Kundenbeziehung mit Snowflake erforderlich ist. Mit Reader Accounts erstellt und teilt Braze Ihre Daten in einem Konto und stellt Ihnen Zugangsdaten zur Verfügung, um sich anzumelden und auf Ihre Daten zuzugreifen. Dadurch werden alle Datenfreigabe- und Nutzungskosten vollständig von Braze übernommen.
 
-Um mehr zu erfahren, kontaktieren Sie Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in.
+Um mehr zu erfahren, kontaktieren Sie Ihren CSM.
 
 #### Zusätzliche Ressourcen {#additional-resources}
 Hilfreiche Ressourcen zur Nutzungsüberwachung finden Sie in den Snowflake-Artikeln zu [Resource Monitors](https://docs.snowflake.com/en/user-guide/resource-monitors.html) und [Viewing Warehouse Credit Usage](https://docs.snowflake.com/en/user-guide/credits.html#viewing-warehouse-credit-usage-for-your-account).
 
 ## 4. Schritt: Ein Business-Intelligence (BI)-Tool zur Datenbearbeitung verwenden {#step-4-use-a-business-intelligence-bi-tool-to-manipulate-your-data}
 
-Schließlich verwenden wir ein BI-Tool, um unsere Daten zu analysieren, sie in Charts und andere visuelle Werkzeuge umzuwandeln und mehr – mit [Looker und Looker Blocks](https://www.marketplace.looker.com/), sodass wir nicht jedes Mal ETL or Extract, Transform, Load oder ELT durchführen müssen, wenn Daten aus Currents verschoben werden.
+Schließlich verwenden wir ein BI-Tool, um unsere Daten zu analysieren, sie in Charts und andere visuelle Werkzeuge umzuwandeln und mehr – mit [Looker und Looker Blocks](https://www.marketplace.looker.com/), sodass wir nicht jedes Mal ETL oder ELT durchführen müssen, wenn Daten aus Currents verschoben werden.
 
 Inspiriert, dasselbe zu tun? Sehen Sie sich die folgenden Dokumente an, um weitere Informationen darüber zu erhalten, wie Sie diese nutzen können, um Ihre Datenbank aufzubauen!
 

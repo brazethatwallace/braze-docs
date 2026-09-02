@@ -9,7 +9,7 @@ page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint de origem da tradução de campanha."
 ---
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Ver valores de origem padrão para as tags de tradução de uma campanha {#view-default-source-values-for-a-campaigns-translation-tags}
 {% apimethod get %}
 /campaigns/translations/source
@@ -19,7 +19,7 @@ description: "Este artigo descreve detalhes sobre o endpoint de origem da tradu�
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `campaigns.translations.get`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `campaigns.translations.get`.
 
 ## Limite de frequência {#rate-limit}
 

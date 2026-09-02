@@ -1,14 +1,14 @@
 ---
 page_order: 1
 nav_title: Deep links
-article_title: Deep linking em notificações por push para o SDK or kit de desenvolvimento de software Braze
+article_title: Deep linking em notificações por push para o SDK Braze
 channel:
   - push notifications
 ---
 
 # Deep linking em notificações por push
 
-> Aprenda como configurar notificações por push silenciosas para o SDK or kit de desenvolvimento de software Braze.
+> Aprenda como configurar notificações por push silenciosas para o SDK Braze.
 
 {% sdktabs %}
 {% sdktab android %}

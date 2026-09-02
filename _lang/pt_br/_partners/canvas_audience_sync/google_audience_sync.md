@@ -23,15 +23,15 @@ A integração do Audience Sync da Braze com o Google é compatível com o Googl
 
 O Google Ads não gera mais públicos semelhantes, também conhecidos como "lookalike audiences", para direcionamento e relatórios. Consulte a [documentação do Google Ads](https://support.google.com/google-ads/answer/12463119?) para saber mais.
 
-## API or interface de programação do aplicativo (API) Google Data Manager {#google-data-manager-api}
+## API Google Data Manager {#google-data-manager-api}
 
 {% alert important %}
-O suporte à API or interface de programação do aplicativo (API) Google Data Manager para o Audience Sync to Google está em acesso antecipado. Entre em contato com o gerente da sua conta Braze para saber sobre elegibilidade e cronograma de lançamento.
+O suporte à API Google Data Manager para o Audience Sync to Google está em acesso antecipado. Entre em contato com o gerente da sua conta Braze para saber sobre elegibilidade e cronograma de lançamento.
 {% endalert %}
 
-O Google está consolidando as integrações de publicidade na API or interface de programação do aplicativo (API) Data Manager. Em acesso antecipado, o Braze Audience Sync to Google pode usar essa API or interface de programação do aplicativo (API) para dar suporte às mudanças contínuas na API or interface de programação do aplicativo (API) de publicidade do Google.
+O Google está consolidando as integrações de publicidade na API Data Manager. Em acesso antecipado, o Braze Audience Sync to Google pode usar essa API para dar suporte às mudanças contínuas na API de publicidade do Google.
 
-Para conexões novas e reconectadas do Google Audience or público do Google Sync, a Braze solicita automaticamente o escopo necessário do Data Manager. As conexões existentes continuam sincronizando pelo caminho legado até serem reconectadas.
+Para conexões novas e reconectadas do Google Audience Sync, a Braze solicita automaticamente o escopo necessário do Data Manager. As conexões existentes continuam sincronizando pelo caminho legado até serem reconectadas.
 
 Continue seguindo este guia para conexão de conta, configuração de público e comportamento de sincronização.
 
@@ -44,7 +44,7 @@ Esse recurso permite que as marcas controlem quais dados primários específicos
 
 ## Pré-requisitos {#prerequisites}
 
-Certifique-se de que os itens a seguir foram criados e concluídos antes de configurar sua etapa de Google Audience or público do Google or público do Google no Canvas.
+Certifique-se de que os itens a seguir foram criados e concluídos antes de configurar sua etapa de Google Audience no Canvas.
 
 | Requisito | Origin | Descrição |
 | ----------- | ------ | ----------- |
@@ -54,7 +54,7 @@ Certifique-se de que os itens a seguir foram criados e concluídos antes de conf
 | Sinais de consentimento do Google | [Google](https://support.google.com/google-ads/answer/14310715) | Se você deseja veicular anúncios para usuários finais do EEE usando o serviço Customer Match do Google, precisará enviar à Braze os seguintes atributos personalizados (booleanos) como parte da Política de consentimento do usuário da UE do Google. Mais detalhes podem ser encontrados em [Coletando consentimento para usuários finais do EEE, Reino Unido e Suíça](#collecting-consent-for-eea-uk-and-switzerland-end-users): <br> - `$google_ad_user_data` <br> - `$google_ad_personalization` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Pré-requisitos" }
 
-### Versões mínimas do SDK or kit de desenvolvimento de software {#required-sdk-versions}
+### Versões mínimas do SDK {#required-sdk-versions}
 
 Ao usar os SDKs da Braze para coletar sinais de consentimento, certifique-se de atender às seguintes versões mínimas:
 
@@ -81,7 +81,7 @@ A Braze sincronizará os dados desses atributos personalizados com os [campos de
 Para manter suas listas de público atualizadas caso um usuário final do EEE tenha sido adicionado à lista de público e, posteriormente, tenha revogado qualquer um dos dois consentimentos (`$google_ad_user_data` ou `$google_ad_personalization`), você deve configurar um Canvas para remover usuários das listas de público existentes usando uma etapa de Audience Sync.
 
 {% alert note %}
-Se um usuário do EEE forneceu consentimento anteriormente para ambos os sinais, esses dados continuarão sendo usados para o Customer Match do Google até que a lista expire, ou até que o status de consentimento seja explicitamente atualizado via Google Audience or público do Google Sync, ou ambos.
+Se um usuário do EEE forneceu consentimento anteriormente para ambos os sinais, esses dados continuarão sendo usados para o Customer Match do Google até que a lista expire, ou até que o status de consentimento seja explicitamente atualizado via Google Audience Sync, ou ambos.
 {% endalert %}
 
 #### Dicas {#tips}
@@ -92,7 +92,7 @@ Se um usuário do EEE forneceu consentimento anteriormente para ambos os sinais,
 * Embora você não possa definir explicitamente um usuário como não especificado, se enviar um valor `null` ou `nil` ou qualquer valor que não seja `true` ou `false`, a Braze enviará esse usuário ao Google como `UNSPECIFIED`.
 * Novos usuários adicionados ou atualizados sem especificar nenhum dos atributos de consentimento serão sincronizados com o Google com esses atributos de consentimento marcados como não especificados.
 
-Se você tentar sincronizar um usuário do EEE sem os campos de consentimento necessários e o status concedido, o Google rejeitará esse usuário e não veiculará anúncios para ele. Além disso, se um anúncio for veiculado a um usuário do EEE sem seu consentimento explícito, você poderá ser responsabilizado e correr risco financeiro. Para evitar isso, sugerimos enviar Campaigns com filtros de Segment or segmento que incluam apenas usuários do EEE, Reino Unido e Suíça com atributos de consentimento do Google definidos como `true`. Para mais detalhes sobre a Política de consentimento do usuário da UE para parceiros de upload do Customer Match, consulte as [Perguntas frequentes](https://support.google.com/google-ads/answer/14310715) do Google.
+Se você tentar sincronizar um usuário do EEE sem os campos de consentimento necessários e o status concedido, o Google rejeitará esse usuário e não veiculará anúncios para ele. Além disso, se um anúncio for veiculado a um usuário do EEE sem seu consentimento explícito, você poderá ser responsabilizado e correr risco financeiro. Para evitar isso, sugerimos enviar Campaigns com filtros de Segment que incluam apenas usuários do EEE, Reino Unido e Suíça com atributos de consentimento do Google definidos como `true`. Para mais detalhes sobre a Política de consentimento do usuário da UE para parceiros de upload do Customer Match, consulte as [Perguntas frequentes](https://support.google.com/google-ads/answer/14310715) do Google.
 
 ### Configurando seu Canvas {#setting-up-your-canvas}
 
@@ -101,7 +101,7 @@ Após a sincronização com a Braze, os seguintes atributos de consentimento est
 - `$google_ad_user_data`
 - `$google_ad_personalization`
 
-Em qualquer Canvas em que você esteja direcionando usuários finais do EEE, Reino Unido e Suíça usando um Google Audience or público do Google Sync para adicionar usuários a um público, você deve excluir esses usuários sempre que ambos os atributos de consentimento tiverem qualquer valor diferente de `true`. Você pode fazer isso segmentando esses usuários quando os valores de consentimento estiverem definidos como `true`. Isso também garante análises mais precisas dos usuários sincronizados, pois sabemos que o Google rejeitará esses usuários dos públicos. Observe que, se você estiver usando o Google Audience or público do Google Sync para remover usuários de um público, os atributos de consentimento não são obrigatórios.
+Em qualquer Canvas em que você esteja direcionando usuários finais do EEE, Reino Unido e Suíça usando um Google Audience Sync para adicionar usuários a um público, você deve excluir esses usuários sempre que ambos os atributos de consentimento tiverem qualquer valor diferente de `true`. Você pode fazer isso segmentando esses usuários quando os valores de consentimento estiverem definidos como `true`. Isso também garante análises mais precisas dos usuários sincronizados, pois sabemos que o Google rejeitará esses usuários dos públicos. Observe que, se você estiver usando o Google Audience Sync para remover usuários de um público, os atributos de consentimento não são obrigatórios.
 
 ## Integração {#integration}
 
@@ -119,15 +119,15 @@ Após conectar sua conta do Google Ads com sucesso, você será redirecionado pa
 
 #### Exportar IDFA do iOS ou IDs de publicidade do Google {#export-ios-idfa-or-google-advertising-ids}
 
-Se você planeja exportar IDFA do iOS ou IDs de publicidade do Google na sincronização de público, o Google exige o ID do app iOS e o ID do app Android nas solicitações. Em Google Audience or público do Google Sync, selecione **Add Mobile Advertising IDs**, insira o ID do app iOS e o ID do app Android (nome do pacote do app) e salve cada um.
+Se você planeja exportar IDFA do iOS ou IDs de publicidade do Google na sincronização de público, o Google exige o ID do app iOS e o ID do app Android nas solicitações. Em Google Audience Sync, selecione **Add Mobile Advertising IDs**, insira o ID do app iOS e o ID do app Android (nome do pacote do app) e salve cada um.
 
 <br><br>
 ![A página de tecnologia atualizada do Google Ads mostrando as contas de anúncios conectadas, permitindo ressincronizar contas e adicionar IDs de publicidade móvel.]({% image_buster /assets/img/google_sync/google_sync5.png %}){: style="max-width:75%;"}
 <br><br>
 
-Se você tiver vários apps em um único espaço de trabalho, pode inserir qualquer um dos IDs de app na configuração, pois os IDs de publicidade móvel dos seus usuários serão os mesmos em vários apps. Isso ocorre porque tanto o GAID do Android quanto o IDFA do iOS são identificadores de publicidade universais no dispositivo e não são específicos de um app. Para sincronizar IDs de publicidade móvel de usuários de um app específico, você pode usar filtros de Segment or segmento ("Last Used Specific App" ou "Most Recent App Version") para direcionar esses usuários.
+Se você tiver vários apps em um único espaço de trabalho, pode inserir qualquer um dos IDs de app na configuração, pois os IDs de publicidade móvel dos seus usuários serão os mesmos em vários apps. Isso ocorre porque tanto o GAID do Android quanto o IDFA do iOS são identificadores de publicidade universais no dispositivo e não são específicos de um app. Para sincronizar IDs de publicidade móvel de usuários de um app específico, você pode usar filtros de Segment ("Last Used Specific App" ou "Most Recent App Version") para direcionar esses usuários.
 
-### Etapa 2: Adicionar uma etapa de Google Audience or público do Google or público do Google no Canvas {#step-2-add-a-google-audience-step-in-canvas}
+### Etapa 2: Adicionar uma etapa de Google Audience no Canvas {#step-2-add-a-google-audience-step-in-canvas}
 
 Adicione um componente no seu Canvas e selecione **Audience Sync**.
 
@@ -167,7 +167,7 @@ Os usuários serão notificados na parte superior do editor de etapas se o públ
 
 ![Um alerta que aparece após a criação de um novo público no componente do Canvas.]({% image_buster /assets/img/audience_sync/g_sync3.png %})
 
-Quando você lança um Canvas com um novo público, a Braze cria um novo público personalizado ao lançar o Canvas e, em seguida, sincroniza os usuários em tempo quase real à medida que eles entram na etapa de Google Audience or público do Google or público do Google.
+Quando você lança um Canvas com um novo público, a Braze cria um novo público personalizado ao lançar o Canvas e, em seguida, sincroniza os usuários em tempo quase real à medida que eles entram na etapa de Google Audience.
 
 {% alert important %}
 Devido aos requisitos do Google Customer Match, você não pode ter informações de contato do cliente e IDs de publicidade móvel nas mesmas listas de clientes. O Google Customer Match usará essas informações para determinar quem pode ser direcionado no Google Search, Google Display, YouTube e Gmail. Para mais detalhes sobre os requisitos do Google Customer Match, consulte a [documentação](https://support.google.com/google-ads/answer/7474166?hl=en&ref_topic=6296507) deles.
@@ -179,8 +179,8 @@ A Braze também oferece a capacidade de adicionar ou remover usuários de listas
 
 1. Selecione um público personalizado existente para sincronizar.
 2. Escolha se deseja **Add to the audience** ou **Remove from the audience**.
-3. A Braze adicionará ou removerá usuários em tempo quase real à medida que eles entrarem na etapa de Google Audience or público do Google or público do Google.
-4. Após configurar sua etapa de Google Audience or público do Google or público do Google, selecione **Done**. Sua etapa de Google Audience or público do Google or público do Google incluirá detalhes sobre o novo público.
+3. A Braze adicionará ou removerá usuários em tempo quase real à medida que eles entrarem na etapa de Google Audience.
+4. Após configurar sua etapa de Google Audience, selecione **Done**. Sua etapa de Google Audience incluirá detalhes sobre o novo público.
 
 ![Visualização expandida do componente Canvas de público personalizado. Aqui, a conta de anúncios desejada e o público existente estão selecionados, assim como o botão de opção "Add user to Audience".]({% image_buster /assets/img/audience_sync/g_sync2.png %})
 
@@ -195,9 +195,9 @@ Os usuários avançarão para o próximo componente do Canvas, se houver um, ou 
 
 ## Sincronização de usuários e considerações sobre limite de frequência {#user-syncing-and-rate-limit-considerations}
 
-À medida que os usuários chegam ao componente de Audience Sync, a Braze sincronizará esses usuários em tempo quase real, respeitando os limites de frequência da API or interface de programação do aplicativo (API) do Google Ads. Na prática, isso significa que a Braze tentará agrupar e processar o maior número possível de usuários a cada 5 segundos antes de enviá-los ao Google.
+À medida que os usuários chegam ao componente de Audience Sync, a Braze sincronizará esses usuários em tempo quase real, respeitando os limites de frequência da API do Google Ads. Na prática, isso significa que a Braze tentará agrupar e processar o maior número possível de usuários a cada 5 segundos antes de enviá-los ao Google.
 
-Quando um cliente estiver próximo de atingir o limite de frequência da API or interface de programação do aplicativo (API) do Google Ads, o Google fornecerá feedback à Braze com recomendações de nova tentativa. Se um cliente da Braze atingir o limite de frequência, o Canvas da Braze tentará novamente a sincronização por até &#126;13 horas. Se a sincronização não for possível, esses usuários serão listados na métrica Users Errored.
+Quando um cliente estiver próximo de atingir o limite de frequência da API do Google Ads, o Google fornecerá feedback à Braze com recomendações de nova tentativa. Se um cliente da Braze atingir o limite de frequência, o Canvas da Braze tentará novamente a sincronização por até &#126;13 horas. Se a sincronização não for possível, esses usuários serão listados na métrica Users Errored.
 
 ## Entendendo a análise de dados {#understanding-analytics}
 
@@ -206,17 +206,17 @@ A tabela a seguir inclui métricas e descrições para ajudar você a entender m
 | Métrica | Descrição |
 | ------ | ----------- |
 | *Entered* | Número de usuários que entraram nesta etapa para serem sincronizados com o Google. |
-| *Proceeded to Next Step* | Quantos usuários avançaram para o próximo componente, se houver um. Todos os usuários avançam automaticamente. Se esta for a última etapa na Branch or ramificação or ramificação do Canvas, essa métrica será 0. |
+| *Proceeded to Next Step* | Quantos usuários avançaram para o próximo componente, se houver um. Todos os usuários avançam automaticamente. Se esta for a última etapa na Branch do Canvas, essa métrica será 0. |
 | *Users Synced* | Número de usuários que foram sincronizados com sucesso com o Google. |
 | *User Not Synced* | Número de usuários que não foram sincronizados devido a campos ausentes para correspondência ou porque o atributo de consentimento foi definido como `false`. |
-| *Users Errored* | Número de usuários que não foram sincronizados com o Google devido a um erro, após &#126;13 horas de tentativas. Para erros específicos, como interrupções no serviço da API or interface de programação do aplicativo (API) do Google Ads, o Canvas tentará novamente a sincronização por até &#126;13 horas. Se a sincronização ainda não for possível nesse ponto, o campo *User Not Synced* será preenchido. |
+| *Users Errored* | Número de usuários que não foram sincronizados com o Google devido a um erro, após &#126;13 horas de tentativas. Para erros específicos, como interrupções no serviço da API do Google Ads, o Canvas tentará novamente a sincronização por até &#126;13 horas. Se a sincronização ainda não for possível nesse ponto, o campo *User Not Synced* será preenchido. |
 | *Users Pending* | Número de usuários sendo processados pela Braze para sincronização com o Google. |
 | *Exited Canvas* | Número de usuários que saíram do Canvas. Isso ocorre quando a última etapa em um Canvas é uma etapa do Google. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Entendendo a análise de dados" }
 
 ## Perguntas frequentes {#frequently-asked-questions}
 
-### Por que não consigo selecionar vários campos para correspondência na configuração da minha etapa de Google Audience or público do Google or público do Google? {#why-can-i-not-select-multiple-fields-to-match-in-my-google-audience-step-configuration}
+### Por que não consigo selecionar vários campos para correspondência na configuração da minha etapa de Google Audience? {#why-can-i-not-select-multiple-fields-to-match-in-my-google-audience-step-configuration}
 
 O Google Customer Match tem requisitos rigorosos sobre como esses públicos são formatados e quais informações de clientes são incluídas. Especificamente, os IDs de anunciantes de dispositivos móveis precisam ser enviados separadamente das informações de contato do cliente (como e-mail e número de telefone). Para mais detalhes, consulte a [documentação do Google Customer Match](https://support.google.com/google-ads/answer/7659867?hl=en#undefined).
 
@@ -251,6 +251,6 @@ Se você está sincronizando públicos para o Google, esse erro será disparado 
 
 ### Por que recebi um e-mail de credenciais inválidas do Google Ads se o dashboard ainda mostra como conectado? {#why-did-i-get-a-google-ads-invalid-credentials-email-when-the-dashboard-still-shows-connected}
 
-A Braze envia esse e-mail automaticamente quando a API or interface de programação do aplicativo (API) do Google retorna um erro de autorização. Isso pode acontecer mesmo quando o **Google Ads** ainda aparece como conectado no dashboard e os públicos parecem estar sincronizando — por exemplo, quando a conta do Google conectada não tem permissão para uma ação específica solicitada pelo Google, ou quando os termos de serviço do Google Ads ainda precisam ser aceitos para a conta.
+A Braze envia esse e-mail automaticamente quando a API do Google retorna um erro de autorização. Isso pode acontecer mesmo quando o **Google Ads** ainda aparece como conectado no dashboard e os públicos parecem estar sincronizando — por exemplo, quando a conta do Google conectada não tem permissão para uma ação específica solicitada pelo Google, ou quando os termos de serviço do Google Ads ainda precisam ser aceitos para a conta.
 
-Alguns erros de autorização se resolvem sozinhos. Verifique as análises de **Audience Sync** do seu Canvas (por exemplo, *Users Synced* e *Users Errored*) para confirmar se os usuários ainda estão sincronizando. Se os problemas continuarem, acesse **Partner Integrations** > **Technology Partners** > **Google Ads**, encontre **Google Audience or público do Google Sync** e use **Change Account** para reconectar com uma conta do Google Ads que tenha o acesso necessário e a configuração concluída.
+Alguns erros de autorização se resolvem sozinhos. Verifique as análises de **Audience Sync** do seu Canvas (por exemplo, *Users Synced* e *Users Errored*) para confirmar se os usuários ainda estão sincronizando. Se os problemas continuarem, acesse **Partner Integrations** > **Technology Partners** > **Google Ads**, encontre **Google Audience Sync** e use **Change Account** para reconectar com uma conta do Google Ads que tenha o acesso necessário e a configuração concluída.

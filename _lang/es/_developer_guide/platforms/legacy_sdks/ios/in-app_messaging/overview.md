@@ -34,7 +34,7 @@ Todos los mensajes dentro de la aplicación son subclases de `ABKInAppMessage`, 
 ![Un gráfico que muestra que la clase ABKInAppMessage es la clase raíz de las clases ABKInAppMessageSlideup, ABKInAppMessageImmersive y ABKInAppMessageHTML. ABKInAppMessage incluye propiedades personalizables como mensaje, extras, duración, acción de clic, URI, acción de descartar, orientación del icono y alineación del texto. ABKInAppMessageSlideup incluye propiedades personalizables como el chevron y el ancla de deslizamiento hacia arriba. ABKInAppMessageImmersive incluye propiedades personalizables como la cabecera, el botón de cierre, el marco y los botones de mensajes dentro de la aplicación. ABKInAppMessageHTML te permite registrar manualmente los clics del botón HTML de mensajes dentro de la aplicación.]({% image_buster /assets/img_archive/ABKInAppMessage-models.png %})
 
 {% alert important %}
-Por defecto, los mensajes dentro de la aplicación se habilitan tras completar la integración de SDK or kit de desarrollo de software estándar, incluida la compatibilidad con GIF.
+Por defecto, los mensajes dentro de la aplicación se habilitan tras completar la integración de SDK estándar, incluida la compatibilidad con GIF.
 <br><br>
 Ten en cuenta que la integración de `SDWebImage` es necesaria si piensas utilizar nuestra interfaz de usuario de Braze para mostrar imágenes en los mensajes dentro de la aplicación de iOS o en Content Cards.
 {% endalert %}
@@ -68,7 +68,7 @@ Los mensajes dentro de la aplicación [`Full`](https://appboy.github.io/appboy-i
 {% endtab %}
 {% tab HTML personalizado %}
 
-Los mensajes dentro de la aplicación [`HTML Full`](https://appboy.github.io/appboy-ios-sdk/docs/interface_a_b_k_in_app_message_h_t_m_l_full.html) son útiles para crear contenido de usuario totalmente personalizado. El contenido HTML completo de los mensajes dentro de la aplicación, definido por el usuario, se muestra en un `WKWebView` y puede contener opcionalmente otros contenidos enriquecidos, como imágenes y fuentes, lo que permite un control total sobre el aspecto y la funcionalidad de los mensajes. <br><br>Los mensajes dentro de la aplicación de iOS admiten una interfaz JavaScript `brazeBridge` para llamar a métodos del SDK or kit de desarrollo de software web de Braze desde dentro de tu HTML; consulta nuestras [mejores prácticas]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices) para obtener más detalles.
+Los mensajes dentro de la aplicación [`HTML Full`](https://appboy.github.io/appboy-ios-sdk/docs/interface_a_b_k_in_app_message_h_t_m_l_full.html) son útiles para crear contenido de usuario totalmente personalizado. El contenido HTML completo de los mensajes dentro de la aplicación, definido por el usuario, se muestra en un `WKWebView` y puede contener opcionalmente otros contenidos enriquecidos, como imágenes y fuentes, lo que permite un control total sobre el aspecto y la funcionalidad de los mensajes. <br><br>Los mensajes dentro de la aplicación de iOS admiten una interfaz JavaScript `brazeBridge` para llamar a métodos del SDK web de Braze desde dentro de tu HTML; consulta nuestras [mejores prácticas]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices) para obtener más detalles.
 
 El siguiente ejemplo muestra un mensaje HTML completo paginado dentro de la aplicación:
 
@@ -77,7 +77,7 @@ El siguiente ejemplo muestra un mensaje HTML completo paginado dentro de la apli
 El contenido completo de los mensajes dentro de la aplicación se muestra en un `WKWebView` y puede contener opcionalmente otros contenidos enriquecidos, como imágenes y fuentes, lo que permite un control total sobre el aspecto y la funcionalidad de los mensajes. Ten en cuenta que actualmente no admitimos la visualización de mensajes HTML personalizados dentro de la aplicación en un iFrame en las plataformas iOS y Android.
 
 {% alert note %}
-A partir de la versión 3.19.0 del SDK or kit de desarrollo de software de iOS, los siguientes métodos JavaScript no funcionan en los mensajes HTML dentro de la aplicación: `alert`, `confirm`, `prompt`.
+A partir de la versión 3.19.0 del SDK de iOS, los siguientes métodos JavaScript no funcionan en los mensajes HTML dentro de la aplicación: `alert`, `confirm`, `prompt`.
 {% endalert %}
 
 {% endtab %}

@@ -19,7 +19,7 @@ _Diese Integration wird von Transifex gepflegt._
 Die Integration von Braze und Transifex nutzt Connected-Content, um Ihnen zu ermöglichen, eine Sammlung von Resource Strings abzurufen und die entsprechenden Übersetzungen in Ihre Nachrichten einzufügen – anstatt Zeilen mit sprachbasierter bedingter Formatierung. Dadurch wird die Übersetzung automatisiert und Ihre Teams können sich auf die Bereitstellung hervorragender Kundenerlebnisse konzentrieren.
 
 {% alert important %}
-Seit dem 7. April 2022 hat Transifex die API-Versionen 2 und 2.5 zugunsten von Version 3 eingestellt. v2 und v2.5 sind nicht mehr funktionsfähig, und entsprechende Anfragen werden fehlschlagen. <br><br>Die folgenden Integrationsanweisungen beziehen sich auf das Update or aktualisieren auf Version 3. Update or aktualisieren or aktualisieren Sie Ihre Connected-Content-Aufrufe entsprechend.
+Seit dem 7. April 2022 hat Transifex die API-Versionen 2 und 2.5 zugunsten von Version 3 eingestellt. v2 und v2.5 sind nicht mehr funktionsfähig, und entsprechende Anfragen werden fehlschlagen. <br><br>Die folgenden Integrationsanweisungen beziehen sich auf das Update auf Version 3. Aktualisieren Sie Ihre Connected-Content-Aufrufe entsprechend.
 {% endalert %}
 
 ## Voraussetzungen {#prerequisites}

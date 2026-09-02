@@ -10,30 +10,30 @@ channel: push
 
 # Configuración de push {#push-settings}
 
-> La página de **Configuración de push** te permite configurar los ajustes clave para tus notificaciones push, incluido el TTL or tiempo de vida or tiempo de vida de push (TTL or tiempo de vida) y la prioridad predeterminada de FCM para Campaigns de Android. Estas configuraciones ayudan a optimizar la entrega y la eficacia de tus notificaciones push, garantizando una mejor experiencia para tus usuarios.
+> La página de **Configuración de push** te permite configurar los ajustes clave para tus notificaciones push, incluido el TTL de push (TTL) y la prioridad predeterminada de FCM para Campaigns de Android. Estas configuraciones ayudan a optimizar la entrega y la eficacia de tus notificaciones push, garantizando una mejor experiencia para tus usuarios.
 
-## ¿Qué es el TTL or tiempo de vida de push? {#what-is-push-ttl}
+## ¿Qué es el TTL de push? {#what-is-push-ttl}
 
-El TTL or tiempo de vida para notificación push controla el tiempo que Braze intentará entregar una notificación push a los dispositivos que estén desconectados en el momento en que se envía la campaña. Si un dispositivo vuelve a conectarse después de que expire el TTL or tiempo de vida, el mensaje no se entregará. Esta configuración no eliminará una notificación si el dispositivo del usuario ya la ha recibido; solo controla el tiempo que el proveedor de push intenta entregar una notificación.
+El TTL para notificación push controla el tiempo que Braze intentará entregar una notificación push a los dispositivos que estén desconectados en el momento en que se envía la campaña. Si un dispositivo vuelve a conectarse después de que expire el TTL, el mensaje no se entregará. Esta configuración no eliminará una notificación si el dispositivo del usuario ya la ha recibido; solo controla el tiempo que el proveedor de push intenta entregar una notificación.
 
-## Configuración predeterminada de los valores de TTL or tiempo de vida de push {#setting-default-push-ttl-values}
+## Configuración predeterminada de los valores de TTL de push {#setting-default-push-ttl-values}
 
-Por defecto, Braze establece el TTL or tiempo de vida de push al máximo para cada servicio de mensajería push.
+Por defecto, Braze establece el TTL de push al máximo para cada servicio de mensajería push.
 
-| Servicio de mensajería push | TTL or tiempo de vida máximo |
+| Servicio de mensajería push | TTL máximo |
 | --- | --- |
 | Web (a través de los servicios FCM o Web Push) | 28 días |
 | Firebase Cloud Messaging (FCM) | 28 días |
 | Kindle (ADM) | 31 días |
 | Huawei (HMS) | 15 días |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Configuración predeterminada de los valores de TTL or tiempo de vida de push" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configuración predeterminada de los valores de TTL de push" }
 
-Estas configuraciones se aplican globalmente a todas las campañas push, a menos que se establezca un TTL or tiempo de vida diferente para un mensaje específico. Para ajustar el TTL or tiempo de vida de un mensaje, consulta [Configuración avanzada de campaña]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/advanced_campaign_settings/#ttl).
+Estas configuraciones se aplican globalmente a todas las campañas push, a menos que se establezca un TTL diferente para un mensaje específico. Para ajustar el TTL de un mensaje, consulta [Configuración avanzada de campaña]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/advanced_campaign_settings/#ttl).
 
-Para establecer un TTL or tiempo de vida de push predeterminado diferente:
+Para establecer un TTL de push predeterminado diferente:
 
 1. Ve a **Settings** > **Manage Settings** > **Push Settings**.
-2. Para cada plataforma Android, define un valor predeterminado de TTL or tiempo de vida or tiempo de vida. Puedes establecer incrementos más pequeños, como horas o segundos, para un control más preciso.
+2. Para cada plataforma Android, define un valor predeterminado de TTL. Puedes establecer incrementos más pequeños, como horas o segundos, para un control más preciso.
 3. Selecciona **Save** para aplicar tus cambios.
 
 ![Configuración de TTL de push para dispositivos Firebase, Web, Kindle y Huawei.]({% image_buster /assets/img/push_ttl.png %})

@@ -20,7 +20,7 @@ tool:
 ## Schritt 1: Wählen Sie, wo Sie Ihre Nachricht erstellen möchten {#create-new-campaign-push}
 
 {% alert tip %}
-Sie sind sich nicht sicher, ob Sie eine Campaign oder ein Canvas verwenden sollen? Campaigns eignen sich besser für einzelne, gezielte Messaging-Kampagnen, während Canvase besser für mehrstufige User-Journeys geeignet sind.
+Sie sind sich nicht sicher, ob Sie eine Campaign oder ein Canvas verwenden sollen? Campaigns eignen sich besser für einzelne, gezielte Messaging-Kampagnen, während Canvases besser für mehrstufige User-Journeys geeignet sind.
 {% endalert %}
 
 {% tabs %}
@@ -114,7 +114,7 @@ Sie **können** keine Android-Push-Nachricht ohne einen Titel senden&#8212;Sie k
 {% endtabs %}
 
 {% alert tip %}
-Brauchen Sie Hilfe beim Verfassen überzeugender Texte? Nutzen Sie den [KI or künstliche Intelligenz-Textassistenten]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). Geben Sie einen Produktnamen oder eine Beschreibung ein, und die KI or künstliche Intelligenz generiert menschenähnlichen Marketingtext zur Verwendung in Ihren Nachrichten.
+Brauchen Sie Hilfe beim Verfassen überzeugender Texte? Nutzen Sie den [KI-Textassistenten]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). Geben Sie einen Produktnamen oder eine Beschreibung ein, und die KI generiert menschenähnlichen Marketingtext zur Verwendung in Ihren Nachrichten.
 
 ![Button „KI-Texter starten“ im Textfeld des Push-Composers.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_push.png %}){: style="max-width:60%"}
 {% endalert %}
@@ -158,7 +158,7 @@ Falls gewünscht, können Sie das Push-Ziel auf **Zuletzt verwendetes Gerät** s
 „Zuletzt verwendet“ ist ein technischer Status, kein verhaltensbezogener. Da Braze standardmäßig alle Geräte anspricht, schränkt der Wechsel zu dieser Einstellung Ihre Reichweite erheblich ein und stützt sich ausschließlich auf den Status des einzelnen Geräts mit dem neuesten Token / Textbaustein.
 
 Das zuletzt verwendete Gerät wird anhand des Geräts mit dem zuletzt aktualisierten Push-Token / Textbaustein bestimmt, nicht anhand des Geräts mit der letzten Sitzung.
-* Wenn ein Push-Token / Textbaustein eines neuen Geräts über die API zu einem Kundenprofil or Nutzerprofil hinzugefügt wird, gilt dieses Gerät sofort als das zuletzt verwendete, auch wenn die Nutzer:innen noch keine Sitzung darauf gestartet haben.
+* Wenn ein Push-Token / Textbaustein eines neuen Geräts über die API zu einem Kundenprofil hinzugefügt wird, gilt dieses Gerät sofort als das zuletzt verwendete, auch wenn die Nutzer:innen noch keine Sitzung darauf gestartet haben.
 * Wenn das zuletzt verwendete Gerät von Nutzer:innen nicht [Push-aktiviert]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#foreground-push-enabled) ist, wird die Nachricht überhaupt nicht gesendet.
 
 Mehrfache Sendungen können weiterhin auftreten, wenn eine Campaign auf verschiedene Plattformen abzielt, z. B. sowohl iOS als auch Android. Wenn Nutzer:innen die App auf beiden Plattformen haben, können sie eine Push-Benachrichtigung für beide Plattformen erhalten.
@@ -171,16 +171,16 @@ Das Testen ist wohl einer der wichtigsten Schritte. Nachdem Sie Ihre perfekte Pu
 
 Weitere Informationen finden Sie unter [Testnachrichten senden]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=push).
 
-## Schritt 6: Erstellen Sie den Representational State Transfer Ihrer Campaign oder Ihres Canvas {#step-6-build-the-remainder-of-your-campaign-or-canvas}
+## Schritt 6: Erstellen Sie den Rest Ihrer Campaign oder Ihres Canvas {#step-6-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
 {% tab Campaign %}
 
-Erstellen Sie den Representational State Transfer Ihrer Campaign. In den folgenden Abschnitten erfahren Sie, wie Sie unsere Tools optimal für die Erstellung von Push-Benachrichtigungen nutzen können.
+Erstellen Sie den Rest Ihrer Campaign. In den folgenden Abschnitten erfahren Sie, wie Sie unsere Tools optimal für die Erstellung von Push-Benachrichtigungen nutzen können.
 
-### Zustellungszeitplan oder Trigger or triggern wählen {#choose-delivery-schedule-or-trigger}
+### Zustellungszeitplan oder Trigger wählen {#choose-delivery-schedule-or-trigger}
 
-Push-Nachrichten können basierend auf einem geplanten Zeitpunkt, einer Aktion oder einem API-Trigger or triggern zugestellt werden. Weitere Informationen finden Sie unter [Zeitplanung Ihrer Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
+Push-Nachrichten können basierend auf einem geplanten Zeitpunkt, einer Aktion oder einem API-Trigger zugestellt werden. Weitere Informationen finden Sie unter [Zeitplanung Ihrer Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
 Bei aktionsbasierter Zustellung können Sie außerdem die Dauer der Campaign und [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) festlegen.
 
@@ -188,7 +188,7 @@ In diesem Schritt können Sie auch Zustellungskontrollen festlegen, z. B. ob Nut
 
 ### Zielgruppe zusammenstellen {#choose-users-to-target}
 
-Als Nächstes müssen Sie [Nutzer:innen als Zielgruppe auswählen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users), indem Sie Segmente oder Filter verwenden, um Ihre Zielgruppe einzugrenzen. Sie erhalten automatisch eine Vorschau auf die ungefähre Größe der Segmentpopulation. Detaillierte Zielgruppenstatistiken für die von Ihrer Campaign angesprochenen Kanäle sind in der Fußzeile verfügbar. Um zu sehen, welcher Prozentsatz Ihrer Nutzerbasis angesprochen wird und welchen LTV or Lifetime-Value or Lifetime-Value dieses Segment hat, wählen Sie **Zusätzliche Statistiken anzeigen**.
+Als Nächstes müssen Sie [Nutzer:innen als Zielgruppe auswählen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users), indem Sie Segmente oder Filter verwenden, um Ihre Zielgruppe einzugrenzen. Sie erhalten automatisch eine Vorschau auf die ungefähre Größe der Segmentpopulation. Detaillierte Zielgruppenstatistiken für die von Ihrer Campaign angesprochenen Kanäle sind in der Fußzeile verfügbar. Um zu sehen, welcher Prozentsatz Ihrer Nutzerbasis angesprochen wird und welchen LTV dieses Segment hat, wählen Sie **Zusätzliche Statistiken anzeigen**.
 
 {% multi_lang_include audience/target_audiences.md %}
 
@@ -241,7 +241,7 @@ Lesen Sie als Nächstes [Push-Berichte]({{site.baseurl}}/user_guide/channels/pus
 
 #### Klickverhalten
 
-Wenn Sie das Standard-Klickverhalten für Ihre SDK or Software-Development-Kit-Version verwenden und beim Auswählen einer Push-Benachrichtigung mit einer Web-URL diese in der App statt im Webbrowser geöffnet wird, lesen Sie die folgenden Integrationsleitfäden zur Handhabung von Push-Benachrichtigungen:
+Wenn Sie das Standard-Klickverhalten für Ihre SDK-Version verwenden und beim Auswählen einer Push-Benachrichtigung mit einer Web-URL diese in der App statt im Webbrowser geöffnet wird, lesen Sie die folgenden Integrationsleitfäden zur Handhabung von Push-Benachrichtigungen:
 
 - [Swift]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift#swift_step-2-enable-push-capabilities)
 - [Android]({{site.baseurl}}/developer_guide/push_notifications#android_step-1-register-braze-firebase-messaging-service)

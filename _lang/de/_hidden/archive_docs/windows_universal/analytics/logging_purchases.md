@@ -10,7 +10,7 @@ hidden: true
 # Einkäufe protokollieren {#log-purchases}
 {% multi_lang_include archive/windows_deprecation.md %}
 
-Erfassen Sie In-App-Käufe, damit Sie Ihren Umsatz im Zeitverlauf und über verschiedene Umsatzquellen hinweg verfolgen und Ihre Nutzer:innen nach ihrem LTV or Lifetime-Value or Lifetime-Value segmentieren können.
+Erfassen Sie In-App-Käufe, damit Sie Ihren Umsatz im Zeitverlauf und über verschiedene Umsatzquellen hinweg verfolgen und Ihre Nutzer:innen nach ihrem LTV segmentieren können.
 
 Braze unterstützt Einkäufe in mehreren Währungen. Einkäufe, die Sie in einer anderen Währung als dem USD melden, werden im Dashboard in USD auf der Grundlage des Wechselkurses an dem Tag, an dem sie gemeldet wurden, angezeigt.
 
@@ -27,6 +27,6 @@ bool LogPurchase(string productId, string currencyCode, decimal price)
 ## Einkäufe auf Bestellebene protokollieren {#log-purchases-at-the-order-level}
 Wenn Sie Einkäufe auf Bestellebene statt auf Produktebene protokollieren möchten, können Sie den Bestellnamen oder die Bestellkategorie als `product_id` verwenden. Weitere Informationen finden Sie in unserer [Kauf-Objekt-Spezifikation]({{site.baseurl}}/api/objects_filters/purchase_object#naming-conventions).
 
-## Representational State Transfer API
+## REST API
 
-Sie können auch unsere Representational State Transfer API verwenden, um Einkäufe zu erfassen. Einzelheiten finden Sie in der Dokumentation zur [Nutzer:innen-API]({{site.baseurl}}/api/endpoints/user_data).
+Sie können auch unsere REST API verwenden, um Einkäufe zu erfassen. Einzelheiten finden Sie in der Dokumentation zur [Nutzer:innen-API]({{site.baseurl}}/api/endpoints/user_data).

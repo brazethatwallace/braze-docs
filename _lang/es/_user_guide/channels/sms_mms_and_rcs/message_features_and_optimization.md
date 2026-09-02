@@ -1,13 +1,13 @@
 ---
 nav_title: Características y optimización
-article_title: Características y optimización de servicio de mensajes cortos, MMS y RCS
+article_title: Características y optimización de SMS, MMS y RCS
 page_order: 3
 layout: dev_guide
 guide_top_header: "Características y optimización"
-guide_top_text: "Optimiza tus mensajes servicio de mensajes cortos, MMS y RCS con acortamiento de enlaces, dominios personalizados, procesamiento de palabras clave, reorientación de usuarios y filtrado de clics de bots."
+guide_top_text: "Optimiza tus mensajes SMS, MMS y RCS con acortamiento de enlaces, dominios personalizados, procesamiento de palabras clave, reorientación de usuarios y filtrado de clics de bots."
 
 page_type: landing
-description: "Optimiza los mensajes servicio de mensajes cortos, MMS y RCS con acortamiento de enlaces, procesamiento de palabras clave y más en Braze."
+description: "Optimiza los mensajes SMS, MMS y RCS con acortamiento de enlaces, procesamiento de palabras clave y más en Braze."
 
 guide_featured_title: "Artículos de la sección"
 guide_featured_list:

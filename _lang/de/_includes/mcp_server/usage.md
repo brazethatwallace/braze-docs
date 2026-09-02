@@ -149,8 +149,8 @@ Die Sendungen sind im Wochenvergleich gestiegen. Ich kann eine Aufschlüsselung 
 Wenn Sie eine Anfrage senden, laufen im Hintergrund einige Schritte ab:
 
 1. **Sie geben Ihrem Client einen Prompt.** Sie formulieren eine Anfrage in natürlicher Sprache, z. B. nach der Campaign-Performance der letzten Woche.
-2. **Das Modell des Clients wählt Tools aus.** Das KI or künstliche Intelligenz-Modell in Ihrem Client interpretiert Ihre Anfrage und übersetzt sie in einen oder mehrere Braze-Tool-Aufrufe, wie z. B. `get_campaign_list` und `get_campaign_dataseries`.
-3. **Braze führt den Tool-Aufruf aus.** Der Remote-MCP-Server empfängt jeden Tool-Aufruf über Ihre authentifizierte OAuth-Sitzung, wendet den von Ihnen angegebenen Workspace an und führt ihn gegen den entsprechenden Braze Representational State Transfer API-Endpunkt aus.
+2. **Das Modell des Clients wählt Tools aus.** Das KI-Modell in Ihrem Client interpretiert Ihre Anfrage und übersetzt sie in einen oder mehrere Braze-Tool-Aufrufe, wie z. B. `get_campaign_list` und `get_campaign_dataseries`.
+3. **Braze führt den Tool-Aufruf aus.** Der Remote-MCP-Server empfängt jeden Tool-Aufruf über Ihre authentifizierte OAuth-Sitzung, wendet den von Ihnen angegebenen Workspace an und führt ihn gegen den entsprechenden Braze REST API-Endpunkt aus.
 4. **Braze gibt das Ergebnis zurück.** Der Server sendet die Daten an Ihren Client zurück, der sie formatiert und Ihnen präsentiert.
 
 Ihr Zugriff ergibt sich aus der Schnittmenge zweier Faktoren:

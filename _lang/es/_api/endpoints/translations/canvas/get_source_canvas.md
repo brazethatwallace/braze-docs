@@ -12,7 +12,7 @@ description: "Este artículo describe los detalles sobre el endpoint de origen d
 {% api %}
 # Ver los valores de origen predeterminados de las etiquetas de traducción de un Canvas {#view-default-source-values-for-a-canvass-translation-tags}
 {% apimethod get %}
-/Canvas/translations/source
+/canvas/translations/source
 {% endapimethod %}
 
 > Utiliza este endpoint para ver todas las fuentes de traducción predeterminadas para las etiquetas de traducción de un Canvas. Estos son los valores con el {% raw %}`{% translation id %} source {% endtranslation %}`{% endraw %}. Consulta [Locales en los mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) para obtener más información sobre las características de traducción.

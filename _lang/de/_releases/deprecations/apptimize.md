@@ -8,7 +8,7 @@ description: "Dieser archivierte Artikel behandelt die Partnerschaft zwischen Ap
 
 # Apptimize
 
-{% alert Update or aktualisieren %}
+{% alert update %}
 Braze hat die Unterstützung für die Apptimize-Partnerschaft im September 2019 eingestellt.
 
 <br>
@@ -25,21 +25,21 @@ Wenden Sie sich an Ihre Braze- oder Apptimize-Vertretung, wenn Sie weitere Frage
 die es Kunden:in erlaubt, während des gesamten Entwicklungsprozesses einer App schnell zu iterieren.
 
 Apptimize kann in Verbindung mit Braze verwendet werden, um Ihr Wachstum zu ergänzen
-Marketing-/CRM or Customer-Relationship-Management [-System] (CRM)-Strategien mit UI-Tests von Produkten durch Synchronisierung von Experimenten und
+Marketing-/CRM-Strategien mit UI-Tests von Produkten durch Synchronisierung von Experimenten und
 Daten über beide Plattformen hinweg.
 
 ## Anwendungsfälle
 
 Mit Braze und Apptimize zusammen können Sie beide Plattformen nutzen, um leistungsstarke End-to-End-Erlebnisse zu schaffen:
 
-* Synchronisieren Sie die In-App- und CRM or Customer-Relationship-Management [-System] (CRM)-Marketing-Erlebnisse für eine angepasste Aktion.
+* Synchronisieren Sie die In-App- und CRM-Marketing-Erlebnisse für eine angepasste Aktion.
 * Testen Sie ein neues Onboarding-Erlebnis in Apptimize, und verwenden Sie Braze, um Nutzer:innen durch den neuen Ablauf zu führen.
 * Testen Sie gleichzeitig die Konfigurationen von Produkt Features und das dazugehörige Nutzer:innen Messaging.
 * Schneiden Sie In-App-Erlebnisse und das entsprechende Messaging für verschiedene Segmente von Nutzern:innen zu.
 
 ## Funktionsweise
 
-Braze und Apptimize können zusammen integriert werden, um Daten von SDK or Software-Development-Kit zu SDK or Software-Development-Kit zu übertragen.
+Braze und Apptimize können zusammen integriert werden, um Daten von SDK zu SDK zu übertragen.
 Sie können aktive Apptimize A/B-Testgruppen mit Braze synchronisieren, was es Ihnen ermöglicht
 Retargeting der Nutzer:innen eines bestimmten Apptimize-Tests innerhalb von Braze per Push, E-Mail,
 oder In-App Messaging.
@@ -60,7 +60,7 @@ Profile für die folgenden Apptimize Daten:
 Darüber hinaus protokolliert diese Integration ein angepasstes Event von Braze für das erste
 Teilnahmeveranstaltung eines Experiments. Es gibt zwei Möglichkeiten, dies zu tun:
 
-* Es wird ein angepasstes Event mit Eigenschaftsdaten erzeugt, die den Namen des Experiments, die Experiment-ID, den Namen der Variante und die ID der Variante angeben. Anschließend können Sie Nutzer:innen über die aktionsbasierten Zustellungskampagnen und Canvase von Braze in Realtime retargeten. Verwenden Sie diese Eigenschaften, um das genaue Apptimize Experiment zu identifizieren, das Sie Trigger or triggern or triggern möchten.
+* Es wird ein angepasstes Event mit Eigenschaftsdaten erzeugt, die den Namen des Experiments, die Experiment-ID, den Namen der Variante und die ID der Variante angeben. Anschließend können Sie Nutzer:innen über die aktionsbasierten Zustellungskampagnen und Canvase von Braze in Realtime retargeten. Verwenden Sie diese Eigenschaften, um das genaue Apptimize Experiment zu identifizieren, das Sie triggern möchten.
 * Es wird ein Attribut-Array mit Einträgen für jede aufgetretene Beteiligung erstellt. Jede Teilnahme ist formatiert als `experiment_id_EXPERIMENT_ID:variant_id_VARIANT_ID:experiment_name_EXPERIMENT_NAME:variant_name_VARIANT_NAME`
 
 Sie können dann die aktionsbasierten Zustellungskampagnen oder Canvase von Braze verwenden, um zu versenden

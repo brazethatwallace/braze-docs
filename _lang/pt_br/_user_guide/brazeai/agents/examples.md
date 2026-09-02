@@ -10,7 +10,7 @@ excerpt_separator: ""
 toc_headers: h2
 ---
 
-<div class="API or interface de programação do aplicativo (API)-glossary-preamble" markdown="1">
+<div class="api-glossary-preamble" markdown="1">
 
 {% details Como usar esses exemplos %}
 
@@ -42,7 +42,7 @@ Agentes que transformam entradas não estruturadas em campos consistentes e estr
 
 ### Classificação e roteamento {#classification-and-routing}
 
-Agentes que classificam entradas com base em critérios definidos e retornam valores que suas jornadas usam para Branch or ramificação or ramificação. Os exemplos incluem detecção de intenção de cancelamento de inscrição em mensagens recebidas para que você possa direcionar os usuários de forma conservadora antes de enviar mais mensagens.
+Agentes que classificam entradas com base em critérios definidos e retornam valores que suas jornadas usam para Branch. Os exemplos incluem detecção de intenção de cancelamento de inscrição em mensagens recebidas para que você possa direcionar os usuários de forma conservadora antes de enviar mais mensagens.
 
 ### Enriquecimento de catálogo {#catalog-enrichment}
 
@@ -58,7 +58,7 @@ Cada exemplo solicita que o modelo retorne um campo `explanation` junto com sua 
 
 <!--overview-end-->
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Escrever mensagens personalizadas com base no contexto do usuário {#write-personalized-messaging-based-on-a-users-context}
 
@@ -77,9 +77,9 @@ Estas instruções pressupõem que as seguintes informações estejam disponíve
 - Atributo personalizado para o status de fidelidade do usuário
 - Variável de contexto para a cidade que o usuário pesquisou por último
 - Variável de contexto para a última resposta de pesquisa do usuário
-- Um [Segment or segmento or segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) chamado "Logged multiple searches in the past 30D" que rastreia usuários com múltiplas pesquisas registradas nos últimos 30 dias
+- Um [Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) chamado "Logged multiple searches in the past 30D" que rastreia usuários com múltiplas pesquisas registradas nos últimos 30 dias
 - **Contexto do agente** das [instruções do Console do Agente]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources):
-    - **Associação a Segment or segmento or segmento:** "Logged multiple searches in the past 30D" para que o agente possa verificar se o usuário está neste Segment or segmento or segmento, conforme descrito nas instruções
+    - **Associação a Segment:** "Logged multiple searches in the past 30D" para que o agente possa verificar se o usuário está neste Segment, conforme descrito nas instruções
     - **Todo o contexto do Canvas:** Passa quaisquer variáveis de contexto adicionais para o agente que você ainda não definiu nas instruções do agente, caso sejam úteis ou relevantes
     - **Diretrizes da marca:** `<Brand guidelines name>` é obrigatório para que o agente possa aplicar as regras de voz, tom e formatação referenciadas nestas instruções.
 
@@ -139,7 +139,7 @@ The user IS in the segment: “Logged multiple searches in the past 30D”.
 {% endtabs %}
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Analisar feedback do usuário para determinar próximos passos {#analyze-user-feedback-to-determine-next-steps}
 
@@ -207,7 +207,7 @@ Input & Output Example:
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Categorizar usuários em grupos de interesse a partir de atributos existentes {#categorize-users-into-interest-buckets-from-existing-attributes}
 
@@ -286,7 +286,7 @@ Recent Search: "cordless drill"
 {% endtabs %}
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Direcionar usuários para a jornada do Canvas mais relevante com base no comportamento recente {#route-users-to-the-most-relevant-canvas-path-from-recent-behavior}
 
@@ -358,7 +358,7 @@ Recently Engaged Products: Drill bits
 {% endtabs %}
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Atribuir usuários a categorias de interesse a partir de ações de alta intenção em tempo real {#assign-users-to-interest-categories-from-real-time-high-intent-actions}
 
@@ -440,7 +440,7 @@ Recent Search: "18v cordless drill"
 {% endtabs %}
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Classificar mensagens recebidas quanto à intenção de cancelamento de inscrição {#classify-inbound-messages-for-opt-out-intent}
 
@@ -522,7 +522,7 @@ Input: “This sucks—what’s the promo code?” → false
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Padronizar mensagens recebidas em dados estruturados para automação {#standardize-inbound-messages-into-structured-data-for-automation}
 
@@ -598,7 +598,7 @@ Raw message: "STOP sending me these texts!!!"
 {% endtabs %}
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Escrever descrições de alta conversão alinhadas às diretrizes da marca {#write-high-converting-descriptions-that-align-with-brand-guidelines}
 
@@ -666,7 +666,7 @@ Price Tier: $$$
 {% endtabs %}
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Fornecer traduções com base no idioma usado por região {#provide-translations-based-on-language-used-by-region}
 
@@ -742,7 +742,7 @@ Max Characters: 20
 {% endtabs %}
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Enriquecer itens do catálogo com descrições, categorias e tags {#enrich-catalog-items-with-descriptions-categories-and-tags}
 
@@ -813,7 +813,7 @@ existing_category: "hydration"
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Padronizar entrada não estruturada com correspondência aproximada de catálogo {#standardize-unstructured-input-with-approximate-catalog-matching}
 

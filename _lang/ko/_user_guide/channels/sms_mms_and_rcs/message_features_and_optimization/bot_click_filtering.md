@@ -1,7 +1,7 @@
 ---
 nav_title: "봇 클릭 필터링"
-article_title: "단문 메시지 서비스 및 RCS 봇 클릭 필터링"
-description: "이 참조 문서에서는 단문 메시지 서비스 및 RCS 봇 클릭 필터링에 대해 다룹니다."
+article_title: "SMS 및 RCS 봇 클릭 필터링"
+description: "이 참조 문서에서는 SMS 및 RCS 봇 클릭 필터링에 대해 다룹니다."
 alias: /sms_rcs_bot_click_filtering/
 page_type: reference
 page_order: 5
@@ -10,9 +10,9 @@ channel:
   - RCS
 ---
 
-# 단문 메시지 서비스 및 RCS 봇 클릭 필터링 {#sms-and-rcs-bot-click-filtering}
+# SMS 및 RCS 봇 클릭 필터링 {#sms-and-rcs-bot-click-filtering}
 
-> 단문 메시지 서비스 및 RCS 봇 클릭 필터링은 의심되는 봇 클릭을 제외하여 Campaign 분석 및 워크플로를 향상시킵니다. "봇 클릭"이란 단문 메시지 서비스 및 RCS 메시지의 단축 링크에 대한 자동화된 클릭을 의미하며, 웹 크롤러, Android 및 iOS 링크 미리보기, CPaaS 보안 소프트웨어 등이 이에 해당합니다. 이 기능은 실제 사용자와의 참여를 위해 정확한 보고, 세분화 및 오케스트레이션을 지원합니다. <br><br> 이메일 Campaign 봇 클릭 필터링에 대해서는 [이메일 봇 필터링]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/bot_filtering)을 참조하세요.
+> SMS 및 RCS 봇 클릭 필터링은 의심되는 봇 클릭을 제외하여 Campaign 분석 및 워크플로를 향상시킵니다. "봇 클릭"이란 SMS 및 RCS 메시지의 단축 링크에 대한 자동화된 클릭을 의미하며, 웹 크롤러, Android 및 iOS 링크 미리보기, CPaaS 보안 소프트웨어 등이 이에 해당합니다. 이 기능은 실제 사용자와의 참여를 위해 정확한 보고, 세분화 및 오케스트레이션을 지원합니다. <br><br> 이메일 Campaign 봇 클릭 필터링에 대해서는 [이메일 봇 필터링]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/bot_filtering)을 참조하세요.
 
 ## 작동 방식 {#how-it-works}
 
@@ -25,35 +25,35 @@ Braze는 봇 클릭이라고도 알려진 비인간 상호작용(NHI)으로 의�
 다음 Braze 측정기준 및 워크플로는 봇 클릭의 영향을 받습니다:
 
 - **_전체 클릭:_** Campaign 분석 및 Canvas 분석에서 봇 클릭을 제외하여 실제 사용자 상호작용만 반영합니다.
-- **세분화 필터:** 단문 메시지 서비스 링크 상호작용을 참조하는 Segment 필터는 봇 클릭을 제외하여 Campaigns 및 Canvases에서 더 정확한 리타겟팅을 지원합니다.
-- **오케스트레이션:** 단문 메시지 서비스 링크 상호작용을 참조하는 행동 기반 트리거 및 Canvas 작업 경로에서 봇 클릭이 필터링되어 트리거가 실제 사용자 행동을 반영할 수 있습니다.
+- **세분화 필터:** SMS 링크 상호작용을 참조하는 Segment 필터는 봇 클릭을 제외하여 Campaigns 및 Canvases에서 더 정확한 리타겟팅을 지원합니다.
+- **오케스트레이션:** SMS 링크 상호작용을 참조하는 행동 기반 트리거 및 Canvas 작업 경로에서 봇 클릭이 필터링되어 트리거가 실제 사용자 행동을 반영할 수 있습니다.
 - **Braze Intelligence:**
     - **BrazeAI<sup>TM</sup>로 최적화:** 배리언트 선택을 최적화할 때 봇 클릭을 제외합니다.
-    - **인텔리전트 채널:** 단문 메시지 서비스 또는 RCS가 선택된 경우 봇 클릭을 제외하여 정확한 채널 선택을 지원합니다.
+    - **인텔리전트 채널:** SMS 또는 RCS가 선택된 경우 봇 클릭을 제외하여 정확한 채널 선택을 지원합니다.
     - **실험 단계:** 신뢰할 수 있는 실험 성과를 위해 봇 클릭을 제외합니다.
     - **Currents 데이터 내보내기:** 사용자 클릭과 봇 클릭을 분석하는 데 도움이 되도록 `is_suspected_bot_click` 및 `suspected_bot_click_reason` 필드를 포함합니다. 이러한 필드는 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), [Snowflake 데이터 공유]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake) 및 [쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder)에서 사용할 수 있습니다.
 
 봇 클릭으로 의심되는 경우의 탈퇴는 영향을 받지 않습니다. Braze는 모든 탈퇴 요청을 평소와 같이 처리합니다. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="blocking unsubscribes from suspected bot clicks" %}
 
-## 단문 메시지 서비스 클릭 이벤트의 Currents 필드 {#currents-fields-in-sms-click-events}
+## SMS 클릭 이벤트의 Currents 필드 {#currents-fields-in-sms-click-events}
 
-Braze는 단문 메시지 서비스 클릭 이벤트에 대해 다음과 같은 Currents 필드를 포함합니다.
+Braze는 SMS 클릭 이벤트에 대해 다음과 같은 Currents 필드를 포함합니다.
 
 | 필드 | 데이터 유형 | 설명 |
 | --- | --- | --- |
-| `is_suspected_bot_click` | Boolean | 클릭이 봇 클릭으로 의심되는지 여부를 나타냅니다. 단문 메시지 서비스 및 RCS 단축 링크 클릭의 경우, Braze는 모든 클릭에 대해 봇 감지를 평가하고 이 필드에 `true` 또는 `false`를 채웁니다. |
-| `suspected_bot_click_reason` | 문자열, 배열 | 봇 클릭으로 의심되는 이유를 나타냅니다(예: `user_agent`). 단문 메시지 서비스 및 RCS 단축 링크 클릭에 대해 봇 감지가 실행될 때 채워집니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="단문 메시지 서비스 클릭 이벤트의 Currents 필드" }
+| `is_suspected_bot_click` | Boolean | 클릭이 봇 클릭으로 의심되는지 여부를 나타냅니다. SMS 및 RCS 단축 링크 클릭의 경우, Braze는 모든 클릭에 대해 봇 감지를 평가하고 이 필드에 `true` 또는 `false`를 채웁니다. |
+| `suspected_bot_click_reason` | 문자열, 배열 | 봇 클릭으로 의심되는 이유를 나타냅니다(예: `user_agent`). SMS 및 RCS 단축 링크 클릭에 대해 봇 감지가 실행될 때 채워집니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SMS 클릭 이벤트의 Currents 필드" }
 
 ## 쿼리 빌더 템플릿 {#query-builder-template}
 
-데이터를 분석하는 데 도움이 필요하면, [쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates)에서 미리 작성된 모바일 템플릿 **단문 메시지 서비스 click events by bots**를 사용할 수 있습니다.
+데이터를 분석하는 데 도움이 필요하면, [쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates)에서 미리 작성된 모바일 템플릿 **SMS click events by bots**를 사용할 수 있습니다.
 
 ## 자주 묻는 질문 {#frequently-asked-questions}
 
 ### 봇 클릭 필터링은 Campaign 성능에 어떤 영향을 미치나요? {#how-does-bot-click-filtering-impact-campaign-performance}
 
-봇 클릭 필터링은 단문 메시지 서비스 및 RCS 단축 링크 클릭에 대해 자동으로 실행됩니다. 대시보드 클릭률에서는 봇으로 의심되는 클릭이 제외되므로, 보고되는 수치는 자동화된 링크 미리보기나 크롤러 트래픽이 아닌 실제 사용자 상호작용을 반영합니다.
+봇 클릭 필터링은 SMS 및 RCS 단축 링크 클릭에 대해 자동으로 실행됩니다. 대시보드 클릭률에서는 봇으로 의심되는 클릭이 제외되므로, 보고되는 수치는 자동화된 링크 미리보기나 크롤러 트래픽이 아닌 실제 사용자 상호작용을 반영합니다.
 
 ### 봇 클릭 필터링이 봇의 탈퇴 링크 클릭을 방지하나요? {#does-bot-click-filtering-prevent-bots-from-clicking-unsubscribe-links}
 

@@ -7,9 +7,9 @@ description: "Dieser Artikel enthält Versionshinweise für Juli 2018."
 ---
 # Juli 2018 {#july-2018}
 
-## Trigger or triggern bei Attributänderungen {#triggers-from-attribute-changes}
+## Trigger bei Attributänderungen {#triggers-from-attribute-changes}
 
-Sie können jetzt Campaigns und Canvas-Schritte auf der Grundlage von Änderungen der Attributwerte Trigger or triggern or triggern, z. B. beim Abo-Status und bei Änderungen von angepassten Attributen. Bisher mussten Sie Braze ein Ereignis oder einen API-Trigger or triggern senden, um eine Campaign in Echtzeit auszulösen. Mit Attribut-Trigger or triggern or triggern können Sie getriggerte Workflows direkt von Braze aus einrichten, ohne ein Ereignis hinzuzufügen!
+Sie können jetzt Campaigns und Canvas-Schritte auf der Grundlage von Änderungen der Attributwerte triggern, z. B. beim Abo-Status und bei Änderungen von angepassten Attributen. Bisher mussten Sie Braze ein Ereignis oder einen API-Trigger senden, um eine Campaign in Echtzeit auszulösen. Mit Attribut-Triggern können Sie getriggerte Workflows direkt von Braze aus einrichten, ohne ein Ereignis hinzuzufügen!
 
 Dieses Feature ist noch nicht für alle Kund:innen verfügbar. Wenden Sie sich an Ihren Account Manager:in, wenn Sie dieses Feature für Ihr Braze-Konto aktivieren möchten.
 

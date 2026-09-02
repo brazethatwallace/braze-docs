@@ -12,7 +12,7 @@ channel:
 
 > Quando você usa o bloco de editor **Código Personalizado** no criador de Banners, ou quando cria um Banner com o **editor de HTML**, deve chamar `brazeBridge.logClick()` de dentro do seu HTML personalizado para registrar cliques. Os Banners usam a mesma ponte JavaScript que as mensagens no app em HTML, então os mesmos métodos e padrões se aplicam.
 
-Se você usar HTML personalizado no design do seu Banner — seja por meio de um bloco de Código Personalizado no criador ou pelo editor de HTML completo —, o SDK or kit de desenvolvimento de software da Braze não pode anexar automaticamente ouvintes de cliques a elementos dentro do seu código personalizado. Você deve chamar explicitamente `brazeBridge.logClick()` para qualquer elemento clicável (links, botões e similares) que deseja rastrear na análise de dados da Campaign.
+Se você usar HTML personalizado no design do seu Banner — seja por meio de um bloco de Código Personalizado no criador ou pelo editor de HTML completo —, o SDK da Braze não pode anexar automaticamente ouvintes de cliques a elementos dentro do seu código personalizado. Você deve chamar explicitamente `brazeBridge.logClick()` para qualquer elemento clicável (links, botões e similares) que deseja rastrear na análise de dados da Campaign.
 
 Por exemplo, para registrar um clique quando um usuário toca em um botão no seu HTML personalizado:
 

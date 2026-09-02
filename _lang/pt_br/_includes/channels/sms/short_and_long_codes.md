@@ -49,7 +49,7 @@ Alguns países permitem que você escolha um número específico por uma taxa ad
 
 | Comprimento | Acesso | Capacidade | MMS ativado | Unidirecional vs. bidirecional |
 | --- | --- | --- | --- | --- |
-| 5 a 6 dígitos | Solicitação de 4 a 12 semanas | 100 MPS or mensagens por segundo or mensagens por segundo ou mais | Sim | Bidirecional |
+| 5 a 6 dígitos | Solicitação de 4 a 12 semanas | 100 MPS ou mais | Sim | Bidirecional |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Detalhes" }
 
 ##### Vantagens e desvantagens
@@ -78,7 +78,7 @@ Um long code é um número de telefone padrão usado para enviar e receber mensa
 
 | Comprimento | Acesso | Capacidade | MMS ativado | Unidirecional vs. bidirecional |
 | --- | --- | --- | --- | --- |
-| 10 dígitos | Solicitação de 4 a 6 semanas (pode ser menor ou maior para diferentes países) | Nos Estados Unidos, a capacidade de long code depende da sua pontuação de confiança 10DLC; em mercados internacionais, a capacidade pode variar ou aumentar em algumas circunstâncias, mas normalmente começa em torno de 10 segmentos de mensagem por segundo (MPS or mensagens por segundo). | Sim | Bidirecional (dependendo de para onde você está enviando) |
+| 10 dígitos | Solicitação de 4 a 6 semanas (pode ser menor ou maior para diferentes países) | Nos Estados Unidos, a capacidade de long code depende da sua pontuação de confiança 10DLC; em mercados internacionais, a capacidade pode variar ou aumentar em algumas circunstâncias, mas normalmente começa em torno de 10 segmentos de mensagem por segundo (MPS). | Sim | Bidirecional (dependendo de para onde você está enviando) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Detalhes" }
 
 ##### Vantagens e desvantagens
@@ -86,7 +86,7 @@ Um long code é um número de telefone padrão usado para enviar e receber mensa
 | Vantagens |
 | ---- |
 | **Familiaridade e confiança**<br> Long codes se parecem com números de telefone pessoais, geralmente incluindo um código de área local. Para marcas, isso representa um equilíbrio entre presença profissional e uma sensação pessoal e acessível. |
-| **Maior disponibilidade mundial**<br>Long codes estão disponíveis em mais de 100 países ao redor do mundo. Entre em contato com seu gerente de sucesso do cliente ou com o [suporte da Braze]({{site.baseurl}}/braze_support) para obter uma lista dos países disponíveis.|
+| **Maior disponibilidade mundial**<br>Long codes estão disponíveis em mais de 100 países ao redor do mundo. Entre em contato com seu CSM ou com o [suporte da Braze]({{site.baseurl}}/braze_support) para obter uma lista dos países disponíveis.|
 {: .reset-td-br-1 aria-label="Vantagens e desvantagens" }
 
 | Desvantagens |
@@ -118,7 +118,7 @@ Eles podem ter até 11 caracteres e conter letras maiúsculas (A-Z) e minúscula
 | {::nomarkdown} <ul><li> Melhor reconhecimento de marca </li><li> Em muitos mercados internacionais, operadoras locais pré-registram e verificam remetentes alfanuméricos, de modo que suas mensagens têm menos chances de serem capturadas por filtros agressivos de SPAM que poderiam bloquear long codes aleatórios </li><li> Disponível em 1 semana se o pré-registro não for necessário </li></ul> {:/} | {::nomarkdown} <ul><li> <a href='/docs/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling#two-way-messaging-custom-keyword-responses'>Envio de mensagens bidirecional</a> não é compatível </li><li> Nem todos os países oferecem suporte a esse recurso. Por exemplo, ele é compatível no Reino Unido, mas é bloqueado nos EUA. </li><li> Alguns países têm um processo extenso de pré-registro que exige a apresentação de documentação legal e prazos mais longos. </li></ul> {:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Vantagens e desvantagens" }
 
-Para saber mais sobre IDs de remetente alfanuméricos, entre em contato com seu gerente de sucesso do cliente.
+Para saber mais sobre IDs de remetente alfanuméricos, entre em contato com seu CSM.
 {% endtab %}
 {% tab Números gratuitos de SMS %}
 
@@ -130,7 +130,7 @@ Números gratuitos possuem códigos de área de três dígitos distintos (por ex
 
 | Comprimento | Acesso | Capacidade | MMS ativado | Unidirecional vs. bidirecional |
 | --- | --- | --- | --- | --- |
-| 10 dígitos | Solicitação de 2 a 4 semanas | Começa em 3 MPS or mensagens por segundo (segmentos por segundo), pode ser aumentado por taxas adicionais | Sim | Bidirecional |
+| 10 dígitos | Solicitação de 2 a 4 semanas | Começa em 3 MPS (segmentos por segundo), pode ser aumentado por taxas adicionais | Sim | Bidirecional |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Detalhes" }
 
 ##### Vantagens e desvantagens
@@ -206,7 +206,7 @@ Quando todos os materiais da solicitação estiverem prontos, a Braze envia a so
 O prazo de análise e aprovação do short code varia, mas normalmente leva de 4 a 12 semanas, dependendo do país e da natureza do programa.
 
 {% alert important %}
-Se você já possui seu próprio short code, entre em contato com o seu gerente de sucesso do cliente durante o processo de integração para discutir a migração ou transferência do seu short code.
+Se você já possui seu próprio short code, entre em contato com o seu CSM durante o processo de integração para discutir a migração ou transferência do seu short code.
 {% endalert %}
 
 {% endtab %}

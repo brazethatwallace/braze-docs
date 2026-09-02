@@ -50,7 +50,7 @@ Las etiquetas son visibles en la lista de Campaigns, Canvas o Segments, junto co
 Las etiquetas también se pueden añadir a los datos personalizados al gestionar [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#managing-custom-attributes) y [eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events#adding-tags).
 
 {% alert important %}
-Esta característica se encuentra actualmente en acceso anticipado. Ponte en contacto con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente si te interesa participar en este acceso anticipado.
+Esta característica se encuentra actualmente en acceso anticipado. Ponte en contacto con tu CSM si te interesa participar en este acceso anticipado.
 {% endalert %}
 
 Para obtener información sobre cómo renombrar, quitar o anidar etiquetas en tu panel, consulta [Gestión de etiquetas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags).

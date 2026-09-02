@@ -48,7 +48,7 @@ Quando você enviar os formulários preenchidos para a Braze, a Braze conclui o 
 
 Como a cobertura atual das operadoras varia por país, e o suporte de hardware e software dos usuários varia individualmente, o fallback de SMS é um componente essencial para ter um programa de RCS bem-sucedido hoje. Recomendamos configurar o fallback de SMS. Se uma operadora não suportar RCS ou o dispositivo de um usuário não conseguir receber mensagens RCS, o fallback de SMS envia sua mensagem de qualquer forma, para que você nunca perca um momento importante com seus usuários.
 
-Recomendamos fortemente que você revise sua experiência atual de aceitação de SMS, grupos de inscrições e segmentação de público antes de implantar sua primeira Campaign de RCS. Se necessário, seu gerente de sucesso do cliente está sempre disponível para fornecer orientação e ajudar você a navegar pelo processo de configuração.
+Recomendamos fortemente que você revise sua experiência atual de aceitação de SMS, grupos de inscrições e segmentação de público antes de implantar sua primeira Campaign de RCS. Se necessário, seu CSM está sempre disponível para fornecer orientação e ajudar você a navegar pelo processo de configuração.
 
 #### Como o fallback de SMS funciona com eventos e segmentação {#how-sms-fallback-works-with-events-and-segmentation}
 

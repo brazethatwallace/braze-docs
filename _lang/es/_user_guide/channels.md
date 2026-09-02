@@ -4,7 +4,7 @@ article_title: Canales
 page_order: 5
 layout: dev_guide
 guide_top_header: "Canales"
-guide_top_text: "Llega a tus usuarios a través del canal adecuado en el momento adecuado. Elige entre canales dentro del producto, como mensajes dentro de la aplicación, Content Cards y Banners, o canales fuera del producto, como push, correo electrónico, servicio de mensajes cortos y WhatsApp."
+guide_top_text: "Llega a tus usuarios a través del canal adecuado en el momento adecuado. Elige entre canales dentro del producto, como mensajes dentro de la aplicación, Content Cards y Banners, o canales fuera del producto, como push, correo electrónico, SMS y WhatsApp."
 
 page_type: landing
 description: "Llega a tus usuarios a través de canales de mensajería dentro y fuera del producto en Braze."
@@ -63,7 +63,7 @@ La matriz de mensajería de Braze simplifica la selección de canales al mapear 
 
 ![Las notificaciones push en móvil/web son contenido simple, urgencia alta; los correos electrónicos son contenido enriquecido, urgencia alta; los mensajes dentro de la aplicación/navegador son contenido simple, urgencia baja; las Content Cards son urgencia baja, contenido enriquecido]({% image_buster /assets/img_archive/messaging_matrix.png %})
 
-Aunque la matriz destaca los canales principales, es adaptable: servicio de mensajes cortos y WhatsApp, por ejemplo, son herramientas de alta urgencia que escalan hacia contenido enriquecido cuando se utilizan formatos multimedia. Para saber más sobre cómo puedes aprovechar esta matriz, consulta nuestro curso de Braze Learning sobre [mensajería de canales cruzados](https://learning.braze.com/cross-channel-messaging).
+Aunque la matriz destaca los canales principales, es adaptable: SMS y WhatsApp, por ejemplo, son herramientas de alta urgencia que escalan hacia contenido enriquecido cuando se utilizan formatos multimedia. Para saber más sobre cómo puedes aprovechar esta matriz, consulta nuestro curso de Braze Learning sobre [mensajería de canales cruzados](https://learning.braze.com/cross-channel-messaging).
 
 ## Recursos de accesibilidad {#accessibility-resources}
 

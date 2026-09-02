@@ -61,7 +61,7 @@ WhatsApp apporte deux nouvelles modifications à sa tarification à compter du 1
 
 #### Pourquoi ce changement ? {#why-are-they-making-this-change}
 
-Meta passe à un modèle « par message » pour aider les marques à simplifier les calculs de ROI or retour sur investissement or retour sur investissement (ROI or retour sur investissement). Ce changement permettra également aux marques de comparer plus facilement le ROI or retour sur investissement avec d'autres canaux tarifés au message.
+Meta passe à un modèle « par message » pour aider les marques à simplifier les calculs de ROI (ROI). Ce changement permettra également aux marques de comparer plus facilement le ROI avec d'autres canaux tarifés au message.
 
 #### Quel impact cela aura-t-il sur mon utilisation actuelle de WhatsApp ? {#how-will-this-affect-my-current-whatsapp-usage}
 

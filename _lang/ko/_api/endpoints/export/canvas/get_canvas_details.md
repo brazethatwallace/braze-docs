@@ -106,7 +106,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/details?c
 
 ### 채널별 메시지 {#messages-by-channel}
 
-다음은 다양한 채널(이메일, 푸시, 단문 메시지 서비스, 인앱 메시지)을 통해 전송된 Canvas 메시지가 포함된 응답 예시입니다.
+다음은 다양한 채널(이메일, 푸시, SMS, 인앱 메시지)을 통해 전송된 Canvas 메시지가 포함된 응답 예시입니다.
 
 ```json
 {

@@ -23,7 +23,7 @@ Os SDKs da Braze rastreiam automaticamente a versão mais recente do app de um u
 ![O painel de opções de direcionamento na etapa Direcionar Usuários no fluxo de criação de Campaign. A seção Filtros Adicionais inclui o seguinte filtro: "Número da versão mais recente do app para Android Stopwatch (Android) é inferior a 3.7.0 (134.0.0.0)".]({% image_buster /assets/img_archive/new_app_version.png %}){: style="max-width:90%;"}
 
 {% alert note %}
-Pode levar algum tempo para que as versões atuais do app sejam preenchidas. A versão do app no perfil de usuário é atualizada quando a informação é capturada pelo SDK or kit de desenvolvimento de software, o que depende de quando os usuários abrem seus apps. Se o usuário não abrir o app, a versão atual não será atualizada. <br><br> Esses filtros também não se aplicam retroativamente. É recomendável usar "maior que" ou "igual a" para versões atuais e futuras, mas usar filtros de versões anteriores pode causar comportamentos inesperados.
+Pode levar algum tempo para que as versões atuais do app sejam preenchidas. A versão do app no perfil de usuário é atualizada quando a informação é capturada pelo SDK, o que depende de quando os usuários abrem seus apps. Se o usuário não abrir o app, a versão atual não será atualizada. <br><br> Esses filtros também não se aplicam retroativamente. É recomendável usar "maior que" ou "igual a" para versões atuais e futuras, mas usar filtros de versões anteriores pode causar comportamentos inesperados.
 {% endalert %}
 
 ### Número da versão do app {#app-version-number}
@@ -46,16 +46,16 @@ Esse filtro pode substituir o filtro legado "Nome da Versão do App", que exigia
 - Isso pode causar confusão quando o `versionName` e o `versionCode` do seu app ficam fora de sincronia, especialmente porque ambos os campos podem ser visualizados no dashboard da Braze. Como boa prática, verifique se o `versionName` e o `versionCode` do seu app são incrementados juntos.
 - Se você precisar filtrar pelo campo legível `versionName` (incomum), use o filtro Nome da Versão do App.
 
-#### Requisitos do SDK or kit de desenvolvimento de software {#sdk-requirements}
+#### Requisitos do SDK {#sdk-requirements}
 
-Os valores para esse filtro são coletados a partir do SDK or kit de desenvolvimento de software da Braze para Android v3.6.0+ e SDK or kit de desenvolvimento de software para iOS v3.21.0+. Embora esse filtro tenha requisitos de SDK or kit de desenvolvimento de software, você ainda pode direcionar usuários que estão em versões mais antigas do seu app usando esse recurso.
+Os valores para esse filtro são coletados a partir do SDK da Braze para Android v3.6.0+ e SDK para iOS v3.21.0+. Embora esse filtro tenha requisitos de SDK, você ainda pode direcionar usuários que estão em versões mais antigas do seu app usando esse recurso.
 
 Para Android, esse número de versão é baseado no [Package Long Version Code](https://developer.android.com/reference/android/content/pm/PackageInfo.html#getLongVersionCode()) do app.
 
 Para iOS, esse número de versão é baseado na [Short Version String](https://developer.apple.com/documentation/bundleresources/information_property_list/cfbundleshortversionstring) do app.
 
 {% alert tip %}
-Esse filtro preenche os valores depois que os usuários fazem upgrade dos seus apps para as versões compatíveis do SDK or kit de desenvolvimento de software da Braze. Até lá, o filtro não mostra nenhuma versão quando selecionado.
+Esse filtro preenche os valores depois que os usuários fazem upgrade dos seus apps para as versões compatíveis do SDK da Braze. Até lá, o filtro não mostra nenhuma versão quando selecionado.
 {% endalert %}
 
 #### Caso de uso {#use-case}
@@ -66,10 +66,10 @@ Assim que a Braze receber dados da versão 2.0.0 do seu app, você pode direcion
 
 | Filtro  | Versão do app do usuário  | Resultado |
 | :------------- | :----------- | :--------- |
-| Menor que 2.0.0 | 1.0.0 | O usuário está no Segment or segmento, mesmo que o SDK or kit de desenvolvimento de software da Braze não suportasse o filtro "Número da Versão do App". |
-| Maior que 2.0.0 | 2.5.1 | O usuário e todas as futuras instalações estão no Segment or segmento. |
-| Maior que 2.0.0 | 1.9.9 | O usuário não está no Segment or segmento. |
-| Menor ou igual a 2.0.0 | 3.0.1 | O usuário não está no Segment or segmento. |
+| Menor que 2.0.0 | 1.0.0 | O usuário está no Segment, mesmo que o SDK da Braze não suportasse o filtro "Número da Versão do App". |
+| Maior que 2.0.0 | 2.5.1 | O usuário e todas as futuras instalações estão no Segment. |
+| Maior que 2.0.0 | 1.9.9 | O usuário não está no Segment. |
+| Menor ou igual a 2.0.0 | 3.0.1 | O usuário não está no Segment. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Caso de uso" }
 
 ### Nome da versão do app {#app-version-name}

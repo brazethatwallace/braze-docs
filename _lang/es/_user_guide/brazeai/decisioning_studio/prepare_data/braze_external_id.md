@@ -20,7 +20,7 @@ Más allá de cumplir un requisito técnico, requerir el ID externo de Braze es 
 
 Muchas organizaciones mantienen dos sistemas de identificador de cliente diferentes:
 
-- **Un ID de almacén de datos o sistema de registro** (a veces llamado "ID canónico" o "ID físico"): la fuente de verdad para métricas como el LTV or valor de duración del ciclo de vida or valor de duración del ciclo de vida, devoluciones y fidelización. Reside en tu almacén de datos o ERP.
+- **Un ID de almacén de datos o sistema de registro** (a veces llamado "ID canónico" o "ID físico"): la fuente de verdad para métricas como el LTV, devoluciones y fidelización. Reside en tu almacén de datos o ERP.
 - **Un ID de plataforma:** el identificador utilizado por herramientas como Braze, normalmente vinculado a una dirección de correo electrónico, token de dispositivo o un canal de activación similar.
 
 La tentación es usar el ID del almacén de datos para construir características de cliente (ya que ahí es donde residen los datos) y el ID de Braze para la activación (ya que es lo que usa Braze). Pero esto requiere una capa de traducción entre los dos sistemas, y esa capa de traducción introduce fragilidad.

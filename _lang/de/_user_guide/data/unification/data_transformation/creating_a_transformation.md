@@ -39,7 +39,7 @@ Dieser Schritt ist optional, aber wir empfehlen, einen Test-Webhook von Ihrer Qu
    - Wenn Ihre Quellplattform nach einem Anfragetyp fragt, wählen Sie **POST**.
    - Wenn Ihre Quellplattform Authentifizierungsoptionen bietet, wählen Sie **No authentication**.
    - Wenn Ihre Quellplattform nach Geheimnissen fragt, wählen Sie **No secrets**.
-3. Update or aktualisieren or aktualisieren Sie Ihre Seite im Braze-Dashboard, um zu sehen, ob der Webhook empfangen wurde. Wenn er empfangen wurde, sollten Sie unter **Most recent webhook** eine Webhook-Nutzlast sehen.
+3. Aktualisieren Sie Ihre Seite im Braze-Dashboard, um zu sehen, ob der Webhook empfangen wurde. Wenn er empfangen wurde, sollten Sie unter **Most recent webhook** eine Webhook-Nutzlast sehen.
 
 So sieht es bei Typeform aus:
 
@@ -51,12 +51,12 @@ Braze Datentransformation unterstützt möglicherweise noch keine externen Platt
 
 ## Schritt 4: Transformationscode schreiben {#step-4-write-transformation-code}
 
-Wenn Sie wenig bis gar keine Erfahrung mit JavaScript-Code haben oder detailliertere Anweisungen bevorzugen, folgen Sie dem Tab **Anfänger – POST: Nutzer:innen tracken** oder **Anfänger – PUT: Mehrere Katalogartikel Update or aktualisieren or aktualisieren** zum Schreiben Ihres Transformationscodes.
+Wenn Sie wenig bis gar keine Erfahrung mit JavaScript-Code haben oder detailliertere Anweisungen bevorzugen, folgen Sie dem Tab **Anfänger – POST: Nutzer:innen tracken** oder **Anfänger – PUT: Mehrere Katalogartikel aktualisieren** zum Schreiben Ihres Transformationscodes.
 
 Wenn Sie Entwickler:in sind oder über umfangreiche Erfahrung mit JavaScript-Code verfügen, folgen Sie dem Tab **Fortgeschritten – POST: Nutzer:innen tracken** für übergeordnete Anweisungen zum Schreiben Ihres Transformationscodes.
 
 {% alert tip %}
-Um Transformationscode mit KI or künstliche Intelligenz zu generieren, wählen Sie **Code with Operator** im Transformationscode-Editor. Dazu muss ein Webhook an Ihre Transformation gesendet worden sein. Um stattdessen mit einem vorgefertigten Template zu beginnen, wählen Sie **Insert Template**. Beispiel-Prompts finden Sie unter [Datentransformationscode generieren]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-data-transformation-code).
+Um Transformationscode mit KI zu generieren, wählen Sie **Code with Operator** im Transformationscode-Editor. Dazu muss ein Webhook an Ihre Transformation gesendet worden sein. Um stattdessen mit einem vorgefertigten Template zu beginnen, wählen Sie **Insert Template**. Beispiel-Prompts finden Sie unter [Datentransformationscode generieren]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-data-transformation-code).
 
 **Code with Operator** ist nur verfügbar, wenn Operator für Ihr Konto aktiviert ist. Wenn Sie diese Option nicht sehen, wenden Sie sich an Ihren Account Manager:in.
 {% endalert %}
@@ -116,7 +116,7 @@ return brazecall;
 2. Um angepasste Attribute, angepasste Events und Käufe in Ihre Transformationsaufrufe einzubeziehen, fahren Sie mit Schritt 3 fort. Andernfalls löschen Sie die Abschnitte, die Sie nicht benötigen.<br><br>
 3. Für jedes Attribut-, Event- und Kauf-Objekt ist ein Nutzer:innen-Bezeichner erforderlich, entweder ein `external_id`, `user_alias`, `braze_id`, `email` oder `phone`. Suchen Sie den Nutzer:innen-Bezeichner in der Nutzlast des eingehenden Webhooks und fügen Sie diesen Wert über eine Nutzlastzeile als Template in Ihren Transformationscode ein. Verwenden Sie die Punktnotation, um auf die Eigenschaften von Nutzlastobjekten zuzugreifen.<br><br>
 4. Finden Sie die Webhook-Werte, die Sie als Attribute, Events oder Käufe darstellen möchten, und erstellen Sie ein Template für diese Werte in Ihrem Transformationscode über eine Nutzlastzeile. Verwenden Sie die Punktnotation, um auf die Eigenschaften von Nutzlastobjekten zuzugreifen.<br><br>
-5. Prüfen Sie für jedes Attribut-, Event- und Kauf-Objekt den Wert `_update_existing_only`. Setzen Sie diesen auf `false`, wenn Sie möchten, dass die Transformation neue Nutzer:innen erstellt, die möglicherweise noch nicht existieren. Belassen Sie den Wert auf `true`, um nur bestehende Profile zu Update or aktualisieren or aktualisieren.<br><br>
+5. Prüfen Sie für jedes Attribut-, Event- und Kauf-Objekt den Wert `_update_existing_only`. Setzen Sie diesen auf `false`, wenn Sie möchten, dass die Transformation neue Nutzer:innen erstellt, die möglicherweise noch nicht existieren. Belassen Sie den Wert auf `true`, um nur bestehende Profile zu aktualisieren.<br><br>
 6. Klicken Sie auf **Validate**, um eine Vorschau der Ausgabe Ihres Codes zu erhalten und zu prüfen, ob es sich um eine akzeptable `/users/track`-Anfrage handelt.<br><br>
 7. Aktivieren Sie Ihre Transformation. Wenn Sie weitere Hilfe zu Ihrem Code benötigen, bevor Sie ihn aktivieren, wenden Sie sich an Ihren Braze Account Manager:in.<br><br>
 7. Lassen Sie Ihre Quellplattform mit dem Senden von Webhooks beginnen. Ihr Transformationscode wird für jeden eingehenden Webhook ausgeführt, und die Nutzerprofile werden aktualisiert.
@@ -124,7 +124,7 @@ return brazecall;
 Ihre Webhook-Integration ist nun abgeschlossen!
 
 {% endtab %}
-{% tab Anfänger – Katalogartikel Update or aktualisieren or aktualisieren %}
+{% tab Anfänger – Katalogartikel aktualisieren %}
 
 Hier können Sie Transformationscode schreiben, um zu definieren, wie Sie verschiedene Webhook-Werte auf Updates von Braze-Katalogartikeln abbilden möchten.
 
@@ -188,8 +188,8 @@ return brazecall;
 
 {:start="2"}
 2. Transformationen für `/catalogs`-Ziele erfordern einen `catalog_name`, um den spezifischen Katalog zu definieren, der aktualisiert werden soll. Sie können dieses Feld fest codieren oder das Feld über eine Nutzlastzeile mit einem Webhook-Feld als Template einfügen. Verwenden Sie die Punktnotation, um auf die Eigenschaften von Nutzlastobjekten zuzugreifen.<br><br>
-3. Definieren Sie die Artikel, die Sie im Katalog Update or aktualisieren or aktualisieren möchten, mit den `id`-Feldern im Artikel-Array. Sie können diese Felder fest codieren oder ein Webhook-Feld über eine Nutzlastzeile als Template einfügen.<br><br> Beachten Sie, dass `catalog_column` ein Platzhalterwert ist. Stellen Sie sicher, dass Artikelobjekte nur Felder enthalten, die im Katalog vorhanden sind.<br><br>
-4. Wählen Sie **Validate**, um eine Vorschau der Ausgabe Ihres Codes zu erhalten und zu prüfen, ob es sich um eine akzeptable Anfrage für den [Endpunkt „Mehrere Katalogartikel Update or aktualisieren or aktualisieren“]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/put_update_catalog_items) handelt.<br><br>
+3. Definieren Sie die Artikel, die Sie im Katalog aktualisieren möchten, mit den `id`-Feldern im Artikel-Array. Sie können diese Felder fest codieren oder ein Webhook-Feld über eine Nutzlastzeile als Template einfügen.<br><br> Beachten Sie, dass `catalog_column` ein Platzhalterwert ist. Stellen Sie sicher, dass Artikelobjekte nur Felder enthalten, die im Katalog vorhanden sind.<br><br>
+4. Wählen Sie **Validate**, um eine Vorschau der Ausgabe Ihres Codes zu erhalten und zu prüfen, ob es sich um eine akzeptable Anfrage für den [Endpunkt „Mehrere Katalogartikel aktualisieren“]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/put_update_catalog_items) handelt.<br><br>
 5. Aktivieren Sie Ihre Transformation. Wenn Sie weitere Hilfe zu Ihrem Code benötigen, bevor Sie ihn aktivieren, wenden Sie sich an Ihren Braze Account Manager:in.<br><br>
 6. Vergewissern Sie sich, ob Ihre Quellplattform über eine Einstellung zum Senden von Webhooks verfügt. Ihr Transformationscode wird für jeden eingehenden Webhook ausgeführt, und die Katalogartikel werden aktualisiert.
 

@@ -89,13 +89,13 @@ Lance sua Campaign pelo menos 48 horas antes da data de envio agendada. Isso se 
 Se uma Campaign for lançada e o horário ideal do usuário tiver passado há menos de uma hora, a mensagem será enviada imediatamente. Se o horário ideal tiver passado há mais de uma hora, a mensagem não será enviada.
 {% endalert %}
 
-#### Janela de 3 dias para filtros de Segment or segmento {#3-day-window-for-segment-filters}
+#### Janela de 3 dias para filtros de Segment {#3-day-window-for-segment-filters}
 
-Se você estiver direcionando um público que realizou uma ação em um determinado período de tempo, permita pelo menos uma janela de 3 dias nos seus filtros de Segment or segmento. Por exemplo, em vez de `First used app more than 1 day ago` e `First used app less than 3 days ago`, use 1 dia e 4 dias.
+Se você estiver direcionando um público que realizou uma ação em um determinado período de tempo, permita pelo menos uma janela de 3 dias nos seus filtros de Segment. Por exemplo, em vez de `First used app more than 1 day ago` e `First used app less than 3 days ago`, use 1 dia e 4 dias.
 
 ![Filtros para o público-alvo em que a Campaign direciona usuários que usaram o app pela primeira vez entre 1 e 4 dias atrás.]({% image_buster /assets/img/intelligent_timing/first_used_app.png %})
 
-Isso também se deve aos fusos horários — selecionar um período menor que 3 dias pode fazer com que alguns usuários saiam do Segment or segmento antes que o horário ideal de envio seja alcançado.
+Isso também se deve aos fusos horários — selecionar um período menor que 3 dias pode fazer com que alguns usuários saiam do Segment antes que o horário ideal de envio seja alcançado.
 
 Para saber mais, consulte [FAQ: Intelligent Timing](#when-does-braze-check-the-eligibility-criteria-for-segment-and-audience-filters).
 
@@ -182,10 +182,10 @@ No entanto, o Intelligent Timing está configurado para entregar às 14h, horár
 ## Considerações {#considerations}
 
 - Mensagens no app e webhooks são entregues imediatamente e não recebem horários otimizados.
-- O Intelligent Timing não está disponível para Campaigns baseadas em ação ou disparadas por API or interface de programação do aplicativo (API).
+- O Intelligent Timing não está disponível para Campaigns baseadas em ação ou disparadas por API.
 - O Intelligent Timing não deve ser usado nos seguintes cenários:
     - **Limite de frequência:** se tanto o limite de frequência quanto o Intelligent Timing forem usados, não há garantia de quando a mensagem será entregue. Campaigns recorrentes diárias com Intelligent Timing não suportam com precisão um limite total de envio de mensagens.
-    - **Campaigns de aquecimento de IP:** alguns comportamentos do Intelligent Timing podem causar dificuldades para atingir os volumes diários necessários quando você está começando a aquecer seu IP. Isso acontece porque o Intelligent Timing avalia os Segments duas vezes: uma quando a Campaign ou o Canvas é criado pela primeira vez, e outra antes do envio aos usuários para verificar se eles ainda devem estar naquele Segment or segmento. Isso pode fazer com que os Segments mudem e se alterem, frequentemente levando alguns usuários a saírem do Segment or segmento na segunda avaliação. Esses usuários não são substituídos, impactando o quão próximo do limite máximo de usuários você consegue alcançar.
+    - **Campaigns de aquecimento de IP:** alguns comportamentos do Intelligent Timing podem causar dificuldades para atingir os volumes diários necessários quando você está começando a aquecer seu IP. Isso acontece porque o Intelligent Timing avalia os Segments duas vezes: uma quando a Campaign ou o Canvas é criado pela primeira vez, e outra antes do envio aos usuários para verificar se eles ainda devem estar naquele Segment. Isso pode fazer com que os Segments mudem e se alterem, frequentemente levando alguns usuários a saírem do Segment na segunda avaliação. Esses usuários não são substituídos, impactando o quão próximo do limite máximo de usuários você consegue alcançar.
 
 ## Solução de problemas {#troubleshooting}
 
@@ -225,7 +225,7 @@ Não, o Intelligent Timing não está vinculado a dias específicos. Em vez diss
 
 Para calcular o horário ideal, o Intelligent Timing:
 
-1. Analisa os dados de interação de cada usuário registrados pelo SDK or kit de desenvolvimento de software da Braze. Isso inclui:
+1. Analisa os dados de interação de cada usuário registrados pelo SDK da Braze. Isso inclui:
   - Horários de sessão
   - Aberturas Diretas de push
   - Aberturas por Influência de push
@@ -263,7 +263,7 @@ Deixe tempo suficiente para o teste A/B terminar e programe o envio otimizado pa
 
 ### Funcionalidade {#functionality}
 
-#### Quando a Braze verifica os critérios de elegibilidade para os filtros de Segment or segmento or segmento e público? {#when-does-braze-check-the-eligibility-criteria-for-segment-and-audience-filters}
+#### Quando a Braze verifica os critérios de elegibilidade para os filtros de Segment e público? {#when-does-braze-check-the-eligibility-criteria-for-segment-and-audience-filters}
 
 A Braze realiza duas verificações quando uma campanha é lançada:
 
@@ -288,9 +288,9 @@ Recomendamos usar o limite de frequência em uma campanha com Intelligent Timing
 
 #### Posso usar o Intelligent Timing durante o aquecimento de IP? {#can-i-use-intelligent-timing-while-ip-warming}
 
-A Braze não recomenda usar o Intelligent Timing quando os usuários estão começando o aquecimento de IP, pois alguns de seus comportamentos podem causar dificuldades em atingir os volumes diários necessários. Isso ocorre porque o Intelligent Timing avalia os segmentos de campanha duas vezes: uma vez quando a campanha é criada pela primeira vez, e uma segunda vez antes de enviar aos usuários para verificar se eles ainda devem estar nesse Segment or segmento or segmento.
+A Braze não recomenda usar o Intelligent Timing quando os usuários estão começando o aquecimento de IP, pois alguns de seus comportamentos podem causar dificuldades em atingir os volumes diários necessários. Isso ocorre porque o Intelligent Timing avalia os segmentos de campanha duas vezes: uma vez quando a campanha é criada pela primeira vez, e uma segunda vez antes de enviar aos usuários para verificar se eles ainda devem estar nesse Segment.
 
-Isso pode fazer com que os segmentos mudem, muitas vezes levando alguns usuários a saírem do Segment or segmento or segmento na segunda avaliação. Esses usuários não são substituídos, impactando o quão próximo do limite máximo de usuários você consegue alcançar.
+Isso pode fazer com que os segmentos mudem, muitas vezes levando alguns usuários a saírem do Segment na segunda avaliação. Esses usuários não são substituídos, impactando o quão próximo do limite máximo de usuários você consegue alcançar.
 
 #### Como é determinado o horário mais popular do app? {#how-is-the-most-popular-app-time-determined}
 

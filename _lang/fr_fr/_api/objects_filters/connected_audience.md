@@ -22,7 +22,7 @@ Au lieu de créer à l'avance un Segment pour chaque combinaison d'audience poss
 Un `campaign_id` n'est pas requis lorsque vous utilisez le paramètre `audience`. Les endpoints [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) et [`/messages/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages) vous permettent de définir le contenu du message en ligne sans Campaign préalablement créée. Toutefois, si vous souhaitez suivre les indicateurs au niveau de la Campaign (tels que les envois, les clics ou les rebonds) dans le tableau de bord, incluez un `campaign_id`.
 {% endalert %}
 
-Comme l'audience est définie par requête, vos systèmes back-end peuvent déclencher des messages contextuellement pertinents en réponse à n'importe quel événement métier (un changement de prix, une alerte météo, une mise à jour de score en direct or en ligne/en production/instantané) sans intervention dans le tableau de bord.
+Comme l'audience est définie par requête, vos systèmes back-end peuvent déclencher des messages contextuellement pertinents en réponse à n'importe quel événement métier (un changement de prix, une alerte météo, une mise à jour de score en direct) sans intervention dans le tableau de bord.
 
 ### Endpoints compatibles {#compatible-endpoints}
 
@@ -45,7 +45,7 @@ Utilisez les audiences connectées pour les scénarios où vos systèmes back-en
 | Catégorie | Exemple |
 | --- | --- |
 | Alertes météo | Un fournisseur de données météorologiques détecte un phénomène météorologique grave et envoie des notifications push aux utilisateurs dont l'attribut `preferred_city` correspond à la zone touchée. |
-| Sports et événements en direct or en ligne/en production/instantané | Une application sportive envoie des mises à jour de scores en temps réel ou des alertes de match aux utilisateurs dont l'attribut `favorite_team` correspond à l'une des équipes en jeu. |
+| Sports et événements en direct | Une application sportive envoie des mises à jour de scores en temps réel ou des alertes de match aux utilisateurs dont l'attribut `favorite_team` correspond à l'une des équipes en jeu. |
 | Contenu et divertissement | Un service de streaming notifie les utilisateurs dont le tableau `favorite_shows` inclut le titre d'une série dès qu'un nouvel épisode est disponible. |
 | E-commerce | Un détaillant en ligne envoie des alertes de baisse de prix ou de retour en stock aux utilisateurs dont le tableau `wishlisted_products` inclut l'ID du produit concerné. |
 | Voyage | Une application de voyage envoie des notifications de retard de vol aux utilisateurs dont l'attribut `booked_flight` correspond au numéro de vol affecté. |

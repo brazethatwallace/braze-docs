@@ -2,12 +2,12 @@
 nav_title: Rastrear sessões
 article_title: Rastrear sessões
 page_order: 3.3
-description: "Saiba como rastrear sessões por meio do SDK or kit de desenvolvimento de software da Braze."
+description: "Saiba como rastrear sessões por meio do SDK da Braze."
 ---
 
 # Rastrear sessões {#track-sessions}
 
-> Saiba como rastrear sessões por meio do SDK or kit de desenvolvimento de software da Braze.
+> Saiba como rastrear sessões por meio do SDK da Braze.
 
 {% alert note %}
 Para wrapper SDKs não listados, use o método nativo relevante do Android ou Swift.
@@ -17,18 +17,18 @@ Para wrapper SDKs não listados, use o método nativo relevante do Android ou Sw
 
 ## Definindo inatividade {#defining-inactivity}
 
-Entender como a inatividade é definida e medida é fundamental para gerenciar ciclos de vida de sessão de forma eficaz no Web SDK or kit de desenvolvimento de software. Inatividade se refere a um período durante o qual o Braze Web SDK or kit de desenvolvimento de software não detecta nenhum evento rastreado do usuário.
+Entender como a inatividade é definida e medida é fundamental para gerenciar ciclos de vida de sessão de forma eficaz no Web SDK. Inatividade se refere a um período durante o qual o Braze Web SDK não detecta nenhum evento rastreado do usuário.
 
 ### Como a inatividade é medida {#how-inactivity-is-measured}
 
-O Web SDK or kit de desenvolvimento de software rastreia a inatividade com base em [eventos rastreados pelo SDK or kit de desenvolvimento de software]({{site.baseurl}}/user_guide/data/activation/events/events_overview). O SDK or kit de desenvolvimento de software mantém um temporizador interno que é reiniciado cada vez que um evento rastreado é enviado. Se nenhum evento rastreado pelo SDK or kit de desenvolvimento de software ocorrer dentro do período de tempo limite configurado, a sessão é considerada inativa e encerrada.
+O Web SDK rastreia a inatividade com base em [eventos rastreados pelo SDK]({{site.baseurl}}/user_guide/data/activation/events/events_overview). O SDK mantém um temporizador interno que é reiniciado cada vez que um evento rastreado é enviado. Se nenhum evento rastreado pelo SDK ocorrer dentro do período de tempo limite configurado, a sessão é considerada inativa e encerrada.
 
-Para saber mais sobre como o ciclo de vida da sessão é implementado no Web SDK or kit de desenvolvimento de software, consulte o código-fonte de gerenciamento de sessões no [repositório do Braze Web SDK or kit de desenvolvimento de software no GitHub](https://github.com/braze-inc/braze-web-sdk/blob/master/src/session.ts).
+Para saber mais sobre como o ciclo de vida da sessão é implementado no Web SDK, consulte o código-fonte de gerenciamento de sessões no [repositório do Braze Web SDK no GitHub](https://github.com/braze-inc/braze-web-sdk/blob/master/src/session.ts).
 
 **O que conta como atividade por padrão:**
 - Abrir ou atualizar o app web
 - Interagir com elementos de interface orientados pela Braze (como [In-App Messages]({{site.baseurl}}/developer_guide/in_app_messages) ou [Content Cards]({{site.baseurl}}/developer_guide/content_cards))
-- Chamar métodos do SDK or kit de desenvolvimento de software que enviam eventos rastreados (como [eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events) ou [atualizações de atributos de usuário]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes))
+- Chamar métodos do SDK que enviam eventos rastreados (como [eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events) ou [atualizações de atributos de usuário]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes))
 
 **O que não conta como atividade por padrão:**
 - Alternar para uma guia diferente do navegador
@@ -37,22 +37,22 @@ Para saber mais sobre como o ciclo de vida da sessão é implementado no Web SDK
 - Rolagem ou movimentos do mouse na página
 
 {% alert note %}
-O Web SDK or kit de desenvolvimento de software não rastreia automaticamente alterações de visibilidade do navegador, troca de guias ou foco do usuário. No entanto, você pode rastrear essas interações no nível do navegador implementando ouvintes de eventos personalizados usando a [API or interface de programação do aplicativo (API) de visibilidade de página](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) do navegador e enviando [eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=web) para a Braze. Para um exemplo de implementação, consulte [Rastreamento de inatividade personalizada](#tracking-custom-inactivity).
+O Web SDK não rastreia automaticamente alterações de visibilidade do navegador, troca de guias ou foco do usuário. No entanto, você pode rastrear essas interações no nível do navegador implementando ouvintes de eventos personalizados usando a [API de visibilidade de página](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) do navegador e enviando [eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=web) para a Braze. Para um exemplo de implementação, consulte [Rastreamento de inatividade personalizada](#tracking-custom-inactivity).
 {% endalert %}
 
 ### Configuração do tempo limite da sessão {#session-timeout-configuration}
 
-Por padrão, o Web SDK or kit de desenvolvimento de software considera uma sessão inativa após 30 minutos sem nenhum evento rastreado. Você pode personalizar esse limite ao inicializar o SDK or kit de desenvolvimento de software usando o parâmetro `sessionTimeoutInSeconds`. Para detalhes sobre como configurar esse parâmetro, incluindo exemplos de código, consulte [Alterando o tempo limite padrão da sessão](#changing-the-default-session-timeout).
+Por padrão, o Web SDK considera uma sessão inativa após 30 minutos sem nenhum evento rastreado. Você pode personalizar esse limite ao inicializar o SDK usando o parâmetro `sessionTimeoutInSeconds`. Para detalhes sobre como configurar esse parâmetro, incluindo exemplos de código, consulte [Alterando o tempo limite padrão da sessão](#changing-the-default-session-timeout).
 
 ### Exemplo: entendendo cenários de inatividade {#example-understanding-inactivity-scenarios}
 
 Considere o seguinte cenário:
 
-1. Um usuário abre seu website, e o SDK or kit de desenvolvimento de software inicia uma sessão chamando [`braze.openSession()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#opensession).
+1. Um usuário abre seu website, e o SDK inicia uma sessão chamando [`braze.openSession()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#opensession).
 2. O usuário alterna para uma guia diferente do navegador para visualizar outro website por 30 minutos.
-3. Durante esse tempo, nenhum evento rastreado pelo SDK or kit de desenvolvimento de software ocorre no seu website.
+3. Durante esse tempo, nenhum evento rastreado pelo SDK ocorre no seu website.
 4. Após 30 minutos de inatividade, a sessão é encerrada automaticamente.
-5. Quando o usuário retorna à guia do seu website e dispara um evento do SDK or kit de desenvolvimento de software (como visualizar uma página ou interagir com conteúdo), uma nova sessão é iniciada.
+5. Quando o usuário retorna à guia do seu website e dispara um evento do SDK (como visualizar uma página ou interagir com conteúdo), uma nova sessão é iniciada.
 
 ### Rastreamento de inatividade personalizada {#tracking-custom-inactivity}
 
@@ -82,7 +82,7 @@ Para assinar atualizações de sessão, use o método `subscribeToSessionUpdates
 
 {% tabs %}
 {% tab web %}
-No momento, a assinatura de atualizações de sessão não é compatível com o SDK or kit de desenvolvimento de software da Braze para web.
+No momento, a assinatura de atualizações de sessão não é compatível com o SDK da Braze para web.
 {% endtab %}
 
 {% tab android %}
@@ -171,7 +171,7 @@ BRZCancellable *cancellable = [AppDelegate.braze subscribeToSessionUpdates:^(BRZ
 {% endtab %}
 
 {% tab React Native %}
-O SDK or kit de desenvolvimento de software React Native não expõe um método para assinar atualizações de sessão diretamente. O ciclo de vida da sessão é gerenciado pelo SDK or kit de desenvolvimento de software nativo subjacente. Portanto, para assinar atualizações, use a abordagem nativa da plataforma na guia **Android** ou **Swift**.
+O SDK React Native não expõe um método para assinar atualizações de sessão diretamente. O ciclo de vida da sessão é gerenciado pelo SDK nativo subjacente. Portanto, para assinar atualizações, use a abordagem nativa da plataforma na guia **Android** ou **Swift**.
 {% endtab %}
 {% endtabs %}
 
@@ -241,7 +241,7 @@ AppDelegate.braze = braze;
 {% endtab %}
 
 {% tab React Native %}
-O SDK or kit de desenvolvimento de software React Native depende dos SDKs nativos para gerenciar sessões. Para alterar o tempo limite padrão da sessão, configure-o na camada nativa:
+O SDK React Native depende dos SDKs nativos para gerenciar sessões. Para alterar o tempo limite padrão da sessão, configure-o na camada nativa:
 
 - **Android:** Defina `com_braze_session_timeout` no seu arquivo `braze.xml`. Para detalhes, selecione a guia **Android**.
 - **iOS:** Defina `sessionTimeout` no seu objeto `Braze.Configuration`. Para detalhes, selecione a guia **Swift**.
@@ -256,25 +256,25 @@ Se você definir um tempo limite de sessão, todas as semânticas de sessão ser
 
 ### O perfil de usuário tem 0 sessões {#user-profile-has-0-sessions}
 
-Um perfil de usuário pode ter 0 sessões se o usuário foi criado fora do SDK or kit de desenvolvimento de software:
+Um perfil de usuário pode ter 0 sessões se o usuário foi criado fora do SDK:
 
-- **Criado pela REST or transferir estado representacional API or interface de programação do aplicativo (API):** Se um usuário é criado através do endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) com um `app_id` na solicitação, o perfil aparece associado àquele app, mas não tem dados de sessão porque o SDK or kit de desenvolvimento de software nunca foi inicializado para esse usuário.
+- **Criado pela REST API:** Se um usuário é criado através do endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) com um `app_id` na solicitação, o perfil aparece associado àquele app, mas não tem dados de sessão porque o SDK nunca foi inicializado para esse usuário.
 - **Criado por importação CSV:** Se um usuário é importado via [CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import) sem valores para os campos de primeira ou última sessão, o perfil existe com 0 sessões.
 
 ### Alguns usuários não estão registrando sessões {#some-users-are-not-logging-sessions}
 
-Como as sessões são rastreadas somente após a inicialização do SDK or kit de desenvolvimento de software, usuários que não acionam a inicialização do SDK or kit de desenvolvimento de software não registram nenhuma sessão. Isso geralmente acontece quando seu app utiliza lógica condicional antes de inicializar o SDK or kit de desenvolvimento de software, como adiar a inicialização por trás de um fluxo de login, solicitação de consentimento ou Feature Flag. Para orientações de implementação, consulte [Inicialização atrasada]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift#step-2-set-up-delayed-initialization-optional). Nesses casos, qualquer usuário que não satisfaça a condição nunca inicia uma sessão.
+Como as sessões são rastreadas somente após a inicialização do SDK, usuários que não acionam a inicialização do SDK não registram nenhuma sessão. Isso geralmente acontece quando seu app utiliza lógica condicional antes de inicializar o SDK, como adiar a inicialização por trás de um fluxo de login, solicitação de consentimento ou Feature Flag. Para orientações de implementação, consulte [Inicialização atrasada]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift#step-2-set-up-delayed-initialization-optional). Nesses casos, qualquer usuário que não satisfaça a condição nunca inicia uma sessão.
 
 Se alguns usuários estão registrando sessões e outros não, verifique o seguinte:
 
-- **Verifique sua lógica de inicialização.** Confirme que o SDK or kit de desenvolvimento de software é inicializado para todos os usuários e pontos de entrada do app, não apenas para alguns.
-- **Procure por mudanças recentes no app.** Nova lógica condicional na inicialização do SDK or kit de desenvolvimento de software pode causar uma queda repentina na contagem de sessões.
+- **Verifique sua lógica de inicialização.** Confirme que o SDK é inicializado para todos os usuários e pontos de entrada do app, não apenas para alguns.
+- **Procure por mudanças recentes no app.** Nova lógica condicional na inicialização do SDK pode causar uma queda repentina na contagem de sessões.
 - **Compare usuários afetados e não afetados.** Identifique diferenças na versão do app, tipo de dispositivo ou fluxo de usuário que possam explicar por que a inicialização é ignorada para determinados usuários.
 
 Se o problema persistir após verificar sua implementação, reproduza o problema e colete as seguintes informações antes de entrar em contato com o suporte:
 
 - Etapas para reproduzir o problema
 - A versão do app afetada
-- [Logs detalhados do SDK or kit de desenvolvimento de software]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging), capturados enquanto o problema ocorre (ou por plataforma: [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_enabling-logs), [Swift]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift#swift_setting-the-log-level), [Web]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web#web_logging))
-- O snippet de código para inicialização do SDK or kit de desenvolvimento de software
+- [Logs detalhados do SDK]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging), capturados enquanto o problema ocorre (ou por plataforma: [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_enabling-logs), [Swift]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift#swift_setting-the-log-level), [Web]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web#web_logging))
+- O snippet de código para inicialização do SDK
 - Um resumo de qualquer lógica condicional aplicada antes da inicialização

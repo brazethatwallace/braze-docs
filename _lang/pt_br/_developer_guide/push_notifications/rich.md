@@ -1,14 +1,14 @@
 ---
 page_order: 3
 nav_title: Notificações Rich
-article_title: Configure notificações por push ricas para o SDK or kit de desenvolvimento de software Braze
+article_title: Configure notificações por push ricas para o SDK Braze
 channel:
   - push notifications
 ---
 
 # Notificações de Rich push
 
-> Aprenda como configurar notificações por push ricas para o SDK or kit de desenvolvimento de software Braze.
+> Aprenda como configurar notificações por push ricas para o SDK Braze.
 
 {% sdktabs %}
 {% sdktab swift %}

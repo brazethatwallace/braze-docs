@@ -16,28 +16,28 @@ _Esta integración está mantenida por ViralSweep._
 
 ## Sobre la integración {#about-the-integration}
 
-La integración de Braze y ViralSweep te permite realizar sorteos y concursos en la plataforma ViralSweep (haciendo crecer tus listas de correo electrónico y servicio de mensajes cortos) y luego enviar la información de participación en sorteos o concursos a Braze para utilizarla en Campaigns o Canvas.
+La integración de Braze y ViralSweep te permite realizar sorteos y concursos en la plataforma ViralSweep (haciendo crecer tus listas de correo electrónico y SMS) y luego enviar la información de participación en sorteos o concursos a Braze para utilizarla en Campaigns o Canvas.
 
 ## Requisitos previos {#prerequisites}
 
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta de ViralSweep | Se requiere una cuenta de ViralSweep que utilice el plan de empresa para aprovechar esta asociación. |
-| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con todos los permisos de datos de usuario y correo electrónico. <br><br> Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
-| Endpoint REST or transferencia de estado representacional de Braze | La URL de tu endpoint REST or transferencia de estado representacional. Tu endpoint dependerá de la URL de Braze para [tu instancia]({{site.baseurl}}/api/basics#endpoints). |
+| Clave de API REST de Braze | Una clave de API REST de Braze con todos los permisos de datos de usuario y correo electrónico. <br><br> Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Endpoint REST de Braze | La URL de tu endpoint REST. Tu endpoint dependerá de la URL de Braze para [tu instancia]({{site.baseurl}}/api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 
 ### Paso 1: Conectar con Braze dentro de ViralSweep {#step-1-connect-to-braze-within-viralsweep}
 
-En ViralSweep, ve a **Integrations > Email & servicio de mensajes cortos > Add Service** y selecciona **Braze**.
+En ViralSweep, ve a **Integrations > Email & SMS > Add Service** y selecciona **Braze**.
 
 ![Página de integraciones de ViralSweep con Braze seleccionado en los servicios de correo electrónico y SMS.]({% image_buster /assets/img/viralsweep/connect.gif %})
 
 ### Paso 2: Añadir credenciales de Braze {#step-2-add-braze-credentials}
 
-En la ventana de configuración de integraciones, proporciona tu clave de API REST or transferencia de estado representacional de Braze y tu endpoint REST or transferencia de estado representacional. Asegúrate de que el endpoint que proporcionas no incluya `https://`, por ejemplo, `dashboard-03.braze.com`.
+En la ventana de configuración de integraciones, proporciona tu clave de API REST de Braze y tu endpoint REST. Asegúrate de que el endpoint que proporcionas no incluya `https://`, por ejemplo, `dashboard-03.braze.com`.
 
 ![Página de integración del servicio ViralSweep que solicita al usuario la clave de API de Braze y la URL del panel de Braze.]({% image_buster /assets/img/viralsweep/connect2.png %}){: style="max-width:40%;"}
 

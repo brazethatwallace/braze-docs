@@ -16,45 +16,45 @@ _Diese Integration wird von Quikly gepflegt._
 
 ## Über die Integration {#about-the-integration}
 
-Die Partnerschaft von Braze und Quikly ermöglicht es Ihnen, Conversions bei Events innerhalb einer Braze Customer Journey zu beschleunigen. Quikly nutzt dazu die Psychologie der Dringlichkeit, um Verbraucher:innen auf unterhaltsame – und sofortige – Weise zu motivieren. Marken können Quikly beispielsweise nutzen, um sofort neue E-Mail- und Kurzmitteilungsdienst or SMS-Abonnent:innen direkt in Braze zu gewinnen oder andere wichtige Marketing-Ziele wie das Herunterladen Ihrer mobilen App zu fördern.
+Die Partnerschaft von Braze und Quikly ermöglicht es Ihnen, Conversions bei Events innerhalb einer Braze Customer Journey zu beschleunigen. Quikly nutzt dazu die Psychologie der Dringlichkeit, um Verbraucher:innen auf unterhaltsame – und sofortige – Weise zu motivieren. Marken können Quikly beispielsweise nutzen, um sofort neue E-Mail- und SMS-Abonnent:innen direkt in Braze zu gewinnen oder andere wichtige Marketing-Ziele wie das Herunterladen Ihrer mobilen App zu fördern.
 
 ## Voraussetzungen {#prerequisites}
 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | Quikly-Konto | Ein [Quikly](https://www.quikly.com)-Markenpartnerkonto ist erforderlich, um diese Partnerschaft nutzen zu können. |
-| Braze Representational State Transfer-API-Schlüssel | Ein Braze Representational State Transfer-API-Schlüssel mit den Berechtigungen `users.track`, `subscription.status.set`, `users.export.ids` und `subscription.status.get`. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze Representational State Transfer-Endpunkt | [Ihre Representational State Transfer-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
+| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit den Berechtigungen `users.track`, `subscription.status.set`, `users.export.ids` und `subscription.status.get`. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
 | Quikly-API-Schlüssel (optional) | Ein Quikly-API-Schlüssel, der von Ihrem Client Success Manager:in bereitgestellt wird (nur Webhook). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
 
-Quikly ermöglicht es Marken, die E-Mail- oder Kurzmitteilungsdienst or SMS-Akquise zu beschleunigen, und motiviert Abonnent:innen, First-Party-Daten direkt in Braze bereitzustellen. Sie können Braze auch verwenden, um inaktive Kund:innen mit einer Quikly-Aktivierung anzusprechen, die diese Zielgruppe reaktiviert und bindet. Darüber hinaus können Marketer diese Integration nutzen, um bestimmte Customer-Journey-Events mit einzigartigen Belohnungsstrukturen zu incentivieren.
+Quikly ermöglicht es Marken, die E-Mail- oder SMS-Akquise zu beschleunigen, und motiviert Abonnent:innen, First-Party-Daten direkt in Braze bereitzustellen. Sie können Braze auch verwenden, um inaktive Kund:innen mit einer Quikly-Aktivierung anzusprechen, die diese Zielgruppe reaktiviert und bindet. Darüber hinaus können Marketer diese Integration nutzen, um bestimmte Customer-Journey-Events mit einzigartigen Belohnungsstrukturen zu incentivieren.
 
 Zum Beispiel:
  - Bauen Sie über Tage hinweg Vorfreude und Engagement auf, indem Verbraucher:innen sich für die Chance auf attraktive Rewards mit [Quikly Hype](https://www.quikly.com/urgency-marketing/platform/product-overview/hype) per Opt-in anmelden. First-Party-Daten werden automatisch an Braze übertragen.
- - Beschleunigen Sie die Gewinnung neuer E-Mail- und Kurzmitteilungsdienst or SMS-Abonnent:innen mit einzigartigen Realtime-Angeboten, die auf der Reaktionsgeschwindigkeit der Verbraucher:innen, dem Ranking gegenüber anderen, dem Zufallsprinzip oder dem Ablauf von Zeit oder Kontingenten basieren – mit [Quikly Swap](https://www.quikly.com/urgency-marketing/platform/product-overview/swap).
+ - Beschleunigen Sie die Gewinnung neuer E-Mail- und SMS-Abonnent:innen mit einzigartigen Realtime-Angeboten, die auf der Reaktionsgeschwindigkeit der Verbraucher:innen, dem Ranking gegenüber anderen, dem Zufallsprinzip oder dem Ablauf von Zeit oder Kontingenten basieren – mit [Quikly Swap](https://www.quikly.com/urgency-marketing/platform/product-overview/swap).
  - Motivieren Sie bestimmte Schritte in der Customer Journey mit einzigartigen Belohnungsstrukturen über Webhooks.
- - Wenden Sie angepasste Attribute oder Events auf das Kundenprofil or Nutzerprofil an, wenn Nutzer:innen an einer Quikly-Aktivierung teilnehmen.
+ - Wenden Sie angepasste Attribute oder Events auf das Kundenprofil an, wenn Nutzer:innen an einer Quikly-Aktivierung teilnehmen.
 
 ## Integration
 
-Im Folgenden werden vier verschiedene Integrationen beschrieben: E-Mail-Akquise, Kurzmitteilungsdienst or SMS-Akquise, angepasste Attribute und Webhooks. Welche Integration Sie wählen, hängt von Ihrer Quikly-Aktivierung und Ihrem Anwendungsfall ab.
+Im Folgenden werden vier verschiedene Integrationen beschrieben: E-Mail-Akquise, SMS-Akquise, angepasste Attribute und Webhooks. Welche Integration Sie wählen, hängt von Ihrer Quikly-Aktivierung und Ihrem Anwendungsfall ab.
 
 {% tabs %}
 {% tab E-Mail-Akquise %}
 
 ### E-Mail-Akquise {#email-acquisition}
 
-Wenn Ihre Quikly-Aktivierungen E-Mail-Adressen oder Profildaten von Kund:innen erfassen, müssen Sie Quikly lediglich Ihren Representational State Transfer-API-Schlüssel und Endpunkt bereitstellen. Quikly konfiguriert Ihr Markenkonto so, dass diese Daten an Braze weitergeleitet werden. Wenn Sie zusätzliche Nutzerattribute einbeziehen möchten, erwähnen Sie dies bei der Übermittlung der API-Zugangsdaten an Quikly.
+Wenn Ihre Quikly-Aktivierungen E-Mail-Adressen oder Profildaten von Kund:innen erfassen, müssen Sie Quikly lediglich Ihren REST-API-Schlüssel und Endpunkt bereitstellen. Quikly konfiguriert Ihr Markenkonto so, dass diese Daten an Braze weitergeleitet werden. Wenn Sie zusätzliche Nutzerattribute einbeziehen möchten, erwähnen Sie dies bei der Übermittlung der API-Zugangsdaten an Quikly.
 
 Im Folgenden finden Sie eine Übersicht, wie Quikly diesen Workflow ausführt.
 1. Nach der Teilnahme an einer Quikly-Aktivierung plant Quikly eine Nutzersuche über die [Export-API]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier), um festzustellen, ob ein:e Nutzer:in mit einer bestimmten `email_address` existiert.
-2. Nutzer:in protokollieren oder Update or aktualisieren or aktualisieren.
+2. Nutzer:in protokollieren oder aktualisieren.
   - Wenn die/der Nutzer:in existiert:
     - Kein neues Profil erstellen.
-    - Falls gewünscht, kann Quikly ein angepasstes Attribut im Kundenprofil or Nutzerprofil protokollieren, um anzuzeigen, dass die/der Nutzer:in an der Aktivierung teilgenommen hat.
+    - Falls gewünscht, kann Quikly ein angepasstes Attribut im Kundenprofil protokollieren, um anzuzeigen, dass die/der Nutzer:in an der Aktivierung teilgenommen hat.
   - Wenn die/der Nutzer:in nicht existiert:
     - Quikly erstellt über den Braze [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) ein reines Alias-Profil, wobei die E-Mail als Nutzer-Alias festgelegt wird, um diese:n Nutzer:in in Zukunft zu referenzieren (da keine externe ID vorhanden ist).
     - Falls gewünscht, kann Quikly angepasste Events protokollieren, um anzuzeigen, dass dieses Profil an der Quikly-Aktivierung teilgenommen hat.
@@ -84,23 +84,23 @@ Authorization: Bearer YOUR-REST-API-KEY
 {% enddetails %}
 
 {% endtab %}
-{% tab Kurzmitteilungsdienst or SMS-Akquise %}
+{% tab SMS-Akquise %}
 
-### Kurzmitteilungsdienst or SMS-Abonnements {#sms-subscriptions}
+### SMS-Abonnements {#sms-subscriptions}
 
-Quikly-Aktivierungen können Mobilfunknummern direkt von Kund:innen erfassen und ein neues Kurzmitteilungsdienst or SMS-Abo einrichten. Um diese Integration zu aktivieren, stellen Sie Ihrem Quikly Client Success Manager:in die `subscription_group_id` zur Verfügung. Sie können auf die `subscription_group_id` einer Abo-Gruppe zugreifen, indem Sie zur Seite **Abo-Gruppe** navigieren.
+Quikly-Aktivierungen können Mobilfunknummern direkt von Kund:innen erfassen und ein neues SMS-Abo einrichten. Um diese Integration zu aktivieren, stellen Sie Ihrem Quikly Client Success Manager:in die `subscription_group_id` zur Verfügung. Sie können auf die `subscription_group_id` einer Abo-Gruppe zugreifen, indem Sie zur Seite **Abo-Gruppe** navigieren.
 
-Quikly führt eine Abo-Suche anhand der Telefonnummer der/des Kund:in durch und schreibt ihr/ihm bei der Aktivierung automatisch gut, wenn bereits ein Kurzmitteilungsdienst or SMS-Abo besteht. Andernfalls wird ein neues Abo eingeleitet, und nachdem der Abo-Status verifiziert wurde, wird der/dem Kund:in die Gutschrift erteilt.
+Quikly führt eine Abo-Suche anhand der Telefonnummer der/des Kund:in durch und schreibt ihr/ihm bei der Aktivierung automatisch gut, wenn bereits ein SMS-Abo besteht. Andernfalls wird ein neues Abo eingeleitet, und nachdem der Abo-Status verifiziert wurde, wird der/dem Kund:in die Gutschrift erteilt.
 
 Hier sehen Sie den vollständigen Workflow, wenn Kund:innen ihre Mobilfunknummer und Einwilligung über Quikly angeben:
 1. Quikly führt eine Abo-Suche anhand des [Abo-Gruppenstatus]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) durch, um festzustellen, ob eine bestimmte `phone` bei einer `subscription_group_id` abonniert ist. Wenn ein Abo besteht, wird der/dem Nutzer:in in der Quikly-Aktivierung gutgeschrieben. Es sind keine weiteren Maßnahmen erforderlich.
-2. Quikly führt eine Nutzersuche über den [Endpunkt „Kundenprofil or Nutzerprofil nach Bezeichner exportieren“]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) durch, um festzustellen, ob ein Kundenprofil or Nutzerprofil mit einer bestimmten `email_address` existiert. Wenn kein:e Nutzer:in existiert, wird über den Braze [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) ein reines Alias-Profil erstellt, wobei die E-Mail als Nutzer-Alias festgelegt wird, um diese:n Nutzer:in in Zukunft zu referenzieren (da keine externe ID vorhanden ist).
-3. Update or aktualisieren or aktualisieren Sie den Abo-Status über den [Endpunkt „Abo-Gruppenstatus der/des Nutzer:in Update or aktualisieren or aktualisieren“]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status).
+2. Quikly führt eine Nutzersuche über den [Endpunkt „Kundenprofil nach Bezeichner exportieren“]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) durch, um festzustellen, ob ein Kundenprofil mit einer bestimmten `email_address` existiert. Wenn kein:e Nutzer:in existiert, wird über den Braze [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) ein reines Alias-Profil erstellt, wobei die E-Mail als Nutzer-Alias festgelegt wird, um diese:n Nutzer:in in Zukunft zu referenzieren (da keine externe ID vorhanden ist).
+3. Aktualisieren Sie den Abo-Status über den [Endpunkt „Abo-Gruppenstatus der/des Nutzer:in aktualisieren“]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status).
 
-Um bestehende Double-Opt-in-Kurzmitteilungsdienst or SMS-Abo-Workflows zu unterstützen, kann Quikly anstelle des oben beschriebenen Workflows ein angepasstes Event an Braze senden. In diesem Fall wird der Abo-Status nicht direkt aktualisiert, sondern das [angepasste Event triggert den Double-Opt-in-Prozess]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in), und der Abo-Status wird regelmäßig überwacht, um zu verifizieren, dass die/der Nutzer:in vollständig per Opt-in angemeldet ist, bevor die Gutschrift in der Quikly-Aktivierung erfolgt.
+Um bestehende Double-Opt-in-SMS-Abo-Workflows zu unterstützen, kann Quikly anstelle des oben beschriebenen Workflows ein angepasstes Event an Braze senden. In diesem Fall wird der Abo-Status nicht direkt aktualisiert, sondern das [angepasste Event triggert den Double-Opt-in-Prozess]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in), und der Abo-Status wird regelmäßig überwacht, um zu verifizieren, dass die/der Nutzer:in vollständig per Opt-in angemeldet ist, bevor die Gutschrift in der Quikly-Aktivierung erfolgt.
 
 {% alert important %}
-Braze empfiehlt, bei der Erstellung neuer Nutzer:innen über den `/users/track`-Endpunkt eine Verzögerung von etwa 2 Minuten einzuhalten, bevor Nutzer:innen der entsprechenden Abo-Gruppe hinzugefügt werden, damit Braze Zeit hat, das Kundenprofil or Nutzerprofil vollständig zu erstellen.
+Braze empfiehlt, bei der Erstellung neuer Nutzer:innen über den `/users/track`-Endpunkt eine Verzögerung von etwa 2 Minuten einzuhalten, bevor Nutzer:innen der entsprechenden Abo-Gruppe hinzugefügt werden, damit Braze Zeit hat, das Kundenprofil vollständig zu erstellen.
 {% endalert %}
 
 {% details Detaillierte /subscription/status/set-Anfrage %}
@@ -131,11 +131,11 @@ Je nach Ihrer Braze-Implementierung möchten Sie möglicherweise, dass Events in
 {% endtab %}
 {% tab Webhooks %}
 ### Webhooks
-Verwenden Sie Webhooks, um Anreize für bestimmte Events in der Customer Journey zu Trigger or triggern or triggern. Wenn Sie beispielsweise ein Braze-Event für den Fall haben, dass sich Nutzer:innen bei Ihrer App anmelden, Push-Benachrichtigungen aktivieren oder Ihren Shop-Locator verwenden, können Sie einen Webhook nutzen, um ein angepasstes Angebot für diese:n Nutzer:in auf Grundlage der Konfiguration einer bestimmten Quikly-Aktivierung zu Trigger or triggern or triggern. Beispieltaktiken umfassen die Belohnung der ersten X Nutzer:innen, die eine Aktion ausführen (z. B. sich bei Ihrer App anmelden), mit einem angepassten Angebot oder die Bereitstellung eines Angebots, dessen Wert mit zunehmender Zeit abnimmt, um eine sofortige Reaktion zu motivieren.
+Verwenden Sie Webhooks, um Anreize für bestimmte Events in der Customer Journey zu triggern. Wenn Sie beispielsweise ein Braze-Event für den Fall haben, dass sich Nutzer:innen bei Ihrer App anmelden, Push-Benachrichtigungen aktivieren oder Ihren Shop-Locator verwenden, können Sie einen Webhook nutzen, um ein angepasstes Angebot für diese:n Nutzer:in auf Grundlage der Konfiguration einer bestimmten Quikly-Aktivierung zu triggern. Beispieltaktiken umfassen die Belohnung der ersten X Nutzer:innen, die eine Aktion ausführen (z. B. sich bei Ihrer App anmelden), mit einem angepassten Angebot oder die Bereitstellung eines Angebots, dessen Wert mit zunehmender Zeit abnimmt, um eine sofortige Reaktion zu motivieren.
 
 ### Erstellen eines Quikly-Webhooks in Braze {#create-a-quikly-webhook-in-braze}
 
-Um ein Quikly-Webhook-Template für künftige Campaigns oder Canvase zu erstellen, navigieren Sie in der Braze-Plattform zu **Content** > **Webhook**. Wählen Sie dann **Webhook-Template erstellen** aus.
+Um ein Quikly-Webhook-Template für künftige Campaigns oder Canvases zu erstellen, navigieren Sie in der Braze-Plattform zu **Content** > **Webhook**. Wählen Sie dann **Webhook-Template erstellen** aus.
 
 Wenn Sie eine einmalige Quikly-Webhook-Campaign erstellen oder ein bestehendes Template verwenden möchten, wählen Sie bei der Erstellung einer neuen Campaign **Webhook** in Braze aus.
 

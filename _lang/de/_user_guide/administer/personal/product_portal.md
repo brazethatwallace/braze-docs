@@ -46,7 +46,7 @@ Prioritäten und Zeitpläne können sich (und werden sich) basierend auf den neu
 
 ## Tipps zum Einreichen von Produkt-Feedback {#tips-for-submitting-product-feedback}
 
-Je mehr Informationen und Kontext, desto besser! Fügen Sie Links zu Campaigns, Canvase oder Segmenten hinzu – alles, was die Beschreibung unterstützt. Wir strukturieren Produkt-Feedback anhand der folgenden Fragen:
+Je mehr Informationen und Kontext, desto besser! Fügen Sie Links zu Campaigns, Canvases oder Segmenten hinzu – alles, was die Beschreibung unterstützt. Wir strukturieren Produkt-Feedback anhand der folgenden Fragen:
 
 - Welches Problem versuchen Sie zu lösen?
 - Was sind konkrete Anwendungsfälle?

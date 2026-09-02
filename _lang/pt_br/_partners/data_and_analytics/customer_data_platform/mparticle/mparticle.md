@@ -2,7 +2,7 @@
 nav_title: mParticle por Rokt
 article_title: mParticle por Rokt
 alias: /partners/mparticle/
-description: "Este artigo de referência descreve a parceria entre a Braze e a mParticle, uma CDP or plataforma de dados do cliente or CDP or plataforma de dados do cliente or plataforma de dados do cliente que coleta e encaminha informações entre fontes em sua pilha de marketing."
+description: "Este artigo de referência descreve a parceria entre a Braze e a mParticle, uma CDP que coleta e encaminha informações entre fontes em sua pilha de marketing."
 page_type: partner
 search_tag: Partner
 
@@ -12,7 +12,7 @@ search_tag: Partner
 
 {% multi_lang_include video.html id="Njhqwd36gZM" align="right" %}
 
-> A CDP or plataforma de dados do cliente or CDP or plataforma de dados do cliente or plataforma de dados do cliente da mParticle ajuda você a fazer mais com os seus dados. Os melhores profissionais de marketing usam a mParticle para orquestrar dados em todo o growth stack, para vencer nos momentos mais importantes da jornada do cliente.
+> A CDP da mParticle ajuda você a fazer mais com os seus dados. Os melhores profissionais de marketing usam a mParticle para orquestrar dados em todo o growth stack, para vencer nos momentos mais importantes da jornada do cliente.
 
 A integração entre a Braze e a mParticle permite que você controle com praticidade o fluxo de informações entre os dois sistemas:
 - Sincronize os públicos da mParticle com a Braze para segmentação de Campaign e Canvas na Braze.
@@ -24,9 +24,9 @@ A integração entre a Braze e a mParticle permite que você controle com pratic
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Conta mParticle | É necessário ter uma [conta mParticle](https://app.mparticle.com/login) para usar essa parceria. |
-| Instância da Braze | Sua instância da Braze pode ser encontrada na [página de visão geral da API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#endpoints) (por exemplo, `US-01` ou `US-02`). |
-| Chave de identificação do app da Braze | Sua chave de identificação do app. <br><br>Ela pode ser encontrada em **Manage Settings** > **API or interface de programação do aplicativo (API) Key** no dashboard da Braze. |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional do espaço de trabalho | (Servidor para servidor) Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze<br><br>Ela pode ser criada em **Developer Console** > **API or interface de programação do aplicativo (API) Settings** > **API or interface de programação do aplicativo (API) Key** no dashboard da Braze. |
+| Instância da Braze | Sua instância da Braze pode ser encontrada na [página de visão geral da API]({{site.baseurl}}/api/basics#endpoints) (por exemplo, `US-01` ou `US-02`). |
+| Chave de identificação do app da Braze | Sua chave de identificação do app. <br><br>Ela pode ser encontrada em **Manage Settings** > **API Key** no dashboard da Braze. |
+| Chave da API REST do espaço de trabalho | (Servidor para servidor) Uma chave da API REST da Braze<br><br>Ela pode ser criada em **Developer Console** > **API Settings** > **API Key** no dashboard da Braze. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
@@ -43,11 +43,11 @@ A mParticle oferece três maneiras de definir atributos de associação a coorte
 
 - [Atributo de string único](#string)
 - [Atributo de array único](#array)
-- [Um atributo por Segment or segmento](#per-segment)
+- [Um atributo por Segment](#per-segment)
 - [Atributo de array único e atributo de string único](#both-1)
-- [Atributo de array único e um atributo por Segment or segmento](#both-2)
-- [Atributo de string único e um atributo por Segment or segmento](#both-3)
-- [Atributo de array único, atributo de string único e um atributo por Segment or segmento](#multi)
+- [Atributo de array único e um atributo por Segment](#both-2)
+- [Atributo de string único e um atributo por Segment](#both-3)
+- [Atributo de array único, atributo de string único e um atributo por Segment](#multi)
 
 ##### Atributo de string único {#string}
 
@@ -58,10 +58,10 @@ Por exemplo, se um público da mParticle chamado "Ibiza dreamers" tiver o ID de 
 Embora essa seja a opção padrão na mParticle, a maioria dos usuários opta por usar [atributos de array único](#array) pela experiência de filtragem ao criar Segments na Braze.
 
 {% alert important %}
-Esta solução não é recomendada se você tiver mais do que alguns poucos públicos, pois os atributos personalizados podem ter até 255 caracteres. Isso significa que não será possível armazenar dezenas ou centenas de públicos em um perfil de usuário com esse método. Se você tiver um grande número de coortes por usuário, recomendamos fortemente a configuração "um atributo por Segment or segmento".
+Esta solução não é recomendada se você tiver mais do que alguns poucos públicos, pois os atributos personalizados podem ter até 255 caracteres. Isso significa que não será possível armazenar dezenas ou centenas de públicos em um perfil de usuário com esse método. Se você tiver um grande número de coortes por usuário, recomendamos fortemente a configuração "um atributo por Segment".
 {% endalert %}
 
-![Associação a Segment or segmento na mParticle]({% image_buster /assets/img_archive/mparticle1.png %})
+![Associação a Segment na mParticle]({% image_buster /assets/img_archive/mparticle1.png %})
 
 ##### Atributo de array único {#array}
 
@@ -73,7 +73,7 @@ Por exemplo, se um usuário for membro de três públicos da mParticle com os ID
 Os atributos de array da Braze têm um comprimento máximo padrão de 500. Se algum dos seus usuários for membro de mais de 500 públicos, a Braze truncará as informações de associação. Para contornar esse problema, entre em contato com seu gerente de conta da Braze para aumentar o limite máximo de comprimento do array.
 {% endalert %}
 
-##### Um atributo por Segment or segmento {#per-segment}
+##### Um atributo por Segment {#per-segment}
 
 A mParticle criará um atributo personalizado booleano para cada público ao qual um usuário pertence. Por exemplo, se um público da mParticle se chamar "Possible Parisians", você poderá segmentar esses usuários com o filtro `In Possible Parisians` - `equals` - `true`.
 
@@ -83,17 +83,17 @@ A mParticle criará um atributo personalizado booleano para cada público ao qua
 
 A mParticle enviará atributos conforme descrito tanto pelo atributo de array único quanto pelo atributo de string único.
 
-##### Atributo de array único e um atributo por Segment or segmento {#both-2}
+##### Atributo de array único e um atributo por Segment {#both-2}
 
-A mParticle enviará atributos conforme descrito tanto pelo atributo de array único quanto pelo um atributo por Segment or segmento.
+A mParticle enviará atributos conforme descrito tanto pelo atributo de array único quanto pelo um atributo por Segment.
 
-##### Atributo de string único e um atributo por Segment or segmento {#both-3}
+##### Atributo de string único e um atributo por Segment {#both-3}
 
-A mParticle enviará atributos conforme descrito tanto pelo atributo de string único quanto pelo um atributo por Segment or segmento.
+A mParticle enviará atributos conforme descrito tanto pelo atributo de string único quanto pelo um atributo por Segment.
 
-##### Atributo de array único, atributo de string único e um atributo por Segment or segmento {#multi}
+##### Atributo de array único, atributo de string único e um atributo por Segment {#multi}
 
-A mParticle enviará atributos conforme descrito pelo atributo de array único, atributo de string único e um atributo por Segment or segmento.
+A mParticle enviará atributos conforme descrito pelo atributo de array único, atributo de string único e um atributo por Segment.
 
 #### Etapa 1: Criar um público na mParticle {#send_settings}
 
@@ -104,10 +104,10 @@ Para criar um público na mParticle:
 
 | Nome do campo | Descrição |
 | ------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Chave de API or interface de programação do aplicativo (API) | No dashboard da Braze, acesse **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
-| Sistema operacional da chave de API or interface de programação do aplicativo (API) | Selecione a qual sistema operacional sua chave de API or interface de programação do aplicativo (API) da Braze corresponde. Essa seleção limitará os tipos de tokens por push encaminhados em uma atualização de público. |
+| Chave de API | No dashboard da Braze, acesse **Configurações** > **Chaves de API**. |
+| Sistema operacional da chave de API | Selecione a qual sistema operacional sua chave de API da Braze corresponde. Essa seleção limitará os tipos de tokens por push encaminhados em uma atualização de público. |
 | Enviar Segments como | O método de envio de públicos para a Braze. Consulte a seção [Encaminhamento de públicos](#forwarding-audiences) para mais detalhes. |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional do espaço de trabalho | Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões completas. Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
+| Chave da API REST do espaço de trabalho | Chave da API REST da Braze com permissões completas. Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API**. |
 | Tipo de identidade externa | O tipo de identidade de usuário da mParticle a ser encaminhado como ID externo para a Braze. Recomendamos manter o valor padrão, Customer ID. |
 | Tipo de identidade de e-mail | O tipo de identidade de usuário da mParticle a ser encaminhado como e-mail para a Braze. |
 | Instância da Braze | Especifique para qual cluster seus dados da Braze serão encaminhados. |
@@ -120,12 +120,12 @@ Você deverá começar a ver os públicos sincronizando com a Braze em poucos mi
 
 #### Etapa 2: Segmentar usuários na Braze {#step-2-segment-users-in-braze}
 
-Na Braze, para criar um Segment or segmento desses usuários, navegue até **Segments** em **Engagement** e dê um nome ao seu Segment or segmento. A seguir, dois exemplos de Segments dependendo da opção selecionada em **Enviar Segments como**. Para mais detalhes sobre cada opção, consulte [Encaminhamento de públicos](#forwarding-audiences).
+Na Braze, para criar um Segment desses usuários, navegue até **Segments** em **Engagement** e dê um nome ao seu Segment. A seguir, dois exemplos de Segments dependendo da opção selecionada em **Enviar Segments como**. Para mais detalhes sobre cada opção, consulte [Encaminhamento de públicos](#forwarding-audiences).
 
-- **Atributo de array único:** Selecione `SegmentMembershipArray` como seu filtro. Em seguida, use a opção "includes value" e insira o ID do público desejado. ![Filtro de Segment or segmento da mParticle "SegmentMembershipArray" definido como "includes value" e ID do público.]({% image_buster /assets/img_archive/mparticle5.png %})<br><br>
-- **Um atributo por Segment or segmento:** Selecione seu atributo personalizado como filtro. Em seguida, use a opção "equals" e escolha a lógica apropriada. ![Filtro de Segment or segmento da mParticle "in possible parisians" definido como "equals" e "true".]({% image_buster /assets/img_archive/mparticle3.png %})
+- **Atributo de array único:** Selecione `SegmentMembershipArray` como seu filtro. Em seguida, use a opção "includes value" e insira o ID do público desejado. ![Filtro de Segment da mParticle "SegmentMembershipArray" definido como "includes value" e ID do público.]({% image_buster /assets/img_archive/mparticle5.png %})<br><br>
+- **Um atributo por Segment:** Selecione seu atributo personalizado como filtro. Em seguida, use a opção "equals" e escolha a lógica apropriada. ![Filtro de Segment da mParticle "in possible parisians" definido como "equals" e "true".]({% image_buster /assets/img_archive/mparticle3.png %})
 
-Após salvar, você pode referenciar esse Segment or segmento durante a criação de Canvas ou Campaign na etapa de direcionamento de usuários.
+Após salvar, você pode referenciar esse Segment durante a criação de Canvas ou Campaign na etapa de direcionamento de usuários.
 
 #### Desativação e exclusão de conexões {#deactivating-and-deleting-connections}
 
@@ -135,7 +135,7 @@ Para remover o público de um usuário da Braze antes da exclusão, ajuste os fi
 
 ## Mapeamento de dados {#data-mapping}
 
-Os dados podem ser mapeados para a Braze usando a [integração de kit incorporado](#embedded-kit-integration) se você quiser conectar seus apps móveis e web à Braze por meio da mParticle. Você também pode usar a [integração de API or interface de programação do aplicativo (API) de servidor para servidor](#server-api-integration) para encaminhar dados do lado do servidor para a Braze.
+Os dados podem ser mapeados para a Braze usando a [integração de kit incorporado](#embedded-kit-integration) se você quiser conectar seus apps móveis e web à Braze por meio da mParticle. Você também pode usar a [integração de API de servidor para servidor](#server-api-integration) para encaminhar dados do lado do servidor para a Braze.
 
 Independentemente da abordagem escolhida, você deve configurar a Braze como uma saída:
 
@@ -145,7 +145,7 @@ Na mParticle, navegue até **Setup > Outputs > Add Outputs** e selecione **Braze
 
 | Nome da configuração | Descrição |
 | ------------ | ----------- |
-| Chave de identificador do app Braze | Sua chave de identificador do app Braze pode ser encontrada no dashboard da Braze em **Settings** > **API or interface de programação do aplicativo (API) Keys**. Observe que as chaves de API or interface de programação do aplicativo (API) serão diferentes para cada plataforma (iOS, Android e web). |
+| Chave de identificador do app Braze | Sua chave de identificador do app Braze pode ser encontrada no dashboard da Braze em **Settings** > **API Keys**. Observe que as chaves de API serão diferentes para cada plataforma (iOS, Android e web). |
 | Tipo de identidade externa | O tipo de identidade de usuário da mParticle a ser encaminhado como um ID externo para a Braze. Recomendamos manter o valor padrão, Customer ID. |
 | Tipo de identidade de e-mail | O tipo de identidade de usuário da mParticle a ser encaminhado como e-mail para a Braze. Recomendamos manter o valor padrão, Email. |
 | Instância da Braze | O cluster para o qual seus dados da Braze serão encaminhados; deve ser o mesmo cluster em que seu dashboard está. |
@@ -156,14 +156,14 @@ Na mParticle, navegue até **Setup > Outputs > Add Outputs** e selecione **Braze
 
 ### Integração de kit incorporado {#embedded-kit-integration}
 
-Os SDKs da mParticle e da Braze estarão presentes no seu aplicativo por meio da integração de kit incorporado. No entanto, ao contrário de uma integração direta com a Braze, a mParticle se encarrega de chamar a maioria dos métodos do SDK or kit de desenvolvimento de software da Braze por você. Os métodos da mParticle que você usa para rastrear dados de usuários serão automaticamente mapeados para os métodos do SDK or kit de desenvolvimento de software da Braze.
+Os SDKs da mParticle e da Braze estarão presentes no seu aplicativo por meio da integração de kit incorporado. No entanto, ao contrário de uma integração direta com a Braze, a mParticle se encarrega de chamar a maioria dos métodos do SDK da Braze por você. Os métodos da mParticle que você usa para rastrear dados de usuários serão automaticamente mapeados para os métodos do SDK da Braze.
 
-Esses mapeamentos do SDK or kit de desenvolvimento de software da mParticle para [Android](https://github.com/mparticle-integrations/mparticle-android-integration-appboy), [iOS](https://github.com/mparticle-integrations/mparticle-apple-integration-appboy) e [Web](https://github.com/mparticle-integrations/mparticle-javascript-integration-braze) são de código aberto e podem ser encontrados na [página do GitHub da mParticle](https://github.com/mparticle-integrations).
+Esses mapeamentos do SDK da mParticle para [Android](https://github.com/mparticle-integrations/mparticle-android-integration-appboy), [iOS](https://github.com/mparticle-integrations/mparticle-apple-integration-appboy) e [Web](https://github.com/mparticle-integrations/mparticle-javascript-integration-braze) são de código aberto e podem ser encontrados na [página do GitHub da mParticle](https://github.com/mparticle-integrations).
 
-A integração do SDK or kit de desenvolvimento de software de kit incorporado permite que você aproveite nosso pacote completo de recursos (push, mensagens no app e todo o rastreamento de análise de mensagens relevante).
+A integração do SDK de kit incorporado permite que você aproveite nosso pacote completo de recursos (push, mensagens no app e todo o rastreamento de análise de mensagens relevante).
 
 {% alert note %}
-Para Content Cards e integrações personalizadas de mensagens no app, chame os métodos do SDK or kit de desenvolvimento de software da Braze diretamente.
+Para Content Cards e integrações personalizadas de mensagens no app, chame os métodos do SDK da Braze diretamente.
 {% endalert %}
 
 #### Etapa 1: Integre os SDKs da mParticle {#step-1-integrate-the-mparticle-sdks}
@@ -176,7 +176,7 @@ Integre os SDKs apropriados da mParticle em seu app com base nas necessidades da
 
 #### Etapa 2: Complete a integração do kit de eventos Braze da mParticle {#step-2-complete-mparticles-braze-event-kit-integration}
 
-Embora o SDK or kit de desenvolvimento de software da Braze não precise ser incluído diretamente no seu website ou app para esta integração com a mParticle, o seguinte kit Appboy da mParticle deve ser instalado para encaminhar dados do seu app para a Braze.
+Embora o SDK da Braze não precise ser incluído diretamente no seu website ou app para esta integração com a mParticle, o seguinte kit Appboy da mParticle deve ser instalado para encaminhar dados do seu app para a Braze.
 
 O [guia de integração do kit de eventos Braze](https://docs.mparticle.com/integrations/braze/event/#kit-integration) da mParticle orientará você pelas instruções personalizadas de alinhamento entre mParticle e Braze com base nas suas necessidades de envio de mensagens (push, monitoramento de localização, etc.).
 
@@ -188,7 +188,7 @@ Na mParticle, navegue até **Connections** > **Connect** > **[Sua plataforma des
 
 Nem todas as configurações de conexão se aplicam a todas as plataformas e tipos de integração. Para uma análise detalhada das configurações de conexão e das plataformas a que se aplicam, consulte a [documentação da mParticle](https://docs.mparticle.com/integrations/braze/event/#connection-settings).
 
-### Integração de API or interface de programação do aplicativo (API) de servidor {#server-api-integration}
+### Integração de API de servidor {#server-api-integration}
 
 Este é um complemento para encaminhar seus dados de backend para a Braze se você estiver usando os SDKs do lado do servidor da mParticle (por exemplo, Ruby, Python, etc.). Para configurar esta integração de servidor para servidor com a Braze, siga a [documentação da mParticle](https://docs.mparticle.com/guides/platform-guide/connections/).
 
@@ -262,7 +262,7 @@ Desativar essa configuração não verificará se os dados foram alterados. No e
 #### Considerações ao desativar os atributos de usuário enriquecidos {#considerations-of-turning-off-enriched-user-attributes}
 
 Existem algumas considerações ao desativar **Include Enriched User Attributes**:
-1. A integração servidor para servidor usa a API or interface de programação do aplicativo (API) de eventos da mParticle para enviar eventos à Braze. Cada solicitação é disparada por um evento. Quando um atributo de usuário é alterado, como a atualização de um endereço de e-mail, mas não está associado a um evento específico (por exemplo, um evento personalizado de atualização de perfil), o novo valor só é passado para uma saída como a Braze como um "atributo enriquecido" na carga útil do próximo evento disparado pelo usuário. Quando **Include Enriched User Attributes** está desativado, esse novo valor de atributo não associado a um evento específico não será passado para a Braze.
+1. A integração servidor para servidor usa a API de eventos da mParticle para enviar eventos à Braze. Cada solicitação é disparada por um evento. Quando um atributo de usuário é alterado, como a atualização de um endereço de e-mail, mas não está associado a um evento específico (por exemplo, um evento personalizado de atualização de perfil), o novo valor só é passado para uma saída como a Braze como um "atributo enriquecido" na carga útil do próximo evento disparado pelo usuário. Quando **Include Enriched User Attributes** está desativado, esse novo valor de atributo não associado a um evento específico não será passado para a Braze.
   - Para resolver isso, recomendamos criar um evento separado de "atualização de atributo de usuário" que envie apenas o(s) atributo(s) de usuário específico(s) que foram atualizados para a Braze. Com essa abordagem, você ainda estará registrando um ponto de dados adicional para o evento de "atualização de atributo de usuário", mas o uso de pontos de dados será muito menor do que enviar todos os atributos de usuário em cada chamada com o recurso ativado.
 2. Os atributos calculados são passados para a Braze como um atributo de usuário enriquecido. Portanto, quando "Enriched User Attributes" está desativado, eles não serão mais passados para a Braze. Para encaminhar atributos calculados à Braze quando "Enriched User Attributes" estiver desativado, um [feed de atributos calculados](https://docs.mparticle.com/guides/platform-guide/calculated-attributes/using-calculated-attributes/#forward-calculated-attributes-in-the-calculated-attributes-feed) pode ajudar sem enviar todos os atributos. O feed disparará uma atualização para a Braze quando um atributo calculado for alterado.
 
@@ -272,8 +272,8 @@ Existem algumas considerações ao desativar **Include Enriched User Attributes*
 
 Se as notificações por push não estiverem funcionando ao usar o kit de eventos da Braze (integração de kit incorporado) no iOS, verifique o seguinte:
 1. **Encaminhamento do token por push:** confirme que a mParticle está encaminhando tokens por push para a Braze. No dashboard da mParticle, verifique se a conexão do kit da Braze está com push ativado e se a credencial correta de push da Apple está configurada no dashboard da Braze.
-2. **Ordem de inicialização do kit:** O kit da Braze precisa ser inicializado antes que seu app solicite permissões de push. Se as permissões de push forem solicitadas antes que o kit esteja ativo, o token por push pode não ser encaminhado para a Braze. Verifique se o SDK or kit de desenvolvimento de software da mParticle é iniciado no começo do ciclo de vida do app.
-3. **Method swizzling:** O kit da mParticle para Apple usa method swizzling para encaminhar automaticamente tokens por push e lidar com eventos de notificação por push. Se você desativou o swizzling ou outro SDK or kit de desenvolvimento de software está interferindo, os tokens por push podem não chegar à Braze. Verifique se o swizzling está ativado na configuração da mParticle.
+2. **Ordem de inicialização do kit:** O kit da Braze precisa ser inicializado antes que seu app solicite permissões de push. Se as permissões de push forem solicitadas antes que o kit esteja ativo, o token por push pode não ser encaminhado para a Braze. Verifique se o SDK da mParticle é iniciado no começo do ciclo de vida do app.
+3. **Method swizzling:** O kit da mParticle para Apple usa method swizzling para encaminhar automaticamente tokens por push e lidar com eventos de notificação por push. Se você desativou o swizzling ou outro SDK está interferindo, os tokens por push podem não chegar à Braze. Verifique se o swizzling está ativado na configuração da mParticle.
 4. **Gerenciamento manual de tokens:** Se você gerencia tokens por push manualmente (por exemplo, implementando `application:didRegisterForRemoteNotificationsWithDeviceToken:`), certifique-se de que está passando o token para a mParticle atribuindo-o à propriedade de token de notificação por push, por exemplo: `MParticle.sharedInstance().pushNotificationToken = deviceToken`. O kit então o encaminhará para a Braze.
 5. **Incompatibilidade de ambiente:** confirme se o ambiente da credencial APNs (desenvolvimento vs. produção) corresponde à build do seu app. Para saber mais, consulte [Solução de problemas de push no iOS]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=swift).
 6. **Tempo de inicialização do kit:** Se você acessa a instância da Braze a partir de `didFinishLaunchingWithOptions`, o kit da mParticle pode não estar pronto quando um push chega. Inicialize o gerenciamento de push em [`userNotificationCenter(_:didReceive:withCompletionHandler:)`]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift) (ou no delegate equivalente de resposta de notificação) para que o kit da Braze esteja ativo quando o usuário abrir uma notificação.
@@ -285,7 +285,7 @@ A Braze contabiliza um ponto de dados cada vez que um atributo é passado para a
 
 Se eventos ou atributos da mParticle não estão aparecendo na Braze, o problema geralmente é uma configuração incorreta na sua conexão ou mapeamento de eventos da mParticle, e não uma indisponibilidade da Braze. Verifique o seguinte:
 
-- **Saída da conexão:** confirme se a Braze está ativada como saída para a conexão relevante e se a instância correta da Braze, o identificador do app e a chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional estão configurados.
+- **Saída da conexão:** confirme se a Braze está ativada como saída para a conexão relevante e se a instância correta da Braze, o identificador do app e a chave da API REST estão configurados.
 - **Mapeamento de identidade:** sincronizações servidor-a-servidor e de público exigem um `external_id`. Usuários anônimos não são encaminhados.
 - **Mapeamento de eventos:** verifique se os eventos estão sendo roteados para a saída da Braze e se tipos de dados não suportados (objetos aninhados, arrays em propriedades de eventos) não estão sendo descartados.
 

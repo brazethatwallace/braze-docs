@@ -28,7 +28,7 @@ Para baixar uma cópia dos seus dados, selecione <i class="fa-solid fa-bars" sty
 
 ## Calendário de envios {#send-calendar}
 
-O calendário de envios exibe as Campaigns agendadas para o mês atual. Canvas, Campaigns baseadas em ação e Campaigns disparadas por API or interface de programação do aplicativo (API) não são incluídas.
+O calendário de envios exibe as Campaigns agendadas para o mês atual. Canvas, Campaigns baseadas em ação e Campaigns disparadas por API não são incluídas.
 
 As Campaigns são codificadas por cor de acordo com o tipo na **Legenda**:
 

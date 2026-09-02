@@ -39,8 +39,8 @@ Antes de empezar, confirma que tienes lo siguiente:
 | ---------- | ----------- |
 | Cuenta de NiftyImages | Se requiere una [cuenta de NiftyImages](https://niftyimages.com/Signup) para crear y gestionar imágenes personalizadas, temporizadores, mapas, calendarios, rasca y gana, gráficos y otros elementos visuales dinámicos. |
 | Cuenta de Braze | Se requiere una cuenta de Braze para usar NiftyImages dentro de Campaigns de Braze, Canvas, plantillas de correo electrónico y canales de mensajería. |
-| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos `custom_attributes.get` y `content_blocks.create`.<br><br>Se puede crear en el dashboard de Braze desde **Configuración** > **API e identificadores**. |
-| Punto de conexión REST or transferencia de estado representacional de Braze | [La URL de tu punto de conexión REST or transferencia de estado representacional]({{site.baseurl}}/api/basics#endpoints). Tu punto de conexión depende de la URL de Braze para tu instancia. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `custom_attributes.get` y `content_blocks.create`.<br><br>Se puede crear en el dashboard de Braze desde **Configuración** > **API e identificadores**. |
+| Punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/api/basics#endpoints). Tu punto de conexión depende de la URL de Braze para tu instancia. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
@@ -53,19 +53,19 @@ Conecta tu cuenta de Braze en NiftyImages para sincronizar propiedades de contac
 2. Selecciona **Braze**.
 3. Selecciona **Connect Braze**.
 
-### Paso 2: Crea tu clave de API REST or transferencia de estado representacional de Braze {#step-2-create-your-braze-rest-api-key}
+### Paso 2: Crea tu clave de API REST de Braze {#step-2-create-your-braze-rest-api-key}
 
 1. En Braze, ve a **Configuración** > **API e identificadores**.
-2. Crea o selecciona una clave de API REST or transferencia de estado representacional para la integración de NiftyImages.
+2. Crea o selecciona una clave de API REST para la integración de NiftyImages.
 3. En **Custom Attributes**, selecciona `custom_attributes.get`.
 4. En **Content Blocks**, selecciona `content_blocks.create`.
-5. Guarda la clave de API, luego copia la clave de API REST or transferencia de estado representacional y tu [punto de conexión REST or transferencia de estado representacional]({{site.baseurl}}/api/basics#endpoints).
+5. Guarda la clave de API, luego copia la clave de API REST y tu [punto de conexión REST]({{site.baseurl}}/api/basics#endpoints).
 
 ### Paso 3: Conecta tu cuenta de Braze en NiftyImages {#step-3-connect-your-braze-account-in-niftyimages}
 
 1. Vuelve a la pantalla de integración de Braze en NiftyImages.
-2. Pega la clave de API REST or transferencia de estado representacional de Braze.
-3. Introduce tu punto de conexión REST or transferencia de estado representacional de Braze.
+2. Pega la clave de API REST de Braze.
+3. Introduce tu punto de conexión REST de Braze.
 4. Confirma la conexión.
 5. Verifica que tu cuenta de Braze aparezca en **Connected Braze accounts** con un estado **Active** o **Connected**.
 
@@ -117,7 +117,7 @@ Usa los Content Blocks publicados en plantillas de correo electrónico, Campaign
 
 ## Consideraciones {#considerations}
 
-- **Permisos de la REST or transferencia de estado representacional API:** La clave de API REST or transferencia de estado representacional de Braze debe incluir `custom_attributes.get` para la sincronización de propiedades de contacto y `content_blocks.create` para publicar activos en Content Blocks de Braze.
+- **Permisos de la REST API:** La clave de API REST de Braze debe incluir `custom_attributes.get` para la sincronización de propiedades de contacto y `content_blocks.create` para publicar activos en Content Blocks de Braze.
 - **Disponibilidad de propiedades de contacto:** Solo las propiedades de contacto disponibles para la cuenta de Braze conectada pueden sincronizarse en NiftyImages.
 - **Valores alternativos:** Usa valores alternativos al crear elementos visuales personalizados para que cada cliente vea una imagen pulida incluso cuando falta una propiedad de contacto.
 - **Content Blocks reutilizables:** Publicar en Content Blocks de Braze ayuda a los equipos a evitar copiar y pegar HTML manualmente, reducir errores de etiquetas merge y reutilizar activos en campañas y plantillas.
@@ -130,7 +130,7 @@ Consulta la siguiente tabla si experimentas problemas con la integración de Nif
 
 | Problema | Resolución |
 | -------- | ---------- |
-| La cuenta de Braze no se conecta | Confirma que la clave de API REST or transferencia de estado representacional sea válida, que el punto de conexión REST or transferencia de estado representacional sea correcto y que la clave incluya los permisos necesarios. |
+| La cuenta de Braze no se conecta | Confirma que la clave de API REST sea válida, que el punto de conexión REST sea correcto y que la clave incluya los permisos necesarios. |
 | Las propiedades de contacto de Braze no aparecen en NiftyImages | Confirma que la clave de API incluya `custom_attributes.get`. Luego actualiza la conexión de Braze dentro de NiftyImages. |
 | El activo no se publica en Content Blocks de Braze | Confirma que la clave de API incluya `content_blocks.create` y que la cuenta de Braze conectada permita la creación de Content Blocks. |
 | La personalización no se muestra correctamente | Verifica que la propiedad de contacto de Braze seleccionada contenga un valor para el usuario de prueba. Añade valores alternativos en NiftyImages donde sea necesario. |

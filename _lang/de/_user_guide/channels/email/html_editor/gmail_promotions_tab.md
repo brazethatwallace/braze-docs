@@ -111,7 +111,7 @@ Um Annotationen für Sendungen mit geringem Volumen zu testen, müssen Sie zunä
 
 ## Gmail-Karten messen {#measure-gmail-cards}
 
-Gmail liefert keine Analytics zu diesen Karten, und E-Mail-Anbieter (ESPs) wie Braze können kein eigenes Link-Tracking in Links im Header-Bereich (einschließlich Aktionskarten und Produktkarussells) einfügen. Sie können jedoch während der Einrichtung UTM-Parameter oder eindeutige Codes an die URLs anhängen. Diese Parameter ermöglichen es Ihnen, das Engagement über Ihre eigene Website-Analytics oder Ihr Conversion-Tracking zu verfolgen, da das Tracking Teil der URL selbst ist – und nicht vom E-Mail-Anbieter or ESP eingefügt wird. E-Mail-Anbieter or ESP-seitiges Klick-Tracking ist für diese Links nicht verfügbar.
+Gmail liefert keine Analytics zu diesen Karten, und E-Mail-Anbieter (ESPs) wie Braze können kein eigenes Link-Tracking in Links im Header-Bereich (einschließlich Aktionskarten und Produktkarussells) einfügen. Sie können jedoch während der Einrichtung UTM-Parameter oder eindeutige Codes an die URLs anhängen. Diese Parameter ermöglichen es Ihnen, das Engagement über Ihre eigene Website-Analytics oder Ihr Conversion-Tracking zu verfolgen, da das Tracking Teil der URL selbst ist – und nicht vom E-Mail-Anbieter eingefügt wird. E-Mail-Anbieter-seitiges Klick-Tracking ist für diese Links nicht verfügbar.
 
 ### Bilder einbinden {#incorporate-images}
 
@@ -155,7 +155,7 @@ Gmail empfiehlt, Folgendes zu vermeiden:
 - Verwendung von Bildern mit runden Masken
 - Verwendung personalisierter Bild-URLs
 
-### Bei DMARC Registrierung or registrieren {#register-with-dmarc}
+### Bei DMARC Registrierung {#register-with-dmarc}
 
 Damit Ihre Annotationen korrekt gerendert werden, bestätigen Sie, dass die eingereichten Domains bei DMARC registriert sind und alle Richtlinien aktiviert sind.
 

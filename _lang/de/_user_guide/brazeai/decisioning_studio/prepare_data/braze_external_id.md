@@ -20,7 +20,7 @@ Decisioning Studio arbeitet ausschließlich mit der Braze externen ID als Einhei
 
 Viele Organisationen pflegen zwei verschiedene Kundenbezeichnersysteme:
 
-- **Eine Warehouse- oder System-of-Record-ID** (manchmal als „kanonische ID“ oder „physische ID“ bezeichnet): die maßgebliche Quelle für Metriken wie LTV or Lifetime-Value or Lifetime-Value, Retouren und Loyalität. Sie befindet sich in Ihrem Data Warehouse oder ERP.
+- **Eine Warehouse- oder System-of-Record-ID** (manchmal als „kanonische ID“ oder „physische ID“ bezeichnet): die maßgebliche Quelle für Metriken wie LTV, Retouren und Loyalität. Sie befindet sich in Ihrem Data Warehouse oder ERP.
 - **Eine Plattform-ID:** der Bezeichner, der von Tools wie Braze verwendet wird und typischerweise an eine E-Mail-Adresse, ein Geräte-Token / Textbaustein oder einen ähnlichen Aktivierungskanal gebunden ist.
 
 Die Versuchung besteht darin, die Warehouse-ID für den Aufbau von Kunden-Features zu verwenden (da dort die Daten liegen) und die Braze-ID für die Aktivierung (da Braze diese nutzt). Dies erfordert jedoch eine Übersetzungsschicht zwischen den beiden Systemen, und diese Übersetzungsschicht führt zu Fragilität.
@@ -47,7 +47,7 @@ Durch die Arbeit mit der Braze externen ID ist Decisioning Studio von Änderunge
 
 #### Saubere Kanaltrennung {#clean-channel-separation}
 
-In Braze entspricht ein Kundenprofil or Nutzerprofil einem erreichbaren Kommunikationskanal. Wenn eine Kund:in zwei E-Mail-Adressen registriert, hat sie zwei separate Braze-Profile mit zwei separaten Braze externen IDs. Decisioning Studio behandelt diese als zwei getrennte Entitäten, was bedeutet, dass Empfehlungen und Ereignisverlauf für eine E-Mail-Adresse nicht durch Aktivitäten der anderen kontaminiert werden.
+In Braze entspricht ein Kundenprofil einem erreichbaren Kommunikationskanal. Wenn eine Kund:in zwei E-Mail-Adressen registriert, hat sie zwei separate Braze-Profile mit zwei separaten Braze externen IDs. Decisioning Studio behandelt diese als zwei getrennte Entitäten, was bedeutet, dass Empfehlungen und Ereignisverlauf für eine E-Mail-Adresse nicht durch Aktivitäten der anderen kontaminiert werden.
 
 Dies verhindert, was man als „Kontextschleichen“ bezeichnen könnte. Das Empfehlungssystem würde beispielsweise nicht arbeitsbezogenes Kaufverhalten in Empfehlungen einfließen lassen, die an ein persönliches E-Mail-Konto gesendet werden.
 

@@ -45,7 +45,7 @@ As etapas a seguir descrevem como integrar a LiveRamp com a Braze por meio do Sn
 
 ### Etapa 1: Solicite um compartilhamento de dados da Braze {#step-1-request-a-data-share-from-braze}
 
-Primeiro, entre em contato com seu gerente de conta da Braze ou gerente de sucesso do cliente para comprar um Conector de Compartilhamento de Dados Snowflake para sua conta Braze. Quando você solicitar um compartilhamento de dados, a Braze provisionará o compartilhamento a partir do(s) espaço(s) de trabalho em que o compartilhamento foi adquirido. Depois que o compartilhamento é provisionado, todos os dados ficam imediatamente acessíveis a partir da sua instância do Snowflake na forma de um compartilhamento de dados de entrada. Quando o compartilhamento estiver visível em sua instância, crie um banco de dados a partir do compartilhamento para poder ver e consultar as tabelas.
+Primeiro, entre em contato com seu gerente de conta da Braze ou CSM para comprar um Conector de Compartilhamento de Dados Snowflake para sua conta Braze. Quando você solicitar um compartilhamento de dados, a Braze provisionará o compartilhamento a partir do(s) espaço(s) de trabalho em que o compartilhamento foi adquirido. Depois que o compartilhamento é provisionado, todos os dados ficam imediatamente acessíveis a partir da sua instância do Snowflake na forma de um compartilhamento de dados de entrada. Quando o compartilhamento estiver visível em sua instância, crie um banco de dados a partir do compartilhamento para poder ver e consultar as tabelas.
 
 Para obter um passo a passo completo, consulte o [guia de integração do Snowflake com a Braze]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/).
 

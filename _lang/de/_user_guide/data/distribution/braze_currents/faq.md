@@ -37,7 +37,7 @@ Avro unterstützt im Gegensatz zu schemalosem JSON nativ die Schema-Evolution. D
 
 ## Wie geht Braze mit Datei-Overhead um? {#how-does-braze-handle-file-overhead}
 
-Wir bauen einen ETL or Extract, Transform, Load or Extract, Transform, Load (ETL or Extract, Transform, Load)-Prozess auf, mit dem Sie große Datenmengen aus einer Datenbank abrufen und in einer anderen ablegen und speichern können.
+Wir bauen einen ETL (ETL)-Prozess auf, mit dem Sie große Datenmengen aus einer Datenbank abrufen und in einer anderen ablegen und speichern können.
 
 ## Wo sollte ich diese Daten für Abfragen speichern? {#where-should-i-store-this-data-for-querying}
 
@@ -68,18 +68,18 @@ Currents und das Braze-Dashboard berechnen bestimmte Metriken unterschiedlich, d
 
 **Eindeutige Klicks:** Für E-Mails erfasst das Dashboard eindeutige Klicks über einen Zeitraum von sieben Tagen und misst sie anhand der `dispatch_id`. Currents zeichnet jedes einzelne Klick-Event auf. Um die auf Currents basierenden eindeutigen Klick-Zahlen mit den Dashboard-Metriken abzugleichen, filtern Sie nach Events, bei denen `is_unique` auf `true` gesetzt ist.
 
-**Abmeldungen:** Die Dashboard-Metrik *Unsub* spiegelt Klicks auf den Standard-Abmeldelink von Braze wider. Angepasste Abmeldeseiten erhöhen diese Metrik nicht, es sei denn, Sie Update or aktualisieren or aktualisieren die Nutzer:innen über die API. Das Currents-Event `users.messages.email.Unsubscribe` ist ein spezielles Klick-Event, das ausgelöst wird, wenn Nutzer:innen auf einen Abmeldelink im E-Mail-Text oder in der Fußzeile klicken oder den List-Unsubscribe-Header verwenden. Es repräsentiert nicht jede Änderung des E-Mail-Abostatus.
+**Abmeldungen:** Die Dashboard-Metrik *Unsub* spiegelt Klicks auf den Standard-Abmeldelink von Braze wider. Angepasste Abmeldeseiten erhöhen diese Metrik nicht, es sei denn, Sie aktualisieren die Nutzer:innen über die API. Das Currents-Event `users.messages.email.Unsubscribe` ist ein spezielles Klick-Event, das ausgelöst wird, wenn Nutzer:innen auf einen Abmeldelink im E-Mail-Text oder in der Fußzeile klicken oder den List-Unsubscribe-Header verwenden. Es repräsentiert nicht jede Änderung des E-Mail-Abostatus.
 
 **Zeitstempel und Zeitzonen:** Alle Currents-Zeitstempel sind in UTC. Dashboard-Metriken richten sich nach der Zeitzone Ihres Unternehmens. Wenn Sie Currents-Daten nach Kalendertag aggregieren, ohne sie in die Zeitzone Ihres Unternehmens umzurechnen, können Zählwerte in andere Datums-Buckets fallen als im Dashboard angezeigt.
 
 **Doppelte Events:** Currents bietet eine At-Least-Once-Zustellung, was bedeutet, dass gelegentlich doppelte Events geschrieben werden können. Deduplizieren Sie anhand des eindeutigen `id`-Feldes jedes Events, bevor Sie Gesamtzahlen mit Dashboard-Metriken vergleichen.
 
-## Warum weicht die `external_user_id` (Braze-Schema: `external_id`) in meinem Currents-E-Mail-Öffnungs- oder Klick-Event vom Kundenprofil or Nutzerprofil im Braze-Dashboard ab? {#why-does-the-external_user_id-braze-schema-external_id-in-my-currents-email-open-or-click-event-differ-from-the-user-profile-in-the-braze-dashboard}
+## Warum weicht die `external_user_id` (Braze-Schema: `external_id`) in meinem Currents-E-Mail-Öffnungs- oder Klick-Event vom Kundenprofil im Braze-Dashboard ab? {#why-does-the-external_user_id-braze-schema-external_id-in-my-currents-email-open-or-click-event-differ-from-the-user-profile-in-the-braze-dashboard}
 
 - **Im Braze-Dashboard:** Wenn eine mit einer E-Mail-Adresse verknüpfte Person eine E-Mail öffnet oder anklickt, werden alle Nutzerprofile, die diese E-Mail-Adresse teilen, als geöffnet bzw. angeklickt markiert. Weitere Informationen finden Sie unter [Was passiert, wenn eine E-Mail versendet wird und mehrere Profile dieselbe E-Mail-Adresse haben?]({{site.baseurl}}/user_guide/channels/email/faq#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address).
 - **In Currents:** Derselbe Öffnungs- oder Klick-Vorgang wird nur in einem Profil gespeichert. Braze ordnet ihn dem Profil zu, das ursprünglich für den Versand ausgewählt wurde, sofern dieses Profil die E-Mail-Adresse noch teilt. Andernfalls ordnet Braze ihn einem zufällig ausgewählten Profil unter denjenigen zu, die die E-Mail-Adresse gemeinsam nutzen.
 
-Aus diesem Grund stimmt der `external_user_id`-Wert (in der Braze-Schema-Zuordnungstabelle als `external_id` bezeichnet) eines Currents-E-Mail-Öffnungs- oder Klick-Events möglicherweise nicht mit dem Kundenprofil or Nutzerprofil überein, das Sie erwarten, wenn Sie Currents mit dem Braze-Dashboard vergleichen.
+Aus diesem Grund stimmt der `external_user_id`-Wert (in der Braze-Schema-Zuordnungstabelle als `external_id` bezeichnet) eines Currents-E-Mail-Öffnungs- oder Klick-Events möglicherweise nicht mit dem Kundenprofil überein, das Sie erwarten, wenn Sie Currents mit dem Braze-Dashboard vergleichen.
 
 ## Werden alle Sende-Events in Currents protokolliert? {#are-all-send-events-logged-to-currents}
 
@@ -97,7 +97,7 @@ Braze füllt keine Events nachträglich in Currents auf. Angepasste Events könn
 
 Message-Engagement-Events (Versand, Öffnungen, Klicks usw.) enthalten die Braze-Nutzer-ID (`user_id`) und, sofern im Profil vorhanden, den externen Bezeichner (`external_user_id` in Event-Payloads, in der Braze-Schemazuordnungstabelle als `external_id` bezeichnet). Einige E-Mail-Message-Engagement-Events enthalten auch `email_address`. Angepasste Attribute sind nicht enthalten.
 
-Wenn Sie Currents-Daten an ein Data Warehouse oder CRM or Customer-Relationship-Management [-System] (CRM) weiterleiten und mit Profildaten verknüpfen müssen, führen Sie diesen Join in Ihrem nachgelagerten System mithilfe von `user_id` oder `external_user_id` durch.
+Wenn Sie Currents-Daten an ein Data Warehouse oder CRM weiterleiten und mit Profildaten verknüpfen müssen, führen Sie diesen Join in Ihrem nachgelagerten System mithilfe von `user_id` oder `external_user_id` durch.
 
 ## Kann ich angepasste Attribute in Currents-Sende-Events einbeziehen? {#can-i-include-custom-attributes-in-currents-send-events}
 
@@ -105,7 +105,7 @@ Nein. Currents enthält keine angepassten Attribute in Sende-Events. Currents pr
 
 ## Enthält Currents Campaign- oder Canvas-Tags oder Schlüssel-Wert-Paare? {#does-currents-include-campaign-or-canvas-tags-or-key-value-pairs}
 
-Nein. Currents enthält keine Campaign- oder Canvas-Tags oder Schlüssel-Wert-Paare auf Nachrichtenebene. Um Tag-Daten abzurufen, verwenden Sie die [Export-Representational State Transfer-API]({{site.baseurl}}/api/endpoints/export). Als alternative Lösung können Sie einen Webhook-Kanal in einer Campaign nutzen, um Tag- oder Schlüssel-Wert-Paar-Daten an Ihren eigenen Endpunkt zu senden, indem Sie [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) verwenden, um die Werte als Template einzusetzen.
+Nein. Currents enthält keine Campaign- oder Canvas-Tags oder Schlüssel-Wert-Paare auf Nachrichtenebene. Um Tag-Daten abzurufen, verwenden Sie die [Export-REST-API]({{site.baseurl}}/api/endpoints/export). Als alternative Lösung können Sie einen Webhook-Kanal in einer Campaign nutzen, um Tag- oder Schlüssel-Wert-Paar-Daten an Ihren eigenen Endpunkt zu senden, indem Sie [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) verwenden, um die Werte als Template einzusetzen.
 
 ## Wie informiert Braze Kund:innen über Änderungen an Currents? {#how-does-braze-notify-customers-of-changes-to-currents}
 
@@ -121,9 +121,9 @@ Wenn Sie eine neue Campaign oder einen neuen Canvas erstellen, kann es einige Ze
 
 ## Warum sind Sitzungsende-Events in Currents verzögert oder fehlen? {#why-are-session-end-events-delayed-or-missing-in-currents}
 
-Sitzungsende-Events folgen dem normalen Upload-Zeitplan des SDK or Software-Development-Kit. Das Braze SDK or Software-Development-Kit speichert Sitzungsdaten lokal zwischen und sendet sie in regelmäßigen Abständen abhängig von der Netzwerkqualität – beispielsweise etwa alle 10 Sekunden bei einer starken Verbindung. Solange das SDK or Software-Development-Kit das Event nicht hochgeladen hat, erscheint es nicht in Currents.
+Sitzungsende-Events folgen dem normalen Upload-Zeitplan des SDK. Das Braze SDK speichert Sitzungsdaten lokal zwischen und sendet sie in regelmäßigen Abständen abhängig von der Netzwerkqualität – beispielsweise etwa alle 10 Sekunden bei einer starken Verbindung. Solange das SDK das Event nicht hochgeladen hat, erscheint es nicht in Currents.
 
-Wenn Nutzer:innen die App erzwungen beenden oder offline gehen, bevor der nächste Flush stattfindet, kann das Sitzungsende-Event verspätet oder gar nicht eintreffen. Unter iOS werden Sitzungsende-Events häufig erst gesendet, wenn die App erneut geöffnet wird, da das SDK or Software-Development-Kit keine Daten übertragen kann, während die App im Hintergrund läuft.
+Wenn Nutzer:innen die App erzwungen beenden oder offline gehen, bevor der nächste Flush stattfindet, kann das Sitzungsende-Event verspätet oder gar nicht eintreffen. Unter iOS werden Sitzungsende-Events häufig erst gesendet, wenn die App erneut geöffnet wird, da das SDK keine Daten übertragen kann, während die App im Hintergrund läuft.
 
 Wenn Sie zeitnahere Sitzungsgrenzen in Currents benötigen, rufen Sie `requestImmediateDataFlush()` an Lifecycle-Punkten auf, z. B. wenn die App in den Hintergrund wechselt oder in den Vordergrund zurückkehrt. Weitere Informationen finden Sie unter [Daten-Upload und -Download]({{site.baseurl}}/developer_guide/getting_started/sdk_overview#data-upload-and-download) und [Sitzungsende und Sitzungsstart haben ähnliche Zeitstempel (iOS)]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log#session-end-and-session-start-have-similar-timestamps-ios).
 
@@ -135,7 +135,7 @@ Wenn Ihr Storage-Bucket zum Zeitpunkt der Datenübertragung nicht verfügbar ist
 
 Currents verwendet separate Berechtigungspools für unterschiedliche Konnektor-Funktionen:
 
-- **Engagement Events**: Erforderlich, um einen Standard-Currents-Konnektor zu erstellen oder zu Update or aktualisieren or aktualisieren.
+- **Engagement Events**: Erforderlich, um einen Standard-Currents-Konnektor zu erstellen oder zu aktualisieren.
 - **Customer Behavior Events**: Erforderlich, um **Track Customer Behavior and User Events** zu aktivieren.
 - **User Profiles and Attributes**: Erforderlich, um **Track user profiles and attributes** zu aktivieren.
 

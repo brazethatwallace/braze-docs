@@ -12,7 +12,7 @@ description: "Dieser Artikel beschreibt die Details des Endpunkts „Übersetzun
 {% api %}
 # Übersetzung für ein Canvas anzeigen {#view-translation-for-a-canvas}
 {% apimethod get %}
-/Canvas/translations
+/canvas/translations
 {% endapimethod %}
 
 > Verwenden Sie diesen Endpunkt, um eine Vorschau einer übersetzten Nachricht für ein Canvas anzuzeigen. Weitere Informationen zu Übersetzungsfeatures finden Sie unter [Locales in Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages).

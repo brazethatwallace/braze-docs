@@ -19,7 +19,7 @@ Braze verwendet globale Abo-Status, um zu steuern, welche Nutzer:innen E-Mails e
 
 ### Abgemeldete E-Mail-Adressen {#unsubscribed-email-addresses}
 
-Braze meldet automatisch jede Nutzer:in ab, die sich manuell über eine [angepasste Fußzeile]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer) abmeldet. Wenn die Nutzer:in ihre E-Mail-Adresse aktualisiert und **Resubscribe users when they Update or aktualisieren their email** in der **Sendekonfiguration** aktiviert ist, wird der normale Versand fortgesetzt.
+Braze meldet automatisch jede Nutzer:in ab, die sich manuell über eine [angepasste Fußzeile]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer) abmeldet. Wenn die Nutzer:in ihre E-Mail-Adresse aktualisiert und **Resubscribe users when they update their email** in der **Sendekonfiguration** aktiviert ist, wird der normale Versand fortgesetzt.
 
 Wenn eine Nutzer:in eine oder mehrere Ihrer E-Mails als Spam markiert, sendet Braze nur noch Transaktions-E-Mails an diese Nutzer:in. Transaktions-E-Mails beziehen sich auf die Option **Send to all users including unsubscribed users** unter **Target Audience**.
 
@@ -33,24 +33,24 @@ Lesen Sie unsere Best Practices zum [IP-Warming]({{site.baseurl}}/user_guide/cha
 
 Wenn eine E-Mail-Adresse einen Hard Bounce verursacht, setzt Braze den Abo-Status der Nutzer:in nicht automatisch auf „Abgemeldet“. Wenn eine Adresse einen Hard Bounce verursacht (ungültig oder nicht vorhanden), markiert Braze sie als ungültig und unternimmt keine weiteren Zustellversuche. Wenn die Nutzer:in ihre E-Mail-Adresse ändert, nimmt Braze den Versand wieder auf. Braze versucht Soft Bounces 72 Stunden lang erneut zuzustellen.
 
-### E-Mail-Abo-Status Update or aktualisieren or aktualisieren {#updating-email-subscription-states}
+### E-Mail-Abo-Status aktualisieren {#updating-email-subscription-states}
 
-Es gibt vier Möglichkeiten, den E-Mail-Abo-Status einer Nutzer:in zu Update or aktualisieren or aktualisieren:
+Es gibt vier Möglichkeiten, den E-Mail-Abo-Status einer Nutzer:in zu aktualisieren:
 
-#### SDK or Software-Development-Kit-Integration {#sdk-integration}
+#### SDK-Integration {#sdk-integration}
 
-Verwenden Sie das Braze SDK or Software-Development-Kit, um den Abo-Status einer Nutzer:in zu Update or aktualisieren or aktualisieren.
+Verwenden Sie das Braze SDK, um den Abo-Status einer Nutzer:in zu aktualisieren.
 
-#### Representational State Transfer API
+#### REST API
 
-Verwenden Sie den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track), um das [`email_subscribe`-Attribut]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields) für eine Nutzer:in zu Update or aktualisieren or aktualisieren. Um beispielsweise den E-Mail-Abo-Status einer Nutzer:in auf „Abgemeldet“ zu setzen, wenn sie einen angepassten Abmeldelink verwendet, fügen Sie `email_subscribe: "unsubscribed"` in den Nutzerattributen Ihrer Anfrage ein.
+Verwenden Sie den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track), um das [`email_subscribe`-Attribut]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields) für eine Nutzer:in zu aktualisieren. Um beispielsweise den E-Mail-Abo-Status einer Nutzer:in auf „Abgemeldet“ zu setzen, wenn sie einen angepassten Abmeldelink verwendet, fügen Sie `email_subscribe: "unsubscribed"` in den Nutzerattributen Ihrer Anfrage ein.
 
-#### Kundenprofil or Nutzerprofil {#user-profile}
+#### Kundenprofil {#user-profile}
 
 1. Suchen Sie die Nutzer:in über **Nutzer:innen suchen**.
 2. Wählen Sie unter **Engagement** die Option **Unsubscribed**, **Subscribed** oder **Opted In**, um den Abo-Status der Nutzer:in zu ändern.
 
-Das Kundenprofil or Nutzerprofil zeigt auch einen Zeitstempel an, wann das Abo der Nutzer:in zuletzt geändert wurde. Ein Zeitstempel wird aufgezeichnet, wenn der Status **Opted-in** oder **Unsubscribed** ist, aber nicht, wenn der Status **Subscribed** ist – beispielsweise hat ein neu erstelltes Profil, das sich nie explizit an- oder abgemeldet hat, keinen Abo-Zeitstempel.
+Das Kundenprofil zeigt auch einen Zeitstempel an, wann das Abo der Nutzer:in zuletzt geändert wurde. Ein Zeitstempel wird aufgezeichnet, wenn der Status **Opted-in** oder **Unsubscribed** ist, aber nicht, wenn der Status **Subscribed** ist – beispielsweise hat ein neu erstelltes Profil, das sich nie explizit an- oder abgemeldet hat, keinen Abo-Zeitstempel.
 
 #### Präferenzzentrum {#preference-center}
 
@@ -62,10 +62,10 @@ Fügen Sie [Präferenzzentrum](#email-preference-center)-Liquid am Ende Ihrer E-
 
 Sie können den E-Mail-Abo-Status einer Nutzer:in auf folgende Weise überprüfen:
 
-1. **Representational State Transfer-API-Export:** Verwenden Sie die Endpunkte [Nutzer:innen nach Segment exportieren]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) oder [Nutzer:innen nach Bezeichner exportieren]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier), um einzelne Nutzerprofile im JSON-Format zu exportieren.
-2. **Kundenprofil or Nutzerprofil:** Suchen Sie das Profil der Nutzer:in auf der Seite [Nutzer:innen suchen]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles), wählen Sie dann den Tab **Engagement**, um den Abo-Status der Nutzer:in einzusehen und manuell zu Update or aktualisieren or aktualisieren.
+1. **REST-API-Export:** Verwenden Sie die Endpunkte [Nutzer:innen nach Segment exportieren]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) oder [Nutzer:innen nach Bezeichner exportieren]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier), um einzelne Nutzerprofile im JSON-Format zu exportieren.
+2. **Kundenprofil:** Suchen Sie das Profil der Nutzer:in auf der Seite [Nutzer:innen suchen]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles), wählen Sie dann den Tab **Engagement**, um den Abo-Status der Nutzer:in einzusehen und manuell zu aktualisieren.
 
-Wenn eine Nutzer:in ihre E-Mail-Adresse aktualisiert, wird ihr Abo-Status auf „Subscribed“ gesetzt. Wenn die aktualisierte E-Mail-Adresse bereits an anderer Stelle in einem Braze-Workspace existiert, übernimmt die Nutzer:in den Abo-Status von dieser bestehenden Nutzer:in, es sei denn, **Resubscribe users when they Update or aktualisieren their email setting** ist in der **Sendekonfiguration** aktiviert.
+Wenn eine Nutzer:in ihre E-Mail-Adresse aktualisiert, wird ihr Abo-Status auf „Subscribed“ gesetzt. Wenn die aktualisierte E-Mail-Adresse bereits an anderer Stelle in einem Braze-Workspace existiert, übernimmt die Nutzer:in den Abo-Status von dieser bestehenden Nutzer:in, es sei denn, **Resubscribe users when they update their email setting** ist in der **Sendekonfiguration** aktiviert.
 
 Um Änderungen des Abo-Status nachzuvollziehen, überprüfen Sie das Currents-Ereignis [Global Subscription State Change]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#global-subscription-state-change-events) (`users.behaviors.subscription.GlobalStateChange`), das den Verlauf und die Quelle von Abo-Statusänderungen enthält.
 
@@ -73,9 +73,9 @@ Die folgenden Quellen können eine Änderung des E-Mail-Abo-Status auslösen:
 
 | Quelle | Beschreibung |
 | ------ | ----------- |
-| SDK or Software-Development-Kit | Nutzerattribut-Update or aktualisieren, gesendet über ein Braze SDK or Software-Development-Kit |
-| Representational State Transfer API | Nutzerattribut-Update or aktualisieren, gesendet über den [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)-Endpunkt |
-| Dashboard | Abo-Status manuell auf der Kundenprofil or Nutzerprofil-Seite geändert |
+| SDK | Nutzerattribut-Update, gesendet über ein Braze SDK |
+| REST API | Nutzerattribut-Update, gesendet über den [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)-Endpunkt |
+| Dashboard | Abo-Status manuell auf der Kundenprofil-Seite geändert |
 | CSV-Import | Abo-Status während eines Nutzer-CSV-Imports festgelegt |
 | Präferenzzentrum | Nutzer:in hat ihre Präferenz über ein von Braze gehostetes Präferenzzentrum aktualisiert |
 | Abo-Seite | Nutzer:in hat einen Abmeldelink in einer E-Mail ausgewählt und ist auf der Braze-Abo-Seite gelandet |
@@ -102,12 +102,12 @@ Weitere Informationen zum Hinzufügen oder Anpassen eines Einstellungscenters fi
 In den meisten Fällen verwalten Nutzer:innen ihr E-Mail-Abo über Links in den E-Mails, die sie erhalten. Fügen Sie am Ende jeder E-Mail eine rechtskonforme Fußzeile mit einem Abmeldelink ein. Wenn Nutzer:innen die Abmelde-URL auswählen, meldet Braze sie ab und zeigt eine Landing-Page an, die die Änderung bestätigt. Verwenden Sie diesen Liquid-Tag: {%raw%}`${set_user_to_unsubscribed_url}`{%endraw%}.
 
 {% alert note %}
-Sie können den Liquid-Tag {%raw%}`${set_user_to_unsubscribed_url}`{%endraw%} nur in E-Mail-Campaigns und Canvase verwenden. In anderen Messaging-Kanälen können Sie diesen Tag nicht nutzen.
+Sie können den Liquid-Tag {%raw%}`${set_user_to_unsubscribed_url}`{%endraw%} nur in E-Mail-Campaigns und Canvases verwenden. In anderen Messaging-Kanälen können Sie diesen Tag nicht nutzen.
 {% endalert %}
 
 Wenn eine Nutzer:in im Präferenzzentrum „Von allen aufgelisteten E-Mail-Typen abmelden“ auswählt, setzt Braze ihren globalen E-Mail-Abo-Status auf `unsubscribed` und meldet sie von allen Gruppen ab.
 
-Empfängerseitige E-Mail-Abmeldungen – Abmeldelinks, List-Unsubscribe, Einreichungen über das Präferenzzentrum und E-Mail-Anbieter or ESP-gemeldete Abmeldungen – erscheinen in der Snowflake-Tabelle `USERS_MESSAGES_EMAIL_UNSUBSCRIBE`. Abmeldungen über die Representational State Transfer API sind in dieser Tabelle nicht enthalten; stattdessen erzeugen sie [`users.behaviors.subscriptiongroup.StateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#subscription-group-state-change-events)- oder [`users.behaviors.subscription.GlobalStateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#global-subscription-state-change-events)-Ereignisse. Das Tabellenschema finden Sie unter [USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED).
+Empfängerseitige E-Mail-Abmeldungen – Abmeldelinks, List-Unsubscribe, Einreichungen über das Präferenzzentrum und E-Mail-Anbieter-gemeldete Abmeldungen – erscheinen in der Snowflake-Tabelle `USERS_MESSAGES_EMAIL_UNSUBSCRIBE`. Abmeldungen über die REST API sind in dieser Tabelle nicht enthalten; stattdessen erzeugen sie [`users.behaviors.subscriptiongroup.StateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#subscription-group-state-change-events)- oder [`users.behaviors.subscription.GlobalStateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#global-subscription-state-change-events)-Ereignisse. Das Tabellenschema finden Sie unter [USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED).
 
 ### Angepasste Fußzeilen erstellen {#custom-footer}
 
@@ -128,9 +128,9 @@ Um stattdessen eine angepasste Landing-Page zu verwenden:
 1. Gehen Sie zu **E-Mail-Präferenzen** > **Abo-Seiten und -Fußzeilen**.
 2. Fügen Sie den HTML-Code für Ihre angepasste Seite hinzu.
 
-Fügen Sie einen Link zur erneuten Anmeldung ein (z. B. {% raw %}`{{${set_user_to_subscribed_url}}}`{% endraw %}), damit Nutzer:innen eine versehentliche Abmeldung rückgängig machen können. Wie bei {% raw %}`${set_user_to_unsubscribed_url}`{% endraw %} können Sie diesen Tag nur in E-Mail-Campaigns und Canvase verwenden.
+Fügen Sie einen Link zur erneuten Anmeldung ein (z. B. {% raw %}`{{${set_user_to_subscribed_url}}}`{% endraw %}), damit Nutzer:innen eine versehentliche Abmeldung rückgängig machen können. Wie bei {% raw %}`${set_user_to_unsubscribed_url}`{% endraw %} können Sie diesen Tag nur in E-Mail-Campaigns und Canvases verwenden.
 
-Sie können Nutzer:innen auch auf Ihre Website weiterleiten und den Status über die Braze Representational State Transfer API Update or aktualisieren or aktualisieren (z. B. mit einem Link mit {% raw %}`?user_id={{${user_id}}}`{% endraw %} und anschließendem Aufruf von [`/email/status`]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status)).
+Sie können Nutzer:innen auch auf Ihre Website weiterleiten und den Status über die Braze REST API aktualisieren (z. B. mit einem Link mit {% raw %}`?user_id={{${user_id}}}`{% endraw %} und anschließendem Aufruf von [`/email/status`]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status)).
 
 {% alert note %}
 Wenn Sie die Dashboard-Fußzeile anstelle eines reinen HTML-Content-Blocks verwenden, muss das Template dennoch {% raw %}`{{${set_user_to_unsubscribed_url}}}`{% endraw %} enthalten, um gespeichert werden zu können. Um vorübergehend eine andere Abmelde-URL zu verwenden, können Sie den Standard-Tag auskommentieren. Ein Beispiel: {% raw %}`<!-- {{${set_user_to_unsubscribed_url}}} -->`{% endraw %}.
@@ -146,7 +146,7 @@ Verwenden Sie eine angepasste Opt-in-Seite, damit Nutzer:innen ihre Benachrichti
 2. Wählen Sie **Abo-Seiten und -Fußzeilen**.
 3. Passen Sie das Styling im Abschnitt **Angepasste Opt-in-Seite** an, um zu sehen, wie Ihren Nutzer:innen angezeigt wird, dass sie abonniert wurden.
 
-Nutzer:innen erreichen diese Seite über den Tag {% raw %}`{{${set_user_to_opted_in_url}}}`{% endraw %}. Wie bei anderen E-Mail-Abo-Liquid-Tags können Sie diesen Tag nur in E-Mail-Campaigns und Canvase verwenden.
+Nutzer:innen erreichen diese Seite über den Tag {% raw %}`{{${set_user_to_opted_in_url}}}`{% endraw %}. Wie bei anderen E-Mail-Abo-Liquid-Tags können Sie diesen Tag nur in E-Mail-Campaigns und Canvases verwenden.
 
 {% alert tip %}
 Verwenden Sie einen Double-Opt-in-Prozess, um Ihre Reichweite zu verbessern. Braze sendet eine zusätzliche Bestätigungs-E-Mail, in der Nutzer:innen ihre Benachrichtigungspräferenzen über einen Link bestätigen. Nach der Bestätigung sind die Nutzer:innen opted-in.

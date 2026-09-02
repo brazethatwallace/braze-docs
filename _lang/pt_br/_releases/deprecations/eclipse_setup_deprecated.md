@@ -1,12 +1,12 @@
 ---
-nav_title: Configuração inicial do SDK or kit de desenvolvimento de software com o Eclipse
+nav_title: Configuração inicial do SDK com o Eclipse
 page_order: 1
 page_type: update
 noindex: true
-description: "Este artigo arquivado descreve como realizar uma configuração inicial do SDK or kit de desenvolvimento de software com o Eclipse. A Braze descontinuou o suporte ao Eclipse IDE."
+description: "Este artigo arquivado descreve como realizar uma configuração inicial do SDK com o Eclipse. A Braze descontinuou o suporte ao Eclipse IDE."
 ---
 
-# Configuração inicial do SDK or kit de desenvolvimento de software com o Eclipse {#initial-sdk-setup-with-eclipse}
+# Configuração inicial do SDK com o Eclipse {#initial-sdk-setup-with-eclipse}
 
 {% alert update %}
 A Braze removeu o suporte ao Eclipse IDE devido ao [encerramento do suporte do Google ao plug-in Eclipse Android Developer Tools](http://android-developers.blogspot.com/2015/06/an-update-on-eclipse-android-developer.html). Se precisar de ajuda com a integração com o Eclipse antes da migração, [envie um e-mail para o Suporte]({{site.baseurl}}/support_contact/) para obter assistência.
@@ -44,7 +44,7 @@ No Eclipse:
   - Clique com o botão direito do mouse no seu projeto e selecione "Properties".
 
     ![Clique em Properties]({{site.baseurl}}/assets/img_archive/click_properties.png)
-  - Em "Android", clique em "Add..." na seção Library e adicione android-SDK or kit de desenvolvimento de software-ui como uma biblioteca ao seu app.
+  - Em "Android", clique em "Add..." na seção Library e adicione android-sdk-ui como uma biblioteca ao seu app.
 
     ![Adicionar Braze]({{site.baseurl}}/assets/img_archive/add_appboy_ui.png)
 
@@ -64,8 +64,8 @@ Nesse momento, você poderá ver erros no código da Braze, porque suas dependê
 
 Adicione os itens finais.
 
-  - Para a versão 1.10.0 ou superior do SDK or kit de desenvolvimento de software, você precisará adicionar
+  - Para a versão 1.10.0 ou superior do SDK, você precisará adicionar
   `<service android:name="com.appboy.services.AppboyDataSyncService" />`
   ao seu AndroidManifest.xml, pois o Eclipse não oferece suporte à mesclagem de manifestos.
 
-  - Para a versão 1.7.0 ou superior do SDK or kit de desenvolvimento de software, você precisará copiar "assets/fontawesome-webfont.ttf" do nosso projeto de biblioteca para o seu aplicativo. O Eclipse não inclui automaticamente a pasta de ativos das bibliotecas.
+  - Para a versão 1.7.0 ou superior do SDK, você precisará copiar "assets/fontawesome-webfont.ttf" do nosso projeto de biblioteca para o seu aplicativo. O Eclipse não inclui automaticamente a pasta de ativos das bibliotecas.

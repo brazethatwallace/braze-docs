@@ -9,7 +9,7 @@ page_type: reference
 description: "Este artigo traz informações sobre o endpoint da Braze \"Excluir vários itens do catálogo\"."
 
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Excluir vários itens do catálogo {#delete-multiple-catalog-items}
 {% apimethod delete %}
 /catalogs/{catalog_name}/items
@@ -23,7 +23,7 @@ Cada solicitação pode suportar até 50 itens. Esse endpoint é assíncrono.
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `catalogs.delete_items`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `catalogs.delete_items`.
 
 ## Limite de frequência {#rate-limit}
 

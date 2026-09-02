@@ -19,7 +19,7 @@ Cuando envías correos electrónicos transaccionales, como confirmaciones de ped
 Usa esta característica para:
 
 - **Monitorear tus correos electrónicos en tiempo real:** Ver de inmediato si los mensajes se envían, procesan, entregan o encuentran problemas.
-- **Responder de forma proactiva:** Reintentar mensajes, cambiar a otro canal como servicio de mensajes cortos o usar sistemas alternativos para asegurarte de que tus comunicaciones se entreguen.
+- **Responder de forma proactiva:** Reintentar mensajes, cambiar a otro canal como SMS o usar sistemas alternativos para asegurarte de que tus comunicaciones se entreguen.
 
 ## Seguimiento de tus correos electrónicos transaccionales {#tracking-your-transactional-emails}
 

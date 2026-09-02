@@ -24,15 +24,15 @@ En cumplimiento de las políticas de retención de datos de Mixpanel, los evento
 
 ### Paso 1: Obtener la clave de importación de datos de Braze {#step-1-get-the-braze-data-import-key}
 
-En Braze, ve a **Integraciones de socios** > **Socios tecnológicos** y selecciona **Mixpanel**. Aquí encontrarás el endpoint REST or transferencia de estado representacional y generarás tu clave de importación de datos de Braze.
+En Braze, ve a **Integraciones de socios** > **Socios tecnológicos** y selecciona **Mixpanel**. Aquí encontrarás el endpoint REST y generarás tu clave de importación de datos de Braze.
 
-Una vez generada, puedes crear una nueva clave o invalidar una existente. La clave de importación de datos y el endpoint REST or transferencia de estado representacional se utilizan en el siguiente paso al configurar un postback en el panel de Mixpanel.<br><br>![Página de partner tecnológico de Braze para Mixpanel que muestra la clave de importación de datos y el endpoint.]({% image_buster /assets/img_archive/currents-mixpanel-edit.png %})
+Una vez generada, puedes crear una nueva clave o invalidar una existente. La clave de importación de datos y el endpoint REST se utilizan en el siguiente paso al configurar un postback en el panel de Mixpanel.<br><br>![Página de partner tecnológico de Braze para Mixpanel que muestra la clave de importación de datos y el endpoint.]({% image_buster /assets/img_archive/currents-mixpanel-edit.png %})
 
 ### Paso 2: Configurar la integración de Braze en Mixpanel {#step-2-set-up-the-braze-integration-in-mixpanel}
 
 1. En Mixpanel, ve a **Data Management > Integrations.**
 2. Selecciona la pestaña de integración de Braze y selecciona **Connect**.
-3. En el mensaje que aparece, introduce la clave de importación de datos de Braze y el endpoint REST or transferencia de estado representacional.
+3. En el mensaje que aparece, introduce la clave de importación de datos de Braze y el endpoint REST.
 4. Selecciona **Continue**.
 
 ![Modal de configuración de la integración de Braze en Mixpanel con campos para la clave y el endpoint.]({% image_buster /assets/img_archive/mixpanel2.png %}){: style="max-width:50%;"}

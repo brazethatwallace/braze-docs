@@ -20,7 +20,7 @@ O limite de taxa para Campaigns push e Canvas multicanal está em acesso antecip
 
 As seguintes funcionalidades **não estão** incluídas neste acesso antecipado:
 
-- Definir limites de taxa por canal em Campaigns multicanal de qualquer tipo e Canvas disparados por API or interface de programação do aplicativo (API)
+- Definir limites de taxa por canal em Campaigns multicanal de qualquer tipo e Canvas disparados por API
 - Definir um limite de taxa global
 - Definir limites de taxa por etapa de Mensagem no Canvas
 

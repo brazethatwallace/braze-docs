@@ -33,7 +33,7 @@ description: "이 참조 문서에서는 Braze 수신자 오브젝트의 다양�
 
 `send_to_existing_only`가 `true`인 경우, Braze는 기존 사용자에게만 메시지를 발송합니다. 단, 이 플래그는 사용자 별칭과 함께 사용할 수 없습니다.
 
-`send_to_existing_only`가 `false`인 경우, 동일한 수신자에 `attributes` 오브젝트를 포함해야 합니다. 이 플래그는 `attributes`를 대체하지 않습니다. Braze는 `attributes`를 사용하여 메시지 발송 전 프로필 생성 또는 업데이트를 수행합니다(예: 이메일 또는 단문 메시지 서비스 전달을 위한 `email` 또는 전화번호 필드 추가, 구독 그룹 업데이트 등). 이 오브젝트가 없으면 [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) 또는 [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)에서 신규 사용자에 대한 의도된 결합 동작을 수행할 수 없습니다.
+`send_to_existing_only`가 `false`인 경우, 동일한 수신자에 `attributes` 오브젝트를 포함해야 합니다. 이 플래그는 `attributes`를 대체하지 않습니다. Braze는 `attributes`를 사용하여 메시지 발송 전 프로필 생성 또는 업데이트를 수행합니다(예: 이메일 또는 SMS 전달을 위한 `email` 또는 전화번호 필드 추가, 구독 그룹 업데이트 등). 이 오브젝트가 없으면 [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) 또는 [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)에서 신규 사용자에 대한 의도된 결합 동작을 수행할 수 없습니다.
 
 해당 프로필은 Braze가 발송하기 전에 메시지의 오디언스 및 채널 적격성 규칙을 충족해야 합니다.
 

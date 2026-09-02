@@ -18,7 +18,7 @@ Si quieres probar las notificaciones dentro de la aplicación y las notificacion
 
 Campos obligatorios:
 
-- `YOUR-API-KEY-HERE` - disponible en **Configuración** > **Claves de API**. Asegúrate de que la clave está autorizada para enviar mensajes a través del punto de conexión de la REST or transferencia de estado representacional API `/messages/send`.
+- `YOUR-API-KEY-HERE` - disponible en **Configuración** > **Claves de API**. Asegúrate de que la clave está autorizada para enviar mensajes a través del punto de conexión de la REST API `/messages/send`.
 - `EXTERNAL_USER_ID` - disponible en la página **Buscar usuarios**.
 - `REST_API_ENDPOINT_URL` - listado en las [Instancias]({{site.baseurl}}/api/basics#endpoints. Ensure using the endpoint corresponds to the Braze instance your workspace is on.
 

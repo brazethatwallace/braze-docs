@@ -4,24 +4,24 @@ article_title: "Segments de catálogo"
 page_order: 0
 page_type: reference
 alias: "/catalog_segments/"
-description: "Este artigo descreve como criar segments de catálogo, que usam dados de catálogo em extensões de Segment or segmento or segmento SQL para criar públicos de usuários."
+description: "Este artigo descreve como criar segments de catálogo, que usam dados de catálogo em extensões de Segment SQL para criar públicos de usuários."
 tool: Segments
 ---
 
 # Segments de catálogo {#catalog-segments}
 
-> Segments de catálogo são um tipo de extensão de Segment or segmento or segmento SQL criados pela combinação de dados de catálogo com dados de eventos personalizados ou compras. Eles podem ser referenciados em um Segment or segmento e, em seguida, direcionados por Campaigns e Canvas.
+> Segments de catálogo são um tipo de extensão de Segment SQL criados pela combinação de dados de catálogo com dados de eventos personalizados ou compras. Eles podem ser referenciados em um Segment e, em seguida, direcionados por Campaigns e Canvas.
 
 Segments de catálogo usam SQL para unir dados de catálogos e dados de eventos personalizados ou compras. Para isso, você precisa ter um campo identificador comum entre seus catálogos e seus eventos personalizados ou compras. Por exemplo, o valor de um ID de item em um catálogo deve corresponder ao valor de uma propriedade em um evento personalizado.
 
-## Criando um Segment or segmento de catálogo {#creating-a-catalog-segment}
+## Criando um Segment de catálogo {#creating-a-catalog-segment}
 
 1. Acesse **Extensões de segmento** > **Criar nova extensão** > **Começar com modelo** e selecione um modelo. <br>![Modal com a opção de criar um segment de catálogo para eventos, compras ou segments RFM.]({% image_buster /assets/img/catalog-segments-template.png %}){: style="max-width:80%" }
 
 {: start="2"}
 2. O editor SQL é preenchido automaticamente com um modelo. <br>![Editor SQL com um modelo pré-gerado.]({% image_buster /assets/img/catalog-segments-editor.png %}){: style="max-width:80%" }<br>Esse modelo une dados de eventos de usuários com dados de catálogo para segmentar usuários que interagiram com determinados itens do catálogo.
 
-3. Use a guia **Variáveis** para fornecer os campos necessários para o seu modelo antes de gerar o Segment or segmento. <br>Para que a Braze identifique os usuários com base no engajamento deles com itens do catálogo, você precisa fazer o seguinte: <br> - Selecionar um catálogo que contenha um campo de catálogo <br> - Selecionar um evento personalizado que contenha uma propriedade de evento <br> - Fazer a correspondência entre os valores do campo de catálogo e da propriedade de evento
+3. Use a guia **Variáveis** para fornecer os campos necessários para o seu modelo antes de gerar o Segment. <br>Para que a Braze identifique os usuários com base no engajamento deles com itens do catálogo, você precisa fazer o seguinte: <br> - Selecionar um catálogo que contenha um campo de catálogo <br> - Selecionar um evento personalizado que contenha uma propriedade de evento <br> - Fazer a correspondência entre os valores do campo de catálogo e da propriedade de evento
 
 Veja as diretrizes para selecionar as variáveis:
 
@@ -31,17 +31,17 @@ Veja as diretrizes para selecionar as variáveis:
 | `Catalog field` | O campo no seu catálogo que contém os mesmos valores que a sua `Custom event property`. Geralmente é um tipo de ID. No caso de uso de eCommerce, seria `shopify_id`. |
 | `Custom event` | O nome do seu evento personalizado, que é o mesmo evento que contém uma propriedade com valores correspondentes ao seu `Catalog field`. No caso de uso de eCommerce, seria `Made Order`. |
 | `Custom event property` | O nome da propriedade do seu evento personalizado, que corresponde aos valores do seu `Catalog field`. No exemplo de caso de uso de eCommerce, seria `Shopify_ID.` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Criando um Segment or segmento de catálogo" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Criando um Segment de catálogo" }
 
 {: start="4"}
 4. Se necessário, preencha campos opcionais adicionais para o seu caso de uso, a fim de segmentar por um valor de campo específico dentro do seu catálogo:
 - `Catalog field`: Um campo específico (nome da coluna) dentro deste catálogo
 - `Value`: Um valor específico dentro desse campo ou coluna <br><br> Usando o app de saúde como exemplo, digamos que dentro do catálogo de cada médico que você pode agendar, existe um campo chamado `specialty` que contém um valor como `vision` ou `dental`. Para segmentar usuários que visitaram médicos com o valor `dental`, você pode selecionar `specialty` como o `Catalog field` e selecionar `dental` como o `Value`.
 
-5. Após criar uma extensão de Segment or segmento or segmento SQL, recomendamos clicar em **Executar prévia** para verificar se a sua consulta retorna usuários ou se há erros. Para saber mais sobre [prévia dos resultados da consulta]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#step-3-preview-the-query), gerenciamento de [extensões de Segment or segmento or segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#managing-your-segment-extensions) e mais, confira [Extensões de Segment or segmento or segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments).
+5. Após criar uma extensão de Segment SQL, recomendamos clicar em **Executar prévia** para verificar se a sua consulta retorna usuários ou se há erros. Para saber mais sobre [prévia dos resultados da consulta]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#step-3-preview-the-query), gerenciamento de [extensões de Segment SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#managing-your-segment-extensions) e mais, confira [Extensões de Segment SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments).
 
 {% alert note %}
-Se você estiver criando um Segment or segmento SQL que usa a tabela `CATALOGS_ITEMS_SHARED`, é necessário especificar um ID de catálogo. Por exemplo:
+Se você estiver criando um Segment SQL que usa a tabela `CATALOGS_ITEMS_SHARED`, é necessário especificar um ID de catálogo. Por exemplo:
 
 ```sql
 SELECT * FROM CATALOGS_ITEMS_SHARED
@@ -56,18 +56,18 @@ Embora não seja possível consultar diretamente usuários com zero eventos, voc
 
 Por exemplo, para direcionar usuários que fizeram menos de três compras, primeiro escreva uma consulta para selecionar usuários que fizeram três ou mais compras. Em seguida, selecione **Inverter SQL** para direcionar usuários com menos de três compras (incluindo aqueles com zero compras).
 
-![Extensão de Segment or segmento or segmento chamada "Clicked 1-4 emails in the last 30 days" com a opção de inverter SQL selecionada.]({% image_buster /assets/img_archive/sql_segment_invert_sql.png %}){: style="max-width:70%;"}
+![Extensão de Segment chamada "Clicked 1-4 emails in the last 30 days" com a opção de inverter SQL selecionada.]({% image_buster /assets/img_archive/sql_segment_invert_sql.png %}){: style="max-width:70%;"}
 
 {% alert important %}
-A menos que você esteja especificamente tentando direcionar usuários com zero eventos, não será necessário inverter o SQL. Se **Inverter SQL** estiver selecionado, confirme que o recurso é necessário e que o Segment or segmento corresponde ao público desejado. Por exemplo, se uma consulta direciona usuários com pelo menos um evento, ela direcionará apenas usuários com zero eventos quando invertida.
+A menos que você esteja especificamente tentando direcionar usuários com zero eventos, não será necessário inverter o SQL. Se **Inverter SQL** estiver selecionado, confirme que o recurso é necessário e que o Segment corresponde ao público desejado. Por exemplo, se uma consulta direciona usuários com pelo menos um evento, ela direcionará apenas usuários com zero eventos quando invertida.
 {% endalert %}
 
-## Atualizando a associação ao Segment or segmento {#refreshing-segment-membership}
+## Atualizando a associação ao Segment {#refreshing-segment-membership}
 
-Para atualizar a associação de qualquer Segment or segmento de catálogo, abra o Segment or segmento de catálogo e selecione **Ações** > **Atualizar** > **Sim, atualizar**.
+Para atualizar a associação de qualquer Segment de catálogo, abra o Segment de catálogo e selecione **Ações** > **Atualizar** > **Sim, atualizar**.
 
 {% alert tip %}
-Se você criou um Segment or segmento em que espera que os usuários entrem e saiam regularmente, atualize manualmente o Segment or segmento de catálogo que ele usa antes de direcionar esse Segment or segmento em uma Campaign ou Canvas.
+Se você criou um Segment em que espera que os usuários entrem e saiam regularmente, atualize manualmente o Segment de catálogo que ele usa antes de direcionar esse Segment em uma Campaign ou Canvas.
 {% endalert %}
 
 ### Definindo configurações de atualização {#designating-refresh-settings}
@@ -87,7 +87,7 @@ Digamos que você tem um app de saúde e quer segmentar usuários que agendaram 
 - Um evento personalizado `Booked Visit` com uma propriedade `doctor ID` que compartilha os mesmos valores do campo `doctor ID` no seu catálogo
 - Um campo `speciality` dentro do seu catálogo que contém o valor `dental`
 
-Você configuraria um Segment or segmento de catálogo usando as seguintes variáveis:
+Você configuraria um Segment de catálogo usando as seguintes variáveis:
 
 | Variável | Propriedade |
 | --- | --- |
@@ -110,7 +110,7 @@ Digamos que você tem uma plataforma SaaS B2B e quer segmentar usuários que sã
 - Um evento personalizado `Event Attendance` com uma propriedade "account ID" que compartilha os mesmos valores do campo "account ID" no seu catálogo
 - Um campo `Classification` dentro do seu catálogo que contém o valor `enterprise`
 
-Você configuraria um Segment or segmento de catálogo usando as seguintes variáveis:
+Você configuraria um Segment de catálogo usando as seguintes variáveis:
 
 | Variável | Propriedade |
 | --- | --- |
@@ -127,14 +127,14 @@ Você configuraria um Segment or segmento de catálogo usando as seguintes vari�
 
 ## Perguntas frequentes {#frequently-asked-questions}
 
-### Executar um Segment or segmento de catálogo consome créditos de extensão de Segment or segmento or segmento SQL? {#does-running-a-catalog-segment-consume-sql-segment-extension-credits}
+### Executar um Segment de catálogo consome créditos de extensão de Segment SQL? {#does-running-a-catalog-segment-consume-sql-segment-extension-credits}
 
-Sim, segments de catálogo são alimentados por SQL e consomem créditos de extensão de Segment or segmento or segmento SQL. Para saber mais, confira [Uso de Segments SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#credits).
+Sim, segments de catálogo são alimentados por SQL e consomem créditos de extensão de Segment SQL. Para saber mais, confira [Uso de Segments SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#credits).
 
-### Criar um Segment or segmento de catálogo consome a cota de extensões de Segment or segmento or segmento SQL? {#does-creating-a-catalog-segment-consume-sql-segment-extension-allotments}
+### Criar um Segment de catálogo consome a cota de extensões de Segment SQL? {#does-creating-a-catalog-segment-consume-sql-segment-extension-allotments}
 
-Sim. Da mesma forma que as extensões de Segment or segmento or segmento SQL contam para a sua cota de extensões de Segment or segmento or segmento, os segments de catálogo também contam para essa cota.
+Sim. Da mesma forma que as extensões de Segment SQL contam para a sua cota de extensões de Segment, os segments de catálogo também contam para essa cota.
 
-### Tenho um caso de uso de Segment or segmento de catálogo que o modelo atual não atende. Como devo configurar isso? {#i-have-a-catalog-segment-use-case-that-the-current-template-doesnt-serve-how-should-i-set-that-up}
+### Tenho um caso de uso de Segment de catálogo que o modelo atual não atende. Como devo configurar isso? {#i-have-a-catalog-segment-use-case-that-the-current-template-doesnt-serve-how-should-i-set-that-up}
 
 Fale com o seu gerente de suporte ao cliente ou com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) para orientação adicional.

@@ -739,7 +739,7 @@ lines-main.js=3-4,9
 
 ### 1. Debugging aktivieren (optional)
 
-Um die Fehlerbehebung während der Entwicklung zu erleichtern, sollten Sie das Debugging aktivieren. Optional können Sie auch Braze Web SDK or Software-Development-Kit-Methoden in der Konsole ausführen.
+Um die Fehlerbehebung während der Entwicklung zu erleichtern, sollten Sie das Debugging aktivieren. Optional können Sie auch Braze Web SDK-Methoden in der Konsole ausführen.
 
 !!step
 lines-index.html=1-44

@@ -84,9 +84,9 @@ Concorde com os termos e condições marcando a caixa de seleção e selecione *
 
 ### Etapa 2: Configurar os SDKs da Braze {#step-2-set-up-the-braze-sdks}
 
-A integração padrão adicionará automaticamente os SDKs da Braze ao seu site Shopify. Se você já integrou os SDKs da Braze diretamente ou usou uma ferramenta de terceiros para isso, coordene com seus desenvolvedores para remover a implementação anterior do SDK or kit de desenvolvimento de software durante o upgrade.
+A integração padrão adicionará automaticamente os SDKs da Braze ao seu site Shopify. Se você já integrou os SDKs da Braze diretamente ou usou uma ferramenta de terceiros para isso, coordene com seus desenvolvedores para remover a implementação anterior do SDK durante o upgrade.
 
-![Modal confirmando que a nova integração implementará automaticamente o SDK or kit de desenvolvimento de software da Braze e o JavaScript SDK or kit de desenvolvimento de software na sua loja.]({% image_buster /assets/unlisted_docs/img/shopify/confirm_integration.png %}){: style="max-width:70%;"}
+![Modal confirmando que a nova integração implementará automaticamente o SDK da Braze e o JavaScript SDK na sua loja.]({% image_buster /assets/unlisted_docs/img/shopify/confirm_integration.png %}){: style="max-width:70%;"}
 
 ### Etapa 3: Reautorizar o app da Braze {#step-3-reauthorize-the-braze-app}
 
@@ -118,7 +118,7 @@ Escolha o ID externo que você deseja usar para a integração Shopify do seu es
 Usar um endereço de e-mail ou um endereço de e-mail com hash como seu ID externo da Braze pode ajudar a simplificar o gerenciamento de identidade em suas fontes de dados. No entanto, é importante considerar os riscos potenciais para a privacidade do usuário e a segurança dos dados.<br><br>
 
 - **Informações previsíveis:** endereços de e-mail são facilmente previsíveis, o que os torna vulneráveis a ataques.
-- **Risco de exploração:** se um usuário mal-intencionado alterar o navegador de internet or navegador web para enviar o endereço de e-mail de outra pessoa como seu ID externo, ele poderá acessar mensagens confidenciais ou informações da conta.
+- **Risco de exploração:** se um usuário mal-intencionado alterar o navegador de internet para enviar o endereço de e-mail de outra pessoa como seu ID externo, ele poderá acessar mensagens confidenciais ou informações da conta.
 {% endalert %}
 
 Por padrão, a Braze converte automaticamente os e-mails do Shopify para letras minúsculas antes de usá-los como ID externo. Se você estiver usando e-mail ou e-mail com hash como seu ID externo, confirme que seus endereços de e-mail também são convertidos para letras minúsculas antes de atribuí-los como seu ID externo ou antes de aplicar o hash a partir de outras fontes de dados. Isso ajuda a evitar discrepâncias nos IDs externos e a criação de perfis de usuário duplicados na Braze.
@@ -132,7 +132,7 @@ Se você selecionou um tipo de ID externo personalizado, prossiga para as etapas
 Após a criação do metacampo, preencha-o para seus clientes. Recomendamos as seguintes abordagens:
 
 - **Escutar webhooks de criação de clientes:** configure um webhook para escutar [eventos `customer/create`](https://help.shopify.com/en/manual/fulfillment/setup/notifications/webhooks). Isso permite que você preencha o metacampo quando um novo cliente é criado.
-- **Preencher clientes existentes retroativamente:** use a [Admin API or interface de programação do aplicativo (API)](https://shopify.dev/docs/api/admin-graphql) ou a [Customer API or interface de programação do aplicativo (API)](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer) para preencher retroativamente o metacampo para clientes criados anteriormente.
+- **Preencher clientes existentes retroativamente:** use a [Admin API](https://shopify.dev/docs/api/admin-graphql) ou a [Customer API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer) para preencher retroativamente o metacampo para clientes criados anteriormente.
 
 #### Etapa 4.2: Criar um endpoint para recuperar seu ID externo {#step-42-create-an-endpoint-to-retrieve-your-external-id}
 
@@ -169,7 +169,7 @@ A Braze espera um código de status `200`. Qualquer outro código é considerado
 {% endraw %}
 
 {% alert important %}
-É importante validar que o `shopify_customer_id` e o `email_address` correspondem aos valores do cliente no Shopify. Você pode usar a [Admin API or interface de programação do aplicativo (API)](https://shopify.dev/docs/api/admin-graphql) ou a [Customer API or interface de programação do aplicativo (API)](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer) para validar esses parâmetros e recuperar o metacampo `braze.external_id`.
+É importante validar que o `shopify_customer_id` e o `email_address` correspondem aos valores do cliente no Shopify. Você pode usar a [Admin API](https://shopify.dev/docs/api/admin-graphql) ou a [Customer API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer) para validar esses parâmetros e recuperar o metacampo `braze.external_id`.
 {% endalert %}
 
 #### Etapa 4.3: Inserir seu ID externo {#step-43-input-your-external-id}

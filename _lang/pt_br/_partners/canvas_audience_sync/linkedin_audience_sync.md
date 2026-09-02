@@ -57,7 +57,7 @@ Sua conexão com o LinkedIn será aplicada no nível do espaço de trabalho da B
 
 Ao criar públicos para rastreamento de anúncios, você pode querer incluir ou excluir determinados usuários com base em suas preferências e para cumprir leis de privacidade, como o direito de "Não Vender ou Compartilhar" previsto na [CCPA](https://oag.ca.gov/privacy/ccpa). Os profissionais de marketing devem implementar os filtros relevantes para a elegibilidade dos usuários nos critérios de entrada do Canvas. As opções a seguir podem ajudar.
 
-Se você coletou o [IDFA do iOS por meio do SDK or kit de desenvolvimento de software da Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations#optional-idfa-collection), poderá usar o filtro **Ads Tracking Enabled**. Selecione o valor como `true` para enviar apenas usuários para destinos de Audience Sync nos quais eles optaram por participar.
+Se você coletou o [IDFA do iOS por meio do SDK da Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations#optional-idfa-collection), poderá usar o filtro **Ads Tracking Enabled**. Selecione o valor como `true` para enviar apenas usuários para destinos de Audience Sync nos quais eles optaram por participar.
 
 ![Um público de entrada com o filtro "Ad Tracking Enabled is true".]({% image_buster /assets/img/linkedin/linkedin5.png %}){: style="max-width:75%;"}
 
@@ -123,9 +123,9 @@ Você pode visualizar o público no LinkedIn acessando sua conta de anúncios e 
 
 ## Sincronização de usuários e considerações sobre limite de frequência {#user-syncing-and-rate-limit-considerations}
 
-À medida que os usuários chegam à etapa de Audience Sync, a Braze os sincroniza em tempo quase real, respeitando os limites de frequência da API or interface de programação do aplicativo (API) do LinkedIn. A Braze agrupa e processa o maior número possível de usuários a cada 5 segundos antes de enviá-los ao LinkedIn.
+À medida que os usuários chegam à etapa de Audience Sync, a Braze os sincroniza em tempo quase real, respeitando os limites de frequência da API do LinkedIn. A Braze agrupa e processa o maior número possível de usuários a cada 5 segundos antes de enviá-los ao LinkedIn.
 
-O limite de frequência da API or interface de programação do aplicativo (API) do LinkedIn permite no máximo dez consultas por segundo e 100.000 usuários por solicitação. Se um cliente atingir esse limite, a Braze tentará novamente a sincronização por aproximadamente 13 horas. Se a sincronização ainda não for possível, a Braze listará esses usuários na métrica Users Errored.
+O limite de frequência da API do LinkedIn permite no máximo dez consultas por segundo e 100.000 usuários por solicitação. Se um cliente atingir esse limite, a Braze tentará novamente a sincronização por aproximadamente 13 horas. Se a sincronização ainda não for possível, a Braze listará esses usuários na métrica Users Errored.
 
 ## Entendendo a análise de dados {#understanding-analytics}
 
@@ -134,11 +134,11 @@ A tabela a seguir inclui métricas e descrições para ajudar você a entender m
 | MÉTRICA | DESCRIÇÃO |
 | ------ | ----------- |
 | Entered | Número de usuários que entraram neste componente para serem sincronizados com o LinkedIn. |
-| Proceeded to Next Step | Quantos usuários avançaram para o próximo componente, se houver um? Todos os usuários avançarão automaticamente se esta for a última etapa na Branch or ramificação or ramificação do Canvas. |
+| Proceeded to Next Step | Quantos usuários avançaram para o próximo componente, se houver um? Todos os usuários avançarão automaticamente se esta for a última etapa na Branch do Canvas. |
 | Users Synced | Número de usuários que foram sincronizados com sucesso com o LinkedIn. |
 | Users Not Synced | Número de usuários que não foram sincronizados devido à falta de campos para correspondência. |
 | Users Pending | Número de usuários que estão sendo processados pela Braze para sincronização com o LinkedIn. |
-| Users Errored | Número de usuários que não foram sincronizados com o LinkedIn devido a um erro de API or interface de programação do aplicativo (API) após cerca de 13 horas de tentativas. Possíveis causas de erros podem incluir um token inválido do LinkedIn ou se o público foi excluído no LinkedIn. |
+| Users Errored | Número de usuários que não foram sincronizados com o LinkedIn devido a um erro de API após cerca de 13 horas de tentativas. Possíveis causas de erros podem incluir um token inválido do LinkedIn ou se o público foi excluído no LinkedIn. |
 | Exited Canvas | Número de usuários que saíram do Canvas. Isso ocorre quando a última etapa em um Canvas é um componente de Audience Sync. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Entendendo a análise de dados" }
 
@@ -180,6 +180,6 @@ O LinkedIn fornece informações sobre taxas de correspondência no dashboard de
 
 Atualmente, não há limite para o número de públicos na sua conta de anúncios do LinkedIn.
 
-### Por que um Segment or segmento or segmento está preso no status BUILDING e não é atualizado? {#why-is-a-segment-stuck-in-building-status-and-not-updated}
+### Por que um Segment está preso no status BUILDING e não é atualizado? {#why-is-a-segment-stuck-in-building-status-and-not-updated}
 
-Um Segment or segmento or segmento é considerado não utilizado e definido como ARCHIVED depois de não ser usado continuamente por 30 dias em uma Campaign de rascunho ou ativa. Por causa disso, um Segment or segmento or segmento pode parecer "preso" em BUILDING quando atualizações são transmitidas para um Segment or segmento or segmento ARCHIVED, empurrando-o para o estado BUILDING, e logo antes de ser arquivado novamente, novas atualizações são transmitidas para o Segment or segmento or segmento não utilizado.
+Um Segment é considerado não utilizado e definido como ARCHIVED depois de não ser usado continuamente por 30 dias em uma Campaign de rascunho ou ativa. Por causa disso, um Segment pode parecer "preso" em BUILDING quando atualizações são transmitidas para um Segment ARCHIVED, empurrando-o para o estado BUILDING, e logo antes de ser arquivado novamente, novas atualizações são transmitidas para o Segment não utilizado.

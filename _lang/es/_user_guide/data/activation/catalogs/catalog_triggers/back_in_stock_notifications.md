@@ -30,7 +30,7 @@ Sigue estos pasos para configurar las notificaciones de vuelta en existencia en 
     - **Evento personalizado para cancelar suscripción** es el evento personalizado de Braze que se utilizará para cancelar la suscripción de un usuario a las notificaciones de vuelta en existencia. Este evento es opcional. Si el usuario no realiza este evento, se cancelará su suscripción después de 90 días o cuando se desencadene el evento de vuelta en existencia, lo que ocurra primero.
     - **Propiedad del evento de ID de artículo** es la propiedad del evento personalizado mencionado anteriormente en esta sección que se utilizará para determinar el artículo para una suscripción o cancelación de suscripción de vuelta en existencia. Esta propiedad del evento personalizado debe contener un ID de artículo (`id`) que esté presente en un catálogo. El ID del artículo debe enviarse como una cadena para que coincida con el tipo de datos `id` almacenado en el catálogo de destino. El evento personalizado también debe contener una propiedad `catalog_name` para especificar en qué catálogo se encuentra este artículo.
 
-    - El siguiente ejemplo muestra un evento personalizado de muestra enviado a través de la REST or transferencia de estado representacional API:
+    - El siguiente ejemplo muestra un evento personalizado de muestra enviado a través de la REST API:
 
 ```json
 {
@@ -49,10 +49,10 @@ Sigue estos pasos para configurar las notificaciones de vuelta en existencia en 
 }
 ```
 
-Para rastrear el mismo evento de suscripción usando los SDK or kit de desarrollo de software de Braze, utiliza el siguiente código:
+Para rastrear el mismo evento de suscripción usando los SDK de Braze, utiliza el siguiente código:
 
 {% tabs %}
-{% tab Web SDK or kit de desarrollo de software %}
+{% tab Web SDK %}
 
 ```javascript
 import { logCustomEvent } from "@braze/web-sdk";

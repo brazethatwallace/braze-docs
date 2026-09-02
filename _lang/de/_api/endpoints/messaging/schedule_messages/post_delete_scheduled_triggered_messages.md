@@ -11,12 +11,12 @@ description: "Dieser Artikel beschreibt den Braze-Endpunkt zum Löschen geplante
 {% api %}
 # Geplante, API-getriggerte Campaigns löschen {#delete-scheduled-api-triggered-campaigns}
 {% apimethod post core_endpoint|/docs/core_endpoints %}
-/campaigns/Trigger or triggern/schedule/delete
+/campaigns/trigger/schedule/delete
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um eine zuvor per API-Trigger or triggern geplante Campaign-Nachricht zu stornieren, bevor sie gesendet wurde.
+> Verwenden Sie diesen Endpunkt, um eine zuvor per API-Trigger geplante Campaign-Nachricht zu stornieren, bevor sie gesendet wurde.
 
-Geplante Nachrichten oder Trigger or triggern, die kurz vor oder während des vorgesehenen Sendezeitpunkts gelöscht werden, werden nach bestem Bemühen aktualisiert. Das bedeutet, dass Braze Löschungen in letzter Sekunde möglicherweise auf alle, einige oder keine Ihrer Zielnutzer:innen anwendet.
+Geplante Nachrichten oder Trigger, die kurz vor oder während des vorgesehenen Sendezeitpunkts gelöscht werden, werden nach bestem Bemühen aktualisiert. Das bedeutet, dass Braze Löschungen in letzter Sekunde möglicherweise auf alle, einige oder keine Ihrer Zielnutzer:innen anwendet.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#7d34037f-4bf2-4fab-bc9c-c972988051a7 {% endapiref %}
 

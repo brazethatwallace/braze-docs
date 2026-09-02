@@ -21,8 +21,8 @@ Esta exportación incluye todos los perfiles asociados a esa dirección de corre
 
 Ahora puedes crear y actualizar [plantillas de correo electrónico a través de la API]({{site.baseurl}}/developer_guide/rest_api/email_templates#email-templates). Cada plantilla tendrá un **email_template_id** que puede referenciarse en otras llamadas a la API.
 
-## Permisos de claves de API REST or transferencia de estado representacional {#rest-api-keys-permissions}
+## Permisos de claves de API REST {#rest-api-keys-permissions}
 
-Ahora puedes crear [varias claves de API REST or transferencia de estado representacional]({{site.baseurl}}/api/basics#creating-rest-api-keys) y configurar permisos de acceso para cada una. Cada clave puede configurarse para conceder acceso a determinados endpoints.
+Ahora puedes crear [varias claves de API REST]({{site.baseurl}}/api/basics#creating-rest-api-keys) y configurar permisos de acceso para cada una. Cada clave puede configurarse para conceder acceso a determinados endpoints.
 
-También puedes especificar una [lista blanca de direcciones IP]({{site.baseurl}}/developer_guide/rest_api/basics#api-ip-whitelisting) y subredes que pueden realizar solicitudes de API REST or transferencia de estado representacional para una clave de API REST or transferencia de estado representacional determinada.
+También puedes especificar una [lista blanca de direcciones IP]({{site.baseurl}}/developer_guide/rest_api/basics#api-ip-whitelisting) y subredes que pueden realizar solicitudes de API REST para una clave de API REST determinada.

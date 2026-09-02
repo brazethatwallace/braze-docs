@@ -7,7 +7,7 @@ description: "Erfahren Sie, wie Sie Canvas-Eingangs-Eigenschaften als Personalis
 
 # Canvas-Eingangs-Eigenschaften {#canvas-entry-properties}
 
-> Wenn ein Canvas durch ein angepasstes Event, einen Kauf oder einen API-Aufruf getriggert wird, können Sie Metadaten aus diesem Trigger or triggern verwenden, um Nachrichten im gesamten Canvas-Workflow zu personalisieren. Diese Werte werden als Eingangs-Eigenschaften bezeichnet und sind über alle Schritte eines Canvas hinweg persistent.
+> Wenn ein Canvas durch ein angepasstes Event, einen Kauf oder einen API-Aufruf getriggert wird, können Sie Metadaten aus diesem Trigger verwenden, um Nachrichten im gesamten Canvas-Workflow zu personalisieren. Diese Werte werden als Eingangs-Eigenschaften bezeichnet und sind über alle Schritte eines Canvas hinweg persistent.
 
 ## So funktioniert es {#how-it-works}
 
@@ -21,7 +21,7 @@ Thanks for ordering {{context.${product_name}}}! We'll send you a tracking numbe
 ```
 {% endraw %}
 
-Eingangs-Eigenschaften sind in aktionsbasierten und API-getriggerten Canvase verfügbar.
+Eingangs-Eigenschaften sind in aktionsbasierten und API-getriggerten Canvases verfügbar.
 
 ## Persistente Eingangs-Eigenschaften {#persistent-entry-properties}
 

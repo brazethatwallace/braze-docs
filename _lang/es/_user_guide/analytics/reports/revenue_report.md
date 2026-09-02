@@ -64,8 +64,8 @@ Cuando registras ingresos en una moneda sin tipo de cambio, Braze los registra c
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Lifetime Revenue' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#lifetime-value-per-user">LTV or valor de duración del ciclo de vida or valor de duración del ciclo de vida Per User</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='LTV or valor de duración del ciclo de vida or valor de duración del ciclo de vida Per User' %}</td>
+            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#lifetime-value-per-user">LTV Per User</a></td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='LTV Per User' %}</td>
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#average-daily-revenue">Average Daily Revenue</a></td>

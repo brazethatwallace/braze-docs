@@ -47,10 +47,10 @@ excerpt_separator: ""
 /templates/email/create
 {% endapimethod %}
 {% apitags %}
-Post,Email,Create,Template,REST or transferencia de estado representacional,API
+Post,Email,Create,Template,REST,API
 {% endapitags %}
 
-Utiliza las API REST or transferencia de estado representacional de plantillas de correo electrónico para administrar mediante programación las plantillas de correo electrónico que almacenaste en los paneles de Braze, en la página Plantillas y medios. Braze proporciona dos puntos de conexión para crear y actualizar tus plantillas de correo electrónico.
+Utiliza las API REST de plantillas de correo electrónico para administrar mediante programación las plantillas de correo electrónico que almacenaste en los paneles de Braze, en la página Plantillas y medios. Braze proporciona dos puntos de conexión para crear y actualizar tus plantillas de correo electrónico.
 
 La respuesta de este punto de conexión incluye un campo para `email_template_id`, que puede utilizarse para actualizar la plantilla en posteriores llamadas a la API.
 
@@ -98,7 +98,7 @@ La respuesta de este punto de conexión incluye un campo para `email_template_id
 /templates/email/list
 {% endapimethod %}
 {% apitags %}
-Get,Email,Template,List,REST or transferencia de estado representacional
+Get,Email,Template,List,REST
 {% endapitags %}
 
 Utiliza los siguientes puntos de conexión para obtener una lista de las plantillas disponibles.

@@ -9,7 +9,7 @@ page_type: reference
 description: "Este artigo traz informações sobre o endpoint da Braze \"Atualizar a conta de usuário existente do dashboard\"."
 ---
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Atualizar a conta de usuário do dashboard {#update-dashboard-user-account}
 {% apimethod put %}
 /scim/v2/Users/{id}

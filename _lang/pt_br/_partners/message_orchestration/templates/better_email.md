@@ -24,8 +24,8 @@ Ao reexportar um e-mail, a Better Email atualiza o modelo existente na Braze em 
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Conta Better Email | Uma conta Better Email com acesso de administrador para criar integrações |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões completas de **Modelos**.<br><br>Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
-| Endpoint REST or transferir estado representacional da Braze | [URL do seu endpoint REST or transferir estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Use o host REST or transferir estado representacional, não a URL do dashboard — por exemplo, `rest.fra-01.braze.eu`. |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões completas de **Modelos**.<br><br>Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Endpoint REST da Braze | [URL do seu endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Use o host REST, não a URL do dashboard — por exemplo, `rest.fra-01.braze.eu`. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
@@ -43,8 +43,8 @@ A Better Email foi criada para equipes de marketing que desejam gerenciar e-mail
 
 No dashboard da Braze, colete as seguintes informações:
 
-- **Instance URL** — Use o host REST or transferir estado representacional, não a URL do dashboard (por exemplo, `rest.fra-01.braze.eu`).
-- **API or interface de programação do aplicativo (API) key** — Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional com permissões completas de **Modelos**, criada em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**.
+- **Instance URL** — Use o host REST, não a URL do dashboard (por exemplo, `rest.fra-01.braze.eu`).
+- **API key** — Uma chave da API REST com permissões completas de **Modelos**, criada em **Configurações** > **Chaves de API**.
 
 ### Etapa 2: Configure a integração na Better Email {#step-2-set-up-the-integration-in-better-email}
 
@@ -54,7 +54,7 @@ No dashboard da Braze, colete as seguintes informações:
 4. Selecione **Braze** como o tipo.
 5. Opcionalmente, restrinja a integração a usuários ou grupos específicos em **Access**.
 6. Selecione **Save**.
-7. Insira a **Instance URL** e a **API or interface de programação do aplicativo (API) Key**.
+7. Insira a **Instance URL** e a **API Key**.
 8. Ative a integração.
 9. Selecione **Save** novamente.
 
@@ -80,8 +80,8 @@ A Better Email lê os atributos personalizados disponíveis na Braze e os mapeia
 
 Se uma exportação ou sincronização falhar, verifique o seguinte:
 
-- A **Instance URL** é a URL REST or transferir estado representacional, não a URL do dashboard.
-- A chave de API or interface de programação do aplicativo (API) ainda está ativa e possui as permissões necessárias de **Modelos**.
+- A **Instance URL** é a URL REST, não a URL do dashboard.
+- A chave de API ainda está ativa e possui as permissões necessárias de **Modelos**.
 - A integração está ativada na Better Email.
 - Os usuários ou grupos que precisam da integração têm acesso em **Access**.
 

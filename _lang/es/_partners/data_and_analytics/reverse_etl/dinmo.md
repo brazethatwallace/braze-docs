@@ -1,7 +1,7 @@
 ---
 nav_title: DinMo
 article_title: DinMo
-description: "Este artículo de referencia describe la asociación entre Braze y DinMo, una CDP or plataforma de datos de los clientes or plataforma de datos de los clientes componible que utiliza ETL or extraer, transformar, cargar inverso para sincronizar datos del almacén de datos en Braze."
+description: "Este artículo de referencia describe la asociación entre Braze y DinMo, una CDP componible que utiliza ETL inverso para sincronizar datos del almacén de datos en Braze."
 alias: /partners/dinmo/
 page_type: partner
 search_tag: Partner
@@ -10,20 +10,20 @@ search_tag: Partner
 
 # DinMo
 
-> [DinMo](https://www.dinmo.com/) es una CDP or plataforma de datos de los clientes or plataforma de datos de los clientes (CDP or plataforma de datos de los clientes) componible que conecta tu almacén de datos en la nube con Braze mediante ETL or extraer, transformar, cargar or extraer, transformar, cargar (ETL or extraer, transformar, cargar) inverso. Los equipos de marketing pueden crear segmentos de audiencia a partir de datos del almacén, sincronizar atributos de usuario y eventos en Braze, y mantener los estados de suscripción actualizados sin cargas de CSV ni soporte de ingeniería.
+> [DinMo](https://www.dinmo.com/) es una CDP (CDP) componible que conecta tu almacén de datos en la nube con Braze mediante ETL (ETL) inverso. Los equipos de marketing pueden crear segmentos de audiencia a partir de datos del almacén, sincronizar atributos de usuario y eventos en Braze, y mantener los estados de suscripción actualizados sin cargas de CSV ni soporte de ingeniería.
 
 _Esta integración está gestionada por DinMo._
 
-La integración de Braze y DinMo envía segmentos y modelos de datos desde tu almacén de datos a Braze a través de la REST or transferencia de estado representacional API de Braze. Cuando conectas un destino de Braze en DinMo, las activaciones envían datos desde tus modelos o segmentos a Braze.
+La integración de Braze y DinMo envía segmentos y modelos de datos desde tu almacén de datos a Braze a través de la REST API de Braze. Cuando conectas un destino de Braze en DinMo, las activaciones envían datos desde tus modelos o segmentos a Braze.
 
 ## Requisitos previos {#prerequisites}
 
 | Requisito | Descripción |
 | --- | --- |
 | Cuenta de DinMo | Se requiere una [cuenta de DinMo](https://www.dinmo.com/) con permiso para crear destinos para aprovechar esta integración. |
-| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con los [permisos](#api-key-permissions) necesarios para los servicios de destino que planeas utilizar. Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
-| Endpoint REST or transferencia de estado representacional de Braze | La URL de tu endpoint REST or transferencia de estado representacional. Tu endpoint depende de los [endpoints de API]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints) de tu instancia de Braze. |
-| URL del panel de Braze | La URL de tu panel de Braze para tu instancia (por ejemplo, `https://dashboard.iad-01.braze.com`). Para más información, consulta [Puntos finales de SDK or kit de desarrollo de software disponibles]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). |
+| Clave de API REST de Braze | Una clave de API REST de Braze con los [permisos](#api-key-permissions) necesarios para los servicios de destino que planeas utilizar. Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Endpoint REST de Braze | La URL de tu endpoint REST. Tu endpoint depende de los [endpoints de API]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints) de tu instancia de Braze. |
+| URL del panel de Braze | La URL de tu panel de Braze para tu instancia (por ejemplo, `https://dashboard.iad-01.braze.com`). Para más información, consulta [Puntos finales de SDK disponibles]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). |
 | Almacén de datos y modelo de datos | Antes de comenzar la integración, conecta tu almacén de datos en DinMo y define un modelo o segmento para los datos que deseas sincronizar con Braze. Para más información, consulta la [guía de integración de DinMo con Braze](https://docs.dinmo.io/integrations/destination-platforms/braze). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
@@ -38,7 +38,7 @@ Con esta integración, puedes:
 
 ## Permisos de la clave de API {#api-key-permissions}
 
-Otorga los siguientes permisos a tu clave de API REST or transferencia de estado representacional de Braze en función de los servicios de destino que utilices:
+Otorga los siguientes permisos a tu clave de API REST de Braze en función de los servicios de destino que utilices:
 
 | Permiso | Obligatorio para |
 | --- | --- |
@@ -57,13 +57,13 @@ Otorga los siguientes permisos a tu clave de API REST or transferencia de estado
 2. Selecciona **Add a new destination** > **Connect a new platform** > **Braze**.
 3. En el formulario de conexión, introduce los siguientes datos:
    * **Platform Name**: Por ejemplo, `Braze – Your Company`
-   * **REST or transferencia de estado representacional API URL**: El endpoint REST or transferencia de estado representacional de tu instancia (por ejemplo, `https://rest.eu-01.braze.com`)
+   * **REST API URL**: El endpoint REST de tu instancia (por ejemplo, `https://rest.eu-01.braze.com`)
    * **Dashboard URL**: La URL del panel de tu instancia (por ejemplo, `https://dashboard.eu-01.braze.com`)
    * **API Key**: La clave que copiaste de Braze
 4. Selecciona **Connect** para validar tus credenciales.
 
 {% alert note %}
-Debes especificar tanto la URL de la REST or transferencia de estado representacional API como la URL del panel. No incluyas una barra diagonal final en la URL de la REST or transferencia de estado representacional API.
+Debes especificar tanto la URL de la REST API como la URL del panel. No incluyas una barra diagonal final en la URL de la REST API.
 {% endalert %}
 
 ### Paso 2: Verifica la conexión {#step-2-verify-the-connection}
@@ -72,7 +72,7 @@ Después de guardar el destino, DinMo realiza una llamada de prueba (por ejemplo
 
 Si la validación falla, confirma lo siguiente:
 
-* La URL de la REST or transferencia de estado representacional API es correcta y no tiene una barra diagonal final.
+* La URL de la REST API es correcta y no tiene una barra diagonal final.
 * La clave de API es válida y tiene los permisos necesarios.
 * Si tu espacio de trabajo de Braze utiliza una lista de IP permitidas, las direcciones IP de DinMo están incluidas.
 
@@ -137,7 +137,7 @@ Utiliza este servicio de destino para mantener un grupo de suscripción de Braze
 
 Antes de activar este servicio:
 
-1. Crea el grupo de suscripción de destino (servicio de mensajes cortos o correo electrónico) en Braze.
+1. Crea el grupo de suscripción de destino (SMS o correo electrónico) en Braze.
 2. Construye un modelo o Segment de DinMo que contenga los usuarios que deben pertenecer a ese grupo de suscripción.
 
 Durante la configuración de la activación, introduce el ID exacto del grupo de suscripción de Braze. Para sincronizar varios grupos de suscripción, crea una activación por grupo.

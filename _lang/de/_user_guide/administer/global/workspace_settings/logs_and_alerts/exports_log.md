@@ -59,7 +59,7 @@ Auf der Seite mit den Exportdetails können Sie einen laufenden Export abbrechen
 |-------------|--------------|---------------|
 | Segment-CSV-Export | **Audience** > **Segments** > Segment auswählen > **User Data** > **CSV Export** | [Segmentdaten als CSV exportieren]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv) |
 | Export der Unterdrückungsliste | **Audience** > **Suppression Lists** | [Unterdrückungslisten]({{site.baseurl}}/user_guide/audience/suppression_lists) |
-| API-Segment-Export | `POST /users/export/segment` | [POST: Kundenprofil or Nutzerprofil nach Segment exportieren]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) |
+| API-Segment-Export | `POST /users/export/segment` | [POST: Kundenprofil nach Segment exportieren]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Verwandte Export-Workflows" }
 
 ## Abbrechen eines ausstehenden Exports {#cancelling-a-pending-export}

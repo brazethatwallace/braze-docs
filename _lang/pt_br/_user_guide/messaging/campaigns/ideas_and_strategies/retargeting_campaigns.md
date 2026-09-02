@@ -17,7 +17,7 @@ A Braze oferece suporte para redirecionar usuários com base nas mensagens que e
 
 Cada um desses filtros de redirecionamento oferece várias opções após ser adicionado. Para saber mais sobre o direcionamento de usuários, confira nosso [curso do Braze Learning](https://learning.braze.com/campaign-setup-delivery-targeting-conversions) sobre configuração de campanhas!
 
-![Seção de informações do Segment or segmento or segmento com o menu suspenso dos filtros disponíveis.]({% image_buster /assets/img_archive/retarget.png %}){: style="max-width:80%;"}
+![Seção de informações do Segment com o menu suspenso dos filtros disponíveis.]({% image_buster /assets/img_archive/retarget.png %}){: style="max-width:80%;"}
 
 ## Filtros de redirecionamento {#retargeting-filters}
 
@@ -107,19 +107,19 @@ Use este filtro para encontrar usuários que receberam ou não uma Campaign ou C
 
 ## Vantagens do redirecionamento de campanhas {#advantages-with-retargeting-campaigns}
 
-O redirecionamento é particularmente eficaz quando o Segment or segmento or segmento original também incluiu uma ação específica que você deseja que os usuários realizem. Por exemplo, digamos que você tenha um cartão direcionado a usuários que nunca fizeram uma compra. O cartão anuncia uma promoção de compra no app com desconto. O Segment or segmento or segmento inicial é o seguinte:
+O redirecionamento é particularmente eficaz quando o Segment original também incluiu uma ação específica que você deseja que os usuários realizem. Por exemplo, digamos que você tenha um cartão direcionado a usuários que nunca fizeram uma compra. O cartão anuncia uma promoção de compra no app com desconto. O Segment inicial é o seguinte:
 
 - Dinheiro gasto no app é exatamente 0
 - Último uso do app há menos de 14 dias
 
-O número total de usuários no Segment or segmento or segmento é 100.000 e você sabe pelas estatísticas do cartão de conteúdo que 60.000 usuários únicos visualizaram o cartão e 20.000 usuários únicos clicaram no cartão. Através do segmentador, podemos ver quantos desses usuários que clicaram no cartão realmente fizeram uma compra:
+O número total de usuários no Segment é 100.000 e você sabe pelas estatísticas do cartão de conteúdo que 60.000 usuários únicos visualizaram o cartão e 20.000 usuários únicos clicaram no cartão. Através do segmentador, podemos ver quantos desses usuários que clicaram no cartão realmente fizeram uma compra:
 
 - Dinheiro gasto no app é maior que 0
 - Clicou no cartão é Nome do Cartão
 
-Após examinar essas estatísticas, podemos criar um Segment or segmento or segmento de usuários que clicaram no cartão, mas não fizeram uma compra:
+Após examinar essas estatísticas, podemos criar um Segment de usuários que clicaram no cartão, mas não fizeram uma compra:
 
 - Dinheiro gasto no app é exatamente 0
 - Clicou no cartão é Nome do Cartão
 
-Podemos redirecionar esse Segment or segmento or segmento com mensagens adicionais sobre a promoção ou outra compra no app. O redirecionamento pode ser feito com uma campanha de mensagens. Uma abordagem multicanal permite que você alcance os usuários onde eles têm mais probabilidade de responder, aumentando assim a eficácia das suas campanhas.
+Podemos redirecionar esse Segment com mensagens adicionais sobre a promoção ou outra compra no app. O redirecionamento pode ser feito com uma campanha de mensagens. Uma abordagem multicanal permite que você alcance os usuários onde eles têm mais probabilidade de responder, aumentando assim a eficácia das suas campanhas.

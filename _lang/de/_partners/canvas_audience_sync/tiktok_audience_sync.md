@@ -2,7 +2,7 @@
 nav_title: TikTok
 article_title: Canvas Audience Sync mit TikTok
 alias: /tiktok_audience_sync/
-description: "Dieser Referenzartikel beschreibt, wie Sie Braze Audience Sync für TikTok verwenden, um Werbung auf der Grundlage von verhaltensbezogenen Trigger or triggern or triggern, Segmentierung und mehr zuzustellen."
+description: "Dieser Referenzartikel beschreibt, wie Sie Braze Audience Sync für TikTok verwenden, um Werbung auf der Grundlage von verhaltensbezogenen Triggern, Segmentierung und mehr zuzustellen."
 tool:
   - Canvas
 page_order: 8
@@ -11,7 +11,7 @@ page_order: 8
 
 # Audience Sync mit TikTok {#audience-sync-to-tiktok}
 
-Mit Braze Audience Sync to TikTok können Marken wahlweise Nutzerdaten aus ihrer eigenen Braze-Integration zu TikTok Audiences hinzufügen, um Werbung auf der Grundlage von Verhaltenstriggern, Segmentierung und mehr zuzustellen. Alle Kriterien, die Sie normalerweise zum Trigger or triggern or triggern einer Nachricht (Push, E-Mail, Kurzmitteilungsdienst or SMS, Webhook usw.) in einem Braze-Canvas verwenden würden.
+Mit Braze Audience Sync to TikTok können Marken wahlweise Nutzerdaten aus ihrer eigenen Braze-Integration zu TikTok Audiences hinzufügen, um Werbung auf der Grundlage von Verhaltenstriggern, Segmentierung und mehr zuzustellen. Alle Kriterien, die Sie normalerweise zum Triggern einer Nachricht (Push, E-Mail, SMS, Webhook usw.) in einem Braze-Canvas verwenden würden.
 
 **Zu den häufigen Anwendungsfällen für Audience Syncing gehören**:
 
@@ -55,7 +55,7 @@ Sobald die Verbindung erfolgreich hergestellt wurde, kehren Sie zur Partnerseite
 
 ![Braze-TikTok-Partnerseite mit verbundenen TikTok-Anzeigenkonten.]({% image_buster /assets/img/tiktok/tiktok3.png %}){: style="max-width:75%;"}
 
-Ihre TikTok-Verbindung wird auf der Ebene des Braze-Workspace angewendet. Wenn Ihr TikTok-Administrator Sie aus Ihrem TikTok Business Center oder dem Zugriff auf die verbundenen TikTok-Konten entfernt, erkennt Braze ein ungültiges Token / Textbaustein. Infolgedessen werden Ihre aktiven Canvase, die TikTok Audience-Komponenten verwenden, Fehler anzeigen, und Braze wird die Nutzer:innen nicht synchronisieren können.
+Ihre TikTok-Verbindung wird auf der Ebene des Braze-Workspace angewendet. Wenn Ihr TikTok-Administrator Sie aus Ihrem TikTok Business Center oder dem Zugriff auf die verbundenen TikTok-Konten entfernt, erkennt Braze ein ungültiges Token / Textbaustein. Infolgedessen werden Ihre aktiven Canvases, die TikTok Audience-Komponenten verwenden, Fehler anzeigen, und Braze wird die Nutzer:innen nicht synchronisieren können.
 
 ### Schritt 2: Eine TikTok Audience-Komponente in Canvas hinzufügen {#step-2-add-a-tiktok-audience-component-in-canvas}
 

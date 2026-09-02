@@ -14,28 +14,28 @@ hidden: true
 
 ### Schritt 1: Wählen Sie, wo Sie Ihre Nachricht erstellen möchten {#step-1-choose-where-to-build-your-message}
 
-Sind Sie unsicher, ob Ihre Nachricht über eine Campaign oder ein Canvas gesendet werden soll? Campaigns eignen sich besser für einzelne, einfache Messaging-Kampagnen, während Canvase besser für mehrstufige User Journeys geeignet sind.
+Sind Sie unsicher, ob Ihre Nachricht über eine Campaign oder ein Canvas gesendet werden soll? Campaigns eignen sich besser für einzelne, einfache Messaging-Kampagnen, während Canvases besser für mehrstufige User Journeys geeignet sind.
 
 {% tabs %}
 {% tab Campaign %}
 1. Gehen Sie zu **Messaging** > **Campaigns** und wählen Sie **Campaign erstellen**.
-2. Wählen Sie **Kurzmitteilungsdienst or SMS/MMS/RCS** oder für Campaigns, die auf mehrere Kanäle abzielen, **Multichannel**.
+2. Wählen Sie **SMS/MMS/RCS** oder für Campaigns, die auf mehrere Kanäle abzielen, **Multichannel**.
 3. Geben Sie Ihrer Campaign einen aussagekräftigen Namen.
 4. Fügen Sie bei Bedarf [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams) und [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) hinzu.
    * Tags erleichtern das Auffinden Ihrer Campaigns und das Erstellen von Berichten. Wenn Sie beispielsweise den [Berichts-Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder) verwenden, können Sie nach bestimmten Tags filtern.
 
 {: start="5"}
 5. Fügen Sie so viele Varianten hinzu und benennen Sie diese, wie Sie für Ihre Campaign benötigen. Sie können für jede hinzugefügte Variante unterschiedliche Plattformen, Nachrichtentypen und Layouts wählen. Weitere Informationen zu diesem Thema finden Sie unter [Multivariate und A/B-Tests]({{site.baseurl}}/user_guide/messaging/ab_testing).
-- **Kurzmitteilungsdienst or SMS- und RCS-Varianten-Tests**: Braze ermöglicht es Ihnen, sowohl Kurzmitteilungsdienst or SMS- als auch RCS-Varianten in einer einzelnen Campaign einzuschließen, sodass Sie die Performance der einzelnen Varianten vergleichen können. Sie können Kurzmitteilungsdienst or SMS- und RCS-Varianten im ersten Schritt der Nachrichtenkomposition hinzufügen.
+- **SMS- und RCS-Varianten-Tests**: Braze ermöglicht es Ihnen, sowohl SMS- als auch RCS-Varianten in einer einzelnen Campaign einzuschließen, sodass Sie die Performance der einzelnen Varianten vergleichen können. Sie können SMS- und RCS-Varianten im ersten Schritt der Nachrichtenkomposition hinzufügen.
 
 {: start="6"}
-6. Wählen Sie eine RCS-fähige [Abo-Gruppe]({{site.baseurl}}/sms_rcs_subscription_groups) aus. Beim Auswählen einer Abo-Gruppe fügt Braze automatisch einen Segmentierungsfilter hinzu, der sicherstellt, dass nur abonnierte Nutzer:innen die Campaign erhalten. Nur Langcodes und Shortcodes, die zu dieser Abo-Gruppe gehören, werden zum Senden von Kurzmitteilungsdienst or SMS an Ihre Zielgruppe verwendet.
-- **Kurzmitteilungsdienst or SMS-Fallback**: Braze empfiehlt dringend, dass jede Abo-Gruppe, die einen RCS-Sender enthält, auch mindestens einen Kurzmitteilungsdienst or SMS-Code als Fallback beinhaltet. Dies ist wichtig für die Zustellbarkeit, falls RCS-Nachrichten nicht zugestellt werden können. Gründe hierfür können unter anderem Inkompatibilität des Nutzergeräts und unvollständige Carrier-Abdeckung in einem bestimmten Land oder einer bestimmten Region sein. Durch die Aktivierung des Kurzmitteilungsdienst or SMS-Fallbacks wird Ihre Nachricht dennoch an Ihre Nutzer:innen zugestellt, sodass Sie nie die Gelegenheit verpassen, mit ihnen in Kontakt zu treten.
+6. Wählen Sie eine RCS-fähige [Abo-Gruppe]({{site.baseurl}}/sms_rcs_subscription_groups) aus. Beim Auswählen einer Abo-Gruppe fügt Braze automatisch einen Segmentierungsfilter hinzu, der sicherstellt, dass nur abonnierte Nutzer:innen die Campaign erhalten. Nur Langcodes und Shortcodes, die zu dieser Abo-Gruppe gehören, werden zum Senden von SMS an Ihre Zielgruppe verwendet.
+- **SMS-Fallback**: Braze empfiehlt dringend, dass jede Abo-Gruppe, die einen RCS-Sender enthält, auch mindestens einen SMS-Code als Fallback beinhaltet. Dies ist wichtig für die Zustellbarkeit, falls RCS-Nachrichten nicht zugestellt werden können. Gründe hierfür können unter anderem Inkompatibilität des Nutzergeräts und unvollständige Carrier-Abdeckung in einem bestimmten Land oder einer bestimmten Region sein. Durch die Aktivierung des SMS-Fallbacks wird Ihre Nachricht dennoch an Ihre Nutzer:innen zugestellt, sodass Sie nie die Gelegenheit verpassen, mit ihnen in Kontakt zu treten.
 
 {: start="7"}
-7. Wählen Sie zwischen Kurzmitteilungsdienst or SMS und RCS. Bevor Sie RCS-Nachrichten verfassen, wählen Sie den Kanal, über den Sie senden möchten. Wir empfehlen im Allgemeinen, RCS zu verwenden, wo immer es möglich ist, da es im Vergleich zu Kurzmitteilungsdienst or SMS erhebliche Vorteile für das Nutzer-Engagement bietet; allerdings bieten wir immer die Option, mit Kurzmitteilungsdienst or SMS zu senden, damit Sie maximale Flexibilität und Kontrolle haben.
+7. Wählen Sie zwischen SMS und RCS. Bevor Sie RCS-Nachrichten verfassen, wählen Sie den Kanal, über den Sie senden möchten. Wir empfehlen im Allgemeinen, RCS zu verwenden, wo immer es möglich ist, da es im Vergleich zu SMS erhebliche Vorteile für das Nutzer-Engagement bietet; allerdings bieten wir immer die Option, mit SMS zu senden, damit Sie maximale Flexibilität und Kontrolle haben.
 
-![Optionen zur Auswahl eines RCS- oder Kurzmitteilungsdienst or SMS/MMS-Nachrichtentyps.]({% image_buster /assets/unlisted_docs/img/rcs/rcs_message_type.png %}){: style="max-width:65%;"}
+![Optionen zur Auswahl eines RCS- oder SMS/MMS-Nachrichtentyps.]({% image_buster /assets/unlisted_docs/img/rcs/rcs_message_type.png %}){: style="max-width:65%;"}
 
 {% alert tip %}
 Wenn alle Nachrichten in Ihrer Campaign ähnlich sein oder denselben Inhalt haben werden, verfassen Sie Ihre Nachricht, bevor Sie zusätzliche Varianten hinzufügen. Sie können dann **Von Variante kopieren** aus dem Dropdown **Variante hinzufügen** wählen.
@@ -44,15 +44,15 @@ Wenn alle Nachrichten in Ihrer Campaign ähnlich sein oder denselben Inhalt habe
 {% endtab %}
 {% tab Canvas %}
 1. [Erstellen Sie Ihr Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) mit dem Canvas-Composer.
-2. Nachdem Sie Ihr Canvas eingerichtet haben, fügen Sie im Canvas-Builder einen **Kurzmitteilungsdienst or SMS/MMS/RCS**-Nachrichtenschritt hinzu.
+2. Nachdem Sie Ihr Canvas eingerichtet haben, fügen Sie im Canvas-Builder einen **SMS/MMS/RCS**-Nachrichtenschritt hinzu.
 3. Geben Sie Ihrem Schritt einen aussagekräftigen Namen.
 4. Wählen Sie eine RCS-fähige [Abo-Gruppe]({{site.baseurl}}/sms_rcs_subscription_groups) aus. Beim Auswählen einer Abo-Gruppe fügt Braze automatisch einen Segmentierungsfilter hinzu, der sicherstellt, dass nur abonnierte Nutzer:innen die Campaign erhalten. Nur Langcodes und Shortcodes, die zu dieser Abo-Gruppe gehören, werden zum Targeting Ihrer Zielgruppe verwendet.
-- **Kurzmitteilungsdienst or SMS-Fallback**: Braze empfiehlt dringend, dass jede Abo-Gruppe, die einen RCS-Sender enthält, auch mindestens einen Kurzmitteilungsdienst or SMS-Code als Fallback beinhaltet. Dies ist wichtig für die Zustellbarkeit, falls RCS-Nachrichten nicht zugestellt werden können. Gründe hierfür können unter anderem Inkompatibilität des Nutzergeräts und unvollständige Carrier-Abdeckung in einem bestimmten Land oder einer bestimmten Region sein. Durch die Aktivierung des Kurzmitteilungsdienst or SMS-Fallbacks wird Ihre Nachricht dennoch an Ihre Nutzer:innen zugestellt, sodass Sie nie die Gelegenheit verpassen, mit ihnen in Kontakt zu treten.
+- **SMS-Fallback**: Braze empfiehlt dringend, dass jede Abo-Gruppe, die einen RCS-Sender enthält, auch mindestens einen SMS-Code als Fallback beinhaltet. Dies ist wichtig für die Zustellbarkeit, falls RCS-Nachrichten nicht zugestellt werden können. Gründe hierfür können unter anderem Inkompatibilität des Nutzergeräts und unvollständige Carrier-Abdeckung in einem bestimmten Land oder einer bestimmten Region sein. Durch die Aktivierung des SMS-Fallbacks wird Ihre Nachricht dennoch an Ihre Nutzer:innen zugestellt, sodass Sie nie die Gelegenheit verpassen, mit ihnen in Kontakt zu treten.
 
 {: start="5"}
-5. Wählen Sie zwischen Kurzmitteilungsdienst or SMS und RCS. Bevor Sie RCS-Nachrichten verfassen, wählen Sie den Kanal, über den Sie senden möchten. Wir empfehlen im Allgemeinen, RCS zu verwenden, wo immer es möglich ist, da es im Vergleich zu Kurzmitteilungsdienst or SMS erhebliche Vorteile für das Nutzer-Engagement bietet; allerdings bieten wir immer die Option, mit Kurzmitteilungsdienst or SMS zu senden, damit Sie maximale Flexibilität und Kontrolle haben.
+5. Wählen Sie zwischen SMS und RCS. Bevor Sie RCS-Nachrichten verfassen, wählen Sie den Kanal, über den Sie senden möchten. Wir empfehlen im Allgemeinen, RCS zu verwenden, wo immer es möglich ist, da es im Vergleich zu SMS erhebliche Vorteile für das Nutzer-Engagement bietet; allerdings bieten wir immer die Option, mit SMS zu senden, damit Sie maximale Flexibilität und Kontrolle haben.
 
-![Optionen zur Auswahl eines RCS- oder Kurzmitteilungsdienst or SMS/MMS-Nachrichtentyps.]({% image_buster /assets/unlisted_docs/img/rcs/rcs_message_type.png %}){: style="max-width:65%;"}
+![Optionen zur Auswahl eines RCS- oder SMS/MMS-Nachrichtentyps.]({% image_buster /assets/unlisted_docs/img/rcs/rcs_message_type.png %}){: style="max-width:65%;"}
 
 {% endtab %}
 {% endtabs %}
@@ -69,7 +69,7 @@ Wie der Name schon sagt, konzentrieren sich RCS-Textnachrichten auf Text als Med
 
 #### Features
 
-- Text-Nachrichtentypen umfassen alle Kurzmitteilungsdienst or SMS-Features. Für URL-Klick-Tracking ist nur Advanced Tracking möglich, um Ihnen Berichtsgranularität auf Nutzerebene zu bieten.
+- Text-Nachrichtentypen umfassen alle SMS-Features. Für URL-Klick-Tracking ist nur Advanced Tracking möglich, um Ihnen Berichtsgranularität auf Nutzerebene zu bieten.
 - Darüber hinaus haben Sie jetzt die Möglichkeit, ansprechende **Suggested Replies** und **Suggested Actions** Buttons einzufügen, die zu nutzeraktiven Handlungen mit hohem Engagement führen, wie z. B. den Besuch einer Landing-Page oder das Aufgeben einer Bestellung.
     - **Suggested Replies** sind Buttons mit vorgeschlagenen Antworten, auf die Nutzer:innen klicken können, um diese in ihrer Texteingabe vorzubefüllen. So wird die Hürde genommen, sich eine Antwort überlegen zu müssen, indem eine begrenzte Auswahl an Optionen bereitgestellt wird.
     - **Suggested Actions** sind Buttons, die eine Aktion auf dem Gerät der Nutzer:innen auslösen. Sie bestehen in der Regel aus einem oder zwei beschreibenden Wörtern und einem visuellen Symbol, das den Nutzer:innen hilft zu verstehen, was der Button bewirkt. Braze unterstützt derzeit OpenURL Suggested Actions. Dies funktioniert ähnlich wie eine URL, wobei Nutzer:innen, die den Button auswählen, zu einer Webseite oder einem anderen URL-identifizierten Ziel weitergeleitet werden.
@@ -81,11 +81,11 @@ Wie der Name schon sagt, konzentrieren sich RCS-Textnachrichten auf Text als Med
 - Für die Zeichenbegrenzung bei Text können Sie bis zu 160 Zeichen für eine reine Text-RCS-Nachricht (Basic) oder bis zu 3072 Zeichen für eine Rich-RCS-Nachricht (Single) schreiben.
 - Für Button-Limits können Sie bis zu fünf Buttons pro Nachricht hinzufügen. Diese Buttons können entweder Suggested Actions oder Suggested Replies sein.
 - Längere Textblöcke und zu viele Buttons können Nutzer:innen frustrieren, daher empfehlen wir nach Möglichkeit, auf Einfachheit zu setzen.
-- In einigen Fällen kann es kostengünstiger sein, längere reine Textnachrichten über RCS statt über Kurzmitteilungsdienst or SMS zu senden. Dies liegt daran, dass längere Kurzmitteilungsdienst or SMS-Nachrichten in mehrere Segmente aufgeteilt werden, von denen jedes einzeln abgerechnet wird, während RCS-Nachrichten stattdessen pro Nachricht abgerechnet werden. Wenden Sie sich an Ihren Braze Account Manager:in für weitere Details und Beratung.
+- In einigen Fällen kann es kostengünstiger sein, längere reine Textnachrichten über RCS statt über SMS zu senden. Dies liegt daran, dass längere SMS-Nachrichten in mehrere Segmente aufgeteilt werden, von denen jedes einzeln abgerechnet wird, während RCS-Nachrichten stattdessen pro Nachricht abgerechnet werden. Wenden Sie sich an Ihren Braze Account Manager:in für weitere Details und Beratung.
 {% endtab %}
 
 {% tab Medien %}
-RCS-Mediennachrichten ermöglichen es Ihnen, ansprechende Medienformate zu nutzen, die mit Kurzmitteilungsdienst or SMS nicht möglich sind. Dazu gehören Bild-, Video- und Dokumentdateien. Diese Medienoptionen helfen Ihnen, Ihre Zielgruppe noch intensiver anzusprechen und völlig neue Anwendungsfälle zu ermöglichen. Derzeit wird nur das Hochladen von Bildern über die [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications) unterstützt.
+RCS-Mediennachrichten ermöglichen es Ihnen, ansprechende Medienformate zu nutzen, die mit SMS nicht möglich sind. Dazu gehören Bild-, Video- und Dokumentdateien. Diese Medienoptionen helfen Ihnen, Ihre Zielgruppe noch intensiver anzusprechen und völlig neue Anwendungsfälle zu ermöglichen. Derzeit wird nur das Hochladen von Bildern über die [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications) unterstützt.
 
 #### Features
 
@@ -116,7 +116,7 @@ Im Allgemeinen integriert sich RCS natürlicher mit Android-Geräten (diese Meth
 {% tab Rich Card %}
 
 {% alert important %}
-Rich Cards befinden sich im Early Access. Wenden Sie sich an Ihren Braze CSM or Customer-Success-Manager or Customer-Success-Manager:in, wenn Sie an diesem Early Access teilnehmen möchten.
+Rich Cards befinden sich im Early Access. Wenden Sie sich an Ihren Braze CSM, wenn Sie an diesem Early Access teilnehmen möchten.
 {% endalert %}
 
 Eine Rich Card kombiniert Medien, Text und Buttons in einer einzigen Nachricht und schafft so ein intuitiveres und ansprechenderes Erlebnis für Ihre Kund:innen. Sie können zwei Untertypen von Rich Cards erstellen: Text und Medien.
@@ -168,13 +168,13 @@ Bevor Sie fortfahren, lesen Sie unsere [Richtlinien für RCS-Nachrichtenlimits](
 
 Braze empfiehlt immer, Ihre Nachricht vor dem Senden in der Vorschau anzuzeigen und zu testen. Gehen Sie zum Tab **Test**, um eine Test-RCS an Content-Testgruppen oder einzelne Nutzer:innen zu senden, oder zeigen Sie die Nachricht als Nutzer:in direkt in Braze in der Vorschau an.
 
-### Schritt 5: Erstellen Sie den Representational State Transfer Ihrer Campaign oder Ihres Canvas {#step-5-build-the-remainder-of-your-campaign-or-canvas}
+### Schritt 5: Erstellen Sie den Rest Ihrer Campaign oder Ihres Canvas {#step-5-build-the-remainder-of-your-campaign-or-canvas}
 
-Erstellen Sie als Nächstes den Representational State Transfer Ihrer Campaign oder Ihres Canvas. In den folgenden Abschnitten finden Sie weitere Details dazu, wie Sie unsere Tools am besten zum Erstellen von RCS-Nachrichten nutzen können.
+Erstellen Sie als Nächstes den Rest Ihrer Campaign oder Ihres Canvas. In den folgenden Abschnitten finden Sie weitere Details dazu, wie Sie unsere Tools am besten zum Erstellen von RCS-Nachrichten nutzen können.
 
-#### Schritt 5.1: Wählen Sie Zeitplan oder Trigger or triggern für die Zustellung {#step-51-choose-delivery-schedule-or-trigger}
+#### Schritt 5.1: Wählen Sie Zeitplan oder Trigger für die Zustellung {#step-51-choose-delivery-schedule-or-trigger}
 
-RCS-Nachrichten können basierend auf einer geplanten Zeit, einer Aktion oder einem API-Trigger or triggern zugestellt werden. Weitere Informationen finden Sie unter [Ihre Campaign planen]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
+RCS-Nachrichten können basierend auf einer geplanten Zeit, einer Aktion oder einem API-Trigger zugestellt werden. Weitere Informationen finden Sie unter [Ihre Campaign planen]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
 Bei aktionsbasierter Zustellung können Sie auch die Dauer der Campaign und Ruhezeiten festlegen.
 
@@ -189,7 +189,7 @@ Sprechen Sie Nutzer:innen an, indem Sie Segments oder Filter auswählen, um Ihre
 Als Nächstes wählen Sie die größere Zielgruppe aus Ihren Segments aus und grenzen dieses Segment mit optionalen [Filtern]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) weiter ein. Sie erhalten automatisch eine Vorschau darauf, wie die ungefähre Segmentpopulation derzeit aussieht. Beachten Sie, dass die genaue Segmentzugehörigkeit immer kurz vor dem Senden der Nachricht berechnet wird.
 
 {% alert tip %}
-Sind Sie daran interessiert, RCS-Retargeting zu nutzen, um Nutzer:innen basierend auf ihren Kurzmitteilungsdienst or SMS- und RCS-Interaktionen anzusprechen? Weitere Informationen finden Sie unter [Retargeting]({{site.baseurl}}/sms_mms_rcs_user_retargeting).
+Sind Sie daran interessiert, RCS-Retargeting zu nutzen, um Nutzer:innen basierend auf ihren SMS- und RCS-Interaktionen anzusprechen? Weitere Informationen finden Sie unter [Retargeting]({{site.baseurl}}/sms_mms_rcs_user_retargeting).
 {% endalert %}
 
 #### Schritt 5.3: Wählen Sie Konversions-Events {#step-53-choose-conversion-events}
@@ -206,7 +206,7 @@ Sie können auch benutzerdefinierte Konversions-Events basierend auf Ihrem spezi
 
 Nachdem Sie Ihre Campaign oder Ihr Canvas fertiggestellt haben, überprüfen Sie die Details, testen Sie sie und senden Sie sie dann!
 
-Lesen Sie als Nächstes [Reporting für Kurzmitteilungsdienst or SMS, MMS und RCS]({{site.baseurl}}/sms_mms_rcs_reporting), um zu erfahren, wie Sie auf die Ergebnisse Ihrer RCS-Campaigns zugreifen können.
+Lesen Sie als Nächstes [Reporting für SMS, MMS und RCS]({{site.baseurl}}/sms_mms_rcs_reporting), um zu erfahren, wie Sie auf die Ergebnisse Ihrer RCS-Campaigns zugreifen können.
 
 ## Analytics und Berichterstattung {#analytics-and-reporting}
 
@@ -223,13 +223,13 @@ Der Early Access umfasst kein Klick-Tracking auf Nutzer:innen-Ebene. _Gesamtklic
 
 ### Liquid für die Nachrichtenpersonalisierung verwenden {#using-liquid-for-message-personalization}
 
-Wenn Sie Liquid verwenden möchten, sollten Sie unbedingt einen Standardwert für Ihre gewählte Personalisierung angeben. So wird den Empfänger:innen bei einem unvollständigen Kundenprofil or Nutzerprofil nicht ein leerer Platzhalter wie `Hi, !` anstelle ihres Namens oder eines sinnvollen Satzes angezeigt.
+Wenn Sie Liquid verwenden möchten, sollten Sie unbedingt einen Standardwert für Ihre gewählte Personalisierung angeben. So wird den Empfänger:innen bei einem unvollständigen Kundenprofil nicht ein leerer Platzhalter wie `Hi, !` anstelle ihres Namens oder eines sinnvollen Satzes angezeigt.
 
-### KI or künstliche Intelligenz-gestützte Texte erstellen {#generating-ai-copy}
+### KI-gestützte Texte erstellen {#generating-ai-copy}
 
-Brauchen Sie Hilfe beim Erstellen ansprechender Texte? Nutzen Sie den [KI or künstliche Intelligenz-Textassistenten]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). Geben Sie einen Produktnamen oder eine Beschreibung ein, und die KI or künstliche Intelligenz generiert menschlich klingende Marketingtexte zur Verwendung in Ihrem Messaging.
+Brauchen Sie Hilfe beim Erstellen ansprechender Texte? Nutzen Sie den [KI-Textassistenten]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). Geben Sie einen Produktnamen oder eine Beschreibung ein, und die KI generiert menschlich klingende Marketingtexte zur Verwendung in Ihrem Messaging.
 
-![Nachrichten-Editor mit einem Symbol zum Öffnen des KI or künstliche Intelligenz-Textassistenten.]({% image_buster /assets/unlisted_docs/img/rcs/rcs_ai_copywriter.png %}){: style="max-width:70%;"}
+![Nachrichten-Editor mit einem Symbol zum Öffnen des KI-Textassistenten.]({% image_buster /assets/unlisted_docs/img/rcs/rcs_ai_copywriter.png %}){: style="max-width:70%;"}
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 

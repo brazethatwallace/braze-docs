@@ -30,7 +30,7 @@ Antes de começar, certifique-se de que você tem o acesso e os dados descritos 
 
 | Pré-requisito | Descrição |
 |--------------|-------------|
-| Acesso à plataforma Seen | Você precisa de uma assinatura da plataforma Seen com um projeto publicado, ou de uma Campaign ativa da Seen. Você também precisa de acesso ao seu projeto para recuperar o endpoint do projeto e gerar um token de API or interface de programação do aplicativo (API). |
+| Acesso à plataforma Seen | Você precisa de uma assinatura da plataforma Seen com um projeto publicado, ou de uma Campaign ativa da Seen. Você também precisa de acesso ao seu projeto para recuperar o endpoint do projeto e gerar um token de API. |
 | URL do webhook de Transformação de dados da Braze | Use a Transformação de dados da Braze para reformatar os dados recebidos da Seen para que possam ser aceitos pelo [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) da Braze. |
 | Dados de usuários da Braze | A personalização de vídeo requer dados em nível de usuário. Certifique-se de que os atributos relevantes estejam disponíveis na Braze e passe **`braze_id`** como o identificador único. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
@@ -51,7 +51,7 @@ Um fluxo de trabalho de projeto:
 
 A guia Run inclui o seguinte:
 
-- **Create via API or interface de programação do aplicativo (API)**: abre os detalhes da API or interface de programação do aplicativo (API) do projeto.
+- **Create via API**: abre os detalhes da API do projeto.
 - **Import CSV**: importa dados de personalização manualmente (não utilizado neste passo a passo).
 - **Add webhook**: define a carga útil de resposta enviada de volta para a Braze.
 - **View videos**: exibe os vídeos gerados e o status dos dados recebidos.
@@ -61,7 +61,7 @@ As respostas de webhook são configuráveis, então alinhe os campos de saída q
 
 ## Limite de taxa {#rate-limit}
 
-A API or interface de programação do aplicativo (API) da Seen aceita 100 chamadas a cada 10 segundos.
+A API da Seen aceita 100 chamadas a cada 10 segundos.
 
 
 ## Integração {#integration}
@@ -100,7 +100,7 @@ Configure o webhook da seguinte forma:
   - `Authorization`: Bearer `{Seen_API_TOKEN}`
   - `Content-Type`: `application/json`
 
-  Gere um [token de API or interface de programação do aplicativo (API)](https://docs.seen.io/authorization) na guia Run do seu projeto na plataforma Seen. Entre em contato com seu gerente de sucesso do cliente da Seen se precisar de ajuda.
+  Gere um [token de API](https://docs.seen.io/authorization) na guia Run do seu projeto na plataforma Seen. Entre em contato com seu CSM da Seen se precisar de ajuda.
 
 - Teste o webhook com um usuário na guia **Test**.
 - Após um teste bem-sucedido, conclua a configuração do webhook.

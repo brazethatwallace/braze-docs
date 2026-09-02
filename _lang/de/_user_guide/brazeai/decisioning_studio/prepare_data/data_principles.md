@@ -34,7 +34,7 @@ Siehe [Snapshots versus Event-Streams]({{site.baseurl}}/user_guide/brazeai/decis
 
 ## Snapshot-Daten müssen nach einem regelmäßigen, zeitgesteuerten Zeitplan aktualisiert werden {#snapshot-data-must-be-updated-on-a-regular-time-driven-schedule}
 
-Snapshot-Daten (wie Kundenprofile und Features) repräsentieren den aktuellen Zustand einer Kund:in zu einem bestimmten Zeitpunkt. Aktualisierungen von Snapshot-Daten sollten durch einen regelmäßigen Zeitplan gesteuert werden (zum Beispiel täglich), nicht durch Event-Trigger or triggern.
+Snapshot-Daten (wie Kundenprofile und Features) repräsentieren den aktuellen Zustand einer Kund:in zu einem bestimmten Zeitpunkt. Aktualisierungen von Snapshot-Daten sollten durch einen regelmäßigen Zeitplan gesteuert werden (zum Beispiel täglich), nicht durch Event-Trigger.
 
 | Anforderung | Auswirkung bei Verstoß |
 |-------------|------------------------|

@@ -8,7 +8,7 @@ Para utilizar la integración estándar de Shopify, consulta [Configuración de 
 {% endtab %}
 
 {% tab custom %}
-La integración personalizada ofrece una solución más flexible y modulable si utilizas Shopify Hydrogen o admites una tienda headless. Esta opción te permite implementar los SDK or kit de desarrollo de software de Braze directamente en tu entorno Shopify, lo que habilita una integración más profunda y funcionalidades personalizadas. Tanto si deseas crear experiencias del cliente únicas como optimizar flujos de trabajo específicos, la integración personalizada te proporciona las herramientas necesarias para aprovechar al máximo las capacidades de Braze en una configuración headless.
+La integración personalizada ofrece una solución más flexible y modulable si utilizas Shopify Hydrogen o admites una tienda headless. Esta opción te permite implementar los SDK de Braze directamente en tu entorno Shopify, lo que habilita una integración más profunda y funcionalidades personalizadas. Tanto si deseas crear experiencias del cliente únicas como optimizar flujos de trabajo específicos, la integración personalizada te proporciona las herramientas necesarias para aprovechar al máximo las capacidades de Braze en una configuración headless.
 
 Para utilizar la integración personalizada de Shopify, consulta [Configuración de la integración personalizada de Shopify]({{site.baseurl}}/shopify_custom_integration).
 {% endtab %}

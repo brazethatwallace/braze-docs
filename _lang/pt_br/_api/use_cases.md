@@ -1,14 +1,14 @@
 ---
-nav_title: Casos de uso da API or interface de programação do aplicativo (API)
-article_title: Casos de uso da API or interface de programação do aplicativo (API)
-description: "Seja você um desenvolvedor experiente ou um profissional de marketing com recursos mínimos de desenvolvimento, este artigo de referência foi criado para ajudá-lo a entender como aproveitar o poder da REST or transferir estado representacional API or interface de programação do aplicativo (API) da Braze para realizar várias tarefas e aprimorar sua estratégia de engajamento do cliente."
+nav_title: Casos de uso da API
+article_title: Casos de uso da API
+description: "Seja você um desenvolvedor experiente ou um profissional de marketing com recursos mínimos de desenvolvimento, este artigo de referência foi criado para ajudá-lo a entender como aproveitar o poder da REST API da Braze para realizar várias tarefas e aprimorar sua estratégia de engajamento do cliente."
 page_type: reference
 page_order: 4.8
 ---
 
-# Casos de uso da API or interface de programação do aplicativo (API) {#api-use-cases}
+# Casos de uso da API {#api-use-cases}
 
-> A [REST or transferir estado representacional API or interface de programação do aplicativo (API) da Braze]({{site.baseurl}}/api/basics) fornece uma ampla gama de endpoints projetados para ajudar a gerenciar e otimizar sua estratégia de engajamento do cliente. Neste artigo, exploraremos vários casos de uso para cada coleção de endpoints: catálogos, listas e endereços de e-mail, exportação, mensagens, Central de Preferências, SMS, grupos de inscrições, modelos e dados de usuários.<br><br>Cada seção apresenta um cenário com um guia passo a passo, exemplo de código e resultado esperado. Ao final deste artigo, você entenderá melhor como usar a REST or transferir estado representacional API or interface de programação do aplicativo (API) da Braze para aprimorar seus esforços de engajamento do cliente.
+> A [REST API da Braze]({{site.baseurl}}/api/basics) fornece uma ampla gama de endpoints projetados para ajudar a gerenciar e otimizar sua estratégia de engajamento do cliente. Neste artigo, exploraremos vários casos de uso para cada coleção de endpoints: catálogos, listas e endereços de e-mail, exportação, mensagens, Central de Preferências, SMS, grupos de inscrições, modelos e dados de usuários.<br><br>Cada seção apresenta um cenário com um guia passo a passo, exemplo de código e resultado esperado. Ao final deste artigo, você entenderá melhor como usar a REST API da Braze para aprimorar seus esforços de engajamento do cliente.
 
 ## Exclusão de vários itens em um catálogo {#deleting-multiple-items-in-a-catalog}
 
@@ -53,7 +53,7 @@ Na MovieCanon, uma empresa de serviços de streaming, a equipe de desenvolvedore
 - delilah.york@example.com
 - evergreen.rebecca@example.com
 
-Para realizar essa tarefa, a equipe de desenvolvedores precisa de uma chave de API or interface de programação do aplicativo (API) com a permissão `email.spam.remove` para usar o endpoint `/email/spam/remove`. Esse endpoint remove endereços de e-mail da lista de spam da Braze e da lista de spam mantida pelo provedor de e-mail da MovieCanon.
+Para realizar essa tarefa, a equipe de desenvolvedores precisa de uma chave de API com a permissão `email.spam.remove` para usar o endpoint `/email/spam/remove`. Esse endpoint remove endereços de e-mail da lista de spam da Braze e da lista de spam mantida pelo provedor de e-mail da MovieCanon.
 
 Para enviar essa solicitação, inclua um endereço de e-mail em formato string ou um array de até 50 endereços de e-mail para modificar. Como a lista de e-mails a serem removidos é inferior a 50, a MovieCanon pode realizar essa tarefa com o seguinte corpo de solicitação:
 
@@ -213,7 +213,7 @@ Esse endpoint também lista os status dos grupos de inscrições de um usuário 
 
 ## Verificação de um modelo HTML para envio de mensagens por e-mail {#checking-an-html-template-for-email-messaging}
 
-Na WorkFriends, uma rede social que ajuda a construir relacionamentos or criar conexões entre trabalhadores de diferentes setores, sua equipe de marketing é responsável pelo envio de campanhas de e-mail para seus usuários. Essas campanhas geralmente incluem lembretes de eventos locais, boletins informativos semanais e destaques de atividades de perfil.
+Na WorkFriends, uma rede social que ajuda a criar conexões entre trabalhadores de diferentes setores, sua equipe de marketing é responsável pelo envio de campanhas de e-mail para seus usuários. Essas campanhas geralmente incluem lembretes de eventos locais, boletins informativos semanais e destaques de atividades de perfil.
 
 Nesse cenário, a WorkFriends tem usado historicamente um único modelo HTML com sua marca antiga. Em um esforço para alinhar a identidade de sua marca, a WorkFriends deseja verificar se há alguma informação útil nesse modelo HTML para aproveitar antes de fazer a transição para um novo modelo.
 
@@ -235,4 +235,4 @@ Nesse cenário, a WorkFriends tem usado historicamente um único modelo HTML com
 
 {% enddetails %}
 
-Depois de revisar essas informações do modelo, a WorkFriends também pode usar o [endpoint `/templates/email/update`]({{site.baseurl}}/api/endpoints/templates/email_templates/post_update_email_template) para atualizar o modelo de e-mail por meio da API or interface de programação do aplicativo (API). O modelo de e-mail no dashboard da Braze reflete essas edições.
+Depois de revisar essas informações do modelo, a WorkFriends também pode usar o [endpoint `/templates/email/update`]({{site.baseurl}}/api/endpoints/templates/email_templates/post_update_email_template) para atualizar o modelo de e-mail por meio da API. O modelo de e-mail no dashboard da Braze reflete essas edições.

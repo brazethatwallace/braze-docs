@@ -80,7 +80,7 @@ func saveCustomEvent(with properties: [String: Any]? = nil) {
 
 #### Envío de eventos personalizados a Braze {#sending-custom-events-to-braze}
 
-El mejor momento para registrar cualquier análisis guardado de una extensión de aplicación de contenido de notificaciones es justo después de inicializar el SDK or kit de desarrollo de software. Esto se puede hacer recorriendo en bucle los eventos pendientes, buscando la clave "Event Name", configurando los valores adecuados en Braze y, a continuación, borrando el almacenamiento para la próxima vez que se necesite esta función.
+El mejor momento para registrar cualquier análisis guardado de una extensión de aplicación de contenido de notificaciones es justo después de inicializar el SDK. Esto se puede hacer recorriendo en bucle los eventos pendientes, buscando la clave "Event Name", configurando los valores adecuados en Braze y, a continuación, borrando el almacenamiento para la próxima vez que se necesite esta función.
 
 1. Recorre la matriz de eventos pendientes
 2. Recorre cada par clave-valor del diccionario `pendingEvents`
@@ -221,7 +221,7 @@ func saveCustomAttribute() {
 
 #### Envío de atributos personalizados a Braze {#sending-custom-attributes-to-braze}
 
-El mejor momento para registrar cualquier análisis guardado de una extensión de aplicación de contenido de notificaciones es justo después de inicializar el SDK or kit de desarrollo de software. Esto puede hacerse recorriendo en bucle los atributos pendientes, configurando el atributo personalizado apropiado en Braze y, a continuación, borrando el almacenamiento para la próxima vez que se necesite esta función.
+El mejor momento para registrar cualquier análisis guardado de una extensión de aplicación de contenido de notificaciones es justo después de inicializar el SDK. Esto puede hacerse recorriendo en bucle los atributos pendientes, configurando el atributo personalizado apropiado en Braze y, a continuación, borrando el almacenamiento para la próxima vez que se necesite esta función.
 
 1. Recorre la matriz de atributos pendientes
 2. Recorre cada par clave-valor del diccionario `pendingAttributes`
@@ -344,7 +344,7 @@ func saveUserAttribute() {
 
 #### Envío de atributos de usuario a Braze {#sending-user-attributes-to-braze}
 
-El mejor momento para registrar cualquier análisis guardado de una extensión de aplicación de contenido de notificaciones es justo después de inicializar el SDK or kit de desarrollo de software. Esto puede hacerse recorriendo en bucle los atributos pendientes, configurando el atributo personalizado apropiado en Braze y, a continuación, borrando el almacenamiento para la próxima vez que se necesite esta función.
+El mejor momento para registrar cualquier análisis guardado de una extensión de aplicación de contenido de notificaciones es justo después de inicializar el SDK. Esto puede hacerse recorriendo en bucle los atributos pendientes, configurando el atributo personalizado apropiado en Braze y, a continuación, borrando el almacenamiento para la próxima vez que se necesite esta función.
 
 1. Recorre la matriz de datos `pendingAttributes`
 2. Inicializa un objeto `UserAttribute` codificado a partir de datos de atributos

@@ -24,8 +24,8 @@ Antes de empezar, necesitas lo siguiente:
 | Requisito previo | Descripción |
 | --- | --- |
 | Cuenta de Catapult | Se requiere una cuenta de Catapult para usar esta integración. |
-| Clave de API REST or transferencia de estado representacional de Braze (opcional) | Si usas webhooks de Catapult, necesitas una clave de API REST or transferencia de estado representacional de Braze con los permisos de datos de usuario que requiera tu caso de uso. Crea la clave en Braze en **Configuración** > **APIs e identificadores** > **Claves de API**. |
-| Endpoint REST or transferencia de estado representacional de Braze (opcional) | Si usas webhooks de Catapult, utiliza la URL del endpoint REST or transferencia de estado representacional que coincida con la URL de Braze para [tu instancia de Braze]({{site.baseurl}}/api/basics#endpoints). |
+| Clave de API REST de Braze (opcional) | Si usas webhooks de Catapult, necesitas una clave de API REST de Braze con los permisos de datos de usuario que requiera tu caso de uso. Crea la clave en Braze en **Configuración** > **APIs e identificadores** > **Claves de API**. |
+| Endpoint REST de Braze (opcional) | Si usas webhooks de Catapult, utiliza la URL del endpoint REST que coincida con la URL de Braze para [tu instancia de Braze]({{site.baseurl}}/api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Paso 1: Crea tu experiencia de juego {#step-1-create-your-game-experience}

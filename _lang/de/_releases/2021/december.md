@@ -8,7 +8,7 @@ alias: "/help/release_notes/2022/january/"
 ---
 # Dezember 2021 {#december-2021}
 
-## Update or aktualisieren zum Exportieren von Nutzer:innen nach Segment-Endpunkt {#update-to-export-users-by-segment-endpoint}
+## Update zum Exportieren von Nutzer:innen nach Segment-Endpunkt {#update-to-export-users-by-segment-endpoint}
 
 Ab Dezember 2021 treten die folgenden Änderungen für den [Endpunkt „Nutzer:innen nach Segment exportieren“]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) in Kraft:
 
@@ -17,7 +17,7 @@ Ab Dezember 2021 treten die folgenden Änderungen für den [Endpunkt „Nutzer:i
 
 ## Neue Eigenschaften für Currents Nachrichten-Engagement-Ereignisse {#new-properties-for-currents-message-engagement-events}
 
-Es wurden neue Eigenschaften für ausgewählte [Nachrichten-Engagement-Ereignisse]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) hinzugefügt. Dieses Update or aktualisieren gilt für die folgenden Currents Nachrichten-Engagement-Ereignisse und alle Partner, die sie verwenden:
+Es wurden neue Eigenschaften für ausgewählte [Nachrichten-Engagement-Ereignisse]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) hinzugefügt. Dieses Update gilt für die folgenden Currents Nachrichten-Engagement-Ereignisse und alle Partner, die sie verwenden:
 
 - `LINK_ID`, `LINK_ALIAS` hinzugefügt zu:
   - E-Mail-Klick (alle Ziele)

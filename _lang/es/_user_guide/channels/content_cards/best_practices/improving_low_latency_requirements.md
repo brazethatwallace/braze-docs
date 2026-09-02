@@ -35,7 +35,7 @@ Al usar Canvas, recuerda que un usuario primero debe entrar al Canvas según los
 
 ## No actualices las tarjetas de forma excesiva {#dont-refresh-cards-excessively}
 
-Content Cards se actualizan automáticamente por el SDK or kit de desarrollo de software al inicio de cada nueva sesión. También puedes solicitar manualmente una actualización de Content Cards en cualquier momento durante una sesión activa.
+Content Cards se actualizan automáticamente por el SDK al inicio de cada nueva sesión. También puedes solicitar manualmente una actualización de Content Cards en cualquier momento durante una sesión activa.
 
 Llamar al método `requestContentCardsRefresh` y actualizar con demasiada frecuencia puede provocar un límite de velocidad. Si tu aplicación queda temporalmente limitada, es posible que no puedas actualizar las tarjetas cuando lo necesites o en un momento crítico de la interacción del usuario con tu aplicación.
 
@@ -43,6 +43,6 @@ Para evitar que esto suceda, llama a este método de actualización solo en mome
 
 ## Evita incluir contenido conectado {#avoid-including-connected-content}
 
-El contenido conectado enriquece Content Cards con datos de API propios o de terceros. Sin embargo, cuando se incluye en un mensaje de tarjeta de contenido, bloqueará la disponibilidad de la tarjeta hasta que se complete la solicitud de red del contenido conectado. En algunos casos, esto hará que los SDK or kit de desarrollo de software reintenten unos segundos después en un esfuerzo por no retrasar la lógica de renderizado de tu aplicación, que puede estar esperando a que el SDK or kit de desarrollo de software complete su tarea de actualización.
+El contenido conectado enriquece Content Cards con datos de API propios o de terceros. Sin embargo, cuando se incluye en un mensaje de tarjeta de contenido, bloqueará la disponibilidad de la tarjeta hasta que se complete la solicitud de red del contenido conectado. En algunos casos, esto hará que los SDK reintenten unos segundos después en un esfuerzo por no retrasar la lógica de renderizado de tu aplicación, que puede estar esperando a que el SDK complete su tarea de actualización.
 
 Si necesitas usar contenido conectado, planifica estas tarjetas con anticipación y usa la opción `At Campaign Launch` para que las tarjetas se creen previamente antes de la próxima sesión del usuario. Ten en cuenta que estas tarjetas no estarán disponibles de inmediato, ya que Braze escribe todas las tarjetas para todos los usuarios elegibles.

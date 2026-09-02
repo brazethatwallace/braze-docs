@@ -65,7 +65,7 @@ Die folgenden Parameter sind optional und können verwendet werden, um weitere A
 - **Dauer:** `duration=30M` – als Alternative zur Endzeit des Ereignisses (dtend) können Sie eine Dauer wie 1H oder 30M angeben
 - **Erinnerungsalarm in Minuten:** `&reminder=15`
 - **Ganztägiges Ereignis:** `&allday=1`
-- **UID:** optionaler Parameter, um den eindeutigen Bezeichner für das Ereignis fest zu codieren, sodass einige Kalender-Apps das Ereignis im Laufe der Zeit Update or aktualisieren or aktualisieren können. Der String @ics.agical.io wird automatisch an den Wert angehängt.
+- **UID:** optionaler Parameter, um den eindeutigen Bezeichner für das Ereignis fest zu codieren, sodass einige Kalender-Apps das Ereignis im Laufe der Zeit aktualisieren können. Der String @ics.agical.io wird automatisch an den Wert angehängt.
 
 Sie können auch zusätzliche Parameter für wiederkehrende Ereignisse hinzufügen:
 - **Wöchentliche Ereignisse:** `&recur=weekly`

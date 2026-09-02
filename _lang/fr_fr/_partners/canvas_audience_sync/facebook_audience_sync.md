@@ -313,8 +313,8 @@ Si vous rencontrez des problèmes supplémentaires avec votre intégration, cons
 
 #### Vérifier les autorisations du compte {#review-account-permissions}
 
-1. Consultez [la documentation de Facebook](https://www.facebook.com/business/help/186007118118684?id=829106167281625) sur la gestion de ces autorisations dans leur plateforme. Pour Facebook Business gestionnaire, vous devez disposer au minimum d'un rôle **Admin** ou **employé or salarié or salarié** dans Business gestionnaire avec accès aux comptes publicitaires nécessaires.
-2. En tant qu'**employé or salarié or salarié**, vérifiez que l'administrateur vous accorde les autorisations complètes **Manage Ad Account** pour chaque compte publicitaire afin de créer une audience ou de synchroniser des utilisateurs vers l'audience.
+1. Consultez [la documentation de Facebook](https://www.facebook.com/business/help/186007118118684?id=829106167281625) sur la gestion de ces autorisations dans leur plateforme. Pour Facebook Business gestionnaire, vous devez disposer au minimum d'un rôle **Admin** ou **employé** dans Business gestionnaire avec accès aux comptes publicitaires nécessaires.
+2. En tant qu'**employé**, vérifiez que l'administrateur vous accorde les autorisations complètes **Manage Ad Account** pour chaque compte publicitaire afin de créer une audience ou de synchroniser des utilisateurs vers l'audience.
 3. Une fois ces autorisations accordées, vous devez déconnecter puis reconnecter votre compte.
 
 #### Accepter les conditions d'utilisation {#terms}

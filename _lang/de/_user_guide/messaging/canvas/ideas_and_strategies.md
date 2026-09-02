@@ -3,7 +3,7 @@ nav_title: Ideen und Strategien
 article_title: Ideen und Strategien
 layout: dev_guide
 guide_top_header: "Ideen und Strategien"
-guide_top_text: "Erfahren Sie mehr darüber, wie Sie Ihre Canvase mit verschiedenen Ideen und Strategien testen und überprüfen können."
+guide_top_text: "Erfahren Sie mehr darüber, wie Sie Ihre Canvases mit verschiedenen Ideen und Strategien testen und überprüfen können."
 page_order: 6
 
 tool: Canvas

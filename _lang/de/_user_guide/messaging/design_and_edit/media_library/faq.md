@@ -65,17 +65,17 @@ Dies kann zwei Hauptursachen haben:
 
 Das liegt daran, dass die meisten Editoren Einschränkungen hinsichtlich des zulässigen Bildseitenverhältnisses haben.
 
-### Ein Bild mit KI or künstliche Intelligenz generieren {#generate-an-image-using-ai}
+### Ein Bild mit KI generieren {#generate-an-image-using-ai}
 
 Sie können Bilder unter **Inhalt** > **Medienbibliothek** generieren, indem Sie **Mit Operator generieren** auswählen. Sie benötigen die Berechtigung „Edit Media Library Assets“. Wenn Sie die Option nicht sehen, wenden Sie sich an Ihr Braze-Kontoteam. Weitere Informationen zu den Schritten und Richtlinien finden Sie unter [Bilder mit BrazeAI generieren]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-images) und [Bilder mit BrazeAI generieren]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#generate-ai).
 
 ### Was passiert, wenn ich ein Bild aus der Medienbibliothek lösche? {#what-happens-when-i-delete-an-image-from-the-media-library}
 
-Durch das Löschen eines Assets wird es aus der Medienbibliothek-Oberfläche entfernt, aber Braze behält die Datei unter ihrer bestehenden URL gehostet, sodass aktive Campaigns und Canvase, die auf diese URL verweisen, das Bild weiterhin laden. Um ein Asset dauerhaft vom Braze-Hosting zu entfernen, wenden Sie sich an den Braze-Support. Um zu ändern, was Empfänger:innen sehen, ohne die URLs in jeder Nachricht zu ändern, verwenden Sie stattdessen [Eine Datei ersetzen]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file).
+Durch das Löschen eines Assets wird es aus der Medienbibliothek-Oberfläche entfernt, aber Braze behält die Datei unter ihrer bestehenden URL gehostet, sodass aktive Campaigns und Canvases, die auf diese URL verweisen, das Bild weiterhin laden. Um ein Asset dauerhaft vom Braze-Hosting zu entfernen, wenden Sie sich an den Braze-Support. Um zu ändern, was Empfänger:innen sehen, ohne die URLs in jeder Nachricht zu ändern, verwenden Sie stattdessen [Eine Datei ersetzen]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file).
 
 ### Kann ich Bild-Assets in bereits gesendeten E-Mails ändern? {#can-i-change-image-assets-in-emails-that-have-already-been-sent}
 
-Sie können das Bild in einer bereits gesendeten E-Mail Update or aktualisieren or aktualisieren, indem Sie [die Datei]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file) unter ihrer bestehenden URL ersetzen. Die URL und ID des Assets bleiben gleich, sodass jede Nachricht, die darauf verweist – einschließlich bereits gesendeter E-Mails – die neue Datei widerspiegelt. Einige Empfänger:innen sehen möglicherweise noch das vorherige Bild, wenn es bereits auf ihrem Gerät zwischengespeichert war, bevor Sie die Änderung vorgenommen haben. Dies garantiert also nicht, dass alle Empfänger:innen die Aktualisierung sofort sehen.
+Sie können das Bild in einer bereits gesendeten E-Mail aktualisieren, indem Sie [die Datei]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file) unter ihrer bestehenden URL ersetzen. Die URL und ID des Assets bleiben gleich, sodass jede Nachricht, die darauf verweist – einschließlich bereits gesendeter E-Mails – die neue Datei widerspiegelt. Einige Empfänger:innen sehen möglicherweise noch das vorherige Bild, wenn es bereits auf ihrem Gerät zwischengespeichert war, bevor Sie die Änderung vorgenommen haben. Dies garantiert also nicht, dass alle Empfänger:innen die Aktualisierung sofort sehen.
 
 ### Speichert Braze Bilder zwischen, die über eine externe URL in Content Cards und In-App-Nachrichten hinzugefügt werden? {#does-braze-cache-images-added-through-an-external-url-in-content-cards-and-in-app-messages}
 

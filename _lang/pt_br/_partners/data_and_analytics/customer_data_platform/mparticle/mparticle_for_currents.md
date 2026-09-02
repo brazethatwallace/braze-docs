@@ -2,7 +2,7 @@
 nav_title: mParticle para Currents
 article_title: mParticle para Currents
 alias: /partners/mparticle_for_currents/
-description: "Este artigo de referência descreve a parceria entre o Braze Currents e a mParticle, uma CDP or plataforma de dados do cliente or CDP or plataforma de dados do cliente or plataforma de dados do cliente que coleta e encaminha informações entre fontes em sua pilha de marketing."
+description: "Este artigo de referência descreve a parceria entre o Braze Currents e a mParticle, uma CDP que coleta e encaminha informações entre fontes em sua pilha de marketing."
 page_type: partner
 tool: Currents
 search_tag: Partner
@@ -11,7 +11,7 @@ search_tag: Partner
 
 # mParticle para Currents {#mparticle-for-currents}
 
-> A [mParticle](https://www.mparticle.com) é uma CDP or plataforma de dados do cliente or CDP or plataforma de dados do cliente or plataforma de dados do cliente que coleta e encaminha informações de várias fontes para uma variedade de outros locais em sua pilha de marketing.
+> A [mParticle](https://www.mparticle.com) é uma CDP que coleta e encaminha informações de várias fontes para uma variedade de outros locais em sua pilha de marketing.
 
 A integração entre a Braze e a mParticle permite que você controle com praticidade o fluxo de informações entre os dois sistemas. Com o [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), você também pode conectar dados à mParticle para torná-los acionáveis em todo o growth stack.
 
@@ -51,15 +51,15 @@ Ao criar cada entrada, a mParticle fornecerá uma chave e um segredo. Copie essa
 
 ### Etapa 2: Criar Current {#step-2-create-current}
 
-Na Braze, navegue até **Currents > + Create Current > Create mParticle Export**. Forneça um nome de integração, e-mail de contato e a chave de API or interface de programação do aplicativo (API) da mParticle e a chave secreta da mParticle para cada plataforma. Em seguida, selecione os eventos que deseja rastrear; uma lista de eventos disponíveis é fornecida. Por fim, clique em **Launch Current**.
+Na Braze, navegue até **Currents > + Create Current > Create mParticle Export**. Forneça um nome de integração, e-mail de contato e a chave de API da mParticle e a chave secreta da mParticle para cada plataforma. Em seguida, selecione os eventos que deseja rastrear; uma lista de eventos disponíveis é fornecida. Por fim, clique em **Launch Current**.
 
-![A página do mParticle Currents na Braze. Aqui, você encontra campos para nome da integração, e-mail de contato, chave de API or interface de programação do aplicativo (API) e chave secreta.]({% image_buster /assets/img_archive/currents-mparticle-edit.png %})
+![A página do mParticle Currents na Braze. Aqui, você encontra campos para nome da integração, e-mail de contato, chave de API e chave secreta.]({% image_buster /assets/img_archive/currents-mparticle-edit.png %})
 
 {% alert important %}
-É importante manter sua chave de API or interface de programação do aplicativo (API) da mParticle e a chave secreta da mParticle atualizadas. Se as credenciais do seu conector expirarem, o conector deixará de enviar eventos. Se isso persistir por mais de **5 dias**, os eventos do conector serão descartados e os dados serão permanentemente perdidos.
+É importante manter sua chave de API da mParticle e a chave secreta da mParticle atualizadas. Se as credenciais do seu conector expirarem, o conector deixará de enviar eventos. Se isso persistir por mais de **5 dias**, os eventos do conector serão descartados e os dados serão permanentemente perdidos.
 {% endalert %}
 
-Todos os eventos enviados à mParticle incluirão o `external_user_id` do usuário como `customerid`. Neste momento, a Braze não envia dados de eventos para usuários que não têm seu `external_user_id` definido. Se você deseja mapear o `external_user_id` para um ID diferente na mParticle que não seja o `customerid` padrão, entre em contato com seu CSM or gerente de sucesso do cliente or gestor de sucesso do cliente da Braze.
+Todos os eventos enviados à mParticle incluirão o `external_user_id` do usuário como `customerid`. Neste momento, a Braze não envia dados de eventos para usuários que não têm seu `external_user_id` definido. Se você deseja mapear o `external_user_id` para um ID diferente na mParticle que não seja o `customerid` padrão, entre em contato com seu CSM da Braze.
 
 ## Eventos de Currents compatíveis {#supported-currents-events}
 

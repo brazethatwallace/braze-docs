@@ -34,7 +34,7 @@ Quando você usa uma integração com um provedor de LLM fornecido pela Braze po
 
 ### Como os dados são usados com a OpenAI {#how-data-is-used-with-openai}
 
-Para gerar saídas de IA por meio de recursos do BrazeAI que utilizam a OpenAI ("Saída"), a Braze enviará determinadas informações ("Entrada") à OpenAI. A Entrada consiste nos seus prompts, no conteúdo exibido no dashboard e nos dados do espaço de trabalho relevantes para suas consultas. De acordo com os [compromissos da plataforma de API or interface de programação do aplicativo (API) da OpenAI](https://openai.com/enterprise-privacy/), os dados enviados à API or interface de programação do aplicativo (API) da OpenAI por meio da Braze não são usados para treinar ou melhorar os modelos da OpenAI. Entre você e a Braze, a Saída é sua propriedade intelectual. A Braze não reivindicará direitos autorais sobre essa Saída. A Braze não oferece garantia de qualquer tipo em relação a qualquer conteúdo gerado por IA, incluindo a Saída.
+Para gerar saídas de IA por meio de recursos do BrazeAI que utilizam a OpenAI ("Saída"), a Braze enviará determinadas informações ("Entrada") à OpenAI. A Entrada consiste nos seus prompts, no conteúdo exibido no dashboard e nos dados do espaço de trabalho relevantes para suas consultas. De acordo com os [compromissos da plataforma de API da OpenAI](https://openai.com/enterprise-privacy/), os dados enviados à API da OpenAI por meio da Braze não são usados para treinar ou melhorar os modelos da OpenAI. Entre você e a Braze, a Saída é sua propriedade intelectual. A Braze não reivindicará direitos autorais sobre essa Saída. A Braze não oferece garantia de qualquer tipo em relação a qualquer conteúdo gerado por IA, incluindo a Saída.
 
 ## Conformidade com HIPAA e retenção de dados {#hipaa-compliance-and-data-retention}
 
@@ -58,7 +58,7 @@ O tempo de retenção dos dados enviados por meio do Operator pela OpenAI depend
 
 ### Treinamento de modelo {#model-training}
 
-Os dados enviados à API or interface de programação do aplicativo (API) da OpenAI por meio da Braze não são usados para treinar ou melhorar os modelos da OpenAI. Isso é regido por acordos contratuais entre a Braze e a OpenAI e pelos compromissos da plataforma de API or interface de programação do aplicativo (API) da OpenAI. A OpenAI atua como subprocessadora da Braze, e todos os Dados Pessoais estão sujeitos ao DPA entre a Braze e seus clientes.
+Os dados enviados à API da OpenAI por meio da Braze não são usados para treinar ou melhorar os modelos da OpenAI. Isso é regido por acordos contratuais entre a Braze e a OpenAI e pelos compromissos da plataforma de API da OpenAI. A OpenAI atua como subprocessadora da Braze, e todos os Dados Pessoais estão sujeitos ao DPA entre a Braze e seus clientes.
 
 ### Roteamento de dados da UE {#eu-data-routing}
 
@@ -73,7 +73,7 @@ Existem várias etapas que você pode seguir para limitar a exposição de IPI a
 - **Ao testar, use um perfil de usuário personalizado** em vez de selecionar um existente. Este é o comportamento padrão do Operator.
 - **Não digite nem cole IPI** diretamente no prompt do Operator. O Operator não bloqueia IPI incluídas nos prompts do usuário. Se um usuário digitar IPI manualmente em uma requisição, esse conteúdo será enviado ao modelo de linguagem subjacente.
 - **Desative a aprovação automática de ações** para manter o controle sobre o que o Operator pode acessar e executar.
-- **Não peça ao Operator para exibir valores de prévia de atributos** ao criar um Segment or segmento or segmento ou escrever Liquid.
+- **Não peça ao Operator para exibir valores de prévia de atributos** ao criar um Segment ou escrever Liquid.
 
 ## Governança e controle de acesso {#governance-and-access-control}
 

@@ -43,7 +43,7 @@ Konfigurieren Sie die ID Ihrer Braze-App-Gruppe für Ihr Store360-Dienstkonto ü
 
 ### 3. Schritt: Store360 SDKs in die mobile App integrieren {#step-3-integrate-store360-sdks-to-mobile-app}
 
-Um die Besuche von Nutzer:innen im Shop und die Aktivitäten im Laden zusammen mit den Braze-Campaign- und Impressionsdaten zu verfolgen und zu analysieren, müssen Sie das Store360 SDK or Software-Development-Kit in Ihre mobile App integrieren. Gehen Sie dazu wie in der Dokumentation zur Store360-SDK or Software-Development-Kit-Installation beschrieben vor. Diese Dokumentation wird Ihnen nach Unterzeichnung eines Client-Vertrags mit Tangerine Store 360 zur Verfügung gestellt.
+Um die Besuche von Nutzer:innen im Shop und die Aktivitäten im Laden zusammen mit den Braze-Campaign- und Impressionsdaten zu verfolgen und zu analysieren, müssen Sie das Store360 SDK in Ihre mobile App integrieren. Gehen Sie dazu wie in der Dokumentation zur Store360-SDK-Installation beschrieben vor. Diese Dokumentation wird Ihnen nach Unterzeichnung eines Client-Vertrags mit Tangerine Store 360 zur Verfügung gestellt.
 
 ## Braze-Daten in Store360 analysieren {#analyze-braze-data-in-store360}
 

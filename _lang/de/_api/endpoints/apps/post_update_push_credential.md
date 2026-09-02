@@ -1,20 +1,20 @@
 ---
-nav_title: "POST: Push-Zugangsdaten Update or aktualisieren or aktualisieren"
-article_title: "POST: Push-Zugangsdaten Update or aktualisieren or aktualisieren"
+nav_title: "POST: Push-Zugangsdaten aktualisieren"
+article_title: "POST: Push-Zugangsdaten aktualisieren"
 search_tag: Endpoint
 page_order: 1
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt den Braze-Endpunkt zum Update or aktualisieren or aktualisieren von Push-Zugangsdaten."
+description: "Dieser Artikel beschreibt den Braze-Endpunkt zum Aktualisieren von Push-Zugangsdaten."
 ---
 
 {% api %}
-# Push-Zugangsdaten Update or aktualisieren or aktualisieren {#update-push-credentials}
+# Push-Zugangsdaten aktualisieren {#update-push-credentials}
 {% apimethod post core_endpoint|/docs/core_endpoints %}
-/apps/push_credential/Update or aktualisieren
+/apps/push_credential/update
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um die Push-Zugangsdaten für eine einzelne App programmatisch zu Update or aktualisieren or aktualisieren, sodass Sie Zugangsdaten verwalten können, ohne die Dashboard-UI zu verwenden.
+> Verwenden Sie diesen Endpunkt, um die Push-Zugangsdaten für eine einzelne App programmatisch zu aktualisieren, sodass Sie Zugangsdaten verwalten können, ohne die Dashboard-UI zu verwenden.
 
 Jede Anfrage aktualisiert die Push-Zugangsdaten für eine App und eine Push-Plattform. Zugangsdaten-Dateien, wie der iOS-Authentifizierungsschlüssel oder das Firebase-Dienstkonto, werden als [Base64](https://en.wikipedia.org/wiki/Base64)-kodierte Strings im JSON-Anfragekörper übergeben.
 
@@ -94,7 +94,7 @@ Fügen Sie pro Anfrage ein Plattform-Objekt ein: `apple`, `firebase`, `huawei` o
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
-| [`app_id`]({{site.baseurl}}/api/identifier_types#app-identifier) | Erforderlich | String | Der App-Bezeichner-API-Schlüssel für die App, die Sie Update or aktualisieren or aktualisieren möchten. Sie finden ihn im Dashboard unter **Einstellungen** > **App-Einstellungen** neben dem Feld **API-Schlüssel**. |
+| [`app_id`]({{site.baseurl}}/api/identifier_types#app-identifier) | Erforderlich | String | Der App-Bezeichner-API-Schlüssel für die App, die Sie aktualisieren möchten. Sie finden ihn im Dashboard unter **Einstellungen** > **App-Einstellungen** neben dem Feld **API-Schlüssel**. |
 | `apple` | Erforderlich* | Objekt | Die iOS (APNs)-Zugangsdaten. |
 | `firebase` | Erforderlich* | Objekt | Die Android (Firebase Cloud Messaging)-Zugangsdaten. |
 | `huawei` | Erforderlich* | Objekt | Die Android (Huawei Mobile Services)-Zugangsdaten. |

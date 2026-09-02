@@ -11,7 +11,7 @@ description: "이 문서는 일일 신규 사용자 내보내기 Braze 엔드포
 {% api %}
 # 날짜별로 일일 신규 사용자 내보내기 {#export-daily-new-users-by-date}
 {% apimethod get %}
-/KPI or 핵심 성과 지표(KPI)/new_users/data_series
+/kpi/new_users/data_series
 {% endapimethod %}
 
 > 이 엔드포인트를 사용하여 각 날짜의 총 신규 사용자 수에 대한 일별 시계열을 검색할 수 있습니다.

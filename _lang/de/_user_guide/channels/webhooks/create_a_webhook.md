@@ -20,7 +20,7 @@ Um mehr darüber zu erfahren, was Webhooks sind und wie Sie sie in Braze verwend
 
 ## Schritt 1: Wählen Sie, wo Sie Ihre Nachricht erstellen möchten {#step-1-choose-where-to-build-your-message}
 
-Sie sind sich nicht sicher, ob Ihre Nachricht über eine Campaign oder ein Canvas gesendet werden soll? Campaigns eignen sich besser für einzelne, gezielte Messaging-Kampagnen, während Canvase besser für mehrstufige User Journeys geeignet sind.
+Sie sind sich nicht sicher, ob Ihre Nachricht über eine Campaign oder ein Canvas gesendet werden soll? Campaigns eignen sich besser für einzelne, gezielte Messaging-Kampagnen, während Canvases besser für mehrstufige User Journeys geeignet sind.
 
 {% tabs %}
 {% tab Campaign %}
@@ -164,16 +164,16 @@ Nach dem Senden des Test-Webhooks wird ein Dialogfenster mit der Antwortnachrich
 
 Weitere Informationen finden Sie unter [Testnachrichten senden]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=webhook).
 
-## Schritt 5: Erstellen Sie den Representational State Transfer Ihrer Campaign oder Ihres Canvas {#step-5-build-the-remainder-of-your-campaign-or-canvas}
+## Schritt 5: Erstellen Sie den Rest Ihrer Campaign oder Ihres Canvas {#step-5-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
 {% tab Campaign %}
 
-Erstellen Sie als Nächstes den Representational State Transfer Ihrer Campaign. In den folgenden Abschnitten finden Sie weitere Details zur optimalen Nutzung unserer Tools für die Erstellung von Webhooks.
+Erstellen Sie als Nächstes den Rest Ihrer Campaign. In den folgenden Abschnitten finden Sie weitere Details zur optimalen Nutzung unserer Tools für die Erstellung von Webhooks.
 
-### Zustellungszeitplan oder Trigger or triggern wählen {#choose-delivery-schedule-or-trigger}
+### Zustellungszeitplan oder Trigger wählen {#choose-delivery-schedule-or-trigger}
 
-Webhooks können basierend auf einem geplanten Zeitpunkt, einer Aktion oder einem API-Trigger or triggern zugestellt werden. Weitere Informationen finden Sie unter [Ihre Campaign planen]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
+Webhooks können basierend auf einem geplanten Zeitpunkt, einer Aktion oder einem API-Trigger zugestellt werden. Weitere Informationen finden Sie unter [Ihre Campaign planen]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
 Bei aktionsbasierter Zustellung können Sie außerdem die Dauer der Campaign und [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) festlegen.
 
@@ -277,6 +277,6 @@ Wenn Sie einen Braze-zu-Braze-Webhook erstellen und Allowlisting verwenden, soll
 
 ### Nutzer:innen löschen {#delete-users}
 
-Um einzelne Nutzer:innen oder ein Segment von Nutzer:innen zu löschen, gehen Sie zu **Audience** > **Manage Audience** > **Delete Users**. Das Dashboard unterstützt die Massenlöschung von Segmenten (bis zu 10 Millionen Profile), beinhaltet ein 7-tägiges Stornierungsfenster und verbraucht keine gemeinsamen Representational State Transfer-API-Rate-Limits. Schritte, Limits und Berechtigungen finden Sie unter [Nutzer:innen löschen]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users).
+Um einzelne Nutzer:innen oder ein Segment von Nutzer:innen zu löschen, gehen Sie zu **Audience** > **Manage Audience** > **Delete Users**. Das Dashboard unterstützt die Massenlöschung von Segmenten (bis zu 10 Millionen Profile), beinhaltet ein 7-tägiges Stornierungsfenster und verbraucht keine gemeinsamen REST-API-Rate-Limits. Schritte, Limits und Berechtigungen finden Sie unter [Nutzer:innen löschen]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users).
 
 Für programmatische Löschung in kleineren Batches verwenden Sie stattdessen den [`/users/delete`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_delete) anstelle einer Webhook-Campaign.

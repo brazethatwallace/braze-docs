@@ -21,7 +21,7 @@ alias: /line/subscription_groups/
 
 ## Abo-Gruppe einer Nutzer:in für LINE festlegen {#set-a-users-line-subscription-group}
 
-LINE verwaltet den Abo-Status der Nutzer:innen. Braze verarbeitet die Follow- und Unfollow-Ereignisse, die den Abo-Status Update or aktualisieren or aktualisieren.
+LINE verwaltet den Abo-Status der Nutzer:innen. Braze verarbeitet die Follow- und Unfollow-Ereignisse, die den Abo-Status aktualisieren.
 
 {% alert important %}
 LINE-Abo-Gruppen können nicht zwischen Workspaces verschoben werden. Wenn Sie einen LINE-Kanal in einem anderen Workspace nach dem Archivieren seiner Abo-Gruppe erneut integrieren, erstellt Braze eine neue Abo-Gruppe im Ziel-Workspace – die ursprüngliche verbleibt im ersten Workspace.

@@ -10,7 +10,7 @@ tool: Canvas
 
 # Entwürfe für Canvas speichern
 
-> Wenn Sie Canvase erstellen und starten, können Sie ein aktives Canvas bearbeiten und als Entwurf speichern, sodass Sie Ihre Änderungen vor einem erneuten Start überprüfen können.
+> Wenn Sie Canvases erstellen und starten, können Sie ein aktives Canvas bearbeiten und als Entwurf speichern, sodass Sie Ihre Änderungen vor einem erneuten Start überprüfen können.
 
 Wenn Sie ein aktives Canvas haben, das umfangreiche Änderungen erfordert, können Sie dieses Feature nutzen, um Änderungen zu erstellen, zu speichern und zu prüfen, **bevor** Sie diese im aktiven Canvas starten.
 
@@ -25,7 +25,7 @@ So erstellen Sie einen Entwurf:
 1. Öffnen Sie ein aktives Canvas.
 2. Wählen Sie den Button **Als Entwurf speichern** in der Canvas-Fußzeile aus.
 
-Beachten Sie, dass Änderungen am aktiven Canvas nicht vorgenommen werden können, solange ein Entwurf des Canvas existiert. Sie können das Canvas Update or aktualisieren or aktualisieren, um Änderungen anzuwenden, oder den Entwurf verwerfen.
+Beachten Sie, dass Änderungen am aktiven Canvas nicht vorgenommen werden können, solange ein Entwurf des Canvas existiert. Sie können das Canvas aktualisieren, um Änderungen anzuwenden, oder den Entwurf verwerfen.
 
 ## Das aktive Canvas referenzieren
 
@@ -41,4 +41,4 @@ Wenn ein Content-Block in einem Canvas-Entwurf referenziert wird, wird das Canva
 
 Bei Entwürfen eines aktiven Canvas wird die Priorität der In-App-Nachricht innerhalb des Canvas-Builders sofort aktualisiert, wenn jemand die Priorität ändert. Das bedeutet, dass die Canvas-weite Priorität von In-App-Nachrichten sofort auf das aktive Canvas angewendet wird, auch wenn ein Entwurf existiert.
 
-Änderungen der Priorität von In-App-Nachrichten auf Schrittebene werden jedoch als Entwurf gespeichert und erst beim Update or aktualisieren des Canvas angewendet. Beispielsweise wird in einem Nachrichtenschritt die Prioritätssortierung erst aktualisiert, wenn der Entwurf gestartet wird, da Schritteinstellungen auf Schrittebene gelten.
+Änderungen der Priorität von In-App-Nachrichten auf Schrittebene werden jedoch als Entwurf gespeichert und erst beim Update des Canvas angewendet. Beispielsweise wird in einem Nachrichtenschritt die Prioritätssortierung erst aktualisiert, wenn der Entwurf gestartet wird, da Schritteinstellungen auf Schrittebene gelten.

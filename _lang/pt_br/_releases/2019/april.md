@@ -22,4 +22,4 @@ Para aproveitar essas atualizações, será necessário editar as configuraçõe
 
 ## Arquivamento de grupos de inscrições {#subscription-groups-archiving}
 
-Agora você pode [arquivar grupos de inscrições]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions#archiving-groups)! Os grupos de inscrições arquivados não podem ser editados e não aparecerão mais nos filtros de Segment or segmento. Se você tentar arquivar um grupo que esteja sendo usado como filtro de Segment or segmento em qualquer e-mail, Campaign ou Canvas, receberá uma mensagem de erro que impedirá o arquivamento do grupo até que todos os usos dele sejam removidos.
+Agora você pode [arquivar grupos de inscrições]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions#archiving-groups)! Os grupos de inscrições arquivados não podem ser editados e não aparecerão mais nos filtros de Segment. Se você tentar arquivar um grupo que esteja sendo usado como filtro de Segment em qualquer e-mail, Campaign ou Canvas, receberá uma mensagem de erro que impedirá o arquivamento do grupo até que todos os usos dele sejam removidos.

@@ -28,7 +28,7 @@ Los mensajes HTML dentro de la aplicación permiten un mayor control sobre la ap
 Los mensajes HTML personalizados pueden utilizar los métodos del [puente JavaScript](#javascript-bridge) para registrar eventos, establecer atributos personalizados, cerrar el mensaje y más. Consulta nuestro [repositorio de GitHub](https://github.com/braze-inc/in-app-message-templates) que contiene instrucciones detalladas sobre cómo usar y personalizar los mensajes HTML dentro de la aplicación según tus necesidades, y un conjunto de plantillas de mensajes dentro de la aplicación HTML5 para ayudarte a empezar.
 
 {% alert note %}
-Para habilitar los mensajes HTML dentro de la aplicación a través del SDK or kit de desarrollo de software Web, debes proporcionar la opción de inicialización `allowUserSuppliedJavascript` a Braze: por ejemplo, `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Esto es por razones de seguridad, ya que los mensajes HTML dentro de la aplicación pueden ejecutar JavaScript, por lo que requerimos que un administrador del sitio los habilite.
+Para habilitar los mensajes HTML dentro de la aplicación a través del SDK Web, debes proporcionar la opción de inicialización `allowUserSuppliedJavascript` a Braze: por ejemplo, `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Esto es por razones de seguridad, ya que los mensajes HTML dentro de la aplicación pueden ejecutar JavaScript, por lo que requerimos que un administrador del sitio los habilite.
 {% endalert %}
 
 ### Entornos de renderizado {#rendering-environments}
@@ -59,7 +59,7 @@ Esto fuerza la codificación UTF-8, que es el conjunto de caracteres esperado pa
 
 ## Acciones basadas en enlaces {#link-based-actions}
 
-Además de JavaScript personalizado, los SDK or kit de desarrollo de software de Braze también pueden enviar datos de análisis con estos prácticos atajos de URL. Ten en cuenta que estos parámetros de consulta y esquemas de URL distinguen entre mayúsculas y minúsculas.
+Además de JavaScript personalizado, los SDK de Braze también pueden enviar datos de análisis con estos prácticos atajos de URL. Ten en cuenta que estos parámetros de consulta y esquemas de URL distinguen entre mayúsculas y minúsculas.
 
 ### Seguimiento de clics en botones (obsoleto) {#button-click-tracking-deprecated}
 

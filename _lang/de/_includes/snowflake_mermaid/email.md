@@ -19,7 +19,7 @@
         string bounce_reason
         string dispatch_id
         string email_address
-        string E-Mail-Anbieter or ESP
+        string E-Mail-Anbieter
         string event_type
         string external_user_id
         string from_domain

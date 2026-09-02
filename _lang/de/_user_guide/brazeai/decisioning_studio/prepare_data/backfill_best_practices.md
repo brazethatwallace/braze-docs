@@ -3,7 +3,7 @@ nav_title: Best Practices für Backfilling
 article_title: Best Practices für Backfilling
 page_order: 7
 page_type: reference
-description: "Erfahren Sie, wie Sie historische Daten für BrazeAI Decisioning Studio korrekt nachfüllen (Backfilling), einschließlich Anforderungen, häufiger Fallstricke und wie Sie Datenqualitätsprobleme vermeiden, die die Performance von KI or künstliche Intelligenz-Modellen beeinträchtigen."
+description: "Erfahren Sie, wie Sie historische Daten für BrazeAI Decisioning Studio korrekt nachfüllen (Backfilling), einschließlich Anforderungen, häufiger Fallstricke und wie Sie Datenqualitätsprobleme vermeiden, die die Performance von KI-Modellen beeinträchtigen."
 ---
 
 # Best Practices für Backfilling {#backfill-best-practices}
@@ -16,14 +16,14 @@ Backfilling ist der Prozess, einen Datensatz nachträglich mit historischen Date
 
 | Szenario | Beschreibung | Beispiel |
 |----------|-------------|---------|
-| **Neue Features** | Sie haben eine neue Metrik identifiziert, die für Ihr Modell wichtig ist, und verfügen über die historischen Rohdaten, um sie zu berechnen. | Sie fügen „Klick, der or klicken-through-Rate“ als Feature hinzu und benötigen drei Monate an Verlaufsdaten, damit das Modell genügend Daten zum Lernen hat. |
+| **Neue Features** | Sie haben eine neue Metrik identifiziert, die für Ihr Modell wichtig ist, und verfügen über die historischen Rohdaten, um sie zu berechnen. | Sie fügen „Klick, der-through-Rate“ als Feature hinzu und benötigen drei Monate an Verlaufsdaten, damit das Modell genügend Daten zum Lernen hat. |
 | **Datenwiederherstellung** | Ihre Datenpipeline ist an bestimmten Tagen ausgefallen und hat Lücken in den an Decisioning Studio gelieferten Daten verursacht. | Ein Pipeline-Ausfall am Dienstag hat eine Lücke hinterlassen. Nach der Bereitstellung des Fixes füllen Sie die fehlenden Datensätze aus dem Quellsystem nach. |
 | **Logikänderungen** | Sie haben die Formel für eine Feature-Berechnung aktualisiert oder eine Ereignisdefinition geändert. | Sie haben „aktive:r Nutzer:in“ neu definiert und müssen historische Daten erneut exportieren, damit das Modell auf der aktualisierten Definition trainiert. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="When backfilling is needed" }
 
 ## Anforderungen {#requirements}
 
-Damit Decisioning Studio korrekt funktioniert, müssen alle eingehenden Daten das Backfilling für historische Zeiträume unterstützen. Das erforderliche Lookback-Fenster (gemessen in Monaten) hängt von den Trainingsanforderungen des KI or künstliche Intelligenz-Modells ab. Wenden Sie sich an Ihr KI or künstliche Intelligenz Decisioning Services-Team, um den korrekten Wert für Ihren Anwendungsfall zu bestätigen.
+Damit Decisioning Studio korrekt funktioniert, müssen alle eingehenden Daten das Backfilling für historische Zeiträume unterstützen. Das erforderliche Lookback-Fenster (gemessen in Monaten) hängt von den Trainingsanforderungen des KI-Modells ab. Wenden Sie sich an Ihr KI Decisioning Services-Team, um den korrekten Wert für Ihren Anwendungsfall zu bestätigen.
 
 Bei der Durchführung eines historischen Backfills sind die folgenden Standards verpflichtend:
 
@@ -40,7 +40,7 @@ Data Leakage ist der kritischste Fehler beim Backfilling. Er tritt auf, wenn der
 
 Wenn das Modell auf Daten trainiert, die „die Zukunft kennen“, scheint es während des Trainings gut abzuschneiden, liefert aber in der Produktion schlechte Ergebnisse, da Realtime-Entscheidungen keinen Zugriff auf zukünftige Daten haben.
 
-Betrachten Sie beispielsweise die Berechnung eines historischen „LTV or Lifetime-Value or Lifetime-Value“-Features unter Verwendung der Gesamtausgaben einer Kund:in bis heute und die anschließende Nutzung dieses Werts zur Vorhersage von Verhalten, das Monate zuvor aufgetreten ist. Zum Zeitpunkt dieses historischen Ereignisses war der vollständige LTV or Lifetime-Value or Lifetime-Value noch nicht bekannt.
+Betrachten Sie beispielsweise die Berechnung eines historischen „LTV“-Features unter Verwendung der Gesamtausgaben einer Kund:in bis heute und die anschließende Nutzung dieses Werts zur Vorhersage von Verhalten, das Monate zuvor aufgetreten ist. Zum Zeitpunkt dieses historischen Ereignisses war der vollständige LTV noch nicht bekannt.
 
 Dies lässt sich vermeiden, indem Sie historische Features immer nur mit den Informationen rekonstruieren, die zum historischen Zeitstempel verfügbar gewesen wären – nicht mit Informationen, die sich danach angesammelt haben.
 
@@ -57,5 +57,5 @@ Backfill-Jobs, die mitten in der Ausführung fehlschlagen und neu gestartet werd
 
 **Die Lösung:** Gestalten Sie alle Backfill-Skripte idempotent: Das zweimalige Ausführen desselben Jobs sollte dasselbe Ergebnis liefern wie eine einmalige Ausführung. Verwenden Sie eines der folgenden Muster:
 
-- **Upsert (Update or aktualisieren oder Insert):** Basierend auf einer eindeutigen Transaktions-ID oder einem Zeitstempel, sodass das erneute Einfügen eines vorhandenen Datensatzes diesen aktualisiert, anstatt ein Duplikat zu erstellen.
+- **Upsert (Update oder Insert):** Basierend auf einer eindeutigen Transaktions-ID oder einem Zeitstempel, sodass das erneute Einfügen eines vorhandenen Datensatzes diesen aktualisiert, anstatt ein Duplikat zu erstellen.
 - **Delete then Insert:** Löschen Sie vorhandene Datensätze für den Zielzeitraum vor dem Einfügen, sodass der Datensatz immer sauber ersetzt wird.

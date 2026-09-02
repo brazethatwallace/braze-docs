@@ -6,7 +6,7 @@ Das iOS-Betriebssystem kann Benachrichtigungen für einige Features einschränke
 
 ## Stille Push-Benachrichtigungen einrichten {#setting-up-silent-push-notifications}
 
-Wenn Sie stille Push-Benachrichtigungen verwenden möchten, um Aufgaben im Hintergrund zu Trigger or triggern or triggern, müssen Sie Ihre App so konfigurieren, dass sie auch dann Benachrichtigungen erhält, wenn sie sich im Hintergrund befindet. Fügen Sie dazu die Funktion „Background Modes“ über den Bereich **Signing & Capabilities** zum Haupt-App-Target in Xcode hinzu. Aktivieren Sie das Kontrollkästchen **Remote notifications**.
+Wenn Sie stille Push-Benachrichtigungen verwenden möchten, um Aufgaben im Hintergrund zu triggern, müssen Sie Ihre App so konfigurieren, dass sie auch dann Benachrichtigungen erhält, wenn sie sich im Hintergrund befindet. Fügen Sie dazu die Funktion „Background Modes“ über den Bereich **Signing & Capabilities** zum Haupt-App-Target in Xcode hinzu. Aktivieren Sie das Kontrollkästchen **Remote notifications**.
 
 ![Xcode zeigt das Kontrollkästchen „Remote notifications“ unter „Capabilities“ an.]({% image_buster /assets/img_archive/background_mode.png %} "background mode enabled")
 
@@ -40,10 +40,10 @@ Wenn Sie beispielsweise eine Logik haben, die Ihre Server bei jedem Hintergrund-
 
 ### 1. Schritt: Überprüfen Sie Ihre App auf automatische Aktionen {#step-1-check-your-app-for-automatic-actions}
 
-Überprüfen Sie Ihre Anwendung an den folgenden Stellen auf automatische Aktionen und Update or aktualisieren or aktualisieren Sie Ihren Code, um die internen Pushs von Braze zu ignorieren:
+Überprüfen Sie Ihre Anwendung an den folgenden Stellen auf automatische Aktionen und aktualisieren Sie Ihren Code, um die internen Pushs von Braze zu ignorieren:
 
 1. **Push-Empfänger.** Push-Benachrichtigungen im Hintergrund rufen `application:didReceiveRemoteNotification:fetchCompletionHandler:` auf dem `UIApplicationDelegate` auf.
-2. **Application Delegate.** Pushs im Hintergrund können [angehaltene](https://developer.apple.com/documentation/uikit/app_and_environment/managing_your_app_s_life_cycle) Apps im Hintergrund starten und dabei die Methoden `application:willFinishLaunchingWithOptions:` und `application:didFinishLaunchingWithOptions:` auf Ihrem `UIApplicationDelegate` Trigger or triggern or triggern. Überprüfen Sie die `launchOptions` dieser Methoden, um festzustellen, ob die Anwendung durch einen Push im Hintergrund gestartet wurde.
+2. **Application Delegate.** Pushs im Hintergrund können [angehaltene](https://developer.apple.com/documentation/uikit/app_and_environment/managing_your_app_s_life_cycle) Apps im Hintergrund starten und dabei die Methoden `application:willFinishLaunchingWithOptions:` und `application:didFinishLaunchingWithOptions:` auf Ihrem `UIApplicationDelegate` triggern. Überprüfen Sie die `launchOptions` dieser Methoden, um festzustellen, ob die Anwendung durch einen Push im Hintergrund gestartet wurde.
 
 ### 2. Schritt: Verwenden Sie die interne Push-Utility-Methode {#step-2-use-the-internal-push-utility-method}
 

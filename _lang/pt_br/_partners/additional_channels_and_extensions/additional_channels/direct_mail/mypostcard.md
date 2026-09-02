@@ -20,7 +20,7 @@ Use a integração do MyPostcard com a Braze para enviar facilmente correspondê
 | Requisito                        | Descrição                                                                                                               |
 |----------------------------------|-------------------------------------------------------------------------------------------------------------------------|
 | Conta MyPostcard B2B             | O registro no MyPostcard é necessário para aproveitar esta integração.                                                  |
-| Chave de API or interface de programação do aplicativo (API) B2B e credenciais   | Você pode encontrar sua chave de API or interface de programação do aplicativo (API) e as credenciais na ferramenta de administração B2B do MyPostcard.                 |
+| Chave de API B2B e credenciais   | Você pode encontrar sua chave de API e as credenciais na ferramenta de administração B2B do MyPostcard.                 |
 | Campanha B2B MyPostcard aprovada | Para aproveitar esta integração, você precisa configurar uma campanha de mala direta impressa na ferramenta B2B do MyPostcard. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 

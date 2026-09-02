@@ -23,13 +23,13 @@ Die Integration der Adobe Experience Platform unterstützt derzeit keine dynamis
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | Adobe-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein [Adobe-Konto](https://account.adobe.com/). |
-| Braze Representational State Transfer-API-Schlüssel | Ein Braze Representational State Transfer-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
 | Braze-Instanz | Ihre Braze-Instanz erhalten Sie von Ihrem Braze Onboarding Manager:in oder auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics#endpoints). |
-| Braze Representational State Transfer-Endpunkt | Ihre URL für den Representational State Transfer-Endpunkt. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/api/basics#endpoints) ab. |
+| Braze REST-Endpunkt | Ihre URL für den REST-Endpunkt. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/api/basics#endpoints) ab. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 {% alert important %}
-Das Senden zusätzlicher angepasster Attribute erhöht Ihre Datenpunkt-Nutzung. Wir empfehlen Ihnen, mit Ihrem CSM or Customer-Success-Manager or Customer-Success-Manager:in zu sprechen, um diesen potenziellen Anstieg der Datenpunkte besser zu verstehen.
+Das Senden zusätzlicher angepasster Attribute erhöht Ihre Datenpunkt-Nutzung. Wir empfehlen Ihnen, mit Ihrem CSM zu sprechen, um diesen potenziellen Anstieg der Datenpunkte besser zu verstehen.
 {% endalert %}
 
 ## Integration

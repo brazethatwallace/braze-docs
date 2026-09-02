@@ -28,7 +28,7 @@ La integración de LiftIgniter y Braze utiliza Contenido conectado para permitir
 
 ## Integración {#integration}
 
-Utiliza la [REST or transferencia de estado representacional API de LiftIgniter](https://documenter.getpostman.com/view/2166502/liftigniter/7TFGvSV#9bdf75da-edd6-45ec-9c28-a0edefad1389) para insertar contenido personalizado en tus mensajes. Cuando tengas tu cuenta de LiftIgniter y LiftIgniter esté integrado en tu aplicación, añade la siguiente plantilla a tu creador de mensajes para llamar al contenido de tus mensajes, sustituyendo la información según sea necesario (`x-api-key`, `theapikey`, etc.).
+Utiliza la [REST API de LiftIgniter](https://documenter.getpostman.com/view/2166502/liftigniter/7TFGvSV#9bdf75da-edd6-45ec-9c28-a0edefad1389) para insertar contenido personalizado en tus mensajes. Cuando tengas tu cuenta de LiftIgniter y LiftIgniter esté integrado en tu aplicación, añade la siguiente plantilla a tu creador de mensajes para llamar al contenido de tus mensajes, sustituyendo la información según sea necesario (`x-api-key`, `theapikey`, etc.).
 
 {% raw %}
 ```

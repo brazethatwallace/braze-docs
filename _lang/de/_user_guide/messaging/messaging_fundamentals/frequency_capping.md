@@ -32,7 +32,7 @@ Braze stellt die folgenden Filter bereit, um Ihnen zu helfen, die Häufigkeit zu
 - Zuletzt eine Nachricht erhalten
 - Zuletzt Push erhalten
 - Zuletzt E-Mail erhalten
-- Zuletzt Kurzmitteilungsdienst or SMS erhalten
+- Zuletzt SMS erhalten
 
 #### Filter implementieren {#implementing-filters}
 
@@ -112,21 +112,21 @@ Das Rate-Limit wird zu Beginn des Nachrichtenversandversuchs angewendet. Bei Sch
 Seien Sie vorsichtig, zeitkritische Nachrichten mit dieser Form des Rate-Limitings in Bezug auf die Gesamtzahl der Nutzer:innen in einem Segment zu verzögern. Wenn das Segment beispielsweise 30 Millionen Nutzer:innen enthält, wir aber das Rate-Limit auf 10.000 pro Minute festlegen, wird ein großer Teil Ihrer Nutzerbasis die Nachricht erst am folgenden Tag erhalten.
 {% endalert %}
 
-#### Multichannel-Kampagnen und Canvase {#multichannel-campaigns-and-canvases}
+#### Multichannel-Kampagnen und Canvases {#multichannel-campaigns-and-canvases}
 
 Beim Festlegen eines Zustellgeschwindigkeits-Rate-Limits für eine Multichannel-Kampagne oder ein Canvas können Sie wählen, ob Sie ein gemeinsames Rate-Limit oder ein kanalbasiertes Limit festlegen.
 
-Wenn eine Multichannel-Kampagne oder ein Canvas ein gemeinsames Rate-Limit verwendet, bedeutet dies, dass die Gesamtzahl der pro Minute von der Campaign oder dem Canvas gesendeten Nachrichten das Rate-Limit nicht überschreitet. Wenn Ihr Canvas beispielsweise ein Rate-Limit von 500.000 pro Minute hat und E-Mail- sowie Kurzmitteilungsdienst or SMS-Nachrichtenschritte enthält, sendet Braze insgesamt 500.000 Nachrichten pro Minute über E-Mail und Kurzmitteilungsdienst or SMS hinweg.
+Wenn eine Multichannel-Kampagne oder ein Canvas ein gemeinsames Rate-Limit verwendet, bedeutet dies, dass die Gesamtzahl der pro Minute von der Campaign oder dem Canvas gesendeten Nachrichten das Rate-Limit nicht überschreitet. Wenn Ihr Canvas beispielsweise ein Rate-Limit von 500.000 pro Minute hat und E-Mail- sowie SMS-Nachrichtenschritte enthält, sendet Braze insgesamt 500.000 Nachrichten pro Minute über E-Mail und SMS hinweg.
 
 ![Die Option zur Begrenzung der Versandrate der Campaign, ausgewählt mit 500.000 Nachrichten pro Minute.]({% image_buster /assets/img_archive/multichannel_campaigns_rate_limit.png %}){: style="max-width:50%;"}
 
-Wenn eine Multichannel-Kampagne oder ein Canvas kanalbasiertes Rate-Limiting verwendet, wird das Rate-Limit auf jeden Ihrer ausgewählten Kanäle angewendet. Sie können beispielsweise Ihre Campaign oder Ihr Canvas so einstellen, dass maximal 5.000 Webhooks und 2.500 Kurzmitteilungsdienst or SMS-Nachrichten pro Minute über die Campaign oder das Canvas gesendet werden.
+Wenn eine Multichannel-Kampagne oder ein Canvas kanalbasiertes Rate-Limiting verwendet, wird das Rate-Limit auf jeden Ihrer ausgewählten Kanäle angewendet. Sie können beispielsweise Ihre Campaign oder Ihr Canvas so einstellen, dass maximal 5.000 Webhooks und 2.500 SMS-Nachrichten pro Minute über die Campaign oder das Canvas gesendet werden.
 
-![Separate Rate-Limits für zwei Kanäle, Webhook und Kurzmitteilungsdienst or SMS/MMS/RCS, mit 5.000 bzw. 2.500 Nachrichten pro Minute.]({% image_buster /assets/img_archive/channel_rate_limits.png %}){: style="max-width:70%;"}
+![Separate Rate-Limits für zwei Kanäle, Webhook und SMS/MMS/RCS, mit 5.000 bzw. 2.500 Nachrichten pro Minute.]({% image_buster /assets/img_archive/channel_rate_limits.png %}){: style="max-width:70%;"}
 
 ##### Push-Benachrichtigungen {#push-notifications}
 
-Für Campaigns oder Canvase mit Push-Plattformen (wie Android, iOS, Web-Push oder Kindle) können Sie **Push notifications** auswählen, um ein Rate-Limit durchzusetzen, das zwischen allen Push-Plattformen in Ihrer Campaign oder Ihrem Canvas geteilt wird.
+Für Campaigns oder Canvases mit Push-Plattformen (wie Android, iOS, Web-Push oder Kindle) können Sie **Push notifications** auswählen, um ein Rate-Limit durchzusetzen, das zwischen allen Push-Plattformen in Ihrer Campaign oder Ihrem Canvas geteilt wird.
 
 ![Das Kanal-Dropdown mit Optionen für Push-Plattformen und Push-Benachrichtigungen.]({% image_buster /assets/img_archive/push_notifications_rate_limit.png %}){: style="max-width:30%;"}
 
@@ -134,23 +134,23 @@ Wenn Sie ein Limit für Push-Benachrichtigungen auswählen, können Sie keine in
 
 {% alert important %}
 **Aktualisierungen der Rate-Limiting-Oberfläche**<br>
-Braze hat die Rate-Limiting-Oberfläche aktualisiert, um mehr Transparenz und Kontrolle darüber zu bieten, wie Rate-Limits auf Multichannel-Kampagnen und Canvase angewendet werden.<br><br>
+Braze hat die Rate-Limiting-Oberfläche aktualisiert, um mehr Transparenz und Kontrolle darüber zu bieten, wie Rate-Limits auf Multichannel-Kampagnen und Canvases angewendet werden.<br><br>
 
-- **Bestehende Campaigns und Canvase:** Alle bestehenden Campaigns und Canvase wurden auf diese Oberfläche migriert. Ihr Zustellverhalten bleibt gleich. Das Dashboard zeigt an, ob die Campaign gemeinsame oder kanalbasierte Logik verwendet.<br>
-- **Neue Campaigns und Canvase:** Für alle neuen Campaigns und Canvase gibt es einen manuellen Umschalter, um Ihre bevorzugte Rate-Limit-Logik auszuwählen. Stellen Sie sicher, dass Sie das Rate-Limiting-Verhalten auswählen, das mit Ihrem beabsichtigten Verhalten übereinstimmt, wenn Sie ein Rate-Limit für eine Campaign oder ein Canvas festlegen oder Update or aktualisieren or aktualisieren.
+- **Bestehende Campaigns und Canvases:** Alle bestehenden Campaigns und Canvases wurden auf diese Oberfläche migriert. Ihr Zustellverhalten bleibt gleich. Das Dashboard zeigt an, ob die Campaign gemeinsame oder kanalbasierte Logik verwendet.<br>
+- **Neue Campaigns und Canvases:** Für alle neuen Campaigns und Canvases gibt es einen manuellen Umschalter, um Ihre bevorzugte Rate-Limit-Logik auszuwählen. Stellen Sie sicher, dass Sie das Rate-Limiting-Verhalten auswählen, das mit Ihrem beabsichtigten Verhalten übereinstimmt, wenn Sie ein Rate-Limit für eine Campaign oder ein Canvas festlegen oder aktualisieren.
 {% endalert %}
 
 ##### Überlegungen zum Rate-Limiting {#rate-limiting-considerations}
 
 Einige Hinweise, die Sie bei der Konfiguration von Rate-Limits beachten sollten, und welches Verhalten Sie erwarten können:
 
-- Kurzmitteilungsdienst or SMS-Versendungen unterliegen einem Rate-Limit von 50.000 pro Abo-Gruppe. Einige Kurzmitteilungsdienst or SMS-Anbieter können weitere Limits durchsetzen.
+- SMS-Versendungen unterliegen einem Rate-Limit von 50.000 pro Abo-Gruppe. Einige SMS-Anbieter können weitere Limits durchsetzen.
 - Die folgenden Nachrichten werden nicht durch das Rate-Limit gedrosselt oder darauf angerechnet:
     - Testversendungen
     - Seed-Gruppen
     - Content Cards, die so konfiguriert sind, dass sie „bei erster Impression“ erstellt werden (dies wird durch die Rate der App-Impressionen gesteuert. Weitere Informationen zu den Unterschieden zwischen den Optionen zur Card-Erstellung finden Sie unter [Card-Erstellung]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation#differences).)
 - Zustellgeschwindigkeits-Rate-Limits werden für Folgendes nicht unterstützt:
-    - Kurzmitteilungsdienst or SMS-Autoantworten
+    - SMS-Autoantworten
     - SLA-gesicherte Nachrichten (wie [Transaktions-E-Mails]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email))
     - In-App-Nachrichten
     - Feature-Flags
@@ -208,7 +208,7 @@ Wenn Sie bei gleichzeitiger Nutzung beider Features eine bestimmte Anzahl von Nu
 
 - **Erhöhen Sie Ihr Rate-Limit:** Um Nutzer:innen zu berücksichtigen, die vom Frequency-Capping betroffen sind. Wenn Sie beispielsweise 500 Nutzer:innen erreichen möchten, aber erwarten, dass einige durch Frequency-Capping herausgefiltert werden, setzen Sie Ihr Rate-Limit höher an (z. B. 1.000 Nutzer:innen).
 - **Verwenden Sie nur Rate-Limiting:** Wenn Ihr Ziel die Kontrolle des Nachrichtenvolumens pro Campaign ist.
-- **Wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in:** Für Unterstützung bei der Entwicklung einer robusten Messaging-Strategie, die sowohl geschäftliche Anforderungen als auch technische Aspekte berücksichtigt.
+- **Wenden Sie sich an Ihren CSM:** Für Unterstützung bei der Entwicklung einer robusten Messaging-Strategie, die sowohl geschäftliche Anforderungen als auch technische Aspekte berücksichtigt.
 
 ### Feature-Übersicht {#freq-cap-feat-over}
 
@@ -216,7 +216,7 @@ Frequency-Capping wird auf der Sende-Ebene der Campaign oder Canvas-Komponente a
 
 Standardmäßig ist Frequency-Capping aktiviert, wenn neue Campaigns erstellt werden. Von hier aus können Sie Folgendes festlegen:
 
-- Den Messaging-Kanal, den Sie begrenzen möchten: Push, E-Mail, Kurzmitteilungsdienst or SMS, Webhook, WhatsApp, LINE oder beliebige Kombinationen dieser Kanäle.
+- Den Messaging-Kanal, den Sie begrenzen möchten: Push, E-Mail, SMS, Webhook, WhatsApp, LINE oder beliebige Kombinationen dieser Kanäle.
 - Wie oft jede:r Nutzer:in eine Campaign oder Canvas-Komponente erhalten soll, die über einen Kanal innerhalb eines bestimmten Zeitraums gesendet wird.
 - Wie oft jede:r Nutzer:in eine Campaign oder Canvas-Komponente erhalten soll, die nach [Tag](#frequency-capping-by-tag) innerhalb eines bestimmten Zeitraums gesendet wird.
 
@@ -224,7 +224,7 @@ Dieser Zeitraum kann in Minuten, Tagen oder Wochen (sieben Tage) gemessen werden
 
 Jede Zeile der Frequency-Caps wird mit dem Operator `AND` verknüpft, und Sie können bis zu 10 Regeln pro Workspace hinzufügen. Sie können mehrere Begrenzungen für dieselben Nachrichtentypen einbeziehen. Zum Beispiel können Sie Nutzer:innen auf maximal einen Push pro Tag und maximal drei Pushes pro Woche begrenzen. Beachten Sie, dass abgebrochene Nachrichten nicht zum Frequency-Capping zählen.
 
-![Frequency-Capping-Bereich mit Listen von Campaigns und Canvase, auf die Regeln angewendet werden und nicht angewendet werden.]({% image_buster /assets/img_archive/rate_limiting_overview_2.png %}){: style="max-width:90%;"}
+![Frequency-Capping-Bereich mit Listen von Campaigns und Canvases, auf die Regeln angewendet werden und nicht angewendet werden.]({% image_buster /assets/img_archive/rate_limiting_overview_2.png %}){: style="max-width:90%;"}
 
 #### Verhalten, wenn Nutzer:innen ihr Frequency-Cap erreicht haben oder eine Nachricht in einem Canvas-Schritt abgebrochen wird {#behavior-when-users-are-frequency-capped-or-a-message-is-aborted-on-a-canvas-step}
 
@@ -242,7 +242,7 @@ Danach werden Sie gefragt, ob diese Campaign trotzdem auf Ihr Frequency-Cap ange
 
 Beim Senden von [API-Campaigns]({{site.baseurl}}/api/endpoints/messaging), die häufig transaktional sind, haben Sie die Möglichkeit, festzulegen, dass eine Campaign die Frequency-Capping-Regeln ignorieren soll, indem Sie `override_frequency_capping` in der API-Anfrage auf `true` setzen.
 
-Standardmäßig werden neue Campaigns und Canvase, die das Frequency-Capping nicht beachten, auch nicht darauf angerechnet. Dies ist für jede Campaign und jedes Canvas konfigurierbar.
+Standardmäßig werden neue Campaigns und Canvases, die das Frequency-Capping nicht beachten, auch nicht darauf angerechnet. Dies ist für jede Campaign und jedes Canvas konfigurierbar.
 
 {% alert note %}
 Dieses Verhalten ändert das Standardverhalten, wenn Sie Frequency-Capping für eine Campaign oder ein Canvas deaktivieren. Die Änderungen sind abwärtskompatibel und haben keine Auswirkungen auf Nachrichten, die derzeit aktiv sind.
@@ -256,13 +256,13 @@ Frequency-Capping gilt pro Versand: Jedes Mal, wenn Braze eine Campaign oder Can
 
 ##### Multichannel-Sendungen {#multichannel-sends}
 
-Wenn ein einzelner Versand mehrere Kanäle nutzt, wird dieser Versand höchstens einmal pro anwendbarer Frequency-Capping-Regel gezählt. Wenn Sie beispielsweise eine Multichannel-Kampagne erstellen, die E-Mail, iOS-Push und Android-Push in einer Zustellung sendet, und Ihr Workspace Regeln für Push, E-Mail und eine Regel für alle Kanäle hat, zählt diese Zustellung einmal für die Push-Regel, einmal für die E-Mail-Regel und einmal für die Alle-Kanäle-Regel – sie zählt nicht einmal pro Push-Plattform oder pro Nachricht innerhalb des Versands. Wenn Nutzer:innen auf einen Push und eine E-Mail-Campaign pro Tag begrenzt sind und sie diese Multichannel-Kampagne erhalten, sind sie für den Representational State Transfer des Tages nicht für weitere Push- oder E-Mail-Campaigns berechtigt, es sei denn, eine Campaign ignoriert die Frequency-Capping-Regeln.
+Wenn ein einzelner Versand mehrere Kanäle nutzt, wird dieser Versand höchstens einmal pro anwendbarer Frequency-Capping-Regel gezählt. Wenn Sie beispielsweise eine Multichannel-Kampagne erstellen, die E-Mail, iOS-Push und Android-Push in einer Zustellung sendet, und Ihr Workspace Regeln für Push, E-Mail und eine Regel für alle Kanäle hat, zählt diese Zustellung einmal für die Push-Regel, einmal für die E-Mail-Regel und einmal für die Alle-Kanäle-Regel – sie zählt nicht einmal pro Push-Plattform oder pro Nachricht innerhalb des Versands. Wenn Nutzer:innen auf einen Push und eine E-Mail-Campaign pro Tag begrenzt sind und sie diese Multichannel-Kampagne erhalten, sind sie für den Rest des Tages nicht für weitere Push- oder E-Mail-Campaigns berechtigt, es sei denn, eine Campaign ignoriert die Frequency-Capping-Regeln.
 
 In-App-Nachrichten und Content Cards werden nicht als Caps auf Campaigns oder Canvas-Komponenten irgendeines Typs gezählt und zählen auch nicht dazu.
 
 ##### Push-Benachrichtigungen mit mehreren Geräten {#push-notifications-with-multiple-devices}
 
-Für Push-Campaigns zählt Frequency-Capping auf der Campaign- oder Canvas-Komponenten-Ebene, nicht pro einzelnem Gerät. Wenn ein Kundenprofil or Nutzerprofil mehrere für Push registrierte Geräte hat (z. B. ein iPhone und ein iPad), zählt ein Campaign-Level-Frequency-Cap dies als einen Versand, unabhängig davon, wie viele Geräte die Benachrichtigung erhalten. Dies ähnelt dem Verhalten einer wiederkehrenden Campaign mit täglicher Kadenz, die als ein Versand pro Tag gezählt wird, auch wenn sie mehrmals während der Woche wiederholt wird.
+Für Push-Campaigns zählt Frequency-Capping auf der Campaign- oder Canvas-Komponenten-Ebene, nicht pro einzelnem Gerät. Wenn ein Kundenprofil mehrere für Push registrierte Geräte hat (z. B. ein iPhone und ein iPad), zählt ein Campaign-Level-Frequency-Cap dies als einen Versand, unabhängig davon, wie viele Geräte die Benachrichtigung erhalten. Dies ähnelt dem Verhalten einer wiederkehrenden Campaign mit täglicher Kadenz, die als ein Versand pro Tag gezählt wird, auch wenn sie mehrmals während der Woche wiederholt wird.
 
 {% alert important %}
 Globales Frequency-Capping basiert auf der Zeitzone der:des Nutzer:in und wird nach Kalendertagen berechnet, nicht nach 24-Stunden-Zeiträumen. Wenn Sie beispielsweise eine Frequency-Capping-Regel einrichten, die den Versand auf maximal eine Campaign pro Tag begrenzt, könnte ein:e Nutzer:in um 23 Uhr in der eigenen Ortszeit eine Nachricht erhalten und wäre eine Stunde später bereits für eine weitere Nachricht berechtigt.
@@ -299,7 +299,7 @@ Dieses Szenario verwendet eine Frequency-Capping-Regel, damit Nutzer:innen maxim
 
 ### Frequency-Capping nach Tag {#frequency-capping-by-tag}
 
-[Frequency-Capping-Regeln](#delivery-rules) können auf Workspaces angewendet werden, indem bestimmte Tags verwendet werden, die Sie Ihren Campaigns und Canvase zugewiesen haben. Damit können Sie Ihr Frequency-Capping im Wesentlichen auf benutzerdefiniert benannte Gruppen basieren.
+[Frequency-Capping-Regeln](#delivery-rules) können auf Workspaces angewendet werden, indem bestimmte Tags verwendet werden, die Sie Ihren Campaigns und Canvases zugewiesen haben. Damit können Sie Ihr Frequency-Capping im Wesentlichen auf benutzerdefiniert benannte Gruppen basieren.
 
 Beim Frequency-Capping nach Tag können Regeln auf übergeordnete und verschachtelte Tags angewendet werden, sodass Braze alle Tags berücksichtigt. Wenn Sie beispielsweise den übergeordneten Tag A als Frequency-Cap ausgewählt haben, werden auch alle Informationen der verschachtelten Tags (z. B. Tags B und C) bei der Bestimmung des Limits einbezogen.
 
@@ -313,7 +313,7 @@ Sie können auch reguläres Frequency-Capping mit Frequency-Capping nach Tags ko
 Infolgedessen erhalten Ihre Nutzer:innen maximal drei Campaign-Sendungen pro Woche über alle Campaigns und Canvas-Schritte hinweg und maximal zwei Push-Benachrichtigungs-Campaigns oder Canvas-Komponenten mit dem Tag `promotional`.
 
 {% alert important %}
-Canvase werden auf Canvas-Ebene getaggt, nicht auf Komponentenebene. Daher erbt jede Canvas-Komponente alle Tags auf Canvas-Ebene.
+Canvases werden auf Canvas-Ebene getaggt, nicht auf Komponentenebene. Daher erbt jede Canvas-Komponente alle Tags auf Canvas-Ebene.
 {% endalert %}
 
 #### Konflikte bei Regeln {#conflicting-rules}
@@ -329,7 +329,7 @@ In diesem Beispiel erhält Ihre:Ihr Nutzer:in nicht mehr als eine Push-Benachric
 
 #### Tag-Zählung {#tag-count}
 
-Frequency-Capping nach Tag-Regeln wird zum Zeitpunkt des Nachrichtenversands berechnet. Das bedeutet, dass Frequency-Capping nach Tag nur Tags zählt, die aktuell auf den Campaigns oder Canvase vorhanden sind, die ein:e Nutzer:in in der Vergangenheit erhalten hat. Es zählt nicht die Tags, die zum Sendezeitpunkt auf den Campaigns oder Canvase vorhanden waren, aber seitdem entfernt wurden. Es zählt jedoch, wenn ein Tag nachträglich zu einer Nachricht hinzugefügt wird, die ein:e Nutzer:in in der Vergangenheit erhalten hat, solange dies geschieht, bevor die neueste getaggte Nachricht gesendet wird.
+Frequency-Capping nach Tag-Regeln wird zum Zeitpunkt des Nachrichtenversands berechnet. Das bedeutet, dass Frequency-Capping nach Tag nur Tags zählt, die aktuell auf den Campaigns oder Canvases vorhanden sind, die ein:e Nutzer:in in der Vergangenheit erhalten hat. Es zählt nicht die Tags, die zum Sendezeitpunkt auf den Campaigns oder Canvases vorhanden waren, aber seitdem entfernt wurden. Es zählt jedoch, wenn ein Tag nachträglich zu einer Nachricht hinzugefügt wird, die ein:e Nutzer:in in der Vergangenheit erhalten hat, solange dies geschieht, bevor die neueste getaggte Nachricht gesendet wird.
 
 ##### Anwendungsfall {#use-case}
 
@@ -388,7 +388,7 @@ Das bedeutet in der Regel, dass das [Rate-Limit für die Zustellgeschwindigkeit]
 
 **Sendevolumen begrenzen** steuert, wie viele Nutzer:innen für einen Versand infrage kommen, nicht wie viele Nachrichten Braze pro Minute versendet. Nur ein Rate-Limit für die Zustellgeschwindigkeit legt den Durchsatz pro Minute fest.
 
-Wenn Sie bereits das maximale Rate-Limit für die Zustellgeschwindigkeit erreicht haben, das für Ihr Unternehmen verfügbar ist, wenden Sie sich an Ihre:n CSM or Customer-Success-Manager or Customer-Success-Manager:in, um eine Erhöhung anzufordern.
+Wenn Sie bereits das maximale Rate-Limit für die Zustellgeschwindigkeit erreicht haben, das für Ihr Unternehmen verfügbar ist, wenden Sie sich an Ihre:n CSM, um eine Erhöhung anzufordern.
 
 ### Was bedeutet „Gesendet“ im Zusammenhang mit Frequency-Capping? {#what-does-sent-mean-for-frequency-capping}
 

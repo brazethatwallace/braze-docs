@@ -120,7 +120,7 @@ Die folgende Tabelle listet häufige Fehler für diesen Endpunkt und wie Sie die
 | `404` | Typ nicht gefunden (`data-object-type-not-found`) | Stellen Sie sicher, dass `type_name` im Workspace existiert und exakt dem Maschinennamen entspricht. |
 | `409` | Doppeltes Objekt (`duplicate-data-object`) | Verwenden Sie eine andere `external_id` oder nutzen Sie `PUT`, um das bestehende Objekt zu ersetzen. |
 | `422` | Datensatzlimit erreicht (`data-object-record-limit-exceeded`) | Reduzieren Sie die Objektanzahl für den Typ oder kontaktieren Sie den Braze-Support bezüglich Ihrer Workspace-Limits. |
-| `401` | Fehlender oder ungültiger Representational State Transfer-API-Schlüssel | Überprüfen Sie, ob der `Authorization`-Header `Bearer YOUR_REST_API_KEY` verwendet und der Schlüssel aktiv ist. |
+| `401` | Fehlender oder ungültiger REST-API-Schlüssel | Überprüfen Sie, ob der `Authorization`-Header `Bearer YOUR_REST_API_KEY` verwendet und der Schlüssel aktiv ist. |
 | `403` | API-Schlüssel hat keine Berechtigung oder die Anfrage wird durch die Allowlist blockiert | Stellen Sie sicher, dass der Schlüssel über `data_objects.create` verfügt und dass Ihre Quell-IP auf der Schlüssel-Allowlist steht, falls konfiguriert. |
 | `429` | Rate-Limit überschritten | Versuchen Sie es erneut nach `X-RateLimit-Reset` und reduzieren Sie die Anfragehäufigkeit. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fehler beim Erstellen von Datenobjekten" }

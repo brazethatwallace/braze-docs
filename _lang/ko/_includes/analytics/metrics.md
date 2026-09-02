@@ -19,7 +19,7 @@
 {% endif %}
 
 {% if include.metric == "Help" %}
-<i>도움말</i>은 사용자가 <a href="{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/단문 메시지 서비스/keywords/keyword_handling/#default-opt-in-opt-out-keywords">도움말 키워드</a> 를 사용하여 메시지에 답장하고 도움말 자동 응답이 발송된 경우입니다.
+<i>도움말</i>은 사용자가 <a href="{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">도움말 키워드</a> 를 사용하여 메시지에 답장하고 도움말 자동 응답이 발송된 경우입니다.
 {% endif %}
 
 {% if include.metric == "Hard Bounce" %}
@@ -103,7 +103,7 @@ Push Stories 알림은 알림을 클릭하면 <i>본문 클릭</i>을 기록합�
 {% endif %}
 
 {% if include.metric == "Delivery Failures" %}
-<i>전송 실패</i>는 대기줄이 넘쳐서 단문 메시지 서비스를 보낼 수 없는 경우(긴 코드 또는 짧은 코드가 처리할 수 있는 속도보다 높은 속도로 단문 메시지 서비스를 전송하는 경우)를 말합니다.
+<i>전송 실패</i>는 대기줄이 넘쳐서 SMS를 보낼 수 없는 경우(긴 코드 또는 짧은 코드가 처리할 수 있는 속도보다 높은 속도로 SMS를 전송하는 경우)를 말합니다.
 {% endif %}
 
 {% if include.metric == "Delivery Failures RCS" %}
@@ -138,8 +138,8 @@ Push Stories 알림은 알림을 클릭하면 <i>본문 클릭</i>을 기록합�
 <i>생애주기 매출</i>은 시작 이후 수신한 <code>PurchaseEvents</code> 가격 값(USD)의 총합입니다.
 {% endif %}
 
-{% if include.metric == "LTV or LTV or 생애주기 가치 Per User" %}
-<i>사용자당 LTV or 생애주기 가치</i>는 <i>생애주기 매출</i>을 총 <i>사용자</i> 수(홈 페이지에 위치)로 나눈 값입니다.
+{% if include.metric == "LTV Per User" %}
+<i>사용자당 LTV</i>는 <i>생애주기 매출</i>을 총 <i>사용자</i> 수(홈 페이지에 위치)로 나눈 값입니다.
 {% endif %}
 
 {% if include.metric == "Average Daily Revenue" %}
@@ -185,7 +185,7 @@ MPP가 활성화되지 않은 사용자의 경우:
 {% endif %}
 
 {% if include.metric == "Opt-Out" %}
-<i>옵트아웃</i>은 사용자가 <a href="{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/단문 메시지 서비스/keywords/keyword_handling/#default-opt-in-opt-out-keywords">옵트아웃 키워드</a> 를 사용하여 메시지에 답장을 보낸 후 단문 메시지 서비스 또는 RCS 프로그램에서 수신 거부된 경우입니다.
+<i>옵트아웃</i>은 사용자가 <a href="{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">옵트아웃 키워드</a> 를 사용하여 메시지에 답장을 보낸 후 SMS 또는 RCS 프로그램에서 수신 거부된 경우입니다.
 {% endif %}
 
 {% if include.metric == "Pending Retry" %}
@@ -209,7 +209,7 @@ MPP가 활성화되지 않은 사용자의 경우:
 {% endif %}
 
 {% if include.metric == "Rejections" %}
-<i>거부</i>란 이동통신사에 의해 단문 메시지 서비스 또는 RCS가 거부된 경우를 말합니다. 이는 이동통신사 콘텐츠 필터링, 대상 기기의 가용성, 전화번호가 더 이상 서비스되지 않는 경우 등 여러 가지 이유로 발생할 수 있습니다.
+<i>거부</i>란 이동통신사에 의해 SMS 또는 RCS가 거부된 경우를 말합니다. 이는 이동통신사 콘텐츠 필터링, 대상 기기의 가용성, 전화번호가 더 이상 서비스되지 않는 경우 등 여러 가지 이유로 발생할 수 있습니다.
 {% endif %}
 
 {% if include.metric == "Revenue" %}
@@ -221,7 +221,7 @@ MPP가 활성화되지 않은 사용자의 경우:
 {% endif %}
 
 {% if include.metric == "Sent" %}
-<i>전송</i>은 Campaign 또는 캔버스 단계가 시작되거나 트리거되어 Braze에서 단문 메시지 서비스 또는 RCS가 전송될 때마다 발생합니다. 오류로 인해 단문 메시지 서비스 또는 RCS가 사용자의 기기에 도달하지 못했을 수 있습니다.
+<i>전송</i>은 Campaign 또는 캔버스 단계가 시작되거나 트리거되어 Braze에서 SMS 또는 RCS가 전송될 때마다 발생합니다. 오류로 인해 SMS 또는 RCS가 사용자의 기기에 도달하지 못했을 수 있습니다.
 {% endif %}
 
 {% if include.metric == "Sends" %}

@@ -10,7 +10,7 @@ tool: Canvas
 
 # Atualização de usuário {#user-update}
 
-> O componente Atualização de usuário permite atualizar atributos, eventos e compras de um usuário em um editor JSON, sem a necessidade de incluir informações sensíveis como chaves de API or interface de programação do aplicativo (API).
+> O componente Atualização de usuário permite atualizar atributos, eventos e compras de um usuário em um editor JSON, sem a necessidade de incluir informações sensíveis como chaves de API.
 
 ## Como esse componente funciona {#how-this-component-works}
 
@@ -177,9 +177,9 @@ Usando o editor JSON, você também pode pré-visualizar e testar se o perfil de
 
 ### Considerações {#considerations}
 
-Você não precisa incluir dados sensíveis, como sua chave de API or interface de programação do aplicativo (API), ao usar o editor JSON, pois isso é fornecido automaticamente pela plataforma. Os campos a seguir não devem ser incluídos no editor JSON:
+Você não precisa incluir dados sensíveis, como sua chave de API, ao usar o editor JSON, pois isso é fornecido automaticamente pela plataforma. Os campos a seguir não devem ser incluídos no editor JSON:
 * ID de usuário externo
-* Chave de API or interface de programação do aplicativo (API)
+* Chave de API
 * URL do cluster da Braze
 * Campos relacionados à importação de tokens por push
 

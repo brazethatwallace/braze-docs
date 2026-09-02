@@ -71,7 +71,7 @@ Você pode usar esses blocos para adicionar conteúdo e personalizar o layout da
 | Imagem | Um bloco para exibir imagens. Você pode fazer upload de uma imagem ou fornecer uma URL para referenciar uma fonte externa. |
 | Link | Um hiperlink que os usuários podem clicar para navegar até uma URL específica. Pode ser incorporado dentro do texto ou ser independente. |
 | Espaçador | Um bloco invisível que adiciona espaçamento vertical entre elementos para melhorar o layout e a legibilidade. |
-| Código personalizado | Um bloco que permite inserir e executar HTML, CSS ou JavaScript personalizados para personalização avançada. Para interagir com o SDK or kit de desenvolvimento de software da Braze a partir deste bloco, consulte [Ponte JavaScript para landing pages]({{site.baseurl}}/user_guide/messaging/landing_pages/javascript_bridge) e [Criar blocos de formulário personalizados]({{site.baseurl}}/user_guide/messaging/landing_pages/custom_form_blocks). |
+| Código personalizado | Um bloco que permite inserir e executar HTML, CSS ou JavaScript personalizados para personalização avançada. Para interagir com o SDK da Braze a partir deste bloco, consulte [Ponte JavaScript para landing pages]({{site.baseurl}}/user_guide/messaging/landing_pages/javascript_bridge) e [Criar blocos de formulário personalizados]({{site.baseurl}}/user_guide/messaging/landing_pages/custom_form_blocks). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 3: Personalizar a página" }
 
 #### Texto com span {#span-text}

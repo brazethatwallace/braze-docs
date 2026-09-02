@@ -16,7 +16,7 @@ noindex: true
 
 ## Modelo de dados de Content Cards {#content-cards-data-model}
 
-O modelo de dados de Content Cards está disponível no SDK or kit de desenvolvimento de software para iOS.
+O modelo de dados de Content Cards está disponível no SDK para iOS.
 
 ### Obtenção dos dados {#getting-the-data}
 
@@ -83,7 +83,7 @@ A Braze oferece três tipos de Content Cards: banner, imagem legendada e clássi
 | `pinned` | Essa propriedade reflete se o cartão foi configurado como "fixado" no dashboard. |
 | `dismissed` | Essa propriedade reflete se o usuário descartou o cartão. |
 | `url` | A URL que será aberta após o cartão ser clicado. Pode ser uma URL HTTP(s) ou uma URL de protocolo. |
-| `openURLInWebView` | Essa propriedade determina se a URL será aberta dentro do app ou em um navegador de internet or navegador web externo. |
+| `openURLInWebView` | Essa propriedade determina se a URL será aberta dentro do app ou em um navegador de internet externo. |
 | `extras` | Um `NSDictionary` opcional de valores `NSString`. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Base Content Card model properties - ABKContentCard" }
 
@@ -121,8 +121,8 @@ A Braze oferece três tipos de Content Cards: banner, imagem legendada e clássi
 | Método | Descrição |
 |---|---|
 | `logContentCardImpression` | Registre manualmente uma impressão na Braze para um determinado cartão. |
-| `logContentCardClicked` | Registre manualmente um clique na Braze para um determinado cartão. O SDK or kit de desenvolvimento de software só registrará um clique no cartão quando o cartão tiver a propriedade `url` com um valor válido. |
-| `logContentCardDismissed` | Registre manualmente um descarte na Braze para um cartão específico. O SDK or kit de desenvolvimento de software só registrará um descarte de cartão se a propriedade `dismissed` do cartão ainda não estiver definida como `true`. |
+| `logContentCardClicked` | Registre manualmente um clique na Braze para um determinado cartão. O SDK só registrará um clique no cartão quando o cartão tiver a propriedade `url` com um valor válido. |
+| `logContentCardDismissed` | Registre manualmente um descarte na Braze para um cartão específico. O SDK só registrará um descarte de cartão se a propriedade `dismissed` do cartão ainda não estiver definida como `true`. |
 | `isControlCard` | Determine se um cartão é o cartão de Controle para um teste A/B. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Card methods" }
 

@@ -1,8 +1,8 @@
 ## Migração de permissões granulares {#granular-permissions-migration}
 
-Integrações SCIM existentes e [objetos da API or interface de programação do aplicativo (API) SCIM legada]({{site.baseurl}}/scim_api_appendix/?sdktab=legacy%20scim%20api) continuarão a funcionar após a migração de permissões granulares no final de abril.
+Integrações SCIM existentes e [objetos da API SCIM legada]({{site.baseurl}}/scim_api_appendix/?sdktab=legacy%20scim%20api) continuarão a funcionar após a migração de permissões granulares no final de abril.
 
-Você não precisa tomar nenhuma ação imediata. No entanto, recomendamos que você revise suas integrações para quaisquer permissões que serão granularizadas. Por exemplo, se você estiver enviando `basic_access` na API or interface de programação do aplicativo (API), sugerimos que atualize sua integração após a granularização para incluir as permissões específicas (por exemplo, `"appGroupPermissions":["view_campaigns","edit_campaigns"]`). A Braze continuará a aceitar strings legadas, como `basic_access`, após a migração de permissões granulares para que as integrações existentes não quebrem.
+Você não precisa tomar nenhuma ação imediata. No entanto, recomendamos que você revise suas integrações para quaisquer permissões que serão granularizadas. Por exemplo, se você estiver enviando `basic_access` na API, sugerimos que atualize sua integração após a granularização para incluir as permissões específicas (por exemplo, `"appGroupPermissions":["view_campaigns","edit_campaigns"]`). A Braze continuará a aceitar strings legadas, como `basic_access`, após a migração de permissões granulares para que as integrações existentes não quebrem.
 
 ## Objeto de permissões {#permissions-object}
 
@@ -78,7 +78,7 @@ Um objeto de função válido é um objeto JSON com os seguintes pares de chave/
 
 ### Strings de permissão da empresa {#company}
 
-| Conforme exibido na interface do usuário | String da API or interface de programação do aplicativo (API) SCIM |
+| Conforme exibido na interface do usuário | String da API SCIM |
 | --- | --- |
 | Administrator | `admin` |
 | Manage Company Settings | `manage_company_settings` |
@@ -87,7 +87,7 @@ Um objeto de função válido é um objeto JSON com os seguintes pares de chave/
 
 ### Strings de permissão do espaço de trabalho {#workspace-strings}
 
-| Nome da permissão | String da API or interface de programação do aplicativo (API) SCIM |
+| Nome da permissão | String da API SCIM |
 | --- | --- |
 | View Campaigns | `view_campaigns` |
 | Edit Campaigns | `edit_campaigns` |
@@ -151,20 +151,20 @@ Um objeto de função válido é um objeto JSON com os seguintes pares de chave/
 | Edit User Data | `edit_user_data` |
 | View User Merge Records | `view_user_merge_records` |
 | Merge Duplicate Users | `merge_duplicate_users` |
-| View API or interface de programação do aplicativo (API) Keys | `view_api_keys` |
-| Edit API or interface de programação do aplicativo (API) Keys | `edit_api_keys` |
+| View API Keys | `view_api_keys` |
+| Edit API Keys | `edit_api_keys` |
 | View Internal Groups | `view_internal_user_groups` |
 | Edit Internal Groups | `edit_internal_user_groups` |
 | Delete Internal Groups | `delete_internal_user_groups` |
 | View Message Activity Log | `view_message_activity_log` |
 | View Event User Log | `view_event_user_log` |
-| View API or interface de programação do aplicativo (API) Identifiers | `view_api_identifiers` |
-| View API or interface de programação do aplicativo (API) Usage Dashboard | `view_api_usage_dashboard` |
-| View API or interface de programação do aplicativo (API) Limits | `view_api_limits` |
-| View API or interface de programação do aplicativo (API) Usage Alerts | `view_api_usage_alerts` |
-| Edit API or interface de programação do aplicativo (API) Usage Alerts | `edit_api_usage_alerts` |
-| View SDK or kit de desenvolvimento de software Debugger | `view_sdk_debugger` |
-| Edit SDK or kit de desenvolvimento de software Debugger | `edit_sdk_debugger` |
+| View API Identifiers | `view_api_identifiers` |
+| View API Usage Dashboard | `view_api_usage_dashboard` |
+| View API Limits | `view_api_limits` |
+| View API Usage Alerts | `view_api_usage_alerts` |
+| Edit API Usage Alerts | `edit_api_usage_alerts` |
+| View SDK Debugger | `view_sdk_debugger` |
+| Edit SDK Debugger | `edit_sdk_debugger` |
 | Launch Content Blocks | `launch_content_blocks` |
 | Edit Cloud Data Ingestion | `edit_cloud_data_ingestion` |
 | View App Settings | `view_app_settings` |
@@ -204,7 +204,7 @@ Um objeto de função válido é um objeto JSON com os seguintes pares de chave/
 
 ### Strings de permissão da equipe {#team}
 
-| Nome da permissão | String da API or interface de programação do aplicativo (API) SCIM |
+| Nome da permissão | String da API SCIM |
 | --- | --- |
 | View Campaigns | `view_campaigns` |
 | Edit Campaigns | `edit_campaigns` |
@@ -257,7 +257,7 @@ Um objeto de função válido é um objeto JSON com os seguintes pares de chave/
 
 ### Strings do departamento {#department-strings}
 
-| Conforme exibido na interface do usuário | String da API or interface de programação do aplicativo (API) SCIM |
+| Conforme exibido na interface do usuário | String da API SCIM |
 | --- | --- |
 | Agency / Third Party | `agency` |
 | BI / Analytics | `bi` |

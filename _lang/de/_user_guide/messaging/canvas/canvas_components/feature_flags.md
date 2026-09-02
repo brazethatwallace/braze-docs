@@ -34,7 +34,7 @@ Wenn das Feature-Flag einen Rollout, ein Feature-Flag-Experiment oder ein andere
 
 Eigenschaften in einem Canvas-Schritt können nach dem Start geändert werden, auch nachdem eine Nutzerin oder ein Nutzer den Schritt durchlaufen hat. Nutzer:innen erhalten immer eine dynamische Realtime-Version des Feature-Flags anstatt der älteren, zuvor gespeicherten Version.
 
-- **Zwei Canvase referenzieren dasselbe Feature-Flag, und eine Nutzerin oder ein Nutzer tritt in beide ein:** Die Person erhält den Wert, der im zuletzt betretenen Canvas festgelegt wurde, nicht den des früheren Canvas. Dieser Wert erscheint im Tab **Feature Flags Eligibility**.
+- **Zwei Canvases referenzieren dasselbe Feature-Flag, und eine Nutzerin oder ein Nutzer tritt in beide ein:** Die Person erhält den Wert, der im zuletzt betretenen Canvas festgelegt wurde, nicht den des früheren Canvas. Dieser Wert erscheint im Tab **Feature Flags Eligibility**.
 - **Ein Canvas hat zwei Feature-Flag-Schritte, die dasselbe Feature-Flag referenzieren:** Die Person erhält den im zweiten Schritt festgelegten Wert, solange sie sich auf diesem Pfad befindet, und dieser Wert erscheint im Tab **Feature Flags Eligibility**.
 
 {% multi_lang_include alerts/important_alerts.md alert='network dependency' %}

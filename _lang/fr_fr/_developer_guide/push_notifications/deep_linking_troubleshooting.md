@@ -26,7 +26,7 @@ Trouvez le comportement que vous observez dans le tableau, puis suivez les étap
 | Chaque lien d'e-mail ouvre l'application | [Chaque lien d'e-mail ouvre l'application](#every-email-link-opens-the-app) |
 | Fonctionne depuis une notification push mais pas depuis un message in-app (ou inversement) | [Le deep link fonctionne depuis une notification push mais pas depuis un message in-app](#deep-link-works-from-push-but-not-from-in-app-message) |
 | « Open Web URL Inside App » affiche une WebView vide | [« Open Web URL Inside App » affiche une page vide ou défectueuse](#open-web-url-inside-app-shows-a-blank-or-broken-page) |
-| Le lien Branch or branche n'ouvre pas l'application ou ne redirige pas correctement | [Résolution des problèmes Branch or branche avec Braze](#branch) |
+| Le lien Branch n'ouvre pas l'application ou ne redirige pas correctement | [Résolution des problèmes Branch avec Braze](#branch) |
 | Le deep link échoue sans cause apparente | [Conseils généraux de débogage](#general-debugging-tips) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Symptôme de deep linking" }
 
@@ -185,13 +185,13 @@ Si vous utilisez un délégué d'affichage personnalisé pour les messages in-ap
 3. **Vérifiez les redirections vers des schémas personnalisés.** Si la page Web redirige vers un schéma personnalisé (par exemple, `myapp://`), la WebView ne peut pas le gérer.
 4. **Testez l'URL dans Safari.** Si la page ne se charge pas dans Safari sur l'appareil, elle ne se chargera pas non plus dans la WebView.
 
-## Résolution des problèmes de Branch or branche avec Braze {#branch}
+## Résolution des problèmes de Branch avec Braze {#branch}
 
-Si vous utilisez [Branch or branche]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking) comme fournisseur de liens :
+Si vous utilisez [Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking) comme fournisseur de liens :
 
-### Vérifier que le BrazeDelegate route vers Branch or branche {#verify-the-brazedelegate-routes-to-branch}
+### Vérifier que le BrazeDelegate route vers Branch {#verify-the-brazedelegate-routes-to-branch}
 
-Votre `BrazeDelegate` doit intercepter les liens Branch or branche et les transmettre au SDK Branch or branche. Vérifiez les éléments suivants :
+Votre `BrazeDelegate` doit intercepter les liens Branch et les transmettre au SDK Branch. Vérifiez les éléments suivants :
 
 ```swift
 func braze(_ braze: Braze, shouldOpenURL context: Braze.URLContext) -> Bool {
@@ -205,38 +205,38 @@ func braze(_ braze: Braze, shouldOpenURL context: Braze.URLContext) -> Bool {
 }
 ```
 
-Si `shouldOpenURL` retourne `true` pour les liens Branch or branche, Braze les traite directement au lieu de les acheminer vers Branch or branche.
+Si `shouldOpenURL` retourne `true` pour les liens Branch, Braze les traite directement au lieu de les acheminer vers Branch.
 
-### Vérifier le domaine du lien Branch or branche {#check-branch-link-domain}
+### Vérifier le domaine du lien Branch {#check-branch-link-domain}
 
-Vérifiez que le domaine Branch or branche dans votre `BrazeDelegate` correspond à votre domaine de lien Branch or branche réel. Branch or branche utilise plusieurs formats de domaine :
+Vérifiez que le domaine Branch dans votre `BrazeDelegate` correspond à votre domaine de lien Branch réel. Branch utilise plusieurs formats de domaine :
 
 - `yourapp.app.link` (par défaut)
 - `yourapp-alternate.app.link` (alternatif)
-- Domaines personnalisés (s'ils sont configurés dans le tableau de bord Branch or branche)
+- Domaines personnalisés (s'ils sont configurés dans le tableau de bord Branch)
 
 ### Activer la journalisation des deux SDK {#enable-both-sdks-logging}
 
 Pour diagnostiquer où le lien se rompt dans la chaîne :
 
 1. Activez la [journalisation détaillée Braze]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging). Recherchez les entrées `Opening '<URL>':` pour vérifier que le SDK a bien reçu le lien.
-2. Activez le [mode test Branch or branche](https://help.branch.io/developers-hub/docs/ios-basic-integration#test-deep-linking). Consultez le tableau de bord Branch or branche pour les événements de clic sur les liens.
-3. Si Braze enregistre le lien mais que Branch or branche ne détecte aucun clic, la logique de routage du `BrazeDelegate` est probablement en cause.
+2. Activez le [mode test Branch](https://help.branch.io/developers-hub/docs/ios-basic-integration#test-deep-linking). Consultez le tableau de bord Branch pour les événements de clic sur les liens.
+3. Si Braze enregistre le lien mais que Branch ne détecte aucun clic, la logique de routage du `BrazeDelegate` est probablement en cause.
 
-### Vérifier la configuration du tableau de bord Branch or branche {#check-branch-dashboard-configuration}
+### Vérifier la configuration du tableau de bord Branch {#check-branch-dashboard-configuration}
 
-Dans le tableau de bord Branch or branche, vérifiez :
+Dans le tableau de bord Branch, vérifiez :
 
 - Le **Bundle ID** et le **Team ID** de votre application correspondent à votre projet Xcode.
-- Vos **Associated Domains** incluent le domaine du lien Branch or branche.
-- Votre fichier AASA Branch or branche est valide (Branch or branche l'héberge automatiquement sur les domaines `app.link`).
+- Vos **Associated Domains** incluent le domaine du lien Branch.
+- Votre fichier AASA Branch est valide (Branch l'héberge automatiquement sur les domaines `app.link`).
 
-### Tester les liens Branch or branche de manière indépendante {#test-branch-links-independently}
+### Tester les liens Branch de manière indépendante {#test-branch-links-independently}
 
-Testez le lien Branch or branche en dehors de Braze pour isoler le problème :
+Testez le lien Branch en dehors de Braze pour isoler le problème :
 
-1. Ouvrez le lien Branch or branche dans Safari sur votre appareil. S'il n'ouvre pas l'application, le problème provient de votre configuration Branch or branche ou AASA, et non de Braze.
-2. Collez le lien Branch or branche dans l'application Notes et appuyez dessus. Les liens universels fonctionnent de manière plus fiable depuis Notes que depuis la barre d'adresse de Safari.
+1. Ouvrez le lien Branch dans Safari sur votre appareil. S'il n'ouvre pas l'application, le problème provient de votre configuration Branch ou AASA, et non de Braze.
+2. Collez le lien Branch dans l'application Notes et appuyez dessus. Les liens universels fonctionnent de manière plus fiable depuis Notes que depuis la barre d'adresse de Safari.
 
 ## Conseils généraux de débogage {#general-debugging-tips}
 
@@ -261,7 +261,7 @@ Avant de tester via Braze, vérifiez que votre deep link ou lien universel fonct
 
 - **Schéma personnalisé** : exécutez `xcrun simctl openurl booted "myapp://path"` dans le Terminal.
 - **Lien universel** : collez l'URL dans l'application Notes sur un appareil physique et appuyez dessus. Ne testez pas depuis la barre d'adresse de Safari, car iOS traite les URL saisies différemment des liens sur lesquels on appuie.
-- **Lien Branch or branche** : ouvrez le lien Branch or branche depuis l'application Notes sur un appareil.
+- **Lien Branch** : ouvrez le lien Branch depuis l'application Notes sur un appareil.
 
 ### Tester sur un appareil physique {#test-on-a-physical-device}
 

@@ -8,9 +8,9 @@ Braze-Benachrichtigungen werden als [Datennachrichten](https://firebase.google.c
 Android legt einige Einschränkungen fest, welche Komponenten zur Implementierung angepasster Benachrichtigungsansichten verwendet werden können. Benachrichtigungsansichtslayouts dürfen _nur_ View-Objekte enthalten, die mit dem [RemoteViews](https://developer.android.com/reference/android/widget/RemoteViews)-Framework kompatibel sind.
 {% endalert %}
 
-Sie können die Schnittstelle [`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html) verwenden, um die Anzeige von Braze-Push-Benachrichtigungen anzupassen. Durch die Erweiterung von `BrazeNotificationFactory` ruft Braze die Methode `createNotification()` Ihrer Factory auf, bevor die Benachrichtigung dem Nutzer angezeigt wird. Dabei wird ein Payload mit angepassten Schlüssel-Wert-Paaren übergeben, die über das Braze-Dashboard oder die Representational State Transfer API gesendet wurden.
+Sie können die Schnittstelle [`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html) verwenden, um die Anzeige von Braze-Push-Benachrichtigungen anzupassen. Durch die Erweiterung von `BrazeNotificationFactory` ruft Braze die Methode `createNotification()` Ihrer Factory auf, bevor die Benachrichtigung dem Nutzer angezeigt wird. Dabei wird ein Payload mit angepassten Schlüssel-Wert-Paaren übergeben, die über das Braze-Dashboard oder die REST API gesendet wurden.
 
-In diesem Abschnitt arbeiten Sie mit Superb Owl zusammen, dem Moderator einer neuen Spielshow, in der Wildtierrettungsteams gegeneinander antreten, um zu sehen, wer die meisten Eulen retten kann. Sie möchten Live-Update or aktualisieren-Benachrichtigungen in ihrer Android-App nutzen, um den Status eines laufenden Spiels anzuzeigen und die Benachrichtigung in Echtzeit dynamisch zu Update or aktualisieren or aktualisieren.
+In diesem Abschnitt arbeiten Sie mit Superb Owl zusammen, dem Moderator einer neuen Spielshow, in der Wildtierrettungsteams gegeneinander antreten, um zu sehen, wer die meisten Eulen retten kann. Sie möchten Live-Update-Benachrichtigungen in ihrer Android-App nutzen, um den Status eines laufenden Spiels anzuzeigen und die Benachrichtigung in Echtzeit dynamisch zu aktualisieren.
 
 ![Das Live-Update, das Superb Owl anzeigen möchte, mit einem laufenden Spiel zwischen „Wild Bird Fund“ und „Owl Rescue“. Es ist gerade das vierte Viertel und der Spielstand ist 2-4, wobei OWL in Führung liegt.]({% image_buster /assets/img/android/android-live-activity-superb-owl-example.jpg %}){: style="max-width:65%;"}
 
@@ -248,7 +248,7 @@ class MyApplication : Application() {
 
 ### Schritt 5: Die Aktivität senden {#step-5-send-the-activity}
 
-Sie können den Representational State Transfer-API-Endpunkt [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) verwenden, um eine Push-Benachrichtigung an das Android-Gerät eines Nutzers zu senden.
+Sie können den REST-API-Endpunkt [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) verwenden, um eine Push-Benachrichtigung an das Android-Gerät eines Nutzers zu senden.
 
 #### Beispiel-curl-Befehl {#example-curl-command}
 
@@ -287,25 +287,25 @@ Obwohl curl-Befehle zum Testen nützlich sind, empfehlen wir, diesen Aufruf in I
 
 | Schlüssel | Beschreibung |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `REST_API_KEY` | Ein Braze-Representational State Transfer-API-Schlüssel mit `messages.send`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| `BRAZE_REST_ENDPOINT` | Ihre Representational State Transfer-Endpunkt-URL. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/api/basics#endpoints) ab. |
+| `REST_API_KEY` | Ein Braze-REST-API-Schlüssel mit `messages.send`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| `BRAZE_REST_ENDPOINT` | Ihre REST-Endpunkt-URL. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/api/basics#endpoints) ab. |
 | `USER_ID` | Die ID der Nutzerin oder des Nutzers, an die/den Sie die Benachrichtigung senden. |
 | `messages.android_push.title` | Der Titel der Nachricht. Standardmäßig wird dieser für die Live-Benachrichtigungen der angepassten Benachrichtigungs-Factory nicht verwendet, kann aber als Fallback dienen. |
 | `messages.android_push.alert` | Der Text der Nachricht. Standardmäßig wird dieser für die Live-Benachrichtigungen der angepassten Benachrichtigungs-Factory nicht verwendet, kann aber als Fallback dienen. |
 | `messages.extra` | Schlüssel-Wert-Paare, die die angepasste Benachrichtigungs-Factory für Live-Benachrichtigungen verwendet. Sie können diesem Wert einen beliebigen String zuweisen&#8212;in diesem Beispiel wird jedoch `live_updates` verwendet, um zu bestimmen, ob es sich um eine Standard- oder eine Live-Push-Benachrichtigung handelt. |
-| `ASSIGNED_NOTIFICATION_ID` | Die Benachrichtigungs-ID, die Sie der Live-Benachrichtigung der gewählten Nutzerin oder des gewählten Nutzers zuweisen möchten. Die ID muss für dieses Spiel eindeutig sein und muss verwendet werden, um [ihre bestehende Benachrichtigung](#android_step-4-update-data-with-the-braze-rest-api) später zu Update or aktualisieren or aktualisieren. |
+| `ASSIGNED_NOTIFICATION_ID` | Die Benachrichtigungs-ID, die Sie der Live-Benachrichtigung der gewählten Nutzerin oder des gewählten Nutzers zuweisen möchten. Die ID muss für dieses Spiel eindeutig sein und muss verwendet werden, um [ihre bestehende Benachrichtigung](#android_step-4-update-data-with-the-braze-rest-api) später zu aktualisieren. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Anfrageparameter" }
 
-### Schritt 6: Die Aktivität Update or aktualisieren or aktualisieren {#step-6-update-the-activity}
+### Schritt 6: Die Aktivität aktualisieren {#step-6-update-the-activity}
 
-Um die bestehende RemoteView-Benachrichtigung mit neuen Daten zu Update or aktualisieren or aktualisieren, ändern Sie die relevanten Schlüssel-Wert-Paare, die `messages.extra` zugewiesen sind, und rufen Sie dann mit derselben `notification_id` den Endpunkt `/messages/send` erneut auf.
+Um die bestehende RemoteView-Benachrichtigung mit neuen Daten zu aktualisieren, ändern Sie die relevanten Schlüssel-Wert-Paare, die `messages.extra` zugewiesen sind, und rufen Sie dann mit derselben `notification_id` den Endpunkt `/messages/send` erneut auf.
 
 ## Personalisierte Push-Benachrichtigungen {#personalized-push-notifications}
 
-Push-Benachrichtigungen können nutzerspezifische Informationen innerhalb einer angepassten Ansichtshierarchie anzeigen. Im folgenden Beispiel wird ein API-Trigger or triggern verwendet, um eine personalisierte Push-Benachrichtigung an Nutzer:innen zu senden, damit diese ihren aktuellen Fortschritt nach Abschluss einer bestimmten Aufgabe in der App überprüfen können.
+Push-Benachrichtigungen können nutzerspezifische Informationen innerhalb einer angepassten Ansichtshierarchie anzeigen. Im folgenden Beispiel wird ein API-Trigger verwendet, um eine personalisierte Push-Benachrichtigung an Nutzer:innen zu senden, damit diese ihren aktuellen Fortschritt nach Abschluss einer bestimmten Aufgabe in der App überprüfen können.
 
 ![Beispiel für personalisierte Push-Benachrichtigung im Dashboard]({% image_buster /assets/img/push_implementation_guide/android_push_custom_layout.png %}){: style="max-width:65%;border:0"}
 
-Um einen personalisierten Push im Dashboard einzurichten, Registrierung or registrieren Sie die spezifische Kategorie, die angezeigt werden soll, und legen Sie dann alle relevanten Nutzerattribute fest, die Sie mithilfe von Liquid anzeigen möchten.
+Um einen personalisierten Push im Dashboard einzurichten, Registrierung Sie die spezifische Kategorie, die angezeigt werden soll, und legen Sie dann alle relevanten Nutzerattribute fest, die Sie mithilfe von Liquid anzeigen möchten.
 
 ![Beispiel für personalisierte Push-Benachrichtigung im Dashboard]({% image_buster /assets/img/push_implementation_guide/push5.png %}){: style="max-width:60%;"}

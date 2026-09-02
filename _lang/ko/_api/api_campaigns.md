@@ -46,7 +46,7 @@ Campaign을 구성하려면 다음 단계를 수행합니다:
 API Campaign을 저장한 후 API 요청에 다음을 포함합니다:
 
 - [메시지 전송 엔드포인트]({{site.baseurl}}/api/endpoints/messaging)에서 명시된 위치에 생성된 `campaign_id` 필드를 API 요청에 포함합니다.
-- Campaign에 포함된 각 플랫폼에 대한 [메시지 오브젝트]({{site.baseurl}}/api/objects_filters#messaging-objects)를 포함합니다. 메시지 오브젝트에 메시지 배리언트 ID를 제공합니다. 이를 통해 해당 배리언트 아래에 통계가 수집되고 표시됩니다. 지원되는 메시지 오브젝트는 Android, Content Cards, 이메일, iOS, Kindle, 단문 메시지 서비스/MMS, 웹 푸시, 웹훅입니다.
+- Campaign에 포함된 각 플랫폼에 대한 [메시지 오브젝트]({{site.baseurl}}/api/objects_filters#messaging-objects)를 포함합니다. 메시지 오브젝트에 메시지 배리언트 ID를 제공합니다. 이를 통해 해당 배리언트 아래에 통계가 수집되고 표시됩니다. 지원되는 메시지 오브젝트는 Android, Content Cards, 이메일, iOS, Kindle, SMS/MMS, 웹 푸시, 웹훅입니다.
 
 ## API Campaigns에 원클릭 목록 수신 거부 추가 {#add-one-click-list-unsubscribe-to-api-campaigns}
 

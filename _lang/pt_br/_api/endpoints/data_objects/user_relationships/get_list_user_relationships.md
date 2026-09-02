@@ -7,7 +7,7 @@ layout: api_page
 page_type: reference
 description: "Este artigo descreve os detalhes do endpoint Listar relacionamentos de usuários."
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Listar relacionamentos de usuários {#list-user-relationships}
 {% apimethod get %}
 /data_objects/objects/{type_name}/{external_id}/user_relationships
@@ -16,12 +16,12 @@ description: "Este artigo descreve os detalhes do endpoint Listar relacionamento
 > Use este endpoint para listar os usuários vinculados a um objeto de dados.
 
 {% alert important %}
-Data Objects está atualmente em acesso antecipado. Seu espaço de trabalho precisa estar ativado antes que as permissões da chave de API or interface de programação do aplicativo (API) de Data Objects apareçam em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**.
+Data Objects está atualmente em acesso antecipado. Seu espaço de trabalho precisa estar ativado antes que as permissões da chave de API de Data Objects apareçam em **Configurações** > **Chaves de API**.
 {% endalert %}
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisa de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `data_objects.user_relationships.read`.
+Para usar este endpoint, você precisa de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `data_objects.user_relationships.read`.
 
 ## Limite de frequência {#rate-limit}
 
@@ -131,8 +131,8 @@ A tabela a seguir lista os erros comuns deste endpoint e como resolvê-los.
 | Status | Causa | Orientação |
 |---|---|---|
 | `404` | Tipo ou objeto não encontrado | Confirme se `type_name` e `external_id` existem no espaço de trabalho. |
-| `401` | Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional ausente ou inválida | Verifique se o header `Authorization` usa `Bearer YOUR_REST_API_KEY` e se a chave está ativa. |
-| `403` | A chave de API or interface de programação do aplicativo (API) não tem permissão ou a requisição está bloqueada pela lista de permissões | Confirme se a chave tem a permissão `data_objects.user_relationships.read` e se o IP de origem está na lista de permissões da chave, se configurada. |
+| `401` | Chave da API REST ausente ou inválida | Verifique se o header `Authorization` usa `Bearer YOUR_REST_API_KEY` e se a chave está ativa. |
+| `403` | A chave de API não tem permissão ou a requisição está bloqueada pela lista de permissões | Confirme se a chave tem a permissão `data_objects.user_relationships.read` e se o IP de origem está na lista de permissões da chave, se configurada. |
 | `429` | Limite de frequência excedido | Tente novamente após `X-RateLimit-Reset` e reduza a frequência das requisições. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Erros ao listar relacionamentos de usuários" }
 {% endapi %}

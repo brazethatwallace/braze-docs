@@ -1,6 +1,6 @@
 ## Protokollierung von Daten mit der Braze API (empfohlen) {#logging-data-with-the-braze-api-recommended}
 
-Analytics können in Realtime mit Hilfe des [`/users/track`-Endpunkts]({{site.baseurl}}/api/endpoints/user_data/post_user_track) der Braze API protokolliert werden. Senden Sie dazu den Wert `braze_id` im Feld der Schlüssel-Wert-Paare (wie im folgenden Screenshot zu sehen), um das zu aktualisierende Kundenprofil or Nutzerprofil zu identifizieren.
+Analytics können in Realtime mit Hilfe des [`/users/track`-Endpunkts]({{site.baseurl}}/api/endpoints/user_data/post_user_track) der Braze API protokolliert werden. Senden Sie dazu den Wert `braze_id` im Feld der Schlüssel-Wert-Paare (wie im folgenden Screenshot zu sehen), um das zu aktualisierende Kundenprofil zu identifizieren.
 
 ![Eine Push-Nachricht mit drei Gruppen von Schlüssel-Wert-Paaren. 1. „Braze_id“ als Liquid-Aufruf zum Abrufen der Braze ID. 2. „cert_title“ als „Braze Marketer Certification“. 3. „Cert_description“ als „Certified Braze marketers drive…“.]({% image_buster /assets/img/push_implementation_guide/push18.png %}){: style="max-width:80%;"}
 
@@ -80,7 +80,7 @@ func saveCustomEvent(with properties: [String: Any]? = nil) {
 
 #### Angepasste Events an Braze senden {#sending-custom-events-to-braze}
 
-Der beste Zeitpunkt, um gespeicherte Analytics von einer App-Erweiterung für Benachrichtigungsinhalte zu protokollieren, ist direkt nach der Initialisierung des SDK or Software-Development-Kit. Dazu durchlaufen Sie alle ausstehenden Events, suchen nach dem Schlüssel „Event Name“, setzen die entsprechenden Werte in Braze und löschen dann den Speicher für das nächste Mal, wenn diese Funktion benötigt wird.
+Der beste Zeitpunkt, um gespeicherte Analytics von einer App-Erweiterung für Benachrichtigungsinhalte zu protokollieren, ist direkt nach der Initialisierung des SDK. Dazu durchlaufen Sie alle ausstehenden Events, suchen nach dem Schlüssel „Event Name“, setzen die entsprechenden Werte in Braze und löschen dann den Speicher für das nächste Mal, wenn diese Funktion benötigt wird.
 
 1. Array der ausstehenden Events mit einer Schleife durchlaufen
 2. Jedes Schlüssel-Wert-Paar im Wörterbuch `pendingEvents` mit einer Schleife durchlaufen
@@ -221,7 +221,7 @@ func saveCustomAttribute() {
 
 #### Angepasste Attribute an Braze senden {#sending-custom-attributes-to-braze}
 
-Der beste Zeitpunkt, um gespeicherte Analytics von einer App-Erweiterung für Benachrichtigungsinhalte zu protokollieren, ist direkt nach der Initialisierung des SDK or Software-Development-Kit. Dazu durchlaufen Sie die ausstehenden Attribute, setzen das entsprechende angepasste Attribut in Braze und löschen dann den Speicher für das nächste Mal, wenn diese Funktion benötigt wird.
+Der beste Zeitpunkt, um gespeicherte Analytics von einer App-Erweiterung für Benachrichtigungsinhalte zu protokollieren, ist direkt nach der Initialisierung des SDK. Dazu durchlaufen Sie die ausstehenden Attribute, setzen das entsprechende angepasste Attribut in Braze und löschen dann den Speicher für das nächste Mal, wenn diese Funktion benötigt wird.
 
 1. Array der ausstehenden Attribute mit einer Schleife durchlaufen
 2. Jedes Schlüssel-Wert-Paar im Wörterbuch `pendingAttributes` mit einer Schleife durchlaufen
@@ -344,7 +344,7 @@ func saveUserAttribute() {
 
 #### Nutzerattribute an Braze senden {#sending-user-attributes-to-braze}
 
-Der beste Zeitpunkt, um gespeicherte Analytics von einer App-Erweiterung für Benachrichtigungsinhalte zu protokollieren, ist direkt nach der Initialisierung des SDK or Software-Development-Kit. Dazu durchlaufen Sie die ausstehenden Attribute, setzen das entsprechende angepasste Attribut in Braze und löschen dann den Speicher für das nächste Mal, wenn diese Funktion benötigt wird.
+Der beste Zeitpunkt, um gespeicherte Analytics von einer App-Erweiterung für Benachrichtigungsinhalte zu protokollieren, ist direkt nach der Initialisierung des SDK. Dazu durchlaufen Sie die ausstehenden Attribute, setzen das entsprechende angepasste Attribut in Braze und löschen dann den Speicher für das nächste Mal, wenn diese Funktion benötigt wird.
 
 1. Array der `pendingAttributes`-Daten mit einer Schleife durchlaufen
 2. Ein kodiertes `UserAttribute`-Objekt aus den Attributdaten initialisieren

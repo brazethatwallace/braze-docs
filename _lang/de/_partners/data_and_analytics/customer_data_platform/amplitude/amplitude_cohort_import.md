@@ -16,13 +16,13 @@ Jede Integration, die Sie einrichten, wird auf das Datenpunktvolumen Ihres Konto
 
 ### Schritt 1: Braze-Datenimport-Schlüssel abrufen {#step-1-get-the-braze-data-import-key}
 
-Navigieren Sie in Braze zu **Partnerintegrationen** > **Technologie-Partner** und wählen Sie **Amplitude** aus. Dort finden Sie den Representational State Transfer-Endpunkt und können Ihren Braze-Datenimport-Schlüssel generieren.
+Navigieren Sie in Braze zu **Partnerintegrationen** > **Technologie-Partner** und wählen Sie **Amplitude** aus. Dort finden Sie den REST-Endpunkt und können Ihren Braze-Datenimport-Schlüssel generieren.
 
 Nach der Generierung können Sie einen neuen Schlüssel erstellen oder einen bestehenden ungültig machen. Der Datenimport-Schlüssel und der REST-Endpunkt werden im nächsten Schritt verwendet, wenn Sie einen Postback im Dashboard von Amplitude einrichten.<br><br>![Braze-Technologie-Partnerseite für Amplitude mit Datenimport-Schlüssel und Endpunkt.]({% image_buster /assets/img/amplitude3.png %})
 
 ### Schritt 2: Braze-Integration in Amplitude einrichten {#step-2-set-up-the-braze-integration-in-amplitude}
 
-Navigieren Sie in Amplitude zu **Sources & Destinations** > **[Projektname]** > **Destinations** > **Braze**. Geben Sie in der angezeigten Eingabeaufforderung den Braze-Datenimport-Schlüssel und den Representational State Transfer-Endpunkt ein und klicken Sie auf **Save**.
+Navigieren Sie in Amplitude zu **Sources & Destinations** > **[Projektname]** > **Destinations** > **Braze**. Geben Sie in der angezeigten Eingabeaufforderung den Braze-Datenimport-Schlüssel und den REST-Endpunkt ein und klicken Sie auf **Save**.
 
 ![Amplitude-Zieleinstellungen für die Braze-Kohortensynchronisation mit eingegebenen Zugangsdaten.]({% image_buster /assets/img/amplitude.png %})
 

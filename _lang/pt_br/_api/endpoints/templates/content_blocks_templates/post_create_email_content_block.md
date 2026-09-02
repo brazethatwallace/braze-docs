@@ -7,7 +7,7 @@ layout: api_page
 page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint da Braze \"Criar bloco de conteúdo\"."
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Criar bloco de conteúdo {#create-content-block}
 {% apimethod post %}
 /content_blocks/create
@@ -22,7 +22,7 @@ Você também pode chamar esse endpoint por meio do [servidor MCP da Braze]({{si
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#f1cefa8b-7a28-4e64-b579-198a4610d0a5 {% endapiref %}
 
 ## Pré-requisitos {#prerequisites}
-Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics) com a permissão `content_blocks.create`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics) com a permissão `content_blocks.create`.
 
 ## Limite de frequência {#rate-limit}
 

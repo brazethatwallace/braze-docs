@@ -1,4 +1,4 @@
 1. Wählen Sie unter **Sending Info** eine E-Mail als **From Display Name + Address** aus. Sie können dies auch anpassen, indem Sie **Customize From Display Name + Address** auswählen.
 2. Wählen Sie eine E-Mail als **Reply-To Address** aus. Sie können dies auch anpassen, indem Sie **Customize Reply-To Address** auswählen.
-3. Wählen Sie als Nächstes eine E-Mail als **BCC or Banner-Content-Card Address** aus, um Ihre E-Mail für diese Adresse sichtbar zu machen.
+3. Wählen Sie als Nächstes eine E-Mail als **BCC Address** aus, um Ihre E-Mail für diese Adresse sichtbar zu machen.
 4. Fügen Sie Ihrer E-Mail eine Betreffzeile hinzu. Optional können Sie auch einen Preheader hinzufügen. Um nach dem Preheader Leerraum einzufügen, aktivieren Sie das Kontrollkästchen **Add whitespace after preheader**.

@@ -10,7 +10,7 @@ page_order: 1.2
 > Nachdem Ihre Empfehlung trainiert ist, können Sie Liquid verwenden, um empfohlene Artikel in Ihren Nachrichten abzurufen und anzuzeigen, indem Sie direkt mit dem Liquid-Objekt `product_recommendation` arbeiten.
 
 {% alert tip %}
-Eine Schritt-für-Schritt-Anleitung finden Sie in unserem Braze-Lernkurs: [Personalisierte Erlebnisse mit KI or künstliche Intelligenz gestalten](https://learning.braze.com/ai-item-recommendations-use-case/1996254).
+Eine Schritt-für-Schritt-Anleitung finden Sie in unserem Braze-Lernkurs: [Personalisierte Erlebnisse mit KI gestalten](https://learning.braze.com/ai-item-recommendations-use-case/1996254).
 {% endalert %}
 
 ## Voraussetzungen {#prerequisites}
@@ -58,7 +58,7 @@ Ersetzen Sie Folgendes:
 
 | Platzhalter | Beschreibung |
 |-----------|-----------|
-| `recommendation_name` | Der Name der KI or künstliche Intelligenz-Empfehlung, die Sie in Braze erstellt haben. |
+| `recommendation_name` | Der Name der KI-Empfehlung, die Sie in Braze erstellt haben. |
 | `items` | Die Variable, die das Array der empfohlenen Artikel speichert. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Liquid-Code hinzufügen" }
 
@@ -82,7 +82,7 @@ Um mehrere Artikel einzubeziehen, referenzieren Sie jeden Artikel einzeln über 
 ```
 {% endraw %}
 
-KI or künstliche Intelligenz-Empfehlungen geben mehrere Produkte als Array zurück, wobei `items[0]` der erste Artikel ist, `items[1]` der zweite und so weiter. Wenn eine Empfehlung nur einen Artikel zurückgibt, führt der Versuch, `items[1]` zu referenzieren, zu einem leeren Feld.
+KI-Empfehlungen geben mehrere Produkte als Array zurück, wobei `items[0]` der erste Artikel ist, `items[1]` der zweite und so weiter. Wenn eine Empfehlung nur einen Artikel zurückgibt, führt der Versuch, `items[1]` zu referenzieren, zu einem leeren Feld.
 {% endtab %}
 {% endtabs %}
 

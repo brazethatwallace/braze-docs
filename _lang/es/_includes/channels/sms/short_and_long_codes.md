@@ -1,47 +1,47 @@
-# Remitentes de servicio de mensajes cortos y RCS {#sms-and-rcs-senders}
+# Remitentes de SMS y RCS {#sms-and-rcs-senders}
 
-> Este artículo ofrece un resumen de los códigos y remitentes disponibles para enviar mensajes servicio de mensajes cortos y RCS.
+> Este artículo ofrece un resumen de los códigos y remitentes disponibles para enviar mensajes SMS y RCS.
 
-## Tipos de remitentes de servicio de mensajes cortos y RCS {#types-of-sms-and-rcs-senders}
+## Tipos de remitentes de SMS y RCS {#types-of-sms-and-rcs-senders}
 
 {% tabs %}
 {% tab Remitente verificado RCS %}
 
 ### Remitente verificado RCS {#rcs-verified-sender}
 
-RCS es un sistema de mensajería moderno que ofrece más características que el servicio de mensajes cortos tradicional, introduciendo capacidades como IDs de remitente de marca, contenido multimedia enriquecido y contenido interactivo, como carruseles desplazables, respuestas rápidas, botones de CTA y más. Está diseñado para ofrecer una experiencia de usuario más elegante y atractiva.
+RCS es un sistema de mensajería moderno que ofrece más características que el SMS tradicional, introduciendo capacidades como IDs de remitente de marca, contenido multimedia enriquecido y contenido interactivo, como carruseles desplazables, respuestas rápidas, botones de CTA y más. Está diseñado para ofrecer una experiencia de usuario más elegante y atractiva.
 
 {% alert important %}
-Los mensajes RCS no pueden enviarse a través de servicios de mensajería de Twilio. Los grupos de suscripción que usan Twilio para servicio de mensajes cortos deben utilizar un remitente RCS compatible con Infobip (u otro proveedor RCS compatible) para el tráfico RCS. De lo contrario, los envíos RCS se cancelarán en el momento del envío.
+Los mensajes RCS no pueden enviarse a través de servicios de mensajería de Twilio. Los grupos de suscripción que usan Twilio para SMS deben utilizar un remitente RCS compatible con Infobip (u otro proveedor RCS compatible) para el tráfico RCS. De lo contrario, los envíos RCS se cancelarán en el momento del envío.
 {% endalert %}
 
 #### Detalles {#details}
 
 | Componentes visuales | Acceso | Rendimiento | MMS habilitado | Unidireccional vs. bidireccional |
 | --- | --- | --- | --- | --- |
-| - Nombre de marca<br>- logotipo<br>- subtítulo opcional<br> - señal de verificación | 4 a 6 semanas para aprobación del operador | El rendimiento y la entrega dependen de que el destinatario tenga una conexión de datos activa (datos móviles o Wi-Fi). RCS no depende de límites fijos impuestos por la red como lo hace servicio de mensajes cortos; los mensajes RCS se envían a través de redes de datos en lugar de los canales de señalización celular tradicionales utilizados por servicio de mensajes cortos. | N/A | Bidireccional |
+| - Nombre de marca<br>- logotipo<br>- subtítulo opcional<br> - señal de verificación | 4 a 6 semanas para aprobación del operador | El rendimiento y la entrega dependen de que el destinatario tenga una conexión de datos activa (datos móviles o Wi-Fi). RCS no depende de límites fijos impuestos por la red como lo hace SMS; los mensajes RCS se envían a través de redes de datos en lugar de los canales de señalización celular tradicionales utilizados por SMS. | N/A | Bidireccional |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Detalles" }
 
 #### Pros y contras {#pros-and-cons}
 
 | Pros |
 | ---- |
-| **Confianza verificada y marca**<br> A diferencia del servicio de mensajes cortos tradicional, donde tu marca aparece como un código abreviado aleatorio de 5 dígitos o un código largo, RCS permite perfiles de remitente verificados. Estos perfiles incluyen el logotipo de tu marca, el nombre y una marca de verificación. |
+| **Confianza verificada y marca**<br> A diferencia del SMS tradicional, donde tu marca aparece como un código abreviado aleatorio de 5 dígitos o un código largo, RCS permite perfiles de remitente verificados. Estos perfiles incluyen el logotipo de tu marca, el nombre y una marca de verificación. |
 | **Características de mensajería enriquecida**<br> RCS admite carruseles, videos de alta resolución y botones de acción sugerida (como "Reservar ahora", "Rastrear paquete" o "Pagar factura"). Los usuarios pueden completar tareas complejas sin salir de su aplicación de mensajería, lo que puede generar tasas de conversión más altas que un enlace de texto simple. |
 {: .reset-td-br-1 aria-label="Pros y contras" }
 
 | Contras |
 | ---- |
-| **Soporte fragmentado**<br> Aunque Google ha impulsado RCS fuertemente para Android, y Apple ha introducido recientemente soporte para RCS en iOS, la implementación aún puede ser desigual en diferentes operadores y regiones. Si el teléfono o el operador de un usuario no admite RCS, el mensaje generalmente se envía como un servicio de mensajes cortos simple, perdiendo consecuentemente todas las características "enriquecidas" de RCS. |
+| **Soporte fragmentado**<br> Aunque Google ha impulsado RCS fuertemente para Android, y Apple ha introducido recientemente soporte para RCS en iOS, la implementación aún puede ser desigual en diferentes operadores y regiones. Si el teléfono o el operador de un usuario no admite RCS, el mensaje generalmente se envía como un SMS simple, perdiendo consecuentemente todas las características "enriquecidas" de RCS. |
 | **Inconsistencias de plataforma**<br> La experiencia de usuario de RCS varía dependiendo del operador del destinatario, el modelo del dispositivo y la aplicación de mensajería que utilicen (por ejemplo, Google Messages o iMessage). |
 {: .reset-td-br-1 aria-label="Pros y contras" }
 
 {% endtab %}
-{% tab Códigos abreviados servicio de mensajes cortos %}
+{% tab Códigos abreviados SMS %}
 
-#### Códigos abreviados servicio de mensajes cortos {#sms-short-codes}
+#### Códigos abreviados SMS {#sms-short-codes}
 
-Un código abreviado es un número de 5 a 6 dígitos que puede enviar y recibir servicio de mensajes cortos hacia y desde teléfonos móviles a velocidades más rápidas que los códigos largos. Los códigos abreviados se recomiendan para envíos de alto volumen y sensibles al tiempo.
+Un código abreviado es un número de 5 a 6 dígitos que puede enviar y recibir SMS hacia y desde teléfonos móviles a velocidades más rápidas que los códigos largos. Los códigos abreviados se recomiendan para envíos de alto volumen y sensibles al tiempo.
 
 Algunos países te permiten elegir un número específico por una tarifa adicional. Estos códigos abreviados se llaman códigos abreviados personalizados (vanity). Si te interesan los códigos abreviados personalizados, contacta a tu representante de cuenta de Braze para obtener más detalles.
 
@@ -49,7 +49,7 @@ Algunos países te permiten elegir un número específico por una tarifa adicion
 
 | Longitud | Acceso | Rendimiento | MMS habilitado | Unidireccional vs. bidireccional |
 | --- | --- | --- | --- | --- |
-| 5-6 dígitos | 4-12 semanas de solicitud | 100 MPS or mensajes por segundo or mensajes por segundo o más | Sí | Bidireccional |
+| 5-6 dígitos | 4-12 semanas de solicitud | 100 MPS o más | Sí | Bidireccional |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Detalles" }
 
 ##### Pros y contras
@@ -68,17 +68,17 @@ Algunos países te permiten elegir un número específico por una tarifa adicion
 {: .reset-td-br-1 aria-label="Pros y contras" }
 
 {% endtab %}
-{% tab Códigos largos servicio de mensajes cortos %}
+{% tab Códigos largos SMS %}
 
-#### Códigos largos servicio de mensajes cortos {#sms-long-codes}
+#### Códigos largos SMS {#sms-long-codes}
 
-Un código largo es un número de teléfono estándar utilizado para enviar y recibir mensajes servicio de mensajes cortos. Estos números de teléfono se suelen llamar "códigos largos" (números de 10 dígitos en muchos países) en comparación con los códigos abreviados servicio de mensajes cortos (números de 5-6 dígitos).
+Un código largo es un número de teléfono estándar utilizado para enviar y recibir mensajes SMS. Estos números de teléfono se suelen llamar "códigos largos" (números de 10 dígitos en muchos países) en comparación con los códigos abreviados SMS (números de 5-6 dígitos).
 
 ##### Detalles
 
 | Longitud | Acceso | Rendimiento | MMS habilitado | Unidireccional vs. bidireccional |
 | --- | --- | --- | --- | --- |
-| 10 dígitos | 4-6 semanas de solicitud (puede ser más corto o más largo en diferentes países) | En Estados Unidos, el rendimiento de códigos largos depende de tu puntuación de confianza 10DLC; en mercados internacionales, el rendimiento puede variar o aumentar en algunas circunstancias, pero generalmente comienza alrededor de 10 segmentos de mensaje por segundo (MPS or mensajes por segundo). | Sí | Bidireccional (dependiendo de dónde envíes) |
+| 10 dígitos | 4-6 semanas de solicitud (puede ser más corto o más largo en diferentes países) | En Estados Unidos, el rendimiento de códigos largos depende de tu puntuación de confianza 10DLC; en mercados internacionales, el rendimiento puede variar o aumentar en algunas circunstancias, pero generalmente comienza alrededor de 10 segmentos de mensaje por segundo (MPS). | Sí | Bidireccional (dependiendo de dónde envíes) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Detalles" }
 
 ##### Pros y contras
@@ -86,7 +86,7 @@ Un código largo es un número de teléfono estándar utilizado para enviar y re
 | Pros |
 | ---- |
 | **Familiaridad y confianza**<br> Los códigos largos se ven como números de teléfono personales, a menudo incluyendo un código de área local. Para las marcas, esto representa un equilibrio entre presencia profesional y un toque personal y accesible. |
-| **Mayor disponibilidad mundial**<br> Los códigos largos están disponibles en más de 100 países principales en todo el mundo. Contacta a tu CSM or administrador de éxito de cliente or administrador de éxito de cliente o a [soporte de Braze]({{site.baseurl}}/braze_support) para obtener una lista de países disponibles. |
+| **Mayor disponibilidad mundial**<br> Los códigos largos están disponibles en más de 100 países principales en todo el mundo. Contacta a tu CSM o a [soporte de Braze]({{site.baseurl}}/braze_support) para obtener una lista de países disponibles. |
 {: .reset-td-br-1 aria-label="Pros y contras" }
 
 | Contras |
@@ -96,9 +96,9 @@ Un código largo es un número de teléfono estándar utilizado para enviar y re
 {: .reset-td-br-1 aria-label="Pros y contras" }
 
 {% endtab %}
-{% tab ID de remitente alfanumérico servicio de mensajes cortos %}
+{% tab ID de remitente alfanumérico SMS %}
 
-#### ID de remitente alfanumérico servicio de mensajes cortos {#sms-alphanumeric-sender-id}
+#### ID de remitente alfanumérico SMS {#sms-alphanumeric-sender-id}
 
 Un ID de remitente alfanumérico (a menudo llamado "alfa") es una cadena reconocible compuesta por cualquier combinación de letras y números (a menudo el nombre de tu empresa o marca) que se muestra como el ID de remitente para mensajería de texto unidireccional.
 
@@ -118,11 +118,11 @@ Pueden tener hasta 11 caracteres y contener letras mayúsculas (A-Z) y minúscul
 | {::nomarkdown} <ul><li> Mejor reconocimiento de marca </li><li> En muchos mercados internacionales, los operadores locales prerregistran y verifican los remitentes alfanuméricos, por lo que tus mensajes tienen menos probabilidades de ser atrapados por filtros agresivos de correo no deseado del operador que podrían bloquear códigos largos aleatorios </li><li> Disponible en 1 semana si no se requiere prerregistro </li></ul> {:/} | {::nomarkdown} <ul><li> La <a href='/docs/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling#two-way-messaging-custom-keyword-responses'>mensajería bidireccional</a> no es compatible </li><li> No todos los países admiten esta característica. Por ejemplo, es compatible en el Reino Unido pero está bloqueada en los EE. UU. </li><li> Algunos países tienen un proceso extenso de prerregistro que requiere la presentación de documentación legal y plazos de entrega más largos. </li></ul> {:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pros y contras" }
 
-Para más información sobre los IDs de remitente alfanuméricos, contacta a tu CSM or administrador de éxito de cliente or administrador de éxito de cliente.
+Para más información sobre los IDs de remitente alfanuméricos, contacta a tu CSM.
 {% endtab %}
-{% tab Números gratuitos servicio de mensajes cortos %}
+{% tab Números gratuitos SMS %}
 
-#### Números gratuitos habilitados para servicio de mensajes cortos {#sms-enabled-toll-free-numbers}
+#### Números gratuitos habilitados para SMS {#sms-enabled-toll-free-numbers}
 
 Los números gratuitos tienen códigos de área distintos de tres dígitos (por ejemplo, 800, 888, 877 y 866), lo que permite a los usuarios comunicarse con las empresas sin que se les cobre. Ampliamente utilizados para servicio al cliente, también pueden manejar todos los tipos de mensajería A2P (aplicación a persona), incluido el marketing.
 
@@ -130,7 +130,7 @@ Los números gratuitos tienen códigos de área distintos de tres dígitos (por 
 
 | Longitud | Acceso | Rendimiento | MMS habilitado | Unidireccional vs. bidireccional |
 | --- | --- | --- | --- | --- |
-| 10 dígitos | 2-4 semanas de solicitud | Comienza en 3 MPS or mensajes por segundo (segmentos por segundo), se puede aumentar por tarifas adicionales | Sí | Bidireccional |
+| 10 dígitos | 2-4 semanas de solicitud | Comienza en 3 MPS (segmentos por segundo), se puede aumentar por tarifas adicionales | Sí | Bidireccional |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Detalles" }
 
 ##### Pros y contras
@@ -185,9 +185,9 @@ Los remitentes verificados RCS se aprovisionan país por país. El proceso de ve
 Los plazos de RCS fluctúan según el país y a medida que más operadores adoptan el canal. Actualmente, puedes esperar que un remitente RCS sea aprobado por los operadores en un plazo de 3 a 6 semanas después de solicitar el lanzamiento.
 
 {% endtab %}
-{% tab Códigos abreviados servicio de mensajes cortos %}
+{% tab Códigos abreviados SMS %}
 
-### Códigos abreviados servicio de mensajes cortos
+### Códigos abreviados SMS
 
 Los códigos abreviados se aprovisionan país por país. Dependiendo del país, el proceso de solicitud de un código abreviado es conocido por ser impredecible. Braze está aquí para ayudarte en cada paso, así que si deseas un código abreviado, contacta a tu administrador de incorporación u otro representante de Braze.
 
@@ -199,22 +199,22 @@ Braze te asistirá en la recopilación de todos los materiales e información ne
 | Términos y condiciones | Los términos y condiciones completos pueden presentarse completamente debajo de la llamada a la acción o ser accesibles a través de un enlace cerca de la llamada a la acción. | {::nomarkdown}<ul><li>Nombre del programa (marca)</li><li>Divulgación de frecuencia de mensajes</li><li>Descripción del producto</li><li>Información de contacto de atención al cliente</li><li>Información de cancelación</li><li>Divulgación de "Pueden aplicarse tarifas de mensajes y datos".</li></ul>{:/} |
 | Flujo de mensajes | Los programas de mensajes recurrentes deben confirmar la adhesión voluntaria con un solo mensaje de texto que indique explícitamente a qué programa se inscribió el usuario y proporcione instrucciones claras de cancelación.<br><br> Braze procesa los mensajes de adhesión voluntaria, cancelación y ayuda, actualizando automáticamente el estado del grupo de suscripción del usuario y su número de teléfono asociado en todas las solicitudes entrantes.<br><br> Ten en cuenta que estas palabras clave y respuestas predeterminadas también se pueden personalizar. | {::nomarkdown}<ul><li>Confirmación de adhesión voluntaria:<ul><li>Nombre del programa (marca) O descripción del producto</li><li>Información de cancelación</li><li>Información de contacto de atención al cliente</li><li>Divulgación de frecuencia de mensajes</li><li>Divulgación de "Pueden aplicarse tarifas de mensajes y datos".</li></ul></li><li>Respuesta de HELP:<ul><li>Nombre del programa (marca) O descripción del producto</li><li>Información de contacto de atención al cliente (correo electrónico de soporte o número de teléfono).</li></ul></li><li>Respuesta de cancelación (STOP):<ul><li>Nombre del programa (marca) O descripción del producto</li><li>Confirmación de que no se enviarán más mensajes.</li></ul></li></ul>{:/} |
 | Mensajes del programa | Los mensajes del programa se envían en el curso normal del programa de código abreviado, después de que el usuario haya recibido una confirmación de adhesión voluntaria. | {::nomarkdown}<ul><li>Las instrucciones de cancelación deben proporcionarse a intervalos regulares y al menos una vez al mes.</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Códigos abreviados servicio de mensajes cortos" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Códigos abreviados SMS" }
 
 Cuando todos tus materiales de solicitud estén listos, Braze presenta la solicitud a nuestros proveedores en tu nombre. Luego, la solicitud es revisada y aprobada por los operadores locales, quienes pueden proporcionar comentarios adicionales o solicitar información adicional. Después de que todos los operadores den su aprobación, puedes configurar inmediatamente el código abreviado para su uso en Braze.
 
 El plazo de revisión y aprobación de códigos abreviados varía, pero generalmente toma de 4 a 12 semanas dependiendo del país y la naturaleza del programa.
 
 {% alert important %}
-Si ya tienes tu propio código abreviado, contacta a tu CSM or administrador de éxito de cliente or administrador de éxito de cliente durante el proceso de incorporación para discutir la migración o transferencia de tu código abreviado.
+Si ya tienes tu propio código abreviado, contacta a tu CSM durante el proceso de incorporación para discutir la migración o transferencia de tu código abreviado.
 {% endalert %}
 
 {% endtab %}
-{% tab Códigos largos servicio de mensajes cortos y números gratuitos %}
+{% tab Códigos largos SMS y números gratuitos %}
 
-### Códigos largos servicio de mensajes cortos (10DLC) y números gratuitos {#sms-long-codes-10dlc-and-toll-free-numbers}
+### Códigos largos SMS (10DLC) y números gratuitos {#sms-long-codes-10dlc-and-toll-free-numbers}
 
-En muchos países, configurar códigos largos (también llamados "10DLC" o "códigos largos de 10 dígitos") y números gratuitos para el envío de servicio de mensajes cortos ha pasado de ser un proceso "plug and play" a un sistema de verificación regulado. Los operadores quieren saber exactamente quién eres y qué planeas decir antes de que envíes.
+En muchos países, configurar códigos largos (también llamados "10DLC" o "códigos largos de 10 dígitos") y números gratuitos para el envío de SMS ha pasado de ser un proceso "plug and play" a un sistema de verificación regulado. Los operadores quieren saber exactamente quién eres y qué planeas decir antes de que envíes.
 
 Durante el proceso de configuración de códigos largos, puedes esperar compartir detalles sobre la identidad de tu marca y la intención de tu campaña.
 
@@ -240,9 +240,9 @@ Todos los clientes que actualmente tienen y/o usan códigos largos de EE. UU. pa
 {% endalert %}
 
 {% endtab %}
-{% tab ID de remitente alfanumérico servicio de mensajes cortos %}
+{% tab ID de remitente alfanumérico SMS %}
 
-### ID de remitente alfanumérico servicio de mensajes cortos
+### ID de remitente alfanumérico SMS
 
 Los ID de remitente alfanuméricos están altamente regulados porque pueden ser fácilmente suplantados para phishing. Mientras que algunos países permiten que cualquiera configure y envíe desde un nombre, en muchos países primero debes demostrar que eres propietario de la marca.
 
@@ -260,4 +260,4 @@ El plazo para configurar un ID de remitente alfanumérico depende en gran medida
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 
-Para obtener respuestas a las preguntas frecuentes sobre remitentes de servicio de mensajes cortos y RCS, consulta nuestra página de [preguntas frecuentes sobre servicio de mensajes cortos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs).
+Para obtener respuestas a las preguntas frecuentes sobre remitentes de SMS y RCS, consulta nuestra página de [preguntas frecuentes sobre SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs).

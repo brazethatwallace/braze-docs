@@ -8,7 +8,7 @@ Braze permite al usuario la opción de controlar el tráfico de red utilizando l
 {% tab automatic %}
 De forma predeterminada, el valor`RequestPolicy` de la enumeración se establece en `automatic`. Cuando se configura, las solicitudes inmediatas al servidor se realizan cuando se requieren datos orientados al usuario para las características de Braze, como los mensajes dentro de la aplicación.
 
-El SDK or kit de desarrollo de software de Braze gestionará automáticamente toda la comunicación con el servidor, que incluye lo siguiente:
+El SDK de Braze gestionará automáticamente toda la comunicación con el servidor, que incluye lo siguiente:
 
 - Transmisión de datos de eventos y atributos personalizados a servidores Braze
 - Actualización de tarjetas de contenido y geovallas

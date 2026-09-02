@@ -20,8 +20,8 @@ Essa integração também permite a [importação de coortes de usuários para a
 | Requisito | Descrição |
 |---|---|
 | Conta Hightouch | É necessário ter uma conta Hightouch para aproveitar essa parceria.
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com as permissões `users.track` e `users.export.ids`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
-| Endpoint REST or transferir estado representacional da Braze  | Sua URL de endpoint REST or transferir estado representacional. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints).<br><br>A Hightouch requer o nome do cluster em que sua instância da Braze está localizada. Por exemplo, se seu endpoint da Braze for `https://rest.iad-01.braze.com`, você só precisará de `iad-01`.|
+| Chave da API REST da Braze | Uma chave da API REST da Braze com as permissões `users.track` e `users.export.ids`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Endpoint REST da Braze  | Sua URL de endpoint REST. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints).<br><br>A Hightouch requer o nome do cluster em que sua instância da Braze está localizada. Por exemplo, se seu endpoint da Braze for `https://rest.iad-01.braze.com`, você só precisará de `iad-01`.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}

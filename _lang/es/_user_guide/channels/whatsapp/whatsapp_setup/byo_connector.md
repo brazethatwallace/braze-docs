@@ -82,7 +82,7 @@ Antes de configurar el conector BYO WhatsApp, confirma que los envíos anteriore
 - Debes crear un nuevo WABA, no seleccionar uno existente.
 
 {% alert note %}
-Para recibir el código de verificación, ve a tu panel de Infobip > **Analyze** > **Logs** y obtén el código del mensaje servicio de mensajes cortos entrante.
+Para recibir el código de verificación, ve a tu panel de Infobip > **Analyze** > **Logs** y obtén el código del mensaje SMS entrante.
 {% endalert %}
 
 ![Registros de mensajes que muestran un mensaje SMS entrante con el código de verificación.]({% image_buster /assets/img/whatsapp/byo_connector/verification_code.png %})

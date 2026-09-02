@@ -37,7 +37,7 @@ Wenn Sie eine HTTP-Strict-Transport-Security-Domain (HSTS) verwenden, richten Si
 
 Erwerben Sie ein SSL-Zertifikat über einen Drittanbieter, in der Regel ein Content Delivery Network (CDN). Ein CDN hostet das Zertifikat und stellt es dem Browser bereit, wenn Nutzer:innen auf einen Link klicken, indem es den Datenverkehr über das CDN umleitet, um Zertifikate anzuwenden, bevor er an SendGrid oder SparkPost weitergeleitet wird.
 
-Um die SSL-Einrichtung zu starten, wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in, um eine vollständige Braze E-Mail-Einrichtung einzuleiten.
+Um die SSL-Einrichtung zu starten, wenden Sie sich an Ihren CSM, um eine vollständige Braze E-Mail-Einrichtung einzuleiten.
 
 Nachdem Braze die Einrichtung eingeleitet hat, führen Sie die folgenden Schritte aus:
 
@@ -45,14 +45,14 @@ Nachdem Braze die Einrichtung eingeleitet hat, führen Sie die folgenden Schritt
 2. Braze überprüft, ob die Einträge korrekt zu Ihrer Registrierung hinzugefügt wurden.
 3. Wählen Sie anschließend ein CDN aus und beziehen Sie SSL-Zertifikate von einem Drittanbieter.
 4. An diesem Punkt richten Sie Ihr CDN ein. Beachten Sie, dass Braze bei der Fehlerbehebung der CDN-Konfiguration nicht helfen kann. Wenden Sie sich bei weiteren Fragen an Ihren CDN-Anbieter.
-5. Kontaktieren Sie Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in, um SSL aktivieren zu lassen.
+5. Kontaktieren Sie Ihren CSM, um SSL aktivieren zu lassen.
 
 ## Was ist ein CDN, und warum brauche ich eines? {#what-is-a-cdn-and-why-do-i-need-it}
 
 Ein Content Delivery Network (CDN) ist eine Plattform aus Servern, die schnelle Ladezeiten von Inhalten über verschiedene Medien hinweg sicherstellt und gleichzeitig Sicherheitszertifikate verwaltet.
 
 {% alert important %}
-Die CDN-Konfiguration erfolgt immer erst, nachdem Ihre DNS-Einträge von Braze validiert wurden. Falls Sie diesen Schritt noch nicht eingeleitet haben, wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in, um weitere Informationen zum Einstieg zu erhalten.
+Die CDN-Konfiguration erfolgt immer erst, nachdem Ihre DNS-Einträge von Braze validiert wurden. Falls Sie diesen Schritt noch nicht eingeleitet haben, wenden Sie sich an Ihren CSM, um weitere Informationen zum Einstieg zu erhalten.
 {% endalert %}
 
 Für Klick- und Öffnungs-Tracking wandeln Zustellungspartner Links mithilfe einer gebrandeten Subdomain um, und das CDN wendet das SSL-Zertifikat auf diese umgewandelten Links an. Partner müssen häufig gültige Zertifikate im Browser der Empfänger:innen vorlegen, damit Links und Bilder korrekt angezeigt werden. Da Braze keine Zertifikate anfordert oder verwaltet, müssen Sie dies über ein CDN einrichten.
@@ -67,7 +67,7 @@ Wenn Sie die aufgeführten CDNs nicht für SSL-Klick- und Öffnungs-Tracking ver
 Zur Fehlerbehebung Ihrer CDN-Konfiguration wenden Sie sich an Ihren CDN-Anbieter oder lesen Sie den Abschnitt [Fehlerbehebung]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/troubleshooting) für allgemeine Hinweise.
 {% endalert %}
 
-In den folgenden Ressourcen der E-Mail-Anbieter or ESP-Partner erfahren Sie, wie Sie bestimmte CDNs konfigurieren. Auch wenn Ihr spezifisches CDN möglicherweise nicht aufgeführt ist, müssen Sie sicherstellen, dass Ihr CDN die Möglichkeit bietet, SSL-Zertifikate anzuwenden.
+In den folgenden Ressourcen der E-Mail-Anbieter-Partner erfahren Sie, wie Sie bestimmte CDNs konfigurieren. Auch wenn Ihr spezifisches CDN möglicherweise nicht aufgeführt ist, müssen Sie sicherstellen, dass Ihr CDN die Möglichkeit bietet, SSL-Zertifikate anzuwenden.
 
 Wenn Sie die Klick-Tracking-Domain Ihres CDNs konfigurieren, aktivieren Sie den `X-Forwarded-Host`-Header, um potenzielle Sicherheitsprobleme wie Host-Header-Angriffe zu vermeiden. Weitere Schritte finden Sie in der CDN-Dokumentation oder bei Ihrem Support-Team.
 
@@ -78,7 +78,7 @@ Wenn Sie die Klick-Tracking-Domain Ihres CDNs konfigurieren, aktivieren Sie den 
 | Amazon SES | Fastly | [Setting up TLS with certificates Fastly manages](https://www.fastly.com/documentation/guides/getting-started/domains/securing-domains/setting-up-tls-with-certificates-fastly-manages/) |
 | Amazon SES | KeyCDN | [How to set up custom SSL](https://www.keycdn.com/support/how-to-setup-custom-ssl) |
 | Amazon SES | Google Cloud | [Google-managed SSL certificates](https://docs.cloud.google.com/load-balancing/docs/ssl-certificates/google-managed-certs) |
-| SendGrid | AWS CloudFront | [How to configure SSL for Klick, der or klicken tracking using CloudFront](https://support.sendgrid.com/hc/en-us/articles/4412701748891-How-to-configure-SSL-for-click-tracking-using-CloudFront) |
+| SendGrid | AWS CloudFront | [How to configure SSL for Klick, der tracking using CloudFront](https://support.sendgrid.com/hc/en-us/articles/4412701748891-How-to-configure-SSL-for-click-tracking-using-CloudFront) |
 | SendGrid | CloudFlare | [Using CloudFlare](https://sendgrid.com/docs/ui/sending-email/content-delivery-networks/#using-cloudflare) |
 | SendGrid | Fastly | [Using Fastly](https://sendgrid.com/docs/ui/sending-email/content-delivery-networks/#using-fastly) |
 | SendGrid | KeyCDN | [Using KeyCDN](https://sendgrid.com/docs/ui/sending-email/content-delivery-networks/#using-keycdn) |
@@ -91,7 +91,7 @@ Wenn Sie die Klick-Tracking-Domain Ihres CDNs konfigurieren, aktivieren Sie den 
 
 ### Amazon SES
 
-Wenn Sie Amazon SES als Ihren E-Mail-Anbieter or ESP verwenden, lesen Sie **Option 2: Configuring an HTTPS domain** in der [Dokumentation von Amazon SES](https://docs.aws.amazon.com/ses/latest/dg/configure-custom-open-click-domains.html) und geben Sie die AWS-Tracking-Domain nach Region basierend auf Ihrem Braze-Cluster an:
+Wenn Sie Amazon SES als Ihren E-Mail-Anbieter verwenden, lesen Sie **Option 2: Configuring an HTTPS domain** in der [Dokumentation von Amazon SES](https://docs.aws.amazon.com/ses/latest/dg/configure-custom-open-click-domains.html) und geben Sie die AWS-Tracking-Domain nach Region basierend auf Ihrem Braze-Cluster an:
 
 - **Braze US-Cluster:** `r.us-east-1.awstrack.me`
 - **Braze EU-Cluster:** `r.eu-central-1.awstrack.me`
@@ -102,19 +102,19 @@ Wenn Sie die Klick-Tracking-Domain Ihres CDNs konfigurieren, aktivieren Sie den 
 
 ## Klick- und Open-Tracking-URL-Muster {#click-and-open-tracking-url-patterns}
 
-Ihr E-Mail-Anbieter (E-Mail-Anbieter or ESP) schreibt jeden getrackten Link so um, dass er auf Ihre Klick-Tracking-Domain verweist, und fügt dann ein Pfadpräfix hinzu, das die Anfrage als getrackten Klick oder getracktes Öffnen kennzeichnet. Braze erstellt diese Pfade nicht. Ihr E-Mail-Anbieter or ESP fügt sie hinzu, wenn er den Link umschreibt. Für CDN- oder Proxy-Regeln, Sicherheits-Allowlists oder die Link-Behandlung in mobilen Apps nutzen Sie die Dokumentation Ihres E-Mail-Anbieter or ESP als maßgebliche Quelle.
+Ihr E-Mail-Anbieter (E-Mail-Anbieter) schreibt jeden getrackten Link so um, dass er auf Ihre Klick-Tracking-Domain verweist, und fügt dann ein Pfadpräfix hinzu, das die Anfrage als getrackten Klick oder getracktes Öffnen kennzeichnet. Braze erstellt diese Pfade nicht. Ihr E-Mail-Anbieter fügt sie hinzu, wenn er den Link umschreibt. Für CDN- oder Proxy-Regeln, Sicherheits-Allowlists oder die Link-Behandlung in mobilen Apps nutzen Sie die Dokumentation Ihres E-Mail-Anbieter als maßgebliche Quelle.
 
-| E-Mail-Anbieter or ESP | Pfadmuster | E-Mail-Anbieter or ESP-Dokumentation |
+| E-Mail-Anbieter | Pfadmuster | E-Mail-Anbieter-Dokumentation |
 | --- | --- | --- |
 | SendGrid | `/wf/click?upn=...` für getrackte Klicks und `/uni/wf/click?upn=...` für Links, die Sie als universelle Links kennzeichnen. Je nach Konfiguration können gebrandete Links auch `/ls/click` (lang signiert) oder `/ss/` (gekürzt) verwenden. | [Universal Links](https://www.twilio.com/docs/sendgrid/ui/sending-email/universal-links) und [gekürzte Links](https://support.sendgrid.com/hc/en-us/articles/44375837088795-How-to-Know-if-my-Links-Are-Shortened-by-SendGrid) |
 | SparkPost | `/f/` für getrackte Klicks und `/q/` für getrackte Öffnungen. Links, die einen benutzerdefinierten Pfad über `data-msys-sublink` festlegen, folgen dem Muster `/f/{custom_path}/`. | [Deeplinks](https://docs.sparkpost.com/docs/tech-resources/deep-links-self-serve) |
 | Amazon SES | `/CL0/{encodedUrl}/{index}/{messageId}/{hmac}` für getrackte Klicks. Links, die das Attribut `ses:custom-path` festlegen, folgen dem Muster `/CL1/{customPath}/{encodedUrl}/...`. | [Benutzerdefinierte Open- und Klick-Domains](https://docs.aws.amazon.com/ses/latest/dg/configure-custom-open-click-domains.html) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Klick- und Open-Tracking-URL-Muster nach E-Mail-Anbieter or ESP" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Klick- und Open-Tracking-URL-Muster nach E-Mail-Anbieter" }
 
-Wenn Ihre Klick-Tracking-Domain beispielsweise `clicks.example.com` ist und Ihr E-Mail-Anbieter or ESP SparkPost ist, wird ein getrackter Klick zu einer URL aufgelöst, die mit `https://clicks.example.com/f/` beginnt.
+Wenn Ihre Klick-Tracking-Domain beispielsweise `clicks.example.com` ist und Ihr E-Mail-Anbieter SparkPost ist, wird ein getrackter Klick zu einer URL aufgelöst, die mit `https://clicks.example.com/f/` beginnt.
 
 {% alert important %}
-Ihr E-Mail-Anbieter or ESP besitzt diese Pfadpräfixe und kann sie ändern oder neue hinzufügen. Daher kann Braze keine permanente oder vollständige Liste garantieren. Wenn Ihre Sicherheitstools dies unterstützen, setzen Sie Ihre gesamte Klick-Tracking-Domain auf die Allowlist, anstatt einzelne Pfade freizugeben, und bestätigen Sie die aktuellen Muster in der Dokumentation Ihres E-Mail-Anbieter or ESP.
+Ihr E-Mail-Anbieter besitzt diese Pfadpräfixe und kann sie ändern oder neue hinzufügen. Daher kann Braze keine permanente oder vollständige Liste garantieren. Wenn Ihre Sicherheitstools dies unterstützen, setzen Sie Ihre gesamte Klick-Tracking-Domain auf die Allowlist, anstatt einzelne Pfade freizugeben, und bestätigen Sie die aktuellen Muster in der Dokumentation Ihres E-Mail-Anbieter.
 {% endalert %}
 
 Um diese Pfade in Ihrer mobilen App zu behandeln, lesen Sie [Universal Links und App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links).

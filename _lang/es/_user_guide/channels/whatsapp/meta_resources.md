@@ -91,7 +91,7 @@ Para más información, consulta la documentación de Meta sobre [archivado de p
 - Anteriormente abierto a todos los clientes a través de WhatsApp Administrador
 - Ahora restringido a: gobierno/grandes anunciantes de Meta, anunciantes directos, o a través de un BSP como Braze (hasta 5 por semana)
 - Nuevos prerrequisitos: verificación empresarial, verificación en dos pasos, nombre de visualización aprobado, notabilidad
-- Comunícate con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente para obtener asistencia
+- Comunícate con tu CSM para obtener asistencia
 
 ### Octubre de 2025: Reducciones de tarifas de precios regionales {#october-2025-regional-pricing-rate-cuts}
 *Última actualización: marzo de 2026*
@@ -289,4 +289,4 @@ No hay un tiempo fijo para este experimento. Como tal, un consumidor puede segui
 
 ### ¿Qué puedo hacer si mis mensajes de marketing no se entregan debido al experimento de Meta? {#what-can-i-do-if-my-marketing-messages-are-not-delivered-due-to-metas-experiment}
 
-Recomendamos usar otros canales de Braze, como correo electrónico, servicio de mensajes cortos, notificaciones push o In-App Messages para enviar un mensaje con contenido similar a tus usuarios previstos.
+Recomendamos usar otros canales de Braze, como correo electrónico, SMS, notificaciones push o In-App Messages para enviar un mensaje con contenido similar a tus usuarios previstos.

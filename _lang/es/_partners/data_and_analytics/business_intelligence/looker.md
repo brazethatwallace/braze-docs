@@ -12,15 +12,15 @@ search_tag: Partner
 
 > [Looker](https://looker.com/), una plataforma de análisis de inteligencia empresarial y big data, te permite explorar, analizar y compartir análisis empresariales en tiempo real fácilmente.
 
-La integración de Braze y Looker permite a los usuarios de la empresa aprovechar los [Bloques de Looker](#looker-blocks) de origen y las [Acciones de Looker](#looker-actions) para marcar usuarios a través de la REST or transferencia de estado representacional API. Estos usuarios marcados pueden añadirse a segmentos para [segmentar](#segment-users) futuras campañas o Canvas de Braze. Para utilizar Looker con Braze, te recomendamos que envíes tus datos de Braze a un [almacén de datos utilizando Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) y que después utilices los Bloques de Looker de Braze para modelar y visualizar rápidamente tus datos de Braze en Looker.
+La integración de Braze y Looker permite a los usuarios de la empresa aprovechar los [Bloques de Looker](#looker-blocks) de origen y las [Acciones de Looker](#looker-actions) para marcar usuarios a través de la REST API. Estos usuarios marcados pueden añadirse a segmentos para [segmentar](#segment-users) futuras campañas o Canvas de Braze. Para utilizar Looker con Braze, te recomendamos que envíes tus datos de Braze a un [almacén de datos utilizando Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) y que después utilices los Bloques de Looker de Braze para modelar y visualizar rápidamente tus datos de Braze en Looker.
 
 ## Requisitos previos {#prerequisites}
 
 | Requisito | Descripción |
 |---|---|
 | Cuenta Looker | Se necesita una [cuenta Looker](https://looker.com/) para beneficiarse de esta asociación. |
-| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos `users.track`. <br><br> Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
-| Endpoint REST or transferencia de estado representacional de Braze | La URL de tu endpoint REST or transferencia de estado representacional. Tu endpoint dependerá de la [URL de Braze de tu instancia]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents). |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. <br><br> Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Endpoint REST de Braze | La URL de tu endpoint REST. Tu endpoint dependerá de la [URL de Braze de tu instancia]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ### Consideraciones {#considerations}
@@ -60,7 +60,7 @@ Braze ha construido nuestros Bloques de Looker utilizando [Snowflake](https://ww
 
 ### Acciones de Looker {#looker-actions}
 
-Las Acciones de Looker te permiten marcar usuarios dentro de Braze a través del endpoint de la REST or transferencia de estado representacional API desde un Look de Looker. Las acciones requieren que una dimensión esté etiquetada con `braze_id`. La acción añadirá el valor marcado al atributo personalizado `looker_export` del usuario.
+Las Acciones de Looker te permiten marcar usuarios dentro de Braze a través del endpoint de la REST API desde un Look de Looker. Las acciones requieren que una dimensión esté etiquetada con `braze_id`. La acción añadirá el valor marcado al atributo personalizado `looker_export` del usuario.
 
 {% alert important %}
 Solo se marcarán los usuarios existentes. No puedes utilizar Looks pivotados al marcar datos en Braze.
@@ -68,7 +68,7 @@ Solo se marcarán los usuarios existentes. No puedes utilizar Looks pivotados al
 
 #### Paso 1: Configurar una acción Braze Looker {#step-1-set-up-a-braze-looker-action}
 
-Configura una acción Braze Looker con tu clave de API REST or transferencia de estado representacional de Braze y tu endpoint REST or transferencia de estado representacional.
+Configura una acción Braze Looker con tu clave de API REST de Braze y tu endpoint REST.
 
 ![La página de configuración de Looker Braze. Aquí puedes encontrar campos para la clave de API de Braze y el endpoint de API REST de Braze.]({% image_buster /assets/img/braze-looker-action.png %})
 
@@ -153,7 +153,7 @@ Una vez guardado, puedes hacer referencia a este segmento durante la creación d
 Si tienes problemas con la acción Looker, añade un usuario de prueba a [los grupos internos]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups) y comprueba lo siguiente:
 
 * La clave de API tiene los permisos `users.track`.
-* Se introduce el endpoint REST or transferencia de estado representacional correcto, como `https://rest.iad-01.braze.com`.
+* Se introduce el endpoint REST correcto, como `https://rest.iad-01.braze.com`.
 * Se establece una etiqueta `braze_id` en la vista de dimensión.
 * Tu consulta incluye la dimensión o atributo ID como columna.
 * Los resultados de Looker no están pivotados.

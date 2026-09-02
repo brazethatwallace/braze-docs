@@ -10,13 +10,13 @@ search_tag: Partner
 
 # Flybuy
 
-> [Flybuy](https://www.flybuy.com/) von Radius Networks ist die führende Omnichannel-Standortplattform, die KI or künstliche Intelligenz-gestützte Technologie nutzt, um die Servicegeschwindigkeit bei Abholung, Lieferung, Drive-Thru und Vor-Ort-Bestellungen zu optimieren. Über die integrierte Marketing Suite ermöglicht Flybuy Marken außerdem, hochgradig zielgerichtete, momentbasierte Nachrichten zu senden, die das Engagement steigern, den Bestellwert erhöhen und umfassendere Loyalty-Initiativen unterstützen.
+> [Flybuy](https://www.flybuy.com/) von Radius Networks ist die führende Omnichannel-Standortplattform, die KI-gestützte Technologie nutzt, um die Servicegeschwindigkeit bei Abholung, Lieferung, Drive-Thru und Vor-Ort-Bestellungen zu optimieren. Über die integrierte Marketing Suite ermöglicht Flybuy Marken außerdem, hochgradig zielgerichtete, momentbasierte Nachrichten zu senden, die das Engagement steigern, den Bestellwert erhöhen und umfassendere Loyalty-Initiativen unterstützen.
 
 _Diese Integration wird von Flybuy gepflegt._
 
 ## Über die Integration {#about-the-integration}
 
-Flybuy liefert umfangreiche User-Intelligence-Events an Braze und ermöglicht es Marken, hochrelevante, standortbezogene Nachrichten mit dem höchsten Grad an Personalisierung zu senden. Wenn Nutzer:innen ein Event in Flybuy auslösen, werden angepasste Events mit umfangreichen Nutzerattributen an Braze übermittelt. Diese Events und Attribute können genutzt werden, um Omnichannel-Abläufe zu steuern und standortbasierte Nachrichten zu Trigger or triggern or triggern.
+Flybuy liefert umfangreiche User-Intelligence-Events an Braze und ermöglicht es Marken, hochrelevante, standortbezogene Nachrichten mit dem höchsten Grad an Personalisierung zu senden. Wenn Nutzer:innen ein Event in Flybuy auslösen, werden angepasste Events mit umfangreichen Nutzerattributen an Braze übermittelt. Diese Events und Attribute können genutzt werden, um Omnichannel-Abläufe zu steuern und standortbasierte Nachrichten zu triggern.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -25,7 +25,7 @@ Folgendes ist erforderlich, bevor Sie die Integration aktivieren:
 | Anforderung | Beschreibung |
 |---|---|
 | Flybuy-Konto | Ein Flybuy-Konto mit mindestens einem Projekt. |
-| Braze-Representational State Transfer-API-Schlüssel | Ein Braze-Representational State Transfer-API-Schlüssel mit `users.track`-Berechtigungen. |
+| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit `users.track`-Berechtigungen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
@@ -50,7 +50,7 @@ Flybuy ordnet `loyalty_id` der Braze-`external_id` für eingeloggte Nutzer:innen
 - [Mobiler Hotel-Check-in und Bestellung](https://www.flybuy.com/industries/hospitality)
 - [Marketing Suite](https://www.flybuy.com/flybuy-marketing-suite)
 
-## Beispiele für event- und attributbasierte Trigger or triggern {#event-and-attribute-based-trigger-examples}
+## Beispiele für event- und attributbasierte Trigger {#event-and-attribute-based-trigger-examples}
 
 Angepasste Events und angepasste Attribute können genutzt werden, um eine Vielzahl personalisierter Erlebnisse zu ermöglichen.
 
@@ -60,9 +60,9 @@ Sprechen Sie beispielsweise alle Kund:innen an, die ihre Abholerfahrung mit weni
 
 ![Segment für schlechte Abholerfahrung]({% image_buster /assets/img/flybuy/flybuy1.png %})
 
-### Eine Benachrichtigung Trigger or triggern or triggern, wenn Kund:innen einen virtuellen Abholbereich betreten {#trigger-an-alert-when-a-customer-enters-a-virtual-pickup-area}
+### Eine Benachrichtigung triggern, wenn Kund:innen einen virtuellen Abholbereich betreten {#trigger-an-alert-when-a-customer-enters-a-virtual-pickup-area}
 
-Senden Sie eine personalisierte Kurzmitteilungsdienst or SMS an Kund:innen ohne Loyalty-Konto, um sie zum Herunterladen der App und zur Erstellung eines Loyalty-Kontos aufzufordern.
+Senden Sie eine personalisierte SMS an Kund:innen ohne Loyalty-Konto, um sie zum Herunterladen der App und zur Erstellung eines Loyalty-Kontos aufzufordern.
 
 ![Eine Benachrichtigung triggern, wenn Kund:innen einen virtuellen Abholbereich betreten]({% image_buster /assets/img/flybuy/flybuy2.png %})
 
@@ -74,7 +74,7 @@ Sprechen Sie beispielsweise alle Kund:innen an, die beim Verlassen eines virtuel
 
 ![Ein Zielgruppensegment von Kund:innen mit langer Wartezeit erstellen]({% image_buster /assets/img/flybuy/flybuy3.png %})
 
-### Eine Kurskorrektur-Benachrichtigung Trigger or triggern or triggern, wenn Kund:innen zum falschen Standort unterwegs sind {#trigger-a-course-correction-alert-when-a-customer-is-headed-to-the-wrong-location}
+### Eine Kurskorrektur-Benachrichtigung triggern, wenn Kund:innen zum falschen Standort unterwegs sind {#trigger-a-course-correction-alert-when-a-customer-is-headed-to-the-wrong-location}
 
 Senden Sie eine Push-Benachrichtigung an Kund:innen, wenn sie zu einem anderen Standort unterwegs sind oder dort angekommen sind als dem, an dem sie ihre Bestellung aufgegeben haben.
 

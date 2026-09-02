@@ -56,7 +56,7 @@ Braze의 사용자는 일반적으로 두 가지 상태 중 하나에 해당합�
 
 - [푸시(웹 또는 모바일)]({{site.baseurl}}/user_guide/channels/push)
 - [이메일]({{site.baseurl}}/user_guide/channels/email)
-- [단문 메시지 서비스, MMS, RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs)
+- [SMS, MMS, RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs)
 - [WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp)
 - [인앱 메시지]({{site.baseurl}}/user_guide/channels/in_app_messages)
 - [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards)
@@ -84,7 +84,7 @@ Braze의 사용자는 일반적으로 두 가지 상태 중 하나에 해당합�
 - 웹 푸시 구독은 브라우저를 메시징 채널로 등록합니다.
 {% endtab %}
 
-{% tab 이메일 및 단문 메시지 서비스 %}
+{% tab 이메일 및 SMS %}
 - 데이터를 업로드하거나, API를 호출하거나, 옵트인을 수집할 때 사용자가 생성될 수 있습니다.
 - 이메일 주소와 전화번호는 채널 식별자로 저장됩니다.
 - 옵트인 상태는 채널별 및 지역별로 추적됩니다.

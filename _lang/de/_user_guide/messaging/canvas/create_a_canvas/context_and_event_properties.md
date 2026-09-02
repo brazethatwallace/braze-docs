@@ -15,7 +15,7 @@ local_redirect:
 
 {% multi_lang_include alerts/important_alerts.md alert='context variable' %}
 
-Context-Eigenschaften und Event-Eigenschaften funktionieren innerhalb Ihrer Canvas-Workflows unterschiedlich. Eigenschaften von Events oder API-Aufrufen, die den Eintritt von Nutzer:innen in einen Canvas Trigger or triggern or triggern, werden als `context` bezeichnet. Eigenschaften von Events, die auftreten, während sich Nutzer:innen innerhalb einer Canvas-Journey bewegen, werden als `event_properties` bezeichnet. Der wesentliche Unterschied besteht darin, dass `context` sich nicht nur auf Events konzentriert, sondern auch auf die Eigenschaften von Entry-Payloads in API-getriggerten Canvase zugreift.
+Context-Eigenschaften und Event-Eigenschaften funktionieren innerhalb Ihrer Canvas-Workflows unterschiedlich. Eigenschaften von Events oder API-Aufrufen, die den Eintritt von Nutzer:innen in einen Canvas triggern, werden als `context` bezeichnet. Eigenschaften von Events, die auftreten, während sich Nutzer:innen innerhalb einer Canvas-Journey bewegen, werden als `event_properties` bezeichnet. Der wesentliche Unterschied besteht darin, dass `context` sich nicht nur auf Events konzentriert, sondern auch auf die Eigenschaften von Entry-Payloads in API-getriggerten Canvases zugreift.
 
 In der folgenden Tabelle finden Sie eine Zusammenfassung der Unterschiede zwischen Context- und Event-Eigenschaften.
 
@@ -23,12 +23,12 @@ In der folgenden Tabelle finden Sie eine Zusammenfassung der Unterschiede zwisch
 |----|----|----|
 | **Liquid** | `context` | `event_properties` |
 | **Persistenz** | Können von allen [Nachrichten]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)-Schritten für die Dauer eines Canvas referenziert werden. | - Können nur einmal referenziert werden. <br> - Können nicht von nachfolgenden Nachrichten-Schritten referenziert werden. |
-| **Canvas-Verhalten** | Können `context` in jedem Schritt eines Canvas referenzieren. Für das Verhalten nach dem Start siehe [Canvase nach dem Start bearbeiten]({{site.baseurl}}/post-launch_edits#canvas-entry-properties). | - Können `event_properties` im ersten Nachrichten-Schritt **nach** einem [Aktionspfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)-Schritt referenzieren, bei dem die ausgeführte Aktion ein angepasstes Event oder Kauf-Event ist. <br> - Dürfen nicht nach dem Alle-anderen-Pfad des Aktionspfade-Schritts stehen. <br> - Zwischen den Aktionspfade- und Nachrichten-Schritten können andere Nicht-Nachrichten-Komponenten liegen. Wenn eine dieser Nicht-Nachrichten-Komponenten ein Aktionspfade-Schritt ist, können Nutzer:innen den Alle-anderen-Pfad dieses Aktionspfads durchlaufen. |
+| **Canvas-Verhalten** | Können `context` in jedem Schritt eines Canvas referenzieren. Für das Verhalten nach dem Start siehe [Canvases nach dem Start bearbeiten]({{site.baseurl}}/post-launch_edits#canvas-entry-properties). | - Können `event_properties` im ersten Nachrichten-Schritt **nach** einem [Aktionspfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)-Schritt referenzieren, bei dem die ausgeführte Aktion ein angepasstes Event oder Kauf-Event ist. <br> - Dürfen nicht nach dem Alle-anderen-Pfad des Aktionspfade-Schritts stehen. <br> - Zwischen den Aktionspfade- und Nachrichten-Schritten können andere Nicht-Nachrichten-Komponenten liegen. Wenn eine dieser Nicht-Nachrichten-Komponenten ein Aktionspfade-Schritt ist, können Nutzer:innen den Alle-anderen-Pfad dieses Aktionspfads durchlaufen. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Context- und Event-Eigenschaften" }
 
 {% details Details zum ursprünglichen Canvas-Editor %}
 
-Sie können keine Canvase mehr mit dem ursprünglichen Editor erstellen oder duplizieren. Beachten Sie, dass Canvas Context im ursprünglichen Canvas-Editor nicht unterstützt wird. Dieser Abschnitt dient daher als Referenz für die Verwendung von Canvas-Entry-Eigenschaften und Event-Eigenschaften im vorherigen Canvas-Workflow.
+Sie können keine Canvases mehr mit dem ursprünglichen Editor erstellen oder duplizieren. Beachten Sie, dass Canvas Context im ursprünglichen Canvas-Editor nicht unterstützt wird. Dieser Abschnitt dient daher als Referenz für die Verwendung von Canvas-Entry-Eigenschaften und Event-Eigenschaften im vorherigen Canvas-Workflow.
 
 **Canvas-Entry-Eigenschaften:**
 - Persistente Entry-Eigenschaften müssen aktiviert sein.
@@ -48,7 +48,7 @@ Sie können keine Canvase mehr mit dem ursprünglichen Editor erstellen oder dup
 - Kontext ist nur als Referenz in Liquid verfügbar. Um nach den Eigenschaften innerhalb des Canvas zu filtern, verwenden Sie stattdessen die [Event-Eigenschafts-Segmentierung]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects).
 - Für In-App-Nachricht-Kanäle können Sie `context` und `event_properties` in einem Canvas referenzieren. Auf `event_properties` kann zugegriffen werden, wenn sie im ersten Canvas-Schritt enthalten sind, da dieser triggerbasiert ist.
 - Sie können `event_properties` nicht im ersten Nachrichten-Schritt verwenden. Stattdessen können Sie `context` verwenden oder einen Aktionspfade-Schritt mit dem entsprechenden Event **vor** dem Nachrichten-Schritt hinzufügen, der `event_properties` enthält.
-- Wenn ein Aktionspfad-Schritt einen Trigger or triggern „Eingehende Kurzmitteilungsdienst or SMS-Nachricht gesendet“ oder „Eingehende WhatsApp-Nachricht gesendet“ enthält, können die nachfolgenden Canvas-Schritte eine Kurzmitteilungsdienst or SMS- oder WhatsApp-Liquid-Eigenschaft enthalten. Dies spiegelt wider, wie Event-Eigenschaften in Canvase funktionieren. Auf diese Weise können Sie Ihre Nachrichten nutzen, um First-Party-Daten in Nutzerprofilen und konversationellem Messaging zu speichern und zu referenzieren.
+- Wenn ein Aktionspfad-Schritt einen Trigger „Eingehende SMS-Nachricht gesendet“ oder „Eingehende WhatsApp-Nachricht gesendet“ enthält, können die nachfolgenden Canvas-Schritte eine SMS- oder WhatsApp-Liquid-Eigenschaft enthalten. Dies spiegelt wider, wie Event-Eigenschaften in Canvases funktionieren. Auf diese Weise können Sie Ihre Nachrichten nutzen, um First-Party-Daten in Nutzerprofilen und konversationellem Messaging zu speichern und zu referenzieren.
 
 {% alert note %}
 Die Zielgruppen-Berechtigung wird einmalig beim Canvas-Entry ausgewertet. Wenn ein:e Nutzer:in während des Entrys zusammengeführt wird, setzt der/die identifizierte Nutzer:in den Canvas fort und wird nicht erneut anhand der Canvas-Segmentkriterien bewertet.
@@ -58,7 +58,7 @@ Die Zielgruppen-Berechtigung wird einmalig beim Canvas-Entry ausgewertet. Wenn e
 
 ### Zeitstempel {#timestamps}
 
-Wenn Sie Zeitstempel mit einem [Datums-/Uhrzeittyp]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties) aus Events verwenden, die aktionsbasierte Canvase Trigger or triggern or triggern und über [Kontext]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) referenziert werden, werden Zeitstempel auf UTC normalisiert.
+Wenn Sie Zeitstempel mit einem [Datums-/Uhrzeittyp]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties) aus Events verwenden, die aktionsbasierte Canvases triggern und über [Kontext]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) referenziert werden, werden Zeitstempel auf UTC normalisiert.
 
 Angesichts dieses Verhaltens empfiehlt Braze dringend, einen Liquid-Zeitzonenfilter wie im folgenden Beispiel zu verwenden, um sicherzustellen, dass Ihre Nachrichten mit Ihrer [bevorzugten Zeitzone]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters) gesendet werden.
 

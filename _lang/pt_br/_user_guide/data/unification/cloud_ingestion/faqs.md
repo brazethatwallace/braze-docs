@@ -123,7 +123,7 @@ Se você receber esse erro, verifique se a tabela está no projeto e dataset cor
 
 ### Invalid JWT Signature {#invalid-jwt-signature}
 
-Se você receber esse erro, verifique se o serviço de API or interface de programação do aplicativo (API) do BigQuery está ativado para a sua conta.
+Se você receber esse erro, verifique se o serviço de API do BigQuery está ativado para a sua conta.
 {% endtab %}
 
 {% tab Databricks %}
@@ -239,7 +239,7 @@ A Braze tem as seguintes medidas em vigor para CDI:
 
 - Todas as credenciais são criptografadas em nosso banco de dados, e apenas determinados colaboradores têm acesso autenticado a elas.
 - Usamos conexões criptografadas para enviar dados aos data warehouses dos clientes.
-- Fazemos solicitações aos endpoints da API or interface de programação do aplicativo (API) da Braze usando as mesmas chaves de API or interface de programação do aplicativo (API) e conexões TLS que recomendamos que nossos clientes usem.
+- Fazemos solicitações aos endpoints da API da Braze usando as mesmas chaves de API e conexões TLS que recomendamos que nossos clientes usem.
 - Atualizamos regularmente nossas bibliotecas e aplicamos todas as correções de segurança.
 
 ### Suas medidas {#your-measures}

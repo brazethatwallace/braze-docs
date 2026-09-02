@@ -44,7 +44,7 @@ Primeiro, você deve registrar um observador. Faça isso antes de inicializar a 
 
 ### Etapa 2: Registre análises personalizadas de dados de falhas {#step-2-log-custom-crash-analytics}
 
-O SDK or kit de desenvolvimento de software da Apteligent disparará uma notificação quando o usuário carregar o aplicativo após uma falha. A notificação conterá o nome, o motivo e a data de ocorrência da falha.
+O SDK da Apteligent disparará uma notificação quando o usuário carregar o aplicativo após uma falha. A notificação conterá o nome, o motivo e a data de ocorrência da falha.
 
 Ao receber a notificação, registre um evento personalizado de falha e atualize os atributos do usuário com a análise de dados de relatórios de falhas da Apteligent:
 

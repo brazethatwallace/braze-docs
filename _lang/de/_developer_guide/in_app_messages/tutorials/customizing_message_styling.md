@@ -8,7 +8,7 @@ layout: scrolly
 
 # Anleitung: Nachrichtenstil mit Schlüssel-Wert-Paaren anpassen {#tutorial-customizing-message-styling-using-key-value-pairs}
 
-> Folgen Sie dem Beispielcode in dieser Anleitung, um den Stil Ihrer In-App-Nachricht mithilfe von Schlüssel-Wert-Paaren im Braze SDK or Software-Development-Kit anzupassen.
+> Folgen Sie dem Beispielcode in dieser Anleitung, um den Stil Ihrer In-App-Nachricht mithilfe von Schlüssel-Wert-Paaren im Braze SDK anzupassen.
 
 {% sdktabs %}
 {% sdktab web %}
@@ -63,7 +63,7 @@ lines-index.js=9-21
 
 #### 3. Den Callback-Handler für In-App-Nachrichten abonnieren {#3-subscribe-to-the-in-app-message-callback-handler}
 
-Registrierung or registrieren Sie einen Callback mit [`subscribeToInAppMessage(callback)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetoinappmessage), um jedes Mal eine Nachricht zu erhalten, wenn eine In-App-Nachricht getriggert wird.
+Registrierung Sie einen Callback mit [`subscribeToInAppMessage(callback)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetoinappmessage), um jedes Mal eine Nachricht zu erhalten, wenn eine In-App-Nachricht getriggert wird.
 
 !!step
 lines-index.js=10-13
@@ -187,9 +187,9 @@ Um die Fehlerbehebung während der Entwicklung zu erleichtern, sollten Sie das D
 !!step
 lines-MainApplication.kt=28-30
 
-#### 2. Activity-Lifecycle-Callbacks Registrierung or registrieren {#2-register-activity-lifecycle-callbacks}
+#### 2. Activity-Lifecycle-Callbacks Registrierung {#2-register-activity-lifecycle-callbacks}
 
-Registrierung or registrieren Sie den Standard-Listener von Braze, um den Lebenszyklus der In-App-Nachrichten zu verwalten.
+Registrierung Sie den Standard-Listener von Braze, um den Lebenszyklus der In-App-Nachrichten zu verwalten.
 
 !!step
 lines-CustomInAppMessageViewFactory.kt=8
@@ -330,7 +330,7 @@ Verwenden Sie `message.extras`, um auf Anpassungstypen, Styling-Attribute oder a
 !!step
 lines-AppDelegate.swift=38-46
 
-#### 5. Styling-Attribute der Nachricht Update or aktualisieren or aktualisieren {#5-update-the-messages-styling-attributes}
+#### 5. Styling-Attribute der Nachricht aktualisieren {#5-update-the-messages-styling-attributes}
 
 Verwenden Sie [`inAppMessage(_:prepareWith:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:preparewith:)-11fog), um auf den `PresentationContext` zuzugreifen und Styling-Attribute direkt zu ändern. Jeder In-App-Nachrichtentyp stellt unterschiedliche Attribute bereit.
 

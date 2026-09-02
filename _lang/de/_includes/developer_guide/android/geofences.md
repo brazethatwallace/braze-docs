@@ -6,7 +6,7 @@
 
 {% multi_lang_include developer_guide/_shared/enable_geofences_in_braze.md %}
 
-### Schritt 2: `build.gradle` Update or aktualisieren or aktualisieren {#step-2-update-buildgradle}
+### Schritt 2: `build.gradle` aktualisieren {#step-2-update-buildgradle}
 
 Fügen Sie `android-sdk-location` zu Ihrer App-Ebene `build.gradle` hinzu. Fügen Sie außerdem das [Standortpaket](https://developers.google.com/android/reference/com/google/android/gms/location/package-summary) der Google-Play-Dienste mithilfe der [Setup-Anleitung](https://developers.google.com/android/guides/setup) der Google-Play-Dienste hinzu:
 
@@ -17,7 +17,7 @@ dependencies {
 }
 ```
 
-### Schritt 3: Manifest Update or aktualisieren or aktualisieren {#step-3-update-the-manifest}
+### Schritt 3: Manifest aktualisieren {#step-3-update-the-manifest}
 
 Fügen Sie Ihrer `AndroidManifest.xml` die Berechtigungen für Boot, genauen Standort und Standort im Hintergrund hinzu:
 
@@ -43,14 +43,14 @@ Fügen Sie den Braze Boot Receiver in das `application`-Element Ihrer `AndroidMa
 
 ### Schritt 4: Braze-Standorterfassung aktivieren {#step-4-enable-braze-location-collection}
 
-Wenn Sie die Braze-Standorterfassung noch nicht aktiviert haben, Update or aktualisieren or aktualisieren Sie Ihre `braze.xml`-Datei so, dass sie `com_braze_enable_location_collection` enthält, und stellen Sie sicher, dass der Wert auf `true` gesetzt ist:
+Wenn Sie die Braze-Standorterfassung noch nicht aktiviert haben, aktualisieren Sie Ihre `braze.xml`-Datei so, dass sie `com_braze_enable_location_collection` enthält, und stellen Sie sicher, dass der Wert auf `true` gesetzt ist:
 
 ```xml
 <bool name="com_braze_enable_location_collection">true</bool>
 ```
 
 {% alert important %}
-Ab Version 3.6.0 des Braze Android SDK or Software-Development-Kit ist die Braze-Standorterfassung standardmäßig deaktiviert.
+Ab Version 3.6.0 des Braze Android SDK ist die Braze-Standorterfassung standardmäßig deaktiviert.
 {% endalert %}
 
 Braze-Geofences sind aktiviert, wenn die Braze-Standorterfassung aktiviert ist. Wenn Sie die standardmäßige Standorterfassung ablehnen, aber dennoch Geofences verwenden möchten, können Sie diese selektiv aktivieren, indem Sie – unabhängig vom Wert für `com_braze_enable_location_collection` – den Wert des Schlüssels `com_braze_geofences_enabled` in `braze.xml` auf `true` setzen:
@@ -61,7 +61,7 @@ Braze-Geofences sind aktiviert, wenn die Braze-Standorterfassung aktiviert ist. 
 
 ### Schritt 5: Standortberechtigungen von Nutzer:innen einholen {#step-5-obtain-location-permissions-from-the-end-user}
 
-Bei Android M und höheren Versionen müssen Sie Nutzer:innen um Standortberechtigungen bitten, bevor Sie Standortinformationen erfassen oder Geofences Registrierung or registrieren können.
+Bei Android M und höheren Versionen müssen Sie Nutzer:innen um Standortberechtigungen bitten, bevor Sie Standortinformationen erfassen oder Geofences Registrierung können.
 
 Fügen Sie den folgenden Aufruf hinzu, um Braze zu benachrichtigen, wenn Nutzer:innen Ihrer App die Standortberechtigung erteilen:
 
@@ -82,7 +82,7 @@ Braze.getInstance(context).requestLocationInitialization()
 {% endtab %}
 {% endtabs %}
 
-Daraufhin fordert das SDK or Software-Development-Kit Geofences von Braze-Servern an und initialisiert das Geofence-Tracking.
+Daraufhin fordert das SDK Geofences von Braze-Servern an und initialisiert das Geofence-Tracking.
 
 Eine Beispielimplementierung finden Sie unter [`RuntimePermissionUtils.java`](https://github.com/braze-inc/braze-android-sdk/blob/master/droidboy/src/main/java/com/appboy/sample/util/RuntimePermissionUtils.kt) in unserer Beispielanwendung.
 
@@ -272,5 +272,5 @@ Braze.getInstance(applicationContext).requestGeofences(33.078947, -116.601356)
 {% endtabs %}
 
 {% alert important %}
-Geofences können nur einmal pro Sitzung angefordert werden – entweder automatisch durch das SDK or Software-Development-Kit oder manuell mit dieser Methode.
+Geofences können nur einmal pro Sitzung angefordert werden – entweder automatisch durch das SDK oder manuell mit dieser Methode.
 {% endalert %}

@@ -69,7 +69,7 @@ Se o fluxo de trabalho de aprovação de Campaigns estiver ativado, a Braze apro
 4. Após adicionar o número necessário de modelos, selecione **Próximo: Resumo**.
 
 {% alert important %}
-Alterações feitas nas Campaigns criadas a partir da ferramenta de aquecimento de IP (como alterar a data agendada, o Segment or segmento ou o volume) não são refletidas na página de **Resumo** do aquecimento de IP.
+Alterações feitas nas Campaigns criadas a partir da ferramenta de aquecimento de IP (como alterar a data agendada, o Segment ou o volume) não são refletidas na página de **Resumo** do aquecimento de IP.
 {% endalert %}
 
 ### Etapa 4: Selecione os eventos de conversão {#step-4-select-conversion-events}
@@ -144,7 +144,7 @@ Você pode parar um plano de aquecimento de IP para impedir a criação de futur
 
 - Baixe os dados existentes do plano interrompido para manter em seus registros
 - Atualize o **Volume de envio diário atual** para o volume mais recente
-- Adicione um filtro a um Segment or segmento se você planeja usar o mesmo Segment or segmento do último aquecimento de IP, excluindo os usuários que já receberam Campaigns anteriores
+- Adicione um filtro a um Segment se você planeja usar o mesmo Segment do último aquecimento de IP, excluindo os usuários que já receberam Campaigns anteriores
 
 ## Quando um aquecimento de IP é concluído {#when-an-ip-warming-completes}
 

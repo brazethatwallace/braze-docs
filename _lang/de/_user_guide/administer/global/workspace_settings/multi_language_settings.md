@@ -49,7 +49,7 @@ Informationen zur Verwendung dieser Gebietsschemata in Ihren Nachrichten finden 
 - Sie können bis zu zwei angepasste Attribute in einem einzelnen Gebietsschema oder bis zu zwei Standard-Nutzerattributsprachen auswählen. In beiden Fällen ist das zweite Attribut optional.
 - Vermeiden Sie beim Bearbeiten der übersetzten Werte in der CSV-Datei Änderungen an den Standardwerten in der Datei.
 - Der Gebietsschema-Schlüssel in Ihrer hochgeladenen Datei muss mit dem in Ihren Mehrsprachen-Einstellungen übereinstimmen.
-- Um `device_locale` auf `zh_CN` (Vereinfachtes Chinesisch, wie es in Festlandchina verwendet wird) zu Update or aktualisieren or aktualisieren, müssen Sie eine `zh_CN`-Lokalisierungsdatei zu Ihrem Projekt hinzufügen, da iOS nativ `zh-Hans` verwendet.
+- Um `device_locale` auf `zh_CN` (Vereinfachtes Chinesisch, wie es in Festlandchina verwendet wird) zu aktualisieren, müssen Sie eine `zh_CN`-Lokalisierungsdatei zu Ihrem Projekt hinzufügen, da iOS nativ `zh-Hans` verwendet.
 
 ### Support und Priorisierung {#support-and-prioritization}
 

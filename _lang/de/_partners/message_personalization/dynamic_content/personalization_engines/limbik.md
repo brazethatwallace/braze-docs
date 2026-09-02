@@ -1,7 +1,7 @@
 ---
 nav_title: Limbik
 article_title: Limbik
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Limbik, einer KI or künstliche Intelligenz-Resonanzschicht, die mithilfe synthetischer Zielgruppen und Prognosen vorhersagt, wie Zielgruppen Nachrichten interpretieren und darauf reagieren."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Limbik, einer KI-Resonanzschicht, die mithilfe synthetischer Zielgruppen und Prognosen vorhersagt, wie Zielgruppen Nachrichten interpretieren und darauf reagieren."
 alias: /partners/limbik/
 page_type: partner
 search_tag: Partner
@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Limbik
 
-> [Limbik](https://limbik.com/cognitive-ai) ist Ihre KI or künstliche Intelligenz-Resonanzschicht – sie sagt vorher, wie reale Zielgruppen Nachrichten, Konzepte und KI or künstliche Intelligenz-Ausgaben interpretieren und darauf reagieren, bevor diese den Markt erreichen. Gestützt auf kontinuierliche Primärforschung in über 60 Ländern und mehr als 25 Sprachen liefert Limbik menschlich validierte synthetische Zielgruppen – digitale Populationen, die reale Zielgruppenreaktionen mit Maschinengeschwindigkeit und forschungsgerechter Genauigkeit simulieren (95 % Konfidenz, 1,5 % bis 3 % Fehlermarge). Limbik gibt Ihnen die Möglichkeit, sofort sicherzustellen, dass Ihre Nachrichten mit den Überzeugungen und Gefühlen Ihrer Zielgruppe resonieren.
+> [Limbik](https://limbik.com/cognitive-ai) ist Ihre KI-Resonanzschicht – sie sagt vorher, wie reale Zielgruppen Nachrichten, Konzepte und KI-Ausgaben interpretieren und darauf reagieren, bevor diese den Markt erreichen. Gestützt auf kontinuierliche Primärforschung in über 60 Ländern und mehr als 25 Sprachen liefert Limbik menschlich validierte synthetische Zielgruppen – digitale Populationen, die reale Zielgruppenreaktionen mit Maschinengeschwindigkeit und forschungsgerechter Genauigkeit simulieren (95 % Konfidenz, 1,5 % bis 3 % Fehlermarge). Limbik gibt Ihnen die Möglichkeit, sofort sicherzustellen, dass Ihre Nachrichten mit den Überzeugungen und Gefühlen Ihrer Zielgruppe resonieren.
 
 _Diese Integration wird von Limbik gepflegt._
 
@@ -21,7 +21,7 @@ Folgendes ist erforderlich, um Limbik mit Braze zu verwenden:
 | --- | --- |
 | Limbik `account_id` | Wenden Sie sich an Ihr Limbik-Kontoteam oder senden Sie eine GET-Anfrage an Limbiks `/rest/api/organizations`-Endpunkt. |
 | Limbik-Zugriffstoken (`access_token`) | Senden Sie eine POST-Anfrage an Limbiks `login`-Endpunkt und verwenden Sie den zurückgegebenen `access_token`-Wert als Bearer-Token / Textbaustein im `Authorization`-Header. |
-| Braze-Representational State Transfer-API-Schlüssel | Ein Braze-Representational State Transfer-API-Schlüssel mit „Messages“-Berechtigungen. Erstellen Sie einen im Braze-Dashboard unter **Settings** > **API Keys**. |
+| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit „Messages“-Berechtigungen. Erstellen Sie einen im Braze-Dashboard unter **Settings** > **API Keys**. |
 | Braze `campaign_id` | Gehen Sie zu **Messaging** > **Campaigns** und wählen Sie eine Campaign aus. Falls die gewünschte Campaign noch nicht existiert, erstellen Sie eine und speichern Sie sie. Am Ende der Campaign-Seite finden Sie den Campaign-API-Bezeichner. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
@@ -93,14 +93,14 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 ```
 
 {% alert note %}
-Sie können API-Plattformen wie Postman verwenden, um automatisierte Workflows einzurichten, die mehrere Representational State Transfer-API-Endpunkte verschiedener Organisationen aufrufen, wie den folgenden Workflow.
+Sie können API-Plattformen wie Postman verwenden, um automatisierte Workflows einzurichten, die mehrere REST-API-Endpunkte verschiedener Organisationen aufrufen, wie den folgenden Workflow.
 {% endalert %}
 
 {% enddetails %}
 
 ## Anwendungsfall – Nachrichtentext generieren {#use-case-generating-message-copy}
 
-Durch die Nutzung der Representational State Transfer-API-Endpunkte von Braze und Limbik können Sie Limbiks generative Prognosen verwenden, um Nachrichtentext zu erstellen und über Braze-Messaging-Kanäle zu versenden, oder bestehenden Text anzupassen, um die Wirkung bei Ihrer Zielgruppe zu verbessern. Beide Plattformen stellen Funktionalitäten bereit, die Sie programmatisch aufrufen können, um anspruchsvolle Workflows zu erstellen.
+Durch die Nutzung der REST-API-Endpunkte von Braze und Limbik können Sie Limbiks generative Prognosen verwenden, um Nachrichtentext zu erstellen und über Braze-Messaging-Kanäle zu versenden, oder bestehenden Text anzupassen, um die Wirkung bei Ihrer Zielgruppe zu verbessern. Beide Plattformen stellen Funktionalitäten bereit, die Sie programmatisch aufrufen können, um anspruchsvolle Workflows zu erstellen.
 
 Diese Dokumentation beschreibt zwei Beispiele: die Generierung von Nachrichtentext in Limbik und die Verwendung dieses Textes in einer anschließend über Braze versendeten Nachricht sowie die Nutzung von Limbik zur Bewertung der Qualität einer bestimmten Nachricht für Ihre gewählte Zielgruppe.
 
@@ -159,16 +159,16 @@ Verwenden Sie diesen Wert, um eine an Braze gesendete Nachricht zu befüllen. Be
 
 Die Antwort enthält die folgenden Schlüsselfelder:
 
-- **`type`:** Der Nachrichtentyp (zum Beispiel `"Generate"` für KI or künstliche Intelligenz-generierte Inhalte, `"Message"` für validierte Nachrichten)
+- **`type`:** Der Nachrichtentyp (zum Beispiel `"Generate"` für KI-generierte Inhalte, `"Message"` für validierte Nachrichten)
 - **`displayText`:** Ein kurzer Titel oder eine Zusammenfassung der Nachricht
-- **`additionalDetail`**: **Der vollständige KI or künstliche Intelligenz-generierte Nachrichtentext** – Dies ist das primäre Feld mit dem vollständigen Nachrichtentext, den Sie über Ihre Messaging-Plattform versenden können
+- **`additionalDetail`**: **Der vollständige KI-generierte Nachrichtentext** – Dies ist das primäre Feld mit dem vollständigen Nachrichtentext, den Sie über Ihre Messaging-Plattform versenden können
 - **`population`:** Die Zielpopulation und Segmente für diese Nachricht
 
 ### Verwendung mit Braze {#using-with-braze}
 
-Das Feld `additionalDetail` aus Limbiks Antwort enthält den Nachrichtentext, den Sie an Braze senden. Ein gängiges Integrationsmuster besteht darin, diesen Wert in `trigger_properties.payload` zu übergeben, wenn Sie den Braze-Trigger or triggern-Send-Endpunkt aufrufen. Ersetzen Sie im folgenden Beispiel `{{additionalDetail}}` durch den tatsächlichen String aus Limbiks `additionalDetail`-Feld und `{{YOUR_CAMPAIGN_ID}}` durch Ihre Campaign-ID.
+Das Feld `additionalDetail` aus Limbiks Antwort enthält den Nachrichtentext, den Sie an Braze senden. Ein gängiges Integrationsmuster besteht darin, diesen Wert in `trigger_properties.payload` zu übergeben, wenn Sie den Braze-Trigger-Send-Endpunkt aufrufen. Ersetzen Sie im folgenden Beispiel `{{additionalDetail}}` durch den tatsächlichen String aus Limbiks `additionalDetail`-Feld und `{{YOUR_CAMPAIGN_ID}}` durch Ihre Campaign-ID.
 
-### Beispiel einer Braze-Trigger or triggern-Nachrichtenanfrage {#braze-trigger-message-request-example}
+### Beispiel einer Braze-Trigger-Nachrichtenanfrage {#braze-trigger-message-request-example}
 
 ```json
 {

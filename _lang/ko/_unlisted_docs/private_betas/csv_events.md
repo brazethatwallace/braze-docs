@@ -11,11 +11,11 @@ page_type: reference
 > Braze는 플랫폼에 사용자 데이터를 가져오는 다양한 방법을 제공합니다: SDK, API, 클라우드 데이터 수집, 기술 파트너 통합, CSV 파일 등이 있습니다. 이 문서에서는 [CSV 파일을 통한 커스텀 이벤트 가져오기(얼리 액세스)](#importing-custom-events)를 포함하여 사용자 데이터를 가져오는 방법에 대한 자세한 안내를 제공합니다.
 
 {% alert important %}
-법적으로 필수인 트랜잭션 이메일을 단문 메시지 서비스 게이트웨이로 보내지 마세요. 해당 이메일이 전달되지 않을 가능성이 높습니다.
+법적으로 필수인 트랜잭션 이메일을 SMS 게이트웨이로 보내지 마세요. 해당 이메일이 전달되지 않을 가능성이 높습니다.
 
-전화번호와 통신사의 이메일-단문 메시지 서비스 게이트웨이 도메인(MM3)을 사용하여 보내는 이메일은 단문 메시지 서비스(문자) 메시지로 수신될 수 있지만, 일부 이메일 제공업체는 이 동작을 지원하지 않습니다. 예를 들어 T-Mobile 전화번호(예: "9999999999@tmomail.net")로 이메일을 보내면 T-Mobile 네트워크에서 해당 전화번호를 소유한 사람에게 단문 메시지 서비스 메시지가 전송됩니다.
+전화번호와 통신사의 이메일-SMS 게이트웨이 도메인(MM3)을 사용하여 보내는 이메일은 SMS(문자) 메시지로 수신될 수 있지만, 일부 이메일 제공업체는 이 동작을 지원하지 않습니다. 예를 들어 T-Mobile 전화번호(예: "9999999999@tmomail.net")로 이메일을 보내면 T-Mobile 네트워크에서 해당 전화번호를 소유한 사람에게 SMS 메시지가 전송됩니다.
 
-이러한 이메일이 단문 메시지 서비스 게이트웨이로 전달되지 않더라도 이메일 요금 청구에는 포함됩니다. 지원되지 않는 게이트웨이로 이메일을 보내지 않으려면 [지원되지 않는 게이트웨이 도메인 이름 목록](https://www.fcc.gov/consumer-governmental-affairs/about-bureau/consumer-policy-division/can-spam/domain-name-downloads)을 검토하세요.
+이러한 이메일이 SMS 게이트웨이로 전달되지 않더라도 이메일 요금 청구에는 포함됩니다. 지원되지 않는 게이트웨이로 이메일을 보내지 않으려면 [지원되지 않는 게이트웨이 도메인 이름 목록](https://www.fcc.gov/consumer-governmental-affairs/about-bureau/consumer-policy-division/can-spam/domain-name-downloads)을 검토하세요.
 {% endalert %}
 
 
@@ -148,7 +148,7 @@ Braze 대시보드의 CSV 내보내기에서 `braze_id` 값이 `Appboy ID`로 �
 
 ### 구독 그룹 상태 업데이트 {#updating-subscription-group-status}
 
-사용자 가져오기를 통해 이메일 또는 단문 메시지 서비스 구독 그룹에 사용자를 추가할 수 있습니다. 이는 단문 메시지 서비스의 경우 특히 유용한데, 단문 메시지 서비스 채널로 메시지를 보내려면 사용자가 단문 메시지 서비스 구독 그룹에 등록되어 있어야 하기 때문입니다. 자세한 내용은 [단문 메시지 서비스 구독 그룹]({{site.baseurl}}/user_guide/message_building_by_channel/sms/sms_subscription_group#subscription-group-mms-enablement)을 참조하세요.
+사용자 가져오기를 통해 이메일 또는 SMS 구독 그룹에 사용자를 추가할 수 있습니다. 이는 SMS의 경우 특히 유용한데, SMS 채널로 메시지를 보내려면 사용자가 SMS 구독 그룹에 등록되어 있어야 하기 때문입니다. 자세한 내용은 [SMS 구독 그룹]({{site.baseurl}}/user_guide/message_building_by_channel/sms/sms_subscription_group#subscription-group-mms-enablement)을 참조하세요.
 
 구독 그룹 상태를 업데이트하는 경우, CSV에 다음 두 열이 있어야 합니다:
 

@@ -8,11 +8,11 @@ description: "Dieser Artikel enthält Versionshinweise für Juni 2017."
 
 # Juni 2017 {#june-2017}
 
-## Update or aktualisieren der externen API {#update-to-external-api}
+## Update der externen API {#update-to-external-api}
 
 Wir haben die externe API aktualisiert, um das Feld collapse_id für Apple Push zu unterstützen, sodass Sie Ihren Kund:innen präzise Nachrichten schicken können. Erfahren Sie mehr über die [Braze Messaging API]({{site.baseurl}}/api/endpoints/messaging/).
 
-## Update or aktualisieren für Web-Push-Benachrichtigungen {#update-to-web-push-notifications}
+## Update für Web-Push-Benachrichtigungen {#update-to-web-push-notifications}
 
 Wir haben Updates für die Vorschau von Web-Push-Benachrichtigungen hinzugefügt, darunter ein Dropdown-Menü und die korrekte Darstellung der Bildhöhe, sodass Sie Web-Push-Benachrichtigungen leichter testen und versenden können. Erfahren Sie mehr über [Web-Push]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/web/).
 

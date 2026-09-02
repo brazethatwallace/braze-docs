@@ -1,7 +1,7 @@
 ---
 nav_title: Facebook
 article_title: Canvas Audience Sync mit Facebook
-description: "Dieser Referenzartikel beschreibt, wie Sie Braze Audience Sync mit Facebook verwenden, um Anzeigen auf der Grundlage von verhaltensbezogenen Trigger or triggern or triggern, Segmentierung und mehr auszuliefern."
+description: "Dieser Referenzartikel beschreibt, wie Sie Braze Audience Sync mit Facebook verwenden, um Anzeigen auf der Grundlage von verhaltensbezogenen Triggern, Segmentierung und mehr auszuliefern."
 page_order: 2
 alias: /audience_sync_facebook/
 
@@ -14,7 +14,7 @@ tool:
 
 > Mit Braze Audience Sync mit Facebook können Sie die Daten Ihrer Nutzer:innen aus Ihrer Braze-Integration zu angepassten Facebook-Zielgruppen hinzufügen, um Anzeigen auf der Grundlage von Verhaltenstriggern, Segmentierung und mehr auszuliefern.
 
-Alle Kriterien, die Sie normalerweise verwenden, um eine Nachricht (Push, E-Mail, Kurzmitteilungsdienst or SMS oder Webhook) in einem Braze-Canvas auf der Grundlage Ihrer Nutzerdaten auszulösen, können jetzt verwendet werden, um mit angepassten Zielgruppen eine Anzeige für diese Nutzer:innen in Facebook auszulösen. Wenn Sie beispielsweise eine Audience Sync mit Facebook konfigurieren, können Sie eine Vielzahl von First-Party-Feldern wie E-Mail, Telefon, Vorname und Nachname verwenden.
+Alle Kriterien, die Sie normalerweise verwenden, um eine Nachricht (Push, E-Mail, SMS oder Webhook) in einem Braze-Canvas auf der Grundlage Ihrer Nutzerdaten auszulösen, können jetzt verwendet werden, um mit angepassten Zielgruppen eine Anzeige für diese Nutzer:innen in Facebook auszulösen. Wenn Sie beispielsweise eine Audience Sync mit Facebook konfigurieren, können Sie eine Vielzahl von First-Party-Feldern wie E-Mail, Telefon, Vorname und Nachname verwenden.
 
 **Zu den häufigen Anwendungsfällen für die Synchronisierung angepasster Zielgruppen gehören**:
 
@@ -62,7 +62,7 @@ Nachdem Sie Braze mit Ihrem Facebook-Konto verknüpft haben, wählen Sie die Anz
 
 ![Eine aktualisierte Version der Facebook-Technologie-Partnerseite, auf der die erfolgreich verbundenen Anzeigenkonten angezeigt werden.]({% image_buster /assets/img/fb/afb_5.png %}){: style="max-width:85%;"}
 
-Ihre Facebook-Verbindung wird auf der Ebene des Braze-Workspace angewendet. Wenn Ihr Facebook-Administrator Sie von Ihrem Facebook Business Manager:in oder dem Zugriff auf die verbundenen Facebook-Konten entfernt, erkennt Braze ein ungültiges Token / Textbaustein. Infolgedessen werden Ihre aktiven Canvase, die Facebook-Audience-Komponenten verwenden, Fehler anzeigen, und Braze kann die Nutzer:innen nicht synchronisieren.
+Ihre Facebook-Verbindung wird auf der Ebene des Braze-Workspace angewendet. Wenn Ihr Facebook-Administrator Sie von Ihrem Facebook Business Manager:in oder dem Zugriff auf die verbundenen Facebook-Konten entfernt, erkennt Braze ein ungültiges Token / Textbaustein. Infolgedessen werden Ihre aktiven Canvases, die Facebook-Audience-Komponenten verwenden, Fehler anzeigen, und Braze kann die Nutzer:innen nicht synchronisieren.
 
 {% alert important %}
 Für Kund:innen, die zuvor den Facebook-App-Review-Prozess für [Ads Management](https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management) und [Ads Management Standard Access](https://developers.facebook.com/docs/marketing-api/access#standard) durchlaufen haben, ist Ihr System User Token / Textbaustein weiterhin für die Facebook-Audience-Komponente gültig. Sie können das Facebook System User Token / Textbaustein nicht über die Facebook-Partnerseite bearbeiten oder widerrufen. Stattdessen können Sie Ihr Facebook-Konto verbinden, um Ihr Facebook System User Token / Textbaustein innerhalb Ihres Braze-Workspace zu ersetzen.
@@ -202,7 +202,7 @@ Derzeit werden wertbasierte Lookalike Custom Audiences von Braze nicht unterstü
 3. Wählen Sie **Customer list** aus.
 4. Laden Sie Ihre CSV-Datei oder Liste ohne die Spalte **Value** hoch. Wählen Sie **No, continue with a customer list that doesn't include customer value** aus.
 5. Schließen Sie die Erstellung Ihrer Custom Audience ab.
-6. Update or aktualisieren or aktualisieren Sie in Braze den Facebook-Audience-Sync-Schritt mit der von Ihnen erstellten Custom Audience.
+6. Aktualisieren Sie in Braze den Facebook-Audience-Sync-Schritt mit der von Ihnen erstellten Custom Audience.
 
 ### Ich habe eine E-Mail zu den Nutzungsbedingungen für Facebook Custom Audiences erhalten. Was sollte ich tun, um dies zu klären? {#ive-received-an-email-related-to-facebook-custom-audience-terms-of-service-what-should-i-do-to-resolve-this}
 
@@ -213,8 +213,8 @@ Um Audience Sync zu Facebook zu verwenden, müssen Sie diese Nutzungsbedingungen
 
 Nachdem Sie die Nutzungsbedingungen für Facebook Custom Audiences akzeptiert haben, gehen Sie wie folgt vor:
 
-1. Update or aktualisieren or aktualisieren Sie Ihr Facebook-Zugriffstoken bei Braze, indem Sie Ihr Facebook-Konto trennen und erneut verbinden.
-2. Aktivieren Sie Ihren Facebook-Audience-Sync-Schritt erneut, indem Sie Ihr Canvas bearbeiten und Update or aktualisieren or aktualisieren.
+1. Aktualisieren Sie Ihr Facebook-Zugriffstoken bei Braze, indem Sie Ihr Facebook-Konto trennen und erneut verbinden.
+2. Aktivieren Sie Ihren Facebook-Audience-Sync-Schritt erneut, indem Sie Ihr Canvas bearbeiten und aktualisieren.
 
 Anschließend kann Braze Nutzer:innen synchronisieren, sobald sie den Facebook-Audience-Sync-Schritt erreichen.
 
@@ -343,8 +343,8 @@ Um Ihre Konto- und Business-ID zu finden, führen Sie die folgenden Schritte aus
 
 {:start="5"}
 5. Sie müssen **Accept** für die Nutzungsbedingungen auswählen. Danach sehen Sie diese Nachricht: „You have accepted these terms of service on behalf of Braze“.
-6. Update or aktualisieren or aktualisieren Sie Ihr Facebook-Zugriffstoken bei Braze, indem Sie Ihr Facebook-Konto trennen und erneut verbinden.
-7. Aktivieren Sie Ihren Facebook-Audience-Sync-Schritt erneut, indem Sie Ihren Canvas bearbeiten und Update or aktualisieren or aktualisieren. Braze kann dann Nutzer:innen synchronisieren, sobald sie den Facebook-Audience-Schritt erreichen.
+6. Aktualisieren Sie Ihr Facebook-Zugriffstoken bei Braze, indem Sie Ihr Facebook-Konto trennen und erneut verbinden.
+7. Aktivieren Sie Ihren Facebook-Audience-Sync-Schritt erneut, indem Sie Ihren Canvas bearbeiten und aktualisieren. Braze kann dann Nutzer:innen synchronisieren, sobald sie den Facebook-Audience-Schritt erreichen.
 8. Falls das Problem weiterhin besteht, versuchen Sie, eine:n separate:n Nutzer:in mit Admin-Berechtigungen zu verwenden, um die Bedingungen manuell über den Ads Manager:in zu akzeptieren.
 
 #### Ausstehende Aufgaben abschließen {#complete-any-pending-tasks}

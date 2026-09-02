@@ -7,7 +7,7 @@ layout: api_page
 page_type: reference
 description: "Este artigo traz informações sobre o endpoint da Braze para listar modelos de e-mail disponíveis."
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Listar modelos de e-mail disponíveis {#list-available-email-templates}
 {% apimethod get %}
 /templates/email/list
@@ -18,7 +18,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze para list
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#eec24bf4-a3f4-47cb-b4d8-bb8f03964cca {% endapiref %}
 
 ## Pré-requisitos {#prerequisites}
-Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics) com a permissão `templates.email.list`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics) com a permissão `templates.email.list`.
 
 ## Limite de frequência {#rate-limit}
 

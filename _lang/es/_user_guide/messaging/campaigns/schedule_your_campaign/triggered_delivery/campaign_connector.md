@@ -26,8 +26,8 @@ Esta característica te permite dirigirte a usuarios que completan las siguiente
 - Hacer clic en página de historias push
 - Realizar evento de conversión
 - Recibir correo electrónico
-- Recibir servicio de mensajes cortos
-- Hacer clic en enlace acortado de servicio de mensajes cortos
+- Recibir SMS
+- Hacer clic en enlace acortado de SMS
 - Recibir notificación push
 - Recibir webhook
 - Estar inscrito en un grupo de control
@@ -36,7 +36,7 @@ Esta característica te permite dirigirte a usuarios que completan las siguiente
 - Descartar tarjeta de contenido
 
 {% alert important %}
-Los desencadenadores de Campaign Connector no se pueden usar para desencadenar campañas de mensajes dentro de la aplicación. Los mensajes dentro de la aplicación solo se pueden desencadenar mediante eventos del SDK or kit de desarrollo de software, como eventos personalizados o inicio de sesión. Para más información, consulta [Crear un mensaje dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional).
+Los desencadenadores de Campaign Connector no se pueden usar para desencadenar campañas de mensajes dentro de la aplicación. Los mensajes dentro de la aplicación solo se pueden desencadenar mediante eventos del SDK, como eventos personalizados o inicio de sesión. Para más información, consulta [Crear un mensaje dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional).
 {% endalert %}
 
 ### Reglas de entrega {#delivery-rules}

@@ -33,7 +33,7 @@ Os usuários na Braze geralmente se enquadram em um de dois estados.
 
 Um [usuário anônimo]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users) é alguém que interagiu com seu app ou site, mas ainda não recebeu um identificador do seu sistema (como um `external_id`).
 
-- Usuários anônimos são criados automaticamente quando o SDK or kit de desenvolvimento de software da Braze é inicializado
+- Usuários anônimos são criados automaticamente quando o SDK da Braze é inicializado
 - Você ainda pode rastrear eventos, atributos e engajamento com mensagens
 - Esses usuários podem receber mensagens, dependendo do canal e do status de opt-in
 
@@ -74,13 +74,13 @@ Os usuários são criados na Braze sempre que alguém interage com sua marca por
 
 {% tabs %}
 {% tab Apps para celular %}
-- Quando um usuário abre seu app pela primeira vez, o SDK or kit de desenvolvimento de software da Braze cria um perfil de usuário.
+- Quando um usuário abre seu app pela primeira vez, o SDK da Braze cria um perfil de usuário.
 - Dispositivos e tokens por push são registrados automaticamente.
 - Eventos e atributos podem ser registrados imediatamente.
 {% endtab %}
 
 {% tab Web %}
-- Os usuários são criados quando o SDK or kit de desenvolvimento de software para web é inicializado.
+- Os usuários são criados quando o SDK para web é inicializado.
 - Inscrições de push para web registram um navegador como canal de envio de mensagens.
 {% endtab %}
 
@@ -91,7 +91,7 @@ Os usuários são criados na Braze sempre que alguém interage com sua marca por
 {% endtab %}
 
 {% tab APIs e integrações %}
-- Você pode criar ou atualizar usuários diretamente por meio de [REST or transferir estado representacional APIs]({{site.baseurl}}/api/endpoints/user_data) ou [importando um CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import).
+- Você pode criar ou atualizar usuários diretamente por meio de [REST APIs]({{site.baseurl}}/api/endpoints/user_data) ou [importando um CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import).
 - Ferramentas externas (como CDPs, CRMs ou data warehouses) podem sincronizar usuários na Braze automaticamente.
 {% endtab %}
 {% endtabs %}
@@ -120,7 +120,7 @@ Quando os usuários interagem com seu app ou mensagens, a Braze registra:
 {% tab Seus sistemas %}
 Você pode enviar dados das suas próprias ferramentas para a Braze usando:
 
-- [REST or transferir estado representacional APIs]({{site.baseurl}}/api/endpoints/user_data)
+- [REST APIs]({{site.baseurl}}/api/endpoints/user_data)
 - [Uploads de CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import)
 - Sincronizações de dados programadas
 

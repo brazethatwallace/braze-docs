@@ -280,13 +280,13 @@ tool: Currents
 * Se añadió un nuevo tipo de evento `users.messages.rcs.Send`.
 
 * Cambios de campo en el tipo de evento `users.messages.sms.Delivery`:
-    * Se añadió un nuevo campo `boolean` `is_sms_fallback`: Indica que se envió un mensaje servicio de mensajes cortos alternativo debido a un mensaje RCS rechazado. El mensaje puede resultar en entrega, fallo de entrega o rechazo. Se puede vincular al evento de rechazo de RCS mediante un ID de envío y un ID de despacho
+    * Se añadió un nuevo campo `boolean` `is_sms_fallback`: Indica que se envió un mensaje SMS alternativo debido a un mensaje RCS rechazado. El mensaje puede resultar en entrega, fallo de entrega o rechazo. Se puede vincular al evento de rechazo de RCS mediante un ID de envío y un ID de despacho
 
 * Cambios de campo en el tipo de evento `users.messages.sms.DeliveryFailure`:
-    * Se añadió un nuevo campo `boolean` `is_sms_fallback`: Indica que se envió un mensaje servicio de mensajes cortos alternativo debido a un mensaje RCS rechazado. El mensaje puede resultar en entrega, fallo de entrega o rechazo. Se puede vincular al evento de rechazo de RCS mediante un ID de envío y un ID de despacho
+    * Se añadió un nuevo campo `boolean` `is_sms_fallback`: Indica que se envió un mensaje SMS alternativo debido a un mensaje RCS rechazado. El mensaje puede resultar en entrega, fallo de entrega o rechazo. Se puede vincular al evento de rechazo de RCS mediante un ID de envío y un ID de despacho
 
 * Cambios de campo en el tipo de evento `users.messages.sms.Rejection`:
-    * Se añadió un nuevo campo `boolean` `is_sms_fallback`: Indica que se envió un mensaje servicio de mensajes cortos alternativo debido a un mensaje RCS rechazado. El mensaje puede resultar en entrega, fallo de entrega o rechazo. Se puede vincular al evento de rechazo de RCS mediante un ID de envío y un ID de despacho
+    * Se añadió un nuevo campo `boolean` `is_sms_fallback`: Indica que se envió un mensaje SMS alternativo debido a un mensaje RCS rechazado. El mensaje puede resultar en entrega, fallo de entrega o rechazo. Se puede vincular al evento de rechazo de RCS mediante un ID de envío y un ID de despacho
 
 * Cambios de campo en el tipo de evento `users.messages.whatsapp.Delivery`:
     * Se añadió un nuevo campo `string` `flow_id`: El ID único del flujo en WhatsApp Administrador. Presente si el mensaje incluye un CTA para responder a un flujo de WhatsApp

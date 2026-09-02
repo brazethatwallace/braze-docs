@@ -14,7 +14,7 @@ channel:
 
 Este tipo de mensaje está disponible en el [editor tradicional]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional).
 
-Si recopilas correos electrónicos a través de un formulario personalizado en lugar de este tipo de mensaje dentro de la aplicación, y luego estableces la membresía del grupo de suscripción a través de la REST or transferencia de estado representacional API, verifica si ya existe un perfil antes de crear un usuario. Consulta [Mejores prácticas de recopilación]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices#step-1-check-if-the-user-exists).
+Si recopilas correos electrónicos a través de un formulario personalizado en lugar de este tipo de mensaje dentro de la aplicación, y luego estableces la membresía del grupo de suscripción a través de la REST API, verifica si ya existe un perfil antes de crear un usuario. Consulta [Mejores prácticas de recopilación]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices#step-1-check-if-the-user-exists).
 
 ## Cómo funciona {#how-it-works}
 
@@ -51,7 +51,7 @@ Para más información, consulta el [Ciclo de vida del perfil de usuario]({{site
 Para acceder a esta opción, debes crear una campaña de mensajería dentro de la aplicación. A partir de ahí, según tu caso de uso, establece **Send To** en **Web Browsers**, **Mobile Apps** o **Both Mobile Apps & Web Browsers**, y luego selecciona **Email Capture Form** como tu **Message Type**.
 
 {% alert note %}
-**¿Te diriges a usuarios web?** <br>Para habilitar los mensajes HTML dentro de la aplicación a través del SDK or kit de desarrollo de software Web, debes proporcionar la opción de inicialización `allowUserSuppliedJavascript` a Braze, por ejemplo, `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Esto es por razones de seguridad, ya que los mensajes HTML dentro de la aplicación pueden ejecutar JavaScript, por lo que requerimos que un responsable del sitio los habilite.
+**¿Te diriges a usuarios web?** <br>Para habilitar los mensajes HTML dentro de la aplicación a través del SDK Web, debes proporcionar la opción de inicialización `allowUserSuppliedJavascript` a Braze, por ejemplo, `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Esto es por razones de seguridad, ya que los mensajes HTML dentro de la aplicación pueden ejecutar JavaScript, por lo que requerimos que un responsable del sitio los habilite.
 {% endalert %}
 
 ## Paso 2: Personaliza el formulario {#customizable-features}

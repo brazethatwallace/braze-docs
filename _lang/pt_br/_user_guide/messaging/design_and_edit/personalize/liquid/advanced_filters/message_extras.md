@@ -34,7 +34,7 @@ Os extras de e-mail enviam metadados para provedores de serviços de e-mail e n�
 
 ## Canais compatíveis {#supported-channels}
 
-A tag `message_extras` é compatível com todos os tipos de mensagem que possuem um evento de envio, além de eventos de impressão de mensagens no app. O uso de `message_extras` com mensagens no app requer que certas [versões mínimas do SDK or kit de desenvolvimento de software](#iam-sdk) sejam atendidas.
+A tag `message_extras` é compatível com todos os tipos de mensagem que possuem um evento de envio, além de eventos de impressão de mensagens no app. O uso de `message_extras` com mensagens no app requer que certas [versões mínimas do SDK](#iam-sdk) sejam atendidas.
 
 ## Como usar a tag `message_extras` {#how-to-use-the-message_extras-tag}
 
@@ -82,6 +82,6 @@ Um `dispatch_id` é gerado e fornecido nos seus eventos de envio, e pode ser usa
 
 #### Posso usar message_extras com mensagens no app? {#iam-sdk}
 
-Sim, você pode usar `message_extras` nas suas mensagens no app, desde que os dispositivos dos seus usuários estejam nas seguintes versões mínimas do SDK or kit de desenvolvimento de software:
+Sim, você pode usar `message_extras` nas suas mensagens no app, desde que os dispositivos dos seus usuários estejam nas seguintes versões mínimas do SDK:
 
 {% sdk_min_versions web:5.2.0 android:30.4.0 swift:8.4.0 %}

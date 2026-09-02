@@ -17,12 +17,12 @@ noindex: true
 De manera predeterminada, Braze desactiva el seguimiento de ubicación. Habilitamos el seguimiento de ubicación después de que la aplicación anfitriona haya optado por el seguimiento de ubicación y haya obtenido el permiso del usuario. Siempre que los usuarios hayan optado por el seguimiento de ubicación, Braze registrará una única ubicación para cada usuario al inicio de la sesión.
 
 {% alert important %}
-Para que el seguimiento de ubicación funcione de forma fiable en iOS 14 para los usuarios que den permiso de ubicación aproximada, debes actualizar tu versión del SDK or kit de desarrollo de software al menos a `3.26.1`.
+Para que el seguimiento de ubicación funcione de forma fiable en iOS 14 para los usuarios que den permiso de ubicación aproximada, debes actualizar tu versión del SDK al menos a `3.26.1`.
 {% endalert %}
 
 ## Habilitación del seguimiento de ubicación automático
 
-A partir del SDK or kit de desarrollo de software para iOS de Braze `v3.17.0`, el seguimiento de ubicación está desactivado de manera predeterminada. Puedes habilitar el seguimiento de ubicación automático mediante el archivo `Info.plist`. Añade el diccionario `Braze` a tu archivo `Info.plist`. Dentro del diccionario `Braze`, añade la subentrada booleana `EnableAutomaticLocationCollection` y establece el valor `YES`. Ten en cuenta que, antes de la versión 4.0.2 del SDK or kit de desarrollo de software de iOS de Braze, debe usarse la clave de diccionario `Appboy` en lugar de `Braze`.
+A partir del SDK para iOS de Braze `v3.17.0`, el seguimiento de ubicación está desactivado de manera predeterminada. Puedes habilitar el seguimiento de ubicación automático mediante el archivo `Info.plist`. Añade el diccionario `Braze` a tu archivo `Info.plist`. Dentro del diccionario `Braze`, añade la subentrada booleana `EnableAutomaticLocationCollection` y establece el valor `YES`. Ten en cuenta que, antes de la versión 4.0.2 del SDK de iOS de Braze, debe usarse la clave de diccionario `Appboy` en lugar de `Braze`.
 
 También puedes habilitar el seguimiento de ubicación automático al iniciar la aplicación mediante el método [`startWithApiKey:inApplication:withLaunchOptions:withAppboyOptions`](https://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#aa9f1bd9e4a5c082133dd9cc344108b24). En el diccionario `appboyOptions`, establece `ABKEnableAutomaticLocationCollectionKey` en `YES`. Por ejemplo:
 

@@ -56,9 +56,9 @@ window.braze.getUser().setGender("f")
 
 ### Standardattribute zurücksetzen {#unsetting-default-attributes}
 
-Sie können ein Nutzerattribut über Ihren App-Code, eine Representational State Transfer-API-Anfrage oder einen [User Update or aktualisieren]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)-Canvas-Schritt entfernen oder zurücksetzen. Verwenden Sie für Array- und boolesche Attribute `null`. Für andere Datentypen verwenden Sie einen leeren String (`""`).
+Sie können ein Nutzerattribut über Ihren App-Code, eine REST-API-Anfrage oder einen [User Update]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)-Canvas-Schritt entfernen oder zurücksetzen. Verwenden Sie für Array- und boolesche Attribute `null`. Für andere Datentypen verwenden Sie einen leeren String (`""`).
 
-Um ein Standard-Nutzerattribut mit dem Web SDK or Software-Development-Kit zurückzusetzen, übergeben Sie `null` an die entsprechende Methode. Zum Beispiel:
+Um ein Standard-Nutzerattribut mit dem Web SDK zurückzusetzen, übergeben Sie `null` an die entsprechende Methode. Zum Beispiel:
 
 {% tabs local %}
 {% tab Vorname %}
@@ -140,7 +140,7 @@ braze.getUser().setCustomUserAttribute(
 {% endsubtab %}
 {% subtab Array %}
 
-Die standardmäßige und maximale Höchstzahl an Elementen in einem Array beträgt 500. Sie können die Höchstzahl an Elementen im Braze-Dashboard unter **Data Settings** > **angepasste Attribute** Update or aktualisieren or aktualisieren. Arrays, die die Höchstzahl an Elementen überschreiten, werden auf die Höchstzahl an Elementen gekürzt.
+Die standardmäßige und maximale Höchstzahl an Elementen in einem Array beträgt 500. Sie können die Höchstzahl an Elementen im Braze-Dashboard unter **Data Settings** > **angepasste Attribute** aktualisieren. Arrays, die die Höchstzahl an Elementen überschreiten, werden auf die Höchstzahl an Elementen gekürzt.
 
 
 So legen Sie ein angepasstes Attribut mit einem `array`-Wert fest:
@@ -193,7 +193,7 @@ braze.getUser().setCustomUserAttribute(YOUR_ATTRIBUTE_KEY_STRING, null);
 
 ### Verschachtelte angepasste Attribute {#nesting-custom-attributes}
 
-Sie können auch Eigenschaften innerhalb angepasster Attribute verschachteln. Im folgenden Beispiel wird ein `favorite_book`-Objekt mit verschachtelten Eigenschaften als angepasstes Attribut im Kundenprofil or Nutzerprofil festgelegt. Weitere Details finden Sie unter [Verschachtelte angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
+Sie können auch Eigenschaften innerhalb angepasster Attribute verschachteln. Im folgenden Beispiel wird ein `favorite_book`-Objekt mit verschachtelten Eigenschaften als angepasstes Attribut im Kundenprofil festgelegt. Weitere Details finden Sie unter [Verschachtelte angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
 
 ```javascript
 import * as braze from "@braze/web-sdk";
@@ -207,9 +207,9 @@ const favoriteBook = {
 braze.getUser().setCustomUserAttribute("favorite_book", favoriteBook);
 ```
 
-### Representational State Transfer API verwenden {#using-the-rest-api}
+### REST API verwenden {#using-the-rest-api}
 
-Sie können auch unsere Representational State Transfer API verwenden, um Nutzerattribute festzulegen oder zurückzusetzen. Weitere Informationen finden Sie unter [Nutzerdaten-Endpunkte]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data).
+Sie können auch unsere REST API verwenden, um Nutzerattribute festzulegen oder zurückzusetzen. Weitere Informationen finden Sie unter [Nutzerdaten-Endpunkte]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data).
 
 ## Nutzer:innen-Abos festlegen {#setting-user-subscriptions}
 
@@ -222,7 +222,7 @@ Um ein Abo für Ihre Nutzer:innen einzurichten (entweder E-Mail oder Push), rufe
 | `braze.User.NotificationSubscriptionTypes.UNSUBSCRIBED` | Abgemeldet und/oder explizites Opt-out |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Nutzer:innen-Abos festlegen" }
 
-Wenn sich Nutzer:innen für Push Registrierung or registrieren, fordert der Browser sie auf, Benachrichtigungen zuzulassen oder zu blockieren. Wenn sie Push zulassen, werden sie standardmäßig auf `OPTED_IN` gesetzt.
+Wenn sich Nutzer:innen für Push Registrierung, fordert der Browser sie auf, Benachrichtigungen zuzulassen oder zu blockieren. Wenn sie Push zulassen, werden sie standardmäßig auf `OPTED_IN` gesetzt.
 
 Weitere Informationen zur Implementierung von Abos und expliziten Opt-ins finden Sie unter [Nutzer:innen-Abos verwalten]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions#managing-user-subscriptions).
 

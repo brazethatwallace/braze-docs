@@ -160,7 +160,7 @@ Symptôme : une erreur `403 Forbidden` lors du téléchargement depuis l'URL de 
 
 Si vous obtenez une erreur `403 Forbidden` en utilisant l'[endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment), le fichier n'est peut-être pas encore prêt. Les exportations volumineuses peuvent prendre un certain temps à traiter. Attendez jusqu'à une heure avant de relancer le téléchargement.
 
-Si vous utilisez un script automatisé pour récupérer le fichier, vous pouvez également recevoir une erreur `403 Forbidden` lorsque vous demandez l'URL trop tôt. Si vous exportez régulièrement des données de Segments, envisagez de connecter votre propre intégration de compartiment S3 et de transmettre les fichiers vers votre propre pipeline ETL (ETL or extraire, transformer, charger).
+Si vous utilisez un script automatisé pour récupérer le fichier, vous pouvez également recevoir une erreur `403 Forbidden` lorsque vous demandez l'URL trop tôt. Si vous exportez régulièrement des données de Segments, envisagez de connecter votre propre intégration de compartiment S3 et de transmettre les fichiers vers votre propre pipeline ETL (ETL).
 
 Les exportations nécessitent du temps pour se terminer, c'est pourquoi un accès immédiat depuis un script échoue souvent. Vous pouvez :
 

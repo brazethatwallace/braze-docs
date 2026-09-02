@@ -30,21 +30,21 @@ No exemplo a seguir, o atributo personalizado `favorite_book` contém os atribut
 
 ## Considerações {#considerations}
 
-- Os atributos personalizados aninhados são destinados a atributos personalizados enviados por meio do SDK or kit de desenvolvimento de software ou da API or interface de programação do aplicativo (API) da Braze.
+- Os atributos personalizados aninhados são destinados a atributos personalizados enviados por meio do SDK ou da API da Braze.
 - Os objetos têm um tamanho máximo de 100&nbsp;KB. Se uma atualização fizer com que o objeto exceda 100&nbsp;KB, a Braze descarta a atualização e o atributo permanece inalterado.
 - Os nomes de chave e os valores de string têm um limite de tamanho de 255 caracteres.
 - Os nomes de chave não podem conter espaços.
-- Pontos (`.`) e cifrões (`$`) não são caracteres compatíveis em uma carga útil da API or interface de programação do aplicativo (API) se você estiver tentando enviar um atributo personalizado aninhado para um perfil de usuário.
+- Pontos (`.`) e cifrões (`$`) não são caracteres compatíveis em uma carga útil da API se você estiver tentando enviar um atributo personalizado aninhado para um perfil de usuário.
 - Nem todos os parceiros da Braze oferecem suporte a atributos personalizados aninhados. Consulte a [documentação de parceiros]({{site.baseurl}}/partners/home) para confirmar se integrações específicas com parceiros oferecem suporte a esse recurso.
-- Os atributos personalizados aninhados não podem ser usados como filtro ao fazer uma chamada de API or interface de programação do aplicativo (API) de Connected Audience.
-- Por padrão, o filtro de Segment or segmento **Atributos personalizados aninhados** inclui atributos personalizados do tipo objeto, atributos de vetor de objetos e atributos personalizados do tipo vetor. Ao selecionar um atributo, o seletor de esquema de propriedade inclui caminhos de vetor (usando a notação `[]`) para campos de vetor aninhados. Para ocultar atributos personalizados de vetor de nível superior desse filtro, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support).
+- Os atributos personalizados aninhados não podem ser usados como filtro ao fazer uma chamada de API de Connected Audience.
+- Por padrão, o filtro de Segment **Atributos personalizados aninhados** inclui atributos personalizados do tipo objeto, atributos de vetor de objetos e atributos personalizados do tipo vetor. Ao selecionar um atributo, o seletor de esquema de propriedade inclui caminhos de vetor (usando a notação `[]`) para campos de vetor aninhados. Para ocultar atributos personalizados de vetor de nível superior desse filtro, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 - Ao pré-visualizar mensagens no dashboard usando **prévia as a Custom User**, você pode inserir dados simulados apenas como uma string ou vetor de strings — objetos aninhados não são compatíveis. Para pré-visualizar uma mensagem que faz referência a atributos personalizados aninhados, selecione um usuário existente que já tenha o atributo aninhado em seu perfil. Para propriedades de eventos personalizados aninhados, você precisa lançar uma campanha ativa direcionada a um usuário teste para verificar a renderização.
 
-## Exemplo de API or interface de programação do aplicativo (API) {#api-example}
+## Exemplo de API {#api-example}
 
 {% tabs local %}
 {% tab Criar %}
-A seguir, um exemplo de `/users/track` com um objeto "Most Played Song". Para capturar as propriedades da música, enviaremos uma solicitação de API or interface de programação do aplicativo (API) que lista `most_played_song` como um objeto, junto com um conjunto de propriedades do objeto.
+A seguir, um exemplo de `/users/track` com um objeto "Most Played Song". Para capturar as propriedades da música, enviaremos uma solicitação de API que lista `most_played_song` como um objeto, junto com um conjunto de propriedades do objeto.
 
 ```json
 {
@@ -126,14 +126,14 @@ Essa abordagem não pode ser usada para excluir uma chave aninhada dentro de um 
 {% endtab %}
 {% endtabs %}
 
-## Exemplo de SDK or kit de desenvolvimento de software {#sdk-example}
+## Exemplo de SDK {#sdk-example}
 
 {% sdk_min_versions android:25.0.0 ios:6.1.0 web:4.7.0 unity:5.1.0 %}
 
-Os exemplos a seguir mostram como criar, atualizar por mesclagem e excluir o mesmo objeto de atributo personalizado aninhado (`most_played_song`) em cada SDK or kit de desenvolvimento de software.
+Os exemplos a seguir mostram como criar, atualizar por mesclagem e excluir o mesmo objeto de atributo personalizado aninhado (`most_played_song`) em cada SDK.
 
 {% tabs local %}
-{% tab Android SDK or kit de desenvolvimento de software %}
+{% tab Android SDK %}
 
 **Criar**
 ```kotlin
@@ -172,7 +172,7 @@ braze.getCurrentUser { user ->
 ```
 
 {% endtab %}
-{% tab Swift SDK or kit de desenvolvimento de software %}
+{% tab Swift SDK %}
 
 **Criar**
 ```swift
@@ -205,7 +205,7 @@ braze.user.unsetCustomAttribute(key: "most_played_song")
 ```
 
 {% endtab %}
-{% tab Web SDK or kit de desenvolvimento de software %}
+{% tab Web SDK %}
 
 **Criar**
 ```javascript
@@ -240,7 +240,7 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 ```
 
 {% endtab %}
-{% tab Unity SDK or kit de desenvolvimento de software %}
+{% tab Unity SDK %}
 
 **Criar**
 ```csharp
@@ -302,7 +302,7 @@ Para atributos personalizados aninhados, se o ano for menor que 0 ou maior que 3
 
 ## Templating com Liquid {#liquid-templating}
 
-O exemplo de templating com Liquid a seguir mostra como referenciar as propriedades do objeto de atributo personalizado salvas a partir da requisição de API or interface de programação do aplicativo (API) anterior e usá-las no seu envio de mensagens.
+O exemplo de templating com Liquid a seguir mostra como referenciar as propriedades do objeto de atributo personalizado salvas a partir da requisição de API anterior e usá-las no seu envio de mensagens.
 
 Use a tag de personalização `custom_attribute` e a notação de ponto para acessar propriedades em um objeto. Especifique o nome do objeto (e a posição no vetor, se estiver referenciando um vetor de objetos), seguido de um ponto (período), seguido do nome da propriedade.
 
@@ -408,11 +408,11 @@ Para diagnosticar e resolver esse problema:
    - Após o esquema ser gerado, selecione o ícone de mais na coluna **Attribute Name** desse atributo.
    - No modal **Edit schema**, revise os atributos aninhados e seus valores correspondentes na coluna **Data type**.
 
-Se você descobrir que o tipo de dados não corresponde ao formato pretendido nos perfis de usuário, remova o valor formatado incorretamente dos perfis de usuário afetados e reenvie o atributo no formato correto usando a requisição de API or interface de programação do aplicativo (API) ou o método do SDK or kit de desenvolvimento de software apropriado.
+Se você descobrir que o tipo de dados não corresponde ao formato pretendido nos perfis de usuário, remova o valor formatado incorretamente dos perfis de usuário afetados e reenvie o atributo no formato correto usando a requisição de API ou o método do SDK apropriado.
 
 ## Comportamento da segmentação com vetores de objetos {#segmentation-behavior-with-arrays-of-objects}
 
-Quando você usa vários filtros de `Nested Custom Attribute` com lógica AND para segmentar em um vetor de objetos, cada filtro é avaliado independentemente em todos os itens do vetor. Um usuário se qualifica para o Segment or segmento se _qualquer_ item no vetor satisfizer cada filtro individual — os filtros não precisam corresponder ao _mesmo_ item.
+Quando você usa vários filtros de `Nested Custom Attribute` com lógica AND para segmentar em um vetor de objetos, cada filtro é avaliado independentemente em todos os itens do vetor. Um usuário se qualifica para o Segment se _qualquer_ item no vetor satisfizer cada filtro individual — os filtros não precisam corresponder ao _mesmo_ item.
 
 Por exemplo, suponha que um usuário tenha o seguinte vetor:
 
@@ -425,12 +425,12 @@ Por exemplo, suponha que um usuário tenha o seguinte vetor:
 }
 ```
 
-Um Segment or segmento com os seguintes filtros AND:
+Um Segment com os seguintes filtros AND:
 
 - `orders[].price` é maior que 50
 - `orders[].price` é menor que 30
 
-Esse usuário se qualificaria porque o primeiro filtro corresponde ao item "Shoes" (80 > 50) e o segundo filtro corresponde ao item "Hat" (25 < 30). Mesmo que nenhum item individual satisfaça ambas as condições, o usuário ainda entra no Segment or segmento.
+Esse usuário se qualificaria porque o primeiro filtro corresponde ao item "Shoes" (80 > 50) e o segundo filtro corresponde ao item "Hat" (25 < 30). Mesmo que nenhum item individual satisfaça ambas as condições, o usuário ainda entra no Segment.
 
 Se você precisa que todas as condições correspondam ao mesmo item dentro de um vetor, use a [segmentação multicritério]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#use-multi-criteria-segmentation) no mesmo caminho, ou reestruture seus dados para evitar correspondência entre itens diferentes.
 

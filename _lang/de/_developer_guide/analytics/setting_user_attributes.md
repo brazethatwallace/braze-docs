@@ -2,12 +2,12 @@
 nav_title: Nutzerattribute festlegen
 article_title: Nutzerattribute festlegen
 page_order: 1.2
-description: "Erfahren Sie, wie Sie Nutzerattribute mit dem Braze SDK or Software-Development-Kit festlegen können."
+description: "Erfahren Sie, wie Sie Nutzerattribute mit dem Braze SDK festlegen können."
 ---
 
 # Nutzerattribute festlegen {#set-user-attributes}
 
-> Erfahren Sie, wie Sie Nutzerattribute mit dem Braze SDK or Software-Development-Kit festlegen können.
+> Erfahren Sie, wie Sie Nutzerattribute mit dem Braze SDK festlegen können.
 
 {% alert note %}
 Für Wrapper-SDKs, die nicht aufgeführt sind, verwenden Sie stattdessen die entsprechende native Android- oder Swift-Methode.

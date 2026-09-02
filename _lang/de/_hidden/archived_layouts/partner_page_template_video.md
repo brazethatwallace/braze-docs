@@ -57,7 +57,7 @@ Die folgenden Anforderungen sind typische Voraussetzungen, die Sie möglicherwei
 
 | Anforderung | Herkunft | Zugang | Beschreibung |
 |---|---|---|---|
-| Representational State Transfer-API-Schlüssel des Braze-Workspace | Braze-Plattform | Seite **Einstellungen** > **App-Einstellungen** | Diese Beschreibung sollte erklären, was mit dem Representational State Transfer-API-Schlüssel des Workspace zu tun ist. |
+| REST-API-Schlüssel des Braze-Workspace | Braze-Plattform | Seite **Einstellungen** > **App-Einstellungen** | Diese Beschreibung sollte erklären, was mit dem REST-API-Schlüssel des Workspace zu tun ist. |
 | Braze-API-Endpunkt | Braze-Plattform | Sehen Sie sich unsere [aufgelisteten Endpunkte]({{site.baseurl}}/api/basics#endpoints) an oder eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support). | Beschreibung ausstehend. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Voraussetzungen" }
 

@@ -1,26 +1,26 @@
 ## Acerca de Google Tag Administrador para Web {#google-tag-manager}
 
-Google Tag Administrador (GTM) te permite añadir, eliminar y editar etiquetas de forma remota en tu sitio web sin necesidad de liberar código de producción ni recursos de ingeniería. Braze ofrece las siguientes plantillas para el SDK or kit de desarrollo de software Web:
+Google Tag Administrador (GTM) te permite añadir, eliminar y editar etiquetas de forma remota en tu sitio web sin necesidad de liberar código de producción ni recursos de ingeniería. Braze ofrece las siguientes plantillas para el SDK Web:
 
 | Tipo de etiqueta | Caso de uso |
 |--------|--------|
-| Etiqueta de inicialización | Esta etiqueta te permite [integrar el SDK or kit de desarrollo de software Web de Braze]({{site.baseurl}}/developer_guide/sdk_integration/?tab=google%20tag%20manager&sdktab=web) sin necesidad de modificar el código de tu sitio. |
+| Etiqueta de inicialización | Esta etiqueta te permite [integrar el SDK Web de Braze]({{site.baseurl}}/developer_guide/sdk_integration/?tab=google%20tag%20manager&sdktab=web) sin necesidad de modificar el código de tu sitio. |
 | Etiqueta de acción | Esta etiqueta te permite [crear Content Cards]({{site.baseurl}}/developer_guide/content_cards/?sdktab=web#web_using-google-tag-manager), [establecer atributos de usuario]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?tab=google%20tag%20manager&sdktab=web) y [administrar la recopilación de datos]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?tab=google%20tag%20manager&sdktab=web). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Acerca de Google Tag Administrador para Web" }
 
 ## Secuenciación de etiquetas para las etiquetas de acción de Braze {#tag-sequencing-for-braze-action-tags}
 
-Los eventos personalizados y otras etiquetas de acción de Braze pueden fallar cuando se activan antes de que la etiqueta **Braze Initialization** termine de cargar el SDK or kit de desarrollo de software Web. En Google Tag Administrador, abre la etiqueta de acción, ve a **Advanced Settings** > **Tag Sequencing**, selecciona **A tag that fires before [this tag] is fired** y elige tu etiqueta Braze Initialization.
+Los eventos personalizados y otras etiquetas de acción de Braze pueden fallar cuando se activan antes de que la etiqueta **Braze Initialization** termine de cargar el SDK Web. En Google Tag Administrador, abre la etiqueta de acción, ve a **Advanced Settings** > **Tag Sequencing**, selecciona **A tag that fires before [this tag] is fired** y elige tu etiqueta Braze Initialization.
 
 Para más detalles, consulta [Verificar la secuenciación de etiquetas para eventos personalizados]({{site.baseurl}}/developer_guide/content_cards/?sdktab=web#tag-sequencing).
 
 ## Registrar compras con GTM {#log-purchases-with-gtm}
 
-En las etiquetas de acción de Braze y las etiquetas Custom HTML, llama a `braze.logPurchase()` para registrar ingresos. El espacio de nombres heredado `appboy.logPurchase()` no es compatible con las integraciones actuales del SDK or kit de desarrollo de software Web.
+En las etiquetas de acción de Braze y las etiquetas Custom HTML, llama a `braze.logPurchase()` para registrar ingresos. El espacio de nombres heredado `appboy.logPurchase()` no es compatible con las integraciones actuales del SDK Web.
 
 ## Registro de eventos personalizados con GTM {#logging-custom-events-with-gtm}
 
-Puedes registrar eventos personalizados utilizando una etiqueta **Custom HTML** en GTM. Este enfoque utiliza la [capa de datos](https://developers.google.com/tag-platform/tag-manager/datalayer) de GTM para pasar datos de eventos desde tu sitio a una etiqueta GTM que llama al SDK or kit de desarrollo de software Web de Braze.
+Puedes registrar eventos personalizados utilizando una etiqueta **Custom HTML** en GTM. Este enfoque utiliza la [capa de datos](https://developers.google.com/tag-platform/tag-manager/datalayer) de GTM para pasar datos de eventos desde tu sitio a una etiqueta GTM que llama al SDK Web de Braze.
 
 ### Paso 1: Envía el evento a la capa de datos {#step-1-push-the-event-to-the-data-layer}
 

@@ -23,8 +23,8 @@ Die Integration von Braze und Knak ermöglicht es Ihnen, vollständig responsive
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | Knak-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Knak-Konto. |
-| Braze Representational State Transfer-API-Schlüssel | Ein Braze Representational State Transfer-API-Schlüssel mit vollständigen **Templates**-Berechtigungen. <br><br>Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze Representational State Transfer-Endpunkt | [Ihre Representational State Transfer-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
+| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit vollständigen **Templates**-Berechtigungen. <br><br>Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
@@ -42,7 +42,7 @@ Navigieren Sie in Knak zu **Integrations > Platforms > + Add New Integration**.
 
 ![Button „Integration hinzufügen“]({% image_buster /assets/img/knak/integration-setup-step-2-add-new-integration.png %})
 
-Wählen Sie als Nächstes die Plattform **Braze** aus und geben Sie den Braze-API-Schlüssel sowie den Representational State Transfer-Endpunkt ein. Klicken Sie auf **Create New Integration**, um Ihre Integration abzuschließen.
+Wählen Sie als Nächstes die Plattform **Braze** aus und geben Sie den Braze-API-Schlüssel sowie den REST-Endpunkt ein. Klicken Sie auf **Create New Integration**, um Ihre Integration abzuschließen.
 
 ![Neue Integration erstellen]({% image_buster /assets/img/knak/integration-setup-step-4-add-api-key.png %})
 

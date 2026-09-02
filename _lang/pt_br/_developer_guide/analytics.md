@@ -1,8 +1,8 @@
 ---
 nav_title: Análise de dados
-article_title: Sobre a análise de dados do SDK or kit de desenvolvimento de software da Braze
+article_title: Sobre a análise de dados do SDK da Braze
 page_order: 2.6
-description: "Saiba mais sobre a análise de dados do SDK or kit de desenvolvimento de software da Braze, para que você possa entender melhor quais dados a Braze coleta, a diferença entre eventos personalizados e atributos personalizados, e as melhores práticas para gerenciar a análise de dados."
+description: "Saiba mais sobre a análise de dados do SDK da Braze, para que você possa entender melhor quais dados a Braze coleta, a diferença entre eventos personalizados e atributos personalizados, e as melhores práticas para gerenciar a análise de dados."
 platform:
   - Android
   - Swift
@@ -18,7 +18,7 @@ platform:
 
 # Análise de dados {#analytics}
 
-> Saiba mais sobre a análise de dados do SDK or kit de desenvolvimento de software da Braze, para que você possa entender melhor quais dados a Braze coleta, a diferença entre eventos personalizados e atributos personalizados, e as melhores práticas para gerenciar a análise de dados.
+> Saiba mais sobre a análise de dados do SDK da Braze, para que você possa entender melhor quais dados a Braze coleta, a diferença entre eventos personalizados e atributos personalizados, e as melhores práticas para gerenciar a análise de dados.
 
 {% alert tip %}
 Durante a sua implementação da Braze, certifique-se de discutir as metas de marketing com sua equipe, para que você possa decidir da melhor forma quais dados deseja rastrear e como deseja rastreá-los com a Braze. Como exemplo, veja nosso estudo de caso de [aplicativo de táxi/viagem por aplicativo](#example-case) no final deste guia.
@@ -26,9 +26,9 @@ Durante a sua implementação da Braze, certifique-se de discutir as metas de ma
 
 ## Dados coletados automaticamente {#automatically-collected-data}
 
-Certos dados de usuários são coletados automaticamente pelo nosso SDK or kit de desenvolvimento de software — por exemplo, Primeiro uso do app, Último uso do app, Contagem total de sessões, Sistema operacional do dispositivo, etc. Se você seguir nossos guias de integração para implementar nossos SDKs, poderá aproveitar essa [coleta de dados padrão]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection). Verificar essa lista pode ajudar você a evitar armazenar a mesma informação sobre os usuários mais de uma vez. Com exceção do início e do fim de sessão, todos os outros dados rastreados automaticamente não contam para o seu uso de pontos de dados.
+Certos dados de usuários são coletados automaticamente pelo nosso SDK — por exemplo, Primeiro uso do app, Último uso do app, Contagem total de sessões, Sistema operacional do dispositivo, etc. Se você seguir nossos guias de integração para implementar nossos SDKs, poderá aproveitar essa [coleta de dados padrão]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection). Verificar essa lista pode ajudar você a evitar armazenar a mesma informação sobre os usuários mais de uma vez. Com exceção do início e do fim de sessão, todos os outros dados rastreados automaticamente não contam para o seu uso de pontos de dados.
 
-Consulte nosso artigo [Introdução ao SDK or kit de desenvolvimento de software]({{site.baseurl}}/developer_guide/getting_started/sdk_overview) para adicionar processos à lista de permissões que bloqueiam a coleta padrão de determinados itens de dados.
+Consulte nosso artigo [Introdução ao SDK]({{site.baseurl}}/developer_guide/getting_started/sdk_overview) para adicionar processos à lista de permissões que bloqueiam a coleta padrão de determinados itens de dados.
 
 ## Eventos personalizados {#custom-events}
 
@@ -48,7 +48,7 @@ Eventos personalizados são ações realizadas pelos seus usuários; eles são i
 | Verificar se o evento personalizado ocorreu **exatamente X (Máx = 50) vezes** | **EXACTLY** | nos últimos **Y dias (Y = 1,3,7,14,21,30)** |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Eventos personalizados" }
 
-A Braze registra o número de vezes que esses eventos ocorreram, bem como a última vez que foram realizados por cada usuário para segmentação. Na página de análise de dados de **Custom Events**, você pode visualizar de forma agregada com que frequência cada evento personalizado ocorre, assim como por Segment or segmento or segmento ao longo do tempo para uma análise mais detalhada. Isso é particularmente útil para ver como suas campanhas afetaram a atividade de eventos personalizados, observando as linhas cinzas que a Braze sobrepõe na série temporal para indicar a última vez que uma campanha foi enviada.
+A Braze registra o número de vezes que esses eventos ocorreram, bem como a última vez que foram realizados por cada usuário para segmentação. Na página de análise de dados de **Custom Events**, você pode visualizar de forma agregada com que frequência cada evento personalizado ocorre, assim como por Segment ao longo do tempo para uma análise mais detalhada. Isso é particularmente útil para ver como suas campanhas afetaram a atividade de eventos personalizados, observando as linhas cinzas que a Braze sobrepõe na série temporal para indicar a última vez que uma campanha foi enviada.
 
 ![Um gráfico de análise de dados de evento personalizado mostrando estatísticas de usuários que adicionaram um cartão de crédito e fizeram uma pesquisa ao longo de um período de trinta dias.]({% image_buster /assets/img_archive/custom_event_analytics_example.png %} "custom_event_analytics_example.png")
 
@@ -82,7 +82,7 @@ Talk to villagers for essential tips on how to beat levels!
 ```
 {% endraw %}
 
-As propriedades de eventos personalizados foram projetadas para ajudar você a personalizar suas mensagens ou criar campanhas granulares de entrega baseada em ação. Se você deseja criar segmentos com base na recência e frequência de propriedades de eventos, entre em contato com seu gerente de sucesso do cliente ou com nossa equipe de suporte.
+As propriedades de eventos personalizados foram projetadas para ajudar você a personalizar suas mensagens ou criar campanhas granulares de entrega baseada em ação. Se você deseja criar segmentos com base na recência e frequência de propriedades de eventos, entre em contato com seu CSM ou com nossa equipe de suporte.
 
 ## Atributos personalizados {#custom-attributes}
 
@@ -131,7 +131,7 @@ Atributos do tipo array são bons para armazenar listas relacionadas de informa�
 
 Arrays de atributos personalizados são conjuntos unidimensionais; arrays multidimensionais não são suportados. **Adicionar um elemento a um array de atributo personalizado insere o elemento no final do array, a menos que ele já esteja presente, caso em que ele é movido de sua posição atual para o final do array.** Por exemplo, se um array `['hotdog','hotdog','hotdog','pizza']` fosse importado, ele apareceria no atributo de array como `['hotdog', 'pizza']`, porque apenas valores únicos são suportados.
 
-Se o array contiver seu número máximo de elementos, o primeiro elemento será descartado e o novo elemento será adicionado ao final. A seguir, alguns exemplos de código mostrando o comportamento do array no Web SDK or kit de desenvolvimento de software:
+Se o array contiver seu número máximo de elementos, o primeiro elemento será descartado e o novo elemento será adicionado ao final. A seguir, alguns exemplos de código mostrando o comportamento do array no Web SDK:
 
 ```js
 var abUser = appboy.getUser();
@@ -310,8 +310,8 @@ Adicionar esses atributos daria a você a capacidade de enviar campanhas para os
 Os IDs de usuário devem ser definidos para cada um dos seus usuários. Eles devem ser imutáveis e acessíveis quando um usuário abre o app. **Recomendamos fortemente** fornecer esse identificador, pois ele permitirá que você:
 
 - Rastreie seus usuários em vários dispositivos e plataformas, melhorando a qualidade dos seus dados comportamentais e demográficos.
-- Importe dados sobre seus usuários usando nossa [API or interface de programação do aplicativo (API) de dados de usuários]({{site.baseurl}}/api/endpoints/user_data).
-- Direcione usuários específicos com nossa [API or interface de programação do aplicativo (API) de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging) tanto para mensagens gerais quanto transacionais.
+- Importe dados sobre seus usuários usando nossa [API de dados de usuários]({{site.baseurl}}/api/endpoints/user_data).
+- Direcione usuários específicos com nossa [API de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging) tanto para mensagens gerais quanto transacionais.
 
 Os IDs de usuário devem ter menos de 512 caracteres e devem ser privados e não facilmente obtidos (por exemplo, não devem ser um endereço de e-mail ou nome de usuário em texto simples). Se esse identificador não estiver disponível, a Braze atribuirá um identificador único aos seus usuários, mas você não terá as capacidades listadas para IDs de usuário. Evite definir IDs de usuário para usuários para os quais você não possui um identificador único vinculado a eles como indivíduos. Passar um identificador de dispositivo não oferece nenhum benefício em comparação com o rastreamento automático de usuários anônimos que a Braze oferece por padrão. Veja a seguir alguns exemplos de IDs de usuário adequados e inadequados.
 
@@ -340,7 +340,7 @@ Imagine que você é um profissional de marketing que começa a usar a Braze um 
 
 #### Registre atributos apenas quando eles mudarem {#only-log-attributes-when-they-change}
 
-Contamos cada atributo enviado à Braze como um ponto de dados, mesmo que o atributo enviado contenha o mesmo valor salvo anteriormente. Registrar dados somente quando eles mudam ajuda a evitar o uso redundante de pontos de dados e oferece uma experiência mais fluida, evitando chamadas de API or interface de programação do aplicativo (API) desnecessárias.
+Contamos cada atributo enviado à Braze como um ponto de dados, mesmo que o atributo enviado contenha o mesmo valor salvo anteriormente. Registrar dados somente quando eles mudam ajuda a evitar o uso redundante de pontos de dados e oferece uma experiência mais fluida, evitando chamadas de API desnecessárias.
 
 #### Evite gerar nomes de eventos programaticamente {#avoid-programmatically-generating-event-names}
 

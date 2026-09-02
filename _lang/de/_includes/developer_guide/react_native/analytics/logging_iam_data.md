@@ -16,7 +16,7 @@ Sie können diese Methoden nutzen, indem Sie Ihre `BrazeInAppMessage`-Instanz zu
 
 ## Umgang mit Nachrichten-Daten {#handling-message-data}
 
-In den meisten Fällen können Sie die Methode `Braze.addListener` verwenden, um Event-Listener zu Registrierung or registrieren, die Daten aus In-App-Nachrichten verarbeiten.
+In den meisten Fällen können Sie die Methode `Braze.addListener` verwenden, um Event-Listener zu Registrierung, die Daten aus In-App-Nachrichten verarbeiten.
 
 Außerdem können Sie auf die Daten der In-App-Nachricht im JavaScript-Layer zugreifen, indem Sie die Methode `Braze.subscribeToInAppMessage` aufrufen, damit die SDKs ein `inAppMessageReceived`-Event veröffentlichen, wenn eine In-App-Nachricht getriggert wird. Übergeben Sie einen Callback an diese Methode, um Ihren eigenen Code auszuführen, wenn die In-App-Nachricht getriggert und vom Listener empfangen wird.
 

@@ -8,7 +8,7 @@ page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint da Braze para ver informações sobre Content Blocks."
 ---
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Ver informações do bloco de conteúdo {#see-content-block-information}
 {% apimethod get %}
 /content_blocks/info
@@ -20,7 +20,7 @@ description: "Este artigo descreve detalhes sobre o endpoint da Braze para ver i
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics) com a permissão `content_blocks.info`.
+Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics) com a permissão `content_blocks.info`.
 
 ## Limite de frequência {#rate-limit}
 
@@ -30,8 +30,8 @@ Para usar este endpoint, você precisará de uma [chave de API or interface de p
 
 | Parâmetro | Obrigatório | Tipo de dados | Descrição |
 |---|---|---|---|
-| `content_block_id` | Obrigatório | String | O identificador do bloco de conteúdo. <br><br>Você pode encontrá-lo listando as informações do bloco de conteúdo por meio de uma chamada de API or interface de programação do aplicativo (API) ou acessando a página [Chaves de API or interface de programação do aplicativo (API)]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers), rolando até a parte inferior e pesquisando o identificador de API or interface de programação do aplicativo (API) do seu bloco de conteúdo.|
-| `include_inclusion_data` | Opcional | Booleano | Quando definido como `true`, a API or interface de programação do aplicativo (API) retorna o identificador de API or interface de programação do aplicativo (API) da variação de mensagem de Campaigns e Canvas em que esse bloco de conteúdo está incluído, para ser usado em chamadas subsequentes. Os resultados excluem Campaigns ou Canvas arquivados ou excluídos. |
+| `content_block_id` | Obrigatório | String | O identificador do bloco de conteúdo. <br><br>Você pode encontrá-lo listando as informações do bloco de conteúdo por meio de uma chamada de API ou acessando a página [Chaves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers), rolando até a parte inferior e pesquisando o identificador de API do seu bloco de conteúdo.|
+| `include_inclusion_data` | Opcional | Booleano | Quando definido como `true`, a API retorna o identificador de API da variação de mensagem de Campaigns e Canvas em que esse bloco de conteúdo está incluído, para ser usado em chamadas subsequentes. Os resultados excluem Campaigns ou Canvas arquivados ou excluídos. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}

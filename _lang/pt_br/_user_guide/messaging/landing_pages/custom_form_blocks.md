@@ -15,7 +15,7 @@ Quando um visitante envia o formulário personalizado, o valor selecionado é va
 Você cria blocos de formulário personalizados com um único auxiliar JavaScript, `window.brazeHelpers.forms.registerFormInput`, que é chamado a partir de um bloco de **Custom Code** na landing page.
 
 {% alert note %}
-Pesquisas e mensagens no app têm seus próprios blocos de formulário, mas `registerFormInput` — a API or interface de programação do aplicativo (API) JavaScript para conectar uma interface personalizada a um bloco de formulário — está disponível apenas em landing pages.
+Pesquisas e mensagens no app têm seus próprios blocos de formulário, mas `registerFormInput` — a API JavaScript para conectar uma interface personalizada a um bloco de formulário — está disponível apenas em landing pages.
 {% endalert %}
 
 ## Como funciona {#how-it-works}
@@ -26,7 +26,7 @@ Uma entrada de formulário personalizada é qualquer elemento na sua landing pag
 2. Registre o elemento chamando `window.brazeHelpers.forms.registerFormInput` com um objeto de configuração.
 3. A Braze chama sua função `getValue` para ler o valor atual quando necessário.
 4. Se o campo for obrigatório, ou se você fornecer uma função `onValidate`, a Braze bloqueia o envio até que o valor seja aprovado e marca o elemento inválido com uma classe CSS que você pode estilizar. Consulte [Validação e campos obrigatórios](#validation-and-required-fields).
-5. Quando o formulário é enviado e a validação é aprovada, a Braze chama sua função `onSubmit`, onde você pode usar o SDK or kit de desenvolvimento de software da Braze para registrar informações como um atributo personalizado de usuário.
+5. Quando o formulário é enviado e a validação é aprovada, a Braze chama sua função `onSubmit`, onde você pode usar o SDK da Braze para registrar informações como um atributo personalizado de usuário.
 
 Como você fornece as funções que leem, validam e enviam o valor, essa abordagem funciona com praticamente qualquer elemento de formulário personalizado, sem se limitar aos tipos de campo padrão do editor.
 
@@ -89,7 +89,7 @@ window.brazeBridge.getUser().setCustomUserAttribute("attribute_name", value);
 
 Use um nome de atributo personalizado que já exista, ou um que você queira criar, no seu espaço de trabalho. O valor que você passa é armazenado no perfil do usuário e pode então ser usado para segmentação, personalização e disparo de mensagens de acompanhamento.
 
-Você não está limitado a atributos personalizados. A partir do mesmo callback, você pode chamar qualquer [método `brazeBridge.getUser()`]({{site.baseurl}}/user_guide/messaging/landing_pages/javascript_bridge#supported-methods). Por exemplo, para adicionar o usuário a um grupo de inscrições, definir um atributo padrão, registrar um evento personalizado ou enviar o valor para o endpoint da sua própria API or interface de programação do aplicativo (API).
+Você não está limitado a atributos personalizados. A partir do mesmo callback, você pode chamar qualquer [método `brazeBridge.getUser()`]({{site.baseurl}}/user_guide/messaging/landing_pages/javascript_bridge#supported-methods). Por exemplo, para adicionar o usuário a um grupo de inscrições, definir um atributo padrão, registrar um evento personalizado ou enviar o valor para o endpoint da sua própria API.
 
 {% alert note %}
 Você não precisa chamar `requestImmediateDataFlush` dentro de `onSubmit`. O processo de envio do formulário automaticamente envia todos os dados para a Braze após a conclusão do seu callback `onSubmit`.
@@ -280,7 +280,7 @@ Este exemplo desenha um cartão de raspadinha em um Canvas HTML. Uma recompensa 
 
 **Objetivo:** Capturar a Campaign que direcionou o visitante à landing page e registrá-la como uma propriedade de evento personalizado para relatórios e atribuição downstream.
 
-Este exemplo demonstra como atribuir o envio de um formulário de landing page a uma Campaign específica. Ao adicionar uma variável Liquid como {% raw %}`{{campaign.${api_id}}}`{% endraw %} à URL da sua landing page em mensagens de e-mail, SMS ou WhatsApp, você pode passar o identificador da Campaign para a landing page. O bloco de formulário personalizado então lê esse parâmetro da URL e o registra como um evento personalizado com o API or interface de programação do aplicativo (API) ID da Campaign como propriedade do evento, facilitando o rastreamento de quais Campaigns estão gerando envios de formulário.
+Este exemplo demonstra como atribuir o envio de um formulário de landing page a uma Campaign específica. Ao adicionar uma variável Liquid como {% raw %}`{{campaign.${api_id}}}`{% endraw %} à URL da sua landing page em mensagens de e-mail, SMS ou WhatsApp, você pode passar o identificador da Campaign para a landing page. O bloco de formulário personalizado então lê esse parâmetro da URL e o registra como um evento personalizado com o API ID da Campaign como propriedade do evento, facilitando o rastreamento de quais Campaigns estão gerando envios de formulário.
 
 Cole o seguinte em um único bloco de **Custom Code** (HTML):
 
@@ -314,7 +314,7 @@ Cole o seguinte em um único bloco de **Custom Code** (HTML):
 </script>
 ```
 
-**Como funciona:** Quando você cria uma mensagem de e-mail, SMS ou WhatsApp com link para sua landing page, adicione o identificador da Campaign à URL usando templates Liquid: {% raw %}`https://your-landing-page.com?campaign_api_id={{campaign.${api_id}}}`{% endraw %}. Quando um visitante chega à landing page a partir dessa mensagem, o script lê o parâmetro `campaign_api_id` da URL e o armazena em um campo de entrada oculto. No envio do formulário, se um ID de Campaign estiver presente, o callback `onSubmit` registra um evento personalizado chamado `landing_page_form_submitted` com o API or interface de programação do aplicativo (API) ID da Campaign como propriedade do evento. Esse evento aparece no Currents e pode ser usado para relatórios, segmentação e análise de atribuição.
+**Como funciona:** Quando você cria uma mensagem de e-mail, SMS ou WhatsApp com link para sua landing page, adicione o identificador da Campaign à URL usando templates Liquid: {% raw %}`https://your-landing-page.com?campaign_api_id={{campaign.${api_id}}}`{% endraw %}. Quando um visitante chega à landing page a partir dessa mensagem, o script lê o parâmetro `campaign_api_id` da URL e o armazena em um campo de entrada oculto. No envio do formulário, se um ID de Campaign estiver presente, o callback `onSubmit` registra um evento personalizado chamado `landing_page_form_submitted` com o API ID da Campaign como propriedade do evento. Esse evento aparece no Currents e pode ser usado para relatórios, segmentação e análise de atribuição.
 
 {% alert tip %}
 Você pode estender esse padrão para capturar parâmetros de URL adicionais, como variação de mensagem, etapa do Canvas ou qualquer outra variável Liquid que você queira passar para a landing page para fins de atribuição.
@@ -330,7 +330,7 @@ Você pode estender esse padrão para capturar parâmetros de URL adicionais, co
 Uma entrada deve passar por todas as camadas a seguir que se aplicam a ela antes que o formulário possa ser enviado:
 
 1. **`isRequired`** condiciona o envio à presença de um valor não vazio. Retorne `null` de `getValue` quando a entrada ainda não tiver valor, para que a Braze possa identificar que está vazia. Strings vazias (incluindo strings apenas com espaços em branco) e arrays vazios também são tratados como vazios, enquanto `0` e `false` contam como valores presentes. `isRequired` pode ser um booleano ou uma promise que resolve para um, e é reavaliado cada vez que a entrada é validada.
-2. **Validação nativa de restrições.** Se o elemento correspondente suportar a API or interface de programação do aplicativo (API) padrão HTML `checkValidity()`, por exemplo um `<input>` nativo com `required`, `pattern`, `min` ou `max`, a Braze a executa e bloqueia o envio quando falha. Para elementos totalmente personalizados e não nativos (um `div`, um `canvas`, etc.), essa verificação sempre passa, então nunca interfere na sua própria lógica.
+2. **Validação nativa de restrições.** Se o elemento correspondente suportar a API padrão HTML `checkValidity()`, por exemplo um `<input>` nativo com `required`, `pattern`, `min` ou `max`, a Braze a executa e bloqueia o envio quando falha. Para elementos totalmente personalizados e não nativos (um `div`, um `canvas`, etc.), essa verificação sempre passa, então nunca interfere na sua própria lógica.
 3. **`onValidate`** condiciona o envio às suas próprias regras. Recebe o valor atual e o elemento correspondente, e deve retornar `boolean \| Promise<boolean>` — o mesmo tipo de retorno que `isRequired` — onde `true` significa que o valor é válido e `false` significa que não é. Use para verificações de valores permitidos, verificações de formato, intervalos ou qualquer lógica que você possa expressar em JavaScript.
 
 ### Estilização de erros {#error-styling}

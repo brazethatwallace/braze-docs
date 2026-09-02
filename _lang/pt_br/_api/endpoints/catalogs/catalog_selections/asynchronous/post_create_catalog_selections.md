@@ -9,7 +9,7 @@ page_type: reference
 description: "Este artigo traz informações sobre o endpoint da Braze \"Criar seleção de catálogo\"."
 
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Criar seleção de catálogo {#create-catalog-selection}
 {% apimethod post %}
 /catalogs/{catalog_name}/selections
@@ -19,7 +19,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Criar s
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `catalogs.create_selection`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `catalogs.create_selection`.
 
 ## Limite de frequência {#rate-limit}
 
@@ -101,7 +101,7 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert note %}
-A API or interface de programação do aplicativo (API) aceita um máximo de dez filtros por solicitação de seleção. Os filtros são aplicados na ordem em que aparecem no array.
+A API aceita um máximo de dez filtros por solicitação de seleção. Os filtros são aplicados na ordem em que aparecem no array.
 {% endalert %}
 
 {% alert note %}

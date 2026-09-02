@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Friendbuy
 
-> Utiliza la integración entre [Friendbuy](https://www.friendbuy.com/) y Braze para ampliar tus capacidades de correo electrónico y servicio de mensajes cortos, a la vez que automatizas sin esfuerzo las comunicaciones de tus programas de referidos y fidelización. Braze generará perfiles de cliente para todos los números de teléfono de adhesión voluntaria recogidos a través de Friendbuy.
+> Utiliza la integración entre [Friendbuy](https://www.friendbuy.com/) y Braze para ampliar tus capacidades de correo electrónico y SMS, a la vez que automatizas sin esfuerzo las comunicaciones de tus programas de referidos y fidelización. Braze generará perfiles de cliente para todos los números de teléfono de adhesión voluntaria recogidos a través de Friendbuy.
 
 _Esta integración está mantenida por Friendbuy._
 
@@ -21,8 +21,8 @@ Antes de empezar, necesitarás lo siguiente:
 | Requisito previo | Descripción |
 |-----------------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | Una cuenta Friendbuy | Es necesario tener una [cuenta Friendbuy](https://retailer.friendbuy.io/) para beneficiarse de esta asociación. |
-| Una clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos `users.track`. Puede crearse en el panel de Braze desde **Settings** > **API Keys**. |
-| Un punto de conexión REST or transferencia de estado representacional de Braze | [La URL de tu punto de conexión REST or transferencia de estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints), que depende de la URL de tu instancia de Braze. |
+| Una clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. Puede crearse en el panel de Braze desde **Settings** > **API Keys**. |
+| Un punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints), que depende de la URL de tu instancia de Braze. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración de Friendbuy {#integrating-friendbuy}
@@ -31,7 +31,7 @@ En [Friendbuy](https://retailer.friendbuy.io/), ve a **Developer Center** > **In
 
 ![La tarjeta de integración de Braze en Friendbuy.]({% image_buster /assets/img/friendbuy/choosing_braze.png %}){: style="max-width:75%;"}
 
-En el formulario, introduce tu punto de conexión REST or transferencia de estado representacional y tu clave de API y, a continuación, selecciona **Install Integration**.
+En el formulario, introduce tu punto de conexión REST y tu clave de API y, a continuación, selecciona **Install Integration**.
 
 ![El formulario de integración de Friendbuy.]({% image_buster /assets/img/friendbuy/install_form.png %}){: style="max-width:55%;"}
 

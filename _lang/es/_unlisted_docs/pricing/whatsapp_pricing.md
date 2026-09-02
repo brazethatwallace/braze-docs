@@ -61,7 +61,7 @@ WhatsApp está realizando dos actualizaciones más en sus precios a partir del 1
 
 #### ¿Por qué están haciendo este cambio? {#why-are-they-making-this-change}
 
-Meta está cambiando a un modelo "por mensaje" para ayudar a las marcas a simplificar los cálculos del ROI or retorno de la inversión or retorno de la inversión (ROI or retorno de la inversión). Este cambio también facilitará que las marcas realicen comparaciones directas de ROI or retorno de la inversión con otros canales que se cobran por mensaje.
+Meta está cambiando a un modelo "por mensaje" para ayudar a las marcas a simplificar los cálculos del ROI (ROI). Este cambio también facilitará que las marcas realicen comparaciones directas de ROI con otros canales que se cobran por mensaje.
 
 #### ¿Cómo afectará esto a mi uso actual de WhatsApp? {#how-will-this-affect-my-current-whatsapp-usage}
 
@@ -121,7 +121,7 @@ Las conversaciones de utilidad te permiten hacer seguimiento de acciones o solic
 
 #### ¿Cómo puedes beneficiarte de esta actualización? {#how-can-you-benefit-from-this-update}
 
-Te animamos a aprovechar esta actualización utilizando WhatsApp para la mensajería transaccional. También puedes considerar trasladar algunos de tus mensajes servicio de mensajes cortos transaccionales a WhatsApp si tiene sentido para tu marca (en función del alcance de tu audiencia y la participación en cada canal). Por ejemplo, esta puede ser una buena opción para clientes en Asia, América Latina y Europa, donde WhatsApp es un canal muy utilizado.
+Te animamos a aprovechar esta actualización utilizando WhatsApp para la mensajería transaccional. También puedes considerar trasladar algunos de tus mensajes SMS transaccionales a WhatsApp si tiene sentido para tu marca (en función del alcance de tu audiencia y la participación en cada canal). Por ejemplo, esta puede ser una buena opción para clientes en Asia, América Latina y Europa, donde WhatsApp es un canal muy utilizado.
 
 ### Conversaciones de marketing {#marketing-conversations}
 
@@ -186,4 +186,4 @@ La información detallada sobre la reducción de las conversaciones de utilidad 
 | Reino Unido                                | 44,7 %                              |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-Para comprender mejor cómo puedes aprovechar estas actualizaciones, contacta con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente.
+Para comprender mejor cómo puedes aprovechar estas actualizaciones, contacta con tu CSM.

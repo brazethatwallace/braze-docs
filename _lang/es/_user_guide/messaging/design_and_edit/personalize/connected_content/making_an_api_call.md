@@ -120,7 +120,7 @@ Si las solicitudes al host de destino son detenidas por el detector de host no s
 Si crees que la detección de host no saludable puede estar causando problemas, contacta con [soporte de Braze]({{site.baseurl}}/support_contact).
 
 {% alert note %}
-Puedes agregar URLs específicas a una lista de permitidos para que se utilicen con contenido conectado. Para acceder a esta característica, contacta con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente.
+Puedes agregar URLs específicas a una lista de permitidos para que se utilicen con contenido conectado. Para acceder a esta característica, contacta con tu CSM.
 {% endalert %}
 
 {% alert tip %}

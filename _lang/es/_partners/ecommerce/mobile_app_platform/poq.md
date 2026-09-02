@@ -15,7 +15,7 @@ alias: /partners/poq/
 
 ## Acerca de la integración {#about-the-integration}
 
-La integración de Poq y Braze te permite conectar la experiencia de tu aplicación móvil nativa con la plataforma de interacción con los clientes de Braze. Mediante los SDK or kit de desarrollo de software de Braze para iOS y Android, Braze se integra directamente en una aplicación impulsada por Poq, lo que permite la segmentación, personalización y entrega de campañas dirigidas en dispositivos móviles.
+La integración de Poq y Braze te permite conectar la experiencia de tu aplicación móvil nativa con la plataforma de interacción con los clientes de Braze. Mediante los SDK de Braze para iOS y Android, Braze se integra directamente en una aplicación impulsada por Poq, lo que permite la segmentación, personalización y entrega de campañas dirigidas en dispositivos móviles.
 
 ## Qué se admite {#whats-supported}
 

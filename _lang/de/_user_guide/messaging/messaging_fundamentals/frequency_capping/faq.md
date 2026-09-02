@@ -30,7 +30,7 @@ Das globale Frequency-Capping verwendet die Zeitzone der:des Nutzer:in und zähl
 
 ### Gilt das globale Frequency-Capping für getriggerte In-App-Nachrichten? {#does-global-frequency-capping-apply-to-triggered-in-app-messages}
 
-Nein, das globale Frequency-Capping gilt nur für Push-, E-Mail-, Kurzmitteilungsdienst or SMS-, Webhook-, WhatsApp- und LINE-Nachrichten.
+Nein, das globale Frequency-Capping gilt nur für Push-, E-Mail-, SMS-, Webhook-, WhatsApp- und LINE-Nachrichten.
 
 ### Begrenzt Frequency-Capping die empfangenen Kampagnen oder einzelne Nachrichten innerhalb eines Versands? {#does-frequency-capping-limit-campaigns-received-or-individual-messages-inside-a-send}
 

@@ -1,7 +1,7 @@
 ---
 nav_title: "Anleitung: Anzeigen von Bannern"
 article_title: "Anleitung: Anzeige eines Banners nach Platzierungs-ID"
-description: "Neu bei Bannern im Braze SDK or Software-Development-Kit? Beginnen Sie mit dieser Anleitung zur Anzeige von Bannern nach Platzierungs-ID."
+description: "Neu bei Bannern im Braze SDK? Beginnen Sie mit dieser Anleitung zur Anzeige von Bannern nach Platzierungs-ID."
 page_order: 10
 layout: scrolly
 ---

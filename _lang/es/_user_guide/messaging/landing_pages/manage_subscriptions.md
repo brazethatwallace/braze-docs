@@ -1,28 +1,28 @@
 ---
 nav_title: Bloque Gestionar suscripciones
 article_title: Bloque Gestionar suscripciones
-description: "Este artículo explica cómo añadir y configurar el bloque de formulario Gestionar suscripciones en una página de destino de Braze, para que los consumidores puedan adherirse voluntariamente a sus grupos de suscripción de correo electrónico, servicio de mensajes cortos o WhatsApp y gestionarlos."
+description: "Este artículo explica cómo añadir y configurar el bloque de formulario Gestionar suscripciones en una página de destino de Braze, para que los consumidores puedan adherirse voluntariamente a sus grupos de suscripción de correo electrónico, SMS o WhatsApp y gestionarlos."
 page_order: 5
 ---
 
 # Bloque Gestionar suscripciones {#manage-subscriptions-block}
 
-> Añade un bloque **Gestionar suscripciones** a una página de destino para que los usuarios puedan ver, adherirse voluntariamente a y actualizar sus grupos de suscripción de correo electrónico, servicio de mensajes cortos o WhatsApp.
+> Añade un bloque **Gestionar suscripciones** a una página de destino para que los usuarios puedan ver, adherirse voluntariamente a y actualizar sus grupos de suscripción de correo electrónico, SMS o WhatsApp.
 
 El bloque **Gestionar suscripciones** admite dos ejemplos principales:
 
-- **[Gestionar suscripciones existentes](#update-existing-subscriptions):** Comparte la [etiqueta de Liquid]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) de la página de destino en un correo electrónico, servicio de mensajes cortos, WhatsApp u otro mensaje de canal. Cuando un usuario identificado abre la página, el bloque rellena automáticamente la casilla de verificación de cada grupo de suscripción con su estado de suscripción actual, para que pueda revisar y actualizar sus preferencias.
+- **[Gestionar suscripciones existentes](#update-existing-subscriptions):** Comparte la [etiqueta de Liquid]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) de la página de destino en un correo electrónico, SMS, WhatsApp u otro mensaje de canal. Cuando un usuario identificado abre la página, el bloque rellena automáticamente la casilla de verificación de cada grupo de suscripción con su estado de suscripción actual, para que pueda revisar y actualizar sus preferencias.
 - **[Captar nuevas adhesiones voluntarias](#capture-new-subscribers):** Añade el bloque a una página de destino de generación de leads, junto con un bloque **Email Capture** o **Phone Capture**, para que los nuevos visitantes puedan elegir a qué grupos de suscripción unirse cuando envíen el formulario.
 
 {% alert important %}
-Cada bloque **Gestionar suscripciones** es para un solo canal: [correo electrónico]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups), [servicio de mensajes cortos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#sms-subscription-states) o [WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-subscription-states). Para recopilar más de un canal, añade un bloque para cada uno. Para el consentimiento de RCS, utiliza un bloque [Phone Capture]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=landing%20pages) en su lugar.
+Cada bloque **Gestionar suscripciones** es para un solo canal: [correo electrónico]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups), [SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#sms-subscription-states) o [WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-subscription-states). Para recopilar más de un canal, añade un bloque para cada uno. Para el consentimiento de RCS, utiliza un bloque [Phone Capture]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=landing%20pages) en su lugar.
 {% endalert %}
 
 ## Requisitos previos {#prerequisites}
 
 | Requisitos | Descripción |
 | --- | --- |
-| Grupos de suscripción de correo electrónico, servicio de mensajes cortos o WhatsApp | Al menos un [grupo de suscripción de correo electrónico]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups), [grupo de suscripción de servicio de mensajes cortos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#sms-subscription-states) o [grupo de suscripción de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-subscription-states) para el canal que añadas al bloque. Crea grupos de correo electrónico desde el panel o los [endpoints de grupos de suscripción]({{site.baseurl}}/api/endpoints/subscription_groups). Los grupos de servicio de mensajes cortos se aprovisionan durante la [configuración de servicio de mensajes cortos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#enable-subscription-groups). Los grupos de WhatsApp se crean cuando [integras WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup) con tu espacio de trabajo. |
+| Grupos de suscripción de correo electrónico, SMS o WhatsApp | Al menos un [grupo de suscripción de correo electrónico]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups), [grupo de suscripción de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#sms-subscription-states) o [grupo de suscripción de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-subscription-states) para el canal que añadas al bloque. Crea grupos de correo electrónico desde el panel o los [endpoints de grupos de suscripción]({{site.baseurl}}/api/endpoints/subscription_groups). Los grupos de SMS se aprovisionan durante la [configuración de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#enable-subscription-groups). Los grupos de WhatsApp se crean cuando [integras WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup) con tu espacio de trabajo. |
 | Permisos de página de destino | Los mismos [permisos]({{site.baseurl}}/user_guide/messaging/landing_pages#prerequisites) necesarios para crear y editar cualquier página de destino. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
@@ -36,13 +36,13 @@ El bloque está vacío hasta que le añadas grupos de suscripción. Para mostrar
 
 Con el bloque **Manage Subscriptions** seleccionado, selecciona **+ Add subscription groups** en el panel **Block properties** de la derecha. Se abre el modal **Add subscription groups**.
 
-1. En **Select channel**, elige **Email**, **servicio de mensajes cortos** o **WhatsApp**. Cada bloque admite un canal. Si un canal ya tiene un bloque **Manage Subscriptions** en la página, la tarjeta de ese canal estará deshabilitada y etiquetada como **Added**.
-2. En **Select subscription groups**, selecciona los grupos que deseas incluir. El encabezado de la lista coincide con el canal (**Email subscription groups**, **servicio de mensajes cortos subscription groups** o **WhatsApp subscription groups**).
+1. En **Select channel**, elige **Email**, **SMS** o **WhatsApp**. Cada bloque admite un canal. Si un canal ya tiene un bloque **Manage Subscriptions** en la página, la tarjeta de ese canal estará deshabilitada y etiquetada como **Added**.
+2. En **Select subscription groups**, selecciona los grupos que deseas incluir. El encabezado de la lista coincide con el canal (**Email subscription groups**, **SMS subscription groups** o **WhatsApp subscription groups**).
 3. Selecciona **Add selected**.
 
 Cada grupo de suscripción aparece como su propia casilla de verificación seleccionable en la página de destino.
 
-Si seleccionas **servicio de mensajes cortos** y tu espacio de trabajo aún no tiene grupos de suscripción de servicio de mensajes cortos, el modal muestra **No servicio de mensajes cortos subscription groups yet**. Completa la [configuración de grupos de suscripción de servicio de mensajes cortos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#sms-subscription-states) y luego regresa al bloque.
+Si seleccionas **SMS** y tu espacio de trabajo aún no tiene grupos de suscripción de SMS, el modal muestra **No SMS subscription groups yet**. Completa la [configuración de grupos de suscripción de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#sms-subscription-states) y luego regresa al bloque.
 
 Si seleccionas **WhatsApp** y tu espacio de trabajo aún no tiene grupos de suscripción de WhatsApp, el modal muestra **No WhatsApp subscription groups yet**. Completa la [configuración de grupos de suscripción de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-subscription-states) y luego regresa al bloque.
 
@@ -61,7 +61,7 @@ Usa el panel **Propiedades del bloque** para ajustar cómo se comporta y aparece
 
 ### Incluir descripciones {#include-descriptions}
 
-Activa **Incluir descripciones** para mostrar el texto de descripción de cada grupo de suscripción junto a su nombre, dando a los visitantes más contexto sobre a qué se están suscribiendo. Los grupos de correo electrónico pueden incluir una descripción en gestión de suscripciones. Los grupos de servicio de mensajes cortos y WhatsApp en este bloque no muestran texto de descripción.
+Activa **Incluir descripciones** para mostrar el texto de descripción de cada grupo de suscripción junto a su nombre, dando a los visitantes más contexto sobre a qué se están suscribiendo. Los grupos de correo electrónico pueden incluir una descripción en gestión de suscripciones. Los grupos de SMS y WhatsApp en este bloque no muestran texto de descripción.
 
 ### Casilla de verificación "Suscribirse a todos" {#subscribe-to-all-checkbox}
 
@@ -69,7 +69,7 @@ Activa el ajuste **Casilla de verificación "Suscribirse a todos"** para añadir
 
 ## Actualizar suscripciones existentes {#update-existing-subscriptions}
 
-Para permitir que los usuarios existentes revisen y actualicen sus suscripciones de correo electrónico, servicio de mensajes cortos o WhatsApp, comparte la página de destino usando su [etiqueta de Liquid]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) en un correo electrónico, servicio de mensajes cortos, WhatsApp, paso en Canvas u otro mensaje. Cuando un usuario abre la página a través de ese enlace, Braze lo identifica y completa previamente de forma automática cada casilla de verificación de grupo de suscripción en el bloque **Manage Subscriptions** para que coincida con su estado de suscripción actual, de manera similar a un [centro de preferencias de correo electrónico]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center).
+Para permitir que los usuarios existentes revisen y actualicen sus suscripciones de correo electrónico, SMS o WhatsApp, comparte la página de destino usando su [etiqueta de Liquid]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) en un correo electrónico, SMS, WhatsApp, paso en Canvas u otro mensaje. Cuando un usuario abre la página a través de ese enlace, Braze lo identifica y completa previamente de forma automática cada casilla de verificación de grupo de suscripción en el bloque **Manage Subscriptions** para que coincida con su estado de suscripción actual, de manera similar a un [centro de preferencias de correo electrónico]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center).
 
 El usuario puede seleccionar o desmarcar casillas de verificación para actualizar sus suscripciones y luego enviar el formulario para guardar sus cambios.
 
@@ -82,13 +82,13 @@ La función de completar previamente el estado de suscripción actual de un usua
 Para recopilar nuevos suscriptores, combina el bloque **Manage Subscriptions** con un campo de captura para ese canal:
 
 - **Correo electrónico:** Agrega un bloque [Email Capture]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=landing%20pages) para que la página capture la dirección de correo electrónico del visitante junto con sus selecciones de grupo de suscripción de correo electrónico.
-- **servicio de mensajes cortos o WhatsApp:** Agrega un bloque [Phone Capture]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=landing%20pages) para que la página capture el número de teléfono del visitante junto con sus selecciones de grupo de suscripción de servicio de mensajes cortos o WhatsApp.
+- **SMS o WhatsApp:** Agrega un bloque [Phone Capture]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=landing%20pages) para que la página capture el número de teléfono del visitante junto con sus selecciones de grupo de suscripción de SMS o WhatsApp.
 
 Si el visitante no está identificado (por ejemplo, si llega sin una etiqueta de Liquid de landing page), las casillas de verificación comienzan sin seleccionar. Cuando envía el formulario, se suscribe a los grupos de suscripción que haya seleccionado.
 
 ## Cosas que debes saber {#things-to-know}
 
-- **Un canal por bloque:** Puedes añadir un bloque **Manage Subscriptions** por canal en una página (uno para correo electrónico, uno para servicio de mensajes cortos y uno para WhatsApp).
+- **Un canal por bloque:** Puedes añadir un bloque **Manage Subscriptions** por canal en una página (uno para correo electrónico, uno para SMS y uno para WhatsApp).
 - **RCS:** Este bloque no muestra los grupos de suscripción de RCS. Para recopilar el consentimiento para RCS, usa un bloque [Phone Capture]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=landing%20pages).
 - **Experiencia de confirmación:** Las páginas de destino con bloques de formulario, incluido **Manage Subscriptions**, necesitan una experiencia de confirmación después del envío. [Crea una página de confirmación]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#step-4-create-a-confirmation-page-optional) y enlázala desde tu botón **Submit**.
 - **Referencia de bloques de editor:** Para una referencia completa de cada bloque de página de destino y sus propiedades, consulta [Bloques de editor (páginas de destino)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=landing%20pages).

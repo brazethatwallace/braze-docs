@@ -34,9 +34,9 @@ Antes de começar, você precisa dos seguintes itens:
 | Pré-requisito | Descrição |
 |---|---|
 | Conta DOTS.ECO | Acesso à conta DOTS.ECO. |
-| Credenciais DOTS.ECO | A solicitação deste artigo requer um token de aplicativo DOTS.ECO, uma chave de API or interface de programação do aplicativo (API) e um ID de alocação. Para obtê-los, entre em contato com o seu gerente de sucesso do cliente DOTS.ECO. |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões `users.track`. Crie essa chave no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
-| Endpoint REST or transferir estado representacional da Braze | [Sua URL de endpoint REST or transferir estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). |
+| Credenciais DOTS.ECO | A solicitação deste artigo requer um token de aplicativo DOTS.ECO, uma chave de API e um ID de alocação. Para obtê-los, entre em contato com o seu CSM DOTS.ECO. |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. Crie essa chave no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Endpoint REST da Braze | [Sua URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração com o DOTS.ECO {#integrating-dotseco}
@@ -45,13 +45,13 @@ Antes de começar, você precisa dos seguintes itens:
 
 No dashboard da Braze, crie um novo Canvas que dispara quando um usuário conclui um evento-chave (como uma compra, inscrição ou marco).
 
-Adicione uma etapa de Atualização de usuário logo após a etapa de entrada. Essa etapa será usada para chamar a API or interface de programação do aplicativo (API) do DOTS.ECO via Conteúdo conectado e armazenar os dados de certificado retornados no perfil do usuário.
+Adicione uma etapa de Atualização de usuário logo após a etapa de entrada. Essa etapa será usada para chamar a API do DOTS.ECO via Conteúdo conectado e armazenar os dados de certificado retornados no perfil do usuário.
 
-Use essa etapa para chamar a API or interface de programação do aplicativo (API) do DOTS.ECO via Conteúdo conectado e armazenar os dados de certificado retornados no perfil do usuário.
+Use essa etapa para chamar a API do DOTS.ECO via Conteúdo conectado e armazenar os dados de certificado retornados no perfil do usuário.
 
 ### Etapa 2: Crie JSON avançado: faça uma solicitação POST para o DOTS.ECO usando Conteúdo conectado {#step-2-compose-advanced-json-make-a-post-request-to-dotseco-using-connected-content}
 
-Na etapa **Atualização de usuário**, mude para o **Advanced JSON Editor** e use o Conteúdo conectado para fazer uma solicitação POST para a API or interface de programação do aplicativo (API) de certificado do DOTS.ECO.
+Na etapa **Atualização de usuário**, mude para o **Advanced JSON Editor** e use o Conteúdo conectado para fazer uma solicitação POST para a API de certificado do DOTS.ECO.
 
 Use a tag `capture` e uma solicitação de Conteúdo conectado para chamar o endpoint de certificado do DOTS.ECO. Em seguida, salve a resposta no perfil do usuário como atributos personalizados.
 
@@ -93,7 +93,7 @@ Envie a solicitação para `https://impact.dots.eco/api/v1/certificate/add?forma
 ![Etapa de Atualização de usuário do DOTS.ECO.]({% image_buster /assets/img/dots_eco/dotseco_user_update.png %})
 
 {% alert important %}
-Essa integração usa o Conteúdo conectado dentro de uma etapa de **Atualização de usuário** do Canvas para chamar a API or interface de programação do aplicativo (API) do DOTS.ECO. Teste as solicitações com um cliente de API or interface de programação do aplicativo (API) (por exemplo, Postman) primeiro para validar o token e a carga útil.
+Essa integração usa o Conteúdo conectado dentro de uma etapa de **Atualização de usuário** do Canvas para chamar a API do DOTS.ECO. Teste as solicitações com um cliente de API (por exemplo, Postman) primeiro para validar o token e a carga útil.
 {% endalert %}
 
 ### Etapa 3: Exiba o certificado nas mensagens {#step-3-display-the-certificate-in-messages}

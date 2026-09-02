@@ -12,7 +12,7 @@ search_rank: 1
 > Dieser Referenzartikel behandelt die notwendigen Schritte zum Erstellen, Pflegen und Testen eines Canvas. Folgen Sie dieser Anleitung oder schauen Sie sich unseren [Braze-Lernkurs zu Canvas](https://learning.braze.com/quick-overview-canvas-setup) an. Sie können auch mit einem [Braze-Canvas-Template]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates) starten, um Ihre Einrichtung zu beschleunigen. Weitere Informationen finden Sie unter [Canvas-Templates]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates). Um ein Canvas aus einer Beschreibung in natürlicher Sprache zu entwerfen, nutzen Sie [Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#canvases).
 
 {% details Erweitern für Details zum ursprünglichen Canvas-Editor %}
-Sie können keine Canvase mehr mit dem ursprünglichen Canvas-Editor erstellen oder duplizieren. Braze empfiehlt, [Ihre Canvase zu Klon or klonen]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases), um den aktuellsten Editor zu verwenden.
+Sie können keine Canvases mehr mit dem ursprünglichen Canvas-Editor erstellen oder duplizieren. Braze empfiehlt, [Ihre Canvases zu Klon]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases), um den aktuellsten Editor zu verwenden.
 {% enddetails %}
 
 ## Schritt 1: Ein neues Canvas einrichten {#step-1-set-up-a-new-canvas}
@@ -71,7 +71,7 @@ Der Canvas-Builder führt Sie Schritt für Schritt durch die Einrichtung Ihres C
 Hier benennen Sie Ihr Canvas, weisen [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams) zu und erstellen oder fügen [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) hinzu. Außerdem können Sie Konversions-Events für das Canvas zuweisen.
 
 {% alert tip %}
-Versehen Sie Ihre Canvase mit Tags, damit sie leicht zu finden sind und Berichte daraus erstellt werden können. Wenn Sie beispielsweise den [Berichts-Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder) verwenden, können Sie nach bestimmten Tags filtern.
+Versehen Sie Ihre Canvases mit Tags, damit sie leicht zu finden sind und Berichte daraus erstellt werden können. Wenn Sie beispielsweise den [Berichts-Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder) verwenden, können Sie nach bestimmten Tags filtern.
 {% endalert %}
 
 ![Die Seite mit den Canvas-Details mit Feldern für den Canvas-Namen, die Beschreibung, den Standort und die Tags.]({% image_buster /assets/img/canvas_details.png %}){: style="max-width:70%;"}
@@ -103,14 +103,14 @@ In diesem Beispiel treten Nutzer:innen basierend auf den zeitbasierten Optionen 
 Bei der Zustellung in Ortszeit bewertet Braze die Eintrittsberechtigung zweimal: zuerst in Samoa-Zeit (UTC+13) am geplanten Tag und dann erneut in der Ortszeit der Nutzer:innen. Ein:e Nutzer:in muss beide Prüfungen bestehen, um in das Canvas einzutreten. Wenn Ihre Eintrittsfilter relative Zeitfenster verwenden (z. B. „vor mehr als 2 Tagen“), ist der 24-Stunden-Zeitraum zum Zeitpunkt der ersten Prüfung möglicherweise noch nicht abgelaufen, wodurch Nutzer:innen einen Tag zu spät eintreten. Um dies zu vermeiden, verwenden Sie ein breiteres Zeitfenster, z. B. mindestens zwei Tage. Weitere Details finden Sie unter [Wann bewertet Braze Nutzer:innen für die Zustellung in Ortszeit?]({{site.baseurl}}/user_guide/messaging/campaigns/faq#when-does-braze-evaluate-users-for-local-time-zone-delivery)
 {% endtab %}
 {% tab Aktionsbasierte Zustellung %}
-Bei der aktionsbasierten Zustellung treten Nutzer:innen in das Canvas ein und beginnen, Nachrichten zu erhalten, wenn sie bestimmte Aktionen ausführen, z. B. Ihre App öffnen, einen Kauf tätigen oder ein angepasstes Event Trigger or triggern or triggern.
+Bei der aktionsbasierten Zustellung treten Nutzer:innen in das Canvas ein und beginnen, Nachrichten zu erhalten, wenn sie bestimmte Aktionen ausführen, z. B. Ihre App öffnen, einen Kauf tätigen oder ein angepasstes Event triggern.
 
 Sie können weitere Aspekte des Canvas-Verhaltens im Fenster **Eintrittszielgruppe** steuern, einschließlich Regeln für die Wiederberechtigung und Frequency-Capping-Einstellungen. Beachten Sie, dass die aktionsbasierte Zustellung für Canvas-Schritte mit In-App-Nachrichten nicht verfügbar ist.
 
 ![Ein Beispiel für eine aktionsbasierte Zustellung. Nutzer:innen treten in das Canvas ein, wenn sie einen Kauf tätigen, mit einem Eintrittsfenster ab 13:30 Uhr am 10. Juni 2025.]({% image_buster /assets/img_archive/Canvas_Action_Based_Delivery.png %})
 
 {% alert note %}
-**Mit Canvas-Schritt interagieren** ist als aktionsbasierter Eintritts-Trigger or triggern für Canvase nicht verfügbar. Es kann nur als Trigger or triggern für Campaigns verwendet werden. Um ein Canvas von einem anderen aus zu Trigger or triggern or triggern, verwenden Sie den Canvas-Schritt [An Ziel senden]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination) oder erstellen Sie einen [Braze-zu-Braze-Webhook]({{site.baseurl}}/user_guide/channels/webhooks/use_case_create_a_braze_to_braze_webhook#trigger-a-second-canvas-from-an-initial-canvas), der den Endpunkt `/canvas/trigger/send` aufruft.
+**Mit Canvas-Schritt interagieren** ist als aktionsbasierter Eintritts-Trigger für Canvases nicht verfügbar. Es kann nur als Trigger für Campaigns verwendet werden. Um ein Canvas von einem anderen aus zu triggern, verwenden Sie den Canvas-Schritt [An Ziel senden]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination) oder erstellen Sie einen [Braze-zu-Braze-Webhook]({{site.baseurl}}/user_guide/channels/webhooks/use_case_create_a_braze_to_braze_webhook#trigger-a-second-canvas-from-an-initial-canvas), der den Endpunkt `/canvas/trigger/send` aufruft.
 {% endalert %}
 
 {% alert important %}
@@ -124,14 +124,14 @@ Bei der API-getriggerten Zustellung treten Nutzer:innen in Ihr Canvas ein und be
 
 Sie können die folgenden Endpunkte für die API-getriggerte Zustellung verwenden:
 - [POST: Canvas-Nachrichten über API-getriggerte Zustellung senden]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)
-- [POST: API-getriggerte Canvase planen]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases)
-- [POST: Geplante API-getriggerte Canvase Update or aktualisieren or aktualisieren]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_update_scheduled_triggered_canvases)
+- [POST: API-getriggerte Canvases planen]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases)
+- [POST: Geplante API-getriggerte Canvases aktualisieren]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_update_scheduled_triggered_canvases)
 {% endtab %}
 {% endtabs %}
 
 Nachdem Sie Ihre Zustellmethode ausgewählt haben, passen Sie die Einstellungen an Ihren Anwendungsfall an und fahren Sie dann mit der Festlegung Ihrer Zielgruppe fort.
 
-{% details Deduplizierungsverhalten für Canvase mit dem ursprünglichen Editor %}
+{% details Deduplizierungsverhalten für Canvases mit dem ursprünglichen Editor %}
 Sollte das Fenster für die Wiederberechtigung kürzer sein als die maximale Dauer des Canvas, kann ein:e Nutzer:in erneut eintreten und Nachrichten von mehr als einem Schritt erhalten. Im Grenzfall, in dem der Wiedereintritt eines/einer Nutzer:in denselben Schritt wie der vorherige Eintritt erreicht, dedupliziert Braze die Nachrichten dieses Schritts.
 
 Wenn ein:e Nutzer:in erneut in das Canvas eintritt, denselben Schritt wie beim vorherigen Eintritt erreicht und für eine In-App-Nachricht bei jedem Eintritt berechtigt ist, erhält die/der Nutzer:in die Nachricht zweimal (abhängig von der Priorität der In-App-Nachricht), solange sie/er eine Sitzung zweimal erneut öffnet.
@@ -149,7 +149,7 @@ In Workspaces mit mehreren Apps wird die Berechtigung der Canvas-Eintrittszielgr
 Ohne diese Sicherheitsmaßnahmen können Nutzer:innen, die sich in einer App für die Journey qualifiziert haben, Nachrichten erhalten, die für eine andere App bestimmt sind, wenn sie auch andere Apps in Ihrem Workspace nutzen.
 {% endalert %}
 
-Unter **Eintrittskontrollen** können Sie die Anzahl der Nutzer:innen begrenzen, die jedes Mal eintreten, wenn das Canvas planmäßig ausgeführt wird. Für API-Trigger or triggern-basierte und aktionsbasierte Canvase gilt dieses Limit pro UTC-Stunde.
+Unter **Eintrittskontrollen** können Sie die Anzahl der Nutzer:innen begrenzen, die jedes Mal eintreten, wenn das Canvas planmäßig ausgeführt wird. Für API-trigger-basierte und aktionsbasierte Canvases gilt dieses Limit pro UTC-Stunde.
 
 {% multi_lang_include alerts/warning_alerts.md alert='Canvas race condition audience trigger' %}
 
@@ -201,7 +201,7 @@ Um zusätzliche Statistiken anzuzeigen, z. B. den durchschnittlichen Lifetime-Um
 
 Wählen Sie **Sendeeinstellungen**, um Ihre Abo-Einstellungen zu bearbeiten, Rate-Limiting zu aktivieren und [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) einzurichten. Durch die Aktivierung von [Rate-Limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-rate-limiting) oder [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping) können Sie den Marketing-Druck auf Ihre Nutzer:innen verringern und sicherstellen, dass Sie sie nicht mit zu vielen Nachrichten überhäufen.
 
-Für Canvase, die auf E-Mail- und Push-Kanäle abzielen, möchten Sie Ihr Canvas möglicherweise so einschränken, dass nur Nutzer:innen, die explizit zugestimmt haben (Opt-in), die Nachricht erhalten (unter Ausschluss von abonnierten oder abgemeldeten Nutzer:innen). Nehmen wir beispielsweise an, Sie haben drei Nutzer:innen mit unterschiedlichem Opt-in-Status:
+Für Canvases, die auf E-Mail- und Push-Kanäle abzielen, möchten Sie Ihr Canvas möglicherweise so einschränken, dass nur Nutzer:innen, die explizit zugestimmt haben (Opt-in), die Nachricht erhalten (unter Ausschluss von abonnierten oder abgemeldeten Nutzer:innen). Nehmen wir beispielsweise an, Sie haben drei Nutzer:innen mit unterschiedlichem Opt-in-Status:
 
 {% multi_lang_include messaging/intelligent_channel_user_examples.md %}
 
@@ -236,13 +236,13 @@ Sie können weitere Varianten hinzufügen, indem Sie den <i class="fas fa-plus-c
 ![Zwei Beispielvarianten in einem Braze-Canvas.]({% image_buster /assets/img_archive/Canvas_Multiple_Variants.png %})
 
 {% alert tip %}
-Standardmäßig wird die Canvas-Variantenzuweisung durch einen deterministischen Hash der Nutzer-ID und Canvas-ID bestimmt (nicht durch die [zufällige Bucket-Nummer]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers) der Nutzer:innen). Das bedeutet, dass Nutzer:innen beim erneuten Eintritt konsistent derselben Variante zugewiesen werden, solange die prozentualen Variantenverteilungen unverändert bleiben. Wenn Sie die Variantenverteilung nach dem Start anpassen, können Nutzer:innen beim erneuten Eintritt in das Canvas einer anderen Variante zugewiesen werden. <br><br>Wenn Sie eine Zuweisung benötigen, die auch bei Änderung der Verteilungsprozentsätze fix bleibt, verwenden Sie eine einzelne Canvas-Variante und leiten Sie Nutzer:innen mit einem [Zielgruppenpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths)-Schritt weiter. Verwenden Sie am Anfang der Journey einen [User-Update or aktualisieren]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)-Schritt, um eine zufällige Zahl in einem angepassten Attribut zu speichern, und filtern Sie dann in den Zielgruppenpfaden nach diesem Attribut.
+Standardmäßig wird die Canvas-Variantenzuweisung durch einen deterministischen Hash der Nutzer-ID und Canvas-ID bestimmt (nicht durch die [zufällige Bucket-Nummer]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers) der Nutzer:innen). Das bedeutet, dass Nutzer:innen beim erneuten Eintritt konsistent derselben Variante zugewiesen werden, solange die prozentualen Variantenverteilungen unverändert bleiben. Wenn Sie die Variantenverteilung nach dem Start anpassen, können Nutzer:innen beim erneuten Eintritt in das Canvas einer anderen Variante zugewiesen werden. <br><br>Wenn Sie eine Zuweisung benötigen, die auch bei Änderung der Verteilungsprozentsätze fix bleibt, verwenden Sie eine einzelne Canvas-Variante und leiten Sie Nutzer:innen mit einem [Zielgruppenpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths)-Schritt weiter. Verwenden Sie am Anfang der Journey einen [User-Update]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)-Schritt, um eine zufällige Zahl in einem angepassten Attribut zu speichern, und filtern Sie dann in den Zielgruppenpfaden nach diesem Attribut.
 
 {% details Zum Anzeigen der Schritte aufklappen %}
 
 1. Erstellen Sie ein angepasstes Attribut vom Typ **Number**, um Ihre zufällige Zahl zu speichern. Benennen Sie es so, dass es leicht zu finden ist, z. B. `lottery_number` oder `random_assignment`. Gehen Sie in Ihrem Dashboard zu **Data Settings** > **angepasste Attribute**.<br><br>
-2. Verwenden Sie eine einzelne Canvas-Variante (oder fügen Sie denselben User-Update or aktualisieren-Schritt zu jeder Variante hinzu). Fügen Sie am Anfang der Journey einen [User-Update or aktualisieren]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)-Schritt hinzu. Dieser Schritt generiert und speichert die zufällige Zahl, bevor Nutzer:innen Ihren Zielgruppenpfade-Schritt erreichen.<br><br>
-3. Wählen Sie im User-Update or aktualisieren-Schritt den [erweiterten JSON-Editor]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-editor). Verwenden Sie den {% raw %}{% random %}{% endraw %}-Tag, um die Zahl zu generieren. Weitere Informationen finden Sie unter [Nachrichten mit einer zufälligen Zahl senden]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#send-messages-with-a-random-number). Zum Beispiel gibt {% raw %}`{% random 10 %}`{% endraw %} eine Ganzzahl von 0 bis 9 zurück. Setzen Sie das angepasste Attribut aus Schritt 1 mit folgendem JSON:<br><br>{% raw %}
+2. Verwenden Sie eine einzelne Canvas-Variante (oder fügen Sie denselben User-Update-Schritt zu jeder Variante hinzu). Fügen Sie am Anfang der Journey einen [User-Update]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)-Schritt hinzu. Dieser Schritt generiert und speichert die zufällige Zahl, bevor Nutzer:innen Ihren Zielgruppenpfade-Schritt erreichen.<br><br>
+3. Wählen Sie im User-Update-Schritt den [erweiterten JSON-Editor]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-editor). Verwenden Sie den {% raw %}{% random %}{% endraw %}-Tag, um die Zahl zu generieren. Weitere Informationen finden Sie unter [Nachrichten mit einer zufälligen Zahl senden]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#send-messages-with-a-random-number). Zum Beispiel gibt {% raw %}`{% random 10 %}`{% endraw %} eine Ganzzahl von 0 bis 9 zurück. Setzen Sie das angepasste Attribut aus Schritt 1 mit folgendem JSON:<br><br>{% raw %}
 ```json
 {% if {{custom_attribute.${lottery_number}}} == blank %}
 {% capture lottery_number_str %}{% random 10 %}{% endcapture %}
@@ -260,7 +260,7 @@ Standardmäßig wird die Canvas-Variantenzuweisung durch einen deterministischen
 Der {% raw %}`{% if %}`{% endraw %}-Block setzt die Zahl nur dann, wenn das Attribut leer ist, sodass Nutzer:innen bei erneutem Eintritt in das Canvas dieselbe Zuweisung behalten.<br><br>
 
 {: start="4"}
-4. Fügen Sie nach dem User-Update or aktualisieren-Schritt einen [Zielgruppenpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths)-Schritt hinzu. Fügen Sie in jeder Zielgruppe Filter basierend auf Ihrem angepassten Attribut hinzu, anstatt prozentuale Variantenverteilungen zu verwenden.<br><br>Wenn Sie zum Beispiel {% raw %}`{% random 10 %}`{% endraw %} verwendet haben, könnte eine Gruppe `lottery_number` **ist kleiner als 4** verwenden, eine weitere **ist größer als 3 und kleiner als 7**, und eine dritte **ist größer als 6 und kleiner als 10**.
+4. Fügen Sie nach dem User-Update-Schritt einen [Zielgruppenpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths)-Schritt hinzu. Fügen Sie in jeder Zielgruppe Filter basierend auf Ihrem angepassten Attribut hinzu, anstatt prozentuale Variantenverteilungen zu verwenden.<br><br>Wenn Sie zum Beispiel {% raw %}`{% random 10 %}`{% endraw %} verwendet haben, könnte eine Gruppe `lottery_number` **ist kleiner als 4** verwenden, eine weitere **ist größer als 3 und kleiner als 7**, und eine dritte **ist größer als 6 und kleiner als 10**.
 
 {% enddetails %}
 {% endalert %}
@@ -281,7 +281,7 @@ Sie können bis zu 200 Schritte in einem Canvas hinzufügen. Wenn Ihr Canvas 200
 
 #### Maximale Dauer {#maximum-duration}
 
-Wenn Ihre Canvas-Journey an Schritten zunimmt, ist die maximale Dauer die längste Zeit, die Nutzer:innen benötigen können, um dieses Canvas abzuschließen. Diese wird berechnet, indem die Verzögerungen und Trigger or triggern-Fenster jedes Schritts für jede Variante für den längsten Pfad addiert werden. Wenn Ihr Canvas zum Beispiel einen Delay-Schritt mit einer Verzögerung von 3 Tagen und einen Nachrichtenschritt hat, beträgt die maximale Dauer Ihres Canvas 3 Tage.
+Wenn Ihre Canvas-Journey an Schritten zunimmt, ist die maximale Dauer die längste Zeit, die Nutzer:innen benötigen können, um dieses Canvas abzuschließen. Diese wird berechnet, indem die Verzögerungen und Trigger-Fenster jedes Schritts für jede Variante für den längsten Pfad addiert werden. Wenn Ihr Canvas zum Beispiel einen Delay-Schritt mit einer Verzögerung von 3 Tagen und einen Nachrichtenschritt hat, beträgt die maximale Dauer Ihres Canvas 3 Tage.
 
 #### Einen Schritt bearbeiten {#editing-a-step}
 
@@ -315,7 +315,7 @@ Wählen Sie **Fertig**, nachdem Sie die Konfiguration Ihrer Canvas-Komponente ab
 {% tabs local %}
 {% tab Context-Eigenschaften %}
 
-Das [`context`-Objekt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) wird im Schritt **Entry-Zeitplan** bei der Canvas-Erstellung konfiguriert und gibt den Trigger or triggern an, der Nutzer:innen in ein Canvas eintreten lässt. Diese Eigenschaften können auch auf die Eigenschaften von Eingangs-Payloads in API-getriggerten Canvase zugreifen. Beachten Sie, dass das `context`-Objekt bis zu 50 KB groß sein kann.
+Das [`context`-Objekt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) wird im Schritt **Entry-Zeitplan** bei der Canvas-Erstellung konfiguriert und gibt den Trigger an, der Nutzer:innen in ein Canvas eintreten lässt. Diese Eigenschaften können auch auf die Eigenschaften von Eingangs-Payloads in API-getriggerten Canvases zugreifen. Beachten Sie, dass das `context`-Objekt bis zu 50 KB groß sein kann.
 
 Verwenden Sie folgendes Liquid, wenn Sie auf diese beim Eintritt in das Canvas erstellten Eigenschaften verweisen: {% raw %} ``context.${property_name}`` {% endraw %}. Beachten Sie, dass die Events angepasste Events oder Kauf-Events sein müssen, um auf diese Weise verwendet werden zu können.
 
@@ -326,7 +326,7 @@ Betrachten Sie zum Beispiel die folgende Anfrage: `"context" : {"product_name" :
 {% endtab %}
 
 {% tab Event-Eigenschaften %}
-Event-Eigenschaften sind die Eigenschaften, die Sie für angepasste Events und Käufe festlegen. Diese `event_properties` können in Campaigns mit aktionsbasierter Zustellung sowie in Canvase verwendet werden.
+Event-Eigenschaften sind die Eigenschaften, die Sie für angepasste Events und Käufe festlegen. Diese `event_properties` können in Campaigns mit aktionsbasierter Zustellung sowie in Canvases verwendet werden.
 
 In Canvas können angepasste Event- und Kauf-Event-Eigenschaften in Liquid in jedem Nachrichtenschritt verwendet werden, der auf einen Aktionspfade-Schritt folgt. Verwenden Sie dieses Liquid {% raw %} ``{{event_properties.${property_name}}}`` {% endraw %}, wenn Sie auf diese `event_properties` verweisen. Diese Events müssen angepasste Events oder Kauf-Events sein, um auf diese Weise in der Nachrichtenkomponente verwendet werden zu können.
 
@@ -361,7 +361,7 @@ Fügen Sie mindestens zwei Varianten und ein Konversions-Event hinzu. Wählen Si
 
 Nach Ablauf der anfänglichen Konversionsfrist überprüft BrazeAI<sup>TM</sup> die Performance alle 12 Stunden und verschiebt mehr Nutzer:innen zur Variante, die die meisten Konversionen erzielt. Wenn die Optimierung eine:n eindeutige:n Gewinner:in identifiziert, betreten alle zukünftig berechtigten Nutzer:innen diese Variante.
 
-Diese Optimierung funktioniert am besten für Canvase, bei denen regelmäßig neue Nutzer:innen eintreten.
+Diese Optimierung funktioniert am besten für Canvases, bei denen regelmäßig neue Nutzer:innen eintreten.
 
 ## Schritt 4: Speichern und starten {#step-4-save-and-launch}
 
@@ -372,5 +372,5 @@ Sie können Ihr Canvas auch als Entwurf speichern, wenn Sie später darauf zurü
 ![Ein Beispiel-Canvas in Braze.]({% image_buster /assets/img_archive/Canvas_Analytics.png %})
 
 {% alert tip %}
-Müssen Sie nach dem Start Änderungen an Ihrem Canvas vornehmen? Das ist möglich! Weitere Informationen finden Sie unter [Canvase nach dem Start bearbeiten]({{site.baseurl}}/post-launch_edits).
+Müssen Sie nach dem Start Änderungen an Ihrem Canvas vornehmen? Das ist möglich! Weitere Informationen finden Sie unter [Canvases nach dem Start bearbeiten]({{site.baseurl}}/post-launch_edits).
 {% endalert %}

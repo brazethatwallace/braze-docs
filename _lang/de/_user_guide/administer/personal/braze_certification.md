@@ -12,7 +12,7 @@ description: "Dieser Referenzartikel beschreibt, wie Sie Braze-Zertifizierungen 
 
 ## Zertifizierung erhalten {#get-certified}
 
-Es gibt drei Schritte, um eine Zertifizierung zu erwerben: Wählen Sie einen Braze-Zertifizierungstyp aus, bereiten Sie sich mit empfohlenen Lernmaterialien vor und Registrierung or registrieren Sie sich dann auf [Certiverse](https://www.certiverse.com/#/store/Braze), um Ihre Prüfung abzulegen.
+Es gibt drei Schritte, um eine Zertifizierung zu erwerben: Wählen Sie einen Braze-Zertifizierungstyp aus, bereiten Sie sich mit empfohlenen Lernmaterialien vor und Registrierung Sie sich dann auf [Certiverse](https://www.certiverse.com/#/store/Braze), um Ihre Prüfung abzulegen.
 
 ### Schritt 1: Braze-Zertifizierung auswählen {#step-1-choose-a-braze-certification}
 
@@ -22,7 +22,7 @@ Besuchen Sie die [Braze-Zertifizierungsseite](https://learning.braze.com/page/ce
 
 Jede Zertifizierung verlinkt auf empfohlene [Braze-Lernpfade](https://learning.braze.com/page/learning-paths) und Lernmaterialien auf der [Braze-Zertifizierungsseite](https://learning.braze.com/page/certification). Gehen Sie im Dashboard zu **Support** > **Braze Learning**, oder melden Sie sich direkt bei Braze Learning an, um vor Ihrer Registrierung auf Certiverse zu lernen.
 
-### Schritt 3: Registrierung or registrieren und Prüfung ablegen {#step-3-register-and-take-your-exam}
+### Schritt 3: Registrierung und Prüfung ablegen {#step-3-register-and-take-your-exam}
 
 Prüfungen werden über Certiverse geplant und durchgeführt. Registrierungsschritte, Proctoring-Einrichtung und technische Anforderungen sind auf Certiverse und auf der [Braze-Zertifizierungsseite](https://learning.braze.com/page/certification) beschrieben. Stellen Sie vor Ihrer Prüfung sicher, dass Ihr System die [Certiverse-Proctoring-Anforderungen](https://help.certiverse.com/portal/en/kb/articles/proctoring-with-talview-hardware-requirements) erfüllt.
 

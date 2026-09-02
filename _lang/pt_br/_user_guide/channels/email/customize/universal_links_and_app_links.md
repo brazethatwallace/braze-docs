@@ -21,7 +21,7 @@ Os links universais da Apple e os Android App Links são mecanismos criados para
 
 Links universais (iOS) e App Links (Android) são links da web padrão (`http://mydomain.com`) que apontam tanto para uma página da web quanto para um conteúdo dentro de um app.
 
-Quando um link universal ou App Link é aberto, o sistema operacional verifica se algum app instalado está registrado para aquele domínio. Se um app for encontrado, ele é aberto imediatamente, sem nunca carregar a página da web. Se nenhum app for encontrado, a URL da web é carregada no navegador de internet or navegador web padrão do usuário, que também pode estar configurado para redirecionar para a App Store ou Google Play Store, respectivamente.
+Quando um link universal ou App Link é aberto, o sistema operacional verifica se algum app instalado está registrado para aquele domínio. Se um app for encontrado, ele é aberto imediatamente, sem nunca carregar a página da web. Se nenhum app for encontrado, a URL da web é carregada no navegador de internet padrão do usuário, que também pode estar configurado para redirecionar para a App Store ou Google Play Store, respectivamente.
 
 Em termos simples, os links universais permitem que um website associe suas páginas da web a telas específicas do app. Então, quando um usuário clica em um link para uma página da web que corresponde a uma tela do app, o app pode ser aberto diretamente (se estiver instalado no momento).
 
@@ -306,7 +306,7 @@ Certifique-se de que os seus caminhos personalizados seguem estes requisitos:
 - **Sensibilidade a maiúsculas e minúsculas:** Os caminhos diferenciam maiúsculas de minúsculas para atender aos requisitos do sistema operacional móvel
 
 {:start="2"}
-2. Confirme que as suas URLs de rastreamento envolvidas incluem o Segment or segmento or segmento de caminho personalizado. Sem o atributo, links rastreados usam `track.yourstore.com/CL0/{encodedUrl}/...`. Com o atributo, eles seguem este formato: `track.yourstore.com/CL1/{customPath}/{encodedUrl}/...`
+2. Confirme que as suas URLs de rastreamento envolvidas incluem o Segment de caminho personalizado. Sem o atributo, links rastreados usam `track.yourstore.com/CL0/{encodedUrl}/...`. Com o atributo, eles seguem este formato: `track.yourstore.com/CL1/{customPath}/{encodedUrl}/...`
 
 Por exemplo:
 

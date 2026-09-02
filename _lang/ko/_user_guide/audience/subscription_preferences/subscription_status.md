@@ -3,7 +3,7 @@ nav_title: 구독 상태
 article_title: 구독 상태
 page_order: 0
 page_type: reference
-description: "Braze가 이메일, LINE, 단문 메시지 서비스, RCS, WhatsApp에서 구독 상태를 추적하는 방법과 상태가 메시지 전달을 제어하는 방식에 대해 알아보세요."
+description: "Braze가 이메일, LINE, SMS, RCS, WhatsApp에서 구독 상태를 추적하는 방법과 상태가 메시지 전달을 제어하는 방식에 대해 알아보세요."
 
 ---
 
@@ -20,15 +20,15 @@ Braze는 두 가지 수준에서 구독 상태를 추적합니다:
 | 수준 | 제어 대상 | 채널 |
 | ----- | ---------------- | -------- |
 | 글로벌 구독 상태 | 사용자가 해당 채널에서 메시지를 수신할 수 있는지 여부 | 이메일, 푸시 |
-| 구독 그룹 상태 | 사용자가 채널 내 특정 그룹에 옵트인했는지 여부 | 이메일, 단문 메시지 서비스, MMS, RCS, WhatsApp, LINE |
+| 구독 그룹 상태 | 사용자가 채널 내 특정 그룹에 옵트인했는지 여부 | 이메일, SMS, MMS, RCS, WhatsApp, LINE |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Braze에서 구독 상태가 작동하는 방식" }
 
-글로벌 상태와 구독 그룹 상태는 함께 작동합니다. 이메일의 경우, 글로벌 수신 거부 상태인 사용자는 구독 그룹에 가입되어 있더라도 이메일을 수신하지 않습니다. 단문 메시지 서비스, RCS, WhatsApp, LINE의 경우, 사용자는 해당 그룹에서 메시지를 수신하려면 관련 구독 그룹에 가입되어 있어야 합니다.
+글로벌 상태와 구독 그룹 상태는 함께 작동합니다. 이메일의 경우, 글로벌 수신 거부 상태인 사용자는 구독 그룹에 가입되어 있더라도 이메일을 수신하지 않습니다. SMS, RCS, WhatsApp, LINE의 경우, 사용자는 해당 그룹에서 메시지를 수신하려면 관련 구독 그룹에 가입되어 있어야 합니다.
 
 **인게이지먼트** > **연락처 설정**에서 사용자 프로필의 구독 상태를 확인하고 업데이트할 수 있으며, REST API, SDK, CSV 가져오기, 환경설정 센터, 채널별 옵트인 플로우를 통해서도 가능합니다. Braze는 구독 상태 변경을 데이터 포인트에 포함하지 않습니다.
 
 {% alert note %}
-구독 그룹은 채널 내에서 세분화된 옵트인을 추가합니다(예: 프로모션 단문 메시지 서비스와 트랜잭션 단문 메시지 서비스). 글로벌 이메일 상태와 구독 그룹 멤버십은 도달 가능한 사용자를 결정할 때 함께 작동합니다.
+구독 그룹은 채널 내에서 세분화된 옵트인을 추가합니다(예: 프로모션 SMS와 트랜잭션 SMS). 글로벌 이메일 상태와 구독 그룹 멤버십은 도달 가능한 사용자를 결정할 때 함께 작동합니다.
 {% endalert %}
 
 ## 이메일 {#email}
@@ -81,23 +81,23 @@ Braze가 통합된 채널에 대한 LINE 웹훅 이벤트를 수신하면:
 
 설정 단계, 사용자 조정, 사용 사례에 대한 자세한 내용은 [LINE 설정]({{site.baseurl}}/user_guide/channels/line/line_setup#user-setup) 및 [LINE 구독 그룹]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups)을 참조하세요.
 
-## 단문 메시지 서비스 및 RCS {#sms-and-rcs}
+## SMS 및 RCS {#sms-and-rcs}
 
-단문 메시지 서비스와 RCS는 별도의 글로벌 채널 상태가 아닌 구독 그룹 상태를 사용합니다. 사용자는 트랜잭션 그룹에는 `subscribed`이면서 동시에 프로모션 그룹에는 `unsubscribed`일 수 있습니다.
+SMS와 RCS는 별도의 글로벌 채널 상태가 아닌 구독 그룹 상태를 사용합니다. 사용자는 트랜잭션 그룹에는 `subscribed`이면서 동시에 프로모션 그룹에는 `unsubscribed`일 수 있습니다.
 
 | 상태 | 정의 |
 | ----- | ---------- |
-| 구독됨 | 사용자가 Braze 구독 API, 옵트인 키워드 또는 기타 지원되는 방법을 통해 특정 구독 그룹에서 단문 메시지 서비스 및 RCS를 수신하도록 구독했습니다. [이중 옵트인]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in)이 활성화된 경우, 사용자는 상태가 `Subscribed`로 업데이트되기 전에 옵트인을 확인해야 합니다. |
+| 구독됨 | 사용자가 Braze 구독 API, 옵트인 키워드 또는 기타 지원되는 방법을 통해 특정 구독 그룹에서 SMS 및 RCS를 수신하도록 구독했습니다. [이중 옵트인]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in)이 활성화된 경우, 사용자는 상태가 `Subscribed`로 업데이트되기 전에 옵트인을 확인해야 합니다. |
 | 수신 거부 | 사용자가 옵트아웃 키워드를 문자로 보내거나 [Braze 구독 API]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status)를 통해 해당 구독 그룹에서 옵트아웃했습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="단문 메시지 서비스 및 RCS 구독 상태" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS 및 RCS 구독 상태" }
 
-### 단문 메시지 서비스 및 RCS 관련 동작 {#sms-and-rcs-specific-behavior}
+### SMS 및 RCS 관련 동작 {#sms-and-rcs-specific-behavior}
 
 - **전화번호 상속:** 프로필에 전화번호가 추가되거나 업데이트되면, 해당 번호는 프로필 또는 이미 해당 번호를 사용하는 기존 프로필의 구독 그룹 상태를 상속받습니다.
 - **키워드 처리:** 사용자는 기본 또는 커스텀 [키워드]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout)를 문자로 보내 옵트인 또는 옵트아웃할 수 있습니다. Braze는 구독 상태를 자동으로 업데이트합니다.
-- **규정 준수:** Braze는 선택한 구독 그룹에 구독되지 않은 사용자에게 단문 메시지 서비스 또는 RCS를 발송하지 않습니다.
+- **규정 준수:** Braze는 선택한 구독 그룹에 구독되지 않은 사용자에게 SMS 또는 RCS를 발송하지 않습니다.
 
-설정, 발송, 구독 그룹 관리에 대한 자세한 내용은 [단문 메시지 서비스, MMS, RCS 구독 그룹]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups)을 참조하세요.
+설정, 발송, 구독 그룹 관리에 대한 자세한 내용은 [SMS, MMS, RCS 구독 그룹]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups)을 참조하세요.
 
 ## WhatsApp {#whatsapp}
 
@@ -111,7 +111,7 @@ WhatsApp도 구독 그룹 상태를 사용합니다. Meta는 마케팅 메시지
 
 ### 옵트인 요구 사항 {#opt-in-requirements}
 
-WhatsApp에서 사용자에게 메시지를 보내려면, 각 사용자에 대해 `external_id`, [전화번호]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers), 업데이트된 구독 상태를 Braze에 제공해야 합니다. 웹사이트, 앱, 단문 메시지 서비스, 인앱 메시지, 인바운드 WhatsApp 스레드를 통해 옵트인을 수집하거나, 이미 다른 곳에서 옵트인한 사용자의 CSV 가져오기를 통해 수집할 수 있습니다.
+WhatsApp에서 사용자에게 메시지를 보내려면, 각 사용자에 대해 `external_id`, [전화번호]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers), 업데이트된 구독 상태를 Braze에 제공해야 합니다. 웹사이트, 앱, SMS, 인앱 메시지, 인바운드 WhatsApp 스레드를 통해 옵트인을 수집하거나, 이미 다른 곳에서 옵트인한 사용자의 CSV 가져오기를 통해 수집할 수 있습니다.
 
 ### 옵트아웃 방법 {#opt-out-methods}
 

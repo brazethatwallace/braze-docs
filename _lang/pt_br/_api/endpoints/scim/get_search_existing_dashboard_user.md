@@ -9,7 +9,7 @@ page_type: reference
 description: "Este artigo traz informações sobre o endpoint da Braze \"Pesquisar conta de usuário existente do dashboard por e-mail\"."
 ---
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Pesquisar conta de usuário existente do dashboard por e-mail {#search-existing-dashboard-user-account-by-email}
 {% apimethod get %}
 scim/v2/Users?filter=userName%20eq%20"user%40test.com"
@@ -53,7 +53,7 @@ Authorization: Bearer YOUR-SCIM-TOKEN-HERE
 ```
 
 {% alert note %}
-Se você receber uma resposta `401`, confirme se está usando um token SCIM (não uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional), se o `X-Request-Origin` corresponde à origem do seu serviço e se o seu endereço IP está na lista de permissões SCIM. Para saber mais, consulte [Provisionamento automatizado de usuários]({{site.baseurl}}/scim/automated_user_provisioning).
+Se você receber uma resposta `401`, confirme se está usando um token SCIM (não uma chave da API REST), se o `X-Request-Origin` corresponde à origem do seu serviço e se o seu endereço IP está na lista de permissões SCIM. Para saber mais, consulte [Provisionamento automatizado de usuários]({{site.baseurl}}/scim/automated_user_provisioning).
 {% endalert %}
 
 ## Exemplo de solicitação {#example-request}

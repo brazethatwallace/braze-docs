@@ -15,7 +15,7 @@ search_tag: Partner
 La integración de Braze y Tealium aprovecha los perfiles de visitantes de AudienceStream. Los comportamientos compartidos segmentan estos perfiles para crear conjuntos de visitantes con rasgos comunes, conocidos como audiencias. Estas audiencias pueden ayudar a alimentar tu stack tecnológico de marketing en tiempo real mediante conectores.
 
 {% alert important %}
-Tealium AudienceStreams y EventStreams ofrecen acciones de conector por lotes y no por lotes. El conector no por lotes debe utilizarse cuando las solicitudes en tiempo real sean importantes para el caso de uso y no haya preocupación por alcanzar las especificaciones del límite de velocidad de la API de Braze. Ponte en contacto con el [soporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) de Braze o con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente si tienes alguna pregunta.
+Tealium AudienceStreams y EventStreams ofrecen acciones de conector por lotes y no por lotes. El conector no por lotes debe utilizarse cuando las solicitudes en tiempo real sean importantes para el caso de uso y no haya preocupación por alcanzar las especificaciones del límite de velocidad de la API de Braze. Ponte en contacto con el [soporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) de Braze o con tu CSM si tienes alguna pregunta.
 {% endalert %}
 
 ## Requisitos previos {#prerequisites}
@@ -23,8 +23,8 @@ Tealium AudienceStreams y EventStreams ofrecen acciones de conector por lotes y 
 | Nombre | Descripción |
 | ---- | ----------- |
 | Cuenta de Tealium | Se requiere una [cuenta de Tealium](https://my.tealiumiq.com/) con acceso del lado del servidor. También recomendamos usar las integraciones del lado del cliente para aprovechar esta asociación. |
-| Clave de API REST or transferencia de estado representacional | Una clave de API REST or transferencia de estado representacional de Braze con permisos de `users.track`, `users.delete` y `subscription.status.set`.<br><br>Se puede crear en **Panel de Braze > Consola para desarrolladores > Clave de API REST or transferencia de estado representacional > Crear nueva clave de API**|
-| [Endpoint REST or transferencia de estado representacional de Braze]({{site.baseurl}}/api/basics#endpoints) | La URL de tu endpoint REST or transferencia de estado representacional. Tu endpoint dependerá de la [URL de Braze para tu instancia]({{site.baseurl}}/api/basics#endpoints). |
+| Clave de API REST | Una clave de API REST de Braze con permisos de `users.track`, `users.delete` y `subscription.status.set`.<br><br>Se puede crear en **Panel de Braze > Consola para desarrolladores > Clave de API REST > Crear nueva clave de API**|
+| [Endpoint REST de Braze]({{site.baseurl}}/api/basics#endpoints) | La URL de tu endpoint REST. Tu endpoint dependerá de la [URL de Braze para tu instancia]({{site.baseurl}}/api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
@@ -124,7 +124,7 @@ En el diálogo **Source** que aparece, selecciona la audiencia que creaste en el
 
 #### Configuración {#configuration}
 
-A continuación, aparecerá un diálogo de **Configuration**. Selecciona **Add Connector** en la parte inferior de la página. Nombra tu conector y proporciona tu endpoint de la API de Braze y tu clave de API REST or transferencia de estado representacional de Braze aquí.
+A continuación, aparecerá un diálogo de **Configuration**. Selecciona **Add Connector** en la parte inferior de la página. Nombra tu conector y proporciona tu endpoint de la API de Braze y tu clave de API REST de Braze aquí.
 
 ![Diálogo de configuración del conector de Tealium con campos de endpoint de Braze y clave de API REST.]({% image_buster /assets/img/tealium/create_configuration.png %}){: style="max-width:70%;"}
 
@@ -176,13 +176,13 @@ Esta acción te permite eliminar usuarios del panel de Braze.
 
 {% endtab %}
 {% tab Actualizar estado del grupo de suscripción del usuario - Sin lotes %}
-Esta acción te permite agregar o eliminar usuarios de los grupos de suscripción de servicio de mensajes cortos o correo electrónico de Braze.
+Esta acción te permite agregar o eliminar usuarios de los grupos de suscripción de SMS o correo electrónico de Braze.
 
 | Parámetros | Descripción |
 | ---------- | ----------- |
-| Tipo de grupo | Usa este campo para indicar si es un grupo de suscripción de servicio de mensajes cortos o correo electrónico. |
+| Tipo de grupo | Usa este campo para indicar si es un grupo de suscripción de SMS o correo electrónico. |
 | Tipo de actualización | Mapea esta acción a un evento de cancelación de suscripción o de suscripción. |
-| Atributos | - ID del grupo de suscripción (obligatorio): el ID del grupo de suscripción relacionado con el tipo de grupo mapeado en el campo anterior.<br>- ID externo: el ID externo del usuario.<br><br>Específico del grupo de correo electrónico:<br>- Correo electrónico: la dirección de correo electrónico del usuario.<br>**Si el ID externo no está definido, se requerirá el correo electrónico.**<br><br>Específico del grupo de servicio de mensajes cortos:<br>- Teléfono: el número de teléfono en formato E.164. Por ejemplo, +14155552671.<br>**Si el ID externo no está definido, se requerirá el teléfono.** |
+| Atributos | - ID del grupo de suscripción (obligatorio): el ID del grupo de suscripción relacionado con el tipo de grupo mapeado en el campo anterior.<br>- ID externo: el ID externo del usuario.<br><br>Específico del grupo de correo electrónico:<br>- Correo electrónico: la dirección de correo electrónico del usuario.<br>**Si el ID externo no está definido, se requerirá el correo electrónico.**<br><br>Específico del grupo de SMS:<br>- Teléfono: el número de teléfono en formato E.164. Por ejemplo, +14155552671.<br>**Si el ID externo no está definido, se requerirá el teléfono.** |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Acción" }
 
 ![Acción de actualización del estado del grupo de suscripción en Tealium con mapeados de tipo de grupo y tipo de actualización.]({% image_buster /assets/img/tealium/update_subscription.png %}){: style="max-width:90%"}
@@ -231,5 +231,5 @@ Si tienes múltiples EventStreams que apuntan a la misma fuente de eventos, **to
 **Solución**: <br>Configura una especificación de evento o fuente separada para rastrear cada acción. <br>**O**<br> Deshabilita las acciones (o conectores) que no quieras que se activen usando los alternadores en el panel de Tealium.
 
 #### Inicialización de Braze demasiado temprana {#initializing-braze-too-early}
-Si estás integrando con Tealium usando la etiqueta del SDK or kit de desarrollo de software Web de Braze, es posible que veas un aumento drástico en tus MAU or usuarios activos al mes. **Si Braze se inicializa al cargar la página, Braze creará un perfil anónimo cada vez que un usuario web navegue al sitio web por primera vez.** Esto incluye el tráfico de bots, lo que puede inflar tu recuento de usuarios activos. Algunos pueden querer rastrear el comportamiento del usuario solo cuando los usuarios hayan completado alguna acción, como "Sesión iniciada" o "Video visto", para reducir su recuento de MAU or usuarios activos al mes. <br><br>
-**Solución**: <br>Configura [reglas de carga](https://docs.tealium.com/iq-tag-management/load-rules/about/) para determinar exactamente cuándo y dónde se carga una etiqueta en tu sitio. Para una guía más completa sobre el filtrado de tráfico de bots y la inicialización condicional del SDK or kit de desarrollo de software, consulta [Filtrado de tráfico de bots]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web#web_bot-filtering).
+Si estás integrando con Tealium usando la etiqueta del SDK Web de Braze, es posible que veas un aumento drástico en tus MAU. **Si Braze se inicializa al cargar la página, Braze creará un perfil anónimo cada vez que un usuario web navegue al sitio web por primera vez.** Esto incluye el tráfico de bots, lo que puede inflar tu recuento de usuarios activos. Algunos pueden querer rastrear el comportamiento del usuario solo cuando los usuarios hayan completado alguna acción, como "Sesión iniciada" o "Video visto", para reducir su recuento de MAU. <br><br>
+**Solución**: <br>Configura [reglas de carga](https://docs.tealium.com/iq-tag-management/load-rules/about/) para determinar exactamente cuándo y dónde se carga una etiqueta en tu sitio. Para una guía más completa sobre el filtrado de tráfico de bots y la inicialización condicional del SDK, consulta [Filtrado de tráfico de bots]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web#web_bot-filtering).

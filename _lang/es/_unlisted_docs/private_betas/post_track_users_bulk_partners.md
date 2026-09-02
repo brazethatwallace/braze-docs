@@ -44,7 +44,7 @@ Si tus clientes están usando la API para llamadas de servidor a servidor, es po
 
 Para la mayoría de los clientes, aplicamos un límite de velocidad base de 50 solicitudes por segundo a este punto de conexión.
 
-Sin embargo, los clientes con contratos más recientes pueden recibir un límite de velocidad de ráfaga (por segundo) y estable (por hora), que está vinculado a su MAU or usuarios activos al mes contratado con Braze.
+Sin embargo, los clientes con contratos más recientes pueden recibir un límite de velocidad de ráfaga (por segundo) y estable (por hora), que está vinculado a su MAU contratado con Braze.
 
 Para mejorar las interacciones en tiempo real con nuestra API, asegúrate de usar nuestros [encabezados de respuesta recomendados]({{site.baseurl}}/api/api_limits/#monitoring-your-rate-limits).
 

@@ -1,7 +1,7 @@
 ---
 nav_title: Clarisights
 article_title: Clarisights
-description: "Este artículo de referencia describe la asociación entre Braze y Clarisights, una plataforma de informes de marketing del rendimiento de autoservicio, que te permite importar datos de Campaigns y Canvas de Braze para conseguir una interfaz de informes unificada de marketing del rendimiento y CRM or administración de las relaciones con el cliente/retención."
+description: "Este artículo de referencia describe la asociación entre Braze y Clarisights, una plataforma de informes de marketing del rendimiento de autoservicio, que te permite importar datos de Campaigns y Canvas de Braze para conseguir una interfaz de informes unificada de marketing del rendimiento y CRM/retención."
 alias: /partners/clarisights/
 page_type: partner
 search_tag: Partner
@@ -16,15 +16,15 @@ _Esta integración está mantenida por Clarisights._
 
 ## Sobre la integración {#about-the-integration}
 
-La integración de Braze y Clarisights te permite importar datos de Campaigns y Canvas de Braze para conseguir una interfaz de informes unificada de marketing del rendimiento y CRM or administración de las relaciones con el cliente/retención.
+La integración de Braze y Clarisights te permite importar datos de Campaigns y Canvas de Braze para conseguir una interfaz de informes unificada de marketing del rendimiento y CRM/retención.
 
 ## Requisitos previos {#prerequisites}
 
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta Clarisights | Se requiere un espacio de trabajo de Clarisights para aprovechar esta asociación |
-| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con los siguientes permisos:  <br> - `campaigns.list` <br>  - `campaigns.details`<br> - `campaigns.data_series` <br> - `canvas.details`<br> - `canvas.list` <br>  - `canvas.data_series` <br><br> Se puede crear en el panel de Braze desde **Settings** > **API Keys**. |
-| Punto de conexión REST or transferencia de estado representacional de Braze | [La URL de tu punto de conexión REST or transferencia de estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze de tu instancia. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con los siguientes permisos:  <br> - `campaigns.list` <br>  - `campaigns.details`<br> - `campaigns.data_series` <br> - `canvas.details`<br> - `canvas.list` <br>  - `canvas.data_series` <br><br> Se puede crear en el panel de Braze desde **Settings** > **API Keys**. |
+| Punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze de tu instancia. |
 | Nombre del espacio de trabajo de Braze | El nombre del espacio de trabajo asociado a la clave de API de Braze. Este nombre se utilizará para identificar la integración del espacio de trabajo en Clarisights. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 

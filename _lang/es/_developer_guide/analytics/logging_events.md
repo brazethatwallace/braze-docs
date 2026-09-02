@@ -2,15 +2,15 @@
 nav_title: Registrar eventos personalizados
 article_title: Registrar eventos personalizados
 page_order: 3.1
-description: "Aprende a registrar eventos personalizados a través del SDK or kit de desarrollo de software de Braze."
+description: "Aprende a registrar eventos personalizados a través del SDK de Braze."
 ---
 
 # Registrar eventos personalizados {#log-custom-events}
 
-> Aprende a registrar eventos personalizados a través del SDK or kit de desarrollo de software de Braze.
+> Aprende a registrar eventos personalizados a través del SDK de Braze.
 
 {% alert note %}
-Para los SDK or kit de desarrollo de software envolventes que no aparecen en la lista, utiliza el método nativo de Android o Swift correspondiente.
+Para los SDK envolventes que no aparecen en la lista, utiliza el método nativo de Android o Swift correspondiente.
 {% endalert %}
 
 Para los eventos recomendados de comercio electrónico, consulta [Registrar eventos de comercio electrónico]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
@@ -21,7 +21,7 @@ Para registrar un evento personalizado, utiliza el siguiente método de registro
 
 {% tabs %}
 {% tab web %}
-Para una implementación estándar del SDK or kit de desarrollo de software Web, puedes utilizar el siguiente método:
+Para una implementación estándar del SDK Web, puedes utilizar el siguiente método:
 
 ```javascript
 braze.logCustomEvent("YOUR_EVENT_NAME");
@@ -87,7 +87,7 @@ La API `logCustomEvent` acepta:
 
 Para los valores de las propiedades, utiliza `string` (hasta 255 caracteres), `numeric`, `boolean`, arreglos u objetos JSON anidados.
 
-Para más detalles de implementación, consulta el código fuente del SDK or kit de desarrollo de software de Braze para Cordova:
+Para más detalles de implementación, consulta el código fuente del SDK de Braze para Cordova:
 - [Método `logCustomEvent` en `www/BrazePlugin.js` (líneas 138-140)](https://github.com/braze-inc/braze-cordova-sdk/blob/86132bc7f0b6ddf1b598b0e612db70f11744801c/www/BrazePlugin.js#L138-L140)
 - [JSDoc en `www/BrazePlugin.js` (líneas 128-140)](https://github.com/braze-inc/braze-cordova-sdk/blob/86132bc7f0b6ddf1b598b0e612db70f11744801c/www/BrazePlugin.js#L128-L140)
 - [Controlador Android en `src/android/BrazePlugin.kt` (líneas 108-115)](https://github.com/braze-inc/braze-cordova-sdk/blob/86132bc7f0b6ddf1b598b0e612db70f11744801c/src/android/BrazePlugin.kt#L108-L115)
@@ -366,14 +366,14 @@ Después de [añadir tu usuario como usuario de prueba]({{site.baseurl}}/user_gu
 
 ## Solución de problemas de eventos personalizados {#troubleshooting-custom-events}
 
-Usa estos escenarios para solucionar problemas con el registro de eventos personalizados en los SDK or kit de desarrollo de software.
+Usa estos escenarios para solucionar problemas con el registro de eventos personalizados en los SDK.
 
 ### Verificar el desencadenador del evento personalizado {#verifying-the-custom-event-trigger}
 
 Si un evento personalizado no aparece, es posible que la acción rastreada en tu aplicación no coincida con la acción que estás probando.
 
 - Confirma con tu equipo de desarrolladores qué acción de la aplicación desencadena el evento personalizado.
-- Busca rutas de código obsoletas después de actualizaciones del SDK or kit de desarrollo de software, como referencias a `appboy` en lugar de `braze`.
+- Busca rutas de código obsoletas después de actualizaciones del SDK, como referencias a `appboy` en lugar de `braze`.
 
 ### Los eventos personalizados se registran en un perfil anónimo {#custom-events-are-logged-to-an-anonymous-profile}
 
@@ -388,5 +388,5 @@ Si los eventos personalizados no aparecen como se espera, confirma que tu equipo
 
 - Pide a tu equipo de desarrolladores que verifique que el evento se registra correctamente y se desencadena a partir de la acción de usuario esperada.
 - Cuando tu equipo abra un ticket con soporte de Braze, incluye [registros detallados]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging) y fragmentos de código relevantes.
-- Si tu aplicación usa Swift o Android, tu equipo de desarrolladores puede usar los [prerrequisitos del depurador del SDK or kit de desarrollo de software]({{site.baseurl}}/developer_guide/sdk_integration/debugging#prerequisites) para ayudar a generar registros detallados.
+- Si tu aplicación usa Swift o Android, tu equipo de desarrolladores puede usar los [prerrequisitos del depurador del SDK]({{site.baseurl}}/developer_guide/sdk_integration/debugging#prerequisites) para ayudar a generar registros detallados.
 - Si tu equipo de desarrolladores no puede identificar el problema, abre un [ticket de soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support).

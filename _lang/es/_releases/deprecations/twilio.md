@@ -12,10 +12,10 @@ channel:
 # Twilio
 
 {% alert warning %}
-Ten en cuenta que la compatibilidad con la integración de webhook de Twilio se interrumpirá el 31 de enero de 2020. Si deseas seguir accediendo a los servicios servicio de mensajes cortos con Braze, consulta nuestra [documentación sobre servicio de mensajes cortos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/).
+Ten en cuenta que la compatibilidad con la integración de webhook de Twilio se interrumpirá el 31 de enero de 2020. Si deseas seguir accediendo a los servicios SMS con Braze, consulta nuestra [documentación sobre SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/).
 {% endalert %}
 
-En este ejemplo, configuraremos el canal webhook de Braze para enviar servicio de mensajes cortos y MMS a tus usuarios, a través de la [API de envío de mensajes](https://www.twilio.com/docs/api/rest/sending-messages) de Twilio. Para tu comodidad, en el dashboard se incluye una plantilla de webhook de Twilio.
+En este ejemplo, configuraremos el canal webhook de Braze para enviar SMS y MMS a tus usuarios, a través de la [API de envío de mensajes](https://www.twilio.com/docs/api/rest/sending-messages) de Twilio. Para tu comodidad, en el dashboard se incluye una plantilla de webhook de Twilio.
 
 ## URL HTTP {#http-url}
 
@@ -29,7 +29,7 @@ En nuestro ejemplo de Twilio, la URL del webhook es `https://api.twilio.com/2010
 
 La API de Twilio espera que el cuerpo de la solicitud esté codificado como URL, así que tenemos que empezar por cambiar el tipo de solicitud en el compositor de webhook de Braze a `Raw Text`. Los parámetros obligatorios para el cuerpo de la solicitud son *To*, *From* y *Body*.
 
-La siguiente captura de pantalla es un ejemplo del aspecto que podría tener tu solicitud si estás enviando un servicio de mensajes cortos al número de teléfono de cada usuario, con el cuerpo "Hello from Braze!".
+La siguiente captura de pantalla es un ejemplo del aspecto que podría tener tu solicitud si estás enviando un SMS al número de teléfono de cada usuario, con el cuerpo "Hello from Braze!".
 
 - Necesitarás tener números de teléfono válidos en cada perfil de usuario de tu audiencia objetivo.
 - Para cumplir con el formato de solicitud de Twilio, utiliza el filtro `url_param_escape` de Liquid en el contenido de tus mensajes. Este filtro codifica una cadena para que todos los caracteres estén permitidos en una solicitud HTML; por ejemplo, el carácter más (`+`) en el número de teléfono `+12125551212` está prohibido en los datos codificados en URL y se convertirá en `%2B12125551212`.

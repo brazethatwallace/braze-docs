@@ -23,7 +23,7 @@ La integración de Braze y DataGrail permite detectar los datos de los consumido
 | Requisitos | Descripción |
 |---|---|
 | Cuenta DataGrail | Se necesita una cuenta DataGrail para aprovechar esta asociación.<br>Ponte en contacto con tu administrador o envía un correo electrónico a support@datagrail.io si tienes algún problema o pregunta sobre la integración. |
-| Clave de API de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos `events.list`, `users.export.ids`, `users.delete` y `users.track`.<br><br>Se puede crear en el dashboard de Braze desde **Settings** > **API Keys**. |
+| Clave de API de Braze | Una clave de API REST de Braze con permisos `events.list`, `users.export.ids`, `users.delete` y `users.track`.<br><br>Se puede crear en el dashboard de Braze desde **Settings** > **API Keys**. |
 | Instancia de Braze | Tu instancia de Braze se puede obtener a través de tu administrador de incorporación a Braze o en la [página de resumen de la API]({{site.baseurl}}/api/basics/#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 

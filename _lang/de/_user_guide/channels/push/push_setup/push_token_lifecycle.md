@@ -45,7 +45,7 @@ Push-Token / Textbaustein sind sowohl für das Gerät als auch für die App eind
 
 Angenommen, Sie haben zwei Nutzer:innen: Charlie und Kim. Wenn Charlie Push-Benachrichtigungen für Ihre App auf seinem Telefon aktiviert hat und Kim Charlies Telefon nutzt, um sich aus Charlies Profil abzumelden und sich in ihr eigenes einzuloggen, wird das Push-Token / Textbaustein Kims Profil zugewiesen. Das Push-Token / Textbaustein bleibt dann Kims Profil auf diesem Gerät zugewiesen, bis sie sich abmeldet und Charlie sich wieder anmeldet.
 
-Eine App oder Website kann nur ein Push-Abo pro Gerät haben. Wenn sich also Nutzer:innen von einem Gerät oder einer Website abmelden und neue Nutzer:innen sich anmelden, wird das Push-Token / Textbaustein den neuen Nutzer:innen zugewiesen. Dies wird im Kundenprofil or Nutzerprofil im Abschnitt **Contact Settings** auf dem Tab **Engagement** angezeigt:
+Eine App oder Website kann nur ein Push-Abo pro Gerät haben. Wenn sich also Nutzer:innen von einem Gerät oder einer Website abmelden und neue Nutzer:innen sich anmelden, wird das Push-Token / Textbaustein den neuen Nutzer:innen zugewiesen. Dies wird im Kundenprofil im Abschnitt **Contact Settings** auf dem Tab **Engagement** angezeigt:
 
 ![Push-Token-Changelog auf dem Tab „Engagement“ eines Nutzerprofils, der anzeigt, wann das Push-Token zu anderen Nutzer:innen verschoben wurde und um welches Token es sich handelt.]({% image_buster /assets/img/push_token_changelog.png %})
 
@@ -91,12 +91,12 @@ iOS generiert nicht automatisch Push-Token / Textbaustein für eine App bei der 
 
 Es gibt zwei Möglichkeiten, den Push-Abo-Status von Nutzer:innen mit Braze zu prüfen:
 
-- **Kundenprofil or Nutzerprofil**: Sie können auf einzelne Nutzerprofile über das Braze-Dashboard auf der Seite [Nutzersuche]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) zugreifen. Nachdem Sie ein Kundenprofil or Nutzerprofil gefunden haben (über E-Mail-Adresse, Telefonnummer oder externe Nutzer-ID), können Sie den Tab **Engagement** auswählen, um den Abo-Status der Nutzer:innen einzusehen und manuell anzupassen.
-- **Representational State Transfer-API-Export**: Sie können einzelne Nutzerprofile im JSON-Format exportieren, indem Sie die Endpunkte [Nutzer:innen nach Segment]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) oder [Nutzer:innen nach Bezeichner]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) verwenden. Braze gibt ein Push-Token / Textbaustein-Objekt zurück, das Push-Aktivierungsinformationen pro Gerät enthält.
+- **Kundenprofil**: Sie können auf einzelne Nutzerprofile über das Braze-Dashboard auf der Seite [Nutzersuche]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) zugreifen. Nachdem Sie ein Kundenprofil gefunden haben (über E-Mail-Adresse, Telefonnummer oder externe Nutzer-ID), können Sie den Tab **Engagement** auswählen, um den Abo-Status der Nutzer:innen einzusehen und manuell anzupassen.
+- **REST-API-Export**: Sie können einzelne Nutzerprofile im JSON-Format exportieren, indem Sie die Endpunkte [Nutzer:innen nach Segment]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) oder [Nutzer:innen nach Bezeichner]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) verwenden. Braze gibt ein Push-Token / Textbaustein-Objekt zurück, das Push-Aktivierungsinformationen pro Gerät enthält.
 
 ### Push-Registrierungsstatus prüfen {#checking-push-registration-status}
 
-Auf dem Tab **Engagement** im Kundenprofil or Nutzerprofil sehen Sie **Push Registered For** gefolgt von einem App-Namen. Wenn keine App-Informationen für dieses Gerät vorhanden sind, werden zwei Bindestriche (**&#45;&#45;**) angezeigt. Für jedes Gerät, das den Nutzer:innen gehört, gibt es einen Eintrag.
+Auf dem Tab **Engagement** im Kundenprofil sehen Sie **Push Registered For** gefolgt von einem App-Namen. Wenn keine App-Informationen für dieses Gerät vorhanden sind, werden zwei Bindestriche (**&#45;&#45;**) angezeigt. Für jedes Gerät, das den Nutzer:innen gehört, gibt es einen Eintrag.
 
 Wenn dem App-Namen des Geräteeintrags `Foreground:` vorangestellt ist, ist die App berechtigt, sowohl Vordergrund-Push-Benachrichtigungen (für Nutzer:innen sichtbar) als auch Hintergrund-Push-Benachrichtigungen (für Nutzer:innen nicht sichtbar) auf diesem Gerät zu empfangen.
 
@@ -119,15 +119,15 @@ In der folgenden Tabelle finden Sie Aktionen, die zu Änderungen oder zur Entfer
 
 ### Wie sieht das im größeren Maßstab aus? {#what-does-this-look-like-on-a-broader-scale}
 
-Wenn Nutzer:innen eine neue Anwendung öffnen und über eine Push-Abfrage den Push-Zugriff gewähren, wird ein Aufruf vom Braze SDK or Software-Development-Kit an die Push-Anbieter gesendet. Bei diesem Aufruf prüft der Push-Anbieter, ob alles korrekt eingerichtet ist. Wenn ja, wird ein Push-Token / Textbaustein an Ihr Gerät übergeben. Wenn dieses Token / Textbaustein eintrifft, kommuniziert das SDK or Software-Development-Kit dies an Braze. Nachdem Braze das Token / Textbaustein vom Push-Anbieter erhalten hat, Update or aktualisieren or aktualisieren oder erstellen wir ein neues Kundenprofil or Nutzerprofil. Diese Nutzer:innen gelten nun als registriert.
+Wenn Nutzer:innen eine neue Anwendung öffnen und über eine Push-Abfrage den Push-Zugriff gewähren, wird ein Aufruf vom Braze SDK an die Push-Anbieter gesendet. Bei diesem Aufruf prüft der Push-Anbieter, ob alles korrekt eingerichtet ist. Wenn ja, wird ein Push-Token / Textbaustein an Ihr Gerät übergeben. Wenn dieses Token / Textbaustein eintrifft, kommuniziert das SDK dies an Braze. Nachdem Braze das Token / Textbaustein vom Push-Anbieter erhalten hat, aktualisieren oder erstellen wir ein neues Kundenprofil. Diese Nutzer:innen gelten nun als registriert.
 
-Wenn wir eine Campaign starten möchten, erstellen wir eine Campaign in Braze, die einen Push-Payload generiert, der an den Push-Anbieter gesendet wird. Von dort aus liefert der Anbieter den Push-Payload an das Gerät der Nutzer:innen, und das SDK or Software-Development-Kit übergibt den Messaging-Status an Braze.
+Wenn wir eine Campaign starten möchten, erstellen wir eine Campaign in Braze, die einen Push-Payload generiert, der an den Push-Anbieter gesendet wird. Von dort aus liefert der Anbieter den Push-Payload an das Gerät der Nutzer:innen, und das SDK übergibt den Messaging-Status an Braze.
 
 ![Ein Flussdiagramm, das den oben beschriebenen Push-Prozess zwischen Braze, den Kund:innen und dem Apple Push Notification Service oder Firebase Cloud Messaging darstellt.]({% image_buster /assets/img/push_process.png %})
 
 | Registrierungsschritte | Messaging-Schritte |
 | ------------------ | --------------- |
-| 1. Kund:in (Gerät) registriert sich beim Push-Anbieter<br>2. Anbieter generiert und liefert Push-Token / Textbaustein<br>3. Token / Textbaustein an Braze übermitteln |1. Braze sendet Push-Payload an den Anbieter<br>2. Anbieter liefert den Push-Payload an das Gerät<br>3. SDK or Software-Development-Kit übergibt Messaging-Statistiken an Braze |
+| 1. Kund:in (Gerät) registriert sich beim Push-Anbieter<br>2. Anbieter generiert und liefert Push-Token / Textbaustein<br>3. Token / Textbaustein an Braze übermitteln |1. Braze sendet Push-Payload an den Anbieter<br>2. Anbieter liefert den Push-Payload an das Gerät<br>3. SDK übergibt Messaging-Statistiken an Braze |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Wie sieht das im größeren Maßstab aus?" }
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
@@ -136,10 +136,10 @@ Wenn wir eine Campaign starten möchten, erstellen wir eine Campaign in Braze, d
 
 Angenommen, Nutzer:innen aktivieren Push, erhalten einige Push-Nachrichten und löschen dann die App. Dadurch wird die Push-Zustimmung auf Geräteebene entfernt. Ab hier führt der erste Bounce nach der Deinstallation automatisch dazu, dass diese Nutzer:innen von zukünftigen Push-Nachrichten abgemeldet werden. Wenn Nutzer:innen danach die App erneut installieren, aber nicht starten, kann Braze keinen Push an sie senden, da Push-Token / Textbaustein für Ihre App nicht erneut gewährt wurden.
 
-Wenn Nutzer:innen den Vordergrund-Push erneut aktivieren, ist außerdem ein Sitzungsstart erforderlich, um diese Informationen in ihrem Kundenprofil or Nutzerprofil zu Update or aktualisieren or aktualisieren und den Empfang von Push-Nachrichten zu ermöglichen.
+Wenn Nutzer:innen den Vordergrund-Push erneut aktivieren, ist außerdem ein Sitzungsstart erforderlich, um diese Informationen in ihrem Kundenprofil zu aktualisieren und den Empfang von Push-Nachrichten zu ermöglichen.
 
 ### Wann laufen Push-Token / Textbaustein ab? {#push-token-expire}
 
 Leider definieren APNs und FCM dies nicht genau. Push-Token / Textbaustein können ablaufen, wenn eine App aktualisiert wird, wenn Nutzer:innen ihre Daten auf ein neues Gerät übertragen oder wenn sie ein Betriebssystem neu installieren. Im Allgemeinen haben wir keinen genauen Einblick, warum Push-Anbieter bestimmte Push-Token / Textbaustein ablaufen lassen.
 
-Um dieser Unklarheit Rechnung zu tragen, Registrierung or registrieren und übermitteln unsere SDK or Software-Development-Kit-Push-Integrationen Token / Textbaustein immer bei Sitzungsstart, um sicherzustellen, dass wir über das aktuellste Token / Textbaustein verfügen.
+Um dieser Unklarheit Rechnung zu tragen, Registrierung und übermitteln unsere SDK-Push-Integrationen Token / Textbaustein immer bei Sitzungsstart, um sicherzustellen, dass wir über das aktuellste Token / Textbaustein verfügen.

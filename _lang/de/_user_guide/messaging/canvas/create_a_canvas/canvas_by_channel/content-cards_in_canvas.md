@@ -59,9 +59,9 @@ Nach dem Ablauf einer Content-Card wird sie bei der nächsten Aktualisierung aut
 
 ## Entfernung von Content Cards {#removal}
 
-Content Cards können entfernt werden, wenn Nutzer:innen einen Kauf tätigen oder ein angepasstes Event ausführen. Sie können eines der folgenden Ereignisse als Entfernungsereignis auswählen: **Perform Custom Event** und **Place Order**. Wählen Sie dann **Add Trigger or triggern**.
+Content Cards können entfernt werden, wenn Nutzer:innen einen Kauf tätigen oder ein angepasstes Event ausführen. Sie können eines der folgenden Ereignisse als Entfernungsereignis auswählen: **Perform Custom Event** und **Place Order**. Wählen Sie dann **Add Trigger**.
 
-![„Cards entfernen, wenn Nutzer:innen einen Kauf tätigen oder ein angepasstes Event ausführen“ ausgewählt, mit dem Trigger or triggern, Cards für Nutzer:innen zu entfernen, die eine bestimmte Bestellung aufgeben.]({% image_buster /assets/img_archive/content-cards-in-canvas-removal-event.png %})
+![„Cards entfernen, wenn Nutzer:innen einen Kauf tätigen oder ein angepasstes Event ausführen“ ausgewählt, mit dem Trigger, Cards für Nutzer:innen zu entfernen, die eine bestimmte Bestellung aufgeben.]({% image_buster /assets/img_archive/content-cards-in-canvas-removal-event.png %})
 
 ## Reporting und Analytics {#reporting-and-analytics}
 

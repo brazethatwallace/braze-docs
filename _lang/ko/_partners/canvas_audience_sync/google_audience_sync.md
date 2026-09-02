@@ -15,7 +15,7 @@ page_order: 3
 Google은 2024년 3월 6일부터 시행되는 [디지털 시장법(DMA)](https://ads-developers.googleblog.com/2023/10/updates-to-customer-match-conversion.html)의 변경 사항에 대응하여 [EU 사용자 동의 정책](https://www.google.com/about/company/user-consent-policy/)을 업데이트하고 있습니다. 이 새로운 변경 사항은 광고주가 EEA, 영국 및 스위스 최종 사용자에게 특정 정보를 공개하고 필요한 동의를 얻도록 요구합니다. 자세한 내용은 다음 설명서를 검토하세요.
 {% endalert %}
 
-Braze Audience Sync to Google 통합을 통해 브랜드는 크로스채널 고객 여정의 도달 범위를 Google 검색, Google 쇼핑, Gmail, YouTube 및 Google 디스플레이로 확장할 수 있습니다. 퍼스트파티 고객 데이터를 사용하여 동적 행동 트리거, 세분화 등을 기반으로 안전하게 광고를 전달할 수 있습니다. BRAZE 캔버스의 일부로 메시지(예: 푸시, 이메일 또는 단문 메시지 서비스)를 트리거하는 데 일반적으로 사용하는 모든 기준을 Google의 [Customer Match](https://support.google.com/google-ads/answer/6379332?hl=en)를 통해 해당 사용자에게 광고를 트리거하는 데 사용할 수 있습니다.
+Braze Audience Sync to Google 통합을 통해 브랜드는 크로스채널 고객 여정의 도달 범위를 Google 검색, Google 쇼핑, Gmail, YouTube 및 Google 디스플레이로 확장할 수 있습니다. 퍼스트파티 고객 데이터를 사용하여 동적 행동 트리거, 세분화 등을 기반으로 안전하게 광고를 전달할 수 있습니다. BRAZE 캔버스의 일부로 메시지(예: 푸시, 이메일 또는 SMS)를 트리거하는 데 일반적으로 사용하는 모든 기준을 Google의 [Customer Match](https://support.google.com/google-ads/answer/6379332?hl=en)를 통해 해당 사용자에게 광고를 트리거하는 데 사용할 수 있습니다.
 
 {% alert note %}
 Braze Audience Sync to Google 통합은 Google Ads를 지원하며, Google Ads 매니저는 지원하지 않습니다.

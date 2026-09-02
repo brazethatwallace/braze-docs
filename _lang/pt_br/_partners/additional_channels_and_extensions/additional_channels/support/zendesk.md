@@ -21,9 +21,9 @@ A integração de servidor para servidor entre a Braze e a Zendesk permite usar:
 | Requisito | Descrição |
 |---|---|
 | Conta do Zendesk | Uma [conta de administrador do Zendesk](https://`<your-zendesk-instance>`.zendesk.com/agent/admin) é necessária para aproveitar esta parceria. |
-| Token de API or interface de programação do aplicativo (API) do Zendesk | Um [token de API or interface de programação do aplicativo (API)](https://support.zendesk.com/hc/en-us/articles/226022787-Generating-a-new-API-token-\) do Zendesk é necessário para enviar solicitações da Braze para o endpoint de tickets do Zendesk. |
+| Token de API do Zendesk | Um [token de API](https://support.zendesk.com/hc/en-us/articles/226022787-Generating-a-new-API-token-\) do Zendesk é necessário para enviar solicitações da Braze para o endpoint de tickets do Zendesk. |
 | Identificador comum (recomendado) | É recomendável um [identificador comum](#common-identifier) entre a Braze e o Zendesk. |
-| Chave de API or interface de programação do aplicativo (API) da Braze | Uma chave de API or interface de programação do aplicativo (API) da Braze é necessária para enviar solicitações do Zendesk para um endpoint da Braze. Certifique-se de que a chave de API or interface de programação do aplicativo (API) que você usa tem as permissões corretas para o endpoint da Braze que seu webhook do Zendesk está usando. |
+| Chave de API da Braze | Uma chave de API da Braze é necessária para enviar solicitações do Zendesk para um endpoint da Braze. Certifique-se de que a chave de API que você usa tem as permissões corretas para o endpoint da Braze que seu webhook do Zendesk está usando. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração da Braze com o Zendesk {#braze-to-zendesk-integration}
@@ -43,7 +43,7 @@ Outros casos de uso podem ser tratados por meio das [APIs de suporte do Zendesk]
 
 #### Cabeçalho e método da solicitação {#request-header-and-method}
 
-O Zendesk requer um cabeçalho HTTP para autorização e um método HTTP. Na guia **Settings**, substitua <email_address> pelo seu e-mail de administrador do Zendesk e <api_token> pelo seu token de API or interface de programação do aplicativo (API) do Zendesk.
+O Zendesk requer um cabeçalho HTTP para autorização e um método HTTP. Na guia **Settings**, substitua <email_address> pelo seu e-mail de administrador do Zendesk e <api_token> pelo seu token de API do Zendesk.
 
 - **Método HTTP**: POST
 - **Cabeçalhos da solicitação**:
@@ -54,7 +54,7 @@ O Zendesk requer um cabeçalho HTTP para autorização e um método HTTP. Na gui
 
 #### Corpo da solicitação {#request-body}
 
-Defina os detalhes do ticket, como tipo, assunto e status, na carga útil do webhook. Os detalhes do ticket são extensíveis e personalizáveis com base na [API or interface de programação do aplicativo (API) de tickets do Zendesk](https://developer.zendesk.com/rest_api/docs/support/tickets#create-ticket). Use o exemplo a seguir para ajudar a estruturar sua carga útil e inserir os campos desejados.
+Defina os detalhes do ticket, como tipo, assunto e status, na carga útil do webhook. Os detalhes do ticket são extensíveis e personalizáveis com base na [API de tickets do Zendesk](https://developer.zendesk.com/rest_api/docs/support/tickets#create-ticket). Use o exemplo a seguir para ajudar a estruturar sua carga útil e inserir os campos desejados.
 
 {% raw %}
 ```json
@@ -103,8 +103,8 @@ Se você tem um identificador comum entre a Braze e o Zendesk, é recomendável 
 - Digite um nome e uma descrição para o webhook.
 - Insira a URL do endpoint da Braze que seu webhook usará. {% raw %}Nosso exemplo usará `https://{{instance_url}}/users/track`.{% endraw %}
 - Selecione POST como o método de solicitação do webhook e defina o formato da solicitação para JSON.
-- Selecione o método de autenticação por bearer token para o webhook e forneça sua [chave de API or interface de programação do aplicativo (API) da Braze]({{site.baseurl}}/api/basics#creating-rest-api-keys).
-  - Certifique-se de que a chave de API or interface de programação do aplicativo (API) que você está usando tem as [permissões corretas]({{site.baseurl}}/api/basics#rest-api-key-permissions) para o endpoint da Braze que seu webhook está usando.<br><br>
+- Selecione o método de autenticação por bearer token para o webhook e forneça sua [chave de API da Braze]({{site.baseurl}}/api/basics#creating-rest-api-keys).
+  - Certifique-se de que a chave de API que você está usando tem as [permissões corretas]({{site.baseurl}}/api/basics#rest-api-key-permissions) para o endpoint da Braze que seu webhook está usando.<br><br>
 5. (Recomendado) Teste o webhook para verificar se está funcionando corretamente.<br><br>
 6. Para webhooks de gatilho e automação, você deve conectar o webhook a um gatilho ou automação antes de finalizar a configuração. Consulte a etapa seguinte para ver nosso exemplo de criação de um gatilho para o webhook. Depois que o gatilho for criado, você pode voltar a esta página e selecionar **Finish setup**.
 

@@ -89,7 +89,7 @@ Por último, crie sua etapa de Audience Sync no Canvas usando esse destino de Au
 
 ### Lotes e latência {#batching-and-latency}
 
-Quando os usuários entram em uma etapa de Audience Sync no Canvas, a Braze os coloca em um sistema de lotes que agrega as atualizações de usuários antes de enviá-las à API or interface de programação do aplicativo (API) do parceiro. Um lote é enviado quando uma das seguintes condições ocorre:
+Quando os usuários entram em uma etapa de Audience Sync no Canvas, a Braze os coloca em um sistema de lotes que agrega as atualizações de usuários antes de enviá-las à API do parceiro. Um lote é enviado quando uma das seguintes condições ocorre:
 
 - **O lote atinge seu limite de tamanho.** Isso varia por parceiro:
   - O padrão suporta até 2.000 usuários
@@ -99,7 +99,7 @@ Quando os usuários entram em uma etapa de Audience Sync no Canvas, a Braze os c
 
 Canvas de alto volume podem despachar mais cedo porque os lotes são preenchidos mais rapidamente. Canvas de baixo volume aguardam até o temporizador de latência expirar. A Braze não garante um horário fixo de despacho; o tempo depende do tamanho do lote e da janela de latência configurada.
 
-A Braze registra a atividade de despacho em logs internos para monitoramento e solução de problemas, mas esses timestamps não são expostos como campos consultáveis. Após a Braze despachar um lote para a API or interface de programação do aplicativo (API) do parceiro, o parceiro processa a atualização do público de acordo com seus próprios Acordos de Nível de Serviço — normalmente de 6 a 48 horas.
+A Braze registra a atividade de despacho em logs internos para monitoramento e solução de problemas, mas esses timestamps não são expostos como campos consultáveis. Após a Braze despachar um lote para a API do parceiro, o parceiro processa a atualização do público de acordo com seus próprios Acordos de Nível de Serviço — normalmente de 6 a 48 horas.
 
 A Braze não recebe confirmação dos parceiros de que usuários individuais foram correspondidos ou sincronizados. As respostas dos parceiros são confirmações HTTP de recebimento, não confirmações de correspondência. Para verificar se um público foi preenchido, verifique a plataforma de anúncios do parceiro (como o Google Ads Audience Manager ou o Meta Business Manager).
 
@@ -109,7 +109,7 @@ Se o erro estiver relacionado à integração geral do parceiro (como um problem
 
 Se o erro estiver relacionado a problemas com o componente de Audience Sync (como "Público não existe") no Canvas, um e-mail é enviado ao usuário que configurou o Canvas. Se esse usuário não existir mais, o e-mail é encaminhado ao administrador da empresa.
 
-Para configurar quem recebe esses e-mails, entre em contato com seu gerente de sucesso do cliente para adicionar destinatários em **Notification Preferences**. Essa preferência cobre tanto erros de integração quanto erros do componente de Audience Sync. Os destinatários que você adicionar recebem esses e-mails além do usuário associado ao erro.
+Para configurar quem recebe esses e-mails, entre em contato com seu CSM para adicionar destinatários em **Notification Preferences**. Essa preferência cobre tanto erros de integração quanto erros do componente de Audience Sync. Os destinatários que você adicionar recebem esses e-mails além do usuário associado ao erro.
 
 ## Considerações sobre privacidade de dados {#data-privacy-considerations}
 
@@ -119,7 +119,7 @@ Esta documentação não se destina a fornecer, nem pode ser considerada como, a
 
 Ao criar públicos para rastreamento de anúncios, você pode querer incluir ou excluir determinados usuários com base em suas preferências e em conformidade com leis de privacidade, como o direito de "Não vender ou compartilhar" previsto na [CCPA](https://oag.ca.gov/privacy/ccpa). Profissionais de marketing devem implementar os filtros relevantes para a elegibilidade dos usuários nos critérios de entrada do Canvas. As opções a seguir podem ajudar.
 
-Se você coletou o [IDFA do iOS por meio do SDK or kit de desenvolvimento de software da Braze]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations), poderá usar o filtro "Ads Tracking Enabled". Selecione o valor como `true` para enviar usuários apenas para destinos do Audience Sync nos quais eles aceitaram participar.
+Se você coletou o [IDFA do iOS por meio do SDK da Braze]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations), poderá usar o filtro "Ads Tracking Enabled". Selecione o valor como `true` para enviar usuários apenas para destinos do Audience Sync nos quais eles aceitaram participar.
 
 ![Um Canvas com um público de entrada configurado com "Ad Tracking Enabled é true".]({% image_buster /assets/img/audience_sync/audience_sync2.png %})
 

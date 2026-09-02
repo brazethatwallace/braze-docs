@@ -8,7 +8,7 @@ description: "Erfahren Sie alles über Empfehlungssysteme für Artikel in Braze.
 
 # Artikel-Empfehlungen {#item-recommendations}
 
-> Verbessern Sie Ihr Empfehlungssystem mit Braze, indem Sie ein Empfehlungssystem erstellen, das Ihren Nutzer:innen Artikel und Inhalte vorschlägt, die sie tatsächlich interessieren. Von der Anpassung von Erlebnissen mit KI or künstliche Intelligenz bis zum Aufbau eigener Systeme mit Liquid oder Connected-Content finden Sie alles, was Sie brauchen, damit jede Empfehlung zählt.
+> Verbessern Sie Ihr Empfehlungssystem mit Braze, indem Sie ein Empfehlungssystem erstellen, das Ihren Nutzer:innen Artikel und Inhalte vorschlägt, die sie tatsächlich interessieren. Von der Anpassung von Erlebnissen mit KI bis zum Aufbau eigener Systeme mit Liquid oder Connected-Content finden Sie alles, was Sie brauchen, damit jede Empfehlung zählt.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -16,17 +16,17 @@ Bevor Sie Artikel-Empfehlungen in Braze erstellen oder verwenden können, müsse
 
 ## Typen und Anwendungsfälle {#types-and-use-cases}
 
-### KI or künstliche Intelligenz-personalisiert {#ai}
+### KI-personalisiert {#ai}
 
-Als Teil des Features [KI or künstliche Intelligenz-Artikelempfehlungen]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai) nutzen KI or künstliche Intelligenz-personalisierte Empfehlungen Deep Learning, um auf der Grundlage der bisherigen Interessen Ihrer Nutzer:innen vorherzusagen, woran diese als Nächstes am ehesten interessiert sein könnten. Diese Methode bietet ein dynamisches und maßgeschneidertes Empfehlungssystem, das sich dem Nutzerverhalten anpasst.
+Als Teil des Features [KI-Artikelempfehlungen]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai) nutzen KI-personalisierte Empfehlungen Deep Learning, um auf der Grundlage der bisherigen Interessen Ihrer Nutzer:innen vorherzusagen, woran diese als Nächstes am ehesten interessiert sein könnten. Diese Methode bietet ein dynamisches und maßgeschneidertes Empfehlungssystem, das sich dem Nutzerverhalten anpasst.
 
-KI or künstliche Intelligenz-personalisierte Empfehlungen verwenden die Daten der letzten 6 Monate zu Artikelinteraktionen, wie Käufe oder angepasste Events, um das Empfehlungsmodell zu erstellen. Für Nutzer:innen, die nicht über ausreichende Daten für eine personalisierte Liste verfügen, dienen die beliebtesten Artikel als Fallback, sodass Ihre Nutzer:innen weiterhin relevante Vorschläge erhalten.
+KI-personalisierte Empfehlungen verwenden die Daten der letzten 6 Monate zu Artikelinteraktionen, wie Käufe oder angepasste Events, um das Empfehlungsmodell zu erstellen. Für Nutzer:innen, die nicht über ausreichende Daten für eine personalisierte Liste verfügen, dienen die beliebtesten Artikel als Fallback, sodass Ihre Nutzer:innen weiterhin relevante Vorschläge erhalten.
 
-Mit den KI or künstliche Intelligenz-Artikelempfehlungen können Sie die verfügbaren Artikel auch weiter mit
-[Auswahlen]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) filtern. Allerdings können Auswahlen mit Liquid nicht in KI or künstliche Intelligenz-Empfehlungen verwendet werden. Beachten Sie dies also, wenn Sie Ihre Katalogauswahlen erstellen.
+Mit den KI-Artikelempfehlungen können Sie die verfügbaren Artikel auch weiter mit
+[Auswahlen]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) filtern. Allerdings können Auswahlen mit Liquid nicht in KI-Empfehlungen verwendet werden. Beachten Sie dies also, wenn Sie Ihre Katalogauswahlen erstellen.
 
 {% alert tip %}
-KI or künstliche Intelligenz-personalisierte Empfehlungen funktionieren am besten bei Hunderten oder Tausenden von Artikeln und typischerweise mindestens 30.000 Nutzer:innen mit Kauf- oder Interaktionsdaten. Dies ist nur ein grober Richtwert und kann variieren. Die anderen Empfehlungstypen können mit weniger Daten arbeiten.
+KI-personalisierte Empfehlungen funktionieren am besten bei Hunderten oder Tausenden von Artikeln und typischerweise mindestens 30.000 Nutzer:innen mit Kauf- oder Interaktionsdaten. Dies ist nur ein grober Richtwert und kann variieren. Die anderen Empfehlungstypen können mit weniger Daten arbeiten.
 {% endalert %}
 
 #### Anwendungsfälle {#use-cases}
@@ -38,17 +38,17 @@ Auf der Grundlage der getrackten Interaktionsdaten könnten die Anwendungsfälle
 Sagen Sie voraus und empfehlen Sie die Artikel, die Nutzer:innen wahrscheinlich als Nächstes kaufen werden, basierend auf Kauf-Events oder angepassten Events im Zusammenhang mit Käufen. Zum Beispiel:
 
 - Eine Reiseseite könnte auf der Grundlage des Browserverlaufs und früherer Buchungen Urlaubspakete, Flüge oder Hotelaufenthalte vorschlagen und so das nächste Reiseziel vorhersehen und die Reiseplanung erleichtern.
-- Eine Streaming-Plattform kann die Sehgewohnheiten analysieren, um Sendungen oder Filme zu empfehlen, die Nutzer:innen sich als Nächstes am ehesten ansehen möchten, um sie bei der Stange zu halten und die Abwanderung or Abwanderung, Churn or Abwanderung, churnen-Rate zu senken.
+- Eine Streaming-Plattform kann die Sehgewohnheiten analysieren, um Sendungen oder Filme zu empfehlen, die Nutzer:innen sich als Nächstes am ehesten ansehen möchten, um sie bei der Stange zu halten und die Abwanderung-Rate zu senken.
 
 {% details Voraussetzungen %}
-- KI or künstliche Intelligenz-Artikelempfehlungen
+- KI-Artikelempfehlungen
 - Katalog der relevanten Artikel
 - Ein Verfahren zum Tracking von Käufen: ein Kauf-Objekt, ein angepasstes Event oder ein [Bestellungs-Event]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events?tab=ecommerce.order_placed)
 {% enddetails %}
 
 {% details Einrichtung %}
-1. Erstellen Sie eine [KI or künstliche Intelligenz-Artikelempfehlung]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
-2. Setzen Sie den **Typ** auf **KI or künstliche Intelligenz-personalisiert**.
+1. Erstellen Sie eine [KI-Artikelempfehlung]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
+2. Setzen Sie den **Typ** auf **KI-personalisiert**.
 3. Wählen Sie Ihren Katalog aus.
 4. (Optional) Fügen Sie eine Auswahl hinzu, um Ihre Empfehlung auf relevante Artikel zu beschränken.
 5. Wählen Sie, wie Sie derzeit Kauf-Events tracken, und die entsprechende Event-Eigenschaft.
@@ -71,13 +71,13 @@ Basierend auf den erfassten Interaktionsdaten könnten Anwendungsfälle für die
 Animieren Sie Nutzer:innen dazu, beliebte Artikel in Ihrem Katalog basierend auf Käufen zu erkunden. Um sicherzustellen, dass Sie nur relevante Inhalte anzeigen, empfehlen wir, diese mit einer Auswahl zu filtern. Ein Essenslieferdienst könnte zum Beispiel Gerichte oder Restaurants in der Umgebung hervorheben, die am besten bewertet wurden, basierend auf der Beliebtheit der Bestellungen auf der Plattform, und so zum Probieren und Entdecken anregen.
 
 {% details Voraussetzungen %}
-- KI or künstliche Intelligenz-Artikelempfehlungen
+- KI-Artikelempfehlungen
 - Katalog der relevanten Artikel
 - Ein Kauf-Objekt, ein Bestellungs-Event oder ein beliebiges angepasstes Event
 {% enddetails %}
 
 {% details Einrichtung %}
-1. Erstellen Sie eine [KI or künstliche Intelligenz-Artikelempfehlung]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
+1. Erstellen Sie eine [KI-Artikelempfehlung]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Setzen Sie den **Typ** auf **Beliebteste**.
 3. Wählen Sie Ihren Katalog aus.
 4. (Optional) Fügen Sie eine Auswahl hinzu, um Ihre Empfehlung auf relevante Artikel zu beschränken. Der Essenslieferdienst könnte zum Beispiel eine Auswahl haben, um nach dem Standort des Restaurants oder der Art des Gerichts zu filtern.
@@ -91,13 +91,13 @@ Animieren Sie Nutzer:innen dazu, beliebte Artikel in Ihrem Katalog basierend auf
 Ermuntern Sie die Nutzer:innen, Artikel zu entdecken, die ihnen kürzlich gefallen haben, oder Artikel, die sehr beliebt sind, basierend auf einem angepassten Event für Likes. Eine Musik-Streaming-App könnte zum Beispiel personalisierte Wiedergabelisten erstellen oder neue Alben vorschlagen, die auf den Genres oder Künstlern basieren, die Nutzer:innen in der Vergangenheit mochten, und so das Engagement und die Verweildauer in der App erhöhen.
 
 {% details Voraussetzungen %}
-- KI or künstliche Intelligenz-Artikelempfehlungen
+- KI-Artikelempfehlungen
 - Katalog der relevanten Artikel
 - Angepasstes Event für Likes
 {% enddetails %}
 
 {% details Einrichtung %}
-1. Erstellen Sie eine [KI or künstliche Intelligenz-Artikelempfehlung]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
+1. Erstellen Sie eine [KI-Artikelempfehlung]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Setzen Sie den **Typ** auf **Neueste**.
 3. Wählen Sie Ihren Katalog aus.
 4. (Optional) Fügen Sie eine Auswahl hinzu, um Ihre Empfehlung auf relevante Artikel zu beschränken.
@@ -111,13 +111,13 @@ Ermuntern Sie die Nutzer:innen, Artikel zu entdecken, die ihnen kürzlich gefall
 Heben Sie Artikel hervor, die in Ihrer Nutzerbasis durch Aufrufe Aufmerksamkeit erregt haben, um Engagement oder Käufe anzuregen. Eine Immobilien-Website könnte zum Beispiel die am meisten angesehenen Angebote im Suchbereich anzeigen, um Objekte hervorzuheben, die viel Aufmerksamkeit auf sich ziehen und möglicherweise auf gute Angebote oder begehrte Standorte hinweisen.
 
 {% details Voraussetzungen %}
-- KI or künstliche Intelligenz-Artikelempfehlungen
+- KI-Artikelempfehlungen
 - Katalog der relevanten Artikel
 - Angepasstes Event für Aufrufe
 {% enddetails %}
 
 {% details Einrichtung %}
-1. Erstellen Sie eine [KI or künstliche Intelligenz-Artikelempfehlung]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
+1. Erstellen Sie eine [KI-Artikelempfehlung]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Setzen Sie den **Typ** auf **Beliebteste**.
 3. Wählen Sie Ihren Katalog aus.
 4. (Optional) Fügen Sie eine Auswahl hinzu, um Ihre Empfehlung auf relevante Artikel zu beschränken.
@@ -133,13 +133,13 @@ Präsentieren Sie Artikel, die von vielen anderen Käufer:innen in den Warenkorb
 Ein Modehändler könnte z. B. Kleidung und Accessoires bewerben, die gerade im Trend liegen, basierend auf den beliebten Zugängen zu den Warenkörben anderer Kund:innen. Sie können dann einen dynamischen „Jetzt im Trend“-Bereich auf ihrer Startseite und in ihrer mobilen App erstellen, der in Realtime aktualisiert wird, um Käufer:innen zum Kauf zu animieren, bevor die Artikel ausverkauft sind.
 
 {% details Voraussetzungen %}
-- KI or künstliche Intelligenz-Artikelempfehlungen
+- KI-Artikelempfehlungen
 - Katalog der relevanten Artikel
 - Angepasstes Event für „In den Warenkorb gelegt“
 {% enddetails %}
 
 {% details Einrichtung %}
-1. Erstellen Sie eine [KI or künstliche Intelligenz-Artikelempfehlung]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
+1. Erstellen Sie eine [KI-Artikelempfehlung]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Setzen Sie den **Typ** auf **Beliebteste**.
 3. Wählen Sie Ihren Katalog aus.
 4. (Optional) Fügen Sie eine Auswahl hinzu, um Ihre Empfehlung auf relevante Artikel zu beschränken.
@@ -152,7 +152,7 @@ Ein Modehändler könnte z. B. Kleidung und Accessoires bewerben, die gerade im 
 
 ### Neuester Artikel {#most-recent}
 
-Das Empfehlungsmodell „Neueste Artikel“ enthält Artikel, mit denen Nutzer:innen zuletzt interagiert haben. Nutzen Sie dieses Modell, um Abwanderung or Abwanderung, Churn or Abwanderung, churnen zu verringern, indem Sie passive Nutzer:innen ermutigen, sich erneut mit relevanten Inhalten zu beschäftigen.
+Das Empfehlungsmodell „Neueste Artikel“ enthält Artikel, mit denen Nutzer:innen zuletzt interagiert haben. Nutzen Sie dieses Modell, um Abwanderung zu verringern, indem Sie passive Nutzer:innen ermutigen, sich erneut mit relevanten Inhalten zu beschäftigen.
 
 #### Anwendungsfälle
 
@@ -163,13 +163,13 @@ Basierend auf den erfassten Interaktionsdaten könnten Anwendungsfälle für die
 Ermuntern Sie Nutzer:innen dazu, Artikel, auf die sie kürzlich geklickt haben, erneut aufzurufen, basierend auf einem angepassten Event für Klicks. Ein Online-Modehändler könnte zum Beispiel eine Empfehlung erstellen, um Folge-E-Mails oder Push-Benachrichtigungen mit Kleidungsstücken zu versenden, für die sich Nutzer:innen durch Anklicken interessiert haben, und sie so zu einem erneuten Besuch des Artikels und einem Kauf zu ermutigen.
 
 {% details Voraussetzungen %}
-- KI or künstliche Intelligenz-Artikelempfehlungen
+- KI-Artikelempfehlungen
 - Katalog der relevanten Artikel
 - Angepasstes Event für Klicks
 {% enddetails %}
 
 {% details Einrichtung %}
-1. Erstellen Sie eine [KI or künstliche Intelligenz-Artikelempfehlung]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
+1. Erstellen Sie eine [KI-Artikelempfehlung]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Setzen Sie den **Typ** auf **Neueste**.
 3. Wählen Sie Ihren Katalog aus.
 4. (Optional) Fügen Sie eine Auswahl hinzu, um Ihre Empfehlung auf relevante Artikel zu beschränken.
@@ -183,13 +183,13 @@ Ermuntern Sie Nutzer:innen dazu, Artikel, auf die sie kürzlich geklickt haben, 
 Ermuntern Sie die Nutzer:innen, Artikel zu entdecken, die ihnen kürzlich gefallen haben, oder Artikel, die sehr beliebt sind, basierend auf einem angepassten Event für Likes. Eine Musik-Streaming-App könnte zum Beispiel personalisierte Wiedergabelisten erstellen oder neue Alben vorschlagen, die auf den Genres oder Künstlern basieren, die Nutzer:innen in der Vergangenheit mochten, und so das Engagement und die Verweildauer in der App erhöhen.
 
 {% details Voraussetzungen %}
-- KI or künstliche Intelligenz-Artikelempfehlungen
+- KI-Artikelempfehlungen
 - Katalog der relevanten Artikel
 - Angepasstes Event für Likes
 {% enddetails %}
 
 {% details Einrichtung %}
-1. Erstellen Sie eine [KI or künstliche Intelligenz-Artikelempfehlung]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
+1. Erstellen Sie eine [KI-Artikelempfehlung]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Setzen Sie den **Typ** auf **Neueste**.
 3. Wählen Sie Ihren Katalog aus.
 4. (Optional) Fügen Sie eine Auswahl hinzu, um Ihre Empfehlung auf relevante Artikel zu beschränken.
@@ -207,13 +207,13 @@ Bewerben Sie Artikel, mit denen Nutzer:innen kürzlich interagiert haben, z. B. 
 - **Einzelhändler für Heimwerkerbedarf:** Nachdem Kund:innen ein Elektrowerkzeug gekauft haben, kann ein Baumarkt auf der Grundlage des letzten Kaufs entsprechendes Zubehör oder Sicherheitsausrüstung empfehlen, um das Erlebnis und die Sicherheit zu verbessern.
 
 {% details Voraussetzungen %}
-- KI or künstliche Intelligenz-Artikelempfehlungen
+- KI-Artikelempfehlungen
 - Katalog der relevanten Artikel
 - Ein Kauf-Objekt, ein Bestellungs-Event oder ein beliebiges angepasstes Event für eine Interaktion
 {% enddetails %}
 
 {% details Einrichtung %}
-1. Erstellen Sie eine [KI or künstliche Intelligenz-Artikelempfehlung]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
+1. Erstellen Sie eine [KI-Artikelempfehlung]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Setzen Sie den **Typ** auf **Neueste**.
 3. Wählen Sie Ihren Katalog aus.
 4. (Optional) Fügen Sie eine Auswahl hinzu, um Ihre Empfehlung auf relevante Artikel zu beschränken.
@@ -227,13 +227,13 @@ Bewerben Sie Artikel, mit denen Nutzer:innen kürzlich interagiert haben, z. B. 
 Erinnern Sie Nutzer:innen an ihr Interesse an Artikeln, die sie kürzlich in ihren Warenkorb gelegt, aber noch nicht gekauft haben. Ein Online-Händler könnte zum Beispiel Erinnerungen versenden oder zeitlich begrenzte Rabatte auf die Artikel im Warenkorb anbieten, um Nutzer:innen zu ermutigen, ihre Einkäufe abzuschließen, bevor die Angebote ablaufen.
 {% details Voraussetzungen %}
 
-- KI or künstliche Intelligenz-Artikelempfehlungen
+- KI-Artikelempfehlungen
 - Katalog der relevanten Artikel
 - Angepasstes Event für „In den Warenkorb gelegt“
 {% enddetails %}
 
 {% details Einrichtung %}
-1. Erstellen Sie eine [KI or künstliche Intelligenz-Artikelempfehlung]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
+1. Erstellen Sie eine [KI-Artikelempfehlung]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Setzen Sie den **Typ** auf **Neueste**.
 3. Wählen Sie Ihren Katalog aus.
 4. (Optional) Fügen Sie eine Auswahl hinzu, um Ihre Empfehlung auf relevante Artikel zu beschränken.
@@ -259,13 +259,13 @@ Basierend auf den erfassten Interaktionsdaten könnten Anwendungsfälle für die
 Heben Sie Artikel hervor, die Ihre Nutzer:innen in letzter Zeit besonders häufig gekauft haben. Ein E-Commerce-Unternehmen könnte zum Beispiel saisonale Artikel empfehlen, die Nutzer:innen bei ihren Vorbereitungen für die nächste Saison auf Vorrat kaufen.
 
 {% details Voraussetzungen %}
-- KI or künstliche Intelligenz-Artikelempfehlungen
+- KI-Artikelempfehlungen
 - Katalog der relevanten Artikel
 - Ein Verfahren zum Tracking von Käufen (entweder ein Kauf-Objekt, ein Bestellungs-Event oder ein angepasstes Event)
 {% enddetails %}
 
 {% details Einrichtung %}
-1. Erstellen Sie eine [KI or künstliche Intelligenz-Artikelempfehlung]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
+1. Erstellen Sie eine [KI-Artikelempfehlung]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Setzen Sie den **Typ** auf **Trending**.
 3. Wählen Sie Ihren Katalog aus.
 4. (Optional) Fügen Sie eine Auswahl hinzu, um Ihre Empfehlung auf relevante Artikel zu beschränken.
@@ -279,13 +279,13 @@ Heben Sie Artikel hervor, die Ihre Nutzer:innen in letzter Zeit besonders häufi
 Heben Sie Artikel hervor, die Ihren Nutzer:innen in letzter Zeit besonders häufig gefallen haben. Eine Musik-App könnte zum Beispiel aufstrebende Künstler vorstellen, die in letzter Zeit einen starken Anstieg der Nutzer-Likes verzeichnet haben.
 
 {% details Voraussetzungen %}
-- KI or künstliche Intelligenz-Artikelempfehlungen
+- KI-Artikelempfehlungen
 - Katalog der relevanten Artikel
 - Angepasstes Event zum Tracking von Likes
 {% enddetails %}
 
 {% details Einrichtung %}
-1. Erstellen Sie eine [KI or künstliche Intelligenz-Artikelempfehlung]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
+1. Erstellen Sie eine [KI-Artikelempfehlung]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Setzen Sie den **Typ** auf **Trending**.
 3. Wählen Sie Ihren Katalog aus.
 4. (Optional) Fügen Sie eine Auswahl hinzu, um Ihre Empfehlung auf relevante Artikel zu beschränken.
@@ -303,7 +303,7 @@ Heben Sie Artikel hervor, die Ihren Nutzer:innen in letzter Zeit besonders häuf
 Bei den drei vorangegangenen Typen geht es darum, ein Empfehlungsmodell in Braze einzurichten und zu trainieren. Sie können zwar auch in diesen Modellen Auswahlen verwenden, aber Sie können einige Empfehlungsanwendungen auch nur mit Katalogauswahlen und Liquid-Personalisierung umsetzen.
 
 {% alert note %}
-Bei Verwendung von Auswahlen werden das Sortierfeld und etwaige Einschränkungen nicht für die KI or künstliche Intelligenz-Artikelempfehlungen berücksichtigt. Das bedeutet: Wenn Sie eine Auswahl mit einem bestimmten Sortierfeld erstellen und die Anzahl der zurückgegebenen Artikel begrenzen, werden diese Einschränkungen bei der Verarbeitung der KI or künstliche Intelligenz-Artikelempfehlungen nicht angewendet.
+Bei Verwendung von Auswahlen werden das Sortierfeld und etwaige Einschränkungen nicht für die KI-Artikelempfehlungen berücksichtigt. Das bedeutet: Wenn Sie eine Auswahl mit einem bestimmten Sortierfeld erstellen und die Anzahl der zurückgegebenen Artikel begrenzen, werden diese Einschränkungen bei der Verarbeitung der KI-Artikelempfehlungen nicht angewendet.
 {% endalert %}
 
 #### Anwendungsfälle
@@ -312,7 +312,7 @@ Basierend auf den erfassten Interaktionsdaten könnten Anwendungsfälle für die
 
 {% tabs local %}
 {% tab Neue Artikel %}
-Dieses Szenario basiert nicht direkt auf Nutzeraktionen, sondern vielmehr auf Katalogdaten. Sie können nach neuen Artikeln auf der Grundlage des Datums ihrer Aufnahme in den Katalog filtern und diese durch gezielte Campaigns oder Canvase bewerben, ohne dass Sie ein Empfehlungsmodell trainieren müssen.
+Dieses Szenario basiert nicht direkt auf Nutzeraktionen, sondern vielmehr auf Katalogdaten. Sie können nach neuen Artikeln auf der Grundlage des Datums ihrer Aufnahme in den Katalog filtern und diese durch gezielte Campaigns oder Canvases bewerben, ohne dass Sie ein Empfehlungsmodell trainieren müssen.
 
 Eine E-Commerce-Plattform für Technik könnte zum Beispiel Technikbegeisterte über die neuesten Gadgets oder anstehende Vorbestellungen informieren und dabei Filter verwenden, um Artikel zu finden, die kürzlich in den Katalog aufgenommen wurden.
 
@@ -353,7 +353,7 @@ Eine Online-Buchhandlung könnte zum Beispiel eine „Überrasch mich“-Funktio
 
 Ein [regelbasiertes Empfehlungssystem]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/rules_based) verwendet Nutzerdaten und Produktinformationen, um relevante Artikel in Nachrichten vorzuschlagen. Es verwendet Liquid und entweder Braze-Kataloge oder Connected-Content, um Inhalte auf der Grundlage von Nutzerverhalten und Attributen dynamisch zu personalisieren.
 
-Regelbasierte Empfehlungen basieren auf einer festen Logik, die Sie manuell einstellen müssen. Das bedeutet, dass sich Ihre Empfehlungen nicht an den individuellen Kaufverlauf und die Vorlieben von Nutzer:innen anpassen, es sei denn, Sie Update or aktualisieren or aktualisieren die Logik. Daher eignet sich diese Methode am besten für Empfehlungen, die keine häufigen Updates erfordern.
+Regelbasierte Empfehlungen basieren auf einer festen Logik, die Sie manuell einstellen müssen. Das bedeutet, dass sich Ihre Empfehlungen nicht an den individuellen Kaufverlauf und die Vorlieben von Nutzer:innen anpassen, es sei denn, Sie aktualisieren die Logik. Daher eignet sich diese Methode am besten für Empfehlungen, die keine häufigen Updates erfordern.
 
 #### Anwendungsfälle
 
@@ -364,13 +364,13 @@ Auf der Grundlage der getrackten Interaktionsdaten könnten die Anwendungsfälle
 - **Kundenbindungs-Programme:** Heben Sie Produkte hervor, mit denen Kund:innen ihre Treuepunkte oder Rewards auf der Grundlage ihres aktuellen Punktestandes maximieren können.
 - **Bildungsinhalte:** Schlagen Sie neue Kurse oder Inhalte vor, die auf den Themen der bereits konsumierten oder gekauften Materialien basieren.
 
-{% multi_lang_include brazeai/recommendations/KI or künstliche Intelligenz.md section="Plan-specific features" %}
+{% multi_lang_include brazeai/recommendations/KI.md section="Plan-specific features" %}
 
 ## Häufig gestellte Fragen {#faq}
 
 ### Wie kommt es dazu, dass „Beliebteste“ Artikel mit den Empfehlungen anderer Modelle vermischt werden? {#what-causes-most-popular-items-to-be-mixed-into-other-models-recommendations}
 
-Wenn das Empfehlungssystem eine Liste für Sie zusammenstellt, priorisiert es zunächst die personalisierte Auswahl auf der Grundlage des von Ihnen gewählten Modells, also z. B. „Neueste“ oder „KI or künstliche Intelligenz-personalisiert“. Wenn dieses Modell aus irgendeinem Grund nicht die komplette Liste mit 30 Empfehlungen füllen kann, werden einige Ihrer bei allen Nutzer:innen beliebtesten Artikel hinzugefügt, um sicherzustellen, dass jede:r Nutzer:in immer einen vollständigen Satz an Empfehlungen hat.
+Wenn das Empfehlungssystem eine Liste für Sie zusammenstellt, priorisiert es zunächst die personalisierte Auswahl auf der Grundlage des von Ihnen gewählten Modells, also z. B. „Neueste“ oder „KI-personalisiert“. Wenn dieses Modell aus irgendeinem Grund nicht die komplette Liste mit 30 Empfehlungen füllen kann, werden einige Ihrer bei allen Nutzer:innen beliebtesten Artikel hinzugefügt, um sicherzustellen, dass jede:r Nutzer:in immer einen vollständigen Satz an Empfehlungen hat.
 
 Dies geschieht unter einigen besonderen Bedingungen:
 
@@ -378,23 +378,23 @@ Dies geschieht unter einigen besonderen Bedingungen:
 - Die entsprechenden Artikel sind nicht mehr verfügbar oder auf Lager.
 - Die Artikel entsprechen nicht den aktuellen Auswahlkriterien, z. B. weil sich der Bestand oder die Präferenzen geändert haben.
 
-Bitte beachten Sie, dass Empfehlungen unabhängig voneinander funktionieren und keine Kenntnis darüber haben, was die anderen Modelle empfehlen. Das bedeutet, dass jeder Abschnitt doppelte Artikel enthalten kann, die bereits in anderen KI or künstliche Intelligenz-Empfehlungsabschnitten derselben E-Mail angezeigt werden.
+Bitte beachten Sie, dass Empfehlungen unabhängig voneinander funktionieren und keine Kenntnis darüber haben, was die anderen Modelle empfehlen. Das bedeutet, dass jeder Abschnitt doppelte Artikel enthalten kann, die bereits in anderen KI-Empfehlungsabschnitten derselben E-Mail angezeigt werden.
 
 ### Wie verhindere ich doppelte Artikel in mehreren Empfehlungsabschnitten? {#how-do-i-prevent-duplicate-items-across-multiple-recommendation-sections}
 
 Da jede Empfehlung unabhängig funktioniert, kann derselbe Artikel in mehr als einem Abschnitt derselben Nachricht erscheinen. Um Duplikate zu entfernen, verwenden Sie Liquid, um zu verfolgen, welche Artikel-IDs Sie bereits angezeigt haben, und überspringen Sie diese in nachfolgenden Abschnitten.
 
-### Werden bestehende Empfehlungen nach dem Upgrade or upgraden auf Item Recommendations Pro wöchentlich trainiert? {#do-existing-recommendations-train-weekly-after-upgrading-to-item-recommendations-pro}
+### Werden bestehende Empfehlungen nach dem Upgrade auf Item Recommendations Pro wöchentlich trainiert? {#do-existing-recommendations-train-weekly-after-upgrading-to-item-recommendations-pro}
 
-Ja, aber erst nach ihrem nächsten geplanten Update or aktualisieren. Bestehende Empfehlungen schalten beim Upgrade or upgraden auf Item Recommendations Pro nicht sofort auf wöchentliches Training und tägliche Prognosen um. Sie übernehmen den neuen Zeitplan jedoch automatisch bei ihrem nächsten Trainingszyklus. Wenn eine Empfehlung zum Beispiel zuletzt am 1. Februar trainiert wurde und so eingestellt ist, dass sie alle 30 Tage neu trainiert wird, übernimmt sie den neuen wöchentlichen Zeitplan nach dem nächsten Update or aktualisieren am 2. März.
+Ja, aber erst nach ihrem nächsten geplanten Update. Bestehende Empfehlungen schalten beim Upgrade auf Item Recommendations Pro nicht sofort auf wöchentliches Training und tägliche Prognosen um. Sie übernehmen den neuen Zeitplan jedoch automatisch bei ihrem nächsten Trainingszyklus. Wenn eine Empfehlung zum Beispiel zuletzt am 1. Februar trainiert wurde und so eingestellt ist, dass sie alle 30 Tage neu trainiert wird, übernimmt sie den neuen wöchentlichen Zeitplan nach dem nächsten Update am 2. März.
 
 ### Wie kann ich alle Empfehlungen, die mehrere Tage gültig sind, gleichzeitig ablaufen lassen? {#how-can-i-make-all-recommendations-that-last-multiple-days-expire-at-once}
 
-Wenn Sie alle mehrtägigen Empfehlungen zu einem bestimmten Datum ablaufen lassen möchten (sodass alle aktiven Empfehlungen gleichzeitig neue Prognosen erhalten), wenden Sie sich bitte an den Braze-Support oder Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in. Die BrazeAI-Expert:innen führen diesen Vorgang manuell durch, um eine optimale Performance des Modells zu gewährleisten.
+Wenn Sie alle mehrtägigen Empfehlungen zu einem bestimmten Datum ablaufen lassen möchten (sodass alle aktiven Empfehlungen gleichzeitig neue Prognosen erhalten), wenden Sie sich bitte an den Braze-Support oder Ihren CSM. Die BrazeAI-Expert:innen führen diesen Vorgang manuell durch, um eine optimale Performance des Modells zu gewährleisten.
 
-### Was passiert, wenn ich den Eigenschaftsnamen für eine aktive KI or künstliche Intelligenz-Artikelempfehlung ändere? {#what-happens-if-i-update-the-property-name-for-an-active-ai-item-recommendation}
+### Was passiert, wenn ich den Eigenschaftsnamen für eine aktive KI-Artikelempfehlung ändere? {#what-happens-if-i-update-the-property-name-for-an-active-ai-item-recommendation}
 
-Wenn Sie den Eigenschaftsnamen (Artikel-ID-Pfad) Update or aktualisieren or aktualisieren und **Speichern und erstellen** auswählen, startet Braze einen Hintergrund-Trainingsjob, der die Interaktionsdaten der letzten sechs Monate mit der neuen Zuordnung durchsucht.
+Wenn Sie den Eigenschaftsnamen (Artikel-ID-Pfad) aktualisieren und **Speichern und erstellen** auswählen, startet Braze einen Hintergrund-Trainingsjob, der die Interaktionsdaten der letzten sechs Monate mit der neuen Zuordnung durchsucht.
 
 Während das Modell neu trainiert wird, sehen Nutzer:innen weiterhin Empfehlungen aus der vorherigen Version. Die Empfehlungen ändern sich erst, wenn das neue Modell das Training erfolgreich abgeschlossen hat. Das bedeutet:
 
@@ -414,6 +414,6 @@ Um dieses Risiko zu minimieren, sollten Sie folgenden Ansatz in Betracht ziehen:
 
 1. Erstellen Sie eine neue Artikelempfehlung mit der gewünschten Eigenschaftsnamenkonfiguration.
 2. Überprüfen Sie, ob das Training erfolgreich abgeschlossen wird.
-3. Update or aktualisieren or aktualisieren Sie Ihr Messaging so, dass es auf die neue Empfehlung verweist, anstatt eine aktive Empfehlung direkt zu ändern.
+3. Aktualisieren Sie Ihr Messaging so, dass es auf die neue Empfehlung verweist, anstatt eine aktive Empfehlung direkt zu ändern.
 
 Dieser Ansatz ermöglicht es Ihnen, die neue Konfiguration zu testen, ohne Nachrichten zu gefährden, die auf Ihre bestehende Empfehlung verweisen.

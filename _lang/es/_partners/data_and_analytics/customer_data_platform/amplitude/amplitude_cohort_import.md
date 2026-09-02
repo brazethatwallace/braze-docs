@@ -16,13 +16,13 @@ Cualquier integración que configures contará para el volumen de puntos de dato
 
 ### Paso 1: Obtener la clave de importación de datos de Braze {#step-1-get-the-braze-data-import-key}
 
-En Braze, ve a **Integraciones de partners** > **Partners tecnológicos** y selecciona **Amplitude**. Aquí encontrarás el endpoint REST or transferencia de estado representacional y podrás generar tu clave de importación de datos de Braze.
+En Braze, ve a **Integraciones de partners** > **Partners tecnológicos** y selecciona **Amplitude**. Aquí encontrarás el endpoint REST y podrás generar tu clave de importación de datos de Braze.
 
 Una vez generada, puedes crear una nueva clave o invalidar una existente. La clave de importación de datos y el endpoint REST se utilizan en el siguiente paso al configurar un postback en el panel de Amplitude.<br><br>![Página de partners tecnológicos de Braze para Amplitude que muestra la clave de importación de datos y el endpoint.]({% image_buster /assets/img/amplitude3.png %})
 
 ### Paso 2: Configurar la integración de Braze en Amplitude {#step-2-set-up-the-braze-integration-in-amplitude}
 
-En Amplitude, ve a **Sources & Destinations** > **[nombre del proyecto]** > **Destinations** > **Braze**. En el mensaje que aparece, proporciona la clave de importación de datos de Braze y el endpoint REST or transferencia de estado representacional, y haz clic en **Save**.
+En Amplitude, ve a **Sources & Destinations** > **[nombre del proyecto]** > **Destinations** > **Braze**. En el mensaje que aparece, proporciona la clave de importación de datos de Braze y el endpoint REST, y haz clic en **Save**.
 
 ![Configuración de destinos de Amplitude para la sincronización de cohortes de Braze con las credenciales ingresadas.]({% image_buster /assets/img/amplitude.png %})
 

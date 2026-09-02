@@ -13,7 +13,7 @@ channel:
 
 # 스팸 규정 {#spam-regulations}
 
-> 이메일, 푸시 알림 및 단문 메시지 서비스를 포함한 전자 통신 발신자를 규제하는 여러 법률이 있습니다. 항상 귀하 또는 귀하의 사용자에게 영향을 미칠 수 있는 [현지 규정](https://en.wikipedia.org/wiki/Email_spam_legislation_by_country)을 인지하고 있어야 합니다.
+> 이메일, 푸시 알림 및 SMS를 포함한 전자 통신 발신자를 규제하는 여러 법률이 있습니다. 항상 귀하 또는 귀하의 사용자에게 영향을 미칠 수 있는 [현지 규정](https://en.wikipedia.org/wiki/Email_spam_legislation_by_country)을 인지하고 있어야 합니다.
 
 Braze는 자체 연구를 기반으로 관련 정보를 제공하고 있지만, 완전하고 최신의 세부 사항을 위해 이러한 법률의 전체 본문도 참조해야 합니다.
 
@@ -68,7 +68,7 @@ CASL은 2017년 7월 1일에 끝나는 3년의 전환 기간을 가지고 있지
 
 ### 메시지 동의 {#message-consent}
 
-Braze는 모든 이메일 및 단문 메시지 서비스/MMS 메시지에 대해 명시적 동의를 요구합니다.
+Braze는 모든 이메일 및 SMS/MMS 메시지에 대해 명시적 동의를 요구합니다.
 
 #### 묵시적 동의 {#implied-consent}
 

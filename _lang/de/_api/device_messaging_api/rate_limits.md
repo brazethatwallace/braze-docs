@@ -11,10 +11,10 @@ hidden: true
 
 Braze wendet Rate-Limits der Device Messaging API pro Workspace an. Wenn ein Workspace ein Limit überschreitet, gibt Braze den Statuscode `429 Too Many Requests` zurück.
 
-Die Rate-Limits der Device Messaging API sind von den standardmäßigen Limits getrennt, die für andere Braze-Representational State Transfer-API-Endpunkte dokumentiert sind. Gehen Sie nicht davon aus, dass ein Limit, ein Zeitfenster, eine Payload-Größe oder ein Reset-Zeitplan, der für einen anderen Endpunkt dokumentiert ist, auch für die Device Messaging API gilt.
+Die Rate-Limits der Device Messaging API sind von den standardmäßigen Limits getrennt, die für andere Braze-REST-API-Endpunkte dokumentiert sind. Gehen Sie nicht davon aus, dass ein Limit, ein Zeitfenster, eine Payload-Größe oder ein Reset-Zeitplan, der für einen anderen Endpunkt dokumentiert ist, auch für die Device Messaging API gilt.
 
 {% alert important %}
-Diese Seite befindet sich in der Beta-Phase. Features und Dokumentation für die Device Messaging API können sich ändern. Wenden Sie sich an Ihren Braze Account Manager:in, um Zugang anzufordern.
+Diese Seite befindet sich in der Beta-Phase. Features und Dokumentation für die Device Messaging API können sich ändern. Wenden Sie sich an Ihren Braze Account Manager, um Zugang anzufordern.
 {% endalert %}
 
 ## Rate-Limit-Header {#rate-limit-headers}

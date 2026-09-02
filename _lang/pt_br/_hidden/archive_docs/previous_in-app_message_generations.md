@@ -75,7 +75,7 @@ Mensagens de captura de e-mail permitem que você solicite facilmente aos usuár
 
 ![Mensagem de captura de e-mail]({% image_buster /assets/img_archive/web-email-capture.png %}){: style="max-width:60%;"}
 
->  Para ativar mensagens no app de captura de e-mail através do Web SDK or kit de desenvolvimento de software, você deve fornecer a opção de inicialização `allowUserSuppliedJavascript` para a Braze, por exemplo, `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Isso ocorre por motivos de segurança, pois as mensagens HTML no app podem executar JavaScript, portanto, exigimos que um mantenedor do site as ative.
+>  Para ativar mensagens no app de captura de e-mail através do Web SDK, você deve fornecer a opção de inicialização `allowUserSuppliedJavascript` para a Braze, por exemplo, `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Isso ocorre por motivos de segurança, pois as mensagens HTML no app podem executar JavaScript, portanto, exigimos que um mantenedor do site as ative.
 
 **Recursos personalizáveis**
 
@@ -93,13 +93,13 @@ Embora as mensagens no app padrão da Braze possam ser personalizadas de várias
 
 **Ponte JavaScript (appboyBridge)**
 
-As mensagens em HTML no app suportam uma interface de "ponte" JavaScript para o Braze Web SDK or kit de desenvolvimento de software, permitindo que você dispare ações personalizadas da Braze quando os usuários clicam em elementos com links ou interagem de outra forma com seu conteúdo. Os seguintes métodos JavaScript são suportados nas mensagens no app em HTML da Braze:
+As mensagens em HTML no app suportam uma interface de "ponte" JavaScript para o Braze Web SDK, permitindo que você dispare ações personalizadas da Braze quando os usuários clicam em elementos com links ou interagem de outra forma com seu conteúdo. Os seguintes métodos JavaScript são suportados nas mensagens no app em HTML da Braze:
 
 {% multi_lang_include archive/appboyBridge.md platform="web" %}
 
 Além disso, para rastreamento de análise de dados, quaisquer elementos `<a>` ou `<button>` no seu HTML registrarão automaticamente uma ação de "clique" na campanha associada à mensagem no app. Para registrar um "clique no botão" em vez de um "clique no corpo", forneça um valor de string de consulta abButtonId no href do seu link (por exemplo, `<a href="http://mysite.com?abButtonId=0">click me</a>`), ou forneça um id no elemento HTML (por exemplo, `<a id="0" href="http://mysite.com">click me</a>`). Observe que os únicos IDs de botões atualmente aceitos são "0" e "1". Um link com um id de botão 0 será representado como "Button 1" no dashboard, enquanto um link com um id de botão 1 será representado como "Button 2".
 
->  Para ativar mensagens no app em HTML através do Web SDK or kit de desenvolvimento de software, você deve fornecer a opção de inicialização `allowUserSuppliedJavascript` para a Braze, por exemplo, `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Isso ocorre por motivos de segurança, pois as mensagens HTML no app podem executar JavaScript, portanto, exigimos que um mantenedor do site as ative.
+>  Para ativar mensagens no app em HTML através do Web SDK, você deve fornecer a opção de inicialização `allowUserSuppliedJavascript` para a Braze, por exemplo, `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Isso ocorre por motivos de segurança, pois as mensagens HTML no app podem executar JavaScript, portanto, exigimos que um mantenedor do site as ative.
 
 {% enddetails %}
 

@@ -24,7 +24,7 @@ Um dieses Template erfolgreich zu verwenden, benötigen Sie Folgendes:
 
 Nehmen wir an, wir arbeiten für Decorumsoft, einen Entwickler mobiler Videospiele. Wir verwenden das Template für Feedback nach dem Kauf, um Rückmeldungen zu unserem neuesten Videospiel-Launch, Proxy War 3: War of Thirst, zu erfassen. Anhand dieses Feedbacks werden wir unsere Entwicklungspläne für das Erweiterungspaket Liquid Mirage gestalten.
 
-Bevor wir das Canvas erstellen, richten wir die Integration [Braze Audience Sync to Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync) ein, damit wir Nutzerdaten aus Braze zu Google Audiences hinzufügen können, um Werbeanzeigen basierend auf Verhaltens-Trigger or triggern or triggern, Segmentierung und mehr zu senden.
+Bevor wir das Canvas erstellen, richten wir die Integration [Braze Audience Sync to Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync) ein, damit wir Nutzerdaten aus Braze zu Google Audiences hinzufügen können, um Werbeanzeigen basierend auf Verhaltens-Triggern, Segmentierung und mehr zu senden.
 
 Um auf das Template für Feedback nach dem Kauf zuzugreifen, wählen Sie beim Erstellen eines neuen Canvas **Use a Canvas template** > **Braze templates**. Wählen Sie dann neben **Post-Purchase Feedback** die Option **Apply Template**. Jetzt können wir das Template durchgehen und an unsere Bedürfnisse anpassen.
 
@@ -37,15 +37,15 @@ Passen wir die Canvas-Details an, um unser Ziel widerzuspiegeln.
 ![Der aktuelle Titel und die Beschreibung des Canvas.]({% image_buster /assets/img/canvas_templates/post_purchase_feedback/select_edit_details.png %}){: style="max-width:50%;"}
 
 {:start="2"}
-2. Update or aktualisieren or aktualisieren Sie den Canvas-Namen, um anzugeben, dass das Canvas auf kürzlich aktive Nutzer:innen abzielt.
-3. Update or aktualisieren or aktualisieren Sie die Beschreibung, um anzugeben, dass das Canvas Nutzer:innen dazu ermutigen soll, Feedback abzugeben.
+2. Aktualisieren Sie den Canvas-Namen, um anzugeben, dass das Canvas auf kürzlich aktive Nutzer:innen abzielt.
+3. Aktualisieren Sie die Beschreibung, um anzugeben, dass das Canvas Nutzer:innen dazu ermutigen soll, Feedback abzugeben.
 4. Fügen Sie den Tag **Feedback** hinzu, um auf der Canvas-Startseite danach filtern zu können.
 
 ![Der neue Name und die neue Beschreibung für das Canvas. Die neue Beschreibung lautet: „Ein Canvas für Feedback nach dem Kauf, um das Interesse an der kommenden Erweiterung für PWD3, Liquid Mirage, zu ermitteln.“]({% image_buster /assets/img/canvas_templates/post_purchase_feedback/enter_new_canvas_name.png %}){: style="max-width:50%;"}
 
 ### 2. Schritt: Konversions-Events zuweisen {#step-2-assign-conversion-events}
 
-Als Nächstes weisen wir unsere Konversions-Events zu. Update or aktualisieren or aktualisieren Sie das **Primary Conversion Event - A** auf **Make a specific purchase** und wählen Sie **Proxy War**.
+Als Nächstes weisen wir unsere Konversions-Events zu. Aktualisieren Sie das **Primary Conversion Event - A** auf **Make a specific purchase** und wählen Sie **Proxy War**.
 
 ![Der Abschnitt „Assign Conversion Events“ für den Konversions-Event-Typ des Kaufs des Proxy-War-Spielprodukts.]({% image_buster /assets/img/canvas_templates/post_purchase_feedback/select_conversion_event.png %}){: style="max-width:90%;"}
 
@@ -66,7 +66,7 @@ Unsere Zielgruppe für Feedback sind Nutzer:innen, die kürzlich Proxy War 3 gek
 ![Ein Segment namens „Purchased Proxy War 3“, das Nutzer:innen segmentiert, die das Spiel gekauft haben.]({% image_buster /assets/img/canvas_templates/post_purchase_feedback/entry_window_segment.png %}){: style="max-width:90%;"}
 
 {: start="3"}
-3. Update or aktualisieren or aktualisieren Sie die Eingangskontrollen, damit Nutzer:innen nach der maximalen Dauer des Canvas nicht erneut eintreten können.
+3. Aktualisieren Sie die Eingangskontrollen, damit Nutzer:innen nach der maximalen Dauer des Canvas nicht erneut eintreten können.
 
 ### 5. Schritt: Sendeeinstellungen auswählen {#step-5-select-your-send-settings}
 
@@ -80,9 +80,9 @@ Für unser Beispiel überspringen wir die anderen Einstellungen (Frequency-Cappi
 
 ### 6. Schritt: Ihr Canvas anpassen {#step-6-customize-your-canvas}
 
-Als Nächstes bauen wir unser Canvas auf, indem wir die Messaging-Kanäle und den Inhalt anpassen, der an Nutzer:innen gesendet wird. Da wir nur über E-Mail, In-App-Nachricht und Webhook-Kanäle Feedback einholen, gehen wir das Template durch und entfernen die Kurzmitteilungsdienst or SMS-Varianten aus den Nachrichtenschritten.
+Als Nächstes bauen wir unser Canvas auf, indem wir die Messaging-Kanäle und den Inhalt anpassen, der an Nutzer:innen gesendet wird. Da wir nur über E-Mail, In-App-Nachricht und Webhook-Kanäle Feedback einholen, gehen wir das Template durch und entfernen die SMS-Varianten aus den Nachrichtenschritten.
 
-Wir beginnen unsere Anpassung, indem wir jede Messaging-Komponente durchgehen und den Inhalt Update or aktualisieren or aktualisieren. Unser angepasstes Attribut als Referenz ist `Experience Feedback`.
+Wir beginnen unsere Anpassung, indem wir jede Messaging-Komponente durchgehen und den Inhalt aktualisieren. Unser angepasstes Attribut als Referenz ist `Experience Feedback`.
 
 1. Wählen Sie im Canvas-Builder den ersten Nachrichtenschritt in der User Journey aus.
 2. Wählen Sie die **E-Mail**-Variante.
@@ -101,13 +101,13 @@ Als Nächstes müssen wir die Details für die **In-App Messages**-Variante ausf
 2. Für die Überschrift und den Text verwenden wir eine Formulierung, die Nutzer:innen ermutigt, ehrlich über ihre Erfahrung mit Proxy War 3 zu berichten.
 3. Da wir möchten, dass ihre Umfrageantworten in ihren Profilen protokolliert werden, behalten wir die Umfrage als **Single-choice selection** und **Log attributes upon submission** bei.
 4. Wählen Sie für jede der drei Umfrageoptionen **Experience Feedback** als unser angepasstes Attribut.
-5. Wir behalten die Attributwerte im Kundenprofil or Nutzerprofil bei, da diese Werte mit unserem angepassten Attribut übereinstimmen.
+5. Wir behalten die Attributwerte im Kundenprofil bei, da diese Werte mit unserem angepassten Attribut übereinstimmen.
 
 ![Eine Umfrage, die Nutzer:innen fragt, ob sie ihren kürzlichen Kauf von Proxy War 3 genossen haben, mit drei Optionen: „Loved it“, „It was OK“ und „Not for me“.]({% image_buster /assets/img/canvas_templates/post_purchase_feedback/survey_example_iam.png %}){: style="max-width:90%;"}
 
 #### Den Aktions-Pfad aufbauen {#build-out-the-action-path}
 
-Mithilfe unseres angepassten Attributs `Experience Feedback` und der Attributwerte aus dem vorherigen Abschnitt Update or aktualisieren or aktualisieren wir den Aktions-Pfad des Templates, um ihn an unser Attribut und unsere Werte anzupassen.
+Mithilfe unseres angepassten Attributs `Experience Feedback` und der Attributwerte aus dem vorherigen Abschnitt aktualisieren wir den Aktions-Pfad des Templates, um ihn an unser Attribut und unsere Werte anzupassen.
 
 ![Die Gruppe „Good feedback“ für den Aktions-Pfad-Schritt, die Nutzer:innen einschließt, die in unserer Umfrage mit „Loved it“ geantwortet haben.]({% image_buster /assets/img/canvas_templates/post_purchase_feedback/action_path_good_example.png %}){: style="max-width:90%;"}
 
@@ -119,7 +119,7 @@ Wir stellen sicher, dass unsere Google Audience Sync in unserem **Ad Retargeting
 
 Als Nächstes richten wir den Webhook ein, um potenzielle Support-Fälle auszulösen. Dies kann besonders aufschlussreich in Kombination mit der Analyse unseres Nutzer-Feedbacks sein.
 
-Für den Nachrichtenschritt namens **Support Case Creation** Update or aktualisieren or aktualisieren wir das Template, um einen Webhook für Nutzer:innen zu erstellen, die mit ihrem Kauf unzufrieden sind und eine Rückerstattung wünschen.
+Für den Nachrichtenschritt namens **Support Case Creation** aktualisieren wir das Template, um einen Webhook für Nutzer:innen zu erstellen, die mit ihrem Kauf unzufrieden sind und eine Rückerstattung wünschen.
 
 ![Ein Webhook, der Support-Fälle für Kund:innen erstellt, die eine negative Stimmung haben und eine Rückerstattung für ihren Kauf von Proxy War 3 wünschen.]({% image_buster /assets/img/canvas_templates/post_purchase_feedback/webhook_example.png %}){: style="max-width:90%;"}
 

@@ -78,12 +78,12 @@ Para saber mais, consulte a documentação da Meta sobre [arquivamento de modelo
 - A Braze está trabalhando em uma solução antes do lançamento
 - Lançamento esperado pela Meta em junho de 2026
 
-### Novembro de 2025: [API or interface de programação do aplicativo (API) de mensagens de marketing para WhatsApp](https://developers.facebook.com/documentation/business-messaging/whatsapp/marketing-messages/overview/) (anteriormente Marketing Messages Lite API or interface de programação do aplicativo (API)) {#november-2025-marketing-messages-api-for-whatsapp-formerly-marketing-messages-lite-api}
+### Novembro de 2025: [API de mensagens de marketing para WhatsApp](https://developers.facebook.com/documentation/business-messaging/whatsapp/marketing-messages/overview/) (anteriormente Marketing Messages Lite API) {#november-2025-marketing-messages-api-for-whatsapp-formerly-marketing-messages-lite-api}
 *Última atualização em março de 2026*
 
-- Substitui os limites estáticos da Cloud API or interface de programação do aplicativo (API) por limites dinâmicos baseados em engajamento
+- Substitui os limites estáticos da Cloud API por limites dinâmicos baseados em engajamento
 - Não disponível na EMEA, Japão ou Coreia do Sul para entrega otimizada
-- Mensagens de utilidade/autenticação continuam pela Cloud API or interface de programação do aplicativo (API) automaticamente
+- Mensagens de utilidade/autenticação continuam pela Cloud API automaticamente
 
 ### Outubro de 2025: Processo de aprovação da Conta Empresarial Oficial (OBA) foi alterado {#october-2025-official-business-account-oba-approval-process-changed}
 *Última atualização em março de 2026*
@@ -91,7 +91,7 @@ Para saber mais, consulte a documentação da Meta sobre [arquivamento de modelo
 - Anteriormente aberto a todos os clientes pelo WhatsApp Manager
 - Agora restrito a: governo/grandes anunciantes da Meta, anunciantes diretos ou por meio de um BSP como a Braze (até 5 por semana)
 - Novos pré-requisitos: verificação empresarial, verificação em duas etapas, nome de exibição aprovado, notoriedade
-- Entre em contato com seu gerente de sucesso do cliente para assistência
+- Entre em contato com seu CSM para assistência
 
 ### Outubro de 2025: Reduções de tarifas regionais {#october-2025-regional-pricing-rate-cuts}
 *Última atualização em março de 2026*
@@ -198,20 +198,20 @@ As notificações sobre violações graves de SPAM serão:
 - Mostradas em um banner no WhatsApp Manager
 - Enviadas por e-mail para todos os administradores configurados no WhatsApp Business Manager
 
-### Maio de 2024: Cloud API or interface de programação do aplicativo (API) entrando em operação na Turquia {#may-2024-cloud-api-going-live-in-trkiye}
+### Maio de 2024: Cloud API entrando em operação na Turquia {#may-2024-cloud-api-going-live-in-trkiye}
 *Última atualização em maio de 2024*
 
-A Meta agora fornece acesso à Cloud API or interface de programação do aplicativo (API) para empresas na Turquia para envio de mensagens empresariais. Anteriormente, a Cloud API or interface de programação do aplicativo (API) do WhatsApp estava disponível para empresas na Turquia usarem, mas usuários do WhatsApp com números turcos não conseguiam enviar ou receber mensagens enviadas pela Cloud API or interface de programação do aplicativo (API).
+A Meta agora fornece acesso à Cloud API para empresas na Turquia para envio de mensagens empresariais. Anteriormente, a Cloud API do WhatsApp estava disponível para empresas na Turquia usarem, mas usuários do WhatsApp com números turcos não conseguiam enviar ou receber mensagens enviadas pela Cloud API.
 
 A Meta sempre deixa claro para os usuários quando eles estão conversando com uma empresa hospedada pela Meta, e todos os usuários são obrigados a aceitar os Termos de Serviço e a Política de Privacidade do WhatsApp relevantes para prosseguir com o envio de mensagens empresariais. A atualização dos Termos de Serviço e da Política de Privacidade de 2021 na Turquia havia sido pausada, mas agora está sendo implementada. Isso não muda o compromisso da Meta com a privacidade—conversas pessoais continuam protegidas por criptografia de ponta a ponta, o que significa que apenas você e o destinatário pretendido podem vê-las. A atualização permite que usuários turcos acessem recursos empresariais opcionais, se desejarem, e proporciona mais transparência sobre como o WhatsApp funciona.
 
-Empresas que utilizam a Cloud API or interface de programação do aplicativo (API) agora podem iniciar conversas com usuários do WhatsApp com números turcos, que agora retornarão um webhook como conversa "enviada", em vez do código de erro 131026 atual.
+Empresas que utilizam a Cloud API agora podem iniciar conversas com usuários do WhatsApp com números turcos, que agora retornarão um webhook como conversa "enviada", em vez do código de erro 131026 atual.
 
 Para que uma mensagem empresarial seja "entregue" ou "lida", é necessário que o usuário aceite os termos do WhatsApp. A empresa não será cobrada a menos que a mensagem seja entregue.
 
-Usuários que recebem ou tentam enviar uma mensagem para uma empresa da Cloud API or interface de programação do aplicativo (API) verão uma notificação no app sobre a atualização dos termos, que deixa claro que não podem enviar mensagens para uma empresa da Cloud API or interface de programação do aplicativo (API) até que aceitem a atualização do WhatsApp. Além disso, usuários que registrarem ou re-registrarem o app em seus telefones serão solicitados a aceitar a atualização do WhatsApp.
+Usuários que recebem ou tentam enviar uma mensagem para uma empresa da Cloud API verão uma notificação no app sobre a atualização dos termos, que deixa claro que não podem enviar mensagens para uma empresa da Cloud API até que aceitem a atualização do WhatsApp. Além disso, usuários que registrarem ou re-registrarem o app em seus telefones serão solicitados a aceitar a atualização do WhatsApp.
 
-Quando um usuário aceitar a atualização, ele verá o aviso de mensagem de sistema da Cloud API or interface de programação do aplicativo (API) existente ao conversar com uma empresa da Cloud API or interface de programação do aplicativo (API).
+Quando um usuário aceitar a atualização, ele verá o aviso de mensagem de sistema da Cloud API existente ao conversar com uma empresa da Cloud API.
 
 ### Maio de 2024: Limites de mensagens de modelo de marketing por usuário {#may-2024-per-user-marketing-template-message-limits}
 *Última atualização em maio de 2024*
@@ -220,7 +220,7 @@ A Meta está implementando novas abordagens para manter experiências de alta qu
 
 O limite se aplica apenas a mensagens de modelo de marketing que normalmente abririam uma nova conversa de marketing. Se uma conversa de marketing já estiver aberta entre sua marca e um usuário do WhatsApp, as mensagens de modelo de marketing enviadas ao usuário não serão afetadas.
 
-Se uma mensagem de modelo de marketing não for entregue a um determinado usuário devido ao limite, a Cloud API or interface de programação do aplicativo (API) retornará o código de erro 131026. Porém, note que esses códigos de erro cobrem uma ampla variedade de problemas que podem resultar na não entrega de uma mensagem e, por razões de privacidade, a Meta não divulgará se a mensagem de fato não foi entregue devido ao limite. Consulte o [documento de solução de problemas](https://developers.facebook.com/docs/whatsapp/cloud-api/support#troubleshooting) da Cloud API or interface de programação do aplicativo (API) para descrições dos motivos de não entrega e o que você pode fazer para determinar a causa subjacente.
+Se uma mensagem de modelo de marketing não for entregue a um determinado usuário devido ao limite, a Cloud API retornará o código de erro 131026. Porém, note que esses códigos de erro cobrem uma ampla variedade de problemas que podem resultar na não entrega de uma mensagem e, por razões de privacidade, a Meta não divulgará se a mensagem de fato não foi entregue devido ao limite. Consulte o [documento de solução de problemas](https://developers.facebook.com/docs/whatsapp/cloud-api/support#troubleshooting) da Cloud API para descrições dos motivos de não entrega e o que você pode fazer para determinar a causa subjacente.
 
 Se você receber um desses códigos de erro e suspeitar que é devido ao limite, evite reenviar imediatamente a mensagem de modelo, pois isso resultará apenas em outra resposta de erro.
 
@@ -259,7 +259,7 @@ Em última análise, essa atualização oferece a você um ciclo de feedback mai
 ### Junho de 2023: Experimentação de envio de mensagens {#june-2023-messaging-experimentation}
 *Última atualização em junho de 2023*
 
-A partir de 14 de junho de 2023, a Meta está introduzindo novas práticas de experimentação na plataforma WhatsApp para avaliar como as mensagens de marketing impactam a experiência e o engajamento do consumidor. Este experimento pode afetar suas mensagens de marketing enviadas pela API or interface de programação do aplicativo (API) WhatsApp Business com a Braze.
+A partir de 14 de junho de 2023, a Meta está introduzindo novas práticas de experimentação na plataforma WhatsApp para avaliar como as mensagens de marketing impactam a experiência e o engajamento do consumidor. Este experimento pode afetar suas mensagens de marketing enviadas pela API WhatsApp Business com a Braze.
 
 A Meta pretende continuar essas experimentações na plataforma WhatsApp. Consulte a [documentação da Meta](https://developers.facebook.com/docs/whatsapp/on-premises/guides/experiments?content_id=86oue5PtwEgcBJl) para saber mais.
 
@@ -277,11 +277,11 @@ No experimento, a Meta seleciona aleatoriamente aproximadamente 1% dos consumido
 
 Se uma mensagem não for entregue devido ao experimento, um código de erro específico será exibido no Registro de Atividades e no Currents. A mensagem também será contabilizada como uma falha e incorporada às suas métricas de falhas do WhatsApp em todos os relatórios dentro do dashboard da Braze. Você não será cobrado por essas mensagens.
 
-Esse código de erro 130472 indicará "User's number is part of an experiment." Consulte a [documentação da Meta](https://developers.facebook.com/docs/whatsapp/cloud-api/support/error-codes?content_id=8SJRLBEjYGvXO9k) para mais informações sobre códigos de erro da Cloud API or interface de programação do aplicativo (API) do WhatsApp.
+Esse código de erro 130472 indicará "User's number is part of an experiment." Consulte a [documentação da Meta](https://developers.facebook.com/docs/whatsapp/cloud-api/support/error-codes?content_id=8SJRLBEjYGvXO9k) para mais informações sobre códigos de erro da Cloud API do WhatsApp.
 
 ### Posso optar por não participar do experimento da Meta? {#can-i-opt-out-of-metas-experiment}
 
-Não, a Meta não permite nenhuma exclusão do experimento. Todos os provedores e usuários da API or interface de programação do aplicativo (API) do WhatsApp Business estão sujeitos a esse experimento da Meta.
+Não, a Meta não permite nenhuma exclusão do experimento. Todos os provedores e usuários da API do WhatsApp Business estão sujeitos a esse experimento da Meta.
 
 ### Posso tentar reenviar um modelo depois? {#can-i-try-to-resend-a-template-later}
 

@@ -28,7 +28,7 @@ Para crear una cuenta nueva, en la parte inferior del cuadro de diálogo de inic
 
 ![Cuadro de diálogo de inicio de sesión de Baidu]({% image_buster /assets/img_archive/baidu_login_dialog.png %}){: style="max-width:70%;"}
 
-Introduce tu nombre de usuario, número de teléfono y contraseña en la página de creación de cuenta. A continuación, haz clic en el botón para recibir el código de verificación. Recibirás un mensaje servicio de mensajes cortos de Baidu con un código de verificación. Por último, acepta el acuerdo de licencia y haz clic en **注册** (crear cuenta) para registrarte. Si estos pasos de configuración fallan, intenta registrarte a través del inicio de sesión de Baidu Cloud como se describe en este [artículo de inicio de sesión](https://www.adchina.io/how-to-open-a-baidu-account-outside-china/).
+Introduce tu nombre de usuario, número de teléfono y contraseña en la página de creación de cuenta. A continuación, haz clic en el botón para recibir el código de verificación. Recibirás un mensaje SMS de Baidu con un código de verificación. Por último, acepta el acuerdo de licencia y haz clic en **注册** (crear cuenta) para registrarte. Si estos pasos de configuración fallan, intenta registrarte a través del inicio de sesión de Baidu Cloud como se describe en este [artículo de inicio de sesión](https://www.adchina.io/how-to-open-a-baidu-account-outside-china/).
 
 ![Página de registro de Baidu]({% image_buster /assets/img_archive/baidu_signup.png %}){: style="max-width:80%;"}
 
@@ -64,11 +64,11 @@ En la página siguiente, introduce el nombre del paquete de tu aplicación (por 
 
 ## Paso 4: Añadir Baidu a tu aplicación {#step-4-add-baidu-to-your-application}
 
-Visita el [portal del SDK or kit de desarrollo de software push de Baidu](http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk) y descarga el SDK or kit de desarrollo de software más reciente de Baidu Cloud Push para Android.
+Visita el [portal del SDK push de Baidu](http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk) y descarga el SDK más reciente de Baidu Cloud Push para Android.
 
-![Portal del SDK or kit de desarrollo de software de Baidu]({% image_buster /assets/img_archive/baidu_sdk.png %})
+![Portal del SDK de Baidu]({% image_buster /assets/img_archive/baidu_sdk.png %})
 
-Dentro del SDK or kit de desarrollo de software, encontrarás el archivo jar del servicio push y las bibliotecas nativas específicas de cada plataforma. Intégralas en tu proyecto. Asegúrate de que tu aplicación apunte a la versión más alta del SDK or kit de desarrollo de software actualmente compatible con Baidu. Esta documentación está actualizada para la versión `4.6.2.38` del SDK or kit de desarrollo de software de Baidu Cloud Push para Android.
+Dentro del SDK, encontrarás el archivo jar del servicio push y las bibliotecas nativas específicas de cada plataforma. Intégralas en tu proyecto. Asegúrate de que tu aplicación apunte a la versión más alta del SDK actualmente compatible con Baidu. Esta documentación está actualizada para la versión `4.6.2.38` del SDK de Baidu Cloud Push para Android.
 
 Añade los siguientes permisos requeridos de Baidu al archivo `AndroidManifest.xml` de tu aplicación.
 
@@ -238,5 +238,5 @@ En la página **Administrar configuración**, selecciona tu aplicación Android 
 - [Portal de Baidu](https://www.baidu.com/)
 - [Portal para desarrolladores de Baidu](http://developer.baidu.com/)
 - [Portal de proyectos de Baidu](http://developer.baidu.com/console#app/project)
-- [Portal del SDK or kit de desarrollo de software push de Baidu](http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk)
+- [Portal del SDK push de Baidu](http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk)
 - [Documentación de integración de Baidu](http://developer.baidu.com/wiki/index.php?title=docs/frontia/guide-android/overview)

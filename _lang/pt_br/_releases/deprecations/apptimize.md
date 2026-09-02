@@ -39,7 +39,7 @@ Com o Braze e o Apptimize juntos, você pode usar as duas plataformas para criar
 
 ## Como funciona?
 
-Braze e Apptimize podem ser integrados para passar dados de SDK or kit de desenvolvimento de software para SDK or kit de desenvolvimento de software.
+Braze e Apptimize podem ser integrados para passar dados de SDK para SDK.
 Você pode sincronizar grupos de teste A/B ativos do Apptimize de volta para a Braze, permitindo que você
 redirecionar os usuários em um teste específico do Apptimize dentro do Braze via push, e-mail,
 ou envio de mensagens no app.

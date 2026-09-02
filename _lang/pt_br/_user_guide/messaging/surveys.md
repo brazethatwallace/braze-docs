@@ -34,7 +34,7 @@ Se você não vê **Surveys** em **Messaging**, entre em contato com o gerente d
 
 ## Análise de dados {#analytics}
 
-Todo tipo de pergunta de pesquisa inclui relatórios aprimorados por padrão, permitindo que você revise os dados de respostas rapidamente, sem precisar criar um Segment or segmento or segmento ou exportar para uma ferramenta separada.
+Todo tipo de pergunta de pesquisa inclui relatórios aprimorados por padrão, permitindo que você revise os dados de respostas rapidamente, sem precisar criar um Segment ou exportar para uma ferramenta separada.
 
 A análise de dados de nível superior inclui:
 

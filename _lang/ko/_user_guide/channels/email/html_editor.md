@@ -162,7 +162,7 @@ Braze를 사용하면 고급 사용 사례에 필요한 추가 이메일 헤더�
 </thead>
 <tbody>
   <tr>
-    <td>BCC or 배너 콘텐츠 카드</td>
+    <td>BCC</td>
     <td>dkim-signature</td>
     <td>Reply-To</td>
   </tr>

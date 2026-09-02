@@ -1,11 +1,11 @@
 ---
-nav_title: Cómo Braze protege tu ecosistema de servicio de mensajes cortos, MMS y RCS contra el fraude
+nav_title: Cómo Braze protege tu ecosistema de SMS, MMS y RCS contra el fraude
 permalink: "/sms_traffic_pumping_fraud_faq/"
-description: "Este artículo de referencia cubre las preguntas frecuentes sobre el fraude de bombeo de tráfico en servicio de mensajes cortos, MMS y RCS."
+description: "Este artículo de referencia cubre las preguntas frecuentes sobre el fraude de bombeo de tráfico en SMS, MMS y RCS."
 hidden: true
 ---
 
-# Cómo Braze protege tu ecosistema de servicio de mensajes cortos, MMS y RCS contra el fraude {#how-braze-protects-your-sms-mms-and-rcs-ecosystem-against-fraud}
+# Cómo Braze protege tu ecosistema de SMS, MMS y RCS contra el fraude {#how-braze-protects-your-sms-mms-and-rcs-ecosystem-against-fraud}
 
 {% multi_lang_include sms_traffic_pumping_fraud/intro.md link_geographic_permissions=true %}
 

@@ -21,7 +21,7 @@ A modo de referencia, se proporciona un resumen de las etiquetas de personalizac
 | Atributos estándar (predeterminados) | `{{${city}}}` <br> `{{${country}}}` <br> `{{${date_of_birth}}}` <br> `{{${email_address}}}` <br> `{{${first_name}}}` <br> `{{${gender}}}` <br> `{{${language}}}` <br> `{{${last_name}}}` <br> `{{${last_used_app_date}}}` <br> `{{${most_recent_app_version}}}` <br> `{{${most_recent_locale}}}` <br> `{{${most_recent_location}}}` <br> `{{${phone_number}}}` <br> `{{${time_zone}}}` <br> `{{${user_id}}}` <br> `{{${braze_id}}}` <br> `{{${random_bucket_number}}}` <br> `{{subscribed_state.${email_global}}}` <br> `{{subscribed_state.${subscription_group_id}}}` |
 | Atributos de dispositivo | `{{most_recently_used_device.${carrier}}}` <br> `{{most_recently_used_device.${id}}}` <br> `{{most_recently_used_device.${idfa}}}` <br> `{{most_recently_used_device.${model}}}` <br> `{{most_recently_used_device.${os}}}` <br> `{{most_recently_used_device.${platform}}}` <br> `{{most_recently_used_device.${google_ad_id}}}` <br> `{{most_recently_used_device.${roku_ad_id}}}` <br> `{{most_recently_used_device.${foreground_push_enabled}}}`|
 | <a href='/docs/user_guide/channels/email/subscriptions#changing-email-subscriptions'>Atributos de lista de correo electrónico</a> | `{{${set_user_to_unsubscribed_url}}}` <br>Esta etiqueta reemplaza la etiqueta anterior `{{${unsubscribe_url}}}`. Aunque la etiqueta anterior aún funciona en correos electrónicos creados previamente, te recomendamos que uses la etiqueta más reciente en su lugar. <br><br> `{{${set_user_to_one_click_list_unsubscribe}}}` <br> `{{${set_user_to_subscribed_url}}}` <br> `{{${set_user_to_opted_in_url}}}` |
-| <a href='/docs/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting#trigger-messages'>Atributos de servicio de mensajes cortos</a> | `{{sms.${inbound_message_body}}}` <br> `{{sms.${inbound_media_urls}}}` |
+| <a href='/docs/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting#trigger-messages'>Atributos de SMS</a> | `{{sms.${inbound_message_body}}}` <br> `{{sms.${inbound_media_urls}}}` |
 | <a href='/docs/user_guide/channels/whatsapp/message_processing/messaging_users'>Atributos de WhatsApp</a> | `{{whats_app.${inbound_message_body}}}` <br> `{{whats_app.${inbound_media_urls}}}` <br> `{{whats_app.${inbound_flow_response}}}` <br> `{{whats_app.${inbound_product_id}}}` <br> `{{whats_app.${inbound_catalog_id}}}` <br> `{{whats_app.${inbound_profile_name}}}` |
 | Atributos de Campaign y de paso en Canvas | `{{campaign.${api_id}}}` <br> `{{campaign.${dispatch_id}}}` <br> `{{campaign.${name}}}` <br> `{{campaign.${message_name}}}` <br> `{{campaign.${message_api_id}}}` |
 | Atributos de Canvas | `{{canvas.${name}}}` <br> `{{canvas.${api_id}}}` <br> `{{canvas.${variant_name}}}` <br> `{{canvas.${variant_api_id}}}` |
@@ -42,7 +42,7 @@ Las propiedades de desencadenamiento de API deben usar dos llaves por etiqueta: 
 
 ### Atributos compatibles {#supported-attributes}
 
-Los atributos de Campaign, tarjeta y Canvas solo son compatibles en sus plantillas de mensajería correspondientes. Por ejemplo, `dispatch_id` es compatible con Liquid para canales de mensajería como correo electrónico, push, servicio de mensajes cortos y WhatsApp, pero no para mensajes dentro de la aplicación ni Banners.
+Los atributos de Campaign, tarjeta y Canvas solo son compatibles en sus plantillas de mensajería correspondientes. Por ejemplo, `dispatch_id` es compatible con Liquid para canales de mensajería como correo electrónico, push, SMS y WhatsApp, pero no para mensajes dentro de la aplicación ni Banners.
 
 Consulta [Atributos de Campaign y Canvas en distintas fuentes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources) para obtener más detalles.
 
@@ -66,7 +66,7 @@ https://example.com/?utm_campaign={{ campaign.${name} | url_encode }}
 
 ## Información del dispositivo utilizado más recientemente {#most-recently-used-device-information}
 
-Puedes usar como plantilla los siguientes atributos del dispositivo más reciente del usuario en todas las plataformas. Si un usuario no ha utilizado tu aplicación (por ejemplo, si importaste al usuario a través de la REST or transferencia de estado representacional API), todos estos valores serán `null`.
+Puedes usar como plantilla los siguientes atributos del dispositivo más reciente del usuario en todas las plataformas. Si un usuario no ha utilizado tu aplicación (por ejemplo, si importaste al usuario a través de la REST API), todos estos valores serán `null`.
 
 {% raw %}
 
@@ -88,11 +88,11 @@ Dado que existe una amplia variedad de operadores de dispositivos, nombres de mo
 
 ## Información de la aplicación segmentada {#targeted-app-information}
 
-Para los mensajes dentro de la aplicación, puedes utilizar los siguientes atributos de la aplicación dentro de Liquid. Los valores se basan en la clave de API de SDK or kit de desarrollo de software que tus aplicaciones utilizan para solicitar mensajería.
+Para los mensajes dentro de la aplicación, puedes utilizar los siguientes atributos de la aplicación dentro de Liquid. Los valores se basan en la clave de API de SDK que tus aplicaciones utilizan para solicitar mensajería.
 
 |Etiqueta | Descripción |
 |------------------|---|
-| `{{app.${api_id}}}` | La clave de API de la aplicación que solicita el mensaje. Por ejemplo, puedes usar esta clave junto con `abort_message()` de Liquid para evitar el envío de mensajes dentro de la aplicación a ciertas aplicaciones, como plataformas de TV o compilaciones de desarrollo que utilizan una clave de API de SDK or kit de desarrollo de software independiente.|
+| `{{app.${api_id}}}` | La clave de API de la aplicación que solicita el mensaje. Por ejemplo, puedes usar esta clave junto con `abort_message()` de Liquid para evitar el envío de mensajes dentro de la aplicación a ciertas aplicaciones, como plataformas de TV o compilaciones de desarrollo que utilizan una clave de API de SDK independiente.|
 | `{{app.${name}}}` | El nombre de la aplicación (tal como se define en el panel de Braze) que solicita el mensaje. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Información de la aplicación segmentada" }
 

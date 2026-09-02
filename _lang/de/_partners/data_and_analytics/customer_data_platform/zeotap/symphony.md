@@ -11,7 +11,7 @@ page_order: 2
 Die Integration von Braze und Zeotap Symphony ermöglicht es Ihnen, Realtime-Orchestrierungen zu erstellen und Campaigns per E-Mail und Push-Benachrichtigung durchzuführen.
 
 - Senden Sie Vor- und Nachnamen über Zeotap, auf deren Grundlage Nutzer:innen personalisierte E-Mails über Braze versenden können.
-- Senden Sie angepasste Events oder ein Kauf-Event in Realtime über Zeotap, auf deren Grundlage Nutzer:innen innerhalb von Braze Campaign-Trigger or triggern erstellen können, um ihre Kund:innen zu targetieren.
+- Senden Sie angepasste Events oder ein Kauf-Event in Realtime über Zeotap, auf deren Grundlage Nutzer:innen innerhalb von Braze Campaign-Trigger erstellen können, um ihre Kund:innen zu targetieren.
 
 {% alert note %}
 Um E-Mail-Marketing-Campaigns zu erstellen, onboarden Sie die Roh-E-Mails in Zeotap, indem Sie sie `Email Raw` im Zeotap-Katalog zuordnen.
@@ -22,7 +22,7 @@ Um E-Mail-Marketing-Campaigns zu erstellen, onboarden Sie die Roh-E-Mails in Zeo
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | Client Name | Dies ist Ihr Client-Name für Ihr Braze-Konto. Sie finden ihn, indem Sie zur Braze-Konsole navigieren. |
-| Braze Representational State Transfer-API-Schlüssel | Ein Braze Representational State Transfer-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
 | Instanz | Ihre Braze-Instanz erhalten Sie von Ihrer/Ihrem Braze-Onboarding-Manager:in:in oder auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
@@ -32,11 +32,11 @@ Dieser Abschnitt enthält Informationen zu den beiden Methoden, mit denen Sie Br
 
 ### Methode 1 {#method-1}
 Bei dieser Methode müssen Sie die folgenden Aufgaben ausführen:
-1. Integrieren Sie das Braze SDK or Software-Development-Kit auf Ihrer Website oder in Ihrer App.
+1. Integrieren Sie das Braze SDK auf Ihrer Website oder in Ihrer App.
 2. Integrieren Sie Braze mit Zeotap über Symphony.
 
 - `User traits` müssen den entsprechenden Braze-Feldern auf dem Tab **Data To Send** zugeordnet werden. Wenn Sie die Attribute `Event` und `Purchase` abbilden, führt dies zu einer Duplizierung von Events innerhalb von Braze.
-- Bilden Sie `External ID` auf die `User ID` ab, die beim Einrichten des Braze SDK or Software-Development-Kit konfiguriert wurde.
+- Bilden Sie `External ID` auf die `User ID` ab, die beim Einrichten des Braze SDK konfiguriert wurde.
 
 Wenn die Integration erfolgreich eingerichtet ist, können Sie Campaigns per E-Mail und Push-Benachrichtigung erstellen, die auf angepassten Attributen basieren, die über Symphony an Braze gesendet werden.
 
@@ -52,7 +52,7 @@ Wenn die Integration erfolgreich eingerichtet ist, können Sie nur E-Mail-Campai
 
 Die Daten fließen von Zeotap zu Braze über den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track). Die folgenden Punkte fassen den Datenfluss zusammen:
 
-1. Zeotap sendet Kundenprofil or Nutzerprofil-Attribute, angepasste Attribute, angepasste Events und Kauffelder.
+1. Zeotap sendet Kundenprofil-Attribute, angepasste Attribute, angepasste Events und Kauffelder.
 2. Sie bilden alle relevanten Zeotap-Katalogfelder auf die Braze-Felder unter dem Tab **Data To Send** ab.
 3. Die Daten werden anschließend in Braze hochgeladen.
 

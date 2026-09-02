@@ -185,7 +185,7 @@ table td {
 
 {% endif %}
 
-{% if include.variable_name == "단문 메시지 서비스 and mms" %}
+{% if include.variable_name == "sms and mms" %}
 
 MMS 메시지는 메시지당 하나의 이미지를 지원합니다. MMS가 활성화된 구독 그룹만 이미지를 전송할 수 있습니다.
 
@@ -193,7 +193,7 @@ MMS 메시지는 메시지당 하나의 이미지를 지원합니다. MMS가 활
 | --- | --- |
 | 크기 | 안정적인 통신사 전달을 위해 600&nbsp;KB 이하를 권장합니다. 작성기에서는 1&nbsp;MB보다 큰 업로드를 차단합니다. |
 | 파일 유형 | PNG, JPEG, GIF |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="단문 메시지 서비스 및 MMS" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS 및 MMS" }
 
 통신사 파일 크기 제한 및 처리량에 대한 자세한 내용은 [MMS 메시지 제한 및 처리량]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup#mms-message-limits-and-throughput)을 참조하세요.
 

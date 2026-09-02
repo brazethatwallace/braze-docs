@@ -1,14 +1,14 @@
 ---
 nav_title: Gerenciar a coleta de dados
-article_title: Gerenciar a coleta de dados para o SDK or kit de desenvolvimento de software da Braze
+article_title: Gerenciar a coleta de dados para o SDK da Braze
 page_order: 8
-description: "Aprenda a gerenciar a coleta de dados para o SDK or kit de desenvolvimento de software da Braze."
+description: "Aprenda a gerenciar a coleta de dados para o SDK da Braze."
 
 ---
 
 # Gerenciar a coleta de dados {#manage-data-collection}
 
-> Aprenda a gerenciar a coleta de dados para o SDK or kit de desenvolvimento de software da Braze, para que você possa cumprir todas as regulamentações de privacidade de dados, conforme necessário.
+> Aprenda a gerenciar a coleta de dados para o SDK da Braze, para que você possa cumprir todas as regulamentações de privacidade de dados, conforme necessário.
 
 {% sdktabs %}
 {% sdktab web %}

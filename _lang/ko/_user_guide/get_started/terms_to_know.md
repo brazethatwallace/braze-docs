@@ -86,7 +86,7 @@ glossaries:
     description: <a href="/docs/user_guide/channels/in_app_messages">인앱 메시지</a> 는 애플리케이션 내에 표시되는 모바일 메시지입니다. 푸시 알림으로 사용자의 일과를 방해하지 않고 콘텐츠를 전달할 수 있습니다. 맞춤화된 인앱 메시지는 사용자 경험을 향상시키고 오디언스가 앱에서 최대한의 가치를 얻을 수 있도록 도와줍니다.
     display_name: "인앱 메시지"
   - name: Inactive users
-    description: "사용자는 주요 메시징 채널(예: 이메일, 단문 메시지 서비스, 푸시, WhatsApp, LINE 등 구성에 따라)에서 도달할 수 없고, 워크스페이스 내 앱이나 웹사이트를 6개월 이상 사용하지 않았으며, 워크스페이스에서 6개월 이상 메시지를 수신하지 않았고, 6개월 이상 업데이트되지 않은 경우 <a href=\"/docs/user_archival#inactive-users\">비활성</a> 상태로 간주됩니다. 비활성 사용자는 휴면 사용자와 함께 아카이브 대상이 됩니다. 기본적으로 Braze는 비활성 아카이브에 6개월 기간을 사용하며, 회사 설정에서 일수를 재정의할 수 있습니다."
+    description: "사용자는 주요 메시징 채널(예: 이메일, SMS, 푸시, WhatsApp, LINE 등 구성에 따라)에서 도달할 수 없고, 워크스페이스 내 앱이나 웹사이트를 6개월 이상 사용하지 않았으며, 워크스페이스에서 6개월 이상 메시지를 수신하지 않았고, 6개월 이상 업데이트되지 않은 경우 <a href=\"/docs/user_archival#inactive-users\">비활성</a> 상태로 간주됩니다. 비활성 사용자는 휴면 사용자와 함께 아카이브 대상이 됩니다. 기본적으로 Braze는 비활성 아카이브에 6개월 기간을 사용하며, 회사 설정에서 일수를 재정의할 수 있습니다."
     display_name: "비활성 사용자"
   - name: IP warming
     description: <a href="/docs/user_guide/channels/email/email_setup/ip_warming">IP 워밍</a> 은 전용 IP에서 발송하는 메일 양을 점진적으로 늘리는 방법입니다. 이를 통해 인터넷 서비스 공급자와의 평판을 구축하여 메시지가 스팸으로 표시될 확률을 최소화할 수 있습니다.
@@ -137,7 +137,7 @@ glossaries:
     description: <a href="/docs/developer_guide/getting_started/sdk_overview">SDK</a> 는 모바일 앱, 웹사이트 및 연결된 경험에 통합되며 마케팅, 메시징 및 분석 도구를 제공합니다. Braze는 <a href="/docs/developer_guide/sdk_integration?sdktab=swift">Swift</a> 및 <a href="/docs/developer_guide/sdk_integration?sdktab=android">Android</a> 등의 플랫폼에 대한 SDK 통합 가이드를 제공하며, 웹 및 기타 플랫폼은 SDK 개요에서 연결된 통합 경로를 따르세요.
     display_name: "소프트웨어 개발 키트(SDK)"
   - name: Subscription groups
-    description: "<a href=\"/docs/user_guide/audience/subscription_preferences/subscription_groups\">구독 그룹</a> 은 글로벌 구독 상태 위에 계층화되어 세분화된 옵트인 선택(예: 뉴스레터 대 프로모션)을 제공할 수 있습니다. 단문 메시지 서비스 및 WhatsApp과 같은 채널에도 유사한 패턴이 존재하며, 채널에서 요구하는 경우 항상 구독 그룹을 타겟팅하세요."
+    description: "<a href=\"/docs/user_guide/audience/subscription_preferences/subscription_groups\">구독 그룹</a> 은 글로벌 구독 상태 위에 계층화되어 세분화된 옵트인 선택(예: 뉴스레터 대 프로모션)을 제공할 수 있습니다. SMS 및 WhatsApp과 같은 채널에도 유사한 패턴이 존재하며, 채널에서 요구하는 경우 항상 구독 그룹을 타겟팅하세요."
     display_name: "구독 그룹"
   - name: Sunsetting
     description: 서비스 종료란 참여하지 않는 사용자를 식별하고 해당 사용자가 아무런 조치를 취하지 않아도 해당 사용자에 대한 활성 메시징을 중단하는 프로세스를 말합니다. <a href="/docs/user_guide/channels/email/best_practices/sunset_policies">이메일</a> 및 <a href="/docs/user_guide/channels/push/best_practices#implement-a-sunset-policy-for-unresponsive-users">푸시</a> 메시지에 대한 서비스 종료 정책을 만들면 열람률에 미치는 영향을 억제하는 데 도움이 됩니다.
@@ -155,7 +155,7 @@ glossaries:
     description: <a href="/docs/user_guide/audience/manage_audience/user_profiles">사용자 프로필</a> 은 Braze에서 각 사람에 대한 중앙 기록으로, 식별자, 속성, 이벤트, 구매, 기기, 참여 이력 및 메시지 이력을 포함합니다. 프로필은 채널 전반에서 세분화, 개인화 및 규정 준수 워크플로를 지원합니다.
     display_name: "사용자 프로필"
   - name: Webhook
-    description: <a href="/docs/user_guide/channels/webhooks">웹훅</a> 을 사용하면 단문 메시지 서비스 문자 메시지 전송과 같은 앱 이외의 작업을 트리거할 수 있습니다. 웹훅을 사용하여 다른 시스템 및 애플리케이션에 실시간 정보를 제공할 수 있습니다. 이 기능의 유연성을 통해 모든 엔드포인트에 정보를 전송할 수 있습니다.
+    description: <a href="/docs/user_guide/channels/webhooks">웹훅</a> 을 사용하면 SMS 문자 메시지 전송과 같은 앱 이외의 작업을 트리거할 수 있습니다. 웹훅을 사용하여 다른 시스템 및 애플리케이션에 실시간 정보를 제공할 수 있습니다. 이 기능의 유연성을 통해 모든 엔드포인트에 정보를 전송할 수 있습니다.
     display_name: "웹훅"
   - name: Workspace
     description: <a href="/docs/user_guide/get_started/workspaces">워크스페이스</a> 는 Braze가 데이터를 저장하고 팀이 Campaign, Canvases, Segments를 구축하는 컨테이너입니다. 각 워크스페이스에는 하나 이상의 <a href="/docs/user_guide/get_started/workspaces#understanding-workspaces">앱 인스턴스</a>(해당 워크스페이스로 데이터를 전송하는 개별 앱 및 사이트)가 포함됩니다.

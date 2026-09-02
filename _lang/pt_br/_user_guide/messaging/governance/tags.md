@@ -13,14 +13,14 @@ tool:
 
 > A Braze rastreia informações de autor, editor, data e status sobre segmentos, Campaigns e Canvas, e oferece a capacidade de criar tags para organizar e classificar ainda mais seus engajamentos.
 
-## Tags de Campaign, Canvas e Segment or segmento {#campaign-canvas-and-segment-tags}
+## Tags de Campaign, Canvas e Segment {#campaign-canvas-and-segment-tags}
 
-Você pode adicionar tags ao criar ou editar uma Campaign, um Canvas ou um Segment or segmento. Clique em <span style="font-size: 14px;margin-bottom: .5rem;height: 16px;width: 16px;" class="fas fa-tag" ></span>**Tags** abaixo do nome do engajamento e selecione uma tag existente ou comece a digitar para adicionar uma nova tag.
+Você pode adicionar tags ao criar ou editar uma Campaign, um Canvas ou um Segment. Clique em <span style="font-size: 14px;margin-bottom: .5rem;height: 16px;width: 16px;" class="fas fa-tag" ></span>**Tags** abaixo do nome do engajamento e selecione uma tag existente ou comece a digitar para adicionar uma nova tag.
 
 ![Adicionando tags durante a criação de uma Campaign.]({% image_buster /assets/img_archive/tags_add_tag.png %}){: style="max-width:60%;" }
 
 {% alert important %}
-Você pode adicionar até 175 tags a uma Campaign, um Canvas ou um Segment or segmento.
+Você pode adicionar até 175 tags a uma Campaign, um Canvas ou um Segment.
 {% endalert %}
 
 ### Tags em massa {#bulk-tagging}
@@ -35,7 +35,7 @@ Quando você usa tags em massa para aplicar uma nova tag a várias Campaigns que
 
 ### Visualizando tags {#viewing-tags}
 
-As tags definidas em uma Campaign, um Canvas ou um Segment or segmento ficam visíveis na página de detalhes, próximo ao nome do engajamento. Elas também aparecem na análise de dados da Campaign.
+As tags definidas em uma Campaign, um Canvas ou um Segment ficam visíveis na página de detalhes, próximo ao nome do engajamento. Elas também aparecem na análise de dados da Campaign.
 
 ![Tags exibidas na página de análise de dados da Campaign.]({% image_buster /assets/img_archive/tag_details_page.png %}){: style="max-width:60%;" }
 
@@ -50,7 +50,7 @@ As tags ficam visíveis na lista de Campaigns, Canvas ou Segments, junto com tag
 Tags também podem ser adicionadas a dados personalizados ao gerenciar [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#managing-custom-attributes) e [eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events#adding-tags).
 
 {% alert important %}
-Esse recurso está atualmente em acesso antecipado. Entre em contato com seu gerente de sucesso do cliente se tiver interesse em participar desse acesso antecipado.
+Esse recurso está atualmente em acesso antecipado. Entre em contato com seu CSM se tiver interesse em participar desse acesso antecipado.
 {% endalert %}
 
 Para informações sobre como renomear, remover ou aninhar tags no seu dashboard, consulte [Gerenciamento de tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags).

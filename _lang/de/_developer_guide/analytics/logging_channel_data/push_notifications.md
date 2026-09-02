@@ -1,20 +1,20 @@
 ---
 nav_title: Push-Benachrichtigungen
-article_title: Push-Benachrichtigungsdaten über das Braze SDK or Software-Development-Kit protokollieren
+article_title: Push-Benachrichtigungsdaten über das Braze SDK protokollieren
 page_order: 7.2
-description: "Erfahren Sie, wie Sie Push-Benachrichtigungsdaten über das Braze SDK or Software-Development-Kit protokollieren können."
+description: "Erfahren Sie, wie Sie Push-Benachrichtigungsdaten über das Braze SDK protokollieren können."
 noindex: true
 ---
 
 # Push-Benachrichtigungsdaten protokollieren {#log-push-notification-data}
 
-> Erfahren Sie, wie Sie Push-Benachrichtigungsdaten über das Braze SDK or Software-Development-Kit protokollieren können.
+> Erfahren Sie, wie Sie Push-Benachrichtigungsdaten über das Braze SDK protokollieren können.
 
 {% sdktabs %}
 {% sdktab android %}
 ## Daten über die Braze-API protokollieren (empfohlen) {#logging-data-with-the-braze-api-recommended}
 
-Sie können Analytics in Realtime protokollieren, indem Sie Aufrufe an den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) senden. Um Analytics zu protokollieren, senden Sie den `braze_id`-Wert aus dem Braze-Dashboard, um festzustellen, welches Kundenprofil or Nutzerprofil aktualisiert werden soll.
+Sie können Analytics in Realtime protokollieren, indem Sie Aufrufe an den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) senden. Um Analytics zu protokollieren, senden Sie den `braze_id`-Wert aus dem Braze-Dashboard, um festzustellen, welches Kundenprofil aktualisiert werden soll.
 
 ![Beispiel für ein personalisiertes Push-Dashboard]({% image_buster /assets/img/push_implementation_guide/android_braze_id_configuration.png %}){: style="max-width:79%;"}
 

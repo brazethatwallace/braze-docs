@@ -234,7 +234,7 @@ En tant que bonne pratique, chaque fois que vous prévoyez de configurer un espa
 
 Ceci est considéré comme une bonne pratique pour plusieurs raisons :
 
-- **Isolation des modifications :** cela vous permet de tester de nouvelles fonctionnalités, configurations ou mises à jour dans un environnement isolé sans affecter votre environnement de production en direct or en ligne/en production/instantané. Ainsi, si quelque chose se passe mal pendant les tests, votre environnement de production reste inchangé.
+- **Isolation des modifications :** cela vous permet de tester de nouvelles fonctionnalités, configurations ou mises à jour dans un environnement isolé sans affecter votre environnement de production en direct. Ainsi, si quelque chose se passe mal pendant les tests, votre environnement de production reste inchangé.
 - **Tests précis :** cela permet des tests plus précis puisque les données de l'environnement de test peuvent être contrôlées et manipulées sans se soucier des données réelles.
 - **Débogage :** il est plus facile de déboguer les problèmes dans un environnement de test, car vous pouvez librement manipuler l'environnement sans craindre d'impacter l'environnement de production.
 - **Formation :** les nouveaux membres de l'équipe peuvent se familiariser avec l'espace de travail dans un environnement sûr où les erreurs n'auront pas de conséquences réelles.

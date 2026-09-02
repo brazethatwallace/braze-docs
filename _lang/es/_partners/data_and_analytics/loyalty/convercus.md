@@ -32,8 +32,8 @@ Antes de comenzar, necesitas lo siguiente:
 | Requisito previo | Descripción |
 | --- | --- |
 | Una cuenta de Convercus | Un programa de Convercus activo. Contacta con tu director de cuentas de Convercus si aún no eres cliente. |
-| Una clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con el permiso `users.track`. Crea esta clave en el panel de Braze desde **Configuración** > **Claves de API**. |
-| Un endpoint REST or transferencia de estado representacional de Braze | [La URL de tu endpoint REST or transferencia de estado representacional]({{site.baseurl}}/api/basics#endpoints). Tu endpoint depende de la URL de Braze para tu instancia. |
+| Una clave de API REST de Braze | Una clave de API REST de Braze con el permiso `users.track`. Crea esta clave en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Un endpoint REST de Braze | [La URL de tu endpoint REST]({{site.baseurl}}/api/basics#endpoints). Tu endpoint depende de la URL de Braze para tu instancia. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 Necesitas un identificador de usuario coherente entre los sistemas: el valor utilizado como `external_id` (o el tipo de identificador elegido) en Braze debe coincidir con el identificador de miembro correspondiente en Convercus. De lo contrario, los eventos no se atribuirán al perfil correcto.
@@ -48,8 +48,8 @@ En Convercus Selfservice (la interfaz de administración orientada al cliente; �
 
    | Campo | Descripción |
    | --- | --- |
-   | `apiKey` | Tu clave de API REST or transferencia de estado representacional de Braze (con el permiso `users.track`). |
-   | `apiEndpoint` | Tu endpoint REST or transferencia de estado representacional de Braze, por ejemplo `https://rest.iad-01.braze.com`. |
+   | `apiKey` | Tu clave de API REST de Braze (con el permiso `users.track`). |
+   | `apiEndpoint` | Tu endpoint REST de Braze, por ejemplo `https://rest.iad-01.braze.com`. |
    | Tipo de identificador | `external_id` o `user_alias`. Determina cómo se emparejan los miembros de Convercus con los perfiles de usuario de Braze. |
    | `defaultOptins` | Selección múltiple de los canales de adhesión voluntaria del programa (de `membershipOptins`). Se usa como valor predeterminado para el webhook de suscripción por correo electrónico cuando la solicitud omite `optins`. La configuración de Braze se considera incompleta hasta que se seleccione al menos uno. |
    {: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 1: Configurar Braze en Convercus Selfservice" }

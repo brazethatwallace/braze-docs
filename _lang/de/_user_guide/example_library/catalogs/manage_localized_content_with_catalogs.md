@@ -14,7 +14,7 @@ description: "Speichern Sie lokalisierte Produkttexte, Preise und Bild-URLs in B
 
 PantsLabyrinth, ein fiktiver Bekleidungshändler, verkauft seine Produkte in Nordamerika und Europa. Produktnamen, Preise und Hero-Bilder unterscheiden sich je nach Sprache, doch das Marketing-Team möchte ein einziges E-Mail- oder Push-Template, das zum Sendezeitpunkt personalisiert wird.
 
-Dieses Beispiel behandelt drei Katalog-Patterns, die das {% raw %}`${language}`{% endraw %} [Standardattribut]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags) der Nutzer:innen auslesen (vom SDK or Software-Development-Kit über das Geräte-Locale erfasst):
+Dieses Beispiel behandelt drei Katalog-Patterns, die das {% raw %}`${language}`{% endraw %} [Standardattribut]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags) der Nutzer:innen auslesen (vom SDK über das Geräte-Locale erfasst):
 
 - JSON-Objektfelder: alle Sprachen in einer Zeile pro Artikel
 - Flache sprachspezifische Spalten: `header_en`, `header_fr` usw.

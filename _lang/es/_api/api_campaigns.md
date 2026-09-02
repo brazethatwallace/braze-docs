@@ -23,7 +23,7 @@ Una vez iniciada la campaña, puedes ver los resultados en el panel. Las campañ
 Dado que las campañas API siempre incluyen un `campaign_id`, sus envíos se reflejan en las estadísticas del panel. Si llamas a [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) sin un `campaign_id`, Braze no incrementa esas métricas: los envíos siguen apareciendo en el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log), pero no en las métricas de rendimiento de correo electrónico del panel.
 
 {% alert warning %}
-Como las campañas API suelen ser transaccionales, todos los usuarios son elegibles para las campañas API, incluso los de tu grupo de control global. No se añade un encabezado de [cancelar suscripción con un clic]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences) a estos envíos de forma predeterminada. Para añadir un encabezado de cancelación de suscripción con un solo clic a una campaña de API, consulta [Añadir cancelación de suscripción con un clic a campañas de API](#add-one-click-list-unsubscribe-to-api-campaigns). Para añadir un encabezado de cancelación de suscripción con un solo clic a todas las campañas de API, ponte en contacto con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente.
+Como las campañas API suelen ser transaccionales, todos los usuarios son elegibles para las campañas API, incluso los de tu grupo de control global. No se añade un encabezado de [cancelar suscripción con un clic]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences) a estos envíos de forma predeterminada. Para añadir un encabezado de cancelación de suscripción con un solo clic a una campaña de API, consulta [Añadir cancelación de suscripción con un clic a campañas de API](#add-one-click-list-unsubscribe-to-api-campaigns). Para añadir un encabezado de cancelación de suscripción con un solo clic a todas las campañas de API, ponte en contacto con tu administrador de éxito de cliente.
 {% endalert %}
 
 ## Crear una nueva Campaign {#create-a-new-campaign}
@@ -46,7 +46,7 @@ Para configurar tu Campaign, sigue estos pasos:
 Después de guardar tu Campaign de API, incluye lo siguiente en tu solicitud de API:
 
 - Los campos `campaign_id` generados con tu solicitud de API donde se indique en los [endpoints de envío de mensajes]({{site.baseurl}}/api/endpoints/messaging).
-- Un [objeto de mensaje]({{site.baseurl}}/api/objects_filters#messaging-objects) para cada plataforma incluida en la Campaign. En el objeto de mensaje, proporciona el ID de variante del mensaje. Esto especifica que las estadísticas deben recopilarse y mostrarse bajo esa variante. Se admiten los siguientes objetos de mensaje: Android, Content Cards, correo electrónico, iOS, Kindle, servicio de mensajes cortos/MMS, notificación push web y webhook.
+- Un [objeto de mensaje]({{site.baseurl}}/api/objects_filters#messaging-objects) para cada plataforma incluida en la Campaign. En el objeto de mensaje, proporciona el ID de variante del mensaje. Esto especifica que las estadísticas deben recopilarse y mostrarse bajo esa variante. Se admiten los siguientes objetos de mensaje: Android, Content Cards, correo electrónico, iOS, Kindle, SMS/MMS, notificación push web y webhook.
 
 ## Añadir la cancelación de suscripción con un clic en lista a las Campaigns de API {#add-one-click-list-unsubscribe-to-api-campaigns}
 

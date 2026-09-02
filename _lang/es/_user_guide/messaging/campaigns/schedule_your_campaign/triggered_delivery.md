@@ -35,7 +35,7 @@ Selecciona un evento desencadenante. Los eventos están organizados por categor�
     - **Perform Exception Event For Campaign**
     - **Start Session**
 - **Mensajería entrante**
-    - **Send an servicio de mensajes cortos inbound message**
+    - **Send an SMS inbound message**
     - **Send a WhatsApp inbound message**
     - **Send a LINE inbound message**
 - **Ubicación**
@@ -73,8 +73,8 @@ Para campañas que no sean de mensajes dentro de la aplicación, cuando seleccio
 - **Recibir correo electrónico**
 - **Recibir notificación push**
 - **Recibir webhook**
-- **Recibir servicio de mensajes cortos**
-- **Hacer clic en enlace acortado de servicio de mensajes cortos**
+- **Recibir SMS**
+- **Hacer clic en enlace acortado de SMS**
 - **Ver tarjeta de contenido**
 - **Hacer clic en tarjeta de contenido**
 - **Descartar tarjeta de contenido**
@@ -105,8 +105,8 @@ Para campañas que no sean de mensajes dentro de la aplicación, cuando seleccio
 - **Recibir correo electrónico**
 - **Recibir notificación push**
 - **Recibir webhook**
-- **Recibir servicio de mensajes cortos**
-- **Hacer clic en enlace acortado de servicio de mensajes cortos**
+- **Recibir SMS**
+- **Hacer clic en enlace acortado de SMS**
 - **Ver tarjeta de contenido**
 - **Hacer clic en tarjeta de contenido**
 - **Descartar tarjeta de contenido**
@@ -253,7 +253,7 @@ Si el evento personalizado aparece, continúa con la solución de problemas haci
 - Si hay un retraso programado, verifica si el evento personalizado del usuario se desencadenó antes del retraso. Si el evento se desencadenó antes del retraso, no habría recibido la Campaign.
 
 {% alert note %}
-Los mensajes dentro de la aplicación solo se pueden desencadenar mediante eventos enviados a través del SDK or kit de desarrollo de software, no a través de la REST or transferencia de estado representacional API.
+Los mensajes dentro de la aplicación solo se pueden desencadenar mediante eventos enviados a través del SDK, no a través de la REST API.
 {% endalert %}
 
 ### ¿Cuándo evalúan las campañas basadas en acciones la pertenencia a la audiencia? {#when-do-action-based-campaigns-evaluate-audience-membership}

@@ -24,13 +24,13 @@ glossaries:
   - name: Encoding
     description: A conversão de qualquer coisa em uma forma codificada. O conteúdo de SMS pode ser codificado em GSM-7 ou UCS-2.
   - name: GSM-7 Encoding (Global System for Mobile Communications)
-    description: O GSM-7 é o padrão de codificação mais comum para a maioria das mensagens SMS. Ele utiliza a maior parte dos alfabetos grego e inglês, além de alguns caracteres adicionais. Você pode saber mais sobre a codificação GSM-7 e quais conjuntos de caracteres podem ser usados na <a href='https://en.wikipedia.org/wiki/GSM_03.38#GSM_7-bit_default_alphabet_and_extension_table_of_3GPP_TS_23.038_.2F_GSM_03.38' title="GSM 7-bit default alphabet and extension table">Wikipédia</a>. Idiomas como chinês, coreano ou japonês precisam ser transferidos usando a codificação de caracteres UCS-2 de 16 bits. <br> <br> Você pode estimar que o limite de caracteres por Segment or segmento or segmento para esse tipo de codificação é de 128 caracteres.
+    description: O GSM-7 é o padrão de codificação mais comum para a maioria das mensagens SMS. Ele utiliza a maior parte dos alfabetos grego e inglês, além de alguns caracteres adicionais. Você pode saber mais sobre a codificação GSM-7 e quais conjuntos de caracteres podem ser usados na <a href='https://en.wikipedia.org/wiki/GSM_03.38#GSM_7-bit_default_alphabet_and_extension_table_of_3GPP_TS_23.038_.2F_GSM_03.38' title="GSM 7-bit default alphabet and extension table">Wikipédia</a>. Idiomas como chinês, coreano ou japonês precisam ser transferidos usando a codificação de caracteres UCS-2 de 16 bits. <br> <br> Você pode estimar que o limite de caracteres por Segment para esse tipo de codificação é de 128 caracteres.
   - name: UCS-2 Encoding (Universal Coded Character Set)
-    description: A codificação UCS-2 é um padrão de codificação de fallback, especialmente quando uma mensagem não pode ser codificada usando GSM-7 ou quando um idioma precisa de mais de 128 caracteres para ser renderizado. O UCS-2 é melhor medido por <a href='https://en.wikipedia.org/wiki/Code_point'>code points</a>, em vez de "caracteres". De qualquer forma, você pode estimar que o limite de caracteres por Segment or segmento or segmento para esse tipo de codificação é de 67 caracteres.
+    description: A codificação UCS-2 é um padrão de codificação de fallback, especialmente quando uma mensagem não pode ser codificada usando GSM-7 ou quando um idioma precisa de mais de 128 caracteres para ser renderizado. O UCS-2 é melhor medido por <a href='https://en.wikipedia.org/wiki/Code_point'>code points</a>, em vez de "caracteres". De qualquer forma, você pode estimar que o limite de caracteres por Segment para esse tipo de codificação é de 67 caracteres.
   - name: Subscription Groups for SMS
     description: Os grupos de inscrições são uma ferramenta da Braze que permite segmentar níveis específicos de inscrição de usuários ou clientes. Os grupos de inscrições para SMS são construídos internamente com base no seu serviço de mensagens e não podem ser compartilhados entre espaços de trabalho.
   - name: Message Segments
-    description: Um Segment or segmento or segmento de mensagem é um agrupamento de até um número definido de caracteres (160 para codificação GSM-7; 67 para codificação UCS-2) que será enviado em um único despacho de SMS. Se você enviar um SMS com 161 caracteres usando codificação GSM-7, verá que dois (2) segmentos de mensagem foram enviados. O envio de múltiplos segmentos de mensagem pode resultar em cobranças adicionais.
+    description: Um Segment de mensagem é um agrupamento de até um número definido de caracteres (160 para codificação GSM-7; 67 para codificação UCS-2) que será enviado em um único despacho de SMS. Se você enviar um SMS com 161 caracteres usando codificação GSM-7, verá que dois (2) segmentos de mensagem foram enviados. O envio de múltiplos segmentos de mensagem pode resultar em cobranças adicionais.
   - name: Message Service
     description: Uma coleção de códigos longos, códigos curtos e IDs alfanuméricos usados para enviar sua mensagem SMS com a Braze.
   - name: Keyword
@@ -64,7 +64,7 @@ glossaries:
   - name: Single RCS
     description: Mensagens RCS somente de texto com mais de 160 caracteres ou que incluem elementos avançados, como botões ou mídia. Cobradas como uma única mensagem. Essa categoria é usada apenas no modelo global.
   - name: Rich RCS
-    description: Mensagens RCS somente de texto, com ou sem sugestões ou botões limitados. Cobradas por Segment or segmento or segmento (160 bytes UTF-8). Essa categoria é usada apenas no modelo dos Estados Unidos.
+    description: Mensagens RCS somente de texto, com ou sem sugestões ou botões limitados. Cobradas por Segment (160 bytes UTF-8). Essa categoria é usada apenas no modelo dos Estados Unidos.
   - name: Rich Media RCS
     description: Mensagens RCS que incluem um arquivo de mídia (imagem, vídeo) ou um Rich Card. Cobradas como uma única mensagem, independentemente do tamanho da mensagem. Essa categoria é usada apenas no modelo dos Estados Unidos.
 ---

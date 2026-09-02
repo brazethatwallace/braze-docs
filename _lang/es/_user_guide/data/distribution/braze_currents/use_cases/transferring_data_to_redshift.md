@@ -3,7 +3,7 @@ nav_title: Transferir datos a Redshift
 article_title: Transferencia de datos a Redshift
 page_order: 8
 page_type: tutorial
-description: "Este artículo te explicará cómo transferir datos de Amazon S3 a Redshift mediante un proceso de ETL or extraer, transformar, cargar or extraer, transformar, cargar (ETL or extraer, transformar, cargar)."
+description: "Este artículo te explicará cómo transferir datos de Amazon S3 a Redshift mediante un proceso de ETL (ETL)."
 tool: Currents
 
 ---
@@ -12,7 +12,7 @@ tool: Currents
 
 > [Amazon Redshift](https://aws.amazon.com/redshift/) es un popular almacén de datos que se ejecuta en Amazon Web Services junto con Amazon S3. Los datos de Braze de Currents están estructurados para su transferencia directa a Redshift.
 
-A continuación se describe cómo transferir datos de Amazon S3 a Redshift mediante un proceso de extracción, transformación y carga (ETL or extraer, transformar, cargar). Para obtener el código fuente completo, consulta el [repositorio GitHub](https://github.com/Appboy/currents-examples) de ejemplos de Currents.
+A continuación se describe cómo transferir datos de Amazon S3 a Redshift mediante un proceso de extracción, transformación y carga (ETL). Para obtener el código fuente completo, consulta el [repositorio GitHub](https://github.com/Appboy/currents-examples) de ejemplos de Currents.
 
 {% alert important %}
 Esta es solo una de las muchas opciones que puedes elegir a la hora de transferir tus datos a los lugares que te resulten más ventajosos.
@@ -30,7 +30,7 @@ El script [`s3loader.py`](https://github.com/Appboy/currents-examples/tree/maste
 
 ## Dependencias
 
-Debes instalar el SDK or kit de desarrollo de software de Python de AWS y Psycopg para ejecutar el cargador:
+Debes instalar el SDK de Python de AWS y Psycopg para ejecutar el cargador:
 
 ```bash
 pip install boto3

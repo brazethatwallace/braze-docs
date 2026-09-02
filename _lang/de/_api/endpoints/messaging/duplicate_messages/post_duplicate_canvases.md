@@ -1,20 +1,20 @@
 ---
-nav_title: "POST: Canvase duplizieren"
-article_title: "POST: Canvase duplizieren"
+nav_title: "POST: Canvases duplizieren"
+article_title: "POST: Canvases duplizieren"
 search_tag: Endpoint
 page_order: 5
 layout: api_page
 page_type: reference
-description: "Dieser Artikel enthält Einzelheiten zum Endpunkt „Canvase duplizieren“."
+description: "Dieser Artikel enthält Einzelheiten zum Endpunkt „Canvases duplizieren“."
 ---
 
 {% api %}
-# Canvase über die API duplizieren {#duplicate-canvases-using-the-api}
+# Canvases über die API duplizieren {#duplicate-canvases-using-the-api}
 {% apimethod post core_endpoint|/docs/core_endpoints %}
-/Canvas/duplicate
+/canvas/duplicate
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um Canvase zu duplizieren. Dieser API-Endpunkt ist vergleichbar mit dem [Duplizieren von Canvase im Braze-Dashboard]({{site.baseurl}}/user_guide/messaging/governance/duplicating).
+> Verwenden Sie diesen Endpunkt, um Canvases zu duplizieren. Dieser API-Endpunkt ist vergleichbar mit dem [Duplizieren von Canvases im Braze-Dashboard]({{site.baseurl}}/user_guide/messaging/governance/duplicating).
 
 ## Voraussetzungen {#prerequisites}
 
@@ -52,6 +52,6 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## Antwort {#response}
 
-Dieser Endpunkt gibt einen Statuscode `202` zurück, und die Erstellung des Canvas erfolgt asynchron. Sie können den [Download der Sicherheitsereignisse]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#security-event-report) verwenden, um Aufzeichnungen darüber einzusehen, wann Canvase dupliziert wurden und mit welchem API-Schlüssel.
+Dieser Endpunkt gibt einen Statuscode `202` zurück, und die Erstellung des Canvas erfolgt asynchron. Sie können den [Download der Sicherheitsereignisse]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#security-event-report) verwenden, um Aufzeichnungen darüber einzusehen, wann Canvases dupliziert wurden und mit welchem API-Schlüssel.
 
 {% endapi %}

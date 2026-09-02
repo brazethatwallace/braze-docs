@@ -7,23 +7,23 @@ layout: api_page
 page_type: reference
 description: "Este artigo traz informações sobre o endpoint da Braze \"Criar Central de Preferências\"."
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Criar Central de Preferências {#create-preference-center}
 {% apimethod post %}
 /preference_center/v1
 {% endapimethod %}
 
-> Use esse endpoint para criar uma Central de Preferências que permita aos usuários gerenciar suas preferências de notificação para campanhas de e-mail. Consulte [Criar uma Central de Preferências com API or interface de programação do aplicativo (API)]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/api_preference_center) para ver as etapas de como criar uma Central de Preferências gerada por API or interface de programação do aplicativo (API).
+> Use esse endpoint para criar uma Central de Preferências que permita aos usuários gerenciar suas preferências de notificação para campanhas de e-mail. Consulte [Criar uma Central de Preferências com API]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/api_preference_center) para ver as etapas de como criar uma Central de Preferências gerada por API.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e15d7065-2cbc-4eb3-ae16-32efe43357a6 {% endapiref %}
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `preference_center.update`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `preference_center.update`.
 
 ## Limite de frequência {#rate-limit}
 
-{% multi_lang_include rate_limits.md endpoint='post or put Central de Preferências' %}
+{% multi_lang_include rate_limits.md endpoint='post or put preference center' %}
 
 ## Corpo da solicitação {#request-body}
 
@@ -59,7 +59,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
 | `name` | Obrigatório | String | O nome da Central de Preferências que atende aos seguintes requisitos: <br>- Contém apenas letras, números, hífens e sublinhados <br>- Não possui espaços |
-| `preference_center_title` | Opcional | String | O título da Central de Preferências e das páginas de confirmação. Se um título não for especificado, o título das páginas terá como padrão "Central de Preferências". |
+| `preference_center_title` | Opcional | String | O título da Central de Preferências e das páginas de confirmação. Se um título não for especificado, o título das páginas terá como padrão "Preference Center". |
 | `preference_center_page_html` | Obrigatório | String | O HTML da página da Central de Preferências. |
 | `confirmation_page_html` | Obrigatório | String | O HTML da página de confirmação. |
 | `state` | Opcional | String | Escolha `active` ou `draft`. O padrão é `active` se não for especificado. |

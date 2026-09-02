@@ -20,16 +20,16 @@ Mit dieser Integration können Sie auch [Nutzer:innen-Kohorten in Braze importie
 | Anforderung | Beschreibung |
 |---|---|
 | Hightouch-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Hightouch-Konto. |
-| Braze Representational State Transfer-API-Schlüssel | Ein Braze Representational State Transfer-API-Schlüssel mit den Berechtigungen `users.track` und `users.export.ids`. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze Representational State Transfer-Endpunkt | Ihre URL für den Representational State Transfer-Endpunkt. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints) ab.<br><br>Hightouch benötigt den Namen des Clusters, in dem sich Ihre Braze-Instanz befindet. Wenn Ihr Braze-Endpunkt zum Beispiel `https://rest.iad-01.braze.com` ist, benötigen Sie nur `iad-01`. |
+| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit den Berechtigungen `users.track` und `users.export.ids`. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze REST-Endpunkt | Ihre URL für den REST-Endpunkt. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints) ab.<br><br>Hightouch benötigt den Namen des Clusters, in dem sich Ihre Braze-Instanz befindet. Wenn Ihr Braze-Endpunkt zum Beispiel `https://rest.iad-01.braze.com` ist, benötigen Sie nur `iad-01`. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
 
 * Synchronisieren Sie Daten über Nutzer:innen und Konten in Braze, um hyper-personalisierte Campaigns zu erstellen.
-* Update or aktualisieren or aktualisieren Sie Ihre Braze Segments automatisch mit aktuellen Daten aus Ihrem Data Warehouse.
+* Aktualisieren Sie Ihre Braze Segments automatisch mit aktuellen Daten aus Ihrem Data Warehouse.
 * Bieten Sie bessere Erlebnisse, indem Sie Daten von anderen Kund:innen-Touchpoints in Braze einbringen.
-* Importieren Sie Kohorten von Nutzer:innen in Braze, um gezielte Campaigns und Canvase zu versenden.
+* Importieren Sie Kohorten von Nutzer:innen in Braze, um gezielte Campaigns und Canvases zu versenden.
 
 ## Integration
 
@@ -45,7 +45,7 @@ Hightouch unterstützt die Synchronisierung sowohl mit Nutzer:innen-Objekten als
 
 | Ziel | Beschreibung | Unterstützte Modi |
 |---|---|---|
-| Objekt | Synchronisiert Datensätze mit Objekten wie Nutzer:innen oder Organisationen in Ihrem Ziel. | Upsert oder Update or aktualisieren |
+| Objekt | Synchronisiert Datensätze mit Objekten wie Nutzer:innen oder Organisationen in Ihrem Ziel. | Upsert oder Update |
 | Ereignisse | Synchronisiert Datensätze als Ereignisse in Ihr Ziel; dies geschieht häufig in Form eines Track-Aufrufs. | Ereignis-Tracking oder Kauf-Tracking |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Schritt 2: Synchronisierung von Objekten und Ereignissen" }
 

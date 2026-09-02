@@ -10,7 +10,7 @@ search_tag: Partner
 
 # loplat
 
-> [Loplat](https://www.loplat.com/) ist die führende Offline-Plattform für standortbasiertes Marketing. Nutzen Sie das loplat SDK or Software-Development-Kit, um die Besucherzahlen Ihres Shops intelligent zu steigern und Marketing-Kampagnen durchzuführen, die zum Kauf im Laden anregen. Sie können die Performance des Shops durch eine Analyse der Besucherzahlen nach Abschluss der Kampagne messen.
+> [Loplat](https://www.loplat.com/) ist die führende Offline-Plattform für standortbasiertes Marketing. Nutzen Sie das loplat SDK, um die Besucherzahlen Ihres Shops intelligent zu steigern und Marketing-Kampagnen durchzuführen, die zum Kauf im Laden anregen. Sie können die Performance des Shops durch eine Analyse der Besucherzahlen nach Abschluss der Kampagne messen.
 
 _Diese Integration wird von Loplat gepflegt._
 
@@ -23,8 +23,8 @@ Die Integration von Braze und loplat ermöglicht es Ihnen, die Standortdienste v
 | Anforderung | Beschreibung |
 | --- | --- |
 | loplat X-Konto | Um die Vorteile dieser Integration zu nutzen, benötigen Sie ein loplat X-Konto.<br><br>Senden Sie eine E-Mail an [support@loplat.com](mailto:support@loplat.com), um ein loplat X-Konto anzufordern. |
-| loplat SDK or Software-Development-Kit | Das loplat SDK or Software-Development-Kit erkennt die Shop-Besuche von Nutzer:innen, verarbeitet Standort-Events und unterscheidet, ob Nutzer:innen an einem Ort verweilen oder sich bewegen. Sie können das loplat SDK or Software-Development-Kit verwenden, um die Besucherzahlen Ihres Shops zu analysieren, Push-Nachrichten zu senden, wenn Nutzer:innen Ihren Shop betreten, usw.<br><br>Beachten Sie, dass das SDK or Software-Development-Kit nur für Android und iOS verfügbar ist. |
-| Braze Representational State Transfer-API-Schlüssel | Ein Braze Representational State Transfer-API-Schlüssel mit den folgenden Berechtigungen:<br>- `users.track`<br>- `campaigns.trigger.send`<br>- `campaigns.list`<br>- `canvas.trigger.send`<br>- `canvas.list`<br><br>Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| loplat SDK | Das loplat SDK erkennt die Shop-Besuche von Nutzer:innen, verarbeitet Standort-Events und unterscheidet, ob Nutzer:innen an einem Ort verweilen oder sich bewegen. Sie können das loplat SDK verwenden, um die Besucherzahlen Ihres Shops zu analysieren, Push-Nachrichten zu senden, wenn Nutzer:innen Ihren Shop betreten, usw.<br><br>Beachten Sie, dass das SDK nur für Android und iOS verfügbar ist. |
+| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit den folgenden Berechtigungen:<br>- `users.track`<br>- `campaigns.trigger.send`<br>- `campaigns.list`<br>- `canvas.trigger.send`<br>- `canvas.list`<br><br>Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
@@ -40,7 +40,7 @@ Die von loplat bereitgestellten Standortinformationen zu angepassten Events kön
 
 ### Schritt 1: Integration der SDKs {#step-1-integrate-the-sdks}
 
-Integrieren Sie das loplat SDK or Software-Development-Kit und das Braze SDK or Software-Development-Kit in Ihre App anhand der Schritte, die in der Dokumentation zur [loplat-Braze-Integration](https://developers.loplat.com/braze/) beschrieben sind.
+Integrieren Sie das loplat SDK und das Braze SDK in Ihre App anhand der Schritte, die in der Dokumentation zur [loplat-Braze-Integration](https://developers.loplat.com/braze/) beschrieben sind.
 
 ### Schritt 2: Synchronisieren Sie die Dashboards von Braze und loplat X und erstellen Sie eine Kampagne {#step-2-sync-the-braze-and-loplat-x-dashboards-and-create-a-campaign}
 
@@ -61,6 +61,6 @@ Mit der Integration können Sie Standortbedingungen anwenden, indem Sie Geofence
 1. Erstellen Sie eine loplat X-Kampagne gemäß den Anweisungen im [Benutzerhandbuch von loplat X](https://loplatx-user-guide.notion.site/Campaign-integration-b92f8120cbe74d19a3a5f593657b4e8e#f898aa55ef74440aba76dd9a0e3e7598).
 2. Fügen Sie ein angepasstes Event unter den **Campaign Message Settings** hinzu und starten Sie die Kampagne.
 3. Rufen Sie das Braze-Dashboard auf und erstellen Sie eine Kampagne oder ein Canvas, das mit **Action-Based Delivery** versendet wird.
-4. Wählen Sie das angepasste Event aus, das Sie in loplat X erstellt haben, um eine Standort-Trigger or triggern-Aktion festzulegen.
+4. Wählen Sie das angepasste Event aus, das Sie in loplat X erstellt haben, um eine Standort-Trigger-Aktion festzulegen.
 
 ![Einrichtung einer aktionsbasierten Kampagne in Braze mit einem angepassten loplat-Event als Trigger.]({% image_buster /assets/img/loplat/loplat_action_based_delivery.png %})

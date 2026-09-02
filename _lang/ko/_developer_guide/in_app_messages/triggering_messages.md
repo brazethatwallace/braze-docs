@@ -40,7 +40,7 @@ Braze는 세션 시작 시 사용자 기기로 다음 유형의 인앱 메시지
 
 - `canvas_entry_properties`
 - `connected_content`
-- {% raw %}`{sms.${*}}`{% endraw %}와 같은 단문 메시지 서비스 변수
+- {% raw %}`{sms.${*}}`{% endraw %}와 같은 SMS 변수
 - `catalog_items`
 - `catalog_selection_items`
 - `event_properties`

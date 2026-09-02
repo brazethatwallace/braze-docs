@@ -23,7 +23,7 @@ A parceria entre a Braze e a Toovio proporciona o disparo de mensagens quase em 
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Conta Toovio | É necessário ter uma conta Toovio para aproveitar essa parceria. |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões `users.track`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
 | Braze Currents | O Braze Currents permite que os clientes da Braze enviem dados de eventos ou comportamento para um parceiro de dados da Braze (AWS S3, Google Cloud Storage ou Microsoft Azure Blob Storage) para processamento externo à plataforma Braze. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
@@ -37,7 +37,7 @@ Um local de entrega para o feed do Currents deve ser compartilhado com a Toovio;
 
 ### Etapa 2: configurar uma campanha disparada {#step-2-set-up-a-triggered-campaign}
 
-Crie uma [campanha disparada pela API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/) da Braze com base nos eventos do cliente que a Toovio direcionará. Além disso, devem ser definidos os atributos e valores do usuário-alvo que dispararão a campanha.
+Crie uma [campanha disparada pela API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/) da Braze com base nos eventos do cliente que a Toovio direcionará. Além disso, devem ser definidos os atributos e valores do usuário-alvo que dispararão a campanha.
 
 ### Etapa 3: configure sua conta Toovio {#step-3-set-up-your-toovio-account}
 

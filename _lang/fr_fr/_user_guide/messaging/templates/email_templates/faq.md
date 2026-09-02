@@ -69,17 +69,17 @@ Lorsque vous utilisez une URL codée en dur dans l'éditeur HTML (par exemple, `
 
 Pour éviter ce problème lorsque vous utilisez des attributs personnalisés susceptibles de contenir des paramètres de requête, codez en dur le `?` ou le `&` après l'attribut personnalisé selon que la valeur de l'attribut personnalisé inclut ou non des paramètres de requête. Par exemple, si votre attribut personnalisé inclut toujours un `?`, utilisez {% raw %}`{{custom_attribute.${my_url}}}&`{% endraw %} pour vous assurer que le modèle de lien ajoute correctement les paramètres.
 
-## aliasage de lien or aliasing de lien {#link-aliasing}
+## aliasage de lien {#link-aliasing}
 
-### Comment l'activation de l'aliasage de lien or aliasing de lien impactera-t-elle mes Content Blocks et mes modèles de lien ? {#how-will-enabling-link-aliasing-impact-my-content-blocks-and-link-templates}
+### Comment l'activation de l'aliasage de lien impactera-t-elle mes Content Blocks et mes modèles de lien ? {#how-will-enabling-link-aliasing-impact-my-content-blocks-and-link-templates}
 
-Pour tous les nouveaux Content Blocks créés, l'aliasage de lien or aliasing de lien est appliqué à l'ensemble des espaces de travail, car il s'agit d'une fonctionnalité au niveau de l'entreprise.
+Pour tous les nouveaux Content Blocks créés, l'aliasage de lien est appliqué à l'ensemble des espaces de travail, car il s'agit d'une fonctionnalité au niveau de l'entreprise.
 
-Les Content Blocks existants ne seront pas modifiés lorsque l'aliasage de lien or aliasing de lien est activé. Bien que les modèles de lien existants ne soient pas modifiés, la section de modèle de lien existante dans un message sera supprimée. Consultez [aliasage de lien or aliasing de lien dans les Content Blocks]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing#link-aliasing-in-content-blocks) pour plus d'informations.
+Les Content Blocks existants ne seront pas modifiés lorsque l'aliasage de lien est activé. Bien que les modèles de lien existants ne soient pas modifiés, la section de modèle de lien existante dans un message sera supprimée. Consultez [aliasage de lien dans les Content Blocks]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing#link-aliasing-in-content-blocks) pour plus d'informations.
 
 ### Puis-je utiliser une logique conditionnelle Liquid entièrement dans une balise d'ancrage HTML ? {#can-i-use-liquid-conditional-logic-entirely-within-an-html-anchor-tag}
 
-Non, l'aliasage de lien or aliasing de lien de Braze ne reconnaîtra pas correctement le HTML.
+Non, l'aliasage de lien de Braze ne reconnaîtra pas correctement le HTML.
 
 Lorsqu'une telle logique est utilisée conjointement avec des fonctionnalités qui doivent analyser le HTML (comme une accroche ou un modèle de lien), la bibliothèque utilisée pour scanner le HTML peut modifier la balise d'ancrage d'une manière qui empêchera le `href` approprié d'être correctement modélisé. La bibliothèque déterminera alors que le HTML est invalide, car elle est agnostique par rapport au code Liquid.
 

@@ -62,13 +62,13 @@ La característica de desarrolladores multiempresa permite compartir una única 
 
 Si tienes inicio de sesión único y quieres configurar desarrolladores multiempresa, necesitas habilitar un ID de entidad SAML personalizado configurando una integración SAML inicio de sesión único personalizada. Sigue los pasos en [Inicio de sesión iniciado por el proveedor de servicios (SP)]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup), pero aplica estos cambios:
 - Cambia el **ID de entidad** a `braze_dashboard_<companyID>` para cada integración de panel.
-- Contacta a tu CSM or administrador de éxito de cliente or administrador de éxito de cliente o director de cuentas para habilitar el interruptor de características `saml_sso_custom_entity_id` para cada panel.
+- Contacta a tu CSM o director de cuentas para habilitar el interruptor de características `saml_sso_custom_entity_id` para cada panel.
 
 #### Autenticación de dos factores (2FA) {#two-factor-authentication-2fa}
 
 El funcionamiento de la 2FA para desarrolladores multiempresa depende de tu método de 2FA:
 
-- **Correo electrónico y servicio de mensajes cortos:** Tu configuración de 2FA se copia a todas las cuentas de desarrollador vinculadas. Después de configurar la 2FA por correo electrónico o servicio de mensajes cortos en una cuenta, el mismo método se aplica en todos tus paneles de empresa.
+- **Correo electrónico y SMS:** Tu configuración de 2FA se copia a todas las cuentas de desarrollador vinculadas. Después de configurar la 2FA por correo electrónico o SMS en una cuenta, el mismo método se aplica en todos tus paneles de empresa.
 - **Contraseña de un solo uso basada en tiempo (TOTP):** La configuración de TOTP no se sincroniza entre cuentas. Si usas una aplicación de autenticación, debes configurar un código separado para cada panel en el que inicies sesión directamente.
 
 Cuando cambias entre cuentas desde el panel, solo necesitas completar la 2FA una vez: la primera vez que inicias sesión en cualquier cuenta vinculada durante esa sesión.
@@ -257,7 +257,7 @@ Si eres un usuario nuevo de Braze que tiene problemas para iniciar sesión o acc
 
 #### Recibí el correo electrónico, pero estoy atascado configurando la autenticación de dos factores (2FA) {#i-received-the-email-but-im-stuck-setting-up-two-factor-authentication-2fa}
 
-Si seleccionas **Iniciar configuración** durante la configuración de 2FA pero nunca recibes un código de verificación (por servicio de mensajes cortos o correo electrónico) o no puedes completar la configuración de la aplicación de autenticación, las extensiones del navegador, la configuración de cookies o las restricciones de red pueden estar interfiriendo. Prueba lo siguiente:
+Si seleccionas **Iniciar configuración** durante la configuración de 2FA pero nunca recibes un código de verificación (por SMS o correo electrónico) o no puedes completar la configuración de la aplicación de autenticación, las extensiones del navegador, la configuración de cookies o las restricciones de red pueden estar interfiriendo. Prueba lo siguiente:
 
 - Desactiva los bloqueadores de anuncios y habilita las cookies de terceros: Los bloqueadores de anuncios o las extensiones de privacidad pueden bloquear el flujo de verificación de 2FA. Desactívalos temporalmente y confirma que las cookies de terceros estén habilitadas en la configuración de tu navegador.
 - Prueba con un navegador diferente: Cambia a un navegador diferente para descartar problemas específicos del navegador.

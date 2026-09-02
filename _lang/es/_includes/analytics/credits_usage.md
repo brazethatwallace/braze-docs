@@ -15,7 +15,7 @@ Accede al dashboard en **Configuración** > **Facturación** > **Uso de crédito
 Esta página se muestra si tienes un contrato de créditos. Los canales que utilizan créditos se muestran en **Uso de créditos**.
 
 {% alert note %}
-Si compraste WhatsApp pero no tienes un contrato de créditos, seguirás viendo el consumo de créditos para WhatsApp porque así es como se facturan los contratos heredados de WhatsApp. Esto difiere del servicio de mensajes cortos heredado, que solo consume créditos cuando tienes un contrato de créditos.
+Si compraste WhatsApp pero no tienes un contrato de créditos, seguirás viendo el consumo de créditos para WhatsApp porque así es como se facturan los contratos heredados de WhatsApp. Esto difiere del SMS heredado, que solo consume créditos cuando tienes un contrato de créditos.
 {% endalert %}
 
 Los datos generales del uso de créditos están limitados al periodo del contrato, que se muestra en el **Resumen del contrato de créditos**. No puedes filtrar por un rango de fechas fuera del **Periodo de créditos**.
@@ -129,13 +129,13 @@ Usa **Exportar** para descargar los datos de la tabla.
 ![Uso de créditos de LINE con mosaicos de créditos y envíos facturables y una tabla de uso detallada.]({% image_buster /assets/img/app_settings/credits_usage_line.png %})
 
 {% endtab %}
-{% tab servicio de mensajes cortos, MMS y RCS %}
+{% tab SMS, MMS y RCS %}
 
-### servicio de mensajes cortos, MMS y RCS {#sms-mms-and-rcs}
+### SMS, MMS y RCS {#sms-mms-and-rcs}
 
-**Uso de créditos de servicio de mensajes cortos/MMS/RCS** muestra el desglose de uso del canal de servicio de mensajes cortos, MMS y RCS. Las columnas **Ratio de créditos** y **Créditos** indican la tarifa del país correspondiente y los créditos consumidos. Además, los mosaicos de nivel alto indican el consumo total de servicio de mensajes cortos y, cuando sea relevante, de MMS en el rango de fechas seleccionado.
+**Uso de créditos de SMS/MMS/RCS** muestra el desglose de uso del canal de SMS, MMS y RCS. Las columnas **Ratio de créditos** y **Créditos** indican la tarifa del país correspondiente y los créditos consumidos. Además, los mosaicos de nivel alto indican el consumo total de SMS y, cuando sea relevante, de MMS en el rango de fechas seleccionado.
 
-Hay filtros disponibles que te permiten filtrar por **País** o tipo de servicio de mensajes cortos y RCS.
+Hay filtros disponibles que te permiten filtrar por **País** o tipo de SMS y RCS.
 
 ![Uso de créditos de SMS/MMS/RCS con mosaicos de datos de alto nivel y una sección de consumo por cuenta.]({% image_buster /assets/img/app_settings/sms_credit_consumption2.png %})
 
@@ -277,7 +277,7 @@ El dashboard de **uso de créditos** excluye la fecha final del rango selecciona
 
 Cuando compares los datos de uso de créditos de Braze con proveedores externos (como Infobip), ten en cuenta lo siguiente:
 
-- **Segmentos de mensajes versus mensajes**: Braze cuenta los mensajes servicio de mensajes cortos por segmentos. Un único mensaje servicio de mensajes cortos que se divide en varios segmentos (por ejemplo, debido a su longitud) se cuenta como múltiples segmentos en Braze. Para más información, consulta [Calculadoras de facturación de servicio de mensajes cortos y RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator).
+- **Segmentos de mensajes versus mensajes**: Braze cuenta los mensajes SMS por segmentos. Un único mensaje SMS que se divide en varios segmentos (por ejemplo, debido a su longitud) se cuenta como múltiples segmentos en Braze. Para más información, consulta [Calculadoras de facturación de SMS y RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator).
 - **Mensajes basados en créditos versus no basados en créditos**: El dashboard incluye tanto mensajes basados en créditos como no basados en créditos. Los proveedores externos pueden contar solo los mensajes basados en créditos, lo que puede causar discrepancias en los totales.
 - **Entrantes versus salientes**: Asegúrate de estar comparando los mismos tipos de mensajes. Algunos paneles de proveedores externos incluyen tanto mensajes entrantes como salientes en sus totales, mientras que Braze te permite filtrar por dirección.
 - **Alineación de rangos de fechas**: Dado que el dashboard excluye la fecha final, las comparaciones día a día pueden coincidir más de cerca que los rangos de fechas más amplios. Si estás comparando datos de un período específico, extiende tu rango de fechas en Braze un día más para incluir el último día de tu período de comparación.

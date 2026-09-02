@@ -16,7 +16,7 @@ O Decisioning Studio Go é um agente de decisão com IA integrado ao dashboard d
 
 ### Qual é a diferença em relação a testes A/B? {#how-is-this-different-from-ab-testing}
 
-Os testes A/B encontram a variante com melhor desempenho na média de todo o público ou dentro de um Segment or segmento or segmento, e distribuem essa única variante para todos naquele grupo. O Decisioning Studio Go escolhe a melhor variante para cada usuário individual, com base no que aquele usuário já engajou anteriormente. Usuários diferentes podem receber variantes diferentes no mesmo envio. Em vez de distribuir uma variante vencedora para um grupo, o Decisioning Studio Go personaliza o conteúdo no nível individual.
+Os testes A/B encontram a variante com melhor desempenho na média de todo o público ou dentro de um Segment, e distribuem essa única variante para todos naquele grupo. O Decisioning Studio Go escolhe a melhor variante para cada usuário individual, com base no que aquele usuário já engajou anteriormente. Usuários diferentes podem receber variantes diferentes no mesmo envio. Em vez de distribuir uma variante vencedora para um grupo, o Decisioning Studio Go personaliza o conteúdo no nível individual.
 
 ### Qual é a diferença em relação ao Decisioning Studio Pro? {#how-is-this-different-from-decisioning-studio-pro}
 
@@ -44,9 +44,9 @@ Não. Os usuários do controle aleatório ainda recebem e-mails. Eles recebem co
 
 Por dois motivos. Primeiro, ele fornece uma medição contínua e em tempo real de quanto o agente está superando uma linha de base aleatória. Segundo, o agente usa o comportamento do controle aleatório como parte do seu sinal de aprendizado. O tamanho mínimo do controle aleatório é 5% — esse é o piso necessário para que o agente aprenda de forma confiável e para que a medição de desempenho seja significativa.
 
-### Posso usar um Segment or segmento or segmento que já está sendo usado em outro Canvas ou Campaign? {#can-i-use-a-segment-thats-already-used-in-another-canvas-or-campaign}
+### Posso usar um Segment que já está sendo usado em outro Canvas ou Campaign? {#can-i-use-a-segment-thats-already-used-in-another-canvas-or-campaign}
 
-Pode, mas é fortemente desencorajado e um aviso será exibido. Quando os mesmos usuários recebem mensagens do Decisioning Studio Go e de outros Canvas ou Campaigns ao mesmo tempo, as outras mensagens afetam o engajamento de formas que o agente não consegue considerar. A configuração mais limpa é um Segment or segmento or segmento dedicado ao agente.
+Pode, mas é fortemente desencorajado e um aviso será exibido. Quando os mesmos usuários recebem mensagens do Decisioning Studio Go e de outros Canvas ou Campaigns ao mesmo tempo, as outras mensagens afetam o engajamento de formas que o agente não consegue considerar. A configuração mais limpa é um Segment dedicado ao agente.
 
 ## Configuração {#configuration}
 
@@ -72,7 +72,7 @@ Você seleciona uma única frequência, como três envios por semana. O agente n
 
 ### Como funcionam os limites de frequência? {#how-do-frequency-caps-work}
 
-Durante a configuração, você pode aplicar as regras de limite de frequência do seu espaço de trabalho ao agente e escolher se os envios do agente contam para o limite de frequência global de cada usuário. Seu gerente de sucesso do cliente ou consultor de soluções pode ajudar a decidir a abordagem certa para o seu programa com base em como os limites de frequência estão configurados no seu espaço de trabalho.
+Durante a configuração, você pode aplicar as regras de limite de frequência do seu espaço de trabalho ao agente e escolher se os envios do agente contam para o limite de frequência global de cada usuário. Seu CSM ou consultor de soluções pode ajudar a decidir a abordagem certa para o seu programa com base em como os limites de frequência estão configurados no seu espaço de trabalho.
 
 ### O agente pode enviar por múltiplos canais? {#can-the-agent-send-across-multiple-channels}
 
@@ -118,4 +118,4 @@ Você. O agente só envia conteúdo que você adicionou como variante. O agente 
 
 ### Onde posso obter ajuda com meu agente? {#where-do-i-get-help-with-my-agent}
 
-Entre em contato com seu gerente de sucesso do cliente ou consultor de soluções da Braze para obter ajuda com configuração, análise de desempenho ou design de programa.
+Entre em contato com seu CSM ou consultor de soluções da Braze para obter ajuda com configuração, análise de desempenho ou design de programa.

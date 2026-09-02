@@ -12,7 +12,7 @@ description: "Esta página explica como criar um formulário de inscrição para
 
 ![Três exemplos de mensagens no app criadas usando o modelo de formulário de inscrição por telefone.]({% image_buster /assets/img_archive/dnd_iam_phone_capture_example2.png %})
 
-{% multi_lang_include drag_and_drop/templates.md section='SDK or kit de desenvolvimento de software requirements' %}
+{% multi_lang_include drag_and_drop/templates.md section='SDK requirements' %}
 
 ## Criando um formulário de inscrição por número de telefone {#creating-a-phone-number-sign-up-form}
 

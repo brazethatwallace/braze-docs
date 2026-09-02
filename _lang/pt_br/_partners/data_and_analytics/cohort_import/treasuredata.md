@@ -21,7 +21,7 @@ Esse recurso está em beta. Para saber mais, entre em contato com os representan
 | ----------- | ----------- |
 | Conta do Treasure Data | É necessário ter uma conta do [Treasure Data](https://www.treasuredata.com/) para aproveitar essa parceria. |
 | Chave de importação de dados da Braze | Isso pode ser obtido no dashboard da Braze em **Integrações de parceiros** > **Parceiros de tecnologia** e, em seguida, selecione **Treasure Data**. |
-| Endpoint REST or transferir estado representacional da Braze | [Sua URL de endpoint REST or transferir estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
+| Endpoint REST da Braze | [Sua URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
 | Endereço IP estático do Treasure Data | O endereço IP estático do Treasure Data é o ponto de acesso e a origem da vinculação para essa integração. Para determinar o endereço IP estático, entre em contato com o representante de sucesso do cliente do Treasure Data ou com o suporte técnico do Treasure Data. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
@@ -29,7 +29,7 @@ Esse recurso está em beta. Para saber mais, entre em contato com os representan
 
 ### Etapa 1: Obtenha sua chave de importação de dados da Braze {#step-1-get-your-braze-data-import-key}
 
-Na Braze, navegue até **Integrações de parceiros** > **Parceiros de tecnologia** e selecione **Treasure Data**. Aqui você encontrará o endpoint REST or transferir estado representacional e poderá gerar sua chave de importação de dados da Braze. Depois que a chave for gerada, você pode criar uma nova ou invalidar uma existente.
+Na Braze, navegue até **Integrações de parceiros** > **Parceiros de tecnologia** e selecione **Treasure Data**. Aqui você encontrará o endpoint REST e poderá gerar sua chave de importação de dados da Braze. Depois que a chave for gerada, você pode criar uma nova ou invalidar uma existente.
 
 ### Etapa 2: Criar uma conexão de dados {#step-2-create-a-data-connection}
 
@@ -172,7 +172,7 @@ Depois que a consulta tiver sido criada, selecione **Export Results**. Você pod
 | Nome da coorte (opcional) | Esse é o nome que aparecerá no filtro de coorte na ferramenta de segmentação da Braze. Se não for definido, o `Cohort ID` será usado como `Cohort Name`. |
 | Operação | Usado para determinar se a consulta deve adicionar ou remover perfis da coorte na Braze. |
 | Aliases (opcional) | Quando definido, o nome da coluna correspondente na sua consulta será enviado como `alias_label`, e os valores de cada linha na coluna serão enviados como `alias_name`. |
-| Contagem de threads | Número de chamadas simultâneas à API or interface de programação do aplicativo (API). |
+| Contagem de threads | Número de chamadas simultâneas à API. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3.2: Specify the result export target" }
 
 Siga [as etapas do Treasure Data](https://docs.treasuredata.com/articles/#!int/braze-cohort-export-integration/a/ExportIntegrationTemplate-SpecifytheResultExportTarget) para configurar sua exportação de acordo com o seu caso de uso.
@@ -185,7 +185,7 @@ Salve a consulta com um nome e execute, ou simplesmente execute a consulta. Apó
 {% tab Audience Studio %}
 #### Etapa 3.1: Crie uma ativação {#step-31-create-an-activation}
 
-Crie um novo Segment or segmento or segmento ou escolha um Segment or segmento or segmento existente para sincronizar com a Braze como uma coorte. Dentro do Segment or segmento or segmento, selecione **Create activation**.
+Crie um novo Segment ou escolha um Segment existente para sincronizar com a Braze como uma coorte. Dentro do Segment, selecione **Create activation**.
 
 #### Etapa 3.2: Preencha os detalhes da ativação {#step-32-fill-out-your-activation-details}
 
@@ -200,7 +200,7 @@ Crie um novo Segment or segmento or segmento ou escolha um Segment or segmento o
 | Nome da coorte (opcional) | Esse é o nome que aparecerá no filtro de coorte na ferramenta de segmentação da Braze. Se não for definido, o `Cohort ID` será usado como `Cohort Name`. |
 | Operação | Usado para determinar se a consulta deve adicionar ou remover perfis da coorte na Braze. |
 | Aliases (opcional) | Quando definido, o nome da coluna correspondente na sua consulta será enviado como `alias_label`, e os valores de cada linha na coluna serão enviados como `alias_name`. |
-| Contagem de threads | Número de chamadas simultâneas à API or interface de programação do aplicativo (API). |
+| Contagem de threads | Número de chamadas simultâneas à API. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3.2: Fill out your activation details" }
 
 #### Etapa 3.3: Configure o mapeamento de saída {#step-33-set-up-output-mapping}
@@ -229,9 +229,9 @@ Defina o cronograma de sincronização desejado e salve a ativação.
 {% endtab %}
 {% endtabs %}
 
-### Etapa 4: Crie um Segment or segmento da Braze a partir da Exportação do Treasure Data {#step-4-create-a-braze-segment-from-the-treasure-data-export}
+### Etapa 4: Crie um Segment da Braze a partir da Exportação do Treasure Data {#step-4-create-a-braze-segment-from-the-treasure-data-export}
 
-Na Braze, navegue até **Segments**, crie um novo Segment or segmento or segmento e selecione **Treasure Data Cohorts** como seu filtro. A partir daqui, você pode escolher qual coorte do Treasure Data deseja incluir. Depois que o Segment or segmento or segmento de coorte do Treasure Data for criado, você poderá selecioná-lo como um filtro de público ao criar uma Campaign ou um Canvas.
+Na Braze, navegue até **Segments**, crie um novo Segment e selecione **Treasure Data Cohorts** como seu filtro. A partir daqui, você pode escolher qual coorte do Treasure Data deseja incluir. Depois que o Segment de coorte do Treasure Data for criado, você poderá selecioná-lo como um filtro de público ao criar uma Campaign ou um Canvas.
 
 ![Catálogo do hub de integrações do Treasure Data]({% image_buster /assets/img/treasure_data/cohort/cohort4.png %})
 

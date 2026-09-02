@@ -16,8 +16,8 @@ Verwenden Sie das Dashboard **Datenpunkt-Nutzung gesamt**, um das Tempo Ihrer Da
 
 Ab dem 1. Februar 2022 wird die Einstellung zur täglichen Regeneration von Erweiterungen für ungenutzte [Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension) automatisch deaktiviert. Braze definiert ungenutzte Erweiterungen als solche, die die folgenden Kriterien erfüllen:
 
-- Keine Verwendung in aktiven Campaigns, Canvase oder Segmenten
-- Keine Verwendung in inaktiven (Entwurf, angehaltenen, archivierten) Campaigns, Canvase oder Segmenten
+- Keine Verwendung in aktiven Campaigns, Canvases oder Segmenten
+- Keine Verwendung in inaktiven (Entwurf, angehaltenen, archivierten) Campaigns, Canvases oder Segmenten
 - Keine Änderungen in den letzten 7 Tagen
 
 Braze benachrichtigt den Firmenkontakt und die erstellende Person der Erweiterung, wenn diese Einstellung deaktiviert wird. Die Option zur täglichen Regeneration von Erweiterungen kann jederzeit wieder aktiviert werden.

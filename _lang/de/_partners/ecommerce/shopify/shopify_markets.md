@@ -13,16 +13,16 @@ hidden: true
 > Dieser Artikel behandelt die Shopify Markets-Integration (derzeit in der Beta-Phase), einschließlich des Umfangs, der Funktionsweise und der Nutzung Ihrer Markets-Daten in Ihrem Messaging. Braze veröffentlicht im Laufe der Beta-Phase schrittweise zusätzliche Markets-Funktionalitäten und skaliert die Unterstützung für komplexere Marktstrukturen im Laufe der Zeit.
 
 {% alert important %}
-Shopify Markets befindet sich derzeit in der Beta-Phase. Für weitere Informationen wenden Sie sich an Ihren Braze CSM or Customer-Success-Manager or Customer-Success-Manager:in.
+Shopify Markets befindet sich derzeit in der Beta-Phase. Für weitere Informationen wenden Sie sich an Ihren Braze CSM.
 {% endalert %}
 
 ## Funktionsweise der Integration {#how-the-integration-works}
 
-Shopify Markets erweitert Ihre bestehende Shopify-Integration. Verbinden Sie Ihren Standard-Storefront über den [Standard-]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration) oder [angepassten (SDK or Software-Development-Kit)]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration) Integrationspfad und wählen Sie dann die Märkte aus, die Braze aus den konfigurierten Märkten Ihres Shops synchronisieren soll. Bestehende Integrationen können Märkte hinzufügen, ohne Kataloge, Abo-Gruppen oder Events zu beeinträchtigen. Eine Schritt-für-Schritt-Anleitung finden Sie unter [Shopify Markets einrichten](#shopify-markets-setup).
+Shopify Markets erweitert Ihre bestehende Shopify-Integration. Verbinden Sie Ihren Standard-Storefront über den [Standard-]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration) oder [angepassten (SDK)]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration) Integrationspfad und wählen Sie dann die Märkte aus, die Braze aus den konfigurierten Märkten Ihres Shops synchronisieren soll. Bestehende Integrationen können Märkte hinzufügen, ohne Kataloge, Abo-Gruppen oder Events zu beeinträchtigen. Eine Schritt-für-Schritt-Anleitung finden Sie unter [Shopify Markets einrichten](#shopify-markets-setup).
 
 Shopify Markets bietet folgende Funktionen:
 
-- **Marktbezogene Profile.** Die Integration erfasst die Shopify-Locale jedes Nutzers bzw. jeder Nutzerin zusammen mit den Standard-Attributen für Land und Sprache von Braze, sodass Sie ohne angepasste Einrichtung nach Markt segmentieren und Trigger or triggern or triggern können.
+- **Marktbezogene Profile.** Die Integration erfasst die Shopify-Locale jedes Nutzers bzw. jeder Nutzerin zusammen mit den Standard-Attributen für Land und Sprache von Braze, sodass Sie ohne angepasste Einrichtung nach Markt segmentieren und triggern können.
 - **Lokalisierte Kataloge.** Marktspezifische Produktdaten werden täglich synchronisiert: Preise, Währung und Verfügbarkeit pro Markt sowie übersetzte Titel, Beschreibungen und Produkt-URLs.
 - **Marktbezogene Personalisierung.** Verwenden Sie den {% raw %}`{% shopify_market %}`{% endraw %} Liquid-Tag, um mit Katalogprodukten aus dem jeweiligen Markt der Nutzer:innen zu personalisieren, einschließlich der übersetzten Inhalte von Shopify. Sie können auch Marktdetails wie die Anzeigewährung aus unterstützten Shopify-Events wie `ecommerce.order_placed` referenzieren.
 - **Fallback auf den Standard-Shop.** Wenn Nutzer:innen keinem Ihrer verbundenen Märkte angehören, verwendet Braze die Einstellungen und Produkte Ihres Standard-Shops, sodass alle Nutzer:innen eine vollständige, korrekte Nachricht erhalten.
@@ -64,8 +64,8 @@ Jeder ausgewählte Markt erfordert einen Marktkatalog mit aktiven Produkten, dam
 
 Folgendes wird in dieser Beta nicht unterstützt:
 
-- Preissenkung- und Wieder-verfügbar-Trigger or triggern für Marktkataloge
-- E-Mail- und Kurzmitteilungsdienst or SMS-Double-Opt-in für marktbezogen konfigurierte Abo-Gruppen
+- Preissenkung- und Wieder-verfügbar-Trigger für Marktkataloge
+- E-Mail- und SMS-Double-Opt-in für marktbezogen konfigurierte Abo-Gruppen
 - Verschachtelte Marktgruppen oder Ländergruppen-Workflows über das aktuelle Einzelland- und Mehrländer-Auswahlmodell hinaus
 - Auswahl von mehr als 25 Märkten
 - Katalogexport für Markets-fähige Kataloge
@@ -93,7 +93,7 @@ Folgendes wird in dieser Beta nicht unterstützt:
 
 Zur Unterstützung von Shopify Markets synchronisiert Braze mehr Daten als die [Standard-Events und -Attribute]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#tracked-shopify-events) der Integration.
 
-Braze schreibt diesen zusätzlichen Marktkontext in jedes Kundenprofil or Nutzerprofil:
+Braze schreibt diesen zusätzlichen Marktkontext in jedes Kundenprofil:
 
 | Datentyp | Wert | Datenquelle |
 | --- | --- | --- |
@@ -122,25 +122,25 @@ Jede Eigenschaft wird aus den folgenden Quellen abgeleitet:
 ### Schritt 3: Nutzer:innen verwalten {#step-3-manage-users}
 
 1. Wählen Sie Ihren `external_id`-Typ aus dem Dropdown.
-2. Aktivieren Sie E-Mail- und Kurzmitteilungsdienst or SMS-Opt-ins von Shopify, damit Braze E-Mail- und Kurzmitteilungsdienst or SMS-Abo-Status von Shopify synchronisieren kann. Sie haben zwei Optionen:
-  - **Integration verwenden:** Braze synchronisiert E-Mail- und Kurzmitteilungsdienst or SMS-Status. Sie müssen nur die Abo-Gruppen auswählen, in die synchronisiert wird.
+2. Aktivieren Sie E-Mail- und SMS-Opt-ins von Shopify, damit Braze E-Mail- und SMS-Abo-Status von Shopify synchronisieren kann. Sie haben zwei Optionen:
+  - **Integration verwenden:** Braze synchronisiert E-Mail- und SMS-Status. Sie müssen nur die Abo-Gruppen auswählen, in die synchronisiert wird.
   - **Eigene Lösung erstellen:** Für mehr Kontrolle über die Statusverwaltung können Sie eine angepasste Integration mit den Braze-Abo-Gruppen-Endpunkten erstellen.
 3. Erstellen Sie Standard-Abo-Gruppen für jedes Land, das mit Ihren synchronisierten Märkten während der Einrichtung verknüpft ist.
-  - **Neue Shopify-Integration:** Weisen Sie eine Standard-E-Mail- und Kurzmitteilungsdienst or SMS-Abo-Gruppe pro Land zu.
-  - **Bestehende Shopify-Integration:** Die aktuelle Standardgruppe Ihres Shops wird nicht mehr synchronisiert. Weisen Sie neue Standard-E-Mail- und Kurzmitteilungsdienst or SMS-Gruppen pro Land zu. Ihre alte Einrichtung wird nicht automatisch übernommen.
+  - **Neue Shopify-Integration:** Weisen Sie eine Standard-E-Mail- und SMS-Abo-Gruppe pro Land zu.
+  - **Bestehende Shopify-Integration:** Die aktuelle Standardgruppe Ihres Shops wird nicht mehr synchronisiert. Weisen Sie neue Standard-E-Mail- und SMS-Gruppen pro Land zu. Ihre alte Einrichtung wird nicht automatisch übernommen.
 
 #### Funktionsweise von Opt-ins und Abmeldungen {#how-opt-ins-and-unsubscribes-work}
 
-Während der Einrichtung konfigurieren Sie Standard-E-Mail- und Kurzmitteilungsdienst or SMS-Abo-Gruppen für jedes Land, das mit Ihren synchronisierten Märkten verknüpft ist (bis zu 25 Länder). Dies ist erforderlich, bevor Sie Ihre Länderkonfiguration speichern können. Sie können auch zusätzliche Abo-Gruppen pro Land zuweisen, wenn Sie die Einwilligung an mehr als eine Liste weiterleiten möchten.
+Während der Einrichtung konfigurieren Sie Standard-E-Mail- und SMS-Abo-Gruppen für jedes Land, das mit Ihren synchronisierten Märkten verknüpft ist (bis zu 25 Länder). Dies ist erforderlich, bevor Sie Ihre Länderkonfiguration speichern können. Sie können auch zusätzliche Abo-Gruppen pro Land zuweisen, wenn Sie die Einwilligung an mehr als eine Liste weiterleiten möchten.
 
 ##### Einwilligung gilt für alle konfigurierten Länder {#consent-applies-to-all-configured-countries}
 
 Wenn sich der Einwilligungsstatus von Nutzer:innen in Shopify ändert, wendet Braze diese Änderung auf die Standard-Abo-Gruppen aller Länder an, die mit Ihrem verbundenen Shop verknüpft sind – nicht nur auf das spezifische Land der Nutzer:innen:
-  - Wenn Nutzer:innen in Shopify abonniert werden, werden sie in die Standard-E-Mail- oder Kurzmitteilungsdienst or SMS-Abo-Gruppe für jedes von Ihnen konfigurierte Land eingetragen.
-  - Wenn sich Nutzer:innen in Shopify abmelden, werden sie aus der Standard-E-Mail- oder Kurzmitteilungsdienst or SMS-Abo-Gruppe für jedes von Ihnen konfigurierte Land ausgetragen.
+  - Wenn Nutzer:innen in Shopify abonniert werden, werden sie in die Standard-E-Mail- oder SMS-Abo-Gruppe für jedes von Ihnen konfigurierte Land eingetragen.
+  - Wenn sich Nutzer:innen in Shopify abmelden, werden sie aus der Standard-E-Mail- oder SMS-Abo-Gruppe für jedes von Ihnen konfigurierte Land ausgetragen.
 
 {% alert important %}
-Die Shopify-Einwilligung gilt pro Shop, nicht pro Land. In Shopify wird die Einwilligung einmal für E-Mail und einmal für Kurzmitteilungsdienst or SMS pro Kundendatensatz erfasst und erfolgt nicht nach Land oder Listentyp. Daher kann Braze Einwilligungsänderungen nicht auf ein einzelnes Land oder eine einzelne Abo-Gruppe anwenden. Ein Abonnement- oder Abmeldeereignis in Shopify gilt immer gleichzeitig für die Standard-Abo-Gruppen aller Ihrer konfigurierten Länder. <br><br> Innerhalb von Braze haben Sie jedoch eine granularere Kontrolle über Opt-ins und Opt-outs auf Abo-Gruppen-Ebene, wenn Nutzer:innen mit Messaging-Kanälen interagieren.
+Die Shopify-Einwilligung gilt pro Shop, nicht pro Land. In Shopify wird die Einwilligung einmal für E-Mail und einmal für SMS pro Kundendatensatz erfasst und erfolgt nicht nach Land oder Listentyp. Daher kann Braze Einwilligungsänderungen nicht auf ein einzelnes Land oder eine einzelne Abo-Gruppe anwenden. Ein Abonnement- oder Abmeldeereignis in Shopify gilt immer gleichzeitig für die Standard-Abo-Gruppen aller Ihrer konfigurierten Länder. <br><br> Innerhalb von Braze haben Sie jedoch eine granularere Kontrolle über Opt-ins und Opt-outs auf Abo-Gruppen-Ebene, wenn Nutzer:innen mit Messaging-Kanälen interagieren.
 {% endalert %}
 
 ### Schritt 4: Produkte synchronisieren {#step-4-sync-products}
@@ -178,7 +178,7 @@ Nachdem diese Attribute und Eigenschaften in den Nutzerprofilen vorhanden sind, 
 
 Filtern Sie nach Land, Browsersprache oder `shopify_locale` in Segmenten und in den Eintrittskriterien von Campaigns oder Canvas. Erstellen Sie beispielsweise eine Zielgruppe von Nutzer:innen in einem bestimmten Markt oder teilen Sie einen Canvas nach Locale auf.
 
-### Mit Liquid personalisieren und Trigger or triggern or triggern {#personalize-and-trigger-with-liquid}
+### Mit Liquid personalisieren und triggern {#personalize-and-trigger-with-liquid}
 
 Referenzieren Sie die Daten direkt in Ihren Nachrichten.
 
@@ -191,9 +191,9 @@ Referenzieren Sie die Daten direkt in Ihren Nachrichten.
 | Die Währung einer Bestellung (in einer getriggerten Nachricht) | {% raw %}`{{event_properties.${presentment_currency}}}`{% endraw %} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Nutzerdaten mit Liquid referenzieren"}
 
-### Nachrichten aus Bestellaktivitäten Trigger or triggern or triggern {#trigger-messages-from-order-activity}
+### Nachrichten aus Bestellaktivitäten triggern {#trigger-messages-from-order-activity}
 
-Die neuen Bestelleigenschaften werden mit jedem Bestell-Event übermittelt, sodass Sie eine Nachricht basierend auf einer Bestellung Trigger or triggern or triggern und den Inhalt mit marktbezogenen Details personalisieren können.
+Die neuen Bestelleigenschaften werden mit jedem Bestell-Event übermittelt, sodass Sie eine Nachricht basierend auf einer Bestellung triggern und den Inhalt mit marktbezogenen Details personalisieren können.
 
 Eine einfache Version im Nachrichtentext könnte so aussehen:
 

@@ -9,7 +9,7 @@ page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint Criar nova conta de usuário do dashboard da Braze."
 ---
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Criar nova conta de usuário do dashboard {#create-new-dashboard-user-account}
 {% apimethod post %}
 /scim/v2/Users

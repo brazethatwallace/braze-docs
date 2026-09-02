@@ -33,7 +33,7 @@ Braze erstellt erst dann Profile für Nutzer:innen, wenn diese die App zum erste
 {% if include.alert == 'Shopify attributes REST API' %}
 
 {% alert note %}
-Alle Attribute stammen aus der Braze Representational State Transfer API.
+Alle Attribute stammen aus der Braze REST API.
 {% endalert %}
 
 {% endif %}

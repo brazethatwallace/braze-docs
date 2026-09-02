@@ -1,14 +1,14 @@
 ---
 page_order: 4
 nav_title: Stories por push
-article_title: Configure histórias de push para o SDK or kit de desenvolvimento de software do Braze
+article_title: Configure histórias de push para o SDK do Braze
 channel:
   - push notifications
 ---
 
 # Stories por push
 
-> Aprenda como configurar histórias de push para o SDK or kit de desenvolvimento de software do Braze.
+> Aprenda como configurar histórias de push para o SDK do Braze.
 
 {% sdktabs %}
 {% sdktab swift %}

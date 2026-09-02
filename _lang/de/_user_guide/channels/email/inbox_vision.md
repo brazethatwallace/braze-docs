@@ -14,12 +14,12 @@ channel:
 > Mit Inbox Vision können Sie Ihre E-Mails aus der Perspektive verschiedener E-Mail-Clients und mobiler Geräte anzeigen. So können Sie beispielsweise Unterschiede zwischen Dark Mode und Light Mode testen, um sicherzustellen, dass Ihre E-Mails wie beabsichtigt dargestellt werden.
 
 {% alert important %}
-Inbox Vision funktioniert möglicherweise nicht, wenn Ihr E-Mail-Inhalt auf Template-Informationen wie Nutzerprofildaten basiert. Braze verwendet beim Versenden von E-Mails für dieses Feature ein leeres Kundenprofil or Nutzerprofil als Template.<br><br>Fügen Sie Standardwerte zu jedem Liquid in Ihrer E-Mail-Nachricht hinzu. Ohne Standardwerte kann es zu einem falschen positiven Ergebnis kommen oder der Test kann fehlschlagen.
+Inbox Vision funktioniert möglicherweise nicht, wenn Ihr E-Mail-Inhalt auf Template-Informationen wie Nutzerprofildaten basiert. Braze verwendet beim Versenden von E-Mails für dieses Feature ein leeres Kundenprofil als Template.<br><br>Fügen Sie Standardwerte zu jedem Liquid in Ihrer E-Mail-Nachricht hinzu. Ohne Standardwerte kann es zu einem falschen positiven Ergebnis kommen oder der Test kann fehlschlagen.
 {% endalert %}
 
 ## Überlegungen {#considerations}
 
-Im Allgemeinen funktioniert Ihre E-Mail nicht mit Inbox Vision, wenn der Inhalt Ihrer E-Mail auf Template-Informationen angewiesen ist, wie z. B. Kundenprofil or Nutzerprofil-Informationen. Das liegt daran, dass Braze beim Versand von E-Mails mit diesem Feature ein leeres Kundenprofil or Nutzerprofil als Template verwendet.
+Im Allgemeinen funktioniert Ihre E-Mail nicht mit Inbox Vision, wenn der Inhalt Ihrer E-Mail auf Template-Informationen angewiesen ist, wie z. B. Kundenprofil-Informationen. Das liegt daran, dass Braze beim Versand von E-Mails mit diesem Feature ein leeres Kundenprofil als Template verwendet.
 
 Sie können dieses Problem beheben, indem Sie Standardwerte oder beliebige Werte zum Liquid in Ihrer E-Mail-Nachricht hinzufügen, bevor Sie Inbox Vision ausführen. Wenn Sie die Tests in Inbox Vision abgeschlossen haben, wird die ursprüngliche E-Mail-Nachricht wieder angezeigt. Wenn keine Werte angegeben werden, kann der Test die Vorschauen möglicherweise nicht erfolgreich rendern.
 
@@ -68,7 +68,7 @@ Die Code-Analyse kann schneller als die Vorschau für einen bestimmten Client er
 
 ## Spam-Test {#spam-testing}
 
-Spam-Tests schätzen ein, ob E-Mails möglicherweise als Spam gefiltert werden. Die Tests werden über Filter wie IronPort, SpamAssassin und Barracuda sowie ISP or Internet-Provider-Filter wie Gmail und Outlook durchgeführt, wobei statische Seed-Postfächer verwendet werden, die standardmäßig keine E-Mails öffnen oder anklicken.
+Spam-Tests schätzen ein, ob E-Mails möglicherweise als Spam gefiltert werden. Die Tests werden über Filter wie IronPort, SpamAssassin und Barracuda sowie ISP-Filter wie Gmail und Outlook durchgeführt, wobei statische Seed-Postfächer verwendet werden, die standardmäßig keine E-Mails öffnen oder anklicken.
 
 {% alert important %}
 Die Platzierung im Posteingang wird hauptsächlich durch das Engagement der tatsächlichen Empfänger:innen bestimmt. Spam-Test-Ergebnisse stimmen möglicherweise nicht mit dem überein, was Sie bei echten Campaigns beobachten.

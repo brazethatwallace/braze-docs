@@ -39,10 +39,10 @@ Esse tipo de mensagem estende [`InAppMessageImmersiveBase`](https://braze-inc.gi
 Esse tipo de mensagem implementa [`IInAppMessageHtml`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.inappmessage/-i-in-app-message-html/index.html), que é uma subclasse de [`IInAppMessage`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.inappmessage/-i-in-app-message/index.html).
 
 {% alert note %}
-No Android, links configurados com `target="_blank"` em mensagens no app HTML personalizadas abrem no navegador de internet or navegador web padrão do dispositivo.
+No Android, links configurados com `target="_blank"` em mensagens no app HTML personalizadas abrem no navegador de internet padrão do dispositivo.
 {% endalert %}
 
-Mensagens no app Android suportam uma interface JavaScript `brazeBridge` para chamar métodos no SDK or kit de desenvolvimento de software Android da Braze a partir do seu HTML, veja nossa página <a href="{{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/traditional/customize/html_in-app_messages#javascript-bridge/">JavaScript bridge</a> para mais detalhes.
+Mensagens no app Android suportam uma interface JavaScript `brazeBridge` para chamar métodos no SDK Android da Braze a partir do seu HTML, veja nossa página <a href="{{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/traditional/customize/html_in-app_messages#javascript-bridge/">JavaScript bridge</a> para mais detalhes.
 
 ![Uma mensagem no app HTML com um carrossel de conteúdo e botões interativos.]({% image_buster /assets/img/full-screen-behavior.gif %}){: style="border:0px;"}
 

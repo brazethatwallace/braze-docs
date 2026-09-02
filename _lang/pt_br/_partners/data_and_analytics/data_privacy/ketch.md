@@ -26,7 +26,7 @@ Procurando orientação sobre como criar grupos de inscrições? Confira nossos 
 | Requisitos | Descrição |
 |---|---|
 | Conta Ketch | Uma conta [Ketch](https://www.ketch.com) com privilégios de administrador é necessária para ativar esta integração. |
-| Chave de API or interface de programação do aplicativo (API) da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com as permissões `users.track`, `subscription.status.get`, `subscription.status.set`, `users.delete`, `users.alias.new`, `users.export.ids`, `email.unsubscribe` e `email.blacklist`. <br><br> Ela pode ser criada no dashboard da Braze (**Console de desenvolvedor** > **Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional** > **Criar nova chave de API or interface de programação do aplicativo (API)**). |
+| Chave de API da Braze | Uma chave da API REST da Braze com as permissões `users.track`, `subscription.status.get`, `subscription.status.set`, `users.delete`, `users.alias.new`, `users.export.ids`, `email.unsubscribe` e `email.blacklist`. <br><br> Ela pode ser criada no dashboard da Braze (**Console de desenvolvedor** > **Chave da API REST** > **Criar nova chave de API**). |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Integração {#integration}
@@ -34,9 +34,9 @@ Procurando orientação sobre como criar grupos de inscrições? Confira nossos 
 ### Etapa 1: Configure a conexão com a Braze {#step-1-set-up-the-braze-connection}
 
 1. Na sua [instância do Ketch](https://app.ketch.com), navegue até **Data Systems** e selecione **Braze**. Em seguida, clique em **New Connection**.
-2. Dê à sua conexão com a Braze um nome identificável, que será usado para se referir a essa conexão em processos baseados em API or interface de programação do aplicativo (API). Um código também será criado para essa conexão. Esse código deve ser único em todas as conexões.
+2. Dê à sua conexão com a Braze um nome identificável, que será usado para se referir a essa conexão em processos baseados em API. Um código também será criado para essa conexão. Esse código deve ser único em todas as conexões.
 3. Confirme o mapeamento de identidade dos seus usuários. Por padrão, a Ketch mapeará as identidades dos usuários pelo endereço de e-mail ou pelo `external_id` na Braze.
-4. Adicione a chave de API or interface de programação do aplicativo (API) da Braze e forneça o endpoint da API or interface de programação do aplicativo (API). Esse [endpoint da API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics/#endpoints) é baseado na instância da Braze que sua organização utiliza.
+4. Adicione a chave de API da Braze e forneça o endpoint da API. Esse [endpoint da API]({{site.baseurl}}/api/basics/#endpoints) é baseado na instância da Braze que sua organização utiliza.
 
 ### Etapa 2: Configure as preferências de inscrição {#step-2-configure-subscription-preferences}
 

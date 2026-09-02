@@ -16,12 +16,12 @@ alias: /whatsapp/
 
 ## Pré-requisitos {#prerequisites}
 
-A disponibilidade do WhatsApp depende do seu pacote da Braze. Entre em contato com seu gerente de conta ou gerente de sucesso do cliente para começar.
+A disponibilidade do WhatsApp depende do seu pacote da Braze. Entre em contato com seu gerente de conta ou CSM para começar.
 
 Antes de começar, verifique se você tem o seguinte:
 
 - Uma conta do Meta Business Manager e uma conta do WhatsApp Business
-- Um número de telefone do WhatsApp que atenda aos requisitos da [Cloud API or interface de programação do aplicativo (API)](https://developers.facebook.com/docs/whatsapp/cloud-api/phone-numbers)
+- Um número de telefone do WhatsApp que atenda aos requisitos da [Cloud API](https://developers.facebook.com/docs/whatsapp/cloud-api/phone-numbers)
 
 Para um passo a passo completo, consulte [Configuração do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup).
 

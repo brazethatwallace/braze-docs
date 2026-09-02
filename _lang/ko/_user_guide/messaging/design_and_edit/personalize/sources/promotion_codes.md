@@ -58,7 +58,7 @@ Braze가 프로모션 코드가 포함된 메시지를 발송할 때, 메시지�
 
 ### 프로모션 코드와 함께 사용할 수 있는 메시징 채널은 무엇인가요? {#which-messaging-channels-can-i-use-with-promotion-codes}
 
-프로모션 코드는 이메일, 모바일 푸시, 웹 푸시, Content Cards, 웹훅, 단문 메시지 서비스, WhatsApp에서 지원됩니다. 인앱 메시지 Campaign에서는 얼리 액세스 기능으로 프로모션 코드를 지원합니다. Braze 트랜잭션 이메일 Campaigns와 Canvas의 인앱 메시지에서는 프로모션 코드를 지원하지 않습니다.
+프로모션 코드는 이메일, 모바일 푸시, 웹 푸시, Content Cards, 웹훅, SMS, WhatsApp에서 지원됩니다. 인앱 메시지 Campaign에서는 얼리 액세스 기능으로 프로모션 코드를 지원합니다. Braze 트랜잭션 이메일 Campaigns와 Canvas의 인앱 메시지에서는 프로모션 코드를 지원하지 않습니다.
 
 ### 테스트 및 시드 발송도 사용량에 포함되나요? {#do-test-and-seed-sends-count-towards-usage}
 

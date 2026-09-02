@@ -8,9 +8,9 @@ Während der `BrazeInAppMessageManager`-Listener die Anzeige und den Lebenszyklu
 {% endtab %}
 
 {% tab html listener %}
-Das Braze SDK or Software-Development-Kit verfügt über die Standardklasse `DefaultHtmlInAppMessageActionListener`. Sie wird verwendet, wenn kein angepasster Listener definiert ist, und führt automatisch die entsprechenden Aktionen durch. Wenn Sie mehr Kontrolle darüber benötigen, wie Nutzer:innen mit verschiedenen Buttons in einer angepassten HTML-In-App-Nachricht interagieren, implementieren Sie eine angepasste Klasse des Typs `IHtmlInAppMessageActionListener`.
+Das Braze SDK verfügt über die Standardklasse `DefaultHtmlInAppMessageActionListener`. Sie wird verwendet, wenn kein angepasster Listener definiert ist, und führt automatisch die entsprechenden Aktionen durch. Wenn Sie mehr Kontrolle darüber benötigen, wie Nutzer:innen mit verschiedenen Buttons in einer angepassten HTML-In-App-Nachricht interagieren, implementieren Sie eine angepasste Klasse des Typs `IHtmlInAppMessageActionListener`.
 
-Dieser Listener gilt für __beide__ Nachrichtentypen – sowohl für Nachrichten, die mit angepasstem HTML erstellt wurden, als auch für Nachrichten, die mit dem Drag-and-Drop-Editor (DnD) erstellt wurden. Er gilt nicht für traditionelle IAMs. Traditionelle IAMs sind die integrierten, vom SDK or Software-Development-Kit gerenderten Nachrichtentypen von Braze (z. B. Slideup, Modal und Full), die im ursprünglichen Nachrichten-Editor für In-App-Nachrichten mit vordefinierten Layouts erstellt werden. Im Gegensatz zu angepassten HTML- und DnD-IAMs durchlaufen sie nicht den HTML-Aktions-Listener-Flow.
+Dieser Listener gilt für __beide__ Nachrichtentypen – sowohl für Nachrichten, die mit angepasstem HTML erstellt wurden, als auch für Nachrichten, die mit dem Drag-and-Drop-Editor (DnD) erstellt wurden. Er gilt nicht für traditionelle IAMs. Traditionelle IAMs sind die integrierten, vom SDK gerenderten Nachrichtentypen von Braze (z. B. Slideup, Modal und Full), die im ursprünglichen Nachrichten-Editor für In-App-Nachrichten mit vordefinierten Layouts erstellt werden. Im Gegensatz zu angepassten HTML- und DnD-IAMs durchlaufen sie nicht den HTML-Aktions-Listener-Flow.
 
 Wenn Sie einen angepassten `IHtmlInAppMessageActionListener` festlegen, überschreibt dessen Logik das Standard-Klickverhalten für _alle_ DnD-Nachrichten. Bitte stellen Sie sicher, dass Ihr Marketing-Team darüber informiert ist, da dies deren Campaigns auf unerwartete Weise beeinflussen kann.
 {% endtab %}
@@ -185,7 +185,7 @@ BrazeInAppMessageManager.getInstance().setCustomHtmlInAppMessageActionListener(C
 
 ## Angepasste Factories einrichten {#setting-custom-factories}
 
-Sie können eine Reihe von Standardeinstellungen durch angepasste Factory-Objekte überschreiben. Diese können nach Bedarf beim Braze SDK or Software-Development-Kit registriert werden, um die gewünschten Ergebnisse zu erzielen. Wenn Sie sich jedoch entscheiden, eine Factory zu überschreiben, müssen Sie wahrscheinlich explizit auf den Standard zurückgreifen oder die vom Braze-Standard bereitgestellte Funktionalität neu implementieren. Das folgende Code-Snippet veranschaulicht, wie Sie angepasste Implementierungen der Schnittstellen `IInAppMessageViewFactory` und `IInAppMessageViewWrapperFactory` bereitstellen können.
+Sie können eine Reihe von Standardeinstellungen durch angepasste Factory-Objekte überschreiben. Diese können nach Bedarf beim Braze SDK registriert werden, um die gewünschten Ergebnisse zu erzielen. Wenn Sie sich jedoch entscheiden, eine Factory zu überschreiben, müssen Sie wahrscheinlich explizit auf den Standard zurückgreifen oder die vom Braze-Standard bereitgestellte Funktionalität neu implementieren. Das folgende Code-Snippet veranschaulicht, wie Sie angepasste Implementierungen der Schnittstellen `IInAppMessageViewFactory` und `IInAppMessageViewWrapperFactory` bereitstellen können.
 
 {% tabs local %}
 {% tab Kotlin %}
@@ -451,7 +451,7 @@ Die UI-Elemente von Braze sind standardmäßig so gestaltet, dass sie den Standa
 
 ### Einstellen eines Standard-Stils {#setting-a-default-style}
 
-Sie können die Standardstile in der [`styles.xml`](https://github.com/braze-inc/braze-android-sdk/blob/master/android-sdk-ui/src/main/res/values/styles.xml)-Datei des Braze SDK or Software-Development-Kit einsehen:
+Sie können die Standardstile in der [`styles.xml`](https://github.com/braze-inc/braze-android-sdk/blob/master/android-sdk-ui/src/main/res/values/styles.xml)-Datei des Braze SDK einsehen:
 
 ```xml
   <style name="Braze"/>
@@ -482,7 +482,7 @@ Sie können einige Farben direkt in Ihrer Braze-Campaign anpassen, ohne die XML-
 
 Sie können eine angepasste Schriftart festlegen, indem Sie die Schriftart im Verzeichnis `res/font` ablegen. Um sie zu verwenden, überschreiben Sie den Stil für Nachrichtentext, Überschriften und Button-Text und verwenden Sie das Attribut `fontFamily`, um Braze anzuweisen, Ihre angepasste Schriftfamilie zu verwenden.
 
-Wenn Sie beispielsweise die Schriftart für den Button-Text Ihrer In-App-Nachricht Update or aktualisieren or aktualisieren möchten, überschreiben Sie den Stil `Braze.InAppMessage.Button` und referenzieren Sie Ihre angepasste Schriftfamilie. Der Attributwert sollte auf eine Schriftfamilie in Ihrem Verzeichnis `res/font` verweisen.
+Wenn Sie beispielsweise die Schriftart für den Button-Text Ihrer In-App-Nachricht aktualisieren möchten, überschreiben Sie den Stil `Braze.InAppMessage.Button` und referenzieren Sie Ihre angepasste Schriftfamilie. Der Attributwert sollte auf eine Schriftfamilie in Ihrem Verzeichnis `res/font` verweisen.
 
 Hier ist ein verkürztes Beispiel mit einer angepassten Schriftfamilie `my_custom_font_family`, auf die in der letzten Zeile verwiesen wird:
 
@@ -579,7 +579,7 @@ BrazeInAppMessageManager.getInstance().setClickOutsideModalViewDismissInAppMessa
 
 ## Anpassen der Ausrichtung {#customizing-the-orientation}
 
-Um eine feste Ausrichtung für eine In-App-Nachricht festzulegen, [richten Sie zunächst einen angepassten In-App-Nachrichten-Manager:in-Listener ein]({{site.baseurl}}/developer_guide/in_app_messages/customization/?sdktab=android#android_setting-custom-manager-listeners). Update or aktualisieren or aktualisieren Sie anschließend die Ausrichtung des `IInAppMessage`-Objekts in der Delegate-Methode `beforeInAppMessageDisplayed()`:
+Um eine feste Ausrichtung für eine In-App-Nachricht festzulegen, [richten Sie zunächst einen angepassten In-App-Nachrichten-Manager:in-Listener ein]({{site.baseurl}}/developer_guide/in_app_messages/customization/?sdktab=android#android_setting-custom-manager-listeners). Aktualisieren Sie anschließend die Ausrichtung des `IInAppMessage`-Objekts in der Delegate-Methode `beforeInAppMessageDisplayed()`:
 
 {% tabs %}
 {% tab JAVA %}

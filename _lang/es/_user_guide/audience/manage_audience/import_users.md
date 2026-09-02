@@ -2,12 +2,12 @@
 nav_title: Importar usuarios
 article_title: Importar usuarios
 page_order: 3
-description: "Conoce las distintas opciones de importación de usuarios de Braze, como la importación por CSV, REST or transferencia de estado representacional API, Ingesta de datos de Cloud y más."
+description: "Conoce las distintas opciones de importación de usuarios de Braze, como la importación por CSV, REST API, Ingesta de datos de Cloud y más."
 
 ---
 # Importar usuarios {#import-users}
 
-> Conoce las distintas opciones de importación de usuarios de Braze, como la importación por CSV, REST or transferencia de estado representacional API, Ingesta de datos de Cloud y más.
+> Conoce las distintas opciones de importación de usuarios de Braze, como la importación por CSV, REST API, Ingesta de datos de Cloud y más.
 
 ## Opciones de importación {#import-options}
 
@@ -40,7 +40,7 @@ Utiliza nuestro script de importación CSV Lambda S3 sin servidor para cargar at
 
 Los tiempos estimados de ejecución para un archivo con 1 000 000 de filas deberían ser de aproximadamente cinco minutos. Consulta [Importación CSV de atributos de usuario a Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion) para obtener más información.
 
-### REST or transferencia de estado representacional API
+### REST API
 
 Utiliza el [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) para registrar eventos personalizados, atributos de usuario y compras de usuarios.
 

@@ -76,23 +76,23 @@ Cuando se sincroniza un perfil de usuario, se fusionan los siguientes campos. Pa
 
 ### Recopilar suscriptores (opcional) {#collecting-subscribers-optional}
 
-Puedes elegir recopilar suscriptores directamente a través de Braze (en la configuración de tu conector de Shopify) o a través de alternativas de API y SDK or kit de desarrollo de software que sincronizan los datos desde Shopify.
+Puedes elegir recopilar suscriptores directamente a través de Braze (en la configuración de tu conector de Shopify) o a través de alternativas de API y SDK que sincronizan los datos desde Shopify.
 
 {% tabs local %}
 {% tab Shopify connector %}
-En el paso **Manage users** de la configuración de tu conector de Shopify, puedes utilizar Braze para recopilar las adhesiones voluntarias de suscriptores por correo electrónico y servicio de mensajes cortos y organizarlas en un grupo de suscripción dedicado:
+En el paso **Manage users** de la configuración de tu conector de Shopify, puedes utilizar Braze para recopilar las adhesiones voluntarias de suscriptores por correo electrónico y SMS y organizarlas en un grupo de suscripción dedicado:
 
 1. Crea un grupo de suscripción único para cada tienda que conectes. Esto te ayuda a mantener datos precisos sobre la procedencia de los suscriptores.
-2. Habilita la recopilación de suscriptores por correo electrónico y servicio de mensajes cortos.
+2. Habilita la recopilación de suscriptores por correo electrónico y SMS.
 {% endtab %}
 
 {% tab Braze API or SDKs %}
-Alternativamente, puedes sincronizar la información de adhesión voluntaria al marketing por correo electrónico y servicio de mensajes cortos directamente desde Shopify utilizando la API o los SDK or kit de desarrollo de software de Braze.
+Alternativamente, puedes sincronizar la información de adhesión voluntaria al marketing por correo electrónico y SMS directamente desde Shopify utilizando la API o los SDK de Braze.
 
 | Opción | Recursos |
 |------|---------|
 | API | - [Endpoints de grupos de suscripción]({{site.baseurl}}/api/endpoints/subscription_groups) para sustituir directamente lo que admite la integración<br>- [Endpoint `Users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#set-subscription-groups) para configurar los datos del grupo de suscripción o el [estado global de suscripción al correo electrónico]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions#subscription-states)<br>- [Centro de preferencias de Braze]({{site.baseurl}}/user_guide/channels/email/subscriptions) para más opciones personalizadas de recopilación de adhesiones voluntarias de marketing |
-| SDK or kit de desarrollo de software | - [`NotificationSubscriptionTypes`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#notificationsubscriptiontypes)<br>- [`addToSubscriptionGroup`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup)<br>- [`removeFromSubscriptionGroup`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#removefromsubscriptiongroup)<br>- [`setEmailNotificationSubscriptionType`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemailnotificationsubscriptiontype) |
+| SDK | - [`NotificationSubscriptionTypes`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#notificationsubscriptiontypes)<br>- [`addToSubscriptionGroup`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup)<br>- [`removeFromSubscriptionGroup`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#removefromsubscriptiongroup)<br>- [`setEmailNotificationSubscriptionType`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemailnotificationsubscriptiontype) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Recopilar suscriptores (opcional)" }
 {% endtab %}
 {% endtabs %}

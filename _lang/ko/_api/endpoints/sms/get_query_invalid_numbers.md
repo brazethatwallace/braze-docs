@@ -10,7 +10,7 @@ description: "이 문서에서는 유효하지 않은 전화번호를 조회하�
 {% api %}
 # 유효하지 않은 전화번호 조회 {#query-invalid-phone-numbers}
 {% apimethod get %}
-/단문 메시지 서비스/invalid_phone_numbers
+/sms/invalid_phone_numbers
 {% endapimethod %}
 
 > 이 엔드포인트를 사용하여 특정 기간 내에 "유효하지 않음"으로 표시된 전화번호 목록을 가져올 수 있습니다. 자세한 내용은 [유효하지 않은 전화번호 처리]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#handling-invalid-phone-numbers) 설명서를 참조하세요.
@@ -34,7 +34,7 @@ description: "이 문서에서는 유효하지 않은 전화번호를 조회하�
 | `limit` | 선택 사항 | 정수 | 반환되는 결과 수를 제한하는 선택적 필드입니다. 기본값은 100이며, 최대값은 500입니다. |
 | `offset` | 선택 사항 | 정수 | 검색을 시작할 목록의 시작점입니다(선택 사항). |
 | `phone_numbers` | 선택 사항 <br>(참고 참조) | e.164 형식의 문자열 배열 | 제공된 경우, 해당 전화번호가 유효하지 않은 것으로 확인되면 반환합니다. |
-| `reason` | 선택 사항 <br>(참고 참조) | 문자열 | 사용 가능한 값은 "provider_error"(공급자 오류로 인해 해당 전화기에서 단문 메시지 서비스를 수신할 수 없음) 또는 "deactivated"(전화번호가 비활성화됨)입니다. 생략하면 모든 사유가 반환됩니다. |
+| `reason` | 선택 사항 <br>(참고 참조) | 문자열 | 사용 가능한 값은 "provider_error"(공급자 오류로 인해 해당 전화기에서 SMS를 수신할 수 없음) 또는 "deactivated"(전화번호가 비활성화됨)입니다. 생략하면 모든 사유가 반환됩니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 {% alert note %}

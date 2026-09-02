@@ -27,8 +27,8 @@ Al utilizar la integración, BlueConic enviará deltas (datos cambiantes) en cad
 | Requisito | Descripción |
 | --- | --- |
 | Cuenta BlueConic | Se requiere una [cuenta BlueConic](https://www.blueconic.com/) para beneficiarse de esta asociación. Necesitarás acceso para [ver y editar conexiones](https://support.blueconic.com/hc/en-us/articles/202607121-BlueConic-Roles) dentro de tu cuenta BlueConic para acceder a los plugins. |
-| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos `users.track`, `users.export.segment`, `campaigns.list`, `campaigns.details`, `segments.lists` y `segments.details`. <br><br> Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
-| Endpoint REST or transferencia de estado representacional de Braze | La URL de tu endpoint REST or transferencia de estado representacional. Tu endpoint dependerá de la [URL de Braze para tu instancia](https://portal.aws.amazon.com/billing/signup#/start). |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`, `users.export.segment`, `campaigns.list`, `campaigns.details`, `segments.lists` y `segments.details`. <br><br> Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Endpoint REST de Braze | La URL de tu endpoint REST. Tu endpoint dependerá de la [URL de Braze para tu instancia](https://portal.aws.amazon.com/billing/signup#/start). |
 | Autenticación S3 | Necesitarás acceso a un servidor de Amazon Web Services (S3) para exportar e importar los datos. |
 | ID de la clave de acceso<br>Clave de acceso secreta | El ID de la clave de acceso y la clave de acceso secreta te permitirán autenticar tu servidor S3 para importar y exportar. |
 | Contenedor AWS | Tendrás que conectarte a S3 dentro del plugin. Tras la autenticación, los contenedores disponibles aparecerán en un menú desplegable. Aquí se almacenan los archivos que se van a importar o exportar. |
@@ -49,7 +49,7 @@ Guarda tu configuración.
 Para configurar la conexión entre BlueConic y Braze, debes añadir las credenciales de tu cuenta Braze y la información de la cuenta de Amazon Web Services (S3) para autenticar la conexión.
 
 1. En BlueConic, selecciona **Set up and run** en la sección **Setup**.<br><br>
-2. En la página de autenticación de Braze que se abre, introduce tu endpoint de la API REST or transferencia de estado representacional de Braze y tu clave de API de Braze.<br>
+2. En la página de autenticación de Braze que se abre, introduce tu endpoint de la API REST de Braze y tu clave de API de Braze.<br>
 ![Formulario de configuración de autenticación de BlueConic Braze para el endpoint REST y la clave de API.]({% image_buster /assets/img/blueconic/braze2.png %}){: style="max-width:80%;"}<br><br>
 3. En la sección de configuración y autenticación de S3, introduce estas credenciales: ID de la clave de acceso, clave de acceso secreta y contenedor de S3 de Amazon Web Services (S3). Deben ser las [mismas credenciales]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3) que configuraste al establecer la integración de Braze y Amazon S3. Guarda tu configuración. <br>![Campos de configuración de S3 en BlueConic para la clave de acceso, la clave secreta y el contenedor.]({% image_buster /assets/img/blueconic/braze3.png %}){: style="max-width:80%;"}
 

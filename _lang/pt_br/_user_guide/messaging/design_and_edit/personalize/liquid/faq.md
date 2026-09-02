@@ -62,14 +62,14 @@ Para uso em URLs e strings de consulta (por exemplo, quando um nome contém `%` 
 
 ### Como uso o Liquid com objetos aninhados? {#how-do-i-use-liquid-with-nested-objects}
 
-A Braze tem um recurso integrado que gera código Liquid para Segments que podem ser usados em uma mensagem. Especificamente, você pode criar um Segment or segmento que corresponda a múltiplos critérios em um objeto.
+A Braze tem um recurso integrado que gera código Liquid para Segments que podem ser usados em uma mensagem. Especificamente, você pode criar um Segment que corresponda a múltiplos critérios em um objeto.
 
 Para saber mais, confira [Segmentação com múltiplos critérios]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#segmentation-behavior-with-arrays-of-objects).
 
 ### Como uso propriedades de evento para personalizar uma mensagem que um evento está disparando? {#how-do-i-use-event-attributes-to-personalize-a-message-that-an-event-is-triggering}
 
 {% raw %}
-Você pode acessar propriedades de eventos disparados por API or interface de programação do aplicativo (API) com a tag `api_triggered_property`: `{{api_trigger_properties.${attribute_key}}}`.
+Você pode acessar propriedades de eventos disparados por API com a tag `api_triggered_property`: `{{api_trigger_properties.${attribute_key}}}`.
 {% endraw %}
 
 ### A Braze suporta um array de arrays no Liquid? {#does-braze-support-an-array-of-arrays-in-liquid}
@@ -188,7 +188,7 @@ Para exibir um número de telefone de 10 dígitos como `123***7890`:
 
 ## Canvas, catálogos e propriedades de disparo {#canvas-catalogs-and-trigger-properties}
 
-### Por que meu Liquid disparado por API or interface de programação do aplicativo (API) está falhando na Braze? {#why-is-my-api-triggered-liquid-failing-in-braze}
+### Por que meu Liquid disparado por API está falhando na Braze? {#why-is-my-api-triggered-liquid-failing-in-braze}
 
 {% raw %}
 Uma causa comum é um par extra de chaves. Por exemplo, `{{{api_trigger_properties.${attribute_key}}}}` não é uma sintaxe de personalização válida na Braze. Use exatamente duas chaves de abertura e duas de fechamento: `{{api_trigger_properties.${attribute_key}}}`.

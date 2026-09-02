@@ -20,7 +20,7 @@ tool: Currents
 * Modifications de champs pour le type d'événement `users.messages.email.Click` :
     * Ajout d'un nouveau champ `int` `send_time` : Heure en secondes de l'événement d'envoi correspondant
     * Ajout d'un nouveau champ `boolean` `has_url_parameters` : Indique si l'URL cliquée contenait des paramètres de requête
-    * Ajout d'un nouveau champ `boolean` `link_aliasing_enabled` : Indique si l'aliasage de lien or aliasing de lien était activé pour l'espace de travail lors du traitement de ce clic
+    * Ajout d'un nouveau champ `boolean` `link_aliasing_enabled` : Indique si l'aliasage de lien était activé pour l'espace de travail lors du traitement de ce clic
 
 * Modifications de champs pour le type d'événement `users.messages.email.Deferral` :
     * Ajout d'un nouveau champ `int` `send_time` : Heure de l'événement d'envoi correspondant

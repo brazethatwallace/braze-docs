@@ -12,32 +12,32 @@ page_type: reference
 
 ## ¿Qué es Postman? {#what-is-postman}
 
-Postman es una herramienta de edición visual gratuita para crear y probar solicitudes de API. En comparación con otros métodos (por ejemplo, usar cURL), Postman te permite editar solicitudes de API, ver información de encabezados y mucho más. Puedes guardar colecciones (bibliotecas de solicitudes de API prediseñadas de ejemplo). Para acelerar la configuración con nuestra REST or transferencia de estado representacional API, proporcionamos una colección con ejemplos prediseñados para todos los endpoints.
+Postman es una herramienta de edición visual gratuita para crear y probar solicitudes de API. En comparación con otros métodos (por ejemplo, usar cURL), Postman te permite editar solicitudes de API, ver información de encabezados y mucho más. Puedes guardar colecciones (bibliotecas de solicitudes de API prediseñadas de ejemplo). Para acelerar la configuración con nuestra REST API, proporcionamos una colección con ejemplos prediseñados para todos los endpoints.
 
 Consulta o descarga nuestra colección de Postman haciendo clic en **Run in Postman** en nuestra [documentación de Postman](https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#intro) para comenzar.
 
 ## Uso de la colección de Postman de Braze {#using-the-braze-postman-collection}
 
-Si tienes una cuenta de Postman (puedes descargar las versiones para macOS, Windows y Linux desde el [sitio web de Postman](https://www.getpostman.com)), puedes abrir nuestra documentación de Postman en tu propia aplicación de Postman haciendo clic en el botón naranja **Run in Postman**. A continuación, puedes [crear un entorno](#setting-up-your-postman-environment) o utilizar nuestro entorno de la REST or transferencia de estado representacional API de Braze como plantilla, y editar las solicitudes `POST` y `GET` disponibles para adaptarlas a tus necesidades.
+Si tienes una cuenta de Postman (puedes descargar las versiones para macOS, Windows y Linux desde el [sitio web de Postman](https://www.getpostman.com)), puedes abrir nuestra documentación de Postman en tu propia aplicación de Postman haciendo clic en el botón naranja **Run in Postman**. A continuación, puedes [crear un entorno](#setting-up-your-postman-environment) o utilizar nuestro entorno de la REST API de Braze como plantilla, y editar las solicitudes `POST` y `GET` disponibles para adaptarlas a tus necesidades.
 
 ### Configuración de tu entorno de Postman {#setting-up-your-postman-environment}
 
 {% raw %}
-La colección de Postman de Braze utiliza una variable de plantilla, `{{instance_url}}`, para sustituir la URL de la REST or transferencia de estado representacional API de tu instancia de Braze en las solicitudes preconstruidas, y la variable `{{api_key}}` para tu clave de API. En lugar de tener que editar manualmente todas las solicitudes de la colección, puedes configurar esta variable en tu entorno de Postman. Puedes seleccionar nuestro entorno con plantilla (Braze REST or transferencia de estado representacional API Environment Template) en el menú desplegable y reemplazar los valores de las variables por los tuyos, o puedes configurar tu propio entorno.
+La colección de Postman de Braze utiliza una variable de plantilla, `{{instance_url}}`, para sustituir la URL de la REST API de tu instancia de Braze en las solicitudes preconstruidas, y la variable `{{api_key}}` para tu clave de API. En lugar de tener que editar manualmente todas las solicitudes de la colección, puedes configurar esta variable en tu entorno de Postman. Puedes seleccionar nuestro entorno con plantilla (Braze REST API Environment Template) en el menú desplegable y reemplazar los valores de las variables por los tuyos, o puedes configurar tu propio entorno.
 {% endraw %}
 
 Para configurar tu propio entorno, realiza los siguientes pasos:
 
 1. Desde la pestaña **Workspaces**, selecciona **Environments**.
 2. Haz clic en el botón **+** (más) para crear un nuevo entorno.
-3. Dale un nombre a este entorno (por ejemplo, "Braze API Requests") y añade claves para `instance_url` y `api_key` con valores correspondientes a tu [instancia de Braze]({{site.baseurl}}/api/basics) y [clave de API REST or transferencia de estado representacional de Braze]({{site.baseurl}}/api/basics).
+3. Dale un nombre a este entorno (por ejemplo, "Braze API Requests") y añade claves para `instance_url` y `api_key` con valores correspondientes a tu [instancia de Braze]({{site.baseurl}}/api/basics) y [clave de API REST de Braze]({{site.baseurl}}/api/basics).
 4. Haz clic en **Save**.
 
 {% alert note %}
 En los cuerpos de las solicitudes `POST`, la `api_key` debe estar encapsulada entre comillas: `"MY-API-KEY-EXAMPLE"`. En las URL `GET`, no debe estarlo. Ya hemos proporcionado este formato en los cuerpos de solicitudes `POST`, las URL `GET` y la plantilla de entorno para `YOUR-API-KEY-HERE` de esta documentación.
 {% endalert %}
 
-![Adición de variables para la clave de API y la URL de instancia al entorno de la REST or transferencia de estado representacional API de Braze en Postman.]({% image_buster /assets/img_archive/postman_variable.png %})
+![Adición de variables para la clave de API y la URL de instancia al entorno de la REST API de Braze en Postman.]({% image_buster /assets/img_archive/postman_variable.png %})
 
 ### Uso de las solicitudes preconstruidas de la colección {#using-the-pre-built-requests-from-the-collection}
 

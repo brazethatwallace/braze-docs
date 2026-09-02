@@ -1,6 +1,6 @@
 ---
 nav_title: "Objeto de agendamento"
-article_title: Objeto de agendamento da API or interface de programação do aplicativo (API)
+article_title: Objeto de agendamento da API
 page_order: 12
 page_type: reference
 description: "Este artigo de referência lista e explica os diferentes objetos de agendamento usados na Braze."
@@ -37,6 +37,6 @@ Você recebe um `schedule_id` pela mensagem agendada que criou.
 }
 ```
 
-Se você usar a API or interface de programação do aplicativo (API) para chamadas de servidor para servidor, pode ser necessário colocar na lista de permissões o URL apropriado da API or interface de programação do aplicativo (API) se ela estiver atrás de um firewall.
+Se você usar a API para chamadas de servidor para servidor, pode ser necessário colocar na lista de permissões o URL apropriado da API se ela estiver atrás de um firewall.
 
 As respostas do endpoint de agendamento de mensagens incluem o `dispatch_id` da mensagem para referência de volta ao envio da mensagem. O `dispatch_id` é o ID do despacho da mensagem (ID único para cada 'transmissão' enviada pela Braze).

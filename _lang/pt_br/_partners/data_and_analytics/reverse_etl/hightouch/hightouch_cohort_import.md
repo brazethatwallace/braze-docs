@@ -27,7 +27,7 @@ No Hightouch, usando o [modelo](https://hightouch.io/docs/getting-started/create
 Somente os usuários que já existem na Braze serão adicionados ou removidos de uma coorte. A importação de coorte não criará novos usuários na Braze.
 {% endalert %}
 
-### Etapa 4: Criar um Segment or segmento na Braze a partir do público personalizado do Hightouch {#step-4-create-a-braze-segment-from-the-hightouch-custom-audience}
+### Etapa 4: Criar um Segment na Braze a partir do público personalizado do Hightouch {#step-4-create-a-braze-segment-from-the-hightouch-custom-audience}
 Na Braze, navegue até **Segments**, crie um novo segmento e selecione **Hightouch Cohorts** como seu filtro. A partir daí, você pode escolher qual coorte do Hightouch deseja incluir. Depois que o segmento de coorte do Hightouch for criado, você poderá selecioná-lo como filtro de público ao criar uma Campaign ou um Canvas.<br><br>![Criador de segmentos na Braze usando o filtro Hightouch Cohorts.]({% image_buster /assets/img/hightouch/cohort3.png %}){: style="max-width:90%;"}
 
 ### Usando essa integração {#using-this-integration}

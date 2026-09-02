@@ -16,7 +16,7 @@ tool: Reports
   }
 </style>
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## AMP Clicks {#amp-clicks}
 
@@ -28,7 +28,7 @@ Email
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## AMP Opens {#amp-opens}
 
@@ -40,7 +40,7 @@ Email
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Público {#audience}
 
@@ -54,7 +54,7 @@ All
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Bounces {#bounces}
 
@@ -82,7 +82,7 @@ Email, Web Push, iOS Push
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Body Click {#body-click}
 
@@ -96,7 +96,7 @@ iOS Push, Android Push
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Body Clicks {#body-clicks}
 
@@ -110,7 +110,7 @@ In-App Message
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Button 1 Clicks {#button-1-clicks}
 
@@ -124,7 +124,7 @@ In-App Message
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Button 2 Clicks {#button-2-clicks}
 
@@ -138,7 +138,7 @@ In-App Message
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Análise de dados da campanha {#campaign-analytics}
 
@@ -150,7 +150,7 @@ O desempenho da mensagem em vários canais. As métricas exibidas dependem do ca
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Choices Submitted {#choices-submitted}
 
@@ -162,7 +162,7 @@ In-App Message
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Click-to-Open Rate {#click-to-open-rate}
 
@@ -176,7 +176,7 @@ Email
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## RCS Confirmed Deliveries ou SMS Confirmed Deliveries {#rcs-confirmed-deliveries-or-sms-confirmed-deliveries}
 
@@ -198,7 +198,7 @@ SMS/MMS, RCS
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Confiança {#confidence}
 
@@ -210,7 +210,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Botão da página de confirmação {#confirmation-page-button}
 
@@ -222,7 +222,7 @@ In-App Message
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Dispensas da página de confirmação {#confirmation-page-dismissals}
 
@@ -234,7 +234,7 @@ In-App Message
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Conversões (B, C, D) {#conversions-b-c-d}
 
@@ -253,7 +253,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Total Conversions {#total-conversions}
 
@@ -269,7 +269,7 @@ Por exemplo, se um usuário acionar uma mensagem no app duas vezes e converter a
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Close Message {#close-message}
 
@@ -281,7 +281,7 @@ In-App Message
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Taxa de conversão {#conversion-rate}
 
@@ -308,7 +308,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Janela de conversão {#conversion-window}
 
@@ -320,7 +320,7 @@ All
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Entregas {#deliveries}
 
@@ -347,7 +347,7 @@ Email, Web Push, iOS Push, Android Push, WhatsApp
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## RCS Delivery Failures ou SMS Delivery Failures {#rcs-delivery-failures-or-sms-delivery-failures}
 
@@ -363,7 +363,7 @@ Entre em contato com o <a href="/docs/braze_support">suporte da Braze</a> para o
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Delivery Failures {#delivery-failures}
 
@@ -379,7 +379,7 @@ Entre em contato com o <a href="/docs/braze_support">suporte da Braze</a> para o
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Taxa de falha na entrega {#failed-delivery-rate}
 
@@ -395,7 +395,7 @@ Entre em contato com o <a href="/docs/braze_support">suporte da Braze</a> para o
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Aberturas Diretas {#direct-opens}
 
@@ -409,7 +409,7 @@ iOS Push
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Emailable {#emailable}
 
@@ -423,7 +423,7 @@ Email
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Erros {#errors}
 
@@ -435,7 +435,7 @@ Webhook
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Estimated Real Opens {#estimated-real-opens}
 
@@ -447,7 +447,7 @@ Email
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Falhas {#failures}
 
@@ -461,7 +461,7 @@ WhatsApp
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Desempenho do experimento de Feature Flag {#feature-flag-experiment-performance}
 
@@ -473,7 +473,7 @@ Métricas de desempenho para a mensagem em um experimento de Feature Flag. As m�
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Hard Bounce {#hard-bounce}
 
@@ -487,7 +487,7 @@ Quando isso ocorre, a Braze marca o endereço de e-mail como inválido, mas não
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Help {#help}
 
@@ -499,7 +499,7 @@ SMS/MMS, RCS
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Aberturas por Influência {#influenced-opens}
 
@@ -513,7 +513,7 @@ iOS Push, Android Push
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Lifetime Revenue {#lifetime-revenue}
 
@@ -525,7 +525,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Lifetime Value Per User {#lifetime-value-per-user}
 
@@ -537,7 +537,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Receita média diária {#average-daily-revenue}
 
@@ -549,7 +549,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Compras diárias {#daily-purchases}
 
@@ -561,7 +561,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Receita diária por usuário {#daily-revenue-per-user}
 
@@ -573,7 +573,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Machine Opens {#machine-opens}
 
@@ -585,7 +585,7 @@ Email
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Opens {#opens}
 
@@ -597,7 +597,7 @@ Web Push, iOS Push, Android Push
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Descadastramento {#opt-out}
 
@@ -609,7 +609,7 @@ SMS/MMS, RCS
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Other Opens {#other-opens}
 
@@ -621,7 +621,7 @@ Email
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Tentativa pendente {#pending-retry}
 
@@ -633,7 +633,7 @@ Email
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Primary Conversions (A) ou conversão primária Event {#primary-conversions-a-or-primary-conversion-event}
 
@@ -661,7 +661,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Reads {#reads}
 
@@ -673,7 +673,7 @@ WhatsApp
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Read Rate {#read-rate}
 
@@ -687,7 +687,7 @@ WhatsApp
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Recebidas {#received}
 
@@ -709,7 +709,7 @@ Email, Content Cards, In-App Message, Web Push, iOS Push, Android Push, SMS/MMS,
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## RCS Rejections ou SMS Rejections {#rcs-rejections-or-sms-rejections}
 
@@ -731,7 +731,7 @@ SMS/MMS, RCS
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Receita {#revenue}
 
@@ -743,7 +743,7 @@ Email
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Sent {#sent}
 
@@ -757,7 +757,7 @@ SMS/MMS
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Sends {#sends}
 
@@ -778,7 +778,7 @@ Para Content Cards, essa métrica é calculada de forma diferente dependendo do 
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Messages Sent {#messages-sent}
 
@@ -799,7 +799,7 @@ Para Content Cards, essa métrica é calculada de forma diferente dependendo do 
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Sends to Carrier {#sends-to-carrier}
 
@@ -821,7 +821,7 @@ SMS/MMS
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Soft Bounce {#soft-bounce}
 
@@ -833,11 +833,11 @@ Email
 
 Observe que _Soft Bounces_ diferem de _Deferrals_. Se nenhum e-mail for entregue com sucesso durante esse período de nova tentativa, a Braze envia um evento de soft bounce por tentativa de envio de campanha. Antes de 25 de fevereiro de 2025, essas novas tentativas eram contadas como múltiplos soft bounces para um envio de campanha.
 
-Embora os soft bounces não sejam rastreados na análise de dados da sua campanha, você pode monitorar os soft bounces no [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log). Você também pode excluir esses usuários do seu envio ou verificar a quantidade de soft bounces dos últimos 30 dias com o [filtro de Segment or segmento Soft Bounced]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced). No Registro de atividades de envio de mensagem, você também pode ver o motivo dos soft bounces e entender possíveis discrepâncias entre os "envios" e as "entregas" das suas campanhas de e-mail.
+Embora os soft bounces não sejam rastreados na análise de dados da sua campanha, você pode monitorar os soft bounces no [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log). Você também pode excluir esses usuários do seu envio ou verificar a quantidade de soft bounces dos últimos 30 dias com o [filtro de Segment Soft Bounced]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced). No Registro de atividades de envio de mensagem, você também pode ver o motivo dos soft bounces e entender possíveis discrepâncias entre os "envios" e as "entregas" das suas campanhas de e-mail.
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Spam {#spam}
 
@@ -863,7 +863,7 @@ As reclamações de spam são tratadas diretamente pelos provedores de serviço 
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Survey Page Dismissals {#survey-page-dismissals}
 
@@ -875,7 +875,7 @@ In-App Message
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Survey Submissions {#survey-submissions}
 
@@ -887,7 +887,7 @@ In-App Message
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Total Clicks {#total-clicks}
 
@@ -916,7 +916,7 @@ Email, Content Cards, SMS/MMS, LINE
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Total Dismissals {#total-dismissals}
 
@@ -938,7 +938,7 @@ Content Cards, Banners
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Total Impressions {#total-impressions}
 
@@ -958,7 +958,7 @@ In-App Message, Content Cards
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Total Opens {#total-opens}
 
@@ -990,7 +990,7 @@ Email, iOS Push, Android Push, Web Push, LINE
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Total Revenue {#total-revenue}
 
@@ -1002,7 +1002,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Unique Clicks {#unique-clicks}
 
@@ -1033,7 +1033,7 @@ Isso inclui cliques nos links de cancelamento de inscrição fornecidos pela Bra
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Unique Dismissals {#unique-dismissals}
 
@@ -1047,7 +1047,7 @@ Content Cards
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Unique Daily Impressions {#unique-daily-impressions}
 
@@ -1063,7 +1063,7 @@ Esse número é recebido da Braze e é baseado no `user_id`. As impressões diá
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Unique Impressions {#unique-impressions}
 
@@ -1083,7 +1083,7 @@ In-App Message, Content Cards
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Unique Opens {#unique-opens}
 
@@ -1111,7 +1111,7 @@ Email, LINE
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Unique Recipients {#unique-recipients}
 
@@ -1121,7 +1121,7 @@ Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, RCS, 
 
 {% multi_lang_include analytics/metrics.md metric='Unique Recipients' %}
 
-Como um visualizador pode ser um destinatário único a cada dia, você deve esperar que esse número seja maior do que <i>Unique Impressions</i>. Esse número é recebido da Braze e é baseado no `user_id`. Os destinatários únicos são contados no nível da campanha ou etapa do Canvas, não no nível do <a href='{{ site.homeurl }}{{ site.baseurl }}/API or interface de programação do aplicativo (API)/identifier_types/#send-identifier'>identificador de envio</a>.
+Como um visualizador pode ser um destinatário único a cada dia, você deve esperar que esse número seja maior do que <i>Unique Impressions</i>. Esse número é recebido da Braze e é baseado no `user_id`. Os destinatários únicos são contados no nível da campanha ou etapa do Canvas, não no nível do <a href='{{ site.homeurl }}{{ site.baseurl }}/api/identifier_types/#send-identifier'>identificador de envio</a>.
 
 Os usuários que recebem bounce ainda contam como <i>Unique Recipients</i> quando a Braze os conta como destinatários para aquele dia de envio. <i>Unique Recipients</i> é baseado nos usuários que a Braze direcionou para a mensagem naquele dia, não apenas nas entregas bem-sucedidas.
 
@@ -1129,7 +1129,7 @@ Os usuários que recebem bounce ainda contam como <i>Unique Recipients</i> quand
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Unsubscribers ou Unsub {#unsubscribers-or-unsub}
 
@@ -1151,7 +1151,7 @@ Email
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Unsubscribes {#unsubscribes}
 
@@ -1165,7 +1165,7 @@ Email
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Variante {#variation}
 

@@ -85,7 +85,7 @@ Die folgenden Einstellungen sind in Ihrem Canvas vorkonfiguriert:
     - Konversions-Event: `ecommerce.order_placed`
         - Conversion-Frist: 3 Tage
 - Entry-Zeitplan
-    - Aktionsbasierter Trigger or triggern, wenn ein:e Nutzer:in das **Perform Cart Updated Event** auslöst (im Dropdown-Menü)
+    - Aktionsbasierter Trigger, wenn ein:e Nutzer:in das **Perform Cart Updated Event** auslöst (im Dropdown-Menü)
     - Startzeit ist der Zeitpunkt, an dem Sie das Canvas-Template erstellen<br><br>![„Action Based Options“ für das Canvas.]({% image_buster /assets/img/ecommerce/abandoned_cart_entry.png %})<br><br>
 - Zielgruppe
     - Entry-Zielgruppe
@@ -109,7 +109,7 @@ Wenn ein:e Nutzer:in den Checkout-Prozess startet, wird der Warenkorb als `check
 1. Wenn ein:e Nutzer:in einen Artikel in den Warenkorb legt, betritt er/sie den Canvas.
 2. Bei jeder Hinzufügung oder Aktualisierung von Artikeln erfolgt ein erneuter Eintritt in den Canvas – so bleiben Warenkorb-Daten und Messaging stets aktuell.
 3. Wenn der/die Nutzer:in den Checkout-Prozess startet, wird der Warenkorb mit `checkout_started` getaggt und er/sie verlässt den Canvas.
-4. Zukünftige Warenkorb-Updates mit derselben Warenkorb-ID Trigger or triggern or triggern keinen erneuten Eintritt, da dieser Warenkorb bereits in die Checkout-Phase übergegangen ist.
+4. Zukünftige Warenkorb-Updates mit derselben Warenkorb-ID triggern keinen erneuten Eintritt, da dieser Warenkorb bereits in die Checkout-Phase übergegangen ist.
 
 Wenn Nutzer:innen zur Checkout-Journey übergehen, werden sie stattdessen vom [Canvas für abgebrochene Checkouts](#abandoned-checkout) angesprochen, der für Nutzer:innen konzipiert ist, die sich bereits weiter im Kaufprozess befinden.
 
@@ -187,7 +187,7 @@ Die folgenden Einstellungen sind in Ihrem Canvas vorkonfiguriert:
     - Konversions-Event: `ecommerce.order_placed`
         - Conversion-Frist: 3 Tage
 - Entry-Zeitplan
-    - Aktionsbasierter Trigger or triggern, wenn ein:e Nutzer:in das Event `ecommerce.checkout_started` ausführt
+    - Aktionsbasierter Trigger, wenn ein:e Nutzer:in das Event `ecommerce.checkout_started` ausführt
     - Startzeit ist der Zeitpunkt, an dem Sie das Canvas-Template erstellen<br><br>![„Action Based Options“ für das Canvas.]({% image_buster /assets/img/ecommerce/abandoned_checkout_entry.png %})
 - Zielgruppe
     - Entry-Zielgruppe
@@ -275,7 +275,7 @@ Die folgenden Einstellungen sind in Ihrem Canvas vorkonfiguriert:
     - Konversions-Event: `ecommerce.session_start`
         - Conversion-Frist: 10 Tage
 - Entry-Zeitplan
-    - Aktionsbasierter Trigger or triggern, wenn ein:e Nutzer:in das Event `ecommerce.cart_updated` ausführt
+    - Aktionsbasierter Trigger, wenn ein:e Nutzer:in das Event `ecommerce.cart_updated` ausführt
     - Startzeit ist der Zeitpunkt, an dem Sie das Canvas-Template erstellen<br><br>![„Action Based Options“ für das Canvas.]({% image_buster /assets/img/ecommerce/feedback_entry.png %})<br><br>
 - Zielgruppe
     - Entry-Zielgruppe

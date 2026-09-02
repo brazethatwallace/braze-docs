@@ -1,13 +1,13 @@
 ---
-nav_title: "CDP or plataforma de dados do cliente or CDP or plataforma de dados do cliente or plataforma de dados do cliente"
-article_title: "CDP or plataforma de dados do cliente or CDP or plataforma de dados do cliente or plataforma de dados do cliente"
+nav_title: "CDP"
+article_title: "CDP"
 page_type: landing
-description: "Navegue pelas integrações de parceiros de tecnologia para CDP or plataforma de dados do cliente or CDP or plataforma de dados do cliente or plataforma de dados do cliente."
+description: "Navegue pelas integrações de parceiros de tecnologia para CDP."
 layout: dev_guide
 search_tag: Partner
 
-guide_top_header: "CDP or plataforma de dados do cliente or CDP or plataforma de dados do cliente or plataforma de dados do cliente"
-guide_top_text: "Navegue pelas integrações de parceiros de tecnologia para CDP or plataforma de dados do cliente or CDP or plataforma de dados do cliente or plataforma de dados do cliente. Para uma lista completa, pesquisável e filtrável de todos os parceiros de tecnologia da Braze, visite o <a href='https://marketplace.braze.com/t/type/technology-partner'>Braze Marketplace</a>."
+guide_top_header: "CDP"
+guide_top_text: "Navegue pelas integrações de parceiros de tecnologia para CDP. Para uma lista completa, pesquisável e filtrável de todos os parceiros de tecnologia da Braze, visite o <a href='https://marketplace.braze.com/t/type/technology-partner'>Braze Marketplace</a>."
 
 guide_featured_title: "Parceiros"
 guide_featured_list:

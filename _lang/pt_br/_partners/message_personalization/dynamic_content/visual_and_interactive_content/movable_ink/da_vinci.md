@@ -18,13 +18,13 @@ search_tag: Partner
 |------------|-------------|
 | Movable Ink Da Vinci | É necessário ter uma conta Movable Ink Da Vinci para aproveitar essa parceria. |
 | Braze Currents - Eventos de engajamento com mensagem | Uma exportação personalizada do Braze Currents é necessária para enviar dados de eventos de engajamento com mensagem para a Movable Ink. |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | É necessária uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com as permissões `messages.send`, `sends.id.create` e `campaigns.details`. Isso pode ser criado no dashboard da Braze em **Settings** > **API or interface de programação do aplicativo (API) Keys**. <br><br>A equipe da sua conta Movable Ink fornecerá mais instruções de configuração diretamente. Consulte a seção [Integração](#integration). |
+| Chave da API REST da Braze | É necessária uma chave da API REST da Braze com as permissões `messages.send`, `sends.id.create` e `campaigns.details`. Isso pode ser criado no dashboard da Braze em **Settings** > **API Keys**. <br><br>A equipe da sua conta Movable Ink fornecerá mais instruções de configuração diretamente. Consulte a seção [Integração](#integration). |
 | Instância do app Da Vinci na Braze | Crie uma instância dedicada do app Da Vinci na Braze. Um novo app pode ser criado no dashboard da Braze acessando **Settings** > **App Settings** > **+ Add App**. Nomeie o app como "**Movable Ink - Da Vinci**" e selecione qualquer plataforma (é necessário selecionar uma plataforma, mas o tipo não afeta a funcionalidade). Saiba mais sobre [como adicionar um novo app]({{site.baseurl}}/user_guide/administrative/app_settings/workspaces/#step-3-add-your-app-instances). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
-Para começar a usar a integração, entre em contato com a equipe da sua conta Movable Ink para obter assistência. A Movable Ink fornecerá acesso e instruções de configuração conforme necessário. Você precisará fornecer à Movable Ink um conjunto de credenciais da API or interface de programação do aplicativo (API) da Braze para permitir que a Da Vinci envie e-mails por meio da API or interface de programação do aplicativo (API) de envio de mensagens da Braze.
+Para começar a usar a integração, entre em contato com a equipe da sua conta Movable Ink para obter assistência. A Movable Ink fornecerá acesso e instruções de configuração conforme necessário. Você precisará fornecer à Movable Ink um conjunto de credenciais da API da Braze para permitir que a Da Vinci envie e-mails por meio da API de envio de mensagens da Braze.
 
 Quando conectada, a Movable Ink irá:
 

@@ -17,11 +17,11 @@ tool:
 
 ## Übersicht {#overview}
 
-Wenn ein Kundenprofil or Nutzerprofil in Braze erstellt wird, wird dieser Person automatisch eine zufällige Bucket-Nummer zwischen 0 und 9999 (einschließlich) zugewiesen. Sie können diese Segmente verwenden, um die Effektivität mehrerer Campaigns oder Canvase bei Gruppen von Nutzer:innen im Laufe der Zeit zu testen.
+Wenn ein Kundenprofil in Braze erstellt wird, wird dieser Person automatisch eine zufällige Bucket-Nummer zwischen 0 und 9999 (einschließlich) zugewiesen. Sie können diese Segmente verwenden, um die Effektivität mehrerer Campaigns oder Canvases bei Gruppen von Nutzer:innen im Laufe der Zeit zu testen.
 
 ### Verwendung der globalen Kontrollgruppe {#global-control-group-usage}
 
-Zufällige Bucket-Nummern werden in Ihrer globalen Kontrollgruppe verwendet&#8212;einer Gruppe von Nutzer:innen, die keine Campaigns oder Canvase erhalten. Braze wählt zufällig mehrere Bereiche von zufälligen Bucket-Nummern aus und schließt Nutzer:innen aus diesen ausgewählten Buckets ein. Zufällige Bucket-Nummern werden ohne Gewichtung oder Berücksichtigung kürzlich zugewiesener Nummern vergeben.
+Zufällige Bucket-Nummern werden in Ihrer globalen Kontrollgruppe verwendet&#8212;einer Gruppe von Nutzer:innen, die keine Campaigns oder Canvases erhalten. Braze wählt zufällig mehrere Bereiche von zufälligen Bucket-Nummern aus und schließt Nutzer:innen aus diesen ausgewählten Buckets ein. Zufällige Bucket-Nummern werden ohne Gewichtung oder Berücksichtigung kürzlich zugewiesener Nummern vergeben.
 
 {% alert note %}
 Wenn ein:e Nutzer:in gelöscht und neu erstellt wird, wird eine andere zufällige Bucket-Nummer zugewiesen, da die Person als neue:r Nutzer:in betrachtet wird.
@@ -31,11 +31,11 @@ Wenn Sie eine globale Kontrollgruppe eingerichtet haben und zufällige Bucket-Nu
 
 ### Wann Sie zufällige Bucket-Nummern verwenden sollten {#when-to-use-random-bucket-numbers}
 
-Wenn Sie langfristige Tests zur Wirksamkeit mehrerer Campaigns oder Canvase über einen bestimmten Zeitraum durchführen möchten, können Sie zufällige Bucket-Nummern verwenden, um Ihre Nutzer:innen zu segmentieren.
+Wenn Sie langfristige Tests zur Wirksamkeit mehrerer Campaigns oder Canvases über einen bestimmten Zeitraum durchführen möchten, können Sie zufällige Bucket-Nummern verwenden, um Ihre Nutzer:innen zu segmentieren.
 
 ### Wann Sie etwas anderes verwenden sollten {#when-to-use-something-else}
 
-Wenn Sie Nutzer:innen für Tests innerhalb einer einzelnen Campaign oder eines einzelnen Canvas segmentieren möchten, verwenden Sie [A/B-Tests]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests) für Campaigns. Für Canvase können Sie verschiedene [Varianten]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-21-add-a-variant) für Tests auf Journey-Ebene erstellen oder [Experimentpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) für Tests auf Schritt-Ebene verwenden.
+Wenn Sie Nutzer:innen für Tests innerhalb einer einzelnen Campaign oder eines einzelnen Canvas segmentieren möchten, verwenden Sie [A/B-Tests]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests) für Campaigns. Für Canvases können Sie verschiedene [Varianten]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-21-add-a-variant) für Tests auf Journey-Ebene erstellen oder [Experimentpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) für Tests auf Schritt-Ebene verwenden.
 
 ## Segmente mit zufälligen Bucket-Nummern erstellen {#create-segments-using-random-bucket-numbers}
 

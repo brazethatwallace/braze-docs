@@ -1,17 +1,17 @@
 ---
 nav_title: Anleitung zum Upgraden auf iOS 16
-article_title: Upgrade or upgraden-Leitfaden für iOS 16
+article_title: Upgrade-Leitfaden für iOS 16
 page_order: 7
 platform:
   - iOS
-description: "Dieser Referenzartikel behandelt iOS 16, Upgrades, SDK or Software-Development-Kit-Updates und mehr."
+description: "Dieser Referenzartikel behandelt iOS 16, Upgrades, SDK-Updates und mehr."
 hidden: true
 noindex: true
 ---
 
-# Upgrade or upgraden-Leitfaden für das iOS 16 SDK or Software-Development-Kit {#ios-16-sdk-upgrade-guide}
+# Upgrade-Leitfaden für das iOS 16 SDK {#ios-16-sdk-upgrade-guide}
 
-> Dieser Leitfaden beschreibt die relevanten Änderungen, die mit iOS 16 (2022) eingeführt wurden, und die Auswirkungen auf Ihre Braze iOS SDK or Software-Development-Kit-Integration. Eine vollständige Anleitung für die Migration finden Sie in den [iOS 16 Versionshinweisen](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-16-release-notes).
+> Dieser Leitfaden beschreibt die relevanten Änderungen, die mit iOS 16 (2022) eingeführt wurden, und die Auswirkungen auf Ihre Braze iOS SDK-Integration. Eine vollständige Anleitung für die Migration finden Sie in den [iOS 16 Versionshinweisen](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-16-release-notes).
 
 ## Änderungen in iOS 16 {#changes-in-ios-16}
 
@@ -37,7 +37,7 @@ Braze wird dieses neue iOS- und iPadOS-Web-Push unterstützen, ohne dass zusätz
 
 ## Vorbereitungen für iOS 16 {#next-steps}
 
-Sie müssen das Braze iOS SDK or Software-Development-Kit nicht für iOS 16 upgraden, aber es gibt zwei weitere spannende Updates:
+Sie müssen das Braze iOS SDK nicht für iOS 16 upgraden, aber es gibt zwei weitere spannende Updates:
 
-1. Braze hat ein [neues Swift SDK or Software-Development-Kit](https://github.com/braze-inc/braze-swift-sdk) veröffentlicht. Es bietet eine verbesserte Performance, neue Features und viele Verbesserungen.
-2. Unser Braze Swift SDK or Software-Development-Kit unterstützt ein neues [„No-Code“-Push-Primer-Feature]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages)!
+1. Braze hat ein [neues Swift SDK](https://github.com/braze-inc/braze-swift-sdk) veröffentlicht. Es bietet eine verbesserte Performance, neue Features und viele Verbesserungen.
+2. Unser Braze Swift SDK unterstützt ein neues [„No-Code“-Push-Primer-Feature]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages)!

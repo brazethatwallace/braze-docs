@@ -41,14 +41,14 @@ Antes de configurar o conector BYO WhatsApp, confirme que os envios anteriores d
 ## Etapa 1: Recuperar informações da conta Infobip {#step-1}
 
 1. Na Infobip, identifique a conta que você deseja usar com sua conta WhatsApp Business.
-2. Acesse **Developer Tools** > **API or interface de programação do aplicativo (API) Keys** e selecione **Create API or interface de programação do aplicativo (API) Key**.
+2. Acesse **Developer Tools** > **API Keys** e selecione **Create API Key**.
 
 ![Página "Create API key" com data de criação "16/12/2025" e data de expiração "16/12/36".]({% image_buster /assets/img/whatsapp/byo_connector/create_api_key.png %})
 
 {: start="3"}
 3. Dê à chave um nome significativo, como "Braze - Meu Nome de Espaço de Trabalho - Meu Nome WABA".
 4. Adicione uma data de vencimento bem distante no futuro para evitar problemas com a expiração do token.
-    - Anote para gerar uma nova chave de API or interface de programação do aplicativo (API) e reconectar seu WABA antes da data de vencimento.
+    - Anote para gerar uma nova chave de API e reconectar seu WABA antes da data de vencimento.
 5. Selecione estes escopos:
 - `Message:send`
 - `Whatsapp:manage`
@@ -56,13 +56,13 @@ Antes de configurar o conector BYO WhatsApp, confirme que os envios anteriores d
 - `Account-management:manage`
 - `Subscriptions:manage`
 - `Metrics:manage`
-6. Após criar a chave, copie a chave de API or interface de programação do aplicativo (API).
+6. Após criar a chave, copie a chave de API.
     - A chave só pode ser copiada por um tempo limitado após a criação. Você pode repetir essas etapas para criar uma nova chave se precisar conectar outra conta WhatsApp Business no futuro.
 
 ![Exemplo de chave de API da Braze com 6 escopos adicionados.]({% image_buster /assets/img/whatsapp/byo_connector/api_key.png %})
 
 {: start="7"}
-7. Copie a URL base da API or interface de programação do aplicativo (API) da conta.
+7. Copie a URL base da API da conta.
 
 ![Página "API keys" com a URL base da API destacada.]({% image_buster /assets/img/whatsapp/byo_connector/api_base_url.png %})
 
@@ -74,7 +74,7 @@ Antes de configurar o conector BYO WhatsApp, confirme que os envios anteriores d
 ![A página de parceiros de tecnologia do WhatsApp.]({% image_buster /assets/img/whatsapp/byo_connector/byo_tab_tech_parners.png %})
 
 {: start="3"}
-3. Insira a chave de API or interface de programação do aplicativo (API) e a URL base da [Etapa 1](#step-1).
+3. Insira a chave de API e a URL base da [Etapa 1](#step-1).
 4. Selecione **Connect**.
 5. Prossiga pelo [fluxo de trabalho de cadastro incorporado]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup#whatsapp-embedded-signup-workflow) com estas considerações:
 - Você não pode selecionar o mesmo portfólio de negócios que é usado por um provedor de soluções de negócios diferente.
@@ -87,10 +87,10 @@ Para receber o código de verificação, acesse o dashboard da Infobip > **Analy
 
 ![Registros de mensagens mostrando uma mensagem SMS de entrada com o código de verificação.]({% image_buster /assets/img/whatsapp/byo_connector/verification_code.png %})
 
-Após concluir a configuração, seu número de telefone é listado como um grupo de inscrições no seu grupo WhatsApp Business. O grupo WhatsApp Business contém o nome da conta Infobip e a URL base da API or interface de programação do aplicativo (API) à qual está conectado. Contas conectadas pela integração nativa não possuem um nome de conta Infobip.
+Após concluir a configuração, seu número de telefone é listado como um grupo de inscrições no seu grupo WhatsApp Business. O grupo WhatsApp Business contém o nome da conta Infobip e a URL base da API à qual está conectado. Contas conectadas pela integração nativa não possuem um nome de conta Infobip.
 
 {% alert note %}
-Conecte cada conta WhatsApp Business a uma única conta Infobip. Cada vez que você conectar um número de telefone ou grupo de inscrições adicional, se a conta WhatsApp Business já estiver conectada a uma conta Infobip, você deverá inserir novamente as credenciais de API or interface de programação do aplicativo (API) da conta existente.
+Conecte cada conta WhatsApp Business a uma única conta Infobip. Cada vez que você conectar um número de telefone ou grupo de inscrições adicional, se a conta WhatsApp Business já estiver conectada a uma conta Infobip, você deverá inserir novamente as credenciais de API da conta existente.
 {% endalert %}
 
 ## Etapa 3: Envio de mensagens {#step-3-sending-messages}

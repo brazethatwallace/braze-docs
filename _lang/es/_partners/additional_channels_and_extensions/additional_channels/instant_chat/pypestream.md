@@ -23,14 +23,14 @@ La integración de Braze y Pypestream te permite orquestar fácilmente el ciclo 
 | Requisito | Descripción |
 |---|---|
 | Cuenta Pypestream | Se requiere una [cuenta Pypestream](https://www.pypestream.com/contact-us/) para beneficiarse de esta asociación.<br><br>Una vez suscrito, el equipo de Pypestream te ayudará a configurar tu entorno dedicado para empezar a crear tu solución de IA conversacional e integrarla con Braze. |
-| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos `users.track`. <br><br> Puede crearse en el panel de Braze desde **Settings** > **API Keys**. |
-| Punto de conexión REST or transferencia de estado representacional de Braze | La URL de tu punto de conexión REST or transferencia de estado representacional. Tu punto de conexión dependerá de la [URL de Braze para tu instancia]({{site.baseurl}}/api/basics/). |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. <br><br> Puede crearse en el panel de Braze desde **Settings** > **API Keys**. |
+| Punto de conexión REST de Braze | La URL de tu punto de conexión REST. Tu punto de conexión dependerá de la [URL de Braze para tu instancia]({{site.baseurl}}/api/basics/). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Casos de uso {#use-cases}
 
 La asociación entre Braze y Pypestream puede utilizarse en tus Canvas para lograr casos de uso comunes como:
-* **Reorientación inteligente**: Reorienta a los usuarios con BRAZE Canvas después de su interacción conversacional con tu marca aprovechando todos los puntos de datos enriquecidos recopilados a través de Pypestream.
+* **Reorientación inteligente**: Reorienta a los usuarios con BRAZE CANVAS después de su interacción conversacional con tu marca aprovechando todos los puntos de datos enriquecidos recopilados a través de Pypestream.
 * **Segmentación dinámica**: Contacta con clientes actuales y potenciales en función de sus cohortes y segmentos específicos, ofreciéndoles experiencias conversacionales personalizadas a través de Pypestream.
 * **Información contextual sobre el cliente**: Después de que un usuario final (cliente existente o potencial) acceda a tu sitio web, combina las etiquetas de la página web recibidas de Pypestream Event Listener con los datos del cliente almacenados en Braze para proporcionar una interacción conversacional totalmente personalizada y contextual.
 
@@ -44,7 +44,7 @@ Visita este [artículo de Pypestream](https://pypestream.atlassian.net/servicede
 
 ### Paso 1: Establecer configuraciones de punto de conexión {#step-1-set-endpoint-configurations}
 
-Los valores de configuración principales, como la URL del punto de conexión REST or transferencia de estado representacional de Braze y las claves de API de Braze, deben establecerse en el archivo `app.py` de la solución:
+Los valores de configuración principales, como la URL del punto de conexión REST de Braze y las claves de API de Braze, deben establecerse en el archivo `app.py` de la solución:
 
 ```
 import os
@@ -157,7 +157,7 @@ class BrazeExample:
 ```
 ### Paso 3: Actualizar los diseños de las soluciones {#step-3-update-the-solution-designs}
 
-El paso final de la integración con la REST or transferencia de estado representacional API de Braze consiste en configurar los flujos dentro de [Design Studio](https://platform.pypestream.com/design-studio/) de Pypestream para utilizar el nodo de acción que se desarrolló en el paso anterior.
+El paso final de la integración con la REST API de Braze consiste en configurar los flujos dentro de [Design Studio](https://platform.pypestream.com/design-studio/) de Pypestream para utilizar el nodo de acción que se desarrolló en el paso anterior.
 
 {% alert note %}
 Visita este [artículo de Pypestream](https://pypestream.atlassian.net/servicedesk/customer/kb/view/669352070) para obtener un resumen sobre cómo configurar los modos en Design Studio. Debes ser cliente de Pypestream para acceder a esta documentación.

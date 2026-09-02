@@ -13,7 +13,7 @@ tool:
 
 > Durch das Retargeting von Kampagnen basierend auf früheren Aktionen der Nutzer:innen – zum Beispiel ob sie eine E-Mail geöffnet haben oder nicht – können Sie Ihre Nutzer:innen neu klassifizieren und den Weg für einen effektiven, datengestützten Marketing-Ansatz ebnen.
 
-Braze bietet Support für das Retargeting von Nutzer:innen basierend auf Nachrichten, die sie erhalten haben. Sie können Nutzer:innen anhand ihrer Interaktionen mit Ihren Kampagnen und Canvase retargeten.
+Braze bietet Support für das Retargeting von Nutzer:innen basierend auf Nachrichten, die sie erhalten haben. Sie können Nutzer:innen anhand ihrer Interaktionen mit Ihren Kampagnen und Canvases retargeten.
 
 Jeder dieser Retargeting-Filter bietet Ihnen nach dem Hinzufügen mehrere Optionen. Weitere Informationen zum Targeting von Nutzer:innen finden Sie in unserem [Braze-Lernkurs](https://learning.braze.com/campaign-setup-delivery-targeting-conversions) zur Kampagneneinrichtung!
 
@@ -21,7 +21,7 @@ Jeder dieser Retargeting-Filter bietet Ihnen nach dem Hinzufügen mehrere Option
 
 ## Retargeting-Filter {#retargeting-filters}
 
-Sie können die Retargeting-Filter in diesem Abschnitt für Ihre Nutzer:innen innerhalb Ihrer Kampagnen und Canvase verwenden.
+Sie können die Retargeting-Filter in diesem Abschnitt für Ihre Nutzer:innen innerhalb Ihrer Kampagnen und Canvases verwenden.
 
 ### Kampagne angeklickt/geöffnet {#clickedopened-campaign}
 
@@ -39,7 +39,7 @@ Dies kann weiter spezifiziert werden, indem Sie auswählen, welche Kampagne Sie 
 
 ### Kampagne oder Canvas mit Tag angeklickt oder geöffnet {#clicked-or-opened-campaign-or-canvas-with-tag}
 
-Verwenden Sie diesen Filter, um Nutzer:innen zu finden, die mit Kampagnen oder Canvase mit einem bestimmten Tag interagiert haben oder nicht:
+Verwenden Sie diesen Filter, um Nutzer:innen zu finden, die mit Kampagnen oder Canvases mit einem bestimmten Tag interagiert haben oder nicht:
 
 - Eine E-Mail angeklickt
 - Eine In-App-Nachricht angeklickt
@@ -61,7 +61,7 @@ Bei wiederkehrenden Kampagnen bezieht sich dieser Filter darauf, ob Nutzer:innen
 
 Verwenden Sie diesen Filter, um Nutzer:innen zu finden, die in Ihrem Ziel-Canvas konvertiert haben oder nicht (basierend auf der primären Konversion).
 
-Bei wiederkehrenden Canvase bezieht sich dieser Filter darauf, ob Nutzer:innen jemals konvertiert haben, wenn sie den Canvas durchlaufen haben.
+Bei wiederkehrenden Canvases bezieht sich dieser Filter darauf, ob Nutzer:innen jemals konvertiert haben, wenn sie den Canvas durchlaufen haben.
 
 ![Filter „Aus Canvas konvertiert“ mit Canvas-Auswahl.]({% image_buster /assets/img_archive/converted_from_canvas.png %})
 
@@ -87,7 +87,7 @@ Verwenden Sie diesen Filter, um Nutzer:innen zu finden, die zuletzt eine bestimm
 
 ### Letzte Nachricht von Kampagne oder Canvas mit Tag erhalten {#last-received-message-from-campaign-or-canvas-with-tag}
 
-Verwenden Sie diesen Filter, um Nutzer:innen zu finden, die zuletzt eine Kampagne oder einen Canvas mit einem bestimmten Tag vor oder nach einem bestimmten Datum oder einer bestimmten Anzahl von Tagen erhalten haben. Dieser Filter berücksichtigt nicht, wann Nutzer:innen andere Kampagnen oder Canvase erhalten haben.
+Verwenden Sie diesen Filter, um Nutzer:innen zu finden, die zuletzt eine Kampagne oder einen Canvas mit einem bestimmten Tag vor oder nach einem bestimmten Datum oder einer bestimmten Anzahl von Tagen erhalten haben. Dieser Filter berücksichtigt nicht, wann Nutzer:innen andere Kampagnen oder Canvases erhalten haben.
 
 ![Filter „Letzte Nachricht von Kampagne oder Canvas mit Tag erhalten“.]({% image_buster /assets/img_archive/last_received_campaign_with_tag.png %})
 

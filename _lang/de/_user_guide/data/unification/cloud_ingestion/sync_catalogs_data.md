@@ -344,6 +344,6 @@ FROM [braze].[product_catalog] ;
 {% endtab %}
 {% endtabs %}
 
-- Die aus der Integration abgerufenen Daten werden verwendet, um Artikel im Zielkatalog basierend auf der angegebenen `id` zu erstellen oder zu Update or aktualisieren or aktualisieren.
+- Die aus der Integration abgerufenen Daten werden verwendet, um Artikel im Zielkatalog basierend auf der angegebenen `id` zu erstellen oder zu aktualisieren.
 - Wenn DELETED auf `true` gesetzt ist, wird der entsprechende Katalogartikel gelöscht.
 - Die Synchronisierung protokolliert keine Datenpunkte, aber alle synchronisierten Daten werden auf Ihre gesamte Katalognutzung angerechnet. Diese Nutzung wird anhand der insgesamt gespeicherten Daten gemessen, sodass Sie sich keine Gedanken darüber machen müssen, nur geänderte Daten zu synchronisieren.

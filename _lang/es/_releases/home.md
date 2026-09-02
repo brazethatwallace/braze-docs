@@ -10,7 +10,7 @@ page_type: reference
 # Novedades en Braze {#whats-new-in-braze}
 
 {% alert tip %}
-Para obtener más información sobre cualquiera de las actualizaciones enumeradas en esta página, ponte en contacto con tu director de cuentas o [abre un ticket de soporte]({{site.baseurl}}/user_guide/administer/personal/braze_support). También puedes consultar nuestros [registros de cambios del SDK or kit de desarrollo de software]({{site.baseurl}}/developer_guide/changelogs) para obtener más información sobre nuestras versiones mensuales del SDK or kit de desarrollo de software, mejoras y cambios de última hora.
+Para obtener más información sobre cualquiera de las actualizaciones enumeradas en esta página, ponte en contacto con tu director de cuentas o [abre un ticket de soporte]({{site.baseurl}}/user_guide/administer/personal/braze_support). También puedes consultar nuestros [registros de cambios del SDK]({{site.baseurl}}/developer_guide/changelogs) para obtener más información sobre nuestras versiones mensuales del SDK, mejoras y cambios de última hora.
 {% endalert %}
 
 {% details 20 de agosto de 2026 %}
@@ -41,7 +41,7 @@ La ingesta de datos en la nube (CDI) admite dos nuevas fuentes de almacenamiento
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-La ingesta de datos en la nube (CDI) ahora puede sincronizar datos del almacén de datos directamente a BrazeAI Decisioning Studio para los clientes que usan ambos productos, para que puedas incorporar datos más allá de tu espacio de trabajo de Braze para el aprendizaje por refuerzo y la toma de decisiones con IA sin construir trabajos ETL or extraer, transformar, cargar personalizados. Esta versión de acceso anticipado admite fuentes de Snowflake, con fuentes de almacén de datos adicionales próximamente.
+La ingesta de datos en la nube (CDI) ahora puede sincronizar datos del almacén de datos directamente a BrazeAI Decisioning Studio para los clientes que usan ambos productos, para que puedas incorporar datos más allá de tu espacio de trabajo de Braze para el aprendizaje por refuerzo y la toma de decisiones con IA sin construir trabajos ETL personalizados. Esta versión de acceso anticipado admite fuentes de Snowflake, con fuentes de almacén de datos adicionales próximamente.
 
 ### BrazeAI<sup>TM</sup>
 
@@ -61,7 +61,7 @@ De forma predeterminada, Operator te pide que apruebes una navegación propuesta
 
 [Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities) puede completar trabajo desde páginas adicionales del panel cuando describes el resultado en lenguaje natural. Los ejemplos incluyen la creación de informes y paneles, el trabajo desde páginas de listas de plantillas de correo electrónico y Content Blocks, la importación o gestión de usuarios, la creación de predicciones y la actualización de más superficies de administración y configuración.
 
-Por ejemplo, en la página del generador de informes, pide a Operator que cree un informe que muestre la participación de servicio de mensajes cortos del espacio de trabajo en los últimos 30 días.
+Por ejemplo, en la página del generador de informes, pide a Operator que cree un informe que muestre la participación de SMS del espacio de trabajo en los últimos 30 días.
 
 Para una cobertura representativa, consulta [Lo que puedes hacer con Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities). Pregunta a Operator en la página en la que te encuentras para obtener la respuesta más actualizada.
 
@@ -118,7 +118,7 @@ Para los usuarios con permisos solo a nivel de equipo, Braze puede asignar un [e
 
 El [depurador de contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/debugger) muestra la solicitud y respuesta en vivo para cada llamada de contenido conectado en **Vista previa y prueba**, para que puedas verificar tu endpoint, encabezados y etiquetas de Liquid antes de lanzar una campaña o Canvas. Abre **Ver detalles** para inspeccionar la URL, el método, el código de estado, los encabezados de solicitud y respuesta, la carga útil, la duración y si la respuesta se sirvió desde la caché.
 
-Durante el acceso anticipado, el depurador está disponible para Content Cards, correo electrónico, mensajes dentro de la aplicación, push, servicio de mensajes cortos/MMS/RCS, webhooks y WhatsApp.
+Durante el acceso anticipado, el depurador está disponible para Content Cards, correo electrónico, mensajes dentro de la aplicación, push, SMS/MMS/RCS, webhooks y WhatsApp.
 
 #### Encuestas en mensajes dentro de la aplicación y páginas de destino {#in-app-message-and-landing-page-surveys}
 
@@ -182,37 +182,37 @@ Para más información, consulta [Bynder]({{site.baseurl}}/partners/bynder).
 
 #### Multiplied Media - Personalización de mensajes - Contenido visual e interactivo {#multiplied-media-message-personalization-visual-and-interactive-content}
 
-[Multiplied Media](https://multiplied.media) es un estudio de creatividad y automatización que utiliza tus datos de CRM or administración de las relaciones con el cliente para crear imágenes, GIF y videos personalizados —un activo único para cada cliente. La integración de Multiplied Media y Braze te permite enviar este contenido multimedia a través de correo electrónico, notificaciones push, mensajes dentro de la aplicación, Content Cards y WhatsApp.
+[Multiplied Media](https://multiplied.media) es un estudio de creatividad y automatización que utiliza tus datos de CRM para crear imágenes, GIF y videos personalizados —un activo único para cada cliente. La integración de Multiplied Media y Braze te permite enviar este contenido multimedia a través de correo electrónico, notificaciones push, mensajes dentro de la aplicación, Content Cards y WhatsApp.
 
 Para más información, consulta [Multiplied Media]({{site.baseurl}}/partners/multiplied_media).
 
-### SDK or kit de desarrollo de software
+### SDK
 
-Se han publicado las siguientes actualizaciones del SDK or kit de desarrollo de software. Para más detalles, consulta los [registros de cambios del SDK or kit de desarrollo de software]({{site.baseurl}}/developer_guide/changelogs).
+Se han publicado las siguientes actualizaciones del SDK. Para más detalles, consulta los [registros de cambios del SDK]({{site.baseurl}}/developer_guide/changelogs).
 
-#### Actualizaciones de última hora del SDK or kit de desarrollo de software {#sdk-breaking-updates}
+#### Actualizaciones de última hora del SDK {#sdk-breaking-updates}
 
-Se han publicado las últimas actualizaciones del SDK or kit de desarrollo de software. Las actualizaciones de última hora se enumeran en la sección de actualizaciones del SDK or kit de desarrollo de software; todas las demás actualizaciones se pueden encontrar consultando los correspondientes registros de cambios del SDK or kit de desarrollo de software.
+Se han publicado las últimas actualizaciones del SDK. Las actualizaciones de última hora se enumeran en la sección de actualizaciones del SDK; todas las demás actualizaciones se pueden encontrar consultando los correspondientes registros de cambios del SDK.
 
-- Unity SDK or kit de desarrollo de software 12.0.0
-    - Se actualizó el puente nativo de iOS [de Braze Swift SDK or kit de desarrollo de software 14.1.0 a 18.0.0](https://github.com/braze-inc/braze-swift-sdk/compare/14.1.0...18.0.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
-    - Se actualizó el puente nativo de Android [de Braze Android SDK or kit de desarrollo de software 42.2.0 a 43.0.0](https://github.com/braze-inc/braze-android-sdk/compare/v42.2.0...v43.0.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
-- Flutter SDK or kit de desarrollo de software 22.0.0
-    - Actualiza el puente nativo de Android [de Braze Android SDK or kit de desarrollo de software 42.3.1 a 43.0.0](https://github.com/braze-inc/braze-android-sdk/compare/v42.3.1...v43.0.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
-    - Actualiza el puente nativo de iOS [de Braze Swift SDK or kit de desarrollo de software 17.0.0 a 18.0.0](https://github.com/braze-inc/braze-swift-sdk/compare/17.0.0...18.0.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
-- Swift SDK or kit de desarrollo de software 18.0.0-18.1.0
+- Unity SDK 12.0.0
+    - Se actualizó el puente nativo de iOS [de Braze Swift SDK 14.1.0 a 18.0.0](https://github.com/braze-inc/braze-swift-sdk/compare/14.1.0...18.0.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
+    - Se actualizó el puente nativo de Android [de Braze Android SDK 42.2.0 a 43.0.0](https://github.com/braze-inc/braze-android-sdk/compare/v42.2.0...v43.0.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
+- Flutter SDK 22.0.0
+    - Actualiza el puente nativo de Android [de Braze Android SDK 42.3.1 a 43.0.0](https://github.com/braze-inc/braze-android-sdk/compare/v42.3.1...v43.0.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
+    - Actualiza el puente nativo de iOS [de Braze Swift SDK 17.0.0 a 18.0.0](https://github.com/braze-inc/braze-swift-sdk/compare/17.0.0...18.0.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
+- Swift SDK 18.0.0-18.1.0
     - Renombra `Braze.Ecommerce.ProductViewedEvent.typeIdentifiers` a `type` en las superficies de API de Swift y Objective-C.
     Renombra los eventos de actualización push-to-start de Live Activities en `Braze.LiveActivities.UpdateEvent.ActivityType`, que se emiten al usar `Braze.LiveActivities.subscribeToStateUpdates(_:)`:
         - `pushToStartOptedOut` a `pushToStartUnregistered`
         - `pushToStartOptOutFlushed` a `pushToStartUnregisterFlushed`
 
-#### Resumen de las características y correcciones recientes del SDK or kit de desarrollo de software {#summary-of-recent-sdk-features-and-fixes}
+#### Resumen de las características y correcciones recientes del SDK {#summary-of-recent-sdk-features-and-fixes}
 
-- **Swift SDK or kit de desarrollo de software v18.1.0:** Añade métodos de cierre de sesión de token de notificaciones push, además del método de cierre de sesión push existente, para admitir casos de uso de cierre de sesión adicionales. También actualiza el tipo de evento de comercio electrónico.
-- **Flutter SDK or kit de desarrollo de software v22.0.0:** Actualiza el puente nativo para heredar la funcionalidad de los SDK or kit de desarrollo de software de Android y Swift.
-- **Unity SDK or kit de desarrollo de software v12.0.0:** Actualiza el puente nativo para heredar la funcionalidad de los SDK or kit de desarrollo de software de Android y Swift.
+- **Swift SDK v18.1.0:** Añade métodos de cierre de sesión de token de notificaciones push, además del método de cierre de sesión push existente, para admitir casos de uso de cierre de sesión adicionales. También actualiza el tipo de evento de comercio electrónico.
+- **Flutter SDK v22.0.0:** Actualiza el puente nativo para heredar la funcionalidad de los SDK de Android y Swift.
+- **Unity SDK v12.0.0:** Actualiza el puente nativo para heredar la funcionalidad de los SDK de Android y Swift.
 
-Para más detalles, consulta los [registros de cambios del SDK or kit de desarrollo de software]({{site.baseurl}}/developer_guide/changelogs).
+Para más detalles, consulta los [registros de cambios del SDK]({{site.baseurl}}/developer_guide/changelogs).
 {% enddetails %}
 {% details 23 de julio de 2026 %}
 
@@ -224,7 +224,7 @@ Para más detalles, consulta los [registros de cambios del SDK or kit de desarro
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-El [dashboard de diagnóstico de mensajería]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard) proporciona un desglose de alto nivel de los resultados de envío de mensajes, permitiéndote detectar tendencias y diagnosticar posibles problemas en tu configuración de mensajería. Este dashboard puede ayudarte a entender por qué los mensajes de tus campañas o Canvas pueden no haberse enviado como se esperaba. Ponte en contacto con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente para acceder a la característica.
+El [dashboard de diagnóstico de mensajería]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard) proporciona un desglose de alto nivel de los resultados de envío de mensajes, permitiéndote detectar tendencias y diagnosticar posibles problemas en tu configuración de mensajería. Este dashboard puede ayudarte a entender por qué los mensajes de tus campañas o Canvas pueden no haberse enviado como se esperaba. Ponte en contacto con tu CSM para acceder a la característica.
 
 #### Mapeador de eventos personalizados en la importación CSV {#csv-custom-events-mapper}
 
@@ -253,7 +253,7 @@ La versión gratuita de los [catálogos]({{site.baseurl}}/user_guide/data/activa
 - Otros identificadores y límites de API
 - Información de contacto
 
-Por ejemplo, en la página de horas tranquilas, pide a Operator que configure las horas tranquilas de 9 PM a 8 AM para servicio de mensajes cortos.
+Por ejemplo, en la página de horas tranquilas, pide a Operator que configure las horas tranquilas de 9 PM a 8 AM para SMS.
 
 #### Servidor MCP remoto de Braze {#remote-braze-mcp-server}
 
@@ -285,11 +285,11 @@ Añade una escala de valoración numérica a un bloque de formulario tanto en [e
 
 Las [plantillas de oferta por tiempo limitado de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/message_and_image_formats#limited-time-offer-templates) muestran una oferta promocional con límite de tiempo con una cuenta regresiva opcional a medida que la oferta se acerca a su vencimiento. Usa este diseño para promociones con límite de tiempo, como ventas de temporada u ofertas personalizadas según un atributo de usuario.
 
-#### Actualización autoservicio de la versión del SDK or kit de desarrollo de software de Shopify {#shopify-self-serve-sdk-version-upgrade}
+#### Actualización autoservicio de la versión del SDK de Shopify {#shopify-self-serve-sdk-version-upgrade}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Los nuevos clientes de [Shopify]({{site.baseurl}}/partners/ecommerce/shopify) se aprovisionan con las últimas versiones del SDK or kit de desarrollo de software web de Braze y del SDK or kit de desarrollo de software de JavaScript durante la configuración. Los clientes existentes pueden ver su versión actual del SDK or kit de desarrollo de software en la configuración de integración, recibir notificaciones cuando haya una versión más reciente disponible y realizar actualizaciones de autoservicio desde la configuración de integración.
+Los nuevos clientes de [Shopify]({{site.baseurl}}/partners/ecommerce/shopify) se aprovisionan con las últimas versiones del SDK web de Braze y del SDK de JavaScript durante la configuración. Los clientes existentes pueden ver su versión actual del SDK en la configuración de integración, recibir notificaciones cuando haya una versión más reciente disponible y realizar actualizaciones de autoservicio desde la configuración de integración.
 
 #### Editor HTML para Banners {#html-editor-for-banners}
 
@@ -315,7 +315,7 @@ La biblioteca multimedia y las bibliotecas de plantillas seleccionadas ahora ofr
 
 La [vista previa compartible]({{site.baseurl}}/user_guide/channels/email/html_editor#step-3b-preview-and-test-your-message) ahora admite los siguientes canales adicionales:
 
-- servicio de mensajes cortos, MMS y RCS
+- SMS, MMS y RCS
 - WhatsApp
 - Push
 - Content Cards
@@ -337,41 +337,41 @@ Ahora puedes actualizar las credenciales push de forma programática con el [end
 
 #### Stayfilm - Contenido visual e interactivo {#stayfilm-visual-and-interactive-content}
 
-[Stayfilm](https://www.stayfilm.com/) es una REST or transferencia de estado representacional API para la producción automatizada y personalizada de video a escala. La plataforma integra datos, imágenes, texto, bandas sonoras, narración y efectos visuales para generar contenido de video personalizado para comercio electrónico, marketplaces, flujos de trabajo de CRM or administración de las relaciones con el cliente y campañas de marketing.
+[Stayfilm](https://www.stayfilm.com/) es una REST API para la producción automatizada y personalizada de video a escala. La plataforma integra datos, imágenes, texto, bandas sonoras, narración y efectos visuales para generar contenido de video personalizado para comercio electrónico, marketplaces, flujos de trabajo de CRM y campañas de marketing.
 
 #### Validity - Datos y análisis {#validity-data-and-analytics}
 
 [Validity Everest](https://www.validity.com/everest/) es una plataforma de capacidad de entrega de correo electrónico que te ayuda a medir la colocación en la bandeja de entrada y proteger tu reputación de envío. La integración de Braze y Validity sincroniza tu lista de semillas de Everest con Braze, siembra automáticamente las campañas y Canvas que califican, y extrae las métricas de participación de vuelta a Validity Inbox para que puedas comparar la colocación basada en semillas con la participación real de los suscriptores.
 
-### SDK or kit de desarrollo de software
+### SDK
 
-Se han publicado las siguientes actualizaciones del SDK or kit de desarrollo de software. Para más detalles, consulta los [registros de cambios del SDK or kit de desarrollo de software]({{site.baseurl}}/developer_guide/changelogs).
+Se han publicado las siguientes actualizaciones del SDK. Para más detalles, consulta los [registros de cambios del SDK]({{site.baseurl}}/developer_guide/changelogs).
 
-#### Actualizaciones de última hora del SDK or kit de desarrollo de software
+#### Actualizaciones de última hora del SDK
 
-Se han publicado las últimas actualizaciones del SDK or kit de desarrollo de software. Las actualizaciones de última hora se enumeran en la sección de actualizaciones del SDK or kit de desarrollo de software; todas las demás actualizaciones se pueden encontrar consultando los correspondientes registros de cambios del SDK or kit de desarrollo de software.
+Se han publicado las últimas actualizaciones del SDK. Las actualizaciones de última hora se enumeran en la sección de actualizaciones del SDK; todas las demás actualizaciones se pueden encontrar consultando los correspondientes registros de cambios del SDK.
 
-- [Android SDK or kit de desarrollo de software 43.0.0](https://github.com/braze-inc/braze-android-sdk/releases/tag/v43.0.0)
+- [Android SDK 43.0.0](https://github.com/braze-inc/braze-android-sdk/releases/tag/v43.0.0)
     - Añade los métodos `unregisterPush` y logout.
     - Añade campos adicionales a los eventos de comercio electrónico.
     - Añade retirada exponencial para la carga de imágenes de notificaciones push.
-- [Swift SDK or kit de desarrollo de software 17.0.0](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md)
+- [Swift SDK 17.0.0](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md)
     - Añade campos adicionales a los eventos de comercio electrónico.
     - Hace que los estados de datos sean predecibles después de la inicialización.
     - Añade accesores no bloqueantes para identificadores de dispositivo y usuario.
     - Elimina la API obsoleta de actualización push-to-start en `Braze.LiveActivities`.
-- [Web SDK or kit de desarrollo de software 6.10.1](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md)
+- [Web SDK 6.10.1](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md)
     - Añade los métodos `unregisterPush` y logout.
     - Añade campos adicionales a los eventos de comercio electrónico.
     - Corrige un problema de Banner y Content Cards relacionado con actualizaciones redundantes al inicio.
     - Añade un método público para el descarte de Banners.
-- [Flutter SDK or kit de desarrollo de software 21.0.0](https://github.com/braze-inc/braze-flutter-sdk/releases/tag/v21.0.0)
+- [Flutter SDK 21.0.0](https://github.com/braze-inc/braze-flutter-sdk/releases/tag/v21.0.0)
     - Actualiza el puente nativo de iOS.
     - Elimina métodos obsoletos.
     - Actualiza los controladores `changeUser`, `enableSDK` y `disableSDK` para devolver resultados de finalización.
-- [Expo SDK or kit de desarrollo de software 5.2.0](https://github.com/braze-inc/braze-expo-plugin/releases/tag/v5.2.0)
-    - Actualiza la aplicación de ejemplo a Expo SDK or kit de desarrollo de software 56.
-- [React Native SDK or kit de desarrollo de software 22.0.0](https://www.npmjs.com/package/@braze/react-native-sdk/v/22.0.0)
+- [Expo SDK 5.2.0](https://github.com/braze-inc/braze-expo-plugin/releases/tag/v5.2.0)
+    - Actualiza la aplicación de ejemplo a Expo SDK 56.
+- [React Native SDK 22.0.0](https://www.npmjs.com/package/@braze/react-native-sdk/v/22.0.0)
     - Añade compatibilidad con el descarte de Banners.
     - Incluye actualizaciones de bindings.
 
@@ -402,7 +402,7 @@ Los [eventos recomendados de comercio electrónico]({{site.baseurl}}/user_guide/
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-La pestaña **Historial de eventos** en los [perfiles de usuario]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) muestra los eventos personalizados y las compras del usuario de los últimos 30 días (hasta los 100 más recientes). Úsala para confirmar que una integración del SDK or kit de desarrollo de software o la API está enviando eventos como se espera, depurar por qué un usuario entró (o no) en una campaña o Canvas desencadenados por eventos, o investigar una escalación de soporte sobre un usuario específico.
+La pestaña **Historial de eventos** en los [perfiles de usuario]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) muestra los eventos personalizados y las compras del usuario de los últimos 30 días (hasta los 100 más recientes). Úsala para confirmar que una integración del SDK o la API está enviando eventos como se espera, depurar por qué un usuario entró (o no) en una campaña o Canvas desencadenados por eventos, o investigar una escalación de soporte sobre un usuario específico.
 
 #### El Centro de capacidad de entrega muestra datos de Microsoft SNDS para clientes de Amazon SES {#deliverability-center-surfaces-microsoft-snds-data-for-amazon-ses-customers}
 
@@ -448,7 +448,7 @@ Puedes hacer lo siguiente en la [consola de agentes]({{site.baseurl}}/user_guide
 
 Después de que tu Canvas se haya lanzado, ahora puedes [actualizar un paso del optimizador de contenidos]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step#edit-a-launched-step) para:
 
-{% multi_lang_include messaging/Canvas/content_optimizer_launched_step_actions.md %}
+{% multi_lang_include messaging/canvas/content_optimizer_launched_step_actions.md %}
 
 ### Canales y puntos de intervención
 
@@ -500,9 +500,9 @@ Después de enviar un mensaje de prueba de WhatsApp, puedes ver un [informe de e
 
 [Databricks Mosaic]({{site.baseurl}}/partners/ai_model_providers/databricks_mosaic) es la plataforma unificada de Databricks para construir, desplegar y gestionar modelos de IA y aprendizaje automático a escala en la plataforma de inteligencia de datos de Databricks.
 
-#### DinMo - Datos y análisis - ETL or extraer, transformar, cargar inverso {#dinmo-data-and-analytics-reverse-etl}
+#### DinMo - Datos y análisis - ETL inverso {#dinmo-data-and-analytics-reverse-etl}
 
-[DinMo]({{site.baseurl}}/partners/dinmo) es una CDP or plataforma de datos de los clientes or plataforma de datos de los clientes (CDP or plataforma de datos de los clientes) componible que conecta tu almacén de datos en la nube con Braze a través de ETL or extraer, transformar, cargar inverso (ETL or extraer, transformar, cargar or extraer, transformar, cargar). Los equipos de marketing pueden crear segmentos de audiencia a partir de datos del almacén, sincronizar atributos de usuario y eventos en Braze, y mantener los estados de suscripción actualizados sin cargas de CSV ni soporte de ingeniería.
+[DinMo]({{site.baseurl}}/partners/dinmo) es una CDP (CDP) componible que conecta tu almacén de datos en la nube con Braze a través de ETL inverso (ETL). Los equipos de marketing pueden crear segmentos de audiencia a partir de datos del almacén, sincronizar atributos de usuario y eventos en Braze, y mantener los estados de suscripción actualizados sin cargas de CSV ni soporte de ingeniería.
 
 #### EmailShepherd - Orquestación de mensajes - Plantillas {#emailshepherd-message-orchestration-templates}
 
@@ -512,15 +512,15 @@ Después de enviar un mensaje de prueba de WhatsApp, puedes ver un [informe de e
 
 [Talkable]({{site.baseurl}}/partners/talkable) ayuda a las marcas de consumo a convertir a los clientes satisfechos en un canal de referidos escalable. Con la integración de Braze, las adhesiones voluntarias de correo electrónico de marketing capturadas en las campañas de referidos de Talkable fluyen hacia Braze en tiempo real, proporcionando a tu equipo el consentimiento, el contexto y los datos de campaña que necesitas para dar la bienvenida, segmentar e interactuar con cada nuevo defensor y amigo.
 
-### SDK or kit de desarrollo de software
+### SDK
 
-Se han publicado las siguientes actualizaciones del SDK or kit de desarrollo de software. Para más detalles, consulta los [registros de cambios del SDK or kit de desarrollo de software]({{site.baseurl}}/developer_guide/changelogs).
+Se han publicado las siguientes actualizaciones del SDK. Para más detalles, consulta los [registros de cambios del SDK]({{site.baseurl}}/developer_guide/changelogs).
 
-#### Actualizaciones de última hora del SDK or kit de desarrollo de software
+#### Actualizaciones de última hora del SDK
 
-Se han publicado las últimas actualizaciones del SDK or kit de desarrollo de software. Las actualizaciones de última hora se enumeran en la sección de actualizaciones del SDK or kit de desarrollo de software; todas las demás actualizaciones se pueden encontrar consultando los correspondientes registros de cambios del SDK or kit de desarrollo de software.
+Se han publicado las últimas actualizaciones del SDK. Las actualizaciones de última hora se enumeran en la sección de actualizaciones del SDK; todas las demás actualizaciones se pueden encontrar consultando los correspondientes registros de cambios del SDK.
 
-{% multi_lang_include releases/SDK or kit de desarrollo de software/2026_6_25_26_updates.md %}
+{% multi_lang_include releases/sdk/2026_6_25_26_updates.md %}
 
 {% enddetails %}
 
@@ -542,7 +542,7 @@ Los catálogos ahora admiten el filtrado basado en distancia con el nuevo tipo d
 
 #### Banner y RCS para el generador de informes {#banner-and-rcs-for-report-builder}
 
-El [generador de informes]({{site.baseurl}}/report_builder) admite Banner como canal y RCS como subcategoría bajo servicio de mensajes cortos, para que puedas medir el rendimiento de ambos directamente en tus informes personalizados junto con todos los demás canales de Braze.
+El [generador de informes]({{site.baseurl}}/report_builder) admite Banner como canal y RCS como subcategoría bajo SMS, para que puedas medir el rendimiento de ambos directamente en tus informes personalizados junto con todos los demás canales de Braze.
 
 #### Acciones del evento `ecommerce.cart_updated` {#ecommercecart_updated-event-actions}
 
@@ -550,11 +550,11 @@ El [evento `ecommerce.cart_updated`]({{site.baseurl}}/user_guide/data/activation
 
 ### BrazeAI<sup>TM</sup>
 
-#### Optimizador de contenidos para mensajes servicio de mensajes cortos, MMS y RCS {#content-optimizer-for-sms-mms-and-rcs-messages}
+#### Optimizador de contenidos para mensajes SMS, MMS y RCS {#content-optimizer-for-sms-mms-and-rcs-messages}
 
 {% multi_lang_include release_type.md release="Beta" %}
 
-Puedes usar el [optimizador de contenidos]({{site.baseurl}}/user_guide/brazeai/content_optimizer) para optimizar ganchos, cuerpos y CTA para mensajes servicio de mensajes cortos, MMS y RCS. El optimizador de contenidos te ayuda a probar y optimizar el contenido de los mensajes a escala, utilizando IA para generar y evaluar grandes volúmenes de variantes de contenido automáticamente.
+Puedes usar el [optimizador de contenidos]({{site.baseurl}}/user_guide/brazeai/content_optimizer) para optimizar ganchos, cuerpos y CTA para mensajes SMS, MMS y RCS. El optimizador de contenidos te ayuda a probar y optimizar el contenido de los mensajes a escala, utilizando IA para generar y evaluar grandes volúmenes de variantes de contenido automáticamente.
 
 ### Orquestación
 
@@ -572,15 +572,15 @@ Las zonas horarias del espacio de trabajo para el envío de mensajes se están i
 
 Puedes capturar automáticamente el nombre para mostrar de WhatsApp de un usuario desde el webhook de mensajería entrante de Meta y escribirlo en el perfil de Braze del usuario. Cuando se recibe un mensaje entrante de WhatsApp, Braze expone el nombre del perfil como un nuevo atributo de Liquid de WhatsApp, [{% raw %}`{{whats_app.${inbound_profile_name}}}`{% endraw %}]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags), que puedes referenciar en un paso de actualización de usuario en Canvas para guardarlo en un campo del perfil.
 
-#### Estados de suscripción servicio de mensajes cortos huérfanos {#orphaned-sms-subscription-states}
+#### Estados de suscripción SMS huérfanos {#orphaned-sms-subscription-states}
 
 Braze [gestiona automáticamente los registros de estado de suscripción huérfanos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#how-braze-handles-orphaned-subscription-states) (datos de suscripción almacenados para un número de teléfono o dirección de correo electrónico no vinculados a ningún perfil de usuario) para evitar la herencia no intencionada del estado de suscripción. Esto protege a los usuarios de escenarios en los que un perfil de usuario recién creado hereda incorrectamente el estado de suscripción de un usuario previamente eliminado o no relacionado.
 
 ### Asociaciones
 
-#### Chord - CDP or plataforma de datos de los clientes or plataforma de datos de los clientes {#chord-customer-data-platform}
+#### Chord - CDP {#chord-customer-data-platform}
 
-[Chord](https://www.chord.co/) proporciona una CDP or plataforma de datos de los clientes or plataforma de datos de los clientes que captura y estandariza eventos de tu tienda de comercio electrónico. Cuando conectas Chord a Braze, la actividad de compra, los eventos de comportamiento y las actualizaciones de identidad fluyen hacia Braze para que puedas desencadenar campañas y mantener los perfiles actualizados sin construir esos pipelines tú mismo.
+[Chord](https://www.chord.co/) proporciona una CDP que captura y estandariza eventos de tu tienda de comercio electrónico. Cuando conectas Chord a Braze, la actividad de compra, los eventos de comportamiento y las actualizaciones de identidad fluyen hacia Braze para que puedas desencadenar campañas y mantener los perfiles actualizados sin construir esos pipelines tú mismo.
 
 Para más información, consulta [Chord]({{site.baseurl}}/partners/chord).
 
@@ -596,13 +596,13 @@ Para más información, consulta [Better Email]({{site.baseurl}}/partners/better
 
 Para más información, consulta [DailyPlay]({{site.baseurl}}/partners/dailyplay).
 
-### SDK or kit de desarrollo de software
+### SDK
 
-#### Actualizaciones de última hora del SDK or kit de desarrollo de software
+#### Actualizaciones de última hora del SDK
 
-Se han publicado las últimas actualizaciones del SDK or kit de desarrollo de software. Las actualizaciones de última hora se enumeran en la sección de actualizaciones del SDK or kit de desarrollo de software; todas las demás actualizaciones se pueden encontrar consultando los correspondientes registros de cambios del SDK or kit de desarrollo de software.
+Se han publicado las últimas actualizaciones del SDK. Las actualizaciones de última hora se enumeran en la sección de actualizaciones del SDK; todas las demás actualizaciones se pueden encontrar consultando los correspondientes registros de cambios del SDK.
 
-{% multi_lang_include releases/SDK or kit de desarrollo de software/2026_5_28_26_updates.md %}
+{% multi_lang_include releases/sdk/2026_5_28_26_updates.md %}
 
 {% enddetails %}
 {% details 30 de abril de 2026 %}
@@ -712,20 +712,20 @@ Ahora puedes [sincronizar etiquetas de producto, colecciones y metacampos de Sho
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-[GRAVTY®](https://www.lji.io/) es una plataforma de fidelización de nivel empresarial de Loyalty Juggernaut Inc. (LJI) que permite a las marcas de comercio minorista, viajes, restaurantes (incluidos los de servicio rápido) y servicios financieros diseñar, gestionar y escalar programas de nueva generación, impulsando un crecimiento medible en la participación, la retención y el LTV or valor de duración del ciclo de vida or valor de duración del ciclo de vida del cliente a través de experiencias personalizadas y basadas en datos.
+[GRAVTY®](https://www.lji.io/) es una plataforma de fidelización de nivel empresarial de Loyalty Juggernaut Inc. (LJI) que permite a las marcas de comercio minorista, viajes, restaurantes (incluidos los de servicio rápido) y servicios financieros diseñar, gestionar y escalar programas de nueva generación, impulsando un crecimiento medible en la participación, la retención y el LTV del cliente a través de experiencias personalizadas y basadas en datos.
 
-<!-- Use this section to list any new SDKs or SDK or kit de desarrollo de software updates that are already released. -->
-### SDK or kit de desarrollo de software
+<!-- Use this section to list any new SDKs or SDK updates that are already released. -->
+### SDK
 
-Se han publicado las siguientes actualizaciones del SDK or kit de desarrollo de software. Para más detalles, consulta los [registros de cambios del SDK or kit de desarrollo de software]({{site.baseurl}}/releases/sdk_changelogs).
+Se han publicado las siguientes actualizaciones del SDK. Para más detalles, consulta los [registros de cambios del SDK]({{site.baseurl}}/releases/sdk_changelogs).
 
-#### Actualizaciones de última hora del SDK or kit de desarrollo de software
+#### Actualizaciones de última hora del SDK
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Se han publicado las últimas actualizaciones del SDK or kit de desarrollo de software. Las actualizaciones de última hora se enumeran en la sección de actualizaciones del SDK or kit de desarrollo de software; todas las demás actualizaciones se pueden encontrar consultando los correspondientes registros de cambios del SDK or kit de desarrollo de software.
+Se han publicado las últimas actualizaciones del SDK. Las actualizaciones de última hora se enumeran en la sección de actualizaciones del SDK; todas las demás actualizaciones se pueden encontrar consultando los correspondientes registros de cambios del SDK.
 
-{% multi_lang_include releases/SDK or kit de desarrollo de software/2026_4_30_26_updates.md %}
+{% multi_lang_include releases/sdk/2026_4_30_26_updates.md %}
 
 {% enddetails %}
 {% details 2 de abril de 2026 %}
@@ -811,17 +811,17 @@ Puedes usar [Banners]({{site.baseurl}}/user_guide/channels/banners) como canal d
 
 Con la [sincronización de audiencias de Braze con The Trade Desk]({{site.baseurl}}/partners/canvas_audience_sync/trade_desk_audience_sync), puedes sincronizar dinámicamente tus datos de usuario propios desde Braze directamente en The Trade Desk para retargeting de anuncios, modelado de audiencias similares y supresión.
 
-### SDK or kit de desarrollo de software
+### SDK
 
 #### Conecta tu entorno de desarrollo integrado (IDE) al MCP de Docs {#connect-your-integrated-development-environment-ide-to-the-docs-mcp}
 
-Usa asistentes de codificación con IA para acelerar tu flujo de trabajo de integración con Braze conectando tu entorno de desarrollo integrado (IDE) al MCP de Braze Docs a través de Context7. Esto le da a tu asistente acceso directo a la documentación actual de Braze, para que pueda generar orientación más precisa sobre el SDK or kit de desarrollo de software, ejemplos de código y ayuda para la solución de problemas en tu entorno de desarrollo. Para los pasos de configuración en Cursor, Claude Desktop y VS Code, consulta [Construir con un LLM]({{site.baseurl}}/developer_guide/getting_started/build_with_llm#connecting-to-the-braze-docs-mcp).
+Usa asistentes de codificación con IA para acelerar tu flujo de trabajo de integración con Braze conectando tu entorno de desarrollo integrado (IDE) al MCP de Braze Docs a través de Context7. Esto le da a tu asistente acceso directo a la documentación actual de Braze, para que pueda generar orientación más precisa sobre el SDK, ejemplos de código y ayuda para la solución de problemas en tu entorno de desarrollo. Para los pasos de configuración en Cursor, Claude Desktop y VS Code, consulta [Construir con un LLM]({{site.baseurl}}/developer_guide/getting_started/build_with_llm#connecting-to-the-braze-docs-mcp).
 
-#### Actualizaciones de última hora del SDK or kit de desarrollo de software
+#### Actualizaciones de última hora del SDK
 
-Se han publicado las últimas actualizaciones del SDK or kit de desarrollo de software. Las actualizaciones de última hora se enumeran en la sección de actualizaciones del SDK or kit de desarrollo de software; todas las demás actualizaciones se pueden encontrar consultando los correspondientes registros de cambios del SDK or kit de desarrollo de software.
+Se han publicado las últimas actualizaciones del SDK. Las actualizaciones de última hora se enumeran en la sección de actualizaciones del SDK; todas las demás actualizaciones se pueden encontrar consultando los correspondientes registros de cambios del SDK.
 
-{% multi_lang_include releases/SDK or kit de desarrollo de software/2026_4_2_26_updates.md %}
+{% multi_lang_include releases/sdk/2026_4_2_26_updates.md %}
 
 {% enddetails %}
 
@@ -903,7 +903,7 @@ Braze está introduciendo [permisos granulares]({{site.baseurl}}/user_guide/admi
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Al configurar un límite de velocidad de entrega para una campaña multicanal o Canvas, puedes elegir establecer un límite de velocidad compartido o un [límite basado en canal]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#multichannel-campaigns-and-canvases). Cuando una campaña multicanal o Canvas usa limitación de velocidad basada en canal, el límite de velocidad se aplica a cada uno de los canales seleccionados. Por ejemplo, puedes configurar tu campaña o Canvas para que envíe un máximo de 5.000 webhooks y 2.500 mensajes servicio de mensajes cortos por minuto en toda la campaña o Canvas.
+Al configurar un límite de velocidad de entrega para una campaña multicanal o Canvas, puedes elegir establecer un límite de velocidad compartido o un [límite basado en canal]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#multichannel-campaigns-and-canvases). Cuando una campaña multicanal o Canvas usa limitación de velocidad basada en canal, el límite de velocidad se aplica a cada uno de los canales seleccionados. Por ejemplo, puedes configurar tu campaña o Canvas para que envíe un máximo de 5.000 webhooks y 2.500 mensajes SMS por minuto en toda la campaña o Canvas.
 
 #### Paso de contexto en Canvas {#canvas-context-step}
 
@@ -963,7 +963,7 @@ Después de añadir locales a tu espacio de trabajo, puedes [dirigirte a usuario
 
 #### Open Loyalty - Datos y análisis - Fidelización {#open-loyalty-data-and-analytics-loyalty}
 
-[Open Loyalty]({{site.baseurl}}/partners/data_and_analytics/loyalty/openloyalty) es una plataforma de programas de fidelización basada en la nube que te permite crear y gestionar programas de recompensa y fidelización de clientes. La integración de Braze y Open Loyalty sincroniza los datos de fidelización —como el saldo de puntos, los cambios de nivel y las advertencias de caducidad— directamente en Braze en tiempo real. Esto te permite desencadenar mensajes personalizados (correo electrónico, push, servicio de mensajes cortos) cuando cambia el estado de fidelización de un usuario.
+[Open Loyalty]({{site.baseurl}}/partners/data_and_analytics/loyalty/openloyalty) es una plataforma de programas de fidelización basada en la nube que te permite crear y gestionar programas de recompensa y fidelización de clientes. La integración de Braze y Open Loyalty sincroniza los datos de fidelización —como el saldo de puntos, los cambios de nivel y las advertencias de caducidad— directamente en Braze en tiempo real. Esto te permite desencadenar mensajes personalizados (correo electrónico, push, SMS) cuando cambia el estado de fidelización de un usuario.
 
 #### OpenAI - Proveedor de modelos de IA {#openai-ai-model-provider}
 
@@ -975,15 +975,15 @@ Después de añadir locales a tu espacio de trabajo, puedes [dirigirte a usuario
 
 #### Splio - Datos y análisis - Importación de cohortes {#splio-data-and-analytics-cohort-import}
 
-[Splio]({{site.baseurl}}/partners/data_and_analytics/cohort_import/splio) es una herramienta de creación de audiencias que te permite aumentar el número de campañas e ingresos sin perjudicar la experiencia del cliente, y proporciona análisis para rastrear el rendimiento de las campañas de CRM or administración de las relaciones con el cliente tanto en línea como fuera de línea.
+[Splio]({{site.baseurl}}/partners/data_and_analytics/cohort_import/splio) es una herramienta de creación de audiencias que te permite aumentar el número de campañas e ingresos sin perjudicar la experiencia del cliente, y proporciona análisis para rastrear el rendimiento de las campañas de CRM tanto en línea como fuera de línea.
 
-### SDK or kit de desarrollo de software
+### SDK
 
-#### Actualizaciones de última hora del SDK or kit de desarrollo de software
+#### Actualizaciones de última hora del SDK
 
-Se han publicado las últimas actualizaciones del SDK or kit de desarrollo de software. Las actualizaciones de última hora se enumeran en la sección de actualizaciones del SDK or kit de desarrollo de software; todas las demás actualizaciones se pueden encontrar consultando los correspondientes registros de cambios del SDK or kit de desarrollo de software.
+Se han publicado las últimas actualizaciones del SDK. Las actualizaciones de última hora se enumeran en la sección de actualizaciones del SDK; todas las demás actualizaciones se pueden encontrar consultando los correspondientes registros de cambios del SDK.
 
-{% multi_lang_include releases/SDK or kit de desarrollo de software/2026_3_5_26_updates.md %}
+{% multi_lang_include releases/sdk/2026_3_5_26_updates.md %}
 
 {% enddetails %}
 
@@ -1033,7 +1033,7 @@ Usa el [calentamiento de IP automatizado]({{site.baseurl}}/user_guide/channels/e
 
 #### LinkedIn – Sincronización de audiencias en Canvas {#linkedin-canvas-audience-sync}
 
-Con la [sincronización de audiencias de Braze con LinkedIn]({{site.baseurl}}/partners/canvas_audience_sync/linkedin_audience_sync), puedes añadir datos de usuarios de tu integración con Braze a las listas de clientes de LinkedIn para entregar anuncios basados en desencadenantes de comportamiento, segmentación y más. Cualquier criterio que normalmente utilizarías para desencadenar un mensaje (como push, correo electrónico, servicio de mensajes cortos y webhook) en un Canvas de Braze basado en tus datos de usuario puede ahora desencadenar un anuncio para ese usuario en tus listas de clientes de LinkedIn.
+Con la [sincronización de audiencias de Braze con LinkedIn]({{site.baseurl}}/partners/canvas_audience_sync/linkedin_audience_sync), puedes añadir datos de usuarios de tu integración con Braze a las listas de clientes de LinkedIn para entregar anuncios basados en desencadenantes de comportamiento, segmentación y más. Cualquier criterio que normalmente utilizarías para desencadenar un mensaje (como push, correo electrónico, SMS y webhook) en un Canvas de Braze basado en tus datos de usuario puede ahora desencadenar un anuncio para ese usuario en tus listas de clientes de LinkedIn.
 
 #### Oracle Crowdtwist - Datos y análisis {#oracle-crowdtwist-data-analytics}
 
@@ -1045,7 +1045,7 @@ La plataforma de datos de comportamiento de [Fullstory]({{site.baseurl}}/partner
 
 #### Open Loyalty - Datos y análisis {#open-loyalty-data-analytics}
 
-[Open Loyalty]({{site.baseurl}}/partners/openloyalty) es una plataforma de programas de fidelización basada en la nube que te permite crear y gestionar programas de recompensa y fidelización de clientes. La integración de Braze y Open Loyalty sincroniza los datos de fidelización —como el saldo de puntos, los cambios de nivel y las advertencias de caducidad— directamente en Braze en tiempo real. Esto te permite desencadenar mensajes personalizados (correo electrónico, push, servicio de mensajes cortos) cuando cambia el estado de fidelización de un usuario.
+[Open Loyalty]({{site.baseurl}}/partners/openloyalty) es una plataforma de programas de fidelización basada en la nube que te permite crear y gestionar programas de recompensa y fidelización de clientes. La integración de Braze y Open Loyalty sincroniza los datos de fidelización —como el saldo de puntos, los cambios de nivel y las advertencias de caducidad— directamente en Braze en tiempo real. Esto te permite desencadenar mensajes personalizados (correo electrónico, push, SMS) cuando cambia el estado de fidelización de un usuario.
 
 #### DOTS.ECO - Extensiones {#dotseco-extensions}
 
@@ -1075,7 +1075,7 @@ Ya están disponibles dos nuevos [eventos]({{site.baseurl}}/user_guide/data/dist
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Ahora hay nuevos [eventos de reintento]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) disponibles para los canales de correo electrónico, LINE, notificaciones push, servicio de mensajes cortos, webhooks y WhatsApp. Estos eventos proporcionan visibilidad sobre cuándo la limitación de frecuencia provoca que un mensaje programado se retrase en lugar de cancelarse. Cuando un mensaje pierde prioridad o tiene una limitación de frecuencia, ahora se puede volver a intentar dentro de una ventana de reintento configurada, lo que te da una mejor información sobre los patrones de entrega de mensajes y los impactos de la limitación de frecuencia. Para más información, consulta el [registro de cambios de Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-in-version-5-release-date-2026-02-04).
+Ahora hay nuevos [eventos de reintento]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) disponibles para los canales de correo electrónico, LINE, notificaciones push, SMS, webhooks y WhatsApp. Estos eventos proporcionan visibilidad sobre cuándo la limitación de frecuencia provoca que un mensaje programado se retrase en lugar de cancelarse. Cuando un mensaje pierde prioridad o tiene una limitación de frecuencia, ahora se puede volver a intentar dentro de una ventana de reintento configurada, lo que te da una mejor información sobre los patrones de entrega de mensajes y los impactos de la limitación de frecuencia. Para más información, consulta el [registro de cambios de Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-in-version-5-release-date-2026-02-04).
 
 #### Nuevo campo `time_ms` en el evento TokenStateChange {#add-new-time_ms-field-to-tokenstatechange-event}
 
@@ -1099,14 +1099,14 @@ Los eventos que no tienen definido un ID externo de usuario ahora se pueden tran
 
 El [evento de apertura de correo electrónico]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#email-open-events) ahora genera el valor del campo "machine_open" para informar sobre la métrica [_Apertura automática_]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
-### SDK or kit de desarrollo de software
+### SDK
 
-Se han publicado las siguientes actualizaciones del SDK or kit de desarrollo de software. Swift SDK or kit de desarrollo de software v14.0.1 corrige un problema con el manejo de los enlaces universales. Android SDK or kit de desarrollo de software v40.2.0 corrige una posible fuga de memoria y resuelve un problema con la apertura de varias sesiones cuando hay actividades transparentes. Expo SDK or kit de desarrollo de software v3.2.0 añade la opción `forwardUniversalLinks` (predeterminada: false) para configurar el manejo nativo del SDK or kit de desarrollo de software Swift de los enlaces universales.
+Se han publicado las siguientes actualizaciones del SDK. Swift SDK v14.0.1 corrige un problema con el manejo de los enlaces universales. Android SDK v40.2.0 corrige una posible fuga de memoria y resuelve un problema con la apertura de varias sesiones cuando hay actividades transparentes. Expo SDK v3.2.0 añade la opción `forwardUniversalLinks` (predeterminada: false) para configurar el manejo nativo del SDK Swift de los enlaces universales.
 
-#### Actualizaciones de última hora del SDK or kit de desarrollo de software
+#### Actualizaciones de última hora del SDK
 
-Se han publicado las últimas actualizaciones del SDK or kit de desarrollo de software. Las actualizaciones de última hora se enumeran en la sección de actualizaciones del SDK or kit de desarrollo de software; todas las demás actualizaciones se pueden encontrar consultando los correspondientes registros de cambios del SDK or kit de desarrollo de software.
+Se han publicado las últimas actualizaciones del SDK. Las actualizaciones de última hora se enumeran en la sección de actualizaciones del SDK; todas las demás actualizaciones se pueden encontrar consultando los correspondientes registros de cambios del SDK.
 
-{% multi_lang_include releases/SDK or kit de desarrollo de software/2026_2_5_26_updates.md %}
+{% multi_lang_include releases/sdk/2026_2_5_26_updates.md %}
 
 {% enddetails %}

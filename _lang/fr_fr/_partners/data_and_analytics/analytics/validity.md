@@ -45,7 +45,7 @@ Validity a besoin de trois identifiants depuis **Paramètres** > **API et identi
 - Votre endpoint REST
 - Votre identifiant d'application
 
-Partagez ces identifiants avec votre conseiller Validity, qui finalisera la configuration de l'intégration pour vous. Validity valide les identifiants avec un appel de test en direct or en ligne/en production/instantané vers Braze avant d'activer l'intégration. Si vous ne savez pas qui est votre contact Validity, envoyez un e-mail à [support@validity.com](mailto:support@validity.com).
+Partagez ces identifiants avec votre conseiller Validity, qui finalisera la configuration de l'intégration pour vous. Validity valide les identifiants avec un appel de test en direct vers Braze avant d'activer l'intégration. Si vous ne savez pas qui est votre contact Validity, envoyez un e-mail à [support@validity.com](mailto:support@validity.com).
 
 Une fois l'intégration activée, Validity synchronise votre liste de test Everest avec Braze selon un cycle récurrent (toutes les 10 minutes). Validity crée, met à jour et supprime les utilisateurs de test dans Braze pour les maintenir alignés avec votre liste de test actuelle dans Everest.
 
@@ -100,11 +100,11 @@ Les tests peuvent également vous aider à diagnostiquer pourquoi des e-mails ar
 
 ### Santé de la liste de test {#seed-list-health}
 
-Validity surveille les utilisateurs de la liste de test et peut les mettre à jour ou les supprimer s'ils commencent à perdre en efficacité — par exemple, si les fournisseurs de services d'e-mail marketing or e-mailing (fournisseur de services d'e-mailing) commencent à signaler les membres de l'audience de la liste de test comme spam. Ces permissions permettent à Validity de surveiller la santé de la liste de test et de la mettre à jour en conséquence.
+Validity surveille les utilisateurs de la liste de test et peut les mettre à jour ou les supprimer s'ils commencent à perdre en efficacité — par exemple, si les fournisseurs de services d'e-mail marketing (fournisseur de services d'e-mailing) commencent à signaler les membres de l'audience de la liste de test comme spam. Ces permissions permettent à Validity de surveiller la santé de la liste de test et de la mettre à jour en conséquence.
 
 ### Gestion du contenu dynamique {#how-dynamic-content-is-handled}
 
-Les e-mails Braze utilisent souvent la personnalisation Liquid liée au profil d'un destinataire réel. Comme les adresses de test ne disposent pas de ces données de profil, Validity fait passer chaque e-mail par un processus de nettoyage avant de l'envoyer en test. Ce processus résout les Content Blocks, évalue la logique Liquid de base et remplace tout ce qu'il ne peut pas résoudre (comme un prénom) par une marque substitutive visible `[REDACTED]`. Les sections entièrement construites à partir d'API Connected Content en direct or en ligne/en production/instantané s'affichent vides dans le test.
+Les e-mails Braze utilisent souvent la personnalisation Liquid liée au profil d'un destinataire réel. Comme les adresses de test ne disposent pas de ces données de profil, Validity fait passer chaque e-mail par un processus de nettoyage avant de l'envoyer en test. Ce processus résout les Content Blocks, évalue la logique Liquid de base et remplace tout ce qu'il ne peut pas résoudre (comme un prénom) par une marque substitutive visible `[REDACTED]`. Les sections entièrement construites à partir d'API Connected Content en direct s'affichent vides dans le test.
 
 Vous pouvez activer ou désactiver le processus de nettoyage. Lorsqu'il est désactivé, Braze résout la personnalisation Liquid pour les envois de test de la même manière que pour un destinataire réel.
 

@@ -38,7 +38,7 @@ Agents, die aus Profilattributen und aktuellem Verhalten die Interessen oder Mot
 
 ### Datenstandardisierung {#data-standardization}
 
-Agents, die unstrukturierte Eingaben in konsistente, strukturierte Felder für nachgelagerte Tools und Automatisierungen umwandeln. Beispiele umfassen die Klassifizierung von Umfrage-Sentiment und -Thema für eine CRM or Customer-Relationship-Management [-System] (CRM)-Übergabe oder die Normalisierung eingehender Kurzmitteilungsdienst or SMS- oder Chat-Nachrichten in Absicht, Entitäten und Compliance-Flags.
+Agents, die unstrukturierte Eingaben in konsistente, strukturierte Felder für nachgelagerte Tools und Automatisierungen umwandeln. Beispiele umfassen die Klassifizierung von Umfrage-Sentiment und -Thema für eine CRM-Übergabe oder die Normalisierung eingehender SMS- oder Chat-Nachrichten in Absicht, Entitäten und Compliance-Flags.
 
 ### Klassifizierung und Routing {#classification-and-routing}
 
@@ -147,7 +147,7 @@ The user IS in the segment: “Logged multiple searches in the past 30D”.
 Data standardization, Canvas-Schritt agent
 {% endapitags %}
 
-Dieses Beispiel beschreibt, wie ein Canvas-Schritt-Agent Nutzerfeedback aus Umfragen nach der Reise analysieren und Sentiment sowie Themen kategorisieren kann. Das Ziel dieses Agents ist es, die nächsten Schritte für eine separate CRM or Customer-Relationship-Management [-System] (CRM)-Plattform zu bestimmen.
+Dieses Beispiel beschreibt, wie ein Canvas-Schritt-Agent Nutzerfeedback aus Umfragen nach der Reise analysieren und Sentiment sowie Themen kategorisieren kann. Das Ziel dieses Agents ist es, die nächsten Schritte für eine separate CRM-Plattform zu bestimmen.
 
 {% tabs local %}
 {% tab Voraussetzungen %}
@@ -303,7 +303,7 @@ Diese Anweisungen setzen voraus, dass die folgenden Informationen verfügbar sin
 
 - Nutzerattribute wie Vorname, Land, Branche, Rolle, Fachgebiet und kürzlich genutzte Produkte
 - Engagement-Verlauf, einschließlich kürzlicher Campaign-Öffnungen, Klicks und Conversions sowie der Nachrichten, die diese ausgelöst haben (nicht Engagement-Häufigkeit oder Zeitstempel der letzten Aktivität)
-- Kontextvariablen für die zulässigen Route-Schlüssel, kürzlich favorisierte Artikel, aktuelle Suchbegriffe und Trigger or triggern-spezifische Event-Eigenschaften
+- Kontextvariablen für die zulässigen Route-Schlüssel, kürzlich favorisierte Artikel, aktuelle Suchbegriffe und Trigger-spezifische Event-Eigenschaften
 - **Agent-Kontext** aus den [Anweisungen der Agent-Konsole]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources):
     - **Gesamter Canvas-Kontext:** Übergibt alle zusätzlichen Kontextvariablen an den Agent, die Sie nicht bereits in Ihren Agent-Anweisungen definiert haben, falls sie hilfreich oder relevant sind
 
@@ -459,7 +459,7 @@ Opt-out- und Einwilligungsverarbeitung unterliegt rechtlichen Verpflichtungen, d
 
 Diese Anweisungen setzen voraus, dass die folgenden Informationen verfügbar sind:
 
-- Eingehender Nachrichtentext, der dem Agent zur Verfügung steht (z. B. eine Kontextvariable für die letzte Kurzmitteilungsdienst or SMS-Antwort oder einen anderen eingehenden Text der Nutzer:innen)
+- Eingehender Nachrichtentext, der dem Agent zur Verfügung steht (z. B. eine Kontextvariable für die letzte SMS-Antwort oder einen anderen eingehenden Text der Nutzer:innen)
 - **Agent-Kontext** aus den [Anweisungen der Agent-Konsole]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources):
     - **Gesamter Canvas-Kontext:** Übergibt alle zusätzlichen Kontextvariablen an den Agent, die Sie nicht bereits in Ihren Agent-Anweisungen definiert haben, falls sie hilfreich oder relevant sind
 
@@ -530,7 +530,7 @@ Input: “This sucks—what’s the promo code?” → false
 Data standardization, Canvas-Schritt agent
 {% endapitags %}
 
-Dieses Beispiel beschreibt, wie ein Canvas-Schritt-Agent unstrukturierte, unordentliche eingehende Kurzmitteilungsdienst or SMS- oder Chat-Antworten in ein konsistentes, strukturiertes Format normalisieren kann – durch Klassifizierung der Absicht, Extraktion von Entitäten und Kennzeichnung von Compliance-Signalen wie Opt-outs und PII. Das Ziel ist, nachgelagerter Automatisierung und internen Benachrichtigungen saubere, maschinenlesbare Daten für zuverlässiges Routing bereitzustellen.
+Dieses Beispiel beschreibt, wie ein Canvas-Schritt-Agent unstrukturierte, unordentliche eingehende SMS- oder Chat-Antworten in ein konsistentes, strukturiertes Format normalisieren kann – durch Klassifizierung der Absicht, Extraktion von Entitäten und Kennzeichnung von Compliance-Signalen wie Opt-outs und PII. Das Ziel ist, nachgelagerter Automatisierung und internen Benachrichtigungen saubere, maschinenlesbare Daten für zuverlässiges Routing bereitzustellen.
 
 {% tabs local %}
 {% tab Voraussetzungen %}

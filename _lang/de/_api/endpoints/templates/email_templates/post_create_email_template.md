@@ -15,10 +15,10 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „E-Mai
 
 > Verwenden Sie diesen Endpunkt, um E-Mail-Templates im Braze-Dashboard zu erstellen.
 
-Diese Templates werden auf der Seite **Templates und Medien** verfügbar sein. Die Antwort dieses Endpunkts enthält ein Feld für `email_template_id`, das zum Update or aktualisieren or aktualisieren des Templates in nachfolgenden API-Aufrufen verwendet werden kann.
+Diese Templates werden auf der Seite **Templates und Medien** verfügbar sein. Die Antwort dieses Endpunkts enthält ein Feld für `email_template_id`, das zum Aktualisieren des Templates in nachfolgenden API-Aufrufen verwendet werden kann.
 
 {% alert tip %}
-Sie können diesen Endpunkt auch über den [Braze MCP-Server]({{site.baseurl}}/user_guide/brazeai/mcp_server) mit der Funktion [`create_email_template`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#templates) aufrufen. So können KI or künstliche Intelligenz-Tools wie Claude und Cursor E-Mail-Templates über natürlichsprachliche Eingaben erstellen.
+Sie können diesen Endpunkt auch über den [Braze MCP-Server]({{site.baseurl}}/user_guide/brazeai/mcp_server) mit der Funktion [`create_email_template`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#templates) aufrufen. So können KI-Tools wie Claude und Cursor E-Mail-Templates über natürlichsprachliche Eingaben erstellen.
 {% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5eb1fe0d-2795-474d-aaf2-c4e2977dc94b {% endapiref %}

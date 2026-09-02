@@ -34,7 +34,7 @@ Depois que o Suporte da Salesforce conceder a você a capacidade de criar um app
 
 Ao definir as configurações de OAuth necessárias para o app conectado, mantenha todas as configurações de OAuth com seus valores e seleções padrão, exceto as seguintes:
 1. Selecione **Enable for device flow**. Você pode deixar o **Callback URL** em branco, pois o padrão será um espaço reservado.
-2. Para os **OAuth Scopes** selecionados, adicione **Manage user data via APIs (API or interface de programação do aplicativo (API))**.
+2. Para os **OAuth Scopes** selecionados, adicione **Manage user data via APIs (api)**.
 3. Selecione **Enable Client Credentials Flow**.
 
 ## Criação de um lead no Salesforce Sales Cloud {#creating-lead}

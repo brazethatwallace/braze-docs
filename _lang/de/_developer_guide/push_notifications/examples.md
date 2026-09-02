@@ -1,6 +1,6 @@
 ---
 nav_title: Erweiterte Beispiele
-article_title: Erweiterte Beispiele für Push-Benachrichtigungen für das Braze SDK or Software-Development-Kit
+article_title: Erweiterte Beispiele für Push-Benachrichtigungen für das Braze SDK
 layout: redirect
 redirect_to: /docs/developer_guide/push_notifications/
 noindex: true
@@ -9,7 +9,7 @@ noindex: true
 <!--
 # Erweiterte Beispiele für Push-Benachrichtigungen {#advanced-push-notification-examples}
 
-> Im folgenden Leitfaden finden Sie einige erweiterte Beispiele für Push-Benachrichtigungen für das Braze SDK or Software-Development-Kit.
+> Im folgenden Leitfaden finden Sie einige erweiterte Beispiele für Push-Benachrichtigungen für das Braze SDK.
 
 {% sdktabs %}
 {% sdktab android %}

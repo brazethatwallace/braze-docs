@@ -67,10 +67,10 @@ Obwohl der **Confirmation**-Schritt nicht entfernt werden kann, können Sie ihn 
 
 ## Daten aus teilweise ausgefüllten Formularen erfassen {#track-data-from-partially-completed-forms}
 
-Wenn Nutzer:innen Ihr Formular verlassen, bevor sie den **Confirmation**-Schritt erreichen, speichert Braze dennoch die Daten aus allen abgeschlossenen Schritten in ihrem Kundenprofil or Nutzerprofil. Das Ereignis **Submitted a Landing Page form** wird erst protokolliert, wenn Nutzer:innen jeden Schritt abgeschlossen haben und den **Confirmation**-Schritt erreichen.
+Wenn Nutzer:innen Ihr Formular verlassen, bevor sie den **Confirmation**-Schritt erreichen, speichert Braze dennoch die Daten aus allen abgeschlossenen Schritten in ihrem Kundenprofil. Das Ereignis **Submitted a Landing Page form** wird erst protokolliert, wenn Nutzer:innen jeden Schritt abgeschlossen haben und den **Confirmation**-Schritt erreichen.
 
 {% alert note %}
-[Retargeting und Trigger or triggern-Zustellung]({{site.baseurl}}/user_guide/messaging/landing_pages/retargeting_users) basieren auf dem Ereignis **Submitted a Landing Page form**. Nutzer:innen, die einige, aber nicht alle Schritte absenden, werden in ihrem Profil gespeichert, sind aber nicht in diesem Ereignis enthalten – auch wenn ihre teilweisen Daten erfasst wurden.
+[Retargeting und Trigger-Zustellung]({{site.baseurl}}/user_guide/messaging/landing_pages/retargeting_users) basieren auf dem Ereignis **Submitted a Landing Page form**. Nutzer:innen, die einige, aber nicht alle Schritte absenden, werden in ihrem Profil gespeichert, sind aber nicht in diesem Ereignis enthalten – auch wenn ihre teilweisen Daten erfasst wurden.
 {% endalert %}
 
 Dies unterscheidet sich von [Landing-Page-Umfragen]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/surveys), bei denen Nutzer:innen, die den letzten Schritt nicht erreichen, als teilweise Einreichung erfasst werden.

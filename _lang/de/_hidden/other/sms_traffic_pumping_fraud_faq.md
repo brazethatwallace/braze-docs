@@ -1,11 +1,11 @@
 ---
-nav_title: Wie Braze Ihr Kurzmitteilungsdienst or SMS-, MMS- und RCS-Ökosystem vor Betrug schützt
+nav_title: Wie Braze Ihr SMS-, MMS- und RCS-Ökosystem vor Betrug schützt
 permalink: "/sms_traffic_pumping_fraud_faq/"
-description: "Dieser Referenzartikel behandelt häufig gestellte Fragen zu Kurzmitteilungsdienst or SMS-, MMS- und RCS-Traffic-Pumping-Betrug."
+description: "Dieser Referenzartikel behandelt häufig gestellte Fragen zu SMS-, MMS- und RCS-Traffic-Pumping-Betrug."
 hidden: true
 ---
 
-# Wie Braze Ihr Kurzmitteilungsdienst or SMS-, MMS- und RCS-Ökosystem vor Betrug schützt {#how-braze-protects-your-sms-mms-and-rcs-ecosystem-against-fraud}
+# Wie Braze Ihr SMS-, MMS- und RCS-Ökosystem vor Betrug schützt {#how-braze-protects-your-sms-mms-and-rcs-ecosystem-against-fraud}
 
 {% multi_lang_include sms_traffic_pumping_fraud/intro.md link_geographic_permissions=true %}
 

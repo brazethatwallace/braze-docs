@@ -23,8 +23,8 @@ A integração entre a Braze e a Pypestream permite orquestrar com perfeição o
 | Requisito | Descrição |
 |---|---|
 | Conta Pypestream | É necessário ter uma [conta Pypestream](https://www.pypestream.com/contact-us/) para usar essa parceria.<br><br>Uma vez inscrito, a equipe da Pypestream ajudará você a configurar seu ambiente dedicado para começar a criar sua solução de IA conversacional para integração com a Braze. |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões `users.track`. <br><br> Isso pode ser criado no dashboard da Braze em **Settings** > **API or interface de programação do aplicativo (API) Keys**. |
-| Endpoint REST or transferir estado representacional da Braze | Sua URL de endpoint REST or transferir estado representacional. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/api/basics/). |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. <br><br> Isso pode ser criado no dashboard da Braze em **Settings** > **API Keys**. |
+| Endpoint REST da Braze | Sua URL de endpoint REST. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/api/basics/). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
@@ -36,7 +36,7 @@ A parceria entre a Braze e a Pypestream pode ser usada nos seus Canvas para aten
 
 ## Integração {#integration}
 
-A Pypestream utiliza uma camada de integração sem servidor para realizar integrações personalizadas em várias plataformas. Essa camada é usada para fazer interface com serviços ou sistemas para dar suporte aos requisitos de dados do fluxo de conversação que está sendo criado. Essas integrações, chamadas de integrações de Action Node, geralmente são escritas em Python e implantadas usando a plataforma Pypestream. Depois que um nó de ação é instanciado, ele oferece a flexibilidade de se integrar a qualquer endpoint da API or interface de programação do aplicativo (API) da Braze e permite que os resultados sejam avaliados de várias maneiras.
+A Pypestream utiliza uma camada de integração sem servidor para realizar integrações personalizadas em várias plataformas. Essa camada é usada para fazer interface com serviços ou sistemas para dar suporte aos requisitos de dados do fluxo de conversação que está sendo criado. Essas integrações, chamadas de integrações de Action Node, geralmente são escritas em Python e implantadas usando a plataforma Pypestream. Depois que um nó de ação é instanciado, ele oferece a flexibilidade de se integrar a qualquer endpoint da API da Braze e permite que os resultados sejam avaliados de várias maneiras.
 
 {% alert note %}
 Acesse este [artigo da Pypestream](https://pypestream.atlassian.net/servicedesk/customer/kb/view/669352070) para obter uma visão geral e as etapas de configuração dos nós de ação da Pypestream. Você deve ser cliente da Pypestream para acessar essa documentação.
@@ -44,7 +44,7 @@ Acesse este [artigo da Pypestream](https://pypestream.atlassian.net/servicedesk/
 
 ### Etapa 1: Definir configurações de endpoint {#step-1-set-endpoint-configurations}
 
-Os valores de configuração primária, como a URL do endpoint REST or transferir estado representacional da Braze e as chaves de API or interface de programação do aplicativo (API) da Braze, devem ser definidos no arquivo `app.py` da solução:
+Os valores de configuração primária, como a URL do endpoint REST da Braze e as chaves de API da Braze, devem ser definidos no arquivo `app.py` da solução:
 
 ```
 import os
@@ -157,7 +157,7 @@ class BrazeExample:
 ```
 ### Etapa 3: Atualizar os designs da solução {#step-3-update-the-solution-designs}
 
-A etapa final da integração com a REST or transferir estado representacional API or interface de programação do aplicativo (API) da Braze envolve a configuração dos fluxos no [Design Studio](https://platform.pypestream.com/design-studio/) da Pypestream para usar o nó de ação que foi desenvolvido na etapa anterior.
+A etapa final da integração com a REST API da Braze envolve a configuração dos fluxos no [Design Studio](https://platform.pypestream.com/design-studio/) da Pypestream para usar o nó de ação que foi desenvolvido na etapa anterior.
 
 {% alert note %}
 Acesse este [artigo da Pypestream](https://pypestream.atlassian.net/servicedesk/customer/kb/view/669352070) para obter uma visão geral de como configurar modos no Design Studio. Você deve ser cliente da Pypestream para acessar essa documentação.
@@ -165,7 +165,7 @@ Acesse este [artigo da Pypestream](https://pypestream.atlassian.net/servicedesk/
 
 ## Caso de uso de integração {#integration-use-case}
 
-Depois que os pré-requisitos forem atendidos e uma estrutura de nó de ação tiver sido criada, o desenvolvedor terá um Canvas em branco para trabalhar ao interagir com os endpoints da API or interface de programação do aplicativo (API) da Braze. Este exemplo mostra as etapas necessárias para integrar um nó de ação ao [endpoint `/user/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) da Braze — especificamente para criar um perfil de usuário para rastrear um usuário específico que entra em um fluxo de conversação da Pypestream.
+Depois que os pré-requisitos forem atendidos e uma estrutura de nó de ação tiver sido criada, o desenvolvedor terá um Canvas em branco para trabalhar ao interagir com os endpoints da API da Braze. Este exemplo mostra as etapas necessárias para integrar um nó de ação ao [endpoint `/user/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) da Braze — especificamente para criar um perfil de usuário para rastrear um usuário específico que entra em um fluxo de conversação da Pypestream.
 
 ### Etapa 1: Coletar dados do usuário na conversa {#step-1-collect-data-from-the-user-in-conversation}
 
@@ -279,4 +279,4 @@ class BrazeExample:
 
 ### Etapa 3: Atualizar os fluxos da solução para redirecionar após sucesso/falha do nó de ação {#step-3-update-solution-flows-to-redirect-upon-successfailure-of-action-node}
 
-Por fim, no design de cada solução, você pode encaminhar os usuários para os nós com base no sucesso da chamada à API or interface de programação do aplicativo (API) do nó de ação. Se o nó de ação receber uma mensagem de erro, o usuário final deverá ser tratado com cuidado.
+Por fim, no design de cada solução, você pode encaminhar os usuários para os nós com base no sucesso da chamada à API do nó de ação. Se o nó de ação receber uma mensagem de erro, o usuário final deverá ser tratado com cuidado.

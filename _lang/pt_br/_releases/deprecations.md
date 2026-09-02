@@ -15,7 +15,7 @@ Você pode ter chegado aqui pesquisando um termo para uma integração ou recurs
 ## Artigos obsoletos {#deprecated-articles}
 
 - [Receptor de push broadcast personalizado para Android]({{site.baseurl}}/releases/deprecations/custom_broadcast_receiver/)
-- [Configuração do Eclipse SDK or kit de desenvolvimento de software]({{site.baseurl}}/releases/deprecations/eclipse_setup_deprecated/)
+- [Configuração do Eclipse SDK]({{site.baseurl}}/releases/deprecations/eclipse_setup_deprecated/)
 - [Depreciação do TLS 1.0 e 1.1]({{site.baseurl}}/releases/deprecations/tls_deprecation/)
 - [Integração do webhook Twilio]({{site.baseurl}}/releases/deprecations/twilio/)
 - [Parceria com a Apptimize]({{site.baseurl}}/releases/deprecations/apptimize/)
@@ -42,9 +42,9 @@ O uso de um `BroadcastReceiver` personalizado para notificações por push foi d
 
 O suporte ao Grouparoo foi descontinuado a partir de abril de 2022.
 
-### SDK or kit de desenvolvimento de software da Braze para Windows {#braze-windows-sdk}
+### SDK da Braze para Windows {#braze-windows-sdk}
 
-**24 de março de 2022**: O SDK or kit de desenvolvimento de software da Braze para Windows está obsoleto, e nenhum novo app para Windows pode ser criado no dashboard da Braze.<br>
+**24 de março de 2022**: O SDK da Braze para Windows está obsoleto, e nenhum novo app para Windows pode ser criado no dashboard da Braze.<br>
 **15 de setembro de 2022**: Nenhuma mensagem nova pode ser enviada para os apps do Windows. As mensagens existentes e a coleta de dados não são afetadas.<br>
 **11 de janeiro de 2024**: A Braze não enviará mais mensagens nem coletará dados de apps do Windows.
 
@@ -92,7 +92,7 @@ Se estiver usando atualmente o [Apptimize com a Braze]({{site.baseurl}}/releases
 
 A Braze aprimorou a aparência das mensagens no app para aderir às práticas recomendadas de UX e UI mais recentes e não oferece mais suporte às mensagens originais no app.
 
-A Braze passou a usar uma nova forma de mensagens no app com as seguintes versões do SDK or kit de desenvolvimento de software:
+A Braze passou a usar uma nova forma de mensagens no app com as seguintes versões do SDK:
 - iOS: `2.19.0`
 - Android: `1.13.0`
 - Web: `1.3.0`
@@ -103,14 +103,14 @@ Antes dessas versões, a Braze suportava "mensagens originais no app". Anteriorm
 
 **Suporte retirado**: 1º de julho de 2019.
 
-O SDK or kit de desenvolvimento de software da Braze forneceu um widget de feedback que podia ser adicionado ao seu app para permitir que os usuários deixassem feedback usando o método `submitfeedback` e o transmitissem para Desk.com ou Zendesk, sendo gerenciado no dashboard.
+O SDK da Braze forneceu um widget de feedback que podia ser adicionado ao seu app para permitir que os usuários deixassem feedback usando o método `submitfeedback` e o transmitissem para Desk.com ou Zendesk, sendo gerenciado no dashboard.
 
 ### Google Cloud Messaging (GCM)
 
 **Suporte retirado**: Remoção do suporte da Braze: julho de 2018, remoção do suporte do Google: 29 de maio de 2019<br>
 **Substituído por**: [Firebase Cloud Messaging (FCM)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration/#step-1-enable-firebase)
 
-O Google [removeu o suporte ao GCM](https://developers.googleblog.com/2018/04/time-to-upgrade-from-gcm-to-fcm.html) a partir de 29 de maio de 2019. A Braze descontinuou o suporte ao GCM dos SDKs do Android em julho de 2018, o que foi registrado em nossos [changelogs do SDK or kit de desenvolvimento de software do Android](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md). Isso significa que os tokens GCM existentes continuarão a funcionar, e você poderá enviar mensagens aos usuários existentes. No entanto, não será possível enviar mensagens a novos usuários.
+O Google [removeu o suporte ao GCM](https://developers.googleblog.com/2018/04/time-to-upgrade-from-gcm-to-fcm.html) a partir de 29 de maio de 2019. A Braze descontinuou o suporte ao GCM dos SDKs do Android em julho de 2018, o que foi registrado em nossos [changelogs do SDK do Android](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md). Isso significa que os tokens GCM existentes continuarão a funcionar, e você poderá enviar mensagens aos usuários existentes. No entanto, não será possível enviar mensagens a novos usuários.
 
 Os clientes que ainda não migraram para o [Firebase Cloud Messaging (FCM)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration/#step-1-enable-firebase) podem ser afetados por essa alteração.
 

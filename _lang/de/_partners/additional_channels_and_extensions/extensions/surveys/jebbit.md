@@ -16,15 +16,15 @@ _Diese Integration wird von Jebbit gepflegt._
 
 ## Über die Integration {#about-the-integration}
 
-Mit der Integration von Braze und Jebbit können Sie E-Mails und Attribute von Nutzer:innen aus Ihren Jebbit-Kampagnen als Nutzerdaten in Realtime an Braze weitergeben. Diese Daten können dann für Marketing-Initiativen wie personalisierte E-Mail-Kampagnen und Trigger or triggern verwendet werden.
+Mit der Integration von Braze und Jebbit können Sie E-Mails und Attribute von Nutzer:innen aus Ihren Jebbit-Kampagnen als Nutzerdaten in Realtime an Braze weitergeben. Diese Daten können dann für Marketing-Initiativen wie personalisierte E-Mail-Kampagnen und Trigger verwendet werden.
 
 ## Voraussetzungen {#prerequisites}
 
 | Anforderung | Beschreibung |
 |---|---|
 | Jebbit-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Jebbit-Konto. |
-| Braze Representational State Transfer-API-Schlüssel | Ein Braze Representational State Transfer-API-Schlüssel mit allen Nutzerdaten-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze Representational State Transfer-Endpunkt | Ihre URL für den Representational State Transfer-Endpunkt. Ihr Endpunkt hängt von der Braze-URL für [Ihre Instanz]({{site.baseurl}}/api/basics/#endpoints) ab. |
+| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit allen Nutzerdaten-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze REST-Endpunkt | Ihre URL für den REST-Endpunkt. Ihr Endpunkt hängt von der Braze-URL für [Ihre Instanz]({{site.baseurl}}/api/basics/#endpoints) ab. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration

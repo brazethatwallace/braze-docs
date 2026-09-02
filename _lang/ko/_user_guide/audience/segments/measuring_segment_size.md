@@ -90,7 +90,7 @@ _합계_가 채널 합계보다 높은 경우, 그 차이는 Segment에 해당�
 | --- | --- |
 | 이메일 | **Email Available**이 true입니다. |
 | 푸시 | **Foreground Push Enabled**가 true입니다. |
-| 단문 메시지 서비스 | **Subscription Group**이 단문 메시지 서비스 구독 그룹 중 하나입니다. **Invalid Phone Number**가 false입니다. |
+| SMS | **Subscription Group**이 SMS 구독 그룹 중 하나입니다. **Invalid Phone Number**가 false입니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="채널별 도달 가능한 사용자에 적용되는 필터" }
 
 ## 정확한 통계 계산하기 {#calculating-exact-statistics}

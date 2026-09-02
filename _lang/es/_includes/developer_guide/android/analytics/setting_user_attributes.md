@@ -393,9 +393,9 @@ braze.getCurrentUser { user ->
 {% endtab %}
 {% endtabs %}
 
-### Uso de la REST or transferencia de estado representacional API {#using-the-rest-api}
+### Uso de la REST API {#using-the-rest-api}
 
-También puedes utilizar nuestra REST or transferencia de estado representacional API para establecer o eliminar atributos de usuario. Para más información, consulta [Endpoints de datos de usuario]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data).
+También puedes utilizar nuestra REST API para establecer o eliminar atributos de usuario. Para más información, consulta [Endpoints de datos de usuario]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data).
 
 ## Configurar suscripciones del usuario {#setting-user-subscriptions}
 

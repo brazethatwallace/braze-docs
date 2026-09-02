@@ -29,7 +29,7 @@ Consulte a documentação da Meta para saber mais sobre [como verificar seu limi
 
 ## Taxa de transferência {#throughput}
 
-A Meta inicia cada número de telefone comercial registrado com uma taxa de transferência de 80 MPS or mensagens por segundo or mensagens por segundo. O upgrade para 1.000 MPS or mensagens por segundo or mensagens por segundo pode acontecer automaticamente ou mediante solicitação.
+A Meta inicia cada número de telefone comercial registrado com uma taxa de transferência de 80 MPS. O upgrade para 1.000 MPS pode acontecer automaticamente ou mediante solicitação.
 
 Consulte a documentação da Meta para saber mais sobre sua [taxa de transferência](https://developers.facebook.com/docs/whatsapp/cloud-api/overview#throughput).
 

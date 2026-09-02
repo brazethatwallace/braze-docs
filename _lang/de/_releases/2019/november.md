@@ -24,9 +24,9 @@ Sowohl iOS 13 als auch Android 10 haben Einstellungen eingeführt, die es ermög
 
 <img src="{% image_buster /assets/img_archive/iam-dark-mode.gif %}" style="width:100%;max-width:800px;" />
 
-## Kurzmitteilungsdienst or SMS-Metriken in Engagement-Berichten {#sms-metrics-in-engagement-reports}
+## SMS-Metriken in Engagement-Berichten {#sms-metrics-in-engagement-reports}
 
-Kurzmitteilungsdienst or SMS-Metriken sind jetzt in [Engagement-Berichten]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/) verfügbar!
+SMS-Metriken sind jetzt in [Engagement-Berichten]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/) verfügbar!
 
 ## Teams einer Braze-Nutzer:in löschen {#delete-a-braze-users-teams}
 

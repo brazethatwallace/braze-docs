@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Lytics
 
-> [Lytics](https://www.lytics.com/) es la CDP or plataforma de datos de los clientes or plataforma de datos de los clientes (CDP or plataforma de datos de los clientes) elegida por la próxima generación de empresas centradas en el cliente. Las soluciones Lytics Decision Engine, Conductor y Cloud Connect ofrecen a los especialistas en marketing y a los equipos de datos la oportunidad de llevar a cabo la resolución de identidades, la orquestación y la optimización de campañas en tiempo real y respetando la privacidad.
+> [Lytics](https://www.lytics.com/) es la CDP (CDP) elegida por la próxima generación de empresas centradas en el cliente. Las soluciones Lytics Decision Engine, Conductor y Cloud Connect ofrecen a los especialistas en marketing y a los equipos de datos la oportunidad de llevar a cabo la resolución de identidades, la orquestación y la optimización de campañas en tiempo real y respetando la privacidad.
 
 _Esta integración está mantenida por Lytics._
 
@@ -24,7 +24,7 @@ La integración permite a las marcas:
 
 ## Ejemplos {#use-cases}
 
-Conecta Braze a Lytics para [importar](#importing-data-from-braze-to-lytics) correo electrónico, servicio de mensajes cortos y actividad push para enriquecer los perfiles de usuario de Lytics. Si utilizas Braze y Lytics juntos, también puedes [exportar](#integration) las audiencias de Lytics basadas en comportamientos y multicanal para crear recorridos del cliente en Braze altamente personalizados utilizando datos propios.
+Conecta Braze a Lytics para [importar](#importing-data-from-braze-to-lytics) correo electrónico, SMS y actividad push para enriquecer los perfiles de usuario de Lytics. Si utilizas Braze y Lytics juntos, también puedes [exportar](#integration) las audiencias de Lytics basadas en comportamientos y multicanal para crear recorridos del cliente en Braze altamente personalizados utilizando datos propios.
 
 ## Requisitos previos {#prerequisites}
 
@@ -32,8 +32,8 @@ Conecta Braze a Lytics para [importar](#importing-data-from-braze-to-lytics) cor
 | ----------- | ----------- |
 | Cuenta Lytics | Se necesita una cuenta de Lytics para aprovechar esta integración. |
 | Número de cuenta Lytics | Es necesario un número de cuenta de Lytics para configurar la URL del endpoint del webhook. |
-| Token de la API de Lytics | Un token de REST or transferencia de estado representacional API de Lytics con permisos de administrador de datos. <br><br> Se puede crear dentro del panel de Lytics desde **Account Settings Console** > **Access Tokens** > **Create New Token**. |
-| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permiso `users.track`. <br><br> Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Token de la API de Lytics | Un token de REST API de Lytics con permisos de administrador de datos. <br><br> Se puede crear dentro del panel de Lytics desde **Account Settings Console** > **Access Tokens** > **Create New Token**. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permiso `users.track`. <br><br> Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
 | Instancia de Braze | Tu [instancia de Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). Ponte en contacto con tu administrador de incorporación de Braze para obtener esta información si no estás seguro. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
@@ -45,7 +45,7 @@ Esta sección describe cómo exportar datos de Lytics a Braze.
 
 En Lytics, navega hasta el panel **Authorization** dentro de la consola **Data** en la barra de navegación. Selecciona **Create New Authorization** y busca y selecciona **Braze**.
 
-En el mensaje **Configure Authorization** que aparece, proporciona una etiqueta y una descripción e introduce tu clave de API REST or transferencia de estado representacional y tu instancia de Braze. Selecciona **Complete** cuando hayas terminado.
+En el mensaje **Configure Authorization** que aparece, proporciona una etiqueta y una descripción e introduce tu clave de API REST y tu instancia de Braze. Selecciona **Complete** cuando hayas terminado.
 
 ![Mensaje de configuración de autorización de Lytics para Braze con campos para etiqueta, descripción, clave de API REST e instancia de Braze.]({% image_buster /assets/img/lytics/braze_authorization.png %}){: style="max-width:80%;"}
 

@@ -22,10 +22,10 @@ A página **Início** tem duas seções principais:
 
 Você pode continuar de onde parou no dashboard da Braze com acesso direto aos arquivos que editou ou criou recentemente. Esta seção aparece no topo da página **Início** do dashboard da Braze.
 
-Você pode revisitar Campaigns, Canvas e Segments editados ou criados recentemente. Cada cartão é acompanhado de tags que indicam o tipo de conteúdo (Campaign, Canvas, Segment or segmento) e o status (ativo, rascunho, arquivado, parado).
+Você pode revisitar Campaigns, Canvas e Segments editados ou criados recentemente. Cada cartão é acompanhado de tags que indicam o tipo de conteúdo (Campaign, Canvas, Segment) e o status (ativo, rascunho, arquivado, parado).
 
 {% alert note %}
-A seção **Continue de onde parou** aparece depois que você edita ou cria uma Campaign, Canvas ou Segment or segmento.
+A seção **Continue de onde parou** aparece depois que você edita ou cria uma Campaign, Canvas ou Segment.
 {% endalert %}
 
 ![Um rascunho de Canvas, um Segment ativo e um rascunho de Campaign na seção "Continue de onde parou".]({% image_buster /assets/img/pick_up_where_you_left_off.png %})
@@ -54,7 +54,7 @@ Você pode visualizar estatísticas para:
 - Banners
 - Content Cards
 - Usuários ativos diários
-  - (Opcional) Detalhamento por Segment or segmento
+  - (Opcional) Detalhamento por Segment
 - E-mail
 - Mensagens no app
 - Fórmulas de KPI
@@ -63,15 +63,15 @@ Você pode visualizar estatísticas para:
 - Usuários ativos mensais (MAU)
 - Novos usuários
 - Push
-  - (Opcional) Detalhamento por Segment or segmento
+  - (Opcional) Detalhamento por Segment
 - Sessões
-  - (Opcional) Detalhamento por Segment or segmento ou versão do app
+  - (Opcional) Detalhamento por Segment ou versão do app
 - Sessões por hora
 - Sessões por MAU
 - SMS
 - Stickiness
 - Desinstalações
-  - (Opcional) Detalhamento por Segment or segmento
+  - (Opcional) Detalhamento por Segment
 - Usuários
 - Webhooks
 - WhatsApp
@@ -107,8 +107,8 @@ Os cálculos de MAU seguem regras específicas para garantir uma cobrança preci
 - **Perfis anônimos**: Contam **apenas** quando pelo menos uma sessão é registrada.
 - **Perfis identificados**: Contam apenas quando `date_of_last_session` está dentro da janela móvel de 30 dias.
 - **Perfis órfãos**: Duplicatas mescladas em outro usuário **não** são contadas.
-- **Uploads por CSV e importações via REST or transferir estado representacional API or interface de programação do aplicativo (API)**: Usuários enviados por CSV ou pela REST or transferir estado representacional API or interface de programação do aplicativo (API) contam para o MAU quando você fornece `date_of_last_session` dentro da janela móvel de 30 dias, ou quando eles registram uma sessão posteriormente. Fornecer apenas `date_of_first_session` não afeta o MAU.
-- **Exclusões via API or interface de programação do aplicativo (API)**: Excluir um usuário via API or interface de programação do aplicativo (API) não atualiza o MAU imediatamente; a contagem se corrige automaticamente no próximo ciclo mensal.
+- **Uploads por CSV e importações via REST API**: Usuários enviados por CSV ou pela REST API contam para o MAU quando você fornece `date_of_last_session` dentro da janela móvel de 30 dias, ou quando eles registram uma sessão posteriormente. Fornecer apenas `date_of_first_session` não afeta o MAU.
+- **Exclusões via API**: Excluir um usuário via API não atualiza o MAU imediatamente; a contagem se corrige automaticamente no próximo ciclo mensal.
 
 {% alert note %}
 Usuários anônimos também contam para o seu MAU. Em dispositivos móveis, os usuários anônimos dependem do dispositivo. Para usuários web, os usuários anônimos dependem do cache do navegador. <br><br> As contagens de MAU na Braze podem diferir de ferramentas como a Amplitude quando cada produto usa uma definição diferente de usuário ativo. Compare a configuração na Amplitude (e suas [regras de cálculo do MAU](#mau-calculation-rules)) antes de investigar uma discrepância como um problema no pipeline de dados.

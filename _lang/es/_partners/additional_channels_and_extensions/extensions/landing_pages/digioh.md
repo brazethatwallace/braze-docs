@@ -25,8 +25,8 @@ La integración de Braze y Digioh te permite utilizar un constructor de arrastra
 | Requisito | Descripción |
 |---|---|
 | Cuenta Digioh | Se necesita una [cuenta Digioh](https://www.digioh.com/) para aprovechar esta asociación. |
-| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos `users.track`. <br><br> Se puede crear en el dashboard de Braze desde **Settings** > **API Keys**. |
-| Punto de conexión de la API de Braze `/users/track/` | La URL de tu punto de conexión REST or transferencia de estado representacional con los detalles de `/users/track/` añadidos. Tu punto de conexión dependerá de la [URL de Braze de tu instancia]({{site.baseurl}}/api/basics/#endpoints).<br><br>Por ejemplo, si tu punto de conexión de la REST or transferencia de estado representacional API es `https://rest.iad-01.braze.com`, tu punto de conexión de `/users/track/` será `https://rest.iad-01.braze.com/users/track/`. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. <br><br> Se puede crear en el dashboard de Braze desde **Settings** > **API Keys**. |
+| Punto de conexión de la API de Braze `/users/track/` | La URL de tu punto de conexión REST con los detalles de `/users/track/` añadidos. Tu punto de conexión dependerá de la [URL de Braze de tu instancia]({{site.baseurl}}/api/basics/#endpoints).<br><br>Por ejemplo, si tu punto de conexión de la REST API es `https://rest.iad-01.braze.com`, tu punto de conexión de `/users/track/` será `https://rest.iad-01.braze.com/users/track/`. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integración {#integration}
@@ -39,7 +39,7 @@ En Digioh, haz clic en la pestaña **Integrations** y luego en el botón **New I
 
 !["Selecciona la integración correcta en el desplegable"]({% image_buster /assets/img/digioh/2.png %}){: style="max-width:50%;"}
 
-A continuación, introduce la clave de API REST or transferencia de estado representacional de Braze y tu punto de conexión de la API de Braze `/users/track/`.
+A continuación, introduce la clave de API REST de Braze y tu punto de conexión de la API de Braze `/users/track/`.
 
 Por último, utiliza la sección de mapeado de campos para mapear campos personalizados adicionales más allá del correo electrónico y el nombre. El siguiente fragmento de código muestra un ejemplo de carga útil. Cuando hayas terminado, selecciona **Create Integration**.
 

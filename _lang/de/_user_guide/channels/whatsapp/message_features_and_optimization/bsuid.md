@@ -13,7 +13,7 @@ noindex: true
 
 # WhatsApp-Nutzernamen und geschäftsbezogene Nutzer-IDs {#whatsapp-usernames-and-business-scoped-user-ids}
 
-> Im Juni 2026 plant WhatsApp die Einführung von Nutzernamen: ein optionales Datenschutz-Feature, das die Telefonnummern von Nutzer:innen verbirgt, wenn sie mit Unternehmen kommunizieren. Braze ist vollständig auf diese Änderung vorbereitet; für die meisten Kund:innen müssen weder Campaigns noch Canvase angepasst werden.
+> Im Juni 2026 plant WhatsApp die Einführung von Nutzernamen: ein optionales Datenschutz-Feature, das die Telefonnummern von Nutzer:innen verbirgt, wenn sie mit Unternehmen kommunizieren. Braze ist vollständig auf diese Änderung vorbereitet; für die meisten Kund:innen müssen weder Campaigns noch Canvases angepasst werden.
 
 {% alert important %}
 WhatsApp-Nutzernamen und geschäftsbezogene Nutzer-IDs (BSUIDs) sollen voraussichtlich im Juni 2026 eingeführt werden, wobei die Braze-Updates zeitlich auf dieses Release abgestimmt sind. Die in diesem Artikel beschriebenen Braze-Updates sind **noch nicht** verfügbar.
@@ -21,7 +21,7 @@ WhatsApp-Nutzernamen und geschäftsbezogene Nutzer-IDs (BSUIDs) sollen voraussic
 
 Wenn WhatsApp-Nutzer:innen einen Nutzernamen einrichten, wird ihre Telefonnummer nicht mehr automatisch mit den Unternehmen geteilt, denen sie Nachrichten senden. Stattdessen stellt WhatsApp den Unternehmen eine geschäftsbezogene Nutzer-ID (BSUID) bereit – einen eindeutigen Bezeichner, der spezifisch für jedes Unternehmensportfolio und jede:n Nutzer:in ist.
 
-Braze verarbeitet BSUIDs automatisch. Nutzer:innen, die einen Nutzernamen einrichten, erscheinen weiterhin in Ihrem Braze-Workspace, empfangen Nachrichten, Trigger or triggern or triggern Canvase und erzeugen Events. Einige Kund:innen müssen sich möglicherweise [auf die Änderung vorbereiten](#how-to-prepare-for-the-change).
+Braze verarbeitet BSUIDs automatisch. Nutzer:innen, die einen Nutzernamen einrichten, erscheinen weiterhin in Ihrem Braze-Workspace, empfangen Nachrichten, triggern Canvases und erzeugen Events. Einige Kund:innen müssen sich möglicherweise [auf die Änderung vorbereiten](#how-to-prepare-for-the-change).
 
 ## Geschäftsbezogene Nutzer-ID (BSUID) {#business-scoped-user-id-bsuid}
 
@@ -50,36 +50,36 @@ Der wesentliche Unterschied besteht darin, dass Nutzer:innen, die einen Nutzerna
 
 ## So verarbeitet Braze BSUIDs {#how-braze-will-handle-bsuids}
 
-Braze speichert BSUIDs als [Nutzer-Alias]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases) mit dem Label `whats_app_bsuid` im Kundenprofil or Nutzerprofil. Das bedeutet, dass Nutzer:innen, die nur eine BSUID haben, vollständige Braze-Nutzerprofile besitzen und Canvase betreten, Nachrichten empfangen, Ereignisse generieren und über die API aktualisiert werden können.
+Braze speichert BSUIDs als [Nutzer-Alias]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases) mit dem Label `whats_app_bsuid` im Kundenprofil. Das bedeutet, dass Nutzer:innen, die nur eine BSUID haben, vollständige Braze-Nutzerprofile besitzen und Canvases betreten, Nachrichten empfangen, Ereignisse generieren und über die API aktualisiert werden können.
 
 ### Nachrichten senden {#send-messages}
 
 Wenn Braze eine WhatsApp-Nachricht sendet, wird die Telefonnummer verwendet, sofern eine verfügbar ist. Wenn Nutzer:innen nur eine BSUID haben (z. B. Nutzer:innen, die Ihnen zum ersten Mal nach der Einführung eines Nutzernamens schreiben), sendet Braze stattdessen über die BSUID. Änderungen an Ihren Nachrichtenvorlagen, Campaigns oder Canvas-Schritten sind nicht erforderlich.
 
-### Eingehende Nachrichten und Canvas-Trigger or triggern {#inbound-messages-and-canvas-triggers}
+### Eingehende Nachrichten und Canvas-Trigger {#inbound-messages-and-canvas-triggers}
 
 Wenn Nutzer:innen mit einem Nutzernamen Ihnen eine eingehende WhatsApp-Nachricht senden, wird Braze:
 
 1. Die Nutzer:innen anhand der BSUID oder Telefonnummer nachschlagen (je nachdem, was im Webhook verfügbar ist).
-2. Wenn keine übereinstimmenden Nutzer:innen gefunden werden, ein neues anonymes Kundenprofil or Nutzerprofil erstellen, in dem die BSUID als Nutzer-Alias gespeichert ist.
-3. Alle Canvase oder Campaigns Trigger or triggern or triggern, die so konfiguriert sind, dass sie bei einer eingehenden WhatsApp-Nachricht starten.
+2. Wenn keine übereinstimmenden Nutzer:innen gefunden werden, ein neues anonymes Kundenprofil erstellen, in dem die BSUID als Nutzer-Alias gespeichert ist.
+3. Alle Canvases oder Campaigns triggern, die so konfiguriert sind, dass sie bei einer eingehenden WhatsApp-Nachricht starten.
 
-### Kundenprofil or Nutzerprofil {#user-profile}
+### Kundenprofil {#user-profile}
 
-Sie können die BSUID von Nutzer:innen in deren Braze-Kundenprofil or Nutzerprofil im WhatsApp-Bereich einsehen.
+Sie können die BSUID von Nutzer:innen in deren Braze-Kundenprofil im WhatsApp-Bereich einsehen.
 
 ![Nutzerprofil mit einem WhatsApp-Bereich, der die geschäftsbezogene Nutzer-ID enthält.]({% image_buster /assets/img/whatsapp/bsuid_profile.png %}){: style="max-width:60%;"}
 
 ### Abo-Gruppen {#subscription-groups}
 
-Die Verwaltung von Abo-Gruppen funktioniert für BSUID-Nutzer:innen genauso wie für alle Nutzer:innen, die über einen Nutzer-Alias identifiziert werden. Sie können den Abo-Status für BSUID-Nutzer:innen auf folgende Weise Update or aktualisieren or aktualisieren:
+Die Verwaltung von Abo-Gruppen funktioniert für BSUID-Nutzer:innen genauso wie für alle Nutzer:innen, die über einen Nutzer-Alias identifiziert werden. Sie können den Abo-Status für BSUID-Nutzer:innen auf folgende Weise aktualisieren:
 
 - Über den [users/track-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) mit `user_alias`
-- Über den [User Update or aktualisieren]({{site.baseurl}}/user_update)-Canvas-Schritt (funktioniert automatisch)
+- Über den [User Update]({{site.baseurl}}/user_update)-Canvas-Schritt (funktioniert automatisch)
 - Per CSV-Upload
 
 {% alert note %}
-Der [subscription/status/set-Endpunkt]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) unterstützt [`user_alias`]({{site.baseurl}}/api/objects_filters/user_alias_object) nicht. Verwenden Sie den [users/track-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track), um den Abo-Status für Nutzer:innen zu Update or aktualisieren or aktualisieren, die nur eine BSUID haben.
+Der [subscription/status/set-Endpunkt]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) unterstützt [`user_alias`]({{site.baseurl}}/api/objects_filters/user_alias_object) nicht. Verwenden Sie den [users/track-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track), um den Abo-Status für Nutzer:innen zu aktualisieren, die nur eine BSUID haben.
 {% endalert %}
 
 ### Currents und Ereignisdaten {#currents-and-event-data}
@@ -131,7 +131,7 @@ Eine reguläre BSUID enthält kein `ENT`.
 
 ### Wie Braze übergeordnete BSUIDs verwendet {#how-braze-uses-parent-bsuids}
 
-Wenn ein Webhook sowohl eine reguläre BSUID als auch eine übergeordnete BSUID enthält, verwendet Braze die übergeordnete BSUID als primären Bezeichner. Dadurch kann eine Nutzerin oder ein Nutzer, die bzw. der über mehrere WABAs in Ihren verknüpften Portfolios Nachrichten sendet, konsistent demselben Braze-Kundenprofil or Nutzerprofil zugeordnet werden.
+Wenn ein Webhook sowohl eine reguläre BSUID als auch eine übergeordnete BSUID enthält, verwendet Braze die übergeordnete BSUID als primären Bezeichner. Dadurch kann eine Nutzerin oder ein Nutzer, die bzw. der über mehrere WABAs in Ihren verknüpften Portfolios Nachrichten sendet, konsistent demselben Braze-Kundenprofil zugeordnet werden.
 
 Wenn keine übergeordnete BSUID vorhanden ist (z. B. weil Ihre Portfolios nicht verknüpft sind oder die Nutzerin bzw. der Nutzer einer nicht verknüpften WABA schreibt), verwendet Braze die reguläre BSUID. Reguläre BSUIDs funktionieren in allen Fällen weiterhin normal.
 
@@ -148,17 +148,17 @@ Meta verwaltet den Prozess der Verknüpfung von Geschäftsportfolios. Wenden Sie
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
-### Werden meine bestehenden Campaigns und Canvase nicht mehr funktionieren, wenn WhatsApp-Nutzernamen eingeführt werden? {#will-my-existing-campaigns-and-canvases-break-when-whatsapp-usernames-launch}
+### Werden meine bestehenden Campaigns und Canvases nicht mehr funktionieren, wenn WhatsApp-Nutzernamen eingeführt werden? {#will-my-existing-campaigns-and-canvases-break-when-whatsapp-usernames-launch}
 
-Nein. Bestehende Campaigns und Canvase funktionieren weiterhin. Nutzer:innen, die keinen Nutzernamen einrichten, sind in keiner Weise betroffen. Für Nutzer:innen, die einen Nutzernamen einrichten und bereits einen Gesprächsverlauf mit Ihrem Unternehmen haben, verwendet Braze weiterhin deren Telefonnummer als primären Bezeichner.
+Nein. Bestehende Campaigns und Canvases funktionieren weiterhin. Nutzer:innen, die keinen Nutzernamen einrichten, sind in keiner Weise betroffen. Für Nutzer:innen, die einen Nutzernamen einrichten und bereits einen Gesprächsverlauf mit Ihrem Unternehmen haben, verwendet Braze weiterhin deren Telefonnummer als primären Bezeichner.
 
 ### Was passiert mit Nutzer:innen, die einen Nutzernamen einrichten, aber bereits mit meinem Unternehmen kommuniziert haben? {#what-happens-to-a-user-who-adopts-a-username-but-has-already-messaged-my-business}
 
-Wenn Ihr WhatsApp-Kontaktbuch aktiviert ist und Sie innerhalb der letzten 30 Tage eine vorherige Konversation mit den Nutzer:innen hatten (oder ihnen eine Nachricht gesendet haben), erscheint deren Telefonnummer weiterhin in den Webhook-Payloads neben der BSUID. Braze ordnet sie ihrem bestehenden Kundenprofil or Nutzerprofil zu. Es wird kein doppeltes Profil erstellt.
+Wenn Ihr WhatsApp-Kontaktbuch aktiviert ist und Sie innerhalb der letzten 30 Tage eine vorherige Konversation mit den Nutzer:innen hatten (oder ihnen eine Nachricht gesendet haben), erscheint deren Telefonnummer weiterhin in den Webhook-Payloads neben der BSUID. Braze ordnet sie ihrem bestehenden Kundenprofil zu. Es wird kein doppeltes Profil erstellt.
 
 ### Was passiert, wenn Nutzer:innen einen Nutzernamen einrichten und keine vorherige Konversation mit meinem Unternehmen hatten? {#what-if-a-user-adopts-a-username-and-has-no-prior-conversation-with-my-business}
 
-Braze empfängt die BSUID der Nutzer:innen im eingehenden Webhook und ordnet sie entweder einem bestehenden Kundenprofil or Nutzerprofil zu (wenn Sie deren BSUID zuvor gespeichert haben) oder erstellt ein neues anonymes Kundenprofil or Nutzerprofil, in dem die BSUID als Nutzer-Alias gespeichert wird. Diese Nutzer:innen können dann in Canvase eintreten, ausgehende Nachrichten erhalten und mithilfe der Standard-Identitätsauflösungs-Tools von Braze identifiziert oder mit anderen Profilen zusammengeführt werden.
+Braze empfängt die BSUID der Nutzer:innen im eingehenden Webhook und ordnet sie entweder einem bestehenden Kundenprofil zu (wenn Sie deren BSUID zuvor gespeichert haben) oder erstellt ein neues anonymes Kundenprofil, in dem die BSUID als Nutzer-Alias gespeichert wird. Diese Nutzer:innen können dann in Canvases eintreten, ausgehende Nachrichten erhalten und mithilfe der Standard-Identitätsauflösungs-Tools von Braze identifiziert oder mit anderen Profilen zusammengeführt werden.
 
 ### Kann ich BSUID-Nutzer:innen in Segmenten ansprechen? {#can-i-target-bsuid-users-in-segments}
 
@@ -183,7 +183,7 @@ Verwenden Sie den Parameter `user_alias` mit `alias_label: "whats_app_bsuid"` un
 }
 ```
 
-Dies funktioniert mit `users/track`, `users/identify`, CSV-Upload und dem Canvas-Schritt „User Update or aktualisieren“.
+Dies funktioniert mit `users/track`, `users/identify`, CSV-Upload und dem Canvas-Schritt „User Update“.
 
 ### Werden meine Currents-Datenpipelines nicht mehr funktionieren? {#will-my-currents-data-pipelines-break}
 

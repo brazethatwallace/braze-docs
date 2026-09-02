@@ -35,8 +35,8 @@ Antes de começar, você precisa dos seguintes itens:
 | Requisito | Descrição |
 | :--- | :--- |
 | Conta Open Loyalty | É necessário ter uma conta de administrador em um tenant do Open Loyalty para aproveitar essa parceria. |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional do Open Loyalty | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional do Open Loyalty (para integrações que enviam dados da Braze para o Open Loyalty). <br><br> Crie essa chave em **Settings > Admins > API or interface de programação do aplicativo (API) Keys**. |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões `users.track`. <br><br> Crie essa chave no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
+| Chave da API REST do Open Loyalty | Uma chave da API REST do Open Loyalty (para integrações que enviam dados da Braze para o Open Loyalty). <br><br> Crie essa chave em **Settings > Admins > API Keys**. |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. <br><br> Crie essa chave no dashboard da Braze em **Configurações** > **Chaves de API**. |
 | Transformação de Dados da Braze | É necessário acessar a guia "Configurações de dados" na Braze para configurar os ouvintes de webhook. |
 | IDs correspondentes | O `external_id` do usuário na Braze deve corresponder ao `loyaltyCardNumber` (ou outro identificador padrão) no Open Loyalty. |
 | Tenant ID | Seu Open Loyalty Tenant ID (necessário para atualizações de saída). |
@@ -125,7 +125,7 @@ Depois de concluir a integração de entrada, configure **atualizações de saí
 
 ### Etapa 1: Configurar a Campaign de webhook da Braze {#step-1-configure-braze-webhook-campaign}
 
-Esse processo usa webhooks da Braze para enviar uma solicitação `PATCH` para a API or interface de programação do aplicativo (API) de membros do Open Loyalty (por exemplo, para adicionar uma etiqueta "VIP").
+Esse processo usa webhooks da Braze para enviar uma solicitação `PATCH` para a API de membros do Open Loyalty (por exemplo, para adicionar uma etiqueta "VIP").
 
 1.  Na Braze, crie uma nova **Campaign de webhook** (ou use um webhook dentro de um Canvas).
 2.  Clique em **Compose Webhook**.
@@ -160,7 +160,7 @@ Esse processo usa webhooks da Braze para enviar uma solicitação `PATCH` para a
 1.  Navegue até a guia **Delivery** ou **Entry agendar/cronograma**.
 2.  Preencha os seguintes campos:
     * **Delivery Method**: Baseado em ações.
-    * **Trigger**: Defina o gatilho relevante (por exemplo, um usuário entra em um Segment or segmento específico na Braze).
+    * **Trigger**: Defina o gatilho relevante (por exemplo, um usuário entra em um Segment específico na Braze).
     * **Launch**: Ative a Campaign.
 
 ## Solução de problemas {#troubleshooting}
@@ -170,5 +170,5 @@ Quando a Transformação de Dados está ativa, os dados aparecem na Braze como u
 
 ### Verificar webhooks de saída {#verify-outbound-webhooks}
 Verifique o registro de atividades de envio de mensagem na Braze para garantir que o webhook retornou um status `200 OK`.
-* **Erro 401**: Verifique seu token da API or interface de programação do aplicativo (API) do Open Loyalty.
+* **Erro 401**: Verifique seu token da API do Open Loyalty.
 * **Erro 404**: O ID do usuário na Braze não existe no Open Loyalty.

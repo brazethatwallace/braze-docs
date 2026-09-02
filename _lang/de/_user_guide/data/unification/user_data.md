@@ -7,7 +7,7 @@ guide_top_header: "Nutzerdaten in Braze"
 guide_top_text: "Bevor Sie Ihre Braze-Implementierung abschließen, sollten Sie ein Gespräch zwischen Ihrem Marketing-Team und Ihrem Entwicklungsteam über Ihre Marketingziele führen. Es ist sinnvoll, diese Ziele zu berücksichtigen und davon ausgehend zu entscheiden, welche Daten getrackt werden sollen und wie diese Daten mit Braze getrackt werden."
 
 page_type: landing
-description: "Auf dieser Landing-Page finden Sie Artikel zur Datenerfassung von Nutzer:innen. Hier finden Sie Ressourcen zu Archivierungsdefinitionen, zum Importieren von Nutzer:innen, zum Kundenprofil or Nutzerprofil-Lebenszyklus, zu Anwendungsfällen, Best Practices und mehr."
+description: "Auf dieser Landing-Page finden Sie Artikel zur Datenerfassung von Nutzer:innen. Hier finden Sie Ressourcen zu Archivierungsdefinitionen, zum Importieren von Nutzer:innen, zum Kundenprofil-Lebenszyklus, zu Anwendungsfällen, Best Practices und mehr."
 
 guide_featured_title: "Abschnittsartikel"
 guide_featured_list:
@@ -40,7 +40,7 @@ guide_featured_list:
 <br>
 
 {% alert important %}
-Braze sperrt Nutzerprofile („Dummy-Nutzer:innen“) mit mehr als 5.000.000 Sitzungen, mehr als 20.000 verschiedenen angepassten Event-Namen oder mehr als 20.000 verschiedenen Produktnamen bei Käufen, da diese in der Regel das Ergebnis einer fehlerhaften Integration sind. Nachdem ein Profil gesperrt wurde, nimmt Braze keine eingehenden Daten mehr für dieses Profil auf – weder über die SDKs noch über die Representational State Transfer API. Wenn Sie feststellen, dass dies bei einer legitimen Nutzer:in passiert ist, kontaktieren Sie Ihren Braze Account Manager:in.
+Braze sperrt Nutzerprofile („Dummy-Nutzer:innen“) mit mehr als 5.000.000 Sitzungen, mehr als 20.000 verschiedenen angepassten Event-Namen oder mehr als 20.000 verschiedenen Produktnamen bei Käufen, da diese in der Regel das Ergebnis einer fehlerhaften Integration sind. Nachdem ein Profil gesperrt wurde, nimmt Braze keine eingehenden Daten mehr für dieses Profil auf – weder über die SDKs noch über die REST API. Wenn Sie feststellen, dass dies bei einer legitimen Nutzer:in passiert ist, kontaktieren Sie Ihren Braze Account Manager:in.
 {% endalert %}
 
 <br>

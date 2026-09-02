@@ -94,7 +94,7 @@ Une URL générée par Liquid suivant les deux recommandations est :
 {% endraw %}
 
 {% alert important %}
-Si vous utilisez le [suivi de liens par e-mail](#email-link-tracking) (aliasage de lien or aliasing de lien ou modèles de lien), une configuration supplémentaire est nécessaire lorsque les URL sont encadrées dans des balises de traduction.
+Si vous utilisez le [suivi de liens par e-mail](#email-link-tracking) (aliasage de lien ou modèles de lien), une configuration supplémentaire est nécessaire lorsque les URL sont encadrées dans des balises de traduction.
 {% endalert %}
 
 #### Attributs et structure HTML {#html-attributes-and-structure}
@@ -221,7 +221,7 @@ Lorsque vous remplissez le fichier de traduction pour des langues écrites de dr
 
 ### Suivi des liens dans les e-mails {#email-link-tracking}
 
-Dans les Campaigns par e-mail, Braze suit les liens en ajoutant des informations de suivi (paramètres de requête) à chaque URL. Ce comportement prend en charge à la fois l'[aliasage de lien or aliasing de lien]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing) et le [templating de lien]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template).
+Dans les Campaigns par e-mail, Braze suit les liens en ajoutant des informations de suivi (paramètres de requête) à chaque URL. Ce comportement prend en charge à la fois l'[aliasage de lien]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing) et le [templating de lien]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template).
 
 Lorsqu'une URL est encadrée par des balises de traduction, Braze peut ne pas être en mesure de déterminer où ajouter ces informations de suivi. Pour garantir le bon fonctionnement, vous devez inclure un caractère spécial à la fin de l'URL pour indiquer où le suivi doit être ajouté.
 

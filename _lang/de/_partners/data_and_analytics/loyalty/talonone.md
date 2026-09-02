@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Talon.One
 
-> [Talon.One](https://talon.one/) bietet personalisierte Anreize für Ihr Mobile-Marketing-CRM or Customer-Relationship-Management [-System] (CRM) und erlaubt es Ihnen, kontextuelle 1-zu-1-Gutschein-, Empfehlungs-, Rabatt- und Kundenbindungs-Kampagnen schnell und effizient zu starten.
+> [Talon.One](https://talon.one/) bietet personalisierte Anreize für Ihr Mobile-Marketing-CRM und erlaubt es Ihnen, kontextuelle 1-zu-1-Gutschein-, Empfehlungs-, Rabatt- und Kundenbindungs-Kampagnen schnell und effizient zu starten.
 
 _Diese Integration wird von Talon.One gepflegt._
 

@@ -20,7 +20,7 @@ Ao criar um agente, você especifica se deseja criar um Agente de Etapa do Canva
 
 Os benefícios de usar o modelo Auto da Braze incluem:
 
-- Não exigir recuperação ou inserção de chaves de API or interface de programação do aplicativo (API) nem configuração de integração
+- Não exigir recuperação ou inserção de chaves de API nem configuração de integração
 - Roteamento automático de cada invocação para o modelo mais eficaz para realizar a tarefa
 
 ### Onde posso encontrar meu uso atual de agentes? {#where-can-i-find-my-current-agent-usage}

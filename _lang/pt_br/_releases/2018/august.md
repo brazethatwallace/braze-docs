@@ -21,4 +21,4 @@ Agora é possível redirecionar usuários com base em cliques em páginas espec�
 
 ## Integração de coortes do Mixpanel {#mixpanel-cohorts-integration}
 
-Os clientes da Braze e do Mixpanel agora podem integrar e [enviar coortes do Mixpanel para a Braze como filtros de Segment or segmento or segmento]({{site.baseurl}}/partners/insights/behavioral_analytics/mixpanel_for_currents/#mixpanel-cohort-import). Você pode configurar uma exportação manual única ou uma exportação dinâmica a cada duas horas. Cada usuário atualizado contará como um ponto de dados, mas o Mixpanel envia apenas as alterações desde a última sincronização.
+Os clientes da Braze e do Mixpanel agora podem integrar e [enviar coortes do Mixpanel para a Braze como filtros de Segment]({{site.baseurl}}/partners/insights/behavioral_analytics/mixpanel_for_currents/#mixpanel-cohort-import). Você pode configurar uma exportação manual única ou uma exportação dinâmica a cada duas horas. Cada usuário atualizado contará como um ponto de dados, mas o Mixpanel envia apenas as alterações desde a última sincronização.

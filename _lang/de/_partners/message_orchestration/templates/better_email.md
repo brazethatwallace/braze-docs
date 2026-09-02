@@ -24,8 +24,8 @@ Beim erneuten Export wird das bestehende Braze-Template aktualisiert, anstatt ei
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | Better-Email-Konto | Ein Better-Email-Konto mit Administratorzugriff zum Erstellen von Integrationen |
-| Braze-Representational State Transfer-API-Schlüssel | Ein Braze-Representational State Transfer-API-Schlüssel mit vollständigen **Templates**-Berechtigungen.<br><br>Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze-Representational State Transfer-Endpunkt | [Ihre Representational State Transfer-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Verwenden Sie den Representational State Transfer-Host, nicht die Dashboard-URL – zum Beispiel `rest.fra-01.braze.eu`. |
+| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit vollständigen **Templates**-Berechtigungen.<br><br>Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze-REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Verwenden Sie den REST-Host, nicht die Dashboard-URL – zum Beispiel `rest.fra-01.braze.eu`. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
@@ -43,8 +43,8 @@ Better Email ist für Marketing-Teams konzipiert, die E-Mails über ein Design-S
 
 Sammeln Sie in Ihrem Braze-Dashboard die folgenden Informationen:
 
-- **Instanz-URL** – Verwenden Sie den Representational State Transfer-Host, nicht die Dashboard-URL (zum Beispiel `rest.fra-01.braze.eu`).
-- **API-Schlüssel** – Ein Representational State Transfer-API-Schlüssel mit vollständigen **Templates**-Berechtigungen, erstellt unter **Einstellungen** > **API-Schlüssel**.
+- **Instanz-URL** – Verwenden Sie den REST-Host, nicht die Dashboard-URL (zum Beispiel `rest.fra-01.braze.eu`).
+- **API-Schlüssel** – Ein REST-API-Schlüssel mit vollständigen **Templates**-Berechtigungen, erstellt unter **Einstellungen** > **API-Schlüssel**.
 
 ### 2. Schritt: Die Integration in Better Email einrichten {#step-2-set-up-the-integration-in-better-email}
 
@@ -80,7 +80,7 @@ Better Email liest die verfügbaren angepassten Braze-Attribute und ordnet sie d
 
 Wenn ein Export oder eine Synchronisierung fehlschlägt, überprüfen Sie Folgendes:
 
-- Die **Instanz-URL** ist die Representational State Transfer-URL, nicht die Dashboard-URL.
+- Die **Instanz-URL** ist die REST-URL, nicht die Dashboard-URL.
 - Der API-Schlüssel ist noch aktiv und verfügt über die erforderlichen **Templates**-Berechtigungen.
 - Die Integration ist in Better Email aktiviert.
 - Nutzer:innen oder Gruppen, die die Integration benötigen, haben unter **Access** Zugriff.

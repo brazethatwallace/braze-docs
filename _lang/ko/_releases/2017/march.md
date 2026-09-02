@@ -14,7 +14,7 @@ description: "이 문서에는 2017년 3월의 릴리스 노트가 포함되어 
 
 ## 웹훅 템플릿 {#webhook-templates}
 
-이제 웹훅 메시지를 템플릿으로 저장하여 쉽게 재사용하거나, Twilio를 활용한 단문 메시지 서비스 또는 Facebook 메신저와 같은 챗봇을 위한 사전 구성된 템플릿으로 시작할 수 있습니다. [웹훅 생성]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook#creating-a-webhook)에 대해 자세히 알아보세요.
+이제 웹훅 메시지를 템플릿으로 저장하여 쉽게 재사용하거나, Twilio를 활용한 SMS 또는 Facebook 메신저와 같은 챗봇을 위한 사전 구성된 템플릿으로 시작할 수 있습니다. [웹훅 생성]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook#creating-a-webhook)에 대해 자세히 알아보세요.
 
 ## 참여 보고서의 다중 이메일 지원 {#multiple-email-support-for-engagement-reports}
 

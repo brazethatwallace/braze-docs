@@ -34,7 +34,7 @@ O Snowflake não é a única opção de data warehouse. Outras opções incluem 
 
 O Snowflake Reader Accounts oferece aos usuários acesso aos mesmos dados e funcionalidades do [Snowflake Data Sharing]({{site.baseurl}}/partners/snowflake), tudo sem exigir uma conta Snowflake ou um relacionamento de cliente com o Snowflake. Com o Reader Accounts, a Braze criará e compartilhará seus dados em uma conta e fornecerá credenciais para você fazer login e acessar seus dados. Isso significa que toda a cobrança de compartilhamento de dados e uso será gerenciada inteiramente pela Braze.
 
-Para saber mais, entre em contato com seu gerente de sucesso do cliente.
+Para saber mais, entre em contato com seu CSM.
 
 #### Recursos adicionais {#additional-resources}
 Para recursos úteis de monitoramento de uso, confira os artigos do Snowflake sobre [Resource Monitors](https://docs.snowflake.com/en/user-guide/resource-monitors.html) e [Viewing Warehouse Credit Usage](https://docs.snowflake.com/en/user-guide/credits.html#viewing-warehouse-credit-usage-for-your-account).

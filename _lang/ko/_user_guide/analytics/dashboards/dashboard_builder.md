@@ -100,7 +100,7 @@ Braze는 자주 사용되는 사용 사례를 위한 사전 빌드 대시보드�
 | Messaging Diagnostics | **Analytics** > **대시보드 빌더** | [메시징 진단 대시보드]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard) |
 | Industry Benchmarks | **Analytics** > **대시보드 빌더** | [업종 벤치마크 대시보드]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/industry_benchmarks_dashboard) |
 | Email performance | **Analytics** > **Email Performance** | [채널 성능 대시보드]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#email-performance-dashboard) |
-| 단문 메시지 서비스 performance | **Analytics** > **단문 메시지 서비스 Performance** | [채널 성능 대시보드]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#sms-performance-dashboard) |
+| SMS performance | **Analytics** > **SMS Performance** | [채널 성능 대시보드]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#sms-performance-dashboard) |
 | Push performance | **Analytics** > **대시보드 빌더** > **Push Channel Dashboard** | [채널 성능 대시보드]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#push-performance-dashboard) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="사용 가능한 대시보드" }
 
@@ -112,7 +112,7 @@ Braze가 만든 대시보드를 편집하는 기능은 아직 제공되지 않�
 
 **Revenue - Last Touch Attribution** 대시보드는 Campaigns, Canvases 및 채널 전반의 매출을 검토합니다. 모든 매출 데이터는 기여도 기간 내에 마지막으로 접촉한 메시지에 기여됩니다.
 
-접촉에는 *이메일 클릭*(링크 클릭), *콘텐츠 카드 클릭*, *인앱 메시지 클릭*(닫기 버튼 제외), *푸시 열람*, *단문 메시지 서비스 단축 링크 클릭*, *WhatsApp 읽음*, *웹훅 발송*이 포함됩니다.
+접촉에는 *이메일 클릭*(링크 클릭), *콘텐츠 카드 클릭*, *인앱 메시지 클릭*(닫기 버튼 제외), *푸시 열람*, *SMS 단축 링크 클릭*, *WhatsApp 읽음*, *웹훅 발송*이 포함됩니다.
 
 | 측정기준 | 정의 |
 | --- | --- |

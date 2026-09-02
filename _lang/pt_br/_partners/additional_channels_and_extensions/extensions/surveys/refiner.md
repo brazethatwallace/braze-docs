@@ -29,15 +29,15 @@ Use a integração entre a Refiner e a Braze para enviar eventos de pesquisa e d
 | Requisito | Descrição |
 |---|---|
 | Conta na Refiner | Uma conta na [Refiner](https://refiner.io) é necessária para usar essa integração. |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões de `users.track`. Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
-| Endpoint REST or transferir estado representacional da Braze | A URL do seu endpoint REST or transferir estado representacional. O endpoint depende da [URL da Braze para a sua instância]({{site.baseurl}}/api/basics#endpoints). |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões de `users.track`. Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Endpoint REST da Braze | A URL do seu endpoint REST. O endpoint depende da [URL da Braze para a sua instância]({{site.baseurl}}/api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
 ### Etapa 1: Conecte sua conta na Braze {#step-1-connect-your-braze-account}
 
-Na seção **Integrations** do seu projeto na Refiner, selecione **Connect Braze**. Insira sua chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze e o identificador da sua instância na Braze.
+Na seção **Integrations** do seu projeto na Refiner, selecione **Connect Braze**. Insira sua chave da API REST da Braze e o identificador da sua instância na Braze.
 
 ### Etapa 2: Mapeie os identificadores de usuário {#step-2-map-user-identifiers}
 

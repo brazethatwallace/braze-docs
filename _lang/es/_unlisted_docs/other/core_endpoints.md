@@ -9,7 +9,7 @@ layout: dev_guide
 
 <!-- This article is linked in our standard credits SLA exhibit, and was created to clarify what endpoints that are covered for SLA purposes. -->
 
-Los endpoints principales de la API de Braze son endpoints específicos de la REST or transferencia de estado representacional API de Braze que tienen un tiempo de inactividad permitido de acuerdo con el acuerdo de nivel de servicio (SLA) de una cuenta de Braze. Para más información, consulta tu documentación del SLA o ponte en contacto con tu director de cuentas.
+Los endpoints principales de la API de Braze son endpoints específicos de la REST API de Braze que tienen un tiempo de inactividad permitido de acuerdo con el acuerdo de nivel de servicio (SLA) de una cuenta de Braze. Para más información, consulta tu documentación del SLA o ponte en contacto con tu director de cuentas.
 
 Los endpoints principales incluyen:
 - [`/users/track`][1]

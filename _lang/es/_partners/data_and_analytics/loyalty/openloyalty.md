@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Open Loyalty
 
-> [Open Loyalty](https://www.openloyalty.io/) es una plataforma de programas de fidelización basada en la nube que te permite crear y gestionar programas de recompensas y fidelización de clientes. La integración de Braze y Open Loyalty sincroniza los datos de fidelización —como el saldo de puntos, los cambios de nivel y las advertencias de caducidad— directamente en Braze en tiempo real. Esto te permite desencadenar mensajes personalizados (correo electrónico, push, servicio de mensajes cortos) cuando cambia el estado de fidelización de un usuario.
+> [Open Loyalty](https://www.openloyalty.io/) es una plataforma de programas de fidelización basada en la nube que te permite crear y gestionar programas de recompensas y fidelización de clientes. La integración de Braze y Open Loyalty sincroniza los datos de fidelización —como el saldo de puntos, los cambios de nivel y las advertencias de caducidad— directamente en Braze en tiempo real. Esto te permite desencadenar mensajes personalizados (correo electrónico, push, SMS) cuando cambia el estado de fidelización de un usuario.
 
 _Esta integración la mantiene Open Loyalty_
 
@@ -35,8 +35,8 @@ Antes de empezar, necesitas lo siguiente:
 | Requisito | Descripción |
 | :--- | :--- |
 | Cuenta de Open Loyalty | Necesitas una cuenta de administrador en un tenant de Open Loyalty para aprovechar esta asociación. |
-| Clave de API REST or transferencia de estado representacional de Open Loyalty | Una clave de API REST or transferencia de estado representacional de Open Loyalty (para integraciones que envían datos de Braze a Open Loyalty). <br><br> Créala en **Settings > Admins > API Keys**. |
-| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos `users.track`. <br><br> Crea esta clave en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Clave de API REST de Open Loyalty | Una clave de API REST de Open Loyalty (para integraciones que envían datos de Braze a Open Loyalty). <br><br> Créala en **Settings > Admins > API Keys**. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. <br><br> Crea esta clave en el panel de Braze desde **Configuración** > **Claves de API**. |
 | Transformación de datos de Braze | Necesitas acceder a la pestaña "Data Settings" en Braze para configurar los listeners de webhook. |
 | ID coincidentes | El `external_id` del usuario en Braze debe coincidir con su `loyaltyCardNumber` (u otro identificador predeterminado) en Open Loyalty. |
 | ID de tenant | Tu ID de tenant de Open Loyalty (necesario para las actualizaciones de salida). |

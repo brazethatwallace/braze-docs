@@ -48,7 +48,7 @@ Selecione **Using Intelligent Timing** na guia **Delivery Settings**. Aqui, voc�
 
 #### Validações de entrega {#delivery-validations}
 
-As validações de entrega fornecem uma verificação adicional no momento do envio da mensagem para confirmar que seu público ainda atende aos seus critérios. Recomendamos usá-las quando o horário de silêncio, o Intelligent Timing ou o limite de frequência estiverem ativados. Selecione **Validate audience at message send** e adicione um Segment or segmento or segmento ou filtros adicionais. Se um usuário não atender às validações, escolha se ele sai do Canvas ou avança para a próxima etapa.
+As validações de entrega fornecem uma verificação adicional no momento do envio da mensagem para confirmar que seu público ainda atende aos seus critérios. Recomendamos usá-las quando o horário de silêncio, o Intelligent Timing ou o limite de frequência estiverem ativados. Selecione **Validate audience at message send** e adicione um Segment ou filtros adicionais. Se um usuário não atender às validações, escolha se ele sai do Canvas ou avança para a próxima etapa.
 
 As validações de entrega avaliam os critérios do perfil do usuário no momento do envio. Filtros relacionados a apps verificam se um usuário usou recentemente ou já usou um app específico, mas não confirmam qual app o usuário está usando na sessão atual.
 
@@ -79,7 +79,7 @@ Se um Canvas baseado em ação for disparado por uma mensagem SMS recebida, voc�
 
 {% multi_lang_include alerts/important_alerts.md alert='context variable' %}
 
-As propriedades de entrada são configuradas na etapa **Entry agendar/cronograma** ao criar um Canvas e indicam o gatilho que faz um usuário entrar em um Canvas. Essas propriedades também podem acessar as propriedades das cargas úteis de entrada em Canvas disparados por API or interface de programação do aplicativo (API). Observe que o objeto `context` tem um limite máximo de tamanho de 50 KB.
+As propriedades de entrada são configuradas na etapa **Entry agendar/cronograma** ao criar um Canvas e indicam o gatilho que faz um usuário entrar em um Canvas. Essas propriedades também podem acessar as propriedades das cargas úteis de entrada em Canvas disparados por API. Observe que o objeto `context` tem um limite máximo de tamanho de 50 KB.
 
 As propriedades de entrada podem ser usadas em Liquid em qualquer etapa de Mensagem. Use o seguinte Liquid ao referenciar essas propriedades de entrada: {% raw %}``{context.${property_name}}``{% endraw %}. Os eventos devem ser eventos personalizados ou eventos de compra para serem usados dessa forma.
 

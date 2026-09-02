@@ -37,15 +37,15 @@ Passen wir die Canvas-Details an, um unser Ziel widerzuspiegeln.
 ![Der aktuelle Titel und die Beschreibung des Canvas.]({% image_buster /assets/img/canvas_templates/preference_survey1.png %}){: style="max-width:50%;"}
 
 {:start="2"}
-2. Update or aktualisieren or aktualisieren Sie den Canvas-Namen, um anzugeben, dass das Canvas auf neue Nutzer:innen bei ihrer ersten Nutzung der App abzielt.
-3. Update or aktualisieren or aktualisieren Sie die Beschreibung, um zu erklären, dass dieses Canvas personalisiertes Messaging enthält.
+2. Aktualisieren Sie den Canvas-Namen, um anzugeben, dass das Canvas auf neue Nutzer:innen bei ihrer ersten Nutzung der App abzielt.
+3. Aktualisieren Sie die Beschreibung, um zu erklären, dass dieses Canvas personalisiertes Messaging enthält.
 4. Fügen Sie den Tag **Onboarding** hinzu, damit wir auf der Canvas-Startseite danach filtern können.
 
 ![Der neue Name, die Beschreibung und der Tag für das Canvas.]({% image_buster /assets/img/canvas_templates/preference_survey2.png %}){: style="max-width:90%;"}
 
 ### 2. Schritt: Konversions-Events zuweisen {#step-2-assign-conversion-events}
 
-Update or aktualisieren or aktualisieren Sie das **Primary Conversion Event - A** auf **Performs Custom Event**. Wählen Sie dann **Last Used App** als angepasstes Event aus.
+Aktualisieren Sie das **Primary Conversion Event - A** auf **Performs Custom Event**. Wählen Sie dann **Last Used App** als angepasstes Event aus.
 
 ![„Last Used App“ als ausgewählter Name des angepassten Events für das Konversions-Event.]({% image_buster /assets/img/canvas_templates/preference_survey3.png %}){: style="max-width:90%;"}
 
@@ -73,7 +73,7 @@ Wir behalten die Standard-Abo-Einstellungen bei, sodass wir nur an Nutzer:innen 
 
 Jetzt erstellen wir unser Canvas, indem wir den Inhalt anpassen, der an Nutzer:innen gesendet wird.
 
-1. Für den ersten Nachrichtenschritt **Welcome Email** Update or aktualisieren or aktualisieren wir diesen Schritt, um unsere StyleRyde-Willkommens-E-Mail einzufügen.
+1. Für den ersten Nachrichtenschritt **Welcome Email** aktualisieren wir diesen Schritt, um unsere StyleRyde-Willkommens-E-Mail einzufügen.
 2. Als Nächstes behalten wir den Aktions-Pfad-Schritt bei. Dieser Schritt teilt unsere Nutzer:innen in einem Drei-Tage-Fenster in zwei Gruppen auf:
 
 - Nutzer:innen, die eine Sitzung gestartet oder die Onboarding-E-Mail angeklickt haben
@@ -85,19 +85,19 @@ Von hier aus sprechen wir unsere Nutzer:innen gezielt an und passen das Messagin
 
 #### Engagierte Nutzer:innen ansprechen {#target-your-engaged-users}
 
-Für unsere Nutzer:innen, die eine Sitzung gestartet oder mit unserer Onboarding-E-Mail aus dem ersten Nachrichtenschritt interagiert haben, Update or aktualisieren or aktualisieren wir den Nachrichtenschritt **Getting Started Tips**, um die wichtigsten Reise- und Sicherheitstipps für unsere neuen StyleRyde-Nutzer:innen einzufügen.
+Für unsere Nutzer:innen, die eine Sitzung gestartet oder mit unserer Onboarding-E-Mail aus dem ersten Nachrichtenschritt interagiert haben, aktualisieren wir den Nachrichtenschritt **Getting Started Tips**, um die wichtigsten Reise- und Sicherheitstipps für unsere neuen StyleRyde-Nutzer:innen einzufügen.
 
 Nachdem Nutzer:innen ihr Onboarding abgeschlossen haben, verlassen sie das Canvas.
 
-Update or aktualisieren or aktualisieren Sie als Nächstes den Nachrichtenschritt **Content Preferences Survey**, um unsere Präferenzumfrage einzufügen, die Nutzer:innen auffordert, auszuwählen, zu welchen Themen sie in Zukunft Informationen erhalten möchten.
+Aktualisieren Sie als Nächstes den Nachrichtenschritt **Content Preferences Survey**, um unsere Präferenzumfrage einzufügen, die Nutzer:innen auffordert, auszuwählen, zu welchen Themen sie in Zukunft Informationen erhalten möchten.
 
 ![Eine Vorschau der Präferenzumfrage, die Nutzer:innen auffordert, alle zutreffenden Interessen auszuwählen.]({% image_buster /assets/img/canvas_templates/preference_survey7.png %}){: style="max-width:90%;"}
 
 #### Nutzer:innen anstoßen, die das Onboarding noch nicht begonnen haben {#nudge-users-who-havent-started-onboarding}
 
-Für unsere anderen Nutzer:innen Update or aktualisieren or aktualisieren wir den Nachrichtenschritt **Winback Nudge** mit unserer Folge-E-Mail, um Nutzer:innen aufzufordern, ihr Onboarding abzuschließen.
+Für unsere anderen Nutzer:innen aktualisieren wir den Nachrichtenschritt **Winback Nudge** mit unserer Folge-E-Mail, um Nutzer:innen aufzufordern, ihr Onboarding abzuschließen.
 
-Als letzten Schritt für die erneute Interaktion benennen wir **Step 2** in **Final Winback Nudge** um und Update or aktualisieren or aktualisieren den Schritt mit unserer In-App-Nachricht, um unsere neuen Nutzer:innen aufzufordern, ihr Onboarding abzuschließen.
+Als letzten Schritt für die erneute Interaktion benennen wir **Step 2** in **Final Winback Nudge** um und aktualisieren den Schritt mit unserer In-App-Nachricht, um unsere neuen Nutzer:innen aufzufordern, ihr Onboarding abzuschließen.
 
 ### 7. Schritt: Ihr Canvas testen und starten {#step-7-test-and-launch-your-canvas}
 

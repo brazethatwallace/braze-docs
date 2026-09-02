@@ -83,8 +83,8 @@ Añade un botón estándar. Las propiedades permiten editar el estilo y configur
 | Tipo de enlace | Determina la acción al hacer clic en el botón y establece el protocolo apropiado. |
 | URL | Dinámico basado en el tipo de enlace **Abrir página web**. |
 | Correo para, asunto y cuerpo | Para el tipo de enlace **Enviar correo electrónico**, establece la dirección de correo del destinatario, el asunto y el contenido que se rellenarán en un borrador de correo electrónico cuando el usuario seleccione el botón. |
-| Tel | Para los tipos de enlace **Hacer llamada** y **Enviar servicio de mensajes cortos**, establece el número de teléfono al que el usuario llamará o enviará un mensaje de texto al seleccionar el botón. |
-| Mensaje | Para el tipo de enlace **Enviar servicio de mensajes cortos**, establece el contenido que se rellenará en un borrador de mensaje servicio de mensajes cortos cuando el usuario seleccione el botón. |
+| Tel | Para los tipos de enlace **Hacer llamada** y **Enviar SMS**, establece el número de teléfono al que el usuario llamará o enviará un mensaje de texto al seleccionar el botón. |
+| Mensaje | Para el tipo de enlace **Enviar SMS**, establece el contenido que se rellenará en un borrador de mensaje SMS cuando el usuario seleccione el botón. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Comportamiento al hacer clic" }
 
 ### Divisor {#divider}

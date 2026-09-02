@@ -189,11 +189,11 @@ alias: /scim_api_appendix/
 | View Teams | `view_teams` |
 | Edit Teams | `edit_teams` |
 | Archive Teams | `archive_teams` |
-| View カスタム属性 | `view_custom_attributes` |
-| Edit カスタム属性 | `edit_custom_attributes` |
-| Blocklist カスタム属性 | `blocklist_custom_attributes` |
-| Delete カスタム属性 | `delete_custom_attributes` |
-| Export カスタム属性 | `export_custom_attributes` |
+| View Custom Attributes | `view_custom_attributes` |
+| Edit Custom Attributes | `edit_custom_attributes` |
+| Blocklist Custom Attributes | `blocklist_custom_attributes` |
+| Delete Custom Attributes | `delete_custom_attributes` |
+| Export Custom Attributes | `export_custom_attributes` |
 | View Custom Events | `view_custom_events` |
 | Edit Custom Events | `edit_custom_events` |
 | Blocklist Custom Events | `blocklist_custom_events` |

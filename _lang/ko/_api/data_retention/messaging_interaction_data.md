@@ -78,10 +78,10 @@ page_type: reference
     - Last Received Any Message
     - Last Received Email
     - Last Received Push
-    - Last Received 단문 메시지 서비스
+    - Last Received SMS
     - Last Received Webhook
     - Last Received WhatsApp
-    - Last Sent Specific 단문 메시지 서비스 Inbound Keyword Category
+    - Last Sent Specific SMS Inbound Keyword Category
     - Last Viewed News Feed
     - News Feed View Count
 

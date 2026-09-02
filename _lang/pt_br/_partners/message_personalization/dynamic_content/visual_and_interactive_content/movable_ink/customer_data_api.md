@@ -1,29 +1,29 @@
 ---
-nav_title: Conexão com a API or interface de programação do aplicativo (API) de dados de cliente
-article_title: Conecte-se à API or interface de programação do aplicativo (API) de dados de clientes da Movable Ink
-description: "Este artigo de referência descreve como se conectar para ativar os dados de eventos de clientes armazenados na Braze para gerar conteúdo personalizado na Movable Ink usando a API or interface de programação do aplicativo (API) de dados de clientes."
+nav_title: Conexão com a API de dados de cliente
+article_title: Conecte-se à API de dados de clientes da Movable Ink
+description: "Este artigo de referência descreve como se conectar para ativar os dados de eventos de clientes armazenados na Braze para gerar conteúdo personalizado na Movable Ink usando a API de dados de clientes."
 page_type: partner
 search_tag: Partner
 ---
 
-# Conecte-se à API or interface de programação do aplicativo (API) de dados de clientes da Movable Ink {#connect-to-the-movable-ink-customer-data-api}
+# Conecte-se à API de dados de clientes da Movable Ink {#connect-to-the-movable-ink-customer-data-api}
 
-> A integração da API or interface de programação do aplicativo (API) de dados de clientes da Braze e da Movable Ink permite que os profissionais de marketing ativem os dados de eventos de clientes armazenados na Braze para gerar conteúdo personalizado na Movable Ink.
+> A integração da API de dados de clientes da Braze e da Movable Ink permite que os profissionais de marketing ativem os dados de eventos de clientes armazenados na Braze para gerar conteúdo personalizado na Movable Ink.
 
-A Movable Ink é capaz de ingerir eventos comportamentais da Braze por meio da API or interface de programação do aplicativo (API) de dados de clientes. Os eventos serão armazenados nos perfis de usuário com base no ID de usuário exclusivo (UUID) que é passado para a Movable Ink.
+A Movable Ink é capaz de ingerir eventos comportamentais da Braze por meio da API de dados de clientes. Os eventos serão armazenados nos perfis de usuário com base no ID de usuário exclusivo (UUID) que é passado para a Movable Ink.
 
-Para saber mais sobre o Stories, a API or interface de programação do aplicativo (API) de dados de clientes da Movable Ink e como a Movable Ink aproveita os dados comportamentais, visite os seguintes artigos da central de suporte:
+Para saber mais sobre o Stories, a API de dados de clientes da Movable Ink e como a Movable Ink aproveita os dados comportamentais, visite os seguintes artigos da central de suporte:
 
 - [Potencialize o conteúdo com dados comportamentais](https://support.movableink.com/hc/en-us/sections/360001239453-Power-content-with-behavioral-data)
-- [Introdução e guia da API or interface de programação do aplicativo (API) de dados de clientes](https://support.movableink.com/hc/en-us/articles/13815957200663-Customer-Data-API-introduction-and-guide)
-- [Perguntas frequentes: API or interface de programação do aplicativo (API) de dados de clientes](https://support.movableink.com/hc/en-us/articles/12423178752279-FAQ-Customer-Data-API)
+- [Introdução e guia da API de dados de clientes](https://support.movableink.com/hc/en-us/articles/13815957200663-Customer-Data-API-introduction-and-guide)
+- [Perguntas frequentes: API de dados de clientes](https://support.movableink.com/hc/en-us/articles/12423178752279-FAQ-Customer-Data-API)
 
 ## Pré-requisitos {#prerequisites}
 
 | Requisito | Descrição |
 |---|---|
 | Conta da Movable Ink | É necessário ter uma conta da Movable Ink para aproveitar essa parceria. |
-| Credenciais da API or interface de programação do aplicativo (API) da Movable Ink | A equipe de soluções da Movable Ink gerará credenciais de API or interface de programação do aplicativo (API) para você. As credenciais da API or interface de programação do aplicativo (API) consistem em:{::nomarkdown}<ul><li>Um URL de endpoint (para onde os dados serão enviados)</li><li>Nome de usuário e senha (usados para autenticar a API or interface de programação do aplicativo (API))</li></ul>{:/} Se desejar, a Movable Ink poderá fornecer o nome de usuário e a senha como um valor codificado em base64 a ser usado como um valor de cabeçalho de autorização básica. |
+| Credenciais da API da Movable Ink | A equipe de soluções da Movable Ink gerará credenciais de API para você. As credenciais da API consistem em:{::nomarkdown}<ul><li>Um URL de endpoint (para onde os dados serão enviados)</li><li>Nome de usuário e senha (usados para autenticar a API)</li></ul>{:/} Se desejar, a Movable Ink poderá fornecer o nome de usuário e a senha como um valor codificado em base64 a ser usado como um valor de cabeçalho de autorização básica. |
 | Cargas úteis de eventos comportamentais | Será necessário compartilhar as cargas úteis do evento com a equipe de experiência do cliente da Movable Ink. Consulte [Compartilhamento de cargas úteis de eventos](#event-payloads) com a Movable Ink para obter detalhes. |
 | Ativos criativos e lógica de negócios | Será necessário compartilhar ativos criativos com a Movable Ink, incluindo arquivos do Adobe Photoshop (PSD) que orientem a Movable Ink sobre como criar o bloco e uma imagem de fallback. Você também precisará fornecer a lógica de negócios para saber como e quando exibir o bloco de conteúdo ativado pelo parceiro. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
@@ -38,7 +38,7 @@ Para saber mais sobre o Stories, a API or interface de programação do aplicati
 2. Dê um nome e uma descrição opcional à sua campanha.
 3. Selecione **Blank Template** como seu modelo.
 
-#### Etapa 1b: Adicione suas credenciais da API or interface de programação do aplicativo (API) de dados de clientes {#step-1b-add-your-customer-data-api-credentials}
+#### Etapa 1b: Adicione suas credenciais da API de dados de clientes {#step-1b-add-your-customer-data-api-credentials}
 
 1. No campo **Webhook URL**, insira o URL do endpoint da Movable Ink.
 
@@ -52,7 +52,7 @@ Para saber mais sobre o Stories, a API or interface de programação do aplicati
 | --- | --- |
 | Content-Type | application/json |
 | Authorization | Insira a autenticação básica que você recebeu da Movable Ink. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 1b: Adicione suas credenciais da API or interface de programação do aplicativo (API) de dados de clientes" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 1b: Adicione suas credenciais da API de dados de clientes" }
 
 ![Guia Configurações do criador do webhook na Braze com pares de chave-valor para Content-Type e Authorization.]({% image_buster /assets/img/movable_ink/cd_api_webhook_settings.png %}){: style="max-width:75%" }
 
@@ -85,7 +85,7 @@ Para testar seu webhook, faça o seguinte:
 
 Quando terminar de redigir e testar o webhook, [agende sua campanha]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
-A Braze oferece suporte a entregas agendadas, baseadas em ação e disparadas por API or interface de programação do aplicativo (API). A [entrega baseada em ação]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) é geralmente a melhor opção para a maioria dos casos de uso de eventos comportamentais. Em caso de dúvidas sobre o que faz sentido para o seu caso de uso, entre em contato com os gerentes de sucesso do cliente da Braze e da Movable Ink.
+A Braze oferece suporte a entregas agendadas, baseadas em ação e disparadas por API. A [entrega baseada em ação]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) é geralmente a melhor opção para a maioria dos casos de uso de eventos comportamentais. Em caso de dúvidas sobre o que faz sentido para o seu caso de uso, entre em contato com os gerentes de sucesso do cliente da Braze e da Movable Ink.
 
 Para entrega baseada em ação:
 
@@ -129,7 +129,7 @@ Quando a Movable Ink receber um `user_id` para um único usuário, todos os even
 
 ### Compartilhamento de cargas úteis de eventos com a Movable Ink {#event-payloads}
 
-Antes de configurar o conector para a API or interface de programação do aplicativo (API) de dados de clientes da Movable Ink, compartilhe as cargas úteis do evento com a equipe de experiência do cliente da Movable Ink. Isso permite que a Movable Ink mapeie seus eventos para o esquema de eventos deles e evitará qualquer chamada de API or interface de programação do aplicativo (API) rejeitada ou com falha.
+Antes de configurar o conector para a API de dados de clientes da Movable Ink, compartilhe as cargas úteis do evento com a equipe de experiência do cliente da Movable Ink. Isso permite que a Movable Ink mapeie seus eventos para o esquema de eventos deles e evitará qualquer chamada de API rejeitada ou com falha.
 
 Você pode gerar uma carga útil de evento na Braze usando qualquer propriedade de evento. Gere uma carga útil de exemplo para um usuário aleatório ou pesquisando um ID de usuário específico. Consulte a [Etapa 1d](#step-1d) para obter detalhes.
 
@@ -139,7 +139,7 @@ Para saber mais sobre as propriedades de eventos personalizados e o formato espe
 
 ### Usuários conhecidos versus anônimos {#known-versus-anonymous-users}
 
-Na Braze, os eventos podem ser registrados em um perfil de usuário anônimo. Os identificadores vinculados ao perfil do usuário durante o registro de eventos dependem de como o usuário foi criado (por meio do SDK or kit de desenvolvimento de software da Braze ou das APIs) e do estágio atual do ciclo de vida do usuário.
+Na Braze, os eventos podem ser registrados em um perfil de usuário anônimo. Os identificadores vinculados ao perfil do usuário durante o registro de eventos dependem de como o usuário foi criado (por meio do SDK da Braze ou das APIs) e do estágio atual do ciclo de vida do usuário.
 
 #### Encaminhar eventos da Braze apenas para usuários conhecidos {#only-forwarding-braze-events-for-known-users}
 

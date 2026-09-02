@@ -10,7 +10,7 @@ description: "Este artigo descreve os detalhes sobre o endpoint da Braze \"Exclu
 
 ---
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Excluir o estado da inscrição por endereço de e-mail ou número de telefone {#delete-subscription-state-by-email-address-or-phone-number}
 {% apimethod delete %}
 /users/subscription

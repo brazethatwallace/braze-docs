@@ -8,7 +8,7 @@ description: "Braze SDK를 통해 구매를 기록하는 방법을 알아보세�
 
 # 구매 기록 {#log-purchases}
 
-> Braze SDK를 통해 인앱 구매를 기록하는 방법을 알아보세요. 이를 통해 시간 경과에 따른 매출과 소스별 매출을 확인할 수 있습니다. 커스텀 이벤트, 커스텀 속성 및 구매 이벤트를 사용하여 [LTV or 생애주기 가치에 따라]({{site.baseurl}}/developer_guide/analytics#purchase-events-revenue-tracking) 사용자를 세분화할 수 있습니다.
+> Braze SDK를 통해 인앱 구매를 기록하는 방법을 알아보세요. 이를 통해 시간 경과에 따른 매출과 소스별 매출을 확인할 수 있습니다. 커스텀 이벤트, 커스텀 속성 및 구매 이벤트를 사용하여 [LTV에 따라]({{site.baseurl}}/developer_guide/analytics#purchase-events-revenue-tracking) 사용자를 세분화할 수 있습니다.
 
 {% alert note %}
 목록에 없는 래퍼 SDK의 경우 관련 네이티브 Android 또는 Swift 메서드를 대신 사용하세요.

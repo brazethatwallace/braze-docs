@@ -18,15 +18,15 @@ _Essa integração é mantida pela Iterate._
 
 A integração da Iterate com a Braze permite que você entregue pesquisas da Iterate de forma nativa e prática em seu produto ou campanhas. As respostas da pesquisa podem ser registradas como atributos personalizados do usuário na Braze, permitindo que você construa uma imagem completa dos seus usuários ou crie novos e poderosos públicos e segmentos.
 
-Com o SDK or kit de desenvolvimento de software da Braze instalado em seu aplicativo ou site, você pode usar as ferramentas de segmentação e direcionamento disponíveis na Braze para entregar pesquisas por meio de mensagens no app a uma parte específica do seu público com base em qualquer gatilho ou Segment or segmento or segmento personalizado. As pesquisas da Iterate também podem ser incorporadas diretamente em suas campanhas de e-mail ou incluídas como links em seu push ou em outros tipos de campanha.
+Com o SDK da Braze instalado em seu aplicativo ou site, você pode usar as ferramentas de segmentação e direcionamento disponíveis na Braze para entregar pesquisas por meio de mensagens no app a uma parte específica do seu público com base em qualquer gatilho ou Segment personalizado. As pesquisas da Iterate também podem ser incorporadas diretamente em suas campanhas de e-mail ou incluídas como links em seu push ou em outros tipos de campanha.
 
 ## Pré-requisitos {#prerequisites}
 
 | Requisito | Origem |
 |---|---|
 | Conta da Iterate | É necessário ter uma [conta da Iterate](https://iteratehq.com) para aproveitar essa parceria. |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões `users.track`. Para enviar pesquisas por meio de mensagens no app da Braze, você também precisará da permissão `kpi.mau.data_series`.<br><br> Isso pode ser criado no dashboard da Braze em **Settings** > **API or interface de programação do aplicativo (API) Keys**. |
-| Endpoint REST or transferir estado representacional da Braze | Sua URL de endpoint REST or transferir estado representacional. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/api/basics/#endpoints). |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. Para enviar pesquisas por meio de mensagens no app da Braze, você também precisará da permissão `kpi.mau.data_series`.<br><br> Isso pode ser criado no dashboard da Braze em **Settings** > **API Keys**. |
+| Endpoint REST da Braze | Sua URL de endpoint REST. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/api/basics/#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
@@ -37,7 +37,7 @@ Com a Iterate, você pode coletar praticamente qualquer tipo de dados. Desde inf
 
 ### Como começar: conectar a Braze com a Iterate {#getting-started-connect-braze-with-iterate}
 
-Faça login na sua conta da Iterate e adicione seu endpoint REST or transferir estado representacional da Braze e a chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional na página **Company Settings**.
+Faça login na sua conta da Iterate e adicione seu endpoint REST da Braze e a chave da API REST na página **Company Settings**.
 
 ### Envie pesquisas como uma mensagem no app {#deliver-surveys-as-an-in-app-message}
 

@@ -127,7 +127,7 @@ Die folgende Tabelle listet häufige Fehler für diesen Endpunkt und deren Beheb
 | `400` | Validierungsfehler | Überprüfen Sie, ob `rel_kind`, `anchor` und `attributes` für den Beziehungstyp gültig sind. |
 | `404` | Beziehung oder Endpunktobjekte nicht gefunden (`data-object-relationship-not-found`) | Überprüfen Sie, ob beide Objekte und die zugehörigen Typnamen im Workspace existieren. |
 | `422` | Beziehungslimit pro Objekt erreicht (`data-object-relationship-limit-exceeded`) | Reduzieren Sie die Anzahl der Beziehungen für das Objekt oder kontaktieren Sie den Braze-Support bezüglich der Workspace-Limits. |
-| `401` | Fehlender oder ungültiger Representational State Transfer-API-Schlüssel | Überprüfen Sie, ob der `Authorization`-Header `Bearer YOUR_REST_API_KEY` verwendet und der Schlüssel aktiv ist. |
+| `401` | Fehlender oder ungültiger REST-API-Schlüssel | Überprüfen Sie, ob der `Authorization`-Header `Bearer YOUR_REST_API_KEY` verwendet und der Schlüssel aktiv ist. |
 | `403` | API-Schlüssel hat keine Berechtigung oder die Anfrage wird durch die Zulassungsliste blockiert | Stellen Sie sicher, dass der Schlüssel die Berechtigung `data_objects.object_relationships.update` hat und Ihre Quell-IP auf der Zulassungsliste des Schlüssels steht, falls konfiguriert. |
 | `429` | Rate-Limit überschritten | Versuchen Sie es nach `X-RateLimit-Reset` erneut und reduzieren Sie die Anfragehäufigkeit. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fehler beim Ersetzen von Objektbeziehungen" }

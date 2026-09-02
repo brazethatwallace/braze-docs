@@ -1,8 +1,8 @@
 ---
 page_order: 10.9
 nav_title: Solução de problemas
-article_title: Solução de problemas de notificações por push para o SDK or kit de desenvolvimento de software da Braze
-description: "Diagnostique problemas de entrega e exibição de notificações por push usando um índice de sintomas, caminho de investigação padrão e verificações específicas de plataforma do SDK or kit de desenvolvimento de software."
+article_title: Solução de problemas de notificações por push para o SDK da Braze
+description: "Diagnostique problemas de entrega e exibição de notificações por push usando um índice de sintomas, caminho de investigação padrão e verificações específicas de plataforma do SDK."
 channel:
   - push notifications
 ---
@@ -19,12 +19,12 @@ Encontre o comportamento que você está observando na tabela e siga as etapas d
 
 | Sintoma | Acesse |
 | --- | --- |
-| Push não recebido em uma plataforma | Selecione a guia do seu SDK or kit de desenvolvimento de software em [Solução de problemas específicos por plataforma](#platform-specific-troubleshooting) |
+| Push não recebido em uma plataforma | Selecione a guia do seu SDK em [Solução de problemas específicos por plataforma](#platform-specific-troubleshooting) |
 | Quebras de linha ao redor de Liquid tags ficam incorretas ao salvar | [Quebras de linha em notificações por push](#push-linebreaks) |
-| Verificações de entrega no dashboard (inscrição, Segment or segmento, limites) | [Solução de problemas de push]({{site.baseurl}}/user_guide/channels/push/troubleshooting) |
+| Verificações de entrega no dashboard (inscrição, Segment, limites) | [Solução de problemas de push]({{site.baseurl}}/user_guide/channels/push/troubleshooting) |
 | Deep link de push não abre corretamente | [Solução de problemas de deep linking]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting) |
 | Códigos de erro comuns de push | [Mensagens de erro comuns de push]({{site.baseurl}}/user_guide/channels/push/push_error_codes) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Sintoma de push do SDK or kit de desenvolvimento de software" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Sintoma de push do SDK" }
 
 ## Caminho de investigação padrão {#standard-investigation-path}
 
@@ -33,13 +33,13 @@ Use este fluxo de trabalho para cada incidente de notificação por push. Comece
 1. Confirme que o dispositivo possui um token por push válido e que a permissão de push está concedida nas configurações do dispositivo.
 2. No dashboard, confirme que o usuário teste corresponde ao [Segment]({{site.baseurl}}/user_guide/channels/push/troubleshooting#segment) da Campaign ou do Canvas e não está no [grupo de controle]({{site.baseurl}}/user_guide/channels/push/troubleshooting#control-group-status).
 3. Envie um [push de teste]({{site.baseurl}}/developer_guide/push_notifications/sending_test_messages) para o dispositivo de teste.
-4. [Ative o registro detalhado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging), reproduza o problema e revise as orientações específicas da plataforma na [guia do SDK or kit de desenvolvimento de software](#platform-specific-troubleshooting).
-5. Se o problema persistir, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) informando os logs detalhados, a plataforma, a versão do SDK or kit de desenvolvimento de software e o ID da Campaign ou do Canvas.
+4. [Ative o registro detalhado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging), reproduza o problema e revise as orientações específicas da plataforma na [guia do SDK](#platform-specific-troubleshooting).
+5. Se o problema persistir, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) informando os logs detalhados, a plataforma, a versão do SDK e o ID da Campaign ou do Canvas.
 
 ## Cliques em push não registrados {#push-clicks-not-logged}
 
 - Certifique-se de ter seguido as [etapas de integração de push]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift#swift_step-33-enable-push-handling).
-- A Braze não processa notificações por push recebidas silenciosamente em primeiro plano (comportamento padrão de push em primeiro plano antes do framework `UserNotifications`). Isso significa que os links não serão abertos e os cliques em push não serão registrados. Se seu aplicativo ainda não integrou o framework `UserNotifications`, a Braze não processará notificações por push quando o estado do aplicativo for `UIApplicationStateActive`. Certifique-se de que seu app não atrasa chamadas aos [métodos de processamento de push]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift#swift_step-33-enable-push-handling); caso contrário, o SDK or kit de desenvolvimento de software Swift pode tratar as notificações por push como eventos silenciosos de push em primeiro plano e não processá-las.
+- A Braze não processa notificações por push recebidas silenciosamente em primeiro plano (comportamento padrão de push em primeiro plano antes do framework `UserNotifications`). Isso significa que os links não serão abertos e os cliques em push não serão registrados. Se seu aplicativo ainda não integrou o framework `UserNotifications`, a Braze não processará notificações por push quando o estado do aplicativo for `UIApplicationStateActive`. Certifique-se de que seu app não atrasa chamadas aos [métodos de processamento de push]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift#swift_step-33-enable-push-handling); caso contrário, o SDK Swift pode tratar as notificações por push como eventos silenciosos de push em primeiro plano e não processá-las.
 
 ## Quebras de linha em notificações por push {#push-linebreaks}
 

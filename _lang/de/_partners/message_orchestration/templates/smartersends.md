@@ -22,8 +22,8 @@ Die Partnerschaft zwischen Braze und SmarterSends ermöglicht es Ihnen, die Leis
 | Anforderung | Beschreibung |
 | --- | --- |
 | SmarterSends-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein [SmarterSends-Konto](https://smartersends.com). |
-| Braze Representational State Transfer-API-Schlüssel | Ein Braze Representational State Transfer-API-Schlüssel mit diesen Berechtigungen: {::nomarkdown}<ul><li><code>users.track</code></li><li><code>users.export.ids</code></li><li><code>messages.schedule.create</code></li><li><code>messages.schedule.Update or aktualisieren</code></li> <li><code>messages.schedule.delete</code></li><li><code>sends.id.create</code></li><li><code>segments.list</code></li><li><code>segments.data_series</code></li><li><code>segments.details</code></li><li><code>sends.data_series</code></li></ul>{:/} Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. Für zusätzliche Sicherheit setzen Sie die IP-Adresse von SmarterSends auf die Allowlist (verfügbar in Ihrer Instanz). |
-| Braze Representational State Transfer-Endpunkt | [Ihre Representational State Transfer-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
+| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit diesen Berechtigungen: {::nomarkdown}<ul><li><code>users.track</code></li><li><code>users.export.ids</code></li><li><code>messages.schedule.create</code></li><li><code>messages.schedule.update</code></li> <li><code>messages.schedule.delete</code></li><li><code>sends.id.create</code></li><li><code>segments.list</code></li><li><code>segments.data_series</code></li><li><code>segments.details</code></li><li><code>sends.data_series</code></li></ul>{:/} Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. Für zusätzliche Sicherheit setzen Sie die IP-Adresse von SmarterSends auf die Allowlist (verfügbar in Ihrer Instanz). |
+| Braze REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
 | Braze API-Campaign-ID | Die [Braze API-Campaign-ID]({{site.baseurl}}/api/api_campaigns/) ist der eindeutige Bezeichner für alle Campaigns, die über SmarterSends gesendet werden. Diese kann im Braze-Dashboard unter **Messaging** > **Campaigns** erstellt werden. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
@@ -39,7 +39,7 @@ Mit der Integration von Braze und SmarterSends können Sie die Vorteile des vert
 
 ## Integration
 
-### 1. Schritt: Einen Representational State Transfer-API-Schlüssel erstellen {#step-1-create-a-rest-api-key}
+### 1. Schritt: Einen REST-API-Schlüssel erstellen {#step-1-create-a-rest-api-key}
 
 1. Gehen Sie in Braze zu **Einstellungen** > **API-Schlüssel** und klicken Sie auf **Neuen API-Schlüssel erstellen**.
 2. Geben Sie einen Namen für den API-Schlüssel ein.
@@ -66,7 +66,7 @@ Mit der Integration von Braze und SmarterSends können Sie die Vorteile des vert
 
 ### 3. Schritt: Eine API-Campaign erstellen {#step-3-create-an-api-campaign}
 
-Eine API-Campaign ermöglicht das Tracking von Metriken für alle SmarterSends-Mails innerhalb von Braze und erlaubt es SmarterSends, diese API-basierten Campaigns zu Trigger or triggern or triggern.
+Eine API-Campaign ermöglicht das Tracking von Metriken für alle SmarterSends-Mails innerhalb von Braze und erlaubt es SmarterSends, diese API-basierten Campaigns zu triggern.
 
 1. Erstellen Sie in Braze eine [API-Campaign]({{site.baseurl}}/api/api_campaigns/#create-a-new-campaign).
 2. Klicken Sie auf **Email** unter **Select Message Channel**, um einen Messaging-Kanal hinzuzufügen und mit dem Tracking von Metriken zu beginnen.

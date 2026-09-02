@@ -15,7 +15,7 @@ Die **Übersicht zur Nachrichtenkredit-Nutzung** bietet einen Überblick über d
 Diese Seite wird angezeigt, wenn Sie einen Credit-Vertrag haben. Die Kanäle, die Credits verwenden, werden unter **Credit-Nutzung** angezeigt.
 
 {% alert note %}
-Wenn Sie WhatsApp erworben haben, aber keinen Credit-Vertrag haben, wird Ihnen trotzdem der Credit-Verbrauch für WhatsApp angezeigt, da ältere WhatsApp-Verträge auf diese Weise abgerechnet werden. Dies unterscheidet sich von älteren Kurzmitteilungsdienst or SMS-Verträgen, bei denen Credits nur verbraucht werden, wenn Sie einen Credit-Vertrag haben.
+Wenn Sie WhatsApp erworben haben, aber keinen Credit-Vertrag haben, wird Ihnen trotzdem der Credit-Verbrauch für WhatsApp angezeigt, da ältere WhatsApp-Verträge auf diese Weise abgerechnet werden. Dies unterscheidet sich von älteren SMS-Verträgen, bei denen Credits nur verbraucht werden, wenn Sie einen Credit-Vertrag haben.
 {% endalert %}
 
 Die Daten der Übersicht zur Credit-Nutzung sind auf den Vertragszeitraum beschränkt, der in der **Übersicht zum Credit-Vertrag** angezeigt wird. Sie können keinen Datumsbereich außerhalb des **Credit-Zeitraums** filtern.
@@ -129,13 +129,13 @@ Verwenden Sie **Export**, um die Tabellendaten herunterzuladen.
 ![Credits-Nutzung für LINE mit Kacheln für Credits und abrechenbare Sends sowie einer detaillierten Nutzungstabelle.]({% image_buster /assets/img/app_settings/credits_usage_line.png %})
 
 {% endtab %}
-{% tab Kurzmitteilungsdienst or SMS, MMS und RCS %}
+{% tab SMS, MMS und RCS %}
 
-### Kurzmitteilungsdienst or SMS, MMS und RCS {#sms-mms-and-rcs}
+### SMS, MMS und RCS {#sms-mms-and-rcs}
 
-**Credits-Nutzung für Kurzmitteilungsdienst or SMS/MMS/RCS** zeigt die Aufschlüsselung der Nutzung für den Kurzmitteilungsdienst or SMS-, MMS- und RCS-Kanal. Die Spalten **Credit-Verhältnis** und **Credits** geben den jeweiligen Ländertarif und die verbrauchten Credits an. Zusätzlich zeigen übergeordnete Kacheln den gesamten Kurzmitteilungsdienst or SMS- und, sofern relevant, MMS-Verbrauch über den ausgewählten Datumsbereich an.
+**Credits-Nutzung für SMS/MMS/RCS** zeigt die Aufschlüsselung der Nutzung für den SMS-, MMS- und RCS-Kanal. Die Spalten **Credit-Verhältnis** und **Credits** geben den jeweiligen Ländertarif und die verbrauchten Credits an. Zusätzlich zeigen übergeordnete Kacheln den gesamten SMS- und, sofern relevant, MMS-Verbrauch über den ausgewählten Datumsbereich an.
 
-Es stehen Filter zur Verfügung, mit denen Sie nach **Land** oder Kurzmitteilungsdienst or SMS- und RCS-Typ filtern können.
+Es stehen Filter zur Verfügung, mit denen Sie nach **Land** oder SMS- und RCS-Typ filtern können.
 
 ![Credits-Nutzung für SMS/MMS/RCS mit Kacheln für übergeordnete Daten und einem Abschnitt zum Verbrauch nach Konto.]({% image_buster /assets/img/app_settings/sms_credit_consumption2.png %})
 
@@ -277,7 +277,7 @@ Das Dashboard **Credits Usage** schließt das Enddatum des ausgewählten Bereich
 
 Beachten Sie beim Vergleich der Braze Credits-Nutzungsdaten mit Drittanbietern (wie z. B. Infobip) Folgendes:
 
-- **Nachrichtensegmente versus Nachrichten**: Braze zählt Kurzmitteilungsdienst or SMS-Nachrichten nach Segmenten. Eine einzelne Kurzmitteilungsdienst or SMS-Nachricht, die in mehrere Segmente aufgeteilt wird (z. B. aufgrund der Länge), wird in Braze als mehrere Segmente gezählt. Weitere Informationen finden Sie unter [Kurzmitteilungsdienst or SMS- und RCS-Abrechnungsrechner]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator).
+- **Nachrichtensegmente versus Nachrichten**: Braze zählt SMS-Nachrichten nach Segmenten. Eine einzelne SMS-Nachricht, die in mehrere Segmente aufgeteilt wird (z. B. aufgrund der Länge), wird in Braze als mehrere Segmente gezählt. Weitere Informationen finden Sie unter [SMS- und RCS-Abrechnungsrechner]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator).
 - **Credit-basierte versus nicht-Credit-basierte Nachrichten**: Das Dashboard umfasst sowohl Credit-basierte als auch nicht-Credit-basierte Nachrichten. Drittanbieter zählen möglicherweise nur Credit-basierte Nachrichten, was zu Abweichungen bei den Gesamtzahlen führen kann.
 - **Eingehend versus ausgehend**: Stellen Sie sicher, dass Sie die gleichen Nachrichtentypen vergleichen. Einige Drittanbieter-Dashboards berücksichtigen in ihren Gesamtzahlen sowohl eingehende als auch ausgehende Nachrichten, während Braze Ihnen ermöglicht, nach Richtung zu filtern.
 - **Ausrichtung des Datumsbereichs**: Da das Dashboard das Enddatum ausschließt, können tageweise Vergleiche genauer übereinstimmen als längere Datumsbereiche. Wenn Sie Daten für einen bestimmten Zeitraum vergleichen, erweitern Sie Ihren Braze-Datumsbereich um einen Tag, um den letzten Tag Ihres Vergleichszeitraums einzuschließen.

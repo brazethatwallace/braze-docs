@@ -890,5 +890,5 @@ Braze가 Shopify 고객을 가져올 때, 구성 설정에서 선택한 `externa
 
 | Braze 권장 이벤트 | Shopify 커스텀 이벤트 | Braze 표준 속성 | Braze 가입 상태 |
 | --- | --- | --- | --- |
-| {::nomarkdown}<ul><li>Order placed</li><li>Order cancelled</li><li>Order refunded</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} | {::nomarkdown}<ul><li>이메일</li><li>이름</li><li>성</li><li>전화번호</li><li>구/군/시</li><li>국가</li><li>총 매출</li><li>총 환불</li><li>총 주문</li></ul>{:/} | {::nomarkdown}<ul><li>이 Shopify 스토어에 연결된 이메일 마케팅 가입</li><li>이 Shopify 스토어에 연결된 단문 메시지 서비스 마케팅 가입</li></ul>{:/} |
+| {::nomarkdown}<ul><li>Order placed</li><li>Order cancelled</li><li>Order refunded</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} | {::nomarkdown}<ul><li>이메일</li><li>이름</li><li>성</li><li>전화번호</li><li>구/군/시</li><li>국가</li><li>총 매출</li><li>총 환불</li><li>총 주문</li></ul>{:/} | {::nomarkdown}<ul><li>이 Shopify 스토어에 연결된 이메일 마케팅 가입</li><li>이 Shopify 스토어에 연결된 SMS 마케팅 가입</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="동기화되는 데이터" }

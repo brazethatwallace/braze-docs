@@ -1,3 +1,3 @@
 - **Cuenta de Braze:** Una cuenta de Braze con acceso a la API
 - **Clave de API:** La clave de API de tu aplicación desde el panel de Braze
-- **Punto final de SDK or kit de desarrollo de software:** La URL de tu punto final de SDK or kit de desarrollo de software de Braze (por ejemplo, `sdk.iad-01.braze.com`)
+- **Punto final de SDK:** La URL de tu punto final de SDK de Braze (por ejemplo, `sdk.iad-01.braze.com`)

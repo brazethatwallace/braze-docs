@@ -1,16 +1,16 @@
 ---
 nav_title: Enviar mensajes
-article_title: Envío de mensajes mediante la REST or transferencia de estado representacional API
+article_title: Envío de mensajes mediante la REST API
 page_order: 1
 page_type: reference
-description: "Este artículo de referencia describe las dos formas de enviar mensajes mediante programación utilizando la REST or transferencia de estado representacional API de Braze."
+description: "Este artículo de referencia describe las dos formas de enviar mensajes mediante programación utilizando la REST API de Braze."
 ---
 
-# Envío de mensajes mediante la REST or transferencia de estado representacional API {#sending-messages-using-the-rest-api}
+# Envío de mensajes mediante la REST API {#sending-messages-using-the-rest-api}
 
 > Puedes enviar mensajes desde tu backend en tiempo real utilizando dos endpoints diferentes de Braze. Cada uno tiene una forma de solicitud diferente: uno requiere el contenido completo del mensaje en la solicitud; el otro requiere un ID de Campaign y envía el contenido definido en el panel.
 
-Este enfoque funciona con cualquier canal de mensajería compatible con la API (WhatsApp, correo electrónico, servicio de mensajes cortos, push, Content Cards, webhooks y más).
+Este enfoque funciona con cualquier canal de mensajería compatible con la API (WhatsApp, correo electrónico, SMS, push, Content Cards, webhooks y más).
 
 ## Dos formas de enviar {#two-ways-to-send}
 
@@ -96,7 +96,7 @@ Utiliza este endpoint cuando el contenido del mensaje se cree en el panel de Bra
 
 1. En el panel de Braze, ve a **Mensajería** > **Campaigns**.
 2. Selecciona **Crear campaña** y, a continuación, **Campaign desencadenada por API** (no "API Campaign").
-3. Añade tu canal de mensajería (WhatsApp, correo electrónico, servicio de mensajes cortos, etc.) y crea el contenido del mensaje en el panel.
+3. Añade tu canal de mensajería (WhatsApp, correo electrónico, SMS, etc.) y crea el contenido del mensaje en el panel.
 4. Anota el **Campaign ID** (y el **Send ID** si utilizas varias variantes de mensaje). Los utilizarás en la solicitud de API.
 
 Para obtener más información sobre cómo crear Campaigns desencadenadas por API, consulta [Entrega desencadenada por API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery).

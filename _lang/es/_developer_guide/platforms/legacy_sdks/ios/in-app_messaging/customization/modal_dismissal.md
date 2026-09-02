@@ -15,7 +15,7 @@ noindex: true
 
 El valor predeterminado es `NO`. Determina si el mensaje modal dentro de la aplicación se descartará cuando el usuario pulse fuera del mensaje dentro de la aplicación.
 
-Para habilitar los descartes por toque externo, añade un diccionario llamado `Braze` a tu archivo `Info.plist`. Dentro del diccionario `Braze`, añade la subentrada booleana `DismissModalOnOutsideTap` y establece el valor en `YES`, como se muestra en el siguiente fragmento de código. Ten en cuenta que, antes de la versión 4.0.2 del SDK or kit de desarrollo de software de iOS de Braze, debe usarse la clave de diccionario `Appboy` en lugar de `Braze`.
+Para habilitar los descartes por toque externo, añade un diccionario llamado `Braze` a tu archivo `Info.plist`. Dentro del diccionario `Braze`, añade la subentrada booleana `DismissModalOnOutsideTap` y establece el valor en `YES`, como se muestra en el siguiente fragmento de código. Ten en cuenta que, antes de la versión 4.0.2 del SDK de iOS de Braze, debe usarse la clave de diccionario `Appboy` en lugar de `Braze`.
 
 ```
 <key>Braze</key>

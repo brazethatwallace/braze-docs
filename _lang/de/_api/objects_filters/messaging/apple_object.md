@@ -87,7 +87,7 @@ In den meisten Fällen kann `alert` als String in einem `apple_push`-Objekt ange
 
 ## Apple Push-Action-Button-Objekt {#apple-push-action-button-object}
 
-Sie müssen das Feld `category` in das Apple Push-Objekt aufnehmen, um Push-Action-Buttons von iOS zu verwenden. Wenn Sie das Feld `category` einbeziehen, werden alle zugehörigen Push-Action-Buttons angezeigt. Beziehen Sie das Feld `buttons` nur ein, wenn Sie zusätzlich die einzelnen Klick-Aktionen der Buttons definieren möchten. Das Braze SDK or Software-Development-Kit stellt Ihnen eine Reihe von Standard-Push-Action-Buttons zur Verfügung, die in der folgenden Tabelle aufgeführt sind. Sie können auch Ihre eigenen Buttons verwenden, wenn diese in Ihrer App registriert wurden.
+Sie müssen das Feld `category` in das Apple Push-Objekt aufnehmen, um Push-Action-Buttons von iOS zu verwenden. Wenn Sie das Feld `category` einbeziehen, werden alle zugehörigen Push-Action-Buttons angezeigt. Beziehen Sie das Feld `buttons` nur ein, wenn Sie zusätzlich die einzelnen Klick-Aktionen der Buttons definieren möchten. Das Braze SDK stellt Ihnen eine Reihe von Standard-Push-Action-Buttons zur Verfügung, die in der folgenden Tabelle aufgeführt sind. Sie können auch Ihre eigenen Buttons verwenden, wenn diese in Ihrer App registriert wurden.
 
 ### Apple Push-Action-Button-Objekt für Braze Standard-Buttons {#apple-push-action-button-object-for-braze-default-buttons}
 

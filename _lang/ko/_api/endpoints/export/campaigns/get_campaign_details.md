@@ -173,7 +173,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 ```
 
 {% endtab %}
-{% tab 단문 메시지 서비스 %}
+{% tab SMS %}
 
 ```json
 {

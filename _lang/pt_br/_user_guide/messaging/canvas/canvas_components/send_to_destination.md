@@ -61,11 +61,11 @@ Sim. O Canvas de destino pode ter o status de rascunho ou sem atividades.
 
 Sim. O [contexto]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables) do Canvas de origem é passado para o Canvas de destino. No entanto, as variáveis de contexto precisam ser invocadas dentro do Canvas de origem para serem passadas ao Canvas de destino.
 
-### Posso usar a etapa Enviar para Destino para conectar Canvas em vez de usar soluções alternativas com API or interface de programação do aplicativo (API) ou Atualização de Usuário? {#can-i-use-the-send-to-destination-step-to-connect-canvases-instead-of-using-api-or-user-update-workarounds}
+### Posso usar a etapa Enviar para Destino para conectar Canvas em vez de usar soluções alternativas com API ou Atualização de Usuário? {#can-i-use-the-send-to-destination-step-to-connect-canvases-instead-of-using-api-or-user-update-workarounds}
 
 Sim. Você pode conectar Canvas com a etapa Enviar para Destino quando os usuários devem ser movidos diretamente para outra jornada de Canvas.
 
-Você não precisa de etapas separadas de Atualização de Usuário, disparos de API or interface de programação do aplicativo (API) ou webhooks apenas para mover usuários entre Canvas, desde que eles atendam aos critérios de público do Canvas de destino no momento do envio.
+Você não precisa de etapas separadas de Atualização de Usuário, disparos de API ou webhooks apenas para mover usuários entre Canvas, desde que eles atendam aos critérios de público do Canvas de destino no momento do envio.
 
 ### Os usuários entram no início do Canvas de destino? {#do-users-enter-at-the-start-of-the-destination-canvas}
 
@@ -79,6 +79,6 @@ Não. Se o Canvas de destino usa um tipo de entrada agendada, os usuários envia
 
 Os usuários que entram na etapa Enviar para Destino continuam sua jornada se houver etapas adicionais no Canvas de origem. Se os usuários também atenderem aos critérios de público do Canvas de destino, eles podem entrar nesse Canvas e iniciar essa jornada.
 
-### A etapa Enviar para Destino está sujeita a limites de frequência de API or interface de programação do aplicativo (API)? {#is-the-send-to-destination-step-subject-to-api-rate-limits}
+### A etapa Enviar para Destino está sujeita a limites de frequência de API? {#is-the-send-to-destination-step-subject-to-api-rate-limits}
 
-Não. Os usuários são enviados entre Canvas dentro da Braze sem fazer chamadas de API or interface de programação do aplicativo (API) externas.
+Não. Os usuários são enviados entre Canvas dentro da Braze sem fazer chamadas de API externas.

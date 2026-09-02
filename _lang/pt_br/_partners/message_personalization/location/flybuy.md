@@ -25,7 +25,7 @@ O seguinte é necessário antes de ativar a integração:
 | Requisito | Descrição |
 |---|---|
 | Conta Flybuy | Uma conta Flybuy com pelo menos um projeto. |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões `users.track`. |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
@@ -34,7 +34,7 @@ Para ativar a integração, siga as etapas a seguir:
 
 1. No portal Flybuy Merchant, navegue até **Project Info** e clique em **Events Engine**.
 2. Clique em **Add a Destination** e selecione **Braze**.
-3. Adicione sua chave de API or interface de programação do aplicativo (API) e endpoint da Braze e selecione os eventos que deseja ativar.
+3. Adicione sua chave de API e endpoint da Braze e selecione os eventos que deseja ativar.
 4. Clique em **Finish Setup**.
 
 {% alert important %}
@@ -54,7 +54,7 @@ A Flybuy mapeia `loyalty_id` para o `external_id` da Braze para usuários logado
 
 Eventos personalizados e atributos personalizados podem ser usados para potencializar uma variedade de experiências personalizadas.
 
-### Criar um Segment or segmento or segmento de público de clientes que tiveram uma experiência ruim de retirada {#build-an-audience-segment-of-customers-who-had-a-bad-pickup-experience}
+### Criar um Segment de público de clientes que tiveram uma experiência ruim de retirada {#build-an-audience-segment-of-customers-who-had-a-bad-pickup-experience}
 
 Por exemplo, direcione qualquer cliente que avaliou sua experiência de retirada com menos de 5 estrelas.
 
@@ -68,7 +68,7 @@ Envie um SMS personalizado direcionado a clientes sem conta de fidelidade para b
 
 ![Mensagem de alerta quando um cliente entra em uma área virtual de retirada]({% image_buster /assets/img/flybuy/flybuy2a.png %})
 
-### Criar um Segment or segmento or segmento de público de clientes que tiveram um longo tempo de espera {#build-an-audience-segment-of-customers-who-had-a-long-wait-time}
+### Criar um Segment de público de clientes que tiveram um longo tempo de espera {#build-an-audience-segment-of-customers-who-had-a-long-wait-time}
 
 Por exemplo, direcione qualquer cliente que teve um tempo de espera superior a dois minutos ao sair de uma área virtual da loja.
 
@@ -82,7 +82,7 @@ Envie uma notificação por push para clientes quando eles estiverem indo ou tiv
 
 Por exemplo, envie uma oferta especial quando um cliente VIP chegar aos seus locais favoritos.
 
-### Criar um Segment or segmento or segmento de público de clientes com itens faltando no pedido {#build-an-audience-segment-of-customers-who-were-missing-items-in-their-order}
+### Criar um Segment de público de clientes com itens faltando no pedido {#build-an-audience-segment-of-customers-who-were-missing-items-in-their-order}
 
 Por exemplo, direcione qualquer cliente que comentou que itens estavam faltando em seu pedido digital.
 

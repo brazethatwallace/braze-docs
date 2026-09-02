@@ -1,18 +1,18 @@
-## Sobre o Web Braze SDK or kit de desenvolvimento de software {#about-the-web-braze-sdk}
+## Sobre o Web Braze SDK {#about-the-web-braze-sdk}
 
-O Web Braze SDK or kit de desenvolvimento de software permite coletar dados de análise e exibir mensagens avançadas no app, push e Content Cards para seus usuários web. Para saber mais, consulte a [documentação de referência do JavaScript da Braze](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html).
+O Web Braze SDK permite coletar dados de análise e exibir mensagens avançadas no app, push e Content Cards para seus usuários web. Para saber mais, consulte a [documentação de referência do JavaScript da Braze](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html).
 
 {% multi_lang_include archive/web-v4-rename.md %}
 
-## Integre o Web SDK or kit de desenvolvimento de software {#integrate-the-web-sdk}
+## Integre o Web SDK {#integrate-the-web-sdk}
 
-Você pode integrar o Web Braze SDK or kit de desenvolvimento de software usando os métodos a seguir. Para opções adicionais, veja [outros métodos de integração](#web_other-integration-methods).
+Você pode integrar o Web Braze SDK usando os métodos a seguir. Para opções adicionais, veja [outros métodos de integração](#web_other-integration-methods).
 
-- **Integração baseada em código:** Integre o Web Braze SDK or kit de desenvolvimento de software diretamente na sua base de código usando seu gerenciador de pacotes preferido ou o CDN da Braze. Isso lhe dá controle total sobre como o SDK or kit de desenvolvimento de software é carregado e configurado.
-- **Google Tag Manager:** Uma solução sem código que permite integrar o Web Braze SDK or kit de desenvolvimento de software sem modificar o código do seu site. Para saber mais, veja [Google Tag Manager com o SDK or kit de desenvolvimento de software da Braze]({{site.baseurl}}/developer_guide/sdk_integration/google_tag_manager).
+- **Integração baseada em código:** Integre o Web Braze SDK diretamente na sua base de código usando seu gerenciador de pacotes preferido ou o CDN da Braze. Isso lhe dá controle total sobre como o SDK é carregado e configurado.
+- **Google Tag Manager:** Uma solução sem código que permite integrar o Web Braze SDK sem modificar o código do seu site. Para saber mais, veja [Google Tag Manager com o SDK da Braze]({{site.baseurl}}/developer_guide/sdk_integration/google_tag_manager).
 
 {% alert important %}
-Recomendamos usar o [método de integração NPM]({{site.baseurl}}/developer_guide/sdk_integration/?subtab=package%20manager&sdktab=web). Os benefícios incluem armazenar as bibliotecas do SDK or kit de desenvolvimento de software localmente no seu site, fornecer imunidade contra extensões de bloqueio de anúncios e contribuir para tempos de carregamento mais rápidos como parte do suporte a bundlers.
+Recomendamos usar o [método de integração NPM]({{site.baseurl}}/developer_guide/sdk_integration/?subtab=package%20manager&sdktab=web). Os benefícios incluem armazenar as bibliotecas do SDK localmente no seu site, fornecer imunidade contra extensões de bloqueio de anúncios e contribuir para tempos de carregamento mais rápidos como parte do suporte a bundlers.
 {% endalert %}
 
 {% tabs local %}
@@ -22,7 +22,7 @@ Recomendamos usar o [método de integração NPM]({{site.baseurl}}/developer_gui
 Você pode instalar a biblioteca da Braze usando um dos métodos a seguir. No entanto, se seu site usa uma `Content-Security-Policy`, revise a [Política de segurança de conteúdo]({{site.baseurl}}/developer_guide/platforms/web/content_security_policy) antes de continuar.
 
 {% alert important %}
-Embora a maioria dos bloqueadores de anúncios não bloqueie o Web Braze SDK or kit de desenvolvimento de software, alguns bloqueadores mais restritivos são conhecidos por causar problemas.
+Embora a maioria dos bloqueadores de anúncios não bloqueie o Web Braze SDK, alguns bloqueadores mais restritivos são conhecidos por causar problemas.
 {% endalert %}
 
 {% subtabs %}
@@ -47,9 +47,9 @@ const braze = require("@braze/web-sdk");
 {% endsubtab %}
 
 {% subtab braze cdn %}
-Adicione o Web Braze SDK or kit de desenvolvimento de software diretamente ao seu HTML referenciando nosso script hospedado no CDN, que carrega a biblioteca de forma assíncrona.
+Adicione o Web Braze SDK diretamente ao seu HTML referenciando nosso script hospedado no CDN, que carrega a biblioteca de forma assíncrona.
 
-<script src="{{site.baseurl}}/assets/js/embed.js?target=https%3A%2F%2Fgithub.com%2Fbraze-inc%2Fbraze-web-SDK or kit de desenvolvimento de software%2Fblob%2Fmaster%2Fsnippets%2Floading-snippet.js&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on&showCopy=on"></script>
+<script src="{{site.baseurl}}/assets/js/embed.js?target=https%3A%2F%2Fgithub.com%2Fbraze-inc%2Fbraze-web-sdk%2Fblob%2Fmaster%2Fsnippets%2Floading-snippet.js&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on&showCopy=on"></script>
 
 {% alert important %}
 A configuração padrão **Impedir rastreamento entre sites** no Safari pode impedir que tipos de mensagem no app como Banners e Content Cards sejam exibidos quando você usa o método de integração por CDN. Para evitar esse problema, use o método de integração NPM para que o Safari não classifique essas mensagens como tráfego entre sites, permitindo que seus usuários web possam vê-las em todos os navegadores compatíveis.
@@ -58,12 +58,12 @@ A configuração padrão **Impedir rastreamento entre sites** no Safari pode imp
 {% endsubtab %}
 {% endsubtabs %}
 
-### Etapa 2: Inicialize o SDK or kit de desenvolvimento de software {#step-2-initialize-the-sdk}
+### Etapa 2: Inicialize o SDK {#step-2-initialize-the-sdk}
 
-Depois que o Web Braze SDK or kit de desenvolvimento de software for adicionado ao seu site, inicialize a biblioteca com a chave de API or interface de programação do aplicativo (API) e a [URL do endpoint do SDK or kit de desenvolvimento de software]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) encontradas em **Configurações** > **Configurações do app** no dashboard da Braze. Para uma lista completa de opções do `braze.initialize()`, junto com nossos outros métodos JavaScript, veja a [documentação JavaScript da Braze](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize).
+Depois que o Web Braze SDK for adicionado ao seu site, inicialize a biblioteca com a chave de API e a [URL do endpoint do SDK]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) encontradas em **Configurações** > **Configurações do app** no dashboard da Braze. Para uma lista completa de opções do `braze.initialize()`, junto com nossos outros métodos JavaScript, veja a [documentação JavaScript da Braze](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize).
 
 {% alert note %}
-**Domínios personalizados para solicitações do Web SDK or kit de desenvolvimento de software não são suportados**: O `baseUrl` do Web SDK or kit de desenvolvimento de software deve ser um endpoint do SDK or kit de desenvolvimento de software da Braze (por exemplo, `sdk.iad-05.braze.com`). A Braze não suporta o roteamento de tráfego do Web SDK or kit de desenvolvimento de software por meio de um domínio de propriedade do cliente via registros CNAME. Se você precisar que as solicitações do Web SDK or kit de desenvolvimento de software sejam originadas do seu próprio domínio, entre em contato com o suporte da Braze.
+**Domínios personalizados para solicitações do Web SDK não são suportados**: O `baseUrl` do Web SDK deve ser um endpoint do SDK da Braze (por exemplo, `sdk.iad-05.braze.com`). A Braze não suporta o roteamento de tráfego do Web SDK por meio de um domínio de propriedade do cliente via registros CNAME. Se você precisar que as solicitações do Web SDK sejam originadas do seu próprio domínio, entre em contato com o suporte da Braze.
 {% endalert %}
 
 ```javascript
@@ -105,10 +105,10 @@ Se você está percebendo um comportamento de "sessão ausente", ou não consegu
 - **Causa:** A implementação não chama `braze.openSession()`.
 - **Solução:** Sempre chame `braze.openSession()` após a inicialização (e após `braze.changeUser()` se você definir um ID externo).
 
-Para saber mais, veja [Etapa 2: Inicialize o SDK or kit de desenvolvimento de software]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web&tab=code-based%20integration#step-2-initialize-the-sdk).
+Para saber mais, veja [Etapa 2: Inicialize o SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web&tab=code-based%20integration#step-2-initialize-the-sdk).
 
 {% alert important %}
-Usuários anônimos em dispositivos móveis ou web podem ser contabilizados no seu [MAU]({{site.baseurl}}/user_guide/data_and_analytics/reporting/understanding_your_app_usage_data#monthly-active-users). Como resultado, você pode querer carregar ou inicializar o SDK or kit de desenvolvimento de software condicionalmente para excluir esses usuários da sua contagem de MAU.
+Usuários anônimos em dispositivos móveis ou web podem ser contabilizados no seu [MAU]({{site.baseurl}}/user_guide/data_and_analytics/reporting/understanding_your_app_usage_data#monthly-active-users). Como resultado, você pode querer carregar ou inicializar o SDK condicionalmente para excluir esses usuários da sua contagem de MAU.
 {% endalert %}
 {% endtab %}
 
@@ -119,11 +119,11 @@ Usuários anônimos em dispositivos móveis ou web podem ser contabilizados no s
 
 ## Filtrando tráfego de bots {#bot-filtering}
 
-O MAU pode incluir uma porcentagem de usuários bots, o que inflaciona sua contagem de usuários ativos mensais. Embora o SDK or kit de desenvolvimento de software Braze para Web inclua detecção integrada para alguns crawlers web comuns (como bots de motores de busca e bots de pré-visualização de redes sociais), é especialmente importante permanecer proativo com soluções robustas para detectar bots, já que atualizações do SDK or kit de desenvolvimento de software sozinhas não podem detectar consistentemente todos os novos bots.
+O MAU pode incluir uma porcentagem de usuários bots, o que inflaciona sua contagem de usuários ativos mensais. Embora o SDK Braze para Web inclua detecção integrada para alguns crawlers web comuns (como bots de motores de busca e bots de pré-visualização de redes sociais), é especialmente importante permanecer proativo com soluções robustas para detectar bots, já que atualizações do SDK sozinhas não podem detectar consistentemente todos os novos bots.
 
-### Limitações da detecção de bots do lado do SDK or kit de desenvolvimento de software {#limitations-of-sdk-side-bot-detection}
+### Limitações da detecção de bots do lado do SDK {#limitations-of-sdk-side-bot-detection}
 
-O Web SDK or kit de desenvolvimento de software inclui detecção básica de bots baseada em user-agent que filtra crawlers conhecidos. No entanto, essa abordagem tem limitações:
+O Web SDK inclui detecção básica de bots baseada em user-agent que filtra crawlers conhecidos. No entanto, essa abordagem tem limitações:
 
 - **Novos bots surgem constantemente**: Empresas de IA e outros atores criam regularmente novos bots que podem se disfarçar para evitar a detecção.
 - **Falsificação de user-agent**: Bots sofisticados podem imitar user-agents de navegadores legítimos.
@@ -135,14 +135,14 @@ O Web SDK or kit de desenvolvimento de software inclui detecção básica de bot
 As soluções descritas abaixo são sugestões gerais. Adapte a lógica de filtragem de bots ao seu ambiente e padrões de tráfego únicos.
 {% endalert %}
 
-A solução mais robusta é implementar sua própria lógica de filtragem de bots antes de inicializar o SDK or kit de desenvolvimento de software da Braze. As abordagens comuns incluem:
+A solução mais robusta é implementar sua própria lógica de filtragem de bots antes de inicializar o SDK da Braze. As abordagens comuns incluem:
 
 #### Exigir interação do usuário {#require-user-interaction}
 
-Considere atrasar a inicialização do SDK or kit de desenvolvimento de software até que um usuário realize uma interação significativa, como aceitar um banner de consentimento de cookies, rolar ou clicar. Essa abordagem é frequentemente mais fácil de implementar e pode ser altamente eficaz na filtragem de tráfego de bots.
+Considere atrasar a inicialização do SDK até que um usuário realize uma interação significativa, como aceitar um banner de consentimento de cookies, rolar ou clicar. Essa abordagem é frequentemente mais fácil de implementar e pode ser altamente eficaz na filtragem de tráfego de bots.
 
 {% alert important %}
-Atrasar a inicialização do SDK or kit de desenvolvimento de software até a interação do usuário pode fazer com que Banners e Content Cards também não sejam exibidos até que essa interação ocorra.
+Atrasar a inicialização do SDK até a interação do usuário pode fazer com que Banners e Content Cards também não sejam exibidos até que essa interação ocorra.
 {% endalert %}
 
 #### Detecção personalizada de bots {#custom-bot-detection}
@@ -183,7 +183,7 @@ Para ativar rapidamente o registro de logs, você pode adicionar `?brazeLogging=
 
 {% tabs local %}
 {% tab antes da inicialização %}
-Use `enableLogging` para registrar mensagens básicas de depuração no console do JavaScript antes que o SDK or kit de desenvolvimento de software seja inicializado.
+Use `enableLogging` para registrar mensagens básicas de depuração no console do JavaScript antes que o SDK seja inicializado.
 
 ```javascript
 enableLogging: true
@@ -201,7 +201,7 @@ braze.openSession();
 {% endtab %}
 
 {% tab após a inicialização %}
-Use `braze.toggleLogging()` para registrar mensagens básicas de depuração no console do JavaScript após o SDK or kit de desenvolvimento de software ser inicializado. Seu método deve ser semelhante ao seguinte:
+Use `braze.toggleLogging()` para registrar mensagens básicas de depuração no console do JavaScript após o SDK ser inicializado. Seu método deve ser semelhante ao seguinte:
 
 ```javascript
 braze.initialize('API-KEY', {
@@ -236,15 +236,15 @@ braze.setLogger(function(message) {
 braze.openSession();
 ```
 
-## Fazendo upgrade do SDK or kit de desenvolvimento de software {#upgrading-the-sdk}
+## Fazendo upgrade do SDK {#upgrading-the-sdk}
 
 {% multi_lang_include archive/web-v4-rename.md %}
 
-Quando você faz referência ao SDK or kit de desenvolvimento de software da Braze para Web a partir da nossa rede de distribuição de conteúdo (CDN), por exemplo, `https://js.appboycdn.com/web-sdk/a.a/braze.min.js` (conforme recomendado pelas nossas instruções de integração padrão), seus usuários recebem atualizações menores (correções de bugs e recursos compatíveis com versões anteriores, versões de `a.a.a` até `a.a.z` neste exemplo) automaticamente quando atualizam o seu site.
+Quando você faz referência ao SDK da Braze para Web a partir da nossa rede de distribuição de conteúdo (CDN), por exemplo, `https://js.appboycdn.com/web-sdk/a.a/braze.min.js` (conforme recomendado pelas nossas instruções de integração padrão), seus usuários recebem atualizações menores (correções de bugs e recursos compatíveis com versões anteriores, versões de `a.a.a` até `a.a.z` neste exemplo) automaticamente quando atualizam o seu site.
 
-No entanto, quando lançamos mudanças significativas, é necessário que você faça o upgrade do SDK or kit de desenvolvimento de software da Braze para Web manualmente para garantir que mudanças incompatíveis não afetem sua integração. Além disso, se você baixar nosso SDK or kit de desenvolvimento de software e hospedá-lo por conta própria, não receberá nenhuma atualização de versão automaticamente e deverá fazer o upgrade manualmente para receber os recursos e correções de bugs mais recentes.
+No entanto, quando lançamos mudanças significativas, é necessário que você faça o upgrade do SDK da Braze para Web manualmente para garantir que mudanças incompatíveis não afetem sua integração. Além disso, se você baixar nosso SDK e hospedá-lo por conta própria, não receberá nenhuma atualização de versão automaticamente e deverá fazer o upgrade manualmente para receber os recursos e correções de bugs mais recentes.
 
-Você pode se manter atualizado com nossas versões mais recentes [acompanhando nosso feed de lançamentos](https://github.com/braze-inc/braze-web-sdk/tags.atom) com o leitor de RSS ou serviço de sua preferência, e consultar [nosso changelog](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md) para um registro completo do histórico de lançamentos do nosso SDK or kit de desenvolvimento de software para Web. Para fazer upgrade do SDK or kit de desenvolvimento de software da Braze para Web:
+Você pode se manter atualizado com nossas versões mais recentes [acompanhando nosso feed de lançamentos](https://github.com/braze-inc/braze-web-sdk/tags.atom) com o leitor de RSS ou serviço de sua preferência, e consultar [nosso changelog](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md) para um registro completo do histórico de lançamentos do nosso SDK para Web. Para fazer upgrade do SDK da Braze para Web:
 
 - Atualize a versão da biblioteca da Braze alterando o número da versão em `https://js.appboycdn.com/web-sdk/[OLD VERSION NUMBER]/braze.min.js`, ou nas dependências do seu gerenciador de pacotes.
 - Se você tiver o web push integrado, atualize o arquivo do service worker no seu site — por padrão, ele está localizado em `/service-worker.js` no diretório raiz do seu site, mas a localização pode ser personalizada em algumas integrações. Você precisa ter acesso ao diretório raiz para hospedar um arquivo de service worker.
@@ -311,9 +311,9 @@ service-worker-url="FILE_PATH_TO_YOUR_SERVICE_WORKER?apiKey={YOUR_API_KEY}&baseU
 
 #### Desativar suporte {#disable-support}
 
-Se o seu site usa RequireJS ou outro carregador de módulos AMD, mas você prefere carregar o Web SDK or kit de desenvolvimento de software da Braze por meio de uma das outras opções desta lista, é possível carregar uma versão da biblioteca que não inclui suporte a AMD. Essa versão da biblioteca pode ser carregada a partir do seguinte local de CDN:
+Se o seu site usa RequireJS ou outro carregador de módulos AMD, mas você prefere carregar o Web SDK da Braze por meio de uma das outras opções desta lista, é possível carregar uma versão da biblioteca que não inclui suporte a AMD. Essa versão da biblioteca pode ser carregada a partir do seguinte local de CDN:
 
-<script src="{{site.baseurl}}/assets/js/embed.js?target=https%3A%2F%2Fgithub.com%2Fbraze-inc%2Fbraze-web-SDK or kit de desenvolvimento de software%2Fblob%2Fmaster%2Fsnippets%2Fno-amd-library.js&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on&showCopy=on"></script>
+<script src="{{site.baseurl}}/assets/js/embed.js?target=https%3A%2F%2Fgithub.com%2Fbraze-inc%2Fbraze-web-sdk%2Fblob%2Fmaster%2Fsnippets%2Fno-amd-library.js&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on&showCopy=on"></script>
 
 #### Carregador de módulos {#module-loader}
 
@@ -334,7 +334,7 @@ O Electron não oferece suporte oficial a notificações por web push (veja: est
 
 ### Framework Jest {#jest}
 
-Ao usar o Jest, você pode encontrar um erro semelhante a `SyntaxError: Unexpected token 'export'`. Para corrigir isso, ajuste a configuração no `package.json` para ignorar o SDK or kit de desenvolvimento de software da Braze:
+Ao usar o Jest, você pode encontrar um erro semelhante a `SyntaxError: Unexpected token 'export'`. Para corrigir isso, ajuste a configuração no `package.json` para ignorar o SDK da Braze:
 
 ```
 "jest": {
@@ -346,7 +346,7 @@ Ao usar o Jest, você pode encontrar um erro semelhante a `SyntaxError: Unexpect
 
 ### Frameworks SSR {#ssr}
 
-O Web SDK or kit de desenvolvimento de software é executado em um ambiente de navegador. Em frameworks SSR, inicialize a Braze em um componente exclusivo do cliente para que o servidor nunca execute código do SDK or kit de desenvolvimento de software.
+O Web SDK é executado em um ambiente de navegador. Em frameworks SSR, inicialize a Braze em um componente exclusivo do cliente para que o servidor nunca execute código do SDK.
 
 #### Importação dinâmica independente de framework {#framework-agnostic-dynamic-import}
 
@@ -369,7 +369,7 @@ useEffect(() => {
 }, []);
 ```
 
-Se você usa webpack, pode importar dinamicamente apenas exportações específicas do SDK or kit de desenvolvimento de software.
+Se você usa webpack, pode importar dinamicamente apenas exportações específicas do SDK.
 
 ```javascript
 // MyComponent.js
@@ -504,7 +504,7 @@ export default function App() {
 
 #### Registrando eventos e atualizando usuários {#logging-events-and-updating-users}
 
-Depois que `useBraze` inicializa o SDK or kit de desenvolvimento de software na raiz do app, outros componentes de cliente podem chamar os métodos da Braze. Um padrão comum é chamá-los dentro de ações do usuário, como `onClick` ou `onSubmit`. No exemplo, os métodos do SDK or kit de desenvolvimento de software são carregados dentro do handler de clique, e não no topo do arquivo. Isso mantém o Web SDK or kit de desenvolvimento de software fora do código do servidor e carrega apenas o que a ação precisa. O comentário `webpackExports` informa ao webpack quais métodos incluir, mantendo o bundle mais enxuto.
+Depois que `useBraze` inicializa o SDK na raiz do app, outros componentes de cliente podem chamar os métodos da Braze. Um padrão comum é chamá-los dentro de ações do usuário, como `onClick` ou `onSubmit`. No exemplo, os métodos do SDK são carregados dentro do handler de clique, e não no topo do arquivo. Isso mantém o Web SDK fora do código do servidor e carrega apenas o que a ação precisa. O comentário `webpackExports` informa ao webpack quais métodos incluir, mantendo o bundle mais enxuto.
 
 ```tsx
 // app/components/BuyButton.tsx
@@ -534,13 +534,13 @@ Para uma lista completa dos métodos disponíveis, consulte a [documentação de
 
 ### Tealium iQ
 
-O Tealium iQ oferece uma integração básica e pronta para uso com a Braze. Para configurar a integração, procure por Braze na interface de gerenciamento de tags do Tealium e forneça a chave de API or interface de programação do aplicativo (API) do Web SDK or kit de desenvolvimento de software disponível no seu dashboard.
+O Tealium iQ oferece uma integração básica e pronta para uso com a Braze. Para configurar a integração, procure por Braze na interface de gerenciamento de tags do Tealium e forneça a chave de API do Web SDK disponível no seu dashboard.
 
 Para mais detalhes ou suporte aprofundado de configuração do Tealium, confira nossa [documentação de integração]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/tealium#about-tealium) ou entre em contato com o seu gerente de conta do Tealium.
 
 ### Vite {#vite}
 
-Se você usa Vite e encontra um aviso sobre dependências circulares ou `Uncaught TypeError: Class extends value undefined is not a constructor or null`, pode ser necessário excluir o SDK or kit de desenvolvimento de software da Braze da [descoberta de dependências](https://vitejs.dev/guide/dep-pre-bundling.html#customizing-the-behavior):
+Se você usa Vite e encontra um aviso sobre dependências circulares ou `Uncaught TypeError: Class extends value undefined is not a constructor or null`, pode ser necessário excluir o SDK da Braze da [descoberta de dependências](https://vitejs.dev/guide/dep-pre-bundling.html#customizing-the-behavior):
 
 ```
 optimizeDeps: {

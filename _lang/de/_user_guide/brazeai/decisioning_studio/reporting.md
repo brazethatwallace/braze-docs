@@ -1,25 +1,25 @@
 ---
 nav_title: Berichte und Insights
 article_title: Berichte und Insights
-description: "Erfahren Sie, wie Sie Berichte aus dem BrazeAI Decisioning Studio™ in Braze anzeigen können, damit Sie verstehen, wie KI or künstliche Intelligenz-gestützte Entscheidungen Ihre Campaigns beeinflussen."
+description: "Erfahren Sie, wie Sie Berichte aus dem BrazeAI Decisioning Studio™ in Braze anzeigen können, damit Sie verstehen, wie KI-gestützte Entscheidungen Ihre Campaigns beeinflussen."
 page_order: 6
 ---
 
 # Berichte und Insights {#reports-and-insights}
 
-> Erfahren Sie, wie Sie Berichte aus dem BrazeAI Decisioning Studio™ in Braze anzeigen können, damit Sie verstehen, wie KI or künstliche Intelligenz-gestützte Entscheidungen Ihre Campaigns beeinflussen. Von Performance-Metriken über Datenintegrität bis hin zu Systemänderungen – diese Berichte helfen Ihnen, Ergebnisse zu verstehen, Probleme zu beheben und fundierte Entscheidungen mit Zuversicht zu treffen.
+> Erfahren Sie, wie Sie Berichte aus dem BrazeAI Decisioning Studio™ in Braze anzeigen können, damit Sie verstehen, wie KI-gestützte Entscheidungen Ihre Campaigns beeinflussen. Von Performance-Metriken über Datenintegrität bis hin zu Systemänderungen – diese Berichte helfen Ihnen, Ergebnisse zu verstehen, Probleme zu beheben und fundierte Entscheidungen mit Zuversicht zu treffen.
 
 ## Voraussetzungen {#prerequisites}
 
 Bevor Sie Decisioning-Studio-Berichte in Braze einsehen können, müssen Sie:
 
 - Einen aktiven Vertrag für Braze und BrazeAI Decisioning Studio™ haben.
-- Ihren CSM or Customer-Success-Manager kontaktieren, um BrazeAI Decisioning Studio™ für Sie aktivieren zu lassen.
+- Ihren CSM kontaktieren, um BrazeAI Decisioning Studio™ für Sie aktivieren zu lassen.
 - Einen aktiven BrazeAI Decisioning Studio™ Agenten haben.
 
 ## Berichte anzeigen {#view}
 
-Um die Metriken für einen Decisioning Studio-Agenten in Braze anzuzeigen, navigieren Sie zu **KI or künstliche Intelligenz Decisioning** > **BrazeAI Decisioning Studio™** und wählen Sie anschließend einen Agenten aus.
+Um die Metriken für einen Decisioning Studio-Agenten in Braze anzuzeigen, navigieren Sie zu **KI Decisioning** > **BrazeAI Decisioning Studio™** und wählen Sie anschließend einen Agenten aus.
 
 Hier können Sie Berichte wie Performance, Insights, Diagnosen und Zeitleisten einsehen. Weitere Einzelheiten finden Sie unter [Verfügbare Berichte](#available-reports).
 

@@ -4,7 +4,7 @@ article_title: Actualizar a iOS 18
 page_order: 7.1
 platform:
   - iOS
-description: "Este artículo contiene información sobre la versión iOS 18 para ayudarte a actualizar tu SDK or kit de desarrollo de software fácilmente."
+description: "Este artículo contiene información sobre la versión iOS 18 para ayudarte a actualizar tu SDK fácilmente."
 ---
 
 # Actualizar a iOS 18 {#upgrading-to-ios-18}

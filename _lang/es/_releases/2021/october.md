@@ -38,11 +38,11 @@ Esta [guía de implementación]({{site.baseurl}}/developer_guide/push_notificati
 
 ## Nuevas asociaciones de Braze {#new-braze-partnerships}
 
-### Adobe - CDP or plataforma de datos de los clientes or plataforma de datos de los clientes {#adobe-customer-data-platform}
+### Adobe - CDP {#adobe-customer-data-platform}
 
-La CDP or plataforma de datos de los clientes or plataforma de datos de los clientes en tiempo real (CDP or plataforma de datos de los clientes en tiempo real) de Adobe, creada en Adobe Experience Platform, ayuda a las empresas a reunir datos conocidos y anónimos de múltiples fuentes empresariales para crear perfiles de clientes que puedan utilizarse para ofrecer experiencias del cliente personalizadas en todos los canales y dispositivos en tiempo real.
+La CDP en tiempo real (CDP en tiempo real) de Adobe, creada en Adobe Experience Platform, ayuda a las empresas a reunir datos conocidos y anónimos de múltiples fuentes empresariales para crear perfiles de clientes que puedan utilizarse para ofrecer experiencias del cliente personalizadas en todos los canales y dispositivos en tiempo real.
 
-La integración de Braze y [Adobe]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/adobe) CDP or plataforma de datos de los clientes permite a las marcas conectar y mapear sus datos de Adobe (atributos personalizados y segmentos) con Braze en tiempo real. Las marcas pueden, entonces, actuar sobre estos datos y entregar experiencias personalizadas dirigidas a esos usuarios.
+La integración de Braze y [Adobe]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/adobe) CDP permite a las marcas conectar y mapear sus datos de Adobe (atributos personalizados y segmentos) con Braze en tiempo real. Las marcas pueden, entonces, actuar sobre estos datos y entregar experiencias personalizadas dirigidas a esos usuarios.
 
 ### Shopify - Comercio electrónico {#shopify-ecommerce}
 

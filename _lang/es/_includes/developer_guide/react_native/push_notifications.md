@@ -84,7 +84,7 @@ Si antes utilizabas `expo-notifications` para administrar tu clave push, ejecuta
 
 Utiliza el método `Braze.requestPushPermission()` (disponible a partir de la v1.38.0) para solicitar permiso para notificaciones push al usuario en iOS y Android 13+. Para Android 12 e inferiores, este método no tiene efecto.
 
-Este método recibe un parámetro obligatorio que especifica qué permisos debe solicitar el SDK or kit de desarrollo de software al usuario en iOS. Estas opciones no tienen efecto en Android.
+Este método recibe un parámetro obligatorio que especifica qué permisos debe solicitar el SDK al usuario en iOS. Estas opciones no tienen efecto en Android.
 
 ```javascript
 const permissionOptions = {
@@ -118,7 +118,7 @@ Para obtener una lista completa de los campos de notificación push, consulta la
 
 | Nombre del campo    | Tipo      | Descripción |
 | ------------------ | --------- | ----------- |
-| `payload_type`     | Cadena    | Especifica el tipo de carga útil de la notificación. Los dos valores que se envían desde el SDK or kit de desarrollo de software de Braze para React Native son `push_opened` y `push_received`. |
+| `payload_type`     | Cadena    | Especifica el tipo de carga útil de la notificación. Los dos valores que se envían desde el SDK de Braze para React Native son `push_opened` y `push_received`. |
 | `url`              | Cadena    | Especifica la URL abierta por la notificación. |
 | `use_webview`      | Booleano   | Si es `true`, la URL se abrirá dentro de la aplicación en una vista web modal. Si es `false`, la URL se abrirá en el navegador del dispositivo. |
 | `title`            | Cadena    | Representa el título de la notificación. |
@@ -127,7 +127,7 @@ Para obtener una lista completa de los campos de notificación push, consulta la
 | `badge_count`      | Número   | Representa el recuento de señales de la notificación. |
 | `timestamp`        | Número | Representa la hora a la que la aplicación recibió la carga útil. |
 | `is_silent`        | Booleano   | Si es `true`, la carga útil se recibe en silencio. Para más detalles sobre el envío de notificaciones push silenciosas en Android, consulta [Notificaciones push silenciosas en Android]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android). Para más detalles sobre el envío de notificaciones push silenciosas en iOS, consulta [Notificaciones push silenciosas en iOS]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift). |
-| `is_braze_internal`| Booleano   | Será `true` si se envió una carga útil de notificación para una característica interna del SDK or kit de desarrollo de software, como la sincronización de conmutadores de características o Uninstall Tracking. La carga útil se recibe de forma silenciosa para el usuario. |
+| `is_braze_internal`| Booleano   | Será `true` si se envió una carga útil de notificación para una característica interna del SDK, como la sincronización de conmutadores de características o Uninstall Tracking. La carga útil se recibe de forma silenciosa para el usuario. |
 | `image_url`        | Cadena    | Especifica la URL asociada a la imagen de notificación. |
 | `braze_properties` | Objeto    | Representa las propiedades de Braze asociadas a la Campaign (pares clave-valor). |
 | `ios`              | Objeto    | Representa campos específicos de iOS. |
@@ -141,7 +141,7 @@ Para habilitar que Braze pueda gestionar vínculos profundos dentro de los compo
 Para saber más sobre qué son los vínculos profundos, consulta nuestro [artículo de preguntas frecuentes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking).
 
 {% alert important %}
-Si estás migrando una integración push existente de React Native, vuelve a probar la vinculación en profundidad después de actualizar el SDK or kit de desarrollo de software de Braze, React Native, Expo o bibliotecas relacionadas. Confirma que:
+Si estás migrando una integración push existente de React Native, vuelve a probar la vinculación en profundidad después de actualizar el SDK de Braze, React Native, Expo o bibliotecas relacionadas. Confirma que:
 - [React Native Linking](https://reactnative.dev/docs/linking) sigue configurado y gestionando tus URL de vínculos profundos.
 - Tu gestión de la carga útil push inicial en iOS (consulta el [paso 3.1: Almacenar la carga útil de la notificación push al iniciar la aplicación](#step-3-1)) está implementada y se sigue llamando al iniciar la aplicación.
 - Cualquier método nativo de delegado o escucha que utilices para gestionar eventos de clic en push sigue registrado y se invoca como se espera.
@@ -156,7 +156,7 @@ Para gestionar los vínculos profundos manualmente, consulta la documentación n
 #### Paso 3.1: Almacenar la carga útil de la notificación push al iniciar la aplicación {#step-31-store-the-push-notification-payload-on-app-launch}
 
 {% alert note %}
-Esto es compatible a partir del SDK or kit de desarrollo de software de React Native 19.1.0.
+Esto es compatible a partir del SDK de React Native 19.1.0.
 {% endalert %}
 
 Añade `populateInitialPushPayloadFromIntent` al método `onCreate()` de tu actividad principal. Esto debe llamarse antes de que React Native se inicialice para capturar los datos iniciales de intención. Por ejemplo:
@@ -500,14 +500,14 @@ Un enfoque es utilizar la configuración `appExtensions` en tu archivo `app.json
 
 ### Solución de problemas {#troubleshooting}
 
-Estos son pasos comunes de solución de problemas para integraciones de notificaciones push con el SDK or kit de desarrollo de software de Braze para React Native y el plugin de Expo.
+Estos son pasos comunes de solución de problemas para integraciones de notificaciones push con el SDK de Braze para React Native y el plugin de Expo.
 
 #### Las notificaciones push dejaron de funcionar {#troubleshooting-stopped-working}
 
 Si las notificaciones push a través del plugin de Expo dejaron de funcionar:
 
-1. Comprueba que el SDK or kit de desarrollo de software de Braze sigue rastreando sesiones.
-2. Comprueba que el SDK or kit de desarrollo de software no fue deshabilitado por una llamada explícita o implícita a `wipeData`.
+1. Comprueba que el SDK de Braze sigue rastreando sesiones.
+2. Comprueba que el SDK no fue deshabilitado por una llamada explícita o implícita a `wipeData`.
 3. Revisa cualquier actualización reciente de Expo o sus bibliotecas relacionadas, ya que puede haber conflictos con tu configuración de Braze.
 4. Revisa las dependencias del proyecto añadidas recientemente y comprueba si están anulando manualmente tus métodos de delegado de notificaciones push existentes.
 
@@ -530,4 +530,4 @@ Si los vínculos profundos desde notificaciones push dejan de abrirse después d
 3. Si estás utilizando el plugin de Braze para Expo, verifica que `androidHandlePushDeepLinksAutomatically` esté configurado correctamente para tu implementación.
 4. Revisa las dependencias añadidas recientemente en busca de anulaciones en el manejo de notificaciones o en el comportamiento del delegado de la aplicación.
 
-Si has completado estas comprobaciones y el problema persiste, [abre un ticket de soporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) e incluye los registros del SDK or kit de desarrollo de software y los pasos de reproducción.
+Si has completado estas comprobaciones y el problema persiste, [abre un ticket de soporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) e incluye los registros del SDK y los pasos de reproducción.

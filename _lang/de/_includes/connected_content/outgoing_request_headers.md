@@ -8,5 +8,5 @@ Braze fügt ausgehenden Connected-Content-Anfragen die folgenden Header hinzu. D
 | `Authorization` | Wenn die URL einen Nutzernamen und ein Passwort enthält (`user:pass@host`), fügt Braze einen Basic-`Authorization`-Header hinzu, der aus diesen Zugangsdaten abgeleitet wird. Ein expliziter `Authorization`-Header überschreibt ihn. Bevorzugen Sie [`:basic_auth`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#using-basic-authentication) oder `:headers`, anstatt Zugangsdaten in die URL einzufügen. |
 | `Host` | Hostname aus der Anfrage-URL (zum Beispiel `www.example.com` für `https://www.example.com/abc/123`), sofern Sie keinen `Host`-Header gesetzt haben. |
 | `Content-Length` | Größe des Anfrage-Bodys in Bytes, wenn ein Body vorhanden ist. |
-| `BrazeToBraze` | Wird nur für Anfragen an Braze-Representational State Transfer-Endpunkte auf `true` gesetzt. Wird für andere Ziele weggelassen. |
+| `BrazeToBraze` | Wird nur für Anfragen an Braze-REST-Endpunkte auf `true` gesetzt. Wird für andere Ziele weggelassen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Ausgehende Anfrage-Header, die Braze zu Connected Content hinzufügt" }

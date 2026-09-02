@@ -12,7 +12,7 @@ description: "Dieser Artikel erläutert das Braze-Canvas-Kontextobjekt."
 
 # Canvas-Kontext-Objekt
 
-> Wenn Sie einen der Endpunkte zum Trigger or triggern or triggern oder Zeitplanen eines Canvas über die API verwenden, können Sie im Namensraum `context` eine Abbildung von Schlüsseln und Werten bereitstellen, um Nachrichten anzupassen, die von den ersten Schritten Ihres Canvas gesendet werden.
+> Wenn Sie einen der Endpunkte zum Triggern oder Zeitplanen eines Canvas über die API verwenden, können Sie im Namensraum `context` eine Abbildung von Schlüsseln und Werten bereitstellen, um Nachrichten anzupassen, die von den ersten Schritten Ihres Canvas gesendet werden.
 
 {% alert note %}
 Das Kontext-Objekt hat eine maximale Größe von 50 KB.

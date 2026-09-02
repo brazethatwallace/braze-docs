@@ -28,9 +28,9 @@ La integración de Braze y Amperity ofrece una visión unificada de tus clientes
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta de Amperity | Se necesita una [cuenta de Amperity](https://amperity.com/request-a-demo) para beneficiarse de esta asociación. |
-| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos `users.track`. <br> Puede crearse en el panel de Braze navegando a **Consola para desarrolladores** > **Clave de API REST or transferencia de estado representacional** > **Crear nueva clave de API**. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. <br> Puede crearse en el panel de Braze navegando a **Consola para desarrolladores** > **Clave de API REST** > **Crear nueva clave de API**. |
 | Instancia de Braze | Tu instancia de Braze puede obtenerse a través de tu administrador de incorporación a Braze o en la [página de resumen de la API]({{site.baseurl}}/api/basics#endpoints). |
-| Endpoint REST or transferencia de estado representacional de Braze | La URL de tu endpoint de Braze. Tu endpoint dependerá de tu instancia de Braze. |
+| Endpoint REST de Braze | La URL de tu endpoint de Braze. Tu endpoint dependerá de tu instancia de Braze. |
 | Conector de Currents (opcional) | El conector S3 de Currents. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
@@ -94,8 +94,8 @@ Amperity realiza un seguimiento de los cambios entre las sincronizaciones con Br
 
 ### Paso 1: Capturar detalles de configuración para Braze {#step-1-capture-configuration-details-for-braze}
 
-1. Crea una clave de API REST or transferencia de estado representacional de Braze para tu espacio de trabajo de Braze con los permisos `users.track` en **Datos de usuario**. El endpoint `users.track` sincroniza la audiencia de Amperity con Braze como un atributo personalizado.
-2. Determina el [endpoint de la REST or transferencia de estado representacional API]({{site.baseurl}}/api/basics#endpoints) para tu instancia de Braze. Por ejemplo, si tu URL de Braze es `https://dashboard-03.braze.com`, tu endpoint de la REST API es `https://rest.iad-03.braze.com` y tu instancia es "US-03".
+1. Crea una clave de API REST de Braze para tu espacio de trabajo de Braze con los permisos `users.track` en **Datos de usuario**. El endpoint `users.track` sincroniza la audiencia de Amperity con Braze como un atributo personalizado.
+2. Determina el [endpoint de la REST API]({{site.baseurl}}/api/basics#endpoints) para tu instancia de Braze. Por ejemplo, si tu URL de Braze es `https://dashboard-03.braze.com`, tu endpoint de la REST API es `https://rest.iad-03.braze.com` y tu instancia es "US-03".
 3. Determina una lista de [campos de perfil de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields) y [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) que pueden enviarse a Braze desde Amperity.
 
 ### Paso 2: Configurar Braze como destino — Operator DataGrid {#step-2-set-up-braze-as-a-destinationdatagrid-operator}

@@ -17,7 +17,7 @@ search_rank: 5
 
 La disponibilidad de Content Cards depende de tu paquete de Braze. Ponte en contacto con tu director de cuentas o administrador del éxito del cliente para empezar.
 
-Antes de poder usar Content Cards, necesitas integrar el [SDK or kit de desarrollo de software de Braze]({{site.baseurl}}/developer_guide/content_cards) en tu aplicación o sitio web. No se requiere configuración adicional. Para crear tu propia interfaz, consulta la [guía de personalización de Content Cards]({{site.baseurl}}/developer_guide/content_cards/customizing_cards).
+Antes de poder usar Content Cards, necesitas integrar el [SDK de Braze]({{site.baseurl}}/developer_guide/content_cards) en tu aplicación o sitio web. No se requiere configuración adicional. Para crear tu propia interfaz, consulta la [guía de personalización de Content Cards]({{site.baseurl}}/developer_guide/content_cards/customizing_cards).
 
 ## Beneficios de usar Content Cards {#benefits-of-using-content-cards}
 
@@ -38,7 +38,7 @@ Cuando creas Content Cards en Braze, puedes actualizar la mensajería y medir el
 - Las Content Cards son **38 veces** más efectivas que el correo electrónico para impulsar las ventas en una ventana de 72 horas.[^1]
 - Usar Content Cards en Campaigns de inscripción a programas de fidelización aumenta las conversiones **5 veces**.[^1]
 - La comunicación a través de notificaciones push, mensajes dentro de la aplicación y Content Cards genera **6,9 veces** más sesiones que el push solo.[^2]
-- La comunicación a través de correo electrónico, mensajes dentro de la aplicación y Content Cards genera un TTL or tiempo de vida or tiempo de vida promedio del usuario **3,6 veces** más largo que el correo electrónico solo.[^2]
+- La comunicación a través de correo electrónico, mensajes dentro de la aplicación y Content Cards genera un TTL promedio del usuario **3,6 veces** más largo que el correo electrónico solo.[^2]
 
 [^1]: [8 tips for making the most of your customer retention campaigns](https://www.braze.com/resources/articles/8-tips-for-making-the-most-of-your-customer-retention-campaigns)
 [^2]: [Report: The cross-channel marketing difference](https://www.braze.com/resources/reports-and-guides/the-cross-channel-marketing-difference-report)

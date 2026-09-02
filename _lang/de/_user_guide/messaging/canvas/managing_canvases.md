@@ -1,9 +1,9 @@
 ---
-nav_title: Canvase verwalten
-article_title: Canvase verwalten
+nav_title: Canvases verwalten
+article_title: Canvases verwalten
 page_order: 4
 layout: dev_guide
-guide_top_header: "Canvase verwalten"
+guide_top_header: "Canvases verwalten"
 guide_top_text: "Sobald Sie Ihren Canvas gestartet haben, können Sie sich zurücklehnen und die eingehenden Daten beobachten. Wenn Sie Änderungen vornehmen oder Ihren Canvas archivieren möchten, finden Sie in den folgenden Artikeln Hilfe."
 
 page_type: landing

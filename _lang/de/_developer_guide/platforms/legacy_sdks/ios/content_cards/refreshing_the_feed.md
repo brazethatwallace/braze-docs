@@ -1,6 +1,6 @@
 ---
-nav_title: Update or aktualisieren or aktualisieren des Feeds
-article_title: Update or aktualisieren or aktualisieren Sie den Feed für Content-Cards für iOS
+nav_title: Aktualisieren des Feeds
+article_title: Aktualisieren Sie den Feed für Content-Cards für iOS
 platform: iOS
 page_order: 4
 description: "Dieser Referenzartikel behandelt die Aktualisierung von Content-Cards in Ihrer iOS-Anwendung."
@@ -12,11 +12,11 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Den Feed Update or aktualisieren or aktualisieren
+# Den Feed aktualisieren
 
-## Update or aktualisieren or aktualisieren von Inhaltskarten
+## Aktualisieren von Inhaltskarten
 
-Sie können Braze manuell anfragen, die Content-Cards des Nutzers mit der Methode `requestContentCardsRefresh:` auf der Schnittstelle `Appboy` zu Update or aktualisieren or aktualisieren:
+Sie können Braze manuell anfragen, die Content-Cards des Nutzers mit der Methode `requestContentCardsRefresh:` auf der Schnittstelle `Appboy` zu aktualisieren:
 {% tabs %}
 {% tab OBJECTIVE-C %}
 

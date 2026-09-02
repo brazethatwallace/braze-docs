@@ -27,7 +27,7 @@ Puedes seleccionar entre los siguientes canales de mensajería:
 - Correo electrónico
 - LINE
 - Notificaciones push
-- servicio de mensajes cortos/MMS/RCS
+- SMS/MMS/RCS
 - Mensajes dentro de la aplicación
 - Webhook
 - WhatsApp
@@ -72,7 +72,7 @@ Todos los usuarios que entran en el paso Mensaje avanzan al siguiente paso cuand
 - Un usuario no cumple los criterios en **Delivery validations**
 
 {% raw %}
-Si un Canvas basado en acciones se desencadena por un mensaje servicio de mensajes cortos de entrada, puedes hacer referencia a las propiedades de servicio de mensajes cortos en el primer paso (paso Mensaje) o en un paso Mensaje anidado bajo un paso de Rutas de Acción. Por ejemplo, en el paso Mensaje, podrías usar `{{sms.${inbound_message_body}}}` o `{{sms.${inbound_media_urls}}}`.
+Si un Canvas basado en acciones se desencadena por un mensaje SMS de entrada, puedes hacer referencia a las propiedades de SMS en el primer paso (paso Mensaje) o en un paso Mensaje anidado bajo un paso de Rutas de Acción. Por ejemplo, en el paso Mensaje, podrías usar `{{sms.${inbound_message_body}}}` o `{{sms.${inbound_media_urls}}}`.
 {% endraw %}
 
 ## Propiedades de contexto de referencia {#reference-context-properties}

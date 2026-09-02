@@ -56,17 +56,17 @@ Continue usando Content Cards se você precisar de:
 
 - **Experiências de feed:** Qualquer caso de uso que envolva várias mensagens roláveis ou uma "Caixa de entrada" baseada em cartões.
 - **Recursos específicos:** Mensagens que exigem códigos promocionais, já que os Banners não oferecem suporte nativo a eles. Os Banners oferecem suporte a [Connected Content]({{site.baseurl}}/developer_guide/banners#connected-content) em acesso antecipado.
-- **Entrega baseada em ação:** Casos de uso que exigem estritamente entrega disparada por API or interface de programação do aplicativo (API) ou entrega baseada em ação. Embora os Banners não ofereçam suporte a entrega disparada por API or interface de programação do aplicativo (API) ou baseada em ação, a avaliação de elegibilidade em tempo real significa que os usuários se qualificam ou desqualificam instantaneamente com base na associação ao Segment or segmento a cada atualização.
+- **Entrega baseada em ação:** Casos de uso que exigem estritamente entrega disparada por API ou entrega baseada em ação. Embora os Banners não ofereçam suporte a entrega disparada por API ou baseada em ação, a avaliação de elegibilidade em tempo real significa que os usuários se qualificam ou desqualificam instantaneamente com base na associação ao Segment a cada atualização.
 
 ## Guia de migração {#migration-guide}
 
 ### Pré-requisitos {#prerequisites}
 
-Antes de migrar, verifique se o SDK or kit de desenvolvimento de software da Braze atende aos requisitos mínimos de versão:
+Antes de migrar, verifique se o SDK da Braze atende aos requisitos mínimos de versão:
 
 {% multi_lang_include developer_guide/sdk_versions.md feature='banners' %}
 
-Dispensas e reelegibilidade exigem as seguintes versões mínimas do SDK or kit de desenvolvimento de software:
+Dispensas e reelegibilidade exigem as seguintes versões mínimas do SDK:
 
 {% sdk_min_versions swift:14.1.0 android:42.1.0 web:6.7.1 %}
 
@@ -199,7 +199,7 @@ StreamSubscription bannerStreamSubscription = braze.subscribeToBanners((List<Bra
 ### Exibir conteúdo {#display-content}
 
 {% alert note %}
-Content Cards podem ser renderizados manualmente com lógica de UI personalizada, enquanto Banners só podem ser renderizados com os métodos prontos do SDK or kit de desenvolvimento de software.
+Content Cards podem ser renderizados manualmente com lógica de UI personalizada, enquanto Banners só podem ser renderizados com os métodos prontos do SDK.
 {% endalert %}
 
 #### Abordagem com Content Cards
@@ -763,10 +763,10 @@ Ao migrar de Content Cards para Banners, esteja ciente das seguintes limitaçõe
 
 ### Migração de mensagens disparadas {#migrating-triggered-messages}
 
-Banners suportam apenas Campaigns de entrega agendada. Para migrar uma mensagem que anteriormente era disparada por API or interface de programação do aplicativo (API) ou baseada em ação, converta-a para direcionamento baseado em Segment or segmento:
+Banners suportam apenas Campaigns de entrega agendada. Para migrar uma mensagem que anteriormente era disparada por API ou baseada em ação, converta-a para direcionamento baseado em Segment:
 
-- **Exemplo:** Em vez de disparar um cartão "Complete seu perfil" com a API or interface de programação do aplicativo (API), crie um Segment or segmento para usuários que se cadastraram nos últimos 7 dias, mas não completaram seu perfil.
-- **Elegibilidade em tempo real:** Os usuários se qualificam ou desqualificam para o Banner instantaneamente a cada atualização, com base na associação ao Segment or segmento.
+- **Exemplo:** Em vez de disparar um cartão "Complete seu perfil" com a API, crie um Segment para usuários que se cadastraram nos últimos 7 dias, mas não completaram seu perfil.
+- **Elegibilidade em tempo real:** Os usuários se qualificam ou desqualificam para o Banner instantaneamente a cada atualização, com base na associação ao Segment.
 
 ### Diferenças de recursos {#feature-differences}
 
@@ -805,10 +805,10 @@ Banners suportam apenas Campaigns de entrega agendada. Para migrar uma mensagem 
 - Até 25 mensagens ativas por posicionamento.
 - Até 10 IDs de posicionamento por solicitação de refresh; solicitações além desse limite são truncadas.
 
-### Limitações do SDK or kit de desenvolvimento de software {#sdk-limitations}
+### Limitações do SDK {#sdk-limitations}
 
 - Banners não são suportados atualmente em .NET MAUI (Xamarin), Cordova, Unity, Vega ou plataformas de TV.
-- Certifique-se de que você está usando as versões mínimas do SDK or kit de desenvolvimento de software listadas nos pré-requisitos.
+- Certifique-se de que você está usando as versões mínimas do SDK listadas nos pré-requisitos.
 
 ## Artigos relacionados {#related-articles}
 

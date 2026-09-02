@@ -149,7 +149,7 @@ También puedes ver las etiquetas de productos, metacampos y colecciones sincron
 ![Catálogo de Shopify con datos sincronizados.]({% image_buster /assets/img/shopify/synced_catalog.png %})
 
 {% alert important %}
-Si tu sincronización supera el límite de almacenamiento de tu catálogo, Braze dejará de sincronizar y las nuevas actualizaciones de productos ya no se reflejarán. Ponte en contacto con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente para subir de nivel si es necesario.
+Si tu sincronización supera el límite de almacenamiento de tu catálogo, Braze dejará de sincronizar y las nuevas actualizaciones de productos ya no se reflejarán. Ponte en contacto con tu CSM para subir de nivel si es necesario.
 {% endalert %}
 
 ### Paso 5: Administra tu configuración {#step-5-manage-your-configuration}
@@ -182,7 +182,7 @@ Cambiar tus selecciones sincronizadas puede afectar a Campaigns, Canvas o selecc
 | `product_url`        | cadena         | "https://your-store.myshopify.com/products/classic-leather-jacket"            |
 | `product_handle`     | cadena         | "classic-leather-jacket"                                                          |
 | `published_scope`    | cadena         | "web", "global"                                                                   |
-| `price`              | número         | `10.00`, `24.99`<br><br>Shopify suele devolver los precios como cadenas (por ejemplo, `"199.00"` en la REST or transferencia de estado representacional Admin API). Braze los convierte a números para este campo del catálogo. |
+| `price`              | número         | `10.00`, `24.99`<br><br>Shopify suele devolver los precios como cadenas (por ejemplo, `"199.00"` en la REST Admin API). Braze los convierte a números para este campo del catálogo. |
 | `compare_at_price`   | número         | `15.00` cuando **Compare at price** está configurado en Shopify<br><br>`0` cuando Shopify no tiene un precio de comparación. Las API de Shopify normalmente devuelven `null` para un precio de comparación no configurado; Braze almacena `0` en el catálogo para que el campo sea siempre numérico (este es un valor predeterminado de Braze, no un valor que Shopify envíe como `0`). |
 | `inventory_quantity` | número         | `20`, `0`, o un valor negativo cuando se permite la sobreventa (por ejemplo, `-18`)   |
 | `options`            | cadena         | "Size,Color"<br><br>Shopify permite hasta tres tipos de opciones por producto (por ejemplo, Size, Color, Material). El valor de `options` es una lista separada por comas de esos nombres. |
@@ -202,7 +202,7 @@ Tu catálogo de Shopify está administrado por Shopify. Para actualizar tu catá
 Estos ejemplos de uso muestran cómo puedes utilizar los datos de tu catálogo de Shopify sincronizado para personalizar mensajes.
 
 {% alert warning %}
-Braze sincroniza hasta 250 variantes de cada producto de Shopify en tu catálogo. Las variantes que superen ese límite no se sincronizan. Si necesitas más de 250 variantes por producto, contacta con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente de Braze.
+Braze sincroniza hasta 250 variantes de cada producto de Shopify en tu catálogo. Las variantes que superen ese límite no se sincronizan. Si necesitas más de 250 variantes por producto, contacta con tu CSM de Braze.
 {% endalert %}
 
 {% tabs %}

@@ -8,7 +8,7 @@ noindex: true
 
 > Das Übersichtslayout eignet sich gut, um eine spezielle Navigationsoption am oberen Rand einer Seite zu erstellen, die es Nutzer:innen ermöglicht, durch Klicken auf einen Button zu einem bestimmten Teil einer Seite oder zu einer ganz anderen Seite zu gelangen.
 
-Klassische Beispiele für das Selektor-Layout sind die Seite [SDK or Software-Development-Kit Changelogs]({{site.baseurl}}/developer_guide/changelogs) oder die Seite [Kreative Details für In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types).
+Klassische Beispiele für das Selektor-Layout sind die Seite [SDK Changelogs]({{site.baseurl}}/developer_guide/changelogs) oder die Seite [Kreative Details für In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types).
 
 ## Erforderliche Komponenten
 

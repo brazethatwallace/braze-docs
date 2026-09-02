@@ -17,7 +17,7 @@ Lorsque vous créez une campagne push ou un Canvas dans Braze, vous pouvez séle
 Cette expérience d'édition est idéale pour les cas d'usage suivants :
 
 - Les Campaigns et les étapes de message Canvas pour les notifications push mobiles qui doivent être envoyées à plusieurs types d'appareils (par exemple, à la fois iOS et Android).
-- Les notifications push urgentes qui doivent cibler plusieurs plateformes rapidement et avec précision, lorsque le contenu est identique sur toutes les plateformes (par exemple, les dernières nouvelles ou les mises à jour en direct or en ligne/en production/instantané d'un événement sportif).
+- Les notifications push urgentes qui doivent cibler plusieurs plateformes rapidement et avec précision, lorsque le contenu est identique sur toutes les plateformes (par exemple, les dernières nouvelles ou les mises à jour en direct d'un événement sportif).
 
 ## Création d'une campagne push multiplateforme ou d'un Canvas {#creating-a-multiple-platform-push-campaign-or-canvas}
 

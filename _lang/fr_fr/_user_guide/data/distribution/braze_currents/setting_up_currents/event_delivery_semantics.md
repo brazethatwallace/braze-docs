@@ -104,7 +104,7 @@ De temps en temps, Braze peut apporter des modifications au schéma Avro lorsque
 
 #### Modifications sans rupture {#non-breaking-changes}
 
-Lorsqu'un champ est ajouté au schéma Avro, nous considérons qu'il s'agit d'une modification sans rupture. Les champs ajoutés seront toujours des champs Avro « optionnels » (par exemple avec une valeur par défaut de `null`), de sorte qu'ils « correspondent » aux anciens schémas selon la [spécification de résolution de schéma Avro](http://avro.apache.org/docs/current/spec.html#schema+resolution). Ces ajouts ne devraient pas affecter les processus ETL (ETL or extraire, transformer, charger) existants, car le champ sera simplement ignoré jusqu'à ce qu'il soit ajouté à votre processus ETL.
+Lorsqu'un champ est ajouté au schéma Avro, nous considérons qu'il s'agit d'une modification sans rupture. Les champs ajoutés seront toujours des champs Avro « optionnels » (par exemple avec une valeur par défaut de `null`), de sorte qu'ils « correspondent » aux anciens schémas selon la [spécification de résolution de schéma Avro](http://avro.apache.org/docs/current/spec.html#schema+resolution). Ces ajouts ne devraient pas affecter les processus ETL (ETL) existants, car le champ sera simplement ignoré jusqu'à ce qu'il soit ajouté à votre processus ETL.
 
 {% alert important %}
 Nous recommandons que votre configuration ETL soit explicite quant aux champs qu'elle traite afin d'éviter toute interruption du flux lorsque de nouveaux champs sont ajoutés.

@@ -28,7 +28,7 @@ Para enviar uma notificação por push silenciosa, defina o sinalizador `content
 Anexar tanto um título quanto um corpo de texto com `content-available=1` não é recomendado porque pode levar a um comportamento indefinido. Para garantir que uma notificação seja realmente silenciosa, exclua tanto o título quanto o corpo de texto ao definir o sinalizador `content-available` para `1.` Para mais detalhes, consulte a [documentação oficial da Apple sobre atualizações em segundo plano](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/pushing_background_updates_to_your_app).
 {% endalert %}
 
-O sinalizador `content-available` pode ser definido no dashboard da Braze, bem como em nosso [objeto Apple push]({{site.baseurl}}/api/objects_filters/messaging/apple_object) na [API or interface de programação do aplicativo (API) de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging).
+O sinalizador `content-available` pode ser definido no dashboard da Braze, bem como em nosso [objeto Apple push]({{site.baseurl}}/api/objects_filters/messaging/apple_object) na [API de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging).
 
 ![O dashboard da Braze mostrando a caixa de seleção "content-available" encontrada na guia "settings" do criador do push.]({% image_buster /assets/img_archive/remote_notification.png %} "content available")
 

@@ -16,7 +16,7 @@ _Diese Integration wird von Radar gepflegt._
 
 ## Über die Integration {#about-the-integration}
 
-Die Integration von Braze und Radar erlaubt Ihnen den Zugriff auf ausgefeilte standortbasierte Kampagnen-Trigger or triggern und die Anreicherung von Nutzerprofilen mit umfangreichen First-Party-Standortdaten. Wenn Radar-Geofence- oder Trip-Tracking-Events generiert werden, werden angepasste Events und Nutzerattribute in Realtime an Braze gesendet. Diese Events und Attribute können dann verwendet werden, um standortbezogene Campaigns zu Trigger or triggern or triggern, Abhol- und Zustellvorgänge auf der letzten Meile zu unterstützen, die Flotten- und Versandlogistik zu überwachen oder Nutzer:innen-Segmente auf der Grundlage von Standortmustern zu erstellen.
+Die Integration von Braze und Radar erlaubt Ihnen den Zugriff auf ausgefeilte standortbasierte Kampagnen-Trigger und die Anreicherung von Nutzerprofilen mit umfangreichen First-Party-Standortdaten. Wenn Radar-Geofence- oder Trip-Tracking-Events generiert werden, werden angepasste Events und Nutzerattribute in Realtime an Braze gesendet. Diese Events und Attribute können dann verwendet werden, um standortbezogene Campaigns zu triggern, Abhol- und Zustellvorgänge auf der letzten Meile zu unterstützen, die Flotten- und Versandlogistik zu überwachen oder Nutzer:innen-Segmente auf der Grundlage von Standortmustern zu erstellen.
 
 Darüber hinaus können die Radar Geo APIs verwendet werden, um Ihre Marketingkampagnen durch [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) anzureichern oder zu personalisieren.
 
@@ -25,14 +25,14 @@ Darüber hinaus können die Radar Geo APIs verwendet werden, um Ihre Marketingka
 | Anforderung | Beschreibung |
 |---|---|
 | Radar-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Radar-Konto. |
-| Braze Representational State Transfer-API-Schlüssel | Ein Braze Representational State Transfer-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
 | App-Bezeichner | Ihren [App-Bezeichner]({{site.baseurl}}/api/identifier_types/?tab=app%20ids) finden Sie im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel**. |
 | iOS-API-Schlüssel<br>Android-API-Schlüssel | Diese API-Schlüssel finden Sie im Braze-Dashboard unter **Einstellungen** > **App-Einstellungen**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
-Um Daten zwischen den SDKs von Braze und Radar abzubilden, müssen Sie in beiden Systemen dieselben Nutzer-IDs oder Nutzer-Aliase festlegen. Dies kann mit der Methode `changeUser()` im Braze SDK or Software-Development-Kit und der Methode `setUserId()` im Radar SDK or Software-Development-Kit geschehen.
+Um Daten zwischen den SDKs von Braze und Radar abzubilden, müssen Sie in beiden Systemen dieselben Nutzer-IDs oder Nutzer-Aliase festlegen. Dies kann mit der Methode `changeUser()` im Braze SDK und der Methode `setUserId()` im Radar SDK geschehen.
 
 So aktivieren Sie die Integration:
 
@@ -54,9 +54,9 @@ Standardmäßig wird Radar `userId` auf Braze `external_id` für angemeldete Nut
 
 ## Event- und attributbasierte Anwendungsfälle {#event-and-attribute-based-use-cases}
 
-Sie können angepasste Events und Nutzerattribute verwenden, um standortbezogene Segmente zu erstellen oder standortbezogene Campaigns zu Trigger or triggern or triggern.
+Sie können angepasste Events und Nutzerattribute verwenden, um standortbezogene Segmente zu erstellen oder standortbezogene Campaigns zu triggern.
 
-### Benachrichtigung über die Ankunft im Shop für die Abholung am Straßenrand Trigger or triggern or triggern {#trigger-a-store-arrival-notification-for-curbside-pickup}
+### Benachrichtigung über die Ankunft im Shop für die Abholung am Straßenrand triggern {#trigger-a-store-arrival-notification-for-curbside-pickup}
 
 Senden Sie eine Push-Benachrichtigung mit Ankunftsanweisungen an die Nutzer:innen, wenn sie in Ihrem Shop für eine Abholung am Straßenrand eintreffen.
 
@@ -129,7 +129,7 @@ Das folgende Code-Snippet ist ein Beispiel dafür, was Radar als JSON-Objekt vom
 }
 ```
 
-Um die gezielte und personalisierte Connected-Content-Nachricht in Braze zu erstellen, können Sie das Braze-Attribut `most_recent_location` als Eingabe für den Parameter `near` in der URL der API-Anfrage verwenden. Das Attribut `most_recent_location` wird über die Radar-Event-Integration oder direkt über das Braze SDK or Software-Development-Kit erfasst.
+Um die gezielte und personalisierte Connected-Content-Nachricht in Braze zu erstellen, können Sie das Braze-Attribut `most_recent_location` als Eingabe für den Parameter `near` in der URL der API-Anfrage verwenden. Das Attribut `most_recent_location` wird über die Radar-Event-Integration oder direkt über das Braze SDK erfasst.
 
 Im folgenden Beispiel wird der Radar-Kettenfilter für Target- und Walmart-Standorte angewendet, und der Suchradius für nahe gelegene Standorte wird auf 2 km festgelegt.
 

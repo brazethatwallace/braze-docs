@@ -10,9 +10,9 @@ search_tag: Partner
 
 # Front
 
-> Mit der Integration von Front können Sie die Braze-Datentransformation und Webhooks beider Plattformen nutzen, um eine bidirektionale Kurzmitteilungsdienst or SMS-Pipeline für Konversationen einzurichten.
+> Mit der Integration von Front können Sie die Braze-Datentransformation und Webhooks beider Plattformen nutzen, um eine bidirektionale SMS-Pipeline für Konversationen einzurichten.
 
-Der eingehende Webhook von Front enthält eine Nutzlast mit der vom Live-Agenten gesendeten Nachricht. Die Anfrage muss neu formatiert werden, bevor sie von Braze-Endpunkten akzeptiert werden kann. Das Front-Datentransformations-Template formatiert die Nutzlast um und schreibt ein angepasstes Event mit dem Titel **Outbound Kurzmitteilungsdienst or SMS Sent** in das Kundenprofil or Nutzerprofil, wobei der Nachrichtentext als Event-Eigenschaft übergeben wird.
+Der eingehende Webhook von Front enthält eine Nutzlast mit der vom Live-Agenten gesendeten Nachricht. Die Anfrage muss neu formatiert werden, bevor sie von Braze-Endpunkten akzeptiert werden kann. Das Front-Datentransformations-Template formatiert die Nutzlast um und schreibt ein angepasstes Event mit dem Titel **Outbound SMS Sent** in das Kundenprofil, wobei der Nachrichtentext als Event-Eigenschaft übergeben wird.
 
 Bevor Sie eine neue Transformation in Braze einrichten, empfehlen wir Ihnen, die Support-Matrix für jede Ebene in unserer Dokumentation zur [Datentransformation]({{site.baseurl}}/user_guide/data/unification/data_transformation) zu lesen. Unsere Free- und Pro-Tiers bieten eine unterschiedliche Anzahl aktiver Transformationen und eingehender Anfragen pro Monat. Vergewissern Sie sich, dass Ihr aktueller Plan Ihren Anwendungsfall unterstützen kann.
 
@@ -24,13 +24,13 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 |---------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | Ein Front-Konto | Um diese Partnerschaft zu nutzen, ist ein Front-Konto erforderlich. |
 | Braze-Datentransformations-Webhook-URL | Die [Braze-Datentransformation]({{site.baseurl}}/user_guide/data/unification/data_transformation) wird verwendet, um den eingehenden Webhook von Front so umzuformatieren, dass er vom Braze-Endpunkt /users/track akzeptiert werden kann. |
-| Ein Front-Representational State Transfer-API-Schlüssel | Ein Front-Representational State Transfer-API-Schlüssel wird verwendet, um eine ausgehende Webhook-Anfrage von Braze an Front zu stellen. |
+| Ein Front-REST-API-Schlüssel | Ein Front-REST-API-Schlüssel wird verwendet, um eine ausgehende Webhook-Anfrage von Braze an Front zu stellen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
 
-- Optimieren Sie Ihren Lead-Generierungsprozess mit automatisiertem Kurzmitteilungsdienst or SMS-Messaging von Braze, um Nutzerpräferenzen zu erkennen und Live-Vertriebsmitarbeitern die Möglichkeit zu geben, nachzufassen und Verkäufe abzuschließen.
-- Binden Sie Kund:innen, die ihren Warenkorb verlassen haben, erneut ein, indem Sie Conversions durch automatisierte Kurzmitteilungsdienst or SMS-Antworten und Live-Chat-Support fördern.
+- Optimieren Sie Ihren Lead-Generierungsprozess mit automatisiertem SMS-Messaging von Braze, um Nutzerpräferenzen zu erkennen und Live-Vertriebsmitarbeitern die Möglichkeit zu geben, nachzufassen und Verkäufe abzuschließen.
+- Binden Sie Kund:innen, die ihren Warenkorb verlassen haben, erneut ein, indem Sie Conversions durch automatisierte SMS-Antworten und Live-Chat-Support fördern.
 
 ## Front integrieren {#integrating-front}
 
@@ -79,9 +79,9 @@ Zunächst erstellen Sie eine neue Datentransformation in Braze. Die folgenden Sc
 Sie können dieses Template an Ihre speziellen Bedürfnisse anpassen. Sie können zum Beispiel den voreingestellten Namen des angepassten Events ändern. Weitere Informationen finden Sie unter [Übersicht über Datentransformationen]({{site.baseurl}}/user_guide/data/unification/data_transformation).
 {% endalert %}
 
-### 2. Schritt: Ausgehende Kurzmitteilungsdienst or SMS-Campaign erstellen {#step-2-create-an-outbound-sms-campaign}
+### 2. Schritt: Ausgehende SMS-Campaign erstellen {#step-2-create-an-outbound-sms-campaign}
 
-Als Nächstes erstellen Sie eine Kurzmitteilungsdienst or SMS-Campaign, die auf Webhooks von Front wartet und eine angepasste Kurzmitteilungsdienst or SMS-Antwort an Ihre Kund:innen sendet.
+Als Nächstes erstellen Sie eine SMS-Campaign, die auf Webhooks von Front wartet und eine angepasste SMS-Antwort an Ihre Kund:innen sendet.
 
 #### Schritt 2.1: Nachricht verfassen {#step-21-compose-your-message}
 
@@ -99,7 +99,7 @@ Ihre Nachricht sollte in etwa so aussehen:
 
 #### 2.2 Zustellung planen {#22-schedule-the-delivery} {#22-schedule-the-delivery}
 
-Wählen Sie als Zustellungstyp **Aktionsbasierte Zustellung** und dann als angepassten Event-Trigger or triggern **Outbound Kurzmitteilungsdienst or SMS Sent**.
+Wählen Sie als Zustellungstyp **Aktionsbasierte Zustellung** und dann als angepassten Event-Trigger **Outbound SMS Sent**.
 
 ![Die Seite „Zustellung planen“.]({% image_buster /assets/img/front/custom_event_trigger.png %})
 
@@ -119,32 +119,32 @@ Gehen Sie im Front-Dashboard zu **Settings** > **Channels** > **Add Channels**, 
 
 ### 4. Schritt: Einstellungen konfigurieren {#step-4-configure-the-settings}
 
-Geben Sie im Feld für den ausgehenden API-Endpunkt die Datentransformations-Webhook-URL ein, [die Sie zuvor erstellt haben](#step-1-set-up-a-data-transformation-in-braze). Alle ausgehenden Nachrichten von Live-Agenten auf Ihrem neuen Braze-Kanal werden hierher gesendet. Dieser Kanal stellt auch eine Endpunkt-URL bereit, an die Braze Kurzmitteilungsdienst or SMS-Nachrichten im Feld **Incoming URL** weiterleiten kann.
+Geben Sie im Feld für den ausgehenden API-Endpunkt die Datentransformations-Webhook-URL ein, [die Sie zuvor erstellt haben](#step-1-set-up-a-data-transformation-in-braze). Alle ausgehenden Nachrichten von Live-Agenten auf Ihrem neuen Braze-Kanal werden hierher gesendet. Dieser Kanal stellt auch eine Endpunkt-URL bereit, an die Braze SMS-Nachrichten im Feld **Incoming URL** weiterleiten kann.
 
 Notieren Sie sich diese URL&#8212;Sie werden sie später benötigen.
 
 ![Die Kanaleinstellungen für den neu erstellten Braze-Kanal in Front.]({% image_buster /assets/img/front/front_custom_channel2.png %}){: style="max-width:65%;"}
 
-### 5. Schritt: Eingehende Kurzmitteilungsdienst or SMS-Weiterleitung einrichten {#step-5-set-up-inbound-sms-forwarding}
+### 5. Schritt: Eingehende SMS-Weiterleitung einrichten {#step-5-set-up-inbound-sms-forwarding}
 
-Als Nächstes erstellen Sie zwei neue Webhook-Campaigns in Braze, damit Sie eingehende Kurzmitteilungsdienst or SMS von Kund:innen an den Posteingang von Front weiterleiten können.
+Als Nächstes erstellen Sie zwei neue Webhook-Campaigns in Braze, damit Sie eingehende SMS von Kund:innen an den Posteingang von Front weiterleiten können.
 
 | Nummer | Zweck |
 |---|---|
 | Webhook-Campaign 1 | Signalisiert Front, dass ein Live-Chat-Gespräch angefragt wird. |
-| Webhook-Campaign 2 | Leitet alle vom Kunden eingehenden Kurzmitteilungsdienst or SMS-Antworten an den Posteingang von Front weiter. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 5: Eingehende Kurzmitteilungsdienst or SMS-Weiterleitung einrichten" }
+| Webhook-Campaign 2 | Leitet alle vom Kunden eingehenden SMS-Antworten an den Posteingang von Front weiter. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 5: Eingehende SMS-Weiterleitung einrichten" }
 
-#### Schritt 5.1: Kurzmitteilungsdienst or SMS-Schlüsselwortkategorie erstellen {#step-51-create-an-sms-keyword-category}
+#### Schritt 5.1: SMS-Schlüsselwortkategorie erstellen {#step-51-create-an-sms-keyword-category}
 
-Gehen Sie im Braze-Dashboard auf **Zielgruppe**, wählen Sie Ihre **Kurzmitteilungsdienst or SMS-Abo-Gruppe** und wählen Sie dann **Add Custom Keyword**. Um eine exklusive Kurzmitteilungsdienst or SMS-Schlüsselwortkategorie für Front zu erstellen, füllen Sie die folgenden Felder aus.
+Gehen Sie im Braze-Dashboard auf **Zielgruppe**, wählen Sie Ihre **SMS-Abo-Gruppe** und wählen Sie dann **Add Custom Keyword**. Um eine exklusive SMS-Schlüsselwortkategorie für Front zu erstellen, füllen Sie die folgenden Felder aus.
 
 | Feld | Beschreibung |
 |---|---|
 | Keyword Category | Der Name Ihrer Schlüsselwortkategorie, z. B. `FrontSMS1`. |
-| Keywords | Ihre angepassten Schlüsselwörter, z. B. `TIMETOMOW`. Vermeiden Sie gebräuchliche Wörter, um versehentliche Trigger or triggern zu vermeiden. Beachten Sie, dass bei Schlüsselwörtern die Groß- und Kleinschreibung keine Rolle spielt – `lawn` würde also auf `LAWN` passen. |
+| Keywords | Ihre angepassten Schlüsselwörter, z. B. `TIMETOMOW`. Vermeiden Sie gebräuchliche Wörter, um versehentliche Trigger zu vermeiden. Beachten Sie, dass bei Schlüsselwörtern die Groß- und Kleinschreibung keine Rolle spielt – `lawn` würde also auf `LAWN` passen. |
 | Reply Message | Die Nachricht, die gesendet wird, wenn ein Schlüsselwort erkannt wird, z. B. „Ein Landschaftsgärtner wird sich in Kürze bei Ihnen melden.“ |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 5.1: Kurzmitteilungsdienst or SMS-Schlüsselwortkategorie erstellen" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 5.1: SMS-Schlüsselwortkategorie erstellen" }
 
 ![Ein Beispiel für eine SMS-Schlüsselwortkategorie in Braze.]({% image_buster /assets/img/front/front_keyword.png %}){: style="max-width:65%;"}
 
@@ -181,7 +181,7 @@ Konfigurieren Sie auf dem Tab „Einstellungen“ die Anfrage-Header `Authorizat
 
 #### Schritt 5.3: Erste Zustellung planen {#step-53-schedule-the-first-delivery}
 
-Wählen Sie für **Zustellung planen** die Option **Aktionsbasierte Zustellung** und dann als Trigger or triggern-Typ **Send an Kurzmitteilungsdienst or SMS Inbound Message**. Fügen Sie außerdem die Kurzmitteilungsdienst or SMS-Abo-Gruppe und die Schlüsselwortkategorie hinzu, die Sie [zuvor eingerichtet haben](#step-51-create-an-sms-keyword-category).
+Wählen Sie für **Zustellung planen** die Option **Aktionsbasierte Zustellung** und dann als Trigger-Typ **Send an SMS Inbound Message**. Fügen Sie außerdem die SMS-Abo-Gruppe und die Schlüsselwortkategorie hinzu, die Sie [zuvor eingerichtet haben](#step-51-create-an-sms-keyword-category).
 
 ![Die Seite „Zustellung planen“ für die erste Webhook-Campaign.]({% image_buster /assets/img/front/front_actionbased_keyword.png %})
 
@@ -195,19 +195,19 @@ Da Ihre zweite Webhook-Campaign mit der ersten übereinstimmt, können Sie [die 
 
 #### Schritt 5.5: Zweite Zustellung planen {#step-55-schedule-the-second-delivery}
 
-Legen Sie für **Zustellung planen** den **aktionsbasierten Trigger or triggern** und die **Kurzmitteilungsdienst or SMS-Abo-Gruppe** genauso fest wie bei [der ersten Zustellung](#step-53-schedule-the-first-delivery). Wählen Sie jedoch für die **Keyword Category** die Option **Other**.
+Legen Sie für **Zustellung planen** den **aktionsbasierten Trigger** und die **SMS-Abo-Gruppe** genauso fest wie bei [der ersten Zustellung](#step-53-schedule-the-first-delivery). Wählen Sie jedoch für die **Keyword Category** die Option **Other**.
 
 ![Die Seite „Zustellung planen“ für die zweite Webhook-Campaign, wobei als Schlüsselwortkategorie „Other“ gewählt wurde.]({% image_buster /assets/img/front/front_actionbased_other_keyword.png %})
 
 #### Schritt 5.6: Zielgruppenfilter hinzufügen {#step-56-add-an-audience-filter}
 
-Ihre Webhook-Campaign kann jetzt eingehende Kurzmitteilungsdienst or SMS-Antworten Ihrer Kund:innen weiterleiten. Um Kurzmitteilungsdienst or SMS-Antworten zu filtern, sodass nur Nachrichten für Live-Chats weitergeleitet werden, fügen Sie den Segmentierungsfilter **Last Received Message From Specific Campaign** zum Schritt **Zielgruppe** hinzu.
+Ihre Webhook-Campaign kann jetzt eingehende SMS-Antworten Ihrer Kund:innen weiterleiten. Um SMS-Antworten zu filtern, sodass nur Nachrichten für Live-Chats weitergeleitet werden, fügen Sie den Segmentierungsfilter **Last Received Message From Specific Campaign** zum Schritt **Zielgruppe** hinzu.
 
 ![Ein Zielgruppenfilter mit der Auswahl „Last Received Message From Specific Campaign“.]({% image_buster /assets/img/front/front_segment_last_received_message.png %}){: style="max-width:65%;"}
 
 Konfigurieren Sie dann Ihren Filter:
 
-1. Wählen Sie unter **Campaign** die Kurzmitteilungsdienst or SMS-Campaign aus, [die Sie zuvor erstellt haben](#step-2-create-an-outbound-sms-campaign).
+1. Wählen Sie unter **Campaign** die SMS-Campaign aus, [die Sie zuvor erstellt haben](#step-2-create-an-outbound-sms-campaign).
 2. Wählen Sie für **Operator** die Option **Less Than**.
 3. Wählen Sie für **Time Window** die Zeitspanne, die ein Chat ohne Antwort der Kund:innen geöffnet bleiben soll.
 
@@ -217,20 +217,20 @@ Konfigurieren Sie dann Ihren Filter:
 
 ### Abrechenbare Segmente {#billable-segments}
 
-- Kurzmitteilungsdienst or SMS-Nachrichten werden bei Braze pro Nachrichtensegment berechnet. Wenn Sie verstehen, was ein Segment definiert und wie diese Nachrichten aufgeteilt werden, können Sie besser nachvollziehen, wie Ihnen Nachrichten in Rechnung gestellt werden. Weitere Informationen finden Sie in unserer [Dokumentation]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator).
+- SMS-Nachrichten werden bei Braze pro Nachrichtensegment berechnet. Wenn Sie verstehen, was ein Segment definiert und wie diese Nachrichten aufgeteilt werden, können Sie besser nachvollziehen, wie Ihnen Nachrichten in Rechnung gestellt werden. Weitere Informationen finden Sie in unserer [Dokumentation]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator).
 - Lange Agentenantworten verbrauchen mehr abrechenbare Segmente.
 
 ### Datenpunkte protokollieren {#logging-data-points}
 
-Derzeit erfordert diese Integration, dass jedes Mal ein angepasstes Event in ein Kundenprofil or Nutzerprofil geschrieben wird, wenn ein Live-Agent eine Kurzmitteilungsdienst or SMS von Front sendet. Dies mag für einen schnellen Austausch mit nur wenigen Nachrichten geeignet sein – aber je länger die Konversationen werden, desto mehr Datenpunkte fallen an. Wenn Sie Fragen zu den Feinheiten der Braze-Datenpunkte haben, kann Ihr Braze Account Manager:in diese beantworten.
+Derzeit erfordert diese Integration, dass jedes Mal ein angepasstes Event in ein Kundenprofil geschrieben wird, wenn ein Live-Agent eine SMS von Front sendet. Dies mag für einen schnellen Austausch mit nur wenigen Nachrichten geeignet sein – aber je länger die Konversationen werden, desto mehr Datenpunkte fallen an. Wenn Sie Fragen zu den Feinheiten der Braze-Datenpunkte haben, kann Ihr Braze Account Manager:in diese beantworten.
 
-### Links in Kurzmitteilungsdienst or SMS-Nachrichten einfügen {#including-links-in-sms-messages}
+### Links in SMS-Nachrichten einfügen {#including-links-in-sms-messages}
 
 Das Senden eines Links aus dem Front-Live-Chat wird mit zusätzlichen HTML-Tags dargestellt.
 
 ### Bilddatei von Front anhängen {#attaching-image-file-from-front}
 
-Bilddateien in Front werden in Kurzmitteilungsdienst or SMS-Nachrichten, die von Braze gesendet werden, nicht dargestellt.
+Bilddateien in Front werden in SMS-Nachrichten, die von Braze gesendet werden, nicht dargestellt.
 
 ### Opt-outs
 

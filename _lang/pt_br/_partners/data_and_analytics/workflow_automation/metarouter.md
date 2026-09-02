@@ -30,8 +30,8 @@ Antes de começar, você precisará do seguinte:
 | Requisito | Descrição |
 |-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Uma conta do MetaRouter | Uma [conta do MetaRouter Enterprise](https://enterprise.metarouter.io/). |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões `users.track`. Para criar uma, acesse **Settings** > **API or interface de programação do aplicativo (API) Keys**. |
-| Um endpoint REST or transferir estado representacional da Braze | [Sua URL de endpoint REST or transferir estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. Para criar uma, acesse **Settings** > **API Keys**. |
+| Um endpoint REST da Braze | [Sua URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Configuração do MetaRouter {#setting-up-metarouter}
@@ -40,7 +40,7 @@ Para configurar o MetaRouter para sua integração com a Braze:
 
 1. Acesse o MetaRouter e crie um novo cluster.
 2. Escolha os eventos que deseja rastrear.
-3. Instale um SDK or kit de desenvolvimento de software da MetaRouter e integre os eventos ao seu site.
+3. Instale um SDK da MetaRouter e integre os eventos ao seu site.
 4. Conecte seu cluster à interface do usuário do seu site.
 5. Crie um novo pipeline.
 6. Verifique se o seu site está enviando eventos para o MetaRouter.
@@ -49,7 +49,7 @@ Para configurar o MetaRouter para sua integração com a Braze:
 
 ### Etapa 1: Adicionar a integração da Braze {#step-1-add-the-braze-integration}
 
-No Enterprise MetaRouter, selecione **Integrations** > **New Integration** > **Braze** e nomeie sua integração. Em seguida, insira a URL da instância e a chave de API or interface de programação do aplicativo (API) e selecione **Apply Changes**.
+No Enterprise MetaRouter, selecione **Integrations** > **New Integration** > **Braze** e nomeie sua integração. Em seguida, insira a URL da instância e a chave de API e selecione **Apply Changes**.
 
 ![Adição da Braze como uma integração no MetaRouter.]({% image_buster /assets/img/metarouter/img1.png %}){: style="max-width:50%;"}
 

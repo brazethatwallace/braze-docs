@@ -42,7 +42,7 @@ La siguiente tabla describe los términos comunes de geovallas:
 
 ## Requisitos previos {#prerequisites}
 
-### Requisitos de SDK or kit de desarrollo de software y plataforma {#sdk-and-platform-requirements}
+### Requisitos de SDK y plataforma {#sdk-and-platform-requirements}
 
 Las campañas desencadenadas por geovallas están disponibles en iOS y Android. Para admitir geovallas, se requiere lo siguiente:
 
@@ -281,7 +281,7 @@ Para usar datos de geovallas para personalizar un mensaje, puedes usar la siguie
 
 ## Actualizar conjuntos de geovallas {#updating-geofence-sets}
 
-El SDK or kit de desarrollo de software de Braze solicita geovallas solo una vez al día al inicio de la sesión. Si realizas cambios en los conjuntos de geovallas después del inicio de la sesión, necesitas esperar 24 horas desde el momento en que los conjuntos se descargaron por primera vez para recibir el conjunto actualizado.
+El SDK de Braze solicita geovallas solo una vez al día al inicio de la sesión. Si realizas cambios en los conjuntos de geovallas después del inicio de la sesión, necesitas esperar 24 horas desde el momento en que los conjuntos se descargaron por primera vez para recibir el conjunto actualizado.
 
 {% alert note %}
 Si las geovallas no se cargan en el dispositivo localmente, el usuario no puede desencadenar la geovalla incluso si entra en el área.
@@ -302,7 +302,7 @@ Si las geovallas no se cargan en el dispositivo localmente, el usuario no puede 
 - Los usuarios de tu aplicación deben conceder permisos de ubicación; consulta la sección [Permisos de ubicación](#location-permissions) para más información.
 
 {% alert note %}
-La integración básica del SDK or kit de desarrollo de software habilita solo el seguimiento de ubicación. El geovallado requiere pasos de configuración adicionales tanto para iOS como para Android. Para más detalles, consulta [Geovallas]({{site.baseurl}}/developer_guide/geofences) en la guía del desarrollador.
+La integración básica del SDK habilita solo el seguimiento de ubicación. El geovallado requiere pasos de configuración adicionales tanto para iOS como para Android. Para más detalles, consulta [Geovallas]({{site.baseurl}}/developer_guide/geofences) en la guía del desarrollador.
 {% endalert %}
 
 También puedes usar geovallas con partners tecnológicos de Braze, como [Radar]({{site.baseurl}}/partners/message_personalization/location/radar) y [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare).

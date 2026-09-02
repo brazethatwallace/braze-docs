@@ -2,7 +2,7 @@
 nav_title: Mixpanel
 article_title: Mixpanel
 alias: /partners/mixpanel/
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Mixpanel, einer Business-Analytics-Plattform, die es Ihnen erlaubt, Mixpanel-Kohorten in Braze zu importieren, um Braze-Segmente zu erstellen, die für das Targeting von Nutzer:innen in zukünftigen Braze-Campaigns oder Canvase verwendet werden können."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Mixpanel, einer Business-Analytics-Plattform, die es Ihnen erlaubt, Mixpanel-Kohorten in Braze zu importieren, um Braze-Segmente zu erstellen, die für das Targeting von Nutzer:innen in zukünftigen Braze-Campaigns oder Canvases verwendet werden können."
 page_type: partner
 search_tag: Partner
 tool: Currents
@@ -12,7 +12,7 @@ tool: Currents
 
 > [Mixpanel](https://mixpanel.com/) ist eine Business-Analytics-Plattform, die es Ihnen erlaubt, Events aus Mixpanel in andere Plattformen zu exportieren, um tiefere Analysen durchzuführen. Die gesammelten Daten können dann dazu verwendet werden, angepasste Berichte zu erstellen und das Engagement und die Bindung der Nutzer:innen zu messen.
 
-Die Integration von Braze und Mixpanel erlaubt es Ihnen, [Mixpanel-Kohorten in Braze zu importieren]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import), um Braze-Segmente zu erstellen, die für das Targeting von Nutzer:innen in zukünftigen Braze-Campaigns oder Canvase verwendet werden können. Die Kohortensynchronisierung aktualisiert die Kohortenmitgliedschaft in Braze und importiert keine Mixpanel-Events oder Nutzer:innen-Eigenschaften. Weitere Informationen finden Sie unter [Mixpanel-Kohortenimport]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import#data-import-integration).
+Die Integration von Braze und Mixpanel erlaubt es Ihnen, [Mixpanel-Kohorten in Braze zu importieren]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import), um Braze-Segmente zu erstellen, die für das Targeting von Nutzer:innen in zukünftigen Braze-Campaigns oder Canvases verwendet werden können. Die Kohortensynchronisierung aktualisiert die Kohortenmitgliedschaft in Braze und importiert keine Mixpanel-Events oder Nutzer:innen-Eigenschaften. Weitere Informationen finden Sie unter [Mixpanel-Kohortenimport]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import#data-import-integration).
 
 Sie können Braze-Currents auch nutzen, um [Ihre Braze-Events nach Mixpanel zu exportieren](#data-export-integration) und so tiefere Analytics zu Conversions, Bindung und Produktnutzung zu erhalten.
 
@@ -74,7 +74,7 @@ Um Mehrdeutigkeiten zu vermeiden, setzen Sie `braze_external_id` direkt in Mixpa
 
 ### Automatische Eigenschaftszuweisung (SDKs) {#automatic-property-setting-sdks}
 
-Das Mixpanel-SDK or Software-Development-Kit kann `braze_external_id` automatisch setzen, wenn das Braze-SDK or Software-Development-Kit in derselben App integriert ist. Wenn Sie sowohl Mixpanel als auch Braze gemeinsam implementieren, ist in der Regel keine zusätzliche Konfiguration über die Installation beider SDKs hinaus erforderlich.
+Das Mixpanel-SDK kann `braze_external_id` automatisch setzen, wenn das Braze-SDK in derselben App integriert ist. Wenn Sie sowohl Mixpanel als auch Braze gemeinsam implementieren, ist in der Regel keine zusätzliche Konfiguration über die Installation beider SDKs hinaus erforderlich.
 
 {% alert note %}
 `braze_external_id` wird nicht gesetzt, wenn `changeUser()` in Braze aufgerufen wird; es wird gesetzt, wenn Mixpanel initialisiert oder eine Sitzung startet (während „init“ oder „start session“).

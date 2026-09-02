@@ -16,13 +16,13 @@ Fügt einen Standard-Button mit konfigurierbarem Styling, Links und Analytics hi
 
 {% multi_lang_include drag_and_drop/editor_block_properties/button_properties.md %}
 
-#### On-Klick, der or klicken-Verhalten {#on-click-behavior}
+#### On-Klick, der-Verhalten {#on-click-behavior}
 
 {% multi_lang_include drag_and_drop/editor_block_properties/button_actions.md %}
 
 ### Radio-Button
 
-Fügt eine Liste von Optionen hinzu, aus der Nutzer:innen eine auswählen können. Bei der Übermittlung protokolliert das Kundenprofil or Nutzerprofil das zugehörige [angepasste Attribut]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), das ein String sein muss, um gespeichert zu werden. Angepasste Attribute mit anderen Datentypen werden nicht im Kundenprofil or Nutzerprofil gespeichert.
+Fügt eine Liste von Optionen hinzu, aus der Nutzer:innen eine auswählen können. Bei der Übermittlung protokolliert das Kundenprofil das zugehörige [angepasste Attribut]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), das ein String sein muss, um gespeichert zu werden. Angepasste Attribute mit anderen Datentypen werden nicht im Kundenprofil gespeichert.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/radio_button_properties.md %}
 
@@ -36,7 +36,7 @@ Fügt ein Bild aus der [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/
 
 Informationen zu Bildspezifikationen finden Sie in unseren [Bildspezifikationen für In-App-Nachrichten]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications#in-app-messages).
 
-#### On-Klick, der or klicken-Verhalten
+#### On-Klick, der-Verhalten
 
 {% multi_lang_include drag_and_drop/editor_block_properties/image_actions.md %}
 
@@ -46,7 +46,7 @@ Fügt einen Hyperlink ein, auf den Nutzer:innen klicken können, um zu einer bes
 
 {% multi_lang_include drag_and_drop/editor_block_properties/link_properties.md %}
 
-#### On-Klick, der or klicken-Verhalten
+#### On-Klick, der-Verhalten
 
 {% multi_lang_include drag_and_drop/editor_block_properties/link_actions.md %}
 
@@ -67,13 +67,13 @@ Fügt angepasstes HTML, CSS oder JavaScript für erweiterte Anpassungen ein.
 
 ### Telefonerfassung {#phone-capture}
 
-Fügt ein Formularfeld für Telefonnummern ein. Nach der Übermittlung wird der/die Nutzer:in in die [Kurzmitteilungsdienst or SMS-]({{site.baseurl}}/sms_rcs_subscription_groups) oder [WhatsApp-Abo-Gruppe]({{site.baseurl}}/whatsapp_subscription_groups) aufgenommen.
+Fügt ein Formularfeld für Telefonnummern ein. Nach der Übermittlung wird der/die Nutzer:in in die [SMS-]({{site.baseurl}}/sms_rcs_subscription_groups) oder [WhatsApp-Abo-Gruppe]({{site.baseurl}}/whatsapp_subscription_groups) aufgenommen.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/phone_capture.md %}
 
 ### E-Mail-Erfassung {#email-capture}
 
-Fügt ein Formularfeld für E-Mail-Adressen ein. Nach der Übermittlung wird die E-Mail-Adresse dem Kundenprofil or Nutzerprofil in Braze hinzugefügt.
+Fügt ein Formularfeld für E-Mail-Adressen ein. Nach der Übermittlung wird die E-Mail-Adresse dem Kundenprofil in Braze hinzugefügt.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/email_capture.md %}
 
@@ -103,14 +103,14 @@ Nutzer:innen können aus mehreren vorgegebenen Optionen auswählen. Die Werte we
 
 ### Langtext {#long-text}
 
-Mehrzeiliges Textfeld für umfrageähnliche Abläufe. Wenn Sie diesen Block nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in.
+Mehrzeiliges Textfeld für umfrageähnliche Abläufe. Wenn Sie diesen Block nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren CSM.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 <!-- Saved row is not yet released. Uncomment when available.
 ### Saved row
 
-Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze CSM or Customer-Success-Manager or Customer-Success-Manager:in.
+Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze CSM.
 -->
 
 ## Wissenswertes {#things-to-know}

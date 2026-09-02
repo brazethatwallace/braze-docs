@@ -23,8 +23,8 @@ La integración de Braze y Knak te permite crear correos electrónicos totalment
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta Knak | Se necesita una cuenta Knak para aprovechar esta asociación. |
-| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos completos de **Plantillas**. <br><br>Se puede crear en el dashboard de Braze desde **Configuración** > **Claves de API**. |
-| Punto de conexión REST or transferencia de estado representacional de Braze | [La URL de tu punto de conexión REST or transferencia de estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze de tu instancia. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos completos de **Plantillas**. <br><br>Se puede crear en el dashboard de Braze desde **Configuración** > **Claves de API**. |
+| Punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze de tu instancia. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Casos de uso {#use-cases}
@@ -42,7 +42,7 @@ En Knak, ve a **Integrations > Platforms > + Add New Integration**.
 
 ![Botón para añadir integración]({% image_buster /assets/img/knak/integration-setup-step-2-add-new-integration.png %})
 
-A continuación, selecciona la plataforma **Braze** y proporciona la clave de API de Braze y el punto de conexión REST or transferencia de estado representacional. Haz clic en **Create New Integration** para completar tu integración.
+A continuación, selecciona la plataforma **Braze** y proporciona la clave de API de Braze y el punto de conexión REST. Haz clic en **Create New Integration** para completar tu integración.
 
 ![Crear una nueva integración]({% image_buster /assets/img/knak/integration-setup-step-4-add-api-key.png %})
 

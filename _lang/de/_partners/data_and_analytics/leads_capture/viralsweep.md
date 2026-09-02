@@ -16,28 +16,28 @@ _Diese Integration wird von ViralSweep gepflegt._
 
 ## Über die Integration {#about-the-integration}
 
-Die Integration von Braze und ViralSweep ermöglicht es Ihnen, Gewinnspiele und Wettbewerbe auf der ViralSweep-Plattform zu veranstalten (und so Ihre E-Mail- und Kurzmitteilungsdienst or SMS-Listen zu erweitern) und dann die Teilnahmeinformationen aus Gewinnspielen oder Wettbewerben an Braze zu senden, um sie in Campaigns oder Canvase zu verwenden.
+Die Integration von Braze und ViralSweep ermöglicht es Ihnen, Gewinnspiele und Wettbewerbe auf der ViralSweep-Plattform zu veranstalten (und so Ihre E-Mail- und SMS-Listen zu erweitern) und dann die Teilnahmeinformationen aus Gewinnspielen oder Wettbewerben an Braze zu senden, um sie in Campaigns oder Canvases zu verwenden.
 
 ## Voraussetzungen {#prerequisites}
 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | ViralSweep-Konto | Um diese Partnerschaft zu nutzen, ist ein ViralSweep-Konto mit dem Unternehmensplan erforderlich. |
-| Braze-Representational State Transfer-API-Schlüssel | Ein Braze-Representational State Transfer-API-Schlüssel mit allen Nutzerdaten- und E-Mail-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze-Representational State Transfer-Endpunkt | Ihre Representational State Transfer-Endpunkt-URL. Ihr Endpunkt hängt von der Braze-URL für [Ihre Instanz]({{site.baseurl}}/api/basics#endpoints) ab. |
+| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit allen Nutzerdaten- und E-Mail-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze-REST-Endpunkt | Ihre REST-Endpunkt-URL. Ihr Endpunkt hängt von der Braze-URL für [Ihre Instanz]({{site.baseurl}}/api/basics#endpoints) ab. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
 ### 1. Schritt: Verbindung mit Braze in ViralSweep herstellen {#step-1-connect-to-braze-within-viralsweep}
 
-Navigieren Sie in ViralSweep zu **Integrations > Email & Kurzmitteilungsdienst or SMS > Add Service** und wählen Sie **Braze** aus.
+Navigieren Sie in ViralSweep zu **Integrations > Email & SMS > Add Service** und wählen Sie **Braze** aus.
 
 ![ViralSweep-Integrationsseite mit Braze als ausgewähltem Dienst unter E-Mail- und SMS-Diensten.]({% image_buster /assets/img/viralsweep/connect.gif %})
 
 ### 2. Schritt: Braze-Zugangsdaten hinzufügen {#step-2-add-braze-credentials}
 
-Geben Sie im Konfigurationsfenster für die Integration Ihren Braze-Representational State Transfer-API-Schlüssel und den Representational State Transfer-Endpunkt an. Stellen Sie sicher, dass der von Ihnen angegebene Endpunkt nicht `https://` enthält, zum Beispiel `dashboard-03.braze.com`.
+Geben Sie im Konfigurationsfenster für die Integration Ihren Braze-REST-API-Schlüssel und den REST-Endpunkt an. Stellen Sie sicher, dass der von Ihnen angegebene Endpunkt nicht `https://` enthält, zum Beispiel `dashboard-03.braze.com`.
 
 ![ViralSweep-Seite zur Dienstintegration, die Nutzer:innen zur Eingabe des Braze-API-Schlüssels und der Braze-Dashboard-URL auffordert.]({% image_buster /assets/img/viralsweep/connect2.png %}){: style="max-width:40%;"}
 

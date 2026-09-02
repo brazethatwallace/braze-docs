@@ -173,7 +173,7 @@ Das Antwortformat hängt vom Typ der In-App-Nachricht ab. Umfrage-In-App-Nachric
 ```
 
 {% endtab %}
-{% tab Kurzmitteilungsdienst or SMS %}
+{% tab SMS %}
 
 ```json
 {
@@ -304,7 +304,7 @@ Das Array `conversion_behaviors` enthält Informationen zu jedem für die Kampag
 
 
 {% endtab %}
-{% tab App-Upgrade or upgraden %}
+{% tab App-Upgrade %}
 
 ```json
 {

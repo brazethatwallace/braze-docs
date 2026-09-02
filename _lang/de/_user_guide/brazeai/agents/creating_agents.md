@@ -15,22 +15,22 @@ alias: /creating-agents/
 Bevor Sie beginnen, benötigen Sie Folgendes:
 
 - [Berechtigung]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions) für den Zugriff auf die **Agent Console** in Ihrem Workspace. Wenden Sie sich an Ihre Braze-Admins, wenn Sie diese Option nicht sehen.
-- Berechtigung zum Erstellen und Bearbeiten angepasster KI or künstliche Intelligenz-Agents.
+- Berechtigung zum Erstellen und Bearbeiten angepasster KI-Agents.
 - Eine Idee, was der Agent erreichen soll. Braze Agents können die folgenden Aktionen unterstützen:
    - **Personalisiertes Messaging:** Betreffzeilen, Überschriften, In-Product-Texte oder andere Inhalte generieren.
    - **Nutzer:innen-Routing:** Nutzer:innen in Canvas basierend auf Verhalten, Präferenzen oder angepassten Attributen weiterleiten.
-   - **Datenmanagement:** Werte berechnen, Katalogeinträge anreichern oder Profilfelder Update or aktualisieren or aktualisieren.
+   - **Datenmanagement:** Werte berechnen, Katalogeinträge anreichern oder Profilfelder aktualisieren.
 
 ## So funktioniert es {#how-it-works}
 
-Wenn Sie einen Agenten erstellen, definieren Sie seinen Zweck und legen Leitplanken für sein Verhalten fest. Sobald er aktiv ist, kann der Agent in Braze eingesetzt werden, um personalisierte Texte zu generieren, Realtime-Entscheidungen zu treffen oder Katalogfelder zu Update or aktualisieren or aktualisieren. Während Sie Ihren Agenten erstellen, können Sie ihn als Entwurf speichern und jederzeit über das Dashboard pausieren oder Update or aktualisieren or aktualisieren. Jedes Speichern erstellt eine neue Version, die Sie im Tab [Versionsverlauf]({{site.baseurl}}/user_guide/brazeai/agents/reference#version-history) überprüfen können.
+Wenn Sie einen Agenten erstellen, definieren Sie seinen Zweck und legen Leitplanken für sein Verhalten fest. Sobald er aktiv ist, kann der Agent in Braze eingesetzt werden, um personalisierte Texte zu generieren, Realtime-Entscheidungen zu treffen oder Katalogfelder zu aktualisieren. Während Sie Ihren Agenten erstellen, können Sie ihn als Entwurf speichern und jederzeit über das Dashboard pausieren oder aktualisieren. Jedes Speichern erstellt eine neue Version, die Sie im Tab [Versionsverlauf]({{site.baseurl}}/user_guide/brazeai/agents/reference#version-history) überprüfen können.
 
 Die folgenden Anwendungsfälle zeigen einige Möglichkeiten, angepasste Agenten zu nutzen.
 
 | Anwendungsfall | Beschreibung |
 | --- | --- |
 | Kundenfeedback bearbeiten | Leiten Sie Nutzerfeedback an einen Agenten weiter, um die Stimmung zu analysieren und empathische Folgenachrichten zu generieren. Bei besonders wertvollen Nutzer:innen kann der Agent die Antwort eskalieren oder Vergünstigungen einbinden. |
-| Inhalte lokalisieren | Übersetzen Sie Katalogtexte in eine andere Sprache für globale Campaigns oder passen Sie Tonalität und Länge für regionsspezifische Kanäle an. Übersetzen Sie zum Beispiel „Classic Clubmaster Sunglasses“ ins Spanische als „Gafas de sol Classic Clubmaster“ oder kürzen Sie Beschreibungen für Kurzmitteilungsdienst or SMS-Campaigns. |
+| Inhalte lokalisieren | Übersetzen Sie Katalogtexte in eine andere Sprache für globale Campaigns oder passen Sie Tonalität und Länge für regionsspezifische Kanäle an. Übersetzen Sie zum Beispiel „Classic Clubmaster Sunglasses“ ins Spanische als „Gafas de sol Classic Clubmaster“ oder kürzen Sie Beschreibungen für SMS-Campaigns. |
 | Bewertungen oder Feedback zusammenfassen | Fassen Sie Stimmungen oder Feedback in einem neuen Feld zusammen, z. B. durch die Vergabe von Stimmungswerten wie „Positiv“, „Neutral“ oder „Negativ“, oder erstellen Sie eine kurze Textzusammenfassung wie „Die meisten Kund:innen loben die gute Passform, bemängeln aber den langsamen Versand.“ |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="So funktioniert es" }
 
@@ -60,7 +60,7 @@ Richten Sie als Nächstes die Details für Ihren Agenten ein:
 2. (optional) Fügen Sie Tags hinzu, um Ihren Agenten zu filtern.
 3. Wählen Sie das [Modell]({{site.baseurl}}/user_guide/brazeai/agents/reference#models), das Ihr Agent verwenden soll.
 4. Wenn Sie nicht das Modell **Braze Auto** verwenden, wählen Sie die [Denkstufe]({{site.baseurl}}/user_guide/brazeai/agents/reference#thinking-levels) des Modells. Sie können zwischen Minimal, Niedrig, Mittel oder Hoch wählen. Wir empfehlen, mit **Minimal** zu beginnen und die Antworten Ihres Agenten zu testen und diese Einstellung bei Bedarf anzupassen.
-5. Legen Sie ein tägliches Aufruf-Limit fest. Standardmäßig ist dieser Wert auf 250.000 eingestellt, kann aber auf 1.000.000 erhöht werden. Wenn Sie das Limit über 1.000.000 hinaus erhöhen möchten, wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in, um mehr zu erfahren. Setzen Sie das Limit nach dem Testen hoch genug für Ihre geplante Zielgruppengröße. Ein zu niedriges Limit verursacht Tageslimit-Fehler (die keine Credits verbrauchen, aber Fallback-Werte anwenden oder die Ausgabe auf `null` belassen).
+5. Legen Sie ein tägliches Aufruf-Limit fest. Standardmäßig ist dieser Wert auf 250.000 eingestellt, kann aber auf 1.000.000 erhöht werden. Wenn Sie das Limit über 1.000.000 hinaus erhöhen möchten, wenden Sie sich an Ihren CSM, um mehr zu erfahren. Setzen Sie das Limit nach dem Testen hoch genug für Ihre geplante Zielgruppengröße. Ein zu niedriges Limit verursacht Tageslimit-Fehler (die keine Credits verbrauchen, aber Fallback-Werte anwenden oder die Ausgabe auf `null` belassen).
 
 Das Feld **Daily action credit cost limit** gibt die maximale Anzahl an Credits an, die dieser Agent pro Tag verbrauchen kann. Braze berechnet diesen Wert aus dem Pro-Aufruf-Credit-Verhältnis Ihres Workspace für das ausgewählte Modell (aus Ihrem Vertrag, angezeigt auf der Seite [Credit Ratios]({{site.baseurl}}/user_guide/administer/global/billing/credits_usage)), multipliziert mit dem täglichen Aufruf-Limit. Die Schätzung wird aktualisiert, wenn Sie das Modell oder das Aufruf-Limit ändern.
 
@@ -87,7 +87,7 @@ Wählen Sie **+ Agent context**, um auszuwählen, worauf Ihr Agent zugreifen kan
 - [Katalogfelder]({{site.baseurl}}/user_guide/brazeai/agents/reference#catalogs-and-fields): Geben Sie dem Agenten Zugriff auf Ihre Katalogdaten für genauere Antworten.
 - [Wissensquellen]({{site.baseurl}}/user_guide/brazeai/agents/knowledge_sources): Geben Sie dem Agenten Zugriff auf Katalogdaten über eine Wissensquelle für genaueres Abrufen als beim direkten Anhängen eines Katalogs.
 - [Segment-Zugehörigkeit]({{site.baseurl}}/user_guide/brazeai/agents/reference#segment-membership-context): Lassen Sie den Agenten Antworten basierend darauf personalisieren, zu welchen Segmenten eine Nutzer:in gehört. Sie können bis zu fünf Segmente auswählen.
-- [Markenrichtlinien]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines): Referenzieren Sie die Markenstimme und Stilrichtlinien, denen der Agent folgen soll. Wenn Ihr Agent beispielsweise Kurzmitteilungsdienst or SMS-Texte generieren soll, die Nutzer:innen dazu ermutigen, sich für eine Fitnessstudio-Mitgliedschaft anzumelden, können Sie dieses Feld verwenden, um auf Ihre vordefinierten, motivierenden Richtlinien zu verweisen.
+- [Markenrichtlinien]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines): Referenzieren Sie die Markenstimme und Stilrichtlinien, denen der Agent folgen soll. Wenn Ihr Agent beispielsweise SMS-Texte generieren soll, die Nutzer:innen dazu ermutigen, sich für eine Fitnessstudio-Mitgliedschaft anzumelden, können Sie dieses Feld verwenden, um auf Ihre vordefinierten, motivierenden Richtlinien zu verweisen.
 - [Gesamter Canvas-Kontext]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables): Analysieren Sie alle Canvas-Kontextdaten für eine Nutzer:in, wenn dieser Agent aufgerufen wird, einschließlich aller Variablen, die nicht im Abschnitt **Instructions** referenziert werden.
 - [Nutzerinteraktionsdaten]({{site.baseurl}}/user_guide/brazeai/agents/reference#user-history): Stellen Sie dem Agenten die aktuellen Campaign- und Canvas-Öffnungen, Klicks und Konversionsdaten jeder Nutzer:in zur Verfügung.
 
@@ -130,7 +130,7 @@ Informationen zum Laufzeitverhalten finden Sie unter [Fehlerbehandlung und Fallb
 
 ### Schritt 6: Den Agenten testen {#step-6-test-the-agent}
 
-Der Bereich **Preview** ist eine Instanz des Agenten, die als nebeneinander liegendes Panel innerhalb der Konfigurationsoberfläche angezeigt wird. Sie können diesen Bereich nutzen, um den Agenten zu testen, während Sie ihn erstellen oder Update or aktualisieren or aktualisieren, und ihn auf ähnliche Weise wie Endnutzer:innen zu erleben. Dieser Schritt hilft Ihnen zu bestätigen, dass er sich wie erwartet verhält, und gibt Ihnen die Möglichkeit, vor der Aktivierung Feinabstimmungen vorzunehmen.
+Der Bereich **Preview** ist eine Instanz des Agenten, die als nebeneinander liegendes Panel innerhalb der Konfigurationsoberfläche angezeigt wird. Sie können diesen Bereich nutzen, um den Agenten zu testen, während Sie ihn erstellen oder aktualisieren, und ihn auf ähnliche Weise wie Endnutzer:innen zu erleben. Dieser Schritt hilft Ihnen zu bestätigen, dass er sich wie erwartet verhält, und gibt Ihnen die Möglichkeit, vor der Aktivierung Feinabstimmungen vorzunehmen.
 
 1. Geben Sie im Feld **Test your agent** Beispiel-Kundendaten oder Kundenantworten ein – alles, was reale Szenarien widerspiegelt, die Ihr Agent bearbeiten wird.
 2. Zeigen Sie die Antwort des Agenten für eine zufällige Nutzer:in, eine bestehende Nutzer:in oder eine benutzerdefinierte Nutzer:in in der Vorschau an.
@@ -148,7 +148,7 @@ Testläufe werden auf Ihr tägliches Aufruf-Limit angerechnet.
 - Leitet die Entscheidungslogik Kund:innen wie beabsichtigt weiter?
 - Sind die berechneten Werte korrekt?
 
-Wenn etwas nicht stimmt, Update or aktualisieren or aktualisieren Sie die Konfiguration des Agenten und testen Sie erneut. Führen Sie verschiedene Eingaben durch, um zu sehen, wie sich der Agent über verschiedene Szenarien hinweg anpasst, insbesondere bei Grenzfällen wie fehlenden Daten oder ungültigen Antworten.
+Wenn etwas nicht stimmt, aktualisieren Sie die Konfiguration des Agenten und testen Sie erneut. Führen Sie verschiedene Eingaben durch, um zu sehen, wie sich der Agent über verschiedene Szenarien hinweg anpasst, insbesondere bei Grenzfällen wie fehlenden Daten oder ungültigen Antworten.
 
 {% alert tip %}
 Vermeiden Sie es, dem Agenten genau zu sagen, was er *nicht* tun soll. LLMs können diesen Inhalt trotzdem generieren, wenn Sie ihn in den Anweisungen erwähnen.
@@ -184,4 +184,4 @@ Operator kann Anweisungen, Ausgabefelder und Kontext für die folgenden Startvor
 
 - [Referenz für Agents]({{site.baseurl}}/user_guide/brazeai/agents/reference)
 - [Häufig gestellte Fragen]({{site.baseurl}}/user_guide/brazeai/agents/faq)
-- [Braze-Webinar über KI or künstliche Intelligenz in Aktion: 3 neue Anwendungsfälle für 1:1-Personalisierung](https://www.braze.com/resources/webinars-and-events/ai-in-action-use-cases)
+- [Braze-Webinar über KI in Aktion: 3 neue Anwendungsfälle für 1:1-Personalisierung](https://www.braze.com/resources/webinars-and-events/ai-in-action-use-cases)

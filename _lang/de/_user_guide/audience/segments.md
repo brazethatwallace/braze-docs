@@ -64,7 +64,7 @@ Sehen Sie sich die folgenden Anwendungsfälle an, um einen kleinen Einblick zu e
 
 - **Willkommensnachrichten:** Segmentieren Sie neue Nutzer:innen, um Onboarding-E-Mails oder In-App-Nachrichten zu senden, die sie in Ihre App einführen.
 - **Loyalty-Rewards:** Segmentieren Sie Nutzer:innen basierend auf ihrer Kaufhäufigkeit, ihrem Mitgliedschaftsjubiläum oder anderen Meilensteinen und senden Sie exklusive Angebote oder Rewards an Ihre treuesten Nutzer:innen.
-- **Verhaltensbasierte Trigger or triggern:** Segmentieren Sie Nutzer:innen basierend auf ihren Aktionen, wie z. B. dem Abbruch eines Warenkorbs beim Checkout, um In-App-Nachrichten oder Push-Benachrichtigungen auszulösen.
+- **Verhaltensbasierte Trigger:** Segmentieren Sie Nutzer:innen basierend auf ihren Aktionen, wie z. B. dem Abbruch eines Warenkorbs beim Checkout, um In-App-Nachrichten oder Push-Benachrichtigungen auszulösen.
 - **Artikelempfehlungen:** Segmentieren Sie Nutzer:innen, die bestimmte Produkte gekauft haben, und senden Sie ihnen Empfehlungen für ergänzende oder höherwertige Produkte.
 - **A/B-Tests:** Segmentieren Sie Nutzer:innen für A/B-Tests verschiedener Nachrichten, Betreffzeilen oder Inhalte, um herauszufinden, was bei Nutzer:innen bestimmter Altersgruppen, Geschlechter und anderer Attribute am besten ankommt.
 
@@ -75,5 +75,5 @@ Sie können Ihre Segmente weiter verfeinern, indem Sie [Segmenterweiterungen]({{
 - **Historische Käufe:** Segmentieren Sie Nutzer:innen danach, ob sie eine bestimmte Farbe eines bestimmten Produkts in den letzten zwei Jahren mindestens zweimal gekauft haben.
 - **Events und Nachrichteninteraktionen:** Segmentieren Sie Nutzer:innen danach, ob sie in den letzten dreißig Tagen einen Kauf getätigt und außerdem mit einer bestimmten In-App-Nachricht interagiert haben.
 - **Daten abfragen:**
-  - **Snowflake abfragen:** Segmentieren Sie Nutzer:innen mit Daten, die aus Braze und externen Quellen wie einem CRM or Customer-Relationship-Management [-System] (CRM) oder einem Data Warehouse kombiniert werden, indem Sie [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) verwenden, um Snowflake abzufragen.
+  - **Snowflake abfragen:** Segmentieren Sie Nutzer:innen mit Daten, die aus Braze und externen Quellen wie einem CRM oder einem Data Warehouse kombiniert werden, indem Sie [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) verwenden, um Snowflake abzufragen.
   - **Aus Data Warehouse synchronisieren:** Segmentieren Sie Nutzer:innen mit Daten, die direkt aus Ihrem Data Warehouse oder Dateispeichersystem mit Braze synchronisiert werden, indem Sie [CDI-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments) verwenden.

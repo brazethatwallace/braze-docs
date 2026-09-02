@@ -17,7 +17,7 @@ Sie können pro Unternehmen nur eine SCIM-Integration einrichten. Wenn Sie eine 
 {% if include.alert == 'idp_integration' %}
 
 {% alert important %}
-Die {{ include.idp }}-Integration erstellt und löscht nur Nutzer:innenkonten. Sie legt keine Berechtigungen fest und weist Nutzer:innen keinen bestimmten Workspaces zu. Nachdem Nutzer:innen über {{ include.idp }} bereitgestellt wurden, müssen Sie deren Rollen und Berechtigungen manuell im Braze-Dashboard Update or aktualisieren or aktualisieren. Darüber hinaus können Sie die angepassten SCIM-API-Endpunkte nicht verwenden, wenn Sie die {{ include.idp }}-Integration nutzen. Pro Unternehmen kann nur eine SCIM-Bridge eingerichtet werden.
+Die {{ include.idp }}-Integration erstellt und löscht nur Nutzer:innenkonten. Sie legt keine Berechtigungen fest und weist Nutzer:innen keinen bestimmten Workspaces zu. Nachdem Nutzer:innen über {{ include.idp }} bereitgestellt wurden, müssen Sie deren Rollen und Berechtigungen manuell im Braze-Dashboard aktualisieren. Darüber hinaus können Sie die angepassten SCIM-API-Endpunkte nicht verwenden, wenn Sie die {{ include.idp }}-Integration nutzen. Pro Unternehmen kann nur eine SCIM-Bridge eingerichtet werden.
 {% endalert %}
 
 {% endif %}

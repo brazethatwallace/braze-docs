@@ -20,23 +20,23 @@ Dieses Tutorial führt Sie durch den Prozess, den Jordan durchlaufen hat:
 
 ## Schritt 1: Ein Prognosemodell für Upgrades erstellen {#step-1-create-a-predictive-model-for-upgrades}
 
-Jordan beginnt damit, das für seine Upgrade or upgraden-Strategie wichtigste Ergebnis zu definieren: Nutzer:innen, die von der kostenlosen Version zur Pro-Version wechseln. Anstatt sich auf allgemeine Auslöser wie „Zeit seit der Anmeldung“ zu verlassen, möchte er prognostizieren, welche Nutzer:innen tatsächlich wahrscheinlich konvertieren werden. Auf diese Weise kann sein Team auf echte Signale reagieren und nicht nur auf Annahmen.
+Jordan beginnt damit, das für seine Upgrade-Strategie wichtigste Ergebnis zu definieren: Nutzer:innen, die von der kostenlosen Version zur Pro-Version wechseln. Anstatt sich auf allgemeine Auslöser wie „Zeit seit der Anmeldung“ zu verlassen, möchte er prognostizieren, welche Nutzer:innen tatsächlich wahrscheinlich konvertieren werden. Auf diese Weise kann sein Team auf echte Signale reagieren und nicht nur auf Annahmen.
 
 1. Im Braze-Dashboard navigiert Jordan zu **Analytics** > **Predictive Events**.
-2. Er [erstellt eine neue Event-Prognose]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/creating_an_event_prediction) und benennt sie „Upgrade or upgraden auf Pro in 7 Tagen“.
+2. Er [erstellt eine neue Event-Prognose]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/creating_an_event_prediction) und benennt sie „Upgrade auf Pro in 7 Tagen“.
 3. Als Ziel-Event wählt er sein angepasstes Event aus: `upgraded_to_pro`.
-4. Jordan legt das Prognosefenster auf 7 Tage fest, erstellt einen Update or aktualisieren-Zeitplan und erstellt die Prognose.
+4. Jordan legt das Prognosefenster auf 7 Tage fest, erstellt einen Update-Zeitplan und erstellt die Prognose.
 
 ![Prognoseeinstellungen mit der Definition, dem Fenster, der Zielgruppe und dem Update-Zeitplan für die Prognose.]({% image_buster /assets/img/ai_use_cases/prediction_settings.png %})
 
-## Schritt 2: Nutzer:innen anhand der Upgrade or upgraden-Wahrscheinlichkeit segmentieren {#step-2-segment-users-based-on-upgrade-probability}
+## Schritt 2: Nutzer:innen anhand der Upgrade-Wahrscheinlichkeit segmentieren {#step-2-segment-users-based-on-upgrade-probability}
 
 Nach Abschluss des Trainings weist Braze jeder berechtigten Nutzer:in einen [Event Likelihood Score]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/analytics#purchase_score) (0–100) zu. Jordan nutzt diesen Score, um umsetzbare Segmente zu erstellen – eines für Nutzer:innen mit hoher Kaufabsicht, die möglicherweise keinen Rabatt benötigen, und ein weiteres für Nutzer:innen, die ohne Unterstützung wahrscheinlich nicht konvertieren werden.
 
 1. Jordan navigiert zu Segments in Braze.
 2. Er erstellt zwei [Segmente]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) mithilfe des [Filters „Event Likelihood Score“]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#event-likelihood-score) und wählt die von ihm erstellte Prognose aus. Die beiden Segmente sind:
-  - **Wahrscheinliches Upgrade or upgraden:** Score mehr als 70
-  - **Braucht Anstoß zum Upgrade or upgraden:** Score mehr als 40 und weniger als 70
+  - **Wahrscheinliches Upgrade:** Score mehr als 70
+  - **Braucht Anstoß zum Upgrade:** Score mehr als 40 und weniger als 70
 
 {% alert tip %}
 Prädiktive Filter können mit beliebigen anderen Attributen oder Verhaltensweisen von Nutzer:innen kombiniert werden. Jordan plant, diese Segmente auf Grundlage der Nutzerinteressen weiter zu verfeinern – beispielsweise durch die Priorisierung von Nutzer:innen, die häufig Fitness-Tracking-Features verwenden. Dadurch erhält er vier Untergruppen, die er gezielter ansprechen kann, sodass Inhalte und Messaging auf die Bedürfnisse jeder Nutzer:in abgestimmt werden können.
@@ -46,7 +46,7 @@ Prädiktive Filter können mit beliebigen anderen Attributen oder Verhaltensweis
 
 ## Schritt 3: Messaging nach Absichtsstufe personalisieren {#step-3-personalize-messaging-by-intent-level}
 
-Da Jordan nun eindeutige Signale für die Upgrade or upgraden-Absicht hat und die Untergruppen auf der Grundlage des Nutzerverhaltens verfeinert hat, entwickelt er eine Messaging-Strategie, die sich an die Bedürfnisse jeder Nutzer:in anpasst. Keine pauschalen Nachrichten mehr.
+Da Jordan nun eindeutige Signale für die Upgrade-Absicht hat und die Untergruppen auf der Grundlage des Nutzerverhaltens verfeinert hat, entwickelt er eine Messaging-Strategie, die sich an die Bedürfnisse jeder Nutzer:in anpasst. Keine pauschalen Nachrichten mehr.
 
 Er wählt E-Mail als primären Kanal für diese Campaign. Warum? Weil Jordan den Wert von Pro für Nutzer:innen mit hoher Kaufabsicht erläutern und überzeugende Argumente für eher zögerliche Nutzer:innen liefern möchte – für beides sind Platz, visuelle Elemente und ein aussagekräftiger CTA erforderlich. E-Mails bieten ihm die Flexibilität, dies effektiv zu tun, ohne die Nutzer:innen unter Druck zu setzen, und ermöglichen es ihm, die Performance anhand des Klickverhaltens zu verfolgen.
 
@@ -59,7 +59,7 @@ Jordan [erstellt ein Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create
 
 ![Canvas-Zielgruppenpfad mit vier Pfaden für jeden Absichtstyp.]({% image_buster /assets/img/ai_use_cases/canvas_paths_by_intent.png %})
 
-Er legt außerdem das Canvas-Konversions-Event als angepasstes Event `upgraded_to_pro` fest, sodass Braze die Upgrade or upgraden-Conversions automatisch verfolgt, während die Nutzer:innen den Ablauf durchlaufen.
+Er legt außerdem das Canvas-Konversions-Event als angepasstes Event `upgraded_to_pro` fest, sodass Braze die Upgrade-Conversions automatisch verfolgt, während die Nutzer:innen den Ablauf durchlaufen.
 
 ### Beispielnachrichten pro Pfad {#example-messages-per-path}
 
@@ -75,7 +75,7 @@ Diese Nutzer:innen sind bereits aktiv und nutzen die Fitness-Tracking-Features i
 
 {% endtab %}
 {% tab High intent, other %}
-Diese Nutzer:innen zeigen deutliche Anzeichen für ein starkes Engagement – beispielsweise durch das Durchsuchen der Pro-Features oder häufige App-Aktivitäten –, konzentrieren sich jedoch nicht speziell auf das Fitness-Tracking. Die Nachricht hebt die umfassenderen Vorteile von Pro hervor, wie Coaching und Personalisierung, um sie zum Upgrade or upgraden zu bewegen.
+Diese Nutzer:innen zeigen deutliche Anzeichen für ein starkes Engagement – beispielsweise durch das Durchsuchen der Pro-Features oder häufige App-Aktivitäten –, konzentrieren sich jedoch nicht speziell auf das Fitness-Tracking. Die Nachricht hebt die umfassenderen Vorteile von Pro hervor, wie Coaching und Personalisierung, um sie zum Upgrade zu bewegen.
 
 - **Betreffzeile:** Sie sind fast am Ziel – Pro ist bereit, wenn Sie es sind
 - **Überschrift:** Entdecken Sie weitere Möglichkeiten, sich zu bewegen
@@ -84,10 +84,10 @@ Diese Nutzer:innen zeigen deutliche Anzeichen für ein starkes Engagement – be
 
 {% endtab %}
 {% tab Low intent, fitness %}
-Diese Nutzer:innen beschäftigen sich gelegentlich mit Fitness-Features, haben jedoch noch keine Schritte in Richtung Upgrade or upgraden unternommen. Die Nachricht spricht ihr Interesse an Fitness an und reduziert gleichzeitig die Hemmschwelle durch ein zeitlich begrenztes Angebot – so wird Pro zu einer risikoarmen Möglichkeit, ihre Routine zu verbessern.
+Diese Nutzer:innen beschäftigen sich gelegentlich mit Fitness-Features, haben jedoch noch keine Schritte in Richtung Upgrade unternommen. Die Nachricht spricht ihr Interesse an Fitness an und reduziert gleichzeitig die Hemmschwelle durch ein zeitlich begrenztes Angebot – so wird Pro zu einer risikoarmen Möglichkeit, ihre Routine zu verbessern.
 
 - **Betreffzeile:** Bereit, intelligenter zu trainieren? Testen Sie Pro mit 50 % Rabatt
-- **Überschrift:** Ihr Workout-Upgrade or upgraden wartet auf Sie
+- **Überschrift:** Ihr Workout-Upgrade wartet auf Sie
 - **Text:** Pro bietet Ihnen alles, was Sie für einen erfolgreichen Start benötigen – leicht verständliche Trainingspläne, Expertentipps und zuverlässiges Fortschritts-Tracking. Testen Sie es jetzt mit 50 % Rabatt und kündigen Sie jederzeit.
 - **CTA:** 50 % Rabatt auf Pro sichern
 
@@ -106,7 +106,7 @@ Diese Nutzer:innen zeigen insgesamt nur ein geringes Engagement. Ohne einen übe
 
 ## Schritt 4: Ergebnisse messen und Strategie optimieren {#step-4-measure-results-and-optimize-your-strategy}
 
-Nach Abschluss der Campaign überprüft Jordan die Performance in [Canvas Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics), um zu ermitteln, wie erfolgreich die personalisierten Pfade waren – und ob die Kombination aus prädiktiver Absicht und Verhaltenssignalen die Upgrade or upgraden-Raten verbessert hat.
+Nach Abschluss der Campaign überprüft Jordan die Performance in [Canvas Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics), um zu ermitteln, wie erfolgreich die personalisierten Pfade waren – und ob die Kombination aus prädiktiver Absicht und Verhaltenssignalen die Upgrade-Raten verbessert hat.
 
 E-Mail-Performance nach Pfad:
 

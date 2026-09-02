@@ -21,7 +21,7 @@ Esta función está actualmente en fase beta. Para más información, ponte en c
 | ----------- | ----------- |
 | Cuenta de Treasure Data | Se necesita una cuenta de [Treasure Data](https://www.treasuredata.com/) para aprovechar esta integración. |
 | Clave de importación de datos de Braze | Se puede obtener en el panel de Braze desde **Integraciones de socios** > **Socios tecnológicos** y luego seleccionando **Treasure Data**. |
-| Punto de conexión REST or transferencia de estado representacional de Braze | [La URL de tu punto de conexión REST or transferencia de estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze de tu instancia. |
+| Punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze de tu instancia. |
 | Dirección IP estática de Treasure Data | La dirección IP estática de Treasure Data es el punto de acceso y la fuente del enlace para esta integración. Para determinar la dirección IP estática, ponte en contacto con tu representante de éxito del cliente de Treasure Data o con el soporte técnico de Treasure Data. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
@@ -29,7 +29,7 @@ Esta función está actualmente en fase beta. Para más información, ponte en c
 
 ### Paso 1: Obtén tu clave de importación de datos de Braze {#step-1-get-your-braze-data-import-key}
 
-En Braze, ve a **Integraciones de socios** > **Socios tecnológicos** y selecciona **Treasure Data**. Aquí encontrarás tu punto de conexión REST or transferencia de estado representacional y podrás generar tu clave de importación de datos de Braze. Una vez generada la clave, puedes crear una nueva o invalidar una existente.
+En Braze, ve a **Integraciones de socios** > **Socios tecnológicos** y selecciona **Treasure Data**. Aquí encontrarás tu punto de conexión REST y podrás generar tu clave de importación de datos de Braze. Una vez generada la clave, puedes crear una nueva o invalidar una existente.
 
 ### Paso 2: Crea una conexión de datos {#step-2-create-a-data-connection}
 

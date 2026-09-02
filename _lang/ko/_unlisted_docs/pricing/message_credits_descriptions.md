@@ -17,8 +17,8 @@ hide_toc: true
 ## 목차 {#table-of-contents}
 
 - [이메일 채널 세부 정보](#email-channel-details)
-- [단문 메시지 서비스, MMS, RCS 채널 세부 정보](#sms-mms-and-rcs-channel-details)
-  - [단문 메시지 서비스 세그먼트](#sms-segments)
+- [SMS, MMS, RCS 채널 세부 정보](#sms-mms-and-rcs-channel-details)
+  - [SMS 세그먼트](#sms-segments)
   - [MMS 메시지](#mms-messages)
   - [RCS 유형](#rcs-types)
 - [WhatsApp 채널 세부 정보](#whatsapp-channel-details)
@@ -41,17 +41,17 @@ hide_toc: true
 이메일 채널에 대해 더 알아보려면 [이메일 설명서]({{site.baseurl}}/user_guide/channels/email)를 참조하세요.
 {% endalert %}
 
-## 단문 메시지 서비스, MMS, RCS 채널 세부 정보 {#sms-mms-and-rcs-channel-details}
+## SMS, MMS, RCS 채널 세부 정보 {#sms-mms-and-rcs-channel-details}
 
-단문 메시지 서비스 및 MMS 크레딧 비율은 Braze 플랫폼에서 발송된 메시지 세그먼트 단위로 산정됩니다. RCS 크레딧 비율은 Braze 플랫폼에서 전달된 Basic 및 Rich Media 유형 또는 Single 및 Rich Media 유형 단위로 산정됩니다. 인바운드와 아웃바운드 유형 모두 과금 대상입니다.
+SMS 및 MMS 크레딧 비율은 Braze 플랫폼에서 발송된 메시지 세그먼트 단위로 산정됩니다. RCS 크레딧 비율은 Braze 플랫폼에서 전달된 Basic 및 Rich Media 유형 또는 Single 및 Rich Media 유형 단위로 산정됩니다. 인바운드와 아웃바운드 유형 모두 과금 대상입니다.
 
 {% alert note %}
 해당 채널에 적용되는 경우, 이동통신사 수수료는 별도로(후불로) 청구되며 Action Credits의 일부로 간주되지 않습니다.
 {% endalert %}
 
-### 단문 메시지 서비스 메시지 세그먼트 {#sms-segments}
+### SMS 메시지 세그먼트 {#sms-segments}
 
-단문 메시지 서비스 업계에서는 메시지를 단문 메시지 서비스 메시지 세그먼트 단위로 계산합니다. 메시지 세그먼트는 단일 단문 메시지 서비스 발송으로 전송되는 정의된 최대 글자 수(GSM-7 인코딩의 경우 160자, UCS-2 인코딩의 경우 67자)로 구성된 그룹입니다. GSM-7 인코딩을 사용하여 161자의 단문 메시지 서비스를 발송하면 두(2)개의 메시지 세그먼트가 전송됩니다. 여러 메시지 세그먼트를 전송하면 추가 요금이 발생합니다.
+SMS 업계에서는 메시지를 SMS 메시지 세그먼트 단위로 계산합니다. 메시지 세그먼트는 단일 SMS 발송으로 전송되는 정의된 최대 글자 수(GSM-7 인코딩의 경우 160자, UCS-2 인코딩의 경우 67자)로 구성된 그룹입니다. GSM-7 인코딩을 사용하여 161자의 SMS를 발송하면 두(2)개의 메시지 세그먼트가 전송됩니다. 여러 메시지 세그먼트를 전송하면 추가 요금이 발생합니다.
 
 ### MMS 메시지 {#mms-messages}
 
@@ -59,12 +59,12 @@ MMS의 경우 메시지 제한은 5MB입니다(멀티미디어 에셋과 메시�
 
 ### RCS 유형 {#rcs-types}
 
-RCS는 단문 메시지 서비스와 MMS의 차세대 버전입니다. 단문 메시지 서비스처럼 직접적이고 높은 인게이지먼트를 제공하는 채널의 장점과 함께, 현대 소비자가 기대하는 리치 콘텐츠(이미지, 비디오, 문서), 인증 및 브랜드 발신, 추천 답장과 액션 등의 인터랙티브 기능 등 더욱 풍부한 기능을 제공합니다.
+RCS는 SMS와 MMS의 차세대 버전입니다. SMS처럼 직접적이고 높은 인게이지먼트를 제공하는 채널의 장점과 함께, 현대 소비자가 기대하는 리치 콘텐츠(이미지, 비디오, 문서), 인증 및 브랜드 발신, 추천 답장과 액션 등의 인터랙티브 기능 등 더욱 풍부한 기능을 제공합니다.
 
 {% multi_lang_include pricing/rcs_billing_message_types.md %}
 
 {% alert note %}
-단문 메시지 서비스 제품군 오퍼링에 대해 자세히 알아보려면 [단문 메시지 서비스 및 MMS 설명서]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs)를 참조하세요.
+SMS 제품군 오퍼링에 대해 자세히 알아보려면 [SMS 및 MMS 설명서]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs)를 참조하세요.
 {% endalert %}
 
 ## WhatsApp 채널 세부 정보 {#whatsapp-channel-details}
@@ -162,7 +162,7 @@ Canvas 오디언스 싱크 및 사용 가능한 파트너에 대해 자세히 �
 
 ### 메시지 보관 {#message-archiving}
 
-메시지 보관 크레딧 비율은 푸시, 이메일, 단문 메시지 서비스/MMS 채널 전체에서 보관된 메시지 1,000건 단위로 산정됩니다.
+메시지 보관 크레딧 비율은 푸시, 이메일, SMS/MMS 채널 전체에서 보관된 메시지 1,000건 단위로 산정됩니다.
 
 {% alert note %}
 메시지 보관에 대해 자세히 알아보려면 [메시지 보관 설명서]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/message_archiving)를 참고하세요.

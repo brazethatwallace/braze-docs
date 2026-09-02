@@ -23,6 +23,6 @@ L'option de filtre pour les endpoints GET de liste de Canvas et de Campaigns per
 
 Mise à jour de la [documentation de storage connect]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#content-card-click-events) pour refléter les nouveaux champs `ad-id` (ID de l'annonceur) dans Currents.
 
-## Fonctionnalité CCI or carte de contenu de type bannière {#bcc-functionality}
+## Fonctionnalité CCI {#bcc-functionality}
 
-Le [paramètre Adresse CCI or carte de contenu de type bannière]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences) vous permet d'ajouter et de gérer les adresses CCI or carte de contenu de type bannière qui peuvent être ajoutées aux e-mails sortants envoyés depuis Braze.
+Le [paramètre Adresse CCI]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences) vous permet d'ajouter et de gérer les adresses CCI qui peuvent être ajoutées aux e-mails sortants envoyés depuis Braze.

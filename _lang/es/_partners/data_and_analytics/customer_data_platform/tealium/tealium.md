@@ -11,13 +11,13 @@ search_tag: Partner
 
 # Tealium
 
-> [Tealium](https://tealium.com/) es un centro de datos universal y una CDP or plataforma de datos de los clientes or plataforma de datos de los clientes compuesta por EventStream, AudienceStream e iQ Tag Management que te permite conectar datos móviles, web y alternativos de fuentes de terceros. La conexión de Tealium con Braze permite un flujo de datos de eventos personalizados, atributos de usuario y compras que te permiten actuar sobre tus datos en tiempo real.
+> [Tealium](https://tealium.com/) es un centro de datos universal y una CDP compuesta por EventStream, AudienceStream e iQ Tag Management que te permite conectar datos móviles, web y alternativos de fuentes de terceros. La conexión de Tealium con Braze permite un flujo de datos de eventos personalizados, atributos de usuario y compras que te permiten actuar sobre tus datos en tiempo real.
 
 ![Un gráfico resumen de Tealium que muestra cómo encajan los distintos productos de Tealium y la plataforma Braze para activar campañas multicanal en tiempo real.]({% image_buster /assets/img/tealium/tealium_overview.png %}){: style="border:0;"}
 
 La integración de Braze y Tealium te permite realizar un seguimiento de tus usuarios y enviar datos a varios proveedores de análisis de usuarios. Tealium te permite:
 - Sincronizar las audiencias de Tealium con [AudienceStream]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_audience_stream) a Braze para utilizarlas en la personalización de Campaigns y Canvas de Braze o en la creación de segmentos.
-- [Importar datos entre plataformas](#choose-your-integration-type). Braze ofrece tanto una integración [en paralelo](#side-by-side-sdk-integration) de SDK or kit de desarrollo de software para tus aplicaciones Android, iOS y web, como una integración [de servidor a servidor](#server-to-server-integration) que puede utilizarse en cualquier plataforma que pueda informar de datos de eventos.<br><br>
+- [Importar datos entre plataformas](#choose-your-integration-type). Braze ofrece tanto una integración [en paralelo](#side-by-side-sdk-integration) de SDK para tus aplicaciones Android, iOS y web, como una integración [de servidor a servidor](#server-to-server-integration) que puede utilizarse en cualquier plataforma que pueda informar de datos de eventos.<br><br>
 
 {% tabs %}
 {% tab EventStream %}
@@ -35,14 +35,14 @@ Tealium AudienceStream es un motor omnicanal de segmentación de clientes y acci
 
 {% endtab %}
 {% tab iQ Tag Management %}
-Tealium iQ te permite activar código en tus aplicaciones utilizando una etiqueta en la interfaz de usuario de gestión de etiquetas de Tealium iQ. Esta etiqueta recopilará, controlará y entregará datos de eventos de plataformas móviles y web, lo que te permitirá configurar una implementación nativa de Braze sin añadir código específico de Braze a tus aplicaciones. Los usuarios pueden optar por integrar Mobile Remote Commands a través de iQ Tag Management o archivos de configuración JSON (enfoque recomendado de Tealium). Los usuarios que utilicen Braze Web SDK or kit de desarrollo de software deben realizar la integración a través de la etiqueta web iQ.
+Tealium iQ te permite activar código en tus aplicaciones utilizando una etiqueta en la interfaz de usuario de gestión de etiquetas de Tealium iQ. Esta etiqueta recopilará, controlará y entregará datos de eventos de plataformas móviles y web, lo que te permitirá configurar una implementación nativa de Braze sin añadir código específico de Braze a tus aplicaciones. Los usuarios pueden optar por integrar Mobile Remote Commands a través de iQ Tag Management o archivos de configuración JSON (enfoque recomendado de Tealium). Los usuarios que utilicen Braze Web SDK deben realizar la integración a través de la etiqueta web iQ.
 
 Para saber más sobre los pros y los contras de cada método, consulta la siguiente sección del [administrador de etiquetas Tealium iQ](#mobile-remote-commands).
 {% endtab %}
 {% endtabs %}
 
 {% alert important %}
-Tealium ofrece acciones de conector por lotes y no por lotes. El conector no por lotes debe utilizarse cuando las solicitudes en tiempo real sean importantes para el caso de uso y no haya preocupación por alcanzar las especificaciones del límite de velocidad de la API de Braze. Ponte en contacto con soporte de Braze o con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente si tienes alguna pregunta.<br><br>
+Tealium ofrece acciones de conector por lotes y no por lotes. El conector no por lotes debe utilizarse cuando las solicitudes en tiempo real sean importantes para el caso de uso y no haya preocupación por alcanzar las especificaciones del límite de velocidad de la API de Braze. Ponte en contacto con soporte de Braze o con tu CSM si tienes alguna pregunta.<br><br>
 
 En el caso de los conectores por lotes, las solicitudes se ponen en cola hasta que se alcanza uno de los siguientes umbrales:<br><br>
 - Número máximo de solicitudes: 75
@@ -58,31 +58,31 @@ Tealium no procesa por lotes los eventos de consentimiento (preferencias de susc
 | ----------- | ----------- |
 | Cuenta Tealium | Para beneficiarse de esta asociación, es necesario disponer de una [cuenta Tealium](https://my.tealiumiq.com/) con acceso al servidor y/o al cliente. |
 | Fuente instalada y [bibliotecas](https://docs.tealium.com/platforms/) fuente de Tealium | El origen de los datos enviados a Tealium, como aplicaciones móviles, sitios web o servidores backend.<br><br>Debes instalar las bibliotecas en tu aplicación, sitio o servidor antes de poder configurar correctamente un conector Tealium. |
-| Endpoint REST or transferencia de estado representacional y SDK or kit de desarrollo de software de Braze | La URL de tu endpoint REST or transferencia de estado representacional o SDK or kit de desarrollo de software. Tu endpoint dependerá de la [URL de Braze de tu instancia]({{site.baseurl}}/api/basics#endpoints). |
+| Endpoint REST y SDK de Braze | La URL de tu endpoint REST o SDK. Tu endpoint dependerá de la [URL de Braze de tu instancia]({{site.baseurl}}/api/basics#endpoints). |
 | Clave de identificación de la aplicación Braze (solo en paralelo) | La clave de identificación de tu aplicación. <br><br>Se encuentra en **Panel de Braze > Administrar configuración > Clave de API**. |
-| Versión del código (solo en paralelo) | Corresponde a la versión del SDK or kit de desarrollo de software y debe estar en formato major.minor (por ejemplo, 3.2 y no 3.0.1). La versión del código debe ser 3.0 o superior. |
-| Clave de API REST or transferencia de estado representacional (solo de servidor a servidor) | Una clave de API REST or transferencia de estado representacional de Braze con permisos `users.track` y `users.delete`. <br><br>Se puede crear en **Panel de Braze > Consola para desarrolladores > Clave de API REST or transferencia de estado representacional > Crear nueva clave de API**.|
+| Versión del código (solo en paralelo) | Corresponde a la versión del SDK y debe estar en formato major.minor (por ejemplo, 3.2 y no 3.0.1). La versión del código debe ser 3.0 o superior. |
+| Clave de API REST (solo de servidor a servidor) | Una clave de API REST de Braze con permisos `users.track` y `users.delete`. <br><br>Se puede crear en **Panel de Braze > Consola para desarrolladores > Clave de API REST > Crear nueva clave de API**.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Elige tu tipo de integración {#choose-your-integration-type}
 
 | Integración | Detalles |
 | ----------- | ------- |
-| [En paralelo](#side-by-side-sdk-integration) | Utiliza el SDK or kit de desarrollo de software de Tealium para traducir los eventos a las llamadas nativas de Braze, lo que permite acceder a características más profundas y un uso más completo de Braze que la integración de servidor a servidor.<br><br>Si piensas utilizar comandos remotos de Braze, ten en cuenta que Tealium no admite todos los métodos de Braze (por ejemplo, Content Cards). Para utilizar un método de Braze que no esté mapeado a través de un comando remoto correspondiente, tendrás que invocar el método añadiendo código nativo de Braze a tu código base.|
-| [De servidor a servidor](#server-to-server-integration) | Reenvía los datos de Tealium a los endpoints de la REST or transferencia de estado representacional API de Braze.<br><br>No es compatible con las funciones de la interfaz de usuario de Braze, como la mensajería dentro de la aplicación, Content Cards o las notificaciones push. También existen datos capturados automáticamente, como los campos a nivel de dispositivo, que no están disponibles a través de este método.<br><br>Considera una integración en paralelo si deseas utilizar estas características.|
+| [En paralelo](#side-by-side-sdk-integration) | Utiliza el SDK de Tealium para traducir los eventos a las llamadas nativas de Braze, lo que permite acceder a características más profundas y un uso más completo de Braze que la integración de servidor a servidor.<br><br>Si piensas utilizar comandos remotos de Braze, ten en cuenta que Tealium no admite todos los métodos de Braze (por ejemplo, Content Cards). Para utilizar un método de Braze que no esté mapeado a través de un comando remoto correspondiente, tendrás que invocar el método añadiendo código nativo de Braze a tu código base.|
+| [De servidor a servidor](#server-to-server-integration) | Reenvía los datos de Tealium a los endpoints de la REST API de Braze.<br><br>No es compatible con las funciones de la interfaz de usuario de Braze, como la mensajería dentro de la aplicación, Content Cards o las notificaciones push. También existen datos capturados automáticamente, como los campos a nivel de dispositivo, que no están disponibles a través de este método.<br><br>Considera una integración en paralelo si deseas utilizar estas características.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Elige tu tipo de integración" }
 
-## Integración de SDK or kit de desarrollo de software en paralelo {#side-by-side-sdk-integration}
+## Integración de SDK en paralelo {#side-by-side-sdk-integration}
 
 ### Comandos remotos {#remote-commands}
 
-Los comandos remotos son una función de las bibliotecas Tealium para iOS y Android que permiten realizar llamadas desde el SDK or kit de desarrollo de software de Tealium —a través de los servidores de Braze— a Braze. El módulo de comandos remotos de Braze instalará y creará automáticamente las bibliotecas de Braze necesarias y se encargará de toda la renderización de mensajes y el seguimiento analítico. Para utilizar el comando remoto móvil de Braze, necesitarás tener instaladas las bibliotecas de Tealium en tus aplicaciones.
+Los comandos remotos son una función de las bibliotecas Tealium para iOS y Android que permiten realizar llamadas desde el SDK de Tealium —a través de los servidores de Braze— a Braze. El módulo de comandos remotos de Braze instalará y creará automáticamente las bibliotecas de Braze necesarias y se encargará de toda la renderización de mensajes y el seguimiento analítico. Para utilizar el comando remoto móvil de Braze, necesitarás tener instaladas las bibliotecas de Tealium en tus aplicaciones.
 
 Tealium ofrece dos formas de integrar Mobile Remote Command; no hay pérdida de funcionalidad entre los tipos de integración y el código nativo subyacente es idéntico.
 
 | Método de comando remoto móvil | Pros | Contras |
 | --- | --- | --- |
-| **Etiqueta de comando remoto** | Modifica fácilmente los mapeados y los datos enviados al comando remoto mediante la interfaz de usuario de Tealium iQ.<br><br>Esto nos permite enviar datos o eventos adicionales a un SDK or kit de desarrollo de software de terceros después de que la aplicación ya esté en la tienda de aplicaciones, sin que el cliente tenga que actualizar la aplicación. | El módulo de gestión de etiquetas de la aplicación se basa en una webview oculta para procesar JavaScript. |
+| **Etiqueta de comando remoto** | Modifica fácilmente los mapeados y los datos enviados al comando remoto mediante la interfaz de usuario de Tealium iQ.<br><br>Esto nos permite enviar datos o eventos adicionales a un SDK de terceros después de que la aplicación ya esté en la tienda de aplicaciones, sin que el cliente tenga que actualizar la aplicación. | El módulo de gestión de etiquetas de la aplicación se basa en una webview oculta para procesar JavaScript. |
 | **Archivo de configuración JSON**<br>([Recomendado](https://docs.tealium.com/platforms/remote-commands/integrations/braze/#how-it-works)) | Utilizar el método JSON elimina la necesidad de tener una webview oculta en la aplicación y reduce enormemente el consumo de memoria.<br><br>El archivo JSON puede alojarse de forma remota o local dentro de la aplicación del cliente. | Por el momento, no hay interfaz de usuario para gestionar esto, por lo que requiere un poco de esfuerzo adicional.<br><br>Nota: Tealium está trabajando en la adición de una interfaz de usuario de gestión que resolverá este problema y aportará el mismo nivel de flexibilidad a los comandos remotos JSON que tienen con la versión de gestión de iQ Tag. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Comandos remotos" }
 
@@ -115,29 +115,29 @@ Puedes encontrar más detalles sobre cómo configurar el comando remoto móvil d
 Los comandos remotos móviles de Braze no son compatibles con todos los métodos y canales de mensajería de Braze (por ejemplo, Content Cards). Para utilizar un método de Braze que no esté mapeado a través de un comando remoto correspondiente, tendrás que invocar el método directamente añadiendo código nativo de Braze a tu código base.
 {% endalert%}
 
-### Etiqueta de Braze Web SDK or kit de desarrollo de software {#braze-web-sdk-tag}
+### Etiqueta de Braze Web SDK {#braze-web-sdk-tag}
 
-Utiliza la etiqueta de Braze Web SDK or kit de desarrollo de software para desplegar el SDK or kit de desarrollo de software de Braze Web en tu sitio web. [Tealium iQ Tag Management](https://docs.tealium.com/client-side-tags/braze-web-sdk-tag/) permite a los clientes añadir Braze como etiqueta dentro del panel de Tealium para realizar un seguimiento de la actividad de los visitantes. Los especialistas en marketing suelen utilizar las etiquetas para conocer la eficacia de la publicidad en línea, el marketing por correo electrónico y la personalización de sitios web.
+Utiliza la etiqueta de Braze Web SDK para desplegar el SDK de Braze Web en tu sitio web. [Tealium iQ Tag Management](https://docs.tealium.com/client-side-tags/braze-web-sdk-tag/) permite a los clientes añadir Braze como etiqueta dentro del panel de Tealium para realizar un seguimiento de la actividad de los visitantes. Los especialistas en marketing suelen utilizar las etiquetas para conocer la eficacia de la publicidad en línea, el marketing por correo electrónico y la personalización de sitios web.
 
-1. En Tealium, ve a **iQ > Tags > + Add Tag > Braze Web SDK or kit de desarrollo de software**.
-2. En el cuadro de diálogo de configuración de etiquetas, introduce la clave de API (tu clave de identificador de la aplicación Braze), la URL base (endpoint del SDK or kit de desarrollo de software de Braze) y la [versión del código del SDK or kit de desarrollo de software de Braze Web](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md). También puedes habilitar el registro para registrar información en la consola web con fines de depuración.
+1. En Tealium, ve a **iQ > Tags > + Add Tag > Braze Web SDK**.
+2. En el cuadro de diálogo de configuración de etiquetas, introduce la clave de API (tu clave de identificador de la aplicación Braze), la URL base (endpoint del SDK de Braze) y la [versión del código del SDK de Braze Web](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md). También puedes habilitar el registro para registrar información en la consola web con fines de depuración.
 3. En el cuadro de diálogo de [reglas de carga](https://docs.tealium.com/iq-tag-management/load-rules/about/), elige "Load on All Pages" o selecciona **Create Rule** para determinar cuándo y dónde cargar una instancia de esta etiqueta en tu sitio.
-4. En el cuadro de diálogo de **[Data Mappings](https://docs.tealium.com/iq-tag-management/data-mappings/about/)**, selecciona **Create Mappings** para asignar datos de Tealium a Braze. Las variables de destino de la etiqueta de Braze Web SDK or kit de desarrollo de software están integradas en la pestaña **Data Mapping** de la etiqueta. En [las tablas siguientes](https://docs.tealium.com/client-side-tags/braze-web-sdk-tag/) se enumeran las categorías de destino disponibles y se describe cada nombre de destino.
+4. En el cuadro de diálogo de **[Data Mappings](https://docs.tealium.com/iq-tag-management/data-mappings/about/)**, selecciona **Create Mappings** para asignar datos de Tealium a Braze. Las variables de destino de la etiqueta de Braze Web SDK están integradas en la pestaña **Data Mapping** de la etiqueta. En [las tablas siguientes](https://docs.tealium.com/client-side-tags/braze-web-sdk-tag/) se enumeran las categorías de destino disponibles y se describe cada nombre de destino.
 5. Selecciona **Finish**.
 
 ### Recursos de integración en paralelo {#side-by-side-integrations-resources}
 
 - Comando remoto iOS: [Documentación de Tealium](https://docs.tealium.com/platforms/remote-commands/integrations/braze/), [repositorio GitHub de Tealium](https://github.com/Tealium/tealium-ios-braze-remote-command)
 - Comando remoto Android: [Documentación de Tealium](https://docs.tealium.com/platforms/remote-commands/integrations/braze/), [repositorio GitHub de Tealium](https://github.com/Tealium/tealium-android-braze-remote-command)
-- Etiqueta Web SDK or kit de desarrollo de software: [Documentación de Tealium](https://docs.tealium.com/client-side-tags/braze-web-sdk-tag/)
+- Etiqueta Web SDK: [Documentación de Tealium](https://docs.tealium.com/client-side-tags/braze-web-sdk-tag/)
 
 ## Integración de servidor a servidor {#server-to-server-integration}
 
-Esta integración reenvía datos de Tealium a la REST or transferencia de estado representacional API de Braze.
+Esta integración reenvía datos de Tealium a la REST API de Braze.
 
 La integración de servidor a servidor no es compatible con las funciones de la interfaz de usuario de Braze, como la mensajería dentro de la aplicación, Content Cards o las notificaciones push. También existen datos capturados automáticamente (como los campos a nivel de dispositivo) que no están disponibles a través de este método.
 
-Si deseas utilizar estos datos y estas características, considera nuestra integración de SDK or kit de desarrollo de software [en paralelo]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/tealium/tealium#side-by-side-sdk-integration).
+Si deseas utilizar estos datos y estas características, considera nuestra integración de SDK [en paralelo]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/tealium/tealium#side-by-side-sdk-integration).
 
 ### Paso 1: Configurar una fuente {#step-1-set-up-a-source}
 
@@ -173,7 +173,7 @@ A continuación, selecciona la fuente de datos que acabas de crear y, en **Event
 
 #### Configuración {#configuration}
 
-A continuación, selecciona **Add Connector** en la parte inferior de la página. Da un nombre a tu conector y proporciona aquí tu endpoint de la API de Braze y tu clave de API REST or transferencia de estado representacional de Braze.
+A continuación, selecciona **Add Connector** en la parte inferior de la página. Da un nombre a tu conector y proporciona aquí tu endpoint de la API de Braze y tu clave de API REST de Braze.
 
 ![Configuración del conector de Braze con campos de endpoint de API y clave de API REST.]({% image_buster /assets/img/tealium/create_configuration.png %}){: style="max-width:70%;"}
 
@@ -269,6 +269,6 @@ Si tienes varios EventStreams dirigidos a la misma fuente de eventos, **todas la
 
 ### Inicializar Braze demasiado pronto {#initializing-braze-too-early}
 
-Si te integras con Tealium utilizando la etiqueta de Braze Web SDK or kit de desarrollo de software, puedes ver un aumento espectacular de tus MAU or usuarios activos al mes. **Si Braze se inicializa al cargar la página, Braze creará un perfil anónimo cada vez que un usuario web navegue por el sitio web por primera vez.** Esto incluye el tráfico de bots, lo que puede inflar tu recuento de usuarios activos. Algunos pueden querer rastrear el comportamiento del usuario solo cuando los usuarios han completado alguna acción, como "Iniciar sesión" o "Ver vídeo", para reducir su recuento de MAU or usuarios activos al mes.
+Si te integras con Tealium utilizando la etiqueta de Braze Web SDK, puedes ver un aumento espectacular de tus MAU. **Si Braze se inicializa al cargar la página, Braze creará un perfil anónimo cada vez que un usuario web navegue por el sitio web por primera vez.** Esto incluye el tráfico de bots, lo que puede inflar tu recuento de usuarios activos. Algunos pueden querer rastrear el comportamiento del usuario solo cuando los usuarios han completado alguna acción, como "Iniciar sesión" o "Ver vídeo", para reducir su recuento de MAU.
 
-**Solución**: <br>Configura [reglas de carga](https://docs.tealium.com/iq-tag-management/load-rules/about/) para determinar exactamente cuándo y dónde se carga una etiqueta en tu sitio. Para obtener una guía más completa sobre el filtrado de tráfico de bots y la inicialización condicional del SDK or kit de desarrollo de software, consulta [Filtrado de tráfico de bots]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web#web_bot-filtering).
+**Solución**: <br>Configura [reglas de carga](https://docs.tealium.com/iq-tag-management/load-rules/about/) para determinar exactamente cuándo y dónde se carga una etiqueta en tu sitio. Para obtener una guía más completa sobre el filtrado de tráfico de bots y la inicialización condicional del SDK, consulta [Filtrado de tráfico de bots]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web#web_bot-filtering).

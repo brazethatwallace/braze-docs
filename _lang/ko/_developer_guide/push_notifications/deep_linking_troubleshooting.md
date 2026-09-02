@@ -26,7 +26,7 @@ channel:
 | 모든 이메일 링크가 앱을 열음 | [모든 이메일 링크가 앱을 열음](#every-email-link-opens-the-app) |
 | 푸시에서는 작동하지만 인앱 메시지에서는 작동하지 않음(또는 그 반대) | [딥링크가 푸시에서는 작동하지만 인앱 메시지에서는 작동하지 않음](#deep-link-works-from-push-but-not-from-in-app-message) |
 | "Open Web URL Inside App"이 빈 WebView를 표시함 | ["Open Web URL Inside App"이 빈 페이지 또는 깨진 페이지를 표시함](#open-web-url-inside-app-shows-a-blank-or-broken-page) |
-| Branch or 브랜치 링크가 앱을 열지 않거나 올바르게 라우팅하지 않음 | [Braze에서 Branch or 브랜치 문제 해결](#branch) |
+| Branch 링크가 앱을 열지 않거나 올바르게 라우팅하지 않음 | [Braze에서 Branch 문제 해결](#branch) |
 | 명확한 원인 없이 딥링크가 실패함 | [일반 디버깅 팁](#general-debugging-tips) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="딥링킹 증상" }
 
@@ -185,13 +185,13 @@ Opening '<URL>':
 3. **커스텀 스킴으로의 리디렉션을 확인하세요.** 웹 페이지가 커스텀 스킴(예: `myapp://`)으로 리디렉션되는 경우 WebView는 이를 처리할 수 없습니다.
 4. **Safari에서 URL을 테스트하세요.** 해당 기기의 Safari에서 페이지가 로드되지 않는다면, WebView에서도 로드되지 않습니다.
 
-## Braze에서 Branch or 브랜치 문제 해결 {#branch}
+## Braze에서 Branch 문제 해결 {#branch}
 
-[Branch or 브랜치]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking)를 링크 제공업체로 사용하는 경우:
+[Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking)를 링크 제공업체로 사용하는 경우:
 
-### BrazeDelegate가 Branch or 브랜치로 라우팅하는지 확인 {#verify-the-brazedelegate-routes-to-branch}
+### BrazeDelegate가 Branch로 라우팅하는지 확인 {#verify-the-brazedelegate-routes-to-branch}
 
-`BrazeDelegate`가 Branch or 브랜치 링크를 가로채서 Branch or 브랜치 SDK로 전달해야 합니다. 다음 사항을 확인하세요:
+`BrazeDelegate`가 Branch 링크를 가로채서 Branch SDK로 전달해야 합니다. 다음 사항을 확인하세요:
 
 ```swift
 func braze(_ braze: Braze, shouldOpenURL context: Braze.URLContext) -> Bool {
@@ -205,38 +205,38 @@ func braze(_ braze: Braze, shouldOpenURL context: Braze.URLContext) -> Bool {
 }
 ```
 
-`shouldOpenURL`이 Branch or 브랜치 링크에 대해 `true`를 반환하면, Braze가 Branch or 브랜치로 라우팅하지 않고 직접 처리합니다.
+`shouldOpenURL`이 Branch 링크에 대해 `true`를 반환하면, Braze가 Branch로 라우팅하지 않고 직접 처리합니다.
 
-### Branch or 브랜치 링크 도메인 확인 {#check-branch-link-domain}
+### Branch 링크 도메인 확인 {#check-branch-link-domain}
 
-`BrazeDelegate`의 Branch or 브랜치 도메인이 실제 Branch or 브랜치 링크 도메인과 일치하는지 확인하세요. Branch or 브랜치는 여러 도메인 형식을 사용합니다:
+`BrazeDelegate`의 Branch 도메인이 실제 Branch 링크 도메인과 일치하는지 확인하세요. Branch는 여러 도메인 형식을 사용합니다:
 
 - `yourapp.app.link` (기본값)
 - `yourapp-alternate.app.link` (대체)
-- 커스텀 도메인 (Branch or 브랜치 대시보드에서 설정한 경우)
+- 커스텀 도메인 (Branch 대시보드에서 설정한 경우)
 
 ### 두 SDK의 로깅 모두 활성화 {#enable-both-sdks-logging}
 
 링크가 체인에서 끊어지는 지점을 진단하려면:
 
 1. [Braze 상세 로깅]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging)을 활성화하세요. SDK가 링크를 수신했는지 확인하기 위해 `Opening '<URL>':` 항목을 찾으세요.
-2. [Branch or 브랜치 테스트 모드](https://help.branch.io/developers-hub/docs/ios-basic-integration#test-deep-linking)를 활성화하세요. Branch or 브랜치 대시보드에서 링크 클릭 이벤트를 확인하세요.
-3. Braze가 링크를 기록했지만 Branch or 브랜치에서 클릭이 감지되지 않는다면, `BrazeDelegate` 라우팅 로직에 문제가 있을 가능성이 높습니다.
+2. [Branch 테스트 모드](https://help.branch.io/developers-hub/docs/ios-basic-integration#test-deep-linking)를 활성화하세요. Branch 대시보드에서 링크 클릭 이벤트를 확인하세요.
+3. Braze가 링크를 기록했지만 Branch에서 클릭이 감지되지 않는다면, `BrazeDelegate` 라우팅 로직에 문제가 있을 가능성이 높습니다.
 
-### Branch or 브랜치 대시보드 구성 확인 {#check-branch-dashboard-configuration}
+### Branch 대시보드 구성 확인 {#check-branch-dashboard-configuration}
 
-Branch or 브랜치 대시보드에서 다음을 확인하세요:
+Branch 대시보드에서 다음을 확인하세요:
 
 - 앱의 **Bundle ID**와 **Team ID**가 Xcode 프로젝트와 일치합니다.
-- **Associated Domains**에 Branch or 브랜치 링크 도메인이 포함되어 있습니다.
-- Branch or 브랜치 AASA 파일이 유효합니다(Branch or 브랜치는 `app.link` 도메인에서 자동으로 호스팅합니다).
+- **Associated Domains**에 Branch 링크 도메인이 포함되어 있습니다.
+- Branch AASA 파일이 유효합니다(Branch는 `app.link` 도메인에서 자동으로 호스팅합니다).
 
-### Branch or 브랜치 링크를 독립적으로 테스트 {#test-branch-links-independently}
+### Branch 링크를 독립적으로 테스트 {#test-branch-links-independently}
 
-문제를 격리하기 위해 Braze 외부에서 Branch or 브랜치 링크를 테스트하세요:
+문제를 격리하기 위해 Braze 외부에서 Branch 링크를 테스트하세요:
 
-1. 기기에서 Safari로 Branch or 브랜치 링크를 여세요. 앱이 열리지 않는다면, 문제는 Braze가 아닌 Branch or 브랜치 또는 AASA 구성에 있습니다.
-2. Branch or 브랜치 링크를 메모 앱에 붙여넣고 탭하세요. 유니버설 링크는 Safari 주소창보다 메모 앱에서 더 안정적으로 작동합니다.
+1. 기기에서 Safari로 Branch 링크를 여세요. 앱이 열리지 않는다면, 문제는 Braze가 아닌 Branch 또는 AASA 구성에 있습니다.
+2. Branch 링크를 메모 앱에 붙여넣고 탭하세요. 유니버설 링크는 Safari 주소창보다 메모 앱에서 더 안정적으로 작동합니다.
 
 ## 일반 디버깅 팁 {#general-debugging-tips}
 
@@ -261,7 +261,7 @@ Braze를 통해 테스트하기 전에, 딥링크 또는 유니버설 링크가 
 
 - **커스텀 스킴**: 터미널에서 `xcrun simctl openurl booted "myapp://path"`를 실행합니다.
 - **유니버설 링크**: 실제 기기의 메모 앱에 URL을 붙여넣고 탭합니다. Safari 주소 표시줄에서는 테스트하지 마세요. iOS는 입력된 URL과 탭한 링크를 다르게 처리합니다.
-- **Branch or 브랜치 링크**: 기기의 메모 앱에서 Branch or 브랜치 링크를 엽니다.
+- **Branch 링크**: 기기의 메모 앱에서 Branch 링크를 엽니다.
 
 ### 실제 기기에서 테스트 {#test-on-a-physical-device}
 

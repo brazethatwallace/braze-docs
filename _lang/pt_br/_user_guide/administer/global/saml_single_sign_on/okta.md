@@ -22,7 +22,7 @@ O app pré-configurado da Braze no marketplace do Okta usa o Entity ID compartil
 | Okta ativada para sua conta | Entre em contato com o gerente de conta da Braze para ativar isso na sua conta. |
 | Privilégios de administrador na Okta | Certifique-se de ter privilégios de administrador antes de configurar a Okta. |
 | Privilégios de administrador na Braze | Certifique-se de ter privilégios de administrador antes de configurar a Okta. |
-| Chave de API or interface de programação do aplicativo (API) RelayState | Para ativar o login por IdP, acesse **Configurações** > **Chaves de API or interface de programação do aplicativo (API)** e crie uma chave de API or interface de programação do aplicativo (API) com permissões `sso.saml.login`. |
+| Chave de API RelayState | Para ativar o login por IdP, acesse **Configurações** > **Chaves de API** e crie uma chave de API com permissões `sso.saml.login`. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos" }
 
 ## Etapa 1: Configurar a Braze {#step-1-configure-braze}
@@ -52,7 +52,7 @@ Selecione **Save Changes** na parte inferior da página quando terminar.
 
 Na Okta, selecione a guia **Sign On** para o app SAML da Braze e clique em **Edit**.
 
-Em seguida, insira a chave de API or interface de programação do aplicativo (API) do RelayState com a permissão `sso.saml.login` no campo **Default Relay State**.
+Em seguida, insira a chave de API do RelayState com a permissão `sso.saml.login` no campo **Default Relay State**.
 
 ![RelayState padrão da Okta na guia Sign On.]({% image_buster /assets/img/Okta/okta2.png %}){: style="max-width:75%"}
 

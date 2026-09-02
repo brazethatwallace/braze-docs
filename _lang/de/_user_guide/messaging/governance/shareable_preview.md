@@ -22,7 +22,7 @@ Sie können einen teilbaren Vorschau-Link für die folgenden Kanäle und Inhalts
 - LINE
 - Push-Benachrichtigungen
 - Abo-Seiten
-- Kurzmitteilungsdienst or SMS und RCS
+- SMS und RCS
 - WhatsApp
 
 {% alert note %}
@@ -38,7 +38,7 @@ Das folgende Verhalten gilt einheitlich für alle unterstützten Kanäle.
 Wählen Sie beim Verfassen Ihrer Nachricht oder Ihres Inhalts **Copy preview link** aus, um einen teilbaren Link zu generieren. Braze kopiert den Link automatisch in Ihre Zwischenablage.
 
 - Der Link öffnet einen statischen, schreibgeschützten Snapshot Ihrer Nachricht, wie sie zum Zeitpunkt der Link-Generierung aussah. Er wird nicht automatisch aktualisiert, wenn Sie weiter bearbeiten. Generieren Sie einen neuen Link, um Ihre neuesten Änderungen zu erfassen.
-- Wenn Ihre Nachricht Personalisierung enthält – etwa Liquid oder Connected-Content, das gegen eine:n Testnutzer:in, ein angepasstes Kundenprofil or Nutzerprofil oder eine:n zufällige:n Nutzer:in aufgelöst wird –, spiegelt die Vorschau dieselbe Personalisierung wider und entspricht dem, was Sie unter **Preview and Test** sehen.
+- Wenn Ihre Nachricht Personalisierung enthält – etwa Liquid oder Connected-Content, das gegen eine:n Testnutzer:in, ein angepasstes Kundenprofil oder eine:n zufällige:n Nutzer:in aufgelöst wird –, spiegelt die Vorschau dieselbe Personalisierung wider und entspricht dem, was Sie unter **Preview and Test** sehen.
 - Durch Auswahl von **Regenerate link** wird ein neuer Snapshot mit einem eigenen neuen Ablaufdatum erstellt. Der vorherige Link wird dadurch nicht ungültig. Beide Links funktionieren unabhängig voneinander, bis sie jeweils ablaufen.
 
 ### Link anzeigen {#viewing-the-link}
@@ -65,9 +65,9 @@ Die teilbare Vorschau ist für In-App-Nachrichten nicht verfügbar.
 
 | Kanal | Was ist anders |
 |---|---|
-| E-Mail | Die Vorschau enthält neben dem Nachrichtentext auch die Felder „An“, „Von“ und „Betreffzeile“. <br><br>Wenn Sie als angepasste:r Nutzer:in personalisieren, werden Werte, die als API-Trigger or triggern-Eigenschaften oder Event-Eigenschaften eingegeben wurden, möglicherweise nicht in der Vorschau angezeigt, obwohl sie unter **Preview and Test** korrekt dargestellt werden. Angepasste Attribute, Testnutzer:innen und zufällige Nutzer:innen sind davon nicht betroffen. |
+| E-Mail | Die Vorschau enthält neben dem Nachrichtentext auch die Felder „An“, „Von“ und „Betreffzeile“. <br><br>Wenn Sie als angepasste:r Nutzer:in personalisieren, werden Werte, die als API-Trigger-Eigenschaften oder Event-Eigenschaften eingegeben wurden, möglicherweise nicht in der Vorschau angezeigt, obwohl sie unter **Preview and Test** korrekt dargestellt werden. Angepasste Attribute, Testnutzer:innen und zufällige Nutzer:innen sind davon nicht betroffen. |
 | Banner (Drag-and-Drop-Editor) | Die Vorschau spiegelt den Inhalt zum Zeitpunkt wider, als Sie zuletzt den Tab **Vorschau** im Composer geöffnet haben, nicht unbedingt Ihre neuesten Bearbeitungen. <br><br>Öffnen Sie **Vorschau** erneut, bevor Sie einen Link generieren oder neu generieren, um sicherzustellen, dass er aktuell ist. |
-| Kurzmitteilungsdienst or SMS und RCS | Beide unterliegen derselben Funktionalität für teilbare Vorschauen, generieren jedoch jeweils einen eigenen unabhängigen Link. |
+| SMS und RCS | Beide unterliegen derselben Funktionalität für teilbare Vorschauen, generieren jedoch jeweils einen eigenen unabhängigen Link. |
 | WhatsApp | Die teilbare Vorschau ist separat für WhatsApp-Template-Nachrichten und WhatsApp-Antwortnachrichten verfügbar. |
 | Content Blocks, E-Mail-Fußzeilen und Abo-Seiten | Diese generieren eine Vorschau des eigenständigen Inhalts, unabhängig von einer bestimmten Campaign oder einem bestimmten Canvas, in dem er verwendet wird. |
 | Landing-Pages | Die Vorschau verhält sich bei Landing-Pages anders als bei anderen Kanälen. Weitere Informationen finden Sie unter [Seite in der Vorschau anzeigen]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#step-5-preview-the-page). |

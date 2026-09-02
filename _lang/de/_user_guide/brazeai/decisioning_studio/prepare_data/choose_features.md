@@ -13,7 +13,7 @@ description: "Dieser Referenzartikel behandelt, wie Sie effektive Kund:innen-Fea
 Wenn Sie interne Data-Science- oder Data-Engineering-Teams haben, sind diese am besten geeignet, Features zu konstruieren und zu kuratieren, da sie den meisten Kontext darüber haben, welche Signale in Ihren Daten aussagekräftig sind.
 
 {% alert note %}
-Für Braze-Kund:innen werden Kund:innen-Features typischerweise über angepasste Attribute in Nutzerprofilen an Decisioning Studio übergeben. Details zu angepassten Attributen im Vergleich zu angepassten Events und deren jeweiligen Update or aktualisieren-Strategien finden Sie unter [Snapshots versus Event-Streams]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams).
+Für Braze-Kund:innen werden Kund:innen-Features typischerweise über angepasste Attribute in Nutzerprofilen an Decisioning Studio übergeben. Details zu angepassten Attributen im Vergleich zu angepassten Events und deren jeweiligen Update-Strategien finden Sie unter [Snapshots versus Event-Streams]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams).
 {% endalert %}
 
 ## Typen von Kund:innen-Features {#types-of-customer-features}
@@ -22,7 +22,7 @@ Es gibt vier gängige Kategorien von Kund:innen-Features:
 
 | Feature-Typ | Was er erfasst | Beispiele |
 |-------------|-----------------|---------|
-| **Kundenprofil or Nutzerprofil** | Objektive Fakten über den Status der Kund:in | `age`, `loyalty_tier`, `days_enrolled`, `city`, `acquisition_channel` |
+| **Kundenprofil** | Objektive Fakten über den Status der Kund:in | `age`, `loyalty_tier`, `days_enrolled`, `city`, `acquisition_channel` |
 | **Nutzerneigung** | Modellbasierte Scores für die Wahrscheinlichkeit, dass Kund:innen etwas tun | `churn_risk_score`, `purchase_intent_score`, `upsell_affinity` |
 | **Nutzerverhalten** | Zusammenfassungen der Kund:innenaktivität über ein Zeitfenster | `clicks_past_30d`, `purchases_past_7d`, `app_logins_past_14d` |
 | **Umgebung** | Kontextuelle Signale außerhalb der Kund:in | `is_promotional_period`, `is_holiday`, `regional_economic_index` |

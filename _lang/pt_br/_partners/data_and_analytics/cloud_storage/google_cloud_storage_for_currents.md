@@ -14,7 +14,7 @@ search_tag: Partner
 > O [Google Cloud Storage](https://cloud.google.com/storage/) é um armazenamento de objetos altamente escalável para dados não estruturados oferecido pelo Google como parte do conjunto de produtos de computação em nuvem.
 
 {% alert important %}
-Se você estiver trocando entre provedores de armazenamento em nuvem, entre em contato com seu gerente de sucesso do cliente da Braze para obter mais assistência na configuração e validação da sua nova integração.
+Se você estiver trocando entre provedores de armazenamento em nuvem, entre em contato com seu CSM da Braze para obter mais assistência na configuração e validação da sua nova integração.
 {% endalert %}
 
 A integração entre a Braze e o Google Cloud Storage permite enviar dados do Currents para o Google Cloud Storage. Em seguida, é possível usar um processo ETL (Extrair, Transformar, Carregar) para transferir seus dados para outros locais, como o Google BigQuery.
@@ -127,13 +127,13 @@ Para verificar essas permissões no dashboard da Braze, acesse a página **Googl
 
 Os usuários que integraram uma solução de armazenamento de dados em nuvem e estão tentando exportar APIs, relatórios do dashboard ou relatórios CSV terão a seguinte experiência:
 
-- Todas as exportações de API or interface de programação do aplicativo (API) não retornarão uma URL de download no corpo da resposta e devem ser recuperadas por meio do armazenamento de dados.
+- Todas as exportações de API não retornarão uma URL de download no corpo da resposta e devem ser recuperadas por meio do armazenamento de dados.
 - Todos os relatórios do dashboard e relatórios CSV serão enviados para o e-mail do usuário para download (sem necessidade de permissões de armazenamento) e terão backup no armazenamento de dados.
 
 {% alert important %}
 **Requisito de formato JSON**: Para exportações JSON, a Braze usa o formato JSONL (JSON delimitado por nova linha), em que cada linha contém um objeto JSON separado. Esse formato difere do JSON padrão, que é um único array ou objeto JSON. Cada linha no arquivo exportado é um objeto JSON válido, mas o arquivo como um todo não é um único documento JSON válido. Ao processar esses arquivos, analise cada linha individualmente como um objeto JSON separado, em vez de tentar analisar o arquivo inteiro como um único documento JSON.
 
-As exportações do Currents usam o formato Apache Avro (arquivos `.avro`), não JSON. Esse requisito de formato JSON se aplica a exportações de dados do dashboard e exportações de API or interface de programação do aplicativo (API) que usam formato JSON.
+As exportações do Currents usam o formato Apache Avro (arquivos `.avro`), não JSON. Esse requisito de formato JSON se aplica a exportações de dados do dashboard e exportações de API que usam formato JSON.
 {% endalert %}
 
 ## Solução de problemas {#troubleshooting}

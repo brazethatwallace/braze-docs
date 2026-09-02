@@ -60,7 +60,7 @@ Vamos manter o prazo de conversão do modelo de três dias, pois queremos direci
 
 Nosso público-alvo para feedback são os usuários que compraram recentemente Proxy War 3.
 
-1. Selecione nosso Segment or segmento or segmento alvo, "Purchased Proxy War 3", que consiste em usuários que compraram o jogo.
+1. Selecione nosso Segment alvo, "Purchased Proxy War 3", que consiste em usuários que compraram o jogo.
 2. Selecione um filtro para incluir usuários que compraram "Proxy War 3" mais de "0" vezes.
 
 ![Um segmento chamado "Purchased Proxy War 3" que segmenta usuários que compraram o jogo.]({% image_buster /assets/img/canvas_templates/post_purchase_feedback/entry_window_segment.png %}){: style="max-width:90%;"}
@@ -113,7 +113,7 @@ Usando nosso atributo personalizado `Experience Feedback` e os valores de atribu
 
 ### Configurar o redirecionamento de anúncios {#set-up-ad-retargeting}
 
-Vamos garantir que nossa sincronização de Google Audience or público do Google or público do Google esteja configurada na etapa **Ad Retargeting**. Isso incluirá selecionar nossa conta de anúncios, um público existente e a opção de adicionar usuários ao público.
+Vamos garantir que nossa sincronização de Google Audience esteja configurada na etapa **Ad Retargeting**. Isso incluirá selecionar nossa conta de anúncios, um público existente e a opção de adicionar usuários ao público.
 
 ### Configurar casos de suporte via webhook {#set-up-webhook-support-cases}
 

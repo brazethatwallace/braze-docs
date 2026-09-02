@@ -110,14 +110,14 @@ Gehen Sie zum Tab **Vorschau und Test**, um die Nachricht als Nutzer:in in der V
 
 Für Testanforderungen und Schritte siehe [Testnachrichten senden]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=line).
 
-### Schritt 6: Den Representational State Transfer Ihrer Campaign oder Ihres Canvas erstellen {#step-6-build-the-remainder-of-your-campaign-or-canvas}
+### Schritt 6: Den Rest Ihrer Campaign oder Ihres Canvas erstellen {#step-6-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
 {% tab Campaign %}
 
-#### Zustellungszeitplan oder Trigger or triggern auswählen {#choose-a-delivery-schedule-or-trigger}
+#### Zustellungszeitplan oder Trigger auswählen {#choose-a-delivery-schedule-or-trigger}
 
-Stellen Sie LINE-Nachrichten zu einem geplanten Zeitpunkt oder als Reaktion auf eine Aktion oder einen API-Trigger or triggern zu. Für Zeitplan- und Trigger or triggern-Optionen siehe [Campaign planen]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
+Stellen Sie LINE-Nachrichten zu einem geplanten Zeitpunkt oder als Reaktion auf eine Aktion oder einen API-Trigger zu. Für Zeitplan- und Trigger-Optionen siehe [Campaign planen]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
 Konfigurieren Sie Zustellungskontrollen wie [Wiederberechtigung]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility) und [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping). Für aktionsbasierte Zustellung legen Sie die Campaign-Dauer und [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) fest.
 
@@ -136,7 +136,7 @@ Verwenden Sie [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messagi
 
 Vervollständigen Sie die verbleibenden Abschnitte Ihres Canvas. Für Entry-Zeitpläne, Zielgruppen-Einstellungen und Sendesteuerungen siehe [Canvas erstellen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas).
 
-Sie können eingehende LINE-Nachrichten verwenden, um einen Canvas basierend auf Trigger or triggern-Wörtern zu starten oder zu verzweigen. Für Verhaltens- und Großschreibungsanforderungen siehe [LINE-Nutzer:innen kontaktieren]({{site.baseurl}}/user_guide/channels/line/message_users).
+Sie können eingehende LINE-Nachrichten verwenden, um einen Canvas basierend auf Trigger-Wörtern zu starten oder zu verzweigen. Für Verhaltens- und Großschreibungsanforderungen siehe [LINE-Nutzer:innen kontaktieren]({{site.baseurl}}/user_guide/channels/line/message_users).
 
 {% endtab %}
 {% endtabs %}

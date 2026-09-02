@@ -21,7 +21,7 @@ Na Braze, as condições de corrida podem ocorrer quando várias ações são di
 Os tipos mais comuns de condições de corrida podem ocorrer quando você estiver fazendo o seguinte:
 
 - Direcionamento a novos usuários
-- Uso de vários endpoints de API or interface de programação do aplicativo (API)
+- Uso de vários endpoints de API
 - Correspondência entre filtros de público e disparadores baseados em ação
 - Uso do gatilho "Interagir com etapa"
 
@@ -36,11 +36,11 @@ Na Braze, uma das condições de corrida mais comuns ocorre com mensagens direci
 
 No entanto, em alguns casos, o segundo evento é disparado primeiro. Isso significa que uma mensagem tenta ser enviada a um usuário que ainda não existe. Como resultado, o usuário nunca a recebe. Isso também se aplica a eventos ou atributos, em que o evento ou atributo tenta ser registrado em um perfil de usuário que ainda não foi criado.
 
-No caso de mensagens no app, a mensagem no app precisa ser carregada no dispositivo do usuário antes de ser disparada. Se o evento de gatilho faz parte do processo de integração, ou se o usuário sai do Segment or segmento or segmento para o evento personalizado como parte de sua primeira sessão, é provável que o usuário não veja a mensagem no app.
+No caso de mensagens no app, a mensagem no app precisa ser carregada no dispositivo do usuário antes de ser disparada. Se o evento de gatilho faz parte do processo de integração, ou se o usuário sai do Segment para o evento personalizado como parte de sua primeira sessão, é provável que o usuário não veja a mensagem no app.
 
 ### Mensagens no app {#in-app-messages}
 
-Com mensagens no app, a situação pode ser mais complexa. Uma mensagem no app precisa ser entregue e armazenada em cache no SDK or kit de desenvolvimento de software — normalmente no início de uma sessão — antes de poder ser disparada. Se o evento de gatilho faz parte do processo de criação do usuário, ou se a campanha de mensagem no app é entregue antes de o usuário atender (ou depois de não mais atender) aos critérios de público durante sua primeira sessão, ele pode não ver a mensagem no app.
+Com mensagens no app, a situação pode ser mais complexa. Uma mensagem no app precisa ser entregue e armazenada em cache no SDK — normalmente no início de uma sessão — antes de poder ser disparada. Se o evento de gatilho faz parte do processo de criação do usuário, ou se a campanha de mensagem no app é entregue antes de o usuário atender (ou depois de não mais atender) aos critérios de público durante sua primeira sessão, ele pode não ver a mensagem no app.
 
 ### Práticas recomendadas {#best-practices}
 
@@ -50,23 +50,23 @@ Depois que um novo usuário é criado, você pode adicionar uma postergação an
 
 Por exemplo, depois que um usuário se registra no seu app, você pode enviar uma oferta promocional após 24 horas. Ou, se você está criando um usuário ou registrando um atributo personalizado, pode adicionar uma postergação de um minuto antes de prosseguir no seu processo para evitar essa condição de corrida.
 
-Você também pode adicionar essa postergação no [SDK or kit de desenvolvimento de software da Braze]({{site.baseurl}}/developer_guide/sdk_integration) para o evento personalizado específico que faz um novo usuário entrar em um Canvas.
+Você também pode adicionar essa postergação no [SDK da Braze]({{site.baseurl}}/developer_guide/sdk_integration) para o evento personalizado específico que faz um novo usuário entrar em um Canvas.
 
-## Cenário 2: Usando múltiplos endpoints de API or interface de programação do aplicativo (API) {#scenario-2-using-multiple-api-endpoints}
+## Cenário 2: Usando múltiplos endpoints de API {#scenario-2-using-multiple-api-endpoints}
 
 {% alert important %}
-Usamos processamento assíncrono para maximizar a velocidade e a flexibilidade. Isso significa que, quando chamadas de API or interface de programação do aplicativo (API) são enviadas separadamente, não podemos garantir que elas sejam processadas na ordem em que foram enviadas.
+Usamos processamento assíncrono para maximizar a velocidade e a flexibilidade. Isso significa que, quando chamadas de API são enviadas separadamente, não podemos garantir que elas sejam processadas na ordem em que foram enviadas.
 {% endalert %}
 
-Existem alguns cenários em que múltiplos endpoints de API or interface de programação do aplicativo (API) também podem resultar nessa condição de corrida, como quando:
+Existem alguns cenários em que múltiplos endpoints de API também podem resultar nessa condição de corrida, como quando:
 
-- Endpoints de API or interface de programação do aplicativo (API) separados são usados para criar usuários e disparar Canvas ou campanhas
+- Endpoints de API separados são usados para criar usuários e disparar Canvas ou campanhas
 - Múltiplas chamadas separadas são feitas ao endpoint `/users/track` para atualizar atributos personalizados, eventos ou compras
 
 Quando informações de usuários são enviadas à Braze usando o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), pode levar alguns segundos para o processamento. Isso significa que, quando solicitações são feitas simultaneamente aos endpoints `/users/track` e de envio de mensagens como `/campaign/trigger/send`, não há garantia de que as informações do usuário sejam atualizadas antes de uma mensagem ser enviada.
 
 {% alert note %}
-Se atributos e eventos de usuários são enviados na mesma solicitação (seja pelo `/users/track` ou pelo SDK or kit de desenvolvimento de software), a Braze processa os atributos antes dos eventos ou de tentar enviar qualquer mensagem.
+Se atributos e eventos de usuários são enviados na mesma solicitação (seja pelo `/users/track` ou pelo SDK), a Braze processa os atributos antes dos eventos ou de tentar enviar qualquer mensagem.
 {% endalert %}
 
 ### Práticas recomendadas
@@ -75,11 +75,11 @@ Se atributos e eventos de usuários são enviados na mesma solicitação (seja p
 
 Se você está usando múltiplos endpoints, pode tentar escalonar suas solicitações para que cada uma seja concluída antes de a próxima começar. Isso pode reduzir a chance de uma condição de corrida. Por exemplo, se você precisa atualizar atributos de usuário e enviar uma mensagem, primeiro aguarde a atualização completa do perfil do usuário antes de enviar uma mensagem usando um endpoint.
 
-Se você está enviando uma solicitação de API or interface de programação do aplicativo (API) de mensagem agendada, essas solicitações devem ser separadas, e o usuário deve ser criado antes de enviar a solicitação de API or interface de programação do aplicativo (API) agendada.
+Se você está enviando uma solicitação de API de mensagem agendada, essas solicitações devem ser separadas, e o usuário deve ser criado antes de enviar a solicitação de API agendada.
 
 #### Inclua dados essenciais junto com o gatilho {#include-key-data-with-the-trigger}
 
-Em vez de usar múltiplos endpoints, você pode incluir os [atributos de usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object#object-body) e as [propriedades de gatilho]({{site.baseurl}}/api/objects_filters/trigger_properties_object) em uma única chamada de API or interface de programação do aplicativo (API) usando o [endpoint `campaign/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns).
+Em vez de usar múltiplos endpoints, você pode incluir os [atributos de usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object#object-body) e as [propriedades de gatilho]({{site.baseurl}}/api/objects_filters/trigger_properties_object) em uma única chamada de API usando o [endpoint `campaign/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns).
 
 Quando esses objetos são incluídos com o gatilho, os atributos são processados primeiro, antes de a mensagem ser disparada, eliminando possíveis condições de corrida. As propriedades de gatilho não atualizam o perfil do usuário, mas são usadas apenas no contexto da mensagem.
 
@@ -132,7 +132,7 @@ Se houver uma condição de corrida durante a avaliação de entrada do Canvas, 
 
 Se um usuário dispara o evento de entrada do Canvas várias vezes dentro do mesmo segundo, a Braze permite apenas uma entrada para aquele segundo (mesmo que a reentrada esteja ativada). Isso evita entradas duplicadas, então o número total de entradas no Canvas pode ser menor do que o total de eventos de gatilho.
 
-Recomendamos confirmar como os dados de usuários são gerenciados e atualizados, especificamente quando e como atributos específicos são atualizados, como por SDK or kit de desenvolvimento de software, API or interface de programação do aplicativo (API), API or interface de programação do aplicativo (API) em lote e outros métodos. Isso pode ajudar a identificar e esclarecer por que um usuário entrou em uma campanha ou Canvas em comparação com quando o perfil do usuário foi atualizado.
+Recomendamos confirmar como os dados de usuários são gerenciados e atualizados, especificamente quando e como atributos específicos são atualizados, como por SDK, API, API em lote e outros métodos. Isso pode ajudar a identificar e esclarecer por que um usuário entrou em uma campanha ou Canvas em comparação com quando o perfil do usuário foi atualizado.
 
 ## Cenário 4: Usando o gatilho "Interagir com etapa" {#scenario-4-using-the-interact-with-step-trigger}
 
@@ -150,4 +150,4 @@ Evite depender de "Interagir com etapa" imediatamente após uma etapa de Mensage
 
 #### Evite ramificações que dependam da interação {#avoid-branches-that-are-dependent-on-interaction}
 
-Projete seu Canvas de modo que a perda de uma interação imediata não prejudique a experiência do usuário. Por exemplo, evite decisões críticas de Branch or ramificação or ramificação que dependam exclusivamente de a interação ser capturada na próxima etapa, ou adicione lógica de acompanhamento que possa corrigir as rotas dos usuários.
+Projete seu Canvas de modo que a perda de uma interação imediata não prejudique a experiência do usuário. Por exemplo, evite decisões críticas de Branch que dependam exclusivamente de a interação ser capturada na próxima etapa, ou adicione lógica de acompanhamento que possa corrigir as rotas dos usuários.

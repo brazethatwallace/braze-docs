@@ -12,11 +12,11 @@ description: "Este artículo describe cómo Braze favorece la accesibilidad."
 
 > Este artículo ofrece un resumen de cómo Braze favorece la accesibilidad dentro de tu integración.
 
-Braze Web SDK or kit de desarrollo de software es compatible con los estándares establecidos por las [Pautas de Accesibilidad al Contenido en la Web (WCAG 2.1)](https://www.w3.org/TR/WCAG21/). Mantenemos una [puntuación de 100/100 en Lighthouse](https://developer.chrome.com/docs/lighthouse/accessibility/scoring) para las tarjetas de contenido y los mensajes dentro de la aplicación en todas nuestras nuevas versiones, con el fin de mantener nuestro estándar de accesibilidad.
+Braze Web SDK es compatible con los estándares establecidos por las [Pautas de Accesibilidad al Contenido en la Web (WCAG 2.1)](https://www.w3.org/TR/WCAG21/). Mantenemos una [puntuación de 100/100 en Lighthouse](https://developer.chrome.com/docs/lighthouse/accessibility/scoring) para las tarjetas de contenido y los mensajes dentro de la aplicación en todas nuestras nuevas versiones, con el fin de mantener nuestro estándar de accesibilidad.
 
 ## Requisitos previos {#prerequisites}
 
-La versión mínima del SDK or kit de desarrollo de software que cumple con WCAG 2.1 es cercana a la v3.4.0. Sin embargo, recomendamos actualizar al menos a la versión 6.0.0 para obtener correcciones importantes en las etiquetas de imagen.
+La versión mínima del SDK que cumple con WCAG 2.1 es cercana a la v3.4.0. Sin embargo, recomendamos actualizar al menos a la versión 6.0.0 para obtener correcciones importantes en las etiquetas de imagen.
 
 ### Correcciones notables en materia de accesibilidad {#notable-accessibility-fixes}
 
@@ -41,9 +41,9 @@ Admitimos estas características para Content Cards y mensajes dentro de la apli
 - Anuncios del lector de pantalla
 - Compatibilidad con texto alternativo para imágenes
 
-## Directrices de accesibilidad para integraciones de SDK or kit de desarrollo de software {#accessibility-guidelines-for-sdk-integrations}
+## Directrices de accesibilidad para integraciones de SDK {#accessibility-guidelines-for-sdk-integrations}
 
-Consulta [Crea mensajes accesibles en Braze]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility) para obtener directrices generales sobre accesibilidad. Esta guía proporciona consejos y prácticas recomendadas para lograr la máxima accesibilidad al integrar Braze Web SDK or kit de desarrollo de software en tu aplicación web.
+Consulta [Crea mensajes accesibles en Braze]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility) para obtener directrices generales sobre accesibilidad. Esta guía proporciona consejos y prácticas recomendadas para lograr la máxima accesibilidad al integrar Braze Web SDK en tu aplicación web.
 
 ### Content Cards
 
@@ -92,7 +92,7 @@ No incluyas información importante en los mensajes dentro de la aplicación de 
 
 #### Diseño adaptable {#responsive-design}
 
-El SDK or kit de desarrollo de software incluye puntos de interrupción adaptables. Confirma que tus personalizaciones funcionan en todos los tamaños de pantalla, como en este ejemplo:
+El SDK incluye puntos de interrupción adaptables. Confirma que tus personalizaciones funcionan en todos los tamaños de pantalla, como en este ejemplo:
 
 {% raw %}
 ```css
@@ -130,9 +130,9 @@ Comprueba manualmente tu accesibilidad completando estas tareas:
 
 Para evitar problemas comunes de accesibilidad, haz lo siguiente:
 
-1. **Mantén los estilos de foco:** Los indicadores de foco del SDK or kit de desarrollo de software son esenciales para los usuarios de teclado.
+1. **Mantén los estilos de foco:** Los indicadores de foco del SDK son esenciales para los usuarios de teclado.
 2. **Usa `display: none` solo en elementos no interactivos:** Usa `visibility: hidden` u `opacity: 0` para ocultar elementos interactivos.
-3. **No anules los atributos ARIA:** El SDK or kit de desarrollo de software establece los roles y etiquetas ARIA adecuados.
+3. **No anules los atributos ARIA:** El SDK establece los roles y etiquetas ARIA adecuados.
 4. **Usa los atributos `tabindex`:** Estos controlan el orden de navegación del teclado.
 5. **Proporciona un desplazamiento si configuras `overflow: hidden`:** Confirma que el contenido desplazable sigue siendo accesible.
 6. **No interfieras con los controladores de teclado integrados:** Confirma que la navegación con el teclado existente funciona correctamente.

@@ -22,13 +22,13 @@ description: "Diese Seite enthält eine Sammlung häufig gestellter Fragen, die 
 Users
 {% endapitags %}
 
-Wenn ein Kundenprofil or Nutzerprofil über das SDK or Software-Development-Kit erkannt wird, erstellt Braze zunächst ein anonymes Kundenprofil or Nutzerprofil mit einer zugehörigen `braze_id`: einer eindeutigen Nutzerkennung, die von Braze festgelegt wird.
+Wenn ein Kundenprofil über das SDK erkannt wird, erstellt Braze zunächst ein anonymes Kundenprofil mit einer zugehörigen `braze_id`: einer eindeutigen Nutzerkennung, die von Braze festgelegt wird.
 
 Um anonyme Nutzer:innen weiter zu verfolgen, können Sie [Nutzer-Aliase]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases) implementieren, mit denen Sie anonyme Nutzer:innen mit einer Kennung versehen können. Diese Nutzer:innen können dann über ihre Aliase exportiert oder von der API referenziert werden.
 
-Wenn ein anonymes Kundenprofil or Nutzerprofil mit einem Alias zu einem späteren Zeitpunkt mit einer `external_id` erkannt wird, wird es wie ein normales identifiziertes Kundenprofil or Nutzerprofil behandelt, behält aber seinen bestehenden Alias bei und kann weiterhin über diesen Alias referenziert werden.
+Wenn ein anonymes Kundenprofil mit einem Alias zu einem späteren Zeitpunkt mit einer `external_id` erkannt wird, wird es wie ein normales identifiziertes Kundenprofil behandelt, behält aber seinen bestehenden Alias bei und kann weiterhin über diesen Alias referenziert werden.
 
-Bei Alias-Nutzer:innen, die Sie mit identifizierten Nutzer:innen zusammenführen möchten, können Sie alle Felder zusammenführen, die für das tatsächliche Profil relevant sind, das Sie behalten möchten. Sie müssten diese Daten exportieren, bevor Sie sie mit unserem [Endpunkt „Kundenprofil or Nutzerprofil nach Bezeichner exportieren“]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) aus dem Alias-Profil löschen. Anschließend können Sie unseren [Endpunkt „Nutzer:innen tracken“]({{site.baseurl}}/api/endpoints/user_data/post_user_track) verwenden, um diese Events in dem Profil zu veröffentlichen, das Sie behalten haben. Auf diese Weise bleiben alle Daten erhalten, die Sie beibehalten möchten, z. B. Attribute, die zuvor in einem Profil erfasst wurden, aber nicht im anderen.
+Bei Alias-Nutzer:innen, die Sie mit identifizierten Nutzer:innen zusammenführen möchten, können Sie alle Felder zusammenführen, die für das tatsächliche Profil relevant sind, das Sie behalten möchten. Sie müssten diese Daten exportieren, bevor Sie sie mit unserem [Endpunkt „Kundenprofil nach Bezeichner exportieren“]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) aus dem Alias-Profil löschen. Anschließend können Sie unseren [Endpunkt „Nutzer:innen tracken“]({{site.baseurl}}/api/endpoints/user_data/post_user_track) verwenden, um diese Events in dem Profil zu veröffentlichen, das Sie behalten haben. Auf diese Weise bleiben alle Daten erhalten, die Sie beibehalten möchten, z. B. Attribute, die zuvor in einem Profil erfasst wurden, aber nicht im anderen.
 
 Eine vollständige Aufschlüsselung der verschiedenen Methoden zur Erfassung neuer und bestehender Nutzerdaten in Braze finden Sie unter [Best Practices für die Datenerfassung]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices).
 
@@ -45,9 +45,9 @@ Um zuvor identifizierte Nutzer:innen zu importieren, können Sie eine CSV-Datei 
 
 #### CSV
 
-Sie können Nutzerprofile über CSV-Dateien unter **Zielgruppe** > **Nutzer:innen importieren** hochladen und Update or aktualisieren or aktualisieren. Beim Import Ihrer Kundendaten müssen Sie die eindeutige Kennung jedes Kunden angeben, auch bekannt als `external_id`.
+Sie können Nutzerprofile über CSV-Dateien unter **Zielgruppe** > **Nutzer:innen importieren** hochladen und aktualisieren. Beim Import Ihrer Kundendaten müssen Sie die eindeutige Kennung jedes Kunden angeben, auch bekannt als `external_id`.
 
-Bevor Sie mit dem CSV-Import beginnen, sollten Sie mit Ihrem Entwicklerteam klären, wie die Nutzer:innen in Braze identifiziert werden. In der Regel handelt es sich dabei um eine intern verwendete Datenbank-ID. Diese sollte mit der Art und Weise übereinstimmen, wie Nutzer:innen vom Braze SDK or Software-Development-Kit auf Mobilgeräten und im Internet identifiziert werden, sodass jede:r Kund:in ein einziges Kundenprofil or Nutzerprofil in Braze über alle Geräte hinweg hat. Erfahren Sie mehr über den [Kundenprofil or Nutzerprofil-Lebenszyklus]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle) in Braze.
+Bevor Sie mit dem CSV-Import beginnen, sollten Sie mit Ihrem Entwicklerteam klären, wie die Nutzer:innen in Braze identifiziert werden. In der Regel handelt es sich dabei um eine intern verwendete Datenbank-ID. Diese sollte mit der Art und Weise übereinstimmen, wie Nutzer:innen vom Braze SDK auf Mobilgeräten und im Internet identifiziert werden, sodass jede:r Kund:in ein einziges Kundenprofil in Braze über alle Geräte hinweg hat. Erfahren Sie mehr über den [Kundenprofil-Lebenszyklus]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle) in Braze.
 
 Wenn Sie in Ihrem Import eine `external_id` angeben, aktualisiert Braze alle vorhandenen Nutzer:innen mit derselben `external_id` oder erstellt eine:n neu identifizierte:n Nutzer:in mit dieser `external_id`, falls keine gefunden wird.
 
@@ -57,13 +57,13 @@ Weitere Informationen und den Download von CSV-Importvorlagen finden Sie unter [
 
 Um Nutzer:innen über die API hochzuladen, können Sie unseren [Endpunkt „Nutzer:innen tracken“]({{site.baseurl}}/api/endpoints/user_data/post_user_track) verwenden, um sie in Braze zu importieren.
 
-Wenn Sie sich nicht sicher sind, ob die Person bereits in Braze existiert, können Sie unseren [Endpunkt „Kundenprofil or Nutzerprofil nach Bezeichner exportieren“]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) implementieren, um dies zu überprüfen. Wenn Sie feststellen, dass die Person bereits in Braze vorhanden ist, können Sie unseren `/users/track`-Endpunkt verwenden, um die neuen Daten dem bereits vorhandenen Kundenprofil or Nutzerprofil in Braze hinzuzufügen.
+Wenn Sie sich nicht sicher sind, ob die Person bereits in Braze existiert, können Sie unseren [Endpunkt „Kundenprofil nach Bezeichner exportieren“]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) implementieren, um dies zu überprüfen. Wenn Sie feststellen, dass die Person bereits in Braze vorhanden ist, können Sie unseren `/users/track`-Endpunkt verwenden, um die neuen Daten dem bereits vorhandenen Kundenprofil in Braze hinzuzufügen.
 
 {% alert note %}
 Beachten Sie die folgenden Besonderheiten bei der Verwendung des `/users/track`-Endpunkts:
 
 - Wenn Sie über diesen Endpunkt Nutzer:innen erstellen, die nur einen Alias haben, müssen Sie das Flag `_update_existing_only` explizit auf „false“ setzen.
-- Wenn Sie den Abo-Status mit diesem Endpunkt Update or aktualisieren or aktualisieren, wird sowohl die durch ihre externe ID angegebene Person (z. B. User1) als auch der Abo-Status aller Nutzer:innen mit derselben E-Mail-Adresse wie diese Person (User1) aktualisiert.
+- Wenn Sie den Abo-Status mit diesem Endpunkt aktualisieren, wird sowohl die durch ihre externe ID angegebene Person (z. B. User1) als auch der Abo-Status aller Nutzer:innen mit derselben E-Mail-Adresse wie diese Person (User1) aktualisiert.
 {% endalert %}
 
 {% endapi %}
@@ -81,7 +81,7 @@ Standardmäßig muss der Push-Abo-Status Ihrer Nutzer:innen entweder „abonnier
 
 | Einwilligungsstatus | Beschreibung |
 |---|---|
-| Abonniert | Standard-Push-Abo-Status, wenn ein Kundenprofil or Nutzerprofil in Braze erstellt wird. |
+| Abonniert | Standard-Push-Abo-Status, wenn ein Kundenprofil in Braze erstellt wird. |
 | Eingewilligt | Eine Person hat ausdrücklich den Wunsch geäußert, Push-Benachrichtigungen zu erhalten. Braze ändert den Einwilligungsstatus automatisch auf `Opted-In`, wenn eine Person eine Push-Aufforderung auf Betriebssystemebene akzeptiert.<br><br>Dies gilt nicht für Nutzer:innen mit Android 12 oder darunter. |
 | Abgemeldet | Eine Person hat sich über Ihre Anwendung oder andere von Ihrer Marke angebotene Methoden explizit von Push abgemeldet. Standardmäßig richten sich Push-Campaigns von Braze nur an Nutzer:innen, die `Subscribed` oder `Opted-in` für Push sind. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Was ist der Unterschied zwischen den Push-Abo-Status?" }
@@ -98,9 +98,9 @@ Users
 Wenn Sie doppelte Nutzer:innen identifiziert haben, müssen Sie diese Nutzerprofile bereinigen. Gehen Sie dazu wie folgt vor:
 
 1. Exportieren Sie die Nutzerprofile über unseren `/users/export/ids`-Endpunkt.
-2. Identifizieren Sie das korrekte Kundenprofil or Nutzerprofil (letztendlich muss Ihr Team über die richtigen Informationen entscheiden) und entweder:
+2. Identifizieren Sie das korrekte Kundenprofil (letztendlich muss Ihr Team über die richtigen Informationen entscheiden) und entweder:
     - Führen Sie alle relevanten Felder des tatsächlichen Profils, das Sie behalten möchten, über den `/user/track`-Endpunkt zusammen.
-    - Löschen Sie das doppelte, nicht benötigte Profil ohne Datenzusammenführung über den users/delete-Endpunkt. Wenn Sie ein Kundenprofil or Nutzerprofil löschen, **gibt es keine Möglichkeit, die Informationen wiederherzustellen**.
+    - Löschen Sie das doppelte, nicht benötigte Profil ohne Datenzusammenführung über den users/delete-Endpunkt. Wenn Sie ein Kundenprofil löschen, **gibt es keine Möglichkeit, die Informationen wiederherzustellen**.
 
 {% alert important %}
 Wir empfehlen, zunächst die neuen Nutzerprofile mit der korrekten `external_id` und den entsprechenden angepassten Attributen und Events zu importieren. Nachdem Nutzerprofile gelöscht wurden, können sie nicht wiederhergestellt werden – das Löschen sollte daher der allerletzte Schritt sein.
@@ -108,7 +108,7 @@ Wir empfehlen, zunächst die neuen Nutzerprofile mit der korrekten `external_id`
 
 Einige zusätzliche Hinweise:
 
-- Alle Engagement-Daten (z. B. erhaltene Campaigns oder Canvase) auf doppelten Nutzerprofilen gehen verloren. Die einzige Möglichkeit, den historischen Engagement-Kontext beizubehalten, besteht darin, ihn als angepasstes Attribut hinzuzufügen (z. B. als Array-Attribut aller erhaltenen Campaigns oder Canvase).
+- Alle Engagement-Daten (z. B. erhaltene Campaigns oder Canvases) auf doppelten Nutzerprofilen gehen verloren. Die einzige Möglichkeit, den historischen Engagement-Kontext beizubehalten, besteht darin, ihn als angepasstes Attribut hinzuzufügen (z. B. als Array-Attribut aller erhaltenen Campaigns oder Canvases).
 - Bei der Migration von Nutzerprofilen muss Ihr Team auch entscheiden, welches der doppelten Nutzerprofile beibehalten werden soll. Braze kann diese Entscheidung nicht treffen und Ihnen keine Liste der zu löschenden Profile bereitstellen.
 - Letztendlich ist es wichtig, dass Ihr Team den Registrierungsprozess aus der Perspektive Ihrer Nutzer:innen bewertet und sicherstellt, dass die Methode `changeUser()` nur dann aufgerufen wird, wenn eine Person identifiziert wird.
 
@@ -140,7 +140,7 @@ Um eine CSV-Vorlage herunterzuladen, siehe [Nutzerimport]({{site.baseurl}}/user_
 Segments
 {% endapitags %}
 
-Das Braze SDK or Software-Development-Kit bietet Ihnen ein leistungsstarkes Arsenal an Filtern, mit denen Sie Ihre Nutzer:innen auf der Grundlage bestimmter Features und Attribute segmentieren und targetieren können. Sie können das Glossar der [Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) verwenden, um diese Filter nach Filterkategorie zu durchsuchen oder einzugrenzen (Angepasste Daten, Nutzeraktivität, Retargeting, Marketingaktivitäten, Nutzerattribute, Install-Attribution, soziale Aktivitäten, Tests, Sonstige).
+Das Braze SDK bietet Ihnen ein leistungsstarkes Arsenal an Filtern, mit denen Sie Ihre Nutzer:innen auf der Grundlage bestimmter Features und Attribute segmentieren und targetieren können. Sie können das Glossar der [Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) verwenden, um diese Filter nach Filterkategorie zu durchsuchen oder einzugrenzen (Angepasste Daten, Nutzeraktivität, Retargeting, Marketingaktivitäten, Nutzerattribute, Install-Attribution, soziale Aktivitäten, Tests, Sonstige).
 
 {% endapi %}
 {% api %}
@@ -229,7 +229,7 @@ Informationen zu den Einrichtungsschritten, unterstützten Kanälen und dem Wech
 Campaigns
 {% endapitags %}
 
-Die Erstellung multivariater Campaigns und die Durchführung von Canvase mit mehreren Varianten sind ein guter Ansatzpunkt! Sie können zum Beispiel eine [multivariate Campaign]({{site.baseurl}}/user_guide/messaging/ab_testing) durchführen, um eine Nachricht mit verschiedenen Texten oder Betreffzeilen zu testen. Canvase mit mehreren Varianten sind hilfreich, um ganze Workflows zu testen.
+Die Erstellung multivariater Campaigns und die Durchführung von Canvases mit mehreren Varianten sind ein guter Ansatzpunkt! Sie können zum Beispiel eine [multivariate Campaign]({{site.baseurl}}/user_guide/messaging/ab_testing) durchführen, um eine Nachricht mit verschiedenen Texten oder Betreffzeilen zu testen. Canvases mit mehreren Varianten sind hilfreich, um ganze Workflows zu testen.
 
 {% endapi %}
 {% api %}
@@ -266,7 +266,7 @@ Wenn beispielsweise ein in London ansässiges Unternehmen eine Campaign um 12 Uh
 Campaigns
 {% endapitags %}
 
-Braze ermittelt automatisch die Zeitzone einer Person anhand ihres Geräts. Dies dient der Zeitzonengenauigkeit und der vollständigen Abdeckung Ihrer Nutzer:innen. Nutzer:innen, die über die User API oder anderweitig ohne Zeitzone erstellt werden, haben die Zeitzone Ihres Unternehmens als Standardzeitzone, bis sie in Ihrer App vom SDK or Software-Development-Kit erkannt werden.
+Braze ermittelt automatisch die Zeitzone einer Person anhand ihres Geräts. Dies dient der Zeitzonengenauigkeit und der vollständigen Abdeckung Ihrer Nutzer:innen. Nutzer:innen, die über die User API oder anderweitig ohne Zeitzone erstellt werden, haben die Zeitzone Ihres Unternehmens als Standardzeitzone, bis sie in Ihrer App vom SDK erkannt werden.
 
 Sie können die Zeitzone Ihres Unternehmens in Ihren [Unternehmenseinstellungen]({{site.baseurl}}/user_guide/administer/global/admin_settings) überprüfen.
 
@@ -393,17 +393,17 @@ Dieses Bewertungsverhalten ist unabhängig davon, [wie weit im Voraus Sie die Ca
 Campaigns
 {% endapitags %}
 
-Die Anzahl der Nutzer:innen, die eine Campaign betreten, kann von der erwarteten Anzahl abweichen, da Zielgruppen und Trigger or triggern unterschiedlich ausgewertet werden. In Braze wird eine Zielgruppe vor dem Trigger or triggern ausgewertet (außer bei einem [Trigger or triggern „Attributänderung“]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers#change-custom-attribute-value)). Dies führt dazu, dass Nutzer:innen aus der Campaign herausfallen, wenn sie zunächst nicht Teil Ihrer ausgewählten Zielgruppe sind, bevor Trigger or triggern-Aktionen ausgewertet werden.
+Die Anzahl der Nutzer:innen, die eine Campaign betreten, kann von der erwarteten Anzahl abweichen, da Zielgruppen und Trigger unterschiedlich ausgewertet werden. In Braze wird eine Zielgruppe vor dem Trigger ausgewertet (außer bei einem [Trigger „Attributänderung“]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers#change-custom-attribute-value)). Dies führt dazu, dass Nutzer:innen aus der Campaign herausfallen, wenn sie zunächst nicht Teil Ihrer ausgewählten Zielgruppe sind, bevor Trigger-Aktionen ausgewertet werden.
 
 {% endapi %}
 {% api %}
 
-<!-- Canvase -->
+<!-- Canvases -->
 
 ### Was passiert, wenn die Zielgruppe und die Sendezeit bei einem Canvas mit einer Variante, aber mehreren Verzweigungen identisch sind? {#what-happens-if-the-audience-and-send-time-are-identical-for-a-canvas-that-has-one-variant-but-multiple-branches}
 
 {% apitags %}
-Canvase
+Canvases
 {% endapitags %}
 
 Für jeden Schritt wird ein Auftrag in die Warteschlange gestellt – sie werden ungefähr zur gleichen Zeit ausgeführt, und einer von ihnen „gewinnt“. In der Praxis kann dies einigermaßen gleichmäßig verteilt sein, aber es ist wahrscheinlich, dass zumindest eine leichte Tendenz zu dem Schritt besteht, der zuerst erstellt wurde.
@@ -416,14 +416,14 @@ Außerdem können wir keine Garantien dafür geben, wie diese Verteilung genau a
 ### Was passiert, wenn Sie ein Canvas stoppen? {#what-happens-when-you-stop-a-canvas}
 
 {% apitags %}
-Canvase
+Canvases
 {% endapitags %}
 
 Wenn Sie ein Canvas stoppen, gilt Folgendes:
 
 - Nutzer:innen werden daran gehindert, das Canvas zu betreten.
 - Es werden keine weiteren Nachrichten gesendet, unabhängig davon, wo sich eine Person im Ablauf befindet.
-    - **Ausnahme:** E-Mail-Canvase lassen sich nicht sofort stoppen. Nachdem die Sendeanfragen an SendGrid gesendet wurden, können wir nicht mehr verhindern, dass sie zugestellt werden.
+    - **Ausnahme:** E-Mail-Canvases lassen sich nicht sofort stoppen. Nachdem die Sendeanfragen an SendGrid gesendet wurden, können wir nicht mehr verhindern, dass sie zugestellt werden.
 
 {% alert note %}
 Das Stoppen eines Canvas beendet nicht den Aufenthalt von Nutzer:innen, die in einem Schritt warten. Wenn Sie das Canvas wieder aktivieren und die Nutzer:innen noch warten, werden sie den Schritt abschließen und zur nächsten Komponente übergehen. Wenn jedoch der Zeitpunkt, zu dem die Person zur nächsten Komponente hätte weitergehen sollen, bereits verstrichen ist, wird sie stattdessen das Canvas verlassen.
@@ -435,7 +435,7 @@ Das Stoppen eines Canvas beendet nicht den Aufenthalt von Nutzer:innen, die in e
 ### Wann wird ein Ausnahme-Event ausgelöst? {#when-does-an-exception-event-trigger}
 
 {% apitags %}
-Canvase
+Canvases
 {% endapitags %}
 
 Ausnahme-Events werden nur ausgelöst, während die Person auf die Canvas-Komponente wartet, mit der das Event verknüpft ist. Wenn eine Person eine Aktion im Voraus durchführt, wird das Ausnahme-Event nicht ausgelöst.
@@ -448,7 +448,7 @@ Wenn Sie Nutzer:innen ausschließen möchten, die ein bestimmtes Event bereits d
 ### Wie wirkt sich die Bearbeitung eines Canvas auf Nutzer:innen aus, die sich bereits im Canvas befinden? {#how-does-editing-a-canvas-affect-users-already-in-the-canvas}
 
 {% apitags %}
-Canvase
+Canvases
 {% endapitags %}
 
 Wenn Sie einige Schritte eines mehrstufigen Canvas bearbeiten, erhalten Nutzer:innen, die bereits in der Zielgruppe waren, aber die Schritte noch nicht erhalten haben, die aktualisierte Version der Nachricht. Beachten Sie, dass dies nur geschieht, wenn sie für den Schritt noch nicht ausgewertet wurden.
@@ -461,7 +461,7 @@ Weitere Informationen darüber, was Sie nach dem Start bearbeiten können und wa
 ### Wie werden Nutzer-Conversions in einem Canvas getrackt? {#how-are-user-conversions-tracked-in-a-canvas}
 
 {% apitags %}
-Canvase
+Canvases
 {% endapitags %}
 
 Eine Person kann nur einmal pro Canvas-Eintritt konvertieren.
@@ -503,7 +503,7 @@ Die Person wird in der gesamten Canvas-Variante als konvertiert gezählt, aber n
 ### Ist Canvas Analytics oder der Segmenter genauer, wenn es um die Anzahl der eindeutigen Nutzer:innen geht? {#when-looking-at-the-number-of-unique-users-is-canvas-analytics-or-the-segmenter-more-accurate}
 
 {% apitags %}
-Canvase
+Canvases
 {% endapitags %}
 
 Der Segmenter liefert genauere Statistiken für eindeutige Nutzerdaten als Canvas- oder Campaign-Statistiken. Das liegt daran, dass Canvas- und Campaign-Statistiken Zahlen sind, die Braze inkrementiert, wenn etwas passiert – es gibt also Variablen, die dazu führen können, dass diese Zahl von der des Segmenters abweicht. So können Nutzer:innen zum Beispiel mehr als einmal für ein Canvas oder eine Campaign konvertieren.
@@ -514,10 +514,10 @@ Der Segmenter liefert genauere Statistiken für eindeutige Nutzerdaten als Canva
 ### Warum stimmt die Anzahl der Nutzer:innen, die ein Canvas betreten, nicht mit der erwarteten Anzahl überein? {#why-does-the-number-of-users-entering-a-canvas-not-match-the-expected-number}
 
 {% apitags %}
-Canvase
+Canvases
 {% endapitags %}
 
-Die Anzahl der Nutzer:innen, die ein Canvas betreten, kann von der erwarteten Anzahl abweichen, da Zielgruppen und Trigger or triggern unterschiedlich ausgewertet werden. In Braze wird eine Zielgruppe vor dem Trigger or triggern ausgewertet (außer bei einem Trigger or triggern [„Attributänderung“]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers#change-custom-attribute-value)). Dies führt dazu, dass Nutzer:innen aus dem Canvas herausfallen, wenn sie nicht Teil Ihrer ausgewählten Zielgruppe sind, bevor Trigger or triggern-Aktionen ausgewertet werden.
+Die Anzahl der Nutzer:innen, die ein Canvas betreten, kann von der erwarteten Anzahl abweichen, da Zielgruppen und Trigger unterschiedlich ausgewertet werden. In Braze wird eine Zielgruppe vor dem Trigger ausgewertet (außer bei einem Trigger [„Attributänderung“]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers#change-custom-attribute-value)). Dies führt dazu, dass Nutzer:innen aus dem Canvas herausfallen, wenn sie nicht Teil Ihrer ausgewählten Zielgruppe sind, bevor Trigger-Aktionen ausgewertet werden.
 
 {% endapi %}
 {% api %}
@@ -589,9 +589,9 @@ So planen Sie einen wiederkehrenden Engagement-Bericht:
 Analytics
 {% endapitags %}
 
-Engagement-Berichte liefern Ihnen CSVs mit Engagement-Statistiken für bestimmte Nachrichten aus Campaigns und Canvase über eine getriggerte E-Mail. Bestimmte Daten werden auf Campaign- oder Canvas-Ebene aggregiert und nicht auf Ebene der einzelnen Varianten oder Schritte. Berichte werden nicht im Dashboard gespeichert, und eine erneute Ausführung des Berichts kann zu aktualisierten Statistiken führen.
+Engagement-Berichte liefern Ihnen CSVs mit Engagement-Statistiken für bestimmte Nachrichten aus Campaigns und Canvases über eine getriggerte E-Mail. Bestimmte Daten werden auf Campaign- oder Canvas-Ebene aggregiert und nicht auf Ebene der einzelnen Varianten oder Schritte. Berichte werden nicht im Dashboard gespeichert, und eine erneute Ausführung des Berichts kann zu aktualisierten Statistiken führen.
 
-Der Berichts-Builder ermöglicht es Ihnen, die Ergebnisse mehrerer Campaigns oder Canvase in einer einzigen Ansicht zu vergleichen, sodass Sie leicht feststellen können, welche Engagement-Strategien Ihre Schlüsselmetriken am stärksten beeinflusst haben. Sowohl für Campaigns als auch für Canvase können Sie Ihre Daten exportieren und Ihren Bericht speichern, um ihn in Zukunft einzusehen.
+Der Berichts-Builder ermöglicht es Ihnen, die Ergebnisse mehrerer Campaigns oder Canvases in einer einzigen Ansicht zu vergleichen, sodass Sie leicht feststellen können, welche Engagement-Strategien Ihre Schlüsselmetriken am stärksten beeinflusst haben. Sowohl für Campaigns als auch für Canvases können Sie Ihre Daten exportieren und Ihren Bericht speichern, um ihn in Zukunft einzusehen.
 
 Weitere Informationen zur Verwendung von Berichten und Analytics in Braze finden Sie in der [Übersicht über Berichte]({{site.baseurl}}/user_guide/analytics/reports).
 

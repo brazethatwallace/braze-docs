@@ -13,15 +13,15 @@ description: "Dieser Artikel enthält Versionshinweise für September 2017."
 Sie können jetzt [Engagement-Berichte]({{site.baseurl}}/user_guide/data_and_analytics/reporting/engagement_reports#engagement-reports) verwenden, um Metriken für eine Campaign über bestimmte Zeiträume hinweg zu aggregieren. Sie können z. B. die Gesamtzahl der Öffnungen aus einem Quartal oder die Gesamtzahl der Klicks aus der gesamten Lifetime einer Campaign oder eines Canvas exportieren. Alles, was Sie tun müssen, ist:
 - Einen Zeitrahmen auswählen, aus dem Sie Daten exportieren möchten,
 - einen Zeitplan für einen Engagement-Bericht erstellen, der regelmäßig an eine:n oder mehrere Empfänger:innen gesendet wird, und
-- Campaigns und Canvase auf der Grundlage ihrer Tags zu Ihrem Bericht hinzufügen.
+- Campaigns und Canvases auf der Grundlage ihrer Tags zu Ihrem Bericht hinzufügen.
 
-## Updates für die Seite „Kundenprofil or Nutzerprofil“ {#updates-to-user-profile-page}
+## Updates für die Seite „Kundenprofil“ {#updates-to-user-profile-page}
 
-Die [Seite „Kundenprofil or Nutzerprofil“]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles) wurde aktualisiert.
+Die [Seite „Kundenprofil“]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles) wurde aktualisiert.
 
 ## Web-Push-Benachrichtigungen, die eine Aktion der Nutzer:innen erfordern, um sie zu schließen {#web-push-notifications-that-require-user-action-to-dismiss}
 
-Sie können jetzt für Chrome-Web-Pushes ein Verhalten zum Schließen von Nachrichten einrichten, bei dem die Empfänger:innen mit der Nachricht interagieren müssen, um sie zu schließen. Dieses Feature erfordert Web SDK or Software-Development-Kit Version 1.6.13 oder höher.
+Sie können jetzt für Chrome-Web-Pushes ein Verhalten zum Schließen von Nachrichten einrichten, bei dem die Empfänger:innen mit der Nachricht interagieren müssen, um sie zu schließen. Dieses Feature erfordert Web SDK Version 1.6.13 oder höher.
 
 ## E-Mail-Preheader {#email-preheaders}
 

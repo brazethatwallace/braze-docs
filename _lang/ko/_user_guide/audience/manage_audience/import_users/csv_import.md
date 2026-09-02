@@ -180,7 +180,7 @@ Braze가 인식하는 표준 속성의 전체 목록(SDK, API, CSV 및 Cloud Dat
 
 #### 구독 그룹 상태 업데이트(선택 사항) {#updating-subscription-group-status-optional}
 
-또한 사용자 가져오기를 통해 이메일 또는 단문 메시지 서비스 구독 그룹에 사용자를 추가할 수 있습니다. 이는 특히 단문 메시지 서비스의 경우 유용한데, 사용자가 단문 메시지 서비스 채널로 메시지를 받으려면 단문 메시지 서비스 구독 그룹에 등록되어 있어야 하기 때문입니다. 자세한 내용은 [단문 메시지 서비스 구독 그룹]({{site.baseurl}}/sms_rcs_subscription_groups#subscription-group-mms-enablement)을 참조합니다.
+또한 사용자 가져오기를 통해 이메일 또는 SMS 구독 그룹에 사용자를 추가할 수 있습니다. 이는 특히 SMS의 경우 유용한데, 사용자가 SMS 채널로 메시지를 받으려면 SMS 구독 그룹에 등록되어 있어야 하기 때문입니다. 자세한 내용은 [SMS 구독 그룹]({{site.baseurl}}/sms_rcs_subscription_groups#subscription-group-mms-enablement)을 참조합니다.
 
 구독 그룹 상태를 업데이트하는 경우 CSV에 다음 두 개의 열이 있어야 합니다:
 

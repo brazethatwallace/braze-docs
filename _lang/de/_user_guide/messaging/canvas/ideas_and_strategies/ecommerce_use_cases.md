@@ -27,7 +27,7 @@ So verwenden Sie ein Canvas-Template:
 
 Braze bietet vier E-Commerce-Canvas-Templates.
 
-{% multi_lang_include Canvas/ecommerce_templates.md %}
+{% multi_lang_include canvas/ecommerce_templates.md %}
 
 ## Nachrichten-Personalisierung {#message-personalization}
 
@@ -85,7 +85,7 @@ Sie können das Volumen empfohlener E-Commerce-Events im [Bericht zu angepassten
 
 Nachdem Sie eine Campaign oder ein Canvas mit dem Konversions-Event „Places Order“ gestartet haben, können Sie einen entsprechenden [Conversion-Bericht]({{site.baseurl}}/user_guide/analytics/dashboards/conversions#setting-up-your-report) erstellen, um die Performance zu verfolgen.
 
-![Tabelle mit Conversion-Details mit Campaigns und Canvase sowie den zugehörigen Conversion-Statistiken.]({% image_buster /assets/img_archive/conversion_details_table.png %})
+![Tabelle mit Conversion-Details mit Campaigns und Canvases sowie den zugehörigen Conversion-Statistiken.]({% image_buster /assets/img_archive/conversion_details_table.png %})
 
 #### E-Commerce-Umsatz-Dashboard {#ecommerce-revenue-dashboard}
 

@@ -50,7 +50,7 @@ Tabelle | Beschreibung
 [USERS_BEHAVIORS_LOCATION_SHARED](#USERS_BEHAVIORS_LOCATION_SHARED) | Wenn Nutzer:innen einen Standort aufzeichnen
 [USERS_BEHAVIORS_PURCHASE_SHARED](#USERS_BEHAVIORS_PURCHASE_SHARED) | Wenn Nutzer:innen einen Kauf tätigen
 [USERS_BEHAVIORS_UNINSTALL_SHARED](#USERS_BEHAVIORS_UNINSTALL_SHARED) | Wenn Nutzer:innen eine App deinstallieren
-[USERS_BEHAVIORS_UPGRADEDAPP_SHARED](#USERS_BEHAVIORS_UPGRADEDAPP_SHARED) | Wenn Nutzer:innen die App Update or aktualisieren or aktualisieren
+[USERS_BEHAVIORS_UPGRADEDAPP_SHARED](#USERS_BEHAVIORS_UPGRADEDAPP_SHARED) | Wenn Nutzer:innen die App aktualisieren
 [USERS_BEHAVIORS_APP_FIRSTSESSION_SHARED](#USERS_BEHAVIORS_APP_FIRSTSESSION_SHARED) | Wenn Nutzer:innen ihre erste Sitzung haben
 [USERS_BEHAVIORS_APP_NEWSFEEDIMPRESSION_SHARED](#USERS_BEHAVIORS_APP_NEWSFEEDIMPRESSION_SHARED) | Wenn Nutzer:innen den News Feed ansehen
 [USERS_BEHAVIORS_APP_SESSIONEND_SHARED](#USERS_BEHAVIORS_APP_SESSIONEND_SHARED) | Wenn Nutzer:innen eine Sitzung in einer App beenden
@@ -58,7 +58,7 @@ Tabelle | Beschreibung
 [USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED](#USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED) | Wenn Nutzer:innen einen Geofence-Bereich auslösen – beispielsweise durch Betreten oder Verlassen eines Geofence. Dieses Ereignis wird mit anderen Ereignissen gebündelt und über den Standard-Endpunkt für Ereignisse empfangen, sodass es möglicherweise nicht in Echtzeit angezeigt wird.<br><br>Um Geofence-Aktivitäten in dieser Tabelle zu protokollieren, aktivieren Sie **Enable Analytics for Enter** und **Enable Analytics for Exit** in den erweiterten Einstellungen jedes Geofence. Weitere Details finden Sie in Schritt 3 unter [Geofences manuell erstellen]({{site.baseurl}}/user_guide/audience/locations_and_geofences/creating_geofences#manually-create-geofences).
 [USERS_BEHAVIORS_GEOFENCE_RECORDEVENT_SHARED](#USERS_BEHAVIORS_GEOFENCE_RECORDEVENT_SHARED) | Wenn Nutzer:innen einen Geofence-Bereich auslösen (beispielsweise durch Betreten oder Verlassen eines Geofence). Dieses Ereignis wurde über den dedizierten Geofence-Endpunkt empfangen und wird daher in Echtzeit erfasst, sobald das Gerät erkennt, dass ein Geofence ausgelöst wurde. <br><br>Aufgrund von Rate-Limiting am Geofence-Endpunkt ist es zudem möglich, dass einige Geofence-Ereignisse nicht als RecordEvent widergespiegelt werden. Alle Geofence-Ereignisse werden jedoch durch DataEvent repräsentiert (allerdings möglicherweise mit einer gewissen Verzögerung durch die Bündelung).
 [USERS_BEHAVIORS_LIVEACTIVITY_PUSHTOSTARTTOKENCHANGE_SHARED](#USERS_BEHAVIORS_LIVEACTIVITY_PUSHTOSTARTTOKENCHANGE_SHARED) | Wenn sich ein Push-to-Start-Token / Textbaustein einer Live Activity ändert
-[USERS_BEHAVIORS_LIVEACTIVITY_UPDATETOKENCHANGE_SHARED](#USERS_BEHAVIORS_LIVEACTIVITY_UPDATETOKENCHANGE_SHARED) | Wenn sich ein Update or aktualisieren-Token / Textbaustein einer Live Activity ändert
+[USERS_BEHAVIORS_LIVEACTIVITY_UPDATETOKENCHANGE_SHARED](#USERS_BEHAVIORS_LIVEACTIVITY_UPDATETOKENCHANGE_SHARED) | Wenn sich ein Update-Token / Textbaustein einer Live Activity ändert
 [USERS_BEHAVIORS_PUSHNOTIFICATION_TOKENSTATECHANGE_SHARED](#USERS_BEHAVIORS_PUSHNOTIFICATION_TOKENSTATECHANGE_SHARED) | Wenn sich der Status eines Push-Benachrichtigungs-Tokens ändert
 [USERS_BEHAVIORS_SUBSCRIPTION_GLOBALSTATECHANGE_SHARED](#USERS_BEHAVIORS_SUBSCRIPTION_GLOBALSTATECHANGE_SHARED) | Wenn sich Nutzer:innen global für einen Kanal wie E-Mail an- oder abmelden
 [USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED](#USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED) | Wenn sich Nutzer:innen für eine Abo-Gruppe an- oder abmelden
@@ -111,7 +111,7 @@ Tabelle | Beschreibung
 [USERS_MESSAGES_PUSHNOTIFICATION_ABORT_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_ABORT_SHARED) | Eine ursprünglich geplante Push-Benachrichtigung wurde aus einem bestimmten Grund abgebrochen.
 [USERS_MESSAGES_PUSHNOTIFICATION_BOUNCE_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_BOUNCE_SHARED) | Wenn eine Push-Benachrichtigung einen Bounce erhält
 [USERS_MESSAGES_PUSHNOTIFICATION_INFLUENCEDOPEN_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_INFLUENCEDOPEN_SHARED) | Wenn Nutzer:innen die App öffnen, nachdem sie eine Benachrichtigung erhalten haben, ohne auf die Benachrichtigung zu klicken
-[USERS_MESSAGES_PUSHNOTIFICATION_IOSFOREGROUND_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_IOSFOREGROUND_SHARED) | Wenn Nutzer:innen eine Push-Benachrichtigung erhalten, während die App geöffnet ist. <br><br>Dieses Ereignis wird vom [Swift SDK or Software-Development-Kit](https://github.com/braze-inc/braze-swift-sdk) nicht unterstützt und ist im [Obj-C SDK or Software-Development-Kit](https://github.com/Appboy/appboy-ios-sdk) veraltet.
+[USERS_MESSAGES_PUSHNOTIFICATION_IOSFOREGROUND_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_IOSFOREGROUND_SHARED) | Wenn Nutzer:innen eine Push-Benachrichtigung erhalten, während die App geöffnet ist. <br><br>Dieses Ereignis wird vom [Swift SDK](https://github.com/braze-inc/braze-swift-sdk) nicht unterstützt und ist im [Obj-C SDK](https://github.com/Appboy/appboy-ios-sdk) veraltet.
 [USERS_MESSAGES_PUSHNOTIFICATION_OPEN_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_OPEN_SHARED) | Wenn Nutzer:innen eine Push-Benachrichtigung öffnen oder auf einen Push-Benachrichtigungs-Button klicken (einschließlich eines CLOSE-Buttons, der die App NICHT öffnet). <br><br> Push-Button-Aktionen haben mehrere Ergebnisse. „No“-, „Decline“- und „Cancel“-Aktionen sind „Klicks“, und „Accept“-Aktionen sind „Öffnungen“. Beides wird in dieser Tabelle dargestellt, kann aber über die Spalte **BUTTON_ACTION_TYPE** unterschieden werden. Beispielsweise kann eine Abfrage verwendet werden, um nach einem `BUTTON_ACTION_TYPE` zu gruppieren, der nicht „No“, „Decline“ oder „Cancel“ ist.
 [USERS_MESSAGES_PUSHNOTIFICATION_SEND_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_SEND_SHARED) | Wenn wir eine Push-Benachrichtigung an Nutzer:innen senden
 [USERS_MESSAGES_RCS_ABORT_SHARED](#USERS_MESSAGES_RCS_ABORT_SHARED) | Wenn ein RCS-Versand aufgrund eines innerhalb von Braze erkannten Fehlers unterbrochen und die Nachricht verworfen wird
@@ -121,15 +121,15 @@ Tabelle | Beschreibung
 [USERS_MESSAGES_RCS_READ_SHARED](#USERS_MESSAGES_RCS_READ_SHARED) | Wenn Endnutzer:innen eine RCS-Nachricht auf ihrem Gerät öffnen
 [USERS_MESSAGES_RCS_REJECTION_SHARED](#USERS_MESSAGES_RCS_REJECTION_SHARED) | Wenn eine RCS-Nachricht aufgrund einer Intervention des Mobilfunkanbieters nicht zugestellt werden kann
 [USERS_MESSAGES_RCS_SEND_SHARED](#USERS_MESSAGES_RCS_SEND_SHARED) | Wenn eine RCS-Nachricht von den Braze-Systemen an Last-Mile-Zustellpartner gesendet wird
-[USERS_MESSAGES_SMS_ABORT_SHARED](#USERS_MESSAGES_SMS_ABORT_SHARED) | Eine ursprünglich geplante Kurzmitteilungsdienst or SMS-Nachricht wurde aus einem bestimmten Grund abgebrochen.
-[USERS_MESSAGES_SMS_CARRIERSEND_SHARED](#USERS_MESSAGES_SMS_CARRIERSEND_SHARED) | Wenn eine Kurzmitteilungsdienst or SMS-Nachricht an den Mobilfunkanbieter gesendet wird
-[USERS_MESSAGES_SMS_DELIVERY_SHARED](#USERS_MESSAGES_SMS_DELIVERY_SHARED) | Wenn eine Kurzmitteilungsdienst or SMS-Nachricht zugestellt wird
-[USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED](#USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED) | Wenn Braze die Kurzmitteilungsdienst or SMS-Nachricht nicht an den Kurzmitteilungsdienst or SMS-Dienstanbieter zustellen kann
-[USERS_MESSAGES_SMS_INBOUNDRECEIVE_SHARED](#USERS_MESSAGES_SMS_INBOUNDRECEIVE_SHARED) | Wenn eine Kurzmitteilungsdienst or SMS-Nachricht von Nutzer:innen empfangen wird
-[USERS_MESSAGES_SMS_REJECTION_SHARED](#USERS_MESSAGES_SMS_REJECTION_SHARED) | Wenn eine Kurzmitteilungsdienst or SMS-Nachricht nicht an Nutzer:innen zugestellt wird
-[USERS_MESSAGES_SMS_SEND_SHARED](#USERS_MESSAGES_SMS_SEND_SHARED) | Wenn eine Kurzmitteilungsdienst or SMS-Nachricht gesendet wird
-[USERS_MESSAGES_SMS_SHORTLINKCLICK_SHARED](#USERS_MESSAGES_SMS_SHORTLINKCLICK_SHARED) | Wenn Nutzer:innen auf eine von Braze verkürzte URL in einer Kurzmitteilungsdienst or SMS-Nachricht klicken
-[USERS_MESSAGES_SMS_RETRY_SHARED](#USERS_MESSAGES_SMS_RETRY_SHARED) | Wenn eine Kurzmitteilungsdienst or SMS-Nachricht nach Depriorisierung oder Frequency Capping erneut versucht wird (**nur Snowflake Data Sharing**)
+[USERS_MESSAGES_SMS_ABORT_SHARED](#USERS_MESSAGES_SMS_ABORT_SHARED) | Eine ursprünglich geplante SMS-Nachricht wurde aus einem bestimmten Grund abgebrochen.
+[USERS_MESSAGES_SMS_CARRIERSEND_SHARED](#USERS_MESSAGES_SMS_CARRIERSEND_SHARED) | Wenn eine SMS-Nachricht an den Mobilfunkanbieter gesendet wird
+[USERS_MESSAGES_SMS_DELIVERY_SHARED](#USERS_MESSAGES_SMS_DELIVERY_SHARED) | Wenn eine SMS-Nachricht zugestellt wird
+[USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED](#USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED) | Wenn Braze die SMS-Nachricht nicht an den SMS-Dienstanbieter zustellen kann
+[USERS_MESSAGES_SMS_INBOUNDRECEIVE_SHARED](#USERS_MESSAGES_SMS_INBOUNDRECEIVE_SHARED) | Wenn eine SMS-Nachricht von Nutzer:innen empfangen wird
+[USERS_MESSAGES_SMS_REJECTION_SHARED](#USERS_MESSAGES_SMS_REJECTION_SHARED) | Wenn eine SMS-Nachricht nicht an Nutzer:innen zugestellt wird
+[USERS_MESSAGES_SMS_SEND_SHARED](#USERS_MESSAGES_SMS_SEND_SHARED) | Wenn eine SMS-Nachricht gesendet wird
+[USERS_MESSAGES_SMS_SHORTLINKCLICK_SHARED](#USERS_MESSAGES_SMS_SHORTLINKCLICK_SHARED) | Wenn Nutzer:innen auf eine von Braze verkürzte URL in einer SMS-Nachricht klicken
+[USERS_MESSAGES_SMS_RETRY_SHARED](#USERS_MESSAGES_SMS_RETRY_SHARED) | Wenn eine SMS-Nachricht nach Depriorisierung oder Frequency Capping erneut versucht wird (**nur Snowflake Data Sharing**)
 [USERS_MESSAGES_WEBHOOK_ABORT_SHARED](#USERS_MESSAGES_WEBHOOK_ABORT_SHARED) | Eine ursprünglich geplante Webhook-Nachricht wurde aus einem bestimmten Grund abgebrochen
 [USERS_MESSAGES_WEBHOOK_FAILURE_SHARED](#USERS_MESSAGES_WEBHOOK_FAILURE_SHARED) | Wenn eine Webhook-Nachricht zugestellt wird, aber mit einer Fehlerantwort vom Endpunkt fehlschlägt
 [USERS_MESSAGES_WEBHOOK_SEND_SHARED](#USERS_MESSAGES_WEBHOOK_SEND_SHARED) | Wenn wir einen Webhook für Nutzer:innen senden
@@ -230,7 +230,7 @@ Feld | Typ | Beschreibung
 `sf_created_at` | `timestamp`,&nbsp;`null` | Wann dieses Ereignis von der Snowpipe erfasst wurde
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="AGENTCONSOLETOOLINVOCATIONSHARED #AGENTCONSOLETOOLINVOCATIONSHARED" }
 
-## Kundenprofil or Nutzerprofil-Attributansichten {#user-profile-attribute-views}
+## Kundenprofil-Attributansichten {#user-profile-attribute-views}
 
 ### USER_CUSTOM_ATTRIBUTES_VIEW_SHARED {#USER_CUSTOM_ATTRIBUTES_VIEW_SHARED}
 
@@ -413,7 +413,7 @@ Feld | Typ | Beschreibung
 `timezone` | `null,`&nbsp;`string` | Zeitzone der/des Nutzer:in
 `language` | `null,`&nbsp;`string` | [PII] Sprache der/des Nutzer:in
 `device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem das angepasste Ereignis stattfand
-`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK or Software-Development-Kit, das während des Ereignisses verwendet wurde
+`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK, das während des Ereignisses verwendet wurde
 `platform` | `null,`&nbsp;`string` | Plattform des Geräts
 `os_version` | `null,`&nbsp;`string` | Version des Betriebssystems des Geräts
 `device_model` | `null,`&nbsp;`string` | Modell des Geräts
@@ -457,7 +457,7 @@ Feld | Typ | Beschreibung
 `ll_accuracy` | `null, float` | Genauigkeit von Breiten- und Längengrad des aufgezeichneten Standorts
 `alt_accuracy` | `null, float` | Höhengenauigkeit des aufgezeichneten Standorts
 `device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem der Standort aufgezeichnet wurde
-`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK or Software-Development-Kit, das bei der Aufzeichnung des Standorts verwendet wurde
+`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK, das bei der Aufzeichnung des Standorts verwendet wurde
 `platform` | `null,`&nbsp;`string` | Plattform des Geräts
 `os_version` | `null,`&nbsp;`string` | Version des Betriebssystems des Geräts
 `device_model` | `null,`&nbsp;`string` | Modell des Geräts
@@ -479,7 +479,7 @@ Feld | Typ | Beschreibung
 `app_api_id` | `null,`&nbsp;`string` | API-ID der App, in der der Kauf stattfand
 `time` | `int` | Unix-Zeitstempel, zu dem die/der Nutzer:in den Kauf getätigt hat
 `device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem der Kauf stattfand
-`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK or Software-Development-Kit, das während des Kaufs verwendet wurde
+`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK, das während des Kaufs verwendet wurde
 `platform` | `null,`&nbsp;`string` | Plattform des Geräts
 `os_version` | `null,`&nbsp;`string` | Version des Betriebssystems des Geräts
 `device_model` | `null,`&nbsp;`string` | Modell des Geräts
@@ -520,7 +520,7 @@ Feld | Typ | Beschreibung
 `app_api_id` | `null,`&nbsp;`string` | API-ID der App, die die/der Nutzer:in aktualisiert hat
 `time` | `int` | Unix-Zeitstempel, zu dem die/der Nutzer:in die App aktualisiert hat
 `device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem die/der Nutzer:in die App aktualisiert hat
-`sdk_version` | `null,`&nbsp;`string` | Version des verwendeten Braze SDK or Software-Development-Kit
+`sdk_version` | `null,`&nbsp;`string` | Version des verwendeten Braze SDK
 `platform` | `null,`&nbsp;`string` | Plattform des Geräts
 `os_version` | `null,`&nbsp;`string` | Version des Betriebssystems des Geräts
 `device_model` | `null,`&nbsp;`string` | Modell des Geräts
@@ -546,7 +546,7 @@ Feld | Typ | Beschreibung
 `timezone` | `null,`&nbsp;`string` | Zeitzone der/des Nutzer:in
 `language` | `null,`&nbsp;`string` | [PII] Sprache der/des Nutzer:in
 `device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem die Sitzung stattfand
-`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK or Software-Development-Kit, das während der Sitzung verwendet wurde
+`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK, das während der Sitzung verwendet wurde
 `platform` | `null,`&nbsp;`string` | Plattform des Geräts
 `os_version` | `null,`&nbsp;`string` | Version des Betriebssystems des Geräts
 `device_model` | `null,`&nbsp;`string` | Modell des Geräts
@@ -567,7 +567,7 @@ Feld | Typ | Beschreibung
 `app_api_id` | `null,`&nbsp;`string` | API-ID der App, in der dieses Ereignis stattfand
 `time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis stattfand
 `device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem das Ereignis stattfand
-`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK or Software-Development-Kit, das während des Ereignisses verwendet wurde
+`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK, das während des Ereignisses verwendet wurde
 `platform` | `null,`&nbsp;`string` | Plattform des Geräts
 `os_version` | `null,`&nbsp;`string` | Version des Betriebssystems des Geräts
 `device_model` | `null,`&nbsp;`string` | Modell des Geräts
@@ -587,7 +587,7 @@ Feld | Typ | Beschreibung
 `duration` | `null, float` | Dauer der Sitzung in Sekunden
 `session_id` | `string` | UUID der Sitzung
 `device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem die Sitzung stattfand
-`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK or Software-Development-Kit, das während der Sitzung verwendet wurde
+`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK, das während der Sitzung verwendet wurde
 `platform` | `null,`&nbsp;`string` | Plattform des Geräts
 `os_version` | `null,`&nbsp;`string` | Version des Betriebssystems des Geräts
 `device_model` | `null,`&nbsp;`string` | Modell des Geräts
@@ -607,7 +607,7 @@ Feld | Typ | Beschreibung
 `time` | `int` | Unix-Zeitstempel, zu dem die Sitzung gestartet wurde
 `session_id` | `string` | UUID der Sitzung
 `device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem die Sitzung stattfand
-`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK or Software-Development-Kit, das während der Sitzung verwendet wurde
+`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK, das während der Sitzung verwendet wurde
 `platform` | `null,`&nbsp;`string` | Plattform des Geräts
 `os_version` | `null,`&nbsp;`string` | Version des Betriebssystems des Geräts
 `device_model` | `null,`&nbsp;`string` | Modell des Geräts
@@ -626,7 +626,7 @@ Feld | Typ | Beschreibung
 `app_api_id` | `null,`&nbsp;`string` | API-ID der App, in der diese Aktion stattfand
 `time` | `int` | Unix-Zeitstempel, zu dem die/der Nutzer:in das Ereignis ausgeführt hat
 `device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem das angepasste Ereignis stattfand
-`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK or Software-Development-Kit, das während des Ereignisses verwendet wurde
+`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK, das während des Ereignisses verwendet wurde
 `platform` | `null,`&nbsp;`string` | Plattform des Geräts
 `os_version` | `null,`&nbsp;`string` | Version des Betriebssystems des Geräts
 `device_model` | `null,`&nbsp;`string` | Modell des Geräts
@@ -648,7 +648,7 @@ Feld | Typ | Beschreibung
 `app_api_id` | `null,`&nbsp;`string` | API-ID der App, in der diese Aktion stattfand
 `time` | `int` | Unix-Zeitstempel, zu dem die/der Nutzer:in das Ereignis ausgeführt hat
 `device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem das angepasste Ereignis stattfand
-`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK or Software-Development-Kit, das während des Ereignisses verwendet wurde
+`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK, das während des Ereignisses verwendet wurde
 `platform` | `null,`&nbsp;`string` | Plattform des Geräts
 `os_version` | `null,`&nbsp;`string` | Version des Betriebssystems des Geräts
 `device_model` | `null,`&nbsp;`string` | Modell des Geräts
@@ -672,7 +672,7 @@ Feld | Typ | Beschreibung
 `activity_attributes_type` | `null,`&nbsp;`string` | Live-Activity-Attributtyp
 `push_to_start_token` | `null,`&nbsp;`string` | Push-to-Start-Token / Textbaustein der Live Activity
 `device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem das Ereignis stattfand
-`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK or Software-Development-Kit, das während des Ereignisses verwendet wurde
+`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK, das während des Ereignisses verwendet wurde
 `ios_push_token_apns_gateway` | `null, int` | APNS-Gateway des Push-Tokens, gilt nur für iOS-Push-Tokens, 1 für Entwicklung, 2 für Produktion
 `push_token_state_change_type` | `null,`&nbsp;`string` | Beschreibung des Änderungstyps des Push-Token / Textbaustein-Status
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID der App-Gruppe, zu der diese:r Nutzer:in gehört
@@ -693,7 +693,7 @@ Feld | Typ | Beschreibung
 `activity_id` | `null,`&nbsp;`string` | Bezeichner der Live Activity
 `update_token` | `null,`&nbsp;`string` | Aktualisierungstoken der Live Activity
 `device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem das Ereignis stattfand
-`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK or Software-Development-Kit, das während des Ereignisses verwendet wurde
+`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK, das während des Ereignisses verwendet wurde
 `ios_push_token_apns_gateway` | `null, int` | APNS-Gateway des Push-Tokens, gilt nur für iOS-Push-Tokens, 1 für Entwicklung, 2 für Produktion
 `push_token_state_change_type` | `null,`&nbsp;`string` | Beschreibung des Änderungstyps des Push-Token / Textbaustein-Status
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID der App-Gruppe, zu der diese:r Nutzer:in gehört
@@ -711,7 +711,7 @@ Feld | Typ | Beschreibung
 `time_ms` | `int` | Zeitpunkt in Millisekunden, zu dem das Ereignis stattfand
 `user_id` | `string` | Braze-Nutzer-ID der/des Nutzer:in, die/der dieses Ereignis ausgeführt hat
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe ID der/des Nutzer:in
-`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK or Software-Development-Kit, das während des Ereignisses verwendet wurde
+`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK, das während des Ereignisses verwendet wurde
 `platform` | `null,`&nbsp;`string` | Plattform des Geräts
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese:r Nutzer:in gehört
 `push_token` | `null,`&nbsp;`string` | Push-Token / Textbaustein des Ereignisses
@@ -738,7 +738,7 @@ Feld | Typ | Beschreibung
 `user_id` | `string` | Braze-ID der/des betroffenen Nutzer:in
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe Nutzer-ID der/des Nutzer:in
 `email_address` | `null,`&nbsp;`string` | [PII] E-Mail-Adresse der/des Nutzer:in
-`state_change_source` | `null,`&nbsp;`string` | Quelle der Statusänderung (Representational State Transfer, SDK or Software-Development-Kit, Dashboard usw.)
+`state_change_source` | `null,`&nbsp;`string` | Quelle der Statusänderung (REST, SDK, Dashboard usw.)
 `subscription_status` | `string` | Abo-Status: „Subscribed“, „Unsubscribed“ oder „Opted In“
 `channel` | `null,`&nbsp;`string` | Kanal des globalen Abo-Status, z. B. E-Mail
 `time` | `int` | Unix-Zeitstempel, zu dem sich der Abo-Status geändert hat
@@ -778,12 +778,12 @@ Feld | Typ | Beschreibung
 `canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Ereignis gehört
 `canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Ereignis gehört
 `subscription_group_api_id` | `string` | API-ID der Abo-Gruppe
-`channel` | `null,`&nbsp;`string` | Kanal: „email“ oder „Kurzmitteilungsdienst or SMS“, je nach Kanaltyp der Abo-Gruppe
+`channel` | `null,`&nbsp;`string` | Kanal: „email“ oder „sms“, je nach Kanaltyp der Abo-Gruppe
 `subscription_status` | `string` | Abo-Status: „Subscribed“, „Unsubscribed“ oder „Opted In“
 `time` | `int` | Unix-Zeitstempel, zu dem sich der Abo-Status geändert hat
 `timezone` | `null,`&nbsp;`string` | Zeitzone der/des Nutzer:in
 `send_id` | `null,`&nbsp;`string` | Nachrichten-Sende-ID, von der diese Abo-Statusänderung ausging
-`state_change_source` | `null,`&nbsp;`string` | Quelle der Statusänderung (Representational State Transfer, SDK or Software-Development-Kit, Dashboard usw.)
+`state_change_source` | `null,`&nbsp;`string` | Quelle der Statusänderung (REST, SDK, Dashboard usw.)
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese:r Nutzer:in gehört
 `dispatch_id` | `null,`&nbsp;`string` | ID des Versands, zu dem diese Nachricht gehört
 `channel_identifier` | `null,`&nbsp;`string` | [PII] Der Bezeichner der/des Nutzer:in auf dem Kanal, für den das Ereignis bestimmt ist.
@@ -1112,7 +1112,7 @@ Feld | Typ | Beschreibung
 `timezone` | `null,`&nbsp;`string` | Zeitzone der/des Nutzer:in
 `language` | `null,`&nbsp;`string` | [PII] Sprache der/des Nutzer:in
 `device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem das Ereignis aufgetreten ist
-`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK or Software-Development-Kit, die während des Ereignisses verwendet wurde
+`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK, die während des Ereignisses verwendet wurde
 `platform` | `null,`&nbsp;`string` | Plattform des Geräts
 `os_version` | `null,`&nbsp;`string` | Version des Betriebssystems des Geräts
 `device_model` | `null,`&nbsp;`string` | Modell des Geräts
@@ -1148,7 +1148,7 @@ Feld | Typ | Beschreibung
 `timezone` | `null,`&nbsp;`string` | Zeitzone der/des Nutzer:in
 `language` | `null,`&nbsp;`string` | [PII] Sprache der/des Nutzer:in
 `device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem das Ereignis aufgetreten ist
-`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK or Software-Development-Kit, die während des Ereignisses verwendet wurde
+`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK, die während des Ereignisses verwendet wurde
 `platform` | `null,`&nbsp;`string` | Plattform des Geräts
 `os_version` | `null,`&nbsp;`string` | Version des Betriebssystems des Geräts
 `device_model` | `null,`&nbsp;`string` | Modell des Geräts
@@ -1183,7 +1183,7 @@ Feld | Typ | Beschreibung
 `timezone` | `null,`&nbsp;`string` | Zeitzone der/des Nutzer:in
 `language` | `null,`&nbsp;`string` | [PII] Sprache der/des Nutzer:in
 `device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem das Ereignis aufgetreten ist
-`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK or Software-Development-Kit, die während des Ereignisses verwendet wurde
+`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK, die während des Ereignisses verwendet wurde
 `platform` | `null,`&nbsp;`string` | Plattform des Geräts
 `os_version` | `null,`&nbsp;`string` | Version des Betriebssystems des Geräts
 `device_model` | `null,`&nbsp;`string` | Modell des Geräts
@@ -1253,7 +1253,7 @@ Feld | Typ | Beschreibung
 `timezone` | `null,`&nbsp;`string` | Zeitzone der/des Nutzer:in
 `language` | `null,`&nbsp;`string` | [PII] Sprache der/des Nutzer:in
 `device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem das Ereignis aufgetreten ist
-`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK or Software-Development-Kit, die während des Ereignisses verwendet wurde
+`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK, die während des Ereignisses verwendet wurde
 `platform` | `null,`&nbsp;`string` | Plattform des Geräts
 `os_version` | `null,`&nbsp;`string` | Version des Betriebssystems des Geräts
 `device_model` | `null,`&nbsp;`string` | Modell des Geräts
@@ -1293,7 +1293,7 @@ Feld | Typ | Beschreibung
 `timezone` | `null,`&nbsp;`string` | Zeitzone der/des Nutzer:in
 `language` | `null,`&nbsp;`string` | [PII] Sprache der/des Nutzer:in
 `device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem das Ereignis aufgetreten ist
-`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK or Software-Development-Kit, die während des Ereignisses verwendet wurde
+`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK, die während des Ereignisses verwendet wurde
 `platform` | `null,`&nbsp;`string` | Plattform des Geräts
 `os_version` | `null,`&nbsp;`string` | Version des Betriebssystems des Geräts
 `device_model` | `null,`&nbsp;`string` | Modell des Geräts
@@ -1333,7 +1333,7 @@ Feld | Typ | Beschreibung
 `timezone` | `null,`&nbsp;`string` | Zeitzone der/des Nutzer:in
 `language` | `null,`&nbsp;`string` | [PII] Sprache der/des Nutzer:in
 `device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem das Ereignis aufgetreten ist
-`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK or Software-Development-Kit, die während des Ereignisses verwendet wurde
+`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK, die während des Ereignisses verwendet wurde
 `platform` | `null,`&nbsp;`string` | Plattform des Geräts
 `os_version` | `null,`&nbsp;`string` | Version des Betriebssystems des Geräts
 `device_model` | `null,`&nbsp;`string` | Modell des Geräts
@@ -1437,7 +1437,7 @@ Feld | Typ | Beschreibung
 `sending_ip` | `null,`&nbsp;`string` | IP-Adresse, von der der E-Mail-Versand erfolgte
 `ip_pool` | `null,`&nbsp;`string` | IP-Pool, über den der E-Mail-Versand erfolgte
 `bounce_reason` | `null,`&nbsp;`string` | [PII] Der SMTP-Ursachencode und die benutzerfreundliche Nachricht, die für dieses Bounce-Ereignis empfangen wurden
-`esp` | `null,`&nbsp;`string` | E-Mail-Anbieter or ESP im Zusammenhang mit dem Ereignis (SparkPost, SendGrid oder Amazon SES)
+`esp` | `null,`&nbsp;`string` | E-Mail-Anbieter im Zusammenhang mit dem Ereignis (SparkPost, SendGrid oder Amazon SES)
 `from_domain` | `null,`&nbsp;`string` | Absende-Domain für die E-Mail
 `is_drop` | `null, boolean` | Gibt an, ob dieses Ereignis als Drop-Ereignis zählt
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese:r Nutzer:in gehört
@@ -1478,9 +1478,9 @@ Feld | Typ | Beschreibung
 `ip_pool` | `null,`&nbsp;`string` | IP-Pool, über den der E-Mail-Versand erfolgte
 `link_id` | `null,`&nbsp;`string` | Eindeutige ID für den geklickten Link, wie von Braze erstellt
 `link_alias` | `null,`&nbsp;`string` | Alias, der mit dieser Link-ID verknüpft ist
-`esp` | `null,`&nbsp;`string` | E-Mail-Anbieter or ESP im Zusammenhang mit dem Ereignis (SparkPost, SendGrid oder Amazon SES)
+`esp` | `null,`&nbsp;`string` | E-Mail-Anbieter im Zusammenhang mit dem Ereignis (SparkPost, SendGrid oder Amazon SES)
 `from_domain` | `null,`&nbsp;`string` | Absende-Domain für die E-Mail
-`is_amp` | `null, boolean` | Gibt an, ob es sich um ein AMP or Accelerated Mobile Pages-Ereignis handelt
+`is_amp` | `null, boolean` | Gibt an, ob es sich um ein AMP-Ereignis handelt
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese:r Nutzer:in gehört
 `is_suspected_bot_click` | `null, boolean` | Ob dieses Ereignis als Bot-Ereignis verarbeitet wurde
 `suspected_bot_click_reason` | `null, object` | Warum dieses Ereignis als Bot klassifiziert wurde
@@ -1510,7 +1510,7 @@ Feld | Typ | Beschreibung
 `dispatch_id` | `null,`&nbsp;`string` | ID des Dispatch, zu dem diese Nachricht gehört
 `email_address` | `null,`&nbsp;`string` | [PII] E-Mail-Adresse der/des Nutzer:in
 `recipient_domain` | `null,`&nbsp;`string` | E-Mail-Domain der/des Empfänger:in
-`esp` | `null,`&nbsp;`string` | E-Mail-Anbieter or ESP im Zusammenhang mit dem Ereignis (Sparkpost, Sendgrid oder Amazon SES)
+`esp` | `null,`&nbsp;`string` | E-Mail-Anbieter im Zusammenhang mit dem Ereignis (Sparkpost, Sendgrid oder Amazon SES)
 `from_domain` | `null,`&nbsp;`string` | Absende-Domain für die E-Mail
 `ip_pool` | `null,`&nbsp;`string` | IP-Pool, über den der E-Mail-Versand erfolgte
 `sending_ip` | `null,`&nbsp;`string` | IP-Adresse, von der der E-Mail-Versand erfolgte
@@ -1547,7 +1547,7 @@ Feld | Typ | Beschreibung
 `email_address` | `string` | [PII] E-Mail-Adresse der/des Nutzer:in
 `sending_ip` | `null,`&nbsp;`string` | IP-Adresse, von der die E-Mail gesendet wurde
 `ip_pool` | `null,`&nbsp;`string` | IP-Pool, über den der E-Mail-Versand erfolgte
-`esp` | `null,`&nbsp;`string` | E-Mail-Anbieter or ESP im Zusammenhang mit dem Ereignis (SparkPost, SendGrid oder Amazon SES)
+`esp` | `null,`&nbsp;`string` | E-Mail-Anbieter im Zusammenhang mit dem Ereignis (SparkPost, SendGrid oder Amazon SES)
 `from_domain` | `null,`&nbsp;`string` | Absende-Domain für die E-Mail
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese:r Nutzer:in gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
@@ -1580,7 +1580,7 @@ Feld | Typ | Beschreibung
 `email_address` | `string` | [PII] E-Mail-Adresse der/des Nutzer:in
 `user_agent` | `null,`&nbsp;`string` | User-Agent, über den der Spam-Bericht erfolgte
 `ip_pool` | `null,`&nbsp;`string` | IP-Pool, über den der E-Mail-Versand erfolgte
-`esp` | `null,`&nbsp;`string` | E-Mail-Anbieter or ESP im Zusammenhang mit dem Ereignis (SparkPost, SendGrid oder Amazon SES)
+`esp` | `null,`&nbsp;`string` | E-Mail-Anbieter im Zusammenhang mit dem Ereignis (SparkPost, SendGrid oder Amazon SES)
 `from_domain` | `null,`&nbsp;`string` | Absende-Domain für die E-Mail
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese:r Nutzer:in gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
@@ -1613,10 +1613,10 @@ Feld | Typ | Beschreibung
 `email_address` | `string` | [PII] E-Mail-Adresse der/des Nutzer:in
 `user_agent` | `null,`&nbsp;`string` | User-Agent, über den die Öffnung erfolgte
 `ip_pool` | `null,`&nbsp;`string` | IP-Pool, über den der E-Mail-Versand erfolgte
-`machine_open` | `null,`&nbsp;`string` | Wird auf „true“ gesetzt, wenn das Öffnungs-Ereignis ohne Nutzerinteraktion ausgelöst wird, z. B. durch ein Apple-Gerät mit aktiviertem E-Mail-Datenschutz or E-Mail-Datenschutz or MPP. Der Wert kann sich im Laufe der Zeit ändern, um mehr Granularität zu bieten.
-`esp` | `null,`&nbsp;`string` | E-Mail-Anbieter or ESP im Zusammenhang mit dem Ereignis (SparkPost, SendGrid oder Amazon SES)
+`machine_open` | `null,`&nbsp;`string` | Wird auf „true“ gesetzt, wenn das Öffnungs-Ereignis ohne Nutzerinteraktion ausgelöst wird, z. B. durch ein Apple-Gerät mit aktiviertem E-Mail-Datenschutz. Der Wert kann sich im Laufe der Zeit ändern, um mehr Granularität zu bieten.
+`esp` | `null,`&nbsp;`string` | E-Mail-Anbieter im Zusammenhang mit dem Ereignis (SparkPost, SendGrid oder Amazon SES)
 `from_domain` | `null,`&nbsp;`string` | Absende-Domain für die E-Mail
-`is_amp` | `null, boolean` | Gibt an, ob es sich um ein AMP or Accelerated Mobile Pages-Ereignis handelt
+`is_amp` | `null, boolean` | Gibt an, ob es sich um ein AMP-Ereignis handelt
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese:r Nutzer:in gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESEMAILOPENSHARED #USERSMESSAGESEMAILOPENSHARED" }
@@ -1648,7 +1648,7 @@ Feld | Typ | Beschreibung
 `email_address` | `string` | [PII] E-Mail-Adresse der/des Nutzer:in
 `ip_pool` | `null,`&nbsp;`string` | IP-Pool, über den der E-Mail-Versand erfolgte
 `message_extras` | `null,`&nbsp;`string` | [PII] Ein JSON-String der getaggten Schlüssel-Wert-Paare während des Liquid-Renderings
-`esp` | `null,`&nbsp;`string` | E-Mail-Anbieter or ESP im Zusammenhang mit dem Ereignis (SparkPost, SendGrid oder Amazon SES)
+`esp` | `null,`&nbsp;`string` | E-Mail-Anbieter im Zusammenhang mit dem Ereignis (SparkPost, SendGrid oder Amazon SES)
 `from_domain` | `null,`&nbsp;`string` | Absende-Domain für die E-Mail
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese:r Nutzer:in gehört
@@ -1682,7 +1682,7 @@ Feld | Typ | Beschreibung
 `sending_ip` | `null,`&nbsp;`string` | IP-Adresse, von der der E-Mail-Versand erfolgte
 `ip_pool` | `null,`&nbsp;`string` | IP-Pool, über den der E-Mail-Versand erfolgte
 `bounce_reason` | `null,`&nbsp;`string` | [PII] Der SMTP-Ursachencode und die benutzerfreundliche Nachricht, die für dieses Bounce-Ereignis empfangen wurden
-`esp` | `null,`&nbsp;`string` | E-Mail-Anbieter or ESP im Zusammenhang mit dem Ereignis (SparkPost, SendGrid oder Amazon SES)
+`esp` | `null,`&nbsp;`string` | E-Mail-Anbieter im Zusammenhang mit dem Ereignis (SparkPost, SendGrid oder Amazon SES)
 `from_domain` | `null,`&nbsp;`string` | Absende-Domain für die E-Mail
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese:r Nutzer:in gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
@@ -1690,7 +1690,7 @@ Feld | Typ | Beschreibung
 
 ### USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED {#USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED}
 
-Diese Tabelle protokolliert E-Mail-Abmeldungen auf Nachrichtenebene von Empfängerseite: Klick auf einen Abmelde-Link, die Ein-Klick-List-Unsubscribe-Funktion des E-Mail-Clients, Einreichungen über das Preference Center sowie vom E-Mail-Anbieter or ESP gemeldete Abmeldungen. Abmeldungen, die über die Representational State Transfer API vorgenommen werden, sind nicht enthalten; diese erzeugen stattdessen [`users.behaviors.subscriptiongroup.StateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#subscription-group-state-change-events)- oder [`users.behaviors.subscription.GlobalStateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#global-subscription-state-change-events)-Ereignisse.
+Diese Tabelle protokolliert E-Mail-Abmeldungen auf Nachrichtenebene von Empfängerseite: Klick auf einen Abmelde-Link, die Ein-Klick-List-Unsubscribe-Funktion des E-Mail-Clients, Einreichungen über das Preference Center sowie vom E-Mail-Anbieter gemeldete Abmeldungen. Abmeldungen, die über die REST API vorgenommen werden, sind nicht enthalten; diese erzeugen stattdessen [`users.behaviors.subscriptiongroup.StateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#subscription-group-state-change-events)- oder [`users.behaviors.subscription.GlobalStateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#global-subscription-state-change-events)-Ereignisse.
 
 Feld | Typ | Beschreibung
 ------|------|------------
@@ -1785,7 +1785,7 @@ Feld | Typ | Beschreibung
 `os_version` | `null,`&nbsp;`string` | Version des Betriebssystems des Geräts
 `platform` | `null,`&nbsp;`string` | Plattform des Geräts
 `resolution` | `null,`&nbsp;`string` | Auflösung des Geräts
-`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK or Software-Development-Kit, die während des Ereignisses verwendet wurde
+`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK, die während des Ereignisses verwendet wurde
 `timezone` | `null,`&nbsp;`string` | Zeitzone der/des Nutzer:in
 `user_id` | `string` | Braze-Nutzer:innen-ID der Person, die dieses Ereignis ausgeführt hat
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
@@ -1817,7 +1817,7 @@ Feld | Typ | Beschreibung
 `timezone` | `null,`&nbsp;`string` | Zeitzone der/des Nutzer:in
 `language` | `null,`&nbsp;`string` | [PII] Sprache der/des Nutzer:in
 `device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem das Ereignis stattfand
-`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK or Software-Development-Kit, die während des Ereignisses verwendet wurde
+`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK, die während des Ereignisses verwendet wurde
 `platform` | `null,`&nbsp;`string` | Plattform des Geräts
 `os_version` | `null,`&nbsp;`string` | Version des Betriebssystems des Geräts
 `device_model` | `null,`&nbsp;`string` | Modell des Geräts
@@ -1859,7 +1859,7 @@ Feld | Typ | Beschreibung
 `timezone` | `null,`&nbsp;`string` | Zeitzone der/des Nutzer:in
 `language` | `null,`&nbsp;`string` | [PII] Sprache der/des Nutzer:in
 `device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem das Ereignis stattfand
-`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK or Software-Development-Kit, die während des Ereignisses verwendet wurde
+`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK, die während des Ereignisses verwendet wurde
 `platform` | `null,`&nbsp;`string` | Plattform des Geräts
 `os_version` | `null,`&nbsp;`string` | Version des Betriebssystems des Geräts
 `device_model` | `null,`&nbsp;`string` | Modell des Geräts
@@ -1900,7 +1900,7 @@ Feld | Typ | Beschreibung
 `timezone` | `null,`&nbsp;`string` | Zeitzone der/des Nutzer:in
 `language` | `null,`&nbsp;`string` | [PII] Sprache der/des Nutzer:in
 `device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem das Ereignis stattfand
-`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK or Software-Development-Kit, die während des Ereignisses verwendet wurde
+`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK, die während des Ereignisses verwendet wurde
 `platform` | `null,`&nbsp;`string` | Plattform des Geräts
 `os_version` | `null,`&nbsp;`string` | Version des Betriebssystems des Geräts
 `device_model` | `null,`&nbsp;`string` | Modell des Geräts
@@ -2094,8 +2094,8 @@ Feld | Typ | Beschreibung
 `activity_id` | `null,`&nbsp;`string` | Live-Activity-Bezeichner
 `activity_attributes_type` | `null,`&nbsp;`string` | Attributtyp der Live Activity
 `push_to_start_token` | `null,`&nbsp;`string` | Push-to-Start-Token / Textbaustein der Live Activity
-`update_token` | `null,`&nbsp;`string` | Update or aktualisieren-Token / Textbaustein der Live Activity
-`live_activity_event_type` | `null,`&nbsp;`string` | Ereignistyp der Live Activity. Einer von ['start', 'Update or aktualisieren', 'end']
+`update_token` | `null,`&nbsp;`string` | Update-Token / Textbaustein der Live Activity
+`live_activity_event_type` | `null,`&nbsp;`string` | Ereignistyp der Live Activity. Einer von ['start', 'update', 'end']
 `live_activity_event_outcome` | `null,`&nbsp;`string` | Ergebnis des Live-Activity-Ereignisses
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID der App-Gruppe, zu der diese:r Nutzer:in gehört
 `app_api_id` | `null,`&nbsp;`string` | API-ID der App, auf der dieses Ereignis aufgetreten ist
@@ -2115,8 +2115,8 @@ Feld | Typ | Beschreibung
 `activity_id` | `null,`&nbsp;`string` | Live-Activity-Bezeichner
 `activity_attributes_type` | `null,`&nbsp;`string` | Attributtyp der Live Activity
 `push_to_start_token` | `null,`&nbsp;`string` | Push-to-Start-Token / Textbaustein der Live Activity
-`update_token` | `null,`&nbsp;`string` | Update or aktualisieren-Token / Textbaustein der Live Activity
-`live_activity_event_type` | `null,`&nbsp;`string` | Ereignistyp der Live Activity. Einer von ['start', 'Update or aktualisieren', 'end']
+`update_token` | `null,`&nbsp;`string` | Update-Token / Textbaustein der Live Activity
+`live_activity_event_type` | `null,`&nbsp;`string` | Ereignistyp der Live Activity. Einer von ['start', 'update', 'end']
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID der App-Gruppe, zu der diese:r Nutzer:in gehört
 `app_api_id` | `null,`&nbsp;`string` | API-ID der App, auf der dieses Ereignis aufgetreten ist
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
@@ -2140,7 +2140,7 @@ Feld | Typ | Beschreibung
 `timezone` | `null,`&nbsp;`string` | Zeitzone der/des Nutzer:in
 `language` | `null,`&nbsp;`string` | [PII] Sprache der/des Nutzer:in
 `device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem das Ereignis stattfand
-`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK or Software-Development-Kit, die während des Ereignisses verwendet wurde
+`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK, die während des Ereignisses verwendet wurde
 `platform` | `null,`&nbsp;`string` | Plattform des Geräts
 `os_version` | `null,`&nbsp;`string` | Version des Betriebssystems des Geräts
 `device_model` | `null,`&nbsp;`string` | Modell des Geräts
@@ -2170,7 +2170,7 @@ Feld | Typ | Beschreibung
 `timezone` | `null,`&nbsp;`string` | Zeitzone der/des Nutzer:in
 `language` | `null,`&nbsp;`string` | [PII] Sprache der/des Nutzer:in
 `device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem das Ereignis stattfand
-`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK or Software-Development-Kit, die während des Ereignisses verwendet wurde
+`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK, die während des Ereignisses verwendet wurde
 `platform` | `null,`&nbsp;`string` | Plattform des Geräts
 `os_version` | `null,`&nbsp;`string` | Version des Betriebssystems des Geräts
 `device_model` | `null,`&nbsp;`string` | Modell des Geräts
@@ -2198,7 +2198,7 @@ Feld | Typ | Beschreibung
 `timezone` | `null,`&nbsp;`string` | Zeitzone der/des Nutzer:in
 `language` | `null,`&nbsp;`string` | [PII] Sprache der/des Nutzer:in
 `device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem das Ereignis stattfand
-`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK or Software-Development-Kit, die während des Ereignisses verwendet wurde
+`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK, die während des Ereignisses verwendet wurde
 `platform` | `null,`&nbsp;`string` | Plattform des Geräts
 `os_version` | `null,`&nbsp;`string` | Version des Betriebssystems des Geräts
 `device_model` | `null,`&nbsp;`string` | Modell des Geräts
@@ -2299,7 +2299,7 @@ Feld | Typ | Beschreibung
 `timezone` | `null,`&nbsp;`string` | Zeitzone der/des Nutzer:in
 `language` | `null,`&nbsp;`string` | [PII] Sprache der/des Nutzer:in
 `device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem das Ereignis stattfand
-`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK or Software-Development-Kit, die während des Ereignisses verwendet wurde
+`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK, die während des Ereignisses verwendet wurde
 `platform` | `null,`&nbsp;`string` | Plattform des Geräts
 `os_version` | `null,`&nbsp;`string` | Version des Betriebssystems des Geräts
 `device_model` | `null,`&nbsp;`string` | Modell des Geräts
@@ -2313,7 +2313,7 @@ Feld | Typ | Beschreibung
 ### USERS_MESSAGES_PUSHNOTIFICATION_IOSFOREGROUND_SHARED {#USERS_MESSAGES_PUSHNOTIFICATION_IOSFOREGROUND_SHARED}
 
 {% alert important %}
-Dieses Ereignis wird vom [Swift SDK or Software-Development-Kit](https://github.com/braze-inc/braze-swift-sdk) nicht unterstützt und ist im [Obj-C SDK or Software-Development-Kit](https://github.com/Appboy/appboy-ios-sdk) veraltet.
+Dieses Ereignis wird vom [Swift SDK](https://github.com/braze-inc/braze-swift-sdk) nicht unterstützt und ist im [Obj-C SDK](https://github.com/Appboy/appboy-ios-sdk) veraltet.
 {% endalert %}
 
 Feld | Typ | Beschreibung
@@ -2339,7 +2339,7 @@ Feld | Typ | Beschreibung
 `timezone` | `null,`&nbsp;`string` | Zeitzone der Nutzer:in
 `language` | `null,`&nbsp;`string` | [PII] Sprache der Nutzer:in
 `device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem das Ereignis aufgetreten ist
-`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK or Software-Development-Kit, die während des Ereignisses verwendet wurde
+`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK, die während des Ereignisses verwendet wurde
 `platform` | `null,`&nbsp;`string` | Plattform des Geräts
 `os_version` | `null,`&nbsp;`string` | Betriebssystemversion des Geräts
 `device_model` | `null,`&nbsp;`string` | Modell des Geräts
@@ -2378,7 +2378,7 @@ Feld | Typ | Beschreibung
 `timezone` | `null,`&nbsp;`string` | Zeitzone der Nutzer:in
 `language` | `null,`&nbsp;`string` | [PII] Sprache der Nutzer:in
 `device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem das Ereignis aufgetreten ist
-`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK or Software-Development-Kit, die während des Ereignisses verwendet wurde
+`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK, die während des Ereignisses verwendet wurde
 `platform` | `null,`&nbsp;`string` | Plattform des Geräts
 `os_version` | `null,`&nbsp;`string` | Betriebssystemversion des Geräts
 `device_model` | `null,`&nbsp;`string` | Modell des Geräts
@@ -2607,7 +2607,7 @@ Feld | Typ | Beschreibung
 `dispatch_id` | `null,`&nbsp;`string` | ID des Versands, zu dem diese Nachricht gehört
 `error` | `null,`&nbsp;`string` | Fehlername
 `from_rcs_sender` | `null,`&nbsp;`string` | Die RCS-Absender-ID oder der Agentname, die/der zum Senden der Nachricht verwendet wurde
-`is_sms_fallback` | `null, boolean` | Gibt an, ob für diese abgelehnte RCS-Nachricht ein Kurzmitteilungsdienst or SMS-Fallback versucht wurde. Dieses Feld ist mit dem Kurzmitteilungsdienst or SMS-Zustellereignis verknüpft/gepaart
+`is_sms_fallback` | `null, boolean` | Gibt an, ob für diese abgelehnte RCS-Nachricht ein SMS-Fallback versucht wurde. Dieses Feld ist mit dem SMS-Zustellereignis verknüpft/gepaart
 `message_variation_name` | `null,`&nbsp;`string` | Name der Nachrichtenvariante
 `provider_error_code` | `null,`&nbsp;`string` | Fehlercode des Anbieters
 `send_id` | `null,`&nbsp;`string` | Nachrichten-Sende-ID, zu der diese Nachricht gehört
@@ -2654,10 +2654,10 @@ Feld | Typ | Beschreibung
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESRCSSENDSHARED #USERSMESSAGESRCSSENDSHARED" }
 
-## Kurzmitteilungsdienst or SMS-Nachrichtenereignisse und gelöschte Nutzerprofile {#sms-message-events-and-deleted-user-profiles}
+## SMS-Nachrichtenereignisse und gelöschte Nutzerprofile {#sms-message-events-and-deleted-user-profiles}
 
 {% alert note %}
-Für gemeinsam genutzte `USERS_MESSAGES_SMS_*`-Tabellen (einschließlich [`USERS_MESSAGES_SMS_REJECTION_SHARED`](#USERS_MESSAGES_SMS_REJECTION_SHARED), [`USERS_MESSAGES_SMS_DELIVERY_SHARED`](#USERS_MESSAGES_SMS_DELIVERY_SHARED) und [`USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED`](#USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED)) schreibt Braze nur dann eine Zeile, wenn das Braze-Kundenprofil or Nutzerprofil zum Zeitpunkt der Verarbeitung des Ereignisses für Snowflake Data Sharing und Currents noch im Workspace vorhanden ist. Falls die Nutzer:in vor Abschluss der Verarbeitung gelöscht wurde, erscheint das Ereignis weder in Snowflake noch in Ihrem Currents-Export, auch wenn die Kurzmitteilungsdienst or SMS-Workspace-Metriken im Dashboard weiterhin aggregierte Zahlen aus dem Braze-Reporting-Pfad widerspiegeln. Informationen zum entsprechenden Currents-Verhalten finden Sie unter [Kurzmitteilungsdienst or SMS-Rejection-Ereignisse]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-rejection-events) und verwandte Kurzmitteilungsdienst or SMS-Ereignistypen im selben Glossar.
+Für gemeinsam genutzte `USERS_MESSAGES_SMS_*`-Tabellen (einschließlich [`USERS_MESSAGES_SMS_REJECTION_SHARED`](#USERS_MESSAGES_SMS_REJECTION_SHARED), [`USERS_MESSAGES_SMS_DELIVERY_SHARED`](#USERS_MESSAGES_SMS_DELIVERY_SHARED) und [`USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED`](#USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED)) schreibt Braze nur dann eine Zeile, wenn das Braze-Kundenprofil zum Zeitpunkt der Verarbeitung des Ereignisses für Snowflake Data Sharing und Currents noch im Workspace vorhanden ist. Falls die Nutzer:in vor Abschluss der Verarbeitung gelöscht wurde, erscheint das Ereignis weder in Snowflake noch in Ihrem Currents-Export, auch wenn die SMS-Workspace-Metriken im Dashboard weiterhin aggregierte Zahlen aus dem Braze-Reporting-Pfad widerspiegeln. Informationen zum entsprechenden Currents-Verhalten finden Sie unter [SMS-Rejection-Ereignisse]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-rejection-events) und verwandte SMS-Ereignistypen im selben Glossar.
 {% endalert %}
 
 ### USERS_MESSAGES_SMS_ABORT_SHARED {#USERS_MESSAGES_SMS_ABORT_SHARED}
@@ -2709,7 +2709,7 @@ Feld | Typ | Beschreibung
 `timezone` | `null,`&nbsp;`string` | Zeitzone der Nutzer:in
 `language` | `null,`&nbsp;`string` | [PII] Sprache der Nutzer:in
 `to_phone_number` | `null,`&nbsp;`string` | [PII] Telefonnummer der Empfänger:in
-`from_phone_number` | `null,`&nbsp;`string` | Telefonnummer, von der die Kurzmitteilungsdienst or SMS gesendet wurde
+`from_phone_number` | `null,`&nbsp;`string` | Telefonnummer, von der die SMS gesendet wurde
 `subscription_group_api_id` | `null,`&nbsp;`string` | Externe ID der Abo-Gruppe
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Nutzer:in gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
@@ -2740,10 +2740,10 @@ Feld | Typ | Beschreibung
 `timezone` | `null,`&nbsp;`string` | Zeitzone der Nutzer:in
 `language` | `null,`&nbsp;`string` | [PII] Sprache der Nutzer:in
 `to_phone_number` | `null,`&nbsp;`string` | [PII] Telefonnummer der Empfänger:in
-`from_phone_number` | `null,`&nbsp;`string` | Telefonnummer, von der die Kurzmitteilungsdienst or SMS gesendet wurde
+`from_phone_number` | `null,`&nbsp;`string` | Telefonnummer, von der die SMS gesendet wurde
 `subscription_group_api_id` | `null,`&nbsp;`string` | Externe ID der Abo-Gruppe
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Nutzer:in gehört
-`is_sms_fallback` | `null, boolean` | Gibt an, ob ein Kurzmitteilungsdienst or SMS-Fallback für diese abgelehnte RCS-Nachricht versucht wurde. Ist mit dem Kurzmitteilungsdienst or SMS-Delivery-Ereignis verknüpft/gekoppelt
+`is_sms_fallback` | `null, boolean` | Gibt an, ob ein SMS-Fallback für diese abgelehnte RCS-Nachricht versucht wurde. Ist mit dem SMS-Delivery-Ereignis verknüpft/gekoppelt
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESSMSDELIVERYSHARED #USERSMESSAGESSMSDELIVERYSHARED" }
 
@@ -2774,9 +2774,9 @@ Feld | Typ | Beschreibung
 `to_phone_number` | `null,`&nbsp;`string` | [PII] Telefonnummer der Empfänger:in
 `subscription_group_api_id` | `null,`&nbsp;`string` | Externe ID der Abo-Gruppe
 `error` | `null,`&nbsp;`string` | Fehlername
-`provider_error_code` | `null,`&nbsp;`string` | Fehlercode des Kurzmitteilungsdienst or SMS-Anbieters
+`provider_error_code` | `null,`&nbsp;`string` | Fehlercode des SMS-Anbieters
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Nutzer:in gehört
-`is_sms_fallback` | `null, boolean` | Gibt an, ob ein Kurzmitteilungsdienst or SMS-Fallback für diese abgelehnte RCS-Nachricht versucht wurde. Ist mit dem Kurzmitteilungsdienst or SMS-Delivery-Ereignis verknüpft/gekoppelt
+`is_sms_fallback` | `null, boolean` | Gibt an, ob ein SMS-Fallback für diese abgelehnte RCS-Nachricht versucht wurde. Ist mit dem SMS-Delivery-Ereignis verknüpft/gekoppelt
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESSMSDELIVERYFAILURESHARED #USERSMESSAGESSMSDELIVERYFAILURESHARED" }
 
@@ -2790,8 +2790,8 @@ Feld | Typ | Beschreibung
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, der mit der eingehenden Telefonnummer verknüpft ist
 `time` | `int` | Unix-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `user_phone_number` | `string` | [PII] Telefonnummer der Nutzer:in, von der die Nachricht empfangen wurde
-`subscription_group_id` | `null,`&nbsp;`string` | ID der Abo-Gruppe, die als Ziel für diese Kurzmitteilungsdienst or SMS verwendet wurde
-`subscription_group_api_id` | `null,`&nbsp;`string` | API-ID der Abo-Gruppe, die als Ziel für diese Kurzmitteilungsdienst or SMS verwendet wurde
+`subscription_group_id` | `null,`&nbsp;`string` | ID der Abo-Gruppe, die als Ziel für diese SMS verwendet wurde
+`subscription_group_api_id` | `null,`&nbsp;`string` | API-ID der Abo-Gruppe, die als Ziel für diese SMS verwendet wurde
 `inbound_phone_number` | `string` | Eingehende Nummer, an die die Nachricht gesendet wurde
 `action` | `string` | Als Reaktion auf diese Nachricht ausgeführte Aktion. Zum Beispiel `Subscribed`, `Unsubscribed` oder `None`.
 `message_body` | `string` | Antwort der Nutzer:in
@@ -2833,12 +2833,12 @@ Feld | Typ | Beschreibung
 `timezone` | `null,`&nbsp;`string` | Zeitzone der Nutzer:in
 `language` | `null,`&nbsp;`string` | [PII] Sprache der Nutzer:in
 `to_phone_number` | `null,`&nbsp;`string` | [PII] Telefonnummer der Empfänger:in
-`from_phone_number` | `null,`&nbsp;`string` | Telefonnummer, von der die Kurzmitteilungsdienst or SMS gesendet wurde
+`from_phone_number` | `null,`&nbsp;`string` | Telefonnummer, von der die SMS gesendet wurde
 `subscription_group_api_id` | `null,`&nbsp;`string` | Externe ID der Abo-Gruppe
 `error` | `null,`&nbsp;`string` | Fehlername
-`provider_error_code` | `null,`&nbsp;`string` | Fehlercode des Kurzmitteilungsdienst or SMS-Anbieters
+`provider_error_code` | `null,`&nbsp;`string` | Fehlercode des SMS-Anbieters
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Nutzer:in gehört
-`is_sms_fallback` | `null, boolean` | Gibt an, ob ein Kurzmitteilungsdienst or SMS-Fallback für diese abgelehnte RCS-Nachricht versucht wurde. Ist mit dem Kurzmitteilungsdienst or SMS-Delivery-Ereignis verknüpft/gekoppelt
+`is_sms_fallback` | `null, boolean` | Gibt an, ob ein SMS-Fallback für diese abgelehnte RCS-Nachricht versucht wurde. Ist mit dem SMS-Delivery-Ereignis verknüpft/gekoppelt
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESSMSREJECTIONSHARED #USERSMESSAGESSMSREJECTIONSHARED" }
 

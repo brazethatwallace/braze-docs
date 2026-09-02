@@ -1483,20 +1483,20 @@ var ticket_lookuptable = {
             }
           }
         },
-        '단문 메시지 서비스 and MMS' :{
+        'SMS and MMS' :{
           'SelectDefault': 'Select a type...',
           'Label': 'My question is about... *',
-          'LinksTitle': ['단문 메시지 서비스 Best Practices','단문 메시지 서비스 Frequently Asked Questions', 'MMS Frequently Asked Questions', 'Braze 학습 코스: 단문 메시지 서비스 Fundamentals'],
+          'LinksTitle': ['SMS Best Practices','SMS Frequently Asked Questions', 'MMS Frequently Asked Questions', 'Braze 학습 코스: SMS Fundamentals'],
           'Links' : ['{{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/best_practices','{{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs/','{{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/mms/faqs/','https://learning.braze.com/sms-fundamentals'],
           'SelectOption': {
             'Setup' : {
               'ShowSubmit': true,
-              'LinksTitle': ['단문 메시지 서비스 Onboarding Resources'],
+              'LinksTitle': ['SMS Onboarding Resources'],
               'Links' : ['{{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup']
             },
             'Subscription Groups' : {
               'ShowSubmit': true,
-              'LinksTitle': ['단문 메시지 서비스 Subscription Groups'],
+              'LinksTitle': ['SMS Subscription Groups'],
               'Links' : ['{{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sms_subscription_groups/']
             },
             'Short and Long Codes' : {
@@ -1506,7 +1506,7 @@ var ticket_lookuptable = {
             },
             'User Retargeting' : {
               'ShowSubmit': true,
-              'LinksTitle': ['단문 메시지 서비스 User Retargeting'],
+              'LinksTitle': ['SMS User Retargeting'],
               'Links' : ['{{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/campaign/retargeting/']
             }
           }
@@ -1581,9 +1581,9 @@ var ticket_lookuptable = {
                   'LinksTitle': ['Create a Webhook Campaign'],
                   'Links' : ['{{site.baseurl}}/user_guide/channels/webhooks/creating_a_webhook/']
                 },
-                '단문 메시지 서비스 and MMS' : {
+                'SMS and MMS' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['Create an 단문 메시지 서비스, MMS, or RCS Message'],
+                  'LinksTitle': ['Create an SMS, MMS, or RCS Message'],
                   'Links' : ['{{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/']
                 },
                 'WhatsApp' : {

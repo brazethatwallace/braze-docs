@@ -12,7 +12,7 @@ toc_headers: h2
 > Diese Seite beschreibt, wie Sie den visuellen Mapper verwenden, um eine Tabelle oder Ansicht aus Ihrem Data Warehouse mit Braze zu synchronisieren, ohne SQL zu schreiben oder Ihre Daten umzustrukturieren.
 
 {% alert important %}
-Der visuelle Mapper befindet sich derzeit in der Beta-Phase. Der visuelle Mapper ist für Nutzerattribut-Synchronisierungen aus allen Data-Warehouse-Quellen der Cloud-Datenaufnahme verfügbar, und weitere Synchronisierungstypen werden im Laufe der Beta-Phase hinzugefügt. Wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in oder Account Manager:in, um Zugang zu erhalten.
+Der visuelle Mapper befindet sich derzeit in der Beta-Phase. Der visuelle Mapper ist für Nutzerattribut-Synchronisierungen aus allen Data-Warehouse-Quellen der Cloud-Datenaufnahme verfügbar, und weitere Synchronisierungstypen werden im Laufe der Beta-Phase hinzugefügt. Wenden Sie sich an Ihren CSM oder Account Manager:in, um Zugang zu erhalten.
 {% endalert %}
 
 Mit dem visuellen Mapper können Sie eine vorhandene Tabelle oder Ansicht aus Ihrem Data Warehouse synchronisieren, ohne SQL zu schreiben oder Ihre Daten umzustrukturieren. Anstatt eine Braze-spezifische Tabelle mit den Spalten `EXTERNAL_ID`, `UPDATED_AT` und `PAYLOAD` zu erstellen, ordnen Sie die Spalten Ihrer vorhandenen Tabelle direkt im Dashboard den Braze-Feldern zu.

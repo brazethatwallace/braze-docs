@@ -21,8 +21,8 @@ Os itens a seguir são necessários para usar a Limbik com a Braze:
 | --- | --- |
 | `account_id` da Limbik | Fale com a equipe de conta da Limbik ou faça uma solicitação GET para o endpoint `/rest/api/organizations` da Limbik |
 | Token de acesso da Limbik (`access_token`) | Faça uma solicitação POST para o endpoint `login` da Limbik e use o valor `access_token` retornado como token Bearer no cabeçalho `Authorization`. |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões de "Messages". Crie uma no dashboard da Braze em **Settings** > **API or interface de programação do aplicativo (API) Keys**. |
-| `campaign_id` da Braze | Acesse **Messaging** > **Campaigns** e selecione uma Campaign. Se a Campaign desejada ainda não existir, crie uma e salve-a. Na parte inferior da página da Campaign, encontre o identificador de API or interface de programação do aplicativo (API) da Campaign. |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões de "Messages". Crie uma no dashboard da Braze em **Settings** > **API Keys**. |
+| `campaign_id` da Braze | Acesse **Messaging** > **Campaigns** e selecione uma Campaign. Se a Campaign desejada ainda não existir, crie uma e salve-a. Na parte inferior da página da Campaign, encontre o identificador de API da Campaign. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 Antes de usar qualquer um dos endpoints de previsão, você deve primeiro identificar a qual organização (`account_id`) você tem acesso. Embora a maioria dos clientes tenha apenas uma organização, algumas contas podem ter várias organizações disponíveis.
@@ -52,13 +52,13 @@ curl -X 'GET' \
 }
 ```
 
-Selecione o `uid` da organização desejada para usar como cabeçalho `account_id` em todas as solicitações de API or interface de programação do aplicativo (API) subsequentes.
+Selecione o `uid` da organização desejada para usar como cabeçalho `account_id` em todas as solicitações de API subsequentes.
 
 {% enddetails %}
 
 ## Autenticação {#authentication}
 
-Para acessar os endpoints da API or interface de programação do aplicativo (API), você precisa de um token bearer para autenticação. Obtenha seu token autenticando-se com suas credenciais.
+Para acessar os endpoints da API, você precisa de um token bearer para autenticação. Obtenha seu token autenticando-se com suas credenciais.
 
 {% details Solicitação de login %}
 
@@ -77,7 +77,7 @@ curl -X 'POST' \
 
 {% details Exemplo de resposta %}
 
-A resposta contém um `access_token` que você pode usar como token bearer em todas as solicitações de API or interface de programação do aplicativo (API) subsequentes:
+A resposta contém um `access_token` que você pode usar como token bearer em todas as solicitações de API subsequentes:
 
 ```json
 {
@@ -86,21 +86,21 @@ A resposta contém um `access_token` que você pode usar como token bearer em to
 }
 ```
 
-Inclua esse token no cabeçalho `Authorization` para todas as solicitações de API or interface de programação do aplicativo (API):
+Inclua esse token no cabeçalho `Authorization` para todas as solicitações de API:
 
 ```
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 ```
 
 {% alert note %}
-Você pode usar plataformas de API or interface de programação do aplicativo (API) como o Postman para configurar fluxos de trabalho automatizados que chamam vários endpoints da REST or transferir estado representacional API or interface de programação do aplicativo (API) de diferentes organizações, como o fluxo de trabalho a seguir.
+Você pode usar plataformas de API como o Postman para configurar fluxos de trabalho automatizados que chamam vários endpoints da REST API de diferentes organizações, como o fluxo de trabalho a seguir.
 {% endalert %}
 
 {% enddetails %}
 
 ## Caso de uso - Geração de texto de mensagem {#use-case-generating-message-copy}
 
-Usando os endpoints da REST or transferir estado representacional API or interface de programação do aplicativo (API) da Braze e da Limbik, você pode usar as previsões generativas da Limbik para criar textos de mensagem e enviá-los pelos canais de envio de mensagens da Braze, ou ajustar textos existentes para melhorar o impacto no seu público. Ambas as plataformas expõem funcionalidades que você pode chamar programaticamente para construir fluxos de trabalho sofisticados.
+Usando os endpoints da REST API da Braze e da Limbik, você pode usar as previsões generativas da Limbik para criar textos de mensagem e enviá-los pelos canais de envio de mensagens da Braze, ou ajustar textos existentes para melhorar o impacto no seu público. Ambas as plataformas expõem funcionalidades que você pode chamar programaticamente para construir fluxos de trabalho sofisticados.
 
 Esta documentação descreve dois exemplos: gerar texto de mensagem na Limbik e usar esse texto em uma mensagem subsequente enviada pela Braze, bem como usar a Limbik para avaliar a qualidade de uma determinada mensagem para o público escolhido.
 
@@ -252,7 +252,7 @@ Por exemplo, para segmentar mulheres na população adulta dos EUA:
 
 {% alert note %}
 - Os segmentos são especificados usando um formato simplificado de chave composta (por exemplo, `gender::female`).
-- A chave composta completa da resposta da API or interface de programação do aplicativo (API) (`us2::gender::female`) é abreviada para apenas o nome da categoria e do Segment or segmento or segmento.
+- A chave composta completa da resposta da API (`us2::gender::female`) é abreviada para apenas o nome da categoria e do Segment.
 - Para uma referência completa de populações e segmentos disponíveis, consulte [Limbik audiences](https://audiences.limbik.com/).
 {% endalert %}
 
@@ -351,7 +351,7 @@ curl -X 'POST' \
 
 Crie sua carga útil de previsão usando os segmentos selecionados. Os segmentos usam um formato simplificado de chave composta.
 
-{% details Exemplo de solicitação específica por Segment or segmento or segmento %}
+{% details Exemplo de solicitação específica por Segment %}
 
 ```json
 {

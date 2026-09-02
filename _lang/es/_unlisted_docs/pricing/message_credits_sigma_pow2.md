@@ -8,7 +8,7 @@ hide_toc: true
 
 # Créditos de mensaje - Sigma (confidencial) {#message-credits-sigma-confidential}
 
-> Créditos de mensaje es la estructura de empaquetado multiproducto de Braze para nuestras ofertas nativas de Agent Console, servicio de mensajes cortos, MMS, RCS, WhatsApp y LINE. Los créditos de mensaje proporcionan una experiencia flexible y transparente al aprovechar los canales de mensajería de Braze y ciertas características de IA. Los créditos te dan acceso a cualquiera de los canales presentados en la tabla de esta página.
+> Créditos de mensaje es la estructura de empaquetado multiproducto de Braze para nuestras ofertas nativas de Agent Console, SMS, MMS, RCS, WhatsApp y LINE. Los créditos de mensaje proporcionan una experiencia flexible y transparente al aprovechar los canales de mensajería de Braze y ciertas características de IA. Los créditos te dan acceso a cualquiera de los canales presentados en la tabla de esta página.
 
 {% multi_lang_include pricing/message_credits_units_of_measure.md %}
 
@@ -48,22 +48,22 @@ Las definiciones de las columnas son las siguientes:
         <td>0.16</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos - US / CA</td>
+        <td>SMS - US / CA</td>
         <td>Canadá</td>
         <td>1.00</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos - US / CA</td>
+        <td>SMS - US / CA</td>
         <td>Canadá Toll Free</td>
         <td>1.30</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos - US / CA</td>
+        <td>SMS - US / CA</td>
         <td>Estados Unidos</td>
         <td>1.00</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos - US / CA</td>
+        <td>SMS - US / CA</td>
         <td>Estados Unidos Toll Free</td>
         <td>1.50</td>
     </tr>
@@ -93,1177 +93,1177 @@ Las definiciones de las columnas son las siguientes:
         <td>6.00</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Abjasia</td>
         <td>4.65</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Afganistán</td>
         <td>71.03</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Albania</td>
         <td>17.18</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Argelia</td>
         <td>39.23</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Samoa Americana</td>
         <td>35.55</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Andorra</td>
         <td>24.90</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Angola</td>
         <td>16.80</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Anguila</td>
         <td>24.98</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Antigua y Barbuda</td>
         <td>18.53</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Argentina</td>
         <td>7.65</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Armenia</td>
         <td>26.18</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Aruba</td>
         <td>19.58</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Australia MMS</td>
         <td>23.25</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
-        <td>Australia servicio de mensajes cortos</td>
+        <td>SMS / MMS - Global</td>
+        <td>Australia SMS</td>
         <td>2.70</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Austria</td>
         <td>13.28</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Azerbaiyán</td>
         <td>73.28</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Bahamas</td>
         <td>9.23</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Baréin</td>
         <td>6.90</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Bangladés</td>
         <td>43.58</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Barbados</td>
         <td>23.18</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Bielorrusia</td>
         <td>47.63</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Bélgica</td>
         <td>18.00</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Belice</td>
         <td>51.75</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Benín</td>
         <td>27.30</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Bermudas</td>
         <td>22.43</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Bután</td>
         <td>75.75</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Bolivia</td>
         <td>27.45</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Bosnia y Herzegovina</td>
         <td>15.90</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Botsuana</td>
         <td>18.90</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Brasil</td>
         <td>1.88</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Brunéi</td>
         <td>3.75</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Bulgaria</td>
         <td>20.25</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Burkina Faso</td>
         <td>25.13</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Burundi</td>
         <td>71.03</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Camboya</td>
         <td>32.25</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Camerún</td>
         <td>26.18</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Cabo Verde</td>
         <td>27.45</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Caribe Neerlandés</td>
         <td>16.28</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Islas Caimán</td>
         <td>25.28</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>República Centroafricana</td>
         <td>23.03</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Chad</td>
         <td>54.75</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Chile</td>
         <td>12.30</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>China</td>
         <td>4.80</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Colombia</td>
         <td>0.15</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Comoras</td>
         <td>46.43</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Congo</td>
         <td>37.80</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Islas Cook</td>
         <td>26.40</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Costa Rica</td>
         <td>7.95</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Croacia</td>
         <td>17.33</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Cuba</td>
         <td>15.90</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Curazao</td>
         <td>7.43</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Chipre</td>
         <td>16.35</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>República Checa</td>
         <td>7.58</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Dinamarca</td>
         <td>7.58</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Yibuti</td>
         <td>30.68</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Dominica</td>
         <td>28.43</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>República Dominicana</td>
         <td>9.68</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>RD del Congo</td>
         <td>43.28</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Ecuador</td>
         <td>20.70</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Egipto</td>
         <td>18.23</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>El Salvador</td>
         <td>18.38</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Guinea Ecuatorial</td>
         <td>32.70</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Eritrea</td>
         <td>18.60</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Estonia</td>
         <td>18.08</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Esuatini</td>
         <td>4.35</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Etiopía</td>
         <td>64.73</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Islas Malvinas</td>
         <td>25.73</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Islas Feroe</td>
         <td>12.75</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Fiyi</td>
         <td>31.20</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Finlandia</td>
         <td>10.95</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Francia</td>
         <td>7.35</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Guayana Francesa</td>
         <td>34.80</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Polinesia Francesa</td>
         <td>33.98</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Gabón</td>
         <td>49.80</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Gambia</td>
         <td>31.35</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Georgia</td>
         <td>19.73</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Alemania</td>
         <td>14.10</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Ghana</td>
         <td>16.95</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Gibraltar</td>
         <td>20.63</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Grecia</td>
         <td>7.43</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Groenlandia</td>
         <td>7.73</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Granada</td>
         <td>30.68</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Guadalupe</td>
         <td>25.50</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Guam</td>
         <td>12.98</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Guatemala</td>
         <td>24.00</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Guernsey</td>
         <td>6.53</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Guinea</td>
         <td>28.65</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Guinea-Bisáu</td>
         <td>29.78</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Guyana</td>
         <td>33.75</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Haití</td>
         <td>44.55</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Honduras</td>
         <td>15.98</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Hong Kong</td>
         <td>10.13</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Hungría</td>
         <td>14.33</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Islandia</td>
         <td>13.13</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>India</td>
         <td>7.50</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Indonesia</td>
         <td>49.73</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Irán</td>
         <td>46.88</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Irak</td>
         <td>35.93</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Irlanda</td>
         <td>9.83</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Isla de Man</td>
         <td>6.08</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Israel</td>
         <td>28.05</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Italia</td>
         <td>5.85</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Costa de Marfil</td>
         <td>18.60</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Jamaica</td>
         <td>22.88</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Japón</td>
         <td>7.65</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Jersey</td>
         <td>5.25</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Jordania</td>
         <td>41.70</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Kazajistán</td>
         <td>41.40</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Kenia</td>
         <td>19.65</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Kiribati</td>
         <td>27.53</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>República de Corea</td>
         <td>5.18</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Kosovo</td>
         <td>7.28</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Kuwait</td>
         <td>25.05</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Kirguistán</td>
         <td>45.90</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Laos RDP</td>
         <td>11.55</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Letonia</td>
         <td>13.50</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Líbano</td>
         <td>23.03</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Lesoto</td>
         <td>38.55</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Liberia</td>
         <td>26.03</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Libia</td>
         <td>61.28</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Liechtenstein</td>
         <td>6.30</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Lituania</td>
         <td>10.28</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Luxemburgo</td>
         <td>13.95</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Macao</td>
         <td>11.18</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Macedonia</td>
         <td>14.10</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Madagascar</td>
         <td>70.50</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Malaui</td>
         <td>42.90</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Malasia</td>
         <td>11.03</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Maldivas</td>
         <td>13.50</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Malí</td>
         <td>29.78</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Malta</td>
         <td>12.30</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Islas Marshall</td>
         <td>30.00</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Martinica</td>
         <td>24.98</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Mauritania</td>
         <td>48.83</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Mauricio</td>
         <td>30.15</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Mayotte</td>
         <td>17.48</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>México</td>
         <td>2.03</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Micronesia</td>
         <td>13.88</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Moldavia</td>
         <td>11.93</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Mónaco</td>
         <td>35.10</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Mongolia</td>
         <td>52.73</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Montenegro</td>
         <td>21.53</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Montserrat</td>
         <td>20.78</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Marruecos</td>
         <td>19.80</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Mozambique</td>
         <td>20.70</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Myanmar</td>
         <td>43.80</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Namibia</td>
         <td>11.85</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Nauru</td>
         <td>8.40</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Nepal</td>
         <td>28.65</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Países Bajos</td>
         <td>12.38</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Nueva Caledonia</td>
         <td>33.30</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Nueva Zelanda</td>
         <td>14.40</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Nicaragua</td>
         <td>14.63</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Níger</td>
         <td>56.18</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Nigeria</td>
         <td>37.58</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Niue</td>
         <td>36.45</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Isla Norfolk</td>
         <td>5.33</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Macedonia del Norte</td>
         <td>2.55</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Chipre del Norte</td>
         <td>1.50</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Noruega</td>
         <td>7.88</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Omán</td>
         <td>27.00</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Pakistán</td>
         <td>55.95</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Palaos</td>
         <td>18.90</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Territorio Palestino</td>
         <td>57.60</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Panamá</td>
         <td>16.73</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Papúa Nueva Guinea</td>
         <td>142.58</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Paraguay</td>
         <td>13.80</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Perú</td>
         <td>6.08</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Filipinas</td>
         <td>2.10</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Polonia</td>
         <td>3.90</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Portugal</td>
         <td>4.50</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Puerto Rico</td>
         <td>7.95</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Catar</td>
         <td>3.90</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Reunión/Mayotte</td>
         <td>36.15</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Rumanía</td>
         <td>7.95</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Rusia</td>
         <td>71.55</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Ruanda</td>
         <td>34.95</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>San Cristóbal y Nieves</td>
         <td>6.90</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Santa Lucía</td>
         <td>8.03</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>San Pedro y Miquelón</td>
         <td>17.33</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>San Vicente y las Granadinas</td>
         <td>7.95</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Samoa</td>
         <td>35.10</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>San Marino</td>
         <td>20.70</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Santo Tomé y Príncipe</td>
         <td>24.68</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Arabia Saudita</td>
         <td>14.33</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Senegal</td>
         <td>38.63</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Serbia</td>
         <td>45.68</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Seychelles</td>
         <td>7.05</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Sierra Leona</td>
         <td>35.48</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Singapur</td>
         <td>5.25</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Sint Maarten</td>
         <td>1.20</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Eslovaquia</td>
         <td>16.73</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Eslovenia</td>
         <td>28.20</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Islas Salomón</td>
         <td>15.68</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Somalia</td>
         <td>35.55</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Sudáfrica</td>
         <td>2.40</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Osetia del Sur</td>
         <td>15.38</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Sudán del Sur</td>
         <td>6.00</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>España</td>
         <td>6.00</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Sri Lanka</td>
         <td>42.00</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Sudán</td>
         <td>31.13</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Surinam</td>
         <td>24.60</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Suazilandia</td>
         <td>17.40</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Suecia</td>
         <td>6.45</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Suiza</td>
         <td>4.50</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Siria</td>
         <td>58.95</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Taiwán</td>
         <td>6.30</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Tayikistán</td>
         <td>85.13</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Tanzania</td>
         <td>40.35</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Tailandia</td>
         <td>2.70</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Timor-Leste</td>
         <td>21.45</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Togo</td>
         <td>28.80</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Tonga</td>
         <td>23.55</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Trinidad y Tobago</td>
         <td>22.65</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Túnez</td>
         <td>52.95</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Turquía</td>
         <td>5.78</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Turkmenistán</td>
         <td>37.80</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Islas Turcas y Caicos</td>
         <td>25.35</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Tuvalu</td>
         <td>25.20</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Uganda</td>
         <td>30.38</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Ucrania</td>
         <td>21.45</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Emiratos Árabes Unidos</td>
         <td>9.30</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Reino Unido</td>
         <td>4.88</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Desconocido</td>
         <td>29.40</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Uruguay</td>
         <td>16.13</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Uzbekistán</td>
         <td>51.60</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Vanuatu</td>
         <td>31.35</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Venezuela</td>
         <td>16.13</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Vietnam</td>
         <td>22.88</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Islas Vírgenes Británicas</td>
         <td>35.48</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Islas Vírgenes de EE. UU.</td>
         <td>3.75</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Wallis y Futuna</td>
         <td>20.78</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Yemen</td>
         <td>45.23</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Zambia</td>
         <td>50.70</td>
     </tr>
     <tr>
-        <td>servicio de mensajes cortos / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>Zimbabue</td>
         <td>26.63</td>
     </tr>
@@ -1774,157 +1774,157 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferencia de estado representacional of Africa Authentication</td>
+        <td>Rest of Africa Authentication</td>
         <td>0.80</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferencia de estado representacional of Africa Marketing</td>
+        <td>Rest of Africa Marketing</td>
         <td>4.48</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferencia de estado representacional of Africa Marketing - BYO or Meta Direct</td>
+        <td>Rest of Africa Marketing - BYO or Meta Direct</td>
         <td>0.23</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferencia de estado representacional of Africa Marketing - Optimized Delivery</td>
+        <td>Rest of Africa Marketing - Optimized Delivery</td>
         <td>4.48</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferencia de estado representacional of Africa Utility</td>
+        <td>Rest of Africa Utility</td>
         <td>0.80</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferencia de estado representacional of Asia Pacific Authentication</td>
+        <td>Rest of Asia Pacific Authentication</td>
         <td>2.25</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferencia de estado representacional of Asia Pacific Marketing</td>
+        <td>Rest of Asia Pacific Marketing</td>
         <td>14.55</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferencia de estado representacional of Asia Pacific Marketing - BYO or Meta Direct</td>
+        <td>Rest of Asia Pacific Marketing - BYO or Meta Direct</td>
         <td>0.73</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferencia de estado representacional of Asia Pacific Marketing - Optimized Delivery</td>
+        <td>Rest of Asia Pacific Marketing - Optimized Delivery</td>
         <td>14.55</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferencia de estado representacional of Asia Pacific Utility</td>
+        <td>Rest of Asia Pacific Utility</td>
         <td>2.25</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferencia de estado representacional of Central & Eastern Europe Authentication</td>
+        <td>Rest of Central & Eastern Europe Authentication</td>
         <td>4.20</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferencia de estado representacional of Central & Eastern Europe Marketing</td>
+        <td>Rest of Central & Eastern Europe Marketing</td>
         <td>17.10</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferencia de estado representacional of Central & Eastern Europe Marketing - BYO or Meta Direct</td>
+        <td>Rest of Central & Eastern Europe Marketing - BYO or Meta Direct</td>
         <td>0.86</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferencia de estado representacional of Central & Eastern Europe Marketing - Optimized Delivery</td>
+        <td>Rest of Central & Eastern Europe Marketing - Optimized Delivery</td>
         <td>17.10</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferencia de estado representacional of Central & Eastern Europe Utility</td>
+        <td>Rest of Central & Eastern Europe Utility</td>
         <td>4.20</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferencia de estado representacional of Latin America Authentication</td>
+        <td>Rest of Latin America Authentication</td>
         <td>2.25</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferencia de estado representacional of Latin America Marketing</td>
+        <td>Rest of Latin America Marketing</td>
         <td>14.63</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferencia de estado representacional of Latin America Marketing - BYO or Meta Direct</td>
+        <td>Rest of Latin America Marketing - BYO or Meta Direct</td>
         <td>0.74</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferencia de estado representacional of Latin America Marketing - Optimized Delivery</td>
+        <td>Rest of Latin America Marketing - Optimized Delivery</td>
         <td>14.63</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferencia de estado representacional of Latin America Utility</td>
+        <td>Rest of Latin America Utility</td>
         <td>2.25</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferencia de estado representacional of Message Types - BYO or Meta Direct</td>
+        <td>Rest of Message Types - BYO or Meta Direct</td>
         <td>0.10</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferencia de estado representacional of Middle East Authentication</td>
+        <td>Rest of Middle East Authentication</td>
         <td>1.80</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferencia de estado representacional of Middle East Marketing</td>
+        <td>Rest of Middle East Marketing</td>
         <td>6.75</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferencia de estado representacional of Middle East Marketing - BYO or Meta Direct</td>
+        <td>Rest of Middle East Marketing - BYO or Meta Direct</td>
         <td>0.34</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferencia de estado representacional of Middle East Marketing - Optimized Delivery</td>
+        <td>Rest of Middle East Marketing - Optimized Delivery</td>
         <td>6.75</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferencia de estado representacional of Middle East Utility</td>
+        <td>Rest of Middle East Utility</td>
         <td>1.80</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferencia de estado representacional of Western Europe Authentication</td>
+        <td>Rest of Western Europe Authentication</td>
         <td>3.38</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferencia de estado representacional of Western Europe Marketing</td>
+        <td>Rest of Western Europe Marketing</td>
         <td>11.63</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferencia de estado representacional of Western Europe Marketing - BYO or Meta Direct</td>
+        <td>Rest of Western Europe Marketing - BYO or Meta Direct</td>
         <td>0.59</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferencia de estado representacional of Western Europe Marketing - Optimized Delivery</td>
+        <td>Rest of Western Europe Marketing - Optimized Delivery</td>
         <td>11.63</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferencia de estado representacional of Western Europe Utility</td>
+        <td>Rest of Western Europe Utility</td>
         <td>3.38</td>
     </tr>
     <tr>
@@ -2133,12 +2133,12 @@ Las definiciones de las columnas son las siguientes:
         <td>0.08</td>
     </tr>
     <tr>
-        <td>BYO servicio de mensajes cortos Connector</td>
+        <td>BYO SMS Connector</td>
         <td>Infobip - Todas las regiones</td>
         <td>0.30</td>
     </tr>
     <tr>
-        <td>BYO servicio de mensajes cortos Connector</td>
+        <td>BYO SMS Connector</td>
         <td>Twilio - Todas las regiones</td>
         <td>0.30</td>
     </tr>
@@ -2272,11 +2272,11 @@ Las definiciones de las columnas son las siguientes:
 ## Detalles de Agent Console {#agent-console-details}
 Braze cobrará créditos de mensaje por las invocaciones de Agent Console enviadas desde la plataforma Braze. Una invocación se registra cuando un agente inicia una llamada a un LLM. De forma predeterminada, tu contrato incluye diez mil invocaciones por cada período de tu plazo de suscripción.
 
-## Detalles del canal servicio de mensajes cortos/MMS {#smsmms-channel-details}
+## Detalles del canal SMS/MMS {#smsmms-channel-details}
 
-### Segmentos del mensaje servicio de mensajes cortos {#sms-segments}
+### Segmentos del mensaje SMS {#sms-segments}
 
-Los segmentos del mensaje servicio de mensajes cortos son la forma en que la industria de servicio de mensajes cortos cuenta los mensajes. Un segmento del mensaje es una agrupación de hasta un número definido de caracteres (160 para codificación GSM-7; 67 para codificación UCS-2) que se enviará en un único envío de servicio de mensajes cortos. Si envías un servicio de mensajes cortos con 161 caracteres usando codificación GSM-7, verás que se enviaron dos (2) segmentos del mensaje. Enviar múltiples segmentos del mensaje generará cargos adicionales.
+Los segmentos del mensaje SMS son la forma en que la industria de SMS cuenta los mensajes. Un segmento del mensaje es una agrupación de hasta un número definido de caracteres (160 para codificación GSM-7; 67 para codificación UCS-2) que se enviará en un único envío de SMS. Si envías un SMS con 161 caracteres usando codificación GSM-7, verás que se enviaron dos (2) segmentos del mensaje. Enviar múltiples segmentos del mensaje generará cargos adicionales.
 
 ### Segmentos MMS {#mms-segments}
 
@@ -2284,7 +2284,7 @@ Para MMS, el límite del mensaje es de 5 MB (esto incluye el activo multimedia y
 
 ### Tipos de RCS {#rcs-types}
 
-RCS es la próxima generación de servicio de mensajes cortos y MMS. Ofrece los beneficios de un canal directo y de alta participación como servicio de mensajes cortos, con capacidades más ricas que los consumidores modernos esperan, como contenido enriquecido (imágenes, videos, documentos), envío verificado y con marca, características interactivas como respuestas y acciones sugeridas, y más.
+RCS es la próxima generación de SMS y MMS. Ofrece los beneficios de un canal directo y de alta participación como SMS, con capacidades más ricas que los consumidores modernos esperan, como contenido enriquecido (imágenes, videos, documentos), envío verificado y con marca, características interactivas como respuestas y acciones sugeridas, y más.
 
 {% multi_lang_include pricing/rcs_billing_message_types.md %}
 
@@ -2300,9 +2300,9 @@ Los webhooks pasaron a formar parte de los créditos de mensaje el 9 de diciembr
 
 {% multi_lang_include pricing/webhook_failed_requests_billing.md credit_name='Message Credits' %}
 
-### Conectores servicio de mensajes cortos propios (BYO) {#bring-your-own-byo-sms-connectors}
+### Conectores SMS propios (BYO) {#bring-your-own-byo-sms-connectors}
 
-Braze permite a los clientes integrarse con proveedores externos para enviar mensajes servicio de mensajes cortos a través del modelo de "conector servicio de mensajes cortos BYO". Braze cobrará créditos de mensaje por cada mensaje enviado desde la plataforma de Braze a través de conectores servicio de mensajes cortos BYO.
+Braze permite a los clientes integrarse con proveedores externos para enviar mensajes SMS a través del modelo de "conector SMS BYO". Braze cobrará créditos de mensaje por cada mensaje enviado desde la plataforma de Braze a través de conectores SMS BYO.
 
 ### LINE
 

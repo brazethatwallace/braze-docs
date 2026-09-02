@@ -51,7 +51,7 @@ Para cada app, você pode selecionar **Ver detalhamento** para visualizar uma co
 
 ![Guia de detalhamento de eventos e atributos mais usados por app]({% image_buster /assets/img/most_used_events_attributes_2.png %}){: style="max-width:60%"}
 
-Detalhamentos de dados como esses podem ajudar você a entender quais pontos de dados específicos estão consumindo grandes porcentagens da sua cota. Recomendamos que você monitore essas informações periodicamente para garantir que não está gastando pontos de dados de forma acidental e desnecessária. Seu gerente de sucesso do cliente pode orientar você a aproveitar ao máximo o seu plano atual ou oferecer opções com maior flexibilidade.
+Detalhamentos de dados como esses podem ajudar você a entender quais pontos de dados específicos estão consumindo grandes porcentagens da sua cota. Recomendamos que você monitore essas informações periodicamente para garantir que não está gastando pontos de dados de forma acidental e desnecessária. Seu CSM pode orientar você a aproveitar ao máximo o seu plano atual ou oferecer opções com maior flexibilidade.
 
 ## Dashboard de total de pontos de dados {#total-data-points-dashboard}
 
@@ -96,7 +96,7 @@ Este gráfico permite avaliar o uso total de pontos de dados de uma empresa por 
 
 #### Uso de pontos de dados do ciclo de faturamento por fonte de evento {#billing-cycle-data-point-usage-by-event-source}
 
-Este gráfico permite visualizar como o uso de pontos de dados está distribuído entre diferentes fontes de eventos, como diferentes atributos de API or interface de programação do aplicativo (API), eventos personalizados e sessões.
+Este gráfico permite visualizar como o uso de pontos de dados está distribuído entre diferentes fontes de eventos, como diferentes atributos de API, eventos personalizados e sessões.
 
 ![Uso de pontos de dados do ciclo de faturamento por fonte de evento exibindo a alocação de pontos de dados entre diferentes fontes de eventos.]({% image_buster /assets/img/event_source_stats.png %})
 

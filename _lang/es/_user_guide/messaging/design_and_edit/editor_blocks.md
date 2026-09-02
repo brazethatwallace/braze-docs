@@ -108,8 +108,8 @@ Añade un botón estándar. Las propiedades permiten editar el estilo y configur
 | Tipo de enlace | Determina la acción al hacer clic en el botón y establece el protocolo apropiado. |
 | URL | Dinámico según el tipo de enlace **Abrir página web**. |
 | Correo para, asunto y cuerpo | Para el tipo de enlace **Enviar correo electrónico**, establece la dirección de correo del destinatario, el asunto y el contenido que se rellenarán en un borrador de correo electrónico cuando el usuario seleccione el botón. |
-| Tel | Para los tipos de enlace **Hacer llamada** y **Enviar servicio de mensajes cortos**, establece el número de teléfono al que el usuario llamará o enviará un mensaje de texto al seleccionar el botón. |
-| Mensaje | Para el tipo de enlace **Enviar servicio de mensajes cortos**, establece el contenido que se rellenará en un borrador de mensaje servicio de mensajes cortos cuando el usuario seleccione el botón. |
+| Tel | Para los tipos de enlace **Hacer llamada** y **Enviar SMS**, establece el número de teléfono al que el usuario llamará o enviará un mensaje de texto al seleccionar el botón. |
+| Mensaje | Para el tipo de enlace **Enviar SMS**, establece el contenido que se rellenará en un borrador de mensaje SMS cuando el usuario seleccione el botón. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Comportamiento al hacer clic" }
 
 ### Divisor {#divider}
@@ -347,7 +347,7 @@ Inserta HTML, CSS o JavaScript personalizado para personalización avanzada.
 
 ### Captura de teléfono {#phone-capture}
 
-Inserta un campo de formulario para números de teléfono. Al enviar, el usuario se suscribe al grupo de suscripción de [servicio de mensajes cortos]({{site.baseurl}}/sms_rcs_subscription_groups) o [WhatsApp]({{site.baseurl}}/whatsapp_subscription_groups).
+Inserta un campo de formulario para números de teléfono. Al enviar, el usuario se suscribe al grupo de suscripción de [SMS]({{site.baseurl}}/sms_rcs_subscription_groups) o [WhatsApp]({{site.baseurl}}/whatsapp_subscription_groups).
 
 {% multi_lang_include drag_and_drop/editor_block_properties/phone_capture.md %}
 
@@ -383,14 +383,14 @@ Los usuarios pueden seleccionar entre múltiples opciones. Los valores se establ
 
 ### Texto largo {#long-text}
 
-Campo de texto multilínea para flujos de tipo cuestionario. Si no ves este bloque, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu CSM or administrador de éxito de cliente or administrador de éxito de cliente de Braze.
+Campo de texto multilínea para flujos de tipo cuestionario. Si no ves este bloque, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu CSM de Braze.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 <!-- Saved row is not yet released. Uncomment when available.
 ### Fila guardada {#saved-row}
 
-Inserta una fila reutilizable que guardaste anteriormente como un Content Block de arrastrar y soltar. Las filas guardadas **no están vinculadas** al Content Block original — si el original se actualiza, necesitarás arrastrarlo al editor de nuevo para obtener la última versión. Para más información, consulta [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Si no ves **Fila guardada** en **Filas**, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu CSM or administrador de éxito de cliente or administrador de éxito de cliente de Braze.
+Inserta una fila reutilizable que guardaste anteriormente como un Content Block de arrastrar y soltar. Las filas guardadas **no están vinculadas** al Content Block original — si el original se actualiza, necesitarás arrastrarlo al editor de nuevo para obtener la última versión. Para más información, consulta [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Si no ves **Fila guardada** en **Filas**, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu CSM de Braze.
 -->
 
 ## Cosas que debes saber {#things-to-know}
@@ -472,7 +472,7 @@ Inserta HTML, CSS o JavaScript personalizado para personalización avanzada, com
 <!-- Countdown timer is not yet released. Uncomment when available.
 ### Temporizador de cuenta regresiva {#countdown-timer}
 
-Muestra una cuenta regresiva hasta una fecha y hora que establezcas. Si no ves este bloque, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu CSM or administrador de éxito de cliente or administrador de éxito de cliente de Braze.
+Muestra una cuenta regresiva hasta una fecha y hora que establezcas. Si no ves este bloque, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu CSM de Braze.
 
 Después de añadir un bloque de **Temporizador de cuenta regresiva**, usa el panel de propiedades para establecer la fecha y hora objetivo, las etiquetas y el estilo.
 -->
@@ -485,7 +485,7 @@ Añade un campo de formulario para direcciones de correo electrónico. Al enviar
 
 ### Captura de teléfono
 
-Añade un campo de formulario para números de teléfono. Al enviar, suscribe al usuario a tu grupo de suscripción de [servicio de mensajes cortos]({{site.baseurl}}/sms_rcs_subscription_groups) o [WhatsApp]({{site.baseurl}}/whatsapp_subscription_groups) seleccionado.
+Añade un campo de formulario para números de teléfono. Al enviar, suscribe al usuario a tu grupo de suscripción de [SMS]({{site.baseurl}}/sms_rcs_subscription_groups) o [WhatsApp]({{site.baseurl}}/whatsapp_subscription_groups) seleccionado.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/phone_capture.md %}
 
@@ -515,7 +515,7 @@ Los usuarios eligen múltiples opciones; los valores se establecen o añaden a u
 
 ### Gestionar suscripciones {#manage-subscriptions}
 
-Añade una lista de verificación de grupos de suscripción de [correo electrónico]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups), [servicio de mensajes cortos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#sms-subscription-states) o [WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-subscription-states) para que los visitantes puedan optar por suscribirse o gestionar sus suscripciones cuando envíen el formulario. Cada bloque es para un canal. Configúralo después de añadir grupos de suscripción al bloque. Este bloque no incluye grupos de suscripción de RCS.
+Añade una lista de verificación de grupos de suscripción de [correo electrónico]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups), [SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#sms-subscription-states) o [WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-subscription-states) para que los visitantes puedan optar por suscribirse o gestionar sus suscripciones cuando envíen el formulario. Cada bloque es para un canal. Configúralo después de añadir grupos de suscripción al bloque. Este bloque no incluye grupos de suscripción de RCS.
 
 Para usuarios identificados que abren la página a través de la [etiqueta de Liquid]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) de la página de destino, el bloque rellena previamente cada casilla de verificación con el estado de suscripción actual del usuario, por lo que también puede servir como página de gestión de preferencias.
 
@@ -537,14 +537,14 @@ Para el flujo de configuración completo, consulta [Bloque de gestión de suscri
 
 ### Texto largo
 
-Campo de texto multilínea para flujos de tipo cuestionario. Si no ves este bloque, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu CSM or administrador de éxito de cliente or administrador de éxito de cliente de Braze. Este bloque no está disponible para páginas de destino estándar.
+Campo de texto multilínea para flujos de tipo cuestionario. Si no ves este bloque, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu CSM de Braze. Este bloque no está disponible para páginas de destino estándar.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 <!-- Saved row is not yet released. Uncomment when available.
 ### Fila guardada
 
-Inserta una fila reutilizable que guardaste anteriormente como un Content Block de arrastrar y soltar. Las filas guardadas **no están vinculadas** al Content Block original — si el original se actualiza, necesitarás arrastrarlo al editor de nuevo para obtener la última versión. Para más información, consulta [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Si no ves **Fila guardada** en **Filas**, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu CSM or administrador de éxito de cliente or administrador de éxito de cliente de Braze.
+Inserta una fila reutilizable que guardaste anteriormente como un Content Block de arrastrar y soltar. Las filas guardadas **no están vinculadas** al Content Block original — si el original se actualiza, necesitarás arrastrarlo al editor de nuevo para obtener la última versión. Para más información, consulta [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Si no ves **Fila guardada** en **Filas**, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu CSM de Braze.
 -->
 
 ## Cosas que debes saber
@@ -619,7 +619,7 @@ Inserta HTML personalizado para diseños avanzados o contenido incrustado (por e
 
 ### Captura de teléfono
 
-Recopila un número de teléfono. Al enviar, suscribe al usuario a tu grupo de suscripción de [servicio de mensajes cortos]({{site.baseurl}}/sms_rcs_subscription_groups) o [WhatsApp]({{site.baseurl}}/whatsapp_subscription_groups) seleccionado. Solo uno por Banner.
+Recopila un número de teléfono. Al enviar, suscribe al usuario a tu grupo de suscripción de [SMS]({{site.baseurl}}/sms_rcs_subscription_groups) o [WhatsApp]({{site.baseurl}}/whatsapp_subscription_groups) seleccionado. Solo uno por Banner.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/phone_capture.md %}
 
@@ -631,14 +631,14 @@ Recopila una dirección de correo electrónico y la añade al perfil de Braze de
 
 ### Texto largo
 
-Campo de texto multilínea para flujos de tipo cuestionario. Si no ves este bloque, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu CSM or administrador de éxito de cliente or administrador de éxito de cliente de Braze.
+Campo de texto multilínea para flujos de tipo cuestionario. Si no ves este bloque, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu CSM de Braze.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 <!-- Saved row is not yet released. Uncomment when available.
 ### Fila guardada
 
-Inserta una fila reutilizable que guardaste anteriormente como un Content Block de arrastrar y soltar. Las filas guardadas **no están vinculadas** al Content Block original — si el original se actualiza, necesitarás arrastrarlo al editor de nuevo para obtener la última versión. Para más información, consulta [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Si no ves **Fila guardada** en **Filas**, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu CSM or administrador de éxito de cliente or administrador de éxito de cliente de Braze.
+Inserta una fila reutilizable que guardaste anteriormente como un Content Block de arrastrar y soltar. Las filas guardadas **no están vinculadas** al Content Block original — si el original se actualiza, necesitarás arrastrarlo al editor de nuevo para obtener la última versión. Para más información, consulta [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Si no ves **Fila guardada** en **Filas**, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu CSM de Braze.
 -->
 
 ## Cosas que debes saber

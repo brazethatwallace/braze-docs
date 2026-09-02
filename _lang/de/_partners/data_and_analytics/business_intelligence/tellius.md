@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Tellius
 
-> [Tellius](https://www.tellius.com/), eine Plattform für Decision Intelligence und Augmented Analytics, ermöglicht es Ihnen, Fragen zu Ihren Daten mit Hilfe der natürlichsprachlichen Suche zu beantworten und mit KI or künstliche Intelligenz-gestützten Insights das „Warum“ zu verstehen.
+> [Tellius](https://www.tellius.com/), eine Plattform für Decision Intelligence und Augmented Analytics, ermöglicht es Ihnen, Fragen zu Ihren Daten mit Hilfe der natürlichsprachlichen Suche zu beantworten und mit KI-gestützten Insights das „Warum“ zu verstehen.
 
 Die Integration von Braze und Tellius ermöglicht es Nutzer:innen, Daten zu nutzen, ohne auf BI-Ingenieure angewiesen zu sein, um Dashboards zu erstellen und Insights zu generieren, um bessere Marketing-Entscheidungen zu treffen. Diese Integration setzt voraus, dass Braze-Daten in Snowflake gespeichert sind. Tellius kann sich direkt mit Snowflake verbinden und Push-Abfragen mit der Integration im Live-Modus durchführen.
 

@@ -1,8 +1,8 @@
 ---
 nav_title: Netzwerkeinstellungen
-article_title: Netzwerkeinstellungen für das Braze SDK or Software-Development-Kit
+article_title: Netzwerkeinstellungen für das Braze SDK
 page_order: 4.0
-description: "Erfahren Sie, wie Sie die Netzwerkeinstellungen für das Braze SDK or Software-Development-Kit konfigurieren."
+description: "Erfahren Sie, wie Sie die Netzwerkeinstellungen für das Braze SDK konfigurieren."
 platform:
   - Android
   - FireOS
@@ -11,7 +11,7 @@ platform:
 
 # Netzwerkeinstellungen {#network-settings}
 
-> Erfahren Sie, wie Sie die Netzwerkeinstellungen für das Braze SDK or Software-Development-Kit konfigurieren.
+> Erfahren Sie, wie Sie die Netzwerkeinstellungen für das Braze SDK konfigurieren.
 
 {% sdktabs %}
 {% sdktab android %}

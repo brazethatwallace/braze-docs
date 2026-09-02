@@ -20,12 +20,12 @@ Die Integration von Braze und Heap ermöglicht Ihnen den [Import von Heap-Daten 
 | ----------- | ----------- |
 | Heap-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein [Heap-Konto](https://heap.io/about). |
 | Braze-Datenimport-Schlüssel | Diesen finden Sie im Braze-Dashboard unter **Partnerintegrationen** > **Technologie-Partner**. Wählen Sie dort **Heap** aus. |
-| Braze-Representational State Transfer-Endpunkt | [Ihre Representational State Transfer-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
+| Braze-REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
 | Braze-Currents | Um Daten von Braze nach Heap zu exportieren, müssen [Braze-Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents#access-currents) in Ihrem Konto aktiviert sein. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
-- Erneute Interaktion mit Nutzer:innen, die einen Funnel verlassen haben: Trigger or triggern or triggern Sie erneute Interaktionsnachrichten, wenn Nutzer:innen den Kauf- oder Abo-Funnel abbrechen.
+- Erneute Interaktion mit Nutzer:innen, die einen Funnel verlassen haben: Triggern Sie erneute Interaktionsnachrichten, wenn Nutzer:innen den Kauf- oder Abo-Funnel abbrechen.
 - Personalisieren Sie das Testerlebnis: Identifizieren Sie Reibungspunkte in Ihrer Testphase und senden Sie zeitlich passende Erinnerungen, um Nutzer:innen während einer Testphase erneut zu aktivieren und ihnen zu helfen, einen Mehrwert zu erzielen.
 - Steigern Sie das Engagement bei Ankündigungen und Angeboten: Richten Sie Aktionen, Updates und Ankündigungen neuer Dienste gezielt an die relevanten Zielgruppen.
 
@@ -37,7 +37,7 @@ Verwenden Sie die Heap-zu-Braze-Integration, um Kohorten, die in Heap definiert 
 
 Navigieren Sie in Braze zu **Partnerintegrationen** > **Technologie-Partner** und wählen Sie dann **Heap** aus.
 
-Auf dieser Seite finden Sie Ihren Datenimport-Schlüssel und einen Representational State Transfer-Endpunkt. Notieren Sie sich diese beiden Werte und geben Sie sie an Ihren Heap Account Manager:in weiter, um die Einrichtung der Integration abzuschließen.
+Auf dieser Seite finden Sie Ihren Datenimport-Schlüssel und einen REST-Endpunkt. Notieren Sie sich diese beiden Werte und geben Sie sie an Ihren Heap Account Manager:in weiter, um die Einrichtung der Integration abzuschließen.
 
 ![Braze-Technologie-Partnerseite für Heap mit Datenimport-Schlüssel und Endpunkt.]({% image_buster /assets/img/heap/heap2.png %}){: style="max-width:90%;"}
 

@@ -83,7 +83,7 @@ After you add a **Countdown timer** block, use the properties panel to set the t
 
 ### 전화번호 캡처 {#phone-capture}
 
-전화번호를 위한 양식 필드를 추가합니다. 제출 시 사용자가 선택한 [단문 메시지 서비스]({{site.baseurl}}/sms_rcs_subscription_groups) 또는 [WhatsApp]({{site.baseurl}}/whatsapp_subscription_groups) 구독 그룹에 가입됩니다.
+전화번호를 위한 양식 필드를 추가합니다. 제출 시 사용자가 선택한 [SMS]({{site.baseurl}}/sms_rcs_subscription_groups) 또는 [WhatsApp]({{site.baseurl}}/whatsapp_subscription_groups) 구독 그룹에 가입됩니다.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/phone_capture.md %}
 

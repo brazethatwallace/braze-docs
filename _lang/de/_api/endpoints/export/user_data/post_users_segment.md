@@ -144,7 +144,7 @@ Im Folgenden finden Sie eine Liste der gültigen `fields_to_export`. Die Verwend
 | `braze_id` | String | Gerätespezifischer eindeutiger Bezeichner, der von Braze für diese:n Nutzer:in festgelegt wurde. |
 | `country` | String | Land der Nutzer:in gemäß dem Standard [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). |
 | `created_at` | String | Datum und Uhrzeit der Erstellung des Nutzerprofils im ISO-8601-Format. |
-| `created_from` | String | Methode, mit der das Kundenprofil or Nutzerprofil erstellt wurde (z. B. SDK or Software-Development-Kit, Representational State Transfer API oder CSV-Import). |
+| `created_from` | String | Methode, mit der das Nutzerprofil erstellt wurde (z. B. SDK, REST API oder CSV-Import). |
 | `custom_attributes` | Objekt | Angepasste Attribut-Schlüssel-Wert-Paare für diese:n Nutzer:in. |
 | `custom_events` | Array | Angepasste Events, die dieser Nutzer:in in den letzten 90 Tagen zugeordnet wurden. |
 | `devices` | Array | Informationen über das Gerät der Nutzer:in, die je nach Plattform Folgendes umfassen können:<br><br>- `model`: Modellname des Geräts<br>- `os`: Betriebssystem des Geräts<br>- `carrier`: Mobilfunkanbieter des Geräts, falls verfügbar<br>- `idfv`: (iOS) Braze-Gerätebezeichner, der Apple Identifier for Vendors (IDFV), falls vorhanden<br>- `idfa`: (iOS) Identifier for Advertisers (IDFA), falls vorhanden<br>- `device_id`: (Android) Braze-Gerätebezeichner<br>- `google_ad_id`: (Android) Google Play Advertising Identifier, falls vorhanden<br>- `roku_ad_id`: (Roku) Roku Advertising Identifier<br>- `ad_tracking_enabled`: Ob Ad-Tracking auf dem Gerät aktiviert ist, kann true oder false sein |
@@ -162,7 +162,7 @@ Im Folgenden finden Sie eine Liste der gültigen `fields_to_export`. Die Verwend
 | `push_tokens` | Array | Informationen zu den Push-Tokens der Nutzer:in. |
 | `random_bucket` | Integer | [Zufällige Bucket-Nummer]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) der Nutzer:in, mit der gleichmäßig verteilte Segmente aus zufälligen Nutzer:innen erstellt werden. |
 | `time_zone` | String | Zeitzone der Nutzer:in im gleichen Format wie in der IANA-Zeitzonendatenbank. |
-| `total_revenue` | Gleitkommazahl | Gesamtumsatz, der dieser Nutzer:in zugerechnet wird. Der Gesamtumsatz wird auf der Grundlage der Käufe berechnet, die die Nutzer:innen während der Konversionsfenster für die Campaigns und Canvase getätigt haben, die sie erhalten haben. |
+| `total_revenue` | Gleitkommazahl | Gesamtumsatz, der dieser Nutzer:in zugerechnet wird. Der Gesamtumsatz wird auf der Grundlage der Käufe berechnet, die die Nutzer:innen während der Konversionsfenster für die Campaigns und Canvases getätigt haben, die sie erhalten haben. |
 | `uninstalled_at` | Zeitstempel | Datum und Uhrzeit der Deinstallation der App durch die Nutzer:in. Entfällt, wenn die App nicht deinstalliert wurde. |
 | `user_aliases` | Objekt | [Nutzer-Alias-Objekt]({{site.baseurl}}/api/objects_filters/user_alias_object), das `alias_name` und `alias_label` enthält, falls vorhanden. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Zu exportierende Felder" }

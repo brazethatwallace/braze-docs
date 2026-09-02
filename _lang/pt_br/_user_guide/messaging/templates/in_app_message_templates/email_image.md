@@ -10,7 +10,7 @@ description: "Esta página explica como usar o editor de arrastar e soltar de me
 
 > Use o editor de arrastar e soltar de mensagens no app para destacar o estilo da sua marca com uma mensagem simples e construir sua lista de e-mails.
 
-{% multi_lang_include drag_and_drop/templates.md section='SDK or kit de desenvolvimento de software requirements' %}
+{% multi_lang_include drag_and_drop/templates.md section='SDK requirements' %}
 
 ## Criando um formulário de inscrição de e-mail com imagem de fundo {#creating-an-email-sign-up-form-with-a-background-image}
 

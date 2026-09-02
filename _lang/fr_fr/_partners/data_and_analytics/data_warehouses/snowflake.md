@@ -45,7 +45,7 @@ Avant de pouvoir utiliser cette fonctionnalité, vous devrez remplir les conditi
 
 | Condition | Description |
 | ----------- | ----------- |
-| Accès à Braze | Pour accéder à cette fonctionnalité dans Braze, vous devrez contacter votre gestionnaire de compte Braze ou votre CSM or gestionnaire de la satisfaction client or gestionnaire du succès des clients. |
+| Accès à Braze | Pour accéder à cette fonctionnalité dans Braze, vous devrez contacter votre gestionnaire de compte Braze ou votre CSM. |
 | Compte Snowflake | Un compte Snowflake avec les permissions `admin`. Pour les clients non-HIPAA, Snowflake Standard ou Enterprise Edition est pris en charge. Pour le partage de données conforme à la loi HIPAA, l'édition Business Critical est requise. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prérequis" }
 

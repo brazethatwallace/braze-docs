@@ -14,7 +14,7 @@ description: "Compara las sincronizaciones estándar de ingesta de datos en la n
 
 MovieCanon es un servicio ficticio de streaming de películas. Centraliza los datos de clientes, entradas y visualizaciones en un almacén. El equipo de datos debe decidir cómo alimentar Braze para tres necesidades comunes:
 
-- **Datos de perfil:** nivel de fidelización, LTV or valor de duración del ciclo de vida or valor de duración del ciclo de vida y atributos de preferencia de género o formato que persisten en los perfiles de usuario de Braze.
+- **Datos de perfil:** nivel de fidelización, LTV y atributos de preferencia de género o formato que persisten en los perfiles de usuario de Braze.
 - **Creación de audiencias:** segmentos basados en SQL a partir de tablas del almacén sin copiar cada columna en Braze.
 - **Mensajería activada:** filas del almacén que deben entrar en un Canvas con personalización a nivel de fila que no necesita vivir en el perfil.
 
@@ -25,8 +25,8 @@ Utiliza esta comparación cuando estés planificando la arquitectura, dimensiona
 ## Consideraciones {#considerations}
 
 - La ingesta de datos en la nube es una característica general. Las sincronizaciones CDI estándar copian datos en los perfiles de Braze (similar a `/users/track`). Los CDI Segments y los activadores CDI de Canvas mantienen los datos del almacén en su lugar sin escribirlos en los perfiles de usuario de Braze.
-- Las sincronizaciones CDI recurrentes pueden ejecutarse desde cada 15 minutos hasta una vez al mes. Si necesitas una cadencia superior a 15 minutos, contacta a tu CSM or administrador de éxito de cliente or administrador de éxito de cliente o utiliza la ingesta por REST or transferencia de estado representacional API. Consulta [Ingesta de datos en la nube de Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
-- Los activadores CDI de Canvas comparten el límite de velocidad de la REST or transferencia de estado representacional API [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases) con otro tráfico hacia ese endpoint. `/users/track` tiene sus propios límites y reglas de procesamiento por lotes. Los límites predeterminados pueden aumentarse. Ve a **Configuración** > **API e identificadores** > **Límites de API** y consulta [Límites de velocidad de API]({{site.baseurl}}/api/api_limits).
+- Las sincronizaciones CDI recurrentes pueden ejecutarse desde cada 15 minutos hasta una vez al mes. Si necesitas una cadencia superior a 15 minutos, contacta a tu CSM o utiliza la ingesta por REST API. Consulta [Ingesta de datos en la nube de Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
+- Los activadores CDI de Canvas comparten el límite de velocidad de la REST API [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases) con otro tráfico hacia ese endpoint. `/users/track` tiene sus propios límites y reglas de procesamiento por lotes. Los límites predeterminados pueden aumentarse. Ve a **Configuración** > **API e identificadores** > **Límites de API** y consulta [Límites de velocidad de API]({{site.baseurl}}/api/api_limits).
 - Las fuentes conectadas y las extensiones de segmento CDI ejecutan consultas en tu almacén. Incurres en costos de computación del almacén; Braze no registra puntos de datos para esas consultas. Consulta [Fuentes conectadas]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources).
 
 ## Configuración {#setup}
@@ -40,7 +40,7 @@ Relaciona tu objetivo con la ruta de ingesta recomendada y si esa ruta escribe e
 | Persistir atributos, eventos, compras o elementos de catálogo desde el almacén | Sincronización CDI estándar | Sí (los datos se copian en los perfiles o catálogos de Braze) |
 | Crear audiencias a partir de SQL del almacén sin copiar las tablas de origen en Braze | CDI Segments (fuentes conectadas) | No (solo membresía) |
 | Hacer que los usuarios entren en un Canvas con contexto de fila del almacén que no debe persistir en el perfil | Activadores CDI de Canvas | No (propiedades de contexto de Canvas transitorias) |
-| Enviar datos desde aplicaciones, servidores o pipelines de streaming en tiempo casi real | [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) (o SDK or kit de desarrollo de software) | Sí (los datos persisten en los perfiles) |
+| Enviar datos desde aplicaciones, servidores o pipelines de streaming en tiempo casi real | [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) (o SDK) | Sí (los datos persisten en los perfiles) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Mapea tu caso de uso a una ruta de ingesta" }
 
 ### Paso 2: Compara persistencia, latencia y rendimiento {#step-2-compare-persistence-latency-and-throughput}

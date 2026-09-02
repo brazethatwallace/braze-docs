@@ -126,7 +126,7 @@ Ajoutez l'étiquette Liquid à l'emplacement souhaité dans votre e-mail, de la 
 
 ### Pourquoi mon centre de préférences ne fonctionne-t-il pas lors d'un envoi test ? {#why-doesnt-my-preference-center-work-in-a-test-send}
 
-Les liens du centre de préférences nécessitent un contexte d'envoi en direct or en ligne/en production/instantané. Les envois test ne génèrent pas d'URL valides pour le centre de préférences, et le bouton **Enregistrer les préférences** est désactivé si la page se charge. Il s'agit d'un comportement attendu. Pour tester de bout en bout, lancez une Campaign ou une étape Canvas vers un utilisateur test ou un petit Segment interne. Pour plus de détails, consultez [Tester les centres de préférences](#testing-preference-centers).
+Les liens du centre de préférences nécessitent un contexte d'envoi en direct. Les envois test ne génèrent pas d'URL valides pour le centre de préférences, et le bouton **Enregistrer les préférences** est désactivé si la page se charge. Il s'agit d'un comportement attendu. Pour tester de bout en bout, lancez une Campaign ou une étape Canvas vers un utilisateur test ou un petit Segment interne. Pour plus de détails, consultez [Tester les centres de préférences](#testing-preference-centers).
 
 ## Gérer les erreurs {#handle-errors}
 

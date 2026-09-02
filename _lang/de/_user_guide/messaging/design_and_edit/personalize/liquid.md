@@ -51,7 +51,7 @@ guide_featured_list:
 
 Liquid fungiert als Brücke zwischen Ihrer Nachricht und Ihren Nutzerdaten. Wenn Sie eine Nachricht senden, durchsucht Braze den Text nach Liquid-Syntax. Wenn Liquid gefunden wird, werden die relevanten Daten für die jeweilige Nutzerin oder den jeweiligen Nutzer abgerufen und der Code durch den tatsächlichen Wert ersetzt, bevor die Nachricht gesendet wird.
 
-Beispielsweise können Sie ein angepasstes Attribut aus einem Kundenprofil or Nutzerprofil abrufen, das ein Integer-Datentyp ist, und diesen Wert auf die nächste ganze Zahl runden. Weitere Informationen zur Liquid-Syntax und -Verwendung finden Sie unter [**Unterstützte Personalisierungs-Tags**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags).
+Beispielsweise können Sie ein angepasstes Attribut aus einem Kundenprofil abrufen, das ein Integer-Datentyp ist, und diesen Wert auf die nächste ganze Zahl runden. Weitere Informationen zur Liquid-Syntax und -Verwendung finden Sie unter [**Unterstützte Personalisierungs-Tags**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags).
 
 Die Liquid-Template-Sprache unterstützt die Verwendung von Objekten, Tags und Filtern.
 

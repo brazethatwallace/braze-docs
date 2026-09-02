@@ -19,7 +19,7 @@ Para obtener información general sobre la actualización a Checkout Extensibili
 
 ## Impacto en tu integración {#impact-to-your-integration}
 
-La integración de Braze y Shopify utiliza [Shopify ScriptTags](https://shopify.dev/docs/apps/build/online-store/script-tag-legacy) para cargar el SDK or kit de desarrollo de software Web de Braze en sitios que no son headless. Estamos planificando lanzar una nueva versión de la integración antes de la fecha límite de 2025 para dar soporte a todos los clientes antes de que `checkout.liquid` quede completamente obsoleto.
+La integración de Braze y Shopify utiliza [Shopify ScriptTags](https://shopify.dev/docs/apps/build/online-store/script-tag-legacy) para cargar el SDK Web de Braze en sitios que no son headless. Estamos planificando lanzar una nueva versión de la integración antes de la fecha límite de 2025 para dar soporte a todos los clientes antes de que `checkout.liquid` quede completamente obsoleto.
 
 Para los próximos cambios del 13 de agosto de 2024, consulta los siguientes detalles para ver si tu equipo de desarrollo se verá afectado.
 
@@ -29,7 +29,7 @@ La integración predeterminada de Braze y Shopify no utiliza las páginas de inf
 
 #### Shopify Plus
 
-Para los clientes de Shopify Plus, cualquier fragmento de código personalizado del SDK or kit de desarrollo de software que modifique `checkout.liquid` para las páginas de información, envío o pago quedará inactivo después de esta fecha. Por ejemplo, el código personalizado que registra eventos desde estas páginas dejará de funcionar. Si tienes código personalizado del SDK or kit de desarrollo de software, consulta nuestra [guía para desarrolladores](#developer-guidance) sobre la migración.
+Para los clientes de Shopify Plus, cualquier fragmento de código personalizado del SDK que modifique `checkout.liquid` para las páginas de información, envío o pago quedará inactivo después de esta fecha. Por ejemplo, el código personalizado que registra eventos desde estas páginas dejará de funcionar. Si tienes código personalizado del SDK, consulta nuestra [guía para desarrolladores](#developer-guidance) sobre la migración.
 
 #### No Shopify Plus {#non-shopify-plus}
 
@@ -41,10 +41,10 @@ Shopify dejará de dar soporte a [ScriptTags](https://shopify.dev/docs/apps/buil
 
 ## Guía para desarrolladores {#developer-guidance}
 
-Esta guía aplica a clientes de Shopify Plus que han añadido fragmentos de código personalizados del SDK or kit de desarrollo de software a las páginas de información, envío o pago en `checkout.liquid`. Si no has realizado estas personalizaciones, puedes ignorar esta guía.
+Esta guía aplica a clientes de Shopify Plus que han añadido fragmentos de código personalizados del SDK a las páginas de información, envío o pago en `checkout.liquid`. Si no has realizado estas personalizaciones, puedes ignorar esta guía.
 
-Ya no podrás añadir fragmentos de código personalizados del SDK or kit de desarrollo de software a las páginas de información, envío o pago en `checkout.liquid`. En su lugar, necesitarás añadir fragmentos de código personalizados del SDK or kit de desarrollo de software a las páginas de agradecimiento o estado del pedido. Esto te permite conciliar a los usuarios que completaron el proceso de pago.
-1. Carga el SDK or kit de desarrollo de software Web de Braze en las páginas de agradecimiento y estado del pedido.
+Ya no podrás añadir fragmentos de código personalizados del SDK a las páginas de información, envío o pago en `checkout.liquid`. En su lugar, necesitarás añadir fragmentos de código personalizados del SDK a las páginas de agradecimiento o estado del pedido. Esto te permite conciliar a los usuarios que completaron el proceso de pago.
+1. Carga el SDK Web de Braze en las páginas de agradecimiento y estado del pedido.
 2. Recupera el correo electrónico del usuario.
 3. Llama a `setEmail`.
 

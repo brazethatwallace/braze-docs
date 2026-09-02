@@ -177,7 +177,7 @@ div#ticket_thankyou {
   }
   .gpt-res-buttons {
   display: flex;
-  justify-content: space-between; /* Back on left, REST or transferir estado representacional on right */
+  justify-content: space-between; /* Back on left, rest on right */
   align-items: center;
   width: 100%;
   margin-top: 15px;
@@ -1176,7 +1176,7 @@ a:hover {
         <!-- Pergunta (largura total) -->
         <div class="form-group">
           <label for="ticket_issue" class="required">Pergunta </label>
-          <textarea id="ticket_issue" name="ticket_issue" rows="7" class="form-control" placeholder="Inclua detalhes como plataforma, versão do SDK or kit de desenvolvimento de software, endpoints da REST or transferir estado representacional API or interface de programação do aplicativo (API), passos para reproduzir..."></textarea>
+          <textarea id="ticket_issue" name="ticket_issue" rows="7" class="form-control" placeholder="Inclua detalhes como plataforma, versão do SDK, endpoints da REST API, passos para reproduzir..."></textarea>
         </div>
 
         <!-- Texto informativo -->
@@ -1265,8 +1265,8 @@ String.prototype.mapReplace = function(map) {
 };
 
 var wordmap = {
-  'REST or transferir estado representacional' : 'REST or transferir estado representacional',
-  'API or interface de programação do aplicativo (API)' : 'API or interface de programação do aplicativo (API)',
+  'REST' : 'REST',
+  'API' : 'API',
   'APIs' : 'APIs',
   'iOS' : 'iOS',
   'ID' : 'ID',
@@ -1288,10 +1288,10 @@ var ticket_lookuptable = {
       'LinksTitle': ['Platform Features'],
       'Links' : ['{{site.baseurl}}/developer_guide/platform_wide/platform_features/'],
       'SelectOption' : {
-        'SDK or kit de desenvolvimento de software Integrations' : {
+        'SDK Integrations' : {
           'Label': 'My question is about... *',
           'SelectDefault': 'Select a type...',
-          'LinksTitle': ['Self-Service SDK or kit de desenvolvimento de software Debugging Tool','iOS: Initial SDK or kit de desenvolvimento de software Setup','Android: Initial SDK or kit de desenvolvimento de software Setup','Web: Initial SDK or kit de desenvolvimento de software Setup','Sending Test Messages','Braze Learning Course: Technical Integration Checklist and Toolkits'],
+          'LinksTitle': ['Self-Service SDK Debugging Tool','iOS: Initial SDK Setup','Android: Initial SDK Setup','Web: Initial SDK Setup','Sending Test Messages','Braze Learning Course: Technical Integration Checklist and Toolkits'],
           'Links': ['{{site.baseurl}}/developer_guide/sdk_integration/debugging','{{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/overview','{{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/android_sdk_integration/','{{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup/','{{site.baseurl}}/developer_guide/platform_wide/sending_test_messages/','https://learning.braze.com/technical-integration-checklists-and-toolkits'],
           'SelectOption' : {
             'Push' : {
@@ -1317,7 +1317,7 @@ var ticket_lookuptable = {
                 },
                 'Other' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['Braze Developer Guide','SDK or kit de desenvolvimento de software Changelog','Sending Test Messages','Braze Learning Course: Technical Integration Checklist and Toolkits'],
+                  'LinksTitle': ['Braze Developer Guide','SDK Changelog','Sending Test Messages','Braze Learning Course: Technical Integration Checklist and Toolkits'],
                   'Links' : ['{{site.baseurl}}/developer_guide/home','{{site.baseurl}}/developer_guide/platform_integration_guides/sdk_changelogs','{{site.baseurl}}/developer_guide/platform_wide/sending_test_messages/','https://learning.braze.com/technical-integration-checklists-and-toolkits']
                 }
               }
@@ -1345,7 +1345,7 @@ var ticket_lookuptable = {
                 },
                 'Other' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['Braze Developer Guide','SDK or kit de desenvolvimento de software Changelog','Sending Test Messages','Braze Learning Course: Technical Integration Checklist and Toolkits'],
+                  'LinksTitle': ['Braze Developer Guide','SDK Changelog','Sending Test Messages','Braze Learning Course: Technical Integration Checklist and Toolkits'],
                   'Links' : ['{{site.baseurl}}/developer_guide/home','{{site.baseurl}}/developer_guide/platform_integration_guides/sdk_changelogs','{{site.baseurl}}/developer_guide/platform_wide/sending_test_messages/','https://learning.braze.com/technical-integration-checklists-and-toolkits']
                 }
               }
@@ -1372,7 +1372,7 @@ var ticket_lookuptable = {
                 },
                 'Other' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['Braze Developer Guide','SDK or kit de desenvolvimento de software Changelog','Sending Test Messages','Braze Learning Course: Technical Integration Checklist and Toolkits'],
+                  'LinksTitle': ['Braze Developer Guide','SDK Changelog','Sending Test Messages','Braze Learning Course: Technical Integration Checklist and Toolkits'],
                   'Links' : ['{{site.baseurl}}/developer_guide/home','{{site.baseurl}}/developer_guide/platform_integration_guides/sdk_changelogs','{{site.baseurl}}/developer_guide/platform_wide/sending_test_messages/','https://learning.braze.com/technical-integration-checklists-and-toolkits']
                 }
               }
@@ -1402,41 +1402,41 @@ var ticket_lookuptable = {
             }
           }
         },
-        'REST or transferir estado representacional APIs' : {
+        'REST APIs' : {
           'Label': 'My question is about... *',
           'SelectDefault': 'Select a type...',
-          'LinksTitle': ['REST or transferir estado representacional API or interface de programação do aplicativo (API): Endpoint Dictionary'],
-          'Links': ['{{site.baseurl}}/API or interface de programação do aplicativo (API)/home'],
+          'LinksTitle': ['REST API: Endpoint Dictionary'],
+          'Links': ['{{site.baseurl}}/api/home'],
           'SelectOption' : {
             'Errors' : {
               'ShowSubmit': true,
-              'LinksTitle': ['API or interface de programação do aplicativo (API) Errors and Responses'],
-              'Links' : ['{{site.baseurl}}/API or interface de programação do aplicativo (API)/errors/']
+              'LinksTitle': ['API Errors and Responses'],
+              'Links' : ['{{site.baseurl}}/api/errors/']
             },
             'Importing Data' : {
               'ShowSubmit': true,
-              'LinksTitle': ['User Import', 'REST or transferir estado representacional API or interface de programação do aplicativo (API): User Data Endpoints'],
-              'Links' : ['{{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_import/','{{site.baseurl}}/API or interface de programação do aplicativo (API)/endpoints/user_data']
+              'LinksTitle': ['User Import', 'REST API: User Data Endpoints'],
+              'Links' : ['{{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_import/','{{site.baseurl}}/api/endpoints/user_data']
             },
             'Exporting Data' : {
               'ShowSubmit': true,
-              'LinksTitle': ['Exporting Braze Data','REST or transferir estado representacional API or interface de programação do aplicativo (API): Export Endpoints', 'Export Frequently Asked Questions'],
-              'Links' : ['{{site.baseurl}}/user_guide/data_and_analytics/export_braze_data','{{site.baseurl}}/API or interface de programação do aplicativo (API)/endpoints/export','{{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/faqs/']
+              'LinksTitle': ['Exporting Braze Data','REST API: Export Endpoints', 'Export Frequently Asked Questions'],
+              'Links' : ['{{site.baseurl}}/user_guide/data_and_analytics/export_braze_data','{{site.baseurl}}/api/endpoints/export','{{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/faqs/']
             },
-            'API or interface de programação do aplicativo (API) Campaigns' : {
+            'API Campaigns' : {
               'ShowSubmit': true,
-              'LinksTitle': ['API or interface de programação do aplicativo (API) Campaign Overview','REST or transferir estado representacional API or interface de programação do aplicativo (API): Send API or interface de programação do aplicativo (API)-Triggered Campaign Endpoint','REST or transferir estado representacional API or interface de programação do aplicativo (API): agendar/cronograma API or interface de programação do aplicativo (API)-Triggered Campaign Endpoint'],
-              'Links' : ['{{site.baseurl}}/API or interface de programação do aplicativo (API)/api_campaigns/','{{site.baseurl}}/API or interface de programação do aplicativo (API)/endpoints/messaging/send_messages/post_send_triggered_campaigns/','{{site.baseurl}}/API or interface de programação do aplicativo (API)/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns/']
+              'LinksTitle': ['API Campaign Overview','REST API: Send API-Triggered Campaign Endpoint','REST API: agendar/cronograma API-Triggered Campaign Endpoint'],
+              'Links' : ['{{site.baseurl}}/api/api_campaigns/','{{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/','{{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns/']
             },
             'Rate Limits' : {
               'ShowSubmit': true,
-              'LinksTitle': ['API or interface de programação do aplicativo (API) Rate Limits'],
-               'Links' : ['{{site.baseurl}}/API or interface de programação do aplicativo (API)/api_limits/']
+              'LinksTitle': ['API Rate Limits'],
+               'Links' : ['{{site.baseurl}}/api/api_limits/']
              },
              'Other' : {
                'ShowSubmit': true,
-               'LinksTitle': ['API or interface de programação do aplicativo (API) Basics', 'API or interface de programação do aplicativo (API) Connectivity Issues','Postman and Sample Requests'],
-               'Links' : ['{{site.baseurl}}/API or interface de programação do aplicativo (API)/basics/','{{site.baseurl}}/API or interface de programação do aplicativo (API)/network_connectivity_issues','{{site.baseurl}}/API or interface de programação do aplicativo (API)/postman_collection/']
+               'LinksTitle': ['API Basics', 'API Connectivity Issues','Postman and Sample Requests'],
+               'Links' : ['{{site.baseurl}}/api/basics/','{{site.baseurl}}/api/network_connectivity_issues','{{site.baseurl}}/api/postman_collection/']
              }
           }
         },
@@ -1662,7 +1662,7 @@ var ticket_lookuptable = {
           'SelectDefault': 'Select a type...',
           'Label': 'My question is about... *',
           'ShowSubmit': true,
-          'LinksTitle': ['System Status','SDK or kit de desenvolvimento de software Changelogs'],
+          'LinksTitle': ['System Status','SDK Changelogs'],
           'Links' : ['https://braze.statuspage.io/','{{site.baseurl}}/developer_guide/platform_integration_guides/sdk_changelogs'],
         }
       }
@@ -2630,7 +2630,7 @@ function initCaseForm() {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(searchPayload)
         })
-        .catch(err => console.error("API or interface de programação do aplicativo (API) Error (search):", err));
+        .catch(err => console.error("API Error (search):", err));
     }
 
 
@@ -2698,7 +2698,7 @@ function initCaseForm() {
                     "internal": ""
                 })
             })
-            .catch(error => console.error("API or interface de programação do aplicativo (API) Error (caseCreated):", error));
+            .catch(error => console.error("API Error (caseCreated):", error));
         });
     });
 }

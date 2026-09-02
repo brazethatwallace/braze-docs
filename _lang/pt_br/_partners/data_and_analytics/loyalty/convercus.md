@@ -32,8 +32,8 @@ Antes de começar, você precisa do seguinte:
 | Pré-requisito | Descrição |
 | --- | --- |
 | Uma conta Convercus | Um programa Convercus ativo. Entre em contato com o gerente de conta da Convercus se você ainda não for cliente. |
-| Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com a permissão `users.track`. Crie essa chave no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
-| Um endpoint REST or transferir estado representacional da Braze | [A URL do seu endpoint REST or transferir estado representacional]({{site.baseurl}}/api/basics#endpoints). Seu endpoint depende da URL da Braze para a sua instância. |
+| Uma chave da API REST da Braze | Uma chave da API REST da Braze com a permissão `users.track`. Crie essa chave no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Um endpoint REST da Braze | [A URL do seu endpoint REST]({{site.baseurl}}/api/basics#endpoints). Seu endpoint depende da URL da Braze para a sua instância. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 Você precisa de um identificador de usuário consistente entre os sistemas: o valor usado como `external_id` (ou o tipo de identificador escolhido) na Braze deve corresponder ao identificador de membro correspondente no Convercus. Caso contrário, os eventos não serão atribuídos ao perfil correto.
@@ -48,25 +48,25 @@ No Convercus Selfservice (a interface administrativa voltada ao cliente — abra
 
    | Campo | Descrição |
    | --- | --- |
-   | `apiKey` | Sua chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze (com a permissão `users.track`). |
-   | `apiEndpoint` | Seu endpoint REST or transferir estado representacional da Braze, por exemplo `https://rest.iad-01.braze.com`. |
+   | `apiKey` | Sua chave da API REST da Braze (com a permissão `users.track`). |
+   | `apiEndpoint` | Seu endpoint REST da Braze, por exemplo `https://rest.iad-01.braze.com`. |
    | Tipo de identificador | `external_id` ou `user_alias`. Determina como os membros do Convercus são associados aos perfis de usuário na Braze. |
    | `defaultOptins` | Seleção múltipla dos canais de aceitação do programa (de `membershipOptins`). Usado como padrão para o webhook de inscrição de e-mail quando a solicitação omite `optins`. A configuração da Braze é considerada incompleta até que pelo menos um seja selecionado. |
    {: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 1: Configurar a Braze no Convercus Selfservice" }
 
-2. Criar uma chave de API or interface de programação do aplicativo (API) para chamadas de entrada. Crie uma credencial `X-Convercus-Key` por programa. A chave bruta é exibida uma única vez na criação, com o prefixo `cvc_` (formato: `cvc_<base64url>`). Armazene-a na Braze ao configurar os webhooks de Campaigns e os blocos de Connected Content na Etapa 2. As chaves podem ser revogadas a qualquer momento pelo mesmo cartão; a revogação entra em vigor imediatamente.
+2. Criar uma chave de API para chamadas de entrada. Crie uma credencial `X-Convercus-Key` por programa. A chave bruta é exibida uma única vez na criação, com o prefixo `cvc_` (formato: `cvc_<base64url>`). Armazene-a na Braze ao configurar os webhooks de Campaigns e os blocos de Connected Content na Etapa 2. As chaves podem ser revogadas a qualquer momento pelo mesmo cartão; a revogação entra em vigor imediatamente.
 
 Após salvar a conexão com a Braze, o Convercus começa imediatamente a transmitir os eventos de fidelidade daquele programa para a Braze. Nenhuma configuração adicional de infraestrutura é necessária.
 
 {% alert note %}
-Cada programa do Convercus é configurado de forma independente. Um único tenant do Convercus pode conectar programas diferentes a espaços de trabalho distintos da Braze, cada um com sua própria chave de API or interface de programação do aplicativo (API).
+Cada programa do Convercus é configurado de forma independente. Um único tenant do Convercus pode conectar programas diferentes a espaços de trabalho distintos da Braze, cada um com sua própria chave de API.
 {% endalert %}
 
 ### Etapa 2: Configurar webhooks na Braze {#step-2-configure-webhooks-in-braze}
 
 Para disparar ações do Convercus a partir de um Canvas ou Campaign, crie ações de webhook na Braze que chamem o serviço de integração do Convercus. Todas as solicitações devem incluir os seguintes cabeçalhos:
 
-- `X-Convercus-Key: cvc_…` - a chave de API or interface de programação do aplicativo (API) gerada na Etapa 1.
+- `X-Convercus-Key: cvc_…` - a chave de API gerada na Etapa 1.
 - `Content-Type: application/json`
 
 Todos os endpoints estão sob a URL base `<SERVICE_HOST>/v1/programs/{programId}`. Substitua `<SERVICE_HOST>` pelo host fornecido pelo seu gerente de conta Convercus e `{programId}` pelo ID do seu programa Convercus.
@@ -251,11 +251,11 @@ Sempre envolva o Connected Content em condicionais (verifique `member.error` e `
 - **Limites de frequência da Braze:** A integração faz novas tentativas automaticamente em respostas `429`, respeitando o header `x-ratelimit-retry-after` da Braze com backoff exponencial.
 - **Cache de Connected Content:** A Braze armazena em cache as respostas de Connected Content por vários minutos por padrão. Para valores que precisam ser exatos no momento do envio (como saldo de pontos), reduza ou ignore a janela de cache na chamada de Connected Content.
 - **Uma configuração por programa:** Cada programa de fidelidade é mapeado para um único espaço de trabalho da Braze. Para conectar um segundo espaço de trabalho, configure-o em um programa separado.
-- **Observabilidade:** As estatísticas de chamadas de API or interface de programação do aplicativo (API) por programa e o histórico de erros (em ambas as direções) são retidos por 90 dias e estão disponíveis no cartão de integração da Braze no Selfservice.
+- **Observabilidade:** As estatísticas de chamadas de API por programa e o histórico de erros (em ambas as direções) são retidos por 90 dias e estão disponíveis no cartão de integração da Braze no Selfservice.
 
 ## Solução de problemas {#troubleshooting}
 
 - **Os eventos não aparecem na Braze:** verifique se o valor usado como identificador (selecionado na Etapa 1) corresponde ao `external_id` (ou tipo de identificador escolhido) do usuário na Braze. Identificadores incompatíveis fazem com que os eventos sejam atribuídos ao perfil errado ou descartados.
-- **O webhook retorna `401`:** o cabeçalho `X-Convercus-Key` está ausente ou a chave de API or interface de programação do aplicativo (API) `cvc_…` foi revogada. Regenere a chave no Selfservice e atualize a ação do webhook na Braze.
+- **O webhook retorna `401`:** o cabeçalho `X-Convercus-Key` está ausente ou a chave de API `cvc_…` foi revogada. Regenere a chave no Selfservice e atualize a ação do webhook na Braze.
 - **O webhook retorna `400`:** a requisição está sem `Content-Type: application/json`, ou a carga útil não corresponde ao esquema documentado. Para o webhook de inscrição de e-mail, um `400` também significa que as aceitações solicitadas são desconhecidas pelo programa ou nenhuma está configurada.
-- **Depuração mais detalhada:** consulte as estatísticas de chamadas de API or interface de programação do aplicativo (API) por programa e o histórico de erros no cartão de integração da Braze no Selfservice, ou entre em contato com seu representante Convercus.
+- **Depuração mais detalhada:** consulte as estatísticas de chamadas de API por programa e o histórico de erros no cartão de integração da Braze no Selfservice, ou entre em contato com seu representante Convercus.

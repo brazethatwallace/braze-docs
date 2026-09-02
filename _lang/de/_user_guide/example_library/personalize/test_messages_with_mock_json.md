@@ -8,7 +8,7 @@ description: "Verwenden Sie Liquid capture und json_parse, um Connected-Content-
 
 # Nachrichten mit Mock-JSON in der Vorschau testen {#test-messages-with-mock-json-in-preview}
 
-> Simulieren Sie API- oder Entry-Style-JSON in Ihrer Nachricht mit `capture` und `json_parse`, um Liquid und Layout in der Vorschau des Nachrichten-Editors zu validieren, bevor Sie eine Campaign starten, ein Canvas Trigger or triggern or triggern oder Connected Content live aufrufen.
+> Simulieren Sie API- oder Entry-Style-JSON in Ihrer Nachricht mit `capture` und `json_parse`, um Liquid und Layout in der Vorschau des Nachrichten-Editors zu validieren, bevor Sie eine Campaign starten, ein Canvas triggern oder Connected Content live aufrufen.
 
 ## Über dieses Beispiel {#about-this-example}
 
@@ -16,7 +16,7 @@ Flash & Thread, eine fiktive Bekleidungsmarke im Einzelhandel, erstellt Nachrich
 
 Dieses Muster bettet ein simuliertes JSON-Payload in den Nachrichtentext ein, speichert es mit `capture` und parst es anschließend mit `json_parse`, sodass Liquid im **Vorschau**-Bereich auf strukturierte Felder zugreifen kann – ohne einen Live-Connected-Content-Aufruf, einen API-getriggerten Canvas-Entry oder einen Testversand.
 
-Verwenden Sie dieses Muster während der Nachrichtenentwicklung. Es ersetzt keine End-to-End-Tests mit echten Trigger or triggern or triggern, Testversendungen oder [Vorschau von Nutzerpfaden]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths) in Canvas.
+Verwenden Sie dieses Muster während der Nachrichtenentwicklung. Es ersetzt keine End-to-End-Tests mit echten Triggern, Testversendungen oder [Vorschau von Nutzerpfaden]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths) in Canvas.
 
 ## Hinweise {#considerations}
 
@@ -66,7 +66,7 @@ Verwenden Sie `capture`, um den JSON-String zu speichern. Verwenden Sie innerhal
 
 ### Schritt 2: JSON mit json_parse parsen {#step-2-parse-json-with-json_parse}
 
-Weisen Sie die geparste Struktur einer Variablen zu, auf die Sie im Representational State Transfer der Nachricht verweisen.
+Weisen Sie die geparste Struktur einer Variablen zu, auf die Sie im Rest der Nachricht verweisen.
 
 {% raw %}
 ```liquid

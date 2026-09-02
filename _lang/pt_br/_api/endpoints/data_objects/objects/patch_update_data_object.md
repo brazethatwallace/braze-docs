@@ -7,7 +7,7 @@ layout: api_page
 page_type: reference
 description: "Este artigo descreve os detalhes do endpoint Atualizar objeto de dados."
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Atualizar objeto de dados {#update-data-object}
 {% apimethod patch %}
 /data_objects/objects/{type_name}/{external_id}
@@ -16,12 +16,12 @@ description: "Este artigo descreve os detalhes do endpoint Atualizar objeto de d
 > Use este endpoint para mesclar atributos em um objeto de dados existente.
 
 {% alert important %}
-Os objetos de dados estão atualmente em acesso antecipado. Seu espaço de trabalho precisa estar ativado para que as permissões de chave de API or interface de programação do aplicativo (API) de objetos de dados apareçam em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**.
+Os objetos de dados estão atualmente em acesso antecipado. Seu espaço de trabalho precisa estar ativado para que as permissões de chave de API de objetos de dados apareçam em **Configurações** > **Chaves de API**.
 {% endalert %}
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisa de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `data_objects.update`.
+Para usar este endpoint, você precisa de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `data_objects.update`.
 
 ## Limite de frequência {#rate-limit}
 
@@ -35,7 +35,7 @@ A tabela a seguir lista e descreve os parâmetros de caminho para o endpoint `/d
 |---|---|---|---|
 | `type_name` | Obrigatório | String | Nome de máquina do tipo de objeto de dados |
 | `external_id` | Obrigatório | String | Identificador do objeto |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Update data object jornada parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Update data object path parameters" }
 
 ## Parâmetros de solicitação {#request-parameters}
 
@@ -110,8 +110,8 @@ A tabela a seguir lista os erros comuns para este endpoint e como resolvê-los.
 |---|---|---|
 | `400` | Erro de validação | Confirme se todos os campos em `attributes` existem no esquema do tipo e usam o tipo de dados correto. |
 | `404` | Tipo não encontrado ou objeto não encontrado | Confirme se `type_name` e `external_id` existem no espaço de trabalho. |
-| `401` | Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional ausente ou inválida | Verifique se o cabeçalho `Authorization` usa `Bearer YOUR_REST_API_KEY` e se a chave está ativa. |
-| `403` | A chave de API or interface de programação do aplicativo (API) não possui permissão ou a solicitação está bloqueada pela lista de permissões | Confirme se a chave possui a permissão `data_objects.update` e se o IP de origem está na lista de permissões da chave, caso configurada. |
+| `401` | Chave da API REST ausente ou inválida | Verifique se o cabeçalho `Authorization` usa `Bearer YOUR_REST_API_KEY` e se a chave está ativa. |
+| `403` | A chave de API não possui permissão ou a solicitação está bloqueada pela lista de permissões | Confirme se a chave possui a permissão `data_objects.update` e se o IP de origem está na lista de permissões da chave, caso configurada. |
 | `429` | Limite de frequência excedido | Tente novamente após `X-RateLimit-Reset` e reduza a frequência das solicitações. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Update data object errors" }
 {% endapi %}

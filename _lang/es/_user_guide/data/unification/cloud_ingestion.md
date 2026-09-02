@@ -13,7 +13,7 @@ toc_headers: h2
 
 ## Cómo funciona {#how-it-works}
 
-Con la Ingesta de datos de Cloud (CDI) de Braze, configuras una integración entre tu instancia de almacén de datos y el espacio de trabajo de Braze para sincronizar datos de forma recurrente. Esta sincronización se ejecuta según una programación que tú estableces, y cada integración puede tener una programación diferente. Las sincronizaciones pueden ejecutarse con una frecuencia de hasta cada 15 minutos o con una frecuencia mínima de una vez al mes. Si necesitas que las sincronizaciones se produzcan con mayor frecuencia que cada 15 minutos, ponte en contacto con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente o considera el uso de llamadas a la REST or transferencia de estado representacional API para la ingesta de datos en tiempo real.
+Con la Ingesta de datos de Cloud (CDI) de Braze, configuras una integración entre tu instancia de almacén de datos y el espacio de trabajo de Braze para sincronizar datos de forma recurrente. Esta sincronización se ejecuta según una programación que tú estableces, y cada integración puede tener una programación diferente. Las sincronizaciones pueden ejecutarse con una frecuencia de hasta cada 15 minutos o con una frecuencia mínima de una vez al mes. Si necesitas que las sincronizaciones se produzcan con mayor frecuencia que cada 15 minutos, ponte en contacto con tu CSM o considera el uso de llamadas a la REST API para la ingesta de datos en tiempo real.
 
 Las integraciones de almacenamiento de archivos de Amazon S3 están basadas en eventos. Braze ingiere los nuevos archivos cuando llegan las notificaciones de S3/SQS. Para más información sobre la configuración, consulta [Integraciones de almacenamiento de archivos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations).
 
@@ -75,7 +75,7 @@ Cuando sincronizas datos de usuario a través de la Ingesta de datos de Cloud, p
 |------------|-------------|
 | `EXTERNAL_ID` | El ID externo que identifica el perfil de usuario que se va a crear o actualizar. Debe coincidir con el valor de `external_id` utilizado en Braze. |
 | `ALIAS_NAME` y `ALIAS_LABEL` | Estas dos columnas crean un objeto de alias de usuario. `alias_name` debe ser un identificador único, y `alias_label` especifica el tipo de alias. Los usuarios pueden tener varios alias con diferentes etiquetas, pero solo un `alias_name` por `alias_label`. |
-| `BRAZE_ID` | El identificador de usuario de Braze generado por el SDK or kit de desarrollo de software de Braze. No se pueden crear nuevos usuarios utilizando un Braze ID a través de la Ingesta de datos de Cloud. Para crear nuevos usuarios, especifica un ID externo de usuario o un alias de usuario. |
+| `BRAZE_ID` | El identificador de usuario de Braze generado por el SDK de Braze. No se pueden crear nuevos usuarios utilizando un Braze ID a través de la Ingesta de datos de Cloud. Para crear nuevos usuarios, especifica un ID externo de usuario o un alias de usuario. |
 | `EMAIL` | La dirección de correo electrónico del usuario. Si existen varios perfiles con la misma dirección de correo electrónico, se prioriza el perfil actualizado más recientemente. Si incluyes tanto correo electrónico como teléfono, el correo electrónico se utiliza como identificador principal. |
 | `PHONE` | El número de teléfono del usuario. Si existen varios perfiles con el mismo número de teléfono, se prioriza el perfil actualizado más recientemente. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Identificadores de usuario para la ingesta de datos" }
@@ -97,7 +97,7 @@ La Ingesta de datos de Cloud de Braze cuenta para el límite de velocidad dispon
 | Limitación | Descripción |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Número de integraciones | No hay límite en la cantidad de integraciones que puedes configurar. Sin embargo, solo puedes configurar una integración por tabla o vista. |
-| Número de filas | De forma predeterminada, cada ejecución puede sincronizar hasta 500 millones de filas. Cualquier sincronización con más de 500 millones de filas nuevas se detiene. Si necesitas un límite más alto, ponte en contacto con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente de Braze o con soporte de Braze. |
+| Número de filas | De forma predeterminada, cada ejecución puede sincronizar hasta 500 millones de filas. Cualquier sincronización con más de 500 millones de filas nuevas se detiene. Si necesitas un límite más alto, ponte en contacto con tu CSM de Braze o con soporte de Braze. |
 | Atributos por fila | Cada fila debe contener un único ID de usuario y un objeto JSON con hasta 250 atributos. Cada clave del objeto JSON cuenta como un atributo (es decir, un array cuenta como un atributo). |
 | Tamaño de la carga útil | Cada fila puede contener una carga útil de hasta 1 MB. Las cargas útiles superiores a 1 MB se rechazan, y el error "Payload was greater than 1MB" se registra en el registro de sincronización junto con el ID externo asociado y la carga útil truncada. |
 | Tipo de datos | Puedes sincronizar atributos de usuario, eventos y compras a través de la Ingesta de datos de Cloud. |

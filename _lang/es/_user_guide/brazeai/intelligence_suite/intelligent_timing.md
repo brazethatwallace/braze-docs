@@ -19,7 +19,7 @@ Braze calcula el momento óptimo de envío basándose en un análisis estadísti
 - Influenced Opens de push
 - Clics en correo electrónico
 - Aperturas de correo electrónico (excluyendo [aperturas automáticas]({{site.baseurl}}/user_guide/analytics/metrics_glossary#machine-opens))
-- Clics en servicio de mensajes cortos (solo si el [acortamiento de enlaces]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening) y el seguimiento avanzado están habilitados)
+- Clics en SMS (solo si el [acortamiento de enlaces]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening) y el seguimiento avanzado están habilitados)
 
 Por ejemplo, Sam podría abrir tus correos electrónicos por la mañana de forma habitual, pero abrir tu aplicación e interactuar con las notificaciones por la noche. Esto significa que Sam recibiría una Campaign de correo electrónico con sincronización inteligente por la mañana, mientras que recibiría Campaigns con notificaciones push por la noche, cuando es más probable que interactúe.
 
@@ -225,7 +225,7 @@ No, Intelligent Timing no está vinculado a días concretos. En su lugar, person
 
 Para calcular el tiempo óptimo, Intelligent Timing:
 
-1. Analiza los datos de interacción de cada usuario registrados por el SDK or kit de desarrollo de software de Braze. Esto incluye lo siguiente:
+1. Analiza los datos de interacción de cada usuario registrados por el SDK de Braze. Esto incluye lo siguiente:
   - Horario de las sesiones
   - Push Direct Opens
   - Push Influenced Opens

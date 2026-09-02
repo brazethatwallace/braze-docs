@@ -20,8 +20,8 @@ Die Integration von Braze und Fivetran ermöglicht es Nutzer:innen, eine wartung
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | Fivetran-Konto | Ein [Fivetran-Konto](https://fivetran.com/login?next=%2Fdashboard) ist erforderlich, um diese Partnerschaft zu nutzen. |
-| Braze Representational State Transfer-API-Schlüssel | Ein Braze Representational State Transfer-API-Schlüssel mit den folgenden Berechtigungen:<br>- users.export.ids<br>- users.export.segment<br>- email.unsubscribe<br>- email.hard_bounces<br>- messages.schedule_broadcasts<br>- campaigns.list<br>- campaigns.details<br>- Canvas.list<br>- Canvas.details<br>- segments.list<br>- segments.details<br>- purchases.product_list<br>- events.list<br>- feed.list<br>- feed.details<br>- templates.email.info<br>- templates.email.list<br>- subscription.status.get<br>- subscription.groups.get <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze Representational State Transfer-Endpunkt  | Ihre Representational State Transfer-Endpunkt-URL. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/api/basics/#api-definitions) ab. |
+| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit den folgenden Berechtigungen:<br>- users.export.ids<br>- users.export.segment<br>- email.unsubscribe<br>- email.hard_bounces<br>- messages.schedule_broadcasts<br>- campaigns.list<br>- campaigns.details<br>- canvas.list<br>- canvas.details<br>- segments.list<br>- segments.details<br>- purchases.product_list<br>- events.list<br>- feed.list<br>- feed.details<br>- templates.email.info<br>- templates.email.list<br>- subscription.status.get<br>- subscription.groups.get <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze REST-Endpunkt  | Ihre REST-Endpunkt-URL. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/api/basics/#api-definitions) ab. |
 | Braze-Currents | [Braze-Currents](https://www.braze.com/product/data-agility-management/currents/) sollte entweder mit Amazon S3 oder Google Cloud Storage verbunden sein. |
 | Amazon S3 oder Google Cloud Storage | Diese Integration setzt voraus, dass Sie Zugang zu einem Amazon S3 oder Google Cloud Storage haben. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
@@ -104,8 +104,8 @@ Sie können Berechtigungen für den Role ARN festlegen, den Sie für Fivetran be
 
 Wählen Sie in Fivetran **+ Connector** und dann den **Braze**-Konnektor aus, um das Einrichtungsformular zu starten. Füllen Sie im Formular die angegebenen Felder mit den entsprechenden Werten aus:
 - `Destination schema`: Ein eindeutiger Schemaname.
-- `API URL`: Ihr Braze Representational State Transfer-API-Endpunkt.
-- `API Key`: Ihr Braze Representational State Transfer-API-Schlüssel.
+- `API URL`: Ihr Braze REST-API-Endpunkt.
+- `API Key`: Ihr Braze REST-API-Schlüssel.
 - `External ID`: Die externe ID, die in [Schritt 2](#step-two) der Currents-Einrichtungsanleitung festgelegt wurde. Diese ID ist ein fester Wert.
 - `Bucket`: Zu finden in Ihrem Braze-Konto unter **Partnerintegrationen** > **Datenexport** > Name Ihres aktuellen Currents.
 - `Role ARN`: Den Role ARN finden Sie in [Schritt 1](#step-one) der Currents-Einrichtungsanleitung.
@@ -114,7 +114,7 @@ Wählen Sie in Fivetran **+ Connector** und dann den **Braze**-Konnektor aus, um
 Stellen Sie sicher, dass **Amazon S3** als **Cloud Storage**-Option ausgewählt ist.
 {% endalert %}
 
-Wählen Sie abschließend **Save & Test** aus, und Fivetran erledigt den Representational State Transfer, indem es die Daten aus Ihrem Braze-Konto synchronisiert!
+Wählen Sie abschließend **Save & Test** aus, und Fivetran erledigt den Rest, indem es die Daten aus Ihrem Braze-Konto synchronisiert!
 
 ### Einrichten von Braze-Currents für Google Cloud Storage {#setting-up-braze-currents-for-google-cloud-storage}
 
@@ -138,8 +138,8 @@ Gewähren Sie als Nächstes `Storage Object Viewer`-Zugriff auf die E-Mail aus [
 
 Wählen Sie in Fivetran **+ Connector** und dann den **Braze**-Konnektor aus, um das Einrichtungsformular zu starten. Füllen Sie im Formular die angegebenen Felder mit den entsprechenden Werten aus:
 - `Destination schema`: Ein eindeutiger Schemaname.
-- `API URL`: Ihr Braze Representational State Transfer-API-Endpunkt.
-- `API Key`: Ihr Braze Representational State Transfer-API-Schlüssel.
+- `API URL`: Ihr Braze REST-API-Endpunkt.
+- `API Key`: Ihr Braze REST-API-Schlüssel.
 - `Bucket Name`: Zu finden in Ihrem Braze-Konto unter **Partnerintegrationen** > **Datenexport** > Name Ihres aktuellen Currents.
 - `Folder`: Zu finden in Ihrem Braze-Konto unter **Partnerintegrationen** > **Datenexport** > Name Ihres aktuellen Currents.
 
@@ -147,4 +147,4 @@ Wählen Sie in Fivetran **+ Connector** und dann den **Braze**-Konnektor aus, um
 Stellen Sie sicher, dass **Google Cloud Storage** als **Cloud Storage**-Option ausgewählt ist.
 {% endalert %}
 
-Wählen Sie abschließend **Save & Test** aus, und Fivetran erledigt den Representational State Transfer, indem es die Daten aus Ihrem Braze-Konto synchronisiert!
+Wählen Sie abschließend **Save & Test** aus, und Fivetran erledigt den Rest, indem es die Daten aus Ihrem Braze-Konto synchronisiert!

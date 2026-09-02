@@ -20,7 +20,7 @@ Diese Abbruchtypen können auf jedem Messaging-Kanal auftreten.
 | `campaign_action_does_not_exist` | Die mit dieser Nachricht verknüpfte Campaign-Aktion existiert nicht mehr. |
 | `message_variation_does_not_exist` | Die diesem/dieser Nutzer:in zugewiesene Nachrichtenvariante existiert nicht mehr. |
 | `user_not_in_segment` | Der/die Nutzer:in befindet sich nicht im Zielsegment, daher wurde die Nachricht nicht gesendet. |
-| `trigger_event_blacklisted` | Das Trigger or triggern-Ereignis ist auf der Sperrliste, daher wurde die Nachricht nicht gesendet. |
+| `trigger_event_blacklisted` | Das Trigger-Ereignis ist auf der Sperrliste, daher wurde die Nachricht nicht gesendet. |
 | `exhausted_retries` | Die Nachricht konnte nach der maximalen Anzahl von Wiederholungsversuchen nicht gesendet werden. |
 | `frequency_capped` | Der/die Nutzer:in hat bereits die maximale Anzahl an Nachrichten erhalten, die durch die [Frequency-Capping]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting#about-frequency-capping)-Regeln Ihres Workspace erlaubt sind. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Allgemein" }
@@ -115,26 +115,26 @@ Diese Abbruchtypen können auf jedem Messaging-Kanal auftreten.
 | `abort_type`-Wert | Beschreibung |
 | --- | --- |
 | `invalid_push_payload` | Die Payload der Push-Benachrichtigung ist ungültig oder fehlerhaft formatiert. |
-| `sdk_not_supported` | Die SDK or Software-Development-Kit-Version auf dem Gerät des/der Nutzer:in unterstützt diesen Typ von Push-Benachrichtigung nicht. |
+| `sdk_not_supported` | Die SDK-Version auf dem Gerät des/der Nutzer:in unterstützt diesen Typ von Push-Benachrichtigung nicht. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Push" }
 
 {% endif %}
 
-{% if ch == "all" or ch == "Kurzmitteilungsdienst or SMS" %}
+{% if ch == "all" or ch == "sms" %}
 
-### Kurzmitteilungsdienst or SMS/MMS
+### SMS/MMS
 
 | `abort_type`-Wert | Beschreibung |
 | --- | --- |
 | `exhausted_link_shortening_retries` | Die Linkverkürzung ist nach der maximalen Anzahl von Wiederholungsversuchen fehlgeschlagen. |
-| `sms_empty_payload` | Der Kurzmitteilungsdienst or SMS-Nachrichtentext ist leer. |
+| `sms_empty_payload` | Der SMS-Nachrichtentext ist leer. |
 | `sms_no_sending_numbers` | Für diese Abo-Gruppe sind keine Absender-Telefonnummern verfügbar. |
-| `sms_fatal_provider_error` | Beim Kurzmitteilungsdienst or SMS-Anbieter ist ein schwerwiegender Fehler aufgetreten, der die Nachrichtenzustellung verhindert hat. |
-| `sms_gateway_domain_not_allowed` | Die Kurzmitteilungsdienst or SMS-Gateway-Domain befindet sich nicht auf der Zulassungsliste. |
+| `sms_fatal_provider_error` | Beim SMS-Anbieter ist ein schwerwiegender Fehler aufgetreten, der die Nachrichtenzustellung verhindert hat. |
+| `sms_gateway_domain_not_allowed` | Die SMS-Gateway-Domain befindet sich nicht auf der Zulassungsliste. |
 | `blocked_recipient_country` | Die Telefonnummer des/der Empfänger:in befindet sich in einem Land, das durch Ihre [geografischen Berechtigungen]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions) blockiert ist. |
 | `mms_not_supported` | MMS wird für diese/n Empfänger:in oder diese Absendernummer nicht unterstützt. |
 | `no_current_messaging_service` | Für diese Abo-Gruppe ist kein aktiver Messaging-Dienst konfiguriert. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Kurzmitteilungsdienst or SMS/MMS" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS/MMS" }
 
 {% endif %}
 

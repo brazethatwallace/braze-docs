@@ -29,7 +29,7 @@ Einige Android-Geräte, die von chinesischen Originalgeräteherstellern (OEMs) w
 
 ## Voraussetzungen {#prerequisites}
 
-Push-Benachrichtigungen, die mit Push Max gesendet werden, werden nur an Geräte zugestellt, die mindestens die folgende [SDK or Software-Development-Kit-Mindestversion]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions) haben:
+Push-Benachrichtigungen, die mit Push Max gesendet werden, werden nur an Geräte zugestellt, die mindestens die folgende [SDK-Mindestversion]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions) haben:
 
 {% sdk_min_versions android:29.0.1 %}
 

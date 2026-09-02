@@ -101,7 +101,7 @@ Cada evento inclui:
 
 Casos de uso comuns incluem:
 
-- Verificar se a integração do SDK or kit de desenvolvimento de software ou da API or interface de programação do aplicativo (API) está enviando eventos conforme esperado durante o desenvolvimento ou após um lançamento.
+- Verificar se a integração do SDK ou da API está enviando eventos conforme esperado durante o desenvolvimento ou após um lançamento.
 - Solucionar por que um usuário entrou ou não entrou em uma Campaign ou um Canvas disparado por evento.
 - Investigar um problema de suporte para um usuário específico sem precisar configurar uma exportação de dados.
 

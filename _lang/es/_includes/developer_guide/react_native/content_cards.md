@@ -1,6 +1,6 @@
 ## Acerca de las Content Cards de React Native {#about-react-native-content-cards}
 
-Los SDK or kit de desarrollo de software de Braze incluyen una fuente de tarjetas predeterminada para que empieces a utilizar las Content Cards. Para mostrar la fuente de tarjetas, puedes utilizar el método `Braze.launchContentCards()`. La fuente predeterminada de tarjetas incluida en el SDK or kit de desarrollo de software de Braze gestionará todos los análisis de seguimiento, descartes y representación de las Content Cards de un usuario.
+Los SDK de Braze incluyen una fuente de tarjetas predeterminada para que empieces a utilizar las Content Cards. Para mostrar la fuente de tarjetas, puedes utilizar el método `Braze.launchContentCards()`. La fuente predeterminada de tarjetas incluida en el SDK de Braze gestionará todos los análisis de seguimiento, descartes y representación de las Content Cards de un usuario.
 
 {% multi_lang_include developer_guide/prerequisites/react_native.md %}
 
@@ -31,7 +31,7 @@ Puedes utilizar estos métodos adicionales para crear una fuente personalizada d
 | Método                                   | Descripción                                                                                            |
 | ---------------------------------------- | ------------------------------------------------------------------------------------------------------ |
 | `launchContentCards()`                   | Lanza el elemento de interfaz de usuario de Content Cards.                                                                 |
-| `requestContentCardsRefresh()`           | Solicita las últimas Content Cards al servidor del SDK or kit de desarrollo de software de Braze. La lista de tarjetas resultante se pasa a cada uno de los [oyentes de eventos de tarjeta de contenido](#reactnative_cards-methods) previamente registrados. |
+| `requestContentCardsRefresh()`           | Solicita las últimas Content Cards al servidor del SDK de Braze. La lista de tarjetas resultante se pasa a cada uno de los [oyentes de eventos de tarjeta de contenido](#reactnative_cards-methods) previamente registrados. |
 | `getCachedContentCards()`                | Devuelve la matriz de Content Cards más reciente de la caché.                                            |
 | `logContentCardClicked(cardId)`          | Registra un clic para el ID de Content Card dado. Este método solo se utiliza para análisis. Para ejecutar la acción de clic, llama además a `processContentCardClickAction(cardId)`.                                                        |
 | `logContentCardImpression(cardId)`       | Registra una impresión para el ID de Content Card dado.                                                      |
@@ -41,7 +41,7 @@ Puedes utilizar estos métodos adicionales para crear una fuente personalizada d
 
 ## Tipos de tarjeta y propiedades {#card-types-and-properties}
 
-El modelo de datos de Content Cards está disponible en el SDK or kit de desarrollo de software de React Native y ofrece los siguientes tipos de tarjeta de Content Cards: [Solo imagen](#image-only), [Imagen con subtítulo](#captioned-image) y [Clásica](#classic). También hay un tipo especial de tarjeta de [Control](#control), que se devuelve a los usuarios que están en el grupo de control de una tarjeta determinada. Cada tipo hereda propiedades comunes de un modelo base, además de sus propias propiedades únicas.
+El modelo de datos de Content Cards está disponible en el SDK de React Native y ofrece los siguientes tipos de tarjeta de Content Cards: [Solo imagen](#image-only), [Imagen con subtítulo](#captioned-image) y [Clásica](#classic). También hay un tipo especial de tarjeta de [Control](#control), que se devuelve a los usuarios que están en el grupo de control de una tarjeta determinada. Cada tipo hereda propiedades comunes de un modelo base, además de sus propias propiedades únicas.
 
 {% alert tip %}
 Para una referencia completa del modelo de datos de Content Cards, consulta la documentación de [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/index.html) e [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard).

@@ -1,6 +1,6 @@
 ---
-nav_title: "POST: Kundenprofil or Nutzerprofil nach globaler Kontrollgruppe exportieren"
-article_title: "POST: Kundenprofil or Nutzerprofil nach globaler Kontrollgruppe exportieren"
+nav_title: "POST: Nutzerprofil nach globaler Kontrollgruppe exportieren"
+article_title: "POST: Nutzerprofil nach globaler Kontrollgruppe exportieren"
 search_tag: Endpoint
 page_order: 6
 layout: api_page
@@ -8,7 +8,7 @@ page_type: reference
 description: "Dieser Artikel beschreibt den Braze-Endpunkt „Nutzer:innen in globalen Kontrollgruppen exportieren“."
 ---
 {% api %}
-# Kundenprofil or Nutzerprofil nach globaler Kontrollgruppe exportieren {#export-user-profile-by-global-control-group}
+# Nutzerprofil nach globaler Kontrollgruppe exportieren {#export-user-profile-by-global-control-group}
 {% apimethod post %}
 /users/export/global_control_group
 {% endapimethod %}
@@ -137,7 +137,7 @@ Im Folgenden finden Sie eine Liste der gültigen `fields_to_export`. Die Verwend
 | `purchase`s | Array | Käufe, die diese:r Nutzer:in in den letzten 90 Tagen getätigt hat. |
 | `random_bucket` | Integer | [Zufällige Bucket-Nummer]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events#random-bucket-number-update-events) der/des Nutzer:in, mit der gleichmäßig verteilte Segmente aus zufälligen Nutzer:innen erstellt werden. |
 | `time_zone` | String | Die Zeitzone der/des Nutzer:in im gleichen Format wie in der IANA-Zeitzonendatenbank. |
-| `total_revenue` | Gleitkommazahl | Gesamtumsatz, der dieser/diesem Nutzer:in zugerechnet wird. Der Gesamtumsatz wird auf der Grundlage der Käufe berechnet, die die Nutzer:innen während der Conversion-Fenster für die Campaigns und Canvase, die sie erhalten haben, getätigt haben. |
+| `total_revenue` | Gleitkommazahl | Gesamtumsatz, der dieser/diesem Nutzer:in zugerechnet wird. Der Gesamtumsatz wird auf der Grundlage der Käufe berechnet, die die Nutzer:innen während der Conversion-Fenster für die Campaigns und Canvases, die sie erhalten haben, getätigt haben. |
 | `uninstalled_at` | Zeitstempel | Datum und Uhrzeit der Deinstallation der App durch die/den Nutzer:in. Entfällt, wenn die App nicht deinstalliert wurde. |
 | `user_aliases` | Objekt | [Nutzer-Alias-Objekt]({{site.baseurl}}/api/objects_filters/user_alias_object), das `alias_name` und `alias_label` enthält, falls vorhanden. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Zu exportierende Felder" }

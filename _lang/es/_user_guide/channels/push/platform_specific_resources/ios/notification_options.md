@@ -58,7 +58,7 @@ UNNotificationCategory *newsCategory = [UNNotificationCategory categoryWithIdent
 ```
 
 {% alert important %}
-Esto no requerirá una actualización del SDK or kit de desarrollo de software.
+Esto no requerirá una actualización del SDK.
 {% endalert %}
 
 {% alert tip %}
@@ -97,7 +97,7 @@ Si utilizas avisos push adicionales o [cebadores push dentro de la aplicación](
 
 #### Configurar notificaciones push provisionales {#set-up-provisional-push-notifications}
 
-Braze te permite registrarte para la Autenticación provisional actualizando tu código en el fragmento de registro de token dentro de tu implementación del SDK or kit de desarrollo de software de Braze para iOS usando los siguientes fragmentos como ejemplo (envíalos a tus desarrolladores o asegúrate de que [implementen la autenticación push provisional durante el proceso de integración]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift)).
+Braze te permite registrarte para la Autenticación provisional actualizando tu código en el fragmento de registro de token dentro de tu implementación del SDK de Braze para iOS usando los siguientes fragmentos como ejemplo (envíalos a tus desarrolladores o asegúrate de que [implementen la autenticación push provisional durante el proceso de integración]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift)).
 
 {% alert warning %}
 La implementación de la autenticación push provisional solo es compatible con iOS 12+ y generará un error si el objetivo de despliegue es anterior a esa versión. Puedes obtener más información sobre esto [en nuestra documentación de implementación más detallada aquí]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift).
@@ -141,7 +141,7 @@ Para cambiar el nivel de interrupción de una notificación push de iOS, selecci
 
 ![Desplegable para seleccionar el nivel de interrupción.]({% image_buster /assets/img/ios/interruption_level.png %}){: style="max-width:50%"}
 
-Esta característica no tiene requisitos mínimos de versión del SDK or kit de desarrollo de software, pero solo se aplica a dispositivos con iOS 15+.
+Esta característica no tiene requisitos mínimos de versión del SDK, pero solo se aplica a dispositivos con iOS 15+.
 
 Ten en cuenta que, en última instancia, los usuarios son quienes tienen el control de su enfoque, e incluso si se entrega una notificación de Urgente, pueden especificar qué aplicaciones no tienen permitido atravesar su enfoque.
 
@@ -169,7 +169,7 @@ Para establecer la Puntuación de relevancia de una notificación de iOS, introd
 
 ![Puntuación de relevancia de "0.5".]({% image_buster /assets/img/ios/relevance-score.png %}){: style="max-width:80%;"}
 
-Esta característica no tiene requisitos mínimos de versión del SDK or kit de desarrollo de software, pero solo se aplica a dispositivos con iOS 15+.
+Esta característica no tiene requisitos mínimos de versión del SDK, pero solo se aplica a dispositivos con iOS 15+.
 
 Para obtener más información sobre las longitudes máximas de mensaje para los diferentes tipos de mensaje, consulta los siguientes recursos:
 

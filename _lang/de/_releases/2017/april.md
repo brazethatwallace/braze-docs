@@ -28,15 +28,15 @@ Unsere Vorschau-Benachrichtigungen auf iOS zeigen jetzt Rich-Benachrichtigungen 
 
 Wir haben die Liste der Standardstatistiken für Campaigns und Canvas in Braze um „Beeinflusste Öffnungen“ erweitert, damit Sie die Aufschlüsselung Ihrer Kampagnen nach beeinflussten, direkten und gesamten Öffnungen leichter erkennen können. Erfahren Sie mehr über [Beeinflusste Öffnungen]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens).
 
-## Upgrade or upgraden auf interne Gruppen {#upgrade-to-internal-groups}
+## Upgrade auf interne Gruppen {#upgrade-to-internal-groups}
 
-Sie können jetzt mehrere interne Gruppen erstellen und Eigenschaften zuweisen, die angeben, ob die Gruppe für die SDK or Software-Development-Kit-Protokollierung, die Representational State Transfer API-Protokollierung oder das Testen von Nachrichteninhalten verwendet werden soll. Erfahren Sie mehr über [Event-Nutzerprotokolle]({{site.baseurl}}/user_guide/administrative/app_settings/developer_console/event_user_log_tab#event-user-log-tab).
+Sie können jetzt mehrere interne Gruppen erstellen und Eigenschaften zuweisen, die angeben, ob die Gruppe für die SDK-Protokollierung, die REST API-Protokollierung oder das Testen von Nachrichteninhalten verwendet werden soll. Erfahren Sie mehr über [Event-Nutzerprotokolle]({{site.baseurl}}/user_guide/administrative/app_settings/developer_console/event_user_log_tab#event-user-log-tab).
 
-> Update or aktualisieren: Interne Gruppen können auch zum [Versenden von Seed-E-Mails]({{site.baseurl}}/user_guide/administrative/app_settings/developer_console#seed-groups) verwendet werden.
+> Update: Interne Gruppen können auch zum [Versenden von Seed-E-Mails]({{site.baseurl}}/user_guide/administrative/app_settings/developer_console#seed-groups) verwendet werden.
 
 ## Neue Optionen für Web-URLs {#new-options-for-web-urls}
 
-Sie haben jetzt die Möglichkeit, Web-URLs in einem externen Webbrowser für Push-Nachrichten, In-App- und In-Browser-Nachrichten sowie Newsfeed-Cards zu öffnen. Die Aktion „Deeplink in die App“ ist jetzt auch mit HTTP/HTTPS-Deeplinks kompatibel. Wenn Sie einen Partner wie Branch oder die Universal Links von Apple verwenden, müssen Sie das SDK or Software-Development-Kit anpassen. Erfahren Sie mehr über [Deeplinking]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking).
+Sie haben jetzt die Möglichkeit, Web-URLs in einem externen Webbrowser für Push-Nachrichten, In-App- und In-Browser-Nachrichten sowie Newsfeed-Cards zu öffnen. Die Aktion „Deeplink in die App“ ist jetzt auch mit HTTP/HTTPS-Deeplinks kompatibel. Wenn Sie einen Partner wie Branch oder die Universal Links von Apple verwenden, müssen Sie das SDK anpassen. Erfahren Sie mehr über [Deeplinking]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking).
 
 ## Neues „Performed Conversion“-Ereignis in Canvas {#new-performed-conversion-event-canvas}
 

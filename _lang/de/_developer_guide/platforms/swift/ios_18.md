@@ -4,7 +4,7 @@ article_title: Auf iOS 18 upgraden
 page_order: 7.1
 platform:
   - iOS
-description: "Dieser Artikel enthält Insights zum Release von iOS 18, damit Sie Ihr SDK or Software-Development-Kit nahtlos upgraden können."
+description: "Dieser Artikel enthält Insights zum Release von iOS 18, damit Sie Ihr SDK nahtlos upgraden können."
 ---
 
 # Auf iOS 18 upgraden {#upgrading-to-ios-18}

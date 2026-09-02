@@ -20,7 +20,7 @@ El objetivo de StyleRyde es sencillo: quieren que los usuarios soliciten viajes 
 ## Pregunta del caso 2: ¿Cuáles son los pasos para alcanzar ese objetivo después de la instalación de la aplicación? {#case-question-2-what-are-the-steps-to-reach-that-goal-after-app-installation}
 
 1. StyleRyde necesita que los usuarios comiencen el proceso de registro y completen su información personal.
-2. StyleRyde necesita que los usuarios completen y verifiquen el proceso de registro ingresando un código en la aplicación que reciben a través de servicio de mensajes cortos.
+2. StyleRyde necesita que los usuarios completen y verifiquen el proceso de registro ingresando un código en la aplicación que reciben a través de SMS.
 3. StyleRyde necesita que los usuarios intenten solicitar un Taxi for Email.
 4. StyleRyde necesita estar disponible cuando los usuarios solicitan un Taxi for Email.
 
@@ -56,5 +56,5 @@ Estos atributos te permiten enviar Campaigns a los usuarios, como por ejemplo:
 2. Usar nuestras plantillas de mensajes y [características de personalización]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize) para insertar el atributo de código promocional único en la mensajería dirigida a los usuarios.
 
 {% alert important %}
-Braze bloquea los perfiles de usuario ("usuarios ficticios") con más de 5 000 000 de sesiones, más de 20 000 nombres de eventos personalizados distintos o más de 20 000 nombres de productos distintos en compras, ya que suelen ser el resultado de una integración incorrecta. Una vez que un perfil es bloqueado, Braze deja de ingerir todos los datos entrantes para ese perfil, tanto de los SDK or kit de desarrollo de software como de la REST or transferencia de estado representacional API. Si descubres que esto le ha ocurrido a un usuario legítimo, contacta a tu director de cuentas de Braze.
+Braze bloquea los perfiles de usuario ("usuarios ficticios") con más de 5 000 000 de sesiones, más de 20 000 nombres de eventos personalizados distintos o más de 20 000 nombres de productos distintos en compras, ya que suelen ser el resultado de una integración incorrecta. Una vez que un perfil es bloqueado, Braze deja de ingerir todos los datos entrantes para ese perfil, tanto de los SDK como de la REST API. Si descubres que esto le ha ocurrido a un usuario legítimo, contacta a tu director de cuentas de Braze.
 {% endalert %}

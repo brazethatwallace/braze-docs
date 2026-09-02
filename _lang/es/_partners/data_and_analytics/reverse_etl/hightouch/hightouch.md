@@ -20,8 +20,8 @@ Esta integración también te permite [importar cohortes de usuarios a Braze]({{
 | Requisito | Descripción |
 |---|---|
 | Cuenta Hightouch | Se necesita una cuenta Hightouch para beneficiarse de esta asociación.
-| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos `users.track` y `users.export.ids`. <br><br> Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
-| Endpoint REST or transferencia de estado representacional de Braze  | La URL de tu endpoint REST or transferencia de estado representacional. Tu endpoint dependerá de la [URL de Braze para tu instancia]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints).<br><br>Hightouch necesita el nombre del clúster en el que se encuentra tu instancia de Braze. Por ejemplo, si tu endpoint de Braze es `https://rest.iad-01.braze.com`, solo necesitas `iad-01`.|
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track` y `users.export.ids`. <br><br> Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Endpoint REST de Braze  | La URL de tu endpoint REST. Tu endpoint dependerá de la [URL de Braze para tu instancia]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints).<br><br>Hightouch necesita el nombre del clúster en el que se encuentra tu instancia de Braze. Por ejemplo, si tu endpoint de Braze es `https://rest.iad-01.braze.com`, solo necesitas `iad-01`.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Ejemplos {#use-cases}

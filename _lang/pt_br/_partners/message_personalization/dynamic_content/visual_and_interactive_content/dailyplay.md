@@ -38,8 +38,8 @@ Você pode enviar marcos de jogabilidade, resgates de recompensas e métricas de
 | Requisito | Descrição |
 | --- | --- |
 | Conta DailyPlay | Uma conta DailyPlay é necessária para usar esta integração. |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões de `users.track`. Crie essa chave na Braze em **Configurações** > **APIs e identificadores** > **Chaves de API or interface de programação do aplicativo (API)**. Para saber mais, consulte [Chaves de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics). |
-| Endpoint REST or transferir estado representacional da Braze | A URL do endpoint REST or transferir estado representacional para [sua instância da Braze]({{site.baseurl}}/api/basics#endpoints). |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões de `users.track`. Crie essa chave na Braze em **Configurações** > **APIs e identificadores** > **Chaves de API**. Para saber mais, consulte [Chaves de API]({{site.baseurl}}/api/basics). |
+| Endpoint REST da Braze | A URL do endpoint REST para [sua instância da Braze]({{site.baseurl}}/api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
@@ -51,7 +51,7 @@ Você pode enviar marcos de jogabilidade, resgates de recompensas e métricas de
 ![Página de conexões do DailyPlay listando conexões ativas da Braze e estatísticas de disparos.]({% image_buster /assets/img/dailyplay/connections_page.png %}){: style="max-width:70%;"}
 
 {: start="2"}
-2. Em **Provider**, escolha **Braze**. Insira um nome, sua chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze, o App ID e o REST or transferir estado representacional endpoint. Em seguida, selecione **Create Connection**.
+2. Em **Provider**, escolha **Braze**. Insira um nome, sua chave da API REST da Braze, o App ID e o REST endpoint. Em seguida, selecione **Create Connection**.
 
 ![Modal de adição de conexão do DailyPlay com Braze selecionado e campos de credenciais para chave de API, App ID e REST endpoint.]({% image_buster /assets/img/dailyplay/add_connection.png %}){: style="max-width:60%;"}
 
@@ -70,7 +70,7 @@ Acesse a página **Streams** e crie um novo stream.
 
 Cole o código da etapa 2 na sua campanha na Braze.
 
-Quando os usuários jogam nos streams, o DailyPlay dispara um evento e o envia para a Braze por meio do seu REST or transferir estado representacional endpoint da Braze.
+Quando os usuários jogam nos streams, o DailyPlay dispara um evento e o envia para a Braze por meio do seu REST endpoint da Braze.
 
 ### Etapa 4: Inspecionar ações e expandir seu funil {#step-4-inspect-actions-and-expand-your-funnel}
 
@@ -80,7 +80,7 @@ Crie uma [Campaign]({{site.baseurl}}/user_guide/messaging/campaigns) ou um [Canv
 
 ## Use a DailyPlay com a Braze {#use-dailyplay-with-braze}
 
-Para engajar um Segment or segmento or segmento específico de clientes, siga estas etapas após concluir a configuração da integração.
+Para engajar um Segment específico de clientes, siga estas etapas após concluir a configuração da integração.
 
 ### Etapa 1: Configurar a DailyPlay {#step-1-set-up-your-dailyplay-configuration}
 

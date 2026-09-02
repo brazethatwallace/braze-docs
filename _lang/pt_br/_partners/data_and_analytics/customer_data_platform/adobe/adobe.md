@@ -1,7 +1,7 @@
 ---
 nav_title: Adobe
 article_title: Adobe
-description: "Esta página descreve a parceria entre a Braze e a Adobe, uma CDP or plataforma de dados do cliente or CDP or plataforma de dados do cliente or plataforma de dados do cliente, que permite que as marcas conectem e mapeiem seus dados da Adobe (atributos personalizados e Segments) para a Braze em tempo real. As marcas podem então agir com base nesses dados, oferecendo experiências personalizadas e direcionadas para esses usuários."
+description: "Esta página descreve a parceria entre a Braze e a Adobe, uma CDP, que permite que as marcas conectem e mapeiem seus dados da Adobe (atributos personalizados e Segments) para a Braze em tempo real. As marcas podem então agir com base nesses dados, oferecendo experiências personalizadas e direcionadas para esses usuários."
 page_type: partner
 page_order: 1
 search_tag: Partner
@@ -10,9 +10,9 @@ search_tag: Partner
 
 # Adobe
 
-> Criada com base na Adobe Experience Platform, a CDP or plataforma de dados do cliente or CDP or plataforma de dados do cliente or plataforma de dados do cliente em tempo real da Adobe reúne dados conhecidos e anônimos de várias fontes corporativas para criar perfis de clientes. Esses perfis podem então ser usados para fornecer experiências personalizadas em todos os canais e dispositivos em tempo real.
+> Criada com base na Adobe Experience Platform, a CDP em tempo real da Adobe reúne dados conhecidos e anônimos de várias fontes corporativas para criar perfis de clientes. Esses perfis podem então ser usados para fornecer experiências personalizadas em todos os canais e dispositivos em tempo real.
 
-A integração entre a Braze e o Adobe CDP or plataforma de dados do cliente conecta e mapeia os dados da Adobe da sua marca (atributos personalizados e Segments) para a Braze em tempo real. Em seguida, é possível agir com base nesses dados, oferecendo experiências personalizadas e direcionadas aos seus usuários. Com a Adobe, a integração é intuitiva. Basta pegar qualquer [identidade](https://experienceleague.adobe.com/docs/experience-platform/identity/namespaces.html?lang=en) da Adobe, mapeá-la para um ID externo da Braze e enviá-la para a plataforma da Braze. Todos os dados enviados estarão acessíveis na Braze por meio de um novo atributo `AdobeExperiencePlatformSegments`.
+A integração entre a Braze e o Adobe CDP conecta e mapeia os dados da Adobe da sua marca (atributos personalizados e Segments) para a Braze em tempo real. Em seguida, é possível agir com base nesses dados, oferecendo experiências personalizadas e direcionadas aos seus usuários. Com a Adobe, a integração é intuitiva. Basta pegar qualquer [identidade](https://experienceleague.adobe.com/docs/experience-platform/identity/namespaces.html?lang=en) da Adobe, mapeá-la para um ID externo da Braze e enviá-la para a plataforma da Braze. Todos os dados enviados estarão acessíveis na Braze por meio de um novo atributo `AdobeExperiencePlatformSegments`.
 
 {% alert important %}
 A integração da Adobe Experience Platform atualmente não oferece suporte à associação dinâmica de público. Isso significa que ela só pode adicionar valores aos perfis de usuário, não removê-los.
@@ -23,13 +23,13 @@ A integração da Adobe Experience Platform atualmente não oferece suporte à a
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Conta Adobe | Uma [conta da Adobe](https://account.adobe.com/) é necessária para aproveitar esta parceria. |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões `users.track`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
-| Instância da Braze | Sua instância da Braze pode ser obtida com o seu gerente de integração da Braze ou pode ser encontrada na [página de visão geral da API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#endpoints). |
-| Endpoint REST or transferir estado representacional da Braze | Sua URL de endpoint REST or transferir estado representacional. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/api/basics#endpoints). |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Instância da Braze | Sua instância da Braze pode ser obtida com o seu gerente de integração da Braze ou pode ser encontrada na [página de visão geral da API]({{site.baseurl}}/api/basics#endpoints). |
+| Endpoint REST da Braze | Sua URL de endpoint REST. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 {% alert important %}
-O envio de atributos personalizados adicionais aumentará o uso de seus pontos de dados. Sugerimos que fale com seu gerente de sucesso do cliente para entender melhor esse possível aumento de pontos de dados.
+O envio de atributos personalizados adicionais aumentará o uso de seus pontos de dados. Sugerimos que fale com seu CSM para entender melhor esse possível aumento de pontos de dados.
 {% endalert %}
 
 ## Integração {#integration}
@@ -46,7 +46,7 @@ Se já existir uma conexão com a Braze, você verá um botão **Activate** no c
 
 ### Etapa 2: Forneça o token da Braze {#step-2-provide-braze-token}
 
-Na etapa **Account**, forneça sua chave de API or interface de programação do aplicativo (API) da Braze e selecione **Connect to destination**.
+Na etapa **Account**, forneça sua chave de API da Braze e selecione **Connect to destination**.
 
 ![Etapa de conta do destino Adobe Braze com campo de entrada da chave de API e ação de conexão.]({% image_buster /assets/img/adobe/braze-destination-account.png %}){: style="max-width:60%"}
 
@@ -64,13 +64,13 @@ Em seguida, na etapa **Authentication**, insira seus detalhes de conexão da Bra
 Selecione **Create destination**. Seu destino foi criado. Você pode selecionar **Save & Exit** para ativar segmentos mais tarde ou **Next** para continuar o fluxo de trabalho e selecionar segmentos para ativar.
 
 ### Etapa 5: Ativar segmentos {#step-5-activate-segments}
-Ative os dados que você tem na CDP or plataforma de dados do cliente em tempo real da Adobe mapeando segmentos para o destino da Braze.
+Ative os dados que você tem na CDP em tempo real da Adobe mapeando segmentos para o destino da Braze.
 
-A lista a seguir destaca as etapas gerais necessárias para ativar um Segment or segmento or segmento. Para obter orientações completas sobre os segmentos da Adobe e o fluxo de trabalho de ativação de segmentos, visite [Adobe](https://experienceleague.adobe.com/docs/experience-platform/destinations/ui/activate-destinations.html?lang=en#prerequisites).
+A lista a seguir destaca as etapas gerais necessárias para ativar um Segment. Para obter orientações completas sobre os segmentos da Adobe e o fluxo de trabalho de ativação de segmentos, visite [Adobe](https://experienceleague.adobe.com/docs/experience-platform/destinations/ui/activate-destinations.html?lang=en#prerequisites).
 
 1. Selecione e ative o destino Braze.
 2. Selecione os segmentos aplicáveis.
-4. Configure o agendamento e os nomes dos arquivos para cada Segment or segmento or segmento que você exportar.
+4. Configure o agendamento e os nomes dos arquivos para cada Segment que você exportar.
 5. Selecione atributos para enviar para a Braze.
 6. Revise e verifique a ativação.
 
@@ -104,4 +104,4 @@ O mapeamento correto ficaria assim:
 Para verificar se os dados foram exportados com sucesso para a Braze, verifique sua conta da Braze. Os segmentos da Adobe Experience Platform são exportados para a Braze sob o atributo `AdobeExperiencePlatformSegments`.
 
 ## Uso de dados e governança {#data-usage-and-governance}
-Todos os destinos da Adobe Experience Platform estão em conformidade com as políticas de uso de dados ao lidar com seus dados. Consulte [Governança de dados na CDP or plataforma de dados do cliente em tempo real](https://experienceleague.adobe.com/docs/experience-platform/rtcdp/privacy/data-governance-overview.html?lang=en) para obter informações detalhadas sobre como a Adobe Experience Platform aplica a governança de dados.
+Todos os destinos da Adobe Experience Platform estão em conformidade com as políticas de uso de dados ao lidar com seus dados. Consulte [Governança de dados na CDP em tempo real](https://experienceleague.adobe.com/docs/experience-platform/rtcdp/privacy/data-governance-overview.html?lang=en) para obter informações detalhadas sobre como a Adobe Experience Platform aplica a governança de dados.

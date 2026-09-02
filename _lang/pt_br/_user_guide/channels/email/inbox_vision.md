@@ -68,7 +68,7 @@ A análise de código pode aparecer mais rápido do que a prévia para um determ
 
 ## Testes de SPAM {#spam-testing}
 
-Os testes de SPAM estimam se um e-mail pode ser filtrado como SPAM. Os testes são executados em filtros como IronPort, SpamAssassin e Barracuda, além de filtros de ISP or provedor de acesso à internet or provedor de serviços de internet como Gmail e Outlook, usando caixas de entrada de teste estáticas que não abrem nem clicam por padrão.
+Os testes de SPAM estimam se um e-mail pode ser filtrado como SPAM. Os testes são executados em filtros como IronPort, SpamAssassin e Barracuda, além de filtros de ISP como Gmail e Outlook, usando caixas de entrada de teste estáticas que não abrem nem clicam por padrão.
 
 {% alert important %}
 O posicionamento na caixa de entrada é determinado principalmente pelo engajamento dos destinatários em tempo real. Os resultados dos testes de SPAM podem não corresponder ao que você observa em Campaigns reais.

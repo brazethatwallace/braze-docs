@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Open Loyalty
 
-> [Open Loyalty](https://www.openloyalty.io/)는 고객 로열티 및 리워드 프로그램을 구축하고 관리할 수 있는 클라우드 기반 로열티 프로그램 플랫폼입니다. Braze와 Open Loyalty 통합은 포인트 잔액, 등급 변경, 만료 경고와 같은 로열티 데이터를 실시간으로 Braze에 직접 동기화합니다. 이를 통해 사용자의 로열티 상태가 변경되면 개인화된 메시지(이메일, 푸시, 단문 메시지 서비스)를 트리거할 수 있습니다.
+> [Open Loyalty](https://www.openloyalty.io/)는 고객 로열티 및 리워드 프로그램을 구축하고 관리할 수 있는 클라우드 기반 로열티 프로그램 플랫폼입니다. Braze와 Open Loyalty 통합은 포인트 잔액, 등급 변경, 만료 경고와 같은 로열티 데이터를 실시간으로 Braze에 직접 동기화합니다. 이를 통해 사용자의 로열티 상태가 변경되면 개인화된 메시지(이메일, 푸시, SMS)를 트리거할 수 있습니다.
 
 _이 통합은 Open Loyalty에서 유지 관리합니다._
 

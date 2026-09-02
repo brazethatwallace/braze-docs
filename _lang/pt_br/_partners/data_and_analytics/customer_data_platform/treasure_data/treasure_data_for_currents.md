@@ -1,7 +1,7 @@
 ---
 nav_title: Treasure Data para Currents
 article_title: Treasure Data para Currents
-description: "Este artigo de referência descreve a parceria entre o Braze Currents e o Treasure Data, uma CDP or plataforma de dados do cliente or CDP or plataforma de dados do cliente or plataforma de dados do cliente corporativo que transmite dados de eventos da Braze para o Treasure Data para análise e ativação."
+description: "Este artigo de referência descreve a parceria entre o Braze Currents e o Treasure Data, uma CDP corporativo que transmite dados de eventos da Braze para o Treasure Data para análise e ativação."
 page_type: partner
 tool: Currents
 alias: /partners/treasure_data_for_currents/
@@ -11,7 +11,7 @@ search_tag: Partner
 
 # Treasure Data para Currents {#treasure-data-for-currents}
 
-> O [Treasure Data](https://www.treasuredata.com/) é uma CDP or plataforma de dados do cliente or CDP or plataforma de dados do cliente or plataforma de dados do cliente (CDP or plataforma de dados do cliente) que coleta e encaminha informações de várias fontes para uma variedade de outros locais na sua pilha de marketing.
+> O [Treasure Data](https://www.treasuredata.com/) é uma CDP (CDP) que coleta e encaminha informações de várias fontes para uma variedade de outros locais na sua pilha de marketing.
 
 A integração entre a Braze e o Treasure Data permite que você controle o fluxo de informações entre os dois sistemas. Com o Currents, você pode transmitir dados de eventos da Braze para o Treasure Data e torná-los acionáveis em toda a sua growth stack.
 
@@ -32,7 +32,7 @@ O conector Braze Currents Streaming está disponível mediante solicitação. En
 | Conta Treasure Data | Uma [conta Treasure Data](https://console.treasuredata.com) ativa é necessária para aproveitar esta parceria. |
 | Currents | Para exportar dados para o Treasure Data, você precisa do [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#how-to-access-currents) configurado para a sua conta. |
 | Conector Braze Currents Streaming | Entre em contato com o suporte do Treasure Data para ativar o conector Braze Currents Streaming na sua conta Treasure Data. |
-| Chave de API or interface de programação do aplicativo (API) de escrita do Treasure Data | Uma chave de API or interface de programação do aplicativo (API) de escrita do Treasure Data autentica o fluxo de entrada da Braze. |
+| Chave de API de escrita do Treasure Data | Uma chave de API de escrita do Treasure Data autentica o fluxo de entrada da Braze. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
@@ -41,7 +41,7 @@ O conector Braze Currents Streaming está disponível mediante solicitação. En
 
 1. No console do Treasure Data, acesse **Connections** > **New Connection**.
 2. Selecione **Braze Currents Streaming**.
-3. Em **Authentication**, insira sua chave de API or interface de programação do aplicativo (API) de escrita do Treasure Data.
+3. Em **Authentication**, insira sua chave de API de escrita do Treasure Data.
 4. Em **Source Settings**, configure o seguinte:
 
 | Campo | Descrição |
@@ -57,12 +57,12 @@ O conector Braze Currents Streaming está disponível mediante solicitação. En
 
 ### Etapa 2: Criar uma exportação Custom Currents na Braze {#step-2-create-a-custom-currents-export-in-braze}
 
-A opção **Treasure Data Export** na interface de Braze Currents usa o método legado de API or interface de programação do aplicativo (API) Postback e não é mais recomendada. Use **Custom Currents Export** em vez disso.
+A opção **Treasure Data Export** na interface de Braze Currents usa o método legado de API Postback e não é mais recomendada. Use **Custom Currents Export** em vez disso.
 
 1. Na Braze, acesse **Partner Integrations** > **Data Export**.
 2. Selecione **Create New Current** > **Custom Currents Export**.
 3. Insira um nome de integração e um e-mail de contato para notificações de erro.
-4. Em **Credentials**, insira a URL do endpoint para sua região do Treasure Data. Insira sua chave de API or interface de programação do aplicativo (API) de escrita do Treasure Data como o **Bearer Token**.
+4. Em **Credentials**, insira a URL do endpoint para sua região do Treasure Data. Insira sua chave de API de escrita do Treasure Data como o **Bearer Token**.
 
 | Região | URL do endpoint |
 | ------ | --------------- |
@@ -78,7 +78,7 @@ Substitua `{TASK_ID}` pelo Unique ID que você copiou na [Etapa 1](#step-1-confi
 6. Selecione **Launch Current**.
 
 {% alert warning %}
-Mantenha sua chave de API or interface de programação do aplicativo (API) de escrita do Treasure Data e a URL do endpoint atualizadas. Se o endpoint ficar inacessível por mais de **5&nbsp;dias**, a Braze descarta os eventos do conector e os dados são permanentemente perdidos.
+Mantenha sua chave de API de escrita do Treasure Data e a URL do endpoint atualizadas. Se o endpoint ficar inacessível por mais de **5&nbsp;dias**, a Braze descarta os eventos do conector e os dados são permanentemente perdidos.
 {% endalert %}
 
 ## Consulte seus dados {#query-your-data}

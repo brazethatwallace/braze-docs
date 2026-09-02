@@ -20,15 +20,15 @@ Para usar o Scuba Analytics com a Braze, você precisará do seguinte:
 
 | Requisito | Descrição |
 |---|---|
-| Token de API or interface de programação do aplicativo (API) do Scuba | Um token de API or interface de programação do aplicativo (API) do Scuba que pode ser obtido no endpoint `https://{scuba_hostname}/api/create_token`. |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões `users.track`. <br><br> Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
-| Endpoint REST or transferir estado representacional da Braze | Sua URL de endpoint REST or transferir estado representacional. Seu endpoint dependerá da [URL da Braze para sua instância](https://scuba.io). |
+| Token de API do Scuba | Um token de API do Scuba que pode ser obtido no endpoint `https://{scuba_hostname}/api/create_token`. |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. <br><br> Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Endpoint REST da Braze | Sua URL de endpoint REST. Seu endpoint dependerá da [URL da Braze para sua instância](https://scuba.io). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Fazendo upload dos seus dados do Scuba para a Braze {#uploading-your-scuba-data-to-braze}
 
 {% alert important %}
-A requisição a seguir usa curl. Para um melhor gerenciamento de requisições de API or interface de programação do aplicativo (API), recomendamos usar um cliente de API or interface de programação do aplicativo (API), como o Postman.
+A requisição a seguir usa curl. Para um melhor gerenciamento de requisições de API, recomendamos usar um cliente de API, como o Postman.
 {% endalert %}
 
 Para fazer upload dos seus dados do Scuba para a Braze, faça uma requisição POST para `https://scuba.pliant.io/a/scuba-connectors/prod/braze-activation` usando o tipo de conteúdo `application/json`:
@@ -53,10 +53,10 @@ Substitua os seguintes valores:
 
 | Placeholder             | Descrição                                                                                                                                                                                     |
 |-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `BRAZE_API_ENDPOINT`    | A URL do endpoint REST or transferir estado representacional da Braze da sua instância atual da Braze. Para saber mais, consulte [Chaves da API or interface de programação do aplicativo (API) REST or transferir estado representacional]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers). |
-| `BRAZE_API_KEY`         | Sua chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com a permissão `users.track`.                                                                                                                                      |
+| `BRAZE_API_ENDPOINT`    | A URL do endpoint REST da Braze da sua instância atual da Braze. Para saber mais, consulte [Chaves da API REST]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers). |
+| `BRAZE_API_KEY`         | Sua chave da API REST da Braze com a permissão `users.track`.                                                                                                                                      |
 | `HOSTNAME`              | O hostname da sua instância atual do Scuba.                                                                                                                                                    |
-| `SCUBA_API_TOKEN`       | Seu token de API or interface de programação do aplicativo (API) do Scuba.                                                                                                                                                                           |
+| `SCUBA_API_TOKEN`       | Seu token de API do Scuba.                                                                                                                                                                           |
 | `TABLE_NAME`            | A tabela à qual seu dataset pertence. Para saber mais, consulte [Glossário: tabela de dataset](https://docs.scuba.io/glossary/dataset-table).                                                                                                      |
 | `ACTOR_PROPERTY_NAME`   | A propriedade de ator à qual seu dataset pertence. Apenas dados que correspondam a esse nome serão retornados. Para saber mais, consulte [Glossário: propriedade de ator](https://docs.scuba.io/glossary/actor-property).                                             |
 | `ACTOR_PROPERTY_FILTER` | O filtro de busca de público para sua propriedade de ator.                                                                                                                                             |
@@ -78,15 +78,15 @@ O Scuba aplica um limite de frequência de 50.000 requisições por minuto a ess
 
 Depois de [fazer upload dos seus dados](#uploading-your-scuba-data-to-braze), você pode criar segmentos de usuários na Braze usando os dados comportamentais do Scuba.
 
-### Etapa 1: Criar um novo Segment or segmento or segmento {#step-1-create-a-new-segment}
+### Etapa 1: Criar um novo Segment {#step-1-create-a-new-segment}
 
-Na Braze, acesse **Público** > **Segments** e selecione **Criar Segment or segmento**. Em seguida, insira um nome para o seu Segment or segmento or segmento.
+Na Braze, acesse **Público** > **Segments** e selecione **Criar Segment**. Em seguida, insira um nome para o seu Segment.
 
 ![Criando um novo segmento na Braze.]({% image_buster /assets/img/scuba/analytics/segment_name.png %})
 
 ### Etapa 2: Encontrar e selecionar o atributo do Scuba {#step-2-find-and-select-the-scuba-attribute}
 
-Em **Detalhes do Segment or segmento** > **Filtros**, selecione **Atributos Personalizados**.
+Em **Detalhes do Segment** > **Filtros**, selecione **Atributos Personalizados**.
 
 ![Selecionando o filtro 'Atributo Personalizado' em 'Detalhes do Segment'.]({% image_buster /assets/img/scuba/analytics/filter_attribute.png %})
 

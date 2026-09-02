@@ -54,8 +54,8 @@ Puedes ver las siguientes estadísticas de Segment, que se actualizan en tiempo 
             <td class="no-split">Cuántos usuarios hay en tu Segment y qué porcentaje de tu base de usuarios total representan.</td>
         </tr>
         <tr>
-            <td class="no-split">LTV or valor de duración del ciclo de vida (usuarios de pago)</td>
-            <td class="no-split">El LTV or valor de duración del ciclo de vida or valor de duración del ciclo de vida por usuario (LTV or valor de duración del ciclo de vida) en este Segment y el LTV or valor de duración del ciclo de vida or valor de duración del ciclo de vida por usuario de pago en este Segment. El LTV or valor de duración del ciclo de vida se calcula dividiendo tus ingresos de duración del ciclo de vida entre los usuarios de duración del ciclo de vida.</td>
+            <td class="no-split">LTV (usuarios de pago)</td>
+            <td class="no-split">El LTV por usuario (LTV) en este Segment y el LTV por usuario de pago en este Segment. El LTV se calcula dividiendo tus ingresos de duración del ciclo de vida entre los usuarios de duración del ciclo de vida.</td>
         </tr>
         <tr>
             <td class="no-split">Contactable por correo electrónico (adhesión voluntaria)</td>

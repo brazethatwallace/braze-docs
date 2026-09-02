@@ -17,7 +17,7 @@ _Essa integração é mantida pelo Amazon Personalize._
 
 ## Sobre a integração {#about-the-integration}
 
-Usando machine learning e um algoritmo que você ajuda a definir, o Amazon Personalize pode ajudá-lo a treinar um modelo que produz recomendações de alta qualidade para seus sites e aplicativos. Esses modelos permitirão que você crie listas de recomendações com base nos comportamentos anteriores dos usuários, classifique itens por relevância e recomende outros itens com base na similaridade. As listas obtidas da API or interface de programação do aplicativo (API) do Amazon Personalize podem ser usadas no Connected Content da Braze para executar campanhas de recomendação personalizadas. Ao integrar-se ao Amazon Personalize, os clientes têm a liberdade de controlar os parâmetros usados para treinar os modelos e definir objetivos comerciais opcionais que otimizam o resultado do algoritmo.
+Usando machine learning e um algoritmo que você ajuda a definir, o Amazon Personalize pode ajudá-lo a treinar um modelo que produz recomendações de alta qualidade para seus sites e aplicativos. Esses modelos permitirão que você crie listas de recomendações com base nos comportamentos anteriores dos usuários, classifique itens por relevância e recomende outros itens com base na similaridade. As listas obtidas da API do Amazon Personalize podem ser usadas no Connected Content da Braze para executar campanhas de recomendação personalizadas. Ao integrar-se ao Amazon Personalize, os clientes têm a liberdade de controlar os parâmetros usados para treinar os modelos e definir objetivos comerciais opcionais que otimizam o resultado do algoritmo.
 
 Este artigo de referência ajudará você a entender os casos de uso que o Amazon Personalize oferece, os dados com os quais ele trabalha, como configurar o serviço e como integrá-lo à Braze.
 
@@ -59,7 +59,7 @@ Para começar a usar os modelos de recomendação do Amazon Personalize, você p
   - Armazena metadados sobre itens
   - Requer um `ITEM_ID` e pelo menos um campo de metadados (textual, categórico ou numérico) que descreva o item
 
-Para uma receita de recomendações de usuários, é necessário fornecer um conjunto de dados de interações contendo pelo menos 1.000 pontos de dados de interação de pelo menos 25 usuários exclusivos com pelo menos duas interações cada. Esses conjuntos de dados podem ser enviados por upload em massa usando arquivos CSV armazenados no S3 ou de forma incremental por meio da API or interface de programação do aplicativo (API).
+Para uma receita de recomendações de usuários, é necessário fornecer um conjunto de dados de interações contendo pelo menos 1.000 pontos de dados de interação de pelo menos 25 usuários exclusivos com pelo menos duas interações cada. Esses conjuntos de dados podem ser enviados por upload em massa usando arquivos CSV armazenados no S3 ou de forma incremental por meio da API.
 
 {% endtab %}
 {% endtabs %}
@@ -92,7 +92,7 @@ Quando o treinamento da solução fica pronto, você pode avaliá-la e comparar 
 
 Depois de criar uma versão da solução que o satisfaça, é hora de colocar as recomendações em prática. Há duas maneiras de acessar as recomendações:
 
-1. Campanha em tempo real<br>Uma campanha é uma versão de solução implantada com uma taxa de transferência de transação mínima definida. Uma transação é uma única chamada à API or interface de programação do aplicativo (API) para obter uma saída de recomendação e é definida como TPS, ou transações por segundo, com um valor mínimo de um. A campanha dimensionará os recursos em caso de aumento de carga, mas não cairá abaixo do seu valor mínimo. É possível consultar as recomendações no console, na CLI da AWS ou por meio dos SDKs da AWS no seu código.<br><br>
+1. Campanha em tempo real<br>Uma campanha é uma versão de solução implantada com uma taxa de transferência de transação mínima definida. Uma transação é uma única chamada à API para obter uma saída de recomendação e é definida como TPS, ou transações por segundo, com um valor mínimo de um. A campanha dimensionará os recursos em caso de aumento de carga, mas não cairá abaixo do seu valor mínimo. É possível consultar as recomendações no console, na CLI da AWS ou por meio dos SDKs da AWS no seu código.<br><br>
 2. Trabalho em lote<br>Um trabalho em lote exporta as recomendações para um bucket S3. O trabalho recebe como entrada um arquivo JSON com uma lista de IDs de usuário para os quais você deseja exportar as recomendações. Em seguida, depois de especificar as permissões corretas e o destino de saída, você estará pronto para executar o trabalho. O tempo de execução depende do tamanho dos seus conjuntos de dados e do tamanho da lista de recomendações.
 
 ### Filtros {#filters}
@@ -102,7 +102,7 @@ Os filtros permitem que você ajuste o resultado da recomendação excluindo ite
 ## Integração de resultados com a Braze {#integrating-results-with-braze}
 
 Com o modelo criado e a campanha de recomendações, você está pronto para executar uma campanha da Braze para seus usuários usando Content Cards e Connected Content.
-Antes de executar uma campanha na Braze, você deve criar um serviço que possa fornecer essas recomendações por meio de uma API or interface de programação do aplicativo (API). Você pode seguir a [etapa 3 do artigo do workshop]({{site.baseurl}}/partners/amazon_personalize_workshop#step-3-send-personalized-emails-from-braze) para implantar o serviço usando os serviços da AWS. Você também pode implantar seu próprio serviço de backend independente que fornece as recomendações.
+Antes de executar uma campanha na Braze, você deve criar um serviço que possa fornecer essas recomendações por meio de uma API. Você pode seguir a [etapa 3 do artigo do workshop]({{site.baseurl}}/partners/amazon_personalize_workshop#step-3-send-personalized-emails-from-braze) para implantar o serviço usando os serviços da AWS. Você também pode implantar seu próprio serviço de backend independente que fornece as recomendações.
 
 ### Caso de uso da campanha de Content Cards {#content-card-campaign-use-case}
 
@@ -130,7 +130,7 @@ o endpoint `GET http://<service-endpoint.com>/recommendations?user_id=user123` c
 ]
 ```
 
-No dashboard da Braze, crie uma nova [campanha de Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card). No campo de texto da mensagem, crie um bloco Liquid de Connected Content para consultar a API or interface de programação do aplicativo (API) e salvar a resposta na variável `recommendations`:
+No dashboard da Braze, crie uma nova [campanha de Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card). No campo de texto da mensagem, crie um bloco Liquid de Connected Content para consultar a API e salvar a resposta na variável `recommendations`:
 
 {% raw %}
 

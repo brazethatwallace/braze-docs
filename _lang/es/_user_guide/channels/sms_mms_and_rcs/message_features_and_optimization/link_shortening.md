@@ -2,7 +2,7 @@
 nav_title: Acortamiento de enlaces
 article_title: Acortamiento de enlaces
 page_order: 1
-description: "Este artículo de referencia explica cómo activar el acortamiento de enlaces en tus mensajes servicio de mensajes cortos y algunas preguntas frecuentes."
+description: "Este artículo de referencia explica cómo activar el acortamiento de enlaces en tus mensajes SMS y algunas preguntas frecuentes."
 page_type: reference
 alias: "/link_shortening/"
 tool:
@@ -15,24 +15,24 @@ channel:
 
 # Acortamiento de enlaces {#link-shortening}
 
-> Esta página explica cómo activar el acortamiento de enlaces en tus mensajes servicio de mensajes cortos y RCS, probar enlaces acortados, usar tu dominio personalizado en enlaces acortados y más.
+> Esta página explica cómo activar el acortamiento de enlaces en tus mensajes SMS y RCS, probar enlaces acortados, usar tu dominio personalizado en enlaces acortados y más.
 
 {% alert important %}
-Braze está implementando gradualmente el [acortamiento de enlaces unificado]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening?sdktab=unified), que consolida todos los enlaces acortados de servicio de mensajes cortos y RCS en un único formato de enlace personalizado (por ejemplo, `brz.ai/abcdefgh`).
+Braze está implementando gradualmente el [acortamiento de enlaces unificado]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening?sdktab=unified), que consolida todos los enlaces acortados de SMS y RCS en un único formato de enlace personalizado (por ejemplo, `brz.ai/abcdefgh`).
 {% endalert %}
 
 {% sdktabs %}
 {% sdktab Legacy %}
 
-El acortamiento de enlaces y el seguimiento de clics te permiten acortar automáticamente las URL contenidas en mensajes servicio de mensajes cortos o RCS y recopilar análisis de tasa de clics, proporcionando métricas de participación adicionales para ayudarte a comprender cómo los usuarios interactúan con tus Campaigns.
+El acortamiento de enlaces y el seguimiento de clics te permiten acortar automáticamente las URL contenidas en mensajes SMS o RCS y recopilar análisis de tasa de clics, proporcionando métricas de participación adicionales para ayudarte a comprender cómo los usuarios interactúan con tus Campaigns.
 
 El acortamiento de enlaces y el seguimiento de clics se pueden activar a [nivel de variante de mensaje]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#step-1-create-your-campaign) tanto en Campaigns como en Canvas.
 
-{% multi_lang_include channels/servicio de mensajes cortos/rcs_link_shortening_note.md %}
+{% multi_lang_include channels/sms/rcs_link_shortening_note.md %}
 
 La longitud de la URL está determinada por el tipo de seguimiento que se activa:
 - **Seguimiento básico** habilita el seguimiento de clics a nivel de campaña. Las URL estáticas tienen una longitud de 20 caracteres y las URL personalizadas tienen una longitud de 25 caracteres.
-- **Seguimiento avanzado** habilita el seguimiento de clics a nivel de campaña y a nivel de usuario, y permite el uso de capacidades de segmentación y reorientación que dependen de los clics. Los clics también generan un [evento de clic de servicio de mensajes cortos]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) enviado a través de Currents. Las URL estáticas con seguimiento avanzado tienen una longitud de 27-28 caracteres, lo que te permite crear segmentos de usuarios que han hecho clic en las URL. Las URL personalizadas tienen una longitud de 32-33 caracteres.
+- **Seguimiento avanzado** habilita el seguimiento de clics a nivel de campaña y a nivel de usuario, y permite el uso de capacidades de segmentación y reorientación que dependen de los clics. Los clics también generan un [evento de clic de SMS]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) enviado a través de Currents. Las URL estáticas con seguimiento avanzado tienen una longitud de 27-28 caracteres, lo que te permite crear segmentos de usuarios que han hecho clic en las URL. Las URL personalizadas tienen una longitud de 32-33 caracteres.
 
 Los enlaces se acortan usando nuestro dominio corto compartido (`brz.ai`) o tu dominio personalizado de acortamiento de enlaces. Un ejemplo de URL podría verse así: `https://brz.ai/8jshX` (básico, estático) o `https://brz.ai/p/8jshX/2dj8d` (avanzado, personalizado). Consulta [Pruebas](#legacy_testing) para más información.
 
@@ -53,7 +53,7 @@ Braze solo reconoce las URL que comienzan con `http://` o `https://`. Cuando se 
 ![Creador de mensajes con una URL larga en el cuadro "Mensaje" y un enlace acortado generado en la vista previa.]({% image_buster /assets/img/link_shortening/legacy/temp_shortening3.png %}){: width="1569" height="516"}
 
 {% alert note %}
-Si planeas usar el [filtro de canal inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel) de BrazeAI<sup>TM</sup> y quieres que los canales servicio de mensajes cortos y RCS sean seleccionables, activa el acortamiento de enlaces con seguimiento avanzado.
+Si planeas usar el [filtro de canal inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel) de BrazeAI<sup>TM</sup> y quieres que los canales SMS y RCS sean seleccionables, activa el acortamiento de enlaces con seguimiento avanzado.
 {% endalert %}
 
 ### Agregar parámetros UTM {#adding-utm-parameters}
@@ -87,7 +87,7 @@ https://example.com/{{url_var}}
 
 ### Acortar URL renderizadas por variables Liquid {#shorten-urls-rendered-by-liquid-variables}
 
-**Canales compatibles:** KakaoTalk, LINE, servicio de mensajes cortos, RCS, WhatsApp
+**Canales compatibles:** KakaoTalk, LINE, SMS, RCS, WhatsApp
 
 Braze acorta las URL que son renderizadas por Liquid, incluso aquellas incluidas en propiedades de desencadenamiento por API. Por ejemplo, si {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} representa una URL válida, Braze acorta y rastrea esa URL antes de enviar el mensaje.
 
@@ -105,13 +105,13 @@ Para obtener una lista completa de parámetros de solicitud, ve a [parámetros d
 
 ## Pruebas {#testing}
 
-Antes de lanzar tu Campaign o Canvas, es una buena práctica previsualizar y probar tu mensaje primero. Para hacerlo, ve a la pestaña **Prueba** para previsualizar y enviar un mensaje servicio de mensajes cortos o RCS a [grupos de prueba de contenido]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) o a un usuario individual.
+Antes de lanzar tu Campaign o Canvas, es una buena práctica previsualizar y probar tu mensaje primero. Para hacerlo, ve a la pestaña **Prueba** para previsualizar y enviar un mensaje SMS o RCS a [grupos de prueba de contenido]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) o a un usuario individual.
 
 Esta vista previa se actualiza con la personalización relevante y la URL acortada. El número de caracteres y los [segmentos facturables]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator) también se actualizan para reflejar la personalización renderizada y la URL acortada.
 
 Asegúrate de guardar la Campaign o el Canvas antes de enviar un mensaje de prueba para recibir una representación de la URL acortada que se envía en tu mensaje. Si la Campaign o el Canvas no se guardan antes de un envío de prueba, el envío de prueba incluirá una URL de marcador de posición.
 
-Para que los Canvas aparezcan en el filtro "Hizo clic en enlace servicio de mensajes cortos acortado", el paso en Canvas que contiene el enlace corto también debe estar habilitado con seguimiento avanzado, que permite el seguimiento de clics a nivel de usuario. Si el enlace corto está configurado con seguimiento básico, la opción de filtrar eventos de clic en enlaces servicio de mensajes cortos cortos no está disponible. El mismo requisito de seguimiento avanzado se aplica cuando configuras la entrada del Canvas o las Rutas de Acción que dependen de enlaces servicio de mensajes cortos acortados en los que se hizo clic.
+Para que los Canvas aparezcan en el filtro "Hizo clic en enlace SMS acortado", el paso en Canvas que contiene el enlace corto también debe estar habilitado con seguimiento avanzado, que permite el seguimiento de clics a nivel de usuario. Si el enlace corto está configurado con seguimiento básico, la opción de filtrar eventos de clic en enlaces SMS cortos no está disponible. El mismo requisito de seguimiento avanzado se aplica cuando configuras la entrada del Canvas o las Rutas de Acción que dependen de enlaces SMS acortados en los que se hizo clic.
 
 {% alert important %}
 Si se crea un borrador dentro de un Canvas activo, no se generará una URL acortada. La URL acortada real se genera cuando el borrador del Canvas se activa.
@@ -125,11 +125,11 @@ La personalización con Liquid y las URL acortadas se procesan en la pestaña **
 
 ## Seguimiento de clics {#click-tracking}
 
-Cuando el acortamiento de enlaces está activado, la tabla de **rendimiento de servicio de mensajes cortos/MMS/RCS** incluye una columna titulada **Clics totales** que muestra un recuento de eventos de clic por variante y una tasa de clics asociada. **Clics totales** excluye los clics sospechosos de bots de los recuentos del panel. Para más detalles sobre las métricas, consulta [Rendimiento de mensajes]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting) y [Filtrado de clics de bots]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/bot_click_filtering).
+Cuando el acortamiento de enlaces está activado, la tabla de **rendimiento de SMS/MMS/RCS** incluye una columna titulada **Clics totales** que muestra un recuento de eventos de clic por variante y una tasa de clics asociada. **Clics totales** excluye los clics sospechosos de bots de los recuentos del panel. Para más detalles sobre las métricas, consulta [Rendimiento de mensajes]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting) y [Filtrado de clics de bots]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/bot_click_filtering).
 
 ![Tabla de métricas de rendimiento de SMS y MMS.]({% image_buster /assets/img/link_shortening/shortening4.png %}){: width="1586" height="191"}
 
-Las tablas de **Rendimiento histórico** y **Rendimiento de servicio de mensajes cortos/MMS/RCS** también incluyen una opción para **Clics totales** y muestran una serie temporal diaria de eventos de clic. Los clics se incrementan en la redirección (como cuando un usuario visita un enlace) y pueden incrementarse más de una vez por usuario.
+Las tablas de **Rendimiento histórico** y **Rendimiento de SMS/MMS/RCS** también incluyen una opción para **Clics totales** y muestran una serie temporal diaria de eventos de clic. Los clics se incrementan en la redirección (como cuando un usuario visita un enlace) y pueden incrementarse más de una vez por usuario.
 
 ## Reorientación de usuarios {#retargeting-users}
 
@@ -141,7 +141,7 @@ Para obtener orientación sobre la reorientación, visita [Reorientación]({{sit
 
 ### ¿Sé qué usuarios individuales están haciendo clic en una URL? {#do-i-know-which-individual-users-are-clicking-on-a-url}
 
-Sí. Cuando el **seguimiento avanzado** está activado, puedes reorientar a los usuarios que han hecho clic en las URL aprovechando los [filtros de reorientación de servicio de mensajes cortos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting) o los eventos de clic de servicio de mensajes cortos (`users.messages.sms.ShortLinkClick`) enviados por Currents.
+Sí. Cuando el **seguimiento avanzado** está activado, puedes reorientar a los usuarios que han hecho clic en las URL aprovechando los [filtros de reorientación de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting) o los eventos de clic de SMS (`users.messages.sms.ShortLinkClick`) enviados por Currents.
 
 ### ¿Funciona el acortamiento de enlaces con vínculos profundos o enlaces universales? {#does-link-shortening-work-with-deep-links-or-universal-links}
 
@@ -151,7 +151,7 @@ El acortamiento de enlaces no funciona con vínculos profundos. Alternativamente
 Prueba la experiencia del usuario antes de implementar el acortamiento de enlaces con enlaces universales para confirmar que cumple con tus expectativas.
 {% endalert %}
 
-### ¿Los `send_ids` están asociados con los eventos de clic de servicio de mensajes cortos? {#are-send_ids-associated-with-sms-click-events}
+### ¿Los `send_ids` están asociados con los eventos de clic de SMS? {#are-send_ids-associated-with-sms-click-events}
 
 No. Sin embargo, si tienes habilitado el seguimiento avanzado, generalmente puedes atribuir `send_ids` con eventos de clic usando [Query Builder]({{site.baseurl}}/query_builder) para consultar datos de Currents con esta consulta:
 
@@ -168,7 +168,7 @@ WHERE s.send_id IS NOT NULL;
 {% endsdktab %}
 {% sdktab Unified %}
 
-{% multi_lang_include channels/servicio de mensajes cortos/unified_link_shortening.md %}
+{% multi_lang_include channels/sms/unified_link_shortening.md %}
 
 {% endsdktab %}
 {% endsdktabs %}

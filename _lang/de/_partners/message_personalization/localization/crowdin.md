@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Crowdin
 
-> [Crowdin](https://crowdin.com/) ist eine KI or künstliche Intelligenz-gestützte Plattform zur Verwaltung der Lokalisierung, die Teams dabei unterstützt, die Übersetzung ihrer Software, Apps und Marketing-Inhalte zu automatisieren.
+> [Crowdin](https://crowdin.com/) ist eine KI-gestützte Plattform zur Verwaltung der Lokalisierung, die Teams dabei unterstützt, die Übersetzung ihrer Software, Apps und Marketing-Inhalte zu automatisieren.
 
 Verbinden Sie Crowdin mit Braze, um Übersetzungen für Ihre Campaigns und Canvas-Erlebnisse zu verwalten. Die automatische Synchronisierung arbeitet mit maschineller Übersetzung, Translation Memory und Glossaren, sodass manuelle und automatisierte Workflows konsistent bleiben.
 
@@ -36,8 +36,8 @@ Crowdin bietet zwei Apps für Braze an: [Braze Campaigns & Canvas](https://store
 | --- | --- |
 | **Crowdin-Konto** | Ein [Crowdin.com-Konto](https://accounts.crowdin.com/register) oder ein [Crowdin-Enterprise-Konto](https://accounts.crowdin.com/workspace/create) ist erforderlich. |
 | **Crowdin-Projekt** | Bevor Sie Braze verbinden, [erstellen Sie ein Übersetzungsprojekt](https://support.crowdin.com/creating-project/) in Crowdin oder Crowdin Enterprise. |
-| **Braze-Representational State Transfer-API-Schlüssel** | Ein Braze-Representational State Transfer-API-Schlüssel mit Berechtigungen für Campaigns, Canvas, Content Blocks, angepasste Attribute, E-Mail und Templates. |
-| **Braze-Representational State Transfer-Endpunkt** | Ihre spezifische Braze-Representational State Transfer-Endpunkt-URL (zum Beispiel `https://rest.iad-03.braze.com`). |
+| **Braze-REST-API-Schlüssel** | Ein Braze-REST-API-Schlüssel mit Berechtigungen für Campaigns, Canvas, Content Blocks, angepasste Attribute, E-Mail und Templates. |
+| **Braze-REST-Endpunkt** | Ihre spezifische Braze-REST-Endpunkt-URL (zum Beispiel `https://rest.iad-03.braze.com`). |
 | **Braze-Mehrsprachigkeitseinstellungen** | Locales müssen in Ihrem Braze-Dashboard unter **Einstellungen** > **Lokalisierungseinstellungen** konfiguriert sein. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
@@ -76,8 +76,8 @@ Autorisieren Sie die Verbindung mit Ihren Braze-API-Zugangsdaten:
 
 ![Crowdin-Verbindungsformular für Braze Campaigns & Canvas mit REST-API-Schlüssel, REST-Endpunkt und „Log in with Braze Campaigns & Canvas“.]({% image_buster /assets/img/crowdin/crowdin_campaigns_canvas_login.png %})
 
-- **Braze Representational State Transfer-API-Schlüssel:** Erstellen Sie diesen in Braze unter **Einstellungen** > **APIs und Bezeichner** > **API-Schlüssel**. Gewähren Sie die Berechtigungen, die diese Integration benötigt (Campaigns, Canvas, Content Blocks und angepasste Attribute).
-- **Braze Representational State Transfer-Endpunkt:** Geben Sie die URL Ihrer Braze-Instanz ein (zum Beispiel `https://rest.iad-03.braze.com`). Weitere Informationen finden Sie unter [Representational State Transfer API-Endpunkte]({{site.baseurl}}/api/basics#endpoints).
+- **Braze REST-API-Schlüssel:** Erstellen Sie diesen in Braze unter **Einstellungen** > **APIs und Bezeichner** > **API-Schlüssel**. Gewähren Sie die Berechtigungen, die diese Integration benötigt (Campaigns, Canvas, Content Blocks und angepasste Attribute).
+- **Braze REST-Endpunkt:** Geben Sie die URL Ihrer Braze-Instanz ein (zum Beispiel `https://rest.iad-03.braze.com`). Weitere Informationen finden Sie unter [REST API-Endpunkte]({{site.baseurl}}/api/basics#endpoints).
 
 ![Braze-Seite „REST API Keys“ mit „Create API Key“ und dem Kopier-Steuerelement für den REST-Endpunkt.]({% image_buster /assets/img/crowdin/braze_rest_api_keys.png %})
 
@@ -118,7 +118,7 @@ Speichern Sie Ihre Braze-Nachricht als **Entwurf**, bevor Crowdin den Inhalt erk
 
 Der Integrationsbildschirm hat zwei Seiten:
 
-- **Braze-Panel:** Ihre Campaigns und Canvase.
+- **Braze-Panel:** Ihre Campaigns und Canvases.
 - **Crowdin-Panel:** Bereits zur Übersetzung synchronisierte Inhalte.
 
 ![Crowdin- und Braze Campaigns & Canvas-Panels mit Ordnern für Campaigns und Locales, „Sync to Braze“ und „Sync to Crowdin“.]({% image_buster /assets/img/crowdin/crowdin_campaigns_canvas_sync_panels.png %})
@@ -142,7 +142,7 @@ So bestätigen Sie die Integration:
 1. Öffnen Sie Ihre Campaign im **Braze Nachrichten-Editor**.
 2. Wechseln Sie zum Tab **Test**.
 3. Wählen Sie **Preview Message as User**.
-4. Suchen Sie nach einem Kundenprofil or Nutzerprofil, dessen `language`-Attribut einem Ihrer übersetzten Locales entspricht.
+4. Suchen Sie nach einem Kundenprofil, dessen `language`-Attribut einem Ihrer übersetzten Locales entspricht.
 5. Bestätigen Sie, dass der Inhalt von der Ausgangssprache zur übersetzten Version wechselt.
 
 ## Integration von Braze E-Mail-Templates {#braze-email-templates-integration}
@@ -168,12 +168,12 @@ Autorisieren Sie die Verbindung mit Ihren Braze-API-Zugangsdaten:
 
 ![Crowdin-Verbindungsformular für Braze Email Templates mit REST-API-Schlüssel, REST-Endpunkt und der Schaltfläche „Log in with Braze Email Templates“.]({% image_buster /assets/img/crowdin/crowdin_email_templates_login.png %}){: style="max-width:85%;"}
 
-1. **Braze Representational State Transfer-API-Schlüssel:** Gewähren Sie die Berechtigungen `templates.email` und `content_blocks` (Lesen und Schreiben). Erstellen Sie den Schlüssel in Braze unter **Einstellungen** > **APIs und Bezeichner** > **API-Schlüssel**.
+1. **Braze REST-API-Schlüssel:** Gewähren Sie die Berechtigungen `templates.email` und `content_blocks` (Lesen und Schreiben). Erstellen Sie den Schlüssel in Braze unter **Einstellungen** > **APIs und Bezeichner** > **API-Schlüssel**.
 
 ![Seite für Braze REST-API-Schlüssel mit der Schaltfläche „Create API Key“ und dem Kopier-Steuerelement für den REST-Endpunkt.]({% image_buster /assets/img/crowdin/braze_rest_api_keys.png %})
 
 {: start="2"}
-2. Geben Sie unter **Braze Representational State Transfer endpoint** Ihre instanzspezifische URL ein (zum Beispiel `https://rest.iad-03.braze.com`).
+2. Geben Sie unter **Braze REST endpoint** Ihre instanzspezifische URL ein (zum Beispiel `https://rest.iad-03.braze.com`).
 3. Wählen Sie **Log in with Braze Email Templates** aus.
 
 ### Schritt 3: Inhalte zur Übersetzung synchronisieren {#step-3-sync-content-for-translation}

@@ -13,7 +13,7 @@ description: "In diesem referenzierten Artikel werden die verschiedenen Zeitplä
 
 Wenn Sie `in_local_time` auf `true` einstellen, erhalten Sie eine Fehlerantwort, wenn der Zeitparameter in allen Zeitzonen überschritten wurde. Wenn Sie `at_optimal_time` auf true setzen, erhalten Ihre Nutzer:innen die Nachricht an dem angegebenen Datum zur optimalen Zeit (unabhängig von der von Ihnen angegebenen Uhrzeit). Wenn Sie die Ortszeit oder die optimale Zeit senden, geben Sie im Wert des Zeitparameters keine Zeitzonenkennungen an (verwenden Sie z.B. `"2015-02-20T13:14:47"` anstelle von `"2015-02-20T13:14:47-05:00"`).
 
-In der Antwort finden Sie eine `schedule_id`, die Sie speichern sollten, falls Sie die von Ihnen geplante Nachricht später stornieren oder Update or aktualisieren or aktualisieren müssen:
+In der Antwort finden Sie eine `schedule_id`, die Sie speichern sollten, falls Sie die von Ihnen geplante Nachricht später stornieren oder aktualisieren müssen:
 
 ## Objektkörper
 

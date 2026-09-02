@@ -8,7 +8,7 @@ layout: scrolly
 
 # Tutorial: Aplazamiento y restauración de mensajes desencadenados {#tutorial-deferring-and-restoring-triggered-messages}
 
-> Sigue el código de ejemplo de este tutorial para aplazar y restaurar mensajes desencadenados dentro de la aplicación utilizando el SDK or kit de desarrollo de software de Braze.
+> Sigue el código de ejemplo de este tutorial para aplazar y restaurar mensajes desencadenados dentro de la aplicación utilizando el SDK de Braze.
 
 {% sdktabs %}
 {% sdktab web %}

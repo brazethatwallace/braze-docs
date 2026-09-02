@@ -7,7 +7,7 @@ layout: api_page
 page_type: reference
 description: "Este artigo descreve os detalhes do endpoint Obter objeto de dados."
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Obter objeto de dados {#get-data-object}
 {% apimethod get %}
 /data_objects/objects/{type_name}/{external_id}
@@ -16,12 +16,12 @@ description: "Este artigo descreve os detalhes do endpoint Obter objeto de dados
 > Use este endpoint para retornar um objeto de dados.
 
 {% alert important %}
-Objetos de dados está atualmente em acesso antecipado. Seu espaço de trabalho precisa ser ativado antes que as permissões de chave de API or interface de programação do aplicativo (API) de objetos de dados apareçam em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**.
+Objetos de dados está atualmente em acesso antecipado. Seu espaço de trabalho precisa ser ativado antes que as permissões de chave de API de objetos de dados apareçam em **Configurações** > **Chaves de API**.
 {% endalert %}
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisa de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `data_objects.read`.
+Para usar este endpoint, você precisa de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `data_objects.read`.
 
 ## Limite de frequência {#rate-limit}
 
@@ -98,8 +98,8 @@ A tabela a seguir lista os erros comuns para este endpoint e como resolvê-los.
 | Status | Causa | Orientação |
 |---|---|---|
 | `404` | Tipo não encontrado (`data-object-type-not-found`) ou objeto não encontrado (`data-object-not-found`) | Confirme que `type_name` e `external_id` existem no espaço de trabalho. |
-| `401` | Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional ausente ou inválida | Verifique se o cabeçalho `Authorization` usa `Bearer YOUR_REST_API_KEY` e se a chave está ativa. |
-| `403` | A chave de API or interface de programação do aplicativo (API) não tem permissão ou a solicitação está bloqueada pela lista de permissões | Confirme que a chave tem a permissão `data_objects.read` e que o IP de origem está na lista de permissões da chave, se configurada. |
+| `401` | Chave da API REST ausente ou inválida | Verifique se o cabeçalho `Authorization` usa `Bearer YOUR_REST_API_KEY` e se a chave está ativa. |
+| `403` | A chave de API não tem permissão ou a solicitação está bloqueada pela lista de permissões | Confirme que a chave tem a permissão `data_objects.read` e que o IP de origem está na lista de permissões da chave, se configurada. |
 | `429` | Limite de frequência excedido | Tente novamente após `X-RateLimit-Reset` e reduza a frequência de solicitações. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Erros ao obter objeto de dados" }
 {% endapi %}

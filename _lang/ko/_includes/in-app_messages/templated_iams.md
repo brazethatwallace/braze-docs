@@ -2,7 +2,7 @@
 
 - `canvas_entry_properties`
 - `connected_content`
-- {% raw %}`{sms.${*}}`{% endraw %}와 같은 단문 메시지 서비스 변수
+- {% raw %}`{sms.${*}}`{% endraw %}와 같은 SMS 변수
 - `catalog_items`
 - `catalog_selection_items`
 - `event_properties`

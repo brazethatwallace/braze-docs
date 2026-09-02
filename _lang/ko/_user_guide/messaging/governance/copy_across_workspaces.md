@@ -23,7 +23,7 @@ Campaign, Canvas 또는 랜딩 페이지를 다른 워크스페이스로 복사�
 워크스페이스 간 Campaign 복사는 일반적으로 사용할 수 있습니다. Content Cards에 대한 채널 지원은 현재 제공되지 않습니다.
 {% endalert %}
 
-단문 메시지 서비스, 인앱 메시지, 푸시 알림, 이메일, 웹훅 등 지원되는 채널에 대해 워크스페이스 간 Campaign을 복사할 수 있습니다. 이메일 템플릿, 기능 플래그, Content Blocks도 복사할 수 있습니다. 지원되지 않는 채널이 포함된 멀티채널 캠페인은 다른 워크스페이스로 복사할 수 없습니다.
+SMS, 인앱 메시지, 푸시 알림, 이메일, 웹훅 등 지원되는 채널에 대해 워크스페이스 간 Campaign을 복사할 수 있습니다. 이메일 템플릿, 기능 플래그, Content Blocks도 복사할 수 있습니다. 지원되지 않는 채널이 포함된 멀티채널 캠페인은 다른 워크스페이스로 복사할 수 없습니다.
 
 Campaign을 다른 워크스페이스로 복사하려면:
 
@@ -38,7 +38,7 @@ Campaign을 다른 워크스페이스로 복사하려면:
 워크스페이스 간 Canvases 복사는 일반적으로 사용할 수 있습니다. LINE, Content Cards, WhatsApp 채널은 현재 지원되지 않습니다.
 {% endalert %}
 
-이메일, 인앱 메시지, 푸시, 웹훅, 단문 메시지 서비스 등 지원되는 채널에 대해 워크스페이스 간 Canvases를 복사할 수 있습니다.
+이메일, 인앱 메시지, 푸시, 웹훅, SMS 등 지원되는 채널에 대해 워크스페이스 간 Canvases를 복사할 수 있습니다.
 
 Canvas를 다른 워크스페이스로 복사하려면:
 
@@ -207,7 +207,7 @@ Campaign 또는 Canvas는 출시 후를 포함하여 수명 주기의 어느 시
 |---|---|
 | 이메일 본문 | 발신 주소 |
 | 메시지 추가 항목 | 회신 대상 |
-| 제목 | BCC or 배너 콘텐츠 카드 |
+| 제목 | BCC |
 | 제목줄 | 링크 템플릿 |
 |  | 링크 별칭 지정 |
 |  | 번역 |
@@ -220,7 +220,7 @@ Campaign 또는 Canvas는 출시 후를 포함하여 수명 주기의 어느 시
 |---|---|
 | 이메일 본문 | 발신 주소 |
 | 메시지 추가 항목 | 회신 대상 |
-| 제목 | BCC or 배너 콘텐츠 카드 |
+| 제목 | BCC |
 | 제목줄 | 링크 템플릿 |
 |  | 링크 별칭 지정 |
 |  | 번역 |
@@ -314,7 +314,7 @@ Campaign 또는 Canvas는 출시 후를 포함하여 수명 주기의 어느 시
 {% endtab %}
 {% endtabs %}
 
-### 단문 메시지 서비스 메시지 배리에이션 {#sms-message-variation}
+### SMS 메시지 배리에이션 {#sms-message-variation}
 
 {% tabs local %}
 {% tab campaigns %}
@@ -325,7 +325,7 @@ Campaign 또는 Canvas는 출시 후를 포함하여 수명 주기의 어느 시
 | 링크 단축 | VCF 미디어 항목 |
 | 클릭 추적 |  |
 | 미디어 항목 |  |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="단문 메시지 서비스 메시지 배리에이션" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS 메시지 배리에이션" }
 
 {% endtab %}
 {% tab canvas %}
@@ -336,7 +336,7 @@ Campaign 또는 Canvas는 출시 후를 포함하여 수명 주기의 어느 시
 | 링크 단축 | VCF 미디어 항목 |
 | 클릭 추적 |  |
 | 미디어 항목 |  |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="단문 메시지 서비스 메시지 배리에이션" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS 메시지 배리에이션" }
 
 {% endtab %}
 {% endtabs %}

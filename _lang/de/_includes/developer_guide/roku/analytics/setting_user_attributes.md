@@ -150,13 +150,13 @@ Um ein angepasstes Attribut zurückzusetzen, übergeben Sie den entsprechenden A
 m.Braze.unsetCustomAttribute("attributeName")
 ```
 
-### Verwendung der Representational State Transfer API {#using-the-rest-api}
+### Verwendung der REST API {#using-the-rest-api}
 
-Sie können auch unsere Representational State Transfer API verwenden, um Nutzer:innen-Attribute zu setzen oder zu löschen. Weitere Informationen finden Sie unter [Endpunkte für Nutzerdaten]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data).
+Sie können auch unsere REST API verwenden, um Nutzer:innen-Attribute zu setzen oder zu löschen. Weitere Informationen finden Sie unter [Endpunkte für Nutzerdaten]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data).
 
 ## E-Mail-Abonnements einstellen {#setting-email-subscriptions}
 
-Sie können die folgenden E-Mail-Abo-Status für Ihre Nutzer:innen programmatisch über das SDK or Software-Development-Kit einstellen.
+Sie können die folgenden E-Mail-Abo-Status für Ihre Nutzer:innen programmatisch über das SDK einstellen.
 
 | Abostatus | Definition |
 | ------------------- | ---------- |

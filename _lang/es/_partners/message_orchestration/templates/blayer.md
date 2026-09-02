@@ -10,7 +10,7 @@ search_tag: Partner
 
 # B.Layer
 
-> [B.Layer](https://blayer.phiture.com) es el creador de mensajes dentro de la aplicación de Phiture que ayuda a los equipos de CRM or administración de las relaciones con el cliente de las aplicaciones móviles a crear mensajes dentro de la aplicación diseñados a medida de forma sencilla, rápida y sin codificación.
+> [B.Layer](https://blayer.phiture.com) es el creador de mensajes dentro de la aplicación de Phiture que ayuda a los equipos de CRM de las aplicaciones móviles a crear mensajes dentro de la aplicación diseñados a medida de forma sencilla, rápida y sin codificación.
 
 _Esta integración está mantenida por B.Layer._
 

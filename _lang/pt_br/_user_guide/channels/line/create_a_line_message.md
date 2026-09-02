@@ -117,13 +117,13 @@ Para requisitos e etapas de teste, consulte [Enviar mensagens de teste]({{site.b
 
 #### Escolha um cronograma ou gatilho de entrega {#choose-a-delivery-schedule-or-trigger}
 
-Entregue mensagens LINE em um horário agendado ou em resposta a uma ação ou gatilho de API or interface de programação do aplicativo (API). Para opções de agendamento e gatilho, consulte [Agendar sua campanha]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
+Entregue mensagens LINE em um horário agendado ou em resposta a uma ação ou gatilho de API. Para opções de agendamento e gatilho, consulte [Agendar sua campanha]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
 Configure controles de entrega como [reelegibilidade]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility) e [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping). Para entrega baseada em ação, defina a duração da campanha e o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours).
 
 #### Escolha os usuários para direcionar {#choose-users-to-target}
 
-[Direcione usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) selecionando segmentos e filtros. A Braze calcula a associação exata ao Segment or segmento or segmento antes de enviar a mensagem.
+[Direcione usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) selecionando segmentos e filtros. A Braze calcula a associação exata ao Segment antes de enviar a mensagem.
 
 O LINE controla o status de inscrição de cada usuário. Um usuário deve ter um `native_line_id` e seguir o canal LINE associado ao grupo de inscrições selecionado para receber a mensagem. Para mais detalhes, consulte [Status de inscrição do LINE]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_status#line).
 

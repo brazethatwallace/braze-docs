@@ -97,7 +97,7 @@ BrazeはCurrentsにイベントをバックフィルしません。ただし、�
 
 メッセージエンゲージメントイベント（送信、開封、クリックなど）には、BrazeユーザーID（`user_id`）と、プロファイルに存在する場合は外部識別子（イベントペイロードでは`external_user_id`、Brazeスキーママッピングテーブルでは`external_id`と表記）が含まれます。一部のメールメッセージエンゲージメントイベントには`email_address`も含まれます。カスタム属性は含まれません。
 
-CurrentsデータをデータウェアハウスやCRM or カスタマーリレーションシップマネジメント CRMにルーティングし、プロファイルデータと結合する必要がある場合は、ダウンストリームシステムで`user_id`または`external_user_id`を使用してその結合を実行してください。
+CurrentsデータをデータウェアハウスやCRMにルーティングし、プロファイルデータと結合する必要がある場合は、ダウンストリームシステムで`user_id`または`external_user_id`を使用してその結合を実行してください。
 
 ## Currents送信イベントにカスタム属性を含めることはできますか？ {#can-i-include-custom-attributes-in-currents-send-events}
 

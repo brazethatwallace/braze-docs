@@ -9,9 +9,9 @@ search_tag: Partner
 
 # Algolia
 
-> A [Algolia](https://www.algolia.com/) é uma plataforma de pesquisa e descoberta que ajuda desenvolvedores a criar experiências de pesquisa rápidas, relevantes e escaláveis. Com uma abordagem poderosa baseada em API or interface de programação do aplicativo (API), a Algolia combina algoritmos avançados de ranqueamento com insights orientados por IA para pesquisa em sites, navegação e descoberta de conteúdo personalizado de forma integrada.
+> A [Algolia](https://www.algolia.com/) é uma plataforma de pesquisa e descoberta que ajuda desenvolvedores a criar experiências de pesquisa rápidas, relevantes e escaláveis. Com uma abordagem poderosa baseada em API, a Algolia combina algoritmos avançados de ranqueamento com insights orientados por IA para pesquisa em sites, navegação e descoberta de conteúdo personalizado de forma integrada.
 
-A integração entre Algolia e Braze usa o [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) para preencher resultados de pesquisa e recomendações de produtos da Algolia nas suas mensagens da Braze. Ao consultar a API or interface de programação do aplicativo (API) da Algolia no momento do envio, você pode entregar conteúdo personalizado que direciona os usuários para páginas de detalhes de produtos ou landing pages de alta conversão.
+A integração entre Algolia e Braze usa o [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) para preencher resultados de pesquisa e recomendações de produtos da Algolia nas suas mensagens da Braze. Ao consultar a API da Algolia no momento do envio, você pode entregar conteúdo personalizado que direciona os usuários para páginas de detalhes de produtos ou landing pages de alta conversão.
 
 ## Casos de uso {#use-cases}
 
@@ -23,20 +23,20 @@ A integração entre Algolia e Braze usa o [Conteúdo conectado]({{site.baseurl}
 | Requisito | Descrição |
 |-------------|-------------|
 | Conta na Algolia | Uma conta na Algolia é necessária para aproveitar essa parceria. |
-| Credenciais de API or interface de programação do aplicativo (API) da Algolia | Sua chave de API or interface de programação do aplicativo (API) e ID de aplicativo da Algolia. |
+| Credenciais de API da Algolia | Sua chave de API e ID de aplicativo da Algolia. |
 | Índice de produtos da Algolia | Um índice da Algolia preenchido com os dados dos seus produtos. Isso é necessário para usar as APIs de Search ou Recommend. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Integração {#integration}
 
-### Etapa 1: Configure sua solicitação de API or interface de programação do aplicativo (API) da Algolia {#step-1-set-up-your-algolia-api-request}
+### Etapa 1: Configure sua solicitação de API da Algolia {#step-1-set-up-your-algolia-api-request}
 
-Para saber mais sobre formatos de solicitação, estruturas de resposta e uso, consulte a documentação da [API or interface de programação do aplicativo (API) de Search da Algolia](https://www.algolia.com/doc/rest-api/search) e da [API or interface de programação do aplicativo (API) de Recommend da Algolia](https://www.algolia.com/doc/rest-api/recommend). Se precisar de ajuda com a configuração, entre em contato com a equipe da Algolia.
+Para saber mais sobre formatos de solicitação, estruturas de resposta e uso, consulte a documentação da [API de Search da Algolia](https://www.algolia.com/doc/rest-api/search) e da [API de Recommend da Algolia](https://www.algolia.com/doc/rest-api/recommend). Se precisar de ajuda com a configuração, entre em contato com a equipe da Algolia.
 
 {% tabs local %}
-{% tab Search API or interface de programação do aplicativo (API) %}
+{% tab Search API %}
 
-#### Exemplo de solicitação da Search API or interface de programação do aplicativo (API) {#example-search-api-request}
+#### Exemplo de solicitação da Search API {#example-search-api-request}
 
 ```
 POST https://{ALGOLIA_APP_ID}-dsn.algolia.net/1/indexes/{INDEX_NAME}/query
@@ -65,9 +65,9 @@ Recupere campos adicionais usando `attributesToRetrieve` para aprimorar a person
 {% endalert %}
 
 {% endtab %}
-{% tab Recommend API or interface de programação do aplicativo (API) %}
+{% tab Recommend API %}
 
-#### Exemplo de solicitação da Recommend API or interface de programação do aplicativo (API) {#example-recommend-api-request}
+#### Exemplo de solicitação da Recommend API {#example-recommend-api-request}
 
 ```
 POST https://{ALGOLIA_APP_ID}.algolia.net/1/indexes/*/recommendations
@@ -91,7 +91,7 @@ X-Algolia-Application-Id: {ALGOLIA_APP_ID}
 }
 ```
 
-A Recommend API or interface de programação do aplicativo (API) suporta múltiplos modelos, incluindo **Frequently Bought Together**, **Related Products**, **Trending Items**, **Trending Facet Values** e **Looking Similar**. Este exemplo usa o modelo **Trending Items**.
+A Recommend API suporta múltiplos modelos, incluindo **Frequently Bought Together**, **Related Products**, **Trending Items**, **Trending Facet Values** e **Looking Similar**. Este exemplo usa o modelo **Trending Items**.
 
 {% alert important %}
 Se suas recomendações dependem de atributos específicos do usuário ou objectIDs, esteja atento aos limites de taxa definidos no seu contrato com a Algolia. Consulte a seção [Considerações](#considerations) para conhecer as melhores práticas.
@@ -102,10 +102,10 @@ Se suas recomendações dependem de atributos específicos do usuário ou object
 
 ### Etapa 2: Implemente o Conteúdo conectado da Braze {#step-2-implement-braze-connected-content}
 
-Use o recurso de Conteúdo conectado da Braze para fazer chamadas de API or interface de programação do aplicativo (API) para os endpoints da Algolia e injetar dinamicamente a resposta em uma mensagem. Para saber mais sobre configuração, formatação de solicitações e melhores práticas, consulte [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/).
+Use o recurso de Conteúdo conectado da Braze para fazer chamadas de API para os endpoints da Algolia e injetar dinamicamente a resposta em uma mensagem. Para saber mais sobre configuração, formatação de solicitações e melhores práticas, consulte [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/).
 
 {% tabs local %}
-{% tab Search API or interface de programação do aplicativo (API) %}
+{% tab Search API %}
 
 #### Exemplo de solicitação de Conteúdo conectado para Search {#example-connected-content-search-request}
 
@@ -130,7 +130,7 @@ Use o recurso de Conteúdo conectado da Braze para fazer chamadas de API or inte
 {% endraw %}
 
 {% endtab %}
-{% tab Recommend API or interface de programação do aplicativo (API) %}
+{% tab Recommend API %}
 
 #### Exemplo de solicitação de Conteúdo conectado para Recommend {#example-connected-content-recommend-request}
 
@@ -163,12 +163,12 @@ Use o recurso de Conteúdo conectado da Braze para fazer chamadas de API or inte
 
 ### Etapa 3: Formate os resultados de pesquisa nas mensagens da Braze {#step-3-format-search-results-in-braze-messages}
 
-Após buscar os resultados da Algolia, use Liquid para analisar a resposta da API or interface de programação do aplicativo (API) e renderizar dinamicamente os resultados dentro da sua mensagem.
+Após buscar os resultados da Algolia, use Liquid para analisar a resposta da API e renderizar dinamicamente os resultados dentro da sua mensagem.
 
 {% tabs local %}
-{% tab Search API or interface de programação do aplicativo (API) %}
+{% tab Search API %}
 
-#### Exemplo de modelo de e-mail em Liquid para Search API or interface de programação do aplicativo (API) {#example-liquid-email-template-for-search-api}
+#### Exemplo de modelo de e-mail em Liquid para Search API {#example-liquid-email-template-for-search-api}
 
 {% raw %}
 ```liquid
@@ -183,12 +183,12 @@ Após buscar os resultados da Algolia, use Liquid para analisar a resposta da AP
 ```
 {% endraw %}
 
-Isso gera uma lista de produtos a partir dos resultados da Search API or interface de programação do aplicativo (API) dentro do corpo da mensagem. Cada link de produto direciona os usuários para uma página de detalhes do produto (PDP) ou uma landing page específica da Campaign.
+Isso gera uma lista de produtos a partir dos resultados da Search API dentro do corpo da mensagem. Cada link de produto direciona os usuários para uma página de detalhes do produto (PDP) ou uma landing page específica da Campaign.
 
 {% endtab %}
-{% tab Recommend API or interface de programação do aplicativo (API) %}
+{% tab Recommend API %}
 
-#### Exemplo de modelo de e-mail em Liquid para Recommend API or interface de programação do aplicativo (API) {#example-liquid-email-template-for-recommend-api}
+#### Exemplo de modelo de e-mail em Liquid para Recommend API {#example-liquid-email-template-for-recommend-api}
 
 {% raw %}
 ```liquid
@@ -203,7 +203,7 @@ Isso gera uma lista de produtos a partir dos resultados da Search API or interfa
 ```
 {% endraw %}
 
-Isso gera uma lista de produtos recomendados a partir dos resultados da Recommend API or interface de programação do aplicativo (API) dentro do corpo da mensagem. Cada link de produto direciona os usuários para uma página de detalhes do produto (PDP) ou uma landing page específica da Campaign.
+Isso gera uma lista de produtos recomendados a partir dos resultados da Recommend API dentro do corpo da mensagem. Cada link de produto direciona os usuários para uma página de detalhes do produto (PDP) ou uma landing page específica da Campaign.
 
 {% endtab %}
 {% endtabs %}
@@ -212,8 +212,8 @@ Isso gera uma lista de produtos recomendados a partir dos resultados da Recommen
 
 ### Evitar consultas únicas {#avoiding-unique-queries}
 
-Esteja atento aos limites de taxa da Algolia definidos no seu contrato. Evite fazer consultas específicas por usuário, pois elas podem exceder rapidamente o número de solicitações permitidas. Para personalizar os resultados, direcione para um Segment or segmento or segmento em vez de um ID de usuário individual, ou filtre por categoria ou marca em vez de um objectID específico. Use atributos da Braze para personalizar ainda mais as recomendações.
+Esteja atento aos limites de taxa da Algolia definidos no seu contrato. Evite fazer consultas específicas por usuário, pois elas podem exceder rapidamente o número de solicitações permitidas. Para personalizar os resultados, direcione para um Segment em vez de um ID de usuário individual, ou filtre por categoria ou marca em vez de um objectID específico. Use atributos da Braze para personalizar ainda mais as recomendações.
 
 ### Armazenar em cache os resultados do Conteúdo conectado {#caching-connected-content-results}
 
-Armazene em cache os resultados do Conteúdo conectado usando `cache_max_age` para minimizar as solicitações de API or interface de programação do aplicativo (API) para a Algolia e melhorar o desempenho. Para saber mais, consulte [Armazenamento de respostas em cache]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses/).
+Armazene em cache os resultados do Conteúdo conectado usando `cache_max_age` para minimizar as solicitações de API para a Algolia e melhorar o desempenho. Para saber mais, consulte [Armazenamento de respostas em cache]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses/).

@@ -8,7 +8,7 @@ A Braze permite que o usuário tenha a opção de controlar o tráfego de rede u
 {% tab automatic %}
 Por padrão, o valor do enum `RequestPolicy` é definido como `automatic`. Quando definido, solicitações imediatas ao servidor são realizadas quando dados voltados para o usuário são necessários para os recursos do Braze, como mensagens no aplicativo.
 
-O SDK or kit de desenvolvimento de software da Braze tratará automaticamente de toda a comunicação com o servidor, incluindo:
+O SDK da Braze tratará automaticamente de toda a comunicação com o servidor, incluindo:
 
 - Envio de eventos personalizados e dados de atributos para os servidores Braze
 - Atualização de cartões de conteúdo e geofences

@@ -106,25 +106,25 @@ tool: Currents
 * Adicionado novo tipo de evento `users.UserOrphan`.
 
 * Alterações de campo no tipo de evento `users.messages.rcs.Abort`:
-    * Adicionado novo campo `string` `canvas_id`: ID de API or interface de programação do aplicativo (API) do Canvas ao qual este evento pertence
+    * Adicionado novo campo `string` `canvas_id`: ID de API do Canvas ao qual este evento pertence
 
 * Alterações de campo no tipo de evento `users.messages.rcs.Click`:
-    * Adicionado novo campo `string` `canvas_id`: ID de API or interface de programação do aplicativo (API) do Canvas ao qual este evento pertence
+    * Adicionado novo campo `string` `canvas_id`: ID de API do Canvas ao qual este evento pertence
 
 * Alterações de campo no tipo de evento `users.messages.rcs.Delivery`:
-    * Adicionado novo campo `string` `canvas_id`: ID de API or interface de programação do aplicativo (API) do Canvas ao qual este evento pertence
+    * Adicionado novo campo `string` `canvas_id`: ID de API do Canvas ao qual este evento pertence
 
 * Alterações de campo no tipo de evento `users.messages.rcs.InboundReceive`:
-    * Adicionado novo campo `string` `canvas_id`: ID de API or interface de programação do aplicativo (API) do Canvas ao qual este evento pertence
+    * Adicionado novo campo `string` `canvas_id`: ID de API do Canvas ao qual este evento pertence
 
 * Alterações de campo no tipo de evento `users.messages.rcs.Read`:
-    * Adicionado novo campo `string` `canvas_id`: ID de API or interface de programação do aplicativo (API) do Canvas ao qual este evento pertence
+    * Adicionado novo campo `string` `canvas_id`: ID de API do Canvas ao qual este evento pertence
 
 * Alterações de campo no tipo de evento `users.messages.rcs.Rejection`:
-    * Adicionado novo campo `string` `canvas_id`: ID de API or interface de programação do aplicativo (API) do Canvas ao qual este evento pertence
+    * Adicionado novo campo `string` `canvas_id`: ID de API do Canvas ao qual este evento pertence
 
 * Alterações de campo no tipo de evento `users.messages.rcs.Send`:
-    * Adicionado novo campo `string` `canvas_id`: ID de API or interface de programação do aplicativo (API) do Canvas ao qual este evento pertence
+    * Adicionado novo campo `string` `canvas_id`: ID de API do Canvas ao qual este evento pertence
 
 ## Alterações na versão 9 (data de lançamento: 03/06/2026) {#changes-in-version-9-release-date-2026-06-03}
 
@@ -171,27 +171,27 @@ tool: Currents
     * Adicionado novo campo `string` `canvas_name`: Nome do Canvas
     * Adicionado novo campo `string` `canvas_step_name`: Nome da etapa do Canvas
     * Adicionado novo campo `string` `canvas_variation_name`: Nome da variação do Canvas que este usuário recebeu
-    * Adicionado novo campo `string` `canvas_id`: ID de API or interface de programação do aplicativo (API) do Canvas ao qual este evento pertence
-    * Adicionado novo campo `string` `canvas_step_id`: ID de API or interface de programação do aplicativo (API) da etapa do Canvas à qual este evento pertence
-    * Adicionado novo campo `string` `canvas_step_message_variation_id`: ID de API or interface de programação do aplicativo (API) da variação de mensagem da etapa do Canvas que este usuário recebeu
-    * Adicionado novo campo `string` `canvas_variation_id`: ID de API or interface de programação do aplicativo (API) da variação do Canvas à qual este evento pertence
+    * Adicionado novo campo `string` `canvas_id`: ID de API do Canvas ao qual este evento pertence
+    * Adicionado novo campo `string` `canvas_step_id`: ID de API da etapa do Canvas à qual este evento pertence
+    * Adicionado novo campo `string` `canvas_step_message_variation_id`: ID de API da variação de mensagem da etapa do Canvas que este usuário recebeu
+    * Adicionado novo campo `string` `canvas_variation_id`: ID de API da variação do Canvas à qual este evento pertence
 
 * Alterações de campo no tipo de evento `users.messages.banner.Click`:
-    * Adicionado novo campo `string` `canvas_id`: ID de API or interface de programação do aplicativo (API) do Canvas ao qual este evento pertence
-    * Adicionado novo campo `string` `canvas_step_id`: ID de API or interface de programação do aplicativo (API) da etapa do Canvas à qual este evento pertence
+    * Adicionado novo campo `string` `canvas_id`: ID de API do Canvas ao qual este evento pertence
+    * Adicionado novo campo `string` `canvas_step_id`: ID de API da etapa do Canvas à qual este evento pertence
     * Adicionado novo campo `string` `canvas_name`: Nome do Canvas
     * Adicionado novo campo `string` `canvas_step_name`: Nome da etapa do Canvas
-    * Adicionado novo campo `string` `canvas_step_message_variation_id`: ID de API or interface de programação do aplicativo (API) da variação de mensagem da etapa do Canvas que este usuário recebeu
-    * Adicionado novo campo `string` `canvas_variation_id`: ID de API or interface de programação do aplicativo (API) da variação do Canvas à qual este evento pertence
+    * Adicionado novo campo `string` `canvas_step_message_variation_id`: ID de API da variação de mensagem da etapa do Canvas que este usuário recebeu
+    * Adicionado novo campo `string` `canvas_variation_id`: ID de API da variação do Canvas à qual este evento pertence
     * Adicionado novo campo `string` `canvas_variation_name`: Nome da variação do Canvas que este usuário recebeu
 
 * Alterações de campo no tipo de evento `users.messages.banner.Impression`:
-    * Adicionado novo campo `string` `canvas_id`: ID de API or interface de programação do aplicativo (API) do Canvas ao qual este evento pertence
-    * Adicionado novo campo `string` `canvas_step_id`: ID de API or interface de programação do aplicativo (API) da etapa do Canvas à qual este evento pertence
+    * Adicionado novo campo `string` `canvas_id`: ID de API do Canvas ao qual este evento pertence
+    * Adicionado novo campo `string` `canvas_step_id`: ID de API da etapa do Canvas à qual este evento pertence
     * Adicionado novo campo `string` `canvas_name`: Nome do Canvas
     * Adicionado novo campo `string` `canvas_step_name`: Nome da etapa do Canvas
-    * Adicionado novo campo `string` `canvas_step_message_variation_id`: ID de API or interface de programação do aplicativo (API) da variação de mensagem da etapa do Canvas que este usuário recebeu
-    * Adicionado novo campo `string` `canvas_variation_id`: ID de API or interface de programação do aplicativo (API) da variação do Canvas à qual este evento pertence
+    * Adicionado novo campo `string` `canvas_step_message_variation_id`: ID de API da variação de mensagem da etapa do Canvas que este usuário recebeu
+    * Adicionado novo campo `string` `canvas_variation_id`: ID de API da variação do Canvas à qual este evento pertence
     * Adicionado novo campo `string` `canvas_variation_name`: Nome da variação do Canvas que este usuário recebeu
 
 ## Alterações na Versão 6 (data de lançamento: 04/03/2026) {#changes-in-version-6-release-date-2026-03-04}
@@ -251,7 +251,7 @@ tool: Currents
     * O campo `user_id` agora é *opcional*.
 
 * Alterações de campo no tipo de evento `users.messages.rcs.Rejection`:
-    * Adicionado novo campo `string` `canvas_step_message_variation_id`: ID de API or interface de programação do aplicativo (API) da variação de mensagem da etapa do Canvas que este usuário recebeu
+    * Adicionado novo campo `string` `canvas_step_message_variation_id`: ID de API da variação de mensagem da etapa do Canvas que este usuário recebeu
 
 ## Alterações na Versão 3 (data de lançamento: 2025-10-08) {#changes-in-version-3-release-date-2025-10-08}
 

@@ -3,7 +3,7 @@ nav_title: In-App-Nachrichten-Zustellung
 article_title: In-App-Nachrichten-Zustellung für iOS
 platform: iOS
 page_order: 3
-description: "Dieser Referenzartikel behandelt die Zustellung von iOS-In-App-Nachrichten und listet verschiedene Trigger or triggern-Typen, Zustellungssemantiken und Schritte zur Event-Auslösung auf."
+description: "Dieser Referenzartikel behandelt die Zustellung von iOS-In-App-Nachrichten und listet verschiedene Trigger-Typen, Zustellungssemantiken und Schritte zur Event-Auslösung auf."
 channel:
   - in-app messages
 
@@ -14,23 +14,23 @@ noindex: true
 
 # Zustellung von In-App-Nachrichten {#in-app-message-delivery}
 
-## Trigger or triggern-Typen {#trigger-types}
+## Trigger-Typen {#trigger-types}
 
-Unser In-App-Nachricht-Produkt ermöglicht es Ihnen, die Anzeige von In-App-Nachrichten als Ergebnis verschiedener Event-Typen zu Trigger or triggern or triggern: `Any Purchase`, `Specific Purchase`, `Session Start`, `Custom Event` und `Push Click`. Darüber hinaus enthalten die Trigger or triggern `Specific Purchase` und `Custom Event` umfangreiche Eigenschaftsfilter.
+Unser In-App-Nachricht-Produkt ermöglicht es Ihnen, die Anzeige von In-App-Nachrichten als Ergebnis verschiedener Event-Typen zu triggern: `Any Purchase`, `Specific Purchase`, `Session Start`, `Custom Event` und `Push Click`. Darüber hinaus enthalten die Trigger `Specific Purchase` und `Custom Event` umfangreiche Eigenschaftsfilter.
 
 {% alert note %}
-Getriggerte In-App-Nachrichten funktionieren nur mit angepassten Events, die über das Braze SDK or Software-Development-Kit protokolliert werden. In-App-Nachrichten können nicht über die API oder durch API-Events (wie z. B. Kauf-Events) getriggert werden. Wenn Sie mit iOS arbeiten, besuchen Sie unseren Artikel zum [Tracking angepasster Events]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=swift), um mehr zu erfahren.
+Getriggerte In-App-Nachrichten funktionieren nur mit angepassten Events, die über das Braze SDK protokolliert werden. In-App-Nachrichten können nicht über die API oder durch API-Events (wie z. B. Kauf-Events) getriggert werden. Wenn Sie mit iOS arbeiten, besuchen Sie unseren Artikel zum [Tracking angepasster Events]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=swift), um mehr zu erfahren.
 {% endalert %}
 
 ## Zustellungs-Semantik {#delivery-semantics}
 
-Alle In-App-Nachrichten, für die ein:e Nutzer:in qualifiziert ist, werden beim Sitzungsstart an das Gerät der/des Nutzer:in zugestellt. Falls zwei In-App-Nachrichten durch ein Event getriggert werden, wird die In-App-Nachricht mit der höheren Priorität angezeigt. Weitere Informationen zur Sitzungsstart-Semantik des SDK or Software-Development-Kit finden Sie unter [Sitzungslebenszyklus]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/analytics/tracking_sessions#session-lifecycle). Bei der Zustellung ruft das SDK or Software-Development-Kit Assets vorab ab, damit sie zum Trigger or triggern-Zeitpunkt sofort verfügbar sind, um die Anzeigelatenz zu minimieren.
+Alle In-App-Nachrichten, für die ein:e Nutzer:in qualifiziert ist, werden beim Sitzungsstart an das Gerät der/des Nutzer:in zugestellt. Falls zwei In-App-Nachrichten durch ein Event getriggert werden, wird die In-App-Nachricht mit der höheren Priorität angezeigt. Weitere Informationen zur Sitzungsstart-Semantik des SDK finden Sie unter [Sitzungslebenszyklus]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/analytics/tracking_sessions#session-lifecycle). Bei der Zustellung ruft das SDK Assets vorab ab, damit sie zum Trigger-Zeitpunkt sofort verfügbar sind, um die Anzeigelatenz zu minimieren.
 
-Wenn ein Trigger or triggern-Event mehr als eine qualifizierte In-App-Nachricht hat, wird nur die In-App-Nachricht mit der höchsten Priorität zugestellt.
+Wenn ein Trigger-Event mehr als eine qualifizierte In-App-Nachricht hat, wird nur die In-App-Nachricht mit der höchsten Priorität zugestellt.
 
 Bei In-App-Nachrichten, die sofort bei der Zustellung angezeigt werden (Sitzungsstart, Push-Klick), kann es zu einer gewissen Latenz kommen, da Assets nicht vorab abgerufen wurden.
 
-## Minimales Zeitintervall zwischen Trigger or triggern or triggern {#minimum-time-interval-between-triggers}
+## Minimales Zeitintervall zwischen Triggern {#minimum-time-interval-between-triggers}
 
 Standardmäßig werden In-App-Nachrichten auf einmal alle 30 Sekunden begrenzt, um ein hochwertiges Nutzungserlebnis zu ermöglichen.
 
@@ -57,9 +57,9 @@ Appboy.start(withApiKey: "YOUR-API-KEY", in:application, withLaunchOptions:launc
 {% endtab %}
 {% endtabs %}
 
-## Kein passender Trigger or triggern gefunden {#failing-to-find-a-matching-trigger}
+## Kein passender Trigger gefunden {#failing-to-find-a-matching-trigger}
 
-Wenn Braze keinen passenden Trigger or triggern für ein bestimmtes Event findet, wird die Methode [noMatchingTriggerForEvent:name:](https://appboy.github.io/appboy-ios-sdk/docs/protocol_a_b_k_in_app_message_controller_delegate-p.html#ab4d57b13c51545d487227945a37d4ab8) des [`ABKInAppMessageControllerDelegate`](https://appboy.github.io/appboy-ios-sdk/docs/protocol_a_b_k_in_app_message_controller_delegate-p.html) aufgerufen. Implementieren Sie diese Methode in Ihrer Klasse, die das Delegate-Protokoll übernimmt, um dieses Szenario zu behandeln.
+Wenn Braze keinen passenden Trigger für ein bestimmtes Event findet, wird die Methode [noMatchingTriggerForEvent:name:](https://appboy.github.io/appboy-ios-sdk/docs/protocol_a_b_k_in_app_message_controller_delegate-p.html#ab4d57b13c51545d487227945a37d4ab8) des [`ABKInAppMessageControllerDelegate`](https://appboy.github.io/appboy-ios-sdk/docs/protocol_a_b_k_in_app_message_controller_delegate-p.html) aufgerufen. Implementieren Sie diese Methode in Ihrer Klasse, die das Delegate-Protokoll übernimmt, um dieses Szenario zu behandeln.
 
 ## Lokale Zustellung von In-App-Nachrichten {#local-in-app-message-delivery}
 
@@ -77,11 +77,11 @@ Zeigen Sie keine In-App-Nachrichten an, während die Tastatur auf dem Bildschirm
 
 Nutzer:innen sind in den folgenden Situationen berechtigt, eine In-App-Nachricht zu erhalten:
 
-- Ein Trigger or triggern-Event für In-App-Nachrichten wird ausgelöst
+- Ein Trigger-Event für In-App-Nachrichten wird ausgelöst
 - Sitzungsstart-Event
 - Die App wird über eine Push-Benachrichtigung geöffnet
 
-Getriggerte In-App-Nachrichten werden auf den Stack gelegt, wenn ihr Trigger or triggern-Event ausgelöst wird. Wenn sich mehrere In-App-Nachrichten im Stack befinden und darauf warten, angezeigt zu werden, zeigt Braze die zuletzt empfangene In-App-Nachricht zuerst an (Last-in, First-out).
+Getriggerte In-App-Nachrichten werden auf den Stack gelegt, wenn ihr Trigger-Event ausgelöst wird. Wenn sich mehrere In-App-Nachrichten im Stack befinden und darauf warten, angezeigt zu werden, zeigt Braze die zuletzt empfangene In-App-Nachricht zuerst an (Last-in, First-out).
 
 #### In-App-Nachrichten zum Stack zurückgeben {#returning-in-app-messages-to-the-stack}
 
@@ -126,7 +126,7 @@ Appboy.sharedInstance()!.inAppMessageController.displayNextInAppMessage()
 
 ### Realtime-Erstellung und -Anzeige von In-App-Nachrichten {#real-time-in-app-message-creation-and-display}
 
-In-App-Nachrichten können auch lokal innerhalb der App erstellt und über Braze angezeigt werden. Dies ist besonders nützlich, um Nachrichten anzuzeigen, die Sie in Realtime innerhalb der App Trigger or triggern or triggern möchten. Braze unterstützt keine Analytics für lokal erstellte In-App-Nachrichten.
+In-App-Nachrichten können auch lokal innerhalb der App erstellt und über Braze angezeigt werden. Dies ist besonders nützlich, um Nachrichten anzuzeigen, die Sie in Realtime innerhalb der App triggern möchten. Braze unterstützt keine Analytics für lokal erstellte In-App-Nachrichten.
 
 {% tabs %}
 {% tab OBJECTIVE-C %}

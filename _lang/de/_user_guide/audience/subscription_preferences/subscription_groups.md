@@ -2,7 +2,7 @@
 nav_title: Abo-Gruppen
 article_title: Abo-Gruppen
 page_order: 4
-description: "Erfahren Sie, wie Abo-Gruppen kanalübergreifend in Braze funktionieren, wie Sie sie erstellen und verwalten, und welches kanalspezifische Verhalten für E-Mail, WhatsApp, Kurzmitteilungsdienst or SMS, MMS, RCS und LINE gilt."
+description: "Erfahren Sie, wie Abo-Gruppen kanalübergreifend in Braze funktionieren, wie Sie sie erstellen und verwalten, und welches kanalspezifische Verhalten für E-Mail, WhatsApp, SMS, MMS, RCS und LINE gilt."
 ---
 
 # Abo-Gruppen {#subscription-groups}
@@ -11,7 +11,7 @@ description: "Erfahren Sie, wie Abo-Gruppen kanalübergreifend in Braze funktion
 
 Abo-Gruppen steuern, welche Nutzer:innen Nachrichten von einer bestimmten Gruppe von Senderessourcen innerhalb eines Kanals empfangen können.
 
-Für E-Mail sind Abo-Gruppen optionale Kategoriefilter zusätzlich zum globalen Abo-Status. Für Kurzmitteilungsdienst or SMS, WhatsApp und LINE sind Abo-Gruppen Zielgruppenfilter, die für jeden Versand erforderlich sind. Sie ermöglichen granulare Opt-in- und Opt-out-Optionen – etwa Newsletter versus Aktionen oder transaktionale versus Marketing-Kurzmitteilungsdienst or SMS – ohne den globalen Kanal-Abo-Status einer Nutzer:in zu ändern, sofern ein solcher existiert.
+Für E-Mail sind Abo-Gruppen optionale Kategoriefilter zusätzlich zum globalen Abo-Status. Für SMS, WhatsApp und LINE sind Abo-Gruppen Zielgruppenfilter, die für jeden Versand erforderlich sind. Sie ermöglichen granulare Opt-in- und Opt-out-Optionen – etwa Newsletter versus Aktionen oder transaktionale versus Marketing-SMS – ohne den globalen Kanal-Abo-Status einer Nutzer:in zu ändern, sofern ein solcher existiert.
 
 Verwenden Sie die [Endpunkte für Abo-Gruppen]({{site.baseurl}}/api/endpoints/subscription_groups), um Abo-Gruppen in Ihrem Braze-Workspace programmatisch zu verwalten.
 
@@ -24,16 +24,16 @@ Einige Kanäle haben sowohl einen globalen Abo-Status als auch Abo-Gruppen:
 | Kanal | Globaler Abo-Status | Abo-Gruppen |
 | --- | --- | --- |
 | E-Mail | Opted-in, abonniert oder abgemeldet für alle E-Mails | Optionale Kategorien (z. B. Newsletter oder Aktionen) innerhalb von E-Mail |
-| Kurzmitteilungsdienst or SMS, MMS und RCS | Kein globaler Kurzmitteilungsdienst or SMS-Status; Abo erfolgt pro Gruppe | Für jeden Versand erforderlich; jede Gruppe enthält Sendetelefonnummern oder RCS-Absender |
+| SMS, MMS und RCS | Kein globaler SMS-Status; Abo erfolgt pro Gruppe | Für jeden Versand erforderlich; jede Gruppe enthält Sendetelefonnummern oder RCS-Absender |
 | WhatsApp | Kein globaler WhatsApp-Status; Abo erfolgt pro Gruppe | Wird bei der WhatsApp-Integration erstellt; jede Gruppe ist einer Sendetelefonnummer zugeordnet |
 | LINE | Kein globaler LINE-Status; Abo erfolgt pro Gruppe | Wird pro LINE-Kanal-Integration erstellt; Folgen oder Entfolgen in der LINE-App bestimmt den Status |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Globaler Abo-Status versus Abo-Gruppen" }
 
-Eine Nutzer:in kann global für E-Mail abonniert sein, während sie sich von einer bestimmten E-Mail-Abo-Gruppe abgemeldet hat. Bei Kurzmitteilungsdienst or SMS kann eine Nutzer:in gleichzeitig bei einer transaktionalen Gruppe abonniert und bei einer werblichen Gruppe abgemeldet sein.
+Eine Nutzer:in kann global für E-Mail abonniert sein, während sie sich von einer bestimmten E-Mail-Abo-Gruppe abgemeldet hat. Bei SMS kann eine Nutzer:in gleichzeitig bei einer transaktionalen Gruppe abonniert und bei einer werblichen Gruppe abgemeldet sein.
 
 ## Eine Abo-Gruppe erstellen {#create-a-subscription-group}
 
-Wie Sie eine Abo-Gruppe erhalten, hängt vom Kanal ab. E-Mail-Gruppen werden im Dashboard erstellt; Kurzmitteilungsdienst or SMS-, MMS- und RCS-Gruppen werden beim Onboarding bereitgestellt; WhatsApp- und LINE-Gruppen werden während der Kanal-Integration erstellt. Kanalspezifische Details zur Bereitstellung finden Sie unter [Kanalspezifisches Verhalten](#channel-specific-behavior).
+Wie Sie eine Abo-Gruppe erhalten, hängt vom Kanal ab. E-Mail-Gruppen werden im Dashboard erstellt; SMS-, MMS- und RCS-Gruppen werden beim Onboarding bereitgestellt; WhatsApp- und LINE-Gruppen werden während der Kanal-Integration erstellt. Kanalspezifische Details zur Bereitstellung finden Sie unter [Kanalspezifisches Verhalten](#channel-specific-behavior).
 
 ### E-Mail {#email}
 
@@ -62,18 +62,18 @@ Einige Kanäle haben zusätzliche Archivierungsregeln. Informationen zum Workspa
 
 ## Abo-Gruppen einer Nutzer:in prüfen {#check-a-users-subscription-groups}
 
-- **Kundenprofil or Nutzerprofil:** Öffnen Sie ein Profil über [Nutzersuche]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles). Auf dem Tab **Engagement** können Sie Abo-Gruppen und den Status für E-Mail, Kurzmitteilungsdienst or SMS, WhatsApp und verwandte Kanäle einsehen.
-- **Representational State Transfer API:** Verwenden Sie die Endpunkte [Abo-Gruppen einer Nutzer:in auflisten]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) oder [Abo-Gruppenstatus einer Nutzer:in auflisten]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status).
+- **Kundenprofil:** Öffnen Sie ein Profil über [Nutzersuche]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles). Auf dem Tab **Engagement** können Sie Abo-Gruppen und den Status für E-Mail, SMS, WhatsApp und verwandte Kanäle einsehen.
+- **REST API:** Verwenden Sie die Endpunkte [Abo-Gruppen einer Nutzer:in auflisten]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) oder [Abo-Gruppenstatus einer Nutzer:in auflisten]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status).
 
-### Abo-Gruppenstatus Update or aktualisieren or aktualisieren {#update-subscription-group-status}
+### Abo-Gruppenstatus aktualisieren {#update-subscription-group-status}
 
-Sie können die Abo-Gruppen-Mitgliedschaft einer Nutzer:in über die Representational State Transfer API, das SDK or Software-Development-Kit, Nutzerimport, das Kundenprofil or Nutzerprofil, das E-Mail-Präferenzzentrum, den User-Update or aktualisieren-Schritt in einem Canvas und andere kanalspezifische Abläufe Update or aktualisieren or aktualisieren. Die verfügbaren Methoden hängen vom Kanal ab – siehe jeden [Kanalabschnitt](#channel-specific-behavior) und [Kurzmitteilungsdienst or SMS-, MMS- und RCS-Abo-Gruppen]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#set-a-users-state) für Kurzmitteilungsdienst or SMS-spezifische Hinweise zum Timing.
+Sie können die Abo-Gruppen-Mitgliedschaft einer Nutzer:in über die REST API, das SDK, Nutzerimport, das Kundenprofil, das E-Mail-Präferenzzentrum, den User-Update-Schritt in einem Canvas und andere kanalspezifische Abläufe aktualisieren. Die verfügbaren Methoden hängen vom Kanal ab – siehe jeden [Kanalabschnitt](#channel-specific-behavior) und [SMS-, MMS- und RCS-Abo-Gruppen]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#set-a-users-state) für SMS-spezifische Hinweise zum Timing.
 
 ## Präferenzzentren {#preference-centers}
 
 E-Mail-Abo-Gruppen können in einem [E-Mail-Präferenzzentrum]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center) angezeigt werden, damit Nutzer:innen ihre E-Mail-Opt-ins auf Kategorieebene an einem Ort verwalten können. Aktive E-Mail-Abo-Gruppen stehen zur Verfügung, wenn Sie ein Präferenzzentrum erstellen; ältere Präferenzzentren listen alle aktiven E-Mail-Gruppen automatisch auf.
 
-Für Kurzmitteilungsdienst or SMS und WhatsApp verwalten Sie den Abo-Status über die Representational State Transfer API, Opt-in-Abläufe, Schlüsselwörter (Kurzmitteilungsdienst or SMS), das Kundenprofil or Nutzerprofil und andere kanalspezifische Methoden in jedem [Kanalabschnitt](#channel-specific-behavior).
+Für SMS und WhatsApp verwalten Sie den Abo-Status über die REST API, Opt-in-Abläufe, Schlüsselwörter (SMS), das Kundenprofil und andere kanalspezifische Methoden in jedem [Kanalabschnitt](#channel-specific-behavior).
 
 ## Kanalspezifisches Verhalten {#channel-specific-behavior}
 
@@ -111,21 +111,21 @@ WhatsApp-Abo-Gruppen werden erstellt, wenn Sie [WhatsApp]({{site.baseurl}}/user_
 
 WhatsApp erfordert ein explizites Opt-in. Opt-in-Schlüsselwörter werden auf diesem Kanal nicht unterstützt – Sie verwalten Einwilligung und Abo-Status selbst. Informationen zu Opt-in- und Opt-out-Abläufen finden Sie unter [WhatsApp-Opt-ins und -Opt-outs]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs).
 
-Informationen zu Archivierungsschritten, Canvas-Aktualisierungen und Representational State Transfer-API-Beispielen finden Sie unter [WhatsApp-Abo-Gruppen]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups).
+Informationen zu Archivierungsschritten, Canvas-Aktualisierungen und REST-API-Beispielen finden Sie unter [WhatsApp-Abo-Gruppen]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups).
 
-### Kurzmitteilungsdienst or SMS-, MMS- und RCS-Abo-Gruppen {#sms-mms-and-rcs-subscription-groups}
+### SMS-, MMS- und RCS-Abo-Gruppen {#sms-mms-and-rcs-subscription-groups}
 
-Kurzmitteilungsdienst or SMS-, MMS- und RCS-Abo-Gruppen bilden die Grundlage für den Versand über diese Kanäle. Jede Gruppe ist eine Sammlung von [Sendeentitäten]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup) – wie Shortcodes, Langcodes, alphanumerische Absender-IDs oder RCS-verifizierte Absender – für einen bestimmten Nachrichtenzweck (z. B. transaktional versus werblich).
+SMS-, MMS- und RCS-Abo-Gruppen bilden die Grundlage für den Versand über diese Kanäle. Jede Gruppe ist eine Sammlung von [Sendeentitäten]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup) – wie Shortcodes, Langcodes, alphanumerische Absender-IDs oder RCS-verifizierte Absender – für einen bestimmten Nachrichtenzweck (z. B. transaktional versus werblich).
 
 | Status | Definition |
 | --- | --- |
 | Abonniert | Nutzer:in ist abonniert, um Nachrichten von dieser Abo-Gruppe zu erhalten – über die Abo-API, Opt-in-Schlüsselwörter oder andere unterstützte Abläufe. Mit aktiviertem [Double-Opt-in]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in) müssen Nutzer:innen bestätigen, bevor der Status auf „abonniert“ aktualisiert wird. |
-| Abgemeldet | Nutzer:in hat sich per Schlüsselwort oder API-Aktualisierung abgemeldet. Abgemeldete Nutzer:innen erhalten keine Kurzmitteilungsdienst or SMS, MMS oder RCS von Absendern in dieser Gruppe. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Kurzmitteilungsdienst or SMS- und RCS-Abo-Status" }
+| Abgemeldet | Nutzer:in hat sich per Schlüsselwort oder API-Aktualisierung abgemeldet. Abgemeldete Nutzer:innen erhalten keine SMS, MMS oder RCS von Absendern in dieser Gruppe. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS- und RCS-Abo-Status" }
 
-Wenn Sie eine Kurzmitteilungsdienst or SMS- oder RCS-Nachricht versenden, wählen Sie im Composer eine Abo-Gruppe aus. Braze fügt einen Zielgruppenfilter hinzu, sodass nur abonnierte Nutzer:innen angesprochen werden. Braze versendet keine Kurzmitteilungsdienst or SMS oder RCS an Nutzer:innen, die nicht bei der ausgewählten Gruppe abonniert sind. Um eine Kurzmitteilungsdienst or SMS-Testnachricht zu erhalten, muss die Empfänger:in der Abo-Gruppe angehören, die Sie für den Test auswählen. Weitere Details finden Sie unter [Kurzmitteilungsdienst or SMS-FAQs]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs#does-a-user-need-to-be-part-of-an-sms-subscription-group-to-receive-sms-test-messages).
+Wenn Sie eine SMS- oder RCS-Nachricht versenden, wählen Sie im Composer eine Abo-Gruppe aus. Braze fügt einen Zielgruppenfilter hinzu, sodass nur abonnierte Nutzer:innen angesprochen werden. Braze versendet keine SMS oder RCS an Nutzer:innen, die nicht bei der ausgewählten Gruppe abonniert sind. Um eine SMS-Testnachricht zu erhalten, muss die Empfänger:in der Abo-Gruppe angehören, die Sie für den Test auswählen. Weitere Details finden Sie unter [SMS-FAQs]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs#does-a-user-need-to-be-part-of-an-sms-subscription-group-to-receive-sms-test-messages).
 
-Abo-Gruppen für Kurzmitteilungsdienst or SMS werden beim Onboarding bereitgestellt. Informationen zu MMS-Tags, RCS-Absender-Einrichtung, geografischen Berechtigungen, RCS-Migration und erweiterter Opt-out-Verarbeitung finden Sie unter [Kurzmitteilungsdienst or SMS-, MMS- und RCS-Abo-Gruppen]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups).
+Abo-Gruppen für SMS werden beim Onboarding bereitgestellt. Informationen zu MMS-Tags, RCS-Absender-Einrichtung, geografischen Berechtigungen, RCS-Migration und erweiterter Opt-out-Verarbeitung finden Sie unter [SMS-, MMS- und RCS-Abo-Gruppen]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups).
 
 ### LINE-Abo-Gruppen {#line-subscription-groups}
 
@@ -137,7 +137,7 @@ Jede LINE-Abo-Gruppe ist mit einer LINE-Kanal-Integration verbunden.
 | Abgemeldet | Nutzer:in ist dem Kanal nicht gefolgt oder hat ihn entfolgt. Abgemeldete Nutzer:innen erhalten keine LINE-Nachrichten von dieser Gruppe. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="LINE-Abo-Status" }
 
-LINE ist die maßgebliche Quelle für den Abo-Status. Braze verarbeitet Follow- und Unfollow-Ereignisse, um Profile zu Update or aktualisieren or aktualisieren.
+LINE ist die maßgebliche Quelle für den Abo-Status. Braze verarbeitet Follow- und Unfollow-Ereignisse, um Profile zu aktualisieren.
 
 LINE-Abo-Gruppen können nicht zwischen Workspaces verschoben werden. Wenn Sie eine Gruppe archivieren und den Kanal in einem anderen Workspace erneut integrieren, erstellt Braze eine neue Abo-Gruppe im Ziel-Workspace.
 

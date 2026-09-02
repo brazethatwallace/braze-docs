@@ -99,14 +99,14 @@ Cependant, le type de planification de l'étape et les pourcentages de contrôle
 
 #### Étape Envoyer à la destination {#send-to-destination-step}
 
-Lors de la modification de l'étape [Envoyer à la destination]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination) sur un Canvas en direct or en ligne/en production/instantané, les comportements suivants s'appliquent :
+Lors de la modification de l'étape [Envoyer à la destination]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination) sur un Canvas en direct, les comportements suivants s'appliquent :
 
 - **Changement du Canvas de destination :** La modification de l'étape Envoyer à la destination pour pointer vers un Canvas de destination différent suit les mêmes règles générales de modification post-lancement. Les changements n'affectent que les utilisateurs qui n'ont pas encore atteint l'étape Envoyer à la destination.
   - Les utilisateurs qui sont déjà passés par l'étape restent dans le Canvas de destination d'origine — ils ne sont pas redirigés.
   - Les utilisateurs actuellement en file d'attente dans des étapes antérieures (par exemple, en attente dans une étape de délai avant l'étape Envoyer à la destination) sont évalués par rapport aux critères d'entrée et d'audience du nouveau Canvas de destination lorsqu'ils atteignent l'étape. Les utilisateurs éligibles sont envoyés vers le nouveau Canvas de destination.
 - **Canvas de destination arrêté :** Si le Canvas de destination est arrêté alors que votre Canvas source est encore actif, les utilisateurs qui atteignent l'étape Envoyer à la destination ne sont pas envoyés vers le Canvas de destination. Cela provoque une perte d'utilisateurs lors du transfert, et non une pause pendant l'arrêt de la destination.
   - Les utilisateurs qui ne peuvent pas entrer dans le Canvas de destination arrêté continuent dans le Canvas source si d'autres étapes suivent l'étape Envoyer à la destination. Pour en savoir plus sur le comportement d'avancement, consultez [Envoyer à la destination]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination#how-does-advancement-behavior-work-for-send-to-destination-steps).
-  - Vous ne pouvez pas lancer un Canvas source avec une étape Envoyer à la destination qui pointe vers une destination arrêtée. Ce comportement s'applique lorsqu'un Canvas de destination est arrêté après que le Canvas source est déjà en direct or en ligne/en production/instantané.
+  - Vous ne pouvez pas lancer un Canvas source avec une étape Envoyer à la destination qui pointe vers une destination arrêtée. Ce comportement s'applique lorsqu'un Canvas de destination est arrêté après que le Canvas source est déjà en direct.
 
 ### Pourcentages des variantes du Canvas {#canvas-variant-percentages}
 

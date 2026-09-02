@@ -177,7 +177,7 @@ BrazeAI Decisioning Studio™만 사용하는 고객의 경우, Decisioning Stud
 
 ### Braze 권장 사항
 
-Braze는 [REST API]({{site.baseurl}}/api/home) 및 [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=android), [웹]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=web) SDK를 통해 고객 프로필을 단문 메시지 서비스, 이메일 또는 푸시 알림에서 탈퇴 상태로 표시하는 기능을 제공합니다. 데이터 주체로부터 해당 메시지 수신에 대한 이의를 접수한 경우, Braze API를 사용하여 해당 최종사용자의 구독을 취소할 수 있습니다.
+Braze는 [REST API]({{site.baseurl}}/api/home) 및 [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=android), [웹]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=web) SDK를 통해 고객 프로필을 SMS, 이메일 또는 푸시 알림에서 탈퇴 상태로 표시하는 기능을 제공합니다. 데이터 주체로부터 해당 메시지 수신에 대한 이의를 접수한 경우, Braze API를 사용하여 해당 최종사용자의 구독을 취소할 수 있습니다.
 
 이것만으로 충분하지 않은 경우, Braze에 의한 최종사용자 개인 데이터 처리를 방지하려면 '삭제 권리'에 명시된 방법과 동일하게 최종사용자 프로필을 삭제해야 합니다.
 

@@ -29,11 +29,11 @@ Jede E-Mail-Adresse, die in einer [Instanz]({{site.baseurl}}/user_guide/administ
 
 Wenn Ihr Team Gmail verwendet und Probleme beim Hinzufügen einer E-Mail-Adresse auftreten, können Sie einen Alias erstellen, indem Sie ein Pluszeichen (+) wie „+1“ oder „+test“ an die E-Mail-Adresse anhängen. Beispielsweise kann `contractor@braze.com` den Alias `contractor+1@braze.com` haben. E-Mails an `contractor+1@braze.com` werden weiterhin an `contractor@braze.com` zugestellt, aber der Alias wird als eindeutige E-Mail-Adresse erkannt.
 
-Um ein Konto ohne Aliase über mehrere Firmen hinweg zu nutzen, lesen Sie [Multi-Firmen-Entwickler:innen verwenden]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account#use-multi-company-developers). Wenn Sie Single Sign-on verwenden, lesen Sie [Überlegungen zu Single Sign-on (Single Sign-on)]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account#considerations-for-single-sign-on-sso), bevor Sie sich mit mehreren E-Mail-Adressen Registrierung or registrieren.
+Um ein Konto ohne Aliase über mehrere Firmen hinweg zu nutzen, lesen Sie [Multi-Firmen-Entwickler:innen verwenden]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account#use-multi-company-developers). Wenn Sie Single Sign-on verwenden, lesen Sie [Überlegungen zu Single Sign-on (Single Sign-on)]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account#considerations-for-single-sign-on-sso), bevor Sie sich mit mehreren E-Mail-Adressen Registrierung.
 
 ### Kann ich die E-Mail-Adresse meines Braze-Kontos ändern? {#can-i-change-my-braze-accounts-email-address}
 
-Aus Sicherheitsgründen können Nutzer:innen die mit ihrem Braze-Konto verknüpfte E-Mail-Adresse nicht ändern. Wenn eine Person ihre E-Mail-Adresse Update or aktualisieren or aktualisieren möchte, sollte ein:e Administrator:in [ein neues Konto](#adding-company-users) mit der gewünschten E-Mail-Adresse erstellen.
+Aus Sicherheitsgründen können Nutzer:innen die mit ihrem Braze-Konto verknüpfte E-Mail-Adresse nicht ändern. Wenn eine Person ihre E-Mail-Adresse aktualisieren möchte, sollte ein:e Administrator:in [ein neues Konto](#adding-company-users) mit der gewünschten E-Mail-Adresse erstellen.
 
 ## Zuweisen von Nutzerzugriff und Verantwortlichkeiten {#assigning-user-access-and-responsibilities}
 
@@ -73,11 +73,11 @@ Nachdem eine:r Nutzer:in gelöscht wurde, speichert Braze keine der folgenden Ko
 Braze behält die folgenden Kontodaten:
 
 - Angepasste Attribute oder Testdaten, die mit dem Konto verknüpft sind
-- Campaigns oder Canvase, die sie erstellt haben (der Name der/des Nutzer:in wird jedoch nicht mehr angezeigt, z. B. in der Spalte **Zuletzt bearbeitet von**)
+- Campaigns oder Canvases, die sie erstellt haben (der Name der/des Nutzer:in wird jedoch nicht mehr angezeigt, z. B. in der Spalte **Zuletzt bearbeitet von**)
 
 ### Auswirkungen des Löschens einer:s Dashboard-Nutzer:in {#impact-of-deleting-a-dashboard-user}
 
-Das Löschen einer:s Dashboard-Nutzer:in hat keine wesentlichen Auswirkungen auf die im Dashboard erstellten Assets wie Campaigns, Segmente und Canvase. Das Feld **Erstellt von** für diese Assets zeigt jedoch einen „null“-Wert anstelle der E-Mail-Adresse der/des gelöschten Nutzer:in an.
+Das Löschen einer:s Dashboard-Nutzer:in hat keine wesentlichen Auswirkungen auf die im Dashboard erstellten Assets wie Campaigns, Segmente und Canvases. Das Feld **Erstellt von** für diese Assets zeigt jedoch einen „null“-Wert anstelle der E-Mail-Adresse der/des gelöschten Nutzer:in an.
 
 Wenn anschließend eine:r neue:r Dashboard-Nutzer:in mit derselben E-Mail-Adresse wie die/der gelöschte Nutzer:in erstellt wird, verknüpft Braze die von der/dem gelöschten Nutzer:in erstellten Assets nicht erneut mit der/dem neuen Nutzer:in. Die/der neue Dashboard-Nutzer:in beginnt mit einem leeren Konto und wird nicht als Ersteller:in bestehender Assets im Dashboard aufgeführt.
 

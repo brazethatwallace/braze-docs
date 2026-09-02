@@ -1,21 +1,21 @@
-{% if include.section == "SDK or Software-Development-Kit requirements" %}
+{% if include.section == "SDK requirements" %}
 
 ## Voraussetzungen {#prerequisites}
 
-### Minimale SDK or Software-Development-Kit-Versionen {#minimum-sdk-versions}
+### Minimale SDK-Versionen {#minimum-sdk-versions}
 
-Nachrichten, die mit dem Drag-and-Drop-Editor erstellt wurden, können nur an Nutzer:innen mit den folgenden SDK or Software-Development-Kit-Mindestversionen gesendet werden. Weitere Informationen finden Sie unter [Erstellen einer In-App-Nachricht per Drag-and-Drop: Voraussetzungen]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/drag_and_drop/create#prerequisites).
+Nachrichten, die mit dem Drag-and-Drop-Editor erstellt wurden, können nur an Nutzer:innen mit den folgenden SDK-Mindestversionen gesendet werden. Weitere Informationen finden Sie unter [Erstellen einer In-App-Nachricht per Drag-and-Drop: Voraussetzungen]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/drag_and_drop/create#prerequisites).
 
 {% sdk_min_versions swift:5.0.0 android:8.0.0 web:2.5.0 %}
 
-### SDK or Software-Development-Kit-Versionen für Textlinks {#sdk-versions-for-text-links}
+### SDK-Versionen für Textlinks {#sdk-versions-for-text-links}
 
-Um Textlinks einzubinden, die die Nachricht nicht schließen, sind die folgenden SDK or Software-Development-Kit-Mindestversionen erforderlich:
+Um Textlinks einzubinden, die die Nachricht nicht schließen, sind die folgenden SDK-Mindestversionen erforderlich:
 
 {% sdk_min_versions swift:6.2.0 android:26.0.0 %}
 
 {% alert warning %}
-Wenn Sie in Ihrer In-App-Nachricht einen Link einfügen, der zu einer URL weiterleitet, und die Nutzer:innen nicht über die angegebenen SDK or Software-Development-Kit-Mindestversionen verfügen, wird die Nachricht durch einen Klick auf den Link geschlossen, und die Nutzer:innen können nicht zur Nachricht zurückkehren, um das Formular abzuschicken.
+Wenn Sie in Ihrer In-App-Nachricht einen Link einfügen, der zu einer URL weiterleitet, und die Nutzer:innen nicht über die angegebenen SDK-Mindestversionen verfügen, wird die Nachricht durch einen Klick auf den Link geschlossen, und die Nutzer:innen können nicht zur Nachricht zurückkehren, um das Formular abzuschicken.
 {% endalert %}
 
 {% endif %}
@@ -27,7 +27,7 @@ Bevor Sie mit dem Anpassen Ihres Templates beginnen, können Sie über das Seite
 {% endif %}
 
 
-<!-- Add this after the disclaimers are added to all email Registrierung or registrieren templates: "We have provided a placeholder disclaimer in the template solely as an example, but this should not be relied upon for compliance purposes."-->
+<!-- Add this after the disclaimers are added to all email Registrierung templates: "We have provided a placeholder disclaimer in the template solely as an example, but this should not be relied upon for compliance purposes."-->
 
 {% if include.section == "email disclaimer" %}
 

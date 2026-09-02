@@ -22,11 +22,11 @@ Mit Kontoobjekten können Sie:
 
 Kontoobjekte sind Datenmodelle auf Workspace-Ebene, die mit Nutzerprofilen verknüpft sind. Ein Kontodatensatz ist ein bestimmtes Konto und die zugehörigen Felddaten.
 Verwenden Sie Kontoobjekte, wenn Kontokontext, wie z. B. Unternehmensattribute, Ihnen beim Targeting und der Personalisierung von Messaging hilft.
-Sie können auch Kontohierarchien modellieren (z. B. übergeordnete und untergeordnete Konten) und ein Kundenprofil or Nutzerprofil mit mehreren Konten verknüpfen.
+Sie können auch Kontohierarchien modellieren (z. B. übergeordnete und untergeordnete Konten) und ein Kundenprofil mit mehreren Konten verknüpfen.
 
 ## Warum Kontoobjekte verwenden? {#why-use-account-objects}
 
-Einige Anwendungsfälle erfordern Kontext auf Kontoebene, selbst wenn Ihre Campaigns und Canvase an einzelne Nutzer:innen gesendet werden.
+Einige Anwendungsfälle erfordern Kontext auf Kontoebene, selbst wenn Ihre Campaigns und Canvases an einzelne Nutzer:innen gesendet werden.
 
 Mit Kontoobjekten können Sie Kontodaten einmal speichern und sie für Segmentierung und Personalisierung in Braze wiederverwenden.
 
@@ -34,7 +34,7 @@ So können Sie:
 
 - Nach Kontoattributen segmentieren
 - Nachrichten mit gemeinsamem Kontokontext personalisieren (z. B. Firmenname oder Branche)
-- Beziehungen zwischen Konten modellieren und ein Kundenprofil or Nutzerprofil mit mehreren Konten verknüpfen
+- Beziehungen zwischen Konten modellieren und ein Kundenprofil mit mehreren Konten verknüpfen
 
 Dieser Ansatz ersetzt das Duplizieren derselben Kontoattribute über viele Nutzerprofile hinweg.
 
@@ -56,7 +56,7 @@ Braze enthält standardmäßig Kontoobjekte mit Standardfeldern. Sie können ang
 
 | Feldname | Feldtyp | Erforderlich | Beschreibung |
 | --- | --- | --- | --- |
-| `id` | String | Ja | Ihre System-ID für das Konto (z. B. CRM or Customer-Relationship-Management [-System] (CRM)-ID). Muss in Ihrem Workspace eindeutig sein. |
+| `id` | String | Ja | Ihre System-ID für das Konto (z. B. CRM-ID). Muss in Ihrem Workspace eindeutig sein. |
 | `name` | String | Ja | Kontoname. |
 | `type` | String | Nein | Kontotyp, z. B. Kund:in, Partner oder Reseller. |
 | `annual_revenue` | Zahl | Nein | Jahresumsatz des Kontos. |
@@ -79,7 +79,7 @@ Braze enthält standardmäßig Kontoobjekte mit Standardfeldern. Sie können ang
 
 Sie können Kontodatensätze verwalten über:
 
-- Representational State Transfer API-Endpunkte für Kontodatensätze
+- REST API-Endpunkte für Kontodatensätze
 - Bearbeitung im Browser unter **Data Settings** > **Accounts** für einzelne Datensätze
 
 ## Erste Schritte {#get-started}
@@ -92,7 +92,7 @@ Wenn Accounts aktiviert ist, gehen Sie zu **Data Settings** > **Accounts** und s
 
 ### Schritt 2: Kontodatensätze hinzufügen {#step-2-add-account-records}
 
-Fügen Sie Kontodatensätze über die Representational State Transfer API oder die browserbasierte Bearbeitung hinzu oder Update or aktualisieren or aktualisieren Sie sie.
+Fügen Sie Kontodatensätze über die REST API oder die browserbasierte Bearbeitung hinzu oder aktualisieren Sie sie.
 
 ### Schritt 3: Einen berechneten Filter für Kontokriterien erstellen {#step-3-create-a-calculated-filter-for-account-criteria}
 
@@ -151,11 +151,11 @@ Um alle zugeordneten Konten zu durchlaufen:
 
 ## API-Grundlagen {#api-basics}
 
-Sie können die Representational State Transfer API verwenden, um Kontodatensätze während des Early Access zu verwalten.
+Sie können die REST API verwenden, um Kontodatensätze während des Early Access zu verwalten.
 
 Einzelheiten zu den Endpunkten finden Sie unter [Data Objects-Endpunkte]({{site.baseurl}}/api/endpoints/data_objects).
 
-Informationen zur Authentifizierung und den Grundlagen von Representational State Transfer-Endpunkten finden Sie in der [Braze-API-Übersicht]({{site.baseurl}}/api/basics).
+Informationen zur Authentifizierung und den Grundlagen von REST-Endpunkten finden Sie in der [Braze-API-Übersicht]({{site.baseurl}}/api/basics).
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 

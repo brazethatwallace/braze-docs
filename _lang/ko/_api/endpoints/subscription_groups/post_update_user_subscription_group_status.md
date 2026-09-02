@@ -22,7 +22,7 @@ description: "이 문서에서는 사용자의 구독 그룹 상태 업데이트
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#8895e87e-6324-47a3-a833-adf29a258bb9 {% endapiref %}
 
-**단문 메시지 서비스 및 RCS 구독 그룹**에 대한 이 엔드포인트의 예제를 보거나 테스트하려면 다음을 참조하세요:
+**SMS 및 RCS 구독 그룹**에 대한 이 엔드포인트의 예제를 보거나 테스트하려면 다음을 참조하세요:
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#72558b32-7dbe-4cba-bd22-a7ce513076dd {% endapiref %}
 
@@ -43,7 +43,7 @@ description: "이 문서에서는 사용자의 구독 그룹 상태 업데이트
 ## 요청 본문 {#request-body}
 
 {% tabs %}
-{% tab 단문 메시지 서비스 and RCS %}
+{% tab SMS and RCS %}
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
@@ -59,7 +59,7 @@ Authorization: Bearer YOUR-REST-API-KEY
    // SMS and RCS subscription group - you must include one of external_id or phone
  }
 ```
-\* 단문 메시지 서비스 및 RCS 구독 그룹: Braze는 `external_id` 또는 `phone`만 허용합니다.
+\* SMS 및 RCS 구독 그룹: Braze는 `external_id` 또는 `phone`만 허용합니다.
 
 {% endtab %}
 {% tab Email %}
@@ -99,7 +99,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `external_id` | 필수* | 문자열 배열 | 사용자(또는 사용자들)의 `external_id`이며, 최대 50개의 `id`를 포함할 수 있습니다. |
 | `email` | 필수* | 문자열 또는 문자열 배열 | 사용자의 이메일 주소이며, 문자열 배열로 전달할 수 있습니다. 이메일 주소를 하나 이상(최대 50개) 포함해야 합니다. <br><br>동일한 워크스페이스에서 여러 사용자(`external_id`)가 동일한 이메일 주소를 공유하는 경우, Braze는 해당 이메일 주소를 공유하는 모든 사용자의 구독 그룹 변경 사항을 업데이트합니다. |
 | `phone` | 필수* | [E.164](https://en.wikipedia.org/wiki/E.164) 형식의 문자열 | 사용자의 전화번호이며, 문자열 배열로 전달할 수 있습니다. 전화번호를 하나 이상(최대 50개) 포함해야 합니다. <br><br>동일한 워크스페이스에서 여러 사용자(`external_id`)가 동일한 전화번호를 공유하는 경우, Braze는 해당 전화번호를 공유하는 모든 사용자에게 동일한 구독 그룹 변경 사항을 업데이트합니다. |
-| `use_double_opt_in_logic` | 선택 사항 | 부울 | 단문 메시지 서비스 구독 그룹에만 적용되며, 이메일 및 기타 구독 그룹 유형에서는 무시됩니다. 생략 시 기본값은 `false`입니다. 단문 메시지 서비스 구독 그룹의 경우, 구독 상태가 `subscribed`로 설정될 때 사용자를 [단문 메시지 서비스 이중 옵트인]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in) 워크플로에 진입시키려면 `true`로 설정하세요. 이 방식으로 이중 옵트인 워크플로에 진입한 사용자는 워크플로에 진입한 횟수와 관계없이 하루에 최대 한 번의 옵트인 안내 응답 메시지를 받습니다. 이 매개변수가 생략되거나 `false`로 설정되면 사용자는 이중 옵트인 워크플로를 거치지 않고 바로 구독됩니다. |
+| `use_double_opt_in_logic` | 선택 사항 | 부울 | SMS 구독 그룹에만 적용되며, 이메일 및 기타 구독 그룹 유형에서는 무시됩니다. 생략 시 기본값은 `false`입니다. SMS 구독 그룹의 경우, 구독 상태가 `subscribed`로 설정될 때 사용자를 [SMS 이중 옵트인]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in) 워크플로에 진입시키려면 `true`로 설정하세요. 이 방식으로 이중 옵트인 워크플로에 진입한 사용자는 워크플로에 진입한 횟수와 관계없이 하루에 최대 한 번의 옵트인 안내 응답 메시지를 받습니다. 이 매개변수가 생략되거나 `false`로 설정되면 사용자는 이중 옵트인 워크플로를 거치지 않고 바로 구독됩니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 ## 요청 예시 {#example-requests}
@@ -119,7 +119,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/subscription/statu
 '
 ```
 
-### 단문 메시지 서비스 및 RCS {#sms-and-rcs}
+### SMS 및 RCS {#sms-and-rcs}
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/subscription/status/set' \
@@ -152,6 +152,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/subscription/statu
 이 엔드포인트는 `email` 또는 `phone` 값만 허용하며 둘 다 허용하지 않습니다. 두 가지를 모두 제공하면 다음과 같은 응답을 받게 됩니다: `{"message":"Either an email address or a phone number should be provided, but not both."}`
 {% endalert %}
 
-구독 업데이트가 전화번호에 적용되도록 하려면 E.164 형식의 전화번호(예: `+15555550123`)를 전송했는지, 올바른 `subscription_group_id`를 사용했는지, 동일한 요청 본문에서 `phone`만(`phone`과 `email` 둘 다가 아닌) 전달했는지 확인하세요. 여러 번호를 업데이트하려면 [단문 메시지 서비스 및 RCS](#sms-and-rcs)에 표시된 `phone` 배열 형식을 사용하세요.
+구독 업데이트가 전화번호에 적용되도록 하려면 E.164 형식의 전화번호(예: `+15555550123`)를 전송했는지, 올바른 `subscription_group_id`를 사용했는지, 동일한 요청 본문에서 `phone`만(`phone`과 `email` 둘 다가 아닌) 전달했는지 확인하세요. 여러 번호를 업데이트하려면 [SMS 및 RCS](#sms-and-rcs)에 표시된 `phone` 배열 형식을 사용하세요.
 
 {% endapi %}

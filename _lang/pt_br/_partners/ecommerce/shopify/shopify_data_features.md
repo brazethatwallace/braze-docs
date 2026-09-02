@@ -486,7 +486,7 @@ Para saber mais sobre como criar um loop Liquid `for` para adicionar dinamicamen
 **Evento**: `ecommerce.checkout_started`<br>
 **Tipo**: Evento recomendado<br>
 **Disparado**: Quando um usuário navega até a página de checkout<br>
-**Fonte de dados**: REST or transferir estado representacional API or interface de programação do aplicativo (API) da Braze<br>
+**Fonte de dados**: REST API da Braze<br>
 **Caso de uso**: Abandono de checkout
 
 {% alert important %}
@@ -528,7 +528,7 @@ Em seguida, você pode adicionar as seguintes Liquid tags à sua mensagem para r
 **Evento**: `ecommerce.order_placed`<br>
 **Tipo**: Evento recomendado<br>
 **Disparado**: Quando um usuário conclui o processo de checkout com sucesso e realiza um pedido<br>
-**Fonte de dados**: REST or transferir estado representacional API or interface de programação do aplicativo (API) da Braze<br>
+**Fonte de dados**: REST API da Braze<br>
 **Caso de uso**: Confirmação de pedido, redirecionamento pós-compra, upsells ou cross-sells
 
 {% raw %}
@@ -561,7 +561,7 @@ O webhook de checkout concluído do Shopify não contém URLs de produtos ou URL
 **Evento**: `shopify_fulfilled_order`<br>
 **Tipo**: [Evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events)<br>
 **Disparado**: Quando o pedido de um usuário é processado e está pronto para envio<br>
-**Fonte de dados**: REST or transferir estado representacional API or interface de programação do aplicativo (API) da Braze<br>
+**Fonte de dados**: REST API da Braze<br>
 **Caso de uso**: (Transacional) Atualização de processamento
 
 {% raw %}
@@ -612,7 +612,7 @@ O webhook de checkout concluído do Shopify não contém URLs de produtos ou URL
 **Evento**: `shopify_partially_fulfilled_order`<br>
 **Tipo**: [Evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events)<br>
 **Disparado**: Quando parte do pedido de um usuário é processada e está pronta para envio<br>
-**Fonte de dados**: REST or transferir estado representacional API or interface de programação do aplicativo (API) da Braze<br>
+**Fonte de dados**: REST API da Braze<br>
 **Caso de uso**: (Transacional) Atualização de processamento
 
 {% raw %}
@@ -663,7 +663,7 @@ O webhook de checkout concluído do Shopify não contém URLs de produtos ou URL
 **Evento**: `shopify_paid_order`<br>
 **Tipo**: [Evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events)<br>
 **Disparado**: Quando o pedido de um usuário é marcado como pago no Shopify<br>
-**Fonte de dados**: REST or transferir estado representacional API or interface de programação do aplicativo (API) da Braze<br>
+**Fonte de dados**: REST API da Braze<br>
 **Caso de uso**: (Transacional) Confirmação de pagamento
 
 {% raw %}
@@ -697,7 +697,7 @@ O webhook de checkout concluído do Shopify não contém URLs de produtos ou URL
 **Evento**: `ecommerce.order_cancelled`<br>
 **Tipo**: Evento recomendado<br>
 **Disparado**: Quando o pedido de um usuário é cancelado<br>
-**Fonte de dados**: REST or transferir estado representacional API or interface de programação do aplicativo (API) da Braze<br>
+**Fonte de dados**: REST API da Braze<br>
 **Caso de uso**: (Transacional) Confirmação de cancelamento de pedido
 
 {% raw %}
@@ -733,7 +733,7 @@ O webhook de checkout concluído do Shopify não contém URLs de produtos ou URL
 **Evento**: `ecommerce.order_refunded`<br>
 **Tipo**: Evento recomendado<br>
 **Disparado**: Quando o pedido de um usuário é reembolsado<br>
-**Fonte de dados**: REST or transferir estado representacional API or interface de programação do aplicativo (API) da Braze<br>
+**Fonte de dados**: REST API da Braze<br>
 **Caso de uso**: (Transacional) Confirmação de reembolso
 
 {% raw %}
@@ -760,7 +760,7 @@ O webhook de checkout concluído do Shopify não contém URLs de produtos ou URL
 **Evento**: `shopify_account_login`<br>
 **Tipo**: [Evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events)<br>
 **Disparado**: Quando um usuário faz login na sua conta<br>
-**Fonte de dados**: REST or transferir estado representacional API or interface de programação do aplicativo (API) da Braze<br>
+**Fonte de dados**: REST API da Braze<br>
 **Caso de uso**: Série de boas-vindas
 
 {% raw %}
@@ -817,7 +817,7 @@ A integração com o Shopify atualmente não suporta o preenchimento do [evento 
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Atributos personalizados do Shopify compatíveis" }
 
 {% alert important %}
-Um problema conhecido na versão atual da API or interface de programação do aplicativo (API) do Shopify impede que o atributo de usuário `shopify_last_order_name` seja preenchido corretamente. O impacto nos usuários é o seguinte:<br><br>
+Um problema conhecido na versão atual da API do Shopify impede que o atributo de usuário `shopify_last_order_name` seja preenchido corretamente. O impacto nos usuários é o seguinte:<br><br>
 
 - **Usuários existentes:** Para qualquer usuário que já tenha um valor em `shopify_last_order_name`, esse valor é mantido, mas não é atualizado por pedidos subsequentes.
 - **Novos usuários:** Para novos usuários, o campo não é preenchido e permanece vazio ou nulo.
@@ -852,9 +852,9 @@ Após selecionar seu atributo personalizado, insira um valor padrão e copie o s
 A Braze só atualizará os atributos personalizados do Shopify compatíveis e os atributos padrão da Braze se houver uma diferença nos dados em relação ao perfil de usuário existente. Por exemplo, se os dados recebidos do Shopify contiverem o nome Bob e Bob já existir como nome no perfil de usuário da Braze, a Braze não disparará uma atualização e você não será cobrado por um ponto de dados.
 {% endalert %}
 
-## Coleta de dados do SDK or kit de desenvolvimento de software {#sdk-data-collection}
+## Coleta de dados do SDK {#sdk-data-collection}
 
-Para saber mais sobre quais dados são coletados pelos SDKs da Braze, consulte [Coleta de dados do SDK or kit de desenvolvimento de software]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection).
+Para saber mais sobre quais dados são coletados pelos SDKs da Braze, consulte [Coleta de dados do SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection).
 
 ## Preenchimento de dados históricos {#historical-backfill}
 

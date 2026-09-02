@@ -3,7 +3,7 @@ nav_title: Registro de correo electrónico con doble adhesión voluntaria
 article_title: Registro de correo electrónico con doble adhesión voluntaria
 page_order: 2
 page_type: reference
-description: "Este artículo describe cómo usar una plantilla de BRAZE Canvas para ampliar tu alcance con registros de correo electrónico verificados."
+description: "Este artículo describe cómo usar una plantilla de BRAZE CANVAS para ampliar tu alcance con registros de correo electrónico verificados."
 tool: Canvas
 ---
 

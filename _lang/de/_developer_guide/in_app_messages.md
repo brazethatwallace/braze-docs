@@ -6,12 +6,12 @@ platform:
   - FireOS
   - Swift
 page_order: 2.2
-description: "Erfahren Sie mehr über In-App-Nachrichten und wie Sie sie für das Braze SDK or Software-Development-Kit einrichten."
+description: "Erfahren Sie mehr über In-App-Nachrichten und wie Sie sie für das Braze SDK einrichten."
 ---
 
 # In-App-Nachrichten {#in-app-messages}
 
-> Erfahren Sie mehr über In-App-Nachrichten und wie Sie sie für das Braze SDK or Software-Development-Kit einrichten.
+> Erfahren Sie mehr über In-App-Nachrichten und wie Sie sie für das Braze SDK einrichten.
 
 {% sdktabs %}
 {% sdktab web %}

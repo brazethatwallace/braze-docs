@@ -12,7 +12,7 @@ tool: Currents
 
 > Braze utiliza Currents internamente con [socios]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) seleccionados.
 
-Filtramos nuestros datos de campañas de correo electrónico y push en una herramienta de inteligencia empresarial, Looker, pero para llegar a ella hay que seguir un camino ligeramente distinto. Utilizamos una versión invertida de la metodología ETL or extraer, transformar, cargar or extraer, transformar, cargar (ETL or extraer, transformar, cargar), cambiando el orden a extraer, cargar, transformar (ELT).
+Filtramos nuestros datos de campañas de correo electrónico y push en una herramienta de inteligencia empresarial, Looker, pero para llegar a ella hay que seguir un camino ligeramente distinto. Utilizamos una versión invertida de la metodología ETL (ETL), cambiando el orden a extraer, cargar, transformar (ELT).
 
 ## Paso 1: Recibir y agregar datos de eventos {#step-1-intake-and-aggregate-event-data}
 
@@ -41,7 +41,7 @@ Para recursos útiles de monitorización del uso, consulta los artículos de Sno
 
 ## Paso 4: Usar una herramienta de inteligencia empresarial (BI) para manipular tus datos {#step-4-use-a-business-intelligence-bi-tool-to-manipulate-your-data}
 
-Por último, utilizamos una herramienta de BI para analizar nuestros datos, convertirlos en gráficos y otras herramientas visuales, y más, usando [Looker y bloques de Looker](https://www.marketplace.looker.com/) para no tener que hacer ETL or extraer, transformar, cargar o ELT de los datos cada vez que se mueven desde Currents.
+Por último, utilizamos una herramienta de BI para analizar nuestros datos, convertirlos en gráficos y otras herramientas visuales, y más, usando [Looker y bloques de Looker](https://www.marketplace.looker.com/) para no tener que hacer ETL o ELT de los datos cada vez que se mueven desde Currents.
 
 ¿Te animas a hacer lo mismo? Consulta los siguientes documentos para obtener más información sobre estos recursos y cómo puedes utilizarlos para construir tu base de datos.
 

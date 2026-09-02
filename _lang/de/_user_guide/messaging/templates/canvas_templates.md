@@ -8,7 +8,7 @@ description: "Erstellen und verwalten Sie wiederverwendbare Canvas-Templates ode
 
 # Ein Canvas-Template erstellen {#create-a-canvas-template}
 
-> Dieser Referenzartikel beschreibt, wie Sie Templates für Canvas erstellen und verwalten. Die Verwendung von Templates kann Ihr Messaging verfeinern, indem ein konsistentes Framework erstellt wird, das einfach an Ihre spezifischen Ziele in Ihren Canvase angepasst werden kann.
+> Dieser Referenzartikel beschreibt, wie Sie Templates für Canvas erstellen und verwalten. Die Verwendung von Templates kann Ihr Messaging verfeinern, indem ein konsistentes Framework erstellt wird, das einfach an Ihre spezifischen Ziele in Ihren Canvases angepasst werden kann.
 
 {% alert tip %}
 Sparen Sie Zeit und optimieren Sie Ihre Canvas-Erstellung mit [Braze-Canvas-Templates](#available-braze-templates)! Durchsuchen Sie unsere Bibliothek vorgefertigter Templates, um eines zu finden, das zu Ihrem Anwendungsfall passt, und passen Sie es an Ihre spezifischen Anforderungen an.
@@ -63,11 +63,11 @@ Eine Liste der verfügbaren Canvas-Templates finden Sie unter [Braze-Canvas-Temp
 
 Canvas-Templates können dupliziert und archiviert werden, ähnlich wie ein tatsächliches Canvas. Um ein Canvas-Template zu bearbeiten, wählen Sie das Template und dann **<i class="fas fa-pencil-alt"></i>Bearbeiten**.
 
-Auf Workspace-Ebene können Sie Berechtigungen für Nutzer:innen Update or aktualisieren or aktualisieren, um den Zugriff zum Erstellen, Bearbeiten, Anzeigen oder Archivieren von Canvas-Templates zu erlauben oder einzuschränken.
+Auf Workspace-Ebene können Sie Berechtigungen für Nutzer:innen aktualisieren, um den Zugriff zum Erstellen, Bearbeiten, Anzeigen oder Archivieren von Canvas-Templates zu erlauben oder einzuschränken.
 
 ### Berechtigungen für Teams und Workspaces {#permissions-for-teams-and-workspaces}
 
-Um nur bestimmten Nutzer:innen den Zugriff auf und die Verwendung bestimmter Canvas-Templates zu ermöglichen, [fügen Sie ein Team]({{site.baseurl}}/user_guide/administer/global/user_management/teams) zu den Templates hinzu und weisen Sie dann die Team-Berechtigung „Zugriff auf Campaigns, Canvase, Content Cards, Content Blocks, Feature-Flags, Segments, Medienbibliothek und Präferenzzentrum“ zu.
+Um nur bestimmten Nutzer:innen den Zugriff auf und die Verwendung bestimmter Canvas-Templates zu ermöglichen, [fügen Sie ein Team]({{site.baseurl}}/user_guide/administer/global/user_management/teams) zu den Templates hinzu und weisen Sie dann die Team-Berechtigung „Zugriff auf Campaigns, Canvases, Content Cards, Content Blocks, Feature-Flags, Segments, Medienbibliothek und Präferenzzentrum“ zu.
 
 Wenn Sie eine der folgenden Berechtigungen auf Team-Ebene, aber nicht auf Workspace-Ebene zuweisen, können Sie nur Folgendes tun, das Ihrem Team zugewiesen ist:
 

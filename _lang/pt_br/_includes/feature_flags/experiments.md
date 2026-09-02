@@ -74,7 +74,7 @@ Os experimentos com Feature Flag suportam até nove grupos no total: um grupo de
 
 Você pode optar por sobrescrever as propriedades padrão que configurou inicialmente para os usuários que recebem uma variante de campanha específica.
 
-Para editar, adicionar ou remover propriedades padrão adicionais, edite a própria Feature Flag em **Messaging** > **Feature Flags**. Quando uma variante está desativada, o SDK or kit de desenvolvimento de software retorna um objeto de propriedades vazio para a Feature Flag correspondente.
+Para editar, adicionar ou remover propriedades padrão adicionais, edite a própria Feature Flag em **Messaging** > **Feature Flags**. Quando uma variante está desativada, o SDK retorna um objeto de propriedades vazio para a Feature Flag correspondente.
 
 ![A seção "Variantes do experimento" com a chave de variável "link" sobrescrita com "/sales".]({% image_buster /assets/img/feature_flags/feature_flag_experiment_override.png %}){: style="max-width:80%"}
 

@@ -1,7 +1,7 @@
 ---
 nav_title: Opt-in duplo
 article_title: Opt-in duplo
-description: "Este artigo de referência aborda o recurso de opt-in duplo e explica como ativar o recurso, selecionar palavras-chave de opt-in e mensagens de resposta, e inserir usuários no fluxo de trabalho de opt-in duplo por meio de atualizações de inscrição que ocorrem na REST or transferir estado representacional API or interface de programação do aplicativo (API), SDK or kit de desenvolvimento de software e atualizações da Central de Preferências."
+description: "Este artigo de referência aborda o recurso de opt-in duplo e explica como ativar o recurso, selecionar palavras-chave de opt-in e mensagens de resposta, e inserir usuários no fluxo de trabalho de opt-in duplo por meio de atualizações de inscrição que ocorrem na REST API, SDK e atualizações da Central de Preferências."
 page_type: reference
 page_order: 1
 channel:
@@ -58,11 +58,11 @@ Quando um usuário recebe um pedido de aceitação, ele tem 30 dias para confirm
 
 Somente após o usuário concluir o fluxo de trabalho de double opt-in, o [status do grupo de inscrições]({{site.baseurl}}/sms_rcs_subscription_groups) é atualizado para `Subscribed`. Se o usuário iniciar o fluxo de trabalho, mas não concluí-lo, ele permanecerá como `Unsubscribed` e não poderá receber mensagens desse grupo de inscrições.
 
-Os usuários também podem ser inseridos no fluxo de trabalho de double opt-in se forem [inscritos por outras fontes]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups) (por exemplo, REST or transferir estado representacional API or interface de programação do aplicativo (API), SDK or kit de desenvolvimento de software).
+Os usuários também podem ser inseridos no fluxo de trabalho de double opt-in se forem [inscritos por outras fontes]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups) (por exemplo, REST API, SDK).
 
 ## Fontes de inscrição {#subscription-sources}
 
-Os usuários também podem entrar no fluxo de trabalho de opt-in duplo por meio de atualizações de inscrição que ocorrem fora de mensagens de entrada. Essas fontes incluem atualizações da REST or transferir estado representacional API or interface de programação do aplicativo (API), SDK or kit de desenvolvimento de software e Central de Preferências. Quando um usuário entra no fluxo de trabalho de opt-in duplo por essas fontes, ele recebe a **Opt-In Prompt Reply Message**.
+Os usuários também podem entrar no fluxo de trabalho de opt-in duplo por meio de atualizações de inscrição que ocorrem fora de mensagens de entrada. Essas fontes incluem atualizações da REST API, SDK e Central de Preferências. Quando um usuário entra no fluxo de trabalho de opt-in duplo por essas fontes, ele recebe a **Opt-In Prompt Reply Message**.
 
 {% alert important %}
 Quando os usuários são inseridos no fluxo de trabalho de opt-in duplo por fontes diferentes de mensagens de entrada, eles recebem no máximo uma mensagem de resposta de pedido de aceitação em um período contínuo de 24 horas, independentemente do número de vezes que são inseridos nesse fluxo de trabalho.
@@ -72,8 +72,8 @@ Cada fonte de inscrição tem um comportamento de inscrição diferente, conform
 
 | Origem | Comportamento de inscrição no opt-in duplo |
 | ----------- | ----------- |
-| SDK or kit de desenvolvimento de software | Os usuários entram automaticamente no fluxo de trabalho de opt-in duplo quando inscritos por meio do SDK or kit de desenvolvimento de software da Braze. |
-| REST or transferir estado representacional API or interface de programação do aplicativo (API) | Os usuários podem ser inseridos no fluxo de trabalho quando o status de inscrição é definido por meio de `/subscription/status/set`, `/v2/subscription/status/set` ou `/users/track` e o parâmetro opcional `use_double_opt_in_logic` é passado como `true` (por exemplo, [{"subscription_group_id" : "subscription_group_identifier", "subscription_state" : "subscribed", "use_double_opt_in_logic": true}]). Se esse parâmetro for omitido, os usuários não serão inseridos no fluxo de trabalho de opt-in duplo. <br><br>Ao usar `use_double_opt_in_logic` com a REST or transferir estado representacional API or interface de programação do aplicativo (API), se nenhum perfil de usuário estiver associado ao número de telefone fornecido, o status de inscrição não será atualizado e o usuário não poderá entrar no fluxo de trabalho de opt-in duplo. |
+| SDK | Os usuários entram automaticamente no fluxo de trabalho de opt-in duplo quando inscritos por meio do SDK da Braze. |
+| REST API | Os usuários podem ser inseridos no fluxo de trabalho quando o status de inscrição é definido por meio de `/subscription/status/set`, `/v2/subscription/status/set` ou `/users/track` e o parâmetro opcional `use_double_opt_in_logic` é passado como `true` (por exemplo, [{"subscription_group_id" : "subscription_group_identifier", "subscription_state" : "subscribed", "use_double_opt_in_logic": true}]). Se esse parâmetro for omitido, os usuários não serão inseridos no fluxo de trabalho de opt-in duplo. <br><br>Ao usar `use_double_opt_in_logic` com a REST API, se nenhum perfil de usuário estiver associado ao número de telefone fornecido, o status de inscrição não será atualizado e o usuário não poderá entrar no fluxo de trabalho de opt-in duplo. |
 | Shopify | Os usuários não são inseridos no fluxo de trabalho de opt-in duplo quando o status de inscrição é definido pela nossa integração com o Shopify. |
 | Importação de usuários | Os usuários não são inseridos no fluxo de trabalho de opt-in duplo quando o status de inscrição é definido pela importação de usuários. |
 | [Central de Preferências]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center) | Os usuários entram automaticamente no fluxo de trabalho de opt-in duplo quando inscritos por meio de uma Central de Preferências. |
@@ -83,4 +83,4 @@ Cada fonte de inscrição tem um comportamento de inscrição diferente, conform
 ## Suporte a vários idiomas {#multi-language-support}
 Para mensagens de entrada, a aceitação dupla é compatível com todos os idiomas definidos no grupo de inscrições. Isso significa que você pode definir suas respostas automáticas em diferentes idiomas, e a Braze enviará a resposta automática associada a um idioma específico quando uma palavra-chave correspondente for recebida.
 
-Os usuários que entram no fluxo de aceitação dupla por meio de atualizações de inscrição que ocorrem fora das mensagens de entrada (por exemplo, SDK or kit de desenvolvimento de software, REST or transferir estado representacional API or interface de programação do aplicativo (API), Shopify) receberão apenas as palavras-chave em inglês.
+Os usuários que entram no fluxo de aceitação dupla por meio de atualizações de inscrição que ocorrem fora das mensagens de entrada (por exemplo, SDK, REST API, Shopify) receberão apenas as palavras-chave em inglês.

@@ -124,7 +124,7 @@ override fun createNotification(brazeNotificationPayload: BrazeNotificationPaylo
 Puedes devolver `null` desde tu método personalizado `createNotification()` para no mostrar la notificación en absoluto, utilizar `BrazeNotificationFactory.getInstance().createNotification()` para obtener nuestro objeto predeterminado `notification` para esos datos y modificarlo antes de mostrarlo, o generar un objeto `notification` completamente independiente para mostrarlo.
 
 {% alert note %}
-Para obtener documentación sobre las claves de datos push de Braze, consulta el [SDK or kit de desarrollo de software de Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-constants/index.html).
+Para obtener documentación sobre las claves de datos push de Braze, consulta el [SDK de Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-constants/index.html).
 {% endalert %}
 
 ### Paso 2: Configura tu fábrica de notificaciones personalizada {#step-2-set-your-custom-notification-factory}
@@ -177,7 +177,7 @@ setCustomBrazeNotificationFactory(null)
 
 ## Representación de texto multicolor {#rendering-multicolor-text}
 
-En la versión 3.1.1 del SDK or kit de desarrollo de software de Braze, se puede enviar HTML a un dispositivo para mostrar texto multicolor en las notificaciones push.
+En la versión 3.1.1 del SDK de Braze, se puede enviar HTML a un dispositivo para mostrar texto multicolor en las notificaciones push.
 
 ![Un mensaje push de Android "Mensaje de prueba push multicolor" en el que las letras son de distintos colores, están en cursiva y tienen un color de fondo.]({% image_buster /assets/img/multicolor_android_push.png %}){: style="max-width:40%;"}
 
@@ -338,7 +338,7 @@ Puedes mostrar una imagen más grande en tus notificaciones push de Android util
 
 ### Compatibilidad {#compatibility}
 
-Aunque puedes enviar imágenes en línea a cualquier dispositivo, los dispositivos y SDK or kit de desarrollo de software que no cumplan con las versiones mínimas mostrarán una imagen estándar en su lugar. Para que las imágenes en línea se muestren correctamente, se requiere tanto el SDK or kit de desarrollo de software de Android de Braze v10.0.0+ como un dispositivo con Android M+. El SDK or kit de desarrollo de software también debe estar habilitado para que la imagen se pueda renderizar.
+Aunque puedes enviar imágenes en línea a cualquier dispositivo, los dispositivos y SDK que no cumplan con las versiones mínimas mostrarán una imagen estándar en su lugar. Para que las imágenes en línea se muestren correctamente, se requiere tanto el SDK de Android de Braze v10.0.0+ como un dispositivo con Android M+. El SDK también debe estar habilitado para que la imagen se pueda renderizar.
 
 {% alert note %}
 Los dispositivos con Android 12 se mostrarán de forma diferente debido a los cambios en los estilos personalizados de las notificaciones push.
@@ -381,9 +381,9 @@ Para evitar que las notificaciones idénticas se sobrescriban entre sí, puedes 
 
 El campo [Prioridad de entrega de Firebase Messaging](https://firebase.google.com/docs/cloud-messaging/android/message-priority#setting-priority-for-messages) te permite controlar si un push se envía con prioridad "normal" o "alta" a Firebase Cloud Messaging.
 
-### TTL or tiempo de vida or tiempo de vida (TTL or tiempo de vida) {#ttl}
+### TTL (TTL) {#ttl}
 
-El campo **TTL or tiempo de vida or tiempo de vida** (TTL or tiempo de vida) te permite establecer un tiempo personalizado para almacenar mensajes con el servicio de mensajería push. Los valores predeterminados para el TTL or tiempo de vida or tiempo de vida son cuatro semanas para FCM y 31 días para ADM.
+El campo **TTL** (TTL) te permite establecer un tiempo personalizado para almacenar mensajes con el servicio de mensajería push. Los valores predeterminados para el TTL son cuatro semanas para FCM y 31 días para ADM.
 
 ### Texto resumido {#summary-text}
 

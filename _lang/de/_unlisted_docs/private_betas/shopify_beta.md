@@ -6,10 +6,10 @@ layout: dev_guide
 noindex: true
 hidden: true
 guide_top_header: "Shopify"
-guide_top_text: "Shopify ist ein führendes globales Handelsunternehmen, das vertrauenswürdige Tools bereitstellt, um ein Einzelhandelsunternehmen jeder Größe zu starten, auszubauen, zu vermarkten und zu verwalten. Shopify verbessert den Handel für alle mit einer Plattform und Diensten, die auf Zuverlässigkeit ausgelegt sind und gleichzeitig ein besseres Einkaufserlebnis für Verbraucher:innen überall bieten. <br><br>Im Rahmen unseres Engagements, Ihnen die bestmögliche Erfahrung zu bieten, <strong>verlangen wir, dass alle Shopify-Integrationen bis zum 28. August 2025 auf die neueste Version upgraden</strong>. Dieses Upgrade or upgraden ist unerlässlich, da wesentliche Änderungen in der Shopify-Technologie die Funktionsweise unserer Integration beeinflussen werden."
+guide_top_text: "Shopify ist ein führendes globales Handelsunternehmen, das vertrauenswürdige Tools bereitstellt, um ein Einzelhandelsunternehmen jeder Größe zu starten, auszubauen, zu vermarkten und zu verwalten. Shopify verbessert den Handel für alle mit einer Plattform und Diensten, die auf Zuverlässigkeit ausgelegt sind und gleichzeitig ein besseres Einkaufserlebnis für Verbraucher:innen überall bieten. <br><br>Im Rahmen unseres Engagements, Ihnen die bestmögliche Erfahrung zu bieten, <strong>verlangen wir, dass alle Shopify-Integrationen bis zum 28. August 2025 auf die neueste Version upgraden</strong>. Dieses Upgrade ist unerlässlich, da wesentliche Änderungen in der Shopify-Technologie die Funktionsweise unserer Integration beeinflussen werden."
 description: "Diese Landing-Page enthält alles rund um Shopify, einschließlich einer Übersicht, der Einrichtung der Shopify-Standardintegration, Shopify-Features und mehr."
 
-guide_featured_title: "Upgrade or upgraden-Artikel"
+guide_featured_title: "Upgrade-Artikel"
 guide_featured_list:
 - name: Shopify-Upgrade-Übersicht
   link: /unlisted_docs/shopify_upgrade_overview/

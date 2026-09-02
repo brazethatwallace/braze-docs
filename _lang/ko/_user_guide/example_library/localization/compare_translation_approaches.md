@@ -31,7 +31,7 @@ Braze는 여러 가지 현지화 패턴을 지원합니다:
 ## 고려 사항 {#considerations}
 
 - 패턴을 선택하기 전에 대시보드 미리보기 및 QA, 전문 번역 워크플로, 고빈도 콘텐츠 업데이트, 또는 실시간 CMS 기반 카피가 필요한지 결정하세요.
-- [다국어 메시지]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages)는 이메일, 푸시, 배너, 인앱 메시지, Content Blocks를 지원합니다. 단문 메시지 서비스와 WhatsApp은 다른 현지화 패턴을 사용합니다. 수동 Liquid, Content Blocks, 카탈로그, 파트너, 연결된 콘텐츠는 해당 기능이 지원되는 채널 전반에 적용할 수 있습니다.
+- [다국어 메시지]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages)는 이메일, 푸시, 배너, 인앱 메시지, Content Blocks를 지원합니다. SMS와 WhatsApp은 다른 현지화 패턴을 사용합니다. 수동 Liquid, Content Blocks, 카탈로그, 파트너, 연결된 콘텐츠는 해당 기능이 지원되는 채널 전반에 적용할 수 있습니다.
 - Braze는 번역을 생성하지 않습니다. 대시보드, CSV, API, 카탈로그 가져오기, 파트너 워크플로 또는 외부 CMS를 통해 카피를 직접 제공해야 합니다.
 - 수동 Liquid 및 조건문이 포함된 Content Blocks는 언어가 늘어남에 따라 명명 규칙과 검토 프로세스가 필요하며, 다국어 및 파트너 워크플로는 업데이트를 중앙 집중화하지만 CSV 또는 API 유지 관리가 필요할 수 있습니다.
 - 연결된 콘텐츠 및 일부 파트너 플로는 외부 시스템에 의존합니다. 발송 시점에 API 또는 CMS를 사용할 수 없으면 현지화된 콘텐츠가 로드되지 않을 수 있습니다.

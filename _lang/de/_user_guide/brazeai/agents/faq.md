@@ -14,7 +14,7 @@ toc_headers: h2
 
 ### Was ist der Unterschied zwischen Canvas-Schritt-Agents und Katalog-Agents? {#what-is-the-difference-between-canvas-step-agents-and-catalog-agents}
 
-Beim Erstellen eines Agents legen Sie fest, ob Sie einen Canvas-Schritt-Agent oder einen Katalog-Agent erstellen möchten. Dies bestimmt die Arten von Anweisungen und Optionen, die der Agent unterstützen kann. Canvas-Schritt-Agents verarbeiten Nutzer:innen in Echtzeit innerhalb von Journeys, während Katalog-Agents Katalogdaten anreichern, indem sie Spalten mit verarbeiteten Informationen hinzufügen oder Update or aktualisieren or aktualisieren.
+Beim Erstellen eines Agents legen Sie fest, ob Sie einen Canvas-Schritt-Agent oder einen Katalog-Agent erstellen möchten. Dies bestimmt die Arten von Anweisungen und Optionen, die der Agent unterstützen kann. Canvas-Schritt-Agents verarbeiten Nutzer:innen in Echtzeit innerhalb von Journeys, während Katalog-Agents Katalogdaten anreichern, indem sie Spalten mit verarbeiteten Informationen hinzufügen oder aktualisieren.
 
 ### Welche Vorteile bietet das Auto-Modell gegenüber einem eigenen (BYO) Modell? {#what-are-the-benefits-of-using-auto-model-versus-bring-your-own-byo-model}
 

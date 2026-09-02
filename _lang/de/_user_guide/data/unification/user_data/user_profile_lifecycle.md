@@ -1,17 +1,17 @@
 ---
-nav_title: Kundenprofil or Nutzerprofil-Lebenszyklus
-article_title: Kundenprofil or Nutzerprofil-Lebenszyklus
+nav_title: Kundenprofil-Lebenszyklus
+article_title: Kundenprofil-Lebenszyklus
 page_order: 2
 page_type: reference
-description: "Dieser Referenzartikel beschreibt den Kundenprofil or Nutzerprofil-Lebenszyklus von Braze und die verschiedenen Möglichkeiten, wie ein Kundenprofil or Nutzerprofil identifiziert und referenziert werden kann."
+description: "Dieser Referenzartikel beschreibt den Kundenprofil-Lebenszyklus von Braze und die verschiedenen Möglichkeiten, wie ein Kundenprofil identifiziert und referenziert werden kann."
 
 ---
 
-# Kundenprofil or Nutzerprofil-Lebenszyklus {#user-profile-lifecycle}
+# Kundenprofil-Lebenszyklus {#user-profile-lifecycle}
 
-> Dieser Artikel beschreibt den Kundenprofil or Nutzerprofil-Lebenszyklus von Braze und die verschiedenen Möglichkeiten, ein Kundenprofil or Nutzerprofil zu identifizieren und zu referenzieren. Wenn Sie Ihren Kundenlebenszyklus besser verstehen möchten, sehen Sie sich stattdessen unseren Braze-Lernkurs zur [Abbildung von Nutzer:innen-Lebenszyklen](https://learning.braze.com/mapping-customer-lifecycles) an.
+> Dieser Artikel beschreibt den Kundenprofil-Lebenszyklus von Braze und die verschiedenen Möglichkeiten, ein Kundenprofil zu identifizieren und zu referenzieren. Wenn Sie Ihren Kundenlebenszyklus besser verstehen möchten, sehen Sie sich stattdessen unseren Braze-Lernkurs zur [Abbildung von Nutzer:innen-Lebenszyklen](https://learning.braze.com/mapping-customer-lifecycles) an.
 
-Alle persistenten Daten, die mit einer Nutzer:in verbunden sind, werden in deren Kundenprofil or Nutzerprofil gespeichert. Nachdem ein Kundenprofil or Nutzerprofil erstellt wurde – entweder über die API oder nachdem eine Nutzer:in vom SDK or Software-Development-Kit erkannt wurde – können Sie diesem Profil eine Reihe von Parametern zuweisen, um die Nutzer:in zu identifizieren und zu referenzieren.
+Alle persistenten Daten, die mit einer Nutzer:in verbunden sind, werden in deren Kundenprofil gespeichert. Nachdem ein Kundenprofil erstellt wurde – entweder über die API oder nachdem eine Nutzer:in vom SDK erkannt wurde – können Sie diesem Profil eine Reihe von Parametern zuweisen, um die Nutzer:in zu identifizieren und zu referenzieren.
 
 Diese Parameter umfassen:
 
@@ -25,16 +25,16 @@ Diese Parameter umfassen:
 
 Alle Nutzer:innen ohne zugewiesene `external_id` werden als [anonyme Nutzer:innen]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users) bezeichnet. Dabei kann es sich beispielsweise um Nutzer:innen handeln, die Ihre Website besucht, sich aber nicht registriert haben, oder um Nutzer:innen, die Ihre mobile App heruntergeladen, aber kein Profil erstellt haben.
 
-Wenn Nutzer:innen erstmals vom SDK or Software-Development-Kit erkannt werden, wird ein anonymes Kundenprofil or Nutzerprofil mit einer zugehörigen `braze_id` erstellt: ein eindeutiger Bezeichner, der automatisch von Braze zugewiesen wird, nicht bearbeitet werden kann und gerätespezifisch ist. Dieser Bezeichner kann verwendet werden, um das Kundenprofil or Nutzerprofil über die [API]({{site.baseurl}}/api/endpoints/user_data) zu Update or aktualisieren or aktualisieren.
+Wenn Nutzer:innen erstmals vom SDK erkannt werden, wird ein anonymes Kundenprofil mit einer zugehörigen `braze_id` erstellt: ein eindeutiger Bezeichner, der automatisch von Braze zugewiesen wird, nicht bearbeitet werden kann und gerätespezifisch ist. Dieser Bezeichner kann verwendet werden, um das Kundenprofil über die [API]({{site.baseurl}}/api/endpoints/user_data) zu aktualisieren.
 
 ## Identifizierte Nutzerprofile {#identified-user-profiles}
 
-Nachdem eine:r Nutzer:in in Ihrer App erkennbar ist (z. B. durch Angabe einer Nutzer-ID oder E-Mail-Adresse), empfehlen wir, dem Kundenprofil or Nutzerprofil über die Methode `changeUser` ([Web](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/changeuser(userid:sdkauthsignature:fileid:line:)), [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/change-user.html)) eine `external_id` zuzuweisen. Eine `external_id` ermöglicht es Ihnen, dasselbe Kundenprofil or Nutzerprofil über mehrere Geräte hinweg zu identifizieren.
+Nachdem eine:r Nutzer:in in Ihrer App erkennbar ist (z. B. durch Angabe einer Nutzer-ID oder E-Mail-Adresse), empfehlen wir, dem Kundenprofil über die Methode `changeUser` ([Web](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/changeuser(userid:sdkauthsignature:fileid:line:)), [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/change-user.html)) eine `external_id` zuzuweisen. Eine `external_id` ermöglicht es Ihnen, dasselbe Kundenprofil über mehrere Geräte hinweg zu identifizieren.
 
 Zu den weiteren Vorteilen der Verwendung einer `external_id` gehören:
 
 - Ein konsistentes Nutzererlebnis über mehrere Geräte und Plattformen hinweg bereitstellen (z. B. keine Benachrichtigungen für inaktive Nutzer:innen an das Android-Tablet senden, wenn diese treue Nutzer:innen der iPhone-App sind).
-- Die Genauigkeit Ihrer Analytics verbessern, indem bestätigt wird, dass Nutzer:innen nicht jedes Mal ein neues Kundenprofil or Nutzerprofil erstellen, wenn sie die App deinstallieren und neu installieren oder auf einem anderen Gerät installieren.
+- Die Genauigkeit Ihrer Analytics verbessern, indem bestätigt wird, dass Nutzer:innen nicht jedes Mal ein neues Kundenprofil erstellen, wenn sie die App deinstallieren und neu installieren oder auf einem anderen Gerät installieren.
 - Den Import von Nutzerdaten aus Quellen außerhalb der App über die [Nutzerdaten-Endpunkte]({{site.baseurl}}/api/endpoints/user_data) ermöglichen und Nutzer:innen mit transaktionalen Nachrichten über unsere [Messaging-Endpunkte]({{site.baseurl}}/api/endpoints/messaging) ansprechen.
 - Einzelne Nutzer:innen mithilfe unserer „Testing“-[Filter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) im Segmentierer und auf der Seite [**Nutzer:innen suchen**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) suchen.
 
@@ -57,18 +57,18 @@ Bei der Identifizierung anonymer Nutzer:innen können zwei Szenarien eintreten:
 
 2) **Anonyme:r Nutzer:in wird als bereits existierende:r Nutzer:in identifiziert:** <br>Wenn die `external_id` bereits in Braze existiert, wurde diese:r Nutzer:in zuvor auf andere Weise im System identifiziert, z. B. über ein anderes Gerät (wie ein Tablet) oder importierte Nutzerdaten.
 
-Mit anderen Worten: Sie haben bereits ein Kundenprofil or Nutzerprofil für diese:n Nutzer:in. In diesem Fall führt Braze Folgendes aus:
-1. Das anonyme Kundenprofil or Nutzerprofil verwaisen lassen
-2. [Bestimmte Nutzerprofilfelder]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior), die noch nicht im identifizierten Kundenprofil or Nutzerprofil vorhanden sind, aus dem anonymen Profil zusammenführen
+Mit anderen Worten: Sie haben bereits ein Kundenprofil für diese:n Nutzer:in. In diesem Fall führt Braze Folgendes aus:
+1. Das anonyme Kundenprofil verwaisen lassen
+2. [Bestimmte Nutzerprofilfelder]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior), die noch nicht im identifizierten Kundenprofil vorhanden sind, aus dem anonymen Profil zusammenführen
 3. Das anonyme Profil aus Ihrer Nutzerbasis entfernen, damit die Nutzeranzahl nicht aufgebläht wird
 
 Wenn sowohl die/der anonyme als auch die/der bekannte Nutzer:in einen Vornamen haben, wird der Vorname der/des bekannten Nutzer:in beibehalten. Wenn die/der bekannte Nutzer:in einen Nullwert hat und die/der anonyme Nutzer:in einen Wert besitzt, wird der Wert der/des anonymen Nutzer:in in das Profil der/des bekannten Nutzer:in übernommen, sofern der Wert unter diese [bestimmten Nutzerprofilfelder]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior) fällt.
 
 {% alert important %}
-Nicht alle Daten werden aus dem anonymen Profil zusammengeführt. Push-Token / Textbaustein und der Nachrichtenverlauf werden übertragen, und angepasste Attribute, angepasste Events sowie die Kaufhistorie aus dem anonymen Profil werden nur dann in das identifizierte Kundenprofil or Nutzerprofil übernommen, wenn diese Felder im identifizierten Kundenprofil or Nutzerprofil noch nicht vorhanden sind. Bei widersprüchlichen Daten werden die Werte der/des identifizierten Nutzer:in beibehalten. Die vollständige Liste der Felder, die übertragen bzw. nicht übertragen werden, finden Sie unter [Zusammenführungsverhalten]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior).
+Nicht alle Daten werden aus dem anonymen Profil zusammengeführt. Push-Token / Textbaustein und der Nachrichtenverlauf werden übertragen, und angepasste Attribute, angepasste Events sowie die Kaufhistorie aus dem anonymen Profil werden nur dann in das identifizierte Kundenprofil übernommen, wenn diese Felder im identifizierten Kundenprofil noch nicht vorhanden sind. Bei widersprüchlichen Daten werden die Werte der/des identifizierten Nutzer:in beibehalten. Die vollständige Liste der Felder, die übertragen bzw. nicht übertragen werden, finden Sie unter [Zusammenführungsverhalten]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior).
 {% endalert %}
 
-Informationen zum Festlegen einer `external_id` für ein Kundenprofil or Nutzerprofil finden Sie in unserer Dokumentation ([iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=swift), [Android]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=android), [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=web)).
+Informationen zum Festlegen einer `external_id` für ein Kundenprofil finden Sie in unserer Dokumentation ([iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=swift), [Android]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=android), [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=web)).
 
 ### Reporting und zusammengeführte Profile {#reporting-and-merged-profiles}
 
@@ -82,17 +82,17 @@ Verwaiste Nutzer:innen sind nicht berechtigt, Nachrichten zu empfangen.
 
 ### Zusammenführen doppelter Nutzer:innen {#merging-duplicate-users}
 
-Wenn Sie doppelte Nutzerprofile in Ihrem Workspace identifizieren, können Sie diese über die Representational State Transfer API zusammenführen. Weitere Informationen zum Zusammenführen von Nutzer:innen und den verfügbaren Methoden finden Sie unter [Doppelte Nutzer:innen zusammenführen]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users).
+Wenn Sie doppelte Nutzerprofile in Ihrem Workspace identifizieren, können Sie diese über die REST API zusammenführen. Weitere Informationen zum Zusammenführen von Nutzer:innen und den verfügbaren Methoden finden Sie unter [Doppelte Nutzer:innen zusammenführen]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users).
 
 ## Nutzer-Aliase {#user-aliases}
 
-Um Nutzer:innen durch andere Bezeichner als die Braze `external_id` zu referenzieren, können Sie Nutzer-Aliase für ein Kundenprofil or Nutzerprofil festlegen. Jeder Alias, der für ein Kundenprofil or Nutzerprofil festgelegt wird, funktioniert zusätzlich zur `braze_id` oder `external_id` der Nutzer:innen – und nicht als Ersatz dafür. Es gibt keine Begrenzung für die Anzahl der Aliase, die Sie für ein Kundenprofil or Nutzerprofil festlegen können.
+Um Nutzer:innen durch andere Bezeichner als die Braze `external_id` zu referenzieren, können Sie Nutzer-Aliase für ein Kundenprofil festlegen. Jeder Alias, der für ein Kundenprofil festgelegt wird, funktioniert zusätzlich zur `braze_id` oder `external_id` der Nutzer:innen – und nicht als Ersatz dafür. Es gibt keine Begrenzung für die Anzahl der Aliase, die Sie für ein Kundenprofil festlegen können.
 
-Jeder Alias funktioniert als Schlüssel-Wert-Paar, das aus zwei Teilen besteht: einem `alias_label`, das den Schlüssel des Alias definiert, und einem `alias_name`, das den Wert definiert. Ein `alias_name` für ein einzelnes Label muss über Ihre gesamte Nutzerbasis hinweg eindeutig sein (genau wie bei `external_id`). Wenn Sie versuchen, ein zweites Kundenprofil or Nutzerprofil mit einer bereits vorhandenen Label-Name-Kombination zu Update or aktualisieren or aktualisieren, wird das Kundenprofil or Nutzerprofil nicht aktualisiert.
+Jeder Alias funktioniert als Schlüssel-Wert-Paar, das aus zwei Teilen besteht: einem `alias_label`, das den Schlüssel des Alias definiert, und einem `alias_name`, das den Wert definiert. Ein `alias_name` für ein einzelnes Label muss über Ihre gesamte Nutzerbasis hinweg eindeutig sein (genau wie bei `external_id`). Wenn Sie versuchen, ein zweites Kundenprofil mit einer bereits vorhandenen Label-Name-Kombination zu aktualisieren, wird das Kundenprofil nicht aktualisiert.
 
-### Nutzer-Aliase Update or aktualisieren or aktualisieren {#updating-user-aliases}
+### Nutzer-Aliase aktualisieren {#updating-user-aliases}
 
-Ein Alias kann nach der Festlegung mit einem neuen Namen für ein bestimmtes Label aktualisiert werden – entweder über unsere [Nutzerdaten-Endpunkte]({{site.baseurl}}/api/endpoints/user_data) oder durch die Übergabe eines neuen Namens über das SDK or Software-Development-Kit. Der Nutzer-Alias ist dann beim Exportieren der Daten dieser Nutzer:innen sichtbar.
+Ein Alias kann nach der Festlegung mit einem neuen Namen für ein bestimmtes Label aktualisiert werden – entweder über unsere [Nutzerdaten-Endpunkte]({{site.baseurl}}/api/endpoints/user_data) oder durch die Übergabe eines neuen Namens über das SDK. Der Nutzer-Alias ist dann beim Exportieren der Daten dieser Nutzer:innen sichtbar.
 
 ![Zwei verschiedene Nutzerprofile für unterschiedliche Nutzer:innen mit demselben Nutzer-Alias-Label, aber unterschiedlichen Alias-Namen]({% image_buster /assets/img_archive/Braze_User_aliases.png %})
 
@@ -102,7 +102,7 @@ Nutzer-Aliase ermöglichen es Ihnen auch, anonyme Nutzer:innen mit einem Bezeich
 
 ### Verhalten von Aliasen bei anonymen Nutzerprofilen {#behavior-of-aliases-on-anonymous-user-profiles}
 
-Wenn ein anonymes Kundenprofil or Nutzerprofil mit einem Alias später mit einer `external_id` erkannt wird, wird es als normales identifiziertes Kundenprofil or Nutzerprofil behandelt, behält aber seinen bestehenden Alias und kann weiterhin über diesen Alias referenziert werden.
+Wenn ein anonymes Kundenprofil mit einem Alias später mit einer `external_id` erkannt wird, wird es als normales identifiziertes Kundenprofil behandelt, behält aber seinen bestehenden Alias und kann weiterhin über diesen Alias referenziert werden.
 
 ### Nach einem Nutzer-Alias suchen {#searching-for-a-user-alias}
 
@@ -112,21 +112,21 @@ Wenn Sie diese Informationen nicht kennen, können Sie den [`Export user profile
 
 ### Aliase für bekannte Nutzerprofile festlegen {#setting-aliases-on-known-user-profiles}
 
-Ein Nutzer-Alias kann auch für ein bekanntes Kundenprofil or Nutzerprofil festgelegt werden, um eine bekannte Nutzer:in über eine andere extern bekannte ID zu referenzieren. Beispielsweise kann eine Nutzer:in eine Business-Intelligence-Tool-ID (wie eine Amplitude-ID) haben, die Sie innerhalb von Braze referenzieren möchten.
+Ein Nutzer-Alias kann auch für ein bekanntes Kundenprofil festgelegt werden, um eine bekannte Nutzer:in über eine andere extern bekannte ID zu referenzieren. Beispielsweise kann eine Nutzer:in eine Business-Intelligence-Tool-ID (wie eine Amplitude-ID) haben, die Sie innerhalb von Braze referenzieren möchten.
 
 Informationen zum Festlegen eines Nutzer-Alias finden Sie in unserer Dokumentation für jede Plattform ([iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=swift), [Android]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=android), [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=web)).
 
-![Ein Flussdiagramm des Kundenprofil or Nutzerprofil-Lebenszyklus in Braze. Wenn changeUser() für eine anonyme Nutzer:in aufgerufen wird, wird diese zu einer identifizierten Nutzer:in und die Daten werden in ihr identifiziertes Kundenprofil or Nutzerprofil migriert. Die identifizierte Nutzer:in hat eine Braze-ID und eine externe ID. Wenn zu diesem Zeitpunkt für eine zweite anonyme Nutzer:in changeUser() aufgerufen wird, werden Nutzerdatenfelder, die noch nicht in der identifizierten Nutzer:in vorhanden sind, zusammengeführt. Wenn der identifizierten Nutzer:in ein Alias zu ihrem bestehenden Kundenprofil or Nutzerprofil hinzugefügt wird, sind keine Daten betroffen, aber sie wird zu einer identifizierten Nutzer:in mit Alias. Wenn dann für eine dritte anonyme Nutzer:in mit demselben Alias-Label wie die identifizierte Nutzer:in, aber einem anderen Alias-Namen changeUser() aufgerufen wird, werden alle Felder, die in der identifizierten Nutzer:in nicht vorhanden sind, zusammengeführt und das Alias-Label im identifizierten Kundenprofil or Nutzerprofil bleibt erhalten.]({% image_buster /assets/img_archive/Braze_User_flowchart.png %})
+![Ein Flussdiagramm des Kundenprofil-Lebenszyklus in Braze. Wenn changeUser() für eine anonyme Nutzer:in aufgerufen wird, wird diese zu einer identifizierten Nutzer:in und die Daten werden in ihr identifiziertes Kundenprofil migriert. Die identifizierte Nutzer:in hat eine Braze-ID und eine externe ID. Wenn zu diesem Zeitpunkt für eine zweite anonyme Nutzer:in changeUser() aufgerufen wird, werden Nutzerdatenfelder, die noch nicht in der identifizierten Nutzer:in vorhanden sind, zusammengeführt. Wenn der identifizierten Nutzer:in ein Alias zu ihrem bestehenden Kundenprofil hinzugefügt wird, sind keine Daten betroffen, aber sie wird zu einer identifizierten Nutzer:in mit Alias. Wenn dann für eine dritte anonyme Nutzer:in mit demselben Alias-Label wie die identifizierte Nutzer:in, aber einem anderen Alias-Namen changeUser() aufgerufen wird, werden alle Felder, die in der identifizierten Nutzer:in nicht vorhanden sind, zusammengeführt und das Alias-Label im identifizierten Kundenprofil bleibt erhalten.]({% image_buster /assets/img_archive/Braze_User_flowchart.png %})
 
 {% alert tip %}
-Fällt es Ihnen schwer, sich vorzustellen, wie dies für den Kundenprofil or Nutzerprofil-Lebenszyklus Ihrer Kund:innen aussehen könnte? Besuchen Sie [Best Practices]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices), um Best Practices für die Nutzerdatenerfassung einzusehen.
+Fällt es Ihnen schwer, sich vorzustellen, wie dies für den Kundenprofil-Lebenszyklus Ihrer Kund:innen aussehen könnte? Besuchen Sie [Best Practices]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices), um Best Practices für die Nutzerdatenerfassung einzusehen.
 {% endalert %}
 
 ## Erweiterter Anwendungsfall {#advanced-use-case}
 
-Sie können einen neuen Nutzer-Alias für bestehende identifizierte Nutzerprofile über unser SDK or Software-Development-Kit und unsere API mithilfe der [Nutzerdaten-Endpunkte]({{site.baseurl}}/api/endpoints/user_data) festlegen. Nutzer-Aliase können jedoch nicht über die API für ein bestehendes unbekanntes Kundenprofil or Nutzerprofil festgelegt werden.
+Sie können einen neuen Nutzer-Alias für bestehende identifizierte Nutzerprofile über unser SDK und unsere API mithilfe der [Nutzerdaten-Endpunkte]({{site.baseurl}}/api/endpoints/user_data) festlegen. Nutzer-Aliase können jedoch nicht über die API für ein bestehendes unbekanntes Kundenprofil festgelegt werden.
 
-Die Nutzer-Aliase werden dabei ebenfalls zusammengeführt. Wenn jedoch sowohl das zu verwaisende als auch das Ziel-Kundenprofil or Nutzerprofil einen Alias mit demselben Label haben, wird nur der Alias des Ziel-Nutzerprofils beibehalten.
+Die Nutzer-Aliase werden dabei ebenfalls zusammengeführt. Wenn jedoch sowohl das zu verwaisende als auch das Ziel-Kundenprofil einen Alias mit demselben Label haben, wird nur der Alias des Ziel-Nutzerprofils beibehalten.
 
 Durch Deinstallieren und erneutes Installieren einer App wird eine neue anonyme `braze_id` für diese:n Nutzer:in erzeugt.
 
@@ -141,5 +141,5 @@ Braze blockiert Nutzerprofile, die ungewöhnlich groß werden (sogenannte „Dum
 - Mehr als 20.000 verschiedene angepasste Event-Namen
 - Mehr als 20.000 verschiedene Produktnamen in Käufen
 
-Nachdem ein Profil blockiert wurde, nimmt Braze keine eingehenden Daten mehr für dieses Profil auf – weder von den SDKs noch von der Representational State Transfer API. Wenn Sie feststellen, dass dies bei einem/einer legitimen Nutzer:in passiert ist, wenden Sie sich an Ihren Braze Account Manager:in. Weitere Informationen finden Sie unter [Spam-Blockierung]({{site.baseurl}}/user_archival).
+Nachdem ein Profil blockiert wurde, nimmt Braze keine eingehenden Daten mehr für dieses Profil auf – weder von den SDKs noch von der REST API. Wenn Sie feststellen, dass dies bei einem/einer legitimen Nutzer:in passiert ist, wenden Sie sich an Ihren Braze Account Manager:in. Weitere Informationen finden Sie unter [Spam-Blockierung]({{site.baseurl}}/user_archival).
 {% endalert %}

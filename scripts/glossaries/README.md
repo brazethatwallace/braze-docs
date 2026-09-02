@@ -42,6 +42,11 @@ lists English glossary keys that are too generic for blind `_lang/` substring
 replacement during sync (for example `monitoring`, which would corrupt
 `{#monitoring-...}` heading anchor IDs).
 
+Propagation uses only the **first** Phrase synonym when a glossary value contains
+` or ` (for example `SDK or Software-Development-Kit` → `SDK`). Files under
+`_lang/*/_api/` are skipped entirely so API reference pages keep English acronyms
+and endpoint literals intact.
+
 ### Sync exclusions
 
 [`../phrase_glossary_sync_exclusions.json`](../phrase_glossary_sync_exclusions.json)

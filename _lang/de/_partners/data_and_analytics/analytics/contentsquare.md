@@ -23,7 +23,7 @@ Die Integration von Braze und Contentsquare ermöglicht es Ihnen, Live-Signale (
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | Contentsquare-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Contentsquare-Konto. |
-| Braze Representational State Transfer-API-Schlüssel | Ein Braze Representational State Transfer-API-Schlüssel mit `users.track`-Berechtigungen. Um einen neuen Schlüssel im Braze-Dashboard zu erstellen, gehen Sie zu **Settings** > **API Keys**. |
+| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit `users.track`-Berechtigungen. Um einen neuen Schlüssel im Braze-Dashboard zu erstellen, gehen Sie zu **Settings** > **API Keys**. |
 | Braze REST-Endpunkt | [Ihre REST-Endpunkt-URL]({% image_buster /assets/img/contentsquare_custom_events.png %}). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
@@ -48,6 +48,6 @@ Weitere Informationen finden Sie unter [Anfrage für die Integration von Content
 
 ## Verwendung dieser Integration {#using-this-integration}
 
-Sobald die Integration abgeschlossen ist, stehen Ihnen angepasste Events von Contentsquare zur Verwendung in Ihren Campaigns und Canvase zur Verfügung. Sie können unter **Data Settings** > **Custom Events** überprüfen, welche Events an Braze gesendet werden.
+Sobald die Integration abgeschlossen ist, stehen Ihnen angepasste Events von Contentsquare zur Verwendung in Ihren Campaigns und Canvases zur Verfügung. Sie können unter **Data Settings** > **Custom Events** überprüfen, welche Events an Braze gesendet werden.
 
 ![Contentsquare-Live-Signals-Daten im Braze-Tab „Angepasste Events“]({% image_buster /assets/img/contentsquare_custom_events.png %})

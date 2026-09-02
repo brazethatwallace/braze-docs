@@ -17,7 +17,7 @@ alias: "/api/api_campaigns/transactional_campaigns"
 > Los correos electrónicos transaccionales de Braze se envían para facilitar una transacción acordada entre un remitente y el destinatario. Este artículo de referencia cubre cómo crear una campaña de correo electrónico transaccional en el panel de Braze y generar un `campaign_id` para incluir en tus llamadas a la API para nuestro [endpoint `/transactional/v1/campaigns/{campaign_id}/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_transactional_message).
 
 {% alert important %}
-El correo electrónico transaccional de Braze solo está disponible como parte de paquetes selectos de Braze. Ponte en contacto con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente de Braze o abre un [ticket de soporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) para más detalles.
+El correo electrónico transaccional de Braze solo está disponible como parte de paquetes selectos de Braze. Ponte en contacto con tu CSM de Braze o abre un [ticket de soporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) para más detalles.
 {% endalert %}
 
 El tipo de campaña de correo electrónico transaccional está diseñado específicamente para enviar mensajes de correo electrónico automatizados y no promocionales con el fin de facilitar una transacción acordada entre tú y tus clientes. Esto incluye información como:
@@ -51,7 +51,7 @@ El flujo de creación de campaña para las campañas de correo transaccional se 
 
 Como resultado, notarás que varias configuraciones con las que puedes estar familiarizado de otros tipos de campaña de Braze no son necesarias al configurar este tipo de campaña:
 
-- El paso **Entrega** se ha simplificado para eliminar las opciones de programación. Los correos transaccionales siempre se desencadenan a través de la REST or transferencia de estado representacional API de Braze usando el ID de campaña que se muestra en la página **Entrega**. También se han eliminado configuraciones adicionales, como los controles de reelegibilidad y la configuración de limitación de frecuencia, para confirmar que todos los usuarios sean accesibles para estas alertas transaccionales críticas cuando tu servicio desencadena una solicitud de envío.
+- El paso **Entrega** se ha simplificado para eliminar las opciones de programación. Los correos transaccionales siempre se desencadenan a través de la REST API de Braze usando el ID de campaña que se muestra en la página **Entrega**. También se han eliminado configuraciones adicionales, como los controles de reelegibilidad y la configuración de limitación de frecuencia, para confirmar que todos los usuarios sean accesibles para estas alertas transaccionales críticas cuando tu servicio desencadena una solicitud de envío.
 - El paso **Públicos objetivo** se ha eliminado. Como los correos transaccionales inscriben a toda tu base de usuarios como elegibles (incluidos los usuarios cancelados), no es necesario especificar filtros ni Segments. Como resultado, si tienes alguna lógica que aplicar a quién debe recibir este mensaje, te recomendamos aplicar esa lógica antes de determinar si hacer la solicitud de API a Braze para desencadenar el mensaje a un usuario específico.
 - El paso **Conversiones** se ha eliminado. Los correos transaccionales no admiten el seguimiento de eventos de conversión en este momento.
 

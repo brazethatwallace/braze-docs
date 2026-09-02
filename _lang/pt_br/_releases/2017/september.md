@@ -21,12 +21,12 @@ A [página de perfil do usuário]({{site.baseurl}}/user_guide/audience/manage_au
 
 ## Notificações por push da web que exigem ação do usuário para serem descartadas {#web-push-notifications-that-require-user-action-to-dismiss}
 
-Agora você pode configurar o comportamento de fechamento de mensagens para os web pushes do Chrome que exigem que o destinatário interaja com a mensagem para que ela seja descartada. Esse recurso requer o Web SDK or kit de desenvolvimento de software versão 1.6.13 ou superior.
+Agora você pode configurar o comportamento de fechamento de mensagens para os web pushes do Chrome que exigem que o destinatário interaja com a mensagem para que ela seja descartada. Esse recurso requer o Web SDK versão 1.6.13 ou superior.
 
 ## Pré-cabeçalhos de e-mail {#email-preheaders}
 
 Ao criar uma mensagem de e-mail na Braze, agora é possível inserir facilmente um pré-cabeçalho na seção **Sending Info**.
 
-## Novo endpoint de API or interface de programação do aplicativo (API) para exportação de eventos brutos {#new-api-endpoint-for-raw-event-export}
+## Novo endpoint de API para exportação de eventos brutos {#new-api-endpoint-for-raw-event-export}
 
-Adicionamos um novo [endpoint de API or interface de programação do aplicativo (API)]({{site.baseurl}}/developer_guide/rest_api/api_network_connectivity_issues#whitelisting-brazes-api-endpoint-ip-ranges), `/raw_data/status`, que permite consultar se um determinado dia foi carregado na exportação de eventos brutos. Você pode usá-lo para verificar se os dados brutos de um determinado dia estão disponíveis, ajudando na depuração e na automação.
+Adicionamos um novo [endpoint de API]({{site.baseurl}}/developer_guide/rest_api/api_network_connectivity_issues#whitelisting-brazes-api-endpoint-ip-ranges), `/raw_data/status`, que permite consultar se um determinado dia foi carregado na exportação de eventos brutos. Você pode usá-lo para verificar se os dados brutos de um determinado dia estão disponíveis, ajudando na depuração e na automação.

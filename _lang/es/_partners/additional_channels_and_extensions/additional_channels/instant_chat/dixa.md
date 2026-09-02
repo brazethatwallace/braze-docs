@@ -21,8 +21,8 @@ Antes de empezar, necesitarás lo siguiente:
 | Requisito | Descripción |
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Una cuenta de Dixa | Se necesita una cuenta de administrador de Dixa para beneficiarse de esta asociación. |
-| Una clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos `users.export.ids` y `email.status`.<br><br> Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
-| Un endpoint REST or transferencia de estado representacional de Braze | [La URL de tu endpoint REST or transferencia de estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Tu endpoint dependerá de la URL de Braze de tu instancia. |
+| Una clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.export.ids` y `email.status`.<br><br> Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Un endpoint REST de Braze | [La URL de tu endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Tu endpoint dependerá de la URL de Braze de tu instancia. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Casos de uso {#use-cases}
@@ -40,7 +40,7 @@ Debes ser administrador de Dixa para configurar integraciones dentro de Dixa. Pa
 En la página **Create Braze widget**, rellena los siguientes campos obligatorios para crear la integración:
 
 - **Widget name:** Este es el nombre de la integración que se utilizará posteriormente en la barra lateral de conversación como título.
-- **API URL:** Esta es la URL del endpoint de la REST or transferencia de estado representacional API de Braze para tu instancia.
+- **API URL:** Esta es la URL del endpoint de la REST API de Braze para tu instancia.
 - **API Key:** Esta es la clave de API de Braze que creaste en los requisitos previos.
 
 ### Paso 2: Configura la integración {#step-2-configure-the-integration}

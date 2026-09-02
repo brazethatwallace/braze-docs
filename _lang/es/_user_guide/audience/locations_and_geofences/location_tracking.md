@@ -22,19 +22,19 @@ Para habilitar la recopilación de ubicación en tu aplicación, consulta la gu�
 
 En general, las aplicaciones móviles utilizan el chip GPS del dispositivo y otros sistemas (como el escaneo de Wi-Fi) para rastrear la ubicación de un usuario. Las aplicaciones Web utilizan WPS (sistema de posicionamiento Wi-Fi) para rastrear la ubicación de un usuario. Todas estas plataformas requieren que los usuarios opten por el seguimiento de ubicación. La precisión de tus datos de seguimiento de ubicación puede verse afectada por si tus usuarios tienen o no el Wi-Fi habilitado en sus dispositivos. Los usuarios de Android también pueden elegir diferentes modos de ubicación: los usuarios que están en modo "Ahorro de batería" o "Solo dispositivo" pueden tener datos imprecisos.
 
-### Ubicación del usuario del SDK or kit de desarrollo de software por dirección IP {#sdk-user-location-by-ip-address}
+### Ubicación del usuario del SDK por dirección IP {#sdk-user-location-by-ip-address}
 
-Braze detecta las ubicaciones de los usuarios a partir del país geolocalizado utilizando la dirección IP desde el inicio de la primera sesión del SDK or kit de desarrollo de software.
+Braze detecta las ubicaciones de los usuarios a partir del país geolocalizado utilizando la dirección IP desde el inicio de la primera sesión del SDK.
 
-Anteriormente, Braze utilizaba el código de país de la configuración regional del dispositivo durante la creación del usuario del SDK or kit de desarrollo de software y durante la primera sesión. Solo después de procesar el inicio de la primera sesión se utilizaba la dirección IP para establecer el país más fiable en el usuario. Esto significaba que el país del usuario se establecía con mayor precisión solo a partir de la segunda sesión en adelante, solo después de que se procesara el inicio de la primera sesión.
+Anteriormente, Braze utilizaba el código de país de la configuración regional del dispositivo durante la creación del usuario del SDK y durante la primera sesión. Solo después de procesar el inicio de la primera sesión se utilizaba la dirección IP para establecer el país más fiable en el usuario. Esto significaba que el país del usuario se establecía con mayor precisión solo a partir de la segunda sesión en adelante, solo después de que se procesara el inicio de la primera sesión.
 
-Ahora, Braze utiliza la dirección IP para establecer el valor del país en los perfiles de usuario creados a través del SDK or kit de desarrollo de software, y esa configuración de país basada en IP está disponible durante y después de la primera sesión.
+Ahora, Braze utiliza la dirección IP para establecer el valor del país en los perfiles de usuario creados a través del SDK, y esa configuración de país basada en IP está disponible durante y después de la primera sesión.
 
 #### Recopilación automática de ubicación {#automatic-location-collection}
 
-Cuando está habilitada, la recopilación automática de ubicación en el SDK or kit de desarrollo de software es independiente del comportamiento de país basado en IP. Se relaciona con las señales de ubicación del dispositivo, como el GPS cuando el usuario ha concedido permiso, lo que alimenta filtros como `Most Recent Location`. No rellena automáticamente campos detallados como la ciudad solo a partir de la IP.
+Cuando está habilitada, la recopilación automática de ubicación en el SDK es independiente del comportamiento de país basado en IP. Se relaciona con las señales de ubicación del dispositivo, como el GPS cuando el usuario ha concedido permiso, lo que alimenta filtros como `Most Recent Location`. No rellena automáticamente campos detallados como la ciudad solo a partir de la IP.
 
-Para la segmentación por ciudad o código postal, utiliza [`setLastKnownLocation()`]({{site.baseurl}}/developer_guide/analytics/tracking_location) (consulta el artículo del SDK or kit de desarrollo de software para tu plataforma), tu propio servicio de geolocalización por IP que escriba atributos personalizados, o la [segmentación por ubicación]({{site.baseurl}}/user_guide/audience/segments/location_targeting) con los datos que recopiles.
+Para la segmentación por ciudad o código postal, utiliza [`setLastKnownLocation()`]({{site.baseurl}}/developer_guide/analytics/tracking_location) (consulta el artículo del SDK para tu plataforma), tu propio servicio de geolocalización por IP que escriba atributos personalizados, o la [segmentación por ubicación]({{site.baseurl}}/user_guide/audience/segments/location_targeting) con los datos que recopiles.
 
 ## Segmentación por ubicación {#location-targeting}
 
@@ -97,7 +97,7 @@ No. Si un usuario alguna vez ha tenido una ubicación almacenada en su perfil, e
 
 ### Ningún usuario tiene ubicaciones disponibles {#no-users-have-available-locations}
 
-Braze captura la ubicación más reciente de un usuario de forma predeterminada a través del SDK or kit de desarrollo de software. Esto normalmente significa que la "ubicación reciente" es la ubicación desde la cual tu usuario utilizó tu aplicación más recientemente. Si envías datos de ubicación en segundo plano a Braze, es posible que tengas datos más detallados disponibles.
+Braze captura la ubicación más reciente de un usuario de forma predeterminada a través del SDK. Esto normalmente significa que la "ubicación reciente" es la ubicación desde la cual tu usuario utilizó tu aplicación más recientemente. Si envías datos de ubicación en segundo plano a Braze, es posible que tengas datos más detallados disponibles.
 
 Si ningún usuario tiene ubicaciones disponibles, dos comprobaciones rápidas pueden ayudarte a confirmar la recopilación de datos y la transferencia de datos.
 
@@ -114,7 +114,7 @@ Para ver si los datos de ubicación del usuario se están enviando a Braze, util
 
 #### Transferencia de datos {#data-transfer}
 
-Confirma que tus desarrolladores están pasando datos de ubicación a Braze. Normalmente, el paso de datos de ubicación se gestiona automáticamente por el SDK or kit de desarrollo de software después de que el usuario concede los permisos, pero tus desarrolladores pueden haber deshabilitado el seguimiento de ubicación en Braze. Puedes encontrar más información sobre el seguimiento de ubicación para:
+Confirma que tus desarrolladores están pasando datos de ubicación a Braze. Normalmente, el paso de datos de ubicación se gestiona automáticamente por el SDK después de que el usuario concede los permisos, pero tus desarrolladores pueden haber deshabilitado el seguimiento de ubicación en Braze. Puedes encontrar más información sobre el seguimiento de ubicación para:
 - [Android]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=android)
 - [iOS]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=swift)
 - [Web]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=web)

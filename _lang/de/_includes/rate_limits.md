@@ -4,7 +4,7 @@
 Wir wenden auf diesen Endpunkt das standardmäßige Braze-Rate-Limit von 250.000 Anfragen pro Stunde an, wie in [API-Rate-Limits]({{site.baseurl}}/api/api_limits) dokumentiert.
 
 <!---PUT /scim/v2/Users/YOUR_ID_HERE--->
-{% elsif include.endpoint == "Update or aktualisieren dashboard user" %}
+{% elsif include.endpoint == "update dashboard user" %}
 Dieser Endpunkt hat ein Rate-Limit von 5.000 Anfragen pro Tag und Unternehmen. Dieses Rate-Limit wird mit den `/scim/v2/Users/` GET-, DELETE- und POST-Endpunkten geteilt, wie in [API-Rate-Limits]({{site.baseurl}}/api/api_limits) dokumentiert.
 
 <!---GET /scim/v2/Users/YOUR_ID_HERE--->
@@ -34,15 +34,15 @@ Für diesen Endpunkt gilt ein Rate-Limit von 1.000 Anfragen pro Minute, wie in [
 {% elsif include.endpoint == "users track" %}
 Die Rate-Limits für diesen Endpunkt variieren je nach Ihrem Vertrag. Für Kund:innen mit Datenpunkten in ihrem Preismodell wendet Braze ein Burst-Limit von 3.000 Anfragen pro drei Sekunden an. Für alle anderen Kund:innen werden die Limits gemäß Ihren Vertragsbedingungen konfiguriert. Die aktuellen Limits für Ihr Konto finden Sie im Dashboard unter **Einstellungen** > **APIs und Bezeichner** > **API-Nutzungs-Dashboard**.
 
-Jede `/users/track`-Anfrage kann insgesamt bis zu 75 Objekte enthalten, verteilt auf `attributes`, `events` und `purchases`. Jedes Objekt kann eine:n Nutzer:in Update or aktualisieren or aktualisieren. Ein einzelnes Kundenprofil or Nutzerprofil kann durch mehrere Objekte aktualisiert werden.
+Jede `/users/track`-Anfrage kann insgesamt bis zu 75 Objekte enthalten, verteilt auf `attributes`, `events` und `purchases`. Jedes Objekt kann eine:n Nutzer:in aktualisieren. Ein einzelnes Kundenprofil kann durch mehrere Objekte aktualisiert werden.
 
-Für Kund:innen, die Monthly Active Users CY 24-25, Universal MAU or monatlich aktive:r Nutzer:in, Web MAU or monatlich aktive:r Nutzer:in oder Mobile MAU or monatlich aktive:r Nutzer:in erworben haben, gelten zusätzliche Rate-Limits. Weitere Informationen finden Sie unter [Monthly Active Users CY 24-25 Limits]({{site.baseurl}}/api/endpoints/user_data/post_user_track#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau).
+Für Kund:innen, die Monthly Active Users CY 24-25, Universal MAU, Web MAU oder Mobile MAU erworben haben, gelten zusätzliche Rate-Limits. Weitere Informationen finden Sie unter [Monthly Active Users CY 24-25 Limits]({{site.baseurl}}/api/endpoints/user_data/post_user_track#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau).
 
 {% details Ältere Rate-Limits %}
-Für Kund:innen mit älteren Rate-Limits kann jede `/users/track`-Anfrage bis zu 75 Attribut-Objekte, 75 Event-Objekte und 75 Kauf-Objekte enthalten. Jedes Objekt kann eine:n Nutzer:in Update or aktualisieren or aktualisieren, was insgesamt maximal 225 Objekte pro Anfrage ergibt. Ein einzelnes Kundenprofil or Nutzerprofil kann durch mehrere Objekte aktualisiert werden.
+Für Kund:innen mit älteren Rate-Limits kann jede `/users/track`-Anfrage bis zu 75 Attribut-Objekte, 75 Event-Objekte und 75 Kauf-Objekte enthalten. Jedes Objekt kann eine:n Nutzer:in aktualisieren, was insgesamt maximal 225 Objekte pro Anfrage ergibt. Ein einzelnes Kundenprofil kann durch mehrere Objekte aktualisiert werden.
 {% enddetails %}
 
-Weitere Informationen finden Sie unter [API-Rate-Limits]({{site.baseurl}}/api/api_limits). Bitte wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in, um eine Erhöhung anzufordern.
+Weitere Informationen finden Sie unter [API-Rate-Limits]({{site.baseurl}}/api/api_limits). Bitte wenden Sie sich an Ihren CSM, um eine Erhöhung anzufordern.
 
 <!---/users/export/ids-->
 
@@ -68,9 +68,9 @@ Wir wenden ein gemeinsames Rate-Limit von 20.000 Anfragen pro Minute auf diesen 
 {% elsif include.endpoint == "users alias new" %}
 Wir wenden ein gemeinsames Rate-Limit von 20.000 Anfragen pro Minute auf diesen Endpunkt an. Dieses Rate-Limit wird mit den Endpunkten `/users/delete`, `/users/identify`, `/users/merge` und `/users/alias/update` geteilt, wie in [API-Rate-Limits]({{site.baseurl}}/api/api_limits) dokumentiert.
 
-<!---/users/alias/Update or aktualisieren-->
+<!---/users/alias/update-->
 
-{% elsif include.endpoint == "users alias Update or aktualisieren" %}
+{% elsif include.endpoint == "users alias update" %}
 Wir wenden ein gemeinsames Rate-Limit von 20.000 Anfragen pro Minute auf diesen Endpunkt an. Dieses Rate-Limit wird mit den Endpunkten `/users/delete`, `/users/alias/new`, `/users/identify` und `/users/merge` geteilt, wie in [API-Rate-Limits]({{site.baseurl}}/api/api_limits) dokumentiert.
 
 <!---/users/identify-->
@@ -104,8 +104,8 @@ Wir wenden auf diesen Endpunkt ein gemeinsames Rate-Limit von 1.000 Anfragen pro
 Wir wenden auf diesen Endpunkt ein gemeinsames Rate-Limit von 1.000 Anfragen pro Stunde an. Dieses Rate-Limit wird mit den Endpunkten `/custom_attributes`, `/events` und `/events/list` geteilt, wie in [API-Rate-Limits]({{site.baseurl}}/api/api_limits) dokumentiert.
 
 <!---/messages/send-->
-<!---/campaigns/Trigger or triggern/send-->
-<!---/Canvas/Trigger or triggern/send-->
+<!---/campaigns/trigger/send-->
+<!---/canvas/trigger/send-->
 
 {% elsif include.endpoint == "send endpoints" %}
 Bei Verwendung von Connected-Audience-Filtern in Ihrer Anfrage wenden wir ein Rate-Limit von 250 Anfragen pro Minute auf diesen Endpunkt an. Andernfalls gilt bei Angabe einer `external_id` für diesen Endpunkt ein Standard-Rate-Limit von 250.000 Anfragen pro Stunde, das zwischen den in [API-Rate-Limits]({{site.baseurl}}/api/api_limits#requests-with-shared-rate-limits) dokumentierten Endpunkten geteilt wird.

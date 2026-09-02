@@ -23,21 +23,21 @@ Die Integration von Braze und Merkury ermöglicht es Ihnen, die `MerkuryID` zu n
 | Merkle-Konto | Ein Merkle-Konto ist erforderlich, um diese Partnerschaft zu nutzen. |
 | Merkle Client-ID | Erhalten Sie Ihre Client-ID von Ihrer Merkle-Vertretung. |
 | Merkury-Tag | Platzieren Sie den Merkury-Tag von Merkle auf Ihrer Website. |
-| Braze Representational State Transfer- und SDK or Software-Development-Kit-Endpunkt | Ihre Representational State Transfer- oder SDK or Software-Development-Kit-Endpunkt-URL. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/api/basics#endpoints) ab. |
-| Braze Representational State Transfer-API-Schlüssel | Ein Braze Representational State Transfer-API-Schlüssel mit den Berechtigungen `users.track, users.export.ids, users.export.segment, and segments.list`. <br><br>Dieser kann unter **Braze-Dashboard > Entwicklungskonsole > Representational State Transfer-API-Schlüssel > Neuen API-Schlüssel erstellen** erstellt werden. |
+| Braze REST- und SDK-Endpunkt | Ihre REST- oder SDK-Endpunkt-URL. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/api/basics#endpoints) ab. |
+| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit den Berechtigungen `users.track, users.export.ids, users.export.segment, and segments.list`. <br><br>Dieser kann unter **Braze-Dashboard > Entwicklungskonsole > REST-API-Schlüssel > Neuen API-Schlüssel erstellen** erstellt werden. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 {% alert important %}
 Die Anfragen des Merkury-Identitätskonnektors an Braze erfolgen innerhalb der Braze-API-Rate-Limits. Wenden Sie sich an Braze oder Ihre:n Merkle Account Manager:in:in, wenn Sie Fragen haben.<br><br>Merkury sendet mindestens eine Anfrage am Ende einer qualifizierten Sitzung.
 {% endalert %}
 
-## Side-by-Side-SDK or Software-Development-Kit-Integration
+## Side-by-Side-SDK-Integration
 
 Nutzt Merkles clientseitigen Merkury-Tag, um Braze-Geräte zu erfassen und an den Merkury-Identity-Konnektor-Endpunkt zur Identifizierung weiterzuleiten.
 
-### Schritt 1: Braze Web SDK or Software-Development-Kit-Tag einrichten {#step-1-setup-braze-web-sdk-tag}
+### Schritt 1: Braze Web SDK-Tag einrichten {#step-1-setup-braze-web-sdk-tag}
 
-Sie müssen das [Braze Web SDK or Software-Development-Kit]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup#install-gtm) auf Ihrer Website bereitgestellt haben, um diese Integration nutzen zu können.
+Sie müssen das [Braze Web SDK]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup#install-gtm) auf Ihrer Website bereitgestellt haben, um diese Integration nutzen zu können.
 
 ### Schritt 2: Merkles Merkury-Tag bereitstellen {#step-2-deploy-merkles-merkury-tag}
 

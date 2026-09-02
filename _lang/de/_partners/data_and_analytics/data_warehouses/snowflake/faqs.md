@@ -49,7 +49,7 @@ Wenn Ihr Share regionsübergreifend ist, sind die Daten möglicherweise nicht so
 
 ## Warum erhalte ich einen HIPAA-Compliance-Fehler beim Erstellen einer Datenfreigabe? {#why-am-i-receiving-a-hipaa-compliance-error-when-creating-a-data-share}
 
-Das angegebene Konto ist entweder nicht HIPAA-konform oder verwendet eine [Snowflake Edition](https://docs.snowflake.com/en/user-guide/intro-editions) unterhalb von Business Critical. Ihr Snowflake-Konto muss auf die Business Critical Edition aktualisiert werden, um für die Datenfreigabe HIPAA-konform zu sein. Wenden Sie sich an den Snowflake-Support, um weitere Unterstützung beim Upgrade or upgraden Ihres Kontos zu erhalten.
+Das angegebene Konto ist entweder nicht HIPAA-konform oder verwendet eine [Snowflake Edition](https://docs.snowflake.com/en/user-guide/intro-editions) unterhalb von Business Critical. Ihr Snowflake-Konto muss auf die Business Critical Edition aktualisiert werden, um für die Datenfreigabe HIPAA-konform zu sein. Wenden Sie sich an den Snowflake-Support, um weitere Unterstützung beim Upgrade Ihres Kontos zu erhalten.
 
 ## Warum kann ich einen Data Share nach dem Löschen nicht neu erstellen? {#why-cant-i-recreate-a-data-share-after-deleting-one}
 

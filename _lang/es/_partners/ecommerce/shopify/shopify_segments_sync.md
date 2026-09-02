@@ -11,7 +11,7 @@ description: "Este artículo de referencia explica cómo sincronizar segmentos d
 > La sincronización de segmentos de Shopify extiende tu tienda Shopify a Braze, dando a tu equipo de marketing acceso directo a datos de usuario más completos que residen en Shopify, incluidas señales que no se capturan con la integración estándar de Braze con Shopify. Al sincronizar segmentos de Shopify como cohortes, alineas las definiciones de audiencia en ambas plataformas y ofreces experiencias de usuario consistentes y coordinadas, ya sea que los segmentes en Shopify o los alcances a través de una Campaign de Braze.
 
 {% alert important %}
-La sincronización de segmentos de Shopify se encuentra actualmente en fase beta. Para solicitar acceso, ponte en contacto con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente.
+La sincronización de segmentos de Shopify se encuentra actualmente en fase beta. Para solicitar acceso, ponte en contacto con tu CSM.
 {% endalert %}
 
 ## Requisitos previos {#prerequisites}

@@ -9,7 +9,7 @@ Cada tipo de mensagem no app é personalizável em relação a conteúdo, imagen
 {% tabs %}
 {% tab Slideup %}
 
-As mensagens no app [`SlideUp`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.slideupmessage.html) recebem esse nome porque, tradicionalmente em plataformas móveis, elas "deslizam para cima" ou "deslizam para baixo" a partir do topo ou da parte inferior da tela. No SDK or kit de desenvolvimento de software da Braze para web, essas mensagens são exibidas mais como uma notificação no estilo Growl ou Toast, para se alinhar ao paradigma dominante da web. Elas cobrem uma pequena parte da tela e oferecem uma capacidade de envio de mensagens eficaz e não intrusiva.
+As mensagens no app [`SlideUp`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.slideupmessage.html) recebem esse nome porque, tradicionalmente em plataformas móveis, elas "deslizam para cima" ou "deslizam para baixo" a partir do topo ou da parte inferior da tela. No SDK da Braze para web, essas mensagens são exibidas mais como uma notificação no estilo Growl ou Toast, para se alinhar ao paradigma dominante da web. Elas cobrem uma pequena parte da tela e oferecem uma capacidade de envio de mensagens eficaz e não intrusiva.
 
 ![Uma mensagem no app deslizando a partir da parte inferior da tela de um celular exibindo "Humans are complicated. Custom engagement shouldn't be." No fundo, a mesma mensagem no app é exibida no canto inferior de uma página web.]({% image_buster /assets/img/slideup-behavior.gif %}){: style="border:0px;"}
 
@@ -30,10 +30,10 @@ As mensagens no app [`Full`](https://js.appboycdn.com/web-sdk/latest/doc/classes
 {% endtab %}
 {% tab HTML personalizado %}
 
-As mensagens no app [`HTML`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.htmlmessage.html) são úteis para criar conteúdo de usuário totalmente personalizado. O HTML definido pelo usuário é exibido em um iFrame e pode conter conteúdo rico, como imagens, fontes, vídeos e elementos interativos, permitindo controle total sobre a aparência e a funcionalidade da mensagem. Elas suportam uma interface JavaScript `brazeBridge` para chamar métodos no SDK or kit de desenvolvimento de software da Braze para web a partir do seu HTML. Consulte nossas [melhores práticas]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices) para mais detalhes.
+As mensagens no app [`HTML`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.htmlmessage.html) são úteis para criar conteúdo de usuário totalmente personalizado. O HTML definido pelo usuário é exibido em um iFrame e pode conter conteúdo rico, como imagens, fontes, vídeos e elementos interativos, permitindo controle total sobre a aparência e a funcionalidade da mensagem. Elas suportam uma interface JavaScript `brazeBridge` para chamar métodos no SDK da Braze para web a partir do seu HTML. Consulte nossas [melhores práticas]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices) para mais detalhes.
 
 {% alert important %}
-Para ativar mensagens no app em HTML por meio do SDK or kit de desenvolvimento de software para web, você **deve** fornecer a opção de inicialização `allowUserSuppliedJavascript` à Braze, por exemplo, `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Isso é por motivos de segurança. Mensagens no app em HTML podem executar JavaScript, então exigimos que um mantenedor do site as ative.
+Para ativar mensagens no app em HTML por meio do SDK para web, você **deve** fornecer a opção de inicialização `allowUserSuppliedJavascript` à Braze, por exemplo, `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Isso é por motivos de segurança. Mensagens no app em HTML podem executar JavaScript, então exigimos que um mantenedor do site as ative.
 {% endalert %}
 
 O exemplo a seguir mostra uma mensagem no app em HTML paginada:

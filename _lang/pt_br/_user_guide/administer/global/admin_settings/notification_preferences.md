@@ -29,7 +29,7 @@ Dependendo do tipo de notificação, **All Dashboard Users** e **All Admins** po
 
 | Notificação | Descrição | Canais de notificação disponíveis |
 |--------------|-------------|-----------------|
-| Alertas de uso da API or interface de programação do aplicativo (API) | Ao selecionar esta opção, você é direcionado ao **Dashboard de Uso da API or interface de programação do aplicativo (API)**, onde pode acessar a guia [**Alertas de Uso da API or interface de programação do aplicativo (API)**]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts) e configurar alertas para monitorar os volumes de solicitações de API or interface de programação do aplicativo (API). | E-mail, Webhook |
+| Alertas de uso da API | Ao selecionar esta opção, você é direcionado ao **Dashboard de Uso da API**, onde pode acessar a guia [**Alertas de Uso da API**]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts) e configurar alertas para monitorar os volumes de solicitações de API. | E-mail, Webhook |
 | Erros de credenciais da AWS | Notifica os destinatários quando a Braze recebe um erro ao tentar usar suas credenciais da Amazon Web Services para uma exportação de dados. Isso inclui notificações de erros de credenciais para Google Cloud Storage e Azure (Microsoft Cloud Services). | E-mail, Webhook |
 | Campaign interrompida automaticamente | Notifica os destinatários quando a Braze interrompe uma Campaign. | E-mail |
 | Canvas interrompido automaticamente | Notifica os destinatários quando a Braze interrompe um Canvas. | E-mail |
@@ -45,7 +45,7 @@ Dependendo do tipo de notificação, **All Dashboard Users** e **All Admins** po
 | Erros de webhook | Notifica os destinatários quando um endpoint de webhook apresenta erros. | E-mail |
 | Relatório semanal de análise de dados | Envia um resumo da atividade do espaço de trabalho da semana anterior para os destinatários toda segunda-feira. Os destinatários recebem um resumo para cada espaço de trabalho ao qual pertencem. | E-mail |
 | Limites diários de volume de entrada de Canvas/Campaign | Envia notificações cada vez que um limite de envio é atingido. | E-mail |
-| Erro no console de agentes | Notifica os destinatários quando um agente do [console de agentes]({{site.baseurl}}/user_guide/brazeai/agents) atingiu seu limite de invocação, usa um modelo que se tornou indisponível ou encontra um erro de cobrança com seu provedor de LLM (somente para chave de API or interface de programação do aplicativo (API) própria). | E-mail |
+| Erro no console de agentes | Notifica os destinatários quando um agente do [console de agentes]({{site.baseurl}}/user_guide/brazeai/agents) atingiu seu limite de invocação, usa um modelo que se tornou indisponível ou encontra um erro de cobrança com seu provedor de LLM (somente para chave de API própria). | E-mail |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Notificações disponíveis" }
 
 {% alert note %}

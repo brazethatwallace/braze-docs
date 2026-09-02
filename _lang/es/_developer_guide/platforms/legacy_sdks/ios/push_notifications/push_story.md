@@ -14,7 +14,7 @@ noindex: true
 
 # Configuración de Push Stories {#push-story-setup}
 
-La función Push Stories requiere el framework `UNNotification` e iOS 10. La función solo está disponible a partir de la versión 3.2.1 del SDK or kit de desarrollo de software de iOS.
+La función Push Stories requiere el framework `UNNotification` e iOS 10. La función solo está disponible a partir de la versión 3.2.1 del SDK de iOS.
 
 ## Paso 1: Habilitar push en tu aplicación {#step-1-enable-push-in-your-app}
 
@@ -236,7 +236,7 @@ Appboy.start(withApiKey: "YOUR-API-KEY", in:application, withLaunchOptions:launc
 
 #### Opción 2: Info.plist {#option-2-infoplist}
 
-Alternativamente, para configurar el espacio de trabajo de Push Stories desde tu archivo `Info.plist`, añade un diccionario llamado `Braze` a tu archivo `Info.plist`. Dentro del diccionario `Braze`, añade una subentrada de tipo cadena `PushStoryAppGroup` y establece el valor en el identificador de tu espacio de trabajo. Ten en cuenta que, antes de la versión 4.0.2 del SDK or kit de desarrollo de software de iOS de Braze, debe usarse la clave de diccionario `Appboy` en lugar de `Braze`.
+Alternativamente, para configurar el espacio de trabajo de Push Stories desde tu archivo `Info.plist`, añade un diccionario llamado `Braze` a tu archivo `Info.plist`. Dentro del diccionario `Braze`, añade una subentrada de tipo cadena `PushStoryAppGroup` y establece el valor en el identificador de tu espacio de trabajo. Ten en cuenta que, antes de la versión 4.0.2 del SDK de iOS de Braze, debe usarse la clave de diccionario `Appboy` en lugar de `Braze`.
 
 ## Próximos pasos {#next-steps}
 

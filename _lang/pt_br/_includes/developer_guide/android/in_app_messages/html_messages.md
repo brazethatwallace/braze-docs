@@ -5,11 +5,11 @@
 Com a interface JavaScript da Braze, você pode aproveitar a Braze dentro das WebViews personalizadas em seu app. O [`InAppMessageJavascriptInterface`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage.jsinterface/-in-app-message-javascript-interface/index.html) é responsável por:
 
 1. Injetar a ponte JavaScript da Braze em sua WebView, conforme descrito em [Guia do Usuário: Mensagens HTML no app]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/customize/#custom-html-messages).
-2. Passar os métodos da ponte recebidos de sua WebView para o [Braze Android SDK or kit de desenvolvimento de software](https://github.com/braze-inc/braze-android-sdk).
+2. Passar os métodos da ponte recebidos de sua WebView para o [Braze Android SDK](https://github.com/braze-inc/braze-android-sdk).
 
 ## Adição da interface a um WebView {#adding-the-interface-to-a-webview}
 
-O uso da funcionalidade da Braze a partir de um WebView em seu app pode ser feito adicionando a interface JavaScript da Braze ao seu WebView. Depois que a interface for adicionada, a mesma API or interface de programação do aplicativo (API) disponível para [Guia do Usuário: Mensagens HTML no app]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/customize/#custom-html-messages) estará disponível dentro de sua WebView personalizada.
+O uso da funcionalidade da Braze a partir de um WebView em seu app pode ser feito adicionando a interface JavaScript da Braze ao seu WebView. Depois que a interface for adicionada, a mesma API disponível para [Guia do Usuário: Mensagens HTML no app]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/customize/#custom-html-messages) estará disponível dentro de sua WebView personalizada.
 
 {% tabs %}
 {% tab JAVA %}
@@ -38,7 +38,7 @@ myWebView.addJavascriptInterface(javascriptInterface, "brazeInternalBridge")
 
 ## Incorporando conteúdo do YouTube {#embedding-youtube-content}
 
-O YouTube e outros conteúdos em HTML5 podem ser reproduzidos em mensagens no app em HTML. Isso requer que a aceleração de hardware seja ativada na atividade em que a mensagem no app está sendo exibida; consulte o [guia do desenvolvedor do Android](https://developer.android.com/guide/topics/graphics/hardware-accel.html#controlling) para obter mais detalhes. A aceleração de hardware está disponível apenas nas versões 11 e posteriores da API or interface de programação do aplicativo (API) do Android.
+O YouTube e outros conteúdos em HTML5 podem ser reproduzidos em mensagens no app em HTML. Isso requer que a aceleração de hardware seja ativada na atividade em que a mensagem no app está sendo exibida; consulte o [guia do desenvolvedor do Android](https://developer.android.com/guide/topics/graphics/hardware-accel.html#controlling) para obter mais detalhes. A aceleração de hardware está disponível apenas nas versões 11 e posteriores da API do Android.
 
 A seguir, um exemplo de um vídeo do YouTube incorporado em um trecho de HTML:
 
@@ -56,7 +56,7 @@ A seguir, um exemplo de um vídeo do YouTube incorporado em um trecho de HTML:
 
 ## Usando deep links {#using-deep-links}
 
-Ao usar deep links ou links externos em mensagens HTML no app Android, **não** chame `brazeBridge.closeMessage()` em seu JavaScript. A lógica interna do SDK or kit de desenvolvimento de software fecha automaticamente a mensagem no app quando redireciona para um link. Chamar `brazeBridge.closeMessage()` interfere nesse processo e pode fazer com que a mensagem fique sem resposta quando os usuários retornarem ao seu app.
+Ao usar deep links ou links externos em mensagens HTML no app Android, **não** chame `brazeBridge.closeMessage()` em seu JavaScript. A lógica interna do SDK fecha automaticamente a mensagem no app quando redireciona para um link. Chamar `brazeBridge.closeMessage()` interfere nesse processo e pode fazer com que a mensagem fique sem resposta quando os usuários retornarem ao seu app.
 
 A seguir, um exemplo de um deep link em um trecho de código:
 

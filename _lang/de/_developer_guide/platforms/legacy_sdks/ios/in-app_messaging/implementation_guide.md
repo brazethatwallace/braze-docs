@@ -26,7 +26,7 @@ Der folgende Leitfaden beschreibt eine optionale angepasste Entwickler-Integrati
 
 ### ABKInAppMessage-Unterklassen {#abkinappmessage-subclasses}
 
-Bei dem folgenden Code-Snippet handelt es sich um eine UI-Delegate-Methode aus dem Braze SDK or Software-Development-Kit, die festlegt, mit welcher Unterklassenansicht die In-App-Nachricht befüllt werden soll. Wir beschreiben in diesem Leitfaden eine grundlegende Implementierung und zeigen, wie die Unterklassen „Full“, „Slide-up“ und „Modal“ auf ansprechende Weise implementiert werden können. Beachten Sie, dass Sie alle anderen Unterklassen für In-App-Nachrichten einrichten müssen, wenn Sie einen angepassten View-Controller einrichten möchten. Nachdem Sie sich ein solides Verständnis der Konzepte hinter der Einrichtung von Unterklassen angeeignet haben, sehen Sie sich unsere [Anwendungsfälle](#sample-use-cases) an, um mit der Implementierung von Unterklassen für In-App-Nachrichten zu beginnen.
+Bei dem folgenden Code-Snippet handelt es sich um eine UI-Delegate-Methode aus dem Braze SDK, die festlegt, mit welcher Unterklassenansicht die In-App-Nachricht befüllt werden soll. Wir beschreiben in diesem Leitfaden eine grundlegende Implementierung und zeigen, wie die Unterklassen „Full“, „Slide-up“ und „Modal“ auf ansprechende Weise implementiert werden können. Beachten Sie, dass Sie alle anderen Unterklassen für In-App-Nachrichten einrichten müssen, wenn Sie einen angepassten View-Controller einrichten möchten. Nachdem Sie sich ein solides Verständnis der Konzepte hinter der Einrichtung von Unterklassen angeeignet haben, sehen Sie sich unsere [Anwendungsfälle](#sample-use-cases) an, um mit der Implementierung von Unterklassen für In-App-Nachrichten zu beginnen.
 
 {% tabs %}
 {% tab Swift %}
@@ -91,8 +91,8 @@ Besuchen Sie den [`SlideFromBottomViewController`](https://github.com/braze-inc/
 
 {% tabs %}
 {% tab Swift %}
-**Update or aktualisieren or aktualisieren der Variable `offset`**<br>
-Update or aktualisieren or aktualisieren Sie die Variable `offset` und legen Sie einen Offset fest, der Ihren Anforderungen entspricht.
+**Aktualisieren der Variable `offset`**<br>
+Aktualisieren Sie die Variable `offset` und legen Sie einen Offset fest, der Ihren Anforderungen entspricht.
 ```swift
 func setSlideConstraint() {
   offset = 0
@@ -111,7 +111,7 @@ override var offset: CGFloat {
 ```
 
 {% details Version 3.34.0 or earlier  %}
-**Update or aktualisieren or aktualisieren der Variable `slideConstraint`**<br>
+**Aktualisieren der Variable `slideConstraint`**<br>
 Die öffentliche Variable `slideConstraint` stammt aus der Superklasse `ABKInAppMessageSlideupViewController`.
 
 ```swift
@@ -129,8 +129,8 @@ Besuchen Sie das Braze Demo Repository für die Funktion [`topMostViewController
 {% enddetails %}
 {% endtab %}
 {% tab Objective-C %}
-**Update or aktualisieren or aktualisieren der Variable `offset`**<br>
-Update or aktualisieren or aktualisieren Sie die Variable `offset` und legen Sie einen Offset fest, der Ihren Anforderungen entspricht.
+**Aktualisieren der Variable `offset`**<br>
+Aktualisieren Sie die Variable `offset` und legen Sie einen Offset fest, der Ihren Anforderungen entspricht.
 ```objc
 - (void)setOffset {
   self.offset = 0;
@@ -147,7 +147,7 @@ Update or aktualisieren or aktualisieren Sie die Variable `offset` und legen Sie
 }
 ```
 {% details Version 3.34.0 or earlier  %}
-**Update or aktualisieren or aktualisieren der Variable `slideConstraint`**<br>
+**Aktualisieren der Variable `slideConstraint`**<br>
 Die öffentliche Variable `slideConstraint` stammt aus der Superklasse `ABKInAppMessageSlideupViewController`.
 
 ```objc
@@ -226,7 +226,7 @@ Um eine modale In-App-Nachricht im Dashboard einzurichten, müssen Sie eine Arti
 
 ![Der In-App-Nachrichten-Editor zeigt eine Vorschau, wie die In-App-Nachricht aussehen wird. Stattdessen wird die Artikelliste angezeigt, die Sie an Braze übermittelt haben. Da die Braze-Benutzeroberfläche Ihre angepasste In-App-Nachrichten-UI nur anzeigt, wenn sie an ein Telefon gesendet wird, gibt die Vorschau keinen Aufschluss darüber, wie Ihre Nachricht tatsächlich aussehen wird. Wir empfehlen daher, vor dem Senden einen Test durchzuführen.]({% image_buster /assets/img/iam_implementation/dashboard1.png %})
 
-Geben Sie in den Schlüssel-Wert-Paaren einen `attribute_key` an. Dieser Schlüssel wird zusammen mit dem von Nutzer:innen ausgewählten Wert als angepasstes Attribut in ihrem Kundenprofil or Nutzerprofil gespeichert. Ihre angepasste Ansichtslogik muss die an Braze gesendeten Nutzerattribute verarbeiten.
+Geben Sie in den Schlüssel-Wert-Paaren einen `attribute_key` an. Dieser Schlüssel wird zusammen mit dem von Nutzer:innen ausgewählten Wert als angepasstes Attribut in ihrem Kundenprofil gespeichert. Ihre angepasste Ansichtslogik muss die an Braze gesendeten Nutzerattribute verarbeiten.
 
 Das Wörterbuch `extras` im Objekt `ABKInAppMessage` ermöglicht Ihnen die Abfrage eines Schlüssels des Typs `view_type` (falls vorhanden), der die korrekte Ansicht für die Anzeige angibt. Es ist wichtig zu wissen, dass In-App-Nachrichten pro Nachricht konfiguriert werden, sodass angepasste und standardmäßige modale Ansichten harmonisch zusammenarbeiten können.
 
@@ -365,7 +365,7 @@ Besuchen Sie den [`FullListViewController`](https://github.com/braze-inc/braze-g
 
 Um eine angepasste Full-In-App-Nachricht im Dashboard einzurichten, müssen Sie eine Liste Ihrer Tags angeben, die als kommagetrennte Zeichenkette formatiert ist.
 
-Geben Sie in den Schlüssel-Wert-Paaren einen `attribute_key` an. Dieser Schlüssel wird zusammen mit den von Nutzer:innen ausgewählten Werten als angepasstes Attribut in ihrem Kundenprofil or Nutzerprofil gespeichert. Ihre angepasste Ansichtslogik muss die an Braze gesendeten Nutzerattribute verarbeiten.
+Geben Sie in den Schlüssel-Wert-Paaren einen `attribute_key` an. Dieser Schlüssel wird zusammen mit den von Nutzer:innen ausgewählten Werten als angepasstes Attribut in ihrem Kundenprofil gespeichert. Ihre angepasste Ansichtslogik muss die an Braze gesendeten Nutzerattribute verarbeiten.
 
 ![Drei Schlüssel-Wert-Paare im Nachrichten-Editor. Das erste „attribute_key“ ist als „Push Tags“ festgelegt, das zweite „subtitle_text“ als „Durch das Aktivieren von Benachrichtigungen wird auch …“ und das dritte „view_type“ als „table_list“.]({% image_buster /assets/img/iam_implementation/dashboard3.png %}){: style="max-width:65%;"}
 

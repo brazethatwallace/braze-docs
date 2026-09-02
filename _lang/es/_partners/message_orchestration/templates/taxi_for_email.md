@@ -23,7 +23,7 @@ La integración de Braze y Taxi for Email utiliza la sencilla pero potente sinta
 | Requisito | Descripción |
 | ------------| ----------- |
 | Cuenta Taxi for Email for Email | Se necesita una cuenta de Taxi for Email for Email para beneficiarse de esta asociación. |
-| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos completos de **Plantillas**. <br><br> Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos completos de **Plantillas**. <br><br> Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
 | Punto de conexión de Braze | [Tu punto de conexión de Braze]({{site.baseurl}}/api/basics/#endpoints) se corresponde con la URL de tu panel de Braze.<br><br> Por ejemplo, si la URL de tu panel es `https://dashboard-03.braze.com`, tu punto de conexión será `dashboard-03`. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 

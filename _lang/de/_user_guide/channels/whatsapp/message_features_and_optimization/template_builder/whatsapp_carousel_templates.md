@@ -114,11 +114,11 @@ Testversand ist erst möglich, nachdem Meta das Template genehmigt hat. Der Temp
 
 ## Karussell-Templates verwenden {#use-carousel-templates}
 
-Nachdem Ihr Karussell-Template von Meta genehmigt wurde, können Sie es in Campaigns und Canvase verwenden. Der Ablauf ist für beide Nachrichtentypen ähnlich.
+Nachdem Ihr Karussell-Template von Meta genehmigt wurde, können Sie es in Campaigns und Canvases verwenden. Der Ablauf ist für beide Nachrichtentypen ähnlich.
 
 ### Schritt 1: WhatsApp-Nachricht erstellen {#step-1-create-a-whatsapp-message}
 
-1. Gehen Sie in Braze zu **Campaigns** oder **Canvase** und erstellen Sie eine WhatsApp-Nachricht.
+1. Gehen Sie in Braze zu **Campaigns** oder **Canvases** und erstellen Sie eine WhatsApp-Nachricht.
 2. Wählen Sie die Abo-Gruppe aus, die dem WhatsApp Business Account (WABA) Ihres Templates entspricht.
 
 {% alert important %}

@@ -6,7 +6,7 @@ page_type: reference
 alias: /api/objects_filters/canvas_entry_properties_object/
 tool:
   - Canvas
-description: "Este artículo explica el objeto de contexto BRAZE Canvas."
+description: "Este artículo explica el objeto de contexto BRAZE CANVAS."
 
 ---
 

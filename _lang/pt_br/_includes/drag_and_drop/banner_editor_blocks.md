@@ -75,14 +75,14 @@ Coleta um endereço de e-mail e o adiciona ao perfil da Braze do usuário ao env
 
 ### Texto longo {#long-text}
 
-Campo de texto multilinha para fluxos no estilo de pesquisa. Se você não vir esse bloco, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/) ou seu gerente de sucesso do cliente.
+Campo de texto multilinha para fluxos no estilo de pesquisa. Se você não vir esse bloco, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/) ou seu CSM.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 <!-- Saved row is not yet released. Uncomment when available.
 ### Saved row
 
-Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) or your Braze CSM or gerente de sucesso do cliente or gestor de sucesso do cliente or gerente de sucesso do cliente or gestor de sucesso do cliente.
+Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) or your Braze CSM.
 -->
 
 ## Informações importantes {#things-to-know}

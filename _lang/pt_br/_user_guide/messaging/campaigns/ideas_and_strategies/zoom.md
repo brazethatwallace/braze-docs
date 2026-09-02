@@ -20,7 +20,7 @@ Um fluxo de usuário recomendado está descrito abaixo:
 2. Use a Braze para promover webinars do Zoom por e-mail, push e mensagens no app.
 3. Inclua um botão de call-to-action nessas comunicações que adiciona automaticamente os usuários ao webinar.
 
-Isso pode ser feito usando as [APIs do Zoom](https://marketplace.zoom.us/docs/api-reference/zoom-api/methods/#operation/meetingRegistrantCreate) para adicionar automaticamente um usuário a um webinar por meio de um clique em um botão dentro de um e-mail, push ou mensagem no app. Use o endpoint a seguir, substituindo o ID do webinar na requisição da API or interface de programação do aplicativo (API).
+Isso pode ser feito usando as [APIs do Zoom](https://marketplace.zoom.us/docs/api-reference/zoom-api/methods/#operation/meetingRegistrantCreate) para adicionar automaticamente um usuário a um webinar por meio de um clique em um botão dentro de um e-mail, push ou mensagem no app. Use o endpoint a seguir, substituindo o ID do webinar na requisição da API.
 
 POST: `/meetings/{webinarId}/registrants`
 
@@ -31,7 +31,7 @@ Para saber mais, consulte o [endpoint Add webinar registrant](https://developers
 
 Crie uma campanha de e-mail com um botão de call-to-action no corpo da mensagem. Quando um usuário clicar no botão, redirecione-o para a landing page do webinar (com os parâmetros apropriados incluídos no link de redirecionamento).
 
-Usando os parâmetros na URL para passar dados de usuários, crie uma chamada de API or interface de programação do aplicativo (API) que seja disparada quando a página carregar para adicionar o usuário ao webinar.
+Usando os parâmetros na URL para passar dados de usuários, crie uma chamada de API que seja disparada quando a página carregar para adicionar o usuário ao webinar.
 
 ![Mensagem de e-mail com templates Liquid usados para incluir nome, sobrenome, endereço de e-mail e cidade.]({% image_buster /assets/img/zoom/zoom1.png %})
 

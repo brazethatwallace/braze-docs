@@ -41,7 +41,7 @@ Microsoft hebt Blockierungen für Absender, die Probleme bei der Zustellung an k
 
 Ein Beispiel für eine Blockierungsnachricht einer kostenlosen E-Mail-Domain:
 
-`550 5.7.1 Unfortunately, messages from [xx.xx.xx.xx] weren't sent. Please contact your ISP or Internet-Provider or Internet-Provider since part of their network is on our block list (S3150). You can also refer your provider to: http://mail.live.com/mail/troubleshooting.aspx#errors.`
+`550 5.7.1 Unfortunately, messages from [xx.xx.xx.xx] weren't sent. Please contact your ISP since part of their network is on our block list (S3150). You can also refer your provider to: http://mail.live.com/mail/troubleshooting.aspx#errors.`
 
 Sie können das Volumen langsam steigern, ähnlich wie beim [IP-Warming]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming), und dabei die Metriken genau im Auge behalten. Häufig gibt es eine Grundursache für die Zustellbarkeitsprobleme, die identifiziert und behoben werden muss. In der Regel handelt es sich um fehlende ordnungsgemäße Einwilligungen, mangelnde laufende Listenhygiene oder eine Kombination dieser Faktoren.
 

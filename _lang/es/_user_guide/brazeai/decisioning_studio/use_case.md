@@ -8,7 +8,7 @@ description: "Este ejemplo muestra cómo una marca ficticia utiliza BrazeAI Deci
 
 > Este ejemplo muestra cómo una marca ficticia utiliza BrazeAI Decisioning Studio™ y un agente de toma de decisiones para dirigir a cada cliente hacia una decisión óptima del banco de acciones, personalizar la mensajería para la recuperación y optimizar los ingresos. Conecta el diseño del agente, la audiencia y los experimentos, la orquestación a través de Braze y el aprendizaje posterior al lanzamiento.
 
-Supongamos que Poppy es administradora de CRM or administración de las relaciones con el cliente en Kitchenerie, una marca ficticia de comercio minorista en línea especializada en artículos de cocina.
+Supongamos que Poppy es administradora de CRM en Kitchenerie, una marca ficticia de comercio minorista en línea especializada en artículos de cocina.
 
 Muchos clientes solo exploran las colecciones de temporada una o dos veces antes de abandonar la página. Los programas de recuperación anteriores utilizaban recorridos fijos y pruebas A/B manuales, que eran útiles para probar textos, pero no para aprender qué combinación de oferta, canal, cadencia y momento maximiza los ingresos por compra de cada cliente. La prioridad de la dirección es clara: recuperar a la mayor cantidad posible de compradores inactivos y aumentar los ingresos sin sobrepasar las restricciones de descuentos o frecuencia.
 
@@ -30,7 +30,7 @@ Define quién entra en el programa: un segmento de Braze de compradores inactivo
 Poppy mapea las dimensiones que importan para las estrategias de recuperación:
 
 - Oferta: envío gratuito, porcentaje de descuento o paquete de artículos
-- Canal: correo electrónico, push o servicio de mensajes cortos
+- Canal: correo electrónico, push o SMS
 - Hora de envío o cadencia
 - Creatividad: ilustraciones pequeñas o textos enfocados en utilidad
 

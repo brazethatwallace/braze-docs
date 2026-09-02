@@ -12,7 +12,7 @@ description: "Este artigo explica como funciona a projeção de testes A/B, como
 > A projeção de testes A/B usa redes neurais para prever quais linhas de assunto têm melhor desempenho. Nosso modelo extrai recursos linguísticos dos testes A/B vencedores realizados na Braze e usa esses padrões linguísticos estatísticos para ensinar à nossa IA o que torna as linhas de assunto melhores.
 
 {% alert important %}
-Esse recurso está atualmente em acesso antecipado. Entre em contato com seu gerente de sucesso do cliente ou gerente de conta da Braze se tiver interesse em participar do acesso antecipado.
+Esse recurso está atualmente em acesso antecipado. Entre em contato com seu CSM ou gerente de conta da Braze se tiver interesse em participar do acesso antecipado.
 {% endalert %}
 
 ## Execução de uma projeção {#running-a-projection}

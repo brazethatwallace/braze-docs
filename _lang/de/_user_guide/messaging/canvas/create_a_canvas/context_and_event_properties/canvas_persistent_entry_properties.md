@@ -13,12 +13,12 @@ page_order: 5
 > Wenn ein Canvas durch ein angepasstes Event, einen Kauf oder einen API-Aufruf getriggert wird, können Sie Metadaten aus dem API-Aufruf, dem angepassten Event oder dem Kauf-Event zur Personalisierung in jedem Schritt Ihres Canvas-Workflows verwenden. Sie können diese Eigenschaften nutzen, um besser kuratierte Nachrichten zu senden.
 
 {% alert important %}
-Persistente Entry-Eigenschaften sind ein Artefakt des ursprünglichen Canvas-Editors, daher gibt es veraltete Verweise auf Begriffe wie Canvas-Entry-Eigenschaften, die aus historischen Gründen bestehen bleiben. Für den aktuellen Canvas-Editor lesen Sie [Kontext- und Event-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties).<br><br>Um persistente Entry-Eigenschaften im aktuellen Canvas-Editor zu verwenden, müssen Sie entweder einen neuen Canvas erstellen oder einen bestehenden in den aktuellen Editor [Klon or klonen]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases).
+Persistente Entry-Eigenschaften sind ein Artefakt des ursprünglichen Canvas-Editors, daher gibt es veraltete Verweise auf Begriffe wie Canvas-Entry-Eigenschaften, die aus historischen Gründen bestehen bleiben. Für den aktuellen Canvas-Editor lesen Sie [Kontext- und Event-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties).<br><br>Um persistente Entry-Eigenschaften im aktuellen Canvas-Editor zu verwenden, müssen Sie entweder einen neuen Canvas erstellen oder einen bestehenden in den aktuellen Editor [Klon]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases).
 {% endalert %}
 
 ## Entry-Eigenschaften verwenden {#using-entry-properties}
 
-Entry-Eigenschaften können in aktionsbasierten und API-getriggerten Canvase verwendet werden. Diese Entry-Eigenschaften werden definiert, wenn ein Canvas durch ein angepasstes Event, einen Kauf oder einen API-Aufruf getriggert wird. Weitere Informationen finden Sie in den folgenden Artikeln:
+Entry-Eigenschaften können in aktionsbasierten und API-getriggerten Canvases verwendet werden. Diese Entry-Eigenschaften werden definiert, wenn ein Canvas durch ein angepasstes Event, einen Kauf oder einen API-Aufruf getriggert wird. Weitere Informationen finden Sie in den folgenden Artikeln:
 
 - [Canvas-Entry-Eigenschaften-Objekt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)
 - [Event-Eigenschaften-Objekt]({{site.baseurl}}/api/objects_filters/event_object)
@@ -32,7 +32,7 @@ Wenn ein Canvas eine Nachricht mit dem Liquid-Tag `canvas_entry_properties` enth
 Das Canvas-Entry-Eigenschaften-Objekt hat eine maximale Größenbeschränkung von 50 KB.
 {% endalert %}
 
-## Canvas Update or aktualisieren or aktualisieren, um Entry-Eigenschaften zu verwenden {#updating-canvas-to-use-entry-properties}
+## Canvas aktualisieren, um Entry-Eigenschaften zu verwenden {#updating-canvas-to-use-entry-properties}
 
 Wenn ein aktives Canvas, das zuvor keine Nachrichten mit `canvas_entry_properties` enthielt, so bearbeitet wird, dass es `canvas_entry_properties` enthält, ist der Wert, der dieser Eigenschaft entspricht, für Nutzer:innen, die das Canvas betreten haben, bevor `canvas_entry_properties` zum Canvas hinzugefügt wurde, nicht verfügbar. Die Werte werden nur für Nutzer:innen gespeichert, die das Canvas nach der Änderung betreten.
 
@@ -93,8 +93,8 @@ Der zweite Schritt könnte eine weitere Push-Benachrichtigung senden, die Nutzer
 
 ## Fehlerbehebung {#troubleshooting}
 
-### Entry-Eigenschaften sind leer bei mehreren Entry-Trigger or triggern or triggern {#entry-properties-are-blank-with-multiple-entry-triggers}
+### Entry-Eigenschaften sind leer bei mehreren Entry-Triggern {#entry-properties-are-blank-with-multiple-entry-triggers}
 
-Braze speichert `canvas_entry_properties` von dem Trigger or triggern, der diese:n Nutzer:in in den Canvas geführt hat, nicht von jedem auf dem Canvas konfigurierten Trigger or triggern. Wenn dieser Trigger or triggern kein Event oder API-Payload hat – zum Beispiel **Sitzung starten** oder **Angepassten Attributwert ändern** – ist Liquid `canvas_entry_properties` für diese Journey leer. Nutzer:innen, die denselben Canvas über ein angepasstes Event, einen Kauf oder einen API-Aufruf betreten, verfügen weiterhin über die Eigenschaften aus diesem Payload.
+Braze speichert `canvas_entry_properties` von dem Trigger, der diese:n Nutzer:in in den Canvas geführt hat, nicht von jedem auf dem Canvas konfigurierten Trigger. Wenn dieser Trigger kein Event oder API-Payload hat – zum Beispiel **Sitzung starten** oder **Angepassten Attributwert ändern** – ist Liquid `canvas_entry_properties` für diese Journey leer. Nutzer:innen, die denselben Canvas über ein angepasstes Event, einen Kauf oder einen API-Aufruf betreten, verfügen weiterhin über die Eigenschaften aus diesem Payload.
 
 Um Entry-Eigenschaften für alle Nutzer:innen befüllt zu halten, verwenden Sie nur Entry-Typen, die diese Eigenschaften übergeben (angepasstes Event, Kauf oder API-getriggert). Für die Personalisierung im aktuellen Canvas-Editor verwenden Sie [Kontext- und Event-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties). Um nach Eigenschaften zu filtern, nutzen Sie die [Event-Eigenschaften-Segmentierung]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects) anstelle von Liquid `canvas_entry_properties`.

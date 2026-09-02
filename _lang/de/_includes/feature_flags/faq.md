@@ -6,7 +6,7 @@
 
 ### Auf welchen Plattformen werden Braze Feature-Flags unterstützt? {#platforms}
 
-Braze unterstützt Feature-Flags auf iOS, Android und Web-Plattformen mit den folgenden SDK or Software-Development-Kit-Versionsanforderungen:
+Braze unterstützt Feature-Flags auf iOS, Android und Web-Plattformen mit den folgenden SDK-Versionsanforderungen:
 
 {% sdk_min_versions swift:5.9.0 android:24.2.0 web:4.6.0 unity:4.1.0 cordova:5.0.0 reactnative:4.1.0 flutter:6.0.0 roku:1.0.0 %}
 
@@ -65,7 +65,7 @@ Beispielsweise können Sie mit Braze Feature-Flags ein neues Kundenbindungs-Prog
 
 ### Wie können Feature-Flags Produkt-Teams zugutekommen? {#product-teams}
 
-Produkt-Teams können Feature-Flags für schrittweise Rollouts oder Soft-Launches neuer Features verwenden, um KPI or Leistungskennzahl or Leistungskennzahlen or Leistungskennzahl or Leistungskennzahlen und Kundenfeedback zu beobachten, bevor das Feature allen Nutzer:innen zur Verfügung gestellt wird.
+Produkt-Teams können Feature-Flags für schrittweise Rollouts oder Soft-Launches neuer Features verwenden, um KPI und Kundenfeedback zu beobachten, bevor das Feature allen Nutzer:innen zur Verfügung gestellt wird.
 
 Produkt-Teams können [Feature-Flag-Eigenschaften]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create#properties) nutzen, um Inhalte in einer App remote bereitzustellen, wie z. B. Deeplinks, Texte, Bilder oder andere dynamische Inhalte.
 
@@ -75,7 +75,7 @@ Mithilfe des Canvas Feature-Flag-Schritts können Produkt-Teams außerdem einen 
 
 Entwicklerteams können Feature-Flags nutzen, um das Risiko beim Launch neuer Features zu reduzieren und zu vermeiden, mitten in der Nacht überstürzt Code-Fixes deployen zu müssen.
 
-Indem neuer Code hinter einem Feature-Flag veröffentlicht wird, kann Ihr Team das Feature remote über das Braze-Dashboard ein- oder ausschalten – ohne die Verzögerung durch das Ausliefern von neuem Code oder das Warten auf eine App-Store-Update or aktualisieren-Genehmigung.
+Indem neuer Code hinter einem Feature-Flag veröffentlicht wird, kann Ihr Team das Feature remote über das Braze-Dashboard ein- oder ausschalten – ohne die Verzögerung durch das Ausliefern von neuem Code oder das Warten auf eine App-Store-Update-Genehmigung.
 
 ## Feature-Rollouts und Targeting {#feature-rollouts-and-targeting}
 
@@ -95,15 +95,15 @@ Diese Strategie stellt sicher, dass Nutzer:innen in Ihrer App ein konsistentes E
 
 ## Technische Themen {#technical-topics}
 
-### Können Feature-Flags steuern, wann das Braze SDK or Software-Development-Kit initialisiert wird? {#initialization}
+### Können Feature-Flags steuern, wann das Braze SDK initialisiert wird? {#initialization}
 
-Nein, das SDK or Software-Development-Kit muss initialisiert werden, um Feature-Flags für die aktuelle:n Nutzer:in herunterzuladen und zu synchronisieren. Das bedeutet, dass Sie Feature-Flags nicht verwenden können, um einzuschränken, welche Nutzer:innen in Braze erstellt oder getrackt werden.
+Nein, das SDK muss initialisiert werden, um Feature-Flags für die aktuelle:n Nutzer:in herunterzuladen und zu synchronisieren. Das bedeutet, dass Sie Feature-Flags nicht verwenden können, um einzuschränken, welche Nutzer:innen in Braze erstellt oder getrackt werden.
 
-### Wie häufig aktualisiert das SDK or Software-Development-Kit Feature-Flags? {#refresh-frequency}
+### Wie häufig aktualisiert das SDK Feature-Flags? {#refresh-frequency}
 
-Feature-Flags werden bei Sitzungsbeginn und beim Wechsel aktiver Nutzer:innen aktualisiert. Feature-Flags können auch manuell über die [Aktualisierungsmethode]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create#refreshing) des SDK or Software-Development-Kit aktualisiert werden. Aktualisierungen von Feature-Flags unterliegen einem Rate-Limit von einmal alle fünf Minuten (Änderungen vorbehalten).
+Feature-Flags werden bei Sitzungsbeginn und beim Wechsel aktiver Nutzer:innen aktualisiert. Feature-Flags können auch manuell über die [Aktualisierungsmethode]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create#refreshing) des SDK aktualisiert werden. Aktualisierungen von Feature-Flags unterliegen einem Rate-Limit von einmal alle fünf Minuten (Änderungen vorbehalten).
 
-Beachten Sie, dass gute Datenpraktiken empfehlen, Feature-Flags nicht zu häufig zu Update or aktualisieren or aktualisieren (mit möglichem Rate-Limiting bei zu häufiger Aktualisierung). Daher sollten Sie Feature-Flags am besten nur Update or aktualisieren or aktualisieren, bevor Nutzer:innen mit neuen Features interagieren, oder regelmäßig in der App, falls erforderlich.
+Beachten Sie, dass gute Datenpraktiken empfehlen, Feature-Flags nicht zu häufig zu aktualisieren (mit möglichem Rate-Limiting bei zu häufiger Aktualisierung). Daher sollten Sie Feature-Flags am besten nur aktualisieren, bevor Nutzer:innen mit neuen Features interagieren, oder regelmäßig in der App, falls erforderlich.
 
 ### Sind Feature-Flags verfügbar, wenn Nutzer:innen offline sind? {#offline}
 
@@ -111,7 +111,7 @@ Ja, nachdem Feature-Flags aktualisiert wurden, werden sie lokal auf dem Gerät g
 
 ### Was passiert, wenn Feature-Flags während einer Sitzung aktualisiert werden? {#listen-for-updates}
 
-Feature-Flags können während einer Sitzung aktualisiert werden. Es gibt Szenarien, in denen Sie Ihre App Update or aktualisieren or aktualisieren möchten, wenn sich bestimmte Variablen oder Ihre Konfiguration ändern sollten. In anderen Szenarien möchten Sie Ihre App möglicherweise nicht Update or aktualisieren or aktualisieren, um eine überraschende Änderung in der Darstellung Ihrer UI zu vermeiden.
+Feature-Flags können während einer Sitzung aktualisiert werden. Es gibt Szenarien, in denen Sie Ihre App aktualisieren möchten, wenn sich bestimmte Variablen oder Ihre Konfiguration ändern sollten. In anderen Szenarien möchten Sie Ihre App möglicherweise nicht aktualisieren, um eine überraschende Änderung in der Darstellung Ihrer UI zu vermeiden.
 
 Um dies zu steuern, [überwachen Sie Aktualisierungen]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create#updates) von Feature-Flags und entscheiden Sie, ob Ihre App basierend auf den geänderten Feature-Flags neu gerendert werden soll.
 

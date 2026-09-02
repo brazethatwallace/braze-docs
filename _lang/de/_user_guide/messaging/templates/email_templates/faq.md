@@ -32,7 +32,7 @@ Sie könnten den Abmeldelink in der angepassten Fußzeile von {% raw %} `{{${set
 > https://www.braze.com/unsubscribe?user_id={{${user_id}}}
 {% endraw %}
 
-Anschließend könnten Sie den [`/email/status`-Endpunkt]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status) aufrufen, um den Abo-Status der Nutzer:innen zu Update or aktualisieren or aktualisieren. Weitere Details finden Sie in unserer Dokumentation zum [Ändern des E-Mail-Abo-Status]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions).
+Anschließend könnten Sie den [`/email/status`-Endpunkt]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status) aufrufen, um den Abo-Status der Nutzer:innen zu aktualisieren. Weitere Details finden Sie in unserer Dokumentation zum [Ändern des E-Mail-Abo-Status]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions).
 
 Um diesen neuen Link zu speichern, muss der Standard-Braze-Abmelde-Tag {%raw%}(``${set_user_to_unsubscribed_url}``){%endraw%} in der Fußzeile enthalten sein. Das bedeutet, dass Sie den Standardlink einbinden müssen, indem Sie ihn „verstecken“ – entweder durch Platzierung des Tags in einem Kommentar oder in einem ausgeblendeten `<div>`-Tag.
 
@@ -43,7 +43,7 @@ Um diesen neuen Link zu speichern, muss der Standard-Braze-Abmelde-Tag {%raw%}(`
 
 E-Mail-Templates dienen als Ausgangspunkt beim Erstellen einer E-Mail in einer Campaign oder einem Canvas. Wenn Sie ein Template auswählen, können Sie es innerhalb der Campaign oder des Canvas bearbeiten, und diese Änderungen sind unabhängig vom ursprünglichen Template.
 
-Änderungen an einem bestehenden Template werden nicht in Campaigns oder Canvase übernommen, die mit früheren Versionen dieses Templates erstellt wurden. Ebenso werden Änderungen an der E-Mail innerhalb einer Campaign oder eines Canvas nicht mit dem ursprünglichen Template synchronisiert. Bei API-Campaigns, die eine `email_template_id` im Anfrage-Body enthalten, verwendet Braze die neueste Version des Templates zum Sendezeitpunkt.
+Änderungen an einem bestehenden Template werden nicht in Campaigns oder Canvases übernommen, die mit früheren Versionen dieses Templates erstellt wurden. Ebenso werden Änderungen an der E-Mail innerhalb einer Campaign oder eines Canvas nicht mit dem ursprünglichen Template synchronisiert. Bei API-Campaigns, die eine `email_template_id` im Anfrage-Body enthalten, verwendet Braze die neueste Version des Templates zum Sendezeitpunkt.
 
 ## Link-Templates {#link-templates}
 

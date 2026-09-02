@@ -542,7 +542,7 @@ A CDI sincronizará apenas as novas linhas, então a próxima sincronização qu
 
 Cada vez que uma sincronização é executada, a Braze procura por linhas que não foram sincronizadas anteriormente. Verificamos isso usando a coluna `UPDATED_AT` na sua tabela ou view. A Braze seleciona e importa quaisquer linhas em que o `UPDATED_AT` seja posterior ao último valor de `UPDATED_AT` sincronizado, independentemente de serem iguais ao que está atualmente no perfil de usuário. Linhas no limite do timestamp também podem ser sincronizadas novamente se novas linhas compartilharem esse timestamp. Sendo assim, recomendamos sincronizar apenas os atributos que você deseja adicionar ou atualizar.
 
-O uso de pontos de dados é idêntico ao usar CDI ou outros métodos de ingestão, como REST or transferir estado representacional APIs ou SDKs, então cabe a você garantir que está adicionando apenas atributos novos ou atualizados às suas tabelas de origem.
+O uso de pontos de dados é idêntico ao usar CDI ou outros métodos de ingestão, como REST APIs ou SDKs, então cabe a você garantir que está adicionando apenas atributos novos ou atualizados às suas tabelas de origem.
 
 ### Separe o `EXTERNAL_ID` da coluna `PAYLOAD` {#separate-external_id-from-payload-column}
 
@@ -710,7 +710,7 @@ Recomendamos que as consultas sejam concluídas em até uma hora para desempenho
 | Limitação              | Descrição                                                                                                                                                                          |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Número de integrações  | Não há limite para a quantidade de integrações que você pode configurar. No entanto, só é possível configurar uma integração por tabela ou visualização.                            |
-| Número de linhas       | Por padrão, cada execução pode sincronizar até 500 milhões de linhas. A Braze interrompe qualquer sincronização com mais de 500 milhões de novas linhas. Se você precisar de um limite maior, entre em contato com seu gerente de sucesso do cliente ou com o suporte da Braze. |
+| Número de linhas       | Por padrão, cada execução pode sincronizar até 500 milhões de linhas. A Braze interrompe qualquer sincronização com mais de 500 milhões de novas linhas. Se você precisar de um limite maior, entre em contato com seu CSM ou com o suporte da Braze. |
 | Atributos por linha    | Cada linha deve conter um único ID de usuário e um objeto JSON com até 250 atributos. Cada chave no objeto JSON conta como um atributo (ou seja, um vetor conta como um atributo). |
 | Tamanho da carga útil  | Cada linha pode conter uma carga útil de até 1 MB. A Braze rejeita cargas úteis maiores que 1&nbsp;MB e registra o erro "Payload was greater than 1MB" no registro de sincronização, juntamente com o ID externo associado e a carga útil truncada. |
 | Tipo de dados          | Você pode sincronizar atributos de usuário, eventos e compras por meio da ingestão de dados na nuvem.                                                                             |

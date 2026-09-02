@@ -16,7 +16,7 @@ tool: Campaigns
 
 Bevor wir uns mit den Details der Kampagneneinrichtung befassen, lassen Sie uns die wichtigsten Aspekte identifizieren, um zu verstehen, wie Kampagnen über verschiedene Messaging-Kanäle hinweg funktionieren.
 
-Kampagnen sind ein einzelner Nachrichtenschritt, um Ihre Nutzer:innen über Kanäle zu erreichen – häufig auch als Messaging-Kanäle bezeichnet. Zu diesen Messaging-Kanälen gehören Content Cards, E-Mail, In-App-Nachrichten, Push, Kurzmitteilungsdienst or SMS und MMS sowie Webhooks. Wenn Sie wissen, wo sich Ihre Kund:innen aufhalten, können Sie die passenden Messaging-Kanäle für die Kommunikation nutzen.
+Kampagnen sind ein einzelner Nachrichtenschritt, um Ihre Nutzer:innen über Kanäle zu erreichen – häufig auch als Messaging-Kanäle bezeichnet. Zu diesen Messaging-Kanälen gehören Content Cards, E-Mail, In-App-Nachrichten, Push, SMS und MMS sowie Webhooks. Wenn Sie wissen, wo sich Ihre Kund:innen aufhalten, können Sie die passenden Messaging-Kanäle für die Kommunikation nutzen.
 
 ## Die Customer Journey gestalten {#building-the-customer-journey}
 
@@ -34,7 +34,7 @@ Unterschätzen Sie niemals die Kraft des Namens. Braze ist auf Zusammenarbeit au
 
 Nutzer:innen können Ihre Kampagne auf drei Arten betreten: bei einem festgelegten Datum und Zeitpunkt (geplant), wenn sie eine bestimmte Aktion ausführen (aktionsbasiert) oder wenn sie etwas tun, das einen API-Aufruf triggert (API-getriggert).
 
-Geplante Zustellung bedeutet, dass Sie Ihre Kampagnen so einstellen, dass sie zu einem bestimmten Zeitpunkt und optional in einem festgelegten Rhythmus gesendet werden. Aktionsbasierte Kampagnen reagieren in Realtime auf bestimmtes Kundenverhalten. Dazu kann ein Kauf oder die Interaktion mit einer anderen Kampagne gehören. API-getriggerte Kampagnen können so eingerichtet werden, dass wichtige Kundenaktionen auf Ihrer Plattform definiert werden, die bei Erreichen einen API-Aufruf an Braze Trigger or triggern or triggern und Ihre Kampagnen versenden.
+Geplante Zustellung bedeutet, dass Sie Ihre Kampagnen so einstellen, dass sie zu einem bestimmten Zeitpunkt und optional in einem festgelegten Rhythmus gesendet werden. Aktionsbasierte Kampagnen reagieren in Realtime auf bestimmtes Kundenverhalten. Dazu kann ein Kauf oder die Interaktion mit einer anderen Kampagne gehören. API-getriggerte Kampagnen können so eingerichtet werden, dass wichtige Kundenaktionen auf Ihrer Plattform definiert werden, die bei Erreichen einen API-Aufruf an Braze triggern und Ihre Kampagnen versenden.
 
 ### Das „Wer“: Eine Entry-Zielgruppe auswählen {#the-who-select-an-entry-audience}
 

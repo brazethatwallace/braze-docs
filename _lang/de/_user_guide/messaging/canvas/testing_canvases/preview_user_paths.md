@@ -63,19 +63,19 @@ Wenn Ihre Vorschau den letzten Schritt Ihrer User-Journey sendet, anstatt abzubr
 
 ## Vorschau für das Timing {#previews-for-timing}
 
-Bei geplanten Canvase tritt die Testnutzer:in zum nächsten geplanten Eintrittszeitpunkt ein. Bei aktionsbasierten Canvase mit Startdaten tritt die Testnutzer:in zum Startdatum und -zeitpunkt ein.
+Bei geplanten Canvases tritt die Testnutzer:in zum nächsten geplanten Eintrittszeitpunkt ein. Bei aktionsbasierten Canvases mit Startdaten tritt die Testnutzer:in zum Startdatum und -zeitpunkt ein.
 
 Die standardmäßigen Startzeiten gelten weiterhin, der Eintrittszeitpunkt ist jedoch in allen Fällen konfigurierbar. So können Sie ein Datum in der Vergangenheit oder Zukunft simulieren. Sie können jedoch keinen Test vor dem Startdatum oder nach dem Enddatum des Canvas durchführen.
 
 Nachrichten- und Verzögerungsschritte zeigen den Zeitpunkt an, zu dem Nutzer:innen weitergeleitet werden oder die Nachricht erhalten würden, ohne dass die Verzögerungen neu konfiguriert werden müssen. Beachten Sie, dass die Schritte zwar anzeigen, ob intelligentes Timing verwendet wird, diese Vorschau des Nutzerpfads jedoch keine Schätzung für Testnutzer:innen berechnet.
 
-Bei Canvase mit einem Aktions-Trigger or triggern wie „Änderung des Werts eines angepassten Attributs“ versucht Braze, die Änderung zu simulieren, indem das Attribut der Nutzer:in im Trigger or triggern vorübergehend auf leer gesetzt wird – **nur für den Testlauf des Canvas** (dies hat keine Auswirkung auf das Kundenprofil or Nutzerprofil). Damit soll getestet werden, dass sich das Attribut von seinem aktuellen Wert ändert.
+Bei Canvases mit einem Aktions-Trigger wie „Änderung des Werts eines angepassten Attributs“ versucht Braze, die Änderung zu simulieren, indem das Attribut der Nutzer:in im Trigger vorübergehend auf leer gesetzt wird – **nur für den Testlauf des Canvas** (dies hat keine Auswirkung auf das Kundenprofil). Damit soll getestet werden, dass sich das Attribut von seinem aktuellen Wert ändert.
 
 ## Wann Nutzer:innen eintreten und austreten {#when-users-enter-and-exit}
 
-Testnutzer:innen treten in die Vorschau ein, auch wenn sie im Normalfall nicht teilnahmeberechtigt wären. Falls sie nicht berechtigt sind, können Sie sehen, warum sie die Kriterien nicht erfüllt haben. Wenn ein:e Testnutzer:in die Vorschau betritt, wird davon ausgegangen, dass die Person die Zielgruppenkriterien erfüllt und die Aktions-Trigger or triggern-Kriterien ausgeführt hat. Beispielsweise wird bei einem Canvas, das angepasste Events in den Eintrittskriterien verwendet, davon ausgegangen, dass der/die Testnutzer:in das angepasste Event wie in den Eintrittskriterien erwartet ausgeführt hat. Wird dasselbe angepasste Event jedoch an anderer Stelle im Canvas verwendet (z. B. in den Austrittskriterien), sollten Sie berücksichtigen, wie sich dies auf den Nutzerpfad auswirken könnte.
+Testnutzer:innen treten in die Vorschau ein, auch wenn sie im Normalfall nicht teilnahmeberechtigt wären. Falls sie nicht berechtigt sind, können Sie sehen, warum sie die Kriterien nicht erfüllt haben. Wenn ein:e Testnutzer:in die Vorschau betritt, wird davon ausgegangen, dass die Person die Zielgruppenkriterien erfüllt und die Aktions-Trigger-Kriterien ausgeführt hat. Beispielsweise wird bei einem Canvas, das angepasste Events in den Eintrittskriterien verwendet, davon ausgegangen, dass der/die Testnutzer:in das angepasste Event wie in den Eintrittskriterien erwartet ausgeführt hat. Wird dasselbe angepasste Event jedoch an anderer Stelle im Canvas verwendet (z. B. in den Austrittskriterien), sollten Sie berücksichtigen, wie sich dies auf den Nutzerpfad auswirken könnte.
 
-Events, API-Trigger or triggern, angepasste Attribute und Canvas-Entry-Eigenschaften, die angenommen werden, um eine:n Testnutzer:in in das Canvas eintreten zu lassen, werden nicht im tatsächlichen Kundenprofil or Nutzerprofil aktualisiert und bestehen nicht über den Testlauf hinaus. Wenn beispielsweise während des Tests ein angepasstes Attribut als Canvas-Trigger or triggern verwendet wird, werden die Trigger or triggern-Kriterien auf die Vorschau des/der Nutzer:in angewendet, **als ob** die Änderung des angepassten Attributs ausgelöst worden wäre.
+Events, API-Trigger, angepasste Attribute und Canvas-Entry-Eigenschaften, die angenommen werden, um eine:n Testnutzer:in in das Canvas eintreten zu lassen, werden nicht im tatsächlichen Kundenprofil aktualisiert und bestehen nicht über den Testlauf hinaus. Wenn beispielsweise während des Tests ein angepasstes Attribut als Canvas-Trigger verwendet wird, werden die Trigger-Kriterien auf die Vorschau des/der Nutzer:in angewendet, **als ob** die Änderung des angepassten Attributs ausgelöst worden wäre.
 
 ### Hinweis {#consideration}
 
@@ -85,7 +85,7 @@ Derzeit können Sie kein bestimmtes Event und keine bestimmte Eigenschaft innerh
 
 ## Experimentpfade und Canvas-Varianten {#experiment-paths-and-canvas-variants}
 
-- Wählen Sie bei Canvase mit Varianten auf oberster Ebene zu Beginn des Tests eine Variante aus.
+- Wählen Sie bei Canvases mit Varianten auf oberster Ebene zu Beginn des Tests eine Variante aus.
 - Wählen Sie bei Experimentpfaden die Variante aus, die die Testnutzer:in durchläuft, wenn sie den Canvas-Schritt erreicht.
 - Bei Experimentpfaden mit Winning Path enthält die Vorschau nicht die Verzögerungszeit, in der eine Testnutzer:in in einem Nachrichten-Schritt wartet. Braze geht davon aus, dass die Nutzer:in den ausgewählten Pfad sofort durchlaufen hat.
 
@@ -97,7 +97,7 @@ Um alle Testnachrichten in einem Canvas auf einmal zu senden, unabhängig vom Pf
 
 ## Responsivität {#responsiveness}
 
-Canvas-Schritte reagieren bei der Vorschau von Nutzerpfaden zeitabhängig. Änderungen, die über den Nutzeraktualisierungsschritt vorgenommen werden, werden in nachfolgenden Schritten im Ablauf berücksichtigt, aber nicht auf das tatsächliche Kundenprofil or Nutzerprofil angewendet. Die Auswirkungen des Eintritts von Nutzer:innen in eine Variante werden in zukünftigen Schritten einer Vorschau berücksichtigt.
+Canvas-Schritte reagieren bei der Vorschau von Nutzerpfaden zeitabhängig. Änderungen, die über den Nutzeraktualisierungsschritt vorgenommen werden, werden in nachfolgenden Schritten im Ablauf berücksichtigt, aber nicht auf das tatsächliche Kundenprofil angewendet. Die Auswirkungen des Eintritts von Nutzer:innen in eine Variante werden in zukünftigen Schritten einer Vorschau berücksichtigt.
 
 Ebenso erkennen Filter Aktionen, die dadurch entstanden sind, dass die Testnutzer:in mit anderen Schritten im Canvas interagiert hat. Beispielsweise erkennt dieser Vorschaumodus, dass eine Nutzer:in auf einen Nachrichtenschritt gestoßen ist, der zuvor im Canvas „gesendet“ wurde, und er erkennt, dass die Testnutzer:in eine „Aktion durchgeführt“ hat, um durch einen Aktionspfad voranzukommen.
 
@@ -105,13 +105,13 @@ Weitere Details zum responsiven Verhalten finden Sie unter [Exit-Kriterien]({{si
 
 ## Connected Content {#connected-content}
 
-Connected Content wird ausgeführt, wenn es im Canvas enthalten ist. Das bedeutet, wenn Sie ein Canvas testen, das Connected-Content-Aufrufe oder Content Blocks mit Connected Content enthält, sendet das Canvas möglicherweise die Connected-Content-Aufrufe, was die Daten verändern könnte, auf die in anderen Campaigns oder Canvase verwiesen wird.
+Connected Content wird ausgeführt, wenn es im Canvas enthalten ist. Das bedeutet, wenn Sie ein Canvas testen, das Connected-Content-Aufrufe oder Content Blocks mit Connected Content enthält, sendet das Canvas möglicherweise die Connected-Content-Aufrufe, was die Daten verändern könnte, auf die in anderen Campaigns oder Canvases verwiesen wird.
 
-Wenn Sie Nutzerpfade in der Vorschau anzeigen, sollten Sie Connected Content entfernen, das Nutzerprofile oder Daten verändert, auf die in anderen Canvase oder Campaigns verwiesen wird.
+Wenn Sie Nutzerpfade in der Vorschau anzeigen, sollten Sie Connected Content entfernen, das Nutzerprofile oder Daten verändert, auf die in anderen Canvases oder Campaigns verwiesen wird.
 
 ## Webhooks {#webhooks}
 
-Webhooks werden ausgeführt, wenn Testnachrichten gesendet werden, jedoch nicht während des Testlaufs. Ähnlich wie bei Connected-Content sollten Sie Webhooks entfernen, die Nutzer:innenprofile oder Daten ändern, auf die in anderen Canvase oder Campaigns verwiesen wird.
+Webhooks werden ausgeführt, wenn Testnachrichten gesendet werden, jedoch nicht während des Testlaufs. Ähnlich wie bei Connected-Content sollten Sie Webhooks entfernen, die Nutzer:innenprofile oder Daten ändern, auf die in anderen Canvases oder Campaigns verwiesen wird.
 
 ## Kontextvariablen und Seed-Gruppen {#context-variables-and-seed-groups}
 
@@ -119,7 +119,7 @@ Bei einem Nachrichtenschritt mit E-Mail als Messaging-Kanal senden Seed-Gruppen 
 
 ## Von Nutzer:innen empfangene Nachrichten anzeigen {#view-messages-sent-to-users}
 
-„Nutzerpfade in der Vorschau anzeigen“ simuliert eine Journey – es ersetzt nicht die Überprüfung tatsächlicher Sendungen in einem Kundenprofil or Nutzerprofil. Um Nachrichten zu überprüfen, die Braze an bestimmte Nutzer:innen gesendet hat, öffnen Sie deren Profil über **Audience** > **Search Users** und verwenden Sie dann die Tabs **Messaging History** und **Engagement**.
+„Nutzerpfade in der Vorschau anzeigen“ simuliert eine Journey – es ersetzt nicht die Überprüfung tatsächlicher Sendungen in einem Kundenprofil. Um Nachrichten zu überprüfen, die Braze an bestimmte Nutzer:innen gesendet hat, öffnen Sie deren Profil über **Audience** > **Search Users** und verwenden Sie dann die Tabs **Messaging History** und **Engagement**.
 
 Informationen zu Suchfeldern, Tab-Details und dem 30-Tage-Fenster für den Messaging-Verlauf finden Sie unter [Nutzerprofile]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles).
 

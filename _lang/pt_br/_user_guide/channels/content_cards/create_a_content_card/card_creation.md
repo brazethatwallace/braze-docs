@@ -16,13 +16,13 @@ toc_headers: h2
 
 ## Pré-requisitos {#prerequisites}
 
-Para aproveitar esse recurso, você precisa fazer upgrade para as seguintes versões mínimas do SDK or kit de desenvolvimento de software:
+Para aproveitar esse recurso, você precisa fazer upgrade para as seguintes versões mínimas do SDK:
 
 {% sdk_min_versions swift:5.2.0 objc:4.5.0 android:23.0.0 web:4.2.0 %}
 
-No iOS, o Swift SDK or kit de desenvolvimento de software oferece suporte a esse recurso a partir da versão 5.2.0, e o SDK or kit de desenvolvimento de software legado Objective-C oferece suporte a partir da versão 4.5.0. As versões 5.0.0 a 5.1.x do Swift SDK or kit de desenvolvimento de software não oferecem suporte.
+No iOS, o Swift SDK oferece suporte a esse recurso a partir da versão 5.2.0, e o SDK legado Objective-C oferece suporte a partir da versão 4.5.0. As versões 5.0.0 a 5.1.x do Swift SDK não oferecem suporte.
 
-Após fazer upgrade do SDK or kit de desenvolvimento de software, seus usuários de dispositivos móveis precisam atualizar o app. Você pode filtrar o público da sua Campaign ou Canvas para [direcionar apenas usuários nas versões mínimas do app]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions).
+Após fazer upgrade do SDK, seus usuários de dispositivos móveis precisam atualizar o app. Você pode filtrar o público da sua Campaign ou Canvas para [direcionar apenas usuários nas versões mínimas do app]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions).
 
 ## Visão geral {#overview}
 
@@ -104,7 +104,7 @@ Esta seção descreve as principais diferenças entre criar cartões no lançame
   <tr>
     <td class="leftHeader">Quando usar</td>
     <td class="tg-0pky">Se você precisar que o conteúdo seja capturado em um momento específico (o momento do lançamento).</td>
-    <td class="tg-0pky"><ul><li>Se você precisar exibir cartões para usuários novos ou anônimos que possam entrar no Segment or segmento após o lançamento (<a href="#campaign_note">somente Campaigns*</a>).</li><li>Se estiver usando personalização e quiser que o conteúdo mais recente esteja disponível no cartão.</li></ul></td>
+    <td class="tg-0pky"><ul><li>Se você precisar exibir cartões para usuários novos ou anônimos que possam entrar no Segment após o lançamento (<a href="#campaign_note">somente Campaigns*</a>).</li><li>Se estiver usando personalização e quiser que o conteúdo mais recente esteja disponível no cartão.</li></ul></td>
   </tr>
   <tr>
     <td class="leftHeader">Público</td>
@@ -123,7 +123,7 @@ Esta seção descreve as principais diferenças entre criar cartões no lançame
   </tr>
   <tr>
     <td class="leftHeader">Tempo de processamento</td>
-  <td class="tg-0pky">A Braze cria cartões para cada usuário elegível no Segment or segmento no momento do lançamento. Para públicos grandes, selecione <b>At First Impression</b> para que os cartões fiquem disponíveis mais rapidamente após o lançamento.</td>
+  <td class="tg-0pky">A Braze cria cartões para cada usuário elegível no Segment no momento do lançamento. Para públicos grandes, selecione <b>At First Impression</b> para que os cartões fiquem disponíveis mais rapidamente após o lançamento.</td>
   <td class="tg-0pky">A Braze cria um cartão na primeira vez que um usuário tenta visualizá-lo, então pode levar de 1 a 2 segundos para ser exibido na primeira impressão.</td>
   </tr>
 </tbody>
@@ -151,6 +151,6 @@ Para públicos grandes, selecione a opção de criar cartões na primeira impres
 
 Quando os cartões são criados na primeira impressão, pode levar alguns segundos para serem processados. A duração desse tempo de processamento depende de vários fatores, como o tamanho do cartão e a complexidade das opções de template da mensagem. Por exemplo, o tempo de processamento para cartões que usam Connected Content é pelo menos tão longo quanto o tempo de resposta do Connected Content.
 
-### Versões anteriores do SDK or kit de desenvolvimento de software {#previous-sdk-versions}
+### Versões anteriores do SDK {#previous-sdk-versions}
 
-Se o app de um usuário estiver rodando uma versão anterior do SDK or kit de desenvolvimento de software, ele ainda receberá os Content Cards que você enviar. No entanto, os cartões demoram mais para aparecer e podem não ser exibidos até a próxima sincronização de Content Cards.
+Se o app de um usuário estiver rodando uma versão anterior do SDK, ele ainda receberá os Content Cards que você enviar. No entanto, os cartões demoram mais para aparecer e podem não ser exibidos até a próxima sincronização de Content Cards.

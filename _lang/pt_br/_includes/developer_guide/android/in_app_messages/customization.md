@@ -8,9 +8,9 @@ Enquanto o ouvinte `BrazeInAppMessageManager` pode lidar automaticamente com a e
 {% endtab %}
 
 {% tab html listener %}
-O SDK or kit de desenvolvimento de software da Braze tem uma classe padrão `DefaultHtmlInAppMessageActionListener` que é usada se nenhum ouvinte personalizado for definido e realiza a ação apropriada automaticamente. Se precisar de mais controle sobre como um usuário interage com diferentes botões dentro de uma mensagem no app em HTML personalizado, implemente uma classe `IHtmlInAppMessageActionListener` personalizada.
+O SDK da Braze tem uma classe padrão `DefaultHtmlInAppMessageActionListener` que é usada se nenhum ouvinte personalizado for definido e realiza a ação apropriada automaticamente. Se precisar de mais controle sobre como um usuário interage com diferentes botões dentro de uma mensagem no app em HTML personalizado, implemente uma classe `IHtmlInAppMessageActionListener` personalizada.
 
-Esse ouvinte se aplica a __ambas__ as mensagens criadas com HTML personalizado e mensagens criadas usando o editor de arrastar e soltar (DnD). Ele não se aplica a IAMs tradicionais. IAMs tradicionais são os tipos de mensagem integrados da Braze, renderizados pelo SDK or kit de desenvolvimento de software (por exemplo, slideup, modal e full), criados no criador de mensagens no app original usando layouts predefinidos. Diferentemente das IAMs em HTML personalizado e DnD, elas não passam pelo fluxo do ouvinte de ação HTML.
+Esse ouvinte se aplica a __ambas__ as mensagens criadas com HTML personalizado e mensagens criadas usando o editor de arrastar e soltar (DnD). Ele não se aplica a IAMs tradicionais. IAMs tradicionais são os tipos de mensagem integrados da Braze, renderizados pelo SDK (por exemplo, slideup, modal e full), criados no criador de mensagens no app original usando layouts predefinidos. Diferentemente das IAMs em HTML personalizado e DnD, elas não passam pelo fluxo do ouvinte de ação HTML.
 
 Se você definir um `IHtmlInAppMessageActionListener` personalizado, sua lógica substituirá o comportamento de clique padrão para _todas_ as mensagens DnD. Certifique-se de que sua equipe de marketing esteja ciente disso, pois pode afetar as Campaigns de maneiras inesperadas.
 {% endtab %}
@@ -186,7 +186,7 @@ BrazeInAppMessageManager.getInstance().setCustomHtmlInAppMessageActionListener(C
 
 ## Definindo fábricas personalizadas {#setting-custom-factories}
 
-Você pode substituir vários padrões por meio de objetos de fábrica personalizados. Esses podem ser registrados com o SDK or kit de desenvolvimento de software da Braze conforme necessário para alcançar os resultados desejados. No entanto, se você decidir substituir uma fábrica, provavelmente precisará se referir explicitamente ao padrão ou reimplementar a funcionalidade fornecida pelo padrão da Braze. O trecho de código a seguir ilustra como fornecer implementações personalizadas das interfaces `IInAppMessageViewFactory` e `IInAppMessageViewWrapperFactory`.
+Você pode substituir vários padrões por meio de objetos de fábrica personalizados. Esses podem ser registrados com o SDK da Braze conforme necessário para alcançar os resultados desejados. No entanto, se você decidir substituir uma fábrica, provavelmente precisará se referir explicitamente ao padrão ou reimplementar a funcionalidade fornecida pelo padrão da Braze. O trecho de código a seguir ilustra como fornecer implementações personalizadas das interfaces `IInAppMessageViewFactory` e `IInAppMessageViewWrapperFactory`.
 
 {% tabs local %}
 {% tab Kotlin %}
@@ -454,7 +454,7 @@ Os elementos de UI da Braze vêm com uma aparência padrão que corresponde às 
 
 ### Definindo um estilo padrão {#setting-a-default-style}
 
-Você pode ver os estilos padrão no arquivo [`styles.xml`](https://github.com/braze-inc/braze-android-sdk/blob/master/android-sdk-ui/src/main/res/values/styles.xml) do SDK or kit de desenvolvimento de software da Braze:
+Você pode ver os estilos padrão no arquivo [`styles.xml`](https://github.com/braze-inc/braze-android-sdk/blob/master/android-sdk-ui/src/main/res/values/styles.xml) do SDK da Braze:
 
 ```xml
   <style name="Braze"/>

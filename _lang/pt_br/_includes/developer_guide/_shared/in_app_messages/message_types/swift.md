@@ -42,7 +42,7 @@ As mensagens no app [`Full Image`](https://braze-inc.github.io/braze-swift-sdk/d
 {% endsubtab %}
 {% subtab Custom HTML %}
 
-As mensagens no app [`HTML`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/inappmessage/html-swift.struct) são úteis para criar conteúdo totalmente personalizado para o usuário. O conteúdo completo da mensagem no app em HTML definido pelo usuário é exibido em um `WKWebView` e pode, opcionalmente, conter outros conteúdos avançados, como imagens e fontes, permitindo controle total sobre a aparência e a funcionalidade da mensagem. <br><br>As mensagens no app do iOS suportam uma interface JavaScript `brazeBridge` para chamar métodos no Braze Web SDK or kit de desenvolvimento de software a partir do seu HTML; consulte nossas [práticas recomendadas]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices) para obter mais detalhes.
+As mensagens no app [`HTML`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/inappmessage/html-swift.struct) são úteis para criar conteúdo totalmente personalizado para o usuário. O conteúdo completo da mensagem no app em HTML definido pelo usuário é exibido em um `WKWebView` e pode, opcionalmente, conter outros conteúdos avançados, como imagens e fontes, permitindo controle total sobre a aparência e a funcionalidade da mensagem. <br><br>As mensagens no app do iOS suportam uma interface JavaScript `brazeBridge` para chamar métodos no Braze Web SDK a partir do seu HTML; consulte nossas [práticas recomendadas]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices) para obter mais detalhes.
 
 O exemplo a seguir mostra uma mensagem no app paginada em HTML Full:
 

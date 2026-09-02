@@ -20,7 +20,7 @@ A integração entre a Braze e a Heap permite [importar dados da Heap para a Bra
 | ----------- | ----------- |
 | Conta do Heap | É necessário ter uma conta [Heap](https://heap.io/about) para aproveitar essa parceria. |
 | Chave de importação de dados da Braze | Isso pode ser obtido no dashboard da Braze em **Integrações de parceiros** > **Parceiros de tecnologia** e selecionando **Heap**. |
-| Endpoint REST or transferir estado representacional da Braze | [Sua URL de endpoint REST or transferir estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
+| Endpoint REST da Braze | [Sua URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
 | Braze Currents | Para exportar dados da Braze para a Heap, você precisa ter o [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents#access-currents) ativado na sua conta. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
@@ -37,19 +37,19 @@ Use a integração Heap to Braze para sincronizar automaticamente as coortes def
 
 Na Braze, navegue até **Integrações de parceiros** > **Parceiros de tecnologia** e selecione **Heap**.
 
-Nessa página, você pode encontrar sua chave de importação de dados e um endpoint REST or transferir estado representacional. Anote esses dois valores e forneça-os ao seu gerente de conta da Heap para concluir a configuração da integração.
+Nessa página, você pode encontrar sua chave de importação de dados e um endpoint REST. Anote esses dois valores e forneça-os ao seu gerente de conta da Heap para concluir a configuração da integração.
 
 ![Página da parceira de tecnologia Heap na Braze mostrando a chave de importação de dados e o endpoint.]({% image_buster /assets/img/heap/heap2.png %}){: style="max-width:90%;"}
 
 ### Etapa 2: Segmentar usuários importados na Braze {#step-2-segment-imported-users-in-braze}
 
-Na Braze, navegue até **Segments**, dê um nome ao seu Segment or segmento or segmento de coorte da Heap e selecione **Heap Cohorts** como filtro. Aqui você pode escolher qual coorte da Heap deseja incluir. Depois que seu Segment or segmento or segmento de coorte da Heap for criado, você poderá selecioná-lo como filtro de público ao criar uma Campaign ou Canvas.
+Na Braze, navegue até **Segments**, dê um nome ao seu Segment de coorte da Heap e selecione **Heap Cohorts** como filtro. Aqui você pode escolher qual coorte da Heap deseja incluir. Depois que seu Segment de coorte da Heap for criado, você poderá selecioná-lo como filtro de público ao criar uma Campaign ou Canvas.
 
 ![No criador de segmentos da Braze, o filtro de atributos do usuário "Heap cohort" está definido como "includes" e "Heap Test Cohort".]({% image_buster /assets/img/heap/heap1.png %}){: style="max-width:90%;"}
 
 ### Usando essa integração {#using-this-integration}
 
-Para usar seu Segment or segmento or segmento da Heap, crie uma Campaign ou Canvas na Braze e selecione o Segment or segmento or segmento como seu público-alvo.
+Para usar seu Segment da Heap, crie uma Campaign ou Canvas na Braze e selecione o Segment como seu público-alvo.
 
 ![No criador de Campaigns da Braze, na etapa de direcionamento, o filtro "Direcionar por segmento de usuários" está definido como "Heap cohort".]({% image_buster /assets/img/heap/heap3.png %}){: style="max-width:90%;"}
 

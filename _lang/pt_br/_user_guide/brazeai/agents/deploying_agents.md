@@ -24,19 +24,19 @@ Você seleciona o tipo de agente no **Agent Console** ao criar o agente. Para as
 
 ## Práticas recomendadas {#best-practices}
 
-Priorize casos de uso de alto valor em que os agentes possam gerar o maior retorno sobre o investimento (ROI or retorno sobre o investimento (ROI)) e escolha públicos com maior probabilidade de resposta. Um público menor e com alta oportunidade frequentemente supera um público grande com baixa oportunidade.
+Priorize casos de uso de alto valor em que os agentes possam gerar o maior retorno sobre o investimento (ROI) e escolha públicos com maior probabilidade de resposta. Um público menor e com alta oportunidade frequentemente supera um público grande com baixa oportunidade.
 
 Para agentes de etapa do Canvas, comece com usuários que apresentam sinais fortes — como buscas recentes, alto engajamento ou dados de perfil ricos — antes de expandir para Segments mais amplos. Para agentes de catálogo, priorize linhas em que as colunas de entrada necessárias já estejam preenchidas, para que cada invocação tenha contexto suficiente para produzir resultados úteis.
 
-Para testar o ROI or retorno sobre o investimento (ROI) em pequena escala antes de lançar um agente de forma ampla, use uma etapa de [jornada experimental]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) para que apenas parte do seu público entre na Branch or ramificação or ramificação que contém a etapa do agente.
+Para testar o ROI em pequena escala antes de lançar um agente de forma ampla, use uma etapa de [jornada experimental]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) para que apenas parte do seu público entre na Branch que contém a etapa do agente.
 
 ### Escale após um teste bem-sucedido {#scale-after-a-successful-test}
 
-Depois que um teste em pequena escala (por exemplo, uma Branch or ramificação or ramificação de [jornada experimental]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step)) apresentar qualidade e ROI or retorno sobre o investimento (ROI) aceitáveis, planeje lançar o agente para todo o seu público-alvo (não apenas o grupo de teste) para que todos os usuários elegíveis se beneficiem.
+Depois que um teste em pequena escala (por exemplo, uma Branch de [jornada experimental]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step)) apresentar qualidade e ROI aceitáveis, planeje lançar o agente para todo o seu público-alvo (não apenas o grupo de teste) para que todos os usuários elegíveis se beneficiem.
 
 Antes de escalar, considere o seguinte:
 
-- Aumente o limite diário de invocações do agente no Agent Console para que ele possa lidar com o volume total do seu público. O padrão é 250.000; você pode aumentá-lo para até 1.000.000 (ou mais, com o seu gerente de sucesso do cliente). Consulte [Limites diários de invocação e créditos]({{site.baseurl}}/user_guide/brazeai/agents/reference#daily-invocation-and-credit-limits).
+- Aumente o limite diário de invocações do agente no Agent Console para que ele possa lidar com o volume total do seu público. O padrão é 250.000; você pode aumentá-lo para até 1.000.000 (ou mais, com o seu CSM). Consulte [Limites diários de invocação e créditos]({{site.baseurl}}/user_guide/brazeai/agents/reference#daily-invocation-and-credit-limits).
 - Revise a estimativa de **Daily action credit cost limit** e confirme que o seu espaço de trabalho tem créditos suficientes para envios em escala total.
 - Remova ou reconfigure o experimento para que todo o público-alvo entre na etapa do agente (ou promova a variante vencedora para a jornada principal).
 
@@ -91,7 +91,7 @@ Para exemplos, consulte [Como funciona]({{site.baseurl}}/user_guide/messaging/ca
 O seguinte se aplica a agentes de etapa do Canvas em uma [etapa de agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step).
 
 - Se o modelo conectado retornar um [erro de limite de frequência]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors) do provedor de LLM, a Braze tenta novamente a solicitação continuamente usando backoff exponencial até que a chamada seja bem-sucedida ou a Braze determine que não pode ser concluída; os usuários então prosseguem para a próxima etapa do Canvas.
-- Para outras falhas (como timeout ou chave de API or interface de programação do aplicativo (API) inválida), a variável de saída é definida como `null`, a menos que o agente tenha [valores de fallback configurados]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) no Console de Agentes.
+- Para outras falhas (como timeout ou chave de API inválida), a variável de saída é definida como `null`, a menos que o agente tenha [valores de fallback configurados]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) no Console de Agentes.
 - Se um agente atingir seu limite diário de invocações, a Braze também aplica os valores de fallback configurados quando presentes; caso contrário, a variável de saída é definida como `null`.
 
 Quando valores de fallback são configurados, a Braze os aplica para erros não passíveis de nova tentativa e para falhas de limite diário. A Braze renderiza o fallback com Liquid por usuário e armazena o resultado na variável de saída da etapa de agente. Sem valores de fallback, essas falhas definem a variável de saída como `null`. Se você preferir configurar valores padrão específicos da etapa em etapas de mensagem em vez de fallbacks no Console de Agentes, ainda pode usar [valores padrão de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values) posteriormente. Para isso, deixe os fallbacks em branco na seção **Saída** da configuração do agente para que os valores padrão de Liquid possam ser aplicados quando o agente retornar null.
@@ -183,7 +183,7 @@ Você também pode substituir manualmente a célula gerada pelo agente seleciona
 ### Tratamento de erros {#error-handling}
 
 - Se o provedor de LLM retornar um [erro de limite de frequência]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors), a Braze tenta novamente a solicitação continuamente usando backoff exponencial até que a chamada seja bem-sucedida ou a Braze determine que não pode ser concluída.
-- Para outras falhas (como timeout ou chave de API or interface de programação do aplicativo (API) inválida), o valor do campo do catálogo não é atualizado. Os Catalog Agents não suportam a configuração de valores de fallback no Agent Console.
+- Para outras falhas (como timeout ou chave de API inválida), o valor do campo do catálogo não é atualizado. Os Catalog Agents não suportam a configuração de valores de fallback no Agent Console.
 - Você pode revisar os logs do agente para obter detalhes sobre execuções com falha.
 - Os Catalog Agents são limitados ao processamento de valores de entrada de até 25 KB por linha.
 

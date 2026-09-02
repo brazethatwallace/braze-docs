@@ -34,7 +34,7 @@ Alle In-App-Nachrichten sind Unterklassen von `ABKInAppMessage`, die das grundle
 ![Eine Grafik, die zeigt, dass die Klasse ABKInAppMessage die Stammklasse von ABKInAppMessageSlideup, ABKInAppMessageImmersive und ABKInAppMessageHTML ist. ABKInAppMessage enthält anpassbare Eigenschaften wie Nachricht, Extras, Dauer, Klickaktion, URI, Ausblendungsaktion, Symbolausrichtung und Textausrichtung. ABKInAppMessageSlideup enthält anpassbare Eigenschaften wie Chevron und Slide-up-Anker. ABKInAppMessageImmersive enthält anpassbare Eigenschaften wie Kopfzeile, Schließen-Schaltfläche, Rahmen und In-App-Nachrichten-Buttons. Mit ABKInAppMessageHTML können Sie Klicks auf In-App-Nachrichten-Buttons im HTML-Format manuell protokollieren.]({% image_buster /assets/img_archive/ABKInAppMessage-models.png %})
 
 {% alert important %}
-In-App-Nachrichten werden standardmäßig nach Abschluss der standardmäßigen SDK or Software-Development-Kit-Integration aktiviert, einschließlich der GIF-Unterstützung.
+In-App-Nachrichten werden standardmäßig nach Abschluss der standardmäßigen SDK-Integration aktiviert, einschließlich der GIF-Unterstützung.
 <br><br>
 Beachten Sie, dass die Integration von `SDWebImage` erforderlich ist, wenn Sie unsere Braze UI für die Anzeige von Bildern in iOS-In-App-Nachrichten oder Content Cards verwenden möchten.
 {% endalert %}
@@ -68,7 +68,7 @@ So sieht es aus, wenn Ihre Nutzer:innen eine unserer Standardarten von In-App-Na
 {% endtab %}
 {% tab Benutzerdefiniertes HTML %}
 
-[`HTML Full`](https://appboy.github.io/appboy-ios-sdk/docs/interface_a_b_k_in_app_message_h_t_m_l_full.html)-In-App-Nachrichten sind nützlich, um vollständig angepasste Nutzerinhalte zu erstellen. Der gesamte Inhalt von benutzerdefinierten HTML-Full-In-App-Nachrichten wird in einer `WKWebView` angezeigt und kann optional anderen Rich Content wie Bilder und Schriftarten enthalten. So haben Sie die volle Kontrolle über das Aussehen und die Funktionalität der Nachrichten. <br><br>iOS-In-App-Nachrichten unterstützen eine JavaScript-`brazeBridge`-Schnittstelle, um Methoden des Braze Web SDK or Software-Development-Kit aus Ihrem HTML-Code heraus aufzurufen. Weitere Details finden Sie in unseren [Best Practices]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices).
+[`HTML Full`](https://appboy.github.io/appboy-ios-sdk/docs/interface_a_b_k_in_app_message_h_t_m_l_full.html)-In-App-Nachrichten sind nützlich, um vollständig angepasste Nutzerinhalte zu erstellen. Der gesamte Inhalt von benutzerdefinierten HTML-Full-In-App-Nachrichten wird in einer `WKWebView` angezeigt und kann optional anderen Rich Content wie Bilder und Schriftarten enthalten. So haben Sie die volle Kontrolle über das Aussehen und die Funktionalität der Nachrichten. <br><br>iOS-In-App-Nachrichten unterstützen eine JavaScript-`brazeBridge`-Schnittstelle, um Methoden des Braze Web SDK aus Ihrem HTML-Code heraus aufzurufen. Weitere Details finden Sie in unseren [Best Practices]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices).
 
 Das folgende Beispiel zeigt eine paginierte HTML-Full-In-App-Nachricht:
 
@@ -77,7 +77,7 @@ Das folgende Beispiel zeigt eine paginierte HTML-Full-In-App-Nachricht:
 Der Inhalt einer Full-In-App-Nachricht wird in einer `WKWebView` angezeigt und kann optional anderen Rich Content wie Bilder und Schriftarten enthalten. So haben Sie die volle Kontrolle über das Aussehen und die Funktionalität der Nachrichten. Beachten Sie, dass die Anzeige von angepassten In-App-Nachrichten im HTML-Format in einem iFrame unter iOS und Android derzeit nicht unterstützt wird.
 
 {% alert note %}
-Ab iOS SDK or Software-Development-Kit Version 3.19.0 sind die folgenden JavaScript-Methoden in In-App-Nachrichten im HTML-Format No-Ops: `alert`, `confirm`, `prompt`.
+Ab iOS SDK Version 3.19.0 sind die folgenden JavaScript-Methoden in In-App-Nachrichten im HTML-Format No-Ops: `alert`, `confirm`, `prompt`.
 {% endalert %}
 
 {% endtab %}

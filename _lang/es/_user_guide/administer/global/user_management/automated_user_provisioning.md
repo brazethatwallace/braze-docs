@@ -17,7 +17,7 @@ alias: /scim/automated_user_provisioning/
 ## Acceder a la configuración de aprovisionamiento SCIM {#accessing-scim-provisioning-settings}
 
 {% alert important %}
-La disponibilidad del aprovisionamiento SCIM depende de tu edición de la plataforma. Si esta característica no está en tu espacio de trabajo, contacta a tu CSM or administrador de éxito de cliente or administrador de éxito de cliente para obtener información.
+La disponibilidad del aprovisionamiento SCIM depende de tu edición de la plataforma. Si esta característica no está en tu espacio de trabajo, contacta a tu CSM para obtener información.
 {% endalert %}
 
 1. En el panel de Braze, ve a **Configuración** > **Configuración de la empresa** > **Configuración de administrador** > **Aprovisionamiento SCIM** y selecciona **Configurar integración SCIM**.

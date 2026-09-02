@@ -17,7 +17,7 @@ description: "En este artículo se describen los detalles del endpoint Renombrar
 
 Puedes enviar hasta 50 objetos de renombramiento por solicitud.
 
-Este endpoint establece un nuevo (principal) `external_id` para el usuario y deja obsoleto su `external_id` existente. Esto significa que el usuario puede ser identificado por cualquiera de los dos `external_id` hasta que se elimine el obsoleto. Tener varios ID externos permite un periodo de migración para que no se rompan las versiones heredadas de tus aplicaciones que utilizan el esquema de nombres de ID externos anterior. El perfil sigue siendo completamente funcional con ambos identificadores durante la ventana de migración: el SDK or kit de desarrollo de software de Braze, la REST or transferencia de estado representacional API y los flujos de mensajería pueden seguir haciendo referencia al usuario por cualquiera de los dos ID hasta que el obsoleto se elimine explícitamente.
+Este endpoint establece un nuevo (principal) `external_id` para el usuario y deja obsoleto su `external_id` existente. Esto significa que el usuario puede ser identificado por cualquiera de los dos `external_id` hasta que se elimine el obsoleto. Tener varios ID externos permite un periodo de migración para que no se rompan las versiones heredadas de tus aplicaciones que utilizan el esquema de nombres de ID externos anterior. El perfil sigue siendo completamente funcional con ambos identificadores durante la ventana de migración: el SDK de Braze, la REST API y los flujos de mensajería pueden seguir haciendo referencia al usuario por cualquiera de los dos ID hasta que el obsoleto se elimine explícitamente.
 
 Cuando ya no utilices tu antiguo esquema de nombres, te recomendamos encarecidamente que elimines los ID externos obsoletos utilizando el [endpoint `/users/external_ids/remove`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_remove).
 
@@ -31,7 +31,7 @@ Cuando llamas a este endpoint, asigna un nuevo `external_id` principal a un perf
 
 Se permiten llamadas de renombramiento posteriores en el mismo perfil: cada renombramiento crea un ID externo obsoleto adicional, por lo que un perfil puede acumular un `external_id` principal y varios ID externos obsoletos con el tiempo. Sin embargo, el valor de `new_external_id` no debe existir ya en ningún perfil de Braze, ni como ID principal ni como ID externo obsoleto.
 
-El endpoint no registra puntos de datos y no afecta a los recuentos de MAU or usuarios activos al mes. Todos los datos históricos del usuario (eventos, compras, atributos, participación en campañas) permanecen vinculados al mismo perfil.
+El endpoint no registra puntos de datos y no afecta a los recuentos de MAU. Todos los datos históricos del usuario (eventos, compras, atributos, participación en campañas) permanecen vinculados al mismo perfil.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#17682d2b-1546-4a3c-9703-aa5a12861d7c {% endapiref %}
 
@@ -134,11 +134,11 @@ Para la mayoría de los casos de uso de migración, la secuencia recomendada es:
 4. **Mantén la ventana de obsolescencia** — Mantén los ID externos obsoletos activos durante el tiempo que cualquier sistema (incluidas las versiones heredadas de la aplicación en el campo) pueda seguir haciendo referencia a los ID antiguos. No apresures este paso.
 5. **Elimina los ID obsoletos** — Una vez que se confirme que todos los sistemas están usando los nuevos ID, utiliza [`/users/external_ids/remove`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_remove) en lotes de hasta 50 para limpiar.
 
-Si también estás migrando tu integración de SDK or kit de desarrollo de software (por ejemplo, cambiando el valor pasado a `changeUser`), coordina el renombramiento del lado de la API con el calendario de lanzamiento de la aplicación para que el nuevo ID externo esté en uso tanto en el servidor como en el cliente antes de que se eliminen los ID obsoletos.
+Si también estás migrando tu integración de SDK (por ejemplo, cambiando el valor pasado a `changeUser`), coordina el renombramiento del lado de la API con el calendario de lanzamiento de la aplicación para que el nuevo ID externo esté en uso tanto en el servidor como en el cliente antes de que se eliminen los ID obsoletos.
 
 ## Preguntas más frecuentes {#frequently-asked-questions}
 
-### ¿Influye esto en los MAU or usuarios activos al mes? {#does-this-impact-mau}
+### ¿Influye esto en los MAU? {#does-this-impact-mau}
 No, porque el número de usuarios sigue siendo el mismo; solo tienen un nuevo `external_id`.
 
 ### ¿Cambia históricamente el comportamiento de los usuarios? {#does-user-behavior-change-historically}

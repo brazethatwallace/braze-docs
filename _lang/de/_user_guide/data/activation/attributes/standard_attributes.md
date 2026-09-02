@@ -8,13 +8,13 @@ description: "Dieser Referenzartikel listet die Standardnutzerattribute (reservi
 
 # Standardattribute {#standard-attributes}
 
-> Standardattribute sind vordefinierte Felder, die Braze in jedem Kundenprofil or Nutzerprofil erkennt. Verwenden Sie diese Seite als Kurzreferenz für den Feldnamen, den Datentyp und das erwartete Format jedes Standardattributs.
+> Standardattribute sind vordefinierte Felder, die Braze in jedem Kundenprofil erkennt. Verwenden Sie diese Seite als Kurzreferenz für den Feldnamen, den Datentyp und das erwartete Format jedes Standardattributs.
 
 Standardattribute (manchmal auch *Standardattribute* oder *reservierte Schlüssel* genannt) unterscheiden sich von [angepassten Attributen]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), die speziell für Ihr Unternehmen gelten. Wenn Sie Daten mit einem der auf dieser Seite aufgeführten Feldnamen an Braze senden, speichert Braze diese im vordefinierten Profilfeld, anstatt ein neues angepasstes Attribut zu erstellen.
 
 Sie können Standardattribute über eine der folgenden Methoden festlegen:
 
-- Das [Braze SDK or Software-Development-Kit]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes)
+- Das [Braze SDK]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes)
 - Das [User-Attributes-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object) am [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track)
 - [CSV-Import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import)
 - [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)
@@ -25,12 +25,12 @@ Standardattributnamen sind case-sensitiv. Verwenden Sie immer Kleinbuchstaben (z
 
 ## Bezeichner {#identifiers}
 
-Bezeichner teilen Braze mit, welches Kundenprofil or Nutzerprofil aktualisiert oder erstellt werden soll. Jede API-Anfrage und jede CSV-Zeile muss mindestens einen Bezeichner enthalten. Weitere Informationen zur Auswahl des richtigen Bezeichners finden Sie unter [Bezeichner-Auflösung]({{site.baseurl}}/api/objects_filters/user_attributes_object#identifier-resolution).
+Bezeichner teilen Braze mit, welches Kundenprofil aktualisiert oder erstellt werden soll. Jede API-Anfrage und jede CSV-Zeile muss mindestens einen Bezeichner enthalten. Weitere Informationen zur Auswahl des richtigen Bezeichners finden Sie unter [Bezeichner-Auflösung]({{site.baseurl}}/api/objects_filters/user_attributes_object#identifier-resolution).
 
 | Feld | Datentyp | Format und Hinweise |
 |---|---|---|
 | `external_id` | String | Ein eindeutiger Nutzerbezeichner, den Sie zuweisen. Sobald er in einem Profil gesetzt ist, verwendet Braze ihn, um Nutzer:innen geräteübergreifend zu erkennen. Kann nach dem Hinzufügen nicht mehr entfernt werden. |
-| `braze_id` | String | Ein von Braze zugewiesener Bezeichner, der erstellt wird, wenn das SDK or Software-Development-Kit ein Gerät zum ersten Mal erkennt. Schreibgeschützt. Kann nicht bearbeitet werden. |
+| `braze_id` | String | Ein von Braze zugewiesener Bezeichner, der erstellt wird, wenn das SDK ein Gerät zum ersten Mal erkennt. Schreibgeschützt. Kann nicht bearbeitet werden. |
 | `user_alias` | Objekt | Ein Objekt mit `alias_name` (String) und `alias_label` (String), das zur Identifizierung von Nutzer:innen ohne `external_id` verwendet wird. Schließt sich mit `external_id` in derselben Anfrage gegenseitig aus. |
 | `email` | String | Kann als Bezeichner verwendet werden, wenn `external_id` und `user_alias` nicht vorhanden sind. Hat Vorrang vor `phone`, wenn beide gesendet werden. |
 | `phone` | String | Kann als Bezeichner verwendet werden, wenn `external_id`, `user_alias` und `email` nicht vorhanden sind. Verwenden Sie das [E.164]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#recommended-format)-Format (zum Beispiel `+14155552671`). |
@@ -48,9 +48,9 @@ Diese Felder erfassen demografische Daten, Kontaktdaten und Gebietsschemadaten I
 | `phone` | String | Die Telefonnummer der/des Nutzer:in. Verwenden Sie das [E.164]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#recommended-format)-Format (zum Beispiel `+14155552671`). |
 | `dob` | String | Geburtsdatum im Format `YYYY-MM-DD` (zum Beispiel `1988-02-14`). Ermöglicht Targeting auf Geburtstage. |
 | `gender` | String | Eines von `M`, `F`, `O` (andere), `N` (nicht zutreffend), `P` (keine Angabe) oder `null` (unbekannt). |
-| `country` | String | Ein Ländercode im Format [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1) (zum Beispiel `US`, `GB`). Das Setzen von `country` über CSV-Import oder API verhindert, dass das SDK or Software-Development-Kit diesen Wert automatisch erfasst. |
+| `country` | String | Ein Ländercode im Format [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1) (zum Beispiel `US`, `GB`). Das Setzen von `country` über CSV-Import oder API verhindert, dass das SDK diesen Wert automatisch erfasst. |
 | `home_city` | String | Der Wohnort der/des Nutzer:in (zum Beispiel `London`). |
-| `language` | String | Ein Sprachcode im Format [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) (zum Beispiel `en`). Beachten Sie die [Liste der akzeptierten Sprachen]({{site.baseurl}}/user_guide/data/unification/user_data/language_codes). Das Setzen von `language` über CSV-Import oder API verhindert, dass das SDK or Software-Development-Kit diesen Wert automatisch erfasst. |
+| `language` | String | Ein Sprachcode im Format [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) (zum Beispiel `en`). Beachten Sie die [Liste der akzeptierten Sprachen]({{site.baseurl}}/user_guide/data/unification/user_data/language_codes). Das Setzen von `language` über CSV-Import oder API verhindert, dass das SDK diesen Wert automatisch erfasst. |
 | `time_zone` | String | Ein Zeitzonenname aus der [IANA Time Zone Database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) (zum Beispiel `America/New_York` oder `Eastern Time (US & Canada)`). |
 | `current_location` | Objekt | Ein Objekt mit `longitude` und `latitude` (zum Beispiel `{"longitude": -73.991443, "latitude": 40.753824}`). |
 | `image_url` | String | Eine URL zum Profilbild der/des Nutzer:in. Maximal 1.024 Zeichen. |
@@ -74,7 +74,7 @@ Weitere Informationen zur Einrichtung von Abo-Gruppen finden Sie unter [Abo-Grup
 
 ## Sitzungen und Engagement {#sessions-and-engagement}
 
-Diese Felder erfassen, wann Nutzer:innen Ihre App zum ersten oder letzten Mal verwendet haben. Das SDK or Software-Development-Kit zeichnet sie automatisch auf; in der Regel setzen Sie sie nur über die API oder per CSV, wenn Sie von einer anderen Plattform migrieren.
+Diese Felder erfassen, wann Nutzer:innen Ihre App zum ersten oder letzten Mal verwendet haben. Das SDK zeichnet sie automatisch auf; in der Regel setzen Sie sie nur über die API oder per CSV, wenn Sie von einer anderen Plattform migrieren.
 
 | Feld | Datentyp | Format und Hinweise |
 |---|---|---|
@@ -84,7 +84,7 @@ Diese Felder erfassen, wann Nutzer:innen Ihre App zum ersten oder letzten Mal ve
 
 ## Push-Token / Textbaustein {#push-tokens}
 
-Verwenden Sie diese Felder, wenn Sie Push-Token / Textbaustein von einer anderen Plattform migrieren. Nach der Integration des Braze SDK or Software-Development-Kit werden Push-Token / Textbaustein automatisch erfasst. Eine Anleitung zur Migration finden Sie unter [Push-Token / Textbaustein migrieren]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens).
+Verwenden Sie diese Felder, wenn Sie Push-Token / Textbaustein von einer anderen Plattform migrieren. Nach der Integration des Braze SDK werden Push-Token / Textbaustein automatisch erfasst. Eine Anleitung zur Migration finden Sie unter [Push-Token / Textbaustein migrieren]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens).
 
 | Feld | Datentyp | Format und Hinweise |
 |---|---|---|
@@ -161,7 +161,7 @@ Einige Standardattribute können nicht über den CSV-Import festgelegt werden. A
 Beachten Sie diese Punkte bei der Arbeit mit Standardattributen:
 
 - **Feldnamen unterscheiden zwischen Groß- und Kleinschreibung.** Verwenden Sie immer Kleinbuchstaben. Ein Header oder Schlüssel, der nicht exakt mit einem Standardattribut-Namen übereinstimmt, wird als angepasstes Attribut behandelt.
-- **Die automatische SDK or Software-Development-Kit-Erfassung wird unterdrückt, wenn Sie Werte über API oder CSV festlegen.** Wenn Sie `country` oder `language` über API oder CSV festlegen, stoppt Braze die automatische Erfassung dieser Felder über das SDK or Software-Development-Kit für diese:n Nutzer:in.
+- **Die automatische SDK-Erfassung wird unterdrückt, wenn Sie Werte über API oder CSV festlegen.** Wenn Sie `country` oder `language` über API oder CSV festlegen, stoppt Braze die automatische Erfassung dieser Felder über das SDK für diese:n Nutzer:in.
 - **`null` entfernt einen Wert.** Setzen Sie ein Standardattribut auf `null`, um es aus dem Profil zu entfernen. Einige Felder, darunter `external_id` und `user_alias`, können nach dem Festlegen nicht mehr entfernt werden.
 - **Leere CSV-Werte überschreiben nicht.** Eine leere Zelle in einem CSV-Import behält den bestehenden Wert im Profil bei. Verwenden Sie die API, um einen Wert zu löschen.
 - **Zeitzonen verwenden standardmäßig UTC.** Datumsstrings ohne Offset werden als Mitternacht UTC interpretiert und in der Zeitzone Ihres Workspace angezeigt. Um eine Zeitzone anzugeben, fügen Sie einen UTC-Offset an (zum Beispiel `2024-11-10T18:00:00-05:00`).
@@ -169,8 +169,8 @@ Beachten Sie diese Punkte bei der Arbeit mit Standardattributen:
 ## Verwandte Seiten {#related-pages}
 
 - [Nutzerattribut-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object) — Vollständiger API-Vertrag für das Attribut-Objekt.
-- [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) — Representational State Transfer-Endpunkt zum Erstellen und Update or aktualisieren or aktualisieren von Nutzerprofilen.
-- [Nutzerattribute festlegen]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes) — SDK or Software-Development-Kit-Methoden zum Festlegen von Standard- und angepassten Attributen.
+- [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) — REST-Endpunkt zum Erstellen und Aktualisieren von Nutzerprofilen.
+- [Nutzerattribute festlegen]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes) — SDK-Methoden zum Festlegen von Standard- und angepassten Attributen.
 - [CSV-Import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import) — Standardattribute über eine CSV-Datei hochladen.
 - [Angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) — Attribute definieren, die speziell auf Ihr Unternehmen zugeschnitten sind.
 - [Datentypen]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types) — Referenz für unterstützte Datentypen.

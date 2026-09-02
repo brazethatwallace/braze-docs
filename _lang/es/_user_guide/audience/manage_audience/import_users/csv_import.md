@@ -149,7 +149,7 @@ Al importar atributos predeterminados, los encabezados de columna que uses deben
 {% endalert %}
 
 {% alert tip %}
-Para la lista completa de atributos estándar que Braze reconoce (a través de SDK or kit de desarrollo de software, API, CSV y Cloud Data Ingestion), consulta [Atributos estándar]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes). La siguiente tabla cubre solo el subconjunto que puede establecerse mediante la importación CSV.
+Para la lista completa de atributos estándar que Braze reconoce (a través de SDK, API, CSV y Cloud Data Ingestion), consulta [Atributos estándar]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes). La siguiente tabla cubre solo el subconjunto que puede establecerse mediante la importación CSV.
 {% endalert %}
 
 Los siguientes atributos predeterminados están disponibles para la importación de usuarios.
@@ -180,7 +180,7 @@ Los siguientes atributos predeterminados están disponibles para la importación
 
 #### Actualizar el estado del grupo de suscripción (opcional) {#updating-subscription-group-status-optional}
 
-Adicionalmente, puedes agregar usuarios a grupos de suscripción de correo electrónico o servicio de mensajes cortos mediante la importación de usuarios. Esto es particularmente útil para servicio de mensajes cortos, ya que un usuario debe estar inscrito en un grupo de suscripción servicio de mensajes cortos para recibir mensajes a través del canal servicio de mensajes cortos. Para más información, consulta [Grupos de suscripción servicio de mensajes cortos]({{site.baseurl}}/sms_rcs_subscription_groups#subscription-group-mms-enablement).
+Adicionalmente, puedes agregar usuarios a grupos de suscripción de correo electrónico o SMS mediante la importación de usuarios. Esto es particularmente útil para SMS, ya que un usuario debe estar inscrito en un grupo de suscripción SMS para recibir mensajes a través del canal SMS. Para más información, consulta [Grupos de suscripción SMS]({{site.baseurl}}/sms_rcs_subscription_groups#subscription-group-mms-enablement).
 
 Si estás actualizando estados de grupos de suscripción, debes tener las siguientes dos columnas en tu CSV:
 
@@ -424,7 +424,7 @@ Cada dato de cliente importado desde un archivo CSV sobrescribe el valor existen
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Consideraciones sobre puntos de datos" }
 
 {% alert important %}
-Establecer `language` o `country` en un usuario a través de la importación CSV o la API impide que Braze capture automáticamente esta información a través del SDK or kit de desarrollo de software.
+Establecer `language` o `country` en un usuario a través de la importación CSV o la API impide que Braze capture automáticamente esta información a través del SDK.
 {% endalert %}
 
 ## Solución de problemas {#troubleshooting}

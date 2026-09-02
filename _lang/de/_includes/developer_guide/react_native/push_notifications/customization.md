@@ -2,7 +2,7 @@
 
 ## Push-Anpassung in React Native {#push-customization-in-react-native}
 
-Das Braze React Native SDK or Software-Development-Kit stellt keine Anpassungsmöglichkeiten für Push-Benachrichtigungen (Aktions-Buttons, Kategorien, angepasste Notification Factories) über seine JavaScript-API zur Verfügung. Diese Features erfordern eine native Konfiguration in Ihren iOS- und Android-Projekten.
+Das Braze React Native SDK stellt keine Anpassungsmöglichkeiten für Push-Benachrichtigungen (Aktions-Buttons, Kategorien, angepasste Notification Factories) über seine JavaScript-API zur Verfügung. Diese Features erfordern eine native Konfiguration in Ihren iOS- und Android-Projekten.
 
 Die folgende Tabelle zeigt, welche Features eine native Konfiguration erfordern:
 

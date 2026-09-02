@@ -2,7 +2,7 @@
 nav_title: Conversions
 article_title: Conversions-Dashboard
 alias: "/conversions_dashboard_v2/"
-description: "Das Conversions-Dashboard ermöglicht es Ihnen, Conversions über Kampagnen, Canvase und Kanäle hinweg mit verschiedenen Attributionsmethoden zu analysieren."
+description: "Das Conversions-Dashboard ermöglicht es Ihnen, Conversions über Kampagnen, Canvases und Kanäle hinweg mit verschiedenen Attributionsmethoden zu analysieren."
 page_order: 3
 page_type: reference
 tool:
@@ -11,7 +11,7 @@ tool:
 
 # Conversions-Dashboard {#conversions-dashboard}
 
-> Das Conversions-Dashboard analysiert Conversions über Kampagnen, Canvase und Kanäle hinweg mithilfe verschiedener [Attributionsmethoden](#attribution-methods). Bei der Messung Ihrer Conversions können Sie den Zeitraum, das Konversions-Event und das Konversionsfenster festlegen.
+> Das Conversions-Dashboard analysiert Conversions über Kampagnen, Canvases und Kanäle hinweg mithilfe verschiedener [Attributionsmethoden](#attribution-methods). Bei der Messung Ihrer Conversions können Sie den Zeitraum, das Konversions-Event und das Konversionsfenster festlegen.
 
 ## Einrichten Ihres Berichts {#setting-up-your-report}
 
@@ -19,8 +19,8 @@ So richten Sie Ihren Bericht im Konversions-Dashboard ein:
 
 1. Gehen Sie zu **Analytics** > **Conversions**.
 2. Wählen Sie einen **Date Range** für Ihren Bericht aus – bis zu einem Zeitfenster von 90 Tagen.
-3. Wählen Sie die Campaigns oder Canvase (oder beides) aus, die Sie analysieren möchten.
-   - (optional) Filtern Sie Campaigns und Canvase, indem Sie einen Tag auswählen.
+3. Wählen Sie die Campaigns oder Canvases (oder beides) aus, die Sie analysieren möchten.
+   - (optional) Filtern Sie Campaigns und Canvases, indem Sie einen Tag auswählen.
 4. Wählen Sie den/die **Channel(s)** aus, die Sie für Ihre Nachrichten analysieren möchten.
 5. Wählen Sie eine **Breakdown by**-Ebene aus, um verschiedene Dimensionen der Daten anzuzeigen, z. B. nach Variante, Canvas-Schritt, Land oder Sprache.
 6. (Optional) Wenn Sie Konversionen eines Events berechnen möchten, das nicht als Konversions-Event in der Campaign oder dem Canvas eingerichtet wurde, aktivieren Sie [Angepasste Events verwenden](#using-custom-events).
@@ -33,7 +33,7 @@ Wenn Sie Konversionen für mehrere Kanäle analysieren, wird Ihre **Attribution 
 {:start="8"}
 8. Wählen Sie **Create** aus, um den Bericht zu erstellen.
 
-Nachdem die Seite geladen wurde, wählen Sie ein **Conversion Event** aus, um den Bericht nach Konversionsdaten zu filtern. Die verfügbaren Auswahlmöglichkeiten umfassen die Events, die in den Canvase und Campaigns vorkonfiguriert wurden. Wenn Sie beim Einrichten Ihres Berichts (Schritt 6) ein angepasstes Event ausgewählt haben, ist diese Option nicht verfügbar.
+Nachdem die Seite geladen wurde, wählen Sie ein **Conversion Event** aus, um den Bericht nach Konversionsdaten zu filtern. Die verfügbaren Auswahlmöglichkeiten umfassen die Events, die in den Canvases und Campaigns vorkonfiguriert wurden. Wenn Sie beim Einrichten Ihres Berichts (Schritt 6) ein angepasstes Event ausgewählt haben, ist diese Option nicht verfügbar.
 
 ### Angepasste Events verwenden {#using-custom-events}
 
@@ -87,13 +87,13 @@ Die folgende Tabelle beschreibt die möglichen Metriken.
 | Konversionsrate (Attributionsmethode) | Definiert durch die [Attributionsmethode](#attribution-methods), die Sie beim Einrichten des Berichts ausgewählt haben. Wenn mehrere Kanäle ausgewählt sind, wird standardmäßig die Last-Touch-Attribution verwendet. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Konversionsdetails" }
 
-Wenn Sie beim [Einrichten Ihres Berichts](#setting-up-your-report) (Schritt 5) Details auf Aufschlüsselungsebene für Campaigns oder Canvase ausgewählt haben, können Sie <i class="fas fa-angle-down"></i> **Erweitern** auswählen, um die Tabelle aufzuklappen.
+Wenn Sie beim [Einrichten Ihres Berichts](#setting-up-your-report) (Schritt 5) Details auf Aufschlüsselungsebene für Campaigns oder Canvases ausgewählt haben, können Sie <i class="fas fa-angle-down"></i> **Erweitern** auswählen, um die Tabelle aufzuklappen.
 
 ### Konversions-Funnel {#conversion-funnel}
 
 Dieses Balkendiagramm zeigt die absoluten Zahlen für jedes [Engagement-Event]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) basierend auf dem ausgewählten Kanal. Die Konversionsanzahl wird gemäß der ausgewählten Attributionsmethode definiert.
 
-Standardmäßig werden alle ausgewählten Campaigns und Canvase angezeigt. Um eine Campaign oder ein Canvas abzuwählen, wählen Sie den Namen der Campaign oder des Canvas aus, die/das Sie ausschließen möchten. Für zusätzliche Details zum Engagement-Event können Sie mit dem Mauszeiger über den jeweiligen Balken fahren.
+Standardmäßig werden alle ausgewählten Campaigns und Canvases angezeigt. Um eine Campaign oder ein Canvas abzuwählen, wählen Sie den Namen der Campaign oder des Canvas aus, die/das Sie ausschließen möchten. Für zusätzliche Details zum Engagement-Event können Sie mit dem Mauszeiger über den jeweiligen Balken fahren.
 
 Um die Zeitreihendaten herunterzuladen, wählen Sie eine Download-Option: PNG, JPEG, PDF, SVG oder CSV.
 
@@ -105,7 +105,7 @@ Dieses Diagramm zeigt jeweils nur Daten für einen einzelnen Kanal an. Verwenden
 
 ### Konversionen im Zeitverlauf {#conversions-over-time}
 
-Dieses Zeitreihendiagramm enthält eine Darstellung der Konversionen pro Campaign oder Canvas im Zeitverlauf. Standardmäßig werden alle ausgewählten Campaigns und Canvase angezeigt. Um eine Campaign oder ein Canvas abzuwählen, klicken Sie auf den Namen der Campaign oder des Canvas, die/das Sie ausschließen möchten.
+Dieses Zeitreihendiagramm enthält eine Darstellung der Konversionen pro Campaign oder Canvas im Zeitverlauf. Standardmäßig werden alle ausgewählten Campaigns und Canvases angezeigt. Um eine Campaign oder ein Canvas abzuwählen, klicken Sie auf den Namen der Campaign oder des Canvas, die/das Sie ausschließen möchten.
 
 Um die Zeitreihendaten herunterzuladen, wählen Sie <i class="fas fa-bars" title="Chart-Kontextmenü"></i> **Chart-Kontextmenü** und dann Ihre Download-Option. Verfügbare Optionen sind PNG, JPEG, PDF, SVG oder CSV.
 
@@ -115,8 +115,8 @@ Um die Zeitreihendaten herunterzuladen, wählen Sie <i class="fas fa-bars" title
 
 | Attributionsmethode | Definition | Ratenberechnung | Kanalspezifische Optionen |
 | --- | --- | --- | --- |
-| Bei Empfang | Gesamtzahl der Konversionen, die nach dem Empfang der Nachricht stattfanden | Berechnet als (Eindeutige Empfangs-Konversionen) / (Eindeutige Empfänger:innen) | {::nomarkdown}<ul><li>Bei E-Mail-Zustellung</li><li>Bei Kurzmitteilungsdienst or SMS-Zustellung</li></ul>{:/} |
-| Bei Versand | Gesamtzahl der Konversionen, die nach dem Versand der Nachricht stattfanden | Berechnet als (Eindeutige Versand-Konversionen) / (Eindeutige Empfänger:innen) | {::nomarkdown}<ul><li>Bei Push-Versand</li><li>Bei Content-Card-Versand</li><li>Bei Kurzmitteilungsdienst or SMS-Versand</li></ul>{:/} |
+| Bei Empfang | Gesamtzahl der Konversionen, die nach dem Empfang der Nachricht stattfanden | Berechnet als (Eindeutige Empfangs-Konversionen) / (Eindeutige Empfänger:innen) | {::nomarkdown}<ul><li>Bei E-Mail-Zustellung</li><li>Bei SMS-Zustellung</li></ul>{:/} |
+| Bei Versand | Gesamtzahl der Konversionen, die nach dem Versand der Nachricht stattfanden | Berechnet als (Eindeutige Versand-Konversionen) / (Eindeutige Empfänger:innen) | {::nomarkdown}<ul><li>Bei Push-Versand</li><li>Bei Content-Card-Versand</li><li>Bei SMS-Versand</li></ul>{:/} |
 | Bei Öffnung | Gesamtzahl der Konversionen, die nach dem Öffnen der Nachricht stattfanden | Berechnet als (Eindeutige Öffnungs-Konversionen) / (Eindeutige Empfänger:innen) | {::nomarkdown}<ul><li>Bei E-Mail-Öffnung</li><li>Bei Push-Öffnung</li></ul>{:/} |
 | Bei Klick | Gesamtzahl der Konversionen, die nach einem Klick auf die Nachricht stattfanden | Berechnet als (Eindeutige Klick-Konversionen) / (Eindeutige Empfänger:innen) | {::nomarkdown}<ul><li>Bei E-Mail-Klick</li><li>Bei Content-Card-Klick</li><li>Bei IAM-Klick</li></ul>{:/} |
 | Bei Impression | Gesamtzahl der Konversionen, die nach einer Impression stattfanden | Berechnet als (Eindeutige Impressions-Konversionen) / (Eindeutige Empfänger:innen) | {::nomarkdown}<ul><li>Bei IAM-Impression</li><li>Bei Content-Card-Impression</li></ul>{:/} |
@@ -127,7 +127,7 @@ Um die Zeitreihendaten herunterzuladen, wählen Sie <i class="fas fa-bars" title
 
 | Begriff | Definition |
 | --- | --- |
-| Touch | Eine physische Interaktion oder ein Touchpoint mit einer Nachricht.<br><br>Touches können Folgendes umfassen:<br>{::nomarkdown}<ul><li>E-Mail-Klick</li><li>Push-Öffnung</li><li>Content-Card-Klick</li><li>In-App-Nachrichten-Klick</li><li>Kurzmitteilungsdienst or SMS-Klick</li></ul>{:/} |
+| Touch | Eine physische Interaktion oder ein Touchpoint mit einer Nachricht.<br><br>Touches können Folgendes umfassen:<br>{::nomarkdown}<ul><li>E-Mail-Klick</li><li>Push-Öffnung</li><li>Content-Card-Klick</li><li>In-App-Nachrichten-Klick</li><li>SMS-Klick</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Wichtige Begriffe" }
 
 ## Fehlerbehebung {#troubleshooting}

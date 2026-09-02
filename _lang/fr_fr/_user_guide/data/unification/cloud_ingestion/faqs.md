@@ -237,7 +237,7 @@ Pour créer de nouveaux utilisateurs via CDI, désactivez le basculement **Updat
 
 Braze a mis en place les mesures suivantes pour l'ingestion de données cloud :
 
-- Tous les identifiants sont chiffrés dans notre base de données, et seuls certains employé or salariés disposent d'un accès authentifié.
+- Tous les identifiants sont chiffrés dans notre base de données, et seuls certains employés disposent d'un accès authentifié.
 - Nous utilisons des connexions chiffrées pour transférer les données vers les entrepôts de données des clients.
 - Nous effectuons des requêtes vers les endpoints de l'API Braze en utilisant les mêmes clés API et connexions TLS que celles que nous recommandons à nos clients.
 - Nous mettons régulièrement à jour nos bibliothèques et appliquons les correctifs de sécurité.

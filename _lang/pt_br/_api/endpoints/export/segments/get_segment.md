@@ -8,13 +8,13 @@ page_type: reference
 description: "Este artigo traz informações sobre o endpoint da Braze \"Exportar lista de segmentos\"."
 
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Exportar lista de segmentos {#export-segment-list}
 {% apimethod get %}
 /segments/list
 {% endapimethod %}
 
-> Use esse endpoint para exportar uma lista de segmentos, cada um dos quais incluirá seu nome, o identificador de API or interface de programação do aplicativo (API) do Segment or segmento or segmento e se tem o rastreamento de análise de dados ativado.
+> Use esse endpoint para exportar uma lista de segmentos, cada um dos quais incluirá seu nome, o identificador de API do segmento e se tem o rastreamento de análise de dados ativado.
 
 Os segmentos são retornados em grupos de 100, classificados por hora de criação (do mais antigo ao mais recente, por padrão). Os segmentos arquivados não estão incluídos.
 
@@ -22,7 +22,7 @@ Os segmentos são retornados em grupos de 100, classificados por hora de criaç�
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `segments.list`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `segments.list`.
 
 ## Limite de frequência {#rate-limit}
 
@@ -60,7 +60,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/segments/list?page=
 ```
 
 {% alert tip %}
-Para obter ajuda com exportações de CSV e API or interface de programação do aplicativo (API), acesse [Resolução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
+Para obter ajuda com exportações de CSV e API, acesse [Resolução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}

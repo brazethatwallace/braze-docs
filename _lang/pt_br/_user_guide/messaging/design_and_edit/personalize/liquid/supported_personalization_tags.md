@@ -30,14 +30,14 @@ Para sua conveniência, um resumo das tags de personalização suportadas é for
 | Propriedades do evento <br> (São personalizadas para o seu espaço de trabalho.) | `{{event_properties.${your_custom_event_property}}}` |
 | Variáveis de contexto do Canvas | `{{context.${your_context_variable}}}` |
 | Atributos personalizados <br> (São personalizados para o seu espaço de trabalho.) | `{{custom_attribute.${your_custom_attribute}}}` |
-| <a href='/docs/API or interface de programação do aplicativo (API)/objects_filters/trigger_properties_object'>Propriedades de disparo da API or interface de programação do aplicativo (API)</a> | `{{api_trigger_properties.${your_api_trigger_property}}}` |
+| <a href='/docs/api/objects_filters/trigger_properties_object'>Propriedades de disparo da API</a> | `{{api_trigger_properties.${your_api_trigger_property}}}` |
 | Propriedades de entrada do Canvas | `{{context.${property_name}}}` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Resumo das tags suportadas" }
 
 {% endraw %}
 
 {% alert note %}
-As propriedades de disparo da API or interface de programação do aplicativo (API) devem usar duas chaves por tag: {% raw %}`{{api_trigger_properties.${your_api_trigger_property}}}`. Chaves triplas (por exemplo, `{{{...}}}`){% endraw %} não são uma sintaxe de personalização válida da Braze. Consulte [Por que meu Liquid disparado por API or interface de programação do aplicativo (API) está falhando na Braze?]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq#why-is-my-api-triggered-liquid-failing-in-braze).
+As propriedades de disparo da API devem usar duas chaves por tag: {% raw %}`{{api_trigger_properties.${your_api_trigger_property}}}`. Chaves triplas (por exemplo, `{{{...}}}`){% endraw %} não são uma sintaxe de personalização válida da Braze. Consulte [Por que meu Liquid disparado por API está falhando na Braze?]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq#why-is-my-api-triggered-liquid-failing-in-braze).
 {% endalert %}
 
 ### Atributos suportados {#supported-attributes}
@@ -66,7 +66,7 @@ https://example.com/?utm_campaign={{ campaign.${name} | url_encode }}
 
 ## Informações do dispositivo usado mais recentemente {#most-recently-used-device-information}
 
-Você pode usar os seguintes atributos como template para o dispositivo mais recente do usuário em todas as plataformas. Se um usuário não tiver usado seu aplicativo (por exemplo, se você importou o usuário via REST or transferir estado representacional API or interface de programação do aplicativo (API)), todos esses valores serão `null`.
+Você pode usar os seguintes atributos como template para o dispositivo mais recente do usuário em todas as plataformas. Se um usuário não tiver usado seu aplicativo (por exemplo, se você importou o usuário via REST API), todos esses valores serão `null`.
 
 {% raw %}
 
@@ -88,15 +88,15 @@ Como existe uma grande variedade de operadoras, nomes de modelos e sistemas oper
 
 ## Informações do app direcionado {#targeted-app-information}
 
-Para mensagens no app, você pode usar os seguintes atributos de app dentro do Liquid. Os valores são baseados em qual chave da API or interface de programação do aplicativo (API) SDK or kit de desenvolvimento de software seus apps usam para solicitar o envio de mensagens.
+Para mensagens no app, você pode usar os seguintes atributos de app dentro do Liquid. Os valores são baseados em qual chave da API SDK seus apps usam para solicitar o envio de mensagens.
 
 |Tag | Descrição |
 |------------------|---|
-| `{{app.${api_id}}}` | A chave de API or interface de programação do aplicativo (API) do app que está solicitando a mensagem. Por exemplo, você usa essa chave em conjunto com o Liquid `abort_message()` para evitar o envio de mensagens no app para determinados apps, como plataformas de TV ou builds de desenvolvimento que usam uma chave da API or interface de programação do aplicativo (API) SDK or kit de desenvolvimento de software separada.|
+| `{{app.${api_id}}}` | A chave de API do app que está solicitando a mensagem. Por exemplo, você usa essa chave em conjunto com o Liquid `abort_message()` para evitar o envio de mensagens no app para determinados apps, como plataformas de TV ou builds de desenvolvimento que usam uma chave da API SDK separada.|
 | `{{app.${name}}}` | O nome do app (conforme definido no dashboard da Braze) que está solicitando a mensagem. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Informações do app direcionado" }
 
-Por exemplo, este código Liquid interrompe uma mensagem se os apps solicitantes não forem uma das duas chaves de API or interface de programação do aplicativo (API) na lista:
+Por exemplo, este código Liquid interrompe uma mensagem se os apps solicitantes não forem uma das duas chaves de API na lista:
 
 ```liquid
 {% assign allowed_api_keys = 'sdk_api_key_1,sdk_api_key_2' | split: ',' %}
@@ -128,7 +128,7 @@ Para notificações por push, mensagens no app e Banners, você pode usar templa
 
 Como existe uma grande variedade de operadoras, nomes de modelos e sistemas operacionais de dispositivos, recomendamos que você teste minuciosamente qualquer lógica que dependa condicionalmente de algum desses valores. Esses valores são `null` se não estiverem disponíveis em um dispositivo específico.
 
-Além disso, para notificações por push, é possível que a Braze não consiga identificar o dispositivo associado à notificação por push em determinadas circunstâncias, como quando o token por push foi importado via API or interface de programação do aplicativo (API), resultando em valores `null` para essas mensagens.
+Além disso, para notificações por push, é possível que a Braze não consiga identificar o dispositivo associado à notificação por push em determinadas circunstâncias, como quando o token por push foi importado via API, resultando em valores `null` para essas mensagens.
 
 ![Exemplo de uso de um valor padrão "there" ao usar uma variável de nome em uma mensagem push.]({% image_buster /assets/img_archive/personalized_firstname_.png %})
 

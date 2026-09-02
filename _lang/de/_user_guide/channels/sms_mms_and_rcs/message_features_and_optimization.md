@@ -1,13 +1,13 @@
 ---
 nav_title: Features und Optimierung
-article_title: Kurzmitteilungsdienst or SMS-, MMS- und RCS-Features und -Optimierung
+article_title: SMS-, MMS- und RCS-Features und -Optimierung
 page_order: 3
 layout: dev_guide
 guide_top_header: "Features und Optimierung"
-guide_top_text: "Optimieren Sie Ihre Kurzmitteilungsdienst or SMS-, MMS- und RCS-Nachrichten mit Linkverkürzung, angepassten Domains, Schlüsselwortverarbeitung, Nutzer:innen-Retargeting und Bot-Klick-Filterung."
+guide_top_text: "Optimieren Sie Ihre SMS-, MMS- und RCS-Nachrichten mit Linkverkürzung, angepassten Domains, Schlüsselwortverarbeitung, Nutzer:innen-Retargeting und Bot-Klick-Filterung."
 
 page_type: landing
-description: "Optimieren Sie Kurzmitteilungsdienst or SMS-, MMS- und RCS-Nachrichten mit Linkverkürzung, Schlüsselwortverarbeitung und mehr in Braze."
+description: "Optimieren Sie SMS-, MMS- und RCS-Nachrichten mit Linkverkürzung, Schlüsselwortverarbeitung und mehr in Braze."
 
 guide_featured_title: "Abschnittsartikel"
 guide_featured_list:

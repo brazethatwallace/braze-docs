@@ -20,18 +20,18 @@ Akzeptieren Sie anschließend die Allgemeinen Geschäftsbedingungen und geben Si
 
 ![Willkommensseite von Braze Pilot.]({% image_buster /assets/img/braze_pilot/pilot_welcome.png %}){:style="max-width:30%"} ![Option zur Eingabe Ihrer geschäftlichen E-Mail-Adresse.]({% image_buster /assets/img/braze_pilot/pilot_signin.png %}){:style="max-width:30%"}
 
-## Schritt 3: Verbindung mit dem Braze SDK or Software-Development-Kit initialisieren {#step-3-initialize-the-connection-with-the-braze-sdk}
+## Schritt 3: Verbindung mit dem Braze SDK initialisieren {#step-3-initialize-the-connection-with-the-braze-sdk}
 
-Mit Braze Pilot können Sie das Braze SDK or Software-Development-Kit für jedes beliebige Braze-Dashboard initialisieren. Sobald das SDK or Software-Development-Kit initialisiert ist, beginnt Pilot mit der Übermittlung von Engagement-Daten an Braze und ermöglicht es Ihnen, alle Nachrichten zu Trigger or triggern or triggern, die über dieses Braze-Dashboard gestartet werden.
+Mit Braze Pilot können Sie das Braze SDK für jedes beliebige Braze-Dashboard initialisieren. Sobald das SDK initialisiert ist, beginnt Pilot mit der Übermittlung von Engagement-Daten an Braze und ermöglicht es Ihnen, alle Nachrichten zu triggern, die über dieses Braze-Dashboard gestartet werden.
 
-Es gibt zwei Methoden zur Konfiguration der SDK or Software-Development-Kit-Verbindung in Pilot: Demo-QR-Codes und den Einrichtungsassistenten.
+Es gibt zwei Methoden zur Konfiguration der SDK-Verbindung in Pilot: Demo-QR-Codes und den Einrichtungsassistenten.
 
 {% tabs local %}
 {% tab Demo-QR-Codes %}
 
 ### Methode 1: Demo-QR-Codes {#method-1-demo-qr-codes}
 
-Scannen Sie einen QR-Code, der alle erforderlichen Details zur Initialisierung des SDK or Software-Development-Kit enthält, Ihr Kundenprofil or Nutzerprofil erstellt und Sie per Deeplink zu einer bestimmten App-Simulation in Braze Pilot weiterleitet. Demo-QR-Codes werden in der Begleitleiste für bestimmte Demo-Kampagnen in Ihrer kostenlosen Demo angezeigt.
+Scannen Sie einen QR-Code, der alle erforderlichen Details zur Initialisierung des SDK enthält, Ihr Kundenprofil erstellt und Sie per Deeplink zu einer bestimmten App-Simulation in Braze Pilot weiterleitet. Demo-QR-Codes werden in der Begleitleiste für bestimmte Demo-Kampagnen in Ihrer kostenlosen Demo angezeigt.
 
 | Pilot für Android | Pilot für iOS |
 | --- | --- |
@@ -47,7 +47,7 @@ Folgen Sie der Schritt-für-Schritt-Anleitung zur Initialisierung der Verbindung
 
 ![Schritt 1 des Einrichtungsassistenten für Braze Pilot.]({% image_buster /assets/img/braze_pilot/setup_wizard.png %}){:style="max-width:40%"}
 
-Diese Verbindung ist Workspace-spezifisch. Das bedeutet: Wenn Sie die Verbindung vom Demo-Workspace aus initialisieren und dann in Ihrem Dashboard der kostenlosen Demo zum Live-Workspace wechseln, müssen Sie das SDK or Software-Development-Kit von diesem Workspace aus neu initialisieren, um dort gestartete Kampagnen empfangen zu können.
+Diese Verbindung ist Workspace-spezifisch. Das bedeutet: Wenn Sie die Verbindung vom Demo-Workspace aus initialisieren und dann in Ihrem Dashboard der kostenlosen Demo zum Live-Workspace wechseln, müssen Sie das SDK von diesem Workspace aus neu initialisieren, um dort gestartete Kampagnen empfangen zu können.
 
 ![Das Workspace-Dropdown-Menü im Braze-Dashboard mit „Demo – Braze“ als ausgewähltem aktiven Workspace.]({% image_buster /assets/img/braze_pilot/dashboard_workspace.png %}){:style="max-width:60%"}
 
@@ -59,9 +59,9 @@ Diese Verbindung ist Workspace-spezifisch. Das bedeutet: Wenn Sie die Verbindung
 Abschließend empfehlen wir, der App die Berechtigung zum Senden von Push-Benachrichtigungen zu erteilen, wenn Sie die Push-Funktionen über die App testen möchten. Sie können der App diese Berechtigungen auf folgende Weise erteilen: über die Einstellungen der App in Ihren Geräteeinstellungen oder durch das Starten einer Push-Primer-Nachricht von Braze an die App.
 
 {% tabs local %}
-{% tab Einstellungen der App Update or aktualisieren or aktualisieren %}
+{% tab Einstellungen der App aktualisieren %}
 
-Öffnen Sie Ihre Geräteeinstellungen und suchen Sie nach Braze Pilot. Update or aktualisieren or aktualisieren Sie anschließend die Einstellungen, damit Benachrichtigungen auf Ihrem Sperrbildschirm angezeigt werden.
+Öffnen Sie Ihre Geräteeinstellungen und suchen Sie nach Braze Pilot. Aktualisieren Sie anschließend die Einstellungen, damit Benachrichtigungen auf Ihrem Sperrbildschirm angezeigt werden.
 
 <style>
   .imgDiv {
@@ -89,6 +89,6 @@ Sie können eine Braze-In-App-Nachricht verwenden, um Push-Berechtigungen für d
 
 ## Schritt 5: Braze-Messaging in Pilot erleben {#step-5-experience-braze-messaging-in-pilot}
 
-Jetzt sind Sie bereit, als Nutzer:in von Braze Pilot Campaigns und Canvase über Ihr Braze-Dashboard zu empfangen! Besuchen Sie eine der gestarteten Kampagnen in Ihrem Demo-Workspace, um eine kurze Demonstration der Braze-Anwendungsfälle zu erhalten, und wechseln Sie dann zu Ihrem Live-Workspace, um mit dem Versand Ihrer eigenen Nachrichten zu beginnen.
+Jetzt sind Sie bereit, als Nutzer:in von Braze Pilot Campaigns und Canvases über Ihr Braze-Dashboard zu empfangen! Besuchen Sie eine der gestarteten Kampagnen in Ihrem Demo-Workspace, um eine kurze Demonstration der Braze-Anwendungsfälle zu erhalten, und wechseln Sie dann zu Ihrem Live-Workspace, um mit dem Versand Ihrer eigenen Nachrichten zu beginnen.
 
-Weitere Informationen zum Einrichten von Campaigns und Canvase in Braze finden Sie unter [Erste Schritte: Campaigns und Canvase]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases).
+Weitere Informationen zum Einrichten von Campaigns und Canvases in Braze finden Sie unter [Erste Schritte: Campaigns und Canvases]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases).

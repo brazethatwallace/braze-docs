@@ -1,3 +1,3 @@
-- **Conta da Braze:** Uma conta da Braze com acesso à API or interface de programação do aplicativo (API)
-- **Chave de API or interface de programação do aplicativo (API):** A chave de API or interface de programação do aplicativo (API) do seu app no dashboard da Braze
-- **endpoint de SDK or kit de desenvolvimento de software or endpoint do SDK or kit de desenvolvimento de software:** A URL do seu endpoint de SDK or kit de desenvolvimento de software or endpoint do SDK or kit de desenvolvimento de software da Braze (por exemplo, `sdk.iad-01.braze.com`)
+- **Conta da Braze:** Uma conta da Braze com acesso à API
+- **Chave de API:** A chave de API do seu app no dashboard da Braze
+- **Endpoint de SDK:** A URL do seu endpoint de SDK da Braze (por exemplo, `sdk.iad-01.braze.com`)

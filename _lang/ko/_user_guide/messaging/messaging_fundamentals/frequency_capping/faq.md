@@ -30,7 +30,7 @@ tool: Campaigns
 
 ### 글로벌 최대 게재빈도 설정이 트리거된 인앱 메시지에 적용되나요? {#does-global-frequency-capping-apply-to-triggered-in-app-messages}
 
-아니요, 글로벌 최대 게재빈도 설정은 푸시, 이메일, 단문 메시지 서비스, 웹훅, WhatsApp 및 LINE 메시지에만 적용됩니다.
+아니요, 글로벌 최대 게재빈도 설정은 푸시, 이메일, SMS, 웹훅, WhatsApp 및 LINE 메시지에만 적용됩니다.
 
 ### 최대 게재빈도 설정은 수신한 Campaign 수를 제한하나요, 아니면 발송 내 개별 메시지를 제한하나요? {#does-frequency-capping-limit-campaigns-received-or-individual-messages-inside-a-send}
 

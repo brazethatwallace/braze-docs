@@ -22,7 +22,7 @@ Mit intelligentem Timing kann Marvin Message-Schritte dann zustellen, wenn jede 
 
 Diese Anleitung beschreibt, wie Marvin:
 
-- Einen Canvas mit Push, E-Mail und Kurzmitteilungsdienst or SMS in Message-Schritten erstellt
+- Einen Canvas mit Push, E-Mail und SMS in Message-Schritten erstellt
 - Intelligentes Timing für diese Schritte verwendet, damit die Zustellung mit den abgeleiteten Engagement-Mustern pro Nutzer:in und Kanal übereinstimmt
 
 ## 1. Schritt: Erfolgsmetrik definieren und den Canvas erstellen {#step-1-define-the-success-metric-and-build-the-canvas}
@@ -46,10 +46,10 @@ Er wählt **die beliebteste Zeit zur Nutzung der App unter allen Nutzer:innen** 
 
 Für Message-Schritte, die intelligentes Timing verwenden, folgt Marvin der Canvas-Anleitung: Er platziert einen Delay-Schritt von mindestens zwei Kalendertagen zwischen dem Eintritt (oder einem vorherigen Schritt) und dem Message-Schritt mit intelligentem Timing. Er bevorzugt Kalendertage für Verzögerungen bei der Verwendung von intelligentem Timing, damit die Zustellung am vorgesehenen Tag zum optimalen Zeitpunkt jeder Nutzer:in erfolgt.
 
-In jedem Push-Benachrichtigungs-, E-Mail- und Kurzmitteilungsdienst or SMS-Message-Schritt öffnet er **Delivery Settings** und wählt **Using Intelligent Timing**. Er legt eine Fallback-Zeit für Nutzer:innen fest, die nicht genügend Engagement-Verlauf für einen optimalen Zeitpunkt haben. Er merkt an, dass Message-Schritte mit mehreren Kanälen zu unterschiedlichen Zeiten pro Kanal senden oder zu senden versuchen können, was widerspiegelt, wie manche Kund:innen morgens stärker auf E-Mail und abends auf Push reagieren.
+In jedem Push-Benachrichtigungs-, E-Mail- und SMS-Message-Schritt öffnet er **Delivery Settings** und wählt **Using Intelligent Timing**. Er legt eine Fallback-Zeit für Nutzer:innen fest, die nicht genügend Engagement-Verlauf für einen optimalen Zeitpunkt haben. Er merkt an, dass Message-Schritte mit mehreren Kanälen zu unterschiedlichen Zeiten pro Kanal senden oder zu senden versuchen können, was widerspiegelt, wie manche Kund:innen morgens stärker auf E-Mail und abends auf Push reagieren.
 
 ## 4. Schritt: Überwachen und optimieren {#step-4-monitor-and-optimize}
 
-Marvin koordiniert die Super-Sub-Werbematerialien über Push, E-Mail und Kurzmitteilungsdienst or SMS in den Message-Schritten (und allen nachfolgenden Schritten, die seine Varianten verwenden) und startet den Canvas.
+Marvin koordiniert die Super-Sub-Werbematerialien über Push, E-Mail und SMS in den Message-Schritten (und allen nachfolgenden Schritten, die seine Varianten verwenden) und startet den Canvas.
 
 Nach dem Start beobachtet er die Canvas-Analytics und Conversion-Zahlen und stellt fest, dass intelligentes Timing kontinuierlich optimiert, wann jeder Kanal für jede Nutzer:in basierend auf laufenden Engagement-Mustern ausgelöst wird. Dadurch hat Marvin SandwichEmperor erfolgreich dabei geholfen, die Performance zeitlich begrenzter Angebote damit zu verknüpfen, wann und welche Journey funktioniert – anstatt nur zu wissen, welche einzelne Werbenachricht beim letzten Mal gewonnen hat.

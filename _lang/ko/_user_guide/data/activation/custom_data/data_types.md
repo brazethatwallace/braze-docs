@@ -376,7 +376,7 @@ SDK 중심의 배열 동작 예시는 [분석 개요]({{site.baseurl}}/developer
 권장 이벤트에는 설정된 데이터 유형이 포함된 사전 정의된 스키마가 있습니다. 자세한 내용은 [이커머스 권장 이벤트]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events)를 참조하세요.
 {% endalert %}
 
-구매 이벤트를 기록하면 각 고객 프로필에 대한 LTV or 생애주기 가치(LTV)가 설정되며, 이 데이터는 매출 페이지에서 시계열로 확인할 수 있습니다. 지출 금액, 마지막 구매 날짜, 기간 내 구매 횟수 등으로 세분화할 수 있습니다.
+구매 이벤트를 기록하면 각 고객 프로필에 대한 LTV(LTV)가 설정되며, 이 데이터는 매출 페이지에서 시계열로 확인할 수 있습니다. 지출 금액, 마지막 구매 날짜, 기간 내 구매 횟수 등으로 세분화할 수 있습니다.
 
 ### 구매 이벤트 속성정보 데이터 유형 {#purchase-event-property-data-types}
 

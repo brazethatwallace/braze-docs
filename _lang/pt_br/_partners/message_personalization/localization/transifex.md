@@ -19,7 +19,7 @@ _Essa integração é mantida pela Transifex._
 A integração da Braze com a Transifex usa Conteúdo conectado para permitir que você extraia uma coleção de strings de recursos e inclua traduções relevantes em suas mensagens, em vez de linhas de formatação condicional baseada em idioma. Isso automatiza a tradução e libera suas equipes para se concentrarem em oferecer experiências brilhantes aos clientes.
 
 {% alert important %}
-Em 7 de abril de 2022, a Transifex descontinuou as versões 2 e 2.5 da sua API or interface de programação do aplicativo (API) para abrir caminho para a versão 3. As versões v2 e v2.5 não estão mais operacionais, e as solicitações feitas a elas apresentarão falhas. <br><br>As instruções de integração a seguir refletem a atualização da versão 3. Atualize suas chamadas de Conteúdo conectado de acordo.
+Em 7 de abril de 2022, a Transifex descontinuou as versões 2 e 2.5 da sua API para abrir caminho para a versão 3. As versões v2 e v2.5 não estão mais operacionais, e as solicitações feitas a elas apresentarão falhas. <br><br>As instruções de integração a seguir refletem a atualização da versão 3. Atualize suas chamadas de Conteúdo conectado de acordo.
 {% endalert %}
 
 ## Pré-requisitos {#prerequisites}
@@ -31,7 +31,7 @@ Em 7 de abril de 2022, a Transifex descontinuou as versões 2 e 2.5 da sua API o
 
 ## Integração {#integration}
 
-A integração da Transifex usa a [API or interface de programação do aplicativo (API) de traduções de recursos](https://developers.transifex.com/reference/get_resource-translations) da Transifex. O cURL a seguir permitirá que você veja se sua conta tem valores de conteúdo associados a traduções.
+A integração da Transifex usa a [API de traduções de recursos](https://developers.transifex.com/reference/get_resource-translations) da Transifex. O cURL a seguir permitirá que você veja se sua conta tem valores de conteúdo associados a traduções.
 
 Primeiro, insira o `<ORGANIZATION_NAME>`, `<PROJECT_NAME>` e `<RESOURCE_NAME>` encontrados na sua conta da Transifex. Em seguida, substitua `<LANGUAGE>` pelo código do idioma pelo qual você deseja filtrar as traduções e `<TRANSIFEX_BEARER_TOKEN>` pelo seu [bearer token](https://developers.transifex.com/reference/api-authentication) da Transifex.
 
@@ -46,7 +46,7 @@ Por exemplo, se seu projeto Transifex estiver localizado em `https://www.transif
 
 ## Exemplo de mensagem de Conteúdo conectado {#connected-content-message-example}
 
-Este trecho de código de exemplo utiliza a API or interface de programação do aplicativo (API) de tradução de recursos da Transifex e o atributo `language` do usuário. Com base nas suas necessidades, você pode percorrer os objetos string e obter o conteúdo relevante usando o seguinte Liquid: `{{strings.data[X].attributes.strings.other}}`.
+Este trecho de código de exemplo utiliza a API de tradução de recursos da Transifex e o atributo `language` do usuário. Com base nas suas necessidades, você pode percorrer os objetos string e obter o conteúdo relevante usando o seguinte Liquid: `{{strings.data[X].attributes.strings.other}}`.
 
 {% raw %}
 ```

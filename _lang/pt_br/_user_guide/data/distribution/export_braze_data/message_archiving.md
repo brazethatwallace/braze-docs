@@ -12,11 +12,11 @@ description: "Este artigo de referência aborda o arquivamento de mensagem, um r
 
 > O arquivamento de mensagem permite que você salve uma cópia das mensagens enviadas aos usuários para fins de arquivamento ou conformidade em seu bucket S3 da AWS, contêiner de Blob Storage do Azure ou bucket do Google Cloud Storage. <br><br> Este artigo aborda como configurar o arquivamento de mensagem, referências de carga útil JSON e perguntas frequentes.
 
-O arquivamento de mensagem está disponível como um recurso complementar. Para começar a usar o arquivamento de mensagem, entre em contato com seu gerente de sucesso do cliente da Braze.
+O arquivamento de mensagem está disponível como um recurso complementar. Para começar a usar o arquivamento de mensagem, entre em contato com seu CSM da Braze.
 
 ## Como funciona {#how-it-works}
 
-Quando esse recurso está ativado, a Braze grava um arquivo JSON compactado em gzip para cada mensagem enviada a um usuário através dos canais selecionados (e-mail, SMS/MMS ou push). A Braze grava esses arquivos no seu destino padrão de exportação de dados. Isso inclui todos os tipos de Campaign para cada canal, como Campaigns de e-mail de transação enviadas através da [API or interface de programação do aplicativo (API) de e-mail de transação]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email).
+Quando esse recurso está ativado, a Braze grava um arquivo JSON compactado em gzip para cada mensagem enviada a um usuário através dos canais selecionados (e-mail, SMS/MMS ou push). A Braze grava esses arquivos no seu destino padrão de exportação de dados. Isso inclui todos os tipos de Campaign para cada canal, como Campaigns de e-mail de transação enviadas através da [API de e-mail de transação]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email).
 
 Esse arquivo conterá os campos definidos em [Referências de arquivo](#file-references) e refletirá as mensagens finais com modelo aplicado enviadas ao usuário. Todos os valores de modelo definidos na sua Campaign (por exemplo, {% raw %}`{{${first_name}}}`{% endraw %}) mostrarão o valor final que o usuário recebeu com base nas informações do perfil. Isso permite que você retenha uma cópia da mensagem enviada para atender aos requisitos de conformidade, auditoria ou suporte ao cliente.
 
@@ -205,7 +205,7 @@ As modificações feitas depois que a mensagem sai da Braze não serão refletid
 
 ### O que são mensagens com o valor "unassociated" no caminho da Campaign? {#what-are-messages-under-the-unassociated-value-in-the-campaign-path}
 
-Quando uma mensagem é enviada fora de uma Campaign ou Canvas, o ID da Campaign no nome do arquivo será "unassociated". Isso acontece quando você envia mensagens de teste pelo dashboard, quando a Braze envia respostas automáticas de SMS/MMS ou quando mensagens enviadas pela API or interface de programação do aplicativo (API) não especificam um ID de Campaign.
+Quando uma mensagem é enviada fora de uma Campaign ou Canvas, o ID da Campaign no nome do arquivo será "unassociated". Isso acontece quando você envia mensagens de teste pelo dashboard, quando a Braze envia respostas automáticas de SMS/MMS ou quando mensagens enviadas pela API não especificam um ID de Campaign.
 
 ### Como faço para obter mais informações sobre esse envio? {#how-do-i-find-more-information-about-this-send}
 
@@ -233,4 +233,4 @@ Os dados são gravados em uma seção `sent_messages` do bucket. Consulte [Como 
 
 ### Posso usar o arquivamento de mensagem para agrupar arquivos em diferentes espaços de trabalho? {#can-i-use-message-archiving-to-group-files-into-different-workspaces}
 
-Não. O arquivamento de mensagem não oferece suporte ao agrupamento de arquivos com base em espaços de trabalho. Em vez disso, você pode identificar a qual espaço de trabalho o ID da API or interface de programação do aplicativo (API) da Campaign ou da etapa do Canvas pertence e agrupá-los com base nessa informação.
+Não. O arquivamento de mensagem não oferece suporte ao agrupamento de arquivos com base em espaços de trabalho. Em vez disso, você pode identificar a qual espaço de trabalho o ID da API da Campaign ou da etapa do Canvas pertence e agrupá-los com base nessa informação.

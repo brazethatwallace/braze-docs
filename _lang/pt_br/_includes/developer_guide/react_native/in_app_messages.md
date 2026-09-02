@@ -9,7 +9,7 @@
 
 ## Modelo de dados {#data-model}
 
-O modelo de mensagem no app está disponível no SDK or kit de desenvolvimento de software do React Native. A Braze tem quatro tipos de mensagem no app que compartilham o mesmo modelo de dados: **slideup**, **modal**, **full** e **HTML full**.
+O modelo de mensagem no app está disponível no SDK do React Native. A Braze tem quatro tipos de mensagem no app que compartilham o mesmo modelo de dados: **slideup**, **modal**, **full** e **HTML full**.
 
 ### Mensagens {#messages}
 
@@ -27,7 +27,7 @@ O modelo de mensagem no app fornece a base para todas as mensagens no app.
 | `duration` | A duração de exibição da mensagem. |
 | `clickAction` | O tipo de ação de clique do botão. Os tipos são: `URI` e `NONE`. |
 | `dismissType` | O tipo de fechamento da mensagem. Os dois tipos são: `SWIPE` e `AUTO_DISMISS`. |
-| `messageType` | O tipo de mensagem no app suportado pelo SDK or kit de desenvolvimento de software. Os quatro tipos são: `SLIDEUP`, `MODAL`, `FULL` e `HTML_FULL`. |
+| `messageType` | O tipo de mensagem no app suportado pelo SDK. Os quatro tipos são: `SLIDEUP`, `MODAL`, `FULL` e `HTML_FULL`. |
 | `extras` | O dicionário de extras da mensagem. Valor padrão: `[:]`. |
 | `buttons` | A lista de botões na mensagem no app. |
 | `toString()` | A mensagem como uma representação em string. |

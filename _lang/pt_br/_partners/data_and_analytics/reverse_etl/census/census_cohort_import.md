@@ -17,7 +17,7 @@ search_tag: Partner
 
 Para integrar o Census na plataforma Census, navegue até a guia **Connections** e selecione **New Destination** para criar uma nova conexão de serviço da Braze.
 
-No prompt exibido, nomeie essa conexão e forneça a URL do endpoint da Braze, a chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze e a chave de importação de dados. A chave de importação de dados é necessária para sincronizar coortes e pode ser encontrada na Braze acessando **Partner Integrations** > **Technology Partners** > **Census**.
+No prompt exibido, nomeie essa conexão e forneça a URL do endpoint da Braze, a chave da API REST da Braze e a chave de importação de dados. A chave de importação de dados é necessária para sincronizar coortes e pode ser encontrada na Braze acessando **Partner Integrations** > **Technology Partners** > **Census**.
 
 ![Diálogo de novo destino do Census configurado com credenciais de importação de coortes da Braze.]({% image_buster /assets/img/census/add_service.png %}){: style="max-width:60%;"}
 
@@ -38,7 +38,7 @@ Agora você pode executar sua sincronização!
 
 Durante uma sincronização, todos os campos que você mapear serão primeiro sincronizados com o objeto do usuário para atualizar o que já existe na Braze. Depois disso, o usuário atualizado será adicionado à coorte especificada.
 
-Após a sincronização, você pode criar e adicionar um Segment or segmento da Braze com um filtro de coorte do Census a futuras Campaigns e Canvas da Braze para direcionar esses usuários.
+Após a sincronização, você pode criar e adicionar um Segment da Braze com um filtro de coorte do Census a futuras Campaigns e Canvas da Braze para direcionar esses usuários.
 
 {% alert note %}
 Ao usar a integração do Census com a Braze, o Census enviará apenas os deltas (dados alterados) em cada sincronização para a Braze.

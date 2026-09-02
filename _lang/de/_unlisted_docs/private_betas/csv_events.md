@@ -11,28 +11,28 @@ page_type: reference
 > Braze bietet verschiedene Möglichkeiten, Nutzerdaten in die Plattform zu importieren: SDKs, APIs, Cloud-Datenaufnahme, Partnerintegrationen und CSV-Dateien. Dieser Artikel enthält detaillierte Anleitungen zum Import von Nutzerdaten, einschließlich des [Imports angepasster Events über CSV-Dateien (Early Access)](#importing-custom-events).
 
 {% alert important %}
-Senden Sie keine rechtlich vorgeschriebenen Transaktions-E-Mails an Kurzmitteilungsdienst or SMS-Gateways, da eine hohe Wahrscheinlichkeit besteht, dass diese E-Mails nicht zugestellt werden.
+Senden Sie keine rechtlich vorgeschriebenen Transaktions-E-Mails an SMS-Gateways, da eine hohe Wahrscheinlichkeit besteht, dass diese E-Mails nicht zugestellt werden.
 
-Obwohl E-Mails, die Sie über eine Telefonnummer und die E-Mail-zu-Kurzmitteilungsdienst or SMS-Gateway-Domain des Anbieters (MM3) senden, dazu führen können, dass die E-Mail als Kurzmitteilungsdienst or SMS (Textnachricht) empfangen wird, unterstützen einige E-Mail-Anbieter dieses Verhalten nicht. Wenn Sie beispielsweise eine E-Mail an eine T-Mobile-Telefonnummer senden (z. B. „9999999999@tmomail.net“), würde Ihre Kurzmitteilungsdienst or SMS-Nachricht an die Person gesendet, die diese Telefonnummer im T-Mobile-Netz besitzt.
+Obwohl E-Mails, die Sie über eine Telefonnummer und die E-Mail-zu-SMS-Gateway-Domain des Anbieters (MM3) senden, dazu führen können, dass die E-Mail als SMS (Textnachricht) empfangen wird, unterstützen einige E-Mail-Anbieter dieses Verhalten nicht. Wenn Sie beispielsweise eine E-Mail an eine T-Mobile-Telefonnummer senden (z. B. „9999999999@tmomail.net“), würde Ihre SMS-Nachricht an die Person gesendet, die diese Telefonnummer im T-Mobile-Netz besitzt.
 
-Auch wenn diese E-Mails möglicherweise nicht an das Kurzmitteilungsdienst or SMS-Gateway zugestellt werden, zählen sie dennoch für Ihre E-Mail-Abrechnung. Um das Senden von E-Mails an nicht unterstützte Gateways zu vermeiden, überprüfen Sie die [Liste der nicht unterstützten Gateway-Domainnamen](https://www.fcc.gov/consumer-governmental-affairs/about-bureau/consumer-policy-division/can-spam/domain-name-downloads).
+Auch wenn diese E-Mails möglicherweise nicht an das SMS-Gateway zugestellt werden, zählen sie dennoch für Ihre E-Mail-Abrechnung. Um das Senden von E-Mails an nicht unterstützte Gateways zu vermeiden, überprüfen Sie die [Liste der nicht unterstützten Gateway-Domainnamen](https://www.fcc.gov/consumer-governmental-affairs/about-bureau/consumer-policy-division/can-spam/domain-name-downloads).
 {% endalert %}
 
 
 Beachten Sie vor dem Fortfahren, dass Braze HTML-Daten beim Import nicht bereinigt (validiert oder korrekt formatiert). Das bedeutet, dass Script-Tags aus allen Importdaten entfernt werden müssen, die für die Web-Personalisierung vorgesehen sind.
 
-## Representational State Transfer API
+## REST API
 
 Sie können den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) verwenden, um angepasste Events, Nutzerattribute und Käufe für Nutzer:innen aufzuzeichnen.
 
 ## CSV-Import
 
-Sie können Nutzerprofile über CSV-Dateien hochladen und Update or aktualisieren or aktualisieren, indem Sie zu **Audience** > **Import Users** navigieren.
+Sie können Nutzerprofile über CSV-Dateien hochladen und aktualisieren, indem Sie zu **Audience** > **Import Users** navigieren.
 
-Der Import von Nutzerdaten über CSV-Dateien unterstützt das Erfassen und Update or aktualisieren or aktualisieren von Nutzerattributen wie Vorname und E-Mail sowie angepassten Attributen wie der Schuhgröße. Sie können eine CSV-Datei importieren, indem Sie einen von zwei eindeutigen Nutzerbezeichnern angeben: eine `external_id` oder einen Nutzer-Alias.
+Der Import von Nutzerdaten über CSV-Dateien unterstützt das Erfassen und Aktualisieren von Nutzerattributen wie Vorname und E-Mail sowie angepassten Attributen wie der Schuhgröße. Sie können eine CSV-Datei importieren, indem Sie einen von zwei eindeutigen Nutzerbezeichnern angeben: eine `external_id` oder einen Nutzer-Alias.
 
 {% alert important %}
-Der Nutzerimport unterstützt auch das Erfassen und Update or aktualisieren or aktualisieren von angepassten Events. Ähnlich wie bei Nutzerattributen können Sie mit einer `external_id`, `braze_id` oder mit `user_alias_name` und `user_alias_label` importieren. Weitere Details finden Sie unter [Angepasste Events importieren](#importing-custom-events).
+Der Nutzerimport unterstützt auch das Erfassen und Aktualisieren von angepassten Events. Ähnlich wie bei Nutzerattributen können Sie mit einer `external_id`, `braze_id` oder mit `user_alias_name` und `user_alias_label` importieren. Weitere Details finden Sie unter [Angepasste Events importieren](#importing-custom-events).
 {% endalert %}
 
 {% alert note %}
@@ -41,7 +41,7 @@ Wenn Sie eine Mischung aus Nutzer:innen mit einer `external_id` und Nutzer:innen
 
 ### Import mit externer ID {#importing-with-external-id}
 
-Beim Import Ihrer Kundendaten müssen Sie den eindeutigen Bezeichner jedes Kunden bzw. jeder Kundin angeben, auch bekannt als `external_id`. Bevor Sie mit Ihrem CSV-Import beginnen, ist es wichtig, von Ihrem Entwicklerteam zu erfahren, wie Nutzer:innen in Braze identifiziert werden. In der Regel handelt es sich um eine interne Datenbank-ID. Diese sollte damit übereinstimmen, wie Nutzer:innen vom Braze SDK or Software-Development-Kit auf Mobilgeräten und im Internet identifiziert werden, und ist so konzipiert, dass jede:r Kund:in ein einzelnes Kundenprofil or Nutzerprofil innerhalb von Braze über alle Geräte hinweg hat. Lesen Sie mehr über den [Kundenprofil or Nutzerprofil-Lebenszyklus]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle) von Braze.
+Beim Import Ihrer Kundendaten müssen Sie den eindeutigen Bezeichner jedes Kunden bzw. jeder Kundin angeben, auch bekannt als `external_id`. Bevor Sie mit Ihrem CSV-Import beginnen, ist es wichtig, von Ihrem Entwicklerteam zu erfahren, wie Nutzer:innen in Braze identifiziert werden. In der Regel handelt es sich um eine interne Datenbank-ID. Diese sollte damit übereinstimmen, wie Nutzer:innen vom Braze SDK auf Mobilgeräten und im Internet identifiziert werden, und ist so konzipiert, dass jede:r Kund:in ein einzelnes Kundenprofil innerhalb von Braze über alle Geräte hinweg hat. Lesen Sie mehr über den [Kundenprofil-Lebenszyklus]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle) von Braze.
 
 Wenn Sie eine `external_id` in Ihrem Import angeben, aktualisiert Braze alle bestehenden Nutzer:innen mit derselben `external_id` oder erstellt eine:n neu identifizierte:n Nutzer:in mit dieser `external_id`, falls keine gefunden wird.
 
@@ -52,7 +52,7 @@ Wenn Sie eine `external_id` in Ihrem Import angeben, aktualisiert Braze alle bes
 
 Um Nutzer:innen anzusprechen, die keine `external_id` haben, können Sie eine Liste von Nutzer:innen mit Nutzer-Aliasen importieren. Ein Alias dient als alternativer eindeutiger Nutzerbezeichner und kann hilfreich sein, wenn Sie anonyme Nutzer:innen ansprechen möchten, die sich nicht registriert oder kein Konto in Ihrer App erstellt haben.
 
-Wenn Sie Nutzerprofile hochladen oder Update or aktualisieren or aktualisieren, die nur Aliase enthalten, müssen die folgenden zwei Spalten in Ihrer CSV-Datei vorhanden sein:
+Wenn Sie Nutzerprofile hochladen oder aktualisieren, die nur Aliase enthalten, müssen die folgenden zwei Spalten in Ihrer CSV-Datei vorhanden sein:
 
 - `user_alias_name`: Ein eindeutiger Nutzerbezeichner; eine Alternative zur `external_id`
 - `user_alias_label`: Ein gemeinsames Label, um Nutzer-Aliase zu gruppieren
@@ -66,7 +66,7 @@ Wenn Sie Nutzerprofile hochladen oder Update or aktualisieren or aktualisieren, 
 Wenn Sie sowohl einen `user_alias_name` als auch ein `user_alias_label` in Ihrem Import angeben, aktualisiert Braze alle bestehenden Nutzer:innen mit demselben `user_alias_name` und `user_alias_label`. Falls keine:r gefunden wird, erstellt Braze eine:n neu identifizierte:n Nutzer:in mit diesem `user_alias_name`.
 
 {% alert important %}
-Sie können einen CSV-Import nicht verwenden, um eine:n bestehende:n Nutzer:in mit einem `user_alias_name` zu Update or aktualisieren or aktualisieren, wenn diese:r bereits eine `external_id` hat. Stattdessen wird ein neues Kundenprofil or Nutzerprofil mit dem zugehörigen `user_alias_name` erstellt. Um eine:n Nutzer:in, die:der nur einen Alias hat, mit einer `external_id` zu verknüpfen, verwenden Sie den [Endpunkt zur Nutzeridentifizierung]({{site.baseurl}}/api/endpoints/user_data/post_user_identify).
+Sie können einen CSV-Import nicht verwenden, um eine:n bestehende:n Nutzer:in mit einem `user_alias_name` zu aktualisieren, wenn diese:r bereits eine `external_id` hat. Stattdessen wird ein neues Kundenprofil mit dem zugehörigen `user_alias_name` erstellt. Um eine:n Nutzer:in, die:der nur einen Alias hat, mit einer `external_id` zu verknüpfen, verwenden Sie den [Endpunkt zur Nutzeridentifizierung]({{site.baseurl}}/api/endpoints/user_data/post_user_identify).
 {% endalert %}
 
 - **Download:** [CSV-Importvorlage für Alias-Attribute][template_alias_attributes]
@@ -74,12 +74,12 @@ Sie können einen CSV-Import nicht verwenden, um eine:n bestehende:n Nutzer:in m
 
 ### Import mit Braze-ID {#importing-with-braze-id}
 
-Um bestehende Nutzerprofile in Braze mit einem internen Braze-ID-Wert anstelle einer `external_id` oder eines `user_alias_name` und `user_alias_label`-Werts zu Update or aktualisieren or aktualisieren, geben Sie `braze_id` als Spaltenüberschrift an.
+Um bestehende Nutzerprofile in Braze mit einem internen Braze-ID-Wert anstelle einer `external_id` oder eines `user_alias_name` und `user_alias_label`-Werts zu aktualisieren, geben Sie `braze_id` als Spaltenüberschrift an.
 
 Dies kann hilfreich sein, wenn Sie Nutzerdaten aus Braze über unsere CSV-Exportoption innerhalb der Segmentierung exportiert haben und diesen bestehenden Nutzer:innen ein neues angepasstes Attribut hinzufügen möchten.
 
 {% alert important %}
-Sie können einen CSV-Import nicht verwenden, um eine:n neue:n Nutzer:in mit `braze_id` zu erstellen. Diese Methode kann nur zum Update or aktualisieren or aktualisieren bereits bestehender Nutzer:innen innerhalb der Braze-Plattform verwendet werden.
+Sie können einen CSV-Import nicht verwenden, um eine:n neue:n Nutzer:in mit `braze_id` zu erstellen. Diese Methode kann nur zum Aktualisieren bereits bestehender Nutzer:innen innerhalb der Braze-Plattform verwendet werden.
 {% endalert %}
 
 {% alert tip %}
@@ -139,18 +139,18 @@ Die folgenden Datentypen werden beim Nutzerimport akzeptiert:
 | Boolean | TRUE oder FALSE |
 | Number | Ganzzahl oder Gleitkommazahl ohne Leerzeichen oder Kommas; Gleitkommazahlen müssen einen Punkt (.) als Dezimaltrennzeichen verwenden |
 | String | Kann Kommas enthalten, solange doppelte Anführungszeichen den Spaltenwert umschließen |
-| Leer | Leere Werte überschreiben keine bestehenden Werte im Kundenprofil or Nutzerprofil, und Sie müssen nicht alle vorhandenen Nutzerattribute in Ihre CSV-Datei aufnehmen |
+| Leer | Leere Werte überschreiben keine bestehenden Werte im Kundenprofil, und Sie müssen nicht alle vorhandenen Nutzerattribute in Ihre CSV-Datei aufnehmen |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert important %}
 Arrays und Push-Token / Textbaustein werden beim Nutzerimport nicht unterstützt. Insbesondere bei Arrays werden Kommas in Ihrer CSV-Datei als Spaltentrennzeichen interpretiert, sodass Kommas in Werten zu Fehlern beim Parsen der Datei führen. <br>Um solche Werte hochzuladen, verwenden Sie den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) oder die [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
 {% endalert %}
 
-### Abo-Gruppenstatus Update or aktualisieren or aktualisieren {#updating-subscription-group-status}
+### Abo-Gruppenstatus aktualisieren {#updating-subscription-group-status}
 
-Sie können Nutzer:innen über den Nutzerimport zu E-Mail- oder Kurzmitteilungsdienst or SMS-Abo-Gruppen hinzufügen. Dies ist besonders für Kurzmitteilungsdienst or SMS nützlich, da Nutzer:innen in eine Kurzmitteilungsdienst or SMS-Abo-Gruppe aufgenommen werden müssen, um über den Kurzmitteilungsdienst or SMS-Kanal Nachrichten empfangen zu können. Weitere Informationen finden Sie unter [Kurzmitteilungsdienst or SMS-Abo-Gruppen]({{site.baseurl}}/user_guide/message_building_by_channel/sms/sms_subscription_group#subscription-group-mms-enablement).
+Sie können Nutzer:innen über den Nutzerimport zu E-Mail- oder SMS-Abo-Gruppen hinzufügen. Dies ist besonders für SMS nützlich, da Nutzer:innen in eine SMS-Abo-Gruppe aufgenommen werden müssen, um über den SMS-Kanal Nachrichten empfangen zu können. Weitere Informationen finden Sie unter [SMS-Abo-Gruppen]({{site.baseurl}}/user_guide/message_building_by_channel/sms/sms_subscription_group#subscription-group-mms-enablement).
 
-Wenn Sie den Abo-Gruppenstatus Update or aktualisieren or aktualisieren, müssen die folgenden zwei Spalten in Ihrer CSV-Datei vorhanden sein:
+Wenn Sie den Abo-Gruppenstatus aktualisieren, müssen die folgenden zwei Spalten in Ihrer CSV-Datei vorhanden sein:
 
 - `subscription_group_id`: Die `id` der [Abo-Gruppe]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions#subscription-groups).
 - `subscription_state`: Verfügbare Werte sind `unsubscribed` (nicht in der Abo-Gruppe) oder `subscribed` (in der Abo-Gruppe).
@@ -160,7 +160,7 @@ Wenn Sie den Abo-Gruppenstatus Update or aktualisieren or aktualisieren, müssen
 .tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Aribau Grotesk Bold", "Aribau Grotesk", "Aribau Grotesk Regular", Arial, Helvetica, sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
-<table class="tg" aria-label="Abo-Gruppenstatus Update or aktualisieren or aktualisieren">
+<table class="tg" aria-label="Abo-Gruppenstatus aktualisieren">
 <thead>
   <tr>
     <th class="tg-0pky">external_id</th>
@@ -233,11 +233,11 @@ Jedes über CSV importierte Kundendatum überschreibt den bestehenden Wert in Nu
 
 - Über CSV-Import hochgeladene externe IDs verbrauchen keine Datenpunkte. Wenn Sie eine CSV-Datei hochladen, um bestehende Braze-Nutzer:innen zu segmentieren, indem Sie nur externe IDs hochladen, kann dies ohne Verbrauch von Datenpunkten erfolgen. Wenn Sie zusätzliche Daten wie die E-Mail oder Telefonnummer einer:eines Nutzers:Nutzerin in Ihrem Import hinzufügen, würde dies bestehende Nutzerdaten überschreiben und Ihre Datenpunkte verbrauchen.
     - CSV-Importe zu Segmentierungszwecken (Importe, bei denen `external_id`, `braze_id` oder `user_alias_name` das einzige Feld ist) verbrauchen keine Datenpunkte.
-- Leere Werte überschreiben keine bestehenden Werte im Kundenprofil or Nutzerprofil, und Sie müssen nicht alle vorhandenen Nutzerattribute oder angepassten Events in Ihre CSV-Datei aufnehmen.
-- Das Update or aktualisieren or aktualisieren von `email_subscribe`, `push_subscribe`, `subscription_group_id` oder `subscription_state` zählt nicht zum Datenpunktverbrauch.
+- Leere Werte überschreiben keine bestehenden Werte im Kundenprofil, und Sie müssen nicht alle vorhandenen Nutzerattribute oder angepassten Events in Ihre CSV-Datei aufnehmen.
+- Das Aktualisieren von `email_subscribe`, `push_subscribe`, `subscription_group_id` oder `subscription_state` zählt nicht zum Datenpunktverbrauch.
 
 {% alert important %}
-Das Festlegen der Sprache oder des Landes einer:eines Nutzers:Nutzerin über CSV-Import oder API verhindert, dass Braze diese Informationen automatisch über das SDK or Software-Development-Kit erfasst.
+Das Festlegen der Sprache oder des Landes einer:eines Nutzers:Nutzerin über CSV-Import oder API verhindert, dass Braze diese Informationen automatisch über das SDK erfasst.
 {% endalert %}
 
 ## CSV importieren {#importing-a-csv}
@@ -254,7 +254,7 @@ CSV-Importe sind case-sensitiv. Das bedeutet, dass Großbuchstaben in CSV-Import
 
 Nach Abschluss des Uploads können Sie eine Vorschau des Dateiinhalts anzeigen. Die Informationen in der Tabelle basieren auf den Werten in den obersten Zeilen Ihrer CSV-Datei.
 
-Sie können den Fortschritt auf der Seite **Nutzer:innen importieren** verfolgen, die alle fünf Sekunden aktualisiert wird, oder wenn Sie **Tabelle Update or aktualisieren or aktualisieren** auswählen. Sie können das Braze-Dashboard während des Imports weiterhin nutzen und erhalten Benachrichtigungen, wenn der Import beginnt und endet.
+Sie können den Fortschritt auf der Seite **Nutzer:innen importieren** verfolgen, die alle fünf Sekunden aktualisiert wird, oder wenn Sie **Tabelle aktualisieren** auswählen. Sie können das Braze-Dashboard während des Imports weiterhin nutzen und erhalten Benachrichtigungen, wenn der Import beginnt und endet.
 
 Sie können auch Ihre neuesten Importe, deren Dateinamen, CSV-Typ, Anzahl der Zeilen in der Datei, Anzahl der erfolgreich importierten Zeilen, Gesamtzahl der Zeilen in jeder Datei und den Status jedes Imports einsehen.
 

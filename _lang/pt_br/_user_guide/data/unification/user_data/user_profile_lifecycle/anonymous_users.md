@@ -9,9 +9,9 @@ description: "Este artigo fornece uma visão geral dos usuários anônimos e ali
 
 # Usuários anônimos {#anonymous-users}
 
-> Os usuários que visitam seu site ou aplicativo sem fazer login, como um visitante convidado, são reconhecidos como usuários anônimos. Esses usuários não têm `external_ids`, que são usados para atualizar perfis de usuário com a API or interface de programação do aplicativo (API) da Braze, mas eles ainda têm [pontos de dados]({{site.baseurl}}/user_guide/data/infrastructure/data_points) atribuídos a eles e podem ser direcionados em seus segmentos.
+> Os usuários que visitam seu site ou aplicativo sem fazer login, como um visitante convidado, são reconhecidos como usuários anônimos. Esses usuários não têm `external_ids`, que são usados para atualizar perfis de usuário com a API da Braze, mas eles ainda têm [pontos de dados]({{site.baseurl}}/user_guide/data/infrastructure/data_points) atribuídos a eles e podem ser direcionados em seus segmentos.
 
-Quando um usuário anônimo visita seu site ou aplicativo, o SDK or kit de desenvolvimento de software da Braze cria e atribui a ele um perfil de usuário "anônimo". Enquanto o usuário navega, o SDK or kit de desenvolvimento de software captura automaticamente dados para o perfil anônimo do usuário, como informações de uso, informações do dispositivo e muito mais, se você tiver configurado atributos personalizados e eventos personalizados.
+Quando um usuário anônimo visita seu site ou aplicativo, o SDK da Braze cria e atribui a ele um perfil de usuário "anônimo". Enquanto o usuário navega, o SDK captura automaticamente dados para o perfil anônimo do usuário, como informações de uso, informações do dispositivo e muito mais, se você tiver configurado atributos personalizados e eventos personalizados.
 
 Você pode fazer o seguinte com usuários anônimos capturados:
 
@@ -35,7 +35,7 @@ Você pode fazer o seguinte com usuários anônimos capturados:
 
 ## Pesquisando um usuário anônimo {#looking-up-an-anonymous-user}
 
-Como usuários anônimos não têm um `external_id`, você pode usar um ID de dispositivo para pesquisar um perfil específico. As etapas a seguir mostram como obter o ID de dispositivo do usuário atual na sua integração do Web SDK or kit de desenvolvimento de software:
+Como usuários anônimos não têm um `external_id`, você pode usar um ID de dispositivo para pesquisar um perfil específico. As etapas a seguir mostram como obter o ID de dispositivo do usuário atual na sua integração do Web SDK:
 
 1. Abra as ferramentas de desenvolvedor do seu navegador (por exemplo, no Chrome, pressione **Command + Option + J** no Mac ou **Ctrl + Shift + I** no Windows).
 2. Na guia **Console**, execute o seguinte:
@@ -49,7 +49,7 @@ console.log(braze.getDeviceId());
 
 ## Casos de uso {#use-cases}
 
-### Direcionar usuários anônimos no seu Segment or segmento {#target-anonymous-users-in-your-segment}
+### Direcionar usuários anônimos no seu Segment {#target-anonymous-users-in-your-segment}
 
 Como usuários anônimos não possuem um `external_id`, você pode direcioná-los em massa usando o filtro de segmentação **External User ID is blank**. Para maior precisão, você pode adicionar um atributo personalizado aos usuários anônimos que deseja direcionar e filtrar por ele.
 
@@ -62,7 +62,7 @@ Digamos que você atribua o atributo personalizado "is_lead_profile" a cada perf
 
 ### Capturar dados de checkout de um usuário anônimo {#capture-checkout-data-from-an-anonymous-user}
 
-Você pode capturar dados de checkout de um usuário anônimo (ou visitante convidado) criando um perfil com alias de usuário durante o processo de checkout. Quando um usuário anônimo faz checkout usando um formulário de captura web, faça uma chamada de API or interface de programação do aplicativo (API) para criar um perfil com alias de usuário e registrar um evento de compra. Depois, você poderá atualizar o perfil de usuário criado por meio da API or interface de programação do aplicativo (API) da Braze.
+Você pode capturar dados de checkout de um usuário anônimo (ou visitante convidado) criando um perfil com alias de usuário durante o processo de checkout. Quando um usuário anônimo faz checkout usando um formulário de captura web, faça uma chamada de API para criar um perfil com alias de usuário e registrar um evento de compra. Depois, você poderá atualizar o perfil de usuário criado por meio da API da Braze.
 
 Veja um exemplo de carga útil que será gerada quando o formulário de captura web for enviado:
 

@@ -37,4 +37,4 @@ Certaines fonctionnalités ne sont que partiellement prises en charge sur vision
 ## Fonctionnalités non prises en charge {#unsupported-features}
 
 - La surveillance des géorepérages n'est pas prise en charge. Apple n'a pas mis à disposition les API Core Location pour la surveillance des régions sur visionOS.
-- Les activités en direct or en ligne/en production/instantané ne sont pas prises en charge. Actuellement, ActivityKit n'est disponible que sur iOS et iPadOS.
+- Les activités en direct ne sont pas prises en charge. Actuellement, ActivityKit n'est disponible que sur iOS et iPadOS.

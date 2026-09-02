@@ -3,7 +3,7 @@ nav_title: Swift-Paketmanager
 article_title: Swift-Paketmanager-Integration für iOS
 platform: iOS
 page_order: 3
-description: "Dieses Tutorial behandelt die Installation des Braze SDK or Software-Development-Kit mit dem Swift-Paketmanager für iOS."
+description: "Dieses Tutorial behandelt die Installation des Braze SDK mit dem Swift-Paketmanager für iOS."
 
 noindex: true
 ---
@@ -12,7 +12,7 @@ noindex: true
 
 # Integration des Swift-Paketmanagers {#swift-package-manager-integration}
 
-Die Installation des iOS SDK or Software-Development-Kit über den [Swift-Paketmanager](https://swift.org/package-manager/) (SPM) automatisiert den Großteil des Installationsprozesses für Sie. Bevor Sie mit diesem Vorgang beginnen, stellen Sie sicher, dass Sie Xcode 12 oder höher verwenden.
+Die Installation des iOS SDK über den [Swift-Paketmanager](https://swift.org/package-manager/) (SPM) automatisiert den Großteil des Installationsprozesses für Sie. Bevor Sie mit diesem Vorgang beginnen, stellen Sie sicher, dass Sie Xcode 12 oder höher verwenden.
 
 {% alert note %}
 tvOS ist derzeit nicht über den Swift-Paketmanager verfügbar.
@@ -20,19 +20,19 @@ tvOS ist derzeit nicht über den Swift-Paketmanager verfügbar.
 
 ## Schritt 1: Hinzufügen der Abhängigkeit zu Ihrem Projekt {#step-1-adding-the-dependency-to-your-project}
 
-### SDK or Software-Development-Kit-Version importieren {#import-sdk-version}
+### SDK-Version importieren {#import-sdk-version}
 
 Öffnen Sie Ihr Projekt und navigieren Sie zu den Einstellungen Ihres Projekts. Wählen Sie den Tab **Swift Packages** und klicken Sie auf die Schaltfläche <i class="fas fa-plus" aria-label="Hinzufügen"></i> unterhalb der Paketliste.
 
 ![Xcode-Projekteinstellungen mit ausgewähltem Tab „Swift Packages“.]({% image_buster /assets/img/ios/spm/swiftpackages.png %})
 
-Wenn Sie SDK or Software-Development-Kit-Version `3.33.1` oder höher importieren, geben Sie die URL unseres iOS-SDK or Software-Development-Kit-Repository (`https://github.com/braze-inc/braze-ios-sdk`) in das Textfeld ein und klicken Sie auf **Next**.
+Wenn Sie SDK-Version `3.33.1` oder höher importieren, geben Sie die URL unseres iOS-SDK-Repository (`https://github.com/braze-inc/braze-ios-sdk`) in das Textfeld ein und klicken Sie auf **Next**.
 
 Für die Versionen `3.29.0` bis `3.32.0` verwenden Sie die URL `https://github.com/Appboy/Appboy-ios-sdk`.
 
 ![Xcode-Dialog „Add Package“ für die Repository-URL des Braze iOS SDK.]({% image_buster /assets/img/ios/spm/importsdk_example.png %})
 
-Wählen Sie auf dem nächsten Bildschirm die SDK or Software-Development-Kit-Version aus und klicken Sie auf **Next**. Die Versionen `3.29.0` und höher sind mit dem Swift-Paketmanager kompatibel.
+Wählen Sie auf dem nächsten Bildschirm die SDK-Version aus und klicken Sie auf **Next**. Die Versionen `3.29.0` und höher sind mit dem Swift-Paketmanager kompatibel.
 
 ![Xcode-Paketversionsauswahl für das Braze iOS SDK.]({% image_buster /assets/img/ios/spm/select_version.png %})
 
@@ -53,7 +53,7 @@ Wählen Sie das Paket, das Ihren Anforderungen am besten entspricht, und klicken
 
 ## Schritt 2: Ihr Projekt konfigurieren {#step-2-configuring-your-project}
 
-Navigieren Sie als Nächstes zu den **Build-Einstellungen** Ihres Projekts und fügen Sie das `-ObjC`-Flag zur Einstellung **Other Linker Flags** hinzu. Dieses Flag muss hinzugefügt und eventuelle [Fehler](https://developer.apple.com/library/archive/qa/qa1490/_index.html) müssen behoben werden, um das SDK or Software-Development-Kit weiter integrieren zu können.
+Navigieren Sie als Nächstes zu den **Build-Einstellungen** Ihres Projekts und fügen Sie das `-ObjC`-Flag zur Einstellung **Other Linker Flags** hinzu. Dieses Flag muss hinzugefügt und eventuelle [Fehler](https://developer.apple.com/library/archive/qa/qa1490/_index.html) müssen behoben werden, um das SDK weiter integrieren zu können.
 
 ![Xcode-Build-Einstellungen mit dem Feld „Other Linker Flags“.]({% image_buster /assets/img/ios/spm/buildsettings.png %})
 

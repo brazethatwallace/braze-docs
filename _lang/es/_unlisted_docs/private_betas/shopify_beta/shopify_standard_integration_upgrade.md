@@ -60,7 +60,7 @@ Para obtener más información, revisa [Eventos de Shopify compatibles]({{site.b
 {% endtab %}
 
 {% tab Listas de suscriptores %}
-Si estás recopilando suscriptores de correo electrónico o servicio de mensajes cortos de Shopify a través de la integración, confirma que tus mensajes activos incluyan las listas de suscriptores correspondientes para tu tienda de Shopify.
+Si estás recopilando suscriptores de correo electrónico o SMS de Shopify a través de la integración, confirma que tus mensajes activos incluyan las listas de suscriptores correspondientes para tu tienda de Shopify.
 
 Cuando la actualización esté completa, se crearán nuevos grupos de suscripción predeterminados para tu integración, los cuales necesitarás aprovechar como parte de tu mensajería activa. Para más información sobre los cambios, consulta [Recopilación de suscriptores]({{site.baseurl}}/shopify_upgrade_overview#subscriber-collection).
 {% endtab %}
@@ -82,11 +82,11 @@ Acepta los términos y condiciones marcando la casilla y selecciona **Iniciar la
 
 ![Modal para confirmar que comprendes que la actualización puede causar cambios disruptivos.]({% image_buster /assets/unlisted_docs/img/shopify/confirm_upgrade.png %})
 
-### Paso 2: Configura los SDK or kit de desarrollo de software de Braze {#step-2-set-up-the-braze-sdks}
+### Paso 2: Configura los SDK de Braze {#step-2-set-up-the-braze-sdks}
 
-La integración estándar añadirá automáticamente los SDK or kit de desarrollo de software de Braze a tu sitio de Shopify. Si ya has integrado los SDK or kit de desarrollo de software de Braze directamente o has utilizado una herramienta de terceros para esto, coordina con tus desarrolladores para eliminar la implementación anterior del SDK or kit de desarrollo de software mientras actualizas.
+La integración estándar añadirá automáticamente los SDK de Braze a tu sitio de Shopify. Si ya has integrado los SDK de Braze directamente o has utilizado una herramienta de terceros para esto, coordina con tus desarrolladores para eliminar la implementación anterior del SDK mientras actualizas.
 
-![Modal que confirma que la nueva integración implementará automáticamente el SDK or kit de desarrollo de software de Braze y JavaScript en tu tienda.]({% image_buster /assets/unlisted_docs/img/shopify/confirm_integration.png %}){: style="max-width:70%;"}
+![Modal que confirma que la nueva integración implementará automáticamente el SDK de Braze y JavaScript en tu tienda.]({% image_buster /assets/unlisted_docs/img/shopify/confirm_integration.png %}){: style="max-width:70%;"}
 
 ### Paso 3: Reautoriza la aplicación de Braze {#step-3-reauthorize-the-braze-app}
 

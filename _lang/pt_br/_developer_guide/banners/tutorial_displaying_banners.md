@@ -1,7 +1,7 @@
 ---
 nav_title: "Tutorial: Exibindo Banners"
 article_title: "Tutorial: Exibindo um Banner pelo ID de Colocação"
-description: "Novo nos Banners do SDK or kit de desenvolvimento de software da Braze? Comece com este tutorial sobre como exibir Banners pelo ID de colocação."
+description: "Novo nos Banners do SDK da Braze? Comece com este tutorial sobre como exibir Banners pelo ID de colocação."
 page_order: 10
 layout: scrolly
 ---

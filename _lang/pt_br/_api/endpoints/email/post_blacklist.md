@@ -9,7 +9,7 @@ alias: /blacklist/
 description: "Este artigo descreve os detalhes sobre o endpoint da Braze para lista de proibições de e-mails."
 
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Envio de e-mails para a lista de proibições {#blacklist-emails}
 {% apimethod post core_endpoint|/docs/core_endpoints %}
 /email/blacklist
@@ -25,7 +25,7 @@ A Braze lançou o [endpoint `/email/blocklist`]({{site.baseurl}}/api/endpoints/e
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `email.blacklist`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `email.blacklist`.
 
 ## Limite de frequência {#rate-limit}
 

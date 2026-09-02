@@ -65,7 +65,7 @@ Bitte beachten Sie, dass Ihre Vorschau aufgrund von Unterschieden in der Hardwar
 Um einen Test an [Content-Testgruppen]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) oder einzelne Nutzer:innen zu senden, muss Push auf Ihren Testgeräten aktiviert sein und ein gültiger Push-Token / Textbaustein für die Testnutzer:innen registriert sein, bevor Sie den Test senden. Für iOS-Nutzer:innen müssen Sie auf die von Braze gesendete Push-Benachrichtigung tippen, um die Test-Content-Card anzuzeigen. Dieses Verhalten gilt nur für Test-Content-Cards.
 {% endalert %}
 
-Test-Content-Cards werden über eine Push-Benachrichtigung zugestellt. Die Karte wird in der Push-Payload verpackt, und das SDK or Software-Development-Kit extrahiert und speichert sie lokal, wenn der Push empfangen wird.
+Test-Content-Cards werden über eine Push-Benachrichtigung zugestellt. Die Karte wird in der Push-Payload verpackt, und das SDK extrahiert und speichert sie lokal, wenn der Push empfangen wird.
 
 Dieser Prozess umgeht das normale Kartenzustellungssystem, weshalb Push aktiviert sein muss, auch wenn Sie eine Content-Card testen.
 
@@ -109,10 +109,10 @@ Wenn ein Content-Card-Bild nicht gerendert wird oder fehlerhaft erscheint:
 
 Nachdem Ihre Content Cards gesendet wurden, können Sie alle Probleme über das [Event-Nutzerprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log) in der Entwicklungskonsole aufschlüsseln oder debuggen.
 
-Ein häufiger Anwendungsfall ist der Versuch herauszufinden, warum Nutzer:innen eine bestimmte Content-Card nicht sehen können. Dazu können Sie in den **Event-Nutzerprotokollen** nach den Content Cards suchen, die dem SDK or Software-Development-Kit bei Sitzungsstart zugestellt wurden, aber vor einer Impression, und diese auf eine bestimmte Campaign zurückverfolgen:
+Ein häufiger Anwendungsfall ist der Versuch herauszufinden, warum Nutzer:innen eine bestimmte Content-Card nicht sehen können. Dazu können Sie in den **Event-Nutzerprotokollen** nach den Content Cards suchen, die dem SDK bei Sitzungsstart zugestellt wurden, aber vor einer Impression, und diese auf eine bestimmte Campaign zurückverfolgen:
 
 1. Gehen Sie zu **Einstellungen** > **Event-Nutzerprotokoll**.
-2. Suchen und erweitern Sie die SDK or Software-Development-Kit-Anfrage für Ihre Testnutzer:innen.
+2. Suchen und erweitern Sie die SDK-Anfrage für Ihre Testnutzer:innen.
 3. Klicken Sie auf **Rohdaten**.
 4. Suchen Sie die `id` für Ihre Sitzung. Das folgende Beispiel zeigt einen Auszug:
 
@@ -261,11 +261,11 @@ Wenn Sie Push-Nachrichten vom Braze-Dashboard bereits akzeptiert haben, wird die
 Wenn Sie eine Fehlermeldung erhalten, dass keine der ausgewählten Nutzer:innen über passende Push-Token / Textbaustein für Web-Push verfügt, überprüfen Sie, ob die Testnutzer:innen einen gültigen Push-Token / Textbaustein für die ausgewählte Plattform registriert haben. Um einen Push-Token / Textbaustein zu erhalten, müssen die Nutzer:innen so konfiguriert sein, dass sie Push-Benachrichtigungen für die App auf ihrem Gerät empfangen können. Weitere Einzelheiten finden Sie unter [Push-Aktivierung und Push-Abo]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states).
 
 {% endtab %}
-{% tab Kurzmitteilungsdienst or SMS/MMS und RCS %}
+{% tab SMS/MMS und RCS %}
 
-Nachdem Sie Ihre Kurzmitteilungsdienst or SMS-, MMS- oder RCS-Nachricht erstellt haben, können Sie eine Testnachricht an Ihr Telefon senden, um in Echtzeit zu sehen, wie sie aussehen wird. Die Empfängerin bzw. der Empfänger muss der Kurzmitteilungsdienst or SMS-Abo-Gruppe angehören, die Sie beim Senden des Tests auswählen, eine gültige Telefonnummer haben und mindestens ein Land unter **Geografische Berechtigungen** ausgewählt haben. Weitere Einzelheiten finden Sie unter [Kurzmitteilungsdienst or SMS-FAQs]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs#does-a-user-need-to-be-part-of-an-sms-subscription-group-to-receive-sms-test-messages).
+Nachdem Sie Ihre SMS-, MMS- oder RCS-Nachricht erstellt haben, können Sie eine Testnachricht an Ihr Telefon senden, um in Echtzeit zu sehen, wie sie aussehen wird. Die Empfängerin bzw. der Empfänger muss der SMS-Abo-Gruppe angehören, die Sie beim Senden des Tests auswählen, eine gültige Telefonnummer haben und mindestens ein Land unter **Geografische Berechtigungen** ausgewählt haben. Weitere Einzelheiten finden Sie unter [SMS-FAQs]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs#does-a-user-need-to-be-part-of-an-sms-subscription-group-to-receive-sms-test-messages).
 
-1. Entwerfen Sie Ihre Kurzmitteilungsdienst or SMS-, MMS- oder RCS-Nachricht.
+1. Entwerfen Sie Ihre SMS-, MMS- oder RCS-Nachricht.
 2. Wählen Sie den Tab **Test** und wählen Sie mindestens eine Content-Testgruppe oder einzelne Nutzer:innen aus, die diese Testnachricht erhalten sollen.
 3. Wählen Sie **Test senden**, um Ihre Testnachricht zu senden.
 
@@ -324,11 +324,11 @@ Sie können einzelne Felder einer/eines zufälligen oder bestehenden Nutzer:in b
 Das Testen von Campaigns, die mit [angepassten Event-Eigenschaften]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties) personalisiert sind, unterscheidet sich leicht vom Testen anderer hier beschriebener Campaign-Typen.
 
 {% tabs local %}
-{% tab Manuell Trigger or triggern or triggern %}
+{% tab Manuell triggern %}
 
-#### Methode 1: Campaign manuell Trigger or triggern or triggern {#method-1-triggering-campaign-manually}
+#### Methode 1: Campaign manuell triggern {#method-1-triggering-campaign-manually}
 
-Sie können die Campaign selbst Trigger or triggern or triggern als robuste Möglichkeit, Campaigns zu testen, die angepasste Event-Eigenschaften verwenden:
+Sie können die Campaign selbst triggern als robuste Möglichkeit, Campaigns zu testen, die angepasste Event-Eigenschaften verwenden:
 
 1. Verfassen Sie den Text, der die Event-Eigenschaft enthält.
 
@@ -384,13 +384,13 @@ Sie können angepasste Event-Eigenschaften testen, indem Sie Werte manuell mit L
 
 ## Einschränkungen {#limitations}
 
-Es gibt einige Situationen, in denen sich Testnachrichten nicht genauso verhalten wie Campaigns oder Canvase, die an echte Nutzer:innen gesendet werden. Erwägen Sie in diesen Fällen, die Campaign oder das Canvas an eine begrenzte Gruppe von Testnutzer:innen zu senden, um dieses Verhalten zu validieren.
+Es gibt einige Situationen, in denen sich Testnachrichten nicht genauso verhalten wie Campaigns oder Canvases, die an echte Nutzer:innen gesendet werden. Erwägen Sie in diesen Fällen, die Campaign oder das Canvas an eine begrenzte Gruppe von Testnutzer:innen zu senden, um dieses Verhalten zu validieren.
 
 - Wenn Sie das Braze-[Präferenzcenter]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center) über Testnachrichten aufrufen, ist der Button **Einstellungen speichern** deaktiviert. Liquid-Tags des Präferenzcenters werden möglicherweise auch nicht zu gültigen Links aufgelöst. Dies ist das erwartete Verhalten. Informationen zum End-to-End-Testen finden Sie unter [Präferenzcenter testen]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/dnd_preference_center#testing-preference-centers).
 - Zum Testen von In-App-Nachrichten und Content Cards muss die Zielnutzer:in über ein Push-Token / Textbaustein für das Zielgerät verfügen.
 - Zum Testen von Abmeldelinks in E-Mails stellen Sie sicher, dass sich die E-Mail-Adresse Ihrer Testnutzer:in im entsprechenden Workspace befindet.
 - Der `List-Unsubscribe`-Header ist nicht in E-Mails enthalten, die über die Testnachrichtenfunktion gesendet werden.
-- E-Mails, die an Nutzer:innen einer Seed-Gruppe gesendet werden, Update or aktualisieren or aktualisieren nicht die Liste der empfangenen Campaigns im Kundenprofil or Nutzerprofil und erhöhen auch nicht die Sendungen in den Dashboard-Analytics.
+- E-Mails, die an Nutzer:innen einer Seed-Gruppe gesendet werden, aktualisieren nicht die Liste der empfangenen Campaigns im Kundenprofil und erhöhen auch nicht die Sendungen in den Dashboard-Analytics.
 
 ## Fehlerbehebung {#troubleshooting}
 
@@ -398,8 +398,8 @@ Es gibt einige Situationen, in denen sich Testnachrichten nicht genauso verhalte
 
 Wenn Ihre In-App-Nachrichten-Campaign nicht durch eine Push-Campaign getriggert wird, überprüfen Sie die Segmentierung der In-App-Campaign, um sicherzustellen, dass die Nutzer:innen die Zielgruppe erfüllen, **bevor** sie die Push-Nachricht erhalten.
 
-Bei Testsendungen auf Android und iOS werden In-App-Nachrichten, die das On-Klick, der or klicken-Verhalten **Push-Berechtigung anfordern** verwenden, möglicherweise auf einigen Geräten nicht angezeigt. Als Workaround:
-- **Android:** Geräte müssen Android 13 und unser Android SDK or Software-Development-Kit Version 21.0.0 verwenden. Ein weiterer Grund kann sein, dass das Gerät, auf dem die In-App-Nachricht angezeigt wird, bereits eine Aufforderung auf Systemebene hat. Möglicherweise haben Sie **Nicht erneut fragen** ausgewählt, sodass Sie die App möglicherweise neu installieren müssen, um die Benachrichtigungsberechtigungen vor einem erneuten Test zurückzusetzen.
+Bei Testsendungen auf Android und iOS werden In-App-Nachrichten, die das On-Klick, der-Verhalten **Push-Berechtigung anfordern** verwenden, möglicherweise auf einigen Geräten nicht angezeigt. Als Workaround:
+- **Android:** Geräte müssen Android 13 und unser Android SDK Version 21.0.0 verwenden. Ein weiterer Grund kann sein, dass das Gerät, auf dem die In-App-Nachricht angezeigt wird, bereits eine Aufforderung auf Systemebene hat. Möglicherweise haben Sie **Nicht erneut fragen** ausgewählt, sodass Sie die App möglicherweise neu installieren müssen, um die Benachrichtigungsberechtigungen vor einem erneuten Test zurückzusetzen.
 - **iOS:** Wir empfehlen Ihrem Entwicklerteam, die Implementierung von Push-Benachrichtigungen für Ihre App zu überprüfen und jeglichen Code, der Push-Berechtigungen anfordern würde, manuell zu entfernen. Weitere Informationen finden Sie unter [Push-Primer-In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/push/best_practices).
 
-Damit eine aktionsbasierte In-App-Nachrichten-Campaign zugestellt wird, müssen Sie angepasste Events über das Braze SDK or Software-Development-Kit protokollieren – nicht über Representational State Transfer APIs –, damit Nutzer:innen berechtigte In-App-Nachrichten direkt auf ihrem Gerät erhalten können. Nutzer:innen erhalten die In-App-Nachricht, wenn sie das Event während der Sitzung ausführen.
+Damit eine aktionsbasierte In-App-Nachrichten-Campaign zugestellt wird, müssen Sie angepasste Events über das Braze SDK protokollieren – nicht über REST APIs –, damit Nutzer:innen berechtigte In-App-Nachrichten direkt auf ihrem Gerät erhalten können. Nutzer:innen erhalten die In-App-Nachricht, wenn sie das Event während der Sitzung ausführen.

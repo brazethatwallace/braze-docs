@@ -13,12 +13,12 @@ page_type: reference
 > Der Content Optimizer-Schritt ermöglicht es Ihnen, mehrere Versionen von Inhaltskomponenten innerhalb eines einzelnen Schritts zu konfigurieren und zu testen. Er hilft Ihnen, mit Inhaltsvarianten zu experimentieren und optimiert im Laufe der Zeit automatisch in Richtung der leistungsstärksten Kombinationen. Eine Einführung finden Sie unter [Content Optimizer]({{site.baseurl}}/user_guide/brazeai/content_optimizer).
 
 {% alert important %}
-Content Optimizer befindet sich derzeit in der Beta-Phase. Wenn Sie Hilfe beim Einstieg benötigen, wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in.
+Content Optimizer befindet sich derzeit in der Beta-Phase. Wenn Sie Hilfe beim Einstieg benötigen, wenden Sie sich an Ihren CSM.
 {% endalert %}
 
 ## Einen Otimizador de Conteúdo-Schritt erstellen {#create-a-content-optimizer-step}
 
-Für beste Ergebnisse verwenden Sie den Otimizador de Conteúdo in Canvase, in denen Nutzer:innen den Schritt nach und nach über einen Zeitraum betreten. Wenn alle Nutzer:innen den Schritt gleichzeitig betreten, hat der Otimizador de Conteúdo keine Zeit, aus frühen Ergebnissen zu lernen.
+Für beste Ergebnisse verwenden Sie den Otimizador de Conteúdo in Canvases, in denen Nutzer:innen den Schritt nach und nach über einen Zeitraum betreten. Wenn alle Nutzer:innen den Schritt gleichzeitig betreten, hat der Otimizador de Conteúdo keine Zeit, aus frühen Ergebnissen zu lernen.
 
 ### Schritt 1: Einen Schritt hinzufügen {#step-1-add-a-step}
 
@@ -29,7 +29,7 @@ Ziehen Sie die Komponente **Otimizador de Conteúdo** per Drag-and-Drop aus der 
 Die Basisnachricht ist der Ausgangspunkt für Ihren Schritt. Varianten für jede Inhaltskomponente werden dynamisch eingefügt, basierend auf den Kombinationen, die im Tab **Content Optimizer Settings** definiert sind.
 
 {% alert note %}
-Während der Beta-Phase sind die unterstützten Kanäle E-Mail, Push-Benachrichtigungen und Kurzmitteilungsdienst or SMS/MMS/RCS.
+Während der Beta-Phase sind die unterstützten Kanäle E-Mail, Push-Benachrichtigungen und SMS/MMS/RCS.
 {% endalert %}
 
 {% tabs local %}
@@ -59,9 +59,9 @@ Unterstützte Komponenten zur Optimierung umfassen:
 - Message
 
 {% endtab %}
-{% tab Kurzmitteilungsdienst or SMS/MMS/RCS %}
+{% tab SMS/MMS/RCS %}
 
-Wählen Sie im Tab **Messaging Channels** die Option **Kurzmitteilungsdienst or SMS/MMS/RCS** und erstellen Sie Ihre Basisnachricht. Weitere Hilfe finden Sie in unserem dedizierten Abschnitt [Kurzmitteilungsdienst or SMS/MMS/RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs).
+Wählen Sie im Tab **Messaging Channels** die Option **SMS/MMS/RCS** und erstellen Sie Ihre Basisnachricht. Weitere Hilfe finden Sie in unserem dedizierten Abschnitt [SMS/MMS/RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs).
 
 Der Otimizador de Conteúdo verwendet die in dieser Variante angegebenen **Content**- und **Message**-Details, um alle Nachrichten zu senden. Sie können entweder mit einem neuen Design beginnen oder ein bestehendes Template für diese Nachricht auswählen. Überlegen Sie bei diesem Schritt, welche Komponenten der Nachricht Sie optimieren möchten. Diese definieren Sie in [Schritt 4](#step-4).
 
@@ -84,9 +84,9 @@ Inhaltskomponenten sind die einzelnen Elemente Ihrer Nachricht, die Sie testen m
 
 - **E-Mail:** Sie können bis zu drei Inhaltskomponenten pro Schritt und bis zu fünf Varianten pro Komponente hinzufügen, für insgesamt 125 einzigartige Inhaltskombinationen.
 - **Push-Benachrichtigungen:** Sie können bis zu zwei Komponenten pro Schritt und bis zu fünf Varianten pro Komponente hinzufügen, für insgesamt 25 einzigartige Inhaltskombinationen.
-- **Kurzmitteilungsdienst or SMS/MMS/RCS:** Sie können bis zu zwei Inhaltskomponenten pro Schritt und bis zu fünf Varianten pro Komponente hinzufügen, für insgesamt 25 einzigartige Inhaltskombinationen.
+- **SMS/MMS/RCS:** Sie können bis zu zwei Inhaltskomponenten pro Schritt und bis zu fünf Varianten pro Komponente hinzufügen, für insgesamt 25 einzigartige Inhaltskombinationen.
 
-Wenn Sie **Generate KI or künstliche Intelligenz suggestions** verwenden, sendet Braze Inhalte an OpenAI, um Variantenideen zu generieren. Die Zuweisung des Datenverkehrs zur Sendezeit verwendet OpenAI nicht. Details darüber, welche Daten gesendet werden und wie sie verwendet werden, finden Sie unter [OpenAI und Otimizador de Conteúdo]({{site.baseurl}}/user_guide/brazeai/content_optimizer#openai-and-content-optimizer).
+Wenn Sie **Generate KI suggestions** verwenden, sendet Braze Inhalte an OpenAI, um Variantenideen zu generieren. Die Zuweisung des Datenverkehrs zur Sendezeit verwendet OpenAI nicht. Details darüber, welche Daten gesendet werden und wie sie verwendet werden, finden Sie unter [OpenAI und Otimizador de Conteúdo]({{site.baseurl}}/user_guide/brazeai/content_optimizer#openai-and-content-optimizer).
 
 ![Optionen zum Hinzufügen und Konfigurieren von Inhaltskomponenten in der Otimizador-de-Conteúdo-Oberfläche. Die Oberfläche zeigt auswählbare Komponenten wie Subject, Body Header, Body Content und Primary CTA, jeweils mit Feldern zur Eingabe verschiedener Varianten.]({% image_buster /assets/img/content_optimizer/add_content_components.png %})
 
@@ -106,7 +106,7 @@ Wählen Sie, welche Komponenten Sie für E-Mail-Nachrichten optimieren möchten.
 
 Definieren Sie für jede ausgewählte Komponente eine Reihe alternativer Versionen dieses Inhalts (Varianten). Verwenden Sie klare, unterschiedliche Varianten, die sich in Ton, Struktur oder Inhalt unterscheiden. Dies hilft dem Otimizador de Conteúdo, Top-Performer effektiver zu identifizieren. Sie können:
   - Ihre eigenen Varianten manuell schreiben.
-  - KI or künstliche Intelligenz-generierte Vorschläge verwenden, um schnell neue Optionen zu erkunden.
+  - KI-generierte Vorschläge verwenden, um schnell neue Optionen zu erkunden.
 
 ![Content-Optimizer-Settings-Oberfläche mit Optionen zum Hinzufügen und Konfigurieren von Inhaltskomponenten für die E-Mail-Optimierung. Jede Komponente verfügt über Eingabefelder für verschiedene Varianten. Sichtbarer Text umfasst Komponentennamen und Felder zur Eingabe von Variantentext.]({% image_buster /assets/img/content_optimizer/content_optimizer_settings.png %})
 
@@ -119,23 +119,23 @@ Wählen Sie, welche Komponenten Sie für Push-Benachrichtigungen optimieren möc
 
 Definieren Sie für jede ausgewählte Komponente eine Reihe alternativer Versionen dieses Inhalts (Varianten). Verwenden Sie klare, unterschiedliche Varianten, die sich in Ton, Struktur oder Inhalt unterscheiden. Dies hilft dem Otimizador de Conteúdo, Top-Performer effektiver zu identifizieren. Sie können:
   - Ihre eigenen Varianten manuell schreiben.
-  - KI or künstliche Intelligenz-generierte Vorschläge verwenden, um schnell neue Optionen zu erkunden.
+  - KI-generierte Vorschläge verwenden, um schnell neue Optionen zu erkunden.
 
 ![Content-Optimizer-Einstellungen mit Optionen zum Hinzufügen und Konfigurieren von Inhaltskomponenten für die Push-Optimierung.]({% image_buster /assets/img/content_optimizer/add_content_components_push.png %})
 
 {% endtab %}
-{% tab Kurzmitteilungsdienst or SMS/MMS/RCS %}
+{% tab SMS/MMS/RCS %}
 
-Nachdem Sie Ihre Abo-Gruppe und den Nachrichtentyp (falls zutreffend) ausgewählt haben, wählen Sie, welche Komponenten Sie für Kurzmitteilungsdienst or SMS/MMS/RCS optimieren möchten. Unterstützte Optionen sind:
+Nachdem Sie Ihre Abo-Gruppe und den Nachrichtentyp (falls zutreffend) ausgewählt haben, wählen Sie, welche Komponenten Sie für SMS/MMS/RCS optimieren möchten. Unterstützte Optionen sind:
 - Hook
 - Body
 - CTA
 {% alert note %}
-Nachdem ein Kurzmitteilungsdienst or SMS/MMS/RCS-Otimizador-de-Conteúdo-Schritt gestartet wurde, können Sie die Abo-Gruppe oder den Nachrichtentyp nicht mehr Update or aktualisieren or aktualisieren.
+Nachdem ein SMS/MMS/RCS-Otimizador-de-Conteúdo-Schritt gestartet wurde, können Sie die Abo-Gruppe oder den Nachrichtentyp nicht mehr aktualisieren.
 {% endalert %}
 Definieren Sie für jede ausgewählte Komponente eine Reihe alternativer Versionen dieses Inhalts (Varianten). Verwenden Sie klare, unterschiedliche Varianten, die sich in Ton, Struktur oder Inhalt unterscheiden. Dies hilft dem Otimizador de Conteúdo, Top-Performer effektiver zu identifizieren. Sie können:
   - Ihre eigenen Varianten manuell schreiben.
-  - KI or künstliche Intelligenz-generierte Vorschläge verwenden, um schnell neue Optionen zu erkunden.
+  - KI-generierte Vorschläge verwenden, um schnell neue Optionen zu erkunden.
 
 ![Content-Optimizer-Einstellungen mit Optionen zum Hinzufügen und Konfigurieren von Inhaltskomponenten für die SMS/MMS/RCS-Optimierung.]({% image_buster /assets/img/content_optimizer/add_content_components_sms_rcs_mms.png %})
 
@@ -165,9 +165,9 @@ Während der Canvas läuft, mischt und kombiniert der Otimizador de Conteúdo Va
 | E-Mail | Primary CTA | {% raw %}`{% message_component "Primary CTA" %}`{% endraw %} |
 | Push | Title | {% raw %}`{% message_component "Title" %}`{% endraw %} |
 | Push | Message | {% raw %}`{% message_component "Message" %}`{% endraw %} |
-| Kurzmitteilungsdienst or SMS/MMS/RCS | Hook | {% raw %}`{% message_component "Hook" %}`{% endraw %} |
-| Kurzmitteilungsdienst or SMS/MMS/RCS | Body | {% raw %}`{% message_component "Body" %}`{% endraw %} |
-| Kurzmitteilungsdienst or SMS/MMS/RCS | CTA | {% raw %}`{% message_component "CTA" %}`{% endraw %} |
+| SMS/MMS/RCS | Hook | {% raw %}`{% message_component "Hook" %}`{% endraw %} |
+| SMS/MMS/RCS | Body | {% raw %}`{% message_component "Body" %}`{% endraw %} |
+| SMS/MMS/RCS | CTA | {% raw %}`{% message_component "CTA" %}`{% endraw %} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Liquid-Referenzen" }
 
 #### Kombinations-Token / Textbaustein {#combination-token}
@@ -238,16 +238,16 @@ Ausgeschlossene Klicks zählen nicht zum Optimierungsereignis und beeinflussen d
 Für Push-Benachrichtigungen können Sie für **Öffnungen** optimieren. Dies optimiert Kombinationen, die Empfänger:innen dazu bringen, die Push-Benachrichtigung zu öffnen. Sie können dieses Optimierungsereignis verwenden, um Variationen im Titel oder Nachrichtentext zu testen.
 
 {% endtab %}
-{% tab Kurzmitteilungsdienst or SMS/MMS/RCS %}
+{% tab SMS/MMS/RCS %}
 
-Für Kurzmitteilungsdienst or SMS- und MMS-Nachrichten können Sie für **Klicks** optimieren. Für RCS-Nachrichten können Sie für **Reads** oder **Klicks** optimieren.
+Für SMS- und MMS-Nachrichten können Sie für **Klicks** optimieren. Für RCS-Nachrichten können Sie für **Reads** oder **Klicks** optimieren.
 
 Damit der Schritt ein Ereignis hat, für das er optimiert:
-- Kurzmitteilungsdienst or SMS- und MMS-Nachrichten müssen einen Link enthalten.
+- SMS- und MMS-Nachrichten müssen einen Link enthalten.
 - RCS-Nachrichten müssen einen Link oder eine vorgeschlagene Antwort enthalten.
 
 {% alert note %}
-Derzeit unterstützt RCS-Messaging mit dem Otimizador de Conteúdo keine Kurzmitteilungsdienst or SMS-Fallbacks.
+Derzeit unterstützt RCS-Messaging mit dem Otimizador de Conteúdo keine SMS-Fallbacks.
 {% endalert %}
 {% endtab %}
 {% endtabs %}
@@ -274,15 +274,15 @@ Wenn Ihr Schritt in den Status „Action Recommended“ wechselt, sollten Sie Fo
 
 ## Einen gestarteten Schritt bearbeiten {#edit-a-launched-step}
 
-Nachdem Ihr Canvas gestartet wurde, können Sie einen laufenden Content-Optimizer-Schritt Update or aktualisieren or aktualisieren, indem Sie ihn im Canvas-Editor öffnen. Sie können:
+Nachdem Ihr Canvas gestartet wurde, können Sie einen laufenden Content-Optimizer-Schritt aktualisieren, indem Sie ihn im Canvas-Editor öffnen. Sie können:
 
-{% multi_lang_include messaging/Canvas/content_optimizer_launched_step_actions.md %}
+{% multi_lang_include messaging/canvas/content_optimizer_launched_step_actions.md %}
 
 {% alert note %}
-Braze weist jeder Nutzer:in eine Inhaltskombination zu, wenn sie den Content-Optimizer-Schritt betritt. Wenn der Versand durch Zustellungskontrollen wie Rate-Limiting, intelligentes Timing oder Ruhezeiten verzögert wird, kann die Person dennoch eine Variante erhalten, die Sie deaktiviert haben. Um diese Sendungen dringend zu stoppen, befolgen Sie die gleichen Schritte wie bei einem Nachrichten-Schritt. Weitere Informationen finden Sie unter [Canvase stoppen]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#stopping-canvases).
+Braze weist jeder Nutzer:in eine Inhaltskombination zu, wenn sie den Content-Optimizer-Schritt betritt. Wenn der Versand durch Zustellungskontrollen wie Rate-Limiting, intelligentes Timing oder Ruhezeiten verzögert wird, kann die Person dennoch eine Variante erhalten, die Sie deaktiviert haben. Um diese Sendungen dringend zu stoppen, befolgen Sie die gleichen Schritte wie bei einem Nachrichten-Schritt. Weitere Informationen finden Sie unter [Canvases stoppen]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#stopping-canvases).
 {% endalert %}
 
-Wenn Sie Änderungen veröffentlichen, wird der Optimizer zurückgesetzt und beginnt, den Traffic von Grund auf über alle aktiven Varianten und Kombinationen neu zu verteilen. Vermeiden Sie es, Varianten zu Update or aktualisieren or aktualisieren, während sich der Schritt im Lernzustand befindet. Historische Daten von vor der Bearbeitung werden beibehalten und sind im Tab **Content Analytics** einsehbar.
+Wenn Sie Änderungen veröffentlichen, wird der Optimizer zurückgesetzt und beginnt, den Traffic von Grund auf über alle aktiven Varianten und Kombinationen neu zu verteilen. Vermeiden Sie es, Varianten zu aktualisieren, während sich der Schritt im Lernzustand befindet. Historische Daten von vor der Bearbeitung werden beibehalten und sind im Tab **Content Analytics** einsehbar.
 
 Die folgenden Einstellungen können nach dem Start nicht mehr geändert werden:
 
@@ -290,14 +290,14 @@ Die folgenden Einstellungen können nach dem Start nicht mehr geändert werden:
 - Welche Komponenten getestet werden
 - Das Optimierungsereignis
 
-Für Kurzmitteilungsdienst or SMS/MMS/RCS-Schritte können auch die Abo-Gruppe und der Nachrichtentyp nach dem Start nicht mehr geändert werden.
+Für SMS/MMS/RCS-Schritte können auch die Abo-Gruppe und der Nachrichtentyp nach dem Start nicht mehr geändert werden.
 
 ## Best Practices {#best-practices}
 
 - Testen Sie generell mehr Komponenten statt weniger für den Content-Optimizer-Schritt. Zum Beispiel: Statt zwei Komponenten für E-Mail zu testen, testen Sie drei.
 - Das Testen von mindestens 10 Gesamtkombinationen liefert in der Regel bessere Ergebnisse.
 - Bei E-Mails übertreffen Schritte, die auf Klicks optimieren, tendenziell solche, die auf Öffnungen optimieren. Wenn Klicks zu Ihrem Anwendungsfall passen, wählen Sie Klicks als Ihr Optimierungsereignis.
-- Wenn Sie den Content Optimizer zum ersten Mal verwenden, sollten Sie einen [Experimentpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step)-Schritt einsetzen, sodass nur ein Teil Ihrer Zielgruppe den Zweig betritt, der den Content-Optimizer-Schritt enthält. Sie könnten zum Beispiel die Hälfte Ihrer Nutzer:innen über einen Pfad mit dem Content-Optimizer-Schritt leiten und die andere Hälfte über einen Kontrollpfad, der den Nachrichtenschritt mit Ihren aktuellen Standardinhalten sendet. Sammeln Sie dann 2–3 Wochen lang Daten und vergleichen Sie alle KPI or Leistungskennzahl or Leistungskennzahlen or Leistungskennzahl or Leistungskennzahlen (KPIs) oder Gegenmetriken, bevor Sie den Traffic zu den Pfaden mit Content-Optimizer-Schritten erhöhen.
+- Wenn Sie den Content Optimizer zum ersten Mal verwenden, sollten Sie einen [Experimentpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step)-Schritt einsetzen, sodass nur ein Teil Ihrer Zielgruppe den Zweig betritt, der den Content-Optimizer-Schritt enthält. Sie könnten zum Beispiel die Hälfte Ihrer Nutzer:innen über einen Pfad mit dem Content-Optimizer-Schritt leiten und die andere Hälfte über einen Kontrollpfad, der den Nachrichtenschritt mit Ihren aktuellen Standardinhalten sendet. Sammeln Sie dann 2–3 Wochen lang Daten und vergleichen Sie alle KPI (KPIs) oder Gegenmetriken, bevor Sie den Traffic zu den Pfaden mit Content-Optimizer-Schritten erhöhen.
   - Für einen effektiven Eins-zu-eins-Vergleich fügen Sie Ihre Standardinhalte als eine der Varianten für jede Komponente in Ihrem Content-Optimizer-Schritt ein.
 - Wenn Sie nach einiger Zeit im Optimierungsstatus Ihres Content-Optimizer-Schritts bereit für eine Aktualisierung sind, deaktivieren Sie leistungsschwache Varianten und fügen Sie neue hinzu, die auf den Merkmalen Ihrer Top-Performer aufbauen.
 
@@ -305,7 +305,7 @@ Für Kurzmitteilungsdienst or SMS/MMS/RCS-Schritte können auch die Abo-Gruppe u
 
 - Mehrsprachige Einstellungen werden in Content-Optimizer-Schritten nicht unterstützt. Verwenden Sie stattdessen einen Content-Optimizer-Schritt pro Sprache und verzweigen Sie die Pfade einzeln.
 - Liquid-Tags für Content-Optimizer-Komponenten werden in Nachrichten-Schritten nicht unterstützt, sodass der Liquid-Code in Nachrichten-Schritten abbricht.
-- Nachdem ein Content-Optimizer-Schritt gestartet wurde, können Sie nicht mehr ändern, welche Komponenten getestet werden, den Inhalt bestehender aktiver Varianten oder das Optimierungsereignis. Bei Kurzmitteilungsdienst or SMS-/MMS-/RCS-Schritten können auch die Abo-Gruppe und der Nachrichtentyp nicht mehr geändert werden.
+- Nachdem ein Content-Optimizer-Schritt gestartet wurde, können Sie nicht mehr ändern, welche Komponenten getestet werden, den Inhalt bestehender aktiver Varianten oder das Optimierungsereignis. Bei SMS-/MMS-/RCS-Schritten können auch die Abo-Gruppe und der Nachrichtentyp nicht mehr geändert werden.
 
 ## Analytics {#analytics}
 
@@ -362,13 +362,13 @@ Gründe, warum die Analytics im Content-Optimizer-Schritt von denen im Bereich *
 - Im Content-Optimizer-Schritt werden nur Klicks und Öffnungen gezählt, die innerhalb von sieben Tagen nach dem Senden einer Nachricht erfolgen.
 - Ausgeschlossene Link-Klicks werden in den Gesamt-Analytics des Schritts gezählt, aber nicht in den Tabellen **Performance nach Komponente** oder **Performance nach Kombination**. Weitere Informationen finden Sie unter [Links von der Optimierung ausschließen](#exclude-links-from-optimization).
 
-### Varianten in einem Kundenprofil or Nutzerprofil anzeigen {#view-variants-on-a-user-profile}
+### Varianten in einem Kundenprofil anzeigen {#view-variants-on-a-user-profile}
 
-Um zu sehen, welche Varianten einzelne Nutzer:innen erhalten haben, öffnen Sie deren Kundenprofil or Nutzerprofil und navigieren Sie zum Tab **Nachrichtenverlauf**. In der Zeile des Sendeereignisses für einen Content-Optimizer-Schritt zeigt die Tabelle die Komponentenvarianten, die an diese(n) Nutzer:in gesendet wurden. Weitere Informationen finden Sie unter [Tab „Nachrichtenverlauf“]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#messaging-history-tab).
+Um zu sehen, welche Varianten einzelne Nutzer:innen erhalten haben, öffnen Sie deren Kundenprofil und navigieren Sie zum Tab **Nachrichtenverlauf**. In der Zeile des Sendeereignisses für einen Content-Optimizer-Schritt zeigt die Tabelle die Komponentenvarianten, die an diese(n) Nutzer:in gesendet wurden. Weitere Informationen finden Sie unter [Tab „Nachrichtenverlauf“]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#messaging-history-tab).
 
 ### Schritte im Berichts-Builder vergleichen {#compare-steps-in-report-builder}
 
-Um die Performance über mehr als einen Content-Optimizer-Schritt hinweg zu vergleichen, erstellen Sie einen Bericht und wählen Sie **Canvas-Schritt mit Canvas Optimizer**. Der Bericht zeigt die Schrittperformance nach Komponente und nach Kombination für die von Ihnen eingeschlossenen Schritte, unabhängig davon, ob sich diese Schritte im selben Canvas oder in verschiedenen Canvase befinden. Weitere Informationen finden Sie unter [Berichts-Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder).
+Um die Performance über mehr als einen Content-Optimizer-Schritt hinweg zu vergleichen, erstellen Sie einen Bericht und wählen Sie **Canvas-Schritt mit Canvas Optimizer**. Der Bericht zeigt die Schrittperformance nach Komponente und nach Kombination für die von Ihnen eingeschlossenen Schritte, unabhängig davon, ob sich diese Schritte im selben Canvas oder in verschiedenen Canvases befinden. Weitere Informationen finden Sie unter [Berichts-Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder).
 
 ## Fehlerbehebung {#troubleshooting}
 

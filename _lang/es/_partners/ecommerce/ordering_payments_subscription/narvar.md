@@ -16,8 +16,8 @@ search_tag: Partner
 | Requisito | Descripción |
 |-----------------------|-----------------------------------------------------------------------------------------------|
 | Cuenta Narvar | Se requiere una cuenta Narvar para beneficiarse de esta asociación. |
-| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permiso de `messages.send`. Puede crearse en el panel de Braze desde **Settings** > **API Keys**. |
-| Punto de conexión REST or transferencia de estado representacional de Braze | [La URL de tu punto de conexión REST or transferencia de estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints), que depende de la URL de tu instancia de Braze. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permiso de `messages.send`. Puede crearse en el panel de Braze desde **Settings** > **API Keys**. |
+| Punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints), que depende de la URL de tu instancia de Braze. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Características compatibles {#supported-features}
@@ -29,7 +29,7 @@ search_tag: Partner
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Características compatibles" }
 
 {% alert note %}
-Si te interesan otros tipos o canales de notificación, ponte en contacto con tu CSM or administrador de éxito de cliente de Braze y Narvar.
+Si te interesan otros tipos o canales de notificación, ponte en contacto con tu CSM de Braze y Narvar.
 {% endalert %}
 
 ## Detalles de la integración {#integration-details}
@@ -40,7 +40,7 @@ Narvar es responsable de configurar las cargas útiles de notificación push par
 
 ## Introducción a la integración Braze-Narvar {#getting-started-with-the-braze-narvar-integration}
 
-1. **Ponte en contacto con tu CSM or administrador de éxito de cliente de Narvar** para expresar tu interés en la integración.
+1. **Ponte en contacto con tu CSM de Narvar** para expresar tu interés en la integración.
 2. **Designa entornos de Braze** para staging y producción.
 3. **Genera la clave de API** en Braze para uso de Narvar.
 4. **Genera claves de Campaign** en Braze según sea necesario.

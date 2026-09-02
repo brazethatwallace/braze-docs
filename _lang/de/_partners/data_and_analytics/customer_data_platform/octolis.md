@@ -17,7 +17,7 @@ _Diese Integration wird von Octolis gepflegt._
 ## Über die Integration {#about-the-integration}
 
 Die Integration von Braze und Octolis fungiert als Middleware zwischen Ihren Rohdatenquellen und Braze und ermöglicht es Ihnen, Daten aus verschiedenen Quellen, online und offline, abzurufen und zu vereinheitlichen:
-1. Vereinheitlichen und kombinieren Sie Daten aus Quellen wie Eshop, CRM or Customer-Relationship-Management [-System] (CRM), POS-System usw.
+1. Vereinheitlichen und kombinieren Sie Daten aus Quellen wie Eshop, CRM, POS-System usw.
 2. Normalisieren und bewerten
 3. Realtime-Synchronisation von berechneten Feldern und Ereignissen mit Braze
 
@@ -28,8 +28,8 @@ Die Integration von Braze und Octolis fungiert als Middleware zwischen Ihren Roh
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | Octolis-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Octolis-Konto. |
-| Braze Representational State Transfer-API-Schlüssel | Ein Braze Representational State Transfer-API-Schlüssel mit [**users.track**]({{site.baseurl}}/api/endpoints/user_data/post_user_track)-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze Representational State Transfer-Endpunkt | [Ihre URL für den Representational State Transfer-Endpunkt]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
+| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit [**users.track**]({{site.baseurl}}/api/endpoints/user_data/post_user_track)-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze REST-Endpunkt | [Ihre URL für den REST-Endpunkt]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
 | Braze-App-Schlüssel | Ihr Bezeichner für die App. Diesen finden Sie im **Braze-Dashboard > Einstellungen verwalten > API-Schlüssel**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
@@ -84,12 +84,12 @@ Hier finden Sie eine spezifische Definition der Einstellungsfelder.
 
 | Feld | Beschreibung |
 | --- | --- |
-| Wohin möchten Sie die Zielgruppe synchronisieren? | Die Braze-Entität, in der Sie Datensätze erstellen oder Update or aktualisieren or aktualisieren werden. |
+| Wohin möchten Sie die Zielgruppe synchronisieren? | Die Braze-Entität, in der Sie Datensätze erstellen oder aktualisieren werden. |
 | Welches Feld wird zur Identifizierung eines Datensatzes verwendet? | Das Feld, das Octolis verwendet, um einen Datensatz zu identifizieren, wenn er bereits in Braze existiert. |
-| Wie oft möchten Sie jeden Datensatz senden? | Standardmäßig erfolgt die Synchronisierung für alle Integrationen (API, Datenbank, FTP) inkrementell. Das bedeutet, dass nur neue Werte seit dem letzten Update or aktualisieren aktualisiert werden. Bei Bedarf können Sie auch ganze Tabellen in regelmäßigen Abständen versenden. Bei der Initiierung sendet Octolis die vollständige Tabelle. |
+| Wie oft möchten Sie jeden Datensatz senden? | Standardmäßig erfolgt die Synchronisierung für alle Integrationen (API, Datenbank, FTP) inkrementell. Das bedeutet, dass nur neue Werte seit dem letzten Update aktualisiert werden. Bei Bedarf können Sie auch ganze Tabellen in regelmäßigen Abständen versenden. Bei der Initiierung sendet Octolis die vollständige Tabelle. |
 | Welche Felder sollen synchronisiert werden? | Abbildung von Octolis- auf Braze-Felder. Die Liste aller verfügbaren Felder wird im Dropdown-Menü angezeigt. Um ein berechnetes Feld an Braze zu senden, müssen Sie zunächst sicherstellen, dass Sie die entsprechende Spalte in Ihrer Braze-Entität erstellt haben. |
 | Wann möchten Sie die Zielgruppe synchronisieren? | Wie die Daten an Braze gesendet werden sollen: manuell, in Realtime oder programmiert. |
-| Synchronisieren, wenn der Datensatz … | Erstellen: Für Opt-ins ist es wichtig, dass die Braze-Tabelle Master bleibt. Sie möchten nicht, dass Octolis eine Synchronisierung triggert, wenn das Feld aktualisiert wird.<br><br>Update or aktualisieren: Andererseits möchten Sie z. B. bei einem Feld für den Vornamen in der Lage sein, das Feld in Ihrer Braze-Tabelle jedes Mal zu Update or aktualisieren or aktualisieren, wenn eine Kund:in Ihnen einen neuen Eintrag gibt. |
+| Synchronisieren, wenn der Datensatz … | Erstellen: Für Opt-ins ist es wichtig, dass die Braze-Tabelle Master bleibt. Sie möchten nicht, dass Octolis eine Synchronisierung triggert, wenn das Feld aktualisiert wird.<br><br>Update: Andererseits möchten Sie z. B. bei einem Feld für den Vornamen in der Lage sein, das Feld in Ihrer Braze-Tabelle jedes Mal zu aktualisieren, wenn eine Kund:in Ihnen einen neuen Eintrag gibt. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 4: Ausgabeeinstellungen festlegen" }
 
 ## Deduplizierung mit mehreren Schlüsseln {#multi-keys-deduplication}

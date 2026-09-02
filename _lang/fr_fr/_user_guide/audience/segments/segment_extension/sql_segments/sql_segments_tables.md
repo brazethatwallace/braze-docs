@@ -57,8 +57,8 @@ Table | Description
 [USERS_BEHAVIORS_APP_SESSIONSTART_SHARED](#USERS_BEHAVIORS_APP_SESSIONSTART_SHARED) | Lorsqu'un utilisateur démarre une session sur une application
 [USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED](#USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED) | Lorsqu'un utilisateur déclenche une zone de géorepérage — par exemple, en entrant ou en sortant d'un géorepérage. Cet événement est regroupé avec d'autres événements et reçu via l'endpoint d'événements standard, il peut donc ne pas apparaître en temps réel.<br><br>Pour enregistrer l'activité de géorepérage dans ce tableau, sélectionnez **Enable Analytics for Enter** et **Enable Analytics for Exit** dans les paramètres avancés de chaque géorepérage. Consultez l'étape 3 dans [Créer manuellement des géorepérages]({{site.baseurl}}/user_guide/audience/locations_and_geofences/creating_geofences#manually-create-geofences) pour plus de détails.
 [USERS_BEHAVIORS_GEOFENCE_RECORDEVENT_SHARED](#USERS_BEHAVIORS_GEOFENCE_RECORDEVENT_SHARED) | Lorsqu'un utilisateur déclenche une zone de géorepérage (par exemple, lorsqu'il entre ou sort d'un géorepérage). Cet événement est reçu via l'endpoint dédié au géorepérage et est donc reçu en temps réel dès que l'appareil de l'utilisateur détecte qu'il a déclenché un géorepérage. <br><br>De plus, en raison de la limitation du débit sur l'endpoint de géorepérage, il est possible que certains événements de géorepérage ne soient pas reflétés en tant que RecordEvent. Cependant, tous les événements de géorepérage sont représentés par DataEvent (mais potentiellement avec un certain délai dû au regroupement).
-[USERS_BEHAVIORS_LIVEACTIVITY_PUSHTOSTARTTOKENCHANGE_SHARED](#USERS_BEHAVIORS_LIVEACTIVITY_PUSHTOSTARTTOKENCHANGE_SHARED) | Lorsqu'un jeton push-to-start de en direct or en ligne/en production/instantané Activity change
-[USERS_BEHAVIORS_LIVEACTIVITY_UPDATETOKENCHANGE_SHARED](#USERS_BEHAVIORS_LIVEACTIVITY_UPDATETOKENCHANGE_SHARED) | Lorsqu'un jeton de mise à jour de en direct or en ligne/en production/instantané Activity change
+[USERS_BEHAVIORS_LIVEACTIVITY_PUSHTOSTARTTOKENCHANGE_SHARED](#USERS_BEHAVIORS_LIVEACTIVITY_PUSHTOSTARTTOKENCHANGE_SHARED) | Lorsqu'un jeton push-to-start de en direct Activity change
+[USERS_BEHAVIORS_LIVEACTIVITY_UPDATETOKENCHANGE_SHARED](#USERS_BEHAVIORS_LIVEACTIVITY_UPDATETOKENCHANGE_SHARED) | Lorsqu'un jeton de mise à jour de en direct Activity change
 [USERS_BEHAVIORS_PUSHNOTIFICATION_TOKENSTATECHANGE_SHARED](#USERS_BEHAVIORS_PUSHNOTIFICATION_TOKENSTATECHANGE_SHARED) | Lorsque l'état d'un jeton de notification push change
 [USERS_BEHAVIORS_SUBSCRIPTION_GLOBALSTATECHANGE_SHARED](#USERS_BEHAVIORS_SUBSCRIPTION_GLOBALSTATECHANGE_SHARED) | Lorsqu'un utilisateur est abonné ou désabonné globalement d'un canal tel que l'e-mail
 [USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED](#USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED) | Lorsqu'un utilisateur est abonné ou désabonné d'un groupe d'abonnement
@@ -84,7 +84,7 @@ Table | Description
 [USERS_MESSAGES_CONTENTCARD_IMPRESSION_SHARED](#USERS_MESSAGES_CONTENTCARD_IMPRESSION_SHARED) | Lorsqu'un utilisateur visualise une Content Card
 [USERS_MESSAGES_CONTENTCARD_SEND_SHARED](#USERS_MESSAGES_CONTENTCARD_SEND_SHARED) | Lorsque nous envoyons une Content Card à un utilisateur
 [USERS_MESSAGES_EMAIL_ABORT_SHARED](#USERS_MESSAGES_EMAIL_ABORT_SHARED) | Un e-mail initialement planifié a été abandonné pour une raison quelconque.
-[USERS_MESSAGES_EMAIL_BOUNCE_SHARED](#USERS_MESSAGES_EMAIL_BOUNCE_SHARED) | Un fournisseur de services d'e-mail marketing or e-mailing a renvoyé un échec d'envoi définitif. Un échec d'envoi définitif indique un problème permanent de livrabilité.
+[USERS_MESSAGES_EMAIL_BOUNCE_SHARED](#USERS_MESSAGES_EMAIL_BOUNCE_SHARED) | Un fournisseur de services d'e-mail marketing a renvoyé un échec d'envoi définitif. Un échec d'envoi définitif indique un problème permanent de livrabilité.
 [USERS_MESSAGES_EMAIL_CLICK_SHARED](#USERS_MESSAGES_EMAIL_CLICK_SHARED) | Lorsqu'un utilisateur clique sur un lien dans un e-mail
 [USERS_MESSAGES_EMAIL_DEFERRAL_SHARED](#USERS_MESSAGES_EMAIL_DEFERRAL_SHARED) | Lorsqu'un e-mail est différé
 [USERS_MESSAGES_EMAIL_DELIVERY_SHARED](#USERS_MESSAGES_EMAIL_DELIVERY_SHARED) | Lorsqu'un e-mail est distribué
@@ -103,8 +103,8 @@ Table | Description
 [USERS_MESSAGES_LINE_INBOUNDRECEIVE_SHARED](#USERS_MESSAGES_LINE_INBOUNDRECEIVE_SHARED) | Lorsqu'un message LINE est reçu d'un utilisateur
 [USERS_MESSAGES_LINE_SEND_SHARED](#USERS_MESSAGES_LINE_SEND_SHARED) | Lorsqu'un message LINE est envoyé à LINE
 [USERS_MESSAGES_LINE_RETRY_SHARED](#USERS_MESSAGES_LINE_RETRY_SHARED) | Lorsqu'un message LINE est réessayé après avoir été dépriorisé ou soumis à une limitation de fréquence (**Snowflake Data Sharing uniquement**)
-[USERS_MESSAGES_LIVEACTIVITY_OUTCOME_SHARED](#USERS_MESSAGES_LIVEACTIVITY_OUTCOME_SHARED) | Lorsqu'une en direct or en ligne/en production/instantané Activity a un événement de résultat
-[USERS_MESSAGES_LIVEACTIVITY_SEND_SHARED](#USERS_MESSAGES_LIVEACTIVITY_SEND_SHARED) | Lorsqu'un message en direct or en ligne/en production/instantané Activity est envoyé
+[USERS_MESSAGES_LIVEACTIVITY_OUTCOME_SHARED](#USERS_MESSAGES_LIVEACTIVITY_OUTCOME_SHARED) | Lorsqu'une en direct Activity a un événement de résultat
+[USERS_MESSAGES_LIVEACTIVITY_SEND_SHARED](#USERS_MESSAGES_LIVEACTIVITY_SEND_SHARED) | Lorsqu'un message en direct Activity est envoyé
 [USERS_MESSAGES_NEWSFEEDCARD_ABORT_SHARED](#USERS_MESSAGES_NEWSFEEDCARD_ABORT_SHARED) | Un message de carte News Feed initialement planifié a été abandonné pour une raison quelconque
 [USERS_MESSAGES_NEWSFEEDCARD_CLICK_SHARED](#USERS_MESSAGES_NEWSFEEDCARD_CLICK_SHARED) | Lorsqu'un utilisateur clique sur une carte News Feed
 [USERS_MESSAGES_NEWSFEEDCARD_IMPRESSION_SHARED](#USERS_MESSAGES_NEWSFEEDCARD_IMPRESSION_SHARED) | Lorsqu'un utilisateur visualise une carte News Feed
@@ -669,8 +669,8 @@ Champ | Type | Description
 `external_user_id` | `null,`&nbsp;`string` | [PII] Identifiant externe de l'utilisateur
 `time` | `int` | Horodatage UNIX auquel l'événement s'est produit
 `app_group_id` | `null,`&nbsp;`string` | Identifiant BSON du groupe d'applications auquel cet utilisateur appartient
-`activity_attributes_type` | `null,`&nbsp;`string` | Type d'attribut de l'activité en direct or en ligne/en production/instantané
-`push_to_start_token` | `null,`&nbsp;`string` | Jeton push-to-start de l'activité en direct or en ligne/en production/instantané
+`activity_attributes_type` | `null,`&nbsp;`string` | Type d'attribut de l'activité en direct
+`push_to_start_token` | `null,`&nbsp;`string` | Jeton push-to-start de l'activité en direct
 `device_id` | `null,`&nbsp;`string` | Identifiant de l'appareil sur lequel l'événement s'est produit
 `sdk_version` | `null,`&nbsp;`string` | Version du SDK Braze utilisée lors de l'événement
 `ios_push_token_apns_gateway` | `null, int` | Passerelle APNS du jeton push ; s'applique uniquement aux jetons push iOS : 1 pour le développement, 2 pour la production
@@ -690,8 +690,8 @@ Champ | Type | Description
 `external_user_id` | `null,`&nbsp;`string` | [PII] Identifiant externe de l'utilisateur
 `time` | `int` | Horodatage UNIX auquel l'événement s'est produit
 `app_group_id` | `null,`&nbsp;`string` | Identifiant BSON du groupe d'applications auquel cet utilisateur appartient
-`activity_id` | `null,`&nbsp;`string` | Identifiant de l'activité en direct or en ligne/en production/instantané
-`update_token` | `null,`&nbsp;`string` | Jeton de mise à jour de l'activité en direct or en ligne/en production/instantané
+`activity_id` | `null,`&nbsp;`string` | Identifiant de l'activité en direct
+`update_token` | `null,`&nbsp;`string` | Jeton de mise à jour de l'activité en direct
 `device_id` | `null,`&nbsp;`string` | Identifiant de l'appareil sur lequel l'événement s'est produit
 `sdk_version` | `null,`&nbsp;`string` | Version du SDK Braze utilisée lors de l'événement
 `ios_push_token_apns_gateway` | `null, int` | Passerelle APNS du jeton push ; s'applique uniquement aux jetons push iOS : 1 pour le développement, 2 pour la production
@@ -2091,12 +2091,12 @@ Champ | Type | Description
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externe de l'utilisateur
 `time` | `int` | Horodatage UNIX de l'événement
 `app_group_id` | `null,`&nbsp;`string` | ID BSON du groupe d'applications auquel cet utilisateur appartient
-`activity_id` | `null,`&nbsp;`string` | Identifiant de la en direct or en ligne/en production/instantané Activity
-`activity_attributes_type` | `null,`&nbsp;`string` | Type d'attribut de la en direct or en ligne/en production/instantané Activity
-`push_to_start_token` | `null,`&nbsp;`string` | Jeton push to start de la en direct or en ligne/en production/instantané Activity
-`update_token` | `null,`&nbsp;`string` | Jeton de mise à jour de la en direct or en ligne/en production/instantané Activity
-`live_activity_event_type` | `null,`&nbsp;`string` | Type d'événement de la en direct or en ligne/en production/instantané Activity. Un parmi ['start', 'update', 'end']
-`live_activity_event_outcome` | `null,`&nbsp;`string` | Résultat de l'événement en direct or en ligne/en production/instantané Activity
+`activity_id` | `null,`&nbsp;`string` | Identifiant de la en direct Activity
+`activity_attributes_type` | `null,`&nbsp;`string` | Type d'attribut de la en direct Activity
+`push_to_start_token` | `null,`&nbsp;`string` | Jeton push to start de la en direct Activity
+`update_token` | `null,`&nbsp;`string` | Jeton de mise à jour de la en direct Activity
+`live_activity_event_type` | `null,`&nbsp;`string` | Type d'événement de la en direct Activity. Un parmi ['start', 'update', 'end']
+`live_activity_event_outcome` | `null,`&nbsp;`string` | Résultat de l'événement en direct Activity
 `app_group_api_id` | `null,`&nbsp;`string` | ID API du groupe d'applications auquel cet utilisateur appartient
 `app_api_id` | `null,`&nbsp;`string` | ID API de l'application sur laquelle cet événement s'est produit
 `sf_created_at` | `timestamp`,&nbsp;`null` | Date à laquelle cet événement a été capté par le Snowpipe
@@ -2112,11 +2112,11 @@ Champ | Type | Description
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externe de l'utilisateur
 `time` | `int` | Horodatage UNIX de l'événement
 `app_group_id` | `null,`&nbsp;`string` | ID BSON du groupe d'applications auquel cet utilisateur appartient
-`activity_id` | `null,`&nbsp;`string` | Identifiant de la en direct or en ligne/en production/instantané Activity
-`activity_attributes_type` | `null,`&nbsp;`string` | Type d'attribut de la en direct or en ligne/en production/instantané Activity
-`push_to_start_token` | `null,`&nbsp;`string` | Jeton push to start de la en direct or en ligne/en production/instantané Activity
-`update_token` | `null,`&nbsp;`string` | Jeton de mise à jour de la en direct or en ligne/en production/instantané Activity
-`live_activity_event_type` | `null,`&nbsp;`string` | Type d'événement de la en direct or en ligne/en production/instantané Activity. Un parmi ['start', 'update', 'end']
+`activity_id` | `null,`&nbsp;`string` | Identifiant de la en direct Activity
+`activity_attributes_type` | `null,`&nbsp;`string` | Type d'attribut de la en direct Activity
+`push_to_start_token` | `null,`&nbsp;`string` | Jeton push to start de la en direct Activity
+`update_token` | `null,`&nbsp;`string` | Jeton de mise à jour de la en direct Activity
+`live_activity_event_type` | `null,`&nbsp;`string` | Type d'événement de la en direct Activity. Un parmi ['start', 'update', 'end']
 `app_group_api_id` | `null,`&nbsp;`string` | ID API du groupe d'applications auquel cet utilisateur appartient
 `app_api_id` | `null,`&nbsp;`string` | ID API de l'application sur laquelle cet événement s'est produit
 `sf_created_at` | `timestamp`,&nbsp;`null` | Date à laquelle cet événement a été capté par le Snowpipe

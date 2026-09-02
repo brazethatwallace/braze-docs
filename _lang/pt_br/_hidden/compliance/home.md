@@ -122,7 +122,7 @@ Para enviar Mensagens pelo Canal LINE, os clientes devem obter uma Conta Oficial
 
 ### Termos aplicáveis do prestador de serviços terceirizado
 
-Ao usar o Canal LINE, o Cliente concorda em cumprir e estar vinculado, conforme aplicável, a todos os termos e políticas exigidos pela LY Corporation e suas afiliadas (coletivamente "LINE"), incluindo, sem limitação, os Termos de Uso da Conta Oficial LINE, os Termos de Uso da API or interface de programação do aplicativo (API) da Conta Oficial, as Diretrizes da Conta Oficial LINE, a Política de Dados do Usuário LINE e quaisquer políticas, termos, diretrizes e documentação incorporados por referência (coletivamente, os "Termos do LINE"). Para fins de esclarecimento, o Cliente é responsável por: (i) garantir que quaisquer dados processados em conexão com o LINE sejam processados de acordo com os Termos do LINE, conforme aplicável; e (ii) quaisquer taxas ou pagamentos devidos ao LINE pelo uso dos serviços LINE em conexão com o Canal LINE.
+Ao usar o Canal LINE, o Cliente concorda em cumprir e estar vinculado, conforme aplicável, a todos os termos e políticas exigidos pela LY Corporation e suas afiliadas (coletivamente "LINE"), incluindo, sem limitação, os Termos de Uso da Conta Oficial LINE, os Termos de Uso da API da Conta Oficial, as Diretrizes da Conta Oficial LINE, a Política de Dados do Usuário LINE e quaisquer políticas, termos, diretrizes e documentação incorporados por referência (coletivamente, os "Termos do LINE"). Para fins de esclarecimento, o Cliente é responsável por: (i) garantir que quaisquer dados processados em conexão com o LINE sejam processados de acordo com os Termos do LINE, conforme aplicável; e (ii) quaisquer taxas ou pagamentos devidos ao LINE pelo uso dos serviços LINE em conexão com o Canal LINE.
 
 Não obstante qualquer disposição em contrário nos Termos do LINE, o Cliente permanece primariamente responsável pelo seu uso dos serviços LINE.
 
@@ -155,7 +155,7 @@ O Cliente reconhece que o uso do Arquivamento de Mensagens e/ou da Criptografia 
 
 Quando o Cliente usa uma integração com um modelo de linguagem de grande escala fornecido pela Braze por meio da opção Braze Auto nos Serviços da Braze ("LLM fornecido pela Braze"), o provedor de tal LLM fornecido pela Braze estará atuando como Subprocessador da Braze, sujeito aos termos do Adendo de Processamento de Dados (DPA) entre o Cliente e a Braze.
 
-Se o Cliente optar por trazer sua própria chave de API or interface de programação do aplicativo (API) para integrar com a funcionalidade de IA da Braze, o provedor da assinatura de LLM própria do Cliente será considerado um Prestador de Serviços Terceirizado, conforme definido no contrato entre o Cliente e a Braze.
+Se o Cliente optar por trazer sua própria chave de API para integrar com a funcionalidade de IA da Braze, o provedor da assinatura de LLM própria do Cliente será considerado um Prestador de Serviços Terceirizado, conforme definido no contrato entre o Cliente e a Braze.
 
 ## 9. Documentação de conformidade do canal KakaoTalk {#kakaotalk-channel-compliance-documentation}
 

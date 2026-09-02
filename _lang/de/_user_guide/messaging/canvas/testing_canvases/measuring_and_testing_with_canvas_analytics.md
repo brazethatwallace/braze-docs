@@ -38,7 +38,7 @@ Wenn ein Segment, das Sie aus Canvas-Aktivitäten erstellt haben, weniger erreic
 
 ### Änderungen seit der letzten Ansicht {#changes-since-last-viewed}
 
-Die Anzahl der Aktualisierungen am Canvas durch andere Mitglieder Ihres Teams wird durch die Metrik *Änderungen seit der letzten Ansicht* auf der Canvas-Übersichtsseite erfasst. Wählen Sie **Änderungen seit der letzten Ansicht**, um ein Changelog der Aktualisierungen an Canvas-Name, Zeitplan, Tags, Nachricht, Zielgruppe, Genehmigungsstatus oder Team-Zugriffskonfiguration anzuzeigen. Für jede Aktualisierung können Sie sehen, wer sie durchgeführt hat und wann. Sie können dieses Changelog nutzen, um Änderungen an Ihren Canvase zu überprüfen.
+Die Anzahl der Aktualisierungen am Canvas durch andere Mitglieder Ihres Teams wird durch die Metrik *Änderungen seit der letzten Ansicht* auf der Canvas-Übersichtsseite erfasst. Wählen Sie **Änderungen seit der letzten Ansicht**, um ein Changelog der Aktualisierungen an Canvas-Name, Zeitplan, Tags, Nachricht, Zielgruppe, Genehmigungsstatus oder Team-Zugriffskonfiguration anzuzeigen. Für jede Aktualisierung können Sie sehen, wer sie durchgeführt hat und wann. Sie können dieses Changelog nutzen, um Änderungen an Ihren Canvases zu überprüfen.
 
 ## Performance-Visualisierung {#performance-visualization}
 
@@ -64,7 +64,7 @@ Klicken Sie unten auf der Seite **Canvas Details** auf **Analyze Variants**, um 
 
 Im Tab **Analyze Variants** können Sie eine Aufschlüsselung der Performance nach Variante und Kontrollgruppe sehen, sofern Sie mehr als eine haben. Sie können außerdem den Canvas-API-Bezeichner kopieren, eine CSV-Datei der Metriken herunterladen und die Zellen kopieren. Der Tab **Analyze Variants** enthält eine Tabelle, die Ihnen eine Aufschlüsselung jeder Variante auf mehreren Ebenen zeigt.
 
-Sie können schnell effektive Varianten erkennen und die richtigen Kadenzen, Inhalte, Trigger or triggern, Zeitpunkte und mehr identifizieren.
+Sie können schnell effektive Varianten erkennen und die richtigen Kadenzen, Inhalte, Trigger, Zeitpunkte und mehr identifizieren.
 
 ![Das Modal „Analyze Canvas“ mit dem ausgewählten Tab „Analyze Variants“, das eine Vergleichstabelle für Pfad 1 und Pfad 2 mit Entries, Sends, Umsatz, Konversionsraten, prozentualer Veränderung und Konfidenz-Metriken zeigt.]({% image_buster /assets/img_archive/analyze_variants.png %})
 

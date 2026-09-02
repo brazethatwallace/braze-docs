@@ -1,32 +1,32 @@
 ---
-nav_title: Predictive Abwanderung or Abwanderung, Churn or Abwanderung, churnen
-article_title: Predictive Abwanderung or Abwanderung, Churn or Abwanderung, churnen
-description: "Diese Landing-Page befasst sich mit Predictive Abwanderung or Abwanderung, Churn or Abwanderung, churnen, einem Tool der Braze Predictive Suite, mit dem Sie definieren können, was Abwanderung or Abwanderung, Churn or Abwanderung, churnen für Ihr Unternehmen bedeutet und welche Nutzer:innen Sie vor Abwanderung schützen möchten."
+nav_title: Predictive Abwanderung
+article_title: Predictive Abwanderung
+description: "Diese Landing-Page befasst sich mit Predictive Abwanderung, einem Tool der Braze Predictive Suite, mit dem Sie definieren können, was Abwanderung für Ihr Unternehmen bedeutet und welche Nutzer:innen Sie vor Abwanderung schützen möchten."
 page_order: 8
 alias: /predictive_churn/
 search_rank: 2
 ---
 
-# Predictive Abwanderung or Abwanderung, Churn or Abwanderung, churnen {#predictive-churn}
+# Predictive Abwanderung {#predictive-churn}
 
-> Mit Predictive Abwanderung or Abwanderung, Churn or Abwanderung, churnen, einem Tool der Braze Predictive Suite, können Sie definieren, was Abwanderung or Abwanderung, Churn or Abwanderung, churnen für Ihr Unternehmen bedeutet, und die Nutzer:innen identifizieren, die Sie behalten möchten. Wenn Sie eine Prognose erstellen, trainiert Braze ein Modell für maschinelles Lernen mithilfe von [gradientenverstärkten Entscheidungsbäumen](https://en.wikipedia.org/wiki/Gradient_boosting), um gefährdete Nutzer:innen zu erkennen, indem es Muster aus dem vergangenen Verhalten analysiert – sowohl von Nutzer:innen, die abgewandert sind, als auch von solchen, die nicht abgewandert sind.
+> Mit Predictive Abwanderung, einem Tool der Braze Predictive Suite, können Sie definieren, was Abwanderung für Ihr Unternehmen bedeutet, und die Nutzer:innen identifizieren, die Sie behalten möchten. Wenn Sie eine Prognose erstellen, trainiert Braze ein Modell für maschinelles Lernen mithilfe von [gradientenverstärkten Entscheidungsbäumen](https://en.wikipedia.org/wiki/Gradient_boosting), um gefährdete Nutzer:innen zu erkennen, indem es Muster aus dem vergangenen Verhalten analysiert – sowohl von Nutzer:innen, die abgewandert sind, als auch von solchen, die nicht abgewandert sind.
 
 {% alert tip %}
-Weitere Informationen finden Sie unter [Abwanderung or Abwanderung, Churn or Abwanderung, churnen-Definition]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/creating_a_churn_prediction#step-2-define-churn) und [Prognose-Zielgruppe]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/creating_a_churn_prediction#step-3-filter-your-prediction-audience).
+Weitere Informationen finden Sie unter [Abwanderung-Definition]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/creating_a_churn_prediction#step-2-define-churn) und [Prognose-Zielgruppe]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/creating_a_churn_prediction#step-3-filter-your-prediction-audience).
 {% endalert %}
 
-## Über Predictive Abwanderung or Abwanderung, Churn or Abwanderung, churnen {#about-predictive-churn}
+## Über Predictive Abwanderung {#about-predictive-churn}
 
-Nachdem das Prognosemodell erstellt wurde, wird den Nutzer:innen der Prognose-Zielgruppe ein [Abwanderung or Abwanderung, Churn or Abwanderung, churnen-Risiko-Score]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/analytics#churn_score) zwischen 0 und 100 zugewiesen, der angibt, wie wahrscheinlich es ist, dass sie gemäß Ihrer Definition abwandern. Je höher der Score, desto wahrscheinlicher ist es, dass ein:e Nutzer:in abwandert.
+Nachdem das Prognosemodell erstellt wurde, wird den Nutzer:innen der Prognose-Zielgruppe ein [Abwanderung-Risiko-Score]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/analytics#churn_score) zwischen 0 und 100 zugewiesen, der angibt, wie wahrscheinlich es ist, dass sie gemäß Ihrer Definition abwandern. Je höher der Score, desto wahrscheinlicher ist es, dass ein:e Nutzer:in abwandert.
 
-Die Aktualisierung der Risikobewertungen für die Prognose-Zielgruppe kann in einem [von Ihnen gewählten Rhythmus]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/creating_a_churn_prediction#step-4-choose-the-update-frequency-for-churn-prediction) erfolgen. Auf diese Weise können Sie Nutzer:innen, bei denen die Gefahr der Abwanderung besteht, kontaktieren, bevor sie tatsächlich abwandern, und so einer Abwanderung von vornherein vorbeugen. Mithilfe von bis zu drei aktiven Prognosen können Sie Predictive Abwanderung or Abwanderung, Churn or Abwanderung, churnen nutzen, um individuelle Modelle zu erstellen, mit denen Sie die Abwanderung in bestimmten Segmenten Ihrer Nutzer:innen verhindern können, die Sie als besonders wertvoll erachten.
+Die Aktualisierung der Risikobewertungen für die Prognose-Zielgruppe kann in einem [von Ihnen gewählten Rhythmus]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/creating_a_churn_prediction#step-4-choose-the-update-frequency-for-churn-prediction) erfolgen. Auf diese Weise können Sie Nutzer:innen, bei denen die Gefahr der Abwanderung besteht, kontaktieren, bevor sie tatsächlich abwandern, und so einer Abwanderung von vornherein vorbeugen. Mithilfe von bis zu drei aktiven Prognosen können Sie Predictive Abwanderung nutzen, um individuelle Modelle zu erstellen, mit denen Sie die Abwanderung in bestimmten Segmenten Ihrer Nutzer:innen verhindern können, die Sie als besonders wertvoll erachten.
 
 ![Eine Übersicht über Churn, die eine vergangene Prognose-Zielgruppe mit Training anhand historischer Daten umfasst. Dies trägt zur Vorhersage des Risikos zukünftiger Abwanderung bei, indem die heutige prognostizierte Zielgruppe mit einem Churn-Risiko-Score gemessen wird.]({% image_buster /assets/img/churn/churn_overview.png %})
 
-## Zugriff auf Predictive Abwanderung or Abwanderung, Churn or Abwanderung, churnen {#accessing-predictive-churn}
+## Zugriff auf Predictive Abwanderung {#accessing-predictive-churn}
 
 {% multi_lang_include brazeai/predictions_page_access.md %}
 
-Bevor Sie dieses Feature erwerben, ist es im Vorschaumodus verfügbar. Dies ermöglicht es Ihnen, eine Demo-Abwanderung or Abwanderung, Churn or Abwanderung, churnen-Prognose mit synthetischen Daten anzuzeigen und jeweils ein Abwanderung or Abwanderung, Churn or Abwanderung, churnen-Prognosemodell auf der Grundlage Ihrer Nutzerdaten zu erstellen. Diese Vorschau erlaubt es Ihnen nicht, Nutzer:innen nach Abwanderung or Abwanderung, Churn or Abwanderung, churnen-Risiko für Messaging anzusprechen, und wird nach der Erstellung nicht regelmäßig aktualisiert.
+Bevor Sie dieses Feature erwerben, ist es im Vorschaumodus verfügbar. Dies ermöglicht es Ihnen, eine Demo-Abwanderung-Prognose mit synthetischen Daten anzuzeigen und jeweils ein Abwanderung-Prognosemodell auf der Grundlage Ihrer Nutzerdaten zu erstellen. Diese Vorschau erlaubt es Ihnen nicht, Nutzer:innen nach Abwanderung-Risiko für Messaging anzusprechen, und wird nach der Erstellung nicht regelmäßig aktualisiert.
 
 Mit der Vorschau können Sie auch Ihre eine Prognose bearbeiten und neu erstellen oder sie archivieren und weitere erstellen, um die erwartete [Prognosequalität]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/analytics) verschiedener [Definitionen]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/creating_a_churn_prediction#step-2-define-churn) zu testen.

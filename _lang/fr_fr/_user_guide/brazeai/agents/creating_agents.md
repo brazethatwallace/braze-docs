@@ -23,7 +23,7 @@ Avant de commencer, vous aurez besoin des éléments suivants :
 
 ## Comment ça fonctionne {#how-it-works}
 
-Lorsque vous créez un agent, vous définissez son objectif et établissez des garde-fous pour encadrer son comportement. Une fois en direct or en ligne/en production/instantané, l'agent peut être déployé dans Braze pour générer du contenu personnalisé, prendre des décisions en temps réel ou mettre à jour des champs de catalogue. Pendant la création de votre agent, vous pouvez l'enregistrer en tant que brouillon, et vous pouvez mettre en pause ou mettre à jour un agent à tout moment depuis le tableau de bord. Chaque enregistrement crée une nouvelle version que vous pouvez consulter dans l'onglet [Historique des versions]({{site.baseurl}}/user_guide/brazeai/agents/reference#version-history).
+Lorsque vous créez un agent, vous définissez son objectif et établissez des garde-fous pour encadrer son comportement. Une fois en direct, l'agent peut être déployé dans Braze pour générer du contenu personnalisé, prendre des décisions en temps réel ou mettre à jour des champs de catalogue. Pendant la création de votre agent, vous pouvez l'enregistrer en tant que brouillon, et vous pouvez mettre en pause ou mettre à jour un agent à tout moment depuis le tableau de bord. Chaque enregistrement crée une nouvelle version que vous pouvez consulter dans l'onglet [Historique des versions]({{site.baseurl}}/user_guide/brazeai/agents/reference#version-history).
 
 Les cas d'usage suivants illustrent quelques façons de tirer parti des agents personnalisés.
 

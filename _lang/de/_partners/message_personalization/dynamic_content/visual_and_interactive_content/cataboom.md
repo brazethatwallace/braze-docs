@@ -15,7 +15,7 @@ search_tag: Partner
 
 ## Über diese Integration {#about-this-integration}
 
-Verwenden Sie die Integration von Braze und CataBoom, um personalisierte Spielelinks zu Ihren Nachrichten hinzuzufügen. Sie können Nutzer:innen-Bezeichner und Attribute in Echtzeit zwischen Catapult-Campaigns und Braze austauschen. Anschließend können Sie mit diesen Daten personalisierte Campaigns, Trigger or triggern und Folge-Journeys erstellen.
+Verwenden Sie die Integration von Braze und CataBoom, um personalisierte Spielelinks zu Ihren Nachrichten hinzuzufügen. Sie können Nutzer:innen-Bezeichner und Attribute in Echtzeit zwischen Catapult-Campaigns und Braze austauschen. Anschließend können Sie mit diesen Daten personalisierte Campaigns, Trigger und Folge-Journeys erstellen.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -24,8 +24,8 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 | Voraussetzung | Beschreibung |
 | --- | --- |
 | Catapult-Konto | Ein Catapult-Konto ist erforderlich, um diese Integration zu nutzen. |
-| Braze-Representational State Transfer-API-Schlüssel (optional) | Wenn Sie Catapult-Webhooks verwenden, benötigen Sie einen Braze-Representational State Transfer-API-Schlüssel mit den Nutzerdaten-Berechtigungen, die Ihr Anwendungsfall erfordert. Erstellen Sie den Schlüssel in Braze unter **Einstellungen** > **APIs und Bezeichner** > **API-Schlüssel**. |
-| Braze-Representational State Transfer-Endpunkt (optional) | Wenn Sie Catapult-Webhooks verwenden, nutzen Sie die Representational State Transfer-Endpunkt-URL, die der Braze-URL für [Ihre Braze-Instanz]({{site.baseurl}}/api/basics#endpoints) entspricht. |
+| Braze-REST-API-Schlüssel (optional) | Wenn Sie Catapult-Webhooks verwenden, benötigen Sie einen Braze-REST-API-Schlüssel mit den Nutzerdaten-Berechtigungen, die Ihr Anwendungsfall erfordert. Erstellen Sie den Schlüssel in Braze unter **Einstellungen** > **APIs und Bezeichner** > **API-Schlüssel**. |
+| Braze-REST-Endpunkt (optional) | Wenn Sie Catapult-Webhooks verwenden, nutzen Sie die REST-Endpunkt-URL, die der Braze-URL für [Ihre Braze-Instanz]({{site.baseurl}}/api/basics#endpoints) entspricht. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Schritt 1: Erstellen Sie Ihr Spielerlebnis {#step-1-create-your-game-experience}

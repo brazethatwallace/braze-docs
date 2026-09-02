@@ -46,7 +46,7 @@ Casos de uso incluem:
 Use imagens por URL para casos de uso que incorporam:
 - Imagens dinâmicas com Liquid, incluindo o Liquid no atributo de origem da imagem. Por exemplo, você pode inserir {% raw %} `https://example.com/images/?imageBanner={{first_name}}` {% endraw %} como a URL da imagem para incluir o nome do usuário na imagem
 - [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) puxando imagens diretamente do seu servidor web ou de APIs acessíveis publicamente
-- [Catálogos da Braze]({{site.baseurl}}/user_guide/data/activation/catalogs) acessando imagens de arquivos CSV importados e endpoints de API or interface de programação do aplicativo (API)
+- [Catálogos da Braze]({{site.baseurl}}/user_guide/data/activation/catalogs) acessando imagens de arquivos CSV importados e endpoints de API
 
 | **Especificações** | **Propriedades recomendadas** |
 |--------------------------|----------------------------|

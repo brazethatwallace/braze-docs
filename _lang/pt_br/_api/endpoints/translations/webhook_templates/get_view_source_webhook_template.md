@@ -9,7 +9,7 @@ page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint para visualizar traduções de origem de um modelo de webhook."
 ---
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Ver traduções de origem para um modelo de webhook {#view-source-translations-for-a-webhook-template}
 {% apimethod get %}
 /templates/webhook/translations/source
@@ -19,7 +19,7 @@ description: "Este artigo descreve detalhes sobre o endpoint para visualizar tra
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `templates.translations.get`.
+Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `templates.translations.get`.
 
 ## Limite de frequência {#rate-limit}
 

@@ -42,7 +42,7 @@ A tabela a seguir descreve termos comuns de geofence:
 
 ## Pré-requisitos {#prerequisites}
 
-### Requisitos de SDK or kit de desenvolvimento de software e plataforma {#sdk-and-platform-requirements}
+### Requisitos de SDK e plataforma {#sdk-and-platform-requirements}
 
 Campaigns disparadas por geofence estão disponíveis no iOS e Android. Para suportar geofences, é necessário o seguinte:
 
@@ -281,7 +281,7 @@ Para usar dados de geofence para personalizar uma mensagem, você pode usar a se
 
 ## Atualizando conjuntos de geofences {#updating-geofence-sets}
 
-O SDK or kit de desenvolvimento de software da Braze solicita geofences apenas uma vez por dia no início da sessão. Se você fizer alterações nos conjuntos de geofences após o início da sessão, precisará aguardar 24 horas a partir do momento em que os conjuntos foram baixados pela primeira vez para receber o conjunto atualizado.
+O SDK da Braze solicita geofences apenas uma vez por dia no início da sessão. Se você fizer alterações nos conjuntos de geofences após o início da sessão, precisará aguardar 24 horas a partir do momento em que os conjuntos foram baixados pela primeira vez para receber o conjunto atualizado.
 
 {% alert note %}
 Se as geofences não forem carregadas no dispositivo localmente, o usuário não poderá disparar a geofence mesmo que entre na área.
@@ -302,7 +302,7 @@ Se as geofences não forem carregadas no dispositivo localmente, o usuário não
 - Os usuários do seu app devem conceder permissões de localização. Consulte a seção [Permissões de localização](#location-permissions) para saber mais.
 
 {% alert note %}
-A integração básica do SDK or kit de desenvolvimento de software ativa apenas o rastreamento de localização. O geofencing requer etapas de configuração adicionais tanto para iOS quanto para Android. Para mais detalhes, consulte [Geofences]({{site.baseurl}}/developer_guide/geofences) no guia do desenvolvedor.
+A integração básica do SDK ativa apenas o rastreamento de localização. O geofencing requer etapas de configuração adicionais tanto para iOS quanto para Android. Para mais detalhes, consulte [Geofences]({{site.baseurl}}/developer_guide/geofences) no guia do desenvolvedor.
 {% endalert %}
 
 Você também pode usar geofences com parceiros de tecnologia da Braze, como [Radar]({{site.baseurl}}/partners/message_personalization/location/radar) e [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare).

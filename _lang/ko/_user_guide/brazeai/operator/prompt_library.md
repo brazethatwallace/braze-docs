@@ -42,7 +42,7 @@ description: "BrazeAI Operator의 예시 프롬프트를 목적별로 정리하�
 
 {% include copy_block.html content="How can we use the [your segment name] segment to build a re-engagement journey and reduce churn?" available="Segments" %}
 
-{% include copy_block.html content="How should we structure frequency-capping extensions (email/단문 메시지 서비스/48h) to reduce over-messaging without hurting conversions?" available="Segment Extensions" %}
+{% include copy_block.html content="How should we structure frequency-capping extensions (email/SMS/48h) to reduce over-messaging without hurting conversions?" available="Segment Extensions" %}
 
 {% include copy_block.html content="What are 3 high-impact reports we should create here to monitor weekly campaign and Canvas health and catch issues early?" available="Report Builder" %}
 
@@ -55,7 +55,7 @@ description: "BrazeAI Operator의 예시 프롬프트를 목적별로 정리하�
 
 {% include copy_block.html content="Build a segment of users who made a purchase in the last 30 days but haven't opened the app in the last 7 days." %}
 
-{% include copy_block.html content="Build me a report which shows my workspace 단문 메시지 서비스 engagement over the last 30 days." %}
+{% include copy_block.html content="Build me a report which shows my workspace SMS engagement over the last 30 days." %}
 
 {% endsdktab %}
 {% sdktab 메시징 성과 %}

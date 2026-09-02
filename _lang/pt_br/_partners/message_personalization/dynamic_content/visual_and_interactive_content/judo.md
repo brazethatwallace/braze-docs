@@ -23,7 +23,7 @@ A integração da Braze com o Judo proporciona experiências personalizadas em s
 | Requisito | Descrição |
 |---|---|
 | Conta Judo | É necessário ter uma conta [Judo](https://www.judo.app/) para aproveitar essa parceria. |
-| SDK or kit de desenvolvimento de software do Judo | O SDK or kit de desenvolvimento de software do Judo deve ser integrado aos seus apps para [iOS](https://github.com/judoapp/judo-ios/) e/ou [Android](https://github.com/judoapp/judo-android). |
+| SDK do Judo | O SDK do Judo deve ser integrado aos seus apps para [iOS](https://github.com/judoapp/judo-ios/) e/ou [Android](https://github.com/judoapp/judo-android). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
@@ -34,7 +34,7 @@ A integração da Braze com o Judo proporciona experiências personalizadas em s
 
 **Conteúdo orientado por eventos**: um dos principais usos do Judo em esportes e entretenimento é a criação de experiências ricas para prévia, promoção e recapitulação de eventos. Esse recurso tem amplas aplicações em outros verticais de conteúdo sazonal e voltado para notícias. Vincular o envio de mensagens para promover ou destacar eventos em tempo hábil a experiências ricas no app capacita os editores a impulsionar o engajamento sendo contextualmente relevantes.
 
-## Integração lado a lado de SDK or kit de desenvolvimento de software {#side-by-side-sdk-integration}
+## Integração lado a lado de SDK {#side-by-side-sdk-integration}
 
 O Judo oferece bibliotecas adicionais que automatizam parte do esforço necessário para integrar os SDKs do Judo e da Braze lado a lado em seus apps móveis.
 

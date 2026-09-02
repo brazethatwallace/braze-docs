@@ -259,7 +259,7 @@ Si un atributo personalizado de matriz aparece en un perfil de usuario pero no m
 
 Configurar **Max Length** en `0` impide que los valores se muestren en el perfil de usuario.
 
-Para ver ejemplos de comportamiento de matrices orientados al SDK or kit de desarrollo de software, consulta [Resumen de análisis]({{site.baseurl}}/developer_guide/analytics).
+Para ver ejemplos de comportamiento de matrices orientados al SDK, consulta [Resumen de análisis]({{site.baseurl}}/developer_guide/analytics).
 
 Para los atributos de **matriz**, están disponibles las siguientes opciones de segmentación.
 
@@ -376,7 +376,7 @@ Los datos de compras e ingresos se registran a través de [eventos de compra]({{
 Los eventos recomendados tienen esquemas predefinidos con tipos de datos establecidos. Para más detalles, consulta [Eventos recomendados de comercio electrónico]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events).
 {% endalert %}
 
-Registrar eventos de compra establece el LTV or valor de duración del ciclo de vida or valor de duración del ciclo de vida (LTV or valor de duración del ciclo de vida) para cada perfil de usuario, y estos datos se pueden ver en la página de ingresos en series temporales. Puedes segmentar por dinero gastado, fecha de última compra, número de compras en un período de tiempo y más.
+Registrar eventos de compra establece el LTV (LTV) para cada perfil de usuario, y estos datos se pueden ver en la página de ingresos en series temporales. Puedes segmentar por dinero gastado, fecha de última compra, número de compras en un período de tiempo y más.
 
 ### Tipos de datos de propiedades de eventos de compra {#purchase-event-property-data-types}
 
@@ -402,7 +402,7 @@ Si cambias el tipo de datos de un atributo personalizado o evento (por ejemplo, 
 - **Los nuevos datos deben coincidir con el nuevo tipo.** Las llamadas a la API que envíen el tipo de datos anterior para el atributo modificado no se aceptan. Envía el nuevo tipo de datos.
 
 {% alert important %}
-La capacidad de evitar que la detección automática actualice el tipo de datos del atributo personalizado está actualmente en acceso anticipado. Ponte en contacto con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente si te interesa participar.
+La capacidad de evitar que la detección automática actualice el tipo de datos del atributo personalizado está actualmente en acceso anticipado. Ponte en contacto con tu CSM si te interesa participar.
 {% endalert %}
 
 ## Tipos de datos de catálogos {#catalog-data-types}

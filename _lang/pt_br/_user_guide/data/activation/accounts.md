@@ -79,7 +79,7 @@ A Braze inclui objetos de conta com campos padrão por padrão. Você pode adici
 
 Você pode gerenciar registros de conta por meio de:
 
-- Endpoints da REST or transferir estado representacional API or interface de programação do aplicativo (API) para registros de conta
+- Endpoints da REST API para registros de conta
 - Edição no navegador em **Data Settings** > **Accounts** para registros individuais
 
 ## Primeiros passos {#get-started}
@@ -92,7 +92,7 @@ Quando o Accounts estiver ativado, acesse **Configurações de Dados** > **Accou
 
 ### Etapa 2: Adicionar registros de conta {#step-2-add-account-records}
 
-Adicione ou atualize registros de conta por meio da REST or transferir estado representacional API or interface de programação do aplicativo (API) ou pela edição no navegador.
+Adicione ou atualize registros de conta por meio da REST API ou pela edição no navegador.
 
 ### Etapa 3: Criar um filtro calculado para critérios de conta {#step-3-create-a-calculated-filter-for-account-criteria}
 
@@ -115,7 +115,7 @@ Depois que seus registros de conta e o filtro calculado estiverem prontos:
 1. Acesse o [criador de segmentos]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment).
 2. Adicione seu filtro calculado pré-configurado para os critérios de conta.
 3. Adicione quaisquer filtros de atributo de usuário adicionais.
-4. Salve seu Segment or segmento or segmento.
+4. Salve seu Segment.
 
 Por exemplo:
 
@@ -127,7 +127,7 @@ Por exemplo:
 Use a Liquid tag `{% raw %}{% data_object account %}{% endraw %}` para carregar os dados da conta do usuário no array `data_objects`.
 
 {% alert note %}
-Ao usar **prévia and Test**, use um Segment or segmento que inclua dados de conta para que a personalização seja resolvida corretamente.
+Ao usar **prévia and Test**, use um Segment que inclua dados de conta para que a personalização seja resolvida corretamente.
 {% endalert %}
 
 {% raw %}
@@ -149,13 +149,13 @@ Para iterar sobre todas as contas correspondentes:
 ```
 {% endraw %}
 
-## Conceitos básicos da API or interface de programação do aplicativo (API) {#api-basics}
+## Conceitos básicos da API {#api-basics}
 
-Você pode usar a REST or transferir estado representacional API or interface de programação do aplicativo (API) para gerenciar registros de conta durante o Acesso Antecipado.
+Você pode usar a REST API para gerenciar registros de conta durante o Acesso Antecipado.
 
 Para detalhes sobre endpoints, consulte [Endpoints de objetos de dados]({{site.baseurl}}/api/endpoints/data_objects).
 
-Para informações sobre autenticação e conceitos básicos de endpoints REST or transferir estado representacional, consulte [Visão geral da API or interface de programação do aplicativo (API) da Braze]({{site.baseurl}}/api/basics).
+Para informações sobre autenticação e conceitos básicos de endpoints REST, consulte [Visão geral da API da Braze]({{site.baseurl}}/api/basics).
 
 ## Perguntas frequentes {#frequently-asked-questions}
 

@@ -18,7 +18,7 @@ _Esta integración está mantenida por Ketch._
 La integración de Braze y Ketch te permite controlar las preferencias de comunicación de los clientes en el centro de preferencias de Ketch y propagar automáticamente estos cambios a Braze.
 
 {% alert note %}
-¿Buscas orientación para crear grupos de suscripción? Consulta nuestros artículos sobre <a href='/docs/user_guide/message_building_by_channel/servicio de mensajes cortos/sms_subscription_group/'>grupos de suscripción por servicio de mensajes cortos</a> y <a href='/docs/user_guide/message_building_by_channel/email/managing_user_subscriptions/'>grupos de suscripción por correo electrónico</a>.
+¿Buscas orientación para crear grupos de suscripción? Consulta nuestros artículos sobre <a href='/docs/user_guide/message_building_by_channel/sms/sms_subscription_group/'>grupos de suscripción por SMS</a> y <a href='/docs/user_guide/message_building_by_channel/email/managing_user_subscriptions/'>grupos de suscripción por correo electrónico</a>.
 {% endalert %}
 
 ## Requisitos previos {#prerequisites}
@@ -26,7 +26,7 @@ La integración de Braze y Ketch te permite controlar las preferencias de comuni
 | Requisitos | Descripción |
 |---|---|
 | Cuenta Ketch | Se requiere una cuenta [Ketch](https://www.ketch.com) con privilegios de administrador para activar esta integración. |
-| Clave de API de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos `users.track`, `subscription.status.get`, `subscription.status.set`, `users.delete`, `users.alias.new`, `users.export.ids`, `email.unsubscribe` y `email.blacklist`. <br><br> Se puede crear en el panel de Braze (**Consola para desarrolladores** > **Clave de API REST or transferencia de estado representacional** > **Crear nueva clave de API**). |
+| Clave de API de Braze | Una clave de API REST de Braze con permisos `users.track`, `subscription.status.get`, `subscription.status.set`, `users.delete`, `users.alias.new`, `users.export.ids`, `email.unsubscribe` y `email.blacklist`. <br><br> Se puede crear en el panel de Braze (**Consola para desarrolladores** > **Clave de API REST** > **Crear nueva clave de API**). |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Integración {#integration}

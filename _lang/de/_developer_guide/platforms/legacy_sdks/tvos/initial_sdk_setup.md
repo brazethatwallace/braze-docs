@@ -1,31 +1,31 @@
 ---
-nav_title: SDK or Software-Development-Kit-Ersteinrichtung
-article_title: SDK or Software-Development-Kit-Ersteinrichtung für tvOS
+nav_title: SDK-Ersteinrichtung
+article_title: SDK-Ersteinrichtung für tvOS
 platform: tvOS
 page_order: 0
 page_type: reference
-description: "Auf dieser Seite werden die Schritte zur Ersteinrichtung des tvOS Braze SDK or Software-Development-Kit beschrieben."
+description: "Auf dieser Seite werden die Schritte zur Ersteinrichtung des tvOS Braze SDK beschrieben."
 search_rank: 1
 noindex: true
 ---
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# SDK or Software-Development-Kit-Ersteinrichtung {#initial-sdk-setup}
+# SDK-Ersteinrichtung {#initial-sdk-setup}
 
-> Dieser Referenzartikel beschreibt, wie Sie das Braze SDK or Software-Development-Kit für tvOS installieren. Durch die Installation des Braze SDK or Software-Development-Kit erhalten Sie grundlegende Analytics-Funktionen.
+> Dieser Referenzartikel beschreibt, wie Sie das Braze SDK für tvOS installieren. Durch die Installation des Braze SDK erhalten Sie grundlegende Analytics-Funktionen.
 
 {% alert note %}
-Unser tvOS SDK or Software-Development-Kit unterstützt derzeit Analytics-Funktionen. Um eine tvOS-App in Ihrem Dashboard hinzuzufügen, öffnen Sie ein [Support-Ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support).
+Unser tvOS SDK unterstützt derzeit Analytics-Funktionen. Um eine tvOS-App in Ihrem Dashboard hinzuzufügen, öffnen Sie ein [Support-Ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 {% endalert %}
 
-Das tvOS Braze SDK or Software-Development-Kit sollte mit [CocoaPods](http://cocoapods.org/), einem Abhängigkeitsmanager für Objective-C- und Swift-Projekte, installiert oder aktualisiert werden. CocoaPods bietet zusätzliche Einfachheit bei der Integration und Aktualisierung.
+Das tvOS Braze SDK sollte mit [CocoaPods](http://cocoapods.org/), einem Abhängigkeitsmanager für Objective-C- und Swift-Projekte, installiert oder aktualisiert werden. CocoaPods bietet zusätzliche Einfachheit bei der Integration und Aktualisierung.
 
-## tvOS SDK or Software-Development-Kit CocoaPods-Integration
+## tvOS SDK CocoaPods-Integration
 
 ### Schritt 1: CocoaPods installieren
 
-Die Installation des SDK or Software-Development-Kit über die tvOS-[CocoaPods](http://cocoapods.org/) automatisiert den Großteil des Installationsprozesses für Sie. Bevor Sie diesen Prozess starten, stellen Sie sicher, dass Sie [Ruby Version 2.0.0](https://www.ruby-lang.org/en/installation/) oder höher verwenden.
+Die Installation des SDK über die tvOS-[CocoaPods](http://cocoapods.org/) automatisiert den Großteil des Installationsprozesses für Sie. Bevor Sie diesen Prozess starten, stellen Sie sicher, dass Sie [Ruby Version 2.0.0](https://www.ruby-lang.org/en/installation/) oder höher verwenden.
 
 Führen Sie den folgenden Befehl aus, um zu beginnen:
 
@@ -48,11 +48,11 @@ target 'YourAppTarget' do
 end
 ```
 
-Wir empfehlen, Braze zu versionieren, damit Pod-Aktualisierungen automatisch alles abrufen, was kleiner als ein Minor-Versionsupdate ist. Das sieht wie folgt aus: `pod 'Appboy-tvOS-SDK' ~> Major.Minor.Build`. Wenn Sie automatisch die neueste Braze SDK or Software-Development-Kit-Version integrieren möchten, auch bei größeren Änderungen, können Sie `pod 'Appboy-tvOS-SDK'` in Ihrem Podfile verwenden.
+Wir empfehlen, Braze zu versionieren, damit Pod-Aktualisierungen automatisch alles abrufen, was kleiner als ein Minor-Versionsupdate ist. Das sieht wie folgt aus: `pod 'Appboy-tvOS-SDK' ~> Major.Minor.Build`. Wenn Sie automatisch die neueste Braze SDK-Version integrieren möchten, auch bei größeren Änderungen, können Sie `pod 'Appboy-tvOS-SDK'` in Ihrem Podfile verwenden.
 
-### Schritt 3: Braze SDK or Software-Development-Kit installieren
+### Schritt 3: Braze SDK installieren
 
-Um die Braze SDK or Software-Development-Kit CocoaPods zu installieren, navigieren Sie im Terminal zum Verzeichnis Ihres Xcode-App-Projekts und führen Sie den folgenden Befehl aus:
+Um die Braze SDK CocoaPods zu installieren, navigieren Sie im Terminal zum Verzeichnis Ihres Xcode-App-Projekts und führen Sie den folgenden Befehl aus:
 ```
 pod install
 ```
@@ -61,7 +61,7 @@ An diesem Punkt sollten Sie den neuen Xcode-Projekt-Workspace öffnen können, d
 
 ![An diesem Punkt sollten Sie den neuen Xcode-Projekt-Workspace öffnen können, der von CocoaPods erstellt wurde. Stellen Sie sicher, dass Sie diesen Xcode-Workspace anstelle Ihres Xcode-Projekts verwenden.]({% image_buster /assets/img_archive/podsworkspace.png %})
 
-### Schritt 4: Ihren App-Delegate Update or aktualisieren or aktualisieren
+### Schritt 4: Ihren App-Delegate aktualisieren
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -80,12 +80,12 @@ Fügen Sie innerhalb Ihrer `AppDelegate.m`-Datei das folgende Snippet in Ihre `a
      withLaunchOptions:launchOptions];
 ```
 
-Update or aktualisieren or aktualisieren Sie abschließend `YOUR-API-KEY` mit dem korrekten Wert von Ihrer Seite **Einstellungen verwalten**.
+Aktualisieren Sie abschließend `YOUR-API-KEY` mit dem korrekten Wert von Ihrer Seite **Einstellungen verwalten**.
 
 {% endtab %}
 {% tab swift %}
 
-Wenn Sie das Braze SDK or Software-Development-Kit mit CocoaPods oder Carthage integrieren, fügen Sie die folgende Codezeile zu Ihrer `AppDelegate.swift`-Datei hinzu:
+Wenn Sie das Braze SDK mit CocoaPods oder Carthage integrieren, fügen Sie die folgende Codezeile zu Ihrer `AppDelegate.swift`-Datei hinzu:
 
 ```swift
 import AppboyTVOSKit
@@ -99,7 +99,7 @@ Fügen Sie in `AppDelegate.swift` das folgende Snippet zu Ihrer `application(app
 Appboy.start(withApiKey: "YOUR-API-KEY", in:application, withLaunchOptions:launchOptions)
 ```
 
-Update or aktualisieren or aktualisieren Sie anschließend `YOUR-API-KEY` mit dem korrekten Wert von Ihrer Seite **Einstellungen verwalten**.
+Aktualisieren Sie anschließend `YOUR-API-KEY` mit dem korrekten Wert von Ihrer Seite **Einstellungen verwalten**.
 
 Unser `sharedInstance`-Singleton ist `nil`, bevor `startWithApiKey:` aufgerufen wird, da dies eine Voraussetzung für die Nutzung jeglicher Braze-Funktionalität ist.
 
@@ -120,23 +120,23 @@ Ihre Braze-Vertretung sollte Sie bereits über den [korrekten Endpunkt]({{ site.
 
 #### Endpunkt-Konfiguration zur Kompilierungszeit (empfohlen)
 Wenn Ihnen ein bereits bestehender angepasster Endpunkt zugeteilt wurde:
-- Ab Braze iOS SDK or Software-Development-Kit v3.0.2 können Sie einen angepassten Endpunkt über die `Info.plist`-Datei festlegen. Fügen Sie das `Appboy`-Dictionary zu Ihrer Info.plist-Datei hinzu. Fügen Sie innerhalb des `Appboy`-Dictionarys den `Endpoint`-String-Untereintrag hinzu und setzen Sie den Wert auf die Authority Ihrer angepassten Endpunkt-URL (zum Beispiel `sdk.iad-01.braze.com`, nicht `https://sdk.iad-01.braze.com`).
+- Ab Braze iOS SDK v3.0.2 können Sie einen angepassten Endpunkt über die `Info.plist`-Datei festlegen. Fügen Sie das `Appboy`-Dictionary zu Ihrer Info.plist-Datei hinzu. Fügen Sie innerhalb des `Appboy`-Dictionarys den `Endpoint`-String-Untereintrag hinzu und setzen Sie den Wert auf die Authority Ihrer angepassten Endpunkt-URL (zum Beispiel `sdk.iad-01.braze.com`, nicht `https://sdk.iad-01.braze.com`).
 
 #### Endpunkt-Konfiguration zur Laufzeit
 Wenn Ihnen ein bereits bestehender angepasster Endpunkt zugeteilt wurde:
-- Ab Braze iOS SDK or Software-Development-Kit v3.17.0+ können Sie Ihren Endpunkt über den `ABKEndpointKey` innerhalb des `appboyOptions`-Parameters überschreiben, der an `startWithApiKey:inApplication:withLaunchOptions:withAppboyOptions:` übergeben wird. Setzen Sie den Wert auf die Authority Ihrer angepassten Endpunkt-URL (zum Beispiel `sdk.iad-01.braze.com`, nicht `https://sdk.iad-01.braze.com`).
+- Ab Braze iOS SDK v3.17.0+ können Sie Ihren Endpunkt über den `ABKEndpointKey` innerhalb des `appboyOptions`-Parameters überschreiben, der an `startWithApiKey:inApplication:withLaunchOptions:withAppboyOptions:` übergeben wird. Setzen Sie den Wert auf die Authority Ihrer angepassten Endpunkt-URL (zum Beispiel `sdk.iad-01.braze.com`, nicht `https://sdk.iad-01.braze.com`).
 
 {% alert note %}
-Die Unterstützung für das Festlegen von Endpunkten zur Laufzeit über `ABKAppboyEndpointDelegate` wurde in Braze iOS SDK or Software-Development-Kit v3.17.0 entfernt. Wenn Sie bereits `ABKAppboyEndpointDelegate` verwenden, beachten Sie, dass in den Braze iOS SDK or Software-Development-Kit Versionen v3.14.1 bis v3.16.0 jede Referenz auf `dev.appboy.com` in Ihrer `getApiEndpoint()`-Methode durch eine Referenz auf `sdk.iad-01.braze.com` ersetzt werden muss.
+Die Unterstützung für das Festlegen von Endpunkten zur Laufzeit über `ABKAppboyEndpointDelegate` wurde in Braze iOS SDK v3.17.0 entfernt. Wenn Sie bereits `ABKAppboyEndpointDelegate` verwenden, beachten Sie, dass in den Braze iOS SDK Versionen v3.14.1 bis v3.16.0 jede Referenz auf `dev.appboy.com` in Ihrer `getApiEndpoint()`-Methode durch eine Referenz auf `sdk.iad-01.braze.com` ersetzt werden muss.
 {% endalert %}
 
-### SDK or Software-Development-Kit-Integration abgeschlossen
+### SDK-Integration abgeschlossen
 
 Braze sollte jetzt Daten aus Ihrer Anwendung sammeln, und Ihre grundlegende Integration sollte abgeschlossen sein. Beachten Sie, dass beim Kompilieren Ihrer tvOS-App und aller anderen Drittanbieter-Bibliotheken Bitcode aktiviert sein muss.
 
-### Braze SDK or Software-Development-Kit über CocoaPods Update or aktualisieren or aktualisieren
+### Braze SDK über CocoaPods aktualisieren
 
-Um ein CocoaPod zu Update or aktualisieren or aktualisieren, führen Sie einfach die folgenden Befehle in Ihrem Projektverzeichnis aus:
+Um ein CocoaPod zu aktualisieren, führen Sie einfach die folgenden Befehle in Ihrem Projektverzeichnis aus:
 
 ```
 pod update
@@ -188,7 +188,7 @@ Anders als häufig üblich ist das Singleton `Appboy.sharedInstance()` optional.
 
 Wenn Sie `startWithApiKey:` in Ihrem `didFinishLaunchingWithOptions:`-Delegate aufrufen, bevor Sie auf Appboys `sharedInstance` zugreifen (die Standardimplementierung), können Sie Optional Chaining verwenden, z. B. `Appboy.sharedInstance()?.changeUser("testUser")`, um umständliche Prüfungen zu vermeiden. Dies entspricht dem Verhalten einer Objective-C-Implementierung, die ein nicht-null `sharedInstance` voraussetzt.
 
-Sie können unser tvOS SDK or Software-Development-Kit auch manuell integrieren – laden Sie einfach das Framework aus unserem [Public Repository](https://github.com/appboy/appboy-ios-sdk) herunter und initialisieren Sie Braze wie in den vorhergehenden Abschnitten beschrieben.
+Sie können unser tvOS SDK auch manuell integrieren – laden Sie einfach das Framework aus unserem [Public Repository](https://github.com/appboy/appboy-ios-sdk) herunter und initialisieren Sie Braze wie in den vorhergehenden Abschnitten beschrieben.
 
 ## Nutzer:innen identifizieren und Analytics erfassen
 Informationen zum Festlegen von Nutzer-IDs, zum Protokollieren angepasster Events und zum Setzen von Nutzerattributen finden Sie in unserer [iOS-Dokumentation]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=swift). Wir empfehlen außerdem, sich mit unseren [Namenskonventionen für Events]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions) vertraut zu machen.

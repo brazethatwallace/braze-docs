@@ -23,8 +23,8 @@ A integração entre a Braze e a Adikteev permite aumentar a retenção de usuá
 | Requisito | Descrição |
 | --- | --- |
 | Conta da Adikteev | É necessário ter uma conta Adikteev para aproveitar essa parceria. |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com a permissão `users.track`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **APIs e identificadores**. |
-| Endpoint REST or transferir estado representacional da Braze | [Sua URL de endpoint REST or transferir estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com a permissão `users.track`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **APIs e identificadores**. |
+| Endpoint REST da Braze | [Sua URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Casos de uso {#use-cases}
@@ -48,27 +48,27 @@ Personalização de suas campanhas de envio de mensagens da Braze com base no ri
 
 Para começar a executar a previsão de churn no público do seu app, a Adikteev precisará que você ative os postbacks de eventos da sua plataforma de medição móvel. Siga as diretrizes no [site de suporte da Adikteev](https://help.adikteev.com/hc/en-us/sections/8185123408914-Data-stream-activation) para configurar isso.
 
-### Etapa 2: Crie sua chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze {#step-2-create-your-braze-rest-api-key}
+### Etapa 2: Crie sua chave da API REST da Braze {#step-2-create-your-braze-rest-api-key}
 
-Na Braze, navegue até **Configurações** > **APIs e identificadores**. Selecione **Criar nova chave de API or interface de programação do aplicativo (API)**, digite o nome da chave de API or interface de programação do aplicativo (API) de sua escolha e verifique se a permissão a seguir foi adicionada:
+Na Braze, navegue até **Configurações** > **APIs e identificadores**. Selecione **Criar nova chave de API**, digite o nome da chave de API de sua escolha e verifique se a permissão a seguir foi adicionada:
 
 - `users.track`
 
 ### Etapa 3: Forneça informações à equipe da Adikteev {#step-3-provide-information-to-the-adikteev-team}
 
-Para concluir a integração, você deve fornecer sua chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional e a URL do endpoint REST or transferir estado representacional ao gerente da sua conta na Adikteev. A Adikteev estabelecerá a conexão e entrará em contato com você após a conclusão da configuração para validar a integração.
+Para concluir a integração, você deve fornecer sua chave da API REST e a URL do endpoint REST ao gerente da sua conta na Adikteev. A Adikteev estabelecerá a conexão e entrará em contato com você após a conclusão da configuração para validar a integração.
 
 ## Loteamento e limites de taxa {#batching-and-rate-limits}
 
-O endpoint `user.track` é usado para atualizar detalhes sobre seus usuários. Consulte a [documentação da API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) para obter detalhes completos sobre os limites de taxa do endpoint, solicitações em lote e detalhes da solicitação.
+O endpoint `user.track` é usado para atualizar detalhes sobre seus usuários. Consulte a [documentação da API]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) para obter detalhes completos sobre os limites de taxa do endpoint, solicitações em lote e detalhes da solicitação.
 
 {% alert tip %}
-Lembre-se de que as chamadas de API or interface de programação do aplicativo (API) devem ser feitas apenas para atualizar dados que foram alterados, a fim de reduzir o número total de chamadas. Em outras palavras, atualize apenas os usuários cujo Segment or segmento or segmento de churn foi alterado.
+Lembre-se de que as chamadas de API devem ser feitas apenas para atualizar dados que foram alterados, a fim de reduzir o número total de chamadas. Em outras palavras, atualize apenas os usuários cujo Segment de churn foi alterado.
 {% endalert %}
 
 ## Identificadores de usuários e dispositivos {#user-and-device-identifiers}
 
-Os perfis de usuário na Braze podem ser associados a qualquer tipo de identificador de usuário ou dispositivo; a lista de opções disponíveis depende de como você integrou a coleta de dados com a Braze. Para a Adikteev, será necessário encontrar um identificador comum entre o seu MMP e os perfis de usuário na Braze para enviar as informações do Segment or segmento or segmento de churn corretamente.
+Os perfis de usuário na Braze podem ser associados a qualquer tipo de identificador de usuário ou dispositivo; a lista de opções disponíveis depende de como você integrou a coleta de dados com a Braze. Para a Adikteev, será necessário encontrar um identificador comum entre o seu MMP e os perfis de usuário na Braze para enviar as informações do Segment de churn corretamente.
 
 ## Retenção e exclusão de dados {#data-retention-and-deletion}
 

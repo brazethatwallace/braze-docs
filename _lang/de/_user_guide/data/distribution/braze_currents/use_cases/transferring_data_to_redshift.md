@@ -3,7 +3,7 @@ nav_title: Daten an Redshift übertragen
 article_title: Datenübertragung an Redshift
 page_order: 8
 page_type: tutorial
-description: "In diesem Artikel erfahren Sie, wie Sie Daten von Amazon S3 über einen ETL or Extract, Transform, Load or Extract, Transform, Load (ETL or Extract, Transform, Load)-Prozess nach Redshift übertragen."
+description: "In diesem Artikel erfahren Sie, wie Sie Daten von Amazon S3 über einen ETL (ETL)-Prozess nach Redshift übertragen."
 tool: Currents
 
 ---
@@ -12,7 +12,7 @@ tool: Currents
 
 > [Amazon Redshift](https://aws.amazon.com/redshift/) ist ein beliebtes Data Warehouse, das auf Amazon Web Services neben Amazon S3 läuft. Braze-Daten aus Currents sind so strukturiert, dass sie direkt in Redshift übertragen werden können.
 
-Im Folgenden wird beschrieben, wie Daten von Amazon S3 über einen ETL or Extract, Transform, Load-Prozess (ETL or Extract, Transform, Load or Extract, Transform, Load) nach Redshift übertragen werden können. Den vollständigen Quellcode finden Sie im [GitHub-Repository](https://github.com/Appboy/currents-examples) „Currents examples“.
+Im Folgenden wird beschrieben, wie Daten von Amazon S3 über einen ETL-Prozess (ETL) nach Redshift übertragen werden können. Den vollständigen Quellcode finden Sie im [GitHub-Repository](https://github.com/Appboy/currents-examples) „Currents examples“.
 
 {% alert important %}
 Dies ist nur eine von vielen Optionen, die Sie wählen können, wenn es darum geht, Ihre Daten an Orte zu übertragen, die für Sie am vorteilhaftesten sind.
@@ -30,7 +30,7 @@ Das Skript [`s3loader.py`](https://github.com/Appboy/currents-examples/tree/mast
 
 ## Abhängigkeiten
 
-Sie müssen das AWS Python SDK or Software-Development-Kit und Psycopg installieren, um den Loader auszuführen:
+Sie müssen das AWS Python SDK und Psycopg installieren, um den Loader auszuführen:
 
 ```bash
 pip install boto3

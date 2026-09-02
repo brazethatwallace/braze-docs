@@ -25,11 +25,11 @@ La configuración de prioridad de visualización de notificaciones ya no se util
 {% if include.alert == "Email via SMS" %}
 
 {% alert important %}
-No envíes correos transaccionales legalmente requeridos a las pasarelas servicio de mensajes cortos, ya que es muy probable que esos correos electrónicos no se entreguen.
+No envíes correos transaccionales legalmente requeridos a las pasarelas SMS, ya que es muy probable que esos correos electrónicos no se entreguen.
 <br><br>
-Aunque los correos electrónicos que envías utilizando un número de teléfono y el dominio de la pasarela del proveedor (conocido como MM3) pueden hacer que el correo electrónico se reciba como un mensaje servicio de mensajes cortos (de texto), algunos de nuestros proveedores de correo electrónico no admiten este comportamiento. Por ejemplo, si envías un correo electrónico a un número de teléfono de T-Mobile (como "9999999999@tmomail.net"), tu mensaje servicio de mensajes cortos se enviará a quien posea ese número de teléfono en la red de T-Mobile.
+Aunque los correos electrónicos que envías utilizando un número de teléfono y el dominio de la pasarela del proveedor (conocido como MM3) pueden hacer que el correo electrónico se reciba como un mensaje SMS (de texto), algunos de nuestros proveedores de correo electrónico no admiten este comportamiento. Por ejemplo, si envías un correo electrónico a un número de teléfono de T-Mobile (como "9999999999@tmomail.net"), tu mensaje SMS se enviará a quien posea ese número de teléfono en la red de T-Mobile.
 <br><br>
-Ten en cuenta que, aunque estos correos electrónicos no se entreguen a la pasarela de servicio de mensajes cortos, seguirán contando para tu facturación por correo electrónico. Para evitar enviar correos electrónicos a pasarelas no admitidas, revisa la [lista de nombres de dominio de pasarelas no admitidas](https://www.fcc.gov/consumer-governmental-affairs/about-bureau/consumer-policy-division/can-spam/domain-name-downloads).
+Ten en cuenta que, aunque estos correos electrónicos no se entreguen a la pasarela de SMS, seguirán contando para tu facturación por correo electrónico. Para evitar enviar correos electrónicos a pasarelas no admitidas, revisa la [lista de nombres de dominio de pasarelas no admitidas](https://www.fcc.gov/consumer-governmental-affairs/about-bureau/consumer-policy-division/can-spam/domain-name-downloads).
 {% endalert %}
 
 {% endif %}
@@ -37,7 +37,7 @@ Ten en cuenta que, aunque estos correos electrónicos no se entreguen a la pasar
 {% if include.alert == 'SDK auth' %}
 
 {% alert important %}
-Para mayor seguridad, te recomendamos añadir nuestra característica de [autenticación SDK or kit de desarrollo de software]({{site.baseurl}}/developer_guide/authentication) para evitar la suplantación de identidad de usuarios.
+Para mayor seguridad, te recomendamos añadir nuestra característica de [autenticación SDK]({{site.baseurl}}/developer_guide/authentication) para evitar la suplantación de identidad de usuarios.
 {% endalert %}
 
 {% endif %}
@@ -93,7 +93,7 @@ Las propiedades de entrada de Canvas forman parte de las variables de contexto d
 {% if include.alert == 'Braze Agents' %}
 
 {% alert important %}
-Este partner aparece en tu página de **Partners tecnológicos** solo si tienes habilitados los [agentes de Braze]({{site.baseurl}}/user_guide/brazeai/agents). Para obtener ayuda para empezar, ponte en contacto con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente.
+Este partner aparece en tu página de **Partners tecnológicos** solo si tienes habilitados los [agentes de Braze]({{site.baseurl}}/user_guide/brazeai/agents). Para obtener ayuda para empezar, ponte en contacto con tu CSM.
 {% endalert %}
 
 {% endif %}

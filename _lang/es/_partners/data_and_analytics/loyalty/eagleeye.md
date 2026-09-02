@@ -29,8 +29,8 @@ Eagle Eye Connect es una integración bidireccional entre Braze y AIR que habili
 | Requisito | Descripción |
 |--------------------------|-------------|
 | Cuenta Eagle Eye AIR | Necesitas una cuenta Eagle Eye AIR activa para beneficiarte de esta asociación. Para empezar, ponte en contacto con el equipo de asociaciones de Eagle Eye en [partnerships@eagleeye.com](mailto:partnerships@eagleeye.com). |
-| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos `users.track`. <br><br>Se puede crear en el panel de Braze desde **Configuración > Claves de API**. |
-| Punto de conexión REST or transferencia de estado representacional de Braze | [La URL de tu punto de conexión REST or transferencia de estado representacional]({{site.baseurl}}/api/basics/#endpoints). Tu punto de conexión depende de la URL de Braze de tu instancia. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. <br><br>Se puede crear en el panel de Braze desde **Configuración > Claves de API**. |
+| Punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/api/basics/#endpoints). Tu punto de conexión depende de la URL de Braze de tu instancia. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Saliente vs. entrante {#outbound-vs-inbound}
@@ -125,7 +125,7 @@ En primer lugar, proporcionarás los siguientes datos a tu equipo de Eagle Eye:
 
 | Tú proporcionas | Descripción |
 |------------------------|-------------|
-| Credenciales de la API de Braze | Comparte tu punto de conexión REST or transferencia de estado representacional de Braze, identificador de aplicación y clave de API de forma segura con tu contacto de Eagle Eye. |
+| Credenciales de la API de Braze | Comparte tu punto de conexión REST de Braze, identificador de aplicación y clave de API de forma segura con tu contacto de Eagle Eye. |
 | Coincidencia de identificadores | Determina y comparte el identificador de usuario principal para las actualizaciones de perfil que sea común en AIR y Braze, como ID externo o correo electrónico. |
 | Clave de autenticación | Determina y comparte una clave de autenticación secreta para cada conector entrante y saliente. |
 | Código de moneda | Comparte el código de moneda de 3 dígitos para mostrar los importes monetarios de las compras (p. ej., USD). |

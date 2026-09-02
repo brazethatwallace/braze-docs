@@ -9,7 +9,7 @@ page_type: reference
 
 # API-Bezeichnertypen {#api-identifier-types}
 
-> Dieser Referenzleitfaden behandelt die verschiedenen Arten von API-Bezeichnern, die im Braze-Dashboard zu finden sind, ihren Zweck, wo Sie sie finden und wie sie typischerweise verwendet werden. Informationen zu Representational State Transfer-API-Schlüsseln oder Workspace-API-Schlüsseln finden Sie in der [API-Übersicht]({{site.baseurl}}/api/basics).
+> Dieser Referenzleitfaden behandelt die verschiedenen Arten von API-Bezeichnern, die im Braze-Dashboard zu finden sind, ihren Zweck, wo Sie sie finden und wie sie typischerweise verwendet werden. Informationen zu REST-API-Schlüsseln oder Workspace-API-Schlüsseln finden Sie in der [API-Übersicht]({{site.baseurl}}/api/basics).
 
 Die folgenden Bezeichner können verwendet werden, um über die externe API von Braze auf Ihr Template, Ihr Canvas, Ihre Campaign oder Ihr Segment zuzugreifen. Alle Nachrichten sollten in [UTF-8](https://en.wikipedia.org/wiki/UTF-8) kodiert sein.
 
@@ -34,7 +34,7 @@ Gehen Sie zu **Einstellungen** > **App-Einstellungen**. Ihr API-Schlüssel wird 
 
 ### Wofür kann er verwendet werden? {#what-can-it-be-used-for}
 
-App-Bezeichner werden bei Braze bei der Integration des SDK or Software-Development-Kit verwendet und dienen außerdem dazu, in Representational State Transfer API-Aufrufen auf eine bestimmte App zu verweisen. Mit der `app_id` können Sie viele Dinge tun, zum Beispiel Daten für ein angepasstes Event abrufen, das in einer bestimmten App aufgetreten ist, Deinstallationsstatistiken, Statistiken zu neuen Nutzer:innen, täglich aktive:r Nutzer:in; täglich aktiv-Statistiken und Statistiken zu Sitzungsstarts für eine bestimmte App abrufen.
+App-Bezeichner werden bei Braze bei der Integration des SDK verwendet und dienen außerdem dazu, in REST API-Aufrufen auf eine bestimmte App zu verweisen. Mit der `app_id` können Sie viele Dinge tun, zum Beispiel Daten für ein angepasstes Event abrufen, das in einer bestimmten App aufgetreten ist, Deinstallationsstatistiken, Statistiken zu neuen Nutzer:innen, DAU-Statistiken und Statistiken zu Sitzungsstarts für eine bestimmte App abrufen.
 
 {% alert tip %}
 Manchmal werden Sie aufgefordert, eine `app_id` anzugeben, obwohl Sie nicht mit einer App arbeiten, da es sich um ein veraltetes Feld handelt, das spezifisch für eine bestimmte Plattform ist. In diesem Fall können Sie dieses Feld weglassen, indem Sie eine beliebige Zeichenkette als Platzhalter für diesen erforderlichen Parameter einfügen.
@@ -42,7 +42,7 @@ Manchmal werden Sie aufgefordert, eine `app_id` anzugeben, obwohl Sie nicht mit 
 
 ### Mehrere App-Bezeichner {#multiple-app-identifiers}
 
-Bei der SDK or Software-Development-Kit-Einrichtung besteht der häufigste Anwendungsfall für mehrere App-Bezeichner darin, diese Bezeichner für Debug- und Release-Build-Varianten zu trennen.
+Bei der SDK-Einrichtung besteht der häufigste Anwendungsfall für mehrere App-Bezeichner darin, diese Bezeichner für Debug- und Release-Build-Varianten zu trennen.
 
 Um in Ihren Builds einfach zwischen mehreren App-Bezeichnern zu wechseln, empfehlen wir, für jede relevante [Build-Variante](https://developer.android.com/studio/build/build-variants.html) eine separate `braze.xml`-Datei zu erstellen. Eine Build-Variante ist eine Kombination aus Build-Typ und Produktvariante. Standardmäßig wird ein neues Android-Projekt mit den Build-Typen `debug` und `release` und ohne Produktvarianten konfiguriert.
 
@@ -79,12 +79,12 @@ Gehen Sie zu **Einstellungen** > **APIs und Bezeichner**. Hier bietet Braze eine
 
 ### Wofür kann er verwendet werden?
 
-- Templates über die API Update or aktualisieren or aktualisieren
+- Templates über die API aktualisieren
 - Informationen zu einem bestimmten Template abrufen
 
 ## Canvas-Bezeichner {#canvas-identifier}
 
-Ein [Canvas]({{site.baseurl}}/user_guide/messaging/canvas)-Bezeichner oder eine Canvas-ID ist ein zufälliger Schlüssel, der von Braze für ein bestimmtes Canvas im Dashboard generiert wird. Canvas-IDs sind für jedes Canvas eindeutig und können verwendet werden, um Canvase über die API zu referenzieren.
+Ein [Canvas]({{site.baseurl}}/user_guide/messaging/canvas)-Bezeichner oder eine Canvas-ID ist ein zufälliger Schlüssel, der von Braze für ein bestimmtes Canvas im Dashboard generiert wird. Canvas-IDs sind für jedes Canvas eindeutig und können verwendet werden, um Canvases über die API zu referenzieren.
 
 Beachten Sie, dass bei einem Canvas mit Varianten sowohl eine übergeordnete Canvas-ID als auch einzelne Varianten-Canvas-IDs existieren, die unter dem Haupt-Canvas verschachtelt sind.
 
@@ -97,7 +97,7 @@ Sie finden Ihren Canvas-Bezeichner im Dashboard. Gehen Sie zu **Messaging** > **
 - Analytics für eine bestimmte Nachricht verfolgen
 - Übergeordnete, aggregierte Statistiken zur Canvas-Performance abrufen
 - Details zu einem bestimmten Canvas abrufen
-- Mit Currents Daten auf Nutzer:innenebene abrufen, um einen ganzheitlichen Ansatz für Canvase zu verfolgen
+- Mit Currents Daten auf Nutzer:innenebene abrufen, um einen ganzheitlichen Ansatz für Canvases zu verfolgen
 - Mit API-getriggerter Zustellung Statistiken für transaktionale Nachrichten erfassen
 
 ## Campaign-Bezeichner {#campaign-identifier}
@@ -181,4 +181,4 @@ Gehen Sie zu **Zielgruppe** > **Abos** und kopieren Sie die ID neben der jeweili
 
 - Abo-Gruppen einer Nutzer:in auflisten
 - Den Abo-Gruppenstatus einer Nutzer:in abrufen
-- Den Abo-Gruppenstatus einer Nutzer:in Update or aktualisieren or aktualisieren
+- Den Abo-Gruppenstatus einer Nutzer:in aktualisieren

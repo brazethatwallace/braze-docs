@@ -1,7 +1,7 @@
 ---
 nav_title: OpenAI
 article_title: OpenAI
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und OpenAI, die es Ihnen ermöglicht, OpenAI-Modelle mit Braze zu verbinden, um sie mit angepassten KI or künstliche Intelligenz-Agenten zu verwenden."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und OpenAI, die es Ihnen ermöglicht, OpenAI-Modelle mit Braze zu verbinden, um sie mit angepassten KI-Agenten zu verwenden."
 alias: /partners/openai/
 page_type: partner
 search_tag: Partner
@@ -10,7 +10,7 @@ search_tag: Partner
 
 # OpenAI
 
-> [OpenAI](https://openai.com/) entwickelt fortschrittliche KI or künstliche Intelligenz-Modelle wie GPT, die das Verstehen und Generieren natürlicher Sprache ermöglichen und Marken in die Lage versetzen, sinnvolle Kundeninteraktionen aufzubauen und zu skalieren.
+> [OpenAI](https://openai.com/) entwickelt fortschrittliche KI-Modelle wie GPT, die das Verstehen und Generieren natürlicher Sprache ermöglichen und Marken in die Lage versetzen, sinnvolle Kundeninteraktionen aufzubauen und zu skalieren.
 
 {% multi_lang_include alerts/important_alerts.md alert='Braze Agents' %}
 
@@ -18,7 +18,7 @@ _Diese Integration wird von OpenAI gepflegt._
 
 ## Über die Integration {#about-the-integration}
 
-Mit der Integration von Braze und OpenAI können Sie Ihren OpenAI-API-Schlüssel mit Braze verbinden, sodass Sie OpenAI-Modelle beim Erstellen angepasster KI or künstliche Intelligenz-Agenten verwenden können. Mit dieser Integration können Ihre Agenten personalisierte Texte generieren, Entscheidungen in Realtime treffen oder Katalogfelder mithilfe der großen Sprachmodelle von OpenAI Update or aktualisieren or aktualisieren.
+Mit der Integration von Braze und OpenAI können Sie Ihren OpenAI-API-Schlüssel mit Braze verbinden, sodass Sie OpenAI-Modelle beim Erstellen angepasster KI-Agenten verwenden können. Mit dieser Integration können Ihre Agenten personalisierte Texte generieren, Entscheidungen in Realtime treffen oder Katalogfelder mithilfe der großen Sprachmodelle von OpenAI aktualisieren.
 
 ## Voraussetzungen {#prerequisites}
 

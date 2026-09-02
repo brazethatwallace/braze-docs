@@ -2,7 +2,7 @@
 nav_title: Anpassungsübersicht
 article_title: Anpassungsübersicht
 page_order: 10
-description: "Dieser Referenzartikel behandelt die wesentlichen Konzepte zur Anpassung und Erweiterung der Messaging-Kanäle des SDK or Software-Development-Kit."
+description: "Dieser Referenzartikel behandelt die wesentlichen Konzepte zur Anpassung und Erweiterung der Messaging-Kanäle des SDK."
 hidden: true
 layout: redirect
 redirect_to: /docs/developer_guide/getting_started/
@@ -13,7 +13,7 @@ redirect_to: /docs/developer_guide/getting_started/
 > Fast alles bei Braze ist vollständig anpassbar! Die Artikel in diesem Anpassungsleitfaden zeigen Ihnen, wie Sie Ihr Braze-Erlebnis durch eine Mischung aus Konfiguration und Anpassung optimieren können. Während dieses Prozesses sollten Marketing- und Entwicklerteams eng zusammenarbeiten, um genau abzustimmen, wie die Messaging-Kanäle von Braze angepasst werden sollen.
 
 {% alert note %}
-Das Braze SDK or Software-Development-Kit ist ein leistungsstarkes Toolkit, das bei übergeordneter Betrachtung zwei wichtige Funktionen bietet: Es hilft beim Sammeln und Synchronisieren von Nutzerdaten über verschiedene Plattformen hinweg in einem konsolidierten Kundenprofil or Nutzerprofil und verwaltet außerdem Messaging-Kanäle wie In-App-Nachrichten, Push-Benachrichtigungen und Content Cards. Die Artikel im Anpassungsleitfaden setzen voraus, dass Sie den [Prozess der SDK or Software-Development-Kit-Implementierung]({{site.baseurl}}/developer_guide/home) bereits durchlaufen haben.
+Das Braze SDK ist ein leistungsstarkes Toolkit, das bei übergeordneter Betrachtung zwei wichtige Funktionen bietet: Es hilft beim Sammeln und Synchronisieren von Nutzerdaten über verschiedene Plattformen hinweg in einem konsolidierten Kundenprofil und verwaltet außerdem Messaging-Kanäle wie In-App-Nachrichten, Push-Benachrichtigungen und Content Cards. Die Artikel im Anpassungsleitfaden setzen voraus, dass Sie den [Prozess der SDK-Implementierung]({{site.baseurl}}/developer_guide/home) bereits durchlaufen haben.
 {% endalert %}
 
 Alle Komponenten von Braze sind barrierefrei, anpassungsfähig und individuell gestaltbar. Daher empfehlen wir Ihnen, mit den Standardkomponenten von `BrazeUI` zu beginnen und diese an Ihre Marke und Ihren Anwendungsfall anzupassen. Bei Braze gliedern wir die Anpassung in drei verschiedene Ansätze, basierend auf dem verbundenen Aufwand und dem Grad der Flexibilität. Diese Ansätze werden als „Crawl“, „Walk“ und „Run“ bezeichnet.
@@ -85,7 +85,7 @@ Der Walk-Ansatz ist ein hybrider Implementierungsansatz, bei dem sowohl Marketin
 
 Während der Implementierung schreiben Entwickler:innen angepassten Code, um das Erscheinungsbild eines Messaging-Kanals besser an Ihre Marke anzupassen. Dazu gehört das Ändern von Schriftart, Schriftgröße, abgerundeten Ecken und Farben. Bei diesem Ansatz werden weiterhin die Standardoptionen verwendet, nur mit programmatischem Template-Styling ergänzt.
 
-Marketer behalten weiterhin die Kontrolle über die Zielgruppe, den Inhalt, das On-Klick, der or klicken-Verhalten und die Ablaufzeit direkt im Braze-Dashboard.
+Marketer behalten weiterhin die Kontrolle über die Zielgruppe, den Inhalt, das On-Klick, der-Verhalten und die Ablaufzeit direkt im Braze-Dashboard.
 
 <table aria-label="Anpassungsübersicht">
   <caption>Anpassungsübersicht</caption>
@@ -130,7 +130,7 @@ Marketer behalten weiterhin die Kontrolle über die Zielgruppe, den Inhalt, das 
 
 Beim Run-Ansatz übernehmen Entwickler:innen die Führung und haben die volle Kontrolle über das Nutzererlebnis. Angepasster Code bestimmt, wie die Nachrichten aussehen, wie sie sich verhalten und wie sie mit anderen Messaging-Kanälen interagieren (z. B. Auslösen einer Content Card auf Grundlage einer Push-Benachrichtigung).
 
-Wenn Sie völlig neue, angepasste Inhalte erstellen – z. B. neue Arten von Content Cards oder In-App-Nachrichten mit maßgeschneiderter UI –, erfolgt das [Analytics-Tracking]({{site.baseurl}}/developer_guide/analytics) nicht automatisch durch das Braze SDK or Software-Development-Kit. Analytics müssen programmatisch verarbeitet werden, damit Marketer weiterhin Zugriff auf Metriken wie Impressionen, Klicks und Ausblendungen im Braze-Dashboard haben. Rufen Sie die Analytics-Methoden des Braze SDK or Software-Development-Kit auf, damit das SDK or Software-Development-Kit diese Daten an Braze zurückgeben kann. Für jeden Messaging-Kanal gibt es einen Analytics-Artikel mit hilfreichen Informationen.
+Wenn Sie völlig neue, angepasste Inhalte erstellen – z. B. neue Arten von Content Cards oder In-App-Nachrichten mit maßgeschneiderter UI –, erfolgt das [Analytics-Tracking]({{site.baseurl}}/developer_guide/analytics) nicht automatisch durch das Braze SDK. Analytics müssen programmatisch verarbeitet werden, damit Marketer weiterhin Zugriff auf Metriken wie Impressionen, Klicks und Ausblendungen im Braze-Dashboard haben. Rufen Sie die Analytics-Methoden des Braze SDK auf, damit das SDK diese Daten an Braze zurückgeben kann. Für jeden Messaging-Kanal gibt es einen Analytics-Artikel mit hilfreichen Informationen.
 
 <table aria-label="Anpassungsübersicht">
   <caption>Anpassungsübersicht</caption>

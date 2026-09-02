@@ -32,7 +32,7 @@ Dado que los proveedores de buzón de entrada receptores validan SPF contra este
 
 DKIM añade una firma digital criptográfica al encabezado del correo electrónico. El servidor receptor utiliza la clave pública del remitente (publicada en DNS) para verificar que el correo electrónico se originó del propietario del dominio y no fue alterado en tránsito.
 
-Braze requiere que las claves públicas DKIM se publiquen a través de registros `TXT` o `CNAME` para que los ISP or proveedor de servicios de Internet receptores puedan validar las firmas criptográficas generadas por tu ESP.
+Braze requiere que las claves públicas DKIM se publiquen a través de registros `TXT` o `CNAME` para que los ISP receptores puedan validar las firmas criptográficas generadas por tu ESP.
 
 ### Alineación DMARC {#dmarc}
 
@@ -148,7 +148,7 @@ Si las Campaigns de marketing, los recibos transaccionales y los correos electr�
 Para garantizar una transición e implementación sin problemas, sigue esta secuencia:
 
 1. Proporciona los registros estructurados a tu administrador de TI o de red para que los agregue a tu plataforma de alojamiento (Cloudflare, Route 53, etc.).
-2. Establece un valor bajo de TTL or tiempo de vida or tiempo de vida (TTL or tiempo de vida) (por ejemplo, 300 segundos o cinco minutos) para las pruebas iniciales. Esto permite una recuperación rápida si se comete un error tipográfico durante la entrada.
+2. Establece un valor bajo de TTL (TTL) (por ejemplo, 300 segundos o cinco minutos) para las pruebas iniciales. Esto permite una recuperación rápida si se comete un error tipográfico durante la entrada.
 3. Ejecuta una búsqueda de DNS (por ejemplo, `dig CNAME mail.example.com`) o usa una herramienta de validación para confirmar que los registros se resuelven correctamente antes de pasar a la fase de calentamiento.
 
 ## Documentación de proveedores de DNS {#dns-provider-documentation}

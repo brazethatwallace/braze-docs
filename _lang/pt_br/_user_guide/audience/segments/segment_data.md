@@ -1,6 +1,6 @@
 ---
-nav_title: Dados de Segment or segmento
-article_title: Dados de Segment or segmento
+nav_title: Dados de Segment
+article_title: Dados de Segment
 page_order: 4
 page_type: reference
 description: "Esta página explica a seção de Segments do dashboard da Braze e inclui um resumo das estatísticas fornecidas."
@@ -10,25 +10,25 @@ tool:
   - Reports
 
 ---
-# Dados de Segment or segmento {#segment-data}
+# Dados de Segment {#segment-data}
 
 > Esta página explica a seção de Segments do dashboard da Braze e inclui um resumo das estatísticas fornecidas.
 
 ## Acessando dados sobre seus Segments e associações {#accessing-data-about-your-segments-and-membership}
 
-A página **Segments** do dashboard da Braze contém um resumo de todos os seus Segments e permite que você examine dados detalhados de cada um. Nessa página, pesquise e selecione o nome de um Segment or segmento para editar e visualizar seus dados. Para saber como criar um Segment or segmento, confira [Criar um Segment or segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment).
+A página **Segments** do dashboard da Braze contém um resumo de todos os seus Segments e permite que você examine dados detalhados de cada um. Nessa página, pesquise e selecione o nome de um Segment para editar e visualizar seus dados. Para saber como criar um Segment, confira [Criar um Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment).
 
 ![Página de Segments]({% image_buster /assets/img_archive/segments.png %})
 
-Após selecionar o nome de um Segment or segmento, você pode visualizar as estatísticas e os filtros do Segment or segmento, além de editá-lo adicionando ou removendo filtros. Não se esqueça de salvar as alterações!
+Após selecionar o nome de um Segment, você pode visualizar as estatísticas e os filtros do Segment, além de editá-lo adicionando ou removendo filtros. Não se esqueça de salvar as alterações!
 
-Quando você ativa o [rastreamento de análise de dados para um Segment or segmento]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking), é possível visualizar sessões, eventos personalizados e receita ao longo do tempo para esse Segment or segmento.
+Quando você ativa o [rastreamento de análise de dados para um Segment]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking), é possível visualizar sessões, eventos personalizados e receita ao longo do tempo para esse Segment.
 
-![Alternância de rastreamento de análise de dados para um Segment or segmento]({% image_buster /assets/img_archive/A_Tracking_2.png %})
+![Alternância de rastreamento de análise de dados para um Segment]({% image_buster /assets/img_archive/A_Tracking_2.png %})
 
-### Estatísticas de Segment or segmento {#segment-statistics}
+### Estatísticas de Segment {#segment-statistics}
 
-Você pode visualizar as seguintes estatísticas de Segment or segmento, que são atualizadas em tempo real conforme você adiciona ou remove filtros:
+Você pode visualizar as seguintes estatísticas de Segment, que são atualizadas em tempo real conforme você adiciona ou remove filtros:
 
 <style>
     .no-split {
@@ -36,8 +36,8 @@ Você pode visualizar as seguintes estatísticas de Segment or segmento, que sã
     }
 </style>
 
-<table aria-label="Estatísticas de Segment or segmento">
-  <caption>Estatísticas de Segment or segmento</caption>
+<table aria-label="Estatísticas de Segment">
+  <caption>Estatísticas de Segment</caption>
     <thead>
         <tr>
             <th>Estatística</th>
@@ -51,11 +51,11 @@ Você pode visualizar as seguintes estatísticas de Segment or segmento, que sã
         </tr>
         <tr>
             <td class="no-split">Usuários selecionados</td>
-            <td class="no-split">Quantos usuários estão no seu Segment or segmento e qual porcentagem da sua base total de usuários eles representam.</td>
+            <td class="no-split">Quantos usuários estão no seu Segment e qual porcentagem da sua base total de usuários eles representam.</td>
         </tr>
         <tr>
             <td class="no-split">LTV (usuários pagantes)</td>
-            <td class="no-split">O valor do tempo de vida por usuário (LTV) neste Segment or segmento e o valor do tempo de vida por usuário pagante neste Segment or segmento. O LTV é calculado dividindo a receita total pelo total de usuários.</td>
+            <td class="no-split">O valor do tempo de vida por usuário (LTV) neste Segment e o valor do tempo de vida por usuário pagante neste Segment. O LTV é calculado dividindo a receita total pelo total de usuários.</td>
         </tr>
         <tr>
             <td class="no-split">Contactável por e-mail (opt-in)</td>
@@ -63,23 +63,23 @@ Você pode visualizar as seguintes estatísticas de Segment or segmento, que sã
         </tr>
         <tr>
             <td class="no-split">Push ativado (opt-in)</td>
-            <td class="no-split">Push ativado refere-se ao número de usuários com pelo menos um token por push. Alguns usuários podem ter múltiplos tokens por push (por exemplo, se possuem um iPhone e um iPad), então o número de notificações por push que você envia para este Segment or segmento pode ser maior do que o número de usuários com "push ativado". "Opt-in" refere-se ao número de usuários que fizeram opt-in explicitamente para notificações por push. Os usuários devem sempre fazer opt-in explicitamente para que você possa enviar notificações por push a eles.</td>
+            <td class="no-split">Push ativado refere-se ao número de usuários com pelo menos um token por push. Alguns usuários podem ter múltiplos tokens por push (por exemplo, se possuem um iPhone e um iPad), então o número de notificações por push que você envia para este Segment pode ser maior do que o número de usuários com "push ativado". "Opt-in" refere-se ao número de usuários que fizeram opt-in explicitamente para notificações por push. Os usuários devem sempre fazer opt-in explicitamente para que você possa enviar notificações por push a eles.</td>
         </tr>
     </tbody>
 </table>
 
-### Insights de Segment or segmento {#segment-insights}
+### Insights de Segment {#segment-insights}
 
-Você pode ver como um Segment or segmento está se saindo em comparação com outro em um conjunto de KPIs pré-selecionados visitando a página [Insights de Segment or segmento]({{site.baseurl}}/user_guide/audience/segments/segment_insights) do seu dashboard.
+Você pode ver como um Segment está se saindo em comparação com outro em um conjunto de KPIs pré-selecionados visitando a página [Insights de Segment]({{site.baseurl}}/user_guide/audience/segments/segment_insights) do seu dashboard.
 
 ### Uso em envio de mensagens {#messaging-use}
-A seção **Messaging Use** mostra quais Segments, Campaigns ativas e Canvas ativos estão direcionando o seu Segment or segmento.
+A seção **Messaging Use** mostra quais Segments, Campaigns ativas e Canvas ativos estão direcionando o seu Segment.
 
 ### Histórico de associação {#historical-membership}
 
-A seção **Historical Membership** mostra como o tamanho do seu Segment or segmento mudou ao longo do tempo. Use o menu suspenso para filtrar a associação do Segment or segmento por intervalo de datas.
+A seção **Historical Membership** mostra como o tamanho do seu Segment mudou ao longo do tempo. Use o menu suspenso para filtrar a associação do Segment por intervalo de datas.
 
-Para saber mais sobre como monitorar a associação e o tamanho do seu Segment or segmento, consulte [Medindo o tamanho do Segment or segmento]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size).
+Para saber mais sobre como monitorar a associação e o tamanho do seu Segment, consulte [Medindo o tamanho do Segment]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size).
 
 ### Prévia de usuários {#user-preview}
 
@@ -87,15 +87,15 @@ Para visualizar informações detalhadas e específicas de usuários sobre seus 
 
 Nessa página, você pode visualizar diversos atributos específicos de usuários, como gênero, idade, número de sessões e se fizeram opt-in para push e e-mail.
 
-Observe que, em casos em que seu Segment or segmento é muito pequeno em relação ao tamanho do seu espaço de trabalho, é possível que a prévia de usuários retorne zero usuários. Isso não significa necessariamente que não existem usuários no seu Segment or segmento; execute [Calculate Exact Stats]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size#statistics-for-segment-size) para determinar o tamanho exato do seu Segment or segmento.
+Observe que, em casos em que seu Segment é muito pequeno em relação ao tamanho do seu espaço de trabalho, é possível que a prévia de usuários retorne zero usuários. Isso não significa necessariamente que não existem usuários no seu Segment; execute [Calculate Exact Stats]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size#statistics-for-segment-size) para determinar o tamanho exato do seu Segment.
 
 ![Prévia de usuários]({% image_buster /assets/img_archive/user_preview.png %})
 
-## Visualizando dados de desempenho por Segment or segmento {#viewing-performance-data-by-segment}
+## Visualizando dados de desempenho por Segment {#viewing-performance-data-by-segment}
 
 Use os [modelos de relatório do Criador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/data_by_segments) para detalhar métricas de desempenho de Campaigns, Canvas, variantes e etapas por Segments.
 
-## Criando um relatório de detalhamento por Segment or segmento usando o Criador de consultas {#creating-a-segment-breakdown-report-using-query-builder}
+## Criando um relatório de detalhamento por Segment usando o Criador de consultas {#creating-a-segment-breakdown-report-using-query-builder}
 
 Para criar um relatório a partir de um modelo do [Criador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder), acesse o **Criador de consultas** e faça o seguinte:
 
@@ -125,9 +125,9 @@ As variáveis incluem:
 
 Os dados estão disponíveis para períodos em que ambas as condições a seguir são atendidas:
 
-1. O [rastreamento de análise de dados de Segment or segmento]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) está ativado para os Segments dos quais você deseja ver dados.
-2. O recurso de dados de desempenho por Segment or segmento está ativado.
+1. O [rastreamento de análise de dados de Segment]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) está ativado para os Segments dos quais você deseja ver dados.
+2. O recurso de dados de desempenho por Segment está ativado.
 
-Você não pode acessar dados de períodos anteriores à ativação desse recurso para a sua empresa. Por exemplo, se o rastreamento de análise de dados estiver ativado para o Segment or segmento A em 1º de outubro e esse recurso for ativado para a sua empresa em 2 de outubro, então você só poderá visualizar dados do Segment or segmento A para as Campaigns e Canvas que registraram métricas após 2 de outubro.
+Você não pode acessar dados de períodos anteriores à ativação desse recurso para a sua empresa. Por exemplo, se o rastreamento de análise de dados estiver ativado para o Segment A em 1º de outubro e esse recurso for ativado para a sua empresa em 2 de outubro, então você só poderá visualizar dados do Segment A para as Campaigns e Canvas que registraram métricas após 2 de outubro.
 
-Se a sua empresa ativou esse recurso em 2 de outubro e ativou o rastreamento de análise de dados para o Segment or segmento B em 3 de outubro, então você só poderá ver dados do Segment or segmento B para as Campaigns e Canvas que registraram métricas após 3 de outubro.
+Se a sua empresa ativou esse recurso em 2 de outubro e ativou o rastreamento de análise de dados para o Segment B em 3 de outubro, então você só poderá ver dados do Segment B para as Campaigns e Canvas que registraram métricas após 3 de outubro.

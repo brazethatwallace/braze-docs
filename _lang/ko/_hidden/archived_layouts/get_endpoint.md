@@ -15,7 +15,7 @@ noindex: true
 # 쿼리 또는 목록 [항목 엔드포인트 "Gets"] {#query-or-list-item-endpoint-gets}
 
 {% apimethod get %}
-/단문 메시지 서비스/invalid_phone_numbers
+/sms/invalid_phone_numbers
 {% endapimethod %}
 
 <!--

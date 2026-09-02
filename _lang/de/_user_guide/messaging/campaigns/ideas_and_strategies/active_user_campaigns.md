@@ -31,7 +31,7 @@ Erstellen Sie mithilfe unserer Auswahl an Filtern ein Nutzer:innen-Segment, das 
 
 ![Beispielhafte Braze-Segment-Filter zur Definition einer Top-Nutzer:innen-Zielgruppe.]({% image_buster /assets/img_archive/define_top_users.png %} "Define your top users")
 
-Außerdem müssen Sie dieses Segment nicht ständig Update or aktualisieren or aktualisieren, da Nutzer:innen, die in die Einschränkungen der Kampagne fallen oder diese verlassen, entsprechend angesprochen oder ausgeschlossen werden.
+Außerdem müssen Sie dieses Segment nicht ständig aktualisieren, da Nutzer:innen, die in die Einschränkungen der Kampagne fallen oder diese verlassen, entsprechend angesprochen oder ausgeschlossen werden.
 
 {% alert note %}
 Das obige Beispiel segmentiert Nutzer:innen nach allgemeiner App-Nutzung. In den meisten Fällen wird die Gesamtheit der Filter, die zur Definition Ihres Top-Nutzer:innen-Segments benötigt werden, weitgehend von den Besonderheiten Ihrer App bestimmt.

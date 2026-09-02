@@ -710,7 +710,7 @@ Shopifyストアから[Shopify製品タグ、コレクション、メタフィ�
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-[GRAVTY®](https://www.lji.io/)は、Loyalty Juggernaut Inc.（LJI）のエンタープライズグレードのロイヤルティプラットフォームで、小売、旅行、レストラン（クイックサービスレストランを含む）、金融サービスのブランドが次世代プログラムを設計、管理、スケールできるようにし、パーソナライズされたデータ主導のエクスペリエンスを通じて、エンゲージメント、リテンション、顧客LTV or 生涯価値の測定可能な成長を促進します。
+[GRAVTY®](https://www.lji.io/)は、Loyalty Juggernaut Inc.（LJI）のエンタープライズグレードのロイヤルティプラットフォームで、小売、旅行、レストラン（クイックサービスレストランを含む）、金融サービスのブランドが次世代プログラムを設計、管理、スケールできるようにし、パーソナライズされたデータ主導のエクスペリエンスを通じて、エンゲージメント、リテンション、顧客LTVの測定可能な成長を促進します。
 
 <!-- Use this section to list any new SDKs or SDK updates that are already released. -->
 ### SDK

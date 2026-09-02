@@ -37,7 +37,7 @@ Wenn Sie das Uninstall-Tracking für eine App aktivieren, sendet Braze jede Nach
 
 ### Konfiguration {#configuration}
 
-Um das Uninstall-Tracking für Ihre iOS-Anwendung zu konfigurieren, verwenden Sie eine [Utility-Methode]({{site.baseurl}}/developer_guide/analytics/tracking_uninstalls?sdktab=swift). Verwenden Sie für Ihre Android-Anwendung [`isUninstallTrackingPush()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/is-uninstall-tracking-push.html). Wenn Braze eine Deinstallation feststellt – sei es durch Uninstall-Tracking oder durch die normale Zustellung von Push-Campaigns – erfassen wir den bestmöglich geschätzten Zeitpunkt der Deinstallation beim Nutzer oder bei der Nutzerin. Dieser Zeitpunkt wird im Kundenprofil or Nutzerprofil als Standardattribut gespeichert und kann zur Definition eines Segments von Nutzer:innen für Rückgewinnungskampagnen verwendet werden.
+Um das Uninstall-Tracking für Ihre iOS-Anwendung zu konfigurieren, verwenden Sie eine [Utility-Methode]({{site.baseurl}}/developer_guide/analytics/tracking_uninstalls?sdktab=swift). Verwenden Sie für Ihre Android-Anwendung [`isUninstallTrackingPush()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/is-uninstall-tracking-push.html). Wenn Braze eine Deinstallation feststellt – sei es durch Uninstall-Tracking oder durch die normale Zustellung von Push-Campaigns – erfassen wir den bestmöglich geschätzten Zeitpunkt der Deinstallation beim Nutzer oder bei der Nutzerin. Dieser Zeitpunkt wird im Kundenprofil als Standardattribut gespeichert und kann zur Definition eines Segments von Nutzer:innen für Rückgewinnungskampagnen verwendet werden.
 
 ## Segmente nach Deinstallationen filtern {#filtering-segments-by-uninstalls}
 
@@ -81,7 +81,7 @@ Weitere Informationen zur Verwendung des Uninstall-Trackings finden Sie in unser
 
 ## Fehlerbehebung {#troubleshooting}
 
-### Wann wird ein Kundenprofil or Nutzerprofil als deinstalliert markiert? Wann wird die Deinstallationsmarkierung entfernt? {#when-is-a-users-profile-flagged-as-uninstalled-when-is-the-uninstall-tag-cleared}
+### Wann wird ein Kundenprofil als deinstalliert markiert? Wann wird die Deinstallationsmarkierung entfernt? {#when-is-a-users-profile-flagged-as-uninstalled-when-is-the-uninstall-tag-cleared}
 
 Braze markiert eine:n Nutzer:in als deinstalliert, wenn erkannt wird, dass die App nicht mehr auf dem Gerät vorhanden ist (siehe [Funktionsweise](#how-it-works) zur Erkennung über reguläre Push-Nachrichten und optionales Uninstall-Tracking). Nachdem jemand Ihre App erneut installiert hat, kann die Deinstallationsmarkierung im Profil bestehen bleiben, bis die Person **die App öffnet und eine neue Sitzung startet** – die bloße Neuinstallation entfernt die Markierung nicht. Bis zu dieser Sitzung behandeln Segmente und Filter, die den Deinstallationsstatus verwenden (z. B. **Has Not Uninstalled**), den oder die Nutzer:in weiterhin als deinstalliert.
 

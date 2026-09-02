@@ -37,10 +37,10 @@ Wenn Sie bemerken, dass Ihre Zielgruppe kleiner als erwartet ist, versuchen Sie,
 
 Eine Race-Condition kann auftreten, wenn Sie dieselben Entry-Kriterien sowohl in Ihren Einstellungen für **Entry Schedule** als auch für **Target Audience** verwendet haben.
 
-Wenn Sie einen aktionsbasierten Entry verwenden, überprüfen Sie, ob Sie hier nicht dieselbe Trigger or triggern-Aktion wie in Ihrer Zielgruppe verwendet haben. Eine Race-Condition kann auftreten, bei der sich die Nutzer:innen zum Zeitpunkt des Trigger or triggern-Events nicht in der Zielgruppe befinden, sodass sie nicht in das Canvas eintreten.
+Wenn Sie einen aktionsbasierten Entry verwenden, überprüfen Sie, ob Sie hier nicht dieselbe Trigger-Aktion wie in Ihrer Zielgruppe verwendet haben. Eine Race-Condition kann auftreten, bei der sich die Nutzer:innen zum Zeitpunkt des Trigger-Events nicht in der Zielgruppe befinden, sodass sie nicht in das Canvas eintreten.
 
 {% alert tip %}
-Lesen Sie die [Best Practices]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions#scenario-3-matching-action-based-triggers-and-audience-filters) zur Vermeidung dieser Race-Condition, wenn Sie ein aktionsbasiertes Canvas mit demselben Trigger or triggern wie dem Zielgruppenfilter einrichten.
+Lesen Sie die [Best Practices]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions#scenario-3-matching-action-based-triggers-and-audience-filters) zur Vermeidung dieser Race-Condition, wenn Sie ein aktionsbasiertes Canvas mit demselben Trigger wie dem Zielgruppenfilter einrichten.
 {% endalert %}
 
 ### Canvas-Entry-Eigenschaften und Event-Eigenschaften prüfen {#check-canvas-entry-properties-and-event-properties}

@@ -37,8 +37,8 @@ A Amplitude e a Braze oferecem dois métodos de integração diferentes. Leia a 
 
 | Requisito | Descrição |
 | ----------- | ----------- |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com todas as permissões.<br><br> Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
-| Endpoint REST or transferir estado representacional da Braze | [A URL do seu endpoint REST or transferir estado representacional][1]. Seu endpoint dependerá da URL da Braze para sua instância. |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com todas as permissões.<br><br> Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Endpoint REST da Braze | [A URL do seu endpoint REST][1]. Seu endpoint dependerá da URL da Braze para sua instância. |
 | Identificador do app Braze | O identificador do app que receberá eventos da Amplitude. Ele pode ser encontrado em **Dashboard da Braze > Console de desenvolvedor > Configurações**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
@@ -46,7 +46,7 @@ A Amplitude e a Braze oferecem dois métodos de integração diferentes. Leia a 
 
 1. Na Amplitude, navegue até **Data Destinations** e procure "Braze - Event Stream".
 2. Digite um nome de sincronização e clique em **Create Sync**.
-3. Clique em **Edit** e forneça seu endpoint REST or transferir estado representacional da Braze, sua chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional e o identificador do app Braze.
+3. Clique em **Edit** e forneça seu endpoint REST da Braze, sua chave da API REST e o identificador do app Braze.
 4. Use o filtro de eventos de envio para selecionar os eventos a serem enviados. Você pode enviar todos os eventos, mas a Amplitude recomenda escolher os mais importantes.
 5. Quando terminar, ative o destino e salve.
 
@@ -114,9 +114,9 @@ Por fim, defina a frequência de sua sincronização.
 Se você receber esse erro ao [importar uma coorte da Amplitude]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_cohort_import) para a Braze, tente o seguinte:
 
 1. **Confirme o alinhamento do ID do usuário.** O User ID na Amplitude (não o Amplitude ID) deve corresponder exatamente ao External User ID na Braze (não o Braze ou BSON ID). Por exemplo, o User ID `12345` na Amplitude deve corresponder ao External User ID `12345` na Braze.
-2. **Regenere sua chave de API or interface de programação do aplicativo (API) da Braze.** No dashboard da Braze, acesse **Integrações de parceiros** > **Parceiros de tecnologia** > **Amplitude** e selecione **Generate New Key**. Em seguida, tente novamente a sincronização da coorte da Amplitude usando a nova chave de API or interface de programação do aplicativo (API).
+2. **Regenere sua chave de API da Braze.** No dashboard da Braze, acesse **Integrações de parceiros** > **Parceiros de tecnologia** > **Amplitude** e selecione **Generate New Key**. Em seguida, tente novamente a sincronização da coorte da Amplitude usando a nova chave de API.
 3. **Confirme que a coorte foi sincronizada na Amplitude.** Entre em contato com o [suporte da Amplitude](https://help.amplitude.com/) para confirmar que a coorte foi sincronizada com sucesso no lado da Amplitude antes de investigar mais na Braze.
 
-## Endpoints da API or interface de programação do aplicativo (API) do perfil de usuário da Amplitude {#amplitude-user-profile-api-endpoints}
+## Endpoints da API do perfil de usuário da Amplitude {#amplitude-user-profile-api-endpoints}
 
-Para verificar alguns dos endpoints comuns da API or interface de programação do aplicativo (API) da Amplitude que podem ser usados com Conteúdo conectado, consulte nossa [documentação específica da API or interface de programação do aplicativo (API) da Amplitude]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_user_profile_api).
+Para verificar alguns dos endpoints comuns da API da Amplitude que podem ser usados com Conteúdo conectado, consulte nossa [documentação específica da API da Amplitude]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_user_profile_api).

@@ -91,7 +91,7 @@ tool: Canvas
 {: start="2"}
 2. 2番目のアクショングループ**Taken Tour**はそのままにします。ユーザーがアプリのツアーを完了したかどうかを評価し、完了した場合は2番目のパスに進むようにするためです。
 3. 後続のアクションパス**Assess Usage**で、**Used Feature >3x**を**Viewed Cruise Control settings**に置き換えます。
-4. **カスタムイベントを実行**ドロップダウンを選択し、カスタムイベントとして`scheduled_delivery`を選択します。
+4. **Perform Custom Event**ドロップダウンを選択し、カスタムイベントとして`scheduled_delivery`を選択します。
 
 ![アクショングループ名が「Used Feature >3x」に設定され、「Perform Custom Event」が「scheduled_delivery」に設定されている画面。]({% image_buster /assets/img/canvas_templates/feature_adoption/action_path_assess_usage.png %}){: style="max-width:60%;"}
 

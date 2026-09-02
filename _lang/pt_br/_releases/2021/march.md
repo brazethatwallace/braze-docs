@@ -7,9 +7,9 @@ description: "Este artigo contém notas de versão de março de 2021."
 ---
 # Março de 2021 {#march-2021}
 
-## Extensão de Segment or segmento or segmento {#segment-extension}
+## Extensão de Segment {#segment-extension}
 
-Uma [extensão de Segment or segmento or segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) expande nossos recursos de segmentação existentes, permitindo o direcionamento para listas mais precisas de usuários com base em seus eventos personalizados e comportamento de compra nos últimos 365 dias. Depois que essas listas de extensões forem geradas, elas poderão ser incluídas ou excluídas como um filtro em seus Segments. Ao criar uma extensão de Segment or segmento or segmento, você também pode especificar que a lista seja regenerada a cada 24 horas.
+Uma [extensão de Segment]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) expande nossos recursos de segmentação existentes, permitindo o direcionamento para listas mais precisas de usuários com base em seus eventos personalizados e comportamento de compra nos últimos 365 dias. Depois que essas listas de extensões forem geradas, elas poderão ser incluídas ou excluídas como um filtro em seus Segments. Ao criar uma extensão de Segment, você também pode especificar que a lista seja regenerada a cada 24 horas.
 
 ## A2P 10DLC
 

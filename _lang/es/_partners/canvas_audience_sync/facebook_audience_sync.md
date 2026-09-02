@@ -14,7 +14,7 @@ tool:
 
 > Con la Sincronización de audiencias de Braze con Facebook, puedes optar por añadir los datos de tus propios usuarios de tu integración Braze a las audiencias personalizadas de Facebook para entregar anuncios basados en desencadenantes de comportamiento, segmentación y mucho más.
 
-Cualquier criterio que utilices normalmente para desencadenar un mensaje (push, correo electrónico, servicio de mensajes cortos o webhook) en un Canvas de Braze basado en tus datos de usuario puede utilizarse ahora para desencadenar un anuncio dirigido a ese usuario en Facebook utilizando audiencias personalizadas. Por ejemplo, cuando configuras una sincronización de audiencia con Facebook, puedes utilizar una amplia variedad de campos de datos propios, como correo electrónico, teléfono, nombre y apellidos.
+Cualquier criterio que utilices normalmente para desencadenar un mensaje (push, correo electrónico, SMS o webhook) en un Canvas de Braze basado en tus datos de usuario puede utilizarse ahora para desencadenar un anuncio dirigido a ese usuario en Facebook utilizando audiencias personalizadas. Por ejemplo, cuando configuras una sincronización de audiencia con Facebook, puedes utilizar una amplia variedad de campos de datos propios, como correo electrónico, teléfono, nombre y apellidos.
 
 **Entre los casos de uso habituales para sincronizar audiencias personalizadas se incluyen**:
 
@@ -220,7 +220,7 @@ Entonces, Braze podrá sincronizar usuarios tan pronto como lleguen al paso de F
 
 ### ¿Qué pasó con los filtros **Connected Facebook** y **Number of Facebook Friends Using App**? {#what-happened-to-the-connected-facebook-and-number-of-facebook-friends-using-app-filters}
 
-Los filtros de segmentación de Braze **Number of Facebook Friends Using App** y **Connected Facebook** están obsoletos. Facebook y los SDK or kit de desarrollo de software de Braze ya no recopilan los datos subyacentes en los que se basaban esos filtros.
+Los filtros de segmentación de Braze **Number of Facebook Friends Using App** y **Connected Facebook** están obsoletos. Facebook y los SDK de Braze ya no recopilan los datos subyacentes en los que se basaban esos filtros.
 
 Reemplaza los filtros obsoletos con atributos personalizados, eventos personalizados o Segments basados en la participación; por ejemplo, inicio de sesión de Facebook o vinculación social en lugar de **Connected Facebook**, o referidos, invitaciones y compartidos en lugar de **Number of Facebook Friends Using App**.
 

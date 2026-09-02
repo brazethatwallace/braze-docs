@@ -7,7 +7,7 @@ layout: api_page
 page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint Criar novo alias de usuário da Braze."
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Criar novo alias de usuário {#create-new-user-alias}
 {% apimethod post %}
 /users/alias/new
@@ -21,7 +21,7 @@ Podem ser especificados até 50 aliases de usuário por solicitação.
 
 **A criação de um novo usuário somente de alias** exige que o `external_id` seja omitido no novo objeto de alias de usuário. Depois que o usuário for criado, use o endpoint `/users/track` para associar o usuário somente de alias a atributos, eventos e compras, e o endpoint `/users/identify` para identificar o usuário com um `external_id`.
 
-Você pode enviar Campaigns disparadas por API or interface de programação do aplicativo (API) para usuários por `user_alias` usando o endpoint [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns).
+Você pode enviar Campaigns disparadas por API para usuários por `user_alias` usando o endpoint [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns).
 
 ## Quando `alias_label` e `alias_name` já existem {#when-alias_label-and-alias_name-already-exist}
 
@@ -33,7 +33,7 @@ Se você enviar uma solicitação em que o par `alias_label` e `alias_name` já 
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics) com a permissão `users.alias.new`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics) com a permissão `users.alias.new`.
 
 ## Limite de frequência {#rate-limit}
 

@@ -52,9 +52,9 @@ Na página seguinte, insira o nome do seu aplicativo. As duas caixas de seleçã
 
 ![Campo de nome do aplicativo no Baidu]({% image_buster /assets/img_archive/baidu_app_name.png %})
 
-Após configurar seu aplicativo, você será direcionado a um console que exibe informações sobre o app, incluindo a chave de API or interface de programação do aplicativo (API). Em seguida, navegue até **云推送** (cloud push) na barra lateral. Na página seguinte, clique em **推送设置** (configurar push).
+Após configurar seu aplicativo, você será direcionado a um console que exibe informações sobre o app, incluindo a chave de API. Em seguida, navegue até **云推送** (cloud push) na barra lateral. Na página seguinte, clique em **推送设置** (configurar push).
 
-![Console do aplicativo no Baidu exibindo informações da API or interface de programação do aplicativo (API)]({% image_buster /assets/img_archive/baidu_app_console.png %})
+![Console do aplicativo no Baidu exibindo informações da API]({% image_buster /assets/img_archive/baidu_app_console.png %})
 
 ![Página de cloud push do Baidu]({% image_buster /assets/img_archive/baidu_continue.png %})
 
@@ -64,11 +64,11 @@ Na página seguinte, insira o nome do pacote do seu app (por exemplo, `com.braze
 
 ## Etapa 4: Adicionar o Baidu ao seu aplicativo {#step-4-add-baidu-to-your-application}
 
-Acesse o [portal do SDK or kit de desenvolvimento de software de push do Baidu](http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk) e baixe a versão mais recente do Baidu Cloud Push Android SDK or kit de desenvolvimento de software.
+Acesse o [portal do SDK de push do Baidu](http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk) e baixe a versão mais recente do Baidu Cloud Push Android SDK.
 
-![Portal do SDK or kit de desenvolvimento de software de push do Baidu]({% image_buster /assets/img_archive/baidu_sdk.png %})
+![Portal do SDK de push do Baidu]({% image_buster /assets/img_archive/baidu_sdk.png %})
 
-Dentro do SDK or kit de desenvolvimento de software, você encontrará o jar do serviço de push e as bibliotecas nativas específicas de cada plataforma. Integre-as ao seu projeto. Certifique-se de que seu app tenha como alvo a versão mais recente do SDK or kit de desenvolvimento de software atualmente suportada pelo Baidu. Esta documentação está atualizada para a versão `4.6.2.38` do Baidu Cloud Push Android SDK or kit de desenvolvimento de software.
+Dentro do SDK, você encontrará o jar do serviço de push e as bibliotecas nativas específicas de cada plataforma. Integre-as ao seu projeto. Certifique-se de que seu app tenha como alvo a versão mais recente do SDK atualmente suportada pelo Baidu. Esta documentação está atualizada para a versão `4.6.2.38` do Baidu Cloud Push Android SDK.
 
 Adicione as seguintes permissões obrigatórias do Baidu ao `AndroidManifest.xml` do seu aplicativo.
 
@@ -135,7 +135,7 @@ Você também precisará criar um broadcast receiver que escute as mensagens pus
       </receiver>
 ```
 
-No método `onCreate()` da sua activity principal, adicione a linha a seguir, que registrará seu aplicativo no Baidu e começará a escutar mensagens push recebidas. Substitua "Your-API or interface de programação do aplicativo (API)-Key" pela chave de API or interface de programação do aplicativo (API) do Baidu do seu projeto.
+No método `onCreate()` da sua activity principal, adicione a linha a seguir, que registrará seu aplicativo no Baidu e começará a escutar mensagens push recebidas. Substitua "Your-API-Key" pela chave de API do Baidu do seu projeto.
 
 ```
 PushManager.startWork(getApplicationContext(), PushConstants.LOGIN_TYPE_API_KEY, "Your-API-Key");
@@ -227,16 +227,16 @@ try {
 
 ## Etapa 7: Configurar as chaves do Baidu {#step-7-set-up-baidu-keys}
 
-Você precisa inserir sua chave de API or interface de programação do aplicativo (API) do Baidu e sua chave secreta do Baidu no dashboard da Braze. Ambas as chaves estão disponíveis no console de aplicativos do Baidu.
+Você precisa inserir sua chave de API do Baidu e sua chave secreta do Baidu no dashboard da Braze. Ambas as chaves estão disponíveis no console de aplicativos do Baidu.
 
-Na página **Manage Settings**, selecione seu app Android China e insira sua chave de API or interface de programação do aplicativo (API) do Baidu e sua chave secreta do Baidu na seção de notificações por push.
+Na página **Manage Settings**, selecione seu app Android China e insira sua chave de API do Baidu e sua chave secreta do Baidu na seção de notificações por push.
 
-![Chave de API or interface de programação do aplicativo (API) do Baidu]({% image_buster /assets/img_archive/baidu_api_key.png %} "APIKey"){: style="max-width:80%;"}
+![Chave de API do Baidu]({% image_buster /assets/img_archive/baidu_api_key.png %} "APIKey"){: style="max-width:80%;"}
 
 ## Recursos adicionais {#additional-resources}
 
 - [Portal do Baidu](https://www.baidu.com/)
 - [Portal do desenvolvedor Baidu](http://developer.baidu.com/)
 - [Portal de projetos Baidu](http://developer.baidu.com/console#app/project)
-- [Portal do SDK or kit de desenvolvimento de software de push do Baidu](http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk)
+- [Portal do SDK de push do Baidu](http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk)
 - [Documentação de integração do Baidu](http://developer.baidu.com/wiki/index.php?title=docs/frontia/guide-android/overview)

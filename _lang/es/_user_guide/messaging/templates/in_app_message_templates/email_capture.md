@@ -10,7 +10,7 @@ description: "Esta página explica cómo crear un formulario de registro de corr
 
 > Usa la plantilla de mensaje dentro de la aplicación de arrastrar y soltar para registro de correo electrónico para recopilar las direcciones de correo electrónico de los usuarios y hacer crecer tus grupos de suscripción.
 
-{% multi_lang_include drag_and_drop/templates.md section='SDK or kit de desarrollo de software requirements' %}
+{% multi_lang_include drag_and_drop/templates.md section='SDK requirements' %}
 
 ## Crear un formulario de registro de correo electrónico {#creating-an-email-sign-up-form}
 

@@ -1,14 +1,14 @@
 ---
 nav_title: Administrar la recopilación de datos
-article_title: Administrar la recopilación de datos para el SDK or kit de desarrollo de software de Braze
+article_title: Administrar la recopilación de datos para el SDK de Braze
 page_order: 8
-description: "Aprende a administrar la recopilación de datos para el SDK or kit de desarrollo de software de Braze."
+description: "Aprende a administrar la recopilación de datos para el SDK de Braze."
 
 ---
 
 # Administrar la recopilación de datos {#manage-data-collection}
 
-> Aprende a administrar la recopilación de datos para el SDK or kit de desarrollo de software de Braze, de modo que puedas cumplir con cualquier normativa de privacidad de datos según sea necesario.
+> Aprende a administrar la recopilación de datos para el SDK de Braze, de modo que puedas cumplir con cualquier normativa de privacidad de datos según sea necesario.
 
 {% sdktabs %}
 {% sdktab web %}

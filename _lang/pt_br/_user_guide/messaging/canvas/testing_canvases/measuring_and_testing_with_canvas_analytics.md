@@ -30,10 +30,10 @@ Quando a opção **[Calcular estatísticas exatas]({{site.baseurl}}/user_guide/a
 ![A página Detalhes do Canvas mostrando estatísticas principais, incluindo mensagens enviadas, taxa de conversão, total de entradas, receita total, total de saídas e público estimado, com filtros de canal e estatísticas.]({% image_buster /assets/img_archive/Journey_5.png %})
 
 {% alert tip %}
-Se um Segment or segmento criado a partir da atividade do Canvas mostrar menos usuários contatáveis do que o esperado com base na análise de dados do Canvas, existem dois motivos comuns:
+Se um Segment criado a partir da atividade do Canvas mostrar menos usuários contatáveis do que o esperado com base na análise de dados do Canvas, existem dois motivos comuns:
 
-- **Amostragem de estimativa:** As estatísticas do Segment or segmento podem exibir uma estimativa baseada em uma amostra aleatória com um intervalo de confiança de 95% de ±1%, em vez de uma contagem exata.
-- **Usuários que não atendem mais aos critérios:** Alguns usuários contabilizados na análise de dados do Canvas podem não se qualificar mais para o Segment or segmento — por exemplo, porque cancelaram a inscrição ou seus dados de perfil mudaram desde que o Canvas foi executado. Verifique o **Desempenho histórico** do Canvas para um alto volume de cancelamentos de inscrição.
+- **Amostragem de estimativa:** As estatísticas do Segment podem exibir uma estimativa baseada em uma amostra aleatória com um intervalo de confiança de 95% de ±1%, em vez de uma contagem exata.
+- **Usuários que não atendem mais aos critérios:** Alguns usuários contabilizados na análise de dados do Canvas podem não se qualificar mais para o Segment — por exemplo, porque cancelaram a inscrição ou seus dados de perfil mudaram desde que o Canvas foi executado. Verifique o **Desempenho histórico** do Canvas para um alto volume de cancelamentos de inscrição.
 {% endalert %}
 
 ### Alterações desde a última visualização {#changes-since-last-viewed}
@@ -62,7 +62,7 @@ Na parte inferior da página **Detalhes do Canvas**, clique em **Analisar varian
 
 ### Analisar variantes {#analyze-variants}
 
-Na guia **Analisar variantes**, você pode ver um detalhamento de performance por variante e grupo de controle, caso tenha mais de um. Também é possível copiar o identificador de API or interface de programação do aplicativo (API) do Canvas, baixar um arquivo CSV das métricas e copiar as células. A guia **Analisar variantes** contém uma tabela que mostra o detalhamento de cada variante em vários níveis.
+Na guia **Analisar variantes**, você pode ver um detalhamento de performance por variante e grupo de controle, caso tenha mais de um. Também é possível copiar o identificador de API do Canvas, baixar um arquivo CSV das métricas e copiar as células. A guia **Analisar variantes** contém uma tabela que mostra o detalhamento de cada variante em vários níveis.
 
 Você pode identificar rapidamente as variantes mais eficazes e descobrir as cadências, conteúdos, disparadores, horários ideais e muito mais.
 
@@ -70,7 +70,7 @@ Você pode identificar rapidamente as variantes mais eficazes e descobrir as cad
 
 As métricas básicas incluem:
 
-- **Identificador de API or interface de programação do aplicativo (API) da variante:** O identificador de API or interface de programação do aplicativo (API) da sua variante, que pode ser usado em suas chamadas de API or interface de programação do aplicativo (API).
+- **Identificador de API da variante:** O identificador de API da sua variante, que pode ser usado em suas chamadas de API.
 - **Total de entradas:** O número total de usuários que entraram na variante do Canvas.
 - **Total de envios:** O número total de mensagens enviadas na variante do Canvas.
 - **Total de etapas:** O número total de etapas na variante do Canvas.

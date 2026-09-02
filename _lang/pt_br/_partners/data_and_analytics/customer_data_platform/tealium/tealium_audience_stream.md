@@ -15,7 +15,7 @@ search_tag: Partner
 A integração da Braze com a Tealium utiliza os perfis de visitantes do AudienceStream. Os comportamentos compartilhados segmentam esses perfis para criar conjuntos de visitantes com características comuns, conhecidos como públicos. Esses públicos podem ajudar a alimentar sua stack de tecnologia de marketing em tempo real por meio de conectores.
 
 {% alert important %}
-O Tealium AudienceStreams e o EventStreams oferecem ações de conector com e sem lote. O conector sem lote deve ser usado quando as solicitações em tempo real forem importantes para o caso de uso e não houver preocupações quanto a atingir as especificações de limite de frequência da API or interface de programação do aplicativo (API) da Braze. Entre em contato com o [Suporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) da Braze ou com seu gerente de sucesso do cliente se tiver alguma dúvida.
+O Tealium AudienceStreams e o EventStreams oferecem ações de conector com e sem lote. O conector sem lote deve ser usado quando as solicitações em tempo real forem importantes para o caso de uso e não houver preocupações quanto a atingir as especificações de limite de frequência da API da Braze. Entre em contato com o [Suporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) da Braze ou com seu CSM se tiver alguma dúvida.
 {% endalert %}
 
 ## Pré-requisitos {#prerequisites}
@@ -23,8 +23,8 @@ O Tealium AudienceStreams e o EventStreams oferecem ações de conector com e se
 | Nome | Descrição |
 | ---- | --------- |
 | Conta Tealium | Uma [conta Tealium](https://my.tealiumiq.com/) com acesso server-side é necessária. Recomendamos também o uso das integrações client-side para aproveitar essa parceria. |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com as permissões `users.track`, `users.delete` e `subscription.status.set`.<br><br>Ela pode ser criada em **Dashboard da Braze > Console de desenvolvedor > Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional > Criar nova chave de API or interface de programação do aplicativo (API)**|
-| [Endpoint REST or transferir estado representacional da Braze]({{site.baseurl}}/api/basics#endpoints) | A URL do seu endpoint REST or transferir estado representacional. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/api/basics#endpoints). |
+| Chave da API REST | Uma chave da API REST da Braze com as permissões `users.track`, `users.delete` e `subscription.status.set`.<br><br>Ela pode ser criada em **Dashboard da Braze > Console de desenvolvedor > Chave da API REST > Criar nova chave de API**|
+| [Endpoint REST da Braze]({{site.baseurl}}/api/basics#endpoints) | A URL do seu endpoint REST. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
@@ -124,7 +124,7 @@ Na caixa de diálogo **Source** que aparece, selecione o público que você crio
 
 #### Configuração {#configuration}
 
-Em seguida, a caixa de diálogo **Configuration** será exibida. Selecione **Add Connector** na parte inferior da página. Nomeie o seu conector e forneça o endpoint da API or interface de programação do aplicativo (API) da Braze e a chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze aqui.
+Em seguida, a caixa de diálogo **Configuration** será exibida. Selecione **Add Connector** na parte inferior da página. Nomeie o seu conector e forneça o endpoint da API da Braze e a chave da API REST da Braze aqui.
 
 ![Caixa de diálogo de configuração do conector Tealium com campos de endpoint e chave da API REST da Braze.]({% image_buster /assets/img/tealium/create_configuration.png %}){: style="max-width:70%;"}
 
@@ -231,5 +231,5 @@ Se você tiver vários EventStreams que apontam para o mesmo feed de eventos, **
 **Solução**: <br>Configure uma especificação de evento ou feed separado para rastrear cada ação. <br>**OU**<br> Desative ações (ou conectores) que você não deseja disparar usando os botões de alternância no dashboard do Tealium.
 
 #### Inicializar a Braze cedo demais {#initializing-braze-too-early}
-Se você estiver integrando com o Tealium usando a tag do SDK or kit de desenvolvimento de software da Braze para web, poderá ver um aumento significativo no seu MAU. **Se a Braze for inicializada no carregamento da página, ela criará um perfil anônimo toda vez que um usuário web navegar até o website pela primeira vez.** Isso inclui tráfego de bots, o que pode inflar sua contagem de usuários ativos. Alguns podem preferir rastrear o comportamento do usuário apenas quando ele tiver concluído alguma ação, como "Fez login" ou "Assistiu vídeo", para reduzir a contagem de MAU. <br><br>
-**Solução**: <br>Configure [regras de carregamento](https://docs.tealium.com/iq-tag-management/load-rules/about/) para determinar exatamente quando e onde uma tag é carregada no seu site. Para orientações mais detalhadas sobre filtragem de tráfego de bots e inicialização condicional do SDK or kit de desenvolvimento de software, consulte [Filtragem de tráfego de bots]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web#web_bot-filtering).
+Se você estiver integrando com o Tealium usando a tag do SDK da Braze para web, poderá ver um aumento significativo no seu MAU. **Se a Braze for inicializada no carregamento da página, ela criará um perfil anônimo toda vez que um usuário web navegar até o website pela primeira vez.** Isso inclui tráfego de bots, o que pode inflar sua contagem de usuários ativos. Alguns podem preferir rastrear o comportamento do usuário apenas quando ele tiver concluído alguma ação, como "Fez login" ou "Assistiu vídeo", para reduzir a contagem de MAU. <br><br>
+**Solução**: <br>Configure [regras de carregamento](https://docs.tealium.com/iq-tag-management/load-rules/about/) para determinar exatamente quando e onde uma tag é carregada no seu site. Para orientações mais detalhadas sobre filtragem de tráfego de bots e inicialização condicional do SDK, consulte [Filtragem de tráfego de bots]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web#web_bot-filtering).

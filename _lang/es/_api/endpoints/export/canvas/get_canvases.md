@@ -11,7 +11,7 @@ description: "En este artículo se describen los detalles del endpoint Exportar 
 {% api %}
 # Exportar lista de Canvas {#export-canvas-list}
 {% apimethod get %}
-/Canvas/list
+/canvas/list
 {% endapimethod %}
 
 > Utiliza este endpoint para exportar una lista de Canvas, incluyendo el nombre, el identificador de API de Canvas y las etiquetas asociadas.

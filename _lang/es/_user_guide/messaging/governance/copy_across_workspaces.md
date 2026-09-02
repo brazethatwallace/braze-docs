@@ -23,7 +23,7 @@ Cuando copias una Campaign, un Canvas o una página de destino a un espacio de t
 La copia de Campaigns entre espacios de trabajo está disponible de forma general. Actualmente no se admite la compatibilidad de canales para Content Cards.
 {% endalert %}
 
-Puedes copiar Campaigns entre espacios de trabajo para estos canales compatibles: servicio de mensajes cortos, mensajes dentro de la aplicación, notificaciones push, correo electrónico y webhooks. También puedes copiar plantillas de correo electrónico, conmutadores de características y Content Blocks. Ten en cuenta que las campañas multicanal con canales no compatibles no se pueden copiar a un espacio de trabajo diferente.
+Puedes copiar Campaigns entre espacios de trabajo para estos canales compatibles: SMS, mensajes dentro de la aplicación, notificaciones push, correo electrónico y webhooks. También puedes copiar plantillas de correo electrónico, conmutadores de características y Content Blocks. Ten en cuenta que las campañas multicanal con canales no compatibles no se pueden copiar a un espacio de trabajo diferente.
 
 Para copiar una Campaign a un espacio de trabajo diferente:
 
@@ -32,13 +32,13 @@ Para copiar una Campaign a un espacio de trabajo diferente:
 3. Después de copiar, revisa y prueba tu Campaign para confirmar que todos los campos funcionan correctamente.
 
 {% endtab %}
-{% tab Canvas %}
+{% tab canvas %}
 
 {% alert important %}
 La copia de Canvas entre espacios de trabajo está disponible de forma general. Actualmente no se admiten los siguientes canales: LINE, Content Cards y WhatsApp.
 {% endalert %}
 
-Puedes copiar Canvas entre espacios de trabajo para estos canales compatibles: correo electrónico, mensajes dentro de la aplicación, push, webhooks y servicio de mensajes cortos.
+Puedes copiar Canvas entre espacios de trabajo para estos canales compatibles: correo electrónico, mensajes dentro de la aplicación, push, webhooks y SMS.
 
 Para copiar un Canvas a un espacio de trabajo diferente:
 
@@ -96,7 +96,7 @@ Las traducciones no se copian al copiar Campaigns de correo electrónico, Canvas
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Detalles" }
 
 {% endtab %}
-{% tab Canvas %}
+{% tab canvas %}
 
 | Copiado | Omitido |
 |---|---|
@@ -130,7 +130,7 @@ Los criterios de filtro de los pasos en Canvas (por ejemplo, los pasos de [divis
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Comportamientos de conversión" }
 
 {% endtab %}
-{% tab Canvas %}
+{% tab canvas %}
 
 | Copiado | Omitido |
 |---|---|
@@ -157,7 +157,7 @@ Los criterios de filtro de los pasos en Canvas (por ejemplo, los pasos de [divis
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Acciones" }
 
 {% endtab %}
-{% tab Canvas %}
+{% tab canvas %}
 
 | Copiado | Omitido |
 |---|---|
@@ -184,7 +184,7 @@ Los criterios de filtro de los pasos en Canvas (por ejemplo, los pasos de [divis
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Variaciones de mensaje" }
 
 {% endtab %}
-{% tab Canvas %}
+{% tab canvas %}
 
 | Copiado | Omitido |
 |---|---|
@@ -214,7 +214,7 @@ Los criterios de filtro de los pasos en Canvas (por ejemplo, los pasos de [divis
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Variación de mensaje de correo electrónico" }
 
 {% endtab %}
-{% tab Canvas %}
+{% tab canvas %}
 
 | Copiado | Omitido |
 |---|---|
@@ -244,7 +244,7 @@ Los criterios de filtro de los pasos en Canvas (por ejemplo, los pasos de [divis
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Cuerpo del correo electrónico" }
 
 {% endtab %}
-{% tab Canvas %}
+{% tab canvas %}
 
 | Copiado | Omitido |
 |---|---|
@@ -273,7 +273,7 @@ Los criterios de filtro de los pasos en Canvas (por ejemplo, los pasos de [divis
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Plantillas de correo electrónico" }
 
 {% endtab %}
-{% tab Canvas %}
+{% tab canvas %}
 
 | Copiado | Omitido |
 |---|---|
@@ -301,7 +301,7 @@ Los criterios de filtro de los pasos en Canvas (por ejemplo, los pasos de [divis
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Content Blocks" }
 
 {% endtab %}
-{% tab Canvas %}
+{% tab canvas %}
 
 | Copiado | Omitido |
 |---|---|
@@ -314,7 +314,7 @@ Los criterios de filtro de los pasos en Canvas (por ejemplo, los pasos de [divis
 {% endtab %}
 {% endtabs %}
 
-### Variación de mensaje servicio de mensajes cortos {#sms-message-variation}
+### Variación de mensaje SMS {#sms-message-variation}
 
 {% tabs local %}
 {% tab campaigns %}
@@ -325,10 +325,10 @@ Los criterios de filtro de los pasos en Canvas (por ejemplo, los pasos de [divis
 | Acortamiento de enlaces | Elementos multimedia VCF |
 | Seguimiento de clics |  |
 | Elementos multimedia |  |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Variación de mensaje servicio de mensajes cortos" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Variación de mensaje SMS" }
 
 {% endtab %}
-{% tab Canvas %}
+{% tab canvas %}
 
 | Copiado | Omitido |
 |---|---|
@@ -336,7 +336,7 @@ Los criterios de filtro de los pasos en Canvas (por ejemplo, los pasos de [divis
 | Acortamiento de enlaces | Elementos multimedia VCF |
 | Seguimiento de clics |  |
 | Elementos multimedia |  |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Variación de mensaje servicio de mensajes cortos" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Variación de mensaje SMS" }
 
 {% endtab %}
 {% endtabs %}

@@ -1,14 +1,14 @@
 ---
 nav_title: Casos de uso de la API
 article_title: Casos de uso de la API
-description: "Tanto si eres un desarrollador experto como un especialista en marketing con recursos mínimos de desarrollo, este artículo de referencia está diseñado para ayudarte a comprender cómo aprovechar la potencia de la REST or transferencia de estado representacional API de Braze para realizar diversas tareas y mejorar tu estrategia de interacción con los clientes."
+description: "Tanto si eres un desarrollador experto como un especialista en marketing con recursos mínimos de desarrollo, este artículo de referencia está diseñado para ayudarte a comprender cómo aprovechar la potencia de la REST API de Braze para realizar diversas tareas y mejorar tu estrategia de interacción con los clientes."
 page_type: reference
 page_order: 4.8
 ---
 
 # Casos de uso de la API {#api-use-cases}
 
-> La [REST or transferencia de estado representacional API de Braze]({{site.baseurl}}/api/basics) proporciona una amplia gama de puntos finales diseñados para ayudar a gestionar y optimizar tu estrategia de interacción con los clientes. En este artículo, exploraremos varios casos de uso para cada colección de puntos finales: catálogos, listas de correo electrónico y direcciones, exportación, mensajes, centro de preferencias, servicio de mensajes cortos, grupos de suscripción, plantillas y datos de usuario.<br><br>Cada sección presenta un escenario con una guía paso a paso, un ejemplo de código y el resultado esperado. Al final de este artículo, comprenderás mejor cómo utilizar la REST or transferencia de estado representacional API de Braze para mejorar tus esfuerzos de interacción con los clientes.
+> La [REST API de Braze]({{site.baseurl}}/api/basics) proporciona una amplia gama de puntos finales diseñados para ayudar a gestionar y optimizar tu estrategia de interacción con los clientes. En este artículo, exploraremos varios casos de uso para cada colección de puntos finales: catálogos, listas de correo electrónico y direcciones, exportación, mensajes, centro de preferencias, SMS, grupos de suscripción, plantillas y datos de usuario.<br><br>Cada sección presenta un escenario con una guía paso a paso, un ejemplo de código y el resultado esperado. Al final de este artículo, comprenderás mejor cómo utilizar la REST API de Braze para mejorar tus esfuerzos de interacción con los clientes.
 
 ## Eliminar varios elementos de un catálogo {#deleting-multiple-items-in-a-catalog}
 
@@ -173,7 +173,7 @@ A partir de esta respuesta, el equipo de marketing puede ver que el centro de pr
 
 ## Eliminar números de teléfono no válidos {#removing-invalid-phone-numbers}
 
-En CashBlastr, el objetivo principal es agilizar la forma en que la gente puede enviar y recibir pagos rápidos. Como empresa de servicios financieros, CashBlastr quiere mantener actualizada y precisa su lista de números de teléfono de sus clientes. Se ha encargado al equipo de desarrolladores que elimine la siguiente lista de números de teléfono marcados como "no válidos" para que los mensajes servicio de mensajes cortos del equipo de marketing puedan llegar a los clientes de CashBlastr adecuados.
+En CashBlastr, el objetivo principal es agilizar la forma en que la gente puede enviar y recibir pagos rápidos. Como empresa de servicios financieros, CashBlastr quiere mantener actualizada y precisa su lista de números de teléfono de sus clientes. Se ha encargado al equipo de desarrolladores que elimine la siguiente lista de números de teléfono marcados como "no válidos" para que los mensajes SMS del equipo de marketing puedan llegar a los clientes de CashBlastr adecuados.
 
 - 12223135467
 - 12183095514
@@ -200,7 +200,7 @@ Después de enviar esta carga útil, la respuesta confirma que Braze ha eliminad
 
 ## Ver el estado del grupo de suscripción de un usuario {#viewing-a-users-subscription-group-status}
 
-SandwichEmperor es una cadena de restaurantes de comida rápida en Estados Unidos, y su equipo de marketing quiere comprobar los estados del grupo de suscripción de una lista aleatoria de sus usuarios para servicio de mensajes cortos. Usando el [punto final `/subscription/status/get`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status), SandwichEmperor puede realizar esta tarea para un usuario individual con la siguiente solicitud de ejemplo:
+SandwichEmperor es una cadena de restaurantes de comida rápida en Estados Unidos, y su equipo de marketing quiere comprobar los estados del grupo de suscripción de una lista aleatoria de sus usuarios para SMS. Usando el [punto final `/subscription/status/get`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status), SandwichEmperor puede realizar esta tarea para un usuario individual con la siguiente solicitud de ejemplo:
 
 {% raw %}
 ```

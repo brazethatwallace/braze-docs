@@ -19,7 +19,7 @@ description: "Este artículo describe en detalle el endpoint de Braze para envia
 Este endpoint se utiliza junto con la creación de una [Campaign de correo transaccional]({{site.baseurl}}/api/api_campaigns/transactional_campaigns) de Braze y el ID de Campaign correspondiente.
 
 {% alert important %}
-El correo transaccional está disponible actualmente como parte de determinados paquetes de Braze. Ponte en contacto con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente de Braze para obtener más detalles.
+El correo transaccional está disponible actualmente como parte de determinados paquetes de Braze. Ponte en contacto con tu administrador de éxito de cliente de Braze para obtener más detalles.
 {% endalert %}
 
 Similar al [endpoint Enviar Campaign desencadenada]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns), este tipo de Campaign te permite alojar contenido de mensajes dentro del panel de Braze, al tiempo que dictas cuándo y a quién se envía un mensaje a través de tu API. A diferencia del endpoint Enviar Campaign desencadenada, que acepta una audiencia o Segment al que enviar mensajes, una solicitud a este endpoint debe especificar un único usuario, ya sea mediante `external_user_id` o `user_alias`, ya que este tipo de Campaign está diseñado para la mensajería 1:1 de alertas como confirmaciones de pedidos o restablecimiento de contraseñas.

@@ -11,7 +11,7 @@ toc_headers: h2
 
 # Agent-Schritt {#agent-step}
 
-> Mit dem Agent-Schritt können Sie KI or künstliche Intelligenz-gestützte Entscheidungsfindung und Inhaltsgenerierung direkt in Ihren Canvas-Workflow integrieren. Allgemeine Informationen finden Sie unter [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents).
+> Mit dem Agent-Schritt können Sie KI-gestützte Entscheidungsfindung und Inhaltsgenerierung direkt in Ihren Canvas-Workflow integrieren. Allgemeine Informationen finden Sie unter [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents).
 
 ![Ein Agent-Schritt in einer Canvas-User-Journey.]({% image_buster /assets/img/ai_agent/agent_step.png %}){: style="float:right;max-width:30%;margin-left:15px;"}
 
@@ -27,7 +27,7 @@ Sie können diese Variable dann auf drei wesentliche Arten verwenden:
 
 - **Entscheidungsfindung:** Leiten Sie Nutzer:innen basierend auf der Antwort des Agenten auf verschiedene Canvas-Pfade. Beispielsweise könnte ein Lead-Scoring-Agent eine Lead-Kategorie wie „Sales Ready“, „Marketing Qualified“ oder „Disqualified“ zurückgeben. Sie könnten diese Zuordnung nutzen, um für „Sales Ready“-Leads eine Slack-Benachrichtigung oder automatisierte Nachricht auszulösen, während „Disqualified“-Leads aus der Journey entfernt werden.
 - **Personalisierung:** Fügen Sie die Antwort des Agenten direkt in eine Nachricht ein. Beispielsweise könnte ein Agent Kundenfeedback analysieren und eine einfühlsame Follow-up-E-Mail generieren, die auf den Kommentar der Kund:innen eingeht und eine Lösung vorschlägt.
-- **Nutzerdaten verarbeiten:** Analysieren und standardisieren Sie Ihre Nutzerdaten und speichern Sie diese im Kundenprofil or Nutzerprofil oder senden Sie sie über einen Webhook. Beispielsweise könnte ein Agent einen Stimmungswert oder eine Produkt-Affinität-Zuordnung zurückgeben. Sie können diese Daten in einem Kundenprofil or Nutzerprofil für die zukünftige Verwendung speichern.
+- **Nutzerdaten verarbeiten:** Analysieren und standardisieren Sie Ihre Nutzerdaten und speichern Sie diese im Kundenprofil oder senden Sie sie über einen Webhook. Beispielsweise könnte ein Agent einen Stimmungswert oder eine Produkt-Affinität-Zuordnung zurückgeben. Sie können diese Daten in einem Kundenprofil für die zukünftige Verwendung speichern.
 
 ## Erstellen eines Agent-Schritts {#creating-an-agent-step}
 
@@ -120,7 +120,7 @@ Das folgende Muster verwendet drei Agents für ein Reisebeispiel: Jemand hat kü
 
 Um die Performance und den Credit-Verbrauch Ihres Agents im Vergleich zu Ihren bestehenden Journeys zu testen, fügen Sie einen [Experimentpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step)-Schritt hinzu, sodass nur ein Teil Ihrer Zielgruppe in den Branch gelangt, der Ihren Agent-Schritt enthält.
 
-Sie können beispielsweise damit beginnen, einige Tausend Nutzer:innen pro Tag über einen Pfad mit dem Agent zu senden und den Representational State Transfer an einen Kontrollpfad oder einen Pfad ohne Agent weiterzuleiten. Sammeln Sie 1–2 Wochen lang Daten und vergleichen Sie KPI or Leistungskennzahl or Leistungskennzahlen or Leistungskennzahl or Leistungskennzahlen (KPIs), Gegenmetriken und den Agent-Credit-Verbrauch zwischen den Pfaden. Auf diese Weise können Sie Vertrauen aufbauen und den Kapitalrendite or ROI nachweisen, bevor Sie den Traffic zum Agent-fähigen Branch erhöhen – und dabei den Aufrufverbrauch begrenzen.
+Sie können beispielsweise damit beginnen, einige Tausend Nutzer:innen pro Tag über einen Pfad mit dem Agent zu senden und den Rest an einen Kontrollpfad oder einen Pfad ohne Agent weiterzuleiten. Sammeln Sie 1–2 Wochen lang Daten und vergleichen Sie KPI (KPIs), Gegenmetriken und den Agent-Credit-Verbrauch zwischen den Pfaden. Auf diese Weise können Sie Vertrauen aufbauen und den Kapitalrendite nachweisen, bevor Sie den Traffic zum Agent-fähigen Branch erhöhen – und dabei den Aufrufverbrauch begrenzen.
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
@@ -128,10 +128,10 @@ Sie können beispielsweise damit beginnen, einige Tausend Nutzer:innen pro Tag �
 
 Generell empfehlen wir die Verwendung eines Agent-Schritts, wenn Sie bestimmte kontextuelle Daten in ein LLM einspeisen und es agentisch eine Canvas-Kontextvariable intelligent zuweisen lassen möchten – in einem Umfang, der für Menschen unmöglich wäre.
 
-Angenommen, Sie senden eine personalisierte Nachricht, um einer Nutzerin oder einem Nutzer eine neue Eissorte zu empfehlen, die oder der zuvor Schokolade und Erdbeere bestellt hat. Hier ist der Unterschied zwischen der Verwendung eines Agent-Schritts und KI or künstliche Intelligenz-Artikelempfehlungen:
+Angenommen, Sie senden eine personalisierte Nachricht, um einer Nutzerin oder einem Nutzer eine neue Eissorte zu empfehlen, die oder der zuvor Schokolade und Erdbeere bestellt hat. Hier ist der Unterschied zwischen der Verwendung eines Agent-Schritts und KI-Artikelempfehlungen:
 
 - **Agent-Schritt:** Verwendet LLMs, um eine qualitative Entscheidung darüber zu treffen, was die Nutzerin oder der Nutzer basierend auf den Anweisungen und Kontext-Datenpunkten, die dem Agenten gegeben wurden, möchten könnte. In diesem Beispiel könnte ein Agent-Schritt eine neue Sorte empfehlen, basierend auf der Möglichkeit, dass die Nutzerin oder der Nutzer verschiedene Geschmacksrichtungen ausprobieren möchte.
-- **KI or künstliche Intelligenz-Artikelempfehlungen:** Verwendet Modelle für maschinelles Lernen, um die Produkte vorherzusagen, die Nutzer:innen am wahrscheinlichsten wünschen, basierend auf vergangenen Nutzerereignissen wie Käufen. In diesem Beispiel würden KI or künstliche Intelligenz-Artikelempfehlungen eine Geschmacksrichtung (Vanille) vorschlagen, basierend auf den beiden vorherigen Bestellungen (Schokolade und Erdbeere) und dem Vergleich mit dem Verhalten anderer Nutzer:innen in Ihrem Workspace.
+- **KI-Artikelempfehlungen:** Verwendet Modelle für maschinelles Lernen, um die Produkte vorherzusagen, die Nutzer:innen am wahrscheinlichsten wünschen, basierend auf vergangenen Nutzerereignissen wie Käufen. In diesem Beispiel würden KI-Artikelempfehlungen eine Geschmacksrichtung (Vanille) vorschlagen, basierend auf den beiden vorherigen Bestellungen (Schokolade und Erdbeere) und dem Vergleich mit dem Verhalten anderer Nutzer:innen in Ihrem Workspace.
 
 ### Wie verwenden Agent-Schritte Eingabedaten? {#how-do-agent-steps-use-input-data}
 

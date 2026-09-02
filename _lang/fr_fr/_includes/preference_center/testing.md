@@ -1,6 +1,6 @@
 ## Tester les centres de préférences {#testing-preference-centers}
 
-Les liens du centre de préférences sont générés pour chaque utilisateur au moment de l'envoi et sont liés à l'envoi d'une Campaign ou d'un Canvas en direct or en ligne/en production/instantané. Les envois de test et les prévisualisations de l'éditeur ne prennent pas en charge l'enregistrement des modifications d'abonnement. Il s'agit du comportement attendu.
+Les liens du centre de préférences sont générés pour chaque utilisateur au moment de l'envoi et sont liés à l'envoi d'une Campaign ou d'un Canvas en direct. Les envois de test et les prévisualisations de l'éditeur ne prennent pas en charge l'enregistrement des modifications d'abonnement. Il s'agit du comportement attendu.
 
 ### Ce que vous verrez {#what-youll-see}
 
@@ -23,12 +23,12 @@ Comme alternative pour les centres de préférences créés via l'API, utilisez 
 
 Pour les autres limitations des envois de test, consultez la section [Envoyer des messages test]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages#limitations).
 
-### Prévisualisation, envoi de test et envoi en direct or en ligne/en production/instantané {#preview-test-send-and-live-send}
+### Prévisualisation, envoi de test et envoi en direct {#preview-test-send-and-live-send}
 
 | Méthode | Prévisualisation de la mise en page | Enregistrement des modifications d'abonnement |
 | --- | --- | --- |
 | Onglet **Prévisualisation** de l'éditeur par glisser-déposer | Oui | Non |
 | **Envoyer le test** de la Campaign ou du Canvas | Partiel (l'e-mail arrive) | Non |
-| Envoi en direct or en ligne/en production/instantané à un utilisateur test ou un segment | Oui | Oui |
+| Envoi en direct à un utilisateur test ou un segment | Oui | Oui |
 | API [Générer l'URL du centre de préférences]({{site.baseurl}}/api/endpoints/preference_center/get_create_url_preference_center) | Oui | Oui |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prévisualisation, envoi de test et envoi en direct or en ligne/en production/instantané" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prévisualisation, envoi de test et envoi en direct" }

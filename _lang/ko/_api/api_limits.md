@@ -156,7 +156,7 @@ REST API 사용량 제한 증가는 API 일괄 처리 기능을 활용하는 고
 
 ### 일괄 요청 예시 {#example-batch-request}
 
-다음 예시에서는 `external_id`를 사용하여 이메일과 단문 메시지 서비스에 대해 하나의 API 호출을 수행합니다.
+다음 예시에서는 `external_id`를 사용하여 이메일과 SMS에 대해 하나의 API 호출을 수행합니다.
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/v2/subscription/status/set' \

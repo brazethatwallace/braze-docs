@@ -24,13 +24,13 @@ Dieser Abschnitt bietet einen detaillierteren End-to-End-Überblick darüber, wi
 
 ## Rendering-Ablauf (Überblick) {#rendering-flow-high-level}
 
-Der folgende Ablauf beschreibt, wie Braze Nachrichten für anbieterbasierte Kanäle wie E-Mail, Kurzmitteilungsdienst or SMS und Push rendert und sendet. SDK or Software-Development-Kit-basierte Kanäle wie Content Cards verwenden dasselbe zugrunde liegende Liquid- und Connected-Content-Rendering, unterscheiden sich jedoch darin, wann der Inhalt generiert und wie er zugestellt wird.
+Der folgende Ablauf beschreibt, wie Braze Nachrichten für anbieterbasierte Kanäle wie E-Mail, SMS und Push rendert und sendet. SDK-basierte Kanäle wie Content Cards verwenden dasselbe zugrunde liegende Liquid- und Connected-Content-Rendering, unterscheiden sich jedoch darin, wann der Inhalt generiert und wie er zugestellt wird.
 
 1. Ein Hintergrund-Worker rendert das Liquid-Template für eine Nachricht, wenn die Nachricht zur Zustellung vorbereitet wird.
 2. Connected-Content-Tags werden während des Liquid-Renderings ausgewertet.
 3. Für jedes Connected-Content-Tag prüft Braze einen mehrstufigen Cache. Wenn kein zwischengespeicherter Wert vorhanden ist (oder Caching deaktiviert ist), ruft Braze Ihren Endpunkt auf und empfängt die Antwort.
 4. Die Antwort wird in das Liquid-Template eingespeist und die Nachricht wird vollständig gerendert.
-5. Bei anbieterbasierten Kanälen wird die gerenderte Nachricht an den Kanalanbieter und dann an die Nutzer:innen gesendet. Bei SDK or Software-Development-Kit-basierten Kanälen wie Content Cards wird der gerenderte Inhalt mit dem Braze SDK or Software-Development-Kit synchronisiert und kann bei der ersten Impression oder Anzeigezeit generiert werden, woraufhin er den Nutzer:innen angezeigt wird.
+5. Bei anbieterbasierten Kanälen wird die gerenderte Nachricht an den Kanalanbieter und dann an die Nutzer:innen gesendet. Bei SDK-basierten Kanälen wie Content Cards wird der gerenderte Inhalt mit dem Braze SDK synchronisiert und kann bei der ersten Impression oder Anzeigezeit generiert werden, woraufhin er den Nutzer:innen angezeigt wird.
 
 ## Wo Connected-Content-Antworten vorübergehend existieren können {#where-connected-content-responses-can-live-temporarily}
 
@@ -55,7 +55,7 @@ Für Endpunkte, die nicht innerhalb der Braze-Infrastruktur gehostet werden, ver
 
 ## Standard-Cache-Einstellungen {#default-cache-settings}
 
-Die Cache-Dauer beträgt bis zu fünf Minuten (300 Sekunden). Sie können dies Update or aktualisieren or aktualisieren, indem Sie den Parameter `:cache_max_age` zum Connected-Content-Aufruf hinzufügen. Ein Beispiel:
+Die Cache-Dauer beträgt bis zu fünf Minuten (300 Sekunden). Sie können dies aktualisieren, indem Sie den Parameter `:cache_max_age` zum Connected-Content-Aufruf hinzufügen. Ein Beispiel:
 
 {% raw %}
 ```
@@ -113,7 +113,7 @@ Bei einem POST müssen Sie kein Cache-Busting durchführen, da POST-Anfragen sta
 
 {% raw %}
 - Caching kann dazu beitragen, doppelte Connected-Content-Aufrufe zu reduzieren. Es ist jedoch nicht garantiert, dass es immer zu einem einzigen Connected-Content-Aufruf pro Nutzer:in führt.
-- Connected-Content-Caching basiert auf dem Workspace, der Anfrage-URL, dem Anfrage-Inhaltstyp und dem Anfragekörper. Wenn der Connected-Content-Aufruf an dieselbe URL geht, kann er über Campaigns und Canvase hinweg zwischengespeichert werden.
+- Connected-Content-Caching basiert auf dem Workspace, der Anfrage-URL, dem Anfrage-Inhaltstyp und dem Anfragekörper. Wenn der Connected-Content-Aufruf an dieselbe URL geht, kann er über Campaigns und Canvases hinweg zwischengespeichert werden.
 - Der Cache basiert auf einer eindeutigen Kombination aus URL, Inhaltstyp und Anfragekörper, nicht auf einer Nutzer-ID oder Campaign. Das bedeutet, dass die zwischengespeicherte Version eines Connected-Content-Aufrufs über mehrere Nutzer:innen und Campaigns in einem Workspace hinweg verwendet werden kann, wenn URL, Inhaltstyp und Anfragekörper identisch sind.
 - Connected-Content-Caching kann übersprungen werden, wenn das Tag-Markup eines der folgenden hochkardinalitären Snippets enthält:
     - `{{${user_id}}}`

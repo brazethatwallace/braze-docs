@@ -162,7 +162,7 @@ AppboyBinding.RemoveFromCustomUserAttributeArray("key", "Attribute")
 
 {% tab Nested objects %}
 
-Puedes establecer atributos personalizados que contengan objetos anidados (disponible en Unity SDK or kit de desarrollo de software 5.1.0 y versiones posteriores). Para obtener más información, consulta [Atributos personalizados anidados]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
+Puedes establecer atributos personalizados que contengan objetos anidados (disponible en Unity SDK 5.1.0 y versiones posteriores). Para obtener más información, consulta [Atributos personalizados anidados]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
 Los siguientes ejemplos muestran cómo establecer un atributo de objeto anidado, fusionar actualizaciones en un objeto existente y establecer una matriz de objetos anidados.
 
 ```csharp
@@ -196,9 +196,9 @@ Para desactivar un atributo personalizado, pasa la clave del atributo correspond
 AppboyBinding.UnsetCustomUserAttribute("custom attribute key");
 ```
 
-### Uso de la REST or transferencia de estado representacional API {#using-the-rest-api}
+### Uso de la REST API {#using-the-rest-api}
 
-También puedes utilizar nuestra REST or transferencia de estado representacional API para establecer o desactivar atributos de usuario. Para obtener más información, consulta [Endpoints de datos de usuario]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data).
+También puedes utilizar nuestra REST API para establecer o desactivar atributos de usuario. Para obtener más información, consulta [Endpoints de datos de usuario]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data).
 
 ## Configuración de suscripciones de usuario {#setting-user-subscriptions}
 

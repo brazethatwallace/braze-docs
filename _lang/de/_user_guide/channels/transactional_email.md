@@ -15,12 +15,12 @@ description: "Senden Sie Transaktions-E-Mails für kritische, zeitkritische Bena
 
 ## Voraussetzungen {#prerequisites}
 
-Transaktions-E-Mails sind nur als Teil ausgewählter Braze-Pakete verfügbar. Kontaktieren Sie Ihren Braze-CSM or Customer-Success-Manager or Customer-Success-Manager:in oder eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support) für weitere Details.
+Transaktions-E-Mails sind nur als Teil ausgewählter Braze-Pakete verfügbar. Kontaktieren Sie Ihren Braze-CSM oder eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support) für weitere Details.
 
 Bevor Sie beginnen, stellen Sie sicher, dass Folgendes vorhanden ist:
 
 - Abgeschlossene [E-Mail-Einrichtung]({{site.baseurl}}/user_guide/channels/email/email_setup), einschließlich IP- und Domain-Konfiguration, Authentifizierung und IP-Warming
-- Ein **Braze-Representational State Transfer-API-Schlüssel** mit der Berechtigung `transactional.send`
+- Ein **Braze-REST-API-Schlüssel** mit der Berechtigung `transactional.send`
 
 ## Anwendungsfälle {#use-cases}
 
@@ -39,7 +39,7 @@ Transaktions-E-Mails sind für den Versand von nicht-werblichen, dienstgesteuert
 Transaktions-E-Mails werden über eine dedizierte Braze [transaktionale HTTP-API]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email) versendet, die auf Geschwindigkeit und Zuverlässigkeit optimiert ist. Im Gegensatz zu Marketing-E-Mails:
 
 - Erfordern Transaktions-E-Mails kein Opt-in für Marketingkommunikation
-- Werden durch API-Aufrufe ausgelöst, nicht durch zeitgesteuerte oder aktionsbasierte Trigger or triggern
+- Werden durch API-Aufrufe ausgelöst, nicht durch zeitgesteuerte oder aktionsbasierte Trigger
 - Unterstützen nahezu Realtime-Zustellung für zeitkritische Inhalte
 
 ## Nächste Schritte {#next-steps}

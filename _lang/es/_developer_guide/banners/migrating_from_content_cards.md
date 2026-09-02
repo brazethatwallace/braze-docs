@@ -1,7 +1,7 @@
 ---
 nav_title: "Migrar desde Content Cards"
 article_title: "Migrar de Content Cards a banners"
-description: "Aprende a realizar la migración de Content Cards a banners, incluyendo ejemplos de código para todos los SDK or kit de desarrollo de software compatibles, limitaciones y ventajas."
+description: "Aprende a realizar la migración de Content Cards a banners, incluyendo ejemplos de código para todos los SDK compatibles, limitaciones y ventajas."
 page_order: 5
 toc_headers: h2
 channel:
@@ -62,11 +62,11 @@ Sigue usando Content Cards si necesitas:
 
 ### Requisitos previos {#prerequisites}
 
-Antes de migrar, asegúrate de que tu SDK or kit de desarrollo de software de Braze cumple con los requisitos mínimos de versión:
+Antes de migrar, asegúrate de que tu SDK de Braze cumple con los requisitos mínimos de versión:
 
 {% multi_lang_include developer_guide/sdk_versions.md feature='banners' %}
 
-Los descartes y la reelegibilidad requieren las siguientes versiones mínimas del SDK or kit de desarrollo de software:
+Los descartes y la reelegibilidad requieren las siguientes versiones mínimas del SDK:
 
 {% sdk_min_versions swift:14.1.0 android:42.1.0 web:6.7.1 %}
 
@@ -199,7 +199,7 @@ StreamSubscription bannerStreamSubscription = braze.subscribeToBanners((List<Bra
 ### Mostrar contenido {#display-content}
 
 {% alert note %}
-Las Content Cards se pueden renderizar manualmente con lógica de interfaz personalizada, mientras que los banners solo se pueden renderizar con los métodos del SDK or kit de desarrollo de software incluidos de serie.
+Las Content Cards se pueden renderizar manualmente con lógica de interfaz personalizada, mientras que los banners solo se pueden renderizar con los métodos del SDK incluidos de serie.
 {% endalert %}
 
 #### Enfoque de Content Cards
@@ -805,10 +805,10 @@ Los Banners solo admiten Campaigns de entrega programada. Para migrar un mensaje
 - Hasta 25 mensajes activos por ubicación.
 - Hasta 10 ID de ubicación por solicitud de actualización; las solicitudes que superen este límite se truncan.
 
-### Limitaciones del SDK or kit de desarrollo de software {#sdk-limitations}
+### Limitaciones del SDK {#sdk-limitations}
 
 - Los Banners no son compatibles actualmente con .NET MAUI (Xamarin), Cordova, Unity, Vega ni plataformas de TV.
-- Asegúrate de que estás utilizando las versiones mínimas del SDK or kit de desarrollo de software indicadas en los requisitos previos.
+- Asegúrate de que estás utilizando las versiones mínimas del SDK indicadas en los requisitos previos.
 
 ## Artículos relacionados {#related-articles}
 

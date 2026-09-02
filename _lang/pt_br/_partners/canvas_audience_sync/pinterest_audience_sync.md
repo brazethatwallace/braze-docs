@@ -32,7 +32,7 @@ Você deve garantir que os itens a seguir sejam criados, concluídos e/ou aceito
 | --- | --- | --- |
 | Pinterest Business Hub | [Pinterest](https://www.pinterest.com/business/hub/) | Uma ferramenta centralizada para gerenciar os ativos da sua marca no Pinterest (como contas de anúncios, páginas e apps). |
 | Conta de anúncios do Pinterest | [Pinterest](https://ads.pinterest.com/) | Uma conta de anúncios ativa do Pinterest vinculada ao Pinterest Business Hub da sua marca.<br><br>Certifique-se de que o administrador do seu Pinterest Business Hub concedeu a você permissões de administrador para as contas de anúncios do Pinterest que você pretende usar com a Braze. |
-| Termos e políticas do Pinterest | Pinterest | Concorde em cumprir todos os termos, políticas, diretrizes e documentação exigidos pelo Pinterest relacionados ao uso da Sincronização de Público do Pinterest, incluindo quaisquer termos, políticas, diretrizes e documentação incorporados por referência, que podem incluir: os Termos de Serviço, Termos de Serviço Comerciais, Política de Privacidade, Termos de Serviço para Desenvolvedores e API or interface de programação do aplicativo (API), Termos de Dados de Anúncios, Diretrizes de Publicidade, Contrato de Serviços de Publicidade, Diretrizes da Comunidade e Diretrizes da Marca. |
+| Termos e políticas do Pinterest | Pinterest | Concorde em cumprir todos os termos, políticas, diretrizes e documentação exigidos pelo Pinterest relacionados ao uso da Sincronização de Público do Pinterest, incluindo quaisquer termos, políticas, diretrizes e documentação incorporados por referência, que podem incluir: os Termos de Serviço, Termos de Serviço Comerciais, Política de Privacidade, Termos de Serviço para Desenvolvedores e API, Termos de Dados de Anúncios, Diretrizes de Publicidade, Contrato de Serviços de Publicidade, Diretrizes da Comunidade e Diretrizes da Marca. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
@@ -108,9 +108,9 @@ Você pode visualizar o público no Pinterest acessando sua conta do gerenciador
 
 ## Sincronização de usuários e considerações sobre limite de frequência {#user-syncing-and-rate-limit-considerations}
 
-À medida que os usuários chegam à etapa de Audience Sync, a Braze os sincroniza em tempo quase real, respeitando os limites de frequência da API or interface de programação do aplicativo (API) de marketing do Pinterest. A Braze agrupa e processa o maior número possível de usuários a cada 5 segundos antes de enviá-los ao Pinterest.
+À medida que os usuários chegam à etapa de Audience Sync, a Braze os sincroniza em tempo quase real, respeitando os limites de frequência da API de marketing do Pinterest. A Braze agrupa e processa o maior número possível de usuários a cada 5 segundos antes de enviá-los ao Pinterest.
 
-O limite de frequência da API or interface de programação do aplicativo (API) de Segment or segmento do Pinterest permite no máximo sete consultas por segundo por usuário e 1.900 usuários por solicitação. Se um cliente atingir esse limite, a Braze tentará novamente a sincronização por aproximadamente 13 horas. Se a sincronização ainda não for possível, a Braze listará esses usuários na métrica Users Errored.
+O limite de frequência da API de Segment do Pinterest permite no máximo sete consultas por segundo por usuário e 1.900 usuários por solicitação. Se um cliente atingir esse limite, a Braze tentará novamente a sincronização por aproximadamente 13 horas. Se a sincronização ainda não for possível, a Braze listará esses usuários na métrica Users Errored.
 
 ## Entendendo a análise de dados {#understanding-analytics}
 
@@ -119,11 +119,11 @@ A tabela a seguir inclui métricas e descrições para ajudar você a entender m
 | Métrica | Descrição |
 | --- | --- |
 | Entered | Número de usuários que entraram neste componente para serem sincronizados com o Pinterest. |
-| Proceeded to Next Step | Quantos usuários avançaram para o próximo componente, se houver um? Todos os usuários avançarão automaticamente se esta for a última etapa na Branch or ramificação or ramificação do Canvas. |
+| Proceeded to Next Step | Quantos usuários avançaram para o próximo componente, se houver um? Todos os usuários avançarão automaticamente se esta for a última etapa na Branch do Canvas. |
 | Users Synced | Número de usuários que foram sincronizados com sucesso com o Pinterest. |
 | Users Not Synced | Número de usuários que não foram sincronizados devido à falta de campos para correspondência. |
 | Users Pending | Número de usuários que estão sendo processados pela Braze para sincronização com o Pinterest. |
-| Users Errored | Número de usuários que não foram sincronizados com o Pinterest devido a um erro de API or interface de programação do aplicativo (API) após cerca de 13 horas de tentativas. Possíveis causas de erros podem incluir um token inválido do Pinterest ou se o público foi excluído no Pinterest. |
+| Users Errored | Número de usuários que não foram sincronizados com o Pinterest devido a um erro de API após cerca de 13 horas de tentativas. Possíveis causas de erros podem incluir um token inválido do Pinterest ou se o público foi excluído no Pinterest. |
 | Exited Canvas | Número de usuários que saíram do Canvas. Isso ocorre quando a última etapa em um Canvas é um componente de Audience Sync. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Entendendo a análise de dados" }
 

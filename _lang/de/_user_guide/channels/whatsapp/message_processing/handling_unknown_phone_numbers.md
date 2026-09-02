@@ -16,7 +16,7 @@ page_order: 50
 
 Braze versucht zunächst, Nutzer:innen mit einer übereinstimmenden Nummer zu finden. Werden keine gefunden, verarbeitet Braze eine unbekannte Nummer automatisch auf eine von zwei Arten:
 
-1. **Wenn ein Trigger or triggern-Wort mit einem [Opt-in-Canvas]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs) eingerichtet ist:**
+1. **Wenn ein Trigger-Wort mit einem [Opt-in-Canvas]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs) eingerichtet ist:**
 - Braze erstellt ein anonymes Profil
 - Dem Profil wird ein Nutzer-Alias mit folgenden Details zugewiesen:
   - Ein `alias_name` mit dem Wert der von den Nutzer:innen angegebenen Telefonnummer

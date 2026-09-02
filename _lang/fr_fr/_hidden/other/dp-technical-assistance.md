@@ -30,14 +30,14 @@ Aux fins du présent document, toute référence aux données personnelles peut 
 
 La plupart des lois sur la protection de la vie privée définissent trois parties prenantes principales impliquées dans le traitement des données personnelles : les personnes concernées, les contrôleurs des données et les sous-traitants des données. Chaque groupe dispose de droits et de responsabilités différents en ce qui concerne l'utilisation des données personnelles :
 
-- Une personne concernée est un individu dont les données personnelles sont traitées par le sous-traitant des données ou le contrôleur des données or responsable du traitement
-- Un contrôleur des données or responsable du traitement est une entité qui détermine les finalités et les moyens du traitement des données personnelles
-- Un sous-traitant des données est une entité qui traite les données personnelles pour le compte et selon les instructions du contrôleur des données or responsable du traitement
+- Une personne concernée est un individu dont les données personnelles sont traitées par le sous-traitant des données ou le contrôleur des données
+- Un contrôleur des données est une entité qui détermine les finalités et les moyens du traitement des données personnelles
+- Un sous-traitant des données est une entité qui traite les données personnelles pour le compte et selon les instructions du contrôleur des données
 
 En ce qui concerne les services Braze :
 
-- Les personnes concernées sont, par exemple, les utilisateurs finaux de votre application client (par exemple, vos clients) ou vos employé or salariés qui sont des utilisateurs de l'entreprise dans votre instance des services Braze.
-- Vous, le client Braze, êtes le contrôleur des données or responsable du traitement qui décide comment et pourquoi les données personnelles des personnes concernées seront collectées et traitées au sein des services Braze.
+- Les personnes concernées sont, par exemple, les utilisateurs finaux de votre application client (par exemple, vos clients) ou vos employés qui sont des utilisateurs de l'entreprise dans votre instance des services Braze.
+- Vous, le client Braze, êtes le contrôleur des données qui décide comment et pourquoi les données personnelles des personnes concernées seront collectées et traitées au sein des services Braze.
 - Braze est un sous-traitant des données qui traite les données personnelles dans les services Braze en votre nom et conformément aux instructions que nous recevons de votre part.
 
 Les termes ci-dessus sont ceux du RGPD, mais à titre d'exemple, les termes comparables dans le cadre du CCPA sont :

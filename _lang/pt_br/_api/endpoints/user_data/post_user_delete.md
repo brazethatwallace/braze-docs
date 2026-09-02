@@ -7,7 +7,7 @@ layout: api_page
 page_type: reference
 description: "Este artigo traz informações sobre o endpoint da Braze \"Excluir usuários\"."
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Excluir usuários {#delete-users}
 {% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/delete
@@ -17,7 +17,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Excluir
 
 Até 50 `external_ids`, `user_aliases`, `braze_ids`, `email_addresses` ou `phone_numbers` podem ser incluídos em uma única solicitação. Somente um dos campos `external_ids`, `user_aliases`, `braze_ids`, `email_addresses` ou `phone_numbers` pode ser incluído em uma única solicitação.
 
-Se tiver um caso de uso que não possa ser resolvido com a exclusão de usuários em massa por meio da API or interface de programação do aplicativo (API), entre em contato com a [equipe de suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) para obter assistência.
+Se tiver um caso de uso que não possa ser resolvido com a exclusão de usuários em massa por meio da API, entre em contato com a [equipe de suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) para obter assistência.
 
 {% alert warning %}
 A exclusão de perfis de usuário não pode ser desfeita. Ela removerá permanentemente os usuários, o que pode causar discrepâncias nos seus dados. Para saber mais, consulte [Efeitos da exclusão de perfis de usuário](#effects-of-deleting-user-profiles).
@@ -27,7 +27,7 @@ A exclusão de perfis de usuário não pode ser desfeita. Ela removerá permanen
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics) com a permissão `users.delete`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics) com a permissão `users.delete`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -125,13 +125,13 @@ Para mesclar perfis de usuário que compartilham o mesmo endereço de e-mail, ch
 
 ### Uma resposta de sucesso foi retornada, mas o usuário ainda aparece {#a-success-response-was-returned-but-the-user-still-appears}
 
-Uma resposta de sucesso confirma que a solicitação foi enfileirada, não que a exclusão foi concluída. A exclusão normalmente é finalizada em menos de um segundo, mas pode levar até cinco minutos para que a alteração se propague por todos os caches. Se você pesquisar o usuário imediatamente no dashboard ou exportar os dados dele pela API or interface de programação do aplicativo (API), ainda poderá ver resultados durante esse período de propagação.
+Uma resposta de sucesso confirma que a solicitação foi enfileirada, não que a exclusão foi concluída. A exclusão normalmente é finalizada em menos de um segundo, mas pode levar até cinco minutos para que a alteração se propague por todos os caches. Se você pesquisar o usuário imediatamente no dashboard ou exportar os dados dele pela API, ainda poderá ver resultados durante esse período de propagação.
 
 Se o usuário ainda existir após vários minutos, verifique se o identificador na sua solicitação corresponde ao perfil real do usuário:
 
 - **Array `external_ids`:** confirme se cada valor corresponde exatamente ao ID externo de um usuário.
-- **`braze_id`:** você pode encontrar o `braze_id` de um usuário exportando os dados dele com o [endpoint `/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) ou exportando um Segment or segmento or segmento para CSV (onde o `braze_id` aparece como "Appboy ID").
-- **Perfis somente com alias ou somente com e-mail:** se o perfil não tiver um `external_id`, crie um Segment or segmento or segmento filtrando por **External User ID is blank** combinado com o e-mail ou número de telefone conhecido e, em seguida, exporte para CSV para obter o `braze_id`.
+- **`braze_id`:** você pode encontrar o `braze_id` de um usuário exportando os dados dele com o [endpoint `/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) ou exportando um segmento para CSV (onde o `braze_id` aparece como "Appboy ID").
+- **Perfis somente com alias ou somente com e-mail:** se o perfil não tiver um `external_id`, crie um segmento filtrando por **External User ID is blank** combinado com o e-mail ou número de telefone conhecido e, em seguida, exporte para CSV para obter o `braze_id`.
 
 Para confirmar se um usuário foi excluído, chame o [endpoint `/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) usando o mesmo tipo de identificador que você usou na solicitação de exclusão (por exemplo, incluindo o valor em `external_ids`, `braze_id` ou `user_aliases`). Se o usuário não existir mais, a resposta conterá `"users": []` e poderá incluir `"invalid_user_ids"` listando esse identificador.
 

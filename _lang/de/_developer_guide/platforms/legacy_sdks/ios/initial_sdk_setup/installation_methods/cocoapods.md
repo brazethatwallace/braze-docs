@@ -3,7 +3,7 @@ nav_title: CocoaPods
 article_title: CocoaPods-Integration für iOS
 platform: iOS
 page_order: 2
-description: "Dieser Referenzartikel beschreibt, wie Sie das Braze SDK or Software-Development-Kit mit CocoaPods für iOS integrieren."
+description: "Dieser Referenzartikel beschreibt, wie Sie das Braze SDK mit CocoaPods für iOS integrieren."
 
 noindex: true
 ---
@@ -14,7 +14,7 @@ noindex: true
 
 ## 1. Schritt: CocoaPods installieren {#step-1-install-cocoapods}
 
-Die Installation des iOS SDK or Software-Development-Kit über [CocoaPods](http://cocoapods.org/) automatisiert den Großteil des Installationsprozesses für Sie. Bevor Sie mit diesem Vorgang beginnen, sollten Sie sicherstellen, dass Sie [Ruby Version 2.0.0](https://www.ruby-lang.org/en/installation/) oder höher verwenden. Für die Installation dieses SDK or Software-Development-Kit sind keine Kenntnisse der Ruby-Syntax erforderlich.
+Die Installation des iOS SDK über [CocoaPods](http://cocoapods.org/) automatisiert den Großteil des Installationsprozesses für Sie. Bevor Sie mit diesem Vorgang beginnen, sollten Sie sicherstellen, dass Sie [Ruby Version 2.0.0](https://www.ruby-lang.org/en/installation/) oder höher verwenden. Für die Installation dieses SDK sind keine Kenntnisse der Ruby-Syntax erforderlich.
 
 Führen Sie als Erstes folgenden Befehl aus:
 
@@ -40,23 +40,23 @@ target 'YourAppTarget' do
 end
 ```
 
-Wir empfehlen Ihnen, Braze so zu versionieren, dass Pod-Updates automatisch alles erfassen, was kleiner als ein Minor-Versionsupdate ist. Dies sieht folgendermaßen aus: `pod 'Appboy-iOS-SDK' ~> Major.Minor.Build`. Wenn Sie die neueste Version des Braze SDK or Software-Development-Kit auch bei größeren Änderungen automatisch integrieren möchten, können Sie `pod 'Appboy-iOS-SDK'` in Ihrem Podfile verwenden.
+Wir empfehlen Ihnen, Braze so zu versionieren, dass Pod-Updates automatisch alles erfassen, was kleiner als ein Minor-Versionsupdate ist. Dies sieht folgendermaßen aus: `pod 'Appboy-iOS-SDK' ~> Major.Minor.Build`. Wenn Sie die neueste Version des Braze SDK auch bei größeren Änderungen automatisch integrieren möchten, können Sie `pod 'Appboy-iOS-SDK'` in Ihrem Podfile verwenden.
 
 ### Subspecs {#subspecs}
 
-Wir empfehlen Integratoren, unser vollständiges SDK or Software-Development-Kit zu importieren. Wenn Sie jedoch sicher sind, dass Sie nur ein bestimmtes Feature von Braze integrieren möchten, können Sie anstelle des vollständigen SDK or Software-Development-Kit nur die gewünschte UI-Subspec importieren.
+Wir empfehlen Integratoren, unser vollständiges SDK zu importieren. Wenn Sie jedoch sicher sind, dass Sie nur ein bestimmtes Feature von Braze integrieren möchten, können Sie anstelle des vollständigen SDK nur die gewünschte UI-Subspec importieren.
 
 | Subspec | Details |
 | ------- | ------- |
-| `pod 'Appboy-iOS-SDK/InAppMessage'` | Die Subspec `InAppMessage` enthält die In-App-Nachrichten-UI von Braze und das Core SDK or Software-Development-Kit. |
-| `pod 'Appboy-iOS-SDK/ContentCards'` | Die Subspec `ContentCards` enthält die Content-Card-UI von Braze und das Core SDK or Software-Development-Kit. |
-| `pod 'Appboy-iOS-SDK/NewsFeed'` | Die Subspec `NewsFeed` enthält das Braze Core SDK or Software-Development-Kit. |
+| `pod 'Appboy-iOS-SDK/InAppMessage'` | Die Subspec `InAppMessage` enthält die In-App-Nachrichten-UI von Braze und das Core SDK. |
+| `pod 'Appboy-iOS-SDK/ContentCards'` | Die Subspec `ContentCards` enthält die Content-Card-UI von Braze und das Core SDK. |
+| `pod 'Appboy-iOS-SDK/NewsFeed'` | Die Subspec `NewsFeed` enthält das Braze Core SDK. |
 | `pod 'Appboy-iOS-SDK/Core'` | Die Subspec `Core` enthält Unterstützung für Analytics, wie angepasste Events und Attribute. |
 {: .ws-td-nw-1 aria-label="Subspecs" }
 
-## 3. Schritt: Installieren des Braze SDK or Software-Development-Kit {#step-3-installing-the-braze-sdk}
+## 3. Schritt: Installieren des Braze SDK {#step-3-installing-the-braze-sdk}
 
-Um die Braze SDK or Software-Development-Kit CocoaPods zu installieren, navigieren Sie in Ihrem Terminal zum Verzeichnis Ihres Xcode-App-Projekts und führen den folgenden Befehl aus:
+Um die Braze SDK CocoaPods zu installieren, navigieren Sie in Ihrem Terminal zum Verzeichnis Ihres Xcode-App-Projekts und führen den folgenden Befehl aus:
 ```
 pod install
 ```
@@ -69,9 +69,9 @@ Jetzt sollten Sie den von CocoaPods erstellten neuen Xcode-Projektarbeitsbereich
 
 Folgen Sie den Anweisungen, um [die Integration abzuschließen]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/completing_integration).
 
-## Update or aktualisieren or aktualisieren des Braze SDK or Software-Development-Kit über CocoaPods {#updating-the-braze-sdk-via-cocoapods}
+## Aktualisieren des Braze SDK über CocoaPods {#updating-the-braze-sdk-via-cocoapods}
 
-Um einen CocoaPod zu Update or aktualisieren or aktualisieren, führen Sie einfach den folgenden Befehl in Ihrem Projektverzeichnis aus:
+Um einen CocoaPod zu aktualisieren, führen Sie einfach den folgenden Befehl in Ihrem Projektverzeichnis aus:
 
 ```
 pod update

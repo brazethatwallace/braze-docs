@@ -45,7 +45,7 @@ Die folgenden Schritte beschreiben, wie Sie LiveRamp über die Snowflake-Datenfr
 
 ### 1. Schritt: Datenfreigabe bei Braze anfragen {#step-1-request-a-data-share-from-braze}
 
-Wenden Sie sich zunächst an Ihren Braze Account Manager:in oder CSM or Customer-Success-Manager or Customer-Success-Manager:in, um einen Snowflake Data Share Connector für Ihr Braze-Konto zu erwerben. Wenn Sie eine Datenfreigabe anfragen, stellt Braze die Freigabe aus dem/den Workspace(s) bereit, für den/die die Freigabe erworben wurde. Nachdem die Freigabe bereitgestellt wurde, sind alle Daten sofort von Ihrer Snowflake-Instanz aus in Form einer eingehenden Datenfreigabe zugänglich. Sobald die Freigabe in Ihrer Instanz sichtbar ist, erstellen Sie eine Datenbank aus der Freigabe, damit Sie die Tabellen sehen und abfragen können.
+Wenden Sie sich zunächst an Ihren Braze Account Manager:in oder CSM, um einen Snowflake Data Share Connector für Ihr Braze-Konto zu erwerben. Wenn Sie eine Datenfreigabe anfragen, stellt Braze die Freigabe aus dem/den Workspace(s) bereit, für den/die die Freigabe erworben wurde. Nachdem die Freigabe bereitgestellt wurde, sind alle Daten sofort von Ihrer Snowflake-Instanz aus in Form einer eingehenden Datenfreigabe zugänglich. Sobald die Freigabe in Ihrer Instanz sichtbar ist, erstellen Sie eine Datenbank aus der Freigabe, damit Sie die Tabellen sehen und abfragen können.
 
 Eine vollständige Anleitung finden Sie in der [Anleitung zur Integration von Snowflake mit Braze]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/).
 
@@ -178,7 +178,7 @@ Nachdem Currents Daten an Ihren Cloud-Speicher streamt, arbeiten Sie mit Ihrer L
 
 ### 3. Schritt: Daten laden und transformieren {#step-3-load-and-transform-your-data}
 
-Erstellen Sie einen ETL or Extract, Transform, Load-Prozess (ETL or Extract, Transform, Load or Extract, Transform, Load), um:
+Erstellen Sie einen ETL-Prozess (ETL), um:
 
 1. Die Currents-Daten aus Ihrem Cloud-Speicher in Ihre Data-Warehouse-Tabellen zu laden.
 2. Die Daten in das von LiveRamps Identitätsauflösungsdienst benötigte Format zu transformieren.

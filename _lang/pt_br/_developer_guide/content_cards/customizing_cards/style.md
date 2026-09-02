@@ -18,7 +18,7 @@ platform:
 
 ## Criando um estilo personalizado {#creating-a-custom-style}
 
-A interface padrão dos Content Cards é importada da camada de UI do SDK or kit de desenvolvimento de software da Braze. A partir daí, você pode ajustar certas partes do estilo do cartão, a ordem em que os cartões são exibidos e como o feed é mostrado aos seus usuários.
+A interface padrão dos Content Cards é importada da camada de UI do SDK da Braze. A partir daí, você pode ajustar certas partes do estilo do cartão, a ordem em que os cartões são exibidos e como o feed é mostrado aos seus usuários.
 
 ![Dois cartões de conteúdo, um com a fonte padrão e cantos quadrados, e outro com cantos arredondados e uma fonte cursiva]({% image_buster/assets/img/content_cards/content-card-customization-attributes.png %})
 
@@ -30,7 +30,7 @@ As propriedades dos Content Cards, como `title`, `cardDescription`, `imageUrl`, 
 {% tabs %}
 {% tab web %}
 
-Os estilos padrão da Braze são definidos em CSS dentro do SDK or kit de desenvolvimento de software da Braze. Ao sobrescrever estilos selecionados na sua aplicação, você pode personalizar nosso feed padrão com suas próprias imagens de fundo, famílias de fontes, estilos, tamanhos, animações e mais. Por exemplo, a seguir está um exemplo de sobrescrita que faz os Content Cards aparecerem com 800 px de largura:
+Os estilos padrão da Braze são definidos em CSS dentro do SDK da Braze. Ao sobrescrever estilos selecionados na sua aplicação, você pode personalizar nosso feed padrão com suas próprias imagens de fundo, famílias de fontes, estilos, tamanhos, animações e mais. Por exemplo, a seguir está um exemplo de sobrescrita que faz os Content Cards aparecerem com 800 px de largura:
 
 ``` css
 body .ab-feed {
@@ -38,12 +38,12 @@ body .ab-feed {
 }
 ```
 
-Para uma lista completa de propriedades que você pode modificar, consulte as [opções de configuração do SDK or kit de desenvolvimento de software da Braze](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html)
+Para uma lista completa de propriedades que você pode modificar, consulte as [opções de configuração do SDK da Braze](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html)
 
 {% endtab %}
 {% tab android %}
 
-Por padrão, os Content Cards do SDK or kit de desenvolvimento de software para Android e FireOS seguem as diretrizes padrão de UI do Android para fornecer uma experiência integrada. Você pode visualizar esses estilos padrão no arquivo [`res/values/styles.xml`](https://github.com/braze-inc/braze-android-sdk/blob/master/android-sdk-ui/src/main/res/values/styles.xml) na distribuição do SDK or kit de desenvolvimento de software da Braze:
+Por padrão, os Content Cards do SDK para Android e FireOS seguem as diretrizes padrão de UI do Android para fornecer uma experiência integrada. Você pode visualizar esses estilos padrão no arquivo [`res/values/styles.xml`](https://github.com/braze-inc/braze-android-sdk/blob/master/android-sdk-ui/src/main/res/values/styles.xml) na distribuição do SDK da Braze:
 
 ```xml
   <style name="Braze.ContentCards.CaptionedImage.Description">
@@ -91,7 +91,7 @@ Para personalizar o estilo dos seus Content Cards, sobrescreva esse estilo padr�
 {% endtab %}
 {% tab Jetpack Compose %}
 
-Por padrão, os Content Cards do SDK or kit de desenvolvimento de software para Android e FireOS seguem as diretrizes padrão de UI do Android para fornecer uma experiência integrada.
+Por padrão, os Content Cards do SDK para Android e FireOS seguem as diretrizes padrão de UI do Android para fornecer uma experiência integrada.
 
 Você pode aplicar estilos de duas maneiras. A primeira é passar um [`ContentCardListStyling`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards.styling/-content-card-list-styling/index.html) e [`ContentCardStyling`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards.styling/-content-card-styling/index.html) para [`ContentCardsList`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards/-content-cards-list.html), como no seguinte exemplo:
 

@@ -10,7 +10,7 @@ description: "Esta página explica como usar o editor de arrastar e soltar de me
 
 > Use o editor de arrastar e soltar de mensagens no app para aumentar a visibilidade de lançamentos de novos produtos.
 
-{% multi_lang_include drag_and_drop/templates.md section='SDK or kit de desenvolvimento de software requirements' %}
+{% multi_lang_include drag_and_drop/templates.md section='SDK requirements' %}
 
 ## Criando um anúncio de produto {#creating-a-product-announcement}
 

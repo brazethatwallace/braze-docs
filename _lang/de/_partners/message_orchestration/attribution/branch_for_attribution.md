@@ -25,7 +25,7 @@ Die Integration von Braze und Branch hilft Ihnen dabei, genau zu verstehen, wann
 |---|---|
 | Branch-Konto | Um diese Partnerschaft nutzen zu können, benötigen Sie ein Branch-Konto. |
 | iOS- oder Android-App | Diese Integration unterstützt iOS- und Android-Apps. Je nach Plattform können Code-Snippets in Ihrer Anwendung erforderlich sein. Einzelheiten zu diesen Anforderungen finden Sie in Schritt 1 des Integrationsprozesses. |
-| Branch SDK or Software-Development-Kit | Neben dem erforderlichen Braze SDK or Software-Development-Kit müssen Sie auch das [Branch SDK or Software-Development-Kit](https://help.branch.io/developers-hub/docs/native-sdks-overview) installieren. |
+| Branch SDK | Neben dem erforderlichen Braze SDK müssen Sie auch das [Branch SDK](https://help.branch.io/developers-hub/docs/native-sdks-overview) installieren. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
@@ -34,7 +34,7 @@ Die Integration von Braze und Branch hilft Ihnen dabei, genau zu verstehen, wann
 
 #### Android
 
-Wenn Sie eine Android-App haben, müssen Sie eine eindeutige Braze-Geräte-ID an Branch übergeben. Diese ID kann in der Methode `setRequestMetadataKey()` des Branch SDK or Software-Development-Kit festgelegt werden. Der folgende Code-Snippet muss vor dem Aufruf von `initSession` eingefügt werden. Sie müssen außerdem das Braze SDK or Software-Development-Kit initialisieren, bevor Sie die Anfrage-Metadaten im Branch SDK or Software-Development-Kit festlegen.
+Wenn Sie eine Android-App haben, müssen Sie eine eindeutige Braze-Geräte-ID an Branch übergeben. Diese ID kann in der Methode `setRequestMetadataKey()` des Branch SDK festgelegt werden. Der folgende Code-Snippet muss vor dem Aufruf von `initSession` eingefügt werden. Sie müssen außerdem das Braze SDK initialisieren, bevor Sie die Anfrage-Metadaten im Branch SDK festlegen.
 
 {% tabs local %}
 {% tab Java %}
@@ -55,7 +55,7 @@ Branch.getInstance().setRequestMetadata("$braze_install_id", Braze.getInstance(c
 Vor Februar 2023 verwendete unsere Branch-Attribution-Integration den Identifier for Vendors (IDFV) als primären Bezeichner, um iOS-Attribution-Daten abzugleichen. Für Braze-Kund:innen, die Objective-C verwenden, ist es nicht notwendig, die Braze `device_id` abzurufen und bei der Installation an Branch zu senden, da der Dienst nicht unterbrochen wird.
 {% endalert%}
 
-Wenn Sie das Swift SDK or Software-Development-Kit v5.7.0+ verwenden und weiterhin IDFV als gemeinsamen Bezeichner nutzen möchten, müssen Sie sicherstellen, dass das Feld `useUUIDAsDeviceId` auf `false` gesetzt ist, damit die Integration nicht unterbrochen wird.
+Wenn Sie das Swift SDK v5.7.0+ verwenden und weiterhin IDFV als gemeinsamen Bezeichner nutzen möchten, müssen Sie sicherstellen, dass das Feld `useUUIDAsDeviceId` auf `false` gesetzt ist, damit die Integration nicht unterbrochen wird.
 
 Bei der Einstellung `true` müssen Sie die iOS-Geräte-ID-Zuordnung für Swift implementieren, um die Braze `device_id` bei der App-Installation an Branch zu übergeben, damit Braze iOS-Attributionen korrekt zuordnen kann.
 
@@ -91,7 +91,7 @@ Hier finden Sie den REST-Endpunkt und können Ihren Braze-Datenimport-Schlüssel
 1. Wählen Sie in Branch unter dem Abschnitt **Exports** die Option **Data Feeds**.
 2. Wählen Sie auf der Seite **Data Feeds Manager:in** den Tab **Data Integrations** am oberen Rand der Seite aus.
 3. Wählen Sie Braze aus der Liste der verfügbaren Datenpartner aus.
-4. Geben Sie auf der Braze-Exportseite den Datenimport-Schlüssel und den Representational State Transfer-Endpunkt ein, die Sie im Braze-Dashboard gefunden haben, und wählen Sie **Enable**.
+4. Geben Sie auf der Braze-Exportseite den Datenimport-Schlüssel und den REST-Endpunkt ein, die Sie im Braze-Dashboard gefunden haben, und wählen Sie **Enable**.
 
 ### 4. Schritt: Integration bestätigen {#step-4-confirm-the-integration}
 
@@ -117,13 +117,13 @@ Attribution-Daten für Kampagnen auf Facebook und X (ehemals Twitter) sind nicht
 
 ## Branch-Klick-Tracking-URLs in Braze (optional) {#branch-click-tracking-urls-in-braze-optional}
 
-Wenn Sie Klick-Tracking-Links in Ihren Braze-Campaigns verwenden, können Sie leicht erkennen, welche Campaigns zu App-Installationen und erneuter Interaktion führen. So können Sie Ihre Marketing-Bemühungen effektiver messen und datengestützte Entscheidungen darüber treffen, wo Sie mehr Ressourcen für einen maximalen Kapitalrendite or ROI investieren sollten.
+Wenn Sie Klick-Tracking-Links in Ihren Braze-Campaigns verwenden, können Sie leicht erkennen, welche Campaigns zu App-Installationen und erneuter Interaktion führen. So können Sie Ihre Marketing-Bemühungen effektiver messen und datengestützte Entscheidungen darüber treffen, wo Sie mehr Ressourcen für einen maximalen Kapitalrendite investieren sollten.
 
 Um mit Branch-Klick-Tracking-Links zu beginnen, besuchen Sie die [Dokumentation](https://help.branch.io/using-branch/docs/ad-links). Sie können die Branch-Klick-Tracking-Links direkt in Ihre Braze-Campaigns einfügen. Branch verwendet dann seine [probabilistischen Attribution-Methoden](https://help.branch.io/using-branch/docs/branch-attribution-logic-settings), um die Nutzer:innen zu attributieren, die auf den Link geklickt haben. Wir empfehlen, Ihre Branch-Tracking-Links mit einem Gerätebezeichner zu versehen, um die Genauigkeit der Attributionen Ihrer Braze-Campaigns zu verbessern. Dadurch werden die Nutzer:innen, die auf den Link geklickt haben, deterministisch attributiert.
 
 {% tabs local %}
 {% tab Android %}
-Für Android erlaubt Braze Kund:innen, sich für die [Erfassung der Google Advertising ID (GAID)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection#optional-google-advertising-id) zu entscheiden. Die GAID wird auch nativ über die Branch-SDK or Software-Development-Kit-Integration erfasst. Sie können die GAID in Ihre Branch-Klick-Tracking-Links aufnehmen, indem Sie die folgende Liquid-Logik verwenden:
+Für Android erlaubt Braze Kund:innen, sich für die [Erfassung der Google Advertising ID (GAID)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection#optional-google-advertising-id) zu entscheiden. Die GAID wird auch nativ über die Branch-SDK-Integration erfasst. Sie können die GAID in Ihre Branch-Klick-Tracking-Links aufnehmen, indem Sie die folgende Liquid-Logik verwenden:
 {% raw %}
 ```
 {% if most_recently_used_device.${platform} == 'android' %}
@@ -134,7 +134,7 @@ user_data_aaid={{most_recently_used_device.${google_ad_id}}}
 {% endtab %}
 
 {% tab iOS %}
-Für iOS erfassen sowohl Braze als auch Branch den IDFV automatisch und nativ über unsere SDK or Software-Development-Kit-Integrationen. Dieser kann als Gerätebezeichner verwendet werden. Sie können den IDFV in Ihre Branch-Klick-Tracking-Links aufnehmen, indem Sie die folgende Liquid-Logik verwenden:
+Für iOS erfassen sowohl Braze als auch Branch den IDFV automatisch und nativ über unsere SDK-Integrationen. Dieser kann als Gerätebezeichner verwendet werden. Sie können den IDFV in Ihre Branch-Klick-Tracking-Links aufnehmen, indem Sie die folgende Liquid-Logik verwenden:
 
 {% raw %}
 ```

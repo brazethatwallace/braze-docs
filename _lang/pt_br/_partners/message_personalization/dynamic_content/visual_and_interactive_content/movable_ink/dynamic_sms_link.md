@@ -15,7 +15,7 @@ search_tag: Partner
 | Requisito | Descrição |
 | --- | --- |
 | Conta da Movable Ink | É necessário ter uma conta da Movable Ink para aproveitar essa parceria. |
-| Fonte de dados | Você precisa conectar uma fonte de dados à Movable Ink. Isso pode ser feito por CSV, importação do site ou API or interface de programação do aplicativo (API). |
+| Fonte de dados | Você precisa conectar uma fonte de dados à Movable Ink. Isso pode ser feito por CSV, importação do site ou API. |
 | Recursos de envio de MMS | Confirme que você está configurado para MMS por meio da Braze.
 | [Encurtamento de links]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening) | Confirme que o encurtamento de links está ativado. |
 | Cartão de contato | Sua marca (o remetente) deve ser salva como um contato no telefone do usuário para que a prévia do link funcione no iOS. Isso pode ser feito com um cartão de contato ou outro método. |

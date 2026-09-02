@@ -53,7 +53,7 @@ Você pode adicionar tags a um atributo personalizado após sua criação, caso 
 Existem duas formas de remover atributos personalizados dos perfis de usuário:
 
 * Selecione o nome do atributo personalizado a ser removido em uma [etapa de Atualização de Usuário]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update#removing-custom-attributes).
-* Defina o valor `null` na sua solicitação de API or interface de programação do aplicativo (API) para o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
+* Defina o valor `null` na sua solicitação de API para o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
 
 ### Visualização de relatórios de uso {#viewing-usage-reports}
 
@@ -171,7 +171,7 @@ Atributos de array são bons para armazenar listas de informações relacionadas
 
 Por padrão, o comprimento máximo de um array para um atributo é definido como 25 e pode ser aumentado para 100 para um array individual. Por exemplo, se você estiver enviando um atributo como "Filmes Assistidos" e ele estiver definido como 100, quando um usuário assistir a um 101º filme, o primeiro filme será removido do array e o filme mais recente será adicionado.
 
-Se você quiser que esse máximo seja aumentado, entre em contato com seu gerente de sucesso do cliente. Seu administrador do dashboard poderá então aumentar o comprimento máximo para arrays individuais para mais de 100 na guia **Custom Attributes** da página **Manage Settings**.
+Se você quiser que esse máximo seja aumentado, entre em contato com seu CSM. Seu administrador do dashboard poderá então aumentar o comprimento máximo para arrays individuais para mais de 100 na guia **Custom Attributes** da página **Manage Settings**.
 
 Se você inserir quaisquer valores com espaços entre, antes ou depois das palavras, a Braze também verificará os mesmos espaços.
 
@@ -208,7 +208,7 @@ Atributos de data e hora são úteis para armazenar a última vez que uma ação
 
 Filtros de data e hora que usam datas relativas (por exemplo, mais de 1 dia atrás, menos de 2 dias atrás) medem 1 dia como 24 horas. Qualquer Campaign que você executar usando esses filtros incluirá todos os usuários em incrementos de 24 horas. Por exemplo, `last used app more than 1 day ago` capturará todos os usuários que "usaram o app pela última vez há mais de 24 horas" a partir do momento exato em que a Campaign é executada. O mesmo vale para Campaigns com intervalos de datas mais longos — cinco dias a partir da ativação significarão as 120 horas anteriores.
 
-Por exemplo, para criar um Segment or segmento que direciona usuários com um atributo de data e hora entre 24 e 48 horas no futuro, aplique os filtros `in more than 1 day in the future` e `in less than 2 days in the future`.
+Por exemplo, para criar um Segment que direciona usuários com um atributo de data e hora entre 24 e 48 horas no futuro, aplique os filtros `in more than 1 day in the future` e `in less than 2 days in the future`.
 
 {% alert warning %}
 A última data em que um evento personalizado ou evento de compra ocorreu é registrada automaticamente e não deve ser registrada novamente por meio de um atributo personalizado de data e hora.

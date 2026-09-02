@@ -30,7 +30,7 @@ En el siguiente ejemplo, el atributo personalizado `favorite_book` contiene los 
 
 ## Consideraciones {#considerations}
 
-- Los atributos personalizados anidados están diseñados para atributos personalizados enviados a través de Braze SDK or kit de desarrollo de software o API.
+- Los atributos personalizados anidados están diseñados para atributos personalizados enviados a través de Braze SDK o API.
 - Los objetos tienen un tamaño máximo de 100&nbsp;KB. Si una actualización hace que el objeto supere los 100&nbsp;KB, Braze descarta la actualización y el atributo no se modifica.
 - Los nombres de clave y los valores de cadena tienen un límite de tamaño de 255 caracteres.
 - Los nombres de clave no pueden contener espacios.
@@ -126,14 +126,14 @@ Este enfoque no se puede utilizar para eliminar una clave anidada dentro de una 
 {% endtab %}
 {% endtabs %}
 
-## Ejemplo del SDK or kit de desarrollo de software {#sdk-example}
+## Ejemplo del SDK {#sdk-example}
 
 {% sdk_min_versions android:25.0.0 ios:6.1.0 web:4.7.0 unity:5.1.0 %}
 
-Los siguientes ejemplos muestran cómo crear, actualizar mediante combinación y eliminar el mismo objeto de atributo personalizado anidado (`most_played_song`) en cada SDK or kit de desarrollo de software.
+Los siguientes ejemplos muestran cómo crear, actualizar mediante combinación y eliminar el mismo objeto de atributo personalizado anidado (`most_played_song`) en cada SDK.
 
 {% tabs local %}
-{% tab Android SDK or kit de desarrollo de software %}
+{% tab Android SDK %}
 
 **Crear**
 ```kotlin
@@ -172,7 +172,7 @@ braze.getCurrentUser { user ->
 ```
 
 {% endtab %}
-{% tab Swift SDK or kit de desarrollo de software %}
+{% tab Swift SDK %}
 
 **Crear**
 ```swift
@@ -205,7 +205,7 @@ braze.user.unsetCustomAttribute(key: "most_played_song")
 ```
 
 {% endtab %}
-{% tab Web SDK or kit de desarrollo de software %}
+{% tab Web SDK %}
 
 **Crear**
 ```javascript
@@ -240,7 +240,7 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 ```
 
 {% endtab %}
-{% tab Unity SDK or kit de desarrollo de software %}
+{% tab Unity SDK %}
 
 **Crear**
 ```csharp
@@ -408,7 +408,7 @@ Para diagnosticar y resolver este problema:
    - Después de que se genere el esquema, selecciona el icono de más en la columna **Attribute Name** para ese atributo.
    - En el modal **Edit schema**, revisa los atributos anidados y sus valores correspondientes en la columna **Data type**.
 
-Si encuentras que el tipo de datos no coincide con el formato previsto en los perfiles de usuario, elimina el valor con formato incorrecto de los perfiles de usuario afectados y reenvía el atributo en el formato correcto utilizando la solicitud de API o el método de SDK or kit de desarrollo de software apropiado.
+Si encuentras que el tipo de datos no coincide con el formato previsto en los perfiles de usuario, elimina el valor con formato incorrecto de los perfiles de usuario afectados y reenvía el atributo en el formato correcto utilizando la solicitud de API o el método de SDK apropiado.
 
 ## Comportamiento de la segmentación con matrices de objetos {#segmentation-behavior-with-arrays-of-objects}
 

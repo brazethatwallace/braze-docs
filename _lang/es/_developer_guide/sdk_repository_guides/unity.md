@@ -1,16 +1,16 @@
 ---
-nav_title: SDK or kit de desarrollo de software de Unity
-article_title: Guía del repositorio del SDK or kit de desarrollo de software de Unity
+nav_title: SDK de Unity
+article_title: Guía del repositorio del SDK de Unity
 page_order: 9
-description: "Referencia del README del SDK or kit de desarrollo de software de Unity de Braze reflejada desde GitHub."
+description: "Referencia del README del SDK de Unity de Braze reflejada desde GitHub."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
-# Guía del repositorio del SDK or kit de desarrollo de software de Unity {#unity-sdk-repository-guide}
+# Guía del repositorio del SDK de Unity {#unity-sdk-repository-guide}
 
-## Acerca del SDK or kit de desarrollo de software de Unity Braze {#about-the-braze-unity-sdk}
+## Acerca del SDK de Unity Braze {#about-the-braze-unity-sdk}
 
-El SDK or kit de desarrollo de software de Unity Braze te ayuda a integrar las funciones de mensajería, análisis y participación de usuarios de Braze en tu aplicación.
+El SDK de Unity Braze te ayuda a integrar las funciones de mensajería, análisis y participación de usuarios de Braze en tu aplicación.
 
 Para empezar, consulta los siguientes recursos:
 
@@ -21,7 +21,7 @@ Para empezar, consulta los siguientes recursos:
 
 Antes de poder empezar a utilizar Braze en scripts de Unity, tendrás que importar los archivos del plugin a tu proyecto de Unity.
 
-**Recomendado:** Los plugins de Android e iOS están incluidos como un paquete de Unity disponible para su descarga en la [página de versiones del SDK or kit de desarrollo de software][1].
+**Recomendado:** Los plugins de Android e iOS están incluidos como un paquete de Unity disponible para su descarga en la [página de versiones del SDK][1].
 
 **Configuración manual del plugin:** Alternativamente, puedes copiar los plugins en tu proyecto de Unity:
   1. Primero, clona este repositorio.
@@ -30,7 +30,7 @@ Antes de poder empezar a utilizar Braze en scripts de Unity, tendrás que import
 
 ## Configuración de la integración {#integration-setup}
 
-Para integrar Braze en tu aplicación Unity, sigue las instrucciones en [Integración del SDK or kit de desarrollo de software de Unity de Braze][2].
+Para integrar Braze en tu aplicación Unity, sigue las instrucciones en [Integración del SDK de Unity de Braze][2].
 
 [1]: https://github.com/braze-inc/braze-unity-sdk/releases
 [2]: https://www.braze.com/docs/developer_guide/sdk_integration?sdktab=unity

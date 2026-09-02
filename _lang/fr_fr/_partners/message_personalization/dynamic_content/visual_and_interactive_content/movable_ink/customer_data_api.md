@@ -85,7 +85,7 @@ Pour tester votre webhook, procédez comme suit :
 
 Lorsque vous avez terminé de composer et de tester le webhook, [planifiez votre campagne]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
-Braze prend en charge les livraisons planifiées, par événement et déclenchées par API. La [livraison par événement]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) est généralement la mieux adaptée à la plupart des cas d'usage d'événements comportementaux. Pour toute question sur ce qui convient le mieux à votre cas d'usage, contactez vos CSM or gestionnaire de la satisfaction client or gestionnaire du succès des clients Braze et Movable Ink.
+Braze prend en charge les livraisons planifiées, par événement et déclenchées par API. La [livraison par événement]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) est généralement la mieux adaptée à la plupart des cas d'usage d'événements comportementaux. Pour toute question sur ce qui convient le mieux à votre cas d'usage, contactez vos CSM Braze et Movable Ink.
 
 Pour la livraison par événement :
 

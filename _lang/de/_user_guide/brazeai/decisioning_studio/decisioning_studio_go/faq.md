@@ -12,7 +12,7 @@ description: "Auf dieser Seite finden Sie Antworten auf häufig gestellte Fragen
 
 ### Was ist Decisioning Studio Go? {#what-is-decisioning-studio-go}
 
-Decisioning Studio Go ist ein KI or künstliche Intelligenz-Decisioning-Agent, der direkt in das Braze-Dashboard integriert ist. Sie kuratieren ein Menü von Optionen – kreative Varianten, Versandzeitpunkte, Wochentage – und der Agent wählt für jede:n einzelne:n Nutzer:in die richtige Kombination aus, optimiert auf Klicks. Es liefert Eins-zu-eins-Personalisierung, ohne dass ein:e Data Scientist oder eine individuelle Integration erforderlich ist. Die erste Version unterstützt E-Mail; weitere Kanäle folgen in separaten Betas, wobei jeder Kanal von einem eigenen Agent verarbeitet wird.
+Decisioning Studio Go ist ein KI-Decisioning-Agent, der direkt in das Braze-Dashboard integriert ist. Sie kuratieren ein Menü von Optionen – kreative Varianten, Versandzeitpunkte, Wochentage – und der Agent wählt für jede:n einzelne:n Nutzer:in die richtige Kombination aus, optimiert auf Klicks. Es liefert Eins-zu-eins-Personalisierung, ohne dass ein:e Data Scientist oder eine individuelle Integration erforderlich ist. Die erste Version unterstützt E-Mail; weitere Kanäle folgen in separaten Betas, wobei jeder Kanal von einem eigenen Agent verarbeitet wird.
 
 ### Wie unterscheidet sich das von A/B-Tests? {#how-is-this-different-from-ab-testing}
 
@@ -22,9 +22,9 @@ A/B-Tests ermitteln die Variante, die im Durchschnitt über eine gesamte Zielgru
 
 Go ist die Self-Service-Stufe. Es ist der richtige Einstiegspunkt für Marketer, die Eins-zu-eins-E-Mail-Personalisierung ohne großen Implementierungsaufwand wünschen. Es optimiert auf Klicks und arbeitet mit Optionen, die Sie direkt in Braze konfigurieren.
 
-Pro ist die Full-Service-Stufe. Es optimiert für jede beliebige Geschäftsmetrik, verbindet sich mit jeder First-Party-Datenquelle, unterstützt mehrere Kanäle und wird von einem dedizierten Support durch das Braze KI or künstliche Intelligenz Decisioning Services-Team begleitet.
+Pro ist die Full-Service-Stufe. Es optimiert für jede beliebige Geschäftsmetrik, verbindet sich mit jeder First-Party-Datenquelle, unterstützt mehrere Kanäle und wird von einem dedizierten Support durch das Braze KI Decisioning Services-Team begleitet.
 
-### Welche Art von KI or künstliche Intelligenz ist das? Ist sie generativ? {#what-kind-of-ai-is-this-is-it-generative}
+### Welche Art von KI ist das? Ist sie generativ? {#what-kind-of-ai-is-this-is-it-generative}
 
 Nein. Der Agent, der entscheidet, was jede:r Nutzer:in erhält, ist ein Decisioning-Agent, kein generativer. Er schreibt keine Inhalte für Sie. Sie stellen die Optionen bereit, und der Agent lernt, welche Option für jede:n einzelne:n Nutzer:in am besten funktioniert.
 
@@ -34,11 +34,11 @@ Decisioning Studio Go basiert auf Reinforcement Learning. Der Agent behandelt je
 
 ### Was ist der Unterschied zwischen der Decisioning-Studio-Gruppe und der zufälligen Kontrollgruppe? {#whats-the-difference-between-the-decisioning-studio-group-and-the-random-control-group}
 
-Die Decisioning-Studio-Gruppe erhält KI or künstliche Intelligenz-optimierte E-Mail-Inhalte; der Agent wählt die beste Variante für jede:n Nutzer:in. Die zufällige Kontrollgruppe erhält zufällige Kombinationen derselben Optionen, ohne Optimierung. Beide Gruppen respektieren die von Ihnen konfigurierten Einschränkungen (wenn Sie beispielsweise festgelegt haben, dass eine Betreffzeile nicht innerhalb von 15 Tagen wiederholt werden soll, gilt diese Regel auch für die zufällige Kontrollgruppe). Der Vergleich der beiden Gruppen liefert Ihnen ein sauberes Maß für den Uplift des Agents.
+Die Decisioning-Studio-Gruppe erhält KI-optimierte E-Mail-Inhalte; der Agent wählt die beste Variante für jede:n Nutzer:in. Die zufällige Kontrollgruppe erhält zufällige Kombinationen derselben Optionen, ohne Optimierung. Beide Gruppen respektieren die von Ihnen konfigurierten Einschränkungen (wenn Sie beispielsweise festgelegt haben, dass eine Betreffzeile nicht innerhalb von 15 Tagen wiederholt werden soll, gilt diese Regel auch für die zufällige Kontrollgruppe). Der Vergleich der beiden Gruppen liefert Ihnen ein sauberes Maß für den Uplift des Agents.
 
 ### Ist die zufällige Kontrollgruppe eine Holdout-Gruppe von Nutzer:innen, die keine E-Mail erhalten? {#is-the-random-control-a-holdout-group-of-users-who-receive-no-email}
 
-Nein. Nutzer:innen in der zufälligen Kontrollgruppe erhalten weiterhin E-Mails. Sie erhalten zufällig ausgewählte Kombinationen der von Ihnen konfigurierten Optionen, die an zufällig ausgewählten Tagen innerhalb Ihres Zeitplans versendet werden. So können Sie „KI or künstliche Intelligenz-personalisiert“ mit „derselbe Inhalt, zufällig versendet“ vergleichen, anstatt mit „gar keine E-Mail“.
+Nein. Nutzer:innen in der zufälligen Kontrollgruppe erhalten weiterhin E-Mails. Sie erhalten zufällig ausgewählte Kombinationen der von Ihnen konfigurierten Optionen, die an zufällig ausgewählten Tagen innerhalb Ihres Zeitplans versendet werden. So können Sie „KI-personalisiert“ mit „derselbe Inhalt, zufällig versendet“ vergleichen, anstatt mit „gar keine E-Mail“.
 
 ### Warum ist die zufällige Kontrollgruppe erforderlich? {#why-is-the-random-control-required}
 
@@ -46,7 +46,7 @@ Aus zwei Gründen. Erstens liefert sie Ihnen eine fortlaufende Realtime-Messung,
 
 ### Kann ich ein Segment verwenden, das bereits in einem anderen Canvas oder einer anderen Campaign genutzt wird? {#can-i-use-a-segment-thats-already-used-in-another-canvas-or-campaign}
 
-Das ist möglich, wird aber dringend davon abgeraten, und es erscheint eine Warnung. Wenn dieselben Nutzer:innen gleichzeitig Nachrichten von Decisioning Studio Go und von anderen Canvase oder Campaigns erhalten, beeinflusst das die Interaktion auf eine Weise, die der Agent nicht berücksichtigen kann. Die sauberste Konfiguration ist ein Segment, das ausschließlich dem Agent zugewiesen ist.
+Das ist möglich, wird aber dringend davon abgeraten, und es erscheint eine Warnung. Wenn dieselben Nutzer:innen gleichzeitig Nachrichten von Decisioning Studio Go und von anderen Canvases oder Campaigns erhalten, beeinflusst das die Interaktion auf eine Weise, die der Agent nicht berücksichtigen kann. Die sauberste Konfiguration ist ein Segment, das ausschließlich dem Agent zugewiesen ist.
 
 ## Konfiguration {#configuration}
 
@@ -72,7 +72,7 @@ Sie wählen eine einzelne Frequenz, z. B. drei Versendungen pro Woche. Der Agent
 
 ### Wie funktioniert Frequency-Capping? {#how-do-frequency-caps-work}
 
-Während der Einrichtung können Sie die Frequency-Capping-Regeln Ihres Workspace auf den Agent anwenden und festlegen, ob die Versendungen des Agents auf das globale Frequency-Cap jede:r Nutzer:in angerechnet werden. Ihr CSM or Customer-Success-Manager or Customer-Success-Manager:in oder Solutions Consultant kann Ihnen helfen, den richtigen Ansatz für Ihr Programm zu bestimmen, basierend darauf, wie Frequency-Caps in Ihrem Workspace konfiguriert sind.
+Während der Einrichtung können Sie die Frequency-Capping-Regeln Ihres Workspace auf den Agent anwenden und festlegen, ob die Versendungen des Agents auf das globale Frequency-Cap jede:r Nutzer:in angerechnet werden. Ihr CSM oder Solutions Consultant kann Ihnen helfen, den richtigen Ansatz für Ihr Programm zu bestimmen, basierend darauf, wie Frequency-Caps in Ihrem Workspace konfiguriert sind.
 
 ### Kann der Agent über mehrere Kanäle hinweg senden? {#can-the-agent-send-across-multiple-channels}
 
@@ -118,4 +118,4 @@ Sie. Der Agent versendet ausschließlich Inhalte, die Sie als Variante hinzugef�
 
 ### Wo erhalte ich Hilfe zu meinem Agent? {#where-do-i-get-help-with-my-agent}
 
-Wenden Sie sich an Ihren Braze CSM or Customer-Success-Manager or Customer-Success-Manager:in oder Solutions Consultant, um Unterstützung bei der Konfiguration, der Performance-Überprüfung oder dem Programmdesign zu erhalten.
+Wenden Sie sich an Ihren Braze CSM oder Solutions Consultant, um Unterstützung bei der Konfiguration, der Performance-Überprüfung oder dem Programmdesign zu erhalten.

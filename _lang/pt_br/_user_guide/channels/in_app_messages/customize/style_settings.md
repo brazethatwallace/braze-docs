@@ -82,7 +82,7 @@ Você pode adicionar uma imagem de fundo a uma linha no painel **Propriedades da
 
 ### Blocos {#blocks}
 
-Blocos representam diferentes tipos de conteúdo que você pode usar na sua mensagem. Arraste um para dentro de um Segment or segmento or segmento de linha existente, e ele se ajustará automaticamente à largura da célula.
+Blocos representam diferentes tipos de conteúdo que você pode usar na sua mensagem. Arraste um para dentro de um Segment de linha existente, e ele se ajustará automaticamente à largura da célula.
 
 {% alert tip %}
 Antes de adicionar blocos, configure os [estilos no nível da mensagem](#set-message-level-styles) para o contêiner da mensagem, fonte, cores e qualquer outra coisa que você queira personalizar. Depois, você pode personalizar blocos individuais conforme necessário. O **Botão Fechar** permanecerá na seção superior da sua mensagem para que os usuários sempre tenham a opção de dispensar a mensagem.

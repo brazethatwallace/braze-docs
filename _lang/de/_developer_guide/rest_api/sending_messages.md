@@ -1,16 +1,16 @@
 ---
 nav_title: Nachrichten senden
-article_title: Versenden von Nachrichten über die Representational State Transfer API
+article_title: Versenden von Nachrichten über die REST API
 page_order: 1
 page_type: reference
-description: "Dieser Referenzartikel behandelt die beiden Möglichkeiten, Nachrichten mithilfe der Braze Representational State Transfer API programmgesteuert zu versenden."
+description: "Dieser Referenzartikel behandelt die beiden Möglichkeiten, Nachrichten mithilfe der Braze REST API programmgesteuert zu versenden."
 ---
 
-# Versenden von Nachrichten über die Representational State Transfer API {#sending-messages-using-the-rest-api}
+# Versenden von Nachrichten über die REST API {#sending-messages-using-the-rest-api}
 
 > Sie können Nachrichten in Echtzeit über zwei verschiedene Braze-Endpunkte von Ihrem Backend aus versenden. Jeder hat eine andere Anfragestruktur: Einer erfordert den vollständigen Nachrichteninhalt in der Anfrage, der andere erfordert eine Campaign-ID und sendet den im Dashboard definierten Inhalt.
 
-Dieser Ansatz funktioniert mit jedem von der API unterstützten Messaging-Kanal (WhatsApp, E-Mail, Kurzmitteilungsdienst or SMS, Push, Content Cards, Webhooks und mehr).
+Dieser Ansatz funktioniert mit jedem von der API unterstützten Messaging-Kanal (WhatsApp, E-Mail, SMS, Push, Content Cards, Webhooks und mehr).
 
 ## Zwei Möglichkeiten zum Versenden {#two-ways-to-send}
 
@@ -18,7 +18,7 @@ Dieser Ansatz funktioniert mit jedem von der API unterstützten Messaging-Kanal 
 | --- | --- | --- |
 | **Campaign-ID** | Optional. Lassen Sie sie weg, um ohne Dashboard-Campaign-Tracking zu senden, oder geben Sie eine API-Campaign-ID plus `message_variation_id` in jeder Nachricht an, um im Dashboard zu tracken. | Erforderlich. |
 | **Nachrichteninhalt** | Sie müssen ein `messages`-Objekt in die Anfrage einfügen (zum Beispiel `messages.whats_app`, `messages.email`). | Nicht akzeptiert. Der Nachrichteninhalt wird in der Campaign im Braze-Dashboard definiert. |
-| **Anwendungsfall** | Senden Sie eine Nachricht, deren Inhalt vollständig in der API-Anfrage angegeben ist. | Trigger or triggern or triggern Sie eine vorgefertigte Campaign (Inhalt im Dashboard) an bestimmte Empfänger:innen über die API. |
+| **Anwendungsfall** | Senden Sie eine Nachricht, deren Inhalt vollständig in der API-Anfrage angegeben ist. | Triggern Sie eine vorgefertigte Campaign (Inhalt im Dashboard) an bestimmte Empfänger:innen über die API. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Zwei Möglichkeiten zum Versenden" }
 
 Ausführliche Informationen zu Anfragen und Antworten finden Sie in den Endpunkt-Referenzen [Nachrichten sofort senden (nur API)]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) und [Campaigns über API-gesteuerte Zustellung senden]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns).
@@ -86,7 +86,7 @@ Für andere Kanäle siehe [Messaging-Objekte]({{site.baseurl}}/api/objects_filte
 
 ---
 
-## Option 2: Eine Campaign mit Inhalten im Dashboard Trigger or triggern or triggern (`/campaigns/trigger/send`) {#option-2-trigger-a-campaign-with-content-in-the-dashboard-campaignstriggersend}
+## Option 2: Eine Campaign mit Inhalten im Dashboard triggern (`/campaigns/trigger/send`) {#option-2-trigger-a-campaign-with-content-in-the-dashboard-campaignstriggersend}
 
 Verwenden Sie diesen Endpunkt, wenn der Nachrichteninhalt im Braze-Dashboard erstellt wird (API-gesteuerte Campaign). Sie senden eine **erforderliche** `campaign_id` und Empfänger:innen; Sie senden **kein** `messages`-Objekt.
 
@@ -96,12 +96,12 @@ Verwenden Sie diesen Endpunkt, wenn der Nachrichteninhalt im Braze-Dashboard ers
 
 1. Gehen Sie im Braze-Dashboard zu **Messaging** > **Campaigns**.
 2. Wählen Sie **Kampagne erstellen** und dann **API-gesteuerte Kampagne** (nicht „API-Kampagne“).
-3. Fügen Sie Ihren Messaging-Kanal hinzu (WhatsApp, E-Mail, Kurzmitteilungsdienst or SMS usw.) und erstellen Sie den Nachrichteninhalt im Dashboard.
+3. Fügen Sie Ihren Messaging-Kanal hinzu (WhatsApp, E-Mail, SMS usw.) und erstellen Sie den Nachrichteninhalt im Dashboard.
 4. Notieren Sie sich die **Campaign-ID** (und die **Sende-ID**, falls Sie mehrere Nachrichtenvarianten verwenden). Sie werden diese in der API-Anfrage verwenden.
 
 Weitere Informationen zum Erstellen von API-gesteuerten Campaigns finden Sie unter [API-gesteuerte Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery).
 
-### Schritt 2: Die Campaign über die API Trigger or triggern or triggern {#step-2-trigger-the-campaign-via-the-api}
+### Schritt 2: Die Campaign über die API triggern {#step-2-trigger-the-campaign-via-the-api}
 
 Senden Sie eine POST-Anfrage an `/campaigns/trigger/send` mit `campaign_id` und `recipients` (oder `broadcast`/`audience`). Fügen Sie kein `messages`-Objekt ein – der Inhalt stammt aus der Campaign.
 
@@ -136,4 +136,4 @@ Den vollständigen Anfragetext (einschließlich `trigger_properties`, `send_to_e
 
 - Nutzen Sie die [Personalisierungs-Features]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize) von Braze, um Inhalte anzupassen, sofern dies unterstützt wird.
 - Stellen Sie sicher, dass Ihr Messaging den geltenden Vorschriften entspricht und die erforderlichen Abmeldeoptionen sowie Datenschutzhinweise enthält.
-- Weitere Endpunkte (Zeitplan, Canvas-Trigger or triggern usw.) finden Sie unter [Messaging-Endpunkte]({{site.baseurl}}/api/endpoints/messaging).
+- Weitere Endpunkte (Zeitplan, Canvas-Trigger usw.) finden Sie unter [Messaging-Endpunkte]({{site.baseurl}}/api/endpoints/messaging).

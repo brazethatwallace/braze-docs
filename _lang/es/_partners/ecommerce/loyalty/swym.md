@@ -24,8 +24,8 @@ Antes de empezar, necesitarás lo siguiente:
 | Requisito          | Descripción                                                                                                                                |
 |-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | Swym  | Las aplicaciones Swym Wishlist Plus, Back in Stock, o ambas, deben estar instaladas en tu plataforma de comercio electrónico (Shopify o BigCommerce), y debes tener el plan Enterprise.       |
-| Una clave de API REST or transferencia de estado representacional de Braze  | Una clave de API REST or transferencia de estado representacional de Braze con permisos `users.track`. <br><br> Puede crearse en el dashboard de Braze desde **Settings** > **API Keys**. |
-| Un punto de conexión REST or transferencia de estado representacional de Braze | [La URL de tu punto de conexión REST or transferencia de estado representacional]({{site.baseurl}}/api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze para tu instancia.                                                 |
+| Una clave de API REST de Braze  | Una clave de API REST de Braze con permisos `users.track`. <br><br> Puede crearse en el dashboard de Braze desde **Settings** > **API Keys**. |
+| Un punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze para tu instancia.                                                 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Casos de uso {#use-cases}
@@ -38,7 +38,7 @@ Al conectar las aplicaciones Wishlist Plus y Back in Stock Alerts de Swym con Br
 
 Actualmente, la integración de Braze con Swym es una integración gestionada y no es autoservicio. Para empezar, ponte en contacto con el equipo de soporte de Swym en [support@getswym.com](mailto:support@getswym.com) y proporciona la siguiente información para que Swym pueda configurar la integración en tu nombre:
 
-1. Genera una [clave de API REST or transferencia de estado representacional]({{site.baseurl}}/api/basics/#about-rest-api-keys) en tu dashboard de Braze con el permiso `users.track`.
+1. Genera una [clave de API REST]({{site.baseurl}}/api/basics/#about-rest-api-keys) en tu dashboard de Braze con el permiso `users.track`.
 
 ![Generación de una clave de API en Braze.]({% image_buster /assets/img/swym/braze-api-key.png %})
 
@@ -47,7 +47,7 @@ Para proteger tus claves de API, Swym recomienda que compartas las credenciales 
 {% endalert %}
 
 {: start="2"}
-2. Braze gestiona varias instancias para su dashboard y sus puntos de conexión REST or transferencia de estado representacional. Proporciona el [punto de conexión REST or transferencia de estado representacional]({{site.baseurl}}/api/basics/#endpoints) de la instancia que tienes aprovisionada.
+2. Braze gestiona varias instancias para su dashboard y sus puntos de conexión REST. Proporciona el [punto de conexión REST]({{site.baseurl}}/api/basics/#endpoints) de la instancia que tienes aprovisionada.
 
 3. Después de compartir la clave de API y la URL de instancia con el equipo de soporte de Swym, ellos configurarán la integración por ti y te responderán con una confirmación.
 

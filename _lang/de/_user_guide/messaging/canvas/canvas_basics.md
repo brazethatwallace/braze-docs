@@ -75,13 +75,13 @@ Die Auswahl mindestens eines [Konversions-Events]({{site.baseurl}}/user_guide/me
 
 *Wann wird eine:r Nutzer:in diese Erfahrung beginnen?*
 
-Ihre Antwort bestimmt die Details, wann und wie Ihr Canvas an Ihre Kund:innen zugestellt wird. Nutzer:innen können Ihr Canvas auf zwei Arten betreten: durch geplante oder aktionsbasierte Trigger or triggern.
+Ihre Antwort bestimmt die Details, wann und wie Ihr Canvas an Ihre Kund:innen zugestellt wird. Nutzer:innen können Ihr Canvas auf zwei Arten betreten: durch geplante oder aktionsbasierte Trigger.
 
 {% alert tip %}
 Weitere Strategien und Antworten auf häufige Fragen finden Sie unter [Zeitbasierte Funktionen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types) für Canvas.
 {% endalert %}
 
-Die geplante Zustellung ermöglicht es Ihnen, ein Canvas sofort an Ihre Zielgruppe zu senden. Sie können es auch regelmäßig senden lassen oder für einen bestimmten Zeitpunkt in der Zukunft planen. Aktionsbasierte Canvase reagieren auf bestimmtes Kundenverhalten in Echtzeit. Beispielsweise kann ein aktionsbasierter Trigger or triggern das Öffnen einer App, einen Kauf, die Interaktion mit einer anderen Campaign oder das Auslösen eines beliebigen angepassten Events umfassen. Zum Zeitpunkt der Aktion können Sie das Canvas an Ihre Nutzer:innen senden lassen.
+Die geplante Zustellung ermöglicht es Ihnen, ein Canvas sofort an Ihre Zielgruppe zu senden. Sie können es auch regelmäßig senden lassen oder für einen bestimmten Zeitpunkt in der Zukunft planen. Aktionsbasierte Canvases reagieren auf bestimmtes Kundenverhalten in Echtzeit. Beispielsweise kann ein aktionsbasierter Trigger das Öffnen einer App, einen Kauf, die Interaktion mit einer anderen Campaign oder das Auslösen eines beliebigen angepassten Events umfassen. Zum Zeitpunkt der Aktion können Sie das Canvas an Ihre Nutzer:innen senden lassen.
 
 ### Das „Wer“: Eine Zielgruppe auswählen {#the-who-select-an-audience}
 
@@ -93,7 +93,7 @@ Um Ihr „Wer“ zu definieren, können Sie vordefinierte Segmente verwenden, di
 |---------------------|-----------------------------------------------------------------------------------------------------|
 | Angepasste Daten | Segmentieren Sie Nutzer:innen basierend auf Events und Attributen, die Sie definieren. Kann produktspezifische Features verwenden. |
 | Nutzeraktivität | Segmentieren Sie Kund:innen basierend auf ihren Aktionen und Käufen. |
-| Retargeting | Segmentieren Sie Kund:innen, denen vorherige Canvase gesendet wurden, die sie erhalten oder mit denen sie interagiert haben. |
+| Retargeting | Segmentieren Sie Kund:innen, denen vorherige Canvases gesendet wurden, die sie erhalten oder mit denen sie interagiert haben. |
 | Marketing-Aktivität | Segmentieren Sie Kund:innen basierend auf universellen Verhaltensweisen wie dem letzten Engagement. |
 | Nutzerattribute | Segmentieren Sie Kund:innen nach ihren konstanten Attributen und Eigenschaften. |
 | Install-Attribution | Segmentieren Sie Kund:innen nach ihrer ersten Quelle, Anzeigengruppe, Campaign oder Anzeige. |
@@ -108,7 +108,7 @@ Hier bestimmen wir, welche Messaging-Kanäle für Ihre User Journey am sinnvolls
 * [Push]({{site.baseurl}}/user_guide/channels/push)
 * [In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages)
 * [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards)
-* [Kurzmitteilungsdienst or SMS oder MMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs)
+* [SMS oder MMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs)
 * [Webhook]({{site.baseurl}}/user_guide/channels/webhooks)
 
 ### Das „Wie“: Die vollständige Erfahrung aufbauen {#the-how-build-the-complete-experience}

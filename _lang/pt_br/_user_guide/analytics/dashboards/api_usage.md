@@ -1,26 +1,26 @@
 ---
-nav_title: Uso da API or interface de programação do aplicativo (API)
-article_title: Dashboard de uso da API or interface de programação do aplicativo (API)
+nav_title: Uso da API
+article_title: Dashboard de uso da API
 alias: "/api_usage/"
 page_order: 5
-description: "Este artigo fornece uma visão geral do dashboard de uso da API or interface de programação do aplicativo (API)."
+description: "Este artigo fornece uma visão geral do dashboard de uso da API."
 ---
 
-# Dashboard de uso da API or interface de programação do aplicativo (API) {#api-usage-dashboard}
+# Dashboard de uso da API {#api-usage-dashboard}
 
-> O dashboard de uso da API or interface de programação do aplicativo (API) permite monitorar o tráfego de entrada da REST or transferir estado representacional API or interface de programação do aplicativo (API) na Braze para entender as tendências de uso das nossas REST or transferir estado representacional APIs e solucionar possíveis problemas.
+> O dashboard de uso da API permite monitorar o tráfego de entrada da REST API na Braze para entender as tendências de uso das nossas REST APIs e solucionar possíveis problemas.
 
-## Sobre o dashboard de uso da API or interface de programação do aplicativo (API) {#about-the-api-usage-dashboard}
+## Sobre o dashboard de uso da API {#about-the-api-usage-dashboard}
 
-Para visualizar o dashboard de uso da API or interface de programação do aplicativo (API), acesse **Configurações** > **APIs e identificadores** e selecione **Dashboard**.
+Para visualizar o dashboard de uso da API, acesse **Configurações** > **APIs e identificadores** e selecione **Dashboard**.
 
-O dashboard padrão exibe todas as solicitações de entrada da REST or transferir estado representacional API or interface de programação do aplicativo (API) para o seu espaço de trabalho nas últimas 24 horas. Dependendo do seu caso de uso, você pode ajustar os controles do dashboard para filtrar ou agrupar o tráfego e também configurar o intervalo de tempo do dashboard.
+O dashboard padrão exibe todas as solicitações de entrada da REST API para o seu espaço de trabalho nas últimas 24 horas. Dependendo do seu caso de uso, você pode ajustar os controles do dashboard para filtrar ou agrupar o tráfego e também configurar o intervalo de tempo do dashboard.
 
 ![Dashboard de uso da API com 130 solicitações totais, com uma taxa de sucesso de 70% e uma taxa de falha de 30%.]({% image_buster /assets/img/api_usage_dashboard/api_usage_dashboard.png %})
 
 ## Métricas disponíveis {#available-metrics}
 
-O dashboard de uso da API or interface de programação do aplicativo (API) inclui as seguintes estatísticas:
+O dashboard de uso da API inclui as seguintes estatísticas:
 
 | Métrica | Descrição |
 |----------------|-------------|
@@ -35,9 +35,9 @@ O dashboard de uso da API or interface de programação do aplicativo (API) incl
 
 ### Filtros {#filters}
 
-Selecione **Filtros** para aplicar filtros e restringir a visualização do tráfego da REST or transferir estado representacional API or interface de programação do aplicativo (API) para o seu espaço de trabalho, incluindo:
+Selecione **Filtros** para aplicar filtros e restringir a visualização do tráfego da REST API para o seu espaço de trabalho, incluindo:
 
-- Chave de API or interface de programação do aplicativo (API)
+- Chave de API
 - Endpoint
 - Código de resposta
 
@@ -46,8 +46,8 @@ Selecione **Filtros** para aplicar filtros e restringir a visualização do trá
 Você pode agrupar dados em diferentes séries para explorar padrões variados no seu uso, incluindo:
 
 - Códigos de resposta (padrão)
-- Endpoint da API or interface de programação do aplicativo (API)
-- Chave de API or interface de programação do aplicativo (API)
+- Endpoint da API
+- Chave de API
 - Apenas sucesso e falha
 
 ### Data {#date}
@@ -72,18 +72,18 @@ As opções **Últimas 3 horas** e **Últimas 6 horas** exibirão o tráfego por
 
 ## Considerações {#considerations}
 
-O dashboard de uso da API or interface de programação do aplicativo (API) inclui todas as solicitações da REST or transferir estado representacional API or interface de programação do aplicativo (API) que a Braze recebeu e para as quais retornou uma resposta `2XX`, `4XX` ou `5XX`. Isso inclui saídas de Transformação de dados e sincronizações de Ingestão de dados na nuvem. O tráfego do SDK or kit de desenvolvimento de software e as etapas de Atualização de usuário não estão incluídos neste dashboard.
+O dashboard de uso da API inclui todas as solicitações da REST API que a Braze recebeu e para as quais retornou uma resposta `2XX`, `4XX` ou `5XX`. Isso inclui saídas de Transformação de dados e sincronizações de Ingestão de dados na nuvem. O tráfego do SDK e as etapas de Atualização de usuário não estão incluídos neste dashboard.
 
 Os dados exibidos no dashboard podem ter um pequeno atraso para mostrar o tráfego recente. Durante períodos de alto uso, você pode atualizar o dashboard até 4 vezes por minuto. Pode ser necessário aguardar alguns minutos antes de atualizar o dashboard novamente.
 
-### Chaves de API or interface de programação do aplicativo (API) no corpo da solicitação {#api-keys-in-request-body}
+### Chaves de API no corpo da solicitação {#api-keys-in-request-body}
 
-Quando as chaves de API or interface de programação do aplicativo (API) são enviadas no corpo da solicitação em vez do cabeçalho, algumas solicitações podem não aparecer no dashboard de uso da API or interface de programação do aplicativo (API). Isso pode levar a dados incompletos no dashboard e dificultar o monitoramento preciso do uso da API or interface de programação do aplicativo (API).
+Quando as chaves de API são enviadas no corpo da solicitação em vez do cabeçalho, algumas solicitações podem não aparecer no dashboard de uso da API. Isso pode levar a dados incompletos no dashboard e dificultar o monitoramento preciso do uso da API.
 
-Para obter relatórios mais precisos no dashboard de uso da API or interface de programação do aplicativo (API), [inclua as chaves de API or interface de programação do aplicativo (API) no cabeçalho da solicitação]({{site.baseurl}}/api/basics#bearer-token-authentication) em vez de no corpo da solicitação.
+Para obter relatórios mais precisos no dashboard de uso da API, [inclua as chaves de API no cabeçalho da solicitação]({{site.baseurl}}/api/basics#bearer-token-authentication) em vez de no corpo da solicitação.
 
 ## Artigos relacionados {#related-articles}
 
-- [Alertas de uso da API or interface de programação do aplicativo (API)]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts)
+- [Alertas de uso da API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts)
 - [Limites de taxa]({{site.baseurl}}/api/api_limits)
 - [Autenticação por token Bearer]({{site.baseurl}}/api/basics#bearer-token-authentication)

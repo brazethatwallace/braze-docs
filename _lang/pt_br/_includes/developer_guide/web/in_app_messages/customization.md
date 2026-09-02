@@ -2,7 +2,7 @@
 
 ## Estilos personalizados {#custom-styles}
 
-Os elementos da interface do usuário da Braze vêm com uma aparência padrão que cria uma experiência neutra de mensagens no app e visa à consistência com outras plataformas móveis da Braze. Os estilos padrão da Braze são definidos em CSS no SDK or kit de desenvolvimento de software da Braze.
+Os elementos da interface do usuário da Braze vêm com uma aparência padrão que cria uma experiência neutra de mensagens no app e visa à consistência com outras plataformas móveis da Braze. Os estilos padrão da Braze são definidos em CSS no SDK da Braze.
 
 ### Definição de um estilo padrão {#setting-a-default-style}
 
@@ -30,7 +30,7 @@ braze.initialize("YOUR-API-KEY", {
 ```
 
 {% alert important %}
-Esse recurso está disponível apenas para o Web Braze SDK or kit de desenvolvimento de software v3.3.0 e posterior.
+Esse recurso está disponível apenas para o Web Braze SDK v3.3.0 e posterior.
 {% endalert %}
 
 ## Personalização do descarte de mensagens {#customizing-message-dismissals}

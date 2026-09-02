@@ -1,7 +1,7 @@
 ---
 nav_title: Storyly
 article_title: Storyly
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Storyly, einem leichtgewichtigen SDK or Software-Development-Kit, das es App-Besitzern ermöglicht, ihre Segmente gezielt anzusprechen und Braze mit mehr First-Party-Daten zu versorgen."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Storyly, einem leichtgewichtigen SDK, das es App-Besitzern ermöglicht, ihre Segmente gezielt anzusprechen und Braze mit mehr First-Party-Daten zu versorgen."
 alias: /partners/storyly/
 page_type: partner
 search_tag: Partner
@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Storyly
 
-> [Storyly](https://www.storyly.io/) ist ein leichtgewichtiges SDK or Software-Development-Kit, das Stories in Ihre App oder Website bringt. Mit einem intuitiven Designstudio, aufschlussreichen Analytics und nahtloser Konnektivität ist Storyly ein leistungsstarkes Tool zur Bereicherung des Erlebnisses der Zielgruppe.
+> [Storyly](https://www.storyly.io/) ist ein leichtgewichtiges SDK, das Stories in Ihre App oder Website bringt. Mit einem intuitiven Designstudio, aufschlussreichen Analytics und nahtloser Konnektivität ist Storyly ein leistungsstarkes Tool zur Bereicherung des Erlebnisses der Zielgruppe.
 
 _Diese Integration wird von Storyly gepflegt._
 
@@ -25,9 +25,9 @@ Die Integration von Braze und Storyly ermöglicht es Ihnen, Ihre Segmente in Bra
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | Storyly-Konto | Um diese Partnerschaft nutzen zu können, ist ein Storyly-Konto erforderlich. |
-| Storyly SDK or Software-Development-Kit | Sie müssen das [Storyly SDK or Software-Development-Kit](https://integration.storyly.io/) installieren. |
-| Braze-Representational State Transfer-API-Schlüssel | Ein Braze-Representational State Transfer-API-Schlüssel mit den folgenden Berechtigungen: <br><br> `users.export.ids`<br> `users.export.segments`<br> `segments.list`<br> `segments.details` <br><br> Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden. |
-| Braze-Representational State Transfer-Endpunkt | [Ihre Representational State Transfer-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
+| Storyly SDK | Sie müssen das [Storyly SDK](https://integration.storyly.io/) installieren. |
+| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit den folgenden Berechtigungen: <br><br> `users.export.ids`<br> `users.export.segments`<br> `segments.list`<br> `segments.details` <br><br> Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden. |
+| Braze-REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Anwendungsfälle {#use-cases}
@@ -51,7 +51,7 @@ Weitere Informationen finden Sie auch in der [Storyly-Dokumentation](https://doc
 
 ### 1. Schritt: Integration im Storyly-Dashboard einrichten {#step-1-set-the-integration-on-storyly-dashboard}
 
-Eine Integration kann im **Storyly Dashboard > Settings > Integrations > Connect with Braze** erstellt werden. Hier benötigen Sie Ihren Braze-Representational State Transfer-API-Schlüssel und den Braze-Representational State Transfer-Endpunkt.
+Eine Integration kann im **Storyly Dashboard > Settings > Integrations > Connect with Braze** erstellt werden. Hier benötigen Sie Ihren Braze-REST-API-Schlüssel und den Braze-REST-Endpunkt.
 
 ### 2. Schritt: Ihre Segmente abrufen {#step-2-get-your-segments}
 

@@ -51,7 +51,7 @@ Use o campo exibido para adicionar à lista de permissões endereços IP e sub-r
 
 ## Autenticação de dois fatores (2FA) {#two-factor-authentication-2fa}
 
-A autenticação de dois fatores é obrigatória para todos os usuários da empresa. Ela adiciona um segundo nível de verificação de identidade ao login de uma conta, tornando-o mais seguro do que apenas um nome de usuário e uma senha. Se o seu dashboard não oferecer suporte à autenticação de dois fatores, entre em contato com o seu gerente de sucesso do cliente.
+A autenticação de dois fatores é obrigatória para todos os usuários da empresa. Ela adiciona um segundo nível de verificação de identidade ao login de uma conta, tornando-o mais seguro do que apenas um nome de usuário e uma senha. Se o seu dashboard não oferecer suporte à autenticação de dois fatores, entre em contato com o seu CSM.
 
 Quando a autenticação de dois fatores está ativada:
 
@@ -110,7 +110,7 @@ Para ativar manualmente a autenticação de dois fatores (2FA) na sua conta da B
 
 ## Acesso elevado {#elevated-access}
 
-O Acesso elevado adiciona uma camada extra de segurança para ações sensíveis no dashboard da Braze. Quando ativo, os usuários precisam verificar novamente a conta antes de exportar um Segment or segmento ou visualizar uma chave de API or interface de programação do aplicativo (API). Para usar o Acesso elevado, acesse **Configuração** > **Configurações da empresa** > **Configuração de administrador** > **Configurações de segurança** e ative a opção.
+O Acesso elevado adiciona uma camada extra de segurança para ações sensíveis no dashboard da Braze. Quando ativo, os usuários precisam verificar novamente a conta antes de exportar um Segment ou visualizar uma chave de API. Para usar o Acesso elevado, acesse **Configuração** > **Configurações da empresa** > **Configuração de administrador** > **Configurações de segurança** e ative a opção.
 
 Se um usuário não conseguir fazer a reverificação, ele será redirecionado para onde estava e não poderá continuar com a ação sensível. Após a reverificação bem-sucedida, não será necessário repetir o processo na próxima hora, a menos que ele faça logout primeiro.
 
@@ -177,17 +177,17 @@ Canvas
 - Added Canvas
 - Edited Canvas
 
-### Segment or segmento
+### Segment
 - Added Segment
 - Edited Segment
 - Exported data to CSV
-- Exported Segment via API or interface de programação do aplicativo (API)
+- Exported Segment via API
 - Segment Users Deleted
 - Cleared Cohort
 
-### Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional {#rest-api-key}
-- Added REST or transferir estado representacional API or interface de programação do aplicativo (API) key
-- Removed REST or transferir estado representacional API or interface de programação do aplicativo (API) key
+### Chave da API REST {#rest-api-key}
+- Added REST API key
+- Removed REST API key
 
 ### Credencial de autenticação básica {#basic-authentication-credential}
 - Added Basic Auth credential
@@ -231,9 +231,9 @@ Canvas
 Updated Push Credential
 Removed Push Credential
 
-### Depurador do SDK or kit de desenvolvimento de software {#sdk-debugger}
-- Started SDK or kit de desenvolvimento de software Debugger Session
-- Exported SDK or kit de desenvolvimento de software Debugger Log
+### Depurador do SDK {#sdk-debugger}
+- Started SDK Debugger Session
+- Exported SDK Debugger Log
 
 ### Usuários {#users}
 - Users Deleted

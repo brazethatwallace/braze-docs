@@ -17,11 +17,11 @@ channel:
 
 ## Geral {#general}
 
-### O que é um `app_id` no objeto da API or interface de programação do aplicativo (API) de SMS? {#what-is-an-app_id-in-the-sms-api-object}
+### O que é um `app_id` no objeto da API de SMS? {#what-is-an-app_id-in-the-sms-api-object}
 
-A chave de API or interface de programação do aplicativo (API) do identificador do app, ou `app_id`, é um parâmetro que associa a atividade a um app específico no seu espaço de trabalho. Ele designa com qual app dentro do espaço de trabalho você está interagindo. Por exemplo, você tem um `app_id` para o seu app iOS, um `app_id` para o seu app Android e um `app_id` para a sua integração web.
+A chave de API do identificador do app, ou `app_id`, é um parâmetro que associa a atividade a um app específico no seu espaço de trabalho. Ele designa com qual app dentro do espaço de trabalho você está interagindo. Por exemplo, você tem um `app_id` para o seu app iOS, um `app_id` para o seu app Android e um `app_id` para a sua integração web.
 
-Para SMS, o parâmetro `app_id` é obrigatório ao enviar mensagens SMS pela API or interface de programação do aplicativo (API) (como o endpoint `/messages/send`). Ele especifica qual app no seu espaço de trabalho está associado à atividade de SMS ou chamada de API or interface de programação do aplicativo (API). Você pode usar qualquer `app_id` válido de um app configurado no seu espaço de trabalho para envio de mensagens SMS, independentemente de o usuário ter esse app específico no perfil dele.
+Para SMS, o parâmetro `app_id` é obrigatório ao enviar mensagens SMS pela API (como o endpoint `/messages/send`). Ele especifica qual app no seu espaço de trabalho está associado à atividade de SMS ou chamada de API. Você pode usar qualquer `app_id` válido de um app configurado no seu espaço de trabalho para envio de mensagens SMS, independentemente de o usuário ter esse app específico no perfil dele.
 
 Você pode encontrar o seu `app_id` navegando até **Configurações** > **Configurações do app** e localizando a seção **Identificação**.
 
@@ -38,7 +38,7 @@ A Braze usará o seguinte fluxo para determinar o perfil destinatário:
 - Se nenhum dos perfis tiver recebido SMS nos últimos 7 dias, enviar para o usuário que possui um alias de usuário "phone" correspondente ao número de telefone.
 - Se nenhum dos dois existir, enviar para um perfil aleatório entre os disponíveis.
 
-Se você receber uma palavra-chave "START" ou "STOP" do número de telefone compartilhado, todos os perfis de usuário serão inscritos e habilitados para SMS ou terão a inscrição cancelada. Isso também se aplica a alterações de status via API or interface de programação do aplicativo (API). Por exemplo, se vários perfis com IDs externos diferentes tiverem os mesmos números de telefone, uma alteração de status do grupo de inscrições pela API or interface de programação do aplicativo (API) atualizará todos os perfis com aquele número de telefone, mesmo que apenas um ID externo seja especificado.
+Se você receber uma palavra-chave "START" ou "STOP" do número de telefone compartilhado, todos os perfis de usuário serão inscritos e habilitados para SMS ou terão a inscrição cancelada. Isso também se aplica a alterações de status via API. Por exemplo, se vários perfis com IDs externos diferentes tiverem os mesmos números de telefone, uma alteração de status do grupo de inscrições pela API atualizará todos os perfis com aquele número de telefone, mesmo que apenas um ID externo seja especificado.
 
 {% alert important %}
 Se você escalonar seus usuários em um Canvas e tiver horários de agendamento diferentes para cada componente do Canvas, é possível que um usuário com o mesmo e-mail ou telefone receba mensagens duplicadas.
@@ -78,9 +78,9 @@ MMS e SMS têm custos diferentes e são cobrados separadamente com base no volum
 
 Embora não possamos garantir que você não terá um excedente ocasionalmente, estas precauções podem diminuir as chances de ultrapassar seus limites contratados:
 
-- Preste atenção ao número de caracteres no seu SMS. Enviar mais de um Segment or segmento or segmento sem querer pode causar excedentes. Para mais detalhes, consulte nosso [detalhamento de segmentos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator).
+- Preste atenção ao número de caracteres no seu SMS. Enviar mais de um Segment sem querer pode causar excedentes. Para mais detalhes, consulte nosso [detalhamento de segmentos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator).
 - Calcule cuidadosamente os caracteres do seu SMS levando em conta Liquid ou Connected Content. O criador de SMS da Braze no dashboard não estima nem considera o uso de nenhum desses recursos.
-- Considere o tipo de codificação que sua mensagem utiliza. Se sua mensagem usa codificação GSM-7, geralmente é possível estimar 160 caracteres por Segment or segmento or segmento de mensagem (menos se você usar caracteres da tabela de extensão GSM-7). Se sua mensagem usa codificação [UCS-2](https://en.wikipedia.org/wiki/Universal_Coded_Character_Set), geralmente é possível estimar 67 caracteres por Segment or segmento or segmento de mensagem.
+- Considere o tipo de codificação que sua mensagem utiliza. Se sua mensagem usa codificação GSM-7, geralmente é possível estimar 160 caracteres por Segment de mensagem (menos se você usar caracteres da tabela de extensão GSM-7). Se sua mensagem usa codificação [UCS-2](https://en.wikipedia.org/wiki/Universal_Coded_Character_Set), geralmente é possível estimar 67 caracteres por Segment de mensagem.
 - Teste, teste e teste! Sempre teste suas mensagens SMS antes do envio, especialmente ao usar Liquid e Connected Content.
 
 ### Se uma mensagem for enviada para um telefone fixo, ela ainda contará no meu total de envios de SMS? {#if-a-message-is-sent-to-a-landline-will-the-message-still-count-toward-my-sms-send-count}
@@ -132,7 +132,7 @@ Emojis podem ser complicados, pois não existe uma contagem de caracteres padrã
 
 ### Como criar uma lógica para aceitações seletivas de SMS para que os usuários fiquem no grupo de inscrições correto? {#how-do-you-create-logic-for-selective-opt-ins-to-sms-so-users-are-in-the-right-subscription-group}
 
-Palavras-chave personalizadas seriam registradas como eventos personalizados, então você precisaria criar segmentos com base nas palavras-chave que os clientes podem enviar por mensagem de texto. Por exemplo, se um usuário aceita receber SMS para mensagens VIP, mas não para alertas, você pode criar um Segment or segmento or segmento VIP e um Segment or segmento or segmento de alertas e, em seguida, atribuir o usuário ao Segment or segmento or segmento apropriado.
+Palavras-chave personalizadas seriam registradas como eventos personalizados, então você precisaria criar segmentos com base nas palavras-chave que os clientes podem enviar por mensagem de texto. Por exemplo, se um usuário aceita receber SMS para mensagens VIP, mas não para alertas, você pode criar um Segment VIP e um Segment de alertas e, em seguida, atribuir o usuário ao Segment apropriado.
 
 ### Se um usuário enviar "Stop" para nosso short code, ele será desinscrito do grupo de inscrições? {#if-a-user-texts-stop-to-our-short-code-are-they-unsubscribed-from-the-subscription-group}
 
@@ -226,8 +226,8 @@ Para enviar conteúdo animado para iOS:
 
 Sim, você pode usar mensagens de mídia para enviar arquivos de áudio.
 
-### Por que os opt-ins de SMS via REST or transferir estado representacional API or interface de programação do aplicativo (API) não correspondem ao **Total de opt-ins** no desempenho de SMS/MMS/RCS? {#why-do-rest-api-sms-opt-ins-not-match-total-opt-ins-on-smsmmsrcs-performance}
+### Por que os opt-ins de SMS via REST API não correspondem ao **Total de opt-ins** no desempenho de SMS/MMS/RCS? {#why-do-rest-api-sms-opt-ins-not-match-total-opt-ins-on-smsmmsrcs-performance}
 
-**Total de opt-ins** e **Total de descadastramentos** no dashboard de [desempenho de SMS/MMS/RCS]({{site.baseurl}}/user_guide/analytics/dashboards) contam alterações de inscrição geradas pelo processamento de palavras-chave de SMS recebidos (por exemplo, um usuário enviando uma palavra-chave de opt-in para o seu short code). Eles não incluem todas as atualizações de inscrição feitas pela REST or transferir estado representacional API or interface de programação do aplicativo (API), pelo dashboard ou por outras fontes.
+**Total de opt-ins** e **Total de descadastramentos** no dashboard de [desempenho de SMS/MMS/RCS]({{site.baseurl}}/user_guide/analytics/dashboards) contam alterações de inscrição geradas pelo processamento de palavras-chave de SMS recebidos (por exemplo, um usuário enviando uma palavra-chave de opt-in para o seu short code). Eles não incluem todas as atualizações de inscrição feitas pela REST API, pelo dashboard ou por outras fontes.
 
-Para analisar opt-ins e descadastramentos por origem, use o [Criador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder) em `USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED` e filtre por `STATE_CHANGE_SOURCE` (por exemplo, **REST or transferir estado representacional API or interface de programação do aplicativo (API)** versus **Inbound Message**).
+Para analisar opt-ins e descadastramentos por origem, use o [Criador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder) em `USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED` e filtre por `STATE_CHANGE_SOURCE` (por exemplo, **Rest API** versus **Inbound Message**).

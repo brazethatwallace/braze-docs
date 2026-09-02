@@ -23,11 +23,11 @@ Mit unseren [neuen In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_a
 
 ### Was Sie tun müssen {#what-you-need-to-do}
 
-Wir empfehlen dringend ein Update or aktualisieren auf die neuesten Versionen der Braze SDKs für [Web]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup/#upgrading-the-sdk), [iOS]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift) und [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android).
+Wir empfehlen dringend ein Update auf die neuesten Versionen der Braze SDKs für [Web]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup/#upgrading-the-sdk), [iOS]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift) und [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android).
 
 Danach sind Sie startklar!
 
-## Content Blocks – Archivierungs-Update or aktualisieren {#content-blocks-archive-update}
+## Content Blocks – Archivierungs-Update {#content-blocks-archive-update}
 
 Sie können jetzt [Content Blocks]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/content_blocks/#archiving-content-blocks) archivieren und dearchivieren.
 

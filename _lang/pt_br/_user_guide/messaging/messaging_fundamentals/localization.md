@@ -14,7 +14,7 @@ tool:
 
 ## Como funciona {#how-it-works}
 
-As informações de local são armazenadas no perfil do usuário com base nos dados que você coleta usando um [SDK or kit de desenvolvimento de software da Braze]({{site.baseurl}}/developer_guide/sdk_integration) (automaticamente) ou a [REST or transferir estado representacional API or interface de programação do aplicativo (API)]({{ site.baseurl }}/api/endpoints/user_data/post_user_track). O local contém o idioma e um identificador de região. Essas informações estão disponíveis na ferramenta de segmentação da Braze em **País** e **Idioma**.
+As informações de local são armazenadas no perfil do usuário com base nos dados que você coleta usando um [SDK da Braze]({{site.baseurl}}/developer_guide/sdk_integration) (automaticamente) ou a [REST API]({{ site.baseurl }}/api/endpoints/user_data/post_user_track). O local contém o idioma e um identificador de região. Essas informações estão disponíveis na ferramenta de segmentação da Braze em **País** e **Idioma**.
 
 {% alert tip %}
 Para detalhes técnicos sobre como o local é coletado pelos nossos SDKs, consulte a documentação oficial do [iOS](https://developer.apple.com/library/ios/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html), [Android](http://developer.android.com/reference/java/util/Locale.html) e [Web](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/language).
@@ -97,7 +97,7 @@ Para um passo a passo completo, consulte o [guia sobre o uso de tags de traduç�
 Você pode colar manualmente seu conteúdo no corpo da mensagem e usar [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize) para exibir [condicionalmente]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#conditional-logic) o idioma correto para o destinatário. Para fazer isso:
 
 1. Componha sua mensagem e selecione **Idioma** para gerar a lógica condicional Liquid para cada um dos idiomas selecionados.
-2. Você pode usar o seguinte modelo Liquid para ajudar a construir sua mensagem. Para cada campo com modelo, insira as variações após o Segment or segmento or segmento entre colchetes do modelo. A variação deve corresponder ao código de idioma referenciado nos colchetes antes dela.
+2. Você pode usar o seguinte modelo Liquid para ajudar a construir sua mensagem. Para cada campo com modelo, insira as variações após o Segment entre colchetes do modelo. A variação deve corresponder ao código de idioma referenciado nos colchetes antes dela.
     {% raw %}
     ```liquid
     {% if ${language} == 'en' %}
@@ -122,7 +122,7 @@ Sempre recomendamos incluir uma instrução {% raw %}`{% else %}`{% endraw %} no
 {% endtab %}
 
 {% tab Content Blocks %}
-Os [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) da Braze são blocos de conteúdo reutilizáveis. Quando um bloco é alterado, todas as referências a esse bloco são atualizadas. Por exemplo, atualizações em um cabeçalho ou rodapé de e-mail serão refletidas em todos os e-mails, ou para abrigar traduções. Esses blocos também podem ser [criados]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block) e [atualizados]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block) usando a REST or transferir estado representacional API or interface de programação do aplicativo (API), e os usuários podem fazer upload de traduções programaticamente.
+Os [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) da Braze são blocos de conteúdo reutilizáveis. Quando um bloco é alterado, todas as referências a esse bloco são atualizadas. Por exemplo, atualizações em um cabeçalho ou rodapé de e-mail serão refletidas em todos os e-mails, ou para abrigar traduções. Esses blocos também podem ser [criados]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block) e [atualizados]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block) usando a REST API, e os usuários podem fazer upload de traduções programaticamente.
 
 Ao criar uma campanha no dashboard, os Content Blocks podem ser referenciados usando a tag {% raw %}`{{content_blocks.${name_of_content_block}}}`{% endraw %}. Esses blocos podem conter todas as traduções dentro de lógica condicional para cada idioma, como mostrado na opção 1, ou um bloco separado para cada idioma pode ser usado.
 
@@ -135,12 +135,12 @@ Os Content Blocks também podem ser utilizados como um processo de gerenciamento
 {% endtab %}
 
 {% tab Catálogos %}
-Os [catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs) permitem que você acesse dados de objetos JSON importados via API or interface de programação do aplicativo (API) e arquivos CSV para enriquecer suas mensagens, de forma semelhante a atributos personalizados ou propriedades de eventos personalizados por meio de Liquid. Por exemplo:
+Os [catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs) permitem que você acesse dados de objetos JSON importados via API e arquivos CSV para enriquecer suas mensagens, de forma semelhante a atributos personalizados ou propriedades de eventos personalizados por meio de Liquid. Por exemplo:
 
 {% subtabs local %}
-{% subtab API or interface de programação do aplicativo (API) %}
+{% subtab API %}
 
-Crie um catálogo por meio da seguinte chamada de API or interface de programação do aplicativo (API):
+Crie um catálogo por meio da seguinte chamada de API:
 ```bash
 curl --location --request POST 'https://your_api_endpoint/catalogs' \
 --header 'Content-Type: application/json' \
@@ -173,7 +173,7 @@ curl --location --request POST 'https://your_api_endpoint/catalogs' \
 }'
 ```
 
-Adicione itens por meio da seguinte chamada de API or interface de programação do aplicativo (API):
+Adicione itens por meio da seguinte chamada de API:
 
 ```bash
 curl --location --request POST 'https://your_api_endpoint/catalogs/translations/items' \
@@ -242,7 +242,7 @@ Esses itens de catálogo podem então ser referenciados usando [personalização
 {% endtab %}
 
 {% tab Parceiros da Braze %}
-Muitos parceiros da Braze oferecem soluções de localização, incluindo [Transifex]({{site.baseurl}}/partners/message_personalization/localization/transifex#about-the-integration) e [Crowdin](https://crowdin.com/). Normalmente, os usuários utilizam a plataforma junto com uma equipe interna e uma agência de tradução. Essas traduções são então carregadas lá e ficam acessíveis via REST or transferir estado representacional API or interface de programação do aplicativo (API). Esses serviços também costumam utilizar [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), permitindo que os usuários busquem as traduções via API or interface de programação do aplicativo (API).
+Muitos parceiros da Braze oferecem soluções de localização, incluindo [Transifex]({{site.baseurl}}/partners/message_personalization/localization/transifex#about-the-integration) e [Crowdin](https://crowdin.com/). Normalmente, os usuários utilizam a plataforma junto com uma equipe interna e uma agência de tradução. Essas traduções são então carregadas lá e ficam acessíveis via REST API. Esses serviços também costumam utilizar [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), permitindo que os usuários busquem as traduções via API.
 
 Por exemplo, as seguintes chamadas de Connected Content chamam o Transifex e o Crowdin para buscar uma tradução, utilizando {% raw %}`{{${language}}}`{% endraw %} para identificar a tradução correta para um determinado usuário. Essa tradução é então salva no bloco JSON "strings" e referenciada.
 
@@ -274,12 +274,12 @@ Armazene as traduções em uma planilha e use um dos métodos a seguir para envi
 Você pode trabalhar com uma agência de tradução para armazenar traduções em uma planilha do Google e consultar esse conteúdo usando o [Braze Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content). Quando você enviar uma mensagem, a tradução relevante para cada usuário será inserida no corpo da sua campanha com base no idioma selecionado.
 
 {% alert note %}
-A API or interface de programação do aplicativo (API) do Google Sheets tem um limite de 500 solicitações por 100 segundos por projeto. As chamadas de Connected Content podem ser armazenadas em cache, mas essa solução não é escalável para Campaigns de alto tráfego.
+A API do Google Sheets tem um limite de 500 solicitações por 100 segundos por projeto. As chamadas de Connected Content podem ser armazenadas em cache, mas essa solução não é escalável para Campaigns de alto tráfego.
 {% endalert %}
 {% endsubtab %}
 
-{% subtab API or interface de programação do aplicativo (API) JSON via SheetDB %}
-Esta opção fornece um método alternativo de transformar planilhas do Google em objetos JSON consultados via Connected Content. Ao transformar uma planilha em uma API or interface de programação do aplicativo (API) JSON via SheetDB, você pode escolher entre [vários planos de assinatura](https://sheetdb.io/pricing) dependendo da frequência das chamadas de API or interface de programação do aplicativo (API).
+{% subtab API JSON via SheetDB %}
+Esta opção fornece um método alternativo de transformar planilhas do Google em objetos JSON consultados via Connected Content. Ao transformar uma planilha em uma API JSON via SheetDB, você pode escolher entre [vários planos de assinatura](https://sheetdb.io/pricing) dependendo da frequência das chamadas de API.
 
 A estrutura da planilha segue as etapas da opção 4, mas o SheetDB também fornece [filtros adicionais](https://docs.sheetdb.io/#sheetdb-api) para consultar os objetos.
 
@@ -322,11 +322,11 @@ Por fim, use Liquid para criar modelos para suas mensagens:
 - O campo {% raw %}`{{${language}}}`{% endraw %} precisa estar definido para todos os usuários; caso contrário, um bloco condicional Liquid deve ser incluído como tratamento de fallback para usuários sem idioma definido.
 - A modelagem de dados no Google Sheets deve seguir uma estrutura vertical orientada por idioma, em vez de ter objetos de mensagem.
 - O SheetDB oferece uma conta gratuita limitada e várias opções pagas que devem ser consideradas com base na sua estratégia de campanha.
-- As chamadas de Connected Content podem ser armazenadas em cache. Recomendamos medir a frequência projetada das chamadas de API or interface de programação do aplicativo (API) e investigar uma abordagem alternativa de chamar o endpoint principal do SheetDB em vez de usar o método de busca.
+- As chamadas de Connected Content podem ser armazenadas em cache. Recomendamos medir a frequência projetada das chamadas de API e investigar uma abordagem alternativa de chamar o endpoint principal do SheetDB em vez de usar o método de busca.
 {% endsubtab %}
-{% subtab API or interface de programação do aplicativo (API) JSON via Sheetlabs %}
+{% subtab API JSON via Sheetlabs %}
 
-Esta opção transforma uma planilha do Google em uma API or interface de programação do aplicativo (API) JSON que você pode consultar com Connected Content. O Sheetlabs suporta grandes volumes de consultas e oferece planos gratuitos e pagos.
+Esta opção transforma uma planilha do Google em uma API JSON que você pode consultar com Connected Content. O Sheetlabs suporta grandes volumes de consultas e oferece planos gratuitos e pagos.
 
 #### Etapa 1: Preparar sua planilha de traduções no Google Sheets {#step-1-prepare-your-translations-sheet-in-google-sheets}
 
@@ -338,24 +338,24 @@ Construa a planilha do Google de modo que cada linha seja um idioma. Por exemplo
 | fr | Bienvenue! | Votre offre exclusive est arrivée | ... |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Etapa 1: Preparar sua planilha de traduções no Google Sheets" }
 
-#### Etapa 2: Usar o Sheetlabs para importar a planilha e criar uma API or interface de programação do aplicativo (API) {#step-2-use-sheetlabs-to-import-the-sheet-and-create-an-api}
+#### Etapa 2: Usar o Sheetlabs para importar a planilha e criar uma API {#step-2-use-sheetlabs-to-import-the-sheet-and-create-an-api}
 
 1. Cadastre-se no [Sheetlabs](https://sheetlabs.com).
 2. Siga as instruções do Sheetlabs para importar dados do Google Sheets.
 3. Selecione a planilha que você criou na etapa 1.
-4. Selecione **Create a matching API or interface de programação do aplicativo (API)**.
+4. Selecione **Create a matching API**.
 
 #### Etapa 3: Adicionar seu token de autenticação do Sheetlabs à Braze (opcional) {#step-3-add-your-sheetlabs-authentication-token-to-braze-optional}
 
-Se sua API or interface de programação do aplicativo (API) do Sheetlabs for pública, pule esta etapa. Se ela exigir autenticação:
+Se sua API do Sheetlabs for pública, pule esta etapa. Se ela exigir autenticação:
 
-1. Acesse a página **My Account** no Sheetlabs e copie seu token de API or interface de programação do aplicativo (API).
-2. Siga as etapas em [Autenticação da Braze com Basic Auth]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#using-basic-authentication) para criar uma credencial de autenticação básica na Braze. Use seu nome de usuário do Sheetlabs (endereço de e-mail) e o token de API or interface de programação do aplicativo (API) que você copiou.
+1. Acesse a página **My Account** no Sheetlabs e copie seu token de API.
+2. Siga as etapas em [Autenticação da Braze com Basic Auth]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#using-basic-authentication) para criar uma credencial de autenticação básica na Braze. Use seu nome de usuário do Sheetlabs (endereço de e-mail) e o token de API que você copiou.
 3. Salve a credencial com um nome como `sheetlabs_creds`.
 
-#### Etapa 4: Chamar a API or interface de programação do aplicativo (API) do Sheetlabs a partir do Connected Content {#step-4-call-the-sheetlabs-api-from-connected-content}
+#### Etapa 4: Chamar a API do Sheetlabs a partir do Connected Content {#step-4-call-the-sheetlabs-api-from-connected-content}
 
-Adicione uma chamada de Connected Content ao Sheetlabs. Substitua `/XXX/yourapi` pelo caminho da API or interface de programação do aplicativo (API) que você criou na etapa 2.
+Adicione uma chamada de Connected Content ao Sheetlabs. Substitua `/XXX/yourapi` pelo caminho da API que você criou na etapa 2.
 
 {% raw %}
 ```liquid
@@ -378,7 +378,7 @@ Use Liquid para referenciar os campos retornados. Por exemplo:
 #### Considerações
 
 - Defina o campo {% raw %}`{{${language}}}`{% endraw %} para cada usuário que você deseja corresponder. Se um usuário não tiver idioma definido, inclua um fallback em Liquid.
-- As chamadas de Connected Content podem ser armazenadas em cache. Meça a frequência projetada de chamadas de API or interface de programação do aplicativo (API) ao escolher um plano do Sheetlabs.
+- As chamadas de Connected Content podem ser armazenadas em cache. Meça a frequência projetada de chamadas de API ao escolher um plano do Sheetlabs.
 
 Para saber mais, consulte [Usando o Sheetlabs com a Braze](https://app.sheetlabs.com/docs/producers/braze/).
 

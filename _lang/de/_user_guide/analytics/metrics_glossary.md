@@ -18,25 +18,25 @@ tool: Reports
 
 {% api %}
 
-## AMP or Accelerated Mobile Pages-Klicks {#amp-clicks}
+## AMP-Klicks {#amp-clicks}
 
 {% apitags %}
 Email
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='AMP or Accelerated Mobile Pages Clicks' %}
+{% multi_lang_include analytics/metrics.md metric='AMP Clicks' %}
 
 {% endapi %}
 
 {% api %}
 
-## AMP or Accelerated Mobile Pages-Öffnungen {#amp-opens}
+## AMP-Öffnungen {#amp-opens}
 
 {% apitags %}
 Email
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='AMP or Accelerated Mobile Pages Opens' %}
+{% multi_lang_include analytics/metrics.md metric='AMP Opens' %}
 
 {% endapi %}
 
@@ -90,7 +90,7 @@ Email, Web Push, iOS Push
 iOS Push, Android Push
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Body Klick, der or klicken' %}
+{% multi_lang_include analytics/metrics.md metric='Body Klick, der' %}
 
 <span class="calculation-line">Berechnung: (Body-Klicks) / (Impressionen)</span>
 
@@ -170,7 +170,7 @@ In-App Message
 Email
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Klick, der or klicken-to-Open Rate' %}
+{% multi_lang_include analytics/metrics.md metric='Klick, der-to-Open Rate' %}
 
 <span class="calculation-line">Berechnung: (Eindeutige Klicks) / (Eindeutige Öffnungen) (für E-Mail)</span>
 
@@ -178,13 +178,13 @@ Email
 
 {% api %}
 
-## Bestätigte RCS-Zustellungen oder bestätigte Kurzmitteilungsdienst or SMS-Zustellungen {#rcs-confirmed-deliveries-or-sms-confirmed-deliveries}
+## Bestätigte RCS-Zustellungen oder bestätigte SMS-Zustellungen {#rcs-confirmed-deliveries-or-sms-confirmed-deliveries}
 
 {% apitags %}
-Kurzmitteilungsdienst or SMS/MMS, RCS
+SMS/MMS, RCS
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Confirmed Deliveries' %} Als Braze-Kund:in werden Zustellungen auf Ihr Kurzmitteilungsdienst or SMS-Kontingent angerechnet.
+{% multi_lang_include analytics/metrics.md metric='Confirmed Deliveries' %} Als Braze-Kund:in werden Zustellungen auf Ihr SMS-Kontingent angerechnet.
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -203,7 +203,7 @@ Kurzmitteilungsdienst or SMS/MMS, RCS
 ## Konfidenz {#confidence}
 
 {% apitags %}
-Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, Kurzmitteilungsdienst or SMS/MMS, WhatsApp
+Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, WhatsApp
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Confidence' %}
@@ -239,7 +239,7 @@ In-App Message
 ## Conversions (B, C, D) {#conversions-b-c-d}
 
 {% apitags %}
-Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, Kurzmitteilungsdienst or SMS/MMS
+Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Conversions (B, C, D)' %} Dieses definierte Ereignis wird von Ihnen beim Erstellen der Campaign festgelegt.
@@ -265,7 +265,7 @@ In-App Message
 
 Wenn Nutzer:innen eine In-App-Nachrichten-Campaign nur einmal ansehen, wird nur eine Conversion gezählt, selbst wenn sie das Konversions-Event später mehrfach ausführen. Wenn jedoch die erneute Berechtigung aktiviert ist und die Nutzer:innen die In-App-Nachrichten-Campaign mehrfach sehen, können die *Conversions insgesamt* einmal für jedes Mal steigen, wenn die Nutzer:innen eine Impression für eine neue Instanz der In-App-Nachrichten-Campaign protokollieren.
 
-Wenn beispielsweise Nutzer:innen eine In-App-Nachricht zweimal Trigger or triggern or triggern und nach jeder In-App-Nachrichten-Impression konvertieren (was zu zwei Conversions führt), steigen die *Conversions insgesamt* um zwei. Wenn es jedoch nur eine In-App-Nachrichten-Impression gab, gefolgt von zwei Konversions-Events, wird nur eine Conversion protokolliert, und die *Conversions insgesamt* steigen um eins.
+Wenn beispielsweise Nutzer:innen eine In-App-Nachricht zweimal triggern und nach jeder In-App-Nachrichten-Impression konvertieren (was zu zwei Conversions führt), steigen die *Conversions insgesamt* um zwei. Wenn es jedoch nur eine In-App-Nachrichten-Impression gab, gefolgt von zwei Konversions-Events, wird nur eine Conversion protokolliert, und die *Conversions insgesamt* steigen um eins.
 
 {% endapi %}
 
@@ -286,7 +286,7 @@ In-App Message
 ## Konversionsrate {#conversion-rate}
 
 {% apitags %}
-Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, Kurzmitteilungsdienst or SMS/MMS
+Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Conversion Rate' %}
@@ -349,10 +349,10 @@ Email, Web Push, iOS Push, Android Push, WhatsApp
 
 {% api %}
 
-## RCS-Zustellungsfehler oder Kurzmitteilungsdienst or SMS-Zustellungsfehler {#rcs-delivery-failures-or-sms-delivery-failures}
+## RCS-Zustellungsfehler oder SMS-Zustellungsfehler {#rcs-delivery-failures-or-sms-delivery-failures}
 
 {% apitags %}
-Kurzmitteilungsdienst or SMS/MMS
+SMS/MMS
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Delivery Failures' %}
@@ -384,7 +384,7 @@ Kontaktieren Sie den <a href="/docs/braze_support">Braze-Support</a>, um Unterst
 ## Fehlgeschlagene Zustellungsrate {#failed-delivery-rate}
 
 {% apitags %}
-Kurzmitteilungsdienst or SMS/MMS
+SMS/MMS
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Failed Delivery Rate' %}
@@ -492,7 +492,7 @@ Wenn dies auftritt, markiert Braze die E-Mail-Adresse als ungültig, aktualisier
 ## Hilfe {#help}
 
 {% apitags %}
-Kurzmitteilungsdienst or SMS/MMS, RCS
+SMS/MMS, RCS
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Help' %} Eine Nutzerantwort wird jedes Mal gemessen, wenn Nutzer:innen innerhalb von vier Stunden nach Erhalt Ihrer Nachricht eine eingehende Nachricht senden.
@@ -518,7 +518,7 @@ iOS Push, Android Push
 ## Lifetime-Umsatz {#lifetime-revenue}
 
 {% apitags %}
-Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, Kurzmitteilungsdienst or SMS/MMS, LINE
+Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, LINE
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Lifetime Revenue' %}
@@ -527,13 +527,13 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% api %}
 
-## LTV or Lifetime-Value or Lifetime-Value pro Nutzer:in {#lifetime-value-per-user}
+## LTV pro Nutzer:in {#lifetime-value-per-user}
 
 {% apitags %}
-Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, Kurzmitteilungsdienst or SMS/MMS, LINE
+Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, LINE
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='LTV or Lifetime-Value or Lifetime-Value Per User' %}
+{% multi_lang_include analytics/metrics.md metric='LTV Per User' %}
 
 {% endapi %}
 
@@ -542,7 +542,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 ## Durchschnittlicher Tagesumsatz {#average-daily-revenue}
 
 {% apitags %}
-Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, Kurzmitteilungsdienst or SMS/MMS, LINE
+Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, LINE
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Average Daily Revenue' %}
@@ -554,7 +554,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 ## Tägliche Käufe {#daily-purchases}
 
 {% apitags %}
-Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, Kurzmitteilungsdienst or SMS/MMS, LINE
+Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, LINE
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Daily Purchases' %}
@@ -566,7 +566,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 ## Tagesumsatz pro Nutzer:in {#daily-revenue-per-user}
 
 {% apitags %}
-Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, Kurzmitteilungsdienst or SMS/MMS, LINE
+Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, LINE
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Daily Revenue Per User' %}
@@ -602,7 +602,7 @@ Web Push, iOS Push, Android Push
 ## Opt-Out {#opt-out}
 
 {% apitags %}
-Kurzmitteilungsdienst or SMS/MMS, RCS
+SMS/MMS, RCS
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Opt-Out' %} Eine Nutzerantwort wird jedes Mal gemessen, wenn Nutzer:innen innerhalb von vier Stunden nach Erhalt Ihrer Nachricht eine eingehende Nachricht senden.
@@ -638,7 +638,7 @@ Email
 ## Primäre Conversions (A) oder primäres Konversions-Event {#primary-conversions-a-or-primary-conversion-event}
 
 {% apitags %}
-Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, Kurzmitteilungsdienst or SMS/MMS, WhatsApp
+Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, WhatsApp
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or Primary Conversion Event' %}
@@ -692,7 +692,7 @@ WhatsApp
 ## Erhalten {#received}
 
 {% apitags %}
-Email, Content Cards, In-App Message, Web Push, iOS Push, Android Push, Kurzmitteilungsdienst or SMS/MMS, WhatsApp
+Email, Content Cards, In-App Message, Web Push, iOS Push, Android Push, SMS/MMS, WhatsApp
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Received' %}
@@ -702,22 +702,22 @@ Email, Content Cards, In-App Message, Web Push, iOS Push, Android Push, Kurzmitt
 | Content Cards | Erhalten, wenn Nutzer:innen die Card in der App ansehen. |
 | Push | Erhalten, wenn Nachrichten vom Braze-Server an den Push-Anbieter gesendet werden. |
 | E-Mail | Erhalten, wenn Nachrichten vom Braze-Server an den E-Mail-Anbieter gesendet werden. |
-| Kurzmitteilungsdienst or SMS/MMS | „Zugestellt“, nachdem der Kurzmitteilungsdienst or SMS-Anbieter eine Bestätigung vom vorgelagerten Carrier und dem Zielgerät erhalten hat. |
-| In-App-Nachricht | Erhalten zum Zeitpunkt der Anzeige basierend auf der definierten Trigger or triggern-Aktion. |
-| WhatsApp | Erhalten zum Zeitpunkt der Anzeige basierend auf der definierten Trigger or triggern-Aktion. |
+| SMS/MMS | „Zugestellt“, nachdem der SMS-Anbieter eine Bestätigung vom vorgelagerten Carrier und dem Zielgerät erhalten hat. |
+| In-App-Nachricht | Erhalten zum Zeitpunkt der Anzeige basierend auf der definierten Trigger-Aktion. |
+| WhatsApp | Erhalten zum Zeitpunkt der Anzeige basierend auf der definierten Trigger-Aktion. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Erhalten" }
 
 {% endapi %}
 
 {% api %}
 
-## RCS-Ablehnungen oder Kurzmitteilungsdienst or SMS-Ablehnungen {#rcs-rejections-or-sms-rejections}
+## RCS-Ablehnungen oder SMS-Ablehnungen {#rcs-rejections-or-sms-rejections}
 
 {% apitags %}
-Kurzmitteilungsdienst or SMS/MMS, RCS
+SMS/MMS, RCS
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Rejections' %} Als Braze-Kund:in werden Ablehnungen auf Ihr Kurzmitteilungsdienst or SMS-Kontingent angerechnet.
+{% multi_lang_include analytics/metrics.md metric='Rejections' %} Als Braze-Kund:in werden Ablehnungen auf Ihr SMS-Kontingent angerechnet.
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -748,7 +748,7 @@ Email
 ## Gesendet {#sent}
 
 {% apitags %}
-Kurzmitteilungsdienst or SMS/MMS
+SMS/MMS
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Sent' %}
@@ -762,7 +762,7 @@ Kurzmitteilungsdienst or SMS/MMS
 ## Sends {#sends}
 
 {% apitags %}
-Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, Kurzmitteilungsdienst or SMS/MMS, RCS, WhatsApp, LINE
+Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, RCS, WhatsApp, LINE
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Sends' %} Diese Metrik wird von Braze bereitgestellt. Beachten Sie, dass beim Start einer geplanten Campaign diese Metrik alle gesendeten Nachrichten umfasst, unabhängig davon, ob sie aufgrund von Rate-Limiting bereits versendet wurden oder nicht.
@@ -783,7 +783,7 @@ Für Content Cards wird diese Metrik je nach Ihrer Auswahl für die [Card-Erstel
 ## Gesendete Nachrichten {#messages-sent}
 
 {% apitags %}
-Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, Kurzmitteilungsdienst or SMS/MMS, WhatsApp, LINE
+Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, WhatsApp, LINE
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Messages Sent' %}  Diese Metrik wird von Braze bereitgestellt. Beachten Sie, dass beim Start einer geplanten Campaign diese Metrik alle gesendeten Nachrichten umfasst, unabhängig davon, ob sie aufgrund von Rate-Limiting bereits versendet wurden oder nicht.
@@ -804,7 +804,7 @@ Für Content Cards wird diese Metrik je nach Ihrer Auswahl für die [Card-Erstel
 ## Sends an Carrier {#sends-to-carrier}
 
 {% apitags %}
-Kurzmitteilungsdienst or SMS/MMS
+SMS/MMS
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Sends to Carrier' %}
@@ -892,14 +892,14 @@ In-App Message
 ## Klicks insgesamt {#total-clicks}
 
 {% apitags %}
-Email, Content Cards, Kurzmitteilungsdienst or SMS/MMS, LINE
+Email, Content Cards, SMS/MMS, LINE
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Total Clicks' %}
 
 | Kanal | Zusätzliche Informationen |
 |-------|-------|
-| LINE | Wird getrackt, nachdem ein Mindestschwellenwert von 20 Nachrichten pro Tag erreicht wurde. AMP or Accelerated Mobile Pages-E-Mails umfassen Klicks, die sowohl in HTML- als auch in Nur-Text-Versionen erfasst werden. Diese Zahl kann durch Anti-Spam-Tools künstlich erhöht sein. |
+| LINE | Wird getrackt, nachdem ein Mindestschwellenwert von 20 Nachrichten pro Tag erreicht wurde. AMP-E-Mails umfassen Klicks, die sowohl in HTML- als auch in Nur-Text-Versionen erfasst werden. Diese Zahl kann durch Anti-Spam-Tools künstlich erhöht sein. |
 | Banner | Die Gesamtzahl (und der Prozentsatz) der Nutzer:innen, die innerhalb der zugestellten Nachricht geklickt haben, unabhängig davon, ob dieselben Nutzer:innen mehrfach klicken. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Klicks insgesamt" }
 
@@ -909,7 +909,7 @@ Email, Content Cards, Kurzmitteilungsdienst or SMS/MMS, LINE
     <ul>
         <li><b>E-Mail:</b> (Klicks insgesamt) / (Zustellungen)</li>
         <li><b>Content Cards:</b> (Klicks insgesamt) / (Impressionen insgesamt)</li>
-        <li><b>Kurzmitteilungsdienst or SMS:</b> (Klick-Öffnungen) / (Zustellungen)</li>
+        <li><b>SMS:</b> (Klick-Öffnungen) / (Zustellungen)</li>
     </ul>
 </span>
 {:/}
@@ -971,7 +971,7 @@ Email, iOS Push, Android Push, Web Push, LINE
 | Kanal | Zusätzliche Informationen |
 |-------|-----------------------|
 | LINE | Wird getrackt, nachdem ein Mindestschwellenwert von 20 Nachrichten pro Tag erreicht wurde. |
-| AMP or Accelerated Mobile Pages-E-Mails | Die Gesamtöffnungen für die HTML- und Nur-Text-Versionen. |
+| AMP-E-Mails | Die Gesamtöffnungen für die HTML- und Nur-Text-Versionen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Öffnungen insgesamt" }
 
 {::nomarkdown}
@@ -995,7 +995,7 @@ Email, iOS Push, Android Push, Web Push, LINE
 ## Gesamtumsatz {#total-revenue}
 
 {% apitags %}
-Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, Kurzmitteilungsdienst or SMS/MMS, WhatsApp
+Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, WhatsApp
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Total Revenue' %} Diese Metrik ist nur in Campaign-Vergleichsberichten über den <a href='/docs/user_guide/analytics/reports/report_builder'>Berichts-Builder</a> verfügbar.
@@ -1075,7 +1075,7 @@ In-App Message, Content Cards
 
 | Kanal | Zusätzliche Informationen |
 |-------|-----------------------|
-| In-App-Nachrichten | Eindeutige Impressionen können an einem neuen Kalendertag in der Zeitzone Ihres Workspace erneut erhöht werden, wenn die erneute Berechtigung aktiviert ist und die Nutzer:innen die Trigger or triggern-Aktion ausführen. Wenn die erneute Berechtigung aktiviert ist, gilt <i>Eindeutige Impressionen</i> = <i>Eindeutige Empfänger:innen</i>. Weitere Details finden Sie unter <a href="/docs/user_guide/channels/in_app_messages/reporting">In-App-Nachrichten-Reporting</a>. |
+| In-App-Nachrichten | Eindeutige Impressionen können an einem neuen Kalendertag in der Zeitzone Ihres Workspace erneut erhöht werden, wenn die erneute Berechtigung aktiviert ist und die Nutzer:innen die Trigger-Aktion ausführen. Wenn die erneute Berechtigung aktiviert ist, gilt <i>Eindeutige Impressionen</i> = <i>Eindeutige Empfänger:innen</i>. Weitere Details finden Sie unter <a href="/docs/user_guide/channels/in_app_messages/reporting">In-App-Nachrichten-Reporting</a>. |
 | Content Cards | Die Zählung sollte sich nicht erhöhen, wenn Nutzer:innen eine Card ein zweites Mal ansehen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Eindeutige Impressionen" }
 
@@ -1116,7 +1116,7 @@ Email, LINE
 ## Eindeutige Empfänger:innen {#unique-recipients}
 
 {% apitags %}
-Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, Kurzmitteilungsdienst or SMS/MMS, RCS, WhatsApp, LINE
+Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, RCS, WhatsApp, LINE
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Unique Recipients' %}
@@ -1170,7 +1170,7 @@ Email
 ## Variante {#variation}
 
 {% apitags %}
-Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, Kurzmitteilungsdienst or SMS/MMS, WhatsApp
+Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, WhatsApp
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Variation' %}

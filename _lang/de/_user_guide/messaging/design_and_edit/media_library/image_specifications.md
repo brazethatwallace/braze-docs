@@ -142,14 +142,14 @@ Benachrichtigungen mit großen Bildern werden am besten dargestellt, wenn ein Bi
 
 Weitere Ressourcen finden Sie unter [Push-Bild- und Textspezifikationen]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats).
 
-### Kurzmitteilungsdienst or SMS und MMS {#sms-and-mms}
+### SMS und MMS {#sms-and-mms}
 
-{% multi_lang_include channels/image_specs.md variable_name='Kurzmitteilungsdienst or SMS and mms' %}
+{% multi_lang_include channels/image_specs.md variable_name='sms and mms' %}
 
-Informationen zum Erstellen von MMS-Nachrichten finden Sie unter [Kurzmitteilungsdienst or SMS-, MMS- oder RCS-Nachricht erstellen]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create).
+Informationen zum Erstellen von MMS-Nachrichten finden Sie unter [SMS-, MMS- oder RCS-Nachricht erstellen]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create).
 
 ### RCS {#rcs}
 
-RCS-Mediennachrichten unterstützen JPG-, JPEG- und GIF-Bilder. Details zu Dateigröße und Format finden Sie unter [Kurzmitteilungsdienst or SMS-, MMS- oder RCS-Nachricht erstellen]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create).
+RCS-Mediennachrichten unterstützen JPG-, JPEG- und GIF-Bilder. Details zu Dateigröße und Format finden Sie unter [SMS-, MMS- oder RCS-Nachricht erstellen]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create).
 
 Unter iOS werden GIFs in RCS-Rich-Cards als statische Bilder angezeigt. Unter Android werden sie wie erwartet animiert. Weitere Informationen finden Sie unter [Warum werden GIFs in RCS-Rich-Cards unter iOS als statische Bilder angezeigt?]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs#why-do-gifs-in-rcs-rich-cards-appear-static-on-ios).

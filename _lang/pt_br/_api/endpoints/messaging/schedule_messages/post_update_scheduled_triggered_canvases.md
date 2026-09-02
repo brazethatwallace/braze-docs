@@ -1,20 +1,20 @@
 ---
-nav_title: "POST: Atualizar Canvas programados disparados pela API or interface de programação do aplicativo (API)"
-article_title: "POST: Atualizar Canvas programados disparados pela API or interface de programação do aplicativo (API)"
+nav_title: "POST: Atualizar Canvas programados disparados pela API"
+article_title: "POST: Atualizar Canvas programados disparados pela API"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Este artigo descreve detalhes sobre o endpoint da Braze \"Atualizar Canvas programados disparados pela API or interface de programação do aplicativo (API)\"."
+description: "Este artigo descreve detalhes sobre o endpoint da Braze \"Atualizar Canvas programados disparados pela API\"."
 
 ---
-{% API or interface de programação do aplicativo (API) %}
-# Atualizar Canvas programados disparados pela API or interface de programação do aplicativo (API) {#update-scheduled-api-triggered-canvases}
+{% api %}
+# Atualizar Canvas programados disparados pela API {#update-scheduled-api-triggered-canvases}
 {% apimethod post core_endpoint|/docs/core_endpoints %}
-/canvas/trigger/agendar/cronograma/update
+/canvas/trigger/schedule/update
 {% endapimethod %}
 
-> Use esse endpoint para atualizar Canvas programados disparados pela API or interface de programação do aplicativo (API) que foram criados no dashboard.
+> Use esse endpoint para atualizar Canvas programados disparados pela API que foram criados no dashboard.
 
 Isso permite que você decida qual ação dispara o envio da mensagem. Você pode passar `trigger_properties` que a Braze insere como template na própria mensagem.
 
@@ -28,7 +28,7 @@ Qualquer agendamento substituirá completamente o que você forneceu na solicita
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `canvas.trigger.schedule.update`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `canvas.trigger.schedule.update`.
 
 ## Limite de frequência {#rate-limit}
 

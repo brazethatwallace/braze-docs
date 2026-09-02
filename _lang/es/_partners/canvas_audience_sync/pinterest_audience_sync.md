@@ -12,7 +12,7 @@ tool:
 
 # Sincronización de audiencia con Pinterest {#audience-sync-to-pinterest}
 
-Mediante Braze Audience Sync con Pinterest, las marcas pueden optar por añadir datos de usuarios de su propia integración con Braze a las audiencias de Pinterest para entregar anuncios basados en desencadenantes de comportamiento, segmentación y mucho más. Cualquier criterio que utilices normalmente para desencadenar un mensaje (push, correo electrónico, servicio de mensajes cortos, webhook, etc.) en un Canvas de Braze basado en tus datos de usuario puede utilizarse ahora para desencadenar un anuncio dirigido a ese usuario en tus audiencias de Pinterest.
+Mediante Braze Audience Sync con Pinterest, las marcas pueden optar por añadir datos de usuarios de su propia integración con Braze a las audiencias de Pinterest para entregar anuncios basados en desencadenantes de comportamiento, segmentación y mucho más. Cualquier criterio que utilices normalmente para desencadenar un mensaje (push, correo electrónico, SMS, webhook, etc.) en un Canvas de Braze basado en tus datos de usuario puede utilizarse ahora para desencadenar un anuncio dirigido a ese usuario en tus audiencias de Pinterest.
 
 **Entre los casos de uso habituales de la sincronización de audiencias se incluyen:**
 

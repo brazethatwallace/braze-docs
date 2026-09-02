@@ -32,7 +32,7 @@ description: "brazeBridge JavaScript 브리지를 사용하여 랜딩 페이지�
 
 브리지 객체를 사용할 수 있다고 해서 해당 방문자에 대해 Braze SDK가 초기화된 것은 아닙니다. SDK는 다음 두 가지 경우에 랜딩 페이지 방문 시 초기화됩니다:
 
-- 방문자가 Braze 채널(이메일, 단문 메시지 서비스, 푸시 등)을 통해 전송된 [랜딩 페이지 Liquid 태그]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users)를 통해 페이지를 여는 경우. 페이지가 로드될 때 SDK가 자동으로 초기화됩니다.
+- 방문자가 Braze 채널(이메일, SMS, 푸시 등)을 통해 전송된 [랜딩 페이지 Liquid 태그]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users)를 통해 페이지를 여는 경우. 페이지가 로드될 때 SDK가 자동으로 초기화됩니다.
 - 방문자가 페이지의 양식을 제출하는 경우(예: 양식 데이터를 전송하는 **제출** 버튼 클릭). 여기에는 [커스텀 양식 블록]({{site.baseurl}}/user_guide/messaging/landing_pages/custom_form_blocks)의 `registerFormInput` 콜백 내에서 수행되는 `brazeBridge` 호출도 포함됩니다. 이러한 호출은 양식 제출의 일부로 실행되기 때문입니다.
 
 방문자가 랜딩 페이지 Liquid 태그 없이 랜딩 페이지를 직접 열고 양식을 제출하지 않으면, 해당 페이지는 Braze에 익명으로 처리되며 브리지 메서드 호출은 효과가 없습니다.
@@ -101,8 +101,8 @@ description: "brazeBridge JavaScript 브리지를 사용하여 랜딩 페이지�
 | `getUser().removeFromCustomAttributeArray(key, value)` | 커스텀 속성 배열에서 값을 제거합니다. |
 | `getUser().incrementCustomUserAttribute(key, incrementValue?)` | 숫자형 커스텀 속성을 증가시킵니다. |
 | `getUser().setCustomLocationAttribute(key, latitude, longitude)` | 커스텀 위치 속성을 설정합니다. |
-| `getUser().addToSubscriptionGroup(subscriptionGroupId)` | 사용자를 이메일 또는 단문 메시지 서비스 구독 그룹에 추가합니다. |
-| `getUser().removeFromSubscriptionGroup(subscriptionGroupId)` | 사용자를 이메일 또는 단문 메시지 서비스 구독 그룹에서 제거합니다. |
+| `getUser().addToSubscriptionGroup(subscriptionGroupId)` | 사용자를 이메일 또는 SMS 구독 그룹에 추가합니다. |
+| `getUser().removeFromSubscriptionGroup(subscriptionGroupId)` | 사용자를 이메일 또는 SMS 구독 그룹에서 제거합니다. |
 | `getUser().setEmailNotificationSubscriptionType(type: "opted_in" \| "subscribed" \| "unsubscribed")` | 이메일 알림 구독 상태를 설정합니다. |
 | `getUser().setPushNotificationSubscriptionType(type: "opted_in" \| "subscribed" \| "unsubscribed")` | 푸시 알림 구독 상태를 설정합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="getUser() 메서드" }

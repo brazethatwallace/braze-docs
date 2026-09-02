@@ -16,13 +16,13 @@ toc_headers: h2
 
 ## Requisitos previos {#prerequisites}
 
-Para aprovechar esta característica, debes actualizar a las siguientes versiones mínimas del SDK or kit de desarrollo de software:
+Para aprovechar esta característica, debes actualizar a las siguientes versiones mínimas del SDK:
 
 {% sdk_min_versions swift:5.2.0 objc:4.5.0 android:23.0.0 web:4.2.0 %}
 
-En iOS, el SDK or kit de desarrollo de software de Swift es compatible con esta característica a partir de la versión 5.2.0, y el SDK or kit de desarrollo de software heredado de Objective-C la admite a partir de la versión 4.5.0. Las versiones 5.0.0 a 5.1.x del SDK or kit de desarrollo de software de Swift no la admiten.
+En iOS, el SDK de Swift es compatible con esta característica a partir de la versión 5.2.0, y el SDK heredado de Objective-C la admite a partir de la versión 4.5.0. Las versiones 5.0.0 a 5.1.x del SDK de Swift no la admiten.
 
-Después de actualizar el SDK or kit de desarrollo de software, tus usuarios de dispositivos móviles deben actualizar su aplicación. Puedes filtrar la audiencia de tu Campaign o Canvas para [dirigirte solo a los usuarios con estas versiones mínimas de la aplicación]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions).
+Después de actualizar el SDK, tus usuarios de dispositivos móviles deben actualizar su aplicación. Puedes filtrar la audiencia de tu Campaign o Canvas para [dirigirte solo a los usuarios con estas versiones mínimas de la aplicación]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions).
 
 ## Resumen {#overview}
 
@@ -151,6 +151,6 @@ Para audiencias grandes, selecciona la opción de crear tarjetas a primera impre
 
 Cuando las tarjetas se crean a primera impresión, pueden tardar unos segundos en procesarse. La duración de este tiempo de procesamiento depende de varios factores, como el tamaño de la tarjeta y la complejidad de las opciones de plantilla del mensaje. Por ejemplo, el tiempo de procesamiento para tarjetas que usan contenido conectado es al menos tan largo como el tiempo de respuesta del contenido conectado.
 
-### Versiones anteriores del SDK or kit de desarrollo de software {#previous-sdk-versions}
+### Versiones anteriores del SDK {#previous-sdk-versions}
 
-Si la aplicación de un usuario ejecuta una versión anterior del SDK or kit de desarrollo de software, seguirá recibiendo las Content Cards que envíes. Sin embargo, las tarjetas tardan más en aparecer y puede que no se muestren hasta la siguiente sincronización de Content Cards.
+Si la aplicación de un usuario ejecuta una versión anterior del SDK, seguirá recibiendo las Content Cards que envíes. Sin embargo, las tarjetas tardan más en aparecer y puede que no se muestren hasta la siguiente sincronización de Content Cards.

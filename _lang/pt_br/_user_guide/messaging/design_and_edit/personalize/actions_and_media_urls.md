@@ -44,7 +44,7 @@ Esquemas de URI padrão tratados nativamente pelo iOS e Android (como `tel:`, `m
 | `sms:` | `sms:+18005555555` | Abre o compositor de SMS |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Esquemas de URI do sistema"}
 
-Esses esquemas funcionam para comportamentos ao clicar em notificações por push e ações de botões de mensagens no app. Nenhuma configuração adicional do SDK or kit de desenvolvimento de software ou alteração no código do app é necessária.
+Esses esquemas funcionam para comportamentos ao clicar em notificações por push e ações de botões de mensagens no app. Nenhuma configuração adicional do SDK ou alteração no código do app é necessária.
 
 ### Deep link para o aplicativo {#deep-link-into-application}
 
@@ -83,9 +83,9 @@ A Braze reporta _Total de cliques_ para todos os links em uma Campaign ou etapa 
 
 Se você deseja usar tags UTM com links HTTP (web) regulares (por exemplo, para fazer atribuição de Campaign para suas campanhas de e-mail) e sua organização já usa o Google Analytics, você pode usar o [construtor de URLs do Google](https://ga-dev-tools.google/ga4/campaign-url-builder/) para gerar links UTM. Esses links podem ser facilmente incorporados ao conteúdo da Campaign na Braze, assim como qualquer outro link.
 
-Para usar tags UTM em deep links para o seu app, o app deve ter o [SDK or kit de desenvolvimento de software do Google Analytics](https://developers.google.com/analytics/devguides/collection/) relevante integrado e configurado corretamente para lidar com deep links. Consulte seus desenvolvedores se não tiver certeza sobre isso.
+Para usar tags UTM em deep links para o seu app, o app deve ter o [SDK do Google Analytics](https://developers.google.com/analytics/devguides/collection/) relevante integrado e configurado corretamente para lidar com deep links. Consulte seus desenvolvedores se não tiver certeza sobre isso.
 
-Após o SDK or kit de desenvolvimento de software do Analytics estar integrado e configurado, as tags UTM podem ser usadas com deep links em Campaigns da Braze. Para configurar tags UTM para sua Campaign, inclua as tags UTM necessárias na URL de destino ou nos deep links. Os exemplos a seguir mostram como usar tags UTM em notificações por push e mensagens no app.
+Após o SDK do Analytics estar integrado e configurado, as tags UTM podem ser usadas com deep links em Campaigns da Braze. Para configurar tags UTM para sua Campaign, inclua as tags UTM necessárias na URL de destino ou nos deep links. Os exemplos a seguir mostram como usar tags UTM em notificações por push e mensagens no app.
 
 ##### Atribuir aberturas de push e cliques em mensagens no app com tags UTM {#attribute-push-opens-and-in-app-message-clicks-with-utm-tags}
 
@@ -143,11 +143,11 @@ https://example.com/{{url_var}}
 
 **Canais compatíveis:** KakaoTalk, LINE, SMS, RCS, WhatsApp
 
-Encurtamos URLs renderizadas por Liquid, incluindo aquelas presentes em propriedades de disparo por API or interface de programação do aplicativo (API). Por exemplo, se {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} representar uma URL válida, encurtamos e rastreamos essa URL antes de enviar a mensagem.
+Encurtamos URLs renderizadas por Liquid, incluindo aquelas presentes em propriedades de disparo por API. Por exemplo, se {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} representar uma URL válida, encurtamos e rastreamos essa URL antes de enviar a mensagem.
 
 ### Encurtar URLs no endpoint `/messages/send` {#shorten-urls-in-messagessend-endpoint}
 
-O encurtamento de links também está ativado para mensagens somente por API or interface de programação do aplicativo (API) por meio do [endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages). Para uma lista completa dos parâmetros de solicitação, consulte [parâmetros de solicitação]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#request-parameters).
+O encurtamento de links também está ativado para mensagens somente por API por meio do [endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages). Para uma lista completa dos parâmetros de solicitação, consulte [parâmetros de solicitação]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#request-parameters).
 
 | Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |

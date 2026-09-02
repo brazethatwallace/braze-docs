@@ -8,7 +8,7 @@ description: "Dieser Artikel enthält Versionshinweise für Juli 2019."
 
 # Juli 2019 {#july-2019}
 
-{% alert Update or aktualisieren %}
+{% alert update %}
 Braze hat in diesem Monat zwei (Sie haben richtig gelesen – **zwei**) Produkt-Release-Zyklen gehabt! Die neueste Version steht ganz oben, die frühere Version wird im Abschnitt [Zu Beginn dieses Monats](#earlier-this-month) behandelt!
 {% endalert %}
 
@@ -75,7 +75,7 @@ Betrachten Sie [mehrere Campaigns gleichzeitig, um ihre relative Performance zu 
 ## Template der Versand-ID in Nachrichten mit Liquid {#template-dispatch-id-into-messages-with-liquid}
 
 {% alert note %}
-Das Verhalten für `dispatch_id` unterscheidet sich zwischen Canvas und Campaigns, da Braze Canvas-Schritte (mit Ausnahme von Eingangsschritten, die geplant werden können) als getriggerte Ereignisse behandelt, auch wenn sie „geplant“ sind. Erfahren Sie mehr über das [`dispatch_id`-Verhalten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id) in Canvase und Campaigns.
+Das Verhalten für `dispatch_id` unterscheidet sich zwischen Canvas und Campaigns, da Braze Canvas-Schritte (mit Ausnahme von Eingangsschritten, die geplant werden können) als getriggerte Ereignisse behandelt, auch wenn sie „geplant“ sind. Erfahren Sie mehr über das [`dispatch_id`-Verhalten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id) in Canvases und Campaigns.
 {% endalert %}
 
 Wenn Sie den Versand einer Nachricht aus der Nachricht heraus verfolgen möchten (z. B. in einer URL), können Sie die `dispatch_id` als Template einfügen. Die Formatierung dafür finden Sie in unserer Liste der unterstützten Tags für die Personalisierung unter [Canvas-Attribute]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags).

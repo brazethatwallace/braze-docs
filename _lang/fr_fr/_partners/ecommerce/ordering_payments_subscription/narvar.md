@@ -29,7 +29,7 @@ search_tag: Partner
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Fonctionnalités prises en charge" }
 
 {% alert note %}
-Si vous êtes intéressé par d'autres types de notifications ou canaux, veuillez contacter votre CSM or gestionnaire de la satisfaction client or gestionnaire du succès des clients Braze et Narvar.
+Si vous êtes intéressé par d'autres types de notifications ou canaux, veuillez contacter votre CSM Braze et Narvar.
 {% endalert %}
 
 ## Détails de l'intégration {#integration-details}
@@ -40,7 +40,7 @@ Narvar est responsable de la configuration des payloads de notification push pou
 
 ## Démarrer avec l'intégration Braze-Narvar {#getting-started-with-the-braze-narvar-integration}
 
-1. **Contactez votre CSM or gestionnaire de la satisfaction client or gestionnaire du succès des clients Narvar** pour exprimer votre intérêt pour l'intégration.
+1. **Contactez votre CSM Narvar** pour exprimer votre intérêt pour l'intégration.
 2. **Désignez des environnements Braze** pour la pré-production et la production.
 3. **Générez une clé d'API** dans Braze pour l'usage de Narvar.
 4. **Générez des clés de Campaign** dans Braze si nécessaire.

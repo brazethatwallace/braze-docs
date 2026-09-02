@@ -1,6 +1,6 @@
 # Funções do servidor Braze MCP {#braze-mcp-server-functions}
 
-> O servidor Braze MCP expõe ferramentas de leitura e escrita que mapeiam para endpoints específicos da REST or transferir estado representacional API or interface de programação do aplicativo (API) da Braze. Para saber mais, veja [servidor Braze MCP]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/){% endif %}.
+> O servidor Braze MCP expõe ferramentas de leitura e escrita que mapeiam para endpoints específicos da REST API da Braze. Para saber mais, veja [servidor Braze MCP]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/){% endif %}.
 
 {% multi_lang_include mcp_server/beta_alert.md %}
 
@@ -12,22 +12,22 @@ O servidor Braze MCP inclui ferramentas que estão disponíveis apenas para clie
 
 Antes de usar este recurso, você precisará [configurar o servidor Braze MCP]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/setup/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/setup/){% endif %}.
 
-## Funções de API or interface de programação do aplicativo (API) Braze disponíveis {#available-braze-api-functions}
+## Funções de API Braze disponíveis {#available-braze-api-functions}
 
 Seu cliente MCP faz referência a essas ferramentas para interagir com o servidor Braze MCP.
 
 ### Espaços de trabalho {#workspaces}
 
-| Ferramenta | Endpoint de API or interface de programação do aplicativo (API) | Acesso | Descrição |
+| Ferramenta | Endpoint de API | Acesso | Descrição |
 | --- | --- | --- | --- |
 | `get_workspaces` | N/A | leitura | Descubra quais espaços de trabalho da Braze o token de acesso OAuth atual pode alcançar. Chame isso primeiro: cada `id` de espaço de trabalho retornado é o `app_group_id` que todas as outras ferramentas exigem. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Espaços de trabalho" }
 
 ### Campaigns
 
-| Ferramenta | Endpoint de API or interface de programação do aplicativo (API) | Acesso | Descrição |
+| Ferramenta | Endpoint de API | Acesso | Descrição |
 | --- | --- | --- | --- |
-| `get_campaign_list` | [`/campaigns/list`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns) | leitura | Exporta uma lista de Campaigns com nome, identificador de API or interface de programação do aplicativo (API) da campanha, flag de API or interface de programação do aplicativo (API)-campaign e tags. |
+| `get_campaign_list` | [`/campaigns/list`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns) | leitura | Exporta uma lista de Campaigns com nome, identificador de API da campanha, flag de API-campaign e tags. |
 | `get_campaign_details` | [`/campaigns/details`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details) | leitura | Recupera informações relevantes sobre uma campanha especificada por `campaign_id`. |
 | `get_campaign_dataseries` | [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) | leitura | Série diária de estatísticas da campanha ao longo do tempo (envios, aberturas, cliques, conversões por canal). |
 | `duplicate_campaign` | [`/campaigns/duplicate`]({{site.baseurl}}/api/endpoints/messaging/duplicate_messages/post_duplicate_campaigns) | criação | Duplica uma campanha existente. |
@@ -53,9 +53,9 @@ Seu cliente MCP faz referência a essas ferramentas para interagir com o servido
 
 ### Canvas {#canvases}
 
-| Ferramenta | Endpoint de API or interface de programação do aplicativo (API) | Acesso | Descrição |
+| Ferramenta | Endpoint de API | Acesso | Descrição |
 | --- | --- | --- | --- |
-| `get_canvas_list` | [`/canvas/list`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases) | leitura | Exporta uma lista de Canvas com nome, identificador de API or interface de programação do aplicativo (API) do Canvas e tags. |
+| `get_canvas_list` | [`/canvas/list`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases) | leitura | Exporta uma lista de Canvas com nome, identificador de API do Canvas e tags. |
 | `get_canvas_details` | [`/canvas/details`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details) | leitura | Exporta metadados do Canvas: nome, data de criação, status atual e mais. |
 | `get_canvas_data_series` | [`/canvas/data_series`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics) | leitura | Exporta dados de série temporal para um Canvas. |
 | `get_canvas_data_summary` | [`/canvas/data_summary`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics_summary) | leitura | Exporta resumos consolidados dos dados de série temporal do Canvas para uma visão concisa dos resultados. |
@@ -63,7 +63,7 @@ Seu cliente MCP faz referência a essas ferramentas para interagir com o servido
 
 ### Catálogos {#catalogs}
 
-| Ferramenta | Endpoint de API or interface de programação do aplicativo (API) | Acesso | Descrição |
+| Ferramenta | Endpoint de API | Acesso | Descrição |
 | --- | --- | --- | --- |
 | `get_catalogs` | [`/catalogs`]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs) | leitura | Lista os catálogos em um espaço de trabalho. |
 | `get_catalog_items` | [`/catalogs/{catalog_name}/items`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/get_catalog_items_details_bulk) | leitura | Retorna vários itens do catálogo e seus conteúdos. |
@@ -82,14 +82,14 @@ Seu cliente MCP faz referência a essas ferramentas para interagir com o servido
 
 ### Atributos personalizados {#custom-attributes}
 
-| Ferramenta | Endpoint de API or interface de programação do aplicativo (API) | Acesso | Descrição |
+| Ferramenta | Endpoint de API | Acesso | Descrição |
 | --- | --- | --- | --- |
 | `get_custom_attributes` | [`/custom_attributes`]({{site.baseurl}}/api/endpoints/export/custom_attributes/get_custom_attributes) | leitura | Exporta atributos personalizados registrados para o seu app, em grupos de 50, em ordem alfabética. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Atributos personalizados" }
 
 ### Eventos personalizados {#custom-events}
 
-| Ferramenta | Endpoint de API or interface de programação do aplicativo (API) | Acesso | Descrição |
+| Ferramenta | Endpoint de API | Acesso | Descrição |
 | --- | --- | --- | --- |
 | `get_events` | [`/events`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_data) | leitura | Exporta eventos personalizados registrados para o seu app, em grupos de 50, em ordem alfabética (paginação por cursor). |
 | `get_events_list` | [`/events/list`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events) | leitura | Exporta nomes de eventos personalizados, em grupos de 250, em ordem alfabética (paginação por página). |
@@ -98,7 +98,7 @@ Seu cliente MCP faz referência a essas ferramentas para interagir com o servido
 
 ### Integrações CDI {#cdi-integrations}
 
-| Ferramenta | Endpoint de API or interface de programação do aplicativo (API) | Acesso | Descrição |
+| Ferramenta | Endpoint de API | Acesso | Descrição |
 | --- | --- | --- | --- |
 | `list_integrations` | [`/cdi/integrations`]({{site.baseurl}}/api/endpoints/cdi/get_integration_list) | leitura | Lista as integrações existentes de ingestão de dados na nuvem (CDI), 10 por chamada. |
 | `get_integration_job_sync_status` | [`/cdi/integrations/{integration_id}/job_sync_status`]({{site.baseurl}}/api/endpoints/cdi/get_job_sync_status) | leitura | Status de sincronizações anteriores para uma determinada integração CDI, 10 por chamada. |
@@ -107,7 +107,7 @@ Seu cliente MCP faz referência a essas ferramentas para interagir com o servido
 
 ### KPI
 
-| Ferramenta | Endpoint de API or interface de programação do aplicativo (API) | Acesso | Descrição |
+| Ferramenta | Endpoint de API | Acesso | Descrição |
 | --- | --- | --- | --- |
 | `get_dau_data_series` | [`/kpi/dau/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_dau_date) | leitura | Série diária de usuários ativos únicos por data. |
 | `get_mau_data_series` | [`/kpi/mau/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_mau_30_days) | leitura | Série diária de usuários ativos únicos em uma janela móvel de 30 dias. |
@@ -117,14 +117,14 @@ Seu cliente MCP faz referência a essas ferramentas para interagir com o servido
 
 ### Biblioteca de mídia {#media-library}
 
-| Ferramenta | Endpoint de API or interface de programação do aplicativo (API) | Acesso | Descrição |
+| Ferramenta | Endpoint de API | Acesso | Descrição |
 | --- | --- | --- | --- |
 | `create_media_library_asset` | [`/media_library/create`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/create) | criação | Faz upload de um ativo para a biblioteca de mídia da Braze por meio de URL externa ou conteúdo de arquivo em base64. Exatamente um modo de upload deve ser fornecido. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Biblioteca de mídia" }
 
 ### Compras {#purchases}
 
-| Ferramenta | Endpoint de API or interface de programação do aplicativo (API) | Acesso | Descrição |
+| Ferramenta | Endpoint de API | Acesso | Descrição |
 | --- | --- | --- | --- |
 | `get_product_list` | [`/purchases/product_list`]({{site.baseurl}}/api/endpoints/export/purchases/get_list_product_id) | leitura | Lista paginada de IDs de produtos. |
 | `get_quantity_series` | [`/purchases/quantity_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_number_of_purchases) | leitura | Número total de compras no seu app em um intervalo de tempo. |
@@ -133,36 +133,36 @@ Seu cliente MCP faz referência a essas ferramentas para interagir com o servido
 
 ### Segments
 
-| Ferramenta | Endpoint de API or interface de programação do aplicativo (API) | Acesso | Descrição |
+| Ferramenta | Endpoint de API | Acesso | Descrição |
 | --- | --- | --- | --- |
-| `get_segment_list` | [`/segments/list`]({{site.baseurl}}/api/endpoints/export/segments/get_segment) | leitura | Exporta Segments com nome, identificador de API or interface de programação do aplicativo (API) do Segment or segmento e flag de rastreamento de análise de dados. |
-| `get_segment_details` | [`/segments/details`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_details) | leitura | Recupera informações relevantes sobre um Segment or segmento por `segment_id`. |
-| `get_segment_data_series` | [`/segments/data_series`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_analytics) | leitura | Série diária do tamanho estimado de um Segment or segmento ao longo do tempo. |
-| `get_segment_filters`<sup>*</sup> | N/A | leitura | Recupera definições de filtros de Segment or segmento. |
-| `create_segment`<sup>*</sup> | N/A | criação | Cria um novo Segment or segmento. |
-| `edit_segment`<sup>*</sup> | N/A | atualização | Edita um Segment or segmento existente. |
+| `get_segment_list` | [`/segments/list`]({{site.baseurl}}/api/endpoints/export/segments/get_segment) | leitura | Exporta Segments com nome, identificador de API do Segment e flag de rastreamento de análise de dados. |
+| `get_segment_details` | [`/segments/details`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_details) | leitura | Recupera informações relevantes sobre um Segment por `segment_id`. |
+| `get_segment_data_series` | [`/segments/data_series`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_analytics) | leitura | Série diária do tamanho estimado de um Segment ao longo do tempo. |
+| `get_segment_filters`<sup>*</sup> | N/A | leitura | Recupera definições de filtros de Segment. |
+| `create_segment`<sup>*</sup> | N/A | criação | Cria um novo Segment. |
+| `edit_segment`<sup>*</sup> | N/A | atualização | Edita um Segment existente. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Segments" }
 
-<sup>*</sup> Essa ferramenta está disponível apenas para clientes participantes do programa beta de APIs de Segment or segmento. Se a sua conta não tem esse recurso ativado, você pode receber um erro ao tentar usá-la. Para participar do programa beta, entre em contato com o seu gerente de conta.
+<sup>*</sup> Essa ferramenta está disponível apenas para clientes participantes do programa beta de APIs de Segment. Se a sua conta não tem esse recurso ativado, você pode receber um erro ao tentar usá-la. Para participar do programa beta, entre em contato com o seu gerente de conta.
 {: .reset-td-br-1 }
 
 ### Envios {#sends}
 
-| Ferramenta | Endpoint de API or interface de programação do aplicativo (API) | Acesso | Descrição |
+| Ferramenta | Endpoint de API | Acesso | Descrição |
 | --- | --- | --- | --- |
-| `get_send_data_series` | [`/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics) | leitura | Estatísticas diárias de um `send_id` rastreado (API or interface de programação do aplicativo (API) campaigns). A Braze armazena análises de envios por 14 dias após o envio. |
+| `get_send_data_series` | [`/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics) | leitura | Estatísticas diárias de um `send_id` rastreado (API campaigns). A Braze armazena análises de envios por 14 dias após o envio. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Envios" }
 
 ### Sessões {#sessions}
 
-| Ferramenta | Endpoint de API or interface de programação do aplicativo (API) | Acesso | Descrição |
+| Ferramenta | Endpoint de API | Acesso | Descrição |
 | --- | --- | --- | --- |
 | `get_session_data_series` | [`/sessions/data_series`]({{site.baseurl}}/api/endpoints/export/sessions/get_sessions_analytics) | leitura | Número de sessões do seu app em um período de tempo designado. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Sessões" }
 
 ### Modelos {#templates}
 
-| Ferramenta | Endpoint de API or interface de programação do aplicativo (API) | Acesso | Descrição |
+| Ferramenta | Endpoint de API | Acesso | Descrição |
 | --- | --- | --- | --- |
 | `get_email_templates` | [`/templates/email/list`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_list_email_templates) | leitura | Lista os modelos de e-mail disponíveis na sua conta Braze. |
 | `get_email_template_info` | [`/templates/email/info`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_see_email_template_information) | leitura | Obtém informações de um modelo de e-mail específico. Modelos do editor de arrastar e soltar não são aceitos. |
@@ -172,7 +172,7 @@ Seu cliente MCP faz referência a essas ferramentas para interagir com o servido
 
 ### Content Blocks
 
-| Ferramenta | Endpoint de API or interface de programação do aplicativo (API) | Acesso | Descrição |
+| Ferramenta | Endpoint de API | Acesso | Descrição |
 | --- | --- | --- | --- |
 | `get_content_blocks` | [`/content_blocks/list`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_list_email_content_blocks) | leitura | Lista informações dos blocos de conteúdo existentes. |
 | `get_content_block_info` | [`/content_blocks/info`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_see_email_content_blocks_information) | leitura | Obtém informações de um bloco de conteúdo existente, opcionalmente com dados de inclusão em Campaigns ou Canvas. |
@@ -182,7 +182,7 @@ Seu cliente MCP faz referência a essas ferramentas para interagir com o servido
 
 ### Operator
 
-| Ferramenta | Endpoint de API or interface de programação do aplicativo (API) | Acesso | Descrição |
+| Ferramenta | Endpoint de API | Acesso | Descrição |
 | --- | --- | --- | --- |
 | `send_operator_prompt` | N/A | atualização | Envia um prompt em linguagem natural para o BrazeAI Operator. Submete um job em segundo plano e retorna um job_id. |
 | `get_operator_result` | N/A | leitura | Consulta o resultado de um job do Operator submetido usando seu job_id. |

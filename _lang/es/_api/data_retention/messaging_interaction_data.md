@@ -78,10 +78,10 @@ Las siguientes características **no** utilizan datos de interacción de mensaje
     - Last Received Any Message
     - Last Received Email
     - Last Received Push
-    - Last Received servicio de mensajes cortos
+    - Last Received SMS
     - Last Received Webhook
     - Last Received WhatsApp
-    - Last Sent Specific servicio de mensajes cortos Inbound Keyword Category
+    - Last Sent Specific SMS Inbound Keyword Category
     - Last Viewed News Feed
     - News Feed View Count
 

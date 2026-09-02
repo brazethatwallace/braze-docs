@@ -1,8 +1,8 @@
 ---
 nav_title: Configurações de rede
-article_title: Configurações de rede para o SDK or kit de desenvolvimento de software da Braze
+article_title: Configurações de rede para o SDK da Braze
 page_order: 4.0
-description: "Saiba como definir as configurações de rede para o SDK or kit de desenvolvimento de software da Braze."
+description: "Saiba como definir as configurações de rede para o SDK da Braze."
 platform:
   - Android
   - FireOS
@@ -11,7 +11,7 @@ platform:
 
 # Configurações de rede {#network-settings}
 
-> Saiba como definir as configurações de rede para o SDK or kit de desenvolvimento de software da Braze.
+> Saiba como definir as configurações de rede para o SDK da Braze.
 
 {% sdktabs %}
 {% sdktab android %}

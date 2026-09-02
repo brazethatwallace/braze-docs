@@ -1,18 +1,18 @@
 ---
 nav_title: Tratamento de erros e novas tentativas
-article_title: Tratamento de erros e novas tentativas da API or interface de programação do aplicativo (API) de envio de mensagens para dispositivos
+article_title: Tratamento de erros e novas tentativas da API de envio de mensagens para dispositivos
 page_order: 2
 page_type: reference
-description: "Saiba como lidar com respostas, erros e novas tentativas da API or interface de programação do aplicativo (API) de envio de mensagens para dispositivos."
+description: "Saiba como lidar com respostas, erros e novas tentativas da API de envio de mensagens para dispositivos."
 hidden: true
 ---
 
-# Tratamento de erros e novas tentativas da API or interface de programação do aplicativo (API) de envio de mensagens para dispositivos {#device-messaging-api-error-handling-and-retries}
+# Tratamento de erros e novas tentativas da API de envio de mensagens para dispositivos {#device-messaging-api-error-handling-and-retries}
 
-Os corpos de resposta e a semântica de sucesso da API or interface de programação do aplicativo (API) de envio de mensagens para dispositivos variam conforme o endpoint. Use o esquema de resposta e a tabela de códigos de status de cada endpoint como o contrato oficial.
+Os corpos de resposta e a semântica de sucesso da API de envio de mensagens para dispositivos variam conforme o endpoint. Use o esquema de resposta e a tabela de códigos de status de cada endpoint como o contrato oficial.
 
 {% alert important %}
-Esta página está em beta. Os recursos e a documentação da API or interface de programação do aplicativo (API) de envio de mensagens para dispositivos estão sujeitos a alterações. Entre em contato com o gerente da sua conta Braze para solicitar acesso.
+Esta página está em beta. Os recursos e a documentação da API de envio de mensagens para dispositivos estão sujeitos a alterações. Entre em contato com o gerente da sua conta Braze para solicitar acesso.
 {% endalert %}
 
 ## Respostas de sucesso {#success-responses}
@@ -40,11 +40,11 @@ Use as orientações a seguir para decidir se deve tentar novamente:
 | Código de status | Orientações para nova tentativa |
 |---|---|
 | `400` | Corrija a solicitação antes de tentar novamente. Para rastreamento de Banner, corrija os eventos ignorados antes de reenviá-los. |
-| `401` ou `403` | Verifique a chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional no lado do cliente e suas permissões antes de tentar novamente. |
-| `404` | Confirme se a API or interface de programação do aplicativo (API) de envio de mensagens para dispositivos está ativada para o espaço de trabalho e se a URL do endpoint está correta. |
+| `401` ou `403` | Verifique a chave da API REST no lado do cliente e suas permissões antes de tentar novamente. |
+| `404` | Confirme se a API de envio de mensagens para dispositivos está ativada para o espaço de trabalho e se a URL do endpoint está correta. |
 | `429` | Reduza a taxa de solicitações e tente novamente com recuo exponencial. Use os cabeçalhos de resposta de limite de taxa quando disponíveis. |
 | `5XX` | Tente novamente com recuo exponencial e um número máximo de tentativas. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Orientações para novas tentativas da API or interface de programação do aplicativo (API) de envio de mensagens para dispositivos" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Orientações para novas tentativas da API de envio de mensagens para dispositivos" }
 
 Para o corpo exato da resposta e os códigos de status compatíveis, consulte o endpoint relevante:
 

@@ -16,13 +16,13 @@ description: "Dieser Referenzartikel behandelt die Verwendung eines Arrays von O
 ## Hinweise {#considerations}
 
 - Arrays von Objekten sind für angepasste Attribute vorgesehen, die über die API gesendet werden. CSV-Uploads werden nicht unterstützt. Das liegt daran, dass Kommas in der CSV-Datei als Spaltentrennzeichen interpretiert werden und Kommas in Werten zu Parsing-Fehlern führen.
-- Arrays von Objekten haben keine Begrenzung der Anzahl von Elementen, aber eine maximale Größe von 100&nbsp;KB. Wenn ein Update or aktualisieren (z.&nbsp;B. `$add` oder `$update`) dazu führt, dass das Array dieses Limit überschreitet, verwirft Braze das Update or aktualisieren und das Attribut bleibt unverändert. Die API-Anfrage gibt dennoch eine Erfolgsantwort zurück. Um das Array unter dem Limit zu halten, damit neue Elemente hinzugefügt werden können, verwenden Sie `$remove`, um zuerst Elemente aus dem Array zu löschen.
+- Arrays von Objekten haben keine Begrenzung der Anzahl von Elementen, aber eine maximale Größe von 100&nbsp;KB. Wenn ein Update (z.&nbsp;B. `$add` oder `$update`) dazu führt, dass das Array dieses Limit überschreitet, verwirft Braze das Update und das Attribut bleibt unverändert. Die API-Anfrage gibt dennoch eine Erfolgsantwort zurück. Um das Array unter dem Limit zu halten, damit neue Elemente hinzugefügt werden können, verwenden Sie `$remove`, um zuerst Elemente aus dem Array zu löschen.
 - Nicht alle Braze-Partner unterstützen Arrays von Objekten. Lesen Sie die [Partner-Dokumentation]({{site.baseurl}}/partners/home), um zu prüfen, ob die Integration dieses Feature unterstützt.
 
-Das Update or aktualisieren or aktualisieren oder Entfernen von Elementen in einem Array erfordert die Identifizierung des Elements anhand von Schlüssel und Wert. Erwägen Sie daher, jedem Element im Array einen eindeutigen Bezeichner hinzuzufügen. Die Eindeutigkeit bezieht sich nur auf das Array und ist nützlich, wenn Sie bestimmte Objekte aus Ihrem Array Update or aktualisieren or aktualisieren und entfernen möchten. Dies wird von Braze nicht erzwungen.
+Das Aktualisieren oder Entfernen von Elementen in einem Array erfordert die Identifizierung des Elements anhand von Schlüssel und Wert. Erwägen Sie daher, jedem Element im Array einen eindeutigen Bezeichner hinzuzufügen. Die Eindeutigkeit bezieht sich nur auf das Array und ist nützlich, wenn Sie bestimmte Objekte aus Ihrem Array aktualisieren und entfernen möchten. Dies wird von Braze nicht erzwungen.
 
 {% alert important %}
-Wenn ein verschachteltes angepasstes Attribut in Ihrer Anfrage ungültige Werte enthält (z.&nbsp;B. ungültige Zeitformate oder `null`-Werte), verwirft Braze alle Updates verschachtelter angepasster Attribute in der Anfrage. Dies gilt für alle verschachtelten Strukturen innerhalb dieses spezifischen Attributs. Stellen Sie sicher, dass alle Werte innerhalb verschachtelter angepasster Attribute gültig sind, bevor Sie sie senden. Weitere Informationen finden Sie unter [Nutzer:innen erstellen und Update or aktualisieren or aktualisieren]({{site.baseurl}}/api/endpoints/user_data/post_user_track#how-does-userstrack-handle-invalid-nested-custom-attributes).
+Wenn ein verschachteltes angepasstes Attribut in Ihrer Anfrage ungültige Werte enthält (z.&nbsp;B. ungültige Zeitformate oder `null`-Werte), verwirft Braze alle Updates verschachtelter angepasster Attribute in der Anfrage. Dies gilt für alle verschachtelten Strukturen innerhalb dieses spezifischen Attributs. Stellen Sie sicher, dass alle Werte innerhalb verschachtelter angepasster Attribute gültig sind, bevor Sie sie senden. Weitere Informationen finden Sie unter [Nutzer:innen erstellen und aktualisieren]({{site.baseurl}}/api/endpoints/user_data/post_user_track#how-does-userstrack-handle-invalid-nested-custom-attributes).
 {% endalert %}
 
 {% alert tip %}
@@ -31,7 +31,7 @@ Weitere Informationen zur Verwendung von Arrays von Objekten für Nutzerattribut
 
 ## API-Beispiel {#api-example}
 
-Verwenden Sie diese Beispiele, wenn Sie `/users/track`-Anfragen senden, die verschachtelte angepasste Attribute erstellen oder Update or aktualisieren or aktualisieren, die als Arrays von Objekten gespeichert sind. Der Payload verwendet die Operatoren `$add`, `$remove` und `$update`, sodass Sie bestimmte Objekte ändern können, ohne bei jeder Anfrage das gesamte Array neu aufzubauen.
+Verwenden Sie diese Beispiele, wenn Sie `/users/track`-Anfragen senden, die verschachtelte angepasste Attribute erstellen oder aktualisieren, die als Arrays von Objekten gespeichert sind. Der Payload verwendet die Operatoren `$add`, `$remove` und `$update`, sodass Sie bestimmte Objekte ändern können, ohne bei jeder Anfrage das gesamte Array neu aufzubauen.
 
 {% tabs local %}
 {% tab Erstellen %}
@@ -102,9 +102,9 @@ Verwenden Sie `$add`, wenn Sie ein oder mehrere neue Objekte anhängen und beste
 }
 ```
 {% endtab %}
-{% tab Update or aktualisieren or aktualisieren %}
+{% tab Aktualisieren %}
 
-Update or aktualisieren or aktualisieren Sie Werte für bestimmte Objekte innerhalb eines Arrays mit dem Parameter `_merge_objects` und dem Operator `$update`. Ähnlich wie bei Updates anderer [verschachtelter angepasster Attribute]({{site.baseurl}}/nested_custom_attribute_support#api-request-body) wird hierbei ein Deep Merge durchgeführt.
+Aktualisieren Sie Werte für bestimmte Objekte innerhalb eines Arrays mit dem Parameter `_merge_objects` und dem Operator `$update`. Ähnlich wie bei Updates anderer [verschachtelter angepasster Attribute]({{site.baseurl}}/nested_custom_attribute_support#api-request-body) wird hierbei ein Deep Merge durchgeführt.
 
 Beachten Sie, dass `$update` nicht verwendet werden kann, um eine verschachtelte Eigenschaft aus einem Objekt innerhalb eines Arrays zu entfernen. Dazu müssen Sie das gesamte Element aus dem Array entfernen und dann das Objekt ohne diesen spezifischen Schlüssel wieder hinzufügen (mit einer Kombination aus `$remove` und `$add`).
 
@@ -192,7 +192,7 @@ Wenn eine einzelne `/users/track`-Anfrage `$add`-, `$remove`- und `$update`-Oper
 2. `$remove`
 3. `$update`
 
-Diese Reihenfolge gilt innerhalb eines einzelnen Attribut-Update or aktualisieren-Objekts in einer Anfrage und bestimmt den endgültigen Zustand des Arrays, nachdem alle Operationen ausgewertet wurden.
+Diese Reihenfolge gilt innerhalb eines einzelnen Attribut-Update-Objekts in einer Anfrage und bestimmt den endgültigen Zustand des Arrays, nachdem alle Operationen ausgewertet wurden.
 
 Da `$add` vor `$remove` ausgeführt wird, können Sie `$remove` gefolgt von `$add` nicht als Upsert-Mechanismus innerhalb einer einzelnen Anfrage verwenden. `$add` wird zuerst verarbeitet, dann löscht `$remove` das Element. Für einen Upsert senden Sie `$remove` in einer separaten Anfrage vor `$add`.
 
@@ -223,10 +223,10 @@ Wenn Sie Felder wie Zeitstempel in einem Array von Objekten einschließen, verwe
 Weitere Informationen finden Sie unter [Verschachtelte angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
 {% endalert %}
 
-## SDK or Software-Development-Kit-Beispiel {#sdk-example}
+## SDK-Beispiel {#sdk-example}
 
 {% tabs local %}
-{% tab Android SDK or Software-Development-Kit %}
+{% tab Android SDK %}
 {% subtabs %}
 {% subtab Erstellen %}
 ```kotlin
@@ -277,7 +277,7 @@ braze.getCurrentUser { user ->
 ```
 {% endsubtab %}
 
-{% subtab Update or aktualisieren or aktualisieren %}
+{% subtab Aktualisieren %}
 ```kotlin
 val json = JSONObject()
     .put("\$update", JSONArray()
@@ -329,7 +329,7 @@ braze.getCurrentUser { user ->
 {% endsubtabs %}
 {% endtab %}
 
-{% tab Swift SDK or Software-Development-Kit %}
+{% tab Swift SDK %}
 {% subtabs %}
 {% subtab Erstellen %}
 ```swift
@@ -381,7 +381,7 @@ braze.user.setCustomAttribute(key: "pets", dictionary: json, merge: true)
 ```
 {% endsubtab %}
 
-{% subtab Update or aktualisieren or aktualisieren %}
+{% subtab Aktualisieren %}
 ```swift
 let json: [String: Any?] = [
   "$update": [
@@ -435,7 +435,7 @@ Verschachtelte angepasste Attribute werden für AppboyKit nicht unterstützt.
 {% endalert %}
 {% endtab %}
 
-{% tab Web SDK or Software-Development-Kit %}
+{% tab Web SDK %}
 {% subtabs local %}
 {% subtab Erstellen %}
 ```javascript
@@ -480,7 +480,7 @@ braze.getUser().setCustomUserAttribute("pets", json, true);
 ```
 {% endsubtab %}
 
-{% subtab Update or aktualisieren or aktualisieren %}
+{% subtab Aktualisieren %}
 ```javascript
 import * as braze from "@braze/web-sdk";
 const json = {
@@ -600,7 +600,7 @@ Sie können ein Segment mit bis zu einer Ebene der Array-Verschachtelung erstell
 
 ## Datenpunkte {#data-points}
 
-Datenpunkte werden unterschiedlich protokolliert, je nachdem, ob Sie eine Eigenschaft erstellen, Update or aktualisieren or aktualisieren oder entfernen.
+Datenpunkte werden unterschiedlich protokolliert, je nachdem, ob Sie eine Eigenschaft erstellen, aktualisieren oder entfernen.
 
 {% tabs local %}
 {% tab Erstellen %}
@@ -631,9 +631,9 @@ Das Erstellen eines neuen Arrays protokolliert einen Datenpunkt für jedes Attri
 }
 ```
 {% endtab %}
-{% tab Update or aktualisieren or aktualisieren %}
+{% tab Aktualisieren %}
 
-Das Update or aktualisieren or aktualisieren eines bestehenden Arrays protokolliert einen Datenpunkt für jede hinzugefügte Eigenschaft. Dieses Beispiel kostet zwei Datenpunkte, da es nur eine Eigenschaft in jedem der beiden Objekte aktualisiert.
+Das Aktualisieren eines bestehenden Arrays protokolliert einen Datenpunkt für jede hinzugefügte Eigenschaft. Dieses Beispiel kostet zwei Datenpunkte, da es nur eine Eigenschaft in jedem der beiden Objekte aktualisiert.
 
 ```json
 {

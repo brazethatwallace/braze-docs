@@ -105,7 +105,7 @@ MCP 클라이언트는 이 도구들을 참조하여 Braze MCP 서버와 상호�
 | `trigger_integration_sync` | [`/cdi/integrations/{integration_id}/sync`]({{site.baseurl}}/api/endpoints/cdi/post_job_sync) | write | 지정된 CDI 통합의 동기화를 트리거합니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="CDI 통합" }
 
-### KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or 핵심 성과 지표(KPI or 핵심 성과 지표(KPI))
+### KPI
 
 | 도구 | API 엔드포인트 | 접근 | 설명 |
 | --- | --- | --- | --- |
@@ -113,7 +113,7 @@ MCP 클라이언트는 이 도구들을 참조하여 Braze MCP 서버와 상호�
 | `get_mau_data_series` | [`/kpi/mau/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_mau_30_days) | read | 30일 롤링 윈도우 기준 고유 활성 사용자의 일별 시리즈를 조회합니다. |
 | `get_new_users_data_series` | [`/kpi/new_users/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_daily_new_users_date) | read | 날짜별 총 신규 사용자의 일별 시리즈를 조회합니다. |
 | `get_uninstalls_data_series` | [`/kpi/uninstalls/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_uninstalls_date) | read | 날짜별 총 앱 삭제 수의 일별 시리즈를 조회합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or 핵심 성과 지표(KPI or 핵심 성과 지표(KPI))" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="KPI" }
 
 ### 미디어 라이브러리 {#media-library}
 

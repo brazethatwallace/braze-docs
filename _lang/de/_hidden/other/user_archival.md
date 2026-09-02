@@ -39,7 +39,7 @@ Sowohl inaktive als auch ruhende Nutzer:innen werden archiviert, es sei denn, di
 „Inaktive Nutzer:innen“ sind Nutzer:innen, die nicht erreichbar sind und wahrscheinlich abgewandert sind. Inaktive Nutzer:innen sind diejenigen, die alle folgenden Kriterien erfüllen:
 
 - Können keine E-Mail empfangen. Zum Beispiel haben sie keine E-Mail-Adresse oder haben sich von allen E-Mail-Listen abgemeldet.
-- Können keine Kurzmitteilungsdienst or SMS empfangen. Zum Beispiel haben sie keine gültige Telefonnummer oder haben sich von allen Kurzmitteilungsdienst or SMS-Abo-Gruppen abgemeldet.
+- Können keine SMS empfangen. Zum Beispiel haben sie keine gültige Telefonnummer oder haben sich von allen SMS-Abo-Gruppen abgemeldet.
 - Können keinen Push empfangen. Zum Beispiel haben sie die App deinstalliert oder Push-Berechtigungen deaktiviert.
 - Können keine WhatsApp-Nachricht empfangen. Zum Beispiel haben sie keine gültige Telefonnummer oder haben sich von allen WhatsApp-Abo-Gruppen abgemeldet.
 - Können keine LINE-Nachricht empfangen. Zum Beispiel haben sie keine LINE-ID oder haben sich von allen LINE-Abo-Gruppen abgemeldet.
@@ -80,7 +80,7 @@ Braze blockiert einzelne Nutzerprofile, die ungewöhnlich groß werden („Dummy
 | Mehr als 20.000 verschiedene Produktnamen in Käufen | Wird typischerweise dadurch verursacht, dass für jeden Kauf eine neue `product_id` generiert wird, anstatt einen festen Satz von Produkt-IDs wiederzuverwenden. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Schwellenwerte für die Blockierung von Dummy-Nutzer:innen" }
 
-Nachdem ein Profil blockiert wurde, stoppt Braze die Aufnahme aller eingehenden Daten für dieses Profil – sowohl von den SDKs als auch von der Representational State Transfer API. Anfragen an [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), die einen blockierten Bezeichner referenzieren, geben den Fehler `"provided external_id is blacklisted and disallowed"` zurück. Dieser Wortlaut stammt wörtlich aus der API-Antwort. Braze benachrichtigt außerdem Ihren Braze Account Manager:in, damit dieser das Integrationsproblem mit Ihnen besprechen kann.
+Nachdem ein Profil blockiert wurde, stoppt Braze die Aufnahme aller eingehenden Daten für dieses Profil – sowohl von den SDKs als auch von der REST API. Anfragen an [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), die einen blockierten Bezeichner referenzieren, geben den Fehler `"provided external_id is blacklisted and disallowed"` zurück. Dieser Wortlaut stammt wörtlich aus der API-Antwort. Braze benachrichtigt außerdem Ihren Braze Account Manager:in, damit dieser das Integrationsproblem mit Ihnen besprechen kann.
 
 Falls dies bei einem legitimen Nutzer bzw. einer legitimen Nutzerin passiert ist, erstellen Sie ein Ticket beim Braze-[Support]({{site.baseurl}}/braze_support).
 
@@ -96,12 +96,12 @@ Bei Bedarf können Sie die Nutzer:innen über den [`/users/delete`-Endpunkt]({{s
 
 ## Anpassen Ihrer Nutzerarchivierungsrichtlinie {#customizing-your-user-archival-policy}
 
-Braze bietet Features zur Datenorchestrierung, mit denen Sie Ihre Nutzerarchivierungsrichtlinie anpassen können. Erstellen Sie eine Nutzerarchivierungsrichtlinie, die Ihnen das Beste aus beiden Welten bietet – mit der Canvas-Komponente [User Update or aktualisieren]({{site.baseurl}}/user_update).
+Braze bietet Features zur Datenorchestrierung, mit denen Sie Ihre Nutzerarchivierungsrichtlinie anpassen können. Erstellen Sie eine Nutzerarchivierungsrichtlinie, die Ihnen das Beste aus beiden Welten bietet – mit der Canvas-Komponente [User Update]({{site.baseurl}}/user_update).
 
 Damit können Sie:
 
 - Die DSGVO und bewährte Datenschutzpraktiken einhalten, indem Sie Nutzerprofile löschen, die nicht mehr wertvoll sind.
-- Jedes Kundenprofil or Nutzerprofil beibehalten, für das ein berechtigtes geschäftliches Interesse besteht.
+- Jedes Kundenprofil beibehalten, für das ein berechtigtes geschäftliches Interesse besteht.
 
 ### Schritte {#steps}
 
@@ -111,9 +111,9 @@ Damit können Sie:
       ![Zielgruppe: Nutzer:innen, die zuletzt vor mehr als 23 Wochen eine Nachricht erhalten haben, nie eine Nachricht aus einer Campaign oder einem Canvas-Schritt erhalten haben, diese Apps zuletzt vor mehr als 23 Wochen genutzt haben und diese Apps genau null Mal verwendet haben.][2]<br><br>
 2. Stellen Sie die erneute Berechtigung auf etwas weniger als 6 Monate ein.<br><br>
       ![Entry-Kontrollen mit aktivierter erneuter Berechtigung und einem Fenster für die erneute Berechtigung von 23 Wochen.][3]<br><br>
-3. Konfigurieren Sie den User-Update or aktualisieren-Schritt, um jedem Profil ein Event hinzuzufügen.<br><br>
-      ![User-Update or aktualisieren-Schritt, der das Event „do_not_archive“ zum Kundenprofil or Nutzerprofil hinzufügt.][4]
-{% details Beispiel für ein User-Update or aktualisieren-Objekt %}
+3. Konfigurieren Sie den User-Update-Schritt, um jedem Profil ein Event hinzuzufügen.<br><br>
+      ![User-Update-Schritt, der das Event „do_not_archive“ zum Kundenprofil hinzufügt.][4]
+{% details Beispiel für ein User-Update-Objekt %}
 
 {% raw %}
 ```json

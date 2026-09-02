@@ -39,7 +39,7 @@ Los límites del objeto de solicitud del endpoint `/users/track` varían según 
 
 Para usar este endpoint, necesitas una [clave de API]({{site.baseurl}}/api/basics) con el permiso `users.track.bulk`.
 
-Si estás realizando llamadas de servidor a servidor detrás de un firewall, es posible que necesites incluir en la lista de permitidos tu endpoint REST or transferencia de estado representacional de Braze (por ejemplo, `rest.iad-01.braze.com`). Para más información, consulta [Endpoints de API]({{site.baseurl}}/api/basics#api-definitions).
+Si estás realizando llamadas de servidor a servidor detrás de un firewall, es posible que necesites incluir en la lista de permitidos tu endpoint REST de Braze (por ejemplo, `rest.iad-01.braze.com`). Para más información, consulta [Endpoints de API]({{site.baseurl}}/api/basics#api-definitions).
 
 ## Límite de velocidad {#rate-limit}
 
@@ -47,7 +47,7 @@ Si estás realizando llamadas de servidor a servidor detrás de un firewall, es 
 
 Para la mayoría de los clientes, este endpoint tiene un límite de velocidad base de 50 solicitudes por segundo.
 
-Los clientes con contratos más recientes pueden tener en su lugar límites de ráfaga (por segundo) y estables (por hora) basados en los MAU or usuarios activos al mes or usuarios activos al mes contratados.
+Los clientes con contratos más recientes pueden tener en su lugar límites de ráfaga (por segundo) y estables (por hora) basados en los usuarios activos al mes contratados.
 
 Cada solicitud a `/users/track/bulk` tiene un límite de carga útil de 2 MB y puede incluir hasta 1000 objetos en total entre atributos, eventos y compras, dependiendo de la política de límite de velocidad masivo de tu cuenta.
 

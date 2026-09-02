@@ -12,7 +12,7 @@ page_type: reference
 Anhand von Segmenttrichtern können Sie sehen, wie sich jeder hinzugefügte Filter auf Ihre Segmentstatistiken auswirkt. Wenn Sie ein Segment erstellen, wird unter jedem Filter eine Zeile mit Daten angezeigt. Diese Daten liefern die folgenden Informationen für Nutzer:innen, die von allen Filtern bis zu diesem Punkt gezielt angesprochen werden:
 
 - Gesamtzahl der angesprochenen Nutzer und der Prozentsatz Ihrer Zielgruppe
-- LTV or Lifetime-Value und LTV or Lifetime-Value für zahlende Nutzer  
+- LTV und LTV für zahlende Nutzer  
 - Anzahl der Nutzer:innen, die per E-Mail erreichbar sind
 - Anzahl der Benutzer, die sich für E-Mail entschieden haben
 - Anzahl der Nutzer:innen, die Push aktiviert haben  
@@ -22,11 +22,11 @@ Anhand von Segmenttrichtern können Sie sehen, wie sich jeder hinzugefügte Filt
 
 ## Bewährte Praktiken
 
-- Durch das Hinzufügen von Filtern, die Ihren Nutzerfluss dokumentieren, können Sie die Punkte erkennen, an denen Nutzer:innen abspringen. Wenn Sie beispielsweise eine App für soziale Netzwerke betreiben und sehen möchten, wo Sie während des Einführungsprozesses Nutzer verlieren, können Sie benutzerdefinierte Datenfilter für die Anmeldung, das Hinzufügen von Freunden und das Senden der ersten Nachricht hinzufügen. Wenn Sie feststellen, dass 85 % der Nutzer:innen sich Registrierung or registrieren und Freunde hinzufügen, aber nur 45 % die erste Nachricht gesendet haben, dann wissen Sie, dass Sie sich darauf konzentrieren sollten, mehr Nachrichten während Ihrer Onboarding- und Marketing-Kampagnen zu senden.
+- Durch das Hinzufügen von Filtern, die Ihren Nutzerfluss dokumentieren, können Sie die Punkte erkennen, an denen Nutzer:innen abspringen. Wenn Sie beispielsweise eine App für soziale Netzwerke betreiben und sehen möchten, wo Sie während des Einführungsprozesses Nutzer verlieren, können Sie benutzerdefinierte Datenfilter für die Anmeldung, das Hinzufügen von Freunden und das Senden der ersten Nachricht hinzufügen. Wenn Sie feststellen, dass 85 % der Nutzer:innen sich Registrierung und Freunde hinzufügen, aber nur 45 % die erste Nachricht gesendet haben, dann wissen Sie, dass Sie sich darauf konzentrieren sollten, mehr Nachrichten während Ihrer Onboarding- und Marketing-Kampagnen zu senden.
 
-- Mit Segmenttrichtern können Sie den Prozentsatz der Nutzer vergleichen, die verschiedene Aktionen durchführen. Trifft auf aktive Nutzer:innen oder solche mit hohem LTV or Lifetime-Value beispielsweise zu, [dass sie dazu neigen, mehr mit Push oder E-Mail zu interagieren](#push-email)? Um das herauszufinden, erstellen Sie ein Segment aktiver Nutzer:innen mit einem oder mehreren Filtern und sehen Sie dann, wie sich die Statistiken ändern, wenn Sie einen Filter für das Opt-in bei Push und einen Filter für das Opt-in bei E-Mail hinzufügen.
+- Mit Segmenttrichtern können Sie den Prozentsatz der Nutzer vergleichen, die verschiedene Aktionen durchführen. Trifft auf aktive Nutzer:innen oder solche mit hohem LTV beispielsweise zu, [dass sie dazu neigen, mehr mit Push oder E-Mail zu interagieren](#push-email)? Um das herauszufinden, erstellen Sie ein Segment aktiver Nutzer:innen mit einem oder mehreren Filtern und sehen Sie dann, wie sich die Statistiken ändern, wenn Sie einen Filter für das Opt-in bei Push und einen Filter für das Opt-in bei E-Mail hinzufügen.
 
-- Analysieren Sie, wie sich der LTV or Lifetime-Value ändert, wenn Sie Filter hinzufügen. Haben bei aktiven Nutzer:innen diejenigen, die sich mit Facebook verbinden, oder diejenigen, die sich mit X (früher Twitter) verbinden, einen höheren LTV or Lifetime-Value? Oder ist der LTV or Lifetime-Value deutlich höher für diejenigen, die mit beiden verbunden sind? Wenn Sie beispielsweise feststellen, dass eine Verbindung zu X (früher Twitter) nur einen geringen Einfluss auf den LTV or Lifetime-Value hat, eine Verbindung zu Facebook jedoch einen großen Einfluss, sollten Sie Ihre Marketingkampagnen auf Anreize für Facebook-Verbindungen konzentrieren.
+- Analysieren Sie, wie sich der LTV ändert, wenn Sie Filter hinzufügen. Haben bei aktiven Nutzer:innen diejenigen, die sich mit Facebook verbinden, oder diejenigen, die sich mit X (früher Twitter) verbinden, einen höheren LTV? Oder ist der LTV deutlich höher für diejenigen, die mit beiden verbunden sind? Wenn Sie beispielsweise feststellen, dass eine Verbindung zu X (früher Twitter) nur einen geringen Einfluss auf den LTV hat, eine Verbindung zu Facebook jedoch einen großen Einfluss, sollten Sie Ihre Marketingkampagnen auf Anreize für Facebook-Verbindungen konzentrieren.
 
 ## Anwendungsfälle
 
@@ -43,7 +43,7 @@ Nehmen wir zum Beispiel an, Sie haben eine Gruppe, in der alle Benutzer, die Art
 
 ### Messaging-Kanäle vergleichen
 
-Erstellen Sie ein Segment von aktiven Nutzern (oder Nutzern mit gewünschten Eigenschaften) und vergleichen Sie deren Interaktionen mit verschiedenen Interaktionskanälen, wie E-Mail und Push-Benachrichtigungen. Wenn zum Beispiel mehr treue Nutzer:innen Push abonniert haben, sollten Sie mehr Zeit darauf verwenden, aktive Nutzerkampagnen über Push zu versenden. Wenn Sie jedoch feststellen, dass der LTV or Lifetime-Value bei denjenigen, die E-Mails abonniert haben, höher ist, sollten Sie mehr aktive Nutzer dazu auffordern, E-Mails zu abonnieren.
+Erstellen Sie ein Segment von aktiven Nutzern (oder Nutzern mit gewünschten Eigenschaften) und vergleichen Sie deren Interaktionen mit verschiedenen Interaktionskanälen, wie E-Mail und Push-Benachrichtigungen. Wenn zum Beispiel mehr treue Nutzer:innen Push abonniert haben, sollten Sie mehr Zeit darauf verwenden, aktive Nutzerkampagnen über Push zu versenden. Wenn Sie jedoch feststellen, dass der LTV bei denjenigen, die E-Mails abonniert haben, höher ist, sollten Sie mehr aktive Nutzer dazu auffordern, E-Mails zu abonnieren.
 
 ![Segmenttrichter für E-Mail-Beispiel mit den folgenden Filtern: "Letzter Kauf vor weniger als 30 Tagen", "Letzte Nutzung dieser Apps vor weniger als 30 Tagen", "Foreground Push Enabled is true" und "E-Mail Subscription Status is Opted In", um 2.799 Nutzer:innen zu erreichen.]({% image_buster /assets/img_archive/Wish_List_Email.png %})
 

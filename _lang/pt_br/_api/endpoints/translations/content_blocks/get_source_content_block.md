@@ -9,7 +9,7 @@ page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint de origem de tradução de bloco de conteúdo."
 ---
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Ver valores de origem padrão para tags de tradução de um bloco de conteúdo {#view-default-source-values-for-a-content-blocks-translation-tags}
 {% apimethod get %}
 /content_blocks/translations/source
@@ -19,7 +19,7 @@ description: "Este artigo descreve detalhes sobre o endpoint de origem de tradu�
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `content_blocks.translations.get`.
+Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `content_blocks.translations.get`.
 
 ## Limite de frequência {#rate-limit}
 

@@ -16,7 +16,7 @@ _이 통합은 ViralSweep에서 유지 관리합니다._
 
 ## 통합 소개 {#about-the-integration}
 
-Braze와 ViralSweep 통합을 사용하면 ViralSweep 플랫폼에서 경품 행사와 콘테스트를 진행하여 이메일 및 단문 메시지 서비스 목록을 확장하고, 경품 행사 또는 콘테스트 참가 정보를 Braze로 전송하여 Campaigns 또는 Canvases에서 활용할 수 있습니다.
+Braze와 ViralSweep 통합을 사용하면 ViralSweep 플랫폼에서 경품 행사와 콘테스트를 진행하여 이메일 및 SMS 목록을 확장하고, 경품 행사 또는 콘테스트 참가 정보를 Braze로 전송하여 Campaigns 또는 Canvases에서 활용할 수 있습니다.
 
 ## 필수 조건 {#prerequisites}
 
@@ -31,7 +31,7 @@ Braze와 ViralSweep 통합을 사용하면 ViralSweep 플랫폼에서 경품 행
 
 ### 1단계: ViralSweep에서 Braze에 연결하기 {#step-1-connect-to-braze-within-viralsweep}
 
-ViralSweep에서 **Integrations > Email & 단문 메시지 서비스 > Add Service**로 이동하여 **Braze**를 선택합니다.
+ViralSweep에서 **Integrations > Email & SMS > Add Service**로 이동하여 **Braze**를 선택합니다.
 
 ![이메일 및 SMS 서비스 아래에서 Braze가 선택된 ViralSweep 통합 페이지.]({% image_buster /assets/img/viralsweep/connect.gif %})
 

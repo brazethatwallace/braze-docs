@@ -11,7 +11,7 @@ description: "Este artigo de referência aborda como usar o Depurador de Connect
 
 ## Sobre o depurador {#about-the-debugger}
 
-O Connected Content permite enriquecer mensagens com dados em tempo real, fazendo uma chamada HTTP a uma API or interface de programação do aplicativo (API) externa no momento da renderização e inserindo a resposta na sua mensagem com Liquid. Como essa chamada acontece fora da Braze, pode ser difícil ver exatamente qual solicitação a Braze enviou, o que o endpoint retornou ou por que uma chamada falhou, antes que uma Campaign ou Canvas esteja ativa.
+O Connected Content permite enriquecer mensagens com dados em tempo real, fazendo uma chamada HTTP a uma API externa no momento da renderização e inserindo a resposta na sua mensagem com Liquid. Como essa chamada acontece fora da Braze, pode ser difícil ver exatamente qual solicitação a Braze enviou, o que o endpoint retornou ou por que uma chamada falhou, antes que uma Campaign ou Canvas esteja ativa.
 
 O Depurador de Connected Content ajuda a solucionar esses problemas antes do lançamento. Ele mostra a solicitação e a resposta em tempo real para cada chamada de Connected Content na sua mensagem, na seção **Prévia e Teste**. Dessa forma, você pode confirmar que seu endpoint, cabeçalhos e Liquid tags estão configurados corretamente, tudo dentro do dashboard da Braze.
 
@@ -124,6 +124,6 @@ Verifique o campo **Served from cache** na guia **Response**. Se ele mostrar `Ye
 ## Artigos relacionados {#related-articles}
 
 - [Referência de Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)
-- [Fazer uma chamada de API or interface de programação do aplicativo (API) de Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call)
+- [Fazer uma chamada de API de Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call)
 - [Cabeçalhos de solicitação de saída]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#outgoing-request-headers)
 - [Solucionar problemas de webhooks e solicitações de Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content)

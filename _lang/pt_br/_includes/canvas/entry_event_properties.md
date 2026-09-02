@@ -3,7 +3,7 @@ Você pode usar as propriedades de entrada do Canvas e as propriedades de evento
 {% tabs local %}
 {% tab Canvas Entry Properties %}
 
-[As propriedades de entrada do Canvas]({{site.baseurl}}/api/objects_filters/context_object) são as propriedades que você mapeia para Canvas que são baseados em ações ou disparados por API or interface de programação do aplicativo (API). Note que o objeto `canvas_entry_properties` tem um limite máximo de tamanho de 50 KB.
+[As propriedades de entrada do Canvas]({{site.baseurl}}/api/objects_filters/context_object) são as propriedades que você mapeia para Canvas que são baseados em ações ou disparados por API. Note que o objeto `canvas_entry_properties` tem um limite máximo de tamanho de 50 KB.
 
 {% alert note %}
 Para canais de mensagem no app especificamente, `context` só pode ser referenciado no Canvas.

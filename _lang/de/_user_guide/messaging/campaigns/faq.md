@@ -21,7 +21,7 @@ Siehe [Kontrollgruppen]({{site.baseurl}}/user_guide/messaging/campaigns/creating
 
 ### Welche Möglichkeiten gibt es, mit dem Testen und Optimieren von Campaigns zu beginnen? {#what-are-some-ways-i-can-start-testing-and-optimizing-campaigns}
 
-Multivariate Campaigns und Canvase mit mehreren Varianten sind ein hervorragender Einstieg! Sie können zum Beispiel eine [multivariate Campaign]({{site.baseurl}}/user_guide/messaging/ab_testing) durchführen, um eine Nachricht mit verschiedenen Texten oder Betreffzeilen zu testen. Canvase mit mehreren Varianten können helfen, gesamte Workflows zu testen.
+Multivariate Campaigns und Canvases mit mehreren Varianten sind ein hervorragender Einstieg! Sie können zum Beispiel eine [multivariate Campaign]({{site.baseurl}}/user_guide/messaging/ab_testing) durchführen, um eine Nachricht mit verschiedenen Texten oder Betreffzeilen zu testen. Canvases mit mehreren Varianten können helfen, gesamte Workflows zu testen.
 
 ### Warum ist die Öffnungsrate meiner Campaign gesunken? {#why-did-the-open-rate-for-my-campaign-decrease}
 
@@ -61,7 +61,7 @@ Ein in London ansässiges Unternehmen, das eine Campaign um 12 Uhr mittags sende
 
 ### Wie erkennt Braze die Zeitzone einer Nutzer:in? {#how-does-braze-recognize-a-users-time-zone}
 
-Braze ermittelt die Zeitzone einer Nutzer:in automatisch anhand ihres Geräts. Dies gewährleistet Zeitzonen-Genauigkeit und vollständige Abdeckung Ihrer Nutzer:innen. Nutzer:innen, die über die User API oder anderweitig ohne Zeitzone erstellt werden, haben die Zeitzone Ihres Unternehmens als Standardzeitzone, bis sie in Ihrer App durch das SDK or Software-Development-Kit erkannt werden.
+Braze ermittelt die Zeitzone einer Nutzer:in automatisch anhand ihres Geräts. Dies gewährleistet Zeitzonen-Genauigkeit und vollständige Abdeckung Ihrer Nutzer:innen. Nutzer:innen, die über die User API oder anderweitig ohne Zeitzone erstellt werden, haben die Zeitzone Ihres Unternehmens als Standardzeitzone, bis sie in Ihrer App durch das SDK erkannt werden.
 
 Sie können die Zeitzone Ihres Unternehmens in Ihren [Unternehmenseinstellungen]({{site.baseurl}}/user_guide/administer/global/admin_settings) im Dashboard überprüfen.
 
@@ -133,7 +133,7 @@ Wenn die Campaign geplant ist, müssen Sie alle Bearbeitungen außer der Nachric
 
 ### Ich habe meine geplante Campaign aktualisiert. Warum wurde sie nicht gestartet? {#i-updated-my-scheduled-campaign-why-didnt-it-launch}
 
-Dies kann passieren, wenn eine Campaign genau zu dem Zeitpunkt gestartet werden soll, zu dem sie aktualisiert wurde. Wenn es beispielsweise gerade 15:10 Uhr ist und Sie die Campaign auf 15:10 Uhr geändert und **Campaign Update or aktualisieren or aktualisieren** ausgewählt haben, ist es jetzt nach 15:10 Uhr, was bedeutet, dass die geplante Startzeit bereits verstrichen ist. Anstatt die Campaign für dieselbe Uhrzeit zu planen, wählen Sie **Senden, sobald die Campaign gestartet wird**.
+Dies kann passieren, wenn eine Campaign genau zu dem Zeitpunkt gestartet werden soll, zu dem sie aktualisiert wurde. Wenn es beispielsweise gerade 15:10 Uhr ist und Sie die Campaign auf 15:10 Uhr geändert und **Campaign aktualisieren** ausgewählt haben, ist es jetzt nach 15:10 Uhr, was bedeutet, dass die geplante Startzeit bereits verstrichen ist. Anstatt die Campaign für dieselbe Uhrzeit zu planen, wählen Sie **Senden, sobald die Campaign gestartet wird**.
 
 ### Was ist die „Sicherheitszone“ bevor Nachrichten einer geplanten Campaign eingereiht werden? {#what-is-the-safe-zone-before-messages-on-a-scheduled-campaign-are-enqueued}
 
@@ -161,7 +161,7 @@ Um dies zu vermeiden, stellen Sie sicher, dass Ihre Aktualisierungen angepasster
 
 ### Warum stimmt die Anzahl der Nutzer:innen, die in eine Campaign eintreten, nicht mit der erwarteten Anzahl überein? {#why-does-the-number-of-users-entering-a-campaign-not-match-the-expected-number}
 
-Die Anzahl der Nutzer:innen, die in eine Campaign eintreten, kann von Ihrer erwarteten Anzahl abweichen, je nachdem, wie Zielgruppen und Trigger or triggern ausgewertet werden. In Braze wird eine Zielgruppe vor dem Trigger or triggern ausgewertet (es sei denn, Sie verwenden einen [Attributänderungs-]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers#change-custom-attribute-value)Trigger or triggern). Dies führt dazu, dass Nutzer:innen aus der Campaign herausfallen, wenn sie nicht anfänglich Teil Ihrer ausgewählten Zielgruppe sind, bevor Trigger or triggern-Aktionen ausgewertet werden.
+Die Anzahl der Nutzer:innen, die in eine Campaign eintreten, kann von Ihrer erwarteten Anzahl abweichen, je nachdem, wie Zielgruppen und Trigger ausgewertet werden. In Braze wird eine Zielgruppe vor dem Trigger ausgewertet (es sei denn, Sie verwenden einen [Attributänderungs-]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers#change-custom-attribute-value)Trigger). Dies führt dazu, dass Nutzer:innen aus der Campaign herausfallen, wenn sie nicht anfänglich Teil Ihrer ausgewählten Zielgruppe sind, bevor Trigger-Aktionen ausgewertet werden.
 
 {% alert tip %}
 Wenn Sie weitere Unterstützung bei der Fehlerbehebung von Campaigns benötigen, wenden Sie sich bitte innerhalb von 30 Tagen nach Auftreten des Problems an den Braze-Support, da uns nur die Diagnoseprotokolle der letzten 30 Tage vorliegen.
@@ -223,7 +223,7 @@ Campaigns mit aktionsbasierter Zustellung oder Event-getriggerte Campaigns sind 
 
 #### API-getriggert {#api-triggered}
 
-API-getriggerte und Server-getriggerte Campaigns sind ideal für fortgeschrittenere Transaktionen und ermöglichen es Ihnen, die Zustellung von Campaign-Inhalten von Ihren eigenen Servern und Systemen zu Trigger or triggern or triggern. Die API-Anfrage zum Trigger or triggern or triggern der Nachricht kann auch zusätzliche Daten enthalten, die in Echtzeit in die Nachricht eingebunden werden.
+API-getriggerte und Server-getriggerte Campaigns sind ideal für fortgeschrittenere Transaktionen und ermöglichen es Ihnen, die Zustellung von Campaign-Inhalten von Ihren eigenen Servern und Systemen zu triggern. Die API-Anfrage zum Triggern der Nachricht kann auch zusätzliche Daten enthalten, die in Echtzeit in die Nachricht eingebunden werden.
 
 | Vorteile | Hinweise |
 | ---- | ---- |
@@ -250,7 +250,7 @@ Um Abweichungen zu vermeiden, legen Sie das maximale Empfängerlimit vor dem Sta
 
 Mehrere Faktoren können dazu führen, dass die Anzahl der Sendungen niedriger ist als die geschätzte Zielgruppengröße:
 
-- **Aktionsbasierte Zustellung:** Nutzer:innen generieren Sendungen erst, nachdem sie den Trigger or triggern ausgeführt haben, sodass Sendungen sich über die Zeit ansammeln und hinter der vorab angezeigten Schätzung zurückbleiben können, die beim Erstellen der Campaign angezeigt wurde.
+- **Aktionsbasierte Zustellung:** Nutzer:innen generieren Sendungen erst, nachdem sie den Trigger ausgeführt haben, sodass Sendungen sich über die Zeit ansammeln und hinter der vorab angezeigten Schätzung zurückbleiben können, die beim Erstellen der Campaign angezeigt wurde.
 - **Zielgruppenänderungen nach dem Start:** Das Ändern von Eintritts- oder Zielfiltern nach dem Start kann dazu führen, dass die Momentaufnahme der **geschätzten Zielgruppe** nicht mehr mit den Nutzer:innen übereinstimmt, die sich bei späteren Sendungen noch qualifizieren (z. B. wenn Nutzer:innen nicht berechtigt sind, erneut einzutreten).
 - **Zielgruppenpfad-Schritt:** Für Canvas sendet ein [Zielgruppenpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths)-Schritt nur an Nutzer:innen, die dem höchstpriorisierten Branch entsprechen, für den sie sich qualifizieren, was die Sendungen im Vergleich zu einer flachen Segmentzählung reduzieren kann.
 - **Kontrollgruppen:** Wenn eine [globale Kontrollgruppe]({{site.baseurl}}/user_guide/audience/global_control_group) oder eine Campaign-Kontrollgruppe verwendet wird, wird ein Teil der Zielgruppe von der Zustellung zurückgehalten.
@@ -281,9 +281,9 @@ Wenn Sie feststellen, dass Ihre täglich geplanten Campaigns im Laufe der Zeit a
 
 Für [Rate-Limits für die Zustellgeschwindigkeit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) und andere Faktoren, die die Sendungen für einen einzelnen Vorgang verringern, siehe [Warum sind die Sendungen niedriger als die geschätzte Zielgruppengröße?](#why-are-sends-lower-than-the-estimated-audience-size).
 
-### Warum können eindeutige Empfänger:innen die Sendungen bei E-Mail und Kurzmitteilungsdienst or SMS übersteigen? {#why-can-unique-recipients-exceed-sends-for-email-and-sms}
+### Warum können eindeutige Empfänger:innen die Sendungen bei E-Mail und SMS übersteigen? {#why-can-unique-recipients-exceed-sends-for-email-and-sms}
 
-Bei E-Mail und Kurzmitteilungsdienst or SMS inkrementiert Braze **Eindeutige Empfänger:innen** vor dem E-Mail-Anbieter or ESP-Sendeversuch und inkrementiert **Sendungen** nach einer erfolgreichen E-Mail-Anbieter or ESP-Antwort. Permanente Fehler (wie ungültige E-Mail-Adressen) oder doppelte Adressen führen dazu, dass die eindeutigen Empfänger:innen die Sendungen übersteigen.
+Bei E-Mail und SMS inkrementiert Braze **Eindeutige Empfänger:innen** vor dem E-Mail-Anbieter-Sendeversuch und inkrementiert **Sendungen** nach einer erfolgreichen E-Mail-Anbieter-Antwort. Permanente Fehler (wie ungültige E-Mail-Adressen) oder doppelte Adressen führen dazu, dass die eindeutigen Empfänger:innen die Sendungen übersteigen.
 
 ### Warum stimmt **Zuletzt gesendet** nicht mit meiner geplanten Sendezeit überein? {#why-doesnt-last-sent-match-my-scheduled-send-time}
 

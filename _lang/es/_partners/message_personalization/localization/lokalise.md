@@ -34,7 +34,7 @@ La integración multilingüe utiliza la API de composición multilingüe de Braz
 | Cuenta Lokalise | Se necesita una cuenta Lokalise para beneficiarse de esta asociación. |
 | Proyecto de traducción de Lokalise | Crea un proyecto de Lokalise con el tipo **Marketing and support** y elige **Braze** como **Content integration**. |
 | Configuración multilingüe de Braze | La [compatibilidad con varios idiomas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings) debe estar habilitada en tu espacio de trabajo de Braze. |
-| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos para leer y actualizar Campaigns, Canvas y plantillas de correo electrónico. Puedes crear una en el panel de Braze desde **Settings** > **API Keys**. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos para leer y actualizar Campaigns, Canvas y plantillas de correo electrónico. Puedes crear una en el panel de Braze desde **Settings** > **API Keys**. |
 | Región del servidor de Braze | Tu [región del servidor de Braze]({{site.baseurl}}/api/basics#endpoints) (por ejemplo, US-01, EU-01). Puedes encontrarla en el panel de Braze. |
 | Etiquetas de traducción en el contenido de Braze | Los mensajes deben usar [etiquetas de traducción]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) para identificar el contenido traducible. Envuelve cada bloque traducible en etiquetas {% raw %}`{% translation ID %}...{% endtranslation %}`{% endraw %} con un ID único. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }

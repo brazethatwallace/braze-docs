@@ -11,7 +11,7 @@
 Um loszulegen, folgen Sie der [Dokumentation zur Einrichtung von Firebase Unity](https://firebase.google.com/docs/unity/setup).
 
 {% alert note %}
-Durch die Integration des Firebase Unity SDK or Software-Development-Kit kann Ihre `AndroidManifest.xml` überschrieben werden. Stellen Sie in diesem Fall sicher, dass Sie die ursprüngliche Datei wiederherstellen.
+Durch die Integration des Firebase Unity SDK kann Ihre `AndroidManifest.xml` überschrieben werden. Stellen Sie in diesem Fall sicher, dass Sie die ursprüngliche Datei wiederherstellen.
 {% endalert %}
 
 #### Schritt 1.2: Firebase-Zugangsdaten festlegen {#step-12-set-your-firebase-credentials}
@@ -55,13 +55,13 @@ Unsere Lösung für automatische Push-Benachrichtigungen nutzt die Funktion „P
 {% tab Android %}
 #### Schritt 2.1: Push-Einstellungen konfigurieren {#unity_step-21-configure-push-settings}
 
-Das Braze SDK or Software-Development-Kit kann die Push-Registrierung bei den Firebase Cloud Messaging-Servern automatisch übernehmen, damit Geräte Push-Benachrichtigungen empfangen können. Aktivieren Sie in Unity **Automate Unity Android Integration** und konfigurieren Sie dann die folgenden **Push Notification**-Einstellungen.
+Das Braze SDK kann die Push-Registrierung bei den Firebase Cloud Messaging-Servern automatisch übernehmen, damit Geräte Push-Benachrichtigungen empfangen können. Aktivieren Sie in Unity **Automate Unity Android Integration** und konfigurieren Sie dann die folgenden **Push Notification**-Einstellungen.
 
 | Einstellung | Beschreibung |
 |----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Automatic Firebase Cloud Messaging Registration Enabled | Weist das Braze SDK or Software-Development-Kit an, automatisch ein FCM-Push-Token / Textbaustein für ein Gerät abzurufen und zu senden. |
+| Automatic Firebase Cloud Messaging Registration Enabled | Weist das Braze SDK an, automatisch ein FCM-Push-Token / Textbaustein für ein Gerät abzurufen und zu senden. |
 | Firebase Cloud Messaging Sender ID | Die Sender-ID aus Ihrer Firebase-Konsole. |
-| Handle Push Deeplinks Automatically | Gibt an, ob das SDK or Software-Development-Kit das Öffnen von Deeplinks oder das Öffnen der App beim Klicken auf Push-Benachrichtigungen verarbeiten soll. |
+| Handle Push Deeplinks Automatically | Gibt an, ob das SDK das Öffnen von Deeplinks oder das Öffnen der App beim Klicken auf Push-Benachrichtigungen verarbeiten soll. |
 | Small Notification Icon Drawable | Android-Drawable-Ressourcenreferenz für das kleine Symbol, das beim Empfang einer Push-Benachrichtigung angezeigt wird. Geben Sie die vollständige Referenz einschließlich des Präfixes `@drawable/` ein (z. B. `@drawable/hourglass_icon`). Die automatisierte Integration schreibt diesen Wert wie eingegeben in `braze.xml`. Wenn Sie dieses Feld leer lassen, verwendet die Benachrichtigung das Anwendungssymbol als kleines Symbol. |
 | Large Notification Icon Drawable | Optionales großes Symbol für Benachrichtigungen. Verwenden Sie dasselbe `@drawable/`-Format wie beim kleinen Symbol (z. B. `@drawable/my_large_icon`). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 2.1: Push-Einstellungen konfigurieren" }
@@ -80,7 +80,7 @@ Das Braze SDK or Software-Development-Kit kann die Push-Registrierung bei den Fi
 
 Öffnen Sie die Braze-Konfigurationseinstellungen im Unity-Editor, indem Sie zu **Braze > Braze Configuration** navigieren.
 
-Aktivieren Sie **Integrate Push With Braze**, um Nutzer:innen automatisch für Push-Benachrichtigungen zu Registrierung or registrieren, Push-Token / Textbaustein an Braze weiterzugeben, Analytics für Push-Öffnungen zu verfolgen und die Vorteile unserer standardmäßigen Push-Benachrichtigungsverarbeitung zu nutzen.
+Aktivieren Sie **Integrate Push With Braze**, um Nutzer:innen automatisch für Push-Benachrichtigungen zu Registrierung, Push-Token / Textbaustein an Braze weiterzugeben, Analytics für Push-Öffnungen zu verfolgen und die Vorteile unserer standardmäßigen Push-Benachrichtigungsverarbeitung zu nutzen.
 
 #### Schritt 2.3: Hintergrund-Push aktivieren (optional) {#step-23-enable-background-push-optional}
 
@@ -90,7 +90,7 @@ Aktivieren Sie **Enable Background Push**, wenn Sie `background mode` für Push-
 
 #### Schritt 2.4: Automatische Registrierung deaktivieren (optional) {#step-24-disable-automatic-registration-optional}
 
-Nutzer:innen, die sich noch nicht für Push-Benachrichtigungen entschieden haben, werden beim Öffnen Ihrer Anwendung automatisch für Push autorisiert. Um diese Funktion zu deaktivieren und Nutzer:innen manuell für Push zu Registrierung or registrieren, aktivieren Sie **Disable Automatic Push Registration**.
+Nutzer:innen, die sich noch nicht für Push-Benachrichtigungen entschieden haben, werden beim Öffnen Ihrer Anwendung automatisch für Push autorisiert. Um diese Funktion zu deaktivieren und Nutzer:innen manuell für Push zu Registrierung, aktivieren Sie **Disable Automatic Push Registration**.
 
 - Wenn **Disable Provisional Authorization** unter iOS 12 oder höher nicht aktiviert ist, werden Nutzer:innen vorläufig (stillschweigend) für den Empfang stiller Push-Benachrichtigungen autorisiert. Wenn diese Option aktiviert ist, wird den Nutzer:innen der native Push-Prompt angezeigt.
 - Wenn Sie genau konfigurieren möchten, wann der Prompt zur Laufzeit angezeigt werden soll, deaktivieren Sie die automatische Registrierung im Braze-Konfigurationseditor und verwenden Sie stattdessen `AppboyBinding.PromptUserForPushPermissions()`.
@@ -99,7 +99,7 @@ Nutzer:innen, die sich noch nicht für Push-Benachrichtigungen entschieden haben
 {% endtab %}
 
 {% tab Amazon Device Messaging %}
-#### Schritt 2.1: `AndroidManifest.xml` Update or aktualisieren or aktualisieren {#unity_step-21-update-androidmanifestxml}
+#### Schritt 2.1: `AndroidManifest.xml` aktualisieren {#unity_step-21-update-androidmanifestxml}
 
 Wenn Ihre App keine `AndroidManifest.xml` hat, können Sie die folgende Vorlage verwenden. Wenn Sie bereits eine `AndroidManifest.xml` haben, stellen Sie sicher, dass alle fehlenden Abschnitte zu Ihrer bestehenden `AndroidManifest.xml` hinzugefügt werden.
 
@@ -281,7 +281,7 @@ public class MainMenu : MonoBehaviour {
 {% endtab %}
 
 {% tab Amazon Device Messaging %}
-Durch das Update or aktualisieren or aktualisieren Ihrer `AndroidManifest.xml` im [vorherigen Schritt](#unity_step-21-update-androidmanifestxml) wurden Push-Listener automatisch eingerichtet, als Sie die folgenden Zeilen hinzugefügt haben. Es ist also keine weitere Einrichtung erforderlich.
+Durch das Aktualisieren Ihrer `AndroidManifest.xml` im [vorherigen Schritt](#unity_step-21-update-androidmanifestxml) wurden Push-Listener automatisch eingerichtet, als Sie die folgenden Zeilen hinzugefügt haben. Es ist also keine weitere Einrichtung erforderlich.
 
 ```xml
 <action android:name="com.amazon.device.messaging.intent.RECEIVE" />

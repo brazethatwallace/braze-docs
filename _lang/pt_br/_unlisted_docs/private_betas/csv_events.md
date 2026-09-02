@@ -21,7 +21,7 @@ Mesmo que esses e-mails não sejam entregues ao gateway de SMS, eles ainda conta
 
 Antes de prosseguir, observe que a Braze não sanitiza (valida ou formata corretamente) dados HTML durante a importação. Isso significa que as tags de script devem ser removidas de todos os dados de importação destinados à personalização web.
 
-## REST or transferir estado representacional API or interface de programação do aplicativo (API)
+## REST API
 
 Você pode usar o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) para registrar eventos personalizados, atributos de usuário e compras para usuários.
 
@@ -41,7 +41,7 @@ Se você estiver fazendo upload de uma combinação de usuários com `external_i
 
 ### Importação com ID externo {#importing-with-external-id}
 
-Ao importar os dados dos seus clientes, você precisará especificar o identificador exclusivo de cada cliente, também conhecido como `external_id`. Antes de iniciar a importação por CSV, é importante entender com sua equipe de engenharia como os usuários serão identificados na Braze. Normalmente, esse é um ID interno de banco de dados. Ele deve estar alinhado com a forma como os usuários serão identificados pelo SDK or kit de desenvolvimento de software da Braze em dispositivos móveis e web, e foi projetado para que cada cliente tenha um único perfil de usuário na Braze em todos os seus dispositivos. Leia mais sobre o [ciclo de vida do perfil de usuário]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle) da Braze.
+Ao importar os dados dos seus clientes, você precisará especificar o identificador exclusivo de cada cliente, também conhecido como `external_id`. Antes de iniciar a importação por CSV, é importante entender com sua equipe de engenharia como os usuários serão identificados na Braze. Normalmente, esse é um ID interno de banco de dados. Ele deve estar alinhado com a forma como os usuários serão identificados pelo SDK da Braze em dispositivos móveis e web, e foi projetado para que cada cliente tenha um único perfil de usuário na Braze em todos os seus dispositivos. Leia mais sobre o [ciclo de vida do perfil de usuário]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle) da Braze.
 
 Quando você fornece um `external_id` na importação, a Braze atualiza qualquer usuário existente com o mesmo `external_id` ou cria um novo usuário identificado com esse `external_id` definido, caso nenhum seja encontrado.
 
@@ -237,7 +237,7 @@ Cada dado de cliente importado via CSV sobrescreverá o valor existente nos perf
 - A atualização de `email_subscribe`, `push_subscribe`, `subscription_group_id` ou `subscription_state` não contará para o consumo de pontos de dados.
 
 {% alert important %}
-Definir idioma ou país de um usuário via importação CSV ou API or interface de programação do aplicativo (API) impedirá que a Braze capture automaticamente essas informações por meio do SDK or kit de desenvolvimento de software.
+Definir idioma ou país de um usuário via importação CSV ou API impedirá que a Braze capture automaticamente essas informações por meio do SDK.
 {% endalert %}
 
 ## Importação de um CSV {#importing-a-csv}
@@ -270,7 +270,7 @@ Se a Braze detectar algo malformado nas primeiras linhas do seu arquivo durante 
 
 Além disso, é importante examinar o arquivo CSV completo antes do upload, pois a Braze não analisa cada linha do arquivo de entrada para gerar a prévia. Isso significa que podem existir erros que a Braze não detecta ao gerar essa prévia.
 
-Linhas malformadas e linhas sem um ID externo não serão importadas. Todos os outros erros podem ser importados, mas podem interferir na filtragem ao criar um Segment or segmento. Para saber mais, vá para a seção [Solução de problemas](#troubleshooting).
+Linhas malformadas e linhas sem um ID externo não serão importadas. Todos os outros erros podem ser importados, mas podem interferir na filtragem ao criar um Segment. Para saber mais, vá para a seção [Solução de problemas](#troubleshooting).
 
 {% alert warning %}
 Os erros são baseados exclusivamente no tipo de dados e na estrutura do arquivo. Por exemplo, um endereço de e-mail mal formatado ainda seria importado, pois ainda pode ser interpretado como uma string.
@@ -278,17 +278,17 @@ Os erros são baseados exclusivamente no tipo de dados e na estrutura do arquivo
 
 ### Importação Lambda de CSV de usuários {#lambda-user-csv-import}
 
-Você pode usar nosso script Lambda S3 serverless de importação de CSV para fazer o upload de atributos de usuários para a plataforma. Essa solução funciona como um uploader de CSV, onde você deposita seus CSVs em um bucket S3 e os scripts fazem o upload por meio da nossa API or interface de programação do aplicativo (API).
+Você pode usar nosso script Lambda S3 serverless de importação de CSV para fazer o upload de atributos de usuários para a plataforma. Essa solução funciona como um uploader de CSV, onde você deposita seus CSVs em um bucket S3 e os scripts fazem o upload por meio da nossa API.
 
 O tempo estimado de execução para um arquivo com um milhão de linhas é de aproximadamente cinco minutos. Para saber mais, consulte [CSV de atributos de usuários para importação na Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
 
 ## Segmentação {#segmenting}
 
-A importação de usuário cria e atualiza perfis de usuário, e também pode ser usada para criar segmentos. Para criar um Segment or segmento or segmento, selecione **Gerar automaticamente um Segment or segmento or segmento a partir dos usuários importados deste CSV** antes de iniciar a importação.
+A importação de usuário cria e atualiza perfis de usuário, e também pode ser usada para criar segmentos. Para criar um Segment, selecione **Gerar automaticamente um Segment a partir dos usuários importados deste CSV** antes de iniciar a importação.
 
-Você pode definir o nome do Segment or segmento or segmento ou aceitar o padrão, que é o nome do seu arquivo. Os arquivos usados para criar um Segment or segmento or segmento terão um link para visualizar o Segment or segmento or segmento após a conclusão da importação.
+Você pode definir o nome do Segment ou aceitar o padrão, que é o nome do seu arquivo. Os arquivos usados para criar um Segment terão um link para visualizar o Segment após a conclusão da importação.
 
-O filtro usado para criar o Segment or segmento or segmento seleciona os usuários que foram criados ou atualizados em uma importação selecionada e está disponível com todos os outros filtros na página de edição de Segment or segmento or segmento.
+O filtro usado para criar o Segment seleciona os usuários que foram criados ou atualizados em uma importação selecionada e está disponível com todos os outros filtros na página de edição de Segment.
 
 ## Solução de problemas {#troubleshooting}
 

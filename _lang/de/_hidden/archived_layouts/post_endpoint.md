@@ -16,7 +16,7 @@ noindex: true
 # [Name des Endpunkts] {#endpoint-name}
 
 {% apimethod post %}
-/Kurzmitteilungsdienst or SMS/invalid_phone_numbers/remove
+/sms/invalid_phone_numbers/remove
 {% endapimethod %}
 
 <!--
@@ -57,7 +57,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## Beispielanfrage {#example-request}
 
-<!--The following example demonstrates a request that will remove specific Kurzmitteilungsdienst or SMS numbers from Braze's invalid phone number list via the API:-->
+<!--The following example demonstrates a request that will remove specific SMS numbers from Braze's invalid phone number list via the API:-->
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/sms/invalid_phone_numbers/remove' \

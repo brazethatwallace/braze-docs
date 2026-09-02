@@ -10,36 +10,36 @@ hidden: true
 
 # Ihre Shopify-Integration upgraden (angepasst) {#upgrading-your-shopify-integration-custom}
 
-> Erfahren Sie, wie Sie Ihre Shopify-Integration über den angepassten Pfad für Braze upgraden. Im Rahmen unseres Engagements, Ihnen die bestmögliche Erfahrung zu bieten, verlangen wir, dass alle Shopify-Integrationen bis zum 28. August 2025 auf die neueste Version [upgraden]({{site.baseurl}}/shopify). Dieses Upgrade or upgraden ist unerlässlich, da wesentliche Änderungen in der Shopify-Technologie die Funktionsweise unserer Integration beeinflussen werden.
+> Erfahren Sie, wie Sie Ihre Shopify-Integration über den angepassten Pfad für Braze upgraden. Im Rahmen unseres Engagements, Ihnen die bestmögliche Erfahrung zu bieten, verlangen wir, dass alle Shopify-Integrationen bis zum 28. August 2025 auf die neueste Version [upgraden]({{site.baseurl}}/shopify). Dieses Upgrade ist unerlässlich, da wesentliche Änderungen in der Shopify-Technologie die Funktionsweise unserer Integration beeinflussen werden.
 
 ## Wer ist berechtigt? {#whos-eligible}
 
-Dieser Upgrade or upgraden-Pfad ist für Marken mit einem Shopify-Headless- oder Shopify-Hydrogen-Shop vorgesehen.
+Dieser Upgrade-Pfad ist für Marken mit einem Shopify-Headless- oder Shopify-Hydrogen-Shop vorgesehen.
 
 {% multi_lang_include partners/shopify_alerts.md alert='breaking' %}
 
-## Upgrade or upgraden-Anforderungen {#upgrade-requirements}
+## Upgrade-Anforderungen {#upgrade-requirements}
 
 Bevor Sie beginnen, prüfen Sie die folgenden Punkte:
 
 | Anforderung           | Beschreibung |
 |-----------------------|-------------|
-| **Wichtige Änderungen**  | Stellen Sie sicher, dass Sie alle wichtigen Änderungen vom Legacy-Konnektor zum neuen Konnektor unter [Shopify-Upgrade or upgraden – Übersicht]({{site.baseurl}}/shopify_upgrade_overview#subscriber-collection) geprüft haben. |
-| **Upgrade or upgraden-Voraussetzungen** | Stellen Sie sicher, dass Sie alle erforderlichen [Upgrade or upgraden-Voraussetzungen]({{site.baseurl}}/shopify_upgrade_overview#upgrade-prerequisites) mit Ihren Engineering- und Marketing-Teams abgeschlossen haben. Um Ihren Headless-Shopify-Shop mit Braze zu Update or aktualisieren or aktualisieren, müssen Sie zwei wichtige Schritte durchführen:<br><br>- Das Braze Web SDK or Software-Development-Kit initialisieren und laden, um Onsite-Tracking zu aktivieren<br>- Ihren bestehenden Shop über das produktinterne Upgrade or upgraden-Erlebnis Update or aktualisieren or aktualisieren |
+| **Wichtige Änderungen**  | Stellen Sie sicher, dass Sie alle wichtigen Änderungen vom Legacy-Konnektor zum neuen Konnektor unter [Shopify-Upgrade – Übersicht]({{site.baseurl}}/shopify_upgrade_overview#subscriber-collection) geprüft haben. |
+| **Upgrade-Voraussetzungen** | Stellen Sie sicher, dass Sie alle erforderlichen [Upgrade-Voraussetzungen]({{site.baseurl}}/shopify_upgrade_overview#upgrade-prerequisites) mit Ihren Engineering- und Marketing-Teams abgeschlossen haben. Um Ihren Headless-Shopify-Shop mit Braze zu aktualisieren, müssen Sie zwei wichtige Schritte durchführen:<br><br>- Das Braze Web SDK initialisieren und laden, um Onsite-Tracking zu aktivieren<br>- Ihren bestehenden Shop über das produktinterne Upgrade-Erlebnis aktualisieren |
 | **Breaking Changes**  | Prüfen und beheben Sie alle in Braze markierten Breaking Changes. Eine vollständige Anleitung finden Sie unter [Breaking Changes beheben](#fixing-breaking-changes-fixing-breaking-changes). |
 {: .reset-td-br-1 .reset-td-br-2  role="presentation"}
 
 ## Breaking Changes beheben {#fixing-breaking-changes}
 
-Gehen Sie in Braze zu **Partnerintegrationen** > **Shopify** und wählen Sie dann **Upgrade or upgraden starten**.
+Gehen Sie in Braze zu **Partnerintegrationen** > **Shopify** und wählen Sie dann **Upgrade starten**.
 
 ![Panel mit einer Option zum Starten des Upgrades.]({% image_buster /assets/unlisted_docs/img/shopify/start_shopify_custom_upgrade.png %}){: style="max-width:35%;"}
 
-Alle betroffenen Canvase, Campaigns und Segmente, die Shopify-Daten verwenden, werden markiert.
+Alle betroffenen Canvases, Campaigns und Segmente, die Shopify-Daten verwenden, werden markiert.
 
 ![Ein Modal zur Überprüfung der von Breaking Changes betroffenen Elemente.]({% image_buster /assets/unlisted_docs/img/shopify/review_breaking_changes.png %})
 
-Für die meisten Events empfehlen wir, die neuen erforderlichen Shopify-Events und -Attribute mit einem „ODER“-Operator einzubeziehen, um ein reibungsloses Upgrade or upgraden aktiver Nachrichten zu ermöglichen. Für spezifischere Fälle beachten Sie Folgendes:
+Für die meisten Events empfehlen wir, die neuen erforderlichen Shopify-Events und -Attribute mit einem „ODER“-Operator einzubeziehen, um ein reibungsloses Upgrade aktiver Nachrichten zu ermöglichen. Für spezifischere Fälle beachten Sie Folgendes:
 
 {% tabs local %}
 {% tab Warenkorb-Abbruch %}
@@ -63,38 +63,38 @@ Weitere Informationen finden Sie unter [Unterstützte Shopify-Events]({{site.bas
 {% endtab %}
 
 {% tab Abonnent:innenlisten %}
-Wenn Sie E-Mail- oder Kurzmitteilungsdienst or SMS-Abonnent:innen von Shopify über die Integration erfassen, bestätigen Sie, dass Ihre aktiven Nachrichten die entsprechenden Abonnent:innenlisten für Ihren Shopify-Shop enthalten.
+Wenn Sie E-Mail- oder SMS-Abonnent:innen von Shopify über die Integration erfassen, bestätigen Sie, dass Ihre aktiven Nachrichten die entsprechenden Abonnent:innenlisten für Ihren Shopify-Shop enthalten.
 
-Wenn das Upgrade or upgraden abgeschlossen ist, werden neue Standard-Abo-Gruppen für Ihre Integration erstellt, die Sie als Teil Ihres aktiven Messagings nutzen müssen. Weitere Informationen zu den Änderungen finden Sie unter [Abonnent:innenerfassung]({{site.baseurl}}/shopify_upgrade_overview#subscriber-collection).
+Wenn das Upgrade abgeschlossen ist, werden neue Standard-Abo-Gruppen für Ihre Integration erstellt, die Sie als Teil Ihres aktiven Messagings nutzen müssen. Weitere Informationen zu den Änderungen finden Sie unter [Abonnent:innenerfassung]({{site.baseurl}}/shopify_upgrade_overview#subscriber-collection).
 {% endtab %}
 {% endtabs %}
 
-## Upgrade or upgraden von Shopify {#upgrading-shopify}
+## Upgrade von Shopify {#upgrading-shopify}
 
 {% alert important %}
-Es ist wichtig, dass Sie alle [Breaking Changes beheben](#fixing-breaking-changes), bevor Sie mit dem Upgrade or upgraden beginnen.
+Es ist wichtig, dass Sie alle [Breaking Changes beheben](#fixing-breaking-changes), bevor Sie mit dem Upgrade beginnen.
 {% endalert %}
 
-### Schritt 1: Braze Web SDK or Software-Development-Kit initialisieren und laden, um Onsite-Tracking zu aktivieren {#step-1}
+### Schritt 1: Braze Web SDK initialisieren und laden, um Onsite-Tracking zu aktivieren {#step-1}
 
-Falls noch nicht geschehen, initialisieren und laden Sie das Braze Web SDK or Software-Development-Kit, um Onsite-Tracking zu aktivieren. Eine vollständige Anleitung finden Sie unter [Shopify – benutzerdefinierte Integration einrichten]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration#step-1):
+Falls noch nicht geschehen, initialisieren und laden Sie das Braze Web SDK, um Onsite-Tracking zu aktivieren. Eine vollständige Anleitung finden Sie unter [Shopify – benutzerdefinierte Integration einrichten]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration#step-1):
 - Eine Braze-Web-App erstellen
 - Subdomain und Umgebungsvariablen hinzufügen
 - Onsite-Tracking aktivieren
 - Ein Shopify-Konto-Anmeldeereignis hinzufügen
 - Tracking für „Produkt angesehen“- und „Warenkorb-Aktualisierung“-Ereignisse hinzufügen
 
-### Schritt 2: Upgrade or upgraden starten {#step-2-start-the-upgrade}
+### Schritt 2: Upgrade starten {#step-2-start-the-upgrade}
 
-Gehen Sie in Braze zu **Partnerintegrationen** > **Shopify** und wählen Sie **Upgrade or upgraden starten**.
+Gehen Sie in Braze zu **Partnerintegrationen** > **Shopify** und wählen Sie **Upgrade starten**.
 
 ![Panel mit einer Option zum Starten des Upgrades.]({% image_buster /assets/unlisted_docs/img/shopify/start_shopify_custom_upgrade.png %}){: style="max-width:35%;"}
 
-Stimmen Sie den Upgrade or upgraden-Richtlinien zu, indem Sie das Kontrollkästchen aktivieren, und wählen Sie dann **Upgrade or upgraden starten**.
+Stimmen Sie den Upgrade-Richtlinien zu, indem Sie das Kontrollkästchen aktivieren, und wählen Sie dann **Upgrade starten**.
 
-![Modal zur Bestätigung, dass Sie verstanden haben, dass das Upgrade or upgraden Breaking Changes verursachen kann.]({% image_buster /assets/unlisted_docs/img/shopify/confirm_upgrade.png %}){: style="max-width:50%;"}
+![Modal zur Bestätigung, dass Sie verstanden haben, dass das Upgrade Breaking Changes verursachen kann.]({% image_buster /assets/unlisted_docs/img/shopify/confirm_upgrade.png %}){: style="max-width:50%;"}
 
-Bestätigen Sie mit Ihren Entwickler:innen, dass Sie Schritt 1 des benutzerdefinierten Upgrade or upgraden-Pfads abgeschlossen haben, indem Sie das Kontrollkästchen aktivieren, und wählen Sie dann **Bestätigen**.
+Bestätigen Sie mit Ihren Entwickler:innen, dass Sie Schritt 1 des benutzerdefinierten Upgrade-Pfads abgeschlossen haben, indem Sie das Kontrollkästchen aktivieren, und wählen Sie dann **Bestätigen**.
 
 ![Modal mit einem Kontrollkästchen zur Bestätigung, dass Sie die Schritte eins bis fünf abgeschlossen haben.]({% image_buster /assets/unlisted_docs/img/shopify/confirm_completed_steps.png %}){: style="max-width:50%;"}
 
@@ -114,15 +114,15 @@ Folgen Sie auf der Shopify-Website den Anweisungen, um Ihre Braze-App erneut zu 
 Der Prozess der erneuten Autorisierung kann einige Minuten dauern. Er wird jedoch automatisch auf Ihrer Shopify-Seite aktualisiert, sobald er abgeschlossen ist.
 {% endalert %}
 
-![Shopify-Upgrade or upgraden-Panel mit einem Ladesymbol neben „Braze-App erneut autorisieren“.]({% image_buster /assets/unlisted_docs/img/shopify/reauthorize_app_loading.png %}){: style="max-width:35%;"}
+![Shopify-Upgrade-Panel mit einem Ladesymbol neben „Braze-App erneut autorisieren“.]({% image_buster /assets/unlisted_docs/img/shopify/reauthorize_app_loading.png %}){: style="max-width:35%;"}
 
 ### Schritt 4: Einen externen ID-Typ wählen {#step-4-choose-an-external-id-type}
 
-Der von Ihnen gewählte externe ID-Typ wird neuen Shopify-Kundenprofilen zugewiesen, wenn ein Shopify-Konto erstellt oder eine Bestellung aufgegeben wird. Er wird auch verwendet, um bestehende Nutzerprofile zu Update or aktualisieren or aktualisieren, wenn diese bereits einen Shopify-Kunden-ID-Alias haben, aber keine externe ID in Braze zugewiesen bekommen haben.
+Der von Ihnen gewählte externe ID-Typ wird neuen Shopify-Kundenprofilen zugewiesen, wenn ein Shopify-Konto erstellt oder eine Bestellung aufgegeben wird. Er wird auch verwendet, um bestehende Nutzerprofile zu aktualisieren, wenn diese bereits einen Shopify-Kunden-ID-Alias haben, aber keine externe ID in Braze zugewiesen bekommen haben.
 
 Um Ihren externen ID-Typ zu wählen, kehren Sie zu Braze zurück und wählen Sie **Externe ID bestätigen**.
 
-![Shopify-Upgrade or upgraden-Panel mit einem Button zur Bestätigung der externen ID.]({% image_buster /assets/unlisted_docs/img/shopify/custom_confirm_external_id.png %}){: style="max-width:35%;"}
+![Shopify-Upgrade-Panel mit einem Button zur Bestätigung der externen ID.]({% image_buster /assets/unlisted_docs/img/shopify/custom_confirm_external_id.png %}){: style="max-width:35%;"}
 
 Wählen Sie die externe ID, die Sie für die Shopify-Integration Ihres Workspace verwenden möchten. Wenn Sie fertig sind, wählen Sie **Externe ID festlegen**.
 
@@ -191,13 +191,13 @@ Wiederholen Sie [Schritt 4](#step-4-choose-an-external-id-type) und geben Sie Ih
 
 Um das Braze-App-Embed im Theme Ihres Shops zu aktivieren, kehren Sie zu Braze zurück und wählen Sie „Zu Shopify wechseln“.
 
-![Shopify-Upgrade or upgraden-Panel mit einem Button zum Aktivieren des Braze-App-Embeds.]({% image_buster /assets/unlisted_docs/img/shopify/custom_enable_app_embed.png %}){: style="max-width:35%;"}
+![Shopify-Upgrade-Panel mit einem Button zum Aktivieren des Braze-App-Embeds.]({% image_buster /assets/unlisted_docs/img/shopify/custom_enable_app_embed.png %}){: style="max-width:35%;"}
 
 Aktivieren Sie auf der Shopify-Website das Braze-App-Embed und speichern Sie Ihre Änderungen.
 
 ![Ein Beispiel für ein App-Embed.]({% image_buster /assets/unlisted_docs/img/shopify/app_embed.png %})
 
-### Schritt 6: Upgrade or upgraden überprüfen {#step-6-verify-the-upgrade}
+### Schritt 6: Upgrade überprüfen {#step-6-verify-the-upgrade}
 
 Zurück in Braze werden Sie benachrichtigt, wenn die Installation Ihrer Shopify-Integration abgeschlossen ist.
 

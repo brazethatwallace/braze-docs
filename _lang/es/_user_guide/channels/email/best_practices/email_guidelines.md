@@ -42,7 +42,7 @@ Si tu texto alternativo contiene comillas, usa comillas simples (`'`) en lugar d
 La validación se utiliza para las direcciones de correo electrónico del panel, las direcciones de correo electrónico de los usuarios finales (tus clientes) y las direcciones de remitente y responder a de un mensaje de correo electrónico.
 {% endalert %}
 
-La validación de correo electrónico ocurre cuando la dirección de correo electrónico de un usuario se actualiza o se importa a Braze mediante la API, la carga de CSV, el SDK or kit de desarrollo de software, o se modifica en el panel. Ten en cuenta que las direcciones de correo electrónico no pueden incluir espacios en blanco, y si se envían a través de la API, los espacios en blanco pueden generar un error `400`.
+La validación de correo electrónico ocurre cuando la dirección de correo electrónico de un usuario se actualiza o se importa a Braze mediante la API, la carga de CSV, el SDK, o se modifica en el panel. Ten en cuenta que las direcciones de correo electrónico no pueden incluir espacios en blanco, y si se envían a través de la API, los espacios en blanco pueden generar un error `400`.
 
 Las direcciones de correo electrónico dirigidas a través de los servidores de Braze deben validarse según los estándares [RFC 2822](https://datatracker.ietf.org/doc/html/rfc2822). Braze no acepta ciertos caracteres y los reconoce como no válidos. Si un correo electrónico rebota, Braze marca el correo electrónico como no válido y el estado de suscripción no se modifica.
 

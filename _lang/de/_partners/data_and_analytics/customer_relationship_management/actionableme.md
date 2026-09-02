@@ -10,21 +10,21 @@ search_tag: Partner
 
 # actionable.me
 
-> [actionable.me](https://actionable.me), entwickelt vom Team bei Massive Rocket, einer Daten- und CRM or Customer-Relationship-Management [-System] (CRM)-Agentur, ist ein standardisierter und automatisierter Ansatz für die Durchführung von CRM or Customer-Relationship-Management [-System] (CRM)-Programmen, der Tools und Prozesse bereitstellt, die Braze-Kund:innen schnell, konsistent und vorhersehbar zu einem Mehrwert verhelfen sollen.
+> [actionable.me](https://actionable.me), entwickelt vom Team bei Massive Rocket, einer Daten- und CRM-Agentur, ist ein standardisierter und automatisierter Ansatz für die Durchführung von CRM-Programmen, der Tools und Prozesse bereitstellt, die Braze-Kund:innen schnell, konsistent und vorhersehbar zu einem Mehrwert verhelfen sollen.
 
 _Diese Integration wird von actionable.me gepflegt._
 
 ## Über die Integration {#about-the-integration}
 
-Die Integration von Braze und actionable.me erlaubt es Ihnen, einen Dienst einzurichten, um Ihre Fortschritte bei der Nutzung von Braze zu überwachen. Durch eine Kombination von Tools und Prozessen werden sie Ihre CRM or Customer-Relationship-Management [-System] (CRM)-Performance schnell bewerten, neue Möglichkeiten identifizieren und Empfehlungen für eine bessere Performance geben.
+Die Integration von Braze und actionable.me erlaubt es Ihnen, einen Dienst einzurichten, um Ihre Fortschritte bei der Nutzung von Braze zu überwachen. Durch eine Kombination von Tools und Prozessen werden sie Ihre CRM-Performance schnell bewerten, neue Möglichkeiten identifizieren und Empfehlungen für eine bessere Performance geben.
 
 ## Voraussetzungen {#prerequisites}
 
 | Anforderung | Beschreibung |
 | --- | --- |
 | actionable.me-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein actionable.me-Konto. |
-| Braze-Representational State Transfer-API-Schlüssel | Ein Braze-Representational State Transfer-API-Schlüssel mit den im nächsten Abschnitt aufgeführten Berechtigungen.<br><br> Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden. |
-| Braze-Representational State Transfer-Endpunkt | [Ihre Representational State Transfer-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
+| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit den im nächsten Abschnitt aufgeführten Berechtigungen.<br><br> Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden. |
+| Braze-REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
@@ -54,7 +54,7 @@ Navigieren Sie in Braze zu **Settings** > **API Keys**. Wählen Sie **Create New
 
 ### 2. Schritt: Stellen Sie dem actionable.me-Team die erforderlichen Informationen bereit {#step-2-provide-information-to-the-actionableme-team}
 
-Um die Integration abzuschließen, müssen Sie Ihrem actionable.me-Operations-Team Ihren Representational State Transfer-API-Schlüssel und die [Representational State Transfer-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints) mitteilen. actionable.me wird dann die Verbindung herstellen, sich nach Abschluss der Einrichtung mit Ihnen in Verbindung setzen und mit dem Austausch von Insights beginnen.
+Um die Integration abzuschließen, müssen Sie Ihrem actionable.me-Operations-Team Ihren REST-API-Schlüssel und die [REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints) mitteilen. actionable.me wird dann die Verbindung herstellen, sich nach Abschluss der Einrichtung mit Ihnen in Verbindung setzen und mit dem Austausch von Insights beginnen.
 
 ![Die actionable.me-Seite „Plattform hinzufügen“, die das actionable.me-Operations-Team konfigurieren wird.]({% image_buster /assets/img/actionableme/image2.png %})
 

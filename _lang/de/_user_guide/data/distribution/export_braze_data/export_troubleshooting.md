@@ -94,7 +94,7 @@ Im Cloud-Speicher werden CSV-Exporte in einer ZIP-Datei gebündelt. Die ZIP-Date
 #### Häufige Fehler
 
 - `AccessDenied` bedeutet, dass Braze nicht in Ihren Bucket schreiben konnte. Überprüfen Sie, ob Ihre Zugangsdaten und Berechtigungen weiterhin gültig sind.
-- `ExpiredToken` wird angezeigt, wenn Braze den Zugriff auf Ihren Bucket verloren hat. Update or aktualisieren or aktualisieren Sie Ihre Zugangsdaten im Braze-Dashboard.
+- `ExpiredToken` wird angezeigt, wenn Braze den Zugriff auf Ihren Bucket verloren hat. Aktualisieren Sie Ihre Zugangsdaten im Braze-Dashboard.
 - Sollten einige Dateien kleiner als erwartet erscheinen, ist dies normales Verhalten. Der Exportvorgang teilt Dateien aus Stabilitätsgründen absichtlich auf.
 - Apostrophe am Anfang bestimmter Felder (wie `-`, `=`, `+` oder `@`) sind erwartetes Verhalten. Beispielsweise wird `-1943` in der CSV-Datei zu `'-1943`. Braze tut dies, um zu verhindern, dass Tabellenkalkulationsprogramme die Daten falsch interpretieren. Dies gilt nicht für JSON-Exporte, wie sie etwa vom [Endpunkt `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) zurückgegeben werden.
 
@@ -110,7 +110,7 @@ Dateien erscheinen in der Regel in Ihrem Bucket, während der Export läuft, sod
 #### Häufige Fehler {#common-errors-1}
 
 - `AccessDenied` tritt auf, wenn Braze nicht in Ihren Bucket schreiben kann oder die Objekte anschließend gelöscht wurden. Überprüfen Sie die Berechtigungen und stellen Sie sicher, dass keine externen Prozesse Dateien löschen.
-- `ExpiredToken` bedeutet, dass die Zugangsdaten von Braze für Ihren Bucket veraltet sind. Update or aktualisieren or aktualisieren Sie diese im Dashboard.
+- `ExpiredToken` bedeutet, dass die Zugangsdaten von Braze für Ihren Bucket veraltet sind. Aktualisieren Sie diese im Dashboard.
 - Sollten Dateien fehlen oder kleiner als erwartet sein, überprüfen Sie zunächst, ob Objekte außerhalb von Braze gelöscht werden. Kleinere Dateigrößen selbst sind erwartetes Verhalten.
 
 {% endsdktab %}
@@ -160,7 +160,7 @@ Symptom: Ein `403 Forbidden`-Fehler beim Herunterladen von der `/users/export/se
 
 Wenn Sie beim Verwenden des [`/users/export/segment`-Endpunkts]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) einen `403 Forbidden`-Fehler erhalten, ist die Datei möglicherweise noch nicht bereit. Große Exporte können eine Weile dauern. Warten Sie bis zu einer Stunde, bevor Sie den Download erneut versuchen.
 
-Wenn Sie ein automatisiertes Skript zum Abrufen der Datei verwenden, erhalten Sie möglicherweise ebenfalls einen `403 Forbidden`-Fehler, wenn Sie die URL zu früh anfordern. Falls Sie regelmäßig Segmentdaten exportieren, sollten Sie Ihre eigene S3-Bucket-Integration anbinden und die Dateien in Ihre eigene ETL or Extract, Transform, Load-Pipeline (ETL or Extract, Transform, Load or Extract, Transform, Load) einspeisen.
+Wenn Sie ein automatisiertes Skript zum Abrufen der Datei verwenden, erhalten Sie möglicherweise ebenfalls einen `403 Forbidden`-Fehler, wenn Sie die URL zu früh anfordern. Falls Sie regelmäßig Segmentdaten exportieren, sollten Sie Ihre eigene S3-Bucket-Integration anbinden und die Dateien in Ihre eigene ETL-Pipeline (ETL) einspeisen.
 
 Exporte benötigen Zeit, daher schlägt ein sofortiger Zugriff über ein Skript häufig fehl. Sie können:
 
@@ -176,7 +176,7 @@ Symptom: Bei einem API- oder Dashboard-Export fehlen Felder, die Sie erwartet ha
 
 Der Dashboard-Export **CSV Export User Data** aus einem Segment verwendet einen festen Spaltensatz (siehe [Segmentdaten als CSV exportieren]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#data-included-in-export)). Er enthält weder eine `fields_to_export`-Spalte noch einen entsprechenden Parameter.
 
-Für API-Segment-Exporte müssen Sie `fields_to_export` im Anfrage-Body übergeben. Einige Felder ziehen automatisch zugehörige Daten mit ein – wenn Sie beispielsweise `canvases_received` anfordern, werden auch Journey-Zusammenfassungsdaten im Kundenprofil or Nutzerprofil benötigt. In der Endpunkt-Referenz unter [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) finden Sie gültige Feldnamen und Anforderungen.
+Für API-Segment-Exporte müssen Sie `fields_to_export` im Anfrage-Body übergeben. Einige Felder ziehen automatisch zugehörige Daten mit ein – wenn Sie beispielsweise `canvases_received` anfordern, werden auch Journey-Zusammenfassungsdaten im Kundenprofil benötigt. In der Endpunkt-Referenz unter [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) finden Sie gültige Feldnamen und Anforderungen.
 
 Falls in einem API-Export-ZIP Spalten fehlen, prüfen Sie, ob das `fields_to_export`-Array in Ihrer Anfrage jedes benötigte Feld enthält und ob Ihr Workspace über die erforderlichen Exportberechtigungen verfügt.
 

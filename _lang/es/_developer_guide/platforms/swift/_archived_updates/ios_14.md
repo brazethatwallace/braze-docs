@@ -1,16 +1,16 @@
 ---
 nav_title: Guía de actualización a iOS 14
-article_title: Guía de actualización del SDK or kit de desarrollo de software de iOS 14
+article_title: Guía de actualización del SDK de iOS 14
 page_order: 7
 platform: iOS
-description: "En este artículo de referencia se cubre la actualización del SDK or kit de desarrollo de software de iOS 14 y se destacan cambios como las geovallas, la segmentación por ubicación, IDFA y más."
+description: "En este artículo de referencia se cubre la actualización del SDK de iOS 14 y se destacan cambios como las geovallas, la segmentación por ubicación, IDFA y más."
 hidden: true
 noindex: true
 ---
 
-# Guía de actualización del SDK or kit de desarrollo de software de iOS 14 {#ios-14-sdk-upgrade-guide}
+# Guía de actualización del SDK de iOS 14 {#ios-14-sdk-upgrade-guide}
 
-> Esta guía describe los cambios relacionados con Braze introducidos en iOS 14 y los pasos de actualización necesarios para tu integración del SDK or kit de desarrollo de software de Braze para iOS. Para obtener una lista completa de las nuevas actualizaciones de iOS 14, consulta la [página de Apple sobre iOS 14](https://www.apple.com/ios/ios-14/).
+> Esta guía describe los cambios relacionados con Braze introducidos en iOS 14 y los pasos de actualización necesarios para tu integración del SDK de Braze para iOS. Para obtener una lista completa de las nuevas actualizaciones de iOS 14, consulta la [página de Apple sobre iOS 14](https://www.apple.com/ios/ios-14/).
 
 {% alert tip %}
 A partir de iOS 14.5, la recopilación de **IDFA** y el [intercambio de ciertos datos](https://developer.apple.com/app-store/user-privacy-and-data-use/#permission-to-track) requerirán la nueva solicitud de permiso del framework [AppTrackingTransparency](https://developer.apple.com/documentation/apptrackingtransparency) ([Más información sobre IDFA](#idfa)).
@@ -20,7 +20,7 @@ A partir de iOS 14.5, la recopilación de **IDFA** y el [intercambio de ciertos 
 
 - Las aplicaciones destinadas a iOS 14 / Xcode 12 deben utilizar nuestra [versión oficial de iOS 14](https://github.com/Appboy/appboy-ios-sdk/releases/tag/3.27.0).
 - [iOS ya no admite](https://developer.apple.com/documentation/corelocation/cllocationmanager/3600215-accuracyauthorization) geovallas para los usuarios que elijan el nuevo permiso de _ubicación aproximada_.
-- El uso de las características de segmentación "Última ubicación conocida" requerirá una actualización a Braze iOS SDK or kit de desarrollo de software v3.26.1+ para la compatibilidad con el permiso de _ubicación aproximada_. Ten en cuenta que si utilizas Xcode 12, tendrás que actualizarte al menos a la versión 3.27.0.
+- El uso de las características de segmentación "Última ubicación conocida" requerirá una actualización a Braze iOS SDK v3.26.1+ para la compatibilidad con el permiso de _ubicación aproximada_. Ten en cuenta que si utilizas Xcode 12, tendrás que actualizarte al menos a la versión 3.27.0.
 - A partir de iOS 14.5, la recopilación de IDFA y el [intercambio de ciertos datos](https://developer.apple.com/app-store/user-privacy-and-data-use/#permission-to-track) requieren la nueva solicitud de permiso del framework [AppTrackingTransparency](https://developer.apple.com/documentation/apptrackingtransparency).
 - Si utilizas el campo "Seguimiento de anuncios habilitado" para la segmentación de campañas o el análisis, tendrás que actualizar a Xcode 12 y utilizar el nuevo framework AppTrackingTransparency para informar del estado de adhesión voluntaria de los usuarios.
 
@@ -40,9 +40,9 @@ table td {
 
 | Si tu aplicación utiliza: | Recomendación de actualización | Descripción |
 |------|--------|---|
-| Xcode 12 | **Actualiza a iOS SDK or kit de desarrollo de software v3.27 o posterior** | Los clientes que utilicen Xcode 12 deben usar v3.27.0+ para ser compatibles. Si tienes algún problema o pregunta relacionados con nuestra compatibilidad con iOS 14, abre una nueva [consulta en GitHub](https://github.com/Appboy/appboy-ios-sdk/issues). |
-| Ubicación más reciente | **Actualiza a iOS SDK or kit de desarrollo de software v3.26.1 o posterior** | Si utilizas la función de segmentación por ubicación más reciente y sigues utilizando Xcode 11, deberías actualizarte al menos al SDK or kit de desarrollo de software de iOS v3.26.1, que es compatible con la nueva característica de _ubicación aproximada_. Los SDK or kit de desarrollo de software más antiguos no podrán recopilar la ubicación de forma fiable cuando un usuario actualice a iOS 14 _y_ elija ubicación aproximada.<br><br>Aunque tu aplicación no esté orientada a iOS 14, es posible que tus usuarios actualicen a iOS 14 y empiecen a utilizar la nueva opción de precisión de ubicación. Las aplicaciones que no se actualicen al SDK or kit de desarrollo de software de iOS v3.26.1+ no podrán recopilar de forma fiable atributos de ubicación cuando los usuarios faciliten su _ubicación aproximada_ en dispositivos iOS 14. |
-| ID de seguimiento de anuncios IDFA | **Puede ser necesaria la actualización a Xcode 12 y al SDK or kit de desarrollo de software de iOS v3.27** | En algún momento de 2021, Apple empezará a exigir una solicitud de permiso para la recopilación de IDFA. En ese momento, las aplicaciones deberán actualizarse a Xcode 12 y utilizar el nuevo framework `AppTrackingTransparency` para poder seguir recopilando IDFA. Si pasas IDFA al SDK or kit de desarrollo de software de Braze, también deberás actualizarte a la versión 3.27.0+ en ese momento.<br><br>Las aplicaciones que no utilicen las nuevas API de iOS 14 no podrán recopilar IDFA, y en su lugar recopilarán un ID en blanco (`00000000-0000-0000-0000-000000000000`) después de que Apple empiece a aplicar este cambio en 2021. Para más información sobre si esto se aplica o no a tu aplicación, consulta [los detalles del IDFA](#idfa). |
+| Xcode 12 | **Actualiza a iOS SDK v3.27 o posterior** | Los clientes que utilicen Xcode 12 deben usar v3.27.0+ para ser compatibles. Si tienes algún problema o pregunta relacionados con nuestra compatibilidad con iOS 14, abre una nueva [consulta en GitHub](https://github.com/Appboy/appboy-ios-sdk/issues). |
+| Ubicación más reciente | **Actualiza a iOS SDK v3.26.1 o posterior** | Si utilizas la función de segmentación por ubicación más reciente y sigues utilizando Xcode 11, deberías actualizarte al menos al SDK de iOS v3.26.1, que es compatible con la nueva característica de _ubicación aproximada_. Los SDK más antiguos no podrán recopilar la ubicación de forma fiable cuando un usuario actualice a iOS 14 _y_ elija ubicación aproximada.<br><br>Aunque tu aplicación no esté orientada a iOS 14, es posible que tus usuarios actualicen a iOS 14 y empiecen a utilizar la nueva opción de precisión de ubicación. Las aplicaciones que no se actualicen al SDK de iOS v3.26.1+ no podrán recopilar de forma fiable atributos de ubicación cuando los usuarios faciliten su _ubicación aproximada_ en dispositivos iOS 14. |
+| ID de seguimiento de anuncios IDFA | **Puede ser necesaria la actualización a Xcode 12 y al SDK de iOS v3.27** | En algún momento de 2021, Apple empezará a exigir una solicitud de permiso para la recopilación de IDFA. En ese momento, las aplicaciones deberán actualizarse a Xcode 12 y utilizar el nuevo framework `AppTrackingTransparency` para poder seguir recopilando IDFA. Si pasas IDFA al SDK de Braze, también deberás actualizarte a la versión 3.27.0+ en ese momento.<br><br>Las aplicaciones que no utilicen las nuevas API de iOS 14 no podrán recopilar IDFA, y en su lugar recopilarán un ID en blanco (`00000000-0000-0000-0000-000000000000`) después de que Apple empiece a aplicar este cambio en 2021. Para más información sobre si esto se aplica o no a tu aplicación, consulta [los detalles del IDFA](#idfa). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Resumen de la actualización" }
 
 
@@ -58,13 +58,13 @@ Al solicitar permiso de ubicación, los usuarios tendrán ahora la opción de pr
 
 #### Geovallas {#geofences}
 
-[iOS ya no admite](https://developer.apple.com/documentation/corelocation/cllocationmanager/3600215-accuracyauthorization) geovallas para los usuarios que elijan el nuevo permiso de _ubicación aproximada_. Aunque no se requieren actualizaciones para tu integración del SDK or kit de desarrollo de software de Braze, es posible que tengas que ajustar tu [estrategia de marketing basada en la ubicación](https://www.braze.com/blog/geofencing-geo-targeting-beaconing-when-to-use/) para las campañas que dependen de geovallas.
+[iOS ya no admite](https://developer.apple.com/documentation/corelocation/cllocationmanager/3600215-accuracyauthorization) geovallas para los usuarios que elijan el nuevo permiso de _ubicación aproximada_. Aunque no se requieren actualizaciones para tu integración del SDK de Braze, es posible que tengas que ajustar tu [estrategia de marketing basada en la ubicación](https://www.braze.com/blog/geofencing-geo-targeting-beaconing-when-to-use/) para las campañas que dependen de geovallas.
 
 #### Segmentación por ubicación {#location-tracking}
 
-Para seguir recopilando la _última ubicación conocida_ de los usuarios cuando se concede la _ubicación aproximada_, tu aplicación tendrá que actualizarse al menos a la versión 3.26.1 del SDK or kit de desarrollo de software de Braze para iOS. Ten en cuenta que la ubicación será menos precisa, y según nuestras pruebas ha sido de más de 12.000 metros (7+ millas). Cuando utilices las opciones de segmentación por _última ubicación conocida_ en el dashboard de Braze, asegúrate de aumentar el radio de la ubicación para tener en cuenta las nuevas _ubicaciones aproximadas_ (recomendamos al menos un radio de 1 milla/1,6 km).
+Para seguir recopilando la _última ubicación conocida_ de los usuarios cuando se concede la _ubicación aproximada_, tu aplicación tendrá que actualizarse al menos a la versión 3.26.1 del SDK de Braze para iOS. Ten en cuenta que la ubicación será menos precisa, y según nuestras pruebas ha sido de más de 12.000 metros (7+ millas). Cuando utilices las opciones de segmentación por _última ubicación conocida_ en el dashboard de Braze, asegúrate de aumentar el radio de la ubicación para tener en cuenta las nuevas _ubicaciones aproximadas_ (recomendamos al menos un radio de 1 milla/1,6 km).
 
-Las aplicaciones que no actualicen el SDK or kit de desarrollo de software de Braze para iOS al menos a la versión 3.26.1 ya no podrán utilizar el seguimiento de ubicación cuando se conceda _una ubicación aproximada_ en dispositivos con iOS 14.
+Las aplicaciones que no actualicen el SDK de Braze para iOS al menos a la versión 3.26.1 ya no podrán utilizar el seguimiento de ubicación cuando se conceda _una ubicación aproximada_ en dispositivos con iOS 14.
 
 Los usuarios que ya hayan concedido acceso a la ubicación seguirán proporcionando _una ubicación precisa_ tras la actualización.
 
@@ -89,7 +89,7 @@ Estas actualizaciones de IDFA entrarán en vigor después de que los usuarios fi
 #### Cambios en la recopilación de IDFA de Braze {#changes-to-braze-idfa-collection}
 ![IDFA]({% image_buster /assets/img/ios/ios14-idfa.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0"}
 
-1. Braze seguirá permitiendo que las aplicaciones _proporcionen_ el valor IDFA de un usuario al SDK or kit de desarrollo de software de Braze.
+1. Braze seguirá permitiendo que las aplicaciones _proporcionen_ el valor IDFA de un usuario al SDK de Braze.
 
 2. La macro de compilación `ABK_ENABLE_IDFA_COLLECTION`, que compilaría condicionalmente en la recopilación automática opcional de IDFA, ya no funcionará en iOS 14 y se eliminó en 3.27.0.
 
@@ -122,14 +122,14 @@ En el _Portal del Desarrollador de Apple_:
 Cuando rellenes tu cuestionario, consulta a tu equipo jurídico y considera cómo puede afectar a tus requisitos de divulgación el uso de Braze para los siguientes campos.
 
 #### Recopilación de datos predeterminada de Braze {#braze-default-data-collection}
-**Identificadores**: el SDK or kit de desarrollo de software de Braze siempre recoge un identificador anónimo del dispositivo. Actualmente está configurado para el dispositivo IDFV (identificador del vendedor).
+**Identificadores**: el SDK de Braze siempre recoge un identificador anónimo del dispositivo. Actualmente está configurado para el dispositivo IDFV (identificador del vendedor).
 
 **Datos de uso**: pueden incluir datos de sesión de Braze, así como cualquier recopilación de eventos o atributos que utilices para medir la interacción con el producto.
 
 #### Recopilación de datos opcional {#optional-data-collection}
 Datos que puedes estar recopilando opcionalmente a través de tu uso de Braze:
 
-**Ubicación**: tanto la ubicación aproximada como la ubicación precisa pueden ser recogidas opcionalmente por el SDK or kit de desarrollo de software de Braze. Estas características están deshabilitadas de forma predeterminada.
+**Ubicación**: tanto la ubicación aproximada como la ubicación precisa pueden ser recogidas opcionalmente por el SDK de Braze. Estas características están deshabilitadas de forma predeterminada.
 
 **Información de contacto**: puede incluir eventos y atributos relacionados con la identidad del usuario.
 

@@ -17,7 +17,7 @@ description: "Dieser Artikel behandelt häufig gestellte Fragen zu multivariaten
 
 #### A/B-Tests {#ab-testing}
 
-Beim A/B-Test experimentiert der Marketer mit einer einzelnen Variablen innerhalb der Campaign (z. B. E-Mail-Betreffzeilen oder Versandzeitpunkt der Nachricht). Dabei wird eine Teilmenge der Zielgruppe zufällig in zwei oder mehr Gruppen aufgeteilt, jeder Gruppe eine andere Variante präsentiert und beobachtet, welche Variante die höchste Konversionsrate aufweist. In der Regel wird die leistungsstärkste Variante anschließend an den Representational State Transfer der Zielgruppe gesendet.
+Beim A/B-Test experimentiert der Marketer mit einer einzelnen Variablen innerhalb der Campaign (z. B. E-Mail-Betreffzeilen oder Versandzeitpunkt der Nachricht). Dabei wird eine Teilmenge der Zielgruppe zufällig in zwei oder mehr Gruppen aufgeteilt, jeder Gruppe eine andere Variante präsentiert und beobachtet, welche Variante die höchste Konversionsrate aufweist. In der Regel wird die leistungsstärkste Variante anschließend an den Rest der Zielgruppe gesendet.
 
 #### Multivariater Test {#multivariate-testing}
 
@@ -55,9 +55,9 @@ Nutzer:innen können als „Nachricht erhalten“ markiert werden, wenn sie eine
 
 Dasselbe gilt, da die Canvas-Pfade nach einem Experiment ebenfalls Varianten sind.
 
-#### Kann ich Maßnahmen ergreifen, um Nutzer:innen in Campaigns und Canvase umzuverteilen? {#can-i-take-actions-to-redistribute-users-in-campaigns-and-canvases}
+#### Kann ich Maßnahmen ergreifen, um Nutzer:innen in Campaigns und Canvases umzuverteilen? {#can-i-take-actions-to-redistribute-users-in-campaigns-and-canvases}
 
-Die einzige Möglichkeit, Nutzer:innen in Canvase umzuverteilen, ist die Verwendung von [Randomisierten Pfaden in Experimentpfaden]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#step-1-choose-the-number-of-paths-and-audience-distribution), die bei erneutem Canvas-Eintritt von Nutzer:innen die Pfadzuweisungen stets zufällig festlegen. Dies ist jedoch kein Standardexperiment und könnte die Experimentergebnisse ungültig machen, da die Kontrollgruppe durch Nutzer:innen aus der Behandlungsgruppe kontaminiert werden kann.
+Die einzige Möglichkeit, Nutzer:innen in Canvases umzuverteilen, ist die Verwendung von [Randomisierten Pfaden in Experimentpfaden]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#step-1-choose-the-number-of-paths-and-audience-distribution), die bei erneutem Canvas-Eintritt von Nutzer:innen die Pfadzuweisungen stets zufällig festlegen. Dies ist jedoch kein Standardexperiment und könnte die Experimentergebnisse ungültig machen, da die Kontrollgruppe durch Nutzer:innen aus der Behandlungsgruppe kontaminiert werden kann.
 
 ## Konfidenz und Verzerrung {#confidence-and-bias}
 
@@ -73,7 +73,7 @@ Wenn sich die Konversionsraten der Varianten und der Kontrollgruppe jedoch annä
 
 Es gibt praktisch keine Möglichkeit, dass die Attribute oder Verhaltensweisen von Nutzer:innen vor der Erstellung einer bestimmten Campaign oder eines Canvas systematisch zwischen Varianten und Kontrollgruppe variieren könnten.
 
-Um Nutzer:innen Nachrichtenvarianten, Canvas-Varianten oder den jeweiligen Kontrollgruppen zuzuweisen, verknüpfen wir zunächst ihre zufällig generierte Nutzer-ID mit der zufällig generierten Campaign- oder Canvas-ID. Anschließend wenden wir einen SHA-256-Hashing-Algorithmus an, teilen das Ergebnis durch 100 und behalten den Representational State Transfer (auch bekannt als Modulo 100). Schließlich ordnen wir die Nutzer:innen in Segmente ein, die den im Dashboard gewählten prozentualen Zuweisungen für Varianten (und optionale Kontrollgruppe) entsprechen.
+Um Nutzer:innen Nachrichtenvarianten, Canvas-Varianten oder den jeweiligen Kontrollgruppen zuzuweisen, verknüpfen wir zunächst ihre zufällig generierte Nutzer-ID mit der zufällig generierten Campaign- oder Canvas-ID. Anschließend wenden wir einen SHA-256-Hashing-Algorithmus an, teilen das Ergebnis durch 100 und behalten den Rest (auch bekannt als Modulo 100). Schließlich ordnen wir die Nutzer:innen in Segmente ein, die den im Dashboard gewählten prozentualen Zuweisungen für Varianten (und optionale Kontrollgruppe) entsprechen.
 
 ### Warum kann ich Rate-Limiting nicht mit einer Kontrollgruppe verwenden? {#why-cant-i-use-rate-limiting-with-a-control-group}
 

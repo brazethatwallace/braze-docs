@@ -42,7 +42,7 @@ Das folgende Bild zeigt eine E-Mail, die von Grund auf im Builder erstellt wird.
 2. Fügen Sie einen Experience Block ein. Diese Blöcke umfassen:
   - [Empfehlungen](#configure-a-recommendations-block): Ein Widget, das Nutzer:innen vollständig personalisierte Empfehlungen bietet.
   - [Dynamischer Content](#configure-a-dynamic-content-block): Richten Sie verschiedene Aktionen und Nachrichten an verschiedene Zielgruppen.<br><br>
-3. Einstellungen Update or aktualisieren or aktualisieren:
+3. Einstellungen aktualisieren:
   - Verwenden Sie die URL-Parameter zum Tracking von Klicks in Ihrer Analytics-Software (optional). Fügen Sie bei Bedarf Parameter zu den Standardanzeigen hinzu.
   - Wählen Sie ein Attribut-Fenster aus, entweder sieben Tage (Standard) oder einen Tag.<br><br>
 4. Speichern und beenden. Sie können jederzeit zurückkehren, um alle Elemente Ihrer E-Mail zu bearbeiten, bevor der Code generiert wird. Nachdem der Code generiert wurde, können Sie alles bearbeiten, was [sich nicht auf den Code auswirkt](https://support.dynamicyield.com/hc/en-us/articles/4404013832465-Experience-Email#h_01FAZPXB6MH094J1MWS5N86FXH).
@@ -73,7 +73,7 @@ Verwenden Sie dynamischen Content, um verschiedene Aktionen und Nachrichten an v
 
 Diese Integration erlaubt es Ihnen, personalisierte Empfehlungs-Widgets und dynamischen Content von Dynamic Yield in Ihre Braze E-Mail-Campaigns einzubetten. Das Einbetten in Braze Campaigns erfolgt über einen einfachen Einbettungscode, den Sie in den E-Mail-Editor von Braze einfügen.
 
-1. Klicken Sie auf das Symbol für die E-Mail-Anbieter or ESP-Integration auf der Seite der Experience-E-Mail-Liste.<br><br>
+1. Klicken Sie auf das Symbol für die E-Mail-Anbieter-Integration auf der Seite der Experience-E-Mail-Liste.<br><br>
 2. Geben Sie das entsprechende Token von Braze ein, das die CUID und die E-Mail-ID der Nutzer:innen einfügt.<br>![Dynamic Yield ESP-Integrations-Dialog mit Braze-Nutzer:innen-Token-Feldern.]({% image_buster /assets/img/dynamic_yield/dynamic_yield2_new.png %})
 
 Wenn Sie mit Ihrer E-Mail zufrieden sind, generieren Sie im nächsten Schritt den Code zum Einbetten in Braze.

@@ -16,13 +16,13 @@ alias: /line/
 
 ## Pré-requisitos {#prerequisites}
 
-A disponibilidade do LINE depende do seu pacote da Braze. Entre em contato com seu gerente de conta ou gerente de sucesso do cliente para começar.
+A disponibilidade do LINE depende do seu pacote da Braze. Entre em contato com seu gerente de conta ou CSM para começar.
 
 Antes de começar, verifique se você tem o seguinte:
 
 - [Conta empresarial do LINE](https://www.linebiz.com/jp-en/manual/OfficialAccountManager/tutorial-steps/?list=7171) com status premium ou verificado
 - [Conta de desenvolvedor do LINE](https://developers.line.biz/en/docs/line-developers-console/login-account/)
-- [Canal da API or interface de programação do aplicativo (API) de mensagens do LINE](https://developers.line.biz/en/docs/line-developers-console/overview/#channel)
+- [Canal da API de mensagens do LINE](https://developers.line.biz/en/docs/line-developers-console/overview/#channel)
 
 Para um passo a passo completo, consulte [Configuração do LINE]({{site.baseurl}}/user_guide/channels/line/line_setup).
 

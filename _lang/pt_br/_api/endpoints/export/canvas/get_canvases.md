@@ -8,24 +8,24 @@ page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint da Braze para exportar lista de Canvas."
 
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Exportar lista de Canvas {#export-canvas-list}
 
 {% apimethod get %}
 /canvas/list
 {% endapimethod %}
 
-> Use este endpoint para exportar uma lista de Canvas, incluindo o nome, o identificador de API or interface de programação do aplicativo (API) do Canvas e as tags associadas.
+> Use este endpoint para exportar uma lista de Canvas, incluindo o nome, o identificador de API do Canvas e as tags associadas.
 
 Os Canvas são retornados em grupos de 100, classificados por data de criação (do mais antigo ao mais recente por padrão).
 
-Canvas arquivados não serão incluídos na resposta da API or interface de programação do aplicativo (API), a menos que o campo `include_archived` seja especificado. Canvas que estão parados, mas não arquivados, no entanto, serão retornados por padrão.
+Canvas arquivados não serão incluídos na resposta da API, a menos que o campo `include_archived` seja especificado. Canvas que estão parados, mas não arquivados, no entanto, serão retornados por padrão.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e6c150d7-fceb-4b10-91e2-a9ca4d5806d1 {% endapiref %}
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `canvas.list`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `canvas.list`.
 
 ## Limite de frequência {#rate-limit}
 
@@ -66,7 +66,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/list?page
 ```
 
 {% alert tip %}
-Para obter ajuda com exportações de CSV e API or interface de programação do aplicativo (API), acesse [Resolução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
+Para obter ajuda com exportações de CSV e API, acesse [Resolução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}

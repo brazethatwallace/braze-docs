@@ -2,7 +2,7 @@
 
 ## Push-Storys aktivieren
 
-Für das React Native SDK or Software-Development-Kit **sind Push-Storys standardmäßig für Android verfügbar**.
+Für das React Native SDK **sind Push-Storys standardmäßig für Android verfügbar**.
 
 Um Push-Storys unter iOS mit Expo zu aktivieren, stellen Sie sicher, dass Sie eine App-Gruppe für Ihre Anwendung definiert haben. Weitere Informationen finden Sie unter [Hinzufügen einer App-Gruppe]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/push_story/#adding-an-app-group).
 

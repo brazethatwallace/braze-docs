@@ -8,7 +8,7 @@ page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint da Braze para listar próximas Campaigns e Canvas agendados."
 
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Listar próximas Campaigns e Canvas agendados {#list-upcoming-scheduled-campaigns-and-canvases}
 {% apimethod get %}
 /messages/scheduled_broadcasts
@@ -22,7 +22,7 @@ Mensagens diárias e recorrentes aparecerão apenas uma vez com sua próxima oco
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `messages.schedule_broadcasts`.
+Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `messages.schedule_broadcasts`.
 
 ## Limite de frequência {#rate-limit}
 
@@ -32,7 +32,7 @@ Para usar este endpoint, você precisará de uma [chave de API or interface de p
 
 | Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | -------- | --------- | ----------- |
-| `end_time` | Obrigatório | String no formato [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) | Data final do intervalo para recuperar as próximas Campaigns e Canvas agendados. Isso é tratado como meia-noite no horário UTC pela API or interface de programação do aplicativo (API). |
+| `end_time` | Obrigatório | String no formato [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) | Data final do intervalo para recuperar as próximas Campaigns e Canvas agendados. Isso é tratado como meia-noite no horário UTC pela API. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}

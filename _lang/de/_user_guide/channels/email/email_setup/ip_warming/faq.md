@@ -41,7 +41,7 @@ Automatisiertes IP-Warming erstellt den Zeitplan immer ab dem Beginn der Aufwär
 
 ## Welche Zeitzone wird für den Versand verwendet? {#what-time-zone-is-used-for-sending}
 
-Sendungen verwenden die Workspace-Zeitzone, wenn eine festgelegt ist; andernfalls wird die Unternehmens-Zeitzone verwendet. Campaigns werden nicht in der jeweiligen Ortszeit der Nutzer:innen erstellt. Um in Ortszeit zu versenden, Update or aktualisieren or aktualisieren Sie die vom Plan erstellten Campaigns manuell.
+Sendungen verwenden die Workspace-Zeitzone, wenn eine festgelegt ist; andernfalls wird die Unternehmens-Zeitzone verwendet. Campaigns werden nicht in der jeweiligen Ortszeit der Nutzer:innen erstellt. Um in Ortszeit zu versenden, aktualisieren Sie die vom Plan erstellten Campaigns manuell.
 
 ## Wie viele IP-Warming-Pläne können gleichzeitig laufen? {#how-many-ip-warming-plans-can-run-at-the-same-time}
 

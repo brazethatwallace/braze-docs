@@ -26,7 +26,7 @@ A integração da Braze com o Microsoft Foundry permite usar modelos de IA gener
 | Instância do Microsoft Foundry | Uma instância do Microsoft Foundry para criar um projeto. |
 | Projeto do Microsoft Foundry | Um projeto dentro da sua instância do Foundry para abrigar os modelos implantados. |
 | Modelos implantados | Pelo menos um dos modelos compatíveis implantado dentro do projeto do Foundry. |
-| Instância da Braze | Você pode encontrar sua instância da Braze na [página de visão geral da API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#endpoints) ou com seu gestor de integração da Braze. |
+| Instância da Braze | Você pode encontrar sua instância da Braze na [página de visão geral da API]({{site.baseurl}}/api/basics#endpoints) ou com seu gestor de integração da Braze. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Implantar modelos compatíveis no Foundry {#deploy-supported-models-in-foundry}
@@ -45,7 +45,7 @@ Para criar o projeto do Foundry e implantar os modelos, siga a [documentação d
 Para conectar sua instância do Foundry à Braze:
 
 1. Acesse **Partner Integrations** > **Technology Partners** no dashboard da Braze e encontre **Microsoft Foundry**.
-2. Insira sua **chave de API or interface de programação do aplicativo (API) do Microsoft Foundry**.
+2. Insira sua **chave de API do Microsoft Foundry**.
 3. Insira o **nome da instância do Microsoft Foundry**. Este é o subdomínio antes de `.services.ai.azure.com`.
 4. Selecione **Save**.
 

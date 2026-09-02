@@ -2,7 +2,7 @@
 nav_title: MyPostcard
 article_title: MyPostcard
 page_order: 1
-description: "Este artículo de referencia describe la asociación entre Braze y MyPostcard, que te permite utilizar el correo directo como un canal adicional para tu flujo de trabajo de CRM or administración de las relaciones con el cliente."
+description: "Este artículo de referencia describe la asociación entre Braze y MyPostcard, que te permite utilizar el correo directo como un canal adicional para tu flujo de trabajo de CRM."
 alias: /partners/mypostcard/
 page_type: partner
 search_tag: Partner

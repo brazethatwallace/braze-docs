@@ -28,7 +28,7 @@ Vergessen Sie nicht, [Ihre Kolleg:innen zu Braze hinzuzufügen]({{site.baseurl}}
 
 ## Nutzer:innen und Segments {#users-and-segments}
 
-Nutzer:innen sind Ihre Kund:innen – die Personen, die die Nachrichten erhalten, die Sie mit Braze versenden. Alle Daten, die Sie über Nutzer:innen sammeln und in Braze einspeisen, werden in deren Kundenprofil or Nutzerprofil gespeichert, z. B. demografische Angaben, persönliche Informationen, Präferenzen und Verhaltensweisen. Diese Informationen bilden die Grundlage für Ihr Messaging und ermöglichen es Ihnen, Ihre Nachrichten auf die richtigen Nutzer:innen zuzuschneiden.
+Nutzer:innen sind Ihre Kund:innen – die Personen, die die Nachrichten erhalten, die Sie mit Braze versenden. Alle Daten, die Sie über Nutzer:innen sammeln und in Braze einspeisen, werden in deren Kundenprofil gespeichert, z. B. demografische Angaben, persönliche Informationen, Präferenzen und Verhaltensweisen. Diese Informationen bilden die Grundlage für Ihr Messaging und ermöglichen es Ihnen, Ihre Nachrichten auf die richtigen Nutzer:innen zuzuschneiden.
 
 ![Screenshot zu Nutzer:innen und Segments.]({% image_buster /assets/img/getting_started/user_profile.png %})
 
@@ -40,19 +40,19 @@ Segments sind dynamisch – Nutzer:innen können in Echtzeit in Segments aufgeno
 
 Weitere Informationen finden Sie unter: [Erste Schritte: Nutzer:innen und Segments]({{site.baseurl}}/user_guide/get_started/users_and_segments).
 
-## Campaigns und Canvase {#campaigns-and-canvases}
+## Campaigns und Canvases {#campaigns-and-canvases}
 
-Campaigns und Canvase sind die Werkzeuge, mit denen Sie Nachrichten an Ihre Nutzer:innen senden.
+Campaigns und Canvases sind die Werkzeuge, mit denen Sie Nachrichten an Ihre Nutzer:innen senden.
 
-Campaigns eignen sich am besten für einzelne Nachrichten, die an ein bestimmtes Zielgruppensegment über verschiedene Kanäle gesendet werden. Sie können jeden unserer unterstützten Messaging-Kanäle in Ihrer Campaign nutzen (E-Mail, Push, In-App-Nachrichten, Kurzmitteilungsdienst or SMS und mehr).
+Campaigns eignen sich am besten für einzelne Nachrichten, die an ein bestimmtes Zielgruppensegment über verschiedene Kanäle gesendet werden. Sie können jeden unserer unterstützten Messaging-Kanäle in Ihrer Campaign nutzen (E-Mail, Push, In-App-Nachrichten, SMS und mehr).
 
-Canvase sind erweiterte Campaign-Workflows, mit denen Sie personalisierte Customer Journeys über mehrere Kanäle automatisieren und orchestrieren können. Innerhalb eines Canvas können Sie Verzweigungslogiken, Verzögerungen, Entscheidungspunkte und Konversions-Events einrichten, um Kund:innen durch eine Reihe von Interaktionen zu führen. Canvase sorgen für eine konsistente und nahtlose Kommunikation über verschiedene Touchpoints hinweg und erhöhen so die Chancen auf Customer-Engagement und Konversion.
+Canvases sind erweiterte Campaign-Workflows, mit denen Sie personalisierte Customer Journeys über mehrere Kanäle automatisieren und orchestrieren können. Innerhalb eines Canvas können Sie Verzweigungslogiken, Verzögerungen, Entscheidungspunkte und Konversions-Events einrichten, um Kund:innen durch eine Reihe von Interaktionen zu führen. Canvases sorgen für eine konsistente und nahtlose Kommunikation über verschiedene Touchpoints hinweg und erhöhen so die Chancen auf Customer-Engagement und Konversion.
 
-Weitere Informationen finden Sie unter: [Erste Schritte: Campaigns und Canvase]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases).
+Weitere Informationen finden Sie unter: [Erste Schritte: Campaigns und Canvases]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases).
 
 ## Workspaces {#workspaces}
 
-Workspaces bündeln Ihre Daten – Nutzer:innen, Segments, Campaigns und Canvase – an einem zentralen Ort. Informationen werden nicht zwischen Workspaces geteilt. Beachten Sie dies, wenn Sie Websites und Apps zu Ihren Workspaces hinzufügen. Als Best Practice empfehlen wir, nur verschiedene Versionen derselben oder sehr ähnlicher Apps in einem Workspace zusammenzufassen.
+Workspaces bündeln Ihre Daten – Nutzer:innen, Segments, Campaigns und Canvases – an einem zentralen Ort. Informationen werden nicht zwischen Workspaces geteilt. Beachten Sie dies, wenn Sie Websites und Apps zu Ihren Workspaces hinzufügen. Als Best Practice empfehlen wir, nur verschiedene Versionen derselben oder sehr ähnlicher Apps in einem Workspace zusammenzufassen.
 
 Beispielhafte Anwendungsfälle für Workspaces:
 
@@ -79,6 +79,6 @@ Brauchen Sie Hilfe bei Ihrer Migration? Unsere [zertifizierten Braze-Partner](ht
 
 - **E-Mail-Volumen:** Um E-Mails zu versenden, müssen Sie Ihre IPs aufwärmen. [IP-Warming]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming) ist der Prozess, bei dem Sie die Absender-Reputation mit Ihren neu zugewiesenen IP-Adressen aufbauen. Wenn Sie weniger als 2–3 Millionen E-Mails pro Tag versenden, sollte Ihr IP-Warming 30 Tage oder weniger dauern. Berücksichtigen Sie dabei Ihre Spitzenversandzeiten. Wenn Sie normalerweise 2 Millionen E-Mails pro Tag versenden, aber zu einer saisonalen Hochphase 7 Millionen versenden möchten, ist dieses „Spitzenvolumen“ das Ziel, auf das Sie aufwärmen sollten. Versender mit hohem Volumen können mehrere IPs nutzen, um den Aufwärmprozess zu beschleunigen.
 - **Organisatorische Komplexität:** Unser Onboarding-Prozess lässt sich an Ihre geschäftlichen Anforderungen anpassen. Ob Sie eine einzelne Geschäftseinheit sind, ein Center of Excellence haben, mehrere unabhängige Einheiten betreiben oder Agenturen zur Verstärkung Ihrer Teams einsetzen – Braze hat Erfahrung mit all diesen Szenarien.
-- **Ausgereiftheit der Dateninfrastruktur:** Wenn Sie nur das Braze SDK or Software-Development-Kit implementieren oder bereits eine Customer Data Platform (Customer Data Platform (CDP)) nutzen, ist es möglich, alles in nur 30 Tagen einzurichten. Eine moderne Customer Data Platform (CDP) kann den Prozess beschleunigen. Wenn Sie jedoch viele Backend-Systeme, Tools oder Datenbanken mit Braze verbinden müssen, kann es länger dauern und mehr dedizierte Ressourcen erfordern, um die Einrichtung abzuschließen.
+- **Ausgereiftheit der Dateninfrastruktur:** Wenn Sie nur das Braze SDK implementieren oder bereits eine Customer Data Platform (Customer Data Platform (CDP)) nutzen, ist es möglich, alles in nur 30 Tagen einzurichten. Eine moderne Customer Data Platform (CDP) kann den Prozess beschleunigen. Wenn Sie jedoch viele Backend-Systeme, Tools oder Datenbanken mit Braze verbinden müssen, kann es länger dauern und mehr dedizierte Ressourcen erfordern, um die Einrichtung abzuschließen.
 
 Weitere Informationen finden Sie unter: [Erste Schritte: Übersicht zur Integration]({{site.baseurl}}/user_guide/get_started/integrations).

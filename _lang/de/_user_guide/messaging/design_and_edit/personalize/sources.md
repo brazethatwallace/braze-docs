@@ -5,8 +5,8 @@ page_order: 1
 layout: dev_guide
 
 guide_top_header: "Quellen"
-guide_top_text: "Personalisierungsquellen liefern die Daten, die Sie in Ihren Nachrichten mithilfe von <a href='/docs/user_guide/messaging/design_and_edit/personalize/liquid'>Liquid</a> referenzieren. Jede Quelle bietet eine andere Art von Daten – von Kundenprofil or Nutzerprofil-Attributen über externe API-Antworten bis hin zu Katalog-Artikeln."
-description: "Entdecken Sie die verfügbaren Datenquellen zur Personalisierung Ihrer Braze-Nachrichten, darunter Nutzerprofile, Representational State Transfer APIs, Kataloge, Aktionscodes und mehr."
+guide_top_text: "Personalisierungsquellen liefern die Daten, die Sie in Ihren Nachrichten mithilfe von <a href='/docs/user_guide/messaging/design_and_edit/personalize/liquid'>Liquid</a> referenzieren. Jede Quelle bietet eine andere Art von Daten – von Kundenprofil-Attributen über externe API-Antworten bis hin zu Katalog-Artikeln."
+description: "Entdecken Sie die verfügbaren Datenquellen zur Personalisierung Ihrer Braze-Nachrichten, darunter Nutzerprofile, REST APIs, Kataloge, Aktionscodes und mehr."
 
 guide_featured_title: "Artikel in diesem Abschnitt"
 guide_featured_list:

@@ -18,7 +18,7 @@ _Esta integração é mantida pela Oppizi._
 | Requisito | Descrição |
 | ------------------------------ | ----------------------------------------------------------------------------- |
 | Conta Oppizi | Uma conta Oppizi ativa é necessária para usar esta integração. |
-| Chave de API or interface de programação do aplicativo (API) Oppizi | Encontrada na sua conta Oppizi em **Integrations** > **Braze**. |
+| Chave de API Oppizi | Encontrada na sua conta Oppizi em **Integrations** > **Braze**. |
 | ID do fluxo de trabalho de mala direta Oppizi | Crie um fluxo de trabalho na Oppizi na página **Direct Mail Workflow** para obter um ID. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
@@ -33,13 +33,13 @@ Com a integração Oppizi, você pode:
 
 ## Integração {#integration}
 
-### Etapa 1: Gere sua chave de API or interface de programação do aplicativo (API) Oppizi {#step-1-generate-your-oppizi-api-key}
+### Etapa 1: Gere sua chave de API Oppizi {#step-1-generate-your-oppizi-api-key}
 
-Para usar seu modelo de webhook na Braze, você primeiro precisará gerar sua chave de API or interface de programação do aplicativo (API) Oppizi.
+Para usar seu modelo de webhook na Braze, você primeiro precisará gerar sua chave de API Oppizi.
 
 1. Faça login na Oppizi.
 2. Acesse **Integrations** > **Braze**.
-3. Gere sua chave de API or interface de programação do aplicativo (API).
+3. Gere sua chave de API.
 
 Você pode gerenciar, revogar e criar suas chaves a partir desta página conforme necessário.
 

@@ -31,11 +31,11 @@ Wie möchten Sie Ihre Nutzer:innen aufteilen? Sie können [Segments]({{site.base
 Standardmäßig werden Segments und Filter für einen Decision-Split-Schritt direkt nach dem Empfang eines vorherigen Schritts geprüft, es sei denn, Sie fügen eine Verzögerung hinzu.
 {% endalert %}
 
-#### Retargeting-Filter in Canvase mit erneutem Eintritt {#retargeting-filters-in-canvases-with-re-entry}
+#### Retargeting-Filter in Canvases mit erneutem Eintritt {#retargeting-filters-in-canvases-with-re-entry}
 
 Retargeting-Filter in einem Decision-Split-Schritt, wie z. B. `Clicked/Opened Step In This Canvas`, werten das Engagement über alle Canvas-Eintritte einer Nutzerin oder eines Nutzers hinweg aus, einschließlich früherer Eintritte. Wenn beispielsweise eine Nutzerin oder ein Nutzer während eines früheren Eintritts mit einem Schritt interagiert hat, erkennt der Decision-Split diese Interaktion, wenn sie oder er erneut in den Canvas eintritt.
 
-Verwenden Sie bei Canvase mit aktiviertem erneutem Eintritt einen [Aktionspfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)-Schritt mit dem Trigger or triggern **Interact with Step**, wenn Sie das Engagement nur während des aktuellen Canvas-Eintritts innerhalb eines Zeitfensters auswerten möchten. Aktionspfade zählen nur Interaktionen, die während des Auswertungsfensters des Schritts stattfinden.
+Verwenden Sie bei Canvases mit aktiviertem erneutem Eintritt einen [Aktionspfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)-Schritt mit dem Trigger **Interact with Step**, wenn Sie das Engagement nur während des aktuellen Canvas-Eintritts innerhalb eines Zeitfensters auswerten möchten. Aktionspfade zählen nur Interaktionen, die während des Auswertungsfensters des Schritts stattfinden.
 
 ## Verwenden Sie Ihren Split {#use-your-split}
 

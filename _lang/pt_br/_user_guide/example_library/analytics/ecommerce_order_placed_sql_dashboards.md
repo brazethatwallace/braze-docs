@@ -15,7 +15,7 @@ tool: Reports
 
 Flash e Thread, uma marca fictícia de varejo de roupas, registra pedidos com [eventos recomendados de eCommerce]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events). A equipe de marketing quer receita diária, valor médio do pedido (AOV) e volume de pedidos em um único dashboard — não apenas a visualização pré-construída de atribuição de último ponto de contato.
 
-Esse padrão usa o Query Builder para consultar `ecommerce.order_placed` nas tabelas de eventos compartilhadas do Snowflake e, em seguida, adiciona a consulta salva como um bloco de **Custom Queries** no Dashboard Builder. Você pode repetir o fluxo de trabalho para métricas adicionais (compradores novos versus recorrentes, categorias de produtos ou receita por Segment or segmento or segmento).
+Esse padrão usa o Query Builder para consultar `ecommerce.order_placed` nas tabelas de eventos compartilhadas do Snowflake e, em seguida, adiciona a consulta salva como um bloco de **Custom Queries** no Dashboard Builder. Você pode repetir o fluxo de trabalho para métricas adicionais (compradores novos versus recorrentes, categorias de produtos ou receita por Segment).
 
 Use isso quando os dashboards de eCommerce integrados não cobrirem sua combinação de métricas. Para receita atribuída por último ponto de contato, consulte o dashboard [Revenue - Last Touch Attribution]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder#revenue---last-touch-attribution).
 
@@ -157,9 +157,9 @@ ORDER BY 2 DESC;
 ```
 {% endraw %}
 
-#### Compras e receita por Segment or segmento or segmento (análise de Segment or segmento or segmento) {#purchases-and-revenue-by-segment-segment-analytics}
+#### Compras e receita por Segment (análise de Segment) {#purchases-and-revenue-by-segment-segment-analytics}
 
-Isso requer [rastreamento de análise de Segment or segmento or segmento]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) nos segmentos sobre os quais você está gerando relatórios. Use [variáveis SQL]({{site.baseurl}}/user_guide/analytics/reports/query_builder/sql_variables) para seletores de data.
+Isso requer [rastreamento de análise de Segment]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) nos segmentos sobre os quais você está gerando relatórios. Use [variáveis SQL]({{site.baseurl}}/user_guide/analytics/reports/query_builder/sql_variables) para seletores de data.
 
 {% raw %}
 ```sql
@@ -203,4 +203,4 @@ ORDER BY 3 DESC;
 - [Dashboard Builder]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder)
 - [Revenue - Last Touch Attribution]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder#revenue---last-touch-attribution)
 - [Referência de tabelas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#USERS_BEHAVIORS_CUSTOMEVENT_SHARED)
-- [Rastreamento de análise de Segment or segmento or segmento]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking)
+- [Rastreamento de análise de Segment]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking)

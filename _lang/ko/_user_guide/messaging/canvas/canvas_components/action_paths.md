@@ -69,7 +69,7 @@ Canvas 진입 등록정보는 이벤트 등록정보와 다릅니다. Canvas 진
 - Campaign 또는 콘텐츠 카드와 상호작용
 - 위치 진입
 - 지오펜스 트리거
-- 단문 메시지 서비스 또는 WhatsApp 인바운드 메시지 전송
+- SMS 또는 WhatsApp 인바운드 메시지 전송
 
 #### 이메일 주소 추가 트리거 {#add-an-email-address-trigger}
 

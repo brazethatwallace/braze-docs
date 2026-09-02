@@ -8,7 +8,7 @@ page_type: reference
 description: "Este artigo traz informações sobre o endpoint da Braze \"Atualizar o status do grupo de inscrições do usuário\"."
 ---
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Atualizar o status do grupo de inscrições do usuário {#update-users-subscription-group-status}
 {% apimethod post core_endpoint|/docs/core_endpoints %}
 /subscription/status/set
@@ -28,13 +28,13 @@ Se você quiser ver exemplos ou testar esse endpoint para **grupos de inscriçõ
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `subscription.status.set`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `subscription.status.set`.
 
 {% alert note %}
 Se você estiver interessado em usar esse endpoint com [grupos de inscrição LINE]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups), entre em contato com seu gerente de sucesso do cliente.
 {% endalert %}
 
-{% multi_lang_include API or interface de programação do aplicativo (API)/orphaned_subscription_states.md %}
+{% multi_lang_include api/orphaned_subscription_states.md %}
 
 ## Limite de taxa {#rate-limit}
 
@@ -87,7 +87,7 @@ Essa propriedade não deve ser usada para atualizar as informações de perfil d
 {% alert tip %}
 **Adicionando usuários existentes a um grupo de inscrições:** esse endpoint é a forma recomendada de preencher retroativamente ou atualizar em massa a associação a grupos de inscrições para usuários existentes. Você pode enviar até 50 `external_id`s, endereços de e-mail ou números de telefone por solicitação. Os usuários também podem atualizar seu próprio status de inscrição por meio de um link da [Central de Preferências de e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions).
 
-**Criando novos usuários com um grupo de inscrições:** ao criar novos usuários usando o endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), é possível definir grupos de inscrições no objeto de atributos do usuário, o que permite criar um usuário e definir o estado do grupo de inscrições em uma única chamada de API or interface de programação do aplicativo (API).
+**Criando novos usuários com um grupo de inscrições:** ao criar novos usuários usando o endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), é possível definir grupos de inscrições no objeto de atributos do usuário, o que permite criar um usuário e definir o estado do grupo de inscrições em uma única chamada de API.
 {% endalert %}
 
 ## Parâmetros de solicitação {#request-parameters}

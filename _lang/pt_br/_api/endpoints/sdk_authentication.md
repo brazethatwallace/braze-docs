@@ -1,15 +1,15 @@
 ---
-nav_title: "Autenticação do SDK or kit de desenvolvimento de software"
-article_title: Endpoints de Autenticação do SDK or kit de desenvolvimento de software
+nav_title: "Autenticação do SDK"
+article_title: Endpoints de Autenticação do SDK
 search_tag: Endpoint
 page_order: 5.5
 layout: dev_guide
 
-description: "Esta landing page lista os endpoints de Autenticação do SDK or kit de desenvolvimento de software da Braze."
+description: "Esta landing page lista os endpoints de Autenticação do SDK da Braze."
 page_type: landing
 
-guide_top_header: "Endpoints de Autenticação do SDK or kit de desenvolvimento de software"
-guide_top_text: "Use esses endpoints para criar e gerenciar chaves de Autenticação do SDK or kit de desenvolvimento de software para seu app. As chaves de Autenticação do SDK or kit de desenvolvimento de software permitem que você autentique com segurança suas instâncias do SDK or kit de desenvolvimento de software móvel com a Braze."
+guide_top_header: "Endpoints de Autenticação do SDK"
+guide_top_text: "Use esses endpoints para criar e gerenciar chaves de Autenticação do SDK para seu app. As chaves de Autenticação do SDK permitem que você autentique com segurança suas instâncias do SDK móvel com a Braze."
 
 guide_featured_title: ""
 guide_featured_list:

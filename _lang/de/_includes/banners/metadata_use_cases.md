@@ -1,3 +1,3 @@
 - Senden Sie Metadaten für Ihre Drittanbieter-Analytics oder Integrationen.
-- Verwenden Sie Metadaten wie einen `timestamp` oder ein JSON-Objekt, um bedingte Logik zu Trigger or triggern or triggern.
+- Verwenden Sie Metadaten wie einen `timestamp` oder ein JSON-Objekt, um bedingte Logik zu triggern.
 - Steuern Sie das Verhalten eines Banners basierend auf enthaltenen Metadaten wie `ratio` oder `format`.

@@ -28,10 +28,10 @@ Puedes filtrar por el siguiente contenido registrado en el **Registro de activid
 - Errores de correo electrónico
 - Registros de mensajes de API
 - Errores de contenido conectado
-- Errores de audiencia conectada de REST or transferencia de estado representacional API
+- Errores de audiencia conectada de REST API
 - Errores de asignación de alias de usuario
 - Errores de pruebas A/B
-- Errores de servicio de mensajes cortos/MMS
+- Errores de SMS/MMS
 - Errores de WhatsApp
 - Errores de Live Activity
 - Errores de desencadenantes de usuario incorrectos
@@ -73,7 +73,7 @@ Los mensajes en el registro de actividad de mensajes pueden provenir de diversas
 
 Por ejemplo, algunos posibles mensajes de "Bloqueo", además del indicado en la tabla anterior, podrían ser:
 
-- Unfortunately, messages from [_IP_ADDRESS_] weren't sent. Please contact your ISP or proveedor de servicios de Internet or proveedor de servicios de Internet since part of their network is on our block list.
+- Unfortunately, messages from [_IP_ADDRESS_] weren't sent. Please contact your ISP since part of their network is on our block list.
 - Message rejected due to local policy.
 - The message was blocked by the receiver as spam.
 - Service unavailable, Client host [_IP_ADDRESS_] blocked using Spamhaus.
@@ -89,8 +89,8 @@ El número de registros guardados depende de varias condiciones. Por ejemplo, si
     - Errores de contenido conectado
     - Errores de anulación de mensaje
     - Errores de webhook
-    - Errores de rechazo de servicio de mensajes cortos
-    - Errores de fallo de entrega de servicio de mensajes cortos
+    - Errores de rechazo de SMS
+    - Errores de fallo de entrega de SMS
     - Errores de fallo de WhatsApp
     - Errores de Pruebas A/B
 - Se guardan hasta 20 registros de errores de notificación push del mismo tipo de error para la misma combinación de Campaign o paso en Canvas y aplicación para los siguientes tipos de error:
@@ -117,7 +117,7 @@ El número de registros guardados depende de varias condiciones. Por ejemplo, si
 
 El **Registro de actividad de mensajes** muestra registros de prueba para estos canales de mensajería:
 
-- servicio de mensajes cortos
+- SMS
 - WhatsApp
 - LINE
 - KakaoTalk

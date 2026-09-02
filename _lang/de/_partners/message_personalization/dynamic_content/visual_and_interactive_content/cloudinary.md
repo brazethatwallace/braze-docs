@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Cloudinary
 
-> [Cloudinary](https://www.cloudinary.com?utm_source=braze_partner_page) ist eine Bild- und Videoplattform zum Verwalten, Bearbeiten, Optimieren und Zustellen von Bildern und Videos in großem Umfang für jede Campaign über alle Kanäle und Customer Journeys hinweg. Bei Integration und Aktivierung ermöglicht das Medienmanagement von Cloudinary eine dynamische, kontextuelle und personalisierte Zustellung von Assets für Ihre Braze-Campaigns und Canvase.
+> [Cloudinary](https://www.cloudinary.com?utm_source=braze_partner_page) ist eine Bild- und Videoplattform zum Verwalten, Bearbeiten, Optimieren und Zustellen von Bildern und Videos in großem Umfang für jede Campaign über alle Kanäle und Customer Journeys hinweg. Bei Integration und Aktivierung ermöglicht das Medienmanagement von Cloudinary eine dynamische, kontextuelle und personalisierte Zustellung von Assets für Ihre Braze-Campaigns und Canvases.
 
 ## Über diese Integration {#about-this-integration}
 
@@ -18,7 +18,7 @@ Durch die Verbindung von Cloudinary mit Braze erhalten Marken Zugriff auf visuel
 Auf dieser Seite werden vier mögliche, aber nicht erschöpfende Integrationsmethoden zwischen Cloudinary und Braze beschrieben. Diese Integrationsmethoden beruhen in erster Linie auf der manuellen Änderung von Asset-Links, die aus der Medienbibliothek von Cloudinary kopiert wurden.
 
 {% alert important %}
-Fortgeschrittenere Integrationsmethoden, einschließlich der Verwendung von [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) zum Aufrufen der [Admin-API](https://cloudinary.com/documentation/admin_api#banner) von Cloudinary, sind möglich, aber die Vorgehensweise variiert von Kund:in zu Kund:in. Wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in von Cloudinary und Braze, wenn Sie Hilfe benötigen.
+Fortgeschrittenere Integrationsmethoden, einschließlich der Verwendung von [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) zum Aufrufen der [Admin-API](https://cloudinary.com/documentation/admin_api#banner) von Cloudinary, sind möglich, aber die Vorgehensweise variiert von Kund:in zu Kund:in. Wenden Sie sich an Ihren CSM von Cloudinary und Braze, wenn Sie Hilfe benötigen.
 {% endalert %}
 
 ## Voraussetzungen {#prerequisites}
@@ -39,7 +39,7 @@ Einige dieser Integrationsmethoden nutzen die `f_auto`- und `q_auto`-Cloudinary-
 
 ## Campaign-Assets über Cloudinary DAM auswählen {#select-campaign-assets-through-cloudinary-dam}
 
-Der direkteste Weg, Bilder und Videos direkt aus dem DAM von Cloudinary in Ihren Braze-Campaigns und Canvase zu verwenden, besteht darin, die URL von der **Asset**-Seite der Cloudinary-Medienbibliothek zu kopieren.
+Der direkteste Weg, Bilder und Videos direkt aus dem DAM von Cloudinary in Ihren Braze-Campaigns und Canvases zu verwenden, besteht darin, die URL von der **Asset**-Seite der Cloudinary-Medienbibliothek zu kopieren.
 
 ![Eine Rasteransicht der Bild-Asset-Bibliothek von Cloudinary, wobei ein Bild hervorgehoben ist und ein Tooltip „URL kopieren“ sichtbar ist.]({% image_buster /assets/img/cloudinary/one.png %})
 
@@ -167,7 +167,7 @@ https://solutions-demo-res.cloudinary.com/image/list/$locale_!unknown!/$audience
 
 Die [Text-Overlay-Transformationen](https://cloudinary.com/documentation/accessible_media_visual_audio_clarity#text_overlays_on_images_and_videos/) von Cloudinary verwenden Nutzerdaten aus Braze direkt in einem Cloudinary-Asset.
 
-Das folgende Beispiel zeigt, wie die `l_text`-Transformation verwendet werden kann, um den Namen einer/eines Nutzer:in in ein Asset einzufügen. Weitere Anpassungen können Sie vornehmen, indem Sie bei der Entwicklung von Campaigns und Canvase Liquid-Tags nutzen, um festzulegen, welcher Text in die `l_text`-Parameter eingefügt werden soll.
+Das folgende Beispiel zeigt, wie die `l_text`-Transformation verwendet werden kann, um den Namen einer/eines Nutzer:in in ein Asset einzufügen. Weitere Anpassungen können Sie vornehmen, indem Sie bei der Entwicklung von Campaigns und Canvases Liquid-Tags nutzen, um festzulegen, welcher Text in die `l_text`-Parameter eingefügt werden soll.
 
 Wenn Sie mehr darüber erfahren möchten, wie Transformations-Parameter zur Gestaltung eines Assets verwendet werden können, wenden Sie sich an Ihr Cloudinary-Support-Team.
 

@@ -40,7 +40,7 @@ Usa la siguiente guía para decidir si debes reintentar:
 | Código de estado | Guía de reintentos |
 |---|---|
 | `400` | Corrige la solicitud antes de reintentar. Para el seguimiento de Banner, corrige los eventos omitidos antes de reintentarlos. |
-| `401` o `403` | Verifica la clave de API REST or transferencia de estado representacional del lado del cliente y sus permisos antes de reintentar. |
+| `401` o `403` | Verifica la clave de API REST del lado del cliente y sus permisos antes de reintentar. |
 | `404` | Confirma que la API de mensajería de dispositivos está habilitada para el espacio de trabajo y que la URL del endpoint es correcta. |
 | `429` | Reduce la tasa de solicitudes y reintenta con retirada exponencial. Usa los encabezados de respuesta de límite de tasa cuando estén disponibles. |
 | `5XX` | Reintenta con retirada exponencial y un número máximo de intentos. |

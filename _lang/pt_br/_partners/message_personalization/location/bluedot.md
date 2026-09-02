@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Bluedot
 
-> A [Bluedot](https://bluedot.io/) é uma plataforma de localização que fornece recursos precisos e simples de geofencing para seus apps. Use o SDK or kit de desenvolvimento de software da Bluedot para enviar mensagens mais inteligentes, automatizar check-ins de pedidos móveis, otimizar fluxos de trabalho e criar experiências sem atrito.
+> A [Bluedot](https://bluedot.io/) é uma plataforma de localização que fornece recursos precisos e simples de geofencing para seus apps. Use o SDK da Bluedot para enviar mensagens mais inteligentes, automatizar check-ins de pedidos móveis, otimizar fluxos de trabalho e criar experiências sem atrito.
 
 _Essa integração é mantida pela Bluedot._
 
@@ -38,16 +38,16 @@ As informações de localização do evento personalizado fornecidas pela Bluedo
 Configure sua conta da Bluedot e faça login no [dashboard do Bluedot Canvas](https://docs.bluedot.io/canvas/). Visite a [documentação da Bluedot](https://docs.bluedot.io/canvas/creating-a-new-project/) para saber como criar um novo projeto.
 
 ### Etapa 2: Integrar os SDKs {#step-2-integrate-the-sdks}
-Integre o SDK or kit de desenvolvimento de software do Bluedot Point e o SDK or kit de desenvolvimento de software da Braze ao seu app usando as etapas fornecidas na documentação de [integração Bluedot-Braze](https://docs.bluedot.io/integrations/braze-integration/).
+Integre o SDK do Bluedot Point e o SDK da Braze ao seu app usando as etapas fornecidas na documentação de [integração Bluedot-Braze](https://docs.bluedot.io/integrations/braze-integration/).
 
-### Etapa 3: Autenticar o SDK or kit de desenvolvimento de software da Bluedot {#step-3-authenticate-the-bluedot-sdk}
-Use o `projectId` criado na etapa 1 para autenticar o SDK or kit de desenvolvimento de software do Bluedot Point.
+### Etapa 3: Autenticar o SDK da Bluedot {#step-3-authenticate-the-bluedot-sdk}
+Use o `projectId` criado na etapa 1 para autenticar o SDK do Bluedot Point.
 
 ### Etapa 4: Usar eventos Bluedot na Braze {#step-4-use-bluedot-events-in-braze}
 
 #### Disparando mensagens {#triggering-messages}
 
-Você pode configurar uma Campaign push ou um Canvas que será acionado a partir de eventos de localização gerados pelo SDK or kit de desenvolvimento de software da Bluedot. Essa rota de integração é ideal para o envio de mensagens em tempo real no momento em que os usuários entram em um local de interesse, ou para uma comunicação de acompanhamento posterior à sua saída.
+Você pode configurar uma Campaign push ou um Canvas que será acionado a partir de eventos de localização gerados pelo SDK da Bluedot. Essa rota de integração é ideal para o envio de mensagens em tempo real no momento em que os usuários entram em um local de interesse, ou para uma comunicação de acompanhamento posterior à sua saída.
 
 Configure uma Campaign baseada em ações na Braze que enviará mensagens com base em um local definido. Para seu gatilho, use um evento personalizado de `bluedot_entry` ou `bluedot_exit`, conforme mostrado na captura de tela a seguir:
 
@@ -56,4 +56,4 @@ Configure uma Campaign baseada em ações na Braze que enviará mensagens com ba
 #### Direcionamento de usuários {#targeting-users}
 
 Certifique-se de direcionar **Todos os usuários** para seu espaço de trabalho.
-![Uma Campaign baseada em ações com a etapa de direcionamento de usuários incentivando você a selecionar "Todos os usuários" como o Segment or segmento or segmento desejado.]({%image_buster /assets/img_archive/Campaign-Target_users-BD.png %}){: style="max-width:80%"}
+![Uma Campaign baseada em ações com a etapa de direcionamento de usuários incentivando você a selecionar "Todos os usuários" como o Segment desejado.]({%image_buster /assets/img_archive/Campaign-Target_users-BD.png %}){: style="max-width:80%"}

@@ -65,11 +65,11 @@ Verfassen Sie Ihren WhatsApp-Content im Nachrichten-Editor. Für WhatsApp-spezif
 
 ### Template-Nachrichten {#template-messages}
 
-Verwenden Sie [genehmigte WhatsApp-Template-Nachrichten]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup#step-3-create-whatsapp-templates), um Konversationen auf WhatsApp zu starten. Template-Genehmigungen werden von Meta abgewickelt und können bis zu 24 Stunden dauern. Wenn Sie den Template-Text bearbeiten, Update or aktualisieren or aktualisieren Sie ihn in Meta und reichen Sie ihn erneut zur Genehmigung ein.
+Verwenden Sie [genehmigte WhatsApp-Template-Nachrichten]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup#step-3-create-whatsapp-templates), um Konversationen auf WhatsApp zu starten. Template-Genehmigungen werden von Meta abgewickelt und können bis zu 24 Stunden dauern. Wenn Sie den Template-Text bearbeiten, aktualisieren Sie ihn in Meta und reichen Sie ihn erneut zur Genehmigung ein.
 
 Um ein neues Template zu erstellen und einzureichen, ohne den Campaign- oder Canvas-Editor zu verlassen, wählen Sie **Neues Template erstellen**. Informationen zu Kategorien, Typen und dem vollständigen Erstellungsprozess finden Sie unter [WhatsApp-Template-Builder]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder).
 
-Deaktivierte Textfelder (grau hervorgehoben) können nicht bearbeitet werden, da sie Teil des genehmigten WhatsApp-Templates sind. Um den deaktivierten Text zu Update or aktualisieren or aktualisieren, müssen Sie Ihr Template bearbeiten und erneut genehmigen lassen.
+Deaktivierte Textfelder (grau hervorgehoben) können nicht bearbeitet werden, da sie Teil des genehmigten WhatsApp-Templates sind. Um den deaktivierten Text zu aktualisieren, müssen Sie Ihr Template bearbeiten und erneut genehmigen lassen.
 
 #### Content-Felder {#content-fields}
 

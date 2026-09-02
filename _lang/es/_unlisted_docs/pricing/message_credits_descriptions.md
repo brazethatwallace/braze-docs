@@ -17,8 +17,8 @@ Ten en cuenta que el "ratio de créditos" referenciado en esta página se define
 ## Tabla de contenidos {#table-of-contents}
 
 - [Detalles del canal de correo electrónico](#email-channel-details)
-- [Detalles de los canales servicio de mensajes cortos, MMS y RCS](#sms-mms-and-rcs-channel-details)
-  - [Segmentos de servicio de mensajes cortos](#sms-segments)
+- [Detalles de los canales SMS, MMS y RCS](#sms-mms-and-rcs-channel-details)
+  - [Segmentos de SMS](#sms-segments)
   - [Mensajes MMS](#mms-messages)
   - [Tipos de RCS](#rcs-types)
 - [Detalles del canal de WhatsApp](#whatsapp-channel-details)
@@ -41,17 +41,17 @@ Las tasas de créditos de correo electrónico se denominan en incrementos de mil
 Consulta nuestra [documentación de correo electrónico]({{site.baseurl}}/user_guide/channels/email) para obtener más información sobre nuestro canal de correo electrónico.
 {% endalert %}
 
-## Detalles del canal servicio de mensajes cortos, MMS y RCS {#sms-mms-and-rcs-channel-details}
+## Detalles del canal SMS, MMS y RCS {#sms-mms-and-rcs-channel-details}
 
-Las proporciones de créditos de servicio de mensajes cortos y MMS se calculan en incrementos de segmentos enviados desde la plataforma Braze. Las proporciones de créditos de RCS se calculan en incrementos de tipos Basic y Rich Media, o tipos Single y Rich Media entregados desde la plataforma Braze. Tanto los tipos entrantes como los salientes se facturan.
+Las proporciones de créditos de SMS y MMS se calculan en incrementos de segmentos enviados desde la plataforma Braze. Las proporciones de créditos de RCS se calculan en incrementos de tipos Basic y Rich Media, o tipos Single y Rich Media entregados desde la plataforma Braze. Tanto los tipos entrantes como los salientes se facturan.
 
 {% alert note %}
 Cuando corresponda para estos canales, las tarifas del operador se facturan por separado (a posteriori) y no se consideran parte de los Action Credits.
 {% endalert %}
 
-### Segmentos de servicio de mensajes cortos {#sms-segments}
+### Segmentos de SMS {#sms-segments}
 
-La industria de servicio de mensajes cortos cuenta los mensajes en segmentos del mensaje servicio de mensajes cortos. Un segmento del mensaje es una agrupación de hasta un número definido de caracteres (160 para codificación GSM-7; 67 para codificación UCS-2) que se enviarán en un único despacho de servicio de mensajes cortos. Si envías un servicio de mensajes cortos con 161 caracteres usando codificación GSM-7, se enviarán dos (2) segmentos del mensaje. Enviar múltiples segmentos del mensaje generará cargos adicionales.
+La industria de SMS cuenta los mensajes en segmentos del mensaje SMS. Un segmento del mensaje es una agrupación de hasta un número definido de caracteres (160 para codificación GSM-7; 67 para codificación UCS-2) que se enviarán en un único despacho de SMS. Si envías un SMS con 161 caracteres usando codificación GSM-7, se enviarán dos (2) segmentos del mensaje. Enviar múltiples segmentos del mensaje generará cargos adicionales.
 
 ### Mensajes MMS {#mms-messages}
 
@@ -59,12 +59,12 @@ Para MMS, el límite del mensaje es de 5 MB (esto incluye el activo multimedia y
 
 ### Tipos de RCS {#rcs-types}
 
-RCS es la próxima generación de servicio de mensajes cortos y MMS. Ofrece los beneficios de un canal directo y de alta participación como servicio de mensajes cortos, con capacidades más ricas que los consumidores modernos esperan, como contenido enriquecido (imágenes, videos, documentos), envío verificado y con marca, características interactivas como respuestas y acciones sugeridas, y más.
+RCS es la próxima generación de SMS y MMS. Ofrece los beneficios de un canal directo y de alta participación como SMS, con capacidades más ricas que los consumidores modernos esperan, como contenido enriquecido (imágenes, videos, documentos), envío verificado y con marca, características interactivas como respuestas y acciones sugeridas, y más.
 
 {% multi_lang_include pricing/rcs_billing_message_types.md %}
 
 {% alert note %}
-Consulta nuestra [documentación de servicio de mensajes cortos y MMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs) para obtener más información sobre nuestras ofertas de la familia servicio de mensajes cortos.
+Consulta nuestra [documentación de SMS y MMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs) para obtener más información sobre nuestras ofertas de la familia SMS.
 {% endalert %}
 
 ## Detalles del canal de WhatsApp {#whatsapp-channel-details}
@@ -162,7 +162,7 @@ Consulta nuestra [documentación de Canvas]({{site.baseurl}}/partners/canvas_aud
 
 ### Archivado de mensajes {#message-archiving}
 
-Las proporciones de créditos de archivado de mensajes se denominan en incrementos de mil mensajes archivados en los canales push, correo electrónico y servicio de mensajes cortos/MMS.
+Las proporciones de créditos de archivado de mensajes se denominan en incrementos de mil mensajes archivados en los canales push, correo electrónico y SMS/MMS.
 
 {% alert note %}
 Consulta nuestra [documentación de archivado de mensajes]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/message_archiving) para obtener más información sobre el archivado de mensajes.

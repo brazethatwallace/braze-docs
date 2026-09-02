@@ -140,7 +140,7 @@ Para ello, utiliza la siguiente sintaxis, sustituyendo la URL de la imagen segú
 {% endraw %}
 Esta plantilla tomará la hora actual (en segundos), la añadirá al final de la pestaña de la imagen de Movable Ink (como parámetro de consulta) y, a continuación, mostrará el resultado final. Puedes obtener una vista previa con la pestaña **Test**&#8212;que evaluará el código y mostrará una vista previa.
 
-**3.** Por último, reevalúa la pertenencia a un segmento. Para ello, habilita la opción `Re-evaluate audience membership and liquid at send-time` situada en el paso **Target Audiences** de una Campaign. Si esta opción no está disponible, ponte en contacto con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente o con soporte de Braze. Esta opción indicará a los SDK or kit de desarrollo de software de Braze que vuelvan a solicitar la Campaign, proporcionando una URL única cada vez que se desencadene un mensaje dentro de la aplicación.
+**3.** Por último, reevalúa la pertenencia a un segmento. Para ello, habilita la opción `Re-evaluate audience membership and liquid at send-time` situada en el paso **Target Audiences** de una Campaign. Si esta opción no está disponible, ponte en contacto con tu CSM o con soporte de Braze. Esta opción indicará a los SDK de Braze que vuelvan a solicitar la Campaign, proporcionando una URL única cada vez que se desencadene un mensaje dentro de la aplicación.
 
 {% endtab %}
 {% tab Content Card %}

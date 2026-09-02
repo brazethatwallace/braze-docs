@@ -23,7 +23,7 @@ A integração entre a Braze e a WSC Sports permite incluir mídia esportiva ric
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Conta da WSC | É necessário ter uma conta na WSC para aproveitar essa parceria. |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões de **Messages**, **Segments**, **Campaigns** e **Canvas**. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões de **Messages**, **Segments**, **Campaigns** e **Canvas**. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
 {: .reset-td-br-1 .reset-td-br_2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
@@ -34,9 +34,9 @@ O aplicativo WSC Sports lida com o processo de ponta a ponta, desde a seleção 
 
 ![Painel de configurações de envio da WSC Sports com seleção de Campaign e Segment da Braze.]({% image_buster /assets/img/wsc_sports/braze_integration.jpg %} "braze_integration.jpg"){: style="float:right;max-width:25%;margin-bottom:15px;"}
 
-Antes de iniciar a integração, certifique-se de ter a Campaign desejada e os segmentos de usuários criados na Braze. Quando concluído, na plataforma WSC Sports, selecione o vídeo desejado e, nas configurações de envio, selecione o Segment or segmento de usuário da Braze e o ID da Campaign que deseja usar. Por fim, escolha o horário em que deseja que a mensagem push seja enviada.
+Antes de iniciar a integração, certifique-se de ter a Campaign desejada e os segmentos de usuários criados na Braze. Quando concluído, na plataforma WSC Sports, selecione o vídeo desejado e, nas configurações de envio, selecione o Segment de usuário da Braze e o ID da Campaign que deseja usar. Por fim, escolha o horário em que deseja que a mensagem push seja enviada.
 
-#### Chamada de API or interface de programação do aplicativo (API) {#api-call}
+#### Chamada de API {#api-call}
 
 Depois de enviada, a WSC Sports entregará a notificação por push aos segmentos de usuários escolhidos, usando os seguintes endpoints da Braze, com base nas opções selecionadas:
 - [/messages/agendar/cronograma/create]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages)

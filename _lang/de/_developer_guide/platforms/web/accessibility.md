@@ -12,11 +12,11 @@ description: "Dieser Artikel beschreibt, wie Braze die Barrierefreiheit unterst�
 
 > Dieser Artikel bietet eine Übersicht darüber, wie Braze die Barrierefreiheit innerhalb Ihrer Integration unterstützt.
 
-Das Braze Web SDK or Software-Development-Kit unterstützt die Standards der [Web Content Accessibility Guidelines (WCAG 2.1)](https://www.w3.org/TR/WCAG21/). Wir halten bei allen unseren neuen Versionen einen [Lighthouse-Score von 100/100](https://developer.chrome.com/docs/lighthouse/accessibility/scoring) für Content Cards und In-App-Nachrichten ein, um unseren Standard für Barrierefreiheit aufrechtzuerhalten.
+Das Braze Web SDK unterstützt die Standards der [Web Content Accessibility Guidelines (WCAG 2.1)](https://www.w3.org/TR/WCAG21/). Wir halten bei allen unseren neuen Versionen einen [Lighthouse-Score von 100/100](https://developer.chrome.com/docs/lighthouse/accessibility/scoring) für Content Cards und In-App-Nachrichten ein, um unseren Standard für Barrierefreiheit aufrechtzuerhalten.
 
 ## Voraussetzungen {#prerequisites}
 
-Die Mindest-SDK or Software-Development-Kit-Version, die WCAG 2.1 erfüllt, liegt nahe an v3.4.0. Wir empfehlen jedoch, auf mindestens Version 6.0.0 zu upgraden, um wichtige Fehlerbehebungen bei Bild-Tags zu erhalten.
+Die Mindest-SDK-Version, die WCAG 2.1 erfüllt, liegt nahe an v3.4.0. Wir empfehlen jedoch, auf mindestens Version 6.0.0 zu upgraden, um wichtige Fehlerbehebungen bei Bild-Tags zu erhalten.
 
 ### Wichtige Verbesserungen der Barrierefreiheit {#notable-accessibility-fixes}
 
@@ -41,9 +41,9 @@ Wir unterstützen die folgenden Features für Content Cards und In-App-Nachricht
 - Screenreader-Ankündigungen
 - Alt-Text-Unterstützung für Bilder
 
-## Richtlinien zur Barrierefreiheit für SDK or Software-Development-Kit-Integrationen {#accessibility-guidelines-for-sdk-integrations}
+## Richtlinien zur Barrierefreiheit für SDK-Integrationen {#accessibility-guidelines-for-sdk-integrations}
 
-Allgemeine Richtlinien zur Barrierefreiheit finden Sie unter [Barrierefreie Nachrichten in Braze erstellen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility). Dieser Leitfaden enthält Tipps und bewährte Verfahren für maximale Barrierefreiheit bei der Integration des Braze Web SDK or Software-Development-Kit in Ihre Webanwendung.
+Allgemeine Richtlinien zur Barrierefreiheit finden Sie unter [Barrierefreie Nachrichten in Braze erstellen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility). Dieser Leitfaden enthält Tipps und bewährte Verfahren für maximale Barrierefreiheit bei der Integration des Braze Web SDK in Ihre Webanwendung.
 
 ### Content Cards
 
@@ -92,7 +92,7 @@ Fügen Sie keine wichtigen Informationen in Slide-up-In-App-Nachrichten ein, da 
 
 #### Responsives Design {#responsive-design}
 
-Das SDK or Software-Development-Kit enthält responsive Haltepunkte. Stellen Sie sicher, dass Ihre Anpassungen auf allen Bildschirmgrößen funktionieren, wie in diesem Beispiel:
+Das SDK enthält responsive Haltepunkte. Stellen Sie sicher, dass Ihre Anpassungen auf allen Bildschirmgrößen funktionieren, wie in diesem Beispiel:
 
 {% raw %}
 ```css
@@ -130,9 +130,9 @@ Das SDK or Software-Development-Kit enthält responsive Haltepunkte. Stellen Sie
 
 Um häufige Probleme mit der Barrierefreiheit zu vermeiden, gehen Sie wie folgt vor:
 
-1. **Fokusstile beibehalten:** Die Fokusindikatoren des SDK or Software-Development-Kit sind für Tastaturnutzer:innen von entscheidender Bedeutung.
+1. **Fokusstile beibehalten:** Die Fokusindikatoren des SDK sind für Tastaturnutzer:innen von entscheidender Bedeutung.
 2. **Verwenden Sie `display: none` nur für nicht-interaktive Elemente:** Verwenden Sie `visibility: hidden` oder `opacity: 0` zum Ausblenden interaktiver Elemente.
-3. **Überschreiben Sie keine ARIA-Attribute:** Das SDK or Software-Development-Kit legt geeignete ARIA-Rollen und -Labels fest.
+3. **Überschreiben Sie keine ARIA-Attribute:** Das SDK legt geeignete ARIA-Rollen und -Labels fest.
 4. **Verwenden Sie `tabindex`-Attribute:** Diese steuern die Reihenfolge der Tastaturnavigation.
 5. **Stellen Sie eine Bildlaufleiste bereit, wenn Sie `overflow: hidden` festlegen:** Stellen Sie sicher, dass scrollbare Inhalte weiterhin zugänglich sind.
 6. **Greifen Sie nicht in die integrierten Tastatur-Handler ein:** Stellen Sie sicher, dass die vorhandene Tastaturnavigation ordnungsgemäß funktioniert.

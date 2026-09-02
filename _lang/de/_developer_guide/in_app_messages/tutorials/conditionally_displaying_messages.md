@@ -8,7 +8,7 @@ layout: scrolly
 
 # Anleitung: Bedingte Anzeige von In-App-Nachrichten {#tutorial-conditionally-displaying-in-app-messages}
 
-> Folgen Sie dem Beispielcode in dieser Anleitung, um In-App-Nachrichten mit dem Braze SDK or Software-Development-Kit bedingt anzuzeigen.
+> Folgen Sie dem Beispielcode in dieser Anleitung, um In-App-Nachrichten mit dem Braze SDK bedingt anzuzeigen.
 
 {% sdktabs %}
 {% sdktab web %}
@@ -60,7 +60,7 @@ lines-index.js=9-18
 
 #### 3. Updates für In-App-Nachrichten abonnieren {#3-subscribe-to-in-app-message-updates}
 
-Registrierung or registrieren Sie einen Callback mit [`subscribeToInAppMessage(callback)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetoinappmessage), um jedes Mal eine `message` zu erhalten, wenn eine In-App-Nachricht getriggert wird.
+Registrierung Sie einen Callback mit [`subscribeToInAppMessage(callback)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetoinappmessage), um jedes Mal eine `message` zu erhalten, wenn eine In-App-Nachricht getriggert wird.
 
 !!step
 lines-index.js=10-13
@@ -146,9 +146,9 @@ Um die Fehlerbehebung während der Entwicklung zu erleichtern, sollten Sie das D
 !!step
 lines-MainApplication.kt=26-28
 
-#### 2. Activity-Lifecycle-Callbacks Registrierung or registrieren {#2-register-activity-lifecycle-callbacks}
+#### 2. Activity-Lifecycle-Callbacks Registrierung {#2-register-activity-lifecycle-callbacks}
 
-Registrierung or registrieren Sie den Standard-Listener von Braze, um den Lebenszyklus der In-App-Nachrichten zu verwalten.
+Registrierung Sie den Standard-Listener von Braze, um den Lebenszyklus der In-App-Nachrichten zu verwalten.
 
 !!step
 lines-MainApplication.kt=30-44

@@ -32,7 +32,7 @@ No cambies el entorno del certificado push (desarrollo frente a producción). Ca
 
 #### Paso 2: Los dispositivos se registran en APN y proporcionan a Braze los tokens de notificaciones push {#step-2-devices-register-for-apns-and-provide-braze-with-push-tokens}
 
-Cuando los usuarios abran tu aplicación, se les pedirá que acepten las notificaciones push. Si aceptan esta solicitud, APN generará un token de notificaciones push para ese dispositivo en particular. El SDK or kit de desarrollo de software de iOS enviará de forma inmediata y asíncrona el token de notificaciones push para las aplicaciones que utilicen la [política de vaciado automático]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/advanced_use_cases/fine_network_traffic_control#automatic-request-processing) predeterminada. Una vez que tengamos un token de notificaciones push asociado a un usuario, aparecerá como "Push Registered" en el panel, en su perfil de usuario, en la pestaña **Engagement**, y será elegible para recibir notificaciones push de Campaigns de Braze.
+Cuando los usuarios abran tu aplicación, se les pedirá que acepten las notificaciones push. Si aceptan esta solicitud, APN generará un token de notificaciones push para ese dispositivo en particular. El SDK de iOS enviará de forma inmediata y asíncrona el token de notificaciones push para las aplicaciones que utilicen la [política de vaciado automático]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/advanced_use_cases/fine_network_traffic_control#automatic-request-processing) predeterminada. Una vez que tengamos un token de notificaciones push asociado a un usuario, aparecerá como "Push Registered" en el panel, en su perfil de usuario, en la pestaña **Engagement**, y será elegible para recibir notificaciones push de Campaigns de Braze.
 
 {% alert note %}
 A partir de Xcode 14, puedes probar las notificaciones push remotas en un simulador de iOS.
@@ -144,7 +144,7 @@ Para añadir verificación del manejo de push en tu aplicación, implementa [pru
 ### Los clics push no se registran {#push-clicks-not-logged}
 
 - Si esto solo ocurre en iOS 10, asegúrate de haber seguido los pasos de integración push para [iOS 10]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration#step-5-enable-push-handling).
-- Braze no gestiona las notificaciones push recibidas de forma silenciosa en primer plano (por ejemplo, el comportamiento push en primer plano predeterminado antes del framework `UserNotifications`). Esto significa que los enlaces no se abrirán y los clics push no se registrarán. Si tu aplicación aún no ha integrado el framework `UserNotifications`, Braze no gestionará las notificaciones push cuando el estado de la aplicación sea `UIApplicationStateActive`. Debes asegurarte de que tu aplicación no retrase las llamadas a nuestros [métodos de manejo de push]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration#step-5-enable-push-handling); de lo contrario, el SDK or kit de desarrollo de software de iOS puede tratar las notificaciones push como eventos push silenciosos en primer plano y no gestionarlos.
+- Braze no gestiona las notificaciones push recibidas de forma silenciosa en primer plano (por ejemplo, el comportamiento push en primer plano predeterminado antes del framework `UserNotifications`). Esto significa que los enlaces no se abrirán y los clics push no se registrarán. Si tu aplicación aún no ha integrado el framework `UserNotifications`, Braze no gestionará las notificaciones push cuando el estado de la aplicación sea `UIApplicationStateActive`. Debes asegurarte de que tu aplicación no retrase las llamadas a nuestros [métodos de manejo de push]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration#step-5-enable-push-handling); de lo contrario, el SDK de iOS puede tratar las notificaciones push como eventos push silenciosos en primer plano y no gestionarlos.
 
 #### Los enlaces web de los clics push no se abren {#web-links-from-push-clicks-not-opening}
 
@@ -158,7 +158,7 @@ Si las aperturas se están registrando, comprueba si se trata de un problema con
 
 #### Pocas o ninguna apertura directa {#few-or-no-direct-opens}
 
-Si al menos un usuario abre tu notificación push de iOS, pero se registran pocas o ninguna _Direct Opens_ en Braze, puede haber un problema con tu [integración de SDK or kit de desarrollo de software]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview). Ten en cuenta que las _Direct Opens_ no se registran para envíos de prueba ni para notificaciones push silenciosas.
+Si al menos un usuario abre tu notificación push de iOS, pero se registran pocas o ninguna _Direct Opens_ en Braze, puede haber un problema con tu [integración de SDK]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview). Ten en cuenta que las _Direct Opens_ no se registran para envíos de prueba ni para notificaciones push silenciosas.
 
 - Asegúrate de que los mensajes no se estén enviando como [notificaciones push silenciosas]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/silent_push_notifications#sending-silent-push-notifications). El mensaje debe tener texto en el título o en el cuerpo para no ser considerado silencioso.
 - Vuelve a comprobar los siguientes pasos de la [guía de integración push]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration):
@@ -167,7 +167,7 @@ Si al menos un usuario abre tu notificación push de iOS, pero se registran poca
 
 ### Los clics en imágenes de Push Stories no hacen nada {#push-story-image-clicks-do-nothing}
 
-Esta sección aplica a la integración de Push Stories con el SDK or kit de desarrollo de software de Objective-C. Si usas el módulo `BrazePushStory` del SDK or kit de desarrollo de software de Swift, establece `UNNotificationExtensionUserInteractionEnabled` en `YES`. Consulta [Push Stories]({{site.baseurl}}/developer_guide/push_notifications/push_stories/?sdktab=swift).
+Esta sección aplica a la integración de Push Stories con el SDK de Objective-C. Si usas el módulo `BrazePushStory` del SDK de Swift, establece `UNNotificationExtensionUserInteractionEnabled` en `YES`. Consulta [Push Stories]({{site.baseurl}}/developer_guide/push_notifications/push_stories/?sdktab=swift).
 
 Si al tocar una imagen de Push Stories no se abre la acción esperada, abre el `Info.plist` de la extensión de contenido de notificación y verifica que las claves coincidan con las de la [configuración de Push Stories]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/push_story):
 

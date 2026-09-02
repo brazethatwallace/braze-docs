@@ -14,7 +14,7 @@ Para crear un buen agente, deberás:
 
 - Elegir una métrica de éxito para que BrazeAI<sup>TM</sup> la optimice, como ingresos, conversiones o ARPU.
 - Definir qué dimensiones probar, como oferta, línea del asunto, creatividad, canal o momento de envío.
-- Seleccionar las opciones para cada dimensión, como correo electrónico frente a servicio de mensajes cortos, o frecuencia diaria frente a semanal.
+- Seleccionar las opciones para cada dimensión, como correo electrónico frente a SMS, o frecuencia diaria frente a semanal.
 
 ![Diagrama de ejemplo de un agente de Decisioning Studio para correos electrónicos de referidos.]({% image_buster /assets/img/offerfit/example_use_cases_referral_email.png %})
 

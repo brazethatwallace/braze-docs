@@ -18,13 +18,13 @@ API Rate-Limits können sich je nach ordnungsgemäßer Nutzung unseres Systems �
 
 ## Rate-Limits nach Anfragetyp {#rate-limits-by-request-type}
 
-In der folgenden Übersicht finden Sie die standardmäßigen API-Rate-Limits für verschiedene Anfragetypen. Diese Standardlimits können auf Anfrage erhöht werden. Wenden Sie sich für weitere Informationen an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in.
+In der folgenden Übersicht finden Sie die standardmäßigen API-Rate-Limits für verschiedene Anfragetypen. Diese Standardlimits können auf Anfrage erhöht werden. Wenden Sie sich für weitere Informationen an Ihren Customer-Success-Manager.
 
 ### Anfragen mit unterschiedlichen Rate-Limits {#requests-with-different-rate-limits}
 
 | Anfragetyp | Standard-API-Rate-Limit |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) | **Anfragen:** Die Rate-Limits variieren je nach Vertrag. Für Kund:innen, deren Preismodell Datenpunkte umfasst, wendet Braze ein Burst-Limit von 3.000 Anfragen pro drei Sekunden an. Für alle anderen Kund:innen werden die Limits gemäß Ihren Vertragsbedingungen konfiguriert. Kontaktieren Sie den Braze-Support oder Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in bei Fragen zu Ihren Limits.<br><br>**Batching:** Bis zu 75 Objekte insgesamt, kombiniert aus `attributes`, `events` und `purchases`, pro API-Anfrage. Kund:innen mit Legacy-Rate-Limits können bis zu 75 Objekte pro Array unabhängig voneinander einschließen. Weitere Informationen finden Sie unter [Batching von User-Track-Anfragen](#batch-user-track).<br><br>**Limits für Monthly Active Users CY 24-25, Universal MAU or monatlich aktive:r Nutzer:in, Web MAU or monatlich aktive:r Nutzer:in und Mobile MAU or monatlich aktive:r Nutzer:in:** Siehe [Limits für Monthly Active Users CY 24-25]({{site.baseurl}}/api/endpoints/user_data/post_user_track#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau). |
+| [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) | **Anfragen:** Die Rate-Limits variieren je nach Vertrag. Für Kund:innen, deren Preismodell Datenpunkte umfasst, wendet Braze ein Burst-Limit von 3.000 Anfragen pro drei Sekunden an. Für alle anderen Kund:innen werden die Limits gemäß Ihren Vertragsbedingungen konfiguriert. Kontaktieren Sie den Braze-Support oder Ihren Customer-Success-Manager bei Fragen zu Ihren Limits.<br><br>**Batching:** Bis zu 75 Objekte insgesamt, kombiniert aus `attributes`, `events` und `purchases`, pro API-Anfrage. Kund:innen mit Legacy-Rate-Limits können bis zu 75 Objekte pro Array unabhängig voneinander einschließen. Weitere Informationen finden Sie unter [Batching von User-Track-Anfragen](#batch-user-track).<br><br>**Limits für Monthly Active Users CY 24-25, Universal MAU, Web MAU und Mobile MAU:** Siehe [Limits für Monthly Active Users CY 24-25]({{site.baseurl}}/api/endpoints/user_data/post_user_track#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau). |
 | [`/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) | **Bei Onboarding am oder nach dem 22. August 2024:** 250 Anfragen pro Minute. <br><br> **Bei Onboarding vor dem 22. August 2024:** 2.500 Anfragen pro Minute. |
 | [`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete)<br>[`/users/alias/new`]({{site.baseurl}}/api/endpoints/user_data/post_user_alias)<br>[`/users/alias/update`]({{site.baseurl}}/api/endpoints/user_data/post_users_alias_update)<br>[`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)<br>[`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) | 20.000 Anfragen pro Minute, geteilt zwischen den Endpunkten. |
 | [`/users/external_id/rename`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_rename) | 1.000 Anfragen pro Minute. |
@@ -127,18 +127,18 @@ Jede eindeutige Kombination dieser Attribute zählt als separate Zielgruppe, sod
 Braze-APIs unterstützen das Bündeln (Batching) von Anfragen. Durch das Bündeln kann Braze so viele Daten wie möglich in einem einzigen API-Aufruf verarbeiten, sodass Sie nicht viele einzelne API-Aufrufe durchführen müssen. Es ist für Braze effizienter, Daten in Stapeln zu verarbeiten als einen Aufruf nach dem anderen. Zum Beispiel erfordert die Verarbeitung von 1.000 gebündelten API-Aufrufen weniger Ressourcen als die Verarbeitung von 75.000 einzelnen Aufrufen. Das Bündeln ist äußerst wichtig für jede Anwendung, die möglicherweise mehr als 75.000 Aufrufe pro Stunde benötigt.
 
 {% alert note %}
-Erhöhungen des Representational State Transfer-API-Rate-Limits werden bedarfsabhängig für Kund:innen geprüft, die die API-Batching-Funktionen nutzen.
+Erhöhungen des REST-API-Rate-Limits werden bedarfsabhängig für Kund:innen geprüft, die die API-Batching-Funktionen nutzen.
 {% endalert %}
 
-### Anfragen für den Endpunkt „Nutzer:innen erstellen und Update or aktualisieren or aktualisieren“ bündeln {#batch-user-track}
+### Anfragen für den Endpunkt „Nutzer:innen erstellen und aktualisieren“ bündeln {#batch-user-track}
 
-Jede `/users/track`-Anfrage kann insgesamt bis zu 75 Objekte enthalten, die über `attributes`, `events` und `purchases` verteilt sind. Jedes Objekt kann eine:n Nutzer:in Update or aktualisieren or aktualisieren. Ein einzelnes Kundenprofil or Nutzerprofil kann durch mehrere Objekte aktualisiert werden.
+Jede `/users/track`-Anfrage kann insgesamt bis zu 75 Objekte enthalten, die über `attributes`, `events` und `purchases` verteilt sind. Jedes Objekt kann eine:n Nutzer:in aktualisieren. Ein einzelnes Nutzerprofil kann durch mehrere Objekte aktualisiert werden.
 
 {% details Ältere Rate-Limits %}
 Für Kund:innen mit älteren Rate-Limits kann jedes Array (`attributes`, `events` und `purchases`) unabhängig bis zu 75 Objekte enthalten, was ein kombiniertes Maximum von bis zu 225 Objekten pro Anfrage ergibt.
 {% enddetails %}
 
-Weitere Informationen zu den Rate-Limits für `/users/track` finden Sie unter [POST: Nutzer:innen erstellen und Update or aktualisieren or aktualisieren]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
+Weitere Informationen zu den Rate-Limits für `/users/track` finden Sie unter [POST: Nutzer:innen erstellen und aktualisieren]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
 
 Anfragen an diesen Endpunkt werden in der Regel in folgender Reihenfolge verarbeitet:
 
@@ -156,7 +156,7 @@ Eine einzelne Anfrage an die [Messaging-Endpunkte]({{site.baseurl}}/api/endpoint
 
 ### Beispiel für eine gebündelte Anfrage {#example-batch-request}
 
-Das folgende Beispiel verwendet `external_id`, um einen einzelnen API-Aufruf für E-Mail und Kurzmitteilungsdienst or SMS durchzuführen.
+Das folgende Beispiel verwendet `external_id`, um einen einzelnen API-Aufruf für E-Mail und SMS durchzuführen.
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/v2/subscription/status/set' \
@@ -195,7 +195,7 @@ Diese Informationen sind absichtlich im Header der Antwort auf die API-Anfrage e
 HTTP-Header werden ausschließlich in Kleinbuchstaben zurückgegeben. Dieses Verhalten entspricht dem HTTP/2-Protokoll, das vorschreibt, dass alle Header-Feldnamen in Kleinbuchstaben geschrieben sein müssen. Dies unterscheidet sich von HTTP/1.X, wo Header-Namen nicht zwischen Groß- und Kleinschreibung unterschieden, aber häufig in verschiedenen Schreibweisen verwendet wurden.
 {% endalert %}
 
-Wenn Sie Fragen zu API-Limits haben, wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in oder eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support).
+Wenn Sie Fragen zu API-Limits haben, wenden Sie sich an Ihren Customer-Success-Manager oder eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
 {% alert tip %}
 Sie können das [API-Nutzungs-Dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/api_usage) verwenden, um eingehenden Datenverkehr anzuzeigen und mit Ihren Rate-Limits zu vergleichen.

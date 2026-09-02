@@ -15,14 +15,14 @@ _Esta integración está mantenida por Wyng._
 
 ## Sobre la integración {#about-the-integration}
 
-La integración de Braze y Wyng te permite aprovechar los zero-party data obtenidos a través de las experiencias Wyng para personalizar las interacciones en Braze Campaigns y BRAZE Canvas. Wyng también puede impulsar un centro de preferencias, para que los consumidores puedan controlar los datos y preferencias (incluidas las preferencias de comunicación) que comparten con tu marca.
+La integración de Braze y Wyng te permite aprovechar los zero-party data obtenidos a través de las experiencias Wyng para personalizar las interacciones en Braze Campaigns y BRAZE CANVAS. Wyng también puede impulsar un centro de preferencias, para que los consumidores puedan controlar los datos y preferencias (incluidas las preferencias de comunicación) que comparten con tu marca.
 
 ## Requisitos previos {#prerequisites}
 
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta Wyng | Se necesita una cuenta Wyng para beneficiarse de esta asociación. |
-| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos `users.track`. <br><br> Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. <br><br> Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
@@ -35,7 +35,7 @@ En Wyng, ve a [**Integraciones**](https://wyng.com/dashboard/integrations/) y se
 
 ### Paso 2: Configurar el conector de Braze {#step-2-configure-the-braze-connector}
 
-1. En la ventana de configuración que se abre, proporciona tu clave de API REST or transferencia de estado representacional de Braze.
+1. En la ventana de configuración que se abre, proporciona tu clave de API REST de Braze.
 ![Una imagen del aspecto de la solicitud de credenciales.]({% image_buster /assets/img/wyng/4.png %}){: style="max-width:80%;"}<br><br>
 2. A continuación, utiliza el menú desplegable para seleccionar la campaña Wyng que deseas compartir con Braze.![Imagen del conector de Braze que te pide que selecciones una campaña Wyng existente que desees compartir con Braze.]({% image_buster /assets/img/wyng/5.png %}){: style="max-width:80%;"}<br><br>
 3. A continuación, debes configurar las suscripciones, los objetos de atributo y evento, y los eventos personalizados.<br><br>

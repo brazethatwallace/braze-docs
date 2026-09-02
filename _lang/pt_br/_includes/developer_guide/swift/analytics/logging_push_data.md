@@ -1,6 +1,6 @@
-## Registro de dados com a API or interface de programação do aplicativo (API) da Braze (recomendado) {#logging-data-with-the-braze-api-recommended}
+## Registro de dados com a API da Braze (recomendado) {#logging-data-with-the-braze-api-recommended}
 
-É possível registrar análises de dados em tempo real com a ajuda do [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) da API or interface de programação do aplicativo (API) da Braze. Para registrar análises de dados, envie o valor `braze_id` no campo de pares de valores-chave (como mostrado na captura de tela a seguir) para identificar qual perfil de usuário deve ser atualizado.
+É possível registrar análises de dados em tempo real com a ajuda do [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) da API da Braze. Para registrar análises de dados, envie o valor `braze_id` no campo de pares de valores-chave (como mostrado na captura de tela a seguir) para identificar qual perfil de usuário deve ser atualizado.
 
 ![Uma mensagem push com três conjuntos de pares de valores-chave. 1. "Braze_id" definido como uma chamada Liquid para recuperar o Braze ID. 2. "cert_title" definido como "Braze Marketer Certification". 3. "Cert_description" definido como "Certified Braze marketers drive...".]({% image_buster /assets/img/push_implementation_guide/push18.png %}){: style="max-width:80%;"}
 
@@ -80,7 +80,7 @@ func saveCustomEvent(with properties: [String: Any]? = nil) {
 
 #### Envio de eventos personalizados para a Braze {#sending-custom-events-to-braze}
 
-O melhor momento para registrar qualquer análise de dados salva de uma extensão de app de conteúdo de notificação é logo após a inicialização do SDK or kit de desenvolvimento de software. Isso pode ser feito percorrendo todos os eventos pendentes, verificando a chave "Event Name", definindo os valores apropriados na Braze e, em seguida, limpando o armazenamento para a próxima vez que essa função for necessária.
+O melhor momento para registrar qualquer análise de dados salva de uma extensão de app de conteúdo de notificação é logo após a inicialização do SDK. Isso pode ser feito percorrendo todos os eventos pendentes, verificando a chave "Event Name", definindo os valores apropriados na Braze e, em seguida, limpando o armazenamento para a próxima vez que essa função for necessária.
 
 1. Percorra o array de eventos pendentes
 2. Percorra cada par de valores-chave no dicionário `pendingEvents`
@@ -221,7 +221,7 @@ func saveCustomAttribute() {
 
 #### Envio de atributos personalizados para a Braze {#sending-custom-attributes-to-braze}
 
-O melhor momento para registrar qualquer análise de dados salva de uma extensão de app de conteúdo de notificação é logo após a inicialização do SDK or kit de desenvolvimento de software. Isso pode ser feito percorrendo os atributos pendentes, definindo o atributo personalizado apropriado na Braze e, em seguida, limpando o armazenamento para a próxima vez que essa função for necessária.
+O melhor momento para registrar qualquer análise de dados salva de uma extensão de app de conteúdo de notificação é logo após a inicialização do SDK. Isso pode ser feito percorrendo os atributos pendentes, definindo o atributo personalizado apropriado na Braze e, em seguida, limpando o armazenamento para a próxima vez que essa função for necessária.
 
 1. Percorra o array de atributos pendentes
 2. Percorra cada par de valores-chave no dicionário `pendingAttributes`
@@ -344,7 +344,7 @@ func saveUserAttribute() {
 
 #### Envio de atributos de usuário para a Braze {#sending-user-attributes-to-braze}
 
-O melhor momento para registrar qualquer análise de dados salva de uma extensão de app de conteúdo de notificação é logo após a inicialização do SDK or kit de desenvolvimento de software. Isso pode ser feito percorrendo os atributos pendentes, definindo o atributo personalizado apropriado na Braze e, em seguida, limpando o armazenamento para a próxima vez que essa função for necessária.
+O melhor momento para registrar qualquer análise de dados salva de uma extensão de app de conteúdo de notificação é logo após a inicialização do SDK. Isso pode ser feito percorrendo os atributos pendentes, definindo o atributo personalizado apropriado na Braze e, em seguida, limpando o armazenamento para a próxima vez que essa função for necessária.
 
 1. Percorra o array de dados `pendingAttributes`
 2. Inicialize um objeto `UserAttribute` codificado a partir dos dados de atributo

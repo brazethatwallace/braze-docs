@@ -16,7 +16,7 @@ search_rank: 3
 
 ## Requisitos previos {#prerequisites}
 
-La disponibilidad de webhooks depende de tu paquete de Braze. Ponte en contacto con tu director de cuentas o CSM or administrador de éxito de cliente or administrador de éxito de cliente para empezar.
+La disponibilidad de webhooks depende de tu paquete de Braze. Ponte en contacto con tu director de cuentas o CSM para empezar.
 
 ## Ejemplos {#use-cases}
 
@@ -29,7 +29,7 @@ Los webhooks son una excelente manera de conectar tus sistemas entre sí; despu�
 Algunos ejemplos más específicos incluyen los siguientes:
 
 - Crea un [flujo de trabajo de puntuación de clientes potenciales]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring) utilizando webhooks y Canvas para calificar y dirigir clientes potenciales.
-- Si un usuario cancela su suscripción al correo electrónico, podrías hacer que un webhook actualice tu base de datos de análisis o CRM or administración de las relaciones con el cliente con esa misma información, asegurando una visión integral del comportamiento de ese usuario.
+- Si un usuario cancela su suscripción al correo electrónico, podrías hacer que un webhook actualice tu base de datos de análisis o CRM con esa misma información, asegurando una visión integral del comportamiento de ese usuario.
 - Envía [mensajes transaccionales]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email) a los usuarios dentro de Facebook Messenger o Line.
 - Envía correo directo a los clientes en respuesta a su actividad dentro de la aplicación y en la web utilizando webhooks para comunicarte con servicios de terceros como [Lob.com]({{site.baseurl}}/partners/additional_channels_and_extensions/additional_channels/direct_mail/lob).
 - Si un jugador alcanza un determinado nivel o acumula cierta cantidad de puntos, utiliza webhooks y tu configuración de API existente para enviar una mejora de personaje o monedas directamente a su cuenta. Si envías el webhook como parte de una campaña de mensajería multicanal, puedes enviar un push u otro mensaje para informar al jugador sobre la recompensa al mismo tiempo.

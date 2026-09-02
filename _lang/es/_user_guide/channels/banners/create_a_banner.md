@@ -126,7 +126,7 @@ Para la referencia completa del puente JavaScript, consulta [Código personaliza
 #### Paso 3.3: Configura el comportamiento de descarte (opcional) {#dismiss-behavior}
 
 {% alert important %}
-Los descartes de Banner requieren las siguientes versiones mínimas del SDK or kit de desarrollo de software. Las versiones anteriores del SDK or kit de desarrollo de software no renderizan Banners con el descarte habilitado.
+Los descartes de Banner requieren las siguientes versiones mínimas del SDK. Las versiones anteriores del SDK no renderizan Banners con el descarte habilitado.
 {% sdk_min_versions swift:14.1.0 android:42.1.0 web:6.7.1 reactnative:22.0.0 flutter:20.0.0 %}
 {% endalert %}
 
@@ -164,7 +164,7 @@ Para la referencia completa del puente JavaScript, consulta [Código personaliza
 
 #### Paso 3.4: Añade propiedades personalizadas (opcional) {#custom-properties}
 
-Puedes añadir propiedades personalizadas a un Banner para adjuntar metadatos estructurados, como cadenas u objetos JSON. Estas propiedades no afectan cómo se muestra el Banner, pero se pueden [acceder a través del SDK or kit de desarrollo de software de Braze]({{site.baseurl}}/developer_guide/banners/placements) para modificar el comportamiento o la apariencia de tu aplicación. Por ejemplo, podrías:
+Puedes añadir propiedades personalizadas a un Banner para adjuntar metadatos estructurados, como cadenas u objetos JSON. Estas propiedades no afectan cómo se muestra el Banner, pero se pueden [acceder a través del SDK de Braze]({{site.baseurl}}/developer_guide/banners/placements) para modificar el comportamiento o la apariencia de tu aplicación. Por ejemplo, podrías:
 
 {% multi_lang_include banners/metadata_use_cases.md %}
 
@@ -177,7 +177,7 @@ Para cada propiedad que desees añadir, completa lo siguiente:
 | Campo | Descripción | Ejemplo |
 |-------|-------------|---------|
 | Tipo de propiedad | El tipo de datos para la propiedad. Los tipos compatibles incluyen cadena, booleano, número, marca de tiempo, URL de imagen y objeto JSON. | String |
-| Clave de propiedad | El identificador único para la propiedad. Esta clave se utiliza en el SDK or kit de desarrollo de software para acceder a la propiedad. | `color` |
+| Clave de propiedad | El identificador único para la propiedad. Esta clave se utiliza en el SDK para acceder a la propiedad. | `color` |
 | Valor | El valor asignado a la propiedad. Debe coincidir con el tipo de propiedad seleccionado. | `#FF0000` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paso 3.4: Añade propiedades personalizadas (opcional)" }
 

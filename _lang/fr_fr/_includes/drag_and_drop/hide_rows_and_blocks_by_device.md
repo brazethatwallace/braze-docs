@@ -7,15 +7,15 @@
 {% if include.channel == 'banner' %}
 {% assign heading_level = '#####' %}
 {% assign preview_subject = 'votre bannière' %}
-{% assign live_phrase = 'dans la bannière en direct or en ligne/en production/instantané' %}
+{% assign live_phrase = 'dans la bannière en direct' %}
 {% elsif include.channel == 'in_app_message' %}
 {% assign heading_level = '###' %}
 {% assign preview_subject = 'votre message' %}
-{% assign live_phrase = 'dans le message in-app en direct or en ligne/en production/instantané' %}
+{% assign live_phrase = 'dans le message in-app en direct' %}
 {% elsif include.channel == 'landing_page' %}
 {% assign heading_level = '####' %}
 {% assign preview_subject = 'votre page' %}
-{% assign live_phrase = 'sur la page de destination en direct or en ligne/en production/instantané' %}
+{% assign live_phrase = 'sur la page de destination en direct' %}
 {% endif %}
 
 {{ heading_level }} Masquer des lignes et des blocs par appareil

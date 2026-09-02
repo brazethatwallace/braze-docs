@@ -22,4 +22,4 @@ Braze, que adopta una estrategia técnica centrada en el desarrollador, ha publi
 
 ## Swift Package Administrador
 
-El [Swift Package Administrador]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift#swift_integrating-the-swift-sdk) está integrado con el sistema de construcción Swift y descargará, compilará y enlazará automáticamente las dependencias. La instalación del SDK or kit de desarrollo de software de iOS mediante Swift Package Administrador automatizará la mayor parte del proceso de instalación por ti.
+El [Swift Package Administrador]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift#swift_integrating-the-swift-sdk) está integrado con el sistema de construcción Swift y descargará, compilará y enlazará automáticamente las dependencias. La instalación del SDK de iOS mediante Swift Package Administrador automatizará la mayor parte del proceso de instalación por ti.

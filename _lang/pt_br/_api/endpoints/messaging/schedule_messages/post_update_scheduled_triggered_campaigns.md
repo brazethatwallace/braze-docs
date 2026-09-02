@@ -1,23 +1,23 @@
 ---
-nav_title: "POST: Atualizar Campaigns agendadas disparadas por API or interface de programação do aplicativo (API)"
-article_title: "POST: Atualizar Campaigns agendadas disparadas por API or interface de programação do aplicativo (API)"
+nav_title: "POST: Atualizar Campaigns agendadas disparadas por API"
+article_title: "POST: Atualizar Campaigns agendadas disparadas por API"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
-description: "Este artigo descreve os detalhes sobre o endpoint da Braze \"Atualizar Campaigns agendadas disparadas por API or interface de programação do aplicativo (API)\"."
+description: "Este artigo descreve os detalhes sobre o endpoint da Braze \"Atualizar Campaigns agendadas disparadas por API\"."
 
 ---
-{% API or interface de programação do aplicativo (API) %}
-# Atualizar Campaigns agendadas disparadas por API or interface de programação do aplicativo (API) {#update-scheduled-api-triggered-campaigns}
+{% api %}
+# Atualizar Campaigns agendadas disparadas por API {#update-scheduled-api-triggered-campaigns}
 {% apimethod post core_endpoint|/docs/core_endpoints %}
-/campaigns/trigger/agendar/cronograma/update
+/campaigns/trigger/schedule/update
 {% endapimethod %}
 
-> Use esse endpoint para atualizar Campaigns agendadas disparadas por API or interface de programação do aplicativo (API) criadas no dashboard, permitindo que você decida qual ação deve disparar o envio da mensagem.
+> Use esse endpoint para atualizar Campaigns agendadas disparadas por API criadas no dashboard, permitindo que você decida qual ação deve disparar o envio da mensagem.
 
 Você pode passar `trigger_properties` que a Braze usa como template na própria mensagem.
 
-Observe que, para enviar mensagens com esse endpoint, você deve ter um ID de campanha, criado ao criar uma [campanha disparada por API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/api_campaigns).
+Observe que, para enviar mensagens com esse endpoint, você deve ter um ID de campanha, criado ao criar uma [campanha disparada por API]({{site.baseurl}}/api/api_campaigns).
 
 Qualquer cronograma sobrescreve completamente o que você forneceu na solicitação de criação de cronograma ou nas solicitações de atualização de cronograma anteriores. Por exemplo, se você originalmente definiu o cronograma como `"schedule" : {"time" : "2015-02-20T13:14:47", "in_local_time" : true}` e depois o atualizou para `"schedule" : {"time" : "2015-02-20T14:14:47"}`, a Braze envia a mensagem no horário especificado em UTC, não no fuso local do usuário.
 
@@ -27,7 +27,7 @@ Os disparos agendados que são atualizados perto ou durante o horário em que de
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `campaigns.trigger.schedule.update`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `campaigns.trigger.schedule.update`.
 
 ## Limite de frequência {#rate-limit}
 

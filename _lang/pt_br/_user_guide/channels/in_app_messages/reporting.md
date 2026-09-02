@@ -34,7 +34,7 @@ Para mensagens no app, esta página define impressões únicas usando um limite 
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Métricas de mensagens no app" }
 
 {% alert tip %}
-O *Total de impressões* pode exceder as *Impressões únicas* quando um usuário visualiza a mensagem mais de uma vez no mesmo dia do calendário (consulte as definições de métricas na tabela anterior). Para investigar usuários com contagens de impressões infladas, crie um Segment or segmento com o filtro **Device Count** definido como **more than** `1` e o filtro **Received Message from Campaign** para a Campaign específica.
+O *Total de impressões* pode exceder as *Impressões únicas* quando um usuário visualiza a mensagem mais de uma vez no mesmo dia do calendário (consulte as definições de métricas na tabela anterior). Para investigar usuários com contagens de impressões infladas, crie um Segment com o filtro **Device Count** definido como **more than** `1` e o filtro **Received Message from Campaign** para a Campaign específica.
 {% endalert %}
 
 ### Rastreamento de cliques {#click-tracking}
@@ -90,7 +90,7 @@ Algumas horas depois, ela recebe a mesma mensagem no app novamente e decide comp
 **Resultados:** *Total de conversões* e *Total de impressões* de Sarah são incrementados em cinco naquele dia. Como *Impressões únicas* só pode ser incrementado novamente após a virada do dia no fuso horário do espaço de trabalho, *Impressões únicas* permanece o mesmo. Isso faz com que a *Taxa de conversão* aumente dentro desse período.
 
 {% alert note %}
-Cada impressão e conversão neste cenário é processada como um evento de SDK or kit de desenvolvimento de software separado. Se o seu SDK or kit de desenvolvimento de software agrupa um evento de impressão e um evento de conversão juntos, a contagem de conversões pode ser diferente.
+Cada impressão e conversão neste cenário é processada como um evento de SDK separado. Se o seu SDK agrupa um evento de impressão e um evento de conversão juntos, a contagem de conversões pode ser diferente.
 {% endalert %}
 
 {% endtab %}

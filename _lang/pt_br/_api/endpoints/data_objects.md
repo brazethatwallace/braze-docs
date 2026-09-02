@@ -10,7 +10,7 @@ needs_mermaid: true
 
 guide_top_header: "Endpoints de objetos de dados"
 guide_top_text: "Use esses endpoints para listar tipos de objetos de dados, gerenciar registros de objetos de dados e gerenciar relacionamentos entre objetos e usuários."
-guide_top_alert: "Objetos de dados está atualmente em acesso antecipado. Seu espaço de trabalho precisa estar ativado antes que as permissões da chave de API or interface de programação do aplicativo (API) de objetos de dados apareçam em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**."
+guide_top_alert: "Objetos de dados está atualmente em acesso antecipado. Seu espaço de trabalho precisa estar ativado antes que as permissões da chave de API de objetos de dados apareçam em **Configurações** > **Chaves de API**."
 
 guide_featured_title: "Endpoints de tipo"
 guide_featured_list:
@@ -87,16 +87,16 @@ guide_menu_list3:
 
 ## URL base e autenticação {#base-url-and-authentication}
 
-Use o endpoint REST or transferir estado representacional do seu espaço de trabalho e envie `Authorization: Bearer YOUR_REST_API_KEY`. Esta seção explica onde os endpoints de objetos de dados estão hospedados e como as solicitações são autenticadas.
+Use o endpoint REST do seu espaço de trabalho e envie `Authorization: Bearer YOUR_REST_API_KEY`. Esta seção explica onde os endpoints de objetos de dados estão hospedados e como as solicitações são autenticadas.
 
-- Para hosts de endpoints, consulte [Visão geral da API or interface de programação do aplicativo (API) da Braze]({{site.baseurl}}/api/basics#endpoints).
+- Para hosts de endpoints, consulte [Visão geral da API da Braze]({{site.baseurl}}/api/basics#endpoints).
 - Todas as cargas úteis de solicitação e resposta são JSON.
-- As solicitações são limitadas ao espaço de trabalho que possui a chave de API or interface de programação do aplicativo (API).
+- As solicitações são limitadas ao espaço de trabalho que possui a chave de API.
 - Se a chave tiver uma lista de IPs permitidos, endereços IP fora da lista retornarão `403`.
 
-## Permissões de chave de API or interface de programação do aplicativo (API) {#api-key-permissions}
+## Permissões de chave de API {#api-key-permissions}
 
-Esta seção mapeia cada endpoint à sua permissão necessária para que você possa definir o escopo das chaves de API or interface de programação do aplicativo (API) com segurança.
+Esta seção mapeia cada endpoint à sua permissão necessária para que você possa definir o escopo das chaves de API com segurança.
 
 | Permissão | Grupo de endpoints |
 |---|---|
@@ -187,7 +187,7 @@ flowchart LR
 ### Tipos e arestas são separados {#types-and-edges-are-separate}
 
 - Os tipos de relacionamento definem quais vínculos são válidos e são gerenciados no dashboard.
-- As arestas de relacionamento são os vínculos reais entre registros, criados, atualizados e excluídos por meio desses endpoints de API or interface de programação do aplicativo (API).
+- As arestas de relacionamento são os vínculos reais entre registros, criados, atualizados e excluídos por meio desses endpoints de API.
 - Antes de criar relacionamentos, liste os valores válidos de `rel_kind` com:
   - `GET /data_objects/types/{type_name}/user_relationship_types`
   - `GET /data_objects/types/{type_name}/object_relationship_types`

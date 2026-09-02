@@ -26,7 +26,7 @@ A integração entre a Braze e o Databricks Mosaic permite conectar seu token e 
 |---|---|
 | Conta do Databricks com token de acesso pessoal | Uma conta do Databricks com um [token de acesso pessoal](https://docs.databricks.com/en/dev-tools/auth/pat.html). Para obter ajuda, entre em contato com seu administrador ou com o [suporte do Databricks](https://help.databricks.com/). |
 | Nome do espaço de trabalho do Databricks | O nome do espaço de trabalho (ou instância) da sua conta do Databricks. Esse é o subdomínio antes de `.cloud.databricks.com` ou `.azuredatabricks.net` (por exemplo, `dbc-eb57d699-f22c`). |
-| Instância da Braze | Você pode encontrar sua instância da Braze na [página de visão geral da API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics/#endpoints) ou com seu gerente de integração da Braze. |
+| Instância da Braze | Você pode encontrar sua instância da Braze na [página de visão geral da API]({{site.baseurl}}/api/basics/#endpoints) ou com seu gerente de integração da Braze. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}

@@ -82,7 +82,7 @@ Champ de texte multiligne pour les flux de type enquête. Si vous ne voyez pas c
 <!-- Saved row is not yet released. Uncomment when available.
 ### Saved row
 
-Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) or your Braze CSM or gestionnaire de la satisfaction client or gestionnaire du succès des clients or gestionnaire de la satisfaction client or gestionnaire du succès des clients.
+Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) or your Braze CSM.
 -->
 
 ## Bon à savoir {#things-to-know}

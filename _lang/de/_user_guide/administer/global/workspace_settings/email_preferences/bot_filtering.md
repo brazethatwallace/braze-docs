@@ -10,7 +10,7 @@ description: "Dieser Artikel bietet eine Übersicht über Bot-Filter für E-Mail
 
 # Bot-Filter für E-Mails {#bot-filtering-for-emails}
 
-> Richten Sie in Ihren [E-Mail-Präferenzen]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences) einen Bot-Filter ein, um alle mutmaßlichen Maschinen- oder Bot-Klicks auszuschließen. Ein „Bot-Klick“ in E-Mails bezieht sich auf einen Klick auf Hyperlinks innerhalb einer E-Mail, der von einem automatisierten Programm generiert wurde. Indem Sie diese Bot-Klicks filtern, können Sie Nachrichten gezielt Trigger or triggern or triggern und an Empfänger:innen zustellen, die engagiert sind.
+> Richten Sie in Ihren [E-Mail-Präferenzen]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences) einen Bot-Filter ein, um alle mutmaßlichen Maschinen- oder Bot-Klicks auszuschließen. Ein „Bot-Klick“ in E-Mails bezieht sich auf einen Klick auf Hyperlinks innerhalb einer E-Mail, der von einem automatisierten Programm generiert wurde. Indem Sie diese Bot-Klicks filtern, können Sie Nachrichten gezielt triggern und an Empfänger:innen zustellen, die engagiert sind.
 
 {% alert important %}
 Ab dem 9. Juli 2025 wird für alle neu erstellten Workspaces die Bot-Filter-Einstellung aktiviert sein, um eine genauere Berichterstattung über Klicks in Braze zu ermöglichen.

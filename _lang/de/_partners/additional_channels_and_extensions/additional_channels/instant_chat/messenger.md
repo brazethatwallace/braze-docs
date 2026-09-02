@@ -99,4 +99,4 @@ Sobald Sie diese Integration eingerichtet haben, können Sie sie nutzen, um Nutz
 
 Wenn Sie sich dafür entscheiden, kein spezielles Segment für Messenger-Abonnent:innen zu erstellen, stellen Sie sicher, dass Sie einen Filter für die vorhandene Messenger-ID einfügen, um Fehler zu vermeiden.
 
-Sie können auch andere Segmentierungen für das Targeting Ihrer Messenger-Campaigns verwenden, und der Representational State Transfer des Erstellungsprozesses funktioniert wie bei jeder anderen Campaign.
+Sie können auch andere Segmentierungen für das Targeting Ihrer Messenger-Campaigns verwenden, und der Rest des Erstellungsprozesses funktioniert wie bei jeder anderen Campaign.

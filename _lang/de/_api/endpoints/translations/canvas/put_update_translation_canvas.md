@@ -1,23 +1,23 @@
 ---
-nav_title: "PUT: Übersetzung in einem Canvas Update or aktualisieren or aktualisieren"
-article_title: "PUT: Übersetzung in einem Canvas Update or aktualisieren or aktualisieren"
+nav_title: "PUT: Übersetzung in einem Canvas aktualisieren"
+article_title: "PUT: Übersetzung in einem Canvas aktualisieren"
 search_tag: Endpoint
 page_order: 1
 
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt Details zum Endpunkt „Übersetzung in einem Canvas Update or aktualisieren or aktualisieren“."
+description: "Dieser Artikel beschreibt Details zum Endpunkt „Übersetzung in einem Canvas aktualisieren“."
 ---
 
 {% api %}
-# Übersetzung in einem Canvas Update or aktualisieren or aktualisieren {#update-translation-in-a-canvas}
+# Übersetzung in einem Canvas aktualisieren {#update-translation-in-a-canvas}
 {% apimethod put %}
-/Canvas/translations
+/canvas/translations
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um mehrere Übersetzungen für ein Canvas zu Update or aktualisieren or aktualisieren. Weitere Informationen zu den Übersetzungsfeatures finden Sie unter [Locales in Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages).
+> Verwenden Sie diesen Endpunkt, um mehrere Übersetzungen für ein Canvas zu aktualisieren. Weitere Informationen zu den Übersetzungsfeatures finden Sie unter [Locales in Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages).
 
-Wenn Sie Übersetzungen Update or aktualisieren or aktualisieren möchten, nachdem ein Canvas gestartet wurde, müssen Sie zunächst [Ihre Nachricht als Entwurf speichern]({{site.baseurl}}/post-launch_edits).
+Wenn Sie Übersetzungen aktualisieren möchten, nachdem ein Canvas gestartet wurde, müssen Sie zunächst [Ihre Nachricht als Entwurf speichern]({{site.baseurl}}/post-launch_edits).
 
 ## Voraussetzungen {#prerequisites}
 

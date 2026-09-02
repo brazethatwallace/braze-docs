@@ -1,30 +1,30 @@
 ---
-nav_title: "POST: Agendar Campaigns disparadas por API or interface de programação do aplicativo (API)"
-article_title: "POST: Agendar Campaigns disparadas por API or interface de programação do aplicativo (API)"
+nav_title: "POST: Agendar Campaigns disparadas por API"
+article_title: "POST: Agendar Campaigns disparadas por API"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Este artigo traz informações sobre o endpoint da Braze para agendar Campaigns disparadas por API or interface de programação do aplicativo (API)."
+description: "Este artigo traz informações sobre o endpoint da Braze para agendar Campaigns disparadas por API."
 
 ---
-{% API or interface de programação do aplicativo (API) %}
-# Agendar Campaigns disparadas por API or interface de programação do aplicativo (API) {#schedule-api-triggered-campaigns}
+{% api %}
+# Agendar Campaigns disparadas por API {#schedule-api-triggered-campaigns}
 {% apimethod post core_endpoint|/docs/core_endpoints %}
-/campaigns/trigger/agendar/cronograma/create
+/campaigns/trigger/schedule/create
 {% endapimethod %}
 
-> Use esse endpoint para enviar mensagens de Campaign criadas no dashboard por meio de entrega disparada por API or interface de programação do aplicativo (API), permitindo que você decida qual ação deve disparar o envio da mensagem.
+> Use esse endpoint para enviar mensagens de Campaign criadas no dashboard por meio de entrega disparada por API, permitindo que você decida qual ação deve disparar o envio da mensagem.
 
 Você pode passar `trigger_properties`, que serão usadas como modelo na própria mensagem.
 
-Observe que, para enviar mensagens com esse endpoint, é necessário ter um [ID de Campaign]({{site.baseurl}}/api/identifier_types), criado quando você cria uma [Campaign disparada por API or interface de programação do aplicativo (API)]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery).
+Observe que, para enviar mensagens com esse endpoint, é necessário ter um [ID de Campaign]({{site.baseurl}}/api/identifier_types), criado quando você cria uma [Campaign disparada por API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#b7e61de7-f2c2-49c9-9e46-b85a0aa01bba {% endapiref %}
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `campaigns.trigger.schedule.create`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `campaigns.trigger.schedule.create`.
 
 ## Limite de frequência {#rate-limit}
 
@@ -65,7 +65,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `send_id` | Opcional | String | Consulte [identificador de envio]({{site.baseurl}}/api/identifier_types). |
 | `recipients` | Opcional | Matriz de objetos de destinatários | Consulte [objeto de destinatários]({{site.baseurl}}/api/objects_filters/recipient_object). |
 | `audience` | Opcional | Objeto de público conectado | Consulte [público conectado]({{site.baseurl}}/api/objects_filters/connected_audience). |
-| `broadcast` | Opcional | Booleano | Você deve definir `broadcast` como true ao enviar uma mensagem para um Segment or segmento inteiro segmentado por uma Campaign ou Canvas. O padrão desse parâmetro é false (a partir de 31 de agosto de 2017). <br><br> Se `broadcast` estiver definido como true, uma lista `recipients` não poderá ser incluída. No entanto, tenha cuidado ao definir `broadcast: true`, pois definir esse flag de forma não intencional pode fazer com que você envie sua mensagem para um público maior do que o esperado. |
+| `broadcast` | Opcional | Booleano | Você deve definir `broadcast` como true ao enviar uma mensagem para um Segment inteiro segmentado por uma Campaign ou Canvas. O padrão desse parâmetro é false (a partir de 31 de agosto de 2017). <br><br> Se `broadcast` estiver definido como true, uma lista `recipients` não poderá ser incluída. No entanto, tenha cuidado ao definir `broadcast: true`, pois definir esse flag de forma não intencional pode fazer com que você envie sua mensagem para um público maior do que o esperado. |
 | `trigger_properties` | Opcional | Objeto | Pares de valores-chave de personalização para todos os usuários nesse envio. Consulte [propriedades de gatilho]({{site.baseurl}}/api/objects_filters/trigger_properties_object). |
 | `schedule` | Obrigatório | Objeto de agendamento | Consulte [objeto de agendamento]({{site.baseurl}}/api/objects_filters/schedule_object). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }

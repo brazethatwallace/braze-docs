@@ -201,7 +201,7 @@ Braze 대시보드에서 **콘텐츠** > **콘텐츠 블록**으로 이동하여
 샘플의 출력 URL은 다음과 같습니다:
 ![무작위로 생성된 긴 문자 및 숫자 문자열이 포함된 출력 URL.]({% image_buster /assets/img/passkit/passkit2.png %}){: style="max-width:70%"}
 
-출력 URL이 길어집니다. 이는 모든 패스 데이터를 포함하고 URL 수정을 통한 데이터 무결성 및 변조 방지를 위해 최고 수준의 보안을 적용하기 때문입니다. 단문 메시지 서비스를 사용하여 이 URL을 배포하는 경우 [bit.ly](https://dev.bitly.com/v4/#operation/createFullBitlink)와 같은 링크 단축 프로세스를 통해 실행할 수 있습니다. 이는 bit.ly 엔드포인트에 대한 연결된 콘텐츠 호출을 통해 수행할 수 있습니다.
+출력 URL이 길어집니다. 이는 모든 패스 데이터를 포함하고 URL 수정을 통한 데이터 무결성 및 변조 방지를 위해 최고 수준의 보안을 적용하기 때문입니다. SMS를 사용하여 이 URL을 배포하는 경우 [bit.ly](https://dev.bitly.com/v4/#operation/createFullBitlink)와 같은 링크 단축 프로세스를 통해 실행할 수 있습니다. 이는 bit.ly 엔드포인트에 대한 연결된 콘텐츠 호출을 통해 수행할 수 있습니다.
 
 ## PassKit 웹훅을 사용하여 패스 업데이트 {#update-pass-using-the-passkit-webhook}
 

@@ -43,7 +43,7 @@ Configure o ID do grupo de app da Braze na sua conta de serviço do Store360 usa
 
 ### Etapa 3: Integrar os SDKs do Store360 ao app móvel {#step-3-integrate-store360-sdks-to-mobile-app}
 
-Para rastrear e analisar as visitas dos usuários do app móvel à loja e as atividades na loja, juntamente com os dados de campanhas e impressões da Braze, é necessário integrar o SDK or kit de desenvolvimento de software do Store360 no seu app móvel usando as etapas fornecidas na documentação de instalação do SDK or kit de desenvolvimento de software do Store360. Essa documentação será fornecida após você assinar um contrato de cliente com a Tangerine Store 360.
+Para rastrear e analisar as visitas dos usuários do app móvel à loja e as atividades na loja, juntamente com os dados de campanhas e impressões da Braze, é necessário integrar o SDK do Store360 no seu app móvel usando as etapas fornecidas na documentação de instalação do SDK do Store360. Essa documentação será fornecida após você assinar um contrato de cliente com a Tangerine Store 360.
 
 ## Analisar dados da Braze no Store360 {#analyze-braze-data-in-store360}
 

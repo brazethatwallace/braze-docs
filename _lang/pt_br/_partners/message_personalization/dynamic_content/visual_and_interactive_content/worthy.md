@@ -16,9 +16,9 @@ _Essa integração é mantida pela Worthy._
 
 ## Sobre a integração {#about-the-integration}
 
-- Criar um servidor de Conteúdo conectado e uma API or interface de programação do aplicativo (API) segura para seu envio de mensagens.
+- Criar um servidor de Conteúdo conectado e uma API segura para seu envio de mensagens.
 - Construir suas mensagens no app com análise de dados e rastreamento de cliques que aparecerão diretamente na Braze.
-- Exportar automaticamente o HTML por meio do editor de arrastar e soltar da Worthy para usar em Campaigns de mensagens no app com **Custom Code** na Braze, com as conexões de API or interface de programação do aplicativo (API) necessárias e o conteúdo dinâmico que você configurar.
+- Exportar automaticamente o HTML por meio do editor de arrastar e soltar da Worthy para usar em Campaigns de mensagens no app com **Custom Code** na Braze, com as conexões de API necessárias e o conteúdo dinâmico que você configurar.
 
 ## Casos de uso {#use-cases}
 
@@ -33,7 +33,7 @@ _Essa integração é mantida pela Worthy._
 | Requisito | Descrição |
 | --- | --- |
 | Conta da [Worthy](https://worthy.ai/) | É necessário ter uma conta Worthy para aproveitar essa parceria. |
-| SDK or kit de desenvolvimento de software da Braze | Você precisará configurar o SDK or kit de desenvolvimento de software da Braze no seu aplicativo móvel para enviar mensagens avançadas no app. |
+| SDK da Braze | Você precisará configurar o SDK da Braze no seu aplicativo móvel para enviar mensagens avançadas no app. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}

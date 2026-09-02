@@ -5,13 +5,13 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del endpoint Exportar MAU or usuarios activos al mes or usuarios activos al mes de Braze."
+description: "En este artículo se describen los detalles del endpoint Exportar usuarios activos al mes de Braze."
 
 ---
 {% api %}
 # Exportar los usuarios activos mensuales de los últimos 30 días {#export-monthly-active-users-for-last-30-days}
 {% apimethod get %}
-/indicador clave de rendimiento/MAU or usuarios activos al mes/data_series
+/kpi/mau/data_series
 {% endapimethod %}
 
 > Utiliza este endpoint para recuperar una serie diaria del número total de usuarios activos únicos durante una ventana móvil de 30 días.

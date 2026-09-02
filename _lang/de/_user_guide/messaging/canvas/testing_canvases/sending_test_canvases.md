@@ -1,13 +1,13 @@
 ---
-nav_title: Test-Canvase senden
-article_title: Test-Canvase senden
+nav_title: Test-Canvases senden
+article_title: Test-Canvases senden
 page_order: 1
 description: "Dieser Referenzartikel behandelt, wie Sie ein Canvas vor dem Start testen und welche Best Practices es gibt."
 page_type: reference
 tool: Canvas
 ---
 
-# Test-Canvase senden {#send-test-canvases}
+# Test-Canvases senden {#send-test-canvases}
 
 > Nach dem [Erstellen Ihres Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) gibt es je nach Details wie Ihrer Zielgruppengröße oder der Anzahl der Segmentierungsfilter mehrere Prüfungen, die Sie vor dem Start durchführen sollten.
 
@@ -61,7 +61,7 @@ In einigen Fällen kann ein:e Nutzer:in beim Durchlaufen eines Canvas potenziell
 
 ### Interne Gruppe erstellen {#create-an-internal-group}
 
-Anstatt einzelne Testnutzer:innen zu erstellen, können Sie eine [Content-Testgruppe]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups) erstellen, die eine interne Gruppe ist, deren Zweck es ist, den Inhalt Ihrer Nachricht zu überprüfen. Diese umfasst eine Gruppe von Nutzer:innen, die Testnachrichten von Campaigns und Canvase erhalten. Anschließend können Sie diese Testgruppe im Feld **Content-Testgruppen hinzufügen** unter **Testempfänger:innen** hinzufügen.
+Anstatt einzelne Testnutzer:innen zu erstellen, können Sie eine [Content-Testgruppe]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups) erstellen, die eine interne Gruppe ist, deren Zweck es ist, den Inhalt Ihrer Nachricht zu überprüfen. Diese umfasst eine Gruppe von Nutzer:innen, die Testnachrichten von Campaigns und Canvases erhalten. Anschließend können Sie diese Testgruppe im Feld **Content-Testgruppen hinzufügen** unter **Testempfänger:innen** hinzufügen.
 
 ### Zeitverzögerungen reduzieren {#reduce-time-delays}
 

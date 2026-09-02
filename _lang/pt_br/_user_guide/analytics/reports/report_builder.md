@@ -89,7 +89,7 @@ Se quiser gerar relatórios sobre variantes ou etapas do Canvas, selecione **Can
 | --- | --- |
 | Métricas de conversão | Disponível para Campaigns, Canvas, Campaigns e Canvas. |
 | Entradas | Disponível para Campaigns, Canvas, Campaigns e Canvas, Tags. |
-| Data do último envio | Disponível para Campaigns, Canvas, Campaigns e Canvas. Exibida apenas para Campaigns agendadas — não é preenchida para Campaigns baseadas em ação ou disparadas por API or interface de programação do aplicativo (API). |
+| Data do último envio | Disponível para Campaigns, Canvas, Campaigns e Canvas. Exibida apenas para Campaigns agendadas — não é preenchida para Campaigns baseadas em ação ou disparadas por API. |
 | Envios | Disponível para cada canal relevante. |
 | Mensagens enviadas | Disponível para Campaigns, Canvas, Campaigns e Canvas, Tags. |
 | Linha de assunto | Disponível para Campaigns de e-mail com detalhamento por **Variante**, Canvas e Canvas com detalhamento por **Variante**. |

@@ -12,11 +12,11 @@ noindex: true
 
 # Google Tag Manager:in für iOS {#google-tag-manager-for-ios}
 
-## Initialisierung des SDK or Software-Development-Kit {#initializing-ios-google-tag-provider}
+## Initialisierung des SDK {#initializing-ios-google-tag-provider}
 
-Das Braze iOS SDK or Software-Development-Kit kann durch Tags, die im [Google Tag Manager:in](https://tagmanager.google.com/) konfiguriert wurden, initialisiert und gesteuert werden.
+Das Braze iOS SDK kann durch Tags, die im [Google Tag Manager:in](https://tagmanager.google.com/) konfiguriert wurden, initialisiert und gesteuert werden.
 
-Bevor Sie Google Tag Manager:in verwenden, müssen Sie zunächst die [SDK or Software-Development-Kit-Ersteinrichtung]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview) durchführen.
+Bevor Sie Google Tag Manager:in verwenden, müssen Sie zunächst die [SDK-Ersteinrichtung]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview) durchführen.
 
 ## Konfigurieren Ihres Google Tag Managers {#configuring-ios-google-tag-manager}
 
@@ -26,7 +26,7 @@ In diesem Beispiel tun wir so, als wären wir eine Musik-Streaming-App, die vers
 
 Angepasste Events werden protokolliert, wenn `actionType` auf `logEvent` eingestellt ist. Der angepasste Tag-Anbieter von Braze erwartet in unserem Beispiel, dass der Name des angepassten Events mit `eventName` festgelegt wird.
 
-Um zu beginnen, erstellen Sie einen Trigger or triggern, der nach einem „Event Name“ sucht, der gleich `played song` ist.
+Um zu beginnen, erstellen Sie einen Trigger, der nach einem „Event Name“ sucht, der gleich `played song` ist.
 
 ![Ein angepasster Trigger im Google Tag Manager, der für einige Events triggert, wenn „Ereignisname“ gleich „abgespielter Song“ ist.]({% image_buster /assets/img/android_google_tag_manager/gtm_android_trigger.png %})
 
@@ -50,7 +50,7 @@ Die Event-Eigenschaft `genre` wird als Variable „Firebase - Event Parameter“
 
 ![Eine Variable im Google Tag Manager, bei der „genre“ als Event-Parameter für das Tag „Braze - Played Song Event“ hinzugefügt wird.]({% image_buster /assets/img/android_google_tag_manager/gtm_android_eventname_variable.png %})
 
-Wenn Nutzer:innen schließlich einen Song in unserer App abspielen, protokollieren wir ein Ereignis über Firebase und den Google Tag Manager:in unter Verwendung des Firebase-Analytics-Event-Namens, der mit dem Trigger or triggern-Namen unseres Tags übereinstimmt: `played song`:
+Wenn Nutzer:innen schließlich einen Song in unserer App abspielen, protokollieren wir ein Ereignis über Firebase und den Google Tag Manager:in unter Verwendung des Firebase-Analytics-Event-Namens, der mit dem Trigger-Namen unseres Tags übereinstimmt: `played song`:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -95,15 +95,15 @@ NSDictionary *parameters = @{@"externalUserId" : userId};
 {% endtab %}
 {% endtabs %}
 
-## Angepasster Tag-Anbieter für das Braze SDK or Software-Development-Kit {#adding-ios-google-tag-provider}
+## Angepasster Tag-Anbieter für das Braze SDK {#adding-ios-google-tag-provider}
 
-Wenn die Tags und Trigger or triggern eingerichtet sind, müssen Sie auch den Google Tag Manager:in in Ihrer iOS-App implementieren. Informationen dazu finden Sie in der [Dokumentation](https://developers.google.com/tag-manager/ios/v5/) von Google.
+Wenn die Tags und Trigger eingerichtet sind, müssen Sie auch den Google Tag Manager:in in Ihrer iOS-App implementieren. Informationen dazu finden Sie in der [Dokumentation](https://developers.google.com/tag-manager/ios/v5/) von Google.
 
-Sobald Google Tag Manager:in in Ihrer App installiert ist, fügen Sie einen angepassten Tag-Anbieter hinzu, um Braze-SDK or Software-Development-Kit-Methoden auf der Grundlage der Tags aufzurufen, die Sie im Google Tag Manager:in konfiguriert haben.
+Sobald Google Tag Manager:in in Ihrer App installiert ist, fügen Sie einen angepassten Tag-Anbieter hinzu, um Braze-SDK-Methoden auf der Grundlage der Tags aufzurufen, die Sie im Google Tag Manager:in konfiguriert haben.
 
 Achten Sie darauf, den „Klassenpfad“ der Datei zu notieren – diesen geben Sie ein, wenn Sie ein Tag in der [Google Tag Manager:in](https://tagmanager.google.com/)-Konsole einrichten.
 
-Dieses Beispiel zeigt eine von vielen Möglichkeiten, Ihren angepassten Tag-Anbieter zu strukturieren. Dabei bestimmen wir anhand des vom GTM-Tag gesendeten Schlüssel-Wert-Paares `actionType`, welche Braze-SDK or Software-Development-Kit-Methode aufgerufen werden soll.
+Dieses Beispiel zeigt eine von vielen Möglichkeiten, Ihren angepassten Tag-Anbieter zu strukturieren. Dabei bestimmen wir anhand des vom GTM-Tag gesendeten Schlüssel-Wert-Paares `actionType`, welche Braze-SDK-Methode aufgerufen werden soll.
 
 Die `actionType`-Werte, die wir in unserem Beispiel unterstützen, sind `logEvent`, `customAttribute` und `changeUser`. Sie können jedoch ändern, wie Ihr Tag-Anbieter die Daten vom Google Tag Manager:in verarbeitet.
 

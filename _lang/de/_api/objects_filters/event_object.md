@@ -53,12 +53,12 @@ Events mit Zeitstempeln in der Zukunft verwenden standardmäßig die aktuelle Uh
 Einige Bezeichner-Paare können nicht gemeinsam in einer einzelnen Anfrage verwendet werden. Wenn sowohl `email` als auch `phone` angegeben werden, hat `email` Vorrang vor `phone`. Vollständige Details finden Sie unter [Bezeichner-Auflösung]({{site.baseurl}}/api/objects_filters/user_attributes_object#identifier-resolution).
 {% endalert %}
 
-#### Nur bestehende Profile Update or aktualisieren or aktualisieren {#update-existing-profiles-only}
+#### Nur bestehende Profile aktualisieren {#update-existing-profiles-only}
 
-Um nur bestehende Nutzerprofile in Braze zu Update or aktualisieren or aktualisieren, sollten Sie den Schlüssel `_update_existing_only` mit dem Wert `true` im Body Ihrer Anfrage übergeben. Wenn dieser Wert weggelassen wird, erstellt Braze ein neues Kundenprofil or Nutzerprofil, falls die `external_id` noch nicht existiert.
+Um nur bestehende Nutzerprofile in Braze zu aktualisieren, sollten Sie den Schlüssel `_update_existing_only` mit dem Wert `true` im Body Ihrer Anfrage übergeben. Wenn dieser Wert weggelassen wird, erstellt Braze ein neues Nutzerprofil, falls die `external_id` noch nicht existiert.
 
 {% alert note %}
-Wenn Sie ein reines Alias-Kundenprofil or Nutzerprofil über den Endpunkt `/users/track` erstellen, muss `_update_existing_only` auf `false` gesetzt werden. Wenn dieser Wert weggelassen wird, wird das reine Alias-Profil nicht erstellt.
+Wenn Sie ein reines Alias-Nutzerprofil über den Endpunkt `/users/track` erstellen, muss `_update_existing_only` auf `false` gesetzt werden. Wenn dieser Wert weggelassen wird, wird das reine Alias-Profil nicht erstellt.
 {% endalert %}
 
 ## Event-Eigenschaften-Objekt {#event-properties-object}
@@ -92,7 +92,7 @@ Die Verwendung reservierter Schlüssel als Eigenschaftsnamen angepasster Events 
 
 ### Persistenz von Event-Eigenschaften {#event-property-persistence}
 
-Event-Eigenschaften sind für die Filterung und Liquid-Personalisierung in Nachrichten vorgesehen, die durch ihre übergeordneten Events ausgelöst werden. Standardmäßig werden sie nicht im Braze-Kundenprofil or Nutzerprofil gespeichert. Um Event-Eigenschaftswerte in der Segmentierung zu verwenden, lesen Sie den Abschnitt [Angepasste Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events), der die verschiedenen Ansätze zur langfristigen Speicherung von Event-Eigenschaftswerten erläutert.
+Event-Eigenschaften sind für die Filterung und Liquid-Personalisierung in Nachrichten vorgesehen, die durch ihre übergeordneten Events ausgelöst werden. Standardmäßig werden sie nicht im Braze-Nutzerprofil gespeichert. Um Event-Eigenschaftswerte in der Segmentierung zu verwenden, lesen Sie den Abschnitt [Angepasste Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events), der die verschiedenen Ansätze zur langfristigen Speicherung von Event-Eigenschaftswerten erläutert.
 
 #### Beispielanfrage für Events {#event-example-request}
 

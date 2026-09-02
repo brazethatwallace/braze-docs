@@ -8,7 +8,7 @@ description: "Aprende a utilizar webhooks de Braze para crear y actualizar clien
 
 # Administrar clientes potenciales con Salesforce Sales Cloud {#manage-leads-with-salesforce-sales-cloud}
 
-> [Salesforce](https://www.salesforce.com/) es una de las principales plataformas de CRM or administración de las relaciones con el cliente or administración de las relaciones con el cliente (CRM or administración de las relaciones con el cliente) en la nube del mundo, diseñada para ayudar a las empresas a gestionar todo su proceso de ventas, incluida la generación de clientes potenciales, el seguimiento de oportunidades y la administración de cuentas.<br><br>Esta página muestra cómo utilizar webhooks de Braze para crear y actualizar clientes potenciales en Salesforce Sales Cloud mediante una integración enviada por la comunidad.
+> [Salesforce](https://www.salesforce.com/) es una de las principales plataformas de CRM (CRM) en la nube del mundo, diseñada para ayudar a las empresas a gestionar todo su proceso de ventas, incluida la generación de clientes potenciales, el seguimiento de oportunidades y la administración de cuentas.<br><br>Esta página muestra cómo utilizar webhooks de Braze para crear y actualizar clientes potenciales en Salesforce Sales Cloud mediante una integración enviada por la comunidad.
 
 {% alert important %}
 Se trata de una integración enviada por la comunidad y no cuenta con soporte directo de Braze. Solo las plantillas oficiales de webhook proporcionadas por Braze cuentan con soporte de Braze.

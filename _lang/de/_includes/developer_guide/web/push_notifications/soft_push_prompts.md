@@ -9,7 +9,7 @@ Oft ist es für Websites sinnvoll, eine „sanfte“ Push-Aufforderung zu implem
 Alternativ können Sie, wenn Sie eine spezielle angepasste Verarbeitung einbinden möchten, anstatt `requestPushPermission()` direkt aufzurufen, wie in der standardmäßigen [Web-Push-Integration]({{site.baseurl}}/developer_guide/platform_integration_guides/web/push_notifications/integration#step-2-browser-registration) beschrieben, unsere [getriggerten In-App-Nachrichten]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages/?tab=web) verwenden.
 
 {% alert tip %}
-Dies kann ohne SDK or Software-Development-Kit-Anpassung mit unserem neuen [Push-Primer ohne Code]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) umgesetzt werden.
+Dies kann ohne SDK-Anpassung mit unserem neuen [Push-Primer ohne Code]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) umgesetzt werden.
 {% endalert %}
 
 ## Sanfte Push-Aufforderungen einrichten {#setting-up-soft-push-prompts}
@@ -23,13 +23,13 @@ Zunächst müssen Sie eine In-App-Messaging-Campaign „Prime for Push“ im Bra
 1. Erstellen Sie eine **modale** In-App-Nachricht mit dem gewünschten Text und Styling.
 2. Setzen Sie dann das Klickverhalten auf **Nachricht schließen**. Dieses Verhalten wird später angepasst.
 3. Fügen Sie der Nachricht ein Schlüssel-Wert-Paar hinzu, wobei der Schlüssel `msg-id` und der Wert `push-primer` ist.
-4. Weisen Sie der Nachricht eine angepasste Event-Trigger or triggern-Aktion zu (z. B. „prime-for-push“). Sie können das angepasste Event bei Bedarf manuell über das Dashboard erstellen.
+4. Weisen Sie der Nachricht eine angepasste Event-Trigger-Aktion zu (z. B. „prime-for-push“). Sie können das angepasste Event bei Bedarf manuell über das Dashboard erstellen.
 
 ### Schritt 2: Aufrufe entfernen {#step-2-remove-calls}
 
-Suchen und entfernen Sie in Ihrer Braze-SDK or Software-Development-Kit-Integration alle Aufrufe von `automaticallyShowInAppMessages()` aus Ihrem Lade-Snippet.
+Suchen und entfernen Sie in Ihrer Braze-SDK-Integration alle Aufrufe von `automaticallyShowInAppMessages()` aus Ihrem Lade-Snippet.
 
-### Schritt 3: Integration Update or aktualisieren or aktualisieren {#step-3-update-integration}
+### Schritt 3: Integration aktualisieren {#step-3-update-integration}
 
 Ersetzen Sie abschließend den entfernten Aufruf durch das folgende Snippet. Rufen Sie `subscribeToInAppMessage()` auf, bevor Sie `openSession()` aufrufen. So wird sichergestellt, dass Ihr In-App-Nachrichten-Listener rechtzeitig registriert ist, um die Push-Primer-Nachricht zu empfangen.
 

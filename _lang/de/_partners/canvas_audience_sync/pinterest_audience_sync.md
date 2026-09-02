@@ -12,7 +12,7 @@ tool:
 
 # Audience Sync to Pinterest
 
-Mit Braze Audience Sync to Pinterest können Marken wahlweise Nutzerdaten aus ihrer eigenen Braze-Integration zu Pinterest Audiences hinzufügen, um Anzeigen auf der Grundlage von Verhaltenstriggern, Segmentierung und mehr auszuliefern. Jedes Kriterium, das Sie normalerweise zum Trigger or triggern or triggern einer Nachricht (Push, E-Mail, Kurzmitteilungsdienst or SMS, Webhook usw.) in einem Braze-Canvas auf der Grundlage Ihrer Nutzerdaten verwenden, kann jetzt zum Trigger or triggern or triggern einer Anzeige für diese Nutzer:innen in Ihren Pinterest Audiences verwendet werden.
+Mit Braze Audience Sync to Pinterest können Marken wahlweise Nutzerdaten aus ihrer eigenen Braze-Integration zu Pinterest Audiences hinzufügen, um Anzeigen auf der Grundlage von Verhaltenstriggern, Segmentierung und mehr auszuliefern. Jedes Kriterium, das Sie normalerweise zum Triggern einer Nachricht (Push, E-Mail, SMS, Webhook usw.) in einem Braze-Canvas auf der Grundlage Ihrer Nutzerdaten verwenden, kann jetzt zum Triggern einer Anzeige für diese Nutzer:innen in Ihren Pinterest Audiences verwendet werden.
 
 **Zu den üblichen Anwendungsfällen für die Zielgruppensynchronisierung gehören:**
 
@@ -57,7 +57,7 @@ Wenn die Verbindung erfolgreich hergestellt wurde, kehren Sie zur Partnerseite z
 
 ![Eine aktualisierte Version der Pinterest-Technologiepartnerseite, auf der die erfolgreich verbundenen Anzeigenkonten angezeigt werden.]({% image_buster /assets/img/pinterest/pinterest3.png %}){: style="max-width:80%;"}
 
-Ihre Pinterest-Verbindung wird auf der Ebene des Braze-Workspace angewendet. Wenn Ihr Pinterest-Administrator Sie aus Ihrem Pinterest Business Hub oder dem Zugriff auf die verbundenen Pinterest-Konten entfernt, erkennt Braze ein ungültiges Token / Textbaustein. Infolgedessen werden Ihre aktiven Canvase, die Pinterest Audience-Komponenten verwenden, Fehler anzeigen, und Braze wird die Nutzer:innen nicht synchronisieren können.
+Ihre Pinterest-Verbindung wird auf der Ebene des Braze-Workspace angewendet. Wenn Ihr Pinterest-Administrator Sie aus Ihrem Pinterest Business Hub oder dem Zugriff auf die verbundenen Pinterest-Konten entfernt, erkennt Braze ein ungültiges Token / Textbaustein. Infolgedessen werden Ihre aktiven Canvases, die Pinterest Audience-Komponenten verwenden, Fehler anzeigen, und Braze wird die Nutzer:innen nicht synchronisieren können.
 
 ### Schritt 2: Einen Audience Sync-Schritt mit Pinterest hinzufügen {#step-2-add-an-audience-sync-step-with-pinterest}
 

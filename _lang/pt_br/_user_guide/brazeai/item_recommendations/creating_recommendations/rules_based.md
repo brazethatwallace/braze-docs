@@ -45,7 +45,7 @@ Ao decidir qual mecanismo de recomendação se adequa aos seus recursos disponí
       <td>&#10004;</td>
     </tr>
     <tr>
-      <td><strong>API or interface de programação do aplicativo (API) de catálogos</strong></td>
+      <td><strong>API de catálogos</strong></td>
       <td>&#10004;</td>
       <td></td>
       <td>&#10004;</td>
@@ -182,7 +182,7 @@ Para criar seu mecanismo de recomendação usando Conteúdo conectado, primeiro 
 
 | Opção | Descrição |
 |-------|-----------|
-| **Converter uma planilha** | Converta uma planilha em um endpoint de API or interface de programação do aplicativo (API) JSON usando um serviço como o SheetDP e anote a URL da API or interface de programação do aplicativo (API) que isso gera. |
+| **Converter uma planilha** | Converta uma planilha em um endpoint de API JSON usando um serviço como o SheetDP e anote a URL da API que isso gera. |
 | **Criar um endpoint personalizado** | Construa, hospede e mantenha um endpoint personalizado feito internamente. |
 | **Usar um mecanismo de terceiros** | Use um mecanismo de recomendação de terceiros, como um dos nossos [parceiros Alloy]({{site.baseurl}}/partners/message_personalization), incluindo [Amazon Personalise]({{site.baseurl}}/partners/amazon_personalize), [Certona]({{site.baseurl}}/partners/message_personalization/dynamic_content/personalized_recommendations/certona), [Dynamic Yield]({{site.baseurl}}/partners/dynamic_yield) e outros. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Exemplo" }
@@ -206,9 +206,9 @@ Substitua o seguinte:
 
 | Atributo | Substituição |
 | --- | --- |
-| `YOUR_API_URL` | Substitua pela URL real da sua API or interface de programação do aplicativo (API). |
+| `YOUR_API_URL` | Substitua pela URL real da sua API. |
 | `RECOMMENDED_ITEM_IDS` | Substitua pelo nome real do seu atributo personalizado que contém os IDs dos itens recomendados. Espera-se que esse atributo seja uma string de IDs separados por ponto e vírgula. |
-| `ITEM_ID` | Substitua pelo nome real do atributo na resposta da sua API or interface de programação do aplicativo (API) que corresponde ao ID do item. |
+| `ITEM_ID` | Substitua pelo nome real do atributo na resposta da sua API que corresponde ao ID do item. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Exemplo" }
 
 {% alert note %}

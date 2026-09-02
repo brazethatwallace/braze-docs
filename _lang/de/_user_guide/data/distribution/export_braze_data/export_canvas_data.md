@@ -37,7 +37,7 @@ Um zu analysieren, wann Nutzer:innen einen Canvas betreten oder erneut betreten 
 - **Nutzerliste im Dashboard erstellen:** Erstellen Sie ein Segment mit dem Filter **Entered Canvas Variation** und exportieren Sie das Segment als CSV-Datei. Siehe [Canvas-Fehlerbehebung]({{site.baseurl}}/user_guide/messaging/canvas/troubleshooting#user-didnt-enter-the-canvas).
 
 {% alert note %}
-Wenn Sie Currents nicht integriert haben und jeden historischen Eintrittszeitstempel benötigen, wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in bei Braze.
+Wenn Sie Currents nicht integriert haben und jeden historischen Eintrittszeitstempel benötigen, wenden Sie sich an Ihren CSM bei Braze.
 {% endalert %}
 
 Für einen bestimmten Canvas-Schritt im Original-Workflow verwenden Sie **CSV Export User Data** auf der Detailseite des Schritts.

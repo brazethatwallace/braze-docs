@@ -93,7 +93,7 @@ Para más información y mejores prácticas, consulta [Pruebas multivariantes y 
 Braze proporciona estadísticas detalladas de la audiencia de los canales objetivo en el pie de página. Cuanto mayor sea tu base de usuarios, más probable es que la cantidad de **Usuarios alcanzables** sea una estimación aproximada. El número de usuarios alcanzables puede disminuir si usas un [grupo de control global]({{site.baseurl}}/user_guide/audience/global_control_group) o configuras la elegibilidad de mensajes.
 
 - Para determinar un número preciso de tus usuarios alcanzables, selecciona [Calcular estadísticas exactas]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size#calculating-exact-statistics), ya que esto buscará a cada usuario en tu base de usuarios.
-- Para ver qué porcentaje de tu base de usuarios está siendo segmentado o el LTV or valor de duración del ciclo de vida or valor de duración del ciclo de vida (LTV or valor de duración del ciclo de vida) para este segmento, selecciona **Mostrar estadísticas adicionales**.
+- Para ver qué porcentaje de tu base de usuarios está siendo segmentado o el LTV (LTV) para este segmento, selecciona **Mostrar estadísticas adicionales**.
 
 ##### Por qué el recuento de la audiencia objetivo podría diferir del recuento de usuarios alcanzables {#why-the-target-audience-count-could-differ-from-the-reachable-users-count}
 

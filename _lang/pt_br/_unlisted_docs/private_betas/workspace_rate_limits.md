@@ -1,12 +1,12 @@
 ---
 article_title: Limites de taxa do espaço de trabalho
-description: "Saiba como definir limites de taxa do espaço de trabalho para controlar como o limite de taxa geral da API or interface de programação do aplicativo (API) da sua empresa é distribuído entre espaços de trabalho individuais, evitando que uma única integração ou equipe faça solicitações demais para um endpoint específico."
+description: "Saiba como definir limites de taxa do espaço de trabalho para controlar como o limite de taxa geral da API da sua empresa é distribuído entre espaços de trabalho individuais, evitando que uma única integração ou equipe faça solicitações demais para um endpoint específico."
 permalink: /workspace_rate_limits/
 ---
 
 # Limites de taxa do espaço de trabalho {#workspace-rate-limits}
 
-> Saiba como definir limites de taxa do espaço de trabalho para controlar como o limite de taxa geral da API or interface de programação do aplicativo (API) da sua empresa é distribuído entre espaços de trabalho individuais, evitando que uma única integração ou equipe faça solicitações demais para um endpoint específico.
+> Saiba como definir limites de taxa do espaço de trabalho para controlar como o limite de taxa geral da API da sua empresa é distribuído entre espaços de trabalho individuais, evitando que uma única integração ou equipe faça solicitações demais para um endpoint específico.
 
 ## Pré-requisitos {#prerequisites}
 
@@ -16,7 +16,7 @@ Os limites de frequência do espaço de trabalho estão disponíveis apenas para
 
 Por padrão, os limites de frequência no nível da empresa são compartilhados entre seus espaços de trabalho.
 
-Com os limites de frequência de espaço de trabalho, você pode definir um número máximo de solicitações de API or interface de programação do aplicativo (API) que um espaço de trabalho pode fazer para um endpoint de ingestão específico, como `/users/track` ou dados do SDK or kit de desenvolvimento de software. Você também pode aplicar limites de frequência a um grupo de espaços de trabalho, o que significa que o limite é compartilhado entre todos os espaços de trabalho desse grupo.
+Com os limites de frequência de espaço de trabalho, você pode definir um número máximo de solicitações de API que um espaço de trabalho pode fazer para um endpoint de ingestão específico, como `/users/track` ou dados do SDK. Você também pode aplicar limites de frequência a um grupo de espaços de trabalho, o que significa que o limite é compartilhado entre todos os espaços de trabalho desse grupo.
 
 Por exemplo, se o endpoint `/users/track` tem um limite de frequência no nível da empresa de 500.000 solicitações por hora, você poderia definir os seguintes limites de frequência de espaço de trabalho:
 
@@ -71,8 +71,8 @@ Se o limite de frequência de um espaço de trabalho for atingido, sua solicita�
 
 O valor de `Retry-After` reflete o número de segundos até o início da próxima hora, quando o limite de frequência do espaço de trabalho é redefinido.
 
-### Dashboard de uso de API or interface de programação do aplicativo (API) {#api-usage-dashboard}
+### Dashboard de uso de API {#api-usage-dashboard}
 
-Para monitorar o volume de solicitações, códigos de resposta e comportamento de ingestão entre espaços de trabalho, você também pode usar o [dashboard de uso de API or interface de programação do aplicativo (API)]({{site.baseurl}}/user_guide/analytics/dashboards/api_usage).
+Para monitorar o volume de solicitações, códigos de resposta e comportamento de ingestão entre espaços de trabalho, você também pode usar o [dashboard de uso de API]({{site.baseurl}}/user_guide/analytics/dashboards/api_usage).
 
 Você pode filtrar o dashboard para exibir `429 Workspace Rate Limited` ou `429 Company Rate Limited`, para identificar rapidamente se uma solicitação foi limitada pelo limite de frequência da empresa ou do espaço de trabalho.

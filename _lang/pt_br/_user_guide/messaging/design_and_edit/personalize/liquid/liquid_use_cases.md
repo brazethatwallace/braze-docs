@@ -10,7 +10,7 @@ description: "Esta landing page reúne exemplos de casos de uso de Liquid organi
 
 ---
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Aniversários e feriados {#anniversaries-and-holidays}
 
@@ -132,7 +132,7 @@ O exemplo fornecido usa a véspera de Natal, o dia de Natal e o dia seguinte ao 
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Uso do app {#app-usage}
 
@@ -171,7 +171,7 @@ Has language - Default language
 {% endraw %}
 
 {% raw %}
-**Explicação:** Aqui, estamos usando duas declarações `if` agrupadas e aninhadas. A primeira declaração `if` verifica se o usuário iniciou uma sessão, checando se `last_used_app_date` é `nil`. Isso porque `{{${language}}}` é coletado automaticamente pelo SDK or kit de desenvolvimento de software quando um usuário registra uma sessão. Se o usuário não registrou uma sessão, ainda não teremos o idioma dele, então verificamos se algum atributo personalizado relacionado ao idioma foi salvo e, com base nessa informação, exibimos uma mensagem nesse idioma, se possível.
+**Explicação:** Aqui, estamos usando duas declarações `if` agrupadas e aninhadas. A primeira declaração `if` verifica se o usuário iniciou uma sessão, checando se `last_used_app_date` é `nil`. Isso porque `{{${language}}}` é coletado automaticamente pelo SDK quando um usuário registra uma sessão. Se o usuário não registrou uma sessão, ainda não teremos o idioma dele, então verificamos se algum atributo personalizado relacionado ao idioma foi salvo e, com base nessa informação, exibimos uma mensagem nesse idioma, se possível.
 {% endraw %}
 
 A segunda declaração `if` apenas verifica o atributo padrão (standard), pois o usuário não tem `nil` para `last_used_app_date`, o que significa que ele registrou uma sessão e temos o idioma dele.
@@ -216,7 +216,7 @@ Message for a less active user
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Contagens regressivas {#countdowns}
 
@@ -534,7 +534,7 @@ Este caso de uso exibe a data de 30 dias a partir de agora para uso em mensagens
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Atributo personalizado {#custom-attribute}
 
@@ -610,7 +610,7 @@ Hi {{name[0]}}, here's your message!
 {% endraw %}
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Evento personalizado {#custom-event}
 
@@ -736,7 +736,7 @@ Este caso de uso calcula o número de vezes que um evento personalizado foi regi
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Idioma {#language}
 
@@ -851,7 +851,7 @@ tuesday default
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Diversos {#miscellaneous}
 
@@ -1212,7 +1212,7 @@ Este caso de uso mostra como indexar o campo de perfil de usuário `phone_number
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Direcionamento por plataforma {#platform-targeting}
 
@@ -1337,7 +1337,7 @@ This is a message for Verizon users!
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## SMS
 
@@ -1369,7 +1369,7 @@ Thanks for joining our SMS program!
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Fusos horários {#time-zones}
 
@@ -1577,7 +1577,7 @@ Sign up for our exclusive time-limited offer now!
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 
 ## Semana/Dia/Mês {#weekdaymonth}
 

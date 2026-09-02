@@ -126,7 +126,7 @@ La siguiente tabla enumera los errores comunes de este endpoint y cómo resolver
 | `404` | Tipo u objeto no encontrado | Confirma que tanto `type_name` como `external_id` existen en el espacio de trabajo. |
 | `409` | Relación duplicada (`duplicate-user-relationship`) | Usa `PUT` para reemplazar la relación existente, o elimínala antes de crearla de nuevo. |
 | `422` | Se alcanzó el límite de objetos por usuario (`data-objects-per-user-limit-exceeded`) o el límite de usuarios por objeto (`users-per-data-object-limit-exceeded`) | Reduce la cantidad de relaciones del usuario o del objeto, o contacta a soporte de Braze para conocer los límites de tu espacio de trabajo. |
-| `401` | Clave de API REST or transferencia de estado representacional faltante o no válida | Verifica que el encabezado `Authorization` usa `Bearer YOUR_REST_API_KEY` y que la clave está activa. |
+| `401` | Clave de API REST faltante o no válida | Verifica que el encabezado `Authorization` usa `Bearer YOUR_REST_API_KEY` y que la clave está activa. |
 | `403` | La clave de API no tiene permiso o la solicitud está bloqueada por la lista de permitidos | Confirma que la clave tiene el permiso `data_objects.user_relationships.create` y que tu IP de origen está en la lista de permitidos de la clave, si está configurada. |
 | `429` | Límite de velocidad excedido | Reintenta después de `X-RateLimit-Reset` y reduce la frecuencia de solicitudes. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Errores de crear relación de usuario" }

@@ -19,12 +19,12 @@ channel:
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Push-Storys" }
 
 {% alert note %}
-Ab iOS SDK or Software-Development-Kit Version 3.13.0+ wird aufgrund einer Änderung beim Herunterladen von Bildern durch das SDK or Software-Development-Kit kein Miniaturbild des ersten Bildes mehr in der komprimierten Ansicht der Push-Benachrichtigung angezeigt. Stellen Sie sicher, dass Ihr Nachrichtentext die Nutzer:innen dazu auffordert, die Push-Benachrichtigung zu erweitern, um die Bilder zu sehen.
+Ab iOS SDK Version 3.13.0+ wird aufgrund einer Änderung beim Herunterladen von Bildern durch das SDK kein Miniaturbild des ersten Bildes mehr in der komprimierten Ansicht der Push-Benachrichtigung angezeigt. Stellen Sie sicher, dass Ihr Nachrichtentext die Nutzer:innen dazu auffordert, die Push-Benachrichtigung zu erweitern, um die Bilder zu sehen.
 {% endalert %}
 
 ## Voraussetzungen {#prerequisites}
 
-Die folgenden SDK or Software-Development-Kit-Versionen sind erforderlich, um Push-Storys zu empfangen:
+Die folgenden SDK-Versionen sind erforderlich, um Push-Storys zu empfangen:
 
 {% sdk_min_versions swift:5.0.0 android:2.2.0 %}
 
@@ -74,7 +74,7 @@ Die folgenden Bild- und Textspezifikationen gelten für den Fotokarussell-Teil v
 - **Beschreibung:** 30 Zeichen (empfohlen)
 
 {% alert note %}
-Obwohl die Zeichenlänge von Gerät zu Gerät variieren kann, sind der Titel und die Beschreibung für Push-Storys jeweils auf eine Zeile begrenzt. Der Representational State Transfer Ihrer Nachricht wird abgeschnitten. Testen Sie Ihre Nachricht immer auf einem echten Gerät.
+Obwohl die Zeichenlänge von Gerät zu Gerät variieren kann, sind der Titel und die Beschreibung für Push-Storys jeweils auf eine Zeile begrenzt. Der Rest Ihrer Nachricht wird abgeschnitten. Testen Sie Ihre Nachricht immer auf einem echten Gerät.
 {% endalert %}
 
 {% endtab %}

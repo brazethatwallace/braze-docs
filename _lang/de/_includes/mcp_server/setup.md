@@ -117,7 +117,7 @@ Um die Verbindung zu bestätigen, senden Sie einen Test-Prompt wie `Show my rece
 
 Sie können den lokalen Beta-Server und den remote-gehosteten Server während der Migration parallel betreiben. Möglicherweise müssen Sie Ihrem Agenten explizit mitteilen, welchen Server er verwenden soll.
 
-Der remote-gehostete Server enthält neue Tools, die im lokalen Beta-Server nicht vorhanden sind. Wenn Sie Skills für den lokalen Server erstellt haben, müssen Sie diese Skills möglicherweise Update or aktualisieren or aktualisieren, um auf neue Tool-Namen und -Verhaltensweisen zu verweisen.
+Der remote-gehostete Server enthält neue Tools, die im lokalen Beta-Server nicht vorhanden sind. Wenn Sie Skills für den lokalen Server erstellt haben, müssen Sie diese Skills möglicherweise aktualisieren, um auf neue Tool-Namen und -Verhaltensweisen zu verweisen.
 
 Nachdem Sie bestätigt haben, dass Ihre Workflows und Skills auf dem Remote-Server funktionieren, deaktivieren Sie den lokal gehosteten Server.
 

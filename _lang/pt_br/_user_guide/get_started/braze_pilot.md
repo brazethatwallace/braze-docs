@@ -56,17 +56,17 @@ MovieCanon é um serviço de streaming perfeitamente projetado para ilustrar cas
 
 ## Como o Pilot se conecta ao seu dashboard da Braze {#how-pilot-connects-with-your-braze-dashboard}
 
-O SDK or kit de desenvolvimento de software da Braze é um pacote de código que coleta dados dos seus usuários depois de integrado ao seu app ou website. Quando você conecta o Pilot ao seu dashboard, você inicializa essa conexão entre o app Pilot no seu telefone e o SDK or kit de desenvolvimento de software da Braze, além de estabelecer uma conexão única com sua instância da Braze ao fornecer ao Pilot o identificador da sua chave de API or interface de programação do aplicativo (API) do dashboard.
+O SDK da Braze é um pacote de código que coleta dados dos seus usuários depois de integrado ao seu app ou website. Quando você conecta o Pilot ao seu dashboard, você inicializa essa conexão entre o app Pilot no seu telefone e o SDK da Braze, além de estabelecer uma conexão única com sua instância da Braze ao fornecer ao Pilot o identificador da sua chave de API do dashboard.
 
 ![A primeira etapa para configurar o Pilot.]({% image_buster /assets/img/braze_pilot/setup_wizard.png %}){:style="max-width:40%"}
 
-Depois que o Pilot se conecta ao seu dashboard da Braze, o SDK or kit de desenvolvimento de software da Braze funciona no app exatamente como funcionará quando você integrar o SDK or kit de desenvolvimento de software ao seu próprio app ou website. Isso significa que a Braze irá:
+Depois que o Pilot se conecta ao seu dashboard da Braze, o SDK da Braze funciona no app exatamente como funcionará quando você integrar o SDK ao seu próprio app ou website. Isso significa que a Braze irá:
 
 - Armazenar dados sobre a atividade do usuário no Pilot, incluindo dados personalizados específicos das marcas fictícias no app.
 - Coletar automaticamente dados de sessão, informações do dispositivo e tokens por push.
-- Alimentar notificações por push, mensagens no app e canais de envio de mensagens de Content Cards que exigem integração de SDK or kit de desenvolvimento de software para funcionar.
+- Alimentar notificações por push, mensagens no app e canais de envio de mensagens de Content Cards que exigem integração de SDK para funcionar.
 
-Para saber mais sobre o SDK or kit de desenvolvimento de software da Braze, confira [Integração]({{site.baseurl}}/user_guide/get_started/integrations).
+Para saber mais sobre o SDK da Braze, confira [Integração]({{site.baseurl}}/user_guide/get_started/integrations).
 
 ![A pilha de engajamento do cliente da Braze, que inclui integrações, APIs, SDKs para ingestão de dados, classificação, orquestração, personalização e ação com canais de envio de mensagens para um ciclo de feedback interativo com seus clientes.]({% image_buster /assets/img/braze_pilot/braze_sdk_diagram.png %}){:style="max-width:70%"}
 
@@ -99,7 +99,7 @@ Se você estiver registrando dados como um usuário identificado, a área de sta
 {% endtab %}
 {% tab Not connected %}
 
-**Não conectado** indica que você ainda não inicializou a conexão do SDK or kit de desenvolvimento de software da Braze com o Pilot. A área de status indica que o Pilot ainda não está conectado ao seu espaço de trabalho da Braze.
+**Não conectado** indica que você ainda não inicializou a conexão do SDK da Braze com o Pilot. A área de status indica que o Pilot ainda não está conectado ao seu espaço de trabalho da Braze.
 
 {% endtab %}
 {% endtabs %}
@@ -108,8 +108,8 @@ Se você estiver registrando dados como um usuário identificado, a área de sta
 
 Campaigns e Canvas são a forma como você envia mensagens aos seus usuários.
 
-- Campaigns são ideais para mensagens individuais enviadas a um Segment or segmento or segmento específico de público em vários canais.
-- Canvas são fluxos de trabalho avançados de campanhas que permitem automatizar e orquestrar jornadas personalizadas de clientes em múltiplos canais. Em um Canvas, você pode configurar lógica de Branch or ramificação or ramificação, postergações, pontos de decisão e eventos de conversão para guiar os clientes por uma série de interações. Canvas ajudam a garantir uma comunicação consistente e fluida em diferentes pontos de contato, aumentando as chances de engajamento e conversão do cliente.
+- Campaigns são ideais para mensagens individuais enviadas a um Segment específico de público em vários canais.
+- Canvas são fluxos de trabalho avançados de campanhas que permitem automatizar e orquestrar jornadas personalizadas de clientes em múltiplos canais. Em um Canvas, você pode configurar lógica de Branch, postergações, pontos de decisão e eventos de conversão para guiar os clientes por uma série de interações. Canvas ajudam a garantir uma comunicação consistente e fluida em diferentes pontos de contato, aumentando as chances de engajamento e conversão do cliente.
 
 ## Canais de envio de mensagens suportados {#supported-messaging-channels}
 

@@ -62,7 +62,7 @@ Flybuy는 로그인한 사용자에 대해 `loyalty_id`를 Braze `external_id`�
 
 ### 고객이 가상 픽업 구역에 진입할 때 알림 트리거 {#trigger-an-alert-when-a-customer-enters-a-virtual-pickup-area}
 
-로열티 계정이 없는 고객을 타겟팅하여 앱을 다운로드하고 로열티 계정을 생성하도록 개인화된 단문 메시지 서비스를 전송합니다.
+로열티 계정이 없는 고객을 타겟팅하여 앱을 다운로드하고 로열티 계정을 생성하도록 개인화된 SMS를 전송합니다.
 
 ![고객이 가상 픽업 구역에 진입할 때 알림 트리거]({% image_buster /assets/img/flybuy/flybuy2.png %})
 

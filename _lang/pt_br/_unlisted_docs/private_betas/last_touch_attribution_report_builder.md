@@ -9,7 +9,7 @@ hidden: true
 > Adicione métricas de atribuição de último ponto de contato aos seus relatórios no Criador de relatórios.
 
 {% alert note %}
-As métricas de atribuição de último ponto de contato estão em acesso antecipado. Se você tiver interesse em participar do acesso antecipado, entre em contato com seu gerente de sucesso do cliente.
+As métricas de atribuição de último ponto de contato estão em acesso antecipado. Se você tiver interesse em participar do acesso antecipado, entre em contato com seu CSM.
 {% endalert %}
 
 A atribuição de último ponto de contato (LTA) é um modelo de atribuição de conversão que dá crédito total por uma conversão à última mensagem com a qual o usuário interagiu antes de converter. Diferentemente das janelas de conversão no nível de Campaign, a LTA usa janelas de atribuição padrão do setor para cada canal:

@@ -9,7 +9,7 @@ page_type: landing
 tool:
   - Campaigns
   - Canvas
-description: "Konzepte, die Campaigns und Canvase gemeinsam haben: Targeting, Zustellung, Konversions-Events und der Workflow vor dem Start."
+description: "Konzepte, die Campaigns und Canvases gemeinsam haben: Targeting, Zustellung, Konversions-Events und der Workflow vor dem Start."
 
 guide_featured_title: "Artikel in diesem Abschnitt"
 guide_featured_list:

@@ -68,7 +68,7 @@ El análisis de código puede aparecer más rápido que la vista previa para un 
 
 ## Pruebas de correo no deseado {#spam-testing}
 
-Las pruebas de correo no deseado estiman si un correo electrónico podría ser filtrado como correo no deseado. Las pruebas se ejecutan en filtros como IronPort, SpamAssassin y Barracuda, así como en filtros de ISP or proveedor de servicios de Internet como Gmail y Outlook, utilizando buzones de entrada de prueba estáticos que no abren ni hacen clic de forma predeterminada.
+Las pruebas de correo no deseado estiman si un correo electrónico podría ser filtrado como correo no deseado. Las pruebas se ejecutan en filtros como IronPort, SpamAssassin y Barracuda, así como en filtros de ISP como Gmail y Outlook, utilizando buzones de entrada de prueba estáticos que no abren ni hacen clic de forma predeterminada.
 
 {% alert important %}
 La ubicación en el buzón de entrada depende principalmente de la participación de los destinatarios en vivo. Los resultados de las pruebas de correo no deseado pueden no coincidir con lo que ves en Campaigns reales.

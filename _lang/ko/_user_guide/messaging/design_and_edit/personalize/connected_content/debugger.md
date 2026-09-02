@@ -26,7 +26,7 @@ description: "이 참고 문서에서는 메시지를 발송하기 전에 연결
     - 푸터 및 구독 페이지 제외
 - In-App Messages
 - 푸시 알림
-- 단문 메시지 서비스/MMS/RCS
+- SMS/MMS/RCS
 - 웹훅
     - 템플릿 포함
 - WhatsApp

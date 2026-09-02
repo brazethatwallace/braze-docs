@@ -9,7 +9,7 @@ description: "Cet article vous explique comment configurer les fonctionnalités 
 
 # authentification unique Microsoft Entra {#microsoft-entra-sso}
 
-> [Microsoft Entra authentification unique](https://learn.microsoft.com/en-us/entra/identity/saas-apps/braze-tutorial) est le service cloud de gestion des identités et des accès de Microsoft, qui aide vos employé or salariés à se connecter et à accéder aux ressources. Vous pouvez utiliser Entra authentification unique pour contrôler l'accès à vos applications et à leurs ressources, en fonction de vos besoins métier.
+> [Microsoft Entra authentification unique](https://learn.microsoft.com/en-us/entra/identity/saas-apps/braze-tutorial) est le service cloud de gestion des identités et des accès de Microsoft, qui aide vos employés à se connecter et à accéder aux ressources. Vous pouvez utiliser Entra authentification unique pour contrôler l'accès à vos applications et à leurs ressources, en fonction de vos besoins métier.
 
 ## Exigences {#requirements}
 

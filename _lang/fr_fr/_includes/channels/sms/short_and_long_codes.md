@@ -178,7 +178,7 @@ Les expéditeurs vérifiés RCS sont provisionnés pays par pays. Le processus d
 
 #### Informations de vérification {#verification-details}
 
-- **Point de contact (POC) :** c'est un élément essentiel. Vous devez fournir une adresse e-mail d'un employé or salarié direct de la marque (pas une adresse d'agence). Google ou l'opérateur enverra un e-mail à cette personne pour confirmer qu'elle a autorisé Braze à agir en votre nom.
+- **Point de contact (POC) :** c'est un élément essentiel. Vous devez fournir une adresse e-mail d'un employé direct de la marque (pas une adresse d'agence). Google ou l'opérateur enverra un e-mail à cette personne pour confirmer qu'elle a autorisé Braze à agir en votre nom.
 - **Site web et politique de confidentialité :** un site web en ligne et une politique de confidentialité expliquant comment vous gérez les données utilisateur et l'envoi de messages.
 - **Description du cas d'usage :** une explication claire de ce que vous envoyez (par exemple, « Mises à jour de livraison de commandes et service client pour les achats en magasin »).
 
@@ -206,7 +206,7 @@ Lorsque tous vos documents de candidature sont prêts, Braze soumet la demande �
 Le délai d'examen et d'approbation des codes courts varie, mais il faut généralement compter entre 4 et 12 semaines selon le pays et la nature du programme.
 
 {% alert important %}
-Si vous possédez déjà votre propre code court, contactez votre CSM or gestionnaire de la satisfaction client or gestionnaire du succès des clients pendant le processus d'onboarding pour discuter de la migration ou du transfert de votre code court.
+Si vous possédez déjà votre propre code court, contactez votre CSM pendant le processus d'onboarding pour discuter de la migration ou du transfert de votre code court.
 {% endalert %}
 
 {% endtab %}

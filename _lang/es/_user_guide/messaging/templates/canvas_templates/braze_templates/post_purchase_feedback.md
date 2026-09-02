@@ -3,7 +3,7 @@ nav_title: Comentarios posteriores a la compra
 article_title: Comentarios posteriores a la compra
 page_order: 6
 page_type: reference
-description: "Este artículo describe cómo utilizar una plantilla de BRAZE Canvas para orquestar experiencias personalizadas que te permitan responder a los comentarios y construir una relación con tus usuarios."
+description: "Este artículo describe cómo utilizar una plantilla de BRAZE CANVAS para orquestar experiencias personalizadas que te permitan responder a los comentarios y construir una relación con tus usuarios."
 tool: Canvas
 ---
 
@@ -80,7 +80,7 @@ Para nuestro ejemplo, omitiremos las demás configuraciones (limitación de frec
 
 ### Paso 6: Personalizar tu Canvas {#step-6-customize-your-canvas}
 
-A continuación, construiremos nuestro Canvas personalizando los canales de mensajería y el contenido que se enviará a los usuarios. Dado que solo buscamos comentarios usando canales de correo electrónico, mensajes dentro de la aplicación y webhook, recorreremos la plantilla y eliminaremos las variantes de servicio de mensajes cortos de los pasos de mensaje.
+A continuación, construiremos nuestro Canvas personalizando los canales de mensajería y el contenido que se enviará a los usuarios. Dado que solo buscamos comentarios usando canales de correo electrónico, mensajes dentro de la aplicación y webhook, recorreremos la plantilla y eliminaremos las variantes de SMS de los pasos de mensaje.
 
 Comenzaremos nuestra personalización recorriendo cada componente de mensajería para actualizar el contenido. Nuestro atributo personalizado de referencia es `Experience Feedback`.
 

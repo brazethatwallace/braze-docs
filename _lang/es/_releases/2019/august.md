@@ -26,7 +26,7 @@ Esta característica tiene disponibilidad limitada temporalmente. Ponte en conta
 
 La [página predeterminada para cancelar la suscripción por correo electrónico personalizado]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#custom-unsubscribe-landing-page) se ha actualizado con un aspecto elegante y más moderno.
 
-## SDK or kit de desarrollo de software para iOS: Mejora de la asistencia telefónica
+## SDK para iOS: Mejora de la asistencia telefónica
 
 Mejora de la compatibilidad con mensajes dentro de la aplicación en dispositivos "con muesca" (por ejemplo, iPhone X, Pixel 3XL). Los mensajes a pantalla completa ahora se expanden para ocupar toda la pantalla de cualquier teléfono, a la vez que cubren la barra de estado.
 

@@ -14,9 +14,9 @@ channel:
 
 > Aumente a entregabilidade e o engajamento alcançando mais usuários certos no WhatsApp com entrega dinâmica baseada em engajamento.
 
-As mensagens de WhatsApp com entrega otimizada são enviadas usando a [Marketing Messages API or interface de programação do aplicativo (API) for WhatsApp](https://developers.facebook.com/docs/whatsapp/marketing-messages-api-for-whatsapp) (MM API or interface de programação do aplicativo (API) for WhatsApp) da Meta, que oferece entrega dinâmica baseada em engajamento. Isso significa que suas mensagens de alto engajamento (por exemplo, aquelas com maior probabilidade de serem lidas e clicadas) podem alcançar mais usuários propensos a interagir com elas. O WhatsApp considera suas mensagens como de alto engajamento se forem esperadas, relevantes e oportunas, e portanto mais propensas a serem lidas e clicadas.
+As mensagens de WhatsApp com entrega otimizada são enviadas usando a [Marketing Messages API for WhatsApp](https://developers.facebook.com/docs/whatsapp/marketing-messages-api-for-whatsapp) (MM API for WhatsApp) da Meta, que oferece entrega dinâmica baseada em engajamento. Isso significa que suas mensagens de alto engajamento (por exemplo, aquelas com maior probabilidade de serem lidas e clicadas) podem alcançar mais usuários propensos a interagir com elas. O WhatsApp considera suas mensagens como de alto engajamento se forem esperadas, relevantes e oportunas, e portanto mais propensas a serem lidas e clicadas.
 
-As marcas podem esperar entregabilidade igual ou superior com a MM API or interface de programação do aplicativo (API) for WhatsApp, em comparação com a Cloud API or interface de programação do aplicativo (API). Na Índia, mensagens de marketing de alto engajamento tiveram até 9% mais mensagens entregues em comparação com a Cloud API or interface de programação do aplicativo (API), de acordo com a Meta. Note que a MM API or interface de programação do aplicativo (API) for WhatsApp ainda não garante 100% de entregabilidade.
+As marcas podem esperar entregabilidade igual ou superior com a MM API for WhatsApp, em comparação com a Cloud API. Na Índia, mensagens de marketing de alto engajamento tiveram até 9% mais mensagens entregues em comparação com a Cloud API, de acordo com a Meta. Note que a MM API for WhatsApp ainda não garante 100% de entregabilidade.
 
 ## Disponibilidade regional {#regional-availability}
 
@@ -43,21 +43,21 @@ Alternativamente, você pode ativar a entrega otimizada diretamente no seu geren
 
 ## Usando entrega otimizada em Campaigns e Canvas {#using-optimized-delivery-in-campaigns-and-canvases}
 
-A entrega otimizada deve ser usada para **mensagens de marketing**. A Braze removerá automaticamente a opção de entrega otimizada para **mensagens utilitárias, de autenticação, de serviço e de resposta**, que devem continuar sendo enviadas pela API or interface de programação do aplicativo (API) Cloud, que é a configuração padrão.
+A entrega otimizada deve ser usada para **mensagens de marketing**. A Braze removerá automaticamente a opção de entrega otimizada para **mensagens utilitárias, de autenticação, de serviço e de resposta**, que devem continuar sendo enviadas pela API Cloud, que é a configuração padrão.
 
 ### Selecionando o método de entrega {#selecting-the-delivery-method}
 
 1. No criador de WhatsApp da Braze para uma Campaign ou uma etapa de mensagem do Canvas, acesse a guia **Configurações**.
 2. Na seção **Método de entrega**, a caixa de seleção **Entrega otimizada (recomendada)** estará marcada por padrão se a sua Conta WhatsApp Business (WABA) estiver ativada. Se você não quiser usar a entrega otimizada para essa mensagem específica, desmarque a caixa de seleção.
-- Se você selecionar a entrega otimizada, mas ela não estiver disponível, a mensagem automaticamente usará o método da API or interface de programação do aplicativo (API) Cloud como fallback.
+- Se você selecionar a entrega otimizada, mas ela não estiver disponível, a mensagem automaticamente usará o método da API Cloud como fallback.
 
 ![Criador de mensagem com uma guia de prévia que possui uma caixa de seleção para selecionar a entrega otimizada.]({% image_buster /assets/img/whatsapp/delivery_method_settings.png %})
 
 ### Redirecionando usuários em outros canais da Braze {#retargeting-users-on-other-braze-channels}
 
-Como a API or interface de programação do aplicativo (API) MM para WhatsApp não oferece 100% de entregabilidade, é importante entender como redirecionar usuários que podem não ter recebido sua mensagem em outros canais.
+Como a API MM para WhatsApp não oferece 100% de entregabilidade, é importante entender como redirecionar usuários que podem não ter recebido sua mensagem em outros canais.
 
-Para redirecionar usuários, recomendamos criar um Segment or segmento de usuários que não receberam uma mensagem específica. Para isso, filtre pelo código de erro `131049`, que indica que uma mensagem de modelo de marketing não foi enviada devido ao limite de modelo de marketing por usuário aplicado pelo WhatsApp. Você pode fazer isso usando Braze Currents ou extensões de Segment or segmento or segmento SQL:
+Para redirecionar usuários, recomendamos criar um Segment de usuários que não receberam uma mensagem específica. Para isso, filtre pelo código de erro `131049`, que indica que uma mensagem de modelo de marketing não foi enviada devido ao limite de modelo de marketing por usuário aplicado pelo WhatsApp. Você pode fazer isso usando Braze Currents ou extensões de Segment SQL:
 
 - **Braze Currents:** Exporte eventos de falha de mensagem usando Braze Currents. Depois, você pode usar esses dados para atualizar um atributo personalizado no perfil de usuário (como `whatsapp_failed_last_msg: true`), que pode ser usado como filtro para sua Campaign de redirecionamento.
-- **Extensões de Segment or segmento or segmento SQL:** Se você tiver acesso a esse recurso, pode usar SQL para consultar os logs de falha de mensagem e criar um Segment or segmento desses usuários. Então, direcione esse Segment or segmento em um canal diferente.
+- **Extensões de Segment SQL:** Se você tiver acesso a esse recurso, pode usar SQL para consultar os logs de falha de mensagem e criar um Segment desses usuários. Então, direcione esse Segment em um canal diferente.

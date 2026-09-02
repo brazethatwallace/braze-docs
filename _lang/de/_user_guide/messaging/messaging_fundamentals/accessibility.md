@@ -139,7 +139,7 @@ Die **Barrierefreiheitssprache** teilt Screenreadern und anderen assistiven Tech
 
 Wenn Sie die Barrierefreiheitssprache leer lassen und kein sicherer Standardwert verfügbar ist, lässt Braze das Sprach-Tag weg. Wenn keine Sprache festgelegt ist, greifen assistive Technologien oft auf die Telefon- oder Computersprache der Person zurück. Wenn diese von der Nachrichtensprache abweicht, kann die Aussprache falsch klingen.
 
-Campaigns und Canvase verwenden dieselben Editoren für diese Optionen, es sei denn, ein Feature ist für Ihren Workspace nicht verfügbar.
+Campaigns und Canvases verwenden dieselben Editoren für diese Optionen, es sei denn, ein Feature ist für Ihren Workspace nicht verfügbar.
 
 #### Barrierefreiheitssprache konfigurieren {#configure-accessibility-language}
 
@@ -195,7 +195,7 @@ Verwenden Sie **Buttons**, um eine Aktion anzuzeigen, wie das Absenden eines For
     </tr>
     <tr>
       <td>„Konto erstellen“</td>
-      <td>„Registrierung or registrieren“</td>
+      <td>„Registrierung“</td>
     </tr>
     <tr>
       <td>„Unsere Broschüre herunterladen“</td>
@@ -443,7 +443,7 @@ Füllen Sie Alt-Text nicht mit SEO-Begriffen oder Handlungsaufforderungen auf, d
   <tbody>
     <tr>
       <td>„Laptop, der das Braze-Dashboard-Analytics-Chart zeigt“</td>
-      <td>„Steigern Sie Konversionen und katapultieren Sie den Kapitalrendite or ROI mit der besten Plattform der Welt!“ (Fügt unnötige Marketing-Sprache hinzu)</td>
+      <td>„Steigern Sie Konversionen und katapultieren Sie den Kapitalrendite mit der besten Plattform der Welt!“ (Fügt unnötige Marketing-Sprache hinzu)</td>
     </tr>
     <tr>
       <td>„Hinterhof-Terrassen-Set mit vier Stühlen und einem Glastisch“</td>

@@ -3,7 +3,7 @@
   Parameter:
   - feature (erforderlich): Das Feature oder Thema, z. B. „Dieser Endpunkt“, „SCIM-Bereitstellung“, „Die Okta-Integration“
   - type (optional): „early_access“ (Standard) oder „beta“
-  - contact (optional): Ansprechperson, z. B. „Braze Account Manager:in:in“ (Standard) oder „CSM or Customer-Success-Manager or Customer-Success-Manager:in:in“
+  - contact (optional): Ansprechperson, z. B. „Braze Account Manager:in:in“ (Standard) oder „CSM:in“
 {% endcomment %}
 {% assign contact_role = include.contact | default: "Braze Account Manager:in:in" %}
 {% if include.type == "beta" %}

@@ -21,7 +21,7 @@ search_rank: 1
 | 표준(기본값) 속성 | `{{${city}}}` <br> `{{${country}}}` <br> `{{${date_of_birth}}}` <br> `{{${email_address}}}` <br> `{{${first_name}}}` <br> `{{${gender}}}` <br> `{{${language}}}` <br> `{{${last_name}}}` <br> `{{${last_used_app_date}}}` <br> `{{${most_recent_app_version}}}` <br> `{{${most_recent_locale}}}` <br> `{{${most_recent_location}}}` <br> `{{${phone_number}}}` <br> `{{${time_zone}}}` <br> `{{${user_id}}}` <br> `{{${braze_id}}}` <br> `{{${random_bucket_number}}}` <br> `{{subscribed_state.${email_global}}}` <br> `{{subscribed_state.${subscription_group_id}}}` |
 | 기기 속성 | `{{most_recently_used_device.${carrier}}}` <br> `{{most_recently_used_device.${id}}}` <br> `{{most_recently_used_device.${idfa}}}` <br> `{{most_recently_used_device.${model}}}` <br> `{{most_recently_used_device.${os}}}` <br> `{{most_recently_used_device.${platform}}}` <br> `{{most_recently_used_device.${google_ad_id}}}` <br> `{{most_recently_used_device.${roku_ad_id}}}` <br> `{{most_recently_used_device.${foreground_push_enabled}}}`|
 | <a href='/docs/user_guide/channels/email/subscriptions#changing-email-subscriptions'>이메일 목록 속성</a> | `{{${set_user_to_unsubscribed_url}}}` <br>이 태그는 이전의 `{{${unsubscribe_url}}}` 태그를 대체합니다. 이전 태그는 기존에 생성된 이메일에서 여전히 작동하지만, 새로운 태그를 사용하는 것을 권장합니다. <br><br> `{{${set_user_to_one_click_list_unsubscribe}}}` <br> `{{${set_user_to_subscribed_url}}}` <br> `{{${set_user_to_opted_in_url}}}` |
-| <a href='/docs/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting#trigger-messages'>단문 메시지 서비스 속성</a> | `{{sms.${inbound_message_body}}}` <br> `{{sms.${inbound_media_urls}}}` |
+| <a href='/docs/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting#trigger-messages'>SMS 속성</a> | `{{sms.${inbound_message_body}}}` <br> `{{sms.${inbound_media_urls}}}` |
 | <a href='/docs/user_guide/channels/whatsapp/message_processing/messaging_users'>WhatsApp 속성</a> | `{{whats_app.${inbound_message_body}}}` <br> `{{whats_app.${inbound_media_urls}}}` <br> `{{whats_app.${inbound_flow_response}}}` <br> `{{whats_app.${inbound_product_id}}}` <br> `{{whats_app.${inbound_catalog_id}}}` <br> `{{whats_app.${inbound_profile_name}}}` |
 | Campaign 속성 및 캔버스 단계 속성 | `{{campaign.${api_id}}}` <br> `{{campaign.${dispatch_id}}}` <br> `{{campaign.${name}}}` <br> `{{campaign.${message_name}}}` <br> `{{campaign.${message_api_id}}}` |
 | Canvas 속성 | `{{canvas.${name}}}` <br> `{{canvas.${api_id}}}` <br> `{{canvas.${variant_name}}}` <br> `{{canvas.${variant_api_id}}}` |
@@ -42,7 +42,7 @@ API 트리거 속성정보는 태그당 두 개의 중괄호를 사용해야 합
 
 ### 지원되는 속성 {#supported-attributes}
 
-Campaign, 카드, Canvas 속성은 해당하는 메시징 템플릿에서만 지원됩니다. 예를 들어, `dispatch_id`는 이메일, 푸시, 단문 메시지 서비스, WhatsApp과 같은 메시징 채널의 Liquid에서 지원되지만, 인앱 메시지나 배너에서는 지원되지 않습니다.
+Campaign, 카드, Canvas 속성은 해당하는 메시징 템플릿에서만 지원됩니다. 예를 들어, `dispatch_id`는 이메일, 푸시, SMS, WhatsApp과 같은 메시징 채널의 Liquid에서 지원되지만, 인앱 메시지나 배너에서는 지원되지 않습니다.
 
 자세한 내용은 [소스별 Campaign 및 Canvas 속성]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources)을 참조하세요.
 

@@ -40,7 +40,7 @@ Todos os timestamps exportados pelo Currents são enviados no fuso horário UTC.
 
 ### Latência {#latency}
 
-Eventos enviados para a Braze por meio do SDK or kit de desenvolvimento de software ou da API or interface de programação do aplicativo (API) podem incluir um timestamp do passado. O exemplo mais notável é quando os dados do SDK or kit de desenvolvimento de software ficam em fila, como quando não há conectividade móvel. Nesse caso, o timestamp do evento refletirá quando o evento foi gerado. Isso significa que uma porcentagem dos eventos parecerá ter alta latência.
+Eventos enviados para a Braze por meio do SDK ou da API podem incluir um timestamp do passado. O exemplo mais notável é quando os dados do SDK ficam em fila, como quando não há conectividade móvel. Nesse caso, o timestamp do evento refletirá quando o evento foi gerado. Isso significa que uma porcentagem dos eventos parecerá ter alta latência.
 
 ## Formato Apache Avro {#apache-avro-format}
 
@@ -66,9 +66,9 @@ Por exemplo, o caminho de um evento de envio de push pode ser assim:
 currents-export/dataexport.prod-01.S3.integration.69cadaaed2d51b7c75b1a3e5/event_type=users.messages.pushnotification.Send/date=2025-04-01-17/version=6/us-01/dataexport.prod-01.S3.integration.69cadaaed2d51b7c75b1a3e5+0+123456.avro
 ```
 
-O Segment or segmento or segmento de caminho `version` é um valor inteiro simples da versão do Currents, como `version=6`.
+O Segment de caminho `version` é um valor inteiro simples da versão do Currents, como `version=6`.
 
-| Segment or segmento or segmento do nome do arquivo | Definição |
+| Segment do nome do arquivo | Definição |
 |---|---|
 | `<your-bucket-prefix>` | O prefixo definido para esta integração do Currents. |
 | `<cluster-identifier>` | Para uso interno da Braze. Será uma string como "prod-01", "prod-02", "prod-03" ou "prod-04". Todos os arquivos terão o mesmo identificador de cluster. |
@@ -96,7 +96,7 @@ O Currents nunca gravará arquivos vazios.
 
 ### Alterações no esquema Avro {#avro-schema-changes}
 
-De tempos em tempos, a Braze pode fazer alterações no esquema Avro quando campos são adicionados, alterados ou removidos. Para nossos propósitos aqui, existem dois tipos de alterações: com quebra e sem quebra. Todas as alterações de esquema são agrupadas em releases do Currents, e cada release avança o Segment or segmento or segmento `version=<currents_version>` no caminho de armazenamento (por exemplo, de `version=6` para `version=7`). Os eventos do Currents gravados no Azure Blob Storage, Google Cloud Storage e Amazon S3 usam o seguinte formato de caminho:
+De tempos em tempos, a Braze pode fazer alterações no esquema Avro quando campos são adicionados, alterados ou removidos. Para nossos propósitos aqui, existem dois tipos de alterações: com quebra e sem quebra. Todas as alterações de esquema são agrupadas em releases do Currents, e cada release avança o Segment `version=<currents_version>` no caminho de armazenamento (por exemplo, de `version=6` para `version=7`). Os eventos do Currents gravados no Azure Blob Storage, Google Cloud Storage e Amazon S3 usam o seguinte formato de caminho:
 
 ```
 <your-bucket-prefix>/<currents-integration-id>/event_type=<event-type>/date=<date>/version=<currents_version>/<environment>/<avro-file>

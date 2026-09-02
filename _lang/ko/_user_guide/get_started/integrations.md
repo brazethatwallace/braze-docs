@@ -46,7 +46,7 @@ Braze에는 사용자에게 연락할 수 있는 다양한 옵션이 있으며, 
 | 푸시 | 메시징 자격 증명 및 푸시 토큰을 적절히 처리하기 위해 SDK 구현이 필요합니다. |
 | 이메일 | 이메일은 완전히 다른 프로세스입니다. 통합에 대한 자세한 내용은 [이메일 설정]({{site.baseurl}}/user_guide/channels/email/email_setup) 섹션을 참고하세요. |
 | Content Cards | [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards)를 시작하려면 Braze 고객 성공 매니저에게 문의하세요. |
-| 단문 메시지 서비스 및 MMS | 통합에 대한 자세한 내용은 [단문 메시지 서비스 설정]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sms_sending) 섹션을 참고하세요. |
+| SMS 및 MMS | 통합에 대한 자세한 내용은 [SMS 설정]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sms_sending) 섹션을 참고하세요. |
 | 웹훅 | SDK 구현 외에도 채널별 설정 단계가 필요합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="2단계: 원하는 메시징 채널 구현" }
 

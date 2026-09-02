@@ -36,7 +36,7 @@ Los atributos de perfil más comunes incluyen:
 - Geografía (cuando lo permitan tu sector y los requisitos de privacidad)
 - Canal de adquisición (por ejemplo, web, teléfono, tienda física)
 - Puntuación de satisfacción o sentimiento
-- Puntuaciones derivadas de modelos (por ejemplo, propensión al abandono, estimación del LTV or valor de duración del ciclo de vida or valor de duración del ciclo de vida)
+- Puntuaciones derivadas de modelos (por ejemplo, propensión al abandono, estimación del LTV)
 - Nivel de fidelización o pertenencia a un programa
 
 ### Datos de activación e interacción {#activation-and-engagement-data}
@@ -79,7 +79,7 @@ Más datos generalmente conducen a un mejor rendimiento del modelo, pero deben e
 
 ### Otras interacciones de marketing {#other-marketing-engagement}
 
-- Comunicaciones salientes enviadas fuera de las recomendaciones de Decisioning Studio (por ejemplo, correos electrónicos, servicio de mensajes cortos)
+- Comunicaciones salientes enviadas fuera de las recomendaciones de Decisioning Studio (por ejemplo, correos electrónicos, SMS)
 - Interacción con correos electrónicos no desencadenada por Decisioning Studio (por ejemplo, aperturas, clics)
 - Respuestas a cuestionarios (por ejemplo, puntuaciones NPS, cuestionarios de interacción)
 - Actividad en la web y en la aplicación móvil (por ejemplo, páginas visitadas, productos consultados)

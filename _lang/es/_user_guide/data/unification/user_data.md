@@ -40,7 +40,7 @@ guide_featured_list:
 <br>
 
 {% alert important %}
-Braze bloquea los perfiles de usuario ("usuarios ficticios") con más de 5 000 000 de sesiones, más de 20 000 nombres de eventos personalizados distintos o más de 20 000 nombres de productos distintos en compras, ya que suelen ser el resultado de una mala integración. Una vez que un perfil es bloqueado, Braze deja de ingerir todos los datos entrantes de ese perfil, tanto de los SDK or kit de desarrollo de software como de la REST or transferencia de estado representacional API. Si descubres que esto le ha ocurrido a un usuario legítimo, ponte en contacto con tu director de cuentas de Braze.
+Braze bloquea los perfiles de usuario ("usuarios ficticios") con más de 5 000 000 de sesiones, más de 20 000 nombres de eventos personalizados distintos o más de 20 000 nombres de productos distintos en compras, ya que suelen ser el resultado de una mala integración. Una vez que un perfil es bloqueado, Braze deja de ingerir todos los datos entrantes de ese perfil, tanto de los SDK como de la REST API. Si descubres que esto le ha ocurrido a un usuario legítimo, ponte en contacto con tu director de cuentas de Braze.
 {% endalert %}
 
 <br>

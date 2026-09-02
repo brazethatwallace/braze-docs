@@ -3,16 +3,16 @@ nav_title: Recomendar productos a los usuarios
 article_title: Recomendar productos a los usuarios
 page_order: 4
 page_type: reference
-description: "Este artículo de referencia explica cómo usar la REST or transferencia de estado representacional API de Braze, los catálogos y el contenido conectado para recomendar productos a los usuarios a través de los canales de mensajería."
+description: "Este artículo de referencia explica cómo usar la REST API de Braze, los catálogos y el contenido conectado para recomendar productos a los usuarios a través de los canales de mensajería."
 ---
 
 # Recomendar productos a los usuarios {#recommending-products-to-users}
 
-> Usa la REST or transferencia de estado representacional API de Braze junto con los [catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs/create) o el [contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) para mostrar recomendaciones de productos personalizadas en tus mensajes. Este enfoque te permite conectar tu propia herramienta de recomendaciones al ecosistema de mensajería de Braze, para que los usuarios no técnicos puedan gestionar el contenido y la mensajería en torno a cada recomendación.
+> Usa la REST API de Braze junto con los [catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs/create) o el [contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) para mostrar recomendaciones de productos personalizadas en tus mensajes. Este enfoque te permite conectar tu propia herramienta de recomendaciones al ecosistema de mensajería de Braze, para que los usuarios no técnicos puedan gestionar el contenido y la mensajería en torno a cada recomendación.
 
 Con este enfoque, puedes:
 
-- Almacenar recomendaciones de productos en los perfiles de usuario desde tu backend usando la REST or transferencia de estado representacional API.
+- Almacenar recomendaciones de productos en los perfiles de usuario desde tu backend usando la REST API.
 - Recuperar metadatos de productos en el momento del envío usando catálogos o contenido conectado.
 - Mostrar recomendaciones personalizadas en cualquier canal de mensajería, incluyendo correo electrónico, push, mensajes dentro de la aplicación y más.
 
@@ -22,7 +22,7 @@ Para completar esta guía, necesitas:
 
 | Requisito | Descripción |
 | --- | --- |
-| Clave de API REST or transferencia de estado representacional de Braze | Una clave con el permiso `users.track` y, si gestionas catálogos a través de la API, los permisos de catálogos correspondientes. Para crear una, ve a **Configuración** > **Claves de API**. |
+| Clave de API REST de Braze | Una clave con el permiso `users.track` y, si gestionas catálogos a través de la API, los permisos de catálogos correspondientes. Para crear una, ve a **Configuración** > **Claves de API**. |
 | Catálogo de Braze | Un catálogo que contenga los metadatos de tus productos (como nombre, categoría, precio y URL de imagen). Para crear uno, consulta [Crear un catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/create). |
 | Conocimiento de Liquid | Familiaridad intermedia con [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) para crear plantillas de variables personalizadas y usar contenido conectado. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
@@ -42,7 +42,7 @@ Content-Type: application/json
 Authorization: Bearer YOUR_REST_API_KEY
 ```
 
-Sustituye `YOUR_REST_ENDPOINT` con la [URL del endpoint REST or transferencia de estado representacional]({{site.baseurl}}/api/basics#endpoints) de tu espacio de trabajo.
+Sustituye `YOUR_REST_ENDPOINT` con la [URL del endpoint REST]({{site.baseurl}}/api/basics#endpoints) de tu espacio de trabajo.
 
 ```json
 {

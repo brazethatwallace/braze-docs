@@ -23,7 +23,7 @@ Die Partnerschaft von Braze und Transcend hilft Nutzer:innen bei der Automatisie
 | Anforderungen | Beschreibung |
 |---|---|
 | Transcend-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein [Transcend-Konto](https://app.transcend.io/) mit Admin-Rechten. |
-| Braze-API-Schlüssel | Ein Braze-Representational State Transfer-API-Schlüssel mit den Berechtigungen `users.delete, users.alias.new, users.export.ids, email.unsubscribe,` und `email.blacklist`.<br><br>Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit den Berechtigungen `users.delete, users.alias.new, users.export.ids, email.unsubscribe,` und `email.blacklist`.<br><br>Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
@@ -34,7 +34,7 @@ Transcend ermöglicht es Ihnen, in Übereinstimmung mit den Datenschutzbestimmun
 Um loszulegen, melden Sie sich bei [Transcend](https://app.transcend.io/login) an.
 1. Navigieren Sie zu **Data Map > Add Data Silo > Braze** und wählen Sie den Button **Connect**.<br><br>
 2. Wenn Ihr Konto eingerichtet ist, melden Sie sich unter einer der entsprechenden URLs an: `https://dashboard-01.braze.com`, `https://dashboard-02.braze.com, ..., https://dashboard-01.braze.eu`.<br> Verwenden Sie die folgende [Tabelle]({{site.baseurl}}/api/basics/#endpoints), um herauszufinden, welche Subdomain Sie auf der Grundlage Ihrer Dashboard-URL angeben sollten.<br><br>
-3. Wenn Sie verbunden sind, navigieren Sie zum Tab **Privacy Center** in Transcend. Hier müssen Sie die Daten in Braze auf Ihre Datenpraktiken abbilden. Erstellen Sie dazu eine neue Kategorie und eine neue Datenerfassung mit der entsprechenden Namenskonvention (z. B. „Mailinglisten oder Kundenprofil or Nutzerprofil“). Wenn Sie fertig sind, wählen Sie **Publish**.<br><br>
+3. Wenn Sie verbunden sind, navigieren Sie zum Tab **Privacy Center** in Transcend. Hier müssen Sie die Daten in Braze auf Ihre Datenpraktiken abbilden. Erstellen Sie dazu eine neue Kategorie und eine neue Datenerfassung mit der entsprechenden Namenskonvention (z. B. „Mailinglisten oder Kundenprofil“). Wenn Sie fertig sind, wählen Sie **Publish**.<br><br>
 4. Navigieren Sie zurück zu Ihrer Data Map und wählen Sie das Braze-Daten-Silo aus. Erweitern Sie **Manage Datapoints** und wählen Sie die Sammlungsbezeichnung (Kategorie), die Sie im vorherigen Schritt erstellt haben, aus der Dropdown-Liste aus. Sie können auch wählen, welche Datenaktionen (z. B. Zugriff oder Löschung) für welche Datenpunkte aktiviert sind. <br><br>
 5. Erweitern Sie als Nächstes, während Sie sich noch im Braze-Daten-Silo befinden, **Manage Identifiers**. Markieren Sie die entsprechenden Kästchen für die Bezeichner, die Sie aktivieren möchten. Wenn Sie z. B. möchten, dass Transcend Nutzer:innen nach ihrer E-Mail-Adresse sucht, aktivieren Sie das Kästchen für den E-Mail-Adress-Bezeichner.
 

@@ -41,7 +41,7 @@ CSV 및 API 내보내기에 대한 도움이 필요하면 [내보내기 문제 �
 
 {% alert tip %}
 
-**단문 메시지 서비스 문구 길이 테스트**
+**SMS 문구 길이 테스트**
 
 <br>
 
@@ -106,13 +106,13 @@ CSV 및 API 내보내기에 대한 도움이 필요하면 [내보내기 문제 �
   }
 </style>
 <form id="sms_split">
-  <textarea id="sms_message_split" placeholder="여기에 단문 메시지 서비스 문구를 입력하세요..." style="width:100%;border: 1px solid #33333333;" rows="5"></textarea><br />
+  <textarea id="sms_message_split" placeholder="여기에 SMS 문구를 입력하세요..." style="width:100%;border: 1px solid #33333333;" rows="5"></textarea><br />
   <input type="radio" name="sms_type" value="auto" checked="checked" id="sms_type_auto" /> <label for="sms_type_auto" style="padding-left: 5px;"> 자동 감지</label><label id="auto_encoding" style="padding-left: 5px;"></label><br />
   <input type="radio" name="sms_type" value="gsm" id="sms_type_gsm" /> <label for="sms_type_gsm" style="padding-left: 5px;">GSM-7 인코딩</label><br />
   <input type="radio" name="sms_type" value="ucs2" id="sms_type_ucs2" /> <label for="sms_type_ucs2" style="padding-left: 5px;">UCS-2 인코딩</label><br />
   <br />
   메시지 길이: <span id="sms_length" style="padding-left: 5px;">0</span>자.<br />
-  단문 메시지 서비스 세그먼트 수: <span id="sms_segments" style="padding-left: 5px;">0</span>개 세그먼트. <br />
+  SMS 세그먼트 수: <span id="sms_segments" style="padding-left: 5px;">0</span>개 세그먼트. <br />
   메시지 출력: <span id="sms_output" style="padding-left: 5px;"></span><br />
   <input type="checkbox" id="encoding_section" name="encoding_section"> <label for="encoding_section" style="padding-left: 5px; margin-bottom: 0px;">문자 인코딩 표시</label>
   <div class="segment_data_hide" id="character_encoding_container">
@@ -128,7 +128,7 @@ CSV 및 API 내보내기에 대한 도움이 필요하면 [내보내기 문제 �
 </form>
 <script type="text/javascript">
 (function() {
-// 단문 메시지 서비스 Segment Calculator - Note: Uses fixed DOM IDs, include only once per page
+// SMS Segment Calculator - Note: Uses fixed DOM IDs, include only once per page
 var unicodeToGsm = {
 0x000A: [0x0A],
 0x000C: [0x1B, 0x0A],

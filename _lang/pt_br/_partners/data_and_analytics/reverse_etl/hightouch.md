@@ -4,7 +4,7 @@ alias: /partners/hightouch/
 layout: dev_guide
 guide_top_header: "Hightouch"
 guide_top_text: "O Hightouch atua no data warehouse e permite que os usuários movam esses dados para qualquer ferramenta que desejarem."
-description: "Esta landing page contém tudo sobre o Hightouch, incluindo orientações de integração e uma visão geral da API or interface de programação do aplicativo (API) de personalização do Hightouch."
+description: "Esta landing page contém tudo sobre o Hightouch, incluindo orientações de integração e uma visão geral da API de personalização do Hightouch."
 
 guide_featured_list:
 - name: Hightouch

@@ -1,20 +1,20 @@
 ---
-nav_title: "POST: Update or aktualisieren des Abo-Gruppenstatus von Nutzer:innen"
-article_title: "POST: Update or aktualisieren des Abo-Gruppenstatus von Nutzer:innen"
+nav_title: "POST: Update des Abo-Gruppenstatus von Nutzer:innen"
+article_title: "POST: Update des Abo-Gruppenstatus von Nutzer:innen"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Update or aktualisieren des Abo-Gruppenstatus von Nutzer:innen“."
+description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Update des Abo-Gruppenstatus von Nutzer:innen“."
 ---
 
 {% api %}
-# Update or aktualisieren des Abo-Gruppenstatus von Nutzer:innen {#update-users-subscription-group-status}
+# Update des Abo-Gruppenstatus von Nutzer:innen {#update-users-subscription-group-status}
 {% apimethod post core_endpoint|/docs/core_endpoints %}
 /subscription/status/set
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um den Abo-Status von bis zu 50 Nutzer:innen im Braze-Dashboard im Stapelverfahren zu Update or aktualisieren or aktualisieren.
+> Verwenden Sie diesen Endpunkt, um den Abo-Status von bis zu 50 Nutzer:innen im Braze-Dashboard im Stapelverfahren zu aktualisieren.
 
 Sie können auf die `subscription_group_id` einer Abo-Gruppe zugreifen, indem Sie zur Seite **Abo-Gruppe** navigieren.
 
@@ -22,7 +22,7 @@ Wenn Sie Beispiele sehen oder diesen Endpunkt für **E-Mail-Abo-Gruppen** testen
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#8895e87e-6324-47a3-a833-adf29a258bb9 {% endapiref %}
 
-Wenn Sie Beispiele sehen oder diesen Endpunkt für **Kurzmitteilungsdienst or SMS- und RCS-Abo-Gruppen** testen möchten:
+Wenn Sie Beispiele sehen oder diesen Endpunkt für **SMS- und RCS-Abo-Gruppen** testen möchten:
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#72558b32-7dbe-4cba-bd22-a7ce513076dd {% endapiref %}
 
@@ -31,7 +31,7 @@ Wenn Sie Beispiele sehen oder diesen Endpunkt für **Kurzmitteilungsdienst or SM
 Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `subscription.status.set`.
 
 {% alert note %}
-Wenn Sie diesen Endpunkt mit [LINE-Abo-Gruppen]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups) verwenden möchten, wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in.
+Wenn Sie diesen Endpunkt mit [LINE-Abo-Gruppen]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups) verwenden möchten, wenden Sie sich an Ihren Customer-Success-Manager.
 {% endalert %}
 
 {% multi_lang_include api/orphaned_subscription_states.md %}
@@ -43,7 +43,7 @@ Wenn Sie diesen Endpunkt mit [LINE-Abo-Gruppen]({{site.baseurl}}/user_guide/chan
 ## Anfragetext {#request-body}
 
 {% tabs %}
-{% tab Kurzmitteilungsdienst or SMS and RCS %}
+{% tab SMS and RCS %}
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
@@ -59,7 +59,7 @@ Authorization: Bearer YOUR-REST-API-KEY
    // SMS and RCS subscription group - you must include one of external_id or phone
  }
 ```
-\* Kurzmitteilungsdienst or SMS- und RCS-Abo-Gruppen: Braze akzeptiert nur `external_id` oder `phone`.
+\* SMS- und RCS-Abo-Gruppen: Braze akzeptiert nur `external_id` oder `phone`.
 
 {% endtab %}
 {% tab Email %}
@@ -82,10 +82,10 @@ Authorization: Bearer YOUR-REST-API-KEY
 {% endtab %}
 {% endtabs %}
 
-Diese Eigenschaft sollte nicht zum Update or aktualisieren or aktualisieren der Profilinformationen von Nutzer:innen verwendet werden. Verwenden Sie stattdessen die Eigenschaft [/users/track]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
+Diese Eigenschaft sollte nicht zum Aktualisieren der Profilinformationen von Nutzer:innen verwendet werden. Verwenden Sie stattdessen die Eigenschaft [/users/track]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
 
 {% alert tip %}
-**Bestehende Nutzer:innen zu einer Abo-Gruppe hinzufügen:** Dieser Endpunkt ist die empfohlene Methode, um die Mitgliedschaft in Abo-Gruppen für bestehende Nutzer:innen nachträglich zu befüllen oder in großen Mengen zu Update or aktualisieren or aktualisieren. Sie können bis zu 50 `external_id`s, E-Mail-Adressen oder Telefonnummern pro Anfrage übergeben. Nutzer:innen können ihren eigenen Abo-Status auch über einen Link zum [E-Mail-Präferenzzentrum]({{site.baseurl}}/user_guide/channels/email/subscriptions) Update or aktualisieren or aktualisieren.
+**Bestehende Nutzer:innen zu einer Abo-Gruppe hinzufügen:** Dieser Endpunkt ist die empfohlene Methode, um die Mitgliedschaft in Abo-Gruppen für bestehende Nutzer:innen nachträglich zu befüllen oder in großen Mengen zu aktualisieren. Sie können bis zu 50 `external_id`s, E-Mail-Adressen oder Telefonnummern pro Anfrage übergeben. Nutzer:innen können ihren eigenen Abo-Status auch über einen Link zum [E-Mail-Präferenzzentrum]({{site.baseurl}}/user_guide/channels/email/subscriptions) aktualisieren.
 
 **Neue Nutzer:innen mit einer Abo-Gruppe erstellen:** Wenn Sie neue Nutzer:innen über den Endpunkt [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) erstellen, können Sie Abo-Gruppen innerhalb des Nutzerattribut-Objekts festlegen. So können Sie in einem einzigen API-Aufruf eine:n Nutzer:in erstellen und den Status der Abo-Gruppe festlegen.
 {% endalert %}
@@ -99,7 +99,7 @@ Diese Eigenschaft sollte nicht zum Update or aktualisieren or aktualisieren der 
 | `external_id` | Erforderlich* | String-Array | Die `external_id` der Nutzer:innen, kann bis zu 50 `id`s umfassen. |
 | `email` | Erforderlich* | String oder String-Array | Die E-Mail-Adresse der Nutzer:innen, kann als String-Array übergeben werden. Muss mindestens eine E-Mail-Adresse enthalten (maximal 50). <br><br>Wenn mehrere Nutzer:innen (`external_id`) im selben Workspace dieselbe E-Mail-Adresse haben, aktualisiert Braze alle Nutzer:innen mit dieser E-Mail-Adresse mit den Änderungen der Abo-Gruppe. |
 | `phone` | Erforderlich* | String im [E.164](https://en.wikipedia.org/wiki/E.164)-Format | Die Telefonnummer der Nutzer:innen, kann als String-Array übergeben werden. Muss mindestens eine Telefonnummer enthalten (bis zu 50). <br><br>Wenn mehrere Nutzer:innen (`external_id`) im selben Workspace dieselbe Telefonnummer haben, aktualisiert Braze alle Nutzer:innen mit dieser Telefonnummer mit denselben Änderungen der Abo-Gruppe. |
-| `use_double_opt_in_logic` | Optional | Boolescher Wert | Gilt nur für Kurzmitteilungsdienst or SMS-Abo-Gruppen; wird bei E-Mail- und anderen Abo-Gruppentypen ignoriert. Standardmäßig `false`, wenn nicht angegeben. Setzen Sie den Wert bei Kurzmitteilungsdienst or SMS-Abo-Gruppen auf `true`, um die:den Nutzer:in in den [Kurzmitteilungsdienst or SMS-Double-Opt-in]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in)-Workflow aufzunehmen, wenn der Abo-Status auf `subscribed` gesetzt wird. Nutzer:innen, die auf diese Weise in den Double-Opt-in-Workflow aufgenommen werden, erhalten höchstens eine Opt-in-Anfrage-Antwortnachricht pro Tag, unabhängig davon, wie oft sie in den Workflow aufgenommen werden. Wenn dieser Parameter nicht angegeben oder auf `false` gesetzt wird, werden Nutzer:innen ohne den Double-Opt-in-Workflow abonniert. |
+| `use_double_opt_in_logic` | Optional | Boolescher Wert | Gilt nur für SMS-Abo-Gruppen; wird bei E-Mail- und anderen Abo-Gruppentypen ignoriert. Standardmäßig `false`, wenn nicht angegeben. Setzen Sie den Wert bei SMS-Abo-Gruppen auf `true`, um die:den Nutzer:in in den [SMS-Double-Opt-in]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in)-Workflow aufzunehmen, wenn der Abo-Status auf `subscribed` gesetzt wird. Nutzer:innen, die auf diese Weise in den Double-Opt-in-Workflow aufgenommen werden, erhalten höchstens eine Opt-in-Anfrage-Antwortnachricht pro Tag, unabhängig davon, wie oft sie in den Workflow aufgenommen werden. Wenn dieser Parameter nicht angegeben oder auf `false` gesetzt wird, werden Nutzer:innen ohne den Double-Opt-in-Workflow abonniert. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ## Beispielanfragen {#example-requests}
@@ -119,7 +119,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/subscription/statu
 '
 ```
 
-### Kurzmitteilungsdienst or SMS und RCS {#sms-and-rcs}
+### SMS und RCS {#sms-and-rcs}
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/subscription/status/set' \
@@ -144,14 +144,14 @@ Der Statuscode `201` könnte den folgenden Antworttext zurückgeben.
 }
 ```
 
-## Fehlerbehebung bei zeitweiligen Update or aktualisieren-Fehlern {#troubleshooting-intermittent-update-failures}
+## Fehlerbehebung bei zeitweiligen Update-Fehlern {#troubleshooting-intermittent-update-failures}
 
-Wenn Updates von Abo-Gruppen zeitweilig fehlschlagen oder nicht synchron erscheinen, warten Sie einige Minuten zwischen den Update or aktualisieren-Anfragen oder rufen Sie [`/subscription/user/status`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) auf, um den Status der Nutzer:innen zu bestätigen, bevor Sie ein weiteres Update or aktualisieren senden.
+Wenn Updates von Abo-Gruppen zeitweilig fehlschlagen oder nicht synchron erscheinen, warten Sie einige Minuten zwischen den Update-Anfragen oder rufen Sie [`/subscription/user/status`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) auf, um den Status der Nutzer:innen zu bestätigen, bevor Sie ein weiteres Update senden.
 
 {% alert important %}
 Der Endpunkt akzeptiert nur den Wert `email` oder `phone`, nicht beide. Wenn Sie beides angeben, erhalten Sie diese Antwort: `{"message":"Either an email address or a phone number should be provided, but not both."}`
 {% endalert %}
 
-Damit Ihr Abo-Update or aktualisieren auf Telefonnummern angewendet wird, stellen Sie sicher, dass Sie Telefonnummern im E.164-Format gesendet haben (z. B. `+15555550123`), die korrekte `subscription_group_id` verwendet haben und `phone` (nicht sowohl `phone` als auch `email`) im selben Anfragetext übergeben haben. Für Updates mit mehreren Nummern verwenden Sie das `phone`-Array-Format, das unter [Kurzmitteilungsdienst or SMS und RCS](#sms-and-rcs) gezeigt wird.
+Damit Ihr Abo-Update auf Telefonnummern angewendet wird, stellen Sie sicher, dass Sie Telefonnummern im E.164-Format gesendet haben (z. B. `+15555550123`), die korrekte `subscription_group_id` verwendet haben und `phone` (nicht sowohl `phone` als auch `email`) im selben Anfragetext übergeben haben. Für Updates mit mehreren Nummern verwenden Sie das `phone`-Array-Format, das unter [SMS und RCS](#sms-and-rcs) gezeigt wird.
 
 {% endapi %}

@@ -18,14 +18,14 @@ _Essa integração é mantida pela Tapcart._
 | Requisito              | Descrição                                                                                                                                         |
 |--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
 | Conta Tapcart Enterprise | A integração está disponível apenas para **clientes Tapcart Enterprise**.                                                                              |
-| Chave de API or interface de programação do aplicativo (API) do app da Braze         | A [chave de API or interface de programação do aplicativo (API) do identificador do app da Braze]({{site.baseurl}}/api/identifier_types) é obrigatória. Cada plataforma (como iOS ou Android) tem seu próprio identificador de app. No dashboard da Braze, acesse **Configurações** > **APIs e Identificadores** > **Identificadores de App**. |
+| Chave de API do app da Braze         | A [chave de API do identificador do app da Braze]({{site.baseurl}}/api/identifier_types) é obrigatória. Cada plataforma (como iOS ou Android) tem seu próprio identificador de app. No dashboard da Braze, acesse **Configurações** > **APIs e Identificadores** > **Identificadores de App**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Sobre a integração {#about-the-integration}
 
 Para saber como integrar a Tapcart com a Braze, consulte o [guia de integração da Tapcart](https://help.tapcart.com/en/articles/13893755-braze-tapcart) diretamente no site deles. Após a integração, você pode usar os seguintes recursos da Tapcart na Braze:
 
-- Integração SDK or kit de desenvolvimento de software base
+- Integração SDK base
 - Notificações por push para iOS e Android
 - Mensagens push avançadas
 - Rastreamento de jornada do usuário e segmentação

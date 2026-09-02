@@ -150,7 +150,7 @@ Cuando envías una solicitud, ocurren algunos pasos detrás de escena:
 
 1. **Envías un prompt a tu cliente.** Escribes una solicitud en lenguaje natural, como pedir el rendimiento de Campaigns de la semana pasada.
 2. **El modelo del cliente selecciona herramientas.** El modelo de IA de tu cliente interpreta tu solicitud y la traduce en una o más llamadas a herramientas de Braze, como `get_campaign_list` y `get_campaign_dataseries`.
-3. **Braze ejecuta la llamada a la herramienta.** El servidor MCP remoto recibe cada llamada a la herramienta a través de tu sesión OAuth autenticada, aplica el espacio de trabajo que especificaste y la ejecuta contra el endpoint de la REST or transferencia de estado representacional API de Braze correspondiente.
+3. **Braze ejecuta la llamada a la herramienta.** El servidor MCP remoto recibe cada llamada a la herramienta a través de tu sesión OAuth autenticada, aplica el espacio de trabajo que especificaste y la ejecuta contra el endpoint de la REST API de Braze correspondiente.
 4. **Braze devuelve el resultado.** El servidor envía los datos de vuelta a tu cliente, que los formatea y te los presenta.
 
 Tu acceso es la intersección de dos cosas:

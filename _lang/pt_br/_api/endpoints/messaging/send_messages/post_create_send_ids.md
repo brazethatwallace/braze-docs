@@ -8,7 +8,7 @@ page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint da Braze para criar IDs de envio."
 
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Criar IDs de envio {#create-send-ids}
 {% apimethod post %}
 /sends/id/create
@@ -22,7 +22,7 @@ Usar o identificador de envio para rastrear e enviar mensagens é útil se você
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará gerar uma chave de API or interface de programação do aplicativo (API) com a permissão `sends.id.create`.
+Para usar esse endpoint, você precisará gerar uma chave de API com a permissão `sends.id.create`.
 
 ## Limite de taxa {#rate-limit}
 

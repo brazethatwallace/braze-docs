@@ -37,7 +37,7 @@ Você precisa do seguinte para usar essa integração.
 | Requisitos | Descrição |
 | :---- | :---- |
 | App Poq | Um app Poq é necessário para aproveitar essa integração. |
-| Chaves de API or interface de programação do aplicativo (API) do app da Braze | Uma chave de API or interface de programação do aplicativo (API) do app da Braze é necessária para cada plataforma (iOS e Android). Obtenha-as em **Settings** > **APIs and Identifiers** > **App Identifiers** no dashboard da Braze. |
+| Chaves de API do app da Braze | Uma chave de API do app da Braze é necessária para cada plataforma (iOS e Android). Obtenha-as em **Settings** > **APIs and Identifiers** > **App Identifiers** no dashboard da Braze. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integração {#integration}

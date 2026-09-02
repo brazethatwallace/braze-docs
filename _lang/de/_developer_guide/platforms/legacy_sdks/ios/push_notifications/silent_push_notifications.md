@@ -14,7 +14,7 @@ noindex: true
 
 # Stille Push-Benachrichtigungen {#silent-push-notifications}
 
-Push-Benachrichtigungen ermöglichen es Ihnen, Ihre App bei wichtigen Ereignissen zu benachrichtigen. Sie können eine Push-Benachrichtigung senden, wenn Sie neue Sofortnachrichten zustellen möchten, aktuelle Eilmeldungen versenden oder die neueste Folge der Lieblingssendung Ihrer Nutzer:innen zum Herunterladen für die Offline-Nutzung bereitsteht. Push-Benachrichtigungen können auch still sein – sie enthalten dann keine Warnmeldung und keinen Ton und dienen ausschließlich dazu, die Oberfläche Ihrer App zu Update or aktualisieren or aktualisieren oder Hintergrundarbeiten auszulösen.
+Push-Benachrichtigungen ermöglichen es Ihnen, Ihre App bei wichtigen Ereignissen zu benachrichtigen. Sie können eine Push-Benachrichtigung senden, wenn Sie neue Sofortnachrichten zustellen möchten, aktuelle Eilmeldungen versenden oder die neueste Folge der Lieblingssendung Ihrer Nutzer:innen zum Herunterladen für die Offline-Nutzung bereitsteht. Push-Benachrichtigungen können auch still sein – sie enthalten dann keine Warnmeldung und keinen Ton und dienen ausschließlich dazu, die Oberfläche Ihrer App zu aktualisieren oder Hintergrundarbeiten auszulösen.
 
 Push-Benachrichtigungen eignen sich hervorragend für sporadische, aber unmittelbar wichtige Inhalte, bei denen die Verzögerung zwischen Hintergrundabrufen möglicherweise nicht akzeptabel ist. Push-Benachrichtigungen können auch deutlich effizienter sein als Hintergrundabrufe, da Ihre Anwendung nur bei Bedarf gestartet wird.
 
@@ -32,11 +32,11 @@ Das `content-available`-Flag kann sowohl im Braze-Dashboard als auch in unserem 
 
 ![Das Braze-Dashboard mit dem Kontrollkästchen „content-available“ im Tab „Einstellungen“ des Push-Composers.]({% image_buster /assets/img_archive/remote_notification.png %} "content available")
 
-## Stille Push-Benachrichtigungen zum Trigger or triggern or triggern von Hintergrundarbeiten verwenden {#use-silent-push-notifications-to-trigger-background-work}
+## Stille Push-Benachrichtigungen zum Triggern von Hintergrundarbeiten verwenden {#use-silent-push-notifications-to-trigger-background-work}
 
-Stille Push-Benachrichtigungen können Ihre App aus dem Zustand „Angehalten“ oder „Nicht ausgeführt“ aufwecken, um Inhalte zu Update or aktualisieren or aktualisieren oder bestimmte Aufgaben auszuführen, ohne Ihre Nutzer:innen darüber zu informieren.
+Stille Push-Benachrichtigungen können Ihre App aus dem Zustand „Angehalten“ oder „Nicht ausgeführt“ aufwecken, um Inhalte zu aktualisieren oder bestimmte Aufgaben auszuführen, ohne Ihre Nutzer:innen darüber zu informieren.
 
-Um stille Push-Benachrichtigungen zum Trigger or triggern or triggern von Hintergrundarbeiten zu verwenden, richten Sie das `content-available`-Flag gemäß den vorhergehenden Anweisungen ohne Nachricht oder Ton ein. Richten Sie den Hintergrundmodus Ihrer App ein, um `remote notifications` unter dem Tab **Capabilities** in Ihren Projekteinstellungen zu aktivieren. Eine Remote-Benachrichtigung ist einfach eine normale Push-Benachrichtigung mit gesetztem `content-available`-Flag.
+Um stille Push-Benachrichtigungen zum Triggern von Hintergrundarbeiten zu verwenden, richten Sie das `content-available`-Flag gemäß den vorhergehenden Anweisungen ohne Nachricht oder Ton ein. Richten Sie den Hintergrundmodus Ihrer App ein, um `remote notifications` unter dem Tab **Capabilities** in Ihren Projekteinstellungen zu aktivieren. Eine Remote-Benachrichtigung ist einfach eine normale Push-Benachrichtigung mit gesetztem `content-available`-Flag.
 
 ![Xcode mit dem Kontrollkästchen „remote notifications“ unter „capabilities“.]({% image_buster /assets/img_archive/background_mode.png %} "background mode enabled")
 

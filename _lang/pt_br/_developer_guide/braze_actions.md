@@ -2,15 +2,15 @@
 nav_title: Deep links de ações da Braze
 article_title: Deep links de ações da Braze
 page_order: 100
-description: "Este artigo de referência aborda como usar os deep links de ações da Braze para executar ações do SDK or kit de desenvolvimento de software nos botões do canal de envio de mensagens."
+description: "Este artigo de referência aborda como usar os deep links de ações da Braze para executar ações do SDK nos botões do canal de envio de mensagens."
 hidden: true
 ---
 
 # Deep links de ações da Braze {#braze-actions-deeplinks}
 
-> As ações da Braze permitem que você use "deep links" para executar a funcionalidade nativa do SDK or kit de desenvolvimento de software.<br><br>O dashboard da Braze inclui várias ações padrão ao clicar (Solicitar permissão para push, Registrar evento personalizado e Registrar atributo personalizado) que podem ser usadas em mensagens no app e Content Cards.<br><br>Para todas as outras ações, ou para combinar várias ações, use este guia para construir seu próprio deep link de Braze Action.
+> As ações da Braze permitem que você use "deep links" para executar a funcionalidade nativa do SDK.<br><br>O dashboard da Braze inclui várias ações padrão ao clicar (Solicitar permissão para push, Registrar evento personalizado e Registrar atributo personalizado) que podem ser usadas em mensagens no app e Content Cards.<br><br>Para todas as outras ações, ou para combinar várias ações, use este guia para construir seu próprio deep link de Braze Action.
 
-## Suporte do SDK or kit de desenvolvimento de software {#sdk-support}
+## Suporte do SDK {#sdk-support}
 
 {% sdk_min_versions swift:5.4.0 android:21.0.0 web:4.0.3 %}
 

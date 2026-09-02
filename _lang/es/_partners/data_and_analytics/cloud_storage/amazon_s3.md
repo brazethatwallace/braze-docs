@@ -13,7 +13,7 @@ search_tag: Partner
 > [Amazon S3](https://aws.amazon.com/s3/) es un sistema de almacenamiento altamente escalable ofrecido por Amazon Web Services.
 
 {% alert important %}
-Si vas a cambiar de proveedor de almacenamiento en el cloud, ponte en contacto con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente de Braze para que te ayude a configurar y validar tu nueva integración.
+Si vas a cambiar de proveedor de almacenamiento en el cloud, ponte en contacto con tu CSM de Braze para que te ayude a configurar y validar tu nueva integración.
 {% endalert %}
 
 La integración de Braze y Amazon S3 presenta dos estrategias de integración:
@@ -159,7 +159,7 @@ Mantén actualizados tu ID de clave de acceso de AWS y tu clave de acceso secret
 También puedes añadir las siguientes personalizaciones según tus necesidades:
 
 - **Folder Path:** El valor predeterminado es `currents`. Si esta carpeta no existe, Braze crea una automáticamente.
-- **Server-Side, At-REST or transferencia de estado representacional AES-256 Encryption:** El valor predeterminado es OFF e incluye el encabezado `x-amz-server-side-encryption`.
+- **Server-Side, At-Rest AES-256 Encryption:** El valor predeterminado es OFF e incluye el encabezado `x-amz-server-side-encryption`.
 
 Selecciona **Launch Current** para continuar.
 

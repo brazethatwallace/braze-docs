@@ -77,7 +77,7 @@ Si la partie domaine est Gmail, la partie locale doit comporter au moins deux ca
 
 ### Domaines Microsoft {#microsoft-domains}
 
-Si le domaine hôte inclut « msn », « hotmail », « outlook » ou « en direct or en ligne/en production/instantané », Braze utilise l'expression régulière suivante pour valider la partie locale : `/\A\w[\-\w]*(?:\.[\-\w]+)*\z/i`
+Si le domaine hôte inclut « msn », « hotmail », « outlook » ou « en direct », Braze utilise l'expression régulière suivante pour valider la partie locale : `/\A\w[\-\w]*(?:\.[\-\w]+)*\z/i`
 
 La partie locale d'une adresse Microsoft doit respecter les paramètres suivants :
 

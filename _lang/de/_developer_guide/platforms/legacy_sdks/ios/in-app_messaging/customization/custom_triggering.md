@@ -1,9 +1,9 @@
 ---
-nav_title: Angepasstes Trigger or triggern or triggern
+nav_title: Angepasstes Triggern
 article_title: Anpassen der Auslösung von In-App-Nachrichten für iOS
 platform: iOS
 page_order: 7
-description: "Dieser Referenzartikel behandelt das angepasste Trigger or triggern or triggern von In-App-Nachrichten für Ihre iOS-Anwendung."
+description: "Dieser Referenzartikel behandelt das angepasste Triggern von In-App-Nachrichten für Ihre iOS-Anwendung."
 channel:
   - in-app messages
 noindex: true
@@ -11,11 +11,11 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Angepasstes Trigger or triggern or triggern von In-App-Nachrichten {#custom-in-app-message-triggering}
+# Angepasstes Triggern von In-App-Nachrichten {#custom-in-app-message-triggering}
 
-Standardmäßig werden In-App-Nachrichten durch Event-Typen ausgelöst, die vom SDK or Software-Development-Kit protokolliert werden. Sie können In-App-Nachrichten jedoch auch durch vom Server gesendete Events auslösen.
+Standardmäßig werden In-App-Nachrichten durch Event-Typen ausgelöst, die vom SDK protokolliert werden. Sie können In-App-Nachrichten jedoch auch durch vom Server gesendete Events auslösen.
 
-Um dieses Feature zu aktivieren, senden Sie eine stille Push-Benachrichtigung an das Gerät. Sie ermöglicht es dem Gerät, ein SDK or Software-Development-Kit-basiertes Event zu protokollieren. Dieses SDK or Software-Development-Kit-Event würde dann die für Nutzer:innen sichtbare In-App-Nachricht auslösen.
+Um dieses Feature zu aktivieren, senden Sie eine stille Push-Benachrichtigung an das Gerät. Sie ermöglicht es dem Gerät, ein SDK-basiertes Event zu protokollieren. Dieses SDK-Event würde dann die für Nutzer:innen sichtbare In-App-Nachricht auslösen.
 
 ## 1. Schritt: Stille Push-Benachrichtigungen und Schlüssel-Wert-Paare verarbeiten {#step-1-handle-silent-push-and-key-value-pairs}
 
@@ -48,7 +48,7 @@ func handleExtras(userInfo: [AnyHashable : Any]) {
 {% endtab %}
 {% endtabs %}
 
-Beim Empfang einer stillen Push-Benachrichtigung wird ein vom SDK or Software-Development-Kit aufgezeichnetes Event des Typs „In-App-Nachrichten-Trigger or triggern“ im Kundenprofil or Nutzerprofil protokolliert. Beachten Sie, dass diese In-App-Nachrichten nur ausgelöst werden, wenn sich die Anwendung beim Empfang der stillen Push-Benachrichtigung im Vordergrund befindet.
+Beim Empfang einer stillen Push-Benachrichtigung wird ein vom SDK aufgezeichnetes Event des Typs „In-App-Nachrichten-Trigger“ im Kundenprofil protokolliert. Beachten Sie, dass diese In-App-Nachrichten nur ausgelöst werden, wenn sich die Anwendung beim Empfang der stillen Push-Benachrichtigung im Vordergrund befindet.
 
 ## 2. Schritt: Eine Push-Kampagne erstellen {#step-2-create-a-push-campaign}
 
@@ -56,11 +56,11 @@ Erstellen Sie eine Kampagne mit einem stillen Push, die über das vom Server ges
 
 ![Eine aktionsbasierte Zustellung einer In-App-Nachrichten-Kampagne, die an Nutzer:innen zugestellt wird, die das angepasste Event „server_event“ ausführen.]({% image_buster /assets/img_archive/iosServerSentPush.png %})
 
-Die Push-Kampagne muss zusätzliche Schlüssel-Wert-Paare (Extras) enthalten, die angeben, dass diese Push-Kampagne gesendet wird, um ein angepasstes SDK or Software-Development-Kit-Event zu protokollieren. Dieses Event wird zum Trigger or triggern or triggern der In-App-Nachricht verwendet:
+Die Push-Kampagne muss zusätzliche Schlüssel-Wert-Paare (Extras) enthalten, die angeben, dass diese Push-Kampagne gesendet wird, um ein angepasstes SDK-Event zu protokollieren. Dieses Event wird zum Triggern der In-App-Nachricht verwendet:
 
 ![Eine aktionsbasierte Zustellung einer In-App-Nachrichten-Kampagne mit zwei Schlüssel-Wert-Paaren. „CAMPAIGN_NAME“ ist auf „Beispiel für den Namen der In-App-Nachricht“ gesetzt und „IS_SERVER_EVENT“ ist auf „true“ gesetzt.]({% image_buster /assets/img_archive/iOSServerPush.png %})
 
-Der Code in der Methode `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)` prüft auf den Schlüssel `IS_SERVER_EVENT` und protokolliert ein angepasstes SDK or Software-Development-Kit-Event, wenn dieser vorhanden ist.
+Der Code in der Methode `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)` prüft auf den Schlüssel `IS_SERVER_EVENT` und protokolliert ein angepasstes SDK-Event, wenn dieser vorhanden ist.
 
 Sie können entweder den Event-Namen oder die Event-Eigenschaften ändern, indem Sie den gewünschten Wert in den zusätzlichen Schlüssel-Wert-Paaren (Extras) der Push-Nutzlast senden. Bei der Protokollierung des angepassten Events können diese Extras entweder als Parameter des Event-Namens oder als Event-Eigenschaft verwendet werden.
 
@@ -70,6 +70,6 @@ Erstellen Sie Ihre für Nutzer:innen sichtbare In-App-Nachrichten-Kampagne über
 
 Im folgenden Beispiel wurde die zu triggernde In-App-Nachricht konfiguriert, indem die Event-Eigenschaft im Rahmen des ursprünglichen stillen Push gesendet wurde.
 
-![Eine aktionsbasierte Zustellung einer In-App-Nachrichten-Kampagne, die an Nutzer:innen zugestellt wird, die das angepasste Event „In-App-Nachrichten-Trigger or triggern“ ausführen, wobei „campaign_name“ gleich „Beispiel für den Namen der In-App-Nachricht“ ist.]({% image_buster /assets/img_archive/iosIAMeventTrigger.png %})
+![Eine aktionsbasierte Zustellung einer In-App-Nachrichten-Kampagne, die an Nutzer:innen zugestellt wird, die das angepasste Event „In-App-Nachrichten-Trigger“ ausführen, wobei „campaign_name“ gleich „Beispiel für den Namen der In-App-Nachricht“ ist.]({% image_buster /assets/img_archive/iosIAMeventTrigger.png %})
 
-Da eine Push-Nachricht verwendet wird, um ein vom SDK or Software-Development-Kit protokolliertes angepasstes Event aufzuzeichnen, muss Braze ein Push-Token / Textbaustein für jede:n Nutzer:in speichern, um diese Lösung zu ermöglichen. Sowohl für iOS als auch für Android speichert Braze ein Token / Textbaustein erst ab dem Zeitpunkt, an dem Nutzer:innen die Push-Aufforderung des Betriebssystems erhalten haben. Davor sind Nutzer:innen nicht per Push erreichbar und die obige Lösung ist nicht möglich.
+Da eine Push-Nachricht verwendet wird, um ein vom SDK protokolliertes angepasstes Event aufzuzeichnen, muss Braze ein Push-Token / Textbaustein für jede:n Nutzer:in speichern, um diese Lösung zu ermöglichen. Sowohl für iOS als auch für Android speichert Braze ein Token / Textbaustein erst ab dem Zeitpunkt, an dem Nutzer:innen die Push-Aufforderung des Betriebssystems erhalten haben. Davor sind Nutzer:innen nicht per Push erreichbar und die obige Lösung ist nicht möglich.

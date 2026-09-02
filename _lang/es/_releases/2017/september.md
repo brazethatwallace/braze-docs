@@ -21,7 +21,7 @@ Se ha actualizado [la página de perfil de usuario]({{site.baseurl}}/user_guide/
 
 ## Notificaciones push web que requieren la acción del usuario para ser descartadas {#web-push-notifications-that-require-user-action-to-dismiss}
 
-Ahora puedes configurar el comportamiento de cierre de mensajes para los push web de Chrome, que requiere que el destinatario interactúe con el mensaje para que este se descarte. Esta característica requiere el SDK or kit de desarrollo de software Web versión 1.6.13 o superior.
+Ahora puedes configurar el comportamiento de cierre de mensajes para los push web de Chrome, que requiere que el destinatario interactúe con el mensaje para que este se descarte. Esta característica requiere el SDK Web versión 1.6.13 o superior.
 
 ## Preencabezados de correo electrónico {#email-preheaders}
 

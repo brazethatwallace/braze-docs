@@ -22,8 +22,8 @@ Facebook Lead Ads es un formato de anuncio que permite a las empresas recopilar 
 | <a href="https://www.facebook.com/business/help/1710077379203657?id=180505742745347" target="_blank">Facebook Business Administrador</a> | Usarás Facebook Business Administrador, una herramienta centralizada para gestionar los activos de Facebook de tu marca (por ejemplo, cuentas de anuncios, páginas y aplicaciones), como parte de esta integración. |
 | <a href="https://www.facebook.com/business/help/195296697183682?id=829106167281625/" target="_blank">Cuenta de anuncios de Facebook</a> | Necesitarás una cuenta de anuncios de Facebook activa vinculada al administrador de negocios de tu marca. <br><br>Asegúrate de que tengas el permiso "Manage ad accounts" para cada cuenta de anuncios que planees usar con Braze, y de que hayas aceptado los términos y condiciones de tu cuenta de anuncios. |
 | <a href="https://www.facebook.com/business/help/183277585892925?id=420299598837059/" target="_blank">Página de Facebook</a> | Necesitarás una página de Facebook activa vinculada al administrador de negocios de tu marca. <br><br>Asegúrate de que tengas los permisos "Manage Pages" para cada página de Facebook que planees usar con Braze. |
-| Endpoint REST or transferencia de estado representacional de Braze | Asegúrate de conocer tu [URL del endpoint REST or transferencia de estado representacional]({{site.baseurl}}/api/basics#api-definitions). Tu endpoint de API coincide con la URL del panel para tu instancia de Braze. <br><br> Por ejemplo, si la URL de tu panel es `https://dashboard-03.braze.com`, tu endpoint será `dashboard-03`. |
-| Clave de API REST or transferencia de estado representacional de Braze | Asegúrate de tener una clave de API REST or transferencia de estado representacional de Braze con permisos `users.track`. <br><br> Esto se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Endpoint REST de Braze | Asegúrate de conocer tu [URL del endpoint REST]({{site.baseurl}}/api/basics#api-definitions). Tu endpoint de API coincide con la URL del panel para tu instancia de Braze. <br><br> Por ejemplo, si la URL de tu panel es `https://dashboard-03.braze.com`, tu endpoint será `dashboard-03`. |
+| Clave de API REST de Braze | Asegúrate de tener una clave de API REST de Braze con permisos `users.track`. <br><br> Esto se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
@@ -49,11 +49,11 @@ Para obtener más información sobre estos dos métodos de conexión de tu cuent
 
 #### Paso 2b: Añade Zapier al acceso de leads en Facebook Business Administrador {#step-2b-add-zapier-to-leads-access-in-facebook-business-manager}
 
-En tu Facebook Business Administrador, ve a **Integrations** > **Leads Access** en el menú de navegación. Selecciona tu página de Facebook y luego haz clic en **CRMs**. En la pestaña CRM or administración de las relaciones con el cliente, selecciona **Assign CRMs** y añade **Zapier**.
+En tu Facebook Business Administrador, ve a **Integrations** > **Leads Access** en el menú de navegación. Selecciona tu página de Facebook y luego haz clic en **CRMs**. En la pestaña CRM, selecciona **Assign CRMs** y añade **Zapier**.
 
 ![Página de acceso de leads de Facebook Business Manager con Zapier asignado como integración de CRM.]({% image_buster /assets/img/fb_lead_ads_zapier/integration2.png %}){: style="max-width:80%;"}
 
-Para conocer los pasos para asignar Zapier como una integración de CRM or administración de las relaciones con el cliente, consulta la <a href="https://www.facebook.com/business/help/540596413257598?id=735435806665862" target="_blank">documentación</a> de Facebook.
+Para conocer los pasos para asignar Zapier como una integración de CRM, consulta la <a href="https://www.facebook.com/business/help/540596413257598?id=735435806665862" target="_blank">documentación</a> de Facebook.
 
 ### Paso 3: Crea tu Zap {#step-3-create-your-zap}
 

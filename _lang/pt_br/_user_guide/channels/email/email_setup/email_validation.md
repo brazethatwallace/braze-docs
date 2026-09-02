@@ -15,7 +15,7 @@ channel: email
 
 ## Como funciona {#how-it-works}
 
-A Braze valida um endereço de e-mail quando ele é atualizado, importado por API or interface de programação do aplicativo (API), upload de CSV, SDK or kit de desenvolvimento de software ou modificado no dashboard. Endereços de e-mail não podem incluir espaços em branco. Se você usar a API or interface de programação do aplicativo (API), espaços em branco retornam um erro `400`.
+A Braze valida um endereço de e-mail quando ele é atualizado, importado por API, upload de CSV, SDK ou modificado no dashboard. Endereços de e-mail não podem incluir espaços em branco. Se você usar a API, espaços em branco retornam um erro `400`.
 
 A Braze rejeita determinados caracteres e marca o endereço como inválido. Se um e-mail retornar bounce, a Braze marca o endereço como inválido e não altera o status da inscrição. Se o corpo do e-mail contiver caracteres [ASCII](https://en.wikipedia.org/wiki/ASCII) não padrão, a Braze não envia o e-mail.
 
@@ -54,7 +54,7 @@ A Braze valida a sintaxe tanto da parte local quanto da parte do host de um ende
 Se a parte do domínio contiver caracteres ASCII não padrão, será necessário codificá-la em [Punycode](https://www.punycoder.com/) antes de fornecê-la à Braze.
 {% endalert %}
 
-Se a Braze receber uma solicitação para adicionar um usuário com um endereço de e-mail inválido, a API or interface de programação do aplicativo (API) retorna um erro. Para upload de CSV, a Braze cria o usuário, mas omite o endereço de e-mail inválido.
+Se a Braze receber uma solicitação para adicionar um usuário com um endereço de e-mail inválido, a API retorna um erro. Para upload de CSV, a Braze cria o usuário, mas omite o endereço de e-mail inválido.
 
 ## Regras de validação da parte local {#local-part-validation-rules}
 

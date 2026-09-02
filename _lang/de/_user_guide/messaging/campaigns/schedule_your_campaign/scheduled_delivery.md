@@ -60,13 +60,13 @@ Campaigns mit intelligentem Timing eignen sich am besten für einmalige und wied
 
 ## Auswertung der Zielgruppenkriterien bei Verzögerungen {#audience-criteria-evaluation-with-delays}
 
-Bei Campaigns mit geplanter Zustellung werden die Zielgruppenkriterien immer zum Zeitpunkt des geplanten Versands ausgewertet, nicht beim Start der Campaign. Dies gilt für jede Verzögerung zwischen Planung und Versand – beispielsweise durch Rate-Limiting, Ortszeit, intelligentes Timing oder einen Trigger or triggern-Zeitplan.
+Bei Campaigns mit geplanter Zustellung werden die Zielgruppenkriterien immer zum Zeitpunkt des geplanten Versands ausgewertet, nicht beim Start der Campaign. Dies gilt für jede Verzögerung zwischen Planung und Versand – beispielsweise durch Rate-Limiting, Ortszeit, intelligentes Timing oder einen Trigger-Zeitplan.
 
 ### Zeitpunkt von Segment-Änderungen {#timing-of-segment-changes}
 
 Wenn Sie ein Segment ändern, das als Zielgruppe für eine geplante Campaign verwendet wird, werden Änderungen, die kurz vor dem geplanten Versandzeitpunkt vorgenommen werden, in der Regel bei der Auswertung der Zielgruppe berücksichtigt. Der genaue Stichtag variiert, aber Änderungen werden im Allgemeinen einbezogen, wenn ihre Verarbeitung abgeschlossen ist, bevor Braze die Zielgruppe für diesen Versand erstellt.
 
-Wenn Sie beispielsweise ein Segment um 15:50 Uhr für eine Campaign Update or aktualisieren or aktualisieren, die um 16:00 Uhr versendet werden soll, verwendet Braze die aktualisierten Segment-Kriterien bei der Auswertung der Zielgruppe – vorausgesetzt, die Verarbeitung der Änderungen ist vor Beginn der Campaign-Ausführung abgeschlossen.
+Wenn Sie beispielsweise ein Segment um 15:50 Uhr für eine Campaign aktualisieren, die um 16:00 Uhr versendet werden soll, verwendet Braze die aktualisierten Segment-Kriterien bei der Auswertung der Zielgruppe – vorausgesetzt, die Verarbeitung der Änderungen ist vor Beginn der Campaign-Ausführung abgeschlossen.
 
 #### Best Practices {#best-practices}
 

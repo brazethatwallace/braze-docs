@@ -1,21 +1,21 @@
 ---
-nav_title: "PUT: Übersetzung in einem Content-Block Update or aktualisieren or aktualisieren"
-article_title: "PUT: Übersetzung in einem Content-Block Update or aktualisieren or aktualisieren"
+nav_title: "PUT: Übersetzung in einem Content-Block aktualisieren"
+article_title: "PUT: Übersetzung in einem Content-Block aktualisieren"
 search_tag: Endpoint
 page_order: 2
 
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt den Endpunkt „Übersetzung in einem Content-Block Update or aktualisieren or aktualisieren“."
+description: "Dieser Artikel beschreibt den Endpunkt „Übersetzung in einem Content-Block aktualisieren“."
 ---
 
 {% api %}
-# Übersetzung in einem Content-Block Update or aktualisieren or aktualisieren {#update-translation-in-a-content-block}
+# Übersetzung in einem Content-Block aktualisieren {#update-translation-in-a-content-block}
 {% apimethod put %}
 /content_blocks/translations
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um mehrere Übersetzungen für einen [Content-Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) zu Update or aktualisieren or aktualisieren. Weitere Informationen zu den Übersetzungsfeatures finden Sie unter [Locales in Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages).
+> Verwenden Sie diesen Endpunkt, um mehrere Übersetzungen für einen [Content-Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) zu aktualisieren. Weitere Informationen zu den Übersetzungsfeatures finden Sie unter [Locales in Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages).
 
 ## Voraussetzungen {#prerequisites}
 

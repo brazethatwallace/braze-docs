@@ -35,7 +35,7 @@ Sie können eine unbegrenzte Anzahl von Link-Templates erstellen, um Ihre versch
 2. Wählen Sie **E-Mail-Link-Template erstellen** aus.
 3. Geben Sie Ihrem Link-Template einen Namen.
 4. (Optional) Fügen Sie eine Beschreibung, ein Team oder einen Tag hinzu, um weitere Details zum Link-Template anzugeben.
-5. (Optional) Aktivieren Sie den Umschalter, um das Link-Template automatisch zu Links in E-Mail-Campaigns und Canvase hinzuzufügen. Dies gilt beim Hinzufügen eines neuen Links zu jeder neuen oder bestehenden E-Mail.
+5. (Optional) Aktivieren Sie den Umschalter, um das Link-Template automatisch zu Links in E-Mail-Campaigns und Canvases hinzuzufügen. Dies gilt beim Hinzufügen eines neuen Links zu jeder neuen oder bestehenden E-Mail.
 
 Es gibt zwei Arten von Link-Templates, die Sie erstellen können:
 
@@ -68,7 +68,7 @@ Wenn Sie Abfrageparameter nach einer URL in Ihrer E-Mail-Nachricht hinzufügen m
 
 #### Liquid-Tags für `utm_campaign` {#liquid-tags-for-utm_campaign}
 
-Liquid-Tags für `utm_campaign` unterscheiden sich zwischen Campaigns und Canvase.
+Liquid-Tags für `utm_campaign` unterscheiden sich zwischen Campaigns und Canvases.
 
 In Campaigns verwenden Sie:
 
@@ -77,14 +77,14 @@ In Campaigns verwenden Sie:
 - `{{campaign.${message_name}}}` um den Namen der Nachrichtenvariante abzurufen
 {% endraw %}
 
-In Canvase verwenden Sie:
+In Canvases verwenden Sie:
 
 {% raw %}
 - `{{canvas.${name}}}` um den Canvas-Namen abzurufen
 - `{{campaign.${name}}}` um den Namen des Canvas-Schritts abzurufen (nur Nachrichten-Schritte)
 {% endraw %}
 
-Einen vollständigen Vergleich dieser Attribute in Liquid, der Representational State Transfer API und Currents finden Sie unter [Campaign- und Canvas-Attribute über verschiedene Quellen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources). Hinweise zur URL-Kodierung finden Sie unter [Campaign-Namen in URLs]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#campaign-names-in-urls).
+Einen vollständigen Vergleich dieser Attribute in Liquid, der REST API und Currents finden Sie unter [Campaign- und Canvas-Attribute über verschiedene Quellen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources). Hinweise zur URL-Kodierung finden Sie unter [Campaign-Namen in URLs]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#campaign-names-in-urls).
 
 ## Link Templates in E-Mail-Campaigns verwenden {#using-link-templates-in-email-campaigns}
 

@@ -58,7 +58,7 @@ Die folgende Tabelle listet mögliche zurückgegebene Fehler und die zugehörige
 | Fehler | Fehlerbehebung |
 | --- | --- |
 | `401: Unauthorized` | Der API-Schlüssel verfügt nicht über die erforderlichen Berechtigungen. Stellen Sie sicher, dass Ihr API-Schlüssel über die Berechtigung `apps.get` verfügt. |
-| `403: Forbidden` | Der Feature-Flipper ist für dieses Unternehmen nicht aktiviert. Wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in, um Unterstützung zu erhalten. |
+| `403: Forbidden` | Der Feature-Flipper ist für dieses Unternehmen nicht aktiviert. Wenden Sie sich an Ihren CSM, um Unterstützung zu erhalten. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% endapi %}

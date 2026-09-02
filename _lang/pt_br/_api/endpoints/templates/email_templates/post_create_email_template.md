@@ -7,7 +7,7 @@ layout: api_page
 page_type: reference
 description: "Este artigo traz informações sobre o endpoint da Braze \"Criar modelos de e-mail\"."
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Criar modelo de e-mail {#create-email-template}
 {% apimethod post %}
 /templates/email/create
@@ -15,7 +15,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Criar m
 
 > Use esse endpoint para criar modelos de e-mail no dashboard da Braze.
 
-Esses modelos estarão disponíveis na página **Modelos e mídias**. A resposta desse endpoint inclui um campo para `email_template_id`, que pode ser usado para atualizar o modelo em chamadas subsequentes à API or interface de programação do aplicativo (API).
+Esses modelos estarão disponíveis na página **Modelos e mídias**. A resposta desse endpoint inclui um campo para `email_template_id`, que pode ser usado para atualizar o modelo em chamadas subsequentes à API.
 
 {% alert tip %}
 Você também pode chamar esse endpoint por meio do [servidor MCP da Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server) usando a função [`create_email_template`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#templates). Isso permite que ferramentas de IA como Claude e Cursor criem modelos de e-mail por meio de prompts em linguagem natural.
@@ -24,7 +24,7 @@ Você também pode chamar esse endpoint por meio do [servidor MCP da Braze]({{si
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5eb1fe0d-2795-474d-aaf2-c4e2977dc94b {% endapiref %}
 
 ## Pré-requisitos {#prerequisites}
-Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics) com a permissão `templates.email.create`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics) com a permissão `templates.email.create`.
 
 ## Limite de taxa {#rate-limit}
 

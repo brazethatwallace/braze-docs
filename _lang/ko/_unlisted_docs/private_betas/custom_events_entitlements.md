@@ -104,7 +104,7 @@ Braze는 커스텀 이벤트가 발생한 횟수와 각 사용자가 마지막�
 
 ![대시보드의 커스텀 이벤트 페이지에서 커스텀 이벤트의 트렌드를 보여주는 커스텀 이벤트 수 그래프][8]
 
-또한 **필터**를 사용하여 시간별, 월간 활성 사용자(MAU), Segments 또는 KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or 핵심 성과 지표(KPI or 핵심 성과 지표(KPI)) 수식별로 커스텀 이벤트를 세분화할 수 있습니다.
+또한 **필터**를 사용하여 시간별, 월간 활성 사용자(MAU), Segments 또는 KPI 수식별로 커스텀 이벤트를 세분화할 수 있습니다.
 
 {% alert tip %}
 [증분 커스텀 속성]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes#integers)을 사용하면 커스텀 이벤트와 유사한 사용자 행동에 대한 카운터를 유지할 수 있습니다. 그러나 커스텀 속성 데이터를 시계열로 볼 수는 없습니다. 시계열로 분석할 필요가 없는 사용자 행동은 이 방법을 사용하여 기록해야 합니다.

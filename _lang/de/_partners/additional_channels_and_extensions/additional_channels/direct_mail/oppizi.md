@@ -26,7 +26,7 @@ _Diese Integration wird von Oppizi gepflegt._
 
 Mit der Oppizi-Integration können Sie:
 
-* **Automatisierte Direkt-Mailing-Postkarten versenden** – mithilfe von Braze-Trigger or triggern or triggern, die mit den Webhook- und Direkt-Mailing-Workflows von Oppizi verbunden sind.
+* **Automatisierte Direkt-Mailing-Postkarten versenden** – mithilfe von Braze-Triggern, die mit den Webhook- und Direkt-Mailing-Workflows von Oppizi verbunden sind.
 * **Schwellenwerte, Wellen und Limits konfigurieren** – in den Direkt-Mailing-Workflows von Oppizi, um den Versand Ihrer Kampagnen zu steuern.
 * **Professionelle Postkarten entwerfen** – mit dem integrierten Design-Tool von Oppizi. Designkenntnisse sind nicht erforderlich.
 * **Die Performance von Kampagnen in Echtzeit verfolgen** – mit dem Dashboard von Oppizi.
@@ -45,7 +45,7 @@ Von dieser Seite aus können Sie Ihre Schlüssel nach Bedarf verwalten, widerruf
 
 ### 2. Schritt: Erstellen Sie ein Braze-Webhook-Template {#step-2-create-a-braze-webhook-template}
 
-Erstellen Sie als Nächstes ein Webhook-Template für Oppizi in Braze, das Sie in zukünftigen Campaigns oder Canvase verwenden können:
+Erstellen Sie als Nächstes ein Webhook-Template für Oppizi in Braze, das Sie in zukünftigen Campaigns oder Canvases verwenden können:
 
 1. Gehen Sie in Braze zu **Content** > **Webhook**.
 2. Wählen Sie **Create webhook template**.
@@ -64,7 +64,7 @@ Für die Anfragemethode und die Header benötigt Oppizi eine HTTP-Methode sowie 
 
 ![Ein Beispiel für den Oppizi-Webhook-Header in Braze.]({% image_buster /assets/img/oppizi/oppizi_braze_webhook_headers.png %})
 
-In den **Request Body** müssen Sie das Feld **oppiziWorkflowID** aufnehmen. Diese ID wird bei der Erstellung eines Workflows in Oppizi generiert und wird benötigt, um anzugeben, zu welchem Direkt-Mailing-Workflow Ihre Empfänger:innen hinzugefügt werden sollen. Jeder Direkt-Mailing-Workflow in Oppizi hat eine eindeutige ID. Wenn Sie also ein Oppizi-Webhook-Template in Braze erstellen, stellen Sie sicher, dass Sie die Workflow-ID immer auf die richtige Update or aktualisieren or aktualisieren.
+In den **Request Body** müssen Sie das Feld **oppiziWorkflowID** aufnehmen. Diese ID wird bei der Erstellung eines Workflows in Oppizi generiert und wird benötigt, um anzugeben, zu welchem Direkt-Mailing-Workflow Ihre Empfänger:innen hinzugefügt werden sollen. Jeder Direkt-Mailing-Workflow in Oppizi hat eine eindeutige ID. Wenn Sie also ein Oppizi-Webhook-Template in Braze erstellen, stellen Sie sicher, dass Sie die Workflow-ID immer auf die richtige aktualisieren.
 
 {% alert note %}
 Überprüfen Sie, ob in Ihrem Braze-Konto die erforderlichen angepassten Attribute für die Postadressen Ihrer Empfänger:innen eingerichtet sind, da diese für den Versand von Direkt-Mailings erforderlich sind.

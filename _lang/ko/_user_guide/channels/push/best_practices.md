@@ -142,7 +142,7 @@ Android 13 이상에서는 푸시 알림을 표시하기 전에 권한을 획득
 | --- |
 | [3.2.2](https://developer.apple.com/app-store/review/guidelines/#unacceptable) 허용되지 않는 사항: (i) App Store와 유사하거나 일반적인 관심 컬렉션으로 서드파티 앱, 확장 프로그램 또는 플러그인을 표시하기 위한 인터페이스를 생성하는 행위. |
 | [4.5.4](https://developer.apple.com/app-store/review/guidelines/#apple-sites-and-services) 푸시 알림은 앱 기능에 필수적이어서는 안 되며, 민감한 개인 정보나 기밀 정보를 전송하는 데 사용해서는 안 됩니다. 푸시 알림은 고객이 앱 UI에 표시된 동의 문구를 통해 수신에 명시적으로 옵트인하고, 사용자가 해당 메시지 수신을 거부할 수 있는 방법을 앱에서 제공하지 않는 한 프로모션이나 다이렉트 마케팅 목적으로 사용해서는 안 됩니다. |
-| [4.10](https://developer.apple.com/app-store/review/guidelines/#monetizing-built-in-capabilities) 푸시 알림, 카메라, 자이로스코프 등 하드웨어나 운영 체제에서 제공하는 내장 기능, 또는 Apple Music 액세스, iCloud 저장소, Screen Time API 등 Apple 서비스 및 기술을 수익 창출 or 수익화할 수 없습니다. |
+| [4.10](https://developer.apple.com/app-store/review/guidelines/#monetizing-built-in-capabilities) 푸시 알림, 카메라, 자이로스코프 등 하드웨어나 운영 체제에서 제공하는 내장 기능, 또는 Apple Music 액세스, iCloud 저장소, Screen Time API 등 Apple 서비스 및 기술을 수익 창출할 수 없습니다. |
 {: .reset-td-br-1 aria-label="앱용 모바일 푸시 규정" }
 
 | Google Play Store 정책 |

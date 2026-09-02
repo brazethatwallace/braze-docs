@@ -85,7 +85,7 @@ Antes de usar esses endpoints, você deve [adicionar seus locais]({{site.baseurl
 
 ### Como testar suas traduções {#how-to-test-your-translations}
 
-Existem duas maneiras de validar o suporte a traduções usando a API or interface de programação do aplicativo (API) e o dashboard da Braze em Campaigns, Canvas (incluindo etapas individuais), Content Blocks, modelos de e-mail e modelos de webhook:
+Existem duas maneiras de validar o suporte a traduções usando a API e o dashboard da Braze em Campaigns, Canvas (incluindo etapas individuais), Content Blocks, modelos de e-mail e modelos de webhook:
 
 - Durante a composição (antes do lançamento)
 - Após o lançamento (usando rascunhos pós-lançamento)

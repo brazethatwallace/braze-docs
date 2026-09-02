@@ -23,22 +23,22 @@ Durch das Tracking dieser verschiedenen Event-Typen können Sie ein tieferes Ver
 
 In Braze sind Standard-Events vordefinierte Aktionen, die Braze plattformübergreifend erkennt. Im Gegensatz zu [angepassten Events](#custom-events) müssen Sie Standard-Events nicht erstellen oder benennen – sie sind bereits integriert. Allerdings werden nicht alle Standard-Events auf die gleiche Weise getrackt.
 
-Die folgenden Events werden nach der SDK or Software-Development-Kit-Integration automatisch getrackt:
+Die folgenden Events werden nach der SDK-Integration automatisch getrackt:
 
 - Session-Start
 - Session-Ende
 
 Die folgenden Events werden nach zusätzlicher Einrichtung getrackt:
 
-- [Kauf-Events](#purchase-events): Ihr Entwicklungsteam protokolliert diese über die Kaufmethoden des SDK or Software-Development-Kit. Weitere Informationen finden Sie im Abschnitt Kauf-Events.
+- [Kauf-Events](#purchase-events): Ihr Entwicklungsteam protokolliert diese über die Kaufmethoden des SDK. Weitere Informationen finden Sie im Abschnitt Kauf-Events.
 - E-Mail-Engagement-Events (wie E-Mail-Öffnungen und Link-Klicks): Werden von Braze getrackt, wenn Sie Braze E-Mail konfigurieren und E-Mail-Tracking aktivieren.
-- Push-Engagement-Events (wie Öffnungen und Klicks von Push-Benachrichtigungen): Werden getrackt, nachdem Sie Push in Braze konfiguriert und die Push-Verarbeitung mit dem Braze SDK or Software-Development-Kit in Ihrer App integriert haben.
+- Push-Engagement-Events (wie Öffnungen und Klicks von Push-Benachrichtigungen): Werden getrackt, nachdem Sie Push in Braze konfiguriert und die Push-Verarbeitung mit dem Braze SDK in Ihrer App integriert haben.
 
 Als Marketer können Sie Standard-Events nutzen, um Nutzerverhalten und Engagement zu verstehen. Zum Beispiel zeigen Session-Daten, wie oft Nutzer:innen Ihre App oder Website öffnen, während Kauf-Events Ihnen helfen, den Umsatz über die Zeit zu verfolgen.
 
 ## Kauf-Events {#purchase-events}
 
-Kauf-Events erfassen und tracken Käufe Ihrer Nutzer:innen. Nach der Integration des Braze SDK or Software-Development-Kit kann Ihr Entwicklungsteam Käufe über die Kaufmethoden des SDK or Software-Development-Kit protokollieren. Wenn Sie Kauf-Events zum Tracking von Käufen verwenden, können Sie Ihren Umsatz über die Zeit und über verschiedene Umsatzquellen hinweg direkt in Braze überwachen.
+Kauf-Events erfassen und tracken Käufe Ihrer Nutzer:innen. Nach der Integration des Braze SDK kann Ihr Entwicklungsteam Käufe über die Kaufmethoden des SDK protokollieren. Wenn Sie Kauf-Events zum Tracking von Käufen verwenden, können Sie Ihren Umsatz über die Zeit und über verschiedene Umsatzquellen hinweg direkt in Braze überwachen.
 
 Kauf-Events erfassen die folgenden wichtigen Informationen über einen Kauf:
 
@@ -47,7 +47,7 @@ Kauf-Events erfassen die folgenden wichtigen Informationen über einen Kauf:
 - Preis
 - Menge
 
-Sie können diese Daten dann nutzen, um Ihre Nutzer:innen basierend auf ihrem LTV or Lifetime-Value or Lifetime-Value, ihrer Kaufhäufigkeit, bestimmten Käufen und mehr zu segmentieren.
+Sie können diese Daten dann nutzen, um Ihre Nutzer:innen basierend auf ihrem LTV, ihrer Kaufhäufigkeit, bestimmten Käufen und mehr zu segmentieren.
 
 Braze unterstützt auch Käufe in mehreren Währungen. Wenn ein Kauf in einer anderen Währung als USD gemeldet wird, wird er im Braze-Dashboard in USD angezeigt, basierend auf dem Wechselkurs zum Zeitpunkt der Kaufmeldung.
 
@@ -55,10 +55,10 @@ Mehr erfahren Sie in unserem speziellen Artikel zu [Kauf-Events]({{site.baseurl}
 
 {% details Beispielimplementierung %}
 
-Beachten Sie, dass die tatsächliche Implementierung von Kauf-Events technisches Wissen erfordert, da sie die Integration des Braze SDK or Software-Development-Kit in Ihre App umfasst. Ihr CSM or Customer-Success-Manager or Customer-Success-Manager:in wird Ihr Team im Rahmen des Onboardings durch diesen Prozess führen, aber die allgemeinen Schritte sind wie folgt:
+Beachten Sie, dass die tatsächliche Implementierung von Kauf-Events technisches Wissen erfordert, da sie die Integration des Braze SDK in Ihre App umfasst. Ihr CSM wird Ihr Team im Rahmen des Onboardings durch diesen Prozess führen, aber die allgemeinen Schritte sind wie folgt:
 
-1. **Integrieren Sie das Braze SDK or Software-Development-Kit:** Bevor Sie Events protokollieren können, müssen Sie das Braze SDK or Software-Development-Kit in Ihre App integrieren.
-2. **Protokollieren Sie das Kauf-Event:** Nach der SDK or Software-Development-Kit-Integration können Sie ein Kauf-Event protokollieren, wann immer ein:e Nutzer:in einen Kauf in Ihrer App tätigt. Dies geschieht typischerweise in der Funktion oder Methode, die aufgerufen wird, wenn ein Kauf abgeschlossen wird.
+1. **Integrieren Sie das Braze SDK:** Bevor Sie Events protokollieren können, müssen Sie das Braze SDK in Ihre App integrieren.
+2. **Protokollieren Sie das Kauf-Event:** Nach der SDK-Integration können Sie ein Kauf-Event protokollieren, wann immer ein:e Nutzer:in einen Kauf in Ihrer App tätigt. Dies geschieht typischerweise in der Funktion oder Methode, die aufgerufen wird, wenn ein Kauf abgeschlossen wird.
 
 Hier ist ein Beispiel, wie Sie ein Kauf-Event in einer iOS-App mit Swift protokollieren:
 
@@ -77,7 +77,7 @@ Beachten Sie, dass die genaue Implementierung je nach Plattform (iOS, Android, I
 
 ## Angepasste Events {#custom-events}
 
-Angepasste Events sind Events, die Sie basierend auf den spezifischen Aktionen definieren, die Sie in Ihrer App oder auf Ihrer Website tracken möchten. Braze trackt sie nicht automatisch – Sie müssen diese Events manuell in Ihrer Braze-SDK or Software-Development-Kit-Implementierung einrichten. Angepasste Events können alles sein, von einem:einer Nutzer:in, der/die ein Level in einem Spiel abschließt, bis hin zu einem:einer Nutzer:in, der/die seine/ihre Profilinformationen aktualisiert.
+Angepasste Events sind Events, die Sie basierend auf den spezifischen Aktionen definieren, die Sie in Ihrer App oder auf Ihrer Website tracken möchten. Braze trackt sie nicht automatisch – Sie müssen diese Events manuell in Ihrer Braze-SDK-Implementierung einrichten. Angepasste Events können alles sein, von einem:einer Nutzer:in, der/die ein Level in einem Spiel abschließt, bis hin zu einem:einer Nutzer:in, der/die seine/ihre Profilinformationen aktualisiert.
 
 Hier ist ein Beispiel, wie Sie ein angepasstes Event in einer iOS-App mit Swift protokollieren:
 
@@ -85,7 +85,7 @@ Hier ist ein Beispiel, wie Sie ein angepasstes Event in einer iOS-App mit Swift 
 Appboy.sharedInstance()?.logCustomEvent("completed_level")
 ```
 
-In diesem Beispiel ist „completed_level“ der Name des angepassten Events, das protokolliert wird, wenn ein:e Nutzer:in ein Level in einem Spiel abschließt. Dieses angepasste Event wird dann im Kundenprofil or Nutzerprofil in Braze erfasst, das Sie nutzen können, um Campaigns zu Trigger or triggern or triggern und Messaging zu personalisieren.
+In diesem Beispiel ist „completed_level“ der Name des angepassten Events, das protokolliert wird, wenn ein:e Nutzer:in ein Level in einem Spiel abschließt. Dieses angepasste Event wird dann im Kundenprofil in Braze erfasst, das Sie nutzen können, um Campaigns zu triggern und Messaging zu personalisieren.
 
 Mehr erfahren Sie in unserem speziellen Artikel zu [angepassten Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events).
 
@@ -93,7 +93,7 @@ Mehr erfahren Sie in unserem speziellen Artikel zu [angepassten Events]({{site.b
 
 Ähnlich wie Kauf-Events erfordern angepasste Events eine zusätzliche Einrichtung. Hier ist ein allgemeiner Prozess für die Implementierung angepasster Events in Braze:
 
-1. **Integrieren Sie das Braze SDK or Software-Development-Kit:** Bevor Sie Events protokollieren können, müssen Sie das Braze SDK or Software-Development-Kit in Ihre App integrieren.
+1. **Integrieren Sie das Braze SDK:** Bevor Sie Events protokollieren können, müssen Sie das Braze SDK in Ihre App integrieren.
 2. **Definieren Sie Ihr angepasstes Event:** Entscheiden Sie, welche Aktion in Ihrer App Sie als angepasstes Event tracken möchten. Dies kann alles sein, was für Ihre App relevant ist, z. B. ein:e Nutzer:in, der/die ein Level in einem Spiel abschließt, ein:e Nutzer:in, der/die sein/ihr Profil aktualisiert, oder ein:e Nutzer:in, der/die einen bestimmten Kauftyp tätigt.
 3. **Protokollieren Sie das angepasste Event:** Nachdem Sie Ihr angepasstes Event definiert haben, können Sie es im Code Ihrer App protokollieren. Dies geschieht typischerweise in der Funktion oder Methode, die aufgerufen wird, wenn die Aktion stattfindet.
 

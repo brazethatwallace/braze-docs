@@ -16,7 +16,7 @@ Este guia usa o framework Hydrogen da Shopify como exemplo. No entanto, você po
 
 Para integrar sua loja Shopify headless com a Braze, você precisa concluir estas duas metas:
 
-1. **Inicializar e carregar o Braze Web SDK or kit de desenvolvimento de software para ativar o rastreamento no site**<br><br> Adicione manualmente o código em seu site do Shopify para ativar o rastreamento no site da Braze. Ao implementar o Braze SDK or kit de desenvolvimento de software em sua loja Shopify headless, é possível rastrear as atividades no site, incluindo sessões, comportamento de usuário anônimo, ações do comprador antes do checkout e quaisquer [eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events) ou [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) que você decida incluir com sua equipe de desenvolvimento. Você também pode adicionar quaisquer canais compatíveis com os SDKs, como In-App Messages ou Content Cards.
+1. **Inicializar e carregar o Braze Web SDK para ativar o rastreamento no site**<br><br> Adicione manualmente o código em seu site do Shopify para ativar o rastreamento no site da Braze. Ao implementar o Braze SDK em sua loja Shopify headless, é possível rastrear as atividades no site, incluindo sessões, comportamento de usuário anônimo, ações do comprador antes do checkout e quaisquer [eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events) ou [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) que você decida incluir com sua equipe de desenvolvimento. Você também pode adicionar quaisquer canais compatíveis com os SDKs, como In-App Messages ou Content Cards.
 
 {: start="2"}
 2. **Instalar a integração da Braze com o Shopify**<br><br> Depois de conectar sua loja Shopify à Braze, você terá acesso aos dados de clientes, checkout, pedidos e produtos por meio de webhooks do Shopify.
@@ -27,22 +27,22 @@ Antes de iniciar sua integração, confirme que você configurou corretamente o 
 
 Para concluir essas metas, siga estas etapas:
 
-## Inicializar e carregar o Braze Web SDK or kit de desenvolvimento de software {#initialize-and-load-the-braze-web-sdk}
+## Inicializar e carregar o Braze Web SDK {#initialize-and-load-the-braze-web-sdk}
 
-### Etapa 1: Selecionar um app de website e copiar as credenciais do SDK or kit de desenvolvimento de software {#step-1}
+### Etapa 1: Selecionar um app de website e copiar as credenciais do SDK {#step-1}
 
 Antes de adicionar código à sua loja Hydrogen, conecte sua loja Shopify e inicie a integração de configuração personalizada. Se você ainda não conectou sua loja, conclua [Conectar sua loja Shopify](#connect-your-shopify-store) e, em seguida, prossiga com [Ativar os SDKs da Braze](#enable-braze-sdks) e selecione **Custom setup**.
 
 No fluxo de configuração personalizada, a Braze solicita que você selecione o app de website para sua loja headless:
 
 1. Selecione um app de website existente ou crie um novo. Você pode nomear o app com qualquer nome, exceto **Shopify**, que a Braze reserva para o caminho de integração padrão do Shopify.
-2. A Braze exibe a chave de API or interface de programação do aplicativo (API) do app selecionado e a URL base (seu endpoint de SDK or kit de desenvolvimento de software or endpoint do SDK or kit de desenvolvimento de software) na etapa de integração. Selecione **Copy** para cada valor — não é necessário abrir **Settings** > **App Settings**.
-3. Use a chave de API or interface de programação do aplicativo (API) copiada como `BRAZE_API_KEY` e o endpoint de SDK or kit de desenvolvimento de software or endpoint do SDK or kit de desenvolvimento de software como `BRAZE_API_URL` nas variáveis de ambiente do Shopify ([Etapa 2](#step-2)).
+2. A Braze exibe a chave de API do app selecionado e a URL base (seu endpoint de SDK) na etapa de integração. Selecione **Copy** para cada valor — não é necessário abrir **Settings** > **App Settings**.
+3. Use a chave de API copiada como `BRAZE_API_KEY` e o endpoint de SDK como `BRAZE_API_URL` nas variáveis de ambiente do Shopify ([Etapa 2](#step-2)).
 
 Depois de conectar a loja, você pode renomear o app de website selecionado em **Settings** > **App Settings**. Não é possível excluir o app enquanto ele estiver conectado à sua integração com o Shopify.
 
 {% alert warning %}
-Use a chave de API or interface de programação do aplicativo (API) do app de website que você selecionou durante a integração. Se o seu ambiente Hydrogen usar uma chave de API or interface de programação do aplicativo (API) diferente daquela conectada à sua integração com o Shopify, a Braze poderá criar usuários duplicados e os métodos do SDK or kit de desenvolvimento de software poderão não funcionar como esperado.
+Use a chave de API do app de website que você selecionou durante a integração. Se o seu ambiente Hydrogen usar uma chave de API diferente daquela conectada à sua integração com o Shopify, a Braze poderá criar usuários duplicados e os métodos do SDK poderão não funcionar como esperado.
 {% endalert %}
 
 ### Etapa 2: Adicionar subdomínio e variáveis de ambiente {#step-2}
@@ -50,13 +50,13 @@ Use a chave de API or interface de programação do aplicativo (API) do app de w
 1. Configure seu subdomínio Shopify para [redirecionar o tráfego da sua loja online para o Hydrogen](https://shopify.dev/docs/storefronts/headless/hydrogen/migrate/redirect-traffic).
 2. Adicione um [URI de retorno de chamada](https://shopify.dev/docs/storefronts/headless/building-with-the-customer-account-api/hydrogen#step-2-set-up-the-environment) para login. (O URI será adicionado automaticamente quando o domínio for adicionado.)
 3. Configure suas [variáveis de ambiente do Shopify](https://shopify.dev/docs/storefronts/headless/hydrogen/environments#create-a-new-environment-variable):
-  - Crie duas variáveis de ambiente usando a chave de API or interface de programação do aplicativo (API) e o endpoint de SDK or kit de desenvolvimento de software or endpoint do SDK or kit de desenvolvimento de software que você copiou durante a integração de configuração personalizada na [Etapa 1](#step-1).
+  - Crie duas variáveis de ambiente usando a chave de API e o endpoint de SDK que você copiou durante a integração de configuração personalizada na [Etapa 1](#step-1).
     - `BRAZE_API_KEY`
     - `BRAZE_API_URL`
 
 ### Etapa 3: Ativar o rastreamento no site {#step-3-enable-onsite-tracking}
 
-A primeira etapa é inicializar o Braze Web SDK or kit de desenvolvimento de software. Recomendamos fazer isso instalando nosso pacote NPM:
+A primeira etapa é inicializar o Braze Web SDK. Recomendamos fazer isso instalando nosso pacote NPM:
 
 ```java
 npm install --save @braze/web-sdk@6.8.0
@@ -65,7 +65,7 @@ npm install --save @braze/web-sdk@6.8.0
 ```
 
 {% alert important %}
-A versão mínima compatível do Braze Web SDK or kit de desenvolvimento de software é a 5.4.0. Para integrações personalizadas do Shopify (incluindo lojas headless), você recebe notificações quando novas versões do SDK or kit de desenvolvimento de software estão disponíveis, mas gerencia os upgrades do seu lado, atualizando tanto o código da sua loja quanto a versão do SDK or kit de desenvolvimento de software nas configurações de integração.
+A versão mínima compatível do Braze Web SDK é a 5.4.0. Para integrações personalizadas do Shopify (incluindo lojas headless), você recebe notificações quando novas versões do SDK estão disponíveis, mas gerencia os upgrades do seu lado, atualizando tanto o código da sua loja quanto a versão do SDK nas configurações de integração.
 {% endalert %}
 
 Em seguida, [inclua esta configuração]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web) como uma chave de nível superior no seu arquivo `vite.config.js`:
@@ -76,7 +76,7 @@ optimizeDeps: {
 }
 ```
 
-Após instalar o pacote NPM, você deve inicializar o SDK or kit de desenvolvimento de software dentro de um hook `useEffect` no componente `Layout`. Dependendo da sua versão do Hydrogen, esse componente pode estar localizado no arquivo `root.jsx` ou `layout.jsx`:
+Após instalar o pacote NPM, você deve inicializar o SDK dentro de um hook `useEffect` no componente `Layout`. Dependendo da sua versão do Hydrogen, esse componente pode estar localizado no arquivo `root.jsx` ou `layout.jsx`:
 
 ```java
 // Add these imports
@@ -146,12 +146,12 @@ As políticas de segurança de conteúdo (geralmente localizadas no arquivo Hydr
 Rastreie quando um comprador faz login em sua conta e sincroniza suas informações de usuário com a Braze. Isso inclui chamar nosso método `changeUser` para identificar clientes com um ID externo da Braze.
 
 {% alert note %}
-No momento, não temos orientações para oferecer suporte a um ID externo personalizado da Braze. Se você precisar disso para sua integração agora, entre em contato com seu gerente de sucesso do cliente.
+No momento, não temos orientações para oferecer suporte a um ID externo personalizado da Braze. Se você precisar disso para sua integração agora, entre em contato com seu CSM.
 {% endalert %}
 
-Antes de começar, certifique-se de ter configurado os URIs de retorno de chamada para que o login do cliente funcione no Hydrogen. Para saber mais, consulte [Usando a API or interface de programação do aplicativo (API) de conta de cliente com Hydrogen](https://shopify.dev/docs/storefronts/headless/building-with-the-customer-account-api/hydrogen).
+Antes de começar, certifique-se de ter configurado os URIs de retorno de chamada para que o login do cliente funcione no Hydrogen. Para saber mais, consulte [Usando a API de conta de cliente com Hydrogen](https://shopify.dev/docs/storefronts/headless/building-with-the-customer-account-api/hydrogen).
 
-1. Depois de configurar os URIs de retorno de chamada, defina uma função para chamar o SDK or kit de desenvolvimento de software da Braze. Crie um novo arquivo (como `Tracking.jsx`) e importe-o dos seus componentes:
+1. Depois de configurar os URIs de retorno de chamada, defina uma função para chamar o SDK da Braze. Crie um novo arquivo (como `Tracking.jsx`) e importe-o dos seus componentes:
 
 ```java
 import * as braze from "@braze/web-sdk";
@@ -192,7 +192,7 @@ export function trackCustomerLogin(customerData, storefrontUrl) {
 ```
 
 {: start="2"}
-2. No mesmo hook `useEffect` que inicializa o SDK or kit de desenvolvimento de software da Braze, adicione a chamada a esta função:
+2. No mesmo hook `useEffect` que inicializa o SDK da Braze, adicione a chamada a esta função:
 
 ```java
 import { trackCustomerLogin } from './Tracking';
@@ -222,7 +222,7 @@ export function Layout({children}) {
 ```
 
 {: start="3"}
-3. Busque o endereço de e-mail e o número de telefone do cliente na sua consulta GraphQL da API or interface de programação do aplicativo (API) de clientes, localizada no arquivo `app/graphql/customer-account/CustomerDetailsQuery.js`:
+3. Busque o endereço de e-mail e o número de telefone do cliente na sua consulta GraphQL da API de clientes, localizada no arquivo `app/graphql/customer-account/CustomerDetailsQuery.js`:
 
 ```java
 export const CUSTOMER_FRAGMENT = `#graphql
@@ -590,9 +590,9 @@ Acesse a página de parceiro Shopify para iniciar sua configuração. Primeiro, 
 
 Para lojas Shopify Hydrogen ou headless, selecione a opção **Custom setup**.
 
-A configuração personalizada inclui um seletor de app do website. Selecione ou crie o app que alimenta sua loja virtual e, em seguida, copie a chave de API or interface de programação do aplicativo (API) e o endpoint de SDK or kit de desenvolvimento de software or endpoint do SDK or kit de desenvolvimento de software exibidos na etapa de integração. Para mais detalhes, consulte [Etapa 1: Selecionar um app do website e copiar as credenciais do SDK or kit de desenvolvimento de software](#step-1).
+A configuração personalizada inclui um seletor de app do website. Selecione ou crie o app que alimenta sua loja virtual e, em seguida, copie a chave de API e o endpoint de SDK exibidos na etapa de integração. Para mais detalhes, consulte [Etapa 1: Selecionar um app do website e copiar as credenciais do SDK](#step-1).
 
-Antes de continuar com o processo de integração, confirme que você adicionou o SDK or kit de desenvolvimento de software da Braze ao seu website Shopify usando essas credenciais.
+Antes de continuar com o processo de integração, confirme que você adicionou o SDK da Braze ao seu website Shopify usando essas credenciais.
 
 ![Etapa de configuração para ativar os SDKs da Braze.]({% image_buster /assets/img/shopify/enable_braze_sdks_setup.png %})
 
@@ -650,7 +650,7 @@ Com os SDKs da Braze, você pode rastrear eventos personalizados ou atributos pe
   </tbody>
 </table>
 
-O SDK or kit de desenvolvimento de software precisa ser inicializado (escutando atividades) no dispositivo do usuário para registrar eventos ou atributos personalizados. Para saber mais sobre o registro de dados personalizados, consulte [User object](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html) e [logCustomEvent](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcustomevent).
+O SDK precisa ser inicializado (escutando atividades) no dispositivo do usuário para registrar eventos ou atributos personalizados. Para saber mais sobre o registro de dados personalizados, consulte [User object](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html) e [logCustomEvent](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcustomevent).
 
 ### Etapa 6: Configurar como você gerencia usuários (opcional) {#step-6}
 
@@ -662,7 +662,7 @@ Selecione o tipo de `external_id` no menu suspenso.
 Usar um endereço de e-mail ou um endereço de e-mail com hash como seu ID externo na Braze pode ajudar a simplificar o gerenciamento de identidade em todas as suas fontes de dados. No entanto, é importante considerar os possíveis riscos à privacidade do usuário e à segurança dos dados.<br><br>
 
 - **Informação previsível:** Endereços de e-mail são facilmente previsíveis, tornando-os vulneráveis a ataques.
-- **Risco de exploração:** Se um usuário mal-intencionado alterar seu navegador de internet or navegador web para enviar o endereço de e-mail de outra pessoa como seu ID externo, ele poderá acessar mensagens confidenciais ou informações da conta.
+- **Risco de exploração:** Se um usuário mal-intencionado alterar seu navegador de internet para enviar o endereço de e-mail de outra pessoa como seu ID externo, ele poderá acessar mensagens confidenciais ou informações da conta.
 {% endalert %}
 
 Por padrão, a Braze converte automaticamente os e-mails do Shopify para letras minúsculas antes de usá-los como ID externo. Se você estiver usando e-mail ou e-mail com hash como seu ID externo, confirme que seus endereços de e-mail também são convertidos para letras minúsculas antes de atribuí-los como seu ID externo ou antes de aplicar o hash a partir de outras fontes de dados. Isso ajuda a evitar discrepâncias nos IDs externos e a criação de perfis de usuário duplicados na Braze.
@@ -680,7 +680,7 @@ As próximas etapas dependem da sua seleção de ID externo:<br><br>
 Após a criação do metacampo, popule-o para seus clientes. Recomendamos as seguintes abordagens:
 
 - **Escutar webhooks de criação de clientes:** Configure um webhook para escutar [eventos `customer/create`](https://help.shopify.com/en/manual/fulfillment/setup/notifications/webhooks). Isso permite que você grave o metacampo quando um novo cliente for criado.
-- **Preencher dados de clientes existentes:** Use a [Admin API or interface de programação do aplicativo (API)](https://shopify.dev/docs/api/admin-graphql) ou a [Customer API or interface de programação do aplicativo (API)](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer) para preencher o metacampo de clientes criados anteriormente.
+- **Preencher dados de clientes existentes:** Use a [Admin API](https://shopify.dev/docs/api/admin-graphql) ou a [Customer API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer) para preencher o metacampo de clientes criados anteriormente.
 
 #### Etapa 6.2: Criar um endpoint para recuperar seu ID externo {#step-62-create-an-endpoint-to-retrieve-your-external-id}
 
@@ -716,7 +716,7 @@ A Braze espera um código de status `200` retornando o JSON do ID externo:
 
 ##### Validação {#validation}
 
-É fundamental validar que o `shopify_customer_id` e o `email_address` (se presente) correspondam aos valores do cliente no Shopify. Você pode usar a [Shopify Admin API or interface de programação do aplicativo (API)](https://shopify.dev/docs/api/admin-graphql) ou a [Customer API or interface de programação do aplicativo (API)](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer) para validar esses parâmetros e recuperar o metacampo `braze.external_id` correto.
+É fundamental validar que o `shopify_customer_id` e o `email_address` (se presente) correspondam aos valores do cliente no Shopify. Você pode usar a [Shopify Admin API](https://shopify.dev/docs/api/admin-graphql) ou a [Customer API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer) para validar esses parâmetros e recuperar o metacampo `braze.external_id` correto.
 
 ##### Comportamento em caso de falha e mesclagem {#failure-behavior-and-merging}
 Qualquer código de status diferente de `200` é considerado uma falha.
@@ -749,7 +749,7 @@ Você pode sincronizar todos os produtos da sua loja Shopify com um catálogo da
 
 ### Etapa 8: Ativar canais {#step-8-activate-channels}
 
-Para ativar In-App Messages, Content Cards e Feature Flags usando a integração direta do Shopify, adicione cada canal ao seu SDK or kit de desenvolvimento de software. Siga os links da documentação fornecidos para cada canal:
+Para ativar In-App Messages, Content Cards e Feature Flags usando a integração direta do Shopify, adicione cada canal ao seu SDK. Siga os links da documentação fornecidos para cada canal:
 
 - **In-App Messages:** Para ativar In-App Messages em casos de uso de formulários de captura de leads, consulte [In-App Messages]({{site.baseurl}}/developer_guide/in_app_messages).
 - **Content Cards:** Para ativar Content Cards em casos de uso de caixa de entrada ou banners de website, consulte [Content Cards]({{site.baseurl}}/developer_guide/content_cards).

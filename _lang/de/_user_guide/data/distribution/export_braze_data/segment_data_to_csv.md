@@ -55,7 +55,7 @@ Die folgenden Daten sind je nach Ihrer Auswahl in Ihrem Export enthalten.
 | Appboy ID                   | Interne ID (kann nicht geändert werden)                  |
 | country                     | Land                                                     |
 | created_at                  | Datum und Uhrzeit der Erstellung des Nutzerprofils       |
-| created_from                | Methode, mit der das Kundenprofil or Nutzerprofil erstellt wurde (z. B. Representational State Transfer API, SDK or Software-Development-Kit oder CSV-Import) |
+| created_from                | Methode, mit der das Kundenprofil erstellt wurde (z. B. REST API, SDK oder CSV-Import) |
 | devices                     | Geräteinformationen                                      |
 | date_of_birth               | Geburtsdatum                                             |
 | email                       | E-Mail-Adresse                                           |

@@ -9,7 +9,7 @@ page_type: reference
 description: "Este artigo traz informações sobre o endpoint da Braze \"Editar item do catálogo\"."
 
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Editar item do catálogo {#edit-catalog-item}
 {% apimethod patch %}
 /catalogs/{catalog_name}/items/{item_id}
@@ -21,7 +21,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Editar 
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `catalogs.update_item`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `catalogs.update_item`.
 
 ## Limite de frequência {#rate-limit}
 

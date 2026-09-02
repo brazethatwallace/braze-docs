@@ -100,7 +100,7 @@ Você pode nomear o banco de dados, schema e tabela como quiser, mas os nomes da
 - **Colunas de identificação do usuário** - Sua tabela pode conter uma ou mais colunas de identificação do usuário. Cada linha deve conter apenas um identificador (`external_id`, a combinação de `alias_name` e `alias_label`, `braze_id`, `email` ou `phone`). Uma tabela de origem pode ter colunas para um, dois, três, quatro ou todos os cinco tipos de identificadores.
     - `EXTERNAL_ID` - Identifica o usuário que deseja atualizar. Deve corresponder ao valor `external_id` usado na Braze.
     - `ALIAS_NAME` e `ALIAS_LABEL` - Essas duas colunas criam um objeto de alias de usuário. `alias_name` deve ser um identificador único, e `alias_label` especifica o tipo de alias. Os usuários podem ter múltiplos aliases com rótulos diferentes, mas apenas um `alias_name` por `alias_label`.
-    - `BRAZE_ID` - O identificador de usuário da Braze. É gerado pelo SDK or kit de desenvolvimento de software da Braze, e novos usuários não podem ser criados usando um Braze ID por meio da ingestão de dados na nuvem. Para criar novos usuários, especifique um ID externo de usuário ou alias de usuário.
+    - `BRAZE_ID` - O identificador de usuário da Braze. É gerado pelo SDK da Braze, e novos usuários não podem ser criados usando um Braze ID por meio da ingestão de dados na nuvem. Para criar novos usuários, especifique um ID externo de usuário ou alias de usuário.
     - `EMAIL` - O endereço de e-mail do usuário. Se existirem múltiplos perfis com o mesmo endereço de e-mail, o perfil atualizado mais recentemente é priorizado para atualizações. Se você incluir tanto e-mail quanto telefone, o e-mail é usado como identificador principal.
     - `PHONE` - O número de telefone do usuário. Se existirem múltiplos perfis com o mesmo número de telefone, o perfil atualizado mais recentemente é priorizado para atualizações.
 - `PAYLOAD` - Esta é uma string JSON dos campos que deseja sincronizar com o usuário na Braze.
@@ -183,7 +183,7 @@ Você pode nomear o banco de dados, schema e tabela como quiser, mas os nomes da
 - **Colunas de identificação do usuário** - Sua tabela pode conter uma ou mais colunas de identificação do usuário. Cada linha deve conter apenas um identificador (`external_id`, a combinação de `alias_name` e `alias_label`, `braze_id`, `email` ou `phone`). Uma tabela de origem pode ter colunas para um, dois, três, quatro ou todos os cinco tipos de identificadores.
     - `EXTERNAL_ID` - Identifica o usuário que deseja atualizar. Deve corresponder ao valor `external_id` usado na Braze.
     - `ALIAS_NAME` e `ALIAS_LABEL` - Essas duas colunas criam um objeto de alias de usuário. `alias_name` deve ser um identificador único, e `alias_label` especifica o tipo de alias. Os usuários podem ter múltiplos aliases com rótulos diferentes, mas apenas um `alias_name` por `alias_label`.
-    - `BRAZE_ID` - O identificador de usuário da Braze. É gerado pelo SDK or kit de desenvolvimento de software da Braze, e novos usuários não podem ser criados usando um Braze ID por meio da ingestão de dados na nuvem. Para criar novos usuários, especifique um ID externo de usuário ou alias de usuário.
+    - `BRAZE_ID` - O identificador de usuário da Braze. É gerado pelo SDK da Braze, e novos usuários não podem ser criados usando um Braze ID por meio da ingestão de dados na nuvem. Para criar novos usuários, especifique um ID externo de usuário ou alias de usuário.
     - `EMAIL` - O endereço de e-mail do usuário. Se existirem múltiplos perfis com o mesmo endereço de e-mail, o perfil atualizado mais recentemente é priorizado para atualizações. Se você incluir tanto e-mail quanto telefone, o e-mail é usado como identificador principal.
     - `PHONE` - O número de telefone do usuário. Se existirem múltiplos perfis com o mesmo número de telefone, o perfil atualizado mais recentemente é priorizado para atualizações.
 - `PAYLOAD` - Esta é uma string JSON dos campos que deseja sincronizar com o usuário na Braze.
@@ -261,7 +261,7 @@ Você pode nomear o projeto, dataset e tabela como quiser, mas os nomes das colu
 - **Colunas de identificação do usuário** - Sua tabela pode conter uma ou mais colunas de identificação do usuário. Cada linha deve conter apenas um identificador (`external_id`, a combinação de `alias_name` e `alias_label`, `braze_id`, `email` ou `phone`). Uma tabela de origem pode ter colunas para um, dois, três, quatro ou todos os cinco tipos de identificadores.
     - `EXTERNAL_ID` - Identifica o usuário que deseja atualizar. Deve corresponder ao valor `external_id` usado na Braze.
     - `ALIAS_NAME` e `ALIAS_LABEL` - Essas duas colunas criam um objeto de alias de usuário. `alias_name` deve ser um identificador único, e `alias_label` especifica o tipo de alias. Os usuários podem ter múltiplos aliases com rótulos diferentes, mas apenas um `alias_name` por `alias_label`.
-    - `BRAZE_ID` - O identificador de usuário da Braze. É gerado pelo SDK or kit de desenvolvimento de software da Braze, e novos usuários não podem ser criados usando um Braze ID por meio da ingestão de dados na nuvem. Para criar novos usuários, especifique um ID externo de usuário ou alias de usuário.
+    - `BRAZE_ID` - O identificador de usuário da Braze. É gerado pelo SDK da Braze, e novos usuários não podem ser criados usando um Braze ID por meio da ingestão de dados na nuvem. Para criar novos usuários, especifique um ID externo de usuário ou alias de usuário.
     - `EMAIL` - O endereço de e-mail do usuário. Se existirem múltiplos perfis com o mesmo endereço de e-mail, o perfil atualizado mais recentemente é priorizado para atualizações. Se você incluir tanto e-mail quanto telefone, o e-mail é usado como identificador principal.
     - `PHONE` - O número de telefone do usuário. Se existirem múltiplos perfis com o mesmo número de telefone, o perfil atualizado mais recentemente é priorizado para atualizações.
 - `PAYLOAD` - Esta é uma string JSON dos campos que deseja sincronizar com o usuário na Braze.
@@ -346,7 +346,7 @@ Você pode nomear o schema e a tabela como quiser, mas os nomes das colunas deve
 - **Colunas de identificação do usuário** - Sua tabela pode conter uma ou mais colunas de identificação do usuário. Cada linha deve conter apenas um identificador (`external_id`, a combinação de `alias_name` e `alias_label`, `braze_id`, `email` ou `phone`). Uma tabela de origem pode ter colunas para um, dois, três, quatro ou todos os cinco tipos de identificadores.
     - `EXTERNAL_ID` - Identifica o usuário que deseja atualizar. Deve corresponder ao valor `external_id` usado na Braze.
     - `ALIAS_NAME` e `ALIAS_LABEL` - Essas duas colunas criam um objeto de alias de usuário. `alias_name` deve ser um identificador único, e `alias_label` especifica o tipo de alias. Os usuários podem ter múltiplos aliases com rótulos diferentes, mas apenas um `alias_name` por `alias_label`.
-    - `BRAZE_ID` - O identificador de usuário da Braze. É gerado pelo SDK or kit de desenvolvimento de software da Braze, e novos usuários não podem ser criados usando um Braze ID por meio da ingestão de dados na nuvem. Para criar novos usuários, especifique um ID externo de usuário ou alias de usuário.
+    - `BRAZE_ID` - O identificador de usuário da Braze. É gerado pelo SDK da Braze, e novos usuários não podem ser criados usando um Braze ID por meio da ingestão de dados na nuvem. Para criar novos usuários, especifique um ID externo de usuário ou alias de usuário.
     - `EMAIL` - O endereço de e-mail do usuário. Se existirem múltiplos perfis com o mesmo endereço de e-mail, o perfil atualizado mais recentemente é priorizado para atualizações. Se você incluir tanto e-mail quanto telefone, o e-mail é usado como identificador principal.
     - `PHONE` - O número de telefone do usuário. Se existirem múltiplos perfis com o mesmo número de telefone, o perfil atualizado mais recentemente é priorizado para atualizações.
 - `PAYLOAD` - Esta é uma string ou struct dos campos que deseja sincronizar com o usuário na Braze.
@@ -433,7 +433,7 @@ Você pode nomear o warehouse, schema e tabela ou view como quiser, mas os nomes
 - **Colunas de identificação do usuário** - Sua tabela pode conter uma ou mais colunas de identificação do usuário. Cada linha deve conter apenas um identificador (`external_id`, a combinação de `alias_name` e `alias_label`, `braze_id`, `email` ou `phone`). Uma tabela de origem pode ter colunas para um, dois, três, quatro ou todos os cinco tipos de identificadores.
     - `EXTERNAL_ID` - Identifica o usuário que deseja atualizar. Deve corresponder ao valor `external_id` usado na Braze.
     - `ALIAS_NAME` e `ALIAS_LABEL` - Essas duas colunas criam um objeto de alias de usuário. `alias_name` deve ser um identificador único, e `alias_label` especifica o tipo de alias. Os usuários podem ter múltiplos aliases com rótulos diferentes, mas apenas um `alias_name` por `alias_label`.
-    - `BRAZE_ID` - O identificador de usuário da Braze. É gerado pelo SDK or kit de desenvolvimento de software da Braze, e novos usuários não podem ser criados usando um Braze ID por meio da ingestão de dados na nuvem. Para criar novos usuários, especifique um ID externo de usuário ou alias de usuário.
+    - `BRAZE_ID` - O identificador de usuário da Braze. É gerado pelo SDK da Braze, e novos usuários não podem ser criados usando um Braze ID por meio da ingestão de dados na nuvem. Para criar novos usuários, especifique um ID externo de usuário ou alias de usuário.
     - `EMAIL` - O endereço de e-mail do usuário. Se existirem múltiplos perfis com o mesmo endereço de e-mail, o perfil atualizado mais recentemente é priorizado para atualizações. Se você incluir tanto e-mail quanto telefone, o e-mail é usado como identificador principal.
     - `PHONE` - O número de telefone do usuário. Se existirem múltiplos perfis com o mesmo número de telefone, o perfil atualizado mais recentemente é priorizado para atualizações.
 - `PAYLOAD` - Esta é uma string JSON dos campos que deseja sincronizar com o usuário na Braze.
@@ -615,7 +615,7 @@ Esses problemas podem incluir:
 #### Etapa 3.3: Agendamento {#step-33-scheduling}
 Por último, configure sua sincronização como não recorrente ou recorrente.
 
-Sincronizações não recorrentes podem ser acionadas manualmente ou via API or interface de programação do aplicativo (API).
+Sincronizações não recorrentes podem ser acionadas manualmente ou via API.
 
 Sincronizações recorrentes podem ter uma frequência de 15 em 15 minutos até uma vez por mês. A Braze agenda a sincronização recorrente no fuso horário UTC.
 
@@ -648,7 +648,7 @@ Esses problemas podem incluir:
 #### Etapa 3.3: Agendamento
 Por último, configure sua sincronização como não recorrente ou recorrente.
 
-Sincronizações não recorrentes podem ser acionadas manualmente ou via API or interface de programação do aplicativo (API).
+Sincronizações não recorrentes podem ser acionadas manualmente ou via API.
 
 Sincronizações recorrentes podem ter uma frequência de 15 em 15 minutos até uma vez por mês. A Braze agenda a sincronização recorrente no fuso horário UTC.
 
@@ -679,7 +679,7 @@ Os e-mails de contato recebem notificações apenas de erros globais ou no níve
 #### Etapa 3.3: Agendamento
 Por último, configure sua sincronização como não recorrente ou recorrente.
 
-Sincronizações não recorrentes podem ser acionadas manualmente ou via API or interface de programação do aplicativo (API).
+Sincronizações não recorrentes podem ser acionadas manualmente ou via API.
 
 Sincronizações recorrentes podem ter uma frequência de 15 em 15 minutos até uma vez por mês. A Braze agenda a sincronização recorrente no fuso horário UTC.
 
@@ -711,7 +711,7 @@ Esses problemas podem incluir:
 #### Etapa 3.3: Agendamento
 Por último, configure sua sincronização como não recorrente ou recorrente.
 
-Sincronizações não recorrentes podem ser acionadas manualmente ou via API or interface de programação do aplicativo (API).
+Sincronizações não recorrentes podem ser acionadas manualmente ou via API.
 
 Sincronizações recorrentes podem ter uma frequência de 15 em 15 minutos até uma vez por mês. A Braze agenda a sincronização recorrente no fuso horário UTC.
 
@@ -744,7 +744,7 @@ Esses problemas podem incluir:
 #### Etapa 3.3: Agendamento
 Por último, configure sua sincronização como não recorrente ou recorrente.
 
-Sincronizações não recorrentes podem ser acionadas manualmente ou via API or interface de programação do aplicativo (API).
+Sincronizações não recorrentes podem ser acionadas manualmente ou via API.
 
 Sincronizações recorrentes podem ter uma frequência de 15 em 15 minutos até uma vez por mês. A Braze agenda a sincronização recorrente no fuso horário UTC.
 

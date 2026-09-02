@@ -28,9 +28,9 @@ Ja. Es können sowohl statische als auch dynamische Parameter hinzugefügt werde
 
 Personalisierte URLs sind ab dem Zeitpunkt der URL-Registrierung zwei Monate lang gültig. Bei der [einheitlichen Linkverkürzung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/?sdktab=unified), die keine Unterscheidung zwischen statisch und personalisiert vornimmt, sind alle Links neun Wochen lang gültig.
 
-### Muss das Braze SDK or Software-Development-Kit installiert sein, um Links zu kürzen? {#does-the-braze-sdk-need-to-be-installed-in-order-to-shorten-links}
+### Muss das Braze SDK installiert sein, um Links zu kürzen? {#does-the-braze-sdk-need-to-be-installed-in-order-to-shorten-links}
 
-Nein. Die Linkverkürzung funktioniert ohne jegliche SDK or Software-Development-Kit-Integration.
+Nein. Die Linkverkürzung funktioniert ohne jegliche SDK-Integration.
 
 {% endif %}
 

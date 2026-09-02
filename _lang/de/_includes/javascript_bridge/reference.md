@@ -1,7 +1,7 @@
-Angepasste HTML-In-App-Nachrichten und Banner unterstützen eine JavaScript-„Bridge“ als Schnittstelle zum Braze SDK or Software-Development-Kit, sodass Sie angepasste Braze-Aktionen Trigger or triggern or triggern können, wenn Nutzer:innen auf Elemente mit Links klicken oder anderweitig mit Ihren Inhalten interagieren. Diese Methoden existieren mit der globalen Variable `brazeBridge` oder `appboyBridge`.
+Angepasste HTML-In-App-Nachrichten und Banner unterstützen eine JavaScript-„Bridge“ als Schnittstelle zum Braze SDK, sodass Sie angepasste Braze-Aktionen triggern können, wenn Nutzer:innen auf Elemente mit Links klicken oder anderweitig mit Ihren Inhalten interagieren. Diese Methoden existieren mit der globalen Variable `brazeBridge` oder `appboyBridge`.
 
 {% alert important %}
-Braze empfiehlt Ihnen, die globale Variable `brazeBridge` zu verwenden. Die globale Variable `appboyBridge` ist veraltet, wird aber für bestehende Nutzer:innen weiterhin funktionieren. Wenn Sie `appboyBridge` verwenden, empfehlen wir Ihnen eine Migration auf `brazeBridge`. <br><br> `appboyBridge` wurde in den folgenden SDK or Software-Development-Kit-Versionen als veraltet markiert:<br><br>
+Braze empfiehlt Ihnen, die globale Variable `brazeBridge` zu verwenden. Die globale Variable `appboyBridge` ist veraltet, wird aber für bestehende Nutzer:innen weiterhin funktionieren. Wenn Sie `appboyBridge` verwenden, empfehlen wir Ihnen eine Migration auf `brazeBridge`. <br><br> `appboyBridge` wurde in den folgenden SDK-Versionen als veraltet markiert:<br><br>
 - Web: [3.3.0+]({{site.baseurl}}/developer_guide/platform_integration_guides/web/changelog/#330)
 - Android: [14.0.0+]({{site.baseurl}}/developer_guide/platform_integration_guides/android/changelog/#1400)
 - iOS: [4.2.0+]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/changelog/objc_changelog/#420)

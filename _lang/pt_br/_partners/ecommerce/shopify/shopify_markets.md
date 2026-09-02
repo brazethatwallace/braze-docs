@@ -13,12 +13,12 @@ hidden: true
 > Este artigo aborda a integração do Shopify Markets (atualmente em beta), incluindo o que está no escopo, como funciona e como usar os dados de mercados no seu envio de mensagens. A Braze está lançando progressivamente funcionalidades adicionais de Markets ao longo do período de beta, ampliando o suporte para estruturas de mercado mais complexas ao longo do tempo.
 
 {% alert important %}
-O Shopify Markets está atualmente em beta. Para saber mais, entre em contato com seu gerente de sucesso do cliente da Braze.
+O Shopify Markets está atualmente em beta. Para saber mais, entre em contato com seu CSM da Braze.
 {% endalert %}
 
 ## Como a integração funciona {#how-the-integration-works}
 
-O Shopify Markets estende sua integração existente com o Shopify. Conecte sua vitrine padrão por meio do caminho de integração [padrão]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration) ou [personalizado (SDK or kit de desenvolvimento de software)]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration), e depois selecione os mercados que deseja que a Braze sincronize a partir dos mercados configurados na sua loja. Integrações existentes podem adicionar mercados sem interromper catálogos, grupos de inscrições ou eventos. Para instruções passo a passo, consulte [Configuração do Shopify Markets](#shopify-markets-setup).
+O Shopify Markets estende sua integração existente com o Shopify. Conecte sua vitrine padrão por meio do caminho de integração [padrão]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration) ou [personalizado (SDK)]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration), e depois selecione os mercados que deseja que a Braze sincronize a partir dos mercados configurados na sua loja. Integrações existentes podem adicionar mercados sem interromper catálogos, grupos de inscrições ou eventos. Para instruções passo a passo, consulte [Configuração do Shopify Markets](#shopify-markets-setup).
 
 O Shopify Markets oferece as seguintes capacidades:
 

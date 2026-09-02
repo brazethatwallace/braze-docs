@@ -239,7 +239,7 @@ Braze stellt über einen Dienstprinzipal mit Entra-ID-Authentifizierung eine Ver
 {% multi_lang_include data_unification/azure_app_registration_steps.md %}
 
 {% alert note %}
-Azure erlaubt keine unbegrenzte Gültigkeitsdauer für Dienstprinzipal-Geheimnisse. Denken Sie daran, die Zugangsdaten vor Ablauf zu Update or aktualisieren or aktualisieren, um den Datenfluss zu Braze aufrechtzuerhalten.
+Azure erlaubt keine unbegrenzte Gültigkeitsdauer für Dienstprinzipal-Geheimnisse. Denken Sie daran, die Zugangsdaten vor Ablauf zu aktualisieren, um den Datenfluss zu Braze aufrechtzuerhalten.
 {% endalert %}
 
 #### Schritt 2.2: Zugriff auf Fabric-Ressourcen gewähren {#step-22-grant-access-to-fabric-resources}

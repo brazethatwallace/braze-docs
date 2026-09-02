@@ -16,7 +16,7 @@ _Essa integração é mantida pela Komo._
 
 ## Sobre a integração {#about-the-integration}
 
-A integração entre a Braze e a Komo permite coletar dados primários e dados voluntários por meio dos Komo Engagement Hubs. Esses hubs são microsites dinâmicos que oferecem conteúdo interativo e recursos de gamificação. Os dados de usuários coletados nesses hubs são então transmitidos para a API or interface de programação do aplicativo (API) da Braze.
+A integração entre a Braze e a Komo permite coletar dados primários e dados voluntários por meio dos Komo Engagement Hubs. Esses hubs são microsites dinâmicos que oferecem conteúdo interativo e recursos de gamificação. Os dados de usuários coletados nesses hubs são então transmitidos para a API da Braze.
 
 {% multi_lang_include partners/extensions/landing_pages/komo_integration_bullets.md %}
 
@@ -25,8 +25,8 @@ A integração entre a Braze e a Komo permite coletar dados primários e dados v
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Conta Komo | Você precisará de uma conta Komo ativa para aproveitar essa parceria. Acesse [Komo](https://komo.tech/) para iniciar um teste agora. |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões `users.track`. <br><br> Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
-| Endpoint REST or transferir estado representacional da Braze | [URL do seu endpoint REST or transferir estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Seu endpoint dependerá da URL da Braze para a sua instância.<br><br>Por exemplo, deve ser algo como: https://rest.iad-03.braze.com |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. <br><br> Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Endpoint REST da Braze | [URL do seu endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Seu endpoint dependerá da URL da Braze para a sua instância.<br><br>Por exemplo, deve ser algo como: https://rest.iad-03.braze.com |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
@@ -34,7 +34,7 @@ A integração entre a Braze e a Komo permite coletar dados primários e dados v
 {% tabs local %}
 {% tab Captura de dados - Envio de formulário %}
 
-Quando um usuário envia um formulário de captura de dados personalizável no Komo, os campos do Komo mapeados na integração com a Braze são enviados para a Braze por meio da chamada de API or interface de programação do aplicativo (API) `/users/track/`.
+Quando um usuário envia um formulário de captura de dados personalizável no Komo, os campos do Komo mapeados na integração com a Braze são enviados para a Braze por meio da chamada de API `/users/track/`.
 
 Os formulários de captura de dados existem no início ou no final dos Cards.
 

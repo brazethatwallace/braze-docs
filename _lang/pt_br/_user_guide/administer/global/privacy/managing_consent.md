@@ -15,7 +15,7 @@ A Braze não pode fornecer conselhos específicos sobre a interpretação de lei
 Sua abordagem deve depender do rigor exigido pela sua equipe jurídica com base na interpretação da lei. Aqui estão algumas opções a serem consideradas, listadas da mais rigorosa para a menos rigorosa:
 
 - **Equipes:** Use [as equipes da Braze]({{site.baseurl}}/user_guide/administer/global/user_management/teams) para fazer uma verdadeira governança. Isso envolve adicionar um atributo personalizado a todos os perfis de usuário para indicar o status de consentimento, a data de consentimento ou ambos. Em seguida, é necessário migrar todas as Campaigns e Canvas para a equipe designada e ajustar as permissões de usuário no dashboard de acordo.
-- **Atributo de perfil de usuário:** Adicione um atributo de consentimento a todos os perfis de usuário. Esse atributo indicará se um usuário deu consentimento ou não. No futuro, você poderá incluir um Segment or segmento or segmento de usuários que consentiram (por exemplo, `consent = true`) em todas as suas Campaigns e Canvas.
+- **Atributo de perfil de usuário:** Adicione um atributo de consentimento a todos os perfis de usuário. Esse atributo indicará se um usuário deu consentimento ou não. No futuro, você poderá incluir um Segment de usuários que consentiram (por exemplo, `consent = true`) em todas as suas Campaigns e Canvas.
 - **Grupos de inscrições específicos por canal:** Manipule os grupos de inscrições de canais específicos (notificações por push, e-mail, etc.) para gerenciar o consentimento. Inicialmente, marque os usuários como cancelados desses canais e só os marque como inscritos após terem dado consentimento.
 
 {% alert important %}

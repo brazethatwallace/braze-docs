@@ -56,7 +56,7 @@ Para los clientes que se hayan incorporado a Braze a partir del 22 de agosto de 
 | ------------------ | -------- | ------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | `external_ids` | Opcional | Matriz de cadenas | Identificadores externos de los usuarios que deseas exportar. |
 | `user_aliases` | Opcional | Matriz de objetos de alias de usuario | [Alias de usuario]({{site.baseurl}}/api/objects_filters/user_alias_object) para exportar usuarios. |
-| `device_id` | Opcional | Cadena | Identificador del dispositivo, devuelto por varios métodos del SDK or kit de desarrollo de software como `getDeviceId`. |
+| `device_id` | Opcional | Cadena | Identificador del dispositivo, devuelto por varios métodos del SDK como `getDeviceId`. |
 | `braze_id` | Opcional | Cadena | Identificador Braze de un usuario concreto. |
 | `email_address` | Opcional | Cadena | Dirección de correo electrónico del usuario. |
 | `phone` | Opcional | Cadena en formato [E.164](https://en.wikipedia.org/wiki/E.164) | Número de teléfono del usuario. |
@@ -124,7 +124,7 @@ La siguiente es una lista de valores `fields_to_export` válidos. Utilizar `fiel
 | `user_aliases` | Objeto | [Objeto de alias de usuario]({{site.baseurl}}/api/objects_filters/user_alias_object) que contiene `alias_name` y `alias_label`, si existe. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Campos a exportar" }
 
-Ten en cuenta que el endpoint `/users/export/ids` reunirá todo el perfil de usuario de este usuario, incluyendo datos como todas las Campaigns y los Canvas recibidos, todos los eventos personalizados realizados, todas las compras realizadas y todos los atributos personalizados. Como resultado, este endpoint es más lento que otros endpoints de la REST or transferencia de estado representacional API.
+Ten en cuenta que el endpoint `/users/export/ids` reunirá todo el perfil de usuario de este usuario, incluyendo datos como todas las Campaigns y los Canvas recibidos, todos los eventos personalizados realizados, todas las compras realizadas y todos los atributos personalizados. Como resultado, este endpoint es más lento que otros endpoints de la REST API.
 
 Dependiendo de los datos solicitados, este endpoint de la API puede no ser suficiente para satisfacer tus necesidades debido al límite de velocidad de 250 solicitudes por minuto. Si prevés utilizar este endpoint regularmente para exportar usuarios, considera en su lugar la exportación de usuarios por segmento, que es asíncrona y está más optimizada para grandes extracciones de datos.
 

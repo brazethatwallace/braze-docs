@@ -14,7 +14,7 @@ noindex: true
 
 # Configuração do story por push {#push-story-setup}
 
-O recurso Push Story requer o framework `UNNotification` e o iOS 10. O recurso só está disponível a partir da versão 3.2.1 do SDK or kit de desenvolvimento de software do iOS.
+O recurso Push Story requer o framework `UNNotification` e o iOS 10. O recurso só está disponível a partir da versão 3.2.1 do SDK do iOS.
 
 ## Etapa 1: Ative o push em seu aplicativo {#step-1-enable-push-in-your-app}
 
@@ -207,7 +207,7 @@ Abra o arquivo `Info.plist` do `Notification Content Extension` e adicione e alt
 
 ### Opção 1: Tempo de execução {#option-1-runtime}
 
-No dicionário `appboyOptions` usado para configurar sua instância da Braze, adicione uma entrada `ABKPushStoryAppGroupKey` e defina o valor como seu identificador de API or interface de programação do aplicativo (API) do espaço de trabalho.
+No dicionário `appboyOptions` usado para configurar sua instância da Braze, adicione uma entrada `ABKPushStoryAppGroupKey` e defina o valor como seu identificador de API do espaço de trabalho.
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -236,7 +236,7 @@ Appboy.start(withApiKey: "YOUR-API-KEY", in:application, withLaunchOptions:launc
 
 #### Opção 2: Info.plist {#option-2-infoplist}
 
-Como alternativa, para configurar o espaço de trabalho do story por push a partir do arquivo `Info.plist`, adicione um dicionário chamado `Braze` ao arquivo `Info.plist`. No dicionário `Braze`, adicione uma subentrada `PushStoryAppGroup` do tipo string e defina o valor como seu identificador de espaço de trabalho. Observe que antes do Braze iOS SDK or kit de desenvolvimento de software v4.0.2, a chave do dicionário `Appboy` deve ser usada no lugar de `Braze`.
+Como alternativa, para configurar o espaço de trabalho do story por push a partir do arquivo `Info.plist`, adicione um dicionário chamado `Braze` ao arquivo `Info.plist`. No dicionário `Braze`, adicione uma subentrada `PushStoryAppGroup` do tipo string e defina o valor como seu identificador de espaço de trabalho. Observe que antes do Braze iOS SDK v4.0.2, a chave do dicionário `Appboy` deve ser usada no lugar de `Braze`.
 
 ## Próximas etapas {#next-steps}
 

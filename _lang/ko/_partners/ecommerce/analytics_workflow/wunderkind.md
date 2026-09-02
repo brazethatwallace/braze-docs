@@ -425,7 +425,7 @@ Wunderkind는 **Braze Currents**를 사용하여 Braze에서 성능 데이터를
 ## 제한 사항 {#limitations}
 
 - **수신 거부/옵트아웃 동기화 불가.** 수신 거부는 Braze에서 기본적으로 관리해야 합니다. 참고: Braze Signals로 마이그레이션하는 기존 Wunderkind 고객의 경우, Wunderkind가 팀과 협력하여 현재 설정을 유지합니다.
-- **이메일 채널만 지원.** 이 통합을 통한 단문 메시지 서비스는 현재 지원되지 않습니다.
+- **이메일 채널만 지원.** 이 통합을 통한 SMS는 현재 지원되지 않습니다.
 - **Canvas 트리거 전에 사용자 프로필이 존재해야 합니다.** `user_alias` 수신자를 사용하는 [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)는 해당 별칭이 이미 설정된 **기존** Braze 프로필만 확인합니다. 별칭과 함께 `send_to_existing_only`를 사용할 수 없으며, Canvas 트리거는 별칭만으로 신규 프로필을 생성하지 않습니다. 먼저 사용자를 생성 또는 업데이트하고 `wknd_email_id` 별칭을 설정해야 합니다(예: [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) 또는 [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) 사용). Wunderkind는 해당 업서트 후 Braze가 처리를 완료할 수 있도록 트리거를 실행하기 전에 잠시 대기할 수 있습니다.
 - **식별자로서의 이메일.** Canvas 트리거가 `user_alias` 대신 `email`로 수신자를 식별하는 경우, Braze에서 요구하는 대로 해당 수신자 객체에 [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email-addresses-and-phone-numbers)을 포함해야 합니다.
 

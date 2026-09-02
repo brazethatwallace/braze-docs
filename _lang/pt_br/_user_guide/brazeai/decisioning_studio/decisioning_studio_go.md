@@ -13,13 +13,13 @@ description: "Saiba como configurar e integrar o BrazeAI Decisioning Studio<sup>
 
 O Decisioning Studio Go é um agente de decisão com IA para programas de e-mail recorrentes. Em vez de escolher uma única linha de assunto, horário de envio ou imagem vencedora para todo o público, o agente seleciona a melhor combinação para cada destinatário com base no engajamento anterior.
 
-Você define as variantes entre as quais o agente pode escolher — como linhas de assunto, CTAs, imagens, dias de envio e horários de envio. Para cada usuário no seu Segment or segmento, o agente escolhe a opção com maior probabilidade de gerar engajamento, dentro das restrições e do cronograma que você configurar.
+Você define as variantes entre as quais o agente pode escolher — como linhas de assunto, CTAs, imagens, dias de envio e horários de envio. Para cada usuário no seu Segment, o agente escolhe a opção com maior probabilidade de gerar engajamento, dentro das restrições e do cronograma que você configurar.
 
 Isso difere dos testes A/B no nível de Campaign com [Otimizar com BrazeAI<sup>TM</sup>]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection), que otimiza variantes para o público. O Decisioning Studio Go personaliza no nível individual em cada envio do programa.
 
 ### Como funciona {#how-it-works}
 
-O agente divide um Segment or segmento da Braze em dois grupos: um grupo do Decisioning Studio que recebe conteúdo de e-mail otimizado por IA, e um grupo de controle aleatório (mínimo de 5%) que recebe combinações aleatórias das mesmas opções. O grupo de controle aleatório oferece uma medição contínua e comparável do aumento gerado pelo agente; você pode sempre ver como a experiência personalizada se compara ao mesmo conteúdo enviado sem personalização.
+O agente divide um Segment da Braze em dois grupos: um grupo do Decisioning Studio que recebe conteúdo de e-mail otimizado por IA, e um grupo de controle aleatório (mínimo de 5%) que recebe combinações aleatórias das mesmas opções. O grupo de controle aleatório oferece uma medição contínua e comparável do aumento gerado pelo agente; você pode sempre ver como a experiência personalizada se compara ao mesmo conteúdo enviado sem personalização.
 
 Para cada usuário no grupo do Decisioning Studio, o agente escolhe entre as opções que você forneceu: qual criativo enviar (incluindo a linha de assunto, CTA e imagem específicos dentro dele) e quando enviar (dia da semana e horário do dia, respeitando o horário de silêncio e o fuso local do usuário). [Configure seu agente do Decisioning Studio Go]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup) aborda cada um desses pontos em detalhe.
 
@@ -29,7 +29,7 @@ Para cada usuário no grupo do Decisioning Studio, o agente escolhe entre as op�
 
 | Configuração | Descrição |
 |---|---|
-| **Público** | Um único Segment or segmento da Braze como público de entrada. O agente divide automaticamente o Segment or segmento entre o grupo de decisão e o grupo de controle aleatório. |
+| **Público** | Um único Segment da Braze como público de entrada. O agente divide automaticamente o Segment entre o grupo de decisão e o grupo de controle aleatório. |
 | **Cronograma** | Frequência de envio (por exemplo, uma única seleção três vezes por semana), dias da semana permitidos, horário de silêncio no fuso local do usuário e adesão às regras de limite de frequência no nível do agente. |
 | **Criativos** | Um ou mais criativos base construídos no criador da Braze. Dentro de cada criativo base, você pode marcar uma linha de assunto, CTA e imagem como pontos de personalização usando Liquid tags, e então fornecer uma lista de variantes para cada um. O agente decide qual criativo base e variante usar para cada destinatário. |
 | **Restrições** | Limites que impedem o agente de enviar o mesmo criativo base ou a mesma linha de assunto para um usuário mais de uma vez dentro de uma janela que você define. |

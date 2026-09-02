@@ -27,11 +27,11 @@ Sie können den Push-Abo-Status, die Registrierung und die Aktivierung an drei H
 
 Im Profil von Nutzer:innen ([**Nutzer:innen suchen**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) > Nutzer:in auswählen > Tab **Engagement**) listet **Contact Settings** den Push-Abo-Status auf, **Push Registered For** (welche Apps und Plattformen Braze zum Senden von Vordergrund-Push an dieses Profil verwenden kann) und das **Push-Änderungsprotokoll** für Token / Textbaustein-Verschiebungen, Fehler und Registrierungsupdates. Informationen zum Lesen von **Push Registered For** und zur Vordergrund- vs. Hintergrund-Autorisierung finden Sie unter [Push-Registrierungsstatus überprüfen]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle#checking-push-registration-status).
 
-Unter iOS und Android kann das Push-Änderungsprotokoll einen Eintrag wie „Push-Token / Textbaustein was updated from foreground push enabled to foreground push disabled“ enthalten, wenn ein Gerät von der Vordergrund-Push-Autorisierung zur reinen Hintergrund-Autorisierung wechselt (z. B. nachdem Nutzer:innen Benachrichtigungen in den Systemeinstellungen deaktiviert haben und das SDK or Software-Development-Kit die Änderung meldet).
+Unter iOS und Android kann das Push-Änderungsprotokoll einen Eintrag wie „Push-Token / Textbaustein was updated from foreground push enabled to foreground push disabled“ enthalten, wenn ein Gerät von der Vordergrund-Push-Autorisierung zur reinen Hintergrund-Autorisierung wechselt (z. B. nachdem Nutzer:innen Benachrichtigungen in den Systemeinstellungen deaktiviert haben und das SDK die Änderung meldet).
 
-Nachdem Sie neue SDK or Software-Development-Kit-Daten erwarten (z. B. direkt nach einer Testsitzung), wählen Sie **Refresh** im Kundenprofil or Nutzerprofil, wenn die Werte veraltet erscheinen. Es kann eine kurze Verzögerung zwischen dem Senden der SDK or Software-Development-Kit-Daten und der Aktualisierung des Profils mit der neuesten Push-Registrierung geben.
+Nachdem Sie neue SDK-Daten erwarten (z. B. direkt nach einer Testsitzung), wählen Sie **Refresh** im Kundenprofil, wenn die Werte veraltet erscheinen. Es kann eine kurze Verzögerung zwischen dem Senden der SDK-Daten und der Aktualisierung des Profils mit der neuesten Push-Registrierung geben.
 
-Für Nutzer:innen, die Sie einer [internen Gruppe]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups) hinzufügen, wählen Sie **Record User Events for group members** in den **Internal Group Settings** für diese Gruppe, damit SDK or Software-Development-Kit-Anfragen im Protokoll erscheinen. Öffnen Sie dann das [Event-Nutzerprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log) unter **Einstellungen** > **Event User Log**, suchen Sie die SDK or Software-Development-Kit-Anfragen der Nutzer:innen und erweitern Sie den Roh-Payload. Sie können Felder wie `remote_notification_enabled` überprüfen, um zu validieren, ob das Gerät Remote-Benachrichtigungen als aktiviert oder deaktiviert meldet.
+Für Nutzer:innen, die Sie einer [internen Gruppe]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups) hinzufügen, wählen Sie **Record User Events for group members** in den **Internal Group Settings** für diese Gruppe, damit SDK-Anfragen im Protokoll erscheinen. Öffnen Sie dann das [Event-Nutzerprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log) unter **Einstellungen** > **Event User Log**, suchen Sie die SDK-Anfragen der Nutzer:innen und erweitern Sie den Roh-Payload. Sie können Felder wie `remote_notification_enabled` überprüfen, um zu validieren, ob das Gerät Remote-Benachrichtigungen als aktiviert oder deaktiviert meldet.
 
 ### Segmentierung und Push-Filter {#segmentation-and-push-filters}
 
@@ -43,7 +43,7 @@ Auf der Analytics-Seite einer Push-**Campaign** oder eines **Canvas** spiegeln M
 
 ## iOS-Nutzer:innenaktionen und Push-Status {#ios-user-actions-push-status}
 
-Die folgende Tabelle zeigt, wie verschiedene Nutzer:innenaktionen die iOS-Push-Aktivierung, die Vordergrund- oder Hintergrund-Push-Registrierung und den Push-Abo-Status in Braze beeinflussen. Wenn Nutzer:innen Ihre App installieren und ihre erste Sitzung starten, ist ihr Status in der Regel wie in der ersten Zeile dargestellt. Jede nachfolgende Aktion kann einige dieser Werte Update or aktualisieren or aktualisieren, andere jedoch nicht.
+Die folgende Tabelle zeigt, wie verschiedene Nutzer:innenaktionen die iOS-Push-Aktivierung, die Vordergrund- oder Hintergrund-Push-Registrierung und den Push-Abo-Status in Braze beeinflussen. Wenn Nutzer:innen Ihre App installieren und ihre erste Sitzung starten, ist ihr Status in der Regel wie in der ersten Zeile dargestellt. Jede nachfolgende Aktion kann einige dieser Werte aktualisieren, andere jedoch nicht.
 
 | Nutzer:innenaktion | `Foreground Push Enabled` | `Foreground Push Enabled for App` | Push-Registrierungstyp | Push-Abo-Status |
 | --- | --- | --- | --- | --- |
@@ -57,7 +57,7 @@ Die folgende Tabelle zeigt, wie verschiedene Nutzer:innenaktionen die iOS-Push-A
 
 <sup>* Wenn die App kein provisorisches Push verwendet, ist `Foreground Push Enabled` `false`, bis Nutzer:innen Push-Benachrichtigungen erlauben. Wenn die App provisorisches Push verwendet, ist `Foreground Push Enabled` zu Beginn der ersten Sitzung `true`. Weitere Informationen finden Sie unter [Provisorische Autorisierung und stilles Push](#provisional-push).</sup>
 
-<sup>** Ab [Braze Swift SDK or Software-Development-Kit Version 7.5.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/7.5.0) steuert die Konfigurationseigenschaft `optInWhenPushAuthorized`, ob der Push-Abo-Status automatisch auf `Opted-In` gesetzt wird, wenn die Push-Berechtigung autorisiert wird. Weitere Informationen finden Sie unter [Push-Token / Textbaustein](#push-tokens).</sup>
+<sup>** Ab [Braze Swift SDK Version 7.5.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/7.5.0) steuert die Konfigurationseigenschaft `optInWhenPushAuthorized`, ob der Push-Abo-Status automatisch auf `Opted-In` gesetzt wird, wenn die Push-Berechtigung autorisiert wird. Weitere Informationen finden Sie unter [Push-Token / Textbaustein](#push-tokens).</sup>
 
 ## Push-Berechtigung {#push-permission}
 
@@ -111,7 +111,7 @@ Es gibt zwei Arten, wie ein [Push-Token / Textbaustein]({{site.baseurl}}/user_gu
 1. **Vordergrund-Push** bietet die Möglichkeit, reguläre sichtbare Push-Benachrichtigungen an den Vordergrund des Geräts der Nutzer:innen zu senden.
 2. **Hintergrund-Push** ist unabhängig davon verfügbar, ob ein bestimmtes Gerät dem Empfang von Push-Benachrichtigungen dieser Marke zugestimmt hat. Hintergrund-Push ermöglicht es Marken, stille Push-Benachrichtigungen – Benachrichtigungen, die absichtlich nicht angezeigt werden – an Geräte zu senden, um wichtige Funktionen wie [Uninstall-Tracking]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking) zu unterstützen.
 
-Wenn ein Kundenprofil or Nutzerprofil ein gültiges Vordergrund-Push-Token / Textbaustein hat, das mit einer App verknüpft ist, betrachtet Braze die Nutzer:innen als „Push-registriert“ für die jeweilige App. Braze bietet dann einen spezifischen Segmentierungsfilter, `Foreground Push Enabled for App,`, um diese Nutzer:innen zu identifizieren.
+Wenn ein Kundenprofil ein gültiges Vordergrund-Push-Token / Textbaustein hat, das mit einer App verknüpft ist, betrachtet Braze die Nutzer:innen als „Push-registriert“ für die jeweilige App. Braze bietet dann einen spezifischen Segmentierungsfilter, `Foreground Push Enabled for App,`, um diese Nutzer:innen zu identifizieren.
 
 {% alert note %}
 Der Filter `Foreground Push Enabled for App` berücksichtigt nur das Vorhandensein eines gültigen Vordergrund- und Hintergrund-Push-Tokens für die jeweilige App. Der allgemeinere Filter [`Foreground Push Enabled`](#foreground-push-enabled) segmentiert jedoch Nutzer:innen, die Push-Benachrichtigungen für beliebige Apps in Ihrem Workspace explizit aktiviert haben. Diese Zählung umfasst nur Vordergrund-Push und schließt Nutzer:innen aus, die sich abgemeldet haben. Weitere Informationen zu diesen und anderen Filtern finden Sie unter [Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters).
@@ -125,7 +125,7 @@ Push-Token / Textbaustein sind sowohl geräte- als auch app-spezifisch, sodass e
 
 Angenommen, Sie haben zwei Nutzer:innen: Charlie und Kim. Wenn Charlie Push-Benachrichtigungen für Ihre App auf seinem Telefon aktiviert hat und Kim Charlies Telefon verwendet, um sich aus Charlies Profil abzumelden und sich in ihr eigenes einzuloggen, wird das Push-Token / Textbaustein Kims Profil zugewiesen. Das Push-Token / Textbaustein bleibt dann auf diesem Gerät Kims Profil zugewiesen, bis sie sich abmeldet und Charlie sich wieder einloggt.
 
-Eine App oder Website kann nur ein Push-Abo pro Gerät haben. Wenn sich also Nutzer:innen von einem Gerät oder einer Website abmelden und neue Nutzer:innen sich einloggen, wird das Push-Token / Textbaustein den neuen Nutzer:innen zugewiesen. Dies wird im Kundenprofil or Nutzerprofil im Abschnitt **Contact Settings** des Tabs **Engagement** angezeigt:
+Eine App oder Website kann nur ein Push-Abo pro Gerät haben. Wenn sich also Nutzer:innen von einem Gerät oder einer Website abmelden und neue Nutzer:innen sich einloggen, wird das Push-Token / Textbaustein den neuen Nutzer:innen zugewiesen. Dies wird im Kundenprofil im Abschnitt **Contact Settings** des Tabs **Engagement** angezeigt:
 
 ![Push-Token-Änderungsprotokoll im Tab „Engagement“ eines Nutzerprofils, das zeigt, wann das Push-Token zu anderen Nutzer:innen verschoben wurde und um welches Token es sich handelt.]({% image_buster /assets/img/push_token_changelog.png %})
 
@@ -157,11 +157,11 @@ Im Dashboard finden Sie Informationen zur Push-Registrierung und zu Push-Änderu
 
 - **Segmentierung** – Filtern Sie nach Abo-Status, Aktivierungsstatus sowie Vordergrund- und Hintergrund-Aktivierungsstatus der Nutzer:innen.
 - **Campaign Analytics** – Zeigen Sie Push-Statistiken und Feedback für eine einzelne Campaign oder ein einzelnes Canvas an.
-- **Kundenprofil or Nutzerprofil (Tab „Engagement“)** – Zeigen Sie **Contact Settings** und das Push-Änderungsprotokoll für bestimmte Nutzer:innen an.
+- **Kundenprofil (Tab „Engagement“)** – Zeigen Sie **Contact Settings** und das Push-Änderungsprotokoll für bestimmte Nutzer:innen an.
 
 Bei der Überprüfung des Push-Aktivierungsstatus zeigt **Push Registered for** an, für welche Plattformen Braze Vordergrund-Push an diese Nutzer:innen senden kann. Unter iOS und Android wird, wenn Nutzer:innen von Vordergrund-Push-aktiviert zu Hintergrund-Push-aktiviert (`remote_notification_enabled`) wechseln, dies im Push-Änderungsprotokoll als „Push-Token / Textbaustein was updated from foreground push enabled to foreground push disabled“ dokumentiert.
 
-Wenn Nutzer:innen als Testnutzer:innen hinzugefügt werden, zeigt das Kundenprofil or Nutzerprofil unter **Entwicklungskonsole** > **User Event Log** eine SDK or Software-Development-Kit-Anfrage mit `remote_notification_enabled` als `true` oder `false` an. Möglicherweise müssen Sie das Kundenprofil or Nutzerprofil Update or aktualisieren or aktualisieren, um die Updates zu sehen, da es eine kurze Verzögerung gibt, bis SDK or Software-Development-Kit-Updates das Kundenprofil or Nutzerprofil erreichen.
+Wenn Nutzer:innen als Testnutzer:innen hinzugefügt werden, zeigt das Kundenprofil unter **Entwicklungskonsole** > **User Event Log** eine SDK-Anfrage mit `remote_notification_enabled` als `true` oder `false` an. Möglicherweise müssen Sie das Kundenprofil aktualisieren, um die Updates zu sehen, da es eine kurze Verzögerung gibt, bis SDK-Updates das Kundenprofil erreichen.
 
 **Segmentierungsfilter für den iOS-Push-Status:**
 
@@ -180,13 +180,13 @@ Wenn Nutzer:innen die native Push-Berechtigungsaufforderung akzeptieren, wird ih
 
 Um Abos zu verwalten, können Sie die Nutzer:innenmethode [`setPushNotificationSubscriptionType`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setpushnotificationsubscriptiontype) verwenden, um eine Einstellungsseite für Präferenzen auf Ihrer Website zu erstellen, nach der Sie Nutzer:innen nach Opt-out-Status im Dashboard filtern können.
 
-Wenn Nutzer:innen Benachrichtigungen in ihrem Browser deaktivieren, wird die nächste an diese Nutzer:innen gesendete Push-Benachrichtigung bouncen, und Braze wird das Push-Token / Textbaustein der Nutzer:innen entsprechend Update or aktualisieren or aktualisieren. Dies wird verwendet, um die Berechtigung für die Push-aktivierten Filter (`Background or Foreground Push Enabled`, `Foreground Push Enabled` und `Foreground Push Enabled for App`) zu verwalten. Der im Kundenprofil or Nutzerprofil gesetzte Abo-Status ist eine Einstellung auf Nutzer:innenebene und ändert sich nicht, wenn ein Push bounct.
+Wenn Nutzer:innen Benachrichtigungen in ihrem Browser deaktivieren, wird die nächste an diese Nutzer:innen gesendete Push-Benachrichtigung bouncen, und Braze wird das Push-Token / Textbaustein der Nutzer:innen entsprechend aktualisieren. Dies wird verwendet, um die Berechtigung für die Push-aktivierten Filter (`Background or Foreground Push Enabled`, `Foreground Push Enabled` und `Foreground Push Enabled for App`) zu verwalten. Der im Kundenprofil gesetzte Abo-Status ist eine Einstellung auf Nutzer:innenebene und ändert sich nicht, wenn ein Push bounct.
 
 ### 410 Web-Push-Token / Textbaustein-Fehler {#410-web-push-token-errors} {#410-web-push-token-errors}
 
 Wenn Sie einen `410: Gone`-Fehler erhalten, kann dies auftreten, wenn Nutzer:innen Web-Push-Benachrichtigungen über die Browsereinstellungen in ihrem Betriebssystem deaktivieren, sich als andere Nutzer:innen auf demselben Gerät einloggen oder die Website seit einiger Zeit nicht mehr besucht haben.
 
-Wenn Sie einen `410: Endpoint Not Valid`-Fehler erhalten, kann dies bedeuten, dass das Web-Push-Token / Textbaustein (im Wesentlichen die URL) abgelaufen ist. Dies kann auftreten, wenn Nutzer:innen die Website nie wieder besuchen oder der Browser das Token / Textbaustein ungültig macht. Es kann auch periodisch auftreten (oft alle paar Monate), abhängig vom Browser. Wenn Nutzer:innen die Website erneut besuchen und ihr Browser weiterhin auf „Allow“ eingestellt ist, erfasst Braze automatisch ein neues Token / Textbaustein für das Gerät. Dies setzt voraus, dass die [`disablePushTokenMaintenance`-Initialisierungsoption](https://js.appboycdn.com/web-sdk/latest/doc/modules/appboy.html#initializationoptions) während der SDK or Software-Development-Kit-Initialisierung nicht verwendet wird.
+Wenn Sie einen `410: Endpoint Not Valid`-Fehler erhalten, kann dies bedeuten, dass das Web-Push-Token / Textbaustein (im Wesentlichen die URL) abgelaufen ist. Dies kann auftreten, wenn Nutzer:innen die Website nie wieder besuchen oder der Browser das Token / Textbaustein ungültig macht. Es kann auch periodisch auftreten (oft alle paar Monate), abhängig vom Browser. Wenn Nutzer:innen die Website erneut besuchen und ihr Browser weiterhin auf „Allow“ eingestellt ist, erfasst Braze automatisch ein neues Token / Textbaustein für das Gerät. Dies setzt voraus, dass die [`disablePushTokenMaintenance`-Initialisierungsoption](https://js.appboycdn.com/web-sdk/latest/doc/modules/appboy.html#initializationoptions) während der SDK-Initialisierung nicht verwendet wird.
 
 {% alert note %}
 Web-Plattformen erlauben kein Hintergrund- oder stilles Push.
@@ -196,7 +196,7 @@ Web-Plattformen erlauben kein Hintergrund- oder stilles Push.
 
 Wenn Push-aktivierte Nutzer:innen Push in ihren Betriebssystemeinstellungen deaktivieren, geschieht zu Beginn der nächsten Sitzung Folgendes:
 - Braze markiert sie als Vordergrund-Push-deaktiviert und versucht nicht mehr, ihnen Push-Nachrichten zu senden.
-- Der Filter `Foreground Push Enabled for App (Android)` und der Segmentierungsfilter `Foreground Push Enabled` (vorausgesetzt, keine anderen Apps im Kundenprofil or Nutzerprofil haben ein gültiges Vordergrund-Push-Token / Textbaustein) geben `false` zurück.
+- Der Filter `Foreground Push Enabled for App (Android)` und der Segmentierungsfilter `Foreground Push Enabled` (vorausgesetzt, keine anderen Apps im Kundenprofil haben ein gültiges Vordergrund-Push-Token / Textbaustein) geben `false` zurück.
 
 In diesem Szenario können Sie, da ein Hintergrund-Push-Token / Textbaustein weiterhin existiert, weiterhin Hintergrund-(stille) Push-Benachrichtigungen mit dem Segmentierungsfilter `Background or Foreground Push Enabled = true` senden.
 
@@ -222,7 +222,7 @@ Wenn Nutzer:innen den Empfang von Push-Benachrichtigungen auf Betriebssystemeben
 
 In dem Szenario, dass Nutzer:innen, die zunächst auf Betriebssystemebene zugestimmt haben, Push-Benachrichtigungen in ihren Betriebssystemeinstellungen deaktivieren, geschieht beim nächsten Sitzungsstart Folgendes:
 - Braze markiert sie als Vordergrund-Push-deaktiviert und versucht nicht mehr, Push-Nachrichten zu senden.
-- Der Filter `Foreground Push Enabled for App (iOS)` und der Segmentierungsfilter `Foreground Push Enabled` (vorausgesetzt, keine anderen Apps im Kundenprofil or Nutzerprofil haben ein gültiges Vordergrund-Push-Token / Textbaustein) geben `false` zurück.
+- Der Filter `Foreground Push Enabled for App (iOS)` und der Segmentierungsfilter `Foreground Push Enabled` (vorausgesetzt, keine anderen Apps im Kundenprofil haben ein gültiges Vordergrund-Push-Token / Textbaustein) geben `false` zurück.
 
 In diesem Szenario können Sie, da ein Hintergrund-Push-Token / Textbaustein weiterhin existiert, weiterhin Hintergrund-(stille) Push-Benachrichtigungen mit dem Segmentierungsfilter `Background or Foreground Push Enabled = true` senden.
 

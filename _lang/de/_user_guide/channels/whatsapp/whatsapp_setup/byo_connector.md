@@ -82,7 +82,7 @@ Bevor Sie den BYO-WhatsApp-Konnektor einrichten, bestätigen Sie, dass der bishe
 - Sie müssen ein neues WABA erstellen und dürfen kein bestehendes auswählen.
 
 {% alert note %}
-Um den Verifizierungscode zu erhalten, gehen Sie zu Ihrem Infobip-Dashboard > **Analyze** > **Logs** und entnehmen Sie den Code aus der eingehenden Kurzmitteilungsdienst or SMS-Nachricht.
+Um den Verifizierungscode zu erhalten, gehen Sie zu Ihrem Infobip-Dashboard > **Analyze** > **Logs** und entnehmen Sie den Code aus der eingehenden SMS-Nachricht.
 {% endalert %}
 
 ![Nachrichtenprotokolle mit einer eingehenden SMS-Nachricht mit dem Verifizierungscode.]({% image_buster /assets/img/whatsapp/byo_connector/verification_code.png %})

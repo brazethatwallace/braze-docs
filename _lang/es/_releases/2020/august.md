@@ -31,7 +31,7 @@ Vizbee permite que todos los smartphones y Smart TV de tu hogar funcionen juntos
 
 ## Asociación con Bluedot {#bluedot-partnership}
 
-Bluedot es una plataforma de ubicación que proporciona un geovallado preciso y sencillo para las aplicaciones. Puedes utilizar el SDK or kit de desarrollo de software de Bluedot para enviar mensajes más inteligentes, automatizar el registro de pedidos móviles, optimizar los flujos de trabajo y crear experiencias sin fricciones. Para más información, consulta nuestra documentación sobre [Bluedot]({{site.baseurl}}/partners/data_augmentation/contextual_location/bluedot/#bluedot).
+Bluedot es una plataforma de ubicación que proporciona un geovallado preciso y sencillo para las aplicaciones. Puedes utilizar el SDK de Bluedot para enviar mensajes más inteligentes, automatizar el registro de pedidos móviles, optimizar los flujos de trabajo y crear experiencias sin fricciones. Para más información, consulta nuestra documentación sobre [Bluedot]({{site.baseurl}}/partners/data_augmentation/contextual_location/bluedot/#bluedot).
 
 ## Asociación con Iterate {#iterate-partnership}
 

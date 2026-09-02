@@ -38,7 +38,7 @@ Antes de começar, você precisará do seguinte:
 | Pré-requisito | Descrição |
 |---------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | Uma conta na Odicci | É necessário ter uma conta na Odicci com acesso à seção **Integrações** para aproveitar essa parceria. |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com as permissões `users.track` e `campaigns.list`. |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com as permissões `users.track` e `campaigns.list`. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração da Odicci {#integrating-odicci}
@@ -51,14 +51,14 @@ Antes de começar, você precisará do seguinte:
 
    ![Conectar a integração com a Braze]({% image_buster /assets/img/odicci/braze_connect.png %})
 
-4. Insira sua chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze no campo fornecido.
+4. Insira sua chave da API REST da Braze no campo fornecido.
 5. Salve as configurações para ativar a integração no nível da conta.
 
-### Etapa 2: Obter sua chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze {#step-2-obtain-your-braze-rest-api-key}
+### Etapa 2: Obter sua chave da API REST da Braze {#step-2-obtain-your-braze-rest-api-key}
 
 1. Faça login na sua conta Braze.
-2. Acesse **Console de desenvolvedor > REST or transferir estado representacional API or interface de programação do aplicativo (API) Keys**.
-3. Crie uma nova chave de API or interface de programação do aplicativo (API) ou copie uma existente com a permissão `users.track`.
+2. Acesse **Console de desenvolvedor > REST API Keys**.
+3. Crie uma nova chave de API ou copie uma existente com a permissão `users.track`.
 
 ### Etapa 3: Ativar a integração no nível da experiência {#step-3-activate-the-integration-at-the-experience-level}
 
@@ -85,13 +85,13 @@ Antes de começar, você precisará do seguinte:
 
 Se você tiver problemas com a integração, considere as seguintes soluções. Para obter mais assistência, entre em contato com o [Suporte da Odicci](https://help.odicci.com).
 
-### Chave de API or interface de programação do aplicativo (API) inválida {#api-key-not-valid}
+### Chave de API inválida {#api-key-not-valid}
 
-Verifique novamente sua chave de API or interface de programação do aplicativo (API) da Braze e certifique-se de que ela tenha as permissões necessárias. Em seguida, insira novamente a chave de API or interface de programação do aplicativo (API) nas configurações de integração da Odicci.
+Verifique novamente sua chave de API da Braze e certifique-se de que ela tenha as permissões necessárias. Em seguida, insira novamente a chave de API nas configurações de integração da Odicci.
 
 ### Os dados não estão sendo sincronizados {#data-not-syncing}
 
-Verifique se os campos na seção **Field Mapping** estão configurados corretamente. Em seguida, certifique-se de que a chave de API or interface de programação do aplicativo (API) tenha permissões para importações de dados de usuários.
+Verifique se os campos na seção **Field Mapping** estão configurados corretamente. Em seguida, certifique-se de que a chave de API tenha permissões para importações de dados de usuários.
 
 ### A Campaign não está sendo disparada {#campaign-not-triggering}
 

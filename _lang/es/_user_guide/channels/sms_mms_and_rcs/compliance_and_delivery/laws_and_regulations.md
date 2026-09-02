@@ -1,8 +1,8 @@
 ---
 nav_title: "Leyes y regulaciones"
-article_title: Leyes y regulaciones para servicio de mensajes cortos, MMS y RCS
+article_title: Leyes y regulaciones para SMS, MMS y RCS
 page_order: 1
-description: "Este artículo de referencia cubre las leyes y regulaciones relacionadas con servicio de mensajes cortos, MMS y RCS."
+description: "Este artículo de referencia cubre las leyes y regulaciones relacionadas con SMS, MMS y RCS."
 page_type: reference
 alias: /sms_mms_rcs_laws/
 channel:
@@ -11,39 +11,39 @@ channel:
   - RCS
 ---
 
-# Leyes, regulaciones y prevención de abusos para servicio de mensajes cortos, MMS y RCS {#laws-regulations-and-abuse-prevention-for-sms-mms-and-rcs}
+# Leyes, regulaciones y prevención de abusos para SMS, MMS y RCS {#laws-regulations-and-abuse-prevention-for-sms-mms-and-rcs}
 
-> Dado que los mensajes servicio de mensajes cortos, MMS y RCS son una de las formas más directas de llegar a los clientes y usuarios, ya que van directamente al teléfono del usuario, deben existir regulaciones que impidan que las marcas abusen o hagan un uso excesivo de esta relación, y las multas por infracciones pueden costar miles de dólares.
+> Dado que los mensajes SMS, MMS y RCS son una de las formas más directas de llegar a los clientes y usuarios, ya que van directamente al teléfono del usuario, deben existir regulaciones que impidan que las marcas abusen o hagan un uso excesivo de esta relación, y las multas por infracciones pueden costar miles de dólares.
 
 {% alert warning %}
-Este artículo no pretende proporcionar, ni puede considerarse como asesoramiento legal. El uso de servicio de mensajes cortos, MMS y RCS está sujeto a requisitos legales específicos. Para asegurarte de que estás utilizando los servicios de servicio de mensajes cortos, MMS y RCS en cumplimiento con todas las leyes aplicables, debes buscar el asesoramiento de tu equipo legal.
+Este artículo no pretende proporcionar, ni puede considerarse como asesoramiento legal. El uso de SMS, MMS y RCS está sujeto a requisitos legales específicos. Para asegurarte de que estás utilizando los servicios de SMS, MMS y RCS en cumplimiento con todas las leyes aplicables, debes buscar el asesoramiento de tu equipo legal.
 {% endalert %}
 
 ## Las siete reglas para lograr el cumplimiento normativo {#the-seven-rules-to-get-compliance-right}
 
-En general, te recomendamos usar tu mejor criterio al enviar mensajes servicio de mensajes cortos, MMS o RCS. Braze, así como nuestros socios de envío, cuentan con controles para prevenir la mayoría de los abusos de servicio de mensajes cortos, MMS y RCS.
+En general, te recomendamos usar tu mejor criterio al enviar mensajes SMS, MMS o RCS. Braze, así como nuestros socios de envío, cuentan con controles para prevenir la mayoría de los abusos de SMS, MMS y RCS.
 
 Utiliza las siguientes reglas al enviar mensajes:
 
-1. **Obtén el consentimiento explícito de los usuarios antes de enviarles servicio de mensajes cortos, MMS o RCS.** Siempre que los usuarios den su consentimiento, es tu responsabilidad registrar, actualizar y mantener esa información en una base de datos de usuarios que cumpla con la normativa. Según las directrices legales básicas, la información más importante que necesitas conservar respecto al consentimiento es:
+1. **Obtén el consentimiento explícito de los usuarios antes de enviarles SMS, MMS o RCS.** Siempre que los usuarios den su consentimiento, es tu responsabilidad registrar, actualizar y mantener esa información en una base de datos de usuarios que cumpla con la normativa. Según las directrices legales básicas, la información más importante que necesitas conservar respecto al consentimiento es:
   - La hora y fecha en que el usuario dio su consentimiento
-  - El tipo de mensajería servicio de mensajes cortos, MMS o RCS al que consintió
+  - El tipo de mensajería SMS, MMS o RCS al que consintió
   - El número de teléfono del usuario
   - El idioma en el que realizó la adhesión voluntaria<br><br>
 
-2. **Comunica claramente los tipos de servicio de mensajes cortos, MMS o RCS que enviarás**. Los usuarios deben entender qué mensajes esperar de tu marca en este canal y los tipos de información u ofertas que recibirán. Indica explícitamente el propósito de tus futuras campañas, la frecuencia de los mensajes y recuerda a los usuarios que se aplican tarifas de mensajes/datos.<br><br>
+2. **Comunica claramente los tipos de SMS, MMS o RCS que enviarás**. Los usuarios deben entender qué mensajes esperar de tu marca en este canal y los tipos de información u ofertas que recibirán. Indica explícitamente el propósito de tus futuras campañas, la frecuencia de los mensajes y recuerda a los usuarios que se aplican tarifas de mensajes/datos.<br><br>
 
-3. **Mantén la información esencial actualizada y visible**. Asegúrate de que la versión más actualizada de los Términos y Condiciones de tu marca y tu Política de Privacidad de Marketing por servicio de mensajes cortos/MMS/RCS estén claramente visibles y sean fácilmente accesibles desde tu página de adhesión voluntaria.<br><br>
+3. **Mantén la información esencial actualizada y visible**. Asegúrate de que la versión más actualizada de los Términos y Condiciones de tu marca y tu Política de Privacidad de Marketing por SMS/MMS/RCS estén claramente visibles y sean fácilmente accesibles desde tu página de adhesión voluntaria.<br><br>
 
-4. **Solo envía servicio de mensajes cortos, MMS o RCS a números de teléfono obtenidos legalmente y con adhesión voluntaria**. Como parte de la planificación técnica de la migración, asegúrate de que tu equipo comprenda el mecanismo para vincular los estados de adhesión voluntaria a cada perfil de usuario en tu plataforma de interacción con los clientes.<br><br>
+4. **Solo envía SMS, MMS o RCS a números de teléfono obtenidos legalmente y con adhesión voluntaria**. Como parte de la planificación técnica de la migración, asegúrate de que tu equipo comprenda el mecanismo para vincular los estados de adhesión voluntaria a cada perfil de usuario en tu plataforma de interacción con los clientes.<br><br>
 
-5. **Asegura el cumplimiento de SHAFT en EE. UU. y otras regiones relevantes.** Enviar mensajes servicio de mensajes cortos, MMS o RCS que contengan lenguaje relacionado con sexo, odio, alcohol, armas de fuego y tabaco (SHAFT) generalmente se considera ilegal en EE. UU. y algunas otras regiones.<br><br>
+5. **Asegura el cumplimiento de SHAFT en EE. UU. y otras regiones relevantes.** Enviar mensajes SMS, MMS o RCS que contengan lenguaje relacionado con sexo, odio, alcohol, armas de fuego y tabaco (SHAFT) generalmente se considera ilegal en EE. UU. y algunas otras regiones.<br><br>
 
 6. **Respeta la "revocación razonable" para mensajes en EE. UU.** Para los clientes que envían mensajes en EE. UU., la Ley de Protección al Consumidor Telefónico (TCPA) requiere que cualquier mensaje que pueda interpretarse razonablemente como una cancelación de suscripción debe ser respetado. Esto significa que los desencadenantes de cancelación de suscripción ya no se limitan a palabras clave específicas (como "STOP").
   - **Cancelaciones basadas en la intención:** Frases como "no más", "por favor no me envíes más mensajes" y "stoppp" deben procesarse como cancelaciones de suscripción legales.
   - **Sin mensajes de aclaración:** No puedes enviar un mensaje para aclarar la intención de un usuario de cancelar su suscripción (por ejemplo, "¿Quisiste cancelar tu suscripción? Si es así, responde STOP") antes de procesar la solicitud.<br><br>
 
-7. **Verifica todo dos veces**. Trabaja con tu equipo legal para asegurarte de que tu programa de servicio de mensajes cortos, MMS o RCS cumpla completamente con todas las reglas y regulaciones aplicables en las regiones donde opera tu marca.<br><br>
+7. **Verifica todo dos veces**. Trabaja con tu equipo legal para asegurarte de que tu programa de SMS, MMS o RCS cumpla completamente con todas las reglas y regulaciones aplicables en las regiones donde opera tu marca.<br><br>
 
 ## Mejores prácticas de cumplimiento para RCS {#rcs-compliance-best-practices}
 
@@ -51,17 +51,17 @@ Utiliza las siguientes reglas al enviar mensajes:
 RCS es un espacio emergente y en evolución. Los estados, países y otros organismos reguladores pueden introducir legislación o regulaciones nuevas o diferentes. La siguiente información es solo para orientación general y fines educativos. Las marcas siempre deben consultar con su equipo legal antes de enviar mensajes RCS.
 {% endalert %}
 
-- **Comprende la superposición regulatoria:** Dado que RCS y servicio de mensajes cortos comparten muchas similitudes, se aplican las mismas leyes, regulaciones y políticas de operadores. Esto incluye las reglas de la TCPA para recopilar adhesiones voluntarias y las directrices de la CTIA (como SHAFT).
-- **Consentimientos:** Trabaja con tu equipo legal para evaluar si necesitas recopilar consentimientos adicionales para enviar RCS a tus usuarios de servicio de mensajes cortos existentes.
-- **Actualiza políticas y avisos legales:** Se recomienda actualizar tus Términos de Servicio Móvil y Política de Privacidad para incluir referencias a RCS. También se recomienda que tus campañas de adhesión voluntaria incluyan lenguaje sobre RCS, además de servicio de mensajes cortos.
+- **Comprende la superposición regulatoria:** Dado que RCS y SMS comparten muchas similitudes, se aplican las mismas leyes, regulaciones y políticas de operadores. Esto incluye las reglas de la TCPA para recopilar adhesiones voluntarias y las directrices de la CTIA (como SHAFT).
+- **Consentimientos:** Trabaja con tu equipo legal para evaluar si necesitas recopilar consentimientos adicionales para enviar RCS a tus usuarios de SMS existentes.
+- **Actualiza políticas y avisos legales:** Se recomienda actualizar tus Términos de Servicio Móvil y Política de Privacidad para incluir referencias a RCS. También se recomienda que tus campañas de adhesión voluntaria incluyan lenguaje sobre RCS, además de SMS.
 
 ## Recursos {#resources}
 
-Aquí tienes algunos enlaces que podrías necesitar consultar mientras desarrollas tu campaña de servicio de mensajes cortos, MMS o RCS:
+Aquí tienes algunos enlaces que podrías necesitar consultar mientras desarrollas tu campaña de SMS, MMS o RCS:
 
 - [Principios y mejores prácticas de mensajería de la CTIA para 2023](https://api.ctia.org/wp-content/uploads/2023/05/230523-CTIA-Messaging-Principles-and-Best-Practices-FINAL.pdf)
-- [Guía de Twilio sobre cumplimiento de servicio de mensajes cortos en EE. UU.](https://www.twilio.com/learn/call-and-text-marketing/guide-to-us-sms-compliance)
-- [Cumplimiento y recursos de servicio de mensajes cortos en Estados Unidos de Acoustic](https://help.goacoustic.com/hc/en-us/articles/360043717414-United-States-SMS-compliance-and-resources)
+- [Guía de Twilio sobre cumplimiento de SMS en EE. UU.](https://www.twilio.com/learn/call-and-text-marketing/guide-to-us-sms-compliance)
+- [Cumplimiento y recursos de SMS en Estados Unidos de Acoustic](https://help.goacoustic.com/hc/en-us/articles/360043717414-United-States-SMS-compliance-and-resources)
 
 ## Consideraciones para el cumplimiento {#considerations-for-compliance}
 
@@ -75,9 +75,9 @@ La [CTIA](https://www.ctia.org/) (una asociación comercial que representa a la 
 
 ### Consentimiento {#consent}
 
-Las opciones de adhesión voluntaria, ayuda y cancelación de suscripción son absolutamente imprescindibles al crear campañas de servicio de mensajes cortos, MMS o RCS.
+Las opciones de adhesión voluntaria, ayuda y cancelación de suscripción son absolutamente imprescindibles al crear campañas de SMS, MMS o RCS.
 
-La Ley de Protección al Consumidor Telefónico ([TCPA](https://en.wikipedia.org/wiki/Telephone_Consumer_Protection_Act_of_1991)) exige que una empresa debe recibir "consentimiento expreso por escrito" para enviar mensajes a los clientes; puedes hacerlo de múltiples maneras, incluyendo web o móvil. Debes ser claro con el cliente sobre cómo pretendes usar servicio de mensajes cortos para comunicarte con él.
+La Ley de Protección al Consumidor Telefónico ([TCPA](https://en.wikipedia.org/wiki/Telephone_Consumer_Protection_Act_of_1991)) exige que una empresa debe recibir "consentimiento expreso por escrito" para enviar mensajes a los clientes; puedes hacerlo de múltiples maneras, incluyendo web o móvil. Debes ser claro con el cliente sobre cómo pretendes usar SMS para comunicarte con él.
 
 Recuerda cumplir con el [Registro Nacional de No Llamar](https://www.donotcall.gov/).
 
@@ -94,7 +94,7 @@ Para ayudar a automatizar el reconocimiento de solicitudes de cancelación de su
 
 De manera similar al correo electrónico, tus usuarios o clientes pueden experimentar fatiga del buzón de entrada. Pero esta es solo una razón para no enviar mensajes incesantemente a tus clientes. Debes consultar específicamente la [Sección 5 de la Ley de la FTC](https://www.federalreserve.gov/boarddocs/supmanual/cch/ftca.pdf) para asegurar el cumplimiento (en EE. UU.).
 
-Algunas consideraciones sobre correo no deseado están integradas en las capacidades de servicio de mensajes cortos en general (límites de envío de códigos largos y abreviados), así como en los límites de velocidad de Braze. Sin embargo, aún debes considerar las leyes de cumplimiento al planificar tus campañas.
+Algunas consideraciones sobre correo no deseado están integradas en las capacidades de SMS en general (límites de envío de códigos largos y abreviados), así como en los límites de velocidad de Braze. Sin embargo, aún debes considerar las leyes de cumplimiento al planificar tus campañas.
 
 ### Contenido {#content}
 

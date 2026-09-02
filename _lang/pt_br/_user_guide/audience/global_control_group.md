@@ -23,7 +23,7 @@ Ao comparar o comportamento dos usuários que recebem mensagens com aqueles que 
 Com o grupo de controle global, você pode definir uma porcentagem de todos os usuários como grupo de controle. Quando salvo, os usuários do grupo não recebem nenhuma Campaign ou Canvas.
 
 {% alert important %}
-Seu grupo de controle global se aplica a todos os canais, Campaigns e Canvas, exceto [Campaigns de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/api_campaigns). Isso significa que os usuários do seu grupo de controle ainda recebem Campaigns de API or interface de programação do aplicativo (API). No entanto, essa exceção não se aplica a Content Cards. Se você estiver usando uma Campaign de Content Cards disparada por API or interface de programação do aplicativo (API), os usuários do seu grupo de controle não as receberão.
+Seu grupo de controle global se aplica a todos os canais, Campaigns e Canvas, exceto [Campaigns de API]({{site.baseurl}}/api/api_campaigns). Isso significa que os usuários do seu grupo de controle ainda recebem Campaigns de API. No entanto, essa exceção não se aplica a Content Cards. Se você estiver usando uma Campaign de Content Cards disparada por API, os usuários do seu grupo de controle não as receberão.
 {% endalert %}
 
 ### Atribuir usuários aleatoriamente ao grupo de controle global {#assign-users-randomly-to-the-global-control-group}
@@ -92,9 +92,9 @@ Após desativar seu grupo de controle, você pode salvar um novo. Quando você i
 
 ## Exportar os membros do seu grupo de controle {#export-group-members}
 
-Se você quiser ver quais usuários estão no seu grupo de controle global, pode exportar os membros do seu grupo por CSV ou API or interface de programação do aplicativo (API).
+Se você quiser ver quais usuários estão no seu grupo de controle global, pode exportar os membros do seu grupo por CSV ou API.
 
-Para executar uma exportação CSV, navegue até a guia **Global Control Group Settings** e clique em <i class="fas fa-download" aria-label="Baixar"></i>&nbsp;**Export**. Para exportar por API or interface de programação do aplicativo (API), use o [endpoint `/users/export/global_control_group`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group).
+Para executar uma exportação CSV, navegue até a guia **Global Control Group Settings** e clique em <i class="fas fa-download" aria-label="Baixar"></i>&nbsp;**Export**. Para exportar por API, use o [endpoint `/users/export/global_control_group`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group).
 
 {% alert important %}
 Grupos de controle históricos não são preservados, então você só pode exportar os membros do seu grupo atual. Certifique-se de exportar todas as informações necessárias antes de desativar um grupo de controle.
@@ -164,7 +164,7 @@ Ao configurar seus grupos de controle global e visualizar relatórios, estes sã
 
 #### Sobreposição de números de bucket aleatórios {#overlapping-random-bucket-numbers}
 
-Seu grupo de controle global é formado usando números de bucket aleatórios. Portanto, se você estiver executando outros testes usando filtros de Segment or segmento com números de bucket aleatórios, tenha em mente que pode haver uma sobreposição entre os Segments que você criar e os usuários do seu grupo de controle global.
+Seu grupo de controle global é formado usando números de bucket aleatórios. Portanto, se você estiver executando outros testes usando filtros de Segment com números de bucket aleatórios, tenha em mente que pode haver uma sobreposição entre os Segments que você criar e os usuários do seu grupo de controle global.
 
 #### Endereços de e-mail duplicados {#duplicate-email-addresses}
 
@@ -182,7 +182,7 @@ Resumindo, os usuários no grupo de controle global são filtrados do público d
 
 #### Segments do grupo de controle global no console de desenvolvedor {#global-control-group-segments-on-the-developer-console}
 
-Você pode ver vários Segments de **controle global** na seção **Identificadores de API or interface de programação do aplicativo (API) adicionais** da página [Chaves de API or interface de programação do aplicativo (API)]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers). Isso ocorre porque, cada vez que o grupo de controle global é ativado ou desativado, um novo grupo de controle global é formado. Isso resulta em vários Segments rotulados como "Grupo de controle global".
+Você pode ver vários Segments de **controle global** na seção **Identificadores de API adicionais** da página [Chaves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers). Isso ocorre porque, cada vez que o grupo de controle global é ativado ou desativado, um novo grupo de controle global é formado. Isso resulta em vários Segments rotulados como "Grupo de controle global".
 
 Apenas um desses Segments está ativo e pode ser consultado usando o [endpoint `/users/export/global_control_group`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group), ou exportado pelo dashboard. A exportação pelo dashboard indica especificamente quais subsegmentos compõem esse grupo de controle global.
 

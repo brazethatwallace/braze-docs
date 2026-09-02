@@ -2,12 +2,12 @@
 nav_title: Nutzer:innen importieren
 article_title: Nutzer:innen importieren
 page_order: 3
-description: "Erfahren Sie mehr über die verschiedenen Nutzerimport-Optionen von Braze, wie CSV-Import, Representational State Transfer API, Cloud-Datenaufnahme und mehr."
+description: "Erfahren Sie mehr über die verschiedenen Nutzerimport-Optionen von Braze, wie CSV-Import, REST API, Cloud-Datenaufnahme und mehr."
 
 ---
 # Nutzer:innen importieren {#import-users}
 
-> Erfahren Sie mehr über die verschiedenen Nutzerimport-Optionen von Braze, wie CSV-Import, Representational State Transfer API, Cloud-Datenaufnahme und mehr.
+> Erfahren Sie mehr über die verschiedenen Nutzerimport-Optionen von Braze, wie CSV-Import, REST API, Cloud-Datenaufnahme und mehr.
 
 ## Importoptionen {#import-options}
 
@@ -15,7 +15,7 @@ Sie können Nutzerattribute und Events über einen CSV-Import in Braze, ein serv
 
 ### Braze CSV-Import {#braze-csv-import}
 
-Sie können den CSV-Import verwenden, um die folgenden Nutzerattribute und angepassten Events zu erfassen und zu Update or aktualisieren or aktualisieren. Lesen Sie für den Einstieg den Artikel [CSV-Import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import).
+Sie können den CSV-Import verwenden, um die folgenden Nutzerattribute und angepassten Events zu erfassen und zu aktualisieren. Lesen Sie für den Einstieg den Artikel [CSV-Import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import).
 
 |Typ|Definition|Beispiel|Maximale Dateigröße|
 |---|---|---|---|
@@ -40,7 +40,7 @@ Verwenden Sie unser serverloses S3-Lambda-CSV-Importskript, um Nutzerattribute i
 
 Die geschätzte Ausführungszeit für eine Datei mit 1.000.000 Zeilen beträgt ca. fünf Minuten. Weitere Informationen finden Sie unter [Nutzerattribut-CSV-Import in Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
 
-### Representational State Transfer API
+### REST API
 
 Verwenden Sie den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track), um angepasste Events, Nutzerattribute und Käufe für Nutzer:innen zu erfassen.
 

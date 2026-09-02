@@ -7,7 +7,7 @@ layout: api_page
 page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint Atualizar relacionamento de objeto."
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Atualizar relacionamento de objeto {#update-object-relationship}
 {% apimethod patch %}
 /data_objects/objects/{type_name}/{external_id}/object_relationships
@@ -16,12 +16,12 @@ description: "Este artigo descreve detalhes sobre o endpoint Atualizar relaciona
 > Use este endpoint para mesclar atributos em um relacionamento de objeto existente.
 
 {% alert important %}
-Data Objects está atualmente em acesso antecipado. Seu espaço de trabalho precisa estar ativado antes que as permissões de chave de API or interface de programação do aplicativo (API) de Data Objects apareçam em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**.
+Data Objects está atualmente em acesso antecipado. Seu espaço de trabalho precisa estar ativado antes que as permissões de chave de API de Data Objects apareçam em **Configurações** > **Chaves de API**.
 {% endalert %}
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `data_objects.object_relationships.update`.
+Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `data_objects.object_relationships.update`.
 
 ## Limite de frequência {#rate-limit}
 
@@ -126,8 +126,8 @@ A tabela a seguir lista os erros comuns para este endpoint e como resolvê-los.
 |---|---|---|
 | `400` | Erro de validação | Confirme que `rel_kind`, `anchor` e `attributes` são válidos para o tipo de relacionamento. |
 | `404` | Relacionamento não encontrado (`data-object-relationship-not-found`) | Confirme que o objeto de origem, o objeto relacionado e os valores da chave de relacionamento existem. |
-| `401` | Chave da REST or transferir estado representacional API or interface de programação do aplicativo (API) ausente ou inválida | Verifique se o cabeçalho `Authorization` usa `Bearer YOUR_REST_API_KEY` e se a chave está ativa. |
-| `403` | A chave de API or interface de programação do aplicativo (API) não tem permissão ou a requisição está bloqueada pela lista de permissões | Confirme que a chave tem `data_objects.object_relationships.update` e que o IP de origem está na lista de permissões da chave, se configurado. |
+| `401` | Chave da REST API ausente ou inválida | Verifique se o cabeçalho `Authorization` usa `Bearer YOUR_REST_API_KEY` e se a chave está ativa. |
+| `403` | A chave de API não tem permissão ou a requisição está bloqueada pela lista de permissões | Confirme que a chave tem `data_objects.object_relationships.update` e que o IP de origem está na lista de permissões da chave, se configurado. |
 | `429` | Limite de frequência excedido | Tente novamente após `X-RateLimit-Reset` e reduza a frequência de requisições. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Erros ao atualizar relacionamento de objeto" }
 {% endapi %}

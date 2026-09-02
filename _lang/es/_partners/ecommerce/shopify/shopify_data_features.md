@@ -420,7 +420,7 @@ Braze depende de Shopify para proporcionar las propiedades del evento requeridas
 **Evento**: `ecommerce.product_viewed`<br>
 **Tipo**: Evento recomendado<br>
 **Se desencadena**: Cuando un cliente ve la página de un producto<br>
-**Origen de datos**: SDK or kit de desarrollo de software de Braze<br>
+**Origen de datos**: SDK de Braze<br>
 **Ejemplo**: Abandono de navegación
 
 {% raw %}
@@ -445,7 +445,7 @@ Braze depende de Shopify para proporcionar las propiedades del evento requeridas
 **Evento**: `ecommerce.cart_updated`<br>
 **Tipo**: Evento recomendado<br>
 **Se desencadena**: Cuando un cliente añade, elimina o actualiza su carrito de compras<br>
-**Origen de datos**: SDK or kit de desarrollo de software de Braze<br>
+**Origen de datos**: SDK de Braze<br>
 **Ejemplo**: Abandono del carrito de compras
 
 Para los Canvas de carrito abandonado, primero necesitas añadir la etiqueta de Liquid del carrito de compras inicial para obtener el contexto del carrito en tu mensaje.
@@ -486,7 +486,7 @@ Para obtener más información sobre cómo crear un bucle `for` de Liquid para a
 **Evento**: `ecommerce.checkout_started`<br>
 **Tipo**: Evento recomendado<br>
 **Se desencadena**: Cuando un usuario navega a la página de pago<br>
-**Origen de datos**: REST or transferencia de estado representacional API de Braze<br>
+**Origen de datos**: REST API de Braze<br>
 **Ejemplo**: Abandono de pago
 
 {% alert important %}
@@ -528,7 +528,7 @@ Luego puedes añadir las siguientes etiquetas de Liquid en tu mensaje para hacer
 **Evento**: `ecommerce.order_placed`<br>
 **Tipo**: Evento recomendado<br>
 **Se desencadena**: Cuando un usuario completa con éxito el proceso de pago y realiza un pedido<br>
-**Origen de datos**: REST or transferencia de estado representacional API de Braze<br>
+**Origen de datos**: REST API de Braze<br>
 **Ejemplo**: Confirmación de pedido, reorientación posterior a la compra, ventas adicionales o ventas cruzadas
 
 {% raw %}
@@ -561,7 +561,7 @@ El webhook de pago completado de Shopify no incluye URL de productos ni URL de i
 **Evento**: `shopify_fulfilled_order`<br>
 **Tipo**: [Evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events)<br>
 **Se desencadena**: Cuando el pedido de un usuario se completa y está listo para el envío<br>
-**Origen de datos**: REST or transferencia de estado representacional API de Braze<br>
+**Origen de datos**: REST API de Braze<br>
 **Ejemplo**: (Transaccional) Actualización de cumplimiento
 
 {% raw %}
@@ -612,7 +612,7 @@ El webhook de pago completado de Shopify no incluye URL de productos ni URL de i
 **Evento**: `shopify_partially_fulfilled_order`<br>
 **Tipo**: [Evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events)<br>
 **Se desencadena**: Cuando parte del pedido de un usuario se completa y está lista para el envío<br>
-**Origen de datos**: REST or transferencia de estado representacional API de Braze<br>
+**Origen de datos**: REST API de Braze<br>
 **Ejemplo**: (Transaccional) Actualización de cumplimiento
 
 {% raw %}
@@ -663,7 +663,7 @@ El webhook de pago completado de Shopify no incluye URL de productos ni URL de i
 **Evento**: `shopify_paid_order`<br>
 **Tipo**: [Evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events)<br>
 **Se desencadena**: Cuando el pedido de un usuario se marca como pagado en Shopify<br>
-**Origen de datos**: REST or transferencia de estado representacional API de Braze<br>
+**Origen de datos**: REST API de Braze<br>
 **Ejemplo**: (Transaccional) Confirmación de pago
 
 {% raw %}
@@ -697,7 +697,7 @@ El webhook de pago completado de Shopify no incluye URL de productos ni URL de i
 **Evento**: `ecommerce.order_cancelled`<br>
 **Tipo**: Evento recomendado<br>
 **Se desencadena**: Cuando el pedido de un usuario se cancela<br>
-**Origen de datos**: REST or transferencia de estado representacional API de Braze<br>
+**Origen de datos**: REST API de Braze<br>
 **Ejemplo**: (Transaccional) Confirmación de cancelación de pedido
 
 {% raw %}
@@ -733,7 +733,7 @@ El webhook de pago completado de Shopify no incluye URL de productos ni URL de i
 **Evento**: `ecommerce.order_refunded`<br>
 **Tipo**: Evento recomendado<br>
 **Se desencadena**: Cuando el pedido de un usuario se reembolsa<br>
-**Origen de datos**: REST or transferencia de estado representacional API de Braze<br>
+**Origen de datos**: REST API de Braze<br>
 **Ejemplo**: (Transaccional) Confirmación de reembolso
 
 {% raw %}
@@ -760,7 +760,7 @@ El webhook de pago completado de Shopify no incluye URL de productos ni URL de i
 **Evento**: `shopify_account_login`<br>
 **Tipo**: [Evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events)<br>
 **Se desencadena**: Cuando un usuario inicia sesión en su cuenta<br>
-**Origen de datos**: REST or transferencia de estado representacional API de Braze<br>
+**Origen de datos**: REST API de Braze<br>
 **Ejemplo**: Serie de bienvenida
 
 {% raw %}
@@ -852,9 +852,9 @@ Después de seleccionar tu atributo personalizado, ingresa un valor predetermina
 Braze solo actualizará los atributos personalizados de Shopify compatibles y los atributos estándar de Braze si hay una diferencia en los datos respecto al perfil de usuario existente. Por ejemplo, si los datos entrantes de Shopify contienen un nombre de Bob y Bob ya existe como nombre en el perfil de usuario de Braze, Braze no activará una actualización y no se te cobrará un punto de datos.
 {% endalert %}
 
-## Recopilación de datos del SDK or kit de desarrollo de software {#sdk-data-collection}
+## Recopilación de datos del SDK {#sdk-data-collection}
 
-Para obtener más información sobre los datos que recopilan los SDK or kit de desarrollo de software de Braze, consulta [Recopilación de datos del SDK or kit de desarrollo de software]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection).
+Para obtener más información sobre los datos que recopilan los SDK de Braze, consulta [Recopilación de datos del SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection).
 
 ## Reabastecimiento histórico {#historical-backfill}
 
@@ -890,5 +890,5 @@ La siguiente tabla resume los datos incluidos en esa carga inicial.
 
 | Eventos recomendados de Braze | Eventos personalizados de Shopify | Atributos estándar de Braze | Estados de suscripción de Braze |
 | --- | --- | --- | --- |
-| {::nomarkdown}<ul><li>Order placed</li><li>Order cancelled</li><li>Order refunded</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} | {::nomarkdown}<ul><li>Email</li><li>First Name</li><li>Last Name</li><li>Phone</li><li>City</li><li>Country</li><li>Total Revenue</li><li>Total Refunds</li><li>Total Orders</li></ul>{:/} | {::nomarkdown}<ul><li>Suscripciones de marketing por correo electrónico asociadas con esta tienda de Shopify</li><li>Suscripciones de marketing por servicio de mensajes cortos asociadas con esta tienda de Shopify</li></ul>{:/} |
+| {::nomarkdown}<ul><li>Order placed</li><li>Order cancelled</li><li>Order refunded</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} | {::nomarkdown}<ul><li>Email</li><li>First Name</li><li>Last Name</li><li>Phone</li><li>City</li><li>Country</li><li>Total Revenue</li><li>Total Refunds</li><li>Total Orders</li></ul>{:/} | {::nomarkdown}<ul><li>Suscripciones de marketing por correo electrónico asociadas con esta tienda de Shopify</li><li>Suscripciones de marketing por SMS asociadas con esta tienda de Shopify</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Datos sincronizados" }

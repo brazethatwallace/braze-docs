@@ -17,7 +17,7 @@ search_tag: Partner
 Si vous changez de fournisseur de stockage en nuage, contactez votre gestionnaire de la satisfaction client Braze pour obtenir de l'aide sur la configuration et la validation de votre nouvelle intégration.
 {% endalert %}
 
-L'intégration de Braze et Microsoft Azure Blob Storage vous permet de réexporter des données vers Azure et de diffuser des données Currents. Vous pouvez ensuite utiliser un processus ETL (ETL or extraire, transformer, charger) pour transférer vos données vers d'autres emplacements.
+L'intégration de Braze et Microsoft Azure Blob Storage vous permet de réexporter des données vers Azure et de diffuser des données Currents. Vous pouvez ensuite utiliser un processus ETL (ETL) pour transférer vos données vers d'autres emplacements.
 
 ## Prérequis {#prerequisites}
 

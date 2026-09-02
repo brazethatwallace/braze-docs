@@ -9,28 +9,28 @@ alias: /partners/okendo/
 
 # Okendo
 
-> [Okendo](https://okendo.io/) ist eine einheitliche Plattform für das Kundenmarketing, die Tools zur Pflege der Kundenbindung, zum Ausbau der Mundpropaganda und zur Maximierung des LTV or Lifetime-Value or Lifetime-Value bietet, um Ihre Kund:innen für ein schnelleres und effizienteres Wachstum zu mobilisieren.
+> [Okendo](https://okendo.io/) ist eine einheitliche Plattform für das Kundenmarketing, die Tools zur Pflege der Kundenbindung, zum Ausbau der Mundpropaganda und zur Maximierung des LTV bietet, um Ihre Kund:innen für ein schnelleres und effizienteres Wachstum zu mobilisieren.
 
 *Diese Integration wird von Okendo gepflegt.*
 
 ## Über die Integration {#about-the-integration}
 
-Die Integration von Braze mit Okendo funktioniert über mehrere Produkte der Okendo-Plattform, darunter Reviews, Loyalty, Referrals, Umfragen und Quizze. Okendo sendet angepasste Events und Nutzerattribute an Braze, die zur Personalisierung und zum Trigger or triggern or triggern von Nachrichten verwendet werden können.
+Die Integration von Braze mit Okendo funktioniert über mehrere Produkte der Okendo-Plattform, darunter Reviews, Loyalty, Referrals, Umfragen und Quizze. Okendo sendet angepasste Events und Nutzerattribute an Braze, die zur Personalisierung und zum Triggern von Nachrichten verwendet werden können.
 
 ## Voraussetzungen {#prerequisites}
 
 | Anforderung | Beschreibung |
 |---|---|
 | Okendo-Konto | Um diese Partnerschaft zu nutzen, benötigen Sie ein Okendo-Konto. |
-| Braze-Representational State Transfer-API-Schlüssel | Ein Braze-Representational State Transfer-API-Schlüssel mit `users.track`-Berechtigungen. Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze-Representational State Transfer-Endpunkt | [Ihre URL für den Representational State Transfer-Endpunkt]({{site.baseurl}}/api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
+| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit `users.track`-Berechtigungen. Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze-REST-Endpunkt | [Ihre URL für den REST-Endpunkt]({{site.baseurl}}/api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Integration
 
 ### 1. Schritt: Braze-Konnektor in Okendo einrichten {#step-1-set-up-braze-connector-in-okendo}
 
-1. Gehen Sie in Okendo zu **Settings** > **Integrations** > **Email & Kurzmitteilungsdienst or SMS** > **Braze**.
+1. Gehen Sie in Okendo zu **Settings** > **Integrations** > **Email & SMS** > **Braze**.
 2. Fügen Sie den API-Endpunkt und den API-Schlüssel zu den **Integration**-Einstellungen hinzu.
 
 ### 2. Schritt: Bezeichner konfigurieren {#step-2-configure-your-identifier}
@@ -77,7 +77,7 @@ Beispiele für Event-Daten finden Sie in der [Dokumentation von Okendo](https://
 
 ### Angepasste Attribute {#custom-attributes}
 
-Okendo sendet Kundenprofil or Nutzerprofil-Daten als angepasste Attribute in Braze, die zur Erstellung von Zielgruppen-Segmenten verwendet werden können. Beispiele hierfür sind:
+Okendo sendet Kundenprofil-Daten als angepasste Attribute in Braze, die zur Erstellung von Zielgruppen-Segmenten verwendet werden können. Beispiele hierfür sind:
 
 - Profilfragen, die in Umfragen und bei der Einreichung einer Bewertung gestellt werden, wie Alter, Geburtstag, Hauttyp und Haarfarbe
 - Review-Metriken wie _Average Review Rating_ und _Average Review Sentiment_

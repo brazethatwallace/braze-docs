@@ -1,8 +1,8 @@
 ---
-nav_title: Andere SDK or Software-Development-Kit-Anpassungen
-article_title: Andere SDK or Software-Development-Kit-Anpassungen für iOS
+nav_title: Andere SDK-Anpassungen
+article_title: Andere SDK-Anpassungen für iOS
 platform: iOS
-description: "Dieser Referenzartikel beschreibt die Anpassung des SDK or Software-Development-Kit, wie z. B. die Protokollstufe, die IDFA-Erfassung und andere Anpassungen."
+description: "Dieser Referenzartikel beschreibt die Anpassung des SDK, wie z. B. die Protokollstufe, die IDFA-Erfassung und andere Anpassungen."
 page_order: 3
 
 noindex: true
@@ -10,11 +10,11 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Andere SDK or Software-Development-Kit-Anpassungen {#other-sdk-customizations}
+# Andere SDK-Anpassungen {#other-sdk-customizations}
 
 ## Braze-Protokollstufe {#braze-log-level}
 
-Die Standard-Protokollstufe für das Braze iOS SDK or Software-Development-Kit ist minimal oder `8` im folgenden Chart. Diese Stufe unterdrückt den größten Teil der Protokollierung, sodass in einer für die Produktion freigegebenen Anwendung keine sensiblen Informationen protokolliert werden.
+Die Standard-Protokollstufe für das Braze iOS SDK ist minimal oder `8` im folgenden Chart. Diese Stufe unterdrückt den größten Teil der Protokollierung, sodass in einer für die Produktion freigegebenen Anwendung keine sensiblen Informationen protokolliert werden.
 
 Die verfügbaren Protokollstufen sind der folgenden Liste zu entnehmen:
 
@@ -26,7 +26,7 @@ Die verfügbaren Protokollstufen sind der folgenden Liste zu entnehmen:
 | 1        | Debug. Debug- und höhere Protokollinformationen werden in der iOS-Konsole protokolliert.  |
 | 2        | Warnung. Warnungen und höhere Protokollinformationen werden in der iOS-Konsole protokolliert.  |
 | 4        | Fehler. Fehler- und höhere Protokollinformationen werden in der iOS-Konsole protokolliert.  |
-| 8        | Minimal. Minimale Informationen werden in der iOS-Konsole protokolliert. Die Standardeinstellung des SDK or Software-Development-Kit. |
+| 8        | Minimal. Minimale Informationen werden in der iOS-Konsole protokolliert. Die Standardeinstellung des SDK. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Protokollstufen" }
 
 ### Ausführliche Protokollierung {#verbose-logging}
@@ -43,7 +43,7 @@ Die Protokollstufe kann entweder zur Kompilierzeit oder zur Laufzeit zugewiesen 
 Fügen Sie ein Wörterbuch mit dem Namen `Braze` zu Ihrer Datei `Info.plist` hinzu. Fügen Sie im Wörterbuch `Braze` den String-Untereintrag `LogLevel` hinzu und setzen Sie den Wert auf `0`.
 
 {% alert note %}
-Vor Braze iOS SDK or Software-Development-Kit v4.0.2 muss der Wörterbuchschlüssel `Appboy` anstelle von `Braze` verwendet werden.
+Vor Braze iOS SDK v4.0.2 muss der Wörterbuchschlüssel `Appboy` anstelle von `Braze` verwendet werden.
 {% endalert %}
 
 Beispiel für `Info.plist`-Inhalte:
@@ -87,7 +87,7 @@ Appboy.start(withApiKey: "YOUR-API-KEY", in:application, withLaunchOptions:launc
 {% endsubtabs %}
 
 {% alert note %}
-Zur Laufzeit kann die Protokollstufe nur mit Braze iOS SDK or Software-Development-Kit v4.4.0 oder neuer eingestellt werden. Wenn Sie eine frühere SDK or Software-Development-Kit-Version verwenden, legen Sie die Protokollstufe stattdessen bei der Kompilierung fest.
+Zur Laufzeit kann die Protokollstufe nur mit Braze iOS SDK v4.4.0 oder neuer eingestellt werden. Wenn Sie eine frühere SDK-Version verwenden, legen Sie die Protokollstufe stattdessen bei der Kompilierung fest.
 {% endalert %}
 
 {% endtab %}
@@ -95,13 +95,13 @@ Zur Laufzeit kann die Protokollstufe nur mit Braze iOS SDK or Software-Developme
 
 ## Optionale IDFV-Erhebung – Swift {#optional-idfv-collection-swift}
 
-In früheren Versionen des Braze iOS Swift SDK or Software-Development-Kit wurde das Feld IDFV (Identifier for Vendors) automatisch als Geräte-ID der Nutzer:innen erfasst.
+In früheren Versionen des Braze iOS Swift SDK wurde das Feld IDFV (Identifier for Vendors) automatisch als Geräte-ID der Nutzer:innen erfasst.
 
-Ab Swift SDK or Software-Development-Kit v5.7.0 kann das IDFV-Feld optional deaktiviert werden. Stattdessen setzt Braze eine zufällige UUID als Geräte-ID. Weitere Informationen finden Sie unter [IDFV-Erhebung]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift).
+Ab Swift SDK v5.7.0 kann das IDFV-Feld optional deaktiviert werden. Stattdessen setzt Braze eine zufällige UUID als Geräte-ID. Weitere Informationen finden Sie unter [IDFV-Erhebung]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift).
 
 ## Optionale IDFA-Erfassung {#optional-idfa-collection}
 
-Die IDFA-Erfassung ist im Braze SDK or Software-Development-Kit optional und standardmäßig deaktiviert. Die IDFA-Erfassung ist in Braze nur erforderlich, wenn Sie unsere [Install-Attribution-Integrationen]({{site.baseurl}}/partners/message_orchestration/attribution/adjust) verwenden möchten. Wenn Sie sich für die Speicherung Ihres IDFA entscheiden, speichern wir ihn kostenlos, sodass Sie die Vorteile dieser Optionen sofort nach der Veröffentlichung ohne zusätzliche Entwicklungsarbeit nutzen können.
+Die IDFA-Erfassung ist im Braze SDK optional und standardmäßig deaktiviert. Die IDFA-Erfassung ist in Braze nur erforderlich, wenn Sie unsere [Install-Attribution-Integrationen]({{site.baseurl}}/partners/message_orchestration/attribution/adjust) verwenden möchten. Wenn Sie sich für die Speicherung Ihres IDFA entscheiden, speichern wir ihn kostenlos, sodass Sie die Vorteile dieser Optionen sofort nach der Veröffentlichung ohne zusätzliche Entwicklungsarbeit nutzen können.
 
 Wir empfehlen daher, den IDFA weiterhin zu erfassen, wenn Sie eines der folgenden Kriterien erfüllen:
 
@@ -181,11 +181,11 @@ class IDFADelegate: NSObject, ABKIDFADelegate {
 
 Legen Sie in dem an `startWithApiKey:inApplication:withAppboyOptions:` übergebenen Wörterbuch `appboyOptions` den Schlüssel `ABKIDFADelegateKey` auf eine Instanz Ihrer mit `ABKIDFADelegate` konformen Klasse fest.
 
-## Ungefähre Größe des iOS SDK or Software-Development-Kit {#ios-sdk-size}
+## Ungefähre Größe des iOS SDK {#ios-sdk-size}
 
-Die ungefähre Größe der iOS-SDK or Software-Development-Kit-Framework-Datei beträgt 30&nbsp;MB. Die ungefähre .ipa-Größe (Ergänzung zur App-Datei) liegt zwischen 1&nbsp;MB und 2&nbsp;MB.
+Die ungefähre Größe der iOS-SDK-Framework-Datei beträgt 30&nbsp;MB. Die ungefähre .ipa-Größe (Ergänzung zur App-Datei) liegt zwischen 1&nbsp;MB und 2&nbsp;MB.
 
-Braze misst die Größe unseres iOS SDK or Software-Development-Kit, indem es die Auswirkungen des SDK or Software-Development-Kit auf die `.ipa`-Größe beobachtet – gemäß Apples [Empfehlungen zur App-Größe](https://developer.apple.com/library/content/qa/qa1795/_index.html). Wenn Sie den Größenzuwachs Ihrer Anwendung durch das iOS SDK or Software-Development-Kit berechnen, empfehlen wir Ihnen, [einen Bericht zur App-Größe abzurufen](https://developer.apple.com/library/content/qa/qa1795/_index.html), um den Größenunterschied der `.ipa` vor und nach der Integration des Braze iOS SDK or Software-Development-Kit zu vergleichen. Wenn Sie die Größen aus dem Bericht zur App-Ausdünnung vergleichen, empfehlen wir Ihnen, auch die App-Größen für ausgedünnte `.ipa`-Dateien zu betrachten, da die universellen `.ipa`-Dateien größer sind als die Binärdateien, die aus dem App Store heruntergeladen und auf den Geräten der Nutzer:innen installiert werden.
+Braze misst die Größe unseres iOS SDK, indem es die Auswirkungen des SDK auf die `.ipa`-Größe beobachtet – gemäß Apples [Empfehlungen zur App-Größe](https://developer.apple.com/library/content/qa/qa1795/_index.html). Wenn Sie den Größenzuwachs Ihrer Anwendung durch das iOS SDK berechnen, empfehlen wir Ihnen, [einen Bericht zur App-Größe abzurufen](https://developer.apple.com/library/content/qa/qa1795/_index.html), um den Größenunterschied der `.ipa` vor und nach der Integration des Braze iOS SDK zu vergleichen. Wenn Sie die Größen aus dem Bericht zur App-Ausdünnung vergleichen, empfehlen wir Ihnen, auch die App-Größen für ausgedünnte `.ipa`-Dateien zu betrachten, da die universellen `.ipa`-Dateien größer sind als die Binärdateien, die aus dem App Store heruntergeladen und auf den Geräten der Nutzer:innen installiert werden.
 
 {% alert note %}
 Wenn Sie über CocoaPods mit `use_frameworks!` integrieren, stellen Sie `Enable Bitcode = NO` in den Build-Einstellungen des Ziels ein, um eine genaue Größenbestimmung zu erreichen.

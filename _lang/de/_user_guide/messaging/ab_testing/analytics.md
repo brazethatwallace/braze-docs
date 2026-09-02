@@ -161,15 +161,15 @@ Unabhängig davon, ob Ihr Test einen klaren Gewinner hat, kann es hilfreich sein
 
 ## Diskrepanzen zwischen Kontrollgruppe und Variante {#discrepancies-between-the-control-group-and-variant}
 
-Bei In-App-Nachrichten-Campaigns mit A/B- oder multivariaten Aufteilungen sind die von Ihnen konfigurierten Prozentsätze Zuweisungsziele. Die gemeldeten Impressionen stimmen selten genau mit diesen Prozentsätzen überein, da nur Nutzer:innen, die die Trigger or triggern-Aktion ausführen, Impressionen protokollieren und Kontrollgruppen-Nutzer:innen, die den Trigger or triggern auslösen, eine Impression protokollieren, obwohl sie keine Nachricht sehen.
+Bei In-App-Nachrichten-Campaigns mit A/B- oder multivariaten Aufteilungen sind die von Ihnen konfigurierten Prozentsätze Zuweisungsziele. Die gemeldeten Impressionen stimmen selten genau mit diesen Prozentsätzen überein, da nur Nutzer:innen, die die Trigger-Aktion ausführen, Impressionen protokollieren und Kontrollgruppen-Nutzer:innen, die den Trigger auslösen, eine Impression protokollieren, obwohl sie keine Nachricht sehen.
 
 Nehmen wir zum Beispiel an, eine Campaign hat beim Start eine Zielgruppe von 200 Nutzer:innen, mit 100 Nutzer:innen in der Kontrollgruppe und 100 Nutzer:innen in der Variante.
 
-Die 100 Nutzer:innen in der Variante erhalten die In-App-Nachrichten-Payload, und 50 von ihnen führen die Trigger or triggern-Aktion aus und sehen die In-App-Nachricht. Die 100 Nutzer:innen in der Kontrollgruppe werden nur getrackt, wenn sie die Trigger or triggern-Aktion der Campaign ausführen, und 75 von ihnen führen die Trigger or triggern-Aktion aus und protokollieren eine Impression, sehen aber die In-App-Nachricht nicht.
+Die 100 Nutzer:innen in der Variante erhalten die In-App-Nachrichten-Payload, und 50 von ihnen führen die Trigger-Aktion aus und sehen die In-App-Nachricht. Die 100 Nutzer:innen in der Kontrollgruppe werden nur getrackt, wenn sie die Trigger-Aktion der Campaign ausführen, und 75 von ihnen führen die Trigger-Aktion aus und protokollieren eine Impression, sehen aber die In-App-Nachricht nicht.
 
 Trotz der anfänglichen 50/50-Aufteilung sind die protokollierten eindeutigen Impressionen nicht ausgeglichen. Die Variantengruppe hat 50 Impressionen, während die Kontrollgruppe 75 Impressionen hat.
 
-Außerdem können Varianten-Nachrichten, die eine längere Renderzeit erfordern, wie z. B. solche mit großen Bildern oder Connected-Content-Templates, weniger Impressionen als die Kontrollgruppe protokollieren, wenn Nutzer:innen die Nachricht Trigger or triggern or triggern, aber die Seite verlassen, bevor das Rendering abgeschlossen ist.
+Außerdem können Varianten-Nachrichten, die eine längere Renderzeit erfordern, wie z. B. solche mit großen Bildern oder Connected-Content-Templates, weniger Impressionen als die Kontrollgruppe protokollieren, wenn Nutzer:innen die Nachricht triggern, aber die Seite verlassen, bevor das Rendering abgeschlossen ist.
 
 ### Verzögerungen bei In-App-Nachrichten {#in-app-message-delays}
 

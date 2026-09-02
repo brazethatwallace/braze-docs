@@ -16,7 +16,7 @@ _Diese Integration wird von Rokt Calendar gepflegt._
 
 ## Über die Integration {#about-the-integration}
 
-Die Integration von Braze und Rokt Calendar ermöglicht es, Ihre Rokt-Calendar-Abonnent:innen und deren Daten über einen Braze-Webhook an Braze zu pushen. Sie können diese Daten dann in Braze Canvase für das Journey-Targeting und die Segmentierung der Zielgruppe mit einem der folgenden angepassten [Rokt-Calendar-Attribute](#audience-segmentation) verwenden.
+Die Integration von Braze und Rokt Calendar ermöglicht es, Ihre Rokt-Calendar-Abonnent:innen und deren Daten über einen Braze-Webhook an Braze zu pushen. Sie können diese Daten dann in Braze Canvases für das Journey-Targeting und die Segmentierung der Zielgruppe mit einem der folgenden angepassten [Rokt-Calendar-Attribute](#audience-segmentation) verwenden.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -25,8 +25,8 @@ Die Integration von Braze und Rokt Calendar ermöglicht es, Ihre Rokt-Calendar-A
 | Rokt-Calendar-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein kundenspezifisches Rokt-Calendar-Konto. Kontaktieren Sie [sales-calendar@rokt.com](mailto:sales-calendar@rokt.com), um mit einem Account Manager:in zu sprechen.  |
 | Rokt-Calendar-Einrichtung | Ihr Account Manager:in von Rokt Calendar wird mit Ihnen zusammenarbeiten, um den Kalender so einzurichten, dass er Ihren Bedürfnissen am besten entspricht, einschließlich Einstellungen wie:<br>- Merge-Flag<br>- Fallback-Flag für Abonnenten-ID<br>- E-Mail-Erfassung, falls erforderlich |
 | Rokt-Calendar-OAuth-Zugangsdaten | Dieser Schlüssel, den Ihnen Ihr Account Manager:in von Rokt Calendar zur Verfügung stellt, ermöglicht es Ihnen, Ihre Braze- und Rokt-Calendar-Konten miteinander zu verbinden.<br><br>Dieser kann im Braze-Dashboard unter **Settings** > **Connected Content** erstellt werden. |
-| Braze-Representational State Transfer-API-Schlüssel | Ein Braze-Representational State Transfer-API-Schlüssel mit `users.track`-Berechtigungen. Diesen Schlüssel müssen Sie Ihrem Rokt-Calendar-Account-Manager:in mitteilen.<br><br> Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden. |
-| [Braze-Representational State Transfer-Endpunkt]({{site.baseurl}}/api/basics/#endpoints) | Ihre Representational State Transfer-Endpunkt-URL. Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
+| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit `users.track`-Berechtigungen. Diesen Schlüssel müssen Sie Ihrem Rokt-Calendar-Account-Manager:in mitteilen.<br><br> Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden. |
+| [Braze-REST-Endpunkt]({{site.baseurl}}/api/basics/#endpoints) | Ihre REST-Endpunkt-URL. Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
 | Externe Abonnenten-ID | Dies ist der Bezeichner, der vom Rokt-Calendar-Abo-Prozess verwendet wird, um die Kalender-Abonnent:innen mit den Braze-Nutzer:innen abzugleichen. Diesen Wert übergeben Sie an Rokt Calendar. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
@@ -54,7 +54,7 @@ Wenn Rokt Calendar neue Nutzer:innen erstellt oder bestehende Abonnent:innen mit
 | `rokt:tags` | Verwendete Kalender-Tags im Zusammenhang mit dem erstellten Abo | `Test Calendar 1/All Teams/f5733866ade2 and Test Calendar 1/TeamI//f5733866ade2` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Audience segmentation #audience-segmentation" }
 
-Rokt Calendar triggert außerdem ein angepasstes Event `subscribe`, sobald Nutzer:innen Ihren Rokt-Kalender abonniert haben. Dieses Event kann entweder in der Braze-Segmentierung verwendet werden oder als Trigger or triggern für eine Campaign oder eine Canvas-Komponente dienen.
+Rokt Calendar triggert außerdem ein angepasstes Event `subscribe`, sobald Nutzer:innen Ihren Rokt-Kalender abonniert haben. Dieses Event kann entweder in der Braze-Segmentierung verwendet werden oder als Trigger für eine Campaign oder eine Canvas-Komponente dienen.
 
 ## Integration
 
@@ -65,7 +65,7 @@ Um Kalender-Ereignisse aus Canvas heraus zu versenden, müssen Sie zunächst ein
 #### Bereitstellung von Abo-Integrationspunkten {#provide-subscription-integration-points}
 Um eine Zielgruppe von Kalender-Abonnent:innen aufzubauen, müssen Sie ein Ziel anbieten, zu dem Nutzer:innen navigieren und das sie abonnieren können. Einige Beispiele für Abo-Integrationspunkte sind:
   - Fügen Sie einen Kalender-Button zu Ihrer Website hinzu
-  - Fügen Sie einen Kalender-Link in einer E-Mail oder Kurzmitteilungsdienst or SMS hinzu
+  - Fügen Sie einen Kalender-Link in einer E-Mail oder SMS hinzu
   - Fügen Sie einen Kalender-Button zu Ihrer App hinzu
   - Fügen Sie einen Kalender-Link in Social Media hinzu
 
@@ -81,9 +81,9 @@ Um eine Zielgruppe von Abonnent:innen aufzubauen, müssen Sie den Kalender bei I
 Innerhalb von Braze können Sie eine Webhook-Campaign oder einen Webhook innerhalb eines Canvas einrichten, um entweder:
 
 - Ein neues personalisiertes Ereignis zu senden: Ermöglicht das Hinzufügen neuer Ereignisse zu den Kalendern eines Segments von Abonnent:innen.
-- Ein personalisiertes Ereignis zu Update or aktualisieren or aktualisieren: Ermöglicht das Update or aktualisieren eines bestehenden Ereignisses in den Kalendern von Abonnent:innen.
+- Ein personalisiertes Ereignis zu aktualisieren: Ermöglicht das Update eines bestehenden Ereignisses in den Kalendern von Abonnent:innen.
 
-Um ein Rokt-Calendar-Webhook-Template zu erstellen, das Sie in zukünftigen Campaigns oder Canvase verwenden können, navigieren Sie auf der Braze-Plattform zu **Templates** > **Webhook Templates**.
+Um ein Rokt-Calendar-Webhook-Template zu erstellen, das Sie in zukünftigen Campaigns oder Canvases verwenden können, navigieren Sie auf der Braze-Plattform zu **Templates** > **Webhook Templates**.
 
 Wenn Sie eine einmalige Rokt-Calendar-Webhook-Campaign erstellen oder ein bestehendes Template verwenden möchten, wählen Sie bei der Erstellung einer neuen Campaign **Webhook** in Braze aus.
 
@@ -93,7 +93,7 @@ Sobald Sie das Rokt-Calendar-Webhook-Template ausgewählt haben, sollten Sie Fol
 - **Webhook-URL**: {% raw %}`{% assign accountCode = {{custom_attribute.${rokt:account_code}}}[0] | split: '/' | first %}https://api.roktcalendar.com/v1/subscriptionevent/{{accountCode}}`{% endraw %}
 - **Anfragetext**: Rohtext
 {% endtab %}
-{% tab Update or aktualisieren an existing event %}
+{% tab Update an existing event %}
 Sobald Sie das Rokt-Calendar-Webhook-Template ausgewählt haben, sollten Sie Folgendes sehen:
 - **Webhook-URL**: {% raw %}`{% assign accountCode = {{custom_attribute.${rokt:account_code}}}[0] | split: '/' | first %}https://api.roktcalendar.com/v1/subscriptionevent/{{accountCode}}/update`{% endraw %}
 - **Anfragetext**: Rohtext
@@ -142,7 +142,7 @@ Rokt Calendar benötigt zur Autorisierung einen `HTTP Header`, der den Namen Ihr
 ```
 {% endraw %}
 {% endtab %}
-{% tab Update or aktualisieren an existing event %}
+{% tab Update an existing event %}
 {% raw %}
 ```javascript
 {% capture eventId %}Event_0001{% endcapture %}

@@ -10,7 +10,7 @@ search_tag: Partner
 
 # B.Layer
 
-> [B.Layer](https://blayer.phiture.com) ist der In-App-Nachrichten-Builder von Phiture, mit dem CRM or Customer-Relationship-Management [-System] (CRM)-Teams für mobile Apps einfach, schnell und ohne Programmieraufwand angepasste In-App-Nachrichten erstellen können.
+> [B.Layer](https://blayer.phiture.com) ist der In-App-Nachrichten-Builder von Phiture, mit dem CRM-Teams für mobile Apps einfach, schnell und ohne Programmieraufwand angepasste In-App-Nachrichten erstellen können.
 
 _Diese Integration wird von B.Layer gepflegt._
 

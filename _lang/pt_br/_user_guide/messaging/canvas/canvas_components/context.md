@@ -30,7 +30,7 @@ Dentro de uma etapa de Contexto, você pode definir ou atualizar até 10 variáv
 
 Você pode definir variáveis de contexto de duas formas:
 
-- **Na entrada do Canvas:** As propriedades do evento personalizado ou do gatilho de API or interface de programação do aplicativo (API) são automaticamente preenchidas como variáveis de contexto.
+- **Na entrada do Canvas:** As propriedades do evento personalizado ou do gatilho de API são automaticamente preenchidas como variáveis de contexto.
 - **Em uma etapa de Contexto:** Defina ou atualize variáveis de contexto manualmente adicionando uma etapa de Contexto.
 
 Cada variável de contexto requer um nome, um tipo de dado e um valor (definido usando Liquid ou a ferramenta Adicionar personalização). Quando definida, você pode referenciar variáveis de contexto em todo o Canvas usando Liquid, como {% raw %}`{{context.${flight_time}}}`{% endraw %}. No campo **Context variable name**, você também pode digitar o nome da variável de contexto ou selecioná-lo no menu suspenso do editor de etapas. Para mais detalhes, consulte a [Referência de variáveis de contexto]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables).
@@ -49,14 +49,14 @@ Isso significa:
 - Os lotes são concluídos em momentos diferentes, então os usuários vão chegando à próxima etapa conforme seu lote é finalizado.
 - Os primeiros usuários podem alcançar a próxima etapa vários minutos antes dos últimos usuários, dependendo do tamanho do lote e dos tempos de resposta do Connected Content.
 
-Sem Connected Content, as etapas de Contexto processam muito mais rápido porque não há chamadas de API or interface de programação do aplicativo (API) externas para aguardar.
+Sem Connected Content, as etapas de Contexto processam muito mais rápido porque não há chamadas de API externas para aguardar.
 
 ## Considerações {#considerations}
 
 - Você pode definir até 10 variáveis de contexto por etapa de Contexto.
 - Cada variável requer um nome único (apenas letras, números e underscores, com até 100 caracteres).
 - O tamanho total de todas as variáveis em uma etapa não pode exceder 50 KB.
-- Variáveis passadas por gatilhos de API or interface de programação do aplicativo (API) compartilham o mesmo namespace das criadas em etapas de Contexto; redefinir uma variável em uma etapa de Contexto sobrescreve o valor da API or interface de programação do aplicativo (API).
+- Variáveis passadas por gatilhos de API compartilham o mesmo namespace das criadas em etapas de Contexto; redefinir uma variável em uma etapa de Contexto sobrescreve o valor da API.
 
 Para mais detalhes e uso avançado, consulte a [Referência de variáveis de contexto]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables).
 
@@ -93,7 +93,7 @@ Ao referenciar variáveis de contexto, sempre use o formato {% raw %}`{{context.
 
 Você pode criar filtros usando variáveis de contexto em etapas de [Jornadas do público]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) e [Divisão de decisão]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split).
 
-Para direcionar usuários com base na resposta de uma [etapa de Agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step), adicione a etapa de Agente antes da sua etapa de Jornadas do público ou Divisão de decisão. A etapa de Agente armazena sua saída no contexto do Canvas, que você pode avaliar com filtros de variáveis de contexto nessas etapas de Branch or ramificação or ramificação.
+Para direcionar usuários com base na resposta de uma [etapa de Agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step), adicione a etapa de Agente antes da sua etapa de Jornadas do público ou Divisão de decisão. A etapa de Agente armazena sua saída no contexto do Canvas, que você pode avaliar com filtros de variáveis de contexto nessas etapas de Branch.
 
 Se o agente retornar um objeto e você quiser filtrar por uma propriedade aninhada, insira o caminho no campo **Context variable name** usando notação de ponto em vez de apenas o nome da variável de nível superior (por exemplo, `intent_agent.persona` quando `persona` está aninhado sob `intent_agent`).
 
@@ -187,7 +187,7 @@ Agora que o Contexto do Canvas está disponível de forma geral, os seguintes de
 
 Essa mudança faz parte de um esforço mais amplo para criar uma experiência mais previsível e consistente ao editar etapas e mensagens do Canvas.
 
-#### Canvas disparados por API or interface de programação do aplicativo (API) ou agendados são impactados por essa mudança? {#are-api-triggered-or-scheduled-canvases-impacted-by-this-change}
+#### Canvas disparados por API ou agendados são impactados por essa mudança? {#are-api-triggered-or-scheduled-canvases-impacted-by-this-change}
 
 Não.
 
@@ -249,7 +249,7 @@ O fuso horário preferido também pode ser enviado na carga útil das propriedad
 
 ### Como as variáveis de contexto diferem das propriedades de entrada do Canvas? {#how-do-context-variables-differ-from-canvas-entry-properties}
 
-As propriedades de entrada do Canvas são incluídas como variáveis de contexto do Canvas. Isso significa que você pode enviar propriedades de entrada do Canvas usando a API or interface de programação do aplicativo (API) da Braze e referenciá-las em outras etapas, de forma semelhante ao uso de uma variável de contexto com o snippet Liquid.
+As propriedades de entrada do Canvas são incluídas como variáveis de contexto do Canvas. Isso significa que você pode enviar propriedades de entrada do Canvas usando a API da Braze e referenciá-las em outras etapas, de forma semelhante ao uso de uma variável de contexto com o snippet Liquid.
 
 ### As variáveis podem referenciar umas às outras em uma única etapa de Contexto? {#can-variables-reference-each-other-in-a-singular-context-step}
 

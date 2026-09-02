@@ -30,27 +30,27 @@ Os benefícios de usar essa integração incluem:
 | Requisito | Descrição |
 | ------------------- | ---------------- |
 | Conta Jasper | Você precisa de uma conta Jasper para utilizar essa parceria. |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com as seguintes permissões. <br>  <br>`templates.email.create` <br> `templates.email.update` <br>`content_blocks.create` <br>`content_blocks.update` <br><br>Essa chave pode ser gerada no dashboard da Braze, navegando até **Settings > API or interface de programação do aplicativo (API) Keys**. |
-| Endpoint REST or transferir estado representacional da Braze | Sua URL de endpoint REST or transferir estado representacional. Seu endpoint específico depende da URL da Braze para sua instância. Consulte a documentação [Braze API or interface de programação do aplicativo (API) Basics: Endpoints]({{site.baseurl}}/api/basics/#endpoints) para obter mais detalhes. |
-{: .reset-td-br-1 .REST or transferir estado representacional-td-br-2 aria-label="Pré-requisitos" }
+| Chave da API REST da Braze | Uma chave da API REST da Braze com as seguintes permissões. <br>  <br>`templates.email.create` <br> `templates.email.update` <br>`content_blocks.create` <br>`content_blocks.update` <br><br>Essa chave pode ser gerada no dashboard da Braze, navegando até **Settings > API Keys**. |
+| Endpoint REST da Braze | Sua URL de endpoint REST. Seu endpoint específico depende da URL da Braze para sua instância. Consulte a documentação [Braze API Basics: Endpoints]({{site.baseurl}}/api/basics/#endpoints) para obter mais detalhes. |
+{: .reset-td-br-1 .rest-td-br-2 aria-label="Pré-requisitos" }
 
 ## Métodos de integração {#integration-methods}
 
 Há dois métodos para gerar conteúdo no Jasper e atualizar os modelos da Braze:
 
-1. Use a API or interface de programação do aplicativo (API) do Jasper diretamente
+1. Use a API do Jasper diretamente
 2. Use o Jasper Studio para criar um app personalizado pronto para a Braze
 
 {% tabs %}
-{% tab Jasper API or interface de programação do aplicativo (API) %}
+{% tab Jasper API %}
 
-## Método: Usar a API or interface de programação do aplicativo (API) do Jasper diretamente {#method-use-jasper-api-directly}
+## Método: Usar a API do Jasper diretamente {#method-use-jasper-api-directly}
 
 Esse método é ideal para criar e atualizar programaticamente modelos HTML de e-mail na Braze, evitando a configuração manual no Jasper e na Braze.
 
 ### Etapa 1: Configurar o Jasper {#step-1-set-up-jasper}
 
-1. Siga as instruções em [Getting Started](https://developers.jasper.ai/docs/getting-started-1) para gerar sua chave de API or interface de programação do aplicativo (API) do Jasper.
+1. Siga as instruções em [Getting Started](https://developers.jasper.ai/docs/getting-started-1) para gerar sua chave de API do Jasper.
 2. Use o modelo pré-criado do Jasper que é otimizado para gerar modelos de e-mail HTML da Braze, que tem um ID de modelo `skl_BC53D8AC5B4B47E8BE557EBB706E9B47`.
 3. Colete os valores dos seguintes campos, que são necessários para fazer uma solicitação de geração de conteúdo para um modelo de e-mail HTML da Braze.
 
@@ -60,7 +60,7 @@ Esse método é ideal para criar e atualizar programaticamente modelos HTML de e
 | `ctaLink` | A URL da sua chamada para ação. |
 | `unsubscribeLink` | Obrigatório para e-mails de marketing. |
 | `brandColor` | A cor primária da sua marca em formato hexadecimal (por exemplo, `#4dfa8a`). |
-{: .reset-td-br-1 .REST or transferir estado representacional-td-br-2 aria-label="Etapa 1: Configurar o Jasper" }
+{: .reset-td-br-1 .rest-td-br-2 aria-label="Etapa 1: Configurar o Jasper" }
 
 **Campos opcionais**
 
@@ -70,10 +70,10 @@ Esse método é ideal para criar e atualizar programaticamente modelos HTML de e
 | `audienceId` | Segmentação do público |
 | `styleId` | Guia de estilo |
 | `knowledgeIds` | Contexto de conteúdo aprimorado. Você pode adicionar até três IDs. |
-{: .reset-td-br-1 .REST or transferir estado representacional-td-br-2 aria-label="Etapa 1: Configurar o Jasper" }
+{: .reset-td-br-1 .rest-td-br-2 aria-label="Etapa 1: Configurar o Jasper" }
 
 {: start="4"}
-4. Gere sua saída executando o modelo por meio da API or interface de programação do aplicativo (API) do Jasper. Isso produzirá uma carga útil JSON contendo `subject`, `preheader` e `body` (conteúdo HTML).
+4. Gere sua saída executando o modelo por meio da API do Jasper. Isso produzirá uma carga útil JSON contendo `subject`, `preheader` e `body` (conteúdo HTML).
 
 {% subtabs %}
 {% subtab Sample request %}
@@ -118,9 +118,9 @@ curl --location 'https://api.jasper.ai/v1/templates/skl_BC53D8AC5B4B47E8BE557EBB
 
 ### Etapa 2: Configurar a Braze {#step-2-set-up-braze}
 
-Usando os valores `subject`, `preheader` e `body` gerados pelo Jasper na etapa 1, faça uma solicitação POST à REST or transferir estado representacional API or interface de programação do aplicativo (API) da Braze para [criar um novo modelo de e-mail]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template/). Certifique-se de que sua chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze tenha as permissões `templates.email.create` e `templates.email.update`.
+Usando os valores `subject`, `preheader` e `body` gerados pelo Jasper na etapa 1, faça uma solicitação POST à REST API da Braze para [criar um novo modelo de e-mail]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template/). Certifique-se de que sua chave da API REST da Braze tenha as permissões `templates.email.create` e `templates.email.update`.
 
-### Exemplo de solicitação da API or interface de programação do aplicativo (API) da Braze para criar um modelo de e-mail {#sample-braze-api-request-to-create-an-email-template}
+### Exemplo de solicitação da API da Braze para criar um modelo de e-mail {#sample-braze-api-request-to-create-an-email-template}
 
 ```bash
 curl --location --request POST 'https://rest.iad-03.braze.com/templates/email/create' \
@@ -138,7 +138,7 @@ curl --location --request POST 'https://rest.iad-03.braze.com/templates/email/cr
 
 ## Método: Crie um app personalizado pronto para a Braze com o Jasper Studio {#method-build-a-braze-ready-custom-app-with-jasper-studio}
 
-O Jasper Studio é uma plataforma sem código dentro do Jasper que permite criar apps de IA personalizados sem precisar de suporte de TI. Você pode criar um app personalizado que gere estruturas JSON formatadas especificamente para a API or interface de programação do aplicativo (API) da Braze, ou gerar conteúdo que possa ser adicionado manualmente às suas mensagens da Braze.
+O Jasper Studio é uma plataforma sem código dentro do Jasper que permite criar apps de IA personalizados sem precisar de suporte de TI. Você pode criar um app personalizado que gere estruturas JSON formatadas especificamente para a API da Braze, ou gerar conteúdo que possa ser adicionado manualmente às suas mensagens da Braze.
 
 1. Na tela inicial do Jasper, selecione **Create an App**.
 2. Especifique o app que deseja criar, como **Braze HTML Email Template** ou **Content Block Template**.
@@ -171,9 +171,9 @@ O Jasper Studio é uma plataforma sem código dentro do Jasper que permite criar
 {% endraw %}
 
 {% endsubtab %}
-{% subtab Sample Braze API or interface de programação do aplicativo (API) request (using custom app output) %}
+{% subtab Sample Braze API request (using custom app output) %}
 
-## Exemplo de solicitação da API or interface de programação do aplicativo (API) da Braze (usando a saída do app personalizado) {#sample-braze-api-request-using-custom-app-output}
+## Exemplo de solicitação da API da Braze (usando a saída do app personalizado) {#sample-braze-api-request-using-custom-app-output}
 
 {% raw %}
 ```bash
@@ -198,5 +198,5 @@ Como alternativa, se você for um profissional de marketing, poderá criar seu a
 {% endtabs %}
 
 {% alert note %}
-Para obter assistência adicional, consulte a [documentação da API or interface de programação do aplicativo (API) do Jasper](https://developers.jasper.ai/reference/gettemplate-1) e a [Central de Ajuda do Jasper Studio](https://help.jasper.ai/hc/en-us/articles/36783295610395-Jasper-Studio).
+Para obter assistência adicional, consulte a [documentação da API do Jasper](https://developers.jasper.ai/reference/gettemplate-1) e a [Central de Ajuda do Jasper Studio](https://help.jasper.ai/hc/en-us/articles/36783295610395-Jasper-Studio).
 {% endalert %}

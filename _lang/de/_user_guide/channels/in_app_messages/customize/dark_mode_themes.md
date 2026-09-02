@@ -45,7 +45,7 @@ Wenn Sie eine Dark-Mode-Version einer In-App-Nachricht erstellen, können Sie di
 ## Kompatibilität {#compatibility}
 
 - Ihre Nutzer:innen müssen iOS-Geräte mit Version 13 oder höher oder Android-Geräte mit Version 10 oder höher verwenden.
-- Braze iOS SDK or Software-Development-Kit v3.21.0+ und Braze Android SDK or Software-Development-Kit v3.8.0+ sind erforderlich.
+- Braze iOS SDK v3.21.0+ und Braze Android SDK v3.8.0+ sind erforderlich.
 
 {% alert note %}
 Dark-Mode-Apps wurden mit Android 10 und iOS 13 eingeführt. Nutzer:innen, die ihre Geräte nicht mindestens auf diese Versionen aktualisiert haben, sehen nur das helle Theme. <br><br>Campaigns werden weiterhin an alle Nutzer:innen ausgeliefert, die für die von Ihnen ausgewählte Zielgruppe berechtigt sind, unabhängig von der Dark-Mode-Einstellung oder der Betriebssystemversion der Nutzer:innen.

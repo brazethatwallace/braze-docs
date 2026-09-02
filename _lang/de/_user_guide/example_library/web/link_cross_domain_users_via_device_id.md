@@ -1,34 +1,34 @@
 ---
-nav_title: Domainübergreifende Web-SDK or Software-Development-Kit-Nutzer:innen verknüpfen
-article_title: Domainübergreifende Web-SDK or Software-Development-Kit-Nutzer:innen über die Geräte-ID verknüpfen
+nav_title: Domainübergreifende Web-SDK-Nutzer:innen verknüpfen
+article_title: Domainübergreifende Web-SDK-Nutzer:innen über die Geräte-ID verknüpfen
 page_order: 1
 page_type: reference
-description: "Übergeben Sie die Geräte-ID des Braze Web SDK or Software-Development-Kit von der Marketing-Website von Kitchenerie an eine separate Shop-Domain, damit anonyme Aktivitäten ein gemeinsames Kundenprofil or Nutzerprofil verwenden."
+description: "Übergeben Sie die Geräte-ID des Braze Web SDK von der Marketing-Website von Kitchenerie an eine separate Shop-Domain, damit anonyme Aktivitäten ein gemeinsames Kundenprofil verwenden."
 ---
 
-# Domainübergreifende Web-SDK or Software-Development-Kit-Nutzer:innen über die Geräte-ID verknüpfen {#link-cross-domain-web-sdk-users-through-device-id}
+# Domainübergreifende Web-SDK-Nutzer:innen über die Geräte-ID verknüpfen {#link-cross-domain-web-sdk-users-through-device-id}
 
-> Übergeben Sie die Geräte-ID des Braze Web SDK or Software-Development-Kit über die Ziel-URL, wenn zwei Domains keine Cookies teilen können, damit anonyme Sitzungen auf beiden Websites demselben Braze-Kundenprofil or Nutzerprofil zugeordnet werden.
+> Übergeben Sie die Geräte-ID des Braze Web SDK über die Ziel-URL, wenn zwei Domains keine Cookies teilen können, damit anonyme Sitzungen auf beiden Websites demselben Braze-Kundenprofil zugeordnet werden.
 
 ## Über dieses Beispiel {#about-this-example}
 
-Kitchenerie, ein fiktiver Einzelhändler für Küchenartikel, betreibt eine Marketing-Website (`kitchenerie.com`) und einen Shop (`kitchenerie.shop`). Jede Domain hat eine eigene Braze Web SDK or Software-Development-Kit-Integration. Browser-Cookies werden nicht domainübergreifend geteilt, sodass Braze separate Geräte-IDs – und separate anonyme Profile – zuweist, wenn dieselbe Person von der Marketing-Website zum Shop wechselt.
+Kitchenerie, ein fiktiver Einzelhändler für Küchenartikel, betreibt eine Marketing-Website (`kitchenerie.com`) und einen Shop (`kitchenerie.shop`). Jede Domain hat eine eigene Braze Web SDK-Integration. Browser-Cookies werden nicht domainübergreifend geteilt, sodass Braze separate Geräte-IDs – und separate anonyme Profile – zuweist, wenn dieselbe Person von der Marketing-Website zum Shop wechselt.
 
 Dieses Muster:
 
-1. Liest die Geräte-ID auf der Quell-Domain mit `getDeviceId` nach der SDK or Software-Development-Kit-Initialisierung aus
+1. Liest die Geräte-ID auf der Quell-Domain mit `getDeviceId` nach der SDK-Initialisierung aus
 2. Hängt sie als Query-Parameter an ausgehende Links an (zum Beispiel `brazeDeviceId`)
 3. Liest auf der Ziel-Domain diesen Parameter aus und übergibt ihn über die Option `deviceId` an `braze.initialize`
 
 Die Übergabe ist vor allem für anonyme Nutzer:innen relevant. Nachdem sich die Person im Shop anmeldet, wird `changeUser` mit einer `external_id` zum dauerhaften Bezeichner über Geräte hinweg. Siehe [Nutzer-IDs festlegen]({{site.baseurl}}/developer_guide/analytics/setting_user_ids).
 
-Beide Domains sollten denselben Braze-Workspace-API-Schlüssel und SDK or Software-Development-Kit-Endpunkt verwenden, damit Ereignisse in einem Profil landen.
+Beide Domains sollten denselben Braze-Workspace-API-Schlüssel und SDK-Endpunkt verwenden, damit Ereignisse in einem Profil landen.
 
 ## Überlegungen {#considerations}
 
 - Die Geräte-ID ist browserspezifisch. Dieses Muster verknüpft keine Aktivitäten über verschiedene Browser, Geräte oder Profile hinweg. Verwenden Sie `external_id` über `changeUser` für authentifizierte, geräteübergreifende Identität.
-- Rufen Sie die Geräte-ID erst ab, nachdem das Web SDK or Software-Development-Kit auf der Quell-Domain initialisiert wurde. Ein Aufruf von `getDeviceId` vor `initialize` gibt keinen Wert zurück.
-- Das Web SDK or Software-Development-Kit liest `deviceId` einmalig bei `initialize`. Es gibt kein nachträgliches `setDeviceId`, das die aktive Geräte-ID ändert. Lesen Sie den URL-Parameter auf der Ziel-Domain aus, bevor Sie `initialize` aufrufen.
+- Rufen Sie die Geräte-ID erst ab, nachdem das Web SDK auf der Quell-Domain initialisiert wurde. Ein Aufruf von `getDeviceId` vor `initialize` gibt keinen Wert zurück.
+- Das Web SDK liest `deviceId` einmalig bei `initialize`. Es gibt kein nachträgliches `setDeviceId`, das die aktive Geräte-ID ändert. Lesen Sie den URL-Parameter auf der Ziel-Domain aus, bevor Sie `initialize` aufrufen.
 - Direktbesuche, Lesezeichen oder Verweise von Drittanbietern auf den Shop ohne `brazeDeviceId` sollten auf die standardmäßige Geräte-ID-Zuweisung zurückfallen – das ist zu erwarten, wenn keine Quell-Domain-ID vorhanden ist.
 - Query-Parameter erscheinen im Browserverlauf und in Server-Logs.
 - Query-Parameter können über Referrer-Header weitergegeben werden. Die Geräte-ID ist für sich genommen keine PII, aber entfernen Sie den Parameter nach der Verarbeitung, wenn Ihr Datenschutzteam dies verlangt (siehe Schritt 2).
@@ -39,7 +39,7 @@ Beide Domains sollten denselben Braze-Workspace-API-Schlüssel und SDK or Softwa
 
 ### Schritt 1: Geräte-ID an domainübergreifende Links auf der Quell-Domain anhängen {#step-1-append-the-device-id-to-cross-domain-links-on-the-source-domain}
 
-Initialisieren Sie auf `kitchenerie.com` (Domain 1) das Web SDK or Software-Development-Kit wie gewohnt und hängen Sie dann die aktuelle Geräte-ID an Links an, die auf `kitchenerie.shop` (Domain 2) verweisen.
+Initialisieren Sie auf `kitchenerie.com` (Domain 1) das Web SDK wie gewohnt und hängen Sie dann die aktuelle Geräte-ID an Links an, die auf `kitchenerie.shop` (Domain 2) verweisen.
 
 Wählen Sie einen Query-Parameter-Namen, der nicht mit Ihrer Website kollidiert (dieses Beispiel verwendet `brazeDeviceId`). Dieselbe Idee gilt für serverseitig gerenderte Links, clientseitige Navigation oder `src`-Werte von iframes, die Sie kontrollieren.
 
@@ -72,15 +72,15 @@ braze.getDeviceId(function (deviceId) {
 });
 ```
 
-Wenn Ihre SDK or Software-Development-Kit-Version `getDeviceId` synchron bereitstellt (ohne Callback), rufen Sie es stattdessen nach der Initialisierung auf:
+Wenn Ihre SDK-Version `getDeviceId` synchron bereitstellt (ohne Callback), rufen Sie es stattdessen nach der Initialisierung auf:
 
 ```javascript
 const deviceId = braze.getDeviceId();
 ```
 
-Siehe [Web SDK or Software-Development-Kit Repository-Leitfaden – Geräte-ID abrufen]({{site.baseurl}}/developer_guide/sdk_repository_guides/web#get-device-id) und [Initialisierungsoptionen – `deviceId`]({{site.baseurl}}/developer_guide/sdk_repository_guides/web#initialization-options).
+Siehe [Web SDK Repository-Leitfaden – Geräte-ID abrufen]({{site.baseurl}}/developer_guide/sdk_repository_guides/web#get-device-id) und [Initialisierungsoptionen – `deviceId`]({{site.baseurl}}/developer_guide/sdk_repository_guides/web#initialization-options).
 
-### Schritt 2: Geräte-ID auslesen und Web SDK or Software-Development-Kit auf der Ziel-Domain initialisieren {#step-2-read-the-device-id-and-initialize-the-web-sdk-on-the-destination-domain}
+### Schritt 2: Geräte-ID auslesen und Web SDK auf der Ziel-Domain initialisieren {#step-2-read-the-device-id-and-initialize-the-web-sdk-on-the-destination-domain}
 
 Lesen Sie auf `kitchenerie.shop` (Domain 2) `brazeDeviceId` aus dem Query-String aus, bevor Sie `initialize` aufrufen, und übergeben Sie den Wert in den Initialisierungsoptionen, wenn er vorhanden ist.
 
@@ -120,9 +120,9 @@ Wenn sich die Person anmeldet, rufen Sie `changeUser` mit ihrer `external_id` au
 
 ## Verwandte Artikel {#related-articles}
 
-- [Web SDK or Software-Development-Kit Repository-Leitfaden]({{site.baseurl}}/developer_guide/sdk_repository_guides/web)
-- [Multi-Domain-Integration für das Braze Web SDK or Software-Development-Kit]({{site.baseurl}}/developer_guide/platforms/web/multi_domain_integration)
-- [Nutzer-IDs über das Braze SDK or Software-Development-Kit festlegen]({{site.baseurl}}/developer_guide/analytics/setting_user_ids)
+- [Web SDK Repository-Leitfaden]({{site.baseurl}}/developer_guide/sdk_repository_guides/web)
+- [Multi-Domain-Integration für das Braze Web SDK]({{site.baseurl}}/developer_guide/platforms/web/multi_domain_integration)
+- [Nutzer-IDs über das Braze SDK festlegen]({{site.baseurl}}/developer_guide/analytics/setting_user_ids)
 - [Anonyme Nutzer:innen]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users)
-- [Kundenprofil or Nutzerprofil-Lebenszyklus]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)
-- [Web SDK or Software-Development-Kit-Speicher]({{site.baseurl}}/developer_guide/storage)
+- [Kundenprofil-Lebenszyklus]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)
+- [Web SDK-Speicher]({{site.baseurl}}/developer_guide/storage)

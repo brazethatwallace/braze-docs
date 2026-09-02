@@ -9,7 +9,7 @@ page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint Criar catálogo da Braze."
 
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Criar catálogo {#create-catalog}
 {% apimethod post %}
 /catalogs
@@ -21,7 +21,7 @@ description: "Este artigo descreve detalhes sobre o endpoint Criar catálogo da 
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `catalogs.create`.
+Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `catalogs.create`.
 
 ## Limite de frequência {#rate-limit}
 

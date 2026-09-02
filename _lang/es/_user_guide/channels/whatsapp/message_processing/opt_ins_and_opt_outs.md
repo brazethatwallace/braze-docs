@@ -13,7 +13,7 @@ channel:
 
 > Gestionar las adhesiones y cancelaciones de WhatsApp es crucial, ya que WhatsApp monitorea tu [calificación de calidad del número de teléfono](https://www.facebook.com/business/help/896873687365001), y una calificación baja puede resultar en la reducción de tus límites de mensajes. <br><br>Una forma de mantener una calificación de alta calidad es evitar que los usuarios bloqueen o reporten tu empresa. Esto se puede lograr proporcionando [mensajes de alta calidad](https://developers.facebook.com/docs/whatsapp/messaging-limits#quality-rating-and-messaging-limits) (como valor para tus usuarios), controlando la frecuencia de los mensajes y permitiendo que los clientes cancelen la recepción de futuras comunicaciones. <br><br>Para obtener un resumen multicanal del estado de suscripción de WhatsApp, consulta [Estado de suscripción]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_status#whatsapp). Esta página cubre cómo configurar adhesiones y cancelaciones, y las diferencias entre los modificadores "regex" e "is".
 
-Las adhesiones pueden provenir de fuentes externas o de métodos de Braze, como servicio de mensajes cortos o mensajes dentro de la aplicación y en el explorador. Las cancelaciones se pueden gestionar usando palabras clave configuradas en Braze y botones de marketing de WhatsApp. Consulta los siguientes métodos como guía para configurar adhesiones y cancelaciones.
+Las adhesiones pueden provenir de fuentes externas o de métodos de Braze, como SMS o mensajes dentro de la aplicación y en el explorador. Las cancelaciones se pueden gestionar usando palabras clave configuradas en Braze y botones de marketing de WhatsApp. Consulta los siguientes métodos como guía para configurar adhesiones y cancelaciones.
 
 ## Métodos de adhesión voluntaria {#opt-in-methods}
 - [Métodos de adhesión voluntaria externos a Braze](#external-to-braze-opt-in-methods)
@@ -29,7 +29,7 @@ Las adhesiones pueden provenir de fuentes externas o de métodos de Braze, como 
 ## Configurar adhesiones voluntarias para tu canal de WhatsApp en Braze {#set-up-opt-ins-for-your-braze-whatsapp-channel}
 
 Para las adhesiones voluntarias de WhatsApp, debes cumplir con los [requisitos de WhatsApp](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in/). También tendrás que proporcionar a Braze la siguiente información:
-- Un `external_id`, un [número de teléfono]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers) y un estado de suscripción actualizado para cada usuario. Esto se puede hacer utilizando el [SDK or kit de desarrollo de software](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)/) o a través del [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) para actualizar el número de teléfono y el estado de suscripción.
+- Un `external_id`, un [número de teléfono]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers) y un estado de suscripción actualizado para cada usuario. Esto se puede hacer utilizando el [SDK](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)/) o a través del [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) para actualizar el número de teléfono y el estado de suscripción.
 
 Un mensaje entrante de WhatsApp no suscribe automáticamente a un usuario a tu grupo de suscripción de WhatsApp. Debes actualizar explícitamente el estado de suscripción con un [paso de actualización de usuario](#user-update-step), un [webhook](#webhook-campaign-to-trigger-a-second-whatsapp-campaign) o una llamada a la API.
 
@@ -60,7 +60,7 @@ Los atributos personalizados no reemplazan el grupo de suscripción de WhatsApp.
 
 Tu aplicación o sitio web (registro de cuenta, página de pago, configuración de cuenta, terminal de tarjeta de crédito) a Braze.
 
-Dondequiera que ya tengas consentimiento de marketing para correo electrónico o mensajes de texto, incluye una sección adicional para WhatsApp. Después de que un usuario se adhiera voluntariamente, necesitará un `external_id`, un [número de teléfono]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers) y un estado de suscripción actualizado. Para hacer esto, dependiendo de cómo esté configurada tu instalación de Braze, aprovecha el [endpoint `/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) o usa el [SDK or kit de desarrollo de software](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)/).
+Dondequiera que ya tengas consentimiento de marketing para correo electrónico o mensajes de texto, incluye una sección adicional para WhatsApp. Después de que un usuario se adhiera voluntariamente, necesitará un `external_id`, un [número de teléfono]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers) y un estado de suscripción actualizado. Para hacer esto, dependiendo de cómo esté configurada tu instalación de Braze, aprovecha el [endpoint `/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) o usa el [SDK](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)/).
 
 #### Lista de adhesión voluntaria creada externamente {#externally-built-opt-in-list}
 
@@ -75,7 +75,7 @@ En tu canal de soporte al cliente, haz un seguimiento de los problemas resueltos
 3. Configura un desencadenante de palabra clave personalizada.
 4. Para cualquiera de esas ideas, probablemente necesitarás completar el recorrido con lo siguiente:
 	- Llamar al [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) para actualizar o crear un usuario
-	- Aprovechar el [endpoint `/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) o usar el [SDK or kit de desarrollo de software](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)/)
+	- Aprovechar el [endpoint `/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) o usar el [SDK](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)/)
 
 #### Mensaje entrante de WhatsApp {#inbound-whatsapp-message}
 
@@ -92,7 +92,7 @@ Ten en cuenta que puedes crear una URL o un código QR para unirte a un canal de
 
 ### Métodos de adhesión voluntaria con Braze {#braze-powered-opt-in-methods}
 
-#### Mensaje servicio de mensajes cortos {#sms-message}
+#### Mensaje SMS {#sms-message}
 
 En Canvas, configura una Campaign que pregunte a los clientes si desean adherirse voluntariamente a recibir mensajes de WhatsApp utilizando uno de los siguientes métodos:
 - Segment de clientes: grupo de marketing suscrito fuera de EE. UU.
@@ -104,7 +104,7 @@ Obtén más información sobre cómo actualizar el estado de suscripción de los
 
 Crea un mensaje dentro de la aplicación o una ventana emergente en el explorador que invite a los clientes a adherirse voluntariamente al uso de WhatsApp.
 
-Usa el [mensaje HTML dentro de la aplicación](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates/4-sms-capture-modal) con el ["puente" de JavaScript]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#javascript-bridge) para interactuar con el SDK or kit de desarrollo de software de Braze. Asegúrate de usar el ID del grupo de suscripción de WhatsApp.
+Usa el [mensaje HTML dentro de la aplicación](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates/4-sms-capture-modal) con el ["puente" de JavaScript]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#javascript-bridge) para interactuar con el SDK de Braze. Asegúrate de usar el ID del grupo de suscripción de WhatsApp.
 
 #### Formulario de captura de número de teléfono {#phone-number-capture-form}
 
@@ -116,7 +116,7 @@ Usa la plantilla de [formulario de captura de número de teléfono]({{site.baseu
 
 WhatsApp ofrece una alternancia de "Ofertas y anuncios" en los ajustes de la aplicación que permite a los usuarios cancelar la recepción de mensajes de marketing. Esta alternancia funciona de forma independiente de los grupos de suscripción de Braze:
 
-- Los **grupos de suscripción de Braze** se gestionan a través de tu integración de Braze (API, centro de preferencias o SDK or kit de desarrollo de software) y controlan a qué usuarios diriges tus mensajes.
+- Los **grupos de suscripción de Braze** se gestionan a través de tu integración de Braze (API, centro de preferencias o SDK) y controlan a qué usuarios diriges tus mensajes.
 - La **alternancia nativa de WhatsApp** está controlada por Meta y se aplica a nivel de plataforma, fuera de Braze.
 
 Estas dos capas no se sincronizan automáticamente por diseño. Cuando un usuario desactiva la alternancia de "Ofertas y anuncios" en WhatsApp, Meta bloquea la entrega de mensajes de marketing a nivel de plataforma, incluso si el estado de suscripción del usuario en Braze muestra "Subscribed". La preferencia del usuario se respeta en el momento de la entrega.

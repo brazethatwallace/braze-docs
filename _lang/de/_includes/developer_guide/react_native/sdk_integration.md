@@ -1,14 +1,14 @@
-## Über das React Native Braze SDK or Software-Development-Kit {#about-the-react-native-braze-sdk}
+## Über das React Native Braze SDK {#about-the-react-native-braze-sdk}
 
-Durch die Integration des React Native Braze SDK or Software-Development-Kit erhalten Sie grundlegende Analytics-Funktionalität und können In-App Messages und Content Cards sowohl für iOS als auch für Android mit einer einzigen Codebasis integrieren.
+Durch die Integration des React Native Braze SDK erhalten Sie grundlegende Analytics-Funktionalität und können In-App Messages und Content Cards sowohl für iOS als auch für Android mit einer einzigen Codebasis integrieren.
 
 ## Kompatibilität mit der neuen Architektur {#new-architecture-compatibility}
 
-Die folgende SDK or Software-Development-Kit-Mindestversion ist mit allen Apps kompatibel, die [die neue Architektur von React Native](https://reactnative.dev/docs/the-new-architecture/landing-page) verwenden:
+Die folgende SDK-Mindestversion ist mit allen Apps kompatibel, die [die neue Architektur von React Native](https://reactnative.dev/docs/the-new-architecture/landing-page) verwenden:
 
 {% sdk_min_versions reactnative:2.0.1 %}
 
-Ab SDK or Software-Development-Kit-Version 6.0.0 verwendet Braze ein React Native Turbo Module, das sowohl mit der neuen Architektur als auch mit der älteren Bridge-Architektur kompatibel ist. Das bedeutet, dass keine zusätzliche Einrichtung erforderlich ist.
+Ab SDK-Version 6.0.0 verwendet Braze ein React Native Turbo Module, das sowohl mit der neuen Architektur als auch mit der älteren Bridge-Architektur kompatibel ist. Das bedeutet, dass keine zusätzliche Einrichtung erforderlich ist.
 
 {% alert warning %}
 Wenn Ihre iOS-App `RCTAppDelegate` implementiert und Sie unserer bisherigen `AppDelegate`-Einrichtung gefolgt sind, lesen Sie die Beispiele unter [Vollständige native Einrichtung](#reactnative_step-2-complete-native-setup), um Abstürze beim Abonnieren von Events im Turbo Module zu vermeiden.
@@ -16,15 +16,15 @@ Wenn Ihre iOS-App `RCTAppDelegate` implementiert und Sie unserer bisherigen `App
 
 ## Versionsanforderungen für React und React Native {#react-and-react-native-version-requirements}
 
-Braze veröffentlicht keine separaten Mindestversionen für React über das hinaus, was das React Native SDK or Software-Development-Kit unterstützt. Um das SDK or Software-Development-Kit zu integrieren, verwenden Sie React Native Version 0.71 oder höher. Die vollständige Liste der unterstützten React Native-Versionen finden Sie im [React Native SDK or Software-Development-Kit GitHub-Repository](https://github.com/braze-inc/braze-react-native-sdk?tab=readme-ov-file#version-support).
+Braze veröffentlicht keine separaten Mindestversionen für React über das hinaus, was das React Native SDK unterstützt. Um das SDK zu integrieren, verwenden Sie React Native Version 0.71 oder höher. Die vollständige Liste der unterstützten React Native-Versionen finden Sie im [React Native SDK GitHub-Repository](https://github.com/braze-inc/braze-react-native-sdk?tab=readme-ov-file#version-support).
 
-Wenn Sie React, React Native oder das Braze SDK or Software-Development-Kit Update or aktualisieren or aktualisieren, überprüfen Sie das SDK or Software-Development-Kit-[Changelog](https://github.com/braze-inc/braze-react-native-sdk/blob/master/CHANGELOG.md) auf Breaking Changes, bevor Sie Ihre Änderungen bereitstellen.
+Wenn Sie React, React Native oder das Braze SDK aktualisieren, überprüfen Sie das SDK-[Changelog](https://github.com/braze-inc/braze-react-native-sdk/blob/master/CHANGELOG.md) auf Breaking Changes, bevor Sie Ihre Änderungen bereitstellen.
 
-## Integration des React Native SDK or Software-Development-Kit {#integrating-the-react-native-sdk}
+## Integration des React Native SDK {#integrating-the-react-native-sdk}
 
 ### Voraussetzungen {#prerequisites}
 
-Informationen zu unterstützten React-Native-Versionen und Hinweise zum Upgrade or upgraden finden Sie unter [Versionsanforderungen für React und React Native](#react-and-react-native-version-requirements).
+Informationen zu unterstützten React-Native-Versionen und Hinweise zum Upgrade finden Sie unter [Versionsanforderungen für React und React Native](#react-and-react-native-version-requirements).
 
 ### Schritt 1: Braze-Bibliothek integrieren {#step-1-integrate-the-braze-library}
 
@@ -49,7 +49,7 @@ Wenn Ihre App Expo verwendet, lesen Sie [Verwendung des Expo-Plugins](#reactnati
 Wählen Sie in jedem Versions-Tab eine Einrichtungsmethode aus: Expo-Plugin oder React Native CLI.
 
 {% tabs %}
-{% tab React Native SDK or Software-Development-Kit 19.2.0+ %}
+{% tab React Native SDK 19.2.0+ %}
 
 #### Methode 1: Verwendung des Expo-Plugins {#reactnative-using-the-expo-plugin}
 
@@ -73,14 +73,14 @@ Fügen Sie in Ihrer `app.json` das Braze Expo-Plugin hinzu. Der API-Schlüssel u
 | `enableFirebaseCloudMessaging`                | boolean | Nur Android. Ob Firebase Cloud Messaging für Push-Benachrichtigungen verwendet werden soll.             |
 | `firebaseCloudMessagingSenderId`              | string  | Nur Android. Ihre Firebase Cloud Messaging-Sender-ID.                                    |
 | `sessionTimeout`                              | integer | Das Braze-Sitzungs-Timeout für Ihre Anwendung in Sekunden.                                                                                               |
-| `enableSdkAuthentication`                     | boolean | Ob das Feature [SDK or Software-Development-Kit-Authentifizierung]({{site.baseurl}}/developer_guide/platform_wide/sdk_authentication#sdk-authentication) aktiviert werden soll.      |
+| `enableSdkAuthentication`                     | boolean | Ob das Feature [SDK-Authentifizierung]({{site.baseurl}}/developer_guide/platform_wide/sdk_authentication#sdk-authentication) aktiviert werden soll.      |
 | `logLevel`                                    | integer | Die Protokollierungsstufe für Ihre Anwendung. Die Standard-Protokollierungsstufe ist 8 und protokolliert minimal Info-Meldungen. Verwenden Sie für ausführliche Protokollierung zum Debugging die Protokollierungsstufe 0.    |
-| `minimumTriggerIntervalInSeconds`             | integer | Das minimale Zeitintervall in Sekunden zwischen Trigger or triggern or triggern. Standardmäßig 30 Sekunden.                                                                           |
+| `minimumTriggerIntervalInSeconds`             | integer | Das minimale Zeitintervall in Sekunden zwischen Triggern. Standardmäßig 30 Sekunden.                                                                           |
 | `enableAutomaticLocationCollection`           | boolean | Ob die automatische Standorterfassung aktiviert ist (sofern der/die Nutzer:in zustimmt).                                                                                  |
 | `enableGeofence`                              | boolean | Ob Geofences aktiviert sind.                                                                                                                           |
 | `enableAutomaticGeofenceRequests`             | boolean | Ob Geofence-Anfragen automatisch gestellt werden sollen.                                                                                                  |
 | `dismissModalOnOutsideTap`                    | boolean | Nur iOS. Ob eine modale In-App-Nachricht geschlossen wird, wenn der/die Nutzer:in außerhalb der In-App-Nachricht tippt.                                           |
-| `androidHandlePushDeepLinksAutomatically`     | boolean | Nur Android. Ob das Braze SDK or Software-Development-Kit Deeplinks aus Push-Benachrichtigungen automatisch verarbeiten soll.                                                                         |
+| `androidHandlePushDeepLinksAutomatically`     | boolean | Nur Android. Ob das Braze SDK Deeplinks aus Push-Benachrichtigungen automatisch verarbeiten soll.                                                                         |
 | `androidPushNotificationHtmlRenderingEnabled` | boolean | Nur Android. Legt fest, ob der Textinhalt einer Push-Benachrichtigung als HTML mit `android.text.Html.fromHtml` interpretiert und gerendert werden soll.        |
 | `androidNotificationAccentColor`              | string  | Nur Android. Legt die Akzentfarbe für Android-Benachrichtigungen fest.                                                                                                |
 | `androidNotificationLargeIcon`                | string  | Nur Android. Legt das große Symbol für Android-Benachrichtigungen fest.                                                                                                  |
@@ -90,7 +90,7 @@ Fügen Sie in Ihrer `app.json` das Braze Expo-Plugin hinzu. Der API-Schlüssel u
 | `enableBrazeIosPushStories`                   | boolean | Nur iOS. Ob Braze Push Stories für iOS aktiviert werden sollen.                                                                                                  |
 | `iosPushStoryAppGroup`                        | string  | Nur iOS. Die App-Gruppe für iOS Push Stories.                                                                                                       |
 | `iosUseUUIDAsDeviceId`                        | boolean | Nur iOS. Ob die Geräte-ID eine zufällig generierte UUID verwendet.                                                                                       |
-| `iosForwardUniversalLinks`                    | boolean | Nur iOS. Gibt an, ob das SDK or Software-Development-Kit Universal Links automatisch erkennen und an die Systemmethoden weiterleiten soll (Standard: `false`). |
+| `iosForwardUniversalLinks`                    | boolean | Nur iOS. Gibt an, ob das SDK Universal Links automatisch erkennen und an die Systemmethoden weiterleiten soll (Standard: `false`). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="2.2 Plugin zur app.json hinzufügen" }
 
 Der folgende Codeausschnitt zeigt eine beispielhafte `app.json`-Konfiguration:
@@ -177,7 +177,7 @@ Verwenden Sie keine relativen Dateipfade (wie `src/assets/images/icon.png`) und 
 
 **Funktionsweise**
 
-Das Braze Expo-Plugin referenziert Ihre Symboldateien aus den Android-`drawable`-Verzeichnissen. Wenn Sie `npx expo prebuild` ausführen, generiert Expo die native Android-Projektstruktur. Ihre Symbole müssen vor dem Build-Prozess in den Android-`drawable`-Ordnern vorhanden sein (entweder manuell platziert oder über ein Config Plugin kopiert). Das Plugin konfiguriert dann das Braze SDK or Software-Development-Kit so, dass es diese Drawable-Ressourcen anhand ihrer Namen (ohne Pfad oder Erweiterung) verwendet – deshalb ist das Präfix `@drawable/` in Ihrer Konfiguration erforderlich.
+Das Braze Expo-Plugin referenziert Ihre Symboldateien aus den Android-`drawable`-Verzeichnissen. Wenn Sie `npx expo prebuild` ausführen, generiert Expo die native Android-Projektstruktur. Ihre Symbole müssen vor dem Build-Prozess in den Android-`drawable`-Ordnern vorhanden sein (entweder manuell platziert oder über ein Config Plugin kopiert). Das Plugin konfiguriert dann das Braze SDK so, dass es diese Drawable-Ressourcen anhand ihrer Namen (ohne Pfad oder Erweiterung) verwendet – deshalb ist das Präfix `@drawable/` in Ihrer Konfiguration erforderlich.
 
 Weitere Informationen zu Android-Benachrichtigungssymbolen finden Sie in [Androids Richtlinien für Benachrichtigungssymbole](https://developer.android.com/develop/ui/views/notifications#icon).
 
@@ -213,7 +213,7 @@ buildscript {
 
 Dadurch wird Kotlin zu Ihrem Projekt hinzugefügt.
 
-**2.2 Braze SDK or Software-Development-Kit konfigurieren**
+**2.2 Braze SDK konfigurieren**
 
 Erstellen Sie eine `braze.xml`-Datei im Ordner `res/values` Ihres Projekts. Der API-Schlüssel und der Endpunkt werden zur Laufzeit aus JavaScript bereitgestellt und sind in dieser Datei daher nicht erforderlich. Der folgende Codeausschnitt zeigt, wie Sie die verzögerte Initialisierung mit `com_braze_enable_delayed_initialization` aktivieren:
 
@@ -236,7 +236,7 @@ Der folgende Codeausschnitt zeigt die erforderlichen Berechtigungen für Ihre `A
 ```
 
 {% alert tip %}
-Ab Braze Android SDK or Software-Development-Kit Version 12.2.0 können Sie die android-SDK or Software-Development-Kit-location-Bibliothek automatisch einbinden, indem Sie `importBrazeLocationLibrary=true` in Ihrer `gradle.properties`-Datei festlegen.
+Ab Braze Android SDK Version 12.2.0 können Sie die android-sdk-location-Bibliothek automatisch einbinden, indem Sie `importBrazeLocationLibrary=true` in Ihrer `gradle.properties`-Datei festlegen.
 {% endalert %}
 
 **2.3 Nutzer:innen-Sitzungsverfolgung implementieren**
@@ -298,7 +298,7 @@ override fun onNewIntent(intent: Intent) {
 
 **2.5 (Optional) Podfile für dynamische XCFrameworks konfigurieren**
 
-Um bestimmte Braze-Bibliotheken wie BrazeUI in eine Objective-C++-Datei zu importieren, müssen Sie die `#import`-Syntax verwenden. Ab Version `7.4.0` des Braze Swift SDK or Software-Development-Kit verfügen die Binärdateien über einen [optionalen Vertriebskanal als dynamische XCFrameworks](https://github.com/braze-inc/braze-swift-sdk-prebuilt-dynamic), der mit dieser Syntax kompatibel ist.
+Um bestimmte Braze-Bibliotheken wie BrazeUI in eine Objective-C++-Datei zu importieren, müssen Sie die `#import`-Syntax verwenden. Ab Version `7.4.0` des Braze Swift SDK verfügen die Binärdateien über einen [optionalen Vertriebskanal als dynamische XCFrameworks](https://github.com/braze-inc/braze-swift-sdk-prebuilt-dynamic), der mit dieser Syntax kompatibel ist.
 
 Wenn Sie diesen Vertriebskanal nutzen möchten, überschreiben Sie die CocoaPods-Quellorte in Ihrem Podfile manuell. Referenzieren Sie dieses Beispiel und ersetzen Sie `{your-version}` durch die gewünschte Version:
 
@@ -310,7 +310,7 @@ pod 'BrazeLocation', :podspec => 'https://raw.githubusercontent.com/braze-inc/br
 
 **2.6 Pods installieren**
 
-Da React Native die Bibliotheken automatisch mit der nativen Plattform verknüpft, können Sie das SDK or Software-Development-Kit mithilfe von CocoaPods installieren.
+Da React Native die Bibliotheken automatisch mit der nativen Plattform verknüpft, können Sie das SDK mithilfe von CocoaPods installieren.
 
 Der folgende Codeausschnitt zeigt, wie Sie Pods aus dem Stammordner des Projekts installieren:
 
@@ -322,21 +322,21 @@ cd ios && pod install
 cd ios && RCT_NEW_ARCH_ENABLED=0 pod install
 ```
 
-**2.7 Braze SDK or Software-Development-Kit konfigurieren**
+**2.7 Braze SDK konfigurieren**
 
-Verwenden Sie `BrazeReactInitializer.configure` in Ihrem `AppDelegate`, um die native Konfiguration zu Registrierung or registrieren. Die von Ihnen bereitgestellten Closures werden gespeichert und später angewendet, wenn `Braze.initialize(apiKey, endpoint)` aus JavaScript aufgerufen wird.
+Verwenden Sie `BrazeReactInitializer.configure` in Ihrem `AppDelegate`, um die native Konfiguration zu Registrierung. Die von Ihnen bereitgestellten Closures werden gespeichert und später angewendet, wenn `Braze.initialize(apiKey, endpoint)` aus JavaScript aufgerufen wird.
 
 {% subtabs local %}
 {% subtab SWIFT %}
 
-Der folgende Codeausschnitt zeigt, wie Sie das Braze SDK or Software-Development-Kit am Anfang der `AppDelegate.swift`-Datei importieren:
+Der folgende Codeausschnitt zeigt, wie Sie das Braze SDK am Anfang der `AppDelegate.swift`-Datei importieren:
 
 ```swift
 import BrazeKit
 import braze_react_native_sdk
 ```
 
-Registrierung or registrieren Sie in der `application(_:didFinishLaunchingWithOptions:)`-Methode Ihre native Konfiguration mit `BrazeReactInitializer.configure`. Legen Sie den API-Schlüssel oder Endpunkt hier nicht fest. Diese werden aus JavaScript über `Braze.initialize()` bereitgestellt.
+Registrierung Sie in der `application(_:didFinishLaunchingWithOptions:)`-Methode Ihre native Konfiguration mit `BrazeReactInitializer.configure`. Legen Sie den API-Schlüssel oder Endpunkt hier nicht fest. Diese werden aus JavaScript über `Braze.initialize()` bereitgestellt.
 
 - **`configure`-Closure**: Empfängt eine `Braze.Configuration` und ermöglicht Ihnen, native Konfigurationseigenschaften festzulegen (Protokollierung, Push, Sitzungen und mehr).
 - **`postInitialization`-Closure** _(optional)_: Empfängt die aktive `Braze`-Instanz nach der Erstellung für Einrichtungsschritte, die die Instanz erfordern (z. B. Speichern einer Referenz oder Festlegen von Delegates).
@@ -369,14 +369,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 {% endsubtab %}
 {% subtab OBJECTIVE-C %}
 
-Der folgende Codeausschnitt zeigt, wie Sie das Braze SDK or Software-Development-Kit am Anfang der `AppDelegate.m`-Datei importieren:
+Der folgende Codeausschnitt zeigt, wie Sie das Braze SDK am Anfang der `AppDelegate.m`-Datei importieren:
 
 ```objc
 @import BrazeKit;
 @import braze_react_native_sdk;
 ```
 
-Registrierung or registrieren Sie in der `application:didFinishLaunchingWithOptions:`-Methode Ihre native Konfiguration mit `BrazeReactInitializer`. Legen Sie den API-Schlüssel oder Endpunkt hier nicht fest. Diese werden aus JavaScript über `Braze.initialize()` bereitgestellt.
+Registrierung Sie in der `application:didFinishLaunchingWithOptions:`-Methode Ihre native Konfiguration mit `BrazeReactInitializer`. Legen Sie den API-Schlüssel oder Endpunkt hier nicht fest. Diese werden aus JavaScript über `Braze.initialize()` bereitgestellt.
 
 Der folgende Codeausschnitt zeigt eine beispielhafte `AppDelegate.m`-Implementierung mit `BrazeReactInitializer`:
 
@@ -400,18 +400,18 @@ Der folgende Codeausschnitt zeigt eine beispielhafte `AppDelegate.m`-Implementie
 {% endsubtabs %}
 
 {% alert important %}
-`BrazeReactInitializer.configure()` speichert nur Ihre Konfiguration. Es existiert keine Braze-Instanz, bis `Braze.initialize()` aus JavaScript aufgerufen wird. Rufen Sie daher nach `configure()` keine Braze-SDK or Software-Development-Kit-Methoden im AppDelegate auf.
+`BrazeReactInitializer.configure()` speichert nur Ihre Konfiguration. Es existiert keine Braze-Instanz, bis `Braze.initialize()` aus JavaScript aufgerufen wird. Rufen Sie daher nach `configure()` keine Braze-SDK-Methoden im AppDelegate auf.
 Wenn Sie `Braze.initialize()` erneut aufrufen, werden dieselben `configure`- und `postInitialization`-Blöcke auf die neue Braze-Instanz angewendet.
 {% endalert %}
 
 {% endtab %}
-{% tab React Native SDK or Software-Development-Kit 19.1.0 und früher %}
+{% tab React Native SDK 19.1.0 und früher %}
 
 #### Methode 1: Verwendung des Expo-Plugins {#method-1-using-the-expo-plugin}
 
 ##### Schritt 2.1: Braze Expo-Plugin installieren {#step-21-install-the-braze-expo-plugin}
 
-Stellen Sie sicher, dass Ihre Version des Braze React Native SDK or Software-Development-Kit mindestens 1.37.0 ist. Die vollständige Liste der unterstützten Versionen finden Sie im [Braze React Native-Repository](https://github.com/braze-inc/braze-react-native-sdk?tab=readme-ov-file#version-support).
+Stellen Sie sicher, dass Ihre Version des Braze React Native SDK mindestens 1.37.0 ist. Die vollständige Liste der unterstützten Versionen finden Sie im [Braze React Native-Repository](https://github.com/braze-inc/braze-react-native-sdk?tab=readme-ov-file#version-support).
 
 Der folgende Codeausschnitt zeigt den Befehl zur Installation des Braze Expo-Plugins:
 
@@ -427,19 +427,19 @@ Fügen Sie in Ihrer `app.json` das Braze Expo-Plugin hinzu. Sie können die folg
 | --------------------------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `androidApiKey`                               | string  | Erforderlich. Der [API-Schlüssel]({{site.baseurl}}/api/identifier_types) für Ihre Android-Anwendung, zu finden in Ihrem Braze-Dashboard unter **Einstellungen verwalten**. |
 | `iosApiKey`                                   | string  | Erforderlich. Der [API-Schlüssel]({{site.baseurl}}/api/identifier_types) für Ihre iOS-Anwendung, zu finden in Ihrem Braze-Dashboard unter **Einstellungen verwalten**.     |
-| `baseUrl`                                     | string  | Erforderlich. Der [SDK or Software-Development-Kit-Endpunkt]({{site.baseurl}}/api/basics#endpoints) für Ihre Anwendung, zu finden in Ihrem Braze-Dashboard unter **Einstellungen verwalten**.    |
-| `enableBrazeIosPush`                          | boolean | Nur iOS. Ob Braze für die Verarbeitung von Push-Benachrichtigungen auf iOS verwendet werden soll. Eingeführt in React Native SDK or Software-Development-Kit v1.38.0 und Expo Plugin v0.4.0.                       |
-| `enableFirebaseCloudMessaging`                | boolean | Nur Android. Ob Firebase Cloud Messaging für Push-Benachrichtigungen verwendet werden soll. Eingeführt in React Native SDK or Software-Development-Kit v1.38.0 und Expo Plugin v0.4.0.             |
-| `firebaseCloudMessagingSenderId`              | string  | Nur Android. Ihre Firebase Cloud Messaging-Sender-ID. Eingeführt in React Native SDK or Software-Development-Kit v1.38.0 und Expo Plugin v0.4.0.                                    |
+| `baseUrl`                                     | string  | Erforderlich. Der [SDK-Endpunkt]({{site.baseurl}}/api/basics#endpoints) für Ihre Anwendung, zu finden in Ihrem Braze-Dashboard unter **Einstellungen verwalten**.    |
+| `enableBrazeIosPush`                          | boolean | Nur iOS. Ob Braze für die Verarbeitung von Push-Benachrichtigungen auf iOS verwendet werden soll. Eingeführt in React Native SDK v1.38.0 und Expo Plugin v0.4.0.                       |
+| `enableFirebaseCloudMessaging`                | boolean | Nur Android. Ob Firebase Cloud Messaging für Push-Benachrichtigungen verwendet werden soll. Eingeführt in React Native SDK v1.38.0 und Expo Plugin v0.4.0.             |
+| `firebaseCloudMessagingSenderId`              | string  | Nur Android. Ihre Firebase Cloud Messaging-Sender-ID. Eingeführt in React Native SDK v1.38.0 und Expo Plugin v0.4.0.                                    |
 | `sessionTimeout`                              | integer | Das Braze-Sitzungs-Timeout für Ihre Anwendung in Sekunden.                                                                                               |
-| `enableSdkAuthentication`                     | boolean | Ob das Feature [SDK or Software-Development-Kit-Authentifizierung]({{site.baseurl}}/developer_guide/platform_wide/sdk_authentication#sdk-authentication) aktiviert werden soll.      |
+| `enableSdkAuthentication`                     | boolean | Ob das Feature [SDK-Authentifizierung]({{site.baseurl}}/developer_guide/platform_wide/sdk_authentication#sdk-authentication) aktiviert werden soll.      |
 | `logLevel`                                    | integer | Die Protokollierungsstufe für Ihre Anwendung. Die Standard-Protokollierungsstufe ist 8 und protokolliert minimal Info-Meldungen. Verwenden Sie für ausführliche Protokollierung zum Debugging die Protokollierungsstufe 0.    |
-| `minimumTriggerIntervalInSeconds`             | integer | Das minimale Zeitintervall in Sekunden zwischen Trigger or triggern or triggern. Standardmäßig 30 Sekunden.                                                                           |
+| `minimumTriggerIntervalInSeconds`             | integer | Das minimale Zeitintervall in Sekunden zwischen Triggern. Standardmäßig 30 Sekunden.                                                                           |
 | `enableAutomaticLocationCollection`           | boolean | Ob die automatische Standorterfassung aktiviert ist (sofern der/die Nutzer:in zustimmt).                                                                                  |
 | `enableGeofence`                              | boolean | Ob Geofences aktiviert sind.                                                                                                                           |
 | `enableAutomaticGeofenceRequests`             | boolean | Ob Geofence-Anfragen automatisch gestellt werden sollen.                                                                                                  |
 | `dismissModalOnOutsideTap`                    | boolean | Nur iOS. Ob eine modale In-App-Nachricht geschlossen wird, wenn der/die Nutzer:in außerhalb der In-App-Nachricht tippt.                                           |
-| `androidHandlePushDeepLinksAutomatically`     | boolean | Nur Android. Ob das Braze SDK or Software-Development-Kit Deeplinks aus Push-Benachrichtigungen automatisch verarbeiten soll.                                                                         |
+| `androidHandlePushDeepLinksAutomatically`     | boolean | Nur Android. Ob das Braze SDK Deeplinks aus Push-Benachrichtigungen automatisch verarbeiten soll.                                                                         |
 | `androidPushNotificationHtmlRenderingEnabled` | boolean | Nur Android. Legt fest, ob der Textinhalt einer Push-Benachrichtigung als HTML mit `android.text.Html.fromHtml` interpretiert und gerendert werden soll.        |
 | `androidNotificationAccentColor`              | string  | Nur Android. Legt die Akzentfarbe für Android-Benachrichtigungen fest.                                                                                                |
 | `androidNotificationLargeIcon`                | string  | Nur Android. Legt das große Symbol für Android-Benachrichtigungen fest.                                                                                                  |
@@ -449,7 +449,7 @@ Fügen Sie in Ihrer `app.json` das Braze Expo-Plugin hinzu. Sie können die folg
 | `enableBrazeIosPushStories`                   | boolean | Nur iOS. Ob Braze Push Stories für iOS aktiviert werden sollen.                                                                                                  |
 | `iosPushStoryAppGroup`                        | string  | Nur iOS. Die App-Gruppe für iOS Push Stories.                                                                                                       |
 | `iosUseUUIDAsDeviceId`                        | boolean | Nur iOS. Ob die Geräte-ID eine zufällig generierte UUID verwendet.                                                                                       |
-| `iosForwardUniversalLinks`                    | boolean | Nur iOS. Gibt an, ob das SDK or Software-Development-Kit Universal Links automatisch erkennen und an die Systemmethoden weiterleiten soll (Standard: `false`). Wenn aktiviert, leitet das SDK or Software-Development-Kit Universal Links automatisch an die in [Supporting universal links in your app](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/forwarduniversallinks/) definierten Systemmethoden weiter. Eingeführt in React Native SDK or Software-Development-Kit v11.1.0 und Expo Plugin v3.2.0. |
+| `iosForwardUniversalLinks`                    | boolean | Nur iOS. Gibt an, ob das SDK Universal Links automatisch erkennen und an die Systemmethoden weiterleiten soll (Standard: `false`). Wenn aktiviert, leitet das SDK Universal Links automatisch an die in [Supporting universal links in your app](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/forwarduniversallinks/) definierten Systemmethoden weiter. Eingeführt in React Native SDK v11.1.0 und Expo Plugin v3.2.0. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Schritt 2.2: Plugin zur app.json hinzufügen" }
 
 Der folgende Codeausschnitt zeigt eine beispielhafte `app.json`-Konfiguration:
@@ -538,7 +538,7 @@ Verwenden Sie keine relativen Dateipfade (wie `src/assets/images/icon.png`) und 
 
 **Funktionsweise**
 
-Das Braze Expo-Plugin referenziert Ihre Symboldateien aus den Android-`drawable`-Verzeichnissen. Wenn Sie `npx expo prebuild` ausführen, generiert Expo die native Android-Projektstruktur. Ihre Symbole müssen vor dem Build-Prozess in den Android-`drawable`-Ordnern vorhanden sein (entweder manuell platziert oder über ein Config Plugin kopiert). Das Plugin konfiguriert dann das Braze SDK or Software-Development-Kit so, dass es diese Drawable-Ressourcen anhand ihrer Namen (ohne Pfad oder Erweiterung) verwendet – deshalb ist das Präfix `@drawable/` in Ihrer Konfiguration erforderlich.
+Das Braze Expo-Plugin referenziert Ihre Symboldateien aus den Android-`drawable`-Verzeichnissen. Wenn Sie `npx expo prebuild` ausführen, generiert Expo die native Android-Projektstruktur. Ihre Symbole müssen vor dem Build-Prozess in den Android-`drawable`-Ordnern vorhanden sein (entweder manuell platziert oder über ein Config Plugin kopiert). Das Plugin konfiguriert dann das Braze SDK so, dass es diese Drawable-Ressourcen anhand ihrer Namen (ohne Pfad oder Erweiterung) verwendet – deshalb ist das Präfix `@drawable/` in Ihrer Konfiguration erforderlich.
 
 Weitere Informationen zu Android-Benachrichtigungssymbolen finden Sie in [Androids Richtlinien für Benachrichtigungssymbole](https://developer.android.com/develop/ui/views/notifications#icon).
 
@@ -574,7 +574,7 @@ buildscript {
 
 Dadurch wird Kotlin zu Ihrem Projekt hinzugefügt.
 
-**Schritt 2.2: Braze SDK or Software-Development-Kit konfigurieren**
+**Schritt 2.2: Braze SDK konfigurieren**
 
 Um eine Verbindung zu den Braze-Servern herzustellen, erstellen Sie eine `braze.xml`-Datei im Ordner `res/values` Ihres Projekts. Der folgende Codeausschnitt zeigt eine beispielhafte `braze.xml`-Konfiguration. Ersetzen Sie den API-[Schlüssel]({{site.baseurl}}/api/identifier_types) und den [Endpunkt]({{site.baseurl}}/api/basics#endpoints) durch Ihre Werte:
 
@@ -594,7 +594,7 @@ Der folgende Codeausschnitt zeigt die erforderlichen Berechtigungen für Ihre `A
 ```
 
 {% alert tip %}
-Ab Braze Android SDK or Software-Development-Kit Version 12.2.0 können Sie die android-SDK or Software-Development-Kit-location-Bibliothek automatisch einbinden, indem Sie `importBrazeLocationLibrary=true` in Ihrer `gradle.properties`-Datei festlegen.
+Ab Braze Android SDK Version 12.2.0 können Sie die android-sdk-location-Bibliothek automatisch einbinden, indem Sie `importBrazeLocationLibrary=true` in Ihrer `gradle.properties`-Datei festlegen.
 {% endalert %}
 
 **Schritt 2.3: Nutzer:innen-Sitzungsverfolgung implementieren**
@@ -656,7 +656,7 @@ override fun onNewIntent(intent: Intent) {
 
 **Schritt 2.5: (Optional) Podfile für dynamische XCFrameworks konfigurieren**
 
-Um bestimmte Braze-Bibliotheken wie BrazeUI in eine Objective-C++-Datei zu importieren, müssen Sie die `#import`-Syntax verwenden. Ab Version `7.4.0` des Braze Swift SDK or Software-Development-Kit verfügen die Binärdateien über einen [optionalen Vertriebskanal als dynamische XCFrameworks](https://github.com/braze-inc/braze-swift-sdk-prebuilt-dynamic), der mit dieser Syntax kompatibel ist.
+Um bestimmte Braze-Bibliotheken wie BrazeUI in eine Objective-C++-Datei zu importieren, müssen Sie die `#import`-Syntax verwenden. Ab Version `7.4.0` des Braze Swift SDK verfügen die Binärdateien über einen [optionalen Vertriebskanal als dynamische XCFrameworks](https://github.com/braze-inc/braze-swift-sdk-prebuilt-dynamic), der mit dieser Syntax kompatibel ist.
 
 Wenn Sie diesen Vertriebskanal nutzen möchten, überschreiben Sie die CocoaPods-Quellorte in Ihrem Podfile manuell. Der folgende Codeausschnitt zeigt eine Beispielüberschreibung. Ersetzen Sie `{your-version}` durch die gewünschte Version:
 
@@ -668,7 +668,7 @@ pod 'BrazeLocation', :podspec => 'https://raw.githubusercontent.com/braze-inc/br
 
 **Schritt 2.6: Pods installieren**
 
-Da React Native die Bibliotheken automatisch mit der nativen Plattform verknüpft, können Sie das SDK or Software-Development-Kit mithilfe von CocoaPods installieren.
+Da React Native die Bibliotheken automatisch mit der nativen Plattform verknüpft, können Sie das SDK mithilfe von CocoaPods installieren.
 
 Der folgende Codeausschnitt zeigt, wie Sie Pods aus dem Stammordner des Projekts installieren:
 
@@ -680,12 +680,12 @@ cd ios && pod install
 cd ios && RCT_NEW_ARCH_ENABLED=0 pod install
 ```
 
-**Schritt 2.7: Braze SDK or Software-Development-Kit konfigurieren**
+**Schritt 2.7: Braze SDK konfigurieren**
 
 {% subtabs local %}
 {% subtab SWIFT %}
 
-Der folgende Codeausschnitt zeigt, wie Sie das Braze SDK or Software-Development-Kit am Anfang der `AppDelegate.swift`-Datei importieren:
+Der folgende Codeausschnitt zeigt, wie Sie das Braze SDK am Anfang der `AppDelegate.swift`-Datei importieren:
 ```swift
 import BrazeKit
 import braze_react_native_sdk
@@ -730,7 +730,7 @@ static var braze: Braze? = nil
 {% endsubtab %}
 {% subtab OBJECTIVE-C %}
 
-Der folgende Codeausschnitt zeigt, wie Sie das Braze SDK or Software-Development-Kit am Anfang der `AppDelegate.m`-Datei importieren:
+Der folgende Codeausschnitt zeigt, wie Sie das Braze SDK am Anfang der `AppDelegate.m`-Datei importieren:
 ```objc
 #import <BrazeKit/BrazeKit-Swift.h>
 #import "BrazeReactBridge.h"
@@ -779,10 +779,10 @@ static Braze *_braze = nil;
 {% endtab %}
 {% endtabs %}
 
-### Schritt 3: SDK or Software-Development-Kit initialisieren {#step-3-initialize-the-sdk}
+### Schritt 3: SDK initialisieren {#step-3-initialize-the-sdk}
 
 {% tabs %}
-{% tab React Native SDK or Software-Development-Kit 19.2.0+ %}
+{% tab React Native SDK 19.2.0+ %}
 
 Der folgende Codeausschnitt zeigt, wie Sie die Bibliothek in Ihrem React-Native-Code importieren:
 
@@ -791,14 +791,14 @@ import Braze from "@braze/react-native-sdk";
 ```
 
 {% alert note %}
-React Native SDK or Software-Development-Kit 19.2.0+ unterstützt die Initialisierung von Braze sowohl aus der React-Native-Ebene als auch aus den nativen iOS- und Android-Ebenen. Initialisieren Sie aus der React-Native-Ebene, um die [verzögerte Initialisierung](#delayed-initialization) zu nutzen, die das SDK or Software-Development-Kit erst nach einem Ereignis wie Einwilligung oder Anmeldung startet. Wenn Ihre App Braze heute in den nativen Ebenen initialisiert, können Sie dieses Setup beim Upgrade or upgraden beibehalten. Informationen zum Verhalten von Benachrichtigungen in den jeweiligen Setups finden Sie unter [Push-Benachrichtigungen beim Kaltstart](#push-notifications-on-cold-start).
+React Native SDK 19.2.0+ unterstützt die Initialisierung von Braze sowohl aus der React-Native-Ebene als auch aus den nativen iOS- und Android-Ebenen. Initialisieren Sie aus der React-Native-Ebene, um die [verzögerte Initialisierung](#delayed-initialization) zu nutzen, die das SDK erst nach einem Ereignis wie Einwilligung oder Anmeldung startet. Wenn Ihre App Braze heute in den nativen Ebenen initialisiert, können Sie dieses Setup beim Upgrade beibehalten. Informationen zum Verhalten von Benachrichtigungen in den jeweiligen Setups finden Sie unter [Push-Benachrichtigungen beim Kaltstart](#push-notifications-on-cold-start).
 {% endalert %}
 
-Rufen Sie dann `Braze.initialize()` mit Ihrem App-Bezeichner-API-Schlüssel und dem SDK or Software-Development-Kit-Endpunkt auf, um die Braze-Instanz zu erstellen. Im Folgenden finden Sie die Optionen, wo Sie diese Methode in Ihrem App-Ablauf aufrufen können.
+Rufen Sie dann `Braze.initialize()` mit Ihrem App-Bezeichner-API-Schlüssel und dem SDK-Endpunkt auf, um die Braze-Instanz zu erstellen. Im Folgenden finden Sie die Optionen, wo Sie diese Methode in Ihrem App-Ablauf aufrufen können.
 
 #### Standard-Initialisierung {#standard-initialization}
 
-Der folgende Codeausschnitt zeigt, wie Sie das SDK or Software-Development-Kit beim App-Start initialisieren, indem Sie `Braze.initialize()` in einem `useEffect` aufrufen:
+Der folgende Codeausschnitt zeigt, wie Sie das SDK beim App-Start initialisieren, indem Sie `Braze.initialize()` in einem `useEffect` aufrufen:
 
 ```javascript
 import React, { useEffect } from "react";
@@ -817,7 +817,7 @@ const App = () => {
 
 #### Verzögerte Initialisierung {#delayed-initialization}
 
-Der folgende Codeausschnitt zeigt, wie Sie die SDK or Software-Development-Kit-Initialisierung auf einen späteren Zeitpunkt in der Sitzung verschieben, z. B. nachdem der/die Nutzer:in die Einwilligung erteilt hat oder die Anmeldung abgeschlossen ist:
+Der folgende Codeausschnitt zeigt, wie Sie die SDK-Initialisierung auf einen späteren Zeitpunkt in der Sitzung verschieben, z. B. nachdem der/die Nutzer:in die Einwilligung erteilt hat oder die Anmeldung abgeschlossen ist:
 
 ```javascript
 function onUserConsent() {
@@ -826,7 +826,7 @@ function onUserConsent() {
 ```
 
 {% alert warning %}
-Unter iOS werden Push-Benachrichtigungen, die vor `Braze.initialize()` empfangen werden, in eine Warteschlange gestellt und nach der Initialisierung verarbeitet. Unter Android löst Braze keine Deeplinks aus Push-Benachrichtigungen auf, während das SDK or Software-Development-Kit auf die Initialisierung wartet. Damit Benachrichtigungen weiterhin funktionieren, wenn eine davon Ihre App startet, lesen Sie [Push-Benachrichtigungen beim Kaltstart](#push-notifications-on-cold-start).
+Unter iOS werden Push-Benachrichtigungen, die vor `Braze.initialize()` empfangen werden, in eine Warteschlange gestellt und nach der Initialisierung verarbeitet. Unter Android löst Braze keine Deeplinks aus Push-Benachrichtigungen auf, während das SDK auf die Initialisierung wartet. Damit Benachrichtigungen weiterhin funktionieren, wenn eine davon Ihre App startet, lesen Sie [Push-Benachrichtigungen beim Kaltstart](#push-notifications-on-cold-start).
 {% endalert %}
 
 #### Plattformspezifische API-Schlüssel {#platform-specific-api-keys}
@@ -847,10 +847,10 @@ Braze.initialize(apiKey, "YOUR-SDK-ENDPOINT");
 
 #### Erneute Initialisierung {#re-initialization}
 
-Sie können `Braze.initialize()` mehrmals aufrufen, um das SDK or Software-Development-Kit mit einem anderen API-Schlüssel und Endpunkt mitten in der Sitzung neu zu initialisieren. Jeder Aufruf entfernt die vorherige Braze-Instanz und erstellt eine neue.
+Sie können `Braze.initialize()` mehrmals aufrufen, um das SDK mit einem anderen API-Schlüssel und Endpunkt mitten in der Sitzung neu zu initialisieren. Jeder Aufruf entfernt die vorherige Braze-Instanz und erstellt eine neue.
 
 {% alert important %}
-Alle SDK or Software-Development-Kit-Methodenaufrufe, die vor `Braze.initialize()` erfolgen, werden unter iOS ignoriert. Rufen Sie daher `Braze.initialize()` auf, bevor Sie andere Braze-Methoden verwenden.
+Alle SDK-Methodenaufrufe, die vor `Braze.initialize()` erfolgen, werden unter iOS ignoriert. Rufen Sie daher `Braze.initialize()` auf, bevor Sie andere Braze-Methoden verwenden.
 {% endalert %}
 
 #### Push-Benachrichtigungen beim Kaltstart {#push-notifications-on-cold-start}
@@ -895,12 +895,12 @@ Ihre Push-Registrierungseinstellungen verbleiben in Ihrer nativen Konfiguration 
 - Unter Android legen Sie `com_braze_firebase_cloud_messaging_registration_enabled` und `com_braze_firebase_cloud_messaging_sender_id` in `braze.xml` fest.
 - Unter iOS legen Sie die `push`-Eigenschaften am Konfigurationsobjekt im `configure`-Closure fest, den Sie an `BrazeReactInitializer.configure` übergeben.
 
-Wenn Ihre App auf Deeplinks aus Benachrichtigungen angewiesen ist, die sie aus einem beendeten Zustand starten, verwenden Sie React Native SDK or Software-Development-Kit 21.1.0 oder höher. Diese Versionen enthalten Fehlerbehebungen für das Erfassen der initialen Push-Daten und das Auflösen von Push-Deeplinks unter Android. Die vollständige Liste der Änderungen finden Sie im [React Native SDK or Software-Development-Kit Changelog](https://github.com/braze-inc/braze-react-native-sdk/blob/master/CHANGELOG.md).
+Wenn Ihre App auf Deeplinks aus Benachrichtigungen angewiesen ist, die sie aus einem beendeten Zustand starten, verwenden Sie React Native SDK 21.1.0 oder höher. Diese Versionen enthalten Fehlerbehebungen für das Erfassen der initialen Push-Daten und das Auflösen von Push-Deeplinks unter Android. Die vollständige Liste der Änderungen finden Sie im [React Native SDK Changelog](https://github.com/braze-inc/braze-react-native-sdk/blob/master/CHANGELOG.md).
 
 {% endtab %}
-{% tab React Native SDK or Software-Development-Kit 19.1.0 und früher %}
+{% tab React Native SDK 19.1.0 und früher %}
 
-Für React Native SDK or Software-Development-Kit 19.1.0 und früher erfolgt die native Initialisierung in Schritt 2. Importieren Sie die Bibliothek in Ihrem React-Native-Code, um Braze-Methoden aufzurufen. Weitere Details finden Sie in unserem [Beispielprojekt](https://github.com/braze-inc/braze-react-native-sdk/tree/master/BrazeProject).
+Für React Native SDK 19.1.0 und früher erfolgt die native Initialisierung in Schritt 2. Importieren Sie die Bibliothek in Ihrem React-Native-Code, um Braze-Methoden aufzurufen. Weitere Details finden Sie in unserem [Beispielprojekt](https://github.com/braze-inc/braze-react-native-sdk/tree/master/BrazeProject).
 
 ```javascript
 import Braze from "@braze/react-native-sdk";
@@ -912,9 +912,9 @@ import Braze from "@braze/react-native-sdk";
 ### Schritt 4: Integration testen (optional) {#step-4-test-the-integration-optional}
 
 {% tabs %}
-{% tab React Native SDK or Software-Development-Kit 19.2.0+ %}
+{% tab React Native SDK 19.2.0+ %}
 
-Sie können überprüfen, ob das SDK or Software-Development-Kit integriert ist, indem Sie die Sitzungsstatistiken im Dashboard prüfen. Wenn Sie Ihre Anwendung auf einer der beiden Plattformen ausführen, sollten Sie eine neue Sitzung im Dashboard sehen (im Abschnitt **Übersicht**).
+Sie können überprüfen, ob das SDK integriert ist, indem Sie die Sitzungsstatistiken im Dashboard prüfen. Wenn Sie Ihre Anwendung auf einer der beiden Plattformen ausführen, sollten Sie eine neue Sitzung im Dashboard sehen (im Abschnitt **Übersicht**).
 
 Der folgende Codeausschnitt zeigt, wie Sie eine Sitzung für eine/n bestimmte/n Nutzer:in in Ihrer App öffnen:
 
@@ -928,9 +928,9 @@ Braze.changeUser("{some-user-id}");
 Suchen Sie nach dem/der Nutzer:in mit `{some-user-id}` im Dashboard unter **Zielgruppe** > **Nutzersuche**. Dort können Sie überprüfen, ob Sitzungs- und Gerätedaten protokolliert wurden.
 
 {% endtab %}
-{% tab React Native SDK or Software-Development-Kit 19.1.0 und früher %}
+{% tab React Native SDK 19.1.0 und früher %}
 
-Um Ihre SDK or Software-Development-Kit-Integration zu testen, zeigt der folgende Codeausschnitt, wie Sie auf einer der beiden Plattformen eine neue Sitzung für eine/n Nutzer:in starten.
+Um Ihre SDK-Integration zu testen, zeigt der folgende Codeausschnitt, wie Sie auf einer der beiden Plattformen eine neue Sitzung für eine/n Nutzer:in starten.
 
 ```javascript
 Braze.changeUser("userId");
@@ -961,11 +961,11 @@ Gehen Sie im Braze-Dashboard zu [Nutzersuche]({{site.baseurl}}/user_guide/engage
 
 ## Testen mit Jest {#testing-with-jest}
 
-React-Native-Unit-Tests, die das Braze SDK or Software-Development-Kit importieren, benötigen Mocks für native Module und das Braze Turbo Module. Das [Braze React Native SDK or Software-Development-Kit-Repository](https://github.com/braze-inc/braze-react-native-sdk) enthält ein Referenz-Jest-Setup in [`__tests__/jest.setup.js`](https://github.com/braze-inc/braze-react-native-sdk/blob/master/__tests__/jest.setup.js). Fügen Sie diese Datei (oder eine angepasste Kopie) zu `setupFiles` in Ihrer Jest-Konfiguration hinzu, damit `NativeEventEmitter`, `TurboModuleRegistry` und `BrazeReactBridge` gemockt werden, wenn Sie Komponenten testen, die Braze-APIs aufrufen.
+React-Native-Unit-Tests, die das Braze SDK importieren, benötigen Mocks für native Module und das Braze Turbo Module. Das [Braze React Native SDK-Repository](https://github.com/braze-inc/braze-react-native-sdk) enthält ein Referenz-Jest-Setup in [`__tests__/jest.setup.js`](https://github.com/braze-inc/braze-react-native-sdk/blob/master/__tests__/jest.setup.js). Fügen Sie diese Datei (oder eine angepasste Kopie) zu `setupFiles` in Ihrer Jest-Konfiguration hinzu, damit `NativeEventEmitter`, `TurboModuleRegistry` und `BrazeReactBridge` gemockt werden, wenn Sie Komponenten testen, die Braze-APIs aufrufen.
 
 ## Nächste Schritte {#next-steps}
 
-Nach der Integration des Braze SDK or Software-Development-Kit können Sie mit der Implementierung gängiger Messaging-Features beginnen:
+Nach der Integration des Braze SDK können Sie mit der Implementierung gängiger Messaging-Features beginnen:
 
 - [Push-Benachrichtigungen]({{site.baseurl}}/developer_guide/push_notifications): Richten Sie Push-Benachrichtigungen ein und senden Sie diese an Ihre Nutzer:innen.
 - [In-App Messages]({{site.baseurl}}/developer_guide/in_app_messages): Zeigen Sie kontextuelle Nachrichten innerhalb Ihrer App an.

@@ -10,7 +10,7 @@ description: "Esta página explica cómo usar el editor de arrastrar y soltar de
 
 > Usa el editor de arrastrar y soltar de mensajes dentro de la aplicación para crear un formulario de registro de correo electrónico con una página de confirmación.
 
-{% multi_lang_include drag_and_drop/templates.md section='SDK or kit de desarrollo de software requirements' %}
+{% multi_lang_include drag_and_drop/templates.md section='SDK requirements' %}
 
 ## Creando un formulario de registro de correo electrónico con una página de confirmación {#creating-an-email-sign-up-form-with-a-confirmation-page}
 

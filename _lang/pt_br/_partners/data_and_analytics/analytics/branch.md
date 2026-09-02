@@ -1,6 +1,6 @@
 ---
-nav_title: Branch or ramificação
-article_title: Branch or ramificação
+nav_title: Branch
+article_title: Branch
 layout: redirect
 redirect_to: /docs/partners/branch_for_deeplinking/
 ---

@@ -1,5 +1,5 @@
 - Komplexe Berichte erstellen
 - Attribution-Modellierung durchführen
 - Sicheres Teilen innerhalb Ihres eigenen Unternehmens
-- Rohe Event- oder Nutzerdaten einem CRM or Customer-Relationship-Management [-System] (CRM) zuordnen (wie Salesforce)
+- Rohe Event- oder Nutzerdaten einem CRM zuordnen (wie Salesforce)
 - Und mehr

@@ -91,7 +91,7 @@ O iOS não gera automaticamente tokens por push para um app quando ele é instal
 Existem duas formas de verificar o estado de inscrição de push de um usuário na Braze:
 
 - **Perfil de usuário**: Você pode acessar perfis de usuários individuais pelo dashboard da Braze na página [Pesquisa de usuários]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles). Após encontrar o perfil de um usuário (por endereço de e-mail, número de telefone ou ID de usuário externo), você pode selecionar a guia **Engagement** para visualizar e ajustar manualmente o estado de inscrição do usuário.
-- **Exportação via REST or transferir estado representacional API or interface de programação do aplicativo (API)**: Você pode exportar perfis de usuários individuais em formato JSON usando os endpoints de exportação [Usuários por Segment or segmento]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) ou [Usuários por identificador]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier). A Braze retornará um objeto de tokens por push que contém informações de habilitação de push por dispositivo.
+- **Exportação via REST API**: Você pode exportar perfis de usuários individuais em formato JSON usando os endpoints de exportação [Usuários por Segment]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) ou [Usuários por identificador]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier). A Braze retornará um objeto de tokens por push que contém informações de habilitação de push por dispositivo.
 
 ### Verificando o status de registro de push {#checking-push-registration-status}
 
@@ -118,15 +118,15 @@ Confira o quadro a seguir para ações que levam a alterações ou remoção de 
 
 ### Como isso funciona em uma escala mais ampla? {#what-does-this-look-like-on-a-broader-scale}
 
-Quando um usuário abre um novo aplicativo e concede acesso a push a partir de um prompt de push, uma chamada é feita do SDK or kit de desenvolvimento de software da Braze para os provedores de push. Quando essa chamada é feita, o provedor de push executa uma verificação para ver se tudo está configurado corretamente. Se estiver, um token por push é passado para o seu dispositivo. Quando esse token chega, o SDK or kit de desenvolvimento de software comunica isso à Braze. Após a Braze receber o token do provedor de push, atualizamos ou criamos um novo perfil de usuário. Esses usuários agora são considerados registrados.
+Quando um usuário abre um novo aplicativo e concede acesso a push a partir de um prompt de push, uma chamada é feita do SDK da Braze para os provedores de push. Quando essa chamada é feita, o provedor de push executa uma verificação para ver se tudo está configurado corretamente. Se estiver, um token por push é passado para o seu dispositivo. Quando esse token chega, o SDK comunica isso à Braze. Após a Braze receber o token do provedor de push, atualizamos ou criamos um novo perfil de usuário. Esses usuários agora são considerados registrados.
 
-Se quisermos lançar uma Campaign, criamos uma Campaign na Braze que gera uma carga útil de push para enviar ao provedor de push. A partir daí, o provedor entrega a carga útil de push ao dispositivo do usuário e o SDK or kit de desenvolvimento de software passa o estado do envio de mensagens para a Braze.
+Se quisermos lançar uma Campaign, criamos uma Campaign na Braze que gera uma carga útil de push para enviar ao provedor de push. A partir daí, o provedor entrega a carga útil de push ao dispositivo do usuário e o SDK passa o estado do envio de mensagens para a Braze.
 
 ![Um fluxograma que mapeia o processo de push mencionado acima entre a Braze, o cliente e o serviço de Notificações por Push da Apple ou Firebase Cloud Messaging.]({% image_buster /assets/img/push_process.png %})
 
 | Etapas de registro | Etapas de envio de mensagens |
 | ------------------ | --------------- |
-| 1. Cliente (dispositivo) se registra no provedor de push<br>2. Provedor gera e entrega o token por push<br>3. Envio dos tokens para a Braze |1. A Braze envia a carga útil de push para o provedor<br>2. O provedor entrega a carga útil de push ao dispositivo<br>3. O SDK or kit de desenvolvimento de software passa as estatísticas de envio de mensagens para a Braze |
+| 1. Cliente (dispositivo) se registra no provedor de push<br>2. Provedor gera e entrega o token por push<br>3. Envio dos tokens para a Braze |1. A Braze envia a carga útil de push para o provedor<br>2. O provedor entrega a carga útil de push ao dispositivo<br>3. O SDK passa as estatísticas de envio de mensagens para a Braze |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Como isso funciona em uma escala mais ampla?" }
 
 ## Perguntas frequentes {#frequently-asked-questions}
@@ -141,4 +141,4 @@ Além disso, se um usuário reativar o push em primeiro plano, seria necessário
 
 Infelizmente, APNs e FCM não definem isso de forma clara. Os tokens por push podem expirar quando um app é atualizado, quando os usuários transferem seus dados para um novo dispositivo ou quando reinstalam um sistema operacional. Na maioria dos casos, não temos realmente visibilidade sobre por que os provedores de push expiram determinados tokens por push.
 
-Para lidar com essa ambiguidade, nossas integrações de push do SDK or kit de desenvolvimento de software sempre registram e enviam os tokens no início da sessão para garantir que tenhamos o token mais atualizado.
+Para lidar com essa ambiguidade, nossas integrações de push do SDK sempre registram e enviam os tokens no início da sessão para garantir que tenhamos o token mais atualizado.

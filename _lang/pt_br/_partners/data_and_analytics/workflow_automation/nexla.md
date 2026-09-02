@@ -19,8 +19,8 @@ A integração entre a Braze e a Nexla permite que os clientes que usam o [Curre
 | Requisito | Descrição |
 |---|---|
 | Conta Nexla | É necessário ter uma [conta Nexla](https://www.nexla.com/get-demo) para aproveitar essa parceria. |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões `users.track`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
-| Endpoint REST or transferir estado representacional da Braze  | Sua URL de endpoint REST or transferir estado representacional. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints)). |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Endpoint REST da Braze  | Sua URL de endpoint REST. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints)). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
@@ -38,7 +38,7 @@ Se você ainda não tem uma conta Nexla, acesse o [site](https://www.nexla.com) 
 #### Se a Braze for sua fonte de dados {#if-braze-is-your-data-source}
 1. Na plataforma Nexla, navegue até **Flows > Create a New Flow** na barra de ferramentas de navegação.
 2. Clique em **Create New Source**, selecione o conector da Braze e clique em **Next**.
-3. Selecione **Add a New Credential**, nomeie a credencial, adicione sua chave de API or interface de programação do aplicativo (API) da Braze e o endpoint REST or transferir estado representacional e clique em **Save**.
+3. Selecione **Add a New Credential**, nomeie a credencial, adicione sua chave de API da Braze e o endpoint REST e clique em **Save**.
 4. Por fim, selecione seus dados e clique em **Save**.
 
 A Nexla pesquisará os dados disponíveis na fonte e gerará um [Nexset](https://nexla.zendesk.com/hc/en-us/articles/360052999674-Dataset-Information) para transformação ou envio a um destino.

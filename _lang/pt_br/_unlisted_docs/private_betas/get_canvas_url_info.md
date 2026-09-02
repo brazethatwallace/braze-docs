@@ -14,7 +14,7 @@ tool:
 
 description: "Este artigo descreve detalhes sobre o endpoint Listar alias de link para Canvas."
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Listar alias de link para Canvas {#list-link-alias-for-canvas}
 {% apimethod get %}
 /canvas/url_info/details
@@ -28,8 +28,8 @@ description: "Este artigo descreve detalhes sobre o endpoint Listar alias de lin
 
 | Parâmetro | Obrigatório | Tipo de dados | Descrição |
 |---|---|---|---|
-| `canvas_step_id` | Obrigatório | String | Consulte [Identificador de API or interface de programação do aplicativo (API) da etapa do Canvas]({{site.baseurl}}/api/identifier_types#canvas-identifier). |
-| `message_variation_id ` | Obrigatório | String | Identificador de API or interface de programação do aplicativo (API) da variante de mensagem (para a variante de mensagem de e-mail nessa etapa). Você pode encontrá-lo clicando em **Analyze Variants** na página **Canvas Details**. |
+| `canvas_step_id` | Obrigatório | String | Consulte [Identificador de API da etapa do Canvas]({{site.baseurl}}/api/identifier_types#canvas-identifier). |
+| `message_variation_id ` | Obrigatório | String | Identificador de API da variante de mensagem (para a variante de mensagem de e-mail nessa etapa). Você pode encontrá-lo clicando em **Analyze Variants** na página **Canvas Details**. |
 | `includes_link_id` | Opcional | String | Um identificador de link específico (conforme atribuído pela Braze) ou `null`. Usado para filtrar os resultados por um `link_id` específico. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -66,8 +66,8 @@ A tabela a seguir lista possíveis erros retornados e as etapas de solução de 
 
 | Erro | Solução de problemas |
 | --- | --- |
-| `Missing/Invalid Canvas ID` | O ID de API or interface de programação do aplicativo (API) do Canvas deve ser um identificador de API or interface de programação do aplicativo (API). Você pode encontrá-lo usando o [endpoint Exportar lista de Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases) ou fazendo login no dashboard. |
-| `Missing/Invalid Message Variant ID` | O ID de API or interface de programação do aplicativo (API) da variante de mensagem deve ser um identificador de API or interface de programação do aplicativo (API). Você pode encontrá-lo usando o [endpoint Exportar detalhes do Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details) ou fazendo login no dashboard. |
+| `Missing/Invalid Canvas ID` | O ID de API do Canvas deve ser um identificador de API. Você pode encontrá-lo usando o [endpoint Exportar lista de Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases) ou fazendo login no dashboard. |
+| `Missing/Invalid Message Variant ID` | O ID de API da variante de mensagem deve ser um identificador de API. Você pode encontrá-lo usando o [endpoint Exportar detalhes do Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details) ou fazendo login no dashboard. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% endapi %}

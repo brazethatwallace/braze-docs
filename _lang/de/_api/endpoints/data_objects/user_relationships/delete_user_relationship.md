@@ -66,7 +66,7 @@ Dieser Abschnitt enthält eine Beispiel-JSON-Payload und eine Beispiel-cURL-Anfr
 
 ### Beispiel-cURL-Anfrage {#sample-curl-request}
 
-Dieses Beispiel entfernt die `account_user`-Beziehung zwischen dem angegebenen Nutzer bzw. der angegebenen Nutzerin und `acct-123`. Das Kundenprofil or Nutzerprofil und der Account-Datensatz bleiben beide erhalten.
+Dieses Beispiel entfernt die `account_user`-Beziehung zwischen dem angegebenen Nutzer bzw. der angegebenen Nutzerin und `acct-123`. Das Nutzerprofil und der Account-Datensatz bleiben beide erhalten.
 
 ```bash
 curl --location --request DELETE 'https://rest.iad-01.braze.com/data_objects/objects/account/acct-123/users' \
@@ -107,7 +107,7 @@ Die folgende Tabelle listet häufige Fehler für diesen Endpunkt und deren Beheb
 |---|---|---|
 | `400` | Validierungsfehler | Stellen Sie sicher, dass der Anfragebody gültige Werte für `braze_id` und `rel_kind` enthält. |
 | `404` | Beziehung oder Objekt nicht gefunden | Stellen Sie sicher, dass das Objekt, der/die Nutzer:in und die Beziehungsschlüsselwerte alle existieren. |
-| `401` | Fehlender oder ungültiger Representational State Transfer-API-Schlüssel | Überprüfen Sie, ob der `Authorization`-Header `Bearer YOUR_REST_API_KEY` verwendet und ob der Schlüssel aktiv ist. |
+| `401` | Fehlender oder ungültiger REST-API-Schlüssel | Überprüfen Sie, ob der `Authorization`-Header `Bearer YOUR_REST_API_KEY` verwendet und ob der Schlüssel aktiv ist. |
 | `403` | API-Schlüssel hat keine Berechtigung oder die Anfrage wird durch die Allowlist blockiert | Stellen Sie sicher, dass der Schlüssel die Berechtigung `data_objects.user_relationships.delete` hat und dass Ihre Quell-IP auf der Schlüssel-Allowlist steht, falls konfiguriert. |
 | `429` | Rate-Limit überschritten | Versuchen Sie es nach `X-RateLimit-Reset` erneut und reduzieren Sie die Anfragehäufigkeit. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fehler beim Löschen der Nutzer:innen-Beziehung" }

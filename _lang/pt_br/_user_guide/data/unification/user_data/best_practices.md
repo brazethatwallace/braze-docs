@@ -25,7 +25,7 @@ Quando um usuário insere conteúdo por meio de um formulário web, verifique se
 
 - **Verificar o banco de dados interno (recomendado):** Se você tiver um registro externo ou banco de dados contendo as informações do usuário fornecidas e que existe fora da Braze, consulte-o no momento do envio do e-mail ou da criação da conta para confirmar que as informações ainda não foram capturadas.
 - **[Endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track):** Use `email` como identificador, e um novo perfil de usuário será criado caso o endereço de e-mail ainda não exista.
-- **[Endpoint `/subscription/status/get`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status):** Se você coleta e-mails por meio de um formulário personalizado e depois define a associação ao grupo de inscrições pela REST or transferir estado representacional API or interface de programação do aplicativo (API), chame esse endpoint primeiro. Se não houver perfil correspondente, crie ou inscreva o usuário com o [endpoint `/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status). Caso contrário, atualize o perfil existente em vez de criar uma duplicata.
+- **[Endpoint `/subscription/status/get`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status):** Se você coleta e-mails por meio de um formulário personalizado e depois define a associação ao grupo de inscrições pela REST API, chame esse endpoint primeiro. Se não houver perfil correspondente, crie ou inscreva o usuário com o [endpoint `/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status). Caso contrário, atualize o perfil existente em vez de criar uma duplicata.
 
 ### Etapa 2: Registrar ou atualizar o usuário {#step-2-log-or-update-user}
 
@@ -41,7 +41,7 @@ Quando um usuário insere conteúdo por meio de um formulário web, verifique se
 
 Use um formulário de captura de e-mail para solicitar que os usuários enviem seu endereço de e-mail, que será adicionado ao perfil de usuário. Para saber mais sobre como configurar esse formulário, confira [Formulário de captura de e-mail]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/email_capture_form).
 
-Se você usa um formulário personalizado e define a associação ao grupo de inscrições por meio da REST or transferir estado representacional API or interface de programação do aplicativo (API), verifique se já existe um perfil antes de criar um usuário. Consulte a [Etapa 1: Verificar se o usuário existe](#step-1-check-if-user-exists).
+Se você usa um formulário personalizado e define a associação ao grupo de inscrições por meio da REST API, verifique se já existe um perfil antes de criar um usuário. Consulte a [Etapa 1: Verificar se o usuário existe](#step-1-check-if-user-exists).
 
 ## Identificando usuários somente com alias {#identifying-alias-only-users}
 

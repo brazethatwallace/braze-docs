@@ -10,7 +10,7 @@ page_order: 5
 
 # Propriedades de entrada persistentes {#persistent-entry-properties}
 
-> Quando um Canvas é disparado por um evento personalizado, uma compra ou uma chamada de API or interface de programação do aplicativo (API), você pode usar metadados da chamada de API or interface de programação do aplicativo (API), do evento personalizado ou do evento de compra para personalização em cada etapa do fluxo de trabalho do seu Canvas. Você pode usar essas propriedades para enviar mensagens mais curadas.
+> Quando um Canvas é disparado por um evento personalizado, uma compra ou uma chamada de API, você pode usar metadados da chamada de API, do evento personalizado ou do evento de compra para personalização em cada etapa do fluxo de trabalho do seu Canvas. Você pode usar essas propriedades para enviar mensagens mais curadas.
 
 {% alert important %}
 As propriedades de entrada persistentes são um artefato do editor original do Canvas, então existem referências depreciadas a termos como propriedades de entrada do Canvas que permanecem para referência histórica. Para o editor atual do Canvas, consulte [Propriedades de contexto e evento]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties).<br><br>Para usar propriedades de entrada persistentes no editor atual do Canvas, você deve criar um novo Canvas ou [clonar]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases) um existente para o editor atual.
@@ -18,7 +18,7 @@ As propriedades de entrada persistentes são um artefato do editor original do C
 
 ## Usando propriedades de entrada {#using-entry-properties}
 
-As propriedades de entrada podem ser usadas em Canvas baseados em ação e disparados por API or interface de programação do aplicativo (API). Essas propriedades de entrada são definidas quando um Canvas é disparado por um evento personalizado, compra ou chamada de API or interface de programação do aplicativo (API). Consulte os seguintes artigos para saber mais:
+As propriedades de entrada podem ser usadas em Canvas baseados em ação e disparados por API. Essas propriedades de entrada são definidas quando um Canvas é disparado por um evento personalizado, compra ou chamada de API. Consulte os seguintes artigos para saber mais:
 
 - [Objeto de propriedades de entrada do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)
 - [Objeto de propriedades de evento]({{site.baseurl}}/api/objects_filters/event_object)
@@ -95,6 +95,6 @@ A segunda etapa pode enviar outra notificação por push incentivando o usuário
 
 ### Propriedades de entrada estão em branco com múltiplos disparadores de entrada {#entry-properties-are-blank-with-multiple-entry-triggers}
 
-A Braze armazena `canvas_entry_properties` do disparador que inseriu o usuário, e não de todos os disparadores configurados no Canvas. Se esse disparador não tiver evento ou carga útil de API or interface de programação do aplicativo (API) — por exemplo, **Start Session** ou **Change Custom Attribute Value** — o Liquid `canvas_entry_properties` ficará em branco para essa jornada. Usuários que entram no mesmo Canvas por meio de um evento personalizado, compra ou chamada de API or interface de programação do aplicativo (API) ainda terão as propriedades dessa carga útil.
+A Braze armazena `canvas_entry_properties` do disparador que inseriu o usuário, e não de todos os disparadores configurados no Canvas. Se esse disparador não tiver evento ou carga útil de API — por exemplo, **Start Session** ou **Change Custom Attribute Value** — o Liquid `canvas_entry_properties` ficará em branco para essa jornada. Usuários que entram no mesmo Canvas por meio de um evento personalizado, compra ou chamada de API ainda terão as propriedades dessa carga útil.
 
-Para manter as propriedades de entrada preenchidas para todos os usuários, use apenas tipos de entrada que transmitam essas propriedades (evento personalizado, compra ou disparo via API or interface de programação do aplicativo (API)). Para personalização no editor atual do Canvas, use [propriedades de contexto e evento]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties). Para filtrar por propriedades, use a [segmentação por propriedades de evento]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects) em vez do Liquid `canvas_entry_properties`.
+Para manter as propriedades de entrada preenchidas para todos os usuários, use apenas tipos de entrada que transmitam essas propriedades (evento personalizado, compra ou disparo via API). Para personalização no editor atual do Canvas, use [propriedades de contexto e evento]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties). Para filtrar por propriedades, use a [segmentação por propriedades de evento]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects) em vez do Liquid `canvas_entry_properties`.

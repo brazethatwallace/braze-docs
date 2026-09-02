@@ -1,13 +1,13 @@
 ---
-nav_title: Representational State Transfer-API
-article_title: Representational State Transfer-API
+nav_title: REST-API
+article_title: REST-API
 page_order: 1
-description: "Erfahren Sie, wie Sie Connected-Content verwenden, um Daten aus Representational State Transfer APIs in Ihre Nachrichten zu übertragen und so eine Realtime-Personalisierung zu ermöglichen."
+description: "Erfahren Sie, wie Sie Connected-Content verwenden, um Daten aus REST APIs in Ihre Nachrichten zu übertragen und so eine Realtime-Personalisierung zu ermöglichen."
 ---
 
-# Representational State Transfer-API {#rest-api}
+# REST-API {#rest-api}
 
-> Rufen Sie Daten aus externen Representational State Transfer APIs zum Sendezeitpunkt direkt in Ihre Nachrichten ab – mit [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content). So können Sie Nachrichten mit Realtime-Informationen von Ihren eigenen Servern, Drittanbieter-Diensten oder jedem öffentlich zugänglichen API-Endpunkt personalisieren.
+> Rufen Sie Daten aus externen REST APIs zum Sendezeitpunkt direkt in Ihre Nachrichten ab – mit [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content). So können Sie Nachrichten mit Realtime-Informationen von Ihren eigenen Servern, Drittanbieter-Diensten oder jedem öffentlich zugänglichen API-Endpunkt personalisieren.
 
 ## So funktioniert es {#how-it-works}
 

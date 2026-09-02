@@ -1,6 +1,6 @@
 ---
-nav_title: "POST: Kundenprofil or Nutzerprofil nach Bezeichner exportieren"
-article_title: "POST: Kundenprofil or Nutzerprofil nach Bezeichner exportieren"
+nav_title: "POST: Nutzerprofil nach Bezeichner exportieren"
+article_title: "POST: Nutzerprofil nach Bezeichner exportieren"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
@@ -8,12 +8,12 @@ page_type: reference
 description: "Dieser Artikel enthält Details zum Braze-Endpunkt „Nutzer:innen nach Bezeichner exportieren“."
 ---
 {% api %}
-# Kundenprofil or Nutzerprofil nach Bezeichner exportieren {#export-user-profile-by-identifier}
+# Nutzerprofil nach Bezeichner exportieren {#export-user-profile-by-identifier}
 {% apimethod post %}
 /users/export/ids
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um Daten aus einem beliebigen Kundenprofil or Nutzerprofil zu exportieren, indem Sie einen Nutzer-Bezeichner angeben.
+> Verwenden Sie diesen Endpunkt, um Daten aus einem beliebigen Nutzerprofil zu exportieren, indem Sie einen Nutzer-Bezeichner angeben.
 
 Bis zu 50 `external_ids` oder `user_aliases` können in einer einzigen Anfrage enthalten sein. Wenn Sie `device_id`, `email_address` oder `phone` angeben möchten, kann nur einer dieser Bezeichner pro Anfrage enthalten sein.
 
@@ -56,7 +56,7 @@ Für Kund:innen, die am oder nach dem 22. August 2024 das Onboarding mit Braze d
 | ------------------ | -------- | ------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | `external_ids` | Optional | String-Array | Externe Bezeichner für Nutzer:innen, die Sie exportieren möchten. |
 | `user_aliases` | Optional | Array von Nutzer-Alias-Objekten | [Nutzer-Aliase]({{site.baseurl}}/api/objects_filters/user_alias_object) für Nutzer:innen zum Exportieren. |
-| `device_id` | Optional | String | Geräte-Bezeichner, wie er von verschiedenen SDK or Software-Development-Kit-Methoden wie `getDeviceId` zurückgegeben wird. |
+| `device_id` | Optional | String | Geräte-Bezeichner, wie er von verschiedenen SDK-Methoden wie `getDeviceId` zurückgegeben wird. |
 | `braze_id` | Optional | String | Braze-Bezeichner für eine:n bestimmte:n Nutzer:in. |
 | `email_address` | Optional | String | E-Mail-Adresse der Nutzer:in. |
 | `phone` | Optional | String im [E.164](https://en.wikipedia.org/wiki/E.164)-Format | Telefonnummer der Nutzer:in. |
@@ -119,12 +119,12 @@ Im Folgenden finden Sie eine Liste der gültigen `fields_to_export`. Die Verwend
 | `push_tokens` | Array | Eindeutiger anonymer Bezeichner, der angibt, wohin die Benachrichtigungen einer App gesendet werden sollen. |
 | `random_bucket` | Integer | [Zufällige Bucket-Nummer]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) der Nutzer:in, mit der gleichmäßig verteilte Segmente aus zufälligen Nutzer:innen erstellt werden. |
 | `time_zone` | String | Zeitzone der Nutzer:in im gleichen Format wie in der IANA-Zeitzonendatenbank. |
-| `total_revenue` | Gleitkommazahl | Gesamtumsatz, der dieser Nutzer:in zugerechnet wird. Der Gesamtumsatz wird auf Grundlage der Käufe berechnet, die die Nutzer:innen während der Conversion-Fenster für die Campaigns und Canvase, die sie erhalten haben, getätigt haben. |
+| `total_revenue` | Gleitkommazahl | Gesamtumsatz, der dieser Nutzer:in zugerechnet wird. Der Gesamtumsatz wird auf Grundlage der Käufe berechnet, die die Nutzer:innen während der Conversion-Fenster für die Campaigns und Canvases, die sie erhalten haben, getätigt haben. |
 | `uninstalled_at` | Zeitstempel | Datum und Uhrzeit der Deinstallation der App durch die Nutzer:in. Entfällt, wenn die App nicht deinstalliert wurde. |
 | `user_aliases` | Objekt | [Nutzer-Alias-Objekt]({{site.baseurl}}/api/objects_filters/user_alias_object), das `alias_name` und `alias_label` enthält, falls vorhanden. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Zu exportierende Felder" }
 
-Beachten Sie, dass der Endpunkt `/users/export/ids` das gesamte Kundenprofil or Nutzerprofil zusammenstellt, einschließlich Daten wie alle erhaltenen Campaigns und Canvase, alle durchgeführten angepassten Events, alle getätigten Käufe und alle angepassten Attribute. Infolgedessen ist dieser Endpunkt langsamer als andere Representational State Transfer-API-Endpunkte.
+Beachten Sie, dass der Endpunkt `/users/export/ids` das gesamte Nutzerprofil zusammenstellt, einschließlich Daten wie alle erhaltenen Campaigns und Canvases, alle durchgeführten angepassten Events, alle getätigten Käufe und alle angepassten Attribute. Infolgedessen ist dieser Endpunkt langsamer als andere REST-API-Endpunkte.
 
 Abhängig von den angefragten Daten reicht dieser API-Endpunkt aufgrund des Rate-Limits von 250 Anfragen pro Minute möglicherweise nicht aus, um Ihre Anforderungen zu erfüllen. Wenn Sie diesen Endpunkt regelmäßig zum Exportieren von Nutzer:innen verwenden möchten, sollten Sie stattdessen den Export von Nutzer:innen nach Segmenten in Betracht ziehen, der asynchron erfolgt und für größere Datenabrufe optimiert ist.
 

@@ -15,8 +15,8 @@ description: "Este artigo de referência aborda o uso de um vetor de objetos com
 
 ## Considerações {#considerations}
 
-- Os vetores de objetos destinam-se a atributos personalizados enviados por meio da API or interface de programação do aplicativo (API). Não há suporte para upload de CSV. Isso ocorre porque as vírgulas no arquivo CSV serão interpretadas como separadores de coluna, e as vírgulas nos valores causarão erros de análise.
-- Os vetores de objetos não têm limite para o número de itens, mas têm um tamanho máximo de 100&nbsp;KB. Se uma atualização (como `$add` ou `$update`) fizer o vetor exceder esse limite, a Braze descarta a atualização e o atributo permanece inalterado. A requisição da API or interface de programação do aplicativo (API) ainda retorna uma resposta de sucesso. Para manter o vetor dentro do limite e permitir a adição de novos itens, use `$remove` para excluir itens do vetor primeiro.
+- Os vetores de objetos destinam-se a atributos personalizados enviados por meio da API. Não há suporte para upload de CSV. Isso ocorre porque as vírgulas no arquivo CSV serão interpretadas como separadores de coluna, e as vírgulas nos valores causarão erros de análise.
+- Os vetores de objetos não têm limite para o número de itens, mas têm um tamanho máximo de 100&nbsp;KB. Se uma atualização (como `$add` ou `$update`) fizer o vetor exceder esse limite, a Braze descarta a atualização e o atributo permanece inalterado. A requisição da API ainda retorna uma resposta de sucesso. Para manter o vetor dentro do limite e permitir a adição de novos itens, use `$remove` para excluir itens do vetor primeiro.
 - Nem todos os parceiros da Braze suportam vetores de objetos. Consulte a [documentação do parceiro]({{site.baseurl}}/partners/home) para confirmar se a integração suporta esse recurso.
 
 A atualização ou remoção de itens em um vetor exige a identificação do item por chave e valor, portanto, considere incluir um identificador exclusivo para cada item do vetor. A exclusividade tem escopo apenas para o vetor e é útil se você quiser atualizar e remover objetos específicos do vetor. Isso não é imposto pela Braze.
@@ -29,14 +29,14 @@ Quando um atributo personalizado aninhado na sua requisição contém valores in
 Para saber mais sobre o uso de vetores de objetos para objetos de atributos de usuário, consulte [Objeto de atributos de usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object).
 {% endalert %}
 
-## Exemplo de API or interface de programação do aplicativo (API) {#api-example}
+## Exemplo de API {#api-example}
 
 Use estes exemplos ao enviar requisições `/users/track` que criam ou atualizam atributos personalizados aninhados armazenados como vetores de objetos. A carga útil usa os operadores `$add`, `$remove` e `$update` para que você possa alterar objetos específicos sem reconstruir o vetor inteiro a cada requisição.
 
 {% tabs local %}
 {% tab Criar %}
 
-A seguir, um exemplo de `/users/track` com um vetor `pets`. Para capturar as propriedades dos animais de estimação, envie uma requisição de API or interface de programação do aplicativo (API) que liste `pets` como um vetor de objetos. Observe que cada objeto recebeu um `id` único que pode ser referenciado posteriormente ao fazer atualizações.
+A seguir, um exemplo de `/users/track` com um vetor `pets`. Para capturar as propriedades dos animais de estimação, envie uma requisição de API que liste `pets` como um vetor de objetos. Observe que cada objeto recebeu um `id` único que pode ser referenciado posteriormente ao fazer atualizações.
 
 Use este formato quando quiser criar o atributo pela primeira vez ou substituir o vetor inteiro por um novo conjunto base de objetos.
 
@@ -223,10 +223,10 @@ Ao incluir campos como timestamps em um vetor de objetos, use o formato `$time` 
 Para saber mais, consulte [Atributos personalizados aninhados]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
 {% endalert %}
 
-## Exemplo de SDK or kit de desenvolvimento de software {#sdk-example}
+## Exemplo de SDK {#sdk-example}
 
 {% tabs local %}
-{% tab Android SDK or kit de desenvolvimento de software %}
+{% tab Android SDK %}
 {% subtabs %}
 {% subtab Criar %}
 ```kotlin
@@ -329,7 +329,7 @@ braze.getCurrentUser { user ->
 {% endsubtabs %}
 {% endtab %}
 
-{% tab Swift SDK or kit de desenvolvimento de software %}
+{% tab Swift SDK %}
 {% subtabs %}
 {% subtab Criar %}
 ```swift
@@ -435,7 +435,7 @@ Atributos personalizados aninhados não são compatíveis com o AppboyKit.
 {% endalert %}
 {% endtab %}
 
-{% tab Web SDK or kit de desenvolvimento de software %}
+{% tab Web SDK %}
 {% subtabs local %}
 {% subtab Criar %}
 ```javascript
@@ -533,7 +533,7 @@ braze.getUser().setCustomUserAttribute("pets", json, true);
 
 ## Templates com Liquid {#liquid-templating}
 
-Você pode usar esse vetor `pets` para personalizar uma mensagem. O exemplo de template Liquid a seguir mostra como referenciar as propriedades do objeto de atributo personalizado salvas na requisição de API or interface de programação do aplicativo (API) anterior e usá-las no envio de mensagens.
+Você pode usar esse vetor `pets` para personalizar uma mensagem. O exemplo de template Liquid a seguir mostra como referenciar as propriedades do objeto de atributo personalizado salvas na requisição de API anterior e usá-las no envio de mensagens.
 
 {% raw %}
 ```liquid
@@ -549,9 +549,9 @@ Nesse cenário, você pode usar Liquid para percorrer o vetor `pets` e imprimir 
 
 ## Segmentação {#segmentation}
 
-Ao segmentar usuários com base em vetores de objetos, um usuário se qualificará para o Segment or segmento or segmento se qualquer objeto no vetor corresponder aos critérios.
+Ao segmentar usuários com base em vetores de objetos, um usuário se qualificará para o Segment se qualquer objeto no vetor corresponder aos critérios.
 
-Crie um novo Segment or segmento or segmento e selecione **Nested Custom Attribute** como seu filtro. Em seguida, pesquise e selecione o nome do seu vetor de objetos.
+Crie um novo Segment e selecione **Nested Custom Attribute** como seu filtro. Em seguida, pesquise e selecione o nome do seu vetor de objetos.
 
 ![Filtrar por vetor de objetos.]({% image_buster /assets/img_archive/array_of_objects_segmenting_1.gif %})
 
@@ -562,7 +562,7 @@ Por exemplo, se você quiser filtrar um vetor de objetos `top_3_movies` com base
 
 ### Níveis de aninhamento {#levels-of-nesting}
 
-Você pode criar um Segment or segmento or segmento com até um nível de aninhamento de vetor (vetor dentro de outro vetor). Por exemplo, considerando os atributos a seguir, você pode criar um Segment or segmento or segmento para `pets[].name` contém `Mochi`, mas não pode criar um Segment or segmento or segmento para `pets[].nicknames[]` contém `Gugu`.
+Você pode criar um Segment com até um nível de aninhamento de vetor (vetor dentro de outro vetor). Por exemplo, considerando os atributos a seguir, você pode criar um Segment para `pets[].name` contém `Mochi`, mas não pode criar um Segment para `pets[].nicknames[]` contém `Gugu`.
 
 {% raw %}
 ```json

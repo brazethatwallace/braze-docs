@@ -8,7 +8,7 @@ page_type: reference
 description: "Este artigo descreve o endpoint da Braze para exportar análise de dados resumidos do Canvas."
 
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Exportar análise de dados resumidos do Canvas {#export-canvas-data-summary-analytics}
 {% apimethod get %}
 /canvas/data_summary
@@ -20,7 +20,7 @@ description: "Este artigo descreve o endpoint da Braze para exportar análise de
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `canvas.data_summary`.
+Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `canvas.data_summary`.
 
 ## Limite de frequência {#rate-limit}
 
@@ -30,7 +30,7 @@ Para usar este endpoint, você precisará de uma [chave de API or interface de p
 
 | Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | -------- | --------- | ----------- |
-| `canvas_id` | Obrigatório | String | Consulte [Identificador de API or interface de programação do aplicativo (API) do Canvas]({{site.baseurl}}/api/identifier_types). |
+| `canvas_id` | Obrigatório | String | Consulte [Identificador de API do Canvas]({{site.baseurl}}/api/identifier_types). |
 | `ending_at` | Obrigatório | Datetime <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) string) | Data final para a exportação de dados. O padrão é o momento da solicitação. |
 | `starting_at` | Opcional* | Datetime <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) string) | Data de início para a exportação de dados. <br><br>* É necessário informar `length` ou `starting_at`. |
 | `length` | Opcional* | String | Número máximo de dias antes de `ending_at` incluídos na série retornada. Deve estar entre 1 e 14 (inclusive). <br><br>* É necessário informar `length` ou `starting_at`. |
@@ -40,7 +40,7 @@ Para usar este endpoint, você precisará de uma [chave de API or interface de p
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 {% alert important %}
-A análise de dados do Canvas é agregada por dia no fuso horário configurado da sua empresa na Braze (o mesmo fuso horário usado pelo dashboard). A API or interface de programação do aplicativo (API) normaliza `starting_at` e `ending_at` para meia-noite nesse fuso horário. Certifique-se de que seus timestamps estejam alinhados com o fuso horário da sua empresa para que suas estatísticas correspondam ao dashboard. Por exemplo, se o fuso horário da sua empresa for UTC+2, o timestamp deve ser 0h UTC+2.
+A análise de dados do Canvas é agregada por dia no fuso horário configurado da sua empresa na Braze (o mesmo fuso horário usado pelo dashboard). A API normaliza `starting_at` e `ending_at` para meia-noite nesse fuso horário. Certifique-se de que seus timestamps estejam alinhados com o fuso horário da sua empresa para que suas estatísticas correspondam ao dashboard. Por exemplo, se o fuso horário da sua empresa for UTC+2, o timestamp deve ser 0h UTC+2.
 {% endalert %}
 
 ## Exemplo de solicitação {#example-request}
@@ -137,7 +137,7 @@ Em `total_stats`, `variant_stats` e `step_stats`, `conversions` é a contagem do
 ```
 
 {% alert important %}
-Na resposta da API or interface de programação do aplicativo (API), o campo `influenced_opens` representa o número total de aberturas (tanto Aberturas Diretas quanto Aberturas por Influência combinadas). No dashboard da Braze, "Aberturas por Influência" refere-se apenas a aberturas por influência, excluindo Aberturas Diretas. Isso se deve a uma convenção de nomenclatura legada na API or interface de programação do aplicativo (API).
+Na resposta da API, o campo `influenced_opens` representa o número total de aberturas (tanto Aberturas Diretas quanto Aberturas por Influência combinadas). No dashboard da Braze, "Aberturas por Influência" refere-se apenas a aberturas por influência, excluindo Aberturas Diretas. Isso se deve a uma convenção de nomenclatura legada na API.
 {% endalert %}
 
 ## Artigos relacionados {#related-articles}

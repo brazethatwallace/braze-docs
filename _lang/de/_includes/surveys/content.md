@@ -47,7 +47,7 @@ In-App-Nachrichten-Umfragen enthalten standardmäßig zwei Seiten:
 - **Seite 1**, auf der Nutzer:innen Fragen beantworten
 - **Bestätigungsseite**, auf der die Umfrage übermittelt wird
 
-Standardmäßig sind Buttons mit **Nächste Seite** verknüpft. Um dieses Verhalten zu ändern, Update or aktualisieren or aktualisieren Sie jeden Button im Panel **Aktionen**.
+Standardmäßig sind Buttons mit **Nächste Seite** verknüpft. Um dieses Verhalten zu ändern, aktualisieren Sie jeden Button im Panel **Aktionen**.
 
 ![Seitenfluss und Aktionseinstellungen einer In-App-Nachrichten-Umfrage.]({% image_buster /assets/img/surveys/iam-survey-nav.png %}){: style="max-width:40%;"}
 
@@ -134,7 +134,7 @@ Landing-Page-Umfragen erfassen teilweise abgeschlossene Antworten, wenn die Umfr
 
 Sie können auch Aufschlüsselungen der Antworten pro Frage überprüfen, zwischen drei Chart-Typen wählen und Daten als CSV exportieren. Weitere Informationen finden Sie unter [Chart-Typen]({{site.baseurl}}/user_guide/messaging/surveys#chart-types).
 
-## Retarget und Trigger or triggern {#retarget-and-trigger}
+## Retarget und Trigger {#retarget-and-trigger}
 
 Sie können:
 
@@ -145,7 +145,7 @@ Sie können:
 
 ![Trigger-Einrichtung und Segmentierungsfilter für die Nachverfolgung von Umfragen.]({% image_buster /assets/img/surveys/submit-survey-segment.png %})
 
-- Campaigns und Canvase Trigger or triggern or triggern, wenn Nutzer:innen eine Umfrage in einer In-App-Nachricht-Campaign abschließen.
+- Campaigns und Canvases triggern, wenn Nutzer:innen eine Umfrage in einer In-App-Nachricht-Campaign abschließen.
 
 ![Trigger-Einrichtung und Segmentierungsfilter für die Nachverfolgung von In-App-Nachricht-Campaign-Umfragen.]({% image_buster /assets/img/surveys/interact-campaign-step.png %})
 
@@ -153,13 +153,13 @@ Sie können:
 
 ![Trigger-Einrichtung und Segmentierungsfilter für die Nachverfolgung von Landing-Page-Umfragen.]({% image_buster /assets/img/surveys/trigger_landing_page_survey.png %})
 
-- Campaigns und Canvase Trigger or triggern or triggern, wenn Nutzer:innen eine Umfrage auf einer Landing-Page abschließen.
+- Campaigns und Canvases triggern, wenn Nutzer:innen eine Umfrage auf einer Landing-Page abschließen.
 
 {% else %}
 
 ![Trigger-Einrichtung und Segmentierungsfilter für die Nachverfolgung von Umfragen.]({% image_buster /assets/img/surveys/submit-survey-segment.png %})
 
-- Campaigns und Canvase Trigger or triggern or triggern, wenn Nutzer:innen eine Umfrage auf einer Landing-Page oder in einer In-App-Nachricht-Campaign abschließen.
+- Campaigns und Canvases triggern, wenn Nutzer:innen eine Umfrage auf einer Landing-Page oder in einer In-App-Nachricht-Campaign abschließen.
 
 ![Trigger-Einrichtung und Segmentierungsfilter für die Nachverfolgung von Landing-Page-Umfragen.]({% image_buster /assets/img/surveys/trigger_landing_page_survey.png %})
 

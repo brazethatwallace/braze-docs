@@ -6,12 +6,12 @@ platform:
   - FireOS
   - Swift
 page_order: 2.2
-description: "Saiba mais sobre mensagens no app e como configurá-las para o SDK or kit de desenvolvimento de software da Braze."
+description: "Saiba mais sobre mensagens no app e como configurá-las para o SDK da Braze."
 ---
 
 # Mensagens no app {#in-app-messages}
 
-> Saiba mais sobre mensagens no app e como configurá-las para o SDK or kit de desenvolvimento de software da Braze.
+> Saiba mais sobre mensagens no app e como configurá-las para o SDK da Braze.
 
 {% sdktabs %}
 {% sdktab web %}

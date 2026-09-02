@@ -3,7 +3,7 @@ nav_title: Angepasster Code und JavaScript-Brücke
 article_title: Angepasster Code und JavaScript-Brücke für Banner
 page_order: 2
 page_type: reference
-description: "Erfahren Sie, wie Sie angepasstes HTML in Bannern und die JavaScript-Brücke verwenden können, um Klicks zu protokollieren und Braze-Aktionen zu Trigger or triggern or triggern."
+description: "Erfahren Sie, wie Sie angepasstes HTML in Bannern und die JavaScript-Brücke verwenden können, um Klicks zu protokollieren und Braze-Aktionen zu triggern."
 channel:
   - banners
 ---
@@ -12,7 +12,7 @@ channel:
 
 > Wenn Sie den Editor-Block **Angepasster Code** im Banner-Composer oder den **HTML-Editor** verwenden, müssen Sie `brazeBridge.logClick()` innerhalb Ihres angepassten HTML aufrufen, um Klicks zu protokollieren. Banner verwenden dieselbe JavaScript-Brücke wie HTML-In-App-Nachrichten, daher gelten dieselben Methoden und Muster.
 
-Wenn Sie in Ihrem Banner-Design angepasstes HTML verwenden – sei es über einen Block „Angepasster Code“ im Composer oder über den vollständigen HTML-Editor –, kann das Braze SDK or Software-Development-Kit nicht automatisch Klick-Listener an Elemente innerhalb Ihres angepassten Codes anhängen. Sie müssen `brazeBridge.logClick()` explizit für alle anklickbaren Elemente (Links, Buttons und Ähnliches) aufrufen, die Sie in der Campaign-Analyse verfolgen möchten.
+Wenn Sie in Ihrem Banner-Design angepasstes HTML verwenden – sei es über einen Block „Angepasster Code“ im Composer oder über den vollständigen HTML-Editor –, kann das Braze SDK nicht automatisch Klick-Listener an Elemente innerhalb Ihres angepassten Codes anhängen. Sie müssen `brazeBridge.logClick()` explizit für alle anklickbaren Elemente (Links, Buttons und Ähnliches) aufrufen, die Sie in der Campaign-Analyse verfolgen möchten.
 
 Um beispielsweise einen Klick zu protokollieren, wenn Nutzer:innen in Ihrem angepassten HTML auf einen Button tippen:
 

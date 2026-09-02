@@ -4,9 +4,9 @@ article_title: Compliance und Zustellung
 page_order: 4
 layout: dev_guide
 guide_top_header: "Compliance und Zustellung"
-guide_top_text: "Stellen Sie sicher, dass Ihre Kurzmitteilungsdienst or SMS-, MMS- und RCS-Nachrichten den Vorschriften entsprechen und Best Practices für Zustellbarkeit und Nutzer:innenvertrauen befolgen."
+guide_top_text: "Stellen Sie sicher, dass Ihre SMS-, MMS- und RCS-Nachrichten den Vorschriften entsprechen und Best Practices für Zustellbarkeit und Nutzer:innenvertrauen befolgen."
 page_type: landing
-description: "Verwalten Sie Compliance und Zustellbarkeit für Kurzmitteilungsdienst or SMS-, MMS- und RCS-Messaging, einschließlich Gesetze und Vorschriften, Opt-ins und Traffic-Pumping-Betrug."
+description: "Verwalten Sie Compliance und Zustellbarkeit für SMS-, MMS- und RCS-Messaging, einschließlich Gesetze und Vorschriften, Opt-ins und Traffic-Pumping-Betrug."
 channel:
   - SMS
   - MMS

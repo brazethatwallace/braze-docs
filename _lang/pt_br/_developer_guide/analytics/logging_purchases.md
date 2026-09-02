@@ -1,14 +1,14 @@
 ---
 nav_title: Registrar compras
-article_title: Registrar compras através do SDK or kit de desenvolvimento de software da Braze
+article_title: Registrar compras através do SDK da Braze
 page_order: 3.2
-description: "Aprenda como registrar compras através do SDK or kit de desenvolvimento de software da Braze."
+description: "Aprenda como registrar compras através do SDK da Braze."
 
 ---
 
 # Registrar compras {#log-purchases}
 
-> Aprenda como registrar compras no app através do SDK or kit de desenvolvimento de software da Braze, para que você possa determinar sua receita ao longo do tempo e entre diferentes fontes. Isso permite que você segmente usuários [com base no valor do tempo de vida deles]({{site.baseurl}}/developer_guide/analytics#purchase-events-revenue-tracking) usando eventos personalizados, atributos personalizados e eventos de compra.
+> Aprenda como registrar compras no app através do SDK da Braze, para que você possa determinar sua receita ao longo do tempo e entre diferentes fontes. Isso permite que você segmente usuários [com base no valor do tempo de vida deles]({{site.baseurl}}/developer_guide/analytics#purchase-events-revenue-tracking) usando eventos personalizados, atributos personalizados e eventos de compra.
 
 {% alert note %}
 Para wrapper SDKs não listados, use o método nativo relevante do Android ou Swift.
@@ -22,7 +22,7 @@ Para registrar compras e receitas, chame `logPurchase()` após uma compra bem-su
 
 {% tabs %}
 {% tab web %}
-Para uma implementação padrão do Web SDK or kit de desenvolvimento de software, você pode usar o seguinte método:
+Para uma implementação padrão do Web SDK, você pode usar o seguinte método:
 
 ```javascript
 braze.logPurchase(product_id, price, "USD", quantity);
@@ -139,7 +139,7 @@ Você pode adicionar metadados sobre compras passando um dicionário preenchido 
 
 {% tabs %}
 {% tab web %}
-Para uma implementação padrão do Web SDK or kit de desenvolvimento de software, você pode usar o seguinte método:
+Para uma implementação padrão do Web SDK, você pode usar o seguinte método:
 
 ```javascript
 braze.logPurchase(product_id, price, "USD", quantity, {key: "value"});
@@ -262,9 +262,9 @@ AppboyBinding.LogPurchase("product_id", "currencyCode", price(decimal), purchase
 
 Por padrão, `quantity` é definido como `1`. No entanto, você pode adicionar uma quantidade às suas compras se os clientes fizerem a mesma compra várias vezes em um único checkout. Para adicionar uma quantidade, passe um valor `Int` para `quantity`.
 
-### Uso da REST or transferir estado representacional API or interface de programação do aplicativo (API) {#using-the-rest-api}
+### Uso da REST API {#using-the-rest-api}
 
-Você também pode usar nossa REST or transferir estado representacional API or interface de programação do aplicativo (API) para registrar compras. Para saber mais, consulte [Endpoints de dados de usuários]({{site.baseurl}}/api/endpoints/user_data).
+Você também pode usar nossa REST API para registrar compras. Para saber mais, consulte [Endpoints de dados de usuários]({{site.baseurl}}/api/endpoints/user_data).
 
 ## Registrar pedidos {#logging-orders}
 

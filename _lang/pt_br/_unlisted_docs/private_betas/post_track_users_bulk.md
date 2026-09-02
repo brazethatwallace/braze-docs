@@ -7,7 +7,7 @@ permalink: /track_users_bulk/
 description: "Este artigo descreve detalhes sobre o endpoint Rastrear usuários (em massa)."
 ---
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Rastrear usuários (em massa) {#track-users-bulk}
 {% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track/bulk
@@ -34,9 +34,9 @@ A partir de 26 de maio de 2025, este endpoint pode ser usado para rastrear métr
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisará de uma chave de API or interface de programação do aplicativo (API) com a permissão `users.track.bulk`.
+Para usar este endpoint, você precisará de uma chave de API com a permissão `users.track.bulk`.
 
-Se estiver usando a API or interface de programação do aplicativo (API) para chamadas servidor-a-servidor, talvez seja necessário adicionar o endpoint à lista de permissões (por exemplo, `rest.iad-01.braze.com`) se estiver atrás de um firewall. Consulte os [endpoints por instância]({{site.baseurl}}/api/basics/#endpoints) para mais informações.
+Se estiver usando a API para chamadas servidor-a-servidor, talvez seja necessário adicionar o endpoint à lista de permissões (por exemplo, `rest.iad-01.braze.com`) se estiver atrás de um firewall. Consulte os [endpoints por instância]({{site.baseurl}}/api/basics/#endpoints) para mais informações.
 
 ## Limite de taxa {#rate-limit}
 
@@ -47,7 +47,7 @@ Cada solicitação `/users/track/bulk` tem um limite de carga útil de 4&nbsp;MB
 Cada objeto (arrays de evento, atributo e compra) pode atualizar um usuário cada, o que significa que até 10.000 usuários diferentes podem ser atualizados em uma única solicitação. Um único perfil de usuário pode ser atualizado com até 100 objetos em uma única solicitação.
 
 {% alert note %}
-Se precisar aumentar seu limite de taxa, entre em contato com o gerente de sucesso do cliente.
+Se precisar aumentar seu limite de taxa, entre em contato com o CSM.
 {% endalert %}
 
 

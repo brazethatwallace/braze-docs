@@ -116,7 +116,7 @@ Pour les utilisateurs disposant uniquement d'autorisations au niveau de l'équip
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-Le [débogueur de contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/debugger) affiche la requête et la réponse en direct or en ligne/en production/instantané pour chaque appel de contenu connecté dans **Aperçu et test**, afin que vous puissiez vérifier votre endpoint, vos en-têtes et vos étiquettes Liquid avant de lancer une Campaign ou un Canvas. Ouvrez **Voir les détails** pour inspecter l'URL, la méthode, le code de statut, les en-têtes de requête et de réponse, le payload, la durée et si la réponse a été servie depuis le cache.
+Le [débogueur de contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/debugger) affiche la requête et la réponse en direct pour chaque appel de contenu connecté dans **Aperçu et test**, afin que vous puissiez vérifier votre endpoint, vos en-têtes et vos étiquettes Liquid avant de lancer une Campaign ou un Canvas. Ouvrez **Voir les détails** pour inspecter l'URL, la méthode, le code de statut, les en-têtes de requête et de réponse, le payload, la durée et si la réponse a été servie depuis le cache.
 
 Pendant l'accès anticipé, le débogueur est disponible pour les Content Cards, les e-mails, les messages in-app, les notifications push, les SMS/MMS/RCS, les webhooks et WhatsApp.
 
@@ -202,7 +202,7 @@ Les dernières mises à jour du SDK ont été publiées. Les mises à jour majeu
     - Mise à jour du pont iOS natif [de Braze Swift SDK 17.0.0 à 18.0.0](https://github.com/braze-inc/braze-swift-sdk/compare/17.0.0...18.0.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
 - Swift SDK 18.0.0-18.1.0
     - Renomme `Braze.Ecommerce.ProductViewedEvent.typeIdentifiers` en `type` sur les surfaces API Swift et Objective-C.
-    Renomme les événements de mise à jour push-to-start des en direct or en ligne/en production/instantané Activities sur `Braze.LiveActivities.UpdateEvent.ActivityType`, qui sont émis lors de l'utilisation de `Braze.LiveActivities.subscribeToStateUpdates(_:)` :
+    Renomme les événements de mise à jour push-to-start des en direct Activities sur `Braze.LiveActivities.UpdateEvent.ActivityType`, qui sont émis lors de l'utilisation de `Braze.LiveActivities.subscribeToStateUpdates(_:)` :
         - `pushToStartOptedOut` en `pushToStartUnregistered`
         - `pushToStartOptOutFlushed` en `pushToStartUnregisterFlushed`
 
@@ -502,7 +502,7 @@ Après l'envoi d'un message WhatsApp de test, vous pouvez consulter un [rapport 
 
 #### DinMo - Données et analyse - Reverse ETL {#dinmo-data-and-analytics-reverse-etl}
 
-[DinMo]({{site.baseurl}}/partners/dinmo) est une plateforme de données client (CDP) composable qui connecte votre entrepôt de données cloud à Braze via un processus ETL inversé (ETL or extraire, transformer, charger). Les équipes marketing peuvent créer des segments d'audience à partir des données de l'entrepôt, synchroniser les attributs et événements utilisateur dans Braze et maintenir les statuts d'abonnement à jour sans téléchargements CSV ni support d'ingénierie.
+[DinMo]({{site.baseurl}}/partners/dinmo) est une plateforme de données client (CDP) composable qui connecte votre entrepôt de données cloud à Braze via un processus ETL inversé (ETL). Les équipes marketing peuvent créer des segments d'audience à partir des données de l'entrepôt, synchroniser les attributs et événements utilisateur dans Braze et maintenir les statuts d'abonnement à jour sans téléchargements CSV ni support d'ingénierie.
 
 #### EmailShepherd - Orchestration des messages - Modèles {#emailshepherd-message-orchestration-templates}
 

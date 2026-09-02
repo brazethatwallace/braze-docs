@@ -91,7 +91,7 @@ Sie benötigen die Telefonnummer der Endnutzer:innen im Braze-Profil, um ihnen N
 Das Abo-Management des WhatsApp-Kanals funktioniert ähnlich wie bei anderen Braze-Kanälen. Weitere Informationen finden Sie unter [Nutzer-Abos verwalten]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups).
 
 #### Wenn ich bereits eine Liste von Nutzer:innen habe, die dem Empfang von Marketing-Nachrichten auf WhatsApp zugestimmt haben – wie aktualisiere ich ihren Abo-Status in Braze? {#if-i-already-have-a-list-of-users-who-have-opted-in-to-receive-marketing-messages-on-whatsapp-how-do-i-update-their-subscription-status-in-braze}
-Sie können den Abo-Status über den [Nutzerimport]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import#updating-subscription-group-status-optional) Update or aktualisieren or aktualisieren.
+Sie können den Abo-Status über den [Nutzerimport]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import#updating-subscription-group-status-optional) aktualisieren.
 
 #### Welche Methoden sollte ich verwenden, um Opt-ins zu sammeln? {#what-methods-should-i-use-to-collect-opt-ins}
 Braze empfiehlt, sich an die [Meta-Richtlinien für Opt-in-Methoden](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in/) zu halten, um die Compliance zu wahren. Weitere Informationen zu Canvas- und Campaign-Einrichtungsmethoden finden Sie unter [Opt-in und Opt-out]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs).
@@ -101,11 +101,11 @@ Nein, ein Double-Opt-in ist nicht erforderlich.
 
 #### Wie melden sich meine Nutzer:innen von WhatsApp-Nachrichten ab? {#how-do-my-users-opt-out-of-whatsapp-messages}
 Ihre Nutzer:innen können sich auf zwei Arten abmelden:
-1. Richten Sie eine eingehende WhatsApp-Nachricht mit einem bestimmten Abmelde-Stichwort ein und verwenden Sie einen Webhook, um den Abo-Status der Nutzer:innen zu Update or aktualisieren or aktualisieren.
+1. Richten Sie eine eingehende WhatsApp-Nachricht mit einem bestimmten Abmelde-Stichwort ein und verwenden Sie einen Webhook, um den Abo-Status der Nutzer:innen zu aktualisieren.
 2. Fügen Sie eine Schnellantwort zur Abmeldung innerhalb des WhatsApp-Templates hinzu, zusammen mit einem entsprechenden Webhook zur Aktualisierung.
 
 #### Kann ich eine Braze WhatsApp-Abo-Gruppe verwenden, wenn ich WhatsApp-Nachrichten über einen Drittanbieter sende? {#can-i-use-a-braze-whatsapp-subscription-group-if-i-send-whatsapp-messages-through-a-third-party}
-Nein. Braze WhatsApp-Abo-Gruppen gelten für Nachrichten, die über den Braze-WhatsApp-Kanal gesendet werden. Wenn Sie WhatsApp-Nachrichten über einen Drittanbieter oder benutzerdefinierte Integrationen außerhalb von Braze WhatsApp-Campaigns und Canvase senden, können Sie die Opt-in-Zustimmung in einem angepassten Attribut (oder Ihrem eigenen Abo-Modell) speichern und dieses Attribut für die Segmentierung und Berechtigung verwenden. Verwandte Muster, wenn Braze die WhatsApp-Nummer besitzt, finden Sie unter [Wie verbinde ich WhatsApp-Support und -Marketing in Braze?](#how-do-i-connect-whatsapp-support-and-marketing-in-braze).
+Nein. Braze WhatsApp-Abo-Gruppen gelten für Nachrichten, die über den Braze-WhatsApp-Kanal gesendet werden. Wenn Sie WhatsApp-Nachrichten über einen Drittanbieter oder benutzerdefinierte Integrationen außerhalb von Braze WhatsApp-Campaigns und Canvases senden, können Sie die Opt-in-Zustimmung in einem angepassten Attribut (oder Ihrem eigenen Abo-Modell) speichern und dieses Attribut für die Segmentierung und Berechtigung verwenden. Verwandte Muster, wenn Braze die WhatsApp-Nummer besitzt, finden Sie unter [Wie verbinde ich WhatsApp-Support und -Marketing in Braze?](#how-do-i-connect-whatsapp-support-and-marketing-in-braze).
 
 ### Messaging-Limits und Qualitätsbewertung {#messaging-limits-and-quality-rating}
 
@@ -208,9 +208,9 @@ Braze erhält keine Benachrichtigungen von WhatsApp, wenn Ihr Konto gekennzeichn
 
 Sie können jedoch eine Campaign einrichten, die ausgelöst wird, wenn ein:e Nutzer:in mit einem Abmelde-Stichwort antwortet, wodurch die Person automatisch über den [`/subscription/status/set`-Endpunkt]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) abgemeldet wird. Weitere Informationen finden Sie unter [WhatsApp Opt-in- und Opt-out-Prozess]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-opt-in-and-opt-out-process).
 
-#### Unterstützt Braze einen automatischen Kurzmitteilungsdienst or SMS-Fallback, wenn die WhatsApp-Zustellung fehlschlägt? {#does-braze-support-automatic-sms-fallback-when-whatsapp-delivery-fails}
+#### Unterstützt Braze einen automatischen SMS-Fallback, wenn die WhatsApp-Zustellung fehlschlägt? {#does-braze-support-automatic-sms-fallback-when-whatsapp-delivery-fails}
 
-Nein. Braze bietet keinen nativen WhatsApp-zu-Kurzmitteilungsdienst or SMS-Fallback-Pfad an. Um es über einen anderen Kanal erneut zu versuchen, segmentieren Sie Nutzer:innen mit fehlgeschlagenen WhatsApp-Sendungen (z. B. über Currents-Fehlerereignisse) und erstellen Sie eine Kurzmitteilungsdienst or SMS- oder E-Mail-Campaign für diese Zielgruppe.
+Nein. Braze bietet keinen nativen WhatsApp-zu-SMS-Fallback-Pfad an. Um es über einen anderen Kanal erneut zu versuchen, segmentieren Sie Nutzer:innen mit fehlgeschlagenen WhatsApp-Sendungen (z. B. über Currents-Fehlerereignisse) und erstellen Sie eine SMS- oder E-Mail-Campaign für diese Zielgruppe.
 
 #### Sind WhatsApp-Antwortnachrichten kostenlos? {#are-whatsapp-response-messages-free}
 
@@ -267,4 +267,4 @@ WhatsApp ist ein auf Zwei-Wege-Messaging ausgerichteter Kanal und basiert daher 
 ### Medien und Bilder {#media-and-images}
 
 #### Warum werden Bilder nicht geladen, wenn sie als WhatsApp-Nachricht gesendet werden? {#why-wont-images-load-when-sent-as-a-whatsapp-message}
-Wenn Nutzer:innen berichten, dass Bilder in WhatsApp-Nachrichten nicht heruntergeladen werden können oder das Download-Symbol nicht reagiert, liegt dies wahrscheinlich an einem bekannten Problem in älteren Versionen der WhatsApp-App. Dieses Problem kann in der Regel durch ein Upgrade or upgraden des Geräts auf die neueste Version von WhatsApp behoben werden.
+Wenn Nutzer:innen berichten, dass Bilder in WhatsApp-Nachrichten nicht heruntergeladen werden können oder das Download-Symbol nicht reagiert, liegt dies wahrscheinlich an einem bekannten Problem in älteren Versionen der WhatsApp-App. Dieses Problem kann in der Regel durch ein Upgrade des Geräts auf die neueste Version von WhatsApp behoben werden.

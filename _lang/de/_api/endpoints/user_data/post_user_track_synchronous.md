@@ -1,6 +1,6 @@
 ---
-nav_title: "POST: Nutzer:innen erstellen und Update or aktualisieren or aktualisieren (synchron)"
-article_title: "POST: Nutzer:innen erstellen und Update or aktualisieren or aktualisieren (synchron)"
+nav_title: "POST: Nutzer:innen erstellen und aktualisieren (synchron)"
+article_title: "POST: Nutzer:innen erstellen und aktualisieren (synchron)"
 alias: /post_user_track_synchronous/
 layout: api_page
 page_order: 4.5
@@ -9,15 +9,15 @@ description: "Dieser Artikel beschreibt Details zum synchronen Endpunkt „Nutze
 
 ---
 {% api %}
-# Nutzer:innen erstellen und Update or aktualisieren or aktualisieren (synchron) {#create-and-update-users-synchronous}
+# Nutzer:innen erstellen und aktualisieren (synchron) {#create-and-update-users-synchronous}
 {% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track/sync
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um angepasste Events und Käufe aufzuzeichnen und Nutzerprofilattribute synchron zu Update or aktualisieren or aktualisieren. Dieser Endpunkt funktioniert ähnlich wie der [Endpunkt `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), der Nutzerprofile asynchron aktualisiert.
+> Verwenden Sie diesen Endpunkt, um angepasste Events und Käufe aufzuzeichnen und Nutzerprofilattribute synchron zu aktualisieren. Dieser Endpunkt funktioniert ähnlich wie der [Endpunkt `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), der Nutzerprofile asynchron aktualisiert.
 
 {% alert important %}
-Dieser Endpunkt befindet sich derzeit in einer **eingeschränkten Beta-Phase**. Obwohl wir derzeit keine neuen Kund:innen zur Beta hinzufügen, informieren Sie bitte Ihren Braze Account Manager:in, wenn Sie der Meinung sind, dass dieses Feature für Ihre Braze-Integration nützlich sein könnte.
+Dieser Endpunkt befindet sich derzeit in einer **eingeschränkten Beta-Phase**. Obwohl wir derzeit keine neuen Kund:innen zur Beta hinzufügen, informieren Sie bitte Ihren Braze Account Manager, wenn Sie der Meinung sind, dass dieses Feature für Ihre Braze-Integration nützlich sein könnte.
 {% endalert %}
 
 ## Synchrone und asynchrone API-Aufrufe {#synchronous-and-asynchronous-api-calls}
@@ -26,7 +26,7 @@ Bei einem asynchronen Aufruf gibt die API den Statuscode `201` zurück, der anze
 
 Bei einem synchronen Aufruf gibt die API den Statuscode `201` zurück, der anzeigt, dass Ihre Anfrage erfolgreich empfangen, verstanden, akzeptiert und abgeschlossen wurde. Die Antwort auf den Aufruf zeigt ausgewählte Felder des Nutzerprofils als Ergebnis der Operation an.
 
-Dieser Endpunkt hat ein niedrigeres Rate-Limit als der Endpunkt `/users/track` (siehe [Rate-Limit](#rate-limit)). Jede `/users/track/sync`-Anfrage kann nur ein Event-Objekt, ein Attribut-Objekt **oder** ein Kauf-Objekt enthalten. Dieser Endpunkt sollte für Kundenprofil or Nutzerprofil-Updates reserviert sein, bei denen ein synchroner Aufruf erforderlich ist. Für eine stabile Implementierung empfehlen wir, `/users/track/sync` und `/users/track` gemeinsam zu verwenden.
+Dieser Endpunkt hat ein niedrigeres Rate-Limit als der Endpunkt `/users/track` (siehe [Rate-Limit](#rate-limit)). Jede `/users/track/sync`-Anfrage kann nur ein Event-Objekt, ein Attribut-Objekt **oder** ein Kauf-Objekt enthalten. Dieser Endpunkt sollte für Nutzerprofil-Updates reserviert sein, bei denen ein synchroner Aufruf erforderlich ist. Für eine stabile Implementierung empfehlen wir, `/users/track/sync` und `/users/track` gemeinsam zu verwenden.
 
 Wenn Sie beispielsweise innerhalb eines kurzen Zeitraums aufeinanderfolgende Anfragen für dieselbe Nutzer:in senden, sind Race-Conditions mit dem asynchronen Endpunkt `/users/track` möglich. Mit dem Endpunkt `/users/track/sync` können Sie diese Anfragen jedoch nacheinander senden, jeweils nach Erhalt einer `2XX`-Antwort.
 
@@ -40,7 +40,7 @@ Kund:innen, die die API für Server-zu-Server-Aufrufe verwenden, müssen möglic
 
 {% multi_lang_include api/user_track_custom_attributes_data_points.md endpoint="/users/track/sync" %}
 
-Für diesen Endpunkt gilt für alle Kund:innen ein Basis-Rate-Limit von 500 Anfragen pro Minute. Jede `/users/track/sync`-Anfrage kann bis zu ein Event-Objekt, ein Attribut-Objekt oder ein Kauf-Objekt enthalten. Jedes Objekt (Event-, Attribut- und Kauf-Arrays) kann jeweils eine:n Nutzer:in Update or aktualisieren or aktualisieren.
+Für diesen Endpunkt gilt für alle Kund:innen ein Basis-Rate-Limit von 500 Anfragen pro Minute. Jede `/users/track/sync`-Anfrage kann bis zu ein Event-Objekt, ein Attribut-Objekt oder ein Kauf-Objekt enthalten. Jedes Objekt (Event-, Attribut- und Kauf-Arrays) kann jeweils eine:n Nutzer:in aktualisieren.
 
 ## Anfragetext {#request-body}
 
@@ -105,7 +105,7 @@ Wenn Ihre Nachricht einen schwerwiegenden Fehler enthält, erhalten Sie die folg
 
 ## Beispielanfragen und -antworten {#example-requests-and-responses}
 
-### Angepasstes Attribut anhand der externen ID Update or aktualisieren or aktualisieren {#update-a-custom-attribute-by-external-id}
+### Angepasstes Attribut anhand der externen ID aktualisieren {#update-a-custom-attribute-by-external-id}
 
 #### Anfrage {#request}
 
@@ -151,7 +151,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 }
 ```
 
-### Angepasstes Event per E-Mail Update or aktualisieren or aktualisieren {#update-a-custom-event-by-email}
+### Angepasstes Event per E-Mail aktualisieren {#update-a-custom-event-by-email}
 
 #### Anfrage
 
@@ -206,7 +206,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 }
 ```
 
-### Kauf-Event anhand des Nutzer-Alias Update or aktualisieren or aktualisieren {#update-a-purchase-event-by-user-alias}
+### Kauf-Event anhand des Nutzer-Alias aktualisieren {#update-a-purchase-event-by-user-alias}
 
 #### Anfrage
 
@@ -289,8 +289,8 @@ Wenn Sie trotzdem einen inkonsistenten Profilstatus feststellen, wenn Sie `/user
 
 ### Warum stimmt der Antwortwert nicht mit dem in meiner ursprünglichen Anfrage überein? {#why-doesnt-the-response-value-match-the-one-in-my-original-request}
 
-Obwohl Ihre Anfrage abgeschlossen wurde, ist es möglich, dass der Wert Ihres angepassten Attributs nicht aktualisiert wurde. Dies kann passieren, wenn Ihr Update or aktualisieren des angepassten Attributs die maximale Zeichenanzahl überschreitet, Array-Grenzen überschreitet oder wenn die Nutzer:in nicht in Braze existiert und Sie `_update_existing_only = true` gesetzt haben.
+Obwohl Ihre Anfrage abgeschlossen wurde, ist es möglich, dass der Wert Ihres angepassten Attributs nicht aktualisiert wurde. Dies kann passieren, wenn Ihr Update des angepassten Attributs die maximale Zeichenanzahl überschreitet, Array-Grenzen überschreitet oder wenn die Nutzer:in nicht in Braze existiert und Sie `_update_existing_only = true` gesetzt haben.
 
-In diesen Fällen sollten Sie die Antwort als Hinweis darauf betrachten, dass Ihre Anfrage zwar abgeschlossen, das gewünschte Update or aktualisieren jedoch nicht durchgeführt wurde. Prüfen Sie die unter [Warum stimmt der Antwortwert nicht mit dem in meiner ursprünglichen Anfrage überein?](#why-doesnt-the-response-value-match-the-one-in-my-original-request) aufgeführten Gründe, um die Ursache zu ermitteln.
+In diesen Fällen sollten Sie die Antwort als Hinweis darauf betrachten, dass Ihre Anfrage zwar abgeschlossen, das gewünschte Update jedoch nicht durchgeführt wurde. Prüfen Sie die unter [Warum stimmt der Antwortwert nicht mit dem in meiner ursprünglichen Anfrage überein?](#why-doesnt-the-response-value-match-the-one-in-my-original-request) aufgeführten Gründe, um die Ursache zu ermitteln.
 
 {% endapi %}

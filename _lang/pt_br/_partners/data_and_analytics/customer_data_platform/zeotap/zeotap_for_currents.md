@@ -1,7 +1,7 @@
 ---
 nav_title: Zeotap para Currents
 article_title: Zeotap para Currents
-description: "Este artigo de referência descreve a parceria entre Braze Currents e Zeotap, uma CDP or plataforma de dados do cliente or CDP or plataforma de dados do cliente or plataforma de dados do cliente de próxima geração que ajuda você a descobrir e entender seu público móvel, fornecendo resolução de identidade, insights e enriquecimento de dados."
+description: "Este artigo de referência descreve a parceria entre Braze Currents e Zeotap, uma CDP de próxima geração que ajuda você a descobrir e entender seu público móvel, fornecendo resolução de identidade, insights e enriquecimento de dados."
 page_type: partner
 tool: Currents
 search_tag: Partner
@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Zeotap para Currents {#zeotap-for-currents}
 
-> A [Zeotap](https://zeotap.com/) é uma CDP or plataforma de dados do cliente or CDP or plataforma de dados do cliente or plataforma de dados do cliente de próxima geração que ajuda você a descobrir e entender seu público móvel, fornecendo resolução de identidade, insights e enriquecimento de dados.
+> A [Zeotap](https://zeotap.com/) é uma CDP de próxima geração que ajuda você a descobrir e entender seu público móvel, fornecendo resolução de identidade, insights e enriquecimento de dados.
 
 A integração da Braze com a Zeotap permite que você amplie a escala e o alcance das suas campanhas sincronizando os segmentos de clientes da Zeotap com os perfis de usuários da Braze. Com o [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), você também pode conectar dados à Zeotap para torná-los acionáveis em toda a growth stack.
 
@@ -40,7 +40,7 @@ A integração da Braze com a Zeotap permite que você amplie a escala e o alcan
 2. Selecione **Create New Current** e depois **Custom Currents Export**.<br><br>![O botão "Create New Current" com um menu suspenso contendo "Custom Currents Export".]({% image_buster /assets/img/zeotap/custom_currents_export.png %}){: style="max-width:60%;"}<br><br>
 3. Insira um nome de integração e um e-mail para contato caso ocorram erros com a integração.
 4. Em **Credentials**, insira as informações que você anotou na [Etapa 1](#step-1-create-a-currents-source):
-- A API or interface de programação do aplicativo (API) URL como o **Endpoint**
+- A API URL como o **Endpoint**
 - A Write Key como o **Bearer Token**<br><br>![Seções para inserir detalhes de integração e credenciais.]({% image_buster /assets/img/zeotap/credentials.png %})<br><br>
 5. Selecione os eventos de engajamento com mensagem que você deseja enviar para a Zeotap.<br><br>![A guia "General Settings" com uma seção para selecionar eventos de engajamento com mensagem.]({% image_buster /assets/img/zeotap/message_engagement_events.png %})
 6. Selecione **Launch Current** para salvar as alterações e começar a enviar eventos para a Zeotap.

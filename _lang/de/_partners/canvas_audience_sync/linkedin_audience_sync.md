@@ -11,7 +11,7 @@ page_order: 4
 
 # Zielgruppen-Synchronisierung mit LinkedIn {#audience-sync-to-linkedin}
 
-Mit der Braze Audience Sync mit LinkedIn können Marken Nutzerdaten aus ihrer Braze-Integration zu LinkedIn-Kundenlisten hinzufügen, um Anzeigen auf der Grundlage von Verhaltenstriggern, Segmentierung und mehr zuzustellen. Jedes Kriterium, das Sie normalerweise zum Trigger or triggern or triggern einer Nachricht (Push, E-Mail, Kurzmitteilungsdienst or SMS, Webhook usw.) in einem Braze-Canvas auf der Grundlage Ihrer Nutzerdaten verwenden, kann jetzt eine Anzeige an diese Nutzer:innen in Ihren LinkedIn-Kundenlisten Trigger or triggern or triggern.
+Mit der Braze Audience Sync mit LinkedIn können Marken Nutzerdaten aus ihrer Braze-Integration zu LinkedIn-Kundenlisten hinzufügen, um Anzeigen auf der Grundlage von Verhaltenstriggern, Segmentierung und mehr zuzustellen. Jedes Kriterium, das Sie normalerweise zum Triggern einer Nachricht (Push, E-Mail, SMS, Webhook usw.) in einem Braze-Canvas auf der Grundlage Ihrer Nutzerdaten verwenden, kann jetzt eine Anzeige an diese Nutzer:innen in Ihren LinkedIn-Kundenlisten triggern.
 
 **Zu den häufigen Anwendungsfällen für Audience Syncing gehören**:
 
@@ -51,13 +51,13 @@ Sobald Sie sich erfolgreich verbunden haben, werden Sie auf die Partnerseite zur
 
 ![Ein erfolgreich verbundenes LinkedIn-Konto.]({% image_buster /assets/img/linkedin/linkedin6.png %}){: style="max-width:75%;"}
 
-Ihre LinkedIn-Verbindung wird auf der Ebene des Braze-Workspace angewendet. Wenn Ihr LinkedIn-Administrator Sie aus Ihrem LinkedIn-Anzeigenkonto entfernt, erkennt Braze ein ungültiges Token / Textbaustein. Dies hat zur Folge, dass Ihre aktiven Canvase, die LinkedIn verwenden, Fehler anzeigen und Braze nicht in der Lage ist, Nutzer:innen zu synchronisieren.
+Ihre LinkedIn-Verbindung wird auf der Ebene des Braze-Workspace angewendet. Wenn Ihr LinkedIn-Administrator Sie aus Ihrem LinkedIn-Anzeigenkonto entfernt, erkennt Braze ein ungültiges Token / Textbaustein. Dies hat zur Folge, dass Ihre aktiven Canvases, die LinkedIn verwenden, Fehler anzeigen und Braze nicht in der Lage ist, Nutzer:innen zu synchronisieren.
 
 ### Schritt 2: Canvas-Eingangskriterien konfigurieren {#step-2-configure-your-canvas-entry-criteria}
 
 Beim Aufbau von Zielgruppen für das Ad Tracking möchten Sie möglicherweise bestimmte Nutzer:innen auf der Grundlage ihrer Präferenzen ein- oder ausschließen und Datenschutzgesetze einhalten, wie z. B. das Recht „Nicht verkaufen oder weitergeben“ gemäß dem [CCPA](https://oag.ca.gov/privacy/ccpa). Marketer sollten die entsprechenden Filter für die Eignung der Nutzer:innen in ihre Canvas-Eingangskriterien aufnehmen. Nachfolgend finden Sie einige Optionen.
 
-Wenn Sie den [iOS Identifier for Advertisers (IDFA) über das Braze SDK or Software-Development-Kit]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations#optional-idfa-collection) erfasst haben, können Sie den Filter **Ads Tracking Enabled** verwenden. Wählen Sie den Wert `true` aus, um Nutzer:innen nur in Audience Sync-Ziele zu senden, für die sie ein Opt-in gesetzt haben.
+Wenn Sie den [iOS Identifier for Advertisers (IDFA) über das Braze SDK]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations#optional-idfa-collection) erfasst haben, können Sie den Filter **Ads Tracking Enabled** verwenden. Wählen Sie den Wert `true` aus, um Nutzer:innen nur in Audience Sync-Ziele zu senden, für die sie ein Opt-in gesetzt haben.
 
 ![Eine Entry-Zielgruppe mit dem Filter „Ad Tracking Enabled ist true“.]({% image_buster /assets/img/linkedin/linkedin5.png %}){: style="max-width:75%;"}
 

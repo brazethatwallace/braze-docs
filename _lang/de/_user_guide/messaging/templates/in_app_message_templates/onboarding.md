@@ -10,7 +10,7 @@ description: "Diese Seite beschreibt, wie Sie neue Nutzer:innen willkommen heiß
 
 > Verwenden Sie das In-App-Nachrichten-Template **Onboarding-Flow**, um Nutzerattribute, Insights und Präferenzen zu erfassen, die Ihre Campaign-Strategie unterstützen.
 
-{% multi_lang_include drag_and_drop/templates.md section='SDK or Software-Development-Kit requirements' %}
+{% multi_lang_include drag_and_drop/templates.md section='SDK requirements' %}
 
 ## Einen Onboarding-Flow erstellen {#creating-an-onboarding-flow}
 

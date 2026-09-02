@@ -4,13 +4,13 @@ article_title: Cabeceras de política de seguridad de contenidos para Web
 platform: Web
 page_order: 21
 page_type: reference
-description: "Este artículo cubre los encabezados de políticas de seguridad de contenidos necesarios con el SDK or kit de desarrollo de software Web de Braze."
+description: "Este artículo cubre los encabezados de políticas de seguridad de contenidos necesarios con el SDK Web de Braze."
 
 ---
 
 # Cabeceras de la política de seguridad de contenidos {#content-security-policy-headers}
 
-> Content-Security-Policy proporciona seguridad añadida al restringir cómo y dónde se puede cargar contenido en tu sitio web. Este artículo de referencia cubre qué encabezados de políticas de seguridad de contenidos son necesarios con el SDK or kit de desarrollo de software Web.
+> Content-Security-Policy proporciona seguridad añadida al restringir cómo y dónde se puede cargar contenido en tu sitio web. Este artículo de referencia cubre qué encabezados de políticas de seguridad de contenidos son necesarios con el SDK Web.
 
 {% alert important %}
 Este artículo está dirigido a los desarrolladores que trabajan en sitios web que aplican reglas CSP y se integran con Braze. No pretende ser un consejo sobre cómo debes enfocar la seguridad.
@@ -20,7 +20,7 @@ Este artículo está dirigido a los desarrolladores que trabajan en sitios web q
 
 ## Atributos nonce {#nonce}
 
-Si utilizas un valor `nonce` en tus directivas `script-src` o `style-src`, pasa ese valor a la opción de inicialización `contentSecurityNonce` para propagarlo a los scripts y estilos recién creados generados por el SDK or kit de desarrollo de software:
+Si utilizas un valor `nonce` en tus directivas `script-src` o `style-src`, pasa ese valor a la opción de inicialización `contentSecurityNonce` para propagarlo a los scripts y estilos recién creados generados por el SDK:
 
 ```javascript
 import * as braze from "@braze/web-sdk";
@@ -36,7 +36,7 @@ braze.initialize(apiKey, {
 ### `connect-src` {#connect-src}
 
 {% alert warning %}
-Tu URL debe coincidir con el [punto final de SDK or kit de desarrollo de software de la API]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) de la opción de inicialización `baseUrl` que hayas elegido.
+Tu URL debe coincidir con el [punto final de SDK de la API]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) de la opción de inicialización `baseUrl` que hayas elegido.
 {% endalert %}
 
 | URL | Información |
@@ -49,7 +49,7 @@ Tu URL debe coincidir con el [punto final de SDK or kit de desarrollo de softwar
 | URL | Información |
 | --- | ----------- |
 | `script-src https://js.appboycdn.com` | Obligatoria cuando se utiliza la integración alojada en CDN. |
-| `script-src 'unsafe-eval'` | Obligatoria cuando se utiliza el fragmento de código de integración que contiene la referencia a `appboyQueue`. Para evitar el uso de esta directiva, [integra el SDK or kit de desarrollo de software utilizando NPM]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup?tab=package%20manager). |
+| `script-src 'unsafe-eval'` | Obligatoria cuando se utiliza el fragmento de código de integración que contiene la referencia a `appboyQueue`. Para evitar el uso de esta directiva, [integra el SDK utilizando NPM]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup?tab=package%20manager). |
 | `script-src 'nonce-...'`<br>o<br>`script-src 'unsafe-inline'` | Obligatoria para determinados mensajes dentro de la aplicación, como HTML personalizado. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="script-src #script-src" }
 

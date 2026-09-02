@@ -23,7 +23,7 @@ _Diese Integration wird von AccuWeather gepflegt._
 
 ## Verfügbare AccuWeather APIs {#available-accuweather-apis}
 
-Im Folgenden finden Sie die AccuWeather APIs, die Sie in Ihren Braze Campaigns und Canvase referenzieren können.
+Im Folgenden finden Sie die AccuWeather APIs, die Sie in Ihren Braze Campaigns und Canvases referenzieren können.
 
 | API | Beschreibung |
 |---|---|

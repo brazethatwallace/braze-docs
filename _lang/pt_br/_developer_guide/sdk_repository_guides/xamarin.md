@@ -1,16 +1,16 @@
 ---
-nav_title: SDK or kit de desenvolvimento de software .NET MAUI (Xamarin)
-article_title: Guia do repositório do SDK or kit de desenvolvimento de software .NET MAUI (Xamarin)
+nav_title: SDK .NET MAUI (Xamarin)
+article_title: Guia do repositório do SDK .NET MAUI (Xamarin)
 page_order: 10
-description: "Referência do README do SDK or kit de desenvolvimento de software .NET MAUI (Xamarin) da Braze, espelhada do GitHub."
+description: "Referência do README do SDK .NET MAUI (Xamarin) da Braze, espelhada do GitHub."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
-# Guia do repositório do SDK or kit de desenvolvimento de software .NET MAUI (Xamarin) {#net-maui-xamarin-sdk-repository-guide}
+# Guia do repositório do SDK .NET MAUI (Xamarin) {#net-maui-xamarin-sdk-repository-guide}
 
-## Sobre o SDK or kit de desenvolvimento de software Braze .NET MAUI (Xamarin) {#about-the-braze-net-maui-xamarin-sdk}
+## Sobre o SDK Braze .NET MAUI (Xamarin) {#about-the-braze-net-maui-xamarin-sdk}
 
-O SDK or kit de desenvolvimento de software Braze .NET MAUI (Xamarin) ajuda você a integrar recursos de envio de mensagens, análise de dados e engajamento de usuários da Braze ao seu app.
+O SDK Braze .NET MAUI (Xamarin) ajuda você a integrar recursos de envio de mensagens, análise de dados e engajamento de usuários da Braze ao seu app.
 
 Para começar, consulte os seguintes recursos:
 
@@ -34,11 +34,11 @@ contêm:
 
 A tabela a seguir lista os frameworks compatíveis e as versões nativas do framework da Braze para cada binding Xamarin.
 
-| Nome do arquivo de binding                 | Frameworks Xamarin compatíveis                            | Framework nativo da Braze                           | Versão do SDK or kit de desenvolvimento de software Braze Xamarin |
+| Nome do arquivo de binding                 | Frameworks Xamarin compatíveis                            | Framework nativo da Braze                           | Versão do SDK Braze Xamarin |
 | ------------------------------------------ | --------------------------------------------------------- | --------------------------------------------------- | --------------------------- |
-| `BrazeAndroidBinding.sln`                  | .NET 9+                                                   | Android SDK or kit de desenvolvimento de software 43.1.1+                                 | 10.0.0+                     |
-| `AppboyPlatform.XamarinAndroidBinding.sln` | Xamarin.Android,<br/>Xamarin.Forms,<br/>.NET 5 e anteriores | Android SDK or kit de desenvolvimento de software 23.3.0 e anteriores                     | 1.26.0 e anteriores         |
-| `BrazeiOSBinding.sln`                      | .NET 9+                                                   | Swift SDK or kit de desenvolvimento de software 18.2.0+                                   | 10.0.0+                     |
+| `BrazeAndroidBinding.sln`                  | .NET 9+                                                   | Android SDK 43.1.1+                                 | 10.0.0+                     |
+| `AppboyPlatform.XamarinAndroidBinding.sln` | Xamarin.Android,<br/>Xamarin.Forms,<br/>.NET 5 e anteriores | Android SDK 23.3.0 e anteriores                     | 1.26.0 e anteriores         |
+| `BrazeiOSBinding.sln`                      | .NET 9+                                                   | Swift SDK 18.2.0+                                   | 10.0.0+                     |
 | `AppboyPlatformXamariniOSBinding.sln`      | Xamarin.iOS,<br/>Xamarin.Forms,<br/>.NET 5 e anteriores   | `Appboy_iOS_SDK.framework` versão 4.4.1 e anteriores | 1.27.0 e anteriores         |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Bindings nativos" }
 
@@ -46,7 +46,7 @@ A tabela a seguir lista os frameworks compatíveis e as versões nativas do fram
 
 Em 1º de maio de 2024, a [Microsoft anunciou o fim do suporte para Xamarin e Xamarin.Forms](https://dotnet.microsoft.com/en-us/platform/support/policy/xamarin).
 
-O SDK or kit de desenvolvimento de software da Braze deixou de oferecer suporte ao Xamarin e Xamarin.Forms a partir da versão `4.0.0` e adicionou suporte ao [.NET MAUI](https://learn.microsoft.com/en-us/dotnet/maui/what-is-maui).
+O SDK da Braze deixou de oferecer suporte ao Xamarin e Xamarin.Forms a partir da versão `4.0.0` e adicionou suporte ao [.NET MAUI](https://learn.microsoft.com/en-us/dotnet/maui/what-is-maui).
 
 ## Dúvidas? {#questions}
 

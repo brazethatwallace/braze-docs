@@ -1,15 +1,15 @@
 ---
-nav_title: "Autenticación SDK or kit de desarrollo de software"
-article_title: Puntos de conexión de autenticación SDK or kit de desarrollo de software
+nav_title: "Autenticación SDK"
+article_title: Puntos de conexión de autenticación SDK
 search_tag: Endpoint
 page_order: 5.5
 layout: dev_guide
 
-description: "Esta página de inicio enumera los puntos de conexión de autenticación SDK or kit de desarrollo de software de Braze."
+description: "Esta página de inicio enumera los puntos de conexión de autenticación SDK de Braze."
 page_type: landing
 
-guide_top_header: "Puntos de conexión de autenticación SDK or kit de desarrollo de software"
-guide_top_text: "Utiliza estos puntos de conexión para crear y administrar claves de autenticación SDK or kit de desarrollo de software para tu aplicación. Las claves de autenticación SDK or kit de desarrollo de software te permiten autenticar de forma segura tus instancias de SDK or kit de desarrollo de software móvil con Braze."
+guide_top_header: "Puntos de conexión de autenticación SDK"
+guide_top_text: "Utiliza estos puntos de conexión para crear y administrar claves de autenticación SDK para tu aplicación. Las claves de autenticación SDK te permiten autenticar de forma segura tus instancias de SDK móvil con Braze."
 
 guide_featured_title: ""
 guide_featured_list:

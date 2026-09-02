@@ -16,7 +16,7 @@ Workspace-Rate-Limits sind nur für Braze-Verträge ohne Datenpunkte verfügbar.
 
 Standardmäßig werden Rate-Limits auf Unternehmensebene über alle Ihre Workspaces hinweg geteilt.
 
-Mit Workspace-Rate-Limits können Sie eine maximale Anzahl von API-Anfragen festlegen, die ein Workspace an einen bestimmten Ingestion-Endpunkt senden kann, z. B. `/users/track` oder SDK or Software-Development-Kit-Daten. Sie können Rate-Limits auch auf eine Gruppe von Workspaces anwenden, d. h. das Limit wird von allen Workspaces in dieser Gruppe gemeinsam genutzt.
+Mit Workspace-Rate-Limits können Sie eine maximale Anzahl von API-Anfragen festlegen, die ein Workspace an einen bestimmten Ingestion-Endpunkt senden kann, z. B. `/users/track` oder SDK-Daten. Sie können Rate-Limits auch auf eine Gruppe von Workspaces anwenden, d. h. das Limit wird von allen Workspaces in dieser Gruppe gemeinsam genutzt.
 
 Wenn Ihr `/users/track`-Endpunkt beispielsweise ein Rate-Limit auf Unternehmensebene von 500.000 Anfragen pro Stunde hat, könnten Sie die folgenden Workspace-Rate-Limits festlegen:
 
@@ -34,7 +34,7 @@ Um ein neues Rate-Limit für einen oder mehrere Workspaces zuzuweisen, gehen Sie
 
 Wählen Sie anschließend einen Endpunkt und einen oder mehrere Workspaces aus und geben Sie dann Ihr Rate-Limit ein. Das Limit kann eine beliebige ganze Zahl sein, die größer als 1.000 ist und Ihr unternehmensweites Rate-Limit nicht überschreitet.
 
-Wenn Sie fertig sind, wählen Sie **Rate-Limit Update or aktualisieren or aktualisieren** aus.
+Wenn Sie fertig sind, wählen Sie **Rate-Limit aktualisieren** aus.
 
 ![Das Popup-Fenster „Rate-Limit“ mit Optionen zur Auswahl eines Endpunkts, von Workspaces und eines Rate-Limits.]({% image_buster /assets/unlisted_docs/img/workspace_rate_limits/update_rate_limit.png %}){: style="max-width:45%;"}
 

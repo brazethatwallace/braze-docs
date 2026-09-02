@@ -116,7 +116,7 @@ De modo geral, o RCS se integra de forma mais natural com dispositivos Android (
 {% tab Rich Card %}
 
 {% alert important %}
-Os Rich Cards estão em acesso antecipado. Entre em contato com o seu gerente de sucesso do cliente da Braze se tiver interesse em participar deste acesso antecipado.
+Os Rich Cards estão em acesso antecipado. Entre em contato com o seu CSM da Braze se tiver interesse em participar deste acesso antecipado.
 {% endalert %}
 
 Um Rich Card combina mídia, texto e botões em uma única mensagem, criando uma experiência mais intuitiva e envolvente para seus clientes. Você pode criar dois subtipos de Rich Cards: Texto e Mídia.
@@ -174,7 +174,7 @@ Em seguida, construa o restante da sua campanha ou Canvas. Consulte as seções 
 
 #### Etapa 5.1: Escolha o cronograma de entrega ou disparo {#step-51-choose-delivery-schedule-or-trigger}
 
-As mensagens RCS podem ser entregues com base em um horário agendado, uma ação ou um disparo de API or interface de programação do aplicativo (API). Para saber mais, consulte [Agendando sua campanha]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
+As mensagens RCS podem ser entregues com base em um horário agendado, uma ação ou um disparo de API. Para saber mais, consulte [Agendando sua campanha]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
 Para entrega baseada em ação, você também pode definir a duração da campanha e o horário de silêncio.
 
@@ -186,7 +186,7 @@ Direcione os usuários escolhendo Segments ou filtros para refinar seu público.
 
 {% multi_lang_include audience/target_audiences.md %}
 
-Em seguida, você selecionará o público maior dos seus Segments e poderá refinar ainda mais esse Segment or segmento com [filtros]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) opcionais. Você receberá automaticamente uma prévia de como é a população aproximada desse Segment or segmento no momento. Lembre-se de que a composição exata do Segment or segmento é sempre calculada antes do envio da mensagem.
+Em seguida, você selecionará o público maior dos seus Segments e poderá refinar ainda mais esse Segment com [filtros]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) opcionais. Você receberá automaticamente uma prévia de como é a população aproximada desse Segment no momento. Lembre-se de que a composição exata do Segment é sempre calculada antes do envio da mensagem.
 
 {% alert tip %}
 Interessado em usar o redirecionamento RCS para direcionar usuários com base nas interações de SMS e RCS? Consulte [Redirecionamento]({{site.baseurl}}/sms_mms_rcs_user_retargeting).

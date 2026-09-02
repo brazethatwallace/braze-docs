@@ -1,6 +1,6 @@
 ## 분석 보기 {#viewing-analytics}
 
-캠페인을 시작한 후, 해당 캠페인의 세부 정보 페이지로 돌아가 주요 측정기준을 확인할 수 있습니다. **Campaigns** 페이지로 이동하여 캠페인을 선택하면 세부 정보 페이지가 열립니다.{% if include.channel != "banner" %} {% if include.channel == "Content Card" %}Content Cards{% elsif include.channel == "banner" %}배너{% elsif include.channel == "email" %}이메일{% elsif include.channel == "in-app message" %}인앱 메시지{% elsif include.channel == "KakaoTalk" %}KakaoTalk 메시지{% elsif include.channel == "push" %}푸시 메시지{% elsif include.channel == "단문 메시지 서비스" %}단문 메시지 서비스 메시지{% elsif include.channel == "whatsapp" %}WhatsApp 메시지{% elsif include.channel == "webhook" %}웹훅{% endif %}을 Canvas에서 전송한 경우, [Canvas 분석]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics)을 참조하세요.{% endif %}
+캠페인을 시작한 후, 해당 캠페인의 세부 정보 페이지로 돌아가 주요 측정기준을 확인할 수 있습니다. **Campaigns** 페이지로 이동하여 캠페인을 선택하면 세부 정보 페이지가 열립니다.{% if include.channel != "banner" %} {% if include.channel == "Content Card" %}Content Cards{% elsif include.channel == "banner" %}배너{% elsif include.channel == "email" %}이메일{% elsif include.channel == "in-app message" %}인앱 메시지{% elsif include.channel == "KakaoTalk" %}KakaoTalk 메시지{% elsif include.channel == "push" %}푸시 메시지{% elsif include.channel == "SMS" %}SMS 메시지{% elsif include.channel == "whatsapp" %}WhatsApp 메시지{% elsif include.channel == "webhook" %}웹훅{% endif %}을 Canvas에서 전송한 경우, [Canvas 분석]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics)을 참조하세요.{% endif %}
 
 {% alert tip %}
 보고서에 나열된 용어와 측정기준의 정의를 찾고 계신가요?
@@ -9,7 +9,7 @@
   {% elsif include.channel == "Content Card" %}[보고서 측정기준 용어집]({{site.baseurl}}/user_guide/analytics/metrics_glossary)에서 Content Cards로 필터링하여
   {% elsif include.channel == "in-app message" %}[보고서 측정기준 용어집]({{site.baseurl}}/user_guide/analytics/metrics_glossary)에서 인앱 메시지로 필터링하여
   {% elsif include.channel == "push" %}[보고서 측정기준 용어집]({{site.baseurl}}/user_guide/analytics/metrics_glossary)에서 푸시로 필터링하여
-  {% elsif include.channel == "단문 메시지 서비스" %}[보고서 측정기준 용어집]({{site.baseurl}}/user_guide/analytics/metrics_glossary)에서 단문 메시지 서비스/MMS 및 RCS로 필터링하여
+  {% elsif include.channel == "SMS" %}[보고서 측정기준 용어집]({{site.baseurl}}/user_guide/analytics/metrics_glossary)에서 SMS/MMS 및 RCS로 필터링하여
   {% elsif include.channel == "whatsapp" %}[보고서 측정기준 용어집]({{site.baseurl}}/user_guide/analytics/metrics_glossary)에서 WhatsApp으로 필터링하여
   {% elsif include.channel == "webhook" %}[보고서 측정기준 용어집]({{site.baseurl}}/user_guide/analytics/metrics_glossary)에서 웹훅으로 필터링하여{% endif %}
   참조하세요.
@@ -30,7 +30,7 @@
   {% elsif include.channel == "in-app message" %}인앱 메시지의
   {% elsif include.channel == "KakaoTalk" %}KakaoTalk 메시지의
   {% elsif include.channel == "push" %}푸시 메시지의
-  {% elsif include.channel == "단문 메시지 서비스" %}단문 메시지 서비스, MMS 및 RCS의
+  {% elsif include.channel == "SMS" %}SMS, MMS 및 RCS의
   {% elsif include.channel == "whatsapp" %}WhatsApp 메시지의
   {% elsif include.channel == "webhook" %}웹훅의
   {% endif %}전체 성과에 대한 상위 수준 개요를 보여줍니다.
@@ -59,7 +59,7 @@ WhatsApp 채널에는 읽기 비율이 포함됩니다. 이 측정기준은 읽�
 {% elsif include.channel == "push" %}
 ![캠페인 성과를 판단하는 데 사용되는 측정기준 개요가 포함된 Campaign Details 패널.]({% image_buster /assets/img/campaign_details_push.png %})
 
-{% elsif include.channel == "단문 메시지 서비스" %}
+{% elsif include.channel == "SMS" %}
 ![캠페인 성과를 판단하는 데 사용되는 측정기준 개요가 포함된 Campaign Details 패널.]({% image_buster /assets/img/campaign_details_sms.png %})
 
 {% elsif include.channel == "in-app message" %}
@@ -97,11 +97,11 @@ Canvas에서는 생성한 Canvas에 매핑된 인앱 메시지 성과를 확인�
 
 개별 콘텐츠 카드의 영향을 측정하려면 A/B 테스트에 [대조군]({{site.baseurl}}/user_guide/intelligence/multivariate_testing#step-4-choose-a-segment-and-distribute-your-users-across-variants)을 추가할 수 있습니다. 최상위 **Campaign Details** 패널에는 대조군 배리언트의 측정기준이 포함되지 않습니다.
 
-{% elsif include.channel == "단문 메시지 서비스" %}
+{% elsif include.channel == "SMS" %}
 
 #### 대조군 {#sms-control-group}
 
-개별 단문 메시지 서비스, MMS 또는 RCS 메시지의 영향을 측정하려면 A/B 테스트에 [대조군]({{site.baseurl}}/user_guide/intelligence/multivariate_testing#step-4-choose-a-segment-and-distribute-your-users-across-variants)을 추가할 수 있습니다. 최상위 **Campaign Details** 패널에는 대조군 배리언트의 측정기준이 포함되지 않습니다.
+개별 SMS, MMS 또는 RCS 메시지의 영향을 측정하려면 A/B 테스트에 [대조군]({{site.baseurl}}/user_guide/intelligence/multivariate_testing#step-4-choose-a-segment-and-distribute-your-users-across-variants)을 추가할 수 있습니다. 최상위 **Campaign Details** 패널에는 대조군 배리언트의 측정기준이 포함되지 않습니다.
 
 {% elsif include.channel == "whatsapp" %}
 
@@ -154,12 +154,12 @@ The **Message Performance** panel outlines how well your message has performed a
 
 ![푸시 메시지 성과 분석]({% image_buster /assets/img_archive/push_message_performance.png %})
 
-{% elsif include.channel == "단문 메시지 서비스" %}
-### 단문 메시지 서비스/MMS/RCS Performance
+{% elsif include.channel == "SMS" %}
+### SMS/MMS/RCS Performance
 
-**단문 메시지 서비스/MMS/RCS Performance** 패널은 메시지가 다양한 차원에서 얼마나 잘 수행되었는지 보여줍니다. 이 패널의 측정기준은 선택한 메시징 채널과 다변량 테스트 실행 여부에 따라 달라집니다. <i class="fa fa-eye preview-icon"></i> **Preview** 아이콘을 클릭하여 각 배리언트 또는 채널에 대한 메시지를 확인할 수 있습니다.
+**SMS/MMS/RCS Performance** 패널은 메시지가 다양한 차원에서 얼마나 잘 수행되었는지 보여줍니다. 이 패널의 측정기준은 선택한 메시징 채널과 다변량 테스트 실행 여부에 따라 달라집니다. <i class="fa fa-eye preview-icon"></i> **Preview** 아이콘을 클릭하여 각 배리언트 또는 채널에 대한 메시지를 확인할 수 있습니다.
 
-![대조군, 배리언트 1 및 배리언트 2에 대한 측정기준 표가 포함된 단문 메시지 서비스/MMS/RCS Performance 패널.]({% image_buster /assets/img_archive/sms_message_performance.png %})
+![대조군, 배리언트 1 및 배리언트 2에 대한 측정기준 표가 포함된 SMS/MMS/RCS Performance 패널.]({% image_buster /assets/img_archive/sms_message_performance.png %})
 
 {% elsif include.channel == "banner" %}
 ### Banner Performance
@@ -769,11 +769,11 @@ Firebase Cloud Messaging(FCM) 반송은 세 가지 경우에 발생할 수 있�
 {% endtabs %}
 
 
-{% elsif include.channel == "단문 메시지 서비스" %}
+{% elsif include.channel == "SMS" %}
 
-#### 단문 메시지 서비스, MMS 및 RCS 측정기준 {#sms-mms-and-rcs-metrics}
+#### SMS, MMS 및 RCS 측정기준 {#sms-mms-and-rcs-metrics}
 
-메시지 성과를 검토할 때 볼 수 있는 주요 측정기준을 정리했습니다. 모든 단문 메시지 서비스, MMS 및 RCS 측정기준의 전체 정의는 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/analytics/metrics_glossary)에서 단문 메시지 서비스/MMS 및 RCS로 필터링하여 확인하세요.
+메시지 성과를 검토할 때 볼 수 있는 주요 측정기준을 정리했습니다. 모든 SMS, MMS 및 RCS 측정기준의 전체 정의는 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/analytics/metrics_glossary)에서 SMS/MMS 및 RCS로 필터링하여 확인하세요.
 
 <style>
     .no-split {
@@ -781,8 +781,8 @@ Firebase Cloud Messaging(FCM) 반송은 세 가지 경우에 발생할 수 있�
     }
 </style>
 
-<table aria-label="단문 메시지 서비스, MMS 및 RCS 측정기준">
-    <caption class="sr-only">단문 메시지 서비스, MMS 및 RCS 성과 측정기준</caption>
+<table aria-label="SMS, MMS 및 RCS 측정기준">
+    <caption class="sr-only">SMS, MMS 및 RCS 성과 측정기준</caption>
     <thead>
         <tr>
             <th>측정기준</th>
@@ -921,7 +921,7 @@ Firebase Cloud Messaging(FCM) 반송은 세 가지 경우에 발생할 수 있�
 
 {% endif %}
 
-{% if include.channel == "단문 메시지 서비스" %}
+{% if include.channel == "SMS" %}
 
 ### 키워드 응답 {#keyword-responses}
 
@@ -963,11 +963,11 @@ Braze 분석 외에도 템플릿 수준의 분석은 WhatsApp 비즈니스 매�
 
 {% endif %}
 
-{% if include.channel == "단문 메시지 서비스" %}
+{% if include.channel == "SMS" %}
 
-### 단문 메시지 서비스 Currents 이벤트 {#sms-currents-events}
+### SMS Currents 이벤트 {#sms-currents-events}
 
-이메일과 마찬가지로, Braze는 단문 메시지 서비스 메시지가 사용자에게 전달되는 과정에서 사용자 수준의 이벤트를 수신합니다. 모든 인바운드 단문 메시지 서비스 이벤트는 [단문 메시지 서비스 InboundReceived]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events) 이벤트를 통해 Currents 이벤트로도 전송됩니다. 이를 통해 Braze 플랫폼 외부에서 사용자가 보내는 메시지에 대해 추가 작업이나 보고를 수행할 수 있습니다.
+이메일과 마찬가지로, Braze는 SMS 메시지가 사용자에게 전달되는 과정에서 사용자 수준의 이벤트를 수신합니다. 모든 인바운드 SMS 이벤트는 [SMS InboundReceived]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events) 이벤트를 통해 Currents 이벤트로도 전송됩니다. 이를 통해 Braze 플랫폼 외부에서 사용자가 보내는 메시지에 대해 추가 작업이나 보고를 수행할 수 있습니다.
 
 {% alert note %}
 인바운드 메시지는 1,600자를 초과하면 잘립니다.

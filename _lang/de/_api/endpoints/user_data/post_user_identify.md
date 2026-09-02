@@ -20,7 +20,7 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Nutze
 
 ## Funktionsweise {#how-it-works}
 
-Der Aufruf von `/users/identify` kombiniert ein Kundenprofil or Nutzerprofil, das durch einen Alias (Nur-Alias-Profil), eine E-Mail-Adresse (Nur-E-Mail-Profil) oder eine Telefonnummer (Nur-Telefonnummer-Profil) identifiziert wird, mit einem Kundenprofil or Nutzerprofil, das über eine `external_id` (identifiziertes Profil) verfügt, und entfernt dann das Nur-Alias-Profil.
+Der Aufruf von `/users/identify` kombiniert ein Nutzerprofil, das durch einen Alias (Nur-Alias-Profil), eine E-Mail-Adresse (Nur-E-Mail-Profil) oder eine Telefonnummer (Nur-Telefonnummer-Profil) identifiziert wird, mit einem Nutzerprofil, das über eine `external_id` (identifiziertes Profil) verfügt, und entfernt dann das Nur-Alias-Profil.
 
 Die Identifizierung von Nutzer:innen erfordert eine `external_id` in den folgenden Objekten:
 
@@ -69,7 +69,7 @@ Standardmäßig führt dieser Endpunkt die folgenden Felder, die **ausschließli
 - Workflow-Zusammenfassungen (Braze wählt die aktuellsten Datumsfelder)
 - Nachrichten- und Nachrichten-Engagement-Verlauf
 - Angepasste Events und Kauf-Events mit Zählung sowie Zeitstempel für erstes und letztes Datum
-  - Diese zusammengeführten Felder Update or aktualisieren or aktualisieren die Filter „für X Events in Y Tagen“. Bei Kauf-Events umfassen diese Filter „Anzahl der Käufe in Y Tagen“ und „Ausgaben in den letzten Y Tagen“.
+  - Diese zusammengeführten Felder aktualisieren die Filter „für X Events in Y Tagen“. Bei Kauf-Events umfassen diese Filter „Anzahl der Käufe in Y Tagen“ und „Ausgaben in den letzten Y Tagen“.
 - Sitzungsdaten, wenn die App in beiden Nutzerprofilen vorhanden ist
   - Wenn beispielsweise die Zielnutzer:in keine App-Zusammenfassung für „ABCApp“ hat, die ursprüngliche Nutzer:in jedoch schon, erhält die Zielnutzer:in nach der Zusammenführung die App-Zusammenfassung „ABCApp“ in ihrem Profil.
 {% enddetails %}
@@ -162,7 +162,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/identify' \
 
 ### Groß-/Kleinschreibung {#case-sensitivity}
 
-Das Feld `alias_name` unterscheidet zwischen Groß- und Kleinschreibung. Eine Anfrage, die einen `201`-Statuscode zurückgibt, bestätigt nur, dass die Anfrage-Syntax gültig war – sie bestätigt nicht, dass der Alias zugeordnet wurde. Wenn die Groß-/Kleinschreibung von `alias_name` in Ihrer Anfrage nicht exakt mit dem im Kundenprofil or Nutzerprofil gespeicherten Alias übereinstimmt, schlägt der Vorgang stillschweigend fehl und die `external_id` wird nicht zugewiesen. Wenn der gespeicherte Alias beispielsweise `JimJones@example.com` lautet, gibt eine Anfrage mit `jimjones@example.com` zwar Erfolg zurück, erzeugt aber kein Ergebnis.
+Das Feld `alias_name` unterscheidet zwischen Groß- und Kleinschreibung. Eine Anfrage, die einen `201`-Statuscode zurückgibt, bestätigt nur, dass die Anfrage-Syntax gültig war – sie bestätigt nicht, dass der Alias zugeordnet wurde. Wenn die Groß-/Kleinschreibung von `alias_name` in Ihrer Anfrage nicht exakt mit dem im Nutzerprofil gespeicherten Alias übereinstimmt, schlägt der Vorgang stillschweigend fehl und die `external_id` wird nicht zugewiesen. Wenn der gespeicherte Alias beispielsweise `JimJones@example.com` lautet, gibt eine Anfrage mit `jimjones@example.com` zwar Erfolg zurück, erzeugt aber kein Ergebnis.
 
 {% alert tip %}
 Weitere Informationen zu `alias_name` und `alias_label` finden Sie in unserer Dokumentation zu [Nutzer-Aliase]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle).

@@ -28,11 +28,11 @@ Esta página está en fase beta. Las características y la documentación de la 
 Para usar este endpoint, necesitas lo siguiente:
 
 - Un espacio de trabajo con Banners habilitado
-- Una [clave de API REST or transferencia de estado representacional del lado del cliente]({{site.baseurl}}/api/device_messaging_api/authentication) con el permiso `banners.track`
-- El [endpoint REST or transferencia de estado representacional]({{site.baseurl}}/api/basics#endpoints) de tu instancia de Braze
+- Una [clave de API REST del lado del cliente]({{site.baseurl}}/api/device_messaging_api/authentication) con el permiso `banners.track`
+- El [endpoint REST]({{site.baseurl}}/api/basics#endpoints) de tu instancia de Braze
 - Un `id` de Banner devuelto por el [endpoint Recuperar Banners para un usuario]({{site.baseurl}}/api/device_messaging_api/endpoints/banners/post_sync_banners)
 
-Incluye la clave de API REST or transferencia de estado representacional del lado del cliente en el encabezado `Authorization` como un token bearer.
+Incluye la clave de API REST del lado del cliente en el encabezado `Authorization` como un token bearer.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -82,7 +82,7 @@ Braze no concilia el estado del Banner en tu interfaz. Ocultar el Banner despué
 
 ## Ejemplo de solicitud {#example-request}
 
-Reemplaza *`YOUR_REST_API_URL`* con el [endpoint REST or transferencia de estado representacional]({{site.baseurl}}/api/basics#endpoints) de tu instancia de Braze.
+Reemplaza *`YOUR_REST_API_URL`* con el [endpoint REST]({{site.baseurl}}/api/basics#endpoints) de tu instancia de Braze.
 
 ```bash
 curl --location --request POST '{YOUR_REST_API_URL}/v1/device-messaging/banners/track' \
@@ -174,8 +174,8 @@ Si Braze no puede procesar ningún evento, devuelve un código de estado `400`.
 |---|---|
 | `202` | Braze aceptó al menos un evento. La respuesta enumera los eventos omitidos. |
 | `400` | La solicitud tiene un formato incorrecto, los campos obligatorios no son válidos o no hay eventos válidos. |
-| `401` | La clave de API REST or transferencia de estado representacional del lado del cliente falta o no es válida. |
-| `403` | La clave de API REST or transferencia de estado representacional del lado del cliente no tiene el permiso `banners.track`. |
+| `401` | La clave de API REST del lado del cliente falta o no es válida. |
+| `403` | La clave de API REST del lado del cliente no tiene el permiso `banners.track`. |
 | `404` | La característica de Banners no está habilitada para el espacio de trabajo. |
 | `429` | El espacio de trabajo superó su límite de velocidad. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Códigos de estado" }

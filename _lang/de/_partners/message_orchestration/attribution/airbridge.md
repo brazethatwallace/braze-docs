@@ -24,7 +24,7 @@ Mit der Integration von Braze und Airbridge können Sie alle nicht-organischen D
 |---|---|
 | Airbridge-Konto | Um diese Partnerschaft nutzen zu können, benötigen Sie ein Airbridge-Konto. |
 | iOS- oder Android-App | Diese Integration unterstützt iOS- und Android-Apps. Je nach Plattform können Code-Snippets in Ihrer Anwendung erforderlich sein. |
-| Airbridge SDK or Software-Development-Kit | Zusätzlich zum erforderlichen Braze SDK or Software-Development-Kit müssen Sie das Airbridge [Android](https://help.airbridge.io/en/developers/android-sdk)- oder [iOS](https://help.airbridge.io/en/developers/ios-sdk)-SDK or Software-Development-Kit installieren. |
+| Airbridge SDK | Zusätzlich zum erforderlichen Braze SDK müssen Sie das Airbridge [Android](https://help.airbridge.io/en/developers/android-sdk)- oder [iOS](https://help.airbridge.io/en/developers/ios-sdk)-SDK installieren. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
@@ -194,14 +194,14 @@ AirbridgeUnity.StartTracking()
 
 Navigieren Sie in Braze zu **Partnerintegrationen** > **Technologie-Partner** und wählen Sie **Airbridge** aus.
 
-Hier finden Sie den Representational State Transfer-Endpunkt und können Ihren Datenimport-Schlüssel für Braze generieren. Nachdem der Schlüssel generiert wurde, können Sie einen neuen Schlüssel erstellen oder einen bestehenden Schlüssel ungültig machen. Der Datenimport-Schlüssel und der Representational State Transfer-Endpunkt werden im nächsten Schritt verwendet, wenn Sie ein Postback im Dashboard von Airbridge einrichten.
+Hier finden Sie den REST-Endpunkt und können Ihren Datenimport-Schlüssel für Braze generieren. Nachdem der Schlüssel generiert wurde, können Sie einen neuen Schlüssel erstellen oder einen bestehenden Schlüssel ungültig machen. Der Datenimport-Schlüssel und der REST-Endpunkt werden im nächsten Schritt verwendet, wenn Sie ein Postback im Dashboard von Airbridge einrichten.
 
 ![Braze-Airbridge-Partnerseite mit den Feldern für Datenimport-Schlüssel und REST-Endpunkt.]({% image_buster /assets/img/airbridge/airbridge_integration_step_1.png %})
 
 ### Schritt 3: Braze im Dashboard von Airbridge konfigurieren {#step-3-configure-braze-in-airbridges-dashboard}
 
 1. Navigieren Sie in Airbridge in der linken Seitenleiste zu **Integrations > Third-party Integrations** und wählen Sie **Braze** aus.
-2. Geben Sie den Datenimport-Schlüssel und den Representational State Transfer-Endpunkt an, den Sie im Braze-Dashboard gefunden haben.
+2. Geben Sie den Datenimport-Schlüssel und den REST-Endpunkt an, den Sie im Braze-Dashboard gefunden haben.
 3. Wählen Sie den Ereignistyp (Install-Ereignis oder Install- und Deeplink-Öffnungs-Ereignis) aus und speichern Sie.
 
 {% alert note %}
@@ -238,15 +238,15 @@ Ihre Nutzerbasis kann im Braze-Dashboard mithilfe der Install-Attribution-Filter
 
 Attributionsdaten für Meta Business-Campaigns sind nicht über unsere Partner verfügbar. Diese Medienquelle erlaubt ihren Partnern nicht, Attributionsdaten an Dritte weiterzugeben, und daher können unsere Partner diese Daten nicht an Braze senden.
 
-## Airbridge-Klick, der or klicken-Tracking-URLs in Braze (optional)
+## Airbridge-Klick, der-Tracking-URLs in Braze (optional)
 
-Die Verwendung von Klick, der or klicken-Tracking-Links in Ihren Braze-Campaigns zeigt, welche Campaigns App-Installationen und erneute Interaktionen fördern. Nutzen Sie die Ergebnisse, um die Marketing-Performance zu messen und zu entscheiden, wo Sie Ressourcen für einen höheren Kapitalrendite or ROI investieren sollten.
+Die Verwendung von Klick, der-Tracking-Links in Ihren Braze-Campaigns zeigt, welche Campaigns App-Installationen und erneute Interaktionen fördern. Nutzen Sie die Ergebnisse, um die Marketing-Performance zu messen und zu entscheiden, wo Sie Ressourcen für einen höheren Kapitalrendite investieren sollten.
 
-Um mit Airbridge-Klick, der or klicken-Tracking-Links zu beginnen, besuchen Sie [Airbridge](https://help.airbridge.io/en/guides/creating-a-new-tracking-link). Nachdem die Einrichtung abgeschlossen ist, können Sie die Airbridge-Klick, der or klicken-Tracking-Links direkt in Ihre Braze-Campaigns einfügen. Airbridge verwendet dann seine [probabilistischen Attributionsmethoden](https://help.airbridge.io/en/guides/identity-matching), um die Nutzer:innen zu attributieren, die auf den Link geklickt haben. Wir empfehlen, Ihre Airbridge-Tracking-Links mit einem Geräte-Bezeichner zu versehen, um die Genauigkeit der Attributionen Ihrer Braze-Campaigns zu verbessern. Dadurch werden die Nutzer:innen, die auf den Link geklickt haben, deterministisch attributiert.
+Um mit Airbridge-Klick, der-Tracking-Links zu beginnen, besuchen Sie [Airbridge](https://help.airbridge.io/en/guides/creating-a-new-tracking-link). Nachdem die Einrichtung abgeschlossen ist, können Sie die Airbridge-Klick, der-Tracking-Links direkt in Ihre Braze-Campaigns einfügen. Airbridge verwendet dann seine [probabilistischen Attributionsmethoden](https://help.airbridge.io/en/guides/identity-matching), um die Nutzer:innen zu attributieren, die auf den Link geklickt haben. Wir empfehlen, Ihre Airbridge-Tracking-Links mit einem Geräte-Bezeichner zu versehen, um die Genauigkeit der Attributionen Ihrer Braze-Campaigns zu verbessern. Dadurch werden die Nutzer:innen, die auf den Link geklickt haben, deterministisch attributiert.
 
 {% tabs %}
 {% tab Android %}
-Für Android erlaubt Braze Kund:innen, sich für die [Erfassung der Google Advertising ID (GAID)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection#optional-google-advertising-id) zu entscheiden. Die GAID wird auch nativ über die Airbridge-SDK or Software-Development-Kit-Integration erfasst. Sie können die GAID in Ihre Airbridge-Klick, der or klicken-Tracking-Links einfügen, indem Sie die folgende Liquid-Logik verwenden:
+Für Android erlaubt Braze Kund:innen, sich für die [Erfassung der Google Advertising ID (GAID)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection#optional-google-advertising-id) zu entscheiden. Die GAID wird auch nativ über die Airbridge-SDK-Integration erfasst. Sie können die GAID in Ihre Airbridge-Klick, der-Tracking-Links einfügen, indem Sie die folgende Liquid-Logik verwenden:
 {% raw %}
 ```
 {% if most_recently_used_device.${platform} == 'android' %}
@@ -257,7 +257,7 @@ aifa={{most_recently_used_device.${google_ad_id}}}
 {% endtab %}
 
 {% tab iOS %}
-Für iOS erfassen sowohl Braze als auch Airbridge den IDFV automatisch und nativ über unsere SDK or Software-Development-Kit-Integrationen. Dies kann als Geräte-Bezeichner verwendet werden. Sie können den Identifier for Vendors (IDFV) in Ihre Airbridge-Klick, der or klicken-Tracking-Links einfügen, indem Sie die folgende Liquid-Logik verwenden:
+Für iOS erfassen sowohl Braze als auch Airbridge den IDFV automatisch und nativ über unsere SDK-Integrationen. Dies kann als Geräte-Bezeichner verwendet werden. Sie können den Identifier for Vendors (IDFV) in Ihre Airbridge-Klick, der-Tracking-Links einfügen, indem Sie die folgende Liquid-Logik verwenden:
 
 {% raw %}
 ```
@@ -271,5 +271,5 @@ idfv={{most_recently_used_device.${id}}}
 
 {% alert note %}
 **Diese Empfehlung ist rein optional**<br>
-Wenn Sie derzeit keine Geräte-Bezeichner – wie IDFV oder GAID – in Ihren Klick, der or klicken-Tracking-Links verwenden oder dies in Zukunft nicht vorhaben, ist Airbridge dennoch in der Lage, diese Klicks durch seine probabilistische Modellierung zu attributieren.
+Wenn Sie derzeit keine Geräte-Bezeichner – wie IDFV oder GAID – in Ihren Klick, der-Tracking-Links verwenden oder dies in Zukunft nicht vorhaben, ist Airbridge dennoch in der Lage, diese Klicks durch seine probabilistische Modellierung zu attributieren.
 {% endalert %}

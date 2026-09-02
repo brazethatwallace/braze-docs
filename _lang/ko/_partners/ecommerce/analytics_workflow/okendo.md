@@ -9,7 +9,7 @@ alias: /partners/okendo/
 
 # Okendo
 
-> [Okendo](https://okendo.io/)는 옹호를 육성하고, 입소문을 확장하고, LTV or 생애주기 가치를 극대화하여 고객을 동원해 더 빠르고 효율적인 성장을 이끌어내는 도구를 제공하는 통합 고객 마케팅 플랫폼입니다.
+> [Okendo](https://okendo.io/)는 옹호를 육성하고, 입소문을 확장하고, LTV를 극대화하여 고객을 동원해 더 빠르고 효율적인 성장을 이끌어내는 도구를 제공하는 통합 고객 마케팅 플랫폼입니다.
 
 *이 통합은 Okendo에서 유지 관리합니다.*
 
@@ -30,7 +30,7 @@ Braze와 Okendo의 통합은 리뷰, 로열티, 추천, 설문조사, 퀴즈 등
 
 ### 1단계: Okendo에서 Braze 커넥터 설정하기 {#step-1-set-up-braze-connector-in-okendo}
 
-1. Okendo에서 **Settings** > **Integrations** > **Email & 단문 메시지 서비스** > **Braze**로 이동합니다.
+1. Okendo에서 **Settings** > **Integrations** > **Email & SMS** > **Braze**로 이동합니다.
 2. **Integration** 설정에 API 엔드포인트와 API 키를 추가합니다.
 
 ### 2단계: 식별자 구성하기 {#step-2-configure-your-identifier}

@@ -32,7 +32,7 @@ Adicione um carimbo de data/hora `UPDATED_AT` à sua tabela de origem. Esse cari
 Sua tabela pode conter uma ou mais colunas de identificador de usuário. Cada linha deve conter apenas um identificador: `external_id`, a combinação de `alias_name` e `alias_label`, ou `braze_id`. Uma tabela de origem pode conter colunas para um, dois ou todos os três tipos de identificadores.
 - `EXTERNAL_ID` - Identifica o usuário que você deseja atualizar. Esse valor deve corresponder ao valor `external_id` usado na Braze.
 - `ALIAS_NAME` e `ALIAS_LABEL` - Essas duas colunas criam um objeto de alias de usuário. `alias_name` deve ser um identificador exclusivo e `alias_label` especifica o tipo de alias. Os usuários podem ter vários aliases com rótulos diferentes, mas apenas um `alias_name` por `alias_label`.
-- `BRAZE_ID` - O identificador de usuário da Braze. Ele é gerado pelo SDK or kit de desenvolvimento de software da Braze, e não é possível criar novos usuários usando um Braze ID por meio da Ingestão de dados na nuvem. Para criar novos usuários, especifique um ID de usuário externo ou um alias de usuário.
+- `BRAZE_ID` - O identificador de usuário da Braze. Ele é gerado pelo SDK da Braze, e não é possível criar novos usuários usando um Braze ID por meio da Ingestão de dados na nuvem. Para criar novos usuários, especifique um ID de usuário externo ou um alias de usuário.
 
 {% alert important %}
 Não inclua uma coluna `PAYLOAD` na sua tabela para remoção de usuários. Para evitar a remoção acidental e permanente de usuários, a sincronização falhará se uma coluna de carga útil for fornecida na tabela de origem. Quaisquer outras colunas são permitidas, mas serão ignoradas pela Braze.
@@ -115,7 +115,7 @@ GO
 
 ### Como funciona {#how-it-works}
 
-Com a Ingestão de dados na nuvem da Braze, você configura uma integração entre sua instância de data warehouse e o espaço de trabalho da Braze para sincronizar dados de forma recorrente. Essa sincronização é executada em uma programação definida por você, e cada integração pode ter uma programação diferente. As sincronizações podem ser executadas com frequência a cada 15 minutos ou com pouca frequência, como uma vez por mês. Para os clientes que precisam que as sincronizações ocorram com mais frequência do que a cada 15 minutos, fale com seu gerente de sucesso do cliente ou considere o uso de chamadas de REST or transferir estado representacional API or interface de programação do aplicativo (API) para ingestão de dados em tempo real.
+Com a Ingestão de dados na nuvem da Braze, você configura uma integração entre sua instância de data warehouse e o espaço de trabalho da Braze para sincronizar dados de forma recorrente. Essa sincronização é executada em uma programação definida por você, e cada integração pode ter uma programação diferente. As sincronizações podem ser executadas com frequência a cada 15 minutos ou com pouca frequência, como uma vez por mês. Para os clientes que precisam que as sincronizações ocorram com mais frequência do que a cada 15 minutos, fale com seu CSM ou considere o uso de chamadas de REST API para ingestão de dados em tempo real.
 
 Quando uma sincronização é executada, a Braze se conecta diretamente à sua instância de data warehouse, recupera todos os novos dados da tabela especificada e exclui os perfis de usuários correspondentes no seu dashboard da Braze.
 

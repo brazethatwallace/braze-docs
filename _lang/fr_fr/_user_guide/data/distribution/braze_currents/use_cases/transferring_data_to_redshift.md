@@ -12,7 +12,7 @@ tool: Currents
 
 > [Amazon Redshift](https://aws.amazon.com/redshift/) est un entrepôt de données populaire qui fonctionne sur Amazon Web Services aux côtés d'Amazon S3. Les données Braze provenant de Currents sont structurées de manière à pouvoir être transférées directement vers Redshift.
 
-La procédure suivante décrit comment transférer des données depuis Amazon S3 vers Redshift via un processus ETL (ETL or extraire, transformer, charger). Pour obtenir le code source complet, veuillez consulter le [référentiel GitHub](https://github.com/Appboy/currents-examples) des exemples Currents.
+La procédure suivante décrit comment transférer des données depuis Amazon S3 vers Redshift via un processus ETL (ETL). Pour obtenir le code source complet, veuillez consulter le [référentiel GitHub](https://github.com/Appboy/currents-examples) des exemples Currents.
 
 {% alert important %}
 Notez que ce n'est qu'une des nombreuses options que vous pouvez choisir lorsqu'il s'agit de transférer vos données vers les emplacements les plus avantageux pour vous.

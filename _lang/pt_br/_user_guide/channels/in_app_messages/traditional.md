@@ -13,7 +13,7 @@ toc_headers: h2
 
 # Criar uma mensagem no app com o editor tradicional {#create-an-in-app-message-with-the-traditional-editor}
 
-> Você pode criar uma mensagem no app ou uma mensagem no navegador usando a plataforma da Braze por meio de Campaigns, Canvas ou como uma campanha da API or interface de programação do aplicativo (API). Recomendamos fortemente que você planeje suas mensagens e prepare todos os materiais com antecedência usando nosso prático [Guia de preparação de mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices).
+> Você pode criar uma mensagem no app ou uma mensagem no navegador usando a plataforma da Braze por meio de Campaigns, Canvas ou como uma campanha da API. Recomendamos fortemente que você planeje suas mensagens e prepare todos os materiais com antecedência usando nosso prático [Guia de preparação de mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices).
 
 ## Etapa 1: Escolha onde criar sua mensagem {#create-new-campaign-in-app}
 
@@ -54,7 +54,7 @@ Comece escolhendo quais plataformas devem receber a mensagem. Use essa seleção
 | Plataforma                        | Entrega de mensagem             |
 |---------------------------------|------------------------------|
 | Apps mobile                     | SDKs para iOS, Android e Vega |
-| Navegadores web                    | SDK or kit de desenvolvimento de software para web                      |
+| Navegadores web                    | SDK para web                      |
 | Apps mobile e navegadores web | SDKs para iOS, Android, Vega e web |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 2: Especificar plataformas de entrega" }
 
@@ -164,7 +164,7 @@ Essas mensagens no app são personalizáveis de acordo com suas necessidades.
       <li>Somente imagem</li>
       </ul>
     </td>
-    <td>Modal web com CSS é exclusivo do SDK or kit de desenvolvimento de software para web e só pode ser usado após selecionar <b>Web Browsers</b>.</td>
+    <td>Modal web com CSS é exclusivo do SDK para web e só pode ser usado após selecionar <b>Web Browsers</b>.</td>
     <td>Quando você quer fazer upload ou escrever CSS personalizado para criar mensagens estilizadas e bonitas. </td>
   </tr>
 </tbody>
@@ -238,11 +238,11 @@ Quando o cliente clica em um botão na mensagem no app, as seguintes ações est
 | Solicitar permissão de push | Exibe a solicitação nativa de permissão de push. Saiba mais sobre [push priming]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages), além das [práticas recomendadas]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#best-practices) para preparar os usuários para push. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Comportamento ao clicar #button-actions" }
 
-Observação: as opções __Solicitar permissão de push__, __Registrar evento personalizado__ e __Registrar atributo personalizado__ exigem as seguintes versões mínimas do SDK or kit de desenvolvimento de software:
+Observação: as opções __Solicitar permissão de push__, __Registrar evento personalizado__ e __Registrar atributo personalizado__ exigem as seguintes versões mínimas do SDK:
 
 {% sdk_min_versions swift:5.4.0 android:21.0.0 web:4.0.3 %}
 
-Para combinar várias ações ou realizar ações adicionais do SDK or kit de desenvolvimento de software não disponíveis no dashboard (como adicionar a um grupo de inscrições ou definir um tipo de inscrição de e-mail), você pode usar os [deep links do Braze Actions]({{site.baseurl}}/developer_guide/braze_actions).
+Para combinar várias ações ou realizar ações adicionais do SDK não disponíveis no dashboard (como adicionar a um grupo de inscrições ou definir um tipo de inscrição de e-mail), você pode usar os [deep links do Braze Actions]({{site.baseurl}}/developer_guide/braze_actions).
 
 ### Opções de dispositivos iOS {#ios-device-options}
 
@@ -278,13 +278,13 @@ O conteúdo da guia **Style** varia com base nas opções de mensagem escolhidas
 | Formatação | Entrada | Descrição |
 |---|---|---|
 | [Perfil de cor]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template#reusable-color-profiles) | Aplicar a partir da galeria de modelos de mensagens no app. | Selecione **Apply Template** e escolha na galeria. Em seguida, selecione **Save**. |
-| Alinhamento do texto | Esquerda, centro ou direita. | Disponível apenas para versões mais recentes do SDK or kit de desenvolvimento de software da Braze. |
+| Alinhamento do texto | Esquerda, centro ou direita. | Disponível apenas para versões mais recentes do SDK da Braze. |
 | Cabeçalho | Código de cor HEX. | A cor HEX desejada será exibida. Você também poderá escolher a opacidade da cor. |
 | Texto | Código de cor HEX. | A cor HEX desejada será exibida. Você também poderá escolher a opacidade da cor. |
 | Botões | Código de cor HEX. | As cores HEX desejadas serão exibidas. Você também poderá escolher a opacidade das cores. Você pode escolher cores para: o fundo do botão de fechar da mensagem, bem como o fundo, texto e borda de cada botão. |
 | Borda do botão | Código de cor HEX. | Novo! Isso permitirá que você diferencie seus botões principal e secundário. Sugerimos contornar os botões com cores contrastantes. |
 | Cor de fundo | Código de cor HEX. | A cor HEX desejada será exibida. Você também poderá escolher a opacidade da cor. Este é o fundo de toda a mensagem e será exibido claramente atrás do corpo do texto. |
-| Sobreposição de tela | Código de cor HEX. | A cor HEX desejada será exibida. Você também poderá escolher a opacidade da cor. Disponível apenas para versões mais recentes do SDK or kit de desenvolvimento de software da Braze. Este é o quadro ao redor de toda a mensagem. |
+| Sobreposição de tela | Código de cor HEX. | A cor HEX desejada será exibida. Você também poderá escolher a opacidade da cor. Disponível apenas para versões mais recentes do SDK da Braze. Este é o quadro ao redor de toda a mensagem. |
 | Seta ou outra opção de fechar mensagem | Código de cor HEX. | A cor HEX desejada será exibida. Você também poderá escolher a opacidade da cor. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Etapa 5: Estilize sua mensagem no app" }
 
@@ -312,7 +312,7 @@ Monte o restante da sua campanha; consulte as seções a seguir para mais orient
 Selecione a ação que deseja usar para disparar sua mensagem, bem como os horários de início e término da sua campanha ou Canvas.
 
 {% alert important %}
-Se você pretende disparar sua mensagem no app com base em um evento personalizado, esse evento personalizado deve ser enviado pelo SDK or kit de desenvolvimento de software.
+Se você pretende disparar sua mensagem no app com base em um evento personalizado, esse evento personalizado deve ser enviado pelo SDK.
 {% endalert %}
 
 ![Campaign baseada em ação com a ação-gatilho definida como "Start Session".]({% image_buster /assets/img_archive/in_app_schedule.png %}){: style="max-width:80%"}
@@ -321,7 +321,7 @@ A entrega de mensagens no app é inteiramente baseada nos seguintes gatilhos de 
 
 - Realizar um pedido
 - Abrir o app ou a página da web
-- Executar um evento personalizado (funciona apenas com eventos enviados pelo SDK or kit de desenvolvimento de software)
+- Executar um evento personalizado (funciona apenas com eventos enviados pelo SDK)
 - Abrir uma mensagem push específica
 - Agendar automaticamente campanhas para envio em um horário específico com base no fuso local de cada usuário.
 - As mensagens também podem ser configuradas para recorrer diariamente, semanalmente (opcionalmente em dias específicos) ou mensalmente.
@@ -359,10 +359,10 @@ Para definir prioridades dentro desses agrupamentos, clique em **Set exact prior
 
 ### Escolha os usuários-alvo {#choose-users-to-target}
 
-Em seguida, você deve [direcionar os usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) escolhendo Segments ou filtros para refinar seu público. Você recebe automaticamente um snapshot da população aproximada desse Segment or segmento. Lembre-se de que a associação exata ao Segment or segmento é sempre calculada antes do envio da mensagem.
+Em seguida, você deve [direcionar os usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) escolhendo Segments ou filtros para refinar seu público. Você recebe automaticamente um snapshot da população aproximada desse Segment. Lembre-se de que a associação exata ao Segment é sempre calculada antes do envio da mensagem.
 
 {% alert note %}
-Se houver uma postergação na etapa de mensagem no app, a associação ao Segment or segmento será avaliada após a postergação. Se o usuário for elegível, a mensagem no app será sincronizada na próxima sessão disponível.
+Se houver uma postergação na etapa de mensagem no app, a associação ao Segment será avaliada após a postergação. Se o usuário for elegível, a mensagem no app será sincronizada na próxima sessão disponível.
 {% endalert %}
 
 #### Reavaliar a elegibilidade da campanha e Liquid {#re-evaluate-campaign-eligibility-and-liquid}
@@ -373,7 +373,7 @@ Em alguns cenários, você pode querer reavaliar a elegibilidade de um usuário 
 
 Quando você seleciona **Re-evaluate campaign eligibility before displaying**, uma solicitação adicional à Braze será feita para confirmar que o usuário ainda é elegível para esta mensagem antes do envio. Além disso, quaisquer variáveis [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) ou [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) serão processadas nesse momento, antes de a mensagem ser exibida.
 
-Isso impede que mensagens no app sejam enviadas a usuários em campanhas expiradas ou arquivadas. Se você não reavaliar a elegibilidade de um usuário, ele receberá a mensagem no app mesmo após a campanha ter expirado ou sido arquivada, pois a mensagem está no SDK or kit de desenvolvimento de software e aguardando o disparo pelo usuário.
+Isso impede que mensagens no app sejam enviadas a usuários em campanhas expiradas ou arquivadas. Se você não reavaliar a elegibilidade de um usuário, ele receberá a mensagem no app mesmo após a campanha ter expirado ou sido arquivada, pois a mensagem está no SDK e aguardando o disparo pelo usuário.
 
 {% alert note %}
 Ativar esta opção resultará em um leve atraso (< 100ms) entre o momento em que o usuário dispara a mensagem no app e o momento em que a mensagem é exibida, devido à solicitação adicional de elegibilidade e processamento de templates.
@@ -381,9 +381,9 @@ Ativar esta opção resultará em um leve atraso (< 100ms) entre o momento em qu
 Não use esta opção para mensagens que podem ser disparadas enquanto o usuário está offline ou quando a reavaliação de elegibilidade e Liquid não é necessária.
 {% endalert %}
 
-#### Usar dados adicionados pela REST or transferir estado representacional API or interface de programação do aplicativo (API) em uma mensagem {#use-data-added-by-rest-api-in-a-message}
+#### Usar dados adicionados pela REST API em uma mensagem {#use-data-added-by-rest-api-in-a-message}
 
-Os dados do usuário que o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) adiciona na mesma sessão às vezes podem ser usados na mensagem no app desse usuário. Por exemplo, se um usuário está no público de uma mensagem no app que aguarda um gatilho, inicia uma sessão e, nessa mesma sessão, a REST or transferir estado representacional API or interface de programação do aplicativo (API) atualiza o perfil dele, esses novos dados podem aparecer na mensagem no app quando **Re-evaluate campaign eligibility before displaying** estiver selecionado. A Braze não processa o template da mensagem no app até que seja hora de renderizá-la.
+Os dados do usuário que o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) adiciona na mesma sessão às vezes podem ser usados na mensagem no app desse usuário. Por exemplo, se um usuário está no público de uma mensagem no app que aguarda um gatilho, inicia uma sessão e, nessa mesma sessão, a REST API atualiza o perfil dele, esses novos dados podem aparecer na mensagem no app quando **Re-evaluate campaign eligibility before displaying** estiver selecionado. A Braze não processa o template da mensagem no app até que seja hora de renderizá-la.
 
 Se um gatilho envia dados para a Braze e dispara a mensagem no app ao mesmo tempo, a mensagem não pode usar esses dados de perfil recém-atualizados, mesmo com uma postergação agendada. Em vez disso, use dois gatilhos separados: um para enviar os dados e outro para disparar a mensagem no app.
 
@@ -427,7 +427,7 @@ Quando uma campanha de mensagem no app é agendada usando o fuso local do usuár
 
 As campanhas de mensagem no app normalmente são enviadas ao dispositivo do usuário quando a sessão do app começa ou é atualizada. Nesse momento:
 
-1. O SDK or kit de desenvolvimento de software avalia se o usuário se qualifica para alguma mensagem no app baseada em gatilho.
+1. O SDK avalia se o usuário se qualifica para alguma mensagem no app baseada em gatilho.
 2. O dispositivo verifica se o evento-gatilho do usuário ocorreu dentro do horário de início e término da campanha (conforme definido pelo fuso local do usuário).
 3. Se ambas as condições forem atendidas, a mensagem no app estará elegível para exibição.
 

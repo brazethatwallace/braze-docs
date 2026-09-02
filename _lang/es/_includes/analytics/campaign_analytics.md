@@ -1,6 +1,6 @@
 ## Ver análisis {#viewing-analytics}
 
-Una vez que hayas lanzado tu campaña, puedes volver a la página de detalles de esa campaña para ver las métricas clave. Ve a la página **Campaigns** y selecciona tu campaña para abrir la página de detalles.{% if include.channel != "banner" %} Para {% if include.channel == "Content Card" %}Content Cards {% elsif include.channel == "banner" %}banners {% elsif include.channel == "email" %}correos electrónicos {% elsif include.channel == "in-app message" %}mensajes dentro de la aplicación {% elsif include.channel == "KakaoTalk" %}mensajes de KakaoTalk {% elsif include.channel == "push" %}mensajes push {% elsif include.channel == "servicio de mensajes cortos" %}mensajes servicio de mensajes cortos {% elsif include.channel == "whatsapp" %}mensajes de WhatsApp {% elsif include.channel == "webhook" %}webhooks {% endif %}enviados en Canvas, consulta [Análisis de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics).{% endif %}
+Una vez que hayas lanzado tu campaña, puedes volver a la página de detalles de esa campaña para ver las métricas clave. Ve a la página **Campaigns** y selecciona tu campaña para abrir la página de detalles.{% if include.channel != "banner" %} Para {% if include.channel == "Content Card" %}Content Cards {% elsif include.channel == "banner" %}banners {% elsif include.channel == "email" %}correos electrónicos {% elsif include.channel == "in-app message" %}mensajes dentro de la aplicación {% elsif include.channel == "KakaoTalk" %}mensajes de KakaoTalk {% elsif include.channel == "push" %}mensajes push {% elsif include.channel == "SMS" %}mensajes SMS {% elsif include.channel == "whatsapp" %}mensajes de WhatsApp {% elsif include.channel == "webhook" %}webhooks {% endif %}enviados en Canvas, consulta [Análisis de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics).{% endif %}
 
 {% alert tip %}
 ¿Buscas definiciones de los términos y métricas que aparecen en tu informe? Consulta nuestro
@@ -9,7 +9,7 @@ Una vez que hayas lanzado tu campaña, puedes volver a la página de detalles de
   {% elsif include.channel == "Content Card" %}[Glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary) y filtra por Content Cards.
   {% elsif include.channel == "in-app message" %}[Glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary) y filtra por mensaje dentro de la aplicación.
   {% elsif include.channel == "push" %}[Glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary) y filtra por Push.
-  {% elsif include.channel == "servicio de mensajes cortos" %}[Glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary) y filtra por servicio de mensajes cortos/MMS y RCS.
+  {% elsif include.channel == "SMS" %}[Glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary) y filtra por SMS/MMS y RCS.
   {% elsif include.channel == "whatsapp" %}[Glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary) y filtra por WhatsApp.
   {% elsif include.channel == "webhook" %}[Glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary) y filtra por Webhook.{% endif %}
 {% endalert %}
@@ -29,7 +29,7 @@ El panel **Campaign Details** muestra un resumen de alto nivel del rendimiento g
   {% elsif include.channel == "in-app message" %}mensaje dentro de la aplicación.
   {% elsif include.channel == "KakaoTalk" %}mensaje de KakaoTalk.
   {% elsif include.channel == "push" %}mensaje push.
-  {% elsif include.channel == "servicio de mensajes cortos" %}servicio de mensajes cortos, MMS y RCS.
+  {% elsif include.channel == "SMS" %}SMS, MMS y RCS.
   {% elsif include.channel == "whatsapp" %}mensajes de WhatsApp.
   {% elsif include.channel == "webhook" %}webhook.
   {% endif %}
@@ -58,7 +58,7 @@ El canal de WhatsApp incluye la tasa de lectura. Esta métrica solo se entrega a
 {% elsif include.channel == "push" %}
 ![Panel Campaign Details con un resumen de las métricas utilizadas para determinar el rendimiento de la campaña.]({% image_buster /assets/img/campaign_details_push.png %})
 
-{% elsif include.channel == "servicio de mensajes cortos" %}
+{% elsif include.channel == "SMS" %}
 ![Panel Campaign Details con un resumen de las métricas utilizadas para determinar el rendimiento de la campaña.]({% image_buster /assets/img/campaign_details_sms.png %})
 
 {% elsif include.channel == "in-app message" %}
@@ -96,11 +96,11 @@ Para más detalles sobre el comportamiento de muestreo, **Calculate exact statis
 
 Para medir el impacto de una tarjeta de contenido individual, puedes añadir un [grupo de control]({{site.baseurl}}/user_guide/intelligence/multivariate_testing#step-4-choose-a-segment-and-distribute-your-users-across-variants) a una prueba A/B. El panel de **Campaign Details** de nivel superior no incluye métricas de la variante del grupo de control.
 
-{% elsif include.channel == "servicio de mensajes cortos" %}
+{% elsif include.channel == "SMS" %}
 
 #### Grupos de control {#sms-control-group}
 
-Para medir el impacto de un mensaje servicio de mensajes cortos, MMS o RCS individual, puedes añadir un [grupo de control]({{site.baseurl}}/user_guide/intelligence/multivariate_testing#step-4-choose-a-segment-and-distribute-your-users-across-variants) a una prueba A/B. El panel de **Campaign Details** de nivel superior no incluye métricas de la variante del grupo de control.
+Para medir el impacto de un mensaje SMS, MMS o RCS individual, puedes añadir un [grupo de control]({{site.baseurl}}/user_guide/intelligence/multivariate_testing#step-4-choose-a-segment-and-distribute-your-users-across-variants) a una prueba A/B. El panel de **Campaign Details** de nivel superior no incluye métricas de la variante del grupo de control.
 
 {% elsif include.channel == "whatsapp" %}
 
@@ -153,12 +153,12 @@ El panel **Push Performance** muestra el rendimiento de tu mensaje en varias dim
 
 ![Análisis del rendimiento de los mensajes push]({% image_buster /assets/img_archive/push_message_performance.png %})
 
-{% elsif include.channel == "servicio de mensajes cortos" %}
-### Rendimiento de servicio de mensajes cortos/MMS/RCS {#smsmmsrcs-performance}
+{% elsif include.channel == "SMS" %}
+### Rendimiento de SMS/MMS/RCS {#smsmmsrcs-performance}
 
-El panel **servicio de mensajes cortos/MMS/RCS Performance** muestra el rendimiento de tu mensaje en varias dimensiones. Las métricas de este panel varían en función del canal de mensajería elegido y de si estás realizando o no una prueba multivariante. Puedes hacer clic en el icono <i class="fa fa-eye vista previa-icon"></i> **vista previa** para ver tu mensaje para cada variante o canal.
+El panel **SMS/MMS/RCS Performance** muestra el rendimiento de tu mensaje en varias dimensiones. Las métricas de este panel varían en función del canal de mensajería elegido y de si estás realizando o no una prueba multivariante. Puedes hacer clic en el icono <i class="fa fa-eye vista previa-icon"></i> **vista previa** para ver tu mensaje para cada variante o canal.
 
-![Panel de rendimiento de servicio de mensajes cortos/MMS/RCS que incluye una tabla de métricas para un grupo de control, la variante 1 y la variante 2.]({% image_buster /assets/img_archive/sms_message_performance.png %})
+![Panel de rendimiento de SMS/MMS/RCS que incluye una tabla de métricas para un grupo de control, la variante 1 y la variante 2.]({% image_buster /assets/img_archive/sms_message_performance.png %})
 
 {% elsif include.channel == "banner" %}
 ### Rendimiento del banner {#banner-performance}
@@ -309,7 +309,7 @@ Como otro ejemplo, supongamos que ves cinco _Unique Impressions_ en una campaña
 
 1. Iniciaron una sesión o la aplicación solicitó explícitamente una sincronización de Content Cards (o ambas cosas)
 2. Navegaron a la vista de Content Cards
-3. El SDK or kit de desarrollo de software registró una impresión y la envió al servidor
+3. El SDK registró una impresión y la envió al servidor
 
 Tus _Messages Sent_ se refieren a las Content Cards disponibles para ser vistas, mientras que _Unique Daily Impressions_ se refiere a las Content Cards que fueron vistas realmente.
 
@@ -317,7 +317,7 @@ Tus _Messages Sent_ se refieren a las Content Cards disponibles para ser vistas,
 
 ### Métricas de los banners {#banner-metrics}
 
-Estas son las métricas clave de seguimiento al revisar el rendimiento de tu campaña de banner. Los clics y las impresiones de los banners se registran automáticamente con el SDK or kit de desarrollo de software.
+Estas son las métricas clave de seguimiento al revisar el rendimiento de tu campaña de banner. Los clics y las impresiones de los banners se registran automáticamente con el SDK.
 
 Para obtener las definiciones completas de todas las métricas de banners, consulta el [Glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary) y filtra por Banners.
 
@@ -385,7 +385,7 @@ Como otro ejemplo, supongamos que ves cinco _Unique Impressions_ en una campaña
 
 1. Iniciaron una sesión o la aplicación solicitó explícitamente una sincronización de banners (o ambas cosas)
 2. Navegaron a la vista de banners
-3. El SDK or kit de desarrollo de software registró una impresión y la envió al servidor
+3. El SDK registró una impresión y la envió al servidor
 
 _Unique Daily Impressions_ se refiere a los banners que realmente se vieron.
 
@@ -530,7 +530,7 @@ Ten en cuenta que los _aplazamientos_ actualmente solo están disponibles utiliz
 
 ##### Estimación de la tasa de apertura real {#estimated-real-open-rate}
 
-Esta estadística utiliza un modelo de análisis propio creado por Braze para reconstruir una estimación de la tasa de apertura única de la campaña como si las aperturas automáticas no existieran. Aunque recibimos etiquetas de *Machine Opens* en algunos eventos de apertura de los remitentes de correo electrónico, estas etiquetas a menudo pueden etiquetar aperturas reales como aperturas automáticas. En otras palabras, las *Other Opens* son probablemente una subestimación de las aperturas reales (por usuarios reales). En su lugar, Braze utiliza los datos de clics de cada campaña para deducir la tasa a la que los humanos reales abrieron el mensaje. Esto compensa varios mecanismos de apertura automática, incluido el MPP or protección de la privacidad en los correos electrónicos de Apple.
+Esta estadística utiliza un modelo de análisis propio creado por Braze para reconstruir una estimación de la tasa de apertura única de la campaña como si las aperturas automáticas no existieran. Aunque recibimos etiquetas de *Machine Opens* en algunos eventos de apertura de los remitentes de correo electrónico, estas etiquetas a menudo pueden etiquetar aperturas reales como aperturas automáticas. En otras palabras, las *Other Opens* son probablemente una subestimación de las aperturas reales (por usuarios reales). En su lugar, Braze utiliza los datos de clics de cada campaña para deducir la tasa a la que los humanos reales abrieron el mensaje. Esto compensa varios mecanismos de apertura automática, incluido el MPP de Apple.
 
 La _Estimated Real Open Rate_ se calcula 24 horas después del inicio del envío del correo electrónico y se recalcula cada 72 horas a partir de entonces.
 
@@ -749,7 +749,7 @@ El número de _envíos_ puede superar el número de _destinatarios únicos_ debi
 
 Los rebotes se producen en los servicios de notificaciones push de Apple (APNs) cuando una notificación push intenta entregarse a un dispositivo que no tiene instalada la aplicación prevista. APNs también tiene derecho a cambiar los tokens de los dispositivos arbitrariamente. Si intentas enviar al dispositivo de un usuario en el que su token de notificaciones push ha cambiado entre el momento en que registramos previamente su token (como al principio de cada sesión, cuando registramos a un usuario para obtener un token push) y el momento del envío, se produciría un rebote.
 
-Si un usuario desactiva push en la configuración de su dispositivo, al abrir la aplicación posteriormente el SDK or kit de desarrollo de software detectará que se ha desactivado push y lo notificará a Braze. En este punto actualizaremos el estado de habilitación de push para que esté deshabilitado. Cuando un usuario deshabilitado recibe una campaña push antes de tener una nueva sesión, la campaña se enviaría correctamente y aparecería como entregada. El push no rebotará para este usuario. Tras una sesión posterior, cuando intentas enviar un push al usuario, Braze ya sabe si tenemos un token de primer plano, por lo que no se envía ninguna notificación.
+Si un usuario desactiva push en la configuración de su dispositivo, al abrir la aplicación posteriormente el SDK detectará que se ha desactivado push y lo notificará a Braze. En este punto actualizaremos el estado de habilitación de push para que esté deshabilitado. Cuando un usuario deshabilitado recibe una campaña push antes de tener una nueva sesión, la campaña se enviaría correctamente y aparecería como entregada. El push no rebotará para este usuario. Tras una sesión posterior, cuando intentas enviar un push al usuario, Braze ya sabe si tenemos un token de primer plano, por lo que no se envía ninguna notificación.
 
 Las notificaciones push que caducan antes de la entrega no se consideran fallidas y no se registrarán como rebotadas.
 
@@ -769,11 +769,11 @@ Firebase Cloud Messaging (FCM) puede rebotar en tres casos:
 {% endtabs %}
 
 
-{% elsif include.channel == "servicio de mensajes cortos" %}
+{% elsif include.channel == "SMS" %}
 
-#### Métricas de servicio de mensajes cortos, MMS y RCS {#sms-mms-and-rcs-metrics}
+#### Métricas de SMS, MMS y RCS {#sms-mms-and-rcs-metrics}
 
-Aquí tienes un desglose de algunas métricas clave que puedes ver al revisar el rendimiento de tus mensajes. Para obtener las definiciones completas de todas las métricas de servicio de mensajes cortos, MMS y RCS, consulta el [Glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary) y filtra por servicio de mensajes cortos/MMS y RCS.
+Aquí tienes un desglose de algunas métricas clave que puedes ver al revisar el rendimiento de tus mensajes. Para obtener las definiciones completas de todas las métricas de SMS, MMS y RCS, consulta el [Glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary) y filtra por SMS/MMS y RCS.
 
 <style>
     .no-split {
@@ -781,8 +781,8 @@ Aquí tienes un desglose de algunas métricas clave que puedes ver al revisar el
     }
 </style>
 
-<table aria-label="Métricas de servicio de mensajes cortos, MMS y RCS">
-    <caption class="sr-only">Métricas de rendimiento de servicio de mensajes cortos, MMS y RCS</caption>
+<table aria-label="Métricas de SMS, MMS y RCS">
+    <caption class="sr-only">Métricas de rendimiento de SMS, MMS y RCS</caption>
     <thead>
         <tr>
             <th>Métrica</th>
@@ -921,7 +921,7 @@ Si seleccionas enviar solo a usuarios que puedan ver la última versión de Braz
 
 {% endif %}
 
-{% if include.channel == "servicio de mensajes cortos" %}
+{% if include.channel == "SMS" %}
 
 ### Respuestas a palabras clave {#keyword-responses}
 
@@ -963,11 +963,11 @@ Además de los análisis de Braze, se puede acceder a los análisis a nivel de p
 
 {% endif %}
 
-{% if include.channel == "servicio de mensajes cortos" %}
+{% if include.channel == "SMS" %}
 
-### Eventos servicio de mensajes cortos de Currents {#sms-currents-events}
+### Eventos SMS de Currents {#sms-currents-events}
 
-Al igual que el correo electrónico, Braze recibe eventos a nivel de usuario relacionados con un mensaje servicio de mensajes cortos a medida que hace su recorrido hasta un usuario. Cualquier evento servicio de mensajes cortos entrante también se enviará como evento de Currents a través del evento [servicio de mensajes cortos InboundReceived]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events). Esto te permite realizar acciones adicionales o informes sobre los mensajes que envían tus usuarios fuera de la plataforma Braze.
+Al igual que el correo electrónico, Braze recibe eventos a nivel de usuario relacionados con un mensaje SMS a medida que hace su recorrido hasta un usuario. Cualquier evento SMS entrante también se enviará como evento de Currents a través del evento [SMS InboundReceived]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events). Esto te permite realizar acciones adicionales o informes sobre los mensajes que envían tus usuarios fuera de la plataforma Braze.
 
 {% alert note %}
 Los mensajes entrantes se truncan a partir de 1600 caracteres.

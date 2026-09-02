@@ -59,7 +59,7 @@ Braze Alloys는 Braze의 기술 파트너 프로그램입니다. 파트너는 �
 - [Blings]({{site.baseurl}}/partners/message_personalization/dynamic_content/visual_and_interactive_content/blings)
 - [BlueConic]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/blueconic)
 - [Bluedot]({{site.baseurl}}/partners/message_personalization/location/bluedot)
-- [Branch or 브랜치]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking)
+- [Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking)
 - [Bynder]({{site.baseurl}}/partners/message_orchestration/cms_dam/bynder)
 
 </div>

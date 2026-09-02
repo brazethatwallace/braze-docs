@@ -6,7 +6,7 @@ layout: dev_guide
 
 guide_top_header: "Fontes"
 guide_top_text: "As fontes de personalização fornecem os dados que você referencia nas suas mensagens usando <a href='/docs/user_guide/messaging/design_and_edit/personalize/liquid'>Liquid</a>. Cada fonte oferece um tipo diferente de dados, desde atributos do perfil de usuário até respostas de APIs externas e itens de catálogo."
-description: "Explore as fontes de dados disponíveis para personalizar suas mensagens na Braze, incluindo perfis de usuário, APIs REST or transferir estado representacional, catálogos, códigos de promoção e mais."
+description: "Explore as fontes de dados disponíveis para personalizar suas mensagens na Braze, incluindo perfis de usuário, APIs REST, catálogos, códigos de promoção e mais."
 
 guide_featured_title: "Artigos da seção"
 guide_featured_list:

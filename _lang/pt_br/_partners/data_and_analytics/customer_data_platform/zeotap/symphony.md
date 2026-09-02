@@ -1,6 +1,6 @@
 ---
 nav_title: Zeotap Symphony
-description: "Este artigo de referência descreve a parceria entre a Braze e a Zeotap, uma CDP or plataforma de dados do cliente or CDP or plataforma de dados do cliente or plataforma de dados do cliente de última geração que fornece resolução de identidade, insights e enriquecimento."
+description: "Este artigo de referência descreve a parceria entre a Braze e a Zeotap, uma CDP de última geração que fornece resolução de identidade, insights e enriquecimento."
 page_type: partner
 search_tag: Partner
 page_order: 2
@@ -22,8 +22,8 @@ Para criar campanhas de marketing por e-mail, integre os e-mails brutos ao Zeota
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Nome do cliente | Esse é o nome do cliente da sua conta Braze. Você pode encontrá-lo navegando até o console da Braze. |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões `users.track`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
-| Instância | Sua instância da Braze pode ser obtida com seu gerente de integração da Braze ou pode ser encontrada na [página de visão geral da API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#endpoints). |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Instância | Sua instância da Braze pode ser obtida com seu gerente de integração da Braze ou pode ser encontrada na [página de visão geral da API]({{site.baseurl}}/api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
@@ -32,11 +32,11 @@ Esta seção contém informações sobre os dois métodos de integração com a 
 
 ### Método 1 {#method-1}
 Neste método, você deve executar as seguintes tarefas:
-1. Integrar o SDK or kit de desenvolvimento de software da Braze ao seu site ou app.
+1. Integrar o SDK da Braze ao seu site ou app.
 2. Integrar a Braze com o Zeotap pela Symphony.
 
 - `User traits` devem ser mapeados para os respectivos campos da Braze na guia **Data To Send**. Se você mapear os atributos `Event` e `Purchase`, isso levará à duplicação de eventos na Braze.
-- Mapeie `External ID` para `User ID` configurado durante a configuração do SDK or kit de desenvolvimento de software da Braze.
+- Mapeie `External ID` para `User ID` configurado durante a configuração do SDK da Braze.
 
 Quando a integração for configurada com sucesso, você poderá criar campanhas de e-mail e notificações por push com base em atributos personalizados enviados à Braze por meio do Symphony.
 
@@ -66,14 +66,14 @@ Após aplicar filtros ou adicionar uma condição para seus usuários no Symphon
 Execute as etapas a seguir para adicionar um novo destino:
 1. Selecione **Add New Destination**.
 2. Procure por **Braze**.
-3. Adicione o **Client Name**, a **API or interface de programação do aplicativo (API) Key** e a **Instance** e salve o destino.
+3. Adicione o **Client Name**, a **API Key** e a **Instance** e salve o destino.
 
 O destino é criado e disponibilizado em **Available Destinations**.
 
 ### Adicionar entradas em nível de fluxo de trabalho {#add-workflow-level-inputs}
 Depois de criar um destino, você deve adicionar entradas no nível do fluxo de trabalho, conforme descrito nesta seção.
 1. Escolha o destino na lista de destinos disponíveis usando o recurso de pesquisa.
-2. Os campos **Client Name**, **API or interface de programação do aplicativo (API) Key** e **Instance** são preenchidos automaticamente com base no valor que você inseriu ao criar o destino.
+2. Os campos **Client Name**, **API Key** e **Instance** são preenchidos automaticamente com base no valor que você inseriu ao criar o destino.
 3. Digite o **Audience Name** que você deseja criar para esse nó de fluxo de trabalho. Isso é enviado como um **atributo personalizado** para a Braze.
 4. Complete o mapeamento de Catálogo para destinos na guia **Data To Send**. Você pode encontrar detalhes sobre como realizar o mapeamento nesta seção.
 

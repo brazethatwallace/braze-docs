@@ -16,7 +16,7 @@ noindex: true
 
 ## Solicitação de contagem de cartões de conteúdo não lidos
 
-Se quiser exibir o número de cartões de conteúdo não lidos que seu usuário tem, sugerimos que solicite uma contagem de cartões e a represente com um emblema. Os emblemas são uma ótima maneira de chamar a atenção para novos conteúdos que aguardam seus usuários nos cartões de conteúdo. Se quiser adicionar um emblema aos seus cartões de conteúdo, o SDK or kit de desenvolvimento de software da Braze oferece métodos para consultar o seguinte:
+Se quiser exibir o número de cartões de conteúdo não lidos que seu usuário tem, sugerimos que solicite uma contagem de cartões e a represente com um emblema. Os emblemas são uma ótima maneira de chamar a atenção para novos conteúdos que aguardam seus usuários nos cartões de conteúdo. Se quiser adicionar um emblema aos seus cartões de conteúdo, o SDK da Braze oferece métodos para consultar o seguinte:
 
 - Cartões de conteúdo não visualizados para o usuário atual
 - Total de cartões de conteúdo visualizável para o usuário atual

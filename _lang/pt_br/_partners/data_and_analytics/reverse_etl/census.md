@@ -19,8 +19,8 @@ A integração entre a Braze e a Census permite que você importe dinamicamente 
 | Requisito | Descrição |
 | --- | --- |
 | Conta do Census | É necessário ter uma [conta Census](https://www.getcensus.com/) para aproveitar essa parceria. |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com todas as permissões de dados de usuários (exceto `users.delete`) e permissões de `segments.list`. O conjunto de permissões pode mudar à medida que a Census adiciona suporte a mais objetos da Braze, portanto, talvez você queira conceder mais permissões agora ou planejar a atualização dessas permissões no futuro. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
-| Endpoint REST or transferir estado representacional da Braze | Sua URL de endpoint REST or transferir estado representacional. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com todas as permissões de dados de usuários (exceto `users.delete`) e permissões de `segments.list`. O conjunto de permissões pode mudar à medida que a Census adiciona suporte a mais objetos da Braze, portanto, talvez você queira conceder mais permissões agora ou planejar a atualização dessas permissões no futuro. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Endpoint REST da Braze | Sua URL de endpoint REST. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). |
 | Data warehouse e modelo de dados | Antes de iniciar a integração, você deve ter um data warehouse configurado na Census e definir um modelo do subconjunto de dados que deseja sincronizar com a Braze. Visite a [documentação da Census](https://docs.getcensus.com/destinations/braze) para obter uma lista de fontes de dados disponíveis e orientações sobre a criação de modelos. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
@@ -30,7 +30,7 @@ A integração entre a Braze e a Census permite que você importe dinamicamente 
 
 Para integrar a Census na plataforma Census, navegue até a guia **Connections** e selecione **New Destination** para criar uma nova conexão de serviço Braze.
 
-No prompt exibido, nomeie essa conexão e forneça a URL do endpoint da Braze e a chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze (e, opcionalmente, sua chave de importação de dados para sincronizar coortes).
+No prompt exibido, nomeie essa conexão e forneça a URL do endpoint da Braze e a chave da API REST da Braze (e, opcionalmente, sua chave de importação de dados para sincronizar coortes).
 
 ![Diálogo de novo destino da Census configurado com credenciais de conexão da Braze.]({% image_buster /assets/img/census/add_service.png %}){: style="max-width:60%;"}
 
@@ -46,7 +46,7 @@ Para sincronizar clientes com a Braze, você deve criar uma sincronização. Aqu
 6. Por fim, mapeie os campos de dados da Census para os campos equivalentes da Braze.<br>![Mapeamento da Census]({% image_buster /assets/img/census/census_3.png %}){: style="max-width:80%;"}<br><br>
 7. Confirme os detalhes e crie a sincronização.
 
-Após a execução da sincronização, você encontrará os dados de usuários na Braze. Agora é possível criar e adicionar um Segment or segmento da Braze a futuras Campaigns e Canvas da Braze para direcionar esses usuários.
+Após a execução da sincronização, você encontrará os dados de usuários na Braze. Agora é possível criar e adicionar um Segment da Braze a futuras Campaigns e Canvas da Braze para direcionar esses usuários.
 
 {% alert note %}
 Ao usar a integração da Census e da Braze, a Census enviará apenas os deltas (dados alterados) em cada sincronização para a Braze.

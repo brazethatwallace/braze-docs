@@ -16,7 +16,7 @@ search_rank: 3
 
 ## Pré-requisitos {#prerequisites}
 
-A disponibilidade de webhooks depende do seu pacote da Braze. Entre em contato com o seu gerente de conta ou gerente de sucesso do cliente para começar.
+A disponibilidade de webhooks depende do seu pacote da Braze. Entre em contato com o seu gerente de conta ou CSM para começar.
 
 ## Casos de uso {#use-cases}
 
@@ -32,8 +32,8 @@ Alguns casos de uso mais específicos incluem os seguintes:
 - Se um usuário cancelar a inscrição de e-mail, você pode ter um webhook que atualiza seu banco de dados de análise de dados ou CRM com a mesma informação, garantindo uma visão holística do comportamento desse usuário.
 - Envie [mensagens transacionais]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email) para usuários dentro do Facebook Messenger ou LINE.
 - Envie mala direta aos clientes em resposta à atividade deles no app e na web, usando webhooks para se comunicar com serviços de terceiros como [Lob.com]({{site.baseurl}}/partners/additional_channels_and_extensions/additional_channels/direct_mail/lob).
-- Se um jogador alcançar um determinado nível ou acumular um certo número de pontos, use webhooks e sua configuração de API or interface de programação do aplicativo (API) existente para enviar uma melhoria de personagem ou moedas diretamente para a conta dele. Se você enviar o webhook como parte de uma campanha de mensagens em vários canais, pode enviar um push ou outra mensagem para informar o jogador sobre a recompensa ao mesmo tempo.
-- Se você é uma companhia aérea, pode usar webhooks e sua configuração de API or interface de programação do aplicativo (API) existente para creditar a conta de um cliente com um desconto depois que ele reservar um determinado número de voos.
+- Se um jogador alcançar um determinado nível ou acumular um certo número de pontos, use webhooks e sua configuração de API existente para enviar uma melhoria de personagem ou moedas diretamente para a conta dele. Se você enviar o webhook como parte de uma campanha de mensagens em vários canais, pode enviar um push ou outra mensagem para informar o jogador sobre a recompensa ao mesmo tempo.
+- Se você é uma companhia aérea, pode usar webhooks e sua configuração de API existente para creditar a conta de um cliente com um desconto depois que ele reservar um determinado número de voos.
 - Infinitas receitas "Se Isso Então Aquilo" ([IFTTT](https://ifttt.com/about)) — por exemplo, se um cliente fizer login no app por e-mail, esse endereço pode ser configurado automaticamente no Salesforce.
 
 ## Tratamento de erros e limite de frequência de webhooks {#webhook-error-handling-and-rate-limiting}

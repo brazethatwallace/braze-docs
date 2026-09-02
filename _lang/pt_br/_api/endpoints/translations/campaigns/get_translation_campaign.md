@@ -9,7 +9,7 @@ page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint Ver todas as traduções de uma campanha."
 ---
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Ver todas as traduções de uma campanha {#view-all-translations-for-a-campaign}
 {% apimethod get %}
 /campaigns/translations
@@ -19,7 +19,7 @@ description: "Este artigo descreve detalhes sobre o endpoint Ver todas as tradu�
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `campaigns.translations.get`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `campaigns.translations.get`.
 
 ## Limite de frequência {#rate-limit}
 

@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Sheetlabs
 
-> A [Sheetlabs](https://sheetlabs.com/) é uma plataforma que permite transformar planilhas em APIs poderosas e bem documentadas. Você pode importar dados do Google Sheets ou do Excel, transformá-los em uma API or interface de programação do aplicativo (API) e, em seguida, usar essa API or interface de programação do aplicativo (API) em outros aplicativos, como a Braze.
+> A [Sheetlabs](https://sheetlabs.com/) é uma plataforma que permite transformar planilhas em APIs poderosas e bem documentadas. Você pode importar dados do Google Sheets ou do Excel, transformá-los em uma API e, em seguida, usar essa API em outros aplicativos, como a Braze.
 _Essa integração é mantida pela Sheetlabs._
 
 ## Sobre a integração {#about-the-integration}
@@ -46,15 +46,15 @@ Você também pode optar por manter sua planilha do Google sincronizada, o que s
 
 Certifique-se de incluir o ID do usuário da Braze em sua planilha ou outro dado que possa ser usado como pesquisa posteriormente.
 
-### Etapa 2: Criar uma API or interface de programação do aplicativo (API) na Sheetlabs {#step-2-create-an-api-in-sheetlabs}
+### Etapa 2: Criar uma API na Sheetlabs {#step-2-create-an-api-in-sheetlabs}
 
-Em seguida, na Sheetlabs, acesse **APIs > Create API or interface de programação do aplicativo (API)** e dê um nome à sua API or interface de programação do aplicativo (API). É provável que você queira permitir consultas por meio de um campo de pesquisa da sua planilha, como o ID do usuário da Braze.
+Em seguida, na Sheetlabs, acesse **APIs > Create API** e dê um nome à sua API. É provável que você queira permitir consultas por meio de um campo de pesquisa da sua planilha, como o ID do usuário da Braze.
 
-Nesse ponto, você deve conseguir acessar sua API or interface de programação do aplicativo (API) com um link como:<br> [`https://sheetlabs.com/ACME/email1_translations?country=en`](https://sheetlabs.com/ACME/email1_translations?country=en).
+Nesse ponto, você deve conseguir acessar sua API com um link como:<br> [`https://sheetlabs.com/ACME/email1_translations?country=en`](https://sheetlabs.com/ACME/email1_translations?country=en).
 
-### Etapa 3: Usar a API or interface de programação do aplicativo (API) no Conteúdo conectado da Braze {#step-3-use-the-api-in-braze-connected-content}
+### Etapa 3: Usar a API no Conteúdo conectado da Braze {#step-3-use-the-api-in-braze-connected-content}
 
-Agora que sua API or interface de programação do aplicativo (API) está acessível, você pode usá-la em suas chamadas de Conteúdo conectado. Aqui está um exemplo de como um modelo de tradução pode ficar:
+Agora que sua API está acessível, você pode usá-la em suas chamadas de Conteúdo conectado. Aqui está um exemplo de como um modelo de tradução pode ficar:
 
 {% raw %}
 ```js

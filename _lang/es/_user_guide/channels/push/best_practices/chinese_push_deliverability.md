@@ -26,4 +26,4 @@ Después de que tus usuarios acepten recibir notificaciones push, hay pasos adic
 - Habilitar el "inicio automático" para la aplicación
 - Desactivar la optimización de batería para la aplicación
 
-Para amplificar aún más tu mensaje, añade otros canales para recuperar información de notificaciones push no abiertas a través de canales fuera de la aplicación como servicio de mensajes cortos, WhatsApp y LINE, y canales dentro de la aplicación como mensajes dentro de la aplicación y Content Cards. Tus usuarios podrán ver cualquier cosa que se hayan perdido la próxima vez que abran la aplicación.
+Para amplificar aún más tu mensaje, añade otros canales para recuperar información de notificaciones push no abiertas a través de canales fuera de la aplicación como SMS, WhatsApp y LINE, y canales dentro de la aplicación como mensajes dentro de la aplicación y Content Cards. Tus usuarios podrán ver cualquier cosa que se hayan perdido la próxima vez que abran la aplicación.

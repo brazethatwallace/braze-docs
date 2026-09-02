@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Jasper
 
-> [Jasper](https://www.jasper.ai/) ist eine KI or künstliche Intelligenz-gestützte Content-Plattform, die Ihre Marke in die Lage versetzt, qualitativ hochwertige, markengerechte Inhalte über verschiedene Kanäle – einschließlich Blogs, Anzeigen und Social Media – zu erstellen, zu verwalten und zu skalieren.
+> [Jasper](https://www.jasper.ai/) ist eine KI-gestützte Content-Plattform, die Ihre Marke in die Lage versetzt, qualitativ hochwertige, markengerechte Inhalte über verschiedene Kanäle – einschließlich Blogs, Anzeigen und Social Media – zu erstellen, zu verwalten und zu skalieren.
 
 _Diese Integration wird von Jasper gepflegt._
 
@@ -30,13 +30,13 @@ Die Vorteile dieser Integration sind unter anderem:
 | Anforderung | Beschreibung |
 | --- | --- |
 | Jasper-Konto | Sie benötigen ein Jasper-Konto, um diese Partnerschaft nutzen zu können. |
-| Braze Representational State Transfer-API-Schlüssel | Ein Braze Representational State Transfer-API-Schlüssel mit den folgenden Berechtigungen. <br> <br>`templates.email.create` <br> `templates.email.update` <br>`content_blocks.create` <br>`content_blocks.update` <br><br>Dieser Schlüssel kann im Braze-Dashboard generiert werden, indem Sie zu **Einstellungen > API-Schlüssel** navigieren. |
-| Braze-Representational State Transfer-Endpunkt | Ihre URL für den Representational State Transfer-Endpunkt. Ihr spezifischer Endpunkt hängt von der Braze-URL für Ihre Instanz ab. Weitere Einzelheiten finden Sie in der Dokumentation zu [Braze API-Grundlagen: Endpunkte]({{site.baseurl}}/api/basics/#endpoints). |
-{: .reset-td-br-1 .Representational State Transfer-td-br-2 aria-label="Voraussetzungen" }
+| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit den folgenden Berechtigungen. <br> <br>`templates.email.create` <br> `templates.email.update` <br>`content_blocks.create` <br>`content_blocks.update` <br><br>Dieser Schlüssel kann im Braze-Dashboard generiert werden, indem Sie zu **Einstellungen > API-Schlüssel** navigieren. |
+| Braze-REST-Endpunkt | Ihre URL für den REST-Endpunkt. Ihr spezifischer Endpunkt hängt von der Braze-URL für Ihre Instanz ab. Weitere Einzelheiten finden Sie in der Dokumentation zu [Braze API-Grundlagen: Endpunkte]({{site.baseurl}}/api/basics/#endpoints). |
+{: .reset-td-br-1 .rest-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integrationsmethoden {#integration-methods}
 
-Es gibt zwei Methoden zur Erstellung von Inhalten in Jasper und zum Update or aktualisieren or aktualisieren von Braze-Templates:
+Es gibt zwei Methoden zur Erstellung von Inhalten in Jasper und zum Aktualisieren von Braze-Templates:
 
 1. Verwenden Sie die Jasper API direkt
 2. Verwenden Sie Jasper Studio, um eine für Braze geeignete angepasste App zu erstellen
@@ -60,7 +60,7 @@ Diese Methode ist ideal für die programmgesteuerte Erstellung und Aktualisierun
 | `ctaLink` | Die URL für Ihren Call-to-Action. |
 | `unsubscribeLink` | Erforderlich für Marketing-E-Mails. |
 | `brandColor` | Die Primärfarbe Ihrer Marke im Hexadezimalformat (zum Beispiel `#4dfa8a`). |
-{: .reset-td-br-1 .Representational State Transfer-td-br-2 aria-label="1. Schritt: Jasper einrichten" }
+{: .reset-td-br-1 .rest-td-br-2 aria-label="1. Schritt: Jasper einrichten" }
 
 **Optionale Felder**
 
@@ -70,7 +70,7 @@ Diese Methode ist ideal für die programmgesteuerte Erstellung und Aktualisierun
 | `audienceId` | Zielgruppen-Segmentierung |
 | `styleId` | Style Guide |
 | `knowledgeIds` | Erweiterter Inhaltskontext. Sie können bis zu drei IDs hinzufügen. |
-{: .reset-td-br-1 .Representational State Transfer-td-br-2 aria-label="1. Schritt: Jasper einrichten" }
+{: .reset-td-br-1 .rest-td-br-2 aria-label="1. Schritt: Jasper einrichten" }
 
 {: start="4"}
 4. Generieren Sie Ihre Ausgabe, indem Sie das Template über die Jasper API ausführen. Dies erzeugt eine JSON-Nutzlast, die `subject`, `preheader` und `body` (HTML-Inhalte) enthält.
@@ -118,7 +118,7 @@ curl --location 'https://api.jasper.ai/v1/templates/skl_BC53D8AC5B4B47E8BE557EBB
 
 ### 2. Schritt: Braze einrichten {#step-2-set-up-braze}
 
-Verwenden Sie die von Jasper in [Schritt 1](#step-1-set-up-jasper) generierten Werte für `subject`, `preheader` und `body`, um eine POST-Anfrage an die Braze Representational State Transfer API zu stellen und [ein neues E-Mail-Template zu erstellen]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template/). Stellen Sie sicher, dass Ihr Braze Representational State Transfer-API-Schlüssel die Berechtigungen `templates.email.create` und `templates.email.update` hat.
+Verwenden Sie die von Jasper in [Schritt 1](#step-1-set-up-jasper) generierten Werte für `subject`, `preheader` und `body`, um eine POST-Anfrage an die Braze REST API zu stellen und [ein neues E-Mail-Template zu erstellen]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template/). Stellen Sie sicher, dass Ihr Braze REST-API-Schlüssel die Berechtigungen `templates.email.create` und `templates.email.update` hat.
 
 ### Beispiel einer Braze-API-Anfrage zur Erstellung eines E-Mail-Templates {#sample-braze-api-request-to-create-an-email-template}
 
@@ -138,7 +138,7 @@ curl --location --request POST 'https://rest.iad-03.braze.com/templates/email/cr
 
 ## Methode: Eine für Braze geeignete angepasste App mit Jasper Studio erstellen {#method-build-a-braze-ready-custom-app-with-jasper-studio}
 
-Jasper Studio ist eine No-Code-Plattform innerhalb von Jasper, die es Ihnen ermöglicht, maßgeschneiderte KI or künstliche Intelligenz-Apps ohne IT-Unterstützung zu erstellen. Sie können eine angepasste App entwerfen, die JSON-Strukturen erzeugt, die speziell für die Braze API formatiert sind, oder Inhalte generieren, die manuell zu Ihren Braze-Nachrichten hinzugefügt werden können.
+Jasper Studio ist eine No-Code-Plattform innerhalb von Jasper, die es Ihnen ermöglicht, maßgeschneiderte KI-Apps ohne IT-Unterstützung zu erstellen. Sie können eine angepasste App entwerfen, die JSON-Strukturen erzeugt, die speziell für die Braze API formatiert sind, oder Inhalte generieren, die manuell zu Ihren Braze-Nachrichten hinzugefügt werden können.
 
 1. Wählen Sie auf Ihrem Jasper-Startbildschirm **Create an App** aus.
 2. Geben Sie die App an, die Sie erstellen möchten, z. B. **Braze HTML Email Template** oder **Content Block Template**.

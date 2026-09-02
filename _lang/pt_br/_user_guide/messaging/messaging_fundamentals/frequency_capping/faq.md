@@ -22,7 +22,7 @@ O usuário não recebe o envio para o canal limitado, mas ainda segue as regras 
 
 ### Como posso identificar usuários que foram limitados por frequência em um Canvas? {#how-can-i-identify-users-who-were-frequency-capped-in-a-canvas}
 
-Usuários que são limitados por frequência não geram um evento de envio para aquela etapa. Para identificar esses usuários, você pode usar o [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) para rastrear eventos de mensagem abortada onde `abort_type` é `frequency_capped`. Como alternativa, você pode criar uma [extensão de Segment or segmento or segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension) para analisar usuários que entraram no Canvas, mas não receberam a mensagem esperada.
+Usuários que são limitados por frequência não geram um evento de envio para aquela etapa. Para identificar esses usuários, você pode usar o [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) para rastrear eventos de mensagem abortada onde `abort_type` é `frequency_capped`. Como alternativa, você pode criar uma [extensão de Segment]({{site.baseurl}}/user_guide/audience/segments/segment_extension) para analisar usuários que entraram no Canvas, mas não receberam a mensagem esperada.
 
 ### Como os dias do calendário e fusos horários são usados para limites de frequência globais "por dia"? {#how-are-calendar-days-and-time-zones-used-for-per-day-global-frequency-caps}
 

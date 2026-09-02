@@ -2,11 +2,11 @@
 
 ### Etapa 1: Configurar a FCM
 
-O SDK or kit de desenvolvimento de software do Android Braze usa o Firebase Cloud Messaging (FCM) para enviar notificações por push silenciosas, que são usadas para coletar análises de dados de rastreamento de desinstalação. Caso ainda não o tenha feito, [configure]({{site.baseurl}}/developer_guide/platforms/android/push_notifications/#setting-up-push-notifications) ou [migre para a]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android) API or interface de programação do aplicativo (API) Firebase Cloud Messaging para notificações por push.
+O SDK do Android Braze usa o Firebase Cloud Messaging (FCM) para enviar notificações por push silenciosas, que são usadas para coletar análises de dados de rastreamento de desinstalação. Caso ainda não o tenha feito, [configure]({{site.baseurl}}/developer_guide/platforms/android/push_notifications/#setting-up-push-notifications) ou [migre para a]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android) API Firebase Cloud Messaging para notificações por push.
 
 ### Etapa 2: Detectar manualmente o rastreamento de desinstalação (opcional)
 
-Por padrão, o SDK or kit de desenvolvimento de software do Android Braze detectará e ignorará automaticamente as notificações por push silenciosas relacionadas ao rastreamento de desinstalação. No entanto, se você optar por detectar manualmente o rastreamento de desinstalação usando o método [`isUninstallTrackingPush()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/is-uninstall-tracking-push.html) método.
+Por padrão, o SDK do Android Braze detectará e ignorará automaticamente as notificações por push silenciosas relacionadas ao rastreamento de desinstalação. No entanto, se você optar por detectar manualmente o rastreamento de desinstalação usando o método [`isUninstallTrackingPush()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/is-uninstall-tracking-push.html) método.
 
 {% alert important %}
 Como as notificações silenciosas para rastreamento de desinstalação não são encaminhadas para nenhum retorno de chamada por push do Braze, você só pode usar esse método antes de passar uma notificação por push para o Braze.

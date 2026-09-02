@@ -10,7 +10,7 @@ In unserer [Xample-Beispielanwendung auf GitHub](https://github.com/braze-inc/br
 
 Um Push-Benachrichtigungen für .NET MAUI (ehemals Xamarin) zu integrieren, müssen Sie die Schritte für native Android-Push-Benachrichtigungen ausführen. Die folgenden Schritte sind nur eine Zusammenfassung. Eine vollständige Anleitung finden Sie in der [Anleitung für native Push-Benachrichtigungen]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/?tab=android/).
 
-### Schritt 1: Update or aktualisieren or aktualisieren Sie Ihr Projekt
+### Schritt 1: Aktualisieren Sie Ihr Projekt
 
 1. Fügen Sie Firebase zu Ihrem Android-Projekt hinzu.
 2. Fügen Sie die Cloud Messaging-Bibliothek zu `build.gradle` Ihres Android-Projekts hinzu:
@@ -48,7 +48,7 @@ In den [Anleitungen zur Swift-Integration]({{site.baseurl}}/developer_guide/push
 
 ### Schritt 2: Genehmigung für Push-Benachrichtigungen anfordern
 
-Unser .NET MAUI SDK or Software-Development-Kit unterstützt nun die automatische Push-Einrichtung. Richten Sie die Push-Automatisierung und die Berechtigungen ein, indem Sie den folgenden Code zur Konfiguration Ihrer Braze-Instanz hinzufügen:
+Unser .NET MAUI SDK unterstützt nun die automatische Push-Einrichtung. Richten Sie die Push-Automatisierung und die Berechtigungen ein, indem Sie den folgenden Code zur Konfiguration Ihrer Braze-Instanz hinzufügen:
 
 ```csharp
 configuration.Push.Automation = new BRZConfigurationPushAutomation(true);

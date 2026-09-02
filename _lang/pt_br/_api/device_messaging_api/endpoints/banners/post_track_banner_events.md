@@ -9,7 +9,7 @@ description: "Use este endpoint para rastrear eventos de impressão, clique e di
 hidden: true
 ---
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Rastrear eventos de análise de dados de Banners {#track-banner-analytics-events}
 {% apimethod post %}
 /v1/device-messaging/banners/track
@@ -20,7 +20,7 @@ hidden: true
 A Braze valida cada evento separadamente. Quando uma solicitação contém eventos válidos e inválidos, a Braze processa os eventos válidos e retorna detalhes sobre os eventos ignorados no array `errors`. Se nenhum evento for válido, a Braze retorna um código de status `400`.
 
 {% alert important %}
-Esta página está em beta. Os recursos e a documentação da API or interface de programação do aplicativo (API) de envio de mensagens para dispositivos estão sujeitos a alterações. Entre em contato com o gerente da sua conta Braze para solicitar acesso.
+Esta página está em beta. Os recursos e a documentação da API de envio de mensagens para dispositivos estão sujeitos a alterações. Entre em contato com o gerente da sua conta Braze para solicitar acesso.
 {% endalert %}
 
 ## Pré-requisitos {#prerequisites}
@@ -28,17 +28,17 @@ Esta página está em beta. Os recursos e a documentação da API or interface d
 Para usar este endpoint, você precisa do seguinte:
 
 - Um espaço de trabalho com Banners ativados
-- Uma [chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional do lado do cliente]({{site.baseurl}}/api/device_messaging_api/authentication) com a permissão `banners.track`
-- O [endpoint REST or transferir estado representacional]({{site.baseurl}}/api/basics#endpoints) da sua instância da Braze
+- Uma [chave da API REST do lado do cliente]({{site.baseurl}}/api/device_messaging_api/authentication) com a permissão `banners.track`
+- O [endpoint REST]({{site.baseurl}}/api/basics#endpoints) da sua instância da Braze
 - Um `id` de Banner retornado pelo [endpoint Recuperar Banners para um usuário]({{site.baseurl}}/api/device_messaging_api/endpoints/banners/post_sync_banners)
 
-Inclua a chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional do lado do cliente no cabeçalho `Authorization` como um token bearer.
+Inclua a chave da API REST do lado do cliente no cabeçalho `Authorization` como um token bearer.
 
 ## Limite de frequência {#rate-limit}
 
 Os limites de frequência se aplicam por espaço de trabalho. Se você exceder o limite de frequência, a Braze retornará um código de status `429`. Quando disponíveis, use os cabeçalhos de resposta `X-RateLimit-Limit`, `X-RateLimit-Remaining`, `X-RateLimit-Reset` e `X-RateLimit-Retry-After` para monitorar seu uso e determinar quando tentar novamente.
 
-Para saber mais, consulte [Limites de frequência da API or interface de programação do aplicativo (API) de envio de mensagens do dispositivo]({{site.baseurl}}/api/device_messaging_api/rate_limits).
+Para saber mais, consulte [Limites de frequência da API de envio de mensagens do dispositivo]({{site.baseurl}}/api/device_messaging_api/rate_limits).
 
 ## Dispensar Banners {#dismissing-banners}
 
@@ -72,7 +72,7 @@ A Braze não reconcilia o estado do Banner na sua interface. Ocultar o Banner ap
 | Parâmetro | Obrigatório | Tipo de dados | Descrição | Exemplo |
 |---|---|---|---|---|
 | `external_user_id` | Obrigatório | String | O ID externo do usuário associado a todos os eventos na solicitação. O valor codificado em UTF-8 deve ter menos de 987 bytes. | `user_abc123` |
-| `app_id` | Obrigatório | String | O [identificador de API or interface de programação do aplicativo (API) do app]({{site.baseurl}}/api/identifier_types#app-identifier). Deve identificar um app no espaço de trabalho autenticado. | `26a39c72-e647-4766-b62e-4521fa2dae59` |
+| `app_id` | Obrigatório | String | O [identificador de API do app]({{site.baseurl}}/api/identifier_types#app-identifier). Deve identificar um app no espaço de trabalho autenticado. | `26a39c72-e647-4766-b62e-4521fa2dae59` |
 | `app_version` | Obrigatório | String | A versão do app host. Não deve exceder 255 caracteres. | `1.0.0` |
 | `events` | Obrigatório | Array de objetos | Um ou mais eventos de análise de dados de Banner para registrar. | `[{"id":"bnr_01HZ3K2QFGH9XVNJ4W8PCRMT5E","event_type":"impression","timestamp":"2026-04-09T12:00:00Z"}]` |
 | `events[].id` | Obrigatório | String | O `id` do Banner retornado pelo endpoint Recuperar Banners para um usuário. Use o ID do Banner, não o `placement_id`, para que a Braze atribua o evento à Campaign e à variante corretas. | `bnr_01HZ3K2QFGH9XVNJ4W8PCRMT5E` |
@@ -82,7 +82,7 @@ A Braze não reconcilia o estado do Banner na sua interface. Ocultar o Banner ap
 
 ## Exemplo de solicitação {#example-request}
 
-Substitua *`YOUR_REST_API_URL`* pelo [endpoint REST or transferir estado representacional]({{site.baseurl}}/api/basics#endpoints) da sua instância da Braze.
+Substitua *`YOUR_REST_API_URL`* pelo [endpoint REST]({{site.baseurl}}/api/basics#endpoints) da sua instância da Braze.
 
 ```bash
 curl --location --request POST '{YOUR_REST_API_URL}/v1/device-messaging/banners/track' \
@@ -174,12 +174,12 @@ Se a Braze não conseguir processar nenhum evento, ela retornará um código de 
 |---|---|
 | `202` | A Braze aceitou pelo menos um evento. A resposta lista os eventos ignorados. |
 | `400` | A solicitação está malformada, os campos obrigatórios são inválidos ou nenhum evento é válido. |
-| `401` | A chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional do lado do cliente está ausente ou é inválida. |
-| `403` | A chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional do lado do cliente não tem a permissão `banners.track`. |
+| `401` | A chave da API REST do lado do cliente está ausente ou é inválida. |
+| `403` | A chave da API REST do lado do cliente não tem a permissão `banners.track`. |
 | `404` | O recurso de Banners não está ativado para o espaço de trabalho. |
 | `429` | O espaço de trabalho excedeu seu limite de frequência. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Códigos de status" }
 
-Para saber mais, consulte [Tratamento de erros e novas tentativas da API or interface de programação do aplicativo (API) de envio de mensagens do dispositivo]({{site.baseurl}}/api/device_messaging_api/error_handling).
+Para saber mais, consulte [Tratamento de erros e novas tentativas da API de envio de mensagens do dispositivo]({{site.baseurl}}/api/device_messaging_api/error_handling).
 
 {% endapi %}

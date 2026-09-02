@@ -2,7 +2,7 @@
 
 ## Configuración de la última ubicación conocida
 
-Para establecer manualmente la última ubicación conocida de un usuario, utiliza el`setLastKnownLocation`método . Esto resulta útil si recopilas datos de ubicación fuera del SDK or kit de desarrollo de software de Braze.
+Para establecer manualmente la última ubicación conocida de un usuario, utiliza el`setLastKnownLocation`método . Esto resulta útil si recopilas datos de ubicación fuera del SDK de Braze.
 
 ```javascript
 Braze.setLastKnownLocation(LATITUDE, LONGITUDE, ALTITUDE, HORIZONTAL_ACCURACY, VERTICAL_ACCURACY);
@@ -31,11 +31,11 @@ Braze.requestLocationInitialization();
 
 ## Geovallas
 
-Las geovallas son compatibles tanto con iOS como con Android. De forma predeterminada, el SDK or kit de desarrollo de software de Braze puede solicitar y supervisar automáticamente las geovallas cuando la ubicación está disponible. Puedes confiar en esta configuración automática para la mayoría de las integraciones.
+Las geovallas son compatibles tanto con iOS como con Android. De forma predeterminada, el SDK de Braze puede solicitar y supervisar automáticamente las geovallas cuando la ubicación está disponible. Puedes confiar en esta configuración automática para la mayoría de las integraciones.
 
 ### Solicitar manual de geovallas
 
-Para solicitar manualmente una actualización de la geovalla para una coordenada GPS específica, utiliza `requestGeofences`. Está disponible tanto para iOS como para Android. Si utilizas este método, desactiva las solicitudes automáticas de geovallas en tu configuración nativa para que el SDK or kit de desarrollo de software no sobrescriba tus solicitudes manuales.
+Para solicitar manualmente una actualización de la geovalla para una coordenada GPS específica, utiliza `requestGeofences`. Está disponible tanto para iOS como para Android. Si utilizas este método, desactiva las solicitudes automáticas de geovallas en tu configuración nativa para que el SDK no sobrescriba tus solicitudes manuales.
 
 ```javascript
 Braze.requestGeofences(LATITUDE, LONGITUDE);

@@ -37,21 +37,21 @@ sequenceDiagram
 
 ```
 
-### Etapa 1: Configure sua chave de API or interface de programação do aplicativo (API) do Google Cloud {#step-1-configure-your-google-cloud-api-key}
+### Etapa 1: Configure sua chave de API do Google Cloud {#step-1-configure-your-google-cloud-api-key}
 
-Ao desenvolver seu app, você precisará fornecer ao SDK or kit de desenvolvimento de software Android da Braze o ID do remetente do Firebase. Além disso, será necessário fornecer uma chave de API or interface de programação do aplicativo (API) para aplicativos de servidor ao dashboard da Braze. A Braze usará essa chave de API or interface de programação do aplicativo (API) para enviar mensagens aos seus dispositivos. Você também precisará verificar se o serviço FCM está ativado no console de desenvolvedor do Google.
+Ao desenvolver seu app, você precisará fornecer ao SDK Android da Braze o ID do remetente do Firebase. Além disso, será necessário fornecer uma chave de API para aplicativos de servidor ao dashboard da Braze. A Braze usará essa chave de API para enviar mensagens aos seus dispositivos. Você também precisará verificar se o serviço FCM está ativado no console de desenvolvedor do Google.
 
 {% alert note %}
-Um erro comum durante esta etapa é usar a chave de API or interface de programação do aplicativo (API) do identificador do app em vez da chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional.
+Um erro comum durante esta etapa é usar a chave de API do identificador do app em vez da chave da API REST.
 {% endalert %}
 
 ### Etapa 2: Os dispositivos se registram no FCM e fornecem tokens por push à Braze {#step-2-devices-register-for-fcm-and-provide-braze-with-push-tokens}
 
-Em integrações típicas, o SDK or kit de desenvolvimento de software Android da Braze cuidará do registro dos dispositivos para o recurso de FCM. Isso geralmente acontece imediatamente ao abrir o app pela primeira vez. Após o registro, a Braze receberá um ID de registro do FCM, que é usado para enviar mensagens especificamente para aquele dispositivo. Armazenaremos o ID de registro desse usuário, e o usuário passará a ter o status "push registrado" caso não possuísse um token por push para nenhum dos seus apps anteriormente.
+Em integrações típicas, o SDK Android da Braze cuidará do registro dos dispositivos para o recurso de FCM. Isso geralmente acontece imediatamente ao abrir o app pela primeira vez. Após o registro, a Braze receberá um ID de registro do FCM, que é usado para enviar mensagens especificamente para aquele dispositivo. Armazenaremos o ID de registro desse usuário, e o usuário passará a ter o status "push registrado" caso não possuísse um token por push para nenhum dos seus apps anteriormente.
 
 ### Etapa 3: Lance uma Campaign de push na Braze {#step-3-launch-a-braze-push-campaign}
 
-Quando uma Campaign de push é lançada, a Braze faz solicitações ao FCM para entregar sua mensagem. A Braze usa a chave de API or interface de programação do aplicativo (API) copiada no dashboard para autenticar e verificar se é possível enviar notificações por push para os tokens por push fornecidos.
+Quando uma Campaign de push é lançada, a Braze faz solicitações ao FCM para entregar sua mensagem. A Braze usa a chave de API copiada no dashboard para autenticar e verificar se é possível enviar notificações por push para os tokens por push fornecidos.
 
 ### Etapa 4: Remova tokens inválidos {#step-4-remove-invalid-tokens}
 
@@ -118,7 +118,7 @@ Se uma notificação por push não for entregue, certifique-se de que ela não s
 
 #### Erro: MismatchSenderID {#error-mismatchsenderid}
 
-`MismatchSenderID` indica uma falha de autenticação. Confirme se o ID de remetente do Firebase e a chave de API or interface de programação do aplicativo (API) do FCM estão corretos.
+`MismatchSenderID` indica uma falha de autenticação. Confirme se o ID de remetente do Firebase e a chave de API do FCM estão corretos.
 
 #### Erro: InvalidRegistration {#error-invalidregistration}
 
@@ -175,11 +175,11 @@ A chave de servidor do Firebase Cloud Messaging fornecida no dashboard da Braze 
 
 ### Cliques em push não estão sendo registrados {#push-clicks-not-logged}
 
-Se os cliques em push não estão sendo registrados, é possível que os dados de clique em push ainda não tenham sido enviados para nossos servidores. O SDK or kit de desenvolvimento de software Android da Braze pode limitar a frequência dos envios.
+Se os cliques em push não estão sendo registrados, é possível que os dados de clique em push ainda não tenham sido enviados para nossos servidores. O SDK Android da Braze pode limitar a frequência dos envios.
 
 Se você implementou um handler de push personalizado, certifique-se de que está [preservando corretamente a análise de dados nativa de push]({{site.baseurl}}/developer_guide/push_notifications/logging_message_data/?tab=android#preserving-native-push-analytics-with-custom-push-handling)
 
-O registro de cliques em push é uma operação de rede e está sujeito a limitações de rede. Dessa forma, embora o SDK or kit de desenvolvimento de software Android da Braze tente lidar com falhas de rede e tente novamente as solicitações que falharam, alguma perda de eventos é esperada.
+O registro de cliques em push é uma operação de rede e está sujeito a limitações de rede. Dessa forma, embora o SDK Android da Braze tente lidar com falhas de rede e tente novamente as solicitações que falharam, alguma perda de eventos é esperada.
 
 ### Deep links não estão funcionando {#deep-links-not-working}
 

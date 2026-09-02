@@ -23,18 +23,18 @@ A Braze define um "usuário ativo" em um determinado período como qualquer usu�
 
 Se um usuário perder a conectividade, os dados da sessão serão armazenados em cache localmente e enviados quando a conexão de rede for restabelecida. Essas sessões também serão contabilizadas na contagem de usuários ativos. Além disso, se o seu app tiver um processo de registro, a Braze contará todos os usuários como ativos — registrados ou não.
 
-Se você definir IDs de usuário para identificar usuários quando um novo usuário fizer login, ele será contado como um usuário ativo separado. Usuários atualizados via API or interface de programação do aplicativo (API) também serão contados como usuários ativos no período em que forem atualizados.
+Se você definir IDs de usuário para identificar usuários quando um novo usuário fizer login, ele será contado como um usuário ativo separado. Usuários atualizados via API também serão contados como usuários ativos no período em que forem atualizados.
 
 ## Etapa 1: Identificando seus principais usuários {#step-1-identifying-your-top-users}
 
-Usando nossa seleção de filtros, crie um Segment or segmento or segmento de usuários que represente sua base de usuários mais fiéis e consistentes. O Segment or segmento or segmento de exemplo a seguir define os principais usuários.
+Usando nossa seleção de filtros, crie um Segment de usuários que represente sua base de usuários mais fiéis e consistentes. O Segment de exemplo a seguir define os principais usuários.
 
-![Exemplo de filtros de Segment or segmento or segmento da Braze definindo um público de principais usuários.]({% image_buster /assets/img_archive/define_top_users.png %} "Define your top users")
+![Exemplo de filtros de Segment da Braze definindo um público de principais usuários.]({% image_buster /assets/img_archive/define_top_users.png %} "Define your top users")
 
-Além disso, você não precisará continuar atualizando esse Segment or segmento or segmento, pois os usuários que entrarem ou saírem das restrições da campanha serão direcionados ou removidos automaticamente.
+Além disso, você não precisará continuar atualizando esse Segment, pois os usuários que entrarem ou saírem das restrições da campanha serão direcionados ou removidos automaticamente.
 
 {% alert note %}
-O exemplo acima segmenta os usuários pelo uso geral do app. Na maioria dos casos, o conjunto total de filtros necessários para definir seu Segment or segmento or segmento de principais usuários será amplamente determinado pelas especificidades do seu app.
+O exemplo acima segmenta os usuários pelo uso geral do app. Na maioria dos casos, o conjunto total de filtros necessários para definir seu Segment de principais usuários será amplamente determinado pelas especificidades do seu app.
 {% endalert %}
 
 ## Etapa 2: Entre em contato com seus principais usuários {#step-2-contact-your-top-users}

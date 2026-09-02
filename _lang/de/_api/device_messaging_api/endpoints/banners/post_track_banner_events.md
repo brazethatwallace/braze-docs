@@ -20,7 +20,7 @@ hidden: true
 Braze validiert jedes Ereignis einzeln. Wenn eine Anfrage sowohl gültige als auch ungültige Ereignisse enthält, verarbeitet Braze die gültigen Ereignisse und gibt Details zu übersprungenen Ereignissen im `errors`-Array zurück. Wenn keine Ereignisse gültig sind, gibt Braze den Statuscode `400` zurück.
 
 {% alert important %}
-Diese Seite befindet sich in der Beta-Phase. Features und Dokumentation für die Device Messaging API können sich ändern. Wenden Sie sich an Ihren Braze Account Manager:in, um Zugang anzufordern.
+Diese Seite befindet sich in der Beta-Phase. Features und Dokumentation für die Device Messaging API können sich ändern. Wenden Sie sich an Ihren Braze Account Manager, um Zugang anzufordern.
 {% endalert %}
 
 ## Voraussetzungen {#prerequisites}
@@ -28,11 +28,11 @@ Diese Seite befindet sich in der Beta-Phase. Features und Dokumentation für die
 Um diesen Endpunkt zu verwenden, benötigen Sie Folgendes:
 
 - Einen Workspace mit aktiviertem Banner-Feature
-- Einen [clientseitigen Representational State Transfer-API-Schlüssel]({{site.baseurl}}/api/device_messaging_api/authentication) mit der Berechtigung `banners.track`
-- Den [Representational State Transfer-Endpunkt]({{site.baseurl}}/api/basics#endpoints) für Ihre Braze-Instanz
+- Einen [clientseitigen REST-API-Schlüssel]({{site.baseurl}}/api/device_messaging_api/authentication) mit der Berechtigung `banners.track`
+- Den [REST-Endpunkt]({{site.baseurl}}/api/basics#endpoints) für Ihre Braze-Instanz
 - Eine Banner-`id`, die vom Endpunkt [Banner für eine:n Nutzer:in abrufen]({{site.baseurl}}/api/device_messaging_api/endpoints/banners/post_sync_banners) zurückgegeben wird
 
-Fügen Sie den clientseitigen Representational State Transfer-API-Schlüssel im `Authorization`-Header als Bearer-Token / Textbaustein ein.
+Fügen Sie den clientseitigen REST-API-Schlüssel im `Authorization`-Header als Bearer-Token ein.
 
 ## Rate-Limits {#rate-limit}
 
@@ -82,7 +82,7 @@ Braze gleicht den Status des Banners in Ihrer UI nicht ab. Das Ausblenden des Ba
 
 ## Beispielanfrage {#example-request}
 
-Ersetzen Sie *`YOUR_REST_API_URL`* durch den [Representational State Transfer-Endpunkt]({{site.baseurl}}/api/basics#endpoints) für Ihre Braze-Instanz.
+Ersetzen Sie *`YOUR_REST_API_URL`* durch den [REST-Endpunkt]({{site.baseurl}}/api/basics#endpoints) für Ihre Braze-Instanz.
 
 ```bash
 curl --location --request POST '{YOUR_REST_API_URL}/v1/device-messaging/banners/track' \
@@ -174,8 +174,8 @@ Wenn Braze keine Ereignisse verarbeiten kann, gibt es den Statuscode `400` zurü
 |---|---|
 | `202` | Braze hat mindestens ein Ereignis akzeptiert. Die Antwort listet alle übersprungenen Ereignisse auf. |
 | `400` | Die Anfrage ist fehlerhaft, erforderliche Felder sind ungültig oder es sind keine gültigen Ereignisse vorhanden. |
-| `401` | Der clientseitige Representational State Transfer-API-Schlüssel fehlt oder ist ungültig. |
-| `403` | Der clientseitige Representational State Transfer-API-Schlüssel verfügt nicht über die Berechtigung `banners.track`. |
+| `401` | Der clientseitige REST-API-Schlüssel fehlt oder ist ungültig. |
+| `403` | Der clientseitige REST-API-Schlüssel verfügt nicht über die Berechtigung `banners.track`. |
 | `404` | Das Banner-Feature ist für den Workspace nicht aktiviert. |
 | `429` | Der Workspace hat sein Rate-Limit überschritten. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Statuscodes" }

@@ -1,10 +1,10 @@
 ## Pré-requisitos {#prerequisites}
 
-Antes de começar este tutorial, verifique se o seu SDK or kit de desenvolvimento de software Braze atende aos requisitos mínimos de versão:
+Antes de começar este tutorial, verifique se o seu SDK Braze atende aos requisitos mínimos de versão:
 
 {% sdk_min_versions swift:11.3.0 android:33.1.0 web:5.8.1 reactnative:14.0.0 flutter:13.0.0 %}
 
-## Exibindo banners para o SDK or kit de desenvolvimento de software web {#displaying-banners-for-the-web-sdk}
+## Exibindo banners para o SDK web {#displaying-banners-for-the-web-sdk}
 
 {% multi_lang_include developer_guide/_shared/tutorial_feedback.md tutorial="Displaying Banners Web" %}
 
@@ -72,7 +72,7 @@ lines-index.js=25
 
 ### 4. Atualize seus Banners {#4-refresh-your-banners}
 
-Após inicializar o SDK or kit de desenvolvimento de software, chame `requestBannersRefresh(["global_banner", ...])` para garantir que os Banners sejam atualizados no início de cada sessão.
+Após inicializar o SDK, chame `requestBannersRefresh(["global_banner", ...])` para garantir que os Banners sejam atualizados no início de cada sessão.
 
 Você também pode chamar essa função a qualquer momento para atualizar as colocações de Banner posteriormente.
 

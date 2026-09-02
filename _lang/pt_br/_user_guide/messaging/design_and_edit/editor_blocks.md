@@ -383,14 +383,14 @@ Os usuários podem selecionar entre várias opções. Os valores são definidos 
 
 ### Texto longo {#long-text}
 
-Campo de texto multilinha para fluxos no estilo de pesquisa. Se você não vir este bloco, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) ou seu gerente de sucesso do cliente da Braze.
+Campo de texto multilinha para fluxos no estilo de pesquisa. Se você não vir este bloco, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) ou seu CSM da Braze.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 <!-- Saved row is not yet released. Uncomment when available.
 ### Saved row {#saved-row}
 
-Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze CSM or gerente de sucesso do cliente or gestor de sucesso do cliente or gerente de sucesso do cliente or gestor de sucesso do cliente.
+Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze CSM.
 -->
 
 ## Informações importantes {#things-to-know}
@@ -472,7 +472,7 @@ Insere HTML, CSS ou JavaScript personalizado para personalização avançada, co
 <!-- Countdown timer is not yet released. Uncomment when available.
 ### Countdown timer {#countdown-timer}
 
-Displays a countdown to a date and time you set. If you don't see this block, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze CSM or gerente de sucesso do cliente or gestor de sucesso do cliente or gerente de sucesso do cliente or gestor de sucesso do cliente.
+Displays a countdown to a date and time you set. If you don't see this block, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze CSM.
 
 After you add a **Countdown timer** block, use the properties panel to set the target date and time, labels, and styling.
 -->
@@ -537,14 +537,14 @@ Para o fluxo completo de configuração, consulte [Bloco Gerenciar inscrições]
 
 ### Texto longo
 
-Campo de texto multilinha para fluxos no estilo de pesquisa. Se você não vir este bloco, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) ou seu gerente de sucesso do cliente da Braze. Este bloco não está disponível para landing pages padrão.
+Campo de texto multilinha para fluxos no estilo de pesquisa. Se você não vir este bloco, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) ou seu CSM da Braze. Este bloco não está disponível para landing pages padrão.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 <!-- Saved row is not yet released. Uncomment when available.
 ### Saved row
 
-Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze CSM or gerente de sucesso do cliente or gestor de sucesso do cliente or gerente de sucesso do cliente or gestor de sucesso do cliente.
+Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze CSM.
 -->
 
 ## Informações importantes
@@ -631,14 +631,14 @@ Coleta um endereço de e-mail e o adiciona ao perfil do usuário na Braze ao env
 
 ### Texto longo
 
-Campo de texto multilinha para fluxos no estilo de pesquisa. Se você não vir este bloco, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) ou seu gerente de sucesso do cliente da Braze.
+Campo de texto multilinha para fluxos no estilo de pesquisa. Se você não vir este bloco, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) ou seu CSM da Braze.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 <!-- Saved row is not yet released. Uncomment when available.
 ### Saved row
 
-Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze CSM or gerente de sucesso do cliente or gestor de sucesso do cliente or gerente de sucesso do cliente or gestor de sucesso do cliente.
+Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze CSM.
 -->
 
 ## Informações importantes

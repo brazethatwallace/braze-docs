@@ -7,7 +7,7 @@ layout: api_page
 page_type: reference
 description: "Este artigo traz informações sobre o endpoint da Braze \"Exportar detalhes da campanha\"."
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Exportar detalhes da campanha {#export-campaign-details}
 {% apimethod get %}
 /campaigns/details
@@ -21,7 +21,7 @@ Se quiser recuperar dados de Canvas, consulte o endpoint [Exportar detalhes do C
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `campaigns.details`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `campaigns.details`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -31,9 +31,9 @@ Para usar esse endpoint, você precisará de uma [chave de API or interface de p
 
 | Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | -------- | --------- | ----------- |
-| `campaign_id` | Obrigatório | String | Consulte [identificador de API or interface de programação do aplicativo (API) da campanha]({{site.baseurl}}/api/identifier_types).<br><br> O `campaign_id` para campanhas de API or interface de programação do aplicativo (API) pode ser encontrado na página [Chaves de API or interface de programação do aplicativo (API)]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) e na página **Campaign Details** dentro do seu dashboard; ou você pode usar o [endpoint Exportar lista de campanhas](#campaign-list-endpoint). |
+| `campaign_id` | Obrigatório | String | Consulte [identificador de API da campanha]({{site.baseurl}}/api/identifier_types).<br><br> O `campaign_id` para campanhas de API pode ser encontrado na página [Chaves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) e na página **Campaign Details** dentro do seu dashboard; ou você pode usar o [endpoint Exportar lista de campanhas](#campaign-list-endpoint). |
 | `post_launch_draft_version` | Opcional | Booleano | Para mensagens que têm um rascunho pós-lançamento, definir isso como `true` mostrará quaisquer alterações de rascunho disponíveis. Padrão: `false`. |
-| `include_has_translatable_content` | Opcional | Booleano | Quando definido como `true`, a resposta da API or interface de programação do aplicativo (API) inclui um campo `has_translatable_content` para cada mensagem. Padrão: `false`. |
+| `include_has_translatable_content` | Opcional | Booleano | Quando definido como `true`, a resposta da API inclui um campo `has_translatable_content` para cada mensagem. Padrão: `false`. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}
@@ -328,7 +328,7 @@ O array `conversion_behaviors` contém informações sobre o comportamento de ca
 {% endtabs %}
 
 {% alert tip %}
-Para obter ajuda com exportações de CSV e API or interface de programação do aplicativo (API), acesse [Resolução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
+Para obter ajuda com exportações de CSV e API, acesse [Resolução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}

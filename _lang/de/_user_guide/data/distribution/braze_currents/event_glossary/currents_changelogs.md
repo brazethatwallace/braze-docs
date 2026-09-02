@@ -280,13 +280,13 @@ tool: Currents
 * Neuer Ereignistyp `users.messages.rcs.Send` hinzugefügt.
 
 * Feldänderungen am Ereignistyp `users.messages.sms.Delivery`:
-    * Neues `boolean`-Feld `is_sms_fallback` hinzugefügt: Gibt an, dass eine Kurzmitteilungsdienst or SMS-Fallback-Nachricht aufgrund einer abgelehnten RCS-Nachricht gesendet wurde. Die Nachricht kann zu einer erfolgreichen Zustellung, einem Zustellungsfehler oder einer Ablehnung führen. Sie kann über eine Send-ID und eine Dispatch-ID mit dem RCS-Rejection-Ereignis verknüpft werden.
+    * Neues `boolean`-Feld `is_sms_fallback` hinzugefügt: Gibt an, dass eine SMS-Fallback-Nachricht aufgrund einer abgelehnten RCS-Nachricht gesendet wurde. Die Nachricht kann zu einer erfolgreichen Zustellung, einem Zustellungsfehler oder einer Ablehnung führen. Sie kann über eine Send-ID und eine Dispatch-ID mit dem RCS-Rejection-Ereignis verknüpft werden.
 
 * Feldänderungen am Ereignistyp `users.messages.sms.DeliveryFailure`:
-    * Neues `boolean`-Feld `is_sms_fallback` hinzugefügt: Gibt an, dass eine Kurzmitteilungsdienst or SMS-Fallback-Nachricht aufgrund einer abgelehnten RCS-Nachricht gesendet wurde. Die Nachricht kann zu einer erfolgreichen Zustellung, einem Zustellungsfehler oder einer Ablehnung führen. Sie kann über eine Send-ID und eine Dispatch-ID mit dem RCS-Rejection-Ereignis verknüpft werden.
+    * Neues `boolean`-Feld `is_sms_fallback` hinzugefügt: Gibt an, dass eine SMS-Fallback-Nachricht aufgrund einer abgelehnten RCS-Nachricht gesendet wurde. Die Nachricht kann zu einer erfolgreichen Zustellung, einem Zustellungsfehler oder einer Ablehnung führen. Sie kann über eine Send-ID und eine Dispatch-ID mit dem RCS-Rejection-Ereignis verknüpft werden.
 
 * Feldänderungen am Ereignistyp `users.messages.sms.Rejection`:
-    * Neues `boolean`-Feld `is_sms_fallback` hinzugefügt: Gibt an, dass eine Kurzmitteilungsdienst or SMS-Fallback-Nachricht aufgrund einer abgelehnten RCS-Nachricht gesendet wurde. Die Nachricht kann zu einer erfolgreichen Zustellung, einem Zustellungsfehler oder einer Ablehnung führen. Sie kann über eine Send-ID und eine Dispatch-ID mit dem RCS-Rejection-Ereignis verknüpft werden.
+    * Neues `boolean`-Feld `is_sms_fallback` hinzugefügt: Gibt an, dass eine SMS-Fallback-Nachricht aufgrund einer abgelehnten RCS-Nachricht gesendet wurde. Die Nachricht kann zu einer erfolgreichen Zustellung, einem Zustellungsfehler oder einer Ablehnung führen. Sie kann über eine Send-ID und eine Dispatch-ID mit dem RCS-Rejection-Ereignis verknüpft werden.
 
 * Feldänderungen am Ereignistyp `users.messages.whatsapp.Delivery`:
     * Neues `string`-Feld `flow_id` hinzugefügt: Die eindeutige ID des Flows im WhatsApp Manager:in. Vorhanden, wenn die Nachricht einen CTA zur Beantwortung eines WhatsApp Flows enthält.

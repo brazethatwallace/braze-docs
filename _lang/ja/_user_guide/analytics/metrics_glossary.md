@@ -533,7 +533,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, LINE
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='LTV or LTV or 生涯価値 Per User' %}
+{% multi_lang_include analytics/metrics.md metric='LTV Per User' %}
 
 {% endapi %}
 

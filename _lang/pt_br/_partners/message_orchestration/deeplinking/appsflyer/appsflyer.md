@@ -23,7 +23,7 @@ Também é possível passar seus públicos da AppsFlyer (coortes) diretamente pa
 |---|---|
 | Conta na AppsFlyer | Uma conta na AppsFlyer é necessária para aproveitar esta parceria. |
 | App iOS ou Android | Esta integração é compatível com apps iOS e Android. Dependendo da sua plataforma, trechos de código podem ser necessários no seu aplicativo. Detalhes sobre esses requisitos podem ser encontrados na etapa 1 do processo de integração. |
-| SDK or kit de desenvolvimento de software da AppsFlyer | Além do SDK or kit de desenvolvimento de software da Braze, que é obrigatório, você deve instalar o [SDK or kit de desenvolvimento de software da AppsFlyer](https://dev.appsflyer.com/hc/docs/getting-started). |
+| SDK da AppsFlyer | Além do SDK da Braze, que é obrigatório, você deve instalar o [SDK da AppsFlyer](https://dev.appsflyer.com/hc/docs/getting-started). |
 | Configuração do domínio de e-mail concluída | Você deve ter concluído a [etapa de configuração de IP e domínio]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains) ao configurar seu e-mail durante a integração com a Braze. |
 | Certificado SSL | Seu [certificado SSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate) deve estar configurado. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
@@ -36,7 +36,7 @@ Também é possível passar seus públicos da AppsFlyer (coortes) diretamente pa
 {% tab Android %}
 Se você tem um app Android, deve passar um ID de dispositivo Braze exclusivo para a AppsFlyer.
 
-Certifique-se de que as linhas de código a seguir sejam inseridas no local correto — após o SDK or kit de desenvolvimento de software da Braze ser iniciado e antes do código de inicialização do SDK or kit de desenvolvimento de software da AppsFlyer. Consulte o [guia de integração do SDK or kit de desenvolvimento de software Android](https://dev.appsflyer.com/hc/docs/integrate-android-sdk#initializing-the-android-sdk) da AppsFlyer para saber mais.
+Certifique-se de que as linhas de código a seguir sejam inseridas no local correto — após o SDK da Braze ser iniciado e antes do código de inicialização do SDK da AppsFlyer. Consulte o [guia de integração do SDK Android](https://dev.appsflyer.com/hc/docs/integrate-android-sdk#initializing-the-android-sdk) da AppsFlyer para saber mais.
 
 ```kotlin
 val customData = HashMap<String, Any>()
@@ -52,7 +52,7 @@ Braze.getInstance(context).getDeviceIdAsync { deviceId ->
 Antes de fevereiro de 2023, nossa integração de atribuição com a AppsFlyer usava o Identifier for Vendor (IDFV) como identificador principal para associar dados de atribuição do iOS. Não é necessário que os clientes da Braze que usam Objective-C busquem o `device_id` da Braze e enviem para a AppsFlyer na instalação, pois não há interrupção de serviço.
 {% endalert%}
 
-Para quem usa o Swift SDK or kit de desenvolvimento de software v5.7.0+, se você deseja continuar usando o IDFV como identificador mútuo, deve confirmar que o campo `useUUIDAsDeviceId` está definido como `false` para evitar uma interrupção da integração.
+Para quem usa o Swift SDK v5.7.0+, se você deseja continuar usando o IDFV como identificador mútuo, deve confirmar que o campo `useUUIDAsDeviceId` está definido como `false` para evitar uma interrupção da integração.
 
 Se estiver definido como `true`, você deve implementar o mapeamento de ID do dispositivo iOS para Swift a fim de passar o `device_id` da Braze para a AppsFlyer na instalação do app, para que a Braze associe corretamente as atribuições do iOS.
 
@@ -104,28 +104,28 @@ Aqui, você encontra o endpoint REST e gera sua chave de importação de dados d
 
 1. Na AppsFlyer, acesse a página **Integrated Partners** no menu de navegação. Em seguida, pesquise **Braze** e selecione o logotipo da Braze para abrir uma janela de configuração.
 2. Na guia **Integration**, ative **Activate Partner**.
-3. Forneça a chave de importação de dados e o endpoint REST or transferir estado representacional que você encontrou no dashboard da Braze.
+3. Forneça a chave de importação de dados e o endpoint REST que você encontrou no dashboard da Braze.
 4. Desative **Advanced Privacy** e salve sua configuração.
 
 {% alert important %}
-Ao inserir o endpoint REST or transferir estado representacional da Braze na guia Integration da AppsFlyer, insira apenas o domínio (por exemplo, `rest.fra-02.braze.eu`) sem o protocolo `https://` e sem o caminho `/attribution/appsflyer`. A AppsFlyer adiciona automaticamente o protocolo e anexa o caminho. Incluir qualquer um deles na sua entrada causa falhas no postback.
+Ao inserir o endpoint REST da Braze na guia Integration da AppsFlyer, insira apenas o domínio (por exemplo, `rest.fra-02.braze.eu`) sem o protocolo `https://` e sem o caminho `/attribution/appsflyer`. A AppsFlyer adiciona automaticamente o protocolo e anexa o caminho. Incluir qualquer um deles na sua entrada causa falhas no postback.
 {% endalert %}
 
 Informações adicionais sobre essas instruções estão disponíveis na [documentação da AppsFlyer](https://support.appsflyer.com/hc/en-us/articles/115001603343-AppsFlyer-Appboy-Integration).
 
 ### Etapa 4: Confirmar a integração {#step-4-confirm-the-integration}
 
-Na página de parceiros de tecnologia da AppsFlyer na Braze, o indicador de conexão mostra **Not Connected** até que você gere uma chave de API or interface de programação do aplicativo (API) de importação de dados na Etapa 2. Após gerar a chave, o indicador muda para **Connected** e exibe um registro de data e hora. Esse registro reflete quando a integração foi configurada pela primeira vez na Braze (quando a chave de importação de dados foi criada), não quando a AppsFlyer enviou um postback pela última vez.
+Na página de parceiros de tecnologia da AppsFlyer na Braze, o indicador de conexão mostra **Not Connected** até que você gere uma chave de API de importação de dados na Etapa 2. Após gerar a chave, o indicador muda para **Connected** e exibe um registro de data e hora. Esse registro reflete quando a integração foi configurada pela primeira vez na Braze (quando a chave de importação de dados foi criada), não quando a AppsFlyer enviou um postback pela última vez.
 
-Para confirmar que os dados de atribuição de instalação estão fluindo da AppsFlyer, use a Etapa 5 para verificar se os dados de instalação não orgânica aparecem nos filtros de Segment or segmento da Braze. A Braze ignora instalações orgânicas dos postbacks da AppsFlyer e não as armazena como dados de instalação atribuída.
+Para confirmar que os dados de atribuição de instalação estão fluindo da AppsFlyer, use a Etapa 5 para verificar se os dados de instalação não orgânica aparecem nos filtros de Segment da Braze. A Braze ignora instalações orgânicas dos postbacks da AppsFlyer e não as armazena como dados de instalação atribuída.
 
 ### Etapa 5: Visualizar dados de atribuição de usuários {#step-5-viewing-user-attribution-data}
 
 #### Campos de dados disponíveis {#available-data-fields}
 
-Se sua integração foi bem-sucedida, a Braze mapeia todos os dados de instalação não orgânica para filtros de Segment or segmento.
+Se sua integração foi bem-sucedida, a Braze mapeia todos os dados de instalação não orgânica para filtros de Segment.
 
-| Campo de dados da AppsFlyer | Filtro de Segment or segmento da Braze |
+| Campo de dados da AppsFlyer | Filtro de Segment da Braze |
 | -------------------- | --------------------- |
 | `media_source` | Attributed Source |
 | `campaign` | Attributed Campaign |
@@ -223,7 +223,7 @@ Nesta etapa, após compartilhar e validar os detalhes do CTD no AppsFlyer, recom
 Você pode realizar a garantia de qualidade e a resolução de problemas enviando um deep link usando o OneLink. Consulte a [documentação do AppsFlyer](https://support.appsflyer.com/hc/en-us/articles/360001437497-Integrating-AppsFlyer-and-Braze#step-3-sending-your-first-email::2ffdb79a) para detalhes sobre o uso do OneLink.
 
 Se os links CTD forem identificados como HTTP, entre em contato com a equipe de Email Ops da Braze para ativar o rastreamento de cliques SSL. Isso garante que todos os links HTTP sejam automaticamente convertidos para HTTPS.
-Você pode usar o texto de mensagem de exemplo a seguir ao entrar em contato com seu gerente de sucesso do cliente ou ao abrir um ticket no dashboard da Braze novamente, como na etapa 1:
+Você pode usar o texto de mensagem de exemplo a seguir ao entrar em contato com seu CSM ou ao abrir um ticket no dashboard da Braze novamente, como na etapa 1:
 
 ```
 Hi Team,
@@ -238,7 +238,7 @@ Você pode simplesmente criar sua URL de rastreamento OneLink no AppsFlyer e ins
 
 {% tabs local %}
 {% tab Android %}
-Para Android, a Braze permite que os clientes optem pela [coleta do Google Advertising ID (GAID)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection#optional-google-advertising-id). A integração do SDK or kit de desenvolvimento de software do AppsFlyer também coleta o GAID. Você pode incluir o GAID nos seus links de rastreamento de cliques do AppsFlyer usando a seguinte lógica Liquid:
+Para Android, a Braze permite que os clientes optem pela [coleta do Google Advertising ID (GAID)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection#optional-google-advertising-id). A integração do SDK do AppsFlyer também coleta o GAID. Você pode incluir o GAID nos seus links de rastreamento de cliques do AppsFlyer usando a seguinte lógica Liquid:
 {% raw %}
 ```
 {% if most_recently_used_device.${platform} == 'android' %}
@@ -249,7 +249,7 @@ aifa={{most_recently_used_device.${google_ad_id}}}
 {% endtab %}
 
 {% tab iOS %}
-Para iOS, tanto a Braze quanto o AppsFlyer coletam automaticamente o IDFV de forma nativa por meio de nossas integrações de SDK or kit de desenvolvimento de software. Você pode usar o IDFV como identificador de dispositivo. Você pode incluir o IDFV nos seus links de rastreamento de cliques do AppsFlyer usando a seguinte lógica Liquid:
+Para iOS, tanto a Braze quanto o AppsFlyer coletam automaticamente o IDFV de forma nativa por meio de nossas integrações de SDK. Você pode usar o IDFV como identificador de dispositivo. Você pode incluir o IDFV nos seus links de rastreamento de cliques do AppsFlyer usando a seguinte lógica Liquid:
 
 {% raw %}
 ```

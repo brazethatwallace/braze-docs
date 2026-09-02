@@ -22,22 +22,22 @@ Usa la integración de Refiner y Braze para enviar eventos de cuestionarios y da
 
 - Segmentar usuarios según las respuestas de cuestionarios, como puntuaciones NPS o calificaciones CSAT.
 - Desencadenar campañas personalizadas en Braze basadas en los resultados de cuestionarios.
-- Impulsar recorridos multicanal usando BRAZE Canvas u otras herramientas de orquestación.
+- Impulsar recorridos multicanal usando BRAZE CANVAS u otras herramientas de orquestación.
 
 ## Requisitos previos {#prerequisites}
 
 | Requisito | Descripción |
 |---|---|
 | Cuenta de Refiner | Se requiere una cuenta de [Refiner](https://refiner.io) para usar esta integración. |
-| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos de `users.track`. Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
-| Endpoint REST or transferencia de estado representacional de Braze | La URL de tu endpoint REST or transferencia de estado representacional. Tu endpoint depende de la [URL de Braze para tu instancia]({{site.baseurl}}/api/basics#endpoints). |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos de `users.track`. Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Endpoint REST de Braze | La URL de tu endpoint REST. Tu endpoint depende de la [URL de Braze para tu instancia]({{site.baseurl}}/api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 
 ### Paso 1: Conecta tu cuenta de Braze {#step-1-connect-your-braze-account}
 
-En la sección **Integrations** de tu proyecto de Refiner, selecciona **Connect Braze**. Introduce tu clave de API REST or transferencia de estado representacional de Braze y tu identificador de instancia de Braze.
+En la sección **Integrations** de tu proyecto de Refiner, selecciona **Connect Braze**. Introduce tu clave de API REST de Braze y tu identificador de instancia de Braze.
 
 ### Paso 2: Mapea los identificadores de usuario {#step-2-map-user-identifiers}
 

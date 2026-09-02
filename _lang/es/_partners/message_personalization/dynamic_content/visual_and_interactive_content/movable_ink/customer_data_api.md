@@ -139,7 +139,7 @@ Para obtener más información sobre las propiedades de eventos personalizados y
 
 ### Usuarios conocidos frente a anónimos {#known-versus-anonymous-users}
 
-En Braze, los eventos pueden registrarse bajo un perfil de usuario anónimo. Los identificadores que se vinculan al perfil de usuario durante el registro de eventos dependen de cómo se creó el usuario (a través del SDK or kit de desarrollo de software de Braze o API) y de su etapa actual en el ciclo de vida del usuario.
+En Braze, los eventos pueden registrarse bajo un perfil de usuario anónimo. Los identificadores que se vinculan al perfil de usuario durante el registro de eventos dependen de cómo se creó el usuario (a través del SDK de Braze o API) y de su etapa actual en el ciclo de vida del usuario.
 
 #### Solo reenvío de eventos de Braze para usuarios conocidos {#only-forwarding-braze-events-for-known-users}
 

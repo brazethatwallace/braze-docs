@@ -15,7 +15,7 @@ Pour en savoir plus ou pour commencer à utiliser Decisioning Studio, [prenez re
 
 ## Principales fonctionnalités {#key-features}
 
-- **Conservez votre outils or tech stack, mais ajoutez-y un cerveau :** BrazeAI<sup>TM</sup> s'intègre comme une couche décisionnelle entre vos systèmes de données et votre plateforme d'engagement client. Bien que Decisioning Studio fonctionne de manière optimale avec Braze, diverses autres plateformes sont également prises en charge.
+- **Conservez votre outils, mais ajoutez-y un cerveau :** BrazeAI<sup>TM</sup> s'intègre comme une couche décisionnelle entre vos systèmes de données et votre plateforme d'engagement client. Bien que Decisioning Studio fonctionne de manière optimale avec Braze, diverses autres plateformes sont également prises en charge.
 - **Choisissez les gagnants pour les individus, pas pour les segments :** utilisez toutes vos données first-party pour prendre la décision optimale pour chaque individu.
 - **Personnalisez tout :** les agents décisionnels basés sur l'IA trouvent le meilleur message, produit, incitation, canal, moment et la meilleure fréquence pour chaque client.
 - **Maximisez n'importe quel indicateur :** les clics ne sont pas synonymes de chiffre d'affaires. Utilisez BrazeAI<sup>TM</sup> pour choisir les offres ou les incitations qui maximisent le chiffre d'affaires, le bénéfice, la CLV ou tout autre indicateur clé de performance.

@@ -26,17 +26,17 @@ Lo siguiente es necesario antes de comenzar:
 |---|---|
 | Cuenta de Linkrunner | Se requiere una cuenta de Linkrunner para aprovechar esta asociación. |
 | Aplicación iOS o Android | Esta integración es compatible con aplicaciones iOS y Android. Dependiendo de tu plataforma, es posible que se requieran fragmentos de código en tu aplicación. |
-| SDK or kit de desarrollo de software de Linkrunner | Debes instalar el [SDK or kit de desarrollo de software de Linkrunner](https://docs.linkrunner.io/introduction). |
-| SDK or kit de desarrollo de software de Braze | Debes integrar el [SDK or kit de desarrollo de software de Braze]({{site.baseurl}}/developer_guide/sdk_integration/). |
+| SDK de Linkrunner | Debes instalar el [SDK de Linkrunner](https://docs.linkrunner.io/introduction). |
+| SDK de Braze | Debes integrar el [SDK de Braze]({{site.baseurl}}/developer_guide/sdk_integration/). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 
 ### Paso 1: Mapear los ID de usuario {#step-1-map-user-ids}
 
-Si utilizas la función `changeUser` del SDK or kit de desarrollo de software de Braze, pasa el mismo ID de usuario en el parámetro `userData` de la función `signup` del SDK or kit de desarrollo de software de Linkrunner.
+Si utilizas la función `changeUser` del SDK de Braze, pasa el mismo ID de usuario en el parámetro `userData` de la función `signup` del SDK de Linkrunner.
 
-Si no utilizas `changeUser`, pasa el `brazeDeviceId` en el parámetro `userData` de la función `signup` del SDK or kit de desarrollo de software de Linkrunner. Obtén el `brazeDeviceId` del SDK or kit de desarrollo de software de Braze.
+Si no utilizas `changeUser`, pasa el `brazeDeviceId` en el parámetro `userData` de la función `signup` del SDK de Linkrunner. Obtén el `brazeDeviceId` del SDK de Braze.
 
 {% tabs local %}
 {% tab Android (Kotlin) %}
@@ -73,13 +73,13 @@ En tu dashboard de Braze, ve a **Configuración** > **Configuración y pruebas**
    - `users.track`
    - `users.export.ids`
 3. Guarda la clave de API.
-4. Copia la clave de API y el punto de conexión REST or transferencia de estado representacional. Pega estos valores en Linkrunner en el siguiente paso. Trata la clave de API como un secreto y no la compartas públicamente.
+4. Copia la clave de API y el punto de conexión REST. Pega estos valores en Linkrunner en el siguiente paso. Trata la clave de API como un secreto y no la compartas públicamente.
 
 ### Paso 3: Configurar Braze en el dashboard de Linkrunner {#step-3-configure-braze-in-linkrunners-dashboard}
 
 1. En Linkrunner, ve a **Integraciones** en el panel izquierdo.
 2. En **Análisis**, selecciona **Configurar** para Braze.
-3. Introduce la clave de API y el punto de conexión REST or transferencia de estado representacional que copiaste en el paso 2.
+3. Introduce la clave de API y el punto de conexión REST que copiaste en el paso 2.
 
 Para más información, consulta la [documentación de Linkrunner](https://docs.linkrunner.io/analytics-integrations/braze).
 

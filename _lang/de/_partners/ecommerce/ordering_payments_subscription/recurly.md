@@ -17,8 +17,8 @@ _Diese Integration wird von Recurly gepflegt._
 
 Die Integration zwischen Recurly und Braze vereinfacht den Austausch von Abo-Daten mit Braze und ermöglicht so eine gezielte Kommunikation mit Kund:innen.
 
-- Nutzen Sie Recurly-Abo-Lebenszyklus-Events (z. B. Abo-Verlängerungen, Pausen oder Kündigungen) in Braze, um personalisierte Campaigns und Mitteilungen zu Trigger or triggern or triggern.
-- Nutzen Sie Recurly-Abo-Daten (z. B. Abo-Pläne, Add-Ons oder Status), um Unternehmensnutzer:innen, Segmente und Canvase zu erstellen und zu verwalten und kohortenspezifische Campaigns und Mitteilungen durchzuführen.
+- Nutzen Sie Recurly-Abo-Lebenszyklus-Events (z. B. Abo-Verlängerungen, Pausen oder Kündigungen) in Braze, um personalisierte Campaigns und Mitteilungen zu triggern.
+- Nutzen Sie Recurly-Abo-Daten (z. B. Abo-Pläne, Add-Ons oder Status), um Unternehmensnutzer:innen, Segmente und Canvases zu erstellen und zu verwalten und kohortenspezifische Campaigns und Mitteilungen durchzuführen.
 - Senden Sie Recurly-Daten direkt an Braze, um zusätzliche Messaging-Anwendungsfälle zu ermöglichen und die Entwicklungskosten zu senken.
 
 Weitere Einzelheiten zur Verwendung von Recurly mit Braze finden Sie in den [Recurly Docs](https://docs.recurly.com/docs/braze-integration).
@@ -28,8 +28,8 @@ Weitere Einzelheiten zur Verwendung von Recurly mit Braze finden Sie in den [Rec
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | Recurly-Konto | Sie benötigen ein Elite-[Recurly](https://recurly.com/)-Abo mit aktiviertem Braze-Feature-Flag, um die Vorteile dieser Partnerschaft zu nutzen. Die Aktivierung von Kreditrechnungen in Ihrer Recurly-Plattform ist ebenfalls erforderlich. |
-| Braze-Representational State Transfer-API-Schlüssel | Ein Braze-Representational State Transfer-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. Da Recurly nur den Endpunkt `users.track` verwendet, empfehlen wir, einen Recurly-spezifischen Schlüssel nur mit dieser Berechtigung bereitzustellen. |
-| Braze-Representational State Transfer-Endpunkt | [Ihre Representational State Transfer-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
+| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. Da Recurly nur den Endpunkt `users.track` verwendet, empfehlen wir, einen Recurly-spezifischen Schlüssel nur mit dieser Berechtigung bereitzustellen. |
+| Braze-REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
@@ -42,8 +42,8 @@ Bevor Sie beginnen, vergewissern Sie sich, dass Sie sowohl bei Braze als auch be
 
 2. Geben Sie die folgenden Zugangsdaten an:
 
-- **Instance URL:** Der Braze-Representational State Transfer-Endpunkt der Instanz, für die Sie bereitgestellt werden.
-- **API Key (Identifier):** Der Braze-Representational State Transfer-API-Schlüssel, den Recurly beim Senden von Anfragen an Braze verwenden soll.
+- **Instance URL:** Der Braze-REST-Endpunkt der Instanz, für die Sie bereitgestellt werden.
+- **API Key (Identifier):** Der Braze-REST-API-Schlüssel, den Recurly beim Senden von Anfragen an Braze verwenden soll.
 
 Denken Sie daran, die URL Ihrer Braze-Instanz zu kopieren. Ihre URL könnte zum Beispiel so aussehen:
 

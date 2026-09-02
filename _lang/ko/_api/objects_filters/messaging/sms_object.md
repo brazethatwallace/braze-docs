@@ -1,15 +1,15 @@
 ---
-nav_title: "단문 메시지 서비스 오브젝트"
-article_title: 단문 메시지 서비스 메시징 오브젝트
+nav_title: "SMS 오브젝트"
+article_title: SMS 메시징 오브젝트
 page_order: 10
 page_type: reference
 channel: SMS
-description: "이 참조 문서에서는 Braze 단문 메시지 서비스 오브젝트의 다양한 구성요소에 대해 설명합니다."
+description: "이 참조 문서에서는 Braze SMS 오브젝트의 다양한 구성요소에 대해 설명합니다."
 
 ---
-# 단문 메시지 서비스 오브젝트 {#sms-object}
+# SMS 오브젝트 {#sms-object}
 
-> `sms` 오브젝트를 사용하면 [메시징 엔드포인트]({{site.baseurl}}/api/endpoints/messaging)를 통해 단문 메시지 서비스 메시지를 수정하거나 생성할 수 있습니다.
+> `sms` 오브젝트를 사용하면 [메시징 엔드포인트]({{site.baseurl}}/api/endpoints/messaging)를 통해 SMS 메시지를 수정하거나 생성할 수 있습니다.
 
 ```json
 {

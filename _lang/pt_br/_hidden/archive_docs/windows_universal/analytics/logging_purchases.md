@@ -27,6 +27,6 @@ bool LogPurchase(string productId, string currencyCode, decimal price)
 ## Registrar compras no nível do pedido {#log-purchases-at-the-order-level}
 Se você quiser registrar compras no nível do pedido em vez do nível do produto, pode usar o nome do pedido ou a categoria do pedido como `product_id`. Consulte nossa [especificação do objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object#naming-conventions) para saber mais.
 
-## REST or transferir estado representacional API or interface de programação do aplicativo (API)
+## REST API
 
-Também é possível usar nossa REST or transferir estado representacional API or interface de programação do aplicativo (API) para registrar compras. Consulte a documentação da [API or interface de programação do aplicativo (API) de usuários]({{site.baseurl}}/api/endpoints/user_data) para obter detalhes.
+Também é possível usar nossa REST API para registrar compras. Consulte a documentação da [API de usuários]({{site.baseurl}}/api/endpoints/user_data) para obter detalhes.

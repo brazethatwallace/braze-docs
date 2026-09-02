@@ -42,7 +42,7 @@ Se o seu texto alternativo contiver aspas, use aspas simples (`'`) em vez de asp
 A validação é usada para endereços de e-mail do dashboard, endereços de e-mail de usuários finais (seus clientes) e endereços de remetente e de resposta de uma mensagem de e-mail.
 {% endalert %}
 
-A validação de e-mail ocorre quando o endereço de e-mail de um usuário é atualizado ou está sendo importado para a Braze pela API or interface de programação do aplicativo (API), upload de CSV, SDK or kit de desenvolvimento de software, ou modificado no dashboard. Note que seus endereços de e-mail não podem incluir espaços em branco e, se enviados usando a API or interface de programação do aplicativo (API), espaços em branco podem resultar em um erro `400`.
+A validação de e-mail ocorre quando o endereço de e-mail de um usuário é atualizado ou está sendo importado para a Braze pela API, upload de CSV, SDK, ou modificado no dashboard. Note que seus endereços de e-mail não podem incluir espaços em branco e, se enviados usando a API, espaços em branco podem resultar em um erro `400`.
 
 Os endereços de e-mail direcionados pelos servidores da Braze devem ser validados de acordo com os padrões [RFC 2822](https://datatracker.ietf.org/doc/html/rfc2822). A Braze não aceita determinados caracteres e os reconhece como inválidos. Se um e-mail sofrer bounce, a Braze marca o e-mail como inválido e o status de inscrição não é alterado.
 

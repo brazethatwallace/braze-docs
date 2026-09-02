@@ -41,7 +41,7 @@ Beim Einrichten eines Entscheidungsagenten müssen Sie vier zentrale Designeleme
 
 *Welches Ergebnis soll der Agent maximieren?*
 
-Ihre Erfolgsmetrik ist das Geschäftsergebnis, für das der Agent optimiert. Dies sollte direkt mit Ihren Geschäftszielen übereinstimmen – nicht Proxy-Metriken wie Klicks oder Öffnungen, sondern echte Geschäftsergebnisse wie Umsatz, Conversions, ARPU oder Kund:innen-LTV or Lifetime-Value or Lifetime-Value.
+Ihre Erfolgsmetrik ist das Geschäftsergebnis, für das der Agent optimiert. Dies sollte direkt mit Ihren Geschäftszielen übereinstimmen – nicht Proxy-Metriken wie Klicks oder Öffnungen, sondern echte Geschäftsergebnisse wie Umsatz, Conversions, ARPU oder Kund:innen-LTV.
 
 ### Das „Wer“: Wählen Sie Ihre Zielgruppe aus {#the-who-select-your-audience}
 
@@ -67,7 +67,7 @@ Um die Wirkung Ihres Entscheidungsagenten zu maximieren, sollten Sie:
 
 - Eine Erfolgsmetrik wählen, die eng mit Ihren Geschäftszielen übereinstimmt, wie Umsatz, Conversions oder ARPU.
 - Sich auf die Dimensionen oder „Hebel“ zum Testen konzentrieren, wie Angebot, Betreffzeile, Kreativ, Kanal oder Sendezeit, die am wahrscheinlichsten einen signifikanten Einfluss auf die Erfolgsmetrik haben.
-- Die Optionen für jede Dimension auswählen, wie E-Mail versus Kurzmitteilungsdienst or SMS oder tägliche versus wöchentliche Häufigkeit, die am wahrscheinlichsten einen signifikanten Einfluss auf die Erfolgsmetrik haben.
+- Die Optionen für jede Dimension auswählen, wie E-Mail versus SMS oder tägliche versus wöchentliche Häufigkeit, die am wahrscheinlichsten einen signifikanten Einfluss auf die Erfolgsmetrik haben.
 
 Einige Beispiele für Entscheidungsagenten, die Sie erstellen könnten:
 

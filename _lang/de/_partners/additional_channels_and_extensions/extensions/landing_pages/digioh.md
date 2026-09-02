@@ -25,8 +25,8 @@ Mit der Integration von Braze und Digioh können Sie per Drag-and-Drop Formulare
 | Anforderung | Beschreibung |
 |---|---|
 | Digioh-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein [Digioh-Konto](https://www.digioh.com/). |
-| Braze-Representational State Transfer-API-Schlüssel | Ein Braze-Representational State Transfer-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze-API-`/users/track/`-Endpunkt | Ihre Representational State Transfer-Endpunkt-URL mit den angehängten `/users/track/`-Details. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/api/basics/#endpoints) ab.<br><br>Wenn Ihr Representational State Transfer-API-Endpunkt z. B. `https://rest.iad-01.braze.com` lautet, wird Ihr `/users/track/`-Endpunkt `https://rest.iad-01.braze.com/users/track/` sein. |
+| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze-API-`/users/track/`-Endpunkt | Ihre REST-Endpunkt-URL mit den angehängten `/users/track/`-Details. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/api/basics/#endpoints) ab.<br><br>Wenn Ihr REST-API-Endpunkt z. B. `https://rest.iad-01.braze.com` lautet, wird Ihr `/users/track/`-Endpunkt `https://rest.iad-01.braze.com/users/track/` sein. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
@@ -39,7 +39,7 @@ Klicken Sie in Digioh auf den Tab **Integrations** und dann auf den Button **New
 
 ![„Wählen Sie die richtige Integration aus dem Dropdown aus“]({% image_buster /assets/img/digioh/2.png %}){: style="max-width:50%;"}
 
-Geben Sie als Nächstes den Braze-Representational State Transfer-API-Schlüssel und Ihren Braze-API-`/users/track/`-Endpunkt ein.
+Geben Sie als Nächstes den Braze-REST-API-Schlüssel und Ihren Braze-API-`/users/track/`-Endpunkt ein.
 
 Verwenden Sie abschließend den Abschnitt „Felder zuordnen“, um weitere angepasste Felder neben E-Mail und Name zuzuordnen. Das folgende Code-Snippet zeigt eine Beispiel-Payload. Wenn Sie fertig sind, wählen Sie **Create Integration**.
 

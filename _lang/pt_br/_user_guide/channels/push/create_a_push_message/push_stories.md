@@ -18,12 +18,12 @@ channel:
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Push Stories" }
 
 {% alert note %}
-Nas versões 3.13.0+ do SDK or kit de desenvolvimento de software para iOS, devido a uma mudança na forma como o SDK or kit de desenvolvimento de software baixa imagens, uma miniatura da primeira imagem não será exibida na visualização condensada do push. Certifique-se de que o texto da sua mensagem incentive os usuários a expandir o push para ver as imagens.
+Nas versões 3.13.0+ do SDK para iOS, devido a uma mudança na forma como o SDK baixa imagens, uma miniatura da primeira imagem não será exibida na visualização condensada do push. Certifique-se de que o texto da sua mensagem incentive os usuários a expandir o push para ver as imagens.
 {% endalert %}
 
 ## Pré-requisitos {#prerequisites}
 
-As seguintes versões do SDK or kit de desenvolvimento de software são necessárias para receber Push Stories:
+As seguintes versões do SDK são necessárias para receber Push Stories:
 
 {% sdk_min_versions swift:5.0.0 android:2.2.0 %}
 

@@ -178,8 +178,8 @@ Un objeto de rol válido es un objeto JSON con los siguientes pares clave-valor:
 | View API Limits | `view_api_limits` |
 | View API Usage Alerts | `view_api_usage_alerts` |
 | Edit API Usage Alerts | `edit_api_usage_alerts` |
-| View SDK or kit de desarrollo de software Debugger | `view_sdk_debugger` |
-| Edit SDK or kit de desarrollo de software Debugger | `edit_sdk_debugger` |
+| View SDK Debugger | `view_sdk_debugger` |
+| Edit SDK Debugger | `edit_sdk_debugger` |
 | Launch Content Blocks | `launch_content_blocks` |
 | Edit Cloud Data Ingestion | `edit_cloud_data_ingestion` |
 | View App Settings | `view_app_settings` |

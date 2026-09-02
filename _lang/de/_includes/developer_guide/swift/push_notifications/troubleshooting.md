@@ -3,7 +3,7 @@
 Der Apple Push Notification service (APNs) ist die Infrastruktur zum Senden von Push-Benachrichtigungen an Anwendungen, die auf Apple-Plattformen laufen. Hier ist die vereinfachte Struktur, wie Push-Benachrichtigungen für die Geräte Ihrer Nutzer:innen aktiviert werden und wie Braze Push-Benachrichtigungen an sie senden kann:
 
 1. Sie konfigurieren das Push-Zertifikat und das Provisioning-Profil
-2. Geräte Registrierung or registrieren sich bei APNs und stellen Braze Push-Token / Textbaustein bereit
+2. Geräte Registrierung sich bei APNs und stellen Braze Push-Token / Textbaustein bereit
 3. Sie starten eine Braze-Push-Campaign
 4. Braze entfernt ungültige Token / Textbaustein
 
@@ -17,9 +17,9 @@ Es gibt zwei Arten von [Provisioning-Profilen](https://developer.apple.com/libra
 Ändern Sie nicht die Umgebung des Push-Zertifikats (Entwicklung versus Produktion). Ein Wechsel des Push-Zertifikats auf die falsche Umgebung kann dazu führen, dass die Push-Token / Textbaustein Ihrer Nutzer:innen versehentlich entfernt werden, sodass sie per Push nicht mehr erreichbar sind.
 {% endalert %}
 
-### Schritt 2: Geräte Registrierung or registrieren sich bei APNs und stellen Braze Push-Token / Textbaustein bereit {#step-2-devices-register-for-apns-and-provide-braze-with-push-tokens}
+### Schritt 2: Geräte Registrierung sich bei APNs und stellen Braze Push-Token / Textbaustein bereit {#step-2-devices-register-for-apns-and-provide-braze-with-push-tokens}
 
-Wenn Nutzer:innen Ihre App öffnen, werden sie aufgefordert, Push-Benachrichtigungen zu akzeptieren. Wenn sie diese Aufforderung annehmen, generiert APNs ein Push-Token / Textbaustein für das jeweilige Gerät. Das Swift SDK or Software-Development-Kit sendet das Push-Token / Textbaustein sofort und asynchron für Apps, die die standardmäßige [automatische Flush-Richtlinie]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/advanced_use_cases/fine_network_traffic_control#automatic-request-processing) verwenden. Sobald wir ein Push-Token / Textbaustein mit einer/einem Nutzer:in verknüpft haben, wird diese:r im Dashboard auf dem Kundenprofil or Nutzerprofil unter dem Tab **Engagement** als „Push Registered“ angezeigt und ist berechtigt, Push-Benachrichtigungen von Braze-Campaigns zu erhalten.
+Wenn Nutzer:innen Ihre App öffnen, werden sie aufgefordert, Push-Benachrichtigungen zu akzeptieren. Wenn sie diese Aufforderung annehmen, generiert APNs ein Push-Token / Textbaustein für das jeweilige Gerät. Das Swift SDK sendet das Push-Token / Textbaustein sofort und asynchron für Apps, die die standardmäßige [automatische Flush-Richtlinie]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/advanced_use_cases/fine_network_traffic_control#automatic-request-processing) verwenden. Sobald wir ein Push-Token / Textbaustein mit einer/einem Nutzer:in verknüpft haben, wird diese:r im Dashboard auf dem Kundenprofil unter dem Tab **Engagement** als „Push Registered“ angezeigt und ist berechtigt, Push-Benachrichtigungen von Braze-Campaigns zu erhalten.
 
 {% alert note %}
 Ab macOS 13 können Sie auf bestimmten Geräten Push-Benachrichtigungen in einem iOS-16-Simulator unter Xcode 14 testen. Weitere Details finden Sie in den [Xcode 14 Release Notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-14-release-notes).
@@ -34,7 +34,7 @@ Ab macOS 13 können Sie auf bestimmten Geräten Push-Benachrichtigungen in einem
 
 ### Schritt 3: Eine Braze-Push-Campaign starten {#step-3-launching-a-braze-push-campaign}
 
-Wenn eine Push-Campaign gestartet wird, sendet Braze Anfragen an APNs, um Ihre Nachricht zuzustellen. Konkret werden die Anfragen für jedes derzeit gültige Push-Token / Textbaustein an APNs übermittelt, es sei denn, **An das neueste Gerät des Nutzers/der Nutzerin senden** ist ausgewählt. Nachdem Braze eine erfolgreiche Antwort von APNs erhalten hat, protokollieren wir eine erfolgreiche Zustellung im Kundenprofil or Nutzerprofil, obwohl die/der Nutzer:in die eigentliche Nachricht möglicherweise aus folgenden Gründen nicht erhalten hat:
+Wenn eine Push-Campaign gestartet wird, sendet Braze Anfragen an APNs, um Ihre Nachricht zuzustellen. Konkret werden die Anfragen für jedes derzeit gültige Push-Token / Textbaustein an APNs übermittelt, es sei denn, **An das neueste Gerät des Nutzers/der Nutzerin senden** ist ausgewählt. Nachdem Braze eine erfolgreiche Antwort von APNs erhalten hat, protokollieren wir eine erfolgreiche Zustellung im Kundenprofil, obwohl die/der Nutzer:in die eigentliche Nachricht möglicherweise aus folgenden Gründen nicht erhalten hat:
 - Das Gerät ist ausgeschaltet.
 - Das Gerät ist nicht mit dem Internet verbunden (WLAN oder Mobilfunk).
 - Die App wurde kürzlich deinstalliert.
@@ -57,9 +57,9 @@ Das [Nachrichtenaktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/glo
 
 Häufige Fehler, die hier auftreten können, sind nutzerspezifische Benachrichtigungen wie [„Received Unregistered Sending to Push-Token / Textbaustein“](#swift_received-unregistered-sending).
 
-Darüber hinaus stellt Braze auch ein Push-Changelog im Kundenprofil or Nutzerprofil unter dem Tab **Engagement** bereit. Dieses Changelog gibt Einblick in das Push-Registrierungsverhalten, wie z. B. Token / Textbaustein-Invalidierung, Push-Registrierungsfehler, Token / Textbaustein, die zu neuen Nutzer:innen verschoben werden usw.
+Darüber hinaus stellt Braze auch ein Push-Changelog im Kundenprofil unter dem Tab **Engagement** bereit. Dieses Changelog gibt Einblick in das Push-Registrierungsverhalten, wie z. B. Token / Textbaustein-Invalidierung, Push-Registrierungsfehler, Token / Textbaustein, die zu neuen Nutzer:innen verschoben werden usw.
 
-![Tab „Engagement“ im Braze-Kundenprofil or Nutzerprofil mit dem Push-Registrierungs-Changelog.]({% image_buster /assets/img_archive/push_changelog.gif %}){: style="max-width:50%;" }
+![Tab „Engagement“ im Braze-Kundenprofil mit dem Push-Registrierungs-Changelog.]({% image_buster /assets/img_archive/push_changelog.gif %}){: style="max-width:50%;" }
 
 ### Fehler im Nachrichtenaktivitätsprotokoll {#message-activity-log-errors}
 
@@ -145,16 +145,16 @@ Auf iOS-Versionen, die Push nicht über das `UserNotifications`-Framework integr
 
 ### Nutzer:in ist nicht „Push registriert“ für die getestete App {#user-not-push-registered-for-the-app-being-tested}
 
-Überprüfen Sie das Kundenprofil or Nutzerprofil der:des Nutzer:in, an die:den Sie eine Testnachricht senden möchten. Unter dem Tab **Engagement** sollte eine Liste der „push-fähigen Apps“ angezeigt werden. Überprüfen Sie, ob die App, an die Sie Testnachrichten senden möchten, in dieser Liste enthalten ist. Nutzer:innen werden als „Push registriert“ angezeigt, wenn sie ein Push-Token / Textbaustein für eine beliebige App in Ihrem Workspace haben, sodass dies ein falsch positives Ergebnis sein könnte.
+Überprüfen Sie das Kundenprofil der:des Nutzer:in, an die:den Sie eine Testnachricht senden möchten. Unter dem Tab **Engagement** sollte eine Liste der „push-fähigen Apps“ angezeigt werden. Überprüfen Sie, ob die App, an die Sie Testnachrichten senden möchten, in dieser Liste enthalten ist. Nutzer:innen werden als „Push registriert“ angezeigt, wenn sie ein Push-Token / Textbaustein für eine beliebige App in Ihrem Workspace haben, sodass dies ein falsch positives Ergebnis sein könnte.
 
 Das Folgende würde auf ein Problem mit der Push-Registrierung hindeuten oder darauf, dass das Token / Textbaustein der:des Nutzer:in nach dem Push von APNs als ungültig an Braze zurückgegeben wurde:
 
-![Ein Kundenprofil or Nutzerprofil, das die Kontakteinstellungen einer:eines Nutzer:in anzeigt. Unter Push wird „No Apps“ angezeigt.]({% image_buster /assets/img_archive/registration_problem.png %}){: style="max-width:50%"}
+![Ein Kundenprofil, das die Kontakteinstellungen einer:eines Nutzer:in anzeigt. Unter Push wird „No Apps“ angezeigt.]({% image_buster /assets/img_archive/registration_problem.png %}){: style="max-width:50%"}
 
 ## Nicht protokollierte Push-Klicks {#push-clicks-not-logged}
 
 - Stellen Sie sicher, dass Sie die [Schritte zur Push-Integration]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#step-5-enable-push-handling) durchgeführt haben.
-- Braze verarbeitet keine Push-Benachrichtigungen, die still im Vordergrund empfangen werden (Standardverhalten von Push im Vordergrund vor dem Framework `UserNotifications`). Das bedeutet, dass Links nicht geöffnet werden und Push-Klicks nicht protokolliert werden. Wenn das Framework `UserNotifications` noch nicht in Ihrer Anwendung integriert ist, verarbeitet Braze keine Push-Benachrichtigungen, wenn der Anwendungsstatus `UIApplicationStateActive` lautet. Stellen Sie sicher, dass Ihre App die Aufrufe von [Push-Verarbeitungsmethoden]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#step-5-enable-push-handling) nicht verzögert. Andernfalls kann es sein, dass das Swift SDK or Software-Development-Kit Push-Benachrichtigungen als stille Push-Ereignisse im Vordergrund behandelt und sie nicht verarbeitet.
+- Braze verarbeitet keine Push-Benachrichtigungen, die still im Vordergrund empfangen werden (Standardverhalten von Push im Vordergrund vor dem Framework `UserNotifications`). Das bedeutet, dass Links nicht geöffnet werden und Push-Klicks nicht protokolliert werden. Wenn das Framework `UserNotifications` noch nicht in Ihrer Anwendung integriert ist, verarbeitet Braze keine Push-Benachrichtigungen, wenn der Anwendungsstatus `UIApplicationStateActive` lautet. Stellen Sie sicher, dass Ihre App die Aufrufe von [Push-Verarbeitungsmethoden]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#step-5-enable-push-handling) nicht verzögert. Andernfalls kann es sein, dass das Swift SDK Push-Benachrichtigungen als stille Push-Ereignisse im Vordergrund behandelt und sie nicht verarbeitet.
 
 ## Deeplinks funktionieren nicht {#deep-links-not-working}
 

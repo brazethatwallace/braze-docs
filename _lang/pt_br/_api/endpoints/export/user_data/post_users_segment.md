@@ -1,23 +1,23 @@
 ---
-nav_title: "POST: Exportar perfil de usuário por Segment or segmento or segmento"
-article_title: "POST: Exportar perfil de usuário por Segment or segmento or segmento"
+nav_title: "POST: Exportar perfil de usuário por segmento"
+article_title: "POST: Exportar perfil de usuário por segmento"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Este artigo descreve detalhes sobre o endpoint Exportar usuários por Segment or segmento or segmento da Braze."
+description: "Este artigo descreve detalhes sobre o endpoint Exportar usuários por segmento da Braze."
 
 ---
-{% API or interface de programação do aplicativo (API) %}
-# Exportar perfil de usuário por Segment or segmento or segmento {#export-user-profile-by-segment}
+{% api %}
+# Exportar perfil de usuário por segmento {#export-user-profile-by-segment}
 {% apimethod post %}
-/users/export/Segment or segmento
+/users/export/segment
 {% endapimethod %}
 
-> Use esse endpoint para exportar todos os usuários de um Segment or segmento or segmento.
+> Use esse endpoint para exportar todos os usuários de um segmento.
 
 {% alert important %}
-Ao usar esse endpoint, observe o seguinte:<br><br>1. O campo `fields_to_export` nessa solicitação da API or interface de programação do aplicativo (API) é **obrigatório**.<br>2. Os campos para `custom_events`, `purchases`, `campaigns_received` e `canvases_received` contêm apenas dados dos últimos 90 dias.
+Ao usar esse endpoint, observe o seguinte:<br><br>1. O campo `fields_to_export` nessa solicitação da API é **obrigatório**.<br>2. Os campos para `custom_events`, `purchases`, `campaigns_received` e `canvases_received` contêm apenas dados dos últimos 90 dias.
 {% endalert %}
 
 Os dados de usuários são exportados como vários arquivos de objetos JSON de usuários separados por novas linhas (como um objeto JSON por linha). Os dados são exportados para uma URL gerada automaticamente ou para um bucket S3 se essa integração já estiver configurada.
@@ -26,13 +26,13 @@ Os dados de usuários são exportados como vários arquivos de objetos JSON de u
 **Formato de saída da exportação**: Quando uma exportação é bem-sucedida e você não configurou credenciais de armazenamento em nuvem, a resposta HTTP inclui uma URL para baixar um arquivo compactado (arquivo ZIP ou GZIP). Quando as credenciais de armazenamento em nuvem (S3, Azure ou Google Cloud Storage) estão configuradas, a Braze escreve a exportação diretamente no seu bucket, e a resposta não inclui uma URL de download. Se a exportação falhar, você receberá uma notificação por e-mail. Configurar credenciais de armazenamento em nuvem reduz a probabilidade de falhas em grandes exportações.
 {% endalert %}
 
-Note que uma empresa pode executar no máximo uma exportação por Segment or segmento or segmento usando esse endpoint em um determinado momento. Aguarde a conclusão da exportação antes de tentar novamente.
+Note que uma empresa pode executar no máximo uma exportação por segmento usando esse endpoint em um determinado momento. Aguarde a conclusão da exportação antes de tentar novamente.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#cfa6fa98-632c-4f25-8789-6c3f220b9457 {% endapiref %}
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `users.export.segment`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `users.export.segment`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -64,7 +64,7 @@ Se você adicionou suas credenciais de [S3][1], [Azure][2] ou [Google Cloud Stor
 
 É altamente recomendável configurar suas próprias credenciais do S3 ou do Azure ao usar esse endpoint para aplicar suas próprias políticas de bucket na exportação. Se não tiver suas credenciais de armazenamento em nuvem, a resposta à solicitação fornecerá a URL onde um arquivo ZIP contendo todos os arquivos do usuário pode ser baixado. A URL se torna um local válido apenas depois que a exportação está pronta.
 
-Esteja ciente de que, se você não fornecer suas credenciais de armazenamento em nuvem, há uma limitação na quantidade de dados que você pode exportar desse endpoint. Dependendo dos campos que você está exportando e do número de usuários, a transferência do arquivo pode falhar se ele for muito grande. Uma prática recomendada é especificar quais campos você deseja exportar usando `fields_to_export` e especificar apenas os campos necessários para manter o tamanho da transferência menor. Se você estiver recebendo erros ao gerar o arquivo, considere dividir sua base de usuários em mais segmentos com base em um número de bucket aleatório (por exemplo, crie um Segment or segmento or segmento em que um número de bucket aleatório seja menor que 1.000 ou entre 1.000 e 2.000).
+Esteja ciente de que, se você não fornecer suas credenciais de armazenamento em nuvem, há uma limitação na quantidade de dados que você pode exportar desse endpoint. Dependendo dos campos que você está exportando e do número de usuários, a transferência do arquivo pode falhar se ele for muito grande. Uma prática recomendada é especificar quais campos você deseja exportar usando `fields_to_export` e especificar apenas os campos necessários para manter o tamanho da transferência menor. Se você estiver recebendo erros ao gerar o arquivo, considere dividir sua base de usuários em mais segmentos com base em um número de bucket aleatório (por exemplo, crie um segmento em que um número de bucket aleatório seja menor que 1.000 ou entre 1.000 e 2.000).
 
 Em qualquer um dos cenários, você tem a opção de fornecer um `callback_endpoint` para receber uma notificação quando a exportação estiver pronta. Se o `callback_endpoint` for fornecido, a Braze faz uma solicitação POST para o endereço fornecido quando o download estiver pronto. O corpo do POST é "success":true. Se você não adicionou credenciais S3 à Braze, o corpo do POST terá adicionalmente o atributo `url` com a URL de download como valor.
 
@@ -90,7 +90,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | ----------------------------- | ----------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `segment_id` | Obrigatório | String | Identificador do Segment or segmento or segmento a ser exportado. Consulte [identificador de Segment or segmento or segmento]({{site.baseurl}}/api/identifier_types).<br><br>O `segment_id` para um determinado Segment or segmento or segmento pode ser encontrado na página de [Chaves de API or interface de programação do aplicativo (API)]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) na sua conta Braze ou você pode usar o [endpoint da lista de Segments]({{site.baseurl}}/api/endpoints/export/segments/get_segment). |
+| `segment_id` | Obrigatório | String | Identificador do segmento a ser exportado. Consulte [identificador de segmento]({{site.baseurl}}/api/identifier_types).<br><br>O `segment_id` para um determinado segmento pode ser encontrado na página de [Chaves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) na sua conta Braze ou você pode usar o [endpoint da lista de Segments]({{site.baseurl}}/api/endpoints/export/segments/get_segment). |
 | `callback_endpoint` | Opcional | String | Endpoint para postar uma URL de download quando a exportação estiver disponível. |
 | `fields_to_export` | Obrigatório* | Matriz de strings | Nome dos campos de dados de usuários a serem exportados. Você também pode exportar todos os atributos personalizados incluindo `custom_attributes` nesse parâmetro. Consulte [Campos a serem exportados](#fields-to-export) para uma lista completa dos campos que você pode exportar. |
 | `custom_attributes_to_export` | Opcional | Matriz de strings | Nomes de atributos personalizados específicos a serem exportados (até 500). Omita `custom_attributes` de `fields_to_export` ao usar esse parâmetro, caso contrário a Braze exportará todos os atributos personalizados independentemente dessa lista. Para criar e gerenciar atributos personalizados no dashboard, acesse **Data Settings** > **Custom Attributes**. |
@@ -130,7 +130,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segme
 
 ## Campos a serem exportados {#fields-to-export}
 
-A seguir, uma lista de `fields_to_export` válidos. O uso de `fields_to_export` para minimizar os dados retornados pode melhorar o tempo de resposta desse endpoint da API or interface de programação do aplicativo (API):
+A seguir, uma lista de `fields_to_export` válidos. O uso de `fields_to_export` para minimizar os dados retornados pode melhorar o tempo de resposta desse endpoint da API:
 
 | Campo a ser exportado | Tipo de dados | Descrição |
 | --------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -144,7 +144,7 @@ A seguir, uma lista de `fields_to_export` válidos. O uso de `fields_to_export` 
 | `braze_id` | String | Identificador de usuário exclusivo específico do dispositivo definido pela Braze para esse usuário. |
 | `country` | String | País do usuário usando o padrão [ISO 3166-1 alfa-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). |
 | `created_at` | String | Data e hora em que o perfil do usuário foi criado, no formato ISO 8601. |
-| `created_from` | String | Método usado para criar o perfil do usuário (por exemplo, SDK or kit de desenvolvimento de software, REST or transferir estado representacional API or interface de programação do aplicativo (API) ou importação de CSV). |
+| `created_from` | String | Método usado para criar o perfil do usuário (por exemplo, SDK, REST API ou importação de CSV). |
 | `custom_attributes` | Objeto | Pares de chave-valor de atributos personalizados para esse usuário. |
 | `custom_events` | Vetor | Eventos personalizados atribuídos a esse usuário nos últimos 90 dias. |
 | `devices` | Vetor | Informações sobre o dispositivo do usuário, que podem incluir o seguinte, dependendo da plataforma:<br><br>- `model`: nome do modelo do dispositivo<br>- `os`: sistema operacional do dispositivo<br>- `carrier`: operadora de serviço do dispositivo, se disponível<br>- `idfv`: (iOS) identificador do dispositivo Braze, o identificador da Apple para o fornecedor, se houver<br>- `idfa`: (iOS) identificador para publicidade, se houver<br>- `device_id`: (Android) identificador do dispositivo Braze<br>- `google_ad_id`: (Android) identificador de publicidade do Google Play, se houver<br>- `roku_ad_id`: (Roku) identificador de publicidade da Roku<br>- `ad_tracking_enabled`: se o rastreamento de anúncios estiver ativado no dispositivo, pode ser verdadeiro ou falso |
@@ -172,9 +172,9 @@ A seguir, uma lista de `fields_to_export` válidos. O uso de `fields_to_export` 
 - Os campos para `custom_events`, `purchases`, `campaigns_received` e `canvases_received` contêm apenas dados dos últimos 90 dias.
 - Tanto `custom_events` quanto `purchases` contêm campos para `first` e `count`. Ambos os campos refletem informações de todo o período e não estão limitados aos dados dos últimos 90 dias. Por exemplo, se um usuário específico realizou o evento pela primeira vez há 90 dias, isso é refletido com precisão no campo `first`, e o campo `count` leva em conta eventos que ocorreram antes dos últimos 90 dias também.
 - O número de exportações de segmentos simultâneas que uma empresa pode executar no nível do endpoint é limitado a 100. Tentativas que ultrapassam esse limite resultam em um erro.
-- Tentar exportar um Segment or segmento or segmento uma segunda vez enquanto o primeiro trabalho de exportação ainda está em execução resulta em um erro 429.
+- Tentar exportar um segmento uma segunda vez enquanto o primeiro trabalho de exportação ainda está em execução resulta em um erro 429.
 - Uma [resposta `403 Forbidden`]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting?sdktab=cloud%20storage%20connected#segment-export-api-downloads) geralmente significa que o arquivo de exportação ainda não está pronto.
-- Os dados de grupos de inscrições não estão disponíveis por meio de exportações de segmentos. Para identificar usuários por status de inscrição, crie um Segment or segmento or segmento separado com base na associação ao grupo de inscrições e exporte esse Segment or segmento or segmento.
+- Os dados de grupos de inscrições não estão disponíveis por meio de exportações de segmentos. Para identificar usuários por status de inscrição, crie um segmento separado com base na associação ao grupo de inscrições e exporte esse segmento.
 
 ## Resposta {#response}
 
@@ -188,11 +188,11 @@ A seguir, uma lista de `fields_to_export` válidos. O uso de `fields_to_export` 
 
 ### URL `null` {#null-url}
 
-Se a resposta incluir `"url": null` (ou omitir uma URL de download) e você tiver configurado uma [integração de armazenamento em nuvem]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting) como um bucket Amazon S3 ou um contêiner Azure Blob Storage, a Braze escreve a exportação no seu bucket ou contêiner conectado em vez de retornar uma URL de download temporária na resposta da API or interface de programação do aplicativo (API). Recupere os arquivos do seu bucket ou contêiner de armazenamento em nuvem conectado.
+Se a resposta incluir `"url": null` (ou omitir uma URL de download) e você tiver configurado uma [integração de armazenamento em nuvem]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting) como um bucket Amazon S3 ou um contêiner Azure Blob Storage, a Braze escreve a exportação no seu bucket ou contêiner conectado em vez de retornar uma URL de download temporária na resposta da API. Recupere os arquivos do seu bucket ou contêiner de armazenamento em nuvem conectado.
 
 Se uma URL de download for retornada, ela é válida apenas por algumas horas. Portanto, é altamente recomendável que você adicione suas próprias credenciais S3 à Braze.
 
-Se você vir `object_prefix` na sua resposta da API or interface de programação do aplicativo (API) e nenhuma URL para baixar os dados, isso significa que você já tem um bucket Amazon S3 configurado para esse endpoint. Qualquer dado exportado usando esse endpoint vai diretamente para o seu bucket S3.
+Se você vir `object_prefix` na sua resposta da API e nenhuma URL para baixar os dados, isso significa que você já tem um bucket Amazon S3 configurado para esse endpoint. Qualquer dado exportado usando esse endpoint vai diretamente para o seu bucket S3.
 
 ## Exemplo de saída de arquivo de exportação do usuário {#example-user-export-file-output}
 
@@ -485,7 +485,7 @@ Objeto de exportação do usuário (a Braze inclui o menor número possível de 
 {% endtabs %}
 
 {% alert tip %}
-Para obter ajuda com exportações de CSV e API or interface de programação do aplicativo (API), acesse [Resolução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
+Para obter ajuda com exportações de CSV e API, acesse [Resolução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 [1]: {{site.baseurl}}/partners/data_and_infrastructure_agility/cloud_storage/amazon_s3

@@ -7,13 +7,13 @@
 <tr><th>Quelle</th><th>Beschreibung</th></tr>
 </thead>
 <tbody>
-<tr><td>SDK or Software-Development-Kit</td><td>SDK or Software-Development-Kit-Endpunkte</td></tr>
-<tr><td>Dashboard</td><td>Wenn der Abo-Status einer Nutzerin oder eines Nutzers über die Kundenprofil or Nutzerprofil-Seite im Dashboard aktualisiert wird</td></tr>
+<tr><td>SDK</td><td>SDK-Endpunkte</td></tr>
+<tr><td>Dashboard</td><td>Wenn der Abo-Status einer Nutzerin oder eines Nutzers über die Kundenprofil-Seite im Dashboard aktualisiert wird</td></tr>
 <tr><td>Abo-Seite</td><td>Wenn sich Nutzer:innen über einen E-Mail-Link abmelden, der nicht das Einstellungscenter ist</td></tr>
-<tr><td>Representational State Transfer API</td><td>Representational State Transfer-API-Endpunkte</td></tr>
+<tr><td>REST API</td><td>REST-API-Endpunkte</td></tr>
 <tr><td>CSV-Import</td><td>CSV-Nutzerimport</td></tr>
 <tr><td>Einstellungscenter</td><td>Wenn Nutzer:innen über das Einstellungscenter aktualisiert werden</td></tr>
-<tr><td>Eingehende Nachricht</td><td>Wenn Nutzer:innen durch eingehende Nachrichten von Endnutzer:innen über Kanäle wie Kurzmitteilungsdienst or SMS aktualisiert werden</td></tr>
+<tr><td>Eingehende Nachricht</td><td>Wenn Nutzer:innen durch eingehende Nachrichten von Endnutzer:innen über Kanäle wie SMS aktualisiert werden</td></tr>
 <tr><td>Migration</td><td>Wenn Nutzer:innen durch interne Migrationen oder Wartungsskripte aktualisiert werden</td></tr>
 <tr><td>Nutzerzusammenführung</td><td>Wenn Nutzer:innen durch den Prozess der Nutzerzusammenführung aktualisiert werden</td></tr>
 <tr><td>Canvas-Schritt „Nutzeraktualisierung“</td><td>Wenn Nutzer:innen durch den Canvas-Schritt „Nutzeraktualisierung“ aktualisiert werden</td></tr>

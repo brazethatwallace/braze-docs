@@ -75,13 +75,13 @@ Sie können den [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/qu
 
 Der Zeitpunkt der Auswertung der Abbruchlogik hängt vom Nachrichtenkanal ab.
 
-### Push, E-Mail, Kurzmitteilungsdienst or SMS, Webhooks und Content Cards {#push-email-sms-webhooks-and-content-cards}
+### Push, E-Mail, SMS, Webhooks und Content Cards {#push-email-sms-webhooks-and-content-cards}
 
 Die Abbruchlogik wird zum Sendezeitpunkt ausgewertet, wenn Braze die Nachricht für die Zustellung verarbeitet.
 
 ### In-App Messages {#in-app-messages}
 
-Die Abbruchlogik wird bei [vorlagenbasierten In-App-Nachrichten]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#templated_iam-templated) nur zu dem Zeitpunkt ausgewertet, an dem die In-App-Nachricht ausgelöst wird (z. B. wenn Nutzer:innen das Trigger or triggern-Event ausführen oder eine Sitzung starten), nicht wenn die Nachricht ursprünglich an das Gerät gesendet wird. In-App-Nachrichten werden beim Sitzungsstart an das SDK or Software-Development-Kit übermittelt und lokal zwischengespeichert; das Liquid – einschließlich aller `abort_message()`-Aufrufe – wird ausgeführt, wenn die Trigger or triggern-Bedingung erfüllt ist.
+Die Abbruchlogik wird bei [vorlagenbasierten In-App-Nachrichten]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#templated_iam-templated) nur zu dem Zeitpunkt ausgewertet, an dem die In-App-Nachricht ausgelöst wird (z. B. wenn Nutzer:innen das Trigger-Event ausführen oder eine Sitzung starten), nicht wenn die Nachricht ursprünglich an das Gerät gesendet wird. In-App-Nachrichten werden beim Sitzungsstart an das SDK übermittelt und lokal zwischengespeichert; das Liquid – einschließlich aller `abort_message()`-Aufrufe – wird ausgeführt, wenn die Trigger-Bedingung erfüllt ist.
 
 ## Fehlerbehebung bei hohen Abbruchraten {#troubleshooting-high-abort-rates}
 
@@ -95,7 +95,7 @@ Wenn eine Campaign oder ein Canvas-Schritt viele eingetretene Nutzer:innen zeigt
 
 ### Attribute und Liquid zum Sendezeitpunkt überprüfen {#verify-attributes-and-liquid-at-send-time}
 
-Bei Push, E-Mail, Kurzmitteilungsdienst or SMS, Webhooks und Content Cards wird die Abbruchlogik ausgeführt, wenn Braze die Nachricht für die Zustellung verarbeitet – nicht wenn die Nutzer:innen einen Canvas betreten haben oder ein Trigger or triggern-Event zuvor ausgelöst wurde.
+Bei Push, E-Mail, SMS, Webhooks und Content Cards wird die Abbruchlogik ausgeführt, wenn Braze die Nachricht für die Zustellung verarbeitet – nicht wenn die Nutzer:innen einen Canvas betreten haben oder ein Trigger-Event zuvor ausgelöst wurde.
 
 - Stellen Sie sicher, dass die erforderlichen [angepassten Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), Event-Eigenschaften oder [Katalog]({{site.baseurl}}/user_guide/data/activation/catalogs)-Felder für die Nutzer:innen gesetzt sind, bevor der Nachrichtenschritt ausgeführt wird.
 - Fügen Sie explizite nil- oder Leerprüfungen hinzu, bevor Sie `abort_message()` aufrufen. Ein `else`-Zweig, der abbricht, wenn ein Wert fehlt, stoppt den Versand für alle Nutzer:innen ohne diese Daten.
@@ -109,7 +109,7 @@ Bei der Diagnose von Canvas-Abbrüchen:
 
 - Vergleichen Sie die eingetretenen Nutzer:innen im Nachrichtenschritt mit den gesendeten Nutzer:innen im selben Schritt.
 - Wenn nur ein Kanal abbricht, überprüfen Sie das kanalspezifische Liquid oder den Abo-Status für diesen Schritt.
-- Wenn Abbrüche nach einem Listen- oder Katalog-Update or aktualisieren sprunghaft ansteigen, prüfen Sie, ob der Nachrichtenschritt vor Abschluss des Updates ausgeführt wurde.
+- Wenn Abbrüche nach einem Listen- oder Katalog-Update sprunghaft ansteigen, prüfen Sie, ob der Nachrichtenschritt vor Abschluss des Updates ausgeführt wurde.
 
 ### Mit Vorschau und Testsendungen validieren {#validate-with-preview-and-test-sends}
 

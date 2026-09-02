@@ -83,7 +83,7 @@ Un mensaje se registra como enviado en cuanto el proveedor de servicios de notif
 
 Para iOS, el proveedor de servicios de notificaciones push es el servicio de notificaciones push de Apple (APNs), y para Android, normalmente es Firebase Cloud Messaging (FCM). El proveedor de servicios de notificaciones push responde de inmediato con éxito o fallo. Un fallo podría incluir un rebote o un reintento por fallo de red.
 
-Si se devuelve un mensaje de éxito, el envío se registra en Braze y, a continuación, el servicio push intenta entregar al dispositivo. Si no se puede contactar con el dispositivo de inmediato, el servicio reintenta hasta que se alcanza la opción de caducidad configurada en Braze (**TTL or tiempo de vida** para Android, **Expiry** para iOS). Si el mensaje caduca, el servicio push lo descarta, pero no se considera un rebote.
+Si se devuelve un mensaje de éxito, el envío se registra en Braze y, a continuación, el servicio push intenta entregar al dispositivo. Si no se puede contactar con el dispositivo de inmediato, el servicio reintenta hasta que se alcanza la opción de caducidad configurada en Braze (**TTL** para Android, **Expiry** para iOS). Si el mensaje caduca, el servicio push lo descarta, pero no se considera un rebote.
 
 - Para Campaigns push con entrega basada en acciones, el envío del mensaje se registra en cuanto el usuario realiza la acción que desencadena la Campaign.
 - Para Campaigns planificadas, la hora de envío es el momento en que el mensaje se puso en cola y se pasó al proveedor de servicios de notificaciones push.

@@ -14,15 +14,15 @@ search_tag: Partner
 
 ### Paso 1: Obtener la clave de importación de datos de Braze {#step-1-get-the-braze-data-import-key}
 
-En Braze, ve a **Integraciones de socios** > **Socios tecnológicos** y selecciona **Kubit**. Aquí encontrarás el endpoint REST or transferencia de estado representacional y generarás tu clave de importación de datos de Braze.
+En Braze, ve a **Integraciones de socios** > **Socios tecnológicos** y selecciona **Kubit**. Aquí encontrarás el endpoint REST y generarás tu clave de importación de datos de Braze.
 
-Una vez generada, puedes crear una nueva clave o invalidar una existente. La clave de importación de datos y el endpoint REST or transferencia de estado representacional se utilizan en el siguiente paso cuando se configura un postback en el panel de Kubit.
+Una vez generada, puedes crear una nueva clave o invalidar una existente. La clave de importación de datos y el endpoint REST se utilizan en el siguiente paso cuando se configura un postback en el panel de Kubit.
 
 ![La página de partners tecnológicos de Kubit en Braze.]({% image_buster /assets/img/kubit/kubit.png %}){: style="max-width:90%;"}
 
 ### Paso 2: Configurar Braze en Kubit {#step-2-configure-braze-in-kubit}
 
-Proporciona la clave de importación de datos de Braze y el endpoint REST or transferencia de estado representacional de Braze a tu contacto de soporte de Kubit. Ellos configurarán la integración por su parte y te avisarán cuando la integración esté en vivo.
+Proporciona la clave de importación de datos de Braze y el endpoint REST de Braze a tu contacto de soporte de Kubit. Ellos configurarán la integración por su parte y te avisarán cuando la integración esté en vivo.
 
 ### Paso 3: Importar cohortes a Braze {#step-3-import-cohorts-to-braze}
 

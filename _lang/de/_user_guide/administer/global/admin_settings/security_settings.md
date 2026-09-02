@@ -51,11 +51,11 @@ Verwenden Sie das angezeigte Feld, um bestimmte IP-Adressen und Subnetze auf die
 
 ## Zwei-Faktor-Authentifizierung (2FA)
 
-Die Zwei-Faktor-Authentifizierung ist für alle Unternehmensnutzer:innen erforderlich. Sie fügt einer Kontoanmeldung eine zweite Ebene der Identitätsprüfung hinzu und macht sie damit sicherer als nur einen Nutzernamen und ein Passwort. Falls Ihr Dashboard die Zwei-Faktor-Authentifizierung nicht unterstützen kann, wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in.
+Die Zwei-Faktor-Authentifizierung ist für alle Unternehmensnutzer:innen erforderlich. Sie fügt einer Kontoanmeldung eine zweite Ebene der Identitätsprüfung hinzu und macht sie damit sicherer als nur einen Nutzernamen und ein Passwort. Falls Ihr Dashboard die Zwei-Faktor-Authentifizierung nicht unterstützen kann, wenden Sie sich an Ihren CSM.
 
 Wenn die Zwei-Faktor-Authentifizierung aktiviert ist:
 
-- Zusätzlich zur Eingabe eines Passworts müssen Nutzer:innen bei der Anmeldung bei ihrem Braze-Konto einen Verifizierungscode eingeben. Der Code kann über eine Authenticator-App, per E-Mail oder per Kurzmitteilungsdienst or SMS gesendet werden.
+- Zusätzlich zur Eingabe eines Passworts müssen Nutzer:innen bei der Anmeldung bei ihrem Braze-Konto einen Verifizierungscode eingeben. Der Code kann über eine Authenticator-App, per E-Mail oder per SMS gesendet werden.
 - Das Kontrollkästchen **Dieses Konto für 30 Tage merken** wird für Nutzer:innen verfügbar.
 
 Braze sperrt Nutzer:innen, die ihre Zwei-Faktor-Authentifizierung nicht einrichten, von ihrem Braze-Konto aus. Braze-Kontonutzer:innen können die Zwei-Faktor-Authentifizierung auch selbstständig in den **Kontoeinstellungen** einrichten, auch wenn dies vom Administrator nicht verlangt wird.
@@ -80,7 +80,7 @@ Wenn Sie Probleme bei der Anmeldung mit der Zwei-Faktor-Authentifizierung haben,
 2. Wählen Sie die:den Nutzer:in aus der bereitgestellten Liste aus.
 3. Wählen Sie **Zurücksetzen** unter **Zwei-Faktor-Authentifizierung**.
 
-Ein Zurücksetzen kann häufige Authentifizierungsprobleme lösen, wie z. B. Schwierigkeiten mit Authenticator-Apps, nicht gesendete E-Mail-Verifizierungen, Anmeldefehler aufgrund von Kurzmitteilungsdienst or SMS-Ausfällen oder Nutzerfehlern und mehr.
+Ein Zurücksetzen kann häufige Authentifizierungsprobleme lösen, wie z. B. Schwierigkeiten mit Authenticator-Apps, nicht gesendete E-Mail-Verifizierungen, Anmeldefehler aufgrund von SMS-Ausfällen oder Nutzerfehlern und mehr.
 
 ### Anforderungen für 2FA auf Unternehmensebene
 
@@ -105,7 +105,7 @@ Um die Zwei-Faktor-Authentifizierung (2FA) für Ihr Braze-Konto manuell zu aktiv
 1. Wählen Sie in Braze Ihr Profilsymbol in der globalen Kopfzeile aus und dann **Manage your account**. Scrollen Sie zum Abschnitt **Two-Factor Authentication** und wählen Sie **Start Setup**.
 2. Geben Sie Ihr Passwort in das Anmeldefenster ein und wählen Sie **Check Password**.
 3. Geben Sie im Fenster **Two-Factor Authentication Setup** Ihre Telefonnummer ein und wählen Sie **Enable**.
-4. Kopieren Sie den generierten siebenstelligen Code aus Ihrer E-Mail oder Kurzmitteilungsdienst or SMS-Nachricht, kehren Sie dann zu Braze zurück und fügen Sie ihn im Fenster **Two-Factor Authentication Setup** ein. Wählen Sie **Verify**.
+4. Kopieren Sie den generierten siebenstelligen Code aus Ihrer E-Mail oder SMS-Nachricht, kehren Sie dann zu Braze zurück und fügen Sie ihn im Fenster **Two-Factor Authentication Setup** ein. Wählen Sie **Verify**.
 5. (Optional) Um die 2FA-Eingabe für die nächsten 30 Tage zu überspringen, aktivieren Sie die Option **Remember this account for 30 days**.
 
 ## Elevated Access
@@ -185,9 +185,9 @@ Die CSV-Datei des Sicherheitsereignisberichts enthält die folgenden Spalten:
 - Segment Users Deleted
 - Cleared Cohort
 
-### Representational State Transfer-API-Schlüssel
-- Added Representational State Transfer API key
-- Removed Representational State Transfer API key
+### REST-API-Schlüssel
+- Added REST API key
+- Removed REST API key
 
 ### Basic-Auth-Zugangsdaten
 - Added Basic Auth credential
@@ -221,7 +221,7 @@ Die CSV-Datei des Sicherheitsereignisberichts enthält die folgenden Spalten:
 - Enabled Global Control Group
 - Disabled Global Control Group
 - Updated Global Control Exclusions
-- Updated Subscription Group Kurzmitteilungsdienst or SMS Allow List
+- Updated Subscription Group SMS Allow List
 
 ### E-Mail-Template
 - Added Email Template
@@ -231,9 +231,9 @@ Die CSV-Datei des Sicherheitsereignisberichts enthält die folgenden Spalten:
 - Updated Push Credential
 - Removed Push Credential
 
-### SDK or Software-Development-Kit-Debugger
-- Started SDK or Software-Development-Kit Debugger Session
-- Exported SDK or Software-Development-Kit Debugger Log
+### SDK-Debugger
+- Started SDK Debugger Session
+- Exported SDK Debugger Log
 
 ### Nutzer:innen
 - Users Deleted
@@ -345,7 +345,7 @@ Wenn das Problem nach diesen Schritten weiterhin besteht, wenden Sie sich an den
 
 ### Zwei-Faktor-Authentifizierung (2FA) lässt sich nicht aktivieren
 
-Wenn 2FA aktiviert ist, aber nichts passiert, wenn Sie den Button **Aktivieren** auswählen, blockiert möglicherweise Ihr Browser die Weiterleitung, die zum Senden des Verifizierungscodes per Kurzmitteilungsdienst or SMS benötigt wird. Führen Sie die folgenden Schritte zur Fehlerbehebung aus:
+Wenn 2FA aktiviert ist, aber nichts passiert, wenn Sie den Button **Aktivieren** auswählen, blockiert möglicherweise Ihr Browser die Weiterleitung, die zum Senden des Verifizierungscodes per SMS benötigt wird. Führen Sie die folgenden Schritte zur Fehlerbehebung aus:
 
 1. Setzen Sie alle in Ihrem Browser aktivierten Werbeblocker vorübergehend aus.
 2. Stellen Sie sicher, dass Sie Drittanbieter-Cookies in Ihren Browsereinstellungen aktiviert haben.
@@ -353,11 +353,11 @@ Wenn 2FA aktiviert ist, aber nichts passiert, wenn Sie den Button **Aktivieren**
 
 ### Verifizierungscode wird nicht gesendet
 
-Wenn beim Eingeben Ihrer Telefonnummer auf der Authy-Seite Probleme auftreten und Sie keine Kurzmitteilungsdienst or SMS erhalten, führen Sie die folgenden Schritte aus:
+Wenn beim Eingeben Ihrer Telefonnummer auf der Authy-Seite Probleme auftreten und Sie keine SMS erhalten, führen Sie die folgenden Schritte aus:
 
 1. Installieren Sie die Authy-App auf Ihrem Telefon und melden Sie sich beim Authy-Authenticator an.
-2. Geben Sie Ihre Telefonnummer ein und prüfen Sie die Authy-App auf Änderungen oder Kurzmitteilungsdienst or SMS-Benachrichtigungen.
-3. Wenn Sie weiterhin keine Kurzmitteilungsdienst or SMS erhalten, versuchen Sie es mit einer anderen Netzwerkverbindung, z. B. Ihrem Heimnetzwerk oder einem nicht-unternehmensinternen WLAN. Unternehmensnetzwerke können Sicherheitsrichtlinien haben, die die Kurzmitteilungsdienst or SMS-Zustellung beeinträchtigen.
+2. Geben Sie Ihre Telefonnummer ein und prüfen Sie die Authy-App auf Änderungen oder SMS-Benachrichtigungen.
+3. Wenn Sie weiterhin keine SMS erhalten, versuchen Sie es mit einer anderen Netzwerkverbindung, z. B. Ihrem Heimnetzwerk oder einem nicht-unternehmensinternen WLAN. Unternehmensnetzwerke können Sicherheitsrichtlinien haben, die die SMS-Zustellung beeinträchtigen.
 
 Wenn die Probleme weiterhin bestehen, löschen Sie das alte Profil in der Authy-App und scannen Sie den QR-Code erneut, um 2FA einzurichten. Stellen Sie sicher, dass Sie Werbeblocker deaktiviert, Drittanbieter-Cookies aktiviert oder einen anderen Browser verwendet haben, bevor Sie die Einrichtung erneut versuchen.
 

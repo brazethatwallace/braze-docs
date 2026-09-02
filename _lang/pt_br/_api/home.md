@@ -1,11 +1,11 @@
 ---
 page_order: 0
 nav_title: Início
-article_title: Guia da API or interface de programação do aplicativo (API) da Braze
+article_title: Guia da API da Braze
 layout: api_glossary
 glossary_top_header: "Guia da API da Braze"
 glossary_top_text: "A Braze oferece uma REST API de alta performance para rastrear usuários, enviar mensagens, exportar dados e gerenciar Campaigns, Canvas, catálogos e muito mais. Use este glossário para navegar pelos endpoints por tipo, abrir artigos de referência com detalhes de requisição e resposta, e encontrar links para autenticação, limites de frequência e documentação de objetos."
-description: "Navegue pelos endpoints da REST or transferir estado representacional API or interface de programação do aplicativo (API) da Braze por tipo, com links para autenticação, limites de frequência e documentação de referência de objetos."
+description: "Navegue pelos endpoints da REST API da Braze por tipo, com links para autenticação, limites de frequência e documentação de referência de objetos."
 page_type: glossary
 glossary_tag_name: Endpoint Type
 
@@ -86,7 +86,7 @@ glossaries:
     tags:
       - User Data
   - name: <a href='/docs/api/endpoints/export/user_data/post_users_segment'>/users/export/segment</a>
-    description: Exporte todos os usuários de um Segment or segmento.
+    description: Exporte todos os usuários de um Segment.
     tags:
       - User Data
   - name: <a href='/docs/api/endpoints/user_data/external_id_migration/post_external_ids_rename'>/users/external_ids/rename</a>
@@ -150,15 +150,15 @@ glossaries:
     tags:
       - Data Objects
   - name: <a href='/docs/api/endpoints/messaging/send_messages/post_send_triggered_campaigns'>/campaigns/trigger/send</a>
-    description: Envie mensagens únicas e imediatas para usuários designados por meio de entrega disparada pela API or interface de programação do aplicativo (API).
+    description: Envie mensagens únicas e imediatas para usuários designados por meio de entrega disparada pela API.
     tags:
       - Send Messages
   - name: <a href='/docs/api/endpoints/messaging/send_messages/post_send_triggered_canvases'>/canvas/trigger/send</a>
-    description: Envie mensagens de Canvas por meio de entrega disparada pela API or interface de programação do aplicativo (API).
+    description: Envie mensagens de Canvas por meio de entrega disparada pela API.
     tags:
       - Send Messages
   - name: <a href='/docs/api/endpoints/messaging/send_messages/post_send_messages'>/messages/send</a>
-    description: Envie mensagens únicas e imediatas para usuários designados por meio da API or interface de programação do aplicativo (API) da Braze.
+    description: Envie mensagens únicas e imediatas para usuários designados por meio da API da Braze.
     tags:
       - Send Messages
   - name: <a href='/docs/api/endpoints/messaging/send_messages/post_create_send_ids'>/sends/id/create</a>
@@ -178,27 +178,27 @@ glossaries:
     tags:
       - Device Messaging API
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns'>/campaigns/trigger/schedule/create</a>
-    description: Envie mensagens de Campaign criadas no dashboard por meio de entrega disparada pela API or interface de programação do aplicativo (API).
+    description: Envie mensagens de Campaign criadas no dashboard por meio de entrega disparada pela API.
     tags:
       - Schedule Messages
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_delete_scheduled_triggered_messages'>/campaigns/trigger/schedule/delete</a>
-    description: Cancele mensagens de Campaign disparadas pela API or interface de programação do aplicativo (API) que você programou anteriormente antes de serem enviadas.
+    description: Cancele mensagens de Campaign disparadas pela API que você programou anteriormente antes de serem enviadas.
     tags:
       - Schedule Messages
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_update_scheduled_triggered_campaigns'>/campaigns/trigger/schedule/update</a>
-    description: Atualize Campaigns programadas e disparadas pela API or interface de programação do aplicativo (API) criadas no dashboard.
+    description: Atualize Campaigns programadas e disparadas pela API criadas no dashboard.
     tags:
       - Schedule Messages
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_delete_scheduled_triggered_canvases'>/canvas/trigger/schedule/delete</a>
-    description: Cancele uma mensagem de Canvas que você programou anteriormente via API or interface de programação do aplicativo (API) antes de ser enviada.
+    description: Cancele uma mensagem de Canvas que você programou anteriormente via API antes de ser enviada.
     tags:
       - Schedule Messages
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases'>/canvas/trigger/schedule/create</a>
-    description: Programe o envio de mensagens de Canvas por meio de entrega disparada pela API or interface de programação do aplicativo (API).
+    description: Programe o envio de mensagens de Canvas por meio de entrega disparada pela API.
     tags:
       - Schedule Messages
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_update_scheduled_messages'>/messages/schedule/update</a>
-    description: Atualize mensagens programadas. Esse endpoint aceita atualizações para o parâmetro <code>agendar/cronograma</code> ou <code>messages</code>, ou ambos.
+    description: Atualize mensagens programadas. Esse endpoint aceita atualizações para o parâmetro <code>schedule</code> ou <code>messages</code>, ou ambos.
     tags:
       - Schedule Messages
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_delete_scheduled_messages'>/messages/schedule/delete</a>
@@ -210,7 +210,7 @@ glossaries:
     tags:
       - Schedule Messages
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_update_scheduled_triggered_canvases'>/canvas/trigger/schedule/update</a>
-    description: Atualize Canvas programados e disparados pela API or interface de programação do aplicativo (API) que você criou no dashboard.
+    description: Atualize Canvas programados e disparados pela API que você criou no dashboard.
     tags:
       - Schedule Messages
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/get_messages_scheduled'>/messages/scheduled_broadcasts</a>
@@ -298,7 +298,7 @@ glossaries:
     tags:
       - Campaigns
   - name: <a href='/docs/api/endpoints/export/campaigns/get_campaigns'>/campaigns/list</a>
-    description: "Exporte uma lista de Campaigns, cada uma incluindo seu nome, identificador de API or interface de programação do aplicativo (API) da Campaign, se é uma Campaign da API or interface de programação do aplicativo (API) e tags associadas à Campaign."
+    description: "Exporte uma lista de Campaigns, cada uma incluindo seu nome, identificador de API da Campaign, se é uma Campaign da API e tags associadas à Campaign."
     tags:
       - Campaigns
   - name: <a href='/docs/api/endpoints/export/campaigns/get_send_analytics'>/sends/data_series</a>
@@ -318,23 +318,23 @@ glossaries:
     tags:
       - Canvas
   - name: <a href='/docs/api/endpoints/export/canvas/get_canvases'>/canvas/list</a>
-    description: "Exporte uma lista de Canvas, incluindo o nome, o identificador de API or interface de programação do aplicativo (API) do Canvas e as tags associadas."
+    description: "Exporte uma lista de Canvas, incluindo o nome, o identificador de API do Canvas e as tags associadas."
     tags:
       - Canvas
   - name: <a href='/docs/api/endpoints/export/segments/get_segment_analytics'>/segments/data_series</a>
-    description: Recupere uma série diária do tamanho estimado de um Segment or segmento ao longo do tempo.
+    description: Recupere uma série diária do tamanho estimado de um Segment ao longo do tempo.
     tags:
       - Segments
   - name: <a href='/docs/api/endpoints/export/segments/get_segment_details'>/segments/details</a>
-    description: Recupere informações relevantes sobre um Segment or segmento.
+    description: Recupere informações relevantes sobre um Segment.
     tags:
       - Segments
   - name: <a href='/docs/api/endpoints/export/segments/get_segment'>/segments/list</a>
-    description: "Exporte uma lista de Segments, cada um incluindo seu nome, identificador de API or interface de programação do aplicativo (API) do Segment or segmento e se possui rastreamento de análise de dados ativado."
+    description: "Exporte uma lista de Segments, cada um incluindo seu nome, identificador de API do Segment e se possui rastreamento de análise de dados ativado."
     tags:
       - Segments
   - name: <a href='/docs/api/endpoints/export/segments/post_cancel_export'>/export/segment/cancel</a>
-    description: Cancele exportações para o ID de Segment or segmento fornecido.
+    description: Cancele exportações para o ID de Segment fornecido.
     tags:
       - Segments
   - name: <a href='/docs/api/endpoints/export/sessions/get_sessions_analytics'>/sessions/data_series</a>
@@ -530,19 +530,19 @@ glossaries:
     tags:
       - Cloud Data Ingestion
   - name: <a href='/docs/api/endpoints/sdk_authentication/post_create_sdk_authentication_key'>/app_group/sdk_authentication/create</a>
-    description: Crie uma nova chave de autenticação do SDK or kit de desenvolvimento de software para o seu app.
+    description: Crie uma nova chave de autenticação do SDK para o seu app.
     tags:
       - SDK Authentication
   - name: <a href='/docs/api/endpoints/sdk_authentication/get_sdk_authentication_keys'>/app_group/sdk_authentication/keys</a>
-    description: Liste as chaves de autenticação do SDK or kit de desenvolvimento de software para o seu app.
+    description: Liste as chaves de autenticação do SDK para o seu app.
     tags:
       - SDK Authentication
   - name: <a href='/docs/api/endpoints/sdk_authentication/put_primary_sdk_authentication_key'>/app_group/sdk_authentication/primary</a>
-    description: Defina uma chave de autenticação do SDK or kit de desenvolvimento de software como a chave primária para o seu app.
+    description: Defina uma chave de autenticação do SDK como a chave primária para o seu app.
     tags:
       - SDK Authentication
   - name: <a href='/docs/api/endpoints/sdk_authentication/delete_sdk_authentication_key'>/app_group/sdk_authentication/delete</a>
-    description: Exclua uma chave de autenticação do SDK or kit de desenvolvimento de software para o seu app.
+    description: Exclua uma chave de autenticação do SDK para o seu app.
     tags:
       - SDK Authentication
   - name: <a href='/docs/api/endpoints/media_library/manage_assets/create'>/media_library/create</a>

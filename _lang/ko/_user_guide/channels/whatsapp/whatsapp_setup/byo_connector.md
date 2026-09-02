@@ -82,7 +82,7 @@ BYO WhatsApp 커넥터를 설정하기 전에, WhatsApp Business 계정의 이�
 - 기존 WABA를 선택하지 말고 새 WABA를 생성해야 합니다.
 
 {% alert note %}
-인증 코드를 받으려면 Infobip 대시보드 > **Analyze** > **Logs**로 이동하여 인바운드 단문 메시지 서비스 메시지에서 코드를 확인하세요.
+인증 코드를 받으려면 Infobip 대시보드 > **Analyze** > **Logs**로 이동하여 인바운드 SMS 메시지에서 코드를 확인하세요.
 {% endalert %}
 
 ![인증 코드가 포함된 인바운드 SMS 메시지를 보여주는 메시지 로그.]({% image_buster /assets/img/whatsapp/byo_connector/verification_code.png %})

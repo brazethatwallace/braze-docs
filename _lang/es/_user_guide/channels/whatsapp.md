@@ -16,7 +16,7 @@ alias: /whatsapp/
 
 ## Requisitos previos {#prerequisites}
 
-La disponibilidad de WhatsApp depende de tu paquete de Braze. Ponte en contacto con tu director de cuentas o CSM or administrador de éxito de cliente or administrador de éxito de cliente para empezar.
+La disponibilidad de WhatsApp depende de tu paquete de Braze. Ponte en contacto con tu director de cuentas o CSM para empezar.
 
 Antes de empezar, asegúrate de tener lo siguiente:
 

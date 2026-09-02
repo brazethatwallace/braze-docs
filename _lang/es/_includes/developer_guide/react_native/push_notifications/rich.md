@@ -2,7 +2,7 @@
 
 ## Uso de Expo para habilitar notificaciones push enriquecidas
 
-Para el SDK or kit de desarrollo de software de React Native, **las notificaciones push enriquecidas están disponibles para Android de forma predeterminada**.
+Para el SDK de React Native, **las notificaciones push enriquecidas están disponibles para Android de forma predeterminada**.
 
 Para habilitar las notificaciones push enriquecidas en iOS mediante Expo, configura la propiedad `enableBrazeIosRichPush` en `true` en tu objeto `expo.plugins` en `app.json`:
 

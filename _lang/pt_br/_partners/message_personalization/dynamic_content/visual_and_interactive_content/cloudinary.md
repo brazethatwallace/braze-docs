@@ -18,7 +18,7 @@ A conexão do Cloudinary à Braze dá às marcas acesso à mídia visual armazen
 Esta página descreve quatro métodos de integração possíveis, mas não exaustivos, entre o Cloudinary e a Braze. Esses métodos de integração dependem principalmente da modificação de links de ativos copiados manualmente da Biblioteca de mídia do Cloudinary.
 
 {% alert important %}
-Métodos de integração mais avançados, incluindo o uso de [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) para chamar a [API or interface de programação do aplicativo (API) de administração](https://cloudinary.com/documentation/admin_api#banner) do Cloudinary, são possíveis, mas a abordagem varia de acordo com o cliente. Entre em contato com o gerente de sucesso do cliente do Cloudinary e da Braze para obter orientação.
+Métodos de integração mais avançados, incluindo o uso de [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) para chamar a [API de administração](https://cloudinary.com/documentation/admin_api#banner) do Cloudinary, são possíveis, mas a abordagem varia de acordo com o cliente. Entre em contato com o CSM do Cloudinary e da Braze para obter orientação.
 {% endalert %}
 
 ## Pré-requisitos {#prerequisites}
@@ -111,7 +111,7 @@ O Cloudinary organiza os ativos da campanha usando [tags](https://cloudinary.com
 
 Cada ativo de campanha é agrupado em uma tag de campanha (por exemplo, `spring_launch`) e enriquecido com campos de metadados estruturados que correspondem a atributos da Braze como `language=en` ou `tier=gold`. Quando a Braze chama o link do Cloudinary, uma [função personalizada](https://cloudinary.com/documentation/custom_functions#javascript_filters) processa os atributos recebidos, procura o ativo com tags e metadados correspondentes e retorna a correspondência mais adequada.
 
-Se uma correspondência exata não for encontrada, a função seleciona automaticamente uma opção de fallback ou a "próxima melhor" para garantir continuidade em cada experiência. Quando o ativo é selecionado, a camada de transformação do Cloudinary (por exemplo, `f_auto` ou `q_auto`) otimiza a mídia para entrega. Essa combinação de tags, metadados e funções personalizadas oferece aos desenvolvedores uma maneira flexível e orientada por API or interface de programação do aplicativo (API) para automatizar a entrega personalizada de ativos.
+Se uma correspondência exata não for encontrada, a função seleciona automaticamente uma opção de fallback ou a "próxima melhor" para garantir continuidade em cada experiência. Quando o ativo é selecionado, a camada de transformação do Cloudinary (por exemplo, `f_auto` ou `q_auto`) otimiza a mídia para entrega. Essa combinação de tags, metadados e funções personalizadas oferece aos desenvolvedores uma maneira flexível e orientada por API para automatizar a entrega personalizada de ativos.
 
 {% alert tip %}
 Consulte o [repositório `braze-personalization` no GitHub](https://github.com/cloudinary-devs/braze-personalization) do Cloudinary para obter instruções sobre como criar e aplicar funções personalizadas, além de um exemplo de função personalizada para seleção de ativos e opções de fallback para uma determinada campanha. Para mais orientações, entre em contato com a equipe de suporte do Cloudinary.

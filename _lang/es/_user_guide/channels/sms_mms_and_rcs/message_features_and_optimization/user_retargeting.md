@@ -1,7 +1,7 @@
 ---
 nav_title: "Reorientación de usuarios"
 article_title: "Reorientación de usuarios"
-description: "Este artículo de referencia cubre cómo los usuarios pueden reorientar sus mensajes según las interacciones de servicio de mensajes cortos y RCS de un usuario."
+description: "Este artículo de referencia cubre cómo los usuarios pueden reorientar sus mensajes según las interacciones de SMS y RCS de un usuario."
 page_type: reference
 page_order: 4
 alias: /sms_mms_rcs_user_retargeting/
@@ -16,7 +16,7 @@ channel:
 
 # Reorientación de usuarios {#user-retargeting}
 
-> Además de cambiar el estado de suscripción del usuario y enviar respuestas automáticas basadas en palabras clave entrantes, Braze también registrará las interacciones en el perfil de usuario para filtrar y desencadenar mensajes.<br><br>Estos filtros y desencadenantes te permiten filtrar acciones basadas en usuarios que han recibido o han respondido a campañas de servicio de mensajes cortos, MMS y RCS, o interactuar aún más con usuarios que han hecho clic en URL acortadas.
+> Además de cambiar el estado de suscripción del usuario y enviar respuestas automáticas basadas en palabras clave entrantes, Braze también registrará las interacciones en el perfil de usuario para filtrar y desencadenar mensajes.<br><br>Estos filtros y desencadenantes te permiten filtrar acciones basadas en usuarios que han recibido o han respondido a campañas de SMS, MMS y RCS, o interactuar aún más con usuarios que han hecho clic en URL acortadas.
 
 {% alert tip %}
 Para leer más sobre palabras clave personalizadas y cómo configurar la mensajería bidireccional para aprovechar estas opciones de reorientación, visita nuestro artículo sobre [palabras clave personalizadas]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling).
@@ -28,27 +28,27 @@ Para leer más sobre palabras clave personalizadas y cómo configurar la mensaje
 Al crear audiencias con reorientación de usuarios, es posible que desees incluir o excluir a ciertos usuarios según sus preferencias y para cumplir con las leyes de privacidad, como el derecho de "No vender ni compartir" bajo la CUP. Los especialistas en marketing deben implementar los filtros relevantes para la elegibilidad de los usuarios dentro de los criterios de entrada de su Canvas o Campaign.
 {% endalert %}
 
-### Filtrar usuarios por servicio de mensajes cortos, MMS y RCS {#filter-users-by-sms-mms-and-rcs}
+### Filtrar usuarios por SMS, MMS y RCS {#filter-users-by-sms-mms-and-rcs}
 
-Los usuarios pueden filtrarse por la última vez que recibieron un servicio de mensajes cortos, MMS o RCS, o si han recibido un servicio de mensajes cortos, MMS o RCS de una Campaign específica. Los filtros se pueden configurar en el paso **Público objetivo** del creador de campañas.
+Los usuarios pueden filtrarse por la última vez que recibieron un SMS, MMS o RCS, o si han recibido un SMS, MMS o RCS de una Campaign específica. Los filtros se pueden configurar en el paso **Público objetivo** del creador de campañas.
 
 {% alert note %}
 Cuando un mensaje es recibido, abierto o se hace clic en él, Braze actualiza los datos de todos los perfiles que comparten el mismo número de teléfono que el perfil que registró la interacción. Los usuarios que comparten un número de teléfono con alguien que recibió, abrió o hizo clic en el mensaje pueden coincidir con este filtro incluso si no estaban originalmente en la Campaign o no recibieron directamente el mensaje.
 {% endalert %}
 
-#### Filtrar por último servicio de mensajes cortos/MMS/RCS recibido {#filter-by-last-received-smsmmsrcs}
+#### Filtrar por último SMS/MMS/RCS recibido {#filter-by-last-received-smsmmsrcs}
 
 ![Filtro de segmentación Último SMS recibido después del 8 de diciembre de 2020.]({% image_buster /assets/img/sms/filter2.png %})
 
-#### Filtrar por mensajes recibidos de una Campaign de servicio de mensajes cortos/MMS/RCS {#filter-by-received-messages-from-smsmmsrcs-campaign}
+#### Filtrar por mensajes recibidos de una Campaign de SMS/MMS/RCS {#filter-by-received-messages-from-smsmmsrcs-campaign}
 
 Filtra usuarios que han recibido un mensaje de una Campaign específica. Con este filtro, también tienes la opción de filtrar a aquellos que no han recibido mensajes de una Campaign.
 
 ![Filtro de segmentación Ha recibido mensaje de la Campaign "SMS retargeting".]({% image_buster /assets/img/sms/filter1.png %})
 
-### Desencadenar mensajes cuando los usuarios reciben servicio de mensajes cortos, MMS o RCS {#trigger-messages}
+### Desencadenar mensajes cuando los usuarios reciben SMS, MMS o RCS {#trigger-messages}
 
-Para desencadenar mensajes cuando los usuarios reciben mensajes de servicio de mensajes cortos, MMS o RCS de una Campaign específica, selecciona **Interact with Campaign** como la acción desencadenante para una Campaign basada en acciones. A continuación, selecciona **Receive servicio de mensajes cortos** y la Campaign de servicio de mensajes cortos, MMS o RCS que deseas utilizar.
+Para desencadenar mensajes cuando los usuarios reciben mensajes de SMS, MMS o RCS de una Campaign específica, selecciona **Interact with Campaign** como la acción desencadenante para una Campaign basada en acciones. A continuación, selecciona **Receive SMS** y la Campaign de SMS, MMS o RCS que deseas utilizar.
 
 ![Para desencadenar mensajes cuando los usuarios reciben mensajes de SMS, MMS o RCS de una Campaign específica, selecciona Interact with Campaign como la acción desencadenante para una Campaign basada en acciones. A continuación, selecciona Receive SMS y la Campaign de SMS, MMS o RCS que deseas utilizar.]({% image_buster /assets/img/sms/trigger.png %})
 
@@ -57,10 +57,10 @@ Para desencadenar mensajes cuando los usuarios reciben mensajes de servicio de m
 Reorienta a los usuarios que han hecho clic en Campaigns con [enlaces de seguimiento avanzado]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening).
 Solo las Campaigns que tienen el seguimiento avanzado habilitado aparecen en los siguientes menús desplegables:
 
-#### Reorientar usuarios que han hecho clic en una Campaign específica de servicio de mensajes cortos, MMS o RCS {#retarget-users-who-have-clicked-a-specific-sms-mms-or-rcs-campaign}
+#### Reorientar usuarios que han hecho clic en una Campaign específica de SMS, MMS o RCS {#retarget-users-who-have-clicked-a-specific-sms-mms-or-rcs-campaign}
 
 1. Crea un segmento usando el filtro **Clicked/Opened Campaign**.
-2. Selecciona **clicked shortened servicio de mensajes cortos link**.
+2. Selecciona **clicked shortened sms link**.
 3. Elige la Campaign deseada.
 
 ![Captura de pantalla relacionada con reorientar usuarios que han hecho clic en una Campaign específica de SMS, MMS o RCS.]({% image_buster /assets/img/sms/retargeting5.png %})
@@ -68,7 +68,7 @@ Solo las Campaigns que tienen el seguimiento avanzado habilitado aparecen en los
 #### Reorientar usuarios que han hecho clic en un paso específico de Canvas {#retarget-users-who-have-clicked-a-specific-canvas-step}
 
 1. Crea un segmento usando el filtro **Clicked/Opened Step**.
-2. Selecciona **clicked shortened servicio de mensajes cortos link**.
+2. Selecciona **clicked shortened sms link**.
 3. Elige el Canvas y el paso en Canvas deseados.
 
 ![Captura de pantalla relacionada con reorientar usuarios que han hecho clic en un paso específico de Canvas.]({% image_buster /assets/img/keyword_example1.jpg %})
@@ -79,13 +79,13 @@ Además de las tres categorías de palabras clave predeterminadas (adhesión vol
 
 ### Filtrar por recencia {#filter-by-recency}
 
-Filtra por la recencia de un usuario que responde a tu programa de servicio de mensajes cortos, MMS o RCS. Este filtro evaluará la última fecha en que un usuario envió un mensaje entrante que está dentro de una de las categorías de palabras clave.
+Filtra por la recencia de un usuario que responde a tu programa de SMS, MMS o RCS. Este filtro evaluará la última fecha en que un usuario envió un mensaje entrante que está dentro de una de las categorías de palabras clave.
 
 ![Filtro de segmentación Último SMS enviado al grupo de suscripción "Marketing SMS" con palabra clave "Opt-in" después del 11 de agosto de 2020.]({% image_buster /assets/img/sms/retargeting1.png %})
 
 ### Filtrar por atribución de Campaign o Canvas {#filter-by-campaign-or-canvas-attribution}
 
-Filtra por usuarios que han respondido a una Campaign o componente de Canvas específico de servicio de mensajes cortos, MMS o RCS, categoría de palabras clave o etiqueta.
+Filtra por usuarios que han respondido a una Campaign o componente de Canvas específico de SMS, MMS o RCS, categoría de palabras clave o etiqueta.
 
 #### Filtrar por respuesta a una Campaign específica con categoría de palabras clave {#filter-by-replied-to-a-specific-campaign-with-keyword-category}
 
@@ -106,7 +106,7 @@ Los mensajes se pueden desencadenar cuando los usuarios envían mensajes entrant
 Al evaluar si un mensaje entrante cumple con un evento desencadenante definido, los espacios iniciales y finales se eliminan antes de que comience la evaluación.
 
 {% alert tip %}
-Si un Canvas basado en acciones se desencadena por un mensaje entrante de servicio de mensajes cortos o MMS, puedes hacer referencia a las [propiedades Liquid de servicio de mensajes cortos compatibles]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags) en cualquier paso de Canvas hasta la siguiente ruta de acción.
+Si un Canvas basado en acciones se desencadena por un mensaje entrante de SMS o MMS, puedes hacer referencia a las [propiedades Liquid de SMS compatibles]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags) en cualquier paso de Canvas hasta la siguiente ruta de acción.
 {% endalert %}
 
 #### Desencadenar por categoría de palabra clave entrante {#trigger-by-inbound-keyword-category}
@@ -121,7 +121,7 @@ Ten en cuenta que al desencadenar un mensaje con una respuesta de palabra clave 
 
 #### Plantillas de palabras clave {#template-keywords}
 
-Al desencadenar una Campaign o componente de Canvas con un servicio de mensajes cortos o MMS entrante, opcionalmente puedes incluir como plantilla el texto o los archivos adjuntos multimedia que tu usuario envió en el cuerpo de tu Campaign o Canvas con Liquid. Esto te permite acceder a la respuesta del usuario, que luego puedes incluir en tu respuesta, aplicar lógica condicional o cualquier otra cosa que puedas hacer con Liquid.
+Al desencadenar una Campaign o componente de Canvas con un SMS o MMS entrante, opcionalmente puedes incluir como plantilla el texto o los archivos adjuntos multimedia que tu usuario envió en el cuerpo de tu Campaign o Canvas con Liquid. Esto te permite acceder a la respuesta del usuario, que luego puedes incluir en tu respuesta, aplicar lógica condicional o cualquier otra cosa que puedas hacer con Liquid.
 
 {% raw %}
 

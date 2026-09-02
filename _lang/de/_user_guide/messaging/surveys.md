@@ -11,7 +11,7 @@ description: "Erfahren Sie, wie Sie mit Braze-Umfragen First-Party-Feedback übe
 
 # Umfragen {#surveys}
 
-> Braze-Umfragen ermöglichen es Ihnen, First-Party-Feedback direkt von Ihren Nutzer:innen zu erfassen und in Folge-Nachrichten darauf zu reagieren – ohne das Braze-Dashboard zu verlassen. Nutzen Sie Umfragen, um die Stimmung Ihrer Nutzer:innen zu verstehen, Präferenzen zu erfassen und Segmente sowie Trigger or triggern auf Basis der gesammelten Antworten zu erstellen.
+> Braze-Umfragen ermöglichen es Ihnen, First-Party-Feedback direkt von Ihren Nutzer:innen zu erfassen und in Folge-Nachrichten darauf zu reagieren – ohne das Braze-Dashboard zu verlassen. Nutzen Sie Umfragen, um die Stimmung Ihrer Nutzer:innen zu verstehen, Präferenzen zu erfassen und Segmente sowie Trigger auf Basis der gesammelten Antworten zu erstellen.
 
 
 ## Kanalverfügbarkeit {#channel-availability}
@@ -26,7 +26,7 @@ Umfragen sind auf zwei Kanälen verfügbar. Jede Kanalseite behandelt den kanals
 
 ## Umfragenseite {#surveys-page}
 
-Gehen Sie zu **Messaging** > **Surveys**, um Umfragen über Landing-Pages, Campaigns und Canvase an einem Ort zu finden. Nutzen Sie diese Seite als Einstiegspunkt, um die Performance Ihrer Umfragen kanalübergreifend zu überprüfen.
+Gehen Sie zu **Messaging** > **Surveys**, um Umfragen über Landing-Pages, Campaigns und Canvases an einem Ort zu finden. Nutzen Sie diese Seite als Einstiegspunkt, um die Performance Ihrer Umfragen kanalübergreifend zu überprüfen.
 
 {% alert note %}
 Wenn **Surveys** unter **Messaging** nicht angezeigt wird, wenden Sie sich an Ihren Braze Account Manager:in.
@@ -102,7 +102,7 @@ Die Langtext-Erfassung ist nützlich für qualitatives Feedback. Sie können die
 
 ![Einstellungen für den Langtext-Erfassungsblock.]({% image_buster /assets/img/surveys/long-form-surveys.png %}){: style="max-width:40%;"}
 
-Langtext-Antworten sind im Reporting und in Exporten verfügbar, können aber nicht als angepasste Attribute im Kundenprofil or Nutzerprofil protokolliert werden – Sie können Nutzer:innen also nicht direkt nach einem Langtext-Antwortwert segmentieren. Details finden Sie unter [Einschränkungen]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/surveys#limitations) auf der jeweiligen Kanalseite.
+Langtext-Antworten sind im Reporting und in Exporten verfügbar, können aber nicht als angepasste Attribute im Kundenprofil protokolliert werden – Sie können Nutzer:innen also nicht direkt nach einem Langtext-Antwortwert segmentieren. Details finden Sie unter [Einschränkungen]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/surveys#limitations) auf der jeweiligen Kanalseite.
 
 In Currents verwenden Langtext-Antworten `answer_type = 'free_form_text'` mit dem Text in `answer_long_string`.
 {% endtab %}
@@ -116,7 +116,7 @@ Die Randomisierung ändert nur die Anzeigereihenfolge für die jeweilige umfrage
 
 ## Umfrage-Templates {#survey-templates}
 
-Speichern Sie eine Umfrage als Template aus der Landing-Page- oder In-App-Nachricht-Template-Bibliothek, damit Ersteller:innen damit starten können, anstatt jedes Mal dieselben Fragen und Formularblöcke neu zu erstellen. Wenn Umfrage-Templates für Ihren Workspace aktiviert sind, filtern Sie die Bibliothek nach **Survey**, um gespeicherte Umfragestrukturen über Campaigns, Canvase und Landing-Pages hinweg zu finden und wiederzuverwenden.
+Speichern Sie eine Umfrage als Template aus der Landing-Page- oder In-App-Nachricht-Template-Bibliothek, damit Ersteller:innen damit starten können, anstatt jedes Mal dieselben Fragen und Formularblöcke neu zu erstellen. Wenn Umfrage-Templates für Ihren Workspace aktiviert sind, filtern Sie die Bibliothek nach **Survey**, um gespeicherte Umfragestrukturen über Campaigns, Canvases und Landing-Pages hinweg zu finden und wiederzuverwenden.
 
 ## Survey-Response-Ereignisse {#survey-response-events}
 
@@ -126,7 +126,7 @@ Braze exportiert einzelne Umfrageantworten über das **Survey Response**-Ereigni
 
 ## Landing-Page-Engagement-Funnel {#landing-page-engagement-funnel}
 
-Landing-Page-Umfragen generieren auch **Landing Page Impression**- und **Landing Page Klick, der or klicken**-Ereignisse für Seitenaufrufe und getrackte Klicks. Das Abschließen einer Landing-Page-Umfrage schreibt ein **Survey Response**-Ereignis; es löst nicht zusätzlich das generische **Landing Page Form Submission**-Ereignis aus, das für Standard-Landing-Page-Formulare (ohne Umfrage) vorgesehen ist. Die vollständige Feldreferenz für diese Ereignisse finden Sie im [Currents-Ereignisglossar]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events).
+Landing-Page-Umfragen generieren auch **Landing Page Impression**- und **Landing Page Klick, der**-Ereignisse für Seitenaufrufe und getrackte Klicks. Das Abschließen einer Landing-Page-Umfrage schreibt ein **Survey Response**-Ereignis; es löst nicht zusätzlich das generische **Landing Page Form Submission**-Ereignis aus, das für Standard-Landing-Page-Formulare (ohne Umfrage) vorgesehen ist. Die vollständige Feldreferenz für diese Ereignisse finden Sie im [Currents-Ereignisglossar]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events).
 
 ## Verwandte Artikel {#related-articles}
 

@@ -437,122 +437,122 @@ hidden: true
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Representational State Transfer of Africa Authentication</td>
+        <td>Rest of Africa Authentication</td>
         <td>1.06</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Representational State Transfer of Africa Marketing</td>
+        <td>Rest of Africa Marketing</td>
         <td>5.97</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Representational State Transfer of Africa Marketing - Optimized Delivery</td>
+        <td>Rest of Africa Marketing - Optimized Delivery</td>
         <td>5.97</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Representational State Transfer of Africa Utility</td>
+        <td>Rest of Africa Utility</td>
         <td>1.06</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Representational State Transfer of Asia Pacific Authentication</td>
+        <td>Rest of Asia Pacific Authentication</td>
         <td>3</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Representational State Transfer of Asia Pacific Marketing</td>
+        <td>Rest of Asia Pacific Marketing</td>
         <td>19.4</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Representational State Transfer of Asia Pacific Marketing - Optimized Delivery</td>
+        <td>Rest of Asia Pacific Marketing - Optimized Delivery</td>
         <td>19.4</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Representational State Transfer of Asia Pacific Utility</td>
+        <td>Rest of Asia Pacific Utility</td>
         <td>3</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Representational State Transfer of Central & Eastern Europe Authentication</td>
+        <td>Rest of Central & Eastern Europe Authentication</td>
         <td>5.6</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Representational State Transfer of Central & Eastern Europe Marketing</td>
+        <td>Rest of Central & Eastern Europe Marketing</td>
         <td>22.8</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Representational State Transfer of Central & Eastern Europe Marketing - Optimized Delivery</td>
+        <td>Rest of Central & Eastern Europe Marketing - Optimized Delivery</td>
         <td>22.8</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Representational State Transfer of Central & Eastern Europe Utility</td>
+        <td>Rest of Central & Eastern Europe Utility</td>
         <td>5.6</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Representational State Transfer of Latin America Authentication</td>
+        <td>Rest of Latin America Authentication</td>
         <td>3</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Representational State Transfer of Latin America Marketing</td>
+        <td>Rest of Latin America Marketing</td>
         <td>19.5</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Representational State Transfer of Latin America Marketing - Optimized Delivery</td>
+        <td>Rest of Latin America Marketing - Optimized Delivery</td>
         <td>19.5</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Representational State Transfer of Latin America Utility</td>
+        <td>Rest of Latin America Utility</td>
         <td>3</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Representational State Transfer of Middle East Authentication</td>
+        <td>Rest of Middle East Authentication</td>
         <td>2.4</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Representational State Transfer of Middle East Marketing</td>
+        <td>Rest of Middle East Marketing</td>
         <td>9</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Representational State Transfer of Middle East Marketing - Optimized Delivery</td>
+        <td>Rest of Middle East Marketing - Optimized Delivery</td>
         <td>9</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Representational State Transfer of Middle East Utility</td>
+        <td>Rest of Middle East Utility</td>
         <td>2.4</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Representational State Transfer of Western Europe Authentication</td>
+        <td>Rest of Western Europe Authentication</td>
         <td>4.5</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Representational State Transfer of Western Europe Marketing</td>
+        <td>Rest of Western Europe Marketing</td>
         <td>15.5</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Representational State Transfer of Western Europe Marketing - Optimized Delivery</td>
+        <td>Rest of Western Europe Marketing - Optimized Delivery</td>
         <td>15.5</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Representational State Transfer of Western Europe Utility</td>
+        <td>Rest of Western Europe Utility</td>
         <td>4.5</td>
     </tr>
     <tr>

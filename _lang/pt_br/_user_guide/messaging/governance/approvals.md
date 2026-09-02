@@ -48,7 +48,7 @@ Por padrão, a configuração do fluxo de aprovação está desativada para Camp
 - **Use approval workflow for all Canvases in [seu espaço de trabalho]**
 
 {% alert important %}
-A aprovação de Campaigns não é compatível com [Campaigns da API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/api_campaigns) e [Campaigns de e-mail de transação]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email).
+A aprovação de Campaigns não é compatível com [Campaigns da API]({{site.baseurl}}/api/api_campaigns) e [Campaigns de e-mail de transação]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email).
 {% endalert %}
 
 ## Definindo permissões de usuário {#setting-user-permissions}

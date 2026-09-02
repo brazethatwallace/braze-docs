@@ -22,19 +22,19 @@ Um die Standorterfassung in Ihrer App zu aktivieren, lesen Sie den Entwicklerlei
 
 Im Allgemeinen verwenden mobile Apps den GPS-Chip des Geräts und andere Systeme (wie Wi-Fi-Scanning), um den Standort von Nutzer:innen zu verfolgen. Web-Apps verwenden WPS (Wi-Fi Positioning System), um den Standort von Nutzer:innen zu verfolgen. Alle diese Plattformen erfordern, dass Nutzer:innen dem Standort-Tracking zustimmen. Die Genauigkeit Ihrer Standort-Tracking-Daten kann davon beeinflusst werden, ob Ihre Nutzer:innen Wi-Fi auf ihren Geräten aktiviert haben oder nicht. Android-Nutzer:innen können auch verschiedene Standortmodi wählen – Nutzer:innen, die den Modus „Batteriesparen“ oder „Nur Gerät“ verwenden, können ungenaue Daten aufweisen.
 
-### SDK or Software-Development-Kit-Nutzerstandort nach IP-Adresse {#sdk-user-location-by-ip-address}
+### SDK-Nutzerstandort nach IP-Adresse {#sdk-user-location-by-ip-address}
 
-Braze erkennt Nutzerstandorte anhand des geolokaliserten Landes über die IP-Adresse zu Beginn der ersten SDK or Software-Development-Kit-Sitzung.
+Braze erkennt Nutzerstandorte anhand des geolokaliserten Landes über die IP-Adresse zu Beginn der ersten SDK-Sitzung.
 
-Zuvor verwendete Braze den Ländercode aus der Geräte-Locale bei der SDK or Software-Development-Kit-Nutzererstellung und für die Dauer der ersten Sitzung. Erst nach der Verarbeitung des ersten Sitzungsstarts wurde die IP-Adresse verwendet, um das zuverlässigere Land für die Nutzer:in festzulegen. Das bedeutete, dass das Land der Nutzer:in erst ab der zweiten Sitzung mit höherer Genauigkeit festgelegt wurde, nachdem der erste Sitzungsstart verarbeitet worden war.
+Zuvor verwendete Braze den Ländercode aus der Geräte-Locale bei der SDK-Nutzererstellung und für die Dauer der ersten Sitzung. Erst nach der Verarbeitung des ersten Sitzungsstarts wurde die IP-Adresse verwendet, um das zuverlässigere Land für die Nutzer:in festzulegen. Das bedeutete, dass das Land der Nutzer:in erst ab der zweiten Sitzung mit höherer Genauigkeit festgelegt wurde, nachdem der erste Sitzungsstart verarbeitet worden war.
 
-Jetzt verwendet Braze die IP-Adresse, um den Länderwert in Nutzerprofilen festzulegen, die über das SDK or Software-Development-Kit erstellt wurden, und diese IP-basierte Ländereinstellung ist während und nach der ersten Sitzung verfügbar.
+Jetzt verwendet Braze die IP-Adresse, um den Länderwert in Nutzerprofilen festzulegen, die über das SDK erstellt wurden, und diese IP-basierte Ländereinstellung ist während und nach der ersten Sitzung verfügbar.
 
 #### Automatische Standorterfassung {#automatic-location-collection}
 
-Wenn aktiviert, ist die automatische Standorterfassung im SDK or Software-Development-Kit unabhängig vom IP-basierten Länderverhalten. Sie bezieht sich auf Geräte-Standortsignale wie GPS, wenn die Nutzer:in die Berechtigung erteilt hat, und ermöglicht Filter wie `Most Recent Location`. Sie füllt nicht automatisch detaillierte Felder wie den Ort allein aus der IP-Adresse.
+Wenn aktiviert, ist die automatische Standorterfassung im SDK unabhängig vom IP-basierten Länderverhalten. Sie bezieht sich auf Geräte-Standortsignale wie GPS, wenn die Nutzer:in die Berechtigung erteilt hat, und ermöglicht Filter wie `Most Recent Location`. Sie füllt nicht automatisch detaillierte Felder wie den Ort allein aus der IP-Adresse.
 
-Für Orts- oder Postleitzahl-basiertes Targeting verwenden Sie [`setLastKnownLocation()`]({{site.baseurl}}/developer_guide/analytics/tracking_location) (siehe den SDK or Software-Development-Kit-Artikel für Ihre Plattform), Ihren eigenen IP-Geolocation-Dienst, der angepasste Attribute schreibt, oder [Standort-Targeting]({{site.baseurl}}/user_guide/audience/segments/location_targeting) mit den von Ihnen erfassten Daten.
+Für Orts- oder Postleitzahl-basiertes Targeting verwenden Sie [`setLastKnownLocation()`]({{site.baseurl}}/developer_guide/analytics/tracking_location) (siehe den SDK-Artikel für Ihre Plattform), Ihren eigenen IP-Geolocation-Dienst, der angepasste Attribute schreibt, oder [Standort-Targeting]({{site.baseurl}}/user_guide/audience/segments/location_targeting) mit den von Ihnen erfassten Daten.
 
 ## Standort-Targeting {#location-targeting}
 
@@ -44,7 +44,7 @@ Weitere Informationen zum Erstellen eines Standort-Segments finden Sie unter [St
 
 ## Festes Setzen des Standard-Standortattributs {#hard-setting-the-default-location-attribute}
 
-Sie können auch den [`users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) in unserer API verwenden, um das Standardattribut [`current_location`]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields) zu Update or aktualisieren or aktualisieren. Ein Beispiel:
+Sie können auch den [`users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) in unserer API verwenden, um das Standardattribut [`current_location`]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields) zu aktualisieren. Ein Beispiel:
 
 ```
 https://[your_braze_rest_endpoint]/users/track
@@ -97,7 +97,7 @@ Nein. Wenn eine Nutzer:in jemals einen Standort in ihrem Profil gespeichert hatt
 
 ### Keine Nutzer:innen haben verfügbare Standorte {#no-users-have-available-locations}
 
-Braze erfasst standardmäßig den letzten Standort von Nutzer:innen über das SDK or Software-Development-Kit. Das bedeutet in der Regel, dass der „letzte Standort“ der Standort ist, von dem aus Ihre Nutzer:innen Ihre App zuletzt verwendet haben. Wenn Sie Braze Hintergrund-Standortdaten senden, stehen Ihnen möglicherweise detailliertere Daten zur Verfügung.
+Braze erfasst standardmäßig den letzten Standort von Nutzer:innen über das SDK. Das bedeutet in der Regel, dass der „letzte Standort“ der Standort ist, von dem aus Ihre Nutzer:innen Ihre App zuletzt verwendet haben. Wenn Sie Braze Hintergrund-Standortdaten senden, stehen Ihnen möglicherweise detailliertere Daten zur Verfügung.
 
 Wenn keine Nutzer:innen verfügbare Standorte haben, können zwei schnelle Überprüfungen helfen, die Datenerfassung und Datenübertragung zu bestätigen.
 
@@ -114,7 +114,7 @@ Um zu sehen, ob Nutzerstandortdaten an Braze gesendet werden, verwenden Sie den 
 
 #### Datenübertragung {#data-transfer}
 
-Bestätigen Sie, dass Ihre Entwickler:innen Standortdaten an Braze übergeben. Normalerweise wird die Übergabe von Standortdaten automatisch vom SDK or Software-Development-Kit gehandhabt, nachdem die Nutzer:in die Berechtigungen erteilt hat, aber Ihre Entwickler:innen haben möglicherweise das Standort-Tracking in Braze deaktiviert. Weitere Informationen zum Standort-Tracking finden Sie für:
+Bestätigen Sie, dass Ihre Entwickler:innen Standortdaten an Braze übergeben. Normalerweise wird die Übergabe von Standortdaten automatisch vom SDK gehandhabt, nachdem die Nutzer:in die Berechtigungen erteilt hat, aber Ihre Entwickler:innen haben möglicherweise das Standort-Tracking in Braze deaktiviert. Weitere Informationen zum Standort-Tracking finden Sie für:
 - [Android]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=android)
 - [iOS]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=swift)
 - [Internet]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=web)

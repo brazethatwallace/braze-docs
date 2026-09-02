@@ -1,8 +1,8 @@
 ---
 nav_title: "Números de teléfono de usuario"
-article_title: Números de teléfono de usuario de servicio de mensajes cortos
+article_title: Números de teléfono de usuario de SMS
 page_order: 3
-description: "Este artículo de referencia cubre el formato de números de teléfono servicio de mensajes cortos, cómo importar números de teléfono, así como cómo añadir usuarios a grupos de suscripción servicio de mensajes cortos."
+description: "Este artículo de referencia cubre el formato de números de teléfono SMS, cómo importar números de teléfono, así como cómo añadir usuarios a grupos de suscripción SMS."
 page_type: reference
 alias: /user_phone_numbers/
 channel:
@@ -56,10 +56,10 @@ Cuando un número de teléfono se considera no válido, Braze marca el número d
 
 Un número de teléfono se considera no válido por las siguientes razones:
 
-- **Error del proveedor**: se recibió un error permanente del proveedor de servicio de mensajes cortos y RCS. Esto indica que el número de teléfono proporcionado tiene un formato incorrecto o no puede recibir mensajes servicio de mensajes cortos o RCS de forma permanente.
-- **Desactivado**: el número de teléfono ha sido desactivado debido a que un suscriptor móvil terminó su servicio y liberó su número de su operador (y eventualmente puede ser reciclado y asignado a un nuevo usuario). Un número de teléfono desactivado puede marcarse como no válido incluso si no has enviado ningún mensaje servicio de mensajes cortos o RCS a ese número de teléfono.
+- **Error del proveedor**: se recibió un error permanente del proveedor de SMS y RCS. Esto indica que el número de teléfono proporcionado tiene un formato incorrecto o no puede recibir mensajes SMS o RCS de forma permanente.
+- **Desactivado**: el número de teléfono ha sido desactivado debido a que un suscriptor móvil terminó su servicio y liberó su número de su operador (y eventualmente puede ser reciclado y asignado a un nuevo usuario). Un número de teléfono desactivado puede marcarse como no válido incluso si no has enviado ningún mensaje SMS o RCS a ese número de teléfono.
 
-Estos números de teléfono no válidos se pueden gestionar mediante [endpoints de servicio de mensajes cortos y RCS]({{site.baseurl}}/api/endpoints/sms).
+Estos números de teléfono no válidos se pueden gestionar mediante [endpoints de SMS y RCS]({{site.baseurl}}/api/endpoints/sms).
 
 {% alert note %}
 Si varios perfiles de usuario tienen el mismo número de teléfono y ese número de teléfono se marca como no válido, todos los perfiles de usuario existentes con ese número se mostrarán como no válidos. Los perfiles de usuario recién creados nunca se marcarán inicialmente como no válidos.
@@ -67,23 +67,23 @@ Si varios perfiles de usuario tienen el mismo número de teléfono y ese número
 
 También puedes incluir o excluir usuarios con números de teléfono no válidos al [crear un segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#step-4-add-filters-to-your-segment).
 
-## Excluir envíos de servicio de mensajes cortos rechazados de la segmentación {#exclude-rejected-sms-sends-from-segmentation}
+## Excluir envíos de SMS rechazados de la segmentación {#exclude-rejected-sms-sends-from-segmentation}
 
 {% alert important %}
-Los rechazos de servicio de mensajes cortos pueden contar para tu asignación de servicio de mensajes cortos dependiendo de tu contrato de Braze y tu proveedor de servicio de mensajes cortos. Para conocer los resultados de facturación, consulta [Informes]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting).
+Los rechazos de SMS pueden contar para tu asignación de SMS dependiendo de tu contrato de Braze y tu proveedor de SMS. Para conocer los resultados de facturación, consulta [Informes]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting).
 {% endalert %}
 
-Para excluir de tus segmentos a los usuarios con envíos de servicio de mensajes cortos rechazados, usa [extensiones de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) y haz lo siguiente:
+Para excluir de tus segmentos a los usuarios con envíos de SMS rechazados, usa [extensiones de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) y haz lo siguiente:
 
 1. Ve a **Audiencia** > **Extensiones de segmento**.
 2. Selecciona **Crear nueva extensión** > **Actualización completa** o **Actualización incremental**.
-3. Escribe una consulta SQL que identifique a los usuarios con rechazos de servicio de mensajes cortos. Por ejemplo, puedes consultar el evento `USERS_MESSAGES_SMS_REJECTION_SHARED` para encontrar usuarios que hayan recibido rechazos de servicio de mensajes cortos.
+3. Escribe una consulta SQL que identifique a los usuarios con rechazos de SMS. Por ejemplo, puedes consultar el evento `USERS_MESSAGES_SMS_REJECTION_SHARED` para encontrar usuarios que hayan recibido rechazos de SMS.
 4. Guarda tu extensión de segmento.
-5. Al crear tu segmento de servicio de mensajes cortos, añade un filtro para excluir a los usuarios en esta extensión de segmento.
+5. Al crear tu segmento de SMS, añade un filtro para excluir a los usuarios en esta extensión de segmento.
 
-## Agregar usuarios a grupos de suscripción de servicio de mensajes cortos y RCS {#add-users-to-sms-and-rcs-subscription-groups}
+## Agregar usuarios a grupos de suscripción de SMS y RCS {#add-users-to-sms-and-rcs-subscription-groups}
 
-Para que un usuario reciba un mensaje servicio de mensajes cortos o RCS, debe tener un número de teléfono válido y estar suscrito a un grupo de suscripción. Los grupos de suscripción están vinculados al programa de servicio de mensajes cortos o RCS que estás ejecutando (asegúrate de cumplir con los [requisitos legales para servicio de mensajes cortos, MMS y RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations) y de haber registrado el consentimiento de cada cliente). Para más información, consulta [Grupos de suscripción de servicio de mensajes cortos y RCS]({{site.baseurl}}/sms_rcs_subscription_groups).
+Para que un usuario reciba un mensaje SMS o RCS, debe tener un número de teléfono válido y estar suscrito a un grupo de suscripción. Los grupos de suscripción están vinculados al programa de SMS o RCS que estás ejecutando (asegúrate de cumplir con los [requisitos legales para SMS, MMS y RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations) y de haber registrado el consentimiento de cada cliente). Para más información, consulta [Grupos de suscripción de SMS y RCS]({{site.baseurl}}/sms_rcs_subscription_groups).
 
 ## Obtención y verificación de terceros {#third-party-sourcing-and-verification}
 
@@ -91,4 +91,4 @@ Braze depende de herramientas de terceros para obtener números no válidos. Bra
 
 ## Captura de números de teléfono {#phone-number-capture}
 
-Para capturar números de teléfono a través de mensajes dentro de la aplicación, consulta el [formulario de registro de servicio de mensajes cortos, RCS y WhatsApp]({{site.baseurl}}/phone_number_capture).
+Para capturar números de teléfono a través de mensajes dentro de la aplicación, consulta el [formulario de registro de SMS, RCS y WhatsApp]({{site.baseurl}}/phone_number_capture).

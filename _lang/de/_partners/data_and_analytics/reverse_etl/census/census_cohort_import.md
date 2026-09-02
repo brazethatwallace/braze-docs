@@ -17,7 +17,7 @@ search_tag: Partner
 
 Um Census in die Census-Plattform zu integrieren, navigieren Sie zum Tab **Connections** und wählen Sie **New Destination**, um eine neue Braze-Serviceverbindung zu erstellen.
 
-In der daraufhin angezeigten Eingabeaufforderung geben Sie dieser Verbindung einen Namen und die URL des Braze-Endpunkts, den Representational State Transfer-API-Schlüssel von Braze und den Datenimport-Schlüssel an. Der Datenimport-Schlüssel ist für die Synchronisierung von Kohorten erforderlich und kann in Braze unter **Partnerintegrationen** > **Technologie-Partner** > **Census** gefunden werden.
+In der daraufhin angezeigten Eingabeaufforderung geben Sie dieser Verbindung einen Namen und die URL des Braze-Endpunkts, den REST-API-Schlüssel von Braze und den Datenimport-Schlüssel an. Der Datenimport-Schlüssel ist für die Synchronisierung von Kohorten erforderlich und kann in Braze unter **Partnerintegrationen** > **Technologie-Partner** > **Census** gefunden werden.
 
 ![Census-Dialog „Neues Ziel“, konfiguriert für Braze-Kohortenimport-Zugangsdaten.]({% image_buster /assets/img/census/add_service.png %}){: style="max-width:60%;"}
 
@@ -36,9 +36,9 @@ Um Kund:innen mit Braze zu synchronisieren, müssen Sie eine Synchronisierung er
 
 Jetzt können Sie Ihre Synchronisierung durchführen!
 
-Bei einer Synchronisierung werden alle Felder, die Sie abbilden, zunächst mit dem Nutzer:innen-Objekt synchronisiert, um das zu Update or aktualisieren or aktualisieren, was bereits in Braze vorhanden ist. Danach werden die aktualisierten Nutzer:innen zur angegebenen Kohorte hinzugefügt.
+Bei einer Synchronisierung werden alle Felder, die Sie abbilden, zunächst mit dem Nutzer:innen-Objekt synchronisiert, um das zu aktualisieren, was bereits in Braze vorhanden ist. Danach werden die aktualisierten Nutzer:innen zur angegebenen Kohorte hinzugefügt.
 
-Nach der Synchronisierung können Sie für zukünftige Braze-Campaigns und Canvase ein Braze-Segment mit einem Census-Kohortenfilter erstellen und hinzufügen, um diese Nutzer:innen anzusprechen.
+Nach der Synchronisierung können Sie für zukünftige Braze-Campaigns und Canvases ein Braze-Segment mit einem Census-Kohortenfilter erstellen und hinzufügen, um diese Nutzer:innen anzusprechen.
 
 {% alert note %}
 Wenn Sie die Integration von Census und Braze verwenden, sendet Census bei jeder Synchronisierung nur die Deltas (sich ändernde Daten) an Braze.

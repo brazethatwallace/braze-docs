@@ -18,7 +18,7 @@ Um die Performance zwischen zwei Gruppen zu vergleichen, verwenden Sie die Dropd
 | Feld | Beschreibung |
 |-------|-------------|
 | Datum | Das Datum, an dem das Ereignis aufgetreten ist. |
-| Typ | Die Kategorie des Ereignisses, z. B. System-Update or aktualisieren, Agenten-Durchlauf oder Konfigurationsänderung. |
+| Typ | Die Kategorie des Ereignisses, z. B. System-Update, Agenten-Durchlauf oder Konfigurationsänderung. |
 | Label | Der Name oder Bezeichner des Ereignisses. |
 | Details | Zusätzliche Informationen, die das Ereignis beschreiben. |
 | Sichtbar in Charts | Gibt an, ob das Ereignis in zugehörigen Charts angezeigt wird. |

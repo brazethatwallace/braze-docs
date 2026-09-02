@@ -211,7 +211,7 @@ Pour les tickets d'assistance « Request Timed Out », incluez un enregistrement
 
 **Symptôme :** Vous avez arrêté le Canvas, mais des utilisateurs ont quand même reçu des messages.
 
-Lorsque vous arrêtez un Canvas, les utilisateurs ne peuvent plus y entrer et aucun message supplémentaire n'est envoyé depuis le flux du Canvas. Les envois d'e-mails déjà transmis à votre fournisseur de services d'e-mail marketing or e-mailing ne peuvent pas être rappelés.
+Lorsque vous arrêtez un Canvas, les utilisateurs ne peuvent plus y entrer et aucun message supplémentaire n'est envoyé depuis le flux du Canvas. Les envois d'e-mails déjà transmis à votre fournisseur de services d'e-mail marketing ne peuvent pas être rappelés.
 
 Les utilisateurs en attente sur une étape de délai ou un parcours d'action ne sont pas automatiquement retirés du parcours lorsque vous arrêtez le Canvas. Si vous réactivez le Canvas avant que leur heure d'envoi planifiée ne soit passée, ils peuvent encore recevoir les étapes en attente.
 

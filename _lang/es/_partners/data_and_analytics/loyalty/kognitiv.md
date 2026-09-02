@@ -22,8 +22,8 @@ La integración de Braze y Kognitiv te permite implementar y evaluar tu estrateg
 | Requisito | Descripción |
 |---|---|
 | Cuenta Kognitiv | Para beneficiarte de esta asociación es necesario disponer de una cuenta [Kognitiv](http://kognitiv.com). |
-| Clave de API de Kognitiv | Una clave de API REST or transferencia de estado representacional de Kognitiv. Puedes crearla en la página **API Security Tokens**. |
-| Punto de conexión REST or transferencia de estado representacional de Braze | La URL de tu punto de conexión REST or transferencia de estado representacional. Tu punto de conexión dependerá de la URL de Braze para [tu instancia]({{site.baseurl}}/api/basics/#endpoints). |
+| Clave de API de Kognitiv | Una clave de API REST de Kognitiv. Puedes crearla en la página **API Security Tokens**. |
+| Punto de conexión REST de Braze | La URL de tu punto de conexión REST. Tu punto de conexión dependerá de la URL de Braze para [tu instancia]({{site.baseurl}}/api/basics/#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Casos de uso {#use-cases}
@@ -112,12 +112,12 @@ Una vez que integres Braze con Kognitiv Inspire, Kognitiv te permite acceder a s
 
 ### Puntos de conexión {#endpoints}
 
-**Autorización de la REST or transferencia de estado representacional API**
+**Autorización de la REST API**
 - Región de EE. UU.: `https://app.kognitivloyalty.com/Auth/connect/token`
 - Región CA/EMEA: `https://ca.kognitivloyalty.com/Auth/connect/token`
 - Región APAC: `https://aus.kognitivloyalty.com/Auth/connect/token`
 
-**REST or transferencia de estado representacional API (URL base)**
+**REST API (URL base)**
 - Región de EE. UU.: `https://app.kognitivloyalty.com/api`
 - Región CA/EMEA: `https://ca.kognitivloyalty.com/api`
 - Región APAC: `https://aus.kognitivloyalty.com/api`

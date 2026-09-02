@@ -201,7 +201,7 @@ Los catálogos admiten varios tipos de datos para ayudarte a organizar y estruct
 | Time | ISO 8601 o marca de tiempo Unix (segundos) | `"2024-03-15T14:30:00Z"` | Valores de fecha y hora con formato ISO 8601 o marca de tiempo Unix en segundos. Equivalente al tipo `time` en la API y al tipo `datetime` en importaciones CSV. |
 | Boolean | `true` o `false` | `true` | Valores lógicos que representan estados verdadero o falso. Equivalente al tipo `boolean` en importaciones CSV y API. |
 | Number | Entero o decimal | `42` o `19.99` | Valores numéricos que incluyen enteros y números de coma flotante para precios, cantidades, calificaciones y más. Equivalente a los tipos `integer` y `float` en importaciones CSV y al tipo `number` en la API. |
-| Geolocation | Matriz `[longitud, latitud]` | `[-73.988103, 40.779109]` | Un par de coordenadas que representa una ubicación geográfica. La longitud debe estar entre -180 y 180; la latitud debe estar entre -90 y 90. El valor de `type` en la API es `geo`. Se puede añadir a través del cajón **Añadir campos** en la interfaz de catálogos, la carga de CSV o la REST or transferencia de estado representacional API. |
+| Geolocation | Matriz `[longitud, latitud]` | `[-73.988103, 40.779109]` | Un par de coordenadas que representa una ubicación geográfica. La longitud debe estar entre -180 y 180; la latitud debe estar entre -90 y 90. El valor de `type` en la API es `geo`. Se puede añadir a través del cajón **Añadir campos** en la interfaz de catálogos, la carga de CSV o la REST API. |
 | Object | Objeto JSON | `{"key": "value", "price": 10}` | Estructuras de datos anidadas complejas. El valor de `type` en la API es `object`. Se muestra como objeto JSON en el panel. Solo disponible a través de la API o la ingesta de datos en la nube (CDI). |
 | Array | Matriz de cadenas | `["red", "blue", "green"]` | Listas de valores de cadena. El valor de `type` en la API es `array`. Se muestra como matriz de cadenas en el panel. Solo disponible a través de la API o CDI. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
@@ -225,11 +225,11 @@ Al nombrar tu catálogo, también puedes utilizar plantillas en el nombre del ca
 
 Para actualizar tu catálogo después de cargar un archivo CSV o crear un catálogo en el navegador, selecciona **Actualizar catálogo > Cargar CSV** y luego selecciona si deseas actualizar, añadir o eliminar elementos en tu catálogo.
 
-### Uso de la REST or transferencia de estado representacional API {#using-the-rest-api}
+### Uso de la REST API {#using-the-rest-api}
 
 A medida que crees más catálogos, también puedes usar el [endpoint Listar catálogos]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs) para devolver una lista de los catálogos en un espacio de trabajo.
 
-La REST or transferencia de estado representacional API es compatible con todos los [tipos de datos de catálogo](#supported-data-types), incluidos objetos JSON y matrices de cadenas. Los objetos JSON y las matrices de cadenas solo se pueden crear o actualizar a través de la REST or transferencia de estado representacional API.
+La REST API es compatible con todos los [tipos de datos de catálogo](#supported-data-types), incluidos objetos JSON y matrices de cadenas. Los objetos JSON y las matrices de cadenas solo se pueden crear o actualizar a través de la REST API.
 
 ### Uso de la ingesta de datos en la nube {#using-cloud-data-ingestion}
 

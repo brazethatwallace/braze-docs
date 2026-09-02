@@ -43,7 +43,7 @@ Currents verwendet Berechtigungskontingente, um die Erstellung von Konnektoren u
 
 - **Engagement-Events-Berechtigungen** sind für jeden Standard-Currents-Konnektor erforderlich, den Sie erstellen.
 - **Kundenverhalten-Events-Berechtigungen** sind erforderlich, wenn Sie **Track Customer Behavior and User Events** bei einem Konnektor aktivieren.
-- **Kundenprofil or Nutzerprofil- und Attribut-Berechtigungen** sind erforderlich, wenn Sie **Track user profiles and attributes** bei einem Konnektor aktivieren.
+- **Kundenprofil- und Attribut-Berechtigungen** sind erforderlich, wenn Sie **Track user profiles and attributes** bei einem Konnektor aktivieren.
 
 Test-Currents-Konnektoren verwenden ein separates Testlimit und verbrauchen keine Standard-Konnektor-Berechtigungen.
 

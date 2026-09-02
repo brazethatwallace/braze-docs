@@ -21,8 +21,8 @@ Antes de começar, você precisará do seguinte:
 | Pré-requisito | Descrição |
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Uma conta da Dixa | É necessário ter uma conta de administrador da Dixa para aproveitar essa parceria. |
-| Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com as permissões `users.export.ids` e `email.status`.<br><br> Ela pode ser criada no dashboard da Braze em **Settings** > **API or interface de programação do aplicativo (API) Keys**. |
-| Um endpoint REST or transferir estado representacional da Braze | [URL do seu endpoint REST or transferir estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
+| Uma chave da API REST da Braze | Uma chave da API REST da Braze com as permissões `users.export.ids` e `email.status`.<br><br> Ela pode ser criada no dashboard da Braze em **Settings** > **API Keys**. |
+| Um endpoint REST da Braze | [URL do seu endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
@@ -40,8 +40,8 @@ Você deve ser um administrador da Dixa para configurar as integrações dentro 
 Na página **Create Braze widget**, preencha os seguintes campos obrigatórios para criar a integração:
 
 - **Widget name:** Esse é o nome da integração que será usado posteriormente na barra lateral da conversa como título.
-- **API or interface de programação do aplicativo (API) URL:** Essa é a URL do endpoint da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze para sua instância.
-- **API or interface de programação do aplicativo (API) Key:** Essa é a chave de API or interface de programação do aplicativo (API) da Braze que você criou nos pré-requisitos.
+- **API URL:** Essa é a URL do endpoint da API REST da Braze para sua instância.
+- **API Key:** Essa é a chave de API da Braze que você criou nos pré-requisitos.
 
 ### Etapa 2: Configurar a integração {#step-2-configure-the-integration}
 

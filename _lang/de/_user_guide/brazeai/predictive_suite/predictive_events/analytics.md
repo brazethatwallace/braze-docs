@@ -44,12 +44,12 @@ Die Werte und die entsprechenden Kategorien werden entsprechend dem Zeitplan akt
 Um den Wahrscheinlichkeitswert für eine:n einzelne:n Nutzer:in anzuzeigen, suchen Sie diese:n Nutzer:in im Dashboard und gehen Sie zu **Engagement** > **Predictions**, um den Wert anzuzeigen. Um auf die Werte und Kategorien für mehrere Nutzer:innen gleichzeitig zuzugreifen, erstellen Sie ein [Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) mithilfe der Filter [Event Likelihood Score]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#event-likelihood-score) oder [Event Likelihood Category]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#event-likelihood-category) und exportieren Sie anschließend die Nutzer:innen aus diesem Segment. Beim Exportieren können Sie die Wahrscheinlichkeitswerte in die Exportdaten aufnehmen.
 
 {% alert note %}
-Obwohl sowohl bei Predictive Events als auch bei [Predictive Abwanderung or Abwanderung, Churn or Abwanderung, churnen]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) den Nutzer:innen Werte zugewiesen werden, gibt es wichtige Unterschiede:<br><br>
+Obwohl sowohl bei Predictive Events als auch bei [Predictive Abwanderung]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) den Nutzer:innen Werte zugewiesen werden, gibt es wichtige Unterschiede:<br><br>
 
 - **Predictive Events** (Kaufprognosen): Berücksichtigen alle Nutzer:innen in der Prognosegruppe, unabhängig davon, ob sie das Ziel-Event zuvor durchgeführt haben. Beispielsweise kann eine Kaufprognose Nutzer:innen identifizieren, die wahrscheinlich ihren ersten Kauf tätigen werden.
-- **Predictive Abwanderung or Abwanderung, Churn or Abwanderung, churnen**: Berücksichtigt nur Nutzer:innen, die das angepasste Event bereits durchgeführt haben. Abwanderung or Abwanderung, Churn or Abwanderung, churnen-Prognosen identifizieren Nutzer:innen, die zuvor eine bestimmte Handlung durchgeführt haben und diese wahrscheinlich nicht mehr ausführen werden. Ein:e Nutzer:in, die sich noch nie angemeldet hat, kann nicht als „abgewandert“ betrachtet werden, wenn sie sich nicht anmeldet.
+- **Predictive Abwanderung**: Berücksichtigt nur Nutzer:innen, die das angepasste Event bereits durchgeführt haben. Abwanderung-Prognosen identifizieren Nutzer:innen, die zuvor eine bestimmte Handlung durchgeführt haben und diese wahrscheinlich nicht mehr ausführen werden. Ein:e Nutzer:in, die sich noch nie angemeldet hat, kann nicht als „abgewandert“ betrachtet werden, wenn sie sich nicht anmeldet.
 
-Beim Exportieren von Abwanderung or Abwanderung, Churn or Abwanderung, churnen-Risiko-Werten aus einem Segment spiegeln diese Werte das Abwanderung or Abwanderung, Churn or Abwanderung, churnen-Prognosemodell wider, das sich von Kauf- oder anderen Event-Prognosemodellen unterscheidet.
+Beim Exportieren von Abwanderung-Risiko-Werten aus einem Segment spiegeln diese Werte das Abwanderung-Prognosemodell wider, das sich von Kauf- oder anderen Event-Prognosemodellen unterscheidet.
 {% endalert %}
 
 ## Geschätzte Genauigkeit {#estimated_results}

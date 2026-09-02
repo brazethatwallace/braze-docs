@@ -1,20 +1,20 @@
 ---
-nav_title: "POST: Update or aktualisieren der geplanten Nachrichten"
-article_title: "POST: Geplante Nachrichten Update or aktualisieren or aktualisieren"
+nav_title: "POST: Update der geplanten Nachrichten"
+article_title: "POST: Geplante Nachrichten aktualisieren"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Geplante Nachrichten Update or aktualisieren or aktualisieren“."
+description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Geplante Nachrichten aktualisieren“."
 
 ---
 {% api %}
-# Geplante Nachrichten Update or aktualisieren or aktualisieren {#update-scheduled-messages}
+# Geplante Nachrichten aktualisieren {#update-scheduled-messages}
 {% apimethod post core_endpoint|/docs/core_endpoints %}
-/messages/schedule/Update or aktualisieren
+/messages/schedule/update
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um geplante Nachrichten zu Update or aktualisieren or aktualisieren.
+> Verwenden Sie diesen Endpunkt, um geplante Nachrichten zu aktualisieren.
 
 Dieser Endpunkt akzeptiert Updates entweder für den Parameter `schedule` oder `messages` oder für beide. Ihre Anfrage muss mindestens einen dieser beiden Schlüssel enthalten.
 

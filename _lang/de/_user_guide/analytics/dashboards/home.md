@@ -22,7 +22,7 @@ Die **Home**-Seite besteht aus zwei Hauptbereichen:
 
 Sie können im Braze-Dashboard dort weitermachen, wo Sie aufgehört haben – mit direktem Zugriff auf Dateien, die Sie kürzlich bearbeitet oder erstellt haben. Dieser Abschnitt erscheint oben auf der **Home**-Seite des Braze-Dashboards.
 
-Sie können kürzlich bearbeitete oder erstellte Campaigns, Canvase und Segmente erneut aufrufen. Jede Karte ist mit Tags versehen, die den Inhaltstyp (Campaign, Canvas, Segment) und den Status (aktiv, Entwurf, archiviert, gestoppt) angeben.
+Sie können kürzlich bearbeitete oder erstellte Campaigns, Canvases und Segmente erneut aufrufen. Jede Karte ist mit Tags versehen, die den Inhaltstyp (Campaign, Canvas, Segment) und den Status (aktiv, Entwurf, archiviert, gestoppt) angeben.
 
 {% alert note %}
 Der Abschnitt **Dort weitermachen, wo Sie aufgehört haben** erscheint, nachdem Sie eine Campaign, ein Canvas oder ein Segment bearbeitet oder erstellt haben.
@@ -34,7 +34,7 @@ Der Abschnitt **Dort weitermachen, wo Sie aufgehört haben** erscheint, nachdem 
 
 Standardmäßig zeigt der Abschnitt **Performance-Übersicht** die Daten der letzten 30 Tage für alle Apps und Websites an. Alle Metriken werden basierend auf dem ausgewählten Zeitraum berechnet.
 
-Prozentsätze werden auf Basis des aktuellen Zeitraums im Vergleich zum vorherigen Zeitraum berechnet, mit Ausnahme der *monatlich aktiven Nutzer:innen* (MAU or monatlich aktive:r Nutzer:in), bei denen der letzte Tag des vorherigen Zeitraums anstelle eines Bereichs verwendet wird.
+Prozentsätze werden auf Basis des aktuellen Zeitraums im Vergleich zum vorherigen Zeitraum berechnet, mit Ausnahme der *monatlich aktiven Nutzer:innen* (MAU), bei denen der letzte Tag des vorherigen Zeitraums anstelle eines Bereichs verwendet wird.
 
 Wenn Sie beispielsweise Ihren Zeitraum auf **Letzte 7 Tage** setzen und Ihre *täglich aktiven Nutzer:innen* einen prozentualen Anstieg von 1,8 % anzeigen, bedeutet das, dass Sie diese Woche 1,8 % mehr täglich aktive Nutzer:innen hatten als in der Vorwoche.
 
@@ -57,18 +57,18 @@ Sie können Statistiken für folgende Bereiche darstellen:
   - (Optional) Aufschlüsselung nach Segment
 - E-Mail
 - In-App-Nachrichten
-- KPI or Leistungskennzahl or Leistungskennzahlen-Formeln
-  - Wählen Sie **Manage KPI or Leistungskennzahl or Leistungskennzahlen Formulas**, um eine Formel zu erstellen oder eine bestehende Formel zu bearbeiten.
+- KPI-Formeln
+  - Wählen Sie **Manage KPI Formulas**, um eine Formel zu erstellen oder eine bestehende Formel zu bearbeiten.
 - LINE
-- Monatlich aktive Nutzer:innen (MAU or monatlich aktive:r Nutzer:in)
+- Monatlich aktive Nutzer:innen (MAU)
 - Neue Nutzer:innen
 - Push
   - (Optional) Aufschlüsselung nach Segment
 - Sitzungen
   - (Optional) Aufschlüsselung nach Segment oder App-Version
 - Sitzungen pro Stunde
-- Sitzungen pro MAU or monatlich aktive:r Nutzer:in
-- Kurzmitteilungsdienst or SMS
+- Sitzungen pro MAU
+- SMS
 - Kundenbindung
 - Deinstallationen
   - (Optional) Aufschlüsselung nach Segment
@@ -82,9 +82,9 @@ Im Folgenden finden Sie die Definitionen der verfügbaren Statistiken, wie sie b
 
 ### Nutzer:innen {#users}
 
-*Nutzer:innen* ist die Gesamtzahl der in diesem Workspace erstellten Nutzer:innen. Dies umfasst alle Nutzer:innen, die Ihre App oder Website zu irgendeinem Zeitpunkt verwendet haben, sowie diejenigen, die möglicherweise keiner bestimmten App oder Website zugeordnet sind. Diese Zahl gibt den Prozentsatz an, wie viele Ihrer Lifetime-Nutzer:innen als *monatlich aktive Nutzer:innen* (MAU or monatlich aktive:r Nutzer:in) dargestellt werden, was nützlich ist, um die Nutzerbindung über einen langen Zeitraum zu betrachten.
+*Nutzer:innen* ist die Gesamtzahl der in diesem Workspace erstellten Nutzer:innen. Dies umfasst alle Nutzer:innen, die Ihre App oder Website zu irgendeinem Zeitpunkt verwendet haben, sowie diejenigen, die möglicherweise keiner bestimmten App oder Website zugeordnet sind. Diese Zahl gibt den Prozentsatz an, wie viele Ihrer Lifetime-Nutzer:innen als *monatlich aktive Nutzer:innen* (MAU) dargestellt werden, was nützlich ist, um die Nutzerbindung über einen langen Zeitraum zu betrachten.
 
-Ein niedriges MAU or monatlich aktive:r Nutzer:in-zu-Nutzer:innen-Verhältnis kann darauf hindeuten, dass Sie Ihre Messaging-Kanäle diversifizieren oder Ihre Bemühungen verstärken müssen, passive Nutzer:innen zu erreichen. Weitere Informationen finden Sie in unserem Quick Win zum Thema [Passive Nutzer:innen zurückgewinnen]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users). Im Allgemeinen wird das MAU or monatlich aktive:r Nutzer:in-zu-Lifetime-Verhältnis aufgrund von Abwanderung or Abwanderung, Churn or Abwanderung, churnen im Laufe der Zeit unweigerlich sinken, aber die Tools von Braze können Ihnen helfen, diesen Effekt zu minimieren, indem sie Nutzer:innen länger engagiert halten.
+Ein niedriges MAU-zu-Nutzer:innen-Verhältnis kann darauf hindeuten, dass Sie Ihre Messaging-Kanäle diversifizieren oder Ihre Bemühungen verstärken müssen, passive Nutzer:innen zu erreichen. Weitere Informationen finden Sie in unserem Quick Win zum Thema [Passive Nutzer:innen zurückgewinnen]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users). Im Allgemeinen wird das MAU-zu-Lifetime-Verhältnis aufgrund von Abwanderung im Laufe der Zeit unweigerlich sinken, aber die Tools von Braze können Ihnen helfen, diesen Effekt zu minimieren, indem sie Nutzer:innen länger engagiert halten.
 
 ### Lifetime-Sitzungen {#lifetime-sessions}
 
@@ -93,44 +93,44 @@ Ein niedriges MAU or monatlich aktive:r Nutzer:in-zu-Nutzer:innen-Verhältnis ka
 
 ### Monatlich aktive Nutzer:innen {#monthly-active-users}
 
-*Monatlich aktive Nutzer:innen* (MAU or monatlich aktive:r Nutzer:in) ist die Anzahl der Nutzer:innen, die in den letzten 30 Tagen eine Sitzung in Ihrer App oder auf Ihrer Website aufgezeichnet haben. MAU or monatlich aktive:r Nutzer:in werden nächtlich mit einem rollierenden 30-Tage-Fenster berechnet. MAU or monatlich aktive:r Nutzer:in geben Ihnen ein gutes Verständnis für den Zustand einer App oder Website über einen längeren Zeitraum, da sie die Schwankungen zwischen Tagen mit unterschiedlicher Nutzungsintensität ausgleichen.
+*Monatlich aktive Nutzer:innen* (MAU) ist die Anzahl der Nutzer:innen, die in den letzten 30 Tagen eine Sitzung in Ihrer App oder auf Ihrer Website aufgezeichnet haben. MAU werden nächtlich mit einem rollierenden 30-Tage-Fenster berechnet. MAU geben Ihnen ein gutes Verständnis für den Zustand einer App oder Website über einen längeren Zeitraum, da sie die Schwankungen zwischen Tagen mit unterschiedlicher Nutzungsintensität ausgleichen.
 
-Der Prozentsatz neben der MAU or monatlich aktive:r Nutzer:in-Zahl zeigt die Veränderung der MAU or monatlich aktive:r Nutzer:in für diesen Zeitraum im Vergleich zum vorherigen Zeitraum.
+Der Prozentsatz neben der MAU-Zahl zeigt die Veränderung der MAU für diesen Zeitraum im Vergleich zum vorherigen Zeitraum.
 
-$$\text{Change in MAU or monatlich aktive:r Nutzer:in} = \frac{\text{MAU or monatlich aktive:r Nutzer:in of last date in range} - \text{MAU or monatlich aktive:r Nutzer:in of day before start date}}{\text{MAU or monatlich aktive:r Nutzer:in of day before start date}}$$
+$$\text{Change in MAU} = \frac{\text{MAU of last date in range} - \text{MAU of day before start date}}{\text{MAU of day before start date}}$$
 
-#### Regeln zur MAU or monatlich aktive:r Nutzer:in-Berechnung {#mau-calculation-rules}
+#### Regeln zur MAU-Berechnung {#mau-calculation-rules}
 
-MAU or monatlich aktive:r Nutzer:in-Berechnungen folgen bestimmten Regeln, um eine genaue und konsistente Abrechnung sicherzustellen:
+MAU-Berechnungen folgen bestimmten Regeln, um eine genaue und konsistente Abrechnung sicherzustellen:
 
 - **Berechnungszeitpunkt**: Wird einmal täglich um 12:05 UTC als 30-Tage-Snapshot berechnet; Zahlen ändern sich nie rückwirkend.
 - **Anonyme Profile**: Werden **nur** gezählt, wenn mindestens eine Sitzung protokolliert wurde.
 - **Identifizierte Profile**: Werden nur gezählt, wenn `date_of_last_session` innerhalb des rollierenden 30-Tage-Fensters liegt.
 - **Verwaiste Profile**: Duplikate, die mit einem anderen Profil zusammengeführt wurden, werden **nicht** gezählt.
-- **CSV-Uploads und Representational State Transfer-API-Importe**: Per CSV oder über die Representational State Transfer API hochgeladene Nutzer:innen zählen zu den MAU or monatlich aktive:r Nutzer:in, wenn Sie `date_of_last_session` innerhalb des rollierenden 30-Tage-Fensters angeben oder wenn sie später eine Sitzung protokollieren. Die alleinige Angabe von `date_of_first_session` hat keinen Einfluss auf die MAU or monatlich aktive:r Nutzer:in.
-- **API-Löschungen**: Das Löschen von Nutzer:innen über die API aktualisiert die MAU or monatlich aktive:r Nutzer:in nicht sofort; die Zahl korrigiert sich im nächsten monatlichen Zyklus von selbst.
+- **CSV-Uploads und REST-API-Importe**: Per CSV oder über die REST API hochgeladene Nutzer:innen zählen zu den MAU, wenn Sie `date_of_last_session` innerhalb des rollierenden 30-Tage-Fensters angeben oder wenn sie später eine Sitzung protokollieren. Die alleinige Angabe von `date_of_first_session` hat keinen Einfluss auf die MAU.
+- **API-Löschungen**: Das Löschen von Nutzer:innen über die API aktualisiert die MAU nicht sofort; die Zahl korrigiert sich im nächsten monatlichen Zyklus von selbst.
 
 {% alert note %}
-Anonyme Nutzer:innen zählen ebenfalls zu Ihren MAU or monatlich aktive:r Nutzer:in. Bei Mobilgeräten sind anonyme Nutzer:innen geräteabhängig. Bei Web-Nutzer:innen sind anonyme Nutzer:innen vom Browser-Cache abhängig. <br><br> MAU or monatlich aktive:r Nutzer:in-Zahlen in Braze können von Tools wie Amplitude abweichen, wenn jedes Produkt eine andere Definition für aktive Nutzer:innen verwendet. Vergleichen Sie die Konfiguration in Amplitude (und Ihre [Regeln zur MAU or monatlich aktive:r Nutzer:in-Berechnung](#mau-calculation-rules)), bevor Sie eine Abweichung als Datenpipeline-Problem untersuchen.
+Anonyme Nutzer:innen zählen ebenfalls zu Ihren MAU. Bei Mobilgeräten sind anonyme Nutzer:innen geräteabhängig. Bei Web-Nutzer:innen sind anonyme Nutzer:innen vom Browser-Cache abhängig. <br><br> MAU-Zahlen in Braze können von Tools wie Amplitude abweichen, wenn jedes Produkt eine andere Definition für aktive Nutzer:innen verwendet. Vergleichen Sie die Konfiguration in Amplitude (und Ihre [Regeln zur MAU-Berechnung](#mau-calculation-rules)), bevor Sie eine Abweichung als Datenpipeline-Problem untersuchen.
 {% endalert %}
 
-#### Beispiel zur MAU or monatlich aktive:r Nutzer:in-Berechnung {#mau-calculation-example}
+#### Beispiel zur MAU-Berechnung {#mau-calculation-example}
 
-Das folgende Beispiel zeigt, wie MAU or monatlich aktive:r Nutzer:in-Berechnungen bei verschiedenen Nutzeraktionen funktionieren:
+Das folgende Beispiel zeigt, wie MAU-Berechnungen bei verschiedenen Nutzeraktionen funktionieren:
 
-| Schritt | Aktion | Sofortige MAU or monatlich aktive:r Nutzer:in-Änderung | Resultierendes Gesamt |
+| Schritt | Aktion | Sofortige MAU-Änderung | Resultierendes Gesamt |
 |---------|--------|------------------------|----------------------|
 | 1 | **Anonyme:n Nutzer:in 1** erstellen und eine Sitzung protokollieren | +1 | 1 |
 | 2 | **Anonyme:n Nutzer:in 1** identifizieren (Profil wird zu identifiziert konvertiert) | 0 | 1 |
 | 3 | **Anonyme:n Nutzer:in 2** erstellen und eine Sitzung protokollieren | +1 | 2 |
 | 4 | **Anonyme:n Nutzer:in 2** als **dieselbe Person** wie Nutzer:in 1 identifizieren (Nutzer:in 2 wird verwaist) | –1 | 1 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Beispiel zur MAU or monatlich aktive:r Nutzer:in-Berechnung" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Beispiel zur MAU-Berechnung" }
 
-MAU or monatlich aktive:r Nutzer:in-Snapshots werden einmal täglich berechnet und ändern sich nie rückwirkend. In diesem Beispiel bleibt die MAU or monatlich aktive:r Nutzer:in-Zahl für den Tag nach Schritt 3 dauerhaft bei 2, auch wenn Nutzer:in 2 später verwaist wird. Die MAU or monatlich aktive:r Nutzer:in-Zahl für die folgenden Tage spiegelt jedoch nur die nicht verwaisten Nutzer:innen wider. Innerhalb eines 30-Tage-Fensters verbraucht dieser Ablauf letztlich 1 MAU or monatlich aktive:r Nutzer:in, da nur ein:e eindeutige:r, nicht verwaiste:r Nutzer:in übrig bleibt.
+MAU-Snapshots werden einmal täglich berechnet und ändern sich nie rückwirkend. In diesem Beispiel bleibt die MAU-Zahl für den Tag nach Schritt 3 dauerhaft bei 2, auch wenn Nutzer:in 2 später verwaist wird. Die MAU-Zahl für die folgenden Tage spiegelt jedoch nur die nicht verwaisten Nutzer:innen wider. Innerhalb eines 30-Tage-Fensters verbraucht dieser Ablauf letztlich 1 MAU, da nur ein:e eindeutige:r, nicht verwaiste:r Nutzer:in übrig bleibt.
 
-##### Hinweise zur MAU or monatlich aktive:r Nutzer:in-Zählung {#mau-count-considerations}
+##### Hinweise zur MAU-Zählung {#mau-count-considerations}
 
-MAU or monatlich aktive:r Nutzer:in-Zahlen in Braze hängen davon ab, wo Sie sie anzeigen. Die Gesamt-MAU or monatlich aktive:r Nutzer:in wird auf Nutzer:innen-Ebene berechnet, unabhängig von Apps und Plattformen, sodass jede:r Nutzer:in nur einmal gezählt wird. Wenn Sie jedoch MAU or monatlich aktive:r Nutzer:in-Zahlen nach App anzeigen, kann die Summe der MAU or monatlich aktive:r Nutzer:in über alle Apps hinweg Ihre Gesamt-MAU or monatlich aktive:r Nutzer:in übersteigen; ein:e Nutzer:in, der/die mehrere Apps in Ihrem Workspace verwendet, wird in der individuellen MAU or monatlich aktive:r Nutzer:in-Metrik jeder App gezählt.
+MAU-Zahlen in Braze hängen davon ab, wo Sie sie anzeigen. Die Gesamt-MAU wird auf Nutzer:innen-Ebene berechnet, unabhängig von Apps und Plattformen, sodass jede:r Nutzer:in nur einmal gezählt wird. Wenn Sie jedoch MAU-Zahlen nach App anzeigen, kann die Summe der MAU über alle Apps hinweg Ihre Gesamt-MAU übersteigen; ein:e Nutzer:in, der/die mehrere Apps in Ihrem Workspace verwendet, wird in der individuellen MAU-Metrik jeder App gezählt.
 
 ### Täglich aktive Nutzer:innen {#daily-active-users}
 
@@ -141,7 +141,7 @@ MAU or monatlich aktive:r Nutzer:in-Zahlen in Braze hängen davon ab, wo Sie sie
 *Neue Nutzer:innen* gibt an, wie viele Nutzer:innen, die zuvor noch nie eine Sitzung aufgezeichnet haben, begonnen haben, Ihre App oder Website zu nutzen. Diese Zahl ist die Gesamtzahl neuer Nutzer:innen über den angegebenen Zeitraum. Diese Statistik kann sehr wertvoll sein, um die Effektivität Ihrer Werbemaßnahmen zu verfolgen.
 
 {% alert note %}
-Wenn Sie Braze erstmals integrieren, werden alle Nutzer:innen als neue Nutzer:innen angezeigt, da Braze zuvor noch nie eine Sitzung für sie aufgezeichnet hat. <br><br> Anders als bei MAU or monatlich aktive:r Nutzer:in kann die Zahl der *neuen Nutzer:innen* rückwirkend sinken, wenn Braze ein anonymes Profil mit einem identifizierten Profil zusammenführt und das anonyme Profil verwaist. Braze entfernt das verwaiste Profil aus den App-Nutzungssummen, was die Zahl der *neuen Nutzer:innen* für bereits angezeigte Daten senken kann. Informationen zum Verhalten bei der Profilverknüpfung finden Sie unter [Kundenprofil or Nutzerprofil-Lebenszyklus]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle).
+Wenn Sie Braze erstmals integrieren, werden alle Nutzer:innen als neue Nutzer:innen angezeigt, da Braze zuvor noch nie eine Sitzung für sie aufgezeichnet hat. <br><br> Anders als bei MAU kann die Zahl der *neuen Nutzer:innen* rückwirkend sinken, wenn Braze ein anonymes Profil mit einem identifizierten Profil zusammenführt und das anonyme Profil verwaist. Braze entfernt das verwaiste Profil aus den App-Nutzungssummen, was die Zahl der *neuen Nutzer:innen* für bereits angezeigte Daten senken kann. Informationen zum Verhalten bei der Profilverknüpfung finden Sie unter [Kundenprofil-Lebenszyklus]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle).
 {% endalert %}
 
 {% alert important %}
@@ -150,7 +150,7 @@ Nutzer:innen, die mit mehr als einer App verknüpft sind, werden für jede App s
 
 ### Kundenbindung (Stickiness) {#stickiness}
 
-Der *Stickiness*-Wert ist das Verhältnis von täglich aktive:r Nutzer:in; täglich aktiv zu MAU or monatlich aktive:r Nutzer:in eines bestimmten Zeitraums. Im Wesentlichen misst Stickiness den Prozentsatz Ihrer MAU or monatlich aktive:r Nutzer:in, die täglich zurückkehren.
+Der *Stickiness*-Wert ist das Verhältnis von täglich aktive:r Nutzer:in; täglich aktiv zu MAU eines bestimmten Zeitraums. Im Wesentlichen misst Stickiness den Prozentsatz Ihrer MAU, die täglich zurückkehren.
 
 Wenn der Zeitraum beispielsweise auf 30 Tage eingestellt ist, bedeutet ein Verhältnis von 50 %, dass ein:e aktive:r Nutzer:in die App oder Website im Durchschnitt an 15 von 30 Tagen nutzt, oder dass etwa die Hälfte Ihrer aktiven Nutzer:innen täglich zurückkehrt. Stickiness ist eine wichtige Erfolgsmetrik, da die meisten Nutzer:innen eine App nicht aufgeben, weil sie sie aktiv nicht mögen, sondern weil sie nicht Teil ihrer täglichen Routine geworden ist. Daher können Sie Stickiness als Indikator dafür verwenden, wie gut Sie Ihre Nutzer:innen engagieren.
 
@@ -161,7 +161,7 @@ $$\text{Change in stickiness} = \frac{\text{Stickiness of last period} - \text{S
 Die Zeiträume für „letzter Zeitraum“ und „dieser Zeitraum“ werden durch den von Ihnen ausgewählten Zeitraum bestimmt.
 
 {% alert important %}
-Der MAU or monatlich aktive:r Nutzer:in-Wert wird nächtlich berechnet und erst am nächsten Tag aktualisiert.
+Der MAU-Wert wird nächtlich berechnet und erst am nächsten Tag aktualisiert.
 {% endalert %}
 
 ### Tägliche Sitzungen {#daily-sessions}
@@ -172,6 +172,6 @@ Der MAU or monatlich aktive:r Nutzer:in-Wert wird nächtlich berechnet und erst 
 Die *Anzahl der täglichen Sitzungen* für ein bestimmtes Datum kann sich ändern, wenn Sie das Home-Dashboard an verschiedenen Tagen aufrufen. Wenn ein:e Nutzer:in eine Sitzung offline startet, erreicht die Sitzung Braze möglicherweise erst, wenn die App erneut geöffnet wird. Wenn diese Sitzung übermittelt wird, ordnet Braze sie dem Datum zu, an dem die Sitzung gestartet wurde, was die Zahl für dieses Datum rückwirkend erhöhen kann.
 {% endalert %}
 
-### Tägliche Sitzungen pro MAU or monatlich aktive:r Nutzer:in {#daily-sessions-per-mau}
+### Tägliche Sitzungen pro MAU {#daily-sessions-per-mau}
 
-*Tägliche Sitzungen pro MAU or monatlich aktive:r Nutzer:in* ist das Verhältnis von *täglichen Sitzungen* zu MAU or monatlich aktive:r Nutzer:in an einem bestimmten Tag. Diese Statistik zeigt Ihnen, wie viele Sitzungen pro Tag Sie pro MAU or monatlich aktive:r Nutzer:in erwarten können. Aggregiert und gemittelt kann Ihnen dies eine Vorstellung von der relativen Häufigkeit geben, mit der Ihre Nutzer:innen Ihre App oder Website nutzen. Wenn Ihre *täglichen Sitzungen pro MAU or monatlich aktive:r Nutzer:in* beispielsweise durchschnittlich 0,5 betragen, könnten Sie erwarten, dass jede:r MAU or monatlich aktive:r Nutzer:in etwa alle 2 Tage eine Sitzung aufzeichnet.
+*Tägliche Sitzungen pro MAU* ist das Verhältnis von *täglichen Sitzungen* zu MAU an einem bestimmten Tag. Diese Statistik zeigt Ihnen, wie viele Sitzungen pro Tag Sie pro MAU erwarten können. Aggregiert und gemittelt kann Ihnen dies eine Vorstellung von der relativen Häufigkeit geben, mit der Ihre Nutzer:innen Ihre App oder Website nutzen. Wenn Ihre *täglichen Sitzungen pro MAU* beispielsweise durchschnittlich 0,5 betragen, könnten Sie erwarten, dass jede:r MAU etwa alle 2 Tage eine Sitzung aufzeichnet.

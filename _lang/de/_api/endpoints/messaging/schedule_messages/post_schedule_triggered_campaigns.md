@@ -11,7 +11,7 @@ description: "Dieser Artikel beschreibt Details zum Braze-Endpunkt „Zeitplan f
 {% api %}
 # Zeitplan für API-getriggerte Campaigns {#schedule-api-triggered-campaigns}
 {% apimethod post core_endpoint|/docs/core_endpoints %}
-/campaigns/Trigger or triggern/schedule/create
+/campaigns/trigger/schedule/create
 {% endapimethod %}
 
 > Verwenden Sie diesen Endpunkt, um im Dashboard erstellte Campaign-Nachrichten über eine API-getriggerte Zustellung zu versenden. Dabei können Sie festlegen, welche Aktion den Versand der Nachricht auslösen soll.
@@ -66,7 +66,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `recipients` | Optional | Array von Empfänger:innen-Objekten | Siehe [Empfänger:innen-Objekt]({{site.baseurl}}/api/objects_filters/recipient_object). |
 | `audience` | Optional | Verbundenes Zielgruppen-Objekt | Siehe [verbundene Zielgruppe]({{site.baseurl}}/api/objects_filters/connected_audience). |
 | `broadcast` | Optional | Boolescher Wert | Sie müssen `broadcast` auf true setzen, wenn Sie eine Nachricht an ein ganzes Segment senden, auf das eine Campaign oder ein Canvas abzielt. Dieser Parameter ist standardmäßig auf false eingestellt (Stand: 31. August 2017). <br><br> Wenn `broadcast` auf true gesetzt ist, kann keine `recipients`-Liste angegeben werden. Seien Sie jedoch vorsichtig, wenn Sie `broadcast: true` setzen, denn wenn Sie dieses Flag unbeabsichtigt setzen, kann dies dazu führen, dass Sie Ihre Nachricht an eine größere Zielgruppe als erwartet senden. |
-| `trigger_properties` | Optional | Objekt | Schlüssel-Wert-Paare zur Personalisierung für alle Nutzer:innen in dieser Sendung. Siehe [Trigger or triggern-Eigenschaften]({{site.baseurl}}/api/objects_filters/trigger_properties_object). |
+| `trigger_properties` | Optional | Objekt | Schlüssel-Wert-Paare zur Personalisierung für alle Nutzer:innen in dieser Sendung. Siehe [Trigger-Eigenschaften]({{site.baseurl}}/api/objects_filters/trigger_properties_object). |
 | `schedule` | Erforderlich | Zeitplan-Objekt | Siehe [Zeitplan-Objekt]({{site.baseurl}}/api/objects_filters/schedule_object). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 

@@ -70,7 +70,7 @@ Wenn Sie über die Zielgruppe sprechen, müssen Sie nicht erklären, wie Segment
 
 ### 2. Schritt: Senden Sie Ihre Nachricht zum richtigen Zeitpunkt {#step-2-send-your-message-at-the-right-time}
 
-Sprechen Sie darüber, wann die Nachricht gesendet werden sollte, sofern das wichtig ist. Vielleicht ist es das aber auch nicht! Lassen Sie die Leser:innen zumindest wissen, dass das Senden in Ortszeit möglich ist. Oder erklären Sie, wie diese spezielle Situation per API getriggert werden kann, oder ob es bei einem Canvas besser ist, den Schritt auf Grundlage einer Aktion zu Trigger or triggern or triggern (z. B. eine E-Mail zu öffnen und mindestens einen Tag lang nicht zu klicken).
+Sprechen Sie darüber, wann die Nachricht gesendet werden sollte, sofern das wichtig ist. Vielleicht ist es das aber auch nicht! Lassen Sie die Leser:innen zumindest wissen, dass das Senden in Ortszeit möglich ist. Oder erklären Sie, wie diese spezielle Situation per API getriggert werden kann, oder ob es bei einem Canvas besser ist, den Schritt auf Grundlage einer Aktion zu triggern (z. B. eine E-Mail zu öffnen und mindestens einen Tag lang nicht zu klicken).
 
 ### 3. Schritt: Erstellen Sie Ihre Nachricht {#step-3-building-your-message}
 

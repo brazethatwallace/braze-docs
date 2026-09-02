@@ -7,7 +7,7 @@ page_order: 2
 
 # Nutzer:innen über ein Formular tracken {#track-users-through-a-form}
 
-> Erfahren Sie, wie Sie Nutzer:innen tracken, die ein Formular über Ihre Landing-Page absenden, indem Sie Ihren Nachrichten einen Landing-Page-Liquid-Tag hinzufügen. Dieser Liquid-Tag wird über alle Braze-Messaging-Kanäle hinweg unterstützt, einschließlich E-Mail, Kurzmitteilungsdienst or SMS, In-App Messages und mehr. Weitere Informationen zum Tracking von Daten finden Sie unter [Über Landing-Page-Tracking-Daten]({{site.baseurl}}/user_guide/messaging/landing_pages/about_tracking_data).
+> Erfahren Sie, wie Sie Nutzer:innen tracken, die ein Formular über Ihre Landing-Page absenden, indem Sie Ihren Nachrichten einen Landing-Page-Liquid-Tag hinzufügen. Dieser Liquid-Tag wird über alle Braze-Messaging-Kanäle hinweg unterstützt, einschließlich E-Mail, SMS, In-App Messages und mehr. Weitere Informationen zum Tracking von Daten finden Sie unter [Über Landing-Page-Tracking-Daten]({{site.baseurl}}/user_guide/messaging/landing_pages/about_tracking_data).
 
 ## Voraussetzungen {#prerequisites}
 
@@ -65,7 +65,7 @@ Ihr Snippet sieht in etwa so aus:
 
 ### 3. Schritt: Nachricht fertigstellen und senden {#step-3-finalize-and-send-your-message}
 
-Betten Sie das Liquid-Snippet in Ihre Nachricht ein und stellen Sie den Representational State Transfer Ihrer Nachricht fertig. Zum Beispiel:
+Betten Sie das Liquid-Snippet in Ihre Nachricht ein und stellen Sie den Rest Ihrer Nachricht fertig. Zum Beispiel:
 
 {% raw %}
 ```html

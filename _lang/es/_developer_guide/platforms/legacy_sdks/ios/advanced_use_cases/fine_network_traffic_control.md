@@ -21,7 +21,7 @@ Braze permite al usuario la opción de controlar el tráfico de red utilizando l
 ***Valor de enumeración de `ABKRequestProcessingPolicy`: `ABKAutomaticRequestProcessing`***
 
 - Este es el valor **predeterminado de la política de peticiones**.
-- El SDK or kit de desarrollo de software de Braze gestionará automáticamente toda la comunicación con el servidor, que incluye lo siguiente:
+- El SDK de Braze gestionará automáticamente toda la comunicación con el servidor, que incluye lo siguiente:
     - Transmisión de datos de eventos y atributos personalizados a servidores Braze
     - Actualización de tarjetas de contenido y geovallas
     - Solicitar nuevos mensajes dentro de la aplicación

@@ -75,9 +75,9 @@ As notificações por push devem ser tratadas com cuidado para direcionar os usu
 
 Você pode criar uma página de configurações no seu app que permita aos usuários informar quais notificações desejam receber. Uma abordagem comum é criar um atributo personalizado booleano na Braze correspondente ao status da configuração do app. Por exemplo, um app de notícias pode ter configurações de inscrição para notícias de última hora, esportes ou política.
 
-Quando o app de notícias quiser criar uma Campaign direcionada apenas a usuários interessados em Política, basta adicionar o filtro de atributo `Subscribes to Politics` ao Segment or segmento. Quando definido como verdadeiro, apenas os usuários que se inscreveram nas notificações irão recebê-las.
+Quando o app de notícias quiser criar uma Campaign direcionada apenas a usuários interessados em Política, basta adicionar o filtro de atributo `Subscribes to Politics` ao Segment. Quando definido como verdadeiro, apenas os usuários que se inscreveram nas notificações irão recebê-las.
 
-Para saber mais sobre como definir atributos personalizados, consulte os seguintes artigos para [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=android) ou [REST or transferir estado representacional API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/objects_filters/user_attributes_object).
+Para saber mais sobre como definir atributos personalizados, consulte os seguintes artigos para [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=android) ou [REST API]({{site.baseurl}}/api/objects_filters/user_attributes_object).
 
 ## Aumente as aceitações e a relevância {#increase-opt-ins-and-relevance}
 
@@ -101,7 +101,7 @@ Dependendo do tamanho do seu público e de quanto tempo antes a mensagem de push
 
 Uma carga útil de push menor e uma prioridade de notificação mais alta podem ajudar a reduzir atrasos e escalar suas mensagens. Você pode adicionar `Push Enabled = true` no filtro de público para reduzir o tamanho do público, de modo que apenas usuários com push ativado sejam processados para o envio da Campaign.
 
-Também recomendamos minimizar o número de chamadas de API or interface de programação do aplicativo (API) otimizando os dados de que você precisa. Se possível, tente obter todos os dados necessários em uma única chamada de API or interface de programação do aplicativo (API), em vez de fazer múltiplas chamadas.
+Também recomendamos minimizar o número de chamadas de API otimizando os dados de que você precisa. Se possível, tente obter todos os dados necessários em uma única chamada de API, em vez de fazer múltiplas chamadas.
 
 ### Entenda os estados de inscrição de push {#understand-push-subscription-states}
 

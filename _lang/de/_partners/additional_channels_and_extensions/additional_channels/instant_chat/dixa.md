@@ -21,8 +21,8 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 | Voraussetzung | Beschreibung |
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Ein Dixa-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Dixa-Administratorkonto. |
-| Ein Braze-Representational State Transfer-API-Schlüssel | Ein Braze-Representational State Transfer-API-Schlüssel mit den Berechtigungen `users.export.ids` und `email.status`.<br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Ein Braze-Representational State Transfer-Endpunkt | [Ihre URL für den Representational State Transfer-Endpunkt]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
+| Ein Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit den Berechtigungen `users.export.ids` und `email.status`.<br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Ein Braze-REST-Endpunkt | [Ihre URL für den REST-Endpunkt]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
@@ -40,7 +40,7 @@ Sie müssen Dixa-Administrator:in sein, um Integrationen innerhalb von Dixa zu k
 Auf der Seite **Create Braze widget** füllen Sie die folgenden erforderlichen Felder aus, um die Integration zu erstellen:
 
 - **Widget name:** Dies ist der Name der Integration, der später in der Konversations-Seitenleiste als Titel verwendet wird.
-- **API URL:** Dies ist die URL des Representational State Transfer-API-Endpunkts von Braze für Ihre Instanz.
+- **API URL:** Dies ist die URL des REST-API-Endpunkts von Braze für Ihre Instanz.
 - **API Key:** Dies ist der Braze-API-Schlüssel, den Sie unter den Voraussetzungen erstellt haben.
 
 ### Schritt 2: Konfigurieren Sie die Integration {#step-2-configure-the-integration}

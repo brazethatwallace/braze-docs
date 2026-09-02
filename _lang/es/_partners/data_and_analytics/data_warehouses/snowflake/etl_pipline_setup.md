@@ -1,6 +1,6 @@
 ---
-nav_title: "Configuración del canal de eventos ETL or extraer, transformar, cargar"
-article_title: Configuración de la canalización de eventos ETL or extraer, transformar, cargar de Snowflake
+nav_title: "Configuración del canal de eventos ETL"
+article_title: Configuración de la canalización de eventos ETL de Snowflake
 page_order: 2
 description: "Esta página del socio ofrece un ejemplo de configuración de una consulta de clics de correo electrónico como referencia para configurar tus propias consultas."
 page_type: partner
@@ -8,7 +8,7 @@ search_tag: Partner
 
 ---
 
-# Configuración del canal de eventos ETL or extraer, transformar, cargar {#etl-event-pipeline-setup}
+# Configuración del canal de eventos ETL {#etl-event-pipeline-setup}
 
 > Esta página del socio ofrece un ejemplo de configuración de una consulta de clics de correo electrónico que puedes usar como referencia para configurar tus propias consultas.
 

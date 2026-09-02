@@ -11,9 +11,9 @@ search_tag: Partner
 
 # Notify
 
-> [Notify](https://fr.notify-group.com/) ist eine KI or künstliche Intelligenz-gesteuerte Softwarelösung, die sich nahtlos in Management-Tools für Kundenbeziehungen integrieren lässt, um Marketing-Strategien zu verbessern und das Engagement über mehrere Kanäle hinweg zu fördern.
+> [Notify](https://fr.notify-group.com/) ist eine KI-gesteuerte Softwarelösung, die sich nahtlos in Management-Tools für Kundenbeziehungen integrieren lässt, um Marketing-Strategien zu verbessern und das Engagement über mehrere Kanäle hinweg zu fördern.
 
-Die Integration von Braze und Notify ermöglicht es Marketern, das Engagement über verschiedene Plattformen hinweg effektiv zu steigern. Anstatt sich auf traditionelle Marketing-Methoden zu verlassen, kann eine durch die Braze API getriggerte Campaign die Funktionen von Notify nutzen, um personalisierte Nachrichten über mehrere Kanäle zuzustellen, darunter E-Mail, Kurzmitteilungsdienst or SMS, Push-Benachrichtigungen und mehr.
+Die Integration von Braze und Notify ermöglicht es Marketern, das Engagement über verschiedene Plattformen hinweg effektiv zu steigern. Anstatt sich auf traditionelle Marketing-Methoden zu verlassen, kann eine durch die Braze API getriggerte Campaign die Funktionen von Notify nutzen, um personalisierte Nachrichten über mehrere Kanäle zuzustellen, darunter E-Mail, SMS, Push-Benachrichtigungen und mehr.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -21,7 +21,7 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 
 | Anforderung | Beschreibung |
 |-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| Braze-Representational State Transfer-API-Schlüssel | Ein Braze-Representational State Transfer-API-Schlüssel mit den Berechtigungen `users.export.segment` und `campaigns.trigger.send`. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit den Berechtigungen `users.export.segment` und `campaigns.trigger.send`. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
 | CNAME-Konfiguration | Für das Tracking-Pixel, das in der E-Mail für Notify verwendet wird, um das Engagement der Nutzer:innen beim Messaging zu verfolgen und das Modell weiter zu informieren, muss eine Subdomain erstellt werden. Geben Sie die URL der Subdomain nach ihrer Erstellung an Notify weiter. |
 | Datenbank-Opt-in-Export | Senden Sie die Campaign- und Kaufdaten des vergangenen Jahres (12 Monate) an Notify. ​Dieser Export wird verwendet, um das Vorhersagemodell von Notify zu trainieren. <br><br> **Felder:** <br><br> **E-Mail:** Ein SHA256-Hash der E-Mail, konvertiert in Kleinbuchstaben und ohne führende oder nachfolgende Leerzeichen.<br><br>**Segment:** Die Segmentinformationen, die den Grad der Aktivität (aktiv oder inaktiv) definieren.<br><br>**Untersegment:** Alle weiteren relevanten Aktivitätsinformationen, wie z. B. die Höhe der Kaufaktivität.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
@@ -42,4 +42,4 @@ Anschließend exportiert Notify die Nutzer:innen des Segments, das der Campaign 
 
 ### Schritt 4: Notify triggert die Campaign {#step-4-notify-triggers-the-campaign}
 
-Über den Endpunkt `/campaigns/trigger/send` triggert die KI or künstliche Intelligenz von Notify die in [Schritt 1](#step-1-create-your-campaign) erstellte Braze-Campaign, um sie zu dem Zeitpunkt an die Nutzer:innen zu senden, zu dem diese sich am ehesten engagieren.
+Über den Endpunkt `/campaigns/trigger/send` triggert die KI von Notify die in [Schritt 1](#step-1-create-your-campaign) erstellte Braze-Campaign, um sie zu dem Zeitpunkt an die Nutzer:innen zu senden, zu dem diese sich am ehesten engagieren.

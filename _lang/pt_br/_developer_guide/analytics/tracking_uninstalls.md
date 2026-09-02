@@ -1,14 +1,14 @@
 ---
 nav_title: Rastrear desinstalações
-article_title: Rastrear desinstalações através do SDK or kit de desenvolvimento de software da Braze
+article_title: Rastrear desinstalações através do SDK da Braze
 page_order: 3.5
-description: "Aprenda como rastrear desinstalações através do SDK or kit de desenvolvimento de software da Braze."
+description: "Aprenda como rastrear desinstalações através do SDK da Braze."
 
 ---
 
 # Rastrear desinstalações {#track-uninstalls}
 
-> Aprenda como configurar o rastreamento de desinstalações através do SDK or kit de desenvolvimento de software da Braze. Para informações gerais, consulte [Guia do Usuário: Rastreamento de desinstalações]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking).
+> Aprenda como configurar o rastreamento de desinstalações através do SDK da Braze. Para informações gerais, consulte [Guia do Usuário: Rastreamento de desinstalações]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking).
 
 {% sdktabs %}
 {% sdktab android %}
@@ -16,11 +16,11 @@ description: "Aprenda como rastrear desinstalações através do SDK or kit de d
 
 ### Etapa 1: Configurar a FCM {#step-1-set-up-fcm}
 
-O SDK or kit de desenvolvimento de software do Android da Braze usa o Firebase Cloud Messaging (FCM) para enviar notificações por push silenciosas, que são usadas para coletar análises de dados de rastreamento de desinstalação. Caso ainda não o tenha feito, [configure]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android#android_setting-up-push-notifications) ou [migre para a]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android) API or interface de programação do aplicativo (API) Firebase Cloud Messaging para notificações por push.
+O SDK do Android da Braze usa o Firebase Cloud Messaging (FCM) para enviar notificações por push silenciosas, que são usadas para coletar análises de dados de rastreamento de desinstalação. Caso ainda não o tenha feito, [configure]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android#android_setting-up-push-notifications) ou [migre para a]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android) API Firebase Cloud Messaging para notificações por push.
 
 ### Etapa 2: Detectar manualmente o rastreamento de desinstalação (opcional) {#step-2-manually-detect-uninstall-tracking-optional}
 
-Por padrão, o SDK or kit de desenvolvimento de software do Android da Braze detecta e ignora automaticamente as notificações por push silenciosas relacionadas ao rastreamento de desinstalação. No entanto, se você optar por detectar manualmente o rastreamento de desinstalação, use o método [`isUninstallTrackingPush()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/is-uninstall-tracking-push.html).
+Por padrão, o SDK do Android da Braze detecta e ignora automaticamente as notificações por push silenciosas relacionadas ao rastreamento de desinstalação. No entanto, se você optar por detectar manualmente o rastreamento de desinstalação, use o método [`isUninstallTrackingPush()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/is-uninstall-tracking-push.html).
 
 {% alert important %}
 Como as notificações silenciosas para rastreamento de desinstalação não são encaminhadas para nenhum retorno de chamada por push da Braze, você só pode usar esse método antes de passar uma notificação por push para a Braze.
@@ -49,7 +49,7 @@ Em seu projeto Xcode, acesse **Capacidades** e verifique se os **Modos de segund
 
 ### Etapa 2: Ignorar notificações por push internas {#step-2-ignore-internal-push-notifications}
 
-O SDK or kit de desenvolvimento de software do Swift da Braze usa notificações por push em segundo plano para coletar análises de dados de rastreamento de desinstalação. Certifique-se de que seu app [ignore as notificações por push internas]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift#swift_ignoring-internal-push-notifications) para que ele não realize ações indesejadas quando elas forem enviadas.
+O SDK do Swift da Braze usa notificações por push em segundo plano para coletar análises de dados de rastreamento de desinstalação. Certifique-se de que seu app [ignore as notificações por push internas]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift#swift_ignoring-internal-push-notifications) para que ele não realize ações indesejadas quando elas forem enviadas.
 
 ### Etapa 3: Enviar um push de teste (opcional) {#step-3-send-a-test-push-optional}
 

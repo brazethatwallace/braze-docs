@@ -158,7 +158,7 @@ Se desejar, você pode definir o destino do push como **Dispositivo usado mais r
 "Dispositivo usado mais recentemente" é um status técnico, não comportamental. Como a Braze envia para todos os dispositivos por padrão, mudar para essa configuração reduz significativamente seu alcance e depende inteiramente do status do único dispositivo com o token mais recente.
 
 O dispositivo usado mais recentemente é determinado por qual dispositivo possui o token por push atualizado mais recentemente, e não por qual dispositivo teve a sessão mais recente.
-* Se o token por push de um novo dispositivo for adicionado a um perfil de usuário por meio da API or interface de programação do aplicativo (API), esse dispositivo é imediatamente considerado o mais recentemente usado, mesmo que o usuário ainda não tenha iniciado uma sessão nele.
+* Se o token por push de um novo dispositivo for adicionado a um perfil de usuário por meio da API, esse dispositivo é imediatamente considerado o mais recentemente usado, mesmo que o usuário ainda não tenha iniciado uma sessão nele.
 * Se o dispositivo usado mais recentemente por um usuário não estiver [habilitado para push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#foreground-push-enabled), a mensagem não será enviada.
 
 Envios múltiplos ainda podem ocorrer se uma Campaign direcionar plataformas diferentes, como iOS e Android. Se um usuário tiver o app em ambas, ele poderá receber um push para as duas plataformas.
@@ -180,7 +180,7 @@ Construa o restante da sua Campaign; veja as seções a seguir para mais detalhe
 
 ### Escolha o cronograma de entrega ou disparo {#choose-delivery-schedule-or-trigger}
 
-Mensagens push podem ser entregues com base em um horário agendado, uma ação ou um disparo por API or interface de programação do aplicativo (API). Para saber mais, consulte [Agendando sua Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
+Mensagens push podem ser entregues com base em um horário agendado, uma ação ou um disparo por API. Para saber mais, consulte [Agendando sua Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
 Para entrega baseada em ação, você também pode definir a duração da Campaign e o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours).
 
@@ -188,23 +188,23 @@ Nesta etapa, você também pode especificar controles de entrega, como permitir 
 
 ### Escolha os usuários a serem direcionados {#choose-users-to-target}
 
-Em seguida, você deve [direcionar usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) escolhendo Segments ou filtros para refinar seu público. Você recebe automaticamente uma prévia de como é a população aproximada desse Segment or segmento. Estatísticas detalhadas do público para os canais direcionados pela sua Campaign estão disponíveis no rodapé. Para ver qual porcentagem da sua base de usuários está sendo direcionada e o valor do tempo de vida para este Segment or segmento, selecione **Show Additional Stats**.
+Em seguida, você deve [direcionar usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) escolhendo Segments ou filtros para refinar seu público. Você recebe automaticamente uma prévia de como é a população aproximada desse Segment. Estatísticas detalhadas do público para os canais direcionados pela sua Campaign estão disponíveis no rodapé. Para ver qual porcentagem da sua base de usuários está sendo direcionada e o valor do tempo de vida para este Segment, selecione **Show Additional Stats**.
 
 {% multi_lang_include audience/target_audiences.md %}
 
 {% details Por que minha métrica de Total de Usuários Contatáveis não corresponde à soma de todos os canais? %}
 
-Quando você visualiza o Total de Usuários Contatáveis para seu público filtrado, pode notar que a soma das colunas individuais é menor do que o Total de Usuários Contatáveis. Essa diferença geralmente ocorre porque há vários usuários que se qualificam para o Segment or segmento ou filtros na Campaign, mas não são contatáveis por push (por exemplo, porque não possuem [tokens por push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle#push-tokens) válidos ou ativos).
+Quando você visualiza o Total de Usuários Contatáveis para seu público filtrado, pode notar que a soma das colunas individuais é menor do que o Total de Usuários Contatáveis. Essa diferença geralmente ocorre porque há vários usuários que se qualificam para o Segment ou filtros na Campaign, mas não são contatáveis por push (por exemplo, porque não possuem [tokens por push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle#push-tokens) válidos ou ativos).
 
 {% enddetails %}
 
 ![Tabela de estatísticas detalhadas do público para Usuários Contatáveis.]({% image_buster /assets/img_archive/multi_channel_footer.png %})
 
-Lembre-se de que a composição exata do Segment or segmento é sempre calculada antes do envio da mensagem.
+Lembre-se de que a composição exata do Segment é sempre calculada antes do envio da mensagem.
 
 Você também pode optar por enviar sua Campaign apenas para usuários que possuem um [status de inscrição]({{site.baseurl}}/user_guide/channels/email/subscriptions) específico, como aqueles que estão inscritos e aceitaram receber push.
 
-Opcionalmente, você também pode limitar a entrega a um número específico de usuários dentro do Segment or segmento ou permitir que os usuários recebam a mesma mensagem duas vezes em uma recorrência da Campaign.
+Opcionalmente, você também pode limitar a entrega a um número específico de usuários dentro do Segment ou permitir que os usuários recebam a mesma mensagem duas vezes em uma recorrência da Campaign.
 
 #### Campaigns multicanal com e-mail e push {#multichannel-campaigns-with-email-and-push}
 
@@ -241,7 +241,7 @@ Em seguida, confira [Relatórios de push]({{site.baseurl}}/user_guide/channels/p
 
 #### Comportamento ao clicar
 
-Se você estiver usando o comportamento ao clicar padrão para a versão do seu SDK or kit de desenvolvimento de software e selecionar uma notificação por push com uma URL da web que abre no app em vez de no navegador de internet or navegador web, consulte os seguintes guias de integração para determinar o tratamento de notificações por push:
+Se você estiver usando o comportamento ao clicar padrão para a versão do seu SDK e selecionar uma notificação por push com uma URL da web que abre no app em vez de no navegador de internet, consulte os seguintes guias de integração para determinar o tratamento de notificações por push:
 
 - [Swift]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift#swift_step-2-enable-push-capabilities)
 - [Android]({{site.baseurl}}/developer_guide/push_notifications#android_step-1-register-braze-firebase-messaging-service)

@@ -16,14 +16,14 @@ _Diese Integration wird von Judo gepflegt._
 
 ## Über die Integration {#about-the-integration}
 
-Die Integration von Braze und Judo bietet maßgeschneiderte Erlebnisse in Ihren Campaigns und Canvase. Anstelle einer einfachen, templatebasierten Landing-Page kann eine Braze-Campaign Inhalte enthalten, die mehrere Bildschirme, Modals, Videos, angepasste Schriftarten und Unterstützungseinstellungen wie Dark Mode und Barrierefreiheit umfassen – entwickelt ohne Code und bereitgestellt ohne App-Updates. Daten aus Braze können auch verwendet werden, um personalisierte Inhalte in einem Judo-Erlebnis zu unterstützen. Nutzer:innen-Ereignisse und Daten aus dem Erlebnis können für Attribution und Targeting in Braze zurückgeführt werden.
+Die Integration von Braze und Judo bietet maßgeschneiderte Erlebnisse in Ihren Campaigns und Canvases. Anstelle einer einfachen, templatebasierten Landing-Page kann eine Braze-Campaign Inhalte enthalten, die mehrere Bildschirme, Modals, Videos, angepasste Schriftarten und Unterstützungseinstellungen wie Dark Mode und Barrierefreiheit umfassen – entwickelt ohne Code und bereitgestellt ohne App-Updates. Daten aus Braze können auch verwendet werden, um personalisierte Inhalte in einem Judo-Erlebnis zu unterstützen. Nutzer:innen-Ereignisse und Daten aus dem Erlebnis können für Attribution und Targeting in Braze zurückgeführt werden.
 
 ## Voraussetzungen {#prerequisites}
 
 | Anforderung | Beschreibung |
 |---|---|
 | Judo-Konto | Um diese Partnerschaft zu nutzen, benötigen Sie ein [Judo-Konto](https://www.judo.app/). |
-| Judo SDK or Software-Development-Kit | Das Judo SDK or Software-Development-Kit muss in Ihre [iOS-](https://github.com/judoapp/judo-ios/) und/oder [Android-Apps](https://github.com/judoapp/judo-android) integriert werden. |
+| Judo SDK | Das Judo SDK muss in Ihre [iOS-](https://github.com/judoapp/judo-ios/) und/oder [Android-Apps](https://github.com/judoapp/judo-android) integriert werden. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
@@ -34,7 +34,7 @@ Die Integration von Braze und Judo bietet maßgeschneiderte Erlebnisse in Ihren 
 
 **Ereignisgesteuerte Inhalte**: Judo wird im Sport- und Unterhaltungsbereich vor allem dazu eingesetzt, reichhaltige Erlebnisse zur Vorschau, Bewerbung und Zusammenfassung von Events zu erstellen. Diese Fähigkeit lässt sich auch in anderen Branchen für saisonale und nachrichtenorientierte Inhalte einsetzen. Durch die Verknüpfung von Messaging zur zeitnahen Bewerbung oder Hervorhebung von Events mit reichhaltigen In-App-Erlebnissen können Publisher das Engagement steigern, indem sie kontextuell relevant sind.
 
-## Side-by-side-SDK or Software-Development-Kit-Integration
+## Side-by-side-SDK-Integration
 
 Judo bietet zusätzliche Bibliotheken, die einen Teil des Aufwands automatisieren, der für die parallele Integration der Judo- und Braze-SDKs in Ihre mobilen Apps erforderlich ist.
 
@@ -80,4 +80,4 @@ Legen Sie ein [angepasstes Schlüssel-Wert-Paar]({{site.baseurl}}/user_guide/mes
 <br><br>
 ### 3. Schritt: Campaign abschließen {#step-3-finishing-the-campaign}
 
-Schließen Sie abschließend die Campaign ab, indem Sie einen Trigger or triggern für die Campaign einrichten und Nutzer:innen über Segments in den Abschnitten **Delivery** und **Target User** auswählen. Besuchen Sie unseren [Artikel]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/) über In-App-Nachrichten, in dem die verschiedenen Komponenten einer Braze-In-App-Nachricht erläutert werden.
+Schließen Sie abschließend die Campaign ab, indem Sie einen Trigger für die Campaign einrichten und Nutzer:innen über Segments in den Abschnitten **Delivery** und **Target User** auswählen. Besuchen Sie unseren [Artikel]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/) über In-App-Nachrichten, in dem die verschiedenen Komponenten einer Braze-In-App-Nachricht erläutert werden.

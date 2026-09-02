@@ -74,7 +74,7 @@ Cuando detienes un Canvas, se aplica lo siguiente:
 
 ### ¿Debo crear un solo Canvas o Canvas separados por ciclo de vida del usuario? {#should-i-build-one-canvas-or-separate-canvases-per-user-lifecycle}
 
-Dependiendo de lo que quieras lograr con tu Canvas, es posible que necesites diferentes enfoques para crear el recorrido del usuario. La flexibilidad de Canvas te permite trazar recorridos de usuario para cualquier etapa del ciclo de vida del usuario. Consulta nuestras [plantillas de BRAZE Canvas]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates) para ver varios ejemplos de enfoques optimizados para crear recorridos de usuario efectivos.
+Dependiendo de lo que quieras lograr con tu Canvas, es posible que necesites diferentes enfoques para crear el recorrido del usuario. La flexibilidad de Canvas te permite trazar recorridos de usuario para cualquier etapa del ciclo de vida del usuario. Consulta nuestras [plantillas de BRAZE CANVAS]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates) para ver varios ejemplos de enfoques optimizados para crear recorridos de usuario efectivos.
 
 ## Mensajes y entrega {#messages-and-delivery}
 
@@ -92,7 +92,7 @@ Detener un Canvas no hará que los usuarios que están esperando recibir mensaje
 
 Si los _Mensajes enviados_ siempre son cero para un Canvas que contiene un paso de mensaje dentro de la aplicación, es porque la entrega de mensajes dentro de la aplicación funciona de manera diferente a otros canales de mensajería.
 
-Los mensajes dentro de la aplicación son "solicitados" por el SDK or kit de desarrollo de software, en lugar de ser "enviados" desde Braze. Los mensajes dentro de la aplicación para usuarios elegibles se entregan automáticamente al inicio de la sesión y "esperan" el evento desencadenante antes de mostrarse. Dado que los usuarios elegibles reciben el mensaje cuando inician una sesión, Braze no reporta esto como un evento de envío. Cuando los usuarios realizan el evento desencadenante, el mensaje se muestra y Braze registra una impresión y marca el paso de Canvas (o Campaign) como recibido en el perfil de usuario. En consecuencia, el total de _Envíos_ es cero para los mensajes dentro de la aplicación.
+Los mensajes dentro de la aplicación son "solicitados" por el SDK, en lugar de ser "enviados" desde Braze. Los mensajes dentro de la aplicación para usuarios elegibles se entregan automáticamente al inicio de la sesión y "esperan" el evento desencadenante antes de mostrarse. Dado que los usuarios elegibles reciben el mensaje cuando inician una sesión, Braze no reporta esto como un evento de envío. Cuando los usuarios realizan el evento desencadenante, el mensaje se muestra y Braze registra una impresión y marca el paso de Canvas (o Campaign) como recibido en el perfil de usuario. En consecuencia, el total de _Envíos_ es cero para los mensajes dentro de la aplicación.
 
 ### ¿Por qué los usuarios no recibieron mi mensaje dentro de la aplicación después de un retraso largo o una rama? {#why-didnt-users-receive-my-in-app-message-after-a-long-delay-or-branch}
 
@@ -338,7 +338,7 @@ Los eventos de excepción se crean utilizando rutas de acción. Las rutas de acc
 
 Si encuentras un error "Request Timed Out" al editar un Canvas y necesitas contactar con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support), incluye la siguiente información para ayudar a agilizar la resolución:
 
-{% multi_lang_include messaging/support_ticket_request_timed_out_details.md context='Canvas' %}
+{% multi_lang_include messaging/support_ticket_request_timed_out_details.md context='canvas' %}
 
 ## Entrega y solución de problemas de Canvas {#canvas-delivery-and-troubleshooting}
 
@@ -386,7 +386,7 @@ Verifica el JSON en tu paso de [Actualización de usuario]({{site.baseurl}}/user
 
 ### ¿Puedo enviar mensajes de Canvas a usuarios sin un `external_id`? {#can-i-send-canvas-messages-to-users-without-an-external_id}
 
-Sí, si ya existe un perfil de usuario en Braze. Los usuarios sin un `external_id` son [usuarios anónimos]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#anonymous-user-profiles) y se puede hacer referencia a ellos con un `braze_id` o un [alias de usuario]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases). Crea o actualiza el perfil con el [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) o tu SDK or kit de desarrollo de software antes de la entrada al Canvas, luego usa [entrada basada en acciones o activada por API]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-12-determine-your-canvas-entry-schedule). La segmentación estándar de Canvas aún requiere un perfil de usuario en Braze: no puedes enviar mensajes de Canvas a una dirección de correo electrónico sin perfil.
+Sí, si ya existe un perfil de usuario en Braze. Los usuarios sin un `external_id` son [usuarios anónimos]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#anonymous-user-profiles) y se puede hacer referencia a ellos con un `braze_id` o un [alias de usuario]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases). Crea o actualiza el perfil con el [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) o tu SDK antes de la entrada al Canvas, luego usa [entrada basada en acciones o activada por API]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-12-determine-your-canvas-entry-schedule). La segmentación estándar de Canvas aún requiere un perfil de usuario en Braze: no puedes enviar mensajes de Canvas a una dirección de correo electrónico sin perfil.
 
 ### ¿Por qué un usuario entró a un Canvas menos veces de las que realizó el evento desencadenante? {#why-did-a-user-enter-a-canvas-fewer-times-than-they-performed-the-trigger-event}
 

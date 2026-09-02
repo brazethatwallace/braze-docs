@@ -32,7 +32,7 @@ Esta integración es compatible con aplicaciones iOS y Android.
 | Cuenta Jampp | Se necesita una [cuenta Jampp](https://www.jampp.com/) para beneficiarse de esta asociación. |
 | ID de la aplicación Android | Tu identificador único de aplicación Braze para Android (como "com.example"). |
 | ID de la aplicación iOS | Tu identificador único de aplicación Braze para iOS (como "012345678"). |
-| Habilitar la recopilación de IDFA en el SDK or kit de desarrollo de software de Braze | La recopilación de IDFA es opcional dentro del SDK or kit de desarrollo de software de Braze y está desactivada por defecto. |
+| Habilitar la recopilación de IDFA en el SDK de Braze | La recopilación de IDFA es opcional dentro del SDK de Braze y está desactivada por defecto. |
 | Recopilación del identificador de publicidad de Google mediante un atributo personalizado | La recopilación del ID de publicidad de Google es opcional para los clientes y puede recogerse como un [atributo personalizado]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#custom-attribute-data-types).
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 

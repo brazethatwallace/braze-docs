@@ -14,7 +14,7 @@ search_tag: Partner
 
 Die Server-zu-Server-Integration von Braze und Zendesk ermöglicht Ihnen die Nutzung von:
 - Braze-Webhooks zur Automatisierung der Erstellung von Support-Tickets in Zendesk aufgrund von Nachrichten-Engagement in Nutzer-Journeys in Braze. Nachdem Sie beispielsweise eine Integration erfolgreich implementiert und getestet haben, kann Braze ein Support-Ticket erstellen, wenn Nutzer:innen eine In-App-Nachricht mit der Frage „Gefällt Ihnen unsere App?“ negativ beantworten, sodass Ihr Support-Team mit den Kund:innen nachfassen kann.
-- Zendesk-Webhooks zur Unterstützung bidirektionaler Anwendungsfälle wie dem Update or aktualisieren des Nutzerprofils in Braze aufgrund einer Aktivität in Zendesk. Wenn zum Beispiel ein Ticket gelöst wurde, protokollieren Sie ein Ereignis im Kundenprofil or Nutzerprofil in Braze.
+- Zendesk-Webhooks zur Unterstützung bidirektionaler Anwendungsfälle wie dem Update des Nutzerprofils in Braze aufgrund einer Aktivität in Zendesk. Wenn zum Beispiel ein Ticket gelöst wurde, protokollieren Sie ein Ereignis im Kundenprofil in Braze.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -98,7 +98,7 @@ Wenn Sie einen gemeinsamen Bezeichner für Braze und Zendesk haben, empfiehlt es
 
 1. Klicken Sie im [Admin Center](https://support.zendesk.com/hc/en-us/articles/4581766374554#topic_hfg_dyz_1hb) in der Seitenleiste auf **Apps and integrations** und wählen Sie dann **Webhooks > Webhooks**.<br><br>
 2. Klicken Sie auf **Create webhook**.<br><br>
-3. Wählen Sie **Trigger or triggern** oder **Automation** und klicken Sie auf **Next**.<br>![Zendesk-Webhook-Erstellungsbildschirm mit Trigger or triggern- und Automatisierungsoptionen.]({% image_buster /assets/img_archive/zendesk2.png %}){: style="max-width:70%;"}<br><br>
+3. Wählen Sie **Trigger** oder **Automation** und klicken Sie auf **Next**.<br>![Zendesk-Webhook-Erstellungsbildschirm mit Trigger- und Automatisierungsoptionen.]({% image_buster /assets/img_archive/zendesk2.png %}){: style="max-width:70%;"}<br><br>
 4. Geben Sie in Ihrem Webhook die folgenden Informationen an:
 - Geben Sie einen Namen und eine Beschreibung für den Webhook ein.
 - Geben Sie die URL des Braze-Endpunkts ein, den Ihr Webhook verwenden soll. {% raw %}Unser Beispiel verwendet `https://{{instance_url}}/users/track`.{% endraw %}
@@ -106,18 +106,18 @@ Wenn Sie einen gemeinsamen Bezeichner für Braze und Zendesk haben, empfiehlt es
 - Wählen Sie die Bearer-Token / Textbaustein-Authentifizierungsmethode für den Webhook und geben Sie Ihren [Braze-API-Schlüssel]({{site.baseurl}}/api/basics#creating-rest-api-keys) an.
   - Vergewissern Sie sich, dass der API-Schlüssel, den Sie verwenden, die [richtigen Berechtigungen]({{site.baseurl}}/api/basics#rest-api-key-permissions) für den Braze-Endpunkt hat, den Ihr Webhook verwendet.<br><br>
 5. (Empfohlen) Testen Sie den Webhook, um zu überprüfen, ob er ordnungsgemäß funktioniert.<br><br>
-6. Bei Trigger or triggern- und Automatisierungs-Webhooks müssen Sie den Webhook mit einem Trigger or triggern oder einer Automatisierung verbinden, bevor Sie die Einrichtung abschließen. Im folgenden Schritt finden Sie ein Beispiel für die Erstellung eines Triggers für den Webhook. Nachdem der Trigger or triggern erstellt wurde, können Sie zu dieser Seite zurückkehren und **Finish setup** auswählen.
+6. Bei Trigger- und Automatisierungs-Webhooks müssen Sie den Webhook mit einem Trigger oder einer Automatisierung verbinden, bevor Sie die Einrichtung abschließen. Im folgenden Schritt finden Sie ein Beispiel für die Erstellung eines Triggers für den Webhook. Nachdem der Trigger erstellt wurde, können Sie zu dieser Seite zurückkehren und **Finish setup** auswählen.
 
-### Schritt 2: Einen Trigger or triggern oder eine Automatisierung erstellen {#step-2-create-a-trigger-or-automation}
+### Schritt 2: Einen Trigger oder eine Automatisierung erstellen {#step-2-create-a-trigger-or-automation}
 
-[Folgen Sie den Anweisungen von Zendesk](https://support.zendesk.com/hc/en-us/articles/4408839108378#topic_bwm_1tv_dpb), um Ihren Webhook mit einem Trigger or triggern oder einer Automatisierung zu verbinden.
+[Folgen Sie den Anweisungen von Zendesk](https://support.zendesk.com/hc/en-us/articles/4408839108378#topic_bwm_1tv_dpb), um Ihren Webhook mit einem Trigger oder einer Automatisierung zu verbinden.
 
-In unserem Beispiel unten wird ein Trigger or triggern verwendet, um den Webhook aufzurufen, wenn der Status eines Supportfalls auf „Gelöst“ oder „Geschlossen“ geändert wurde.
+In unserem Beispiel unten wird ein Trigger verwendet, um den Webhook aufzurufen, wenn der Status eines Supportfalls auf „Gelöst“ oder „Geschlossen“ geändert wurde.
 
 1. Klicken Sie im **Admin Center** in der Seitenleiste auf **Objects and rules** und wählen Sie dann **Business rules > Triggers**.<br><br>
-2. Wählen Sie **Add Trigger or triggern**.<br><br>
-3. Benennen Sie Ihren Trigger or triggern und wählen Sie eine Kategorie aus.<br><br>
-4. Wählen Sie **Add condition**, um festzulegen, welche Bedingungen den Webhook auslösen sollen. Zum Beispiel: „Status category changed to closed“ oder „Status category changed to solved“.![Zendesk-Trigger or triggern-Bedingungseditor mit Statuskategorie-Bedingungen.]({% image_buster /assets/img_archive/zendesk1.png %}){: style="max-width:70%;"}<br><br>
+2. Wählen Sie **Add trigger**.<br><br>
+3. Benennen Sie Ihren Trigger und wählen Sie eine Kategorie aus.<br><br>
+4. Wählen Sie **Add condition**, um festzulegen, welche Bedingungen den Webhook auslösen sollen. Zum Beispiel: „Status category changed to closed“ oder „Status category changed to solved“.![Zendesk-Trigger-Bedingungseditor mit Statuskategorie-Bedingungen.]({% image_buster /assets/img_archive/zendesk1.png %}){: style="max-width:70%;"}<br><br>
 5. Wählen Sie **Add action**, wählen Sie **Notify active webhook** und wählen Sie aus dem Dropdown den Webhook aus, den Sie im vorherigen Schritt erstellt haben.<br><br>
 6. Definieren Sie den JSON-Body so, dass er Ihrem Braze-Endpunkt entspricht, und verwenden Sie variable Platzhalter von Zendesk, um die relevanten Felder dynamisch zu füllen.<br>![Zendesk-Webhook-Aktions-Payload-Editor mit JSON-Body-Variablen.]({% image_buster /assets/img_archive/zendesk3.png %}){: style="max-width:70%;"}<br><br>
 7. Wählen Sie **Create**.<br><br>

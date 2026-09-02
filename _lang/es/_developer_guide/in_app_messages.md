@@ -6,12 +6,12 @@ platform:
   - FireOS
   - Swift
 page_order: 2.2
-description: "Obtén información sobre los mensajes dentro de la aplicación y cómo configurarlos para el SDK or kit de desarrollo de software de Braze."
+description: "Obtén información sobre los mensajes dentro de la aplicación y cómo configurarlos para el SDK de Braze."
 ---
 
 # Mensajes dentro de la aplicación {#in-app-messages}
 
-> Obtén información sobre los mensajes dentro de la aplicación y cómo configurarlos para el SDK or kit de desarrollo de software de Braze.
+> Obtén información sobre los mensajes dentro de la aplicación y cómo configurarlos para el SDK de Braze.
 
 {% sdktabs %}
 {% sdktab web %}

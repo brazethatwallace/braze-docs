@@ -14,7 +14,7 @@ noindex: true
 
 Einführende Informationen zu Deeplinks finden Sie in unserem [Artikel im Benutzerhandbuch]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking). Wenn Sie zum ersten Mal Deeplinks in Ihrer Braze-App implementieren möchten, helfen Ihnen die folgenden Schritte beim Einstieg.
 
-## Schritt 1: Ein Schema Registrierung or registrieren {#step-1-register-a-scheme}
+## Schritt 1: Ein Schema Registrierung {#step-1-register-a-scheme}
 
 Sie müssen ein angepasstes Schema in der Datei `Info.plist` angeben. Die Navigationsstruktur wird durch ein Array von Wörterbüchern definiert. Jedes dieser Wörterbücher enthält ein String-Array.
 
@@ -209,9 +209,9 @@ Weitere Informationen zum Debuggen von ATS-Fehlern finden Sie unter [Versand ein
 
 ## URL-Kodierung {#url-encoding}
 
-Ab Braze iOS SDK or Software-Development-Kit v2.21.0 kodiert das SDK or Software-Development-Kit Links prozentual, um gültige `NSURL`s zu erstellen. Alle Link-Zeichen, die in einer korrekt geformten URL nicht zulässig sind, wie z. B. Unicode-Zeichen, werden prozentual escaped.
+Ab Braze iOS SDK v2.21.0 kodiert das SDK Links prozentual, um gültige `NSURL`s zu erstellen. Alle Link-Zeichen, die in einer korrekt geformten URL nicht zulässig sind, wie z. B. Unicode-Zeichen, werden prozentual escaped.
 
-Um einen kodierten Link zu dekodieren, verwenden Sie die `NSString`-Methode [`stringByRemovingPercentEncoding`](https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Classes/NSString_Class/index.html#//apple_ref/occ/instm/NSString/stringByRemovingPercentEncoding). Beachten Sie, dass Sie in `ABKURLDelegate` auch `YES` zurückgeben müssen und dass ein Aufruf zur Aktion erforderlich ist, um die Verarbeitung der URL durch die App zu Trigger or triggern or triggern. Zum Beispiel:
+Um einen kodierten Link zu dekodieren, verwenden Sie die `NSString`-Methode [`stringByRemovingPercentEncoding`](https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Classes/NSString_Class/index.html#//apple_ref/occ/instm/NSString/stringByRemovingPercentEncoding). Beachten Sie, dass Sie in `ABKURLDelegate` auch `YES` zurückgeben müssen und dass ein Aufruf zur Aktion erforderlich ist, um die Verarbeitung der URL durch die App zu triggern. Zum Beispiel:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -242,7 +242,7 @@ Um einen kodierten Link zu dekodieren, verwenden Sie die `NSString`-Methode [`st
 
 ### Standard-WebView-Anpassung {#default-webview-customization}
 
-Die anpassbare Klasse `ABKModalWebViewController` zeigt Internet-URLs an, die vom SDK or Software-Development-Kit geöffnet werden – typischerweise wenn „Internet-URL in App öffnen“ für einen Web-Deeplink ausgewählt wurde.
+Die anpassbare Klasse `ABKModalWebViewController` zeigt Internet-URLs an, die vom SDK geöffnet werden – typischerweise wenn „Internet-URL in App öffnen“ für einen Web-Deeplink ausgewählt wurde.
 
 Sie können eine Kategorie für die Klasse `ABKModalWebViewController` deklarieren oder sie direkt ändern, um die Webansicht anzupassen. Weitere Details finden Sie in der [.h-Datei](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/ABKModalWebViewController.h) und der [.m-Datei](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/ABKModalWebViewController.m) der Klasse.
 

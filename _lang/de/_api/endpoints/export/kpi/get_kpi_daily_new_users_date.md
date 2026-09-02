@@ -11,7 +11,7 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Tägl
 {% api %}
 # Täglich neue Nutzer:innen nach Datum exportieren {#export-daily-new-users-by-date}
 {% apimethod get %}
-/KPI or Leistungskennzahl or Leistungskennzahlen/new_users/data_series
+/kpi/new_users/data_series
 {% endapimethod %}
 
 > Verwenden Sie diesen Endpunkt, um eine tägliche Reihe der Gesamtzahl der neuen Nutzer:innen an jedem Datum abzurufen.

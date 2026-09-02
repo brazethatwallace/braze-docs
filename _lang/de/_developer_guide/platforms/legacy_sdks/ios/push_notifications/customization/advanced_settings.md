@@ -34,9 +34,9 @@ Aktivieren Sie das Kontrollkästchen **Add Content-Available Flag**, um die Ger�
 
 Aktivieren Sie das Kontrollkästchen **Add Mutable-Content Flag**, um die erweiterte Empfängeranpassung auf Geräten mit iOS 10+ zu aktivieren. Dieses Flag wird automatisch gesendet, wenn Sie eine [Rich-Benachrichtigung]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/rich_notifications) verfassen, unabhängig vom Wert dieses Kontrollkästchens.
 
-## App-Badge-Zähler Update or aktualisieren or aktualisieren {#update-app-badge-count}
+## App-Badge-Zähler aktualisieren {#update-app-badge-count}
 
-Geben Sie die Zahl ein, auf die Sie Ihren Badge-Zähler Update or aktualisieren or aktualisieren möchten, oder verwenden Sie die Liquid-Syntax, um Ihre angepassten Bedingungen festzulegen. Sie können Ihren Badge-Zähler auch manuell über die Eigenschaft `applicationIconBadgeNumber` Ihrer Anwendung oder die Payload der Push-Benachrichtigung Update or aktualisieren or aktualisieren. Weitere Informationen finden Sie in unserem Artikel über [Badge-Zähler]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/badges).
+Geben Sie die Zahl ein, auf die Sie Ihren Badge-Zähler aktualisieren möchten, oder verwenden Sie die Liquid-Syntax, um Ihre angepassten Bedingungen festzulegen. Sie können Ihren Badge-Zähler auch manuell über die Eigenschaft `applicationIconBadgeNumber` Ihrer Anwendung oder die Payload der Push-Benachrichtigung aktualisieren. Weitere Informationen finden Sie in unserem Artikel über [Badge-Zähler]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/badges).
 
 ## Töne {#sounds}
 

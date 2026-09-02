@@ -5,7 +5,7 @@
 Con la interfaz JavaScript de Braze, puedes aprovechar Braze dentro de las WebViews personalizadas de tu aplicación. La [`InAppMessageJavascriptInterface`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage.jsinterface/-in-app-message-javascript-interface/index.html) es responsable de:
 
 1. Inyectar el puente JavaScript de Braze en tu WebView, como se describe en la [Guía del usuario: mensajes HTML dentro de la aplicación]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/customize/#custom-html-messages).
-2. Pasar los métodos del puente recibidos de tu WebView al [SDK or kit de desarrollo de software de Braze para Android](https://github.com/braze-inc/braze-android-sdk).
+2. Pasar los métodos del puente recibidos de tu WebView al [SDK de Braze para Android](https://github.com/braze-inc/braze-android-sdk).
 
 ## Añadir la interfaz a una WebView {#adding-the-interface-to-a-webview}
 
@@ -56,7 +56,7 @@ A continuación se muestra un ejemplo de un video de YouTube incrustado en un fr
 
 ## Uso de vínculos profundos {#using-deep-links}
 
-Cuando utilices vínculos profundos o enlaces externos en mensajes HTML dentro de aplicaciones Android, **no** llames a `brazeBridge.closeMessage()` en tu JavaScript. La lógica interna del SDK or kit de desarrollo de software cierra automáticamente el mensaje dentro de la aplicación cuando redirige a un enlace. Llamar a `brazeBridge.closeMessage()` interfiere en este proceso y puede provocar que el mensaje deje de responder cuando los usuarios vuelvan a tu aplicación.
+Cuando utilices vínculos profundos o enlaces externos en mensajes HTML dentro de aplicaciones Android, **no** llames a `brazeBridge.closeMessage()` en tu JavaScript. La lógica interna del SDK cierra automáticamente el mensaje dentro de la aplicación cuando redirige a un enlace. Llamar a `brazeBridge.closeMessage()` interfiere en este proceso y puede provocar que el mensaje deje de responder cuando los usuarios vuelvan a tu aplicación.
 
 A continuación se muestra un ejemplo de un vínculo profundo en un fragmento de código:
 

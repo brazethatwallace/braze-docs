@@ -188,7 +188,7 @@ iOSの場合、iPadデバイスのみ、またはiPhoneおよびiPodデバイス
 
 ### ターゲットユーザーを選択する {#choose-users-to-target}
 
-次に、セグメントまたはフィルターを選択してオーディエンスを絞り込み、[ターゲットユーザー]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users)を設定する必要があります。そのおおよそのセグメント人口のプレビューが自動的に表示されます。キャンペーンがターゲットとするチャネルの詳細なオーディエンス統計は、フッターに表示されます。ユーザー群のうちターゲットされている割合と、このセグメントのLTV or 生涯価値を確認するには、**Show Additional Stats** を選択してください。
+次に、セグメントまたはフィルターを選択してオーディエンスを絞り込み、[ターゲットユーザー]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users)を設定する必要があります。そのおおよそのセグメント人口のプレビューが自動的に表示されます。キャンペーンがターゲットとするチャネルの詳細なオーディエンス統計は、フッターに表示されます。ユーザー群のうちターゲットされている割合と、このセグメントのLTVを確認するには、**Show Additional Stats** を選択してください。
 
 {% multi_lang_include audience/target_audiences.md %}
 

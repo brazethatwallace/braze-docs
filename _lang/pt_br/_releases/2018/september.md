@@ -19,9 +19,9 @@ As Campaigns agora também usam o horário de silêncio em vez de "enviar esta m
 
 ## Clientes do Adjust {#adjust-customers}
 
-Os clientes da Braze que usam o [Adjust]({{site.baseurl}}/partners/message_orchestration/attribution/adjust/) agora podem ver sua chave de API or interface de programação do aplicativo (API) da Braze e a URL da instância da Braze, que serão usadas na plataforma Adjust para integração.
+Os clientes da Braze que usam o [Adjust]({{site.baseurl}}/partners/message_orchestration/attribution/adjust/) agora podem ver sua chave de API da Braze e a URL da instância da Braze, que serão usadas na plataforma Adjust para integração.
 
-## Filtro "não está no Segment or segmento" {#not-in-segment-filter}
+## Filtro "não está no Segment" {#not-in-segment-filter}
 
 Os clientes agora podem criar um Segment a partir de usuários que [não estão incluídos em um determinado Segment]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/#retargeting).
 
@@ -29,7 +29,7 @@ Os clientes agora podem criar um Segment a partir de usuários que [não estão 
 
 Os clientes agora podem [exportar dados]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_canvas_data/) dos usuários que entraram em um Canvas. O CSV gerado será semelhante ao CSV de Campaign.
 
-## Filtro de Segment or segmento do iOS 12 autorizado provisoriamente {#provisionally-authorized-ios-12-segment-filter}
+## Filtro de Segment do iOS 12 autorizado provisoriamente {#provisionally-authorized-ios-12-segment-filter}
 
 Foi adicionado um [filtro de Segment]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/#other) que permite encontrar usuários que estão autorizados provisoriamente no iOS 12 para um determinado app.
 

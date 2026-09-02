@@ -12,13 +12,13 @@ description: "Dieser Artikel gibt Ihnen einen Überblick über Nutzer:innen und 
 
 ## Nutzer:innen {#users}
 
-In Braze werden Informationen über Ihre Zielgruppe in Nutzerprofilen gespeichert. Ein [Kundenprofil or Nutzerprofil]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) ist eine umfassende Sammlung von Informationen und Attributen, die eine:n individuelle:n Verbraucher:in beschreiben. Es dient als zentrales Repository zum Speichern und Verwalten von Daten, die sich auf Verhalten, Präferenzen und demografische Details beziehen.
+In Braze werden Informationen über Ihre Zielgruppe in Nutzerprofilen gespeichert. Ein [Kundenprofil]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) ist eine umfassende Sammlung von Informationen und Attributen, die eine:n individuelle:n Verbraucher:in beschreiben. Es dient als zentrales Repository zum Speichern und Verwalten von Daten, die sich auf Verhalten, Präferenzen und demografische Details beziehen.
 
 ### Bestandteile eines Nutzerprofils {#parts-of-a-user-profile}
 
 Wenn Sie Nutzerprofile verstehen, können Sie Insights über Ihre Zielgruppe gewinnen und auf personalisierter und zielgerichteter Ebene mit ihr interagieren. Das Profil einer Nutzerin oder eines Nutzers enthält viele Informationen, hier aber einige der wichtigsten Bestandteile:
 
-- **Nutzer-Bezeichner:** Jedes Kundenprofil or Nutzerprofil wird eindeutig durch eine Nutzer-ID identifiziert, die als `external_id` bezeichnet wird. Dieser Bezeichner ermöglicht es Braze, Nutzerdaten über verschiedene Kanäle und Geräte hinweg zu verfolgen und zuzuordnen, wodurch ein einheitliches Bild der Interaktionen jeder Nutzerin und jedes Nutzers mit Ihrer Marke entsteht. [Anonyme Nutzerprofile]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users) (Nutzer:innen, die Ihre Website oder App besuchen, ohne sich anzumelden) haben keine `external_id`, können aber [Nutzer-Aliase]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users#assigning-user-aliases) als alternativen Bezeichner zugewiesen bekommen.
+- **Nutzer-Bezeichner:** Jedes Kundenprofil wird eindeutig durch eine Nutzer-ID identifiziert, die als `external_id` bezeichnet wird. Dieser Bezeichner ermöglicht es Braze, Nutzerdaten über verschiedene Kanäle und Geräte hinweg zu verfolgen und zuzuordnen, wodurch ein einheitliches Bild der Interaktionen jeder Nutzerin und jedes Nutzers mit Ihrer Marke entsteht. [Anonyme Nutzerprofile]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users) (Nutzer:innen, die Ihre Website oder App besuchen, ohne sich anzumelden) haben keine `external_id`, können aber [Nutzer-Aliase]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users#assigning-user-aliases) als alternativen Bezeichner zugewiesen bekommen.
 - [Attribute](#attributes)**:** Dabei handelt es sich um spezifische Informationen über die Nutzerin oder den Nutzer, wie Name, Alter, Standort oder andere demografische Daten. Sie können diese Attribute nutzen, um Ihre Zielgruppe zu segmentieren und Ihre Nachrichten zu personalisieren.
 - [Events](#events)**:** Dies sind Aktionen, die Nutzer:innen ausführen, wie z. B. einen Kauf tätigen, auf einen Link klicken oder eine App öffnen. Braze verfolgt diese Events, um Ihnen dabei zu helfen, das Verhalten und das Engagement der Nutzer:innen zu verstehen. Ähnlich wie Attribute können Sie auch Events zur Segmentierung und Personalisierung verwenden.
 - **Käufe:** Dieser Bereich erfasst den Kaufverlauf der Nutzerin oder des Nutzers. Er ist entscheidend, um die Kaufgewohnheiten und Präferenzen zu verstehen.
@@ -27,7 +27,7 @@ Wenn Sie Nutzerprofile verstehen, können Sie Insights über Ihre Zielgruppe gew
 - **Nachrichtenverlauf:** Dies ist eine Aufzeichnung aller Nachrichten, die über den jeweiligen Messaging-Kanal (wie E-Mail oder Push) an die Nutzerin oder den Nutzer gesendet wurden.
 
 {% alert tip %}
-Die SDKs der Braze-Plattform erfassen automatisch 27 verschiedene Attribute und Events. Mit diesen Standard-Events und -Attributen können Sie Segments erstellen, sobald Sie das SDK or Software-Development-Kit integriert haben.
+Die SDKs der Braze-Plattform erfassen automatisch 27 verschiedene Attribute und Events. Mit diesen Standard-Events und -Attributen können Sie Segments erstellen, sobald Sie das SDK integriert haben.
 {% endalert %}
 
 ### Attribute {#attributes}
@@ -36,7 +36,7 @@ Attribute sind spezifische Merkmale oder Eigenschaften, die mit Nutzer:innen ver
 
 #### Standardattribute {#standard-attributes}
 
-Standardattribute sind vordefinierte Attribute, die Sie nach der Integration des SDK or Software-Development-Kit in Ihre App mit Braze verfolgen können. Es handelt sich um gängige Nutzerinformationen, die die meisten Apps als nützlich erachten, wie demografische Daten und Gerätedaten. Beispiele sind:
+Standardattribute sind vordefinierte Attribute, die Sie nach der Integration des SDK in Ihre App mit Braze verfolgen können. Es handelt sich um gängige Nutzerinformationen, die die meisten Apps als nützlich erachten, wie demografische Daten und Gerätedaten. Beispiele sind:
 
 - Vorname
 - Nachname
@@ -77,7 +77,7 @@ Events repräsentieren spezifische Aktionen oder Verhaltensweisen, die Nutzer:in
 
 #### Standard-Events {#standard-events}
 
-[Standard-Events]({{site.baseurl}}/user_guide/data/activation/events) sind vordefinierte Events, die Braze nach der Integration des SDK or Software-Development-Kit in Ihre App oder Website automatisch verfolgt. Einige Beispiele für Standard-Events sind:
+[Standard-Events]({{site.baseurl}}/user_guide/data/activation/events) sind vordefinierte Events, die Braze nach der Integration des SDK in Ihre App oder Website automatisch verfolgt. Einige Beispiele für Standard-Events sind:
 
 - **Sitzungsstart:** Dieses Event wird ausgelöst, wenn eine Nutzerin oder ein Nutzer die App öffnet.
 - **Sitzungsende:** Dieses Event wird ausgelöst, wenn eine Nutzerin oder ein Nutzer die App schließt.

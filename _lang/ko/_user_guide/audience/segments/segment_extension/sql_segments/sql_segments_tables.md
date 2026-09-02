@@ -121,15 +121,15 @@ table td {
 [USERS_MESSAGES_RCS_READ_SHARED](#USERS_MESSAGES_RCS_READ_SHARED) | 최종사용자가 기기에서 RCS 메시지를 열람할 때
 [USERS_MESSAGES_RCS_REJECTION_SHARED](#USERS_MESSAGES_RCS_REJECTION_SHARED) | 이동통신사의 개입으로 RCS 메시지가 전달되지 못할 때
 [USERS_MESSAGES_RCS_SEND_SHARED](#USERS_MESSAGES_RCS_SEND_SHARED) | RCS 메시지가 Braze 시스템에서 최종 전달 파트너로 전송될 때
-[USERS_MESSAGES_SMS_ABORT_SHARED](#USERS_MESSAGES_SMS_ABORT_SHARED) | 원래 예약된 단문 메시지 서비스 메시지가 어떤 이유로 중단된 경우
-[USERS_MESSAGES_SMS_CARRIERSEND_SHARED](#USERS_MESSAGES_SMS_CARRIERSEND_SHARED) | 단문 메시지 서비스 메시지가 이동통신사로 전송될 때
-[USERS_MESSAGES_SMS_DELIVERY_SHARED](#USERS_MESSAGES_SMS_DELIVERY_SHARED) | 단문 메시지 서비스 메시지가 전달될 때
-[USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED](#USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED) | Braze가 단문 메시지 서비스 서비스 공급자에게 단문 메시지 서비스 메시지를 전달할 수 없을 때
-[USERS_MESSAGES_SMS_INBOUNDRECEIVE_SHARED](#USERS_MESSAGES_SMS_INBOUNDRECEIVE_SHARED) | 사용자로부터 단문 메시지 서비스 메시지를 수신할 때
-[USERS_MESSAGES_SMS_REJECTION_SHARED](#USERS_MESSAGES_SMS_REJECTION_SHARED) | 단문 메시지 서비스 메시지가 사용자에게 전달되지 않을 때
-[USERS_MESSAGES_SMS_SEND_SHARED](#USERS_MESSAGES_SMS_SEND_SHARED) | 단문 메시지 서비스 메시지가 전송될 때
-[USERS_MESSAGES_SMS_SHORTLINKCLICK_SHARED](#USERS_MESSAGES_SMS_SHORTLINKCLICK_SHARED) | 사용자가 단문 메시지 서비스 메시지에 포함된 Braze 단축 URL을 클릭할 때
-[USERS_MESSAGES_SMS_RETRY_SHARED](#USERS_MESSAGES_SMS_RETRY_SHARED) | 우선순위가 낮아지거나 빈도 제한 후 단문 메시지 서비스 메시지가 재시도될 때 (**Snowflake 데이터 공유 전용**)
+[USERS_MESSAGES_SMS_ABORT_SHARED](#USERS_MESSAGES_SMS_ABORT_SHARED) | 원래 예약된 SMS 메시지가 어떤 이유로 중단된 경우
+[USERS_MESSAGES_SMS_CARRIERSEND_SHARED](#USERS_MESSAGES_SMS_CARRIERSEND_SHARED) | SMS 메시지가 이동통신사로 전송될 때
+[USERS_MESSAGES_SMS_DELIVERY_SHARED](#USERS_MESSAGES_SMS_DELIVERY_SHARED) | SMS 메시지가 전달될 때
+[USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED](#USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED) | Braze가 SMS 서비스 공급자에게 SMS 메시지를 전달할 수 없을 때
+[USERS_MESSAGES_SMS_INBOUNDRECEIVE_SHARED](#USERS_MESSAGES_SMS_INBOUNDRECEIVE_SHARED) | 사용자로부터 SMS 메시지를 수신할 때
+[USERS_MESSAGES_SMS_REJECTION_SHARED](#USERS_MESSAGES_SMS_REJECTION_SHARED) | SMS 메시지가 사용자에게 전달되지 않을 때
+[USERS_MESSAGES_SMS_SEND_SHARED](#USERS_MESSAGES_SMS_SEND_SHARED) | SMS 메시지가 전송될 때
+[USERS_MESSAGES_SMS_SHORTLINKCLICK_SHARED](#USERS_MESSAGES_SMS_SHORTLINKCLICK_SHARED) | 사용자가 SMS 메시지에 포함된 Braze 단축 URL을 클릭할 때
+[USERS_MESSAGES_SMS_RETRY_SHARED](#USERS_MESSAGES_SMS_RETRY_SHARED) | 우선순위가 낮아지거나 빈도 제한 후 SMS 메시지가 재시도될 때 (**Snowflake 데이터 공유 전용**)
 [USERS_MESSAGES_WEBHOOK_ABORT_SHARED](#USERS_MESSAGES_WEBHOOK_ABORT_SHARED) | 원래 예약된 웹훅 메시지가 어떤 이유로 중단된 경우
 [USERS_MESSAGES_WEBHOOK_FAILURE_SHARED](#USERS_MESSAGES_WEBHOOK_FAILURE_SHARED) | 웹훅 메시지가 전달되었으나 엔드포인트에서 오류 응답을 받아 실패할 때
 [USERS_MESSAGES_WEBHOOK_SEND_SHARED](#USERS_MESSAGES_WEBHOOK_SEND_SHARED) | 사용자에 대해 웹훅을 전송할 때
@@ -778,7 +778,7 @@ table td {
 `canvas_variation_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 Canvas 배리언트의 API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | 이 이벤트가 속한 캔버스 단계의 API ID
 `subscription_group_api_id` | `string` | 구독 그룹 API ID
-`channel` | `null,`&nbsp;`string` | 채널: 구독 그룹의 채널 유형에 따라 'email' 또는 '단문 메시지 서비스'
+`channel` | `null,`&nbsp;`string` | 채널: 구독 그룹의 채널 유형에 따라 'email' 또는 'sms'
 `subscription_status` | `string` | 가입 상태: 'Subscribed', 'Unsubscribed' 또는 'Opted In'
 `time` | `int` | 가입 상태가 변경된 Unix 타임스탬프
 `timezone` | `null,`&nbsp;`string` | 사용자의 시간대
@@ -2607,7 +2607,7 @@ table td {
 `dispatch_id` | `null,`&nbsp;`string` | 이 메시지가 속한 디스패치 ID
 `error` | `null,`&nbsp;`string` | 오류 이름
 `from_rcs_sender` | `null,`&nbsp;`string` | 메시지를 전송하는 데 사용된 RCS 발신자 ID 또는 에이전트 이름
-`is_sms_fallback` | `null, boolean` | 이 거부된 RCS 메시지에 대해 단문 메시지 서비스 대체가 시도되었는지 여부를 나타냅니다. 단문 메시지 서비스 전달 이벤트와 연결/쌍을 이룹니다
+`is_sms_fallback` | `null, boolean` | 이 거부된 RCS 메시지에 대해 SMS 대체가 시도되었는지 여부를 나타냅니다. SMS 전달 이벤트와 연결/쌍을 이룹니다
 `message_variation_name` | `null,`&nbsp;`string` | 메시지 배리언트의 이름
 `provider_error_code` | `null,`&nbsp;`string` | 공급자의 오류 코드
 `send_id` | `null,`&nbsp;`string` | 이 메시지가 속한 메시지 전송 ID
@@ -2654,10 +2654,10 @@ table td {
 `sf_created_at` | `timestamp`,&nbsp;`null` | 이 이벤트가 Snowpipe에 의해 수집된 시점
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESRCSSENDSHARED #USERSMESSAGESRCSSENDSHARED" }
 
-## 단문 메시지 서비스 메시지 이벤트 및 삭제된 사용자 프로필 {#sms-message-events-and-deleted-user-profiles}
+## SMS 메시지 이벤트 및 삭제된 사용자 프로필 {#sms-message-events-and-deleted-user-profiles}
 
 {% alert note %}
-`USERS_MESSAGES_SMS_*` 공유 테이블([`USERS_MESSAGES_SMS_REJECTION_SHARED`](#USERS_MESSAGES_SMS_REJECTION_SHARED), [`USERS_MESSAGES_SMS_DELIVERY_SHARED`](#USERS_MESSAGES_SMS_DELIVERY_SHARED), [`USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED`](#USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED) 포함)의 경우, Braze는 이벤트가 Snowflake 데이터 공유 및 Currents를 위해 처리될 때 워크스페이스에 Braze 사용자 프로필이 아직 존재하는 경우에만 행을 기록합니다. 처리가 완료되기 전에 해당 사용자가 삭제된 경우, 대시보드의 단문 메시지 서비스 워크스페이스 측정기준이 Braze 리포팅 경로의 집계 수치를 여전히 반영하더라도 해당 이벤트는 Snowflake 또는 Currents 내보내기에 표시되지 않습니다. 관련 Currents 동작에 대해서는 [단문 메시지 서비스 거부 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-rejection-events) 및 동일 용어집의 관련 단문 메시지 서비스 이벤트 유형을 참조하세요.
+`USERS_MESSAGES_SMS_*` 공유 테이블([`USERS_MESSAGES_SMS_REJECTION_SHARED`](#USERS_MESSAGES_SMS_REJECTION_SHARED), [`USERS_MESSAGES_SMS_DELIVERY_SHARED`](#USERS_MESSAGES_SMS_DELIVERY_SHARED), [`USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED`](#USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED) 포함)의 경우, Braze는 이벤트가 Snowflake 데이터 공유 및 Currents를 위해 처리될 때 워크스페이스에 Braze 사용자 프로필이 아직 존재하는 경우에만 행을 기록합니다. 처리가 완료되기 전에 해당 사용자가 삭제된 경우, 대시보드의 SMS 워크스페이스 측정기준이 Braze 리포팅 경로의 집계 수치를 여전히 반영하더라도 해당 이벤트는 Snowflake 또는 Currents 내보내기에 표시되지 않습니다. 관련 Currents 동작에 대해서는 [SMS 거부 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-rejection-events) 및 동일 용어집의 관련 SMS 이벤트 유형을 참조하세요.
 {% endalert %}
 
 ### USERS_MESSAGES_SMS_ABORT_SHARED {#USERS_MESSAGES_SMS_ABORT_SHARED}
@@ -2709,7 +2709,7 @@ table td {
 `timezone` | `null,`&nbsp;`string` | 사용자의 시간대
 `language` | `null,`&nbsp;`string` | [PII] 사용자의 언어
 `to_phone_number` | `null,`&nbsp;`string` | [PII] 수신자의 전화번호
-`from_phone_number` | `null,`&nbsp;`string` | 단문 메시지 서비스 메시지가 발송된 전화번호
+`from_phone_number` | `null,`&nbsp;`string` | SMS 메시지가 발송된 전화번호
 `subscription_group_api_id` | `null,`&nbsp;`string` | 구독 그룹의 외부 ID
 `app_group_id` | `null,`&nbsp;`string` | 이 사용자가 속한 앱 그룹의 BSON ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | 이 이벤트가 Snowpipe에 의해 수집된 시점
@@ -2740,10 +2740,10 @@ table td {
 `timezone` | `null,`&nbsp;`string` | 사용자의 시간대
 `language` | `null,`&nbsp;`string` | [PII] 사용자의 언어
 `to_phone_number` | `null,`&nbsp;`string` | [PII] 수신자의 전화번호
-`from_phone_number` | `null,`&nbsp;`string` | 단문 메시지 서비스 메시지가 발송된 전화번호
+`from_phone_number` | `null,`&nbsp;`string` | SMS 메시지가 발송된 전화번호
 `subscription_group_api_id` | `null,`&nbsp;`string` | 구독 그룹의 외부 ID
 `app_group_id` | `null,`&nbsp;`string` | 이 사용자가 속한 앱 그룹의 BSON ID
-`is_sms_fallback` | `null, boolean` | 이 거부된 RCS 메시지에 대해 단문 메시지 서비스 대체 전송이 시도되었는지 여부를 나타냅니다. 단문 메시지 서비스 전달 이벤트와 연결/쌍을 이룹니다.
+`is_sms_fallback` | `null, boolean` | 이 거부된 RCS 메시지에 대해 SMS 대체 전송이 시도되었는지 여부를 나타냅니다. SMS 전달 이벤트와 연결/쌍을 이룹니다.
 `sf_created_at` | `timestamp`,&nbsp;`null` | 이 이벤트가 Snowpipe에 의해 수집된 시점
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESSMSDELIVERYSHARED #USERSMESSAGESSMSDELIVERYSHARED" }
 
@@ -2774,9 +2774,9 @@ table td {
 `to_phone_number` | `null,`&nbsp;`string` | [PII] 수신자의 전화번호
 `subscription_group_api_id` | `null,`&nbsp;`string` | 구독 그룹의 외부 ID
 `error` | `null,`&nbsp;`string` | 오류 이름
-`provider_error_code` | `null,`&nbsp;`string` | 단문 메시지 서비스 서비스 공급자의 오류 코드
+`provider_error_code` | `null,`&nbsp;`string` | SMS 서비스 공급자의 오류 코드
 `app_group_id` | `null,`&nbsp;`string` | 이 사용자가 속한 앱 그룹의 BSON ID
-`is_sms_fallback` | `null, boolean` | 이 거부된 RCS 메시지에 대해 단문 메시지 서비스 대체 전송이 시도되었는지 여부를 나타냅니다. 단문 메시지 서비스 전달 이벤트와 연결/쌍을 이룹니다.
+`is_sms_fallback` | `null, boolean` | 이 거부된 RCS 메시지에 대해 SMS 대체 전송이 시도되었는지 여부를 나타냅니다. SMS 전달 이벤트와 연결/쌍을 이룹니다.
 `sf_created_at` | `timestamp`,&nbsp;`null` | 이 이벤트가 Snowpipe에 의해 수집된 시점
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESSMSDELIVERYFAILURESHARED #USERSMESSAGESSMSDELIVERYFAILURESHARED" }
 
@@ -2790,8 +2790,8 @@ table td {
 `app_group_api_id` | `null,`&nbsp;`string` | 수신 전화번호와 연결된 워크스페이스의 API ID
 `time` | `int` | 이벤트가 발생한 Unix 타임스탬프
 `user_phone_number` | `string` | [PII] 메시지가 수신된 사용자의 전화번호
-`subscription_group_id` | `null,`&nbsp;`string` | 이 단문 메시지 서비스 메시지의 대상 구독 그룹 ID
-`subscription_group_api_id` | `null,`&nbsp;`string` | 이 단문 메시지 서비스 메시지의 대상 구독 그룹 API ID
+`subscription_group_id` | `null,`&nbsp;`string` | 이 SMS 메시지의 대상 구독 그룹 ID
+`subscription_group_api_id` | `null,`&nbsp;`string` | 이 SMS 메시지의 대상 구독 그룹 API ID
 `inbound_phone_number` | `string` | 메시지가 전송된 수신 번호
 `action` | `string` | 이 메시지에 대한 응답으로 수행된 작업. 예: `Subscribed`, `Unsubscribed`, 또는 `None`.
 `message_body` | `string` | 사용자의 응답
@@ -2833,12 +2833,12 @@ table td {
 `timezone` | `null,`&nbsp;`string` | 사용자의 시간대
 `language` | `null,`&nbsp;`string` | [PII] 사용자의 언어
 `to_phone_number` | `null,`&nbsp;`string` | [PII] 수신자의 전화번호
-`from_phone_number` | `null,`&nbsp;`string` | 단문 메시지 서비스 메시지가 발송된 전화번호
+`from_phone_number` | `null,`&nbsp;`string` | SMS 메시지가 발송된 전화번호
 `subscription_group_api_id` | `null,`&nbsp;`string` | 구독 그룹의 외부 ID
 `error` | `null,`&nbsp;`string` | 오류 이름
-`provider_error_code` | `null,`&nbsp;`string` | 단문 메시지 서비스 서비스 공급자의 오류 코드
+`provider_error_code` | `null,`&nbsp;`string` | SMS 서비스 공급자의 오류 코드
 `app_group_id` | `null,`&nbsp;`string` | 이 사용자가 속한 앱 그룹의 BSON ID
-`is_sms_fallback` | `null, boolean` | 이 거부된 RCS 메시지에 대해 단문 메시지 서비스 대체 전송이 시도되었는지 여부를 나타냅니다. 단문 메시지 서비스 전달 이벤트와 연결/쌍을 이룹니다.
+`is_sms_fallback` | `null, boolean` | 이 거부된 RCS 메시지에 대해 SMS 대체 전송이 시도되었는지 여부를 나타냅니다. SMS 전달 이벤트와 연결/쌍을 이룹니다.
 `sf_created_at` | `timestamp`,&nbsp;`null` | 이 이벤트가 Snowpipe에 의해 수집된 시점
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESSMSREJECTIONSHARED #USERSMESSAGESSMSREJECTIONSHARED" }
 

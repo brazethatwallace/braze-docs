@@ -8,7 +8,7 @@ Wenn Sie bereit sind, Ihre eigenen Feature-Flags zu erstellen, lesen Sie den Abs
 
 ## Voraussetzungen {#prerequisites}
 
-Dies sind die erforderlichen SDK or Software-Development-Kit-Mindestversionen, um Feature-Flags nutzen zu können:
+Dies sind die erforderlichen SDK-Mindestversionen, um Feature-Flags nutzen zu können:
 
 {% sdk_min_versions swift:5.9.0 android:24.2.0 web:4.6.0 unity:4.1.0 cordova:5.0.0 reactnative:4.1.0 flutter:6.0.0 roku:1.0.0 %}
 
@@ -113,7 +113,7 @@ if (liveChatEnabled) {
 {% tab Swift %}
 
 {% alert note %}
-Das Lesen von `braze.featureFlags.featureFlags` oder `braze.featureFlags.featureFlag(id:)` blockiert den aufrufenden Thread, bis das SDK or Software-Development-Kit seine Post-Initialisierungsoperationen abgeschlossen hat. Für Main-Thread- oder latenzempfindliche Kontexte verwenden Sie stattdessen [`getAllFeatureFlags(_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/featureflags-swift.class/getallfeatureflags(_:)).
+Das Lesen von `braze.featureFlags.featureFlags` oder `braze.featureFlags.featureFlag(id:)` blockiert den aufrufenden Thread, bis das SDK seine Post-Initialisierungsoperationen abgeschlossen hat. Für Main-Thread- oder latenzempfindliche Kontexte verwenden Sie stattdessen [`getAllFeatureFlags(_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/featureflags-swift.class/getallfeatureflags(_:)).
 
 ```swift
 // Non-blocking — completion handler always delivers on the main thread.
@@ -340,7 +340,7 @@ Sobald wir einen Gewinner ermittelt haben, können wir diese Campaign stoppen un
 
 ### Segmentierung {#segmentation}
 
-Verwenden Sie den Filter **Feature-Flag**, um ein Segment zu erstellen oder Messaging an Nutzer:innen zu richten, basierend darauf, ob bei ihnen ein Feature-Flag aktiviert ist. Angenommen, Sie haben ein Feature-Flag, das Premium-Inhalte in Ihrer App steuert. Sie könnten ein Segment erstellen, das nach Nutzer:innen filtert, bei denen das Feature-Flag nicht aktiviert ist, und diesem Segment dann eine Nachricht senden, die zum Upgrade or upgraden ihres Kontos auffordert, um Premium-Inhalte zu sehen.
+Verwenden Sie den Filter **Feature-Flag**, um ein Segment zu erstellen oder Messaging an Nutzer:innen zu richten, basierend darauf, ob bei ihnen ein Feature-Flag aktiviert ist. Angenommen, Sie haben ein Feature-Flag, das Premium-Inhalte in Ihrer App steuert. Sie könnten ein Segment erstellen, das nach Nutzer:innen filtert, bei denen das Feature-Flag nicht aktiviert ist, und diesem Segment dann eine Nachricht senden, die zum Upgrade ihres Kontos auffordert, um Premium-Inhalte zu sehen.
 
 1. Öffnen Sie Ihr Segment oder Ihre Nachrichtenzielgruppe.
 2. Fügen Sie den Filter **Feature-Flag** hinzu.
@@ -374,5 +374,5 @@ Ein Feature-Flag gilt als aktiv und wird auf Ihr Limit angerechnet, wenn eine de
 Auch wenn dasselbe Feature-Flag mehrere Kriterien erfüllt – zum Beispiel wenn es in einem Canvas verwendet wird und der Rollout bei 50 % liegt –, wird es nur als 1 aktives Feature-Flag auf Ihr Limit angerechnet.
 
 {% alert note %}
-Um die kostenpflichtige Version der Feature-Flags zu erwerben, wenden Sie sich an Ihren Braze Account Manager:in oder fordern Sie ein Upgrade or upgraden im Braze-Dashboard an.
+Um die kostenpflichtige Version der Feature-Flags zu erwerben, wenden Sie sich an Ihren Braze Account Manager:in oder fordern Sie ein Upgrade im Braze-Dashboard an.
 {% endalert %}

@@ -1,11 +1,11 @@
 ---
-nav_title: Kundenprofil or Nutzerprofil
-article_title: Kundenprofil or Nutzerprofil
+nav_title: Kundenprofil
+article_title: Kundenprofil
 page_order: 0
 description: "Erfahren Sie, wie Sie Nachrichten mit Nutzerprofildaten personalisieren, einschließlich Standardattributen, angepassten Attributen und Event-Eigenschaften."
 ---
 
-# Kundenprofil or Nutzerprofil {#user-profile}
+# Kundenprofil {#user-profile}
 
 > Personalisieren Sie Ihre Nachrichten mit Daten, die im Profil jedes Nutzers bzw. jeder Nutzerin gespeichert sind, einschließlich Standardattributen, angepassten Attributen und Event-Eigenschaften. Braze stellt diese Daten über [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)-Tags bereit, die Sie direkt in Ihren Nachrichteninhalt einfügen können.
 
@@ -55,10 +55,10 @@ Thanks for purchasing {{event_properties.${product_name}}}! Your order is on its
 
 Event-Eigenschaften sind in aktionsbasierten Campaigns und im ersten Schritt eines aktionsbasierten Canvas verfügbar. Weitere Informationen finden Sie unter [Angepasste Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events).
 
-## API-Trigger or triggern-Eigenschaften {#api-trigger-properties}
+## API-Trigger-Eigenschaften {#api-trigger-properties}
 
 {% raw %}
-Für Campaigns und Canvase, die über die API getriggert werden, können Sie zusätzliche Daten über das Trigger or triggern-Eigenschaften-Objekt übergeben. Referenzieren Sie diese Werte mit `{{api_trigger_properties.${property_name}}}`.
+Für Campaigns und Canvases, die über die API getriggert werden, können Sie zusätzliche Daten über das Trigger-Eigenschaften-Objekt übergeben. Referenzieren Sie diese Werte mit `{{api_trigger_properties.${property_name}}}`.
 
 Zum Beispiel:
 
@@ -67,7 +67,7 @@ Your verification code is {{api_trigger_properties.${verification_code}}}.
 ```
 {% endraw %}
 
-Weitere Informationen finden Sie unter [API-Trigger or triggern-Eigenschaften-Objekt]({{site.baseurl}}/api/objects_filters/trigger_properties_object).
+Weitere Informationen finden Sie unter [API-Trigger-Eigenschaften-Objekt]({{site.baseurl}}/api/objects_filters/trigger_properties_object).
 
 ## Geräteattribute {#device-attributes}
 

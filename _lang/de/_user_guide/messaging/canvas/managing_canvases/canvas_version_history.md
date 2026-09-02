@@ -15,19 +15,19 @@ tool: Canvas
 Das Referenzieren Ihres Canvas-Versionsverlaufs kann besonders hilfreich sein, um die Entwicklung eines Canvas nachzuverfolgen. Wenn Sie beispielsweise eine umfangreiche Änderung vornehmen, können Sie frühere Canvas-Versionen referenzieren, um besser zu verstehen, wie sich Ihre Workflows entwickelt haben.
 
 {% alert tip %}
-Für eine vollständige Liste der Canvase in Ihrem Workspace (z. B. für ein Audit) verwenden Sie den [Endpunkt „Canvas-Liste exportieren“]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases) und blättern Sie durch die Ergebnisse.
+Für eine vollständige Liste der Canvases in Ihrem Workspace (z. B. für ein Audit) verwenden Sie den [Endpunkt „Canvas-Liste exportieren“]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases) und blättern Sie durch die Ergebnisse.
 {% endalert %}
 
 ## Versionen verwalten {#managing-versions}
 
 ![Screenshot zur Verwaltung von Versionen.]({% image_buster /assets/img_archive/canvas_version_history.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
 
-Um eine neue Version zu erstellen, klicken Sie auf **Canvas Update or aktualisieren or aktualisieren**. So können Sie Änderungen vornehmen, ohne das vorherige Setup des Canvas zu überschreiben. Wenn eine neue Canvas-Version erstellt wird, durchlaufen die Nutzer:innen, die sich bereits im Canvas befinden, den Workflow der neuen Version. Nutzer:innen, die den Canvas betreten, gelangen ebenfalls in die neue Version.
+Um eine neue Version zu erstellen, klicken Sie auf **Canvas aktualisieren**. So können Sie Änderungen vornehmen, ohne das vorherige Setup des Canvas zu überschreiben. Wenn eine neue Canvas-Version erstellt wird, durchlaufen die Nutzer:innen, die sich bereits im Canvas befinden, den Workflow der neuen Version. Nutzer:innen, die den Canvas betreten, gelangen ebenfalls in die neue Version.
 
 Um auf den Versionsverlauf zuzugreifen, navigieren Sie zu den Canvas-Details oben in Ihrem Canvas und wählen Sie **# Versions** aus. Hier haben Sie Zugriff auf die Seitenleiste **Version history**. Wählen Sie eine beliebige Canvas-Version in der Seitenleiste aus, um Canvas-Details einzusehen und zu vergleichen. Um zwischen den Canvas-Analytics und dem Canvas-Setup zu wechseln, klicken Sie auf **Analytics anzeigen** oder **Canvas anzeigen** in der unteren Symbolleiste.
 
 {% alert note %}
-Canvase, die unter **Version history** aufgeführt sind, können nur angezeigt werden.
+Canvases, die unter **Version history** aufgeführt sind, können nur angezeigt werden.
 {% endalert %}
 
 Um eine Liste der Änderungen anzuzeigen, die an einer Version vorgenommen wurden, während sie aktiv war, wählen Sie **View Changes** in der Seitenleiste des Versionsverlaufs aus. Sie können auch alle mit einer Version verbundenen Änderungen im Canvas-Changelog einsehen.
@@ -40,7 +40,7 @@ Wenn Ihr Versionsverlauf wächst, können Sie jede Version in der Seitenleiste u
 
 ### Versionen verwerfen {#discarding-versions}
 
-Sie können bis zu 10 Versionen pro Canvas erstellen. Wenn Sie dieses Limit erreichen, können Sie eine Version verwerfen, um Platz für eine neue zu schaffen. Beachten Sie, dass Versionen beim Klicken auf **Discard** verworfen werden, nicht wenn Sie den Canvas Update or aktualisieren or aktualisieren. Das Verwerfen einer Version wird im übergeordneten Canvas-Changelog erfasst, nicht im Changelog einer bestimmten Version.
+Sie können bis zu 10 Versionen pro Canvas erstellen. Wenn Sie dieses Limit erreichen, können Sie eine Version verwerfen, um Platz für eine neue zu schaffen. Beachten Sie, dass Versionen beim Klicken auf **Discard** verworfen werden, nicht wenn Sie den Canvas aktualisieren. Das Verwerfen einer Version wird im übergeordneten Canvas-Changelog erfasst, nicht im Changelog einer bestimmten Version.
 
 Wenn Sie eine Version verwerfen, geht das Canvas-Setup sofort verloren, aber die mit der verworfenen Version verbundenen Analytics werden beibehalten.
 

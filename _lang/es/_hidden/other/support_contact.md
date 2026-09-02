@@ -177,7 +177,7 @@ div#ticket_thankyou {
   }
   .gpt-res-buttons {
   display: flex;
-  justify-content: space-between; /* Back on left, REST or transferencia de estado representacional on right */
+  justify-content: space-between; /* Back on left, rest on right */
   align-items: center;
   width: 100%;
   margin-top: 15px;
@@ -1176,7 +1176,7 @@ a:hover {
         <!-- Pregunta (ancho completo) -->
         <div class="form-group">
           <label for="ticket_issue" class="required">Pregunta </label>
-          <textarea id="ticket_issue" name="ticket_issue" rows="7" class="form-control" placeholder="Incluye detalles como la plataforma, la versión del SDK or kit de desarrollo de software, los puntos de conexión de la REST or transferencia de estado representacional API, los pasos para reproducir el problema..."></textarea>
+          <textarea id="ticket_issue" name="ticket_issue" rows="7" class="form-control" placeholder="Incluye detalles como la plataforma, la versión del SDK, los puntos de conexión de la REST API, los pasos para reproducir el problema..."></textarea>
         </div>
 
         <!-- Texto informativo -->
@@ -1265,7 +1265,7 @@ String.prototype.mapReplace = function(map) {
 };
 
 var wordmap = {
-  'REST or transferencia de estado representacional' : 'REST or transferencia de estado representacional',
+  'REST' : 'REST',
   'API' : 'API',
   'APIs' : 'APIs',
   'iOS' : 'iOS',
@@ -1288,10 +1288,10 @@ var ticket_lookuptable = {
       'LinksTitle': ['Platform Features'],
       'Links' : ['{{site.baseurl}}/developer_guide/platform_wide/platform_features/'],
       'SelectOption' : {
-        'SDK or kit de desarrollo de software Integrations' : {
+        'SDK Integrations' : {
           'Label': 'My question is about... *',
           'SelectDefault': 'Select a type...',
-          'LinksTitle': ['Self-Service SDK or kit de desarrollo de software Debugging Tool','iOS: Initial SDK or kit de desarrollo de software Setup','Android: Initial SDK or kit de desarrollo de software Setup','Web: Initial SDK or kit de desarrollo de software Setup','Sending Test Messages','Braze Learning Course: Technical Integration Checklist and Toolkits'],
+          'LinksTitle': ['Self-Service SDK Debugging Tool','iOS: Initial SDK Setup','Android: Initial SDK Setup','Web: Initial SDK Setup','Sending Test Messages','Braze Learning Course: Technical Integration Checklist and Toolkits'],
           'Links': ['{{site.baseurl}}/developer_guide/sdk_integration/debugging','{{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/overview','{{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/android_sdk_integration/','{{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup/','{{site.baseurl}}/developer_guide/platform_wide/sending_test_messages/','https://learning.braze.com/technical-integration-checklists-and-toolkits'],
           'SelectOption' : {
             'Push' : {
@@ -1317,7 +1317,7 @@ var ticket_lookuptable = {
                 },
                 'Other' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['Braze Developer Guide','SDK or kit de desarrollo de software Registro de cambios','Sending Test Messages','Braze Learning Course: Technical Integration Checklist and Toolkits'],
+                  'LinksTitle': ['Braze Developer Guide','SDK Registro de cambios','Sending Test Messages','Braze Learning Course: Technical Integration Checklist and Toolkits'],
                   'Links' : ['{{site.baseurl}}/developer_guide/home','{{site.baseurl}}/developer_guide/platform_integration_guides/sdk_changelogs','{{site.baseurl}}/developer_guide/platform_wide/sending_test_messages/','https://learning.braze.com/technical-integration-checklists-and-toolkits']
                 }
               }
@@ -1345,7 +1345,7 @@ var ticket_lookuptable = {
                 },
                 'Other' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['Braze Developer Guide','SDK or kit de desarrollo de software Registro de cambios','Sending Test Messages','Braze Learning Course: Technical Integration Checklist and Toolkits'],
+                  'LinksTitle': ['Braze Developer Guide','SDK Registro de cambios','Sending Test Messages','Braze Learning Course: Technical Integration Checklist and Toolkits'],
                   'Links' : ['{{site.baseurl}}/developer_guide/home','{{site.baseurl}}/developer_guide/platform_integration_guides/sdk_changelogs','{{site.baseurl}}/developer_guide/platform_wide/sending_test_messages/','https://learning.braze.com/technical-integration-checklists-and-toolkits']
                 }
               }
@@ -1372,7 +1372,7 @@ var ticket_lookuptable = {
                 },
                 'Other' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['Braze Developer Guide','SDK or kit de desarrollo de software Registro de cambios','Sending Test Messages','Braze Learning Course: Technical Integration Checklist and Toolkits'],
+                  'LinksTitle': ['Braze Developer Guide','SDK Registro de cambios','Sending Test Messages','Braze Learning Course: Technical Integration Checklist and Toolkits'],
                   'Links' : ['{{site.baseurl}}/developer_guide/home','{{site.baseurl}}/developer_guide/platform_integration_guides/sdk_changelogs','{{site.baseurl}}/developer_guide/platform_wide/sending_test_messages/','https://learning.braze.com/technical-integration-checklists-and-toolkits']
                 }
               }
@@ -1402,10 +1402,10 @@ var ticket_lookuptable = {
             }
           }
         },
-        'REST or transferencia de estado representacional APIs' : {
+        'REST APIs' : {
           'Label': 'My question is about... *',
           'SelectDefault': 'Select a type...',
-          'LinksTitle': ['REST or transferencia de estado representacional API: Endpoint Dictionary'],
+          'LinksTitle': ['REST API: Endpoint Dictionary'],
           'Links': ['{{site.baseurl}}/api/home'],
           'SelectOption' : {
             'Errors' : {
@@ -1415,17 +1415,17 @@ var ticket_lookuptable = {
             },
             'Importing Data' : {
               'ShowSubmit': true,
-              'LinksTitle': ['User Import', 'REST or transferencia de estado representacional API: User Data Endpoints'],
+              'LinksTitle': ['User Import', 'REST API: User Data Endpoints'],
               'Links' : ['{{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_import/','{{site.baseurl}}/api/endpoints/user_data']
             },
             'Exporting Data' : {
               'ShowSubmit': true,
-              'LinksTitle': ['Exporting Braze Data','REST or transferencia de estado representacional API: Export Endpoints', 'Export Frequently Asked Questions'],
+              'LinksTitle': ['Exporting Braze Data','REST API: Export Endpoints', 'Export Frequently Asked Questions'],
               'Links' : ['{{site.baseurl}}/user_guide/data_and_analytics/export_braze_data','{{site.baseurl}}/api/endpoints/export','{{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/faqs/']
             },
             'API Campaigns' : {
               'ShowSubmit': true,
-              'LinksTitle': ['API Campaign Overview','REST or transferencia de estado representacional API: Send API-Triggered Campaign Endpoint','REST or transferencia de estado representacional API: Schedule API-Triggered Campaign Endpoint'],
+              'LinksTitle': ['API Campaign Overview','REST API: Send API-Triggered Campaign Endpoint','REST API: Schedule API-Triggered Campaign Endpoint'],
               'Links' : ['{{site.baseurl}}/api/api_campaigns/','{{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/','{{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns/']
             },
             'Rate Limits' : {
@@ -1483,20 +1483,20 @@ var ticket_lookuptable = {
             }
           }
         },
-        'servicio de mensajes cortos and MMS' :{
+        'SMS and MMS' :{
           'SelectDefault': 'Select a type...',
           'Label': 'My question is about... *',
-          'LinksTitle': ['servicio de mensajes cortos Best Practices','servicio de mensajes cortos Frequently Asked Questions', 'MMS Frequently Asked Questions', 'Braze Learning Course: servicio de mensajes cortos Fundamentals'],
+          'LinksTitle': ['SMS Best Practices','SMS Frequently Asked Questions', 'MMS Frequently Asked Questions', 'Braze Learning Course: SMS Fundamentals'],
           'Links' : ['{{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/best_practices','{{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs/','{{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/mms/faqs/','https://learning.braze.com/sms-fundamentals'],
           'SelectOption': {
             'Setup' : {
               'ShowSubmit': true,
-              'LinksTitle': ['servicio de mensajes cortos Onboarding Resources'],
+              'LinksTitle': ['SMS Onboarding Resources'],
               'Links' : ['{{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup']
             },
             'Subscription Groups' : {
               'ShowSubmit': true,
-              'LinksTitle': ['servicio de mensajes cortos Subscription Groups'],
+              'LinksTitle': ['SMS Subscription Groups'],
               'Links' : ['{{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sms_subscription_groups/']
             },
             'Short and Long Codes' : {
@@ -1506,7 +1506,7 @@ var ticket_lookuptable = {
             },
             'User Retargeting' : {
               'ShowSubmit': true,
-              'LinksTitle': ['servicio de mensajes cortos User Retargeting'],
+              'LinksTitle': ['SMS User Retargeting'],
               'Links' : ['{{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/campaign/retargeting/']
             }
           }
@@ -1538,7 +1538,7 @@ var ticket_lookuptable = {
           'SelectDefault': 'Select a type...',
           'Label': 'My question is about... *',
           'LinksTitle': ['Campaign Frequently Asked Questions','Canvas Frequently Asked Questions'],
-          'Links' : ['{{site.baseurl}}/user_guide/messaging/campaigns/faq/','{{site.baseurl}}/user_guide/messaging/Canvas/faqs/'],
+          'Links' : ['{{site.baseurl}}/user_guide/messaging/campaigns/faq/','{{site.baseurl}}/user_guide/messaging/canvas/faqs/'],
           'SelectOption': {
             'Messaging Personalization' : {
               'ShowSubmit': true,
@@ -1581,9 +1581,9 @@ var ticket_lookuptable = {
                   'LinksTitle': ['Create a Webhook Campaign'],
                   'Links' : ['{{site.baseurl}}/user_guide/channels/webhooks/creating_a_webhook/']
                 },
-                'servicio de mensajes cortos and MMS' : {
+                'SMS and MMS' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['Create an servicio de mensajes cortos, MMS, or RCS Message'],
+                  'LinksTitle': ['Create an SMS, MMS, or RCS Message'],
                   'Links' : ['{{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/']
                 },
                 'WhatsApp' : {
@@ -1662,7 +1662,7 @@ var ticket_lookuptable = {
           'SelectDefault': 'Select a type...',
           'Label': 'My question is about... *',
           'ShowSubmit': true,
-          'LinksTitle': ['System Status','SDK or kit de desarrollo de software Changelogs'],
+          'LinksTitle': ['System Status','SDK Changelogs'],
           'Links' : ['https://braze.statuspage.io/','{{site.baseurl}}/developer_guide/platform_integration_guides/sdk_changelogs'],
         }
       }
@@ -1671,12 +1671,12 @@ var ticket_lookuptable = {
       'Label': '* Category',
       'SelectDefault': 'Select a category...',
       'LinksTitle': ['Campaign Ideas and Strategies','Canvas Ideas and Strategies','Building Accessible Messages in Braze','Braze Learning Course: Create Customer Journeys with Canvas Flow'],
-      'Links': ['{{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/','{{site.baseurl}}/user_guide/messaging/Canvas/ideas_and_strategies','{{site.baseurl}}/developer_guide/platforms/web/accessibility','https://learning.braze.com/create-customer-journeys-with-canvas-flow'],
+      'Links': ['{{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/','{{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies','{{site.baseurl}}/developer_guide/platforms/web/accessibility','https://learning.braze.com/create-customer-journeys-with-canvas-flow'],
       'SelectOption' : {
         'Tools and Use Cases' : {
           'ShowSubmit': true,
           'LinksTitle': ['Campaign Ideas and Strategies', 'Canvas Ideas and Strategies','Braze Learning Course: Customer Engagement Tools and Use Cases'],
-          'Links':  ['{{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/','{{site.baseurl}}/user_guide/messaging/Canvas/ideas_and_strategies','https://learning.braze.com/braze-customer-engagement-tools-use-cases']
+          'Links':  ['{{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/','{{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies','https://learning.braze.com/braze-customer-engagement-tools-use-cases']
         },
         'Best Practices and Frequently Asked Questions' :{
           'ShowSubmit': true,

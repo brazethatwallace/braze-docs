@@ -19,12 +19,12 @@ channel:
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Historias push" }
 
 {% alert note %}
-En las versiones 3.13.0+ del SDK or kit de desarrollo de software de iOS, debido a un cambio en la forma en que el SDK or kit de desarrollo de software descarga las imágenes, no se mostrará una miniatura de la primera imagen en la vista condensada de la notificación push. Asegúrate de que el texto de tu mensaje invite a los usuarios a expandir la notificación push para ver las imágenes.
+En las versiones 3.13.0+ del SDK de iOS, debido a un cambio en la forma en que el SDK descarga las imágenes, no se mostrará una miniatura de la primera imagen en la vista condensada de la notificación push. Asegúrate de que el texto de tu mensaje invite a los usuarios a expandir la notificación push para ver las imágenes.
 {% endalert %}
 
 ## Requisitos previos {#prerequisites}
 
-Se requieren las siguientes versiones del SDK or kit de desarrollo de software para recibir historias push:
+Se requieren las siguientes versiones del SDK para recibir historias push:
 
 {% sdk_min_versions swift:5.0.0 android:2.2.0 %}
 

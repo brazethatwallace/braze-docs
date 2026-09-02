@@ -36,9 +36,9 @@ Depois que um teste multivariante começa, você não pode fazer alterações na
 
 Para otimizar automaticamente suas variantes, consulte [Otimizando testes A/B com BrazeAI]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection). Campaigns de envio único e de envio múltiplo usam métodos e requisitos de otimização diferentes.
 
-## Etapa 4: Escolha um Segment or segmento e distribua seus usuários entre as variantes {#step-4-choose-a-segment-and-distribute-your-users-across-variants}
+## Etapa 4: Escolha um Segment e distribua seus usuários entre as variantes {#step-4-choose-a-segment-and-distribute-your-users-across-variants}
 
-Selecione os Segments para segmentar e distribua os membros entre as variantes selecionadas e o [grupo de controle](#including-a-control-group) opcional. Para conferir as práticas recomendadas sobre como escolher um Segment or segmento para testar, consulte [Escolher um Segment or segmento](#choosing-a-segment).
+Selecione os Segments para segmentar e distribua os membros entre as variantes selecionadas e o [grupo de controle](#including-a-control-group) opcional. Para conferir as práticas recomendadas sobre como escolher um Segment para testar, consulte [Escolher um Segment](#choosing-a-segment).
 
 Para Campaigns compatíveis, ative **Otimizar com BrazeAI<sup>TM</sup>** para otimizar automaticamente a distribuição das variantes. Para uma Campaign de envio único, a Braze reserva parte do público para um segundo envio otimizado. Para uma Campaign de múltiplos envios, o BrazeAI<sup>TM</sup> ajusta a distribuição ao longo do tempo.
 
@@ -100,13 +100,13 @@ Por exemplo, se você está testando um push, pode obter resultados significativ
 
 Se você não tem certeza de quanto tempo seu teste deve durar, [Otimizar com BrazeAI<sup>TM</sup>]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection) pode configurar e executar a otimização automaticamente.
 
-### Escolhendo um Segment or segmento {#choosing-a-segment}
+### Escolhendo um Segment {#choosing-a-segment}
 
-Como diferentes Segments dos seus usuários podem responder de formas diferentes ao envio de mensagens, o sucesso de uma mensagem específica diz algo tanto sobre a mensagem em si quanto sobre o Segment or segmento de destino. Portanto, tente planejar um teste com seu público-alvo em mente.
+Como diferentes Segments dos seus usuários podem responder de formas diferentes ao envio de mensagens, o sucesso de uma mensagem específica diz algo tanto sobre a mensagem em si quanto sobre o Segment de destino. Portanto, tente planejar um teste com seu público-alvo em mente.
 
 Por exemplo, enquanto usuários ativos podem ter taxas de resposta iguais para "Esta oferta expira amanhã!" e "Esta oferta expira em 24 horas!", usuários que não abriram o app por uma semana podem responder melhor à segunda opção, pois ela cria uma sensação maior de urgência.
 
-Além disso, ao escolher em qual Segment or segmento executar o teste, certifique-se de que o tamanho desse Segment or segmento seja grande o suficiente para o seu teste. Em geral, testes multivariantes e A/B com mais variantes exigem um grupo de teste maior para alcançar resultados estatisticamente significativos. Isso porque mais variantes resultam em menos usuários vendo cada variante individual.
+Além disso, ao escolher em qual Segment executar o teste, certifique-se de que o tamanho desse Segment seja grande o suficiente para o seu teste. Em geral, testes multivariantes e A/B com mais variantes exigem um grupo de teste maior para alcançar resultados estatisticamente significativos. Isso porque mais variantes resultam em menos usuários vendo cada variante individual.
 
 {% alert tip %}
 Como referência, você provavelmente precisa de cerca de 15.000 usuários por variante (incluindo o grupo de controle) para alcançar 95% de confiança nos resultados do teste. No entanto, o número exato de usuários necessários pode ser maior ou menor, dependendo do seu caso específico. Para orientações mais precisas sobre tamanhos de amostra por variante, considere consultar uma [calculadora de tamanho de amostra](https://www.calculator.net/sample-size-calculator.html).

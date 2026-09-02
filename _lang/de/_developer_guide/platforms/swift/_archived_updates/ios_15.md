@@ -1,26 +1,26 @@
 ---
-nav_title: iOS 15 Upgrade or upgraden-Leitfaden
-article_title: Upgrade or upgraden-Leitfaden für das iOS 15 SDK or Software-Development-Kit
+nav_title: iOS 15 Upgrade-Leitfaden
+article_title: Upgrade-Leitfaden für das iOS 15 SDK
 page_order: 7
 platform: iOS
-description: "Dieser Referenzartikel beschreibt die neuen Updates für iOS 15, die erforderlichen SDK or Software-Development-Kit-Updates und die neuen Features."
+description: "Dieser Referenzartikel beschreibt die neuen Updates für iOS 15, die erforderlichen SDK-Updates und die neuen Features."
 hidden: true
 noindex: true
 ---
 
-# Upgrade or upgraden-Leitfaden für das iOS 15 SDK or Software-Development-Kit {#ios-15-sdk-upgrade-guide}
+# Upgrade-Leitfaden für das iOS 15 SDK {#ios-15-sdk-upgrade-guide}
 
-> Dieser Leitfaden beschreibt die Änderungen, die mit iOS 15 (WWDC21) eingeführt wurden, und die erforderlichen Upgrade or upgraden-Schritte für Ihre Braze iOS SDK or Software-Development-Kit-Integration. Eine vollständige Liste der neuen iOS 15 Updates finden Sie in den [iOS 15 Versionshinweisen](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-15-release-notes) von Apple.
+> Dieser Leitfaden beschreibt die Änderungen, die mit iOS 15 (WWDC21) eingeführt wurden, und die erforderlichen Upgrade-Schritte für Ihre Braze iOS SDK-Integration. Eine vollständige Liste der neuen iOS 15 Updates finden Sie in den [iOS 15 Versionshinweisen](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-15-release-notes) von Apple.
 
 ## Änderungen an der Transparenz von UI-Navigationen {#transparency-changes-to-ui-navigations}
 
 Im Rahmen unserer jährlichen Tests der iOS-Betas haben wir eine von Apple vorgenommene Änderung festgestellt, die dazu führt, dass bestimmte UI-Navigationsleisten transparent statt undurchsichtig dargestellt werden. Dies wird unter iOS 15 sichtbar, wenn Sie die Standard-UI von Braze für Content Cards verwenden oder wenn Web-Deeplinks innerhalb Ihrer App statt in einer separaten Browser-App geöffnet werden.
 
-Um diese visuelle Änderung unter iOS 15 zu vermeiden, empfehlen wir dringend, so bald wie möglich auf das [Braze iOS SDK or Software-Development-Kit v4.3.2](https://github.com/Appboy/appboy-ios-sdk/releases/tag/4.3.2) zu Update or aktualisieren or aktualisieren, bevor Nutzer:innen ihr Telefon auf das neue Betriebssystem iOS 15 Update or aktualisieren or aktualisieren.
+Um diese visuelle Änderung unter iOS 15 zu vermeiden, empfehlen wir dringend, so bald wie möglich auf das [Braze iOS SDK v4.3.2](https://github.com/Appboy/appboy-ios-sdk/releases/tag/4.3.2) zu aktualisieren, bevor Nutzer:innen ihr Telefon auf das neue Betriebssystem iOS 15 aktualisieren.
 
 ## Neue Benachrichtigungseinstellungen {#notification-settings}
 
-Mit iOS 15 wurden neue Features für Benachrichtigungen eingeführt, die Nutzer:innen helfen, sich zu konzentrieren und häufige Unterbrechungen während des Tages zu vermeiden. Wir freuen uns, Unterstützung für diese neuen Features anbieten zu können. Diese Features erfordern keine zusätzlichen SDK or Software-Development-Kit-Upgrades und werden nur auf Nutzer:innen von iOS 15-Geräten angewendet.
+Mit iOS 15 wurden neue Features für Benachrichtigungen eingeführt, die Nutzer:innen helfen, sich zu konzentrieren und häufige Unterbrechungen während des Tages zu vermeiden. Wir freuen uns, Unterstützung für diese neuen Features anbieten zu können. Diese Features erfordern keine zusätzlichen SDK-Upgrades und werden nur auf Nutzer:innen von iOS 15-Geräten angewendet.
 
 ### Fokus-Modi {#focus-mode}
 
@@ -65,7 +65,7 @@ Mit diesem Feature haben Sie eine zusätzliche Möglichkeit, Nutzer:innen um Erl
 
 Für die Verwendung von Standort-Buttons mit Braze ist keine zusätzliche Integration erforderlich. Ihre App sollte den Standort der Nutzer:innen wie gewohnt weitergeben (sobald diese ihre Zustimmung erteilt haben).
 
-Laut Apple wird für Nutzer:innen, die den Zugriff auf den Standort im Hintergrund bereits freigegeben haben, die Option „Während der Nutzung der App“ diese Berechtigung auch nach dem Upgrade or upgraden auf iOS 15 weiterhin gewähren.
+Laut Apple wird für Nutzer:innen, die den Zugriff auf den Standort im Hintergrund bereits freigegeben haben, die Option „Während der Nutzung der App“ diese Berechtigung auch nach dem Upgrade auf iOS 15 weiterhin gewähren.
 
 ## Apple Mail {#mail}
 

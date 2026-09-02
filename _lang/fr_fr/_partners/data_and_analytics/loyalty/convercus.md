@@ -23,7 +23,7 @@ Convercus héberge l'intégration, vous n'avez donc pas besoin d'installer d'inf
 * **Célébration de montée en gamme :** Lorsqu'un membre progresse vers un niveau de fidélité supérieur dans Convercus, déclenchez un Canvas Braze personnalisé avec un message de bienvenue, un avantage exclusif lié au niveau, ainsi que le nouveau niveau et le solde de points du membre.
 * **Bonus d'anniversaire et jalons :** Depuis un parcours Braze, créditez des points bonus dans Convercus pour l'anniversaire ou la date anniversaire d'inscription d'un membre, puis envoyez un message de célébration confirmant le nouveau solde.
 * **Reconquête des membres inactifs :** Pour les membres inactifs, utilisez Braze pour attribuer un coupon personnalisé dans Convercus via un webhook et le distribuer par e-mail, notification push et messages in-app.
-* **Solde de points en direct or en ligne/en production/instantané dans les messages :** Utilisez le contenu connecté pour récupérer le solde de points en temps réel d'un membre dans Braze Liquid, alimentant des cadences telles que « il ne vous reste que X points avant votre prochaine récompense ».
+* **Solde de points en direct dans les messages :** Utilisez le contenu connecté pour récupérer le solde de points en temps réel d'un membre dans Braze Liquid, alimentant des cadences telles que « il ne vous reste que X points avant votre prochaine récompense ».
 
 ## Prérequis {#prerequisites}
 

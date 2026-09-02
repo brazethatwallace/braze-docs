@@ -50,7 +50,7 @@ Si aún no has habilitado la recopilación de ubicaciones de Braze, actualiza tu
 ```
 
 {% alert important %}
-A partir de la versión 3.6.0 del SDK or kit de desarrollo de software de Braze para Android, la recopilación de ubicaciones de Braze está desactivada de forma predeterminada.
+A partir de la versión 3.6.0 del SDK de Braze para Android, la recopilación de ubicaciones de Braze está desactivada de forma predeterminada.
 {% endalert %}
 
 Las geovallas de Braze se habilitan cuando la recopilación de ubicaciones de Braze está habilitada. Si deseas excluirte de nuestra recopilación predeterminada de ubicaciones, pero quieres seguir utilizando geovallas, puedes habilitarlas selectivamente estableciendo el valor de la clave `com_braze_geofences_enabled` en `true` en `braze.xml`, de forma independiente del valor de `com_braze_enable_location_collection`:
@@ -82,7 +82,7 @@ Braze.getInstance(context).requestLocationInitialization()
 {% endtab %}
 {% endtabs %}
 
-Esto hará que el SDK or kit de desarrollo de software solicite geovallas a los servidores de Braze e inicie el seguimiento de geovallas.
+Esto hará que el SDK solicite geovallas a los servidores de Braze e inicie el seguimiento de geovallas.
 
 Consulta [`RuntimePermissionUtils.java`](https://github.com/braze-inc/braze-android-sdk/blob/master/droidboy/src/main/java/com/appboy/sample/util/RuntimePermissionUtils.kt) en nuestra aplicación de ejemplo para ver un ejemplo de implementación.
 
@@ -272,5 +272,5 @@ Braze.getInstance(applicationContext).requestGeofences(33.078947, -116.601356)
 {% endtabs %}
 
 {% alert important %}
-Las geovallas solo pueden solicitarse una vez por sesión, ya sea automáticamente por el SDK or kit de desarrollo de software o manualmente con este método.
+Las geovallas solo pueden solicitarse una vez por sesión, ya sea automáticamente por el SDK o manualmente con este método.
 {% endalert %}

@@ -1,14 +1,14 @@
 ---
-nav_title: "PATCH: Nutzer:innen-Beziehung Update or aktualisieren or aktualisieren"
-article_title: "PATCH: Nutzer:innen-Beziehung Update or aktualisieren or aktualisieren"
+nav_title: "PATCH: Nutzer:innen-Beziehung aktualisieren"
+article_title: "PATCH: Nutzer:innen-Beziehung aktualisieren"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt Details zum Endpunkt „Nutzer:innen-Beziehung Update or aktualisieren or aktualisieren“."
+description: "Dieser Artikel beschreibt Details zum Endpunkt „Nutzer:innen-Beziehung aktualisieren“."
 ---
 {% api %}
-# Nutzer:innen-Beziehung Update or aktualisieren or aktualisieren {#update-user-relationship}
+# Nutzer:innen-Beziehung aktualisieren {#update-user-relationship}
 {% apimethod patch %}
 /data_objects/objects/{type_name}/{external_id}/users
 {% endapimethod %}
@@ -124,7 +124,7 @@ Die folgende Tabelle listet häufige Fehler für diesen Endpunkt und deren Beheb
 |---|---|---|
 | `400` | Validierungsfehler | Stellen Sie sicher, dass `rel_kind` für den Objekttyp gültig ist und `attributes` dem Beziehungsschema entsprechen. |
 | `404` | Beziehung nicht gefunden (`data-object-relationship-not-found`) | Stellen Sie sicher, dass das Objekt, die Nutzer:in und die Beziehungsschlüsselwerte alle vorhanden sind. |
-| `401` | Fehlender oder ungültiger Representational State Transfer-API-Schlüssel | Überprüfen Sie, ob der `Authorization`-Header `Bearer YOUR_REST_API_KEY` verwendet und der Schlüssel aktiv ist. |
+| `401` | Fehlender oder ungültiger REST-API-Schlüssel | Überprüfen Sie, ob der `Authorization`-Header `Bearer YOUR_REST_API_KEY` verwendet und der Schlüssel aktiv ist. |
 | `403` | API-Schlüssel hat keine Berechtigung oder die Anfrage wird durch eine Allowlist blockiert | Stellen Sie sicher, dass der Schlüssel die Berechtigung `data_objects.user_relationships.update` hat und dass Ihre Quell-IP auf der Allowlist des Schlüssels steht, falls konfiguriert. |
 | `429` | Rate-Limit überschritten | Wiederholen Sie den Vorgang nach `X-RateLimit-Reset` und reduzieren Sie die Anfragehäufigkeit. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fehler bei der Aktualisierung der Nutzer:innen-Beziehung" }

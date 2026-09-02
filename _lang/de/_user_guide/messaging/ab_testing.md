@@ -41,5 +41,5 @@ guide_featured_list:
 - **Randomisieren Sie die Testgruppen**, damit unterschiedliche Antwortraten auf Nachrichtenunterschiede zurückzuführen sind und nicht auf Unterschiede in der Stichprobe.
 - **Wissen Sie, was Sie testen.** Die Isolation einer einzelnen Änderung zeigt, welches Element die größte Wirkung hatte. Das Testen mehrerer Unterschiede ermöglicht den Vergleich umfassenderer Ansätze.
 - **Legen Sie die Testdauer im Voraus fest** und beenden Sie den Test nicht vorzeitig, selbst wenn frühe Ergebnisse vielversprechend aussehen.
-- **Fügen Sie Tests vor dem Start hinzu.** Das Hinzufügen eines Tests zu einer laufenden Campaign führt zu ungenauen Ergebnissen. Klon or klonen Sie die Campaign, stoppen Sie das Original und fügen Sie den Test dem Klon hinzu.
+- **Fügen Sie Tests vor dem Start hinzu.** Das Hinzufügen eines Tests zu einer laufenden Campaign führt zu ungenauen Ergebnissen. Klon Sie die Campaign, stoppen Sie das Original und fügen Sie den Test dem Klon hinzu.
 - **Schließen Sie eine [Kontrollgruppe]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#including-a-control-group) ein**, um die Wirkung im Vergleich zum vollständigen Verzicht auf eine Nachricht zu messen.

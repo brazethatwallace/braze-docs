@@ -14,7 +14,7 @@ search_rank: 1
 In Braze gespeicherte angepasste Attribute können zum Aufbau von Zielgruppen-Segmenten und zur Personalisierung von Nachrichten mit Liquid verwendet werden. Denken Sie daran, dass Braze keine Zeitreiheninformationen für angepasste Attribute speichert, sodass Sie keine darauf basierenden Diagramme erhalten können, wie dies bei angepassten Events der Fall ist.
 
 {% alert important %}
-**Namen sind exakte Übereinstimmungen.** Schlüssel für angepasste Attribute sind **case-sensitiv** – zum Beispiel sind `Home_City` und `home_city` zwei verschiedene Attribute. Wenn Sie Daten über die [Representational State Transfer API]({{site.baseurl}}/api/endpoints/user_data/post_user_track) oder ein SDK or Software-Development-Kit senden, **entfernt Braze führende und nachgestellte Leerzeichen** aus Attributnamen, sodass `greeting` und ` greeting ` zum selben Schlüssel aufgelöst werden. Verwenden Sie überall, wo Sie ein Attribut referenzieren, dieselbe Schreibweise und Groß-/Kleinschreibung – in **Dateneinstellungen** > **Angepasste Attribute**, API- und SDK or Software-Development-Kit-Payloads sowie CSV-Importen. Informationen dazu, wie Braze eingehende Werte konvertiert, wenn Sie [einen Datentyp erzwingen]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data#data-type-coercion), finden Sie unter [Angepasste Daten verwalten]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data).
+**Namen sind exakte Übereinstimmungen.** Schlüssel für angepasste Attribute sind **case-sensitiv** – zum Beispiel sind `Home_City` und `home_city` zwei verschiedene Attribute. Wenn Sie Daten über die [REST API]({{site.baseurl}}/api/endpoints/user_data/post_user_track) oder ein SDK senden, **entfernt Braze führende und nachgestellte Leerzeichen** aus Attributnamen, sodass `greeting` und ` greeting ` zum selben Schlüssel aufgelöst werden. Verwenden Sie überall, wo Sie ein Attribut referenzieren, dieselbe Schreibweise und Groß-/Kleinschreibung – in **Dateneinstellungen** > **Angepasste Attribute**, API- und SDK-Payloads sowie CSV-Importen. Informationen dazu, wie Braze eingehende Werte konvertiert, wenn Sie [einen Datentyp erzwingen]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data#data-type-coercion), finden Sie unter [Angepasste Daten verwalten]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data).
 {% endalert %}
 
 ## Anwendungsfälle {#use-cases}
@@ -28,7 +28,7 @@ Einige gängige Anwendungsfälle für angepasste Attribute sind:
 - Aufzeichnen, wann Aktionen mit geringem Wert zuletzt stattgefunden haben, mithilfe von [Zeitattributen]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types), wie `last_support_ticket_at` oder `last_password_reset_at`
 - Speichern von Interessen und Verlauf als [Arrays]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types), z. B. Lieblingsgenres oder kürzlich angesehene Inhalte, für interessenbasiertes Targeting
 - Speichern umfangreicherer Profildaten als [Objekte]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support) oder [Arrays von Objekten]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects), z. B. strukturierte Präferenzen oder mehrere gespeicherte Adressen
-- Auslösen von aktionsbasierten Nachrichten bei Änderung eines Attributwerts mithilfe von [Attribut-Trigger or triggern or triggern]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers), z. B. Versand einer Stufenaufstiegs-Benachrichtigung, wenn sich das Attribut `rewards_tier` ändert
+- Auslösen von aktionsbasierten Nachrichten bei Änderung eines Attributwerts mithilfe von [Attribut-Triggern]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers), z. B. Versand einer Stufenaufstiegs-Benachrichtigung, wenn sich das Attribut `rewards_tier` ändert
 
 ## Angepasste Attribute verwalten {#managing-custom-attributes}
 
@@ -36,10 +36,10 @@ Um angepasste Attribute im Dashboard zu erstellen und zu verwalten, gehen Sie zu
 
 ![Vier angepasste Attribute, die boolesche Werte sind.]({% image_buster /assets/img/export_custom_attributes.png %})
 
-In der Spalte **Letztes Update or aktualisieren** sehen Sie, wann das angepasste Attribut das letzte Mal bearbeitet wurde, z. B. wann es zuletzt auf Blockliste oder aktiv gesetzt wurde.
+In der Spalte **Letztes Update** sehen Sie, wann das angepasste Attribut das letzte Mal bearbeitet wurde, z. B. wann es zuletzt auf Blockliste oder aktiv gesetzt wurde.
 
 {% alert note %}
-Wenn ein angepasstes Array-Attribut in einem Kundenprofil or Nutzerprofil ohne Werte angezeigt wird, überprüfen Sie, ob die **Maximale Länge** des Attributs größer als `0` ist. Eine schrittweise Fehlerbehebung finden Sie unter [Datentypen]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#arrays).
+Wenn ein angepasstes Array-Attribut in einem Kundenprofil ohne Werte angezeigt wird, überprüfen Sie, ob die **Maximale Länge** des Attributs größer als `0` ist. Eine schrittweise Fehlerbehebung finden Sie unter [Datentypen]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#arrays).
 {% endalert %}
 
 {% alert important %}
@@ -62,7 +62,7 @@ Wenn Sie ein angepasstes Attribut blockieren:
 - Sind vorhandene Daten nicht verfügbar, es sei denn, das Attribut wird wieder freigegeben.
 - Wird dieses Attribut nicht in Filtern oder Diagrammen angezeigt.
 
-Wenn ein blockiertes angepasstes Attribut derzeit von Filtern oder Trigger or triggern or triggern in anderen Bereichen von Braze referenziert wird, erscheint zusätzlich ein Warnhinweis, der erklärt, dass alle Instanzen der Filter oder Trigger or triggern, die darauf verweisen, entfernt und archiviert werden.
+Wenn ein blockiertes angepasstes Attribut derzeit von Filtern oder Triggern in anderen Bereichen von Braze referenziert wird, erscheint zusätzlich ein Warnhinweis, der erklärt, dass alle Instanzen der Filter oder Trigger, die darauf verweisen, entfernt und archiviert werden.
 
 Weitere Details zum Blockieren und Löschen angepasster Daten finden Sie unter [Angepasste Daten blockieren]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data).
 
@@ -93,25 +93,25 @@ Um die Liste der angepassten Attribute als CSV-Datei zu exportieren, wählen Sie
 
 ### Voraussetzungen {#prerequisites}
 
-Das angepasste Attribut darf derzeit nicht in aktiven Campaigns, Canvase oder Segments verwendet werden. Wenn Sie versuchen, den Datentyp zu ändern, während das Attribut noch referenziert wird, zeigt das Dashboard einen Fehler an und blockiert die Änderung.
+Das angepasste Attribut darf derzeit nicht in aktiven Campaigns, Canvases oder Segments verwendet werden. Wenn Sie versuchen, den Datentyp zu ändern, während das Attribut noch referenziert wird, zeigt das Dashboard einen Fehler an und blockiert die Änderung.
 
 ### Datentyp ändern {#changing-the-data-type}
 
-1. Stoppen Sie alle aktiven Campaigns oder Canvase, die das Attribut in Segments oder Filtern verwenden.
+1. Stoppen Sie alle aktiven Campaigns oder Canvases, die das Attribut in Segments oder Filtern verwenden.
 2. Entfernen Sie das Attribut aus allen Segment-, Campaign- und Canvas-Filtern.
-3. Gehen Sie zu **Dateneinstellungen** > **Angepasste Attribute** (oder **Angepasste Events**), suchen Sie das Attribut und Update or aktualisieren or aktualisieren Sie es auf den gewünschten Datentyp.
-4. Update or aktualisieren or aktualisieren Sie die Attributwerte in bestehenden Nutzerprofilen, damit sie dem neuen Datentyp entsprechen (z. B. mithilfe des [`/users/track`-Endpunkts]({{site.baseurl}}/api/endpoints/user_data/post_user_track)).
-5. Wenden Sie das Attribut erneut auf die relevanten Segments, Campaigns und Canvase an und reaktivieren Sie alle gestoppten Campaigns oder Canvase.
+3. Gehen Sie zu **Dateneinstellungen** > **Angepasste Attribute** (oder **Angepasste Events**), suchen Sie das Attribut und aktualisieren Sie es auf den gewünschten Datentyp.
+4. Aktualisieren Sie die Attributwerte in bestehenden Nutzerprofilen, damit sie dem neuen Datentyp entsprechen (z. B. mithilfe des [`/users/track`-Endpunkts]({{site.baseurl}}/api/endpoints/user_data/post_user_track)).
+5. Wenden Sie das Attribut erneut auf die relevanten Segments, Campaigns und Canvases an und reaktivieren Sie alle gestoppten Campaigns oder Canvases.
 
 ### Wissenswert {#things-to-know}
 
-- **Nutzerdaten werden nicht rückwirkend aktualisiert.** Wenn ein Kundenprofil or Nutzerprofil das Attribut mit dem alten Datentyp enthielt, bleibt dieser Wert unverändert. Der Segmentierungsfilter sucht nach dem neuen Datentyp, sodass Nutzer:innen mit dem alten Wert aus übereinstimmenden Segments ausgeschlossen werden, bis ihr Profil aktualisiert wurde.
-- **Neue Daten müssen dem neuen Datentyp entsprechen.** Nach der Änderung werden API-Aufrufe oder SDK or Software-Development-Kit-Events, die den vorherigen Datentyp für dieses Attribut senden, nicht akzeptiert. Nur Werte, die dem neuen Datentyp entsprechen, werden aufgenommen.
+- **Nutzerdaten werden nicht rückwirkend aktualisiert.** Wenn ein Kundenprofil das Attribut mit dem alten Datentyp enthielt, bleibt dieser Wert unverändert. Der Segmentierungsfilter sucht nach dem neuen Datentyp, sodass Nutzer:innen mit dem alten Wert aus übereinstimmenden Segments ausgeschlossen werden, bis ihr Profil aktualisiert wurde.
+- **Neue Daten müssen dem neuen Datentyp entsprechen.** Nach der Änderung werden API-Aufrufe oder SDK-Events, die den vorherigen Datentyp für dieses Attribut senden, nicht akzeptiert. Nur Werte, die dem neuen Datentyp entsprechen, werden aufgenommen.
 - **Filter werden nicht automatisch aktualisiert.** Segments und Campaign-Filter, die auf das geänderte Attribut verweisen, werden nicht rückwirkend aktualisiert. Sie müssen sie nach der Änderung entfernen und erneut hinzufügen.
 
 ## Nutzungsberichte anzeigen {#view-usage-reports}
 
-Der Nutzungsbericht listet alle Canvase, Campaigns und Segments auf, die ein bestimmtes angepasstes Attribut verwenden. Diese Liste enthält keine Verwendungen von Liquid.
+Der Nutzungsbericht listet alle Canvases, Campaigns und Segments auf, die ein bestimmtes angepasstes Attribut verwenden. Diese Liste enthält keine Verwendungen von Liquid.
 
 Sie können bis zu 100 Nutzungsberichte gleichzeitig anzeigen, indem Sie die Kontrollkästchen neben den jeweiligen angepassten Attributen aktivieren und dann **Nutzungsbericht anzeigen** auswählen.
 
@@ -139,7 +139,7 @@ Die folgenden Listen zeigen Methoden auf verschiedenen Plattformen, die zum Fest
 
 ## Speicherung angepasster Attribute {#custom-attribute-storage}
 
-Alle im **Kundenprofil or Nutzerprofil** gespeicherten Daten, einschließlich angepasster Attribute, werden unbegrenzt aufbewahrt, solange jedes Profil <a href="/docs/user_archival#active-users">aktiv</a> ist.
+Alle im **Kundenprofil** gespeicherten Daten, einschließlich angepasster Attribute, werden unbegrenzt aufbewahrt, solange jedes Profil <a href="/docs/user_archival#active-users">aktiv</a> ist.
 
 Eine vollständige Übersicht aller Datentypen, die Sie als angepasste Attribute speichern können – einschließlich boolescher Werte, Zahlen, Strings, Arrays, Zeitangaben, Objekte und Arrays von Objekten – finden Sie unter [Datentypen für angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types).
 
@@ -149,8 +149,8 @@ Beim Löschen oder Zurücksetzen eines angepassten Attributs unterscheidet sich 
 
 | Wert | Verhalten |
 | --- | --- |
-| `""` (leerer String) | Das Attribut wird auf einen leeren Wert gesetzt und bleibt im Kundenprofil or Nutzerprofil sichtbar. |
-| `null` | Das Attribut wird vollständig aus dem Kundenprofil or Nutzerprofil entfernt. |
+| `""` (leerer String) | Das Attribut wird auf einen leeren Wert gesetzt und bleibt im Kundenprofil sichtbar. |
+| `null` | Das Attribut wird vollständig aus dem Kundenprofil entfernt. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Leere Strings im Vergleich zu Null-Werten" }
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Leere Strings im Vergleich zu Null-Werten" }
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Leere Strings im Vergleich zu Null-Werten" }

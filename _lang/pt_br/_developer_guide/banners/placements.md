@@ -1,7 +1,7 @@
 ---
 nav_title: Gerenciar posicionamentos
 article_title: "Gerenciar posicionamentos de Banner"
-description: "Aprenda como criar e gerenciar posicionamentos de Banner no SDK or kit de desenvolvimento de software da Braze, incluindo o acesso às suas propriedades exclusivas e o registro de impressões."
+description: "Aprenda como criar e gerenciar posicionamentos de Banner no SDK da Braze, incluindo o acesso às suas propriedades exclusivas e o registro de impressões."
 page_order: 2
 platform:
   - iOS
@@ -13,7 +13,7 @@ platform:
 
 # Gerenciar posicionamentos de Banner {#manage-banner-placements}
 
-> Aprenda como criar e gerenciar posicionamentos de Banner no SDK or kit de desenvolvimento de software da Braze, incluindo o acesso às suas propriedades exclusivas e o registro de impressões. Para mais informações gerais, veja [Sobre Banners]({{site.baseurl}}/developer_guide/banners).
+> Aprenda como criar e gerenciar posicionamentos de Banner no SDK da Braze, incluindo o acesso às suas propriedades exclusivas e o registro de impressões. Para mais informações gerais, veja [Sobre Banners]({{site.baseurl}}/developer_guide/banners).
 
 ## Sobre solicitações de posicionamento {#requests}
 
@@ -23,7 +23,7 @@ platform:
 
 ### Pré-requisitos {#prerequisites}
 
-Estas são as versões mínimas do SDK or kit de desenvolvimento de software necessárias para criar placements de Banner:
+Estas são as versões mínimas do SDK necessárias para criar placements de Banner:
 
 {% multi_lang_include developer_guide/sdk_versions.md feature='banners' %}
 
@@ -31,19 +31,19 @@ Estas são as versões mínimas do SDK or kit de desenvolvimento de software nec
 
 ### Etapa 2: Atualizar placements no seu app {#requestBannersRefresh}
 
-Para atualizar placements, chame o método de atualização do seu SDK or kit de desenvolvimento de software (`requestBannersRefresh()` na Web e no Android, ou `requestRefresh()` no Swift).
+Para atualizar placements, chame o método de atualização do seu SDK (`requestBannersRefresh()` na Web e no Android, ou `requestRefresh()` no Swift).
 
 O comportamento de atualização de Banner tem dois caminhos:
 
 1. **Atualização explícita:** Você pode chamar o método de atualização a qualquer momento durante uma sessão ativa.
-2. **Atualização automática em uma nova sessão:** Depois de fazer pelo menos uma solicitação de atualização explícita, o SDK or kit de desenvolvimento de software pode solicitar novamente os IDs de placement mais recentes quando uma nova sessão da Braze é iniciada (por exemplo, após `changeUser()` ou após um timeout de sessão).
+2. **Atualização automática em uma nova sessão:** Depois de fazer pelo menos uma solicitação de atualização explícita, o SDK pode solicitar novamente os IDs de placement mais recentes quando uma nova sessão da Braze é iniciada (por exemplo, após `changeUser()` ou após um timeout de sessão).
 
 O papel de `subscribeToBannersUpdates()` difere por plataforma:
 
 - **iOS e Android:** `subscribeToBannersUpdates()` (ou `subscribeToUpdates()` no Swift) registra um retorno de chamada de atualização. A atualização automática no início da sessão não depende de a inscrição estar ativa.
-- **Web:** A atualização automática no início da sessão está vinculada ao registro de `subscribeToBannersUpdates()`. Sem uma inscrição ativa, o SDK or kit de desenvolvimento de software não repete automaticamente a atualização em uma nova sessão.
+- **Web:** A atualização automática no início da sessão está vinculada ao registro de `subscribeToBannersUpdates()`. Sem uma inscrição ativa, o SDK não repete automaticamente a atualização em uma nova sessão.
 
-Em todos os casos, você precisa fazer pelo menos uma solicitação de atualização explícita por ciclo de vida do app para que o SDK or kit de desenvolvimento de software saiba quais IDs de placement manter atualizados. Os Banners não são obtidos automaticamente no primeiro lançamento sem essa chamada inicial, e os IDs de placement rastreados são redefinidos após a reinicialização do app.
+Em todos os casos, você precisa fazer pelo menos uma solicitação de atualização explícita por ciclo de vida do app para que o SDK saiba quais IDs de placement manter atualizados. Os Banners não são obtidos automaticamente no primeiro lançamento sem essa chamada inicial, e os IDs de placement rastreados são redefinidos após a reinicialização do app.
 
 Atualizações automáticas no início da sessão não consomem um token de limite de frequência.
 
@@ -129,14 +129,14 @@ This feature is not currently supported on Roku.
 ### Etapa 3: Ouvir atualizações {#subscribeToBannersUpdates}
 
 {% alert tip %}
-Se você inserir Banners usando os métodos do SDK or kit de desenvolvimento de software neste guia, todos os eventos de análise de dados (como impressões e cliques) são gerenciados automaticamente, e as impressões são registradas somente quando o banner está visível.
+Se você inserir Banners usando os métodos do SDK neste guia, todos os eventos de análise de dados (como impressões e cliques) são gerenciados automaticamente, e as impressões são registradas somente quando o banner está visível.
 {% endalert %}
 
 {% tabs %}
 {% tab Web %}
 {% subtabs %}
 {% subtab JavaScript %}
-Se você estiver usando JavaScript puro com o SDK or kit de desenvolvimento de software Web da Braze, use [`subscribeToBannersUpdates`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetobannersupdates) para ouvir atualizações de placement e depois chame [`requestBannersRefresh`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestbannersrefresh) para obtê-las.
+Se você estiver usando JavaScript puro com o SDK Web da Braze, use [`subscribeToBannersUpdates`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetobannersupdates) para ouvir atualizações de placement e depois chame [`requestBannersRefresh`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestbannersrefresh) para obtê-las.
 
 ```javascript
 import * as braze from "@braze/web-sdk";
@@ -150,7 +150,7 @@ braze.requestBannersRefresh(["global_banner", "navigation_square_banner"]);
 ```
 {% endsubtab %}
 {% subtab React %}
-Se você estiver usando React com o SDK or kit de desenvolvimento de software Web da Braze, configure [`subscribeToBannersUpdates`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetobannersupdates) dentro de um hook `useEffect` e chame [`requestBannersRefresh`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestbannersrefresh) após registrar seu listener.
+Se você estiver usando React com o SDK Web da Braze, configure [`subscribeToBannersUpdates`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetobannersupdates) dentro de um hook `useEffect` e chame [`requestBannersRefresh`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestbannersrefresh) após registrar seu listener.
 
 ```typescript
 import * as braze from "@braze/web-sdk";
@@ -175,7 +175,7 @@ useEffect(() => {
 {% tab Swift %}
 
 {% alert note %}
-O listener de atualização de banner reflete o estado do banner na memória do SDK or kit de desenvolvimento de software. Uma única atualização pode incluir placements que já estavam em cache (por exemplo, de uma atualização anterior, outra tela ou trabalho automático do SDK or kit de desenvolvimento de software), não apenas os IDs de placement da sua chamada `requestRefresh` mais recente. Se você se interessa apenas por determinados placements, verifique o ID de placement de cada banner no seu listener e ignore o restante. Depois de registrar seu listener, chame `requestRefresh` para os placements que deseja sincronizar da Braze.
+O listener de atualização de banner reflete o estado do banner na memória do SDK. Uma única atualização pode incluir placements que já estavam em cache (por exemplo, de uma atualização anterior, outra tela ou trabalho automático do SDK), não apenas os IDs de placement da sua chamada `requestRefresh` mais recente. Se você se interessa apenas por determinados placements, verifique o ID de placement de cada banner no seu listener e ignore o restante. Depois de registrar seu listener, chame `requestRefresh` para os placements que deseja sincronizar da Braze.
 {% endalert %}
 
 ```swift
@@ -193,7 +193,7 @@ brazeClient.braze()?.banners.requestRefresh(placementIds: placementIds)
 {% tab Android %}
 
 {% alert note %}
-O listener de atualização de banner reflete o estado do banner na memória do SDK or kit de desenvolvimento de software. Uma única atualização pode incluir placements que já estavam em cache (por exemplo, de uma atualização anterior, outra tela ou trabalho automático do SDK or kit de desenvolvimento de software), não apenas os IDs de placement da sua chamada `requestBannersRefresh` mais recente. Se você se interessa apenas por determinados placements, verifique o ID de placement de cada banner no seu listener e ignore o restante. Depois de registrar seu listener, chame `requestBannersRefresh` para os placements que deseja sincronizar da Braze.
+O listener de atualização de banner reflete o estado do banner na memória do SDK. Uma única atualização pode incluir placements que já estavam em cache (por exemplo, de uma atualização anterior, outra tela ou trabalho automático do SDK), não apenas os IDs de placement da sua chamada `requestBannersRefresh` mais recente. Se você se interessa apenas por determinados placements, verifique o ID de placement de cada banner no seu listener e ignore o restante. Depois de registrar seu listener, chame `requestBannersRefresh` para os placements que deseja sincronizar da Braze.
 {% endalert %}
 
 {% subtabs %}
@@ -296,7 +296,7 @@ Crie um elemento contêiner para o Banner. Certifique-se de definir sua largura 
 
 {% subtabs local %}
 {% subtab JavaScript %}
-Se você estiver usando JavaScript puro com o SDK or kit de desenvolvimento de software Web da Braze, chame o método [`insertBanner`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#insertbanner) para substituir o HTML interno do elemento contêiner.
+Se você estiver usando JavaScript puro com o SDK Web da Braze, chame o método [`insertBanner`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#insertbanner) para substituir o HTML interno do elemento contêiner.
 
 ```javascript
 import * as braze from "@braze/web-sdk";
@@ -331,7 +331,7 @@ braze.requestBannersRefresh(["global_banner", "navigation_square_banner"]);
 {% endsubtab %}
 
 {% subtab React %}
-Se você estiver usando React com o SDK or kit de desenvolvimento de software Web da Braze, chame o método [`insertBanner`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#insertbanner) com uma `ref` para substituir o HTML interno do elemento contêiner.
+Se você estiver usando React com o SDK Web da Braze, chame o método [`insertBanner`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#insertbanner) com uma `ref` para substituir o HTML interno do elemento contêiner.
 
 ```tsx
 import { useRef } from 'react';
@@ -444,10 +444,10 @@ Se você estiver usando Android Views, utilize este XML:
     app:placementId="global_banner" />
 ```
 
-Para usar Jetpack Compose, adicione o artefato `com.braze:android-sdk-jetpack-compose` ao módulo do seu app. Use a mesma versão das suas outras dependências do SDK or kit de desenvolvimento de software Android da Braze. Esse módulo é separado do `android-sdk-ui` e inclui o composable [`Banner`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.banners/-banner.html) em `com.braze.jetpackcompose.banners`.
+Para usar Jetpack Compose, adicione o artefato `com.braze:android-sdk-jetpack-compose` ao módulo do seu app. Use a mesma versão das suas outras dependências do SDK Android da Braze. Esse módulo é separado do `android-sdk-ui` e inclui o composable [`Banner`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.banners/-banner.html) em `com.braze.jetpackcompose.banners`.
 
 {% alert note %}
-Algumas bibliotecas de UI do Compose definem seu próprio composable `Banner`. Importe `com.braze.jetpackcompose.banners.Banner` explicitamente para garantir que você está chamando a API or interface de programação do aplicativo (API) da Braze.
+Algumas bibliotecas de UI do Compose definem seu próprio composable `Banner`. Importe `com.braze.jetpackcompose.banners.Banner` explicitamente para garantir que você está chamando a API da Braze.
 {% endalert %}
 
 ```kotlin
@@ -577,7 +577,7 @@ Banners de teste funcionam como qualquer outro banner, exceto que são removidos
 
 ## Registrar impressões {#log-impressions}
 
-A Braze registra impressões automaticamente para Banners que estão em exibição quando você usa métodos do SDK or kit de desenvolvimento de software para inserir um Banner — então não é necessário rastrear impressões manualmente.
+A Braze registra impressões automaticamente para Banners que estão em exibição quando você usa métodos do SDK para inserir um Banner — então não é necessário rastrear impressões manualmente.
 
 ## Registrando cliques {#logging-clicks}
 
@@ -585,11 +585,11 @@ O método usado para registrar cliques em Banners depende de como seu Banner é 
 
 ### Conteúdo padrão do Banner (automático) {#standard-banner-content-automatic}
 
-Se você estiver usando os métodos padrão do SDK or kit de desenvolvimento de software prontos para uso para inserir Banners, e seu Banner usar componentes padrão do editor (imagens, botões, texto), os cliques são rastreados automaticamente. O SDK or kit de desenvolvimento de software anexa ouvintes de clique a esses elementos, e nenhum código adicional é necessário.
+Se você estiver usando os métodos padrão do SDK prontos para uso para inserir Banners, e seu Banner usar componentes padrão do editor (imagens, botões, texto), os cliques são rastreados automaticamente. O SDK anexa ouvintes de clique a esses elementos, e nenhum código adicional é necessário.
 
 ### Blocos de código personalizado {#custom-code-blocks}
 
-Se o seu Banner usa o bloco de editor **Custom Code** no dashboard da Braze, você precisa usar `brazeBridge.logClick()` para registrar cliques a partir desse HTML personalizado. Isso se aplica mesmo ao usar métodos do SDK or kit de desenvolvimento de software para renderizar o Banner, porque o SDK or kit de desenvolvimento de software não consegue anexar ouvintes automaticamente aos elementos dentro do seu código personalizado.
+Se o seu Banner usa o bloco de editor **Custom Code** no dashboard da Braze, você precisa usar `brazeBridge.logClick()` para registrar cliques a partir desse HTML personalizado. Isso se aplica mesmo ao usar métodos do SDK para renderizar o Banner, porque o SDK não consegue anexar ouvintes automaticamente aos elementos dentro do seu código personalizado.
 
 ```html
 <button onclick="brazeBridge.logClick()">
@@ -597,13 +597,13 @@ Se o seu Banner usa o bloco de editor **Custom Code** no dashboard da Braze, voc
 </button>
 ```
 
-Para a referência completa, consulte [Código personalizado e ponte JavaScript para Banners]({{site.baseurl}}/user_guide/channels/banners/custom_code). O `brazeBridge` fornece uma camada de comunicação entre o HTML interno do Banner e o SDK or kit de desenvolvimento de software da Braze pai.
+Para a referência completa, consulte [Código personalizado e ponte JavaScript para Banners]({{site.baseurl}}/user_guide/channels/banners/custom_code). O `brazeBridge` fornece uma camada de comunicação entre o HTML interno do Banner e o SDK da Braze pai.
 
 ### Implementações de UI personalizada (headless) {#custom-ui-implementations-headless}
 
-Se você estiver construindo uma UI totalmente personalizada usando as [propriedades personalizadas](#custom-properties) do Banner em vez de renderizar o HTML do Banner, é necessário registrar cliques e impressões manualmente a partir do código do seu app. Como o SDK or kit de desenvolvimento de software não está renderizando o Banner, ele não tem como rastrear automaticamente as interações com os elementos da sua UI personalizada.
+Se você estiver construindo uma UI totalmente personalizada usando as [propriedades personalizadas](#custom-properties) do Banner em vez de renderizar o HTML do Banner, é necessário registrar cliques e impressões manualmente a partir do código do seu app. Como o SDK não está renderizando o Banner, ele não tem como rastrear automaticamente as interações com os elementos da sua UI personalizada.
 
-Para assinaturas de métodos e detalhes completos, consulte a [documentação de referência do SDK or kit de desenvolvimento de software da Braze]({{site.baseurl}}/developer_guide/references).
+Para assinaturas de métodos e detalhes completos, consulte a [documentação de referência do SDK da Braze]({{site.baseurl}}/developer_guide/references).
 
 #### Registrando impressões {#logging-impressions}
 
@@ -620,7 +620,7 @@ if (banner) {
   braze.logBannerImpressions([banner]);
 }
 ```
-[Referência do Web SDK or kit de desenvolvimento de software](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logbannerimpressions)
+[Referência do Web SDK](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logbannerimpressions)
 {% endtab %}
 {% tab Android %}
 {% subtabs %}
@@ -637,7 +637,7 @@ Braze.getInstance(context).logBannerImpression("placement_id_homepage_top");
 ```
 {% endsubtab %}
 {% endsubtabs %}
-[Referência do Android SDK or kit de desenvolvimento de software](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/log-banner-impression.html)
+[Referência do Android SDK](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/log-banner-impression.html)
 {% endtab %}
 {% tab Swift %}
 ```swift
@@ -646,21 +646,21 @@ braze.banners.getBanner(for: "placement_id_homepage_top") { banner in
   banner?.context.logImpression()
 }
 ```
-[Referência do Swift SDK or kit de desenvolvimento de software](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/banner/context-swift.class/logimpression())
+[Referência do Swift SDK](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/banner/context-swift.class/logimpression())
 {% endtab %}
 {% tab React Native %}
 ```javascript
 // Log impression when your custom UI considers the banner viewed (for example, once when it enters viewport)
 Braze.logBannerImpression("placement_id_homepage_top");
 ```
-Consulte o [repositório do React Native SDK or kit de desenvolvimento de software](https://github.com/braze-inc/braze-react-native-sdk) para as assinaturas de método mais recentes.
+Consulte o [repositório do React Native SDK](https://github.com/braze-inc/braze-react-native-sdk) para as assinaturas de método mais recentes.
 {% endtab %}
 {% tab Flutter %}
 ```dart
 // Log impression when your custom UI considers the banner viewed (for example, once when it enters viewport)
 braze.logBannerImpression("placement_id_homepage_top");
 ```
-[Referência do Flutter SDK or kit de desenvolvimento de software](https://pub.dev/documentation/braze_plugin/latest/braze_plugin/BrazePlugin/logBannerImpression.html)
+[Referência do Flutter SDK](https://pub.dev/documentation/braze_plugin/latest/braze_plugin/BrazePlugin/logBannerImpression.html)
 {% endtab %}
 {% endtabs %}
 
@@ -676,7 +676,7 @@ import * as braze from "@braze/web-sdk";
 // Log click
 braze.logBannerClick("placement_id_homepage_top", buttonId);  // buttonID is optional
 ```
-[Referência do Web SDK or kit de desenvolvimento de software](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logbannerclick)
+[Referência do Web SDK](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logbannerclick)
 {% endtab %}
 {% tab Android %}
 {% subtabs %}
@@ -693,7 +693,7 @@ Braze.getInstance(context).logBannerClick("placement_id_homepage_top", buttonId)
 ```
 {% endsubtab %}
 {% endsubtabs %}
-[Referência do Android SDK or kit de desenvolvimento de software](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/log-banner-click.html)
+[Referência do Android SDK](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/log-banner-click.html)
 {% endtab %}
 {% tab Swift %}
 ```swift
@@ -702,21 +702,21 @@ braze.banners.getBanner(for: "placement_id_homepage_top") { banner in
   banner?.context.logClick(buttonId: buttonId)  // buttonID is optional
 }
 ```
-[Referência do Swift SDK or kit de desenvolvimento de software](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/banner/context-swift.class/logclick(buttonid:))
+[Referência do Swift SDK](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/banner/context-swift.class/logclick(buttonid:))
 {% endtab %}
 {% tab React Native %}
 ```javascript
 // Log click
 Braze.logBannerClick("placement_id_homepage_top", buttonId);  // buttonID is optional
 ```
-Consulte o [repositório do React Native SDK or kit de desenvolvimento de software](https://github.com/braze-inc/braze-react-native-sdk) para as assinaturas de método mais recentes.
+Consulte o [repositório do React Native SDK](https://github.com/braze-inc/braze-react-native-sdk) para as assinaturas de método mais recentes.
 {% endtab %}
 {% tab Flutter %}
 ```dart
 // Log click
 braze.logBannerClicked("placement_id_homepage_top", buttonId);  // buttonID parameter can be null
 ```
-[Referência do Flutter SDK or kit de desenvolvimento de software](https://pub.dev/documentation/braze_plugin/latest/braze_plugin/BrazePlugin/logBannerClicked.html)
+[Referência do Flutter SDK](https://pub.dev/documentation/braze_plugin/latest/braze_plugin/BrazePlugin/logBannerClicked.html)
 {% endtab %}
 {% endtabs %}
 
@@ -726,7 +726,7 @@ As dispensas de Banner removem programaticamente um Banner de um posicionamento 
 
 ### Pré-requisitos
 
-Estas são as versões mínimas do SDK or kit de desenvolvimento de software necessárias para registrar dispensas de Banner:
+Estas são as versões mínimas do SDK necessárias para registrar dispensas de Banner:
 
 {% sdk_min_versions swift:14.1.0 android:42.1.0 web:6.7.1 %}
 
@@ -750,9 +750,9 @@ Se o seu Banner usa o bloco do editor **Custom Code**, você pode acionar uma di
 
 Se você está usando o `BrazeBannerView` padrão com o botão de dispensa criado no editor de arrastar e soltar, nenhum código adicional é necessário; a dispensa é tratada automaticamente.
 
-Para integrações de UI personalizadas, você pode chamar o método de dispensa diretamente na sua instância da Braze para dispensar programaticamente um banner e registrar um evento de dispensa. O método de dispensa é seguro para ser chamado várias vezes — o SDK or kit de desenvolvimento de software ignora chamadas duplicadas para o mesmo banner.
+Para integrações de UI personalizadas, você pode chamar o método de dispensa diretamente na sua instância da Braze para dispensar programaticamente um banner e registrar um evento de dispensa. O método de dispensa é seguro para ser chamado várias vezes — o SDK ignora chamadas duplicadas para o mesmo banner.
 
-Estas são as versões mínimas do SDK or kit de desenvolvimento de software necessárias para dispensar um banner programaticamente:
+Estas são as versões mínimas do SDK necessárias para dispensar um banner programaticamente:
 
 {% sdk_min_versions swift:15.1.0 android:42.3.0 web:6.9.0 reactnative:22.0.0 flutter:20.0.0 %}
 
@@ -834,14 +834,14 @@ braze.dismissBanner("your-placement-id");
 
 ### Registrar análise de dados personalizada na dispensa do banner {#log-custom-analytics-on-banner-dismissal}
 
-Para executar lógica personalizada quando um banner é dispensado — como registrar análise de dados — use o retorno de chamada de dispensa para o seu SDK or kit de desenvolvimento de software. O retorno de chamada recebe um objeto de evento com o `placementId`, `stableKey` e `trackingId` do banner.
+Para executar lógica personalizada quando um banner é dispensado — como registrar análise de dados — use o retorno de chamada de dispensa para o seu SDK. O retorno de chamada recebe um objeto de evento com o `placementId`, `stableKey` e `trackingId` do banner.
 
 {% tabs %}
 {% tab Web %}
 Use [`Banner.subscribeToDismissedEvent()`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.banner.html#subscribetodismissedevent) para executar lógica personalizada quando um banner específico é dispensado. Inscreva-se no evento antes de exibir o banner.
 
 {% alert note %}
-`Banner.subscribeToDismissedEvent()` requer Web SDK or kit de desenvolvimento de software 6.9.0 ou posterior. Em versões anteriores, use `braze.subscribeToBannersUpdates()` e detecte a dispensa verificando se o banner não está mais presente no mapa de banners atualizado.
+`Banner.subscribeToDismissedEvent()` requer Web SDK 6.9.0 ou posterior. Em versões anteriores, use `braze.subscribeToBannersUpdates()` e detecte a dispensa verificando se o banner não está mais presente no mapa de banners atualizado.
 {% endalert %}
 
 {% subtabs %}
@@ -991,19 +991,19 @@ Em casos raros em que um grande número de dispensas se acumula sem uma sincroni
 
 Veja o que você precisa saber sobre dimensões e tamanho de Banners:
 
-- Embora o criador permita pré-visualizar Banners em diferentes dimensões, essas informações não são salvas nem enviadas ao SDK or kit de desenvolvimento de software.
+- Embora o criador permita pré-visualizar Banners em diferentes dimensões, essas informações não são salvas nem enviadas ao SDK.
 - O HTML ocupará toda a largura do contêiner em que for renderizado.
 - Recomendamos criar um elemento de dimensão fixa e testar essas dimensões no criador.
 
 ## Propriedades personalizadas {#custom-properties}
 
-Você pode usar propriedades personalizadas da sua campanha de Banner para recuperar dados chave-valor através do SDK or kit de desenvolvimento de software e modificar o comportamento ou a aparência do seu app. Por exemplo, você poderia:
+Você pode usar propriedades personalizadas da sua campanha de Banner para recuperar dados chave-valor através do SDK e modificar o comportamento ou a aparência do seu app. Por exemplo, você poderia:
 
 {% multi_lang_include banners/metadata_use_cases.md %}
 
 ### Pré-requisitos
 
-Você precisará [adicionar propriedades personalizadas]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#custom-properties) à sua campanha de Banner. Além disso, estas são as versões mínimas do SDK or kit de desenvolvimento de software necessárias para acessar propriedades personalizadas:
+Você precisará [adicionar propriedades personalizadas]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#custom-properties) à sua campanha de Banner. Além disso, estas são as versões mínimas do SDK necessárias para acessar propriedades personalizadas:
 
 {% sdk_min_versions swift:13.1.0 android:38.0.0 web:6.1.0 reactnative:17.0.0 flutter:15.1.0 %}
 

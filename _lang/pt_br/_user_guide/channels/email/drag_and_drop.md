@@ -303,7 +303,7 @@ Outro caso de uso comum é sinalizar links específicos como links universais. L
 
 Para configurar links universais, consulte [Links universais e App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links).
 
-Alternativamente, você pode integrar com um dos nossos parceiros de atribuição, como [Branch or ramificação]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking) ou [AppsFlyer]({{site.baseurl}}/partners/message_orchestration/deeplinking/appsflyer/appsflyer#integrate-appsflyer-with-braze-for-deep-linking), para gerenciar links universais.
+Alternativamente, você pode integrar com um dos nossos parceiros de atribuição, como [Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking) ou [AppsFlyer]({{site.baseurl}}/partners/message_orchestration/deeplinking/appsflyer/appsflyer#integrate-appsflyer-with-braze-for-deep-linking), para gerenciar links universais.
 
 Por fim, atributos predefinidos estão disponíveis para ajudar a tornar sua mensagem acessível. Saiba mais no nosso artigo dedicado [Criando mensagens acessíveis na Braze]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility), incluindo [como clientes de e-mail exibem texto alternativo]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#how-email-clients-display-alt-text).
 

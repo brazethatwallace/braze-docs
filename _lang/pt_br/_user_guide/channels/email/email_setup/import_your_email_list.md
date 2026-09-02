@@ -24,7 +24,7 @@ Os serviços de limpeza de listas de e-mail podem fazer isso por você, determin
 
 ### Verifique se um endereço de e-mail já está associado a um usuário {#check-if-an-email-address-is-already-associated-with-a-user}
 
-Antes de criar um usuário por meio da API or interface de programação do aplicativo (API) ou SDK or kit de desenvolvimento de software, chame o endpoint [`/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) e especifique o `email_address` do usuário. Se retornar um perfil de usuário, esse usuário da Braze já está associado a esse endereço de e-mail.
+Antes de criar um usuário por meio da API ou SDK, chame o endpoint [`/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) e especifique o `email_address` do usuário. Se retornar um perfil de usuário, esse usuário da Braze já está associado a esse endereço de e-mail.
 
 Recomendamos fortemente que você procure endereços de e-mail únicos quando novos usuários forem criados e evite passar ou importar usuários com o mesmo endereço de e-mail. Caso contrário, você pode ter consequências indesejadas que impactam o envio de mensagens, o direcionamento, os relatórios e outros recursos.
 
@@ -42,4 +42,4 @@ Se você está migrando de um provedor de e-mail existente, certifique-se de nã
 
 ## Métodos de importação {#methods-for-importing}
 
-Depois de preparar sua lista de e-mails, existem várias maneiras de importar usuários na Braze, como por meio da REST or transferir estado representacional API or interface de programação do aplicativo (API) da Braze ou arquivos CSV. Leia mais no nosso artigo dedicado de [Importação de usuários]({{site.baseurl}}/user_guide/audience/manage_audience/import_users).
+Depois de preparar sua lista de e-mails, existem várias maneiras de importar usuários na Braze, como por meio da REST API da Braze ou arquivos CSV. Leia mais no nosso artigo dedicado de [Importação de usuários]({{site.baseurl}}/user_guide/audience/manage_audience/import_users).

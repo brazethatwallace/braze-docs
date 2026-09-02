@@ -11,7 +11,7 @@ page_order: 8
 
 # Sincronización de audiencia con TikTok {#audience-sync-to-tiktok}
 
-Con Braze Audience Sync to TikTok, las marcas pueden optar por añadir los datos de usuario de su propia integración de Braze a TikTok Audiences para ofrecer anuncios basados en desencadenantes de comportamiento, segmentación y mucho más. Cualquier criterio que utilices normalmente para desencadenar un mensaje (push, correo electrónico, servicio de mensajes cortos, webhook, etc.) en un BRAZE Canvas.
+Con Braze Audience Sync to TikTok, las marcas pueden optar por añadir los datos de usuario de su propia integración de Braze a TikTok Audiences para ofrecer anuncios basados en desencadenantes de comportamiento, segmentación y mucho más. Cualquier criterio que utilices normalmente para desencadenar un mensaje (push, correo electrónico, SMS, webhook, etc.) en un BRAZE CANVAS.
 
 **Entre los casos de uso más comunes para la sincronización de audiencias se incluyen**:
 

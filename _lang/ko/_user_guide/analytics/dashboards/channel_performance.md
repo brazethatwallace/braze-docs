@@ -11,7 +11,7 @@ toc_headers: h2
 
 # 채널 성과 대시보드 {#channel-performance-dashboards}
 
-> 채널 성과 대시보드는 Campaign과 Canvas 전반에 걸쳐 전체 채널의 집계 성과 측정기준을 보여줍니다. 이 대시보드는 현재 이메일, 푸시, 단문 메시지 서비스에서 사용할 수 있습니다.
+> 채널 성과 대시보드는 Campaign과 Canvas 전반에 걸쳐 전체 채널의 집계 성과 측정기준을 보여줍니다. 이 대시보드는 현재 이메일, 푸시, SMS에서 사용할 수 있습니다.
 
 ## 대시보드 {#dashboards}
 
@@ -97,17 +97,17 @@ CDN으로 CloudFront를 사용하는 경우, 사용자의 사용자 에이전트
 이메일 분석에 대한 자세한 내용은 [이메일 리포팅]({{site.baseurl}}/user_guide/channels/email/reporting)을 확인하세요.
 
 {% endtab %}
-{% tab 단문 메시지 서비스 성과 %}
+{% tab SMS 성과 %}
 
-### 단문 메시지 서비스 성과 대시보드 {#sms-performance-dashboard}
+### SMS 성과 대시보드 {#sms-performance-dashboard}
 
-단문 메시지 서비스 성과 대시보드를 사용하려면 **Analytics** > **단문 메시지 서비스 Performance**로 이동한 후 데이터를 확인하려는 기간의 날짜 범위를 선택하세요. 날짜 범위는 최대 1년 전까지 설정할 수 있습니다.
+SMS 성과 대시보드를 사용하려면 **Analytics** > **SMS Performance**로 이동한 후 데이터를 확인하려는 기간의 날짜 범위를 선택하세요. 날짜 범위는 최대 1년 전까지 설정할 수 있습니다.
 
-![335,630건의 발송과 일 평균 11,187.667건의 발송을 보여주는 단문 메시지 서비스 Campaign 예시.]({% image_buster /assets/img_archive/email_performance_dashboard_2.png %}){: style="max-width:40%;float:right;margin-left:15px;border:none;"}
+![335,630건의 발송과 일 평균 11,187.667건의 발송을 보여주는 SMS Campaign 예시.]({% image_buster /assets/img_archive/email_performance_dashboard_2.png %}){: style="max-width:40%;float:right;margin-left:15px;border:none;"}
 
 #### 측정기준 계산 방식
 
-{% multi_lang_include analytics/channel_performance_how_metrics_calculated.md channel="단문 메시지 서비스" %}
+{% multi_lang_include analytics/channel_performance_how_metrics_calculated.md channel="SMS" %}
 
 | 측정기준 | 유형 | 계산 |
 | --- | --- | ---- |

@@ -71,8 +71,8 @@ table td {
 | 기기 모델 | iPhone 15 Pro, Pixel 7 등 기기 모델별 사용자 수입니다. <br><br> ![모바일 템플릿 관련 스크린샷]({% image_buster /assets/img_archive/device_models.png %}){: style="max-width:50%;"} |
 | 기기 운영체제 | 17.4, Android 14 등 운영체제별 사용자 수입니다. <br><br> ![모바일 템플릿 관련 스크린샷]({% image_buster /assets/img_archive/os_version.png %}){: style="max-width:50%;"} |
 | 기기 화면 해상도 | 1179x2556, 750x1334 등 기기 화면 해상도별 사용자 수입니다. <br><br> ![모바일 템플릿 관련 스크린샷]({% image_buster /assets/img_archive/device_screen_resolutions.png %}){: style="max-width:40%;"} |
-| 단문 메시지 서비스 오류 코드 | 이 보고서는 각 단문 메시지 서비스 오류 코드에 대한 오류 유형과 오류 수를 표시합니다. <br><br>![모바일 템플릿 관련 스크린샷]({% image_buster /assets/img_archive/sms_errors.png %}){: style="max-width:50%;"} |
-| 사용자별 단문 메시지 서비스 제공자 오류 | 이 보고서는 특정 사용자에 대한 단문 메시지 서비스 오류 코드를 표시합니다. |
+| SMS 오류 코드 | 이 보고서는 각 SMS 오류 코드에 대한 오류 유형과 오류 수를 표시합니다. <br><br>![모바일 템플릿 관련 스크린샷]({% image_buster /assets/img_archive/sms_errors.png %}){: style="max-width:50%;"} |
+| 사용자별 SMS 제공자 오류 | 이 보고서는 특정 사용자에 대한 SMS 오류 코드를 표시합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="모바일 템플릿" }
 
 ## 푸시 템플릿 {#push-templates}

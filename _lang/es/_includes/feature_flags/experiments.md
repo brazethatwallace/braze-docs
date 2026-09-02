@@ -74,7 +74,7 @@ Los experimentos con conmutadores de características admiten hasta nueve grupos
 
 Puedes elegir sobrescribir las propiedades predeterminadas que configuraste inicialmente para los usuarios que reciben una variante de campaña específica.
 
-Para editar, añadir o eliminar propiedades predeterminadas adicionales, edita el conmutador de características desde **Mensajería** > **Conmutadores de características**. Cuando una variante está desactivada, el SDK or kit de desarrollo de software devolverá un objeto de propiedades vacío para el conmutador de características dado.
+Para editar, añadir o eliminar propiedades predeterminadas adicionales, edita el conmutador de características desde **Mensajería** > **Conmutadores de características**. Cuando una variante está desactivada, el SDK devolverá un objeto de propiedades vacío para el conmutador de características dado.
 
 ![La sección "Variantes del experimento" con la clave de variable "link" sobrescrita con "/sales".]({% image_buster /assets/img/feature_flags/feature_flag_experiment_override.png %}){: style="max-width:80%"}
 

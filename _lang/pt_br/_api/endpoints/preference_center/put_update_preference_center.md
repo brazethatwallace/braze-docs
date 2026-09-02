@@ -8,7 +8,7 @@ page_type: reference
 description: "Este artigo traz informações sobre o endpoint da Braze \"Atualizar uma Central de Preferências\"."
 
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Atualizar a Central de Preferências {#update-preference-center}
 {% apimethod put %}
 /preference_center/v1/{preferenceCenterExternalID}
@@ -20,11 +20,11 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Atualiz
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `preference_center.update`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `preference_center.update`.
 
 ## Limite de frequência {#rate-limit}
 
-{% multi_lang_include rate_limits.md endpoint='post or put Central de Preferências' %}
+{% multi_lang_include rate_limits.md endpoint='post or put preference center' %}
 
 ## Parâmetros de caminho {#path-parameters}
 
@@ -69,7 +69,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
 | `preference_center_page_html` | Obrigatório | String | O HTML da página da Central de Preferências. |
-| `preference_center_title` | Opcional | String | O título da Central de Preferências e das páginas de confirmação. Se um título não for especificado, o título das páginas será "Central de Preferências" por padrão. |
+| `preference_center_title` | Opcional | String | O título da Central de Preferências e das páginas de confirmação. Se um título não for especificado, o título das páginas será "Preference Center" por padrão. |
 | `confirmation_page_html` | Obrigatório | String | O HTML da página de confirmação. |
 | `state` | Opcional | String | Escolha `active` ou `draft`. |
 | `options` | Opcional | Objeto | Atributos: <br>`meta-viewport-content`: Quando presente, uma meta tag `viewport` será adicionada à página com `content= <value of attribute>`.<br><br> `link-tags`: Defina um favicon para a página. Quando definido, uma tag `<link>` com um atributo rel é adicionada à página. |

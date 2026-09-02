@@ -6,4 +6,4 @@
 {% elsif include.context == 'campaign' -%}
 - **Etapas para reproduzir:** Uma descrição clara das ações que disparam o erro, incluindo quaisquer configurações específicas de Campaign ou Canvas envolvidas.
 {% endif -%}
-- **Logs de rede (opcional):** Abra as ferramentas de desenvolvedor do seu navegador (guia **Network**), reproduza o erro e exporte o log de rede como um arquivo de log HTTP Archive (HAR). Isso ajuda a equipe de suporte a identificar qual chamada de API or interface de programação do aplicativo (API) está expirando.
+- **Logs de rede (opcional):** Abra as ferramentas de desenvolvedor do seu navegador (guia **Network**), reproduza o erro e exporte o log de rede como um arquivo de log HTTP Archive (HAR). Isso ajuda a equipe de suporte a identificar qual chamada de API está expirando.

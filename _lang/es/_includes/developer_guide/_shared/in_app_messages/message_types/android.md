@@ -42,7 +42,7 @@ Este tipo de mensaje implementa [`IInAppMessageHtml`](https://braze-inc.github.i
 En Android, los enlaces configurados con`target="_blank"`  en mensajes HTML personalizados dentro de la aplicación se abren en el navegador web predeterminado del dispositivo.
 {% endalert %}
 
-Los mensajes dentro de la aplicación Android admiten una interfaz `brazeBridge`JavaScript  para llamar a métodos en el SDK or kit de desarrollo de software de Braze para Android desde tu HTML. Consulta nuestra página <a href="{{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/traditional/customize/html_in-app_messages#javascript-bridge/">sobre el puente JavaScript</a> para obtener más detalles.
+Los mensajes dentro de la aplicación Android admiten una interfaz `brazeBridge`JavaScript  para llamar a métodos en el SDK de Braze para Android desde tu HTML. Consulta nuestra página <a href="{{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/traditional/customize/html_in-app_messages#javascript-bridge/">sobre el puente JavaScript</a> para obtener más detalles.
 
 ![Un mensaje HTML dentro de la aplicación con un carrusel de contenido y botones interactivos.]({% image_buster /assets/img/full-screen-behavior.gif %}){: style="border:0px;"}
 

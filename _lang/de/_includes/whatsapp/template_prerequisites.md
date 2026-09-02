@@ -6,7 +6,7 @@ Vor dem Erstellen von WhatsApp-Templates müssen Sie das [WhatsApp-Setup]({{site
     - Damit Nutzer:innen neue Templates im Template Builder erstellen können:
         - „WhatsApp-Nachrichten-Templates anzeigen“
         - „WhatsApp-Nachrichten-Templates bearbeiten“
-    - Damit Nutzer:innen Campaigns oder Canvase mit Karussell-Templates verfassen können:
+    - Damit Nutzer:innen Campaigns oder Canvases mit Karussell-Templates verfassen können:
         - „WhatsApp-Nachrichten-Templates anzeigen“
 - Grundkenntnisse in Liquid-Templating (optional, für dynamischen Content)
 

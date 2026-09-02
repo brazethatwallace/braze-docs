@@ -41,19 +41,19 @@ inAppMessageStreamSubscription = braze.subscribeToInAppMessages((BrazeInAppMessa
 inAppMessageStreamSubscription.cancel();
 ```
 
-Para ver um exemplo, consulte [main.dart](https://github.com/braze-inc/braze-flutter-sdk/blob/master/example/lib/main.dart) no app de amostra do Braze Flutter SDK or kit de desenvolvimento de software.
+Para ver um exemplo, consulte [main.dart](https://github.com/braze-inc/braze-flutter-sdk/blob/master/example/lib/main.dart) no app de amostra do Braze Flutter SDK.
 
 ### Encaminhar dados de mensagens no app a partir da camada nativa {#forward-in-app-message-data-from-the-native-layer}
 
 {% tabs %}
-{% tab Flutter SDK or kit de desenvolvimento de software 18.0.0+ %}
+{% tab Flutter SDK 18.0.0+ %}
 
 Os dados de mensagens no app são encaminhados automaticamente a partir das camadas nativas do Android e do iOS. Nenhuma configuração adicional é necessária.
 
 {% endtab %}
-{% tab Flutter SDK or kit de desenvolvimento de software 17.1.0 and earlier %}
+{% tab Flutter SDK 17.1.0 and earlier %}
 
-Se você estiver usando o Flutter SDK or kit de desenvolvimento de software 17.1.0 ou anterior, o encaminhamento de dados de mensagens no app a partir da camada nativa do iOS requer configuração manual. Seu aplicativo provavelmente contém uma das opções a seguir. Para migrar para o Flutter SDK or kit de desenvolvimento de software 18.0.0, remova a chamada `BrazePlugin.processInAppMessage(_:)` — o encaminhamento de dados agora é feito automaticamente.
+Se você estiver usando o Flutter SDK 17.1.0 ou anterior, o encaminhamento de dados de mensagens no app a partir da camada nativa do iOS requer configuração manual. Seu aplicativo provavelmente contém uma das opções a seguir. Para migrar para o Flutter SDK 18.0.0, remova a chamada `BrazePlugin.processInAppMessage(_:)` — o encaminhamento de dados agora é feito automaticamente.
 
 {% subtabs %}
 {% subtab UI Delegate %}

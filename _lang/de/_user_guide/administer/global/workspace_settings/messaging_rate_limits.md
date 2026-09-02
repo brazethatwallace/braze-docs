@@ -72,7 +72,7 @@ Wenn eine Campaign oder ein Canvas ein eigenes Rate-Limit hat und ein Rate-Limit
 
 Braze versucht, die Nachrichtenversendungen gleichmäßig über die Minute zu verteilen, kann dies aber nicht garantieren. Wenn Sie beispielsweise eine Campaign mit einem Rate-Limit von 500.000 Nachrichten pro Minute haben, versuchen wir, die 500.000 Nachrichten gleichmäßig über die Minute zu verteilen (etwa 8.400 Nachrichten pro Sekunde), aber es kann Abweichungen in der Rate pro Sekunde geben.
 
-Beachten Sie, dass Sie weiterhin individuelle Rate-Limits in Ihren Campaigns und Canvase festlegen können. Diese werden unabhängig von Workspace-Messaging-Rate-Limits angewendet.
+Beachten Sie, dass Sie weiterhin individuelle Rate-Limits in Ihren Campaigns und Canvases festlegen können. Diese werden unabhängig von Workspace-Messaging-Rate-Limits angewendet.
 
 ### Webhook-Sendekapazität {#webhook-sending-capacity}
 
@@ -82,5 +82,5 @@ Für Webhook-Campaigns ohne Rate-Limit für die Zustellgeschwindigkeit wendet Br
 
 - Nachrichten, die über [Transaktions-E-Mail-Campaigns]({{site.baseurl}}/user_guide/channels/transactional_email) gesendet werden, sind nicht in den Workspace-Messaging-Rate-Limits enthalten. Das bedeutet, sie unterliegen eigenen Rate-Limits und werden nicht auf die festgelegten Workspace-Messaging-Rate-Limits angerechnet.
 - Nachrichten an [Seed-Gruppen]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups) und [Testsendungen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages) sind nicht in den Workspace-Messaging-Rate-Limits enthalten. Das bedeutet, sie unterliegen keinen Rate-Limits und werden nicht auf die festgelegten Workspace-Messaging-Rate-Limits angerechnet.
-- Automatische Kurzmitteilungsdienst or SMS-Antworten sind nicht in den Workspace-Messaging-Rate-Limits enthalten. Das bedeutet, sie unterliegen keinen Rate-Limits und werden nicht auf die festgelegten Workspace-Messaging-Rate-Limits angerechnet.
+- Automatische SMS-Antworten sind nicht in den Workspace-Messaging-Rate-Limits enthalten. Das bedeutet, sie unterliegen keinen Rate-Limits und werden nicht auf die festgelegten Workspace-Messaging-Rate-Limits angerechnet.
 - Workspace-Messaging-Rate-Limits werden für In-App-Nachrichten, Feature-Flags und Banner nicht unterstützt.

@@ -1,20 +1,20 @@
 ---
-nav_title: "POST: Zeitplan für API-getriggerte Canvase"
-article_title: "POST: Zeitplan für API-getriggerte Canvase"
+nav_title: "POST: Zeitplan für API-getriggerte Canvases"
+article_title: "POST: Zeitplan für API-getriggerte Canvases"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Zeitplan für API-getriggerte Canvase“."
+description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Zeitplan für API-getriggerte Canvases“."
 
 ---
 {% api %}
-# Zeitplan für API-getriggerte Canvase {#schedule-api-triggered-canvases}
+# Zeitplan für API-getriggerte Canvases {#schedule-api-triggered-canvases}
 {% apimethod post core_endpoint|/docs/core_endpoints %}
-/Canvas/Trigger or triggern/schedule/create
+/canvas/trigger/schedule/create
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um Canvas-Nachrichten über eine API-getriggerte Zustellung zu planen. Dabei können Sie festlegen, welche Aktion den Versand der Nachricht Trigger or triggern or triggern soll.
+> Verwenden Sie diesen Endpunkt, um Canvas-Nachrichten über eine API-getriggerte Zustellung zu planen. Dabei können Sie festlegen, welche Aktion den Versand der Nachricht triggern soll.
 
 Sie können `context` übergeben, das als Template in die Nachrichten eingefügt wird, die von den ersten Schritten des Canvas gesendet werden.
 

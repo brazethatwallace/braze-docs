@@ -17,7 +17,7 @@ alias: /scim/automated_user_provisioning/
 ## Zugriff auf die SCIM-Bereitstellungseinstellungen {#accessing-scim-provisioning-settings}
 
 {% alert important %}
-Die Verfügbarkeit der SCIM-Bereitstellung hängt von Ihrer Plattform-Edition ab. Wenn dieses Feature nicht in Ihrem Workspace verfügbar ist, wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in für weitere Informationen.
+Die Verfügbarkeit der SCIM-Bereitstellung hängt von Ihrer Plattform-Edition ab. Wenn dieses Feature nicht in Ihrem Workspace verfügbar ist, wenden Sie sich an Ihren CSM für weitere Informationen.
 {% endalert %}
 
 1. Gehen Sie im Braze-Dashboard zu **Einstellungen** > **Unternehmenseinstellungen** > **Administratoreinstellungen** > **SCIM-Bereitstellung** und wählen Sie dann **SCIM-Integration konfigurieren** aus.
@@ -70,7 +70,7 @@ Wählen Sie **Test API Credentials** aus. Bei erfolgreicher Integration erschein
 1. Wählen Sie unter **Provisioning** > **Settings** > **To App** > **Provisioning to App** die Option **Edit** aus.
 2. Aktivieren Sie Folgendes:
     - Create Users
-    - Update or aktualisieren Users Attributes
+    - Update Users Attributes
     - Deactivate Users
 3. Überprüfen und konfigurieren Sie den Abschnitt **Attribute Mapping** mit den Zuordnungen, die in der Tabelle auf der Seite **Setup SCIM provisioning** angezeigt werden.
 
@@ -112,7 +112,7 @@ Verwenden Sie die Option **Okta – Benutzerdefinierte App-Integration**, wenn S
 1. Wählen Sie unter **Provisioning** > **Settings** > **To App** > **Provisioning to App** die Option **Edit** aus.
 2. Aktivieren Sie Folgendes:
     - Create Users
-    - Update or aktualisieren Users Attributes
+    - Update Users Attributes
     - Deactivate Users
 3. Überprüfen und konfigurieren Sie den Abschnitt **Attribute Mapping** mit den Zuordnungen, die in der Tabelle auf der Seite **Setup SCIM provisioning** angezeigt werden.
 

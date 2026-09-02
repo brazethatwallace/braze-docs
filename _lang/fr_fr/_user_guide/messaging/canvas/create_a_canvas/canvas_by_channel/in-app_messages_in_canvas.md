@@ -206,7 +206,7 @@ La livraison par événement n'est pas disponible pour les étapes Canvas conten
 Si vous avez plusieurs messages in-app dans un même Canvas, un utilisateur doit démarrer plusieurs sessions pour recevoir chacun de ces messages individuels.
 
 {% alert important %}
-Lorsque l'option **Advance When In-App Message en direct or en ligne/en production/instantané** est sélectionnée, le message in-app restera disponible jusqu'à son expiration, même si l'utilisateur est passé aux étapes suivantes. Si vous ne souhaitez pas que le message in-app soit actif lorsque les étapes suivantes du Canvas sont distribuées, assurez-vous que l'expiration est plus courte que le délai des étapes suivantes.
+Lorsque l'option **Advance When In-App Message en direct** est sélectionnée, le message in-app restera disponible jusqu'à son expiration, même si l'utilisateur est passé aux étapes suivantes. Si vous ne souhaitez pas que le message in-app soit actif lorsque les étapes suivantes du Canvas sont distribuées, assurez-vous que l'expiration est plus courte que le délai des étapes suivantes.
 {% endalert %}
 
 ### Étapes avec plusieurs canaux {#steps-multiple-channels}

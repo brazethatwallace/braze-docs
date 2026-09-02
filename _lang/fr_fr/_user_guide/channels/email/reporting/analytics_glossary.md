@@ -116,7 +116,7 @@ Count
 <span class="calculation-line">Calcul : (Envois) - (Rebonds) </span>
 
 {% alert note %}
-Pour l'état **reçu** au niveau de l'utilisateur et la logique associée (comme la limite de fréquence), Braze marque généralement un utilisateur lorsque l'envoi est traité et transmis pour livraison, et non lorsque le fournisseur de services d'e-mail marketing or e-mailing (fournisseur de services d'e-mailing) confirme la livraison finale dans la boîte de réception. Cela évite les décalages temporels entre la confirmation de l'fournisseur de services d'e-mailing et les règles internes au produit. Les résultats peuvent différer des rapports de livraison de l'fournisseur de services d'e-mailing ou de tiers.
+Pour l'état **reçu** au niveau de l'utilisateur et la logique associée (comme la limite de fréquence), Braze marque généralement un utilisateur lorsque l'envoi est traité et transmis pour livraison, et non lorsque le fournisseur de services d'e-mail marketing (fournisseur de services d'e-mailing) confirme la livraison finale dans la boîte de réception. Cela évite les décalages temporels entre la confirmation de l'fournisseur de services d'e-mailing et les règles internes au produit. Les résultats peuvent différer des rapports de livraison de l'fournisseur de services d'e-mailing ou de tiers.
 {% endalert %}
 
 {% endapi %}

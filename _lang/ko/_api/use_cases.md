@@ -8,7 +8,7 @@ page_order: 4.8
 
 # API 사용 사례 {#api-use-cases}
 
-> [Braze REST API]({{site.baseurl}}/api/basics)는 고객 참여 전략을 관리하고 최적화하는 데 도움이 되도록 설계된 다양한 엔드포인트를 제공합니다. 이 문서에서는 카탈로그, 이메일 목록 및 주소, 내보내기, 메시지, 환경설정 센터, 단문 메시지 서비스, 구독 그룹, 템플릿 및 사용자 데이터 등 각 엔드포인트 컬렉션의 여러 사용 사례를 살펴봅니다.<br><br>각 섹션에서는 단계별 가이드, 코드 샘플 및 예상 결과와 함께 시나리오를 소개합니다. 이 문서를 마치면 Braze REST API를 사용하여 고객 참여 노력을 강화하는 방법을 더 잘 이해할 수 있을 것입니다.
+> [Braze REST API]({{site.baseurl}}/api/basics)는 고객 참여 전략을 관리하고 최적화하는 데 도움이 되도록 설계된 다양한 엔드포인트를 제공합니다. 이 문서에서는 카탈로그, 이메일 목록 및 주소, 내보내기, 메시지, 환경설정 센터, SMS, 구독 그룹, 템플릿 및 사용자 데이터 등 각 엔드포인트 컬렉션의 여러 사용 사례를 살펴봅니다.<br><br>각 섹션에서는 단계별 가이드, 코드 샘플 및 예상 결과와 함께 시나리오를 소개합니다. 이 문서를 마치면 Braze REST API를 사용하여 고객 참여 노력을 강화하는 방법을 더 잘 이해할 수 있을 것입니다.
 
 ## 카탈로그에서 여러 항목 삭제하기 {#deleting-multiple-items-in-a-catalog}
 
@@ -173,7 +173,7 @@ curl --location -g --request GET https://rest.iad-01.braze.com/preference_center
 
 ## 유효하지 않은 전화번호 제거하기 {#removing-invalid-phone-numbers}
 
-CashBlastr의 주요 목표는 사람들이 빠른 결제를 주고받을 수 있는 방법을 간소화하는 것입니다. 금융 서비스 회사로서 CashBlastr는 고객의 전화번호 목록을 최신의 정확한 상태로 유지하고자 합니다. 개발자 팀은 마케팅 팀의 단문 메시지 서비스 메시지가 적절한 CashBlastr 고객에게 전달될 수 있도록 "유효하지 않음"으로 표시된 다음 전화번호 목록을 제거하는 임무를 받았습니다.
+CashBlastr의 주요 목표는 사람들이 빠른 결제를 주고받을 수 있는 방법을 간소화하는 것입니다. 금융 서비스 회사로서 CashBlastr는 고객의 전화번호 목록을 최신의 정확한 상태로 유지하고자 합니다. 개발자 팀은 마케팅 팀의 SMS 메시지가 적절한 CashBlastr 고객에게 전달될 수 있도록 "유효하지 않음"으로 표시된 다음 전화번호 목록을 제거하는 임무를 받았습니다.
 
 - 12223135467
 - 12183095514
@@ -200,7 +200,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## 사용자의 구독 그룹 상태 보기 {#viewing-a-users-subscription-group-status}
 
-미국의 퀵서비스 레스토랑 체인인 SandwichEmperor의 마케팅 팀은 무작위로 선정된 사용자 목록에 대한 단문 메시지 서비스 구독 그룹 상태를 확인하려고 합니다. [`/subscription/status/get` 엔드포인트]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status)를 사용하면 SandwichEmperor는 다음 예시 요청을 통해 개별 사용자에 대해 이 작업을 수행할 수 있습니다:
+미국의 퀵서비스 레스토랑 체인인 SandwichEmperor의 마케팅 팀은 무작위로 선정된 사용자 목록에 대한 SMS 구독 그룹 상태를 확인하려고 합니다. [`/subscription/status/get` 엔드포인트]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status)를 사용하면 SandwichEmperor는 다음 예시 요청을 통해 개별 사용자에 대해 이 작업을 수행할 수 있습니다:
 
 {% raw %}
 ```

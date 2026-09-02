@@ -1,11 +1,11 @@
 ---
-nav_title: Braze가 단문 메시지 서비스, MMS, RCS 생태계를 사기로부터 보호하는 방법
+nav_title: Braze가 SMS, MMS, RCS 생태계를 사기로부터 보호하는 방법
 permalink: "/sms_traffic_pumping_fraud_faq/"
-description: "이 참조 문서에서는 단문 메시지 서비스, MMS, RCS 트래픽 펌핑 사기에 대해 자주 묻는 질문을 다룹니다."
+description: "이 참조 문서에서는 SMS, MMS, RCS 트래픽 펌핑 사기에 대해 자주 묻는 질문을 다룹니다."
 hidden: true
 ---
 
-# Braze가 단문 메시지 서비스, MMS, RCS 생태계를 사기로부터 보호하는 방법 {#how-braze-protects-your-sms-mms-and-rcs-ecosystem-against-fraud}
+# Braze가 SMS, MMS, RCS 생태계를 사기로부터 보호하는 방법 {#how-braze-protects-your-sms-mms-and-rcs-ecosystem-against-fraud}
 
 {% multi_lang_include sms_traffic_pumping_fraud/intro.md link_geographic_permissions=true %}
 

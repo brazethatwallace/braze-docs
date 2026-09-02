@@ -4,7 +4,7 @@
 
 ## Pré-requisitos {#prerequisites}
 
-A disponibilidade de Banners depende do seu pacote Braze. Entre em contato com seu gerente de conta ou gerente de sucesso do cliente para começar.
+A disponibilidade de Banners depende do seu pacote Braze. Entre em contato com seu gerente de conta ou CSM para começar.
 
 Antes de começar, certifique-se de que você tenha [posicionamentos de Banner]({{site.baseurl}}/developer_guide/banners/placements) criados no seu app ou website.
 
@@ -38,7 +38,7 @@ Os recursos dos Banners incluem:
 
 ### IDs de posicionamento {#placement-id}
 
-Os posicionamentos de Banner são locais específicos no seu app ou site [que você cria com o SDK or kit de desenvolvimento de software da Braze]({{site.baseurl}}/developer_guide/banners/placements) que designam onde os Banners podem aparecer.
+Os posicionamentos de Banner são locais específicos no seu app ou site [que você cria com o SDK da Braze]({{site.baseurl}}/developer_guide/banners/placements) que designam onde os Banners podem aparecer.
 
 Locais comuns incluem o topo da sua página inicial, páginas de detalhes de produtos e fluxos de checkout. Depois que os posicionamentos são criados, os Banners podem ser [atribuídos na sua campanha de Banner]({{site.baseurl}}/user_guide/channels/banners/create_a_banner).
 
@@ -70,7 +70,7 @@ Os iframes permitem atualizações de conteúdo dinâmico e personalizado que n�
 
 Aqui está o que você precisa saber sobre dimensões e tamanhos de Banners:
 
-- Embora o criador permita que você visualize Banners em diferentes dimensões, essa informação não é salva ou enviada para o SDK or kit de desenvolvimento de software.
+- Embora o criador permita que você visualize Banners em diferentes dimensões, essa informação não é salva ou enviada para o SDK.
 - O HTML ocupa toda a largura do contêiner em que é renderizado.
 - Recomendamos criar um elemento de dimensão fixa e testar essas dimensões no criador.
 
@@ -90,7 +90,7 @@ Cada espaço de trabalho pode suportar até 200 Campaigns de Banner ativas. Se e
 
 Além disso, as mensagens de Banner não suportam os seguintes recursos:
 
-- Campaigns disparadas por API or interface de programação do aplicativo (API) e baseadas em ação
+- Campaigns disparadas por API e baseadas em ação
 - [Connected Content](#connected-content) (em acesso antecipado)
 - Códigos promocionais
 - `catalog_items` usando a [tag `:rerender`]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs#using-liquid)

@@ -1,6 +1,6 @@
 ## Analytics anzeigen {#viewing-analytics}
 
-Sobald Sie Ihre Kampagne gestartet haben, können Sie zur Detailseite dieser Kampagne zurückkehren, um die wichtigsten Kennzahlen einzusehen. Navigieren Sie zur Seite **Campaigns** und wählen Sie Ihre Kampagne aus, um die Detailseite zu öffnen.{% if include.channel != "banner" %} Für {% if include.channel == "Content Card" %}Content Cards {% elsif include.channel == "banner" %}Banner {% elsif include.channel == "email" %}E-Mails {% elsif include.channel == "in-app message" %}In-App-Nachrichten {% elsif include.channel == "KakaoTalk" %}KakaoTalk-Nachrichten {% elsif include.channel == "push" %}Push-Nachrichten {% elsif include.channel == "Kurzmitteilungsdienst or SMS" %}Kurzmitteilungsdienst or SMS-Nachrichten {% elsif include.channel == "whatsapp" %}WhatsApp-Nachrichten {% elsif include.channel == "webhook" %}Webhooks {% endif %}, die in Canvas gesendet werden, lesen Sie den Abschnitt [Canvas-Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics).{% endif %}
+Sobald Sie Ihre Kampagne gestartet haben, können Sie zur Detailseite dieser Kampagne zurückkehren, um die wichtigsten Kennzahlen einzusehen. Navigieren Sie zur Seite **Campaigns** und wählen Sie Ihre Kampagne aus, um die Detailseite zu öffnen.{% if include.channel != "banner" %} Für {% if include.channel == "Content Card" %}Content Cards {% elsif include.channel == "banner" %}Banner {% elsif include.channel == "email" %}E-Mails {% elsif include.channel == "in-app message" %}In-App-Nachrichten {% elsif include.channel == "KakaoTalk" %}KakaoTalk-Nachrichten {% elsif include.channel == "push" %}Push-Nachrichten {% elsif include.channel == "SMS" %}SMS-Nachrichten {% elsif include.channel == "whatsapp" %}WhatsApp-Nachrichten {% elsif include.channel == "webhook" %}Webhooks {% endif %}, die in Canvas gesendet werden, lesen Sie den Abschnitt [Canvas-Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics).{% endif %}
 
 {% alert tip %}
 Suchen Sie nach Definitionen für die in Ihrem Bericht aufgeführten Begriffe und Metriken? Sehen Sie sich unser
@@ -9,7 +9,7 @@ Suchen Sie nach Definitionen für die in Ihrem Bericht aufgeführten Begriffe un
   {% elsif include.channel == "Content Card" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary) an und filtern Sie nach Content Cards.
   {% elsif include.channel == "in-app message" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary) an und filtern Sie nach In-App-Nachrichten.
   {% elsif include.channel == "push" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary) an und filtern Sie nach Push.
-  {% elsif include.channel == "Kurzmitteilungsdienst or SMS" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary) an und filtern Sie nach Kurzmitteilungsdienst or SMS/MMS und RCS.
+  {% elsif include.channel == "SMS" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary) an und filtern Sie nach SMS/MMS und RCS.
   {% elsif include.channel == "whatsapp" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary) an und filtern Sie nach WhatsApp.
   {% elsif include.channel == "webhook" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary) an und filtern Sie nach Webhook.{% endif %}
 {% endalert %}
@@ -29,7 +29,7 @@ Das Panel **Campaign Details** zeigt einen Überblick über die gesamte Performa
   {% elsif include.channel == "in-app message" %}In-App-Nachricht.
   {% elsif include.channel == "KakaoTalk" %}KakaoTalk-Nachricht.
   {% elsif include.channel == "push" %}Push-Nachricht.
-  {% elsif include.channel == "Kurzmitteilungsdienst or SMS" %}Kurzmitteilungsdienst or SMS, MMS und RCS.
+  {% elsif include.channel == "SMS" %}SMS, MMS und RCS.
   {% elsif include.channel == "whatsapp" %}WhatsApp-Nachrichten.
   {% elsif include.channel == "webhook" %}Webhook.
   {% endif %}
@@ -58,7 +58,7 @@ Der WhatsApp-Kanal enthält die Leserate. Diese Metrik wird nur für Nutzer:inne
 {% elsif include.channel == "push" %}
 ![Kampagnendetails-Panel mit einer Übersicht über die Metriken zur Bestimmung der Kampagnen-Performance.]({% image_buster /assets/img/campaign_details_push.png %})
 
-{% elsif include.channel == "Kurzmitteilungsdienst or SMS" %}
+{% elsif include.channel == "SMS" %}
 ![Kampagnendetails-Panel mit einer Übersicht über die Metriken zur Bestimmung der Kampagnen-Performance.]({% image_buster /assets/img/campaign_details_sms.png %})
 
 {% elsif include.channel == "in-app message" %}
@@ -96,11 +96,11 @@ Weitere Informationen zum Stichprobenverhalten, zu **Calculate exact statistics*
 
 Um die Wirkung einer einzelnen Content-Card zu messen, können Sie einem A/B-Test eine [Kontrollgruppe]({{site.baseurl}}/user_guide/intelligence/multivariate_testing#step-4-choose-a-segment-and-distribute-your-users-across-variants) hinzufügen. Das übergeordnete Panel **Campaign Details** enthält keine Metriken aus der Kontrollgruppen-Variante.
 
-{% elsif include.channel == "Kurzmitteilungsdienst or SMS" %}
+{% elsif include.channel == "SMS" %}
 
 #### Kontrollgruppen {#sms-control-group}
 
-Um die Wirkung einer einzelnen Kurzmitteilungsdienst or SMS-, MMS- oder RCS-Nachricht zu messen, können Sie einem A/B-Test eine [Kontrollgruppe]({{site.baseurl}}/user_guide/intelligence/multivariate_testing#step-4-choose-a-segment-and-distribute-your-users-across-variants) hinzufügen. Das übergeordnete Panel **Campaign Details** enthält keine Metriken aus der Kontrollgruppen-Variante.
+Um die Wirkung einer einzelnen SMS-, MMS- oder RCS-Nachricht zu messen, können Sie einem A/B-Test eine [Kontrollgruppe]({{site.baseurl}}/user_guide/intelligence/multivariate_testing#step-4-choose-a-segment-and-distribute-your-users-across-variants) hinzufügen. Das übergeordnete Panel **Campaign Details** enthält keine Metriken aus der Kontrollgruppen-Variante.
 
 {% elsif include.channel == "whatsapp" %}
 
@@ -123,7 +123,7 @@ Die Anzahl der Aktualisierungen der Kampagne durch andere Mitglieder Ihres Teams
 <!--
 ### Message Performance
 
-The **Message Performance** panel outlines how well your message has performed across various dimensions. The metrics in this panel vary depending on your chosen messaging channel, and whether or not you are running a multivariate test. You can Klick, der or klicken on the <i class="fa fa-eye preview-icon"></i> **Preview** icon to view your message for each variant or channel.
+The **Message Performance** panel outlines how well your message has performed across various dimensions. The metrics in this panel vary depending on your chosen messaging channel, and whether or not you are running a multivariate test. You can Klick, der on the <i class="fa fa-eye preview-icon"></i> **Preview** icon to view your message for each variant or channel.
 -->
 {% if include.channel == "Content Card" %}
 ### Content-Card-Performance
@@ -153,12 +153,12 @@ Das Panel **Push Performance** zeigt Ihnen, wie gut Ihre Nachricht in verschiede
 
 ![Push-Nachrichten-Performance-Analytics]({% image_buster /assets/img_archive/push_message_performance.png %})
 
-{% elsif include.channel == "Kurzmitteilungsdienst or SMS" %}
-### Kurzmitteilungsdienst or SMS/MMS/RCS-Performance
+{% elsif include.channel == "SMS" %}
+### SMS/MMS/RCS-Performance
 
-Das Panel **Kurzmitteilungsdienst or SMS/MMS/RCS Performance** zeigt Ihnen, wie gut Ihre Nachricht in verschiedenen Dimensionen abgeschnitten hat. Die Metriken in diesem Panel variieren je nach gewähltem Messaging-Kanal und je nachdem, ob Sie einen multivariaten Test durchführen. Klicken Sie auf das Symbol <i class="fa fa-eye preview-icon"></i> **Preview**, um Ihre Nachricht für jede Variante oder jeden Kanal anzuzeigen.
+Das Panel **SMS/MMS/RCS Performance** zeigt Ihnen, wie gut Ihre Nachricht in verschiedenen Dimensionen abgeschnitten hat. Die Metriken in diesem Panel variieren je nach gewähltem Messaging-Kanal und je nachdem, ob Sie einen multivariaten Test durchführen. Klicken Sie auf das Symbol <i class="fa fa-eye preview-icon"></i> **Preview**, um Ihre Nachricht für jede Variante oder jeden Kanal anzuzeigen.
 
-![Kurzmitteilungsdienst or SMS/MMS/RCS-Performance-Panel mit einer Tabelle mit Metriken für eine Kontrollgruppe, Variante 1 und Variante 2.]({% image_buster /assets/img_archive/sms_message_performance.png %})
+![SMS/MMS/RCS-Performance-Panel mit einer Tabelle mit Metriken für eine Kontrollgruppe, Variante 1 und Variante 2.]({% image_buster /assets/img_archive/sms_message_performance.png %})
 
 {% elsif include.channel == "banner" %}
 ### Banner-Performance
@@ -219,7 +219,7 @@ Wenn Links Liquid für dynamische URLs verwenden, stimmen die angeklickten URLs 
 
 Klicks auf Abmeldelinks in der Heatmap können von der Metrik *Unsubscribers* in den Kampagnen-Analytics abweichen:
 
-- Wenn Sie eine benutzerdefinierte Abmelde-URL im Nachrichtentext verwenden, behandelt Braze diesen Link für Heatmap-Zwecke als einen standardmäßig getrackten Link – er erscheint in der **Link Table by Total Clicks** wie jeder andere Link. Wenn Braze eine Abmeldung über den von Braze bereitgestellten Abmeldelink verarbeitet, wird die Metrik *Unsubscribers* erhöht. Benutzerdefinierte Abmelde-URLs erhöhen diese Metrik nicht, es sei denn, Sie Update or aktualisieren or aktualisieren Nutzer:innen über die API.
+- Wenn Sie eine benutzerdefinierte Abmelde-URL im Nachrichtentext verwenden, behandelt Braze diesen Link für Heatmap-Zwecke als einen standardmäßig getrackten Link – er erscheint in der **Link Table by Total Clicks** wie jeder andere Link. Wenn Braze eine Abmeldung über den von Braze bereitgestellten Abmeldelink verarbeitet, wird die Metrik *Unsubscribers* erhöht. Benutzerdefinierte Abmelde-URLs erhöhen diese Metrik nicht, es sei denn, Sie aktualisieren Nutzer:innen über die API.
 - Wenn sich eine Nutzer:in über den [List-Unsubscribe-Header]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#list-unsubscribe) abmeldet (eine Ein-Klick-Abmeldeoption, die von einigen Posteingangs-Anbietern angezeigt wird), wird *Unsubscribers* in den Kampagnen-Analytics erhöht, aber dies erscheint nicht als Klick in der Heatmap. Wenn die Nachricht **Unsubscribe from specific subscription group** verwendet, meldet Braze die Nutzer:in nur von der konfigurierten Abo-Gruppe ab, nicht global. Die Verfügbarkeit dieser Option variiert je nach Empfänger:in, da sich die Posteingangs-Anbieter darin unterscheiden, ob sie den List-Unsubscribe-Header rendern oder unterstützen.
 
 Für eine vollständige Übersicht über das Abmeldeverhalten überprüfen Sie sowohl die Heatmap-Link-Aufschlüsselung als auch die Metrik *Unsubscribers*. Weitere Details finden Sie unter [Warum sich *Unsubscribes* und Abmeldelink-Klicks unterscheiden können]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#why-unsubscribes-and-unsubscribe-link-clicks-can-differ).
@@ -309,7 +309,7 @@ Ein weiteres Beispiel: Angenommen, Sie sehen fünf _Unique Impressions_ für ein
 
 1. Eine Sitzung gestartet oder die App hat explizit eine Content-Cards-Synchronisierung angefordert (oder beides)
 2. Zur Content-Cards-Ansicht navigiert
-3. Das SDK or Software-Development-Kit hat eine Impression aufgezeichnet und an den Server gesendet
+3. Das SDK hat eine Impression aufgezeichnet und an den Server gesendet
 
 _Messages Sent_ bezieht sich auf Content Cards, die zum Ansehen verfügbar sind, während _Unique Daily Impressions_ die Content Cards bezeichnet, die tatsächlich angesehen wurden.
 
@@ -317,7 +317,7 @@ _Messages Sent_ bezieht sich auf Content Cards, die zum Ansehen verfügbar sind,
 
 ### Banner-Metriken {#banner-metrics}
 
-Dies sind die wichtigsten Metriken, die Sie bei der Überprüfung der Performance Ihrer Banner-Kampagne im Blick behalten sollten. Klicks und Impressionen für Banner werden automatisch über das SDK or Software-Development-Kit getrackt.
+Dies sind die wichtigsten Metriken, die Sie bei der Überprüfung der Performance Ihrer Banner-Kampagne im Blick behalten sollten. Klicks und Impressionen für Banner werden automatisch über das SDK getrackt.
 
 Die vollständigen Definitionen aller Banner-Metriken finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary). Filtern Sie dort nach Banner.
 
@@ -385,7 +385,7 @@ Nehmen wir als weiteres Beispiel an, Sie sehen fünf _Unique Impressions_ in ein
 
 1. Eine Sitzung gestartet oder die App hat explizit eine Banner-Synchronisierung angefordert (oder beides)
 2. Zur Banner-Ansicht navigiert
-3. Das SDK or Software-Development-Kit hat eine Impression aufgezeichnet und an den Server gesendet
+3. Das SDK hat eine Impression aufgezeichnet und an den Server gesendet
 
 _Unique Daily Impressions_ bezieht sich auf die Banner, die tatsächlich angesehen wurden.
 
@@ -429,8 +429,8 @@ Im Folgenden finden Sie einige wichtige E-Mail-spezifische Metriken, die in ande
             </td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#Klick, der or klicken-to-open-rate">Klick, der or klicken-to-Open Rate</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Klick, der or klicken-to-Open Rate' %}</td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#Klick, der-to-open-rate">Klick, der-to-Open Rate</a></td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Klick, der-to-Open Rate' %}</td>
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#spam">Spam Rate</a></td>
@@ -479,16 +479,16 @@ Das Dashboard hebt _Hard Bounces_ hervor. Einige _Bounces_ können Soft Bounces 
 
 _Sendungen − (Zustellungen + Hard Bounces) ≈ Soft Bounces_
 
-_Zustellungen_ können während des Wiederholungsfensters Ihres E-Mail-Anbieters (E-Mail-Anbieter or ESP) steigen, wenn Wiederholungsversuche erfolgreich sind, während _Sendungen_ und Hard Bounces bei einem einmaligen Versand nach Abschluss des Versands feststehen. SendGrid und SparkPost wiederholen bis zu 72 Stunden; Amazon SES wiederholt bis zu 14 Stunden.
+_Zustellungen_ können während des Wiederholungsfensters Ihres E-Mail-Anbieters (E-Mail-Anbieter) steigen, wenn Wiederholungsversuche erfolgreich sind, während _Sendungen_ und Hard Bounces bei einem einmaligen Versand nach Abschluss des Versands feststehen. SendGrid und SparkPost wiederholen bis zu 72 Stunden; Amazon SES wiederholt bis zu 14 Stunden.
 
 ###### Häufige Szenarien bei der Fehlerbehebung der Zustellung {#common-delivery-troubleshooting-scenarios}
 
 Beachten Sie bei der Überprüfung Ihrer E-Mail-Analytics die folgenden Muster:
 
-- **Lücke zwischen _Sendungen_ und (_Zustellungen_ + _Hard Bounces_):** Während des E-Mail-Anbieter or ESP-Wiederholungsfensters nach einem einmaligen Versand spiegelt diese Lücke häufig Soft Bounces oder Deferrals wider, die noch wiederholt werden. Nach Abschluss der Wiederholungsversuche bedeutet eine verbleibende Lücke in der Regel, dass Nachrichten einen Soft Bounce hatten und nie zugestellt wurden – diese Sendungen werden nicht in den Kampagnen-_Zustellungen_ oder _Bounces_ gezählt. Verwenden Sie die Formel unter [Zustellungen und Bounces](#deliveries-and-bounces), um laufende Soft Bounces abzuschätzen.
+- **Lücke zwischen _Sendungen_ und (_Zustellungen_ + _Hard Bounces_):** Während des E-Mail-Anbieter-Wiederholungsfensters nach einem einmaligen Versand spiegelt diese Lücke häufig Soft Bounces oder Deferrals wider, die noch wiederholt werden. Nach Abschluss der Wiederholungsversuche bedeutet eine verbleibende Lücke in der Regel, dass Nachrichten einen Soft Bounce hatten und nie zugestellt wurden – diese Sendungen werden nicht in den Kampagnen-_Zustellungen_ oder _Bounces_ gezählt. Verwenden Sie die Formel unter [Zustellungen und Bounces](#deliveries-and-bounces), um laufende Soft Bounces abzuschätzen.
 - **Niedrige _Zustellungen_ nach Abschluss der Wiederholungsversuche:** Wenn die Zustellraten nach Abschluss der Wiederholungsversuche niedrig bleiben, vergleichen Sie das Sendevolumen mit Ihren üblichen Mustern. Postfach-Anbieter können E-Mails verzögern, drosseln oder mit einem Soft Bounce versehen, wenn das Volumen im Verhältnis zu Ihrer Absender-Reputation ansteigt. Möglicherweise sehen Sie Nachrichten wie `Email was deferred due to the following reason(s): [IPs were throttled by recipient server]` im [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log). Verwenden Sie [Rate-Limiting für die Zustellgeschwindigkeit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting), um große Sendungen zu dosieren, und lesen Sie [Gedrosselte IPs]({{site.baseurl}}/user_guide/channels/email/reporting#throttled-ips) für weitere Schritte zur Fehlerbehebung.
 - **Soft Bounces und Deferrals werden nicht in den Kampagnen-Analytics angezeigt:** Kampagnen-Analytics heben _Hard Bounces_ hervor, enthalten aber _Soft Bounces_ oder _Deferrals_ nicht als separate Spalten. Überwachen Sie diese Ereignisse im Nachrichten-Aktivitätsprotokoll, mit dem [Segmentfilter „Soft Bounced“]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced) oder über Currents-Deferral-Events. Informationen zur Funktionsweise von Wiederholungsversuchen finden Sie unter [Deferrals](#deferrals).
-- **Zustellprozentsätze, die sich möglicherweise nicht zu 100 % addieren:** _Zustellungen %_, _Bounce %_ und _Spam Rate %_ ergeben möglicherweise nicht 100 % der _Sendungen_. Nachrichten, die einen Soft Bounce haben und nach dem E-Mail-Anbieter or ESP-Wiederholungsfenster nie zugestellt werden, werden nicht in den Kampagnen-_Zustellungen_ oder _Bounces_ gezählt, sodass ein Teil der _Sendungen_ in diesen Raten nicht berücksichtigt wird. Warten Sie, bis die Wiederholungsversuche abgeschlossen sind, bevor Sie die endgültige Zustellleistung beurteilen, oder verwenden Sie die Formel unter [Zustellungen und Bounces](#deliveries-and-bounces), um abzuschätzen, wie viele Sendungen sich noch im Wiederholungsversuch befinden.
+- **Zustellprozentsätze, die sich möglicherweise nicht zu 100 % addieren:** _Zustellungen %_, _Bounce %_ und _Spam Rate %_ ergeben möglicherweise nicht 100 % der _Sendungen_. Nachrichten, die einen Soft Bounce haben und nach dem E-Mail-Anbieter-Wiederholungsfenster nie zugestellt werden, werden nicht in den Kampagnen-_Zustellungen_ oder _Bounces_ gezählt, sodass ein Teil der _Sendungen_ in diesen Raten nicht berücksichtigt wird. Warten Sie, bis die Wiederholungsversuche abgeschlossen sind, bevor Sie die endgültige Zustellleistung beurteilen, oder verwenden Sie die Formel unter [Zustellungen und Bounces](#deliveries-and-bounces), um abzuschätzen, wie viele Sendungen sich noch im Wiederholungsversuch befinden.
 
 ##### Klicks ohne Öffnungs-Event {#clicks-without-an-open-event}
 
@@ -500,7 +500,7 @@ Ein Klick und eine Öffnung können auch an verschiedenen Tagen stattfinden: Ein
 
 Es kann vorkommen, dass _Unique Clicks_ die _Unique Opens_ deutlich übersteigen (z. B. mehrere eindeutige Klicks pro eindeutiger Öffnung), selbst wenn Sie von Ihrer Zielgruppe ein niedrigeres Verhältnis erwarten. Dieses Muster bedeutet in der Regel, dass Öffnungen zu niedrig gezählt, Klicks überhöht oder beides der Fall ist. Das bedeutet jedoch nicht, dass Braze Klicks isoliert falsch zählt.
 
-Braze protokolliert eine E-Mail-Öffnung, wenn das Öffnungs-Tracking-Pixel geladen wird. Dieses Pixel ist ein kleines transparentes Bild (oft als 1 x 1&nbsp;px beschrieben), das Braze dem Nachrichten-HTML hinzufügt. Wenn das Pixel nie geladen wird, wird für diese Ansicht keine Öffnung protokolliert, aber Link-Klicks können dennoch registriert werden – sodass Ihre Klick, der or klicken-to-Open-Rate und das Verhältnis zwischen diesen beiden Metriken verzerrt aussehen können.
+Braze protokolliert eine E-Mail-Öffnung, wenn das Öffnungs-Tracking-Pixel geladen wird. Dieses Pixel ist ein kleines transparentes Bild (oft als 1 x 1&nbsp;px beschrieben), das Braze dem Nachrichten-HTML hinzufügt. Wenn das Pixel nie geladen wird, wird für diese Ansicht keine Öffnung protokolliert, aber Link-Klicks können dennoch registriert werden – sodass Ihre Klick, der-to-Open-Rate und das Verhältnis zwischen diesen beiden Metriken verzerrt aussehen können.
 
 **Das Postfach hat das Öffnungs-Tracking-Pixel nie geladen**
 
@@ -522,7 +522,7 @@ Einige E-Mail-Sicherheitsprodukte folgen Links, um nach Bedrohungen zu scannen. 
 
 ##### Deferrals {#deferrals}
 
-Ein Deferral bedeutet, dass eine E-Mail nicht sofort zugestellt werden konnte, Braze die E-Mail jedoch über Ihren E-Mail-Anbieter or ESP nach diesem vorübergehenden Zustellungsfehler erneut versucht, um die Chancen auf eine erfolgreiche Zustellung zu maximieren, bevor die Versuche für diese spezielle Kampagne eingestellt werden. SendGrid und SparkPost wiederholen bis zu 72 Stunden; Amazon SES wiederholt bis zu 14 Stunden. Typische Gründe für Deferrals sind reputationsbasiertes Rate-Limiting des Posteingangs-Anbieters für das E-Mail-Volumen, vorübergehende Verbindungsprobleme oder DNS-Fehler.
+Ein Deferral bedeutet, dass eine E-Mail nicht sofort zugestellt werden konnte, Braze die E-Mail jedoch über Ihren E-Mail-Anbieter nach diesem vorübergehenden Zustellungsfehler erneut versucht, um die Chancen auf eine erfolgreiche Zustellung zu maximieren, bevor die Versuche für diese spezielle Kampagne eingestellt werden. SendGrid und SparkPost wiederholen bis zu 72 Stunden; Amazon SES wiederholt bis zu 14 Stunden. Typische Gründe für Deferrals sind reputationsbasiertes Rate-Limiting des Posteingangs-Anbieters für das E-Mail-Volumen, vorübergehende Verbindungsprobleme oder DNS-Fehler.
 
 _Deferrals_ unterscheiden sich von _Soft Bounces_. Wenn während dieses Wiederholungszeitraums keine E-Mail erfolgreich zugestellt wurde, sendet Braze ein Soft-Bounce-Event pro versuchtem Kampagnenversand. Vor dem 25. Februar 2025 wurden diese Wiederholungsversuche als mehrere Soft Bounces für einen Kampagnenversand gezählt.
 
@@ -530,7 +530,7 @@ Beachten Sie, dass _Deferrals_ derzeit nur über Currents oder Braze-Snowflake-F
 
 ##### Geschätzte reale Öffnungsrate {#estimated-real-open-rate}
 
-Diese Statistik verwendet ein proprietäres, von Braze entwickeltes Analysemodell, um eine Schätzung der individuellen Öffnungsrate der Kampagne zu rekonstruieren – so, als ob es keine automatischen Öffnungen gäbe. Obwohl wir bei einigen Öffnungs-Events von E-Mail-Absendern die Kennzeichnung *Machine Opens* erhalten, können diese Kennzeichnungen häufig tatsächliche Öffnungen fälschlicherweise als automatische Öffnungen markieren. Mit anderen Worten: Die *Other Opens* sind wahrscheinlich eine Unterschätzung der tatsächlichen Öffnungen (durch echte Nutzer:innen). Stattdessen verwendet Braze die Klickdaten der einzelnen Kampagnen, um auf die Rate zu schließen, mit der Menschen die Nachricht tatsächlich geöffnet haben. Dies kompensiert verschiedene Mechanismen zum automatischen Öffnen, einschließlich Apples E-Mail-Datenschutz or MPP.
+Diese Statistik verwendet ein proprietäres, von Braze entwickeltes Analysemodell, um eine Schätzung der individuellen Öffnungsrate der Kampagne zu rekonstruieren – so, als ob es keine automatischen Öffnungen gäbe. Obwohl wir bei einigen Öffnungs-Events von E-Mail-Absendern die Kennzeichnung *Machine Opens* erhalten, können diese Kennzeichnungen häufig tatsächliche Öffnungen fälschlicherweise als automatische Öffnungen markieren. Mit anderen Worten: Die *Other Opens* sind wahrscheinlich eine Unterschätzung der tatsächlichen Öffnungen (durch echte Nutzer:innen). Stattdessen verwendet Braze die Klickdaten der einzelnen Kampagnen, um auf die Rate zu schließen, mit der Menschen die Nachricht tatsächlich geöffnet haben. Dies kompensiert verschiedene Mechanismen zum automatischen Öffnen, einschließlich Apples E-Mail-Datenschutz.
 
 Die _Estimated Real Open Rate_ wird 24 Stunden nach Beginn des E-Mail-Versands berechnet und danach alle 72 Stunden neu berechnet.
 
@@ -728,11 +728,11 @@ Wenn Sie [Push-Action-Buttons]({{site.baseurl}}/user_guide/channels/push/create_
 
 _Direct Opens_ spiegelt die Dashboard-Metriken für Interaktionen wider, die als direkte Öffnung Ihrer Nachricht gezählt werden. **Push Notification Open**-Events in [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) oder Snowflake beschreiben Push-Interaktionen umfassender und können optionale Felder wie `button_action_type` (z. B. `close`) und `button_string` enthalten. Felddefinitionen finden Sie unter [Push Notification Open-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#push-notification-open-events).
 
-Für **iOS** verwenden die Standard-Benachrichtigungskategorien von Braze (wie **Yes** / **No**, **Accept** / **Decline** oder **Confirm** / **Cancel**) eine feste Zuordnung: Die erste Aktion unterstützt `OPEN_APP`, eine URI oder einen Deeplink (entsprechend dem **On-Klick, der or klicken Behavior** im Composer). Die Begleitaktion verwendet standardmäßig `CLOSE` – sie schließt die Benachrichtigung und öffnet die App nicht. Siehe die Standardzuordnung unter [Apple Push-Action-Button-Objekt]({{site.baseurl}}/api/objects_filters/messaging/apple_object#apple-push-action-button-object-for-braze-default-buttons).
+Für **iOS** verwenden die Standard-Benachrichtigungskategorien von Braze (wie **Yes** / **No**, **Accept** / **Decline** oder **Confirm** / **Cancel**) eine feste Zuordnung: Die erste Aktion unterstützt `OPEN_APP`, eine URI oder einen Deeplink (entsprechend dem **On-Klick, der Behavior** im Composer). Die Begleitaktion verwendet standardmäßig `CLOSE` – sie schließt die Benachrichtigung und öffnet die App nicht. Siehe die Standardzuordnung unter [Apple Push-Action-Button-Objekt]({{site.baseurl}}/api/objects_filters/messaging/apple_object#apple-push-action-button-object-for-braze-default-buttons).
 
 Aus diesem Grund werden Taps auf den abweisenden voreingestellten Button (z. B. **No** oder **Decline**) in der Regel **nicht** als _Direct Opens_ gezählt. Diese Taps können dennoch in **Push Notification Open**-Exporten erscheinen, wenn sie protokolliert werden, wobei `button_action_type` auf `close` und `button_string` die getippte Aktion identifiziert. Wenn Sie Kampagnen-Analytics mit Warehouse-Daten vergleichen, verwenden Sie diese Payload-Felder, damit Sie abweisende Taps nicht mit Taps auf den Nachrichtentext oder die primäre Aktion gleichsetzen.
 
-Für **Android** legen Sie das **On-Klick, der or klicken Behavior** pro Button fest (**Open App**, **Redirect to Web URL** oder **Deep Link**), sodass die Berichterstattung den von Ihnen konfigurierten Aktionen folgt und nicht der iOS-Standard-Aufteilung `OPEN_APP` / `CLOSE`.
+Für **Android** legen Sie das **On-Klick, der Behavior** pro Button fest (**Open App**, **Redirect to Web URL** oder **Deep Link**), sodass die Berichterstattung den von Ihnen konfigurierten Aktionen folgt und nicht der iOS-Standard-Aufteilung `OPEN_APP` / `CLOSE`.
 
 ##### Warum Push-Sendungen die Zahl der eindeutigen Empfänger:innen übersteigen können {#why-push-sends-can-exceed-unique-recipients}
 
@@ -747,9 +747,9 @@ Die Anzahl der _Sendungen_ kann die Anzahl der _eindeutigen Empfänger:innen_ au
 {% tabs %}
 {% tab Apple Push Notification service %}
 
-Bounces treten bei Apple Push Notification Services (APNs) auf, wenn eine Push-Benachrichtigung versucht, an ein Gerät zugestellt zu werden, auf dem die gewünschte App nicht installiert ist. APNs hat außerdem das Recht, Token / Textbaustein für Geräte beliebig zu ändern. Wenn Sie versuchen, an das Gerät einer Nutzer:in zu senden, deren Push-Token / Textbaustein sich zwischen der Registrierung (z. B. zu Beginn jeder Sitzung, wenn wir eine Nutzer:in für ein Push-Token / Textbaustein Registrierung or registrieren) und dem Zeitpunkt des Sendens geändert hat, führt dies zu einem Bounce.
+Bounces treten bei Apple Push Notification Services (APNs) auf, wenn eine Push-Benachrichtigung versucht, an ein Gerät zugestellt zu werden, auf dem die gewünschte App nicht installiert ist. APNs hat außerdem das Recht, Token / Textbaustein für Geräte beliebig zu ändern. Wenn Sie versuchen, an das Gerät einer Nutzer:in zu senden, deren Push-Token / Textbaustein sich zwischen der Registrierung (z. B. zu Beginn jeder Sitzung, wenn wir eine Nutzer:in für ein Push-Token / Textbaustein Registrierung) und dem Zeitpunkt des Sendens geändert hat, führt dies zu einem Bounce.
 
-Wenn eine Nutzer:in Push in den Geräteeinstellungen deaktiviert, erkennt das SDK or Software-Development-Kit beim nächsten Öffnen der App, dass Push deaktiviert wurde, und benachrichtigt Braze. An diesem Punkt Update or aktualisieren or aktualisieren wir den Push-Aktivierungsstatus auf „deaktiviert“. Wenn eine deaktivierte Nutzer:in eine Push-Kampagne erhält, bevor sie eine neue Sitzung hat, wird die Kampagne erfolgreich gesendet und erscheint als zugestellt. Der Push wird für diese Nutzer:in nicht bouncen. Bei einer nachfolgenden Sitzung weiß Braze bereits, ob ein Vordergrund-Token / Textbaustein vorhanden ist, sodass keine Benachrichtigung gesendet wird.
+Wenn eine Nutzer:in Push in den Geräteeinstellungen deaktiviert, erkennt das SDK beim nächsten Öffnen der App, dass Push deaktiviert wurde, und benachrichtigt Braze. An diesem Punkt aktualisieren wir den Push-Aktivierungsstatus auf „deaktiviert“. Wenn eine deaktivierte Nutzer:in eine Push-Kampagne erhält, bevor sie eine neue Sitzung hat, wird die Kampagne erfolgreich gesendet und erscheint als zugestellt. Der Push wird für diese Nutzer:in nicht bouncen. Bei einer nachfolgenden Sitzung weiß Braze bereits, ob ein Vordergrund-Token / Textbaustein vorhanden ist, sodass keine Benachrichtigung gesendet wird.
 
 Push-Benachrichtigungen, die vor der Zustellung ablaufen, gelten nicht als fehlgeschlagen und werden nicht als Bounce registriert.
 
@@ -769,11 +769,11 @@ Firebase Cloud Messaging (FCM) Bounces können in drei Fällen auftreten:
 {% endtabs %}
 
 
-{% elsif include.channel == "Kurzmitteilungsdienst or SMS" %}
+{% elsif include.channel == "SMS" %}
 
-#### Kurzmitteilungsdienst or SMS-, MMS- und RCS-Metriken {#sms-mms-and-rcs-metrics}
+#### SMS-, MMS- und RCS-Metriken {#sms-mms-and-rcs-metrics}
 
-Im Folgenden finden Sie eine Aufschlüsselung einiger wichtiger Metriken, die Sie bei der Überprüfung Ihrer Nachrichten-Performance sehen können. Die vollständigen Definitionen aller Kurzmitteilungsdienst or SMS-, MMS- und RCS-Metriken finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary). Filtern Sie dort nach Kurzmitteilungsdienst or SMS/MMS und RCS.
+Im Folgenden finden Sie eine Aufschlüsselung einiger wichtiger Metriken, die Sie bei der Überprüfung Ihrer Nachrichten-Performance sehen können. Die vollständigen Definitionen aller SMS-, MMS- und RCS-Metriken finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary). Filtern Sie dort nach SMS/MMS und RCS.
 
 <style>
     .no-split {
@@ -781,8 +781,8 @@ Im Folgenden finden Sie eine Aufschlüsselung einiger wichtiger Metriken, die Si
     }
 </style>
 
-<table aria-label="Kurzmitteilungsdienst or SMS-, MMS- und RCS-Metriken">
-    <caption class="sr-only">Kurzmitteilungsdienst or SMS-, MMS- und RCS-Performance-Metriken</caption>
+<table aria-label="SMS-, MMS- und RCS-Metriken">
+    <caption class="sr-only">SMS-, MMS- und RCS-Performance-Metriken</caption>
     <thead>
         <tr>
             <th>Metrik</th>
@@ -921,7 +921,7 @@ Wenn Sie sich dafür entscheiden, nur an Nutzer:innen zu senden, die die neueste
 
 {% endif %}
 
-{% if include.channel == "Kurzmitteilungsdienst or SMS" %}
+{% if include.channel == "SMS" %}
 
 ### Schlüsselwort-Antworten {#keyword-responses}
 
@@ -963,11 +963,11 @@ Zusätzlich zu den Braze-Analytics können Sie im WhatsApp Business Manager:in a
 
 {% endif %}
 
-{% if include.channel == "Kurzmitteilungsdienst or SMS" %}
+{% if include.channel == "SMS" %}
 
-### Kurzmitteilungsdienst or SMS-Currents-Events
+### SMS-Currents-Events
 
-Wie bei E-Mails empfängt Braze Ereignisse auf Nutzerebene im Zusammenhang mit einer Kurzmitteilungsdienst or SMS-Nachricht auf ihrem Weg zur Nutzer:in. Alle eingehenden Kurzmitteilungsdienst or SMS-Ereignisse werden auch als Currents-Event über das Ereignis [Kurzmitteilungsdienst or SMS InboundReceived]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events) gesendet. So können Sie zusätzliche Aktionen durchführen oder Berichte zu den Nachrichten erstellen, die Ihre Nutzer:innen außerhalb der Braze-Plattform senden.
+Wie bei E-Mails empfängt Braze Ereignisse auf Nutzerebene im Zusammenhang mit einer SMS-Nachricht auf ihrem Weg zur Nutzer:in. Alle eingehenden SMS-Ereignisse werden auch als Currents-Event über das Ereignis [SMS InboundReceived]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events) gesendet. So können Sie zusätzliche Aktionen durchführen oder Berichte zu den Nachrichten erstellen, die Ihre Nutzer:innen außerhalb der Braze-Plattform senden.
 
 {% alert note %}
 Eingehende Nachrichten werden nach 1.600 Zeichen abgeschnitten.

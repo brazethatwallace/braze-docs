@@ -8,6 +8,6 @@ Na Braze, geofences e monitoramento de localização servem a propósitos difere
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Location tracking compared to geofences" }
 
 - **Monitoramento de localização:** Coleta e armazena o local mais recente de cada usuário no perfil. Você usa esses dados para segmentação retroativa — por exemplo, o filtro `Most Recent Location` segmenta usuários com base em onde eles abriram o app pela última vez, não necessariamente onde estão em tempo real.
-- **Geofences:** Define limites virtuais em torno de uma latitude, longitude e raio. Quando um usuário entra ou sai de um limite, a Braze pode disparar ações como o envio de uma Campaign. Geofences exigem configuração adicional do SDK or kit de desenvolvimento de software além do monitoramento básico de localização.
+- **Geofences:** Define limites virtuais em torno de uma latitude, longitude e raio. Quando um usuário entra ou sai de um limite, a Braze pode disparar ações como o envio de uma Campaign. Geofences exigem configuração adicional do SDK além do monitoramento básico de localização.
 
 Ambos os recursos exigem que os usuários concedam permissões de localização. Se um usuário desativar o monitoramento de localização, os dados de localização armazenados anteriormente não são removidos automaticamente do perfil, mas novos dados de localização não são coletados.

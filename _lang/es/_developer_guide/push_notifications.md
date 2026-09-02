@@ -31,21 +31,21 @@ Si **Redirect to web URL** con **Open web URL inside app** no está seleccionado
 
 ![Ilustración de un dispositivo Android TV utilizada para la guía de notificaciones push de Android TV.]({% image_buster /assets/img/Television.png %}){: style="float:right;max-width:25%;margin-left:15px; border: 0"}
 
-Aunque no es una característica nativa, la integración de notificaciones push en Android TV es posible aprovechando el SDK or kit de desarrollo de software de Braze para Android y Firebase Cloud Messaging para registrar un token push para Android TV. Sin embargo, debes crear una interfaz de usuario para mostrar la carga útil de la notificación una vez recibida.
+Aunque no es una característica nativa, la integración de notificaciones push en Android TV es posible aprovechando el SDK de Braze para Android y Firebase Cloud Messaging para registrar un token push para Android TV. Sin embargo, debes crear una interfaz de usuario para mostrar la carga útil de la notificación una vez recibida.
 
 ## Requisitos previos {#prerequisites}
 
 Para utilizar esta característica, debes completar lo siguiente:
 
-- [Integrar el SDK or kit de desarrollo de software de Braze para Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android)
-- [Configurar las notificaciones push para el SDK or kit de desarrollo de software de Braze para Android]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android)
+- [Integrar el SDK de Braze para Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android)
+- [Configurar las notificaciones push para el SDK de Braze para Android]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android)
 
 ## Configurar las notificaciones push {#setting-up-push-notifications}
 
 Para configurar las notificaciones push en Android TV:
 
 1. Crea una vista personalizada en tu aplicación para mostrar tus notificaciones.
-2. Crea una [fábrica de notificaciones personalizada]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=android#android_customization-display). Esto anula el comportamiento predeterminado del SDK or kit de desarrollo de software y te permite mostrar las notificaciones manualmente. Al devolver `null`, se evita que el SDK or kit de desarrollo de software procese la notificación y se requiere código personalizado para mostrarla. Después de completar estos pasos, puedes empezar a enviar notificaciones push a Android TV.<br><br>
+2. Crea una [fábrica de notificaciones personalizada]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=android#android_customization-display). Esto anula el comportamiento predeterminado del SDK y te permite mostrar las notificaciones manualmente. Al devolver `null`, se evita que el SDK procese la notificación y se requiere código personalizado para mostrarla. Después de completar estos pasos, puedes empezar a enviar notificaciones push a Android TV.<br><br>
 3. (Opcional) Para realizar un seguimiento eficaz de los análisis de clics, configura el seguimiento de análisis de clics. Esto se puede lograr creando una [devolución de llamada push]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=android#android_push-callback) para escuchar las intenciones de push abierto y recibido de Braze.
 
 {% alert note %}
@@ -57,7 +57,7 @@ Estas notificaciones no persisten y solo son visibles para el usuario cuando el 
 Para comprobar si tu implementación de push es correcta, envía una notificación desde el panel de Braze como lo harías normalmente para un dispositivo Android.
 
 - **Si la aplicación está cerrada**: El mensaje push muestra una notificación de tipo toast en la pantalla.
-- **Si la aplicación está abierta**: Tienes la oportunidad de mostrar el mensaje en tu propia interfaz de usuario alojada. Sigue el estilo de interfaz de usuario de los mensajes dentro de la aplicación del SDK or kit de desarrollo de software de Android para móviles.
+- **Si la aplicación está abierta**: Tienes la oportunidad de mostrar el mensaje en tu propia interfaz de usuario alojada. Sigue el estilo de interfaz de usuario de los mensajes dentro de la aplicación del SDK de Android para móviles.
 
 ## Mejores prácticas {#best-practices}
 

@@ -1,14 +1,14 @@
 ---
 nav_title: Datenerfassung verwalten
-article_title: Datenerfassung für das Braze SDK or Software-Development-Kit verwalten
+article_title: Datenerfassung für das Braze SDK verwalten
 page_order: 8
-description: "Erfahren Sie, wie Sie die Datenerfassung für das Braze SDK or Software-Development-Kit verwalten können."
+description: "Erfahren Sie, wie Sie die Datenerfassung für das Braze SDK verwalten können."
 
 ---
 
 # Datenerfassung verwalten {#manage-data-collection}
 
-> Erfahren Sie, wie Sie die Datenerfassung für das Braze SDK or Software-Development-Kit verwalten, damit Sie bei Bedarf alle Datenschutzbestimmungen einhalten können.
+> Erfahren Sie, wie Sie die Datenerfassung für das Braze SDK verwalten, damit Sie bei Bedarf alle Datenschutzbestimmungen einhalten können.
 
 {% sdktabs %}
 {% sdktab web %}

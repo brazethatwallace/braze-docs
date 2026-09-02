@@ -289,4 +289,4 @@ Meta는 WhatsApp 플랫폼에서 이러한 실험을 계속할 예정입니다. 
 
 ### Meta의 실험으로 인해 마케팅 메시지가 전달되지 않으면 어떻게 해야 하나요? {#what-can-i-do-if-my-marketing-messages-are-not-delivered-due-to-metas-experiment}
 
-이메일, 단문 메시지 서비스, 푸시 알림 또는 인앱 메시지와 같은 다른 Braze 채널을 사용하여 의도한 사용자에게 유사한 콘텐츠의 메시지를 발송하는 것을 권장합니다.
+이메일, SMS, 푸시 알림 또는 인앱 메시지와 같은 다른 Braze 채널을 사용하여 의도한 사용자에게 유사한 콘텐츠의 메시지를 발송하는 것을 권장합니다.

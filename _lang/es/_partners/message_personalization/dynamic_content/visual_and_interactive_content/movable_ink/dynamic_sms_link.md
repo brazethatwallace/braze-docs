@@ -1,14 +1,14 @@
 ---
-nav_title: Vista previa del enlace servicio de mensajes cortos dinámico
-article_title: Vista previa del enlace servicio de mensajes cortos dinámico
-description: "Este artículo de referencia describe cómo activar y utilizar la característica de vista previa de enlaces servicio de mensajes cortos de Movable Ink."
+nav_title: Vista previa del enlace SMS dinámico
+article_title: Vista previa del enlace SMS dinámico
+description: "Este artículo de referencia describe cómo activar y utilizar la característica de vista previa de enlaces SMS de Movable Ink."
 page_type: partner
 search_tag: Partner
 ---
 
-# Vista previa del enlace servicio de mensajes cortos dinámico {#dynamic-sms-link-preview}
+# Vista previa del enlace SMS dinámico {#dynamic-sms-link-preview}
 
-> Con la vista previa dinámica de enlaces servicio de mensajes cortos de Movable Ink, puedes aprovechar la inmersión de los MMS al mismo coste que los servicio de mensajes cortos. Esto te permite utilizar Braze y Movable Ink para entregar experiencias de mensajería enriquecida rentables y personalizadas.
+> Con la vista previa dinámica de enlaces SMS de Movable Ink, puedes aprovechar la inmersión de los MMS al mismo coste que los SMS. Esto te permite utilizar Braze y Movable Ink para entregar experiencias de mensajería enriquecida rentables y personalizadas.
 
 ## Requisitos previos {#prerequisites}
 
@@ -23,7 +23,7 @@ search_tag: Partner
 
 ## Integración {#integration}
 
-Sigue los pasos que se indican a continuación para enviar enlaces servicio de mensajes cortos dinámicos para los sistemas operativos iOS y Android.
+Sigue los pasos que se indican a continuación para enviar enlaces SMS dinámicos para los sistemas operativos iOS y Android.
 
 ### iOS
 
@@ -39,21 +39,21 @@ Después de que los usuarios guarden tu marca como contacto, ya sea a través de
 
 #### Paso 2: Envía enlaces de Movable Ink {#step-2-send-movable-ink-links}
 
-1. Crea una campaña servicio de mensajes cortos en Movable Ink y genera tu URL de click-through.
-2. En el panel de Braze, ve a **Campaigns** y configura una nueva campaña servicio de mensajes cortos/MMS desde el desplegable **Crear Campaign**.
-3. En el creador de la campaña servicio de mensajes cortos:
+1. Crea una campaña SMS en Movable Ink y genera tu URL de click-through.
+2. En el panel de Braze, ve a **Campaigns** y configura una nueva campaña SMS/MMS desde el desplegable **Crear Campaign**.
+3. En el creador de la campaña SMS:
     - Configura tu grupo de suscripción.
     - Introduce tu mensaje.
-    - Añade tu enlace de Movable Ink **en último lugar**, después del resto del texto del cuerpo del mensaje. <br><br>![Creador de la campaña servicio de mensajes cortos con el enlace de Movable Ink al final del mensaje][2]{: style="max-width:50%;"}
+    - Añade tu enlace de Movable Ink **en último lugar**, después del resto del texto del cuerpo del mensaje. <br><br>![Creador de la campaña SMS con el enlace de Movable Ink al final del mensaje][2]{: style="max-width:50%;"}
 
 {% alert tip %}
 Echa un vistazo a [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid) para repasar la personalización con Liquid.
 {% endalert %}
 
 {: start="4"}
-4. Ya estás listo para probar y lanzar tu campaña de vista previa de enlaces servicio de mensajes cortos dinámicos.
+4. Ya estás listo para probar y lanzar tu campaña de vista previa de enlaces SMS dinámicos.
 
-![Pantalla de prueba y lanzamiento de la campaña servicio de mensajes cortos dinámica][3]{: style="max-width:70%;"}
+![Pantalla de prueba y lanzamiento de la campaña SMS dinámica][3]{: style="max-width:70%;"}
 
 Cuando los usuarios carguen la vista previa del enlace, se mostrará una imagen personalizada con la posibilidad de enlazar con tu sitio web, aplicación o página de inicio.
 
@@ -61,7 +61,7 @@ Cuando los usuarios carguen la vista previa del enlace, se mostrará una imagen 
 
 ### Android (dispositivos Google y Samsung) {#android-google-and-samsung-devices}
 
-Los usuarios de Android no necesitan guardar tu marca como contacto para recibir vistas previas de enlaces servicio de mensajes cortos dinámicos. Sin embargo, sigue siendo recomendable para que el dispositivo pueda cargar automáticamente las vistas previas de los enlaces.
+Los usuarios de Android no necesitan guardar tu marca como contacto para recibir vistas previas de enlaces SMS dinámicos. Sin embargo, sigue siendo recomendable para que el dispositivo pueda cargar automáticamente las vistas previas de los enlaces.
 
 ![Vista previa de enlace cargada automáticamente en un dispositivo Android][5]{: style="max-width:30%;"}
 
@@ -71,7 +71,7 @@ Los usuarios que no hayan guardado tu marca como contacto y hayan activado las v
 
 ## Consideraciones {#considerations}
 
-- Incluye solo un enlace de vista previa en tu mensaje. No se generará contenido con varios enlaces en el cuerpo de tu servicio de mensajes cortos.
+- Incluye solo un enlace de vista previa en tu mensaje. No se generará contenido con varios enlaces en el cuerpo de tu SMS.
 - No incluyas ningún carácter después de tu enlace de vista previa o la experiencia podría romperse.
 
 

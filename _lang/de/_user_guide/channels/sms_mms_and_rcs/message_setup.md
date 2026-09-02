@@ -4,9 +4,9 @@ article_title: Nachrichteneinrichtung
 page_order: 0
 layout: dev_guide
 guide_top_header: "Nachrichteneinrichtung"
-guide_top_text: "Richten Sie Ihr Kurzmitteilungsdienst or SMS-, MMS- und RCS-Messaging ein, indem Sie Absender, Abo-Gruppen und Telefonnummern konfigurieren. Einen kanalübergreifenden Überblick über Abo-Gruppen finden Sie unter <a href='/docs/user_guide/audience/subscription_preferences/subscription_groups'>Abo-Gruppen</a>. Hinweise zur Compliance finden Sie unter Compliance und Zustellung."
+guide_top_text: "Richten Sie Ihr SMS-, MMS- und RCS-Messaging ein, indem Sie Absender, Abo-Gruppen und Telefonnummern konfigurieren. Einen kanalübergreifenden Überblick über Abo-Gruppen finden Sie unter <a href='/docs/user_guide/audience/subscription_preferences/subscription_groups'>Abo-Gruppen</a>. Hinweise zur Compliance finden Sie unter Compliance und Zustellung."
 page_type: landing
-description: "Richten Sie Kurzmitteilungsdienst or SMS-, MMS- und RCS-Messaging in Braze ein, einschließlich Absender-Konfiguration, Abo-Gruppen und Telefonnummern."
+description: "Richten Sie SMS-, MMS- und RCS-Messaging in Braze ein, einschließlich Absender-Konfiguration, Abo-Gruppen und Telefonnummern."
 channel:
   - SMS
   - MMS

@@ -14,16 +14,16 @@ toc_headers: h2
 
 # Globale Kontrollgruppe {#global-control-group}
 
-> Verwenden Sie die globale Kontrollgruppe, um einen Prozentsatz aller Nutzer:innen festzulegen, die keine Campaigns oder Canvase erhalten sollen. So können Sie die Gesamtwirkung Ihrer Messaging-Maßnahmen im Zeitverlauf analysieren.
+> Verwenden Sie die globale Kontrollgruppe, um einen Prozentsatz aller Nutzer:innen festzulegen, die keine Campaigns oder Canvases erhalten sollen. So können Sie die Gesamtwirkung Ihrer Messaging-Maßnahmen im Zeitverlauf analysieren.
 
-Indem Sie das Verhalten von Nutzer:innen, die Nachrichten erhalten, mit dem Verhalten derjenigen vergleichen, die keine erhalten, können Sie besser nachvollziehen, wie Ihre Marketing-Kampagnen und Canvase zu einer Steigerung von Sitzungen und angepassten Events beitragen.
+Indem Sie das Verhalten von Nutzer:innen, die Nachrichten erhalten, mit dem Verhalten derjenigen vergleichen, die keine erhalten, können Sie besser nachvollziehen, wie Ihre Marketing-Kampagnen und Canvases zu einer Steigerung von Sitzungen und angepassten Events beitragen.
 
 ## So funktioniert die globale Kontrollgruppe {#how-the-global-control-group-works}
 
-Mit der globalen Kontrollgruppe können Sie einen Prozentsatz aller Nutzer:innen als Kontrollgruppe festlegen. Nach dem Speichern erhalten die Nutzer:innen in der Gruppe keine Campaigns oder Canvase.
+Mit der globalen Kontrollgruppe können Sie einen Prozentsatz aller Nutzer:innen als Kontrollgruppe festlegen. Nach dem Speichern erhalten die Nutzer:innen in der Gruppe keine Campaigns oder Canvases.
 
 {% alert important %}
-Ihre globale Kontrollgruppe gilt für alle Kanäle, Campaigns und Canvase, mit Ausnahme von [API-Campaigns]({{site.baseurl}}/api/api_campaigns). Das bedeutet, dass Nutzer:innen in Ihrer Kontrollgruppe weiterhin API-Campaigns erhalten. Diese Ausnahme gilt jedoch nicht für Content Cards. Wenn Sie eine API-getriggerte Content-Card-Kampagne verwenden, erhalten Nutzer:innen in Ihrer Kontrollgruppe diese nicht.
+Ihre globale Kontrollgruppe gilt für alle Kanäle, Campaigns und Canvases, mit Ausnahme von [API-Campaigns]({{site.baseurl}}/api/api_campaigns). Das bedeutet, dass Nutzer:innen in Ihrer Kontrollgruppe weiterhin API-Campaigns erhalten. Diese Ausnahme gilt jedoch nicht für Content Cards. Wenn Sie eine API-getriggerte Content-Card-Kampagne verwenden, erhalten Nutzer:innen in Ihrer Kontrollgruppe diese nicht.
 {% endalert %}
 
 ### Nutzer:innen zufällig der globalen Kontrollgruppe zuweisen {#assign-users-randomly-to-the-global-control-group}
@@ -44,7 +44,7 @@ Sie können [Feature-Flags]({{site.baseurl}}/user_guide/messaging/canvas/canvas_
 
 ### Nutzer:innen aus der globalen Kontrollgruppe ausschließen {#exclude-users-from-the-global-control-group}
 
-Sie können bestimmte Nutzer:innen nicht aus der globalen Kontrollgruppe entfernen, aber Sie können [Ausschlusseinstellungen](#step-3-assign-exclusion-settings) hinzufügen, sodass Campaigns und Canvase mit bestimmten Tags die globale Kontrollgruppe **nicht** verwenden. Sie können Ihre globale Kontrollgruppe auch deaktivieren und erneut aktivieren, um die Mitgliedschaft neu zu mischen. Die ideale Dauer für das Neumischen von Nutzer:innen variiert je nach Art des Tests, den Sie durchführen, aber versuchen Sie, nicht öfter als einmal im Monat neu zu mischen.
+Sie können bestimmte Nutzer:innen nicht aus der globalen Kontrollgruppe entfernen, aber Sie können [Ausschlusseinstellungen](#step-3-assign-exclusion-settings) hinzufügen, sodass Campaigns und Canvases mit bestimmten Tags die globale Kontrollgruppe **nicht** verwenden. Sie können Ihre globale Kontrollgruppe auch deaktivieren und erneut aktivieren, um die Mitgliedschaft neu zu mischen. Die ideale Dauer für das Neumischen von Nutzer:innen variiert je nach Art des Tests, den Sie durchführen, aber versuchen Sie, nicht öfter als einmal im Monat neu zu mischen.
 
 ## Globale Kontrollgruppe erstellen {#create-a-global-control-group}
 
@@ -64,7 +64,7 @@ Richtlinien zum Prozentsatz finden Sie unter [Best Practices für Tests](#percen
 
 ### Schritt 3: Ausschlusseinstellungen zuweisen {#step-3-assign-exclusion-settings}
 
-Verwenden Sie Tags, um Ausschlusseinstellungen zu Ihrer globalen Kontrollgruppe hinzuzufügen. Campaigns oder Canvase, die die in den Ausschlusseinstellungen enthaltenen Tags verwenden, nutzen Ihre globale Kontrollgruppe nicht. Diese Campaigns und Canvase werden weiterhin an alle Nutzer:innen in der Zielgruppe gesendet, einschließlich derjenigen in Ihrer globalen Kontrollgruppe.
+Verwenden Sie Tags, um Ausschlusseinstellungen zu Ihrer globalen Kontrollgruppe hinzuzufügen. Campaigns oder Canvases, die die in den Ausschlusseinstellungen enthaltenen Tags verwenden, nutzen Ihre globale Kontrollgruppe nicht. Diese Campaigns und Canvases werden weiterhin an alle Nutzer:innen in der Zielgruppe gesendet, einschließlich derjenigen in Ihrer globalen Kontrollgruppe.
 
 Beachten Sie, dass das Tag-Dropdown nur Tags anzeigt, die derzeit auf mindestens eine aktive Campaign oder ein aktives Canvas angewendet sind. Wenn Sie ein neues Tag erstellen und es in den Ausschlusseinstellungen verwenden möchten, wenden Sie es zuerst auf eine Campaign oder ein Canvas an.
 
@@ -76,13 +76,13 @@ Sie können Ausschlusseinstellungen hinzufügen, wenn Sie transaktionale Nachric
 
 ### Schritt 4: Kontrollgruppe speichern {#step-4-save-your-control-group}
 
-An diesem Punkt generiert Braze eine zufällig ausgewählte Gruppe von Nutzer:innen, die den ausgewählten Prozentsatz Ihrer gesamten Nutzerbasis umfasst. Nach dem Speichern senden alle derzeit aktiven und zukünftigen Campaigns und Canvase keine Nachrichten mehr an Nutzer:innen in dieser Gruppe, mit Ausnahme von Campaigns oder Canvase, die eines der Tags in Ihren Ausschlusseinstellungen enthalten.
+An diesem Punkt generiert Braze eine zufällig ausgewählte Gruppe von Nutzer:innen, die den ausgewählten Prozentsatz Ihrer gesamten Nutzerbasis umfasst. Nach dem Speichern senden alle derzeit aktiven und zukünftigen Campaigns und Canvases keine Nachrichten mehr an Nutzer:innen in dieser Gruppe, mit Ausnahme von Campaigns oder Canvases, die eines der Tags in Ihren Ausschlusseinstellungen enthalten.
 
 ## Änderungen an Ihrer globalen Kontrollgruppe vornehmen {#making-changes-to-your-global-control-group}
 
 Sie können Änderungen an Ihrer globalen Kontrollgruppe nur vornehmen, indem Sie sie deaktivieren und eine neue erstellen. Wenn Sie beispielsweise eine globale Kontrollgruppe eingerichtet haben, die 10 % Ihrer Zielgruppe umfasst, und Sie deren Größe auf 5 % verringern möchten, müssen Sie Ihre aktuelle globale Kontrollgruppe deaktivieren und eine neue globale Kontrollgruppe aktivieren.
 
-Sie können Ihre globale Kontrollgruppe jederzeit über den Tab **Global Control Group Settings** deaktivieren. Beachten Sie jedoch, dass die Nutzer:innen in dieser Gruppe dadurch sofort für Campaigns und Canvase in Frage kommen.
+Sie können Ihre globale Kontrollgruppe jederzeit über den Tab **Global Control Group Settings** deaktivieren. Beachten Sie jedoch, dass die Nutzer:innen in dieser Gruppe dadurch sofort für Campaigns und Canvases in Frage kommen.
 
 Bevor Sie Ihre Kontrollgruppe deaktivieren, [exportieren](#export-group-members) Sie eine CSV-Datei der Nutzer:innen in dieser Gruppe, falls Sie diese zu einem späteren Zeitpunkt benötigen. Wenn Sie eine Kontrollgruppe deaktivieren, gibt es für Braze keine Möglichkeit, die Gruppe wiederherzustellen oder festzustellen, welche Nutzer:innen sich in dieser Gruppe befanden.
 
@@ -102,7 +102,7 @@ Historische Kontrollgruppen werden nicht aufbewahrt, sodass Sie nur die Mitglied
 
 ## Anzeigen, ob Nutzer:innen in einer globalen Kontrollgruppe sind {#view-whether-a-user-is-in-a-global-control-group}
 
-Sie können die Mitgliedschaft in der globalen Kontrollgruppe einsehen, indem Sie im Kundenprofil or Nutzerprofil auf dem Tab **Engagement** zum Abschnitt **Miscellaneous** navigieren.
+Sie können die Mitgliedschaft in der globalen Kontrollgruppe einsehen, indem Sie im Kundenprofil auf dem Tab **Engagement** zum Abschnitt **Miscellaneous** navigieren.
 
 ![Ein Abschnitt „Miscellaneous“, der anzeigt, dass die Nutzer:in eine zufällige Bucket-Nummer von 6356 hat und nicht in der globalen Kontrollgruppe ist.]({% image_buster /assets/img/control_group/control_group1.png %}){: style="max-width:50%;"}
 
@@ -154,7 +154,7 @@ Beim Einrichten Ihrer globalen Kontrollgruppen und beim Anzeigen von Berichten k
 | Problem | Fehlerbehebung |
 | --- | --- |
 | Der eingegebene Prozentsatz kann beim Festlegen einer globalen Kontrollgruppe nicht gespeichert werden. | Dieses Problem tritt auf, wenn Sie eine Nicht-Ganzzahl oder eine Ganzzahl eingeben, die nicht zwischen 1 und 15 (einschließlich) liegt. |
-| Fehler „Braze is not able to Update or aktualisieren your Global Control Group“ auf der Einstellungsseite der globalen Kontrollgruppe. | Dies deutet in der Regel darauf hin, dass sich eine Komponente dieser Seite geändert hat, wahrscheinlich aufgrund von Aktionen eines anderen Nutzers bzw. einer anderen Nutzerin in Ihrem Braze-Konto. Update or aktualisieren or aktualisieren Sie in diesem Fall die Seite und versuchen Sie es erneut. |
+| Fehler „Braze is not able to update your Global Control Group“ auf der Einstellungsseite der globalen Kontrollgruppe. | Dies deutet in der Regel darauf hin, dass sich eine Komponente dieser Seite geändert hat, wahrscheinlich aufgrund von Aktionen eines anderen Nutzers bzw. einer anderen Nutzerin in Ihrem Braze-Konto. Aktualisieren Sie in diesem Fall die Seite und versuchen Sie es erneut. |
 | Der Bericht der globalen Kontrollgruppe enthält keine Daten. | Wenn Sie auf den Bericht der globalen Kontrollgruppe zugreifen, ohne zuvor eine globale Kontrollgruppe gespeichert zu haben, werden keine Daten im Bericht angezeigt. Erstellen und speichern Sie eine globale Kontrollgruppe und versuchen Sie es erneut. |
 | Meine Konversionsrate beträgt 0 % oder die Grafik wird nicht angezeigt, obwohl mehr als null Ereignisse auftreten. | Wenn die Anzahl der Konversionen sehr gering ist und Ihre Kontroll- oder Behandlungsgruppen sehr groß sind, kann die Konversionsrate auf 0 % gerundet werden und wird daher nicht in der Grafik angezeigt. Sie können dies überprüfen, indem Sie die Metrik „Gesamtanzahl der Ereignisse“ prüfen. Sie können die Effektivität Ihrer beiden Gruppen mithilfe der Metrik für den inkrementellen Uplift-Prozentsatz vergleichen. |
 | Meine Konversionsrate (oder andere Metriken) ändert sich drastisch je nach dem Zeitraum, für den ich Daten anzeige. | Wenn Sie Daten über kurze Zeiträume betrachten, können Ihre Metriken von Tag zu Tag oder von Woche zu Woche schwanken. Betrachten Sie Metriken über einen Zeitraum von mindestens einem Monat. |

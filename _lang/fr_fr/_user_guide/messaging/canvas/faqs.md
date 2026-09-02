@@ -348,9 +348,9 @@ Non. Les [utilisateurs orphelins]({{site.baseurl}}/user_guide/data/unification/u
 
 Pour plus d'informations sur les fusions et les profils orphelins, consultez [Fusionner les utilisateurs en double]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users).
 
-### Si j'arrête un Canvas ou une Campaign actif, les messages déjà envoyés au fournisseur de services d'e-mail marketing or e-mailing sont-ils tout de même distribués ? {#if-i-stop-an-active-canvas-or-campaign-do-messages-already-sent-to-the-esp-still-deliver}
+### Si j'arrête un Canvas ou une Campaign actif, les messages déjà envoyés au fournisseur de services d'e-mail marketing sont-ils tout de même distribués ? {#if-i-stop-an-active-canvas-or-campaign-do-messages-already-sent-to-the-esp-still-deliver}
 
-Oui. Une fois que Braze a envoyé une requête à votre fournisseur de services d'e-mail marketing or e-mailing (fournisseur de services d'e-mailing), Braze ne peut pas annuler cet envoi. L'arrêt d'un Canvas ou d'une Campaign empêche de nouvelles requêtes d'envoi, mais les messages déjà transmis au fournisseur peuvent toujours être distribués et incrémenter les compteurs d'envoi au fur et à mesure que le fournisseur les traite.
+Oui. Une fois que Braze a envoyé une requête à votre fournisseur de services d'e-mail marketing (fournisseur de services d'e-mailing), Braze ne peut pas annuler cet envoi. L'arrêt d'un Canvas ou d'une Campaign empêche de nouvelles requêtes d'envoi, mais les messages déjà transmis au fournisseur peuvent toujours être distribués et incrémenter les compteurs d'envoi au fur et à mesure que le fournisseur les traite.
 
 Ce comportement est identique à celui décrit dans [Que se passe-t-il lorsque vous arrêtez un Canvas](#what-happens-when-you-stop-a-canvas) : les e-mails en cours d'envoi ne sont pas immédiatement interrompus.
 

@@ -12,7 +12,7 @@ search_tag: Partner
 
 > L'intégration de Front vous permet de tirer parti de la transformation des données de Braze et des webhooks de chaque plateforme pour mettre en place un pipeline SMS conversationnel bidirectionnel.
 
-Le webhook entrant provenant de Front contiendra un payload comprenant le message envoyé par l'agent en direct or en ligne/en production/instantané. La requête devra être reformatée avant de pouvoir être acceptée par les endpoints de Braze. Le modèle de transformation des données de Front reformatera le payload et écrira un événement personnalisé dans le profil utilisateur intitulé **Outbound SMS Sent,** le corps du message étant transmis en tant que propriété de l'événement.
+Le webhook entrant provenant de Front contiendra un payload comprenant le message envoyé par l'agent en direct. La requête devra être reformatée avant de pouvoir être acceptée par les endpoints de Braze. Le modèle de transformation des données de Front reformatera le payload et écrira un événement personnalisé dans le profil utilisateur intitulé **Outbound SMS Sent,** le corps du message étant transmis en tant que propriété de l'événement.
 
 Avant de configurer une nouvelle transformation dans Braze, nous vous recommandons de consulter la matrice de prise en charge de chaque niveau dans notre documentation sur la [transformation des données]({{site.baseurl}}/user_guide/data/unification/data_transformation). Nos niveaux Free et Pro offrent un nombre différent de transformations actives et de requêtes entrantes par mois. Vérifiez que le plan auquel vous avez souscrit peut prendre en charge votre cas d'usage.
 
@@ -30,7 +30,7 @@ Avant de commencer, vous aurez besoin des éléments suivants :
 ## Cas d'usage {#use-cases}
 
 - Rationalisez votre processus de génération de prospects en utilisant les messages SMS automatisés de Braze pour identifier les préférences des utilisateurs et permettre aux agents commerciaux d'assurer le suivi et de conclure les ventes.
-- Réengagez les clients qui ont abandonné leur panier en stimulant les conversions grâce aux réponses SMS automatisées et à l'assistance par chat en direct or en ligne/en production/instantané.
+- Réengagez les clients qui ont abandonné leur panier en stimulant les conversions grâce aux réponses SMS automatisées et à l'assistance par chat en direct.
 
 ## Intégration de Front {#integrating-front}
 
@@ -119,7 +119,7 @@ Dans le tableau de bord de Front, accédez à **Settings** > **Channels** > **Ad
 
 ### Étape 4 : Configurer les paramètres {#step-4-configure-the-settings}
 
-Dans le champ de l'endpoint API sortant, saisissez l'URL du webhook de transformation des données [que vous avez créée précédemment](#step-1-set-up-a-data-transformation-in-braze). Tous les messages sortants des agents en direct or en ligne/en production/instantané sur votre nouveau canal Braze seront envoyés ici. Ce canal fournit également une URL d'endpoint vers laquelle Braze pourra transférer les messages SMS dans le champ **Incoming URL**.
+Dans le champ de l'endpoint API sortant, saisissez l'URL du webhook de transformation des données [que vous avez créée précédemment](#step-1-set-up-a-data-transformation-in-braze). Tous les messages sortants des agents en direct sur votre nouveau canal Braze seront envoyés ici. Ce canal fournit également une URL d'endpoint vers laquelle Braze pourra transférer les messages SMS dans le champ **Incoming URL**.
 
 Notez bien cette URL&#8212;vous en aurez besoin plus tard.
 
@@ -131,7 +131,7 @@ Ensuite, vous allez créer deux nouvelles campagnes webhook dans Braze afin de p
 
 | Numéro | Objectif |
 |---|---|
-| Campagne webhook 1 | Signale à Front qu'une conversation en direct or en ligne/en production/instantané par chat est demandée. |
+| Campagne webhook 1 | Signale à Front qu'une conversation en direct par chat est demandée. |
 | Campagne webhook 2 | Transfère toutes les réponses SMS conversationnelles envoyées par le client vers la boîte de réception de Front. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 5 : Configurer le transfert des SMS entrants" }
 
@@ -201,7 +201,7 @@ Pour **Planifier la distribution**, définissez le **déclencheur basé sur l'ac
 
 #### Étape 5.6 : Ajouter un filtre d'audience {#step-56-add-an-audience-filter}
 
-Votre campagne webhook peut désormais transférer les réponses SMS entrantes de vos clients. Pour filtrer les réponses SMS afin que seuls les messages destinés aux chats en direct or en ligne/en production/instantané soient transférés, ajoutez le filtre de segmentation **Last Received Message From Specific Campaign** à l'**étape Audiences cibles**.
+Votre campagne webhook peut désormais transférer les réponses SMS entrantes de vos clients. Pour filtrer les réponses SMS afin que seuls les messages destinés aux chats en direct soient transférés, ajoutez le filtre de segmentation **Last Received Message From Specific Campaign** à l'**étape Audiences cibles**.
 
 ![Un filtre d'audience avec « Last Received Message From Specific Campaign » sélectionné.]({% image_buster /assets/img/front/front_segment_last_received_message.png %}){: style="max-width:65%;"}
 
@@ -222,11 +222,11 @@ Configurez ensuite votre filtre :
 
 ### Enregistrement des points de données {#logging-data-points}
 
-Actuellement, cette intégration nécessite l'écriture d'un événement personnalisé dans le profil utilisateur à chaque fois qu'un agent en direct or en ligne/en production/instantané envoie un SMS depuis Front. Cela peut convenir à des échanges rapides qui ne durent que quelques messages, mais au fur et à mesure que les conversations s'allongent, les implications en termes de points de données augmentent également. Si vous avez des questions sur les subtilités des points de données de Braze, votre gestionnaire de compte Braze peut y répondre.
+Actuellement, cette intégration nécessite l'écriture d'un événement personnalisé dans le profil utilisateur à chaque fois qu'un agent en direct envoie un SMS depuis Front. Cela peut convenir à des échanges rapides qui ne durent que quelques messages, mais au fur et à mesure que les conversations s'allongent, les implications en termes de points de données augmentent également. Si vous avez des questions sur les subtilités des points de données de Braze, votre gestionnaire de compte Braze peut y répondre.
 
 ### Inclure des liens dans les messages SMS {#including-links-in-sms-messages}
 
-L'envoi d'un lien depuis le chat en direct or en ligne/en production/instantané de Front ajoutera des balises HTML supplémentaires au rendu.
+L'envoi d'un lien depuis le chat en direct de Front ajoutera des balises HTML supplémentaires au rendu.
 
 ### Joindre un fichier image depuis Front {#attaching-image-file-from-front}
 

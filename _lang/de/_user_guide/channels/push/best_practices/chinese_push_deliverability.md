@@ -26,4 +26,4 @@ Nachdem Ihre Nutzer:innen dem Empfang von Push-Benachrichtigungen zugestimmt hab
 - „Autostart“ für die App aktivieren
 - Akkuoptimierung für die App deaktivieren
 
-Um Ihre Nachricht weiter zu verstärken, nutzen Sie zusätzliche Kanäle, um Informationen aus ungeöffneten Push-Benachrichtigungen über Out-of-App-Kanäle wie Kurzmitteilungsdienst or SMS, WhatsApp und LINE sowie In-App-Kanäle wie In-App-Nachrichten und Content Cards erneut anzuzeigen. Ihre Nutzer:innen können alles sehen, was sie möglicherweise verpasst haben, wenn sie die App das nächste Mal öffnen.
+Um Ihre Nachricht weiter zu verstärken, nutzen Sie zusätzliche Kanäle, um Informationen aus ungeöffneten Push-Benachrichtigungen über Out-of-App-Kanäle wie SMS, WhatsApp und LINE sowie In-App-Kanäle wie In-App-Nachrichten und Content Cards erneut anzuzeigen. Ihre Nutzer:innen können alles sehen, was sie möglicherweise verpasst haben, wenn sie die App das nächste Mal öffnen.

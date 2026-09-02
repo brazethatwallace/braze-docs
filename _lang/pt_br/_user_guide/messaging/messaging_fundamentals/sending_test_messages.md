@@ -65,7 +65,7 @@ Lembre-se de que sua prévia pode não ser idêntica à renderização final no 
 Para enviar um teste para [grupos de teste de conteúdo]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) ou usuários individuais, o push deve estar ativado nos seus dispositivos de teste com tokens por push válidos registrados para o usuário teste antes do envio. Para usuários iOS, é necessário tocar na notificação por push enviada pela Braze para visualizar o Content Card de teste. Esse comportamento se aplica apenas a Content Cards de teste.
 {% endalert %}
 
-Content Cards de teste são entregues por meio de uma notificação por push. O cartão é empacotado na carga útil do push, e o SDK or kit de desenvolvimento de software o extrai e armazena em cache localmente quando o push é recebido.
+Content Cards de teste são entregues por meio de uma notificação por push. O cartão é empacotado na carga útil do push, e o SDK o extrai e armazena em cache localmente quando o push é recebido.
 
 Esse processo ignora o sistema normal de entrega de cartões, por isso o push deve estar ativado mesmo que você esteja testando um Content Card.
 
@@ -109,10 +109,10 @@ Se uma imagem de Content Card não está sendo renderizada ou aparece com falha:
 
 Depois que seus Content Cards forem enviados, você pode detalhar ou depurar quaisquer problemas a partir do [registro de usuários de eventos]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log) no console de desenvolvedor.
 
-Um caso de uso comum é tentar depurar por que um usuário não consegue ver um Content Card específico. Para isso, você pode consultar os **Event User Logs** para os Content Cards entregues ao SDK or kit de desenvolvimento de software no início da sessão, mas antes de uma impressão, e rastrear esses dados até uma campanha específica:
+Um caso de uso comum é tentar depurar por que um usuário não consegue ver um Content Card específico. Para isso, você pode consultar os **Event User Logs** para os Content Cards entregues ao SDK no início da sessão, mas antes de uma impressão, e rastrear esses dados até uma campanha específica:
 
 1. Acesse **Settings** > **Event User Log**.
-2. Localize e expanda a solicitação do SDK or kit de desenvolvimento de software para o seu usuário teste.
+2. Localize e expanda a solicitação do SDK para o seu usuário teste.
 3. Clique em **Raw Data**.
 4. Encontre o `id` da sua sessão. A seguir, um trecho de exemplo:
 
@@ -156,7 +156,7 @@ A partir daí, você pode revisar as configurações e o conteúdo da mensagem p
 
 ![Teste de e-mail]({% image_buster /assets/img_archive/testemail.png %}){: style="max-width:40%;" }
 
-Se o seu e-mail inclui um link de [Central de Preferências]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center), os envios de teste não geram um link funcional nem permitem salvar preferências. Para testar a Central de Preferências, envie a mensagem para um usuário teste ou um pequeno Segment or segmento or segmento interno. Para mais detalhes, consulte [Testando centrais de preferências]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/dnd_preference_center#testing-preference-centers).
+Se o seu e-mail inclui um link de [Central de Preferências]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center), os envios de teste não geram um link funcional nem permitem salvar preferências. Para testar a Central de Preferências, envie a mensagem para um usuário teste ou um pequeno Segment interno. Para mais detalhes, consulte [Testando centrais de preferências]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/dnd_preference_center#testing-preference-centers).
 
 Se sua campanha de e-mail contém uma imagem grande e não está sendo exibida como esperado no Outlook, considere reduzir as dimensões reais do arquivo da imagem com uma ferramenta de edição ou redimensionamento de imagem, em vez de apenas redimensioná-la com CSS ou HTML.
 
@@ -252,7 +252,7 @@ Se você vir um erro informando que nenhum dos usuários selecionados possui tok
 1. Crie seu web push.
 2. Selecione a guia **Test**.
 3. Selecione **Send Test to Myself**.
-4. Selecione **Send Test** para enviar seu web push ao seu navegador de internet or navegador web.
+4. Selecione **Send Test** para enviar seu web push ao seu navegador de internet.
 
 ![Teste de web push]({% image_buster /assets/img_archive/testwebpush.png %})
 
@@ -399,7 +399,7 @@ Existem algumas situações em que as mensagens de teste não se comportam da me
 Se a campanha de mensagem no app não for disparada por uma campanha de push, verifique a segmentação da campanha de mensagem no app para confirmar que o usuário atende ao público-alvo **antes** de receber a mensagem de push.
 
 Para envios de teste no Android e iOS, as mensagens no app que usam o comportamento ao clicar **Solicitar permissão de push** podem não ser exibidas em alguns dispositivos. Como alternativa:
-- **Android:** Os dispositivos precisam estar no Android 13 e na versão 21.0.0 ou superior do nosso SDK or kit de desenvolvimento de software para Android. Outro motivo pode ser que o dispositivo no qual a mensagem no app é exibida já tenha uma solicitação no nível do sistema. Pode ser que você tenha selecionado **Não perguntar novamente**, então talvez seja necessário reinstalar o app para redefinir as permissões de notificação antes de testar novamente.
+- **Android:** Os dispositivos precisam estar no Android 13 e na versão 21.0.0 ou superior do nosso SDK para Android. Outro motivo pode ser que o dispositivo no qual a mensagem no app é exibida já tenha uma solicitação no nível do sistema. Pode ser que você tenha selecionado **Não perguntar novamente**, então talvez seja necessário reinstalar o app para redefinir as permissões de notificação antes de testar novamente.
 - **iOS:** Recomendamos que sua equipe de desenvolvimento revise a implementação das notificações por push do seu app e remova manualmente qualquer código que solicite permissões de push. Para saber mais, consulte [Mensagens no app de push primer]({{site.baseurl}}/user_guide/channels/push/best_practices).
 
-Para que uma campanha de mensagem no app baseada em ação seja entregue, você precisa registrar eventos personalizados por meio do SDK or kit de desenvolvimento de software da Braze, e não por REST or transferir estado representacional APIs, para que os usuários possam receber mensagens no app elegíveis diretamente no dispositivo. Os usuários recebem a mensagem no app se realizarem o evento durante a sessão.
+Para que uma campanha de mensagem no app baseada em ação seja entregue, você precisa registrar eventos personalizados por meio do SDK da Braze, e não por REST APIs, para que os usuários possam receber mensagens no app elegíveis diretamente no dispositivo. Os usuários recebem a mensagem no app se realizarem o evento durante a sessão.

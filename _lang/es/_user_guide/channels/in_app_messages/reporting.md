@@ -90,7 +90,7 @@ Unas horas después, recibe el mismo mensaje dentro de la aplicación de nuevo y
 **Resultados:** *Total de conversiones* y *Total de impresiones* para Sarah se incrementan en cinco para ese único día. Dado que las *Impresiones únicas* solo pueden incrementarse de nuevo después de un límite de día calendario en la zona horaria del espacio de trabajo, las *Impresiones únicas* permanecen iguales. Esto hace que la *Tasa de conversión* aumente dentro de ese período.
 
 {% alert note %}
-Cada impresión y conversión en este escenario se procesa como un evento de SDK or kit de desarrollo de software separado. Si tu SDK or kit de desarrollo de software agrupa un evento de impresión y uno de conversión juntos, el recuento de conversiones puede diferir.
+Cada impresión y conversión en este escenario se procesa como un evento de SDK separado. Si tu SDK agrupa un evento de impresión y uno de conversión juntos, el recuento de conversiones puede diferir.
 {% endalert %}
 
 {% endtab %}

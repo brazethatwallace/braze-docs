@@ -13,7 +13,7 @@ page_type: reference
 > A etapa do Otimizador de Conteúdo permite configurar e testar múltiplas versões de componentes de conteúdo em uma única etapa. Ela ajuda você a experimentar variações de conteúdo e otimiza automaticamente em direção às combinações com melhor desempenho ao longo do tempo. Para uma introdução, consulte [Otimizador de Conteúdo]({{site.baseurl}}/user_guide/brazeai/content_optimizer).
 
 {% alert important %}
-O Otimizador de Conteúdo está atualmente em beta. Para começar, entre em contato com seu gerente de sucesso do cliente.
+O Otimizador de Conteúdo está atualmente em beta. Para começar, entre em contato com seu CSM.
 {% endalert %}
 
 ## Criar uma etapa do Otimizador de Conteúdo {#create-a-content-optimizer-step}
@@ -297,7 +297,7 @@ Para etapas de SMS/MMS/RCS, o grupo de inscrições e o tipo de mensagem também
 - De modo geral, teste mais componentes em vez de menos na etapa do Otimizador de Conteúdo. Por exemplo, em vez de testar dois componentes para e-mail, teste três.
 - Testar pelo menos 10 combinações no total geralmente produz melhores resultados.
 - Para e-mail, etapas que otimizam para cliques tendem a ter um desempenho melhor do que etapas que otimizam para aberturas. Quando os cliques se encaixam no seu caso de uso, escolha cliques como seu evento de otimização.
-- Se esta é a primeira vez que você usa o Otimizador de Conteúdo, considere usar uma etapa de [jornadas experimentais]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) para que apenas parte do seu público entre na Branch or ramificação or ramificação que contém a etapa do Otimizador de Conteúdo. Por exemplo, você poderia enviar metade dos seus usuários por uma jornada com a etapa do Otimizador de Conteúdo e enviar a outra metade por uma jornada de controle com a etapa de mensagem contendo seu conteúdo padrão atual. Em seguida, colete dados por 2 a 3 semanas e compare quaisquer indicadores chave de desempenho (KPIs) ou contra-métricas antes de aumentar o tráfego para as jornadas com etapas do Otimizador de Conteúdo.
+- Se esta é a primeira vez que você usa o Otimizador de Conteúdo, considere usar uma etapa de [jornadas experimentais]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) para que apenas parte do seu público entre na Branch que contém a etapa do Otimizador de Conteúdo. Por exemplo, você poderia enviar metade dos seus usuários por uma jornada com a etapa do Otimizador de Conteúdo e enviar a outra metade por uma jornada de controle com a etapa de mensagem contendo seu conteúdo padrão atual. Em seguida, colete dados por 2 a 3 semanas e compare quaisquer indicadores chave de desempenho (KPIs) ou contra-métricas antes de aumentar o tráfego para as jornadas com etapas do Otimizador de Conteúdo.
   - Para uma comparação direta eficaz, inclua seu conteúdo padrão atual como uma das variantes para cada componente na sua etapa do Otimizador de Conteúdo.
 - Quando estiver pronto para atualizar depois que sua etapa do Otimizador de Conteúdo estiver no estado Otimizando por algum tempo, desative as variantes com baixo desempenho e adicione novas que se baseiem nas características das suas variantes de melhor desempenho.
 

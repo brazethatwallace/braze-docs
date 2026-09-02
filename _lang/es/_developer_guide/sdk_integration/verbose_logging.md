@@ -2,28 +2,28 @@
 page_order: 1.4
 nav_title: Registro detallado
 article_title: Registro detallado
-description: "Aprende a habilitar el registro detallado para el SDK or kit de desarrollo de software de Braze, recopilar registros para la solución de problemas y compartirlos con el soporte de Braze."
+description: "Aprende a habilitar el registro detallado para el SDK de Braze, recopilar registros para la solución de problemas y compartirlos con el soporte de Braze."
 ---
 
 # Registro detallado
 
-> El registro detallado muestra información detallada y de bajo nivel del SDK or kit de desarrollo de software de Braze, lo que te permite ver cómo se inicializa el SDK or kit de desarrollo de software, cómo se comunica con los servidores y cómo procesa los canales de mensajería, como las notificaciones push, los mensajes dentro de la aplicación y las tarjetas de contenido.
+> El registro detallado muestra información detallada y de bajo nivel del SDK de Braze, lo que te permite ver cómo se inicializa el SDK, cómo se comunica con los servidores y cómo procesa los canales de mensajería, como las notificaciones push, los mensajes dentro de la aplicación y las tarjetas de contenido.
 
-Cuando algo no funciona como se espera, como por ejemplo, una notificación push que no llega, un mensaje dentro de la aplicación que no se muestra o datos de usuario que no se sincronizan, los registros detallados te ayudan a identificar la causa raíz. En lugar de hacer conjeturas, puedes ver exactamente lo que hace el SDK or kit de desarrollo de software en cada paso.
+Cuando algo no funciona como se espera, como por ejemplo, una notificación push que no llega, un mensaje dentro de la aplicación que no se muestra o datos de usuario que no se sincronizan, los registros detallados te ayudan a identificar la causa raíz. En lugar de hacer conjeturas, puedes ver exactamente lo que hace el SDK en cada paso.
 
 {% alert tip %}
-Si deseas depurar sin habilitar manualmente el registro detallado, puedes utilizar el [depurador del SDK or kit de desarrollo de software]({{site.baseurl}}/developer_guide/sdk_integration/debugging) para crear sesiones de depuración directamente en el panel de Braze.
+Si deseas depurar sin habilitar manualmente el registro detallado, puedes utilizar el [depurador del SDK]({{site.baseurl}}/developer_guide/sdk_integration/debugging) para crear sesiones de depuración directamente en el panel de Braze.
 {% endalert %}
 
 ## Cuándo utilizar el registro detallado
 
 Activa el registro detallado cuando sea necesario:
 
-- **Verifica la inicialización del SDK or kit de desarrollo de software**: Confirma que el SDK or kit de desarrollo de software se inicia correctamente con la clave de API y el punto final SDK or kit de desarrollo de software correctos.
+- **Verifica la inicialización del SDK**: Confirma que el SDK se inicia correctamente con la clave de API y el punto final SDK correctos.
 - **Solución de problemas con la entrega de mensajes**: Comprueba si los tokens de notificaciones push están registrados, si se desencadenan los mensajes dentro de la aplicación o si las tarjetas de contenido están sincronizadas.
-- **Depurar vínculos profundos**: Comprueba que el SDK or kit de desarrollo de software recibe y abre vínculos profundos desde notificaciones push, mensajes dentro de la aplicación o tarjetas de contenido.
+- **Depurar vínculos profundos**: Comprueba que el SDK recibe y abre vínculos profundos desde notificaciones push, mensajes dentro de la aplicación o tarjetas de contenido.
 - **Validar el seguimiento de la sesión**: Confirma que las sesiones comienzan y terminan según lo previsto.
-- **Diagnosticar problemas de conectividad**: Inspecciona las solicitudes y respuestas de red entre el SDK or kit de desarrollo de software y los servidores de Braze.
+- **Diagnosticar problemas de conectividad**: Inspecciona las solicitudes y respuestas de red entre el SDK y los servidores de Braze.
 
 ## Habilitar el registro detallado
 
@@ -34,7 +34,7 @@ Los registros detallados están destinados únicamente a entornos de desarrollo 
 {% tabs %}
 {% tab Android %}
 
-Habilita el registro detallado antes de cualquier otra llamada al SDK or kit de desarrollo de software en tu`Application.onCreate()`método para capturar la salida más completa.
+Habilita el registro detallado antes de cualquier otra llamada al SDK en tu`Application.onCreate()`método para capturar la salida más completa.
 
 **En código:**
 
@@ -63,7 +63,7 @@ Para verificar que la habilitación del registro detallado está activa, busca`V
 2077-11-19 16:22:49.591 ? V/Braze v9.0.01 .bo.app.d3: Request started
 ```
 
-Para obtener más información, consulta [Registro de Android SDK or kit de desarrollo de software]({{site.baseurl}}/developer_guide/sdk_integration#android_enabling-logs).
+Para obtener más información, consulta [Registro de Android SDK]({{site.baseurl}}/developer_guide/sdk_integration#android_enabling-logs).
 
 {% endtab %}
 {% tab Swift %}
@@ -91,12 +91,12 @@ Braze *braze = [[Braze alloc] initWithConfiguration:configuration];
 {% endsubtab %}
 {% endsubtabs %}
 
-El`.debug`nivel es el más detallado y se recomienda para la solución de problemas. Para obtener más información, consulta [Registro de SWIFT SDK or kit de desarrollo de software]({{site.baseurl}}/developer_guide/sdk_integration#swift_log-levels).
+El`.debug`nivel es el más detallado y se recomienda para la solución de problemas. Para obtener más información, consulta [Registro de SWIFT SDK]({{site.baseurl}}/developer_guide/sdk_integration#swift_log-levels).
 
 {% endtab %}
 {% tab Web %}
 
-Añade`?brazeLogging=true`  como parámetro URL o habilita la habilitación del registro durante la inicialización del SDK or kit de desarrollo de software:
+Añade`?brazeLogging=true`  como parámetro URL o habilita la habilitación del registro durante la inicialización del SDK:
 
 ```javascript
 braze.initialize('YOUR-API-KEY', {
@@ -111,19 +111,19 @@ También puedes alternar el registro después de la inicialización:
 braze.toggleLogging();
 ```
 
-Los registros aparecen en la pestaña **Consola** de las herramientas de desarrollo de tu navegador. Para obtener más información, consulta [Registro de SDK or kit de desarrollo de software Web]({{site.baseurl}}/developer_guide/sdk_integration#web_logging).
+Los registros aparecen en la pestaña **Consola** de las herramientas de desarrollo de tu navegador. Para obtener más información, consulta [Registro de SDK Web]({{site.baseurl}}/developer_guide/sdk_integration#web_logging).
 
 {% endtab %}
 {% tab Unity %}
 
 1. Abre los ajustes de configuración de Braze navegando hasta **Braze** > **Configuración de Braze**.
 2. Selecciona el menú desplegable **Mostrar configuración de Braze para Android**.
-3. En el campo **Nivel de registro del SDK or kit de desarrollo de software**, introduce `0`.
+3. En el campo **Nivel de registro del SDK**, introduce `0`.
 
 {% endtab %}
 {% tab React Native %}
 
-Establece el nivel de registro durante la configuración del SDK or kit de desarrollo de software:
+Establece el nivel de registro durante la configuración del SDK:
 
 ```javascript
 const configuration = new Braze.BrazeConfiguration('YOUR-API-KEY', 'YOUR-SDK-ENDPOINT');
@@ -144,7 +144,7 @@ Utiliza **Logcat** en Android Studio para capturar registros:
 
 1. Conecta tu dispositivo o inicia un emulador.
 2. En Android Studio, abre **Logcat** desde el panel inferior.
-3. Filtra por`V/Braze`  o`D/Braze`  para aislar la salida del SDK or kit de desarrollo de software de Braze.
+3. Filtra por`V/Braze`  o`D/Braze`  para aislar la salida del SDK de Braze.
 4. Reproduce el problema.
 5. Copia los registros pertinentes y guárdalos en un archivo de texto.
 
@@ -179,14 +179,14 @@ Cuando recopiles registros para el soporte de Braze, comienza a registrarlos ant
 
 ## Lectura de registros detallados
 
-Los registros detallados siguen una estructura coherente que te ayuda a rastrear lo que está haciendo el SDK or kit de desarrollo de software. Para aprender a interpretar la salida del registro para canales específicos, incluyendo qué entradas clave buscar y patrones comunes de solución de problemas, consulta [Lectura de registros detallados]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs).
+Los registros detallados siguen una estructura coherente que te ayuda a rastrear lo que está haciendo el SDK. Para aprender a interpretar la salida del registro para canales específicos, incluyendo qué entradas clave buscar y patrones comunes de solución de problemas, consulta [Lectura de registros detallados]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs).
 
 ## Compartir registros con el soporte de Braze
 
-Cuando te pongas en contacto con el soporte de Braze por un problema con el SDK or kit de desarrollo de software, incluye lo siguiente:
+Cuando te pongas en contacto con el soporte de Braze por un problema con el SDK, incluye lo siguiente:
 
 1. **Archivo de registro detallado**: Un registro completo desde antes del inicio de la aplicación hasta la aparición del problema.
 2. **Pasos para reproducir** el problema: Una descripción clara de las acciones que desencadenan el problema.
 3. **Comportamiento esperado frente a comportamiento real**: Lo que esperabas que sucediera y lo que sucedió en realidad.
-4. **Versión del SDK or kit de desarrollo de software**: La versión del SDK or kit de desarrollo de software de Braze que estás utilizando.
+4. **Versión del SDK**: La versión del SDK de Braze que estás utilizando.
 5. **Plataforma y versión del sistema operativo**: Por ejemplo, iOS 18.0, Android 14 o Chrome 120.

@@ -12,7 +12,7 @@ tool:
 
 # Audience Sync mit Snapchat {#audience-sync-to-snapchat}
 
-Mit Braze Audience Sync mit Snapchat können Marken Nutzerdaten aus ihrer Braze-Integration zu Snapchat-Kundenlisten hinzufügen, um Werbung auf der Grundlage von Verhaltenstriggern, Segmentierung und mehr auszuliefern. Jedes Kriterium, das Sie normalerweise zum Trigger or triggern or triggern einer Nachricht (Push, E-Mail, Kurzmitteilungsdienst or SMS, Webhook usw.) in einem Braze-Canvas auf der Grundlage Ihrer Nutzerdaten verwenden, kann jetzt verwendet werden, um eine Anzeige für diese Nutzer:innen in Ihren Snapchat-Kundenlisten zu Trigger or triggern or triggern.
+Mit Braze Audience Sync mit Snapchat können Marken Nutzerdaten aus ihrer Braze-Integration zu Snapchat-Kundenlisten hinzufügen, um Werbung auf der Grundlage von Verhaltenstriggern, Segmentierung und mehr auszuliefern. Jedes Kriterium, das Sie normalerweise zum Triggern einer Nachricht (Push, E-Mail, SMS, Webhook usw.) in einem Braze-Canvas auf der Grundlage Ihrer Nutzerdaten verwenden, kann jetzt verwendet werden, um eine Anzeige für diese Nutzer:innen in Ihren Snapchat-Kundenlisten zu triggern.
 
 **Zu den üblichen Anwendungsfällen für die Synchronisierung von Zielgruppen gehören:**
 
@@ -58,7 +58,7 @@ Nach erfolgreicher Verbindung kehren Sie zur Partnerseite zurück, wo Sie sehen 
 
 ![Eine aktualisierte Version der Snapchat-Technologie-Partnerseite, auf der die erfolgreich verbundenen Anzeigenkonten angezeigt werden.]({% image_buster /assets/img/snapchat/snapchat3.png %}){: style="max-width:80%;"}
 
-Ihre Snapchat-Verbindung wird auf der Ebene des Braze-Workspace angewendet. Wenn Ihr Snapchat-Admin Sie aus Ihrem Snapchat Business Manager:in oder dem Zugriff auf die verbundenen Snapchat-Anzeigenkonten entfernt, erkennt Braze ein ungültiges Token / Textbaustein. Dies hat zur Folge, dass Ihre aktiven Canvase, die Snapchat verwenden, Fehler anzeigen und Braze nicht in der Lage ist, Nutzer:innen zu synchronisieren.
+Ihre Snapchat-Verbindung wird auf der Ebene des Braze-Workspace angewendet. Wenn Ihr Snapchat-Admin Sie aus Ihrem Snapchat Business Manager:in oder dem Zugriff auf die verbundenen Snapchat-Anzeigenkonten entfernt, erkennt Braze ein ungültiges Token / Textbaustein. Dies hat zur Folge, dass Ihre aktiven Canvases, die Snapchat verwenden, Fehler anzeigen und Braze nicht in der Lage ist, Nutzer:innen zu synchronisieren.
 
 ### Schritt 2: Einen Audience Sync-Schritt mit Snapchat hinzufügen {#step-2-add-an-audience-sync-step-with-snapchat}
 

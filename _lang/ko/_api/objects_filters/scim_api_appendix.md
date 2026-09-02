@@ -140,9 +140,9 @@ alias: /scim_api_appendix/
 | View Locations | `view_locations` |
 | Edit Locations | `edit_locations` |
 | Archive Locations | `archive_locations` |
-| View 프로모션 코드 | `view_promotion_codes` |
-| Edit 프로모션 코드 | `edit_promotion_codes` |
-| Export 프로모션 코드 | `export_promotion_codes` |
+| View Promotion Codes | `view_promotion_codes` |
+| Edit Promotion Codes | `edit_promotion_codes` |
+| Export Promotion Codes | `export_promotion_codes` |
 | View Preference Centers | `view_preference_centers` |
 | Edit Preference Centers | `edit_preference_centers` |
 | Edit Reports | `edit_reports` |
@@ -189,11 +189,11 @@ alias: /scim_api_appendix/
 | View Teams | `view_teams` |
 | Edit Teams | `edit_teams` |
 | Archive Teams | `archive_teams` |
-| View 커스텀 속성 | `view_custom_attributes` |
-| Edit 커스텀 속성 | `edit_custom_attributes` |
-| Blocklist 커스텀 속성 | `blocklist_custom_attributes` |
-| Delete 커스텀 속성 | `delete_custom_attributes` |
-| Export 커스텀 속성 | `export_custom_attributes` |
+| View Custom Attributes | `view_custom_attributes` |
+| Edit Custom Attributes | `edit_custom_attributes` |
+| Blocklist Custom Attributes | `blocklist_custom_attributes` |
+| Delete Custom Attributes | `delete_custom_attributes` |
+| Export Custom Attributes | `export_custom_attributes` |
 | View Custom Events | `view_custom_events` |
 | Edit Custom Events | `edit_custom_events` |
 | Blocklist Custom Events | `blocklist_custom_events` |
@@ -253,9 +253,9 @@ alias: /scim_api_appendix/
 | View Locations | `view_locations` |
 | Edit Locations | `edit_locations` |
 | Archive Locations | `archive_locations` |
-| View 프로모션 코드 | `view_promotion_codes` |
-| Edit 프로모션 코드 | `edit_promotion_codes` |
-| Export 프로모션 코드 | `export_promotion_codes` |
+| View Promotion Codes | `view_promotion_codes` |
+| Edit Promotion Codes | `edit_promotion_codes` |
+| Export Promotion Codes | `export_promotion_codes` |
 | View Preference Centers | `view_preference_centers` |
 | Edit Preference Centers | `edit_preference_centers` |
 | View Reports | `view_reports` |

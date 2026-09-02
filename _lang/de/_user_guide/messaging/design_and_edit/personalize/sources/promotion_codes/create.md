@@ -2,12 +2,12 @@
 nav_title: Codes erstellen
 article_title: Aktionscodes erstellen
 page_order: 0.1
-description: "Erfahren Sie, wie Sie Aktionscodes in Ihren Campaigns und Canvase erstellen."
+description: "Erfahren Sie, wie Sie Aktionscodes in Ihren Campaigns und Canvases erstellen."
 ---
 
 # Aktionscodes erstellen {#create-promotion-codes}
 
-> Erfahren Sie, wie Sie Aktionscodes in Ihren Campaigns und Canvase erstellen.
+> Erfahren Sie, wie Sie Aktionscodes in Ihren Campaigns und Canvases erstellen.
 
 ## Eine Aktionscode-Liste erstellen {#create}
 
@@ -35,7 +35,7 @@ Hier sind einige Details, die Sie beim Erstellen eines Code-Snippets beachten so
 
 Jede Aktionscode-Liste hat ein entsprechendes Ablaufdatum und eine Uhrzeit, die bei der Erstellung festgelegt werden. Die maximale Ablaufdauer beträgt sechs Monate ab dem Tag, an dem Sie Ihre Liste erstellen oder bearbeiten.
 
-Innerhalb dieses Zeitraums können Sie das Ablaufdatum wiederholt ändern und Update or aktualisieren or aktualisieren. Dieses Ablaufdatum gilt für alle Codes, die dieser Liste hinzugefügt werden. Nach Ablauf werden die Codes aus dem Braze-System gelöscht, und alle Nachrichten, die das Code-Snippet dieser Liste aufrufen, werden nicht gesendet.
+Innerhalb dieses Zeitraums können Sie das Ablaufdatum wiederholt ändern und aktualisieren. Dieses Ablaufdatum gilt für alle Codes, die dieser Liste hinzugefügt werden. Nach Ablauf werden die Codes aus dem Braze-System gelöscht, und alle Nachrichten, die das Code-Snippet dieser Liste aufrufen, werden nicht gesendet.
 
 ![Einstellungen für den Listenablauf, dass alle verbleibenden Codes am 30. April 2025 um 0:00 Uhr ablaufen.]({% image_buster /assets/img/promocodes/promocode4.png %}){: style="max-width:80%"}
 
@@ -64,7 +64,7 @@ Die maximale Dateigröße beträgt 100&nbsp;MB und die maximale Listengröße be
 
 {:start="2"}
 2. Nach dem Speichern erscheint eine neue Zeile im **Importverlauf**.
-3. Um die Tabelle zu Update or aktualisieren or aktualisieren und zu prüfen, ob Ihr Import abgeschlossen ist, wählen Sie <span style="font-size: 14px;margin-bottom: .5rem;height: 16px;width: 16px;" class="fas fa-sync" ></span> **Synchronisieren** oben in der Tabelle.
+3. Um die Tabelle zu aktualisieren und zu prüfen, ob Ihr Import abgeschlossen ist, wählen Sie <span style="font-size: 14px;margin-bottom: .5rem;height: 16px;width: 16px;" class="fas fa-sync" ></span> **Synchronisieren** oben in der Tabelle.
 
 ![Aktionscodes, die gerade hochgeladen werden.]({% image_buster /assets/img/promocodes/promocode8.png %})
 
@@ -72,9 +72,9 @@ Die maximale Dateigröße beträgt 100&nbsp;MB und die maximale Listengröße be
 Größere Dateien benötigen mehrere Minuten für den Import. Während Sie warten, können Sie die Seite verlassen und an etwas anderem arbeiten, während der Import läuft. Wenn der Import abgeschlossen ist, ändert sich der Status in der Tabelle auf **Fertig**.
 {% endalert %}
 
-## Eine Aktionscode-Liste Update or aktualisieren or aktualisieren {#updating-a-promotion-code-list}
+## Eine Aktionscode-Liste aktualisieren {#updating-a-promotion-code-list}
 
-Um eine Liste zu Update or aktualisieren or aktualisieren, wählen Sie eine Ihrer bestehenden Listen aus. Sie können den Namen, die Beschreibung, den Listenablauf und die Schwellenwert-Benachrichtigungen ändern. Sie können der Liste auch weitere Codes hinzufügen, indem Sie neue Dateien hochladen und **Liste Update or aktualisieren or aktualisieren** auswählen. Alle Codes in der Liste haben dasselbe Ablaufdatum, unabhängig vom Importdatum.
+Um eine Liste zu aktualisieren, wählen Sie eine Ihrer bestehenden Listen aus. Sie können den Namen, die Beschreibung, den Listenablauf und die Schwellenwert-Benachrichtigungen ändern. Sie können der Liste auch weitere Codes hinzufügen, indem Sie neue Dateien hochladen und **Liste aktualisieren** auswählen. Alle Codes in der Liste haben dasselbe Ablaufdatum, unabhängig vom Importdatum.
 
 {% alert important %}
 Aktionscodes können nicht gelöscht werden.
@@ -84,5 +84,5 @@ Aktionscodes können nicht gelöscht werden.
 
 Wenn Sie eine CSV-Datei mit den falschen Aktionscodes hochgeladen und **Liste speichern** ausgewählt haben, können Sie dies mit einer der folgenden Methoden beheben:
 
-- Die gesamte Liste außer Betrieb nehmen: Verwenden Sie die aktuelle Aktionscode-Liste nicht mehr in Campaigns, Canvase oder Templates. Laden Sie dann die CSV-Datei mit den korrekten Codes hoch und verwenden Sie diese in Ihrem Messaging.
+- Die gesamte Liste außer Betrieb nehmen: Verwenden Sie die aktuelle Aktionscode-Liste nicht mehr in Campaigns, Canvases oder Templates. Laden Sie dann die CSV-Datei mit den korrekten Codes hoch und verwenden Sie diese in Ihrem Messaging.
 - Die fehlerhaften Codes aufbrauchen: Erstellen Sie eine Campaign, die Aktionscodes aus der fehlerhaften Aktionscode-Liste an einen Platzhalter sendet, bis alle fehlerhaften Codes aufgebraucht sind. Laden Sie dann die korrekten Aktionscodes in dieselbe Liste hoch.

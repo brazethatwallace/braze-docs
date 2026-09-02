@@ -5,7 +5,7 @@ article_title: Guía de la API de Braze
 layout: api_glossary
 glossary_top_header: "Guía de la API de Braze"
 glossary_top_text: "Braze ofrece una REST API de alto rendimiento para rastrear usuarios, enviar mensajes, exportar datos y gestionar Campaigns, Canvas, catálogos y más. Usa este glosario para explorar los endpoints por tipo, abre artículos de referencia para ver detalles de solicitudes y respuestas, y encuentra enlaces a documentación sobre autenticación, límites de velocidad y objetos."
-description: "Explora los endpoints de la REST or transferencia de estado representacional API de Braze por tipo, con enlaces a documentación sobre autenticación, límites de velocidad y referencia de objetos."
+description: "Explora los endpoints de la REST API de Braze por tipo, con enlaces a documentación sobre autenticación, límites de velocidad y referencia de objetos."
 page_type: glossary
 glossary_tag_name: Tipo de endpoint
 
@@ -530,19 +530,19 @@ glossaries:
     tags:
       - Cloud Data Ingestion
   - name: <a href='/docs/api/endpoints/sdk_authentication/post_create_sdk_authentication_key'>/app_group/sdk_authentication/create</a>
-    description: Crea una nueva clave de autenticación del SDK or kit de desarrollo de software para tu aplicación.
+    description: Crea una nueva clave de autenticación del SDK para tu aplicación.
     tags:
       - SDK Authentication
   - name: <a href='/docs/api/endpoints/sdk_authentication/get_sdk_authentication_keys'>/app_group/sdk_authentication/keys</a>
-    description: Lista las claves de autenticación del SDK or kit de desarrollo de software para tu aplicación.
+    description: Lista las claves de autenticación del SDK para tu aplicación.
     tags:
       - SDK Authentication
   - name: <a href='/docs/api/endpoints/sdk_authentication/put_primary_sdk_authentication_key'>/app_group/sdk_authentication/primary</a>
-    description: Establece una clave de autenticación del SDK or kit de desarrollo de software como clave principal para tu aplicación.
+    description: Establece una clave de autenticación del SDK como clave principal para tu aplicación.
     tags:
       - SDK Authentication
   - name: <a href='/docs/api/endpoints/sdk_authentication/delete_sdk_authentication_key'>/app_group/sdk_authentication/delete</a>
-    description: Elimina una clave de autenticación del SDK or kit de desarrollo de software para tu aplicación.
+    description: Elimina una clave de autenticación del SDK para tu aplicación.
     tags:
       - SDK Authentication
   - name: <a href='/docs/api/endpoints/media_library/manage_assets/create'>/media_library/create</a>

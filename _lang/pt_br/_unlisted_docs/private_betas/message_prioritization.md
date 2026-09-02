@@ -52,7 +52,7 @@ A Priorização de Mensagens pode avaliar:
 - Campaigns baseadas em ação
 - Canvas
 
-Atualmente, Campaigns ou Canvas disparados por API or interface de programação do aplicativo (API) não são compatíveis com a Priorização de Mensagens e não participam da priorização.
+Atualmente, Campaigns ou Canvas disparados por API não são compatíveis com a Priorização de Mensagens e não participam da priorização.
 
 A Braze usa sua previsão de quando cada mensagem deve ser enviada ao avaliar se o envio de uma mensagem agora poderia impedir que uma mensagem de maior prioridade seja enviada depois. Para saber mais sobre como a Braze prevê o momento de envio futuro para Campaigns e Canvas, consulte [Como a Braze prevê quando uma mensagem futura será enviada?](#how-does-braze-predict-when-a-future-message-sends)
 
@@ -148,13 +148,13 @@ Em seguida, atribua a Campaign a uma categoria selecionando uma no menu suspenso
 
 ![O menu suspenso de categoria de priorização de mensagens nas configurações de entrega de uma Campaign.]({% image_buster /assets/unlisted_docs/img/message_prioritization/message_prioritization10.png %})
 
-A priorização de mensagens é compatível com Campaigns agendadas e Campaigns baseadas em ação. Campaigns disparadas por API or interface de programação do aplicativo (API) não são compatíveis.
+A priorização de mensagens é compatível com Campaigns agendadas e Campaigns baseadas em ação. Campaigns disparadas por API não são compatíveis.
 
 ### Aceitação de Canvas {#canvas-opt-in}
 
 A aceitação de Canvas funciona de forma semelhante às Campaigns. Para incluir um Canvas na priorização de mensagens, ative a priorização de mensagens nas configurações do Canvas e atribua o Canvas a uma categoria. Todas as etapas do Canvas compartilham essa categoria e o mesmo nível de prioridade, o que significa que não é possível definir a prioridade individualmente por etapa.
 
-A priorização de mensagens é compatível com Canvas agendados e Canvas baseados em ação. Canvas disparados por API or interface de programação do aplicativo (API) não são compatíveis.
+A priorização de mensagens é compatível com Canvas agendados e Canvas baseados em ação. Canvas disparados por API não são compatíveis.
 
 ## Intelligent Timing {#intelligent-timing}
 
@@ -162,7 +162,7 @@ Com o Intelligent Timing, a Braze envia uma mensagem no horário ideal de envio 
 
 Para Campaigns e etapas de mensagem do Canvas que usam Intelligent Timing, a Braze prevê o horário de envio com base no melhor esforço até calcular o horário de envio por usuário para cada um. Para Campaigns, a Priorização de Mensagens usa o horário ideal de envio desse usuário para a ocorrência atual ao comparar a Campaign com as outras mensagens priorizadas elegíveis do usuário. Para Campaigns recorrentes com Intelligent Timing, a Braze usa o horário ideal de envio escolhido para aquela ocorrência.
 
-Para etapas de mensagem do Canvas, a Braze atualiza essa previsão assim que o usuário entra na etapa e a Braze calcula o horário ideal de envio desse usuário para a etapa. A Priorização de Mensagens usa esse horário de envio calculado para a etapa atual. Em jornadas determinísticas (jornadas sem Branch or ramificação or ramificação, onde a sequência de etapas é fixa), a Braze também reflete esse horário atualizado nas etapas de mensagem seguintes ao determinar os horários de envio esperados.
+Para etapas de mensagem do Canvas, a Braze atualiza essa previsão assim que o usuário entra na etapa e a Braze calcula o horário ideal de envio desse usuário para a etapa. A Priorização de Mensagens usa esse horário de envio calculado para a etapa atual. Em jornadas determinísticas (jornadas sem Branch, onde a sequência de etapas é fixa), a Braze também reflete esse horário atualizado nas etapas de mensagem seguintes ao determinar os horários de envio esperados.
 
 ## Janelas de nova tentativa {#retry-windows}
 
@@ -217,7 +217,7 @@ Conforme a antecipação avança, a Braze trata cada tipo de etapa do Canvas de 
 | Etapas de mensagem | Contadas como mensagens elegíveis para priorização |
 | Etapas de continuação | Puladas; a antecipação passa por elas |
 | Etapas de limite | A antecipação para até que o usuário passe pela etapa |
-| Etapas de Branch or ramificação or ramificação | A antecipação segue todas as jornadas possíveis |
+| Etapas de Branch | A antecipação segue todas as jornadas possíveis |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Avaliando Canvas" }
 
 #### Etapas de mensagem {#messaging-steps}
@@ -242,20 +242,20 @@ Essas etapas são ignoradas para priorização e não afetam a antecipação.
 A Braze interrompe a antecipação nessas etapas até que o usuário realmente avance por elas no Canvas.
 
 - Etapa de postergação com atraso personalizado
-- Etapa de postergação que segue uma etapa de Branch or ramificação or ramificação
+- Etapa de postergação que segue uma etapa de Branch
 - Etapa de jornada de ação
 - Etapa de experimento
 
-#### Etapas de Branch or ramificação or ramificação {#branching-steps}
+#### Etapas de Branch {#branching-steps}
 
 Essas etapas dividem o Canvas em múltiplas jornadas possíveis.
 
 - Etapa de divisão de decisão
 - Etapa de jornada do público
 
-Quando uma jornada de priorização contém etapas de Branch or ramificação or ramificação, a Braze assume que todas as jornadas são viáveis e considera todas as etapas de mensagem paralelas em canais compatíveis para priorização. Como as regras de limite de frequência podem ser específicas por canal, as etapas de mensagem paralelas são deduplicadas por canal quando necessário.
+Quando uma jornada de priorização contém etapas de Branch, a Braze assume que todas as jornadas são viáveis e considera todas as etapas de mensagem paralelas em canais compatíveis para priorização. Como as regras de limite de frequência podem ser específicas por canal, as etapas de mensagem paralelas são deduplicadas por canal quando necessário.
 
-Por exemplo, se uma Branch or ramificação or ramificação pode enviar e-mail e outra Branch or ramificação or ramificação também pode enviar e-mail, a Braze as trata como um único envio de e-mail possível durante a antecipação. Se outra Branch or ramificação or ramificação pode enviar push, a Braze também considera esse possível envio de push separadamente.
+Por exemplo, se uma Branch pode enviar e-mail e outra Branch também pode enviar e-mail, a Braze as trata como um único envio de e-mail possível durante a antecipação. Se outra Branch pode enviar push, a Braze também considera esse possível envio de push separadamente.
 
 Para etapas de mensagem do Canvas que usam Intelligent Timing, a Braze usa o horário de envio calculado de cada usuário assim que o usuário chega à etapa. Para mais detalhes, consulte [Intelligent Timing](#intelligent-timing).
 
@@ -279,9 +279,9 @@ Suponha que um usuário seja elegível para uma Campaign de prioridade mais baix
 
 Suponha que um Canvas de prioridade mais alta inclua uma etapa de Jornada de Ação, um experimento ou uma postergação personalizada antes da próxima etapa de Mensagem. Até que o usuário alcance e passe por essa etapa, a Braze não antecipa a mensagem do Canvas de prioridade mais alta que está adiante. Nesse caso, uma Campaign de prioridade mais baixa ainda pode ser enviada primeiro.
 
-### Canvas com Branch or ramificação or ramificação de prioridade mais alta versus mensagem de prioridade mais baixa {#higher-priority-branching-canvas-versus-lower-priority-message}
+### Canvas com Branch de prioridade mais alta versus mensagem de prioridade mais baixa {#higher-priority-branching-canvas-versus-lower-priority-message}
 
-Suponha que um Canvas de prioridade mais alta possa enviar mensagens diferentes dependendo de qual Branch or ramificação or ramificação o usuário seguir. A Braze avalia esses possíveis caminhos futuros de forma conservadora ao comparar mensagens. Isso ajuda a evitar que uma mensagem de prioridade mais baixa seja enviada agora, caso uma Branch or ramificação or ramificação do Canvas de prioridade mais alta possa usar o mesmo limite de frequência mais tarde.
+Suponha que um Canvas de prioridade mais alta possa enviar mensagens diferentes dependendo de qual Branch o usuário seguir. A Braze avalia esses possíveis caminhos futuros de forma conservadora ao comparar mensagens. Isso ajuda a evitar que uma mensagem de prioridade mais baixa seja enviada agora, caso uma Branch do Canvas de prioridade mais alta possa usar o mesmo limite de frequência mais tarde.
 
 ### Etapa do Canvas com Intelligent Timing e etapas subsequentes {#canvas-step-with-intelligent-timing-and-downstream-steps}
 
@@ -333,7 +333,7 @@ Quando uma mensagem é priorizada, a Braze assume que ela foi enviada no horári
 Digamos que você tenha duas mensagens: Mensagem 1 e Mensagem 2. Se a Mensagem 1 for abortada em favor de uma futura Mensagem 2 de maior prioridade, isso não garante que a Mensagem 2 será de fato enviada. A Mensagem 2 ainda pode ser abortada por qualquer motivo, incluindo:
 
 - Interrupções via Liquid
-- O usuário não fazer mais parte do Segment or segmento or segmento
+- O usuário não fazer mais parte do Segment
 - Limites de frequência devido a uma mensagem fora das regras de priorização.
 
 Se a Mensagem 2 for abortada, não haverá outra tentativa de enviar a Mensagem 1.

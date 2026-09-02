@@ -21,8 +21,8 @@ Um Scuba Analytics mit Braze zu verwenden, benötigen Sie Folgendes:
 | Voraussetzung | Beschreibung |
 |---|---|
 | Scuba-API-Token / Textbaustein | Ein Scuba-API-Token / Textbaustein, das Sie vom Endpunkt `https://{scuba_hostname}/api/create_token` abrufen können. |
-| Braze-Representational State Transfer-API-Schlüssel | Ein Braze-Representational State Transfer-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze-Representational State Transfer-Endpunkt | Ihre Representational State Transfer-Endpunkt-URL. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz](https://scuba.io) ab. |
+| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze-REST-Endpunkt | Ihre REST-Endpunkt-URL. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz](https://scuba.io) ab. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Hochladen Ihrer Scuba-Daten in Braze {#uploading-your-scuba-data-to-braze}
@@ -53,8 +53,8 @@ Ersetzen Sie die folgenden Werte:
 
 | Platzhalter             | Beschreibung                                                                                                                                                                                     |
 |-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `BRAZE_API_ENDPOINT`    | Die Braze-Representational State Transfer-Endpunkt-URL Ihrer aktuellen Braze-Instanz. Weitere Informationen finden Sie unter [Representational State Transfer-API-Schlüssel]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers). |
-| `BRAZE_API_KEY`         | Ihr Braze-Representational State Transfer-API-Schlüssel mit der Berechtigung `users.track`.                                                                                                                                      |
+| `BRAZE_API_ENDPOINT`    | Die Braze-REST-Endpunkt-URL Ihrer aktuellen Braze-Instanz. Weitere Informationen finden Sie unter [REST-API-Schlüssel]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers). |
+| `BRAZE_API_KEY`         | Ihr Braze-REST-API-Schlüssel mit der Berechtigung `users.track`.                                                                                                                                      |
 | `HOSTNAME`              | Der Hostname Ihrer aktuellen Scuba-Instanz.                                                                                                                                                    |
 | `SCUBA_API_TOKEN`       | Ihr Scuba-API-Token / Textbaustein.                                                                                                                                                                           |
 | `TABLE_NAME`            | Die Tabelle, zu der Ihr Datensatz gehört. Weitere Informationen finden Sie unter [Glossary: Dataset table](https://docs.scuba.io/glossary/dataset-table).                                                                                                      |

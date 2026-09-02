@@ -38,7 +38,7 @@ Os relatórios de funil estão disponíveis nos seguintes locais do dashboard:
 - A página **Canvas Details** de um Canvas específico, selecionando o botão **Analyze Variants**
 
 {% alert important %}
-Os relatórios de funil não estão disponíveis para [Campaigns da API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/api_campaigns).
+Os relatórios de funil não estão disponíveis para [Campaigns da API]({{site.baseurl}}/api/api_campaigns).
 {% endalert %}
 
 ### Etapa 1: Selecione um intervalo de datas {#step-1-select-a-date-range}

@@ -28,7 +28,7 @@ As mensagens no app em HTML permitem maior controle sobre a aparência e o estil
 As mensagens HTML personalizadas podem usar os métodos do [JavaScript Bridge](#javascript-bridge) para registrar eventos, definir atributos personalizados, fechar a mensagem e muito mais! Confira nosso [repositório no GitHub](https://github.com/braze-inc/in-app-message-templates), que contém instruções detalhadas sobre como usar e personalizar mensagens no app em HTML de acordo com suas necessidades, além de um conjunto de modelos de mensagens no app em HTML5 para ajudar você a começar.
 
 {% alert note %}
-Para ativar mensagens no app em HTML por meio do SDK or kit de desenvolvimento de software para web, você deve fornecer a opção de inicialização `allowUserSuppliedJavascript` à Braze: por exemplo, `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Isso é necessário por motivos de segurança, já que mensagens no app em HTML podem executar JavaScript, então exigimos que um mantenedor do site as ative.
+Para ativar mensagens no app em HTML por meio do SDK para web, você deve fornecer a opção de inicialização `allowUserSuppliedJavascript` à Braze: por exemplo, `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Isso é necessário por motivos de segurança, já que mensagens no app em HTML podem executar JavaScript, então exigimos que um mantenedor do site as ative.
 {% endalert %}
 
 ### Ambientes de renderização {#rendering-environments}
@@ -93,7 +93,7 @@ Para deep linking, a Braze abrirá sua URL independentemente do valor de `abExte
 
 Para que a Braze trate seu link HTTP ou HTTPS como um deep link, defina `?abDeepLink=true`.
 
-Quando esse parâmetro de string de consulta está ausente ou definido como `false`, a Braze tentará abrir o link web em um navegador de internet or navegador web interno dentro do app host.
+Quando esse parâmetro de string de consulta está ausente ou definido como `false`, a Braze tentará abrir o link web em um navegador de internet interno dentro do app host.
 
 ### Fechar mensagem no app {#close-in-app-message}
 

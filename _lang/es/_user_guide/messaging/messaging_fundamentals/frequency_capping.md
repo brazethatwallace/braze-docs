@@ -18,7 +18,7 @@ Braze te permite controlar la presión de marketing limitando la velocidad de tu
 1. [Límite de velocidad centrado en el usuario:](#user-centric-rate-limiting) se centra en proporcionar la mejor experiencia para el usuario.
 2. [Límite de velocidad de entrega:](#delivery-speed-rate-limiting) tiene en cuenta el ancho de banda de tus servidores.
 
-Braze no admite un límite de velocidad por segundo. Braze intenta distribuir uniformemente los envíos de mensajes a lo largo del minuto, pero no puede garantizarlo. Por ejemplo, si tienes una Campaign con un límite de velocidad de 5000 mensajes por minuto, intentamos distribuir las 5000 solicitudes uniformemente a lo largo del minuto (alrededor de 84 MPS or mensajes por segundo or mensajes por segundo), pero puede haber cierta variación en la tasa por segundo.
+Braze no admite un límite de velocidad por segundo. Braze intenta distribuir uniformemente los envíos de mensajes a lo largo del minuto, pero no puede garantizarlo. Por ejemplo, si tienes una Campaign con un límite de velocidad de 5000 mensajes por minuto, intentamos distribuir las 5000 solicitudes uniformemente a lo largo del minuto (alrededor de 84 MPS), pero puede haber cierta variación en la tasa por segundo.
 
 ### Límite de velocidad centrado en el usuario {#user-centric-rate-limiting}
 
@@ -32,7 +32,7 @@ Braze proporciona los siguientes filtros para ayudarte a limitar la velocidad a 
 - Último mensaje recibido
 - Última notificación push recibida
 - Último correo electrónico recibido
-- Último servicio de mensajes cortos recibido
+- Último SMS recibido
 
 #### Implementación de filtros {#implementing-filters}
 
@@ -116,13 +116,13 @@ Ten cuidado con el retraso de mensajes urgentes con esta forma de limitación de
 
 Al establecer un límite de velocidad de entrega para una Campaign multicanal o Canvas, puedes elegir establecer un límite de velocidad compartido o un límite basado en el canal.
 
-Cuando una Campaign multicanal o Canvas utiliza un límite de velocidad compartido, esto significa que el número total de mensajes enviados por minuto desde la Campaign o Canvas no supera el límite de velocidad. Por ejemplo, si tu Canvas tiene un límite de velocidad de 500 000 por minuto y contiene pasos de mensaje de correo electrónico y servicio de mensajes cortos, Braze envía un total de 500 000 mensajes por minuto entre correo electrónico y servicio de mensajes cortos.
+Cuando una Campaign multicanal o Canvas utiliza un límite de velocidad compartido, esto significa que el número total de mensajes enviados por minuto desde la Campaign o Canvas no supera el límite de velocidad. Por ejemplo, si tu Canvas tiene un límite de velocidad de 500 000 por minuto y contiene pasos de mensaje de correo electrónico y SMS, Braze envía un total de 500 000 mensajes por minuto entre correo electrónico y SMS.
 
 ![Opción para limitar la velocidad a la que la Campaign envía, seleccionada con 500 000 mensajes por minuto.]({% image_buster /assets/img_archive/multichannel_campaigns_rate_limit.png %}){: style="max-width:50%;"}
 
-Cuando una Campaign multicanal o Canvas utiliza límites de velocidad basados en canal, el límite de velocidad se aplicará a cada uno de tus canales seleccionados. Por ejemplo, puedes configurar tu Campaign o Canvas para enviar un máximo de 5000 webhooks y 2500 mensajes servicio de mensajes cortos por minuto en toda la Campaign o Canvas.
+Cuando una Campaign multicanal o Canvas utiliza límites de velocidad basados en canal, el límite de velocidad se aplicará a cada uno de tus canales seleccionados. Por ejemplo, puedes configurar tu Campaign o Canvas para enviar un máximo de 5000 webhooks y 2500 mensajes SMS por minuto en toda la Campaign o Canvas.
 
-![Límites de velocidad separados para dos canales, webhook y servicio de mensajes cortos/MMS/RCS, con 5000 y 2500 mensajes por minuto respectivamente.]({% image_buster /assets/img_archive/channel_rate_limits.png %}){: style="max-width:70%;"}
+![Límites de velocidad separados para dos canales, webhook y SMS/MMS/RCS, con 5000 y 2500 mensajes por minuto respectivamente.]({% image_buster /assets/img_archive/channel_rate_limits.png %}){: style="max-width:70%;"}
 
 ##### Notificaciones push {#push-notifications}
 
@@ -144,13 +144,13 @@ Braze actualizó la interfaz de límites de velocidad para proporcionar más tra
 
 Algunas notas a tener en cuenta al configurar límites de velocidad y el comportamiento que debes esperar:
 
-- Los envíos de servicio de mensajes cortos están sujetos a un límite de velocidad de 50 000 por grupo de suscripción. Algunos proveedores de servicio de mensajes cortos pueden aplicar otros límites.
+- Los envíos de SMS están sujetos a un límite de velocidad de 50 000 por grupo de suscripción. Algunos proveedores de SMS pueden aplicar otros límites.
 - Los siguientes mensajes no serán limitados ni contados en el límite de velocidad:
     - Envíos de prueba
     - Grupos semilla
     - Content Cards configuradas para crearse "en la primera impresión" (esto se controlará por la tasa de impresiones de la aplicación. Consulta [Creación de tarjetas]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation#differences) para obtener más información sobre las diferencias entre las opciones de creación de tarjetas.)
 - Los límites de velocidad de entrega no son compatibles con lo siguiente:
-    - Respuestas automáticas de servicio de mensajes cortos
+    - Respuestas automáticas de SMS
     - Mensajes respaldados por SLA (como [correo transaccional]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email))
     - In-App Messages
     - Conmutadores de características
@@ -208,7 +208,7 @@ Si necesitas llegar a un número específico de usuarios al usar ambas caracter�
 
 - **Aumenta tu límite de velocidad:** para tener en cuenta a los usuarios que están limitados por frecuencia. Por ejemplo, si deseas llegar a 500 usuarios pero esperas que algunos estén limitados por frecuencia, establece tu límite de velocidad más alto (como 1000 usuarios).
 - **Usa solo los límites de velocidad:** si tu objetivo es controlar el volumen de mensajes enviados por Campaign.
-- **Contacta a tu CSM or administrador de éxito de cliente or administrador de éxito de cliente:** para obtener ayuda en el diseño de una estrategia de mensajería sólida que equilibre las necesidades del negocio y las consideraciones técnicas.
+- **Contacta a tu CSM:** para obtener ayuda en el diseño de una estrategia de mensajería sólida que equilibre las necesidades del negocio y las consideraciones técnicas.
 
 ### Resumen de la característica {#freq-cap-feat-over}
 
@@ -216,7 +216,7 @@ La limitación de frecuencia se aplica a nivel de envío de Campaign o component
 
 De forma predeterminada, la limitación de frecuencia está activada cuando se crean nuevas Campaigns. Desde aquí, puedes elegir lo siguiente:
 
-- El canal de mensajería que deseas limitar: push, correo electrónico, servicio de mensajes cortos, webhook, WhatsApp, LINE o cualquiera de esos canales.
+- El canal de mensajería que deseas limitar: push, correo electrónico, SMS, webhook, WhatsApp, LINE o cualquiera de esos canales.
 - Cuántas veces cada usuario debe recibir una Campaign o componente de Canvas enviado desde un canal dentro de un período de tiempo determinado.
 - Cuántas veces cada usuario debe recibir una Campaign o componente de Canvas enviado por [etiqueta](#frequency-capping-by-tag) dentro de un período de tiempo determinado.
 
@@ -388,7 +388,7 @@ Esto suele significar que el [límite de velocidad de entrega](#delivery-speed-r
 
 **Limitar volumen de envío** controla cuántos usuarios son elegibles para un envío, no cuántos mensajes envía Braze por minuto. Solo un límite de velocidad de entrega establece el rendimiento por minuto.
 
-Si ya estás en el límite de velocidad de entrega máximo disponible para tu empresa, contacta a tu CSM or administrador de éxito de cliente or administrador de éxito de cliente para solicitar un aumento.
+Si ya estás en el límite de velocidad de entrega máximo disponible para tu empresa, contacta a tu CSM para solicitar un aumento.
 
 ### ¿Qué significa "Enviado" para la limitación de frecuencia? {#what-does-sent-mean-for-frequency-capping}
 

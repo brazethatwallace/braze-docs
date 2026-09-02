@@ -22,7 +22,7 @@ Intelligence Suite ofrece potentes características para analizar el historial d
 
 ### Viajes {#travel}
 
-- **Ofertas de viaje:** Usa el filtro de canal inteligente para enviar ofertas de viaje personalizadas a través del canal más activo de cada usuario, como correo electrónico o servicio de mensajes cortos, maximizando la probabilidad de que interactúen con tu mensajería.
+- **Ofertas de viaje:** Usa el filtro de canal inteligente para enviar ofertas de viaje personalizadas a través del canal más activo de cada usuario, como correo electrónico o SMS, maximizando la probabilidad de que interactúen con tu mensajería.
 
 ### Entretenimiento {#entertainment}
 

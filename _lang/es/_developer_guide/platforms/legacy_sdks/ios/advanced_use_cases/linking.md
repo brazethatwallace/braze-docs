@@ -209,7 +209,7 @@ Consulta [Enviar una aplicación con seguridad de transporte de aplicaciones](ht
 
 ## Codificación de URL {#url-encoding}
 
-A partir del SDK or kit de desarrollo de software v2.21.0 de Braze para iOS, el SDK or kit de desarrollo de software codifica porcentualmente los enlaces para crear `NSURL` válidos. Todos los caracteres de enlace que no estén permitidos en una URL correctamente formada, como los caracteres Unicode, se escaparán porcentualmente.
+A partir del SDK v2.21.0 de Braze para iOS, el SDK codifica porcentualmente los enlaces para crear `NSURL` válidos. Todos los caracteres de enlace que no estén permitidos en una URL correctamente formada, como los caracteres Unicode, se escaparán porcentualmente.
 
 Para decodificar un enlace codificado, utiliza el método `NSString` [`stringByRemovingPercentEncoding`](https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Classes/NSString_Class/index.html#//apple_ref/occ/instm/NSString/stringByRemovingPercentEncoding). Ten en cuenta que también debes devolver `YES` en `ABKURLDelegate` y que es necesaria una llamada a la acción para desencadenar la gestión de la URL por parte de la aplicación. Por ejemplo:
 
@@ -242,7 +242,7 @@ Para decodificar un enlace codificado, utiliza el método `NSString` [`stringByR
 
 ### Personalización predeterminada de WebView {#default-webview-customization}
 
-La clase personalizable `ABKModalWebViewController` muestra las URL web abiertas por el SDK or kit de desarrollo de software, normalmente cuando se selecciona "Abrir URL web dentro de la aplicación" para un vínculo profundo web.
+La clase personalizable `ABKModalWebViewController` muestra las URL web abiertas por el SDK, normalmente cuando se selecciona "Abrir URL web dentro de la aplicación" para un vínculo profundo web.
 
 Puedes declarar una categoría para la clase `ABKModalWebViewController`, o modificarla directamente, para aplicar la personalización a la vista web. Consulta el [archivo .h](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/ABKModalWebViewController.h) y el [archivo .m](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/ABKModalWebViewController.m) de la clase para obtener más detalles.
 

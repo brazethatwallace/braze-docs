@@ -23,7 +23,7 @@ Las aplicaciones ChatGPT proporcionan una potente plataforma para crear aplicaci
 ### Ventajas principales {#key-benefits}
 
 - **Controla el recorrido del cliente:** Mientras los usuarios interactúan con tu marca a través de ChatGPT, tú mantienes la visibilidad de su comportamiento, preferencias y patrones de interacción. Estos datos se transfieren directamente a los perfiles de usuario de Braze, no solo a los análisis de la plataforma de IA.
-- **Retargeting multiplataforma:** Realiza un seguimiento de las interacciones de los usuarios en tu aplicación ChatGPT y reoriéntalos a través de tus canales propios (correo electrónico, servicio de mensajes cortos, notificaciones push, mensajes dentro de la aplicación) con campañas personalizadas basadas en sus patrones de uso de la IA.
+- **Retargeting multiplataforma:** Realiza un seguimiento de las interacciones de los usuarios en tu aplicación ChatGPT y reoriéntalos a través de tus canales propios (correo electrónico, SMS, notificaciones push, mensajes dentro de la aplicación) con campañas personalizadas basadas en sus patrones de uso de la IA.
 - **Devuelve contenido promocional 1:1 a las conversaciones de ChatGPT:** Entrega [mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages) de Braze, [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards) y mucho más directamente dentro de tu experiencia ChatGPT utilizando los componentes personalizados de la interfaz de usuario conversacional que tu equipo ha creado para tu aplicación.
 - **Atribución de ingresos:** Realiza un seguimiento de las compras y conversiones que se originan en las interacciones con la aplicación ChatGPT.
 

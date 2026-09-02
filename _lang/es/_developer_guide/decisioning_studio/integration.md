@@ -29,8 +29,8 @@ En Braze, ve a **Settings** > **API Keys** y, a continuación, crea una nueva cl
 
 {% multi_lang_include decisioning_studio/api_key_permissions.md %}
 
-### Paso 3: Ponte en contacto con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente de BrazeAI Decisioning Studio™ {#step-3-contact-your-brazeai-decisioning-studio-customer-success-manager}
+### Paso 3: Ponte en contacto con tu CSM de BrazeAI Decisioning Studio™ {#step-3-contact-your-brazeai-decisioning-studio-customer-success-manager}
 
-Ponte en contacto con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente de BrazeAI Decisioning Studio™ y pídele que habilite BrazeAI Decisioning Studio™. Utilizará tu clave de API de Braze y la URL de tu punto de conexión para terminar de configurar tu integración.
+Ponte en contacto con tu CSM de BrazeAI Decisioning Studio™ y pídele que habilite BrazeAI Decisioning Studio™. Utilizará tu clave de API de Braze y la URL de tu punto de conexión para terminar de configurar tu integración.
 
 Cuando se haya completado, trabajarás junto con el equipo de Servicios Expertos en IA para [empezar a crear agentes para tu producto]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup). Cada agente está diseñado a medida para un objetivo de negocio específico, así que trabajaréis juntos para diseñar una implementación adecuada para ti.

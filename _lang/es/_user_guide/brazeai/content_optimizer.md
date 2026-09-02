@@ -12,7 +12,7 @@ page_order: 3
 > El Optimizador de contenidos te ayuda a probar y optimizar el contenido de los mensajes a gran escala, utilizando la IA para generar y evaluar automáticamente grandes volúmenes de variantes de contenido.
 
 {% alert important %}
-El Optimizador de contenidos se encuentra actualmente en fase beta y solo está disponible para estos canales: correo electrónico, notificaciones push y mensajes servicio de mensajes cortos/MMS/RCS. Para obtener ayuda para empezar, ponte en contacto con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente.
+El Optimizador de contenidos se encuentra actualmente en fase beta y solo está disponible para estos canales: correo electrónico, notificaciones push y mensajes SMS/MMS/RCS. Para obtener ayuda para empezar, ponte en contacto con tu CSM.
 {% endalert %}
 
 ## Acerca del Otimizador de Contenido {#about-content-optimizer}
@@ -21,7 +21,7 @@ El Otimizador de Contenido se ejecuta en un paso en Canvas. Te ayuda a definir l
 
 - Optimizar líneas del asunto, encabezados del cuerpo, contenido del cuerpo o CTA principal para correos electrónicos.
 - Optimizar títulos y mensajes para notificaciones push.
-- Optimizar ganchos, cuerpos y CTAs para mensajes servicio de mensajes cortos, MMS y RCS.
+- Optimizar ganchos, cuerpos y CTAs para mensajes SMS, MMS y RCS.
 - Mejorar continuamente el rendimiento de los mensajes sin configuración manual de pruebas A/B.
 - Probar grandes volúmenes de variantes de contenido rápidamente, aprovechando la IA para la generación de ideas.
 - Retirar automáticamente el contenido de bajo rendimiento y escalar las variantes ganadoras.
@@ -59,14 +59,14 @@ El Otimizador de Contenido usa OpenAI solo cuando solicitas explícitamente suge
 | Estilos de texto del cuerpo | Mejorar la participación | Compara mensajería concisa, orientada al beneficio y orientada a la acción en el cuerpo del push. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Notificaciones push" }
 
-### Mensajes servicio de mensajes cortos, MMS y RCS {#sms-mms-and-rcs-messages}
+### Mensajes SMS, MMS y RCS {#sms-mms-and-rcs-messages}
 
 | Ejemplo de optimización | Objetivo | Descripción |
 | --- | --- | --- |
-| Variaciones de gancho | Aumentar la participación | Prueba la urgencia, la personalización y el tono en la primera línea que se muestra en las vistas previas de servicio de mensajes cortos, los subtítulos de MMS o las introducciones de RCS. |
+| Variaciones de gancho | Aumentar la participación | Prueba la urgencia, la personalización y el tono en la primera línea que se muestra en las vistas previas de SMS, los subtítulos de MMS o las introducciones de RCS. |
 | Estilos de texto del cuerpo | Mejorar la participación | Compara mensajería concisa y orientada a la acción en el cuerpo, incluyendo el texto que acompaña a los medios en MMS y RCS. |
-| Variaciones de texto del CTA | Aumentar los click-throughs | Compara frases de CTA orientadas a la acción y conversacionales para enlaces y solicitudes de siguiente paso en servicio de mensajes cortos, MMS y RCS. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Mensajes servicio de mensajes cortos, MMS y RCS" }
+| Variaciones de texto del CTA | Aumentar los click-throughs | Compara frases de CTA orientadas a la acción y conversacionales para enlaces y solicitudes de siguiente paso en SMS, MMS y RCS. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Mensajes SMS, MMS y RCS" }
 
 ## Cómo funciona {#how-it-works}
 
@@ -103,14 +103,14 @@ La mejor opción para Content Optimizer son los Canvas con entrada recurrente di
 
 ## Consideraciones {#considerations}
 
-- Content Optimizer se encuentra actualmente en versión beta y solo está disponible para estos canales: correo electrónico, notificaciones push y mensajes servicio de mensajes cortos/MMS/RCS.
+- Content Optimizer se encuentra actualmente en versión beta y solo está disponible para estos canales: correo electrónico, notificaciones push y mensajes SMS/MMS/RCS.
 - Para correo electrónico, Content Optimizer puede generar hasta 125 combinaciones por paso:
    - Hasta 3 componentes por paso
    - Hasta 5 variantes para cada componente
 - Para notificaciones push, Content Optimizer puede generar hasta 25 combinaciones por paso:
    - Hasta 2 componentes por paso
    - Hasta 5 variantes para cada componente
-- Para mensajes servicio de mensajes cortos, MMS y RCS, Content Optimizer puede generar hasta 25 combinaciones por paso:
+- Para mensajes SMS, MMS y RCS, Content Optimizer puede generar hasta 25 combinaciones por paso:
    - Hasta 2 componentes por paso
    - Hasta 5 variantes para cada componente
 - Solo se envía un mensaje por usuario por entrada. No hay memoria de envíos anteriores para las reentradas.
@@ -118,5 +118,5 @@ La mejor opción para Content Optimizer son los Canvas con entrada recurrente di
 
 ## Próximos pasos {#next-steps}
 
-- Contacta a tu CSM or administrador de éxito de cliente or administrador de éxito de cliente para unirte a la beta o para recibir soporte de incorporación.
+- Contacta a tu CSM para unirte a la beta o para recibir soporte de incorporación.
 - Aprende a crear un [paso del Otimizador de Contenido]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step).

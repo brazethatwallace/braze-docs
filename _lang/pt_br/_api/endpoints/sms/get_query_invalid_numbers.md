@@ -7,7 +7,7 @@ layout: api_page
 page_type: reference
 description: "Este artigo traz informações sobre o endpoint da Braze \"Consulta de números de telefone inválidos\"."
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Consulta de números de telefone inválidos {#query-invalid-phone-numbers}
 {% apimethod get %}
 /sms/invalid_phone_numbers
@@ -19,7 +19,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Consult
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `sms.invalid_phone_numbers`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `sms.invalid_phone_numbers`.
 
 ## Limite de frequência {#rate-limit}
 
@@ -29,8 +29,8 @@ Para usar esse endpoint, você precisará de uma [chave de API or interface de p
 
 | Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | ----------|-----------| ----------|----- |
-| `start_date` | Opcional <br>(ver nota) | String no formato YYYY-MM-DD | Data de início do intervalo para recuperar números de telefone inválidos. Deve ser anterior a `end_date`. Isso é tratado como meia-noite no horário UTC pela API or interface de programação do aplicativo (API). |
-| `end_date` | Opcional <br>(ver nota) | String no formato YYYY-MM-DD | Data final do intervalo para recuperar números de telefone inválidos. Isso é tratado como meia-noite no horário UTC pela API or interface de programação do aplicativo (API). |
+| `start_date` | Opcional <br>(ver nota) | String no formato YYYY-MM-DD | Data de início do intervalo para recuperar números de telefone inválidos. Deve ser anterior a `end_date`. Isso é tratado como meia-noite no horário UTC pela API. |
+| `end_date` | Opcional <br>(ver nota) | String no formato YYYY-MM-DD | Data final do intervalo para recuperar números de telefone inválidos. Isso é tratado como meia-noite no horário UTC pela API. |
 | `limit` | Opcional | Inteiro | Campo opcional para limitar o número de resultados retornados. O padrão é 100, o máximo é 500. |
 | `offset` | Opcional | Inteiro | Ponto inicial opcional na lista a ser recuperado. |
 | `phone_numbers` | Opcional <br>(ver nota) | Matriz de strings no formato e.164 | Se fornecido, retornaremos o número de telefone caso ele tenha sido considerado inválido. |
@@ -41,7 +41,7 @@ Para usar esse endpoint, você precisará de uma [chave de API or interface de p
 Você deve fornecer um `start_date` e um `end_date` OU `phone_numbers`. Se você fornecer todos os três, `start_date`, `end_date` e `phone_numbers`, priorizaremos os números de telefone fornecidos e desconsideraremos o intervalo de datas.
 {% endalert %}
 
-Se o seu intervalo de datas tiver mais do que o número `limit` de números de telefone inválidos, será necessário fazer várias chamadas à API or interface de programação do aplicativo (API), aumentando o `offset` a cada vez até que uma chamada retorne menos do que `limit` ou zero resultados.
+Se o seu intervalo de datas tiver mais do que o número `limit` de números de telefone inválidos, será necessário fazer várias chamadas à API, aumentando o `offset` a cada vez até que uma chamada retorne menos do que `limit` ou zero resultados.
 
 ## Exemplo de solicitação {#example-request}
 ```

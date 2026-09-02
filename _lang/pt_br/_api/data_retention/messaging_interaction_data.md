@@ -63,7 +63,7 @@ Os seguintes recursos **não** usam dados de interação de mensagens, o que sig
 - Relatórios de análise de dados (como Report Builder, Query Builder e relatórios de engajamento)
 - Currents
 - Snowflake Data Share
-- Extensões de Segment or segmento or segmento
+- Extensões de segmento
 - Pontos de dados
 - Os seguintes filtros de redirecionamento:
     - Clicked Alias in Any Campaign or Canvas Step
@@ -127,7 +127,7 @@ Campaigns e Canvas com dados de interação de mensagens excluídos anteriorment
 
 ### Por que a data de expiração de uma campaign ou Canvas continua mostrando amanhã? {#why-does-a-campaign-or-canvas-expiration-date-keep-showing-tomorrow}
 
-Se uma campaign parada ou um Canvas parado ainda é referenciado por um filtro de redirecionamento ativo (por exemplo, em um Segment or segmento ativo, Campaign, Canvas ou Content Card), a Braze ainda não descarta os dados de interação.
+Se uma campaign parada ou um Canvas parado ainda é referenciado por um filtro de redirecionamento ativo (por exemplo, em um Segment ativo, Campaign, Canvas ou Content Card), a Braze ainda não descarta os dados de interação.
 
 Nesse caso, a data de expiração exibida na interface reflete a próxima execução de limpeza agendada, então ela pode aparecer como "amanhã" e continuar avançando enquanto as referências ainda existirem.
 

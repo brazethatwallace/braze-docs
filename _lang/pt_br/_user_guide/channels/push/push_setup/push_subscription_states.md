@@ -26,11 +26,11 @@ Você pode verificar o estado de inscrição de push, o registro e a ativação 
 
 No perfil de um usuário ([**Pesquisar usuários**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) > selecione o usuário > guia **Engagement**), **Contact Settings** lista o estado de inscrição de push, **Push Registered For** (quais apps e plataformas a Braze pode usar para enviar push em primeiro plano para aquele perfil) e o **Push Changelog** para movimentações de token, erros e atualizações de registro. Para saber como interpretar **Push Registered For** e a autorização de primeiro plano versus segundo plano, consulte [Verificando o status de registro de push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle#checking-push-registration-status).
 
-No iOS e Android, quando um dispositivo passa de autorização de push em primeiro plano para apenas segundo plano (por exemplo, depois que o usuário desativa notificações nas configurações do sistema e o SDK or kit de desenvolvimento de software reporta a mudança), o changelog de push pode incluir uma entrada como "token por push was updated from foreground push enabled to foreground push disabled".
+No iOS e Android, quando um dispositivo passa de autorização de push em primeiro plano para apenas segundo plano (por exemplo, depois que o usuário desativa notificações nas configurações do sistema e o SDK reporta a mudança), o changelog de push pode incluir uma entrada como "token por push was updated from foreground push enabled to foreground push disabled".
 
-Depois de esperar novos dados do SDK or kit de desenvolvimento de software (por exemplo, logo após uma sessão de teste), selecione **Refresh** no perfil do usuário se os valores parecerem desatualizados. Pode haver um pequeno atraso entre o envio dos dados pelo SDK or kit de desenvolvimento de software e a atualização do perfil com o registro de push mais recente.
+Depois de esperar novos dados do SDK (por exemplo, logo após uma sessão de teste), selecione **Refresh** no perfil do usuário se os valores parecerem desatualizados. Pode haver um pequeno atraso entre o envio dos dados pelo SDK e a atualização do perfil com o registro de push mais recente.
 
-Para usuários que você adiciona a um [grupo interno]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups), selecione **Record User Events for group members** nas **Internal Group Settings** daquele grupo para que as solicitações do SDK or kit de desenvolvimento de software apareçam no registro. Em seguida, abra o [Registro de usuários de eventos]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log) em **Settings** > **Event User Log**, encontre as solicitações do SDK or kit de desenvolvimento de software do usuário e expanda a carga útil bruta. Você pode inspecionar campos como `remote_notification_enabled` ao validar se o dispositivo reporta notificações remotas como ativadas ou desativadas.
+Para usuários que você adiciona a um [grupo interno]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups), selecione **Record User Events for group members** nas **Internal Group Settings** daquele grupo para que as solicitações do SDK apareçam no registro. Em seguida, abra o [Registro de usuários de eventos]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log) em **Settings** > **Event User Log**, encontre as solicitações do SDK do usuário e expanda a carga útil bruta. Você pode inspecionar campos como `remote_notification_enabled` ao validar se o dispositivo reporta notificações remotas como ativadas ou desativadas.
 
 ### Segmentação e filtros de push {#segmentation-and-push-filters}
 
@@ -56,7 +56,7 @@ A tabela a seguir mostra como diferentes ações do usuário afetam a ativação
 
 <sup>* Se o app não usar push provisório, `Foreground Push Enabled` será `false` até que o usuário permita notificações por push. Se o app usar push provisório, `Foreground Push Enabled` será `true` no início da primeira sessão. Para saber mais, consulte [Autorização provisória e push silencioso](#provisional-push).</sup>
 
-<sup>** A partir da [versão 7.5.0 do Braze Swift SDK or kit de desenvolvimento de software](https://github.com/braze-inc/braze-swift-sdk/releases/tag/7.5.0), a propriedade de configuração `optInWhenPushAuthorized` controla se o estado de inscrição de push é automaticamente definido como `Opted-In` quando a permissão de push é autorizada. Para saber mais, consulte [Tokens de push](#push-tokens).</sup>
+<sup>** A partir da [versão 7.5.0 do Braze Swift SDK](https://github.com/braze-inc/braze-swift-sdk/releases/tag/7.5.0), a propriedade de configuração `optInWhenPushAuthorized` controla se o estado de inscrição de push é automaticamente definido como `Opted-In` quando a permissão de push é autorizada. Para saber mais, consulte [Tokens de push](#push-tokens).</sup>
 
 ## Permissão de push {#push-permission}
 
@@ -160,7 +160,7 @@ No dashboard, você pode encontrar informações sobre registro de push e change
 
 Ao revisar o estado de push ativado, **Push Registered for** indica para quais plataformas a Braze pode enviar push em primeiro plano para aquele usuário. No iOS e Android, se um usuário passou de push de primeiro plano ativado para push de segundo plano ativado (`remote_notification_enabled`), isso será documentado no changelog de push como "token por push was updated from foreground push enabled to foreground push disabled."
 
-Se o usuário for adicionado como usuário teste, em **Console de desenvolvedor** > **Event User Log**, o perfil do usuário mostrará uma solicitação do SDK or kit de desenvolvimento de software com `remote_notification_enabled` como `true` ou `false`. Pode ser necessário atualizar o perfil do usuário para visualizar as atualizações, pois há um pequeno atraso para que as atualizações do SDK or kit de desenvolvimento de software cheguem ao perfil do usuário.
+Se o usuário for adicionado como usuário teste, em **Console de desenvolvedor** > **Event User Log**, o perfil do usuário mostrará uma solicitação do SDK com `remote_notification_enabled` como `true` ou `false`. Pode ser necessário atualizar o perfil do usuário para visualizar as atualizações, pois há um pequeno atraso para que as atualizações do SDK cheguem ao perfil do usuário.
 
 **Filtros de segmentação para estado de push no iOS:**
 
@@ -185,7 +185,7 @@ Se um usuário desativar notificações no navegador, a próxima notificação p
 
 Se você receber um erro `410: Gone`, isso pode ocorrer quando um usuário desativa notificações por push para a web nas configurações do SO do navegador, ou se está fazendo login como um usuário diferente no mesmo dispositivo, ou se o usuário não visitou o site há algum tempo.
 
-Se você receber um erro `410: Endpoint Not Valid`, isso pode significar que o token de push para web (essencialmente a URL) expirou. Isso pode ocorrer se o usuário nunca mais visitar o site ou se o navegador invalidar o token. Também pode ocorrer periodicamente (geralmente a cada poucos meses), dependendo do navegador. Quando o usuário visitar o site novamente, se ainda tiver o navegador configurado como "Allow", a Braze coletará automaticamente um novo token para o dispositivo. Isso pressupõe que a [opção de inicialização `disablePushTokenMaintenance`](https://js.appboycdn.com/web-sdk/latest/doc/modules/appboy.html#initializationoptions) não esteja sendo usada durante a inicialização do SDK or kit de desenvolvimento de software.
+Se você receber um erro `410: Endpoint Not Valid`, isso pode significar que o token de push para web (essencialmente a URL) expirou. Isso pode ocorrer se o usuário nunca mais visitar o site ou se o navegador invalidar o token. Também pode ocorrer periodicamente (geralmente a cada poucos meses), dependendo do navegador. Quando o usuário visitar o site novamente, se ainda tiver o navegador configurado como "Allow", a Braze coletará automaticamente um novo token para o dispositivo. Isso pressupõe que a [opção de inicialização `disablePushTokenMaintenance`](https://js.appboycdn.com/web-sdk/latest/doc/modules/appboy.html#initializationoptions) não esteja sendo usada durante a inicialização do SDK.
 
 {% alert note %}
 Plataformas web não permitem push em segundo plano ou silencioso.

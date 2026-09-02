@@ -812,7 +812,7 @@ Une fois désactivée, toutes les requêtes SDK échouées en attente seront fin
 
 Avec des secrets partagés, toute personne ayant accès à ce secret, comme la page du tableau de bord de Braze, serait en mesure de générer des jetons et d'usurper l'identité de vos utilisateurs finaux.
 
-Nous utilisons plutôt des clés publiques/privées afin que même les employé or salariés de Braze (et a fortiori les utilisateurs de votre entreprise) n'aient pas accès à vos clés privées.
+Nous utilisons plutôt des clés publiques/privées afin que même les employés de Braze (et a fortiori les utilisateurs de votre entreprise) n'aient pas accès à vos clés privées.
 
 ### Comment les requêtes rejetées sont-elles relancées ? {#faq-retry-logic}
 

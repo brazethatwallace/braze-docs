@@ -21,7 +21,7 @@ Puedes enviar hitos de juego, canjes de recompensas y métricas de participació
 
 - **Enriquecer perfiles de usuario:** Pasar métricas de juego, puntuaciones y estados de recompensas a los perfiles de usuario en Braze.
 - **Desbloquear segmentación avanzada:** Crear Segments de audiencia basados en el comportamiento dentro del juego, como los mejores jugadores, ganadores recientes o usuarios cerca de desbloquear una recompensa.
-- **Automatizar Campaigns en tiempo real:** Desencadenar mensajes multicanal personalizados (push, correo electrónico, in-app) basados en interacciones de juego para impulsar el juego recurrente, la fidelización de marca y un mayor LTV or valor de duración del ciclo de vida or valor de duración del ciclo de vida.
+- **Automatizar Campaigns en tiempo real:** Desencadenar mensajes multicanal personalizados (push, correo electrónico, in-app) basados en interacciones de juego para impulsar el juego recurrente, la fidelización de marca y un mayor LTV.
 
 ## Ejemplos {#use-cases}
 
@@ -38,8 +38,8 @@ Puedes enviar hitos de juego, canjes de recompensas y métricas de participació
 | Requisito | Descripción |
 | --- | --- |
 | Cuenta de DailyPlay | Se requiere una cuenta de DailyPlay para utilizar esta integración. |
-| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos de `users.track`. Crea esta clave en Braze en **Configuración** > **APIs e identificadores** > **Claves de API**. Para más información, consulta [Claves de API]({{site.baseurl}}/api/basics). |
-| Endpoint REST or transferencia de estado representacional de Braze | La URL del endpoint REST or transferencia de estado representacional de [tu instancia de Braze]({{site.baseurl}}/api/basics#endpoints). |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos de `users.track`. Crea esta clave en Braze en **Configuración** > **APIs e identificadores** > **Claves de API**. Para más información, consulta [Claves de API]({{site.baseurl}}/api/basics). |
+| Endpoint REST de Braze | La URL del endpoint REST de [tu instancia de Braze]({{site.baseurl}}/api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
@@ -51,7 +51,7 @@ Puedes enviar hitos de juego, canjes de recompensas y métricas de participació
 ![Página de conexiones de DailyPlay que muestra las conexiones activas de Braze y las estadísticas de desencadenadores.]({% image_buster /assets/img/dailyplay/connections_page.png %}){: style="max-width:70%;"}
 
 {: start="2"}
-2. En **Provider**, elige **Braze**. Introduce un nombre, tu clave de API REST or transferencia de estado representacional de Braze, el App ID y el endpoint REST or transferencia de estado representacional, y luego selecciona **Create Connection**.
+2. En **Provider**, elige **Braze**. Introduce un nombre, tu clave de API REST de Braze, el App ID y el endpoint REST, y luego selecciona **Create Connection**.
 
 ![Modal de agregar conexión en DailyPlay con Braze seleccionado y campos de credenciales para la clave de API, el App ID y el endpoint REST.]({% image_buster /assets/img/dailyplay/add_connection.png %}){: style="max-width:60%;"}
 
@@ -70,7 +70,7 @@ Ve a la página **Streams** y crea un nuevo stream.
 
 Pega el código del paso 2 en tu Campaign en Braze.
 
-Cuando los usuarios jueguen a los juegos del stream, DailyPlay desencadena un evento y lo envía a Braze a través de tu endpoint REST or transferencia de estado representacional de Braze.
+Cuando los usuarios jueguen a los juegos del stream, DailyPlay desencadena un evento y lo envía a Braze a través de tu endpoint REST de Braze.
 
 ### Paso 4: Inspeccionar acciones y ampliar tu embudo {#step-4-inspect-actions-and-expand-your-funnel}
 

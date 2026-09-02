@@ -12,11 +12,11 @@ noindex: true
 
 # Google Tag Manager para iOS {#google-tag-manager-for-ios}
 
-## Inicialização do SDK or kit de desenvolvimento de software {#initializing-ios-google-tag-provider}
+## Inicialização do SDK {#initializing-ios-google-tag-provider}
 
-O SDK or kit de desenvolvimento de software iOS da Braze pode ser inicializado e controlado por tags configuradas dentro do [Google Tag Manager](https://tagmanager.google.com/).
+O SDK iOS da Braze pode ser inicializado e controlado por tags configuradas dentro do [Google Tag Manager](https://tagmanager.google.com/).
 
-Antes de usar o Google Tag Manager, certifique-se de seguir nossa [configuração inicial do SDK or kit de desenvolvimento de software]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview).
+Antes de usar o Google Tag Manager, certifique-se de seguir nossa [configuração inicial do SDK]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview).
 
 ## Configuração do Google Tag Manager {#configuring-ios-google-tag-manager}
 
@@ -95,15 +95,15 @@ NSDictionary *parameters = @{@"externalUserId" : userId};
 {% endtab %}
 {% endtabs %}
 
-## Provedor de tags personalizadas do Braze SDK or kit de desenvolvimento de software {#adding-ios-google-tag-provider}
+## Provedor de tags personalizadas do Braze SDK {#adding-ios-google-tag-provider}
 
 Com as tags e os disparadores configurados, você também precisará implementar o Google Tag Manager em seu app para iOS, o que pode ser encontrado na [documentação](https://developers.google.com/tag-manager/ios/v5/) do Google.
 
-Depois que o Google Tag Manager estiver instalado em seu app, adicione um provedor de tag personalizado para chamar os métodos do Braze SDK or kit de desenvolvimento de software com base nas tags que você configurou no Google Tag Manager.
+Depois que o Google Tag Manager estiver instalado em seu app, adicione um provedor de tag personalizado para chamar os métodos do Braze SDK com base nas tags que você configurou no Google Tag Manager.
 
 Certifique-se de anotar o "Caminho da Classe" para o arquivo — é isso que você irá inserir ao configurar uma tag no console do [Google Tag Manager](https://tagmanager.google.com/).
 
-Este exemplo mostra uma das muitas maneiras de estruturar seu provedor de tag personalizado, em que determinamos qual método do Braze SDK or kit de desenvolvimento de software deve ser chamado com base no par chave-valor `actionType` enviado pela tag GTM.
+Este exemplo mostra uma das muitas maneiras de estruturar seu provedor de tag personalizado, em que determinamos qual método do Braze SDK deve ser chamado com base no par chave-valor `actionType` enviado pela tag GTM.
 
 Os `actionType` suportados em nosso exemplo são `logEvent`, `customAttribute` e `changeUser`, mas você pode preferir alterar a forma como seu provedor de tag trata os dados do Google Tag Manager.
 

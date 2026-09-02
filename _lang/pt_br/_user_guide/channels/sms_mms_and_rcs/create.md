@@ -94,7 +94,7 @@ Os campos e limites no criador dependem do tipo de mensagem selecionado.
 | **Link shortening** | Encurta URLs HTTP e HTTPS e rastreia o engajamento. Para encurtamento de links legado, selecione rastreamento básico ou avançado. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Campos e configurações de SMS e MMS" }
 
-As mensagens SMS usam codificação GSM-7 ou UCS-2 e são cobradas por Segment or segmento or segmento de mensagem. Um único caractere pode alterar a codificação e aumentar o número de segmentos faturáveis. Para regras de codificação, tamanhos de Segment or segmento or segmento e a calculadora de segmentos, consulte [Calculadoras de faturamento de SMS e RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator).
+As mensagens SMS usam codificação GSM-7 ou UCS-2 e são cobradas por Segment de mensagem. Um único caractere pode alterar a codificação e aumentar o número de segmentos faturáveis. Para regras de codificação, tamanhos de Segment e a calculadora de segmentos, consulte [Calculadoras de faturamento de SMS e RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator).
 
 ![Criador de SMS mostrando o texto da mensagem e as estimativas de contagem de caracteres e segmentos.]({% image_buster /assets/img/sms_campaign_compose.png %})
 
@@ -212,13 +212,13 @@ Para saber mais, consulte [Enviar mensagens de teste]({{site.baseurl}}/user_guid
 
 #### Escolha um cronograma ou disparador de entrega {#choose-a-delivery-schedule-or-trigger}
 
-Entregue mensagens em um horário agendado ou em resposta a uma ação ou disparador de API or interface de programação do aplicativo (API). Para opções de agendamento e disparadores, consulte [Agende sua campanha]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
+Entregue mensagens em um horário agendado ou em resposta a uma ação ou disparador de API. Para opções de agendamento e disparadores, consulte [Agende sua campanha]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
 Configure controles de entrega como [reelegibilidade]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility) e [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping). Para entrega baseada em ação, defina a duração da campanha e o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours).
 
 #### Escolha os usuários-alvo {#choose-users-to-target}
 
-[Direcione usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) selecionando Segments e filtros. A Braze calcula a associação exata ao Segment or segmento antes de enviar a mensagem.
+[Direcione usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) selecionando Segments e filtros. A Braze calcula a associação exata ao Segment antes de enviar a mensagem.
 
 O grupo de inscrições selecionado filtra os usuários inscritos. Os destinatários de SMS e MMS também precisam de um número de telefone válido. Os destinatários de RCS precisam de um dispositivo e conexão de operadora com capacidade RCS; use um SMS de fallback para alcançar usuários elegíveis quando a entrega RCS falhar.
 
@@ -246,7 +246,7 @@ Após o lançamento, use os [relatórios de SMS, MMS e RCS]({{site.baseurl}}/use
 
 ## Informações importantes {#things-to-know}
 
-- O SMS é cobrado por Segment or segmento or segmento de mensagem, o MMS tem sua própria taxa, e o RCS é cobrado por tipo de mensagem. Consulte as [calculadoras de faturamento de SMS e RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator) antes de enviar.
+- O SMS é cobrado por Segment de mensagem, o MMS tem sua própria taxa, e o RCS é cobrado por tipo de mensagem. Consulte as [calculadoras de faturamento de SMS e RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator) antes de enviar.
 - O MMS é compatível com uma imagem ou vCard. O suporte da operadora determina se os destinatários recebem a mídia ou um link para a imagem.
 - Os recursos e limites do RCS variam de acordo com o provedor de serviços de SMS. O criador exibe apenas as opções disponíveis para o grupo de inscrições selecionado.
 - Você pode enviar um correio de voz pré-gravado como áudio em uma mensagem RCS do tipo **Mídia**.

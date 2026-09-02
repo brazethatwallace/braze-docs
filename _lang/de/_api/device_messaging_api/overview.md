@@ -9,10 +9,10 @@ hidden: true
 
 # Übersicht der Device Messaging API {#device-messaging-api-overview}
 
-Die Braze Device Messaging API ist eine Reihe von Representational State Transfer-Endpunkten zur Integration von Braze-Messaging-Funktionen ohne ein Braze SDK or Software-Development-Kit. Sie können diese Endpunkte von Client- oder Server-Anwendungen aus aufrufen.
+Die Braze Device Messaging API ist eine Reihe von REST-Endpunkten zur Integration von Braze-Messaging-Funktionen ohne ein Braze SDK. Sie können diese Endpunkte von Client- oder Server-Anwendungen aus aufrufen.
 
 {% alert important %}
-Diese Seite befindet sich in der Beta-Phase. Features und Dokumentation für die Device Messaging API können sich ändern. Wenden Sie sich an Ihren Braze Account Manager:in, um Zugang anzufordern.
+Diese Seite befindet sich in der Beta-Phase. Features und Dokumentation für die Device Messaging API können sich ändern. Wenden Sie sich an Ihren Braze Account Manager, um Zugang anzufordern.
 {% endalert %}
 
 ## Unterstützte Funktionen {#supported-capabilities}
@@ -29,15 +29,15 @@ Die Device Messaging API gibt strukturierte Banner-Eigenschaften zurück, sodass
 Für die Integration der Device Messaging API benötigen Sie:
 
 - Einen Workspace mit aktivierter Device Messaging API
-- Einen clientseitigen Representational State Transfer-API-Schlüssel für diesen Workspace
-- Den Representational State Transfer-Endpunkt für diesen Workspace
+- Einen clientseitigen REST-API-Schlüssel für diesen Workspace
+- Den REST-Endpunkt für diesen Workspace
 - Die externe Nutzer-ID für den/die Nutzer:in
 - Den API-Bezeichner für die App
 
 Weitere Informationen zu Zugangsdaten finden Sie unter [Authentifizierung und Sicherheit]({{site.baseurl}}/api/device_messaging_api/authentication).
 
-## Anleitung zur Device Messaging API und Representational State Transfer API {#device-messaging-api-and-rest-api-guidance}
+## Anleitung zur Device Messaging API und REST API {#device-messaging-api-and-rest-api-guidance}
 
-Die Device Messaging API verwendet dieselben regionalen Representational State Transfer-Endpunkte wie die Braze Representational State Transfer API, verfügt jedoch über einen separaten Authentifizierungs- und Antwortvertrag. Allgemeine Hinweise zur Representational State Transfer API bezüglich privater serverseitiger Schlüssel, Antwortkörper, Fehler und Rate-Limits gelten nicht, es sei denn, ein Artikel zur Device Messaging API verweist ausdrücklich darauf.
+Die Device Messaging API verwendet dieselben regionalen REST-Endpunkte wie die Braze REST API, verfügt jedoch über einen separaten Authentifizierungs- und Antwortvertrag. Allgemeine Hinweise zur REST API bezüglich privater serverseitiger Schlüssel, Antwortkörper, Fehler und Rate-Limits gelten nicht, es sei denn, ein Artikel zur Device Messaging API verweist ausdrücklich darauf.
 
 Verwenden Sie die Endpunkt-Dokumentation der Device Messaging API als maßgebliche Quelle für Anfragefelder, Antwortkörper, Statuscodes und Limits.

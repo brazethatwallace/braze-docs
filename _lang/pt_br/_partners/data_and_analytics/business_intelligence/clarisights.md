@@ -23,9 +23,9 @@ A integração entre a Braze e a Clarisights permite que você importe dados de 
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Conta Clarisights | É necessário ter um espaço de trabalho da Clarisights para usar a parceria |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com as seguintes permissões:  <br> - `campaigns.list` <br>  - `campaigns.details`<br> - `campaigns.data_series` <br> - `canvas.details`<br> - `canvas.list` <br>  - `canvas.data_series` <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
-| Endpoint REST or transferir estado representacional da Braze | [Sua URL de endpoint REST or transferir estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
-| Nome do espaço de trabalho da Braze | O nome do espaço de trabalho associado à chave de API or interface de programação do aplicativo (API) da Braze. Esse nome será usado para identificar a integração do espaço de trabalho na Clarisights. |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com as seguintes permissões:  <br> - `campaigns.list` <br>  - `campaigns.details`<br> - `campaigns.data_series` <br> - `canvas.details`<br> - `canvas.list` <br>  - `canvas.data_series` <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Endpoint REST da Braze | [Sua URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
+| Nome do espaço de trabalho da Braze | O nome do espaço de trabalho associado à chave de API da Braze. Esse nome será usado para identificar a integração do espaço de trabalho na Clarisights. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Casos de uso {#use-cases}
@@ -61,7 +61,7 @@ Para sincronizar os dados da Braze com a Clarisights, crie um conector da Braze 
 
 Para incluir a Braze como uma fonte de dados em seus relatórios da Clarisights, navegue até **Create New Report**. Dê um nome ao seu relatório e selecione **Braze** como fonte de dados no prompt que aparece. Você também pode escolher as métricas e dimensões a serem incluídas no relatório. Quando concluído, selecione **Create Report**.
 
-Os dados da Braze começarão a fluir a partir do momento da próxima importação de dados programada. Entre em contato com seu gerente de sucesso do cliente da Clarisights para solicitar backfills por períodos mais longos.
+Os dados da Braze começarão a fluir a partir do momento da próxima importação de dados programada. Entre em contato com seu CSM da Clarisights para solicitar backfills por períodos mais longos.
 
 ![Configurações de relatório da Clarisights mostrando campos para nome e fonte de dados. Para este exemplo, a Braze é selecionada como a fonte de dados.]({{site.baseurl}}/assets/img/clarisights/braze_report.png)
 

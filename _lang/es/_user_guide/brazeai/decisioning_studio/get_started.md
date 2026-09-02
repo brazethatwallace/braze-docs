@@ -44,7 +44,7 @@ Trabaja con el equipo de AI Decisioning Services para tomar las siguientes decis
 
 | Decisión | Descripción | Ejemplos |
 |----------|-------------|----------|
-| **Métrica de éxito** | El resultado de negocio que el agente maximiza al personalizar la interacción con los clientes. | Ingresos, LTV or valor de duración del ciclo de vida, ARPU, conversiones, retención |
+| **Métrica de éxito** | El resultado de negocio que el agente maximiza al personalizar la interacción con los clientes. | Ingresos, LTV, ARPU, conversiones, retención |
 | **Audiencia** | Los clientes para quienes el agente de Decisioning Studio toma decisiones de interacción. | Todos los clientes, miembros de fidelización, suscriptores en riesgo |
 | **Grupos de experimento** | ¿Cómo deben estructurarse los ensayos controlados aleatorizados de Decisioning Studio? | Decisioning Studio, control aleatorio, BAU, exclusión |
 | **Dimensiones** | Las decisiones de interacción que el agente personaliza para cada cliente. | Hora del día, línea del asunto, frecuencia, ofertas, canal |
@@ -60,7 +60,7 @@ Cada una de estas decisiones tiene implicaciones en cuánto incremento adicional
 
 | Capacidad | Detalles |
 |-----------|----------|
-| **Cualquier métrica de éxito** | Optimiza para ingresos, conversiones, ARPU, LTV or valor de duración del ciclo de vida o cualquier indicador clave de rendimiento de negocio |
+| **Cualquier métrica de éxito** | Optimiza para ingresos, conversiones, ARPU, LTV o cualquier indicador clave de rendimiento de negocio |
 | **Dimensiones ilimitadas** | Personaliza a través de oferta, canal, momento, frecuencia, creatividad y más |
 | **Cualquier CEP** | Integraciones nativas con Braze, Salesforce Marketing Cloud o integraciones personalizadas para cualquier plataforma |
 | **AI Decisioning Services** | Soporte dedicado del equipo de ciencia de datos de Braze |

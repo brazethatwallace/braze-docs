@@ -1,10 +1,10 @@
 ## Requisitos previos {#prerequisites}
 
-Antes de comenzar este tutorial, comprueba que tu SDK or kit de desarrollo de software de Braze cumple los requisitos mínimos de versión:
+Antes de comenzar este tutorial, comprueba que tu SDK de Braze cumple los requisitos mínimos de versión:
 
 {% sdk_min_versions swift:11.3.0 android:33.1.0 web:5.8.1 reactnative:14.0.0 flutter:13.0.0 %}
 
-## Mostrar banners para el SDK or kit de desarrollo de software de Android {#displaying-banners-for-the-android-sdk}
+## Mostrar banners para el SDK de Android {#displaying-banners-for-the-android-sdk}
 
 {% multi_lang_include developer_guide/_shared/tutorial_feedback.md tutorial="Displaying Banners Android" %}
 
@@ -108,7 +108,7 @@ lines-MainActivity.kt=10-14
 
 ### 3. Actualiza tus ubicaciones {#3-refresh-your-placements}
 
-Después de inicializar el SDK or kit de desarrollo de software de Braze, llama a `requestBannersRefresh(["PLACEMENT_ID"])` para obtener el contenido más reciente del banner para esa ubicación.
+Después de inicializar el SDK de Braze, llama a `requestBannersRefresh(["PLACEMENT_ID"])` para obtener el contenido más reciente del banner para esa ubicación.
 
 !!step
 lines-banners.xml=15-19

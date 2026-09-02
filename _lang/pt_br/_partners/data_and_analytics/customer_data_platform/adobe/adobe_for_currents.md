@@ -2,7 +2,7 @@
 nav_title: Adobe para Currents
 article_title: Adobe para Currents
 alias: /partners/adobe_for_currents/
-description: "Este artigo de referência descreve a parceria entre Braze Currents e Adobe, uma CDP or plataforma de dados do cliente or CDP or plataforma de dados do cliente or plataforma de dados do cliente que permite que as marcas conectem e mapeiem seus dados da Adobe (atributos personalizados e Segments) para a Braze em tempo real."
+description: "Este artigo de referência descreve a parceria entre Braze Currents e Adobe, uma CDP que permite que as marcas conectem e mapeiem seus dados da Adobe (atributos personalizados e Segments) para a Braze em tempo real."
 page_type: partner
 tool: Currents
 search_tag: Partner
@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Adobe para Currents {#adobe-for-currents}
 
-> A [Adobe](https://www.adobe.com/) é uma CDP or plataforma de dados do cliente or CDP or plataforma de dados do cliente or plataforma de dados do cliente que permite que as marcas conectem e mapeiem seus dados da Adobe (atributos personalizados e Segments) para a Braze em tempo real.
+> A [Adobe](https://www.adobe.com/) é uma CDP que permite que as marcas conectem e mapeiem seus dados da Adobe (atributos personalizados e Segments) para a Braze em tempo real.
 
 A integração da Braze com a Adobe permite que você controle de forma contínua o fluxo de informações entre os dois sistemas. Com o [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), você também pode conectar dados à Adobe para torná-los acionáveis em toda a growth stack.
 

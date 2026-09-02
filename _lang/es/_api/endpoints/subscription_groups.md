@@ -5,12 +5,12 @@ page_order: 7
 layout: dev_guide
 
 #Required
-description: "Esta página de destino explica y enumera los endpoints de grupos de suscripción de Braze para correo electrónico y servicio de mensajes cortos."
+description: "Esta página de destino explica y enumera los endpoints de grupos de suscripción de Braze para correo electrónico y SMS."
 page_type: landing
 search_tag: Endpoint
 
 guide_top_header: "Endpoints de grupos de suscripción"
-guide_top_text: "Utiliza las REST or transferencia de estado representacional API de grupos de suscripción para gestionar de forma programática los grupos de suscripción almacenados en tu espacio de trabajo de Braze. Esto se aplica a los grupos de suscripción de correo electrónico y servicio de mensajes cortos.<br><br> Para obtener orientación sobre el panel para crear y gestionar grupos, consulta <a href='/docs/user_guide/audience/subscription_preferences/subscription_groups'>Grupos de suscripción</a>."
+guide_top_text: "Utiliza las REST API de grupos de suscripción para gestionar de forma programática los grupos de suscripción almacenados en tu espacio de trabajo de Braze. Esto se aplica a los grupos de suscripción de correo electrónico y SMS.<br><br> Para obtener orientación sobre el panel para crear y gestionar grupos, consulta <a href='/docs/user_guide/audience/subscription_preferences/subscription_groups'>Grupos de suscripción</a>."
 
 guide_featured_title: ""
 guide_featured_list:

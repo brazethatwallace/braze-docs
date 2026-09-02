@@ -151,7 +151,7 @@ Cuando un usuario coincide con los criterios del segmento, filtro y aplicación,
 
 ### Enviar a estos usuarios {#send-to-these-users}
 
-Para canales basados en suscripción (correo electrónico, servicio de mensajes cortos y similares), usa **Send to these users** para enviar tu campaña solo a usuarios que tengan un estado de suscripción específico, como aquellos que están suscritos y han optado por recibir correo electrónico.
+Para canales basados en suscripción (correo electrónico, SMS y similares), usa **Send to these users** para enviar tu campaña solo a usuarios que tengan un estado de suscripción específico, como aquellos que están suscritos y han optado por recibir correo electrónico.
 
 ### Limitar el volumen de envío {#limit-send-volume}
 

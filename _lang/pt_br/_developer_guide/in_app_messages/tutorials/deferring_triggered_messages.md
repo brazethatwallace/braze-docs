@@ -8,7 +8,7 @@ layout: scrolly
 
 # Tutorial: Adiar e restaurar mensagens acionadas {#tutorial-deferring-and-restoring-triggered-messages}
 
-> Siga o código de exemplo neste tutorial para adiar e restaurar mensagens no app acionadas usando o SDK or kit de desenvolvimento de software da Braze.
+> Siga o código de exemplo neste tutorial para adiar e restaurar mensagens no app acionadas usando o SDK da Braze.
 
 {% sdktabs %}
 {% sdktab web %}

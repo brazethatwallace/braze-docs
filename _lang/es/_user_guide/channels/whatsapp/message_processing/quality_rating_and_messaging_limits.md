@@ -29,7 +29,7 @@ Consulta la documentación de Meta para obtener más información sobre [cómo v
 
 ## Rendimiento {#throughput}
 
-Meta inicia cada número de teléfono empresarial registrado con un rendimiento de 80 MPS or mensajes por segundo or mensajes por segundo. Las actualizaciones a 1000 MPS or mensajes por segundo or mensajes por segundo pueden ocurrir automáticamente o bajo solicitud. Información.
+Meta inicia cada número de teléfono empresarial registrado con un rendimiento de 80 MPS. Las actualizaciones a 1000 MPS pueden ocurrir automáticamente o bajo solicitud. Información.
 
 Consulta la documentación de Meta para obtener más información sobre tu [rendimiento](https://developers.facebook.com/docs/whatsapp/cloud-api/overview#throughput).
 

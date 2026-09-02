@@ -19,7 +19,7 @@ Após a configuração, você precisará fornecer uma URL de login e uma URL do 
 |---|---|
 | URL do Assertion Consumer Service (ACS) | `https://<SUBDOMAIN>.braze.com/auth/saml/callback` <br><br> Para domínios da União Europeia, a URL do ACS é `https://<SUBDOMAIN>.braze.eu/auth/saml/callback`. <br><br> Para alguns IdPs, isso também pode ser chamado de URL de resposta, URL de login, URL de público ou URI de público. |
 | Entity ID | `braze_dashboard` por padrão. Se o seu IdP exigir um Entity ID específico da empresa, ative **Custom Entity ID** em **Configurações de segurança** e use `braze_dashboard_<companyID>`. |
-| Chave de API or interface de programação do aplicativo (API) do RelayState | Acesse **Configurações** > **Configuração e teste** > **APIs e identificadores**, abra a guia **Chaves de API or interface de programação do aplicativo (API)** e crie uma chave de API or interface de programação do aplicativo (API) com permissões `sso.saml.login`. Insira a chave de API or interface de programação do aplicativo (API) gerada como o parâmetro `RelayState` no seu IdP. Para etapas detalhadas, consulte [Configurando seu RelayState](#setting-up-your-relaystate). |
+| Chave de API do RelayState | Acesse **Configurações** > **Configuração e teste** > **APIs e identificadores**, abra a guia **Chaves de API** e crie uma chave de API com permissões `sso.saml.login`. Insira a chave de API gerada como o parâmetro `RelayState` no seu IdP. Para etapas detalhadas, consulte [Configurando seu RelayState](#setting-up-your-relaystate). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos" }
 
 ## Configurando o SSO SAML {#setting-up-saml-sso}
@@ -114,16 +114,16 @@ Salve suas configurações de segurança, faça logout e depois faça login nova
 ## Configurando seu RelayState {#setting-up-your-relaystate}
 
 1. Na Braze, acesse **Configurações** > **Configuração e teste** > **APIs e identificadores**.
-2. Na guia **Chaves de API or interface de programação do aplicativo (API)**, selecione o botão **Criar chave de API or interface de programação do aplicativo (API)**.
-3. No campo **Nome da chave de API or interface de programação do aplicativo (API)**, insira um nome para sua chave.
+2. Na guia **Chaves de API**, selecione o botão **Criar chave de API**.
+3. No campo **Nome da chave de API**, insira um nome para sua chave.
 4. Expanda o dropdown **SSO** em **Permissões** e marque **sso.saml.login**.
-5. Selecione **Criar chave de API or interface de programação do aplicativo (API)**.
-6. Na guia **Chaves de API or interface de programação do aplicativo (API)**, copie o identificador ao lado da chave de API or interface de programação do aplicativo (API) que você criou.
-7. Cole a chave de API or interface de programação do aplicativo (API) do RelayState no RelayState do seu provedor de identidade (também pode aparecer como "Relay State" ou "Default Relay State", dependendo do seu provedor de identidade).
+5. Selecione **Criar chave de API**.
+6. Na guia **Chaves de API**, copie o identificador ao lado da chave de API que você criou.
+7. Cole a chave de API do RelayState no RelayState do seu provedor de identidade (também pode aparecer como "Relay State" ou "Default Relay State", dependendo do seu provedor de identidade).
 
 ## Login iniciado pelo IdP {#idp-initiated-login}
 
-Alguns provedores de identidade oferecem suporte ao login iniciado pelo IdP, em que os usuários começam pelo portal do IdP em vez da página de login da Braze. O login iniciado pelo IdP requer uma chave de API or interface de programação do aplicativo (API) RelayState válida e a configuração correta da URL ACS. Guias de configuração específicos por provedor:
+Alguns provedores de identidade oferecem suporte ao login iniciado pelo IdP, em que os usuários começam pelo portal do IdP em vez da página de login da Braze. O login iniciado pelo IdP requer uma chave de API RelayState válida e a configuração correta da URL ACS. Guias de configuração específicos por provedor:
 
 - [Okta]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/okta)
 - [OneLogin]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/onelogin)
@@ -221,7 +221,7 @@ Se você receber o erro `ERROR_CODE_SSO_INVALID_RELAY_STATE`, seu RelayState pod
 
 ### O login SSO bem-sucedido redireciona você para a página de login da Braze? {#does-successful-sso-sign-in-return-you-to-the-braze-login-page}
 
-Isso pode ocorrer quando o RelayState não está configurado corretamente. Confirme que você criou uma chave de API or interface de programação do aplicativo (API) (em **Configurações** > **Configuração e teste** > **APIs e identificadores**) para login pelo IdP e definiu essa chave de API or interface de programação do aplicativo (API) como o parâmetro `RelayState` no seu IdP. O RelayState identifica em qual conta da empresa você está fazendo login. Para instruções passo a passo, consulte [Configurando seu RelayState](#setting-up-your-relaystate).
+Isso pode ocorrer quando o RelayState não está configurado corretamente. Confirme que você criou uma chave de API (em **Configurações** > **Configuração e teste** > **APIs e identificadores**) para login pelo IdP e definiu essa chave de API como o parâmetro `RelayState` no seu IdP. O RelayState identifica em qual conta da empresa você está fazendo login. Para instruções passo a passo, consulte [Configurando seu RelayState](#setting-up-your-relaystate).
 
 Se você ainda não conseguir fazer login, [entre em contato com o suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) com um rastreamento SAML, se possível. Para ajuda sobre como capturar um rastreamento, consulte [Obtendo um rastreamento SAML](#obtaining-a-saml-trace).
 

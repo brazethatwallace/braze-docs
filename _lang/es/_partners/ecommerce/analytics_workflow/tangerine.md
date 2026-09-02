@@ -41,9 +41,9 @@ Trabaja con tu equipo de Braze para habilitar y configurar Snowflake Secure Data
 
 Configura el ID de grupo de aplicaciones de Braze en tu cuenta de servicio Store360 mediante la consola web del administrador de Store360. Esto solicitará al equipo de administración de Tangerine que sincronice los datos de Braze con Store360 mediante el uso compartido de datos de Snowflake.
 
-### Paso 3: Integrar los SDK or kit de desarrollo de software de Store360 en la aplicación móvil {#step-3-integrate-store360-sdks-to-mobile-app}
+### Paso 3: Integrar los SDK de Store360 en la aplicación móvil {#step-3-integrate-store360-sdks-to-mobile-app}
 
-Para realizar un seguimiento y analizar las visitas a la tienda de los usuarios de la aplicación móvil y las actividades en la tienda junto con los datos de campañas e impresiones de Braze, debes integrar el SDK or kit de desarrollo de software de Store360 en tu aplicación móvil siguiendo los pasos que se indican en la documentación de instalación del SDK or kit de desarrollo de software de Store360. Esta documentación te será facilitada tras la firma de un contrato de cliente con Tangerine Store 360.
+Para realizar un seguimiento y analizar las visitas a la tienda de los usuarios de la aplicación móvil y las actividades en la tienda junto con los datos de campañas e impresiones de Braze, debes integrar el SDK de Store360 en tu aplicación móvil siguiendo los pasos que se indican en la documentación de instalación del SDK de Store360. Esta documentación te será facilitada tras la firma de un contrato de cliente con Tangerine Store 360.
 
 ## Analizar datos de Braze en Store360 {#analyze-braze-data-in-store360}
 

@@ -73,7 +73,7 @@ Braze verwendet einen internen HTML-Parser, um E-Mails vor dem Versand aufzubere
 - Ungewöhnliche Abstände durch `<p>`-Tags, die dem E-Mail-Body hinzugefügt werden
 - Inhalte des `<head>`-Tags werden in den Preheader verschoben
 - Inkonsistentes Rendering auf verschiedenen mobilen Betriebssystemen
-- AMP or Accelerated Mobile Pages-spezifischer Code wird aus AMP or Accelerated Mobile Pages-E-Mail-Bodys entfernt, was zu Validierungsfehlern führt
+- AMP-spezifischer Code wird aus AMP-E-Mail-Bodys entfernt, was zu Validierungsfehlern führt
 - Fehlerhafte Links bei Verwendung vieler verschiedener Query-Parameter oder Media Queries
 
 #### HTML innerhalb von Liquid-Blöcken ausgleichen {#balance-html-within-liquid-blocks}

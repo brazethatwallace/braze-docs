@@ -31,7 +31,7 @@ No. Currents utiliza su propio conector y su propia configuración de almacenami
 
 Este es el comportamiento esperado para espacios de trabajo con muchos usuarios. Braze divide tu exportación en varios archivos en función del número de usuarios de tu espacio de trabajo. Por lo general, se genera un archivo por cada 5000 usuarios. Ten en cuenta que si estás exportando un segmento pequeño dentro de un espacio de trabajo grande, es posible que recibas varios archivos.
 
-## ¿Por qué veo duplicados cuando exporto usuarios por segmento a través de la REST or transferencia de estado representacional API? {#why-do-i-see-duplicates-when-i-export-users-by-segment-through-rest-api}
+## ¿Por qué veo duplicados cuando exporto usuarios por segmento a través de la REST API? {#why-do-i-see-duplicates-when-i-export-users-by-segment-through-rest-api}
 
 Se trata de un caso muy poco frecuente causado por la arquitectura subyacente del proveedor de la base de datos. Los duplicados se eliminan cada semana; sin embargo, la mayoría de las semanas no se elimina ningún duplicado.
 

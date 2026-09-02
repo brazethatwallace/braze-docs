@@ -18,8 +18,8 @@ A integração entre a Braze e a Personalize.AI permite exportar dados da Person
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Instância da Personalize.AI | Uma instância da Personalize.AI é necessária para aproveitar esta parceria. |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com todas as permissões. <br><br>Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
-| Endpoint REST or transferir estado representacional da Braze | A URL do seu endpoint REST or transferir estado representacional. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com todas as permissões. <br><br>Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Endpoint REST da Braze | A URL do seu endpoint REST. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
@@ -43,8 +43,8 @@ A integração entre a Braze e a Personalize.AI permite exportar dados da Person
 3. Configure sua integração com a Braze.
     * **Connection Name:** dê um nome para sua conexão. É assim que sua integração será referida na Personalize.AI.
     * **Sync Frequency:** a frequência de sincronização controla com que frequência a Personalize.AI exporta dados para a Braze. Selecione **Daily**, **Weekly** ou **Monthly**.
-    * **API or interface de programação do aplicativo (API) Key:** adicione sua chave de API or interface de programação do aplicativo (API) da Braze.
-    * **API or interface de programação do aplicativo (API) URL:** adicione a URL do seu endpoint REST or transferir estado representacional da Braze.
+    * **API Key:** adicione sua chave de API da Braze.
+    * **API URL:** adicione a URL do seu endpoint REST da Braze.
 4. Clique em **EXPORT** para exportar dados para a Braze.
 
 Depois que seus dados forem exportados, a Personalize.AI continuará a enviar dados para a Braze nos intervalos determinados pela frequência de sincronização que você definiu durante a integração.

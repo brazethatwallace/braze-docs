@@ -1,15 +1,15 @@
 ---
-nav_title: 단문 메시지 서비스
-article_title: 단문 메시지 서비스 엔드포인트
+nav_title: SMS
+article_title: SMS 엔드포인트
 search_tag: Endpoint
 page_order: 6
 layout: dev_guide
 
-description: "이 랜딩 페이지는 Braze 단문 메시지 서비스 엔드포인트를 나열합니다."
+description: "이 랜딩 페이지는 Braze SMS 엔드포인트를 나열합니다."
 page_type: landing
 
-guide_top_header: "단문 메시지 서비스 엔드포인트"
-guide_top_text: "Braze 단문 메시지 서비스 엔드포인트를 사용하여 구독 그룹에서 사용자의 전화번호를 관리하세요."
+guide_top_header: "SMS 엔드포인트"
+guide_top_text: "Braze SMS 엔드포인트를 사용하여 구독 그룹에서 사용자의 전화번호를 관리하세요."
 
 guide_featured_title: ""
 guide_featured_list:

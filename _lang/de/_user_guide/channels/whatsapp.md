@@ -16,7 +16,7 @@ alias: /whatsapp/
 
 ## Voraussetzungen {#prerequisites}
 
-Die Verfügbarkeit von WhatsApp hängt von Ihrem Braze-Paket ab. Wenden Sie sich an Ihren Account Manager:in oder CSM or Customer-Success-Manager or Customer-Success-Manager:in, um loszulegen.
+Die Verfügbarkeit von WhatsApp hängt von Ihrem Braze-Paket ab. Wenden Sie sich an Ihren Account Manager:in oder CSM, um loszulegen.
 
 Bevor Sie beginnen, stellen Sie sicher, dass Sie Folgendes haben:
 

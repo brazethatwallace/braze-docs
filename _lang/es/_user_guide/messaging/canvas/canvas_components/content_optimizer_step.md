@@ -13,7 +13,7 @@ page_type: reference
 > El paso del Optimizador de contenidos te permite configurar y probar múltiples versiones de componentes de contenido dentro de un solo paso. Te ayuda a experimentar con variaciones de contenido y optimiza automáticamente hacia las combinaciones de mejor rendimiento a lo largo del tiempo. Para una introducción, consulta [Optimizador de contenidos]({{site.baseurl}}/user_guide/brazeai/content_optimizer).
 
 {% alert important %}
-El Optimizador de contenidos está actualmente en beta. Para obtener ayuda para empezar, ponte en contacto con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente.
+El Optimizador de contenidos está actualmente en beta. Para obtener ayuda para empezar, ponte en contacto con tu CSM.
 {% endalert %}
 
 ## Crear un paso de Otimizador de Contenido {#create-a-content-optimizer-step}
@@ -29,7 +29,7 @@ Arrastra y suelta el componente **Otimizador de Contenido** desde la barra later
 El mensaje base es el punto de partida para tu paso. Las variantes de cada componente de contenido se insertan dinámicamente en función de las combinaciones definidas en la pestaña **Configuración del Otimizador de Contenido**.
 
 {% alert note %}
-Durante el periodo beta, los canales compatibles son correo electrónico, notificaciones push y servicio de mensajes cortos/MMS/RCS.
+Durante el periodo beta, los canales compatibles son correo electrónico, notificaciones push y SMS/MMS/RCS.
 {% endalert %}
 
 {% tabs local %}
@@ -59,9 +59,9 @@ Los componentes compatibles para optimizar incluyen:
 - Mensaje
 
 {% endtab %}
-{% tab servicio de mensajes cortos/MMS/RCS %}
+{% tab SMS/MMS/RCS %}
 
-Desde la pestaña **Canales de mensajería**, selecciona **servicio de mensajes cortos/MMS/RCS** y crea tu mensaje base. Consulta nuestra sección dedicada de [servicio de mensajes cortos/MMS/RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs) para obtener ayuda.
+Desde la pestaña **Canales de mensajería**, selecciona **SMS/MMS/RCS** y crea tu mensaje base. Consulta nuestra sección dedicada de [SMS/MMS/RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs) para obtener ayuda.
 
 El Otimizador de Contenido utiliza los detalles de **Contenido** y **Mensaje** especificados en esta variante para enviar todos los mensajes. Puedes empezar con un nuevo diseño o seleccionar una plantilla existente para este mensaje. En este paso, considera qué componentes del mensaje deseas optimizar. Los defines en el [paso 4](#step-4).
 
@@ -84,7 +84,7 @@ Los componentes de contenido son los elementos individuales de tu mensaje que de
 
 - **Correo electrónico:** puedes añadir hasta tres componentes de contenido por paso y hasta cinco variantes por componente, para un total de 125 combinaciones de contenido únicas.
 - **Notificaciones push:** puedes añadir hasta dos componentes por paso y hasta cinco variantes por componente, para un total de 25 combinaciones de contenido únicas.
-- **servicio de mensajes cortos/MMS/RCS:** puedes añadir hasta dos componentes de contenido por paso y hasta cinco variantes por componente, para un total de 25 combinaciones de contenido únicas.
+- **SMS/MMS/RCS:** puedes añadir hasta dos componentes de contenido por paso y hasta cinco variantes por componente, para un total de 25 combinaciones de contenido únicas.
 
 Cuando usas **Generar sugerencias de IA**, Braze envía contenido a OpenAI para generar ideas de variantes. La asignación de tráfico en el momento del envío no utiliza OpenAI. Para obtener detalles sobre qué datos se envían y cómo se utilizan, consulta [OpenAI y Otimizador de Contenido]({{site.baseurl}}/user_guide/brazeai/content_optimizer#openai-and-content-optimizer).
 
@@ -124,14 +124,14 @@ Para cada componente seleccionado, define un conjunto de versiones alternativas 
 ![Configuración del Otimizador de Contenido que muestra opciones para añadir y configurar componentes de contenido para la optimización push.]({% image_buster /assets/img/content_optimizer/add_content_components_push.png %})
 
 {% endtab %}
-{% tab servicio de mensajes cortos/MMS/RCS %}
+{% tab SMS/MMS/RCS %}
 
-Después de seleccionar tu grupo de suscripción y tipo de mensaje (si corresponde), elige qué componentes deseas optimizar para servicio de mensajes cortos/MMS/RCS. Las opciones compatibles son:
+Después de seleccionar tu grupo de suscripción y tipo de mensaje (si corresponde), elige qué componentes deseas optimizar para SMS/MMS/RCS. Las opciones compatibles son:
 - Gancho
 - Cuerpo
 - CTA
 {% alert note %}
-Después de que se lance un paso de Otimizador de Contenido para servicio de mensajes cortos/MMS/RCS, no puedes actualizar el grupo de suscripción ni el tipo de mensaje.
+Después de que se lance un paso de Otimizador de Contenido para SMS/MMS/RCS, no puedes actualizar el grupo de suscripción ni el tipo de mensaje.
 {% endalert %}
 Para cada componente seleccionado, define un conjunto de versiones alternativas de ese contenido (variantes). Usa variantes claras y distintas que difieran en tono, estructura o contenido. Esto ayuda al Otimizador de Contenido a identificar los de mejor rendimiento de manera más eficaz. Puedes:
   - Escribir tus propias variantes manualmente.
@@ -165,9 +165,9 @@ A medida que el Canvas se ejecuta, el Otimizador de Contenido mezcla y combina v
 | Correo electrónico | CTA principal | {% raw %}`{% message_component "Primary CTA" %}`{% endraw %} |
 | Push | Título | {% raw %}`{% message_component "Title" %}`{% endraw %} |
 | Push | Mensaje | {% raw %}`{% message_component "Message" %}`{% endraw %} |
-| servicio de mensajes cortos/MMS/RCS | Gancho | {% raw %}`{% message_component "Hook" %}`{% endraw %} |
-| servicio de mensajes cortos/MMS/RCS | Cuerpo | {% raw %}`{% message_component "Body" %}`{% endraw %} |
-| servicio de mensajes cortos/MMS/RCS | CTA | {% raw %}`{% message_component "CTA" %}`{% endraw %} |
+| SMS/MMS/RCS | Gancho | {% raw %}`{% message_component "Hook" %}`{% endraw %} |
+| SMS/MMS/RCS | Cuerpo | {% raw %}`{% message_component "Body" %}`{% endraw %} |
+| SMS/MMS/RCS | CTA | {% raw %}`{% message_component "CTA" %}`{% endraw %} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Referencias de Liquid" }
 
 #### Token de combinación {#combination-token}
@@ -238,16 +238,16 @@ Los clics excluidos no cuentan para el evento de optimización, por lo que no in
 Para notificaciones push, puedes optimizar **Aperturas**. Esto optimiza las combinaciones que logran que los destinatarios abran la notificación push. Puedes usar este evento de optimización para probar variaciones en el título o en el texto del mensaje.
 
 {% endtab %}
-{% tab servicio de mensajes cortos/MMS/RCS %}
+{% tab SMS/MMS/RCS %}
 
-Para mensajes servicio de mensajes cortos y MMS, puedes optimizar **Clics**. Para mensajes RCS, puedes optimizar **Lecturas** o **Clics**.
+Para mensajes SMS y MMS, puedes optimizar **Clics**. Para mensajes RCS, puedes optimizar **Lecturas** o **Clics**.
 
 Para que el paso tenga un evento para optimizar:
-- Los mensajes servicio de mensajes cortos y MMS deben contener un enlace.
+- Los mensajes SMS y MMS deben contener un enlace.
 - Los mensajes RCS deben contener un enlace o una respuesta sugerida.
 
 {% alert note %}
-En este momento, la mensajería RCS con el Otimizador de Contenido no admite alternativas de servicio de mensajes cortos.
+En este momento, la mensajería RCS con el Otimizador de Contenido no admite alternativas de SMS.
 {% endalert %}
 {% endtab %}
 {% endtabs %}
@@ -276,7 +276,7 @@ Si tu paso entra en el estado Action Recommended, considera lo siguiente:
 
 Después de lanzar tu Canvas, puedes actualizar un paso del Otimizador de Contenido en ejecución abriéndolo en el editor de Canvas. Puedes:
 
-{% multi_lang_include messaging/Canvas/content_optimizer_launched_step_actions.md %}
+{% multi_lang_include messaging/canvas/content_optimizer_launched_step_actions.md %}
 
 {% alert note %}
 Braze asigna a cada usuario una combinación de contenido cuando entra en el paso del Optimizador de Contenido. Si su envío se retrasa por controles de entrega como los límites de velocidad, la sincronización inteligente o las horas tranquilas, es posible que aún reciba una variante que hayas desactivado. Para detener estos envíos de forma urgente, sigue los mismos pasos que para un paso de Mensaje. Para más información, consulta [Detener Canvas]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#stopping-canvases).
@@ -290,7 +290,7 @@ Los siguientes ajustes no se pueden cambiar después del lanzamiento:
 - Los componentes que se están probando
 - El evento de optimización
 
-Para pasos de servicio de mensajes cortos/MMS/RCS, el grupo de suscripción y el tipo de mensaje tampoco se pueden cambiar después del lanzamiento.
+Para pasos de SMS/MMS/RCS, el grupo de suscripción y el tipo de mensaje tampoco se pueden cambiar después del lanzamiento.
 
 ## Prácticas recomendadas {#best-practices}
 
@@ -305,7 +305,7 @@ Para pasos de servicio de mensajes cortos/MMS/RCS, el grupo de suscripción y el
 
 - La configuración multilingüe no es compatible con los pasos del Optimizador de Contenido. En su lugar, usa un paso del Optimizador de Contenido por idioma y ramifica los recorridos individualmente.
 - Las etiquetas de Liquid para los componentes del Optimizador de Contenido no son compatibles con los pasos de Mensaje, por lo que Liquid se interrumpe en los pasos de Mensaje.
-- Una vez que se lanza un paso del Optimizador de Contenido, no puedes cambiar qué componentes se están probando, el contenido de las variantes activas existentes ni el evento de optimización. Para los pasos de servicio de mensajes cortos/MMS/RCS, el grupo de suscripción y el tipo de mensaje tampoco se pueden cambiar.
+- Una vez que se lanza un paso del Optimizador de Contenido, no puedes cambiar qué componentes se están probando, el contenido de las variantes activas existentes ni el evento de optimización. Para los pasos de SMS/MMS/RCS, el grupo de suscripción y el tipo de mensaje tampoco se pueden cambiar.
 
 ## Análisis {#analytics}
 

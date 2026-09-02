@@ -18,13 +18,13 @@ alias: /api/api_key/
 | [카탈로그]({{site.baseurl}}/api/endpoints/catalogs)                       | Braze Campaigns에서 참조할 카탈로그 및 카탈로그 항목을 생성하고 관리합니다.    |
 | [클라우드 데이터 수집]({{site.baseurl}}/api/endpoints/cdi)                | 데이터 웨어하우스 통합 및 동기화를 관리합니다.                                    |
 | [이메일 목록 및 주소]({{site.baseurl}}/api/endpoints/email)         | Braze와 이메일 시스템 간의 양방향 동기화를 설정하고 관리합니다.           |
-| [내보내기]({{site.baseurl}}/api/endpoints/export)                           | Campaigns, Canvases, KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or 핵심 성과 지표(KPI or 핵심 성과 지표(KPI)) 등의 다양한 세부 정보에 액세스하고 내보냅니다.        |
+| [내보내기]({{site.baseurl}}/api/endpoints/export)                           | Campaigns, Canvases, 핵심 성과 지표(KPI) 등의 다양한 세부 정보에 액세스하고 내보냅니다.        |
 | [미디어 라이브러리]({{site.baseurl}}/api/endpoints/media_library)             | Braze 내 에셋을 관리합니다.                                                           |
 | [메시지]({{site.baseurl}}/api/endpoints/messaging)                      | Campaigns와 Canvases를 예약하고 전송하며 관리합니다.                               |
 | [환경설정 센터]({{site.baseurl}}/api/endpoints/preference_center)     | 환경설정 센터를 구축하고 스타일을 업데이트합니다.                            |
 | [SCIM]({{site.baseurl}}/api/endpoints/scim)                               | 클라우드 기반 애플리케이션 및 서비스에서 사용자 ID를 관리합니다.                      |
-| [단문 메시지 서비스]({{site.baseurl}}/api/endpoints/sms)                                 | 구독 그룹 내 사용자의 전화번호를 관리합니다.                         |
-| [구독 그룹]({{site.baseurl}}/api/endpoints/subscription_groups) | Braze 대시보드에 저장된 단문 메시지 서비스 및 이메일 구독 그룹을 조회하고 업데이트합니다. |
+| [SMS]({{site.baseurl}}/api/endpoints/sms)                                 | 구독 그룹 내 사용자의 전화번호를 관리합니다.                         |
+| [구독 그룹]({{site.baseurl}}/api/endpoints/subscription_groups) | Braze 대시보드에 저장된 SMS 및 이메일 구독 그룹을 조회하고 업데이트합니다. |
 | [템플릿]({{site.baseurl}}/api/endpoints/templates)                     | 이메일 메시징 및 Content Blocks용 템플릿을 생성하고 업데이트합니다.                   |
 | [사용자 데이터]({{site.baseurl}}/api/endpoints/user_data)                     | 사용자를 식별하고 추적하며 관리합니다.                                               |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Braze REST API 컬렉션" }
@@ -210,7 +210,7 @@ API 키 권한은 사용자 또는 그룹에 할당하여 특정 API 호출에 �
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API 키 권한" }
 
 {% endtab %}
-{% tab KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or 핵심 성과 지표(KPI or 핵심 성과 지표(KPI)) %}
+{% tab 핵심 성과 지표(KPI) %}
 
 | 권한 | 엔드포인트 | 설명 |
 |---|---|---|
@@ -272,7 +272,7 @@ API 키 권한은 사용자 또는 그룹에 할당하여 특정 API 호출에 �
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API 키 권한" }
 
 {% endtab %}
-{% tab 단문 메시지 서비스 %}
+{% tab SMS %}
 
 | 권한 | 엔드포인트 | 설명 |
 |---|---|---|

@@ -41,7 +41,7 @@ By integrating Braze with your ChatGPT App, you ensure that every AI interaction
 
 Antes de integrar a Braze ao seu aplicativo ChatGPT, você deve ter o seguinte:
 
-- Um novo app web e uma chave de API or interface de programação do aplicativo (API) em seu espaço de trabalho da Braze
+- Um novo app web e uma chave de API em seu espaço de trabalho da Braze
 - Um [app ChatGPT](https://openai.com/index/introducing-apps-in-chatgpt/) criado na plataforma OpenAI ([app de exemplo da OpenAI](https://github.com/openai/openai-apps-sdk-examples))
 
 {% multi_lang_include developer_guide/chatgpt_apps/sdk_integration.md %}

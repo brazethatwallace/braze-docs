@@ -16,7 +16,7 @@ alias: /line/
 
 ## Voraussetzungen {#prerequisites}
 
-Die Verfügbarkeit von LINE hängt von Ihrem Braze-Paket ab. Kontaktieren Sie Ihren Account Manager:in oder CSM or Customer-Success-Manager or Customer-Success-Manager:in, um loszulegen.
+Die Verfügbarkeit von LINE hängt von Ihrem Braze-Paket ab. Kontaktieren Sie Ihren Account Manager:in oder CSM, um loszulegen.
 
 Bevor Sie beginnen, stellen Sie sicher, dass Sie über Folgendes verfügen:
 

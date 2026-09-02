@@ -91,7 +91,7 @@ Pour plus d'informations, consultez la documentation de Meta sur l'[archivage de
 - Auparavant ouvert à tous les clients via WhatsApp gestionnaire
 - Désormais restreint aux : gouvernements/grands annonceurs Meta, annonceurs directs, ou via un BSP comme Braze (jusqu'à 5 par semaine)
 - Nouveaux prérequis : vérification de l'entreprise, vérification en deux étapes, nom d'affichage approuvé, notoriété
-- Contactez votre CSM or gestionnaire de la satisfaction client or gestionnaire du succès des clients pour obtenir de l'aide
+- Contactez votre CSM pour obtenir de l'aide
 
 ### Octobre 2025 : Réduction des tarifs régionaux {#october-2025-regional-pricing-rate-cuts}
 *Dernière mise à jour : mars 2026*

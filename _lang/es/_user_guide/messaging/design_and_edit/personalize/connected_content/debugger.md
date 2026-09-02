@@ -26,7 +26,7 @@ El depurador de contenido conectado está disponible para las siguientes áreas:
     - Excluye pies de página y páginas de suscripción
 - Mensajes dentro de la aplicación
 - Notificaciones push
-- servicio de mensajes cortos/MMS/RCS
+- SMS/MMS/RCS
 - Webhooks
     - Incluye plantillas
 - WhatsApp

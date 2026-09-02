@@ -12,13 +12,13 @@ search_rank: 5
 
 # Mensagens no app {#in-app-messages}
 
-> As mensagens no app entregam conteúdo dentro do seu app ou website sem interromper os usuários com uma notificação por push. Mensagens no app personalizadas aprimoram a experiência do usuário e ajudam seu público a extrair mais valor do seu produto por meio de layouts, personalização e ferramentas de direcionamento. Este hub abrange tipos de mensagem, o editor de arrastar e soltar, pré-requisitos e casos de uso comuns, como integração e promoções. Integre o [SDK or kit de desenvolvimento de software da Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web) antes de criar sua primeira mensagem no app e, em seguida, escolha um layout padrão ou personalizado para sua Campaign.
+> As mensagens no app entregam conteúdo dentro do seu app ou website sem interromper os usuários com uma notificação por push. Mensagens no app personalizadas aprimoram a experiência do usuário e ajudam seu público a extrair mais valor do seu produto por meio de layouts, personalização e ferramentas de direcionamento. Este hub abrange tipos de mensagem, o editor de arrastar e soltar, pré-requisitos e casos de uso comuns, como integração e promoções. Integre o [SDK da Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web) antes de criar sua primeira mensagem no app e, em seguida, escolha um layout padrão ou personalizado para sua Campaign.
 
 ## Pré-requisitos {#prerequisites}
 
-Antes de enviar mensagens no app, você precisa integrar o [SDK or kit de desenvolvimento de software da Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web) no seu app ou website. Nenhuma configuração adicional é necessária.
+Antes de enviar mensagens no app, você precisa integrar o [SDK da Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web) no seu app ou website. Nenhuma configuração adicional é necessária.
 
-Para versões mínimas do SDK or kit de desenvolvimento de software e requisitos específicos de recursos, consulte:
+Para versões mínimas do SDK e requisitos específicos de recursos, consulte:
 - [Editor de arrastar e soltar]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)
 - [Tipos de mensagem]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types)
 

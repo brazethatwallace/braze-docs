@@ -62,7 +62,7 @@ Verschiedene Endpunkte können neue Variablen erfordern. Zum Beispiel erfordert 
 5. Wählen Sie **Done**, um Ihren Content-Block zu speichern.
 6. Geben Sie Ihrem Content-Block einen beschreibenden Namen, z. B. „Contentful API“, und wählen Sie dann **Launch Content Block**.
 
-### 3. Schritt: Connected-Content in Kampagnen und Canvase verwenden {#step-3-use-connected-content-in-campaigns-and-canvasses}
+### 3. Schritt: Connected-Content in Kampagnen und Canvases verwenden {#step-3-use-connected-content-in-campaigns-and-canvasses}
 
 1. Erstellen Sie in Braze eine neue Kampagne oder bearbeiten Sie eine bestehende.
 2. Verwenden Sie den Connected-Content-Block, um von Contentful abgerufene Daten einzufügen. Nutzen Sie die Datenpfade, die Sie bei der Konfiguration festgelegt haben, um den Inhalt der Kampagne dynamisch zu füllen.<br><br>

@@ -236,6 +236,6 @@ Para obtener ayuda con las exportaciones de CSV y API, visita [Solución de prob
 
 ### Ver fallos de entrega para Campaigns activadas por API {#viewing-delivery-failures-for-api-triggered-campaigns}
 
-El endpoint [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) devuelve estadísticas diarias agregadas (por ejemplo, `delivery_failed` para servicio de mensajes cortos o `errors` para webhooks). No devuelve los motivos de fallo por destinatario.
+El endpoint [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) devuelve estadísticas diarias agregadas (por ejemplo, `delivery_failed` para SMS o `errors` para webhooks). No devuelve los motivos de fallo por destinatario.
 
 Para fallos de envío por mensaje, rebotes y cancelaciones de Campaigns activadas por API, usa el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) en el panel. Para informes personalizados sobre eventos de envío y entrega, usa [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder) con [plantillas de consulta]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates) o SQL personalizado. También puedes transmitir eventos de fallo a través de Currents o Snowflake Data Sharing si tu espacio de trabajo tiene esos productos habilitados.

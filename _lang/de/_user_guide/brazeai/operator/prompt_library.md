@@ -15,34 +15,34 @@ description: "Durchsuchen Sie Beispiel-Prompts für BrazeAI Operator, organisier
 {% sdktabs local %}
 {% sdktab Datenanalyse %}
 
-{% include copy_block.html content="Fassen Sie die wichtigsten Trends für MAU or monatlich aktive:r Nutzer:in, täglich aktive:r Nutzer:in; täglich aktiv und neue Nutzer:innen in diesem Zeitraum zusammen und nennen Sie die nächsten Schritte." available="Home page" %}
+{% include copy_block.html content="Fassen Sie die wichtigsten Trends für MAU, täglich aktive:r Nutzer:in; täglich aktiv und neue Nutzer:innen in diesem Zeitraum zusammen und nennen Sie die nächsten Schritte." available="Home page" %}
 
-{% include copy_block.html content="Zeigen Sie die MAU or monatlich aktive:r Nutzer:in-, täglich aktive:r Nutzer:in; täglich aktiv- und Neue-Nutzer:innen-Trends der letzten 90 Tage – wo sind die größten Einbrüche und Spitzen?" available="Home page" %}
+{% include copy_block.html content="Zeigen Sie die MAU-, täglich aktive:r Nutzer:in; täglich aktiv- und Neue-Nutzer:innen-Trends der letzten 90 Tage – wo sind die größten Einbrüche und Spitzen?" available="Home page" %}
 
 {% include copy_block.html content="Schlüsseln Sie die Sitzungen nach App auf (falls verfügbar) und heben Sie hervor, welche App diesen Monat das meiste Wachstum antreibt." available="Home page" %}
 
 {% include copy_block.html content="Geben Sie mir einen 5-Punkte-Gesundheitscheck unseres Engagement-Programms für die letzten 30 Tage mit den größten Chancen." available="Home page" %}
 
-{% include copy_block.html content="Welche aktiven Canvase haben im FY26 Q1 die meisten zugeordneten Conversions und den meisten Umsatz erzielt (7-Tage-Attribution)?" available="Canvas" %}
+{% include copy_block.html content="Welche aktiven Canvases haben im FY26 Q1 die meisten zugeordneten Conversions und den meisten Umsatz erzielt (7-Tage-Attribution)?" available="Canvas" %}
 
 {% include copy_block.html content="Fassen Sie diesen Campaign-Digest in 5 Punkten zusammen: größte Erfolge, größte Probleme und was sich im Vergleich zum vorherigen Zeitraum geändert hat." available="Campaigns" %}
 
 {% endsdktab %}
 {% sdktab Strategie und Optimierung %}
 
-{% include copy_block.html content="Welche 3 Möglichkeiten gibt es, diese App-Nutzungs-Insights zu nutzen, um einen Re-Engagement-Canvas für Nutzer:innen mit Abwanderung or Abwanderung, Churn or Abwanderung, churnen-Risiko zu gestalten?" available="Home page" %}
+{% include copy_block.html content="Welche 3 Möglichkeiten gibt es, diese App-Nutzungs-Insights zu nutzen, um einen Re-Engagement-Canvas für Nutzer:innen mit Abwanderung-Risiko zu gestalten?" available="Home page" %}
 
 {% include copy_block.html content="Was bedeutet unsere x%-Kundenbindung, und welche 3 Möglichkeiten gibt es, sie mit Lifecycle-Messaging zu verbessern?" available="Home page" %}
 
-{% include copy_block.html content="Welche 3 Möglichkeiten gibt es, unsere aktiven Lifecycle-Canvase zu optimieren, um die Aktivierung zu steigern und Abwanderung or Abwanderung, Churn or Abwanderung, churnen zu reduzieren?" available="Canvas" %}
+{% include copy_block.html content="Welche 3 Möglichkeiten gibt es, unsere aktiven Lifecycle-Canvases zu optimieren, um die Aktivierung zu steigern und Abwanderung zu reduzieren?" available="Canvas" %}
 
-{% include copy_block.html content="Welche 3 Möglichkeiten gibt es, unsere Onboarding-Canvase umzustrukturieren, um Abbrüche zu reduzieren und die Aktivierung zu verbessern?" available="Canvas" %}
+{% include copy_block.html content="Welche 3 Möglichkeiten gibt es, unsere Onboarding-Canvases umzustrukturieren, um Abbrüche zu reduzieren und die Aktivierung zu verbessern?" available="Canvas" %}
 
-{% include copy_block.html content="Zeigen Sie meine inaktiven Canvase und fassen Sie zusammen, was sie zuletzt gesendet haben und wann Nutzer:innen zuletzt eingetreten sind (letzte 90 Tage)." available="Canvas" %}
+{% include copy_block.html content="Zeigen Sie meine inaktiven Canvases und fassen Sie zusammen, was sie zuletzt gesendet haben und wann Nutzer:innen zuletzt eingetreten sind (letzte 90 Tage)." available="Canvas" %}
 
-{% include copy_block.html content="Wie können wir das Segment [Ihr Segmentname] nutzen, um eine Re-Engagement-Journey aufzubauen und Abwanderung or Abwanderung, Churn or Abwanderung, churnen zu reduzieren?" available="Segments" %}
+{% include copy_block.html content="Wie können wir das Segment [Ihr Segmentname] nutzen, um eine Re-Engagement-Journey aufzubauen und Abwanderung zu reduzieren?" available="Segments" %}
 
-{% include copy_block.html content="Wie sollten wir Frequency-Capping-Segmenterweiterungen (E-Mail/Kurzmitteilungsdienst or SMS/48 h) strukturieren, um Über-Messaging zu reduzieren, ohne Conversions zu beeinträchtigen?" available="Segment Extensions" %}
+{% include copy_block.html content="Wie sollten wir Frequency-Capping-Segmenterweiterungen (E-Mail/SMS/48 h) strukturieren, um Über-Messaging zu reduzieren, ohne Conversions zu beeinträchtigen?" available="Segment Extensions" %}
 
 {% include copy_block.html content="Welche 3 wirkungsvollen Berichte sollten wir hier erstellen, um die wöchentliche Campaign- und Canvas-Performance zu überwachen und Probleme frühzeitig zu erkennen?" available="Report Builder" %}
 
@@ -51,11 +51,11 @@ description: "Durchsuchen Sie Beispiel-Prompts für BrazeAI Operator, organisier
 
 {% include copy_block.html content="Erstellen Sie einen Canvas, der 1 Stunde nach Warenkorb-Abbruch wartet, eine E-Mail-Erinnerung sendet und dann nach 24 Stunden eine Push-Benachrichtigung sendet, wenn die Nutzer:innen noch nicht gekauft haben." %}
 
-{% include copy_block.html content="Update or aktualisieren or aktualisieren Sie meinen Warenkorb-Abbruch-Canvas, um nach der E-Mail-Erinnerung eine Push-Nachricht hinzuzufügen." %}
+{% include copy_block.html content="Aktualisieren Sie meinen Warenkorb-Abbruch-Canvas, um nach der E-Mail-Erinnerung eine Push-Nachricht hinzuzufügen." %}
 
 {% include copy_block.html content="Erstellen Sie ein Segment von Nutzer:innen, die in den letzten 30 Tagen einen Kauf getätigt, aber die App in den letzten 7 Tagen nicht geöffnet haben." %}
 
-{% include copy_block.html content="Erstellen Sie mir einen Bericht, der das Kurzmitteilungsdienst or SMS-Engagement unseres Workspace in den letzten 30 Tagen zeigt." %}
+{% include copy_block.html content="Erstellen Sie mir einen Bericht, der das SMS-Engagement unseres Workspace in den letzten 30 Tagen zeigt." %}
 
 {% endsdktab %}
 {% sdktab Messaging-Performance %}
@@ -72,7 +72,7 @@ description: "Durchsuchen Sie Beispiel-Prompts für BrazeAI Operator, organisier
 
 {% include copy_block.html content="Wie viel zugeordneten Umsatz und wie viele Conversions haben Campaigns für Nutzer:innen generiert, die durch unsere Caps in den letzten 30 Tagen ausgeschlossen wurden (7-Tage-Fenster)?" available="Segment Extensions" %}
 
-{% include copy_block.html content="Vergleichen Sie unsere E-Mail-Öffnungsrate und Klick, der or klicken-through-Rate mit Branchen-Benchmarks für die letzten 30 Tage." available="Email Performance" %}
+{% include copy_block.html content="Vergleichen Sie unsere E-Mail-Öffnungsrate und Klick, der-through-Rate mit Branchen-Benchmarks für die letzten 30 Tage." available="Email Performance" %}
 
 {% include copy_block.html content="Welche E-Mail-Campaigns hatten die niedrigste CTR (bei hohen Öffnungen) in den letzten 30 Tagen?" available="Email Performance" %}
 
@@ -101,7 +101,7 @@ description: "Durchsuchen Sie Beispiel-Prompts für BrazeAI Operator, organisier
 
 {% include copy_block.html content="Helfen Sie mir, eine Nachricht zu schreiben, die Nutzer:innen ermutigt, zurückzukommen und zur Kasse zu gehen, wenn sie noch Artikel im Warenkorb haben." available="Message composer" %}
 
-{% include copy_block.html content="Schreiben Sie Liquid, um eine Nachricht basierend auf dem Land der Kund:innen zu personalisieren. Ich möchte den Ländernamen in die Nachricht einfügen. Falls wir keines von beiden haben, schlagen Sie vor, auf einen Link zu klicken, um das Profil zu Update or aktualisieren or aktualisieren." available="Message composer" %}
+{% include copy_block.html content="Schreiben Sie Liquid, um eine Nachricht basierend auf dem Land der Kund:innen zu personalisieren. Ich möchte den Ländernamen in die Nachricht einfügen. Falls wir keines von beiden haben, schlagen Sie vor, auf einen Link zu klicken, um das Profil zu aktualisieren." available="Message composer" %}
 
 {% include copy_block.html content="Wie kann ich eine Willkommensnachricht mit dem Vornamen der Nutzer:innen personalisieren und unterschiedliche Texte basierend auf dem Geschlecht schreiben?" available="Message composer" %}
 
@@ -133,7 +133,7 @@ description: "Durchsuchen Sie Beispiel-Prompts für BrazeAI Operator, organisier
 
 {% include copy_block.html content="Schreiben Sie Transformationscode, der diesen Umfrage-Webhook einem angepassten Event im Profil der Nutzer:innen zuordnet." available="Data Transformation" %}
 
-{% include copy_block.html content="Update or aktualisieren or aktualisieren Sie diese Transformation, um Nutzer:innen anhand der E-Mail-Adresse statt der externen ID zu identifizieren." available="Data Transformation" %}
+{% include copy_block.html content="Aktualisieren Sie diese Transformation, um Nutzer:innen anhand der E-Mail-Adresse statt der externen ID zu identifizieren." available="Data Transformation" %}
 
 {% endsdktab %}
 {% sdktab Zielgruppenverwaltung %}

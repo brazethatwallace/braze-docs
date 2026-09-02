@@ -1,16 +1,16 @@
 ---
-nav_title: Swift SDK or kit de desarrollo de software
-article_title: Guía del repositorio del Swift SDK or kit de desarrollo de software
+nav_title: Swift SDK
+article_title: Guía del repositorio del Swift SDK
 page_order: 3
-description: "Referencia del README del SDK or kit de desarrollo de software Swift de Braze reflejada desde GitHub."
+description: "Referencia del README del SDK Swift de Braze reflejada desde GitHub."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
-# Guía del repositorio del Swift SDK or kit de desarrollo de software {#swift-sdk-repository-guide}
+# Guía del repositorio del Swift SDK {#swift-sdk-repository-guide}
 
-## Acerca del SDK or kit de desarrollo de software Swift de Braze {#about-the-braze-swift-sdk}
+## Acerca del SDK Swift de Braze {#about-the-braze-swift-sdk}
 
-El SDK or kit de desarrollo de software Swift de Braze te ayuda a integrar las funcionalidades de mensajería, análisis y participación de usuarios de Braze en tu aplicación.
+El SDK Swift de Braze te ayuda a integrar las funcionalidades de mensajería, análisis y participación de usuarios de Braze en tu aplicación.
 
 Para empezar, consulta los siguientes recursos:
 
@@ -19,7 +19,7 @@ Para empezar, consulta los siguientes recursos:
 
 ## Inicio rápido {#quickstart}
 
-Los siguientes fragmentos de código muestran la configuración mínima necesaria para añadir el SDK or kit de desarrollo de software Swift de Braze a tu aplicación.
+Los siguientes fragmentos de código muestran la configuración mínima necesaria para añadir el SDK Swift de Braze a tu aplicación.
 
 ``` swift
 // AppDelegate.swift
@@ -55,7 +55,7 @@ Para obtener más información sobre las opciones de integración avanzada, cons
 
 ## Compatibilidad de versiones {#version-support}
 
-La siguiente tabla enumera las versiones mínimas compatibles con las herramientas utilizadas por el SDK or kit de desarrollo de software Swift de Braze.
+La siguiente tabla enumera las versiones mínimas compatibles con las herramientas utilizadas por el SDK Swift de Braze.
 
 Herramienta | Versión mínima compatible
 :----|:----
@@ -71,13 +71,13 @@ Xcode|26.0+ (17A324)
 
 ## Bibliotecas {#libraries}
 
-La siguiente tabla describe cada biblioteca del SDK or kit de desarrollo de software Swift de Braze.
+La siguiente tabla describe cada biblioteca del SDK Swift de Braze.
 
 <!-- Table generated with https://www.tablesgenerator.com/markdown_tables -->
 
 |                                                                                                                                          | iOS |     tvOS      | macCatalyst |   visionOS    |
 |------------------------------------------------------------------------------------------------------------------------------------------|:---:|:-------------:|:-----------:|:-------------:|
-| **BrazeKit**<br/> _Biblioteca principal del SDK or kit de desarrollo de software que proporciona compatibilidad con [análisis] y [notificaciones push]._                  |  ✅  | ✅<sup>1</sup> |      ✅      |       ✅       |
+| **BrazeKit**<br/> _Biblioteca principal del SDK que proporciona compatibilidad con [análisis] y [notificaciones push]._                  |  ✅  | ✅<sup>1</sup> |      ✅      |       ✅       |
 | **BrazeUI**<br/> _Biblioteca de interfaz de usuario proporcionada por Braze para [In-App Messages] y [Content Cards]._                   |  ✅  |      n/a      |      ✅      |       ✅       |
 | **BrazeLocation**<br/> _Biblioteca de ubicación que proporciona compatibilidad con [análisis de ubicación y monitorización de geovallas]._ |  ✅  | ✅<sup>2</sup> |      ✅      | ✅<sup>2</sup> |
 | **BrazeNotificationService**<br/> _Biblioteca de extensión del servicio de notificaciones que proporciona compatibilidad con [notificaciones push enriquecidas]._ |  ✅  |      n/a      |      ✅      |       ✅       |
@@ -101,22 +101,22 @@ Explora nuestro [proyecto de ejemplos](https://github.com/braze-inc/braze-swift-
 
 ## Repositorios alternativos {#alternative-repositories}
 
-| Variante                              |                                    Repositorio | Incidencias en GH, información del SDK or kit de desarrollo de software |
+| Variante                              |                                    Repositorio | Incidencias en GH, información del SDK |
 |---------------------------------------|-----------------------------------------------:|---------------------------------------:|
-| → **Sources and Static XCFrameworks** |                    [braze-inc/braze-swift-SDK or kit de desarrollo de software] |                                      ✓ |
-| Static XCFrameworks                   |    [braze-inc/braze-swift-SDK or kit de desarrollo de software-prebuilt-static] |                                      ✗ |
-| Dynamic XCFrameworks                  |   [braze-inc/braze-swift-SDK or kit de desarrollo de software-prebuilt-dynamic] |                                      ✗ |
-| Mergeable XCFrameworks                | [braze-inc/braze-swift-SDK or kit de desarrollo de software-prebuilt-mergeable] |                                      ✗ |
+| → **Sources and Static XCFrameworks** |                    [braze-inc/braze-swift-sdk] |                                      ✓ |
+| Static XCFrameworks                   |    [braze-inc/braze-swift-sdk-prebuilt-static] |                                      ✗ |
+| Dynamic XCFrameworks                  |   [braze-inc/braze-swift-sdk-prebuilt-dynamic] |                                      ✗ |
+| Mergeable XCFrameworks                | [braze-inc/braze-swift-sdk-prebuilt-mergeable] |                                      ✗ |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Repositorios alternativos" }
 
 ## Contacto {#contact}
 
 Si tienes preguntas, ponte en contacto con el soporte técnico de Braze para obtener ayuda.
 
-[braze-inc/braze-swift-SDK or kit de desarrollo de software]: https://github.com/braze-inc/braze-swift-sdk
-[braze-inc/braze-swift-SDK or kit de desarrollo de software-prebuilt-static]: https://github.com/braze-inc/braze-swift-sdk-prebuilt-static
-[braze-inc/braze-swift-SDK or kit de desarrollo de software-prebuilt-dynamic]: https://github.com/braze-inc/braze-swift-sdk-prebuilt-dynamic
-[braze-inc/braze-swift-SDK or kit de desarrollo de software-prebuilt-mergeable]: https://github.com/braze-inc/braze-swift-sdk-prebuilt-mergeable
+[braze-inc/braze-swift-sdk]: https://github.com/braze-inc/braze-swift-sdk
+[braze-inc/braze-swift-sdk-prebuilt-static]: https://github.com/braze-inc/braze-swift-sdk-prebuilt-static
+[braze-inc/braze-swift-sdk-prebuilt-dynamic]: https://github.com/braze-inc/braze-swift-sdk-prebuilt-dynamic
+[braze-inc/braze-swift-sdk-prebuilt-mergeable]: https://github.com/braze-inc/braze-swift-sdk-prebuilt-mergeable
 <!-- END GENERATED README CONTENT -->
 
 Para obtener detalles del repositorio y proyectos de ejemplo, consulta [https://github.com/braze-inc/braze-swift-sdk](https://github.com/braze-inc/braze-swift-sdk).

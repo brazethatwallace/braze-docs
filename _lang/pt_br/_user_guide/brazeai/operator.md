@@ -29,7 +29,7 @@ Maximize para expandir o painel e facilitar a leitura, ou minimize para manter o
 Descreva o que você está tentando realizar usando linguagem natural. Prompts claros e específicos levam a respostas mais úteis. Os prompts podem variar de uma simples pergunta a uma solicitação completa de criação:
 
 - **Fazer uma pergunta:** Por que meu Liquid não está renderizando?
-- **Criar algo:** Elabore um Segment or segmento de usuários que abandonaram o carrinho nos últimos 7 dias.
+- **Criar algo:** Elabore um Segment de usuários que abandonaram o carrinho nos últimos 7 dias.
 
 O Operator pode fornecer instruções passo a passo, links para a documentação da Braze, explicações em linguagem simples e rascunhos de Campaigns, Canvas, Segments e conteúdo que você pode revisar e inserir diretamente no seu trabalho. Para saber como o Operator propõe e aplica alterações, consulte [Agir com o Operator](#take-action-with-operator).
 

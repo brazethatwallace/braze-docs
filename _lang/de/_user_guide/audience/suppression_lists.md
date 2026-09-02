@@ -10,22 +10,22 @@ description: "Diese Seite beschreibt, wie Sie Unterdrückungslisten verwenden, u
 
 # Unterdrückungslisten {#suppression-lists}
 
-> Unterdrückungslisten sind Gruppen von Nutzer:innen, die automatisch keine Campaigns oder Canvase erhalten. Unterdrückungslisten werden durch Segmentfilter definiert, und Nutzer:innen treten in Unterdrückungslisten ein und aus, sobald sie die Filterkriterien erfüllen. Sie können auch Ausnahme-Tags festlegen, damit die Unterdrückungsliste nicht für Campaigns oder Canvase mit diesen Tags gilt. Nachrichten aus Campaigns oder Canvase mit Ausnahme-Tags erreichen weiterhin Nutzer:innen der Unterdrückungsliste, die sich in den Zielsegmenten befinden.
+> Unterdrückungslisten sind Gruppen von Nutzer:innen, die automatisch keine Campaigns oder Canvases erhalten. Unterdrückungslisten werden durch Segmentfilter definiert, und Nutzer:innen treten in Unterdrückungslisten ein und aus, sobald sie die Filterkriterien erfüllen. Sie können auch Ausnahme-Tags festlegen, damit die Unterdrückungsliste nicht für Campaigns oder Canvases mit diesen Tags gilt. Nachrichten aus Campaigns oder Canvases mit Ausnahme-Tags erreichen weiterhin Nutzer:innen der Unterdrückungsliste, die sich in den Zielsegmenten befinden.
 
 ## Warum Unterdrückungslisten verwenden? {#why-use-suppression-lists}
 
-Unterdrückungslisten sind dynamisch und gelten automatisch für alle Formen des Messagings, aber Sie können Ausnahmen für ausgewählte Tags festlegen. Wenn Ihre ausgewählten Ausnahme-Tags in einer Campaign oder einem Canvas verwendet werden, gilt diese Unterdrückungsliste nicht für diese Campaign oder dieses Canvas. Nachrichten aus Campaigns oder Canvase mit Ausnahme-Tags erreichen weiterhin alle Nutzer:innen der Unterdrückungsliste, die Teil Ihrer Zielsegmente sind.
+Unterdrückungslisten sind dynamisch und gelten automatisch für alle Formen des Messagings, aber Sie können Ausnahmen für ausgewählte Tags festlegen. Wenn Ihre ausgewählten Ausnahme-Tags in einer Campaign oder einem Canvas verwendet werden, gilt diese Unterdrückungsliste nicht für diese Campaign oder dieses Canvas. Nachrichten aus Campaigns oder Canvases mit Ausnahme-Tags erreichen weiterhin alle Nutzer:innen der Unterdrückungsliste, die Teil Ihrer Zielsegmente sind.
 
 ### Nachrichtentypen und Kanäle, die von Unterdrückungslisten betroffen sind {#message-types-and-channels-affected-by-suppression-lists}
 
-Unterdrückungslisten gelten für alle Nachrichtentypen und Kanäle mit Ausnahme von [Feature-Flags]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/feature_flags). Das bedeutet, dass Unterdrückungslisten standardmäßig für alle Kanäle, Campaigns und Canvase gelten, einschließlich:
+Unterdrückungslisten gelten für alle Nachrichtentypen und Kanäle mit Ausnahme von [Feature-Flags]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/feature_flags). Das bedeutet, dass Unterdrückungslisten standardmäßig für alle Kanäle, Campaigns und Canvases gelten, einschließlich:
 - [API-Kampagnen]({{site.baseurl}}/api/api_campaigns)
-- API-getriggerte Campaigns und Canvase
+- API-getriggerte Campaigns und Canvases
 - [Transaktions-E-Mails]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email)
 
 Der einzige Nachrichtentyp, für den Unterdrückungslisten nicht gelten, sind Feature-Flags. Nutzer:innen in einer Unterdrückungsliste werden nicht von Feature-Flags unterdrückt, aber von allen anderen Kanälen.
 
-Sie können Ausnahme-Tags verwenden, damit Nutzer:innen der Unterdrückungsliste weiterhin von bestimmten Campaigns und Canvase angesprochen werden. Weitere Informationen finden Sie in Schritt 4 unter [Unterdrückungslisten einrichten](#setup). Wenn Sie einer Unterdrückungsliste keine Ausnahme-Tags hinzufügen, werden Nutzer:innen in dieser Unterdrückungsliste mit keinem Messaging außer Feature-Flags angesprochen.
+Sie können Ausnahme-Tags verwenden, damit Nutzer:innen der Unterdrückungsliste weiterhin von bestimmten Campaigns und Canvases angesprochen werden. Weitere Informationen finden Sie in Schritt 4 unter [Unterdrückungslisten einrichten](#setup). Wenn Sie einer Unterdrückungsliste keine Ausnahme-Tags hinzufügen, werden Nutzer:innen in dieser Unterdrückungsliste mit keinem Messaging außer Feature-Flags angesprochen.
 
 {% alert note %}
 Unterdrückungslisten werden auf API-Kampagnen angewendet, die im Braze-Dashboard mit einer `campaign_id` erstellt wurden. Unterdrückungslisten gelten nicht für Nachrichten, die über [Braze-Messaging-Endpunkte]({{site.baseurl}}/api/endpoints/messaging) ohne zugehörige `campaign_id` gesendet werden.
@@ -53,7 +53,7 @@ Obwohl der Einrichtungsprozess der [Segmenterstellung]({{site.baseurl}}/user_gui
 4. Legen Sie fest, ob Ausnahmen basierend auf Tags gelten sollen, indem Sie das Kontrollkästchen unter Ihrem Segmentnamen aktivieren (weitere Informationen finden Sie unter [Warum Unterdrückungslisten verwenden?](#why-use-suppression-lists)), und fügen Sie dann die Tags der Campaigns oder Canvases hinzu, die Nutzer:innen in dieser Unterdrückungsliste weiterhin erhalten sollen. <br><br>Mit anderen Worten: Wenn Sie den Ausnahme-Tag „Versandbestätigung“ hinzufügen, werden Nutzer:innen in Ihrer Unterdrückungsliste von allen Nachrichten ausgeschlossen, außer von solchen, die den Tag „Versandbestätigung“ verwenden.<br><br>![Der Abschnitt „Versandlistendetails“ mit einem angewendeten Ausnahme-Tag namens „Versandbestätigung“.]({% image_buster /assets/img/exception_tags.png %})<br><br>
 5. Speichern oder aktivieren Sie Ihre Unterdrückungsliste.
 - Wenn Sie speichern, wird Ihre Unterdrückungsliste gespeichert, aber nicht aktiviert, d. h. sie tritt nicht in Kraft. Ihre Unterdrückungsliste bleibt inaktiv, bis Sie sie aktivieren, und inaktive Unterdrückungslisten haben keinen Einfluss auf das Messaging (Nutzer:innen werden nicht von Nachrichten ausgeschlossen).
-- Wenn Sie aktivieren, wird Ihre Unterdrückungsliste gespeichert und tritt sofort in Kraft, d. h. Nutzer:innen in Ihrer Unterdrückungsliste werden sofort von Campaigns oder Canvase ausgeschlossen (mit Ausnahme derjenigen, die einen Ausnahme-Tag enthalten).
+- Wenn Sie aktivieren, wird Ihre Unterdrückungsliste gespeichert und tritt sofort in Kraft, d. h. Nutzer:innen in Ihrer Unterdrückungsliste werden sofort von Campaigns oder Canvases ausgeschlossen (mit Ausnahme derjenigen, die einen Ausnahme-Tag enthalten).
 
 {% alert note %}
 Nur Admins können Unterdrückungslisten speichern oder aktivieren. In der Beta können Sie bis zu fünf aktive Unterdrückungslisten gleichzeitig haben.
@@ -89,6 +89,6 @@ Wenn Nutzer:innen in einer Unterdrückungsliste sind, erhalten sie keine Campaig
 
 ### Canvas
 
-Ab dem Moment, in dem Nutzer:innen zu einer Unterdrückungsliste hinzugefügt werden, treten sie nicht in Canvase ein. Wenn sie bereits in ein Canvas eingetreten sind, erhalten sie keine Nachrichtenschritte. Das bedeutet, dass Nutzer:innen, die sich bereits in einem Canvas befinden, wenn sie zu einer Unterdrückungsliste hinzugefügt werden, durch das Canvas bis zum nächsten Nachrichtenschritt voranschreiten und an diesem Punkt aussteigen, ohne den Nachrichtenschritt zu erhalten.
+Ab dem Moment, in dem Nutzer:innen zu einer Unterdrückungsliste hinzugefügt werden, treten sie nicht in Canvases ein. Wenn sie bereits in ein Canvas eingetreten sind, erhalten sie keine Nachrichtenschritte. Das bedeutet, dass Nutzer:innen, die sich bereits in einem Canvas befinden, wenn sie zu einer Unterdrückungsliste hinzugefügt werden, durch das Canvas bis zum nächsten Nachrichtenschritt voranschreiten und an diesem Punkt aussteigen, ohne den Nachrichtenschritt zu erhalten.
 
 Nehmen wir zum Beispiel an, ein Canvas hat einen Nutzeraktualisierungsschritt, gefolgt von einem Nachrichtenschritt. Wenn Nutzer:innen in das Canvas eintreten und dann zu einer Unterdrückungsliste hinzugefügt werden, durchlaufen sie weiterhin den Nutzeraktualisierungsschritt (wo sie möglicherweise aktualisiert werden) und steigen dann beim Nachrichtenschritt aus, wobei sie in den Ausstiegsmetriken berücksichtigt werden.

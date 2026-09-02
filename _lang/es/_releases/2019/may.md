@@ -20,7 +20,7 @@ Además, Content Cards admiten más características personalizadas, como la fij
 
 Utilízalas para crear centros de notificaciones, fuentes de páginas de inicio y fuentes de promociones.
 
-Tendrás que actualizarte a una versión compatible del SDK or kit de desarrollo de software de Braze:
+Tendrás que actualizarte a una versión compatible del SDK de Braze:
 - iOS: 3.8.0 o posterior
 - Android: 2.6.0 o posterior
 - Web: 2.2.0 o posterior

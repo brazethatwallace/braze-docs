@@ -9,7 +9,7 @@ page_type: reference
 description: "Este artigo traz informações sobre o endpoint da Braze \"Listar status de sincronização do trabalho\"."
 
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Listar status de sincronização do trabalho {#list-job-sync-status}
 {% apimethod get %}
 /cdi/integrations/{integration_id}/job_sync_status
@@ -18,7 +18,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Listar 
 > Use esse endpoint para retornar uma lista de status de sincronização anteriores para uma determinada integração.
 
 {% alert note %}
-Para usar esse endpoint, você precisará gerar uma chave de API or interface de programação do aplicativo (API) com a permissão `cdi.integration_job_status`.
+Para usar esse endpoint, você precisará gerar uma chave de API com a permissão `cdi.integration_job_status`.
 {% endalert %}
 
 ## Limite de taxa {#rate-limit}

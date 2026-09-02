@@ -34,8 +34,8 @@ O Braze Connector oferece suporte a traduções para mensagens em Campaigns e Ca
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Conta do Smartling | É necessário ter uma [conta Smartling](https://dashboard.smartling.com/) para aproveitar essa parceria. |
 | Projeto de tradução Smartling | Para conectar sua conta da Braze ao Smartling, primeiro você deve fazer login e [criar um projeto de tradução](https://help.smartling.com/hc/en-us/articles/115003074093). |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com as seguintes permissões: <br>- campaigns.translations.get<br>- campaigns.translations.update<br>- campaigns.list<br>- campaigns.details<br>- canvas.translations.get<br>- canvas.translations.update<br>- campaigns.details<br>- templates.email.create<br>- templates.email.update<br>- templates.email.list<br>- templates.email.info<br>- templates.translations.get<br>- templates.translations.update<br>- content_blocks.info<br>- content_blocks.list<br>- content_blocks.create<br>- content_blocks.update<br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
-| Endpoint REST or transferir estado representacional da Braze | [Sua URL de endpoint REST or transferir estado representacional.]({{site.baseurl}}/api/basics/#endpoints) Seu endpoint depende da URL da Braze para sua instância. |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com as seguintes permissões: <br>- campaigns.translations.get<br>- campaigns.translations.update<br>- campaigns.list<br>- campaigns.details<br>- canvas.translations.get<br>- canvas.translations.update<br>- campaigns.details<br>- templates.email.create<br>- templates.email.update<br>- templates.email.list<br>- templates.email.info<br>- templates.translations.get<br>- templates.translations.update<br>- content_blocks.info<br>- content_blocks.list<br>- content_blocks.create<br>- content_blocks.update<br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Endpoint REST da Braze | [Sua URL de endpoint REST.]({{site.baseurl}}/api/basics/#endpoints) Seu endpoint depende da URL da Braze para sua instância. |
 | Configurações multilíngues da Braze | [Conclua as configurações multilíngues na Braze]({{site.baseurl}}/user_guide/administrative/app_settings/multi_language_settings/#prerequisites) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
@@ -57,7 +57,7 @@ Consulte a [documentação do Smartling](https://help.smartling.com/hc/en-us/art
 
 {: start="2"}
 2. Nesse projeto, selecione **Settings** > **Braze Settings** > **Connect to Braze**.
-3. Preencha os campos obrigatórios, como URL da API or interface de programação do aplicativo (API) e chave de API or interface de programação do aplicativo (API). Se a conexão de teste for bem-sucedida, salve a conexão. Se o teste não for bem-sucedido, confirme se você inseriu a URL da API or interface de programação do aplicativo (API) e a chave de API or interface de programação do aplicativo (API) corretas.
+3. Preencha os campos obrigatórios, como URL da API e chave de API. Se a conexão de teste for bem-sucedida, salve a conexão. Se o teste não for bem-sucedido, confirme se você inseriu a URL da API e a chave de API corretas.
 
 ![Configurações de API da conexão da Braze no Smartling.]({% image_buster /assets/img/smartling/image2_API.png %})
 

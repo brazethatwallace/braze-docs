@@ -13,7 +13,7 @@ description: "Dieser Artikel beschreibt Details zum Endpunkt „Nutzer:innen tra
 /users/track/bulk
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um angepasste Events und Käufe aufzuzeichnen und Nutzerprofilattribute in großen Mengen zu Update or aktualisieren or aktualisieren.
+> Verwenden Sie diesen Endpunkt, um angepasste Events und Käufe aufzuzeichnen und Nutzerprofilattribute in großen Mengen zu aktualisieren.
 
 {% alert important %}
 Dieser Endpunkt befindet sich derzeit in der Beta-Phase. Kontaktieren Sie Ihren Braze Account Manager:in, wenn Sie an der Beta teilnehmen möchten.
@@ -21,15 +21,15 @@ Dieser Endpunkt befindet sich derzeit in der Beta-Phase. Kontaktieren Sie Ihren 
 
 ## Wann Sie diesen Endpunkt verwenden sollten {#when-to-use-this-endpoint}
 
-Ähnlich wie beim [POST: Endpunkt „Nutzer:innen tracken“]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#prerequisites) können Sie diesen Endpunkt verwenden, um Nutzerprofile zu Update or aktualisieren or aktualisieren. Dieser Endpunkt ist jedoch besser für Bulk-Updates geeignet:
+Ähnlich wie beim [POST: Endpunkt „Nutzer:innen tracken“]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#prerequisites) können Sie diesen Endpunkt verwenden, um Nutzerprofile zu aktualisieren. Dieser Endpunkt ist jedoch besser für Bulk-Updates geeignet:
 
-- **Größere Anfragen:** Dieser Endpunkt erlaubt 10.000 Nutzer:innen pro Anfrage, sodass Sie weniger Anfragen stellen müssen, um Ihre Bulk-Update or aktualisieren-Anforderungen zu erfüllen.
+- **Größere Anfragen:** Dieser Endpunkt erlaubt 10.000 Nutzer:innen pro Anfrage, sodass Sie weniger Anfragen stellen müssen, um Ihre Bulk-Update-Anforderungen zu erfüllen.
 - **Priorisierung:** Bei hohem Datenverkehr werden Anfragen von `/users/track` gegenüber Anfragen von `/users/track/bulk` priorisiert. Die Verwendung beider Endpunkte gibt Ihnen mehr Kontrolle über die Datenaufnahme.
 
 Erwägen Sie die Verwendung dieses Endpunkts, wenn Sie während des Onboardings viele Nutzerprofile nachträglich befüllen oder große Mengen von Nutzerprofilen im Rahmen einer täglichen Synchronisierung abgleichen.
 
 {% alert note %}
-Seit dem 26. Mai 2025 kann dieser Endpunkt verwendet werden, um Conversion-Metriken zu tracken sowie Ausnahme-Events oder aktionsbasierte Campaigns und Canvase auszulösen. Dieses Verhalten entspricht jeder anderen Braze-Datenaufnahmemethode.
+Seit dem 26. Mai 2025 kann dieser Endpunkt verwendet werden, um Conversion-Metriken zu tracken sowie Ausnahme-Events oder aktionsbasierte Campaigns und Canvases auszulösen. Dieses Verhalten entspricht jeder anderen Braze-Datenaufnahmemethode.
 {% endalert %}
 
 ## Voraussetzungen {#prerequisites}
@@ -44,10 +44,10 @@ Wir wenden ein Basis-Geschwindigkeitslimit von 5 Anfragen pro Sekunde auf diesen
 
 Jede `/users/sync/bulk`-Anfrage hat ein Payload-Limit von 4&nbsp;MB und kann bis zu 10.000 Event-, Attribut- oder Kauf-Objekte enthalten.
 
-Jedes Objekt (Event-, Attribut- und Kauf-Arrays) kann jeweils eine:n Nutzer:in Update or aktualisieren or aktualisieren, d. h. bis zu 10.000 verschiedene Nutzer:innen können in einer einzigen Anfrage aktualisiert werden. Ein einzelnes Kundenprofil or Nutzerprofil kann mit bis zu 100 Objekten in einer einzigen Anfrage aktualisiert werden.
+Jedes Objekt (Event-, Attribut- und Kauf-Arrays) kann jeweils eine:n Nutzer:in aktualisieren, d. h. bis zu 10.000 verschiedene Nutzer:innen können in einer einzigen Anfrage aktualisiert werden. Ein einzelnes Kundenprofil kann mit bis zu 100 Objekten in einer einzigen Anfrage aktualisiert werden.
 
 {% alert note %}
-Wenn Sie eine Erhöhung Ihres Rate-Limits benötigen, wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in.
+Wenn Sie eine Erhöhung Ihres Rate-Limits benötigen, wenden Sie sich an Ihren CSM.
 {% endalert %}
 
 
@@ -81,9 +81,9 @@ Für jede in der folgenden Tabelle aufgeführte Anfragekomponente ist eines der 
 
 ## Beispielanfragen {#example-requests}
 
-### Bulk-Update or aktualisieren von 10.000 Nutzerprofilen in einer Anfrage {#bulk-update-10000-user-profiles-in-one-request}
+### Bulk-Update von 10.000 Nutzerprofilen in einer Anfrage {#bulk-update-10000-user-profiles-in-one-request}
 
-Sie können bis zu 10.000 Nutzerprofile Update or aktualisieren or aktualisieren. Hier ist ein gekürztes Beispiel, bei dem die Anfrage aus 10.000 Attribut-Objekten besteht:
+Sie können bis zu 10.000 Nutzerprofile aktualisieren. Hier ist ein gekürztes Beispiel, bei dem die Anfrage aus 10.000 Attribut-Objekten besteht:
 
 ```json
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track/bulk' \
@@ -250,7 +250,7 @@ Wenn Sie den Fehler `provided external_id is blacklisted and disallowed` erhalte
 
 Wir empfehlen, beide zu verwenden.
 
-- Für große Kundenprofil or Nutzerprofil-Backfills und Synchronisierungen verwenden Sie den Endpunkt `/users/track/bulk`.
+- Für große Kundenprofil-Backfills und Synchronisierungen verwenden Sie den Endpunkt `/users/track/bulk`.
 - Für Realtime-Anwendungsfälle verwenden Sie den Endpunkt `/users/track`.
 
 ### Welche Bezeichner kann ich in /users/track/bulk verwenden? {#what-identifiers-can-i-use-in-userstrackbulk}

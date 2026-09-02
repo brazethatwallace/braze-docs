@@ -294,8 +294,8 @@ Os nomes dos arquivos devem seguir as regras da AWS e ser únicos. Adicione cari
 
 #### Etapa 2: Configure seu Canvas de destino {#step-2-configure-your-destination-canvas}
 
-1. Configure o seu Canvas de destino para gatilhos do Canvas. Crie um novo ou selecione um Canvas disparado por API or interface de programação do aplicativo (API) existente. Consulte [Tipos de cronograma de entrada]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#entry-schedule-types) para obter instruções sobre como criar um Canvas com um tipo de cronograma de entrega disparado por API or interface de programação do aplicativo (API).
-2. Após selecionar o tipo de cronograma de entrega disparado por API or interface de programação do aplicativo (API), continue com a configuração do Canvas e crie seu Canvas. Os Canvas podem variar desde o envio simples de uma única mensagem até fluxos de trabalho complexos com várias etapas.
+1. Configure o seu Canvas de destino para gatilhos do Canvas. Crie um novo ou selecione um Canvas disparado por API existente. Consulte [Tipos de cronograma de entrada]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#entry-schedule-types) para obter instruções sobre como criar um Canvas com um tipo de cronograma de entrega disparado por API.
+2. Após selecionar o tipo de cronograma de entrega disparado por API, continue com a configuração do Canvas e crie seu Canvas. Os Canvas podem variar desde o envio simples de uma única mensagem até fluxos de trabalho complexos com várias etapas.
 3. Nas etapas do Canvas, use as [propriedades de entrada do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) para personalizar mensagens com campos de propriedades que você planeja sincronizar da sua tabela de origem.
   * Por exemplo, se na Etapa 1 você instrumentou um campo de propriedades para `account_balance`, você usaria o seguinte modelo Liquid para personalizar sua mensagem: `\{\{canvas_entry_properties.\$\{account_balance\}\}\}`.
 5. Depois de criar seu Canvas, inicie-o e prossiga para a [Etapa 3](#step-3-create-your-zero-copy-sync).
@@ -322,12 +322,12 @@ Revise toda a sua configuração (desde o comportamento de sincronização até 
 
 ### Considerações {#considerations}
 
-Os gatilhos do CDI Canvas utilizam o limite de taxa da sua REST or transferir estado representacional API or interface de programação do aplicativo (API) para `/canvas/trigger/send`. Se você estiver usando esse endpoint simultaneamente com os gatilhos CDI Canvas e sua integração de REST or transferir estado representacional API or interface de programação do aplicativo (API), espere que o uso combinado seja contabilizado no seu limite de taxa.
+Os gatilhos do CDI Canvas utilizam o limite de taxa da sua REST API para `/canvas/trigger/send`. Se você estiver usando esse endpoint simultaneamente com os gatilhos CDI Canvas e sua integração de REST API, espere que o uso combinado seja contabilizado no seu limite de taxa.
 
 Cada execução de sincronização insere os usuários em seu respectivo Canvas de destino a uma taxa máxima de aproximadamente 3,75 milhões de usuários por hora. Esteja preparado para tempos de entrada mais longos da fonte para o Canvas quando:
 
 * Sincronizar mais de 3,75 milhões de usuários por execução de sincronização.
-* Usar gatilhos do CDI Canvas quando já estiver saturando o [limite de taxa da sua REST or transferir estado representacional API or interface de programação do aplicativo (API) para `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases#rate-limit).
+* Usar gatilhos do CDI Canvas quando já estiver saturando o [limite de taxa da sua REST API para `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases#rate-limit).
 
 Considere o seguinte sobre o CDI sem cópia quando o Arquivamento de mensagem está ativado:
 

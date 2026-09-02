@@ -27,7 +27,7 @@ tool: Canvas
 - 이메일
 - LINE
 - 푸시 알림
-- 단문 메시지 서비스/MMS/RCS
+- SMS/MMS/RCS
 - 인앱 메시지
 - 웹훅
 - WhatsApp
@@ -72,7 +72,7 @@ tool: Canvas
 - 사용자가 **전달 유효성 검사**의 기준을 충족하지 않음
 
 {% raw %}
-실행 기반 Canvas가 인바운드 단문 메시지 서비스 메시지에 의해 트리거되는 경우, 첫 번째 단계(메시지 단계) 또는 작업 경로 단계 아래에 중첩된 메시지 단계에서 단문 메시지 서비스 속성정보를 참조할 수 있습니다. 예를 들어, 메시지 단계에서 `{{sms.${inbound_message_body}}}` 또는 `{{sms.${inbound_media_urls}}}`를 사용할 수 있습니다.
+실행 기반 Canvas가 인바운드 SMS 메시지에 의해 트리거되는 경우, 첫 번째 단계(메시지 단계) 또는 작업 경로 단계 아래에 중첩된 메시지 단계에서 SMS 속성정보를 참조할 수 있습니다. 예를 들어, 메시지 단계에서 `{{sms.${inbound_message_body}}}` 또는 `{{sms.${inbound_media_urls}}}`를 사용할 수 있습니다.
 {% endraw %}
 
 ## 컨텍스트 속성정보 참조 {#reference-context-properties}

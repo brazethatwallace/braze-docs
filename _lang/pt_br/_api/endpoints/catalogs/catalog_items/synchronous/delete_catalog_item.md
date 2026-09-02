@@ -9,7 +9,7 @@ page_type: reference
 description: "Este artigo descreve o endpoint da Braze \"Excluir item do catálogo\"."
 
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Excluir um item do catálogo {#delete-a-catalog-item}
 {% apimethod delete %}
 /catalogs/{catalog_name}/items/{item_id}
@@ -21,7 +21,7 @@ description: "Este artigo descreve o endpoint da Braze \"Excluir item do catálo
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `catalogs.delete_item`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `catalogs.delete_item`.
 
 ## Limite de frequência {#rate-limit}
 

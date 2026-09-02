@@ -23,12 +23,12 @@ A integração entre a Braze e a Certona utiliza as recomendações de produtos 
 | Requisito | Descrição |
 | --- | --- |
 | [Conta Certona](https://manage.certona.com/) | É necessário ter uma conta Certona para aproveitar essa parceria. |
-| [Endpoint da REST or transferir estado representacional API or interface de programação do aplicativo (API) da Certona](https://manage.certona.com/) | Esse endpoint é usado diretamente na mensagem da campanha da Braze para extrair conteúdo recomendado com base no ID do usuário. |
+| [Endpoint da REST API da Certona](https://manage.certona.com/) | Esse endpoint é usado diretamente na mensagem da campanha da Braze para extrair conteúdo recomendado com base no ID do usuário. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Integração {#integration}
 
-Use a REST or transferir estado representacional API or interface de programação do aplicativo (API) da Certona para inserir conteúdo personalizado em suas mensagens. Isso pode ser feito adicionando o seguinte modelo de Conteúdo conectado ao seu criador de mensagens da Braze, juntamente com seu endpoint da REST or transferir estado representacional API or interface de programação do aplicativo (API) da Certona.
+Use a REST API da Certona para inserir conteúdo personalizado em suas mensagens. Isso pode ser feito adicionando o seguinte modelo de Conteúdo conectado ao seu criador de mensagens da Braze, juntamente com seu endpoint da REST API da Certona.
 
 {% raw %}
 ```liquid

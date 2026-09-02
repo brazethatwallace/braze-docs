@@ -9,7 +9,7 @@ page_type: reference
 
 # Tipos de identificadores API {#api-identifier-types}
 
-> Esta guía de referencia aborda los distintos tipos de identificadores de API que se pueden encontrar en el panel de Braze, su finalidad, dónde encontrarlos y cómo se suelen utilizar. Para obtener información sobre las claves de API REST or transferencia de estado representacional o las claves de API del espacio de trabajo, consulta el [resumen de la API]({{site.baseurl}}/api/basics).
+> Esta guía de referencia aborda los distintos tipos de identificadores de API que se pueden encontrar en el panel de Braze, su finalidad, dónde encontrarlos y cómo se suelen utilizar. Para obtener información sobre las claves de API REST o las claves de API del espacio de trabajo, consulta el [resumen de la API]({{site.baseurl}}/api/basics).
 
 Los siguientes identificadores pueden utilizarse para acceder a tu plantilla, Canvas, Campaign o Segment desde la API externa de Braze. Todos los mensajes deben seguir la codificación [UTF-8](https://en.wikipedia.org/wiki/UTF-8).
 
@@ -34,7 +34,7 @@ Ve a **Configuración** > **Configuración de la aplicación**. Tu clave de API 
 
 ### ¿Para qué se puede usar? {#what-can-it-be-used-for}
 
-Los identificadores de aplicación en Braze se utilizan al integrar el SDK or kit de desarrollo de software y también se usan para hacer referencia a una aplicación específica en las llamadas a la REST or transferencia de estado representacional API. Con el `app_id` puedes hacer muchas cosas, como extraer datos de un evento personalizado que ocurrió para una aplicación en particular, recuperar estadísticas de desinstalación, estadísticas de nuevos usuarios, estadísticas de usuario activo diario y estadísticas de inicio de sesión para una aplicación específica.
+Los identificadores de aplicación en Braze se utilizan al integrar el SDK y también se usan para hacer referencia a una aplicación específica en las llamadas a la REST API. Con el `app_id` puedes hacer muchas cosas, como extraer datos de un evento personalizado que ocurrió para una aplicación en particular, recuperar estadísticas de desinstalación, estadísticas de nuevos usuarios, estadísticas de DAU y estadísticas de inicio de sesión para una aplicación específica.
 
 {% alert tip %}
 A veces, es posible que se te solicite un `app_id`, pero no estás trabajando con una aplicación, porque es un campo heredado específico de una plataforma en particular. Puedes omitir este campo incluyendo cualquier cadena de caracteres como marcador de posición para este parámetro obligatorio.
@@ -42,7 +42,7 @@ A veces, es posible que se te solicite un `app_id`, pero no estás trabajando co
 
 ### Múltiples identificadores de aplicación {#multiple-app-identifiers}
 
-Durante la configuración del SDK or kit de desarrollo de software, el caso de uso más común para múltiples identificadores de aplicación es separar esos identificadores para las variantes de compilación de depuración y producción.
+Durante la configuración del SDK, el caso de uso más común para múltiples identificadores de aplicación es separar esos identificadores para las variantes de compilación de depuración y producción.
 
 Para alternar fácilmente entre múltiples identificadores de aplicación en tus compilaciones, te recomendamos crear un archivo `braze.xml` separado para cada [variante de compilación](https://developer.android.com/studio/build/build-variants.html) relevante. Una variante de compilación es una combinación de tipo de compilación y variante de producto. De forma predeterminada, un nuevo proyecto de Android se configura con los tipos de compilación `debug` y `release` y sin variantes de producto.
 

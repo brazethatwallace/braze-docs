@@ -231,9 +231,9 @@ Appboy.sharedInstance()?.user.incrementCustomUserAttribute("your_attribute_key",
 {% endtab %}
 {% endtabs %}
 
-### Establecer un atributo personalizado a través de la REST or transferencia de estado representacional API {#setting-a-custom-attribute-via-the-rest-api}
+### Establecer un atributo personalizado a través de la REST API {#setting-a-custom-attribute-via-the-rest-api}
 
-También puedes utilizar nuestra REST or transferencia de estado representacional API para establecer atributos de usuario. Consulta la [documentación de la API de usuario]({{site.baseurl}}/api/endpoints/user_data) para obtener más detalles.
+También puedes utilizar nuestra REST API para establecer atributos de usuario. Consulta la [documentación de la API de usuario]({{site.baseurl}}/api/endpoints/user_data) para obtener más detalles.
 
 ### Límites de valores de atributos personalizados {#custom-attribute-value-limits}
 

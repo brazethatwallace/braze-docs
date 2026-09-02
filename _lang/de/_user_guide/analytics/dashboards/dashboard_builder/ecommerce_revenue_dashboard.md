@@ -8,7 +8,7 @@ description: "Dieser Artikel bietet eine Übersicht über das Dashboard „E-Com
 
 # E-Commerce-Umsatz-Dashboard {#ecommerce-revenue-dashboard}
 
-> Das Dashboard **E-Commerce-Umsatz – Last-Touch-Attribution** erfasst den per Last-Touch-Attribution zugeordneten Umsatz für Campaigns und Canvase mithilfe von [empfohlenen E-Commerce-Events]({{site.baseurl}}/ecommerce_events). Nutzen Sie dieses Dashboard, um zu verstehen, welche Nachrichten Umsatz generieren, und um die gesamte E-Commerce-Performance im Zeitverlauf zu überwachen.
+> Das Dashboard **E-Commerce-Umsatz – Last-Touch-Attribution** erfasst den per Last-Touch-Attribution zugeordneten Umsatz für Campaigns und Canvases mithilfe von [empfohlenen E-Commerce-Events]({{site.baseurl}}/ecommerce_events). Nutzen Sie dieses Dashboard, um zu verstehen, welche Nachrichten Umsatz generieren, und um die gesamte E-Commerce-Performance im Zeitverlauf zu überwachen.
 
 {% alert note %}
 Wenn Sie den neuen [Shopify-Konnektor]({{site.baseurl}}/partners/ecommerce/shopify/multiple_stores?tab=shopify%20connector) verwenden, stehen empfohlene E-Commerce-Events automatisch über die Integration zur Verfügung. Andernfalls müssen diese Events implementiert werden, bevor Daten in diesem Dashboard angezeigt werden.
@@ -42,7 +42,7 @@ Die folgenden Nachrichteninteraktionen gelten als Touch-Events für die Attribut
 - Push-Öffnung
 - Content-Card-Klick
 - In-App-Nachricht-Klick
-- Kurzmitteilungsdienst or SMS-Kurzlink-Klick
+- SMS-Kurzlink-Klick
 - WhatsApp-Kurzlink-Klick
 
 {% alert important %}
@@ -74,7 +74,7 @@ Umsatz und Bestellanzahlen verwenden standardisierte Braze-Berechnungen.
 
 ### Ausgeschlossene Daten {#excluded-data}
 
-Käufe, die über das veraltete Kauf-Event erfasst wurden, sind nicht enthalten. Das Dashboard **E-Commerce-Umsatz – Last-Touch-Attribution** unterstützt derzeit keine Features, die an veraltete Kauf-Events gebunden sind, wie z. B. LTV or Lifetime-Value oder Umsatzberichte innerhalb von Campaigns oder Canvase.
+Käufe, die über das veraltete Kauf-Event erfasst wurden, sind nicht enthalten. Das Dashboard **E-Commerce-Umsatz – Last-Touch-Attribution** unterstützt derzeit keine Features, die an veraltete Kauf-Events gebunden sind, wie z. B. LTV oder Umsatzberichte innerhalb von Campaigns oder Canvases.
 
 ## Währungsbehandlung {#currency-handling}
 

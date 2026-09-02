@@ -123,7 +123,7 @@ HAVING COUNT(id) > 0;
 Message, Delivery
 {% endapitags %}
 
-Selecciona usuarios a los que se les envió una Campaign de servicio de mensajes cortos o un Canvas, pero el mensaje no llegó al operador. Por ejemplo, el mensaje podría haber sido detenido por un desbordamiento de cola.
+Selecciona usuarios a los que se les envió una Campaign de SMS o un Canvas, pero el mensaje no llegó al operador. Por ejemplo, el mensaje podría haber sido detenido por un desbordamiento de cola.
 
 ```sql
 SELECT
@@ -139,7 +139,7 @@ HAVING COUNT(id) > 0;
 {% endapi %}
 
 {% api %}
-## Encontrar todos los mensajes servicio de mensajes cortos que se enviaron pero no llegaron al operador debido a un desbordamiento de cola {#find-all-sms-messages-that-were-sent-but-didnt-reach-the-carrier-because-of-queue-overflow}
+## Encontrar todos los mensajes SMS que se enviaron pero no llegaron al operador debido a un desbordamiento de cola {#find-all-sms-messages-that-were-sent-but-didnt-reach-the-carrier-because-of-queue-overflow}
 {% apitags %}
 Message, Carrier
 {% endapitags %}
@@ -345,7 +345,7 @@ FROM user_daily_average;
 ```
 
 {% alert tip %}
-Para mensajes servicio de mensajes cortos, reemplaza `USERS_MESSAGES_EMAIL_SEND_SHARED` con `USERS_MESSAGES_SMS_SEND_SHARED` en la consulta. Para notificaciones push, reemplaza `USERS_MESSAGES_EMAIL_SEND_SHARED` con `USERS_MESSAGES_SMS_SEND_SHARED` en la consulta.
+Para mensajes SMS, reemplaza `USERS_MESSAGES_EMAIL_SEND_SHARED` con `USERS_MESSAGES_SMS_SEND_SHARED` en la consulta. Para notificaciones push, reemplaza `USERS_MESSAGES_EMAIL_SEND_SHARED` con `USERS_MESSAGES_SMS_SEND_SHARED` en la consulta.
 {% endalert %}
 {% endapi %}
 
@@ -383,6 +383,6 @@ SELECT
 FROM user_weekly_average;
 ```
 {% alert tip %}
-Para mensajes servicio de mensajes cortos, reemplaza `USERS_MESSAGES_EMAIL_SEND_SHARED` con `USERS_MESSAGES_SMS_SEND_SHARED` en la consulta. Para notificaciones push, reemplaza `USERS_MESSAGES_EMAIL_SEND_SHARED` con `USERS_MESSAGES_SMS_SEND_SHARED` en la consulta.
+Para mensajes SMS, reemplaza `USERS_MESSAGES_EMAIL_SEND_SHARED` con `USERS_MESSAGES_SMS_SEND_SHARED` en la consulta. Para notificaciones push, reemplaza `USERS_MESSAGES_EMAIL_SEND_SHARED` con `USERS_MESSAGES_SMS_SEND_SHARED` en la consulta.
 {% endalert %}
 {% endapi %}

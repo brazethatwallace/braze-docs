@@ -1,11 +1,11 @@
 ---
 page_order: 0.1
 nav_title: Karten anpassen
-description: "Erfahren Sie mehr über die Anpassung von Content Cards für das Braze SDK or Software-Development-Kit."
+description: "Erfahren Sie mehr über die Anpassung von Content Cards für das Braze SDK."
 layout: dev_guide
 
 guide_top_header: "Content Cards anpassen"
-guide_top_text: "> Erfahren Sie mehr über die Anpassung von Content Cards für das Braze SDK or Software-Development-Kit."
+guide_top_text: "> Erfahren Sie mehr über die Anpassung von Content Cards für das Braze SDK."
 
 guide_featured_title: "Artikel in diesem Abschnitt"
 guide_featured_list:

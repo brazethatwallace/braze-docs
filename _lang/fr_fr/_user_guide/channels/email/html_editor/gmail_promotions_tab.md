@@ -111,7 +111,7 @@ Pour tester les annotations lors d'envois à faible volume, vous devez d'abord u
 
 ## Mesurer les cartes Gmail {#measure-gmail-cards}
 
-Gmail ne fournit pas d'analyse sur ces cartes, et les fournisseurs de services d'e-mail marketing or e-mailing (fournisseur de services d'e-mailing) comme Braze ne peuvent pas insérer leur propre suivi de liens sur les liens de la section d'en-tête (y compris les cartes de promotion et les carrousels de produits). Cependant, vous pouvez ajouter des paramètres UTM ou des codes uniques aux URL lors de la configuration. Ces paramètres vous permettent de suivre l'engagement à l'aide de vos propres outils d'analyse web ou de suivi des conversions, car le suivi fait partie de l'URL elle-même et n'est pas inséré par l'fournisseur de services d'e-mailing. Le suivi des clics au niveau de l'fournisseur de services d'e-mailing n'est pas disponible pour ces liens.
+Gmail ne fournit pas d'analyse sur ces cartes, et les fournisseurs de services d'e-mail marketing (fournisseur de services d'e-mailing) comme Braze ne peuvent pas insérer leur propre suivi de liens sur les liens de la section d'en-tête (y compris les cartes de promotion et les carrousels de produits). Cependant, vous pouvez ajouter des paramètres UTM ou des codes uniques aux URL lors de la configuration. Ces paramètres vous permettent de suivre l'engagement à l'aide de vos propres outils d'analyse web ou de suivi des conversions, car le suivi fait partie de l'URL elle-même et n'est pas inséré par l'fournisseur de services d'e-mailing. Le suivi des clics au niveau de l'fournisseur de services d'e-mailing n'est pas disponible pour ces liens.
 
 ### Intégrer des images {#incorporate-images}
 

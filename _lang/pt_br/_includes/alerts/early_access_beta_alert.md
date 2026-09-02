@@ -3,7 +3,7 @@
   Parâmetros:
   - feature (obrigatório): O recurso ou assunto, por exemplo, "This endpoint", "SCIM provisioning", "The Okta integration"
   - type (opcional): "early_access" (padrão) ou "beta"
-  - contact (opcional): Quem contatar, por exemplo, "Braze account manager" (padrão) ou "CSM or gerente de sucesso do cliente or gestor de sucesso do cliente or gerente de sucesso do cliente or gestor de sucesso do cliente"
+  - contact (opcional): Quem contatar, por exemplo, "Braze account manager" (padrão) ou "CSM"
 {% endcomment %}
 {% assign contact_role = include.contact | default: "Braze account manager" %}
 {% if include.type == "beta" %}

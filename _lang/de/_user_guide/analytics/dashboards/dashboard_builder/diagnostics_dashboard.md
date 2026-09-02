@@ -1,7 +1,7 @@
 ---
 nav_title: Messaging-Diagnose-Dashboard
 article_title: Messaging-Diagnose-Dashboard
-description: "Dieser Referenzartikel behandelt das Messaging-Diagnose-Dashboard, das Ihnen hilft zu verstehen, warum Nachrichten aus Ihren Campaigns oder Canvase möglicherweise nicht wie erwartet gesendet wurden."
+description: "Dieser Referenzartikel behandelt das Messaging-Diagnose-Dashboard, das Ihnen hilft zu verstehen, warum Nachrichten aus Ihren Campaigns oder Canvases möglicherweise nicht wie erwartet gesendet wurden."
 alias: /ccdd/
 page_order: 2
 toc_headers: h2
@@ -9,10 +9,10 @@ toc_headers: h2
 
 # Messaging-Diagnose-Dashboard {#messaging-diagnostics-dashboard}
 
-> Das **Messaging-Diagnose**-Dashboard bietet eine allgemeine Aufschlüsselung der Ergebnisse beim Nachrichtenversand, mit der Sie Trends erkennen und potenzielle Probleme in Ihrem Messaging-Setup diagnostizieren können. Dieses Dashboard kann Ihnen helfen zu verstehen, warum Nachrichten aus Ihren Campaigns oder Canvase möglicherweise nicht wie erwartet gesendet wurden.
+> Das **Messaging-Diagnose**-Dashboard bietet eine allgemeine Aufschlüsselung der Ergebnisse beim Nachrichtenversand, mit der Sie Trends erkennen und potenzielle Probleme in Ihrem Messaging-Setup diagnostizieren können. Dieses Dashboard kann Ihnen helfen zu verstehen, warum Nachrichten aus Ihren Campaigns oder Canvases möglicherweise nicht wie erwartet gesendet wurden.
 
 {% alert important %}
-Das **Messaging-Diagnose**-Dashboard ist allgemein verfügbar. Kontaktieren Sie Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in, wenn Sie Zugang zu diesem Feature erhalten möchten.
+Das **Messaging-Diagnose**-Dashboard ist allgemein verfügbar. Kontaktieren Sie Ihren CSM, wenn Sie Zugang zu diesem Feature erhalten möchten.
 {% endalert %}
 
 {% alert note %}
@@ -32,11 +32,11 @@ Wenn Braze eine Nachricht „sendet“, kann die endgültige Zustellung von exte
 | Kanal | Beispiel für die endgültige Zustellung |
 | --- | --- |
 | Content Cards | Die Card wurde gesendet und ist zur Anzeige berechtigt. |
-| E-Mail | Braze übergibt die Nachricht an einen E-Mail-Anbieter (E-Mail-Anbieter or ESP). Der E-Mail-Anbieter or ESP ist dann für die endgültige Zustellung verantwortlich. Der E-Mail-Anbieter or ESP kann beispielsweise einen „Bounce“ melden, wenn die E-Mail-Adresse ungültig oder der Posteingang voll ist. |
+| E-Mail | Braze übergibt die Nachricht an einen E-Mail-Anbieter (E-Mail-Anbieter). Der E-Mail-Anbieter ist dann für die endgültige Zustellung verantwortlich. Der E-Mail-Anbieter kann beispielsweise einen „Bounce“ melden, wenn die E-Mail-Adresse ungültig oder der Posteingang voll ist. |
 | In-App Messages | Die Nachricht wurde von den Nutzer:innen angesehen und eine Impression wurde protokolliert. |
 | LINE | Die Nachricht wurde erfolgreich an einen Versandpartner übergeben. |
 | Push | Braze übergibt die Nachricht an den entsprechenden Push-Benachrichtigungsdienst (z. B. Apple Push Notification Service für iOS oder Firebase Cloud Messaging für Android). Dieser Dienst ist für die endgültige Zustellung der Benachrichtigung auf das Gerät verantwortlich. |
-| Kurzmitteilungsdienst or SMS/MMS/RCS | Braze übergibt die Nachricht an ein Kurzmitteilungsdienst or SMS-Gateway (wie Twilio). Dieses Gateway ist für die endgültige Zustellung an den Mobilfunkanbieter verantwortlich. |
+| SMS/MMS/RCS | Braze übergibt die Nachricht an ein SMS-Gateway (wie Twilio). Dieses Gateway ist für die endgültige Zustellung an den Mobilfunkanbieter verantwortlich. |
 | Webhooks | Die Webhook-Anfrage wurde erfolgreich gestellt und hat eine `2xx`-Antwort zurückgegeben. |
 | WhatsApp | Die Nachricht wurde erfolgreich an einen Versandpartner übergeben. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Gesendet und zugestellt" }
@@ -51,8 +51,8 @@ Sie können auf das Diagnose-Dashboard zugreifen, indem Sie zu **Analytics** > *
 
 So führen Sie das Dashboard aus und zeigen Ihre Daten an:
 
-1. Wählen Sie entweder **Campaigns** oder **Canvase** als Quelle für Ihre Dashboard-Berichte aus.
-2. Wählen Sie eine oder mehrere Campaigns oder Canvase aus.
+1. Wählen Sie entweder **Campaigns** oder **Canvases** als Quelle für Ihre Dashboard-Berichte aus.
+2. Wählen Sie eine oder mehrere Campaigns oder Canvases aus.
 3. Wählen Sie **Run Dashboard** aus, um die Daten für Ihre ausgewählten Filter zu laden.
 
 ![Beispiel für Campaign- und Canvas-Diagnose vom 25. bis 31. Mai 2025 für eine Willkommensserie-Campaign.]({% image_buster /assets/img/messaging_diagnostics_dashboard_details_log.png %}){: style="max-width:45%;"} ![Beispiel für Campaign- und Canvas-Diagnose mit Hover-Diagramm vom 25. bis 31. Mai 2025 für eine Willkommensserie-Campaign.]({% image_buster /assets/img/messaging_diagnostics_dashboard_drawer_expanded.png %}){: style="max-width:45%;"}
@@ -68,7 +68,7 @@ Das Dashboard zeigt nur die Daten der letzten sieben Tage an. Alle Zeitstempel w
 Oben auf der Seite befinden sich wichtige Zusammenfassungskacheln für den ausgewählten Zeitraum, die Folgendes anzeigen:
 
 - **Gesendet:** Die Gesamtanzahl der Nachrichten, die Braze erfolgreich verarbeitet und gesendet hat.
-  - **E-Mail, Kurzmitteilungsdienst or SMS/MMS/RCS, WhatsApp, LINE und Push:** Die Nachricht wurde erfolgreich an einen Versandpartner übergeben.
+  - **E-Mail, SMS/MMS/RCS, WhatsApp, LINE und Push:** Die Nachricht wurde erfolgreich an einen Versandpartner übergeben.
   - **Webhooks:** Die Webhook-Anfrage wurde erfolgreich durchgeführt und hat eine `2xx`-Antwort zurückgegeben.
   - **Content Cards:** Die Card wurde gesendet und ist zur Anzeige berechtigt.
   - **In-App Messages:** Die Nachricht wurde der/dem Nutzer:in angezeigt.
@@ -124,7 +124,7 @@ Abbruchergebnisse in der Messaging-Diagnose sind menschenlesbare Dashboard-Bezei
 | Abbruchergebnis | Erklärung |
 | ---- | ---- |
 | Verzögerungsschritt fehlgeschlagen | Der [Verzögerungsschritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step#personalized-delays) ist fehlgeschlagen, wodurch die/der Nutzer:in den Canvas verlassen hat. Dieser Fehler kann auftreten, wenn: {::nomarkdown}<ul><li> Die für den personalisierten Verzögerungsschritt angegebene Variable leer oder ein ungültiger Typ war </li><li> Die Verzögerung die maximal zulässige Dauer innerhalb des Canvas überschreitet</li></ul>{:/} |
-| Ausnahme- oder Exit-Event | Die/Der Nutzer:in war zuvor berechtigt, die Nachricht zu erhalten, hat aber entweder {::nomarkdown}<ul><li> ein <a href="/docs/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#step-3-select-exception-events">Ausnahme-Event</a> für eine aktionsbasierte Campaign ausgeführt, sodass die Nachricht abgebrochen wurde, oder </li><li> die Canvas-<a href="/docs/user_guide/messaging/Canvas/create_a_canvas#setting-exit-criteria">Exit-Kriterien</a> erfüllt und wurde daher mitten in der Journey entfernt.</li></ul>{:/} |
+| Ausnahme- oder Exit-Event | Die/Der Nutzer:in war zuvor berechtigt, die Nachricht zu erhalten, hat aber entweder {::nomarkdown}<ul><li> ein <a href="/docs/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#step-3-select-exception-events">Ausnahme-Event</a> für eine aktionsbasierte Campaign ausgeführt, sodass die Nachricht abgebrochen wurde, oder </li><li> die Canvas-<a href="/docs/user_guide/messaging/canvas/create_a_canvas#setting-exit-criteria">Exit-Kriterien</a> erfüllt und wurde daher mitten in der Journey entfernt.</li></ul>{:/} |
 | Inaktive Campaign | Die Campaign wurde gestoppt, während die Nachricht unterwegs war, daher wurde sie abgebrochen. |
 | Inaktiver Canvas | Der Canvas wurde gestoppt, bevor die/der Nutzer:in die Journey betreten hat. |
 | Inaktiver Canvas-Schritt | Dies kann im Canvas auftreten, wenn: {::nomarkdown}<ul><li> Der Canvas-Schritt gelöscht wurde </li> <li>Der Canvas gestoppt wurde, wodurch alle Schritte inaktiv werden </li></ul>{:/} |
@@ -146,11 +146,11 @@ Abbruchergebnisse in der Messaging-Diagnose sind menschenlesbare Dashboard-Bezei
 | ---- | ---- |
 | Doppelter Nutzerbezeichner | Mehrere Nutzer:innen mit übereinstimmendem Bezeichner (wie externe ID, E-Mail-Adresse, Telefonnummer) waren berechtigt, diese Nachricht zu erhalten. Um doppelte Sendungen an dieselbe Person zu vermeiden, wurde diese Nachricht abgebrochen. |
 | Nutzer:in hat Vorprüfung für Nachrichtenschritt nicht bestanden | Braze führt eine erste Runde grundlegender Vorprüfungen für Zielgruppenberechtigung, Wiederberechtigung und Kanalberechtigung durch, bevor die vollständigen Zustellungsvalidierungen für einen Canvas-Nachrichtenschritt erfolgen. Dieses Ergebnis bedeutet, dass die/der Nutzer:in oder die Nachricht eine dieser Prüfungen nicht bestanden hat, daher wurde die Nachricht für diesen Schritt abgebrochen. |
-| Nutzer:in hat Vorprüfung für getriggerte Nachricht nicht bestanden | Braze führt eine erste Runde grundlegender Vorprüfungen für Zielgruppenberechtigung, Wiederberechtigung und Kanalberechtigung durch, bevor eine Nachricht zum Senden aus diesem Trigger or triggern erstellt wird. Dieses Ergebnis bedeutet, dass die/der Nutzer:in oder die Nachricht eine dieser Prüfungen nicht bestanden hat, daher wurde die Nachricht abgebrochen. |
+| Nutzer:in hat Vorprüfung für getriggerte Nachricht nicht bestanden | Braze führt eine erste Runde grundlegender Vorprüfungen für Zielgruppenberechtigung, Wiederberechtigung und Kanalberechtigung durch, bevor eine Nachricht zum Senden aus diesem Trigger erstellt wird. Dieses Ergebnis bedeutet, dass die/der Nutzer:in oder die Nachricht eine dieser Prüfungen nicht bestanden hat, daher wurde die Nachricht abgebrochen. |
 | Nutzer:in nicht mehr berechtigt | Die/Der Nutzer:in war ursprünglich in der Zielgruppe, hat aber die Zielgruppenkriterien nicht mehr erfüllt, bevor Braze die Nachricht gesendet oder die/den Nutzer:in in den Canvas aufgenommen hat. Die Zeitspanne zwischen dem ursprünglichen Erfüllen der Zielgruppenkriterien und dem Herausfallen aus der Zielgruppe kann durch Verzögerungen verursacht werden durch: {::nomarkdown}<ul><li>Intelligentes Timing</li><li>Ruhezeiten</li><li>Ortszeit</li><li>Zustellgeschwindigkeits-Rate-Limits (nicht zutreffend für Canvas-Entry)</li><li>Messaging-Pipeline-Verzögerungen</li></ul>{:/} |
 | Nutzer:in nicht für Schritt berechtigt | Die/Der Nutzer:in hat die festgelegten [Zustellungsvalidierungen]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations) für den Nachrichtenschritt nicht erfüllt oder war Teil einer [Unterdrückungsliste]({{site.baseurl}}/user_guide/audience/suppression_lists). Abhängig von den Einstellungen der **Zustellungsvalidierungen** hat die/der Nutzer:in den Canvas möglicherweise verlassen oder ist zum nächsten Schritt weitergegangen. |
 | Nutzer:in nicht wiederberechtigt | Die/Der Nutzer:in war berechtigt, die Nachricht zu erhalten oder den Canvas zu betreten, aber der Versand wurde aufgrund von Wiederberechtigungs- oder Wiedereintrittseinstellungen abgebrochen. Dies kann passieren, wenn die/der Nutzer:in die Campaign bereits zu kürzlich erhalten hat oder in den Canvas eingetreten ist, wenn ein anderer Versand für dieselbe Campaign bereits für diese/n Nutzer:in läuft, oder wenn die Wiederberechtigung oder der Wiedereintritt deaktiviert ist. |
-| Kundenprofil or Nutzerprofil nicht gefunden | Die/Der Nutzer:in hat entweder nie existiert oder existiert nicht mehr in Braze. Häufige Fälle umfassen: {::nomarkdown}<ul><li> Die/Der Nutzer:in wurde über API-Messaging angesprochen, existierte aber nie in Braze. </li><li>Die/Der Nutzer:in wurde gelöscht, bevor die Nachricht gesendet oder der Canvas-Schritt ausgeführt wurde. </li><li>Die/Der Nutzer:in wurde mit einem anderen Profil zusammengeführt, bevor die Nachricht gesendet wurde.</li></ul>{:/} |
+| Kundenprofil nicht gefunden | Die/Der Nutzer:in hat entweder nie existiert oder existiert nicht mehr in Braze. Häufige Fälle umfassen: {::nomarkdown}<ul><li> Die/Der Nutzer:in wurde über API-Messaging angesprochen, existierte aber nie in Braze. </li><li>Die/Der Nutzer:in wurde gelöscht, bevor die Nachricht gesendet oder der Canvas-Schritt ausgeführt wurde. </li><li>Die/Der Nutzer:in wurde mit einem anderen Profil zusammengeführt, bevor die Nachricht gesendet wurde.</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Nutzerberechtigung und Profil" }
 
 #### Kanal und Zustellung {#channel-and-delivery}
@@ -158,8 +158,8 @@ Abbruchergebnisse in der Messaging-Diagnose sind menschenlesbare Dashboard-Bezei
 | Abbruchergebnis | Erklärung |
 | ---- | ---- |
 | Zustellungsfehler des Partners | Braze hat 24 Stunden lang versucht, diese Nachricht an Ihren Zustellungspartner zu senden, aber der Partner hat während des gesamten Zeitraums temporäre Fehler zurückgegeben. |
-| Push-Zugangsdaten ungültig | Die [Push-Zugangsdaten]({{site.baseurl}}/user_guide/channels/push/faqs#why-doesnt-an-opted-in-user-have-a-push-token) für diese App fehlen oder sind ungültig, daher wurde der Versand abgebrochen. Update or aktualisieren or aktualisieren Sie Ihre Zugangsdaten in den **App-Einstellungen**. |
-| Abo-Gruppen-Fehler | Die Nachricht konnte aufgrund von Problemen mit der Abo-Gruppen- oder Messaging-Service-Konfiguration nicht gesendet werden. Häufige Gründe sind fehlende Sendenummern für Kurzmitteilungsdienst or SMS oder WhatsApp oder nicht unterstütztes MMS im konfigurierten Messaging-Service. |
+| Push-Zugangsdaten ungültig | Die [Push-Zugangsdaten]({{site.baseurl}}/user_guide/channels/push/faqs#why-doesnt-an-opted-in-user-have-a-push-token) für diese App fehlen oder sind ungültig, daher wurde der Versand abgebrochen. Aktualisieren Sie Ihre Zugangsdaten in den **App-Einstellungen**. |
+| Abo-Gruppen-Fehler | Die Nachricht konnte aufgrund von Problemen mit der Abo-Gruppen- oder Messaging-Service-Konfiguration nicht gesendet werden. Häufige Gründe sind fehlende Sendenummern für SMS oder WhatsApp oder nicht unterstütztes MMS im konfigurierten Messaging-Service. |
 | Nutzer:in nicht für Kanal berechtigt | Die/Der Nutzer:in ist nicht berechtigt, diese Nachricht auf dem ausgewählten Kanal zu empfangen. Häufige Gründe sind fehlende oder ungültige Kanalbezeichner, keine berechtigten Push-Token / Textbaustein, Abo-Status-Einschränkungen, nicht unterstützte Kanalfunktionen oder blockierte Länder für telefonbasierte Kanäle. |
 | Webhook fehlgeschlagen | Der Webhook hat einen fehlerhaften Antwortcode (nicht `2xx`) erhalten. Häufige Fehlercodes sind `4XX`-Client-Fehler, `5XX`-Server-Fehler oder Timeout, oder `598 Host Unhealthy` oder kurzzeitig angehaltene Anfragen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Kanal und Zustellung" }
@@ -170,7 +170,7 @@ Abbruchergebnisse in der Messaging-Diagnose sind menschenlesbare Dashboard-Bezei
 
 Ein „Pre-Check“ bezeichnet eine schnelle, gebündelte Validierungsprüfung, die ganz am Anfang einer Pipeline-Stufe ausgeführt wird (z. B. wenn eine Nachricht getriggert oder ein Canvas-Nachrichten-Schritt gesendet wird). Stellen Sie sich das als einen frühen Abbruch vor, der auf maximale Geschwindigkeit ausgelegt ist. Anstatt viele einzelne, ressourcenintensive Prüfungen durchzuführen (wie die Validierung jedes Details eines Nutzerprofils), bündelt Braze mehrere grundlegende Validierungen in einem „ersten Durchlauf“.
 
-Wenn Nutzer:innen diese einzelne gebündelte Prüfung nicht bestehen, werden sie sofort ausgeschlossen. Dieser gebündelte Ansatz ermöglicht es Braze, große Mengen an Nachrichten mit hoher Geschwindigkeit zu verarbeiten, und kann zu einer schnelleren, stabileren Performance Ihrer Campaigns und Canvase beitragen, indem die Verarbeitungslatenz für jede Nachricht reduziert wird.
+Wenn Nutzer:innen diese einzelne gebündelte Prüfung nicht bestehen, werden sie sofort ausgeschlossen. Dieser gebündelte Ansatz ermöglicht es Braze, große Mengen an Nachrichten mit hoher Geschwindigkeit zu verarbeiten, und kann zu einer schnelleren, stabileren Performance Ihrer Campaigns und Canvases beitragen, indem die Verarbeitungslatenz für jede Nachricht reduziert wird.
 
 ### Was bedeutet ein Abbruchgrund „Sonstige“? {#what-does-an-other-abort-outcome-mean}
 
@@ -189,7 +189,7 @@ Dies kann verschiedene Gründe haben:
 
 Dies kann folgende Gründe haben:
 
-- **Mehrkanalige Nachrichten:** Die Campaign oder der Canvas-Schritt wurde so konfiguriert, dass über mehrere Kanäle gesendet wird (z. B. Kurzmitteilungsdienst or SMS und E-Mail). Eine einzelne Nutzer:in kann ein „Gesendet“-Ergebnis für einen Kanal (z. B. E-Mail) und ein „Abbruch“-Ergebnis für einen anderen Kanal erhalten (z. B. „Nutzer:in nicht für Kanal berechtigt“). In diesem Fall würde diese eine Nutzer:in im Chart zweimal gezählt: einmal als „Gesendet“ und einmal als „Abbruch“.
+- **Mehrkanalige Nachrichten:** Die Campaign oder der Canvas-Schritt wurde so konfiguriert, dass über mehrere Kanäle gesendet wird (z. B. SMS und E-Mail). Eine einzelne Nutzer:in kann ein „Gesendet“-Ergebnis für einen Kanal (z. B. E-Mail) und ein „Abbruch“-Ergebnis für einen anderen Kanal erhalten (z. B. „Nutzer:in nicht für Kanal berechtigt“). In diesem Fall würde diese eine Nutzer:in im Chart zweimal gezählt: einmal als „Gesendet“ und einmal als „Abbruch“.
   - **Beispiel:** Sie senden eine Push-Campaign an 100 Nutzer:innen und sprechen sowohl iOS als auch Android an. Wenn Nutzer:innen nur ein iOS-Gerät haben, erhalten sie die iOS-Push-Benachrichtigung („Gesendet“), lösen aber auch einen Abbruch für die Android-Push-Benachrichtigung aus („Nutzer:in nicht für Kanal berechtigt“).
 - **Mehrere Nachrichten-Schritte (nur Canvas):** Ihr Canvas kann mehr als einen Nachrichten-Schritt in einem bestimmten Pfad haben. Dieses Dashboard aggregiert alle Ergebnisse, sodass eine einzelne Nutzer:in mehrfach gezählt werden kann, wenn sie innerhalb des ausgewählten Zeitraums mehrere Nachrichten-Schritte durchläuft.
 - **Testnachrichten:** Testversand (der im Dashboard gezählt wird) kann die Gesamtzahlen höher als die Zielgruppengröße erscheinen lassen.

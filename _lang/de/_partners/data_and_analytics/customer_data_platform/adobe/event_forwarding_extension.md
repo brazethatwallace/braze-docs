@@ -41,7 +41,7 @@ Um das Edge Network mit Braze zu verbinden, benötigen Sie Folgendes:
 | Schlüssel-Typ | Beschreibung |
 | --- | --- |
 | Braze-Instanz | Ihre Braze-Instanz erhalten Sie von Ihrem Braze-Onboarding-Manager:in oder auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics#endpoints). |
-| Braze-Representational State Transfer-API-Schlüssel | Ein Braze-Representational State Transfer-API-Schlüssel mit allen Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden.|
+| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit allen Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 1: Erforderliche Konfigurationsdetails sammeln" }
 
 ### Schritt 2: Ein Secret erstellen {#step-2-create-a-secret}
@@ -52,7 +52,7 @@ Erstellen Sie ein neues [Ereignisweiterleitungs-Secret](https://experienceleague
 
 1. Um die Erweiterung zu installieren, [erstellen Sie eine Eigenschaft für die Ereignisweiterleitung](https://experienceleague.adobe.com/docs/experience-platform/tags/event-forwarding/overview.html?lang=en#properties) oder wählen Sie stattdessen eine vorhandene Eigenschaft zur Bearbeitung aus.
 2. Wählen Sie dann in der linken Navigation **Extensions** aus. Wählen Sie im Tab **Catalog** die Option **Install** auf der Karte für die Braze-Erweiterung aus.
-3. Geben Sie auf dem nächsten Bildschirm Ihre Representational State Transfer-Instanz und Ihren API-Schlüssel ein und wählen Sie anschließend **Save**.
+3. Geben Sie auf dem nächsten Bildschirm Ihre REST-Instanz und Ihren API-Schlüssel ein und wählen Sie anschließend **Save**.
 
 ### Schritt 4: Eine Regel zum Senden von Ereignissen erstellen {#step-4-create-a-send-event-rule}
 
@@ -92,7 +92,7 @@ Für die Aktion **Braze Send Event** müssen nur ein **Event Name** und eine **E
 {% endtab %}
 {% tab Nutzerattribut %}
 
-Nutzerattribute können ein JSON-Objekt sein, das Felder enthält, mit denen ein Attribut mit dem angegebenen Namen und Wert für das angegebene Kundenprofil or Nutzerprofil erstellt oder aktualisiert wird. Die folgenden Eigenschaften werden unterstützt:
+Nutzerattribute können ein JSON-Objekt sein, das Felder enthält, mit denen ein Attribut mit dem angegebenen Namen und Wert für das angegebene Kundenprofil erstellt oder aktualisiert wird. Die folgenden Eigenschaften werden unterstützt:
 
 | Nutzerattribut | Beschreibung |
 | --- | --- |
@@ -160,7 +160,7 @@ Für die Aktion **Send Purchase Event** müssen nur `Product ID`, `Purchase Time
 
 In der Konfigurationsansicht können Sie wählen, ob Attribute mit jedem Ereignis gesendet werden sollen.
 
-Nutzerattribute können ein JSON-Objekt sein, das Felder enthält, mit denen ein Attribut mit dem angegebenen Namen und Wert für das angegebene Kundenprofil or Nutzerprofil erstellt oder aktualisiert wird. Die folgenden Eigenschaften werden unterstützt:
+Nutzerattribute können ein JSON-Objekt sein, das Felder enthält, mit denen ein Attribut mit dem angegebenen Namen und Wert für das angegebene Kundenprofil erstellt oder aktualisiert wird. Die folgenden Eigenschaften werden unterstützt:
 
 | Nutzerattribut | Beschreibung |
 | --- | --- |

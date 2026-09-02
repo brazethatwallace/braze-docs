@@ -11,7 +11,7 @@ description: "Este artigo descreve o uso e os parâmetros do endpoint Get [nome 
 noindex: true
 #ATTENTION: remove noindex and this alert from template
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Consultar ou listar [Item do endpoint "Gets"] {#query-or-list-item-endpoint-gets}
 
 {% apimethod get %}
@@ -19,7 +19,7 @@ noindex: true
 {% endapimethod %}
 
 <!--
-This is the description of the endpoint. API or interface de programação do aplicativo (API) descriptions usually start with "Use this endpoint to..."-->
+This is the description of the endpoint. API descriptions usually start with "Use this endpoint to..."-->
 Use esse endpoint para obter uma lista de números de telefone que foram considerados "inválidos" em um determinado período de tempo.
 
 <!-- Your postman link. After you have published the endpoint to postman, you will be able get a direct link to the information in the postman docs to share here-->
@@ -36,8 +36,8 @@ Use esse endpoint para obter uma lista de números de telefone que foram conside
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 | ----------|-----------| ----------|----- |
-| `start_date` | Opcional <br>(ver nota) | String no formato YYYY-MM-DD | Data de início do intervalo para recuperar números de telefone inválidos. Deve ser anterior a `end_date`. A API or interface de programação do aplicativo (API) trata esse valor como meia-noite no horário UTC. |
-| `end_date` | Opcional <br>(ver nota) | String no formato YYYY-MM-DD | Data final do intervalo para recuperar números de telefone inválidos. A API or interface de programação do aplicativo (API) trata esse valor como meia-noite no horário UTC. |
+| `start_date` | Opcional <br>(ver nota) | String no formato YYYY-MM-DD | Data de início do intervalo para recuperar números de telefone inválidos. Deve ser anterior a `end_date`. A API trata esse valor como meia-noite no horário UTC. |
+| `end_date` | Opcional <br>(ver nota) | String no formato YYYY-MM-DD | Data final do intervalo para recuperar números de telefone inválidos. A API trata esse valor como meia-noite no horário UTC. |
 | `limit` | Opcional | Inteiro | Campo opcional para limitar o número de resultados retornados. O padrão é 100, e o máximo é 500. |
 | `offset` | Opcional | Inteiro | Ponto inicial opcional na lista a partir do qual recuperar os resultados. |
 | `phone_numbers` | Opcional <br>(ver nota) | Matriz de strings no formato e.164 | Se fornecido, retornaremos o número de telefone caso ele tenha sido considerado inválido. |
@@ -49,7 +49,7 @@ Você deve fornecer um `start_date` e um `end_date` OU `phone_numbers`. Se você
 
 ## Exemplo de solicitação {#example-request}
 
-<!--The following example demonstrates a request that will pull a list of phone numbers that have been deemed invalid via the API or interface de programação do aplicativo (API):-->
+<!--The following example demonstrates a request that will pull a list of phone numbers that have been deemed invalid via the API:-->
 ```
 curl --location --request GET 'https://rest.iad-01.braze.com/sms/invalid_phone_numbers?start_date=2019-01-01&end_date=2019-02-01&limit=100&offset=1&phone_numbers[]=12345678901' \
 --header 'Authorization: Bearer YOUR-API-KEY-HERE'

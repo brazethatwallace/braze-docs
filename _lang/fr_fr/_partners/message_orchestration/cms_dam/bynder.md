@@ -84,7 +84,7 @@ Comme un lien collé pointe vers une ressource et un dérivé spécifiques dans 
 
 ### Mettre à jour la ressource source sans modifier vos Campaigns {#update-the-source-asset-without-editing-your-campaigns}
 
-Si le fichier sous-jacent dans Bynder est remplacé tout en conservant les mêmes paramètres de ressource publique et de dérivé, tout message Braze en direct or en ligne/en production/instantané référençant cette URL reflète automatiquement la mise à jour. Vous n'avez pas besoin de modifier la Campaign elle-même.
+Si le fichier sous-jacent dans Bynder est remplacé tout en conservant les mêmes paramètres de ressource publique et de dérivé, tout message Braze en direct référençant cette URL reflète automatiquement la mise à jour. Vous n'avez pas besoin de modifier la Campaign elle-même.
 
 ## Considérations {#considerations}
 

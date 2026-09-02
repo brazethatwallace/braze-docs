@@ -39,15 +39,15 @@ sequenceDiagram
 
 ### Schritt 1: Ihren Google Cloud API-Schlüssel konfigurieren {#step-1-configure-your-google-cloud-api-key}
 
-Bei der Entwicklung Ihrer App müssen Sie dem Braze Android SDK or Software-Development-Kit Ihre Firebase-Sender-ID bereitstellen. Darüber hinaus müssen Sie einen API-Schlüssel für Serveranwendungen im Braze-Dashboard angeben. Braze verwendet diesen API-Schlüssel, um Nachrichten an Ihre Geräte zu senden. Sie müssen außerdem sicherstellen, dass der FCM-Dienst in der Google Developer-Konsole aktiviert ist.
+Bei der Entwicklung Ihrer App müssen Sie dem Braze Android SDK Ihre Firebase-Sender-ID bereitstellen. Darüber hinaus müssen Sie einen API-Schlüssel für Serveranwendungen im Braze-Dashboard angeben. Braze verwendet diesen API-Schlüssel, um Nachrichten an Ihre Geräte zu senden. Sie müssen außerdem sicherstellen, dass der FCM-Dienst in der Google Developer-Konsole aktiviert ist.
 
 {% alert note %}
-Ein häufiger Fehler bei diesem Schritt ist die Verwendung des App-Bezeichner-API-Schlüssels anstelle des Representational State Transfer-API-Schlüssels.
+Ein häufiger Fehler bei diesem Schritt ist die Verwendung des App-Bezeichner-API-Schlüssels anstelle des REST-API-Schlüssels.
 {% endalert %}
 
-### Schritt 2: Geräte Registrierung or registrieren sich bei FCM und stellen Braze Push-Token / Textbaustein bereit {#step-2-devices-register-for-fcm-and-provide-braze-with-push-tokens}
+### Schritt 2: Geräte Registrierung sich bei FCM und stellen Braze Push-Token / Textbaustein bereit {#step-2-devices-register-for-fcm-and-provide-braze-with-push-tokens}
 
-Bei typischen Integrationen übernimmt das Braze Android SDK or Software-Development-Kit die Registrierung der Geräte für die FCM-Funktionalität. Dies geschieht in der Regel direkt beim erstmaligen Öffnen der App. Nach der Registrierung erhält Braze eine FCM-Registrierungs-ID, die verwendet wird, um Nachrichten gezielt an dieses Gerät zu senden. Wir speichern die Registrierungs-ID für diese:n Nutzer:in, und diese:r Nutzer:in wird als „Push-registriert“ markiert, sofern zuvor kein Push-Token / Textbaustein für eine Ihrer Apps vorhanden war.
+Bei typischen Integrationen übernimmt das Braze Android SDK die Registrierung der Geräte für die FCM-Funktionalität. Dies geschieht in der Regel direkt beim erstmaligen Öffnen der App. Nach der Registrierung erhält Braze eine FCM-Registrierungs-ID, die verwendet wird, um Nachrichten gezielt an dieses Gerät zu senden. Wir speichern die Registrierungs-ID für diese:n Nutzer:in, und diese:r Nutzer:in wird als „Push-registriert“ markiert, sofern zuvor kein Push-Token / Textbaustein für eine Ihrer Apps vorhanden war.
 
 ### Schritt 3: Eine Braze-Push-Campaign starten {#step-3-launch-a-braze-push-campaign}
 
@@ -175,11 +175,11 @@ Der im Braze-Dashboard hinterlegte Firebase Cloud Messaging-Serverschlüssel ist
 
 ### Push-Klicks werden nicht protokolliert {#push-clicks-not-logged}
 
-Wenn Push-Klicks nicht protokolliert werden, ist es möglich, dass die Push-Klick-Daten noch nicht an unsere Server übertragen wurden. Das Braze Android SDK or Software-Development-Kit kann Übertragungen drosseln.
+Wenn Push-Klicks nicht protokolliert werden, ist es möglich, dass die Push-Klick-Daten noch nicht an unsere Server übertragen wurden. Das Braze Android SDK kann Übertragungen drosseln.
 
 Wenn Sie einen benutzerdefinierten Push-Handler implementiert haben, stellen Sie sicher, dass Sie die [nativen Push-Analytics korrekt beibehalten]({{site.baseurl}}/developer_guide/push_notifications/logging_message_data/?tab=android#preserving-native-push-analytics-with-custom-push-handling).
 
-Das Protokollieren von Push-Klicks ist ein Netzwerkvorgang und unterliegt Netzwerkbeschränkungen. Obwohl das Braze Android SDK or Software-Development-Kit Netzwerkfehler berücksichtigt und fehlgeschlagene Anfragen wiederholt, ist ein gewisser Datenverlust zu erwarten.
+Das Protokollieren von Push-Klicks ist ein Netzwerkvorgang und unterliegt Netzwerkbeschränkungen. Obwohl das Braze Android SDK Netzwerkfehler berücksichtigt und fehlgeschlagene Anfragen wiederholt, ist ein gewisser Datenverlust zu erwarten.
 
 ### Deeplinks funktionieren nicht {#deep-links-not-working}
 
@@ -197,7 +197,7 @@ Wenn der Deeplink [mit ADB korrekt funktioniert](https://developer.android.com/t
 
 #### Back-Stack-Verhalten deaktivieren {#disable-back-stack-behavior}
 
-Wenn der Deeplink [mit ADB korrekt funktioniert](https://developer.android.com/training/app-indexing/deep-linking.html#testing-filters), aber nicht über Braze-Push, versuchen Sie, den [Back-Stack](https://developer.android.com/guide/components/activities/tasks-and-back-stack) zu deaktivieren. Update or aktualisieren or aktualisieren Sie dazu Ihre **braze.xml**-Datei mit folgendem Eintrag:
+Wenn der Deeplink [mit ADB korrekt funktioniert](https://developer.android.com/training/app-indexing/deep-linking.html#testing-filters), aber nicht über Braze-Push, versuchen Sie, den [Back-Stack](https://developer.android.com/guide/components/activities/tasks-and-back-stack) zu deaktivieren. Aktualisieren Sie dazu Ihre **braze.xml**-Datei mit folgendem Eintrag:
 
 ```xml
 <bool name="com_braze_push_deep_link_back_stack_activity_enabled">false</bool>

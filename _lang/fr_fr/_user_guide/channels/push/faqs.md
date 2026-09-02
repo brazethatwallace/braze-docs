@@ -52,7 +52,7 @@ Si vous souhaitez que le jeton de notification push soit réattribué à l'utili
 
 ## Pourquoi « Open web URL inside mobile app » ouvre-t-il toujours l'application lorsque je teste un brouillon de Campaign ? {#why-does-open-web-url-inside-mobile-app-always-open-the-app-when-im-testing-a-draft-campaign}
 
-Lorsqu'une Campaign est encore au statut **Draft** et que vous envoyez un push de test, appuyer sur la notification ouvre toujours l'application en premier, que l'option **Open web URL inside mobile app** soit sélectionnée ou non. Lorsque la Campaign est **en direct or en ligne/en production/instantané**, le comportement au clic fonctionne comme configuré.
+Lorsqu'une Campaign est encore au statut **Draft** et que vous envoyez un push de test, appuyer sur la notification ouvre toujours l'application en premier, que l'option **Open web URL inside mobile app** soit sélectionnée ou non. Lorsque la Campaign est **en direct**, le comportement au clic fonctionne comme configuré.
 
 Si vous avez sélectionné **Open web URL** sans l'option **Inside App**, le lien s'ouvre directement dans le navigateur par défaut de l'appareil. Si vous avez sélectionné **Open web URL inside mobile app**, le lien s'ouvre dans une vue web in-app.
 

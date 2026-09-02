@@ -91,23 +91,23 @@ Braze 발송 도메인은 수신 이메일을 수락하지 않습니다. 수신�
 {% endalert %}
 
 {% endtab %}
-{% tab BCC or 배너 콘텐츠 카드 주소 %}
+{% tab BCC 주소 %}
 
-이 섹션에서는 Braze에서 발송되는 아웃바운드 이메일 메시지에 추가할 수 있는 BCC or 배너 콘텐츠 카드 주소를 관리할 수 있습니다. 이메일 메시지에 BCC or 배너 콘텐츠 카드 주소를 추가하면 사용자가 받는 메시지의 동일한 사본이 BCC or 배너 콘텐츠 카드 받은편지함으로 전송됩니다. 이는 규정 준수 요건이나 고객 지원 문제를 위해 사용자에게 보낸 메시지의 사본을 보관하는 데 유용한 도구입니다. BCC or 배너 콘텐츠 카드 이메일은 이메일 보고 및 분석에 포함되지 않습니다.
+이 섹션에서는 Braze에서 발송되는 아웃바운드 이메일 메시지에 추가할 수 있는 BCC 주소를 관리할 수 있습니다. 이메일 메시지에 BCC 주소를 추가하면 사용자가 받는 메시지의 동일한 사본이 BCC 받은편지함으로 전송됩니다. 이는 규정 준수 요건이나 고객 지원 문제를 위해 사용자에게 보낸 메시지의 사본을 보관하는 데 유용한 도구입니다. BCC 이메일은 이메일 보고 및 분석에 포함되지 않습니다.
 
-BCC or 배너 콘텐츠 카드 주소는 Amazon SES, SendGrid, SparkPost에서 사용할 수 있습니다. BCC or 배너 콘텐츠 카드 주소의 대안으로, 보관 또는 규정 준수 목적으로 사용자에게 보낸 메시지의 사본을 저장하려면 [메시지 보관]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/message_archiving)을 사용하는 것을 권장합니다.
+BCC 주소는 Amazon SES, SendGrid, SparkPost에서 사용할 수 있습니다. BCC 주소의 대안으로, 보관 또는 규정 준수 목적으로 사용자에게 보낸 메시지의 사본을 저장하려면 [메시지 보관]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/message_archiving)을 사용하는 것을 권장합니다.
 
 {% multi_lang_include alerts/important_alerts.md alert='BCC address billable emails' %}
 
-주소를 추가하면 Campaign 또는 캔버스 단계에서 이메일을 작성할 때 해당 주소를 선택할 수 있습니다. 주소 옆의 **기본값으로 설정**을 선택하면 새 이메일 Campaign 또는 Canvas 구성 요소를 시작할 때 기본적으로 선택되도록 설정됩니다. 메시지 수준에서 이를 재정의하려면 메시지를 설정할 때 **BCC or 배너 콘텐츠 카드 없음**을 선택하세요.
+주소를 추가하면 Campaign 또는 캔버스 단계에서 이메일을 작성할 때 해당 주소를 선택할 수 있습니다. 주소 옆의 **기본값으로 설정**을 선택하면 새 이메일 Campaign 또는 Canvas 구성 요소를 시작할 때 기본적으로 선택되도록 설정됩니다. 메시지 수준에서 이를 재정의하려면 메시지를 설정할 때 **BCC 없음**을 선택하세요.
 
-Braze에서 보내는 모든 이메일 메시지에 BCC or 배너 콘텐츠 카드 주소를 포함해야 하는 경우, **모든 이메일 Campaign에 BCC or 배너 콘텐츠 카드 주소 필수** 토글을 선택할 수 있습니다. 이 경우 기본 주소를 선택해야 하며, 새 이메일 Campaign 또는 캔버스 단계에서 자동으로 선택됩니다. 기본 주소는 REST API를 통해 트리거된 모든 메시지에도 자동으로 추가됩니다. 주소를 포함하기 위해 기존 API 요청을 변경할 필요가 없습니다.
+Braze에서 보내는 모든 이메일 메시지에 BCC 주소를 포함해야 하는 경우, **모든 이메일 Campaign에 BCC 주소 필수** 토글을 선택할 수 있습니다. 이 경우 기본 주소를 선택해야 하며, 새 이메일 Campaign 또는 캔버스 단계에서 자동으로 선택됩니다. 기본 주소는 REST API를 통해 트리거된 모든 메시지에도 자동으로 추가됩니다. 주소를 포함하기 위해 기존 API 요청을 변경할 필요가 없습니다.
 
-#### 동적 BCC or 배너 콘텐츠 카드 {#dynamic-bcc}
+#### 동적 BCC {#dynamic-bcc}
 
-동적 BCC or 배너 콘텐츠 카드를 사용하면 BCC or 배너 콘텐츠 카드 주소에 Liquid를 사용할 수 있습니다. 이 기능은 **이메일 환경설정**에서만 사용할 수 있으며 Campaign 자체에서는 설정할 수 없습니다. 이메일 수신자당 하나의 BCC or 배너 콘텐츠 카드 주소만 허용됩니다.
+동적 BCC를 사용하면 BCC 주소에 Liquid를 사용할 수 있습니다. 이 기능은 **이메일 환경설정**에서만 사용할 수 있으며 Campaign 자체에서는 설정할 수 없습니다. 이메일 수신자당 하나의 BCC 주소만 허용됩니다.
 
-예를 들어, 지원팀 이메일의 BCC or 배너 콘텐츠 카드 주소로 {% raw %}`{{custom_attribute.${support_agent}}}`{% endraw %}를 추가할 수 있습니다.
+예를 들어, 지원팀 이메일의 BCC 주소로 {% raw %}`{{custom_attribute.${support_agent}}}`{% endraw %}를 추가할 수 있습니다.
 
 ![Liquid를 사용하는 BCC 주소가 있는 이메일 설정 탭의 BCC 주소 섹션]({% image_buster /assets/img/email_settings/dynamic_bcc.png %}){: style="max-width:90%;" }
 

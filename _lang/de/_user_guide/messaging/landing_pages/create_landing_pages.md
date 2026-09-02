@@ -67,11 +67,11 @@ Sie können diese Blöcke verwenden, um Inhalte hinzuzufügen und das Layout Ihr
 | Titel | Ein Textblock zum Hinzufügen einer Überschrift oder eines Titels zu Ihrem Inhalt. Nützlich zum Strukturieren von Abschnitten und zur Verbesserung der Lesbarkeit. |
 | Absatz | Ein Textblock für längere Beschreibungen oder zusätzlichen Kontext. Unterstützt Rich-Text-Formatierung. |
 | Button | Ein klickbares Element, das Nutzer:innen zu einer bestimmten Aktion weiterleitet, z. B. einen Link öffnen oder ein Formular absenden. |
-| Radio-Button | Fügt eine Liste von Optionen hinzu, aus der Nutzer:innen eine auswählen müssen. Beim Absenden wird das zugehörige angepasste Attribut im Kundenprofil or Nutzerprofil protokolliert. |
+| Radio-Button | Fügt eine Liste von Optionen hinzu, aus der Nutzer:innen eine auswählen müssen. Beim Absenden wird das zugehörige angepasste Attribut im Kundenprofil protokolliert. |
 | Bild | Ein Block zur Anzeige von Bildern. Sie können ein Bild hochladen oder eine URL angeben, um auf eine externe Quelle zu verweisen. |
 | Link | Ein Hyperlink, auf den Nutzer:innen klicken können, um zu einer bestimmten URL zu navigieren. Kann in Text eingebettet oder eigenständig verwendet werden. |
 | Abstandshalter | Ein unsichtbarer Block, der vertikalen Abstand zwischen Elementen hinzufügt, um Layout und Lesbarkeit zu verbessern. |
-| Angepasster Code | Ein Block, mit dem Sie angepasstes HTML, CSS oder JavaScript einfügen und ausführen können, um erweiterte Anpassungen vorzunehmen. Informationen zur Anbindung an das Braze SDK or Software-Development-Kit aus diesem Block finden Sie unter [JavaScript-Bridge für Landing-Pages]({{site.baseurl}}/user_guide/messaging/landing_pages/javascript_bridge) und [Angepasste Formularblöcke erstellen]({{site.baseurl}}/user_guide/messaging/landing_pages/custom_form_blocks). |
+| Angepasster Code | Ein Block, mit dem Sie angepasstes HTML, CSS oder JavaScript einfügen und ausführen können, um erweiterte Anpassungen vorzunehmen. Informationen zur Anbindung an das Braze SDK aus diesem Block finden Sie unter [JavaScript-Bridge für Landing-Pages]({{site.baseurl}}/user_guide/messaging/landing_pages/javascript_bridge) und [Angepasste Formularblöcke erstellen]({{site.baseurl}}/user_guide/messaging/landing_pages/custom_form_blocks). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 3: Seite anpassen" }
 
 #### Span-Text {#span-text}
@@ -80,7 +80,7 @@ Um bestimmte Stile auf Textblöcke ohne angepassten Code anzuwenden, markieren S
 
 ![Textfeld mit verschiedenen gestalteten Textabschnitten, z. B. unterschiedlichen Schriftgrößen und Farben, und einem markierten Abschnitt, der eine Symbolleiste mit der Option „Wrap with span for style“ anzeigt.]({% image_buster /assets/img/landing_pages/wrap_with_span.png %}){: style="max-width:50%;"}
 
-Passen Sie die Span-Eigenschaften an, um Ihre Textgestaltung zu Update or aktualisieren or aktualisieren. Dazu gehören:
+Passen Sie die Span-Eigenschaften an, um Ihre Textgestaltung zu aktualisieren. Dazu gehören:
 
 - Schriftfamilie, -stärke, -größe
 - Zeilenhöhe
@@ -104,17 +104,17 @@ Sie können ein langes Formular in mehrere Schritte mit jeweils eigenen Feldern 
 
 | Blocktyp | Beschreibung |
 |---------------|-------------|
-| E-Mail-Erfassung | Ein Formularfeld für E-Mail-Adressen. Beim Absenden wird die E-Mail-Adresse dem Kundenprofil or Nutzerprofil in Braze hinzugefügt. |
-| Telefon-Erfassung | Ein Formularfeld für Telefonnummern. Beim Absenden wird die Nutzer:in für Ihre Kurzmitteilungsdienst or SMS- oder WhatsApp-Abo-Gruppe angemeldet. |
+| E-Mail-Erfassung | Ein Formularfeld für E-Mail-Adressen. Beim Absenden wird die E-Mail-Adresse dem Kundenprofil in Braze hinzugefügt. |
+| Telefon-Erfassung | Ein Formularfeld für Telefonnummern. Beim Absenden wird die Nutzer:in für Ihre SMS- oder WhatsApp-Abo-Gruppe angemeldet. |
 | Eingabefeld | Ein Formularfeld, das Standardattribute (wie Vor- und Nachname) oder einen angepassten Attribut-String Ihrer Wahl unterstützt. |
 | Dropdown | Nutzer:innen können einen Artikel aus einer vordefinierten Liste auswählen. Sie können beliebige angepasste Attribut-Strings zur Liste hinzufügen. |
 | Checkbox | Wenn eine Nutzer:in die Box ankreuzt, wird das Attribut des Blocks auf `true` gesetzt. Wenn sie nicht angekreuzt wird, wird das Attribut auf `false` gesetzt. |
 | Checkbox-Gruppe | Nutzer:innen können aus mehreren angebotenen Optionen auswählen. Die Werte werden in einem definierten Array-angepassten-Attribut gesetzt oder hinzugefügt. |
-| Abos verwalten | Eine Checkliste von E-Mail-, Kurzmitteilungsdienst or SMS- oder WhatsApp-Abo-Gruppen. Nutzer:innen wählen beim Absenden des Formulars aus, welchen Gruppen sie beitreten möchten. Jeder Block ist für einen Kanal. Weitere Informationen finden Sie unter [Block „Abos verwalten“]({{site.baseurl}}/user_guide/messaging/landing_pages/manage_subscriptions). |
+| Abos verwalten | Eine Checkliste von E-Mail-, SMS- oder WhatsApp-Abo-Gruppen. Nutzer:innen wählen beim Absenden des Formulars aus, welchen Gruppen sie beitreten möchten. Jeder Block ist für einen Kanal. Weitere Informationen finden Sie unter [Block „Abos verwalten“]({{site.baseurl}}/user_guide/messaging/landing_pages/manage_subscriptions). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Span-Text" }
 
 {% alert important %}
-Nachdem Sie eine Landing-Page mit einem Formular erstellt haben, stellen Sie sicher, dass Sie den [Landing-Page-Liquid-Tag]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) in Ihre Nachricht einbetten. Mit diesem Tag kann Braze bestehende Nutzerprofile automatisch identifizieren und Update or aktualisieren or aktualisieren, wenn sie das Formular absenden.
+Nachdem Sie eine Landing-Page mit einem Formular erstellt haben, stellen Sie sicher, dass Sie den [Landing-Page-Liquid-Tag]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) in Ihre Nachricht einbetten. Mit diesem Tag kann Braze bestehende Nutzerprofile automatisch identifizieren und aktualisieren, wenn sie das Formular absenden.
 {% endalert %}
 
 {% endtab %}

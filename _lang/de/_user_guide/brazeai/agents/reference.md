@@ -22,7 +22,7 @@ Das von Braze bereitgestellte **Auto**-Modell ist für Modelle optimiert, deren 
 Dies ist die einfachste Option, ohne zusätzliche Einrichtung. Braze bietet direkten Zugang zu Large Language Models (LLMs). Um diese Option zu nutzen, wählen Sie **Auto** aus, das Gemini-Modelle verwendet.
 
 {% alert important %}
-Wenn Sie **Braze Auto** nicht als Option im **Modell**-Dropdown beim Erstellen eines Agenten sehen, wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in, um zu erfahren, wie Sie das Braze-Auto-Modell nutzen können.
+Wenn Sie **Braze Auto** nicht als Option im **Modell**-Dropdown beim Erstellen eines Agenten sehen, wenden Sie sich an Ihren CSM, um zu erfahren, wie Sie das Braze-Auto-Modell nutzen können.
 {% endalert %}
 
 ### Option 2: Eigenen API-Schlüssel mitbringen {#option-2-bring-your-own-api-key}
@@ -142,12 +142,12 @@ Für vollständige Anweisungsbeispiele, die Sie kopieren oder anpassen können, 
 | Beispiel | Kategorie | Agententyp | Beschreibung |
 | --- | --- | --- | --- |
 | [Personalisierte Nachrichten basierend auf dem Kontext der Nutzer:innen verfassen]({{site.baseurl}}/user_guide/brazeai/agents/examples#write-personalized-messaging-based-on-a-users-context) | Content-Erstellung | Canvas-Schritt-Agent | Erzeugt koordinierte E-Mail-Betreff-/Preheader- und Push-Titel-/Body-Texte für Nutzer:innen, die gesucht, aber nicht gebucht haben. |
-| [Nutzerfeedback analysieren, um nächste Schritte zu bestimmen]({{site.baseurl}}/user_guide/brazeai/agents/examples#analyze-user-feedback-to-determine-next-steps) | Datenstandardisierung | Canvas-Schritt-Agent | Klassifiziert Stimmung und Thema einer Post-Trip-Umfrage und empfiehlt einen CRM or Customer-Relationship-Management [-System] (CRM)-Folgeschritt. |
+| [Nutzerfeedback analysieren, um nächste Schritte zu bestimmen]({{site.baseurl}}/user_guide/brazeai/agents/examples#analyze-user-feedback-to-determine-next-steps) | Datenstandardisierung | Canvas-Schritt-Agent | Klassifiziert Stimmung und Thema einer Post-Trip-Umfrage und empfiehlt einen CRM-Folgeschritt. |
 | [Nutzer:innen aus vorhandenen Attributen in Interessen-Buckets kategorisieren]({{site.baseurl}}/user_guide/brazeai/agents/examples#categorize-users-into-interest-buckets-from-existing-attributes) | Affinitäts-Agent | Canvas-Schritt-Agent | Klassifiziert Nutzer:innen anhand von Attributen und High-Intent-Signalen in Interessen-Buckets und empfiehlt das beste nächste Erlebnis oder den besten Artikel. |
 | [Nutzer:innen basierend auf aktuellem Verhalten zum relevantesten Canvas-Pfad leiten]({{site.baseurl}}/user_guide/brazeai/agents/examples#route-users-to-the-most-relevant-canvas-path-from-recent-behavior) | Affinitäts-Agent | Canvas-Schritt-Agent | Leitet die Motivation aus aktuellem Verhalten ab und gibt den besten Routenschlüssel für den nächsten Canvas-Schritt der Nutzer:innen zurück. |
 | [Nutzer:innen aus Realtime-High-Intent-Aktionen Interessenkategorien zuweisen]({{site.baseurl}}/user_guide/brazeai/agents/examples#assign-users-to-interest-categories-from-real-time-high-intent-actions) | Affinitäts-Agent | Canvas-Schritt-Agent | Weist Interessenkategorien aus High-Intent-Aktionen zu und empfiehlt das beste nächste Erlebnis oder den besten Artikel. |
 | [Eingehende Nachrichten auf Opt-out-Absicht klassifizieren]({{site.baseurl}}/user_guide/brazeai/agents/examples#classify-inbound-messages-for-opt-out-intent) | Klassifizierung und Routing | Canvas-Schritt-Agent | Gibt einen strikten booleschen Wert zurück, der angibt, ob eine Nachricht eine Opt-out-Anfrage ist. |
-| [Eingehende Nachrichten in strukturierte Daten für Automatisierung standardisieren]({{site.baseurl}}/user_guide/brazeai/agents/examples#standardize-inbound-messages-into-structured-data-for-automation) | Datenstandardisierung | Canvas-Schritt-Agent | Normalisiert eingehende Kurzmitteilungsdienst or SMS oder Chatnachrichten in strukturierte Absicht, Entitäten und Compliance-Flags für nachgelagerte Automatisierung. |
+| [Eingehende Nachrichten in strukturierte Daten für Automatisierung standardisieren]({{site.baseurl}}/user_guide/brazeai/agents/examples#standardize-inbound-messages-into-structured-data-for-automation) | Datenstandardisierung | Canvas-Schritt-Agent | Normalisiert eingehende SMS oder Chatnachrichten in strukturierte Absicht, Entitäten und Compliance-Flags für nachgelagerte Automatisierung. |
 | [Hochkonvertierende Beschreibungen verfassen, die den Markenrichtlinien entsprechen]({{site.baseurl}}/user_guide/brazeai/agents/examples#write-high-converting-descriptions-that-align-with-brand-guidelines) | Content-Erstellung | Katalog-Agent | Erzeugt kurze, markenkonforme Beschreibungen für jede Katalogzeile. |
 | [Übersetzungen basierend auf der regional verwendeten Sprache bereitstellen]({{site.baseurl}}/user_guide/brazeai/agents/examples#provide-translations-based-on-language-used-by-region) | Kataloganreicherung | Katalog-Agent | Lokalisiert UI- und Marketing-Strings pro Locale und Zeichenlimit. |
 | [Katalogartikel mit Beschreibungen, Kategorien und Tags anreichern]({{site.baseurl}}/user_guide/brazeai/agents/examples#enrich-catalog-items-with-descriptions-categories-and-tags) | Kataloganreicherung | Katalog-Agent | Erzeugt erweiterte Beschreibungen, Kategorien und Tags aus vorhandenen Katalogartikeldaten. |
@@ -173,7 +173,7 @@ Gestalten Sie jeden Agenten als eine bewusste Input-zu-Output-Pipeline. Leiten S
 
 1. **Liquid in Anweisungen:** Binden Sie Nutzerattribute ({% raw %}`{{${first_name}}}`{% endraw %}) und [Canvas-Kontextvariablen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables) ({% raw %}`{{context.${variable_name}}}`{% endraw %}) direkt im Agenten-Prompt ein.
 2. **+ Agentenkontext:** Wählen Sie Kataloge, Segmentzugehörigkeit, Markenrichtlinien, **All Canvas Context** oder Nutzerinteraktionsdaten in der Agent Console aus.
-3. [Kontextschritte]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context): Setzen oder Update or aktualisieren or aktualisieren Sie `context.*`-Variablen vorgelagert im Canvas, bevor ein Agent-Schritt ausgeführt wird.
+3. [Kontextschritte]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context): Setzen oder aktualisieren Sie `context.*`-Variablen vorgelagert im Canvas, bevor ein Agent-Schritt ausgeführt wird.
 4. **Zusätzlicher Kontext im Agent-Schritt:** Übergeben Sie weitere Liquid-gerenderte Werte, die nicht bereits über die anderen Methoden angegeben wurden, zum Sendezeitpunkt über die Schrittkonfiguration an den Agenten.
 
 Stellen Sie sicher, dass Sie diese Kontextvariablen entweder per Liquid-Template in den Agentenanweisungen einbinden oder **Add All Canvas Context** auswählen. Wenn ein Wert nicht über einen dieser Kanäle übergeben wird, erhält der Agent ihn nicht. Listen Sie erforderliche Eingaben in Ihren Anweisungen oder in den [Voraussetzungen für den Anwendungsfall]({{site.baseurl}}/user_guide/brazeai/agents/examples) auf und überprüfen Sie die Eingaben unter **Agent Console** > **Logs** nach dem Testen.
@@ -283,7 +283,7 @@ Sie können bis zu fünf Segmente auswählen, damit der Agent die Segment-Mitgli
 
 ## Markenrichtlinien {#brand-guidelines}
 
-Sie können [Markenrichtlinien]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) auswählen, an die sich Ihr Agent in seinen Antworten halten soll. Wenn Sie beispielsweise möchten, dass Ihr Agent Kurzmitteilungsdienst or SMS-Texte generiert, die Nutzer:innen dazu ermutigen, sich für eine Fitnessstudio-Mitgliedschaft anzumelden, können Sie dieses Feld verwenden, um auf Ihre vordefinierte, motivierende Markenrichtlinie zu verweisen.
+Sie können [Markenrichtlinien]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) auswählen, an die sich Ihr Agent in seinen Antworten halten soll. Wenn Sie beispielsweise möchten, dass Ihr Agent SMS-Texte generiert, die Nutzer:innen dazu ermutigen, sich für eine Fitnessstudio-Mitgliedschaft anzumelden, können Sie dieses Feld verwenden, um auf Ihre vordefinierte, motivierende Markenrichtlinie zu verweisen.
 
 ## Nutzerspezifischer Interaktionsverlauf {#user-history}
 

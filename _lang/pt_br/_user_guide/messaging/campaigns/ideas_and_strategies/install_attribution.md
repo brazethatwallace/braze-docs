@@ -13,7 +13,7 @@ tool:
 
 > O rastreamento de atribuição da instalação é uma ótima maneira de melhorar o relacionamento inicial com seus usuários. Saber como, onde e, mais importante ainda, por que um usuário instala seu app permite que você entenda melhor quem é esse usuário e como apresentá-lo ao seu app.
 
-Embora a Braze não ofereça rastreamento de atribuição da instalação, é possível fazer a integração com [serviços]({{site.baseurl}}/partners/message_orchestration) como Branch or ramificação e AppsFlyer para fornecer dados de instalação de forma integrada.
+Embora a Braze não ofereça rastreamento de atribuição da instalação, é possível fazer a integração com [serviços]({{site.baseurl}}/partners/message_orchestration) como Branch e AppsFlyer para fornecer dados de instalação de forma integrada.
 
 ## Segmente seus usuários {#segment-your-users}
 

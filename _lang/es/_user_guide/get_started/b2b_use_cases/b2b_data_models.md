@@ -30,8 +30,8 @@ En Braze, estos cuatro objetos se combinan y reducen a dos: los perfiles de usua
 
 | Objeto Braze B2B | Descripción | Objetos B2B originales  |
 | --- | --- | --- |
-| Perfiles de usuario | Se mapean directamente con clientes potenciales y contactos en tu sistema CRM or administración de las relaciones con el cliente de ventas. Como Braze capta los clientes potenciales, se crean automáticamente como clientes potenciales en tu sistema CRM or administración de las relaciones con el cliente de ventas. A medida que se convierten en contactos, los ID y detalles de los contactos se sincronizan de nuevo con Braze. | Clientes potenciales<br> Contactos |
-| Objetos empresariales | Se mapean con cualquier objeto no usuario de tu sistema CRM or administración de las relaciones con el cliente de ventas. Esto incluye tus objetos específicos de ventas, como objetos de cuenta y objetos de oportunidad. | Cuentas<br> Oportunidades |
+| Perfiles de usuario | Se mapean directamente con clientes potenciales y contactos en tu sistema CRM de ventas. Como Braze capta los clientes potenciales, se crean automáticamente como clientes potenciales en tu sistema CRM de ventas. A medida que se convierten en contactos, los ID y detalles de los contactos se sincronizan de nuevo con Braze. | Clientes potenciales<br> Contactos |
+| Objetos empresariales | Se mapean con cualquier objeto no usuario de tu sistema CRM de ventas. Esto incluye tus objetos específicos de ventas, como objetos de cuenta y objetos de oportunidad. | Cuentas<br> Oportunidades |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Crear un modelo de datos B2B" }
 
 ## Paso 1: Crea tus objetos de negocio en Braze
@@ -51,27 +51,27 @@ Existen dos métodos para crear y gestionar tus objetos de negocio en Braze: los
 
 ### Opción 1: Utiliza catálogos para cuentas y oportunidades
 
-Los catálogos son tablas de datos que se alojan y gestionan en Braze. Aunque los datos de cuentas y oportunidades proceden del sistema CRM or administración de las relaciones con el cliente de ventas que hayas elegido, los duplicarías en Braze para utilizarlos con fines de marketing: segmentación basada en cuentas, marketing basado en cuentas, gestión de clientes potenciales, etc.
+Los catálogos son tablas de datos que se alojan y gestionan en Braze. Aunque los datos de cuentas y oportunidades proceden del sistema CRM de ventas que hayas elegido, los duplicarías en Braze para utilizarlos con fines de marketing: segmentación basada en cuentas, marketing basado en cuentas, gestión de clientes potenciales, etc.
 
-Para esta opción, recomendamos crear un catálogo para tus cuentas y otro para tus oportunidades, y actualizarlos con frecuencia enviando actualizaciones a Braze a través de nuestra [API de catálogos]({{site.baseurl}}/api/endpoints/catalogs) o de la [ingesta de datos en la nube (CDI) de catálogos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data). Al crear estos catálogos, asegúrate de que la `id` (primera columna) de tu catálogo coincide con la `id` de tu sistema CRM or administración de las relaciones con el cliente de ventas.
+Para esta opción, recomendamos crear un catálogo para tus cuentas y otro para tus oportunidades, y actualizarlos con frecuencia enviando actualizaciones a Braze a través de nuestra [API de catálogos]({{site.baseurl}}/api/endpoints/catalogs) o de la [ingesta de datos en la nube (CDI) de catálogos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data). Al crear estos catálogos, asegúrate de que la `id` (primera columna) de tu catálogo coincide con la `id` de tu sistema CRM de ventas.
 
-#### Mapea tus campos de CRM or administración de las relaciones con el cliente
+#### Mapea tus campos de CRM
 
-Las tablas de la siguiente sección incluyen algunos ejemplos de campos que puedes mapear desde los objetos de cuenta y oportunidad de tu CRM or administración de las relaciones con el cliente.
+Las tablas de la siguiente sección incluyen algunos ejemplos de campos que puedes mapear desde los objetos de cuenta y oportunidad de tu CRM.
 
 {% subtabs %}
 {% subtab Account catalog %}
 
-En este caso de uso, Salesforce es el sistema CRM or administración de las relaciones con el cliente de ejemplo. Puedes mapear cualquier campo incluido en los objetos de tu CRM or administración de las relaciones con el cliente.
+En este caso de uso, Salesforce es el sistema CRM de ejemplo. Puedes mapear cualquier campo incluido en los objetos de tu CRM.
 
-<table aria-label="Mapea tus campos de CRM or administración de las relaciones con el cliente" border="1">
-  <caption>Mapea tus campos de CRM or administración de las relaciones con el cliente</caption>
+<table aria-label="Mapea tus campos de CRM" border="1">
+  <caption>Mapea tus campos de CRM</caption>
   <thead>
   <tr>
     <th><b>Objeto Braze</b></th>
     <th><b>Campo de Braze</b></th>
-    <th><b>Objeto CRM or administración de las relaciones con el cliente (Salesforce)</b></th>
-    <th><b>Campo CRM or administración de las relaciones con el cliente (Salesforce)</b></th>
+    <th><b>Objeto CRM (Salesforce)</b></th>
+    <th><b>Campo CRM (Salesforce)</b></th>
   </tr>
   </thead>
   <tbody>
@@ -106,7 +106,7 @@ En este caso de uso, Salesforce es el sistema CRM or administración de las rela
 {% endsubtab %}
 {% subtab Opportunity catalog %}
 
-En este caso de uso, Salesforce es el sistema CRM or administración de las relaciones con el cliente de ejemplo. Puedes mapear cualquier campo incluido en los objetos de tu CRM or administración de las relaciones con el cliente.
+En este caso de uso, Salesforce es el sistema CRM de ejemplo. Puedes mapear cualquier campo incluido en los objetos de tu CRM.
 
 <table aria-label="Ejemplo de tabla de campos de cuenta mapeados" border="1">
   <caption>Ejemplo de tabla de campos de cuenta mapeados</caption>
@@ -114,8 +114,8 @@ En este caso de uso, Salesforce es el sistema CRM or administración de las rela
   <tr>
     <th><b>Objeto Braze</b></th>
     <th><b>Campo de Braze</b></th>
-    <th><b>Objeto CRM or administración de las relaciones con el cliente (Salesforce)</b></th>
-    <th><b>Campo CRM or administración de las relaciones con el cliente (Salesforce)</b></th>
+    <th><b>Objeto CRM (Salesforce)</b></th>
+    <th><b>Campo CRM (Salesforce)</b></th>
   </tr>
   </thead>
   <tbody>
@@ -161,15 +161,15 @@ Para configurar las fuentes conectadas, consulta [Integrar fuentes conectadas]({
 
 ## Paso 2: Relaciona tus objetos empresariales con los perfiles de usuario
 
-Los perfiles de usuario son el objeto principal de Braze, que impulsa la mayor parte de tu segmentación demográfica, desencadenamiento y personalización. Los perfiles de usuario incluyen [datos de usuario predeterminados]({{site.baseurl}}/user_guide/data/unification/user_data) recopilados por nuestro SDK or kit de desarrollo de software y otras fuentes, incluidos [datos personalizados]({{site.baseurl}}/user_guide/data/activation), que adoptan la forma de atributos (datos demográficos), eventos (datos de comportamiento) o compras (datos de transacciones).
+Los perfiles de usuario son el objeto principal de Braze, que impulsa la mayor parte de tu segmentación demográfica, desencadenamiento y personalización. Los perfiles de usuario incluyen [datos de usuario predeterminados]({{site.baseurl}}/user_guide/data/unification/user_data) recopilados por nuestro SDK y otras fuentes, incluidos [datos personalizados]({{site.baseurl}}/user_guide/data/activation), que adoptan la forma de atributos (datos demográficos), eventos (datos de comportamiento) o compras (datos de transacciones).
 
-### Paso 2.1: Mapea los ID del CRM or administración de las relaciones con el cliente de ventas a Braze
+### Paso 2.1: Mapea los ID del CRM de ventas a Braze
 
-En primer lugar, asegúrate de que Braze y el CRM or administración de las relaciones con el cliente que elijas tengan un identificador común con el que compartir datos. Te sugerimos que utilices la siguiente tabla para mapear tus campos de ID del CRM or administración de las relaciones con el cliente de ventas al objeto de usuario de Braze. En la tabla de la siguiente sección, Salesforce es el sistema CRM or administración de las relaciones con el cliente, pero se puede hacer con cualquier CRM or administración de las relaciones con el cliente.
+En primer lugar, asegúrate de que Braze y el CRM que elijas tengan un identificador común con el que compartir datos. Te sugerimos que utilices la siguiente tabla para mapear tus campos de ID del CRM de ventas al objeto de usuario de Braze. En la tabla de la siguiente sección, Salesforce es el sistema CRM, pero se puede hacer con cualquier CRM.
 
 #### Objeto Braze: usuario
 
-| Campo de Braze | Objeto CRM or administración de las relaciones con el cliente (Salesforce) | Campo CRM or administración de las relaciones con el cliente (Salesforce) | Información adicional |
+| Campo de Braze | Objeto CRM (Salesforce) | Campo CRM (Salesforce) | Información adicional |
 | --- | --- | --- | --- |
 | `Aliases.salesforce_lead_id` | Lead | `id` | - Etiqueta de alias de usuario: `salesforce_lead_id` <br>- Nombre del alias de usuario: `lead_id` |
 | `Aliases.salesforce_contact_id` | Contact | `id` | - Etiqueta de alias de usuario: `salesforce_contact_id` <br>- Nombre del alias de usuario: `contact_id` |

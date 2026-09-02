@@ -1,16 +1,16 @@
 ---
-nav_title: Recopilación de datos del SDK or kit de desarrollo de software
-article_title: Recopilación de datos del SDK or kit de desarrollo de software
+nav_title: Recopilación de datos del SDK
+article_title: Recopilación de datos del SDK
 page_order: 1
 page_type: reference
-description: "Este artículo de referencia aborda los datos que recopila el SDK or kit de desarrollo de software a través de una integración personalizada, una integración recopilada automáticamente y una integración mínima."
+description: "Este artículo de referencia aborda los datos que recopila el SDK a través de una integración personalizada, una integración recopilada automáticamente y una integración mínima."
 ---
 
-# Recopilación de datos del SDK or kit de desarrollo de software {#sdk-data-collection}
+# Recopilación de datos del SDK {#sdk-data-collection}
 
-> Cuando integras el SDK or kit de desarrollo de software de Braze con tu aplicación o sitio, Braze recopila automáticamente determinados tipos de datos. Algunos de estos datos son esenciales para nuestros procesos y otros pueden activarse o desactivarse en función de tus necesidades. También puedes configurar Braze para que recopile tipos de datos adicionales para potenciar aún más tu segmentación y mensajería.
+> Cuando integras el SDK de Braze con tu aplicación o sitio, Braze recopila automáticamente determinados tipos de datos. Algunos de estos datos son esenciales para nuestros procesos y otros pueden activarse o desactivarse en función de tus necesidades. También puedes configurar Braze para que recopile tipos de datos adicionales para potenciar aún más tu segmentación y mensajería.
 
-Braze está diseñado para permitir una recopilación de datos flexible, por lo que puedes integrar el SDK or kit de desarrollo de software de Braze de las siguientes formas:
+Braze está diseñado para permitir una recopilación de datos flexible, por lo que puedes integrar el SDK de Braze de las siguientes formas:
 
 - **[Integración mínima](#minimum-integration):** Braze recopila automáticamente los datos necesarios para comunicarse con los servicios de Braze.
 - **[Datos opcionales recopilados por defecto](#optional-data-collected-by-default):** Braze captura automáticamente algunos datos que son ampliamente útiles para la mayoría de tus casos de uso. Puedes optar por desactivar la recopilación automática de estos datos si no son esenciales para la comunicación con los servicios de Braze.
@@ -19,23 +19,23 @@ Braze está diseñado para permitir una recopilación de datos flexible, por lo 
 
 ## Integración mínima {#minimum-integration}
 
-A continuación se enumeran los datos estrictamente necesarios generados y recibidos por Braze cuando inicializas el SDK or kit de desarrollo de software. Estos datos no son configurables y son esenciales en las funciones principales de la plataforma. Excepto el inicio y el fin de sesión, todos los demás datos rastreados automáticamente no cuentan para tu uso de punto de datos.
+A continuación se enumeran los datos estrictamente necesarios generados y recibidos por Braze cuando inicializas el SDK. Estos datos no son configurables y son esenciales en las funciones principales de la plataforma. Excepto el inicio y el fin de sesión, todos los demás datos rastreados automáticamente no cuentan para tu uso de punto de datos.
 
 | Atributo | Descripción | Por qué se recopila |
 | --------- | ----------- | ------------------ |
 | App-Version-Name /<br> App-Version-Code | La versión más reciente de la aplicación | Este atributo se utiliza para enviar mensajes relacionados con la compatibilidad de la versión de la aplicación a los dispositivos correctos. Puede usarse para notificar a los usuarios sobre interrupciones del servicio o errores. |
-| País | País identificado por geolocalización de la dirección IP. Si la geolocalización de la dirección IP no está disponible, se identifica por la [configuración regional del dispositivo](#optional-data-collected-by-default). El valor podría ser alternativamente lo que los SDK or kit de desarrollo de software establezcan directamente con `setCountry`, pero ten en cuenta que pasar un valor de atributo a través del SDK or kit de desarrollo de software o la API registrará puntos de datos. **Después de que el país se haya establecido manualmente (a través del método del SDK or kit de desarrollo de software, la REST or transferencia de estado representacional API o la carga de CSV), el SDK or kit de desarrollo de software ya no actualiza automáticamente este valor.** | Este atributo se utiliza para segmentar mensajes basándose en la ubicación. |
+| País | País identificado por geolocalización de la dirección IP. Si la geolocalización de la dirección IP no está disponible, se identifica por la [configuración regional del dispositivo](#optional-data-collected-by-default). El valor podría ser alternativamente lo que los SDK establezcan directamente con `setCountry`, pero ten en cuenta que pasar un valor de atributo a través del SDK o la API registrará puntos de datos. **Después de que el país se haya establecido manualmente (a través del método del SDK, la REST API o la carga de CSV), el SDK ya no actualiza automáticamente este valor.** | Este atributo se utiliza para segmentar mensajes basándose en la ubicación. |
 | ID de dispositivo | Identificador del dispositivo, una cadena generada aleatoriamente | Este atributo se utiliza para diferenciar los dispositivos de los usuarios y enviar mensajes al dispositivo correcto. |
 | Sistema operativo y versión del SO | Dispositivo o navegador reportado actualmente y versión del dispositivo o navegador | Este atributo se utiliza para enviar mensajes únicamente a dispositivos compatibles. También puede usarse dentro de la segmentación para dirigirse a usuarios que deben actualizar versiones de la aplicación. |
-| Inicio y fin de sesión | Cuando el usuario comienza a usar tu aplicación o sitio integrado | El SDK or kit de desarrollo de software de Braze reporta datos de sesión utilizados por el panel de Braze para calcular la participación de los usuarios y otros análisis esenciales para comprender a tus usuarios. El momento exacto en que tu aplicación o sitio llama al inicio y fin de sesión es configurable por un desarrollador ([Android]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=android), [iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=swift), [Web]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=web)). |
-| Datos de interacción de mensajes del SDK or kit de desarrollo de software | Direct Opens de push, interacciones con mensajes dentro de la aplicación, interacciones con Content Cards | Este atributo se utiliza con fines de control de calidad, como verificar que un mensaje fue recibido y que el envío no está duplicado. |
-| Versión del SDK or kit de desarrollo de software | Versión actual del SDK or kit de desarrollo de software | Este atributo se utiliza para enviar mensajes únicamente a dispositivos compatibles y evitar interrupciones del servicio. |
+| Inicio y fin de sesión | Cuando el usuario comienza a usar tu aplicación o sitio integrado | El SDK de Braze reporta datos de sesión utilizados por el panel de Braze para calcular la participación de los usuarios y otros análisis esenciales para comprender a tus usuarios. El momento exacto en que tu aplicación o sitio llama al inicio y fin de sesión es configurable por un desarrollador ([Android]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=android), [iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=swift), [Web]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=web)). |
+| Datos de interacción de mensajes del SDK | Direct Opens de push, interacciones con mensajes dentro de la aplicación, interacciones con Content Cards | Este atributo se utiliza con fines de control de calidad, como verificar que un mensaje fue recibido y que el envío no está duplicado. |
+| Versión del SDK | Versión actual del SDK | Este atributo se utiliza para enviar mensajes únicamente a dispositivos compatibles y evitar interrupciones del servicio. |
 | ID de sesión y marca de tiempo de sesión | Identificador de sesión, una cadena generada aleatoriamente y marca de tiempo de sesión | Se utiliza para determinar si el usuario está iniciando una sesión nueva o existente y para determinar la reelegibilidad de mensajes destinados a este usuario.<br><br>Ciertos canales de mensajería como los mensajes dentro de la aplicación y las Content Cards se sincronizan con el dispositivo al inicio de la sesión. Nuestro backend utilizará entonces datos relacionados con la última vez que contactó a los servidores de Braze (que el dispositivo almacena y envía de vuelta) para saber si el usuario es elegible para nuevos mensajes.|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Integración mínima" }
 
 ### Métricas calculadas {#calculated-metrics}
 
-Braze genera métricas calculadas a partir de tres entradas: [datos rastreados por el SDK or kit de desarrollo de software](#minimum-integration) (por ejemplo, [inicio y fin de sesión]({{site.baseurl}}/developer_guide/analytics/tracking_sessions)), [datos de interacción de mensajes para canales que no son del SDK or kit de desarrollo de software]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) y [campos de informes derivados de Braze]({{site.baseurl}}/user_guide/analytics/metrics_glossary). Estos valores son generados por los servicios de Braze, por lo que un perfil de usuario puede incluir tanto datos rastreados por el SDK or kit de desarrollo de software como datos generados por Braze.
+Braze genera métricas calculadas a partir de tres entradas: [datos rastreados por el SDK](#minimum-integration) (por ejemplo, [inicio y fin de sesión]({{site.baseurl}}/developer_guide/analytics/tracking_sessions)), [datos de interacción de mensajes para canales que no son del SDK]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) y [campos de informes derivados de Braze]({{site.baseurl}}/user_guide/analytics/metrics_glossary). Estos valores son generados por los servicios de Braze, por lo que un perfil de usuario puede incluir tanto datos rastreados por el SDK como datos generados por Braze.
 
 Las métricas calculadas incluyen métricas basadas en canales (listadas en el [Glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary)) y los siguientes atributos.
 
@@ -56,7 +56,7 @@ Las métricas calculadas incluyen métricas basadas en canales (listadas en el [
 | Desinstalado | Booleano y hora |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Métricas calculadas" }
 
-La integración mínima significa que solo recopilas los datos requeridos listados en [Integración mínima](#minimum-integration) y optas por no recopilar los [datos opcionales recopilados por defecto](#optional-data-collected-by-default) [bloqueando la recopilación de datos opcionales del SDK or kit de desarrollo de software]({{site.baseurl}}/developer_guide/getting_started/sdk_overview).
+La integración mínima significa que solo recopilas los datos requeridos listados en [Integración mínima](#minimum-integration) y optas por no recopilar los [datos opcionales recopilados por defecto](#optional-data-collected-by-default) [bloqueando la recopilación de datos opcionales del SDK]({{site.baseurl}}/developer_guide/getting_started/sdk_overview).
 
 {% alert important %}
 Si deseas una integración mínima y usas mParticle, Segment, Tealium o GTM, ten en cuenta lo siguiente:
@@ -66,7 +66,7 @@ Si deseas una integración mínima y usas mParticle, Segment, Tealium o GTM, ten
 
 ## Datos opcionales recopilados de forma predeterminada {#optional-data-collected-by-default}
 
-Además de los datos mínimos de integración, los siguientes atributos son capturados automáticamente por Braze cuando inicializas la integración de SDK or kit de desarrollo de software. Puedes [desactivar]({{site.baseurl}}/developer_guide/getting_started/sdk_overview) la recopilación de estos atributos para permitir una integración mínima.
+Además de los datos mínimos de integración, los siguientes atributos son capturados automáticamente por Braze cuando inicializas la integración de SDK. Puedes [desactivar]({{site.baseurl}}/developer_guide/getting_started/sdk_overview) la recopilación de estos atributos para permitir una integración mínima.
 
 | Atributo               | Plataforma          | Descripción                                                                        | Por qué se recopila                                                                                                                                                      |
 |-------------------------|-------------------|------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -98,15 +98,15 @@ De forma predeterminada, los siguientes atributos no se recopilan. Cada atributo
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Datos no recopilados de forma predeterminada" }
 
 {% alert note %}
-El SDK or kit de desarrollo de software de Braze no almacena direcciones IP de forma local.
+El SDK de Braze no almacena direcciones IP de forma local.
 {% endalert %}
 
 ## Integración personalizada {#personalized-integration}
 
-Para aprovechar al máximo Braze, nuestros integradores de SDK or kit de desarrollo de software a menudo implementan los SDK or kit de desarrollo de software de Braze y registran [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#set-custom-attributes), [eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events#logging-custom-events) y [eventos de compra]({{site.baseurl}}/user_guide/data/activation/events/purchase_events#log-purchase-events) que son relevantes para su negocio, además de los datos recopilados automáticamente.
+Para aprovechar al máximo Braze, nuestros integradores de SDK a menudo implementan los SDK de Braze y registran [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#set-custom-attributes), [eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events#logging-custom-events) y [eventos de compra]({{site.baseurl}}/user_guide/data/activation/events/purchase_events#log-purchase-events) que son relevantes para su negocio, además de los datos recopilados automáticamente.
 
 Una integración personalizada permite una comunicación adaptada que es relevante para la experiencia de tus usuarios.
 
 {% alert important %}
-Braze bloquea los perfiles de usuario ("usuarios ficticios") con más de 5 000 000 de sesiones, más de 20 000 nombres distintos de eventos personalizados o más de 20 000 nombres distintos de productos en compras, y deja de ingerir todos los datos entrantes para ese perfil tanto desde los SDK or kit de desarrollo de software como desde la REST or transferencia de estado representacional API. Para más información, consulta [Bloqueo de correo no deseado]({{site.baseurl}}/user_archival).
+Braze bloquea los perfiles de usuario ("usuarios ficticios") con más de 5 000 000 de sesiones, más de 20 000 nombres distintos de eventos personalizados o más de 20 000 nombres distintos de productos en compras, y deja de ingerir todos los datos entrantes para ese perfil tanto desde los SDK como desde la REST API. Para más información, consulta [Bloqueo de correo no deseado]({{site.baseurl}}/user_archival).
 {% endalert %}

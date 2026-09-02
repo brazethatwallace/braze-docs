@@ -18,7 +18,7 @@ Gehen Sie zu **Audience** > **Segments**.
 
 ## Schritt 2: Segment benennen {#step-2-name-your-segment}
 
-Wählen Sie **Create Segment** aus, um mit dem Erstellen Ihres Segments zu beginnen. Benennen Sie Ihr Segment, indem Sie die Art der Nutzer:innen beschreiben, die Sie filtern möchten. So können Sie das Segment leichter identifizieren, wenn Sie es für Ihre Campaigns oder Canvase als Zielgruppe verwenden möchten. Vage Segmenttitel können verwirrend sein.
+Wählen Sie **Create Segment** aus, um mit dem Erstellen Ihres Segments zu beginnen. Benennen Sie Ihr Segment, indem Sie die Art der Nutzer:innen beschreiben, die Sie filtern möchten. So können Sie das Segment leichter identifizieren, wenn Sie es für Ihre Campaigns oder Canvases als Zielgruppe verwenden möchten. Vage Segmenttitel können verwirrend sein.
 
 Sie können auch Operator bitten, die Filterlogik Ihres Segments anhand einer Beschreibung Ihrer Zielgruppe zu erstellen. Weitere Informationen finden Sie unter [Was Sie mit Operator tun können]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#campaigns-and-audiences).
 
@@ -40,7 +40,7 @@ Wenn Sie die Berechtigung „Segmente bearbeiten“ nur auf Team-Ebene haben (ni
 
 Wählen Sie aus, welche Apps oder Plattformen Sie ansprechen möchten, indem Sie **Nutzer:innen aus allen Apps** (Standard) oder **Nutzer:innen aus bestimmten Apps** auswählen. **Nutzer:innen aus bestimmten Apps** richtet sich an Nutzer:innen mit mindestens einer Sitzung in den angegebenen Apps.
 
-Wenn Sie beispielsweise eine In-App-Nachricht nur an iOS-Geräte senden möchten, wählen Sie Ihre iOS-App aus. So wird sichergestellt, dass Nutzer:innen, die sowohl ein iOS- als auch ein Android-Gerät verwenden, die Nachricht nur auf ihrem iOS-Gerät erhalten. In der Liste der bestimmten Apps können Sie mit der Option **Nutzer:innen ohne Apps** Nutzer:innen ohne Sitzungen und ohne App-Daten einschließen (die in der Regel über Nutzerimport oder Representational State Transfer API erstellt wurden).
+Wenn Sie beispielsweise eine In-App-Nachricht nur an iOS-Geräte senden möchten, wählen Sie Ihre iOS-App aus. So wird sichergestellt, dass Nutzer:innen, die sowohl ein iOS- als auch ein Android-Gerät verwenden, die Nachricht nur auf ihrem iOS-Gerät erhalten. In der Liste der bestimmten Apps können Sie mit der Option **Nutzer:innen ohne Apps** Nutzer:innen ohne Sitzungen und ohne App-Daten einschließen (die in der Regel über Nutzerimport oder REST API erstellt wurden).
 
 ![Panel „Segmentdetails“ mit der ausgewählten Option „Nutzer:innen aus allen Apps“ im Abschnitt „Verwendete Apps“.]({% image_buster /assets/img_archive/Segment2.png %}){: style="max-width:80%;"}
 
@@ -123,13 +123,13 @@ Ausgeschlossene Nutzer:innen werden nicht in der Statistik *Gesamte erreichbare 
 
 ### Funnel-Statistiken anzeigen {#viewing-funnel-statistics}
 
-Wählen Sie **Funnel-Statistiken anzeigen** aus, um die Statistiken für diese Filtergruppe anzuzeigen und zu sehen, wie sich jeder hinzugefügte Filter auf Ihre Segmentstatistiken auswirkt. Sie sehen eine geschätzte Anzahl und einen Prozentsatz der Nutzer:innen, die von allen Filtern bis zu diesem Punkt angesprochen werden. Sobald die Statistiken für eine Filtergruppe angezeigt werden, Update or aktualisieren or aktualisieren sie sich automatisch, wenn Sie die Filter ändern. Diese Statistiken sind Schätzungen und können einen Moment zur Generierung benötigen.
+Wählen Sie **Funnel-Statistiken anzeigen** aus, um die Statistiken für diese Filtergruppe anzuzeigen und zu sehen, wie sich jeder hinzugefügte Filter auf Ihre Segmentstatistiken auswirkt. Sie sehen eine geschätzte Anzahl und einen Prozentsatz der Nutzer:innen, die von allen Filtern bis zu diesem Punkt angesprochen werden. Sobald die Statistiken für eine Filtergruppe angezeigt werden, aktualisieren sie sich automatisch, wenn Sie die Filter ändern. Diese Statistiken sind Schätzungen und können einen Moment zur Generierung benötigen.
 
 Beachten Sie, dass bei Verwendung von AND zwischen Ihren Filtern die Funnel-Statistiken abnehmen; bei Verwendung von OR zwischen Ihren Filtern nehmen die Funnel-Statistiken zu.
 
 ![Zwei Filter mit Segment-Funnel-Statistiken.]({% image_buster /assets/img_archive/segment_funnel_statistics.png %})
 
-Durch das Hinzufügen von Filtern, die Ihren Nutzerfluss dokumentieren, können Sie die Punkte erkennen, an denen Nutzer:innen abspringen. Wenn Sie beispielsweise eine Social-Networking-App betreiben und sehen möchten, wo Sie während Ihres Onboarding-Prozesses möglicherweise Nutzer:innen verlieren, können Sie angepasste Datenfilter für die Registrierung, das Hinzufügen von Freunden und das Senden der ersten Nachricht hinzufügen. Wenn Sie feststellen, dass 85 % der Nutzer:innen sich Registrierung or registrieren und Freunde hinzufügen, aber nur 45 % die erste Nachricht gesendet haben, wissen Sie, dass Sie sich darauf konzentrieren sollten, während Ihres Onboardings und Ihrer Marketing-Campaigns mehr Nachrichtenversand zu fördern.
+Durch das Hinzufügen von Filtern, die Ihren Nutzerfluss dokumentieren, können Sie die Punkte erkennen, an denen Nutzer:innen abspringen. Wenn Sie beispielsweise eine Social-Networking-App betreiben und sehen möchten, wo Sie während Ihres Onboarding-Prozesses möglicherweise Nutzer:innen verlieren, können Sie angepasste Datenfilter für die Registrierung, das Hinzufügen von Freunden und das Senden der ersten Nachricht hinzufügen. Wenn Sie feststellen, dass 85 % der Nutzer:innen sich Registrierung und Freunde hinzufügen, aber nur 45 % die erste Nachricht gesendet haben, wissen Sie, dass Sie sich darauf konzentrieren sollten, während Ihres Onboardings und Ihrer Marketing-Campaigns mehr Nachrichtenversand zu fördern.
 
 ### Testsegmente {#testing-segments}
 
@@ -175,9 +175,9 @@ Informationen zur Überwachung der Mitgliedschaft und Größe Ihres Segments fin
 Wenn Sie ein bestimmtes Segment nicht mehr benötigen oder außer Betrieb nehmen möchten, können Sie es archivieren, indem Sie zur Seite **Segments** navigieren und im Menü der entsprechenden Segmentzeile **Archivieren** auswählen.
 
 {% alert warning %}
-Wenn Sie ein Segment archivieren, werden auch alle Campaigns oder Canvase, die es verwenden (selbst wenn das Segment nur in einer einzelnen Canvas-Komponente verwendet wird), archiviert. Dies gilt auch für verschachtelte Segmente, bei denen sowohl die Segmente als auch alle Campaigns oder Canvase, die sie verwenden, ebenfalls archiviert werden.
+Wenn Sie ein Segment archivieren, werden auch alle Campaigns oder Canvases, die es verwenden (selbst wenn das Segment nur in einer einzelnen Canvas-Komponente verwendet wird), archiviert. Dies gilt auch für verschachtelte Segmente, bei denen sowohl die Segmente als auch alle Campaigns oder Canvases, die sie verwenden, ebenfalls archiviert werden.
 <br><br>
-Sie erhalten eine Warnung mit einer Auflistung der Campaigns und Canvase, die durch das Archivieren des zugehörigen Segments ebenfalls archiviert werden.
+Sie erhalten eine Warnung mit einer Auflistung der Campaigns und Canvases, die durch das Archivieren des zugehörigen Segments ebenfalls archiviert werden.
 {% endalert %}
 
 Sie können das Segment wieder aus dem Archiv holen, indem Sie auf der Seite **Segments** dorthin navigieren und dann **Dearchivieren** auswählen.
@@ -198,5 +198,5 @@ Sie können festlegen, dass nur eine Push-Benachrichtigung pro Nutzer:in gesende
 
 - **Die Anzahl gesendeter Nachrichten kann die Zielgruppengröße übersteigen.** Wenn einige Nutzer:innen mehr als ein Gerät haben, kann jedes Gerät eine Nachricht empfangen. Dies führt zu einer höheren Anzahl gesendeter Nachrichten als Nutzer:innen in Ihrem Segment.
 - **Die Segmentzugehörigkeit kann anders aussehen als erwartet.**
-    - Nutzer:innen können auf ihrem aktuellen Gerät angesprochen werden, basierend auf Attributen, die mit einem anderen Gerät verknüpft sind. Wenn Sie nicht erwartet haben, dass Nutzer:innen eine Nachricht erhalten, überprüfen Sie deren Kundenprofil or Nutzerprofil auf mehrere Geräte.
-    - Nutzer:innen waren möglicherweise zum Sendezeitpunkt in Ihrem Zielsegment, gehören aber aufgrund von Verhaltensweisen, die mit einem ihrer Geräte verknüpft sind, danach nicht mehr zu diesem Segment. Dies kann dazu führen, dass Nutzer:innen eine Campaign oder ein Canvas erhalten, obwohl sie die Filterkriterien aktuell nicht erfüllen. <br><br>Zum Beispiel könnten Nutzer:innen eine Nachricht erhalten, die auf die neueste App-Version mit Betriebssystem 10.0 abzielt, obwohl sie aktuell Betriebssystem 13.0 haben. In diesem Fall hatten die Nutzer:innen Betriebssystem 10.0, als die Nachricht gesendet wurde, und haben danach auf Betriebssystem 13.0 aktualisiert.<br><br> Ebenso wird das Kundenprofil or Nutzerprofil mit einer neuen aktuellen App-Version aktualisiert, wenn Nutzer:innen später ein Gerät mit einer anderen App-Version verwenden. Dies kann den Eindruck erwecken, dass die Nutzer:innen sich nicht für die Nachricht hätten qualifizieren sollen, obwohl sie zum Sendezeitpunkt qualifiziert waren.
+    - Nutzer:innen können auf ihrem aktuellen Gerät angesprochen werden, basierend auf Attributen, die mit einem anderen Gerät verknüpft sind. Wenn Sie nicht erwartet haben, dass Nutzer:innen eine Nachricht erhalten, überprüfen Sie deren Kundenprofil auf mehrere Geräte.
+    - Nutzer:innen waren möglicherweise zum Sendezeitpunkt in Ihrem Zielsegment, gehören aber aufgrund von Verhaltensweisen, die mit einem ihrer Geräte verknüpft sind, danach nicht mehr zu diesem Segment. Dies kann dazu führen, dass Nutzer:innen eine Campaign oder ein Canvas erhalten, obwohl sie die Filterkriterien aktuell nicht erfüllen. <br><br>Zum Beispiel könnten Nutzer:innen eine Nachricht erhalten, die auf die neueste App-Version mit Betriebssystem 10.0 abzielt, obwohl sie aktuell Betriebssystem 13.0 haben. In diesem Fall hatten die Nutzer:innen Betriebssystem 10.0, als die Nachricht gesendet wurde, und haben danach auf Betriebssystem 13.0 aktualisiert.<br><br> Ebenso wird das Kundenprofil mit einer neuen aktuellen App-Version aktualisiert, wenn Nutzer:innen später ein Gerät mit einer anderen App-Version verwenden. Dies kann den Eindruck erwecken, dass die Nutzer:innen sich nicht für die Nachricht hätten qualifizieren sollen, obwohl sie zum Sendezeitpunkt qualifiziert waren.

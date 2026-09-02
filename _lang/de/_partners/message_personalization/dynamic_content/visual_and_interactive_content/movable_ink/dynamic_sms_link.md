@@ -1,14 +1,14 @@
 ---
-nav_title: Dynamische Kurzmitteilungsdienst or SMS-Link-Vorschau
-article_title: Dynamische Kurzmitteilungsdienst or SMS-Link-Vorschau
-description: "Dieser Referenzartikel beschreibt, wie Sie das Feature der Kurzmitteilungsdienst or SMS-Link-Vorschau von Movable Ink aktivieren und nutzen können."
+nav_title: Dynamische SMS-Link-Vorschau
+article_title: Dynamische SMS-Link-Vorschau
+description: "Dieser Referenzartikel beschreibt, wie Sie das Feature der SMS-Link-Vorschau von Movable Ink aktivieren und nutzen können."
 page_type: partner
 search_tag: Partner
 ---
 
-# Dynamische Kurzmitteilungsdienst or SMS-Link-Vorschau {#dynamic-sms-link-preview}
+# Dynamische SMS-Link-Vorschau {#dynamic-sms-link-preview}
 
-> Mit der dynamischen Kurzmitteilungsdienst or SMS-Link-Vorschau von Movable Ink können Sie die Unmittelbarkeit von MMS zu den gleichen Kosten wie bei Kurzmitteilungsdienst or SMS nutzen. Dies erlaubt es Ihnen, mit Braze und Movable Ink kostengünstige, personalisierte Messaging-Erlebnisse zu liefern.
+> Mit der dynamischen SMS-Link-Vorschau von Movable Ink können Sie die Unmittelbarkeit von MMS zu den gleichen Kosten wie bei SMS nutzen. Dies erlaubt es Ihnen, mit Braze und Movable Ink kostengünstige, personalisierte Messaging-Erlebnisse zu liefern.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -23,7 +23,7 @@ search_tag: Partner
 
 ## Integration
 
-Folgen Sie den jeweiligen Schritten in diesem Abschnitt, um dynamische Kurzmitteilungsdienst or SMS-Links für iOS- und Android-Betriebssysteme zu versenden.
+Folgen Sie den jeweiligen Schritten in diesem Abschnitt, um dynamische SMS-Links für iOS- und Android-Betriebssysteme zu versenden.
 
 ### iOS
 
@@ -35,25 +35,25 @@ Um Link-Vorschaubilder für iOS zu ermöglichen, müssen Nutzer:innen Ihre Marke
 
 Nachdem Nutzer:innen Ihre Marke als Kontakt gespeichert haben, entweder über eine [Kontaktkarte]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/contact_card) oder eine andere Methode, können sie die Aufforderungen **Tap to Load Preview** und Movable Ink-Links sehen.
 
-![Ein iOS-Gerät zeigt die Aufforderung „Tap to Load Preview“ für eine Kurzmitteilungsdienst or SMS-Link-Vorschau an][1]{: style="max-width:30%;"}
+![Ein iOS-Gerät zeigt die Aufforderung „Tap to Load Preview“ für eine SMS-Link-Vorschau an][1]{: style="max-width:30%;"}
 
 #### Schritt 2: Movable Ink-Links versenden {#step-2-send-movable-ink-links}
 
-1. Erstellen Sie eine Kurzmitteilungsdienst or SMS-Campaign in Movable Ink und generieren Sie Ihre Klick, der or klicken-through-URL.
-2. Gehen Sie im Braze-Dashboard zu **Campaigns** und richten Sie eine neue Kurzmitteilungsdienst or SMS/MMS-Campaign über das Dropdown-Menü **Campaign erstellen** ein.
-3. Im Kurzmitteilungsdienst or SMS-Campaign-Composer:
+1. Erstellen Sie eine SMS-Campaign in Movable Ink und generieren Sie Ihre Klick, der-through-URL.
+2. Gehen Sie im Braze-Dashboard zu **Campaigns** und richten Sie eine neue SMS/MMS-Campaign über das Dropdown-Menü **Campaign erstellen** ein.
+3. Im SMS-Campaign-Composer:
     - Legen Sie Ihre Abo-Gruppe fest.
     - Geben Sie Ihre Nachricht ein.
-    - Fügen Sie Ihren Movable Ink-Link **als Letztes** ein, nach allen anderen Texten im Nachrichtentext. <br><br>![Der Kurzmitteilungsdienst or SMS-Campaign-Composer mit einem Movable Ink-Link am Ende des Nachrichtentexts][2]{: style="max-width:50%;"}
+    - Fügen Sie Ihren Movable Ink-Link **als Letztes** ein, nach allen anderen Texten im Nachrichtentext. <br><br>![Der SMS-Campaign-Composer mit einem Movable Ink-Link am Ende des Nachrichtentexts][2]{: style="max-width:50%;"}
 
 {% alert tip %}
 Sehen Sie sich [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid) an, um Ihr Wissen zur Liquid-Personalisierung aufzufrischen.
 {% endalert %}
 
 {: start="4"}
-4. Jetzt können Sie Ihre dynamische Kurzmitteilungsdienst or SMS-Link-Vorschau-Campaign testen und starten.
+4. Jetzt können Sie Ihre dynamische SMS-Link-Vorschau-Campaign testen und starten.
 
-![Vorschau und Testoptionen für eine dynamische Kurzmitteilungsdienst or SMS-Link-Vorschau-Campaign][3]{: style="max-width:70%;"}
+![Vorschau und Testoptionen für eine dynamische SMS-Link-Vorschau-Campaign][3]{: style="max-width:70%;"}
 
 Nachdem Nutzer:innen die Link-Vorschau geladen haben, wird ein personalisiertes Bild gerendert, mit der Möglichkeit, auf Ihre Website, App oder Landing-Page zu verlinken.
 
@@ -61,17 +61,17 @@ Nachdem Nutzer:innen die Link-Vorschau geladen haben, wird ein personalisiertes 
 
 ### Android (Google- und Samsung-Geräte) {#android-google-and-samsung-devices}
 
-Android-Nutzer:innen müssen Ihre Marke nicht als Kontakt speichern, um dynamische Kurzmitteilungsdienst or SMS-Link-Vorschauen zu erhalten. Es ist aber dennoch empfehlenswert, damit das Gerät die Link-Vorschauen automatisch laden kann.
+Android-Nutzer:innen müssen Ihre Marke nicht als Kontakt speichern, um dynamische SMS-Link-Vorschauen zu erhalten. Es ist aber dennoch empfehlenswert, damit das Gerät die Link-Vorschauen automatisch laden kann.
 
-![Ein Android-Gerät zeigt eine automatisch geladene Kurzmitteilungsdienst or SMS-Link-Vorschau an][5]{: style="max-width:30%;"}
+![Ein Android-Gerät zeigt eine automatisch geladene SMS-Link-Vorschau an][5]{: style="max-width:30%;"}
 
 Nutzer:innen, die Ihre Marke nicht als Kontakt gespeichert und die automatische Vorschau aktiviert haben, müssen **Tap to load preview** auswählen, um das Vorschaubild zu laden.
 
-![Ein Android-Gerät zeigt die Aufforderung „Tap to load preview“ für eine Kurzmitteilungsdienst or SMS-Link-Vorschau an][6]{: style="max-width:30%;"}
+![Ein Android-Gerät zeigt die Aufforderung „Tap to load preview“ für eine SMS-Link-Vorschau an][6]{: style="max-width:30%;"}
 
 ## Hinweise {#considerations}
 
-- Fügen Sie nur einen Vorschau-Link in Ihre Nachricht ein. Bei mehreren Links in Ihrem Kurzmitteilungsdienst or SMS-Text werden keine Inhalte generiert.
+- Fügen Sie nur einen Vorschau-Link in Ihre Nachricht ein. Bei mehreren Links in Ihrem SMS-Text werden keine Inhalte generiert.
 - Fügen Sie keine Zeichen nach Ihrem Vorschau-Link ein, da sonst das Erlebnis beeinträchtigt werden könnte.
 
 

@@ -1,26 +1,26 @@
 ---
 nav_title: Guia para fazer upgrade do iOS 15
-article_title: Guia de atualização do SDK or kit de desenvolvimento de software do iOS 15
+article_title: Guia de atualização do SDK do iOS 15
 page_order: 7
 platform: iOS
-description: "Este artigo de referência aborda as novas atualizações do sistema operacional iOS 15, as atualizações necessárias do SDK or kit de desenvolvimento de software e os novos recursos."
+description: "Este artigo de referência aborda as novas atualizações do sistema operacional iOS 15, as atualizações necessárias do SDK e os novos recursos."
 hidden: true
 noindex: true
 ---
 
-# Guia de atualização do SDK or kit de desenvolvimento de software do iOS 15 {#ios-15-sdk-upgrade-guide}
+# Guia de atualização do SDK do iOS 15 {#ios-15-sdk-upgrade-guide}
 
-> Este guia descreve as alterações introduzidas no iOS 15 (WWDC21) e as etapas de atualização necessárias para a integração de SDK or kit de desenvolvimento de software da Braze para iOS. Para obter uma lista completa das novas atualizações do iOS 15, consulte as notas de versão do [iOS 15](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-15-release-notes) da Apple.
+> Este guia descreve as alterações introduzidas no iOS 15 (WWDC21) e as etapas de atualização necessárias para a integração de SDK da Braze para iOS. Para obter uma lista completa das novas atualizações do iOS 15, consulte as notas de versão do [iOS 15](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-15-release-notes) da Apple.
 
 ## Mudanças de transparência nas navegações da UI {#transparency-changes-to-ui-navigations}
 
 Como parte dos nossos testes anuais de betas do iOS, identificamos uma mudança feita pela Apple que faz com que certas barras de navegação da UI apareçam transparentes em vez de opacas. Isso será visível no iOS 15 ao usar a UI padrão da Braze para Content Cards, ou quando deep links da web são abertos dentro do seu app em vez de em um app de navegador separado.
 
-Para evitar essa mudança visual no iOS 15, recomendamos fortemente que você faça upgrade para o [SDK or kit de desenvolvimento de software da Braze para iOS v4.3.2](https://github.com/Appboy/appboy-ios-sdk/releases/tag/4.3.2) o mais rápido possível, antes que os usuários comecem a atualizar seus telefones para o novo sistema operacional iOS 15.
+Para evitar essa mudança visual no iOS 15, recomendamos fortemente que você faça upgrade para o [SDK da Braze para iOS v4.3.2](https://github.com/Appboy/appboy-ios-sdk/releases/tag/4.3.2) o mais rápido possível, antes que os usuários comecem a atualizar seus telefones para o novo sistema operacional iOS 15.
 
 ## Novas configurações de notificação {#notification-settings}
 
-O iOS 15 introduziu novos recursos de notificação para ajudar os usuários a manter o foco e evitar interrupções frequentes ao longo do dia. Estamos entusiasmados em oferecer suporte a esses novos recursos. Esses recursos não requerem atualizações adicionais do SDK or kit de desenvolvimento de software e serão aplicados apenas aos usuários de dispositivos iOS 15.
+O iOS 15 introduziu novos recursos de notificação para ajudar os usuários a manter o foco e evitar interrupções frequentes ao longo do dia. Estamos entusiasmados em oferecer suporte a esses novos recursos. Esses recursos não requerem atualizações adicionais do SDK e serão aplicados apenas aos usuários de dispositivos iOS 15.
 
 ### Modos de foco {#focus-mode}
 

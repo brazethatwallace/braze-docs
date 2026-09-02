@@ -42,7 +42,7 @@ Appboy.sharedInstance()?.logPurchase("your product ID", inCurrency: "USD", atPri
 {% endtabs %}
 
 - Os símbolos de moeda compatíveis incluem: USD, CAD, EUR, GBP, JPY, AUD, CHF, NOK, MXN, NZD, CNY, RUB, TRY, INR, IDR, ILS, SAR, ZAR, AED, SEK, HKD, SPD, DKK, entre outros.
-  - Qualquer outro símbolo de moeda fornecido resultará em um aviso registrado, sem nenhuma outra ação realizada pelo SDK or kit de desenvolvimento de software.
+  - Qualquer outro símbolo de moeda fornecido resultará em um aviso registrado, sem nenhuma outra ação realizada pelo SDK.
 - O identificador do produto pode ter no máximo 255 caracteres.
 - Observe que, se o identificador do produto estiver vazio, a compra não será registrada na Braze.
 
@@ -55,9 +55,9 @@ Consulte a [documentação da classe iOS](http://appboy.github.io/appboy-ios-sdk
 ### Adicionando quantidade {#adding-quantity}
 Você pode adicionar uma quantidade às suas compras se os clientes fizerem a mesma compra várias vezes em um único checkout. Para isso, basta passar um `NSUInteger` para a quantidade.
 
-* O valor de quantidade deve estar no intervalo de [0, 100] para que o SDK or kit de desenvolvimento de software registre a compra.
+* O valor de quantidade deve estar no intervalo de [0, 100] para que o SDK registre a compra.
 * Os métodos sem entrada de quantidade terão um valor padrão de 1.
-* Os métodos com entrada de quantidade não possuem valor padrão e **devem** receber um valor de quantidade para que o SDK or kit de desenvolvimento de software registre a compra.
+* Os métodos com entrada de quantidade não possuem valor padrão e **devem** receber um valor de quantidade para que o SDK registre a compra.
 
 Consulte a [documentação da classe iOS](http://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#ab50403068be47c0acba9943583e259fa) para mais detalhes.
 
@@ -99,6 +99,6 @@ As seguintes chaves são reservadas e não podem ser usadas como propriedades de
 - `price`
 - `currency`
 
-### REST or transferir estado representacional API or interface de programação do aplicativo (API)
+### REST API
 
-Você também pode usar nossa REST or transferir estado representacional API or interface de programação do aplicativo (API) para registrar compras. Consulte a [documentação da API or interface de programação do aplicativo (API) de usuário]({{site.baseurl}}/api/endpoints/user_data) para mais detalhes.
+Você também pode usar nossa REST API para registrar compras. Consulte a [documentação da API de usuário]({{site.baseurl}}/api/endpoints/user_data) para mais detalhes.

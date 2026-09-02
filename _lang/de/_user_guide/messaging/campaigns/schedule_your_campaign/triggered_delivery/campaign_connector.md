@@ -26,8 +26,8 @@ Mit diesem Feature können Sie Nutzer:innen ansprechen, die folgende Interaktion
 - Push-Story-Seite anklicken
 - Konversions-Event durchführen
 - E-Mail erhalten
-- Kurzmitteilungsdienst or SMS erhalten
-- Gekürzten Kurzmitteilungsdienst or SMS-Link anklicken
+- SMS erhalten
+- Gekürzten SMS-Link anklicken
 - Push-Benachrichtigung erhalten
 - Webhook erhalten
 - In eine Kontrollgruppe aufgenommen werden
@@ -36,7 +36,7 @@ Mit diesem Feature können Sie Nutzer:innen ansprechen, die folgende Interaktion
 - Content-Card schließen
 
 {% alert important %}
-Campaign-Connector-Trigger or triggern können nicht verwendet werden, um In-App-Nachricht-Kampagnen zu Trigger or triggern or triggern. In-App-Nachrichten können nur durch SDK or Software-Development-Kit-Events getriggert werden, wie z. B. angepasste Events oder Sitzungsstart. Weitere Informationen finden Sie unter [In-App-Nachricht erstellen]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional).
+Campaign-Connector-Trigger können nicht verwendet werden, um In-App-Nachricht-Kampagnen zu triggern. In-App-Nachrichten können nur durch SDK-Events getriggert werden, wie z. B. angepasste Events oder Sitzungsstart. Weitere Informationen finden Sie unter [In-App-Nachricht erstellen]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional).
 {% endalert %}
 
 ### Zustellungsregeln {#delivery-rules}
@@ -57,17 +57,17 @@ Verfassen Sie die Nachrichten, die Sie an Ihre Nutzer:innen senden möchten. Je 
 
 ### 2. Schritt: Interaktion und Zielkampagne auswählen {#step-2-select-interaction-and-target-campaign}
 
-1. Wählen Sie [Aktionsbasierte Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) und fügen Sie den Trigger or triggern „Mit Kampagne interagieren“ hinzu, um Nutzer:innen anzusprechen, die mit einer aktiven Kampagne interagieren.
-2. Wählen Sie die Trigger or triggern-Interaktion aus.
+1. Wählen Sie [Aktionsbasierte Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) und fügen Sie den Trigger „Mit Kampagne interagieren“ hinzu, um Nutzer:innen anzusprechen, die mit einer aktiven Kampagne interagieren.
+2. Wählen Sie die Trigger-Interaktion aus.
 3. Wählen Sie anschließend die aktive Kampagne aus, die Sie als Ziel verwenden möchten.
 
 ![Auswahl der aktiven Kampagne, die als Ziel verwendet werden soll.]({% image_buster /assets/img_archive/Campaign_Connector1.png %})
 
 ### 3. Schritt: Delay planen und Ausnahmen hinzufügen (optional) {#step-3-set-schedule-delay-and-add-exceptions-optional}
 
-Wenn Sie einen Delay planen, können Sie eine Ausnahme zur Trigger or triggern-Aktion hinzufügen. Beispielsweise möchten Sie vielleicht eine E-Mail-Kampagne erneut an Nutzer:innen senden, die die ursprüngliche E-Mail nicht geöffnet haben. In diesem Szenario können Sie „E-Mail erhalten“ als Trigger or triggern wählen und einen Delay von einer Woche festlegen. Dann können Sie „E-Mail öffnen“ als Ausnahme hinzufügen. Jetzt wird die E-Mail erneut an Nutzer:innen gesendet, die die ursprüngliche E-Mail innerhalb einer Woche nach Erhalt nicht geöffnet haben.
+Wenn Sie einen Delay planen, können Sie eine Ausnahme zur Trigger-Aktion hinzufügen. Beispielsweise möchten Sie vielleicht eine E-Mail-Kampagne erneut an Nutzer:innen senden, die die ursprüngliche E-Mail nicht geöffnet haben. In diesem Szenario können Sie „E-Mail erhalten“ als Trigger wählen und einen Delay von einer Woche festlegen. Dann können Sie „E-Mail öffnen“ als Ausnahme hinzufügen. Jetzt wird die E-Mail erneut an Nutzer:innen gesendet, die die ursprüngliche E-Mail innerhalb einer Woche nach Erhalt nicht geöffnet haben.
 
-![Beispiel für einen geplanten Delay mit einer Ausnahme zur Trigger or triggern-Aktion, bei dem „E-Mail erhalten“ als Trigger or triggern und „E-Mail öffnen“ als Ausnahme festgelegt ist.]({% image_buster /assets/img_archive/Campaign_Connector3.png %})
+![Beispiel für einen geplanten Delay mit einer Ausnahme zur Trigger-Aktion, bei dem „E-Mail erhalten“ als Trigger und „E-Mail öffnen“ als Ausnahme festgelegt ist.]({% image_buster /assets/img_archive/Campaign_Connector3.png %})
 
 Ausnahme-Events werden nur getriggert, während eine Nutzerin oder ein Nutzer auf den Erhalt der zugehörigen Nachricht wartet. Wenn die Aktion ausgeführt wird, bevor die Nachricht zugestellt werden soll, wird das Ausnahme-Event nicht getriggert.
 
@@ -81,4 +81,4 @@ Sie können Campaign Connector verwenden, um Nutzer:innen anzusprechen, die mit 
 
 Beispielsweise könnten Sie Nutzer:innen ansprechen, die auf eine Push-Benachrichtigung mit einer Aktion für kostenlosen Versand geklickt haben, um ihnen eine weitere Push-Benachrichtigung mit 15 % Rabatt auf einen Kauf zu senden.
 
-Campaign Connector kann auch Nutzer:innen ansprechen, die eine Push-Benachrichtigung erhalten, die sie an ihren Warenkorb-Abbruch erinnert. Beispielsweise möchten Sie die Benachrichtigung erneut an Nutzer:innen senden, die sie nicht direkt geöffnet haben. Allerdings möchten Sie wahrscheinlich Nutzer:innen ausschließen, die seit dem Versand der ursprünglichen Benachrichtigung einen Kauf getätigt haben, auch wenn sie die Benachrichtigung nicht direkt geöffnet haben. Sie können diesen Anwendungsfall umsetzen, indem Sie einen Trigger or triggern „Push-Benachrichtigung erhalten“ für die Kampagne „Warenkorb-Abbruch“ hinzufügen, einen Delay planen und „Kauf tätigen“ sowie „Push-Benachrichtigung direkt geöffnet“ als Ausnahmen hinzufügen.
+Campaign Connector kann auch Nutzer:innen ansprechen, die eine Push-Benachrichtigung erhalten, die sie an ihren Warenkorb-Abbruch erinnert. Beispielsweise möchten Sie die Benachrichtigung erneut an Nutzer:innen senden, die sie nicht direkt geöffnet haben. Allerdings möchten Sie wahrscheinlich Nutzer:innen ausschließen, die seit dem Versand der ursprünglichen Benachrichtigung einen Kauf getätigt haben, auch wenn sie die Benachrichtigung nicht direkt geöffnet haben. Sie können diesen Anwendungsfall umsetzen, indem Sie einen Trigger „Push-Benachrichtigung erhalten“ für die Kampagne „Warenkorb-Abbruch“ hinzufügen, einen Delay planen und „Kauf tätigen“ sowie „Push-Benachrichtigung direkt geöffnet“ als Ausnahmen hinzufügen.

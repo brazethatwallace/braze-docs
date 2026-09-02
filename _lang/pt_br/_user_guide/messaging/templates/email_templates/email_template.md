@@ -87,9 +87,9 @@ Você pode visualizar modelos de e-mail em **Templates** > **Email Templates**, 
 
 À medida que você cria mais modelos de e-mail, pode [duplicar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#duplicating-templates) e [arquivar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#archiving-templates) modelos de e-mail. Saiba mais sobre como criar e gerenciar sua biblioteca de modelos e conteúdo criativo em [Modelos e mídia]({{site.baseurl}}/user_guide/messaging/templates).
 
-### Use seus modelos em Campaigns de API or interface de programação do aplicativo (API) {#use-your-templates-in-api-campaigns}
+### Use seus modelos em Campaigns de API {#use-your-templates-in-api-campaigns}
 
-Para usar seu e-mail em uma Campaign de API or interface de programação do aplicativo (API), você precisa de um `email_template_id`, que pode ser encontrado na parte inferior de qualquer modelo de e-mail criado na Braze.
+Para usar seu e-mail em uma Campaign de API, você precisa de um `email_template_id`, que pode ser encontrado na parte inferior de qualquer modelo de e-mail criado na Braze.
 
 ![Identificador de API localizado na parte inferior de um modelo de e-mail.]({% image_buster /assets/img/email_templates/template5.png %})
 

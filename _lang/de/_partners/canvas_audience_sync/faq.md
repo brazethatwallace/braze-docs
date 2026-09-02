@@ -39,7 +39,7 @@ Dies wird von den Methoden der Partnerintegration bestimmt und nicht von Braze k
 
 ## Wie kann ich meine Integration erneut verbinden? {#how-do-i-reconnect-my-integration}
 
-Wenn die Person, die die Integration ursprünglich verbunden hat, nicht mehr in Ihrem Unternehmen tätig ist, müssen Sie die Integration mit einer neuen Person Update or aktualisieren or aktualisieren, indem Sie **Konto wechseln** auswählen. Wählen Sie dann **Bestätigen** und stellen Sie die Verbindung mit der neuen Person her. Wir empfehlen, den Wechsel durchzuführen, wenn keine aktiven Synchronisierungen stattfinden, z. B. vor einem geplanten Eingang von Nutzer:innen in einen Canvas, da eine Synchronisierung während des Übergangs von der vorherigen zur neuen Person aktive Canvase unterbrechen kann.
+Wenn die Person, die die Integration ursprünglich verbunden hat, nicht mehr in Ihrem Unternehmen tätig ist, müssen Sie die Integration mit einer neuen Person aktualisieren, indem Sie **Konto wechseln** auswählen. Wählen Sie dann **Bestätigen** und stellen Sie die Verbindung mit der neuen Person her. Wir empfehlen, den Wechsel durchzuführen, wenn keine aktiven Synchronisierungen stattfinden, z. B. vor einem geplanten Eingang von Nutzer:innen in einen Canvas, da eine Synchronisierung während des Übergangs von der vorherigen zur neuen Person aktive Canvases unterbrechen kann.
 
 Die Person, die die Verbindung wiederherstellt, muss sowohl Lese- als auch Schreibzugriff auf alle Zielgruppen haben, damit Nutzer:innen erfolgreich mit den Partnern synchronisiert werden können. Vergewissern Sie sich, dass die Person, die die Integration wiederherstellt, Zugriff auf dieselben Anzeigenkonten und Zielgruppen hat. Sie brauchen keine bestehenden Canvas-Schritte zu bearbeiten.
 

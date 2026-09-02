@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Zendesk Chat
 
-> O [Zendesk Chat](https://www.zendesk.com/service/messaging/) usa webhooks de cada plataforma para configurar uma conversa bidirecional por SMS. Quando um usuário solicita suporte, um ticket é criado no Zendesk. As respostas dos agentes são encaminhadas à Braze por meio de uma Campaign de SMS disparada por API or interface de programação do aplicativo (API), e as respostas dos usuários são enviadas de volta ao Zendesk.
+> O [Zendesk Chat](https://www.zendesk.com/service/messaging/) usa webhooks de cada plataforma para configurar uma conversa bidirecional por SMS. Quando um usuário solicita suporte, um ticket é criado no Zendesk. As respostas dos agentes são encaminhadas à Braze por meio de uma Campaign de SMS disparada por API, e as respostas dos usuários são enviadas de volta ao Zendesk.
 
 ## Pré-requisitos {#prerequisites}
 
@@ -19,7 +19,7 @@ search_tag: Partner
 |---|---|
 | Uma conta do Zendesk | É necessário ter uma conta do Zendesk para aproveitar essa parceria.|
 | Um token de autorização básica do Zendesk | Um token de autorização básica do Zendesk é usado para fazer uma solicitação de webhook de saída da Braze para o Zendesk.|
-| Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze  | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões `campaigns.trigger.send`. Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**.|
+| Uma chave da API REST da Braze  | Uma chave da API REST da Braze com permissões `campaigns.trigger.send`. Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
@@ -33,7 +33,7 @@ Aumente a eficiência do suporte ao cliente combinando os recursos de SMS da Bra
 1. No console de desenvolvedor do Zendesk, acesse webhooks: {% raw %}`https://{{url}}.zendesk.com/admin/apps-integrations/webhooks/webhooks`{% endraw %}
 2. Em **Create Webhook**, selecione **Trigger or automation**.
 3. Para **Endpoint URL**, adicione o endpoint **/campaign/trigger/send**.
-4. Em **Authentication**, selecione **Bearer token** e adicione a chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com as permissões `campaigns.trigger.send`.
+4. Em **Authentication**, selecione **Bearer token** e adicione a chave da API REST da Braze com as permissões `campaigns.trigger.send`.
 
 ![Um exemplo de webhook do Zendesk.]({% image_buster /assets/img/zendesk/instant_chat/chat1.png %}){: style="max-width:70%;"}
 
@@ -43,7 +43,7 @@ Em seguida, você criará uma Campaign de SMS que ouvirá webhooks do Zendesk e 
 
 #### Etapa 2.1: Redija sua mensagem {#step-21-compose-your-message}
 
-Quando o Zendesk envia o conteúdo de uma mensagem por meio da API or interface de programação do aplicativo (API), ele vem no seguinte formato:
+Quando o Zendesk envia o conteúdo de uma mensagem por meio da API, ele vem no seguinte formato:
 
 ```
 **----------------------------------------------\n\n{Replier Name}, {Replier Date}\n\n{Message}**
@@ -71,7 +71,7 @@ Feel free to respond directly to this number!
 
 #### Etapa 2.2: Agendar a entrega {#step-22-schedule-the-delivery}
 
-Para o tipo de entrega, selecione **Entrega disparada por API or interface de programação do aplicativo (API)** e, em seguida, copie o ID da Campaign, que será usado nas próximas etapas.
+Para o tipo de entrega, selecione **Entrega disparada por API** e, em seguida, copie o ID da Campaign, que será usado nas próximas etapas.
 
 ![Entrega disparada por API]({% image_buster /assets/img/zendesk/instant_chat/chat4.png %}){: style="max-width:70%;"}
 
@@ -87,11 +87,11 @@ Acesse **Objects and rules** > **Business rules** > **Triggers**.
 2. Crie um novo **gatilho** (por exemplo, **Respond via SMS Braze**).
 3. Em **Conditions**, selecione:
 - **Ticket>Comment** está **Present and requester can see comment** para que a mensagem seja disparada sempre que um novo comentário público for incluído em uma atualização de ticket
-- **Ticket>Update** *não é* **Web service (API or interface de programação do aplicativo (API))** para que, quando um usuário enviar uma mensagem pela Braze, ela não seja encaminhada de volta para o celular. Somente mensagens provenientes do Zendesk são encaminhadas.
+- **Ticket>Update** *não é* **Web service (API)** para que, quando um usuário enviar uma mensagem pela Braze, ela não seja encaminhada de volta para o celular. Somente mensagens provenientes do Zendesk são encaminhadas.
 
 ![Respond via SMS Braze.]({% image_buster /assets/img/zendesk/instant_chat/chat6.png %}){: style="max-width:70%;"}
 
-Em **Actions**, selecione **Notify by Webhook** e escolha o endpoint que você criou na etapa 1. Em seguida, especifique o corpo da chamada à API or interface de programação do aplicativo (API). Insira o `campaign_id` da [etapa 2.2](#step-22-schedule-the-delivery) no corpo da solicitação.
+Em **Actions**, selecione **Notify by Webhook** e escolha o endpoint que você criou na etapa 1. Em seguida, especifique o corpo da chamada à API. Insira o `campaign_id` da [etapa 2.2](#step-22-schedule-the-delivery) no corpo da solicitação.
 
 ![Corpo JSON do Respond via SMS Braze.]({% image_buster /assets/img/zendesk/instant_chat/chat7.png %}){: style="max-width:70%;"}
 
@@ -122,7 +122,7 @@ Se quiser notificar o usuário de que o ticket foi fechado, crie uma nova Campai
 
 ![Atualizar um usuário quando o ticket for fechado.]({% image_buster /assets/img/zendesk/instant_chat/chat8.png %}){: style="max-width:70%;"}
 
-Selecione **Entrega disparada por API or interface de programação do aplicativo (API)** e copie o ID da Campaign.
+Selecione **Entrega disparada por API** e copie o ID da Campaign.
 
 Em seguida, configure um gatilho para notificar a Braze quando o ticket for fechado:
 - Categoria: **Trigger a message**
@@ -130,7 +130,7 @@ Em seguida, configure um gatilho para notificar a Braze quando o ticket for fech
 
 ![Configuração de ticket resolvido no Zendesk.]({% image_buster /assets/img/zendesk/instant_chat/chat9.png %}){: style="max-width:70%;"}
 
-Em **Actions**, selecione **Notify by Webhook** e escolha o segundo endpoint que você acabou de criar. A partir daí, precisamos especificar o corpo da chamada à API or interface de programação do aplicativo (API):
+Em **Actions**, selecione **Notify by Webhook** e escolha o segundo endpoint que você acabou de criar. A partir daí, precisamos especificar o corpo da chamada à API:
 
 ![Corpo JSON do ticket resolvido.]({% image_buster /assets/img/zendesk/instant_chat/chat10.png %}){: style="max-width:70%;"}
 

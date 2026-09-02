@@ -160,7 +160,7 @@ AppDelegate.braze?.user.setCustomAttribute("your_attribute_key", dateValue:yourD
 {% endtab %}
 
 {% tab array %}
-Die Standard- und Höchstzahl an Elementen in einem Array beträgt 500. Sie können die Höchstzahl der Arrays im Braze-Dashboard unter **Dateneinstellungen** > **Angepasste Attribute** Update or aktualisieren or aktualisieren. Arrays, die die Höchstzahl an Elementen überschreiten, werden auf die Höchstzahl an Elementen gekürzt.
+Die Standard- und Höchstzahl an Elementen in einem Array beträgt 500. Sie können die Höchstzahl der Arrays im Braze-Dashboard unter **Dateneinstellungen** > **Angepasste Attribute** aktualisieren. Arrays, die die Höchstzahl an Elementen überschreiten, werden auf die Höchstzahl an Elementen gekürzt.
 
 So legen Sie ein angepasstes Attribut mit einem `array`-Wert fest:
 
@@ -236,7 +236,7 @@ Um ein angepasstes Attribut zurückzusetzen, übergeben Sie den entsprechenden A
 
 ### Verschachtelte angepasste Attribute {#nesting-custom-attributes}
 
-Sie können auch Eigenschaften innerhalb angepasster Attribute verschachteln. Im folgenden Beispiel wird ein `favorite_book`-Objekt mit verschachtelten Eigenschaften als angepasstes Attribut im Kundenprofil or Nutzerprofil festgelegt. Weitere Informationen finden Sie unter [Verschachtelte angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
+Sie können auch Eigenschaften innerhalb angepasster Attribute verschachteln. Im folgenden Beispiel wird ein `favorite_book`-Objekt mit verschachtelten Eigenschaften als angepasstes Attribut im Kundenprofil festgelegt. Weitere Informationen finden Sie unter [Verschachtelte angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
 
 {% tabs %}
 {% tab swift %}
@@ -264,9 +264,9 @@ NSDictionary *favoriteBook = @{
 {% endtab %}
 {% endtabs %}
 
-### Verwendung der Representational State Transfer API {#using-the-rest-api}
+### Verwendung der REST API {#using-the-rest-api}
 
-Sie können auch unsere Representational State Transfer API verwenden, um Nutzerattribute festzulegen oder zurückzusetzen. Weitere Informationen finden Sie unter [Nutzerdaten-Endpunkte]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data).
+Sie können auch unsere REST API verwenden, um Nutzerattribute festzulegen oder zurückzusetzen. Weitere Informationen finden Sie unter [Nutzerdaten-Endpunkte]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data).
 
 ## Abo-Status für Nutzer:innen festlegen {#setting-user-subscriptions}
 

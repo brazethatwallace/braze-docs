@@ -10,7 +10,7 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Ungü
 {% api %}
 # Ungültige Telefonnummern abfragen {#query-invalid-phone-numbers}
 {% apimethod get %}
-/Kurzmitteilungsdienst or SMS/invalid_phone_numbers
+/sms/invalid_phone_numbers
 {% endapimethod %}
 
 > Verwenden Sie diesen Endpunkt, um eine Liste der Telefonnummern abzurufen, die innerhalb eines bestimmten Zeitraums als „ungültig“ markiert wurden. Weitere Informationen finden Sie in der Dokumentation [Behandlung ungültiger Telefonnummern]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#handling-invalid-phone-numbers).
@@ -34,7 +34,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 | `limit` | Optional | Integer | Optionales Feld zur Begrenzung der Anzahl der zurückgegebenen Ergebnisse. Standardmäßig 100, maximal 500. |
 | `offset` | Optional | Integer | Optionaler Anfangspunkt in der Liste, ab dem abgerufen werden soll. |
 | `phone_numbers` | Optional <br>(siehe Anmerkung) | String-Array im Format e.164 | Falls angegeben, wird die Telefonnummer zurückgegeben, wenn sie als ungültig erkannt wurde. |
-| `reason` | Optional <br>(siehe Anmerkung) | String | Verfügbare Werte sind „provider_error“ (Anbieterfehler zeigt an, dass das Telefon keine Kurzmitteilungsdienst or SMS empfangen kann) oder „deactivated“ (die Telefonnummer wurde deaktiviert). Wenn dieser Parameter weggelassen wird, werden alle Gründe zurückgegeben. |
+| `reason` | Optional <br>(siehe Anmerkung) | String | Verfügbare Werte sind „provider_error“ (Anbieterfehler zeigt an, dass das Telefon keine SMS empfangen kann) oder „deactivated“ (die Telefonnummer wurde deaktiviert). Wenn dieser Parameter weggelassen wird, werden alle Gründe zurückgegeben. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 {% alert note %}

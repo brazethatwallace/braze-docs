@@ -11,7 +11,7 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Ungü
 {% api %}
 # Ungültige Telefonnummern entfernen {#remove-invalid-phone-numbers}
 {% apimethod post %}
-/Kurzmitteilungsdienst or SMS/invalid_phone_numbers/remove
+/sms/invalid_phone_numbers/remove
 {% endapimethod %}
 
 > Verwenden Sie diesen Endpunkt, um „ungültige“ Telefonnummern aus unserer Ungültigkeitsliste zu entfernen.

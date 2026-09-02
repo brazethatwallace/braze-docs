@@ -11,7 +11,7 @@ description: "En este artículo se describen los detalles del endpoint de Braze 
 {% api %}
 # Programar Canvas desencadenados por la API {#schedule-api-triggered-canvases}
 {% apimethod post core_endpoint|/docs/core_endpoints %}
-/Canvas/trigger/schedule/create
+/canvas/trigger/schedule/create
 {% endapimethod %}
 
 > Utiliza este endpoint para programar mensajes de Canvas a través de la entrega desencadenada por la API, lo que te permite decidir qué acción debe desencadenar el envío del mensaje.

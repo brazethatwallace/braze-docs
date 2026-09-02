@@ -1,11 +1,11 @@
 ---
-nav_title: Generative KI or künstliche Intelligenz
-article_title: Generative KI or künstliche Intelligenz
+nav_title: Generative KI
+article_title: Generative KI
 page_order: 5
 layout: dev_guide
-guide_top_header: "Generative KI or künstliche Intelligenz"
-guide_top_text: "Die generativen KI or künstliche Intelligenz-Funktionen von BrazeAI<sup>TM</sup> sind über <a href=\"{{site.baseurl}}/user_guide/brazeai/operator/\">BrazeAI Operator™</a> zugänglich, den einheitlichen KI or künstliche Intelligenz-Assistenten im Braze-Dashboard. Generieren Sie Texte, Bilder, Liquid und HTML-E-Mail-Templates oder überprüfen Sie Ihre Inhalte – direkt auf den Oberflächen, auf denen Sie bereits arbeiten."
-description: "Die generativen KI or künstliche Intelligenz-Funktionen von BrazeAI<sup>TM</sup> sind über BrazeAI Operator™ zugänglich, den einheitlichen KI or künstliche Intelligenz-Assistenten im Braze-Dashboard."
+guide_top_header: "Generative KI"
+guide_top_text: "Die generativen KI-Funktionen von BrazeAI<sup>TM</sup> sind über <a href=\"{{site.baseurl}}/user_guide/brazeai/operator/\">BrazeAI Operator™</a> zugänglich, den einheitlichen KI-Assistenten im Braze-Dashboard. Generieren Sie Texte, Bilder, Liquid und HTML-E-Mail-Templates oder überprüfen Sie Ihre Inhalte – direkt auf den Oberflächen, auf denen Sie bereits arbeiten."
+description: "Die generativen KI-Funktionen von BrazeAI<sup>TM</sup> sind über BrazeAI Operator™ zugänglich, den einheitlichen KI-Assistenten im Braze-Dashboard."
 
 guide_featured_title: "Features"
 guide_featured_list:

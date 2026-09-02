@@ -136,7 +136,7 @@ let cards: [Braze.ContentCard] = AppDelegate.braze?.contentCards.cards
 ```
 
 {% alert note %}
-Leer `contentCards.cards`, `contentCards.unviewedCards` o `contentCards.lastUpdate` bloquea el hilo que realiza la llamada hasta que el SDK or kit de desarrollo de software haya completado sus operaciones posteriores a la inicialización. Usa los getters no bloqueantes en [Accesores de instantánea no bloqueantes](#non-blocking-snapshot-accessors) para contextos del hilo principal o sensibles a la latencia.
+Leer `contentCards.cards`, `contentCards.unviewedCards` o `contentCards.lastUpdate` bloquea el hilo que realiza la llamada hasta que el SDK haya completado sus operaciones posteriores a la inicialización. Usa los getters no bloqueantes en [Accesores de instantánea no bloqueantes](#non-blocking-snapshot-accessors) para contextos del hilo principal o sensibles a la latencia.
 {% endalert %}
 
 Además, también puedes mantener una suscripción para observar cambios en tus Content Cards. Puedes hacerlo de dos maneras:
@@ -280,7 +280,7 @@ braze.logContentCardClick(card);
 {% endtab %}
 {% tab android %}
 
-El [`BrazeManager`](https://github.com/braze-inc/braze-growth-shares-android-demo-app/blob/main/app/src/main/java/com/braze/advancedsamples/BrazeManager.kt) puede hacer referencia a las dependencias del SDK or kit de desarrollo de software de Braze, como la lista de objetos de Content Cards, para obtener el [`Card`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/index.html) y llamar a los métodos de registro de Braze. Usa la clase base `ContentCardable` para hacer referencia fácilmente y proporcionar datos al `BrazeManager`.
+El [`BrazeManager`](https://github.com/braze-inc/braze-growth-shares-android-demo-app/blob/main/app/src/main/java/com/braze/advancedsamples/BrazeManager.kt) puede hacer referencia a las dependencias del SDK de Braze, como la lista de objetos de Content Cards, para obtener el [`Card`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/index.html) y llamar a los métodos de registro de Braze. Usa la clase base `ContentCardable` para hacer referencia fácilmente y proporcionar datos al `BrazeManager`.
 
 Para registrar una impresión o un clic en una tarjeta, llama a [`Card.logClick()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/log-click.html) o [`Card.logImpression()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/log-impression.html) respectivamente.
 

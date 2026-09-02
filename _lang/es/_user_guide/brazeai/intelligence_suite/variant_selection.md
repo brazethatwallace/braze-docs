@@ -42,7 +42,7 @@ La duración predeterminada del experimento es de 4 horas. Si optimizas para un 
 |---|---|
 | Notificaciones push | *Aperturas* |
 | Correo electrónico | *Clics únicos* |
-| servicio de mensajes cortos, MMS, RCS y WhatsApp | *Clics* |
+| SMS, MMS, RCS y WhatsApp | *Clics* |
 | Otros canales compatibles | *Evento de conversión primaria - A* |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Objetivos de optimización predeterminados por canal" }
 

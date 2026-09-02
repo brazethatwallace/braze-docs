@@ -9,7 +9,7 @@ Jeder In-App-Nachrichtentyp ist über Inhalt, Bilder, Icons, Klickaktionen, Anal
 {% tabs %}
 {% tab Slideup %}
 
-[`SlideUp`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.slideupmessage.html)-In-App-Nachrichten tragen diesen Namen, weil sie auf mobilen Plattformen traditionell vom oberen oder unteren Bildschirmrand nach oben oder unten „gleiten“. Im Braze Web SDK or Software-Development-Kit werden diese Nachrichten eher als Growl- oder Toast-Benachrichtigung angezeigt, um dem vorherrschenden Paradigma im Internet zu entsprechen. Sie nehmen nur einen kleinen Teil des Bildschirms ein und bieten eine effektive, unaufdringliche Messaging-Funktion.
+[`SlideUp`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.slideupmessage.html)-In-App-Nachrichten tragen diesen Namen, weil sie auf mobilen Plattformen traditionell vom oberen oder unteren Bildschirmrand nach oben oder unten „gleiten“. Im Braze Web SDK werden diese Nachrichten eher als Growl- oder Toast-Benachrichtigung angezeigt, um dem vorherrschenden Paradigma im Internet zu entsprechen. Sie nehmen nur einen kleinen Teil des Bildschirms ein und bieten eine effektive, unaufdringliche Messaging-Funktion.
 
 ![Eine In-App-Nachricht, die vom unteren Rand eines Telefonbildschirms hereinschiebt und „Humans are complicated. Custom engagement shouldn't be.“ anzeigt. Im Hintergrund wird dieselbe In-App-Nachricht in der unteren Ecke einer Webseite dargestellt.]({% image_buster /assets/img/slideup-behavior.gif %}){: style="border:0px;"}
 
@@ -30,10 +30,10 @@ Jeder In-App-Nachrichtentyp ist über Inhalt, Bilder, Icons, Klickaktionen, Anal
 {% endtab %}
 {% tab Benutzerdefiniertes HTML %}
 
-[`HTML`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.htmlmessage.html)-In-App-Nachrichten eignen sich für vollständig angepasste Nutzerinhalte. Benutzerdefiniertes HTML wird in einem iFrame angezeigt und kann umfangreiche Inhalte wie Bilder, Schriftarten, Videos und interaktive Elemente enthalten, was die volle Kontrolle über Aussehen und Funktionalität der Nachricht ermöglicht. Diese unterstützen eine JavaScript-Schnittstelle `brazeBridge`, um Methoden des Braze Web SDK or Software-Development-Kit aus Ihrem HTML heraus aufzurufen. Weitere Details finden Sie in unseren [Best Practices]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices).
+[`HTML`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.htmlmessage.html)-In-App-Nachrichten eignen sich für vollständig angepasste Nutzerinhalte. Benutzerdefiniertes HTML wird in einem iFrame angezeigt und kann umfangreiche Inhalte wie Bilder, Schriftarten, Videos und interaktive Elemente enthalten, was die volle Kontrolle über Aussehen und Funktionalität der Nachricht ermöglicht. Diese unterstützen eine JavaScript-Schnittstelle `brazeBridge`, um Methoden des Braze Web SDK aus Ihrem HTML heraus aufzurufen. Weitere Details finden Sie in unseren [Best Practices]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices).
 
 {% alert important %}
-Um HTML-In-App-Nachrichten über das Web SDK or Software-Development-Kit zu aktivieren, **müssen** Sie die Initialisierungsoption `allowUserSuppliedJavascript` an Braze übergeben, z. B. `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Dies geschieht aus Sicherheitsgründen. HTML-In-App-Nachrichten können JavaScript ausführen, daher muss ein:e Website-Administrator:in sie aktivieren.
+Um HTML-In-App-Nachrichten über das Web SDK zu aktivieren, **müssen** Sie die Initialisierungsoption `allowUserSuppliedJavascript` an Braze übergeben, z. B. `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Dies geschieht aus Sicherheitsgründen. HTML-In-App-Nachrichten können JavaScript ausführen, daher muss ein:e Website-Administrator:in sie aktivieren.
 {% endalert %}
 
 Das folgende Beispiel zeigt eine paginierte HTML-In-App-Nachricht:

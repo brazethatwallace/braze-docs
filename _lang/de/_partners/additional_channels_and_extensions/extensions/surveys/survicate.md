@@ -26,7 +26,7 @@ Braze und Survicate arbeiten zusammen, um eine Reihe von Feedback-Anwendungsfäl
 - Sammeln Sie Insights in kritischen Phasen der Customer Journey über Braze In-App Messages.
 - Verwenden Sie in Survicate gespeichertes Feedback, um intelligentere Segmente in Braze zu erstellen.
 - Automatisieren Sie Folgekampagnen auf der Grundlage des Feedbacks von Kund:innen.
-- Nutzen Sie Insights von Kund:innen, um personalisierte Workflows zu Trigger or triggern or triggern.
+- Nutzen Sie Insights von Kund:innen, um personalisierte Workflows zu triggern.
 - Erreichen Sie eine breitere Zielgruppe mit automatisch übersetzten Umfragen.
 - Senden Sie Events an Braze-Kontaktprofile, wenn jemand auf Ihre Umfrage antwortet.
 
@@ -35,8 +35,8 @@ Braze und Survicate arbeiten zusammen, um eine Reihe von Feedback-Anwendungsfäl
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | Survicate-Konto | Sie benötigen ein Survicate-Konto, um diese Integration zu aktivieren. |
-| Braze Representational State Transfer-API-Schlüssel | Ein Braze Representational State Transfer-API-Schlüssel mit der Berechtigung `users.track`. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **APIs und Bezeichner** erstellt werden. |
-| Braze Representational State Transfer-Endpunkt | [Ihre URL für den Representational State Transfer-Endpunkt]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
+| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit der Berechtigung `users.track`. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **APIs und Bezeichner** erstellt werden. |
+| Braze REST-Endpunkt | [Ihre URL für den REST-Endpunkt]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Die wichtigsten Features der Integration {#key-features-of-the-integration}
@@ -44,7 +44,7 @@ Braze und Survicate arbeiten zusammen, um eine Reihe von Feedback-Anwendungsfäl
 Die Integration von Survicate und Braze bietet eine Realtime-Datensynchronisation, sodass die aktuellsten Informationen aus Survicate-Umfragen sofort in Braze verfügbar sind. Auf der Grundlage der Umfrageantworten können Sie diese Daten nutzen, um zeitnahe, personalisierte Maßnahmen zu ergreifen.
 
 - **Senden Sie Umfrageantworten als angepasste Attribute an Braze**: Reichern Sie die Nutzerprofile von Braze mit Daten aus Umfrageantworten an.
-- **Trigger or triggern or triggern Sie angepasste Events in Braze**: Nutzen Sie Events, die auf Umfrageantworten basieren, um bestimmte Gruppen zu targeten oder Folgekampagnen zu initiieren.
+- **Triggern Sie angepasste Events in Braze**: Nutzen Sie Events, die auf Umfrageantworten basieren, um bestimmte Gruppen zu targeten oder Folgekampagnen zu initiieren.
 - **Erstellen Sie detaillierte Segmente**: Erstellen Sie Segmente in Braze anhand von Daten aus Survicate-Umfragen, um Ihre Reichweite weiter zu personalisieren.
 
 ## Integration
@@ -53,7 +53,7 @@ Die Integration von Survicate und Braze bietet eine Realtime-Datensynchronisatio
 
 #### Betten Sie Ihre Umfrage in eine E-Mail ein oder erstellen Sie eine Umfrage mit teilbarem Link {#embed-your-survey-in-an-email-or-create-a-shareable-link-survey}
 
-1.  Klicken Sie in Survicate auf **+ Create new survey**, wählen Sie eine beliebige Erstellungsmethode (ein Template, die KI or künstliche Intelligenz-Umfrageerstellung oder das Hinzufügen eigener Fragen) und den Umfragetyp E-Mail oder Teilbarer Link:
+1.  Klicken Sie in Survicate auf **+ Create new survey**, wählen Sie eine beliebige Erstellungsmethode (ein Template, die KI-Umfrageerstellung oder das Hinzufügen eigener Fragen) und den Umfragetyp E-Mail oder Teilbarer Link:
 ![Braze wird im Umfrage-Ersteller ausgewählt.]({% image_buster /assets/img/survicate/survicate_1.gif %})
 
 {: start="2"}
@@ -78,7 +78,7 @@ Die Integration von Survicate und Braze bietet eine Realtime-Datensynchronisatio
 
 {% details E-Mail-Einbettungsoption %}
 
-Zeigen Sie die erste Frage direkt im Textkörper der E-Mail an, um die Umfrage aus der E-Mail heraus zu starten. Die Befragten werden dann auf eine Landing-Page weitergeleitet, um den Representational State Transfer der Umfrage auszufüllen.
+Zeigen Sie die erste Frage direkt im Textkörper der E-Mail an, um die Umfrage aus der E-Mail heraus zu starten. Die Befragten werden dann auf eine Landing-Page weitergeleitet, um den Rest der Umfrage auszufüllen.
 
 1. Klicken Sie auf **Get email code** und dann auf **Copy the HTML code**:
 
@@ -101,7 +101,7 @@ Zeigen Sie die erste Frage direkt im Textkörper der E-Mail an, um die Umfrage a
 
 ### Braze In-App-Nachrichten-Umfrage {#braze-in-app-message-survey}
 
-1. Klicken Sie auf **+ Create new survey**, wählen Sie eine beliebige Erstellungsmethode (ein Template, die KI or künstliche Intelligenz-Umfrageerstellung oder das Hinzufügen eigener Fragen) und wählen Sie dann „In-platform surveys“ und den Umfragetyp „Braze In-App Message“:
+1. Klicken Sie auf **+ Create new survey**, wählen Sie eine beliebige Erstellungsmethode (ein Template, die KI-Umfrageerstellung oder das Hinzufügen eigener Fragen) und wählen Sie dann „In-platform surveys“ und den Umfragetyp „Braze In-App Message“:
 
 ![Klicken Sie auf „+ Create new survey“ und wählen Sie eine beliebige Erstellungsmethode.]({% image_buster /assets/img/survicate/survicate_8.gif %})
 
@@ -159,12 +159,12 @@ Jetzt, da die Braze-Integration verbunden ist, können Sie individuelle Einstell
 
 Richten Sie Umfrageantworten so ein, dass sie als angepasste Attribute in Braze einfließen, wodurch Ihre Braze-Nutzerprofile mit gesammelten Daten angereichert werden.
 
-1. Auf dem Tab „Einstellungen“ der Braze-Integration finden Sie den Abschnitt **Update or aktualisieren fields**.
+1. Auf dem Tab „Einstellungen“ der Braze-Integration finden Sie den Abschnitt **Update fields**.
 
 ![Wählen Sie den Abschnitt „Update fields“.]({% image_buster /assets/img/survicate/survicate_15.png %})
 
 {: start="2"}
-2. Wählen Sie die Frage aus, deren Felder Sie Update or aktualisieren or aktualisieren möchten. Um eine Überflutung Ihrer Braze-Nutzerprofile mit Daten zu vermeiden, können Sie Antworten nur auf ausgewählte Fragen senden.
+2. Wählen Sie die Frage aus, deren Felder Sie aktualisieren möchten. Um eine Überflutung Ihrer Braze-Nutzerprofile mit Daten zu vermeiden, können Sie Antworten nur auf ausgewählte Fragen senden.
 
 ![Wählen Sie die Frage aus, deren Felder Sie aktualisieren möchten.]({% image_buster /assets/img/survicate/survicate_16.png %})
 
@@ -173,7 +173,7 @@ Ranking- und Matrixfragen werden von dieser Braze-Integration nicht unterstützt
 {% endalert %}
 
 {: start="3"}
-3. Fügen Sie den Namen des angepassten Attributs, das Sie Update or aktualisieren or aktualisieren möchten, unter dem Feld **User** hinzu:
+3. Fügen Sie den Namen des angepassten Attributs, das Sie aktualisieren möchten, unter dem Feld **User** hinzu:
 
 ![Fügen Sie den Namen des angepassten Attributs, das Sie aktualisieren möchten, unter dem Feld „User“ hinzu.]({% image_buster /assets/img/survicate/survicate_17.png %})
 
@@ -197,7 +197,7 @@ Für Net Promoter Score sendet Survicate abgebildete Werte basierend auf der Ant
 ### Senden von Events an die Profile von Braze-Kontakten {#sending-events-to-braze-contacts-profiles}
 
 Abgesehen von den vorherigen Einstellungen kann Survicate jedes Mal, wenn ein:e Befragte:r eine Umfragefrage beantwortet, ein angepasstes Event in Braze namens `survicate-question-answered` senden.
-Im Survicate-Panel können Sie unter „Antworten als angepasste Attribute senden“ wählen, ob Sie das Event für alle Fragen, für die im Tab „Update or aktualisieren fields“ ausgewählten Fragen oder gar nicht senden möchten:
+Im Survicate-Panel können Sie unter „Antworten als angepasste Attribute senden“ wählen, ob Sie das Event für alle Fragen, für die im Tab „Update fields“ ausgewählten Fragen oder gar nicht senden möchten:
 
 ![Sie können wählen, ob Sie das Event für alle Fragen senden möchten.]({% image_buster /assets/img/survicate/survicate_22.png %})
 
@@ -237,6 +237,6 @@ Der Tab „Analyze“ zeigt Ihnen die Gesamtergebnisse mit Statistiken und Daten
 
 ### Feedback in Braze
 
-Wenn Sie Nutzerfelder mit Umfrageantworten Update or aktualisieren or aktualisieren oder Antworten als angepasste Events senden, können Sie sehen, dass die Umfragedaten in Realtime synchronisiert werden. Gehen Sie in Braze zu einem bestimmten Kontakt, der auf Ihre Umfrage geantwortet hat. In der Hauptansicht des Kontakts sehen Sie sowohl die antwortbasierten Daten als auch die Events.
+Wenn Sie Nutzerfelder mit Umfrageantworten aktualisieren oder Antworten als angepasste Events senden, können Sie sehen, dass die Umfragedaten in Realtime synchronisiert werden. Gehen Sie in Braze zu einem bestimmten Kontakt, der auf Ihre Umfrage geantwortet hat. In der Hauptansicht des Kontakts sehen Sie sowohl die antwortbasierten Daten als auch die Events.
 
 ![Umfragedaten in Realtime synchronisiert]({% image_buster /assets/img/survicate/survicate_29.png %})

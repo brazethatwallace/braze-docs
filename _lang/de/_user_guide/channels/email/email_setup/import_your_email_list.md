@@ -22,13 +22,13 @@ Bevor Sie Ihre E-Mail-Liste in Braze importieren, vergewissern Sie sich, dass Ih
 
 E-Mail-Listenbereinigungsdienste können dies für Sie übernehmen, indem sie feststellen, ob die E-Mail-Adresse der korrekten Syntax folgt und die physischen Eigenschaften einer E-Mail-Adresse aufweist, die E-Mail-Domain überprüfen und eine Verbindung zum E-Mail-Server herstellen, um zu verifizieren, ob die E-Mail-Adresse dort existiert.
 
-### Prüfen Sie, ob eine E-Mail-Adresse bereits mit einem Kundenprofil or Nutzerprofil verknüpft ist {#check-if-an-email-address-is-already-associated-with-a-user}
+### Prüfen Sie, ob eine E-Mail-Adresse bereits mit einem Kundenprofil verknüpft ist {#check-if-an-email-address-is-already-associated-with-a-user}
 
-Bevor Sie eine Nutzer:in über die API oder das SDK or Software-Development-Kit anlegen, rufen Sie den Endpunkt [`/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) auf und geben Sie die `email_address` der Nutzer:in an. Wenn ein Kundenprofil or Nutzerprofil zurückgegeben wird, ist diese Braze-Nutzer:in bereits mit dieser E-Mail-Adresse verknüpft.
+Bevor Sie eine Nutzer:in über die API oder das SDK anlegen, rufen Sie den Endpunkt [`/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) auf und geben Sie die `email_address` der Nutzer:in an. Wenn ein Kundenprofil zurückgegeben wird, ist diese Braze-Nutzer:in bereits mit dieser E-Mail-Adresse verknüpft.
 
 Wir empfehlen dringend, bei der Erstellung neuer Nutzer:innen auf eindeutige E-Mail-Adressen zu achten und zu vermeiden, Nutzer:innen mit derselben E-Mail-Adresse zu übergeben oder zu importieren. Andernfalls können unbeabsichtigte Auswirkungen auf den Nachrichtenversand, das Targeting, das Reporting und andere Features auftreten.
 
-Nehmen wir zum Beispiel an, Sie haben doppelte Profile, aber bestimmte angepasste Attribute oder Ereignisse befinden sich nur in einem Profil. Wenn Sie versuchen, Campaigns oder Canvase mit mehreren Kriterien zu Trigger or triggern or triggern, kann Braze die Nutzer:in nicht als berechtigt identifizieren, da zwei Nutzerprofile vorhanden sind. Oder wenn eine Campaign eine E-Mail-Adresse anspricht, die von zwei Nutzer:innen geteilt wird, zeigt die Seite **Nutzer:innen suchen** beide Nutzerprofile als Empfänger:innen der Campaign an.
+Nehmen wir zum Beispiel an, Sie haben doppelte Profile, aber bestimmte angepasste Attribute oder Ereignisse befinden sich nur in einem Profil. Wenn Sie versuchen, Campaigns oder Canvases mit mehreren Kriterien zu triggern, kann Braze die Nutzer:in nicht als berechtigt identifizieren, da zwei Nutzerprofile vorhanden sind. Oder wenn eine Campaign eine E-Mail-Adresse anspricht, die von zwei Nutzer:innen geteilt wird, zeigt die Seite **Nutzer:innen suchen** beide Nutzerprofile als Empfänger:innen der Campaign an.
 
 ### Identifizieren Sie Ihre engagierten Nutzer:innen {#identify-your-engaged-users}
 
@@ -42,4 +42,4 @@ Wenn Sie von einem bestehenden E-Mail-Anbieter wechseln, stellen Sie sicher, das
 
 ## Methoden für den Import {#methods-for-importing}
 
-Sobald Sie Ihre E-Mail-Liste vorbereitet haben, gibt es mehrere Möglichkeiten, Nutzer:innen in Braze zu importieren, beispielsweise über die Braze Representational State Transfer API oder CSV-Dateien. Lesen Sie mehr in unserem speziellen Artikel zum [Nutzerimport]({{site.baseurl}}/user_guide/audience/manage_audience/import_users).
+Sobald Sie Ihre E-Mail-Liste vorbereitet haben, gibt es mehrere Möglichkeiten, Nutzer:innen in Braze zu importieren, beispielsweise über die Braze REST API oder CSV-Dateien. Lesen Sie mehr in unserem speziellen Artikel zum [Nutzerimport]({{site.baseurl}}/user_guide/audience/manage_audience/import_users).

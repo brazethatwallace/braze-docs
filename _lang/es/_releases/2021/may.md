@@ -22,7 +22,7 @@ Hemos actualizado las métricas del informe [Grupos de control global]({{site.ba
 
 ## Nuevo clúster US-05 {#new-us-05-cluster}
 
-Braze es compatible con un nuevo clúster de US, el US-05. Consulta nuestra lista de [puntos de conexión]({{site.baseurl}}/api/basics/#endpoints) del dashboard y REST or transferencia de estado representacional para ver más.
+Braze es compatible con un nuevo clúster de US, el US-05. Consulta nuestra lista de [puntos de conexión]({{site.baseurl}}/api/basics/#endpoints) del dashboard y REST para ver más.
 
 ## Actualizaciones de la IU de Braze {#braze-ui-updates}
 

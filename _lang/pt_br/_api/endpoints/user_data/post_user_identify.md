@@ -8,7 +8,7 @@ page_type: reference
 alias: /users_identify_merge/
 description: "Este artigo traz informações sobre o endpoint da Braze \"Identificar usuários\"."
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Identificar usuários {#identify-users}
 {% apimethod post %}
 /users/identify
@@ -55,7 +55,7 @@ Por padrão, este endpoint mescla a seguinte lista de campos encontrados **exclu
 - Atributos personalizados
 - Dados de eventos personalizados e de eventos de compra
 - Propriedades de evento personalizado e evento de compra para segmentação "X vezes em Y dias" (onde X<=50 e Y<=30)
-- Resumo dos eventos personalizados Segment or segmentoáveis
+- Resumo dos eventos personalizados segmentáveis
   - Contagem de eventos (a soma de ambos os perfis)
   - O evento ocorreu pela primeira vez (a Braze escolhe a data mais antiga entre as duas)
   - O evento ocorreu pela última vez (a Braze escolhe a data mais recente entre as duas)
@@ -76,7 +76,7 @@ Por padrão, este endpoint mescla a seguinte lista de campos encontrados **exclu
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics) com a permissão `users.identify`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics) com a permissão `users.identify`.
 
 ## Limite de taxa {#rate-limit}
 

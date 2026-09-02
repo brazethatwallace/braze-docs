@@ -81,7 +81,7 @@ Um eine automatisierte Auswertung durchzuführen, gehen Sie zum Schritt **Review
 1. Gehen Sie zum Bereich **Agentic Standards** und wählen Sie Ihren gewünschten Standard aus dem Dropdown-Menü.
 2. Wählen Sie **Run evaluation**.
 
-Wenn Sie nach einer ersten Auswertung Änderungen an Ihrer Campaign vornehmen, wählen Sie **Re-run evaluation**, um die Ergebnisse zu Update or aktualisieren or aktualisieren.
+Wenn Sie nach einer ersten Auswertung Änderungen an Ihrer Campaign vornehmen, wählen Sie **Re-run evaluation**, um die Ergebnisse zu aktualisieren.
 
 ### Auswertungsergebnisse überprüfen {#review-evaluation-results}
 
@@ -110,4 +110,4 @@ Nachdem alle kritischen Probleme behoben oder ignoriert wurden, können Sie mit 
 
 - **Beginnen Sie mit Templates:** Verwenden Sie zuerst die vorgefertigten Regelsätze für Campaign-Setup und Links und Tracking, da diese die häufigsten manuellen Fehler abdecken und der agentischen Auswertung den richtigen Kontext geben.
 - **Seien Sie spezifisch:** Wenn Sie angepasste Regeln schreiben, geben Sie klare Beispiele dafür, wie „korrekt“ aussieht. Schreiben Sie zum Beispiel statt „Überprüfe die Namenskonvention“ lieber „Der Campaign-Name beginnt mit dem aktuellen Jahr (z. B. 2026_).“
-- **Iterieren Sie häufig:** Wenn sich Ihre Markenrichtlinien oder internen Prozesse ändern, Update or aktualisieren or aktualisieren Sie Ihre Campaign-Standard-Regelsätze, um Ihre automatisierten Prüfungen relevant zu halten.
+- **Iterieren Sie häufig:** Wenn sich Ihre Markenrichtlinien oder internen Prozesse ändern, aktualisieren Sie Ihre Campaign-Standard-Regelsätze, um Ihre automatisierten Prüfungen relevant zu halten.

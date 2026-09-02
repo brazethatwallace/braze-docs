@@ -1,16 +1,16 @@
 ---
-nav_title: API or interface de programação do aplicativo (API) de envio de mensagens do dispositivo
-article_title: API or interface de programação do aplicativo (API) de envio de mensagens do dispositivo
+nav_title: API de envio de mensagens do dispositivo
+article_title: API de envio de mensagens do dispositivo
 search_tag: Endpoint
 page_order: 2.2
 layout: dev_guide
-description: "Esta landing page apresenta a API or interface de programação do aplicativo (API) de envio de mensagens do dispositivo da Braze."
+description: "Esta landing page apresenta a API de envio de mensagens do dispositivo da Braze."
 page_type: landing
 hidden: true
-guide_top_header: "API or interface de programação do aplicativo (API) de envio de mensagens do dispositivo"
-guide_top_text: "Use a API or interface de programação do aplicativo (API) de envio de mensagens do dispositivo da Braze para recuperar propriedades de Banner e reportar eventos de impressão e clique de Banner sem integrar um SDK or kit de desenvolvimento de software da Braze. A API or interface de programação do aplicativo (API) de envio de mensagens do dispositivo oferece suporte a integrações do lado do cliente e do lado do servidor e usa chaves da API or interface de programação do aplicativo (API) REST or transferir estado representacional do lado do cliente com escopo para um único espaço de trabalho."
-guide_top_alert: "Esta página está em beta. Os recursos e a documentação da API or interface de programação do aplicativo (API) de envio de mensagens para dispositivos estão sujeitos a alterações. Entre em contato com o gerente da sua conta Braze para solicitar acesso."
-guide_top_text2: "Nota: esta API or interface de programação do aplicativo (API) recupera apenas as propriedades de um determinado Banner, e não o HTML do Banner."
+guide_top_header: "API de envio de mensagens do dispositivo"
+guide_top_text: "Use a API de envio de mensagens do dispositivo da Braze para recuperar propriedades de Banner e reportar eventos de impressão e clique de Banner sem integrar um SDK da Braze. A API de envio de mensagens do dispositivo oferece suporte a integrações do lado do cliente e do lado do servidor e usa chaves da API REST do lado do cliente com escopo para um único espaço de trabalho."
+guide_top_alert: "Esta página está em beta. Os recursos e a documentação da API de envio de mensagens para dispositivos estão sujeitos a alterações. Entre em contato com o gerente da sua conta Braze para solicitar acesso."
+guide_top_text2: "Nota: esta API recupera apenas as propriedades de um determinado Banner, e não o HTML do Banner."
 guide_featured_title: "Primeiros passos"
 guide_featured_list:
   - name: "Visão geral da API de envio de mensagens para dispositivos"

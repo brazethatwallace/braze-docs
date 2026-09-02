@@ -48,6 +48,6 @@ Se a reelegibilidade estiver desativada, adicione o filtro "Entered Canvas Varia
 - Atualize o Canvas existente para incluir uma tag única. Para o novo Canvas, adicione o filtro "Last Received Message from Campaign or Canvas with Tag". Isso impede que os usuários entrem no Canvas duas vezes após uma data de entrada específica (número total de dias após o envio da última mensagem do Canvas original mais a janela de conversão).
 - **O método a seguir registrará pontos de dados.** Atualize o Canvas original para incluir um webhook Braze-para-Braze que dispare um atributo personalizado com registro de data e hora na entrada. Esse atributo pode ser usado para impedir que os usuários entrem no novo Canvas após a data especificada (número total de dias após o envio da última mensagem do Canvas original mais a janela de conversão).
 
-Para Canvas disparados por API or interface de programação do aplicativo (API), coordene com sua equipe de engenharia para garantir que esses Canvas estejam usando o novo ID do Canvas quando os novos Canvas estiverem prontos para lançamento.
+Para Canvas disparados por API, coordene com sua equipe de engenharia para garantir que esses Canvas estejam usando o novo ID do Canvas quando os novos Canvas estiverem prontos para lançamento.
 
 Para saber mais sobre as diferenças entre o editor original do Canvas e a experiência do Canvas Flow, confira as [Perguntas frequentes sobre o Canvas]({{site.baseurl}}/user_guide/messaging/canvas/faqs#what-are-the-main-differences-between-the-current-and-original-canvas-editors).

@@ -3,14 +3,14 @@ nav_title: Tags verwalten
 article_title: Tags verwalten
 page_order: 6
 page_type: reference
-description: "Dieser Referenzartikel behandelt die Verwaltung von Tags im Braze-Dashboard, einschließlich Verschachtelung, Umbenennung und Organisation von Tags über Campaigns, Canvase und Segments hinweg."
+description: "Dieser Referenzartikel behandelt die Verwaltung von Tags im Braze-Dashboard, einschließlich Verschachtelung, Umbenennung und Organisation von Tags über Campaigns, Canvases und Segments hinweg."
 ---
 
 # Tags verwalten {#managing-tags}
 
-> Sie können die Tags, die Sie in Campaigns, Canvase und Segments verwenden, zentral verwalten. Um Tags umzubenennen, zu entfernen oder hinzuzufügen, gehen Sie zu **Einstellungen** > **Tag-Management**.
+> Sie können die Tags, die Sie in Campaigns, Canvases und Segments verwenden, zentral verwalten. Um Tags umzubenennen, zu entfernen oder hinzuzufügen, gehen Sie zu **Einstellungen** > **Tag-Management**.
 
-Informationen zum Hinzufügen von Tags zu Campaigns, Canvase, Segments und angepassten Daten finden Sie unter [Tags]({{site.baseurl}}/user_guide/messaging/governance/tags).
+Informationen zum Hinzufügen von Tags zu Campaigns, Canvases, Segments und angepassten Daten finden Sie unter [Tags]({{site.baseurl}}/user_guide/messaging/governance/tags).
 
 ## Tags verschachteln {#nesting-tags}
 
@@ -27,7 +27,7 @@ Wenn ein übergeordnetes Tag im Dashboard angewendet wird, aber beim Erstellen e
 
 ## Best Practices {#tags-best-practices}
 
-Verwenden Sie Tags, um Ihre Campaigns, Canvase und Segments nach Geschäftszielen, Funnel-Stufen, Regionen und mehr zu organisieren.
+Verwenden Sie Tags, um Ihre Campaigns, Canvases und Segments nach Geschäftszielen, Funnel-Stufen, Regionen und mehr zu organisieren.
 
 Die folgende Tabelle zeigt Beispiel-Tags, die für eine E-Commerce-App nützlich sein könnten:
 
@@ -52,7 +52,7 @@ table td {
 </thead>
 <tbody>
   <tr>
-    <td>On-boarding<br>Re-engagement<br>Loyal<br>PowerUser<br>Abwanderung or Abwanderung, Churn or Abwanderung, churnen<br>Lost</td>
+    <td>On-boarding<br>Re-engagement<br>Loyal<br>PowerUser<br>Abwanderung<br>Lost</td>
     <td>HighSpender<br>ActiveUser<br>NewUsers<br>FacebookAttribution<br>FirstAction</td>
     <td>UnitedStates<br>Northeast<br>Midwest<br>South<br>West<br>LATAM<br>AP<br>WesternEurope<br>MiddleEast</td>
     <td>Sales<br>Coupons<br>Events</td>

@@ -42,7 +42,7 @@ eCommerce 매출 대시보드를 보려면 **Analytics** > **대시보드 빌더
 - 푸시 열기
 - 콘텐츠 카드 클릭
 - 인앱 메시지 클릭
-- 단문 메시지 서비스 단축 링크 클릭
+- SMS 단축 링크 클릭
 - WhatsApp 단축 링크 클릭
 
 {% alert important %}

@@ -166,7 +166,7 @@ return brazecall;
 ## トラブルシューティング {#troubleshooting}
 
 ### インバウンドイベントを検証する {#verify-inbound-events}
-データ変換がアクティブになると、データがカスタムイベントとしてBrazeに表示されます。**カスタムイベントを実行**トリガーでキャンペーンを作成し、定義したイベント（例：`Loyalty Event Triggered`）が利用可能かどうかを確認することで検証できます。
+データ変換がアクティブになると、データがカスタムイベントとしてBrazeに表示されます。**Perform Custom Event**トリガーでキャンペーンを作成し、定義したイベント（例：`Loyalty Event Triggered`）が利用可能かどうかを確認することで検証できます。
 
 ### アウトバウンドWebhookを検証する {#verify-outbound-webhooks}
 Brazeのメッセージアクティビティログを確認し、Webhookが`200 OK`ステータスを返したことを確認します。

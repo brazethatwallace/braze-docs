@@ -31,7 +31,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 | `modified_after`  | Optional | String im [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)-Format | Ruft nur Content Blocks ab, die zum oder nach dem angegebenen Zeitpunkt aktualisiert wurden. |
 | `modified_before`  |  Optional | String im [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)-Format | Ruft nur Content Blocks ab, die zum oder vor dem angegebenen Zeitpunkt aktualisiert wurden. |
 | `limit` | Optional | Positive Zahl | Maximale Anzahl der abzurufenden Content Blocks. Standardmäßig 100, wenn nicht angegeben, mit einem maximal zulässigen Wert von 1000. |
-| `offset`  |  Optional | Positive Zahl | Anzahl der Content Blocks, die übersprungen werden sollen, bevor der Representational State Transfer der Templates zurückgegeben wird, die den Suchkriterien entsprechen. |
+| `offset`  |  Optional | Positive Zahl | Anzahl der Content Blocks, die übersprungen werden sollen, bevor der Rest der Templates zurückgegeben wird, die den Suchkriterien entsprechen. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ## Beispielanfrage {#example-request}

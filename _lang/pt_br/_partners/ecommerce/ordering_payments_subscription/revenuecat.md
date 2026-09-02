@@ -20,15 +20,15 @@ A integração do RevenueCat e da Braze permite que você sincronize automaticam
 
 ## Pré-requisitos {#prerequisites}
 
-No mínimo, será necessário ativar a integração no dashboard da RevenueCat para conectá-la à Braze. Se você estiver usando o SDK or kit de desenvolvimento de software da Braze, poderá usar os SDKs da RevenueCat e da Braze juntos para aprimorar a integração, garantindo que o mesmo identificador de cliente seja usado em ambos os sistemas.
+No mínimo, será necessário ativar a integração no dashboard da RevenueCat para conectá-la à Braze. Se você estiver usando o SDK da Braze, poderá usar os SDKs da RevenueCat e da Braze juntos para aprimorar a integração, garantindo que o mesmo identificador de cliente seja usado em ambos os sistemas.
 
 | Requisito | Descrição |
 |---|---|
 | Conta e app do RevenueCat | Uma [conta RevenueCat](https://app.revenuecat.com/login) é necessária para aproveitar esta parceria. Você também deve ter um app RevenueCat configurado. |
-| SDK or kit de desenvolvimento de software RevenueCat | Além do SDK or kit de desenvolvimento de software da Braze necessário, recomendamos a instalação do [SDK or kit de desenvolvimento de software RevenueCat](https://docs.revenuecat.com/docs/configuring-sdk) para fornecer aliases de usuário para a RevenueCat. |
-| Instância da Braze | Sua instância da Braze pode ser obtida com seu gerente de integração da Braze ou pode ser encontrada na [página de visão geral da API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#endpoints).<br><br>A RevenueCat requer a instância da Braze para enviar do lado do servidor para o endpoint REST or transferir estado representacional correto da Braze. |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões `users.track`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional de teste da Braze (opcional) | Uma chave de API or interface de programação do aplicativo (API) de teste pode ser usada para compras de teste e produção se você quiser que essas solicitações sejam enviadas para instâncias da Braze separadas. |
+| SDK RevenueCat | Além do SDK da Braze necessário, recomendamos a instalação do [SDK RevenueCat](https://docs.revenuecat.com/docs/configuring-sdk) para fornecer aliases de usuário para a RevenueCat. |
+| Instância da Braze | Sua instância da Braze pode ser obtida com seu gerente de integração da Braze ou pode ser encontrada na [página de visão geral da API]({{site.baseurl}}/api/basics#endpoints).<br><br>A RevenueCat requer a instância da Braze para enviar do lado do servidor para o endpoint REST correto da Braze. |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Chave da API REST de teste da Braze (opcional) | Uma chave de API de teste pode ser usada para compras de teste e produção se você quiser que essas solicitações sejam enviadas para instâncias da Braze separadas. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
@@ -41,9 +41,9 @@ No mínimo, será necessário ativar a integração no dashboard da RevenueCat p
 
 ### Etapa 1: Definir identidade de usuário da Braze {#step-1-set-braze-user-identity}
 
-No SDK or kit de desenvolvimento de software da Braze, você pode definir o ID de usuário da Braze para corresponder ao ID de usuário do app da RevenueCat, garantindo que os eventos enviados da Braze e da RevenueCat possam ser sincronizados para o mesmo usuário.
+No SDK da Braze, você pode definir o ID de usuário da Braze para corresponder ao ID de usuário do app da RevenueCat, garantindo que os eventos enviados da Braze e da RevenueCat possam ser sincronizados para o mesmo usuário.
 
-Configure o SDK or kit de desenvolvimento de software da Braze com o mesmo ID de usuário do app da RevenueCat ou use o método `.changeUser()` do SDK or kit de desenvolvimento de software da Braze.
+Configure o SDK da Braze com o mesmo ID de usuário do app da RevenueCat ou use o método `.changeUser()` do SDK da Braze.
 
 {% tabs local %}
 {% tab swift %}
@@ -106,10 +106,10 @@ Ambos os atributos são necessários para que o [objeto de alias do usuário]({{
 
 ### Etapa 2: Enviar eventos do RevenueCat para a Braze {#step-2-send-revenuecat-events-to-braze}
 
-Depois de configurar o SDK or kit de desenvolvimento de software de compras da RevenueCat e o SDK or kit de desenvolvimento de software da Braze para ter a mesma identidade de usuário, você pode ativar a integração e configurar os nomes dos eventos no dashboard da RevenueCat.
+Depois de configurar o SDK de compras da RevenueCat e o SDK da Braze para ter a mesma identidade de usuário, você pode ativar a integração e configurar os nomes dos eventos no dashboard da RevenueCat.
 
 1. Navegue até o seu projeto no dashboard da RevenueCat e encontre o cartão **Integrations** no menu de navegação. Selecione **+ New**.
-2. Em seguida, selecione **Braze** entre as integrações disponíveis e adicione sua instância da Braze e a chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze.
+2. Em seguida, selecione **Braze** entre as integrações disponíveis e adicione sua instância da Braze e a chave da API REST da Braze.
 3. Digite os nomes dos eventos que o RevenueCat enviará ou escolha os nomes dos eventos padrão. Mais detalhes sobre os eventos disponíveis podem ser encontrados na [etapa 3](#configure-event-names).
 4. Selecione se deseja que a RevenueCat relate os rendimentos (após a comissão da app store) ou a receita (vendas brutas).
 
@@ -140,6 +140,6 @@ Depois de definir as configurações da Braze na RevenueCat, os eventos começar
 
 ## Personalização {#customization}
 
-### Adicionar uma chave de API or interface de programação do aplicativo (API) sandbox para testes {#add-a-sandbox-api-key-for-testing}
+### Adicionar uma chave de API sandbox para testes {#add-a-sandbox-api-key-for-testing}
 
-Se você fornecer apenas uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze para a RevenueCat, apenas eventos de produção serão enviados. Se você também quiser enviar eventos de teste em sandbox, [crie outra chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze]({{site.baseurl}}/api/basics#creating-rest-api-keys) e adicione-a às suas configurações da Braze na RevenueCat.
+Se você fornecer apenas uma chave da API REST da Braze para a RevenueCat, apenas eventos de produção serão enviados. Se você também quiser enviar eventos de teste em sandbox, [crie outra chave da API REST da Braze]({{site.baseurl}}/api/basics#creating-rest-api-keys) e adicione-a às suas configurações da Braze na RevenueCat.

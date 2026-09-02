@@ -26,7 +26,7 @@ Der Connected-Content-Debugger ist für die folgenden Bereiche verfügbar:
     - Ausgenommen Fußzeilen und Abo-Seiten
 - In-App-Nachrichten
 - Push-Benachrichtigungen
-- Kurzmitteilungsdienst or SMS/MMS/RCS
+- SMS/MMS/RCS
 - Webhooks
     - Einschließlich Templates
 - WhatsApp
@@ -57,7 +57,7 @@ Jedes Mal, wenn Sie eine Vorschau ausführen, rendert Braze automatisch die Erge
 {:start="5"}
 5. Überprüfen Sie die Ergebnisse und passen Sie Ihr Tag, die Header oder den Endpunkt nach Bedarf an. Generieren Sie anschließend eine neue Vorschau, um die Korrektur zu bestätigen.
 
-Wenn Ihr Template mehr als ein {% raw %}`{% connected_content %}`{% endraw %}-Tag enthält, listet der Debugger jeden ausgeführten Aufruf auf. Bei Kanälen, die aus einem Template mehrere Nachrichtenkörper rendern (zum Beispiel E-Mail, die separate HTML-, Plaintext- und AMP or Accelerated Mobile Pages-Körper rendert, oder Quick Push, das separate gerätespezifische Körper rendert), zeigt der Debugger jeden Connected-Content-Aufruf über alle Körper hinweg an – nicht nur den, den Sie gerade in der Vorschau betrachten.
+Wenn Ihr Template mehr als ein {% raw %}`{% connected_content %}`{% endraw %}-Tag enthält, listet der Debugger jeden ausgeführten Aufruf auf. Bei Kanälen, die aus einem Template mehrere Nachrichtenkörper rendern (zum Beispiel E-Mail, die separate HTML-, Plaintext- und AMP-Körper rendert, oder Quick Push, das separate gerätespezifische Körper rendert), zeigt der Debugger jeden Connected-Content-Aufruf über alle Körper hinweg an – nicht nur den, den Sie gerade in der Vorschau betrachten.
 
 ## Die Debug-Ausgabe verstehen {#understand-the-debug-output}
 

@@ -65,7 +65,7 @@ Ten en cuenta que tu vista previa puede no ser idéntica a la representación fi
 Para enviar una prueba a [grupos de prueba de contenido]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) o a usuarios individuales, push debe estar habilitado en tus dispositivos de prueba con tokens de notificaciones push válidos registrados para el usuario de prueba antes de enviar. Para usuarios de iOS, debes tocar la notificación push enviada por Braze para poder ver la Content Card de prueba. Este comportamiento solo aplica para Content Cards de prueba.
 {% endalert %}
 
-Las Content Cards de prueba se entregan a través de una notificación push. La tarjeta se incluye en la carga útil del push, y el SDK or kit de desarrollo de software la extrae y la almacena en caché localmente cuando se recibe el push.
+Las Content Cards de prueba se entregan a través de una notificación push. La tarjeta se incluye en la carga útil del push, y el SDK la extrae y la almacena en caché localmente cuando se recibe el push.
 
 Este proceso omite el sistema normal de entrega de tarjetas, por lo que push debe estar habilitado aunque estés probando una Content Card.
 
@@ -109,10 +109,10 @@ Si una imagen de Content Card no se muestra o aparece rota:
 
 Después de enviar tus Content Cards, puedes desglosar o depurar cualquier problema desde el [registro de usuarios del evento]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log) en la consola para desarrolladores.
 
-Un caso de uso común es intentar depurar por qué un usuario no puede ver una Content Card en particular. Para hacerlo, puedes buscar en los **registros de usuarios del evento** las Content Cards entregadas al SDK or kit de desarrollo de software al inicio de la sesión, pero antes de una impresión, y rastrearlas hasta una campaña específica:
+Un caso de uso común es intentar depurar por qué un usuario no puede ver una Content Card en particular. Para hacerlo, puedes buscar en los **registros de usuarios del evento** las Content Cards entregadas al SDK al inicio de la sesión, pero antes de una impresión, y rastrearlas hasta una campaña específica:
 
 1. Ve a **Configuración** > **Registro de usuarios del evento**.
-2. Localiza y expande la solicitud del SDK or kit de desarrollo de software de tu usuario de prueba.
+2. Localiza y expande la solicitud del SDK de tu usuario de prueba.
 3. Haz clic en **Datos sin procesar**.
 4. Busca el `id` de tu sesión. El siguiente es un extracto de ejemplo:
 
@@ -261,11 +261,11 @@ Si ya has aceptado mensajes push desde el panel de Braze, el mensaje aparecerá 
 Si ves un error indicando que ninguno de los usuarios seleccionados tiene tokens de notificaciones push coincidentes para push web, verifica que el usuario de prueba tenga un token de notificaciones push válido registrado para la plataforma seleccionada. Para recibir un token de notificaciones push, el usuario debe estar configurado para recibir notificaciones push de la aplicación en su dispositivo. Para más detalles, consulta [Habilitación de push y estado de suscripción a push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states).
 
 {% endtab %}
-{% tab servicio de mensajes cortos/MMS y RCS %}
+{% tab SMS/MMS y RCS %}
 
-Después de crear tu mensaje servicio de mensajes cortos, MMS o RCS, puedes enviar un mensaje de prueba a tu teléfono para ver cómo se verá en tiempo real. El destinatario debe pertenecer al grupo de suscripción de servicio de mensajes cortos que selecciones al enviar la prueba, tener un número de teléfono válido y tener al menos un país seleccionado en **Permisos geográficos**. Para más detalles, consulta las [Preguntas frecuentes sobre servicio de mensajes cortos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs#does-a-user-need-to-be-part-of-an-sms-subscription-group-to-receive-sms-test-messages).
+Después de crear tu mensaje SMS, MMS o RCS, puedes enviar un mensaje de prueba a tu teléfono para ver cómo se verá en tiempo real. El destinatario debe pertenecer al grupo de suscripción de SMS que selecciones al enviar la prueba, tener un número de teléfono válido y tener al menos un país seleccionado en **Permisos geográficos**. Para más detalles, consulta las [Preguntas frecuentes sobre SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs#does-a-user-need-to-be-part-of-an-sms-subscription-group-to-receive-sms-test-messages).
 
-1. Redacta tu mensaje servicio de mensajes cortos, MMS o RCS.
+1. Redacta tu mensaje SMS, MMS o RCS.
 2. Selecciona la pestaña **Prueba** y selecciona al menos un grupo de prueba de contenido o un usuario individual para recibir este mensaje de prueba.
 3. Selecciona **Enviar prueba** para enviar tu mensaje de prueba.
 
@@ -399,7 +399,7 @@ Hay algunas situaciones en las que los mensajes de prueba no se comportan de la 
 Si tu campaña de mensajes dentro de la aplicación no se desencadena mediante una campaña push, comprueba la segmentación de la campaña de mensajes dentro de la aplicación para confirmar que el usuario cumple con el público objetivo **antes** de recibir el mensaje push.
 
 Para envíos de prueba en Android e iOS, los mensajes dentro de la aplicación que utilizan el comportamiento de clic **Solicitar permiso push** pueden no mostrarse en algunos dispositivos. Como solución alternativa:
-- **Android:** Los dispositivos deben tener Android 13 y la versión 21.0.0 de nuestro SDK or kit de desarrollo de software para Android. Otra razón puede ser que el dispositivo en el que se muestra el mensaje dentro de la aplicación ya tenga un aviso a nivel de sistema. Es posible que hayas seleccionado **No volver a preguntar**, por lo que quizá necesites reinstalar la aplicación para restablecer los permisos de notificación antes de volver a probar.
+- **Android:** Los dispositivos deben tener Android 13 y la versión 21.0.0 de nuestro SDK para Android. Otra razón puede ser que el dispositivo en el que se muestra el mensaje dentro de la aplicación ya tenga un aviso a nivel de sistema. Es posible que hayas seleccionado **No volver a preguntar**, por lo que quizá necesites reinstalar la aplicación para restablecer los permisos de notificación antes de volver a probar.
 - **iOS:** Recomendamos que tu equipo de desarrolladores revise la implementación de las notificaciones push de tu aplicación y elimine manualmente cualquier código que solicite permisos push. Para más información, consulta [Mensajes dentro de la aplicación de introducción a push]({{site.baseurl}}/user_guide/channels/push/best_practices).
 
-Para que una campaña de mensajes dentro de la aplicación basada en acciones se entregue, debes registrar eventos personalizados a través del SDK or kit de desarrollo de software de Braze, no de las REST or transferencia de estado representacional API, para que los usuarios puedan recibir mensajes dentro de la aplicación elegibles directamente en su dispositivo. Los usuarios reciben el mensaje dentro de la aplicación si realizan el evento durante la sesión.
+Para que una campaña de mensajes dentro de la aplicación basada en acciones se entregue, debes registrar eventos personalizados a través del SDK de Braze, no de las REST API, para que los usuarios puedan recibir mensajes dentro de la aplicación elegibles directamente en su dispositivo. Los usuarios reciben el mensaje dentro de la aplicación si realizan el evento durante la sesión.

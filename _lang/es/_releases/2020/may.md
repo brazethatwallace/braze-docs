@@ -9,7 +9,7 @@ description: "Este artículo contiene notas de la versión de mayo de 2020."
 
 ## Google Tag Administrador
 
-Se ha añadido documentación y ejemplos sobre cómo desplegar y gestionar el SDK or kit de desarrollo de software de Android de Braze mediante [Google Tag Administrador]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android).
+Se ha añadido documentación y ejemplos sobre cómo desplegar y gestionar el SDK de Android de Braze mediante [Google Tag Administrador]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android).
 
 ## Nuevo endpoint de API para lista negra de correo electrónico {#new-blacklist-email-api-endpoint}
 

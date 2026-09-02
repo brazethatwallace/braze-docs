@@ -3,13 +3,13 @@ nav_title: Grupos internos
 article_title: Grupos internos
 page_order: 4
 page_type: reference
-description: "Este artículo de referencia describe los grupos internos, una excelente forma de obtener información sobre los registros del SDK or kit de desarrollo de software o la API de tu dispositivo de prueba al probar la integración del SDK or kit de desarrollo de software."
+description: "Este artículo de referencia describe los grupos internos, una excelente forma de obtener información sobre los registros del SDK o la API de tu dispositivo de prueba al probar la integración del SDK."
 
 ---
 
 # Grupos internos {#internal-groups}
 
-> Los grupos internos son una excelente forma de crear y organizar grupos de prueba internos o de terceros. Proporcionan información sobre los registros de tu SDK or kit de desarrollo de software o API y son útiles al probar la integración de tu SDK or kit de desarrollo de software. Puedes crear un número ilimitado de grupos internos personalizados con hasta 1000 usuarios.
+> Los grupos internos son una excelente forma de crear y organizar grupos de prueba internos o de terceros. Proporcionan información sobre los registros de tu SDK o API y son útiles al probar la integración de tu SDK. Puedes crear un número ilimitado de grupos internos personalizados con hasta 1000 usuarios.
 
 {% alert tip %}
 También te recomendamos consultar nuestro curso de Braze Learning [Pruebas y solución de problemas](https://learning.braze.com/path/developer/testing-and-troubleshooting), que explica cómo usar los grupos internos para realizar tu propia solución de problemas y depuración.
@@ -30,8 +30,8 @@ Para crear y gestionar grupos internos, necesitas los siguientes [permisos de us
 - Ver límites de API
 - Ver alertas de uso de API
 - Editar alertas de uso de API
-- Editar depurador de SDK or kit de desarrollo de software
-- Ver depurador de SDK or kit de desarrollo de software
+- Editar depurador de SDK
+- Ver depurador de SDK
 
 ## Crear un grupo interno {#creating-an-internal-group}
 
@@ -44,7 +44,7 @@ Para crear un grupo interno:
 
 | Tipo de grupo         | Descripción                                                                                 |
 |--------------------|---------------------------------------------------------------------------------------------|
-| **Grupo de eventos de usuario**   | Utiliza esto para verificar eventos o registros desde tu dispositivo de prueba.<br><br>Para capturar registros de SDK or kit de desarrollo de software y REST or transferencia de estado representacional API para los miembros del grupo, selecciona la casilla **Eventos de usuario**. Sin esta configuración, los usuarios añadidos al grupo no mostrarán registros en el [registro de usuarios del evento]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log). |
+| **Grupo de eventos de usuario**   | Utiliza esto para verificar eventos o registros desde tu dispositivo de prueba.<br><br>Para capturar registros de SDK y REST API para los miembros del grupo, selecciona la casilla **Eventos de usuario**. Sin esta configuración, los usuarios añadidos al grupo no mostrarán registros en el [registro de usuarios del evento]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log). |
 | **Grupo de prueba de contenido** | Utiliza esto en push, correo electrónico y mensajes dentro de la aplicación para enviar una copia renderizada del mensaje. |
 | **Grupo semilla**         | Envía automáticamente una copia del correo electrónico a todos los miembros del grupo semilla en el momento del envío.               |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Crear un grupo interno" }
@@ -68,10 +68,10 @@ Después de crear tu grupo interno, añade usuarios de prueba como miembros de e
 
 ### Grupos de prueba de contenido {#content-test-groups}
 
-De forma similar a enviar una vista previa de prueba de un mensaje, el grupo de prueba de contenido te ahorra tiempo y te permite lanzar pruebas a una lista predefinida de usuarios de Braze simultáneamente. Esto está disponible para push, mensajes dentro de la aplicación, servicio de mensajes cortos, correo electrónico y Content Cards en Braze. Solo los grupos etiquetados como grupos de prueba de contenido están disponibles en la sección de vista previa de un mensaje.
+De forma similar a enviar una vista previa de prueba de un mensaje, el grupo de prueba de contenido te ahorra tiempo y te permite lanzar pruebas a una lista predefinida de usuarios de Braze simultáneamente. Esto está disponible para push, mensajes dentro de la aplicación, SMS, correo electrónico y Content Cards en Braze. Solo los grupos etiquetados como grupos de prueba de contenido están disponibles en la sección de vista previa de un mensaje.
 
 {% alert note %}
-Los mensajes de prueba de [servicio de mensajes cortos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs) solo se pueden enviar a números de teléfono válidos en la base de datos.
+Los mensajes de prueba de [SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs) solo se pueden enviar a números de teléfono válidos en la base de datos.
 {% endalert %}
 
 Selecciona usuarios individuales de Braze o cualquier número de grupos internos a los que enviar el mensaje. Si tu mensaje incluye Liquid u otra personalización dinámica, Braze utiliza los atributos disponibles para cada usuario para personalizar el contenido del mensaje. Para los usuarios que no tienen atributos, Braze utiliza el valor predeterminado establecido.

@@ -223,7 +223,7 @@ campaign_id IN ({{campaigns.${custom_label}}})
 {% tab variantes de Campaign %}
 Para selecionar variantes de Campaign que pertencem à Campaign selecionada. Deve ser usado em conjunto com uma variável de Campaign ou Campaigns.
 
-- **Valor de substituição:** IDs de API or interface de programação do aplicativo (API) de variantes de Campaign, strings delimitadas por vírgulas, como `api-id1, api-id2`.
+- **Valor de substituição:** IDs de API de variantes de Campaign, strings delimitadas por vírgulas, como `api-id1, api-id2`.
 
 {% subtabs %}
 {% subtab uso %}
@@ -277,7 +277,7 @@ canvas_id IN ({{canvases.${custom_label}}})
 {% endtab %}
 
 {% tab variantes de Canvas %}
-Para selecionar variantes de Canvas que pertencem a um Canvas escolhido. Deve ser usado com uma variável de Canvas. Defina para um ou mais IDs de API or interface de programação do aplicativo (API) de variantes de Canvas, como uma string separada por vírgulas, como em `api-id1, api-id2`.
+Para selecionar variantes de Canvas que pertencem a um Canvas escolhido. Deve ser usado com uma variável de Canvas. Defina para um ou mais IDs de API de variantes de Canvas, como uma string separada por vírgulas, como em `api-id1, api-id2`.
 
 {% subtabs %}
 {% subtab uso %}
@@ -441,7 +441,7 @@ field_name = '{{catalog_fields.${custom_label}}}'
 
 ### Segments {#segments}
 
-Para selecionar Segments que tenham o [rastreamento de análise de dados]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) ativado. Defina como o ID de análise de dados do Segment or segmento, que corresponde aos IDs armazenados na coluna `user_segment_membership_ids` nas tabelas onde essa coluna está disponível.
+Para selecionar Segments que tenham o [rastreamento de análise de dados]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) ativado. Defina como o ID de análise de dados do Segment, que corresponde aos IDs armazenados na coluna `user_segment_membership_ids` nas tabelas onde essa coluna está disponível.
 
 {% tabs %}
 {% tab uso %}

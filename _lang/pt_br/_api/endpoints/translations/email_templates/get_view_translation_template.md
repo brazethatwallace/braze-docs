@@ -9,7 +9,7 @@ page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint Ver todas as traduções e locais para modelo de e-mail."
 ---
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Ver todas as traduções e locais para um modelo de e-mail {#view-all-translations-and-locales-for-an-email-template}
 {% apimethod get %}
 /templates/email/translations/
@@ -19,7 +19,7 @@ description: "Este artigo descreve detalhes sobre o endpoint Ver todas as tradu�
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `templates.translations.get`.
+Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `templates.translations.get`.
 
 ## Limite de frequência {#rate-limit}
 

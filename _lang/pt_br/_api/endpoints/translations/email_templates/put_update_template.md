@@ -9,7 +9,7 @@ page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint Atualizar traduções para um modelo de e-mail."
 ---
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Atualizar traduções para um modelo de e-mail {#update-translations-for-an-email-template}
 {% apimethod put %}
 /templates/email/translations/
@@ -19,7 +19,7 @@ description: "Este artigo descreve detalhes sobre o endpoint Atualizar traduçõ
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `templates.translations.update`.
+Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `templates.translations.update`.
 
 ## Limite de frequência {#rate-limit}
 

@@ -48,7 +48,7 @@ Tipos de anexo válidos incluem: `txt`, `csv`, `log`, `css`, `ics`, `jpg`, `jpe`
 
 Um `email_template_id` pode ser obtido na parte inferior de qualquer modelo de e-mail criado com o editor de HTML. A seguir, um exemplo de como esse ID aparece:
 
-![Seção de identificador de API or interface de programação do aplicativo (API) de um modelo de e-mail HTML.]({% image_buster /assets/img_archive/email_template_id.png %}){: style="max-width:70%;"}
+![Seção de identificador de API de um modelo de e-mail HTML.]({% image_buster /assets/img_archive/email_template_id.png %}){: style="max-width:70%;"}
 
 ## Exemplo de objeto de e-mail com anexo {#example-email-object-with-attachment}
 

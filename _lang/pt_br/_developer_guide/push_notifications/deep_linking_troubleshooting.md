@@ -26,7 +26,7 @@ Encontre o comportamento que você está observando na tabela e siga as etapas d
 | Todos os links de e-mail abrem o app | [Todos os links de e-mail abrem o app](#every-email-link-opens-the-app) |
 | Funciona via push, mas não via mensagem no app (ou vice-versa) | [Deep link funciona via push, mas não via mensagem no app](#deep-link-works-from-push-but-not-from-in-app-message) |
 | "Open Web URL Inside App" mostra WebView em branco | ["Open Web URL Inside App" mostra uma página em branco ou com erro](#open-web-url-inside-app-shows-a-blank-or-broken-page) |
-| Link da Branch or ramificação não abre o app ou não direciona corretamente | [Solução de problemas da Branch or ramificação com a Braze](#branch) |
+| Link da Branch não abre o app ou não direciona corretamente | [Solução de problemas da Branch com a Braze](#branch) |
 | Deep link falha sem causa aparente | [Dicas gerais de depuração](#general-debugging-tips) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Sintoma de deep linking" }
 
@@ -100,7 +100,7 @@ func application(_ application: UIApplication,
 }
 ```
 
-### Verifique a configuração do SDK or kit de desenvolvimento de software da Braze {#verify-braze-sdk-configuration}
+### Verifique a configuração do SDK da Braze {#verify-braze-sdk-configuration}
 
 Se você estiver usando links universais de notificações por push entregues pela Braze, mensagens no app ou Content Cards, confirme que `forwardUniversalLinks` está ativado:
 
@@ -170,28 +170,28 @@ Opening '<URL>':
 - isUniversalLink: <true/false>
 ```
 
-Compare a saída do log do canal que funciona com a do canal que não funciona. Diferenças em `useWebView` ou `isUniversalLink` indicam como o SDK or kit de desenvolvimento de software está interpretando o link de forma diferente.
+Compare a saída do log do canal que funciona com a do canal que não funciona. Diferenças em `useWebView` ou `isUniversalLink` indicam como o SDK está interpretando o link de forma diferente.
 
 ### Verifique se há delegates de exibição personalizados {#check-for-custom-display-delegates}
 
-Se você usa um delegate de exibição personalizado para mensagens no app ou um manipulador de clique de Content Cards, verifique se ele passa corretamente os eventos de link para o SDK or kit de desenvolvimento de software da Braze para tratamento.
+Se você usa um delegate de exibição personalizado para mensagens no app ou um manipulador de clique de Content Cards, verifique se ele passa corretamente os eventos de link para o SDK da Braze para tratamento.
 
 ## "Open Web URL Inside App" mostra uma página em branco ou quebrada {#open-web-url-inside-app-shows-a-blank-or-broken-page}
 
 **Sintoma:** Selecionar **Open Web URL Inside App** resulta em uma WebView em branco ou quebrada.
 
-1. **Verifique se a URL usa HTTPS.** A WebView do SDK or kit de desenvolvimento de software requer URLs compatíveis com ATS. Links HTTP falham silenciosamente.
+1. **Verifique se a URL usa HTTPS.** A WebView do SDK requer URLs compatíveis com ATS. Links HTTP falham silenciosamente.
 2. **Verifique os cabeçalhos de Content Security Policy.** Se a página web de destino definir `X-Frame-Options: DENY` ou um `Content-Security-Policy` restritivo, isso bloqueia a renderização em uma WebView.
 3. **Verifique se há redirecionamentos para esquemas personalizados.** Se a página web redirecionar para um esquema personalizado (por exemplo, `myapp://`), a WebView não consegue lidar com isso.
 4. **Teste a URL no Safari.** Se a página não carregar no Safari no dispositivo, ela também não carregará na WebView.
 
-## Solução de problemas do Branch or ramificação com a Braze {#branch}
+## Solução de problemas do Branch com a Braze {#branch}
 
-Se você usar o [Branch or ramificação]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking) como seu provedor de links:
+Se você usar o [Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking) como seu provedor de links:
 
-### Verifique se o BrazeDelegate encaminha para o Branch or ramificação {#verify-the-brazedelegate-routes-to-branch}
+### Verifique se o BrazeDelegate encaminha para o Branch {#verify-the-brazedelegate-routes-to-branch}
 
-Seu `BrazeDelegate` deve interceptar links do Branch or ramificação e passá-los para o SDK or kit de desenvolvimento de software do Branch or ramificação. Verifique o seguinte:
+Seu `BrazeDelegate` deve interceptar links do Branch e passá-los para o SDK do Branch. Verifique o seguinte:
 
 ```swift
 func braze(_ braze: Braze, shouldOpenURL context: Braze.URLContext) -> Bool {
@@ -205,52 +205,52 @@ func braze(_ braze: Braze, shouldOpenURL context: Braze.URLContext) -> Bool {
 }
 ```
 
-Se `shouldOpenURL` retornar `true` para links do Branch or ramificação, a Braze os manipula diretamente em vez de encaminhá-los para o Branch or ramificação.
+Se `shouldOpenURL` retornar `true` para links do Branch, a Braze os manipula diretamente em vez de encaminhá-los para o Branch.
 
-### Verifique o domínio do link do Branch or ramificação {#check-branch-link-domain}
+### Verifique o domínio do link do Branch {#check-branch-link-domain}
 
-Verifique se o domínio do Branch or ramificação no seu `BrazeDelegate` corresponde ao seu domínio real do link do Branch or ramificação. O Branch or ramificação usa vários formatos de domínio:
+Verifique se o domínio do Branch no seu `BrazeDelegate` corresponde ao seu domínio real do link do Branch. O Branch usa vários formatos de domínio:
 
 - `yourapp.app.link` (padrão)
 - `yourapp-alternate.app.link` (alternativo)
-- Domínios personalizados (se configurados no dashboard do Branch or ramificação)
+- Domínios personalizados (se configurados no dashboard do Branch)
 
 ### Ative o registro de ambos os SDKs {#enable-both-sdks-logging}
 
 Para diagnosticar onde o link quebra na cadeia:
 
-1. Ative o [registro detalhado da Braze]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging). Procure entradas `Opening '<URL>':` para verificar se o SDK or kit de desenvolvimento de software recebeu o link.
-2. Ative o [modo de teste do Branch or ramificação](https://help.branch.io/developers-hub/docs/ios-basic-integration#test-deep-linking). Verifique o dashboard do Branch or ramificação para eventos de clique em links.
-3. Se a Braze registrar o link, mas o Branch or ramificação não detectar um clique, a lógica de roteamento do `BrazeDelegate` é provavelmente o problema.
+1. Ative o [registro detalhado da Braze]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging). Procure entradas `Opening '<URL>':` para verificar se o SDK recebeu o link.
+2. Ative o [modo de teste do Branch](https://help.branch.io/developers-hub/docs/ios-basic-integration#test-deep-linking). Verifique o dashboard do Branch para eventos de clique em links.
+3. Se a Braze registrar o link, mas o Branch não detectar um clique, a lógica de roteamento do `BrazeDelegate` é provavelmente o problema.
 
-### Verifique a configuração do dashboard do Branch or ramificação {#check-branch-dashboard-configuration}
+### Verifique a configuração do dashboard do Branch {#check-branch-dashboard-configuration}
 
-No dashboard do Branch or ramificação, verifique:
+No dashboard do Branch, verifique:
 
 - O **Bundle ID** e o **Team ID** do seu app correspondem ao seu projeto Xcode.
-- Seus **Associated Domains** incluem o domínio do link do Branch or ramificação.
-- Seu arquivo AASA do Branch or ramificação é válido (o Branch or ramificação hospeda isso automaticamente em domínios `app.link`).
+- Seus **Associated Domains** incluem o domínio do link do Branch.
+- Seu arquivo AASA do Branch é válido (o Branch hospeda isso automaticamente em domínios `app.link`).
 
-### Teste os links do Branch or ramificação de forma independente {#test-branch-links-independently}
+### Teste os links do Branch de forma independente {#test-branch-links-independently}
 
-Teste o link do Branch or ramificação fora da Braze para isolar o problema:
+Teste o link do Branch fora da Braze para isolar o problema:
 
-1. Abra o link do Branch or ramificação no Safari no seu dispositivo. Se não abrir o app, o problema está na sua configuração do Branch or ramificação ou AASA — não na Braze.
-2. Cole o link do Branch or ramificação no app Notas e toque nele. Links universais funcionam de forma mais confiável a partir do Notas do que da barra de endereços do Safari.
+1. Abra o link do Branch no Safari no seu dispositivo. Se não abrir o app, o problema está na sua configuração do Branch ou AASA — não na Braze.
+2. Cole o link do Branch no app Notas e toque nele. Links universais funcionam de forma mais confiável a partir do Notas do que da barra de endereços do Safari.
 
 ## Dicas gerais de depuração {#general-debugging-tips}
 
 ### Use o registro detalhado {#use-verbose-logging}
 
-[Ative o registro detalhado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging) para ver exatamente como o SDK or kit de desenvolvimento de software processa os links. Entradas principais a serem observadas:
+[Ative o registro detalhado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging) para ver exatamente como o SDK processa os links. Entradas principais a serem observadas:
 
 | Entrada de registro | O que significa |
 |---|---|
-| `Opening '<URL>': - channel: notification` | O SDK or kit de desenvolvimento de software está processando um link de uma notificação por push |
-| `Opening '<URL>': - channel: inAppMessage` | O SDK or kit de desenvolvimento de software está processando um link de uma mensagem no app |
-| `Opening '<URL>': - channel: contentCard` | O SDK or kit de desenvolvimento de software está processando um link de um Content Cards |
-| `useWebView: true` | O SDK or kit de desenvolvimento de software abre a URL na WebView do app |
-| `isUniversalLink: true` | O SDK or kit de desenvolvimento de software identificou a URL como um link universal |
+| `Opening '<URL>': - channel: notification` | O SDK está processando um link de uma notificação por push |
+| `Opening '<URL>': - channel: inAppMessage` | O SDK está processando um link de uma mensagem no app |
+| `Opening '<URL>': - channel: contentCard` | O SDK está processando um link de um Content Cards |
+| `useWebView: true` | O SDK abre a URL na WebView do app |
+| `isUniversalLink: true` | O SDK identificou a URL como um link universal |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Usar registro detalhado" }
 
 Para mais detalhes sobre como ler esses registros, consulte [Leitura de registros detalhados]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging).
@@ -261,7 +261,7 @@ Antes de testar pela Braze, verifique se o seu deep link ou link universal funci
 
 - **Esquema personalizado**: Execute `xcrun simctl openurl booted "myapp://path"` no Terminal.
 - **Link universal**: Cole a URL no app Notas em um dispositivo físico e toque nela. Não teste pela barra de endereço do Safari, pois o iOS trata URLs digitadas de forma diferente de links tocados.
-- **Link do Branch or ramificação**: Abra o link do Branch or ramificação pelo app Notas em um dispositivo.
+- **Link do Branch**: Abra o link do Branch pelo app Notas em um dispositivo.
 
 ### Teste em um dispositivo físico {#test-on-a-physical-device}
 

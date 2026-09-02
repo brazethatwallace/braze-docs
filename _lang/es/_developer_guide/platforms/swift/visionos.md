@@ -9,7 +9,7 @@ description: "Este artículo cubre las características compatibles con visionOS
 
 # Compatibilidad con visionOS {#visionos-support}
 
-> A partir de [Braze Swift SDK or kit de desarrollo de software 8.0.0](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md#800), puedes aprovechar Braze con [visionOS](https://developer.apple.com/visionos/), la plataforma de computación espacial de Apple para el Apple Vision Pro. Para ver una aplicación visionOS de ejemplo que utiliza Braze, consulta [Aplicaciones de ejemplo]({{site.baseurl}}/developer_guide/references?tab=swift).
+> A partir de [Braze Swift SDK 8.0.0](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md#800), puedes aprovechar Braze con [visionOS](https://developer.apple.com/visionos/), la plataforma de computación espacial de Apple para el Apple Vision Pro. Para ver una aplicación visionOS de ejemplo que utiliza Braze, consulta [Aplicaciones de ejemplo]({{site.baseurl}}/developer_guide/references?tab=swift).
 
 ## Características totalmente compatibles {#fully-supported-features}
 

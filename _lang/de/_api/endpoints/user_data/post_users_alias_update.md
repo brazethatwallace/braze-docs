@@ -1,23 +1,23 @@
 ---
-nav_title: "POST: Nutzer-Alias Update or aktualisieren or aktualisieren"
-article_title: "POST: Nutzer-Alias Update or aktualisieren or aktualisieren"
+nav_title: "POST: Nutzer-Alias aktualisieren"
+article_title: "POST: Nutzer-Alias aktualisieren"
 search_tag: Endpoint
 page_order: 2
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt Details zum Braze-Endpunkt „Nutzer-Aliase Update or aktualisieren or aktualisieren“."
+description: "Dieser Artikel beschreibt Details zum Braze-Endpunkt „Nutzer-Aliase aktualisieren“."
 ---
 {% api %}
-# Nutzer-Alias Update or aktualisieren or aktualisieren {#update-user-alias}
+# Nutzer-Alias aktualisieren {#update-user-alias}
 {% apimethod post %}
-/users/alias/Update or aktualisieren
+/users/alias/update
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um bestehende Nutzer-Aliase zu Update or aktualisieren or aktualisieren.
+> Verwenden Sie diesen Endpunkt, um bestehende Nutzer-Aliase zu aktualisieren.
 
 Pro Anfrage können bis zu 50 Nutzer-Aliase angegeben werden.
 
-Um einen Nutzer-Alias zu Update or aktualisieren or aktualisieren, müssen `alias_label`, `old_alias_name` und `new_alias_name` im Objekt „Nutzer-Alias Update or aktualisieren or aktualisieren“ enthalten sein. Wenn kein Nutzer-Alias mit `alias_label` und `old_alias_name` verknüpft ist, wird kein Alias aktualisiert. Wenn die angegebenen `alias_label` und `old_alias_name` gefunden werden, wird `old_alias_name` auf `new_alias_name` aktualisiert.
+Um einen Nutzer-Alias zu aktualisieren, müssen `alias_label`, `old_alias_name` und `new_alias_name` im Objekt „Nutzer-Alias aktualisieren“ enthalten sein. Wenn kein Nutzer-Alias mit `alias_label` und `old_alias_name` verknüpft ist, wird kein Alias aktualisiert. Wenn die angegebenen `alias_label` und `old_alias_name` gefunden werden, wird `old_alias_name` auf `new_alias_name` aktualisiert.
 
 {% alert note %}
 Dieser Endpunkt garantiert nicht die Reihenfolge, in der die `alias_updates`-Objekte aktualisiert werden.
@@ -31,7 +31,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 
 ## Rate-Limit
 
-{% multi_lang_include rate_limits.md endpoint='users alias Update or aktualisieren' %}
+{% multi_lang_include rate_limits.md endpoint='users alias update' %}
 
 ## Anfragetext {#request-body}
 

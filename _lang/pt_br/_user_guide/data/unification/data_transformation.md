@@ -4,7 +4,7 @@ article_title: Transformação de dados
 page_order: 2
 layout: dev_guide
 guide_top_header: "Transformação de dados"
-guide_top_text: "A Transformação de Dados da Braze permite que você crie e gerencie integrações de webhook para automatizar o fluxo de dados de plataformas externas para a Braze. Esses dados de usuários recém-integrados podem então impulsionar casos de uso de marketing ainda mais sofisticados. A Transformação de Dados da Braze pode agilizar sua integração de dados, mesmo que você tenha pouca experiência em codificação, e pode ajudar a substituir a dependência da sua equipe de chamadas manuais de API or interface de programação do aplicativo (API), ferramentas de integração de terceiros ou até mesmo plataformas de dados do cliente."
+guide_top_text: "A Transformação de Dados da Braze permite que você crie e gerencie integrações de webhook para automatizar o fluxo de dados de plataformas externas para a Braze. Esses dados de usuários recém-integrados podem então impulsionar casos de uso de marketing ainda mais sofisticados. A Transformação de Dados da Braze pode agilizar sua integração de dados, mesmo que você tenha pouca experiência em codificação, e pode ajudar a substituir a dependência da sua equipe de chamadas manuais de API, ferramentas de integração de terceiros ou até mesmo plataformas de dados do cliente."
 page_type: landing
 description: "Esta landing page contém artigos sobre a Transformação de Dados da Braze, incluindo como criar uma transformação de dados e casos de uso."
 alias: /data_transformation/
@@ -21,10 +21,10 @@ guide_featured_list:
 
 ## Como funciona {#how-it-works}
 
-Muitas plataformas modernas têm "webhooks", ou notificações de API or interface de programação do aplicativo (API) em tempo real, para enviar informações sobre um novo evento ou novos dados de uma plataforma para outra. A Transformação de Dados fornece:
+Muitas plataformas modernas têm "webhooks", ou notificações de API em tempo real, para enviar informações sobre um novo evento ou novos dados de uma plataforma para outra. A Transformação de Dados fornece:
 
 * Um endereço URL da Braze para receber esses webhooks.
-* Funcionalidades para transformar a carga útil do webhook com código JavaScript para criar solicitações válidas para vários endpoints da API or interface de programação do aplicativo (API) da Braze, incluindo `/users/track` ou `/catalogs`. Por exemplo, para o destino `/users/track`, você pode escolher quais informações usar do webhook e como deseja que os dados sejam representados nos perfis de usuário da Braze como atributos de usuário, eventos ou compras.
+* Funcionalidades para transformar a carga útil do webhook com código JavaScript para criar solicitações válidas para vários endpoints da API da Braze, incluindo `/users/track` ou `/catalogs`. Por exemplo, para o destino `/users/track`, você pode escolher quais informações usar do webhook e como deseja que os dados sejam representados nos perfis de usuário da Braze como atributos de usuário, eventos ou compras.
 * Registro para realizar garantia de qualidade, solucionar problemas e monitorar o desempenho de suas transformações.
 
 O resultado final é uma integração de webhook que conecta uma plataforma de origem de sua escolha, transformando seus webhooks em atualizações da Braze.

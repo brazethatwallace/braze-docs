@@ -10,7 +10,7 @@ description: "Esta página explica cómo dar la bienvenida a nuevos usuarios, gu
 
 > Usa la plantilla de mensaje dentro de la aplicación **Flujo de incorporación** para recopilar atributos de usuario, información y preferencias que potencien tu estrategia de Campaign.
 
-{% multi_lang_include drag_and_drop/templates.md section='SDK or kit de desarrollo de software requirements' %}
+{% multi_lang_include drag_and_drop/templates.md section='SDK requirements' %}
 
 ## Crear un flujo de incorporación {#creating-an-onboarding-flow}
 

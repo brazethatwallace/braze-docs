@@ -51,7 +51,7 @@ Quando aplicável para esses canais, as taxas da operadora são cobradas separad
 
 ### Segmentos de SMS {#sms-segments}
 
-O setor de SMS contabiliza as mensagens em segmentos de mensagem SMS. Um Segment or segmento or segmento de mensagem é um agrupamento de até um número definido de caracteres (160 para codificação GSM-7; 67 para codificação UCS-2) que será enviado em um único despacho de SMS. Se você enviar um SMS com 161 caracteres usando codificação GSM-7, dois (2) segmentos de mensagem serão enviados. O envio de múltiplos segmentos de mensagem resultará em cobranças adicionais.
+O setor de SMS contabiliza as mensagens em segmentos de mensagem SMS. Um Segment de mensagem é um agrupamento de até um número definido de caracteres (160 para codificação GSM-7; 67 para codificação UCS-2) que será enviado em um único despacho de SMS. Se você enviar um SMS com 161 caracteres usando codificação GSM-7, dois (2) segmentos de mensagem serão enviados. O envio de múltiplos segmentos de mensagem resultará em cobranças adicionais.
 
 ### Mensagens MMS {#mms-messages}
 

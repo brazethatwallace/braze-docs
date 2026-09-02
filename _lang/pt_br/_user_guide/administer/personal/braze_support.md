@@ -43,11 +43,11 @@ Se você é um contato de suporte designado, use as visualizações de filtro **
 
 ### Forneça o máximo de informações possível {#provide-as-much-information-as-possible}
 
-Quanto mais insights você puder oferecer, melhor. Inclua detalhes específicos como o espaço de trabalho, a URL da Campaign ou do Segment or segmento e quaisquer IDs externos relevantes. Isso pode nos ajudar a solucionar seu problema com mais eficiência.
+Quanto mais insights você puder oferecer, melhor. Inclua detalhes específicos como o espaço de trabalho, a URL da Campaign ou do Segment e quaisquer IDs externos relevantes. Isso pode nos ajudar a solucionar seu problema com mais eficiência.
 
 ### Forneça uma amostra de usuários {#provide-a-sample-of-users}
 
-Compartilhe uma amostra de usuários em vez de todo o Segment or segmento afetado. Fornecer um número menor de usuários nos ajuda a restringir o escopo e acelerar nossas investigações.
+Compartilhe uma amostra de usuários em vez de todo o Segment afetado. Fornecer um número menor de usuários nos ajuda a restringir o escopo e acelerar nossas investigações.
 
 ### Esclareça o comportamento esperado versus o real {#clarify-expected-versus-actual-behavior}
 

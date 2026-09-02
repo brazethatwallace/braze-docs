@@ -81,7 +81,7 @@ Sie können den Button **User Data** nicht sehen? Um Nutzerdaten zu exportieren,
 
 ![User-Data-Dropdown auf der Seite „Campaign Details“]({% image_buster /assets/img/campaign_export_example.png %})
 
-Die CSV-Ausgabe enthält Kundenprofil or Nutzerprofil-Daten für alle Empfänger:innen der Campaign. Braze erstellt den Bericht im Hintergrund und sendet ihn per E-Mail an die aktuell angemeldete Person.
+Die CSV-Ausgabe enthält Kundenprofil-Daten für alle Empfänger:innen der Campaign. Braze erstellt den Bericht im Hintergrund und sendet ihn per E-Mail an die aktuell angemeldete Person.
 
 Wenn Sie Ihre [Amazon S3-Zugangsdaten]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3) mit Braze verknüpft haben, wird die CSV-Datei auch in Ihren S3-Bucket hochgeladen. Andernfalls läuft der Ihnen per E-Mail zugesandte Link nach einigen Stunden ab.
 

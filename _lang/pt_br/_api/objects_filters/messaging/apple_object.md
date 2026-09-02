@@ -41,7 +41,7 @@ description: "Este artigo de referência lista e explica os diferentes objetos A
 }
 ```
 
-É necessário incluir um objeto Apple push em `messages` se quiser que os usuários direcionados recebam um push em seus dispositivos iOS. O número total de bytes na sua string `alert`, no objeto `extra` e em outros parâmetros opcionais não deve exceder 1912. A API or interface de programação do aplicativo (API) de envio de mensagens retorna um erro se você exceder o tamanho de mensagem permitido pela Apple. As mensagens que incluem as chaves `ab` ou `aps` no objeto `extra` são rejeitadas.
+É necessário incluir um objeto Apple push em `messages` se quiser que os usuários direcionados recebam um push em seus dispositivos iOS. O número total de bytes na sua string `alert`, no objeto `extra` e em outros parâmetros opcionais não deve exceder 1912. A API de envio de mensagens retorna um erro se você exceder o tamanho de mensagem permitido pela Apple. As mensagens que incluem as chaves `ab` ou `aps` no objeto `extra` são rejeitadas.
 
 {% alert note %}
 Se estiver enviando o objeto de push da Apple como parte de uma carga útil de Live Activities, inclua a string `sound` no objeto `alert`.
@@ -87,7 +87,7 @@ Na maioria dos casos, `alert` pode ser especificado como uma string em um objeto
 
 ## Objeto de botão de ação por push da Apple {#apple-push-action-button-object}
 
-Você deve incluir o campo `category` no objeto Apple push para usar os botões de ação por push do iOS. A inclusão do campo `category` exibe todos os botões de ação por push associados; inclua o campo `buttons` somente se quiser definir adicionalmente as ações de clique individuais dos botões. O SDK or kit de desenvolvimento de software da Braze fornece um conjunto de botões de ação por push padrão para você usar, mostrado na tabela a seguir. Você também pode usar seus próprios botões se eles tiverem sido registrados no app.
+Você deve incluir o campo `category` no objeto Apple push para usar os botões de ação por push do iOS. A inclusão do campo `category` exibe todos os botões de ação por push associados; inclua o campo `buttons` somente se quiser definir adicionalmente as ações de clique individuais dos botões. O SDK da Braze fornece um conjunto de botões de ação por push padrão para você usar, mostrado na tabela a seguir. Você também pode usar seus próprios botões se eles tiverem sido registrados no app.
 
 ### Objeto de botão de ação por push da Apple para os botões padrão da Braze {#apple-push-action-button-object-for-braze-default-buttons}
 

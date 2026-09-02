@@ -18,7 +18,7 @@ Puedes utilizar estos métodos pasando tu instancia `BrazeInAppMessage` para reg
 
 En la mayoría de los casos, puedes utilizar el método `Braze.addListener` para registrar escuchadores de eventos que gestionen los datos procedentes de mensajes dentro de la aplicación.
 
-Además, puedes acceder a los datos de los mensajes dentro de la aplicación en la capa JavaScript llamando al método `Braze.subscribeToInAppMessage` para que los SDK or kit de desarrollo de software publiquen un evento `inAppMessageReceived` cuando se desencadene un mensaje dentro de la aplicación. Pasa una devolución de llamada a este método para ejecutar tu propio código cuando el mensaje dentro de la aplicación sea desencadenado y recibido por el oyente.
+Además, puedes acceder a los datos de los mensajes dentro de la aplicación en la capa JavaScript llamando al método `Braze.subscribeToInAppMessage` para que los SDK publiquen un evento `inAppMessageReceived` cuando se desencadene un mensaje dentro de la aplicación. Pasa una devolución de llamada a este método para ejecutar tu propio código cuando el mensaje dentro de la aplicación sea desencadenado y recibido por el oyente.
 
 Para personalizar cómo se gestionan los datos de los mensajes, consulta los siguientes ejemplos de implementación:
 

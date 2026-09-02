@@ -1,6 +1,6 @@
 ## Bloques del editor de Banner {#banner-editor-blocks}
 
-En el compositor de Banner, arrastra filas y bloques desde la sección **Build** al Canvas para diseñar tu mensaje. Selecciona **Styles** para ajustar el estilo a nivel de página, o selecciona un bloque o fila para editar sus propiedades en el panel lateral.
+En el compositor de Banner, arrastra filas y bloques desde la sección **Build** al canvas para diseñar tu mensaje. Selecciona **Styles** para ajustar el estilo a nivel de página, o selecciona un bloque o fila para editar sus propiedades en el panel lateral.
 
 Para ver el flujo completo de creación de un Banner, consulta [Crear un Banner]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#compose-a-banner).
 
@@ -63,7 +63,7 @@ Inserta HTML personalizado para diseños avanzados o contenido incrustado (por e
 
 ### Captura de teléfono {#phone-capture}
 
-Recopila un número de teléfono. Al enviar, suscribe al usuario a tu grupo de suscripción de [servicio de mensajes cortos]({{site.baseurl}}/sms_rcs_subscription_groups/) o [WhatsApp]({{site.baseurl}}/whatsapp_subscription_groups/) seleccionado. Solo uno por Banner.
+Recopila un número de teléfono. Al enviar, suscribe al usuario a tu grupo de suscripción de [SMS]({{site.baseurl}}/sms_rcs_subscription_groups/) o [WhatsApp]({{site.baseurl}}/whatsapp_subscription_groups/) seleccionado. Solo uno por Banner.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/phone_capture.md %}
 
@@ -82,7 +82,7 @@ Campo de texto multilínea para flujos de tipo cuestionario. Si no ves este bloq
 <!-- Saved row is not yet released. Uncomment when available.
 ### Saved row
 
-Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) or your Braze CSM or administrador de éxito de cliente or administrador de éxito de cliente.
+Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) or your Braze CSM.
 -->
 
 ## Cosas que debes saber {#things-to-know}

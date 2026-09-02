@@ -20,7 +20,7 @@ Bevor Sie In-App-Nachrichten in Ihrem Canvas verwenden können, stellen Sie sich
 
 Fügen Sie im Canvas-Builder einen [Nachrichten]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)-Schritt hinzu und wählen Sie **In-App Message** als Ihren **Messaging Channel**. Sie können anpassen, [wann Ihre Nachricht abläuft](#in-app-message-expiration) und welches [Fortschrittsverhalten](#advancement-behavior) sie haben soll.
 
-Wenn Ihr Workspace mehrere Apps hat, sprechen Sie die richtige App über **Zustellungsplattformen**, {% raw %}`{{targeted_device.${platform}}}`{% endraw %} oder {% raw %}`{{app.${api_id}}}`{% endraw %} Liquid-Tags an – nicht über Zustellungsvalidierungen. In-App-Nachrichten werden nur angezeigt, wenn Nutzer:innen die Ziel-App öffnen und die Trigger or triggern-Kriterien des Schritts erfüllen. Weitere Informationen finden Sie unter [Zustellungsvalidierungen]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations).
+Wenn Ihr Workspace mehrere Apps hat, sprechen Sie die richtige App über **Zustellungsplattformen**, {% raw %}`{{targeted_device.${platform}}}`{% endraw %} oder {% raw %}`{{app.${api_id}}}`{% endraw %} Liquid-Tags an – nicht über Zustellungsvalidierungen. In-App-Nachrichten werden nur angezeigt, wenn Nutzer:innen die Ziel-App öffnen und die Trigger-Kriterien des Schritts erfüllen. Weitere Informationen finden Sie unter [Zustellungsvalidierungen]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations).
 
 ## Eine In-App-Nachricht zu Ihrer User-Journey hinzufügen {#adding-an-in-app-message-to-your-user-journey}
 
@@ -32,11 +32,11 @@ Um eine In-App-Nachricht zu Ihrem Canvas hinzuzufügen, gehen Sie wie folgt vor:
 
 ## Getriggerte In-App-Nachrichten {#triggered-in-app-messages}
 
-Sie können einen Trigger or triggern für Ihre In-App-Nachrichten auswählen, der bei Sitzungsstart oder durch angepasste Events und Käufe ausgelöst wird.
+Sie können einen Trigger für Ihre In-App-Nachrichten auswählen, der bei Sitzungsstart oder durch angepasste Events und Käufe ausgelöst wird.
 
-Nachdem alle Verzögerungen abgelaufen sind und die Zielgruppenoptionen geprüft wurden, werden In-App-Nachrichten aktiviert, wenn Nutzer:innen den Nachrichten-Schritt erreichen. Wenn Nutzer:innen eine Sitzung starten und das Trigger or triggern-Event für die In-App-Nachricht ausführen, wird ihnen die In-App-Nachricht angezeigt.
+Nachdem alle Verzögerungen abgelaufen sind und die Zielgruppenoptionen geprüft wurden, werden In-App-Nachrichten aktiviert, wenn Nutzer:innen den Nachrichten-Schritt erreichen. Wenn Nutzer:innen eine Sitzung starten und das Trigger-Event für die In-App-Nachricht ausführen, wird ihnen die In-App-Nachricht angezeigt.
 
-Für Canvas-Schritte mit aktionsbasiertem Eintritt können Nutzer:innen den Canvas mitten in einer Sitzung betreten. In-App-Nachrichten werden erst aktiviert, wenn eine Sitzung startet. Wenn sich Nutzer:innen also mitten in einer Sitzung befinden, wenn sie den Nachrichten-Schritt erreichen, erhalten sie die In-App-Nachricht erst, wenn sie eine weitere Sitzung starten und den entsprechenden Trigger or triggern ausführen.
+Für Canvas-Schritte mit aktionsbasiertem Eintritt können Nutzer:innen den Canvas mitten in einer Sitzung betreten. In-App-Nachrichten werden erst aktiviert, wenn eine Sitzung startet. Wenn sich Nutzer:innen also mitten in einer Sitzung befinden, wenn sie den Nachrichten-Schritt erreichen, erhalten sie die In-App-Nachricht erst, wenn sie eine weitere Sitzung starten und den entsprechenden Trigger ausführen.
 
 ## Ablauf von In-App-Nachrichten {#in-app-message-expiration}
 
@@ -62,7 +62,7 @@ Wenn Sie Canvas-A/B-Tests mit Varianten-Pfaden und einem Kontrollpfad verwenden,
 
 ## Anwendungsfälle {#use-cases}
 
-Braze empfiehlt, dieses Feature in Ihren Werbe- und Onboarding-Canvase zu verwenden.
+Braze empfiehlt, dieses Feature in Ihren Werbe- und Onboarding-Canvases zu verwenden.
 
 {% tabs %}
   {% tab Werbeaktionen %}
@@ -177,13 +177,13 @@ Diese Push-Benachrichtigungen sind um eine In-App-Nachricht herum platziert, um 
 
 ## Priorisierung von In-App-Nachrichten {#prioritizing-in-app-messages}
 
-Nutzer:innen können zwei In-App-Nachrichten innerhalb Ihres Canvas gleichzeitig Trigger or triggern or triggern. In diesem Fall hält sich Braze an die folgende Prioritätsreihenfolge, um zu bestimmen, welche In-App-Nachricht angezeigt wird.
+Nutzer:innen können zwei In-App-Nachrichten innerhalb Ihres Canvas gleichzeitig triggern. In diesem Fall hält sich Braze an die folgende Prioritätsreihenfolge, um zu bestimmen, welche In-App-Nachricht angezeigt wird.
 
 Wählen Sie **Set exact priority** und ziehen Sie verschiedene Canvas-Schritte per Drag-and-Drop, um ihre Priorität für den Canvas neu zu ordnen. Standardmäßig werden Schritte, die früher in einer Canvas-Variante erscheinen, vor späteren Schritten angezeigt. Nachdem Ihre Schritte in der gewünschten Prioritätsreihenfolge sind, wählen Sie **Apply sort**.
 
 ![Der Prioritäts-Sortierer mit zwei Schritten „Welcome IAM“ und „Followup IAM“.]({% image_buster /assets/img_archive/canvas_priority2.png %}){: style="max-width:85%"}
 
-### Änderungen an Entwürfen aktiver Canvase vornehmen {#making-changes-to-drafts-of-active-canvases}
+### Änderungen an Entwürfen aktiver Canvases vornehmen {#making-changes-to-drafts-of-active-canvases}
 
 Wenn Sie Änderungen an der In-App-Nachrichten-Priorität in den **Sendeeinstellungen** eines Entwurfs eines aktiven Canvas vornehmen, werden diese Änderungen direkt auf den aktiven Canvas angewendet, wenn der Prioritäts-Sortierer geschlossen wird. In einem Nachrichten-Schritt wird der Prioritäts-Sortierer jedoch erst aktualisiert, wenn der Entwurf gestartet wird, da Canvas-Schritt-Einstellungen auf Schrittebene gelten.
 
@@ -197,9 +197,9 @@ Um die Option **Fortschritt bei gesendeter Nachricht** zu verwenden, fügen Sie 
 
 {% details Originaler Canvas-Editor %}
 
-Sie können keine Canvase mehr mit dem originalen Editor erstellen oder duplizieren. Dieser Abschnitt dient als Referenz, um zu verstehen, wie das Fortschrittsverhalten für Schritte mit In-App-Nachrichten funktioniert.
+Sie können keine Canvases mehr mit dem originalen Editor erstellen oder duplizieren. Dieser Abschnitt dient als Referenz, um zu verstehen, wie das Fortschrittsverhalten für Schritte mit In-App-Nachrichten funktioniert.
 
-Canvase, die im originalen Editor erstellt wurden, müssen ein Fortschrittsverhalten angeben – die Kriterien für den Fortschritt durch Ihre Canvas-Komponente. [Schritte mit ausschließlich In-App-Nachrichten](#steps-iam-only) haben andere Fortschrittsoptionen als [Schritte mit mehreren Nachrichtentypen](#steps-multiple-channels) (wie Push oder E-Mail). Für In-App-Nachrichten im aktuellen Canvas-Workflow ist diese Option so eingestellt, dass die Zielgruppe immer sofort vorangebracht wird.
+Canvases, die im originalen Editor erstellt wurden, müssen ein Fortschrittsverhalten angeben – die Kriterien für den Fortschritt durch Ihre Canvas-Komponente. [Schritte mit ausschließlich In-App-Nachrichten](#steps-iam-only) haben andere Fortschrittsoptionen als [Schritte mit mehreren Nachrichtentypen](#steps-multiple-channels) (wie Push oder E-Mail). Für In-App-Nachrichten im aktuellen Canvas-Workflow ist diese Option so eingestellt, dass die Zielgruppe immer sofort vorangebracht wird.
 
 Aktionsbasierte Zustellung ist für Canvas-Schritte mit In-App-Nachrichten nicht verfügbar. Canvas-Schritte mit In-App-Nachrichten müssen geplant werden. Stattdessen erscheinen Canvas-In-App-Nachrichten beim ersten Mal, wenn Ihre Nutzer:innen die App öffnen (getriggert durch den Sitzungsstart), nachdem die geplante Nachricht in der Canvas-Komponente an sie gesendet wurde.
 
@@ -225,17 +225,17 @@ Wenn **Gesamte Zielgruppe** ausgewählt ist, bleibt die In-App-Nachricht bis zu 
 
 {% enddetails %}
 
-## Trigger or triggern-Aktionen {#trigger-actions}
+## Trigger-Aktionen {#trigger-actions}
 
-Sie können aus den folgenden Trigger or triggern-Aktionen wählen, um Ihre Nutzer:innen anzusprechen:
+Sie können aus den folgenden Trigger-Aktionen wählen, um Ihre Nutzer:innen anzusprechen:
 
 - **Kauf tätigen:** Sprechen Sie Nutzer:innen an, die einen beliebigen oder einen bestimmten Kauf tätigen.
 - **Sitzung starten:** Sprechen Sie Nutzer:innen an, die eine Sitzung in einer beliebigen oder einer bestimmten App starten.
-- **Angepasstes Event ausführen:** Sprechen Sie Nutzer:innen an, die das ausgewählte angepasste Event ausführen (das angepasste Event muss über das SDK or Software-Development-Kit gesendet werden).
+- **Angepasstes Event ausführen:** Sprechen Sie Nutzer:innen an, die das ausgewählte angepasste Event ausführen (das angepasste Event muss über das SDK gesendet werden).
 
-Nutzer:innen müssen den Canvas-Schritt betreten, eine Sitzung starten und dann den Trigger or triggern ausführen, um eine In-App-Nachricht zu erhalten. Das bedeutet, dass Updates mitten in einer Sitzung nicht unterstützt werden. Wenn der Trigger or triggern beispielsweise das Starten einer Sitzung ist, müssen die Nutzer:innen nur den Canvas-Schritt betreten und eine Sitzung starten, um die In-App-Nachricht zu erhalten. Wenn der Trigger or triggern nicht das Starten einer Sitzung ist, müssen die Nutzer:innen den Canvas-Schritt betreten, eine Sitzung starten und dann den Trigger or triggern ausführen, um die In-App-Nachricht zu erhalten.
+Nutzer:innen müssen den Canvas-Schritt betreten, eine Sitzung starten und dann den Trigger ausführen, um eine In-App-Nachricht zu erhalten. Das bedeutet, dass Updates mitten in einer Sitzung nicht unterstützt werden. Wenn der Trigger beispielsweise das Starten einer Sitzung ist, müssen die Nutzer:innen nur den Canvas-Schritt betreten und eine Sitzung starten, um die In-App-Nachricht zu erhalten. Wenn der Trigger nicht das Starten einer Sitzung ist, müssen die Nutzer:innen den Canvas-Schritt betreten, eine Sitzung starten und dann den Trigger ausführen, um die In-App-Nachricht zu erhalten.
 
-![„Einen bestimmten Kauf tätigen“ als Trigger or triggern-Aktion ausgewählt.]({% image_buster /assets/img_archive/canvas_trigger_actions.png %}){: style="max-width:90%"}
+![„Einen bestimmten Kauf tätigen“ als Trigger-Aktion ausgewählt.]({% image_buster /assets/img_archive/canvas_trigger_actions.png %}){: style="max-width:90%"}
 
 Die folgenden Canvas-Features sind bei In-App-Nachrichten nicht verfügbar und werden daher nicht auf Ihre In-App-Nachrichten angewendet, auch wenn sie aktiviert sind.
 

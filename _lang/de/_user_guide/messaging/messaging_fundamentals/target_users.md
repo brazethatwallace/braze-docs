@@ -93,7 +93,7 @@ Weitere Informationen und Best Practices finden Sie unter [Multivariate und A/B-
 Braze stellt detaillierte Zielgruppenstatistiken der angesprochenen Kanäle in der Fußzeile bereit. Je größer Ihre Nutzerbasis ist, desto wahrscheinlicher ist es, dass die Anzahl der **erreichbaren Nutzer:innen** eine grobe Schätzung darstellt. Die Anzahl der erreichbaren Nutzer:innen kann sinken, wenn Sie eine [globale Kontrollgruppe]({{site.baseurl}}/user_guide/audience/global_control_group) verwenden oder die Nachrichtenberechtigung einrichten.
 
 - Um eine genaue Anzahl Ihrer erreichbaren Nutzer:innen zu ermitteln, wählen Sie [Exakte Statistiken berechnen]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size#calculating-exact-statistics), da hierbei jede:r Nutzer:in in Ihrer Nutzerbasis durchsucht wird.
-- Um zu sehen, welcher Prozentsatz Ihrer Nutzerbasis angesprochen wird oder den LTV or Lifetime-Value or Lifetime-Value (LTV or Lifetime-Value) für dieses Segment, wählen Sie **Zusätzliche Statistiken anzeigen**.
+- Um zu sehen, welcher Prozentsatz Ihrer Nutzerbasis angesprochen wird oder den LTV (LTV) für dieses Segment, wählen Sie **Zusätzliche Statistiken anzeigen**.
 
 ##### Warum die Zielgruppengröße von der Anzahl erreichbarer Nutzer:innen abweichen kann {#why-the-target-audience-count-could-differ-from-the-reachable-users-count}
 
@@ -113,7 +113,7 @@ Wenn Sie eine Campaign oder ein Canvas in Braze erstellen, erfolgt das Targeting
 1. **Zielgruppe:** Wer qualifiziert sich
 2. **Eintrittskriterien:** Was die Zustellung auslöst
 
-Die Reihenfolge ist wichtig: Braze prüft, ob jemand zur Zielgruppe gehört, bevor die Eintrittskriterien ausgewertet werden. Wenn eine:r Nutzer:in zu diesem Zeitpunkt nicht bereits für die Zielgruppe qualifiziert ist, tritt sie oder er nicht in die Campaign oder das Canvas ein – selbst wenn sie oder er später das Eintrittsereignis auslöst. Stellen Sie sich die Zielgruppe als Warteraum vor: Nur Nutzer:innen, die sich bereits darin befinden, wenn der Trigger or triggern ausgelöst wird, können weitergehen.
+Die Reihenfolge ist wichtig: Braze prüft, ob jemand zur Zielgruppe gehört, bevor die Eintrittskriterien ausgewertet werden. Wenn eine:r Nutzer:in zu diesem Zeitpunkt nicht bereits für die Zielgruppe qualifiziert ist, tritt sie oder er nicht in die Campaign oder das Canvas ein – selbst wenn sie oder er später das Eintrittsereignis auslöst. Stellen Sie sich die Zielgruppe als Warteraum vor: Nur Nutzer:innen, die sich bereits darin befinden, wenn der Trigger ausgelöst wird, können weitergehen.
 
 ### Beispiel 1 {#example-1}
 
@@ -126,7 +126,7 @@ Sie legen fest:
 
 Wenn die:der Nutzer:in Ihre App öffnet, sieht Braze, dass die Sitzungsanzahl jetzt 1 beträgt – und sie oder er nicht mehr für die Zielgruppe qualifiziert ist. Das Eintrittsereignis tritt ein, nachdem die Berechtigung bereits nicht mehr besteht, sodass die Nachricht nicht gesendet wird.
 
-Damit dies funktioniert, muss die:der Nutzer:in sich für die Zielgruppe qualifizieren, bevor die Sitzung beginnt (kehren Sie Zielgruppe und Eintritts-Trigger or triggern um).
+Damit dies funktioniert, muss die:der Nutzer:in sich für die Zielgruppe qualifizieren, bevor die Sitzung beginnt (kehren Sie Zielgruppe und Eintritts-Trigger um).
 
 ### Beispiel 2 {#example-2}
 
@@ -145,7 +145,7 @@ Ein besserer Ansatz wäre, eine breitere Zielgruppe zu verwenden und den Filter 
 - **Eintrittsereignis:** Kauf tätigen
 - **Eintrittsfilter:** Gesamtausgaben in den letzten 7 Tagen > 10 $
 
-Auf diese Weise erfüllt ein qualifizierender Kauf sowohl den Filter als auch den Trigger or triggern für die Nachricht – keine zweite Aktion erforderlich.
+Auf diese Weise erfüllt ein qualifizierender Kauf sowohl den Filter als auch den Trigger für die Nachricht – keine zweite Aktion erforderlich.
 
 ## Best Practices {#best-practices}
 

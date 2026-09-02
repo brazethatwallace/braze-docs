@@ -18,7 +18,7 @@ platform:
 
 ### Em quais plataformas os feature flags da Braze são suportados? {#platforms}
 
-A Braze oferece suporte a feature flags nas plataformas iOS, Android e web com os seguintes requisitos mínimos de versão do SDK or kit de desenvolvimento de software:
+A Braze oferece suporte a feature flags nas plataformas iOS, Android e web com os seguintes requisitos mínimos de versão do SDK:
 
 {% sdk_min_versions swift:5.9.0 android:24.2.0 web:4.6.0 unity:4.1.0 cordova:5.0.0 reactnative:4.1.0 flutter:6.0.0 roku:1.0.0 %}
 
@@ -93,7 +93,7 @@ Ao lançar um novo código oculto por trás de um Feature Flag, sua equipe pode 
 
 ### Um Feature Flag pode ser lançado apenas para um grupo específico de usuários? {#target-users}
 
-Sim, crie um Segment or segmento na Braze que direcione usuários específicos&mdash;por endereço de e-mail, `user_id` ou qualquer outro atributo nos seus perfis de usuário. Em seguida, implante o Feature Flag para 100% desse Segment or segmento.
+Sim, crie um Segment na Braze que direcione usuários específicos&mdash;por endereço de e-mail, `user_id` ou qualquer outro atributo nos seus perfis de usuário. Em seguida, implante o Feature Flag para 100% desse Segment.
 
 ### Como o ajuste da porcentagem de lançamento afeta usuários que já foram alocados no grupo ativado? {#random-buckets}
 
@@ -107,13 +107,13 @@ Essa estratégia ajuda a garantir que os usuários tenham uma experiência consi
 
 ## Tópicos técnicos {#technical-topics}
 
-### As Feature Flags podem ser usadas para controlar quando o SDK or kit de desenvolvimento de software da Braze é inicializado? {#initialization}
+### As Feature Flags podem ser usadas para controlar quando o SDK da Braze é inicializado? {#initialization}
 
-Não, o SDK or kit de desenvolvimento de software deve ser inicializado para baixar e sincronizar as Feature Flags para o usuário atual. Isso significa que você não pode usar Feature Flags para limitar quais usuários são criados ou rastreados na Braze.
+Não, o SDK deve ser inicializado para baixar e sincronizar as Feature Flags para o usuário atual. Isso significa que você não pode usar Feature Flags para limitar quais usuários são criados ou rastreados na Braze.
 
-### Com que frequência o SDK or kit de desenvolvimento de software atualiza as Feature Flags? {#refresh-frequency}
+### Com que frequência o SDK atualiza as Feature Flags? {#refresh-frequency}
 
-As Feature Flags são atualizadas no início da sessão e ao trocar de usuário ativo. As Feature Flags também podem ser atualizadas manualmente usando o [método de atualização]({{site.baseurl}}/developer_guide/feature_flags/create#refreshing) do SDK or kit de desenvolvimento de software. As atualizações de Feature Flags são limitadas a uma vez a cada cinco minutos (sujeito a alterações).
+As Feature Flags são atualizadas no início da sessão e ao trocar de usuário ativo. As Feature Flags também podem ser atualizadas manualmente usando o [método de atualização]({{site.baseurl}}/developer_guide/feature_flags/create#refreshing) do SDK. As atualizações de Feature Flags são limitadas a uma vez a cada cinco minutos (sujeito a alterações).
 
 Tenha em mente que boas práticas de dados recomendam não atualizar as Feature Flags com muita frequência (com possível limitação de frequência se isso ocorrer), então o melhor é atualizar apenas antes de um usuário interagir com novos recursos ou periodicamente no app, se necessário.
 
@@ -133,11 +133,11 @@ Você não pode ativar Feature Flags para usuários no seu [grupo de controle gl
 
 ### A identificação de destinatários por e-mail faz parte das Feature Flags da Braze? {#is-email-based-recipient-identification-part-of-braze-feature-flags}
 
-Não. Identificar destinatários por e-mail ao enviar uma mensagem não faz parte do produto Feature Flags desta página. As Feature Flags controlam experiências dentro do app ou no site por meio do SDK or kit de desenvolvimento de software da Braze.
+Não. Identificar destinatários por e-mail ao enviar uma mensagem não faz parte do produto Feature Flags desta página. As Feature Flags controlam experiências dentro do app ou no site por meio do SDK da Braze.
 
-Envios de Campaigns e Canvas disparados por API or interface de programação do aplicativo (API) podem incluir `email` no [objeto de destinatários]({{site.baseurl}}/api/objects_filters/recipient_object) em vez de um `external_user_id`. Quando você usa `email`, inclua `prioritization` para que a Braze possa selecionar o perfil de usuário correspondente. Essa opção de envio não está disponível em todos os espaços de trabalho.
+Envios de Campaigns e Canvas disparados por API podem incluir `email` no [objeto de destinatários]({{site.baseurl}}/api/objects_filters/recipient_object) em vez de um `external_user_id`. Quando você usa `email`, inclua `prioritization` para que a Braze possa selecionar o perfil de usuário correspondente. Essa opção de envio não está disponível em todos os espaços de trabalho.
 
-Para o formato da requisição, consulte [POST: Enviar Campaigns usando entrega disparada por API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) e [POST: Enviar mensagens de Canvas usando entrega disparada por API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases).
+Para o formato da requisição, consulte [POST: Enviar Campaigns usando entrega disparada por API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) e [POST: Enviar mensagens de Canvas usando entrega disparada por API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases).
 
 ## Dúvidas adicionais? {#additional-questions}
 

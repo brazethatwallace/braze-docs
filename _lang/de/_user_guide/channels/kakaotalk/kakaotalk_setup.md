@@ -20,12 +20,12 @@ channel:
 | KakaoTalk-Business-Kanal | Ihr KakaoTalk-Konto muss ein KakaoTalk-Business-Kanal sein, um KakaoTalk-Nachrichten über Braze zu senden. Wenn Sie ein Konto erstellen, ist der Standardstatus „Basic“. Um Ihr Konto in einen Business-Kanal umzuwandeln, müssen Sie Ihr Unternehmen verifizieren und die entsprechende Dokumentation einreichen. |
 | KakaoTalk-Sender-Key | Ein gültiger KakaoTalk-Sender-Key. |
 | Kontakt-Telefonnummer | Eine Kontakt-Telefonnummer für die Administration Ihres KakaoTalk-Kanals. |
-| Braze-Cluster-IPs auf der Allowlist | Die IP-Allowlist-Registrierung ist für alle Kund:innen erforderlich. Registrierung or registrieren Sie die Braze-IP-Adressen für Ihren Cluster, bevor Sie KakaoTalk in Braze integrieren. |
+| Braze-Cluster-IPs auf der Allowlist | Die IP-Allowlist-Registrierung ist für alle Kund:innen erforderlich. Registrierung Sie die Braze-IP-Adressen für Ihren Cluster, bevor Sie KakaoTalk in Braze integrieren. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
-### Braze-IP-Adressen Registrierung or registrieren {#register-braze-ip-addresses}
+### Braze-IP-Adressen Registrierung {#register-braze-ip-addresses}
 
-Registrierung or registrieren Sie die Braze-IP-Adressen für Ihren Cluster in Ihrem Comm.One-Dashboard.
+Registrierung Sie die Braze-IP-Adressen für Ihren Cluster in Ihrem Comm.One-Dashboard.
 
 1. Gehen Sie in Ihrem Comm.One-Dashboard zu **Account Management (계정 관리)**, wählen Sie das Menüsymbol aus und wählen Sie dann **View Details (자세히보기)**.
 2. Wählen Sie **Center & Upload IP Allowlist (센터&업로드 IP 화이트리스트)** aus.
@@ -146,7 +146,7 @@ Gehen Sie zu Ihrem Infobip-Dashboard und zum [KakaoTalk Channel Admin Center](ht
 
 {: start="5"}
 5. Wählen Sie **CREATE** aus, um den Schlüssel zu generieren.
-6. Kopieren Sie den generierten Schlüssel. Sie können zu dieser Seite zurückkehren, um den Namen, das Ablaufdatum oder die API-Scopes zu Update or aktualisieren or aktualisieren.
+6. Kopieren Sie den generierten Schlüssel. Sie können zu dieser Seite zurückkehren, um den Namen, das Ablaufdatum oder die API-Scopes zu aktualisieren.
 
 ##### Sender-Profil-UUID und Kanalname {#sender-profile-uuid-and-channel-name}
 
@@ -162,7 +162,7 @@ Gehen Sie zu Ihrem Infobip-Dashboard und zum [KakaoTalk Channel Admin Center](ht
 
 ## Nutzerprofile einrichten {#set-user-profiles}
 
-Nutzerprofile müssen Telefonnummern im E.164-Format enthalten, damit Nachrichten über KakaoTalk gesendet werden können. Telefonnummern werden im Kundenprofil or Nutzerprofil angezeigt. KakaoTalk erfordert Telefonnummern im E.164-Format (zum Beispiel `+821025749774`). Dies unterscheidet sich von einigen anderen Messaging-Kanälen, die Telefonnummern in verschiedenen Formaten akzeptieren können.
+Nutzerprofile müssen Telefonnummern im E.164-Format enthalten, damit Nachrichten über KakaoTalk gesendet werden können. Telefonnummern werden im Kundenprofil angezeigt. KakaoTalk erfordert Telefonnummern im E.164-Format (zum Beispiel `+821025749774`). Dies unterscheidet sich von einigen anderen Messaging-Kanälen, die Telefonnummern in verschiedenen Formaten akzeptieren können.
 
 ### Telefonnummern importieren {#import-phone-numbers}
 

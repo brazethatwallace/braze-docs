@@ -20,14 +20,14 @@ Darüber hinaus unterstützen Content Cards mehr personalisierte Features, einsc
 
 Verwenden Sie sie, um Benachrichtigungszentren, Homepage-Feeds und Feeds für Aktionen zu erstellen.
 
-Sie müssen ein Update or aktualisieren auf eine unterstützte Braze SDK or Software-Development-Kit-Version durchführen:
+Sie müssen ein Update auf eine unterstützte Braze SDK-Version durchführen:
 - iOS: 3.8.0 oder höher
 - Android: 2.6.0 oder höher
 - Web: 2.2.0 oder höher
 
 [Erfahren Sie hier mehr über Content Cards!]({{site.baseurl}}/user_guide/channels/content_cards)
 
-{% alert Update or aktualisieren %}
+{% alert update %}
 Content Cards für Currents und unsere API-Dokumentation für Content Cards werden im Laufe dieser Woche veröffentlicht. Bleiben Sie dran!
 {% endalert %}
 
@@ -55,7 +55,7 @@ Mit unserer Plattformauswahl, die diesen Schritt bei der Erstellung von Campaign
 
 ## Dispatch-ID-Currents-Feld für E-Mail {#dispatch-id-currents-field-for-email}
 
-{% alert Update or aktualisieren %}
+{% alert update %}
 Das Verhalten für `dispatch_id` unterscheidet sich zwischen Canvas und Campaigns, da Braze Canvas-Schritte (mit Ausnahme von Entry-Schritten, die geplant werden können) als getriggerte Ereignisse behandelt, auch wenn sie „geplant“ sind. Erfahren Sie mehr über das [`dispatch_id`-Verhalten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id) in Canvas und Campaigns.
 
 _Update im August 2019 vermerkt._
@@ -87,7 +87,7 @@ Alle Nutzer:innen, die auch Mailjet verwenden, werden einen Anstieg dieser Zahle
 
 Sie können nach diesen aktualisierten Begriffen in unserem [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary) suchen.
 
-{% alert Update or aktualisieren %}
+{% alert update %}
 Das Verhalten für `dispatch_id` unterscheidet sich zwischen Canvas und Campaigns, da Braze Canvas-Schritte (mit Ausnahme von Entry-Schritten, die geplant werden können) als getriggerte Ereignisse behandelt, auch wenn sie „geplant“ sind. [Erfahren Sie mehr über das [`dispatch_id`-Verhalten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id) in Canvas und Campaigns.
 
 _Update im August 2019 vermerkt._
@@ -95,7 +95,7 @@ _Update im August 2019 vermerkt._
 
 ## Kanal mit dem größten Engagement {#most-engaged-channel}
 
-{% alert Update or aktualisieren %}
+{% alert update %}
 Ab der [Produktversion im November 2019]({{site.baseurl}}/help/release_notes/2019/november#intelligence-suite) wurde „Most Engaged Channel“ in [„Intelligent Channel“]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel) umbenannt.
 {% endalert %}
 

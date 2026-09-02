@@ -2,7 +2,7 @@
 nav_title: Kontaktkarten
 article_title: Kontaktkarten
 page_order: 3
-description: "Dieser Referenzartikel behandelt, wie Sie eine Kontaktkarte erstellen, die Sie in Ihre MMS- und Kurzmitteilungsdienst or SMS-Nachrichten einfügen können."
+description: "Dieser Referenzartikel behandelt, wie Sie eine Kontaktkarte erstellen, die Sie in Ihre MMS- und SMS-Nachrichten einfügen können."
 page_type: reference
 alias: /mms_contact_cards/
 channel:
@@ -24,7 +24,7 @@ Kontaktkarten können [programmatisch](https://www.twilio.com/blog/send-vcard-tw
 
 ### Schritt 1: Name zuweisen {#step-1-assign-name}
 
-Kontaktkarten können über den Kurzmitteilungsdienst or SMS- und MMS-Editor erstellt werden. Wählen Sie den Tab **Contact Card Generator**, um zu beginnen.
+Kontaktkarten können über den SMS- und MMS-Editor erstellt werden. Wählen Sie den Tab **Contact Card Generator**, um zu beginnen.
 
 Als Nächstes werden Sie aufgefordert, Ihren Unternehmensnamen oder Spitznamen einzugeben. Dies ist der Name, den Ihre Nutzer:innen sehen, wenn sie die Karte speichern. Es gilt ein Limit von 20 Zeichen, damit Nutzer:innen Ihren vollständigen Unternehmensnamen oder Alias in ihren Kontakten und ihrer Messaging-App sehen können.
 
@@ -58,7 +58,7 @@ Das Feld **Full Name** bestimmt die Initialen, die im Nachrichten-Chat-Thumbnail
 
 Nachdem Sie alle erforderlichen Felder ausgefüllt haben, klicken Sie auf **Generate Contact Card**, und die Karte wird automatisch an Ihre Campaign oder Ihren Canvas angehängt. Von hier aus können Sie eine Nachricht hinzufügen, Ihre Kontaktkarte testen und Ihre Campaign oder Ihren Canvas starten.
 
-Die Kontaktkarte wird auch in der [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) gespeichert, um sie in zukünftigen Campaigns und Canvase einfach wiederverwenden zu können.
+Die Kontaktkarte wird auch in der [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) gespeichert, um sie in zukünftigen Campaigns und Canvases einfach wiederverwenden zu können.
 
 ## Eine vorhandene Kontaktkarte hinzufügen {#adding-an-existing-contact-card}
 

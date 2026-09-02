@@ -22,8 +22,8 @@ A integração da Braze com a Okendo funciona em vários produtos na plataforma 
 | Requisito | Descrição |
 |------------------------|-----------------------------------------------------------------------------|
 | Conta Okendo | Uma conta Okendo é necessária para aproveitar esta parceria. |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões `users.track`. Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
-| Endpoint REST or transferir estado representacional da Braze | [Sua URL de endpoint REST or transferir estado representacional]({{site.baseurl}}/api/basics/#endpoints). Seu endpoint depende da URL da Braze para sua instância. |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Endpoint REST da Braze | [Sua URL de endpoint REST]({{site.baseurl}}/api/basics/#endpoints). Seu endpoint depende da URL da Braze para sua instância. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
@@ -31,7 +31,7 @@ A integração da Braze com a Okendo funciona em vários produtos na plataforma 
 ### Etapa 1: Configurar o conector Braze na Okendo {#step-1-set-up-braze-connector-in-okendo}
 
 1. Na Okendo, acesse **Settings** > **Integrations** > **Email & SMS** > **Braze**.
-2. Adicione o endpoint da API or interface de programação do aplicativo (API) e a chave de API or interface de programação do aplicativo (API) nas configurações de **Integration**.
+2. Adicione o endpoint da API e a chave de API nas configurações de **Integration**.
 
 ### Etapa 2: Configure seu identificador {#step-2-configure-your-identifier}
 

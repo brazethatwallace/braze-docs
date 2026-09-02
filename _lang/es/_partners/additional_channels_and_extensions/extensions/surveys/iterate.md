@@ -18,15 +18,15 @@ _Esta integración la mantiene Iterate._
 
 La integración de Iterate con Braze te permite entregar cuestionarios de Iterate de forma nativa y fácilmente dentro de tu producto o campañas. Las respuestas a los cuestionarios pueden registrarse como atributos de usuario personalizados en Braze, lo que te permite construir una imagen completa de tus usuarios o crear nuevas y potentes audiencias y segmentos.
 
-Con el SDK or kit de desarrollo de software de Braze instalado en tu aplicación o sitio web, puedes utilizar las herramientas de segmentación y orientación disponibles en Braze para enviar cuestionarios a través de mensajes dentro de la aplicación a una parte específica de tu audiencia en función de cualquier desencadenante o segmento personalizado. Los cuestionarios de Iterate también pueden incrustarse directamente en tus campañas de correo electrónico o incluirse como enlaces en tus campañas push o de otro tipo.
+Con el SDK de Braze instalado en tu aplicación o sitio web, puedes utilizar las herramientas de segmentación y orientación disponibles en Braze para enviar cuestionarios a través de mensajes dentro de la aplicación a una parte específica de tu audiencia en función de cualquier desencadenante o segmento personalizado. Los cuestionarios de Iterate también pueden incrustarse directamente en tus campañas de correo electrónico o incluirse como enlaces en tus campañas push o de otro tipo.
 
 ## Requisitos previos {#prerequisites}
 
 | Requisito | Origen |
 |---|---|
 | Cuenta Iterate | Se necesita una [cuenta de Iterate](https://iteratehq.com) para beneficiarse de esta asociación. |
-| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos `users.track`. Para enviar cuestionarios a través de mensajes dentro de la aplicación de Braze, también necesitarás el permiso `kpi.mau.data_series`.<br><br> Puede crearse en el panel de Braze desde **Settings** > **API Keys**. |
-| Punto de conexión REST or transferencia de estado representacional de Braze | La URL de tu punto de conexión REST or transferencia de estado representacional. Tu punto de conexión dependerá de la [URL de Braze de tu instancia]({{site.baseurl}}/api/basics/#endpoints). |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. Para enviar cuestionarios a través de mensajes dentro de la aplicación de Braze, también necesitarás el permiso `kpi.mau.data_series`.<br><br> Puede crearse en el panel de Braze desde **Settings** > **API Keys**. |
+| Punto de conexión REST de Braze | La URL de tu punto de conexión REST. Tu punto de conexión dependerá de la [URL de Braze de tu instancia]({{site.baseurl}}/api/basics/#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Casos de uso {#use-cases}
@@ -37,7 +37,7 @@ Con Iterate, puedes recopilar casi cualquier tipo de datos. Desde información p
 
 ### Para empezar: conectar Braze con Iterate {#getting-started-connect-braze-with-iterate}
 
-Inicia sesión en tu cuenta de Iterate y añade tu punto de conexión REST or transferencia de estado representacional de Braze y tu clave de API REST or transferencia de estado representacional en la página **Company Settings**.
+Inicia sesión en tu cuenta de Iterate y añade tu punto de conexión REST de Braze y tu clave de API REST en la página **Company Settings**.
 
 ### Enviar cuestionarios como mensaje dentro de la aplicación {#deliver-surveys-as-an-in-app-message}
 

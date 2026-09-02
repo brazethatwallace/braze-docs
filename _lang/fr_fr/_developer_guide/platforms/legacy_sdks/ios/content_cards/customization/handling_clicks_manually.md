@@ -63,5 +63,5 @@ func contentCardTableViewController(_ viewController: ABKContentCardsTableViewCo
 {% endtabs %}
 
 {% alert important %}
-Si vous remplacez la méthode `handleCardClick:` dans `ABKContentCardsTableViewController`, ces méthodes de délégation ne peuvent pas être employé or salariées.
+Si vous remplacez la méthode `handleCardClick:` dans `ABKContentCardsTableViewController`, ces méthodes de délégation ne peuvent pas être employées.
 {% endalert %}

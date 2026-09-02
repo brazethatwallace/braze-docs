@@ -90,14 +90,14 @@ Die folgenden Filter werden für jeden Kanal bei der Ermittlung erreichbarer Nut
 | --- | --- |
 | E-Mail | **Email Available** ist wahr. |
 | Push | **Foreground Push Enabled** ist wahr. |
-| Kurzmitteilungsdienst or SMS | **Subscription Group** ist eine beliebige Kurzmitteilungsdienst or SMS-Abo-Gruppe. **Invalid Phone Number** ist falsch. |
+| SMS | **Subscription Group** ist eine beliebige SMS-Abo-Gruppe. **Invalid Phone Number** ist falsch. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Angewendete Filter für kanalspezifisch erreichbare Nutzer:innen" }
 
 ## Exakte Statistiken berechnen {#calculating-exact-statistics}
 
 Um eine genaue Anzahl der Nutzer:innen in Ihrem Segment anzuzeigen, wählen Sie **Exakte Statistiken berechnen** im Bereich **Erreichbare Nutzer:innen** aus.
 
-Um die Statistiken für eine zuvor durchgeführte Berechnung zu Update or aktualisieren or aktualisieren, wählen Sie **Exakte Statistiken Update or aktualisieren or aktualisieren**. Das Datum der letzten Berechnung wird automatisch aktualisiert.
+Um die Statistiken für eine zuvor durchgeführte Berechnung zu aktualisieren, wählen Sie **Exakte Statistiken aktualisieren**. Das Datum der letzten Berechnung wird automatisch aktualisiert.
 
 Beachten Sie, dass die Genauigkeit einer Berechnung nur bei 99,999 % oder höher liegt. Bei großen Segmenten können daher leichte Abweichungen auftreten – auch bei der Berechnung exakter Statistiken –, was ein normales Verhalten ist. Darüber hinaus werden die Ergebnisse exakter Statistiken 24 Stunden lang zwischengespeichert, es sei denn, Sie nehmen Änderungen an Ihrem Segment vor. In diesem Fall können Sie die exakten Statistiken erneut berechnen.
 

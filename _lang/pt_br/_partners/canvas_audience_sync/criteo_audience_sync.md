@@ -62,7 +62,7 @@ Sua conexão com o Criteo será aplicada no nível do espaço de trabalho da Bra
 
 Ao criar públicos para rastreamento de anúncios, você pode querer incluir ou excluir determinados usuários com base em suas preferências e para cumprir as leis de privacidade, como o direito de "Não Vender ou Compartilhar" previsto na [CCPA](https://oag.ca.gov/privacy/ccpa). Os profissionais de marketing devem implementar os filtros relevantes para a elegibilidade dos usuários nos critérios de entrada do Canvas. As opções a seguir podem ajudar.
 
-Se você coletou o [IDFA do iOS por meio do SDK or kit de desenvolvimento de software da Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations#optional-idfa-collection), poderá usar o filtro Ads Tracking Enabled. Selecione o valor como verdadeiro para enviar apenas os usuários para destinos de Audience Sync nos quais eles aceitaram participar.
+Se você coletou o [IDFA do iOS por meio do SDK da Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations#optional-idfa-collection), poderá usar o filtro Ads Tracking Enabled. Selecione o valor como verdadeiro para enviar apenas os usuários para destinos de Audience Sync nos quais eles aceitaram participar.
 
 ![Filtro de entrada do Canvas mostrando Ads Tracking Enabled definido como verdadeiro.]({% image_buster /assets/img/criteo/criteo11.png %})
 
@@ -120,9 +120,9 @@ Você pode visualizar o público no Criteo acessando sua conta do gerenciador de
 
 ## Considerações sobre sincronização de usuários e limite de frequência {#user-syncing-and-rate-limit-considerations}
 
-À medida que os usuários chegam à etapa de Audience Sync, a Braze os sincroniza em tempo quase real, respeitando os limites de frequência da API or interface de programação do aplicativo (API) da Criteo. A Braze agrupa e processa o maior número possível de usuários a cada cinco segundos antes de enviá-los à Criteo.
+À medida que os usuários chegam à etapa de Audience Sync, a Braze os sincroniza em tempo quase real, respeitando os limites de frequência da API da Criteo. A Braze agrupa e processa o maior número possível de usuários a cada cinco segundos antes de enviá-los à Criteo.
 
-O limite de frequência da API or interface de programação do aplicativo (API) da Criteo permite no máximo 250 solicitações por minuto. Se um cliente atingir esse limite, a Braze tenta novamente a sincronização por aproximadamente 13 horas. Se a sincronização ainda não for possível, a Braze lista esses usuários na métrica Users Errored.
+O limite de frequência da API da Criteo permite no máximo 250 solicitações por minuto. Se um cliente atingir esse limite, a Braze tenta novamente a sincronização por aproximadamente 13 horas. Se a sincronização ainda não for possível, a Braze lista esses usuários na métrica Users Errored.
 
 ## Entendendo a análise de dados {#understanding-analytics}
 
@@ -131,11 +131,11 @@ A tabela a seguir inclui métricas e descrições para ajudar você a entender m
 | Métrica | Descrição |
 | --- | --- |
 | Entered | Número de usuários que entraram neste componente para serem sincronizados com o Criteo. |
-| Proceeded to Next Step | Quantos usuários avançaram para o próximo componente, se houver um. Todos os usuários avançarão automaticamente se esta for a última etapa na Branch or ramificação or ramificação do Canvas. |
+| Proceeded to Next Step | Quantos usuários avançaram para o próximo componente, se houver um. Todos os usuários avançarão automaticamente se esta for a última etapa na Branch do Canvas. |
 | Users Synced | Número de usuários que foram sincronizados com sucesso com o Criteo. |
 | Users Not Synced | Número de usuários que não foram sincronizados devido à falta de campos para correspondência. |
 | Users Pending | Número de usuários que estão sendo processados pela Braze para sincronização com o Criteo. |
-| Users Errored | Número de usuários que não foram sincronizados com o Criteo devido a um erro de API or interface de programação do aplicativo (API) após cerca de 13 horas de tentativas. Possíveis causas de erros podem incluir um token do Criteo inválido ou se o público foi excluído no Criteo. |
+| Users Errored | Número de usuários que não foram sincronizados com o Criteo devido a um erro de API após cerca de 13 horas de tentativas. Possíveis causas de erros podem incluir um token do Criteo inválido ou se o público foi excluído no Criteo. |
 | Exited Canvas | Número de usuários que saíram do Canvas. Isso ocorre quando a última etapa em um Canvas é um componente de Audience Sync. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Entendendo a análise de dados" }
 

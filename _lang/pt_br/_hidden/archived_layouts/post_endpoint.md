@@ -12,7 +12,7 @@ description: "Este artigo detalha o uso desse endpoint POST [nome do endpoint] d
 noindex: true
 #ATTENTION: remove noindex and this alert from template
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # [Nome do endpoint] {#endpoint-name}
 
 {% apimethod post %}
@@ -20,7 +20,7 @@ noindex: true
 {% endapimethod %}
 
 <!--
-This is the description of the endpoint. API or interface de programação do aplicativo (API) descriptions usually start with "Use this endpoint to..."-->
+This is the description of the endpoint. API descriptions usually start with "Use this endpoint to..."-->
 Use esse endpoint para remover números de telefone "inválidos" da lista de inválidos na Braze. Isso pode ser usado para revalidar números de telefone depois de terem sido marcados como inválidos.
 
 <!-- Your postman link. Once you have published the endpoint to postman, you will be able get a direct link to the information in the postman docs to share here-->
@@ -57,7 +57,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## Exemplo de solicitação {#example-request}
 
-<!--The following example demonstrates a request that will remove specific SMS numbers from Braze's invalid phone number list via the API or interface de programação do aplicativo (API):-->
+<!--The following example demonstrates a request that will remove specific SMS numbers from Braze's invalid phone number list via the API:-->
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/sms/invalid_phone_numbers/remove' \

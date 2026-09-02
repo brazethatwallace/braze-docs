@@ -92,7 +92,7 @@ iOS no genera automáticamente tokens de notificaciones push para una aplicació
 Hay dos formas de comprobar el estado de suscripción push de un usuario con Braze:
 
 - **Perfil de usuario**: Puedes acceder a los perfiles de usuario individuales a través del dashboard de Braze en la página [Búsqueda de usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles). Después de encontrar el perfil de un usuario (mediante dirección de correo electrónico, número de teléfono o ID de usuario externo), puedes seleccionar la pestaña **Interacción** para ver y ajustar manualmente el estado de suscripción de un usuario.
-- **Exportación de REST or transferencia de estado representacional API**: Puedes exportar perfiles de usuario individuales en formato JSON utilizando los puntos finales de exportación [Usuarios por Segment]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) o [Usuarios por identificador]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier). Braze devolverá un objeto de tokens de notificaciones push que contiene información de habilitación push por dispositivo.
+- **Exportación de REST API**: Puedes exportar perfiles de usuario individuales en formato JSON utilizando los puntos finales de exportación [Usuarios por Segment]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) o [Usuarios por identificador]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier). Braze devolverá un objeto de tokens de notificaciones push que contiene información de habilitación push por dispositivo.
 
 ### Comprobar el estado de registro push {#checking-push-registration-status}
 
@@ -112,22 +112,22 @@ Consulta la siguiente tabla para conocer las acciones que provocan cambios o eli
 
 | Acción | Descripción |
 | ------ | ----------- |
-| Se llama al método `changeUser()` | El método `changeUser()` de Braze cambia el ID de usuario al que los SDK or kit de desarrollo de software asignan los datos de comportamiento del usuario. Este método se llama normalmente cuando un usuario inicia sesión en una aplicación. Cuando se llama a `changeUser()` con un ID de usuario diferente o nuevo en un dispositivo específico, el token de notificaciones push de ese dispositivo se moverá al perfil de Braze correspondiente con el ID de usuario adecuado. |
+| Se llama al método `changeUser()` | El método `changeUser()` de Braze cambia el ID de usuario al que los SDK asignan los datos de comportamiento del usuario. Este método se llama normalmente cuando un usuario inicia sesión en una aplicación. Cuando se llama a `changeUser()` con un ID de usuario diferente o nuevo en un dispositivo específico, el token de notificaciones push de ese dispositivo se moverá al perfil de Braze correspondiente con el ID de usuario adecuado. |
 | Se produce un error push | Algunos errores push comunes que provocan la eliminación del token incluyen `MismatchSenderId`, `InvalidRegistration` y otros tipos de rebotes push. <br><br>Consulta nuestra lista completa de [errores push]({{site.baseurl}}/user_guide/channels/push/push_error_codes) comunes. |
 | El usuario desinstala | Cuando un usuario desinstala la aplicación de un dispositivo, Braze eliminará el token de notificaciones push del usuario de su perfil. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Gestión de tokens de notificaciones push" }
 
 ### ¿Cómo se ve esto a mayor escala? {#what-does-this-look-like-on-a-broader-scale}
 
-Cuando un usuario abre una nueva aplicación y concede acceso push desde un aviso push, se realiza una llamada desde el SDK or kit de desarrollo de software de Braze a los proveedores push. Cuando se realiza esa llamada, el proveedor push ejecuta una verificación para comprobar que todo está configurado correctamente. Si es así, se pasa un token de notificaciones push a tu dispositivo. Cuando ese token llega, el SDK or kit de desarrollo de software lo comunica a Braze. Después de que Braze haya recibido el token del proveedor push, actualizamos o creamos un nuevo perfil de usuario. Estos usuarios ahora se consideran registrados.
+Cuando un usuario abre una nueva aplicación y concede acceso push desde un aviso push, se realiza una llamada desde el SDK de Braze a los proveedores push. Cuando se realiza esa llamada, el proveedor push ejecuta una verificación para comprobar que todo está configurado correctamente. Si es así, se pasa un token de notificaciones push a tu dispositivo. Cuando ese token llega, el SDK lo comunica a Braze. Después de que Braze haya recibido el token del proveedor push, actualizamos o creamos un nuevo perfil de usuario. Estos usuarios ahora se consideran registrados.
 
-Si queremos lanzar una Campaign, creamos una Campaign en Braze que genera una carga útil push para enviar al proveedor push. Desde ahí, el proveedor entrega la carga útil push al dispositivo del usuario y el SDK or kit de desarrollo de software pasa el estado de mensajería a Braze.
+Si queremos lanzar una Campaign, creamos una Campaign en Braze que genera una carga útil push para enviar al proveedor push. Desde ahí, el proveedor entrega la carga útil push al dispositivo del usuario y el SDK pasa el estado de mensajería a Braze.
 
 ![Un diagrama de flujo que muestra el proceso push mencionado anteriormente entre Braze, el cliente y Apple Push Notification Service o Firebase Cloud Messaging.]({% image_buster /assets/img/push_process.png %})
 
 | Pasos de registro | Pasos de mensajería |
 | ------------------ | --------------- |
-| 1. El cliente (dispositivo) se registra en el proveedor push<br>2. El proveedor genera y entrega el token de notificaciones push<br>3. Se envían los tokens a Braze |1. Braze envía la carga útil push al proveedor<br>2. El proveedor entrega la carga útil push al dispositivo<br>3. El SDK or kit de desarrollo de software pasa las estadísticas de mensajería a Braze |
+| 1. El cliente (dispositivo) se registra en el proveedor push<br>2. El proveedor genera y entrega el token de notificaciones push<br>3. Se envían los tokens a Braze |1. Braze envía la carga útil push al proveedor<br>2. El proveedor entrega la carga útil push al dispositivo<br>3. El SDK pasa las estadísticas de mensajería a Braze |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="¿Cómo se ve esto a mayor escala?" }
 
 ## Preguntas frecuentes {#frequently-asked-questions}
@@ -142,4 +142,4 @@ Además, si un usuario volviera a habilitar push en primer plano, se requeriría
 
 Desafortunadamente, APNs y FCM realmente no definen esto. Los tokens de notificaciones push pueden caducar cuando se actualiza una aplicación, cuando los usuarios transfieren sus datos a un nuevo dispositivo o cuando reinstalan un sistema operativo. En su mayor parte, realmente no tenemos información sobre por qué los proveedores push caducan ciertos tokens de notificaciones push.
 
-Para tener en cuenta esa ambigüedad, nuestras integraciones push del SDK or kit de desarrollo de software siempre registran y envían los tokens al inicio de la sesión para asegurarnos de tener el token más actualizado.
+Para tener en cuenta esa ambigüedad, nuestras integraciones push del SDK siempre registran y envían los tokens al inicio de la sesión para asegurarnos de tener el token más actualizado.

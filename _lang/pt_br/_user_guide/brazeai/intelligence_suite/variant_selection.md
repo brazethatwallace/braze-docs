@@ -48,7 +48,7 @@ A duração padrão do experimento é de 4 horas. Se você otimizar para um even
 
 ## Campaigns com múltiplos envios {#multi-send-campaigns}
 
-Para Campaigns recorrentes, baseadas em ação e disparadas por API or interface de programação do aplicativo (API) que enviam várias vezes, o BrazeAI<sup>TM</sup> otimiza continuamente a distribuição do seu público. Após o prazo inicial de conversão, a Braze analisa o desempenho a cada 12 horas e envia mais usuários para as variantes com melhor desempenho.
+Para Campaigns recorrentes, baseadas em ação e disparadas por API que enviam várias vezes, o BrazeAI<sup>TM</sup> otimiza continuamente a distribuição do seu público. Após o prazo inicial de conversão, a Braze analisa o desempenho a cada 12 horas e envia mais usuários para as variantes com melhor desempenho.
 
 A distribuição inicial pode ser uniforme enquanto o BrazeAI<sup>TM</sup> coleta dados de desempenho. A distribuição muda conforme a otimização identifica tendências de desempenho.
 

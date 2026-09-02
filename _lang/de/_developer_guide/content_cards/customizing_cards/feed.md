@@ -18,7 +18,7 @@ platform:
 
 {% multi_lang_include developer_guide/_shared/about_session_lifecycle.md %}
 
-## Update or aktualisieren or aktualisieren des Feeds {#refreshing-the-feed}
+## Aktualisieren des Feeds {#refreshing-the-feed}
 
 ### Automatische Aktualisierung {#automatic-refresh}
 
@@ -28,17 +28,17 @@ Standardmäßig wird der Content-Card-Feed automatisch aktualisiert, wenn:
 - Der Standard-Content-Card-Feed geschlossen und nach mehr als 60 Sekunden seit der letzten Aktualisierung erneut geöffnet wird.
 
 {% alert tip %}
-Um aktuelle Content Cards dynamisch anzuzeigen, ohne sie manuell zu Update or aktualisieren or aktualisieren, wählen Sie bei der Kartenerstellung die Option **At first impression** aus. Diese Karten werden aktualisiert, sobald sie verfügbar sind.
+Um aktuelle Content Cards dynamisch anzuzeigen, ohne sie manuell zu aktualisieren, wählen Sie bei der Kartenerstellung die Option **At first impression** aus. Diese Karten werden aktualisiert, sobald sie verfügbar sind.
 {% endalert %}
 
 ### Manuelle Aktualisierung {#manual-refresh}
 
-So Update or aktualisieren or aktualisieren Sie den Feed manuell zu einem bestimmten Zeitpunkt:
+So aktualisieren Sie den Feed manuell zu einem bestimmten Zeitpunkt:
 
 {% tabs %}
 {% tab web %}
 
-Sie können jederzeit eine manuelle Aktualisierung der Braze Content Cards über das Internet-SDK or Software-Development-Kit anfordern, indem Sie [`requestContentCardsRefresh()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestcontentcardsrefresh) aufrufen.
+Sie können jederzeit eine manuelle Aktualisierung der Braze Content Cards über das Internet-SDK anfordern, indem Sie [`requestContentCardsRefresh()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestcontentcardsrefresh) aufrufen.
 
 Sie können auch [`getCachedContentCards`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#getcachedcontentcards) aufrufen, um alle derzeit verfügbaren Karten von der letzten Content-Cards-Aktualisierung zu erhalten.
 
@@ -50,12 +50,12 @@ function refresh() {
 }
 ```
 
-Um Content-Card-Links in einem neuen Browser-Tab statt im selben Tab zu öffnen, setzen Sie `openCardsInNewTab: true` in Ihren Initialisierungsoptionen des Internet-SDK or Software-Development-Kit. Weitere Informationen zu Initialisierungsoptionen finden Sie im [Leitfaden zum Internet-SDK or Software-Development-Kit-Repository]({{site.baseurl}}/developer_guide/sdk_repository_guides/web).
+Um Content-Card-Links in einem neuen Browser-Tab statt im selben Tab zu öffnen, setzen Sie `openCardsInNewTab: true` in Ihren Initialisierungsoptionen des Internet-SDK. Weitere Informationen zu Initialisierungsoptionen finden Sie im [Leitfaden zum Internet-SDK-Repository]({{site.baseurl}}/developer_guide/sdk_repository_guides/web).
 
 {% endtab %}
 {% tab android %}
 
-Sie können jederzeit eine manuelle Aktualisierung der Braze Content Cards über das Android SDK or Software-Development-Kit anfordern, indem Sie [`requestContentCardsRefresh`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/request-content-cards-refresh.html) aufrufen.
+Sie können jederzeit eine manuelle Aktualisierung der Braze Content Cards über das Android SDK anfordern, indem Sie [`requestContentCardsRefresh`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/request-content-cards-refresh.html) aufrufen.
 
 {% subtabs local %}
 {% subtab Java %}
@@ -76,7 +76,7 @@ Braze.getInstance(context).requestContentCardsRefresh()
 {% endtab %}
 {% tab swift %}
 
-Sie können jederzeit eine manuelle Aktualisierung der Braze Content Cards über das Swift SDK or Software-Development-Kit anfordern, indem Sie die Methode [`requestRefresh`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class/requestrefresh(_:)) der Klasse [`Braze.ContentCards`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class) aufrufen:
+Sie können jederzeit eine manuelle Aktualisierung der Braze Content Cards über das Swift SDK anfordern, indem Sie die Methode [`requestRefresh`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class/requestrefresh(_:)) der Klasse [`Braze.ContentCards`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class) aufrufen:
 
 {% subtabs local %}
 {% subtab Swift %}
@@ -112,12 +112,12 @@ let contentCards = await AppDelegate.braze?.contentCards.requestRefresh()
 
 ### Vollständige Synchronisierung vs. teilweise Synchronisierung {#full-sync-vs-partial-sync}
 
-Das Braze SDK or Software-Development-Kit verwendet zwei Arten der Synchronisierung beim Abrufen von Content Cards vom Server:
+Das Braze SDK verwendet zwei Arten der Synchronisierung beim Abrufen von Content Cards vom Server:
 
 - **Vollständige Synchronisierung:** Ruft alle Content Cards ab, für die ein:e Nutzer:in berechtigt ist. Vollständige Synchronisierungen erfolgen automatisch alle 7 Tage oder wenn `changeUser()` aufgerufen wird.
 - **Teilweise Synchronisierung:** Ruft nur neue Content Cards seit der letzten Anfrage ab. Wenn der oder die Nutzer:in für keine neuen Karten berechtigt ist, gibt die Antwort null Karten zurück. Teilweise Synchronisierungen erfolgen bei jedem Aufruf von `requestContentCardsRefresh()` (es sei denn, seit der letzten vollständigen Synchronisierung sind 7 Tage vergangen – in diesem Fall wird stattdessen eine vollständige Synchronisierung ausgelöst).
 
-Teilweise Synchronisierungen reduzieren die Serverlast und den Akkuverbrauch des Geräts. Content Cards, die bereits empfangen wurden, werden lokal im SDK or Software-Development-Kit gespeichert, sodass Nutzer:innen ihre verfügbaren Karten weiterhin sehen, auch wenn eine teilweise Synchronisierung null neue Karten zurückgibt.
+Teilweise Synchronisierungen reduzieren die Serverlast und den Akkuverbrauch des Geräts. Content Cards, die bereits empfangen wurden, werden lokal im SDK gespeichert, sodass Nutzer:innen ihre verfügbaren Karten weiterhin sehen, auch wenn eine teilweise Synchronisierung null neue Karten zurückgibt.
 
 ### Rate-Limits {#rate-limit}
 
@@ -128,7 +128,7 @@ Braze verwendet einen Token / Textbaustein-Bucket-Algorithmus, um die folgenden 
 - `subscribeToContentCards()` gibt auch bei Rate-Limiting weiterhin zwischengespeicherte Karten zurück
 
 {% alert important %}
-Das Braze SDK or Software-Development-Kit wendet außerdem Rate-Limits für Performance und Zuverlässigkeit an. Beachten Sie dies, wenn Sie automatisierte Tests durchführen oder manuelle Qualitätssicherung betreiben. Weitere Informationen finden Sie unter [Braze SDK or Software-Development-Kit-Rate-Limits]({{site.baseurl}}/developer_guide/sdk_integration/rate_limits).
+Das Braze SDK wendet außerdem Rate-Limits für Performance und Zuverlässigkeit an. Beachten Sie dies, wenn Sie automatisierte Tests durchführen oder manuelle Qualitätssicherung betreiben. Weitere Informationen finden Sie unter [Braze SDK-Rate-Limits]({{site.baseurl}}/developer_guide/sdk_integration/rate_limits).
 {% endalert %}
 
 ## Anpassen der angezeigten Kartenreihenfolge {#customizing-displayed-card-order}
@@ -150,7 +150,7 @@ braze.showContentCards(null, (cards) => {
 {% tab android %}
 {% subtabs %}
 {% subtab android view controller %}
-Das [`ContentCardsFragment`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards/-content-cards-fragment/index.html) stützt sich auf einen [`IContentCardsUpdateHandler`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.handlers/-i-content-cards-update-handler/index.html), um Sortierungen oder Änderungen von Content Cards zu verarbeiten, bevor sie im Feed angezeigt werden. Ein angepasster Update or aktualisieren Handler kann über [`setContentCardUpdateHandler`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards/-content-cards-fragment/set-content-card-update-handler.html) auf Ihrem `ContentCardsFragment` festgelegt werden.
+Das [`ContentCardsFragment`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards/-content-cards-fragment/index.html) stützt sich auf einen [`IContentCardsUpdateHandler`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.handlers/-i-content-cards-update-handler/index.html), um Sortierungen oder Änderungen von Content Cards zu verarbeiten, bevor sie im Feed angezeigt werden. Ein angepasster Update Handler kann über [`setContentCardUpdateHandler`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards/-content-cards-fragment/set-content-card-update-handler.html) auf Ihrem `ContentCardsFragment` festgelegt werden.
 
 Das Folgende ist der Standard-`IContentCardsUpdateHandler` und kann als Ausgangspunkt für Anpassungen verwendet werden:
 
@@ -353,14 +353,14 @@ Die Anpassung über `BrazeContentCardUI.ViewController.Attributes` ist in Object
 
 ## Anpassen der Nachricht „Leerer Feed“ {#customizing-empty-feed-message}
 
-Wenn sich ein:e Nutzer:in für keine Content Cards qualifiziert, zeigt das SDK or Software-Development-Kit die Fehlermeldung „Leerer Feed“ an: „We have no updates. Please check again later.“ Sie können diese Fehlermeldung wie folgt anpassen:
+Wenn sich ein:e Nutzer:in für keine Content Cards qualifiziert, zeigt das SDK die Fehlermeldung „Leerer Feed“ an: „We have no updates. Please check again later.“ Sie können diese Fehlermeldung wie folgt anpassen:
 
 ![Eine Fehlermeldung für einen leeren Feed mit dem Wortlaut „This is a custom empty state message.“]({% image_buster/assets/img/content_cards/content-card-customization-empty.png %})
 
 {% tabs %}
 {% tab web %}
 
-Das Internet-SDK or Software-Development-Kit unterstützt keine programmatische Ersetzung der Sprache für „Leerer Feed“. Sie können sie bei jeder Anzeige des Feeds ersetzen. Dies ist jedoch nicht empfehlenswert, da die Aktualisierung des Feeds einige Zeit in Anspruch nehmen kann und der leere Feed-Text nicht sofort angezeigt wird.
+Das Internet-SDK unterstützt keine programmatische Ersetzung der Sprache für „Leerer Feed“. Sie können sie bei jeder Anzeige des Feeds ersetzen. Dies ist jedoch nicht empfehlenswert, da die Aktualisierung des Feeds einige Zeit in Anspruch nehmen kann und der leere Feed-Text nicht sofort angezeigt wird.
 
 {% endtab %}
 {% tab android %}
@@ -433,7 +433,7 @@ attributes.emptyStateMessageColor = .secondaryLabel
 Ändern Sie die Sprache, die automatisch in leeren Content-Card-Feeds erscheint, indem Sie die lokalisierbaren Content-Card-Strings in der [`ContentCardsLocalizable.strings`](https://github.com/braze-inc/braze-swift-sdk/tree/main/Sources/BrazeUI/Resources/Localization/en.lproj)-Datei Ihrer App neu definieren.
 
 {% alert note %}
-Wenn Sie diese Nachricht in verschiedenen Lokalisierungssprachen Update or aktualisieren or aktualisieren möchten, suchen Sie die entsprechende Sprache in der [Ordnerstruktur „Resources“](https://github.com/braze-inc/braze-swift-sdk/tree/main/Sources/BrazeUI/Resources/Localization) mit dem String `ContentCardsLocalizable.strings`.
+Wenn Sie diese Nachricht in verschiedenen Lokalisierungssprachen aktualisieren möchten, suchen Sie die entsprechende Sprache in der [Ordnerstruktur „Resources“](https://github.com/braze-inc/braze-swift-sdk/tree/main/Sources/BrazeUI/Resources/Localization) mit dem String `ContentCardsLocalizable.strings`.
 {% endalert %}
 
 {% endsubtab %}
@@ -481,14 +481,14 @@ document.getElementById("show-transactional-feed").onclick = function() {
 };
 ```
 
-Weitere Informationen finden Sie in der [SDK or Software-Development-Kit-Methoden-Dokumentation](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#showcontentcards).
+Weitere Informationen finden Sie in der [SDK-Methoden-Dokumentation](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#showcontentcards).
 
 {% endtab %}
 {% tab android %}
 {% subtabs %}
 {% subtab android view system %}
 
-Standardmäßig wird der Content-Card-Feed in einem [`ContentCardsFragment`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards/-content-cards-fragment/index.html) angezeigt, und [`IContentCardsUpdateHandler`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.handlers/-i-content-cards-update-handler/index.html) gibt eine Liste von Karten zurück, die nach dem Empfang eines [`ContentCardsUpdatedEvent`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.events/-content-cards-updated-event/index.html) vom Braze SDK or Software-Development-Kit angezeigt werden sollen. Es sortiert jedoch nur die Karten und führt keine direkte Filterung durch.
+Standardmäßig wird der Content-Card-Feed in einem [`ContentCardsFragment`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards/-content-cards-fragment/index.html) angezeigt, und [`IContentCardsUpdateHandler`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.handlers/-i-content-cards-update-handler/index.html) gibt eine Liste von Karten zurück, die nach dem Empfang eines [`ContentCardsUpdatedEvent`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.events/-content-cards-updated-event/index.html) vom Braze SDK angezeigt werden sollen. Es sortiert jedoch nur die Karten und führt keine direkte Filterung durch.
 
 #### Schritt 2.1: Einen angepassten Handler erstellen {#step-21-create-a-custom-handler}
 

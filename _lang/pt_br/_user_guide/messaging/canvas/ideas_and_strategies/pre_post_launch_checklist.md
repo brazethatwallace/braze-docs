@@ -20,7 +20,7 @@ Antes de lançar um Canvas, há vários detalhes que você pode verificar para g
 Se você está inserindo usuários de acordo com o fuso local deles usando um cronograma de entrada agendado, você deve lançar seu Canvas pelo menos 24 horas antes do horário em que deseja que os usuários entrem no seu Canvas. Por exemplo, aqui está um Canvas que não deixou tempo suficiente entre o lançamento e o horário de entrada agendado. Nesse cenário, alguns usuários podem não entrar no seu Canvas porque o horário de entrada agendado já passou em determinados fusos horários.
 
 {% alert tip %}
-Você verá um alerta se não tiver agendado tempo suficiente como margem. Uma solução rápida é ajustar o horário de envio para garantir que os usuários possam permanecer no Segment or segmento de destino por 24 horas completas.
+Você verá um alerta se não tiver agendado tempo suficiente como margem. Uma solução rápida é ajustar o horário de envio para garantir que os usuários possam permanecer no Segment de destino por 24 horas completas.
 {% endalert %}
 
 ![Um Canvas agendado para inserir usuários em um horário específico, começando às 10h do dia 30 de abril de 2025, no fuso local deles.]({% image_buster /assets/img_archive/canvas_checklist1.png %}){: style="max-width:75%;"}
@@ -45,7 +45,7 @@ Confira as [práticas recomendadas]({{site.baseurl}}/user_guide/messaging/ab_tes
 
 ### Verifique as propriedades de entrada do Canvas e as propriedades de evento {#check-canvas-entry-properties-and-event-properties}
 
-Embora tenham nomes semelhantes, as [propriedades de entrada do Canvas e as propriedades de evento]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) funcionam de maneiras diferentes nos fluxos de trabalho do seu Canvas. As propriedades de entrada do Canvas estão vinculadas às suas configurações de entrada e podem ser referenciadas em qualquer componente de mensagem ao longo do seu Canvas. As propriedades de entrada do Canvas são propriedades do evento ou da chamada de API or interface de programação do aplicativo (API) que dispara a entrada de um usuário no Canvas, usando configurações de entrada baseada em ação ou disparada por API or interface de programação do aplicativo (API).
+Embora tenham nomes semelhantes, as [propriedades de entrada do Canvas e as propriedades de evento]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) funcionam de maneiras diferentes nos fluxos de trabalho do seu Canvas. As propriedades de entrada do Canvas estão vinculadas às suas configurações de entrada e podem ser referenciadas em qualquer componente de mensagem ao longo do seu Canvas. As propriedades de entrada do Canvas são propriedades do evento ou da chamada de API que dispara a entrada de um usuário no Canvas, usando configurações de entrada baseada em ação ou disparada por API.
 
 As propriedades de evento, por outro lado, só podem ser referenciadas na primeira etapa de mensagem após uma etapa de jornadas de ação. As propriedades de evento são propriedades de um evento personalizado ou evento de compra que o usuário realizou durante a janela de avaliação de uma etapa de jornadas de ação, e que dispara a progressão dele por uma das jornadas de ação definidas.
 
@@ -88,7 +88,7 @@ Se você não está vendo nenhum dado de entrada no seu Canvas, o motivo pelo qu
 
 Se estiver usando entrada baseada em ação no seu cronograma de entrada, verifique se você não usou a mesma ação-gatilho aqui e no seu **público-alvo**. Uma condição de corrida pode ocorrer quando o usuário não está no público no momento em que realiza o evento-gatilho, o que significa que ele não entrará no Canvas.
 
-Além disso, verifique se o Segment or segmento selecionado tem usuários revisando a tabela de **público-alvo** nas configurações de **público-alvo**. Se esse número estiver baixo, veja como ajustar suas configurações de entrada ou revise seus Segments ou filtros selecionados para verificar possíveis erros.
+Além disso, verifique se o Segment selecionado tem usuários revisando a tabela de **público-alvo** nas configurações de **público-alvo**. Se esse número estiver baixo, veja como ajustar suas configurações de entrada ou revise seus Segments ou filtros selecionados para verificar possíveis erros.
 
 ### Queda inesperada entre etapas {#unexpected-drop-off-between-steps}
 

@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Jacquard Dynamic Optimisation
 
-> [Jacquard](https://www.jacquard.com/) vereint KI or künstliche Intelligenz or künstliche Intelligenz, Computerlinguistik und den Geist der Kundenorientierung, um die Markensprache in großem Umfang über Kanäle hinweg einzusetzen, die an die Stimme Ihrer Marke angepasst sind.
+> [Jacquard](https://www.jacquard.com/) vereint KI, Computerlinguistik und den Geist der Kundenorientierung, um die Markensprache in großem Umfang über Kanäle hinweg einzusetzen, die an die Stimme Ihrer Marke angepasst sind.
 
 Dynamic Optimisation, powered by Jacquard X, nutzt Braze-Currents und Connected-Content, um über Webhooks Klick-Tracking-Informationen von Ihren Abonnent:innen zu sammeln. Jacquard verknüpft diese Ereignisse dann mit Ihren Sprachvarianten zur Realtime-Sprachoptimierung.
 
@@ -19,7 +19,7 @@ Dynamic Optimisation, powered by Jacquard X, nutzt Braze-Currents und Connected-
 | Anforderung | Beschreibung |
 |---|---|
 | Jacquard-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein [Jacquard-Konto](https://www.jacquard.com/). |
-| Jacquard Connect Server Token / Textbaustein | Ein langer String von Zeichen, der als Passwort für Ihre Braze-Campaign dient, um auf Ihre Jacquard-Sprache zuzugreifen.<br><br>Sie können dies bei Ihrem Jacquard CSM or Customer-Success-Manager or Customer-Success-Manager:in anfragen, falls Sie es nicht bereits erhalten haben. |
+| Jacquard Connect Server Token / Textbaustein | Ein langer String von Zeichen, der als Passwort für Ihre Braze-Campaign dient, um auf Ihre Jacquard-Sprache zuzugreifen.<br><br>Sie können dies bei Ihrem Jacquard CSM anfragen, falls Sie es nicht bereits erhalten haben. |
 | Currents | Um Daten zu Currents exportieren zu können, müssen Sie [Braze-Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) für Ihr Konto eingerichtet haben. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
@@ -27,14 +27,14 @@ Dynamic Optimisation, powered by Jacquard X, nutzt Braze-Currents und Connected-
 
 ### 1. Schritt: Jacquard Amazon S3-Anmeldedaten anfragen {#step-1-request-jacquard-amazon-s3-credentials}
 
-Sie benötigen Jacquard, um einen dedizierten Amazon S3-Bucket einzurichten, der Ihre Klick-Tracking-Ereignisse von Braze empfängt. Kontaktieren Sie Ihren Jacquard CSM or Customer-Success-Manager or Customer-Success-Manager:in, um diesen Prozess zu starten. Wenn der Bucket erstellt wurde, erhalten Sie eindeutige Zugangsdaten, um Ihren Current zu erstellen.
+Sie benötigen Jacquard, um einen dedizierten Amazon S3-Bucket einzurichten, der Ihre Klick-Tracking-Ereignisse von Braze empfängt. Kontaktieren Sie Ihren Jacquard CSM, um diesen Prozess zu starten. Wenn der Bucket erstellt wurde, erhalten Sie eindeutige Zugangsdaten, um Ihren Current zu erstellen.
 
 ### 2. Schritt: Current erstellen {#step-2-create-current}
 
 1. Wählen Sie in Braze **Currents > Neu erstellen > Amazon S3-Datenexport**.
 2. Benennen Sie dann Ihren Current und geben Sie eine Kontakt-E-Mail-Adresse ein.
 3. Fügen Sie Ihre Jacquard AWS-Zugriffsschlüssel-ID und den geheimen Zugriffsschlüssel in das Feld für die Zugangsdaten ein. Fügen Sie dann „phrasee-braze-currents-exports“ als AWS S3-Bucket-Name hinzu.
-4. Fügen Sie schließlich den AWS S3-Bucket-Ordner hinzu, den Sie von Ihrem Jacquard CSM or Customer-Success-Manager or Customer-Success-Manager:in erhalten haben. Es wird wahrscheinlich der Name Ihres Unternehmens sein.
+4. Fügen Sie schließlich den AWS S3-Bucket-Ordner hinzu, den Sie von Ihrem Jacquard CSM erhalten haben. Es wird wahrscheinlich der Name Ihres Unternehmens sein.
 5. Aktivieren Sie unter **Allgemeine Einstellungen** das Kästchen „Ereignisse von anonymen Nutzer:innen einbeziehen“ und unter **Engagement-Ereignisse verwalten** das Kästchen „E-Mail-Klick“.
 6. Wenn Sie fertig sind, wählen Sie **Current starten**.
 

@@ -90,7 +90,7 @@ Los siguientes filtros se aplican para cada canal al determinar los usuarios alc
 | --- | --- |
 | Correo electrónico | **Email Available** es verdadero. |
 | Push | **Foreground Push Enabled** es verdadero. |
-| servicio de mensajes cortos | **Subscription Group** es cualquier grupo de suscripción de servicio de mensajes cortos. **Invalid Phone Number** es falso. |
+| SMS | **Subscription Group** es cualquier grupo de suscripción de SMS. **Invalid Phone Number** es falso. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Filtros aplicados para usuarios alcanzables específicos por canal" }
 
 ## Cálculo de estadísticas exactas {#calculating-exact-statistics}

@@ -14,9 +14,9 @@ Da über dieses Feature auf PII-Daten zugegriffen werden kann, benötigen Sie PI
 
 Bei der Erstellung Ihrer SQL-Segmenterweiterung stehen zwei Arten von SQL-Editoren zur Auswahl: der SQL-Editor und der inkrementelle SQL-Editor.
 
-- **Vollständige Aktualisierung:** Bei jeder Aktualisierung Ihres Segments fragt Braze alle verfügbaren Daten ab, um Ihr Segment zu Update or aktualisieren or aktualisieren, was mehr Credits verbraucht als inkrementelle Aktualisierungen. Erweiterungen mit vollständiger Aktualisierung können die Mitgliedschaft täglich automatisch regenerieren, können jedoch nicht mit inkrementeller Aktualisierung aufgefrischt werden.
+- **Vollständige Aktualisierung:** Bei jeder Aktualisierung Ihres Segments fragt Braze alle verfügbaren Daten ab, um Ihr Segment zu aktualisieren, was mehr Credits verbraucht als inkrementelle Aktualisierungen. Erweiterungen mit vollständiger Aktualisierung können die Mitgliedschaft täglich automatisch regenerieren, können jedoch nicht mit inkrementeller Aktualisierung aufgefrischt werden.
 - **Inkrementelle Aktualisierung:** Die inkrementelle Aktualisierung ist eine kostengünstigere Methode, Ihre Abfrage einzurichten, obwohl die Einrichtung einige zusätzliche [Schritte](#step-2-write-your-sql) umfasst. Wenn Sie diese zusätzlichen Schritte bei der Erstellung Ihres Segments durchführen können, lohnt es sich, diese Option zu wählen, da Ihre Abfrage mit weniger Credits ausgeführt wird.
-- **KI or künstliche Intelligenz-SQL-Generator:** Der KI or künstliche Intelligenz-SQL-Generator ermöglicht es Ihnen, einen Prompt in natürlicher Sprache zu verfassen und diesen in eine SQL-Abfrage für Ihr Segment umzuwandeln. Es ist eine schnelle Möglichkeit, loszulegen, ohne selbst SQL schreiben zu müssen.
+- **KI-SQL-Generator:** Der KI-SQL-Generator ermöglicht es Ihnen, einen Prompt in natürlicher Sprache zu verfassen und diesen in eine SQL-Abfrage für Ihr Segment umzuwandeln. Es ist eine schnelle Möglichkeit, loszulegen, ohne selbst SQL schreiben zu müssen.
 
 {% alert tip %}
 Sie können bei allen in beiden SQL-Editoren erstellten SQL-Segments eine manuelle vollständige Aktualisierung durchführen.
@@ -51,19 +51,19 @@ So erstellen Sie eine SQL-Segmenterweiterung mit inkrementeller Aktualisierung:
 
 {% endtab %}
 
-{% tab KI or künstliche Intelligenz-SQL-Generator %}
+{% tab KI-SQL-Generator %}
 
 {% alert note %}
-Der KI or künstliche Intelligenz-SQL-Generator ist derzeit als Beta-Feature verfügbar. Wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in, wenn Sie an diesem Beta-Test teilnehmen möchten.
+Der KI-SQL-Generator ist derzeit als Beta-Feature verfügbar. Wenden Sie sich an Ihren CSM, wenn Sie an diesem Beta-Test teilnehmen möchten.
 {% endalert %}
 
-Der KI or künstliche Intelligenz-SQL-Generator nutzt [GPT](https://openai.com/gpt-4), unterstützt durch OpenAI, um SQL für Ihr SQL-Segment zu empfehlen.
+Der KI-SQL-Generator nutzt [GPT](https://openai.com/gpt-4), unterstützt durch OpenAI, um SQL für Ihr SQL-Segment zu empfehlen.
 
 ![KI-SQL-Generator mit dem Prompt „Users that received a notification last month“]({% image_buster /assets/img/ai_sql_generator.png %}){: style="max-width:70%;"}
 
-So verwenden Sie den KI or künstliche Intelligenz-SQL-Generator:
+So verwenden Sie den KI-SQL-Generator:
 
-1. Wählen Sie **KI or künstliche Intelligenz-SQL-Generator starten**, nachdem Sie ein [SQL-Segment]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) mit vollständiger oder inkrementeller Aktualisierung erstellt haben.
+1. Wählen Sie **KI-SQL-Generator starten**, nachdem Sie ein [SQL-Segment]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) mit vollständiger oder inkrementeller Aktualisierung erstellt haben.
 2. Geben Sie Ihren Prompt ein und wählen Sie **Generieren**, um Ihren Prompt in SQL umzuwandeln.
 3. Überprüfen Sie das generierte SQL, um sicherzustellen, dass es korrekt aussieht, und speichern Sie dann Ihr Segment.
 
@@ -76,7 +76,7 @@ So verwenden Sie den KI or künstliche Intelligenz-SQL-Generator:
 
 - Machen Sie sich mit den verfügbaren [Snowflake-Datentabellen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables) vertraut. Wenn Sie nach Daten fragen, die in diesen Tabellen nicht vorhanden sind, kann ChatGPT eine fiktive Tabelle erstellen.
 - Machen Sie sich mit den [SQL-Schreibregeln]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments?tab=sql%20editor#writing-sql) für dieses Feature vertraut. Ein Nichtbeachten dieser Regeln führt zu einem Fehler. Ihr SQL-Code muss beispielsweise die Spalte `user_id` auswählen. Es kann helfen, Ihren Prompt mit „users who“ zu beginnen.
-- Sie können bis zu 20 Prompts pro Minute mit dem KI or künstliche Intelligenz-SQL-Generator senden.
+- Sie können bis zu 20 Prompts pro Minute mit dem KI-SQL-Generator senden.
 
 ##{% multi_lang_include brazeai/generative_ai/policy.md %}
 
@@ -87,7 +87,7 @@ So verwenden Sie den KI or künstliche Intelligenz-SQL-Generator:
 SQL-Abfragen, deren Ausführung länger als 20 Minuten dauert, werden aufgrund einer Zeitüberschreitung abgebrochen.
 {% endalert %}
 
-Wenn die Verarbeitung der Erweiterung abgeschlossen ist, können Sie [ein Segment erstellen]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension#step-5-use-your-extension-in-a-segment), das Ihre Segmenterweiterung verwendet, und dieses neue Segment mit Ihren Campaigns und Canvase ansprechen.
+Wenn die Verarbeitung der Erweiterung abgeschlossen ist, können Sie [ein Segment erstellen]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension#step-5-use-your-extension-in-a-segment), das Ihre Segmenterweiterung verwendet, und dieses neue Segment mit Ihren Campaigns und Canvases ansprechen.
 
 ### Schritt 2: SQL schreiben {#step-2-write-your-sql}
 
@@ -139,7 +139,7 @@ Im folgenden Beispiel würde das resultierende Segment Nutzer:innen enthalten, d
 ![SQL-Vorschau einer inkrementellen SQL-Segmenterweiterung.]({% image_buster /assets/img_archive/sql_segments_incremental_preview.png %}){: style="max-width:85%" }
 
 {% alert tip %}
-Segmente mit inkrementeller Aktualisierung berücksichtigen verspätete Ereignisse, also Ereignisse, die vor mehr als 2 Tagen stattfanden (beispielsweise SDK or Software-Development-Kit-Ereignisse, die zum Zeitpunkt der Erfassung nicht gesendet wurden).
+Segmente mit inkrementeller Aktualisierung berücksichtigen verspätete Ereignisse, also Ereignisse, die vor mehr als 2 Tagen stattfanden (beispielsweise SDK-Ereignisse, die zum Zeitpunkt der Erfassung nicht gesendet wurden).
 {% endalert %}
 
 #### Zusätzliche Regeln
@@ -174,7 +174,7 @@ Für inkrementelle SQL-Segmenterweiterungen enthält die Vorschau nicht die zus�
 Bestimmen Sie als Nächstes, ob Sie SQL invertieren müssen. Obwohl es nicht möglich ist, direkt nach Nutzer:innen mit null Ereignissen zu suchen, können Sie **SQL invertieren** verwenden, um diese Nutzer:innen anzusprechen.
 
 {% alert note %}
-Standardmäßig ist **SQL invertieren** nicht aktiviert. Wenn Sie jedoch den KI or künstliche Intelligenz-SQL-Generator verwenden, um eine SQL-Anweisung zu generieren, die negiert werden muss, kann ChatGPT eine Ausgabe zurückgeben, die dieses Feature automatisch aktiviert.
+Standardmäßig ist **SQL invertieren** nicht aktiviert. Wenn Sie jedoch den KI-SQL-Generator verwenden, um eine SQL-Anweisung zu generieren, die negiert werden muss, kann ChatGPT eine Ausgabe zurückgeben, die dieses Feature automatisch aktiviert.
 {% endalert %}
 
 Um beispielsweise Nutzer:innen mit weniger als drei Käufen anzusprechen, schreiben Sie zunächst eine Abfrage, die Nutzer:innen mit drei oder mehr Käufen auswählt. Wählen Sie dann **SQL invertieren**, um Nutzer:innen mit weniger als drei Käufen (einschließlich derjenigen mit null Käufen) anzusprechen.
@@ -187,17 +187,17 @@ Sofern Sie nicht gezielt Nutzer:innen mit null Ereignissen ansprechen möchten, 
 
 ## Aktualisierung der Segmentzugehörigkeit {#refreshing-segment-membership}
 
-Um die Segmentzugehörigkeit einer Segmenterweiterung zu Update or aktualisieren or aktualisieren, die mit SQL erstellt wurde, öffnen Sie die Segmenterweiterung und wählen Sie **Update or aktualisieren or aktualisieren** aus.
+Um die Segmentzugehörigkeit einer Segmenterweiterung zu aktualisieren, die mit SQL erstellt wurde, öffnen Sie die Segmenterweiterung und wählen Sie **Aktualisieren** aus.
 
 {% alert tip %}
-Wenn Sie ein Segment erstellt haben, in das Nutzer:innen voraussichtlich regelmäßig eintreten und wieder austreten, Update or aktualisieren or aktualisieren Sie die verwendete Segmenterweiterung manuell, bevor Sie dieses Segment in einer Campaign oder einem Canvas als Zielgruppe verwenden.
+Wenn Sie ein Segment erstellt haben, in das Nutzer:innen voraussichtlich regelmäßig eintreten und wieder austreten, aktualisieren Sie die verwendete Segmenterweiterung manuell, bevor Sie dieses Segment in einer Campaign oder einem Canvas als Zielgruppe verwenden.
 {% endalert %}
 
 ## Verwalten Ihrer Segmenterweiterungen {#managing-your-segment-extensions}
 
 Auf der Seite **Segmenterweiterungen** werden Segments, die mit SQL generiert wurden, mit <i class="fas fa-code" alt="SQL-Segmenterweiterung"></i> neben ihrem Namen gekennzeichnet.
 
-Wählen Sie eine SQL-Segmenterweiterung aus, um anzuzeigen, wo die Erweiterung verwendet wird, die Erweiterung zu archivieren oder die [Segment-Mitgliedschaft manuell zu Update or aktualisieren or aktualisieren](#refreshing-segment-membership).
+Wählen Sie eine SQL-Segmenterweiterung aus, um anzuzeigen, wo die Erweiterung verwendet wird, die Erweiterung zu archivieren oder die [Segment-Mitgliedschaft manuell zu aktualisieren](#refreshing-segment-membership).
 
 ![Abschnitt „Messaging-Nutzung“ des SQL-Editors, der zeigt, wo das SQL-Segment verwendet wird.]({% image_buster /assets/img_archive/sql_segments_usage.png %}){: style="max-width:70%;"}
 
@@ -207,7 +207,7 @@ Wählen Sie eine SQL-Segmenterweiterung aus, um anzuzeigen, wo die Erweiterung v
 
 ## Snowflake-Credits {#credits}
 
-Jeder Braze Workspace verfügt über 5 Snowflake-Credits pro Monat. Wenn Sie mehr Credits benötigen, wenden Sie sich an Ihren Account Manager:in. Credits werden immer dann verbraucht, wenn Sie die Mitgliedschaft eines SQL-Segments Update or aktualisieren or aktualisieren oder speichern und Update or aktualisieren or aktualisieren. Credits werden nicht verbraucht, wenn Sie Vorschauen innerhalb eines SQL-Segments ausführen oder eine klassische Segmenterweiterung speichern oder Update or aktualisieren or aktualisieren.
+Jeder Braze Workspace verfügt über 5 Snowflake-Credits pro Monat. Wenn Sie mehr Credits benötigen, wenden Sie sich an Ihren Account Manager:in. Credits werden immer dann verbraucht, wenn Sie die Mitgliedschaft eines SQL-Segments aktualisieren oder speichern und aktualisieren. Credits werden nicht verbraucht, wenn Sie Vorschauen innerhalb eines SQL-Segments ausführen oder eine klassische Segmenterweiterung speichern oder aktualisieren.
 
 {% alert note %}
 Snowflake-Credits werden nicht zwischen Features geteilt. So sind beispielsweise Credits für SQL-Segmenterweiterungen und den Abfrage-Builder unabhängig voneinander.
@@ -223,8 +223,8 @@ Ihre Credits werden am ersten eines jeden Monats um 12 Uhr UTC auf 5 zurückgese
 
 Wenn Ihre Credits null erreichen, geschieht Folgendes:
 
-- Alle SQL-Segmenterweiterungen, die für automatische Aktualisierung eingerichtet sind, werden nicht mehr aktualisiert, was sich auf die Mitgliedschaft in diesen Segmenten und auf alle Campaigns oder Canvase auswirkt, die auf diese Segmente abzielen.
-- Sie können neue SQL-Segmenterweiterungen nur noch für den Representational State Transfer des Monats als Entwurf speichern.
+- Alle SQL-Segmenterweiterungen, die für automatische Aktualisierung eingerichtet sind, werden nicht mehr aktualisiert, was sich auf die Mitgliedschaft in diesen Segmenten und auf alle Campaigns oder Canvases auswirkt, die auf diese Segmente abzielen.
+- Sie können neue SQL-Segmenterweiterungen nur noch für den Rest des Monats als Entwurf speichern.
 
 Alle Unternehmensnutzer:innen, die ein SQL-Segment erstellt haben, und Ihre Unternehmensadministrator:innen erhalten eine Benachrichtigungs-E-Mail, wenn Sie 50 %, 80 % und 100 % Ihrer Credits verbraucht haben. Nachdem Ihre Credits zu Beginn des nächsten Monats zurückgesetzt wurden, können Sie weitere SQL-Segmente erstellen, und die automatischen Aktualisierungen werden wieder aufgenommen.
 

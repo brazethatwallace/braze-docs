@@ -23,8 +23,8 @@ A integração entre a Braze e a OneTrust permite que você use o construtor de 
 | Requisitos | Descrição |
 |---|---|
 | Conta OneTrust | Uma conta [OneTrust](https://www.onetrust.com/) para aproveitar esta parceria. |
-| Chave de API or interface de programação do aplicativo (API) da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com as permissões necessárias para o endpoint que sua ação da OneTrust usará.<br><br>Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
-| Instância da Braze | Sua instância da Braze pode ser obtida com seu gerente de integração da Braze ou pode ser encontrada na [página de visão geral da API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics/#endpoints). |
+| Chave de API da Braze | Uma chave da API REST da Braze com as permissões necessárias para o endpoint que sua ação da OneTrust usará.<br><br>Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Instância da Braze | Sua instância da Braze pode ser obtida com seu gerente de integração da Braze ou pode ser encontrada na [página de visão geral da API]({{site.baseurl}}/api/basics/#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
@@ -51,14 +51,14 @@ Siga as instruções na tela **Enter Credential Details** e forneça as seguinte
 {% tabs %}
 {% tab User Consent Update %}
 1. No menu de integrações da OneTrust, navegue até **Gallery** > **Braze** > **Add** para criar um novo fluxo de trabalho.![Galeria da OneTrust mostrando a integração com a Braze e um botão Add.]({% image_buster /assets/img/onetrust/onetrust.png %})<br><br>
-2. Forneça um nome e um e-mail de notificação no modal de fluxo de trabalho. Clique no botão **Create**. Na criação, você será direcionado ao construtor de fluxo de trabalho. Seu fluxo de trabalho da Braze será preenchido com chamadas de API or interface de programação do aplicativo (API) e ações que podem ser usadas para processar solicitações de exclusão. <br><br>
+2. Forneça um nome e um e-mail de notificação no modal de fluxo de trabalho. Clique no botão **Create**. Na criação, você será direcionado ao construtor de fluxo de trabalho. Seu fluxo de trabalho da Braze será preenchido com chamadas de API e ações que podem ser usadas para processar solicitações de exclusão. <br><br>
 3. No construtor de fluxo de trabalho, escolha a ação que você deseja disparar no fluxo de trabalho.<br>![Construtor de fluxo de trabalho da OneTrust para um evento de atualização de consentimento do titular dos dados.]({% image_buster /assets/img/onetrust/onetrust2.png %})
 
 {% endtab %}
 {% tab User Deletion %}
 
 1. No menu de integrações da OneTrust, navegue até **Gallery** > **Braze** > **Add** para criar um novo fluxo de trabalho.![Galeria da OneTrust mostrando a integração com a Braze e um botão Add.]({% image_buster /assets/img/onetrust/onetrust.png %})<br><br>
-2. Forneça um nome e um e-mail de notificação no modal de fluxo de trabalho. Clique no botão **Create**. Na criação, você será direcionado ao construtor de fluxo de trabalho. Seu fluxo de trabalho da Braze será preenchido com chamadas de API or interface de programação do aplicativo (API) e ações que podem ser usadas para processar solicitações de exclusão. <br><br>
+2. Forneça um nome e um e-mail de notificação no modal de fluxo de trabalho. Clique no botão **Create**. Na criação, você será direcionado ao construtor de fluxo de trabalho. Seu fluxo de trabalho da Braze será preenchido com chamadas de API e ações que podem ser usadas para processar solicitações de exclusão. <br><br>
 3. No construtor de fluxo de trabalho, escolha a ação que você deseja disparar no fluxo de trabalho.<br>![Construtor de fluxo de trabalho da OneTrust para um evento de exclusão do titular dos dados.]({% image_buster /assets/img/onetrust/onetrust8.png %})
 {% endtab %}
 {% endtabs %}

@@ -126,7 +126,7 @@ Die folgende Tabelle listet häufige Fehler für diesen Endpunkt und wie sie beh
 | `404` | Typ oder Objekt nicht gefunden | Bestätigen Sie, dass sowohl `type_name` als auch `external_id` im Workspace vorhanden sind. |
 | `409` | Doppelte Beziehung (`duplicate-user-relationship`) | Verwenden Sie `PUT`, um die bestehende Beziehung zu ersetzen, oder löschen Sie sie, bevor Sie sie erneut erstellen. |
 | `422` | Limit für Objekte pro Nutzer:in erreicht (`data-objects-per-user-limit-exceeded`) oder Limit für Nutzer:innen pro Objekt erreicht (`users-per-data-object-limit-exceeded`) | Reduzieren Sie die Anzahl der Beziehungen für die:den Nutzer:in oder das Objekt, oder wenden Sie sich an den Braze-Support bezüglich Ihrer Workspace-Limits. |
-| `401` | Fehlender oder ungültiger Representational State Transfer-API-Schlüssel | Überprüfen Sie, ob der `Authorization`-Header `Bearer YOUR_REST_API_KEY` verwendet und der Schlüssel aktiv ist. |
+| `401` | Fehlender oder ungültiger REST-API-Schlüssel | Überprüfen Sie, ob der `Authorization`-Header `Bearer YOUR_REST_API_KEY` verwendet und der Schlüssel aktiv ist. |
 | `403` | API-Schlüssel hat keine Berechtigung oder die Anfrage wird durch eine Allowlist blockiert | Bestätigen Sie, dass der Schlüssel die Berechtigung `data_objects.user_relationships.create` hat und dass Ihre Quell-IP auf der Schlüssel-Allowlist steht, falls konfiguriert. |
 | `429` | Rate-Limit überschritten | Versuchen Sie es nach `X-RateLimit-Reset` erneut und reduzieren Sie die Anfragehäufigkeit. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fehler bei Nutzer:innen-Beziehung erstellen" }

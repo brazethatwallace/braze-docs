@@ -7,7 +7,7 @@ layout: api_page
 page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint Atualizar relacionamento de usuário."
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Atualizar relacionamento de usuário {#update-user-relationship}
 {% apimethod patch %}
 /data_objects/objects/{type_name}/{external_id}/users
@@ -16,12 +16,12 @@ description: "Este artigo descreve detalhes sobre o endpoint Atualizar relaciona
 > Use este endpoint para mesclar atributos em um relacionamento de usuário existente.
 
 {% alert important %}
-Data Objects está atualmente em acesso antecipado. Seu espaço de trabalho precisa estar ativado antes que as permissões de chave de API or interface de programação do aplicativo (API) de Data Objects apareçam em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**.
+Data Objects está atualmente em acesso antecipado. Seu espaço de trabalho precisa estar ativado antes que as permissões de chave de API de Data Objects apareçam em **Configurações** > **Chaves de API**.
 {% endalert %}
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisa de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `data_objects.user_relationships.update`.
+Para usar este endpoint, você precisa de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `data_objects.user_relationships.update`.
 
 ## Limite de frequência {#rate-limit}
 
@@ -124,8 +124,8 @@ A tabela a seguir lista os erros comuns para este endpoint e como resolvê-los.
 |---|---|---|
 | `400` | Erro de validação | Confirme se `rel_kind` é válido para o tipo de objeto e se `attributes` corresponde ao esquema do relacionamento. |
 | `404` | Relacionamento não encontrado (`data-object-relationship-not-found`) | Confirme se o objeto, o usuário e os valores de chave do relacionamento existem. |
-| `401` | Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional ausente ou inválida | Verifique se o cabeçalho `Authorization` usa `Bearer YOUR_REST_API_KEY` e se a chave está ativa. |
-| `403` | A chave de API or interface de programação do aplicativo (API) não tem permissão ou a requisição está bloqueada pela lista de permissões | Confirme se a chave possui `data_objects.user_relationships.update` e se o IP de origem está na lista de permissões da chave, se configurada. |
+| `401` | Chave da API REST ausente ou inválida | Verifique se o cabeçalho `Authorization` usa `Bearer YOUR_REST_API_KEY` e se a chave está ativa. |
+| `403` | A chave de API não tem permissão ou a requisição está bloqueada pela lista de permissões | Confirme se a chave possui `data_objects.user_relationships.update` e se o IP de origem está na lista de permissões da chave, se configurada. |
 | `429` | Limite de frequência excedido | Tente novamente após `X-RateLimit-Reset` e reduza a frequência das requisições. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Erros do endpoint de atualizar relacionamento de usuário" }
 {% endapi %}

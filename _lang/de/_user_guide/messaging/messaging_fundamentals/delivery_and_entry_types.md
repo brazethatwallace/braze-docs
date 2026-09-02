@@ -3,7 +3,7 @@ nav_title: Zustellungs- und Eingangstypen
 article_title: Zustellungs- und Eingangstypen
 page_order: 5
 page_type: reference
-description: "Dieser Referenzartikel beschreibt die Zustellungstypen für Kampagnen, Eingangstypen für Canvase und die zeitbasierten Features beim Einrichten einer Kampagne oder eines Canvas."
+description: "Dieser Referenzartikel beschreibt die Zustellungstypen für Kampagnen, Eingangstypen für Canvases und die zeitbasierten Features beim Einrichten einer Kampagne oder eines Canvas."
 tool:
     - Campaigns
     - Canvas
@@ -18,8 +18,8 @@ Bei Kampagnen bestimmt der Zustellungstyp, wann Ihre Nutzer:innen in Ihre Kampag
 | Zustellungs-<nobr> und Eingangstypen | Beschreibung |
 |---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Geplant** | Dieser Zeitplantyp ist für einmalige Nachrichten konzipiert, die Sie sofort senden möchten, z. B. Kampagnen zu einem aktuellen Ereignis. <br><br>Wenn Sie Testnachrichten senden, die nur an Sie selbst oder Ihr Team gerichtet sind, können Sie diese mit dieser Option sofort zustellen. |
-| **Aktionsbasiert** | Aktionsbasierte Zustellungsnachrichten oder ereignisgetriggerte Kampagnen und Canvase sind sehr effektiv für transaktionale oder leistungsbasierte Nachrichten. Sie können sie so Trigger or triggern or triggern, dass sie gesendet werden, nachdem ein:e Nutzer:in eine bestimmte Aktion abgeschlossen hat, anstatt Ihre Nachricht an bestimmten Tagen zu senden. |
-| **API-getriggert** | API-getriggerte Nachrichten ermöglichen es Ihnen, Nachrichteninhalte, multivariate Tests und Regeln zur erneuten Berechtigung im Braze-Dashboard zu verwalten und gleichzeitig die Zustellung dieser Inhalte über Ihre eigenen Server und Systeme zu Trigger or triggern or triggern. <br><br>Die API-Anfrage zum Trigger or triggern or triggern der Nachricht kann auch zusätzliche Daten enthalten, die in Realtime in die Nachricht eingebunden werden. |
+| **Aktionsbasiert** | Aktionsbasierte Zustellungsnachrichten oder ereignisgetriggerte Kampagnen und Canvases sind sehr effektiv für transaktionale oder leistungsbasierte Nachrichten. Sie können sie so triggern, dass sie gesendet werden, nachdem ein:e Nutzer:in eine bestimmte Aktion abgeschlossen hat, anstatt Ihre Nachricht an bestimmten Tagen zu senden. |
+| **API-getriggert** | API-getriggerte Nachrichten ermöglichen es Ihnen, Nachrichteninhalte, multivariate Tests und Regeln zur erneuten Berechtigung im Braze-Dashboard zu verwalten und gleichzeitig die Zustellung dieser Inhalte über Ihre eigenen Server und Systeme zu triggern. <br><br>Die API-Anfrage zum Triggern der Nachricht kann auch zusätzliche Daten enthalten, die in Realtime in die Nachricht eingebunden werden. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Zustellungs- und Eingangstypen" }
 
 ## Zeitbasierte Optionen {#time-based-options}
@@ -38,7 +38,7 @@ Bei der geplanten Zustellung treten Nutzer:innen nach einem Zeitplan ein, ähnli
 
 ### Festgelegte Zeitpunkte {#designated-times}
 
-Sie können wählen, Ihren Canvas mit einer bestimmten Eingangshäufigkeit zu senden, einschließlich einmalig, täglich, wöchentlich oder monatlich. Für Canvase mit einer wiederkehrenden geplanten Zustellung können Sie die Wiederholung so einstellen, dass Nutzer:innen den Canvas bis zu 30 festgelegte Male betreten können.
+Sie können wählen, Ihren Canvas mit einer bestimmten Eingangshäufigkeit zu senden, einschließlich einmalig, täglich, wöchentlich oder monatlich. Für Canvases mit einer wiederkehrenden geplanten Zustellung können Sie die Wiederholung so einstellen, dass Nutzer:innen den Canvas bis zu 30 festgelegte Male betreten können.
 {% endtab %}
 {% endtabs %}
 
@@ -50,7 +50,7 @@ Die aktionsbasierte Zustellung sendet Kampagnen an Nutzer:innen, die eine bestim
 {% endtab %}
 
 {% tab Canvas %}
-Die aktionsbasierten Optionen bestimmen, welche Aktionen (oder Trigger or triggern) ein:e Nutzer:in ausführen muss, um in einen Canvas einzutreten, und zu welchem genauen Zeitpunkt der Eintritt möglich ist. Sie könnten Ihre Nutzer:innen beispielsweise anhand der folgenden Aktionen bewerten:
+Die aktionsbasierten Optionen bestimmen, welche Aktionen (oder Trigger) ein:e Nutzer:in ausführen muss, um in einen Canvas einzutreten, und zu welchem genauen Zeitpunkt der Eintritt möglich ist. Sie könnten Ihre Nutzer:innen beispielsweise anhand der folgenden Aktionen bewerten:
 
 - Öffnen Ihrer App
 - Hinzufügen einer E-Mail-Adresse
@@ -62,7 +62,7 @@ Das Eingangsfenster Ihres Canvas bestimmt, welche Nutzer:innen den Canvas zur fe
 {% endtab %}
 {% endtabs %}
 
-## API-Trigger or triggern-Optionen {#api-trigger-options}
+## API-Trigger-Optionen {#api-trigger-options}
 
 {% tabs %}
 {% tab Campaign %}

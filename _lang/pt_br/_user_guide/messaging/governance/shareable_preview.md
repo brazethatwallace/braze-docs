@@ -65,7 +65,7 @@ A prévia compartilhável não está disponível para mensagens no app.
 
 | Canal | O que é diferente |
 |---|---|
-| E-mail | A prévia inclui os campos Para, De e linha de assunto da mensagem, além do corpo da mensagem. <br><br>Se você está personalizando como um usuário personalizado, valores inseridos como propriedades de disparo de API or interface de programação do aplicativo (API) ou propriedades de evento podem não aparecer na prévia, mesmo que sejam exibidos corretamente em **prévia and Test**. Atributos personalizados, usuários teste e usuários aleatórios não são afetados. |
+| E-mail | A prévia inclui os campos Para, De e linha de assunto da mensagem, além do corpo da mensagem. <br><br>Se você está personalizando como um usuário personalizado, valores inseridos como propriedades de disparo de API ou propriedades de evento podem não aparecer na prévia, mesmo que sejam exibidos corretamente em **prévia and Test**. Atributos personalizados, usuários teste e usuários aleatórios não são afetados. |
 | Banner (editor de arrastar e soltar) | A prévia reflete o conteúdo da última vez que você abriu a guia **prévia** no criador, não necessariamente suas edições mais recentes. <br><br>Abra **prévia** novamente antes de gerar ou regenerar um link para garantir que esteja atualizado. |
 | SMS e RCS | Ambos são regidos pela mesma funcionalidade de prévia compartilhável, mas cada um gera seu próprio link independente. |
 | WhatsApp | A prévia compartilhável está disponível separadamente para mensagens de modelo do WhatsApp e mensagens de resposta do WhatsApp. |

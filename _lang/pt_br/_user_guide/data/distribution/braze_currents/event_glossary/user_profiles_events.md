@@ -9,10 +9,10 @@ tool: Currents
 search_rank: 7
 ---
 
-<div class="API or interface de programação do aplicativo (API)-glossary-preamble" markdown="1">
+<div class="api-glossary-preamble" markdown="1">
 
 {% alert tip %}
-Esses eventos também estão disponíveis como tabelas SQL no [Criador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder), nas [Extensões de Segment or segmento or segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) e no [Compartilhamento de dados Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Para esquemas de tabelas SQL e detalhes de colunas, consulte a [referência de tabelas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables). Para esquemas de Compartilhamento de dados Snowflake para visualizações de atributos de perfil de usuário, consulte [Atributos de perfil de usuário]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/user_attributes).
+Esses eventos também estão disponíveis como tabelas SQL no [Criador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder), nas [Extensões de Segment SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) e no [Compartilhamento de dados Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Para esquemas de tabelas SQL e detalhes de colunas, consulte a [referência de tabelas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables). Para esquemas de Compartilhamento de dados Snowflake para visualizações de atributos de perfil de usuário, consulte [Atributos de perfil de usuário]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/user_attributes).
 {% endalert %}
 
 Entre em contato com seu representante da Braze ou abra um [ticket de suporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) se precisar de acesso a direitos de eventos adicionais. Se você não encontrar o que precisa nesta página, consulte a [Biblioteca de eventos de comportamento do cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events), a [Biblioteca de eventos de engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) ou os [exemplos de dados de amostra do Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
@@ -36,7 +36,7 @@ O Currents descarta eventos com cargas úteis maiores que 900 KB.
 <!--overview-end-->
 
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 ## Eventos de solicitação de exclusão de usuário {#user-delete-request-events}
 
 {% apitags %}
@@ -80,7 +80,7 @@ Quando um usuário é excluído por solicitação do cliente.
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 ## Eventos de usuário órfão {#user-orphan-events}
 
 {% apitags %}
@@ -132,7 +132,7 @@ Quando um usuário se torna órfão, ou seja, o perfil do usuário é mesclado c
 
 {% endapi %}
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 ## Eventos de atualização de perfil de usuário {#user-profile-update-events}
 
 {% apitags %}
@@ -142,7 +142,7 @@ Profile
 Isso representa as atualizações de perfil de um usuário.
 
 {% alert important %}
-O evento de atualização de perfil de usuário está em beta. Entre em contato com seu gerente de sucesso do cliente ou gerente de conta para obter acesso.
+O evento de atualização de perfil de usuário está em beta. Entre em contato com seu CSM ou gerente de conta para obter acesso.
 {% endalert %}
 
 {% tabs %}

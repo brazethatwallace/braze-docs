@@ -24,7 +24,7 @@ Use este relatório para responder a perguntas importantes sobre engajamento, co
 - Quais notificações por push dentro deste Canvas tiveram as maiores taxas de abertura?
 - Quais etapas neste grupo de Canvas tiveram mais conversões?
 - A Versão 1 de um e-mail de boas-vindas ou a Versão 2 gerou maior engajamento e conversão? As mudanças funcionaram?
-- Como diferentes métodos de entrega (por exemplo, 3 pushes agendados, 3 pushes baseados em ação e 3 pushes disparados por API or interface de programação do aplicativo (API)) impactam suas taxas de abertura, taxas de conversão ou taxas de compra?
+- Como diferentes métodos de entrega (por exemplo, 3 pushes agendados, 3 pushes baseados em ação e 3 pushes disparados por API) impactam suas taxas de abertura, taxas de conversão ou taxas de compra?
 - As melhorias contínuas nas mensagens para usuários inativos impactaram positivamente seus KPIs ao longo do tempo?
 
 {% alert tip %}

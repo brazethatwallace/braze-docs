@@ -18,11 +18,11 @@ Nein. Der Shopify-Katalog ist in Braze schreibgeschützt. Manuelle Änderungen k
 
 ### Wie lösche ich meinen Shopify-Katalog? {#how-do-i-delete-my-shopify-catalog}
 
-Um Ihren Shopify-Katalog zu löschen, deaktivieren Sie die Synchronisation auf der Shopify-Partnerseite. Löschen Sie den Katalog nicht direkt über die Seite **Kataloge**. Durch das Deaktivieren wird Ihr gesamter Katalog entfernt, einschließlich aller synchronisierten Tags, Kollektionen und Metafeld-Daten. Bevor Sie deaktivieren, Update or aktualisieren or aktualisieren oder pausieren Sie alle Campaigns oder Canvase, die auf diesen Katalog verweisen, da diese Nachrichten mit fehlenden Produktdetails senden könnten.
+Um Ihren Shopify-Katalog zu löschen, deaktivieren Sie die Synchronisation auf der Shopify-Partnerseite. Löschen Sie den Katalog nicht direkt über die Seite **Kataloge**. Durch das Deaktivieren wird Ihr gesamter Katalog entfernt, einschließlich aller synchronisierten Tags, Kollektionen und Metafeld-Daten. Bevor Sie deaktivieren, aktualisieren oder pausieren Sie alle Campaigns oder Canvases, die auf diesen Katalog verweisen, da diese Nachrichten mit fehlenden Produktdetails senden könnten.
 
 ### Was passiert, wenn ich ein zuvor synchronisiertes Produkt oder Produktfeld in Shopify lösche? {#what-happens-if-i-delete-a-previously-synced-product-or-product-field-in-shopify}
 
-Braze entfernt das Produkt oder Feld automatisch aus Ihrem Shopify-Katalog, sobald die Löschung erkannt wird. Allerdings werden alle Campaigns, Canvase oder Segments, die auf das gelöschte Produkt oder Feld verweisen, nicht mehr funktionieren. Stellen Sie vor dem Löschen von Produkten oder Feldern in Shopify sicher, dass diese nicht aktiv in Braze verwendet werden.
+Braze entfernt das Produkt oder Feld automatisch aus Ihrem Shopify-Katalog, sobald die Löschung erkannt wird. Allerdings werden alle Campaigns, Canvases oder Segments, die auf das gelöschte Produkt oder Feld verweisen, nicht mehr funktionieren. Stellen Sie vor dem Löschen von Produkten oder Feldern in Shopify sicher, dass diese nicht aktiv in Braze verwendet werden.
 
 ### Wie ändere ich meine Katalog-ID (Produktbezeichner)? {#how-do-i-change-my-catalog-id-product-identifier}
 
@@ -30,7 +30,7 @@ Um Ihre Katalog-ID zu ändern, deaktivieren Sie zunächst die Synchronisation un
 
 ### Wirkt sich eine Änderung meiner synchronisierten Tags, Kollektionen oder Metafelder auf aktive Campaigns aus? {#will-changing-my-synced-tags-collections-or-metafields-affect-active-campaigns}
 
-Ja. Das Ändern Ihrer synchronisierten Auswahl kann sich auf aktive Campaigns, Canvase oder [Katalogselektionen]({{site.baseurl}}/catalog_selections) auswirken, die darauf verweisen. Überprüfen Sie, ob Ihre aktiven Inhalte aktualisiert sind, bevor Sie Änderungen vornehmen.
+Ja. Das Ändern Ihrer synchronisierten Auswahl kann sich auf aktive Campaigns, Canvases oder [Katalogselektionen]({{site.baseurl}}/catalog_selections) auswirken, die darauf verweisen. Überprüfen Sie, ob Ihre aktiven Inhalte aktualisiert sind, bevor Sie Änderungen vornehmen.
 
 ### Wie lange dauert die initiale Synchronisation? {#how-long-does-the-initial-sync-take}
 
@@ -48,7 +48,7 @@ Sie können bis zu 20 von jedem pro Konfiguration synchronisieren:
 
 ### Was passiert, wenn ein Produkt zu mehr als 250 Sammlungen gehört? {#what-if-a-product-belongs-to-more-than-250-collections}
 
-Shopify erlaubt es Produkten, zu mehr als 250 Sammlungen zu gehören, aber Braze kann nur die ersten 250 Sammlungszuordnungen pro Produkt abrufen. Wenn ein Produkt zu einer ausgewählten Sammlung gehört, die außerhalb der ersten 250 abgerufenen liegt, wird diese Zuordnung nicht in Ihrem Shopify-Katalog widergespiegelt. Wenn Ihnen fehlende Sammlungszuordnungen auffallen, wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in.
+Shopify erlaubt es Produkten, zu mehr als 250 Sammlungen zu gehören, aber Braze kann nur die ersten 250 Sammlungszuordnungen pro Produkt abrufen. Wenn ein Produkt zu einer ausgewählten Sammlung gehört, die außerhalb der ersten 250 abgerufenen liegt, wird diese Zuordnung nicht in Ihrem Shopify-Katalog widergespiegelt. Wenn Ihnen fehlende Sammlungszuordnungen auffallen, wenden Sie sich an Ihren CSM.
 
 ### Warum sehe ich nicht alle meine Sammlungen im Konfigurationsmodal? {#why-dont-i-see-all-my-collections-in-the-configuration-modal}
 
@@ -80,4 +80,4 @@ Tags werden direkt von Shopify abgerufen, wenn Sie das Konfigurationsmodal öffn
 
 ### Wirkt sich das Synchronisieren zusätzlicher Produktdaten auf meinen Katalogspeicher aus? {#will-syncing-additional-product-data-affect-my-catalog-storage}
 
-Ja. Das Synchronisieren von Tags, Metafeldern und Sammlungen erhöht die Nutzung Ihres Katalogspeichers. Die kostenlose Katalogstufe hat ein Speicherlimit von 100 MB. Wenn Ihre Synchronisierung Ihr Limit überschreitet, stoppt Braze die Synchronisierung und Produktaktualisierungen werden nicht mehr übernommen. Wenden Sie sich an Ihren Account Manager:in, um bei Bedarf ein Upgrade or upgraden Ihrer Stufe durchzuführen.
+Ja. Das Synchronisieren von Tags, Metafeldern und Sammlungen erhöht die Nutzung Ihres Katalogspeichers. Die kostenlose Katalogstufe hat ein Speicherlimit von 100 MB. Wenn Ihre Synchronisierung Ihr Limit überschreitet, stoppt Braze die Synchronisierung und Produktaktualisierungen werden nicht mehr übernommen. Wenden Sie sich an Ihren Account Manager:in, um bei Bedarf ein Upgrade Ihrer Stufe durchzuführen.

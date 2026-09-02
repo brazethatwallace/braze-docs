@@ -10,7 +10,7 @@ description: "En este artículo se describen los detalles del endpoint de Braze 
 {% api %}
 # Consultar números de teléfono no válidos {#query-invalid-phone-numbers}
 {% apimethod get %}
-/servicio de mensajes cortos/invalid_phone_numbers
+/sms/invalid_phone_numbers
 {% endapimethod %}
 
 > Utiliza este endpoint para obtener una lista de números de teléfono que se han marcado como "no válidos" en un periodo de tiempo determinado. Consulta la documentación [Manejo de números de teléfono no válidos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#handling-invalid-phone-numbers) para obtener más información.
@@ -34,7 +34,7 @@ Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/ap
 | `limit` | Opcional | Entero | Campo opcional para limitar el número de resultados devueltos. De forma predeterminada es 100, el máximo es 500. |
 | `offset` | Opcional | Entero | Punto de inicio opcional de la lista desde el que recuperar. |
 | `phone_numbers` | Opcional <br>(ver nota) | Matriz de cadenas en formato e.164 | Si lo proporcionas, te devolveremos el número de teléfono si se comprueba que no es válido. |
-| `reason` | Opcional <br>(ver nota) | Cadena | Los valores disponibles son "provider_error" (el error del proveedor indica que el teléfono no puede recibir servicio de mensajes cortos) o "deactivated" (el número de teléfono ha sido desactivado). Si se omite, se devuelven todas las razones. |
+| `reason` | Opcional <br>(ver nota) | Cadena | Los valores disponibles son "provider_error" (el error del proveedor indica que el teléfono no puede recibir SMS) o "deactivated" (el número de teléfono ha sido desactivado). Si se omite, se devuelven todas las razones. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 {% alert note %}

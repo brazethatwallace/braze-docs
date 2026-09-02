@@ -10,7 +10,7 @@ description: "Esta página explica como criar um formulário de inscrição por 
 
 > Use o modelo de mensagem no app de inscrição por e-mail com arrastar e soltar para coletar endereços de e-mail dos usuários e expandir seus grupos de inscrições.
 
-{% multi_lang_include drag_and_drop/templates.md section='SDK or kit de desenvolvimento de software requirements' %}
+{% multi_lang_include drag_and_drop/templates.md section='SDK requirements' %}
 
 ## Criando um formulário de inscrição por e-mail {#creating-an-email-sign-up-form}
 

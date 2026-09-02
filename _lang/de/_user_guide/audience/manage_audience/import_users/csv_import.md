@@ -1,17 +1,17 @@
 ---
 nav_title: CSV-Import
 article_title: CSV-Import
-description: "Erfahren Sie, wie Sie Nutzerattribute und angepasste Events mithilfe des CSV-Imports erfassen und Update or aktualisieren or aktualisieren können."
+description: "Erfahren Sie, wie Sie Nutzerattribute und angepasste Events mithilfe des CSV-Imports erfassen und aktualisieren können."
 page_order: 1.2
 ---
 
 # CSV-Import {#csv-import}
 
-> Erfahren Sie, wie Sie Nutzerattribute und angepasste Events mithilfe des CSV-Imports erfassen und Update or aktualisieren or aktualisieren können.
+> Erfahren Sie, wie Sie Nutzerattribute und angepasste Events mithilfe des CSV-Imports erfassen und aktualisieren können.
 
 ## Über den CSV-Import {#about-csv-import}
 
-Sie können den CSV-Import verwenden, um die folgenden Nutzerattribute und angepassten Events zu erfassen und zu Update or aktualisieren or aktualisieren. Braze akzeptiert diese Daten als Standard-CSV-Dateien innerhalb der maximalen Größen in der folgenden Tabelle.
+Sie können den CSV-Import verwenden, um die folgenden Nutzerattribute und angepassten Events zu erfassen und zu aktualisieren. Braze akzeptiert diese Daten als Standard-CSV-Dateien innerhalb der maximalen Größen in der folgenden Tabelle.
 
 |Typ|Definition|Beispiel|Maximale Dateigröße|
 |---|---|---|---|
@@ -51,7 +51,7 @@ Wenn Sie eine Mischung aus Nutzer:innen mit einer `external_id` und Nutzer:innen
 {% tab user alias %}
 Um Nutzer:innen ohne `external_id` anzusprechen, können Sie eine Liste von Nutzer:innen mit Nutzer-Aliasen importieren. Ein Alias dient als alternativer eindeutiger Nutzerbezeichner und kann hilfreich sein, wenn Sie anonyme Nutzer:innen ansprechen möchten, die sich noch nicht registriert oder ein Konto in Ihrer App erstellt haben.
 
-Wenn Sie Nutzerprofile hochladen oder Update or aktualisieren or aktualisieren, die nur einen Alias haben, müssen die folgenden zwei Spalten in Ihrer CSV-Datei enthalten sein:
+Wenn Sie Nutzerprofile hochladen oder aktualisieren, die nur einen Alias haben, müssen die folgenden zwei Spalten in Ihrer CSV-Datei enthalten sein:
 
 - `user_alias_name`: Ein eindeutiger Nutzerbezeichner; eine Alternative zur `external_id`
 - `user_alias_label`: Ein gemeinsames Label, um Nutzer-Aliase zu gruppieren
@@ -65,7 +65,7 @@ Wenn Sie Nutzerprofile hochladen oder Update or aktualisieren or aktualisieren, 
 Wenn Sie in Ihrem Import sowohl einen `user_alias_name` als auch ein `user_alias_label` angeben, aktualisiert Braze alle bestehenden Nutzer:innen mit demselben `user_alias_name` und `user_alias_label`. Wird kein:e Nutzer:in gefunden, erstellt Braze eine:n neu identifizierte:n Nutzer:in mit diesem `user_alias_name`.
 
 {% alert important %}
-Sie können einen CSV-Import nicht verwenden, um eine:n bestehende:n Nutzer:in mit einem `user_alias_name` zu Update or aktualisieren or aktualisieren, wenn diese:r bereits eine `external_id` hat. Stattdessen wird ein neues Kundenprofil or Nutzerprofil mit dem zugehörigen `user_alias_name` erstellt. Um eine:n Nutzer:in nur mit Alias einer `external_id` zuzuordnen, verwenden Sie den [Endpunkt „Nutzer:innen identifizieren“]({{site.baseurl}}/api/endpoints/user_data/post_user_identify).
+Sie können einen CSV-Import nicht verwenden, um eine:n bestehende:n Nutzer:in mit einem `user_alias_name` zu aktualisieren, wenn diese:r bereits eine `external_id` hat. Stattdessen wird ein neues Kundenprofil mit dem zugehörigen `user_alias_name` erstellt. Um eine:n Nutzer:in nur mit Alias einer `external_id` zuzuordnen, verwenden Sie den [Endpunkt „Nutzer:innen identifizieren“]({{site.baseurl}}/api/endpoints/user_data/post_user_identify).
 {% endalert %}
 
 Download: [CSV-Attribut-Importvorlage: Nutzer-Alias]({{site.baseurl}}/assets/download_file/braze-user-import-alias-template-csv.xlsx?c0ce6c0aa1e901395161d87c5ba17747)
@@ -73,12 +73,12 @@ Download: [CSV-Attribut-Importvorlage: Nutzer-Alias]({{site.baseurl}}/assets/dow
 
 <!-- TAB -->
 {% tab braze id %}
-Um bestehende Nutzerprofile in Braze mithilfe eines internen Braze-ID-Werts anstelle einer `external_id` oder eines `user_alias_name`- und `user_alias_label`-Werts zu Update or aktualisieren or aktualisieren, geben Sie `braze_id` als Spaltenüberschrift an.
+Um bestehende Nutzerprofile in Braze mithilfe eines internen Braze-ID-Werts anstelle einer `external_id` oder eines `user_alias_name`- und `user_alias_label`-Werts zu aktualisieren, geben Sie `braze_id` als Spaltenüberschrift an.
 
 Dies kann hilfreich sein, wenn Sie Nutzerdaten aus Braze über unsere CSV-Export-Option innerhalb der Segmentierung exportiert haben und diesen bestehenden Nutzer:innen ein neues angepasstes Attribut hinzufügen möchten.
 
 {% alert important %}
-Sie können einen CSV-Import nicht verwenden, um eine:n neue:n Nutzer:in mit `braze_id` zu erstellen. Diese Methode kann nur verwendet werden, um bereits bestehende Nutzer:innen innerhalb der Braze-Plattform zu Update or aktualisieren or aktualisieren.
+Sie können einen CSV-Import nicht verwenden, um eine:n neue:n Nutzer:in mit `braze_id` zu erstellen. Diese Methode kann nur verwendet werden, um bereits bestehende Nutzer:innen innerhalb der Braze-Plattform zu aktualisieren.
 {% endalert %}
 
 {% alert tip %}
@@ -99,7 +99,7 @@ Wenn Sie sowohl E-Mail-Adressen als auch Telefonnummern in Ihrer CSV-Datei angeb
 
 Wenn ein bestehendes Profil diese E-Mail-Adresse oder Telefonnummer hat, wird dieses Profil aktualisiert, und Braze erstellt kein neues Profil. Wenn es mehrere Profile mit derselben E-Mail-Adresse gibt, verwendet Braze dieselbe Logik wie der [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track), wobei das zuletzt aktualisierte Profil aktualisiert wird.
 
-Wenn kein Profil mit dieser E-Mail-Adresse oder Telefonnummer existiert, erstellt Braze ein neues Profil mit diesem Bezeichner. Sie können den [`/users/identify`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) verwenden, um dieses Profil später zu identifizieren. Um ein Kundenprofil or Nutzerprofil zu löschen, können Sie auch den [`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete)-Endpunkt verwenden.
+Wenn kein Profil mit dieser E-Mail-Adresse oder Telefonnummer existiert, erstellt Braze ein neues Profil mit diesem Bezeichner. Sie können den [`/users/identify`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) verwenden, um dieses Profil später zu identifizieren. Um ein Kundenprofil zu löschen, können Sie auch den [`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete)-Endpunkt verwenden.
 {% endtab %}
 {% endtabs %}
 
@@ -135,7 +135,7 @@ Die folgenden Datentypen können als angepasste Attribute für den CSV-Import ve
 | Boolean | Akzeptiert `true` oder `false`. |
 | Zahl | Muss eine Ganzzahl oder Gleitkommazahl ohne Leerzeichen oder Kommata sein. Gleitkommazahlen müssen einen Punkt (`.`) als Dezimaltrennzeichen verwenden. |
 | String | Kann Kommata enthalten, wenn der Wert in doppelte Anführungszeichen (`""`) eingeschlossen ist. |
-| Leer | Leere Werte überschreiben keine vorhandenen Werte im Kundenprofil or Nutzerprofil, und Sie müssen nicht alle vorhandenen Nutzerattribute in Ihrer CSV-Datei angeben. |
+| Leer | Leere Werte überschreiben keine vorhandenen Werte im Kundenprofil, und Sie müssen nicht alle vorhandenen Nutzerattribute in Ihrer CSV-Datei angeben. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Angepasste Attribute" }
 
 {% alert important %}
@@ -149,7 +149,7 @@ Beim Import von Standardattributen müssen die verwendeten Spaltenüberschriften
 {% endalert %}
 
 {% alert tip %}
-Eine vollständige Liste der von Braze erkannten Standardattribute (über SDK or Software-Development-Kit, API, CSV und Cloud-Datenaufnahme) finden Sie unter [Standardattribute]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes). Die folgende Tabelle enthält nur die Teilmenge, die über den CSV-Import festgelegt werden kann.
+Eine vollständige Liste der von Braze erkannten Standardattribute (über SDK, API, CSV und Cloud-Datenaufnahme) finden Sie unter [Standardattribute]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes). Die folgende Tabelle enthält nur die Teilmenge, die über den CSV-Import festgelegt werden kann.
 {% endalert %}
 
 Die folgenden Standardattribute sind für den Nutzerimport verfügbar.
@@ -178,11 +178,11 @@ Die folgenden Standardattribute sind für den Nutzerimport verfügbar.
 | `subscription_state` | String | Der Abo-Status für die durch `subscription_group_id` angegebene Abo-Gruppe. Zulässige Werte sind `unsubscribed` (nicht in der Abo-Gruppe) oder `subscribed` (in der Abo-Gruppe). | Nein, aber dringend empfohlen, wenn `subscription_group_id` verwendet wird |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Standardattribute" }
 
-#### Abo-Gruppenstatus Update or aktualisieren or aktualisieren (optional) {#updating-subscription-group-status-optional}
+#### Abo-Gruppenstatus aktualisieren (optional) {#updating-subscription-group-status-optional}
 
-Darüber hinaus können Sie Nutzer:innen über den Nutzerimport zu E-Mail- oder Kurzmitteilungsdienst or SMS-Abo-Gruppen hinzufügen. Dies ist besonders nützlich für Kurzmitteilungsdienst or SMS, da Nutzer:innen in einer Kurzmitteilungsdienst or SMS-Abo-Gruppe registriert sein müssen, um über den Kurzmitteilungsdienst or SMS-Kanal angeschrieben werden zu können. Weitere Informationen finden Sie unter [Kurzmitteilungsdienst or SMS-Abo-Gruppen]({{site.baseurl}}/sms_rcs_subscription_groups#subscription-group-mms-enablement).
+Darüber hinaus können Sie Nutzer:innen über den Nutzerimport zu E-Mail- oder SMS-Abo-Gruppen hinzufügen. Dies ist besonders nützlich für SMS, da Nutzer:innen in einer SMS-Abo-Gruppe registriert sein müssen, um über den SMS-Kanal angeschrieben werden zu können. Weitere Informationen finden Sie unter [SMS-Abo-Gruppen]({{site.baseurl}}/sms_rcs_subscription_groups#subscription-group-mms-enablement).
 
-Wenn Sie Abo-Gruppenstatus Update or aktualisieren or aktualisieren, müssen die folgenden zwei Spalten in Ihrer CSV-Datei enthalten sein:
+Wenn Sie Abo-Gruppenstatus aktualisieren, müssen die folgenden zwei Spalten in Ihrer CSV-Datei enthalten sein:
 
 - `subscription_group_id`: Die `id` der [Abo-Gruppe]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups).
 - `subscription_state`: Verfügbare Werte sind `unsubscribed` (nicht in der Abo-Gruppe) oder `subscribed` (in der Abo-Gruppe).
@@ -191,7 +191,7 @@ Wenn Sie Abo-Gruppenstatus Update or aktualisieren or aktualisieren, müssen die
 | :---- | :---- | :---- | :---- |
 | A8i3mkd99 | Colby | 6ff593d7-cf69-448b-aca9-abf7d7b8c273 | subscribed |
 | k2LNhj8Ks | Tom | aea02307-a91e-4bc0-abad-1c0bee817dfa | subscribed |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Abo-Gruppenstatus Update or aktualisieren or aktualisieren (optional)" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Abo-Gruppenstatus aktualisieren (optional)" }
 
 {% alert note %}
 Pro Zeile im Nutzerimport kann nur eine einzelne `subscription_group_id` gesetzt werden. Verschiedene Zeilen können unterschiedliche `subscription_group_id`-Werte haben. Wenn Sie jedoch dieselben Nutzer:innen in mehrere Abo-Gruppen aufnehmen möchten, müssen Sie mehrere Importe durchführen.
@@ -420,11 +420,11 @@ Jede über eine CSV-Datei importierte Kundendateninformation überschreibt den v
 |---|---|
 | Externe IDs | Das Hochladen einer CSV-Datei, die nur `external_id` enthält, protokolliert keine Datenpunkte. So können Sie bestehende Braze-Nutzer:innen segmentieren, ohne die Datenlimits zu beeinflussen. Das Einbeziehen von Feldern wie `email` oder `phone` überschreibt jedoch vorhandene Nutzerdaten und protokolliert Datenpunkte. <br><br>CSV-Importe, die nur zur Segmentierung verwendet werden, protokollieren keine Datenpunkte, z. B. solche, die nur `external_id`, `braze_id` oder `user_alias_name` enthalten. |
 | Leere Werte | Leere Werte in Ihrer CSV-Datei überschreiben keine vorhandenen Nutzerprofildaten. Sie müssen beim Import nicht alle Nutzerattribute oder angepassten Events angeben. |
-| Abo-Status | Das Update or aktualisieren or aktualisieren von `email_subscribe`, `push_subscribe`, `subscription_group_id` oder `subscription_state` wird **nicht** auf die Datenpunkt-Nutzung angerechnet. |
+| Abo-Status | Das Aktualisieren von `email_subscribe`, `push_subscribe`, `subscription_group_id` oder `subscription_state` wird **nicht** auf die Datenpunkt-Nutzung angerechnet. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Datenpunkt-Überlegungen" }
 
 {% alert important %}
-Wenn Sie `language` oder `country` für Nutzer:innen über einen CSV-Import oder die API festlegen, wird Braze daran gehindert, diese Informationen automatisch über das SDK or Software-Development-Kit zu erfassen.
+Wenn Sie `language` oder `country` für Nutzer:innen über einen CSV-Import oder die API festlegen, wird Braze daran gehindert, diese Informationen automatisch über das SDK zu erfassen.
 {% endalert %}
 
 ## Fehlerbehebung {#troubleshooting}
@@ -465,7 +465,7 @@ So prüfen Sie, ob die Targeting-Verfügbarkeit für einen bestehenden Import ak
 
 Sie können die Targeting-Verfügbarkeit nach Abschluss eines CSV-Uploads nicht mehr aktivieren. Um diese CSV-Datei als Segment-Filter zu verwenden, laden Sie die Datei erneut hoch und wählen Sie in [Schritt 6: Targeting-Einstellungen auswählen](#step-6-choose-targeting-preferences) die Option **Targeting-Filter erstellen** oder **Targeting-Filter erstellen und zu neuem Segment hinzufügen**.
 
-Wenn Ihr Ziel darin besteht, ein Segment zu erstellen, ohne Profildaten zu Update or aktualisieren or aktualisieren, laden Sie eine CSV-Datei hoch, die nur Bezeichner-Spalten enthält (zum Beispiel `external_id` oder Alias-Bezeichner-Spalten), und wählen Sie dann **Targeting-Filter erstellen und zu neuem Segment hinzufügen**.
+Wenn Ihr Ziel darin besteht, ein Segment zu erstellen, ohne Profildaten zu aktualisieren, laden Sie eine CSV-Datei hoch, die nur Bezeichner-Spalten enthält (zum Beispiel `external_id` oder Alias-Bezeichner-Spalten), und wählen Sie dann **Targeting-Filter erstellen und zu neuem Segment hinzufügen**.
 
 ### Probleme mit der Dateiformatierung {#file-formatting-issues}
 
@@ -508,16 +508,16 @@ Daten, die nicht im [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)-Format vo
 
 Wenn Ihr Upload mit Fehlern abgeschlossen wurde, enthält er möglicherweise eine oder mehrere ungültige verschlüsselte E-Mail-Adressen. Stellen Sie sicher, dass alle E-Mail-Adressen vor dem Import in Braze korrekt verschlüsselt sind.
 
-- **Beim [Update or aktualisieren or aktualisieren oder Importieren von E-Mail-Adressen]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption#step-3-import-and-update-users)** in Braze verwenden Sie den gehashten E-Mail-Wert, wo immer eine E-Mail-Adresse enthalten ist. Diese gehashten E-Mail-Werte werden von Ihrem internen Team bereitgestellt.
+- **Beim [Aktualisieren oder Importieren von E-Mail-Adressen]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption#step-3-import-and-update-users)** in Braze verwenden Sie den gehashten E-Mail-Wert, wo immer eine E-Mail-Adresse enthalten ist. Diese gehashten E-Mail-Werte werden von Ihrem internen Team bereitgestellt.
 - **Beim Erstellen neuer Nutzer:innen** müssen Sie `email_encrypted` mit dem verschlüsselten E-Mail-Wert der Nutzer:innen hinzufügen. Andernfalls erstellt Braze die Nutzer:innen nicht. Wenn Sie einer bestehenden Person, die keine E-Mail-Adresse hat, eine E-Mail-Adresse hinzufügen, müssen Sie ebenfalls `email_encrypted` hinzufügen. Andernfalls aktualisiert Braze die Nutzer:innen nicht.
 
 #### Daten werden als angepasstes Attribut importiert {#data-imported-as-custom-attribute}
 
-Wenn Standardnutzerdaten (wie `email` oder `first_name`) als angepasstes Attribut importiert werden, überprüfen Sie die Groß-/Kleinschreibung und Leerzeichen in Ihrer CSV-Datei. Beispielsweise wird `First_name` als angepasstes Attribut importiert, während `first_name` korrekt in das Feld „Vorname“ im Kundenprofil or Nutzerprofil importiert wird.
+Wenn Standardnutzerdaten (wie `email` oder `first_name`) als angepasstes Attribut importiert werden, überprüfen Sie die Groß-/Kleinschreibung und Leerzeichen in Ihrer CSV-Datei. Beispielsweise wird `First_name` als angepasstes Attribut importiert, während `first_name` korrekt in das Feld „Vorname“ im Kundenprofil importiert wird.
 
 #### Datentyp eines angepassten Attributs ändern {#change-a-custom-attributes-data-type}
 
-Wenn Sie den Datentyp eines bestehenden angepassten Attributs ändern müssen (zum Beispiel von String zu Boolean), Update or aktualisieren or aktualisieren Sie den Datentyp auf der Seite [**Angepasste Attribute**]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data) im Dashboard, bevor Sie Ihre CSV-Datei importieren. Wenn der Datentyp in Ihrer CSV-Datei nicht mit dem aktuell definierten Datentyp des Attributs übereinstimmt, schlägt der Import mit einem Fehler fehl.
+Wenn Sie den Datentyp eines bestehenden angepassten Attributs ändern müssen (zum Beispiel von String zu Boolean), aktualisieren Sie den Datentyp auf der Seite [**Angepasste Attribute**]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data) im Dashboard, bevor Sie Ihre CSV-Datei importieren. Wenn der Datentyp in Ihrer CSV-Datei nicht mit dem aktuell definierten Datentyp des Attributs übereinstimmt, schlägt der Import mit einem Fehler fehl.
 
 #### Mehrere Datentypen {#multiple-data-types}
 
@@ -544,6 +544,6 @@ Es gibt mehrere Gründe, warum der Button **CSV-Datei auswählen** möglicherwei
 | Problem | Lösung |
 |---|---|
 | Pop-up-Blocker | Dies kann verhindern, dass die Seite angezeigt wird. Bestätigen Sie, dass Ihr Browser Pop-ups auf der Braze-Dashboard-Website zulässt. |
-| Veralteter Browser | Stellen Sie sicher, dass Ihr Browser auf dem neuesten Stand ist; falls nicht, Update or aktualisieren or aktualisieren Sie ihn auf die neueste Version. |
+| Veralteter Browser | Stellen Sie sicher, dass Ihr Browser auf dem neuesten Stand ist; falls nicht, aktualisieren Sie ihn auf die neueste Version. |
 | Hintergrundprozesse | Schließen Sie jede Browser-Instanz und starten Sie dann Ihren Computer neu. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="„CSV-Datei auswählen“ funktioniert nicht" }

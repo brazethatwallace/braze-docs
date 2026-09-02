@@ -41,7 +41,7 @@ Cambiar la configuración de agregación (como promedio móvil de 7 días) solo 
 
 Si no puedes seleccionar una fecha reciente en el SELECTOR de fechas, es probable que esa fecha esté deshabilitada debido a retrasos configurados en los datos. Hay dos tipos de retrasos que pueden limitar la disponibilidad de fechas:
 
-- **Retrasos en el pipeline de datos:** El tiempo que toma ingerir y procesar datos de tu CDP or plataforma de datos de los clientes en Decisioning Studio. Esto asegura que los informes solo muestren datos completos y confiables.
+- **Retrasos en el pipeline de datos:** El tiempo que toma ingerir y procesar datos de tu CDP en Decisioning Studio. Esto asegura que los informes solo muestren datos completos y confiables.
 - **Retrasos en la activación de recomendaciones:** El tiempo entre el momento en que el motor de Decisioning Studio predice una recomendación y el momento en que la activas en tus campañas. Los informes no incluirán días en los que las recomendaciones aún no se hayan activado.
 
 Estos retrasos se configuran para tu caso de uso. Si necesitas entender tu ventana de informes específica, ponte en contacto con tu AI Success Administrador.
@@ -50,11 +50,11 @@ Estos retrasos se configuran para tu caso de uso. Si necesitas entender tu venta
 
 Las tarjetas de indicador clave de rendimiento en el lado principal del informe muestran los indicadores clave de rendimiento configurados para tu caso de uso, como:
 
-- LTV or valor de duración del ciclo de vida incremental / Cliente
+- LTV incremental / Cliente
 - Conversiones / Cliente
 - Cancelaciones de suscripción / Cliente
 
-Cada tarjeta representa el indicador clave de rendimiento calculado a lo largo de todo el rango de fechas seleccionado. Este es un valor del período completo, no un promedio diario. Por ejemplo, si ves "LTV or valor de duración del ciclo de vida incremental / Cliente = 3.192", eso refleja el rendimiento a lo largo de toda la ventana seleccionada.
+Cada tarjeta representa el indicador clave de rendimiento calculado a lo largo de todo el rango de fechas seleccionado. Este es un valor del período completo, no un promedio diario. Por ejemplo, si ves "LTV incremental / Cliente = 3.192", eso refleja el rendimiento a lo largo de toda la ventana seleccionada.
 
 ![Informe de rendimiento que muestra las tarjetas de resumen de KPI en el lado izquierdo, incluyendo métricas como LTV incremental / Cliente, Conversiones / Cliente y Cancelaciones de suscripción / Cliente.]({% image_buster /assets/img/decisioning_studio/reporting_performance_kpi_cards.png %})
 
@@ -87,7 +87,7 @@ El uplift no se almacena. Se calcula a partir de los resultados de indicador cla
 
 La tabla en la parte inferior del informe muestra los totales brutos a lo largo del rango de fechas seleccionado, como:
 
-- LTV or valor de duración del ciclo de vida incremental total
+- LTV incremental total
 - Total de clientes
 - Valor de indicador clave de rendimiento derivado
 
@@ -101,7 +101,7 @@ Esta sección refuerza la relación entre las diferentes vistas:
 
 ## Árbol de factores {#driver-tree}
 
-El árbol de factores descompone un indicador clave de rendimiento en sus factores componentes. Por ejemplo, LTV or valor de duración del ciclo de vida incremental / Cliente puede descomponerse en:
+El árbol de factores descompone un indicador clave de rendimiento en sus factores componentes. Por ejemplo, LTV incremental / Cliente puede descomponerse en:
 
 - Conversiones / Cliente
 - Ingresos por conversión
@@ -126,7 +126,7 @@ Los KPIs para casos de uso Go se establecen automáticamente y están estandariz
 
 El SELECTOR de fechas puede no permitir seleccionar los días más recientes. Esto es intencional. Los informes pueden aplicar las siguientes restricciones para evitar que aparezcan datos incompletos o inestables:
 
-- **Retrasos en el pipeline de datos:** Configurados para tener en cuenta el tiempo que toma ingerir y procesar datos de tu CDP or plataforma de datos de los clientes. Esto asegura que todos los datos de un día determinado estén completos antes de que ese día aparezca en los informes.
+- **Retrasos en el pipeline de datos:** Configurados para tener en cuenta el tiempo que toma ingerir y procesar datos de tu CDP. Esto asegura que todos los datos de un día determinado estén completos antes de que ese día aparezca en los informes.
 - **Retrasos en la activación de recomendaciones:** Configurados para tener en cuenta el desfase entre el momento en que se generan las recomendaciones y el momento en que se activan en tus campañas. Los días en los que las recomendaciones aún no se hayan activado no aparecerán en los informes.
 - **Fechas explícitamente excluidas:** Fechas que has excluido manualmente en la configuración de informes.
 

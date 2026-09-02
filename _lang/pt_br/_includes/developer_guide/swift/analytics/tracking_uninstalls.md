@@ -6,7 +6,7 @@ Em seu projeto Xcode, acesse **Capacidades** e verifique se **os Modos de segund
 
 ### Etapa 2: Ignorar notificações por push internas
 
-O SDK or kit de desenvolvimento de software do Swift Braze usa notificações por push em segundo plano para coletar análises de dados de rastreamento de desinstalação. Para garantir que seu app não realize ações indesejadas quando elas forem enviadas, será necessário garantir que [as notificações por push internas sejam ignoradas]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift#swift_ignoring-internal-push-notifications).
+O SDK do Swift Braze usa notificações por push em segundo plano para coletar análises de dados de rastreamento de desinstalação. Para garantir que seu app não realize ações indesejadas quando elas forem enviadas, será necessário garantir que [as notificações por push internas sejam ignoradas]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift#swift_ignoring-internal-push-notifications).
 
 ### Etapa 3: Enviar um push de teste (opcional)
 

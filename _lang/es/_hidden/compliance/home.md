@@ -50,9 +50,9 @@ Los siguientes términos adicionales se aplican en relación con el uso del cana
 
 "**Agregadores**", "**Operadores**" o "**Intermediarios de mensajería móvil**" se refieren a intermediarios externos que (i) transmiten mensajes móviles entre proveedores de mensajería móvil y operadores; (ii) son proveedores de servicios inalámbricos (por ejemplo, T-Mobile, AT\&T, etc.); y/o (iii) participan en la transmisión de mensajes RCS desde proveedores de mensajería móvil a usuarios finales.
 
-**"Proveedores de servicio de mensajes cortos/MMS" o "Proveedores de mensajería móvil"** se refieren a los subencargados de Braze utilizados en la transmisión de mensajes servicio de mensajes cortos, MMS y/o RCS, según se identifican en [www.braze.com/subprocessors](http://www.braze.com/subprocessors).
+**"Proveedores de SMS/MMS" o "Proveedores de mensajería móvil"** se refieren a los subencargados de Braze utilizados en la transmisión de mensajes SMS, MMS y/o RCS, según se identifican en [www.braze.com/subprocessors](http://www.braze.com/subprocessors).
 
-"**Mensajes servicio de mensajes cortos/MMS**" o "**Mensajes móviles**" se refieren a mensajes servicio de mensajes cortos, MMS y/o RCS.
+"**Mensajes SMS/MMS**" o "**Mensajes móviles**" se refieren a mensajes SMS, MMS y/o RCS.
 
 ### Normas y mejores prácticas aplicables del sector {#applicable-industry-standards-and-best-practices}
 
@@ -64,15 +64,15 @@ Los terceros involucrados en el envío de mensajes móviles, incluidos los inter
 
 Braze puede utilizar cualquier proveedor de mensajería móvil que esté incluido en su lista de subencargados en [www.braze.com/subprocessors](https://www.braze.com/subprocessors/).
 
-Sin perjuicio de lo anterior, en caso de que el cliente envíe mensajes móviles utilizando el modelo "Trae tu propio (BYO) conector servicio de mensajes cortos", los proveedores de mensajería móvil involucrados en el envío se considerarán proveedores externos (según se define en el acuerdo) y no subencargados de Braze, y las exenciones de responsabilidad que se indican a continuación se aplicarán a dichos proveedores externos.
+Sin perjuicio de lo anterior, en caso de que el cliente envíe mensajes móviles utilizando el modelo "Trae tu propio (BYO) conector SMS", los proveedores de mensajería móvil involucrados en el envío se considerarán proveedores externos (según se define en el acuerdo) y no subencargados de Braze, y las exenciones de responsabilidad que se indican a continuación se aplicarán a dichos proveedores externos.
 
 ### Términos de excepción para el uso de webhooks {#webhook-use-exception-terms}
 
 Aplicable a los clientes que se hayan suscrito a créditos de acción a partir del 9 de diciembre de 2024 (según la fecha de entrada en vigor del formulario de pedido): las restricciones descritas en la documentación de conformidad del canal de webhooks no se aplican al uso de webhooks para enviar mensajes móviles a través de una plataforma de proveedor externo.
 
-### Conector servicio de mensajes cortos propio (BYO) {#bring-your-own-byo-sms-connector}
+### Conector SMS propio (BYO) {#bring-your-own-byo-sms-connector}
 
-Los clientes pueden enviar mensajes móviles desde Braze utilizando proveedores externos a través del modelo "BYO servicio de mensajes cortos Connector". Sin perjuicio de lo anterior, los clientes no utilizarán el modelo BYO servicio de mensajes cortos Connector para enviar mensajes móviles a Estados Unidos y Canadá.
+Los clientes pueden enviar mensajes móviles desde Braze utilizando proveedores externos a través del modelo "BYO SMS Connector". Sin perjuicio de lo anterior, los clientes no utilizarán el modelo BYO SMS Connector para enviar mensajes móviles a Estados Unidos y Canadá.
 
 ### Exenciones de responsabilidad {#disclaimers}
 

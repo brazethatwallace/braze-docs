@@ -3,7 +3,7 @@ nav_title: Usuario inactivo
 article_title: Usuario inactivo
 page_order: 4
 page_type: reference
-description: "Este artículo describe cómo usar una plantilla de BRAZE Canvas para traer de vuelta a los usuarios a tu aplicación con incentivos basados en sus interacciones pasadas."
+description: "Este artículo describe cómo usar una plantilla de BRAZE CANVAS para traer de vuelta a los usuarios a tu aplicación con incentivos basados en sus interacciones pasadas."
 tool: Canvas
 ---
 

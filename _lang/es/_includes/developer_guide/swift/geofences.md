@@ -35,7 +35,7 @@ Apple ha dejado de utilizar `NSLocationAlwaysUsageDescription`. Para obtener má
 
 ### Paso 3: Habilita las geovallas en tu código {#step-3-enable-geofences-in-your-code}
 
-En el código de tu aplicación, habilita las geovallas estableciendo `location.geofencesEnabled` en `true` en el objeto `configuration` que inicializa la instancia [`Braze`](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/d1-brazelocation/). Para otras opciones de configuración de `location`, consulta [la referencia del SDK or kit de desarrollo de software de Swift de Braze](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/location-swift.class).
+En el código de tu aplicación, habilita las geovallas estableciendo `location.geofencesEnabled` en `true` en el objeto `configuration` que inicializa la instancia [`Braze`](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/d1-brazelocation/). Para otras opciones de configuración de `location`, consulta [la referencia del SDK de Swift de Braze](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/location-swift.class).
 
 {% tabs %}
 {% tab swift %}
@@ -192,9 +192,9 @@ CLLocationManager *locationManager = [[CLLocationManager alloc] init];
 
 ## Solicitar geovallas manualmente {#manually-request-geofences}
 
-Cuando el SDK or kit de desarrollo de software de Braze solicita geovallas al backend, informa de la ubicación actual del usuario y recibe las geovallas que se consideran más relevantes en función de la ubicación comunicada.
+Cuando el SDK de Braze solicita geovallas al backend, informa de la ubicación actual del usuario y recibe las geovallas que se consideran más relevantes en función de la ubicación comunicada.
 
-Para controlar la ubicación que el SDK or kit de desarrollo de software informa con el fin de recibir las geovallas más relevantes, puedes solicitar geovallas manualmente proporcionando las coordenadas deseadas.
+Para controlar la ubicación que el SDK informa con el fin de recibir las geovallas más relevantes, puedes solicitar geovallas manualmente proporcionando las coordenadas deseadas.
 
 ### Paso 1: Configura `automaticGeofenceRequests` en `false` {#step-1-set-automaticgeofencerequests-to-false}
 
@@ -254,7 +254,7 @@ AppDelegate.braze?.requestGeofences(latitude: latitude, longitude: longitude)
 
 ### ¿Por qué no recibo geovallas en mi dispositivo? {#why-am-i-not-receiving-geofences-on-my-device}
 
-Para confirmar si se están recibiendo geovallas en tu dispositivo, primero utiliza la [herramienta Depurador de SDK or kit de desarrollo de software]({{site.baseurl}}/developer_guide/sdk_integration/debugging) para comprobar los registros del SDK or kit de desarrollo de software. A continuación, podrás ver si las geovallas se reciben correctamente desde el servidor y si hay algún error notable.
+Para confirmar si se están recibiendo geovallas en tu dispositivo, primero utiliza la [herramienta Depurador de SDK]({{site.baseurl}}/developer_guide/sdk_integration/debugging) para comprobar los registros del SDK. A continuación, podrás ver si las geovallas se reciben correctamente desde el servidor y si hay algún error notable.
 
 A continuación se indican otras posibles razones por las que es posible que no recibas geovallas en tu dispositivo:
 
@@ -282,4 +282,4 @@ Por ejemplo, supongamos que un dispositivo ha recibido y registrado las geovalla
 
 ### ¿Por qué no se supervisan las geovallas cuando mi aplicación se ejecuta en segundo plano o se cierra? {#why-are-geofences-not-monitored-when-my-app-is-backgroundedterminated}
 
-Sin autorización `Always`, Apple restringe el funcionamiento de los servicios de ubicación cuando una aplicación no está en uso. Esto lo impone el sistema operativo y queda fuera del control del SDK or kit de desarrollo de software de Braze. Aunque Braze ofrece configuraciones independientes para ejecutar servicios mientras la aplicación está en segundo plano, no hay forma de eludir estas restricciones para las aplicaciones que se cierran sin recibir la autorización explícita del usuario.
+Sin autorización `Always`, Apple restringe el funcionamiento de los servicios de ubicación cuando una aplicación no está en uso. Esto lo impone el sistema operativo y queda fuera del control del SDK de Braze. Aunque Braze ofrece configuraciones independientes para ejecutar servicios mientras la aplicación está en segundo plano, no hay forma de eludir estas restricciones para las aplicaciones que se cierran sin recibir la autorización explícita del usuario.

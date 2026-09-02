@@ -36,13 +36,13 @@ Los límites de velocidad de este endpoint varían en función de tu contrato. P
 
 Cada solicitud `/users/track` puede contener hasta 75 objetos en total combinados entre `attributes`, `events` y `purchases`. Cada objeto puede actualizar un usuario. Un único perfil de usuario puede ser actualizado por varios objetos.
 
-Para los clientes que han adquirido Monthly Active Users CY 24-25, Universal MAU or usuarios activos al mes, Web MAU or usuarios activos al mes o Mobile MAU or usuarios activos al mes, se aplican límites de velocidad adicionales. Para más información, consulta [Límites de Monthly Active Users CY 24-25]({{site.baseurl}}/api/endpoints/user_data/post_user_track#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau).
+Para los clientes que han adquirido Monthly Active Users CY 24-25, Universal MAU, Web MAU o Mobile MAU, se aplican límites de velocidad adicionales. Para más información, consulta [Límites de Monthly Active Users CY 24-25]({{site.baseurl}}/api/endpoints/user_data/post_user_track#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau).
 
 {% details Límites de velocidad heredados %}
 Para los clientes con límites de velocidad heredados, cada solicitud `/users/track` puede contener hasta 75 objetos de atributo, 75 objetos de evento y 75 objetos de compra. Cada objeto puede actualizar un usuario, para un máximo combinado de hasta 225 objetos por solicitud. Un único perfil de usuario puede ser actualizado por varios objetos.
 {% enddetails %}
 
-Para más información, consulta [Límites de velocidad de la API]({{site.baseurl}}/api/api_limits). Ponte en contacto con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente para solicitar un aumento.
+Para más información, consulta [Límites de velocidad de la API]({{site.baseurl}}/api/api_limits). Ponte en contacto con tu CSM para solicitar un aumento.
 
 <!---/users/export/ids-->
 
@@ -105,7 +105,7 @@ Aplicamos un límite de velocidad compartido de 1000 solicitudes por hora a este
 
 <!---/messages/send-->
 <!---/campaigns/trigger/send-->
-<!---/Canvas/trigger/send-->
+<!---/canvas/trigger/send-->
 
 {% elsif include.endpoint == "send endpoints" %}
 Cuando utilizas filtros de audiencia conectada en tu solicitud, aplicamos un límite de velocidad de 250 solicitudes por minuto a este endpoint. De lo contrario, si se especifica un `external_id`, este endpoint tiene un límite de velocidad predeterminado de 250 000 solicitudes por hora compartido entre los endpoints documentados en [Límites de velocidad de la API]({{site.baseurl}}/api/api_limits#requests-with-shared-rate-limits).

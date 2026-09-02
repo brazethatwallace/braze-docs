@@ -273,7 +273,7 @@ Braze Alloys ist das Technologie-Partnerprogramm von Braze. Partner erweitern di
 
 - [PassKit]({{site.baseurl}}/partners/additional_channels_and_extensions/additional_channels/mobile_wallet/passkit)
 - [Peak]({{site.baseurl}}/partners/ecommerce/analytics_workflow/peak)
-- [Personalize.KI or künstliche Intelligenz]({{site.baseurl}}/partners/message_personalization/dynamic_content/personalized_recommendations/personalize)
+- [Personalize.KI]({{site.baseurl}}/partners/message_personalization/dynamic_content/personalized_recommendations/personalize)
 - [Phrase]({{site.baseurl}}/partners/message_personalization/localization/phrase)
 - [Pinterest Audience Sync]({{site.baseurl}}/partners/canvas_audience_sync/pinterest_audience_sync)
 - [Playable]({{site.baseurl}}/partners/message_personalization/dynamic_content/visual_and_interactive_content/playable)
@@ -319,7 +319,7 @@ Braze Alloys ist das Technologie-Partnerprogramm von Braze. Partner erweitern di
 - [Sheetlabs]({{site.baseurl}}/partners/message_personalization/dynamic_content/personalization_engines/sheetlabs)
 - [Shopgate]({{site.baseurl}}/partners/additional_channels_and_extensions/additional_channels/shopgate)
 - [Shopify]({{site.baseurl}}/partners/ecommerce/shopify)
-- [Simon KI or künstliche Intelligenz]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/simonai)
+- [Simon KI]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/simonai)
 - [Singular]({{site.baseurl}}/partners/message_orchestration/attribution/singular)
 - [SmarterSends]({{site.baseurl}}/partners/message_orchestration/templates/smartersends)
 - [Smartling]({{site.baseurl}}/partners/message_personalization/localization/smartling)

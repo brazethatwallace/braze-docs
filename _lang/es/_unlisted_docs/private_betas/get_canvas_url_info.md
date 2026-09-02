@@ -17,7 +17,7 @@ description: "Este artículo describe los detalles del endpoint Listar alias de 
 {% api %}
 # Listar alias de enlace para Canvas {#list-link-alias-for-canvas}
 {% apimethod get %}
-/Canvas/url_info/details
+/canvas/url_info/details
 {% endapimethod %}
 
 > Utiliza este endpoint para listar el conjunto de alias de enlace en un paso en Canvas de correo electrónico específico.

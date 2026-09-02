@@ -1,14 +1,14 @@
 ---
-nav_title: "KI or künstliche Intelligenz-Modell-Anbieter"
-article_title: "KI or künstliche Intelligenz-Modell-Anbieter"
+nav_title: "KI-Modell-Anbieter"
+article_title: "KI-Modell-Anbieter"
 page_order: 11
 page_type: landing
-description: "Durchsuchen Sie Technologie-Partnerintegrationen für KI or künstliche Intelligenz-Modell-Anbieter."
+description: "Durchsuchen Sie Technologie-Partnerintegrationen für KI-Modell-Anbieter."
 layout: dev_guide
 search_tag: Partner
 
-guide_top_header: "KI or künstliche Intelligenz-Modell-Anbieter"
-guide_top_text: "Durchsuchen Sie Technologie-Partnerintegrationen für KI or künstliche Intelligenz-Modell-Anbieter. Eine vollständige, durchsuch- und filterbare Liste aller Braze-Technologie-Partner finden Sie im <a href='https://marketplace.braze.com/t/type/technology-partner'>Braze Marketplace</a>."
+guide_top_header: "KI-Modell-Anbieter"
+guide_top_text: "Durchsuchen Sie Technologie-Partnerintegrationen für KI-Modell-Anbieter. Eine vollständige, durchsuch- und filterbare Liste aller Braze-Technologie-Partner finden Sie im <a href='https://marketplace.braze.com/t/type/technology-partner'>Braze Marketplace</a>."
 
 guide_featured_title: "Verfügbare Anbieter"
 guide_featured_list:

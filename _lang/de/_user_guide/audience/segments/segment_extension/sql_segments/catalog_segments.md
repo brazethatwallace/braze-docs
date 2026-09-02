@@ -10,7 +10,7 @@ tool: Segments
 
 # Katalogsegmente {#catalog-segments}
 
-> Katalogsegmente sind eine Art von SQL-Segmenterweiterung, die durch die Kombination von Katalogdaten mit Daten aus angepassten Events oder Käufen erstellt werden. Sie können in einem Segment referenziert und dann von Campaigns und Canvase angesprochen werden.
+> Katalogsegmente sind eine Art von SQL-Segmenterweiterung, die durch die Kombination von Katalogdaten mit Daten aus angepassten Events oder Käufen erstellt werden. Sie können in einem Segment referenziert und dann von Campaigns und Canvases angesprochen werden.
 
 Katalogsegmente verwenden SQL, um Daten aus Katalogen mit Daten aus angepassten Events oder Käufen zu verknüpfen. Dazu benötigen Sie ein gemeinsames Bezeichnerfeld in Ihren Katalogen und Ihren angepassten Events oder Käufen. Zum Beispiel muss der Wert einer Artikel-ID in einem Katalog mit dem Wert einer Eigenschaft in einem angepassten Event übereinstimmen.
 
@@ -62,12 +62,12 @@ Um beispielsweise Nutzer:innen mit weniger als drei Käufen anzusprechen, schrei
 Sofern Sie nicht gezielt Nutzer:innen mit null Events ansprechen möchten, müssen Sie SQL nicht invertieren. Wenn **SQL invertieren** ausgewählt ist, bestätigen Sie, dass die Funktion benötigt wird und dass das Segment Ihrer gewünschten Zielgruppe entspricht. Wenn eine Abfrage beispielsweise Nutzer:innen mit mindestens einem Event anspricht, werden bei Invertierung nur Nutzer:innen mit null Events angesprochen.
 {% endalert %}
 
-## Segmentzugehörigkeit Update or aktualisieren or aktualisieren {#refreshing-segment-membership}
+## Segmentzugehörigkeit aktualisieren {#refreshing-segment-membership}
 
-Um die Segmentzugehörigkeit eines Katalogsegments zu Update or aktualisieren or aktualisieren, öffnen Sie das Katalogsegment und wählen Sie **Aktionen** > **Update or aktualisieren or aktualisieren** > **Ja, Update or aktualisieren or aktualisieren**.
+Um die Segmentzugehörigkeit eines Katalogsegments zu aktualisieren, öffnen Sie das Katalogsegment und wählen Sie **Aktionen** > **Aktualisieren** > **Ja, aktualisieren**.
 
 {% alert tip %}
-Wenn Sie ein Segment erstellt haben, bei dem Sie erwarten, dass Nutzer:innen regelmäßig ein- und austreten, Update or aktualisieren or aktualisieren Sie das verwendete Katalogsegment manuell, bevor Sie dieses Segment in einer Campaign oder einem Canvas ansprechen.
+Wenn Sie ein Segment erstellt haben, bei dem Sie erwarten, dass Nutzer:innen regelmäßig ein- und austreten, aktualisieren Sie das verwendete Katalogsegment manuell, bevor Sie dieses Segment in einer Campaign oder einem Canvas ansprechen.
 {% endalert %}
 
 ### Aktualisierungseinstellungen festlegen {#designating-refresh-settings}
@@ -100,13 +100,13 @@ Sie würden ein Katalogsegment mit den folgenden Variablen einrichten:
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Gesundheits-App" }
 
 {% endtab %}
-{% tab SaaS or Software-as-a-Service %}
+{% tab SaaS %}
 
-### SaaS or Software-as-a-Service-Plattform {#saas-platform}
+### SaaS-Plattform {#saas-platform}
 
-Nehmen wir an, Sie haben eine B2B-SaaS or Software-as-a-Service-Plattform und möchten Nutzer:innen segmentieren, die Mitarbeitende eines bestehenden Kunden sind. Sie haben außerdem Folgendes:
+Nehmen wir an, Sie haben eine B2B-SaaS-Plattform und möchten Nutzer:innen segmentieren, die Mitarbeitende eines bestehenden Kunden sind. Sie haben außerdem Folgendes:
 
-- Einen Katalog `Accounts`, der die verschiedenen Konten enthält, die derzeit Ihre SaaS or Software-as-a-Service-Plattform nutzen, jeweils mit einer `account ID` versehen
+- Einen Katalog `Accounts`, der die verschiedenen Konten enthält, die derzeit Ihre SaaS-Plattform nutzen, jeweils mit einer `account ID` versehen
 - Ein angepasstes Event `Event Attendance` mit einer `account ID`-Eigenschaft, die dieselben Werte wie das Feld `account ID` in Ihrem Katalog teilt
 - Ein Feld `Classification` innerhalb Ihres Katalogs, das den Wert `enterprise` enthält
 
@@ -120,7 +120,7 @@ Sie würden ein Katalogsegment mit den folgenden Variablen einrichten:
 | `Custom event property` | account ID |
 | `(Under Filter SQL Results) Catalog field` | Classification |
 | `(Under Filter SQL Results) Value` | Enterprise |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="SaaS or Software-as-a-Service-Plattform" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SaaS-Plattform" }
 
 {% endtab %}
 {% endtabs %}

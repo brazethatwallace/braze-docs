@@ -22,8 +22,8 @@ Alpaco es [totalmente compatible con las variables de Liquid](https://shopify.gi
 | Requisito | Descripción |
 | ------------| ----------- |
 | Cuenta de Alpaco | Se necesita una cuenta de Alpaco para beneficiarse de esta asociación. |
-| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos completos de **Plantillas**. <br><br> Se puede crear en el dashboard de Braze desde **Configuración** > **Claves de API**. |
-| Instancia de clúster | Tu [instancia de clúster]({{site.baseurl}}/api/basics/#endpoints) de Braze se corresponde con tu dashboard de Braze y tu punto de conexión REST or transferencia de estado representacional. <br><br> Por ejemplo, si la URL de tu dashboard es `https://dashboard-03.braze.com`, tu punto de conexión será `dashboard-03`. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos completos de **Plantillas**. <br><br> Se puede crear en el dashboard de Braze desde **Configuración** > **Claves de API**. |
+| Instancia de clúster | Tu [instancia de clúster]({{site.baseurl}}/api/basics/#endpoints) de Braze se corresponde con tu dashboard de Braze y tu punto de conexión REST. <br><br> Por ejemplo, si la URL de tu dashboard es `https://dashboard-03.braze.com`, tu punto de conexión será `dashboard-03`. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Casos de uso {#use-cases}
@@ -36,7 +36,7 @@ Alpaco es [totalmente compatible con las variables de Liquid](https://shopify.gi
 
 ## Integración {#integration}
 
-Proporciona tu clave de API REST or transferencia de estado representacional de Braze y tu instancia de clúster al equipo de éxito del cliente de Alpaco. A continuación, el equipo configurará la integración inicial por ti.
+Proporciona tu clave de API REST de Braze y tu instancia de clúster al equipo de éxito del cliente de Alpaco. A continuación, el equipo configurará la integración inicial por ti.
 
 {% alert note %}
 Se trata de una configuración única y cualquier exportación que se realice en el futuro utilizará automáticamente esta clave de API.

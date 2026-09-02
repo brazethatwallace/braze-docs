@@ -15,9 +15,9 @@ description: "Examina ejemplos de prompts para BrazeAI Operator, organizados seg
 {% sdktabs local %}
 {% sdktab Data analysis %}
 
-{% include copy_block.html content="Summarize the key trends for MAU or usuarios activos al mes, usuario activo diario, and New Users in this date range and what to do next." available="Home page" %}
+{% include copy_block.html content="Summarize the key trends for MAU, usuario activo diario, and New Users in this date range and what to do next." available="Home page" %}
 
-{% include copy_block.html content="Show the MAU or usuarios activos al mes, usuario activo diario, and New Users trends for the last 90 days—where are the biggest dips and spikes?" available="Home page" %}
+{% include copy_block.html content="Show the MAU, usuario activo diario, and New Users trends for the last 90 days—where are the biggest dips and spikes?" available="Home page" %}
 
 {% include copy_block.html content="Break down sessions by app (if available) and highlight which app is driving the most growth this month." available="Home page" %}
 
@@ -42,7 +42,7 @@ description: "Examina ejemplos de prompts para BrazeAI Operator, organizados seg
 
 {% include copy_block.html content="How can we use the [your segment name] segment to build a re-engagement journey and reduce churn?" available="Segments" %}
 
-{% include copy_block.html content="How should we structure frequency-capping extensions (email/servicio de mensajes cortos/48h) to reduce over-messaging without hurting conversions?" available="Segment Extensions" %}
+{% include copy_block.html content="How should we structure frequency-capping extensions (email/SMS/48h) to reduce over-messaging without hurting conversions?" available="Segment Extensions" %}
 
 {% include copy_block.html content="What are 3 high-impact reports we should create here to monitor weekly campaign and Canvas health and catch issues early?" available="Report Builder" %}
 
@@ -55,7 +55,7 @@ description: "Examina ejemplos de prompts para BrazeAI Operator, organizados seg
 
 {% include copy_block.html content="Build a segment of users who made a purchase in the last 30 days but haven't opened the app in the last 7 days." %}
 
-{% include copy_block.html content="Build me a report which shows my workspace servicio de mensajes cortos engagement over the last 30 days." %}
+{% include copy_block.html content="Build me a report which shows my workspace SMS engagement over the last 30 days." %}
 
 {% endsdktab %}
 {% sdktab Messaging performance %}

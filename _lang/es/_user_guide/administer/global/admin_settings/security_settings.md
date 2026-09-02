@@ -51,11 +51,11 @@ Usa el campo que se muestra para añadir a la lista de permitidas las direccione
 
 ## Autenticación de dos factores (2FA) {#two-factor-authentication-2fa}
 
-La autenticación de dos factores es obligatoria para todos los usuarios de la empresa. Agrega un segundo nivel de verificación de identidad a un inicio de sesión de cuenta, haciéndolo más seguro que solo un nombre de usuario y una contraseña. Si tu panel no admite la autenticación de dos factores, ponte en contacto con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente.
+La autenticación de dos factores es obligatoria para todos los usuarios de la empresa. Agrega un segundo nivel de verificación de identidad a un inicio de sesión de cuenta, haciéndolo más seguro que solo un nombre de usuario y una contraseña. Si tu panel no admite la autenticación de dos factores, ponte en contacto con tu CSM.
 
 Cuando la autenticación de dos factores está activada:
 
-- Además de introducir una contraseña, los usuarios deben introducir un código de verificación al iniciar sesión en su cuenta de Braze. El código puede enviarse a través de una aplicación de autenticación, correo electrónico o servicio de mensajes cortos.
+- Además de introducir una contraseña, los usuarios deben introducir un código de verificación al iniciar sesión en su cuenta de Braze. El código puede enviarse a través de una aplicación de autenticación, correo electrónico o SMS.
 - La casilla **Recordar esta cuenta durante 30 días** pasa a estar disponible para los usuarios.
 
 Braze bloquea a los usuarios que no configuren su autenticación de dos factores en su cuenta de Braze. Los usuarios de cuentas de Braze también pueden configurar la autenticación de dos factores por su cuenta en **Configuración de la cuenta**, aunque no sea obligatorio por parte del administrador.
@@ -80,7 +80,7 @@ Si tienes problemas para iniciar sesión con la autenticación de dos factores, 
 2. Selecciona el usuario de la lista proporcionada.
 3. Selecciona **Restablecer** en **Autenticación de dos factores**.
 
-Un restablecimiento puede resolver problemas comunes de autenticación, como dificultades con las aplicaciones de autenticación, la verificación por correo electrónico que no se envía, errores de inicio de sesión debido a interrupciones del servicio de mensajes cortos o errores del usuario, y más.
+Un restablecimiento puede resolver problemas comunes de autenticación, como dificultades con las aplicaciones de autenticación, la verificación por correo electrónico que no se envía, errores de inicio de sesión debido a interrupciones del SMS o errores del usuario, y más.
 
 ### Requisitos para 2FA a nivel de empresa {#requirements-for-2fa-at-the-company-level}
 
@@ -105,7 +105,7 @@ Para activar manualmente la autenticación de dos factores (2FA) en tu cuenta de
 1. En Braze, selecciona tu icono de perfil en el encabezado global y luego selecciona **Administrar tu cuenta**. Desplázate hasta la sección **Autenticación de dos factores** y selecciona **Iniciar configuración**.
 2. Introduce tu contraseña en el modal de inicio de sesión y selecciona **Verificar contraseña**.
 3. En el modal **Configuración de autenticación de dos factores**, introduce tu número de teléfono y selecciona **Habilitar**.
-4. Copia el código de siete dígitos generado desde tu correo electrónico o mensaje servicio de mensajes cortos, luego regresa a Braze y pégalo en el modal **Configuración de autenticación de dos factores**. Selecciona **Verificar**.
+4. Copia el código de siete dígitos generado desde tu correo electrónico o mensaje SMS, luego regresa a Braze y pégalo en el modal **Configuración de autenticación de dos factores**. Selecciona **Verificar**.
 5. (Opcional) Para evitar introducir 2FA durante los próximos 30 días, habilita la opción **Recordar esta cuenta durante 30 días**.
 
 ## Acceso elevado {#elevated-access}
@@ -185,9 +185,9 @@ Canvas
 - Segment Users Deleted
 - Cleared Cohort
 
-### Clave de API REST or transferencia de estado representacional {#rest-api-key}
-- Added REST or transferencia de estado representacional API key
-- Removed REST or transferencia de estado representacional API key
+### Clave de API REST {#rest-api-key}
+- Added REST API key
+- Removed REST API key
 
 ### Credencial de autenticación básica {#basic-authentication-credential}
 - Added Basic Auth credential
@@ -221,7 +221,7 @@ Canvas
 - Enabled Global Control Group
 - Disabled Global Control Group
 - Updated Global Control Exclusions
-- Updated Subscription Group servicio de mensajes cortos Allow List
+- Updated Subscription Group SMS Allow List
 
 ### Plantilla de correo electrónico {#email-template}
 - Added Email Template
@@ -231,9 +231,9 @@ Canvas
 - Updated Push Credential
 - Removed Push Credential
 
-### Depurador de SDK or kit de desarrollo de software {#sdk-debugger}
-- Started SDK or kit de desarrollo de software Debugger Session
-- Exported SDK or kit de desarrollo de software Debugger Log
+### Depurador de SDK {#sdk-debugger}
+- Started SDK Debugger Session
+- Exported SDK Debugger Log
 
 ### Usuarios {#users}
 - Users Deleted
@@ -345,7 +345,7 @@ Si el problema persiste después de estos pasos, contacta con [Soporte]({{site.b
 
 ### No se puede habilitar la autenticación de dos factores (2FA) {#cant-enable-two-factor-authentication-2fa}
 
-Si 2FA está habilitado pero no sucede nada al seleccionar el botón **Habilitar**, puede deberse a que tu navegador está bloqueando la redirección necesaria para enviar el código de verificación a través de servicio de mensajes cortos. Estos son los pasos para solucionar este problema:
+Si 2FA está habilitado pero no sucede nada al seleccionar el botón **Habilitar**, puede deberse a que tu navegador está bloqueando la redirección necesaria para enviar el código de verificación a través de SMS. Estos son los pasos para solucionar este problema:
 
 1. Suspende temporalmente cualquier bloqueador de anuncios que tengas habilitado en tu navegador.
 2. Confirma que has habilitado las cookies de terceros en la configuración de tu navegador.
@@ -353,11 +353,11 @@ Si 2FA está habilitado pero no sucede nada al seleccionar el botón **Habilitar
 
 ### El código de verificación no se envía {#verification-code-doesnt-send}
 
-Si encuentras problemas al ingresar tu número de teléfono en la página de Authy y no recibes un servicio de mensajes cortos, sigue estos pasos:
+Si encuentras problemas al ingresar tu número de teléfono en la página de Authy y no recibes un SMS, sigue estos pasos:
 
 1. Instala la aplicación Authy en tu teléfono e inicia sesión en el autenticador Authy.
-2. Ingresa tu número de teléfono y comprueba la aplicación Authy para ver si hay cambios o notificaciones de servicio de mensajes cortos.
-3. Si aún no recibes el servicio de mensajes cortos, intenta usar una conexión de red diferente, como tu red doméstica o una red Wi-Fi no corporativa. Las redes corporativas pueden tener políticas de seguridad que interfieren con la entrega de servicio de mensajes cortos.
+2. Ingresa tu número de teléfono y comprueba la aplicación Authy para ver si hay cambios o notificaciones de SMS.
+3. Si aún no recibes el SMS, intenta usar una conexión de red diferente, como tu red doméstica o una red Wi-Fi no corporativa. Las redes corporativas pueden tener políticas de seguridad que interfieren con la entrega de SMS.
 
 Si los problemas persisten, elimina el perfil antiguo en la aplicación Authy y escanea el código QR de nuevo para configurar 2FA. Asegúrate de haber desactivado cualquier bloqueador de anuncios, habilitado las cookies de terceros o usado un navegador diferente antes de intentar la configuración de nuevo.
 

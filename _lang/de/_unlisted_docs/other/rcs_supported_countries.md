@@ -33,5 +33,5 @@ _Zuletzt aktualisiert am 13. Mai 2025_
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
 
 {% alert important %}
-Für detailliertere Informationen zu den Abdeckungsraten pro Land wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in.
+Für detailliertere Informationen zu den Abdeckungsraten pro Land wenden Sie sich an Ihren CSM.
 {% endalert %}

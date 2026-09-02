@@ -11,14 +11,14 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Canva
 {% api %}
 # Canvas-Liste exportieren {#export-canvas-list}
 {% apimethod get %}
-/Canvas/list
+/canvas/list
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um eine Liste von Canvase zu exportieren, einschließlich des Namens, des Canvas-API-Bezeichners und der zugehörigen Tags.
+> Verwenden Sie diesen Endpunkt, um eine Liste von Canvases zu exportieren, einschließlich des Namens, des Canvas-API-Bezeichners und der zugehörigen Tags.
 
-Canvase werden in Gruppen von 100 zurückgegeben, sortiert nach dem Zeitpunkt der Erstellung (standardmäßig vom ältesten zum neuesten).
+Canvases werden in Gruppen von 100 zurückgegeben, sortiert nach dem Zeitpunkt der Erstellung (standardmäßig vom ältesten zum neuesten).
 
-Archivierte Canvase werden nicht in die API-Antwort aufgenommen, es sei denn, das Feld `include_archived` ist angegeben. Canvase, die angehalten, aber nicht archiviert wurden, werden jedoch standardmäßig zurückgegeben.
+Archivierte Canvases werden nicht in die API-Antwort aufgenommen, es sei denn, das Feld `include_archived` ist angegeben. Canvases, die angehalten, aber nicht archiviert wurden, werden jedoch standardmäßig zurückgegeben.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e6c150d7-fceb-4b10-91e2-a9ca4d5806d1 {% endapiref %}
 
@@ -34,10 +34,10 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | -------- | --------- | ----------- |
-| `page` | Optional | Integer | Die Seite der Canvase, die zurückgegeben werden soll. Standard ist `0` (gibt den ersten Satz von bis zu 100 zurück). |
-| `include_archived` | Optional | Boolescher Wert | Ob archivierte Canvase einbezogen werden sollen oder nicht. Standard ist `false`. |
+| `page` | Optional | Integer | Die Seite der Canvases, die zurückgegeben werden soll. Standard ist `0` (gibt den ersten Satz von bis zu 100 zurück). |
+| `include_archived` | Optional | Boolescher Wert | Ob archivierte Canvases einbezogen werden sollen oder nicht. Standard ist `false`. |
 | `sort_direction` | Optional | String | - Erstellungszeit vom neuesten zum ältesten sortieren: Geben Sie den Wert `desc` ein.<br> - Erstellungszeit vom ältesten zum neuesten sortieren: Geben Sie den Wert `asc` ein. <br><br>Wenn `sort_direction` nicht angegeben ist, ist die Standardreihenfolge vom ältesten zum neuesten. |
-| `last_edit.time[gt]` | Optional | Zeit | Filtert die Ergebnisse und gibt nur Canvase zurück, die nach dem angegebenen Zeitpunkt bearbeitet wurden. Das Format ist `yyyy-MM-DDTHH:mm:ss`. |
+| `last_edit.time[gt]` | Optional | Zeit | Filtert die Ergebnisse und gibt nur Canvases zurück, die nach dem angegebenen Zeitpunkt bearbeitet wurden. Das Format ist `yyyy-MM-DDTHH:mm:ss`. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ## Beispielanfrage {#example-request}

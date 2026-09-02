@@ -8,7 +8,7 @@ hide_toc: true
 
 # Beschreibungen der Braze Action Credits {#braze-action-credits-descriptions}
 
-> Action Credits bieten eine flexible Struktur, mit der Sie problemlos auf Multi-Channel-Messaging und fortschrittliche KI or künstliche Intelligenz-Produkte zugreifen und gleichzeitig Ihr Marketingbudget optimal nutzen können. Beginnen Sie mit dem Engagement auf einem einzelnen Kanal oder in einer Region und erweitern Sie Ihren Mix nahtlos um KI or künstliche Intelligenz-Agenten, wenn sich Ihr Geschäftsmodell, Ihre Kundenbasis und Ihre Engagement-Strategien weiterentwickeln.
+> Action Credits bieten eine flexible Struktur, mit der Sie problemlos auf Multi-Channel-Messaging und fortschrittliche KI-Produkte zugreifen und gleichzeitig Ihr Marketingbudget optimal nutzen können. Beginnen Sie mit dem Engagement auf einem einzelnen Kanal oder in einer Region und erweitern Sie Ihren Mix nahtlos um KI-Agenten, wenn sich Ihr Geschäftsmodell, Ihre Kundenbasis und Ihre Engagement-Strategien weiterentwickeln.
 
 Action Credits können auf alle auf dieser Seite aufgeführten Kanäle und Features angewendet werden.
 
@@ -17,8 +17,8 @@ Beachten Sie, dass das auf dieser Seite referenzierte „Credit-Verhältnis“ a
 ## Inhaltsverzeichnis {#table-of-contents}
 
 - [E-Mail-Kanal – Details](#email-channel-details)
-- [Kurzmitteilungsdienst or SMS-, MMS- und RCS-Kanal – Details](#sms-mms-and-rcs-channel-details)
-  - [Kurzmitteilungsdienst or SMS-Nachrichtensegmente](#sms-segments)
+- [SMS-, MMS- und RCS-Kanal – Details](#sms-mms-and-rcs-channel-details)
+  - [SMS-Nachrichtensegmente](#sms-segments)
   - [MMS-Nachrichten](#mms-messages)
   - [RCS-Typen](#rcs-types)
 - [WhatsApp-Kanal – Details](#whatsapp-channel-details)
@@ -41,17 +41,17 @@ Die Abrechnungsverhältnisse für E-Mail-Credits werden in Schritten von eintaus
 Weitere Informationen zu unserem E-Mail-Kanal finden Sie in unserer [E-Mail-Dokumentation]({{site.baseurl}}/user_guide/channels/email).
 {% endalert %}
 
-## Details zu den Kanälen Kurzmitteilungsdienst or SMS, MMS und RCS {#sms-mms-and-rcs-channel-details}
+## Details zu den Kanälen SMS, MMS und RCS {#sms-mms-and-rcs-channel-details}
 
-Die Kurzmitteilungsdienst or SMS- und MMS-Credit-Verhältnisse werden in Inkrementen der von der Braze-Plattform gesendeten Nachrichtensegmente berechnet. Die RCS-Credit-Verhältnisse werden in Inkrementen der Typen „Basic“ und „Rich Media“ oder der Typen „Single“ und „Rich Media“ berechnet, die von der Braze-Plattform zugestellt werden. Sowohl eingehende als auch ausgehende Typen werden abgerechnet.
+Die SMS- und MMS-Credit-Verhältnisse werden in Inkrementen der von der Braze-Plattform gesendeten Nachrichtensegmente berechnet. Die RCS-Credit-Verhältnisse werden in Inkrementen der Typen „Basic“ und „Rich Media“ oder der Typen „Single“ und „Rich Media“ berechnet, die von der Braze-Plattform zugestellt werden. Sowohl eingehende als auch ausgehende Typen werden abgerechnet.
 
 {% alert note %}
 Sofern für diese Kanäle zutreffend, werden Carrier-Gebühren separat (nachträglich) in Rechnung gestellt und nicht als Teil der Action Credits berücksichtigt.
 {% endalert %}
 
-### Kurzmitteilungsdienst or SMS-Nachrichtensegmente {#sms-segments}
+### SMS-Nachrichtensegmente {#sms-segments}
 
-In der Kurzmitteilungsdienst or SMS-Branche werden Nachrichten in Kurzmitteilungsdienst or SMS-Nachrichtensegmenten gezählt. Ein Nachrichtensegment ist eine Gruppierung von bis zu einer definierten Anzahl von Zeichen (160 für GSM-7-Kodierung; 67 für UCS-2-Kodierung), die in einem einzelnen Kurzmitteilungsdienst or SMS-Versand gesendet werden. Wenn Sie eine Kurzmitteilungsdienst or SMS mit 161 Zeichen im GSM-7-Encoding versenden, werden zwei (2) Nachrichtensegmente gesendet. Das Senden mehrerer Nachrichtensegmente führt zu zusätzlichen Kosten.
+In der SMS-Branche werden Nachrichten in SMS-Nachrichtensegmenten gezählt. Ein Nachrichtensegment ist eine Gruppierung von bis zu einer definierten Anzahl von Zeichen (160 für GSM-7-Kodierung; 67 für UCS-2-Kodierung), die in einem einzelnen SMS-Versand gesendet werden. Wenn Sie eine SMS mit 161 Zeichen im GSM-7-Encoding versenden, werden zwei (2) Nachrichtensegmente gesendet. Das Senden mehrerer Nachrichtensegmente führt zu zusätzlichen Kosten.
 
 ### MMS-Nachrichten {#mms-messages}
 
@@ -59,12 +59,12 @@ Für MMS liegt das Nachrichtenlimit bei 5 MB (dies umfasst das Multimedia-Asset 
 
 ### RCS-Typen {#rcs-types}
 
-RCS ist die nächste Generation von Kurzmitteilungsdienst or SMS und MMS. Es bietet die Vorteile eines direkten Kanals mit hohem Engagement wie Kurzmitteilungsdienst or SMS – mit umfangreicheren Funktionen, die moderne Verbraucher:innen erwarten, wie etwa Rich Content (Bilder, Videos, Dokumente), verifiziertes und gebrandetes Senden, interaktive Features wie vorgeschlagene Antworten und Aktionen und mehr.
+RCS ist die nächste Generation von SMS und MMS. Es bietet die Vorteile eines direkten Kanals mit hohem Engagement wie SMS – mit umfangreicheren Funktionen, die moderne Verbraucher:innen erwarten, wie etwa Rich Content (Bilder, Videos, Dokumente), verifiziertes und gebrandetes Senden, interaktive Features wie vorgeschlagene Antworten und Aktionen und mehr.
 
 {% multi_lang_include pricing/rcs_billing_message_types.md %}
 
 {% alert note %}
-Weitere Informationen zu unseren Kurzmitteilungsdienst or SMS-Angeboten finden Sie in unserer [Kurzmitteilungsdienst or SMS- und MMS-Dokumentation]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs).
+Weitere Informationen zu unseren SMS-Angeboten finden Sie in unserer [SMS- und MMS-Dokumentation]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs).
 {% endalert %}
 
 ## Details zum WhatsApp-Kanal {#whatsapp-channel-details}
@@ -162,7 +162,7 @@ Weitere Informationen zu Canvas Audience Sync und verfügbaren Partnern finden S
 
 ### Nachrichtenarchivierung {#message-archiving}
 
-Credit-Verhältnisse für die Nachrichtenarchivierung werden in Inkrementen von eintausend archivierten Nachrichten über Push-, E-Mail- und Kurzmitteilungsdienst or SMS/MMS-Kanäle berechnet.
+Credit-Verhältnisse für die Nachrichtenarchivierung werden in Inkrementen von eintausend archivierten Nachrichten über Push-, E-Mail- und SMS/MMS-Kanäle berechnet.
 
 {% alert note %}
 Weitere Informationen zur Nachrichtenarchivierung finden Sie in unserer [Dokumentation zur Nachrichtenarchivierung]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/message_archiving).

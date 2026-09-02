@@ -1,6 +1,6 @@
 ---
-nav_title: "GET: 날짜별 일일 앱 제거에 대한 KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or 핵심 성과 지표(KPI or 핵심 성과 지표(KPI)) 내보내기"
-article_title: "GET: 날짜별 일일 앱 제거에 대한 KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or 핵심 성과 지표(KPI or 핵심 성과 지표(KPI)) 내보내기"
+nav_title: "GET: 날짜별 일일 앱 제거에 대한 핵심 성과 지표(KPI) 내보내기"
+article_title: "GET: 날짜별 일일 앱 제거에 대한 핵심 성과 지표(KPI) 내보내기"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
@@ -9,9 +9,9 @@ description: "이 문서에서는 날짜별 일일 앱 제거 내보내기 Braze
 
 ---
 {% api %}
-# 날짜별 일일 앱 제거에 대한 KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or 핵심 성과 지표(KPI or 핵심 성과 지표(KPI)) 내보내기 {#export-kpis-for-daily-app-uninstalls-by-date}
+# 날짜별 일일 앱 제거에 대한 핵심 성과 지표(KPI) 내보내기 {#export-kpis-for-daily-app-uninstalls-by-date}
 {% apimethod get %}
-/KPI or 핵심 성과 지표(KPI)/uninstalls/data_series
+/kpi/uninstalls/data_series
 {% endapimethod %}
 
 > 이 엔드포인트를 사용하여 각 날짜의 총 제거 수에 대한 일별 시리즈를 조회할 수 있습니다.

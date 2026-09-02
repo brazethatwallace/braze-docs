@@ -116,7 +116,7 @@ La siguiente tabla enumera los errores comunes de este endpoint y cómo resolver
 | Estado | Causa | Orientación |
 |---|---|---|
 | `400` | Tipo o valor de parámetro de consulta no válido | Asegúrate de que `limit` y `offset` sean enteros y que todos los valores de los parámetros sean válidos. |
-| `401` | Clave de API REST or transferencia de estado representacional faltante o no válida | Verifica que el encabezado `Authorization` utilice `Bearer YOUR_REST_API_KEY` y que la clave esté activa. |
+| `401` | Clave de API REST faltante o no válida | Verifica que el encabezado `Authorization` utilice `Bearer YOUR_REST_API_KEY` y que la clave esté activa. |
 | `403` | La clave de API no tiene permiso o la solicitud está bloqueada por la lista de permitidos | Confirma que la clave tiene el permiso `data_objects.read` y que tu IP de origen está en la lista de permitidos de la clave, si está configurada. |
 | `429` | Límite de velocidad excedido | Reintenta después de `X-RateLimit-Reset` y reduce la frecuencia de las solicitudes. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Errores de listar tipos de objetos de datos" }

@@ -12,15 +12,15 @@ search_tag: Partner
 
 > [Looker](https://looker.com/), eine Business-Intelligence- und Big-Data-Analytics-Plattform, ermöglicht es Ihnen, Realtime-Business-Analytics nahtlos zu erkunden, zu analysieren und zu teilen.
 
-Die Integration von Braze und Looker erlaubt es Unternehmensnutzer:innen, First-Party-[Looker Blocks](#looker-blocks) und [Looker-Aktionen](#looker-actions) zur Nutzermarkierung über die Representational State Transfer API zu nutzen. Diese markierten Nutzer:innen können zu Segmenten hinzugefügt werden, um zukünftige Braze-Campaigns oder Canvase [zu targetieren](#segment-users). Um Looker mit Braze zu verwenden, empfehlen wir Ihnen, Ihre Braze-Daten [mit Braze-Currents an ein Data Warehouse zu senden]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) und dann die Looker Blocks von Braze zu verwenden, um Ihre Braze-Daten in Looker schnell zu modellieren und zu visualisieren.
+Die Integration von Braze und Looker erlaubt es Unternehmensnutzer:innen, First-Party-[Looker Blocks](#looker-blocks) und [Looker-Aktionen](#looker-actions) zur Nutzermarkierung über die REST API zu nutzen. Diese markierten Nutzer:innen können zu Segmenten hinzugefügt werden, um zukünftige Braze-Campaigns oder Canvases [zu targetieren](#segment-users). Um Looker mit Braze zu verwenden, empfehlen wir Ihnen, Ihre Braze-Daten [mit Braze-Currents an ein Data Warehouse zu senden]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) und dann die Looker Blocks von Braze zu verwenden, um Ihre Braze-Daten in Looker schnell zu modellieren und zu visualisieren.
 
 ## Voraussetzungen {#prerequisites}
 
 | Anforderung | Beschreibung |
 |---|---|
 | Looker-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein [Looker-Konto](https://looker.com/). |
-| Braze-Representational State Transfer-API-Schlüssel | Ein Braze-Representational State Transfer-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze-Representational State Transfer-Endpunkt | Ihre URL für den Representational State Transfer-Endpunkt. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents) ab. |
+| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze-REST-Endpunkt | Ihre URL für den REST-Endpunkt. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents) ab. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ### Hinweise {#considerations}
@@ -60,7 +60,7 @@ Achten Sie auf unterschiedliche Namenskonventionen! Angepasste Namen können zu 
 
 ### Looker-Aktionen {#looker-actions}
 
-Mit Looker-Aktionen können Sie Nutzer:innen in Braze über den Representational State Transfer-API-Endpunkt von einem Looker-Look aus markieren. Aktionen setzen voraus, dass eine Dimension mit dem Tag `braze_id` versehen ist. Die Aktion fügt den markierten Wert an das angepasste Attribut `looker_export` der Nutzer:innen an.
+Mit Looker-Aktionen können Sie Nutzer:innen in Braze über den REST-API-Endpunkt von einem Looker-Look aus markieren. Aktionen setzen voraus, dass eine Dimension mit dem Tag `braze_id` versehen ist. Die Aktion fügt den markierten Wert an das angepasste Attribut `looker_export` der Nutzer:innen an.
 
 {% alert important %}
 Nur bestehende Nutzer:innen werden markiert. Sie können keine Pivot-Looks verwenden, wenn Sie Daten in Braze markieren.
@@ -68,7 +68,7 @@ Nur bestehende Nutzer:innen werden markiert. Sie können keine Pivot-Looks verwe
 
 #### Schritt 1: Einrichten einer Braze-Looker-Aktion {#step-1-set-up-a-braze-looker-action}
 
-Richten Sie eine Braze-Looker-Aktion mit Ihrem Braze-Representational State Transfer-API-Schlüssel und Ihrem Representational State Transfer-Endpunkt ein.
+Richten Sie eine Braze-Looker-Aktion mit Ihrem Braze-REST-API-Schlüssel und Ihrem REST-Endpunkt ein.
 
 ![Die Looker-Braze-Konfigurationsseite. Hier finden Sie Felder für den Braze-API-Schlüssel und den Braze-REST-API-Endpunkt.]({% image_buster /assets/img/braze-looker-action.png %})
 
@@ -147,13 +147,13 @@ Um in Braze ein Segment dieser markierten Nutzer:innen zu erstellen, navigieren 
 
 ![Im Braze-Segment-Builder ist der Filter „looker_export“ auf „includes_value“ und „Looker“ eingestellt.]({% image_buster /assets/img/braze_segments.png %})
 
-Einmal gespeichert, können Sie dieses Segment bei der Erstellung von Canvase oder Campaigns im Schritt „Nutzer:innen targetieren“ referenzieren.
+Einmal gespeichert, können Sie dieses Segment bei der Erstellung von Canvases oder Campaigns im Schritt „Nutzer:innen targetieren“ referenzieren.
 
 ## Fehlerbehebung {#troubleshooting}
 Wenn Sie Probleme mit der Looker-Aktion haben, fügen Sie eine:n Testnutzer:in zu [internen Gruppen]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups) hinzu und überprüfen Sie Folgendes:
 
 * Der API-Schlüssel hat die Berechtigungen `users.track`.
-* Der richtige Representational State Transfer-Endpunkt wird eingegeben, z. B. `https://rest.iad-01.braze.com`.
+* Der richtige REST-Endpunkt wird eingegeben, z. B. `https://rest.iad-01.braze.com`.
 * Ein `braze_id`-Tag wird in der Dimensionsansicht gesetzt.
 * Ihre Abfrage enthält die ID-Dimension oder das Attribut als Spalte.
 * Looker-Ergebnisse werden nicht gepivotet.

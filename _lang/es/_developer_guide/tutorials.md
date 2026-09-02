@@ -1,10 +1,10 @@
 ---
 nav_title: Tutoriales
-article_title: Tutoriales de Braze SDK or kit de desarrollo de software
+article_title: Tutoriales de Braze SDK
 page_order: 1.9
 layout: dev_guide
-guide_top_header: "Tutoriales de Braze SDK or kit de desarrollo de software"
-guide_top_text: "> Cada tutorial del SDK or kit de desarrollo de software de Braze incluye código desplazable paso a paso para ayudarte a implementar nuevas características en tu aplicación. ¡Elige un tutorial de la lista para empezar!"
+guide_top_header: "Tutoriales de Braze SDK"
+guide_top_text: "> Cada tutorial del SDK de Braze incluye código desplazable paso a paso para ayudarte a implementar nuevas características en tu aplicación. ¡Elige un tutorial de la lista para empezar!"
 
 guide_menu_title: "Banners"
 guide_menu_list:

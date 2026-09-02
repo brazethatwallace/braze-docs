@@ -1,7 +1,7 @@
 ---
 nav_title: Amazon Bedrock
 article_title: Amazon Bedrock
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Amazon Bedrock, mit der Sie Bedrock-Modelle mit Braze verbinden können, um sie mit angepassten KI or künstliche Intelligenz-Agenten zu verwenden."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Amazon Bedrock, mit der Sie Bedrock-Modelle mit Braze verbinden können, um sie mit angepassten KI-Agenten zu verwenden."
 alias: /partners/amazon_bedrock/
 page_type: partner
 search_tag: Partner
@@ -10,13 +10,13 @@ search_tag: Partner
 
 # Amazon Bedrock
 
-> [Amazon Bedrock](https://aws.amazon.com/bedrock/) ist ein vollständig verwalteter AWS-Dienst, der über eine einheitliche API Zugang zu Foundation-Modellen führender KI or künstliche Intelligenz-Unternehmen bietet, sodass Marken generative KI or künstliche Intelligenz-Anwendungen auf AWS erstellen und skalieren können.
+> [Amazon Bedrock](https://aws.amazon.com/bedrock/) ist ein vollständig verwalteter AWS-Dienst, der über eine einheitliche API Zugang zu Foundation-Modellen führender KI-Unternehmen bietet, sodass Marken generative KI-Anwendungen auf AWS erstellen und skalieren können.
 
 {% multi_lang_include alerts/early_access_beta_alert.md feature='The Amazon Bedrock integration' %}
 
 ## Über die Integration {#about-the-integration}
 
-Die Integration von Braze und Amazon Bedrock ermöglicht es Ihnen, Ihre Amazon Bedrock-Zugangsdaten mit Braze zu verbinden, sodass Sie Bedrock-gehostete Modelle beim Erstellen benutzerdefinierter KI or künstliche Intelligenz-Agenten verwenden können. Mit dieser Integration können Ihre Agenten personalisierte Texte generieren, Realtime-Entscheidungen treffen oder Katalogfelder mithilfe von Modellen Update or aktualisieren or aktualisieren, die über Amazon Bedrock verfügbar sind.
+Die Integration von Braze und Amazon Bedrock ermöglicht es Ihnen, Ihre Amazon Bedrock-Zugangsdaten mit Braze zu verbinden, sodass Sie Bedrock-gehostete Modelle beim Erstellen benutzerdefinierter KI-Agenten verwenden können. Mit dieser Integration können Ihre Agenten personalisierte Texte generieren, Realtime-Entscheidungen treffen oder Katalogfelder mithilfe von Modellen aktualisieren, die über Amazon Bedrock verfügbar sind.
 
 Wenn Sie Amazon Bedrock verbinden, zeigt Braze eine kuratierte Auswahl an Bedrock-Modellen für benutzerdefinierte Agenten an. Die in Braze verfügbaren Modelle können sich vom vollständigen Katalog in Ihrem AWS-Konto unterscheiden.
 

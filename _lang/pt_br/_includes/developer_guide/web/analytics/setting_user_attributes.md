@@ -56,9 +56,9 @@ window.braze.getUser().setGender("f")
 
 ### Removendo atributos padrão {#unsetting-default-attributes}
 
-Você pode remover ou desfazer um atributo de usuário pelo código do seu app, por uma solicitação da REST or transferir estado representacional API or interface de programação do aplicativo (API) ou por uma etapa [User Update]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) do Canvas. Para atributos de array e booleanos, use `null`. Para outros tipos de dados, use uma string vazia (`""`).
+Você pode remover ou desfazer um atributo de usuário pelo código do seu app, por uma solicitação da REST API ou por uma etapa [User Update]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) do Canvas. Para atributos de array e booleanos, use `null`. Para outros tipos de dados, use uma string vazia (`""`).
 
-Para remover um atributo padrão de usuário com o Web SDK or kit de desenvolvimento de software, passe `null` para o método correspondente. Por exemplo:
+Para remover um atributo padrão de usuário com o Web SDK, passe `null` para o método correspondente. Por exemplo:
 
 {% tabs local %}
 {% tab Nome %}
@@ -207,9 +207,9 @@ const favoriteBook = {
 braze.getUser().setCustomUserAttribute("favorite_book", favoriteBook);
 ```
 
-### Usando a REST or transferir estado representacional API or interface de programação do aplicativo (API) {#using-the-rest-api}
+### Usando a REST API {#using-the-rest-api}
 
-Você também pode usar nossa REST or transferir estado representacional API or interface de programação do aplicativo (API) para definir ou remover atributos do usuário. Para saber mais, consulte [Endpoints de dados de usuários]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data).
+Você também pode usar nossa REST API para definir ou remover atributos do usuário. Para saber mais, consulte [Endpoints de dados de usuários]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data).
 
 ## Definindo inscrições do usuário {#setting-user-subscriptions}
 

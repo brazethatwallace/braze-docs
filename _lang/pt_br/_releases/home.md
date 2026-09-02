@@ -10,7 +10,7 @@ page_type: reference
 # O que há de novo na Braze {#whats-new-in-braze}
 
 {% alert tip %}
-Para saber mais sobre qualquer uma das atualizações listadas nesta página, entre em contato com o gerente da sua conta ou [abra um ticket de suporte]({{site.baseurl}}/user_guide/administer/personal/braze_support). Confira também nossos [Changelogs do SDK or kit de desenvolvimento de software]({{site.baseurl}}/developer_guide/changelogs) para mais informações sobre nossas versões mensais do SDK or kit de desenvolvimento de software, melhorias e alterações significativas.
+Para saber mais sobre qualquer uma das atualizações listadas nesta página, entre em contato com o gerente da sua conta ou [abra um ticket de suporte]({{site.baseurl}}/user_guide/administer/personal/braze_support). Confira também nossos [Changelogs do SDK]({{site.baseurl}}/developer_guide/changelogs) para mais informações sobre nossas versões mensais do SDK, melhorias e alterações significativas.
 {% endalert %}
 
 {% details 20 de agosto de 2026 %}
@@ -162,15 +162,15 @@ O bloco [Gerenciar inscrições]({{site.baseurl}}/user_guide/messaging/landing_p
 
 ### Parcerias {#partnerships}
 
-#### Audience Sync: Google Data Manager API or interface de programação do aplicativo (API)
+#### Audience Sync: Google Data Manager API
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-O [Audience Sync para Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync) suporta a Google Data Manager API or interface de programação do aplicativo (API) em acesso antecipado.
+O [Audience Sync para Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync) suporta a Google Data Manager API em acesso antecipado.
 
 #### Amazon Bedrock - Provedor de modelos de IA {#amazon-bedrock-ai-model-provider}
 
-O [Amazon Bedrock](https://aws.amazon.com/bedrock/) é um serviço AWS totalmente gerenciado que fornece acesso a modelos de base de empresas líderes de IA por meio de uma API or interface de programação do aplicativo (API) unificada, para que as marcas possam construir e escalar aplicações de IA generativa na AWS.
+O [Amazon Bedrock](https://aws.amazon.com/bedrock/) é um serviço AWS totalmente gerenciado que fornece acesso a modelos de base de empresas líderes de IA por meio de uma API unificada, para que as marcas possam construir e escalar aplicações de IA generativa na AWS.
 
 Para saber mais, consulte [Amazon Bedrock]({{site.baseurl}}/partners/amazon_bedrock).
 
@@ -186,33 +186,33 @@ O [Multiplied Media](https://multiplied.media) é um estúdio de criação e aut
 
 Para saber mais, consulte [Multiplied Media]({{site.baseurl}}/partners/multiplied_media).
 
-### SDK or kit de desenvolvimento de software
+### SDK
 
-As seguintes atualizações do SDK or kit de desenvolvimento de software foram lançadas. Para mais detalhes, consulte os [Changelogs do SDK or kit de desenvolvimento de software]({{site.baseurl}}/developer_guide/changelogs).
+As seguintes atualizações do SDK foram lançadas. Para mais detalhes, consulte os [Changelogs do SDK]({{site.baseurl}}/developer_guide/changelogs).
 
-#### Atualizações significativas do SDK or kit de desenvolvimento de software {#sdk-breaking-updates}
+#### Atualizações significativas do SDK {#sdk-breaking-updates}
 
-As atualizações mais recentes do SDK or kit de desenvolvimento de software foram lançadas. As atualizações significativas estão listadas na seção de atualizações do SDK or kit de desenvolvimento de software; todas as outras atualizações podem ser encontradas nos changelogs correspondentes do SDK or kit de desenvolvimento de software.
+As atualizações mais recentes do SDK foram lançadas. As atualizações significativas estão listadas na seção de atualizações do SDK; todas as outras atualizações podem ser encontradas nos changelogs correspondentes do SDK.
 
-- Unity SDK or kit de desenvolvimento de software 12.0.0
-    - Atualiza a bridge nativa do iOS [do Braze Swift SDK or kit de desenvolvimento de software 14.1.0 para 18.0.0](https://github.com/braze-inc/braze-swift-sdk/compare/14.1.0...18.0.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
-    - Atualiza a bridge nativa do Android [do Braze Android SDK or kit de desenvolvimento de software 42.2.0 para 43.0.0](https://github.com/braze-inc/braze-android-sdk/compare/v42.2.0...v43.0.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
-- Flutter SDK or kit de desenvolvimento de software 22.0.0
-    - Atualiza a bridge nativa do Android [do Braze Android SDK or kit de desenvolvimento de software 42.3.1 para 43.0.0](https://github.com/braze-inc/braze-android-sdk/compare/v42.3.1...v43.0.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
-    - Atualiza a bridge nativa do iOS [do Braze Swift SDK or kit de desenvolvimento de software 17.0.0 para 18.0.0](https://github.com/braze-inc/braze-swift-sdk/compare/17.0.0...18.0.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
-- Swift SDK or kit de desenvolvimento de software 18.0.0-18.1.0
-    - Renomeia `Braze.Ecommerce.ProductViewedEvent.typeIdentifiers` para `type` nas superfícies de API or interface de programação do aplicativo (API) Swift e Objective-C.
+- Unity SDK 12.0.0
+    - Atualiza a bridge nativa do iOS [do Braze Swift SDK 14.1.0 para 18.0.0](https://github.com/braze-inc/braze-swift-sdk/compare/14.1.0...18.0.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
+    - Atualiza a bridge nativa do Android [do Braze Android SDK 42.2.0 para 43.0.0](https://github.com/braze-inc/braze-android-sdk/compare/v42.2.0...v43.0.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
+- Flutter SDK 22.0.0
+    - Atualiza a bridge nativa do Android [do Braze Android SDK 42.3.1 para 43.0.0](https://github.com/braze-inc/braze-android-sdk/compare/v42.3.1...v43.0.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
+    - Atualiza a bridge nativa do iOS [do Braze Swift SDK 17.0.0 para 18.0.0](https://github.com/braze-inc/braze-swift-sdk/compare/17.0.0...18.0.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
+- Swift SDK 18.0.0-18.1.0
+    - Renomeia `Braze.Ecommerce.ProductViewedEvent.typeIdentifiers` para `type` nas superfícies de API Swift e Objective-C.
     Renomeia os eventos de atualização push-to-start de Live Activities em `Braze.LiveActivities.UpdateEvent.ActivityType`, que são emitidos ao usar `Braze.LiveActivities.subscribeToStateUpdates(_:)`:
         - `pushToStartOptedOut` para `pushToStartUnregistered`
         - `pushToStartOptOutFlushed` para `pushToStartUnregisterFlushed`
 
-#### Resumo dos recursos e correções recentes do SDK or kit de desenvolvimento de software {#summary-of-recent-sdk-features-and-fixes}
+#### Resumo dos recursos e correções recentes do SDK {#summary-of-recent-sdk-features-and-fixes}
 
-- **Swift SDK or kit de desenvolvimento de software v18.1.0:** Adiciona métodos de logout de token por push, além do método de logout de push existente, para suportar casos de uso adicionais de logout. Também atualiza o tipo de evento de eCommerce.
-- **Flutter SDK or kit de desenvolvimento de software v22.0.0:** Atualiza a bridge nativa para herdar funcionalidades dos SDKs Android e Swift.
-- **Unity SDK or kit de desenvolvimento de software v12.0.0:** Atualiza a bridge nativa para herdar funcionalidades dos SDKs Android e Swift.
+- **Swift SDK v18.1.0:** Adiciona métodos de logout de token por push, além do método de logout de push existente, para suportar casos de uso adicionais de logout. Também atualiza o tipo de evento de eCommerce.
+- **Flutter SDK v22.0.0:** Atualiza a bridge nativa para herdar funcionalidades dos SDKs Android e Swift.
+- **Unity SDK v12.0.0:** Atualiza a bridge nativa para herdar funcionalidades dos SDKs Android e Swift.
 
-Para mais detalhes, consulte os [Changelogs do SDK or kit de desenvolvimento de software]({{site.baseurl}}/developer_guide/changelogs).
+Para mais detalhes, consulte os [Changelogs do SDK]({{site.baseurl}}/developer_guide/changelogs).
 {% enddetails %}
 {% details 23 de julho de 2026 %}
 
@@ -224,7 +224,7 @@ Para mais detalhes, consulte os [Changelogs do SDK or kit de desenvolvimento de 
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-O [dashboard de Diagnóstico de Mensagens]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard) fornece uma visão geral dos resultados de envio de mensagens, permitindo que você identifique tendências e diagnostique possíveis problemas na sua configuração de envio de mensagens. Esse dashboard pode ajudá-lo a entender por que as mensagens das suas Campaigns ou Canvas podem não ter sido enviadas como esperado. Entre em contato com o seu gerente de sucesso do cliente para obter acesso ao recurso.
+O [dashboard de Diagnóstico de Mensagens]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard) fornece uma visão geral dos resultados de envio de mensagens, permitindo que você identifique tendências e diagnostique possíveis problemas na sua configuração de envio de mensagens. Esse dashboard pode ajudá-lo a entender por que as mensagens das suas Campaigns ou Canvas podem não ter sido enviadas como esperado. Entre em contato com o seu CSM para obter acesso ao recurso.
 
 #### Mapeador de eventos personalizados na importação por CSV {#csv-custom-events-mapper}
 
@@ -250,7 +250,7 @@ O [Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities) agora po
 - Configurações de push
 - Limites de taxa de envio de mensagens
 - Regras de envio de mensagens e fluxos de aprovação sempre ativos
-- Outros identificadores e limites de API or interface de programação do aplicativo (API)
+- Outros identificadores e limites de API
 - Informações de contato
 
 Por exemplo, na página de Horário de silêncio, peça ao Operator para definir o horário de silêncio das 21h às 8h para SMS.
@@ -285,11 +285,11 @@ Adicione uma escala de avaliação numérica a um bloco de formulário em [pesqu
 
 Os [modelos de oferta por tempo limitado do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/message_and_image_formats#limited-time-offer-templates) exibem uma oferta promocional com prazo determinado e uma contagem regressiva opcional conforme a oferta se aproxima da expiração. Use esse layout para promoções com prazo definido, como vendas sazonais ou ofertas personalizadas com base em um atributo do usuário.
 
-#### Upgrade de versão do SDK or kit de desenvolvimento de software da Shopify por autoatendimento {#shopify-self-serve-sdk-version-upgrade}
+#### Upgrade de versão do SDK da Shopify por autoatendimento {#shopify-self-serve-sdk-version-upgrade}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Novos clientes da [Shopify]({{site.baseurl}}/partners/ecommerce/shopify) são provisionados nas versões mais recentes do Braze Web SDK or kit de desenvolvimento de software e JavaScript SDK or kit de desenvolvimento de software durante a configuração. Clientes existentes podem visualizar sua versão atual do SDK or kit de desenvolvimento de software nas configurações de integração, receber notificações quando uma versão mais recente estiver disponível e fazer upgrades por autoatendimento nas configurações de integração.
+Novos clientes da [Shopify]({{site.baseurl}}/partners/ecommerce/shopify) são provisionados nas versões mais recentes do Braze Web SDK e JavaScript SDK durante a configuração. Clientes existentes podem visualizar sua versão atual do SDK nas configurações de integração, receber notificações quando uma versão mais recente estiver disponível e fazer upgrades por autoatendimento nas configurações de integração.
 
 #### Editor de HTML para Banners {#html-editor-for-banners}
 
@@ -323,7 +323,7 @@ A [prévia compartilhável]({{site.baseurl}}/user_guide/channels/email/html_edit
 
 A partir de uma Campaign ou mensagem, gere um link e compartilhe-o com revisores que não têm acesso ao dashboard da Braze — equipe de marca, jurídico ou uma agência externa, por exemplo. Os destinatários abrem o link em qualquer navegador para ver a mensagem renderizada como um cliente veria, incluindo qualquer personalização de teste.
 
-#### API or interface de programação do aplicativo (API) de atualização de credenciais de push {#push-credentials-update-api}
+#### API de atualização de credenciais de push {#push-credentials-update-api}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
@@ -337,41 +337,41 @@ O [Refiner](https://refiner.io) é uma plataforma de pesquisas no app para apps 
 
 #### Stayfilm - Conteúdo visual e interativo {#stayfilm-visual-and-interactive-content}
 
-O [Stayfilm](https://www.stayfilm.com/) é uma REST or transferir estado representacional API or interface de programação do aplicativo (API) para produção automatizada e personalizada de vídeos em escala. A plataforma integra dados, imagens, texto, trilhas sonoras, narração e efeitos visuais para gerar conteúdo de vídeo personalizado para eCommerce, marketplaces, fluxos de trabalho de CRM e campanhas de marketing.
+O [Stayfilm](https://www.stayfilm.com/) é uma REST API para produção automatizada e personalizada de vídeos em escala. A plataforma integra dados, imagens, texto, trilhas sonoras, narração e efeitos visuais para gerar conteúdo de vídeo personalizado para eCommerce, marketplaces, fluxos de trabalho de CRM e campanhas de marketing.
 
 #### Validity - Dados e análises {#validity-data-and-analytics}
 
 O [Validity Everest](https://www.validity.com/everest/) é uma plataforma de entregabilidade de e-mail que ajuda você a medir a colocação na caixa de entrada e proteger sua reputação de envio. A integração entre a Braze e a Validity sincroniza sua lista de sementes do Everest com a Braze, semeia automaticamente Campaigns e Canvas qualificados e puxa métricas de engajamento de volta para o Validity Inbox para que você possa comparar a colocação baseada em sementes com o engajamento real dos assinantes.
 
-### SDK or kit de desenvolvimento de software
+### SDK
 
-As seguintes atualizações do SDK or kit de desenvolvimento de software foram lançadas. Para mais detalhes, consulte os [Changelogs do SDK or kit de desenvolvimento de software]({{site.baseurl}}/developer_guide/changelogs).
+As seguintes atualizações do SDK foram lançadas. Para mais detalhes, consulte os [Changelogs do SDK]({{site.baseurl}}/developer_guide/changelogs).
 
-#### Atualizações significativas do SDK or kit de desenvolvimento de software
+#### Atualizações significativas do SDK
 
-As atualizações mais recentes do SDK or kit de desenvolvimento de software foram lançadas. As atualizações significativas estão listadas na seção de atualizações do SDK or kit de desenvolvimento de software; todas as outras atualizações podem ser encontradas nos changelogs correspondentes do SDK or kit de desenvolvimento de software.
+As atualizações mais recentes do SDK foram lançadas. As atualizações significativas estão listadas na seção de atualizações do SDK; todas as outras atualizações podem ser encontradas nos changelogs correspondentes do SDK.
 
-- [Android SDK or kit de desenvolvimento de software 43.0.0](https://github.com/braze-inc/braze-android-sdk/releases/tag/v43.0.0)
+- [Android SDK 43.0.0](https://github.com/braze-inc/braze-android-sdk/releases/tag/v43.0.0)
     - Adiciona os métodos `unregisterPush` e logout.
     - Adiciona campos adicionais aos eventos de eCommerce.
     - Adiciona backoff exponencial para carregamento de imagens de notificações por push.
-- [Swift SDK or kit de desenvolvimento de software 17.0.0](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md)
+- [Swift SDK 17.0.0](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md)
     - Adiciona campos adicionais aos eventos de eCommerce.
     - Torna os estados de dados previsíveis após a inicialização.
     - Adiciona acessores não bloqueantes para identificadores de dispositivo e usuário.
-    - Remove a API or interface de programação do aplicativo (API) de atualização push-to-start descontinuada em `Braze.LiveActivities`.
-- [Web SDK or kit de desenvolvimento de software 6.10.1](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md)
+    - Remove a API de atualização push-to-start descontinuada em `Braze.LiveActivities`.
+- [Web SDK 6.10.1](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md)
     - Adiciona os métodos `unregisterPush` e logout.
     - Adiciona campos adicionais aos eventos de eCommerce.
     - Corrige um problema de Banner e Content Card relacionado a atualizações redundantes na inicialização.
     - Adiciona um método público para dispensa de Banner.
-- [Flutter SDK or kit de desenvolvimento de software 21.0.0](https://github.com/braze-inc/braze-flutter-sdk/releases/tag/v21.0.0)
+- [Flutter SDK 21.0.0](https://github.com/braze-inc/braze-flutter-sdk/releases/tag/v21.0.0)
     - Atualiza a bridge nativa do iOS.
     - Remove métodos descontinuados.
     - Atualiza os handlers `changeUser`, `enableSDK` e `disableSDK` para retornar resultados de conclusão.
-- [Expo SDK or kit de desenvolvimento de software 5.2.0](https://github.com/braze-inc/braze-expo-plugin/releases/tag/v5.2.0)
-    - Atualiza o app de exemplo para o Expo SDK or kit de desenvolvimento de software 56.
-- [React Native SDK or kit de desenvolvimento de software 22.0.0](https://www.npmjs.com/package/@braze/react-native-sdk/v/22.0.0)
+- [Expo SDK 5.2.0](https://github.com/braze-inc/braze-expo-plugin/releases/tag/v5.2.0)
+    - Atualiza o app de exemplo para o Expo SDK 56.
+- [React Native SDK 22.0.0](https://www.npmjs.com/package/@braze/react-native-sdk/v/22.0.0)
     - Adiciona suporte para dispensas de Banner.
     - Inclui atualizações de bindings.
 
@@ -402,7 +402,7 @@ Os [eventos recomendados de eCommerce]({{site.baseurl}}/user_guide/data/activati
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-A guia **Event History** nos [perfis de usuário]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) lista os eventos personalizados e compras do usuário nos últimos 30 dias (até os 100 mais recentes). Use-a para confirmar se uma integração de SDK or kit de desenvolvimento de software ou API or interface de programação do aplicativo (API) está enviando eventos conforme esperado, depurar por que um usuário entrou (ou não) em uma Campaign ou Canvas acionado por evento, ou investigar uma escalação de suporte sobre um usuário específico.
+A guia **Event History** nos [perfis de usuário]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) lista os eventos personalizados e compras do usuário nos últimos 30 dias (até os 100 mais recentes). Use-a para confirmar se uma integração de SDK ou API está enviando eventos conforme esperado, depurar por que um usuário entrou (ou não) em uma Campaign ou Canvas acionado por evento, ou investigar uma escalação de suporte sobre um usuário específico.
 
 #### O Centro de Entregabilidade exibe dados do Microsoft SNDS para clientes do Amazon SES {#deliverability-center-surfaces-microsoft-snds-data-for-amazon-ses-customers}
 
@@ -502,7 +502,7 @@ O [Databricks Mosaic]({{site.baseurl}}/partners/ai_model_providers/databricks_mo
 
 #### DinMo - Dados e análises - Reverse ETL {#dinmo-data-and-analytics-reverse-etl}
 
-O [DinMo]({{site.baseurl}}/partners/dinmo) é uma CDP or plataforma de dados do cliente or CDP or plataforma de dados do cliente or plataforma de dados do cliente (CDP or plataforma de dados do cliente) composável que conecta seu data warehouse na nuvem à Braze por meio de Reverse ETL (ETL). As equipes de marketing podem construir segmentos de público a partir de dados do warehouse, sincronizar atributos e eventos de usuários na Braze e manter os status de inscrição atualizados sem uploads de CSV ou suporte de engenharia.
+O [DinMo]({{site.baseurl}}/partners/dinmo) é uma CDP (CDP) composável que conecta seu data warehouse na nuvem à Braze por meio de Reverse ETL (ETL). As equipes de marketing podem construir segmentos de público a partir de dados do warehouse, sincronizar atributos e eventos de usuários na Braze e manter os status de inscrição atualizados sem uploads de CSV ou suporte de engenharia.
 
 #### EmailShepherd - Orquestração de mensagens - Modelos {#emailshepherd-message-orchestration-templates}
 
@@ -512,13 +512,13 @@ O [EmailShepherd]({{site.baseurl}}/partners/emailshepherd) é uma plataforma ag�
 
 O [Talkable]({{site.baseurl}}/partners/talkable) ajuda marcas de consumo a transformar clientes satisfeitos em um canal de indicação escalável. Com a integração da Braze, os opt-ins de e-mail de marketing capturados em campanhas de indicação do Talkable fluem para a Braze em tempo real, fornecendo à sua equipe o consentimento, o contexto e os dados de campanha necessários para dar boas-vindas, segmentar e engajar cada novo defensor e amigo.
 
-### SDK or kit de desenvolvimento de software
+### SDK
 
-#### Atualizações significativas do SDK or kit de desenvolvimento de software
+#### Atualizações significativas do SDK
 
-As atualizações mais recentes do SDK or kit de desenvolvimento de software foram lançadas. As atualizações significativas estão listadas na seção de atualizações do SDK or kit de desenvolvimento de software; todas as outras atualizações podem ser encontradas nos changelogs correspondentes do SDK or kit de desenvolvimento de software.
+As atualizações mais recentes do SDK foram lançadas. As atualizações significativas estão listadas na seção de atualizações do SDK; todas as outras atualizações podem ser encontradas nos changelogs correspondentes do SDK.
 
-{% multi_lang_include releases/SDK or kit de desenvolvimento de software/2026_6_25_26_updates.md %}
+{% multi_lang_include releases/sdk/2026_6_25_26_updates.md %}
 
 {% enddetails %}
 
@@ -576,9 +576,9 @@ A Braze [gerencia automaticamente registros de estado de inscrição órfãos]({
 
 ### Parcerias
 
-#### Chord - CDP or plataforma de dados do cliente or CDP or plataforma de dados do cliente or plataforma de dados do cliente {#chord-customer-data-platform}
+#### Chord - CDP {#chord-customer-data-platform}
 
-O [Chord](https://www.chord.co/) fornece uma CDP or plataforma de dados do cliente or CDP or plataforma de dados do cliente or plataforma de dados do cliente que captura e padroniza eventos da sua loja de eCommerce. Quando você conecta o Chord à Braze, atividades de compra, eventos comportamentais e atualizações de identidade fluem para a Braze, para que você possa acionar campanhas e manter os perfis atualizados sem precisar construir esses pipelines por conta própria.
+O [Chord](https://www.chord.co/) fornece uma CDP que captura e padroniza eventos da sua loja de eCommerce. Quando você conecta o Chord à Braze, atividades de compra, eventos comportamentais e atualizações de identidade fluem para a Braze, para que você possa acionar campanhas e manter os perfis atualizados sem precisar construir esses pipelines por conta própria.
 
 Para saber mais, consulte [Chord]({{site.baseurl}}/partners/chord).
 
@@ -594,13 +594,13 @@ O [DailyPlay](https://dailyplay.ai/) é uma plataforma de gamificação. Use-o p
 
 Para saber mais, consulte [DailyPlay]({{site.baseurl}}/partners/dailyplay).
 
-### SDK or kit de desenvolvimento de software
+### SDK
 
-#### Atualizações significativas do SDK or kit de desenvolvimento de software
+#### Atualizações significativas do SDK
 
-As atualizações mais recentes do SDK or kit de desenvolvimento de software foram lançadas. As atualizações significativas estão listadas na seção de atualizações do SDK or kit de desenvolvimento de software; todas as outras atualizações podem ser encontradas nos changelogs correspondentes do SDK or kit de desenvolvimento de software.
+As atualizações mais recentes do SDK foram lançadas. As atualizações significativas estão listadas na seção de atualizações do SDK; todas as outras atualizações podem ser encontradas nos changelogs correspondentes do SDK.
 
-{% multi_lang_include releases/SDK or kit de desenvolvimento de software/2026_5_28_26_updates.md %}
+{% multi_lang_include releases/sdk/2026_5_28_26_updates.md %}
 
 {% enddetails %}
 {% details 30 de abril de 2026 %}
@@ -712,17 +712,17 @@ Agora você pode [sincronizar tags de produto, coleções e metafields da Shopif
 
 O [GRAVTY®](https://www.lji.io/) é uma plataforma de fidelidade de nível empresarial da Loyalty Juggernaut Inc. (LJI) que permite que marcas de varejo, viagens, restaurantes (incluindo restaurantes de serviço rápido) e serviços financeiros projetem, gerenciem e escalem programas de próxima geração — impulsionando crescimento mensurável em engajamento, retenção e valor do tempo de vida do cliente por meio de experiências personalizadas e orientadas por dados.
 
-### SDK or kit de desenvolvimento de software
+### SDK
 
-As seguintes atualizações do SDK or kit de desenvolvimento de software foram lançadas. Para mais detalhes, consulte os [changelogs do SDK or kit de desenvolvimento de software]({{site.baseurl}}/releases/sdk_changelogs).
+As seguintes atualizações do SDK foram lançadas. Para mais detalhes, consulte os [changelogs do SDK]({{site.baseurl}}/releases/sdk_changelogs).
 
-#### Atualizações significativas do SDK or kit de desenvolvimento de software
+#### Atualizações significativas do SDK
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-As atualizações mais recentes do SDK or kit de desenvolvimento de software foram lançadas. As atualizações significativas estão listadas na seção de atualizações do SDK or kit de desenvolvimento de software; todas as outras atualizações podem ser encontradas nos changelogs correspondentes do SDK or kit de desenvolvimento de software.
+As atualizações mais recentes do SDK foram lançadas. As atualizações significativas estão listadas na seção de atualizações do SDK; todas as outras atualizações podem ser encontradas nos changelogs correspondentes do SDK.
 
-{% multi_lang_include releases/SDK or kit de desenvolvimento de software/2026_4_30_26_updates.md %}
+{% multi_lang_include releases/sdk/2026_4_30_26_updates.md %}
 
 {% enddetails %}
 {% details 2 de abril de 2026 %}
@@ -808,17 +808,17 @@ O [Poq]({{site.baseurl}}/partners/poq) permite que empresas lancem, gerenciem e 
 
 Usando o [Braze Audience Sync para The Trade Desk]({{site.baseurl}}/partners/canvas_audience_sync/trade_desk_audience_sync), você pode sincronizar dinamicamente seus dados primários de usuários da Braze diretamente para o The Trade Desk para redirecionamento de anúncios, modelagem de semelhança e supressão.
 
-### SDK or kit de desenvolvimento de software
+### SDK
 
 #### Conecte seu Ambiente de Desenvolvimento Integrado (IDE) ao Docs MCP {#connect-your-integrated-development-environment-ide-to-the-docs-mcp}
 
-Use assistentes de codificação com IA para acelerar seu fluxo de trabalho de integração com a Braze conectando seu Ambiente de Desenvolvimento Integrado (IDE) ao Braze Docs MCP por meio do Context7. Isso dá ao seu assistente acesso direto à documentação atual da Braze, para que ele possa gerar orientações de SDK or kit de desenvolvimento de software mais precisas, exemplos de código e ajuda para solução de problemas no seu ambiente de desenvolvimento. Para ver os passos de configuração no Cursor, Claude Desktop e VS Code, consulte [Construindo com um LLM]({{site.baseurl}}/developer_guide/getting_started/build_with_llm#connecting-to-the-braze-docs-mcp).
+Use assistentes de codificação com IA para acelerar seu fluxo de trabalho de integração com a Braze conectando seu Ambiente de Desenvolvimento Integrado (IDE) ao Braze Docs MCP por meio do Context7. Isso dá ao seu assistente acesso direto à documentação atual da Braze, para que ele possa gerar orientações de SDK mais precisas, exemplos de código e ajuda para solução de problemas no seu ambiente de desenvolvimento. Para ver os passos de configuração no Cursor, Claude Desktop e VS Code, consulte [Construindo com um LLM]({{site.baseurl}}/developer_guide/getting_started/build_with_llm#connecting-to-the-braze-docs-mcp).
 
-#### Atualizações significativas do SDK or kit de desenvolvimento de software
+#### Atualizações significativas do SDK
 
-As atualizações mais recentes do SDK or kit de desenvolvimento de software foram lançadas. As atualizações significativas estão listadas na seção de atualizações do SDK or kit de desenvolvimento de software; todas as outras atualizações podem ser encontradas nos changelogs correspondentes do SDK or kit de desenvolvimento de software.
+As atualizações mais recentes do SDK foram lançadas. As atualizações significativas estão listadas na seção de atualizações do SDK; todas as outras atualizações podem ser encontradas nos changelogs correspondentes do SDK.
 
-{% multi_lang_include releases/SDK or kit de desenvolvimento de software/2026_4_2_26_updates.md %}
+{% multi_lang_include releases/sdk/2026_4_2_26_updates.md %}
 
 {% enddetails %}
 
@@ -920,7 +920,7 @@ Depois de adicionar localidades ao seu espaço de trabalho, você pode [direcion
 
 #### Algolia - Busca e recomendações {#algolia-search-recommendations}
 
-O [Algolia]({{site.baseurl}}/partners/ecommerce/product_search_recommendations/algolia) é uma plataforma de busca e descoberta que ajuda desenvolvedores a construir experiências de busca rápidas, relevantes e escaláveis. Com uma abordagem poderosa baseada em API or interface de programação do aplicativo (API), o Algolia combina algoritmos avançados de classificação com insights orientados por IA para busca no site, navegação e descoberta de conteúdo personalizado.
+O [Algolia]({{site.baseurl}}/partners/ecommerce/product_search_recommendations/algolia) é uma plataforma de busca e descoberta que ajuda desenvolvedores a construir experiências de busca rápidas, relevantes e escaláveis. Com uma abordagem poderosa baseada em API, o Algolia combina algoritmos avançados de classificação com insights orientados por IA para busca no site, navegação e descoberta de conteúdo personalizado.
 
 #### Anthropic - Provedor de modelos de IA {#anthropic-ai-model-provider}
 
@@ -974,13 +974,13 @@ O [Shopgate]({{site.baseurl}}/partners/additional_channels_and_extensions/additi
 
 O [Splio]({{site.baseurl}}/partners/data_and_analytics/cohort_import/splio) é uma ferramenta de construção de público que permite aumentar o número de campanhas e a receita sem prejudicar a experiência do cliente, e fornece análises para acompanhar o desempenho de campanhas de CRM tanto online quanto offline.
 
-### SDK or kit de desenvolvimento de software
+### SDK
 
-#### Atualizações significativas do SDK or kit de desenvolvimento de software
+#### Atualizações significativas do SDK
 
-As atualizações mais recentes do SDK or kit de desenvolvimento de software foram lançadas. As atualizações significativas estão listadas na seção de atualizações do SDK or kit de desenvolvimento de software; todas as outras atualizações podem ser encontradas nos changelogs correspondentes do SDK or kit de desenvolvimento de software.
+As atualizações mais recentes do SDK foram lançadas. As atualizações significativas estão listadas na seção de atualizações do SDK; todas as outras atualizações podem ser encontradas nos changelogs correspondentes do SDK.
 
-{% multi_lang_include releases/SDK or kit de desenvolvimento de software/2026_3_5_26_updates.md %}
+{% multi_lang_include releases/sdk/2026_3_5_26_updates.md %}
 
 {% enddetails %}
 
@@ -1058,7 +1058,7 @@ O [Mailizio]({{site.baseurl}}/partners/mailizio) é uma plataforma de criação 
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Os ativos da biblioteca de mídia agora podem ser adicionados via API or interface de programação do aplicativo (API), permitindo que clientes, parceiros e agências automatizem mais fluxos de trabalho de criação de mensagens. Use a [API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/endpoints/media_library/manage_assets/create) para fazer upload de um arquivo de ativo diretamente ou copiar um arquivo de um URL existente. Esse recurso desbloqueia recursos de integração e automação.
+Os ativos da biblioteca de mídia agora podem ser adicionados via API, permitindo que clientes, parceiros e agências automatizem mais fluxos de trabalho de criação de mensagens. Use a [API]({{site.baseurl}}/api/endpoints/media_library/manage_assets/create) para fazer upload de um arquivo de ativo diretamente ou copiar um arquivo de um URL existente. Esse recurso desbloqueia recursos de integração e automação.
 
 ### Currents e Datashare
 
@@ -1096,14 +1096,14 @@ Os eventos que não têm um ID de usuário externo definido agora podem ser tran
 
 O [evento de abertura de e-mail]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#email-open-events) agora gera o valor do campo "machine_open" para que você possa gerar relatórios sobre a métrica [_Machine Open_]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
-### SDK or kit de desenvolvimento de software
+### SDK
 
-As seguintes atualizações do SDK or kit de desenvolvimento de software foram lançadas. O Swift SDK or kit de desenvolvimento de software v14.0.1 corrige um problema com o manuseio de links universais. O Android SDK or kit de desenvolvimento de software v40.2.0 corrige um possível vazamento de memória e resolve um problema com a abertura de várias sessões quando atividades transparentes estão presentes. O Expo SDK or kit de desenvolvimento de software v3.2.0 adiciona a opção `forwardUniversalLinks` (padrão: false) para configurar o tratamento nativo de links universais do Swift SDK or kit de desenvolvimento de software.
+As seguintes atualizações do SDK foram lançadas. O Swift SDK v14.0.1 corrige um problema com o manuseio de links universais. O Android SDK v40.2.0 corrige um possível vazamento de memória e resolve um problema com a abertura de várias sessões quando atividades transparentes estão presentes. O Expo SDK v3.2.0 adiciona a opção `forwardUniversalLinks` (padrão: false) para configurar o tratamento nativo de links universais do Swift SDK.
 
-#### Atualizações significativas do SDK or kit de desenvolvimento de software
+#### Atualizações significativas do SDK
 
-As atualizações mais recentes do SDK or kit de desenvolvimento de software foram lançadas. As atualizações significativas estão listadas na seção de atualizações do SDK or kit de desenvolvimento de software; todas as outras atualizações podem ser encontradas nos changelogs correspondentes do SDK or kit de desenvolvimento de software.
+As atualizações mais recentes do SDK foram lançadas. As atualizações significativas estão listadas na seção de atualizações do SDK; todas as outras atualizações podem ser encontradas nos changelogs correspondentes do SDK.
 
-{% multi_lang_include releases/SDK or kit de desenvolvimento de software/2026_2_5_26_updates.md %}
+{% multi_lang_include releases/sdk/2026_2_5_26_updates.md %}
 
 {% enddetails %}

@@ -63,7 +63,7 @@ Quando a criptografia no nível do campo de identificador está ativada, você d
 
 Ao atualizar o endereço de e-mail na Braze, você deve usar o valor de e-mail com hash sempre que `email` estiver incluído. Isso inclui:
 
-- Endpoints REST or transferir estado representacional:
+- Endpoints REST:
     - `/users/track`
     - `/campaigns/trigger/send`
     - `/canvas/trigger/send`
@@ -78,7 +78,7 @@ Ao criar um novo usuário com um endereço de e-mail, você deve adicionar `emai
 
 Estes recursos não são compatíveis com a criptografia em nível de campo de identificador:
 
-- Identificação e captura de endereço de e-mail via SDK or kit de desenvolvimento de software
+- Identificação e captura de endereço de e-mail via SDK
 - Formulários de captura de e-mail em mensagens no app
 - Relatórios sobre domínio do destinatário, incluindo gráficos de provedores de caixa de entrada do Email Insights
 - Filtro de endereço de e-mail por expressão regular

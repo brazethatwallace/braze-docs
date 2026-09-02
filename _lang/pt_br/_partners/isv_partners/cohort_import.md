@@ -12,7 +12,7 @@ hidden: true
 
 A Braze hospeda nosso aplicativo em vários clusters ao redor do mundo. A URL dos endpoints de importação depende do cluster em que a instância da empresa do cliente está hospedada:
 
-| INSTÂNCIA | ENDPOINT REST or transferir estado representacional |
+| INSTÂNCIA | ENDPOINT REST |
 | ----- | ------------------------------- |
 | US-01 | `https://rest.iad-01.braze.com` |
 | US-02 | `https://rest.iad-02.braze.com` |
@@ -38,13 +38,13 @@ Além de as URLs de nível superior serem específicas do cluster, cada endpoint
 
 Para importar dados de coorte para a Braze, são necessárias duas chaves de autenticação.
 
-### Chave de API or interface de programação do aplicativo (API) do parceiro {#partner-api-key}
+### Chave de API do parceiro {#partner-api-key}
 
-A chave de API or interface de programação do aplicativo (API) do parceiro identifica o parceiro de integração e autentica a solicitação como válida para importação. A chave deve ser incluída no corpo da solicitação no campo `partner_api_key`.
+A chave de API do parceiro identifica o parceiro de integração e autentica a solicitação como válida para importação. A chave deve ser incluída no corpo da solicitação no campo `partner_api_key`.
 
-Ao configurar a integração no aplicativo do parceiro, o cliente deve ser solicitado a especificar seu cluster Braze para que a integração saiba qual URL de cluster e chave de API or interface de programação do aplicativo (API) do parceiro usar ao importar dados.
+Ao configurar a integração no aplicativo do parceiro, o cliente deve ser solicitado a especificar seu cluster Braze para que a integração saiba qual URL de cluster e chave de API do parceiro usar ao importar dados.
 
-A Braze fornecerá a(s) chave(s) de API or interface de programação do aplicativo (API) do parceiro ao parceiro antes de ele iniciar o desenvolvimento da integração. Em geral, forneceremos uma única chave válida para todos os clusters dos EUA e outra chave válida para nosso cluster da UE.
+A Braze fornecerá a(s) chave(s) de API do parceiro ao parceiro antes de ele iniciar o desenvolvimento da integração. Em geral, forneceremos uma única chave válida para todos os clusters dos EUA e outra chave válida para nosso cluster da UE.
 
 ### Chave de importação de dados do cliente {#client-data-import-key}
 
@@ -52,7 +52,7 @@ A chave de importação de dados do cliente identifica o espaço de trabalho do 
 
 Essa chave é gerada no dashboard do cliente nas configurações de integração com o parceiro. Ao configurar a integração no aplicativo do parceiro, o cliente deve ser solicitado a especificar sua chave de importação de dados para que a integração saiba para qual cliente e espaço de trabalho enviar os dados.
 
-## Especificações dos endpoints da API or interface de programação do aplicativo (API) {#api-endpoint-specifications}
+## Especificações dos endpoints da API {#api-endpoint-specifications}
 
 ### Endpoint do nome da coorte {#cohort-name-endpoint}
 
@@ -60,7 +60,7 @@ O endpoint do nome da coorte pode ser usado para especificar o nome de uma coort
 
 | Campo | Tipo | Obrigatória | Notas |
 | ----- | ---- | -------- | ----- |
-| `partner_api_key` | String | Sim | Chave de API or interface de programação do aplicativo (API) específica do parceiro, usada em todas as solicitações do parceiro para a Braze. Essa chave será específica do cluster (consulte [Chave de API or interface de programação do aplicativo (API) do parceiro](#partner-api-key)), portanto, o parceiro precisará conhecer o cluster no qual as coortes serão gravadas. |
+| `partner_api_key` | String | Sim | Chave de API específica do parceiro, usada em todas as solicitações do parceiro para a Braze. Essa chave será específica do cluster (consulte [Chave de API do parceiro](#partner-api-key)), portanto, o parceiro precisará conhecer o cluster no qual as coortes serão gravadas. |
 | `client_secret` | String | Sim | Chave de importação de dados para o cliente ao qual a coorte pertence. |
 | `cohort_id` | String | Sim | Identificador da coorte. Esse identificador deve ser exclusivo para o cliente especificado. |
 | `name` | String | Sim | Nome especificado pelo cliente para a coorte |
@@ -86,7 +86,7 @@ O endpoint de coorte de usuários permite especificar quais usuários foram adic
 
 | Campo | Tipo | Obrigatória | Notas |
 | ----- | ---- | -------- | ----- |
-| `partner_api_key` | String | Sim | Chave de API or interface de programação do aplicativo (API) específica do parceiro, usada em todas as solicitações do parceiro para a Braze. Essa chave será específica do cluster (consulte [Chave de API or interface de programação do aplicativo (API) do parceiro](#partner-api-key)), portanto, a integração precisará conhecer o cluster no qual as coortes serão gravadas. |
+| `partner_api_key` | String | Sim | Chave de API específica do parceiro, usada em todas as solicitações do parceiro para a Braze. Essa chave será específica do cluster (consulte [Chave de API do parceiro](#partner-api-key)), portanto, a integração precisará conhecer o cluster no qual as coortes serão gravadas. |
 | `client_secret` | String | Sim | Chave de importação de dados para o cliente ao qual a coorte pertence. |
 | `cohort_id` | String | Sim | Identificador da coorte. O identificador deve ser exclusivo para o cliente especificado. |
 | `cohort_changes` | Vetor de objetos | Sim | Os objetos podem ter dois campos. Um deles, `user_ids`, é obrigatório e pode ser um vetor de `external_ids`, `device_ids` e `aliases`. Cada elemento é um ID de um usuário cujo status na coorte foi alterado. O segundo campo, `should_remove`, é um booleano opcional que indica se os usuários desse objeto devem ser removidos da coorte em vez de adicionados. O padrão é false. O comprimento máximo combinado dos IDs de usuário em uma única solicitação é de 1.000.<br/><br/>Os usuários identificados podem ser correspondidos pelo `external_id` ou `alias`. Os usuários anônimos podem ser correspondidos pelo `device_id`. Se você passar um ID de dispositivo para um usuário identificado, a Braze não adicionará nem removerá esse usuário. Você deve usar IDs externos ou aliases para usuários identificados. |
@@ -125,11 +125,11 @@ Consulte a tabela a seguir para ver os códigos de erro específicos dos endpoin
 |  | Somente 1.000 `user_ids`, `device_ids` e `aliases` são permitidos por solicitação |
 |  | `name` deve ser uma string não vazia |
 |  | `created_at` deve ser uma hora válida como uma string [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) |
-| `401` | Chave de API or interface de programação do aplicativo (API) de parceiro inválida |
+| `401` | Chave de API de parceiro inválida |
 |  | Segredo de cliente inválido |
 |  | Parceiro não ativado para cliente com segredo de cliente: **&#60;client secret&#62;** |
 |  | Acesso não autorizado |
 | `423` | Recurso bloqueado |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
-Para obter mais informações sobre solução de problemas, consulte [Erros e respostas]({{site.baseurl}}/api/errors/), que aborda os vários erros e respostas do servidor que podem surgir ao usar a API or interface de programação do aplicativo (API) da Braze.
+Para obter mais informações sobre solução de problemas, consulte [Erros e respostas]({{site.baseurl}}/api/errors/), que aborda os vários erros e respostas do servidor que podem surgir ao usar a API da Braze.

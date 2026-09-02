@@ -14,7 +14,7 @@ Um zu überprüfen, ob Links und Buttons des Einstellungscenters vor einem volls
 1. Erstellen Sie eine Campaign oder einen Canvas-E-Mail-Schritt, der Ihren Liquid-Tag für das Einstellungscenter enthält.
 2. Richten Sie den Versand nur an Ihre Testnutzer:innen oder ein kleines internes Segment.
 3. Starten Sie die Nachricht und öffnen Sie die E-Mail aus einem echten Posteingang (nicht über **Test senden**).
-4. Wählen Sie den Link zum Einstellungscenter aus, Update or aktualisieren or aktualisieren Sie die Abo-Gruppen und wählen Sie **Save Preferences**.
+4. Wählen Sie den Link zum Einstellungscenter aus, aktualisieren Sie die Abo-Gruppen und wählen Sie **Save Preferences**.
 5. Bestätigen Sie die Änderungen im Profil der Nutzer:in im Braze-Dashboard.
 
 {% if include.section == "api" %}

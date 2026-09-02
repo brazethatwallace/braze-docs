@@ -25,8 +25,8 @@ WhatsApp 구독 상태 정의 및 Meta 옵트인 요구 사항과의 관계에 �
 ### 사용자의 WhatsApp 구독 그룹 설정하기 {#setting-users-whatsapp-subscription-groups}
 
 - **REST API:** [`/subscription/status/set` 엔드포인트]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status)를 사용하여 Braze REST API로 고객 프로필을 프로그래밍 방식으로 설정할 수 있습니다.
-- **웹 SDK:** [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/add-to-subscription-group.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)), 또는 [웹](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup)용 `addToSubscriptionGroup` 메서드를 사용하여 이메일, 단문 메시지 서비스 또는 WhatsApp 구독 그룹에 사용자를 추가할 수 있습니다.
-- **사용자 가져오기**: **Import Users**를 통해 이메일 또는 단문 메시지 서비스 구독 그룹에 사용자를 추가할 수 있습니다. 구독 그룹 상태를 업데이트할 때 CSV에 `subscription_group_id`와 `subscription_state` 두 개의 열이 있어야 합니다. 자세한 내용은 [사용자 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv)를 참조하세요.
+- **웹 SDK:** [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/add-to-subscription-group.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)), 또는 [웹](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup)용 `addToSubscriptionGroup` 메서드를 사용하여 이메일, SMS 또는 WhatsApp 구독 그룹에 사용자를 추가할 수 있습니다.
+- **사용자 가져오기**: **Import Users**를 통해 이메일 또는 SMS 구독 그룹에 사용자를 추가할 수 있습니다. 구독 그룹 상태를 업데이트할 때 CSV에 `subscription_group_id`와 `subscription_state` 두 개의 열이 있어야 합니다. 자세한 내용은 [사용자 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv)를 참조하세요.
 
 ### 사용자의 WhatsApp 구독 그룹 확인하기 {#checking-a-users-whatsapp-subscription-group}
 
@@ -50,7 +50,7 @@ WhatsApp 구독 그룹 사용을 중단해야 하는 경우, 보관하여 비활
 
 WhatsApp 구독 상태, 옵트인 요구 사항, 옵트아웃 동작에 대한 개요는 [구독 상태]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_status#whatsapp)를 참조하세요.
 
-현재 사용자는 [단문 메시지 서비스](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates/4-sms-capture-modal), 웹사이트, WhatsApp 스레드, 전화 또는 대면 등 다양한 방법으로 WhatsApp 메시징에 가입하고 [옵트인 및 옵트아웃]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs)할 수 있습니다. 옵트인은 필수입니다.
+현재 사용자는 [SMS](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates/4-sms-capture-modal), 웹사이트, WhatsApp 스레드, 전화 또는 대면 등 다양한 방법으로 WhatsApp 메시징에 가입하고 [옵트인 및 옵트아웃]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs)할 수 있습니다. 옵트인은 필수입니다.
 
 현재 WhatsApp 채널에서는 옵트인 키워드가 지원되지 않으므로, 사용자 목록을 직접 관리해야 합니다. WhatsApp은 옵트인 및 사용량 제한에 대해 소급적 접근 방식을 취합니다. 사용자가 신고하거나 차단하기 시작하면 사용량 제한이 낮아집니다.
 

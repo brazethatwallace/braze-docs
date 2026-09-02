@@ -115,8 +115,8 @@ Para descargar los datos de la serie temporal, selecciona <i class="fas fa-bars"
 
 | Método de atribución | Definición | Cálculo de la tasa | Opciones específicas del canal |
 | --- | --- | --- | --- |
-| Al recibir | Número total de conversiones que ocurrieron después de recibir el mensaje | Se calcula como (Conversiones únicas al recibir) / (Destinatarios únicos) | {::nomarkdown}<ul><li>Al entregar correo electrónico</li><li>Al entregar servicio de mensajes cortos</li></ul>{:/} |
-| Al enviar | Número total de conversiones que ocurrieron después del envío del mensaje | Se calcula como (Conversiones únicas al enviar) / (Destinatarios únicos) | {::nomarkdown}<ul><li>Al enviar push</li><li>Al enviar tarjeta de contenido</li><li>Al enviar servicio de mensajes cortos</li></ul>{:/} |
+| Al recibir | Número total de conversiones que ocurrieron después de recibir el mensaje | Se calcula como (Conversiones únicas al recibir) / (Destinatarios únicos) | {::nomarkdown}<ul><li>Al entregar correo electrónico</li><li>Al entregar SMS</li></ul>{:/} |
+| Al enviar | Número total de conversiones que ocurrieron después del envío del mensaje | Se calcula como (Conversiones únicas al enviar) / (Destinatarios únicos) | {::nomarkdown}<ul><li>Al enviar push</li><li>Al enviar tarjeta de contenido</li><li>Al enviar SMS</li></ul>{:/} |
 | Al abrir | Número total de conversiones que ocurrieron después de abrir el mensaje | Se calcula como (Conversiones únicas al abrir) / (Destinatarios únicos) | {::nomarkdown}<ul><li>Al abrir correo electrónico</li><li>Al abrir push</li></ul>{:/} |
 | Al hacer clic | Número total de conversiones que ocurrieron tras el clic en el mensaje | Se calcula como (Conversiones únicas al hacer clic) / (Destinatarios únicos) | {::nomarkdown}<ul><li>Al hacer clic en correo electrónico</li><li>Al hacer clic en tarjeta de contenido</li><li>Al hacer clic en IAM</li></ul>{:/} |
 | Al generar impresión | Número total de conversiones que ocurrieron después de una impresión | Se calcula como (Conversiones únicas por impresión) / (Destinatarios únicos) | {::nomarkdown}<ul><li>Al generar impresión de IAM</li><li>Al generar impresión de tarjeta de contenido</li></ul>{:/} |
@@ -127,7 +127,7 @@ Para descargar los datos de la serie temporal, selecciona <i class="fas fa-bars"
 
 | Término | Definición |
 | --- | --- |
-| Punto de intervención | Una interacción física o punto de intervención con un mensaje.<br><br>Los puntos de intervención pueden incluir:<br>{::nomarkdown}<ul><li>Clic en correo electrónico</li><li>Apertura de push</li><li>Clic en tarjeta de contenido</li><li>Clic en mensaje dentro de la aplicación</li><li>Clic en servicio de mensajes cortos</li></ul>{:/} |
+| Punto de intervención | Una interacción física o punto de intervención con un mensaje.<br><br>Los puntos de intervención pueden incluir:<br>{::nomarkdown}<ul><li>Clic en correo electrónico</li><li>Apertura de push</li><li>Clic en tarjeta de contenido</li><li>Clic en mensaje dentro de la aplicación</li><li>Clic en SMS</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Términos que debes conocer" }
 
 ## Solución de problemas {#troubleshooting}

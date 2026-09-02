@@ -18,14 +18,14 @@ search_tag: Partner
 |---|---|
 | Conta da AppsFlyer | É necessário ter uma conta da AppsFlyer para aproveitar essa parceria. |
 | App para iOS ou Android | Essa integração é compatível com apps para iOS e Android. Dependendo da sua plataforma, trechos de código podem ser necessários no seu aplicativo. Consulte os detalhes sobre esses requisitos na etapa 1 do processo de integração. |
-| SDK or kit de desenvolvimento de software da AppsFlyer | Além do SDK or kit de desenvolvimento de software da Braze obrigatório, você deve instalar o [SDK or kit de desenvolvimento de software da AppsFlyer](https://support.appsflyer.com/hc/en-us/articles/207032126-SDK-integration-overview). |
+| SDK da AppsFlyer | Além do SDK da Braze obrigatório, você deve instalar o [SDK da AppsFlyer](https://support.appsflyer.com/hc/en-us/articles/207032126-SDK-integration-overview). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração de importação de dados {#data-import-integration}
 
-### Etapa 1: Configurar o SDK or kit de desenvolvimento de software da AppsFlyer {#step-1-configure-the-appsflyer-sdk}
+### Etapa 1: Configurar o SDK da AppsFlyer {#step-1-configure-the-appsflyer-sdk}
 
-Para usar essa integração, você deve passar o ID externo da Braze do usuário para a AppsFlyer usando a função `setPartnerData()` do SDK or kit de desenvolvimento de software da AppsFlyer:
+Para usar essa integração, você deve passar o ID externo da Braze do usuário para a AppsFlyer usando a função `setPartnerData()` do SDK da AppsFlyer:
 
 #### Android
 ```java
@@ -52,7 +52,7 @@ Aqui, você pode encontrar o endpoint REST e gerar sua chave de importação de 
 
 1. No [AppsFlyer Audiences](https://support.appsflyer.com/hc/en-us/articles/115002689186-Audiences-guide#managing-connections), acesse a guia **Connections** e clique em **Add partner connection**.
 2. Selecione Braze como parceiro e dê um nome à conexão.
-3. Forneça a chave de importação de dados e o endpoint REST or transferir estado representacional da Braze.
+3. Forneça a chave de importação de dados e o endpoint REST da Braze.
 4. Salve a conexão, e ela estará disponível para ser vinculada a qualquer público novo ou existente.
 
 ![A página de configuração de conexão de parceiro da plataforma AppsFlyer Audiences. A parte inferior da imagem mostra que a caixa de ID externo da Braze está marcada.]({% image_buster /assets/img/appsflyer_audiences/appsflyer_braze_connection.png %}){: style="max-width:80%;"}

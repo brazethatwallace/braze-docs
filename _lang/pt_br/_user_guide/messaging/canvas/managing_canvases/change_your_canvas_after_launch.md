@@ -114,7 +114,7 @@ Após o lançamento de um Canvas, você só pode diminuir as porcentagens da var
 
 Inicialmente, esses usuários são atribuídos aleatoriamente a uma variante específica antes de receberem uma Campaign pela primeira vez. A partir desse momento, cada vez que a Campaign for recebida (ou o usuário reentrar em uma variante do Canvas), ele receberá a mesma variante, a menos que as porcentagens da variante sejam modificadas.
 
-Se as porcentagens da variante mudarem, os usuários podem ser redistribuídos para outras variantes. Os usuários permanecem nessas variantes até que as porcentagens sejam modificadas novamente. Observe que, para Canvas que usam Branch or ramificação or ramificação com filtros `NOT` com números de bucket aleatórios, os usuários podem não receber a mesma Branch or ramificação or ramificação todas as vezes em sua jornada de usuário ao reentrar no Canvas.
+Se as porcentagens da variante mudarem, os usuários podem ser redistribuídos para outras variantes. Os usuários permanecem nessas variantes até que as porcentagens sejam modificadas novamente. Observe que, para Canvas que usam Branch com filtros `NOT` com números de bucket aleatórios, os usuários podem não receber a mesma Branch todas as vezes em sua jornada de usuário ao reentrar no Canvas.
 
 #### Grupos de controle {#control-groups}
 

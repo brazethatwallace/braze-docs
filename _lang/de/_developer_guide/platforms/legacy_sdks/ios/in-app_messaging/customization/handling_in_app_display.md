@@ -123,7 +123,7 @@ func before(inAppMessageDisplayed inAppMessage: ABKInAppMessage, withKeyboardIsU
 
 ## Ausblenden der Statusleiste während der Anzeige {#hiding-the-status-bar-during-display}
 
-Bei `Full`- und `HTML`-In-App-Nachrichten versucht das SDK or Software-Development-Kit standardmäßig, die Nachricht über der Statusleiste zu platzieren. In einigen Fällen kann die Statusleiste jedoch weiterhin über der In-App-Nachricht erscheinen. Ab Version [3.21.1](https://github.com/Appboy/appboy-ios-sdk/blob/master/CHANGELOG.md#3211) des iOS SDK or Software-Development-Kit können Sie erzwingen, dass die Statusleiste beim Anzeigen von `Full`- und `HTML`-In-App-Nachrichten ausgeblendet wird, indem Sie `ABKInAppMessageHideStatusBarKey` auf `YES` innerhalb der `appboyOptions` setzen, die an `startWithApiKey:` übergeben werden.
+Bei `Full`- und `HTML`-In-App-Nachrichten versucht das SDK standardmäßig, die Nachricht über der Statusleiste zu platzieren. In einigen Fällen kann die Statusleiste jedoch weiterhin über der In-App-Nachricht erscheinen. Ab Version [3.21.1](https://github.com/Appboy/appboy-ios-sdk/blob/master/CHANGELOG.md#3211) des iOS SDK können Sie erzwingen, dass die Statusleiste beim Anzeigen von `Full`- und `HTML`-In-App-Nachrichten ausgeblendet wird, indem Sie `ABKInAppMessageHideStatusBarKey` auf `YES` innerhalb der `appboyOptions` setzen, die an `startWithApiKey:` übergeben werden.
 
 ## Impressionen und Klicks protokollieren {#logging-impressions-and-clicks}
 

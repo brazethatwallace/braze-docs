@@ -42,7 +42,7 @@ Wenn Ihr Braze-Dashboard einen unerwarteten Fehler anzeigt und das Konsolen-Tool
 
 ## Zugriff auf mehrere Braze-Dashboards {#accessing-multiple-braze-dashboards}
 
-Braze erlaubt es nicht, dieselbe E-Mail-Adresse für mehrere Dashboard-Nutzer:innen im selben Cluster zu Registrierung or registrieren (zum Beispiel, wenn Sie zwei Dashboards auf US-01 haben). Sie können dieselbe E-Mail-Adresse verwenden, um Konten auf verschiedenen Clustern zu erstellen (zum Beispiel, wenn Sie ein Dashboard auf US-01 und eines auf US-05 haben). Wenn Sie auf mehrere Braze-Dashboards im selben Cluster zugreifen müssen, können Sie Folgendes tun:
+Braze erlaubt es nicht, dieselbe E-Mail-Adresse für mehrere Dashboard-Nutzer:innen im selben Cluster zu Registrierung (zum Beispiel, wenn Sie zwei Dashboards auf US-01 haben). Sie können dieselbe E-Mail-Adresse verwenden, um Konten auf verschiedenen Clustern zu erstellen (zum Beispiel, wenn Sie ein Dashboard auf US-01 und eines auf US-05 haben). Wenn Sie auf mehrere Braze-Dashboards im selben Cluster zugreifen müssen, können Sie Folgendes tun:
 
 ### E-Mail-Aliasse verwenden {#use-email-aliases}
 
@@ -62,13 +62,13 @@ Das Feature „Multi-Company-Entwickler:innen“ ermöglicht die gemeinsame Nutz
 
 Wenn Sie Single Sign-on verwenden und Multi-Company-Entwickler:innen einrichten möchten, müssen Sie eine benutzerdefinierte SAML-Entity-ID aktivieren, indem Sie eine benutzerdefinierte SAML-Single Sign-on-Integration einrichten. Folgen Sie den Schritten unter [Service Provider (SP) initiated login]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup), wenden Sie jedoch diese Änderungen an:
 - Ändern Sie die **Entity ID** für jede Dashboard-Integration auf `braze_dashboard_<companyID>`.
-- Kontaktieren Sie Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in oder Account Manager:in, um den `saml_sso_custom_entity_id`-Feature-Flipper für jedes Dashboard zu aktivieren.
+- Kontaktieren Sie Ihren CSM oder Account Manager:in, um den `saml_sso_custom_entity_id`-Feature-Flipper für jedes Dashboard zu aktivieren.
 
 #### Zwei-Faktor-Authentifizierung (2FA) {#two-factor-authentication-2fa}
 
 Wie 2FA für Multi-Company-Entwickler:innen funktioniert, hängt von Ihrer 2FA-Methode ab:
 
-- **E-Mail und Kurzmitteilungsdienst or SMS:** Ihre 2FA-Einstellungen werden auf alle verknüpften Entwicklerkonten kopiert. Nachdem Sie E-Mail- oder Kurzmitteilungsdienst or SMS-basierte 2FA für ein Konto eingerichtet haben, gilt dieselbe Methode für alle Ihre Unternehmens-Dashboards.
+- **E-Mail und SMS:** Ihre 2FA-Einstellungen werden auf alle verknüpften Entwicklerkonten kopiert. Nachdem Sie E-Mail- oder SMS-basierte 2FA für ein Konto eingerichtet haben, gilt dieselbe Methode für alle Ihre Unternehmens-Dashboards.
 - **Zeitbasiertes Einmalpasswort (TOTP):** TOTP-Einstellungen werden nicht über Konten hinweg synchronisiert. Wenn Sie eine Authenticator-App verwenden, müssen Sie für jedes Dashboard, bei dem Sie sich direkt anmelden, einen separaten Code einrichten.
 
 Wenn Sie innerhalb des Dashboards zwischen Konten wechseln, müssen Sie die 2FA nur einmal durchführen – beim ersten Anmelden bei einem verknüpften Konto während dieser Sitzung.
@@ -103,7 +103,7 @@ Links zum Zurücksetzen des Passworts laufen zwei Stunden nach dem E-Mail-Versan
 Wenn keiner dieser Schritte funktioniert, kann ein Administrator Ihr Nutzerkonto löschen und neu erstellen, um das Problem zu beheben. Weitere Informationen finden Sie unter [Unternehmensnutzer:innen verwalten]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users).
 
 {% alert note %}
-Das Löschen und Neuerstellen eines Nutzerkontos setzt deren Berechtigungen zurück und kann die Asset-Zuordnung für Campaigns, Canvase und andere Inhalte beeinflussen, die zuvor diesem/dieser Nutzer:in gehörten.
+Das Löschen und Neuerstellen eines Nutzerkontos setzt deren Berechtigungen zurück und kann die Asset-Zuordnung für Campaigns, Canvases und andere Inhalte beeinflussen, die zuvor diesem/dieser Nutzer:in gehörten.
 {% endalert %}
 
 ### Browser-Cache und Cookies löschen {#clearing-your-browser-cache-and-cookies}
@@ -132,7 +132,7 @@ Dieser Fehler kann auftreten, wenn ein/e Unternehmensnutzer:in keinem Workspace 
 1. Gehen Sie zur Seite [Unternehmensnutzer:innen]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users).
 2. Prüfen Sie, ob der/die Nutzer:in einem Workspace hinzugefügt wurde.
 3. Wenn er/sie keinem Workspace angehört, fügen Sie ihn/sie hinzu und weisen Sie die entsprechenden Berechtigungen zu.
-4. Bitten Sie den/die Nutzer:in, das Dashboard zu Update or aktualisieren or aktualisieren.
+4. Bitten Sie den/die Nutzer:in, das Dashboard zu aktualisieren.
 5. Wenn das Problem weiterhin besteht, wenden Sie sich an den [Support]({{site.baseurl}}/support_contact).
 
 ### Zugriff auf den Drag-and-Drop-Editor {#accessing-the-drag-and-drop-editor}
@@ -155,7 +155,7 @@ Wenn Sie Probleme bei der Anmeldung bei Braze-Lernangeboten haben und in einer S
 1. Wenn Sie mehrere Braze-Konten haben, werden Sie beim zweimaligen Anmelden mit dem falschen Konto zum Braze-Dashboard weitergeleitet. Bestätigen Sie, dass Sie sich beim richtigen Konto anmelden.
 2. Wenn Sie einen Werbeblocker verwenden, bestätigen Sie, dass er ausgeschaltet ist. Er kann Cookies blockieren, die für die Single-Sign-on-Funktionalität erforderlich sind.
 3. Gehen Sie zu **Einstellungen** > **Unternehmenseinstellungen** > **Administratoreinstellungen** > **Sicherheitseinstellungen** und überprüfen Sie, dass Single Sign-on (Single Sign-on) aktiviert ist.
-4. Bestätigen Sie, dass Ihr Dashboard-Kundenprofil or Nutzerprofil sowohl einen Vor- als auch einen Nachnamen enthält. Ein fehlender Nachname kann den Anmeldevorgang stören.
+4. Bestätigen Sie, dass Ihr Dashboard-Kundenprofil sowohl einen Vor- als auch einen Nachnamen enthält. Ein fehlender Nachname kann den Anmeldevorgang stören.
 5. Greifen Sie auf die Braze-Lernangebote über Ihr Dashboard zu, indem Sie zu **Support** > **Braze Learning** navigieren.
 6. Wenn weiterhin Probleme auftreten, ziehen Sie in Betracht, Ihr Konto neu zu erstellen. Nutzer:innen, die während der kostenlosen Demophase auf die Braze-Lernangebote zugegriffen haben, können jetzt möglicherweise Schwierigkeiten beim Zugriff haben.
 
@@ -227,12 +227,12 @@ Um dieses Problem zu lösen, wenden Sie sich an den Braze-Administrator Ihres Un
 Testen Sie zunächst, ob das Dashboard in einem anderen Browser geladen wird. Wenn das Problem in einem anderen Browser nicht auftritt, versuchen Sie Folgendes:
 
 - **Dashboard neu starten:** Melden Sie sich ab, schließen Sie Ihren Browser und versuchen Sie dann, sich bei Ihrem Dashboard anzumelden.
-- **Lokalen Browser Update or aktualisieren or aktualisieren:** [Löschen Sie Ihre Cookies und Ihren Browser-Cache](#clearing-your-browser-cache-and-cookies) und versuchen Sie dann, sich erneut bei Ihrem Dashboard anzumelden.
+- **Lokalen Browser aktualisieren:** [Löschen Sie Ihre Cookies und Ihren Browser-Cache](#clearing-your-browser-cache-and-cookies) und versuchen Sie dann, sich erneut bei Ihrem Dashboard anzumelden.
 - **Kompatible Plugins oder Drittanbieter-Tools verwenden:** Werbeblocker oder Sicherheitssoftware können das Laden des Braze-Dashboards verhindern. Testen Sie dies, indem Sie einen Werbeblocker deaktivieren und sich dann bei Ihrem Braze-Dashboard anmelden.
         - Sie können auch Ihre Browser-Konsolenprotokolle überprüfen. Fehler im Zusammenhang mit `ERR_BLOCKED_BY_CLIENT` können darauf hinweisen, dass der Inhalt von einem Werbeblocker blockiert wird.
 - **Verbindungsqualität prüfen:** Ihre Verbindungsqualität ist möglicherweise schlecht. Versuchen Sie, sich auf einem anderen Gerät bei Ihrem Braze-Dashboard anzumelden.
 - **Richtigen Cluster bestätigen:** Stellen Sie sicher, dass Sie sich bei dem Cluster anmelden, der Ihrem Unternehmen zugewiesen ist. Beispielsweise könnten Sie US-03 zugewiesen sein, melden sich aber bei US-01 an.
-- **Browser Update or aktualisieren or aktualisieren:** Update or aktualisieren or aktualisieren Sie Ihren Browser auf die neueste [unterstützte Browserversion](#supported-browsers) und versuchen Sie dann, sich bei Ihrem Dashboard anzumelden.
+- **Browser aktualisieren:** Aktualisieren Sie Ihren Browser auf die neueste [unterstützte Browserversion](#supported-browsers) und versuchen Sie dann, sich bei Ihrem Dashboard anzumelden.
 
 Wenn das Problem in allen Browsern auftritt, versuchen Sie Folgendes:
 
@@ -257,7 +257,7 @@ Wenn Sie ein/e neue/r Braze-Nutzer:in sind und Schwierigkeiten bei der Anmeldung
 
 #### Ich habe die E-Mail erhalten, komme aber bei der Einrichtung der Zwei-Faktor-Authentifizierung (2FA) nicht weiter {#i-received-the-email-but-im-stuck-setting-up-two-factor-authentication-2fa}
 
-Wenn Sie während der 2FA-Einrichtung **Start setup** auswählen, aber nie einen Bestätigungscode erhalten (per Kurzmitteilungsdienst or SMS oder E-Mail) oder die Einrichtung der Authenticator-App nicht abschließen können, können Browsererweiterungen, Cookie-Einstellungen oder Netzwerkbeschränkungen den Vorgang stören. Versuchen Sie Folgendes:
+Wenn Sie während der 2FA-Einrichtung **Start setup** auswählen, aber nie einen Bestätigungscode erhalten (per SMS oder E-Mail) oder die Einrichtung der Authenticator-App nicht abschließen können, können Browsererweiterungen, Cookie-Einstellungen oder Netzwerkbeschränkungen den Vorgang stören. Versuchen Sie Folgendes:
 
 - Werbeblocker deaktivieren und Drittanbieter-Cookies aktivieren: Werbeblocker oder Datenschutzerweiterungen können den 2FA-Bestätigungsablauf blockieren. Deaktivieren Sie diese vorübergehend und bestätigen Sie, dass Drittanbieter-Cookies in Ihren Browsereinstellungen aktiviert sind.
 - Anderen Browser verwenden: Wechseln Sie zu einem anderen Browser, um browserspezifische Probleme auszuschließen.

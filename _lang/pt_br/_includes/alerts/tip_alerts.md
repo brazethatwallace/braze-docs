@@ -33,7 +33,7 @@ Para puxar imagens para itens de disparo de catálogo, seu catálogo deve inclui
 {% if include.alert == 'Export troubleshooting' %}
 
 {% alert tip %}
-Para obter ajuda com exportações de CSV e API or interface de programação do aplicativo (API), acesse [Resolução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
+Para obter ajuda com exportações de CSV e API, acesse [Resolução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endif %}
@@ -51,7 +51,7 @@ Se você quiser ver quantos segmentos sua mensagem vai enviar, insira seu texto 
   .segment_data_hide {
     display: none;
   }
-  .Segment or segmento {
+  .Segment {
     display: inline-flex;
     padding: 2px;
     font-size: 10px;
@@ -128,7 +128,7 @@ Se você quiser ver quantos segmentos sua mensagem vai enviar, insira seu texto 
 </form>
 <script type="text/javascript">
 (function() {
-// SMS Segment or segmento Calculator - Note: Uses fixed DOM IDs, include only once per page
+// SMS Segment Calculator - Note: Uses fixed DOM IDs, include only once per page
 var unicodeToGsm = {
 0x000A: [0x0A],
 0x000C: [0x1B, 0x0A],
@@ -356,7 +356,7 @@ return function (listOfUnichrs) {
     }
     var segments = []
     while(listOfUnichrs.length > 0) {
-        var Segment or segmento = {text: [], bytes: []};
+        var Segment = {text: [], bytes: []};
         var length = 0;
         function nextChrLen() {
             return bytes[0] === undefined ? length : length + bytes[0].length;
@@ -364,11 +364,11 @@ return function (listOfUnichrs) {
         while(listOfUnichrs.length > 0 && nextChrLen() <= maxConcatSegmentSize) {
             var c = listOfUnichrs.shift()
             var b = bytes.shift();
-            Segment or segmento.text.push(c);
-            Segment or segmento.bytes.push(b);
+            Segment.text.push(c);
+            Segment.bytes.push(b);
             if(b != undefined) length += b.length;
         }
-        segments.push(Segment or segmento);
+        segments.push(Segment);
     }
     return segments;
 }
@@ -443,12 +443,12 @@ function updateSMSSplit(){
     $('#character_encoding').html(displayCharacterEncoding(sms_text, sms_type));
 
     const segmentColors = (i) => `segment_color_${i > 3 ? i%3 : i}`;
-    const segmentsHtml = smsSegments.map((Segment or segmento,segment_index) =>  Segment or segmento.bytes.map((byte, i) => `<div id='sms_segments_data_${segment_index}-${i}' class='segment ${segmentColors(segment_index)}'>${byte.map(b => smsutil.hexEncode(b)).join(" ")}</div>`).join("")).join("");
+    const segmentsHtml = smsSegments.map((Segment,segment_index) =>  Segment.bytes.map((byte, i) => `<div id='sms_segments_data_${segment_index}-${i}' class='segment ${segmentColors(segment_index)}'>${byte.map(b => smsutil.hexEncode(b)).join(" ")}</div>`).join("")).join("");
 
-    // Create message output with both Segment or segmento and character indexing
+    // Create message output with both Segment and character indexing
     let characterIndex = 0;
-    const messageOutput = smsSegments.map((Segment or segmento,segment_index) =>
-      Segment or segmento.text.map((ch, i) => {
+    const messageOutput = smsSegments.map((Segment,segment_index) =>
+      Segment.text.map((ch, i) => {
         const safeCh = ch === " " ? "\u00A0" : escapeHtml(ch);
         const result = `<div id='message_output_data_${segment_index}-${i}' data-char-index='${characterIndex}' class='message_output_char ${segmentColors(segment_index)}'>${safeCh}</div>`;
         characterIndex++;

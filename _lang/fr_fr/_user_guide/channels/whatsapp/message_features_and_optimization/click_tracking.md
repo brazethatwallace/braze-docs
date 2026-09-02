@@ -20,7 +20,7 @@ Le suivi des clics vous permet de mesurer quand quelqu'un appuie sur un lien dan
 Vous pouvez activer le suivi des clics dans les messages de réponse et les messages de modèle. Il fonctionne avec les liens dans les boutons et le corps du texte, et prend en charge les URL personnalisées et les domaines personnalisés. Une fois activé, vous verrez les données de clics dans vos rapports de performance WhatsApp et pourrez segmenter les utilisateurs en fonction de qui a cliqué sur quoi.
 
 {% alert note %}
-Le suivi des clics ne fonctionne pas avec les deep links. Vous pouvez raccourcir les liens universels de fournisseurs tels que Branch or branche ou Appsflyer, mais Braze n'est pas en mesure de résoudre les problèmes qui pourraient survenir (comme la rupture de l'attribution ou la création d'une redirection).
+Le suivi des clics ne fonctionne pas avec les deep links. Vous pouvez raccourcir les liens universels de fournisseurs tels que Branch ou Appsflyer, mais Braze n'est pas en mesure de résoudre les problèmes qui pourraient survenir (comme la rupture de l'attribution ou la création d'une redirection).
 {% endalert %}
 
 ## Fonctionnement {#how-it-works}

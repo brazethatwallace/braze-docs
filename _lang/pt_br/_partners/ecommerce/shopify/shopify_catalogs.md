@@ -12,7 +12,7 @@ description: "Este artigo de referência aborda como importar seus produtos da S
 
 Os catálogos da Shopify serão atualizados quase em tempo real à medida que você fizer edições e alterações nos produtos da sua loja Shopify. É possível enriquecer seu carrinho abandonado, a confirmação do pedido e muito mais com os detalhes e as informações mais atualizadas do produto.
 
-Além de oferecer suporte aos [dados principais de produtos da Shopify](#supported-shopify-catalog-data), você pode sincronizar coleções da Shopify, tags de produtos e metacampos de produtos com o seu catálogo da Braze. Esses campos adicionais possibilitam uma personalização mais rica, seleções de catálogo mais precisas e uma segmentação mais poderosa por meio de [extensões de Segment or segmento or segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension).
+Além de oferecer suporte aos [dados principais de produtos da Shopify](#supported-shopify-catalog-data), você pode sincronizar coleções da Shopify, tags de produtos e metacampos de produtos com o seu catálogo da Braze. Esses campos adicionais possibilitam uma personalização mais rica, seleções de catálogo mais precisas e uma segmentação mais poderosa por meio de [extensões de Segment]({{site.baseurl}}/user_guide/audience/segments/segment_extension).
 
 ## Configure sua sincronização de produtos da Shopify {#set-up}
 
@@ -71,7 +71,7 @@ Adicione tags de produtos, coleções da Shopify e metacampos na Shopify primeir
 ![Seção de sincronização de dados de produtos com a Braze, com opções para selecionar entre múltiplas configurações, incluindo coleções.]({% image_buster /assets/img/shopify/select_collections.png %})
 
 {: start="3"}
-3. Selecione até 20 metacampos pesquisáveis para sincronizar. Cada um se torna uma coluna separada no seu catálogo para uso em recursos como seleções de catálogo ou extensões de Segment or segmento or segmento.
+3. Selecione até 20 metacampos pesquisáveis para sincronizar. Cada um se torna uma coluna separada no seu catálogo para uso em recursos como seleções de catálogo ou extensões de Segment.
 - Ao nomear metacampos, observe que espaços se tornam "_" e todos os caracteres especiais são removidos para atender às restrições de nomenclatura de campos do catálogo da Braze.
 
 ![Modal para selecionar metacampos de produtos.]({% image_buster /assets/img/shopify/select_metafields.png %}){: style="max-width:80%;"}
@@ -124,7 +124,7 @@ A Braze não oferece suporte a objetos de metacampos, incluindo alguns respectiv
   - Coleções selecionadas anteriormente que não estão mais entre as 5.000 principais ainda aparecerão na sua seleção.
 
 {% alert note %}
-A Braze usa o ID de coleção da Shopify para identificar coleções sincronizadas, que são então usadas ao criar seleções de catálogo e filtros de Segment or segmento or segmento.
+A Braze usa o ID de coleção da Shopify para identificar coleções sincronizadas, que são então usadas ao criar seleções de catálogo e filtros de Segment.
 {% endalert %}
 
 ![Modal para selecionar coleções em um menu suspenso.]({% image_buster /assets/img/shopify/selected_collections.png %}){: style="max-width:80%;"}
@@ -149,7 +149,7 @@ Você também pode visualizar tags de produtos, metacampos e coleções sincroni
 ![Catálogo da Shopify com dados sincronizados.]({% image_buster /assets/img/shopify/synced_catalog.png %})
 
 {% alert important %}
-Se a sincronização exceder o limite de armazenamento do seu catálogo, a Braze interromperá a sincronização e as novas atualizações de produtos não serão mais refletidas. Entre em contato com seu gerente de sucesso do cliente para fazer upgrade do seu nível, se necessário.
+Se a sincronização exceder o limite de armazenamento do seu catálogo, a Braze interromperá a sincronização e as novas atualizações de produtos não serão mais refletidas. Entre em contato com seu CSM para fazer upgrade do seu nível, se necessário.
 {% endalert %}
 
 ### Etapa 5: Gerencie sua configuração {#step-5-manage-your-configuration}
@@ -182,7 +182,7 @@ Alterar suas seleções sincronizadas pode afetar Campaigns, Canvas ou seleçõe
 | `product_url`        | string         | "https://your-store.myshopify.com/products/classic-leather-jacket"            |
 | `product_handle`     | string         | "classic-leather-jacket"                                                          |
 | `published_scope`    | string         | "web", "global"                                                                   |
-| `price`              | number         | `10.00`, `24.99`<br><br>O Shopify frequentemente retorna preços como strings (por exemplo, `"199.00"` na REST or transferir estado representacional Admin API or interface de programação do aplicativo (API)). A Braze os converte para números nesse campo do catálogo. |
+| `price`              | number         | `10.00`, `24.99`<br><br>O Shopify frequentemente retorna preços como strings (por exemplo, `"199.00"` na REST Admin API). A Braze os converte para números nesse campo do catálogo. |
 | `compare_at_price`   | number         | `15.00` quando **Compare at price** está definido no Shopify<br><br>`0` quando o Shopify não tem um preço de comparação. As APIs do Shopify normalmente retornam `null` para um preço de comparação não definido; a Braze armazena `0` no catálogo para que o campo seja sempre numérico (esse é um padrão da Braze, não um valor que o Shopify envia como `0`). |
 | `inventory_quantity` | number         | `20`, `0` ou um valor negativo quando a sobrevenda é permitida (por exemplo, `-18`)   |
 | `options`            | string         | "Size,Color"<br><br>O Shopify permite até três tipos de opção por produto (por exemplo, Size, Color, Material). O valor de `options` é uma lista separada por vírgulas desses nomes. |
@@ -202,13 +202,13 @@ Seu catálogo do Shopify é gerenciado pelo Shopify. Para atualizar seu catálog
 Esses casos de uso mostram como você pode usar os dados sincronizados do seu catálogo Shopify para personalizar mensagens.
 
 {% alert warning %}
-A Braze sincroniza até 250 variantes de cada produto do Shopify no seu catálogo. Variantes que excedam esse limite não são sincronizadas. Se você precisar de mais de 250 variantes por produto, entre em contato com o seu gerente de sucesso do cliente da Braze.
+A Braze sincroniza até 250 variantes de cada produto do Shopify no seu catálogo. Variantes que excedam esse limite não são sincronizadas. Se você precisar de mais de 250 variantes por produto, entre em contato com o seu CSM da Braze.
 {% endalert %}
 
 {% tabs %}
 {% tab Tags de produto %}
 
-Use tags de produto para personalizar mensagens com base em como seus produtos são categorizados no Shopify. Por exemplo, você pode enviar uma promoção com todos os produtos marcados com "Summer Sale" por meio de uma [seleção de catálogo]({{site.baseurl}}/catalog_selections), ou criar um Segment or segmento de usuários que compraram produtos marcados como "Premium."
+Use tags de produto para personalizar mensagens com base em como seus produtos são categorizados no Shopify. Por exemplo, você pode enviar uma promoção com todos os produtos marcados com "Summer Sale" por meio de uma [seleção de catálogo]({{site.baseurl}}/catalog_selections), ou criar um Segment de usuários que compraram produtos marcados como "Premium."
 
 As tags de produto são armazenadas como um campo de array em cada item do catálogo. Para configurar a sincronização de tags de produto, consulte [Tags de produto do Shopify](#shopify-product-tags).
 
@@ -297,7 +297,7 @@ Checkout the latest women's clothing:
 
 ### Segmentação de catálogo (SQL) {#catalog-segmentation-sql}
 
-Use [extensões de Segment or segmento or segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension) para criar segmentos com base em usuários que interagiram com uma tag de produto. Por exemplo, para encontrar usuários que se engajaram com itens do catálogo que contêm uma tag de produto específica, use esta consulta:
+Use [extensões de Segment]({{site.baseurl}}/user_guide/audience/segments/segment_extension) para criar segmentos com base em usuários que interagiram com uma tag de produto. Por exemplo, para encontrar usuários que se engajaram com itens do catálogo que contêm uma tag de produto específica, use esta consulta:
 
 {% raw %}
 ```liquid
@@ -415,7 +415,7 @@ Check out the latest summer products:
 
 ### Segmentação de catálogo (SQL)
 
-Use [extensões de Segment or segmento or segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension) para criar segmentos com base em usuários que interagiram com um metafield de produto. Por exemplo, para encontrar usuários que dispararam um evento de e-commerce com um produto cujo array de metafield contém um valor específico, use esta consulta:
+Use [extensões de Segment]({{site.baseurl}}/user_guide/audience/segments/segment_extension) para criar segmentos com base em usuários que interagiram com um metafield de produto. Por exemplo, para encontrar usuários que dispararam um evento de e-commerce com um produto cujo array de metafield contém um valor específico, use esta consulta:
 
 {% raw %}
 ```sql
@@ -454,7 +454,7 @@ WHERE
 ```
 {% endraw %}
 
-Se você quiser segmentar clientes que fizeram um pedido com metafields de produto específicos, use um dos seguintes modelos de extensão de Segment or segmento or segmento SQL (todo o período, período específico, primeiro ou último disparo de evento).
+Se você quiser segmentar clientes que fizeram um pedido com metafields de produto específicos, use um dos seguintes modelos de extensão de Segment SQL (todo o período, período específico, primeiro ou último disparo de evento).
 
 {% raw %}
 ```sql
@@ -677,7 +677,7 @@ Checkout the latest women's clothing:
 
 ### Segmentação de catálogo (SQL)
 
-Crie um Segment or segmento or segmento de usuários que interagiram com uma coleção. Use [extensões de Segment or segmento or segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension) para criar segmentos com base na associação a coleções. Por exemplo, para encontrar usuários que compraram produtos de uma coleção específica no último ano, use esta consulta:
+Crie um Segment de usuários que interagiram com uma coleção. Use [extensões de Segment]({{site.baseurl}}/user_guide/audience/segments/segment_extension) para criar segmentos com base na associação a coleções. Por exemplo, para encontrar usuários que compraram produtos de uma coleção específica no último ano, use esta consulta:
 
 {% raw %}
 ```json
@@ -729,4 +729,4 @@ Se a sincronização de produtos do Shopify apresentar um erro, isso pode ser re
 | Limite do catálogo excedido | Isso ocorre quando você excede o limite do seu catálogo. A Braze não conseguirá concluir a sincronização ou manter a sincronização ativa devido à falta de espaço de armazenamento disponível. | Existem duas soluções para esse problema:<br><br>1. Entre em contato com seu gerente de conta para fazer upgrade do seu plano e aumentar o limite do catálogo. <br><br>2. Libere espaço de armazenamento excluindo qualquer um dos seguintes itens:<br>- Itens de catálogo de outros catálogos<br>- Outros catálogos<br>- Seleções criadas<br><br> Após utilizar qualquer uma das soluções, a sincronização deve ser desativada e então refeita. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Solução de problemas" }
 
-Para mais detalhes sobre a validação de itens do catálogo, consulte [Solução de problemas]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/post_create_catalog_items_bulk#troubleshooting) na documentação da API or interface de programação do aplicativo (API) de catálogos.
+Para mais detalhes sobre a validação de itens do catálogo, consulte [Solução de problemas]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/post_create_catalog_items_bulk#troubleshooting) na documentação da API de catálogos.

@@ -138,8 +138,8 @@ Push Stories通知は、通知がクリックされると<i>ボディクリッ�
 <i>生涯収益</i>は、開始以降に受け取った<code>PurchaseEvents</code>価格の合計値（USD）です。
 {% endif %}
 
-{% if include.metric == "LTV or LTV or 生涯価値 Per User" %}
-<i>ユーザーあたりのLTV or 生涯価値</i>は、<i>生涯収益</i>を<i>総ユーザー数</i>（ホームページに記載）で割ったものです。
+{% if include.metric == "LTV Per User" %}
+<i>ユーザーあたりのLTV</i>は、<i>生涯収益</i>を<i>総ユーザー数</i>（ホームページに記載）で割ったものです。
 {% endif %}
 
 {% if include.metric == "Average Daily Revenue" %}

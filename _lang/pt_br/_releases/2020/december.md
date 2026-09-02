@@ -15,9 +15,9 @@ Nos eventos de engajamento com mensagens de e-mail do Currents, a propriedade de
 
 Um artigo de perguntas frequentes foi adicionado à documentação existente sobre Churn Preditivo. Para saber mais sobre possíveis erros, esclarecimentos de tempo e considerações sobre dados, confira nossas [Perguntas frequentes sobre Churn Preditivo]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/troubleshooting).
 
-## Documento de solução de problemas de exportações CSV e API or interface de programação do aplicativo (API) {#csv-and-api-exports-troubleshooting-doc}
+## Documento de solução de problemas de exportações CSV e API {#csv-and-api-exports-troubleshooting-doc}
 
-Um documento de solução de problemas detalhando erros comuns de CSV e API or interface de programação do aplicativo (API) foi adicionado à documentação da Braze. Para saber mais sobre esses erros, bem como algumas perguntas frequentes, confira nossa documentação de [solução de problemas]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting) de exportação CSV e API or interface de programação do aplicativo (API).
+Um documento de solução de problemas detalhando erros comuns de CSV e API foi adicionado à documentação da Braze. Para saber mais sobre esses erros, bem como algumas perguntas frequentes, confira nossa documentação de [solução de problemas]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting) de exportação CSV e API.
 
 ## Parceria com EduMe {#edume-partnership}
 

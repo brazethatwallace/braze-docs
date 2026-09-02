@@ -10,7 +10,7 @@ Android impose certaines limitations quant aux composants pouvant être utilisé
 
 Vous pouvez utiliser l'interface [`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html) pour personnaliser l'affichage des notifications push de Braze. En étendant `BrazeNotificationFactory`, Braze appellera la méthode `createNotification()` de votre factory avant que la notification ne soit affichée à l'utilisateur. Il transmettra ensuite un payload contenant les paires clé-valeur personnalisées envoyées via le tableau de bord de Braze ou la REST API.
 
-Dans cette section, vous allez collaborer avec Superb Owl, l'hôte d'un nouveau jeu télévisé où des équipes de sauvetage de la faune s'affrontent pour savoir qui peut sauver le plus de hiboux. Ils cherchent à tirer parti des notifications avec mises à jour en direct or en ligne/en production/instantané dans leur application Android, afin de pouvoir afficher le statut d'un match en cours et effectuer des mises à jour dynamiques de la notification en temps réel.
+Dans cette section, vous allez collaborer avec Superb Owl, l'hôte d'un nouveau jeu télévisé où des équipes de sauvetage de la faune s'affrontent pour savoir qui peut sauver le plus de hiboux. Ils cherchent à tirer parti des notifications avec mises à jour en direct dans leur application Android, afin de pouvoir afficher le statut d'un match en cours et effectuer des mises à jour dynamiques de la notification en temps réel.
 
 ![La mise à jour en direct que Superb Owl souhaite afficher, montrant un match en cours entre « Wild Bird Fund » et « Owl Rescue ». C'est actuellement le quatrième quart-temps et le score est de 2-4 avec OWL en tête.]({% image_buster /assets/img/android/android-live-activity-superb-owl-example.jpg %}){: style="max-width:65%;"}
 
@@ -207,9 +207,9 @@ class MyCustomNotificationFactory : BrazeNotificationFactory() {
 
 ### Étape 3 : Associer des données personnalisées {#step-3-map-custom-data}
 
-Dans `MyCustomNotificationFactory.kt`, créez une nouvelle méthode pour gérer les données lorsque les mises à jour en direct or en ligne/en production/instantané sont affichées.
+Dans `MyCustomNotificationFactory.kt`, créez une nouvelle méthode pour gérer les données lorsque les mises à jour en direct sont affichées.
 
-Superb Owl a créé la méthode suivante pour associer le nom et le logo de chaque équipe aux mises à jour en direct or en ligne/en production/instantané développées :
+Superb Owl a créé la méthode suivante pour associer le nom et le logo de chaque équipe aux mises à jour en direct développées :
 
 ```kotlin
 class CustomNotificationFactory : BrazeNotificationFactory() {
@@ -280,7 +280,7 @@ curl -X POST "https://BRAZE_REST_ENDPOINT/messages/send" \
 ```
 
 {% alert tip %}
-Bien que les commandes curl soient utiles pour les tests, nous recommandons de gérer cet appel dans votre backend où vous gérez déjà vos [activités en direct or en ligne/en production/instantané iOS]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?sdktab=swift).
+Bien que les commandes curl soient utiles pour les tests, nous recommandons de gérer cet appel dans votre backend où vous gérez déjà vos [activités en direct iOS]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?sdktab=swift).
 {% endalert %}
 
 #### Paramètres de la requête {#request-parameters}
@@ -290,10 +290,10 @@ Bien que les commandes curl soient utiles pour les tests, nous recommandons de g
 | `REST_API_KEY` | Une clé API REST Braze avec les permissions `messages.send`. <br><br> Elle peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
 | `BRAZE_REST_ENDPOINT` | L'URL de votre endpoint REST. Votre endpoint dépendra de l'[URL de Braze pour votre instance]({{site.baseurl}}/api/basics#endpoints). |
 | `USER_ID` | L'ID de l'utilisateur auquel vous envoyez la notification. |
-| `messages.android_push.title` | Le titre du message. Par défaut, celui-ci n'est pas utilisé pour les notifications en direct or en ligne/en production/instantané de la notification factory personnalisée, mais il peut servir de solution de repli. |
-| `messages.android_push.alert` | Le corps du message. Par défaut, celui-ci n'est pas utilisé pour les notifications en direct or en ligne/en production/instantané de la notification factory personnalisée, mais il peut servir de solution de repli. |
-| `messages.extra` | Les paires clé-valeur que la notification factory personnalisée utilise pour les notifications en direct or en ligne/en production/instantané. Vous pouvez attribuer n'importe quelle chaîne de caractères à cette valeur&#8212;cependant, dans cet exemple, `live_updates` est utilisé pour déterminer s'il s'agit d'une notification push par défaut ou en direct or en ligne/en production/instantané. |
-| `ASSIGNED_NOTIFICATION_ID` | L'ID de notification que vous souhaitez attribuer à la notification en direct or en ligne/en production/instantané de l'utilisateur choisi. L'ID doit être unique pour ce match et doit être utilisé pour [mettre à jour sa notification existante](#android_step-4-update-data-with-the-braze-rest-api) ultérieurement. |
+| `messages.android_push.title` | Le titre du message. Par défaut, celui-ci n'est pas utilisé pour les notifications en direct de la notification factory personnalisée, mais il peut servir de solution de repli. |
+| `messages.android_push.alert` | Le corps du message. Par défaut, celui-ci n'est pas utilisé pour les notifications en direct de la notification factory personnalisée, mais il peut servir de solution de repli. |
+| `messages.extra` | Les paires clé-valeur que la notification factory personnalisée utilise pour les notifications en direct. Vous pouvez attribuer n'importe quelle chaîne de caractères à cette valeur&#8212;cependant, dans cet exemple, `live_updates` est utilisé pour déterminer s'il s'agit d'une notification push par défaut ou en direct. |
+| `ASSIGNED_NOTIFICATION_ID` | L'ID de notification que vous souhaitez attribuer à la notification en direct de l'utilisateur choisi. L'ID doit être unique pour ce match et doit être utilisé pour [mettre à jour sa notification existante](#android_step-4-update-data-with-the-braze-rest-api) ultérieurement. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Paramètres de la requête" }
 
 ### Étape 6 : Mettre à jour l'activité {#step-6-update-the-activity}

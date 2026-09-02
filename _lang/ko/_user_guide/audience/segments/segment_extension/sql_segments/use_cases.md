@@ -123,7 +123,7 @@ HAVING COUNT(id) > 0;
 Message, Delivery
 {% endapitags %}
 
-단문 메시지 서비스 Campaign 또는 Canvas가 발송되었지만 메시지가 통신사에 도달하지 못한 사용자를 선택합니다. 예를 들어, 대기줄 오버플로로 인해 메시지가 중단되었을 수 있습니다.
+SMS Campaign 또는 Canvas가 발송되었지만 메시지가 통신사에 도달하지 못한 사용자를 선택합니다. 예를 들어, 대기줄 오버플로로 인해 메시지가 중단되었을 수 있습니다.
 
 ```sql
 SELECT
@@ -139,7 +139,7 @@ HAVING COUNT(id) > 0;
 {% endapi %}
 
 {% api %}
-## 대기줄 오버플로로 인해 통신사에 도달하지 못한 모든 단문 메시지 서비스 메시지 찾기 {#find-all-sms-messages-that-were-sent-but-didnt-reach-the-carrier-because-of-queue-overflow}
+## 대기줄 오버플로로 인해 통신사에 도달하지 못한 모든 SMS 메시지 찾기 {#find-all-sms-messages-that-were-sent-but-didnt-reach-the-carrier-because-of-queue-overflow}
 {% apitags %}
 Message, Carrier
 {% endapitags %}
@@ -345,7 +345,7 @@ FROM user_daily_average;
 ```
 
 {% alert tip %}
-단문 메시지 서비스 메시지의 경우, 쿼리에서 `USERS_MESSAGES_EMAIL_SEND_SHARED`를 `USERS_MESSAGES_SMS_SEND_SHARED`로 바꾸세요. 푸시 알림의 경우, 쿼리에서 `USERS_MESSAGES_EMAIL_SEND_SHARED`를 `USERS_MESSAGES_SMS_SEND_SHARED`로 바꾸세요.
+SMS 메시지의 경우, 쿼리에서 `USERS_MESSAGES_EMAIL_SEND_SHARED`를 `USERS_MESSAGES_SMS_SEND_SHARED`로 바꾸세요. 푸시 알림의 경우, 쿼리에서 `USERS_MESSAGES_EMAIL_SEND_SHARED`를 `USERS_MESSAGES_SMS_SEND_SHARED`로 바꾸세요.
 {% endalert %}
 {% endapi %}
 
@@ -383,6 +383,6 @@ SELECT
 FROM user_weekly_average;
 ```
 {% alert tip %}
-단문 메시지 서비스 메시지의 경우, 쿼리에서 `USERS_MESSAGES_EMAIL_SEND_SHARED`를 `USERS_MESSAGES_SMS_SEND_SHARED`로 바꾸세요. 푸시 알림의 경우, 쿼리에서 `USERS_MESSAGES_EMAIL_SEND_SHARED`를 `USERS_MESSAGES_SMS_SEND_SHARED`로 바꾸세요.
+SMS 메시지의 경우, 쿼리에서 `USERS_MESSAGES_EMAIL_SEND_SHARED`를 `USERS_MESSAGES_SMS_SEND_SHARED`로 바꾸세요. 푸시 알림의 경우, 쿼리에서 `USERS_MESSAGES_EMAIL_SEND_SHARED`를 `USERS_MESSAGES_SMS_SEND_SHARED`로 바꾸세요.
 {% endalert %}
 {% endapi %}

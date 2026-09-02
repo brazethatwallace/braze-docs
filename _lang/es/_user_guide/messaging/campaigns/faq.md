@@ -61,7 +61,7 @@ Por ejemplo, una empresa con sede en Londres que envía una Campaign a las 12 pm
 
 ### ¿Cómo reconoce Braze la zona horaria de un usuario? {#how-does-braze-recognize-a-users-time-zone}
 
-Braze determinará automáticamente la zona horaria del usuario a partir de su dispositivo. Esto garantiza la precisión de la zona horaria y la cobertura completa de tus usuarios. Los usuarios creados a través de la API de usuario o de otro modo sin una zona horaria tendrán la zona horaria de tu empresa como su zona horaria predeterminada hasta que sean reconocidos en tu aplicación por el SDK or kit de desarrollo de software.
+Braze determinará automáticamente la zona horaria del usuario a partir de su dispositivo. Esto garantiza la precisión de la zona horaria y la cobertura completa de tus usuarios. Los usuarios creados a través de la API de usuario o de otro modo sin una zona horaria tendrán la zona horaria de tu empresa como su zona horaria predeterminada hasta que sean reconocidos en tu aplicación por el SDK.
 
 Puedes comprobar la zona horaria de tu empresa en la [configuración de la empresa]({{site.baseurl}}/user_guide/administer/global/admin_settings) en el panel.
 
@@ -281,9 +281,9 @@ Si descubres que tus Campaigns programadas diarias envían a menos usuarios con 
 
 Para [límites de velocidad de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) y otros factores que reducen los envíos para una sola ocurrencia, consulta [¿Por qué los envíos son menores que el tamaño estimado de la audiencia?](#why-are-sends-lower-than-the-estimated-audience-size).
 
-### ¿Por qué los destinatarios únicos pueden superar los envíos para correo electrónico y servicio de mensajes cortos? {#why-can-unique-recipients-exceed-sends-for-email-and-sms}
+### ¿Por qué los destinatarios únicos pueden superar los envíos para correo electrónico y SMS? {#why-can-unique-recipients-exceed-sends-for-email-and-sms}
 
-Para correo electrónico y servicio de mensajes cortos, Braze incrementa **Destinatarios únicos** antes del intento de envío del ESP e incrementa **Envíos** después de una respuesta exitosa del ESP. Los errores permanentes (como direcciones de correo electrónico inválidas) o direcciones duplicadas hacen que los destinatarios únicos superen los envíos.
+Para correo electrónico y SMS, Braze incrementa **Destinatarios únicos** antes del intento de envío del ESP e incrementa **Envíos** después de una respuesta exitosa del ESP. Los errores permanentes (como direcciones de correo electrónico inválidas) o direcciones duplicadas hacen que los destinatarios únicos superen los envíos.
 
 ### ¿Por qué **Último envío** no coincide con mi hora de envío programada? {#why-doesnt-last-sent-match-my-scheduled-send-time}
 

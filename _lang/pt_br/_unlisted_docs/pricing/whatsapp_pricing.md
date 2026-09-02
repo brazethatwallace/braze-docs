@@ -61,7 +61,7 @@ O WhatsApp está fazendo mais duas atualizações em seus preços a partir de 1�
 
 #### Por que estão fazendo essa mudança? {#why-are-they-making-this-change}
 
-A Meta está migrando para um modelo "por mensagem" para ajudar as marcas a simplificar os cálculos de retorno sobre investimento (ROI or retorno sobre o investimento (ROI)). Essa mudança também facilitará que as marcas façam comparações diretas de ROI or retorno sobre o investimento (ROI) com outros canais que cobram por mensagem.
+A Meta está migrando para um modelo "por mensagem" para ajudar as marcas a simplificar os cálculos de retorno sobre investimento (ROI). Essa mudança também facilitará que as marcas façam comparações diretas de ROI com outros canais que cobram por mensagem.
 
 #### Como isso vai afetar meu uso atual do WhatsApp? {#how-will-this-affect-my-current-whatsapp-usage}
 
@@ -186,4 +186,4 @@ Informações detalhadas sobre a redução das conversas utilitárias estão na 
 | Reino Unido                                | 44,7%                            |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-Para entender melhor como você pode aproveitar essas atualizações, entre em contato com seu gerente de sucesso do cliente.
+Para entender melhor como você pode aproveitar essas atualizações, entre em contato com seu CSM.

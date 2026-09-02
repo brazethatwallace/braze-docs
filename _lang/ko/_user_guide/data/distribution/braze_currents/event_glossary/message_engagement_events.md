@@ -735,13 +735,13 @@ Subscription
 | REST API | REST API 엔드포인트 |
 | CSV 가져오기 | CSV 사용자 가져오기 |
 | 환경설정 센터 | 환경설정 센터에서 사용자가 업데이트되는 경우 |
-| 인바운드 메시지 | 단문 메시지 서비스 등의 채널을 통해 최종 사용자가 보낸 인바운드 메시지로 사용자가 업데이트되는 경우 |
+| 인바운드 메시지 | SMS 등의 채널을 통해 최종 사용자가 보낸 인바운드 메시지로 사용자가 업데이트되는 경우 |
 | 마이그레이션 | 내부 마이그레이션 또는 유지 관리 스크립트에 의해 사용자가 업데이트되는 경우 |
 | 사용자 병합 | 사용자 병합 프로세스에 의해 사용자가 업데이트되는 경우 |
 | Canvas 사용자 업데이트 단계 | Canvas 사용자 업데이트 단계에 의해 사용자가 업데이트되는 경우 |
 | 푸시 토큰 등록 | 토큰 등록 프로세스에 의해 사용자가 업데이트되는 경우 |
 | 목록 수신 거부 | 사용자가 Braze mailto 또는 원클릭 목록 수신 거부 헤더를 통해 구독을 취소하는 경우 |
-| 기타 | 데모 또는 공급자 동기화 작업, 단문 메시지 서비스 및 WhatsApp 이벤트 콜백 등 기타 소스를 포함합니다 |
+| 기타 | 데모 또는 공급자 동기화 작업, SMS 및 WhatsApp 이벤트 콜백 등 기타 소스를 포함합니다 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="속성 세부정보" }
 
 
@@ -757,7 +757,7 @@ Subscription
 이 이벤트는 구독 그룹 내 사용자의 구독 상태가 변경될 때 발생합니다.
 
 {% alert important %}
-현재 구독 그룹은 이메일, 단문 메시지 서비스, RCS 및 WhatsApp 채널에서만 사용할 수 있습니다.
+현재 구독 그룹은 이메일, SMS, RCS 및 WhatsApp 채널에서만 사용할 수 있습니다.
 {% endalert %}
 
 {% tabs %}
@@ -1026,7 +1026,7 @@ Subscription
 <tr><td>REST API</td><td>REST API 엔드포인트</td></tr>
 <tr><td>CSV 가져오기</td><td>CSV 사용자 가져오기</td></tr>
 <tr><td>환경설정 센터</td><td>환경설정 센터에서 사용자가 업데이트되는 경우</td></tr>
-<tr><td>인바운드 메시지</td><td>최종사용자가 단문 메시지 서비스 등의 채널을 통해 보낸 인바운드 메시지로 사용자가 업데이트되는 경우</td></tr>
+<tr><td>인바운드 메시지</td><td>최종사용자가 SMS 등의 채널을 통해 보낸 인바운드 메시지로 사용자가 업데이트되는 경우</td></tr>
 <tr><td>마이그레이션</td><td>내부 마이그레이션 또는 유지 관리 스크립트에 의해 사용자가 업데이트되는 경우</td></tr>
 <tr><td>사용자 병합</td><td>사용자 병합 프로세스에 의해 사용자가 업데이트되는 경우</td></tr>
 <tr><td>Canvas 사용자 업데이트 단계</td><td>Canvas 사용자 업데이트 단계에 의해 사용자가 업데이트되는 경우</td></tr>
@@ -14800,13 +14800,13 @@ RCS, Sends
 {% endapi %}
 
 {% api %}
-## 단문 메시지 서비스 중단 이벤트 {#sms-abort-events}
+## SMS 중단 이벤트 {#sms-abort-events}
 
 {% apitags %}
-Abort, 단문 메시지 서비스
+Abort, SMS
 {% endapitags %}
 
-이 이벤트는 Liquid 중단 등의 이유로 단문 메시지 서비스 메시지가 중단된 경우에 발생합니다.
+이 이벤트는 Liquid 중단 등의 이유로 SMS 메시지가 중단된 경우에 발생합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -15020,13 +15020,13 @@ Abort, 단문 메시지 서비스
 {% endapi %}
 
 {% api %}
-## 단문 메시지 서비스 통신사 전송 이벤트 {#sms-carrier-send-events}
+## SMS 통신사 전송 이벤트 {#sms-carrier-send-events}
 
 {% apitags %}
-단문 메시지 서비스, Sends
+SMS, Sends
 {% endapitags %}
 
-이 이벤트는 단문 메시지 서비스가 통신사로 전송될 때 발생합니다.
+이 이벤트는 SMS가 통신사로 전송될 때 발생합니다.
 
 {% alert important %}
 `CarrierSend`는 레거시 인프라를 사용하는 사용자에게만 지원됩니다.
@@ -15263,13 +15263,13 @@ Abort, 단문 메시지 서비스
 {% endapi %}
 
 {% api %}
-## 단문 메시지 서비스 전달 이벤트 {#sms-delivery-events}
+## SMS 전달 이벤트 {#sms-delivery-events}
 
 {% apitags %}
-단문 메시지 서비스, Delivery
+SMS, Delivery
 {% endapitags %}
 
-이 이벤트는 단문 메시지 서비스가 사용자의 휴대폰으로 성공적으로 전달되었을 때 발생합니다.
+이 이벤트는 SMS가 사용자의 휴대폰으로 성공적으로 전달되었을 때 발생합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -15508,13 +15508,13 @@ Abort, 단문 메시지 서비스
 {% endapi %}
 
 {% api %}
-## 단문 메시지 서비스 전달 실패 이벤트 {#sms-delivery-failure-events}
+## SMS 전달 실패 이벤트 {#sms-delivery-failure-events}
 
 {% apitags %}
-단문 메시지 서비스, Delivery, Failure
+SMS, Delivery, Failure
 {% endapitags %}
 
-이 이벤트는 단문 메시지 서비스 전달에 실패했을 때 발생합니다. 이 이벤트와 제공된 오류 코드를 사용하여 단문 메시지 서비스 전달 관련 문제를 해결하세요.
+이 이벤트는 SMS 전달에 실패했을 때 발생합니다. 이 이벤트와 제공된 오류 코드를 사용하여 SMS 전달 관련 문제를 해결하세요.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -15759,17 +15759,17 @@ Abort, 단문 메시지 서비스
 {% endapi %}
 
 {% api %}
-## 단문 메시지 서비스 인바운드 수신 이벤트 {#sms-inbound-received-events}
+## SMS 인바운드 수신 이벤트 {#sms-inbound-received-events}
 
 {% apitags %}
-단문 메시지 서비스, Inbound Received
+SMS, Inbound Received
 {% endapitags %}
 
-이 이벤트는 사용자 중 한 명이 Braze 단문 메시지 서비스 구독 그룹의 전화번호로 단문 메시지 서비스를 보낼 때 발생합니다.
+이 이벤트는 사용자 중 한 명이 Braze SMS 구독 그룹의 전화번호로 SMS를 보낼 때 발생합니다.
 
-Braze가 인바운드 단문 메시지 서비스를 수신하면, 해당 전화번호를 공유하는 모든 사용자에게 인바운드 메시지를 귀속시킵니다. 따라서 Braze 인스턴스에서 여러 사용자가 동일한 전화번호를 공유하는 경우 인바운드 메시지당 여러 이벤트를 수신할 수 있습니다. 해당 사용자에게 이전에 전송된 메시지를 기반으로 특정 사용자 ID에 귀속해야 하는 경우, 단문 메시지 서비스 전달 이벤트를 사용하여 가장 최근에 Braze 번호로부터 메시지를 수신한 사용자 ID에 인바운드 수신 이벤트를 귀속할 수 있습니다.
+Braze가 인바운드 SMS를 수신하면, 해당 전화번호를 공유하는 모든 사용자에게 인바운드 메시지를 귀속시킵니다. 따라서 Braze 인스턴스에서 여러 사용자가 동일한 전화번호를 공유하는 경우 인바운드 메시지당 여러 이벤트를 수신할 수 있습니다. 해당 사용자에게 이전에 전송된 메시지를 기반으로 특정 사용자 ID에 귀속해야 하는 경우, SMS 전달 이벤트를 사용하여 가장 최근에 Braze 번호로부터 메시지를 수신한 사용자 ID에 인바운드 수신 이벤트를 귀속할 수 있습니다.
 
-Braze가 이 인바운드 메시지가 Braze에서 전송된 아웃바운드 Campaign 또는 Canvas 구성요소에 대한 답장임을 감지하면, Campaign 또는 Canvas 메타데이터도 이벤트에 포함됩니다. Braze는 아웃바운드 메시지 이후 4시간 이내에 수신된 인바운드 메시지를 답장으로 정의합니다. 다만, 마지막으로 전송된 아웃바운드 단문 메시지 서비스의 귀속 Campaign 정보에는 1분의 캐시가 적용됩니다.
+Braze가 이 인바운드 메시지가 Braze에서 전송된 아웃바운드 Campaign 또는 Canvas 구성요소에 대한 답장임을 감지하면, Campaign 또는 Canvas 메타데이터도 이벤트에 포함됩니다. Braze는 아웃바운드 메시지 이후 4시간 이내에 수신된 인바운드 메시지를 답장으로 정의합니다. 다만, 마지막으로 전송된 아웃바운드 SMS의 귀속 Campaign 정보에는 1분의 캐시가 적용됩니다.
 
 
 {% tabs %}
@@ -15995,16 +15995,16 @@ Braze가 이 인바운드 메시지가 Braze에서 전송된 아웃바운드 Cam
 {% endapi %}
 
 {% api %}
-## 단문 메시지 서비스 거부 이벤트 {#sms-rejection-events}
+## SMS 거부 이벤트 {#sms-rejection-events}
 
 {% apitags %}
-단문 메시지 서비스, Rejection
+SMS, Rejection
 {% endapitags %}
 
-이 이벤트는 단문 메시지 서비스 전송이 통신사에 의해 거부될 때 발생합니다. 이는 여러 가지 이유로 발생할 수 있습니다. 이 이벤트와 제공된 오류 코드를 사용하여 단문 메시지 서비스 전달 관련 문제를 해결하세요.
+이 이벤트는 SMS 전송이 통신사에 의해 거부될 때 발생합니다. 이는 여러 가지 이유로 발생할 수 있습니다. 이 이벤트와 제공된 오류 코드를 사용하여 SMS 전달 관련 문제를 해결하세요.
 
 {% alert note %}
-Braze는 이벤트가 로깅을 위해 처리될 때 워크스페이스에 Braze 사용자 프로필이 여전히 존재하는 경우에만 `users.messages.sms.Rejection`을 Currents, Snowflake 데이터 공유 및 관련 내보내기로 전송합니다. 해당 프로필이 사전에 삭제된 경우, 데이터 웨어하우스 또는 Currents 내보내기에서 이 이벤트를 확인할 수 없습니다. 동일한 처리 규칙은 Braze가 동일한 파이프라인을 통해 로깅하는 다른 `users.messages.sms.*` 아웃바운드 이벤트(예: 전달, 전달 실패, 통신사 전송)에도 적용됩니다. 워크스페이스 수준의 단문 메시지 서비스 측정기준에는 Snowflake의 행과 일대일로 매핑되지 않는 집계 수가 여전히 포함될 수 있습니다.
+Braze는 이벤트가 로깅을 위해 처리될 때 워크스페이스에 Braze 사용자 프로필이 여전히 존재하는 경우에만 `users.messages.sms.Rejection`을 Currents, Snowflake 데이터 공유 및 관련 내보내기로 전송합니다. 해당 프로필이 사전에 삭제된 경우, 데이터 웨어하우스 또는 Currents 내보내기에서 이 이벤트를 확인할 수 없습니다. 동일한 처리 규칙은 Braze가 동일한 파이프라인을 통해 로깅하는 다른 `users.messages.sms.*` 아웃바운드 이벤트(예: 전달, 전달 실패, 통신사 전송)에도 적용됩니다. 워크스페이스 수준의 SMS 측정기준에는 Snowflake의 행과 일대일로 매핑되지 않는 집계 수가 여전히 포함될 수 있습니다.
 {% endalert %}
 
 {% tabs %}
@@ -16256,10 +16256,10 @@ Braze는 이벤트가 로깅을 위해 처리될 때 워크스페이스에 Braze
 {% endapi %}
 
 {% api %}
-## 단문 메시지 서비스 재시도 이벤트 {#sms-retry-events}
+## SMS 재시도 이벤트 {#sms-retry-events}
 
 {% apitags %}
-단문 메시지 서비스, Retry
+SMS, Retry
 {% endapitags %}
 
 이 이벤트는 메시지의 우선순위가 낮아지거나 빈도 제한이 적용되어 설정된 재시도 기간 내에 나중에 재시도될 때 발생합니다. 이 기능은 메시지 우선순위 지정 베타 고객에게만 제공됩니다.
@@ -16469,13 +16469,13 @@ Braze는 이벤트가 로깅을 위해 처리될 때 워크스페이스에 Braze
 {% endapi %}
 
 {% api %}
-## 단문 메시지 서비스 전송 이벤트 {#sms-send-events}
+## SMS 전송 이벤트 {#sms-send-events}
 
 {% apitags %}
-단문 메시지 서비스, Sends
+SMS, Sends
 {% endapitags %}
 
-이 이벤트는 사용자가 단문 메시지 서비스를 전송할 때 발생합니다.
+이 이벤트는 사용자가 SMS를 전송할 때 발생합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -16734,13 +16734,13 @@ Braze는 이벤트가 로깅을 위해 처리될 때 워크스페이스에 Braze
 {% endapi %}
 
 {% api %}
-## 단문 메시지 서비스 단축 링크 클릭 이벤트 {#sms-short-link-click-events}
+## SMS 단축 링크 클릭 이벤트 {#sms-short-link-click-events}
 
 {% apitags %}
-단문 메시지 서비스, Clicks
+SMS, Clicks
 {% endapitags %}
 
-이 이벤트는 사용자가 단문 메시지 서비스 단축 링크를 클릭할 때 발생합니다.
+이 이벤트는 사용자가 SMS 단축 링크를 클릭할 때 발생합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}

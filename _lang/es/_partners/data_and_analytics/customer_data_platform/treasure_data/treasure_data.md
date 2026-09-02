@@ -10,10 +10,10 @@ search_tag: Partner
 
 # Treasure Data
 
-> [Treasure Data](https://www.treasuredata.com/) es una plataforma de datos de clientes (CDP or plataforma de datos de los clientes) que recopila y encamina información de múltiples fuentes a una variedad de otras ubicaciones en tu stack de marketing.
+> [Treasure Data](https://www.treasuredata.com/) es una plataforma de datos de clientes (CDP) que recopila y encamina información de múltiples fuentes a una variedad de otras ubicaciones en tu stack de marketing.
 
 La integración de Braze y Treasure Data te permite escribir los resultados de los trabajos de Treasure Data directamente en Braze, lo que te permite:
-* **Asignar ID externos**: Asigna ID a la cuenta de usuario de Braze desde tu sistema CRM or administración de las relaciones con el cliente.
+* **Asignar ID externos**: Asigna ID a la cuenta de usuario de Braze desde tu sistema CRM.
 * **Gestionar la exclusión voluntaria**: Cuando un usuario final actualiza su consentimiento eligiendo no participar.
 * **Cargar tu seguimiento de eventos, compras o atributos de perfil personalizados**. Esta información puede ayudarte a crear segmentos de clientes precisos que mejoren la experiencia del usuario en tus campañas.
 
@@ -22,13 +22,13 @@ La integración de Braze y Treasure Data te permite escribir los resultados de l
 | Requisito | Descripción |
 | --- | --- |
 | Cuenta de Treasure Data | Se necesita una [cuenta de Treasure Data](https://www.treasuredata.com/custom-demo/) para beneficiarse de esta asociación. |
-| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos `users.track`, `users.delete`, `users.alias.new`, `users.identify`.<br><br>Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
-| Endpoint REST or transferencia de estado representacional de Braze | La URL de tu endpoint REST or transferencia de estado representacional. Tu endpoint dependerá de la [URL de Braze de tu instancia]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints)). |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`, `users.delete`, `users.alias.new`, `users.identify`.<br><br>Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Endpoint REST de Braze | La URL de tu endpoint REST. Tu endpoint dependerá de la [URL de Braze de tu instancia]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints)). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Ejemplos {#use-cases}
 
-Puedes sincronizar tus perfiles de cliente consolidados de Treasure Data en Braze para crear segmentos objetivo. Treasure Data admite datos de cookies propios, ID de móviles, sistemas de terceros como tu CRM or administración de las relaciones con el cliente, y muchos más.
+Puedes sincronizar tus perfiles de cliente consolidados de Treasure Data en Braze para crear segmentos objetivo. Treasure Data admite datos de cookies propios, ID de móviles, sistemas de terceros como tu CRM, y muchos más.
 
 ## Integración {#integration}
 
@@ -36,7 +36,7 @@ Puedes sincronizar tus perfiles de cliente consolidados de Treasure Data en Braz
 
 En Treasure Data, ve al **Catalog** en el **Integrations Hub** y busca y selecciona **Braze**.
 
-En el mensaje **New Authentication** que aparece, asigna un nombre a la conexión e indica tu clave de API REST or transferencia de estado representacional de Braze y el endpoint REST or transferencia de estado representacional. Selecciona **Done** cuando hayas terminado.
+En el mensaje **New Authentication** que aparece, asigna un nombre a la conexión e indica tu clave de API REST de Braze y el endpoint REST. Selecciona **Done** cuando hayas terminado.
 
 ![Formulario de autenticación de Braze en Treasure Data con campos de clave de API REST y endpoint.]({% image_buster /assets/img/treasure_data/braze_authentication.png %}){: style="max-width:80%;"}
 
@@ -76,4 +76,4 @@ Visita [Treasure Data](https://docs.treasuredata.com/display/public/INT/Braze+Ex
 
 ## Webhooks
 
-Los usuarios de Treasure Data pueden ingerir datos a través de la REST or transferencia de estado representacional API pública. Puedes utilizar Treasure Data para crear webhooks personalizados en tus datos. Para más información, visita [Treasure Data](https://docs.treasuredata.com/display/public/PD/Postback+API)
+Los usuarios de Treasure Data pueden ingerir datos a través de la REST API pública. Puedes utilizar Treasure Data para crear webhooks personalizados en tus datos. Para más información, visita [Treasure Data](https://docs.treasuredata.com/display/public/PD/Postback+API)

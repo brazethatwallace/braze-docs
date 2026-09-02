@@ -239,7 +239,7 @@ Consulte as seções a seguir para saber como usar nossas ferramentas da melhor 
 
 ### Escolha o cronograma de entrega ou o disparo {#choose-delivery-schedule-or-trigger}
 
-As mensagens do KakaoTalk podem ser entregues com base em um horário agendado, uma ação ou um disparo de API or interface de programação do aplicativo (API). Para saber mais sobre opções de agendamento e disparo, consulte [Agendar sua campanha]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign) ou [Tipos de cronograma de entrada]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#entry-schedule-types) (para o seu Canvas).
+As mensagens do KakaoTalk podem ser entregues com base em um horário agendado, uma ação ou um disparo de API. Para saber mais sobre opções de agendamento e disparo, consulte [Agendar sua campanha]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign) ou [Tipos de cronograma de entrada]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#entry-schedule-types) (para o seu Canvas).
 
 Você pode especificar controles de entrega, como permitir que os usuários se tornem reelegíveis para receber a Campaign, ou ativar regras de limite de frequência. Para entrega baseada em ação, você também pode definir a duração da Campaign e o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours).
 

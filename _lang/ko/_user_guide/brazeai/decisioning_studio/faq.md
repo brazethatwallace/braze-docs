@@ -16,7 +16,7 @@ description: "이 페이지는 Decisioning Studio에 대해 자주 묻는 질문
 
 ### 어떤 측정기준을 최적화할 수 있나요? {#what-metrics-can-i-optimize-for}
 
-매출, 전환, 사용자당 평균 매출(ARPU), 고객 LTV or 생애주기 가치(고객 생애주기 가치), 이익, 계약 갱신 또는 기타 비즈니스 KPI or 핵심 성과 지표(KPI)와 같은 목표에 맞는 모든 비즈니스 측정기준을 최적화할 수 있습니다.
+매출, 전환, 사용자당 평균 매출(ARPU), 고객 LTV(고객 생애주기 가치), 이익, 계약 갱신 또는 기타 비즈니스 KPI와 같은 목표에 맞는 모든 비즈니스 측정기준을 최적화할 수 있습니다.
 
 ### Decisioning Studio에서 크기 및 위치란 무엇인가요? {#what-are-dimensions-in-decisioning-studio}
 

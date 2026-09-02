@@ -84,7 +84,7 @@ En Canvas, usa:
 - `{{campaign.${name}}}` para obtener el nombre del paso en Canvas (solo pasos de mensaje)
 {% endraw %}
 
-Para una comparación completa de estos atributos en Liquid, la REST or transferencia de estado representacional API y Currents, consulta [Atributos de Campaign y Canvas en distintas fuentes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources). Para orientación sobre la codificación de URL, consulta [Nombres de Campaign en URL]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#campaign-names-in-urls).
+Para una comparación completa de estos atributos en Liquid, la REST API y Currents, consulta [Atributos de Campaign y Canvas en distintas fuentes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources). Para orientación sobre la codificación de URL, consulta [Nombres de Campaign en URL]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#campaign-names-in-urls).
 
 ## Usar plantillas de enlaces en Campaigns de correo electrónico {#using-link-templates-in-email-campaigns}
 

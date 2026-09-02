@@ -1,7 +1,7 @@
 ---
 nav_title: Storyly
 article_title: Storyly
-description: "Este artículo de referencia describe la asociación entre Braze y Storyly, un SDK or kit de desarrollo de software ligero, que permite a los propietarios de aplicaciones orientar sus segmentos y alimentar Braze con más datos propios."
+description: "Este artículo de referencia describe la asociación entre Braze y Storyly, un SDK ligero, que permite a los propietarios de aplicaciones orientar sus segmentos y alimentar Braze con más datos propios."
 alias: /partners/storyly/
 page_type: partner
 search_tag: Partner
@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Storyly
 
-> [Storyly](https://www.storyly.io/) es un SDK or kit de desarrollo de software ligero que lleva historias a tu aplicación o sitio web. Con un estudio de diseño intuitivo, análisis detallados y una conectividad perfecta, Storyly es una potente herramienta para enriquecer la experiencia de la audiencia.
+> [Storyly](https://www.storyly.io/) es un SDK ligero que lleva historias a tu aplicación o sitio web. Con un estudio de diseño intuitivo, análisis detallados y una conectividad perfecta, Storyly es una potente herramienta para enriquecer la experiencia de la audiencia.
 
 _Esta integración está mantenida por Storyly._
 
@@ -25,9 +25,9 @@ La integración de Braze y Storyly te permite utilizar tus segmentos en Braze co
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta de Storyly | Se necesita una cuenta de Storyly para beneficiarse de esta asociación. |
-| SDK or kit de desarrollo de software de Storyly | Debes instalar el [SDK or kit de desarrollo de software de Storyly](https://integration.storyly.io/). |
-| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con los siguientes permisos: <br><br> `users.export.ids`<br> `users.export.segments`<br> `segments.list`<br> `segments.details` <br><br> Puede crearse en el dashboard de Braze desde **Settings** > **API Keys**. |
-| Punto de conexión REST or transferencia de estado representacional de Braze | [La URL de tu punto de conexión REST or transferencia de estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze de tu instancia. |
+| SDK de Storyly | Debes instalar el [SDK de Storyly](https://integration.storyly.io/). |
+| Clave de API REST de Braze | Una clave de API REST de Braze con los siguientes permisos: <br><br> `users.export.ids`<br> `users.export.segments`<br> `segments.list`<br> `segments.details` <br><br> Puede crearse en el dashboard de Braze desde **Settings** > **API Keys**. |
+| Punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze de tu instancia. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Casos de uso {#use-cases}
@@ -51,7 +51,7 @@ También puedes consultar la documentación de [Storyly](https://docs.storyly.io
 
 ### Paso 1: Configura la integración en el panel de Storyly {#step-1-set-the-integration-on-storyly-dashboard}
 
-Crea una integración en **Storyly Dashboard > Settings > Integrations > Connect with Braze**. Aquí necesitarás tu clave de API REST or transferencia de estado representacional de Braze y tu punto de conexión REST or transferencia de estado representacional de Braze.
+Crea una integración en **Storyly Dashboard > Settings > Integrations > Connect with Braze**. Aquí necesitarás tu clave de API REST de Braze y tu punto de conexión REST de Braze.
 
 ### Paso 2: Obtén tus segmentos {#step-2-get-your-segments}
 

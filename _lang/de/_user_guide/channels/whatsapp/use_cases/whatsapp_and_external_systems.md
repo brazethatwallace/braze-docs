@@ -2,29 +2,29 @@
 nav_title: "WhatsApp und externe Systeme"
 article_title: "WhatsApp und externe Systeme"
 page_order: 2
-description: "Dieser Referenzartikel bietet eine Schritt-für-Schritt-Anleitung für die Integration von Braze und WhatsApp mit einem externen KI or künstliche Intelligenz- oder Kommunikationssystem."
+description: "Dieser Referenzartikel bietet eine Schritt-für-Schritt-Anleitung für die Integration von Braze und WhatsApp mit einem externen KI- oder Kommunikationssystem."
 page_type: reference
 alias: /whatsapp_external_system_integration/
 channel:
   - WhatsApp
 ---
 
-# Braze und WhatsApp mit einem externen KI or künstliche Intelligenz- oder Kommunikationssystem integrieren {#integrate-braze-and-whatsapp-with-an-external-ai-or-communication-system}
+# Braze und WhatsApp mit einem externen KI- oder Kommunikationssystem integrieren {#integrate-braze-and-whatsapp-with-an-external-ai-or-communication-system}
 
-> Nutzen Sie die Leistungsfähigkeit von KI or künstliche Intelligenz-Chatbots und Live-Agent-Übergaben auf dem WhatsApp-Kanal, um Ihren Kundensupport zu optimieren. Durch die Automatisierung von Routineanfragen und die nahtlose Übergabe an menschliche Mitarbeitende bei Bedarf können Sie die Antwortzeiten erheblich verbessern und das gesamte Kundenerlebnis steigern.
+> Nutzen Sie die Leistungsfähigkeit von KI-Chatbots und Live-Agent-Übergaben auf dem WhatsApp-Kanal, um Ihren Kundensupport zu optimieren. Durch die Automatisierung von Routineanfragen und die nahtlose Übergabe an menschliche Mitarbeitende bei Bedarf können Sie die Antwortzeiten erheblich verbessern und das gesamte Kundenerlebnis steigern.
 
 ## Voraussetzungen {#prerequisites}
 
 | Anforderungen | Beschreibung |
 | - | - |
-| Externes System | Ein KI or künstliche Intelligenz- oder Kommunikationssystem eines Drittanbieters, das in der Lage ist, Chatbots und automatisierte Kundenservice-Systeme über APIs zu erstellen und zu verwalten, oder beides. |
+| Externes System | Ein KI- oder Kommunikationssystem eines Drittanbieters, das in der Lage ist, Chatbots und automatisierte Kundenservice-Systeme über APIs zu erstellen und zu verwalten, oder beides. |
 | Braze- und WhatsApp-Integration | Eine von Braze verwaltete WhatsApp-Nummer |
-| Braze-Representational State Transfer-API-Schlüssel | Ein Representational State Transfer-API-Schlüssel mit `campaigns.trigger.send`-Berechtigungen. Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze-REST-API-Schlüssel | Ein REST-API-Schlüssel mit `campaigns.trigger.send`-Berechtigungen. Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## So funktioniert es {#how-it-works}
 
-Die Integration zwischen Braze und dem externen KI or künstliche Intelligenz- oder Kommunikationssystem funktioniert als Zweibahnstraße, wobei Braze der Kommunikationskanal ist und das externe System die „Intelligenz“, die Nachrichten verarbeitet und Antworten formuliert.
+Die Integration zwischen Braze und dem externen KI- oder Kommunikationssystem funktioniert als Zweibahnstraße, wobei Braze der Kommunikationskanal ist und das externe System die „Intelligenz“, die Nachrichten verarbeitet und Antworten formuliert.
 
 Der Integrations-Workflow lässt sich in zwei zentrale Abläufe unterteilen:
 **Eingehender Ablauf:** Die Nachricht einer Nutzerin oder eines Nutzers trifft in Braze ein und wird dann zur Verarbeitung an Ihr externes System weitergeleitet.
@@ -55,7 +55,7 @@ Erstellen Sie zunächst eine Webhook-Campaign, um eine Möglichkeit zu schaffen,
 {% endraw %}
 
 {: start="5"}
-5. Wählen Sie im Schritt **Schedule Delivery** Ihres Campaign-Editors **Action-Based** als Zustellungstyp und **Send a WhatsApp inbound message** als Campaign-Trigger or triggern.
+5. Wählen Sie im Schritt **Schedule Delivery** Ihres Campaign-Editors **Action-Based** als Zustellungstyp und **Send a WhatsApp inbound message** als Campaign-Trigger.
 
 ![Aktionsbasierte Zustellung mit einem Trigger zum Senden einer eingehenden WhatsApp-Nachricht.]({% image_buster /assets/img/whatsapp/inbound_message_trigger.png %})
 
@@ -72,7 +72,7 @@ Erstellen Sie als Nächstes eine API-getriggerte Campaign, um Ihrem externen Sys
 ![Nachrichten-Editor mit Optionen zur Auswahl des Nachrichtentyps und des Nachrichtenlayouts.]({% image_buster /assets/img/whatsapp/response_message_layout.png %})
 
 {: start="3"}
-3. Fügen Sie die API-Trigger or triggern-Eigenschaft zum Nachrichtentext hinzu, wie zum Beispiel {% raw %}`{{api_trigger_properties.${external_system_msg+body}}}`{% endraw %}. Dadurch kann Ihr KI or künstliche Intelligenz-System die zu sendende Nachricht befüllen.
+3. Fügen Sie die API-Trigger-Eigenschaft zum Nachrichtentext hinzu, wie zum Beispiel {% raw %}`{{api_trigger_properties.${external_system_msg+body}}}`{% endraw %}. Dadurch kann Ihr KI-System die zu sendende Nachricht befüllen.
 
 ![Nachrichten-Editor mit Nachrichtentext, der Trigger-Eigenschaften enthält.]({% image_buster /assets/img/whatsapp/api_trigger_properties.png %})
 
@@ -86,7 +86,7 @@ Konfigurieren Sie abschließend Ihr externes System so, dass es Braze aufruft un
 
 1. Führen Sie im Code Ihres externen Systems nach der Verarbeitung der empfangenen Nachricht und der Generierung der Antwort eine POST-Anfrage an den Braze-Endpunkt `/messages/send` durch.
 2. Fügen Sie im Body der `/messages/send`-Anfrage die `campaign_id` aus [Schritt 2](#step-2), die `external_id` der Nutzerin oder des Nutzers und den Inhalt der Antwort des externen Systems ein.
-3. Verwenden Sie die API-Trigger or triggern-Eigenschaft aus [Schritt 2](#step-2), um die Antwort des externen Systems einzufügen, und vergessen Sie nicht, Ihren API-Schlüssel im Anfrage-Header zur Authentifizierung anzugeben, wie in diesem cURL-Beispiel:
+3. Verwenden Sie die API-Trigger-Eigenschaft aus [Schritt 2](#step-2), um die Antwort des externen Systems einzufügen, und vergessen Sie nicht, Ihren API-Schlüssel im Anfrage-Header zur Authentifizierung anzugeben, wie in diesem cURL-Beispiel:
 
 {% raw %}
 ```bash
@@ -108,11 +108,11 @@ curl -X POST \
 ```
 {% endraw %}
 
-Jetzt haben Sie eine solide Grundlage für den Aufbau eines KI or künstliche Intelligenz-Chatbot-Workflows!
+Jetzt haben Sie eine solide Grundlage für den Aufbau eines KI-Chatbot-Workflows!
 
 ### Ihren Workflow anpassen {#customizing-your-workflow}
 
 Sie können Ihre Integrationslogik erweitern, um:
-- Verschiedene Schlüsselwörter zu verwenden, um unterschiedliche Webhook-Campaigns zu Trigger or triggern or triggern.
+- Verschiedene Schlüsselwörter zu verwenden, um unterschiedliche Webhook-Campaigns zu triggern.
 - Komplexere Konversationsabläufe mit mehrstufigen API-getriggerten Campaigns zu erstellen.
-- Chat-Informationen in Braze als angepasste Attribute zu speichern, um das Kundenprofil or Nutzerprofil anzureichern und zukünftige Campaigns zu segmentieren.
+- Chat-Informationen in Braze als angepasste Attribute zu speichern, um das Kundenprofil anzureichern und zukünftige Campaigns zu segmentieren.

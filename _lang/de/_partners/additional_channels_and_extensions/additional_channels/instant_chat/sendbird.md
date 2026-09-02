@@ -27,8 +27,8 @@ Durch die Nutzung der gemeinsamen Funktionen von Braze und Sendbird Notification
 | ----------- | ----------- |
 | Sendbird-Konto | Ein Sendbird-Konto ist erforderlich, um diese Partnerschaft nutzen zu können. |
 | Sendbird UIKit | Sie müssen das Sendbird UIKit in Ihrer [iOS](https://sendbird.com/docs/notifications/v1/uikit/ios/install-uikit)- oder [Android](https://sendbird.com/docs/notifications/v1/uikit/android/install-uikit)-App installiert haben. |
-| Braze-Representational State Transfer-API-Schlüssel | Ein Braze-Representational State Transfer-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze-Representational State Transfer-Endpunkt | [Ihre Representational State Transfer-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Ihr Endpunkt hängt von der Braze-URL Ihrer Instanz ab. |
+| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze-REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Ihr Endpunkt hängt von der Braze-URL Ihrer Instanz ab. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
@@ -50,7 +50,7 @@ Die Integration von Braze und Sendbird Notifications bietet eine Reihe von Anwen
 
 ### 2. Schritt: Einrichten der Braze-Integration im Sendbird-Dashboard {#step-2-set-up-the-braze-integration-on-sendbird-dashboard}
 
-Wählen Sie im **Sendbird Dashboard** Ihre Anwendung aus, navigieren Sie zu **Notifications > Integrations** und klicken Sie unter dem Abschnitt **Braze** auf **Add**. Hier benötigen Sie Ihren Braze Representational State Transfer-API-Schlüssel und den Braze Representational State Transfer-Endpunkt.
+Wählen Sie im **Sendbird Dashboard** Ihre Anwendung aus, navigieren Sie zu **Notifications > Integrations** und klicken Sie unter dem Abschnitt **Braze** auf **Add**. Hier benötigen Sie Ihren Braze REST-API-Schlüssel und den Braze REST-Endpunkt.
 
 Sobald Sie alle Felder ausgefüllt haben, klicken Sie auf **Save**, um die Integration abzuschließen und auf die Endpunkte der Integration und das API-Token / Textbaustein zuzugreifen.
 
@@ -66,7 +66,7 @@ Sobald die Erweiterung installiert ist, klicken Sie auf das Sendbird-Symbol in d
 
 ### 4. Schritt: Sendbird-Nutzer-ID der Braze-Nutzer-ID zuordnen {#step-4-map-sendbird-user-id-to-braze-user-id}
 
-Eine Sendbird-Nutzer-ID muss als [angepasstes Attribut]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) zu einem Braze-Kundenprofil or Nutzerprofil hinzugefügt werden, damit die Integration genutzt werden kann. Sie können Nutzerprofile über CSV-Dateien von der Seite [Nutzerimport]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_import#csv) hochladen und Update or aktualisieren or aktualisieren. Alternativ können Sie auch die Braze-Nutzer-ID als Sendbird-Nutzer-ID verwenden.
+Eine Sendbird-Nutzer-ID muss als [angepasstes Attribut]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) zu einem Braze-Kundenprofil hinzugefügt werden, damit die Integration genutzt werden kann. Sie können Nutzerprofile über CSV-Dateien von der Seite [Nutzerimport]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_import#csv) hochladen und aktualisieren. Alternativ können Sie auch die Braze-Nutzer-ID als Sendbird-Nutzer-ID verwenden.
 
 ### 5. Schritt: Richten Sie Ihr Webhook-Template ein {#step-5-set-up-your-webhook-template}
 
@@ -94,7 +94,7 @@ Gehen Sie in Braze unter **Templates und Medien** zu **Webhook-Templates** und w
 
 1. Fügen Sie in einem neuen oder bestehenden Canvas eine **Message**-Komponente hinzu.
 2. Öffnen Sie die Komponente und wählen Sie **Webhook** aus den **Messaging Channels** aus.
-3. Wählen Sie das Webhook-Template aus, das Sie in diesem Abschnitt erstellt haben. Es wird dringend empfohlen, den Realtime-Endpunkt für Canvase zu verwenden.
+3. Wählen Sie das Webhook-Template aus, das Sie in diesem Abschnitt erstellt haben. Es wird dringend empfohlen, den Realtime-Endpunkt für Canvases zu verwenden.
 4. Passen Sie das Template an, indem Sie die Variablen im Tab **Compose** bearbeiten.
 
 ## Anpassung {#customization}
@@ -105,7 +105,7 @@ Um die Zustell- und Öffnungsstatus-Events von Benachrichtigungen mit der Konver
 
 1. Gehen Sie im Braze-Dashboard zu **Einstellungen > Einstellungen verwalten > Angepasste Events** und klicken Sie auf **+ Angepasstes Event hinzufügen**.
 2. Nachdem Sie ein angepasstes Event erstellt haben, klicken Sie auf **Eigenschaften verwalten**, fügen Sie eine Eigenschaft mit dem Namen „status“ hinzu und wählen Sie „String“ als Eigenschaftstyp.
-3. Wenn Sie eine Benachrichtigung in Campaigns oder Canvase verfassen, geben Sie den Namen des angepassten Events in das Feld **Event Name** ein.
+3. Wenn Sie eine Benachrichtigung in Campaigns oder Canvases verfassen, geben Sie den Namen des angepassten Events in das Feld **Event Name** ein.
 
 Dieses angepasste Event wird für jede Benachrichtigung zweimal ausgelöst: wenn eine Nachricht gesendet wird und wenn ein:e Nutzer:in die Nachricht öffnet.
 - Wenn eine Nachricht gesendet wird, wird ein angepasstes Event mit dem Status `SENT` ausgelöst.

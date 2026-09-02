@@ -13,7 +13,7 @@ channel:
 
 > In diesem Artikel werden verschiedene Themen rund um die Telefonnummern Ihrer Nutzer:innen bzw. Kund:innen behandelt.
 
-Telefonnummern werden im Kundenprofil or Nutzerprofil in lokalen Formaten angezeigt, entsprechen aber nicht dem Format, das Sie zum Importieren der Nummer verwenden (`(724) 123 4567`).
+Telefonnummern werden im Kundenprofil in lokalen Formaten angezeigt, entsprechen aber nicht dem Format, das Sie zum Importieren der Nummer verwenden (`(724) 123 4567`).
 
 ## Telefonnummern importieren {#importing-phone-numbers}
 

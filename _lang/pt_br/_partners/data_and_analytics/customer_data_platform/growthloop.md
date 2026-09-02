@@ -23,8 +23,8 @@ A integração entre a Braze e a GrowthLoop permite segmentar dados de cliente d
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Conta GrowthLoop growth ou enterprise | Uma conta GrowthLoop é necessária para aproveitar esta parceria. |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com todas as permissões.<br><br>Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
-| Endpoint REST or transferir estado representacional da Braze | Sua URL de endpoint REST or transferir estado representacional. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com todas as permissões.<br><br>Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Endpoint REST da Braze | Sua URL de endpoint REST. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
@@ -47,8 +47,8 @@ Um popup aparecerá para configurar a conexão com o destino.
 
 - **Destination name**: é assim que o destino será nomeado e referido no app daqui para frente
 - **Sync frequency**: selecione Daily ou Hourly; controla com que frequência a GrowthLoop exporta públicos para a Braze
-- **API or interface de programação do aplicativo (API) key**: chave de API or interface de programação do aplicativo (API) criada nos requisitos, com as permissões necessárias
-- **API or interface de programação do aplicativo (API) URL**: URL conforme definido nos requisitos
+- **API key**: chave de API criada nos requisitos, com as permissões necessárias
+- **API URL**: URL conforme definido nos requisitos
 
 Clique em **Create** e você poderá exportar seu primeiro público para a Braze! Para criar um público na GrowthLoop, visite [Criar um público](https://www.growthloop.com/help-center-articles/create-an-audience).
 

@@ -3,13 +3,13 @@ nav_title: Comprendre les enregistrements DNS
 article_title: Comprendre les enregistrements DNS
 page_order: 2
 page_type: reference
-description: "Cet article de référence explique le fonctionnement des enregistrements DNS pour les différents fournisseurs de services d'e-mail marketing or e-mailing de Braze, notamment SPF, DKIM, DMARC et les structures d'enregistrements spécifiques à chaque fournisseur."
+description: "Cet article de référence explique le fonctionnement des enregistrements DNS pour les différents fournisseurs de services d'e-mail marketing de Braze, notamment SPF, DKIM, DMARC et les structures d'enregistrements spécifiques à chaque fournisseur."
 channel: email
 ---
 
 # Comprendre les enregistrements DNS {#understanding-dns-records}
 
-> Cet article de référence explique le fonctionnement des enregistrements DNS au sein de Braze pour les trois principaux fournisseurs de services d'e-mail marketing or e-mailing (fournisseur de services d'e-mailing) : SparkPost, SendGrid et Amazon Simple Email Service (SES). Une configuration DNS correcte est essentielle pour l'authentification des e-mails (SPF, DKIM, DMARC) et la cohérence de marque, et elle a un impact direct sur la livrabilité.
+> Cet article de référence explique le fonctionnement des enregistrements DNS au sein de Braze pour les trois principaux fournisseurs de services d'e-mail marketing (fournisseur de services d'e-mailing) : SparkPost, SendGrid et Amazon Simple Email Service (SES). Une configuration DNS correcte est essentielle pour l'authentification des e-mails (SPF, DKIM, DMARC) et la cohérence de marque, et elle a un impact direct sur la livrabilité.
 
 Pour en savoir plus, consultez [Authentification des e-mails]({{site.baseurl}}/user_guide/channels/email/email_setup/authentication).
 
@@ -42,9 +42,9 @@ Braze gère l'authentification SPF et DKIM de base par défaut, mais vous devez 
 
 Comme cela nécessite un accès au registre de domaine de votre entreprise, vous ou votre administrateur réseau devez ajouter cet enregistrement au niveau de votre domaine racine. Si vous débutez, une politique de base comme `p=none` satisfait les exigences minimales des fournisseurs de boîtes de réception. Pour plus d'informations sur DMARC, consultez [DMARC.org](https://dmarc.org/). Pour des recommandations DMARC spécifiques à Braze, consultez [Authentification e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup/authentication#dmarc).
 
-## Architecture DNS spécifique aux fournisseurs de services d'e-mail marketing or e-mailing {#esp-specific-dns-architecture}
+## Architecture DNS spécifique aux fournisseurs de services d'e-mail marketing {#esp-specific-dns-architecture}
 
-Les différentes architectures de fournisseurs de services d'e-mail marketing or e-mailing gèrent la délégation DNS de manière différente. Lors du provisionnement de votre environnement, utilisez les enregistrements exacts mappés à votre cluster de fournisseur spécifique.
+Les différentes architectures de fournisseurs de services d'e-mail marketing gèrent la délégation DNS de manière différente. Lors du provisionnement de votre environnement, utilisez les enregistrements exacts mappés à votre cluster de fournisseur spécifique.
 
 ### Architecture SparkPost {#sparkpost-architecture}
 
@@ -130,18 +130,18 @@ L'utilisation du domaine parent peut perturber l'infrastructure de l'entreprise 
 
 #### Conflits d'enregistrements MX {#mx-record-conflicts}
 
-Un domaine ne peut prendre en charge qu'un seul ensemble d'enregistrements de routage principaux `MX`. Si vous mappez votre domaine parent (`example.com`) vers l'infrastructure du fournisseur de services d'e-mail marketing or e-mailing de Braze, les enregistrements `MX` personnalisés requis pour les rebonds écrasent vos enregistrements d'e-mail d'entreprise. Cela peut perturber les plateformes de messagerie interne de l'entreprise comme Google Workspace ou Microsoft 365.
+Un domaine ne peut prendre en charge qu'un seul ensemble d'enregistrements de routage principaux `MX`. Si vous mappez votre domaine parent (`example.com`) vers l'infrastructure du fournisseur de services d'e-mail marketing de Braze, les enregistrements `MX` personnalisés requis pour les rebonds écrasent vos enregistrements d'e-mail d'entreprise. Cela peut perturber les plateformes de messagerie interne de l'entreprise comme Google Workspace ou Microsoft 365.
 
 #### Surcharge des includes SPF et la limite de 10 résolutions DNS {#spf-include-bloat-and-the-10-lookup-limit}
 
 La spécification SPF (RFC 7208) limite les serveurs de réception à un maximum de 10 résolutions DNS lors de la validation d'un enregistrement SPF.
 
-- Si un domaine parent ajoute les mécanismes du fournisseur de services d'e-mail marketing or e-mailing de Braze (`include:sparkpostmail.com` ou `include:amazonses.com`), cela pèse fortement sur cette limite.
+- Si un domaine parent ajoute les mécanismes du fournisseur de services d'e-mail marketing de Braze (`include:sparkpostmail.com` ou `include:amazonses.com`), cela pèse fortement sur cette limite.
 - Si la limite est dépassée, cela déclenche une erreur SPF PermError permanente, entraînant l'échec de l'authentification de tous les e-mails d'entreprise.
 
 #### Isolation de la réputation des IP et du domaine {#ip-and-domain-reputation-isolation}
 
-Si les Campaigns marketing, les reçus transactionnels et les e-mails internes des employé or salariés partagent un espace de domaine racine identique, un pic soudain de plaintes pour spam liées au marketing peut endommager la réputation du domaine parent. Cela risque de diriger les communications critiques de l'entreprise vers les dossiers de spam. L'utilisation d'un sous-domaine distinct isole la réputation de vos communications marketing.
+Si les Campaigns marketing, les reçus transactionnels et les e-mails internes des employés partagent un espace de domaine racine identique, un pic soudain de plaintes pour spam liées au marketing peut endommager la réputation du domaine parent. Cela risque de diriger les communications critiques de l'entreprise vers les dossiers de spam. L'utilisation d'un sous-domaine distinct isole la réputation de vos communications marketing.
 
 ## Flux de travail de déploiement {#implementation-workflow}
 

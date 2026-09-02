@@ -69,7 +69,7 @@ end
 Anleitungen zur Implementierung von Push Stories finden Sie in der [Dokumentation]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/push_story/?tab=swift%20package%20manager).
 {% endalert %}
 
-Navigieren Sie nach dem Update or aktualisieren or aktualisieren des Podfiles in Ihrem Terminal zum Verzeichnis Ihres Xcode-App-Projekts und führen Sie `pod install` aus.
+Navigieren Sie nach dem Aktualisieren des Podfiles in Ihrem Terminal zum Verzeichnis Ihres Xcode-App-Projekts und führen Sie `pod install` aus.
 
 {% endtab %}
 

@@ -9,7 +9,7 @@ description: "Diese Landing-Page erläutert und listet die Braze-Endpunkte für 
 page_type: landing
 
 guide_top_header: "E-Mail-Listen und Adressen – Endpunkte"
-guide_top_text: "Mit diesen Endpunkten können Sie den E-Mail-Abo-Status von Nutzer:innen Update or aktualisieren or aktualisieren und die Braze-API verwenden, um eine bidirektionale Synchronisierung zwischen Braze und anderen E-Mail-Systemen oder Ihrer eigenen Datenbank einzurichten."
+guide_top_text: "Mit diesen Endpunkten können Sie den E-Mail-Abo-Status von Nutzer:innen aktualisieren und die Braze-API verwenden, um eine bidirektionale Synchronisierung zwischen Braze und anderen E-Mail-Systemen oder Ihrer eigenen Datenbank einzurichten."
 
 guide_featured_title: ""
 guide_featured_list:

@@ -16,7 +16,7 @@ L'intégration entre Braze et ThoughtSpot s'appuie sur les blocs TML de ThoughtS
 
 ## Conditions préalables {#prerequisites}
 
-Pour commencer à utiliser ThoughtSpot avec Braze, vos données doivent être envoyées à un entrepôt de données cloud avant que ThoughtSpot puisse les interroger en direct or en ligne/en production/instantané.
+Pour commencer à utiliser ThoughtSpot avec Braze, vos données doivent être envoyées à un entrepôt de données cloud avant que ThoughtSpot puisse les interroger en direct.
 
 | Condition | Description |
 | ----------- | ----------- |

@@ -4,7 +4,7 @@
 
 ## Voraussetzungen {#prerequisites}
 
-### SDK or Software-Development-Kit-Version
+### SDK-Version
 
 Um Feature-Flags zu verwenden, stellen Sie sicher, dass Ihre SDKs mindestens auf diese Mindestversionen aktualisiert sind:
 
@@ -17,7 +17,7 @@ Um Feature-Flags im Dashboard zu verwalten, müssen Sie entweder Administrator:i
 | Berechtigung                                                                    | Was Sie tun können                           |
 |-------------------------------------------------------------------------------|-------------------------------------------|
 | **Feature-Flags verwalten**                                                      | Feature-Flags anzeigen, erstellen und bearbeiten.     |
-| **Zugriff auf Campaigns, Canvase, Cards, Feature-Flags, Segments, Medienbibliothek** | Die Liste der verfügbaren Feature-Flags anzeigen. |
+| **Zugriff auf Campaigns, Canvases, Cards, Feature-Flags, Segments, Medienbibliothek** | Die Liste der verfügbaren Feature-Flags anzeigen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Braze-Berechtigungen" }
 
 ## Ein Feature-Flag erstellen {#creating-a-feature-flag}
@@ -45,7 +45,7 @@ Geben Sie unter **Feature-Flag-Details** einen Namen, eine ID und eine Beschreib
 
 ### Schritt 2a: Angepasste Eigenschaften erstellen {#step-2a-create-custom-properties}
 
-Unter **Eigenschaften** können Sie optional angepasste Eigenschaften erstellen, auf die Ihre App über das Braze SDK or Software-Development-Kit zugreifen kann, wenn Ihr Feature aktiviert ist. Sie können jeder Variablen einen String-, booleschen, Bild-, Zeitstempel-, JSON- oder Zahlenwert zuweisen sowie einen Standardwert festlegen.
+Unter **Eigenschaften** können Sie optional angepasste Eigenschaften erstellen, auf die Ihre App über das Braze SDK zugreifen kann, wenn Ihr Feature aktiviert ist. Sie können jeder Variablen einen String-, booleschen, Bild-, Zeitstempel-, JSON- oder Zahlenwert zuweisen sowie einen Standardwert festlegen.
 
 {% tabs local %}
 {% tab Beispiel %}
@@ -129,15 +129,15 @@ Angenommen, Sie sind Product Manager:in und möchten sicherstellen, dass Ihre in
 
 ## Verwendung des Felds „aktiviert“ für Feature-Flags {#enabled}
 
-Nachdem Sie Ihr Feature-Flag definiert haben, konfigurieren Sie Ihre App oder Website so, dass überprüft wird, ob es für eine bestimmte Nutzer:in aktiviert ist. Ist es aktiviert, legen Sie eine Aktion fest oder referenzieren die Variablen-Eigenschaften des Feature-Flags je nach Ihrem Anwendungsfall. Das Braze SDK or Software-Development-Kit stellt Getter-Methoden bereit, um den Status des Feature-Flags und seine Eigenschaften in Ihre App einzubinden.
+Nachdem Sie Ihr Feature-Flag definiert haben, konfigurieren Sie Ihre App oder Website so, dass überprüft wird, ob es für eine bestimmte Nutzer:in aktiviert ist. Ist es aktiviert, legen Sie eine Aktion fest oder referenzieren die Variablen-Eigenschaften des Feature-Flags je nach Ihrem Anwendungsfall. Das Braze SDK stellt Getter-Methoden bereit, um den Status des Feature-Flags und seine Eigenschaften in Ihre App einzubinden.
 
-Feature-Flags werden beim Sitzungsstart automatisch aktualisiert, sodass Sie jeweils die aktuellste Version Ihres Features anzeigen können. Das SDK or Software-Development-Kit speichert diese Werte im Cache, sodass sie auch offline verwendet werden können.
+Feature-Flags werden beim Sitzungsstart automatisch aktualisiert, sodass Sie jeweils die aktuellste Version Ihres Features anzeigen können. Das SDK speichert diese Werte im Cache, sodass sie auch offline verwendet werden können.
 
 {% alert note %}
 Vergewissern Sie sich, dass Sie [Feature-Flag-Impressionen](#impressions) protokollieren.
 {% endalert %}
 
-Nehmen wir an, Sie möchten einen neuen Typ von Kundenprofil or Nutzerprofil für Ihre App einführen. Sie können die `ID` als `expanded_user_profile` festlegen. Dann würden Sie Ihre App prüfen lassen, ob sie dieses neue Kundenprofil or Nutzerprofil einer bestimmten Nutzer:in anzeigen soll. Zum Beispiel:
+Nehmen wir an, Sie möchten einen neuen Typ von Kundenprofil für Ihre App einführen. Sie können die `ID` als `expanded_user_profile` festlegen. Dann würden Sie Ihre App prüfen lassen, ob sie dieses neue Kundenprofil einer bestimmten Nutzer:in anzeigen soll. Zum Beispiel:
 
 {% tabs %}
 {% tab Web %}
@@ -650,9 +650,9 @@ end for
 {% endtab %}
 {% endtabs %}
 
-### Update or aktualisieren or aktualisieren von Feature-Flags {#refreshing}
+### Aktualisieren von Feature-Flags {#refreshing}
 
-Sie können die Feature-Flags der aktuellen Nutzer:in während der Sitzung Update or aktualisieren or aktualisieren, um die neuesten Werte aus Braze abzurufen.
+Sie können die Feature-Flags der aktuellen Nutzer:in während der Sitzung aktualisieren, um die neuesten Werte aus Braze abzurufen.
 
 {% alert tip %}
 Die Aktualisierung erfolgt automatisch beim Sitzungsstart. Eine Aktualisierung ist nur vor wichtigen Nutzeraktionen erforderlich, z. B. vor dem Laden einer Checkout-Seite, oder wenn Sie wissen, dass ein Feature-Flag referenziert werden wird.
@@ -735,9 +735,9 @@ m.Braze.refreshFeatureFlags()
 
 ### Auf Änderungen lauschen {#updates}
 
-Sie können das Braze SDK or Software-Development-Kit so konfigurieren, dass es Ihre App überwacht und aktualisiert, wenn das SDK or Software-Development-Kit Feature-Flags aktualisiert.
+Sie können das Braze SDK so konfigurieren, dass es Ihre App überwacht und aktualisiert, wenn das SDK Feature-Flags aktualisiert.
 
-Dies ist nützlich, wenn Sie Ihre App Update or aktualisieren or aktualisieren möchten, falls eine Nutzer:in nicht mehr für ein Feature berechtigt ist – zum Beispiel, um einen Status in Ihrer App festzulegen, der darauf basiert, ob ein Feature aktiviert ist oder nicht, oder auf einem seiner Eigenschaftswerte.
+Dies ist nützlich, wenn Sie Ihre App aktualisieren möchten, falls eine Nutzer:in nicht mehr für ein Feature berechtigt ist – zum Beispiel, um einen Status in Ihrer App festzulegen, der darauf basiert, ob ein Feature aktiviert ist oder nicht, oder auf einem seiner Eigenschaftswerte.
 
 {% tabs %}
 {% tab Web %}
@@ -833,16 +833,16 @@ featureFlagsStreamSubscription.cancel();
 ```
 
 {% subtabs %}
-{% subtab Flutter SDK or Software-Development-Kit 18.0.0+ %}
+{% subtab Flutter SDK 18.0.0+ %}
 
 Feature-Flag-Daten werden automatisch von den nativen Android- und iOS-Schichten weitergeleitet. Es ist keine zusätzliche Einrichtung erforderlich.
 
 {% endsubtab %}
-{% subtab Flutter SDK or Software-Development-Kit 17.1.0 and earlier %}
+{% subtab Flutter SDK 17.1.0 and earlier %}
 
-Wenn Sie Flutter SDK or Software-Development-Kit 17.1.0 oder früher verwenden, erfordert die Weiterleitung von Feature-Flag-Daten von der nativen iOS-Schicht eine manuelle Einrichtung. Ihre Anwendung enthält wahrscheinlich einen `featureFlags.subscribeToUpdates`-Callback, der `BrazePlugin.processFeatureFlags(featureFlags)` aufruft. Um auf Flutter SDK or Software-Development-Kit 18.0.0 zu migrieren, entfernen Sie den `BrazePlugin.processFeatureFlags(_:)`-Aufruf – die Datenweiterleitung wird jetzt automatisch gehandhabt.
+Wenn Sie Flutter SDK 17.1.0 oder früher verwenden, erfordert die Weiterleitung von Feature-Flag-Daten von der nativen iOS-Schicht eine manuelle Einrichtung. Ihre Anwendung enthält wahrscheinlich einen `featureFlags.subscribeToUpdates`-Callback, der `BrazePlugin.processFeatureFlags(featureFlags)` aufruft. Um auf Flutter SDK 18.0.0 zu migrieren, entfernen Sie den `BrazePlugin.processFeatureFlags(_:)`-Aufruf – die Datenweiterleitung wird jetzt automatisch gehandhabt.
 
-Ein Beispiel finden Sie unter [AppDelegate.swift](https://github.com/braze-inc/braze-flutter-sdk/blob/master/example/ios/Runner/AppDelegate.swift) in der Braze Flutter SDK or Software-Development-Kit-Beispielanwendung.
+Ein Beispiel finden Sie unter [AppDelegate.swift](https://github.com/braze-inc/braze-flutter-sdk/blob/master/example/ios/Runner/AppDelegate.swift) in der Braze Flutter SDK-Beispielanwendung.
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -915,7 +915,7 @@ Um rekursive Segmente zu vermeiden, ist es nicht möglich, ein Segment zu erstel
 
 ## Best Practices
 
-### Rollouts nicht mit Canvase oder Experimenten kombinieren {#dont-combine-rollouts-with-canvases-or-experiments}
+### Rollouts nicht mit Canvases oder Experimenten kombinieren {#dont-combine-rollouts-with-canvases-or-experiments}
 
 Um zu vermeiden, dass Nutzer:innen durch verschiedene Einstiegspunkte aktiviert und deaktiviert werden, sollten Sie entweder den Rollout-Schieberegler auf einen Wert größer als null setzen ODER das Feature-Flag in einem Canvas oder Experiment aktivieren. Als Best Practice empfiehlt es sich, den Rollout-Prozentsatz bei null zu belassen, wenn Sie ein Feature-Flag in einem Canvas oder Experiment verwenden möchten.
 
@@ -944,7 +944,7 @@ show_animation_profile_driver
 
 ### Vorausplanen {#planning-ahead}
 
-Gehen Sie immer auf Nummer sicher. Wenn Sie neue Features in Betracht ziehen, die möglicherweise einen Aus-Schalter benötigen, ist es besser, neuen Code mit einem Feature-Flag zu veröffentlichen und es nicht zu brauchen, als festzustellen, dass ein neues App-Update or aktualisieren erforderlich ist.
+Gehen Sie immer auf Nummer sicher. Wenn Sie neue Features in Betracht ziehen, die möglicherweise einen Aus-Schalter benötigen, ist es besser, neuen Code mit einem Feature-Flag zu veröffentlichen und es nicht zu brauchen, als festzustellen, dass ein neues App-Update erforderlich ist.
 
 ### Aussagekräftige Beschreibungen verwenden {#be-descriptive}
 
@@ -959,4 +959,4 @@ Fügen Sie Ihrem Feature-Flag eine Beschreibung hinzu. Auch wenn dies in Braze e
 
 Wir alle sind schuldig, Features länger als nötig bei 100 % Rollout aktiviert zu lassen.
 
-Um Ihren Code (und Ihr Braze-Dashboard) sauber zu halten, entfernen Sie permanente Feature-Flags aus Ihrer Codebasis, nachdem alle Nutzer:innen ein Upgrade or upgraden durchgeführt haben und Sie die Option zur Deaktivierung des Features nicht mehr benötigen. Dies reduziert die Komplexität Ihrer Entwicklungsumgebung und hält gleichzeitig Ihre Feature-Flag-Liste übersichtlich.
+Um Ihren Code (und Ihr Braze-Dashboard) sauber zu halten, entfernen Sie permanente Feature-Flags aus Ihrer Codebasis, nachdem alle Nutzer:innen ein Upgrade durchgeführt haben und Sie die Option zur Deaktivierung des Features nicht mehr benötigen. Dies reduziert die Komplexität Ihrer Entwicklungsumgebung und hält gleichzeitig Ihre Feature-Flag-Liste übersichtlich.

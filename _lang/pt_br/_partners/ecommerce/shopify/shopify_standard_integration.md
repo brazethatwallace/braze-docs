@@ -30,7 +30,7 @@ Se sua conta da Shopify estiver associada a mais de uma loja, você poderá alte
 
 ## Etapa 2: Ativar os SDKs da Braze Web {#step-2-enable-braze-web-sdks}
 
-Para lojas on-line da Shopify, você pode selecionar a configuração padrão para implementar automaticamente o Braze Web SDK or kit de desenvolvimento de software e o JavaScript SDK or kit de desenvolvimento de software.
+Para lojas on-line da Shopify, você pode selecionar a configuração padrão para implementar automaticamente o Braze Web SDK e o JavaScript SDK.
 
 ![Etapa "Ativar Web SDK" com opções para implementar por meio de uma configuração padrão ou personalizada.]({% image_buster /assets/img/shopify/sdk_setup.png %})
 
@@ -42,7 +42,7 @@ Depois de selecionar a jornada de integração da configuração padrão, você 
     - Começa o rastreamento de dados quando os visitantes do site se inscrevem ou fazem login em suas contas
 
 {% alert note %}
-Novos clientes são provisionados nas versões mais recentes do Braze Web SDK or kit de desenvolvimento de software e do JavaScript SDK or kit de desenvolvimento de software durante a configuração. Clientes existentes podem visualizar a versão atual do SDK or kit de desenvolvimento de software nas configurações de integração, ser notificados quando uma versão mais recente estiver disponível e fazer upgrades por conta própria nas configurações de integração.
+Novos clientes são provisionados nas versões mais recentes do Braze Web SDK e do JavaScript SDK durante a configuração. Clientes existentes podem visualizar a versão atual do SDK nas configurações de integração, ser notificados quando uma versão mais recente estiver disponível e fazer upgrades por conta própria nas configurações de integração.
 {% endalert %}
 
 ## Etapa 3: Configure seus dados da Shopify {#step-3-configure-your-shopify-data}
@@ -127,7 +127,7 @@ braze.logCustomEvent(
 
 ```
 
-O SDK or kit de desenvolvimento de software deve ser inicializado (ouvindo a atividade) no dispositivo de um usuário para registrar eventos ou atributos personalizados. Para saber mais sobre o registro de dados personalizados, consulte o [objeto User](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html) e o [objeto logCustomEvent](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcustomevent).
+O SDK deve ser inicializado (ouvindo a atividade) no dispositivo de um usuário para registrar eventos ou atributos personalizados. Para saber mais sobre o registro de dados personalizados, consulte o [objeto User](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html) e o [objeto logCustomEvent](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcustomevent).
 
 ## Etapa 4: Configurar como gerenciar usuários {#step-4}
 
@@ -161,7 +161,7 @@ As próximas etapas dependem da seleção do seu ID externo:<br><br>
 Depois que o metacampo for criado, preencha-o para seus clientes. Recomendamos as seguintes abordagens:
 
 - **Ouça os webhooks de criação de clientes:** Configure um webhook para ouvir os [eventos do `customer/create`](https://help.shopify.com/en/manual/fulfillment/setup/notifications/webhooks). Isso permite que você escreva o metacampo quando um novo cliente é criado.
-- **Preencha os clientes existentes:** Use a [Admin API or interface de programação do aplicativo (API)](https://shopify.dev/docs/api/admin-graphql) ou a [Customer API or interface de programação do aplicativo (API)](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer) para preencher o metacampo de clientes criados anteriormente.
+- **Preencha os clientes existentes:** Use a [Admin API](https://shopify.dev/docs/api/admin-graphql) ou a [Customer API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer) para preencher o metacampo de clientes criados anteriormente.
 
 #### Possível condição de corrida {#potential-race-condition}
 
@@ -205,7 +205,7 @@ A Braze espera um código de status `200` retornando o JSON do ID externo:
 ```
 
 #### Validação {#validation}
-É fundamental validar se o `shopify_customer_id` e o `email_address` (se houver) correspondem aos valores do cliente na Shopify. Você pode usar a [API or interface de programação do aplicativo (API) do Shopify Admin](https://shopify.dev/docs/api/admin-graphql) ou a [API or interface de programação do aplicativo (API) do cliente](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer) para validar esses parâmetros e recuperar o metacampo `braze.external_id` correto.
+É fundamental validar se o `shopify_customer_id` e o `email_address` (se houver) correspondem aos valores do cliente na Shopify. Você pode usar a [API do Shopify Admin](https://shopify.dev/docs/api/admin-graphql) ou a [API do cliente](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer) para validar esses parâmetros e recuperar o metacampo `braze.external_id` correto.
 
 #### Comportamento de falha e mesclagem {#failure-behavior-and-merging}
 Qualquer código de status diferente de `200` é considerado uma falha.
@@ -243,16 +243,16 @@ Você pode sincronizar todos os produtos da sua loja da Shopify com um catálogo
 ![Etapa de configuração para ativar os canais, sendo que a opção disponível é o envio de mensagens no navegador.]({% image_buster /assets/img/shopify/activate_channels_standard.png %})
 
 {% alert note %}
-A Braze coleta informações dos visitantes, como endereços de e-mail e números de telefone, por meio de mensagens no navegador. Essas informações são enviadas para a Shopify. Esses dados permitem que os comerciantes reconheçam os visitantes de suas lojas e criem uma experiência de compra mais personalizada. Para obter mais detalhes, consulte a [API or interface de programação do aplicativo (API) do visitante](https://shopify.dev/docs/api/web-pixels-api/emitting-data#visitor-api).
+A Braze coleta informações dos visitantes, como endereços de e-mail e números de telefone, por meio de mensagens no navegador. Essas informações são enviadas para a Shopify. Esses dados permitem que os comerciantes reconheçam os visitantes de suas lojas e criem uma experiência de compra mais personalizada. Para obter mais detalhes, consulte a [API do visitante](https://shopify.dev/docs/api/web-pixels-api/emitting-data#visitor-api).
 {% endalert %}
 
-### Suporte a canais SDK or kit de desenvolvimento de software adicionais {#supporting-additional-sdk-channels}
+### Suporte a canais SDK adicionais {#supporting-additional-sdk-channels}
 
 Os SDKs da Braze ativam vários canais de envio de mensagens, incluindo Content Cards.
 
 #### Content Cards e Feature Flags {#content-cards-and-feature-flags}
 
-Para adicionar Content Cards ou Feature Flags, você precisará colaborar com seus desenvolvedores para inserir o código SDK or kit de desenvolvimento de software necessário diretamente no seu arquivo `theme.liquid`. Para obter instruções detalhadas, consulte [Integração do SDK or kit de desenvolvimento de software da Braze]({{site.baseurl}}/developer_guide/sdk_integration).
+Para adicionar Content Cards ou Feature Flags, você precisará colaborar com seus desenvolvedores para inserir o código SDK necessário diretamente no seu arquivo `theme.liquid`. Para obter instruções detalhadas, consulte [Integração do SDK da Braze]({{site.baseurl}}/developer_guide/sdk_integration).
 
 #### Notificações por push na web {#web-push-notifications}
 

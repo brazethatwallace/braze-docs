@@ -20,8 +20,8 @@ La integración de Justuno y Braze te ofrece lo mejor de ambos mundos. Puedes co
 
 ## Requisitos previos {#prerequisites}
 
-| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con los permisos `users.track` y `custom_attributes.get`.<br><br>Se puede crear en el panel de Braze desde **Settings** > **API Keys**. |
-| Punto de conexión REST or transferencia de estado representacional de Braze | La URL de tu punto de conexión REST or transferencia de estado representacional. Tu punto de conexión dependerá de la [URL de Braze de tu instancia]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints).|
+| Clave de API REST de Braze | Una clave de API REST de Braze con los permisos `users.track` y `custom_attributes.get`.<br><br>Se puede crear en el panel de Braze desde **Settings** > **API Keys**. |
+| Punto de conexión REST de Braze | La URL de tu punto de conexión REST. Tu punto de conexión dependerá de la [URL de Braze de tu instancia]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints).|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración de Justuno con Braze {#integrating-justuno-with-braze}
@@ -50,11 +50,11 @@ Para añadir la aplicación Braze a tu [flujo de trabajo de Justuno](https://hub
 
 ### Paso 3: Conectar tus grupos de suscripción de Braze {#step-3-connect-your-braze-subscription-groups}
 
-Para enviar datos de perfil desde Justuno a un grupo de suscripción de correo electrónico o servicio de mensajes cortos de Braze específico, tendrás que añadir su ID a la aplicación Braze en tu flujo de trabajo de Justuno.
+Para enviar datos de perfil desde Justuno a un grupo de suscripción de correo electrónico o SMS de Braze específico, tendrás que añadir su ID a la aplicación Braze en tu flujo de trabajo de Justuno.
 
 | Tipo de ID                          | ¿Obligatorio? | Descripción                                                                                                   |
 |----------------------------------|-----------|---------------------------------------------------------------------------------------------------------------|
-| ID de grupo de suscripción servicio de mensajes cortos de Braze  | Sí       | Este ID se utiliza para recoger el consentimiento de servicio de mensajes cortos de los perfiles de usuario. Si no se introduce ningún ID en Justuno, los perfiles no tendrán consentimiento cuando Justuno envíe ese perfil a Braze. |
+| ID de grupo de suscripción SMS de Braze  | Sí       | Este ID se utiliza para recoger el consentimiento de SMS de los perfiles de usuario. Si no se introduce ningún ID en Justuno, los perfiles no tendrán consentimiento cuando Justuno envíe ese perfil a Braze. |
 | ID de grupo de suscripción de correo electrónico de Braze | No        | Si no se introduce este ID en Justuno, Justuno enviará los datos de perfil a Braze como un usuario sin grupos de suscripción asociados. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paso 3: Conectar tus grupos de suscripción de Braze" }
 
@@ -96,5 +96,5 @@ Para sincronizar atributos adicionales:
 
 - Debes introducir manualmente el ID del grupo de suscripción en la configuración de la aplicación.
 - Los siguientes tipos de datos de Braze **no son compatibles**: Object, Object Array.
-- El consentimiento implícito de servicio de mensajes cortos se proporciona cuando no se utiliza el campo de consentimiento de servicio de mensajes cortos de Justuno.
-- El consentimiento explícito de servicio de mensajes cortos se respeta si el diseño de Justuno incluye el campo de consentimiento.
+- El consentimiento implícito de SMS se proporciona cuando no se utiliza el campo de consentimiento de SMS de Justuno.
+- El consentimiento explícito de SMS se respeta si el diseño de Justuno incluye el campo de consentimiento.

@@ -23,7 +23,7 @@ Die Integration von Braze und WSC Sports ermöglicht es Ihnen, reichhaltige und 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | WSC-Konto | Um diese Partnerschaft zu nutzen, ist ein WSC-Konto erforderlich. |
-| Braze Representational State Transfer-API-Schlüssel | Ein Braze Representational State Transfer-API-Schlüssel mit Berechtigungen für **Messages**, **Segments**, **Campaigns** und **Canvas**. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit Berechtigungen für **Messages**, **Segments**, **Campaigns** und **Canvas**. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration

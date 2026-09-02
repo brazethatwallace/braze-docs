@@ -45,7 +45,7 @@ Dieses Objekt wird häufig in allen unseren Endpunkten und oft auch in anderen O
 }
 ```
 
-In diesem Beispiel ist `crm_id` eine angepasste Bezeichnung, die angibt, dass der Alias einen CRM or Customer-Relationship-Management [-System] (CRM)-System or Customer-Relationship-Management-System-Bezeichner darstellt.
+In diesem Beispiel ist `crm_id` eine angepasste Bezeichnung, die angibt, dass der Alias einen CRM-System-Bezeichner darstellt.
 
 ### Weiteres Beispiel {#additional-example}
 

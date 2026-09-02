@@ -1,11 +1,11 @@
 ---
-nav_title: ISV or unabhängiger Software-Anbieter Partner
+nav_title: ISV Partner
 layout: dev_guide
 page_order: 9
 hidden: true
 
-guide_top_header: "ISV or unabhängiger Software-Anbieter Partner"
-guide_top_text: "Die folgenden Artikel stehen unseren Alloys-ISV or unabhängiger Software-Anbieter-Partnern zur Verfügung, um sie bei der Entwicklung einer Marktintegration mit der Braze-Plattform zu unterstützen. Besuchen Sie das entsprechende Dokument zur Partnerintegration, um loszulegen!"
+guide_top_header: "ISV Partner"
+guide_top_text: "Die folgenden Artikel stehen unseren Alloys-ISV-Partnern zur Verfügung, um sie bei der Entwicklung einer Marktintegration mit der Braze-Plattform zu unterstützen. Besuchen Sie das entsprechende Dokument zur Partnerintegration, um loszulegen!"
 
 guide_featured_title: "Partner-Dokumentation"
 guide_featured_list:

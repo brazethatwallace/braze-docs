@@ -34,7 +34,7 @@ Wir prüfen die folgenden Attribute, indem wir sie als kategoriale Variablen beh
 Außerdem prüfen wir, ob Folgendes die Konversionsrate beeinflusst:
 
 - Ausführung beliebiger angepasster Events
-- Campaigns und Canvase, die in den letzten 30 Tagen empfangen wurden (außer der aktuell bewerteten Campaign)
+- Campaigns und Canvases, die in den letzten 30 Tagen empfangen wurden (außer der aktuell bewerteten Campaign)
 
 Schließlich prüfen wir mehrere Verhaltensvariablen, die verschiedene Werte annehmen können. Wir teilen die folgenden Variablen in vier Buckets oder Quartile auf und messen dann den Zusammenhang zwischen der Zugehörigkeit zu einem Quartil und einem Anstieg oder Rückgang der Conversion:
 

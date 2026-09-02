@@ -23,7 +23,7 @@ Nuestros [nuevos mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/
 
 ### Lo que tienes que hacer {#what-you-need-to-do}
 
-Recomendamos encarecidamente actualizar a las últimas versiones de los SDK or kit de desarrollo de software de Braze para [Web]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup/#upgrading-the-sdk), [iOS]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift) y [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android).
+Recomendamos encarecidamente actualizar a las últimas versiones de los SDK de Braze para [Web]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup/#upgrading-the-sdk), [iOS]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift) y [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android).
 
 Después de eso, ¡ya puedes empezar!
 

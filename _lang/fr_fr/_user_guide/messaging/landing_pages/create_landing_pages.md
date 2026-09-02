@@ -15,7 +15,7 @@ Pour accéder au générateur de pages de destination, vous avez besoin de [cert
 
 ## Créer une page de destination {#create-a-landing-page}
 
-Une page de destination est une page web en direct or en ligne/en production/instantané et publiée avec une URL partageable que vos clients peuvent visiter.
+Une page de destination est une page web en direct et publiée avec une URL partageable que vos clients peuvent visiter.
 
 {% alert note %}
 Les modèles de pages de destination sont des points de départ de conception non publiés, sans URL publique, ce qui signifie qu'ils ne peuvent pas être partagés avec vos clients. Pour créer une page à partir d'un modèle, consultez [Utiliser des modèles](#using-templates).
@@ -182,7 +182,7 @@ Vous pouvez prévisualiser votre page de destination dans l'onglet **Preview** d
 Dans l'éditeur, vous pouvez également sélectionner **Copy preview link** pour partager la page avec des réviseurs qui n'ont pas accès au tableau de bord.
 
 - Si votre page de destination n'utilise pas Liquid, ce lien est le même que l'URL directe de **Copy URL**, ouvert en mode prévisualisation.
-- Si votre page de destination utilise Liquid et que vous disposez de l'abonnement Landing Pages Pro, le lien affiche plutôt la page en direct or en ligne/en production/instantané à la demande et reflète vos modifications actuelles plutôt qu'un instantané du moment où vous avez généré le lien. Le contenu est personnalisé par utilisateur. La prévisualisation affiche le favicon Braze et ne peut pas être modifiée.
+- Si votre page de destination utilise Liquid et que vous disposez de l'abonnement Landing Pages Pro, le lien affiche plutôt la page en direct à la demande et reflète vos modifications actuelles plutôt qu'un instantané du moment où vous avez généré le lien. Le contenu est personnalisé par utilisateur. La prévisualisation affiche le favicon Braze et ne peut pas être modifiée.
 
 Pour les liens de prévisualisation sur d'autres canaux, consultez [prévisualisation partageable]({{site.baseurl}}/user_guide/messaging/governance/shareable_preview).
 
@@ -202,7 +202,7 @@ Les bloqueurs de pop-ups agressifs et les bloqueurs de publicités sur iOS et da
 
 ## Utiliser les modèles {#use-templates}
 
-Les modèles de pages de destination sont des points de départ réutilisables qui vous aident à créer des pages de destination plus rapidement. Un modèle n'a pas d'URL publique et ne peut pas être consulté par les clients. Pour créer une page de destination en direct or en ligne/en production/instantané à partir d'un modèle, sélectionnez le modèle lors de la création d'une nouvelle page de destination, personnalisez-le selon vos besoins, puis publiez-le.
+Les modèles de pages de destination sont des points de départ réutilisables qui vous aident à créer des pages de destination plus rapidement. Un modèle n'a pas d'URL publique et ne peut pas être consulté par les clients. Pour créer une page de destination en direct à partir d'un modèle, sélectionnez le modèle lors de la création d'une nouvelle page de destination, personnalisez-le selon vos besoins, puis publiez-le.
 
 Les modèles sont accessibles et gérables à la fois dans l'éditeur de pages de destination et depuis la page **Landing Page Templates** (**Content** > **Landing Page**). Les modèles de pages de destination nécessitent un nom et une description facultative.
 

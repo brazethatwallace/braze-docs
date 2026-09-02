@@ -61,8 +61,8 @@ Para agilizar esse processo, crie uma lista de atributos do perfil de usuário d
 
 Outras opções para enviar dados incluem:
 
-- Enviar eventos personalizados da Braze via SDK or kit de desenvolvimento de software
-- Enviar eventos usando o endpoint REST or transferir estado representacional ([`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track))
+- Enviar eventos personalizados da Braze via SDK
+- Enviar eventos usando o endpoint REST ([`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track))
 
 Esses padrões exigem mais esforço de engenharia, mas às vezes são preferíveis dependendo da sua configuração atual da Braze. Entre em contato com a equipe de AI Decisioning Services para saber mais.
 
@@ -74,10 +74,10 @@ Esses padrões exigem mais esforço de engenharia, mas às vezes são preferíve
 Para integrações com o Salesforce Marketing Cloud:
 
 1. Configure as Data Extension(s) do SFMC para seus dados de clientes
-2. Configure o SFMC Installed Package para integração via API or interface de programação do aplicativo (API) com as permissões apropriadas exigidas pelo Decisioning Studio
+2. Configure o SFMC Installed Package para integração via API com as permissões apropriadas exigidas pelo Decisioning Studio
 3. Certifique-se de que as data extensions sejam atualizadas diariamente, pois o Decisioning Studio extrairá os dados incrementais mais recentes disponíveis
 
-Forneça o ID da extensão e a chave de API or interface de programação do aplicativo (API) para sua equipe de AI Decisioning Services. Eles ajudarão com as próximas etapas na ingestão de dados de clientes.
+Forneça o ID da extensão e a chave de API para sua equipe de AI Decisioning Services. Eles ajudarão com as próximas etapas na ingestão de dados de clientes.
 
 {% endtab %}
 {% tab Klaviyo %}
@@ -87,10 +87,10 @@ Forneça o ID da extensão e a chave de API or interface de programação do apl
 Para integrações com o Klaviyo:
 
 1. Confirme que os dados do perfil de cliente estão disponíveis nos perfis do Klaviyo
-2. Gere uma chave de API or interface de programação do aplicativo (API) privada com acesso completo a perfis
-3. Forneça a chave de API or interface de programação do aplicativo (API) para sua equipe de AI Decisioning Services
+2. Gere uma chave de API privada com acesso completo a perfis
+3. Forneça a chave de API para sua equipe de AI Decisioning Services
 
-Consulte a [documentação do Klaviyo](https://help.klaviyo.com/hc/en-us/articles/115005237908) para saber mais sobre a configuração de chaves de API or interface de programação do aplicativo (API).
+Consulte a [documentação do Klaviyo](https://help.klaviyo.com/hc/en-us/articles/115005237908) para saber mais sobre a configuração de chaves de API.
 
 {% endtab %}
 {% tab Cloud Storage %}

@@ -27,7 +27,7 @@ Antes de crear una notificación push enriquecida para Android, ten en cuenta lo
   - **Grande:** 2048x1024
 - Actualmente, las notificaciones enriquecidas de Android solo admiten imágenes estáticas, incluidos los formatos de imagen JPEG y PNG. Los GIF y otros formatos de imagen aún no son compatibles.
 - Añadir botones de acción a tu notificación push puede afectar el área de la imagen que se muestra. Prueba con la vista previa del panel y dispositivos reales para confirmar que los resultados son los esperados.
-- El SDK or kit de desarrollo de software de Braze para Android debe estar habilitado para que la imagen se renderice.
+- El SDK de Braze para Android debe estar habilitado para que la imagen se renderice.
 
 {% alert note %}
 Aunque Braze proporciona instrucciones sobre cómo configurar notificaciones push enriquecidas, la representación real de las notificaciones push enriquecidas puede variar en función de factores externos como la relación de aspecto del dispositivo, la versión de Android, las restricciones específicas del fabricante (OEM) y otros. Te recomendamos realizar un envío de prueba a varios dispositivos Android para asegurarte de que tus notificaciones push enriquecidas se muestren como esperas.

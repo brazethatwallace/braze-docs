@@ -46,7 +46,7 @@ Intelligent Creative bietet viele Möglichkeiten, die Unternehmensnutzer:innen n
 | Targeting-Regeln | Datum | ✔* | ✔ | * Unterstützt, aber nicht empfohlen, da Push-Benachrichtigungen beim Empfang zwischengespeichert und nicht aktualisiert werden |
 | Wochentag | ✔* | ✔ | * Unterstützt, aber nicht empfohlen, da Push-Benachrichtigungen beim Empfang zwischengespeichert und nicht aktualisiert werden |
 | Tageszeit | ✔* | ✔ | * Unterstützt, aber nicht empfohlen, da Push-Benachrichtigungen beim Empfang zwischengespeichert und nicht aktualisiert werden |
-| Stories/Verhaltensaktivität | | ✔* | ✔* | * Der eindeutige Nutzer:innen-Bezeichner für Braze muss mit dem Bezeichner Ihres E-Mail-Anbieter or ESP verknüpft sein |
+| Stories/Verhaltensaktivität | | ✔* | ✔* | * Der eindeutige Nutzer:innen-Bezeichner für Braze muss mit dem Bezeichner Ihres E-Mail-Anbieter verknüpft sein |
 | Deeplinking innerhalb der App | | ✔* | ✔* | * Um Ihren Kund:innen ein optimiertes Erlebnis zu bieten, verwenden Sie entweder die etablierte Deeplinking-Lösung über Branch oder eine validierte Lösung mit dem Client-Experience-Team von Movable Ink. |
 | Apps | Countdown-Timer | ✔* | ✔ | * Unterstützt, aber nicht empfohlen, da Push-Benachrichtigungen beim Empfang zwischengespeichert und nicht aktualisiert werden |
 | Polling | ✗ | ✔* | * Nach der Abstimmung wird die App verlassen und eine mobile Landing-Page angezeigt |
@@ -140,7 +140,7 @@ Verwenden Sie dazu die folgende Syntax und ersetzen Sie die Bild-URL nach Bedarf
 {% endraw %}
 Dieses Template nimmt die aktuelle Zeit (in Sekunden), hängt sie an das Ende des Movable Ink-Bild-Tabs an (als Abfrageparameter) und gibt dann das Endergebnis aus. Mit dem Tab **Test** können Sie eine Vorschau anzeigen&#8212;der Code wird ausgewertet und eine Vorschau angezeigt.
 
-**3.** Bewerten Sie abschließend die Segment-Mitgliedschaft neu. Aktivieren Sie dazu die Option `Re-evaluate audience membership and liquid at send-time`, die sich im Schritt **Target Audiences** einer Campaign befindet. Wenn diese Option nicht verfügbar ist, wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in oder den Braze-Support. Diese Option weist die Braze SDKs an, die Campaign erneut anzufragen und bei jedem Trigger or triggern or triggern einer In-App-Nachricht eine eindeutige URL bereitzustellen.
+**3.** Bewerten Sie abschließend die Segment-Mitgliedschaft neu. Aktivieren Sie dazu die Option `Re-evaluate audience membership and liquid at send-time`, die sich im Schritt **Target Audiences** einer Campaign befindet. Wenn diese Option nicht verfügbar ist, wenden Sie sich an Ihren CSM oder den Braze-Support. Diese Option weist die Braze SDKs an, die Campaign erneut anzufragen und bei jedem Triggern einer In-App-Nachricht eine eindeutige URL bereitzustellen.
 
 {% endtab %}
 {% tab Content Card %}

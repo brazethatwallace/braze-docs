@@ -3,7 +3,7 @@ nav_title: De vuelta en stock
 article_title: De vuelta en stock
 page_order: 2
 page_type: reference
-description: "Este artículo describe cómo utilizar una plantilla de BRAZE Canvas para impulsar las compras notificando a tus usuarios cuando un artículo vuelve a estar en stock con mensajería personalizada."
+description: "Este artículo describe cómo utilizar una plantilla de BRAZE CANVAS para impulsar las compras notificando a tus usuarios cuando un artículo vuelve a estar en stock con mensajería personalizada."
 tool: Canvas
 ---
 
@@ -11,7 +11,7 @@ tool: Canvas
 
 > Utiliza la plantilla de vuelta en stock para crear mensajes dirigidos a usuarios que previamente han visto o expresado interés en un artículo que estaba agotado pero que ahora está disponible para su compra. Esto ayuda a los usuarios a obtener los productos que desean al interactuar con ellos en el momento crítico en que un producto vuelve a estar disponible.
 
-Este artículo te guiará a través de un caso de uso de la plantilla **De vuelta en stock**, que está diseñada para la etapa de conversión del ciclo de vida del usuario. Cuando termines, habrás creado un Canvas que envía una notificación push (web o móvil), servicio de mensajes cortos o correo electrónico a los usuarios cuando un artículo vuelve a estar en stock, y hasta dos recordatorios.
+Este artículo te guiará a través de un caso de uso de la plantilla **De vuelta en stock**, que está diseñada para la etapa de conversión del ciclo de vida del usuario. Cuando termines, habrás creado un Canvas que envía una notificación push (web o móvil), SMS o correo electrónico a los usuarios cuando un artículo vuelve a estar en stock, y hasta dos recordatorios.
 
 ## Requisitos previos {#prerequisites}
 
@@ -91,7 +91,7 @@ Mantendremos la configuración de suscripción predeterminada, de modo que solo 
 
 ### Paso 6: Personalizar tu Canvas {#step-6-customize-your-canvas}
 
-Ahora construiremos nuestro Canvas personalizando los canales y el contenido que se enviará a los usuarios. Como estamos usando los cuatro canales de la plantilla (push móvil y web, servicio de mensajes cortos y correo electrónico) y usando el filtro de [canal inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel), no necesitamos añadir ni quitar ninguno.
+Ahora construiremos nuestro Canvas personalizando los canales y el contenido que se enviará a los usuarios. Como estamos usando los cuatro canales de la plantilla (push móvil y web, SMS y correo electrónico) y usando el filtro de [canal inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel), no necesitamos añadir ni quitar ninguno.
 
 {% alert tip %}
 Puedes usar las [propiedades de entrada de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) para personalizar los mensajes en tu Canvas según el producto al que te refieras.

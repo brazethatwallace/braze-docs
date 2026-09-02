@@ -98,7 +98,7 @@ https://example.com/{{url_var}}
 
 ## Encurtar URLs renderizadas por variáveis Liquid {#shorten-urls-rendered-by-liquid-variables}
 
-A Braze encurta URLs que são renderizadas por Liquid, incluindo aquelas presentes em propriedades de disparo de API or interface de programação do aplicativo (API). Por exemplo, se {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} representar uma URL válida, encurtamos e rastreamos essa URL antes de enviar a mensagem LINE.
+A Braze encurta URLs que são renderizadas por Liquid, incluindo aquelas presentes em propriedades de disparo de API. Por exemplo, se {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} representar uma URL válida, encurtamos e rastreamos essa URL antes de enviar a mensagem LINE.
 
 ## Testes {#testing}
 
@@ -151,9 +151,9 @@ Sim, tanto parâmetros estáticos quanto dinâmicos podem ser adicionados.
 
 As URLs personalizadas são válidas por dois meses a partir do momento do registro da URL.
 
-### O SDK or kit de desenvolvimento de software da Braze precisa estar instalado para encurtar URLs? {#does-the-braze-sdk-need-to-be-installed-in-order-to-shorten-urls}
+### O SDK da Braze precisa estar instalado para encurtar URLs? {#does-the-braze-sdk-need-to-be-installed-in-order-to-shorten-urls}
 
-Não, o rastreamento de cliques funciona sem nenhuma integração SDK or kit de desenvolvimento de software.
+Não, o rastreamento de cliques funciona sem nenhuma integração SDK.
 
 ### É possível saber quais usuários individuais estão clicando em uma URL? {#do-i-know-which-individual-users-are-clicking-on-a-url}
 
@@ -161,7 +161,7 @@ Sim. Quando o rastreamento de cliques está ativado, você pode redirecionar usu
 
 ### O rastreamento de cliques funciona com deep links ou links universais? {#does-click-tracking-work-with-deep-links-or-universal-links}
 
-O rastreamento de cliques não funciona com deep links. Você pode encurtar links universais de provedores como Branch or ramificação ou Appsflyer, mas a Braze não consegue solucionar problemas que possam surgir ao fazer isso (como quebrar a atribuição ou falhar no redirecionamento).
+O rastreamento de cliques não funciona com deep links. Você pode encurtar links universais de provedores como Branch ou Appsflyer, mas a Braze não consegue solucionar problemas que possam surgir ao fazer isso (como quebrar a atribuição ou falhar no redirecionamento).
 
 ### As prévias no app do LINE contam como cliques? {#do-previews-on-the-line-app-count-as-clicks}
 

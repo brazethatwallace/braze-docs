@@ -8,7 +8,7 @@ description: "Esta página de destino presenta la API de mensajería de disposit
 page_type: landing
 hidden: true
 guide_top_header: "API de mensajería de dispositivos"
-guide_top_text: "Usa la API de mensajería de dispositivos de Braze para recuperar propiedades de Banner e informar eventos de impresión y clic de Banner sin integrar un SDK or kit de desarrollo de software de Braze. La API de mensajería de dispositivos admite integraciones del lado del cliente y del lado del servidor, y utiliza claves de API REST or transferencia de estado representacional del lado del cliente con alcance a un único espacio de trabajo."
+guide_top_text: "Usa la API de mensajería de dispositivos de Braze para recuperar propiedades de Banner e informar eventos de impresión y clic de Banner sin integrar un SDK de Braze. La API de mensajería de dispositivos admite integraciones del lado del cliente y del lado del servidor, y utiliza claves de API REST del lado del cliente con alcance a un único espacio de trabajo."
 guide_top_alert: "Esta página está en fase beta. Las características y la documentación de la API de mensajería de dispositivos están sujetas a cambios. Ponte en contacto con tu director de cuentas de Braze para solicitar acceso."
 guide_top_text2: "Nota: esta API solo recupera propiedades para un banner determinado, no el HTML del banner."
 guide_featured_title: "Primeros pasos"

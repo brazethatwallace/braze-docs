@@ -14,7 +14,7 @@ toc_headers: h2
 Con el destino de Decisioning Studio de CDI, CDI también puede sincronizar datos del almacén directamente con BrazeAI Decisioning Studio. Los datos de estas sincronizaciones se ponen a disposición de Decisioning Studio para su activación, pero tus perfiles de usuario y espacios de trabajo de Braze permanecen sin cambios.
 
 {% alert important %}
-Esta característica se encuentra en acceso anticipado. Ponte en contacto con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente o director de cuentas para obtener acceso.
+Esta característica se encuentra en acceso anticipado. Ponte en contacto con tu CSM o director de cuentas para obtener acceso.
 {% endalert %}
 
 ## Cómo funciona {#how-it-works}

@@ -1,8 +1,8 @@
-## Integración del SDK or kit de desarrollo de software de Roku {#integrating-the-roku-sdk}
+## Integración del SDK de Roku {#integrating-the-roku-sdk}
 
 ### Paso 1: Añadir archivos {#step-1-add-files}
 
-Los archivos del SDK or kit de desarrollo de software de Braze se encuentran en el directorio `sdk_files` del [repositorio del SDK or kit de desarrollo de software de Roku de Braze](https://github.com/braze-inc/braze-roku-sdk).
+Los archivos del SDK de Braze se encuentran en el directorio `sdk_files` del [repositorio del SDK de Roku de Braze](https://github.com/braze-inc/braze-roku-sdk).
 
 1. Añade `BrazeSDK.brs` a tu aplicación en el directorio `source`.
 2. Añade `BrazeTask.brs` y `BrazeTask.xml` a tu aplicación en el directorio `components`.
@@ -30,7 +30,7 @@ config[config_fields.HEARTBEAT_FREQ_IN_SECONDS] = 5
 globalNode.addFields({brazeConfig: config})
 ```
 
-Puedes encontrar tu [Punto final de SDK or kit de desarrollo de software]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) y clave de API en el panel de Braze.
+Puedes encontrar tu [Punto final de SDK]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) y clave de API en el panel de Braze.
 
 ### Paso 4: Inicializar Braze {#step-4-initialize-braze}
 

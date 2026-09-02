@@ -120,7 +120,7 @@ El siguiente patrón utiliza tres agentes para un ejemplo de viajes: alguien bus
 
 Para probar el rendimiento y el consumo de créditos de tu agente frente a tus recorridos existentes, añade un paso de [recorrido de experimentos]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) para que solo una parte de tu audiencia entre en la rama que contiene tu paso de agente.
 
-Por ejemplo, puedes empezar enviando unos cuantos miles de usuarios al día por una ruta con el agente y enviar el resto a una ruta de control o una ruta sin el agente. Recopila datos durante 1-2 semanas y compara los indicadores clave de rendimiento (indicador clave de rendimiento), las contramétricas y el consumo de créditos del agente entre las rutas. De esta forma, puedes generar confianza y demostrar el ROI or retorno de la inversión antes de aumentar el tráfico hacia la rama habilitada con agente, y limitar el consumo de invocaciones para hacerlo.
+Por ejemplo, puedes empezar enviando unos cuantos miles de usuarios al día por una ruta con el agente y enviar el resto a una ruta de control o una ruta sin el agente. Recopila datos durante 1-2 semanas y compara los indicadores clave de rendimiento (indicador clave de rendimiento), las contramétricas y el consumo de créditos del agente entre las rutas. De esta forma, puedes generar confianza y demostrar el ROI antes de aumentar el tráfico hacia la rama habilitada con agente, y limitar el consumo de invocaciones para hacerlo.
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 

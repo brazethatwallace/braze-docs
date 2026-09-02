@@ -23,15 +23,15 @@ Proporciona a los equipos locales las herramientas que necesitan para hacer un m
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta Sageflo Radiate | Se necesita una cuenta Sageflo Radiate para beneficiarse de esta asociación. |
-| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con todos los permisos de `templates` y `campaigns`. <br><br> Se puede crear en el panel de Braze desde **Settings** > **API Keys**. |
-| Punto de conexión REST or transferencia de estado representacional de Braze | [La URL de tu punto de conexión REST or transferencia de estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión de API coincide con la URL del dashboard de tu instancia de Braze. <br><br> Por ejemplo, si la URL de tu dashboard es `https://dashboard-03.braze.com`, tu punto de conexión será `dashboard-03`. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con todos los permisos de `templates` y `campaigns`. <br><br> Se puede crear en el panel de Braze desde **Settings** > **API Keys**. |
+| Punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión de API coincide con la URL del dashboard de tu instancia de Braze. <br><br> Por ejemplo, si la URL de tu dashboard es `https://dashboard-03.braze.com`, tu punto de conexión será `dashboard-03`. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Casos de uso {#use-cases}
 
 Radiate es ideal para franquicias y empresas de comercio minorista que desean ampliar sus esfuerzos de marketing permitiendo a los equipos distribuidos enviar correos electrónicos a sus audiencias locales a través de Braze.
 
-* Permite que los equipos distribuidos envíen fácilmente correos electrónicos y servicio de mensajes cortos de marketing
+* Permite que los equipos distribuidos envíen fácilmente correos electrónicos y SMS de marketing
 * Crea conexiones con los clientes centradas en la comunidad
 * Mantén la coherencia de la marca con mecanismos de protección integrados
 * Quita la carga de tu equipo nacional de marketing

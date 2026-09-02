@@ -14,7 +14,7 @@ search_tag: Partner
 
 La integración de Braze y Hightouch te permite utilizar la API con [contenido conectado de Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) para extraer datos actualizados de clientes u objetos en tus Campaigns o Canvas en el momento del envío.
 
-La API de personalización de Hightouch proporciona un endpoint REST or transferencia de estado representacional para utilizar en tu configuración de Braze. En concreto, puedes utilizar la oferta de contenido conectado de Braze para realizar una solicitud GET a la API de personalización y recuperar toda la información relacionada con un identificador concreto. Los datos expuestos por esta API pueden representar datos de clientes, productos o cualquier otro objeto.
+La API de personalización de Hightouch proporciona un endpoint REST para utilizar en tu configuración de Braze. En concreto, puedes utilizar la oferta de contenido conectado de Braze para realizar una solicitud GET a la API de personalización y recuperar toda la información relacionada con un identificador concreto. Los datos expuestos por esta API pueden representar datos de clientes, productos o cualquier otro objeto.
 
 ![Diagrama que muestra datos de Snowflake, BigQuery y Redshift fluyendo a través de la API de personalización de Hightouch hacia el contenido conectado de Braze.]({% image_buster /assets/img/hightouch/cohort6.png %})
 

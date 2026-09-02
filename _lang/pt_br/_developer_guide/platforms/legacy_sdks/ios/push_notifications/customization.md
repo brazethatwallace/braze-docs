@@ -11,7 +11,7 @@ channel:
 
 guide_top_header: "Personalização do push do iOS"
 guide_top_text: ""
-description: "Esta landing page aborda as opções de personalização de push do SDK or kit de desenvolvimento de software iOS da Braze, incluindo botões de ação, sons personalizados, notificações rich, emblemas e muito mais."
+description: "Esta landing page aborda as opções de personalização de push do SDK iOS da Braze, incluindo botões de ação, sons personalizados, notificações rich, emblemas e muito mais."
 
 guide_featured_title: "Artigos da seção"
 guide_featured_list:

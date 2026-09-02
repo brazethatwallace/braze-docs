@@ -1,7 +1,7 @@
 ---
 nav_title: Smartling
 article_title: Smartling
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Smartling, einer cloudbasierten Software für die Lokalisierung. Der Braze Connector unterstützt die Übersetzung von HTML-E-Mail-Templates, Content Blocks, Canvase und E-Mail-Nachrichten in Campaigns."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Smartling, einer cloudbasierten Software für die Lokalisierung. Der Braze Connector unterstützt die Übersetzung von HTML-E-Mail-Templates, Content Blocks, Canvases und E-Mail-Nachrichten in Campaigns."
 alias: /partners/smartling/
 page_type: partner
 search_tag: Partner
@@ -15,7 +15,7 @@ _Diese Integration wird von Smartling gepflegt._
 
 ## Über die Integration {#about-the-integration}
 
-Der Braze Connector unterstützt Übersetzungen für Nachrichten in Campaigns und Canvase (E-Mail, Push, In-App-Nachrichten und Banner), E-Mail-Templates und Content Blocks. In der folgenden Tabelle erfahren Sie, welche Editor-Typen für die einzelnen Kanäle oder Features unterstützt werden.
+Der Braze Connector unterstützt Übersetzungen für Nachrichten in Campaigns und Canvases (E-Mail, Push, In-App-Nachrichten und Banner), E-Mail-Templates und Content Blocks. In der folgenden Tabelle erfahren Sie, welche Editor-Typen für die einzelnen Kanäle oder Features unterstützt werden.
 
 | Kanal/Feature | Traditioneller Editor (z. B. HTML) | Drag-and-Drop-Editor |
 | --------------- | ----------------------------- | -------------------- |
@@ -34,8 +34,8 @@ Der Braze Connector unterstützt Übersetzungen für Nachrichten in Campaigns un
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Smartling-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein [Smartling-Konto](https://dashboard.smartling.com/). |
 | Smartling-Übersetzungsprojekt | Um Ihr Braze-Konto mit Smartling zu verbinden, müssen Sie sich zunächst anmelden und [ein Übersetzungsprojekt erstellen](https://help.smartling.com/hc/en-us/articles/115003074093). |
-| Braze Representational State Transfer-API-Schlüssel | Ein Braze Representational State Transfer-API-Schlüssel mit den folgenden Berechtigungen: <br>- campaigns.translations.get<br>- campaigns.translations.Update or aktualisieren<br>- campaigns.list<br>- campaigns.details<br>- Canvas.translations.get<br>- Canvas.translations.Update or aktualisieren<br>- campaigns.details<br>- templates.email.create<br>- templates.email.Update or aktualisieren<br>- templates.email.list<br>- templates.email.info<br>- templates.translations.get<br>- templates.translations.Update or aktualisieren<br>- content_blocks.info<br>- content_blocks.list<br>- content_blocks.create<br>- content_blocks.Update or aktualisieren<br><br> Diesen können Sie im Braze-Dashboard unter **Einstellungen > API-Schlüssel** erstellen. |
-| Braze Representational State Transfer-Endpunkt | [Ihre URL für den Representational State Transfer-Endpunkt]({{site.baseurl}}/api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
+| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit den folgenden Berechtigungen: <br>- campaigns.translations.get<br>- campaigns.translations.update<br>- campaigns.list<br>- campaigns.details<br>- canvas.translations.get<br>- canvas.translations.update<br>- campaigns.details<br>- templates.email.create<br>- templates.email.update<br>- templates.email.list<br>- templates.email.info<br>- templates.translations.get<br>- templates.translations.update<br>- content_blocks.info<br>- content_blocks.list<br>- content_blocks.create<br>- content_blocks.update<br><br> Diesen können Sie im Braze-Dashboard unter **Einstellungen > API-Schlüssel** erstellen. |
+| Braze REST-Endpunkt | [Ihre URL für den REST-Endpunkt]({{site.baseurl}}/api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
 | Braze-Mehrspracheneinstellungen | [Vollständige Mehrspracheneinstellungen in Braze]({{site.baseurl}}/user_guide/administrative/app_settings/multi_language_settings/#prerequisites) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 

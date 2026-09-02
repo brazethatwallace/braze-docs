@@ -12,7 +12,7 @@ toc_headers: h2
 > Esta página explica como usar o mapeador visual para sincronizar uma tabela ou view do seu data warehouse com a Braze sem escrever SQL ou reestruturar seus dados.
 
 {% alert important %}
-O mapeador visual está atualmente em beta. Ele está disponível para sincronizações de atributos de usuário de todas as fontes de data warehouse da Ingestão de dados na nuvem, e tipos de sincronização adicionais serão disponibilizados ao longo do beta. Entre em contato com seu gerente de sucesso do cliente ou gerente de conta para obter acesso.
+O mapeador visual está atualmente em beta. Ele está disponível para sincronizações de atributos de usuário de todas as fontes de data warehouse da Ingestão de dados na nuvem, e tipos de sincronização adicionais serão disponibilizados ao longo do beta. Entre em contato com seu CSM ou gerente de conta para obter acesso.
 {% endalert %}
 
 Com o mapeador visual, você pode sincronizar uma tabela ou view existente do seu data warehouse sem escrever SQL ou reestruturar seus dados. Em vez de criar uma tabela específica da Braze com as colunas `EXTERNAL_ID`, `UPDATED_AT` e `PAYLOAD`, você mapeia as colunas da sua tabela existente para campos da Braze diretamente no dashboard.

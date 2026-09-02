@@ -10,7 +10,7 @@ channel:
 
 # WhatsApp-Template-Builder {#whatsapp-template-builder}
 
-> Mit dem WhatsApp-Template-Builder können Sie WhatsApp-Nachrichten-Templates direkt in Braze erstellen und einreichen – ohne zwischen Braze und dem Meta Business Manager:in wechseln zu müssen. Nachdem Meta Ihr Template genehmigt hat, können Sie es in beliebig vielen Campaigns und Canvase verwenden.
+> Mit dem WhatsApp-Template-Builder können Sie WhatsApp-Nachrichten-Templates direkt in Braze erstellen und einreichen – ohne zwischen Braze und dem Meta Business Manager:in wechseln zu müssen. Nachdem Meta Ihr Template genehmigt hat, können Sie es in beliebig vielen Campaigns und Canvases verwenden.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -124,11 +124,11 @@ Für Flow-Templates konfigurieren Sie den Flow-Button und wählen einen bestehen
 Bevor Sie es einreichen, sehen Sie in der Vorschau, wie Ihre Nachricht bei Empfänger:innen angezeigt wird:
 
 - **Vorschau als Nutzer:in:** Sehen Sie eine generische Vorschau der Nachricht.
-- **Vorschau als bestimmte:r Nutzer:in:** Wählen Sie ein Kundenprofil or Nutzerprofil aus, um zu sehen, wie das Template mit den Daten dieser/dieses Nutzers/Nutzerin gerendert wird.
+- **Vorschau als bestimmte:r Nutzer:in:** Wählen Sie ein Kundenprofil aus, um zu sehen, wie das Template mit den Daten dieser/dieses Nutzers/Nutzerin gerendert wird.
 
 ### Schritt 6: Zur Überprüfung einreichen {#step-6-submit-for-review}
 
-Wählen Sie **Einreichen**, um Ihr Template zur Überprüfung an Meta zu senden. Die Überprüfung dauert in der Regel einige Minuten, kann jedoch bis zu 24 Stunden in Anspruch nehmen. Das Template erscheint auf Ihrer Seite **WhatsApp-Templates**, sobald es eingereicht wurde, und der Status wird aktualisiert, wenn Sie die Seite **WhatsApp-Templates** Update or aktualisieren or aktualisieren.
+Wählen Sie **Einreichen**, um Ihr Template zur Überprüfung an Meta zu senden. Die Überprüfung dauert in der Regel einige Minuten, kann jedoch bis zu 24 Stunden in Anspruch nehmen. Das Template erscheint auf Ihrer Seite **WhatsApp-Templates**, sobald es eingereicht wurde, und der Status wird aktualisiert, wenn Sie die Seite **WhatsApp-Templates** aktualisieren.
 
 ## Ein Template aus einer Campaign oder einem Canvas erstellen {#create-a-template-from-a-campaign-or-canvas}
 
@@ -152,8 +152,8 @@ Nachdem Meta Ihr Template genehmigt hat, können Sie es in einer WhatsApp-Campai
 1. Gehen Sie zu **Campaigns** und wählen Sie **Campaign erstellen** > **WhatsApp**.
 2. Wählen Sie im Nachrichten-Editor Ihr genehmigtes Template aus.
 3. Braze befüllt automatisch den Inhalt des Templates – einschließlich aller Medien und Liquid, die Sie bei der Template-Erstellung eingegeben haben – sodass Sie ihn nicht erneut eingeben müssen.
-4. Update or aktualisieren or aktualisieren Sie Variableninhalte oder Personalisierung nach Bedarf. Von Meta gesperrte Felder (grau dargestellt) können nicht bearbeitet werden. Um gesperrte Inhalte zu ändern, müssen Sie das Template bearbeiten und erneut zur Genehmigung einreichen.
-5. Verwenden Sie den Tab **Test**, um eine Vorschau der Nachricht anzuzeigen, Body-Variablen zu Update or aktualisieren or aktualisieren und zu bestätigen, dass die Nachricht vor dem Senden wie erwartet aussieht.
+4. Aktualisieren Sie Variableninhalte oder Personalisierung nach Bedarf. Von Meta gesperrte Felder (grau dargestellt) können nicht bearbeitet werden. Um gesperrte Inhalte zu ändern, müssen Sie das Template bearbeiten und erneut zur Genehmigung einreichen.
+5. Verwenden Sie den Tab **Test**, um eine Vorschau der Nachricht anzuzeigen, Body-Variablen zu aktualisieren und zu bestätigen, dass die Nachricht vor dem Senden wie erwartet aussieht.
 
 Weitere Informationen zum Erstellen von WhatsApp-Campaigns finden Sie unter [Eine WhatsApp-Nachricht erstellen]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message).
 
@@ -165,7 +165,7 @@ Weitere Informationen zum Erstellen von WhatsApp-Campaigns finden Sie unter [Ein
 
 ### Kann ich ein Template bearbeiten, nachdem es genehmigt wurde? {#can-i-edit-a-template-after-its-been-approved}
 
-Sie können variable Inhalte und Personalisierung beim Erstellen einer Campaign oder eines Canvas Update or aktualisieren or aktualisieren. Änderungen an gesperrten Inhalten (Fließtext, Button-Layout oder andere von Meta kontrollierte Felder) erfordern das Erstellen eines neuen Templates im Template-Builder oder das Bearbeiten des Templates im WhatsApp Manager:in von Meta und das Warten auf eine erneute Genehmigung durch Meta. Wenn Sie [Klick-Tracking]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/click_tracking) verwenden, lesen Sie diesen Artikel, bevor Sie in Braze erstellte Templates im WhatsApp Manager:in von Meta bearbeiten.
+Sie können variable Inhalte und Personalisierung beim Erstellen einer Campaign oder eines Canvas aktualisieren. Änderungen an gesperrten Inhalten (Fließtext, Button-Layout oder andere von Meta kontrollierte Felder) erfordern das Erstellen eines neuen Templates im Template-Builder oder das Bearbeiten des Templates im WhatsApp Manager:in von Meta und das Warten auf eine erneute Genehmigung durch Meta. Wenn Sie [Klick-Tracking]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/click_tracking) verwenden, lesen Sie diesen Artikel, bevor Sie in Braze erstellte Templates im WhatsApp Manager:in von Meta bearbeiten.
 
 ### Was passiert mit Templates, die ich vor der Verfügbarkeit des Template-Builders eingereicht habe? {#what-happens-to-templates-i-submitted-before-the-template-builder-was-available}
 

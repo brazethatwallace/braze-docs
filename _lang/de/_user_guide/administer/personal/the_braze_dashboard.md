@@ -72,7 +72,7 @@ Die globale Suchleiste im Header ist der schnellste Weg, um Inhalte in Ihrem Bra
 
 ![Globale Suche geöffnet ohne eingegebene Suchbegriffe, mit Anzeige der zuletzt geöffneten Seiten.]({% image_buster /assets/img/navigation/search_recently_opened.png %})
 
-Ihre zuletzt geöffneten Inhalte erscheinen unterhalb der Suchleiste. Dazu gehören alle Campaigns, Canvase, Templates oder Seiten, mit denen Sie kürzlich interagiert haben – so können Sie leicht zu Ihrer Arbeit zurückkehren.
+Ihre zuletzt geöffneten Inhalte erscheinen unterhalb der Suchleiste. Dazu gehören alle Campaigns, Canvases, Templates oder Seiten, mit denen Sie kürzlich interagiert haben – so können Sie leicht zu Ihrer Arbeit zurückkehren.
 
 ### Wonach können Sie suchen? {#what-can-you-search-for}
 
@@ -134,11 +134,11 @@ Das Braze-Dashboard enthält mehrere Features, die Ihnen helfen, effizienter zu 
 
 ### BrazeAI Operator
 
-BrazeAI Operator™ ist ein KI or künstliche Intelligenz-gestützter Assistent, der in das Dashboard integriert ist. Nutzen Sie ihn, um Antworten zu erhalten, Einrichtungsschritte durchzugehen, Probleme zu beheben und Ideen zu entwickeln. Öffnen Sie ihn über **BrazeAI Operator™** im globalen Header neben Ihrem Profil. Weitere Informationen finden Sie unter [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator).
+BrazeAI Operator™ ist ein KI-gestützter Assistent, der in das Dashboard integriert ist. Nutzen Sie ihn, um Antworten zu erhalten, Einrichtungsschritte durchzugehen, Probleme zu beheben und Ideen zu entwickeln. Öffnen Sie ihn über **BrazeAI Operator™** im globalen Header neben Ihrem Profil. Weitere Informationen finden Sie unter [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator).
 
 ### Dort weitermachen, wo Sie aufgehört haben {#pick-up-where-you-left-off}
 
-Auf der **Startseite** zeigt das Dashboard Ihre zuletzt bearbeiteten oder erstellten Campaigns, Canvase und Segments an. So können Sie leicht zu laufenden Arbeiten zurückkehren, ohne suchen zu müssen. Jedes Element enthält Tags, die den Inhaltstyp und Status anzeigen (z. B. Entwurf, aktiv oder gestoppt).
+Auf der **Startseite** zeigt das Dashboard Ihre zuletzt bearbeiteten oder erstellten Campaigns, Canvases und Segments an. So können Sie leicht zu laufenden Arbeiten zurückkehren, ohne suchen zu müssen. Jedes Element enthält Tags, die den Inhaltstyp und Status anzeigen (z. B. Entwurf, aktiv oder gestoppt).
 
 ![Ein Canvas-Entwurf, ein aktives Segment und ein Campaign-Entwurf im Abschnitt „Dort weitermachen, wo Sie aufgehört haben“.]({% image_buster /assets/img/pick_up_where_you_left_off.png %})
 
@@ -161,7 +161,7 @@ So verwalten Sie Ihre Kontoeinstellungen, Benachrichtigungspräferenzen und pers
 1. Wählen Sie Ihr Profilsymbol im globalen Header aus.
 2. Wählen Sie **Konto verwalten**, um auf Ihre Profilseite zuzugreifen.
 
-Von Ihrer Profilseite aus können Sie Ihre E-Mail-Einstellungen Update or aktualisieren or aktualisieren, die Zwei-Faktor-Authentifizierung konfigurieren, Ihre API-Schlüssel einsehen und andere Kontodetails verwalten.
+Von Ihrer Profilseite aus können Sie Ihre E-Mail-Einstellungen aktualisieren, die Zwei-Faktor-Authentifizierung konfigurieren, Ihre API-Schlüssel einsehen und andere Kontodetails verwalten.
 
 ## Barrierefreiheit im Dashboard {#accessibility-in-the-dashboard}
 

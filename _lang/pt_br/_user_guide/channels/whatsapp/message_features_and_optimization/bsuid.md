@@ -50,7 +50,7 @@ A principal diferença é que um usuário que adota um nome de usuário comparti
 
 ## Como a Braze lida com BSUIDs {#how-braze-will-handle-bsuids}
 
-A Braze armazenará os BSUIDs como um [alias de usuário]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases) com o rótulo `whats_app_bsuid` no perfil de usuário. Isso significa que usuários somente com BSUID terão perfis de usuário completos na Braze e poderão entrar em Canvas, receber mensagens, gerar eventos e ser atualizados pela API or interface de programação do aplicativo (API).
+A Braze armazenará os BSUIDs como um [alias de usuário]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases) com o rótulo `whats_app_bsuid` no perfil de usuário. Isso significa que usuários somente com BSUID terão perfis de usuário completos na Braze e poderão entrar em Canvas, receber mensagens, gerar eventos e ser atualizados pela API.
 
 ### Enviar mensagens {#send-messages}
 
@@ -162,7 +162,7 @@ A Braze receberá o BSUID do usuário no webhook de entrada e fará a correspond
 
 ### Posso segmentar usuários com BSUID em Segments? {#can-i-target-bsuid-users-in-segments}
 
-Usuários com BSUID são perfis de usuário completos na Braze, então você pode Segment or segmentoá-los por meio de filtros de público padrão (como "recebeu uma mensagem do WhatsApp" ou associação a grupo de inscrições). No entanto, a segmentação especificamente por valores de BSUID (como "BSUID existe" ou "BSUID igual a X") não é suportada.
+Usuários com BSUID são perfis de usuário completos na Braze, então você pode Segmentá-los por meio de filtros de público padrão (como "recebeu uma mensagem do WhatsApp" ou associação a grupo de inscrições). No entanto, a segmentação especificamente por valores de BSUID (como "BSUID existe" ou "BSUID igual a X") não é suportada.
 
 ### Como funciona a precificação do WhatsApp para usuários com BSUID? {#how-does-whatsapp-pricing-work-for-bsuid-users}
 
@@ -170,7 +170,7 @@ A precificação de conversas do WhatsApp é determinada pelo país do usuário.
 
 Isso significa que o comportamento de precificação é consistente independentemente de o usuário ser identificado por número de telefone ou BSUID. O país usado para calcular as taxas de conversa é determinado pelo identificador que a Meta fornece, e a Braze repassa essa informação sem modificação. Você não precisa fazer nada diferente, mas esteja ciente de que, ao enviar mensagens para usuários somente com BSUID, a precificação baseada em país da Meta é baseada no país codificado no BSUID do usuário, e não em um número de telefone.
 
-### Como faço referência a um usuário com BSUID em chamadas de API or interface de programação do aplicativo (API)? {#how-do-i-reference-a-bsuid-user-in-api-calls}
+### Como faço referência a um usuário com BSUID em chamadas de API? {#how-do-i-reference-a-bsuid-user-in-api-calls}
 
 Use o parâmetro `user_alias` com `alias_label: "whats_app_bsuid"` e `alias_name` definido como o valor do BSUID do usuário. Por exemplo:
 

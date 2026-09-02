@@ -61,7 +61,7 @@ Braze inclut des objets de compte avec des champs standard par défaut. Vous pou
 | `type` | chaîne de caractères | Non | Type de compte, tel que client, partenaire ou revendeur. |
 | `annual_revenue` | nombre | Non | Chiffre d'affaires annuel du compte. |
 | `industry` | chaîne de caractères | Non | Secteur d'activité du compte. |
-| `number_of_employees` | nombre | Non | Nombre d'employé or salariés. |
+| `number_of_employees` | nombre | Non | Nombre d'employés. |
 | `address` | chaîne de caractères | Non | Adresse postale. |
 | `city` | chaîne de caractères | Non | Ville. |
 | `state` | chaîne de caractères | Non | État ou province. |

@@ -277,6 +277,6 @@ Si estás realizando un webhook de Braze a Braze y utilizas listas de permitidas
 
 ### Eliminar usuarios {#delete-users}
 
-Para eliminar un usuario individual o un Segment de usuarios, ve a **Audiencia** > **Gestionar audiencia** > **Eliminar usuarios**. El panel admite la eliminación masiva de Segments (hasta 10 millones de perfiles), incluye una ventana de cancelación de 7 días y no consume los límites de velocidad compartidos de la REST or transferencia de estado representacional API. Para los pasos, límites y permisos, consulta [Eliminar usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users).
+Para eliminar un usuario individual o un Segment de usuarios, ve a **Audiencia** > **Gestionar audiencia** > **Eliminar usuarios**. El panel admite la eliminación masiva de Segments (hasta 10 millones de perfiles), incluye una ventana de cancelación de 7 días y no consume los límites de velocidad compartidos de la REST API. Para los pasos, límites y permisos, consulta [Eliminar usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users).
 
 Para la eliminación programática en lotes más pequeños, utiliza el [endpoint `/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete) en lugar de una campaña de webhook.

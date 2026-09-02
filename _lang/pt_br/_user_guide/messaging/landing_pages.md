@@ -14,7 +14,7 @@ alias: /landing_pages/
 Use landing pages para expandir seu público, capturar dados de usuários, promover ofertas especiais e dar suporte a campanhas multicanal. Para uma referência dos blocos de arrastar e soltar de landing pages, consulte [Blocos do editor (landing pages)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=landing%20pages).
 
 {% alert note %}
-A disponibilidade de landing pages e domínios personalizados depende do seu pacote Braze. Entre em contato com seu gerente de conta ou gerente de sucesso do cliente para começar.
+A disponibilidade de landing pages e domínios personalizados depende do seu pacote Braze. Entre em contato com seu gerente de conta ou CSM para começar.
 {% endalert %}
 
 {% multi_lang_include video.html id="eg4r7agod1" source="wistia" %}
@@ -86,7 +86,7 @@ Não, não existem requisitos técnicos.
 
 ### Existe um editor de HTML para landing pages? {#is-there-an-html-editor-for-landing-pages}
 
-Sim. Use o bloco **Custom Code** no editor de arrastar e soltar para adicionar ou editar HTML. Para interagir com o SDK or kit de desenvolvimento de software da Braze a partir do seu código personalizado, consulte [Ponte JavaScript para landing pages]({{site.baseurl}}/user_guide/messaging/landing_pages/javascript_bridge). Para conectar uma interface totalmente personalizada a um formulário de landing page, consulte [Criar blocos de formulário personalizados]({{site.baseurl}}/user_guide/messaging/landing_pages/custom_form_blocks).
+Sim. Use o bloco **Custom Code** no editor de arrastar e soltar para adicionar ou editar HTML. Para interagir com o SDK da Braze a partir do seu código personalizado, consulte [Ponte JavaScript para landing pages]({{site.baseurl}}/user_guide/messaging/landing_pages/javascript_bridge). Para conectar uma interface totalmente personalizada a um formulário de landing page, consulte [Criar blocos de formulário personalizados]({{site.baseurl}}/user_guide/messaging/landing_pages/custom_form_blocks).
 
 ### Posso usar iframes em landing pages? {#can-i-use-iframes-on-landing-pages}
 

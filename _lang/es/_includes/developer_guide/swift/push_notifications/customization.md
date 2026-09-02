@@ -2,7 +2,7 @@
 
 ## Personalización de los botones de acción {#push-action-buttons-integration}
 
-El SDK or kit de desarrollo de software Swift de Braze proporciona soporte de gestión de URL para botones de acción push. Hay cuatro conjuntos de botones de acción para notificación push predeterminados para las categorías push predeterminadas de Braze: `Accept/Decline`, `Yes/No`, `Confirm/Cancel` y `More`.
+El SDK Swift de Braze proporciona soporte de gestión de URL para botones de acción push. Hay cuatro conjuntos de botones de acción para notificación push predeterminados para las categorías push predeterminadas de Braze: `Accept/Decline`, `Yes/No`, `Confirm/Cancel` y `More`.
 
 ![Un GIF de un mensaje push que se desliza hacia abajo para mostrar dos botones de acción personalizables.]({% image_buster /assets/img_archive/iOS8Action.gif %}){: style="max-width:60%"}
 

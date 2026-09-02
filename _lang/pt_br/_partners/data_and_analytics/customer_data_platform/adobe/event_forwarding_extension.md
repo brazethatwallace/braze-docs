@@ -7,9 +7,9 @@ page_order: 2
 search_tag: Partner
 ---
 
-# Extensão de encaminhamento de eventos da API or interface de programação do aplicativo (API) Track Events {#track-events-api-event-forwarding-extension}
+# Extensão de encaminhamento de eventos da API Track Events {#track-events-api-event-forwarding-extension}
 
-> A extensão de [encaminhamento de eventos](https://experienceleague.adobe.com/docs/experience-platform/tags/event-forwarding/overview.html?lang=en) da API or interface de programação do aplicativo (API) Track Events da Braze permite aproveitar os dados capturados na Adobe Experience Platform Edge Network e enviá-los para a Braze na forma de eventos do lado do servidor usando a API or interface de programação do aplicativo (API) [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
+> A extensão de [encaminhamento de eventos](https://experienceleague.adobe.com/docs/experience-platform/tags/event-forwarding/overview.html?lang=en) da API Track Events da Braze permite aproveitar os dados capturados na Adobe Experience Platform Edge Network e enviá-los para a Braze na forma de eventos do lado do servidor usando a API [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
 
 Este documento aborda os casos de uso da extensão, como instalá-la em suas bibliotecas de encaminhamento de eventos e como empregar seus recursos em uma [regra](https://experienceleague.adobe.com/docs/experience-platform/tags/ui/rules.html?lang=en) de encaminhamento de eventos.
 
@@ -27,9 +27,9 @@ Usando várias regras de [tag](https://experienceleague.adobe.com/docs/experienc
 
 ## Limites de frequência {#rate-limits}
 
-| API or interface de programação do aplicativo (API) | Limites de frequência |
+| API | Limites de frequência |
 | --- | --- |
-| User Track | 50.000 solicitações por minuto.<br><br>Consulte a [documentação da API or interface de programação do aplicativo (API) User Track]({{site.baseurl}}/api/endpoints/user_data/post_user_track#rate-limit) para mais detalhes.
+| User Track | 50.000 solicitações por minuto.<br><br>Consulte a [documentação da API User Track]({{site.baseurl}}/api/endpoints/user_data/post_user_track#rate-limit) para mais detalhes.
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Limites de frequência" }
 
 ## Integração {#integration}
@@ -40,19 +40,19 @@ Para conectar o Edge Network à Braze, os seguintes itens são necessários:
 
 | Tipo de chave | Descrição |
 | --- | --- |
-| Instância da Braze | Sua instância da Braze pode ser obtida com seu gerente de integração da Braze ou pode ser encontrada na [página de visão geral da API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#endpoints). |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com todas as permissões. <br><br> Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**.|
+| Instância da Braze | Sua instância da Braze pode ser obtida com seu gerente de integração da Braze ou pode ser encontrada na [página de visão geral da API]({{site.baseurl}}/api/basics#endpoints). |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com todas as permissões. <br><br> Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API**.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 1: Reúna os detalhes de configuração necessários" }
 
 ### Etapa 2: Crie um segredo {#step-2-create-a-secret}
 
-Crie um novo [segredo de encaminhamento de eventos](https://experienceleague.adobe.com/docs/experience-platform/tags/event-forwarding/secrets.html?lang=en) e defina o valor como sua [chave de API or interface de programação do aplicativo (API) da Braze](https://experienceleague.adobe.com/docs/experience-platform/tags/extensions/server/braze/overview.html?lang=en#configuration-details). Isso será usado para autenticar a conexão com sua conta, mantendo o valor seguro.
+Crie um novo [segredo de encaminhamento de eventos](https://experienceleague.adobe.com/docs/experience-platform/tags/event-forwarding/secrets.html?lang=en) e defina o valor como sua [chave de API da Braze](https://experienceleague.adobe.com/docs/experience-platform/tags/extensions/server/braze/overview.html?lang=en#configuration-details). Isso será usado para autenticar a conexão com sua conta, mantendo o valor seguro.
 
 ### Etapa 3: Instale e configure a extensão Braze {#step-3-install-and-configure-the-braze-extension}
 
 1. Para instalar a extensão, [crie uma propriedade de encaminhamento de eventos](https://experienceleague.adobe.com/docs/experience-platform/tags/event-forwarding/overview.html?lang=en#properties) ou escolha uma propriedade existente para editar.
 2. Em seguida, selecione **Extensions** na navegação à esquerda. Na guia **Catalog**, selecione **Install** no cartão da extensão Braze.
-3. Na próxima tela, insira sua instância REST or transferir estado representacional e chave de API or interface de programação do aplicativo (API) e selecione **Save** quando terminar.
+3. Na próxima tela, insira sua instância REST e chave de API e selecione **Save** quando terminar.
 
 ### Etapa 4: Crie uma regra de envio de evento {#step-4-create-a-send-event-rule}
 

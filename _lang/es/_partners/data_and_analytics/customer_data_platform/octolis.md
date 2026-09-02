@@ -10,14 +10,14 @@ search_tag: Octolis
 
 # Octolis
 
-> [Octolis](http://octolis.com) es una potente plataforma de activación de datos (o CDP or plataforma de datos de los clientes headless). Situándose sobre una base de datos de tu propiedad, Octolis es una forma sencilla de unificar, preparar, puntuar y sincronizar datos en tus herramientas empresariales.
+> [Octolis](http://octolis.com) es una potente plataforma de activación de datos (o CDP headless). Situándose sobre una base de datos de tu propiedad, Octolis es una forma sencilla de unificar, preparar, puntuar y sincronizar datos en tus herramientas empresariales.
 
 _Esta integración está mantenida por Octolis._
 
 ## Sobre la integración {#about-the-integration}
 
 La integración de Braze y Octolis actúa como middleware entre tus fuentes de datos brutos y Braze, lo que te permite recuperar y unificar datos de diversas fuentes, online y offline:
-1. Unifica y combina datos de fuentes como Eshop, CRM or administración de las relaciones con el cliente, sistema TPV, etc.
+1. Unifica y combina datos de fuentes como Eshop, CRM, sistema TPV, etc.
 2. Normaliza y puntúa
 3. Sincronización en tiempo real de campos y eventos computados con Braze
 
@@ -28,8 +28,8 @@ La integración de Braze y Octolis actúa como middleware entre tus fuentes de d
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta Octolis | Se necesita una cuenta Octolis para beneficiarse de esta asociación. |
-| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos [**users.track**]({{site.baseurl}}/api/endpoints/user_data/post_user_track). <br><br> Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
-| Endpoint REST or transferencia de estado representacional de Braze | [La URL de tu endpoint REST or transferencia de estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Tu endpoint dependerá de la URL de Braze de tu instancia. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos [**users.track**]({{site.baseurl}}/api/endpoints/user_data/post_user_track). <br><br> Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Endpoint REST de Braze | [La URL de tu endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Tu endpoint dependerá de la URL de Braze de tu instancia. |
 | Clave de la aplicación Braze | La clave del identificador de tu aplicación. Se encuentra en **Panel de Braze > Administrar configuración > Clave de API**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 

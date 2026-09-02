@@ -10,7 +10,7 @@ page_type: landing
 search_tag: Endpoint
 
 guide_top_header: "Endpoints de grupos de inscrições"
-guide_top_text: "Use as REST or transferir estado representacional APIs de grupos de inscrições para gerenciar programaticamente os grupos de inscrições armazenados no seu espaço de trabalho da Braze. Isso se aplica a grupos de inscrições de e-mail e SMS.<br><br> Para orientações no dashboard sobre criação e gerenciamento de grupos, consulte <a href='/docs/user_guide/audience/subscription_preferences/subscription_groups'>Grupos de inscrições</a>."
+guide_top_text: "Use as REST APIs de grupos de inscrições para gerenciar programaticamente os grupos de inscrições armazenados no seu espaço de trabalho da Braze. Isso se aplica a grupos de inscrições de e-mail e SMS.<br><br> Para orientações no dashboard sobre criação e gerenciamento de grupos, consulte <a href='/docs/user_guide/audience/subscription_preferences/subscription_groups'>Grupos de inscrições</a>."
 
 guide_featured_title: ""
 guide_featured_list:

@@ -21,7 +21,7 @@ Dieses Feature befindet sich derzeit in der Beta-Phase. Für weitere Information
 | ----------- | ----------- |
 | Treasure Data-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein [Treasure Data](https://www.treasuredata.com/)-Konto. |
 | Braze-Datenimport-Schlüssel | Diesen finden Sie im Braze-Dashboard unter **Partnerintegrationen** > **Technologie-Partner** und dann **Treasure Data** auswählen. |
-| Braze-Representational State Transfer-Endpunkt | [Ihre URL für den Representational State Transfer-Endpunkt]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
+| Braze-REST-Endpunkt | [Ihre URL für den REST-Endpunkt]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
 | Statische IP-Adresse von Treasure Data | Die statische IP-Adresse von Treasure Data ist der Zugangspunkt und die Quelle der Verknüpfung für diese Integration. Um die statische IP-Adresse zu ermitteln, wenden Sie sich an Ihre Treasure Data-Kundenerfolgs-Vertretung oder an den technischen Support von Treasure Data. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
@@ -29,7 +29,7 @@ Dieses Feature befindet sich derzeit in der Beta-Phase. Für weitere Information
 
 ### 1. Schritt: Braze-Datenimport-Schlüssel abrufen {#step-1-get-your-braze-data-import-key}
 
-Navigieren Sie in Braze zu **Partnerintegrationen** > **Technologie-Partner** und wählen Sie **Treasure Data** aus. Hier finden Sie Ihren Representational State Transfer-Endpunkt und können Ihren Braze-Datenimport-Schlüssel generieren. Nachdem der Schlüssel generiert wurde, können Sie einen neuen Schlüssel erstellen oder einen bestehenden Schlüssel ungültig machen.
+Navigieren Sie in Braze zu **Partnerintegrationen** > **Technologie-Partner** und wählen Sie **Treasure Data** aus. Hier finden Sie Ihren REST-Endpunkt und können Ihren Braze-Datenimport-Schlüssel generieren. Nachdem der Schlüssel generiert wurde, können Sie einen neuen Schlüssel erstellen oder einen bestehenden Schlüssel ungültig machen.
 
 ### 2. Schritt: Datenverbindung erstellen {#step-2-create-a-data-connection}
 

@@ -18,8 +18,8 @@ O Braze Go oferece todas as mesmas funcionalidades da Braze, com as seguintes al
 
 - Você pode ter até 30 campanhas ativas.
 - Você pode ter até 20 Canvas ativos.
-- O limite de frequência padrão total da REST or transferir estado representacional API or interface de programação do aplicativo (API) é de 50.000 por hora, por espaço de trabalho.
-    - Para uso fora do Braze Go, saiba mais sobre [limites da REST or transferir estado representacional API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/api_limits#rate-limits-by-request-type).
+- O limite de frequência padrão total da REST API é de 50.000 por hora, por espaço de trabalho.
+    - Para uso fora do Braze Go, saiba mais sobre [limites da REST API]({{site.baseurl}}/api/api_limits#rate-limits-by-request-type).
 - A retenção de dados de interação de campanhas e Canvas é de 2 meses, sem restauração.
     - Para uso fora do Braze Go, saiba mais sobre [disponibilidade de dados de interação de mensagens]({{site.baseurl}}/messaging_interaction_data).
 
@@ -32,6 +32,6 @@ Os dados de interação para campanhas e Canvas são diferentes dos dados do Sno
     - Clicou ou abriu campanha ou Canvas com tag
     - Última mensagem recebida de campanha ou Canvas com tag
     - Recebeu campanha ou Canvas com tag
-- A Braze também pode implementar uma política de retenção de dados para eventos de perfil de usuário e dados de compra que remove eventos, compras ou ambos com mais de 1 ano que não tenham sido realizados novamente em 1 ano. No entanto, esses dados ainda estariam disponíveis em extensões de Segment or segmento or segmento SQL por 2 anos.
+- A Braze também pode implementar uma política de retenção de dados para eventos de perfil de usuário e dados de compra que remove eventos, compras ou ambos com mais de 1 ano que não tenham sido realizados novamente em 1 ano. No entanto, esses dados ainda estariam disponíveis em extensões de Segment SQL por 2 anos.
 
 Se alguma funcionalidade descrita neste artigo for atualizada, isso será refletido neste artigo e registrado em nossas [notas de versão]({{site.baseurl}}/help/release_notes#most-recent-braze-release-notes).

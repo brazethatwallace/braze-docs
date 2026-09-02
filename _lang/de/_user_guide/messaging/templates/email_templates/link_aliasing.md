@@ -11,7 +11,7 @@ channel:
 
 # [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/link-aliasing){: style="float:right;width:120px;border:0;" class="noimgborder"}Link Aliasing {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomlink-aliasing-stylefloatrightwidth120pxborder0-classnoimgborderlink-aliasing}
 
-> Verwenden Sie Link Aliasing, um erkennbare, selbst erstellte Namen zur Identifizierung von Links zu erstellen, die in E-Mail-Nachrichten von Braze gesendet werden. Diese Links stehen für Segmentierungs-Retargeting, aktionsbasiertes Trigger or triggern or triggern und Link-Analytics zur Verfügung.
+> Verwenden Sie Link Aliasing, um erkennbare, selbst erstellte Namen zur Identifizierung von Links zu erstellen, die in E-Mail-Nachrichten von Braze gesendet werden. Diese Links stehen für Segmentierungs-Retargeting, aktionsbasiertes Triggern und Link-Analytics zur Verfügung.
 
 ## Über Link Aliasing {#about-link-aliasing}
 
@@ -20,7 +20,7 @@ Mit Link Aliasing können Sie benutzerdefinierte Namen erstellen, um Links in E-
 Mit Link Aliasing können Sie:
 
 - **Nutzer:innen retargeten, die auf bestimmte Links geklickt haben:** Identifizieren und erreichen Sie Nutzer:innen, die auf einen Link geklickt haben.
-- **Aktionsbasierte Trigger or triggern erstellen:** Senden Sie eine E-Mail, wenn ein:e Nutzer:in auf einen Link klickt.
+- **Aktionsbasierte Trigger erstellen:** Senden Sie eine E-Mail, wenn ein:e Nutzer:in auf einen Link klickt.
 - **Metriken analysieren:** Vergleichen Sie, wie viele Nutzer:innen auf Link A im Vergleich zu Link B geklickt haben.
 
 ### So funktioniert es {#how-it-works}
@@ -83,7 +83,7 @@ Verwenden Sie die Endpunkte [Link-Alias für Campaign auflisten]({{site.baseurl}
 
 Braze empfiehlt, die Links in der E-Mail zu prüfen, Link-Templates hinzuzufügen und eine Namenskonvention zu verwenden, die für die Segmentierung und Berichterstellung geeignet ist. So behalten Sie den Überblick über alle Links.
 
-Wenn Link Aliasing aktiviert ist, werden Nachrichten, Content Blocks und Link-Templates nicht verändert. Alle bestehenden Nachrichten, die Link-Templates oder Content Blocks verwenden, bleiben unverändert. Wenn Sie jedoch eine Nachricht Update or aktualisieren or aktualisieren, wird das Link-Alias-Markup auf alle Links angewendet, sodass Sie die Link-Templates erneut anwenden müssen, damit die Links sichtbar sind.
+Wenn Link Aliasing aktiviert ist, werden Nachrichten, Content Blocks und Link-Templates nicht verändert. Alle bestehenden Nachrichten, die Link-Templates oder Content Blocks verwenden, bleiben unverändert. Wenn Sie jedoch eine Nachricht aktualisieren, wird das Link-Alias-Markup auf alle Links angewendet, sodass Sie die Link-Templates erneut anwenden müssen, damit die Links sichtbar sind.
 
 ## Wie Links mit Link Aliasing aktualisiert werden {#how-links-are-updated-with-link-aliasing}
 
@@ -164,9 +164,9 @@ Um Links als nicht getrackt festzulegen, gehen Sie zu **Einstellungen** > **E-Ma
 
 ### Segmentierungsfilter {#segmentation-filters}
 
-Wenn Sie in Braze einen Link-Alias in Ihrer E-Mail haben und ein:e Nutzer:in darauf klickt, wird das Ereignis im Kundenprofil or Nutzerprofil mit dem Alias erfasst.
+Wenn Sie in Braze einen Link-Alias in Ihrer E-Mail haben und ein:e Nutzer:in darauf klickt, wird das Ereignis im Kundenprofil mit dem Alias erfasst.
 
-Wenn Sie den Segmentierungsfilter „Clicked Alias in Any Campaign or Canvas-Schritt“ verwenden und später den Link-Alias umbenennen, werden die bisherigen Klickdaten im Kundenprofil or Nutzerprofil **nicht** aktualisiert – sie zeigen weiterhin den vorherigen Link-Alias an. Wenn Sie also Nutzer:innen auf Basis des neuen Link-Alias ansprechen, enthält dies nicht die Daten des vorherigen Link-Alias.
+Wenn Sie den Segmentierungsfilter „Clicked Alias in Any Campaign or Canvas-Schritt“ verwenden und später den Link-Alias umbenennen, werden die bisherigen Klickdaten im Kundenprofil **nicht** aktualisiert – sie zeigen weiterhin den vorherigen Link-Alias an. Wenn Sie also Nutzer:innen auf Basis des neuen Link-Alias ansprechen, enthält dies nicht die Daten des vorherigen Link-Alias.
 
 Wenn Sie den Segmentierungsfilter „Clicked Alias in Campaign“ oder „Clicked Alias in Canvas“ verwenden, werden Ihre Nutzer:innen danach gefiltert, ob sie auf einen bestimmten Alias in einer bestimmten Campaign oder einem bestimmten Canvas geklickt haben. Wenn mehrere Nutzer:innen dieselbe E-Mail-Adresse teilen und der Link-Alias angeklickt wird, werden die Nutzerprofile aller anderen Nutzer:innen, die die E-Mail-Adresse teilen, aktualisiert. Diese Profile werden auch durch Zustellungs- und Öffnungsereignisse aktualisiert, nicht nur durch Klickereignisse.
 
@@ -215,7 +215,7 @@ Wenn Sie Ihre Engagement-Daten mit Currents exportieren, unterscheidet sich ein 
 }
 ```
 
-{% alert Update or aktualisieren %}
+{% alert update %}
 Das Verhalten von `dispatch_id` unterscheidet sich zwischen Canvas und Campaigns, da Braze Canvas-Schritte (mit Ausnahme von Entry-Schritten, die geplant werden können) als getriggerte Ereignisse behandelt, auch wenn sie „geplant“ sind. Erfahren Sie mehr über das [`dispatch_id`-Verhalten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id) in Canvas und Campaigns.
 
 _Aktualisierung vermerkt im August 2019._
@@ -354,7 +354,7 @@ Alternativ können Sie die URL in einer Variablen erfassen:
 
 Wenn Sie eine Testnachricht aus dem E-Mail-Editor senden, hängt Braze {% raw %}`lid={{placeholder}}`{% endraw %} an Ihre Links an (der Platzhalter wird zum Sendezeitpunkt durch einen eindeutigen Wert ersetzt). Falls die Zielwebsite oder API keine zusätzlichen Query-Parameter toleriert, kann der Link im Editor funktionieren, aber beim Öffnen aus der E-Mail fehlschlagen.
 
-Ohne den `lid`-Wert behandelt Braze die URL nicht als link-aliased für Tracking und Segmentierung. Wir empfehlen, Ihr Backend oder Ihre Website so zu Update or aktualisieren or aktualisieren, dass der `lid`-Query-Parameter ignoriert wird, wenn er vorhanden ist. Dadurch bleiben Link Aliasing, Reporting und die in diesem Artikel beschriebenen Segment-Anwendungsfälle erhalten.
+Ohne den `lid`-Wert behandelt Braze die URL nicht als link-aliased für Tracking und Segmentierung. Wir empfehlen, Ihr Backend oder Ihre Website so zu aktualisieren, dass der `lid`-Query-Parameter ignoriert wird, wenn er vorhanden ist. Dadurch bleiben Link Aliasing, Reporting und die in diesem Artikel beschriebenen Segment-Anwendungsfälle erhalten.
 
 Alternativ können Sie Link Aliasing im Dashboard deaktivieren, während Sie eine Backend-Änderung planen. Gehen Sie zu **Einstellungen** > **E-Mail-Einstellungen** > **Link-Aliasing-Einstellungen**.
 

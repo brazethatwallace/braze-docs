@@ -28,13 +28,13 @@ Si tu cuenta de Shopify está asociada a más de una tienda, puedes cambiar la t
 {: start="5"}
 5. Selecciona **Begin setup**.<br><br>![Configuración de la integración con un campo para introducir el dominio y un botón para iniciar la configuración.]({% image_buster /assets/img/shopify/choose_account.png %})
 
-## Paso 2: Habilitar los SDK or kit de desarrollo de software web de Braze {#step-2-enable-braze-web-sdks}
+## Paso 2: Habilitar los SDK web de Braze {#step-2-enable-braze-web-sdks}
 
-Para las tiendas online de Shopify, puedes seleccionar la configuración estándar para implementar automáticamente el SDK or kit de desarrollo de software web y el SDK or kit de desarrollo de software de JavaScript de Braze.
+Para las tiendas online de Shopify, puedes seleccionar la configuración estándar para implementar automáticamente el SDK web y el SDK de JavaScript de Braze.
 
 ![Paso "Habilitar SDK web" con opciones para implementarlo mediante una configuración estándar o personalizada.]({% image_buster /assets/img/shopify/sdk_setup.png %})
 
-Después de seleccionar la ruta de incorporación de la configuración estándar, tendrás que elegir cuándo Braze debe inicializarse y cargar los SDK or kit de desarrollo de software entre las siguientes opciones:
+Después de seleccionar la ruta de incorporación de la configuración estándar, tendrás que elegir cuándo Braze debe inicializarse y cargar los SDK entre las siguientes opciones:
 - Al visitar el sitio, como el inicio de la sesión
     - Realiza un seguimiento tanto de los usuarios identificados como de los anónimos
 - Al registrar la cuenta, como iniciar sesión en ella
@@ -42,7 +42,7 @@ Después de seleccionar la ruta de incorporación de la configuración estándar
     - Inicia el seguimiento de los datos cuando los visitantes del sitio se registran o acceden a sus cuentas
 
 {% alert note %}
-Los nuevos clientes se aprovisionan con las últimas versiones del SDK or kit de desarrollo de software web y del SDK or kit de desarrollo de software de JavaScript de Braze durante la configuración. Los clientes existentes pueden ver su versión actual del SDK or kit de desarrollo de software en la configuración de la integración, recibir notificaciones cuando haya una versión más reciente disponible y realizar actualizaciones de forma autónoma desde la configuración de la integración.
+Los nuevos clientes se aprovisionan con las últimas versiones del SDK web y del SDK de JavaScript de Braze durante la configuración. Los clientes existentes pueden ver su versión actual del SDK en la configuración de la integración, recibir notificaciones cuando haya una versión más reciente disponible y realizar actualizaciones de forma autónoma desde la configuración de la integración.
 {% endalert %}
 
 ## Paso 3: Configura tus datos de Shopify {#step-3-configure-your-shopify-data}
@@ -74,7 +74,7 @@ Para saber qué se importa, el comportamiento de los informes de ingresos, captu
 
 ### (Avanzado) Configuración personalizada del seguimiento de datos {#advanced-custom-data-tracking-setup}
 
-Con los SDK or kit de desarrollo de software de Braze, puedes hacer un seguimiento de eventos personalizados o atributos personalizados que vayan más allá de los eventos estándar para esta integración. Los eventos personalizados capturan interacciones únicas en tu tienda, como:
+Con los SDK de Braze, puedes hacer un seguimiento de eventos personalizados o atributos personalizados que vayan más allá de los eventos estándar para esta integración. Los eventos personalizados capturan interacciones únicas en tu tienda, como:
 
 <style>
 #custom-data td {
@@ -127,7 +127,7 @@ braze.logCustomEvent(
 
 ```
 
-El SDK or kit de desarrollo de software debe estar inicializado (a la escucha de la actividad) en el dispositivo de un usuario para registrar eventos o atributos personalizados. Para saber más sobre el registro de datos personalizados, consulta el [objeto User](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html) y el [objeto logCustomEvent](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcustomevent).
+El SDK debe estar inicializado (a la escucha de la actividad) en el dispositivo de un usuario para registrar eventos o atributos personalizados. Para saber más sobre el registro de datos personalizados, consulta el [objeto User](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html) y el [objeto logCustomEvent](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcustomevent).
 
 ## Paso 4: Configura cómo gestionas a los usuarios {#step-4}
 
@@ -220,11 +220,11 @@ Repite [el paso 4](#step-4) e introduce la URL de tu endpoint después de selecc
 
 {% multi_lang_include partners/shopify/external_id_generation_notes.md %}
 
-### Paso 4.4: Recoger tus adhesiones voluntarias por correo electrónico o servicio de mensajes cortos desde Shopify (opcional) {#step-44-collect-your-email-or-sms-opt-ins-from-shopify-optional}
+### Paso 4.4: Recoger tus adhesiones voluntarias por correo electrónico o SMS desde Shopify (opcional) {#step-44-collect-your-email-or-sms-opt-ins-from-shopify-optional}
 
-Tienes la opción de recopilar tus adhesiones voluntarias de marketing por correo electrónico o servicio de mensajes cortos desde Shopify.
+Tienes la opción de recopilar tus adhesiones voluntarias de marketing por correo electrónico o SMS desde Shopify.
 
-Si utilizas los canales de correo electrónico o servicio de mensajes cortos, puedes sincronizar tus estados de adhesión voluntaria de marketing por correo electrónico y servicio de mensajes cortos en Braze. Si sincronizas las adhesiones voluntarias de marketing por correo electrónico desde Shopify, Braze creará automáticamente un grupo de suscripción por correo electrónico para todos los usuarios asociados a esa tienda específica. Tienes que crear un nombre único para este grupo de suscripción.
+Si utilizas los canales de correo electrónico o SMS, puedes sincronizar tus estados de adhesión voluntaria de marketing por correo electrónico y SMS en Braze. Si sincronizas las adhesiones voluntarias de marketing por correo electrónico desde Shopify, Braze creará automáticamente un grupo de suscripción por correo electrónico para todos los usuarios asociados a esa tienda específica. Tienes que crear un nombre único para este grupo de suscripción.
 
 ![Sección "Recoger suscriptores" con opción de recoger las adhesiones voluntarias de marketing por correo electrónico o SMS.]({% image_buster /assets/img/shopify/collect_email_subscribers.png %})
 
@@ -246,13 +246,13 @@ Puedes habilitar los mensajes dentro de la aplicación sin recurrir a un desarro
 Braze recopila información de los visitantes, como direcciones de correo electrónico y números de teléfono, a través de mensajes en el explorador. Esta información se envía a Shopify. Estos datos permiten a los comerciantes reconocer a los visitantes de su tienda y crear una experiencia de compra más personalizada. Para más detalles, consulta la [API de visitantes](https://shopify.dev/docs/api/web-pixels-api/emitting-data#visitor-api).
 {% endalert %}
 
-### Compatibilidad con canales SDK or kit de desarrollo de software adicionales {#supporting-additional-sdk-channels}
+### Compatibilidad con canales SDK adicionales {#supporting-additional-sdk-channels}
 
-Los SDK or kit de desarrollo de software de Braze habilitan varios canales de mensajería, incluidas Content Cards.
+Los SDK de Braze habilitan varios canales de mensajería, incluidas Content Cards.
 
 #### Content Cards y conmutadores de características {#content-cards-and-feature-flags}
 
-Para añadir Content Cards o conmutadores de características, tendrás que colaborar con tus desarrolladores para insertar el código SDK or kit de desarrollo de software necesario directamente en tu archivo `theme.liquid`. Para obtener instrucciones detalladas, consulta [Integrar el SDK or kit de desarrollo de software de Braze]({{site.baseurl}}/developer_guide/sdk_integration).
+Para añadir Content Cards o conmutadores de características, tendrás que colaborar con tus desarrolladores para insertar el código SDK necesario directamente en tu archivo `theme.liquid`. Para obtener instrucciones detalladas, consulta [Integrar el SDK de Braze]({{site.baseurl}}/developer_guide/sdk_integration).
 
 #### Notificaciones push web {#web-push-notifications}
 

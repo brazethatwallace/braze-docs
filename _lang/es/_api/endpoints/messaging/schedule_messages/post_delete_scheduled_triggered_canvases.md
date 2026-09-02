@@ -11,7 +11,7 @@ description: "En este artículo se describen los detalles del endpoint Eliminar 
 {% api %}
 # Eliminar Canvas programados desencadenados por API {#delete-scheduled-api-triggered-canvases}
 {% apimethod post core_endpoint|/docs/core_endpoints %}
-/Canvas/trigger/schedule/delete
+/canvas/trigger/schedule/delete
 {% endapimethod %}
 
 > El endpoint de eliminar programación te permite cancelar un mensaje que hayas programado previamente a través de Canvas desencadenados por API antes de que se haya enviado.

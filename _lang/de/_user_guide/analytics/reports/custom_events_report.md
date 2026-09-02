@@ -9,7 +9,7 @@ tool: Reports
 
 # Bericht zu angepassten Events {#custom-events-report}
 
-> Der Bericht zu angepassten Events ermöglicht es Ihnen, die Vorkommen eines oder mehrerer angepasster Events im Zeitverlauf anzuzeigen. Sie können Ergebnisse nach Segment aufschlüsseln, KPI or Leistungskennzahl or Leistungskennzahlen-Formeln anwenden und die Daten für weitere Analysen exportieren.
+> Der Bericht zu angepassten Events ermöglicht es Ihnen, die Vorkommen eines oder mehrerer angepasster Events im Zeitverlauf anzuzeigen. Sie können Ergebnisse nach Segment aufschlüsseln, KPI-Formeln anwenden und die Daten für weitere Analysen exportieren.
 
 ## Einen Bericht anzeigen {#view-a-report}
 
@@ -19,7 +19,7 @@ Um diesen Bericht im Dashboard anzuzeigen, gehen Sie zu **Analytics** > **Custom
 
 ### Angepasste API-Events und App-Filter {#api-custom-events-and-app-filters}
 
-Angepasste Events, die über den [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)-Endpunkt gesendet werden, können optional eine `app_id` enthalten. Im Gegensatz zu Events, die über das SDK or Software-Development-Kit protokolliert werden, sind API-Events nicht automatisch mit einer App verknüpft. Ohne `app_id` werden Events zwar aufgezeichnet, erscheinen aber nicht im Diagramm für angepasste Events, wenn ein App-Filter angewendet wird.
+Angepasste Events, die über den [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)-Endpunkt gesendet werden, können optional eine `app_id` enthalten. Im Gegensatz zu Events, die über das SDK protokolliert werden, sind API-Events nicht automatisch mit einer App verknüpft. Ohne `app_id` werden Events zwar aufgezeichnet, erscheinen aber nicht im Diagramm für angepasste Events, wenn ein App-Filter angewendet wird.
 
 ## Bericht konfigurieren {#configure-your-report}
 
@@ -28,9 +28,9 @@ Verwenden Sie die folgenden Optionen, um festzulegen, welche Daten im Diagramm f
 | Option | Beschreibung |
 | --- | --- |
 | Apps | Standardmäßig enthält der Bericht Daten aus allen Apps. Verwenden Sie dieses Dropdown-Menü, um den Bericht auf eine bestimmte App einzugrenzen. |
-| Aufschlüsselung angepasster Events nach | Steuert, wie die Zeitreihe für Ihr ausgewähltes angepasstes Event gruppiert wird. Standardmäßig zeigt das Chart den aggregierten Gesamttrend nach Datum. Wechseln Sie zu **Custom Events by Hour**, um Muster innerhalb eines Tages zu sehen, oder zu **Custom Events per MAU or monatlich aktive:r Nutzer:in**, um das Event-Volumen im Verhältnis zur Anzahl Ihrer monatlich aktiven Nutzer:innen zu normalisieren. |
+| Aufschlüsselung angepasster Events nach | Steuert, wie die Zeitreihe für Ihr ausgewähltes angepasstes Event gruppiert wird. Standardmäßig zeigt das Chart den aggregierten Gesamttrend nach Datum. Wechseln Sie zu **Custom Events by Hour**, um Muster innerhalb eines Tages zu sehen, oder zu **Custom Events per MAU**, um das Event-Volumen im Verhältnis zur Anzahl Ihrer monatlich aktiven Nutzer:innen zu normalisieren. |
 | Nach Segments filtern | Schalten Sie diese Option ein, um Event-Zahlen nach einem oder mehreren Segments aufzuschlüsseln. Wenn aktiviert, wählen Sie die Segments aus, die Sie vergleichen möchten. Das Diagramm zeigt die Anzahl der Nutzer:innen in jedem Segment, die das angepasste Event ausgeführt haben. |
-| KPI or Leistungskennzahl or Leistungskennzahlen-Formel | Ersetzt die rohe Event-Anzahl durch eine berechnete Kennzahl, die aus einem Zähler (z. B. Anzahl angepasster Events) und einem Nenner (z. B. täglich aktive:r Nutzer:in; täglich aktiv, MAU or monatlich aktive:r Nutzer:in oder Größe eines Analytics-fähigen Segments) besteht. Wenn Sie eine oder mehrere Formeln auswählen, stellt das Chart den Wert jeder Formel über den ausgewählten Zeitraum dar, sodass Sie normalisierte Performance vergleichen können (z. B. „Events pro aktivem/aktiver Nutzer:in“) anstatt des gesamten Event-Volumens. Falls für den ausgewählten Zeitraum und die Formeln keine Daten verfügbar sind, zeigt Braze eine Meldung „Keine Daten“ an – erweitern Sie den Zeitraum oder wählen Sie andere Formeln. Wählen Sie **Manage KPI or Leistungskennzahl or Leistungskennzahlen formulas**, um Formeln zu erstellen oder zu bearbeiten. |
+| KPI-Formel | Ersetzt die rohe Event-Anzahl durch eine berechnete Kennzahl, die aus einem Zähler (z. B. Anzahl angepasster Events) und einem Nenner (z. B. täglich aktive:r Nutzer:in; täglich aktiv, MAU oder Größe eines Analytics-fähigen Segments) besteht. Wenn Sie eine oder mehrere Formeln auswählen, stellt das Chart den Wert jeder Formel über den ausgewählten Zeitraum dar, sodass Sie normalisierte Performance vergleichen können (z. B. „Events pro aktivem/aktiver Nutzer:in“) anstatt des gesamten Event-Volumens. Falls für den ausgewählten Zeitraum und die Formeln keine Daten verfügbar sind, zeigt Braze eine Meldung „Keine Daten“ an – erweitern Sie den Zeitraum oder wählen Sie andere Formeln. Wählen Sie **Manage KPI formulas**, um Formeln zu erstellen oder zu bearbeiten. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Bericht konfigurieren" }
 
 ## Daten exportieren {#export-data}

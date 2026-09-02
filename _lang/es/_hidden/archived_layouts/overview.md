@@ -8,7 +8,7 @@ noindex: true
 
 > El diseño de resumen es útil para crear una opción de navegación específica en la parte superior de una página que permita a los usuarios hacer clic en un botón para ir a una parte concreta de la página o a otra completamente distinta.
 
-Ejemplos clásicos del diseño del SELECTOR son la página de [registros de cambios del SDK or kit de desarrollo de software]({{site.baseurl}}/developer_guide/changelogs) o la [página de detalles creativos de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types).
+Ejemplos clásicos del diseño del SELECTOR son la página de [registros de cambios del SDK]({{site.baseurl}}/developer_guide/changelogs) o la [página de detalles creativos de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types).
 
 ## Componentes obligatorios
 

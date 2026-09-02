@@ -4,10 +4,10 @@ article_title: Messaging
 page_order: 4.5
 layout: dev_guide
 guide_top_header: "Messaging"
-guide_top_text: "Erstellen, verwalten und optimieren Sie Ihr Messaging über Kampagnen und Canvase hinweg. Lernen Sie die Grundlagen des Messagings kennen, personalisieren Sie Inhalte, richten Sie A/B-Tests ein und erstellen Sie Landing-Pages, um Ihre Kommunikation zu skalieren."
+guide_top_text: "Erstellen, verwalten und optimieren Sie Ihr Messaging über Kampagnen und Canvases hinweg. Lernen Sie die Grundlagen des Messagings kennen, personalisieren Sie Inhalte, richten Sie A/B-Tests ein und erstellen Sie Landing-Pages, um Ihre Kommunikation zu skalieren."
 
 page_type: landing
-description: "Erstellen, verwalten und optimieren Sie Messaging über Kampagnen und Canvase in Braze."
+description: "Erstellen, verwalten und optimieren Sie Messaging über Kampagnen und Canvases in Braze."
 
 guide_featured_title: "Artikel in diesem Abschnitt"
 guide_featured_list:

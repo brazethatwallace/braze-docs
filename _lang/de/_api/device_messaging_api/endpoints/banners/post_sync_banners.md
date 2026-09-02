@@ -20,7 +20,7 @@ hidden: true
 Die Antwort enthält strukturierte Banner-Eigenschaften, die Sie zum Erstellen einer benutzerdefinierten Oberfläche verwenden können. Sie enthält kein gerendertes HTML.
 
 {% alert important %}
-Diese Seite befindet sich in der Beta-Phase. Features und Dokumentation für die Device Messaging API können sich ändern. Wenden Sie sich an Ihren Braze Account Manager:in, um Zugang anzufordern.
+Diese Seite befindet sich in der Beta-Phase. Features und Dokumentation für die Device Messaging API können sich ändern. Wenden Sie sich an Ihren Braze Account Manager, um Zugang anzufordern.
 {% endalert %}
 
 ## Voraussetzungen {#prerequisites}
@@ -28,10 +28,10 @@ Diese Seite befindet sich in der Beta-Phase. Features und Dokumentation für die
 Um diesen Endpunkt zu verwenden, benötigen Sie Folgendes:
 
 - Einen Workspace mit aktivierten Bannern
-- Einen [clientseitigen Representational State Transfer-API-Schlüssel]({{site.baseurl}}/api/device_messaging_api/authentication) mit der Berechtigung `banners.sync`
-- Den [Representational State Transfer-Endpunkt]({{site.baseurl}}/api/basics#endpoints) für Ihre Braze-Instanz
+- Einen [clientseitigen REST-API-Schlüssel]({{site.baseurl}}/api/device_messaging_api/authentication) mit der Berechtigung `banners.sync`
+- Den [REST-Endpunkt]({{site.baseurl}}/api/basics#endpoints) für Ihre Braze-Instanz
 
-Fügen Sie den clientseitigen Representational State Transfer-API-Schlüssel im `Authorization`-Header als Bearer-Token / Textbaustein ein.
+Fügen Sie den clientseitigen REST-API-Schlüssel im `Authorization`-Header als Bearer-Token ein.
 
 ## Rate-Limits {#rate-limit}
 
@@ -73,7 +73,7 @@ Wenn Sie `device_id` weglassen, einen leeren Wert senden oder einen Bezeichner s
 
 ## Beispielanfrage {#example-request}
 
-Ersetzen Sie *`YOUR_REST_API_URL`* durch den [Representational State Transfer-Endpunkt]({{site.baseurl}}/api/basics#endpoints) für Ihre Braze-Instanz.
+Ersetzen Sie *`YOUR_REST_API_URL`* durch den [REST-Endpunkt]({{site.baseurl}}/api/basics#endpoints) für Ihre Braze-Instanz.
 
 ```bash
 curl --location --request POST '{YOUR_REST_API_URL}/v1/device-messaging/banners/sync' \
@@ -141,7 +141,7 @@ Eine erfolgreiche Anfrage gibt den Statuscode `200` und das aufgelöste Banner f
 |---|---|
 | `200` | Braze hat Banner-Daten für jede angeforderte Platzierung aufgelöst. |
 | `400` | Die Anfrage enthält fehlende oder ungültige Parameter. |
-| `401` | Der clientseitige Representational State Transfer-API-Schlüssel fehlt, ist ungültig oder verfügt nicht über die Berechtigung `banners.sync`. |
+| `401` | Der clientseitige REST-API-Schlüssel fehlt, ist ungültig oder verfügt nicht über die Berechtigung `banners.sync`. |
 | `404` | Der Endpunkt ist nicht verfügbar. Diese Antwort unterscheidet nicht zwischen einem fehlenden oder ungültigen API-Schlüssel und einem deaktivierten Banner-Feature. |
 | `429` | Der Workspace hat sein Rate-Limit überschritten. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Statuscodes" }

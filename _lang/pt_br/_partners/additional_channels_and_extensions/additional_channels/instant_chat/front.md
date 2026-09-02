@@ -24,7 +24,7 @@ Antes de começar, você precisará do seguinte:
 |---------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | Uma conta Front | É necessário ter uma conta Front para aproveitar essa parceria. |
 | URL do webhook de Transformação de dados da Braze | A [Transformação de dados da Braze]({{site.baseurl}}/user_guide/data/unification/data_transformation) será usada para reformatar o webhook de entrada do Front para que ele possa ser aceito pelo endpoint /users/track da Braze. |
-| Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional do Front | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional do Front será usada para fazer uma solicitação de webhook de saída da Braze para o Front. |
+| Uma chave da API REST do Front | Uma chave da API REST do Front será usada para fazer uma solicitação de webhook de saída da Braze para o Front. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
@@ -119,7 +119,7 @@ No dashboard do Front, acesse **Settings** > **Channels** > **Add Channels**, se
 
 ### Etapa 4: Configurar as definições {#step-4-configure-the-settings}
 
-No campo de endpoint da API or interface de programação do aplicativo (API) de saída, insira a URL do webhook de Transformação de dados [que você criou anteriormente](#step-1-set-up-a-data-transformation-in-braze). Todas as mensagens de saída de agentes ao vivo no seu novo canal da Braze serão enviadas para cá. Esse canal também fornece uma URL de endpoint para a Braze encaminhar mensagens SMS no campo **Incoming URL**.
+No campo de endpoint da API de saída, insira a URL do webhook de Transformação de dados [que você criou anteriormente](#step-1-set-up-a-data-transformation-in-braze). Todas as mensagens de saída de agentes ao vivo no seu novo canal da Braze serão enviadas para cá. Esse canal também fornece uma URL de endpoint para a Braze encaminhar mensagens SMS no campo **Incoming URL**.
 
 Não se esqueça de anotar essa URL&#8212;você precisará dela mais tarde.
 
@@ -217,7 +217,7 @@ Em seguida, configure seu filtro:
 
 ### Segmentos faturáveis {#billable-segments}
 
-- As mensagens SMS na Braze são cobradas por Segment or segmento or segmento de mensagem. Entender o que define um Segment or segmento or segmento e como essas mensagens serão divididas é fundamental para entender como você será cobrado pelas mensagens. Para saber mais, consulte nossa [documentação]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator).
+- As mensagens SMS na Braze são cobradas por Segment de mensagem. Entender o que define um Segment e como essas mensagens serão divididas é fundamental para entender como você será cobrado pelas mensagens. Para saber mais, consulte nossa [documentação]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator).
 - Respostas longas dos agentes consumirão mais segmentos faturáveis.
 
 ### Registro de pontos de dados {#logging-data-points}

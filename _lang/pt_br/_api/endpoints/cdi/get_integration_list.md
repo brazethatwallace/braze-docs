@@ -9,7 +9,7 @@ page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint da Braze \"Listar integrações\"."
 
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Listar integrações {#list-integrations}
 {% apimethod get %}
 /cdi/integrations
@@ -19,7 +19,7 @@ description: "Este artigo descreve detalhes sobre o endpoint da Braze \"Listar i
 
 
 {% alert note %}
-Para usar esse endpoint, você precisará gerar uma chave de API or interface de programação do aplicativo (API) com a permissão `cdi.integration_list`.
+Para usar esse endpoint, você precisará gerar uma chave de API com a permissão `cdi.integration_list`.
 {% endalert %}
 
 ## Limite de taxa {#rate-limit}

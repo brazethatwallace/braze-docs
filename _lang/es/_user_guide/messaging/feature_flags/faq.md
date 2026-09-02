@@ -18,7 +18,7 @@ platform:
 
 ### ¿En qué plataformas se admiten los conmutadores de características de Braze? {#platforms}
 
-Braze admite conmutadores de características en las plataformas iOS, Android y Web con los siguientes requisitos de versión del SDK or kit de desarrollo de software:
+Braze admite conmutadores de características en las plataformas iOS, Android y Web con los siguientes requisitos de versión del SDK:
 
 {% sdk_min_versions swift:5.9.0 android:24.2.0 web:4.6.0 unity:4.1.0 cordova:5.0.0 reactnative:4.1.0 flutter:6.0.0 roku:1.0.0 %}
 
@@ -107,13 +107,13 @@ Esta estrategia ayuda a garantizar que los usuarios vean una experiencia consist
 
 ## Temas técnicos {#technical-topics}
 
-### ¿Se pueden usar los conmutadores de características para controlar cuándo se inicializa el SDK or kit de desarrollo de software de Braze? {#initialization}
+### ¿Se pueden usar los conmutadores de características para controlar cuándo se inicializa el SDK de Braze? {#initialization}
 
-No, el SDK or kit de desarrollo de software debe inicializarse para descargar y sincronizar los conmutadores de características del usuario actual. Esto significa que no puedes usar los conmutadores de características para limitar qué usuarios se crean o rastrean en Braze.
+No, el SDK debe inicializarse para descargar y sincronizar los conmutadores de características del usuario actual. Esto significa que no puedes usar los conmutadores de características para limitar qué usuarios se crean o rastrean en Braze.
 
-### ¿Con qué frecuencia actualiza el SDK or kit de desarrollo de software los conmutadores de características? {#refresh-frequency}
+### ¿Con qué frecuencia actualiza el SDK los conmutadores de características? {#refresh-frequency}
 
-Los conmutadores de características se actualizan al inicio de la sesión y al cambiar de usuario activo. Los conmutadores de características también pueden actualizarse manualmente usando el [método de actualización]({{site.baseurl}}/developer_guide/feature_flags/create#refreshing) del SDK or kit de desarrollo de software. Las actualizaciones de conmutadores de características están limitadas a una vez cada cinco minutos (sujeto a cambios).
+Los conmutadores de características se actualizan al inicio de la sesión y al cambiar de usuario activo. Los conmutadores de características también pueden actualizarse manualmente usando el [método de actualización]({{site.baseurl}}/developer_guide/feature_flags/create#refreshing) del SDK. Las actualizaciones de conmutadores de características están limitadas a una vez cada cinco minutos (sujeto a cambios).
 
 Ten en cuenta que las buenas prácticas de datos recomiendan no actualizar los conmutadores de características demasiado rápido (con posible limitación de velocidad si se hace), por lo que es mejor actualizar solo antes de que un usuario interactúe con nuevas características o periódicamente en la aplicación si es necesario.
 
@@ -133,7 +133,7 @@ No puedes habilitar conmutadores de características para los usuarios de tu [gr
 
 ### ¿La identificación de destinatarios basada en correo electrónico es parte de los conmutadores de características de Braze? {#is-email-based-recipient-identification-part-of-braze-feature-flags}
 
-No. Identificar destinatarios por correo electrónico cuando envías un mensaje no es parte del producto de conmutadores de características en esta página. Los conmutadores de características controlan experiencias dentro de la aplicación o en el sitio a través del SDK or kit de desarrollo de software de Braze.
+No. Identificar destinatarios por correo electrónico cuando envías un mensaje no es parte del producto de conmutadores de características en esta página. Los conmutadores de características controlan experiencias dentro de la aplicación o en el sitio a través del SDK de Braze.
 
 Los envíos de Campaigns y Canvas activados por API pueden incluir `email` en el [objeto de destinatarios]({{site.baseurl}}/api/objects_filters/recipient_object) en lugar de un `external_user_id`. Cuando usas `email`, incluye `prioritization` para que Braze pueda seleccionar el perfil de usuario coincidente. Esta opción de envío no está disponible en todos los espacios de trabajo.
 

@@ -23,15 +23,15 @@ La integración de Braze y Airbyte permite a los usuarios crear una canalizació
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta de Airbyte Cloud | Se requiere una cuenta de [Airbyte Cloud](https://cloud.airbyte.io/workspaces) para aprovechar esta integración. |
-| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con todos los permisos. <br><br> Se puede crear en el panel de Braze desde **Settings** > **API Keys**. |
-| Punto de conexión REST or transferencia de estado representacional de Braze | Tu punto de conexión dependerá de la URL de Braze para tu instancia. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con todos los permisos. <br><br> Se puede crear en el panel de Braze desde **Settings** > **API Keys**. |
+| Punto de conexión REST de Braze | Tu punto de conexión dependerá de la URL de Braze para tu instancia. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 
 1. En tu cuenta de Airbyte Cloud, ve a **Sources > + New Source > Set up the Source**.
 2. Introduce "Braze" como nombre de la fuente y selecciona **Braze** en el desplegable de fuentes.
-3. Proporciona la URL de tu punto de conexión, la clave de API REST or transferencia de estado representacional de Braze y la fecha de inicio. Haz clic en **Set up Source**.
+3. Proporciona la URL de tu punto de conexión, la clave de API REST de Braze y la fecha de inicio. Haz clic en **Set up Source**.
 
 ### Modos de sincronización admitidos {#supported-sync-modes}
 

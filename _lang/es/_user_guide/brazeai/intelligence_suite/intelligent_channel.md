@@ -14,7 +14,7 @@ search_rank: 11
 
 ![El filtro de canal inteligente con un desplegable para los distintos canales que se pueden seleccionar.]({% image_buster /assets/img/intelligent_channel_filter.png %}){: style="float:right;max-width:40%;margin-left:10px;margin-top:10px;border:0"}
 
-En este caso, mejor significa el canal que tiene la mayor probabilidad de participación, dado el historial del usuario. Puedes seleccionar como canal correo electrónico, servicio de mensajes cortos, WhatsApp, notificación push web o push móvil (incluyendo cualquier SO o dispositivo móvil disponible).
+En este caso, mejor significa el canal que tiene la mayor probabilidad de participación, dado el historial del usuario. Puedes seleccionar como canal correo electrónico, SMS, WhatsApp, notificación push web o push móvil (incluyendo cualquier SO o dispositivo móvil disponible).
 
 El canal inteligente calcula una tasa de participación para cada usuario en cada canal compatible, clasifica esos canales y trata el canal con la clasificación más alta como el mejor canal de ese usuario.
 
@@ -33,7 +33,7 @@ Braze rastrea los siguientes eventos al calcular las tasas de participación:
 - **Correo electrónico:** aperturas (se excluyen las [aperturas automáticas]({{site.baseurl}}/user_guide/analytics/metrics_glossary#machine-opens)). Los clics en correos electrónicos no se incluyen.
 - **Push móvil:** Direct Opens. Cada plataforma móvil (como iOS, Android y Kindle) se puntúa por separado. Las Influenced Opens no se incluyen.
 - **Notificación push web:** aperturas
-- **servicio de mensajes cortos:** clics en enlaces acortados
+- **SMS:** clics en enlaces acortados
 - **WhatsApp:** lecturas de mensajes o clics en enlaces rastreados
 
 Las Influenced Opens, los clics en correos electrónicos y la actividad de sesión no se utilizan para el canal inteligente. La actividad de sesión la utiliza la [sincronización inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing#about-intelligent-timing).
@@ -41,7 +41,7 @@ Las Influenced Opens, los clics en correos electrónicos y la actividad de sesi�
 El canal inteligente no es compatible con webhooks, LINE, Kakao Talk, In-App Messages ni Content Cards.
 
 {% alert important %}
-Para calcular la tasa de participación del canal servicio de mensajes cortos, activa [el acortamiento de enlaces servicio de mensajes cortos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening) con seguimiento avanzado y seguimiento de clics. Sin este seguimiento, los servicio de mensajes cortos pueden seleccionarse como el canal inteligente con una tasa de participación del 0 % debido a nuestro [comportamiento de desempate]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel#tie-breaking).
+Para calcular la tasa de participación del canal SMS, activa [el acortamiento de enlaces SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening) con seguimiento avanzado y seguimiento de clics. Sin este seguimiento, los SMS pueden seleccionarse como el canal inteligente con una tasa de participación del 0 % debido a nuestro [comportamiento de desempate]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel#tie-breaking).
 {% endalert %}
 
 ## Datos insuficientes {#not-enough-data}
@@ -62,13 +62,13 @@ Las Campaigns y los pasos en Canvas que ignoren la [limitación de frecuencia]({
 
 El push móvil incorpora Android, iOS, Kindle y otros canales de dispositivos móviles disponibles en Braze. Braze puntúa cada plataforma móvil por separado al calcular las tasas de participación.
 
-Cuando utilizas el filtro de canal inteligente establecido en **Mobile push**, un usuario coincide si el push de iOS o el push de Android es su canal con la clasificación más alta. Esto no obliga al usuario a recibir notificaciones push en un dispositivo específico. La clasificación solo se utiliza para determinar si el push móvil es el mejor canal de ese usuario en comparación con el correo electrónico, la notificación push web, servicio de mensajes cortos y WhatsApp.
+Cuando utilizas el filtro de canal inteligente establecido en **Mobile push**, un usuario coincide si el push de iOS o el push de Android es su canal con la clasificación más alta. Esto no obliga al usuario a recibir notificaciones push en un dispositivo específico. La clasificación solo se utiliza para determinar si el push móvil es el mejor canal de ese usuario en comparación con el correo electrónico, la notificación push web, SMS y WhatsApp.
 
 ## Filtro de probabilidad de apertura de mensajes para canales individuales {#individual-channels}
 
 En lugar de dejar que Braze elija el mejor canal para un usuario, puedes utilizar el [filtro de segmentación «Probabilidad de apertura de mensajes»]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#message-open-likelihood) para filtrar a los usuarios en función de si es probable que abran un mensaje en un canal específico que tú elijas. Este filtro se calcula dividiendo el porcentaje de interacciones entre el total de mensajes recibidos para los últimos 100 mensajes enviados por canal.
 
-La probabilidad de apertura de mensajes utiliza los mismos datos de participación subyacentes que el canal inteligente, pero te permite establecer un umbral para un solo canal en lugar de seleccionar el mejor canal del usuario. Está disponible para correo electrónico, push móvil, servicio de mensajes cortos y notificación push web.
+La probabilidad de apertura de mensajes utiliza los mismos datos de participación subyacentes que el canal inteligente, pero te permite establecer un umbral para un solo canal en lugar de seleccionar el mejor canal del usuario. Está disponible para correo electrónico, push móvil, SMS y notificación push web.
 
 Ten en cuenta que un usuario debe haber recibido al menos tres mensajes en un canal específico antes de poder obtener una puntuación de probabilidad para ese canal. Los usuarios sin datos suficientes para medir la probabilidad de un canal pueden seleccionarse mediante «está en blanco».
 

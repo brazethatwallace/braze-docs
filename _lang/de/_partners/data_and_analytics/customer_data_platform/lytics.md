@@ -20,11 +20,11 @@ Die Integration von Braze und Lytics bietet eine einheitliche Sicht auf Ihre Kun
 Die Integration ermöglicht es Marken:
 
 - Zielgruppen direkt aus Lytics nach Braze zu exportieren
-- Ereignisse aus Braze-Campaigns oder Canvase in Realtime an Lytics zu senden, um personalisierte Kampagnen durchzuführen und umfassende Nutzer:innen-Profile zu erstellen
+- Ereignisse aus Braze-Campaigns oder Canvases in Realtime an Lytics zu senden, um personalisierte Kampagnen durchzuführen und umfassende Nutzer:innen-Profile zu erstellen
 
 ## Anwendungsfälle {#use-cases}
 
-Verbinden Sie Braze mit Lytics, um E-Mail-, Kurzmitteilungsdienst or SMS- und Push-Aktivitäten zu [importieren](#importing-data-from-braze-to-lytics) und Lytics-Nutzer:innen-Profile anzureichern. Wenn Sie Braze und Lytics zusammen verwenden, können Sie auch die kanalübergreifenden, verhaltensgestützten Zielgruppen von Lytics [exportieren](#integration), um anhand von First-Party-Daten hochgradig personalisierte Braze-Customer-Journeys zu erstellen.
+Verbinden Sie Braze mit Lytics, um E-Mail-, SMS- und Push-Aktivitäten zu [importieren](#importing-data-from-braze-to-lytics) und Lytics-Nutzer:innen-Profile anzureichern. Wenn Sie Braze und Lytics zusammen verwenden, können Sie auch die kanalübergreifenden, verhaltensgestützten Zielgruppen von Lytics [exportieren](#integration), um anhand von First-Party-Daten hochgradig personalisierte Braze-Customer-Journeys zu erstellen.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -32,8 +32,8 @@ Verbinden Sie Braze mit Lytics, um E-Mail-, Kurzmitteilungsdienst or SMS- und Pu
 | ----------- | ----------- |
 | Lytics-Konto | Um die Vorteile dieser Integration zu nutzen, ist ein Lytics-Konto erforderlich. |
 | Lytics-Kontonummer | Für die Konfiguration der Webhook-Endpunkt-URL ist eine Lytics-Kontonummer erforderlich. |
-| Lytics-API-Token / Textbaustein | Ein Lytics-Representational State Transfer-API-Token / Textbaustein mit Data-Manager:in-Berechtigungen. <br><br> Dieses kann im Lytics-Dashboard unter **Account Settings Console** > **Access Tokens** > **Create New Token / Textbaustein** erstellt werden. |
-| Braze-Representational State Transfer-API-Schlüssel | Ein Braze-Representational State Transfer-API-Schlüssel mit der Berechtigung `users.track`. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Lytics-API-Token / Textbaustein | Ein Lytics-REST-API-Token / Textbaustein mit Data-Manager:in-Berechtigungen. <br><br> Dieses kann im Lytics-Dashboard unter **Account Settings Console** > **Access Tokens** > **Create New Token / Textbaustein** erstellt werden. |
+| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit der Berechtigung `users.track`. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
 | Braze-Instanz | Ihre [Braze-Instanz]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). Wenden Sie sich an Ihre:n Braze-Onboarding-Manager:in:in, wenn Sie sich nicht sicher sind. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
@@ -45,7 +45,7 @@ In diesem Abschnitt wird beschrieben, wie Sie Lytics-Daten nach Braze exportiere
 
 Navigieren Sie in Lytics zum Dashboard **Authorization** innerhalb der **Data**-Konsole in der Navigationsleiste. Wählen Sie **Create New Authorization**, suchen Sie nach **Braze** und wählen Sie es aus.
 
-Geben Sie in der daraufhin erscheinenden Aufforderung **Configure Authorization** eine Bezeichnung und eine Beschreibung ein und geben Sie Ihren Representational State Transfer-API-Schlüssel und Ihre Braze-Instanz ein. Wählen Sie **Complete**, wenn Sie fertig sind.
+Geben Sie in der daraufhin erscheinenden Aufforderung **Configure Authorization** eine Bezeichnung und eine Beschreibung ein und geben Sie Ihren REST-API-Schlüssel und Ihre Braze-Instanz ein. Wählen Sie **Complete**, wenn Sie fertig sind.
 
 ![Lytics-Aufforderung „Configure Authorization“ für Braze mit Feldern für Bezeichnung, Beschreibung, REST-API-Schlüssel und Braze-Instanz.]({% image_buster /assets/img/lytics/braze_authorization.png %}){: style="max-width:80%;"}
 

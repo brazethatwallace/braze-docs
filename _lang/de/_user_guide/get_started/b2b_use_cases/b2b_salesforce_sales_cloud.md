@@ -3,12 +3,12 @@ nav_title: Salesforce Sales Cloud
 article_title: Leads mit Salesforce Sales Cloud verwalten
 page_order: 3
 page_type: reference
-description: "Erfahren Sie, wie Sie mit Braze-Webhooks über den Salesforce-Endpunkt sobjects/Lead Leads in Salesforce Sales Cloud erstellen und Update or aktualisieren or aktualisieren können."
+description: "Erfahren Sie, wie Sie mit Braze-Webhooks über den Salesforce-Endpunkt sobjects/Lead Leads in Salesforce Sales Cloud erstellen und aktualisieren können."
 ---
 
 # Leads mit Salesforce Sales Cloud verwalten {#manage-leads-with-salesforce-sales-cloud}
 
-> [Salesforce](https://www.salesforce.com/) ist eine der weltweit führenden cloudbasierten Customer-Relationship-Management-Plattformen (CRM or Customer-Relationship-Management [-System] (CRM)), die Unternehmen bei der Verwaltung ihres gesamten Vertriebsprozesses unterstützt – einschließlich Lead-Generierung, Opportunity-Tracking und Konto-Management.<br><br>Auf dieser Seite erfahren Sie, wie Sie mit Braze-Webhooks über eine von der Community eingereichte Integration Leads in Salesforce Sales Cloud erstellen und Update or aktualisieren or aktualisieren können.
+> [Salesforce](https://www.salesforce.com/) ist eine der weltweit führenden cloudbasierten Customer-Relationship-Management-Plattformen (CRM), die Unternehmen bei der Verwaltung ihres gesamten Vertriebsprozesses unterstützt – einschließlich Lead-Generierung, Opportunity-Tracking und Konto-Management.<br><br>Auf dieser Seite erfahren Sie, wie Sie mit Braze-Webhooks über eine von der Community eingereichte Integration Leads in Salesforce Sales Cloud erstellen und aktualisieren können.
 
 {% alert important %}
 Dies ist eine von der Community eingereichte Integration, die nicht direkt von Braze unterstützt wird. Nur offizielle, von Braze bereitgestellte Webhook-Templates werden von Braze unterstützt.
@@ -16,14 +16,14 @@ Dies ist eine von der Community eingereichte Integration, die nicht direkt von B
 
 ## Funktionsweise {#how-it-works}
 
-Die Integration von Braze und Salesforce Sales Cloud verwendet Braze-Webhooks zum Erstellen und Update or aktualisieren or aktualisieren von Leads in Salesforce Sales Cloud über den Salesforce-Endpunkt [sobjects/Lead](https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_lead.html).
+Die Integration von Braze und Salesforce Sales Cloud verwendet Braze-Webhooks zum Erstellen und Aktualisieren von Leads in Salesforce Sales Cloud über den Salesforce-Endpunkt [sobjects/Lead](https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_lead.html).
 
 Braze bietet derzeit zwei Integrationen für Salesforce Sales Cloud für die folgenden Anwendungsfälle an:
 1. [Erstellen eines Leads in Salesforce Sales Cloud](#creating-lead)
-2. [Update or aktualisieren or aktualisieren eines Leads in Salesforce Sales Cloud](#updating-lead)
+2. [Aktualisieren eines Leads in Salesforce Sales Cloud](#updating-lead)
 
 {% alert note %}
-Diese Integration dient ausschließlich dazu, Salesforce von Braze aus zu Update or aktualisieren or aktualisieren – als Teil Ihrer Bemühungen zur Lead-Akquisition und -Pflege. Um Daten von Salesforce zurück nach Braze zu synchronisieren, sehen Sie sich das [B2B-Datenmodell]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models) an oder wenden Sie sich an einen unserer [Technologie-Partner]({{site.baseurl}}/partners/home).
+Diese Integration dient ausschließlich dazu, Salesforce von Braze aus zu aktualisieren – als Teil Ihrer Bemühungen zur Lead-Akquisition und -Pflege. Um Daten von Salesforce zurück nach Braze zu synchronisieren, sehen Sie sich das [B2B-Datenmodell]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models) an oder wenden Sie sich an einen unserer [Technologie-Partner]({{site.baseurl}}/partners/home).
 {% endalert %}
 
 ## Voraussetzungen {#prerequisites}
@@ -92,11 +92,11 @@ Wählen Sie **+ Add New Header** für jeden der folgenden Anfrage-Header.
 
 ![Ein ausgefülltes Webhook-Template zum Erstellen eines Leads.]({% image_buster /assets/img/b2b/create_lead_webhook.png %}){: style="max-width:70%;"}
 
-## Update or aktualisieren or aktualisieren eines Leads in Salesforce Sales Cloud {#updating-lead}
+## Aktualisieren eines Leads in Salesforce Sales Cloud {#updating-lead}
 
 Um einen Braze Salesforce Sales Cloud Webhook einzurichten, der Leads in Salesforce aktualisiert, benötigen Sie einen gemeinsamen Bezeichner zwischen Salesforce Sales Cloud und Braze. Im folgenden Beispiel wird die Salesforce `lead_id` als Braze `external_id` verwendet, aber Sie können dies auch mit einem `user_alias` erreichen. Weitere Informationen finden Sie unter [B2B-Daten]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models).
 
-Dieses Beispiel zeigt konkret, wie Sie die Lead-Stufe eines Leads auf „MQL“ (Marketing Qualified Lead) Update or aktualisieren or aktualisieren, nachdem ein Lead einen bestimmten Schwellenwert überschritten hat. Dies ist ein zentraler Bestandteil unseres Anwendungsfalls [B2B-Lead-Scoring-Workflow]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring).
+Dieses Beispiel zeigt konkret, wie Sie die Lead-Stufe eines Leads auf „MQL“ (Marketing Qualified Lead) aktualisieren, nachdem ein Lead einen bestimmten Schwellenwert überschritten hat. Dies ist ein zentraler Bestandteil unseres Anwendungsfalls [B2B-Lead-Scoring-Workflow]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring).
 
 ### Schritt 1: `client_id` und `client_secret` erfassen
 
@@ -109,7 +109,7 @@ Dieses Beispiel zeigt konkret, wie Sie die Lead-Stufe eines Leads auf „MQL“ 
 ### Schritt 2: Webhook-Template einrichten
 
 1. Gehen Sie in Braze zu **Templates**, wählen Sie **Webhook Templates** und dann **+ Create Webhook Template**.
-2. Geben Sie einen Namen für das Template an, z. B. „Salesforce Sales Cloud > Lead auf MQL Update or aktualisieren or aktualisieren“.
+2. Geben Sie einen Namen für das Template an, z. B. „Salesforce Sales Cloud > Lead auf MQL aktualisieren“.
 3. Geben Sie auf dem Tab **Verfassen** die folgenden Details ein:
 
 #### Webhook verfassen
@@ -154,15 +154,15 @@ Sie können Ihre Templates schnell zu Ihren operativen Workflows in Braze hinzuf
 
 ### Campaign für neue Leads {#new-lead}
 
-Um einen Lead in Salesforce zu erstellen, wenn Nutzer:innen ihre E-Mail-Adresse angeben, können Sie eine Campaign erstellen, die das Webhook-Template „Update or aktualisieren Lead“ verwendet und getriggert wird, wenn Nutzer:innen ihre E-Mail-Adresse hinzufügen (z. B. ein Webformular ausfüllen).
+Um einen Lead in Salesforce zu erstellen, wenn Nutzer:innen ihre E-Mail-Adresse angeben, können Sie eine Campaign erstellen, die das Webhook-Template „Update Lead“ verwendet und getriggert wird, wenn Nutzer:innen ihre E-Mail-Adresse hinzufügen (z. B. ein Webformular ausfüllen).
 
 ![Schritt 2 der Erstellung einer aktionsbasierten Campaign mit der Aktion „Eine E-Mail-Adresse hinzufügen“ als Trigger.]({% image_buster /assets/img/b2b/salesforce_create_campaign.png %}){: style="max-width:70%;"}
 
 ### Lead-Scoring-Canvas für das Überschreiten des Marketing-Qualified-Lead-(MQL)-Schwellenwerts {#lead-scoring}
 
-Dieser Webhook wird im Anwendungsfall [Lead-Scoring]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring#lead-handoff) behandelt, aber Sie können auch direkt innerhalb des Lead-Scoring-Canvas nach MQLs suchen und Salesforce Update or aktualisieren or aktualisieren (anstatt eine separate Webhook-Campaign zu erstellen):
+Dieser Webhook wird im Anwendungsfall [Lead-Scoring]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring#lead-handoff) behandelt, aber Sie können auch direkt innerhalb des Lead-Scoring-Canvas nach MQLs suchen und Salesforce aktualisieren (anstatt eine separate Webhook-Campaign zu erstellen):
 
-Fügen Sie Ihrer Nutzeraktualisierung einen weiteren Schritt hinzu, um zu prüfen, ob Nutzer:innen den von Ihnen definierten MQL-Schwellenwert überschritten haben. Wenn ja, Update or aktualisieren or aktualisieren Sie den Status auf „MQL“ und Update or aktualisieren or aktualisieren dann Salesforce mit demselben „MQL“-Status über dieses Webhook-Template. Salesforce kümmert sich um den Representational State Transfer, indem es diesen Lead anhand Ihrer definierten Lead-Routing-Regeln an die entsprechenden Vertriebsteams weiterleitet.
+Fügen Sie Ihrer Nutzeraktualisierung einen weiteren Schritt hinzu, um zu prüfen, ob Nutzer:innen den von Ihnen definierten MQL-Schwellenwert überschritten haben. Wenn ja, aktualisieren Sie den Status auf „MQL“ und aktualisieren dann Salesforce mit demselben „MQL“-Status über dieses Webhook-Template. Salesforce kümmert sich um den Rest, indem es diesen Lead anhand Ihrer definierten Lead-Routing-Regeln an die entsprechenden Vertriebsteams weiterleitet.
 
 #### Canvas-Schritt hinzufügen, um Nutzer:innen zu prüfen, die den MQL-Schwellenwert überschritten haben {#adding-canvas-step-to-check-for-users-who-passed-the-mql-threshold}
 

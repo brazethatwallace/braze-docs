@@ -1,4 +1,4 @@
-## Integración del SDK or kit de desarrollo de software de Android {#integrating-the-android-sdk}
+## Integración del SDK de Android {#integrating-the-android-sdk}
 
 ### Paso 1: Actualiza la configuración de compilación de Gradle {#step-1-update-your-gradle-build-configuration}
 
@@ -10,7 +10,7 @@ repositories {
 }
 ```
 
-A continuación, añade Braze a tus dependencias. En los siguientes ejemplos, sustituye `SDK_VERSION` por la versión actual de tu SDK or kit de desarrollo de software de Braze para Android. Para consultar la lista completa de versiones, consulta [Registro de cambios]({{site.baseurl}}/developer_guide/changelogs/?sdktab=android).
+A continuación, añade Braze a tus dependencias. En los siguientes ejemplos, sustituye `SDK_VERSION` por la versión actual de tu SDK de Braze para Android. Para consultar la lista completa de versiones, consulta [Registro de cambios]({{site.baseurl}}/developer_guide/changelogs/?sdktab=android).
 
 {% alert note %}
 - Para Kotlin DSL (`build.gradle.kts`), utiliza la sintaxis `implementation("...")`.
@@ -141,12 +141,12 @@ Con el lanzamiento de Android M, Android pasó de un modelo de permisos en tiemp
 
 ### Paso 4: Habilita la inicialización diferida (opcional) {#step-4-enable-delayed-initialization-optional}
 
-Para usar la inicialización diferida, se requiere la siguiente versión mínima del SDK or kit de desarrollo de software de Braze:
+Para usar la inicialización diferida, se requiere la siguiente versión mínima del SDK de Braze:
 
 {% sdk_min_versions android:38.0.0 %}
 
 {% alert note %}
-Mientras la inicialización diferida está habilitada, se cancelan todas las conexiones de red, lo que impide que el SDK or kit de desarrollo de software envíe datos a los servidores de Braze.
+Mientras la inicialización diferida está habilitada, se cancelan todas las conexiones de red, lo que impide que el SDK envíe datos a los servidores de Braze.
 {% endalert %}
 
 #### Paso 4.1: Actualiza tu `braze.xml` {#step-41-update-your-brazexml}
@@ -262,9 +262,9 @@ Braze.enableDelayedInitialization(context, DelayedInitializationAnalyticsBehavio
 {% endtab %}
 {% endtabs %}
 
-#### Paso 4.3: Inicializa manualmente el SDK or kit de desarrollo de software {#step-43-manually-initialize-the-sdk}
+#### Paso 4.3: Inicializa manualmente el SDK {#step-43-manually-initialize-the-sdk}
 
-Después del período de espera que hayas elegido, utiliza el método [`Braze.disableDelayedInitialization()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/disable-delayed-initialization.html) para inicializar manualmente el SDK or kit de desarrollo de software.
+Después del período de espera que hayas elegido, utiliza el método [`Braze.disableDelayedInitialization()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/disable-delayed-initialization.html) para inicializar manualmente el SDK.
 
 {% tabs local %}
 {% tab JAVA %}
@@ -322,7 +322,7 @@ Para consultar la lista de parámetros disponibles, consulta [`BrazeActivityLife
 ## Pruebas de seguimiento de sesiones {#testing-session-tracking}
 
 {% alert tip %}
-También puedes utilizar el [depurador del SDK or kit de desarrollo de software]({{site.baseurl}}/developer_guide/debugging) para diagnosticar problemas del SDK or kit de desarrollo de software.
+También puedes utilizar el [depurador del SDK]({{site.baseurl}}/developer_guide/debugging) para diagnosticar problemas del SDK.
 {% endalert %}
 
 Si experimentas problemas durante las pruebas, habilita el [registro detallado](#android_enabling-logs) y luego usa logcat para detectar llamadas faltantes a `openSession` y `closeSession` en tus actividades.
@@ -380,7 +380,7 @@ Braze.configure(this, brazeConfig)
 
 El [ID de publicidad de Google (GAID)](https://support.google.com/googleplay/android-developer/answer/6048248/advertising-id?hl=en) es un ID opcional, específico del usuario, anónimo, único y reiniciable para publicidad, proporcionado por los servicios de Google Play. El GAID permite a los usuarios restablecer su identificador, desactivar los anuncios basados en intereses en las aplicaciones de Google Play, y proporciona a los desarrolladores un sistema simple y estándar para seguir monetizando sus aplicaciones.
 
-El ID de publicidad de Google no se recopila automáticamente por el SDK or kit de desarrollo de software de Braze y debe configurarse manualmente a través del método [`Braze.setGoogleAdvertisingId()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/set-google-advertising-id.html).
+El ID de publicidad de Google no se recopila automáticamente por el SDK de Braze y debe configurarse manualmente a través del método [`Braze.setGoogleAdvertisingId()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/set-google-advertising-id.html).
 
 {% tabs local %}
 {% tab JAVA %}
@@ -438,16 +438,16 @@ Para habilitar la recopilación de ubicación de Braze, establece `com_braze_ena
 ```
 
 {% alert important %}
-A partir de la versión 3.6.0 del SDK or kit de desarrollo de software de Braze para Android, la recopilación de ubicación de Braze está deshabilitada de forma predeterminada.
+A partir de la versión 3.6.0 del SDK de Braze para Android, la recopilación de ubicación de Braze está deshabilitada de forma predeterminada.
 {% endalert %}
 
 ### Registro de eventos {#logging}
 
-De forma predeterminada, el nivel de registro del SDK or kit de desarrollo de software de Braze para Android está configurado en `INFO`. Puedes [suprimir estos registros](#android_suppressing-logs) o [establecer un nivel de registro diferente](#android_enabling-logs), como `VERBOSE`, `DEBUG` o `WARN`.
+De forma predeterminada, el nivel de registro del SDK de Braze para Android está configurado en `INFO`. Puedes [suprimir estos registros](#android_suppressing-logs) o [establecer un nivel de registro diferente](#android_enabling-logs), como `VERBOSE`, `DEBUG` o `WARN`.
 
 #### Habilitar registros {#enabling-logs}
 
-Para ayudar a solucionar problemas en tu aplicación o reducir los tiempos de respuesta con el soporte de Braze, puedes habilitar los registros detallados del SDK or kit de desarrollo de software. Cuando envíes registros detallados al soporte de Braze, asegúrate de que comiencen tan pronto como inicies tu aplicación y terminen mucho después de que ocurra tu problema. Para obtener un resumen centralizado, consulta [Registro detallado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging). Para aprender cómo interpretar la salida de los registros, consulta [Lectura de registros detallados]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs).
+Para ayudar a solucionar problemas en tu aplicación o reducir los tiempos de respuesta con el soporte de Braze, puedes habilitar los registros detallados del SDK. Cuando envíes registros detallados al soporte de Braze, asegúrate de que comiencen tan pronto como inicies tu aplicación y terminen mucho después de que ocurra tu problema. Para obtener un resumen centralizado, consulta [Registro detallado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging). Para aprender cómo interpretar la salida de los registros, consulta [Lectura de registros detallados]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs).
 
 Ten en cuenta que los registros detallados solo están pensados para tu entorno de desarrollo, así que querrás deshabilitarlos antes de publicar tu aplicación.
 
@@ -539,7 +539,7 @@ Para verificar que tus registros están configurados en `VERBOSE`, comprueba si 
 
 #### Suprimir registros {#suppressing-logs}
 
-Para suprimir todos los registros del SDK or kit de desarrollo de software de Braze para Android, establece el nivel de registro en `BrazeLogger.SUPPRESS` en el método `onCreate()` de tu aplicación _antes_ de cualquier otro método.
+Para suprimir todos los registros del SDK de Braze para Android, establece el nivel de registro en `BrazeLogger.SUPPRESS` en el método `onCreate()` de tu aplicación _antes_ de cualquier otro método.
 
 {% tabs local %}
 {% tab JAVA %}
@@ -576,7 +576,7 @@ Para aprender cómo configurar la clave de API en tu código, consulta [Configur
 
 ### TalkBack exclusivo para In-App Messages {#exclusive-in-app-message-talkback}
 
-En cumplimiento con las [directrices de accesibilidad de Android](https://developer.android.com/guide/topics/ui/accessibility), el SDK or kit de desarrollo de software de Braze para Android ofrece Android Talkback de forma predeterminada. Para asegurar que solo el contenido de los mensajes dentro de la aplicación se lea en voz alta, sin incluir otros elementos de la pantalla como la barra de título de la aplicación o la navegación, puedes habilitar el modo exclusivo para TalkBack.
+En cumplimiento con las [directrices de accesibilidad de Android](https://developer.android.com/guide/topics/ui/accessibility), el SDK de Braze para Android ofrece Android Talkback de forma predeterminada. Para asegurar que solo el contenido de los mensajes dentro de la aplicación se lea en voz alta, sin incluir otros elementos de la pantalla como la barra de título de la aplicación o la navegación, puedes habilitar el modo exclusivo para TalkBack.
 
 Para habilitar el modo exclusivo para los mensajes dentro de la aplicación:
 

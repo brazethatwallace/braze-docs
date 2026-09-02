@@ -41,7 +41,7 @@ Para programar el descarte automático después de que se inicie una actividad e
 Para utilizar este endpoint, completa los siguientes requisitos previos:
 
 - Genera una clave de API con el permiso `messages.live_activity.start`.
-- [Crea una actividad en vivo]({{site.baseurl}}/developer_guide/live_notifications/live_activities?tab=local&sdktab=swift#create-an-activity) utilizando el SDK or kit de desarrollo de software de Braze para Swift.
+- [Crea una actividad en vivo]({{site.baseurl}}/developer_guide/live_notifications/live_activities?tab=local&sdktab=swift#create-an-activity) utilizando el SDK de Braze para Swift.
 
 {% multi_lang_include api/payload_size_alert.md %}
 

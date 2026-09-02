@@ -21,7 +21,7 @@ La integración de Braze y Optimizely es una integración bidireccional que te p
 | Requisito                        | Descripción |
 |----------------------------------|-------------|
 | Cuenta de Optimizely Data Platform | Se requiere una cuenta de Optimizely Data Platform (ODP) para aprovechar esta integración. |
-| Clave de API REST or transferencia de estado representacional de Braze       | Una clave de API REST or transferencia de estado representacional de Braze con los siguientes permisos: `users.track`, `users.export.segments`, `segments.list`, `campaigns.trigger.send` y `canvas.trigger.send`. |
+| Clave de API REST de Braze       | Una clave de API REST de Braze con los siguientes permisos: `users.track`, `users.export.segments`, `segments.list`, `campaigns.trigger.send` y `canvas.trigger.send`. |
 | Currents                         | Para exportar datos de vuelta a Optimizely, necesitas tener Braze Currents configurado para tu cuenta. |
 | URL y token de Optimizely        | Puedes obtenerlos navegando a tu panel de Optimizely y copiando la URL de ingesta y el token. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
@@ -32,7 +32,7 @@ La integración de Braze y Optimizely es una integración bidireccional que te p
 
 1. En el **App Directory** de Optimizely Data Platform (ODP), selecciona la aplicación **Braze** y luego selecciona **Install App**.
 2. Ve a la pestaña **Settings**. En la sección **Authorization**, haz lo siguiente:
-    1. Introduce la **clave de API REST or transferencia de estado representacional** de Braze.
+    1. Introduce la **clave de API REST** de Braze.
     2. Selecciona tu **URL de instancia** de Braze.
     2. Selecciona **Verify API Key**.
 3. En Braze, ve a **[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents)**.

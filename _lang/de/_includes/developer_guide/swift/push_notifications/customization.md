@@ -2,11 +2,11 @@
 
 ## Anpassen von Aktions-Buttons {#push-action-buttons-integration}
 
-Das Braze Swift SDK or Software-Development-Kit bietet Unterstützung für die URL-Verarbeitung bei Push-Action-Buttons. Es gibt vier Sätze von standardmäßigen Push-Action-Buttons für die Standard-Push-Kategorien von Braze: `Accept/Decline`, `Yes/No`, `Confirm/Cancel` und `More`.
+Das Braze Swift SDK bietet Unterstützung für die URL-Verarbeitung bei Push-Action-Buttons. Es gibt vier Sätze von standardmäßigen Push-Action-Buttons für die Standard-Push-Kategorien von Braze: `Accept/Decline`, `Yes/No`, `Confirm/Cancel` und `More`.
 
 ![Ein GIF, das eine Push-Nachricht zeigt, die nach unten gezogen wird, um zwei anpassbare Aktions-Buttons anzuzeigen.]({% image_buster /assets/img_archive/iOS8Action.gif %}){: style="max-width:60%"}
 
-### Manuelles Registrierung or registrieren von Aktions-Buttons {#manually-registering-action-buttons}
+### Manuelles Registrierung von Aktions-Buttons {#manually-registering-action-buttons}
 
 {% alert important %}
 Die manuelle Registrierung von Push-Action-Buttons wird nicht empfohlen.
@@ -14,11 +14,11 @@ Die manuelle Registrierung von Push-Action-Buttons wird nicht empfohlen.
 
 Wenn Sie [Push-Benachrichtigungen]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift) über die Konfigurationsoption `configuration.push.automation` einrichten, registriert Braze automatisch die Aktions-Buttons für die Standard-Push-Kategorien und übernimmt die Klick-Analytics für Push-Action-Buttons sowie das URL-Routing.
 
-Sie können jedoch auch die Push-Action-Buttons manuell Registrierung or registrieren.
+Sie können jedoch auch die Push-Action-Buttons manuell Registrierung.
 
 #### Schritt 1: Hinzufügen von Braze-Standard-Push-Kategorien {#registering}
 
-Verwenden Sie den folgenden Code, um sich für die Standard-Push-Kategorien zu Registrierung or registrieren, wenn Sie sich [für Push anmelden]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#step-4-register-push-tokens-with-braze):
+Verwenden Sie den folgenden Code, um sich für die Standard-Push-Kategorien zu Registrierung, wenn Sie sich [für Push anmelden]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#step-4-register-push-tokens-with-braze):
 
 {% tabs %}
 {% tab swift %}
@@ -73,9 +73,9 @@ Hier ist ein Beispiel, das die auf dem Gerät angezeigte `LIKE_CATEGORY` nutzt:
 
 ![Eine Push-Nachricht, die zwei Push-Action-Buttons „unlike“ und „like“ anzeigt.]({% image_buster /assets/img_archive/push_example_category.png %})
 
-### Schritt 1: Eine Kategorie Registrierung or registrieren {#step-1-register-a-category}
+### Schritt 1: Eine Kategorie Registrierung {#step-1-register-a-category}
 
-Um eine Kategorie in Ihrer App zu Registrierung or registrieren, gehen Sie ähnlich vor wie im Folgenden beschrieben:
+Um eine Kategorie in Ihrer App zu Registrierung, gehen Sie ähnlich vor wie im Folgenden beschrieben:
 
 {% tabs %}
 {% tab swift %}
@@ -128,7 +128,7 @@ Wenn Sie eine `UNNotificationAction` erstellen, können Sie eine Liste von Aktio
 Nachdem Sie eine Kategorie registriert haben, verwenden Sie das Braze-Dashboard, um Benachrichtigungen dieses Typs an Nutzer:innen zu senden.
 
 {% alert tip %}
-Sie müssen Aktions-Buttons im Braze-Dashboard nur für Verhaltensweisen definieren, die nicht lokal in Ihrem Swift-Code erstellt werden können, wie beispielsweise Deeplinking in Ihre App oder Weiterleitungen zu einer Web-URL. Diese Aktionen müssen im Dashboard konfiguriert werden, damit sie festlegen können, welche URL oder welcher Deeplink geöffnet werden soll. Für Aktions-Buttons, die die Benachrichtigung einfach schließen, ohne die App zu öffnen, ist keine Konfiguration im Dashboard erforderlich – das Schließen wird automatisch von iOS übernommen. Registrierung or registrieren Sie einfach Ihre angepasste Kategorie und die zugehörigen Aktionen in Ihrem App-Code und geben Sie anschließend den entsprechenden Kategorienamen im Dashboard ein.
+Sie müssen Aktions-Buttons im Braze-Dashboard nur für Verhaltensweisen definieren, die nicht lokal in Ihrem Swift-Code erstellt werden können, wie beispielsweise Deeplinking in Ihre App oder Weiterleitungen zu einer Web-URL. Diese Aktionen müssen im Dashboard konfiguriert werden, damit sie festlegen können, welche URL oder welcher Deeplink geöffnet werden soll. Für Aktions-Buttons, die die Benachrichtigung einfach schließen, ohne die App zu öffnen, ist keine Konfiguration im Dashboard erforderlich – das Schließen wird automatisch von iOS übernommen. Registrierung Sie einfach Ihre angepasste Kategorie und die zugehörigen Aktionen in Ihrem App-Code und geben Sie anschließend den entsprechenden Kategorienamen im Dashboard ein.
 {% endalert %}
 
 1. Wählen Sie im Braze-Dashboard **Messaging** > **Push-Benachrichtigungen** und wählen Sie dann Ihre iOS-[Push-Campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message).
@@ -167,7 +167,7 @@ Da `MANAGE_IDENTIFIER` einen Deeplink in die App setzt, würden Sie diesen Aktio
 
 ## Badges anpassen {#customizing-badges}
 
-Badges sind kleine Symbole, die ideal geeignet sind, um die Aufmerksamkeit von Nutzer:innen zu gewinnen. Sie können eine Badge-Anzahl im Tab [**Einstellungen**]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=swift#swift_settings) festlegen, wenn Sie eine Push-Benachrichtigung über das Braze-Dashboard erstellen. Sie können Ihre Badge-Anzahl auch manuell über die [`applicationIconBadgeNumber`](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplication_Class/index.html#//apple_ref/occ/instp/UIApplication/applicationIconBadgeNumber)-Eigenschaft Ihrer Anwendung oder die [Remote-Benachrichtigungs-Payload](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CreatingtheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH10-SW1) Update or aktualisieren or aktualisieren.
+Badges sind kleine Symbole, die ideal geeignet sind, um die Aufmerksamkeit von Nutzer:innen zu gewinnen. Sie können eine Badge-Anzahl im Tab [**Einstellungen**]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=swift#swift_settings) festlegen, wenn Sie eine Push-Benachrichtigung über das Braze-Dashboard erstellen. Sie können Ihre Badge-Anzahl auch manuell über die [`applicationIconBadgeNumber`](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplication_Class/index.html#//apple_ref/occ/instp/UIApplication/applicationIconBadgeNumber)-Eigenschaft Ihrer Anwendung oder die [Remote-Benachrichtigungs-Payload](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CreatingtheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH10-SW1) aktualisieren.
 
 Braze löscht die Badge-Anzahl automatisch, wenn eine Braze-Benachrichtigung empfangen wird, während die App im Vordergrund ist. Das manuelle Setzen der Badge-Nummer auf 0 löscht ebenfalls die Benachrichtigungen in der Mitteilungszentrale.
 

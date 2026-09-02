@@ -1,23 +1,23 @@
 ---
-nav_title: "PUT: Übersetzung in einer Campaign Update or aktualisieren or aktualisieren"
-article_title: "PUT: Übersetzung in einer Campaign Update or aktualisieren or aktualisieren"
+nav_title: "PUT: Übersetzung in einer Campaign aktualisieren"
+article_title: "PUT: Übersetzung in einer Campaign aktualisieren"
 search_tag: Endpoint
 page_order: 1
 
 layout: api_page
 page_type: reference
-description: "In diesem Artikel erfahren Sie mehr über den Endpunkt „Übersetzung in einer Campaign Update or aktualisieren or aktualisieren“."
+description: "In diesem Artikel erfahren Sie mehr über den Endpunkt „Übersetzung in einer Campaign aktualisieren“."
 ---
 
 {% api %}
-# Übersetzung in einer Campaign Update or aktualisieren or aktualisieren {#update-translation-in-a-campaign}
+# Übersetzung in einer Campaign aktualisieren {#update-translation-in-a-campaign}
 {% apimethod put %}
 /campaigns/translations
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um mehrere Übersetzungen für eine Campaign zu Update or aktualisieren or aktualisieren. Weitere Informationen zu den Übersetzungsfeatures finden Sie unter [Locales in Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages).
+> Verwenden Sie diesen Endpunkt, um mehrere Übersetzungen für eine Campaign zu aktualisieren. Weitere Informationen zu den Übersetzungsfeatures finden Sie unter [Locales in Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages).
 
-Wenn Sie Übersetzungen Update or aktualisieren or aktualisieren möchten, nachdem eine Campaign gestartet wurde, müssen Sie zunächst [Ihre Nachricht als Entwurf speichern]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/change_your_campaign_after_launch).
+Wenn Sie Übersetzungen aktualisieren möchten, nachdem eine Campaign gestartet wurde, müssen Sie zunächst [Ihre Nachricht als Entwurf speichern]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/change_your_campaign_after_launch).
 
 ## Voraussetzungen {#prerequisites}
 

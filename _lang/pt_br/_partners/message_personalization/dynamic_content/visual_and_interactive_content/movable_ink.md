@@ -23,7 +23,7 @@ Expanda seus recursos criativos aproveitando os recursos do Intelligent Creative
 | Requisito | Descrição |
 |---|---|
 | Conta da Movable Ink | É necessário ter uma conta da Movable Ink para aproveitar essa parceria. |
-| Fonte de dados | Você precisará conectar uma fonte de dados à Movable Ink. Isso pode ser feito por CSV, importação do site ou API or interface de programação do aplicativo (API). Passe os dados com um identificador unificador entre a Braze e a Movable Ink (por exemplo, `external_id`).
+| Fonte de dados | Você precisará conectar uma fonte de dados à Movable Ink. Isso pode ser feito por CSV, importação do site ou API. Passe os dados com um identificador unificador entre a Braze e a Movable Ink (por exemplo, `external_id`).
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
@@ -31,7 +31,7 @@ Expanda seus recursos criativos aproveitando os recursos do Intelligent Creative
 - Retrospectivas mensais ou de fim de ano personalizadas.
 - Personalize dinamicamente as imagens para e-mail, push ou notificações Rich com base no último comportamento conhecido.<br>
 	Por exemplo:
-	- Usar uma mensagem push Rich para criar dinamicamente um cronograma de eventos por extração de dados da API or interface de programação do aplicativo (API).
+	- Usar uma mensagem push Rich para criar dinamicamente um cronograma de eventos por extração de dados da API.
 	- Usar a contagem regressiva para notificar os usuários quando um grande período de vendas estiver prestes a começar (por exemplo, Black Friday, Dia dos Namorados ou ofertas de feriados)
 	- Usar a raspadinha como uma forma divertida e interativa de distribuir códigos de promoção.
 
@@ -42,12 +42,12 @@ O Intelligent Creative tem muitas ofertas das quais os usuários da empresa pode
 | Funcionalidade da Movable Ink | Recurso | Notificação Rich por push | Mensagens no app / Content Cards / E-mail | Informações |
 | ---------------------- |---| ---------------------- | -------------------------------- | ------- |
 | Otimizador criativo | Exibir conteúdo A/B | ✗ | ✔ | |
-| Otimizar | ✗ | ✔* | * Requer a solução de deep linking da Branch or ramificação |
+| Otimizar | ✗ | ✔* | * Requer a solução de deep linking da Branch |
 | Regras de direcionamento | Data | ✔* | ✔ | * Suportada, mas não recomendada porque as notificações por push são armazenadas em cache após o recebimento e não são atualizadas |
 | Dia da semana | ✔* | ✔ | * Suportada, mas não recomendada porque as notificações por push são armazenadas em cache após o recebimento e não são atualizadas |
 | Hora do dia | ✔* | ✔ | * Suportada, mas não recomendada porque as notificações por push são armazenadas em cache após o recebimento e não são atualizadas |
 | Histórias/Atividade de comportamento | | ✔* | ✔* | * O identificador de usuário exclusivo usado para a Braze precisa estar vinculado ao identificador do seu ESP |
-| Deep linking no app | | ✔* | ✔* | * Para proporcionar uma experiência simplificada aos seus clientes, use uma solução de deep linking estabelecida via Branch or ramificação ou uma solução validada com a equipe de experiência do cliente da Movable Ink. |
+| Deep linking no app | | ✔* | ✔* | * Para proporcionar uma experiência simplificada aos seus clientes, use uma solução de deep linking estabelecida via Branch ou uma solução validada com a equipe de experiência do cliente da Movable Ink. |
 | Apps | Contagem regressiva | ✔* | ✔ | * Suportada, mas não recomendada porque as notificações por push são armazenadas em cache após o recebimento e não são atualizadas |
 | Enquete | ✗ | ✔* | * Após a votação, o usuário sai do app e acessa uma landing page móvel |
 | Raspadinha | ✔* | ✔* | * Ao clicar, o usuário sai do app e acessa a experiência da raspadinha |
@@ -58,26 +58,26 @@ O Intelligent Creative tem muitas ofertas das quais os usuários da empresa pode
 
 ### Etapa 1: crie uma fonte de dados para a Movable Ink {#step-1-create-a-data-source-for-movable-ink}
 
-Os clientes precisarão criar uma fonte de dados que pode ser um CSV, importação de site ou integração de API or interface de programação do aplicativo (API).
+Os clientes precisarão criar uma fonte de dados que pode ser um CSV, importação de site ou integração de API.
 
 ![Diferentes opções de fonte de dados que serão exibidas: Upload de CSV, Site ou Integração de API.]({% image_buster /assets/img/movable_ink/movable_ink1.png %})
 
 {% tabs local %}
 {% tab CSV Data Source %}
-- **Fonte de dados CSV**: Cada linha deve ter pelo menos uma coluna de Segment or segmento or segmento e uma coluna de conteúdo. Depois que seu CSV for enviado, selecione quais colunas devem ser usadas para direcionar o conteúdo. [Exemplo de arquivo CSV]({% image_buster /assets/download_file/movable_ink_CSV.csv %})
+- **Fonte de dados CSV**: Cada linha deve ter pelo menos uma coluna de Segment e uma coluna de conteúdo. Depois que seu CSV for enviado, selecione quais colunas devem ser usadas para direcionar o conteúdo. [Exemplo de arquivo CSV]({% image_buster /assets/download_file/movable_ink_CSV.csv %})
 
 ![Os campos que aparecerão ao selecionar "CSV" como sua fonte de dados.]({% image_buster /assets/img/movable_ink/movable_ink2.png %})
 {% endtab %}
 {% tab Website Data Source %}
-- **Fonte de dados do site**: Cada linha deve ter pelo menos uma coluna de Segment or segmento or segmento e uma coluna de conteúdo. Após o upload do seu CSV, selecione quais colunas devem ser usadas para direcionamento do conteúdo.
+- **Fonte de dados do site**: Cada linha deve ter pelo menos uma coluna de Segment e uma coluna de conteúdo. Após o upload do seu CSV, selecione quais colunas devem ser usadas para direcionamento do conteúdo.
   - Nesse processo, você precisará mapear:
     - Quais campos serão usados como segmentos
     - Quais campos você deseja como campos de dados que podem ser personalizados dinamicamente na criação (por exemplo: atributos do usuário ou atributos personalizados como nome, sobrenome, cidade, etc.)
 
 ![Os campos que aparecerão ao selecionar "Website" como sua fonte de dados.]({% image_buster /assets/img/movable_ink/movable_ink3.png %})
 {% endtab %}
-{% tab API or interface de programação do aplicativo (API) Integrations %}
-- **Integrações de API or interface de programação do aplicativo (API)**: Use a API or interface de programação do aplicativo (API) da sua empresa para alimentar o conteúdo diretamente de uma resposta de API or interface de programação do aplicativo (API).
+{% tab API Integrations %}
+- **Integrações de API**: Use a API da sua empresa para alimentar o conteúdo diretamente de uma resposta de API.
 
 ![Os campos que aparecerão ao selecionar "Integração de API" como sua fonte de dados.]({% image_buster /assets/img/movable_ink/movable_ink4.png %})
 {% endtab %}
@@ -140,7 +140,7 @@ Para fazer isso, use a sintaxe a seguir, substituindo a URL da imagem conforme n
 {% endraw %}
 Esse modelo pega o horário atual (em segundos), anexa-o ao fim da guia da imagem da Movable Ink (como parâmetro de consulta) e depois calcula o resultado final. Você pode visualizá-lo com a guia **Test**&#8212;isso avaliará o código e mostrará uma prévia.
 
-**3.** Por fim, reavalie a inscrição no Segment or segmento or segmento. Para fazer isso, ative a opção `Re-evaluate audience membership and liquid at send-time` localizada na etapa **Target Audiences** de uma Campaign. Se esta opção não estiver disponível, entre em contato com seu gerente de sucesso do cliente ou suporte da Braze. Esta opção instruirá os SDKs da Braze a solicitar novamente a Campaign, fornecendo uma URL única cada vez que uma mensagem no app for acionada.
+**3.** Por fim, reavalie a inscrição no Segment. Para fazer isso, ative a opção `Re-evaluate audience membership and liquid at send-time` localizada na etapa **Target Audiences** de uma Campaign. Se esta opção não estiver disponível, entre em contato com seu CSM ou suporte da Braze. Esta opção instruirá os SDKs da Braze a solicitar novamente a Campaign, fornecendo uma URL única cada vez que uma mensagem no app for acionada.
 
 {% endtab %}
 {% tab Content Card %}

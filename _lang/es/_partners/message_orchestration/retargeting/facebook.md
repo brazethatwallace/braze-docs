@@ -89,7 +89,7 @@ Por razones de privacidad del usuario, Facebook no te permite ver:
 
 Al crear audiencias de Facebook, es posible que desees incluir o excluir ciertos usuarios según sus preferencias y para cumplir con las leyes de privacidad, como el derecho a no vender o compartir información según la [CCPA](https://oag.ca.gov/privacy/ccpa). Los especialistas en marketing deben implementar los filtros relevantes para la elegibilidad de los usuarios dentro de los criterios de entrada de su Canvas. Las siguientes opciones pueden ayudar.
 
-- Si has recopilado el [IDFA de iOS a través del SDK or kit de desarrollo de software de Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations#optional-idfa-collection), puedes usar el filtro **Seguimiento de anuncios habilitado**. Selecciona el valor como `true` para enviar usuarios a los destinos de sincronización de audiencias solo donde hayan dado su consentimiento.
+- Si has recopilado el [IDFA de iOS a través del SDK de Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations#optional-idfa-collection), puedes usar el filtro **Seguimiento de anuncios habilitado**. Selecciona el valor como `true` para enviar usuarios a los destinos de sincronización de audiencias solo donde hayan dado su consentimiento.
 
 ![Filtro de entrada de Canvas que muestra Seguimiento de anuncios habilitado configurado como verdadero.]({% image_buster /assets/img/tiktok/tiktok16.png %}){: style="max-width:75%;"}
 

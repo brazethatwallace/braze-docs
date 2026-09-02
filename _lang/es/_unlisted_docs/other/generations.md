@@ -7,7 +7,7 @@ permalink: /iam_generations/
 
 # Generaciones de mensajes dentro de la aplicación {#in-app-messages-generations}
 
-Braze tiene actualmente tres generaciones de mensajes dentro de la aplicación. Cada una viene con su propio nivel de soporte. Para aprovechar las características más recientes de nuestros mensajes dentro de la aplicación, te recomendamos actualizar a los SDK or kit de desarrollo de software más recientes de [Web]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup/#upgrading-the-sdk), iOS y Android.
+Braze tiene actualmente tres generaciones de mensajes dentro de la aplicación. Cada una viene con su propio nivel de soporte. Para aprovechar las características más recientes de nuestros mensajes dentro de la aplicación, te recomendamos actualizar a los SDK más recientes de [Web]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup/#upgrading-the-sdk), iOS y Android.
 
 Este gráfico destaca las características y los tipos de mensaje que están disponibles actualmente y cuándo se introdujeron en cada generación. Este gráfico también indica explícitamente lo que no es compatible en una generación determinada.
 

@@ -13,14 +13,14 @@ tool: Currents
 search_rank: 7
 ---
 
-<div class="API or interface de programação do aplicativo (API)-glossary-preamble" markdown="1">
+<div class="api-glossary-preamble" markdown="1">
 
 {% details Escopo do esquema e recursos relacionados %}
 
 Os esquemas de armazenamento se aplicam aos dados de eventos em arquivo simples que enviamos para parceiros de armazenamento em data warehouse (Google Cloud Storage, Amazon S3 e Microsoft Azure Blob Storage). Algumas combinações de eventos e destinos listadas aqui ainda não estão disponíveis de forma geral. Para saber quais eventos são compatíveis com os diversos parceiros, consulte nossa lista de [parceiros disponíveis]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) e verifique as respectivas páginas.
 
 {% alert tip %}
-Esses eventos também estão disponíveis como tabelas SQL no [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder), nas [extensões de Segment or segmento or segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) e no [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Para esquemas de tabelas SQL e detalhes de colunas, consulte a [referência de tabelas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
+Esses eventos também estão disponíveis como tabelas SQL no [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder), nas [extensões de Segment SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) e no [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Para esquemas de tabelas SQL e detalhes de colunas, consulte a [referência de tabelas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
 {% endalert %}
 
 Entre em contato com seu representante da Braze ou abra um [ticket de suporte]({{site.baseurl}}/braze_support) se precisar de acesso a direitos de eventos adicionais. Se não encontrar o que precisa nesta página, confira nossa [Biblioteca de eventos de engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) ou nossos [exemplos de dados de amostra do Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
@@ -58,7 +58,7 @@ Certos eventos retornam um valor `platform` que especifica a plataforma do dispo
 {% details Considerações sobre eventos de comportamento do cliente e de usuário %}
 
 - O Currents descarta eventos com cargas úteis excessivamente grandes, superiores a 900&nbsp;KB.
-- Muitos dos eventos neste glossário são iniciados pelo SDK or kit de desenvolvimento de software. Alguns eventos, como `token_state_change`, podem ser iniciados pelo SDK or kit de desenvolvimento de software ou pelo backend (por exemplo, em resposta a um push bounce). Os campos `sdk_version`, `gender`, `language` e `country` são definidos apenas para eventos iniciados pelo SDK or kit de desenvolvimento de software; para eventos iniciados pelo backend, ou quando essas informações não estão disponíveis ou não foram definidas para o usuário, esses campos podem ser `null`.
+- Muitos dos eventos neste glossário são iniciados pelo SDK. Alguns eventos, como `token_state_change`, podem ser iniciados pelo SDK ou pelo backend (por exemplo, em resposta a um push bounce). Os campos `sdk_version`, `gender`, `language` e `country` são definidos apenas para eventos iniciados pelo SDK; para eventos iniciados pelo backend, ou quando essas informações não estão disponíveis ou não foram definidas para o usuário, esses campos podem ser `null`.
 
 {% enddetails %}
 

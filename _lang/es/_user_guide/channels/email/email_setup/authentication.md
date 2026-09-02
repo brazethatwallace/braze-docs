@@ -10,7 +10,7 @@ channel: email
 
 # Autenticación del correo electrónico {#email-authentication}
 
-> La autenticación del correo electrónico es un conjunto de técnicas que dotan a tus correos electrónicos de información verificable sobre su origen.<br><br>Una autenticación adecuada es crucial para que los proveedores de servicios de Internet (ISP or proveedor de servicios de Internet) te reconozcan como remitente de correos electrónicos deseados y entreguen tu correo de inmediato. Sin autenticación, se presume que tus comunicaciones son fraudulentas.
+> La autenticación del correo electrónico es un conjunto de técnicas que dotan a tus correos electrónicos de información verificable sobre su origen.<br><br>Una autenticación adecuada es crucial para que los proveedores de servicios de Internet (ISP) te reconozcan como remitente de correos electrónicos deseados y entreguen tu correo de inmediato. Sin autenticación, se presume que tus comunicaciones son fraudulentas.
 
 {% alert note %}
 No se requiere ninguna coordinación especial con Braze para **BIMI** (Brand Indicators for Message Identification). Los registros de DNS y certificados necesarios se gestionan de tu lado.
@@ -26,9 +26,9 @@ Braze configura tu registro SPF cuando configuramos tus IP y dominios. Más all�
 
 ### Domain Keys Identified Mail (DKIM) {#dkim}
 
-Este método confirma que tu dominio de envío de correo electrónico de Braze está autorizado para enviar correo en tu nombre. Este método está diseñado para validar la autenticidad del remitente y valida que se preserve la integridad del mensaje. También utiliza firmas digitales criptográficas individuales para que los ISP or proveedor de servicios de Internet puedan asegurarse de que el correo que están entregando es el mismo que tú enviaste.
+Este método confirma que tu dominio de envío de correo electrónico de Braze está autorizado para enviar correo en tu nombre. Este método está diseñado para validar la autenticidad del remitente y valida que se preserve la integridad del mensaje. También utiliza firmas digitales criptográficas individuales para que los ISP puedan asegurarse de que el correo que están entregando es el mismo que tú enviaste.
 
-Braze firma el correo con tu clave privada secreta. Los ISP or proveedor de servicios de Internet verifican la firma contra tu clave pública, que está almacenada en tu registro de DNS personalizado. No hay dos firmas exactamente iguales, y solo tu clave pública puede verificar con éxito la firma de tu clave privada.
+Braze firma el correo con tu clave privada secreta. Los ISP verifican la firma contra tu clave pública, que está almacenada en tu registro de DNS personalizado. No hay dos firmas exactamente iguales, y solo tu clave pública puede verificar con éxito la firma de tu clave privada.
 
 Braze configura tu registro DKIM cuando configuramos tus IP y dominios. Más allá de agregar los registros de DNS que te proporcionamos, no necesitas realizar ninguna acción adicional.
 

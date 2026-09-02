@@ -19,7 +19,7 @@ Die folgenden Beispiele werden auf einer voll funktionsfähigen E-Commerce-Websi
 
 ## Anforderungen
 
-Sie müssen das [Retail Demo Store Repository](https://github.com/aws-samples/retail-demo-store/) Klon or klonen und die beschriebenen Schritte befolgen, um die Workshop-Umgebung in Ihrem AWS-Konto bereitzustellen. Sie benötigen ein AWS-Konto, um den Workshop abzuschließen und den Integrationscode auszuführen.
+Sie müssen das [Retail Demo Store Repository](https://github.com/aws-samples/retail-demo-store/) Klon und die beschriebenen Schritte befolgen, um die Workshop-Umgebung in Ihrem AWS-Konto bereitzustellen. Sie benötigen ein AWS-Konto, um den Workshop abzuschließen und den Integrationscode auszuführen.
 
 ## Architektur der Integration
 

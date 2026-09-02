@@ -4,11 +4,11 @@
 
 Im folgenden Beispiel möchte eine App für das Streamen von Musik verschiedene Ereignisse protokollieren, wenn Nutzer:innen Lieder anhören. Mit dem Google Tag Manager:in für Android können sie kontrollieren, welche der Braze-Drittanbieter dieses Ereignis erhalten, und Tags speziell für Braze erstellen.
 
-### Schritt 1: Erstellen Sie einen Trigger or triggern für angepasste Events
+### Schritt 1: Erstellen Sie einen Trigger für angepasste Events
 
 Benutzerdefinierte Ereignisse werden protokolliert, wenn `actionType` auf `logEvent` eingestellt ist. Der Anbieter der angepassten Tags von Braze erwartet in diesem Beispiel, dass der Name des angepassten Events mit `eventName` festgelegt wird.
 
-Um zu beginnen, erstellen Sie einen Trigger or triggern, der nach dem "event name" namens `played song` sucht.
+Um zu beginnen, erstellen Sie einen Trigger, der nach dem "event name" namens `played song` sucht.
 
 ![Ein angepasster Trigger im Google Tag Manager:in, der für einige Events triggert, wenn "Ereignisname" gleich "abgespielter Song" ist.]({% image_buster /assets/img/android_google_tag_manager/gtm_android_trigger.png %})
 
@@ -109,11 +109,11 @@ mFirebaseAnalytics.logEvent("changeUser", params)
 
 Wenn Sie die Tags und Auslöser eingerichtet haben, müssen Sie auch den Google Tag Manager:in in Ihrer Android-App implementieren, den Sie in der [Dokumentation](https://developers.google.com/tag-manager/android/v5/) von Google finden.
 
-Nachdem der Google Tag Manager:in in Ihrer App installiert ist, fügen Sie einen angepassten Tag-Anbieter hinzu, um die SDK or Software-Development-Kit-Methoden von Braze auf der Grundlage der Tags aufzurufen, die Sie im Google Tag Manager:in konfiguriert haben.
+Nachdem der Google Tag Manager:in in Ihrer App installiert ist, fügen Sie einen angepassten Tag-Anbieter hinzu, um die SDK-Methoden von Braze auf der Grundlage der Tags aufzurufen, die Sie im Google Tag Manager:in konfiguriert haben.
 
 Achten Sie darauf, den "Klassenpfad" der Datei zu notieren. Diesen geben Sie ein, wenn Sie ein Tag in der [Google Tag Manager:in-Konsole](https://tagmanager.google.com/) einrichten.
 
-Dieses Beispiel zeigt eine der vielen Möglichkeiten, wie Sie Ihren angepassten Tag-Anbieter strukturieren können. Insbesondere wird gezeigt, wie Sie anhand des vom GTM Tag gesendeten Schlüssel-Wert-Paares `actionType` ermitteln, welche Methode des Braze SDK or Software-Development-Kit aufgerufen werden soll.
+Dieses Beispiel zeigt eine der vielen Möglichkeiten, wie Sie Ihren angepassten Tag-Anbieter strukturieren können. Insbesondere wird gezeigt, wie Sie anhand des vom GTM Tag gesendeten Schlüssel-Wert-Paares `actionType` ermitteln, welche Methode des Braze SDK aufgerufen werden soll.
 
 Die in diesem Beispiel gezeigten `actionType` sind `logEvent`, `customAttribute` und `changeUser`, aber Sie können es vorziehen, zu ändern, wie Ihr Tag-Anbieter Daten von Google Tag Manager:in:in behandelt.
 

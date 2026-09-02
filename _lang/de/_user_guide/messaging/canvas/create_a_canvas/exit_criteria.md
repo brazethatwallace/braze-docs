@@ -47,12 +47,12 @@ Weitere Ausnahme-Events umfassen:
 - Konversions-Event ausführen
 - E-Mail-Adresse hinzufügen
 - Wert eines angepassten Attributs ändern
-- Abo-Status Update or aktualisieren or aktualisieren
-- Abo-Gruppenstatus Update or aktualisieren or aktualisieren
+- Abo-Status aktualisieren
+- Abo-Gruppenstatus aktualisieren
 - Mit einer Campaign interagieren
 - Einen Standort betreten
-- Einen Geofence Trigger or triggern or triggern
-- Eingehende Kurzmitteilungsdienst or SMS-Nachricht senden
+- Einen Geofence triggern
+- Eingehende SMS-Nachricht senden
 - Eingehende WhatsApp-Nachricht senden
 - Eingehende LINE-Nachricht senden
 - Warenkorb-Aktualisierungs-Event ausführen
@@ -63,7 +63,7 @@ Bei Canvas-Schritten, die Nutzer:innen nicht in einem Delay-Schritt bis zu einem
 
 #### Getriggerte Schritte {#triggered-steps}
 
-Wenn ein Canvas-Schritt durch ein Event getriggert wird, wird der letzte geplante Versand, der durch diesen Trigger or triggern in die Warteschlange gestellt wurde, abgebrochen. Die Nutzerin oder der Nutzer bleibt jedoch für die Dauer des Zeitfensters im Canvas. Das bedeutet, dass der Schritt erneut gesendet werden kann, wenn das Trigger or triggern-Event innerhalb des Zeitfensters erneut ausgeführt wird. Nach Ablauf des Zeitfensters verlassen die Nutzer:innen den Canvas.
+Wenn ein Canvas-Schritt durch ein Event getriggert wird, wird der letzte geplante Versand, der durch diesen Trigger in die Warteschlange gestellt wurde, abgebrochen. Die Nutzerin oder der Nutzer bleibt jedoch für die Dauer des Zeitfensters im Canvas. Das bedeutet, dass der Schritt erneut gesendet werden kann, wenn das Trigger-Event innerhalb des Zeitfensters erneut ausgeführt wird. Nach Ablauf des Zeitfensters verlassen die Nutzer:innen den Canvas.
 
 ### Segmente und Filter verwenden {#using-segments-and-filters}
 
@@ -77,7 +77,7 @@ Array-Attribute werden derzeit nicht als Exit-Kriterien bei Ausnahme-Events unte
 
 ### Gleiches Exit-Event und Konversions-Event {#having-the-same-exit-event-and-conversion-event}
 
-Wenn das Exit-Event und das Konversions-Event identisch sind, werden sowohl die Konversion als auch das Exit-Event berücksichtigt. Wenn ein Canvas beispielsweise einen Delay-Schritt hat und Nutzer:innen die Exit-Kriterien während dieses Delay-Schritts erfüllen, wird das Exit-Event inkrementiert, sobald sie den Delay-Schritt verlassen. Die Konversion wird ebenfalls inkrementiert, sobald das Event im Kundenprofil or Nutzerprofil protokolliert wird.
+Wenn das Exit-Event und das Konversions-Event identisch sind, werden sowohl die Konversion als auch das Exit-Event berücksichtigt. Wenn ein Canvas beispielsweise einen Delay-Schritt hat und Nutzer:innen die Exit-Kriterien während dieses Delay-Schritts erfüllen, wird das Exit-Event inkrementiert, sobald sie den Delay-Schritt verlassen. Die Konversion wird ebenfalls inkrementiert, sobald das Event im Kundenprofil protokolliert wird.
 
 Konversionen werden auch nach dem Ende des Canvas erfasst, Exits hingegen nicht mehr, nachdem Nutzer:innen den Canvas verlassen haben. Das Konversionsfenster erstreckt sich bis zu drei Tage über die maximale Dauer des Canvas hinaus. Das bedeutet, dass Konversionen weiterhin erfasst werden, nachdem die Erfassung von Exits bereits eingestellt wurde.
 
@@ -95,7 +95,7 @@ Betrachten Sie das folgende Beispiel zur Berechnung der Analytics:
 Angenommen, wir möchten Nutzer:innen ansprechen, die noch keine Bestellung bei unserem Rucksack-Unternehmen aufgegeben haben. Um die Exit-Kriterien einzurichten, würden wir Folgendes tun:
 
 1. Wählen Sie **Bestellung aufgeben** als Ausnahme-Event aus.
-2. Wählen Sie **Trigger or triggern hinzufügen** aus.
+2. Wählen Sie **Trigger hinzufügen** aus.
 3. Wählen Sie unter **Segments** die Option **Am letzten Tag verwendet** aus, damit beim Start unseres Canvas die Zielgruppe Nutzer:innen ausschließt, die bereits Käufe getätigt haben.
 4. Wählen Sie unter **Filter** die Option **Kaufverhalten** > **Anzahl der Käufe** > **Gekauftes Produkt** aus.
 5. Setzen Sie die Filtergruppe auf `backpack-example exactly 1`. Das bedeutet, dass Nutzer:innen, die unser Rucksack-Produkt gekauft haben, den Canvas verlassen würden.

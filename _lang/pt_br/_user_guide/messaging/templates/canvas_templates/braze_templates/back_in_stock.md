@@ -68,7 +68,7 @@ Faremos dois ajustes nesta etapa:
 
 Vamos definir nosso público-alvo como usuários que acreditamos ter maior probabilidade de comprar o jeans Classic Straight Leg.
 
-1. Selecione nosso Segment or segmento or segmento alvo, "Favorited - Classic Straight Leg Jeans", que consiste em usuários que favoritaram nosso jeans Classic Straight Leg no app ou website.
+1. Selecione nosso Segment alvo, "Favorited - Classic Straight Leg Jeans", que consiste em usuários que favoritaram nosso jeans Classic Straight Leg no app ou website.
 2. Selecione um filtro para incluir usuários que compraram "Jeans" mais de "0" vezes.
 
 ![Etapa "Público-alvo" com o segmento "Favorited - Classic Straight Leg Jeans".]({% image_buster /assets/img/canvas_templates/back_in_stock_5.png %})

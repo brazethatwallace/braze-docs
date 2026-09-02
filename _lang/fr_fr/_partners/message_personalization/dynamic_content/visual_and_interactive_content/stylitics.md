@@ -37,7 +37,7 @@ La liste suivante présente quelques exemples courants de programmes d'e-mails d
 
 ## Intégration {#integration}
 
-Stylitics fournit les données de bundle pour cette intégration. Votre fournisseur de services d'e-mail marketing or e-mailing peut créer ou mettre à jour le modèle d'e-mail pour inclure les bundles Stylitics. Stylitics ne peut pas modifier la mise en page ou le design des e-mails.
+Stylitics fournit les données de bundle pour cette intégration. Votre fournisseur de services d'e-mail marketing peut créer ou mettre à jour le modèle d'e-mail pour inclure les bundles Stylitics. Stylitics ne peut pas modifier la mise en page ou le design des e-mails.
 
 1. Intégrez le bundle dans l'e-mail. L'fournisseur de services d'e-mailing détermine la position et la personnalisation.
 2. L'fournisseur de services d'e-mailing met à jour le code de l'e-mail déclenché pour inclure le contenu Stylitics.

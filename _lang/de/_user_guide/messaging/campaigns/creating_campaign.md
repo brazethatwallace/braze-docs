@@ -69,7 +69,7 @@ Kontrollgruppen von Campaigns vergleichen Varianten innerhalb eines Kanals (zum 
 
 Bei Mehrkanal-Campaigns verfolgt Braze [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) pro Kanal. Wenn Nutzer:innen nach dem Erhalt von Nachrichten über mehr als einen Kanal konvertieren, kann Braze diese Konversion den jeweiligen Kanälen zuordnen. Die Konversionszahlen können *Unique Users* übersteigen, und Raten können 100 % überschreiten. Die vollständigen Regeln finden Sie unter [Regeln für das Konversions-Tracking]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#conversion-tracking-rules).
 
-Rate-Limits für Sends über mehrere Kanäle werden unter [Mehrkanal-Campaigns und Canvase]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#multichannel-campaigns-and-canvases) beschrieben. Workspace-weite Regeln (einschließlich der Anrechnung von Mehrkanal-Sends auf Limits) finden Sie unter [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping).
+Rate-Limits für Sends über mehrere Kanäle werden unter [Mehrkanal-Campaigns und Canvases]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#multichannel-campaigns-and-canvases) beschrieben. Workspace-weite Regeln (einschließlich der Anrechnung von Mehrkanal-Sends auf Limits) finden Sie unter [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping).
 
 ### Mehrkanal-Campaign erstellen {#create-a-multichannel-campaign}
 
@@ -116,7 +116,7 @@ Wählen Sie, wann Nutzer:innen berechtigt werden, die Kampagne zu erhalten:
 | --- | --- |
 | [Geplante Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery) | Senden Sie zu einem bestimmten Zeitpunkt oder in einem bestimmten Rhythmus. |
 | [Aktionsbasierte Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) | Senden Sie, wenn Nutzer:innen Verhaltensweisen ausführen oder von Ihnen definierte Bedingungen erfüllen. |
-| [API-getriggerte Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery) | Senden Sie, wenn Ihre Systeme Braze aufrufen, um die Kampagne für berechtigte Nutzer:innen zu Trigger or triggern or triggern. |
+| [API-getriggerte Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery) | Senden Sie, wenn Ihre Systeme Braze aufrufen, um die Kampagne für berechtigte Nutzer:innen zu triggern. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 2: Zustellung planen" }
 
 Informationen zu Planungskonzepten in Braze finden Sie unter [Kampagne planen]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
@@ -131,7 +131,7 @@ Definieren Sie unter **Zielgruppen**, wer berechtigt ist, die Campaign zu erhalt
 
 ### Targeting-Optionen {#targeting-options}
 
-In diesem Abschnitt können Sie Nutzer:innen ansprechen, indem Sie Segments oder Filter auswählen, um Ihre Zielgruppe einzugrenzen. Berechtigte Nutzer:innen müssen weiterhin den Trigger or triggern oder die Kriterien erfüllen, die Sie im Schritt **Zustellung planen** definiert haben. Die Zielgruppe ist wie ein Warteraum – nur Personen, die sich bereits darin befinden, können weitergehen, wenn die nächste Aktion eintritt.
+In diesem Abschnitt können Sie Nutzer:innen ansprechen, indem Sie Segments oder Filter auswählen, um Ihre Zielgruppe einzugrenzen. Berechtigte Nutzer:innen müssen weiterhin den Trigger oder die Kriterien erfüllen, die Sie im Schritt **Zustellung planen** definiert haben. Die Zielgruppe ist wie ein Warteraum – nur Personen, die sich bereits darin befinden, können weitergehen, wenn die nächste Aktion eintritt.
 
 [Unterdrückungslisten]({{site.baseurl}}/user_guide/audience/suppression_lists) des Workspace schließen gelistete Nutzer:innen automatisch aus, es sei denn, Sie erlauben eine Ausnahme für diese Campaign.
 
@@ -151,7 +151,7 @@ Wenn Nutzer:innen den Segment-, Filter- und App-Kriterien entsprechen, wird dies
 
 ### An diese Nutzer:innen senden {#send-to-these-users}
 
-Verwenden Sie bei abo-basierten Kanälen (E-Mail, Kurzmitteilungsdienst or SMS und ähnliche) die Option **An diese Nutzer:innen senden**, um Ihre Campaign nur an Nutzer:innen mit einem bestimmten Abo-Status zu senden, z. B. an diejenigen, die abonniert und für E-Mail angemeldet sind.
+Verwenden Sie bei abo-basierten Kanälen (E-Mail, SMS und ähnliche) die Option **An diese Nutzer:innen senden**, um Ihre Campaign nur an Nutzer:innen mit einem bestimmten Abo-Status zu senden, z. B. an diejenigen, die abonniert und für E-Mail angemeldet sind.
 
 ### Sendevolumen begrenzen {#limit-send-volume}
 
@@ -171,7 +171,7 @@ Aktivieren Sie bei unterstützten Campaigns mit Einmalversand und Mehrfachversan
 
 [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) messen Ergebnisse, nachdem Nutzer:innen Ihre Kampagne erhalten haben (oder in die Kontrollgruppe eingetreten sind). Braze verwendet standardmäßig **Starts Session** innerhalb eines kurzen Zeitfensters (drei Tage). Sie können Konversions-Events definieren, die zu Ihren KPIs passen – bis zu vier Events pro Kampagne.
 
-Nach dem Start können Sie das [Conversions-Dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/conversions) verwenden, um Conversion-Trends über mehrere Campaigns oder Canvase hinweg zu analysieren, Kanäle zu vergleichen und Datumsbereiche, Attributionsmethoden und Aufschlüsselungen an einem Ort anzupassen.
+Nach dem Start können Sie das [Conversions-Dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/conversions) verwenden, um Conversion-Trends über mehrere Campaigns oder Canvases hinweg zu analysieren, Kanäle zu vergleichen und Datumsbereiche, Attributionsmethoden und Aufschlüsselungen an einem Ort anzupassen.
 
 {% alert important %}
 Sie können nach dem Start der Kampagne keine Konversions-Events mehr hinzufügen oder entfernen. Bestätigen Sie die Events vor dem Start.
@@ -188,7 +188,7 @@ Wenn Sie bereit sind, wählen Sie **Kampagne starten**.
 
 ### Genehmigungen {#approvals}
 
-Wenn Ihr Workspace Genehmigungen verwendet, muss ein Teammitglied mit der Berechtigung zur Genehmigung von Kampagnen diese vor dem Start freigeben. Weitere Informationen finden Sie unter [Genehmigungen für Campaigns und Canvase]({{site.baseurl}}/user_guide/messaging/governance/approvals).
+Wenn Ihr Workspace Genehmigungen verwendet, muss ein Teammitglied mit der Berechtigung zur Genehmigung von Kampagnen diese vor dem Start freigeben. Weitere Informationen finden Sie unter [Genehmigungen für Campaigns und Canvases]({{site.baseurl}}/user_guide/messaging/governance/approvals).
 
 ## Verwandte Artikel {#related-articles}
 

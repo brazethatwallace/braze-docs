@@ -1,8 +1,8 @@
 ---
 nav_title: Palabras clave de adhesión y cancelación
-article_title: Palabras clave de adhesión y cancelación de servicio de mensajes cortos
+article_title: Palabras clave de adhesión y cancelación de SMS
 page_order: 0
-description: "Este artículo de referencia cubre cómo Braze procesa las palabras clave básicas de adhesión voluntaria y cancelación de suscripción para la mensajería servicio de mensajes cortos."
+description: "Este artículo de referencia cubre cómo Braze procesa las palabras clave básicas de adhesión voluntaria y cancelación de suscripción para la mensajería SMS."
 page_type: reference
 alias: /optin_optout/
 tool:
@@ -26,7 +26,7 @@ Braze procesa automáticamente las siguientes palabras clave y actualiza el esta
 
 | Tipo | Palabra clave | Cambio |
 |-|-------|---|
-| Adhesión voluntaria | `START`<br> `YES`<br> `UNSTOP` | Cualquier solicitud de entrada con una de estas palabras clave de `Opt-In` resultará en un cambio de estado del grupo de suscripción a `subscribed`. Además, el conjunto de remitentes asociados con ese grupo de suscripción podrá enviar un mensaje servicio de mensajes cortos, MMS o RCS a ese cliente (dependiendo del tipo de mensajería que admitan los remitentes). <br><br>El usuario recibirá tu respuesta automática de adhesión voluntaria definida.  |
+| Adhesión voluntaria | `START`<br> `YES`<br> `UNSTOP` | Cualquier solicitud de entrada con una de estas palabras clave de `Opt-In` resultará en un cambio de estado del grupo de suscripción a `subscribed`. Además, el conjunto de remitentes asociados con ese grupo de suscripción podrá enviar un mensaje SMS, MMS o RCS a ese cliente (dependiendo del tipo de mensajería que admitan los remitentes). <br><br>El usuario recibirá tu respuesta automática de adhesión voluntaria definida.  |
 | Cancelación de suscripción | `STOP`<br> `STOPALL`<br> `UNSUBSCRIBE`<br> `CANCEL`<br> `END`<br> `QUIT` | Cualquier solicitud de entrada con una de estas palabras clave de `Opt-Out` resultará en un cambio de estado del grupo de suscripción a `unsubscribed`. Además, el conjunto de números asociados con ese grupo de suscripción ya no podrá enviar mensajes a ese cliente.<br><br>El usuario recibirá tu respuesta automática de cancelación de suscripción definida. |
 | Ayuda | `HELP`<br> `INFO` | El usuario recibirá tu respuesta automática de ayuda definida. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Palabras clave predeterminadas" }

@@ -13,7 +13,7 @@ toc_headers: h2
 
 > Das Single Sign-on (Single Sign-on)-Feature von Apple erlaubt es Nutzer:innen, ihre E-Mail-Adressen (`example@icloud.com`) zu teilen oder ihre E-Mail-Adressen auszublenden, indem anstelle der persönlichen E-Mail-Adresse eine maskierte Adresse (`tq1234snin@privaterelay.appleid.com`) an Marken weitergegeben wird. Apple leitet dann die an die Relay-Adressen gesendeten Nachrichten an die tatsächliche E-Mail-Adresse der Nutzer:innen weiter.
 
-Um E-Mails an das private E-Mail-Relay von Apple zu senden, Registrierung or registrieren Sie Ihre Versanddomains bei Apple. Wenn Sie Ihre Domains nicht bei Apple konfigurieren, führen E-Mails an Relay-Adressen zu Bounces.
+Um E-Mails an das private E-Mail-Relay von Apple zu senden, Registrierung Sie Ihre Versanddomains bei Apple. Wenn Sie Ihre Domains nicht bei Apple konfigurieren, führen E-Mails an Relay-Adressen zu Bounces.
 
 Wenn Nutzer:innen beschließen, die E-Mail-Weiterleitung an die Relay-E-Mail Ihrer App zu deaktivieren, erhält Braze wie gewohnt die Bounce-Informationen. Diese Nutzer:innen können Apps, die „Mit Apple anmelden“ verwenden, über die Einstellungsseite ihrer Apple-ID verwalten (siehe [Dokumentation von Apple](https://support.apple.com/en-us/HT210426)).
 
@@ -38,7 +38,7 @@ Wenn Ihre gewünschte „Von“-Adresse eine `abmail`-Adresse ist, nehmen Sie di
 Um Apple Private Relay für SparkPost einzurichten, führen Sie die folgenden Schritte aus:
 
 1. Melden Sie sich bei Apple an.
-2. Folgen Sie der [Apple-Dokumentation](https://developer.apple.com/help/account/configure-app-capabilities/configure-private-email-relay-service), um die E-Mail-Domains zu Registrierung or registrieren.
+2. Folgen Sie der [Apple-Dokumentation](https://developer.apple.com/help/account/configure-app-capabilities/configure-private-email-relay-service), um die E-Mail-Domains zu Registrierung.
 3. Apple prüft die Domains automatisch, zeigt an, welche verifiziert sind, und bietet die Möglichkeit, die Domains erneut zu verifizieren oder zu löschen.
 
 ### Wenn die Versanddomain gleichzeitig die Bounce-Domain ist {#when-the-sending-domain-is-also-the-bounce-domain}
@@ -68,10 +68,10 @@ Um SPF-Fehler zu vermeiden, müssen Sie die MX- und TXT-Einträge erstellen und 
 Um Apple Private Relay einzurichten, sollten Sie idealerweise eine benutzerdefinierte MAIL FROM-Domain eingerichtet haben.
 
 1. Melden Sie sich bei Apple an.
-2. Folgen Sie der [Apple-Dokumentation](https://developer.apple.com/help/account/capabilities/configure-private-email-relay-service), um die E-Mail-Domains zu Registrierung or registrieren.
+2. Folgen Sie der [Apple-Dokumentation](https://developer.apple.com/help/account/capabilities/configure-private-email-relay-service), um die E-Mail-Domains zu Registrierung.
 
 {% alert important %}
-Stellen Sie sicher, dass Ihr DKIM/SPF mit dem übereinstimmt, was Sie gemäß den verlinkten Anweisungen Registrierung or registrieren.
+Stellen Sie sicher, dass Ihr DKIM/SPF mit dem übereinstimmt, was Sie gemäß den verlinkten Anweisungen Registrierung.
 {% endalert %}
 
 {:start="3"}

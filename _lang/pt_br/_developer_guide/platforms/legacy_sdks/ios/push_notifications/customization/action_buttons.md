@@ -14,7 +14,7 @@ noindex: true
 
 # Botões de ação {#push-action-buttons-integration}
 
-O SDK or kit de desenvolvimento de software da Braze para iOS aceita categorias de push padrão, incluindo suporte ao tratamento de URL para cada botão de ação por push. Atualmente, as categorias padrão têm quatro conjuntos de botões de ação por push: `Accept`/`Decline`, `Yes`/`No`, `Confirm`/`Cancel` e `More`.
+O SDK da Braze para iOS aceita categorias de push padrão, incluindo suporte ao tratamento de URL para cada botão de ação por push. Atualmente, as categorias padrão têm quatro conjuntos de botões de ação por push: `Accept`/`Decline`, `Yes`/`No`, `Confirm`/`Cancel` e `More`.
 
 ![Um GIF de uma notificação por push sendo puxada para baixo para exibir dois botões de ação personalizáveis.]({% image_buster /assets/img_archive/iOS8Action.gif %})
 

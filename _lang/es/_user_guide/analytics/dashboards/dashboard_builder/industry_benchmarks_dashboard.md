@@ -10,13 +10,13 @@ description: "Este artículo ofrece un resumen del dashboard de referencias del 
 
 > El dashboard de **referencias del sector** compara el rendimiento de participación de tu espacio de trabajo con referencias agregadas y respetuosas con la privacidad de empresas similares en cada sector.
 
-Usa el dashboard de **referencias del sector** para comparar el rendimiento de tu correo electrónico, push, Content Cards y servicio de mensajes cortos con el de empresas similares del sector, e identificar canales y regiones donde hay oportunidades de optimización.
+Usa el dashboard de **referencias del sector** para comparar el rendimiento de tu correo electrónico, push, Content Cards y SMS con el de empresas similares del sector, e identificar canales y regiones donde hay oportunidades de optimización.
 
 Para ver el dashboard de **referencias del sector**, ve a **Analytics** > **Dashboard Builder** y selecciona **Industry Benchmarks**. Si el dashboard no tiene datos, selecciona **Run Dashboard** para generar los resultados más recientes. Usa los filtros en la parte superior del dashboard para refinar los resultados por vertical del sector o periodo de tiempo.
 
 ## Acerca del panel {#about-the-dashboard}
 
-El panel está organizado en cuatro secciones de canal: **Email**, **Push Notification**, **Content Card** y **servicio de mensajes cortos**:
+El panel está organizado en cuatro secciones de canal: **Email**, **Push Notification**, **Content Card** y **SMS**:
 
 | Sección              | Descripción                                                                                                                                             |
 |----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -78,13 +78,13 @@ Las métricas push están disponibles para iOS, Android, Web y en todas las plat
 ![Métricas de referencia de la industria push mostradas en gráficos de líneas y gráficos de barras.]({% image_buster /assets/img/dashboards/push_industry.png %})
 
 {% endtab %}
-{% tab servicio de mensajes cortos %}
+{% tab SMS %}
 
-<table aria-label="Métricas de servicio de mensajes cortos"><thead><tr><th>Métrica</th><th>Descripción</th><th>Fórmula</th></tr></thead><tbody>
+<table aria-label="Métricas de SMS"><thead><tr><th>Métrica</th><th>Descripción</th><th>Fórmula</th></tr></thead><tbody>
 <tr><td class="no-split"><i>Delivery Rate</i></td><td class="no-split">{% multi_lang_include analytics/metrics.md metric='Deliveries' %}</td><td class="no-split"><i>Deliveries</i> / <i>Unique Sends</i></td></tr>
-<tr><td class="no-split"><i>Short Link Click Rate</i></td><td class="no-split">El porcentaje de usuarios que hicieron clic en un enlace corto después de recibir un servicio de mensajes cortos.</td><td class="no-split"><i>Short Link Clicks</i> / <i>Unique Sends</i></td></tr>
+<tr><td class="no-split"><i>Short Link Click Rate</i></td><td class="no-split">El porcentaje de usuarios que hicieron clic en un enlace corto después de recibir un SMS.</td><td class="no-split"><i>Short Link Clicks</i> / <i>Unique Sends</i></td></tr>
 </tbody></table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Métricas de servicio de mensajes cortos" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Métricas de SMS" }
 
 ![Métricas de referencia de la industria de SMS mostradas en gráficos de líneas y gráficos de barras.]({% image_buster /assets/img/dashboards/sms_industry.png %})
 

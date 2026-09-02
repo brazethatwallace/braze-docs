@@ -7,13 +7,13 @@
 <tr><th>Fuente</th><th>Descripción</th></tr>
 </thead>
 <tbody>
-<tr><td>SDK or kit de desarrollo de software</td><td>Endpoints del SDK or kit de desarrollo de software</td></tr>
+<tr><td>SDK</td><td>Endpoints del SDK</td></tr>
 <tr><td>Dashboard</td><td>Cuando el estado de suscripción de un usuario se actualiza desde la página de perfil de usuario en el panel</td></tr>
 <tr><td>Página de suscripción</td><td>Cuando un usuario cancela su suscripción a través de un enlace de correo electrónico que no es el centro de preferencias</td></tr>
-<tr><td>REST or transferencia de estado representacional API</td><td>Endpoints de la REST or transferencia de estado representacional API</td></tr>
+<tr><td>REST API</td><td>Endpoints de la REST API</td></tr>
 <tr><td>Importación CSV</td><td>Importación de usuarios en CSV</td></tr>
 <tr><td>Centro de preferencias</td><td>Cuando un usuario se actualiza desde el centro de preferencias</td></tr>
-<tr><td>Mensaje entrante</td><td>Cuando un usuario se actualiza mediante mensajes entrantes de usuarios finales a través de canales como servicio de mensajes cortos</td></tr>
+<tr><td>Mensaje entrante</td><td>Cuando un usuario se actualiza mediante mensajes entrantes de usuarios finales a través de canales como SMS</td></tr>
 <tr><td>Migración</td><td>Cuando un usuario se actualiza mediante migraciones internas o scripts de mantenimiento</td></tr>
 <tr><td>Fusión de usuarios</td><td>Cuando un usuario se actualiza mediante el proceso de fusión de usuarios</td></tr>
 <tr><td>Paso de actualización de usuario de Canvas</td><td>Cuando un usuario se actualiza mediante el paso de actualización de usuario de Canvas</td></tr>

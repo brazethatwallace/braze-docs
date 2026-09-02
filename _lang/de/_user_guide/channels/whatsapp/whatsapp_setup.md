@@ -82,7 +82,7 @@ Wenn Sie Ihr Template fertiggestellt haben, klicken Sie auf **Submit**.
 Sie können den Genehmigungsstatus Ihres Nachrichtentemplates entweder auf der Seite **Message Template** im Meta Business Manager:in oder beim Erstellen einer Campaign oder eines Canvas in Braze überprüfen. Zusätzlich können Sie je nach Ihren Benachrichtigungseinstellungen per E-Mail vom WhatsApp-Team benachrichtigt werden.
 
 {% alert note %}
-Genehmigte Templates können in beliebig vielen Campaigns und Canvase verwendet werden. Sie können auch an beliebig viele Nutzer:innen mit Opt-in gesendet werden. Dies gilt, solange die Qualität des Templates nicht abnimmt.
+Genehmigte Templates können in beliebig vielen Campaigns und Canvases verwendet werden. Sie können auch an beliebig viele Nutzer:innen mit Opt-in gesendet werden. Dies gilt, solange die Qualität des Templates nicht abnimmt.
 {% endalert %}
 
 ### Schritt 4: Eine WhatsApp-Campaign erstellen {#step-4-create-a-whatsapp-campaign}

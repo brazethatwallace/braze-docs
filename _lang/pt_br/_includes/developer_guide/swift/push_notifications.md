@@ -16,7 +16,7 @@ No Xcode, acesse a seção **Signing & Capabilities** do alvo principal do app e
 
 ### Etapa 3: Configure o tratamento de push {#step-3-set-up-push-handling}
 
-Você pode usar o SDK or kit de desenvolvimento de software Swift para automatizar o processamento de notificações remotas recebidas da Braze. Essa é a maneira mais simples de lidar com notificações por push e é o método de tratamento recomendado.
+Você pode usar o SDK Swift para automatizar o processamento de notificações remotas recebidas da Braze. Essa é a maneira mais simples de lidar com notificações por push e é o método de tratamento recomendado.
 
 {% tabs local %}
 {% tab Automático %}
@@ -42,18 +42,18 @@ configuration.push.automation = [[BRZConfigurationPushAutomation alloc] initEnab
 {% endsubtab %}
 {% endsubtabs %}
 
-Isso instrui o SDK or kit de desenvolvimento de software a:
+Isso instrui o SDK a:
 - Registrar seu aplicativo para notificações por push no sistema.
 - Solicitar a autorização/permissão de notificação por push na inicialização.
 - Fornecer dinamicamente implementações para os métodos de delegate do sistema relacionados a notificações por push.
 
 {% alert note %}
-As etapas de automação realizadas pelo SDK or kit de desenvolvimento de software são compatíveis com integrações de tratamento de notificações por push preexistentes na sua base de código. O SDK or kit de desenvolvimento de software automatiza apenas o processamento de notificações remotas recebidas da Braze. Qualquer manipulador do sistema implementado para processar notificações remotas do seu próprio app ou de outro SDK or kit de desenvolvimento de software de terceiros continuará funcionando quando a `automation` estiver ativada.
+As etapas de automação realizadas pelo SDK são compatíveis com integrações de tratamento de notificações por push preexistentes na sua base de código. O SDK automatiza apenas o processamento de notificações remotas recebidas da Braze. Qualquer manipulador do sistema implementado para processar notificações remotas do seu próprio app ou de outro SDK de terceiros continuará funcionando quando a `automation` estiver ativada.
 {% endalert %}
 
 {% alert warning %}
-O SDK or kit de desenvolvimento de software deve ser inicializado na thread principal para ativar a automação de notificações por push. A inicialização do SDK or kit de desenvolvimento de software deve ocorrer antes que o aplicativo termine de ser iniciado ou na implementação do [`application(_:didFinishLaunchingWithOptions:)`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622921-application) do seu AppDelegate.
-Se o seu aplicativo exigir configuração adicional antes de inicializar o SDK or kit de desenvolvimento de software, consulte a página de documentação sobre [Inicialização atrasada]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift#step-2-set-up-delayed-initialization-optional).
+O SDK deve ser inicializado na thread principal para ativar a automação de notificações por push. A inicialização do SDK deve ocorrer antes que o aplicativo termine de ser iniciado ou na implementação do [`application(_:didFinishLaunchingWithOptions:)`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622921-application) do seu AppDelegate.
+Se o seu aplicativo exigir configuração adicional antes de inicializar o SDK, consulte a página de documentação sobre [Inicialização atrasada]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift#step-2-set-up-delayed-initialization-optional).
 {% endalert %}
 
 #### Etapa 3.2: Substitua configurações individuais (opcional) {#step-32-override-individual-configurations-optional}
@@ -143,7 +143,7 @@ if (@available(iOS 12.0, *)) {
 
 {% alert warning %}
 Você deve atribuir o objeto delegate usando `center.delegate = self` de forma síncrona antes que o seu app termine de ser iniciado, preferencialmente em `application:didFinishLaunchingWithOptions:`. Não fazer isso pode fazer com que o seu app perca notificações por push recebidas. Acesse a documentação do [`UNUserNotificationCenterDelegate`](https://developer.apple.com/documentation/usernotifications/unusernotificationcenterdelegate) da Apple para saber mais.
-Se o seu app chamar `wipeData()` e posteriormente reativar o SDK or kit de desenvolvimento de software da Braze na mesma execução do app, você deve chamar `registerForRemoteNotifications()` novamente para repopular o token de dispositivo usado pelo SDK or kit de desenvolvimento de software.
+Se o seu app chamar `wipeData()` e posteriormente reativar o SDK da Braze na mesma execução do app, você deve chamar `registerForRemoteNotifications()` novamente para repopular o token de dispositivo usado pelo SDK.
 {% endalert %}
 
 #### Etapa 3.2: Registre tokens de push na Braze {#step-32-register-push-tokens-with-braze}
@@ -289,14 +289,14 @@ Para ativar notificações por push em primeiro plano e permitir que a Braze as 
 
 ## Testando notificações {#push-testing}
 
-Se você quiser testar notificações no app e notificações por push via linha de comando, pode enviar uma única notificação pelo terminal via CURL e a [API or interface de programação do aplicativo (API) de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages). Você precisará substituir os seguintes campos pelos valores corretos para o seu caso de teste:
+Se você quiser testar notificações no app e notificações por push via linha de comando, pode enviar uma única notificação pelo terminal via CURL e a [API de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages). Você precisará substituir os seguintes campos pelos valores corretos para o seu caso de teste:
 
-- `YOUR_API_KEY` — disponível em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**.
+- `YOUR_API_KEY` — disponível em **Configurações** > **Chaves de API**.
 - `YOUR_EXTERNAL_USER_ID` — disponível na página **Pesquisar usuários**. Para saber mais, consulte [atribuir IDs de usuário]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_user_ids#assigning-a-user-id).
 - `YOUR_KEY1` (opcional)
 - `YOUR_VALUE1` (opcional)
 
-No exemplo a seguir, a instância `US-01` está sendo usada. Se você não estiver nessa instância, consulte nossa [documentação da API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics) para ver em qual endpoint fazer solicitações.
+No exemplo a seguir, a instância `US-01` está sendo usada. Se você não estiver nessa instância, consulte nossa [documentação da API]({{site.baseurl}}/api/basics) para ver em qual endpoint fazer solicitações.
 
 ```bash
 curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer {YOUR_API_KEY}" -d '{
@@ -394,11 +394,11 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 }
 ```
 
-Para um exemplo completo, consulte o [exemplo de integração manual de notificações por push](https://github.com/braze-inc/braze-swift-sdk/blob/e31907eaa0dbd151dc2e6826de66cc494242ba60/Examples/Swift/Sources/PushNotifications-Manual/AppDelegate.swift#L1-L120) no repositório do SDK or kit de desenvolvimento de software Swift da Braze.
+Para um exemplo completo, consulte o [exemplo de integração manual de notificações por push](https://github.com/braze-inc/braze-swift-sdk/blob/e31907eaa0dbd151dc2e6826de66cc494242ba60/Examples/Swift/Sources/PushNotifications-Manual/AppDelegate.swift#L1-L120) no repositório do SDK Swift da Braze.
 
 ## Push primers {#push-primers}
 
-Campaigns de push primer incentivam seus usuários a ativar notificações por push no dispositivo para o seu app. Isso pode ser feito sem personalização de SDK or kit de desenvolvimento de software usando nosso [push primer sem código]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages).
+Campaigns de push primer incentivam seus usuários a ativar notificações por push no dispositivo para o seu app. Isso pode ser feito sem personalização de SDK usando nosso [push primer sem código]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages).
 
 ## Gerenciamento dinâmico de gateway APNs {#dynamic-apns-gateway-management}
 
@@ -412,13 +412,13 @@ Com o gerenciamento dinâmico de gateway APNs, você terá:
 
 ### Pré-requisitos {#prerequisites}
 
-A Braze oferece suporte ao gerenciamento dinâmico de gateway APNs para notificações por push no iOS com o seguinte requisito de versão do SDK or kit de desenvolvimento de software:
+A Braze oferece suporte ao gerenciamento dinâmico de gateway APNs para notificações por push no iOS com o seguinte requisito de versão do SDK:
 
 {% sdk_min_versions swift:10.0.0 %}
 
 ### Como funciona
 
-Quando um app iOS se integra ao SDK or kit de desenvolvimento de software Swift da Braze, ele envia dados relacionados ao dispositivo, incluindo [`aps-environment`](https://developer.apple.com/documentation/bundleresources/entitlements/aps-environment), para a API or interface de programação do aplicativo (API) do SDK or kit de desenvolvimento de software da Braze, se disponível. O valor `apns_gateway` indica se o app está usando o ambiente APNs de desenvolvimento (`dev`) ou de produção (`prod`).
+Quando um app iOS se integra ao SDK Swift da Braze, ele envia dados relacionados ao dispositivo, incluindo [`aps-environment`](https://developer.apple.com/documentation/bundleresources/entitlements/aps-environment), para a API do SDK da Braze, se disponível. O valor `apns_gateway` indica se o app está usando o ambiente APNs de desenvolvimento (`dev`) ou de produção (`prod`).
 
 A Braze também armazena o valor de gateway informado para cada dispositivo. Se um novo valor de gateway válido for recebido, a Braze atualiza automaticamente o valor armazenado.
 

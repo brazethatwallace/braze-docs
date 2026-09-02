@@ -11,7 +11,7 @@ search_tag: Partner
 
 # Treasure Data para Currents {#treasure-data-for-currents}
 
-> [Treasure Data](https://www.treasuredata.com/) es una plataforma de datos de clientes (CDP or plataforma de datos de los clientes) que recopila y encamina información de múltiples fuentes a una variedad de otras ubicaciones en tu stack de marketing.
+> [Treasure Data](https://www.treasuredata.com/) es una plataforma de datos de clientes (CDP) que recopila y encamina información de múltiples fuentes a una variedad de otras ubicaciones en tu stack de marketing.
 
 La integración de Braze y Treasure Data te permite controlar el flujo de información entre ambos sistemas. Con Currents, puedes transmitir datos de eventos de Braze a Treasure Data y hacerlos procesables en todo tu stack de crecimiento.
 

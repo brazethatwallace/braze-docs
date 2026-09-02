@@ -3,12 +3,12 @@ nav_title: Solução de problemas
 article_title: Solução de problemas de exportação
 page_order: 6
 page_type: reference
-description: "Diagnostique falhas de exportação CSV e API or interface de programação do aplicativo (API) usando um índice de sintomas, um caminho de investigação padrão e orientações de erros específicos por armazenamento."
+description: "Diagnostique falhas de exportação CSV e API usando um índice de sintomas, um caminho de investigação padrão e orientações de erros específicos por armazenamento."
 ---
 
 # Solução de problemas de exportação {#export-troubleshooting}
 
-> Use esta página para diagnosticar problemas de exportação CSV e API or interface de programação do aplicativo (API) no dashboard e nas APIs de exportação. Para fluxos de trabalho e limites de exportação, consulte [Exportar dados de Segment or segmento or segmento para CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv) e [APIs de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_apis).
+> Use esta página para diagnosticar problemas de exportação CSV e API no dashboard e nas APIs de exportação. Para fluxos de trabalho e limites de exportação, consulte [Exportar dados de Segment para CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv) e [APIs de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_apis).
 
 ## Comece aqui: identifique seu sintoma {#start-here-match-your-symptom}
 
@@ -17,12 +17,12 @@ Encontre o comportamento que você está observando na tabela e vá até a seç�
 | Sintoma | Ir para |
 | --- | --- |
 | O link de download do CSV retorna `AccessDenied`, `ExpiredToken` ou "file doesn't exist" | [Exportação padrão: erros de CSV](#defaultexport_csv-exports) ou [Armazenamento em nuvem: erros de CSV](#csv-exports-1) |
-| A URL de download da exportação via API or interface de programação do aplicativo (API) retorna `403 Forbidden` | [Não é possível fazer download de um ZIP de Segment or segmento exportado](#cant-download-an-exported-segment-zip-from-a-braze-url) |
-| A exportação de Segment or segmento falha ou informa que o Segment or segmento or segmento é muito grande | [O Segment or segmento or segmento é muito grande](#segment-is-too-large-or-export-fails-when-my-segment-looks-under-500000-users) |
-| Nenhum e-mail de exportação de Segment or segmento recebido | [Nenhum e-mail de exportação de Segment or segmento or segmento](#not-receiving-segment-export-emails) |
+| A URL de download da exportação via API retorna `403 Forbidden` | [Não é possível fazer download de um ZIP de Segment exportado](#cant-download-an-exported-segment-zip-from-a-braze-url) |
+| A exportação de Segment falha ou informa que o Segment é muito grande | [O Segment é muito grande](#segment-is-too-large-or-export-fails-when-my-segment-looks-under-500000-users) |
+| Nenhum e-mail de exportação de Segment recebido | [Nenhum e-mail de exportação de Segment](#not-receiving-segment-export-emails) |
 | A contagem de linhas do CSV não corresponde à análise de dados da campanha | [Divergência na análise de dados de Campaign e Canvas](#number-of-users-in-csv-export-doesnt-match-messages-sent-or-unique-recipients) |
 | Colunas esperadas ausentes no arquivo de exportação | [Colunas ausentes](#expected-columns-are-missing-from-a-segment-export-file) |
-| A exportação para armazenamento em nuvem exibe `AccessDenied` ou `ExpiredToken` | [Armazenamento em nuvem conectado: erros de API or interface de programação do aplicativo (API)](#common-errors-1) |
+| A exportação para armazenamento em nuvem exibe `AccessDenied` ou `ExpiredToken` | [Armazenamento em nuvem conectado: erros de API](#common-errors-1) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Sintoma de exportação" }
 
 ## Caminho de investigação padrão {#standard-investigation-path}
@@ -33,12 +33,12 @@ Use este fluxo de trabalho para todo incidente de exportação. Comece na etapa 
 2. Para exportações CSV do dashboard, confirme que você está conectado à Braze ao abrir o link de download. Links do bucket padrão exigem uma sessão ativa no dashboard.
 3. Verifique há quanto tempo a exportação foi concluída. Links de download enviados por e-mail pelo dashboard expiram após quatro horas, seja usando o bucket padrão da Braze ou um parceiro de armazenamento conectado. Quando um parceiro de armazenamento está conectado, a Braze também envia uma cópia para o seu bucket; essa cópia segue suas políticas de retenção e pode permanecer disponível após a expiração do link do e-mail.
 4. Para exportações grandes de Segments, confirme que o público está abaixo do limite de 500.000 usuários para exportação CSV do dashboard. As estimativas do criador de segmentos podem diferir da avaliação do pipeline de exportação.
-5. Para exportações via API or interface de programação do aplicativo (API), aguarde o processamento terminar antes de fazer o download. Use `callback_endpoint` em [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) ou faça polling com backoff exponencial em vez de solicitar a URL imediatamente.
-6. Se você ainda estiver bloqueado, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) informando o tipo de exportação (CSV ou API or interface de programação do aplicativo (API)), o ID do Segment or segmento ou da Campaign, o timestamp (com fuso horário) e a mensagem de erro exata.
+5. Para exportações via API, aguarde o processamento terminar antes de fazer o download. Use `callback_endpoint` em [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) ou faça polling com backoff exponencial em vez de solicitar a URL imediatamente.
+6. Se você ainda estiver bloqueado, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) informando o tipo de exportação (CSV ou API), o ID do Segment ou da Campaign, o timestamp (com fuso horário) e a mensagem de erro exata.
 
 ## Destinos de armazenamento {#cloud-storage-connected}
 
-Use as guias para selecionar se você está exportando para o bucket S3 padrão da Braze ou para um parceiro de armazenamento em nuvem. Para orientações sobre armazenamento em nuvem, abra a guia **Armazenamento em nuvem conectado** e revise as seções de CSV e API or interface de programação do aplicativo (API).
+Use as guias para selecionar se você está exportando para o bucket S3 padrão da Braze ou para um parceiro de armazenamento em nuvem. Para orientações sobre armazenamento em nuvem, abra a guia **Armazenamento em nuvem conectado** e revise as seções de CSV e API.
 
 {% sdktabs %}
 {% sdktab Default export %}
@@ -61,16 +61,16 @@ Você deve estar logado no dashboard da Braze para usar o link, e o arquivo fica
 - A mensagem `Looks like the file doesn't exist anymore` geralmente aparece quando o e-mail é enviado, mas o arquivo ainda não terminou de ser enviado para o S3. Aguardar alguns minutos geralmente resolve o problema.
 - Apóstrofos adicionados no início de certos campos (como `-`, `=`, `+` ou `@`) são esperados. Por exemplo, `-1943` se torna `'-1943` no CSV. A Braze faz isso para evitar que programas de planilhas interpretem os dados incorretamente. Isso não se aplica a exportações JSON, como as retornadas pelo [endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment).
 
-### Exportações de API or interface de programação do aplicativo (API) {#api-exports}
+### Exportações de API {#api-exports}
 
-Sintoma: uma chamada à API or interface de programação do aplicativo (API) de exportação é bem-sucedida, mas a URL de download falha ou retorna dados vazios.
+Sintoma: uma chamada à API de exportação é bem-sucedida, mas a URL de download falha ou retorna dados vazios.
 
 
-Quando você exporta através das APIs de exportação sem armazenamento em nuvem, a Braze grava os arquivos no seu bucket S3. Você não receberá um e-mail — em vez disso, a resposta da API or interface de programação do aplicativo (API) inclui uma URL de download temporária. A exportação vem como um ZIP contendo vários arquivos JSON, cada um com um usuário por linha.
+Quando você exporta através das APIs de exportação sem armazenamento em nuvem, a Braze grava os arquivos no seu bucket S3. Você não receberá um e-mail — em vez disso, a resposta da API inclui uma URL de download temporária. A exportação vem como um ZIP contendo vários arquivos JSON, cada um com um usuário por linha.
 
-Assim como as exportações CSV, os links da API or interface de programação do aplicativo (API) expiram após quatro horas. Se você abrir o link cedo demais, pode ver erros porque o arquivo ainda não está pronto. Você pode fornecer um `callback_endpoint` na sua solicitação se quiser que a Braze notifique você quando o arquivo estiver disponível.
+Assim como as exportações CSV, os links da API expiram após quatro horas. Se você abrir o link cedo demais, pode ver erros porque o arquivo ainda não está pronto. Você pode fornecer um `callback_endpoint` na sua solicitação se quiser que a Braze notifique você quando o arquivo estiver disponível.
 
-Exportações grandes de API or interface de programação do aplicativo (API) também podem atingir o tempo limite. Se isso acontecer, tente fazer solicitações menores ou conecte um parceiro de armazenamento para lidar com o volume.
+Exportações grandes de API também podem atingir o tempo limite. Se isso acontecer, tente fazer solicitações menores ou conecte um parceiro de armazenamento para lidar com o volume.
 
 #### Erros comuns
 
@@ -98,9 +98,9 @@ No armazenamento em nuvem, as exportações CSV são agrupadas em um arquivo ZIP
 - Se alguns arquivos parecerem menores do que o esperado, isso é um comportamento normal. O processo de exportação divide intencionalmente os arquivos para garantir estabilidade.
 - Apóstrofos adicionados no início de certos campos (como `-`, `=`, `+` ou `@`) são esperados. Por exemplo, `-1943` se torna `'-1943` no CSV. A Braze faz isso para evitar que programas de planilhas interpretem os dados incorretamente. Isso não se aplica a exportações JSON, como as retornadas pelo [endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment).
 
-### Exportações de API or interface de programação do aplicativo (API)
+### Exportações de API
 
-Sintoma: as exportações via API or interface de programação do aplicativo (API) não aparecem no seu bucket ou os arquivos estão incompletos.
+Sintoma: as exportações via API não aparecem no seu bucket ou os arquivos estão incompletos.
 
 
 Quando você exporta dados através das APIs com um parceiro de armazenamento conectado, os arquivos de exportação são gravados no seu bucket. Nenhum e-mail é enviado. Os objetos subjacentes ficam no seu armazenamento e seguem suas configurações de retenção, mesmo que as URLs de download retornadas pela Braze possam ainda ter limite de tempo.
@@ -133,53 +133,53 @@ Se os usuários podem (ou puderam em algum momento) receber a Campaign mais de u
 
 A exportação CSV fornece um retrato dos usuários existentes que receberam uma determinada Campaign ou Canvas. Como os usuários podem ser excluídos ou mesclados, a contagem da exportação CSV pode ser menor do que a contagem de destinatários únicos. Por exemplo, se 1.000 usuários recebem uma Campaign, a Campaign mostra 1.000 destinatários únicos e a exportação CSV no mesmo dia também mostra 1.000 usuários. Se um mês depois 50 desses 1.000 usuários forem excluídos, a exportação CSV conterá 950 usuários, enquanto a contagem incrementada de destinatários únicos ainda será 1.000.
 
-## E-mails de exportação de Segment or segmento pelo dashboard {#dashboard-segment-export-emails}
+## E-mails de exportação de Segment pelo dashboard {#dashboard-segment-export-emails}
 
-### O Segment or segmento é muito grande ou a exportação falha mesmo quando meu Segment or segmento parece ter menos de 500.000 usuários {#segment-is-too-large-or-export-fails-when-my-segment-looks-under-500000-users}
+### O Segment é muito grande ou a exportação falha mesmo quando meu Segment parece ter menos de 500.000 usuários {#segment-is-too-large-or-export-fails-when-my-segment-looks-under-500000-users}
 
-Sintoma: a exportação de Segment or segmento pelo dashboard falha ou exibe um erro de tamanho, mesmo quando a estimativa do Segment or segmento parece aceitável.
+Sintoma: a exportação de Segment pelo dashboard falha ou exibe um erro de tamanho, mesmo quando a estimativa do Segment parece aceitável.
 
 
-O **tamanho do Segment or segmento no dashboard é uma estimativa**. A exportação CSV usa essa estimativa para aplicar o [limite de exportação de 500.000 usuários]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#segment-csv-export-details); o pipeline de exportação também pode avaliar o tamanho de forma diferente da interface do criador de segmentos. Se as exportações falharem para um Segment or segmento próximo desse limite, use [números de bucket aleatórios]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers), divida o público em Segments menores ou use o [endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) conforme descrito em [Exportando Segments grandes]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#exporting-large-segments).
+O **tamanho do Segment no dashboard é uma estimativa**. A exportação CSV usa essa estimativa para aplicar o [limite de exportação de 500.000 usuários]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#segment-csv-export-details); o pipeline de exportação também pode avaliar o tamanho de forma diferente da interface do criador de segmentos. Se as exportações falharem para um Segment próximo desse limite, use [números de bucket aleatórios]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers), divida o público em Segments menores ou use o [endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) conforme descrito em [Exportando Segments grandes]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#exporting-large-segments).
 
-### Por que não estou recebendo e-mails de exportação de Segment or segmento? {#not-receiving-segment-export-emails}
+### Por que não estou recebendo e-mails de exportação de Segment? {#not-receiving-segment-export-emails}
 
-Sintoma: uma exportação CSV de Segment or segmento foi acionada, mas nenhum e-mail chegou.
+Sintoma: uma exportação CSV de Segment foi acionada, mas nenhum e-mail chegou.
 
 
 Primeiro, verifique a pasta de SPAM para um e-mail de `no-reply@alerts.braze.com`. Se o e-mail estiver lá, adicione esse endereço à sua lista de remetentes confiáveis para que futuras mensagens de exportação não sejam filtradas.
 
 Se o e-mail não estiver na sua pasta de SPAM, verifique se outra pessoa da sua equipe consegue receber a exportação. Se ninguém conseguir, considere o tamanho da sua exportação. O tempo de entrega varia conforme o tamanho da exportação, mas se o e-mail não tiver chegado após uma hora, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
-## Downloads da API or interface de programação do aplicativo (API) de exportação de Segment or segmento {#segment-export-api-downloads}
+## Downloads da API de exportação de Segment {#segment-export-api-downloads}
 
-### Não é possível baixar um ZIP de Segment or segmento exportado a partir de uma URL da Braze {#cant-download-an-exported-segment-zip-from-a-braze-url}
+### Não é possível baixar um ZIP de Segment exportado a partir de uma URL da Braze {#cant-download-an-exported-segment-zip-from-a-braze-url}
 
 Sintoma: um erro `403 Forbidden` ao fazer download a partir da URL de resposta de `/users/export/segment`.
 
 
 Se você receber um erro `403 Forbidden` ao usar o [endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment), o arquivo pode ainda não estar pronto. Exportações grandes podem levar um tempo para serem processadas. Aguarde até uma hora antes de tentar o download novamente.
 
-Se você usa um script automatizado para recuperar o arquivo, também pode receber um erro `403 Forbidden` ao solicitar a URL cedo demais. Se você exporta dados de Segment or segmento regularmente, considere conectar sua própria integração de bucket S3 e direcionar os arquivos para seu próprio pipeline de extração, transformação e carregamento (ETL).
+Se você usa um script automatizado para recuperar o arquivo, também pode receber um erro `403 Forbidden` ao solicitar a URL cedo demais. Se você exporta dados de Segment regularmente, considere conectar sua própria integração de bucket S3 e direcionar os arquivos para seu próprio pipeline de extração, transformação e carregamento (ETL).
 
 As exportações levam tempo para serem concluídas, então o acesso imediato a partir de um script geralmente falha. Você pode:
 
 - Consultar a URL de download com backoff exponencial, ou
 - Usar o [parâmetro `callback_endpoint`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment#request-parameters) e apontá-lo para um serviço que execute seu script quando a exportação estiver pronta.
 
-## Campos da API or interface de programação do aplicativo (API) de exportação de Segments e usuários {#segment-and-user-export-api-fields}
+## Campos da API de exportação de Segments e usuários {#segment-and-user-export-api-fields}
 
-### Colunas esperadas estão ausentes de um arquivo de exportação de Segment or segmento or segmento {#expected-columns-are-missing-from-a-segment-export-file}
+### Colunas esperadas estão ausentes de um arquivo de exportação de Segment {#expected-columns-are-missing-from-a-segment-export-file}
 
-Sintoma: Uma exportação via API or interface de programação do aplicativo (API) ou dashboard está sem campos que você esperava.
+Sintoma: Uma exportação via API ou dashboard está sem campos que você esperava.
 
 
-A opção **CSV Export User Data** do dashboard em um Segment or segmento or segmento usa um conjunto fixo de colunas (consulte [Exportar dados de Segment or segmento or segmento para CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#data-included-in-export)). Ela não inclui uma coluna ou parâmetro `fields_to_export`.
+A opção **CSV Export User Data** do dashboard em um Segment usa um conjunto fixo de colunas (consulte [Exportar dados de Segment para CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#data-included-in-export)). Ela não inclui uma coluna ou parâmetro `fields_to_export`.
 
-Para exportações de Segment or segmento or segmento via API or interface de programação do aplicativo (API), você deve informar `fields_to_export` no corpo da requisição. Alguns campos carregam dados relacionados automaticamente — por exemplo, solicitar `canvases_received` também requer dados de resumo de jornada no perfil de usuário. Consulte a referência do endpoint [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) para nomes de campos válidos e requisitos.
+Para exportações de Segment via API, você deve informar `fields_to_export` no corpo da requisição. Alguns campos carregam dados relacionados automaticamente — por exemplo, solicitar `canvases_received` também requer dados de resumo de jornada no perfil de usuário. Consulte a referência do endpoint [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) para nomes de campos válidos e requisitos.
 
-Se houver colunas ausentes no ZIP de exportação da API or interface de programação do aplicativo (API), confirme se o array `fields_to_export` na sua requisição inclui todos os campos necessários e se o seu espaço de trabalho possui as permissões de exportação exigidas.
+Se houver colunas ausentes no ZIP de exportação da API, confirme se o array `fields_to_export` na sua requisição inclui todos os campos necessários e se o seu espaço de trabalho possui as permissões de exportação exigidas.
 
 ## Quando entrar em contato com o suporte {#when-to-contact-support}
 
-Entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) se você concluiu o [caminho de investigação padrão](#standard-investigation-path) e ainda precisa de ajuda. Inclua o tipo de exportação, o Segment or segmento ou o ID da Campaign, o registro de data e hora (com fuso horário) e a mensagem de erro exata ou o código de status HTTP.
+Entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) se você concluiu o [caminho de investigação padrão](#standard-investigation-path) e ainda precisa de ajuda. Inclua o tipo de exportação, o Segment ou o ID da Campaign, o registro de data e hora (com fuso horário) e a mensagem de erro exata ou o código de status HTTP.

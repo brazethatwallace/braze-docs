@@ -235,7 +235,7 @@ Para más detalles sobre cómo el escaneo del lado del servidor puede afectar la
 
 ### ¿Por qué ha cambiado inesperadamente mi tasa de apertura por máquina? {#why-has-my-machine-open-rate-changed-unexpectedly}
 
-Las [aperturas por máquina]({{site.baseurl}}/user_guide/analytics/metrics_glossary#machine-opens) son desencadenadas por funciones de seguridad de correo electrónico como la protección de privacidad de correo de Apple (MPP or protección de la privacidad en los correos electrónicos), que precarga el contenido del correo electrónico (incluyendo el píxel de seguimiento) sin que el usuario abra físicamente el correo. Las tasas de apertura por máquina pueden fluctuar según:
+Las [aperturas por máquina]({{site.baseurl}}/user_guide/analytics/metrics_glossary#machine-opens) son desencadenadas por funciones de seguridad de correo electrónico como la protección de privacidad de correo de Apple (MPP), que precarga el contenido del correo electrónico (incluyendo el píxel de seguimiento) sin que el usuario abra físicamente el correo. Las tasas de apertura por máquina pueden fluctuar según:
 
 - Cambios en la proporción de tu audiencia que usa Apple Mail u otros clientes de correo electrónico con privacidad habilitada.
 - Actualizaciones en las funciones de privacidad del proveedor de correo electrónico o los comportamientos de detección de bots.

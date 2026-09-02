@@ -18,20 +18,20 @@ Para saber mais sobre direcionamento de usuários, confira nosso [curso do Braze
 
 ## Etapa 1: Segmentar usuários {#step-1-segment-users}
 
-Primeiro, vamos criar um Segment or segmento para direcionar usuários que não usaram seu app nas últimas duas semanas, usando os seguintes filtros:
+Primeiro, vamos criar um Segment para direcionar usuários que não usaram seu app nas últimas duas semanas, usando os seguintes filtros:
 
 - **Last Used App** há mais de 2 semanas
 - **Last Used App** há menos de 3 semanas
 
 ![Captura de tela relacionada à etapa 1: segmentar usuários.]({% image_buster /assets/img_archive/2weeklapse1.png %}){: style="max-width:70%;"}
 
-Dê ao Segment or segmento um nome fácil de lembrar, como "Lapsed Users – 2 Weeks". Como estamos configurando a Campaign para se repetir semanalmente, queremos garantir que haja pelo menos uma semana de usuários capturados no Segment or segmento. É por isso que selecionamos usuários que usaram o app pela última vez entre duas e três semanas atrás.
+Dê ao Segment um nome fácil de lembrar, como "Lapsed Users – 2 Weeks". Como estamos configurando a Campaign para se repetir semanalmente, queremos garantir que haja pelo menos uma semana de usuários capturados no Segment. É por isso que selecionamos usuários que usaram o app pela última vez entre duas e três semanas atrás.
 
 ## Etapa 2: Criar uma campaign {#step-2-create-a-campaign}
 
-Em seguida, clique em **Create Campaign** e escolha o tipo de campaign que enviaremos para esse Segment or segmento or segmento. Neste exemplo, criaremos uma nova [campanha de push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message).
+Em seguida, clique em **Create Campaign** e escolha o tipo de campaign que enviaremos para esse Segment. Neste exemplo, criaremos uma nova [campanha de push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message).
 
-![Em seguida, clique em Create Campaign e escolha o tipo de campaign que enviaremos para esse Segment or segmento or segmento. Neste exemplo, criaremos uma nova campanha de push.]({% image_buster /assets/img_archive/2weeklapse2.png %}){: style="max-width:70%;"}
+![Em seguida, clique em Create Campaign e escolha o tipo de campaign que enviaremos para esse Segment. Neste exemplo, criaremos uma nova campanha de push.]({% image_buster /assets/img_archive/2weeklapse2.png %}){: style="max-width:70%;"}
 
 Vamos nomear a campaign como "Message to Lapsed Users - 2 Weeks" e então criar o conteúdo da nossa mensagem. Neste exemplo, vamos direcionar apenas usuários iOS, mas você pode usar a Braze para notificações por push tanto no Android quanto no iOS.
 

@@ -24,15 +24,15 @@ Vous sélectionnez le type d'agent dans **Agent Console** lorsque vous créez l'
 
 ## Bonnes pratiques {#best-practices}
 
-Ciblez les cas d'usage à forte valeur ajoutée où les agents peuvent générer le meilleur ROI or retour sur investissement or retour sur investissement (ROI or retour sur investissement), et choisissez des audiences susceptibles de répondre. Une audience plus restreinte mais à fort potentiel surpasse souvent une audience large avec peu d'opportunités.
+Ciblez les cas d'usage à forte valeur ajoutée où les agents peuvent générer le meilleur ROI (ROI), et choisissez des audiences susceptibles de répondre. Une audience plus restreinte mais à fort potentiel surpasse souvent une audience large avec peu d'opportunités.
 
 Pour les agents d'étape Canvas, commencez par les utilisateurs qui présentent des signaux forts — tels que des recherches récentes, un engagement élevé ou des données de profil riches — avant de vous étendre à des Segments plus larges. Pour les agents de catalogue, privilégiez les lignes où les colonnes d'entrée dont vous avez besoin sont déjà renseignées, afin que chaque invocation dispose de suffisamment de contexte pour produire un résultat utile.
 
-Pour tester le ROI or retour sur investissement à petite échelle avant de déployer un agent à grande échelle, utilisez une étape [Chemins d'expérience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) afin que seule une partie de votre audience entre dans la branche contenant votre étape Agent.
+Pour tester le ROI à petite échelle avant de déployer un agent à grande échelle, utilisez une étape [Chemins d'expérience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) afin que seule une partie de votre audience entre dans la branche contenant votre étape Agent.
 
 ### Passer à l'échelle après un test réussi {#scale-after-a-successful-test}
 
-Lorsqu'un test à petite échelle (par exemple, une branche [Chemins d'expérience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step)) montre une qualité et un ROI or retour sur investissement acceptables, prévoyez de déployer l'agent auprès de l'ensemble de votre audience cible (et pas uniquement le groupe de test) afin que chaque utilisateur éligible en bénéficie.
+Lorsqu'un test à petite échelle (par exemple, une branche [Chemins d'expérience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step)) montre une qualité et un ROI acceptables, prévoyez de déployer l'agent auprès de l'ensemble de votre audience cible (et pas uniquement le groupe de test) afin que chaque utilisateur éligible en bénéficie.
 
 Avant de passer à l'échelle, tenez compte des éléments suivants :
 

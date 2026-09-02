@@ -20,7 +20,7 @@ Das Ziel von StyleRyde ist einfach: Sie möchten, dass Nutzer:innen über ihre A
 ## Fallbeispiel 2: Welche Schritte sind nötig, um dieses Ziel nach der App-Installation zu erreichen? {#case-question-2-what-are-the-steps-to-reach-that-goal-after-app-installation}
 
 1. StyleRyde benötigt, dass Nutzer:innen den Registrierungsprozess starten und ihre persönlichen Daten eingeben.
-2. StyleRyde benötigt, dass Nutzer:innen die Registrierung abschließen und überprüfen, indem sie einen per Kurzmitteilungsdienst or SMS erhaltenen Code in die App eingeben.
+2. StyleRyde benötigt, dass Nutzer:innen die Registrierung abschließen und überprüfen, indem sie einen per SMS erhaltenen Code in die App eingeben.
 3. StyleRyde benötigt, dass Nutzer:innen versuchen, ein Taxi for Email zu rufen.
 4. StyleRyde muss verfügbar sein, wenn Nutzer:innen ein Taxi for Email rufen.
 
@@ -56,5 +56,5 @@ Diese Attribute ermöglichen es Ihnen, Campaigns an Nutzer:innen zu senden, wie 
 2. Unsere Nachrichten-Templates und [Personalisierungs-Features]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize) nutzen, um das Attribut für den eindeutigen Aktionscode in Nachrichten einzufügen, die an Nutzer:innen gerichtet sind.
 
 {% alert important %}
-Braze blockiert Nutzerprofile („Dummy-Nutzer:innen“) mit mehr als 5.000.000 Sitzungen, mehr als 20.000 verschiedenen angepassten Event-Namen oder mehr als 20.000 verschiedenen Produktnamen in Käufen, da diese in der Regel das Ergebnis einer fehlerhaften Integration sind. Nachdem ein Profil blockiert wurde, stoppt Braze die Aufnahme aller eingehenden Daten für dieses Profil – sowohl von den SDKs als auch von der Representational State Transfer API. Wenn Sie feststellen, dass dies bei einem/einer legitimen Nutzer:in passiert ist, wenden Sie sich an Ihren Braze Account Manager:in.
+Braze blockiert Nutzerprofile („Dummy-Nutzer:innen“) mit mehr als 5.000.000 Sitzungen, mehr als 20.000 verschiedenen angepassten Event-Namen oder mehr als 20.000 verschiedenen Produktnamen in Käufen, da diese in der Regel das Ergebnis einer fehlerhaften Integration sind. Nachdem ein Profil blockiert wurde, stoppt Braze die Aufnahme aller eingehenden Daten für dieses Profil – sowohl von den SDKs als auch von der REST API. Wenn Sie feststellen, dass dies bei einem/einer legitimen Nutzer:in passiert ist, wenden Sie sich an Ihren Braze Account Manager:in.
 {% endalert %}

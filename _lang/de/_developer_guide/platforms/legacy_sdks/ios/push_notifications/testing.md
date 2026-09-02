@@ -18,7 +18,7 @@ Wenn Sie In-App- und Push-Benachrichtigungen über die Befehlszeile testen möch
 
 Erforderliche Felder:
 
-- `YOUR-API-KEY-HERE` – verfügbar unter **Einstellungen** > **API-Schlüssel**. Stellen Sie sicher, dass der Schlüssel berechtigt ist, Nachrichten über den Representational State Transfer-API-Endpunkt `/messages/send` zu versenden.
+- `YOUR-API-KEY-HERE` – verfügbar unter **Einstellungen** > **API-Schlüssel**. Stellen Sie sicher, dass der Schlüssel berechtigt ist, Nachrichten über den REST-API-Endpunkt `/messages/send` zu versenden.
 - `EXTERNAL_USER_ID` – verfügbar auf der Seite **Nutzer:innen suchen**.
 - `REST_API_ENDPOINT_URL` – aufgeführt auf der Braze-Seite [Instanzen]({{site.baseurl}}/api/basics#endpoints. Ensure using the endpoint corresponds to the Braze instance your workspace is on.
 

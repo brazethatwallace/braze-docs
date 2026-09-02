@@ -55,7 +55,7 @@ Bestimmte Events geben einen `platform`-Wert zurück, der die Plattform des Nutz
 {% details Hinweise zu Kundenverhaltens- und Nutzer-Events %}
 
 - Currents verwirft Events mit übermäßig großen Payloads von mehr als 900&nbsp;KB.
-- Viele der Events in diesem Glossar werden vom SDK or Software-Development-Kit initiiert. Einige Events, wie z. B. `token_state_change`, können entweder vom SDK or Software-Development-Kit oder vom Backend initiiert werden (beispielsweise als Reaktion auf einen Push-Bounce). Die Felder `sdk_version`, `gender`, `language` und `country` werden nur für SDK or Software-Development-Kit-initiierte Events gesetzt; bei Backend-initiierten Events oder wenn diese Informationen nicht verfügbar oder nicht für die Nutzer:innen gesetzt sind, können diese Felder `null` sein.
+- Viele der Events in diesem Glossar werden vom SDK initiiert. Einige Events, wie z. B. `token_state_change`, können entweder vom SDK oder vom Backend initiiert werden (beispielsweise als Reaktion auf einen Push-Bounce). Die Felder `sdk_version`, `gender`, `language` und `country` werden nur für SDK-initiierte Events gesetzt; bei Backend-initiierten Events oder wenn diese Informationen nicht verfügbar oder nicht für die Nutzer:innen gesetzt sind, können diese Felder `null` sein.
 
 {% enddetails %}
 
@@ -64,7 +64,7 @@ Bestimmte Events geben einen `platform`-Wert zurück, der die Plattform des Nutz
 <!--overview-end-->
 
 {% api %}
-## Update or aktualisieren-Events für zufällige Bucket-Nummern {#random-bucket-number-update-events}
+## Update-Events für zufällige Bucket-Nummern {#random-bucket-number-update-events}
 
 {% apitags %}
 Random Bucket Number
@@ -74,7 +74,7 @@ Dieses Nutzer-Event wird jedes Mal ausgelöst, wenn ein:e neue:r Nutzer:in inner
 
 {% alert important %}
 Dieses Currents-Event ist nur für Kund:innen verfügbar, die einen „All Events Connector“ erworben haben, und steht nur für Storage-Event-Konnektoren (wie Amazon S3, Microsoft Azure und Google Cloud Storage) zur Verfügung.
-<br><br>Wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in, um dieses Event zu aktivieren und den Backfill für die zufälligen Bucket-Nummern bestehender Nutzer:innen in Ihrem Workspace zu planen.
+<br><br>Wenden Sie sich an Ihren CSM, um dieses Event zu aktivieren und den Backfill für die zufälligen Bucket-Nummern bestehender Nutzer:innen in Ihrem Workspace zu planen.
 {% endalert %}
 
 {% tabs %}
@@ -250,7 +250,7 @@ Dieses Event tritt ein, wenn ein bestimmtes angepasstes Event getriggert wird. V
 
 - Bei angepassten Events wird die Payload auch mit allen [angepassten Event-Eigenschaften]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties) befüllt, die mit dem Event verknüpft sind.
 - Für `ad_id`, `ad_id_type` und `ad_tracking_enabled` müssen Sie den Identifier for Advertisers (IDFA) für iOS und die Google Ad ID für Android explizit über die nativen SDKs erfassen. Mehr erfahren Sie hier: [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in oder Account Manager:in, um den Feature-Flipper zum Senden von `ad_id` zu aktivieren.
+- Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren CSM oder Account Manager:in, um den Feature-Flipper zum Senden von `ad_id` zu aktivieren.
 
 {% endapi %}
 
@@ -373,7 +373,7 @@ Dieses Event wird ausgelöst, wenn eine App-Installation einer Quelle zugeordnet
 Locations
 {% endapitags %}
 
-Dieses Event wird getriggert, wenn ein:e Nutzer:in einen bestimmten Standort besucht. Verwenden Sie es, um Nutzer:innen zu tracken, die Standort-Events in Ihrer App Trigger or triggern or triggern.
+Dieses Event wird getriggert, wenn ein:e Nutzer:in einen bestimmten Standort besucht. Verwenden Sie es, um Nutzer:innen zu tracken, die Standort-Events in Ihrer App triggern.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -537,7 +537,7 @@ Dieses Event wird getriggert, wenn ein:e Nutzer:in einen bestimmten Standort bes
 ### Details zu den Eigenschaften
 
 - Für `ad_id`, `ad_id_type` und `ad_tracking_enabled` müssen Sie den Identifier for Advertisers (IDFA) für iOS und die Google Ad ID für Android explizit über die nativen SDKs erfassen. Mehr erfahren Sie hier: [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in oder Account Manager:in, um den Feature-Flipper zum Senden von `ad_id` zu aktivieren.
+- Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren CSM oder Account Manager:in, um den Feature-Flipper zum Senden von `ad_id` zu aktivieren.
 
 {% endapi %}
 
@@ -708,7 +708,7 @@ Käufe sind spezielle angepasste Events und werden mit einem JSON-kodierten Stri
 
 - Bei Kauf-Events wird die Payload auch mit den [Kauf-Event-Eigenschaften]({{site.baseurl}}/user_guide/data/activation/events/purchase_events#purchase-properties) befüllt, die mit dem Event verknüpft sind.
 - Für `ad_id`, `ad_id_type` und `ad_tracking_enabled` müssen Sie den Identifier for Advertisers (IDFA) für iOS und die Google Ad ID für Android explizit über die nativen SDKs erfassen. Mehr erfahren Sie hier: [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in oder Account Manager:in, um den Feature-Flipper zum Senden von `ad_id` zu aktivieren.
+- Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren CSM oder Account Manager:in, um den Feature-Flipper zum Senden von `ad_id` zu aktivieren.
 
 {% endapi %}
 
@@ -1264,18 +1264,18 @@ Dieses Event tritt ein, wenn Braze das Live-Activity-Push-to-Start-Token / Textb
 
 ### Details zu den Eigenschaften
 
-- Braze löst ein „Update or aktualisieren“-Event mit `push_token_state_change_type` auf `"update"` aus, wenn ein:e anonyme:r Nutzer:in auf demselben Profil identifiziert wird und bestehende iOS-Live-Activity-Push-to-Start-Tokens auf diesem Profil verbleiben. In diesem Fall ändert sich die `user_id` nicht, und `external_user_id` wird auf die externe ID des/der identifizierten Nutzer:in gesetzt. Dies umfasst die Identifizierung über den [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)-Endpunkt und SDK or Software-Development-Kit-`changeUser`, wenn dem anonymen Profil auf dem Gerät eine externe ID zugewiesen wird.
+- Braze löst ein „update“-Event mit `push_token_state_change_type` auf `"update"` aus, wenn ein:e anonyme:r Nutzer:in auf demselben Profil identifiziert wird und bestehende iOS-Live-Activity-Push-to-Start-Tokens auf diesem Profil verbleiben. In diesem Fall ändert sich die `user_id` nicht, und `external_user_id` wird auf die externe ID des/der identifizierten Nutzer:in gesetzt. Dies umfasst die Identifizierung über den [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)-Endpunkt und SDK-`changeUser`, wenn dem anonymen Profil auf dem Gerät eine externe ID zugewiesen wird.
 
 {% endapi %}
 
 {% api %}
-## Live-Activity-Update or aktualisieren-Token / Textbaustein-Änderungs-Events {#live-activity-update-token-change-events}
+## Live-Activity-Update-Token / Textbaustein-Änderungs-Events {#live-activity-update-token-change-events}
 
 {% apitags %}
-Live Activity, Update or aktualisieren Token / Textbaustein
+Live Activity, Update Token / Textbaustein
 {% endapitags %}
 
-Dieses Event tritt ein, wenn Braze das Live-Activity-Update or aktualisieren-Token / Textbaustein mit dem/der Nutzer:in synchronisiert.
+Dieses Event tritt ein, wenn Braze das Live-Activity-Update-Token / Textbaustein mit dem/der Nutzer:in synchronisiert.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -1579,15 +1579,15 @@ Dieses Event tritt ein, wenn ein Push-Token / Textbaustein eingefügt, aktualisi
   - Wenn die Nutzer:innen die Berechtigung für Push-Benachrichtigungen auf ihrem Gerät ausdrücklich erteilt haben, ist der Wert `false`, und das Token / Textbaustein kann Push-Benachrichtigungen im Vordergrund empfangen.
   - Wenn die Nutzer:innen die Berechtigung für Push-Benachrichtigungen auf ihrem Gerät ausdrücklich abgelehnt haben, ist der Wert `true`, und das Token / Textbaustein ist nur für Hintergrund-Push-Benachrichtigungen zulässig.
   - Wenn die Push-Berechtigung noch nicht festgelegt wurde (z. B. wenn die Nutzer:innen noch nicht auf die Betriebssystem-Abfrage reagiert haben), ist der Wert `true`, und das Token / Textbaustein ist nur für Hintergrund-Push-Benachrichtigungen zulässig.
-  - Dieses Feld kann `null` sein (oder leer, je nach Zielformat) bei älteren SDK or Software-Development-Kit-Token / Textbaustein-Registrierungen, die den Berechtigungsstatus noch nicht gemeldet haben, sowie bei Web-Push-Tokens. Behandeln Sie `null` wie `false` (Vordergrund-Push möglich), da Braze weiterhin versucht, Vordergrund-Push-Benachrichtigungen an diese Tokens zu senden.
+  - Dieses Feld kann `null` sein (oder leer, je nach Zielformat) bei älteren SDK-Token / Textbaustein-Registrierungen, die den Berechtigungsstatus noch nicht gemeldet haben, sowie bei Web-Push-Tokens. Behandeln Sie `null` wie `false` (Vordergrund-Push möglich), da Braze weiterhin versucht, Vordergrund-Push-Benachrichtigungen an diese Tokens zu senden.
   - Ein Push-Sendeversuch aktualisiert dieses Feld nicht. Wenn ein Versand erfolgreich ist, wird kein `TokenStateChange`-Event ausgelöst. Wenn ein Versand aufgrund eines ungültigen Tokens einen Bounce verursacht, löst Braze ein „remove“-Event aus und löscht das Token / Textbaustein.
-  - Dieses Feld ändert sich nur, wenn Braze ein Token / Textbaustein-Status-Update or aktualisieren vom SDK or Software-Development-Kit erhält (z. B. eine spätere Sitzungssynchronisierung, die den Push-Berechtigungsstatus meldet).
+  - Dieses Feld ändert sich nur, wenn Braze ein Token / Textbaustein-Status-Update vom SDK erhält (z. B. eine spätere Sitzungssynchronisierung, die den Push-Berechtigungsstatus meldet).
 - Das Feld `push_token_provisionally_opted_in` gilt ausschließlich für iOS-Push-Tokens.
   - Wenn Sie eine [vorläufige Autorisierung]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push) eingerichtet haben, wird dieses Feld für vorläufige Tokens auf `true` gesetzt. Alle anderen Push-Tokens haben den Wert `false`.
-- Das Feld `sdk_version` wird nur ausgefüllt, wenn die Token / Textbaustein-Statusänderung durch das SDK or Software-Development-Kit initiiert wird.
-  - Wenn ein `changeUser`-SDK or Software-Development-Kit-Event auftritt, das die Übertragung des Tokens von einem/einer Nutzer:in zu einem/einer anderen triggert, wird das Feld `sdk_version` ausgefüllt.
+- Das Feld `sdk_version` wird nur ausgefüllt, wenn die Token / Textbaustein-Statusänderung durch das SDK initiiert wird.
+  - Wenn ein `changeUser`-SDK-Event auftritt, das die Übertragung des Tokens von einem/einer Nutzer:in zu einem/einer anderen triggert, wird das Feld `sdk_version` ausgefüllt.
   - Wenn ein Push-Bounce auftritt (beispielsweise aufgrund einer Deinstallation), bleibt das Feld `sdk_version` leer.
-- Bei jedem Eingang eines Push-Tokens in Braze werden dessen Lebenszyklus-Events aufgezeichnet. Es gibt drei Arten von Token / Textbaustein-Änderungs-Events („add“, „Update or aktualisieren“ und „remove“), die im Feld `push_token_state_change_type` aufgezeichnet werden.
+- Bei jedem Eingang eines Push-Tokens in Braze werden dessen Lebenszyklus-Events aufgezeichnet. Es gibt drei Arten von Token / Textbaustein-Änderungs-Events („add“, „update“ und „remove“), die im Feld `push_token_state_change_type` aufgezeichnet werden.
 
 #### Event-Typen {#event-types}
 
@@ -1596,19 +1596,19 @@ Dieses Event tritt ein, wenn ein Push-Token / Textbaustein eingefügt, aktualisi
 Ein „add“-Event wird erfasst, wenn ein neues Token / Textbaustein registriert wird. Dies geschieht, wenn ein:e Nutzer:in die App zum ersten Mal auf einem neuen Gerät öffnet oder wenn ein Token / Textbaustein über den [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)-Endpunkt mit `push_tokens` für eine:n Nutzer:in gesetzt wird, der/die zuvor noch keines hatte. Das Feld `time_ms` gibt an, wann das Hinzufügen-Event stattgefunden hat.
 
 {% alert note %}
-Ab iOS Swift SDK or Software-Development-Kit 13.3.0 und Android SDK or Software-Development-Kit 40.0.0 werden Push-Berechtigungsstatus und Push-Token / Textbaustein gemeinsam gesendet. Bei neuen Registrierungen über diese SDKs wird `push_token_foreground_push_disabled` bereits beim „add“-Event ausgefüllt (in der Regel `false`, wenn Benachrichtigungen aktiviert sind).<br><br>
+Ab iOS Swift SDK 13.3.0 und Android SDK 40.0.0 werden Push-Berechtigungsstatus und Push-Token / Textbaustein gemeinsam gesendet. Bei neuen Registrierungen über diese SDKs wird `push_token_foreground_push_disabled` bereits beim „add“-Event ausgefüllt (in der Regel `false`, wenn Benachrichtigungen aktiviert sind).<br><br>
 
-Ältere Token / Textbaustein-Registrierungen können dieses Feld weiterhin als `null` haben, bis das SDK or Software-Development-Kit später den Push-Berechtigungsstatus meldet. Web-Push-Tokens können dieses Feld ebenfalls konstruktionsbedingt als `null` haben.
+Ältere Token / Textbaustein-Registrierungen können dieses Feld weiterhin als `null` haben, bis das SDK später den Push-Berechtigungsstatus meldet. Web-Push-Tokens können dieses Feld ebenfalls konstruktionsbedingt als `null` haben.
 {% endalert %}
 
-##### Update or aktualisieren or aktualisieren {#update}
+##### Aktualisieren {#update}
 
-Ein „Update or aktualisieren“-Event wird erfasst, wenn sich eine Eigenschaft eines bestehenden Tokens ändert, ohne dass sich der Token / Textbaustein-String selbst ändert. Das Token / Textbaustein hat denselben String, denselben/dieselbe Nutzer:in und dieselbe App, aber eines oder mehrere der folgenden Felder haben sich geändert: `foreground_push_disabled`, APNs-Gateway, Web-Push-Schlüssel, `provisionally_opted_in` oder `device_id`. Diese Updates stammen aus Token / Textbaustein-Status-Synchronisierungs-Events (z. B. wenn das SDK or Software-Development-Kit einen neuen Berechtigungsstatus meldet), nicht aus Push-Sendeergebnissen. Das Feld `time_ms` gibt an, wann das Update or aktualisieren-Event stattgefunden hat.
+Ein „update“-Event wird erfasst, wenn sich eine Eigenschaft eines bestehenden Tokens ändert, ohne dass sich der Token / Textbaustein-String selbst ändert. Das Token / Textbaustein hat denselben String, denselben/dieselbe Nutzer:in und dieselbe App, aber eines oder mehrere der folgenden Felder haben sich geändert: `foreground_push_disabled`, APNs-Gateway, Web-Push-Schlüssel, `provisionally_opted_in` oder `device_id`. Diese Updates stammen aus Token / Textbaustein-Status-Synchronisierungs-Events (z. B. wenn das SDK einen neuen Berechtigungsstatus meldet), nicht aus Push-Sendeergebnissen. Das Feld `time_ms` gibt an, wann das Update-Event stattgefunden hat.
 
-Braze löst außerdem ein „Update or aktualisieren“-Event mit `push_token_state_change_type` auf `"update"` aus, wenn ein:e anonyme:r Nutzer:in auf demselben Profil identifiziert wird und bestehende Push-Tokens auf diesem Profil verbleiben. In diesem Fall ändert sich die `user_id` nicht, und `external_user_id` wird auf die externe ID des/der identifizierten Nutzer:in gesetzt. Dies umfasst die Identifizierung über den [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)-Endpunkt und SDK or Software-Development-Kit-`changeUser`, wenn dem anonymen Profil auf dem Gerät eine externe ID zugewiesen wird.
+Braze löst außerdem ein „update“-Event mit `push_token_state_change_type` auf `"update"` aus, wenn ein:e anonyme:r Nutzer:in auf demselben Profil identifiziert wird und bestehende Push-Tokens auf diesem Profil verbleiben. In diesem Fall ändert sich die `user_id` nicht, und `external_user_id` wird auf die externe ID des/der identifizierten Nutzer:in gesetzt. Dies umfasst die Identifizierung über den [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)-Endpunkt und SDK-`changeUser`, wenn dem anonymen Profil auf dem Gerät eine externe ID zugewiesen wird.
 
 {% alert note %}
-In den meisten Fällen führt eine Neuinstallation der App oder eine Backup-Wiederherstellung zu einem neuen „add“-Event mit einem neuen `push_token` und einer neuen `device_id` (da das SDK or Software-Development-Kit eine neue `device_id` generiert und das Betriebssystem einen neuen Push-Token / Textbaustein-String bereitstellt). Dadurch werden zwei separate Token / Textbaustein- und Geräteeinträge im Kundenprofil or Nutzerprofil erstellt, wobei der ältere Eintrag später durch Uninstall-Tracking oder Campaign-Versand bereinigt wird.<br><br>
+In den meisten Fällen führt eine Neuinstallation der App oder eine Backup-Wiederherstellung zu einem neuen „add“-Event mit einem neuen `push_token` und einer neuen `device_id` (da das SDK eine neue `device_id` generiert und das Betriebssystem einen neuen Push-Token / Textbaustein-String bereitstellt). Dadurch werden zwei separate Token / Textbaustein- und Geräteeinträge im Kundenprofil erstellt, wobei der ältere Eintrag später durch Uninstall-Tracking oder Campaign-Versand bereinigt wird.<br><br>
 
 Es wäre äußerst ungewöhnlich, wenn sich nur die `device_id` ändern würde, ohne dass sich das `push_token` ändert (dies würde erfordern, dass das Betriebssystem nach der Neuinstallation denselben Token / Textbaustein-String zurückgibt).
 {% endalert %}
@@ -1619,9 +1619,9 @@ Ein eigenständiges „remove“-Event wird erfasst, wenn Braze ein Token / Text
 
 - Push-Bounce (APNs, FCM oder HMS melden das Token / Textbaustein als ungültig oder abgelaufen)
 - Deinstallationserkennung durch Silent Push
-- Token / Textbaustein über die Representational State Transfer API oder den APNs-Feedback-Dienst entfernt
+- Token / Textbaustein über die REST API oder den APNs-Feedback-Dienst entfernt
 
-Wenn ein Push-Bounce die Token / Textbaustein-Entfernung triggert, löst Braze `push_token_state_change_type = "remove"` für dieses Token / Textbaustein aus. Es wird kein „Update or aktualisieren“-Event ausgelöst, das `push_token_foreground_push_disabled` ändert.
+Wenn ein Push-Bounce die Token / Textbaustein-Entfernung triggert, löst Braze `push_token_state_change_type = "remove"` für dieses Token / Textbaustein aus. Es wird kein „update“-Event ausgelöst, das `push_token_foreground_push_disabled` ändert.
 
 Das Feld `time_ms` gibt an, wann das Entfernen-Event stattgefunden hat.
 
@@ -1638,15 +1638,15 @@ Hinzufügen- und Entfernen-Paare lassen sich in zwei Kategorien einteilen:
 
 **Token / Textbaustein-Transfer zwischen Nutzer:innen:** Ein Token / Textbaustein wird von einem/einer Nutzer:in zu einem/einer anderen verschoben. Das „add“-Event (neue:r Nutzer:in) und das „remove“-Event (alte:r Nutzer:in) haben unterschiedliche `user_id`, dieselbe `device_id`, dasselbe `push_token` und unterschiedliche `time_ms` (in der Regel weniger als 100 Millisekunden Abstand). Dies wird durch einen der folgenden Fälle getriggert:
 
-- Das SDK or Software-Development-Kit ruft `changeUser` von einem anonymen Profil zu einem identifizierten Profil auf. Das „remove“-Event hat eine leere `external_user_id`.
-- Das SDK or Software-Development-Kit ruft `changeUser` von einem identifizierten Profil zu einem anderen auf. Beide Events haben eine nicht-leere `external_user_id`.
+- Das SDK ruft `changeUser` von einem anonymen Profil zu einem identifizierten Profil auf. Das „remove“-Event hat eine leere `external_user_id`.
+- Das SDK ruft `changeUser` von einem identifizierten Profil zu einem anderen auf. Beide Events haben eine nicht-leere `external_user_id`.
 - Der [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge)-Endpunkt oder die Bereinigung doppelter Nutzer:innen verschiebt die Tokens des verwaisten Nutzerprofils zum überlebenden Profil.
 
 {% alert note %}
-Die Identifizierung auf demselben Profil über den Representational State Transfer-Endpunkt [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) oder SDK or Software-Development-Kit-[`changeUser`]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#identified-user-profiles) kann einem anonymen Profil eine externe ID zuweisen, ohne die `user_id` zu ändern.
+Die Identifizierung auf demselben Profil über den REST-Endpunkt [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) oder SDK-[`changeUser`]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#identified-user-profiles) kann einem anonymen Profil eine externe ID zuweisen, ohne die `user_id` zu ändern.
 In diesem Fall löst Braze keine [gepaarten Hinzufügen- und Entfernen-Events](#add-and-remove-pairs) aus.
-Stattdessen löst Braze ein „Update or aktualisieren“-Event für jedes bestehende Push-Token / Textbaustein aus und setzt `external_user_id` auf die externe ID des/der identifizierten Nutzer:in.
-Wenn `changeUser` Tokens von einem Kundenprofil or Nutzerprofil zu einem anderen verschiebt, löst Braze weiterhin die im Abschnitt [Hinzufügen- und Entfernen-Paare](#add-and-remove-pairs) beschriebenen [gepaarten Hinzufügen- und Entfernen-Events](#add-and-remove-pairs) aus.
+Stattdessen löst Braze ein „update“-Event für jedes bestehende Push-Token / Textbaustein aus und setzt `external_user_id` auf die externe ID des/der identifizierten Nutzer:in.
+Wenn `changeUser` Tokens von einem Kundenprofil zu einem anderen verschiebt, löst Braze weiterhin die im Abschnitt [Hinzufügen- und Entfernen-Paare](#add-and-remove-pairs) beschriebenen [gepaarten Hinzufügen- und Entfernen-Events](#add-and-remove-pairs) aus.
 {% endalert %}
 
 #### Abfrage des aktuellsten aktiven Token / Textbaustein-Status {#querying-for-the-latest-active-token-state}

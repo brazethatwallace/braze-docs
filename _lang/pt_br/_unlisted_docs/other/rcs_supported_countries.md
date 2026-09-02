@@ -33,5 +33,5 @@ _Última atualização em 13 de maio de 2025_
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
 
 {% alert important %}
-Para informações mais detalhadas sobre as taxas de cobertura por país, entre em contato com o seu gerente de sucesso do cliente.
+Para informações mais detalhadas sobre as taxas de cobertura por país, entre em contato com o seu CSM.
 {% endalert %}

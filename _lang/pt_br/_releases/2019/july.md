@@ -23,9 +23,9 @@ A Braze oferece suporte a:
 - [Azure Active Directory]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/microsoft_entra_sso)
 - [Okta]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/okta)
 
-## Exibição da chave de API or interface de programação do aplicativo (API) de eventos do Adjust {#adjust-event-api-key-shows}
+## Exibição da chave de API de eventos do Adjust {#adjust-event-api-key-shows}
 
-Atualizamos a página de parceiros do Adjust para tornar essa chave de API or interface de programação do aplicativo (API) acessível aos clientes.
+Atualizamos a página de parceiros do Adjust para tornar essa chave de API acessível aos clientes.
 
 ## Novos parceiros {#new-partners}
 
@@ -64,7 +64,7 @@ As chamadas do Conteúdo conectado para servidores externos ocorrerão quando um
 
 ## Endereço de resposta nulo {#null-reply-to-address}
 
-Os clientes agora podem definir um valor `null` para o endereço de resposta de uma mensagem de e-mail na página **Configurações de e-mail** na Braze ou usando a [API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/objects_filters/messaging/email_object). Quando usado, as respostas serão enviadas para o endereço de remetente listado. Agora é possível personalizar o campo de endereço de remetente como `dan@emailaddress.com`, e seus clientes poderão responder diretamente ao Dan.
+Os clientes agora podem definir um valor `null` para o endereço de resposta de uma mensagem de e-mail na página **Configurações de e-mail** na Braze ou usando a [API]({{site.baseurl}}/api/objects_filters/messaging/email_object). Quando usado, as respostas serão enviadas para o endereço de remetente listado. Agora é possível personalizar o campo de endereço de remetente como `dan@emailaddress.com`, e seus clientes poderão responder diretamente ao Dan.
 
 Para definir um valor `null` para o endereço de resposta de uma mensagem de e-mail na Braze, acesse **Gerenciar configurações** na navegação e, em seguida, a guia **Configurações de e-mail**. Role até a seção **Outbound Email Settings** e selecione **Exclude "Reply-To" and send replies to "From"** como endereço padrão.
 

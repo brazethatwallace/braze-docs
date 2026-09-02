@@ -14,7 +14,7 @@ search_rank: 11
 
 ![Der intelligente Kanalfilter mit einem Dropdown-Menü für die verschiedenen Kanäle, die ausgewählt werden können.]({% image_buster /assets/img/intelligent_channel_filter.png %}){: style="float:right;max-width:40%;margin-left:10px;margin-top:10px;border:0"}
 
-In diesem Fall bedeutet „am besten“ den Kanal, der angesichts des Verlaufs der Nutzer:innen die höchste Wahrscheinlichkeit für ein Engagement aufweist. Sie können E-Mail, Kurzmitteilungsdienst or SMS, WhatsApp, Web-Push oder Mobile-Push (einschließlich aller verfügbaren mobilen Betriebssysteme oder Geräte) als Kanal auswählen.
+In diesem Fall bedeutet „am besten“ den Kanal, der angesichts des Verlaufs der Nutzer:innen die höchste Wahrscheinlichkeit für ein Engagement aufweist. Sie können E-Mail, SMS, WhatsApp, Web-Push oder Mobile-Push (einschließlich aller verfügbaren mobilen Betriebssysteme oder Geräte) als Kanal auswählen.
 
 Der intelligente Kanal berechnet eine Engagement-Rate für alle Nutzer:innen auf jedem unterstützten Kanal, ordnet diese Kanäle nach Rang und behandelt den am höchsten bewerteten Kanal als den besten Kanal dieser:dieses Nutzer:in.
 
@@ -33,7 +33,7 @@ Braze erfasst die folgenden Ereignisse bei der Berechnung der Engagement-Raten:
 - **E-Mail:** Öffnungen ([maschinelle Öffnungen]({{site.baseurl}}/user_guide/analytics/metrics_glossary#machine-opens) ausgenommen). E-Mail-Klicks werden nicht berücksichtigt.
 - **Mobile-Push:** Direkte Öffnungen. Jede mobile Plattform (z. B. iOS, Android und Kindle) wird separat bewertet. Push-beeinflusste Öffnungen werden nicht berücksichtigt.
 - **Web-Push:** Öffnungen
-- **Kurzmitteilungsdienst or SMS:** Klicks auf verkürzte Links
+- **SMS:** Klicks auf verkürzte Links
 - **WhatsApp:** Nachrichtenlesungen oder Klicks auf getrackte Links
 
 Push-beeinflusste Öffnungen, E-Mail-Klicks und Sitzungsaktivitäten werden vom intelligenten Kanal nicht verwendet. Sitzungsaktivitäten werden von [intelligentem Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing#about-intelligent-timing) genutzt.
@@ -41,7 +41,7 @@ Push-beeinflusste Öffnungen, E-Mail-Klicks und Sitzungsaktivitäten werden vom 
 Der intelligente Kanal unterstützt keine Webhooks, LINE, Kakao Talk, In-App Messages oder Content Cards.
 
 {% alert important %}
-Um die Engagement-Rate des Kurzmitteilungsdienst or SMS-Kanals zu berechnen, schalten Sie die [Kurzmitteilungsdienst or SMS-Linkverkürzung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening) mit erweitertem Tracking und Klick-Tracking ein. Ohne dieses Tracking kann Kurzmitteilungsdienst or SMS als intelligenter Kanal mit einer Engagement-Rate von 0 % ausgewählt werden, da unser [Tie-Break-Verhalten]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel#tie-breaking) greift.
+Um die Engagement-Rate des SMS-Kanals zu berechnen, schalten Sie die [SMS-Linkverkürzung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening) mit erweitertem Tracking und Klick-Tracking ein. Ohne dieses Tracking kann SMS als intelligenter Kanal mit einer Engagement-Rate von 0 % ausgewählt werden, da unser [Tie-Break-Verhalten]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel#tie-breaking) greift.
 {% endalert %}
 
 ## Nicht genügend Daten {#not-enough-data}
@@ -62,13 +62,13 @@ Campaigns und Canvas-Schritte, die das [Frequency-Capping]({{site.baseurl}}/user
 
 Mobile-Push umfasst Android, iOS, Kindle und andere Kanäle für mobile Geräte, die auf Braze verfügbar sind. Braze bewertet jede mobile Plattform separat bei der Berechnung der Engagement-Raten.
 
-Wenn Sie den intelligenten Kanalfilter auf **Mobile-Push** einstellen, wird ein:e Nutzer:in zugeordnet, wenn entweder iOS-Push oder Android-Push der am höchsten bewertete Kanal ist. Dies zwingt die:den Nutzer:in nicht dazu, Push-Benachrichtigungen auf einem bestimmten Gerät zu empfangen. Das Ranking wird nur verwendet, um festzustellen, ob Mobile-Push der beste Kanal dieser:dieses Nutzer:in im Vergleich zu E-Mail, Web-Push, Kurzmitteilungsdienst or SMS und WhatsApp ist.
+Wenn Sie den intelligenten Kanalfilter auf **Mobile-Push** einstellen, wird ein:e Nutzer:in zugeordnet, wenn entweder iOS-Push oder Android-Push der am höchsten bewertete Kanal ist. Dies zwingt die:den Nutzer:in nicht dazu, Push-Benachrichtigungen auf einem bestimmten Gerät zu empfangen. Das Ranking wird nur verwendet, um festzustellen, ob Mobile-Push der beste Kanal dieser:dieses Nutzer:in im Vergleich zu E-Mail, Web-Push, SMS und WhatsApp ist.
 
 ## Filter für die Wahrscheinlichkeit der Nachrichtenöffnung für einzelne Kanäle {#individual-channels}
 
 Anstatt Braze den besten Kanal für eine:n Nutzer:in auswählen zu lassen, können Sie den [Segmentierungsfilter „Wahrscheinlichkeit der Nachrichtenöffnung“]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#message-open-likelihood) verwenden, um Nutzer:innen danach zu filtern, ob sie eine Nachricht auf einem von Ihnen ausgewählten Kanal wahrscheinlich öffnen werden oder nicht. Dieser Filter wird berechnet, indem der Prozentsatz der Interaktionen durch die Gesamtzahl der empfangenen Nachrichten der letzten 100 pro Kanal gesendeten Nachrichten dividiert wird.
 
-Die Wahrscheinlichkeit der Nachrichtenöffnung verwendet dieselben zugrunde liegenden Engagement-Daten wie der intelligente Kanal, ermöglicht es Ihnen jedoch, einen Schwellenwert für einen einzelnen Kanal festzulegen, anstatt den besten Kanal der Nutzer:innen auszuwählen. Dieser Filter ist für E-Mail, Mobile-Push, Kurzmitteilungsdienst or SMS und Web-Push verfügbar.
+Die Wahrscheinlichkeit der Nachrichtenöffnung verwendet dieselben zugrunde liegenden Engagement-Daten wie der intelligente Kanal, ermöglicht es Ihnen jedoch, einen Schwellenwert für einen einzelnen Kanal festzulegen, anstatt den besten Kanal der Nutzer:innen auszuwählen. Dieser Filter ist für E-Mail, Mobile-Push, SMS und Web-Push verfügbar.
 
 Bitte beachten Sie, dass ein:e Nutzer:in mindestens drei Nachrichten auf einem bestimmten Kanal erhalten haben muss, bevor eine Wahrscheinlichkeitsbewertung für diesen Kanal vergeben werden kann. Nutzer:innen ohne ausreichende Daten, um eine Wahrscheinlichkeit für einen Kanal zu messen, können mit „ist leer“ ausgewählt werden.
 
@@ -86,4 +86,4 @@ Ein:e Nutzer:in kann über genügend Daten verfügen, damit Braze ein Kanal-Rank
 
 ### Größe der Zielgruppe {#audience-sizing}
 
-Mit dem intelligenten Kanal können Sie im Voraus gezielt den Teil der Nutzer:innen ansprechen, bei dem die Wahrscheinlichkeit, dass sie sich mit einer Nachricht beschäftigen, wesentlich höher ist als beim Representational State Transfer Ihrer Zielgruppe. Dies entspricht wahrscheinlich nicht der Mehrheit der Nutzer:innen in einer typischen Zielgruppe. Vielmehr können Sie davon ausgehen, dass dieser Filter die 5–20 % Ihrer üblichen Zielgruppe findet, die sich nachweislich auf einem bestimmten Kanal engagiert haben.
+Mit dem intelligenten Kanal können Sie im Voraus gezielt den Teil der Nutzer:innen ansprechen, bei dem die Wahrscheinlichkeit, dass sie sich mit einer Nachricht beschäftigen, wesentlich höher ist als beim Rest Ihrer Zielgruppe. Dies entspricht wahrscheinlich nicht der Mehrheit der Nutzer:innen in einer typischen Zielgruppe. Vielmehr können Sie davon ausgehen, dass dieser Filter die 5–20 % Ihrer üblichen Zielgruppe findet, die sich nachweislich auf einem bestimmten Kanal engagiert haben.

@@ -23,7 +23,7 @@ platform:
 
 Como recurso técnico, você capacitará sua equipe integrando a Braze ao seu stack de tecnologia. A integração é dividida, em linhas gerais, em quatro etapas:
 * [Descoberta e planejamento](#discovery): Trabalhe com sua equipe para alinhar o escopo, planejar uma estrutura para dados e campanhas e criar uma estrutura de espaço de trabalho apropriada.
-* [Integração](#integration): Execute seu plano integrando o SDK or kit de desenvolvimento de software e a API or interface de programação do aplicativo (API), ativando canais de envio de mensagens e configurando a importação e exportação de dados.
+* [Integração](#integration): Execute seu plano integrando o SDK e a API, ativando canais de envio de mensagens e configurando a importação e exportação de dados.
 * [Controle de qualidade](#qa): Confirme se o loop de dados e envio de mensagens entre a plataforma Braze e seu app ou site está funcionando conforme o esperado.
 * [Manutenção](#maintenance): Depois de passar a Braze para a sua equipe de marketing, você continuará a garantir que tudo funcione sem problemas.
 
@@ -54,7 +54,7 @@ Sua equipe de CRM planejará os casos de uso de envio de mensagens que serão la
 * [Público-alvo]({{site.baseurl}}/user_guide/audience/segments)
 * [Métricas de sucesso]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)
 
-Por exemplo, uma Campaign para novos clientes pode ser: um e-mail enviado diariamente às 10h para um Segment or segmento or segmento de clientes que registraram sua primeira sessão ontem. O evento de conversão (a métrica de sucesso) é o registro de uma sessão.
+Por exemplo, uma Campaign para novos clientes pode ser: um e-mail enviado diariamente às 10h para um Segment de clientes que registraram sua primeira sessão ontem. O evento de conversão (a métrica de sucesso) é o registro de uma sessão.
 
 <br>
 {% alert important %}
@@ -65,7 +65,7 @@ A integração não pode começar até que a etapa de planejamento de campanhas 
 
 Em seguida, sua equipe de CRM deve definir quais dados são necessários para lançar as campanhas planejadas, criando requisitos de dados.
 
-Muitos tipos comuns de atributos de usuário, como nome, e-mail, data de nascimento, país e similares, são automaticamente rastreados após a integração do SDK or kit de desenvolvimento de software da Braze. Outros tipos de dados precisarão ser definidos como dados personalizados.
+Muitos tipos comuns de atributos de usuário, como nome, e-mail, data de nascimento, país e similares, são automaticamente rastreados após a integração do SDK da Braze. Outros tipos de dados precisarão ser definidos como dados personalizados.
 
 Como desenvolvedor, você trabalhará com sua equipe para definir quais dados adicionais e personalizados fazem sentido rastrear. Seus dados personalizados afetarão a forma como sua base de usuários será classificada e segmentada. Você configurará uma taxonomia de eventos em todo o seu growth stack, estruturando seus dados para que sejam compatíveis com seus sistemas à medida que entram e saem da Braze.
 
@@ -81,76 +81,76 @@ Converse com seus profissionais de marketing sobre as personalizações desejada
 
 ### Como obter acesso ao dashboard {#getting-dashboard-access}
 
-O dashboard da Braze é nossa interface de usuário na web. Os profissionais de marketing usarão o dashboard para fazer seu trabalho e criar conteúdo. Os desenvolvedores usam o dashboard para gerenciar as configurações de integração de apps, como chaves de API or interface de programação do aplicativo (API) e credenciais de notificação por push.
+O dashboard da Braze é nossa interface de usuário na web. Os profissionais de marketing usarão o dashboard para fazer seu trabalho e criar conteúdo. Os desenvolvedores usam o dashboard para gerenciar as configurações de integração de apps, como chaves de API e credenciais de notificação por push.
 
 O administrador da sua equipe deve adicionar você (e todos os outros membros da equipe que precisam de acesso à Braze) como usuários no seu dashboard.
 
-### Espaços de trabalho e chaves de API or interface de programação do aplicativo (API) {#workspaces-and-api-keys}
+### Espaços de trabalho e chaves de API {#workspaces-and-api-keys}
 
-O administrador da sua equipe também criará diferentes [espaços de trabalho]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces). Os espaços de trabalho agrupam seus dados — usuários, segmentos, chaves de API or interface de programação do aplicativo (API) — em um único local. Como prática recomendada, sugerimos colocar apenas versões diferentes do mesmo app ou de apps muito semelhantes em um único espaço de trabalho.
+O administrador da sua equipe também criará diferentes [espaços de trabalho]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces). Os espaços de trabalho agrupam seus dados — usuários, segmentos, chaves de API — em um único local. Como prática recomendada, sugerimos colocar apenas versões diferentes do mesmo app ou de apps muito semelhantes em um único espaço de trabalho.
 
-É importante ressaltar que os espaços de trabalho fornecem chaves de API or interface de programação do aplicativo (API) para várias plataformas (como iOS e Android). Você usará as chaves de API or interface de programação do aplicativo (API) correlacionadas para associar os dados do SDK or kit de desenvolvimento de software a um espaço de trabalho específico. Navegue até seus espaços de trabalho para acessar a chave de API or interface de programação do aplicativo (API) de cada um de seus apps. Confira se cada chave de API or interface de programação do aplicativo (API) tem as permissões corretas para executar o trabalho que você definiu como escopo. Consulte o [artigo sobre provisionamento da API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) para saber mais.
+É importante ressaltar que os espaços de trabalho fornecem chaves de API para várias plataformas (como iOS e Android). Você usará as chaves de API correlacionadas para associar os dados do SDK a um espaço de trabalho específico. Navegue até seus espaços de trabalho para acessar a chave de API de cada um de seus apps. Confira se cada chave de API tem as permissões corretas para executar o trabalho que você definiu como escopo. Consulte o [artigo sobre provisionamento da API]({{site.baseurl}}/api/basics#rest-api-key-permissions) para saber mais.
 
-Para implementações web que abrangem vários domínios raiz, consulte [Integração multidomínio para o SDK or kit de desenvolvimento de software web da Braze]({{site.baseurl}}/developer_guide/platforms/web/multi_domain_integration) ao decidir se deve usar um único app ou apps e chaves de API or interface de programação do aplicativo (API) separados.
+Para implementações web que abrangem vários domínios raiz, consulte [Integração multidomínio para o SDK web da Braze]({{site.baseurl}}/developer_guide/platforms/web/multi_domain_integration) ao decidir se deve usar um único app ou apps e chaves de API separados.
 
 {% alert important %}
-É importante que você configure ambientes diferentes para desenvolvimento e produção. A configuração de um ambiente de teste evitará que você gaste dinheiro real durante a integração e o controle de qualidade. Para criar um ambiente de teste, configure um espaço de trabalho de teste e certifique-se de usar a respectiva chave de API or interface de programação do aplicativo (API) para não preencher o espaço de trabalho de produção com dados de teste.
+É importante que você configure ambientes diferentes para desenvolvimento e produção. A configuração de um ambiente de teste evitará que você gaste dinheiro real durante a integração e o controle de qualidade. Para criar um ambiente de teste, configure um espaço de trabalho de teste e certifique-se de usar a respectiva chave de API para não preencher o espaço de trabalho de produção com dados de teste.
 {% endalert %}
 
 ## Integração {#integration}
 
 ![Gráfico abstrato de pirâmide que representa o fluxo de informações de uma fonte de dados para um dispositivo de usuário.]({% image_buster /assets/img/getting-started/data-graphic.png %}){: style="max-width:45%;float:right;margin-left:15px;"}
 
-A Braze oferece suporte a apps iOS, apps Android, apps web e muito mais. Você também pode optar por usar um wrapper SDK or kit de desenvolvimento de software multiplataforma, como o React Native ou o Unity. Normalmente, vemos os clientes se integrarem em um período de 1 a 6 semanas. Muitos clientes integraram a Braze com apenas um engenheiro, dependendo da amplitude de suas habilidades técnicas e da disponibilidade. Depende inteiramente do seu escopo específico de integração e de quanto tempo sua equipe dedica ao projeto Braze.
+A Braze oferece suporte a apps iOS, apps Android, apps web e muito mais. Você também pode optar por usar um wrapper SDK multiplataforma, como o React Native ou o Unity. Normalmente, vemos os clientes se integrarem em um período de 1 a 6 semanas. Muitos clientes integraram a Braze com apenas um engenheiro, dependendo da amplitude de suas habilidades técnicas e da disponibilidade. Depende inteiramente do seu escopo específico de integração e de quanto tempo sua equipe dedica ao projeto Braze.
 
 Você precisará de desenvolvedores que estejam familiarizados com:
 * Trabalhar na camada nativa do seu app ou site
-* Criação de processos para acessar nossa REST or transferir estado representacional API or interface de programação do aplicativo (API)
+* Criação de processos para acessar nossa REST API
 * Teste de integração
 * Autenticação de token da web JSON
 * Habilidades gerais de gerenciamento de dados
 * Configuração de registros DNS
 
-### Parceiros de integração CDP or plataforma de dados do cliente {#cdp-integration-partners}
+### Parceiros de integração CDP {#cdp-integration-partners}
 
-Muitos clientes usam a integração da Braze como uma oportunidade de também se integrar a uma CDP or plataforma de dados do cliente or CDP or plataforma de dados do cliente or plataforma de dados do cliente (CDP or plataforma de dados do cliente) como parceiro de integração. A Braze oferece rastreamento e análise de dados, enquanto uma CDP or plataforma de dados do cliente pode oferecer roteamento e orquestração de dados adicionais. A Braze oferece integração perfeita com muitas CDPs, como a [mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle) e o [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment).
+Muitos clientes usam a integração da Braze como uma oportunidade de também se integrar a uma CDP (CDP) como parceiro de integração. A Braze oferece rastreamento e análise de dados, enquanto uma CDP pode oferecer roteamento e orquestração de dados adicionais. A Braze oferece integração perfeita com muitas CDPs, como a [mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle) e o [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment).
 
-Se estiver realizando a integração lado a lado com uma CDP or plataforma de dados do cliente, você mapeará as chamadas do SDK or kit de desenvolvimento de software da sua CDP or plataforma de dados do cliente para o SDK or kit de desenvolvimento de software da Braze. Essencialmente, você irá:
+Se estiver realizando a integração lado a lado com uma CDP, você mapeará as chamadas do SDK da sua CDP para o SDK da Braze. Essencialmente, você irá:
 * Mapear chamadas de identificação para `changeUser` ([Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/change-user.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/changeuser(userid:sdkauthsignature:fileid:line:)/), [web](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser)) e definir atributos.
 * Mapear chamadas de flush de dados para `requestImmediateDataFlush` ([Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/request-immediate-data-flush.html?query=abstract%20fun%20requestImmediateDataFlush()), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/requestimmediatedataflush()), [web](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestimmediatedataflush)).
 * Registrar eventos personalizados ou compras.
 
-Exemplos de integrações entre o SDK or kit de desenvolvimento de software da Braze e a CDP or plataforma de dados do cliente de sua escolha podem estar disponíveis, dependendo da plataforma que você escolheu. Para saber mais, consulte nossa [lista de parceiros de tecnologia CDP or plataforma de dados do cliente]({{site.baseurl}}/partners/data_and_analytics).
+Exemplos de integrações entre o SDK da Braze e a CDP de sua escolha podem estar disponíveis, dependendo da plataforma que você escolheu. Para saber mais, consulte nossa [lista de parceiros de tecnologia CDP]({{site.baseurl}}/partners/data_and_analytics).
 
-### Integração do SDK or kit de desenvolvimento de software da Braze {#braze-sdk-integration}
+### Integração do SDK da Braze {#braze-sdk-integration}
 
-O SDK or kit de desenvolvimento de software da Braze fornece duas funcionalidades essenciais: coleta e sincroniza os dados de usuários em um perfil de usuário consolidado e alimenta os canais de envio de mensagens, como notificações por push, mensagens no app e Content Cards.
+O SDK da Braze fornece duas funcionalidades essenciais: coleta e sincroniza os dados de usuários em um perfil de usuário consolidado e alimenta os canais de envio de mensagens, como notificações por push, mensagens no app e Content Cards.
 
 {% alert tip %}
-Quando estiver totalmente integrado ao seu app ou site, o SDK or kit de desenvolvimento de software da Braze oferece um nível de sofisticação de marketing totalmente realizado. Se você adiar a integração do SDK or kit de desenvolvimento de software da Braze, algumas das funcionalidades descritas na documentação não estarão disponíveis.
+Quando estiver totalmente integrado ao seu app ou site, o SDK da Braze oferece um nível de sofisticação de marketing totalmente realizado. Se você adiar a integração do SDK da Braze, algumas das funcionalidades descritas na documentação não estarão disponíveis.
 {% endalert %}
 
 {% alert note %}
-Para adicionar uma camada adicional de segurança, você pode ativar a [autenticação do SDK or kit de desenvolvimento de software]({{site.baseurl}}/developer_guide/sdk_integration/authentication) para evitar solicitações não autorizadas ao SDK or kit de desenvolvimento de software. Este recurso está disponível em todas as principais plataformas, incluindo Web, iOS, Android, React Native, Flutter, Unity, Cordova, .NET MAUI (Xamarin) e Expo.
+Para adicionar uma camada adicional de segurança, você pode ativar a [autenticação do SDK]({{site.baseurl}}/developer_guide/sdk_integration/authentication) para evitar solicitações não autorizadas ao SDK. Este recurso está disponível em todas as principais plataformas, incluindo Web, iOS, Android, React Native, Flutter, Unity, Cordova, .NET MAUI (Xamarin) e Expo.
 {% endalert %}
 
-Durante a implementação do SDK or kit de desenvolvimento de software, você irá:
+Durante a implementação do SDK, você irá:
 
-* Escrever o código de integração do SDK or kit de desenvolvimento de software para cada plataforma à qual deseja oferecer suporte.
-* Ativar os canais de envio de mensagens para cada plataforma, garantindo que o SDK or kit de desenvolvimento de software da Braze rastreie os dados das interações com seus clientes por e-mail, SMS, notificações por push e outros canais.
-* Criar quaisquer personalizações de componentes de UI planejadas (por exemplo, Content Cards personalizados). Para conteúdo totalmente personalizado, será necessário registrar a análise de dados, pois a coleta automática de dados do SDK or kit de desenvolvimento de software não estará ciente dos seus novos componentes. Você pode padronizar essa implementação com base nos nossos componentes padrão.
+* Escrever o código de integração do SDK para cada plataforma à qual deseja oferecer suporte.
+* Ativar os canais de envio de mensagens para cada plataforma, garantindo que o SDK da Braze rastreie os dados das interações com seus clientes por e-mail, SMS, notificações por push e outros canais.
+* Criar quaisquer personalizações de componentes de UI planejadas (por exemplo, Content Cards personalizados). Para conteúdo totalmente personalizado, será necessário registrar a análise de dados, pois a coleta automática de dados do SDK não estará ciente dos seus novos componentes. Você pode padronizar essa implementação com base nos nossos componentes padrão.
 
-### Usando a API or interface de programação do aplicativo (API) da Braze {#using-the-braze-api}
+### Usando a API da Braze {#using-the-braze-api}
 
-Você usará nossa REST or transferir estado representacional API or interface de programação do aplicativo (API) para diferentes tarefas em diferentes momentos ao longo do seu tempo de uso da Braze. A API or interface de programação do aplicativo (API) da Braze é útil para:
+Você usará nossa REST API para diferentes tarefas em diferentes momentos ao longo do seu tempo de uso da Braze. A API da Braze é útil para:
 
 1. Importação de dados históricos; e
-2. Atualizações contínuas que não são disparadas na Braze. Por exemplo, o perfil de um usuário faz upgrade para VIP sem que ele faça login em um app, portanto, a API or interface de programação do aplicativo (API) precisa comunicar essas informações à Braze.
+2. Atualizações contínuas que não são disparadas na Braze. Por exemplo, o perfil de um usuário faz upgrade para VIP sem que ele faça login em um app, portanto, a API precisa comunicar essas informações à Braze.
 
-Comece com a [API or interface de programação do aplicativo (API) da Braze]({{site.baseurl}}/api/basics).
+Comece com a [API da Braze]({{site.baseurl}}/api/basics).
 
 {% alert important %}
-Ao usar a API or interface de programação do aplicativo (API), certifique-se de agrupar suas solicitações em lote e enviar apenas valores delta. A Braze reescreve todos os atributos que são enviados. Não atualize nenhum atributo personalizado se seu valor não tiver sido alterado.
+Ao usar a API, certifique-se de agrupar suas solicitações em lote e enviar apenas valores delta. A Braze reescreve todos os atributos que são enviados. Não atualize nenhum atributo personalizado se seu valor não tiver sido alterado.
 {% endalert %}
 
 ### Configuração da análise de dados do produto {#setting-up-product-analytics}
@@ -163,15 +163,15 @@ Os pontos de dados são uma estrutura por meio da qual você garante que está c
 
 Você pode usar o [`/users/track endpoint`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) da Braze para migrar dados históricos que foram registrados fora da Braze. Exemplos de dados comumente importados incluem tokens por push e compras anteriores. Esse endpoint pode ser usado para importações pontuais ou atualizações regulares em lote.
 
-Também é possível importar usuários e atualizar os valores dos atributos de clientes por meio de um único [upload de CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users) para o dashboard. Fazer upload de CSVs pode ser útil para profissionais de marketing, enquanto nossa REST or transferir estado representacional API or interface de programação do aplicativo (API) permite maior flexibilidade.
+Também é possível importar usuários e atualizar os valores dos atributos de clientes por meio de um único [upload de CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users) para o dashboard. Fazer upload de CSVs pode ser útil para profissionais de marketing, enquanto nossa REST API permite maior flexibilidade.
 
 ### Configuração do rastreamento de sessão {#setting-up-session-tracking}
 
-O SDK or kit de desenvolvimento de software da Braze gera pontos de dados de "sessão aberta" e "sessão fechada". O SDK or kit de desenvolvimento de software da Braze também libera os dados em intervalos regulares. Consulte esses links para obter os valores padrão de rastreamento de sessão, todos os quais podem ser personalizados ([Android]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=android), [iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=swift), [web]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=web)).
+O SDK da Braze gera pontos de dados de "sessão aberta" e "sessão fechada". O SDK da Braze também libera os dados em intervalos regulares. Consulte esses links para obter os valores padrão de rastreamento de sessão, todos os quais podem ser personalizados ([Android]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=android), [iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=swift), [web]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=web)).
 
 ### Rastreamento de eventos personalizados, atributos e eventos de compra {#tracking-custom-events-attributes-and-purchase-events}
 
-Coordene-se com sua equipe para configurar o esquema de dados planejado, incluindo eventos personalizados, atributos de usuários e eventos de compra. Seu [esquema de dados personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events) será inserido usando o dashboard e deve corresponder exatamente ao que foi implementado durante a integração do SDK or kit de desenvolvimento de software.
+Coordene-se com sua equipe para configurar o esquema de dados planejado, incluindo eventos personalizados, atributos de usuários e eventos de compra. Seu [esquema de dados personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events) será inserido usando o dashboard e deve corresponder exatamente ao que foi implementado durante a integração do SDK.
 
 {% alert tip %}
 Os IDs de usuário, chamados de `external_id`s na Braze, devem ser definidos para todos os usuários conhecidos. Eles devem ser imutáveis e acessíveis quando um usuário abre o app, permitindo o rastreamento dos seus usuários entre dispositivos e plataformas. Consulte o artigo [Ciclo de vida do usuário]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle) para obter as práticas recomendadas.
@@ -204,7 +204,7 @@ Confira se os seus ambientes de produção e teste estão configurados antes de 
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Controle de qualidade" }
 
 {% alert note %}
-Ao realizar o controle de qualidade na sua integração de SDK or kit de desenvolvimento de software, use o [Depurador do SDK or kit de desenvolvimento de software]({{site.baseurl}}/developer_guide/sdk_integration/debugging) para solucionar problemas sem ativar o registro detalhado para seu app.
+Ao realizar o controle de qualidade na sua integração de SDK, use o [Depurador do SDK]({{site.baseurl}}/developer_guide/sdk_integration/debugging) para solucionar problemas sem ativar o registro detalhado para seu app.
 {% endalert %}
 
 ### Passando a Braze para os profissionais de marketing {#passing-braze-off-to-marketers}
@@ -225,33 +225,33 @@ Crie um recurso para consolidar as informações que você aprendeu durante as s
 
 ## Manutenção {#maintenance}
 
-Após a transferência para seus profissionais de marketing, você continuará a servir como um recurso para manutenção. Você prestará atenção às atualizações do iOS e do Android que possam afetar o SDK or kit de desenvolvimento de software da Braze e garantirá que seus fornecedores terceirizados estejam atualizados.
+Após a transferência para seus profissionais de marketing, você continuará a servir como um recurso para manutenção. Você prestará atenção às atualizações do iOS e do Android que possam afetar o SDK da Braze e garantirá que seus fornecedores terceirizados estejam atualizados.
 
 Você fará o rastreamento das atualizações da plataforma Braze por meio do [GitHub](https://github.com/braze-inc/) da Braze. Ocasionalmente, seu administrador também receberá e-mails sobre atualizações urgentes e correções de bugs diretamente da Braze.
 
-## Limites de frequência do SDK or kit de desenvolvimento de software {#sdk-rate-limits}
+## Limites de frequência do SDK {#sdk-rate-limits}
 
 ### Monthly Active Users CY 24-25, Universal MAU, Web MAU e Mobile MAU {#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
 
-Para clientes que adquiriram Monthly Active Users CY 24-25, Universal MAU, Web MAU e Mobile MAU, a Braze aplica limites de frequência no lado do servidor para requisições de API or interface de programação do aplicativo (API) usadas pelos nossos SDKs para atualizar sessões, atributos de usuário, eventos e outros dados de perfil de usuário. Isso garante a estabilidade da plataforma e mantém um serviço rápido e confiável.
+Para clientes que adquiriram Monthly Active Users CY 24-25, Universal MAU, Web MAU e Mobile MAU, a Braze aplica limites de frequência no lado do servidor para requisições de API usadas pelos nossos SDKs para atualizar sessões, atributos de usuário, eventos e outros dados de perfil de usuário. Isso garante a estabilidade da plataforma e mantém um serviço rápido e confiável.
 
-* Os limites de frequência por hora são definidos de acordo com o tráfego esperado do SDK or kit de desenvolvimento de software na sua conta, que pode corresponder ao número de usuários ativos mensais (MAU) que você adquiriu, setor, sazonalidade ou outros fatores. Quando o limite de frequência por hora é atingido, a Braze aplica throttling nas requisições até a próxima hora.
-* Todas as requisições que atingem o limite de frequência são automaticamente reexecutadas pelo SDK or kit de desenvolvimento de software.
-* As requisições do SDK or kit de desenvolvimento de software estão relacionadas à quantidade de dados personalizados coletados na sua implementação. Se você estiver consistentemente próximo ou no seu limite de frequência por hora, considere:
-    * Revisar sua integração SDK or kit de desenvolvimento de software para reduzir a coleta excessiva de dados.
+* Os limites de frequência por hora são definidos de acordo com o tráfego esperado do SDK na sua conta, que pode corresponder ao número de usuários ativos mensais (MAU) que você adquiriu, setor, sazonalidade ou outros fatores. Quando o limite de frequência por hora é atingido, a Braze aplica throttling nas requisições até a próxima hora.
+* Todas as requisições que atingem o limite de frequência são automaticamente reexecutadas pelo SDK.
+* As requisições do SDK estão relacionadas à quantidade de dados personalizados coletados na sua implementação. Se você estiver consistentemente próximo ou no seu limite de frequência por hora, considere:
+    * Revisar sua integração SDK para reduzir a coleta excessiva de dados.
     * Adicionar à blocklist dados personalizados que não são essenciais para seus casos de uso de marketing.
-* Os limites de frequência de pico (burst) são limites de curta duração que se aplicam quando um alto volume de requisições chega em um período muito curto (ou seja, em segundos). Você não precisa tomar nenhuma ação quando limites de pico ocorrem, e o SDK or kit de desenvolvimento de software fará uma nova tentativa logo em seguida.
+* Os limites de frequência de pico (burst) são limites de curta duração que se aplicam quando um alto volume de requisições chega em um período muito curto (ou seja, em segundos). Você não precisa tomar nenhuma ação quando limites de pico ocorrem, e o SDK fará uma nova tentativa logo em seguida.
 * Os limites de frequência sustentados (steady) controlam o volume de requisições contínuas em uma janela de tempo mais longa que a janela de pico (por exemplo, vários minutos) e ajudam a suavizar o tráfego contínuo entre os limites de pico e o seu limite de frequência por hora.
 
 ### Encontrando seus limites de frequência {#finding-your-rate-limits}
 
-Para encontrar os limites atuais com base no throughput esperado do SDK or kit de desenvolvimento de software, acesse **Configurações** > **APIs e Identificadores** > **Limites de API or interface de programação do aplicativo (API) e SDK or kit de desenvolvimento de software**.
+Para encontrar os limites atuais com base no throughput esperado do SDK, acesse **Configurações** > **APIs e Identificadores** > **Limites de API e SDK**.
 
-Para o histórico de uso, acesse **Configurações** > **APIs e Identificadores** > **Dashboard de API or interface de programação do aplicativo (API) e SDK or kit de desenvolvimento de software**.
+Para o histórico de uso, acesse **Configurações** > **APIs e Identificadores** > **Dashboard de API e SDK**.
 
 ### Solicitando limites de frequência mais altos {#requesting-higher-rate-limits}
 
-Se você precisa de um limite de frequência mais alto na Braze, entre em contato com o suporte da Braze ou com seu gerente de sucesso do cliente e inclua os seguintes detalhes:
+Se você precisa de um limite de frequência mais alto na Braze, entre em contato com o suporte da Braze ou com seu CSM e inclua os seguintes detalhes:
 
 * Se você precisa de um aumento temporário ou permanente.
 * Por que você precisa do aumento.
@@ -263,4 +263,4 @@ Após o envio da sua solicitação, a Braze a revisa e informa o resultado.
 
 ### Alterações e suporte {#changes-and-support}
 
-A Braze pode modificar os limites de frequência para proteger a estabilidade do sistema ou permitir um maior throughput de dados na sua conta. Entre em contato com o suporte da Braze ou com seu gerente de sucesso do cliente para dúvidas ou questões sobre limites de frequência e como eles impactam o seu negócio.
+A Braze pode modificar os limites de frequência para proteger a estabilidade do sistema ou permitir um maior throughput de dados na sua conta. Entre em contato com o suporte da Braze ou com seu CSM para dúvidas ou questões sobre limites de frequência e como eles impactam o seu negócio.

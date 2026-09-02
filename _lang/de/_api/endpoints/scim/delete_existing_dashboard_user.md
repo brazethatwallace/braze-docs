@@ -25,7 +25,7 @@ Dies ist vergleichbar mit dem Löschen von Nutzer:innen im Bereich **Unternehmen
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie ein SCIM-Token / Textbaustein. Verwenden Sie die Herkunft Ihres Dienstes als `X-Request-Origin`-Header. Weitere Informationen finden Sie unter [Automatisierte Nutzerbereitstellung]({{site.baseurl}}/scim/automated_user_provisioning).
+Um diesen Endpunkt zu verwenden, benötigen Sie ein SCIM-Token. Verwenden Sie die Herkunft Ihres Dienstes als `X-Request-Origin`-Header. Weitere Informationen finden Sie unter [Automatisierte Nutzerbereitstellung]({{site.baseurl}}/scim/automated_user_provisioning).
 
 ## Rate-Limit
 

@@ -82,7 +82,7 @@ Les données d'attribution pour les campagnes Facebook et X (anciennement Twitte
 
 ## URL de suivi des clics Kochava dans Braze (facultatif) {#kochava-click-tracking-urls-in-braze-optional}
 
-L'utilisation de liens de suivi des clics dans vos campagnes Braze vous permettra de voir facilement quelles campagnes génèrent des installations d'applications et du réengagement. Ainsi, vous serez en mesure de mesurer vos efforts marketing de manière plus efficace et de prendre des décisions fondées sur les données pour investir davantage de ressources là où le ROI or retour sur investissement est maximal.
+L'utilisation de liens de suivi des clics dans vos campagnes Braze vous permettra de voir facilement quelles campagnes génèrent des installations d'applications et du réengagement. Ainsi, vous serez en mesure de mesurer vos efforts marketing de manière plus efficace et de prendre des décisions fondées sur les données pour investir davantage de ressources là où le ROI est maximal.
 
 Pour démarrer avec les liens de suivi des clics Kochava, consultez leur [documentation](https://support.kochava.com/reference-information/attribution-overview/). Vous pouvez insérer les liens de suivi des clics Kochava directement dans vos campagnes Braze. Kochava utilisera ensuite [ses méthodologies d'attribution probabilistes](https://www.kochava.com/getting-prepared-for-ios-14/) pour attribuer l'utilisateur qui a cliqué sur le lien. Nous vous recommandons d'ajouter un identifiant d'appareil à vos liens de suivi Kochava afin d'améliorer la précision des attributions issues de vos campagnes Braze. Cela permettra d'attribuer de manière déterministe l'utilisateur qui a cliqué sur le lien.
 

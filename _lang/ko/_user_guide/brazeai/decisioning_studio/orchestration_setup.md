@@ -90,7 +90,7 @@ Braze 또는 Salesforce Marketing Cloud 이외의 CEP를 사용하는 경우, De
 기본 템플릿은 의사결정 에이전트가 사용할 수 있는 모든 메시지 템플릿입니다. 다음을 고려하세요:
 
 - **템플릿 수는 몇 개인가요?** 에이전트는 하나의 템플릿 또는 여러 개의 템플릿으로 작업할 수 있습니다. 여러 개인 경우, 에이전트는 각 고객이 받는 템플릿을 개인화할 수 있습니다.
-- **어떤 채널인가요?** 이메일, 푸시, 단문 메시지 서비스 또는 이들의 조합입니다. 각 채널에는 별도의 템플릿과 Campaign이 필요할 수 있습니다.
+- **어떤 채널인가요?** 이메일, 푸시, SMS 또는 이들의 조합입니다. 각 채널에는 별도의 템플릿과 Campaign이 필요할 수 있습니다.
 - **어떤 동적 요소가 있나요?** 에이전트가 개인화하는 메시지 부분(예: 제목란, CTA, 오퍼, 타이밍)을 식별하세요. 이러한 요소는 API 트리거 속성정보 또는 동적 입력 안내가 됩니다.
 
 ### 재자격 설정 {#re-eligibility-settings}
@@ -175,9 +175,9 @@ Decisioning Studio 에이전트가 푸시 Campaign의 메시지를 최적화한�
 
 ![Decisioning Studio 푸시 결과 메시지 예시]({% image_buster /assets/img/decisioning_studio/decisioning_studio_push_example_3.png %})
 
-#### 예시 3: 단문 메시지 서비스 Campaign {#example-3-sms-campaign}
+#### 예시 3: SMS Campaign {#example-3-sms-campaign}
 
-Decisioning Studio 에이전트가 단문 메시지 서비스 Campaign의 필드를 최적화한다고 가정합니다. 다음과 같이 구성할 수 있습니다:
+Decisioning Studio 에이전트가 SMS Campaign의 필드를 최적화한다고 가정합니다. 다음과 같이 구성할 수 있습니다:
 
 ![Decisioning Studio SMS 구성 예시]({% image_buster /assets/img/decisioning_studio/decisioning_studio_sms_example_1.png %})
 

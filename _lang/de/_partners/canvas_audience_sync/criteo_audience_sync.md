@@ -1,7 +1,7 @@
 ---
 nav_title: Criteo
 article_title: Canvas Zielgruppen-Synchronisation mit Criteo
-description: "Dieser Referenzartikel beschreibt, wie Sie Braze Audience Sync mit Criteo verwenden, um Werbung auf der Grundlage von verhaltensbezogenen Trigger or triggern or triggern, Segmentierung und mehr auszuliefern."
+description: "Dieser Referenzartikel beschreibt, wie Sie Braze Audience Sync mit Criteo verwenden, um Werbung auf der Grundlage von verhaltensbezogenen Triggern, Segmentierung und mehr auszuliefern."
 page_order: 1
 alias: /audience_sync_criteo/
 
@@ -11,7 +11,7 @@ tool:
 
 # Zielgruppen-Synchronisation mit Criteo {#audience-sync-to-criteo}
 
-Mit Braze Audience Sync to Criteo können Marken wahlweise Nutzerdaten aus ihrer eigenen Braze-Integration zu Criteo-Kundenlisten hinzufügen, um Werbung auf der Grundlage von Verhaltenstriggern, Segmentierung und mehr auszuliefern. Jedes Kriterium, das Sie normalerweise zum Trigger or triggern or triggern einer Nachricht (Push, E-Mail, Kurzmitteilungsdienst or SMS, Webhook usw.) in einem Braze-Canvas auf der Grundlage Ihrer Nutzerdaten verwenden, kann jetzt verwendet werden, um eine Anzeige für diese Nutzer:innen in Ihren Criteo-Kundenlisten zu Trigger or triggern or triggern.
+Mit Braze Audience Sync to Criteo können Marken wahlweise Nutzerdaten aus ihrer eigenen Braze-Integration zu Criteo-Kundenlisten hinzufügen, um Werbung auf der Grundlage von Verhaltenstriggern, Segmentierung und mehr auszuliefern. Jedes Kriterium, das Sie normalerweise zum Triggern einer Nachricht (Push, E-Mail, SMS, Webhook usw.) in einem Braze-Canvas auf der Grundlage Ihrer Nutzerdaten verwenden, kann jetzt verwendet werden, um eine Anzeige für diese Nutzer:innen in Ihren Criteo-Kundenlisten zu triggern.
 
 **Zu den üblichen Anwendungsfällen für die Zielgruppen-Synchronisation gehören:**
 
@@ -56,13 +56,13 @@ Nachdem Sie die Verbindung erfolgreich hergestellt haben, gelangen Sie zurück z
 
 ![Eine aktualisierte Version der Criteo-Technologie-Partnerseite, auf der die erfolgreich verbundenen Werbekonten angezeigt werden.]({% image_buster /assets/img/criteo/criteo4.png %}){: style="max-width:80%;"}
 
-Ihre Criteo-Verbindung wird auf der Ebene des Braze-Workspace angewendet. Wenn Ihr Criteo-Administrator Sie aus Ihrem Criteo-Werbekonto entfernt, erkennt Braze ein ungültiges Token / Textbaustein. Dies hat zur Folge, dass Ihre aktiven Canvase, die Criteo verwenden, Fehler anzeigen und Braze nicht in der Lage ist, Nutzer:innen zu synchronisieren.
+Ihre Criteo-Verbindung wird auf der Ebene des Braze-Workspace angewendet. Wenn Ihr Criteo-Administrator Sie aus Ihrem Criteo-Werbekonto entfernt, erkennt Braze ein ungültiges Token / Textbaustein. Dies hat zur Folge, dass Ihre aktiven Canvases, die Criteo verwenden, Fehler anzeigen und Braze nicht in der Lage ist, Nutzer:innen zu synchronisieren.
 
 ### Schritt 2: Canvas-Eingangskriterien konfigurieren {#step-2-configure-your-canvas-entry-criteria}
 
 Beim Aufbau von Zielgruppen für das Ad Tracking möchten Sie möglicherweise bestimmte Nutzer:innen auf der Grundlage ihrer Präferenzen einbeziehen oder ausschließen, um Datenschutzgesetze einzuhalten, wie z. B. das Recht „Nicht verkaufen oder weitergeben“ gemäß dem [CCPA](https://oag.ca.gov/privacy/ccpa). Marketer sollten die entsprechenden Filter für die Eignung der Nutzer:innen in ihre Canvas-Eingangskriterien aufnehmen. Nachfolgend finden Sie einige Optionen.
 
-Wenn Sie den [iOS Identifier for Advertisers (IDFA) über das Braze SDK or Software-Development-Kit]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations#optional-idfa-collection) erfasst haben, können Sie den Filter „Ads Tracking Enabled“ verwenden. Wählen Sie den Wert „true“ aus, um Nutzer:innen nur in Audience Sync-Ziele zu senden, für die sie ein Opt-in gesetzt haben.
+Wenn Sie den [iOS Identifier for Advertisers (IDFA) über das Braze SDK]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations#optional-idfa-collection) erfasst haben, können Sie den Filter „Ads Tracking Enabled“ verwenden. Wählen Sie den Wert „true“ aus, um Nutzer:innen nur in Audience Sync-Ziele zu senden, für die sie ein Opt-in gesetzt haben.
 
 ![Canvas-Eingangsfilter mit „Ads Tracking Enabled“ auf „true“ gesetzt.]({% image_buster /assets/img/criteo/criteo11.png %})
 

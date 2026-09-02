@@ -1,7 +1,7 @@
 ---
 nav_title: Clarisights
 article_title: Clarisights
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Clarisights, einer Self-Service-Plattform für Performance-Marketing-Reporting, die es Ihnen ermöglicht, Daten aus Braze Campaigns und Canvase zu importieren, um eine einheitliche Berichtsoberfläche für Performance- und CRM or Customer-Relationship-Management [-System] (CRM)/Bindungsmarketing zu schaffen."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Clarisights, einer Self-Service-Plattform für Performance-Marketing-Reporting, die es Ihnen ermöglicht, Daten aus Braze Campaigns und Canvases zu importieren, um eine einheitliche Berichtsoberfläche für Performance- und CRM/Bindungsmarketing zu schaffen."
 alias: /partners/clarisights/
 page_type: partner
 search_tag: Partner
@@ -16,15 +16,15 @@ _Diese Integration wird von Clarisights gepflegt._
 
 ## Über die Integration {#about-the-integration}
 
-Die Integration von Braze und Clarisights ermöglicht es Ihnen, Daten aus Braze Campaigns und Canvase zu importieren, um eine einheitliche Berichtsoberfläche für Performance- und CRM or Customer-Relationship-Management [-System] (CRM)/Bindungsmarketing zu schaffen.
+Die Integration von Braze und Clarisights ermöglicht es Ihnen, Daten aus Braze Campaigns und Canvases zu importieren, um eine einheitliche Berichtsoberfläche für Performance- und CRM/Bindungsmarketing zu schaffen.
 
 ## Voraussetzungen {#prerequisites}
 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | Clarisights-Konto | Ein Clarisights-Workspace ist erforderlich, um die Vorteile dieser Partnerschaft zu nutzen. |
-| Braze Representational State Transfer-API-Schlüssel | Ein Braze Representational State Transfer-API-Schlüssel mit den folgenden Berechtigungen: <br> - `campaigns.list` <br>  - `campaigns.details`<br> - `campaigns.data_series` <br> - `canvas.details`<br> - `canvas.list` <br>  - `canvas.data_series` <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze-Representational State Transfer-Endpunkt | [Ihre Representational State Transfer-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
+| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit den folgenden Berechtigungen: <br> - `campaigns.list` <br>  - `campaigns.details`<br> - `campaigns.data_series` <br> - `canvas.details`<br> - `canvas.list` <br>  - `canvas.data_series` <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze-REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
 | Braze-Workspace-Name | Der Name des Workspace, der mit dem Braze-API-Schlüssel verknüpft ist. Dieser Name wird verwendet, um die Workspace-Integration in Clarisights zu identifizieren. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
@@ -34,12 +34,12 @@ Mit der Integration von Braze und Clarisights können Nutzer:innen verschiedene 
 
 {% tabs %}
 {% tab Bessere Sichtbarkeit %}
-Bessere Sichtbarkeit der gesamten Performance von Campaigns und Canvase.
+Bessere Sichtbarkeit der gesamten Performance von Campaigns und Canvases.
 
 ![Eine Grafik mit einem Beispiel für bessere Sichtbarkeit in der Clarisights-Plattform. Diese Grafik enthält Statistiken zu Öffnungen, Klicks, Versendungen, Conversions usw. von Campaigns und Canvases.]({{site.baseurl}}/assets/img/clarisights/overall_view.png)
 {% endtab %}
 {% tab Detaillierte Berichte %}
-Detaillierte Berichte für Campaigns und Canvase.
+Detaillierte Berichte für Campaigns und Canvases.
 
 ![Eine Grafik mit detaillierten Berichten, wie z. B. „insgesamt gesendet nach Kanal“ und „Konversionsrate“.]({{site.baseurl}}/assets/img/clarisights/unified_dashboard.png)
 {% endtab %}
@@ -61,7 +61,7 @@ Um Braze-Daten mit Clarisights zu synchronisieren, müssen Sie einen Braze-Konne
 
 Um Braze als Datenquelle in Ihre Clarisights-Berichte aufzunehmen, navigieren Sie zu **Create New Report**. Benennen Sie Ihren Bericht und wählen Sie **Braze** als Datenquelle in der angezeigten Eingabeaufforderung aus. Sie können auch die Metriken und Dimensionen auswählen, die in den Bericht aufgenommen werden sollen. Wenn Sie fertig sind, wählen Sie **Create Report**.
 
-Die Daten aus Braze werden ab dem Zeitpunkt des nächsten geplanten Datenimports übertragen. Kontaktieren Sie Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in von Clarisights, um Backfills für längere Zeiträume anzufordern.
+Die Daten aus Braze werden ab dem Zeitpunkt des nächsten geplanten Datenimports übertragen. Kontaktieren Sie Ihren CSM von Clarisights, um Backfills für längere Zeiträume anzufordern.
 
 ![Clarisights-Berichtseinstellungen mit Feldern für Name und Datenquelle. In diesem Beispiel ist „Braze“ als Datenquelle ausgewählt.]({{site.baseurl}}/assets/img/clarisights/braze_report.png)
 

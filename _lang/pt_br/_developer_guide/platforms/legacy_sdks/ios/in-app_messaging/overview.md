@@ -34,7 +34,7 @@ Todas as mensagens no app são subclasses do `ABKInAppMessage`, que define o com
 ![Um gráfico que mostra que a classe ABKInAppMessage é a classe raiz da ABKInAppMessageSlideup, ABKInAppMessageImmersive e ABKInAppMessageHTML. O ABKInAppMessage inclui propriedades personalizáveis, como mensagem, extras, duração, ação ao clicar, URI, ação de dispensa, orientação do ícone e alinhamento do texto. O ABKInAppMessageSlideup inclui propriedades personalizáveis, como chevron e âncora deslizante. O ABKInAppMessageImmersive inclui propriedades personalizáveis, como cabeçalho, botão Fechar, quadro e botões de mensagem no app. O ABKInAppMessageHTML permite registrar manualmente os cliques no botão de mensagem no app em HTML.]({% image_buster /assets/img_archive/ABKInAppMessage-models.png %})
 
 {% alert important %}
-Por padrão, as mensagens no app são ativadas após a conclusão da integração padrão do SDK or kit de desenvolvimento de software, incluindo o suporte a GIF.
+Por padrão, as mensagens no app são ativadas após a conclusão da integração padrão do SDK, incluindo o suporte a GIF.
 <br><br>
 Note que a integração do `SDWebImage` é necessária se você planeja usar nossa Braze UI para exibir imagens em mensagens no app do iOS ou em Content Cards.
 {% endalert %}
@@ -68,7 +68,7 @@ As mensagens no app [`Full`](https://appboy.github.io/appboy-ios-sdk/docs/interf
 {% endtab %}
 {% tab Custom HTML %}
 
-As mensagens no app [`HTML Full`](https://appboy.github.io/appboy-ios-sdk/docs/interface_a_b_k_in_app_message_h_t_m_l_full.html) são úteis para criar conteúdo totalmente personalizado para o usuário. O conteúdo completo da mensagem no app em HTML definido pelo usuário é exibido em um `WKWebView` e pode, opcionalmente, conter outros conteúdos avançados, como imagens e fontes, permitindo controle total sobre a aparência e a funcionalidade da mensagem. <br><br>As mensagens no app do iOS suportam uma interface JavaScript `brazeBridge` para chamar métodos no Braze Web SDK or kit de desenvolvimento de software a partir do seu HTML; consulte nossas [práticas recomendadas]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices) para obter mais detalhes.
+As mensagens no app [`HTML Full`](https://appboy.github.io/appboy-ios-sdk/docs/interface_a_b_k_in_app_message_h_t_m_l_full.html) são úteis para criar conteúdo totalmente personalizado para o usuário. O conteúdo completo da mensagem no app em HTML definido pelo usuário é exibido em um `WKWebView` e pode, opcionalmente, conter outros conteúdos avançados, como imagens e fontes, permitindo controle total sobre a aparência e a funcionalidade da mensagem. <br><br>As mensagens no app do iOS suportam uma interface JavaScript `brazeBridge` para chamar métodos no Braze Web SDK a partir do seu HTML; consulte nossas [práticas recomendadas]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices) para obter mais detalhes.
 
 O exemplo a seguir mostra uma mensagem no app paginada em HTML Full:
 
@@ -77,7 +77,7 @@ O exemplo a seguir mostra uma mensagem no app paginada em HTML Full:
 O conteúdo completo da mensagem no app é exibido em um `WKWebView` e pode, opcionalmente, conter outros conteúdos avançados, como imagens e fontes, permitindo controle total sobre a aparência e a funcionalidade da mensagem. Note que atualmente não oferecemos suporte à exibição de mensagens no app em HTML personalizado em um iFrame nas plataformas iOS e Android.
 
 {% alert note %}
-A partir da versão 3.19.0 do SDK or kit de desenvolvimento de software do iOS, os seguintes métodos JavaScript são no-ops em mensagens HTML no app: `alert`, `confirm`, `prompt`.
+A partir da versão 3.19.0 do SDK do iOS, os seguintes métodos JavaScript são no-ops em mensagens HTML no app: `alert`, `confirm`, `prompt`.
 {% endalert %}
 
 {% endtab %}

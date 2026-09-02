@@ -112,7 +112,7 @@ As seguintes ações estão disponíveis para links de Content Card:
 | Registrar atributo personalizado | Escolher um [atributo personalizado]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) para definir para o usuário atual. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Comportamento ao clicar" }
 
-As opções **Registrar evento personalizado** e **Registrar atributo personalizado** exigem a seguinte compatibilidade de versão do SDK or kit de desenvolvimento de software:
+As opções **Registrar evento personalizado** e **Registrar atributo personalizado** exigem a seguinte compatibilidade de versão do SDK:
 
 {% sdk_min_versions swift:5.4.0 android:21.0.0 web:4.0.3 %}
 
@@ -131,7 +131,7 @@ Crie o restante da sua campanha. Continue nas próximas seções para mais detal
 
 ### Escolha um cronograma de entrega ou disparador {#choose-a-delivery-schedule-or-trigger}
 
-Os Content Cards podem ser entregues com base em um horário agendado, uma ação ou um disparo por API or interface de programação do aplicativo (API). Para saber mais, consulte [Agendando sua campanha]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
+Os Content Cards podem ser entregues com base em um horário agendado, uma ação ou um disparo por API. Para saber mais, consulte [Agendando sua campanha]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
 Você também pode definir a duração da campanha e o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours), além de determinar a expiração do Content Card. Defina uma data de expiração específica ou o número de dias até o cartão expirar, em até 30 dias. Todas as variantes devem usar a mesma expiração (duração ou horário específico).
 
@@ -152,7 +152,7 @@ Para campanhas de Content Card com entrega agendada, você pode escolher quando 
 
 #### Escolha os usuários a direcionar {#choose-users-to-target}
 
-Em seguida, [direcione os usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) escolhendo segmentos ou filtros para refinar seu público. Você recebe automaticamente uma prévia de como é a população aproximada desse Segment or segmento or segmento. Lembre-se de que a associação exata ao Segment or segmento or segmento é sempre calculada antes do envio da mensagem.
+Em seguida, [direcione os usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) escolhendo segmentos ou filtros para refinar seu público. Você recebe automaticamente uma prévia de como é a população aproximada desse Segment. Lembre-se de que a associação exata ao Segment é sempre calculada antes do envio da mensagem.
 
 {% multi_lang_include audience/target_audiences.md %}
 
@@ -211,7 +211,7 @@ Durante envios de teste, Content Cards que excedem 2 KB ainda podem ser entregue
 Aqui estão algumas práticas recomendadas para gerenciar o tamanho da carga útil dos Content Cards:
 
 * Use encurtadores de URL para links longos. URLs, especialmente aquelas com parâmetros de rastreamento extensos, podem ter problemas com o limite de tamanho. Usar um serviço de encurtamento de URL pode reduzir drasticamente a contagem de caracteres e liberar espaço na carga útil.
-* Trunque conteúdo dinâmico com Liquid. Ao personalizar cartões com texto dinâmico de atributos de usuário ou chamadas de API or interface de programação do aplicativo (API), o comprimento do conteúdo pode ser imprevisível. Use proativamente filtros Liquid como `truncate` para limitar o comprimento de qualquer texto dinâmico.
+* Trunque conteúdo dinâmico com Liquid. Ao personalizar cartões com texto dinâmico de atributos de usuário ou chamadas de API, o comprimento do conteúdo pode ser imprevisível. Use proativamente filtros Liquid como `truncate` para limitar o comprimento de qualquer texto dinâmico.
 * Seja eficiente com URLs multiplataforma. O limite de 2 KB inclui as URLs de todas as plataformas que você define. Usar URLs longas e únicas para cada plataforma pode multiplicar o tamanho da carga útil. Se possível, use um único link que funcione em todas as plataformas, ou use encurtadores de URL conforme necessário.
 * Considere Banners para conteúdo mais rico. Para casos de uso que exigem consistentemente grandes quantidades de conteúdo, Content Cards pode não ser o canal adequado. Banners não têm a mesma limitação de carga útil de 2 KB e são mais adequados para incorporar conteúdo mais rico diretamente em uma experiência de app ou website.
 
@@ -250,7 +250,7 @@ Para que os usuários recebam uma mensagem de uma Campaign específica apenas um
 
 ### Gerenciando Content Cards ativos {#managing-live-content-cards}
 
-Após serem enviados, os Content Cards ficam esperando em uma "caixa de entrada" prontos para serem entregues ao usuário (semelhante ao que acontece com e-mails). Depois que o conteúdo é carregado no Content Card (no momento da exibição), ele não pode ser alterado durante sua vida útil. Isso se aplica mesmo se você estiver chamando uma API or interface de programação do aplicativo (API) por meio de Connected Content e os dados do endpoint mudarem. Esses dados não são atualizados. Só é possível impedir o envio para novos usuários e remover dos feeds dos usuários. Se você modificar uma Campaign, apenas os cartões enviados após a modificação incluem a atualização.
+Após serem enviados, os Content Cards ficam esperando em uma "caixa de entrada" prontos para serem entregues ao usuário (semelhante ao que acontece com e-mails). Depois que o conteúdo é carregado no Content Card (no momento da exibição), ele não pode ser alterado durante sua vida útil. Isso se aplica mesmo se você estiver chamando uma API por meio de Connected Content e os dados do endpoint mudarem. Esses dados não são atualizados. Só é possível impedir o envio para novos usuários e remover dos feeds dos usuários. Se você modificar uma Campaign, apenas os cartões enviados após a modificação incluem a atualização.
 
 #### Atualizando cartões já lançados {#updating-launched-cards}
 
@@ -344,7 +344,7 @@ Se você quiser que um cartão pareça estar sempre disponível, pode criar uma 
 
 ### Sincronização e atualização de Content Cards {#content-card-sync-and-refresh}
 
-Os Content Cards são sincronizados em um cronograma e quando seu app atualiza o feed. O comportamento de sincronização difere entre sincronizações completas e parciais, e sua integração de SDK or kit de desenvolvimento de software afeta quando os cartões são atualizados no início da sessão. Para detalhes de implementação, consulte [Personalizar o feed de Content Cards]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed) e [Criando Content Cards]({{site.baseurl}}/developer_guide/content_cards/creating_cards).
+Os Content Cards são sincronizados em um cronograma e quando seu app atualiza o feed. O comportamento de sincronização difere entre sincronizações completas e parciais, e sua integração de SDK afeta quando os cartões são atualizados no início da sessão. Para detalhes de implementação, consulte [Personalizar o feed de Content Cards]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed) e [Criando Content Cards]({{site.baseurl}}/developer_guide/content_cards/creating_cards).
 
 ### Impacto de parar Campaigns de Content Cards {#impact-of-stopping-content-cards-campaigns}
 
@@ -359,9 +359,9 @@ Para Campaigns de entrega baseada em ação (como início de sessão), existe um
 - O evento-gatilho é enviado aos servidores da Braze
 - A Campaign é disparada e a elegibilidade do usuário é registrada
 - O cartão de conteúdo é criado no banco de dados para esse usuário
-- O SDK or kit de desenvolvimento de software sincroniza e busca todos os cartões disponíveis no dispositivo
+- O SDK sincroniza e busca todos os cartões disponíveis no dispositivo
 
-Se a sincronização do SDK or kit de desenvolvimento de software acontecer antes de a elegibilidade do usuário ser registrada, o usuário não recebe o cartão.
+Se a sincronização do SDK acontecer antes de a elegibilidade do usuário ser registrada, o usuário não recebe o cartão.
 
 Para novos usuários em sua primeira sessão, esse atraso é inevitável. Para usuários existentes que precisam de disponibilidade imediata, considere usar entrega agendada.
 

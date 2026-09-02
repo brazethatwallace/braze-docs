@@ -108,7 +108,7 @@ Aquí es donde determinamos qué canales de mensajería tienen más sentido para
 * [Push]({{site.baseurl}}/user_guide/channels/push)
 * [Mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages)
 * [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards)
-* [servicio de mensajes cortos o MMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs)
+* [SMS o MMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs)
 * [Webhook]({{site.baseurl}}/user_guide/channels/webhooks)
 
 ### El "cómo": Construye la experiencia completa {#the-how-build-the-complete-experience}

@@ -1,6 +1,6 @@
 # Funciones del servidor MCP de Braze {#braze-mcp-server-functions}
 
-> El servidor MCP de Braze expone herramientas de lectura y escritura que se corresponden con endpoints específicos de la REST or transferencia de estado representacional API de Braze. Para más información, consulta [Servidor MCP de Braze]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/){% endif %}.
+> El servidor MCP de Braze expone herramientas de lectura y escritura que se corresponden con endpoints específicos de la REST API de Braze. Para más información, consulta [Servidor MCP de Braze]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/){% endif %}.
 
 {% multi_lang_include mcp_server/beta_alert.md %}
 

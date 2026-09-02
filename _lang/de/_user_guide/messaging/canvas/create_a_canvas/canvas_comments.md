@@ -4,13 +4,13 @@ article_title: Kommentare in Canvas
 alias: "/canvas_comments/"
 page_order: 0.5
 page_type: reference
-description: "Dieser Referenzartikel beschreibt, wie Sie Kommentare in Ihren Canvase erstellen und verwalten."
+description: "Dieser Referenzartikel beschreibt, wie Sie Kommentare in Ihren Canvases erstellen und verwalten."
 tool: Canvas
 ---
 
 # Kommentare in Canvas {#comments-in-canvas}
 
-> Kommentare in Canvase können ein hervorragender kollaborativer Bereich für Ihr Marketing-Team sein, um die Details Ihrer Canvase zu identifizieren, zu besprechen und zu überprüfen. Während Sie ein Canvas aufbauen, können Sie Kommentare erstellen und verwalten, um Bereiche zu kennzeichnen, die möglicherweise zusätzliches Feedback von Ihren Kolleg:innen erfordern.
+> Kommentare in Canvases können ein hervorragender kollaborativer Bereich für Ihr Marketing-Team sein, um die Details Ihrer Canvases zu identifizieren, zu besprechen und zu überprüfen. Während Sie ein Canvas aufbauen, können Sie Kommentare erstellen und verwalten, um Bereiche zu kennzeichnen, die möglicherweise zusätzliches Feedback von Ihren Kolleg:innen erfordern.
 
 ![Canvas-Builder mit der Kommentar-Seitenleiste, die offene Kommentar-Threads anzeigt.]({% image_buster /assets/img_archive/canvas_comments.png %}){: style="float:right;max-width:70%;margin-left:15px;"}
 
@@ -56,4 +56,4 @@ Wenn Sie **Alle neuen Kommentare** auswählen, werden Sie über neue Threads ben
 
 Um Kommentar-Benachrichtigungen für ein Canvas zu deaktivieren, wählen Sie **Keine** aus. Standardmäßig ist die erstellende Person eines Canvas für Benachrichtigungen über alle neuen Kommentare angemeldet, und andere Nutzer:innen sind für Benachrichtigungen über Erwähnungen oder Antworten angemeldet.
 
-Beachten Sie, dass der Schalter **Kommentare in Canvase** unter diesen Benachrichtigungspräferenzen steuert, ob Sie für Benachrichtigungen über alle Canvase hinweg angemeldet oder abgemeldet sind. Wenn Sie diese Einstellung deaktivieren, erhalten Sie keine E-Mail-Benachrichtigungen über Kommentar-Aktionen.
+Beachten Sie, dass der Schalter **Kommentare in Canvases** unter diesen Benachrichtigungspräferenzen steuert, ob Sie für Benachrichtigungen über alle Canvases hinweg angemeldet oder abgemeldet sind. Wenn Sie diese Einstellung deaktivieren, erhalten Sie keine E-Mail-Benachrichtigungen über Kommentar-Aktionen.

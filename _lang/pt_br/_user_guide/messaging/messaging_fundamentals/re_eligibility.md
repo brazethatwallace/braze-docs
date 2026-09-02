@@ -32,11 +32,11 @@ Para Campaigns disparadas com reelegibilidade ativada, os usuários que [não re
 
 Além disso, se você estiver tentando enviar uma mensagem imediatamente com uma reelegibilidade de zero minutos, sempre tentaremos programá-la imediatamente, independentemente de como o usuário recebeu versões anteriores da Campaign ou do Canvas.
 
-### Reelegibilidade com Campaigns disparadas por API or interface de programação do aplicativo (API) {#re-eligibility-with-api-triggered-campaigns}
+### Reelegibilidade com Campaigns disparadas por API {#re-eligibility-with-api-triggered-campaigns}
 
-O número de vezes que um usuário recebe uma Campaign disparada por API or interface de programação do aplicativo (API) pode ser limitado usando as configurações de reelegibilidade. Isso significa que o usuário receberá a Campaign apenas uma vez ou uma vez em um determinado período, independentemente de quantas vezes o gatilho da API or interface de programação do aplicativo (API) for acionado.
+O número de vezes que um usuário recebe uma Campaign disparada por API pode ser limitado usando as configurações de reelegibilidade. Isso significa que o usuário receberá a Campaign apenas uma vez ou uma vez em um determinado período, independentemente de quantas vezes o gatilho da API for acionado.
 
-Por exemplo, digamos que você esteja usando uma Campaign disparada por API or interface de programação do aplicativo (API) para enviar ao usuário uma Campaign sobre um item que ele visualizou recentemente. Nesse caso, você pode limitar a Campaign para enviar no máximo uma mensagem por dia, independentemente de quantos itens ele visualizou, enquanto aciona o gatilho da API or interface de programação do aplicativo (API) para cada item. Por outro lado, se sua Campaign disparada por API or interface de programação do aplicativo (API) for transacional, você vai querer garantir que o usuário receba a Campaign toda vez que realizar a transação, definindo a postergação como zero minutos.
+Por exemplo, digamos que você esteja usando uma Campaign disparada por API para enviar ao usuário uma Campaign sobre um item que ele visualizou recentemente. Nesse caso, você pode limitar a Campaign para enviar no máximo uma mensagem por dia, independentemente de quantos itens ele visualizou, enquanto aciona o gatilho da API para cada item. Por outro lado, se sua Campaign disparada por API for transacional, você vai querer garantir que o usuário receba a Campaign toda vez que realizar a transação, definindo a postergação como zero minutos.
 {% endtab %}
 
 {% tab canvas %}

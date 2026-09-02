@@ -14,7 +14,7 @@ page_order: 2
 Ein regelbasiertes Empfehlungssystem verwendet Nutzerdaten und Produktinformationen, um Nutzer:innen relevante Artikel in Nachrichten vorzuschlagen. Es verwendet [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) und entweder Braze-[Kataloge]({{site.baseurl}}/user_guide/data/activation/catalogs) oder [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), um Inhalte auf Grundlage von Nutzerverhalten und Attributen dynamisch zu personalisieren.
 
 {% alert important %}
-Regelbasierte Empfehlungen basieren auf einer festen Logik, die Sie manuell festlegen müssen. Das bedeutet, dass sich Ihre Empfehlungen nicht an die Kaufhistorie und den Geschmack einer Nutzerin oder eines Nutzers anpassen, sofern Sie die Logik nicht Update or aktualisieren or aktualisieren.<br><br>Um personalisierte KI or künstliche Intelligenz-Empfehlungen zu erstellen, die sich automatisch an den Verlauf von Nutzer:innen anpassen, sehen Sie sich [KI or künstliche Intelligenz-Artikelempfehlungen]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai) an.
+Regelbasierte Empfehlungen basieren auf einer festen Logik, die Sie manuell festlegen müssen. Das bedeutet, dass sich Ihre Empfehlungen nicht an die Kaufhistorie und den Geschmack einer Nutzerin oder eines Nutzers anpassen, sofern Sie die Logik nicht aktualisieren.<br><br>Um personalisierte KI-Empfehlungen zu erstellen, die sich automatisch an den Verlauf von Nutzer:innen anpassen, sehen Sie sich [KI-Artikelempfehlungen]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai) an.
 {% endalert %}
 
 ## Optionen des Empfehlungssystems {#recommendation-engine-options}
@@ -155,7 +155,7 @@ Zum Beispiel:
 
 ![Ein Beispiel für einen Nachrichten-Editor aus einer Content-Card-Kampagne.]({% image_buster /assets/img/recs/content_card_preview.png %})
 
-Geben Sie im Abschnitt **On Klick, der or klicken behavior** die Liquid-Logik ein, wohin Nutzer:innen weitergeleitet werden sollen, wenn sie auf iOS-, Android- und Internet-Geräten auf die Content-Card klicken.
+Geben Sie im Abschnitt **On Klick, der behavior** die Liquid-Logik ein, wohin Nutzer:innen weitergeleitet werden sollen, wenn sie auf iOS-, Android- und Internet-Geräten auf die Content-Card klicken.
 
 {% raw %}
 ```liquid

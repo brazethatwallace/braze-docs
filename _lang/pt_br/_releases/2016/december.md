@@ -14,4 +14,4 @@ Os cabeçalhos de e-mail adicionam a configuração explícita de cabeçalhos de
 
 ## Atualizações do Canvas {#canvas-updates}
 
-Com essa atualização, é possível fazer com que uma etapa se conecte a várias etapas, ou fazer com que várias etapas se conectem em uma única etapa mesclada, bem como desenhar pontos de conexão entre elas. Por exemplo, os usuários que fizeram uma compra podem seguir um fluxo diferente dos usuários que não fizeram. Para saber mais sobre o Canvas, consulte [Criação de uma Branch or ramificação or ramificação]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/branching/#branching).
+Com essa atualização, é possível fazer com que uma etapa se conecte a várias etapas, ou fazer com que várias etapas se conectem em uma única etapa mesclada, bem como desenhar pontos de conexão entre elas. Por exemplo, os usuários que fizeram uma compra podem seguir um fluxo diferente dos usuários que não fizeram. Para saber mais sobre o Canvas, consulte [Criação de uma Branch]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/branching/#branching).

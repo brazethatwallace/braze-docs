@@ -27,7 +27,7 @@ Die Integration von Sheetlabs und Braze erlaubt Ihnen die Verwendung von [Connec
 
 Die Integration von Braze und Sheetlabs ermöglicht die folgenden Anwendungsfälle:
 
-1. **Trennung des Marketer-Zugriffs vom Zugriff auf Braze-Campaigns**: Einige Teams möchten vermeiden, dass alle Mitarbeitenden Zugriff auf die direkte Konfiguration von Braze-Templates und -Inhalten haben. Stattdessen wollen sie, dass ihre Mitarbeitenden Marketing-Inhalte in einer Tabellenkalkulation Update or aktualisieren or aktualisieren. Sheetlabs bildet die Brücke zwischen Tabellenkalkulationen und Braze und kann in Realtime aktualisiert werden.
+1. **Trennung des Marketer-Zugriffs vom Zugriff auf Braze-Campaigns**: Einige Teams möchten vermeiden, dass alle Mitarbeitenden Zugriff auf die direkte Konfiguration von Braze-Templates und -Inhalten haben. Stattdessen wollen sie, dass ihre Mitarbeitenden Marketing-Inhalte in einer Tabellenkalkulation aktualisieren. Sheetlabs bildet die Brücke zwischen Tabellenkalkulationen und Braze und kann in Realtime aktualisiert werden.
 2. **Übersetzungen**: Braze-Templates unterstützen von Haus aus keine Übersetzungen. Wenn Sie mehrere Sprachen unterstützen möchten, müssen Sie mehrere Templates erstellen. Wenn Sie Sheetlabs in Verbindung mit Braze verwenden, können Sie ein einziges Braze-Template verwenden, das in mehrere Sprachen übersetzt ist.
 3. **Angepasste Attribute erweitern**: Braze bietet eine bestimmte Anzahl angepasster Attribute, die konfiguriert werden können. Wenn Sie Sheetlabs in Verbindung mit Braze verwenden, können Sie über diese anfängliche Zuteilung hinaus weitere angepasste Attribute hinzufügen.
 

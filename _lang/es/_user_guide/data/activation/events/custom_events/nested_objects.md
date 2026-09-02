@@ -19,9 +19,9 @@ Puedes usar objetos anidados —objetos que están dentro de otro objeto— para
 - No se pueden generar esquemas de propiedades de eventos para eventos de compra.
 - Los esquemas de propiedades de eventos se generan mediante el muestreo de eventos personalizados de las últimas 24 horas.
 
-### Versiones mínimas del SDK or kit de desarrollo de software {#minimum-sdk-versions}
+### Versiones mínimas del SDK {#minimum-sdk-versions}
 
-Las siguientes versiones del SDK or kit de desarrollo de software admiten objetos anidados:
+Las siguientes versiones del SDK admiten objetos anidados:
 
 {% sdk_min_versions swift:5.0.0 android:20.0.0 web:3.3.0 %}
 
@@ -197,7 +197,7 @@ Las propiedades de eventos anidados no se pueden previsualizar en el dashboard p
 
 1. Crea una campaña o paso en Canvas que se dirija solo a tus usuarios de prueba y que sea desencadenada por (o haga referencia a) el evento personalizado con propiedades anidadas.
 2. Lanza la campaña a tu audiencia de prueba.
-3. Registra el evento personalizado con la carga útil del objeto anidado en el perfil de tu usuario de prueba (usando la API o el SDK or kit de desarrollo de software).
+3. Registra el evento personalizado con la carga útil del objeto anidado en el perfil de tu usuario de prueba (usando la API o el SDK).
 4. Verifica que el mensaje se renderice correctamente con los valores de las propiedades anidadas.
 
 ## Preguntas frecuentes {#frequently-asked-questions}

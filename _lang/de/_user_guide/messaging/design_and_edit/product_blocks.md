@@ -128,7 +128,7 @@ Diese Anleitung führt Sie durch die Schritte zum Erstellen, Testen und Sicherst
 #### Dynamischer Produkt-Block
 
 {% alert note %}
-Dynamische Produkt-Blöcke erfordern [empfohlene E-Commerce-Ereignisse]({{site.baseurl}}/ecommerce_events) und können nur innerhalb von [Canvase]({{site.baseurl}}/ecommerce_use_cases) verwendet werden. Für Braze-Shopify-Nutzer:innen sind diese Ereignisse automatisch als Teil der Integration enthalten. Für Nicht-Shopify-Nutzer:innen müssen Sie mit Ihren Entwickler:innen zusammenarbeiten, um diese Ereignisse an Braze zu übergeben und sicherzustellen, dass der primäre Produktbezeichner innerhalb der Ereignisse als Katalog-Artikel-ID hinzugefügt wird.
+Dynamische Produkt-Blöcke erfordern [empfohlene E-Commerce-Ereignisse]({{site.baseurl}}/ecommerce_events) und können nur innerhalb von [Canvases]({{site.baseurl}}/ecommerce_use_cases) verwendet werden. Für Braze-Shopify-Nutzer:innen sind diese Ereignisse automatisch als Teil der Integration enthalten. Für Nicht-Shopify-Nutzer:innen müssen Sie mit Ihren Entwickler:innen zusammenarbeiten, um diese Ereignisse an Braze zu übergeben und sicherzustellen, dass der primäre Produktbezeichner innerhalb der Ereignisse als Katalog-Artikel-ID hinzugefügt wird.
 {% endalert %}
 
 Erstellen Sie ein neues Canvas, das eines der verfügbaren Braze-Templates für Ihren spezifischen Anwendungsfall verwendet:
@@ -137,7 +137,7 @@ Erstellen Sie ein neues Canvas, das eines der verfügbaren Braze-Templates für 
 - Abgebrochener Checkout
 - Bestellbestätigungen
 
-Detaillierte Anweisungen zum Erstellen Ihrer E-Commerce-Canvase finden Sie unter [E-Commerce-Anwendungsfälle]({{site.baseurl}}/ecommerce_use_cases).
+Detaillierte Anweisungen zum Erstellen Ihrer E-Commerce-Canvases finden Sie unter [E-Commerce-Anwendungsfälle]({{site.baseurl}}/ecommerce_use_cases).
 
 #### Statischer Produkt-Block
 

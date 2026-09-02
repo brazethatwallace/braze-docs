@@ -22,9 +22,9 @@ Um auf das Deliverability Center zuzugreifen, benötigen Sie die [Nutzer:innenbe
 - Campaigns anzeigen
 - Campaigns bearbeiten
 - Campaigns archivieren
-- Canvase anzeigen
-- Canvase bearbeiten
-- Canvase archivieren
+- Canvases anzeigen
+- Canvases bearbeiten
+- Canvases archivieren
 - Frequency-Capping-Regeln anzeigen
 - Frequency-Capping-Regeln bearbeiten
 - Nachrichtenpriorisierung anzeigen

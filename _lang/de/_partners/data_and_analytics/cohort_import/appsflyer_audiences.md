@@ -18,14 +18,14 @@ search_tag: Partner
 |---|---|
 | AppsFlyer-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein AppsFlyer-Konto. |
 | iOS- oder Android-App | Diese Integration unterstützt iOS- und Android-Apps. Je nach Plattform können Code-Snippets in Ihrer Anwendung erforderlich sein. Einzelheiten zu diesen Anforderungen finden Sie in Schritt 1 des Integrationsprozesses. |
-| AppsFlyer SDK or Software-Development-Kit | Neben dem erforderlichen Braze SDK or Software-Development-Kit müssen Sie auch das [AppsFlyer SDK or Software-Development-Kit](https://support.appsflyer.com/hc/en-us/articles/207032126-SDK-integration-overview) installieren. |
+| AppsFlyer SDK | Neben dem erforderlichen Braze SDK müssen Sie auch das [AppsFlyer SDK](https://support.appsflyer.com/hc/en-us/articles/207032126-SDK-integration-overview) installieren. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Datenimport-Integration {#data-import-integration}
 
-### 1. Schritt: AppsFlyer SDK or Software-Development-Kit konfigurieren {#step-1-configure-the-appsflyer-sdk}
+### 1. Schritt: AppsFlyer SDK konfigurieren {#step-1-configure-the-appsflyer-sdk}
 
-Um diese Integration zu nutzen, müssen Sie die externe Braze-ID der Nutzer:innen über die Funktion `setPartnerData()` des AppsFlyer SDK or Software-Development-Kit an AppsFlyer übergeben:
+Um diese Integration zu nutzen, müssen Sie die externe Braze-ID der Nutzer:innen über die Funktion `setPartnerData()` des AppsFlyer SDK an AppsFlyer übergeben:
 
 #### Android
 ```java
@@ -52,7 +52,7 @@ Hier finden Sie den REST-Endpunkt und können Ihren Braze-Datenimport-Schlüssel
 
 1. Gehen Sie in [AppsFlyer Audiences](https://support.appsflyer.com/hc/en-us/articles/115002689186-Audiences-guide#managing-connections) auf den Tab **Connections** und klicken Sie auf **Add partner connection**.
 2. Wählen Sie Braze als Partner aus und geben Sie der Verbindung einen Namen.
-3. Geben Sie den Datenimport-Schlüssel und den Braze-Representational State Transfer-Endpunkt an.
+3. Geben Sie den Datenimport-Schlüssel und den Braze-REST-Endpunkt an.
 4. Speichern Sie die Verbindung – sie kann dann mit jeder neuen oder bestehenden Zielgruppe verknüpft werden.
 
 ![Die Konfigurationsseite der AppsFlyer-Audiences-Plattform für Partnerverbindungen. Im unteren Teil des Bildes sehen Sie, dass das Feld „Braze externe ID“ markiert ist.]({% image_buster /assets/img/appsflyer_audiences/appsflyer_braze_connection.png %}){: style="max-width:80%;"}

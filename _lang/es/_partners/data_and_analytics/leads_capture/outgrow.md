@@ -16,7 +16,7 @@ Cuando utilizas la integración de Braze y Outgrow para contenido interactivo, l
 - **Personalización mejorada**: Recopila datos de cuestionarios, encuestas y calculadoras de Outgrow que puedan mapearse a atributos personalizados en Braze. Estos datos permiten una segmentación precisa y campañas personalizadas.
 - **Sincronización de datos en tiempo real**: Recibe datos de Outgrow en Braze en tiempo real, lo que te permite actuar de inmediato sobre la información de los usuarios. Esto permite un seguimiento puntual o mensajes personalizados basados en las interacciones más recientes de los usuarios.
 - **Gestión de datos optimizada**: Automatiza la transferencia de datos entre Outgrow y Braze, eliminando las exportaciones e importaciones manuales de datos, reduciendo las discrepancias de datos y ahorrando tiempo.
-- **Mejora de la experiencia del usuario**: Aprovecha la información de los usuarios para crear experiencias más relevantes, que conduzcan a una mayor satisfacción, retención y LTV or valor de duración del ciclo de vida or valor de duración del ciclo de vida.
+- **Mejora de la experiencia del usuario**: Aprovecha la información de los usuarios para crear experiencias más relevantes, que conduzcan a una mayor satisfacción, retención y LTV.
 - **Segmentación y orientación flexibles**: Perfecciona la segmentación en Braze utilizando los datos de Outgrow, lo que te permite dirigirte a los usuarios en función de interacciones específicas (como las puntuaciones de los cuestionarios o las respuestas a las encuestas) para crear campañas que resuenen entre tus usuarios.
 
 ## Requisitos previos {#prerequisites}
@@ -26,7 +26,7 @@ Antes de configurar la integración de Outgrow y Braze, confirma que tienes lo s
 | Requisito | Descripción |
 |-------------|-------------|
 | **Cuenta de Outgrow** | Una cuenta de Outgrow registrada para configurar y administrar el contenido interactivo y la configuración de transferencia de datos |
-| **Cuenta de Braze** | Una cuenta de Braze con acceso a las credenciales de la REST or transferencia de estado representacional API |
+| **Cuenta de Braze** | Una cuenta de Braze con acceso a las credenciales de la REST API |
 | **Clave de API** | Una clave de API de Braze con el permiso `users.track` para habilitar la transferencia de datos de usuario |
 | **Atributos personalizados en Braze** | Atributos personalizados configurados en Braze para captar las respuestas de Outgrow (como puntuaciones de cuestionarios, segmentos y otros) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
@@ -46,9 +46,9 @@ Sigue estos pasos para configurar la integración de Braze y Outgrow:
 1. Inicia sesión en tu cuenta de Outgrow.
 2. En el panel, ve a **Integrations**.
 3. En la lista de integraciones disponibles, selecciona **Braze**.
-4. Introduce tu **Braze API Key** y la **REST or transferencia de estado representacional API Endpoint URL**:
+4. Introduce tu **Braze API Key** y la **REST API Endpoint URL**:
    - **API Key**: Introduce la clave de API que se generó en Braze
-   - **REST or transferencia de estado representacional Endpoint URL**: Introduce el endpoint de tu instancia de Braze (por ejemplo, `https://rest.iad-01.braze.com`)
+   - **REST Endpoint URL**: Introduce el endpoint de tu instancia de Braze (por ejemplo, `https://rest.iad-01.braze.com`)
 5. Selecciona **Save** para activar la integración.
 
 ### Paso 3: Mapear datos de Outgrow a atributos de Braze {#step-3-map-outgrow-data-to-braze-attributes}

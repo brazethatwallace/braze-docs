@@ -3,7 +3,7 @@ nav_title: Manual
 article_title: Opções de integração manual para iOS
 platform: iOS
 page_order: 4
-description: "Este artigo de referência mostra como integrar manualmente o SDK or kit de desenvolvimento de software da Braze para iOS."
+description: "Este artigo de referência mostra como integrar manualmente o SDK da Braze para iOS."
 
 noindex: true
 ---
@@ -13,10 +13,10 @@ noindex: true
 # Integração manual {#manual-integration}
 
 {% alert tip %}
-Recomendamos fortemente que você implemente o SDK or kit de desenvolvimento de software por meio de um gerenciador de pacotes, como [Swift Package Manager]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/swift_package_manager), [CocoaPods]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/cocoapods) ou [Carthage]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/carthage_integration). Isso vai te poupar muito tempo e automatizar grande parte do processo. No entanto, se não conseguir fazer isso, conclua a integração manualmente seguindo as instruções.
+Recomendamos fortemente que você implemente o SDK por meio de um gerenciador de pacotes, como [Swift Package Manager]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/swift_package_manager), [CocoaPods]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/cocoapods) ou [Carthage]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/carthage_integration). Isso vai te poupar muito tempo e automatizar grande parte do processo. No entanto, se não conseguir fazer isso, conclua a integração manualmente seguindo as instruções.
 {% endalert %}
 
-## Etapa 1: Download do SDK or kit de desenvolvimento de software da Braze {#step-1-downloading-the-braze-sdk}
+## Etapa 1: Download do SDK da Braze {#step-1-downloading-the-braze-sdk}
 
 ### Opção 1: XCFramework dinâmico {#option-1-dynamic-xcframework}
 
@@ -33,11 +33,11 @@ Recomendamos fortemente que você implemente o SDK or kit de desenvolvimento de 
 	- Certifique-se de que a opção **Copy items into destination group's folder** esteja selecionada se você estiver integrando pela primeira vez. Expanda **Options** no seletor de arquivos para selecionar **Copy items if needed** e **Create groups**.
 	- Exclua os diretórios `AppboyKit/include` e `AppboyUI/include`.<br><br>
 5. (Opcional) Se um dos seguintes se aplicar a você:
-  - Você só quer os principais recursos de análise de dados do SDK or kit de desenvolvimento de software e não usa nenhum recurso de interface do usuário (por exemplo, mensagens no app ou Content Cards).
-  - Você tem uma interface de usuário personalizada para os recursos de UI da Braze e lida com o download de imagens por conta própria.<br><br>Você pode usar a versão principal do SDK or kit de desenvolvimento de software removendo o arquivo `ABKSDWebImageProxy.m` e `Appboy.bundle`. Isso removerá a dependência do framework `SDWebImage` e todos os recursos relacionados à interface do usuário (por exemplo, arquivos Nib, imagens, arquivos de localização) do SDK or kit de desenvolvimento de software.
+  - Você só quer os principais recursos de análise de dados do SDK e não usa nenhum recurso de interface do usuário (por exemplo, mensagens no app ou Content Cards).
+  - Você tem uma interface de usuário personalizada para os recursos de UI da Braze e lida com o download de imagens por conta própria.<br><br>Você pode usar a versão principal do SDK removendo o arquivo `ABKSDWebImageProxy.m` e `Appboy.bundle`. Isso removerá a dependência do framework `SDWebImage` e todos os recursos relacionados à interface do usuário (por exemplo, arquivos Nib, imagens, arquivos de localização) do SDK.
 
 {% alert warning %}
-Se você tentar usar a versão principal do SDK or kit de desenvolvimento de software sem os recursos de UI da Braze, as mensagens no app não serão exibidas. Tentar exibir a UI de Content Cards da Braze com a versão principal levará a um comportamento imprevisível.
+Se você tentar usar a versão principal do SDK sem os recursos de UI da Braze, as mensagens no app não serão exibidas. Tentar exibir a UI de Content Cards da Braze com a versão principal levará a um comportamento imprevisível.
 {% endalert %}
 
 ## Etapa 2: Adicionando bibliotecas iOS necessárias {#step-2-adding-required-ios-libraries}

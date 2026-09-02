@@ -1,13 +1,13 @@
 ---
 page_order: 10
 nav_title: Gerenciamento de versões
-article_title: Sobre o gerenciamento de versões para o SDK or kit de desenvolvimento de software da Braze
-description: "Saiba sobre o gerenciamento de versões para o SDK or kit de desenvolvimento de software da Braze."
+article_title: Sobre o gerenciamento de versões para o SDK da Braze
+description: "Saiba sobre o gerenciamento de versões para o SDK da Braze."
 ---
 
 # Sobre o gerenciamento de versões {#about-version-management}
 
-> Saiba sobre o gerenciamento de versões para o SDK or kit de desenvolvimento de software da Braze, para que seu app possa ficar atualizado com os últimos recursos e melhorias de qualidade. Como versões mais antigas do SDK or kit de desenvolvimento de software podem não receber o último patch, correções de bugs ou suporte, recomendamos sempre mantê-lo atualizado como parte do seu ciclo de desenvolvimento contínuo.
+> Saiba sobre o gerenciamento de versões para o SDK da Braze, para que seu app possa ficar atualizado com os últimos recursos e melhorias de qualidade. Como versões mais antigas do SDK podem não receber o último patch, correções de bugs ou suporte, recomendamos sempre mantê-lo atualizado como parte do seu ciclo de desenvolvimento contínuo.
 
 ## Recomendações de versionamento {#versioning-recommendations}
 
@@ -21,21 +21,21 @@ Todos os SDKs da Braze seguem a [Especificação de Versionamento Semântico (Se
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Recomendações de versionamento" }
 
 {% alert note %}
-Às vezes, novas atualizações do Android ou do sistema operacional da Apple exigem mudanças no SDK or kit de desenvolvimento de software da Braze. Para garantir que seu app seja compatível com telefones mais novos, é importante que você mantenha seu SDK or kit de desenvolvimento de software atualizado.
+Às vezes, novas atualizações do Android ou do sistema operacional da Apple exigem mudanças no SDK da Braze. Para garantir que seu app seja compatível com telefones mais novos, é importante que você mantenha seu SDK atualizado.
 {% endalert %}
 
 ## Recebendo notificações de novos lançamentos {#getting-notified-of-new-releases}
 
-Para receber notificações automáticas quando uma nova versão do SDK or kit de desenvolvimento de software for lançada, você pode acompanhar o repositório no GitHub de qualquer SDK or kit de desenvolvimento de software da Braze:
+Para receber notificações automáticas quando uma nova versão do SDK for lançada, você pode acompanhar o repositório no GitHub de qualquer SDK da Braze:
 
-1. Acesse o repositório do SDK or kit de desenvolvimento de software no GitHub (por exemplo, [braze-android-SDK or kit de desenvolvimento de software](https://github.com/braze-inc/braze-android-sdk), [braze-swift-SDK or kit de desenvolvimento de software](https://github.com/braze-inc/braze-swift-sdk) ou [braze-web-SDK or kit de desenvolvimento de software](https://github.com/braze-inc/braze-web-sdk)).
+1. Acesse o repositório do SDK no GitHub (por exemplo, [braze-android-sdk](https://github.com/braze-inc/braze-android-sdk), [braze-swift-sdk](https://github.com/braze-inc/braze-swift-sdk) ou [braze-web-sdk](https://github.com/braze-inc/braze-web-sdk)).
 2. Clique em **Watch** no topo da página.
 3. Clique em **Custom**, selecione **Releases** e clique em **Apply**.
 
-Você receberá uma notificação do GitHub (e um e-mail, dependendo das suas [configurações de notificação](https://github.com/settings/notifications)) cada vez que um novo lançamento for publicado. Para a lista completa de repositórios de SDK or kit de desenvolvimento de software, consulte [Referências, repositórios e apps de exemplo]({{site.baseurl}}/developer_guide/references).
+Você receberá uma notificação do GitHub (e um e-mail, dependendo das suas [configurações de notificação](https://github.com/settings/notifications)) cada vez que um novo lançamento for publicado. Para a lista completa de repositórios de SDK, consulte [Referências, repositórios e apps de exemplo]({{site.baseurl}}/developer_guide/references).
 
 ## Sobre problemas conhecidos {#about-known-issues}
 
 Para garantir que nossas mudanças não quebrem suas pipelines de build, **nunca alteraremos ou removeremos uma versão depois que ela for publicada em um sistema de distribuição**&#8212;mesmo que essa versão específica tenha problemas conhecidos.
 
-Nesses casos, documentaremos o problema no [changelog do SDK or kit de desenvolvimento de software da Braze]({{site.baseurl}}/developer_guide/changelogs) e lançaremos um novo patch para as versões principais ou secundárias impactadas o mais rápido possível.
+Nesses casos, documentaremos o problema no [changelog do SDK da Braze]({{site.baseurl}}/developer_guide/changelogs) e lançaremos um novo patch para as versões principais ou secundárias impactadas o mais rápido possível.

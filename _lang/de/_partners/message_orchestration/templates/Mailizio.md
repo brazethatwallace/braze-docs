@@ -24,20 +24,20 @@ Mit der Integration von Mailizio und Braze können Sie dynamische E-Mail-Templat
 - Erstellen Sie wiederverwendbare Inhaltsmodule (Kopfzeilen, Fußzeilen, Aktionen und mehr), um die Produktion über mehrere Campaigns und Kanäle hinweg zu optimieren.
 - Generieren Sie In-App-Nachrichten aus E-Mails: Mailizio identifiziert relevante Abschnitte Ihrer E-Mail und ermöglicht Ihnen den Export des HTML-Codes zur Verwendung in Ihren In-App-Campaigns.
 - Personalisieren Sie in großem Umfang mit Braze-kompatiblen Liquid-Variablen sowohl in E-Mails als auch in In-App-Nachrichten.
-- Halten Sie Ihr Branding konsistent, indem Sie Ihre kreativen Assets in Mailizio verwalten und in Braze mit einem einzigen Export Update or aktualisieren or aktualisieren.
+- Halten Sie Ihr Branding konsistent, indem Sie Ihre kreativen Assets in Mailizio verwalten und in Braze mit einem einzigen Export aktualisieren.
 
 ## Voraussetzungen {#prerequisites}
 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | Mailizio-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Mailizio-Konto. |
-| Braze-Representational State Transfer-API-Schlüssel | Ein Braze-Representational State Transfer-API-Schlüssel mit vollständigen **Templates**-Berechtigungen.<br><br>Sie können einen Braze-Representational State Transfer-API-Schlüssel im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellen. |
-| Braze-Representational State Transfer-Endpunkt | [Ihre Representational State Transfer-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
+| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit vollständigen **Templates**-Berechtigungen.<br><br>Sie können einen Braze-REST-API-Schlüssel im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellen. |
+| Braze-REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Integration
 
-Stellen Sie Ihrem Mailizio CSM or Customer-Success-Manager or Customer-Success-Manager:in Ihren Braze-Representational State Transfer-API-Schlüssel und Ihre Cluster-Instanz zur Verfügung. Das Mailizio-Team richtet dann die erste Integration für Sie ein.
+Stellen Sie Ihrem Mailizio CSM Ihren Braze-REST-API-Schlüssel und Ihre Cluster-Instanz zur Verfügung. Das Mailizio-Team richtet dann die erste Integration für Sie ein.
 
 {% alert important %}
 Dies ist eine einmalige Einrichtung, und alle zukünftigen Exporte verwenden automatisch diesen API-Schlüssel.
@@ -53,7 +53,7 @@ Erstellen Sie in Mailizio mit dem Drag-and-Drop-Editor eine E-Mail, die Ihre Mar
 
 Wenn Sie fertig sind, klicken Sie auf **Export Newsletter**. Wählen Sie im Popup-Fenster **Braze-email** aus und bestätigen Sie den Export.
 
-Wenn Sie Ihre Inhalte später Update or aktualisieren or aktualisieren, exportieren Sie sie erneut aus Mailizio, um sie in Braze zu Update or aktualisieren or aktualisieren.
+Wenn Sie Ihre Inhalte später aktualisieren, exportieren Sie sie erneut aus Mailizio, um sie in Braze zu aktualisieren.
 
 ![Screenshot des Export-Modals]({% image_buster /assets/img/mailizio/screenshot_2.png %})
 

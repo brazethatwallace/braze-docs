@@ -36,7 +36,7 @@ Vous pouvez maintenant créer plusieurs groupes internes et attribuer des propri
 
 ## Nouvelles options pour les URL web {#new-options-for-web-urls}
 
-Vous avez maintenant la possibilité d'ouvrir des URL web dans un navigateur web externe pour les messages push, les messages in-app et dans le navigateur, ainsi que les cartes de fil d'actualité. L'action « Deep link dans l'application » est désormais compatible avec les deep links HTTP/HTTPS. Si vous utilisez un partenaire comme Branch or branche ou les Universal Links d'Apple, une personnalisation du SDK sera nécessaire. En savoir plus sur la [création de liens profonds]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking).
+Vous avez maintenant la possibilité d'ouvrir des URL web dans un navigateur web externe pour les messages push, les messages in-app et dans le navigateur, ainsi que les cartes de fil d'actualité. L'action « Deep link dans l'application » est désormais compatible avec les deep links HTTP/HTTPS. Si vous utilisez un partenaire comme Branch ou les Universal Links d'Apple, une personnalisation du SDK sera nécessaire. En savoir plus sur la [création de liens profonds]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking).
 
 ## Nouvel événement « Performed Conversion » dans Canvas {#new-performed-conversion-event-canvas}
 

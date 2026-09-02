@@ -4,7 +4,7 @@ article_title: 채널
 page_order: 5
 layout: dev_guide
 guide_top_header: "채널"
-guide_top_text: "적절한 시간에 적절한 채널을 통해 사용자에게 도달하세요. 인앱 메시지, Content Cards, 배너와 같은 제품 내 채널이나 푸시, 이메일, 단문 메시지 서비스, WhatsApp과 같은 제품 외 채널 중에서 선택하세요."
+guide_top_text: "적절한 시간에 적절한 채널을 통해 사용자에게 도달하세요. 인앱 메시지, Content Cards, 배너와 같은 제품 내 채널이나 푸시, 이메일, SMS, WhatsApp과 같은 제품 외 채널 중에서 선택하세요."
 
 page_type: landing
 description: "Braze의 제품 내 및 제품 외 메시징 채널을 통해 사용자에게 도달하세요."
@@ -63,7 +63,7 @@ Braze 메시징 매트릭스는 **콘텐츠 복잡도**와 **전달 긴급성**�
 
 ![모바일/웹 푸시는 단순한 콘텐츠, 높은 긴급성; 이메일은 풍부한 콘텐츠, 높은 긴급성; 인앱/브라우저 메시지는 단순한 콘텐츠, 낮은 긴급성; Content Cards는 낮은 긴급성, 풍부한 콘텐츠]({% image_buster /assets/img_archive/messaging_matrix.png %})
 
-이 매트릭스는 핵심 채널을 강조하지만 유연하게 적용할 수 있습니다. 예를 들어 단문 메시지 서비스와 WhatsApp은 높은 긴급성의 도구이면서 멀티미디어 형식을 활용하면 풍부한 콘텐츠로 확장할 수 있습니다. 이 매트릭스를 활용하는 방법에 대해 자세히 알아보려면 [크로스채널 메시징](https://learning.braze.com/cross-channel-messaging)에 대한 Braze 학습 과정을 확인하세요.
+이 매트릭스는 핵심 채널을 강조하지만 유연하게 적용할 수 있습니다. 예를 들어 SMS와 WhatsApp은 높은 긴급성의 도구이면서 멀티미디어 형식을 활용하면 풍부한 콘텐츠로 확장할 수 있습니다. 이 매트릭스를 활용하는 방법에 대해 자세히 알아보려면 [크로스채널 메시징](https://learning.braze.com/cross-channel-messaging)에 대한 Braze 학습 과정을 확인하세요.
 
 ## 접근성 리소스 {#accessibility-resources}
 

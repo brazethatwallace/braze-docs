@@ -93,7 +93,7 @@ Use os campos a seguir para registrar metadados que ajudam sua equipe a encontra
 | Descrição | Opcional. Explique a intenção ou inclua links para briefings para colaboradores. |
 | Equipe | Opcional. Atribua [equipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) para que os grupos certos possam editar ou gerar relatórios sobre esse envio. |
 | Tags | Opcional. Adicione [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) para filtrar em listas e ferramentas como o [Criador de relatórios]({{site.baseurl}}/user_guide/analytics/reports/report_builder). |
-| ID da campanha | Quando exibido no criador ou no resumo, copie esse identificador para chamadas de API or interface de programação do aplicativo (API), relatórios e integrações que referenciam uma campanha específica. |
+| ID da campanha | Quando exibido no criador ou no resumo, copie esse identificador para chamadas de API, relatórios e integrações que referenciam uma campanha específica. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Detalhes da campanha" }
 
 ### Canais e editores {#channels-and-editors}
@@ -116,7 +116,7 @@ Escolha quando os usuários se tornam elegíveis para receber a campanha:
 | --- | --- |
 | [Entrega agendada]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery) | Envie em um horário ou cadência especificados. |
 | [Entrega baseada em ação]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) | Envie quando os usuários realizarem comportamentos ou atenderem a condições que você definir. |
-| [Entrega disparada por API or interface de programação do aplicativo (API)]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery) | Envie quando seus sistemas chamarem a Braze para disparar a campanha para usuários elegíveis. |
+| [Entrega disparada por API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery) | Envie quando seus sistemas chamarem a Braze para disparar a campanha para usuários elegíveis. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 2: Programar entrega" }
 
 Para conceitos de agendamento na Braze, consulte [Programar sua campanha]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
@@ -137,17 +137,17 @@ As [listas de supressão]({{site.baseurl}}/user_guide/audience/suppression_lists
 
 ### Resumo do público {#audience-summary}
 
-Após adicionar segmentos ou filtros, o **Resumo do público** oferece uma prévia de como é a população desse Segment or segmento or segmento, incluindo quantos usuários dentro dele são alcançáveis pelos canais selecionados. As contagens de alcance refletem os dados do seu espaço de trabalho, a configuração do canal e os filtros. Lembre-se de que a composição exata do Segment or segmento or segmento é sempre calculada antes do envio da mensagem. Para públicos muito grandes, a Braze pode exibir estimativas até que você calcule as estatísticas exatas.
+Após adicionar segmentos ou filtros, o **Resumo do público** oferece uma prévia de como é a população desse Segment, incluindo quantos usuários dentro dele são alcançáveis pelos canais selecionados. As contagens de alcance refletem os dados do seu espaço de trabalho, a configuração do canal e os filtros. Lembre-se de que a composição exata do Segment é sempre calculada antes do envio da mensagem. Para públicos muito grandes, a Braze pode exibir estimativas até que você calcule as estatísticas exatas.
 
 {% alert note %}
-Se você tiver um [grupo de controle global]({{site.baseurl}}/user_guide/audience/global_control_group) configurado, a contagem de usuários alcançáveis exibida no público-alvo da sua campanha será menor do que a contagem de usuários alcançáveis exibida para o mesmo Segment or segmento or segmento. Isso ocorre porque a campanha exclui os usuários do grupo de controle global, enquanto a contagem do Segment or segmento or segmento não.
+Se você tiver um [grupo de controle global]({{site.baseurl}}/user_guide/audience/global_control_group) configurado, a contagem de usuários alcançáveis exibida no público-alvo da sua campanha será menor do que a contagem de usuários alcançáveis exibida para o mesmo Segment. Isso ocorre porque a campanha exclui os usuários do grupo de controle global, enquanto a contagem do Segment não.
 {% endalert %}
 
 ### Busca de usuário {#user-lookup}
 
-Após adicionar segmentos ou filtros, você pode testar se seu público está configurado conforme esperado buscando um usuário para confirmar se ele corresponde aos critérios do Segment or segmento or segmento. Para isso, pesquise o `external_id` ou `braze_id` de um usuário na seção **Busca de usuário**. Não é possível pesquisar por endereço de e-mail aqui. Consulte [Testando segmentos]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#testing-segments) para saber mais.
+Após adicionar segmentos ou filtros, você pode testar se seu público está configurado conforme esperado buscando um usuário para confirmar se ele corresponde aos critérios do Segment. Para isso, pesquise o `external_id` ou `braze_id` de um usuário na seção **Busca de usuário**. Não é possível pesquisar por endereço de e-mail aqui. Consulte [Testando segmentos]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#testing-segments) para saber mais.
 
-Quando um usuário corresponde aos critérios de Segment or segmento or segmento, filtro e app, um alerta informa isso. Quando um usuário não corresponde a parte ou a todos os critérios de Segment or segmento or segmento, filtro ou app, os critérios ausentes são listados para fins de solução de problemas.
+Quando um usuário corresponde aos critérios de Segment, filtro e app, um alerta informa isso. Quando um usuário não corresponde a parte ou a todos os critérios de Segment, filtro ou app, os critérios ausentes são listados para fins de solução de problemas.
 
 ### Enviar para estes usuários {#send-to-these-users}
 

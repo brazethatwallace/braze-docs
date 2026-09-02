@@ -53,9 +53,9 @@ Comienza eligiendo qué plataformas deben recibir el mensaje. Usa esta selecció
 
 | Plataforma                                    | Entrega de mensajes              |
 |-----------------------------------------------|----------------------------------|
-| Aplicaciones móviles                          | SDK or kit de desarrollo de software de iOS, Android y Vega       |
-| Navegadores web                               | SDK or kit de desarrollo de software Web                          |
-| Aplicaciones móviles y navegadores web        | SDK or kit de desarrollo de software de iOS, Android, Vega y Web  |
+| Aplicaciones móviles                          | SDK de iOS, Android y Vega       |
+| Navegadores web                               | SDK Web                          |
+| Aplicaciones móviles y navegadores web        | SDK de iOS, Android, Vega y Web  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 2: Especifica las plataformas de entrega" }
 
 ## Paso 3: Especifica tus tipos de mensaje {#step-3-specify-your-message-types}
@@ -164,7 +164,7 @@ Estos mensajes dentro de la aplicación son personalizables según tus necesidad
       <li>Solo imagen</li>
       </ul>
     </td>
-    <td>El modal web con CSS es exclusivo del SDK or kit de desarrollo de software Web y solo se puede usar después de seleccionar <b>Web Browsers</b>.</td>
+    <td>El modal web con CSS es exclusivo del SDK Web y solo se puede usar después de seleccionar <b>Web Browsers</b>.</td>
     <td>Cuando quieras subir o escribir CSS personalizado para crear mensajes con un estilo personalizado y atractivo.</td>
   </tr>
 </tbody>
@@ -238,11 +238,11 @@ Cuando tu cliente hace clic en un botón de tu mensaje dentro de la aplicación,
 | Solicitar permiso push | Muestra el permiso push nativo. Lee más sobre la [preparación para push]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages), así como las [mejores prácticas]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#best-practices) para preparar a los usuarios para push. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Comportamiento al hacer clic" }
 
-Nota: las opciones __Solicitar permiso push__, __Registrar evento personalizado__ y __Registrar atributo personalizado__ requieren las siguientes versiones mínimas del SDK or kit de desarrollo de software:
+Nota: las opciones __Solicitar permiso push__, __Registrar evento personalizado__ y __Registrar atributo personalizado__ requieren las siguientes versiones mínimas del SDK:
 
 {% sdk_min_versions swift:5.4.0 android:21.0.0 web:4.0.3 %}
 
-Para combinar varias acciones o realizar acciones adicionales del SDK or kit de desarrollo de software que no están disponibles en el panel (como añadir a un grupo de suscripción o establecer un tipo de suscripción de correo electrónico), puedes usar los [vínculos profundos de Braze Actions]({{site.baseurl}}/developer_guide/braze_actions).
+Para combinar varias acciones o realizar acciones adicionales del SDK que no están disponibles en el panel (como añadir a un grupo de suscripción o establecer un tipo de suscripción de correo electrónico), puedes usar los [vínculos profundos de Braze Actions]({{site.baseurl}}/developer_guide/braze_actions).
 
 ### Opciones de dispositivos iOS {#ios-device-options}
 
@@ -278,13 +278,13 @@ El contenido de la pestaña **Style** varía según las opciones de mensaje eleg
 | Formato | Entrada | Descripción |
 |---|---|---|
 | [Perfil de color]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template#reusable-color-profiles) | Aplicar desde la galería de plantillas de mensajes dentro de la aplicación. | Selecciona **Apply Template** y elige de la galería. Luego, selecciona **Save**. |
-| Alineación de texto | Izquierda, centro o derecha. | Solo disponible para versiones más recientes del SDK or kit de desarrollo de software de Braze. |
+| Alineación de texto | Izquierda, centro o derecha. | Solo disponible para versiones más recientes del SDK de Braze. |
 | Encabezado | Código de color HEX. | Se mostrará el color HEX deseado. También podrás elegir la opacidad del color. |
 | Texto | Código de color HEX. | Se mostrará el color HEX deseado. También podrás elegir la opacidad del color. |
 | Botones | Código de color HEX. | Se mostrarán los colores HEX deseados. También podrás elegir la opacidad de los colores. Puedes elegir colores para: el fondo del botón de cierre del mensaje, así como el fondo, texto y borde de cada botón. |
 | Borde del botón | Código de color HEX. | ¡Nuevo! Esto te permitirá diferenciar tus botones principal y secundario. Sugerimos delinear los botones con colores contrastantes. |
 | Color de fondo | Código de color HEX. | Se mostrará el color HEX deseado. También podrás elegir la opacidad del color. Este es el fondo de todo el mensaje y se mostrará claramente detrás del cuerpo de texto. |
-| Superposición de pantalla | Código de color HEX. | Se mostrará el color HEX deseado. También podrás elegir la opacidad del color. Solo disponible para versiones más recientes del SDK or kit de desarrollo de software de Braze. Este es el marco alrededor de todo el mensaje. |
+| Superposición de pantalla | Código de color HEX. | Se mostrará el color HEX deseado. También podrás elegir la opacidad del color. Solo disponible para versiones más recientes del SDK de Braze. Este es el marco alrededor de todo el mensaje. |
 | Chevron u otra opción de cierre de mensaje | Código de color HEX. | Se mostrará el color HEX deseado. También podrás elegir la opacidad del color. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paso 5: Dale estilo a tu mensaje dentro de la aplicación" }
 
@@ -312,7 +312,7 @@ Construye el resto de tu campaña; consulta las siguientes secciones para obtene
 Selecciona la acción a partir de la cual deseas desencadenar tu mensaje, así como las fechas y horas de inicio y fin de tu campaña o Canvas.
 
 {% alert important %}
-Ten en cuenta que si pretendes desencadenar tu mensaje dentro de la aplicación basándote en un evento personalizado, ese evento personalizado debe enviarse mediante el SDK or kit de desarrollo de software.
+Ten en cuenta que si pretendes desencadenar tu mensaje dentro de la aplicación basándote en un evento personalizado, ese evento personalizado debe enviarse mediante el SDK.
 {% endalert %}
 
 ![Campaña basada en acciones con la acción desencadenante configurada como "Iniciar sesión".]({% image_buster /assets/img_archive/in_app_schedule.png %}){: style="max-width:80%"}
@@ -321,7 +321,7 @@ La entrega de mensajes dentro de la aplicación se basa completamente en los sig
 
 - Realizar un pedido
 - Abrir la aplicación o la página web
-- Realizar un evento personalizado (solo funciona con eventos enviados mediante el SDK or kit de desarrollo de software)
+- Realizar un evento personalizado (solo funciona con eventos enviados mediante el SDK)
 - Abrir un mensaje push específico
 - Programar automáticamente campañas para que se envíen a una hora determinada en relación con la hora local de cada uno de tus usuarios.
 - Los mensajes también pueden configurarse para repetirse de forma diaria, semanal (opcionalmente en días específicos) o mensual.
@@ -373,7 +373,7 @@ En algunos escenarios, es posible que desees reevaluar la elegibilidad de un usu
 
 Cuando seleccionas **Re-evaluate campaign eligibility before displaying**, se realizará una solicitud adicional a Braze para confirmar que el usuario sigue siendo elegible para este mensaje antes de enviarlo. Además, cualquier variable de [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) o [contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) se evaluará en ese momento antes de que se muestre el mensaje.
 
-Esto evita que se envíen mensajes dentro de la aplicación a usuarios dentro de campañas expiradas o archivadas. Si no reevalúas la elegibilidad de un usuario, este recibirá el mensaje dentro de la aplicación incluso después de que la campaña haya expirado o se haya archivado, porque el mensaje está en tu SDK or kit de desarrollo de software y espera a que los usuarios lo activen.
+Esto evita que se envíen mensajes dentro de la aplicación a usuarios dentro de campañas expiradas o archivadas. Si no reevalúas la elegibilidad de un usuario, este recibirá el mensaje dentro de la aplicación incluso después de que la campaña haya expirado o se haya archivado, porque el mensaje está en tu SDK y espera a que los usuarios lo activen.
 
 {% alert note %}
 Habilitar esta opción resultará en un ligero retraso (< 100 ms) entre el momento en que un usuario activa un mensaje dentro de la aplicación y el momento en que se muestra el mensaje, debido a la solicitud adicional de elegibilidad y evaluación de plantillas.
@@ -381,9 +381,9 @@ Habilitar esta opción resultará en un ligero retraso (< 100 ms) entre el momen
 No uses esta opción para mensajes que puedan activarse mientras un usuario está sin conexión o cuando la reevaluación de elegibilidad y Liquid no sea necesaria.
 {% endalert %}
 
-#### Usar datos agregados por la REST or transferencia de estado representacional API en un mensaje {#use-data-added-by-rest-api-in-a-message}
+#### Usar datos agregados por la REST API en un mensaje {#use-data-added-by-rest-api-in-a-message}
 
-Los datos de usuario que el [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) agrega en la misma sesión a veces pueden usarse en el mensaje dentro de la aplicación de ese usuario. Por ejemplo, si un usuario está en la audiencia de un mensaje dentro de la aplicación que espera un desencadenador, inicia una sesión, y en esa misma sesión la REST or transferencia de estado representacional API actualiza su perfil, esos nuevos datos pueden aparecer en el mensaje dentro de la aplicación cuando se selecciona **Re-evaluate campaign eligibility before displaying**. Braze no evaluará la plantilla del mensaje dentro de la aplicación hasta que sea momento de renderizarlo.
+Los datos de usuario que el [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) agrega en la misma sesión a veces pueden usarse en el mensaje dentro de la aplicación de ese usuario. Por ejemplo, si un usuario está en la audiencia de un mensaje dentro de la aplicación que espera un desencadenador, inicia una sesión, y en esa misma sesión la REST API actualiza su perfil, esos nuevos datos pueden aparecer en el mensaje dentro de la aplicación cuando se selecciona **Re-evaluate campaign eligibility before displaying**. Braze no evaluará la plantilla del mensaje dentro de la aplicación hasta que sea momento de renderizarlo.
 
 Si un solo desencadenador tanto envía datos a Braze como activa el mensaje dentro de la aplicación, el mensaje no puede usar esos datos de perfil recién actualizados, incluso con un retraso programado. En su lugar, usa dos desencadenadores separados: uno para enviar los datos y otro para activar el mensaje dentro de la aplicación.
 
@@ -427,7 +427,7 @@ Cuando una Campaign de mensaje dentro de la aplicación se programa utilizando l
 
 Las Campaigns de mensajes dentro de la aplicación normalmente se envían al dispositivo del usuario cuando se inicia o se actualiza la sesión de la aplicación. En ese momento:
 
-1. El SDK or kit de desarrollo de software evalúa si el usuario cumple los requisitos para cualquier mensaje dentro de la aplicación basado en desencadenantes.
+1. El SDK evalúa si el usuario cumple los requisitos para cualquier mensaje dentro de la aplicación basado en desencadenantes.
 2. El dispositivo comprueba si el evento desencadenante del usuario ocurrió dentro del intervalo de inicio y finalización de la Campaign (según la zona horaria local del usuario).
 3. Si se cumplen ambas condiciones, el mensaje dentro de la aplicación es elegible para mostrarse.
 

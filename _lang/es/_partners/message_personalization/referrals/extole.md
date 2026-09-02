@@ -23,7 +23,7 @@ Con la integración de Braze y Extole, puedes extraer eventos y atributos de cli
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta Extole | Se necesita una cuenta de Extole para beneficiarse de esta asociación. |
-| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con el permiso `users.track`. Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con el permiso `users.track`. Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
 | URL de la API de Braze | La URL de la API de Braze es específica de tu [instancia de Braze]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
@@ -43,7 +43,7 @@ Completa los siguientes pasos para poner en marcha rápidamente tu integración.
 
 1. Selecciona la integración Braze en la página [Partners](https://my.extole.com/partners) de tu cuenta My Extole.
 2. En la integración Braze, selecciona **Install** para iniciar la conexión entre Extole y Braze.
-3. Rellena los campos obligatorios, empezando por tu clave de API REST or transferencia de estado representacional de Braze.
+3. Rellena los campos obligatorios, empezando por tu clave de API REST de Braze.
 4. Introduce la URL de tu API de Braze. Esta URL depende de la instancia en la que esté aprovisionada tu cuenta Braze.
 5. Añade los eventos de Extole que quieras enviar a Braze. Los eventos predeterminados, las propiedades de los eventos y los atributos de usuario se describen en la [tabla de eventos de Extole](https://dev.extole.com/docs/braze#extole-program-events).
 6. Añade los estados de recompensa que quieras enviar a Braze, aparte del estado `FULFILLED`. Consulta la [tabla de recompensas de Extole](https://dev.extole.com/docs/braze#extole-rewards) para ver las descripciones de los estados de recompensa disponibles.
@@ -89,7 +89,7 @@ Por defecto, Extole enviará los eventos de recompensa en el estado `FULFILLED` 
 
 ### Buscar y crear usuarios en Braze {#find-and-create-users-in-braze}
 
-Para determinados casos de uso, como una nueva suscripción por correo electrónico o servicio de mensajes cortos en la que Extole no dispone de un ID externo (ID de usuario), Extole puede comprobar el identificador del usuario mediante el [endpoint Exportar perfil de usuario por identificador]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) de Braze. Extole añadirá y actualizará los atributos del perfil si el usuario existe en Braze. Si la solicitud no devuelve un perfil de usuario, Extole utilizará el endpoint `/users/track` para crear un alias de usuario con la dirección de correo electrónico del usuario como nombre del alias.
+Para determinados casos de uso, como una nueva suscripción por correo electrónico o SMS en la que Extole no dispone de un ID externo (ID de usuario), Extole puede comprobar el identificador del usuario mediante el [endpoint Exportar perfil de usuario por identificador]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) de Braze. Extole añadirá y actualizará los atributos del perfil si el usuario existe en Braze. Si la solicitud no devuelve un perfil de usuario, Extole utilizará el endpoint `/users/track` para crear un alias de usuario con la dirección de correo electrónico del usuario como nombre del alias.
 
 ## Uso de esta integración {#using-this-integration}
 

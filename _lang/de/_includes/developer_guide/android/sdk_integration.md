@@ -1,6 +1,6 @@
-## Das Android SDK or Software-Development-Kit integrieren {#integrating-the-android-sdk}
+## Das Android SDK integrieren {#integrating-the-android-sdk}
 
-### Schritt 1: Gradle-Build-Konfiguration Update or aktualisieren or aktualisieren {#step-1-update-your-gradle-build-configuration}
+### Schritt 1: Gradle-Build-Konfiguration aktualisieren {#step-1-update-your-gradle-build-configuration}
 
 Fügen Sie im Repository-Konfigurationsbereich Ihres Projekts (z. B. `settings.gradle`, `settings.gradle.kts` oder der übergeordneten `build.gradle`) [`mavenCentral()`](https://docs.gradle.org/current/kotlin-dsl/gradle/org.gradle.api.artifacts.dsl/-repository-handler/maven-central.html) zu Ihrer Liste der Repositories hinzu. Diese Syntax ist für Groovy und Kotlin DSL identisch.
 
@@ -10,7 +10,7 @@ repositories {
 }
 ```
 
-Fügen Sie anschließend Braze zu Ihren Abhängigkeiten hinzu. Ersetzen Sie in den folgenden Beispielen `SDK_VERSION` durch die aktuelle Version Ihres Android Braze SDK or Software-Development-Kit. Die vollständige Liste der Versionen finden Sie unter [Changelogs]({{site.baseurl}}/developer_guide/changelogs/?sdktab=android).
+Fügen Sie anschließend Braze zu Ihren Abhängigkeiten hinzu. Ersetzen Sie in den folgenden Beispielen `SDK_VERSION` durch die aktuelle Version Ihres Android Braze SDK. Die vollständige Liste der Versionen finden Sie unter [Changelogs]({{site.baseurl}}/developer_guide/changelogs/?sdktab=android).
 
 {% alert note %}
 - Für Kotlin DSL (`build.gradle.kts`) verwenden Sie die Syntax `implementation("...")`.
@@ -141,15 +141,15 @@ Mit der Einführung von Android M hat Android vom Berechtigungsmodell bei der In
 
 ### Schritt 4: Verzögerte Initialisierung aktivieren (optional) {#step-4-enable-delayed-initialization-optional}
 
-Für die verzögerte Initialisierung ist die folgende Mindestversion des Braze SDK or Software-Development-Kit erforderlich:
+Für die verzögerte Initialisierung ist die folgende Mindestversion des Braze SDK erforderlich:
 
 {% sdk_min_versions android:38.0.0 %}
 
 {% alert note %}
-Während die verzögerte Initialisierung aktiviert ist, werden alle Netzwerkverbindungen abgebrochen, sodass das SDK or Software-Development-Kit keine Daten an die Braze-Server senden kann.
+Während die verzögerte Initialisierung aktiviert ist, werden alle Netzwerkverbindungen abgebrochen, sodass das SDK keine Daten an die Braze-Server senden kann.
 {% endalert %}
 
-#### Schritt 4.1: Ihre `braze.xml` Update or aktualisieren or aktualisieren {#step-41-update-your-brazexml}
+#### Schritt 4.1: Ihre `braze.xml` aktualisieren {#step-41-update-your-brazexml}
 
 Die verzögerte Initialisierung ist standardmäßig deaktiviert. Verwenden Sie eine der folgenden Optionen, um sie zu aktivieren:
 
@@ -262,9 +262,9 @@ Braze.enableDelayedInitialization(context, DelayedInitializationAnalyticsBehavio
 {% endtab %}
 {% endtabs %}
 
-#### Schritt 4.3: Das SDK or Software-Development-Kit manuell initialisieren {#step-43-manually-initialize-the-sdk}
+#### Schritt 4.3: Das SDK manuell initialisieren {#step-43-manually-initialize-the-sdk}
 
-Verwenden Sie nach Ablauf der gewählten Verzögerungszeit die [`Braze.disableDelayedInitialization()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/disable-delayed-initialization.html)-Methode, um das SDK or Software-Development-Kit manuell zu initialisieren.
+Verwenden Sie nach Ablauf der gewählten Verzögerungszeit die [`Braze.disableDelayedInitialization()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/disable-delayed-initialization.html)-Methode, um das SDK manuell zu initialisieren.
 
 {% tabs local %}
 {% tab JAVA %}
@@ -287,7 +287,7 @@ Braze.disableDelayedInitialization(context)
 
 Wenn Sie das Tracking von Nutzer:innen-Sitzungen aktivieren, können Aufrufe von `openSession()`, `closeSession()`, [`ensureSubscribedToInAppMessageEvents()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage/-braze-in-app-message-manager/ensure-subscribed-to-in-app-message-events.html) und die `InAppMessageManager`-Registrierung automatisch verarbeitet werden.
 
-Um Activity-Lifecycle-Callbacks zu Registrierung or registrieren, fügen Sie den folgenden Code in die `onCreate()`-Methode Ihrer `Application`-Klasse ein.
+Um Activity-Lifecycle-Callbacks zu Registrierung, fügen Sie den folgenden Code in die `onCreate()`-Methode Ihrer `Application`-Klasse ein.
 
 {% tabs local %}
 {% tab JAVA %}
@@ -322,14 +322,14 @@ Die Liste der verfügbaren Parameter finden Sie unter [`BrazeActivityLifecycleCa
 ## Sitzungs-Tracking testen {#testing-session-tracking}
 
 {% alert tip %}
-Sie können auch den [SDK or Software-Development-Kit-Debugger]({{site.baseurl}}/developer_guide/debugging) verwenden, um SDK or Software-Development-Kit-Probleme zu diagnostizieren.
+Sie können auch den [SDK-Debugger]({{site.baseurl}}/developer_guide/debugging) verwenden, um SDK-Probleme zu diagnostizieren.
 {% endalert %}
 
 Wenn beim Testen Probleme auftreten, aktivieren Sie die [ausführliche Protokollierung](#android_enabling-logs) und verwenden Sie dann Logcat, um fehlende `openSession`- und `closeSession`-Aufrufe in Ihren Activities zu erkennen.
 
 1. Navigieren Sie in Braze zu **Übersicht**, wählen Sie Ihre App aus und wählen Sie dann im Dropdown **Daten anzeigen für** die Option **Heute**.
     ![Die Seite „Übersicht“ in Braze, mit dem Feld „Daten anzeigen für“ auf „Heute“ eingestellt.]({% image_buster /assets/img_archive/android_sessions.png %})
-2. Öffnen Sie Ihre App und Update or aktualisieren or aktualisieren Sie dann das Braze-Dashboard. Überprüfen Sie, ob Ihre Metriken um 1 gestiegen sind.
+2. Öffnen Sie Ihre App und aktualisieren Sie dann das Braze-Dashboard. Überprüfen Sie, ob Ihre Metriken um 1 gestiegen sind.
 3. Navigieren Sie durch Ihre App und überprüfen Sie, ob nur eine Sitzung in Braze protokolliert wurde.
 4. Senden Sie die App für mindestens 10 Sekunden in den Hintergrund und bringen Sie sie dann wieder in den Vordergrund. Überprüfen Sie, ob eine neue Sitzung protokolliert wurde.
 
@@ -380,7 +380,7 @@ Sie suchen ein weiteres Beispiel? Sehen Sie sich unsere [Hello Braze Beispiel-Ap
 
 Die [Google Advertising ID (GAID)](https://support.google.com/googleplay/android-developer/answer/6048248/advertising-id?hl=en) ist eine optionale, nutzerspezifische, anonyme, eindeutige und zurücksetzbare ID für Werbung, die von den Google Play-Diensten bereitgestellt wird. Die GAID gibt Nutzer:innen die Möglichkeit, ihre Kennung zurückzusetzen, interessenbasierte Werbung in Google Play-Apps abzulehnen, und bietet Entwickler:innen ein einfaches, standardisiertes System, um ihre Apps weiterhin zu monetarisieren.
 
-Die Google Advertising ID wird nicht automatisch vom Braze SDK or Software-Development-Kit erfasst und muss manuell über die Methode [`Braze.setGoogleAdvertisingId()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/set-google-advertising-id.html) festgelegt werden.
+Die Google Advertising ID wird nicht automatisch vom Braze SDK erfasst und muss manuell über die Methode [`Braze.setGoogleAdvertisingId()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/set-google-advertising-id.html) festgelegt werden.
 
 {% tabs local %}
 {% tab JAVA %}
@@ -438,16 +438,16 @@ Um die Standorterfassung von Braze zu aktivieren, setzen Sie `com_braze_enable_l
 ```
 
 {% alert important %}
-Ab Braze Android SDK or Software-Development-Kit Version 3.6.0 ist die Standorterfassung von Braze standardmäßig deaktiviert.
+Ab Braze Android SDK Version 3.6.0 ist die Standorterfassung von Braze standardmäßig deaktiviert.
 {% endalert %}
 
 ### Protokollierung {#logging}
 
-Standardmäßig ist die Protokollierungsstufe des Braze Android SDK or Software-Development-Kit auf `INFO` gesetzt. Sie können [diese Protokolle unterdrücken](#android_suppressing-logs) oder [eine andere Protokollierungsstufe festlegen](#android_enabling-logs), z. B. `VERBOSE`, `DEBUG` oder `WARN`.
+Standardmäßig ist die Protokollierungsstufe des Braze Android SDK auf `INFO` gesetzt. Sie können [diese Protokolle unterdrücken](#android_suppressing-logs) oder [eine andere Protokollierungsstufe festlegen](#android_enabling-logs), z. B. `VERBOSE`, `DEBUG` oder `WARN`.
 
 #### Protokolle aktivieren {#enabling-logs}
 
-Um bei der Fehlerbehebung in Ihrer App zu helfen oder die Bearbeitungszeiten beim Braze-Support zu verkürzen, können Sie ausführliche Protokolle für das SDK or Software-Development-Kit aktivieren. Wenn Sie ausführliche Protokolle an den Braze-Support senden, stellen Sie sicher, dass sie beginnen, sobald Sie Ihre Anwendung starten, und weit über das Auftreten Ihres Problems hinaus andauern. Einen zentralen Überblick finden Sie unter [Ausführliche Protokollierung]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging). Um zu erfahren, wie Sie die Protokollausgabe interpretieren, lesen Sie [Ausführliche Protokolle lesen]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs).
+Um bei der Fehlerbehebung in Ihrer App zu helfen oder die Bearbeitungszeiten beim Braze-Support zu verkürzen, können Sie ausführliche Protokolle für das SDK aktivieren. Wenn Sie ausführliche Protokolle an den Braze-Support senden, stellen Sie sicher, dass sie beginnen, sobald Sie Ihre Anwendung starten, und weit über das Auftreten Ihres Problems hinaus andauern. Einen zentralen Überblick finden Sie unter [Ausführliche Protokollierung]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging). Um zu erfahren, wie Sie die Protokollausgabe interpretieren, lesen Sie [Ausführliche Protokolle lesen]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs).
 
 Beachten Sie, dass ausführliche Protokolle nur für Ihre Entwicklungsumgebung vorgesehen sind, daher sollten Sie sie vor der Veröffentlichung Ihrer App deaktivieren.
 
@@ -539,7 +539,7 @@ Um zu überprüfen, ob Ihre Protokolle auf `VERBOSE` gesetzt sind, prüfen Sie, 
 
 #### Protokolle unterdrücken {#suppressing-logs}
 
-Um alle Protokolle für das Braze Android SDK or Software-Development-Kit zu unterdrücken, setzen Sie die Protokollierungsstufe in der `onCreate()`-Methode Ihrer Anwendung _vor_ allen anderen Methoden auf `BrazeLogger.SUPPRESS`.
+Um alle Protokolle für das Braze Android SDK zu unterdrücken, setzen Sie die Protokollierungsstufe in der `onCreate()`-Methode Ihrer Anwendung _vor_ allen anderen Methoden auf `BrazeLogger.SUPPRESS`.
 
 {% tabs local %}
 {% tab JAVA %}
@@ -576,7 +576,7 @@ Um zu erfahren, wie Sie den API-Schlüssel in Ihrem Code festlegen, lesen Sie [L
 
 ### Exklusiver TalkBack-Modus für In-App-Nachrichten {#exclusive-in-app-message-talkback}
 
-In Übereinstimmung mit den [Android-Barrierefreiheitsrichtlinien](https://developer.android.com/guide/topics/ui/accessibility) bietet das Braze Android SDK or Software-Development-Kit standardmäßig Android TalkBack an. Um sicherzustellen, dass nur der Inhalt von In-App-Nachrichten vorgelesen wird – ohne andere Bildschirmelemente wie die Titelleiste der App oder die Navigation einzubeziehen – können Sie den exklusiven Modus für TalkBack aktivieren.
+In Übereinstimmung mit den [Android-Barrierefreiheitsrichtlinien](https://developer.android.com/guide/topics/ui/accessibility) bietet das Braze Android SDK standardmäßig Android TalkBack an. Um sicherzustellen, dass nur der Inhalt von In-App-Nachrichten vorgelesen wird – ohne andere Bildschirmelemente wie die Titelleiste der App oder die Navigation einzubeziehen – können Sie den exklusiven Modus für TalkBack aktivieren.
 
 So aktivieren Sie den exklusiven Modus für In-App-Nachrichten:
 

@@ -23,21 +23,21 @@ La integración de Braze y Merkury te permite aprovechar el `MerkuryID` para aum
 | Cuenta de Merkle | Se requiere una cuenta de Merkle para aprovechar esta integración. |
 | ID de cliente de Merkle | Obtén tu ID de cliente de tu representante de Merkle. |
 | Etiqueta Merkury | Coloca la etiqueta Merkury de Merkle en tu sitio web. |
-| Endpoint REST or transferencia de estado representacional y SDK or kit de desarrollo de software de Braze | La URL de tu endpoint REST or transferencia de estado representacional o SDK or kit de desarrollo de software. Tu endpoint dependerá de la [URL de Braze para tu instancia]({{site.baseurl}}/api/basics#endpoints). |
-| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos `users.track, users.export.ids, users.export.segment, and segments.list`. <br><br>Se puede crear en **Panel de Braze > Consola para desarrolladores > Clave de API REST or transferencia de estado representacional > Crear nueva clave de API**. |
+| Endpoint REST y SDK de Braze | La URL de tu endpoint REST o SDK. Tu endpoint dependerá de la [URL de Braze para tu instancia]({{site.baseurl}}/api/basics#endpoints). |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track, users.export.ids, users.export.segment, and segments.list`. <br><br>Se puede crear en **Panel de Braze > Consola para desarrolladores > Clave de API REST > Crear nueva clave de API**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 {% alert important %}
 Las solicitudes del conector de identidad Merkury a Braze operan dentro de las especificaciones de límite de velocidad de la API de Braze. Ponte en contacto con Braze o con tu director de cuentas de Merkle si tienes alguna pregunta.<br><br>Merkury envía al menos una solicitud al final de una sesión cualificada.
 {% endalert %}
 
-## Integración de SDK or kit de desarrollo de software en paralelo {#side-by-side-sdk-integration}
+## Integración de SDK en paralelo {#side-by-side-sdk-integration}
 
 Utiliza la etiqueta Merkury del lado del cliente de Merkle para capturar dispositivos de Braze y los reenvía al endpoint del conector de identidad de Merkury para su identificación.
 
-### Paso 1: Configurar la etiqueta del SDK or kit de desarrollo de software Web de Braze {#step-1-setup-braze-web-sdk-tag}
+### Paso 1: Configurar la etiqueta del SDK Web de Braze {#step-1-setup-braze-web-sdk-tag}
 
-Debes tener el [SDK or kit de desarrollo de software Web de Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup#install-gtm) implementado en tu sitio web para usar esta integración.
+Debes tener el [SDK Web de Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup#install-gtm) implementado en tu sitio web para usar esta integración.
 
 ### Paso 2: Implementar la etiqueta Merkury de Merkle {#step-2-deploy-merkles-merkury-tag}
 

@@ -1,1 +1,1 @@
-{% multi_lang_include in-app_messages/troubleshooting.md SDK or Software-Development-Kit="Web" %}
+{% multi_lang_include in-app_messages/troubleshooting.md sdk="Web" %}

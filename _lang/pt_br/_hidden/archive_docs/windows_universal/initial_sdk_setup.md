@@ -1,23 +1,23 @@
 ---
-nav_title: Configuração inicial do SDK or kit de desenvolvimento de software
-article_title: Configuração inicial do SDK or kit de desenvolvimento de software para Windows Universal
+nav_title: Configuração inicial do SDK
+article_title: Configuração inicial do SDK para Windows Universal
 platform: Windows Universal
 page_order: 0
-description: "Este artigo de referência aborda as etapas iniciais para integrar o SDK or kit de desenvolvimento de software da Braze em sua plataforma Windows Universal."
+description: "Este artigo de referência aborda as etapas iniciais para integrar o SDK da Braze em sua plataforma Windows Universal."
 search_rank: 1
 hidden: true
 ---
 
-# Integração inicial do SDK or kit de desenvolvimento de software {#initial-sdk-integration}
+# Integração inicial do SDK {#initial-sdk-integration}
 {% multi_lang_include archive/windows_deprecation.md %}
 
-O SDK or kit de desenvolvimento de software da Braze fornecerá uma API or interface de programação do aplicativo (API) para relatar informações a serem usadas em análise de dados, segmentação e engajamento, bem como a capacidade de registrar usuários para notificações por push e receber notificações.
+O SDK da Braze fornecerá uma API para relatar informações a serem usadas em análise de dados, segmentação e engajamento, bem como a capacidade de registrar usuários para notificações por push e receber notificações.
 
->  O SDK or kit de desenvolvimento de software Universal do Windows também é compatível com os apps .NET MAUI do Windows.
+>  O SDK Universal do Windows também é compatível com os apps .NET MAUI do Windows.
 
-## Etapa 1: Instale o SDK or kit de desenvolvimento de software por meio do gerenciador de pacotes NuGet {#step-1-install-the-sdk-via-the-nuget-package-manager}
+## Etapa 1: Instale o SDK por meio do gerenciador de pacotes NuGet {#step-1-install-the-sdk-via-the-nuget-package-manager}
 
-O Windows Universal SDK or kit de desenvolvimento de software é instalado por meio do [NuGet Package Manager](http://www.nuget.org/). Para instalar o Braze Windows SDK or kit de desenvolvimento de software via NuGet:
+O Windows Universal SDK é instalado por meio do [NuGet Package Manager](http://www.nuget.org/). Para instalar o Braze Windows SDK via NuGet:
 
 1. Clique com o botão direito do mouse no arquivo de projeto
 2. Clique em "Manage NuGet Packages"
@@ -38,7 +38,7 @@ Crie um arquivo chamado `AppboyConfiguration.xml` no diretório raiz do seu proj
     </AppboyConfig>
 ```
 
->  Não se esqueça de atualizar `YOUR_API_KEY_HERE` com sua chave de API or interface de programação do aplicativo (API), que pode ser encontrada na página [Chaves de API or interface de programação do aplicativo (API)]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/).
+>  Não se esqueça de atualizar `YOUR_API_KEY_HERE` com sua chave de API, que pode ser encontrada na página [Chaves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/).
 
 Depois de adicionar esse snippet, não se esqueça de modificar as seguintes propriedades de arquivo para `AppboyConfiguration.xml`
 
@@ -72,8 +72,8 @@ Appboy.SharedInstance.OpenSession();
 Appboy.SharedInstance.CloseSession();
 ```
 
-## Integração básica do SDK or kit de desenvolvimento de software concluída {#basic-sdk-integration-complete}
+## Integração básica do SDK concluída {#basic-sdk-integration-complete}
 
-Agora, a Braze deve estar coletando dados do seu aplicativo. Consulte os artigos a seguir sobre como registrar [atributos]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/), [eventos]({{site.baseurl}}/developer_guide/analytics/logging_events/) e [compras]({{site.baseurl}}/developer_guide/analytics/logging_purchases/) no nosso SDK or kit de desenvolvimento de software e como instrumentar o envio de mensagens push.
+Agora, a Braze deve estar coletando dados do seu aplicativo. Consulte os artigos a seguir sobre como registrar [atributos]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/), [eventos]({{site.baseurl}}/developer_guide/analytics/logging_events/) e [compras]({{site.baseurl}}/developer_guide/analytics/logging_purchases/) no nosso SDK e como instrumentar o envio de mensagens push.
 
 >  Se estiver usando o projeto Braze Unity no mesmo app, talvez seja necessário qualificar totalmente as chamadas à Braze como "AppboyPlatform.Universal.Appboy"

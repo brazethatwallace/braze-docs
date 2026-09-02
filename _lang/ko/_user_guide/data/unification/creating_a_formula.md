@@ -25,14 +25,14 @@ tool: Reports
 
 ## 수식 만들기 {#creating-formulas}
 
-수식은 대시보드의 [홈]({{site.baseurl}}/user_guide/analytics/dashboards/home), [매출 보고서]({{site.baseurl}}/user_guide/analytics/reports/revenue_report), [커스텀 이벤트 보고서]({{site.baseurl}}/user_guide/analytics/reports/custom_events_report) 페이지에서 사용할 수 있습니다. **홈** 및 **매출 보고서**에서 **시간별 성능** 차트를 열고, **통계 대상**을 **KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or 핵심 성과 지표(KPI or 핵심 성과 지표(KPI)) 수식**으로 설정한 다음, 하나 이상의 수식을 선택합니다. **커스텀 이벤트 보고서** 페이지에서는 **필터**를 열고, 하나 이상의 **KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or 핵심 성과 지표(KPI or 핵심 성과 지표(KPI)) 수식** 옵션을 선택한 후 **적용**을 선택합니다.
+수식은 대시보드의 [홈]({{site.baseurl}}/user_guide/analytics/dashboards/home), [매출 보고서]({{site.baseurl}}/user_guide/analytics/reports/revenue_report), [커스텀 이벤트 보고서]({{site.baseurl}}/user_guide/analytics/reports/custom_events_report) 페이지에서 사용할 수 있습니다. **홈** 및 **매출 보고서**에서 **시간별 성능** 차트를 열고, **통계 대상**을 **KPI 수식**으로 설정한 다음, 하나 이상의 수식을 선택합니다. **커스텀 이벤트 보고서** 페이지에서는 **필터**를 열고, 하나 이상의 **KPI 수식** 옵션을 선택한 후 **적용**을 선택합니다.
 
-![Braze 대시보드에서 KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or 핵심 성과 지표(KPI or 핵심 성과 지표(KPI)) 수식에 대한 통계 보기]({% image_buster /assets/img_archive/kpi_forms.png %})
+![Braze 대시보드에서 KPI 수식에 대한 통계 보기]({% image_buster /assets/img_archive/kpi_forms.png %})
 
 새 수식을 만들려면 다음을 수행합니다.
 
 1. 해당 대시보드(**홈**, **매출 보고서** 또는 **커스텀 이벤트 보고서**)로 이동합니다.
-2. **KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or 핵심 성과 지표(KPI or 핵심 성과 지표(KPI)) 수식 관리**를 선택합니다.
+2. **KPI 수식 관리**를 선택합니다.
 3. 수식의 이름을 입력합니다.
 4. 관련 분자와 분모를 선택합니다.
 5. **저장**을 선택합니다.

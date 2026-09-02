@@ -24,13 +24,13 @@ Esta seção oferece uma visão mais detalhada e de ponta a ponta de como a Braz
 
 ## Fluxo de renderização (visão geral) {#rendering-flow-high-level}
 
-O fluxo a seguir descreve como a Braze renderiza e envia mensagens para canais baseados em provedor, como e-mail, SMS e push. Canais entregues via SDK or kit de desenvolvimento de software, como Content Cards, usam a mesma renderização subjacente de Liquid e Conteúdo conectado, mas diferem em quando o conteúdo é gerado e como é entregue.
+O fluxo a seguir descreve como a Braze renderiza e envia mensagens para canais baseados em provedor, como e-mail, SMS e push. Canais entregues via SDK, como Content Cards, usam a mesma renderização subjacente de Liquid e Conteúdo conectado, mas diferem em quando o conteúdo é gerado e como é entregue.
 
 1. Um worker em segundo plano renderiza o modelo Liquid de uma mensagem quando ela está sendo preparada para entrega.
 2. As tags de Conteúdo conectado são avaliadas durante a renderização do Liquid.
 3. Para cada tag de Conteúdo conectado, a Braze verifica um cache de múltiplas camadas. Se não existir valor em cache (ou se o cache estiver desativado), a Braze chama seu endpoint e recebe a resposta.
 4. A resposta é injetada no modelo Liquid e a mensagem é totalmente renderizada.
-5. Para canais baseados em provedor, a mensagem renderizada é enviada ao provedor do canal e depois ao usuário. Para canais entregues via SDK or kit de desenvolvimento de software, como Content Cards, o conteúdo renderizado é sincronizado com o SDK or kit de desenvolvimento de software da Braze e pode ser gerado na primeira impressão ou no momento da exibição, quando é mostrado ao usuário.
+5. Para canais baseados em provedor, a mensagem renderizada é enviada ao provedor do canal e depois ao usuário. Para canais entregues via SDK, como Content Cards, o conteúdo renderizado é sincronizado com o SDK da Braze e pode ser gerado na primeira impressão ou no momento da exibição, quando é mostrado ao usuário.
 
 ## Onde as respostas de Conteúdo conectado podem existir temporariamente {#where-connected-content-responses-can-live-temporarily}
 

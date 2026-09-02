@@ -23,12 +23,12 @@ Você precisará do seguinte para integrar o LINE com a Braze:
 - Status de conta premium ou verificada (necessário para sincronizar seguidores existentes)
    - Consulte as [diretrizes de conta do LINE](https://terms2.line.me/official_account_guideline_oth)
 - [Conta de desenvolvedor do LINE](https://developers.line.biz/en/docs/line-developers-console/login-account/)
-- [Canal de API or interface de programação do aplicativo (API) de envio de mensagens do LINE](https://developers.line.biz/en/docs/line-developers-console/overview/#channel)
+- [Canal de API de envio de mensagens do LINE](https://developers.line.biz/en/docs/line-developers-console/overview/#channel)
 
 O envio de mensagens do LINE pela Braze consome os créditos de mensagem ou de ação da sua conta.
 
 {% alert note %}
-**Configurar `native_line_id`**: Você pode configurar `native_line_id` enviando atualizações de usuário para a Braze (por exemplo, com o endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), [importação por CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) ou [Ingestão de Dados na Nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)). Se o SDK or kit de desenvolvimento de software do seu app não tem um campo dedicado para `native_line_id`, envie-o em atualizações de usuário no lado do servidor usando um desses métodos.
+**Configurar `native_line_id`**: Você pode configurar `native_line_id` enviando atualizações de usuário para a Braze (por exemplo, com o endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), [importação por CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) ou [Ingestão de Dados na Nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)). Se o SDK do seu app não tem um campo dedicado para `native_line_id`, envie-o em atualizações de usuário no lado do servidor usando um desses métodos.
 {% endalert %}
 
 ## Tipos de contas LINE {#types-of-line-accounts}
@@ -87,7 +87,7 @@ Após a conclusão do processo de integração, a Braze automaticamente importa 
 
 ### Etapa 2.1: Editar configurações de webhook {#step-21-edit-webhook-settings}
 
-1. No LINE, acesse a guia **Messaging API or interface de programação do aplicativo (API)** e edite suas **Webhook settings**:
+1. No LINE, acesse a guia **Messaging API** e edite suas **Webhook settings**:
    - Defina a **Webhook URL** como `https://anna.braze.com/line/events`.
       - A Braze alterará automaticamente isso para uma URL diferente durante a integração, com base no cluster do seu dashboard.
    - Ative **Use webhook** e **Webhook redelivery**. <br><br> ![Página de configurações de webhook para verificar ou editar a URL do webhook, com opções para ativar ou desativar "Use webhook", "Webhook redelivery" e "Error statistics aggregation".]({% image_buster /assets/img/line/webhook_settings.png %}){: style="max-width:70%;"}
@@ -98,7 +98,7 @@ Após a conclusão do processo de integração, a Braze automaticamente importa 
 | Provider ID | Selecione seu provedor e acesse ***Settings** > **Basic information** |
 | Channel ID | Selecione seu provedor e acesse **Channels** > seu canal > **Basic settings** |
 | Channel secret | Selecione seu provedor e acesse **Channels** > seu canal > **Basic settings**. |
-| Channel access token | Selecione seu provedor e acesse **Channels** > seu canal > **Messaging API or interface de programação do aplicativo (API)**. Se não houver um channel access token, selecione **Issue**. |
+| Channel access token | Selecione seu provedor e acesse **Channels** > seu canal > **Messaging API**. Se não houver um channel access token, selecione **Issue**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 2.1: Editar configurações de webhook" }
 
 {% alert note %}

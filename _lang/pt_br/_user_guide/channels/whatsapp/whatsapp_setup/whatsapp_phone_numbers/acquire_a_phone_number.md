@@ -10,13 +10,13 @@ channel:
 
 # Adquirir um número de telefone do WhatsApp {#acquire-a-whatsapp-phone-number}
 
-> Para usar o canal de envio de mensagens do WhatsApp, você precisará de um número de telefone que atenda aos requisitos do WhatsApp para sua [Cloud API or interface de programação do aplicativo (API)](https://developers.facebook.com/docs/whatsapp/cloud-api/phone-numbers) ou [On-Premises API or interface de programação do aplicativo (API)](https://developers.facebook.com/docs/whatsapp/on-premises/phone-numbers).
+> Para usar o canal de envio de mensagens do WhatsApp, você precisará de um número de telefone que atenda aos requisitos do WhatsApp para sua [Cloud API](https://developers.facebook.com/docs/whatsapp/cloud-api/phone-numbers) ou [On-Premises API](https://developers.facebook.com/docs/whatsapp/on-premises/phone-numbers).
 
 Você deve adquirir seu número de telefone por conta própria, pois a Braze não fará o provisionamento do número para você. Você pode comprar um telefone físico com chip SIM pelo seu provedor de telefonia empresarial ou usar um dos nossos parceiros: Twilio ou Infobip. **Você deve ter sua própria conta na Twilio ou na Infobip, pois isso não pode ser feito pela Braze.**
 
-## Requisitos da API or interface de programação do aplicativo (API) do WhatsApp {#whatsapp-api-requirements}
+## Requisitos da API do WhatsApp {#whatsapp-api-requirements}
 
-Seu número de telefone deve atender a estes requisitos da API or interface de programação do aplicativo (API) do WhatsApp:
+Seu número de telefone deve atender a estes requisitos da API do WhatsApp:
 
 - Pertencer à sua empresa
 - Ter um código de país e de área (como números de telefone fixo e celular)
@@ -32,7 +32,7 @@ A Braze recomenda fortemente o uso de um número que sua empresa possua e ao qua
 
 ## Adquirindo um número de telefone da Twilio {#acquiring-a-twilio-phone-number}
 
-### Etapa 1: Comprar um número de telefone pelo console ou API or interface de programação do aplicativo (API) da Twilio {#step-1-buy-a-phone-number-from-the-twilio-console-or-api}
+### Etapa 1: Comprar um número de telefone pelo console ou API da Twilio {#step-1-buy-a-phone-number-from-the-twilio-console-or-api}
 
 1. No console da Twilio, acesse **Develop** > **Phone Numbers** > **Manage** > **Buy a number**. Se você não vir essa opção, selecione **Explore Products**, role até **Super Networks** e selecione **Phone Number** > **Buy a number**. <br><br>![Console da Twilio com a guia "Develop" aberta e a opção "Buy a number".]({% image_buster /assets/img/whatsapp/develop_buy_number.png %}){: style="max-width:20%;"}<br><br>
 

@@ -23,16 +23,16 @@ A integração da Braze com a Stensul permite exportar seus e-mails da Stensul f
 | Requisito | Descrição |
 | ------------| ----------- |
 | Conta da Stensul | É necessário ter uma conta da Stensul para aproveitar essa parceria. |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões completas de **Templates**. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
-| Instância do cluster | Sua [instância de cluster]({{site.baseurl}}/api/basics/#endpoints) da Braze está alinhada com o dashboard e o endpoint REST or transferir estado representacional da Braze. |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões completas de **Templates**. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Instância do cluster | Sua [instância de cluster]({{site.baseurl}}/api/basics/#endpoints) da Braze está alinhada com o dashboard e o endpoint REST da Braze. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
-Forneça sua chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional e a instância do cluster da Braze para a equipe de sucesso do cliente da Stensul. A equipe configurará a integração inicial para você.
+Forneça sua chave da API REST e a instância do cluster da Braze para a equipe de sucesso do cliente da Stensul. A equipe configurará a integração inicial para você.
 
 {% alert important %}
-Essa é uma configuração única, e todas as exportações futuras utilizarão automaticamente essa chave de API or interface de programação do aplicativo (API).
+Essa é uma configuração única, e todas as exportações futuras utilizarão automaticamente essa chave de API.
 {% endalert %}
 
 ### Etapa 1: criar o e-mail na Stensul {#step-1-create-stensul-email}

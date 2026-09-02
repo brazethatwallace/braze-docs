@@ -9,7 +9,7 @@ tool: Canvas
 
 # Intenção abandonada {#abandoned-intent}
 
-> Engaje usuários em tempo real para incentivá-los a concluir suas compras enquanto os produtos ainda estão frescos na memória. Este modelo disparado por API or interface de programação do aplicativo (API) insere os usuários imediatamente quando abandonam um carrinho, envia lembretes oportunos pelo canal ideal (e-mail, SMS ou mensagem no app), verifica a conclusão da compra em dois pontos da jornada e sincroniza os usuários que não convertem com públicos de anúncios para redirecionamento.
+> Engaje usuários em tempo real para incentivá-los a concluir suas compras enquanto os produtos ainda estão frescos na memória. Este modelo disparado por API insere os usuários imediatamente quando abandonam um carrinho, envia lembretes oportunos pelo canal ideal (e-mail, SMS ou mensagem no app), verifica a conclusão da compra em dois pontos da jornada e sincroniza os usuários que não convertem com públicos de anúncios para redirecionamento.
 
 Neste artigo, vamos apresentar um caso de uso do modelo **Abandoned Intent**, que é destinado à etapa de consideração do ciclo de vida do usuário. Ao final deste artigo, você terá personalizado uma jornada do usuário que incentiva compras de usuários que não concluíram suas compras após adicionar itens aos carrinhos.
 
@@ -70,9 +70,9 @@ Se o seu espaço de trabalho usa o evento de conversão **Places order**, as op�
 
 ### Etapa 3: Defina um cronograma de entrada {#step-3-set-an-entry-schedule}
 
-O modelo **Abandoned Intent** usa um cronograma de entrada **Disparado por API or interface de programação do aplicativo (API)** para que você possa inserir os usuários no Canvas assim que eles abandonarem o carrinho. Isso se encaixa no nosso caso de uso porque queremos responder enquanto o produto ainda está fresco na memória.
+O modelo **Abandoned Intent** usa um cronograma de entrada **Disparado por API** para que você possa inserir os usuários no Canvas assim que eles abandonarem o carrinho. Isso se encaixa no nosso caso de uso porque queremos responder enquanto o produto ainda está fresco na memória.
 
-1. Mantenha **API or interface de programação do aplicativo (API)-Triggered** como o tipo de cronograma de entrada.
+1. Mantenha **API-Triggered** como o tipo de cronograma de entrada.
 2. Anote o ID do Canvas e use o [endpoint `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases) para adicionar usuários quando seu app ou site detectar um carrinho abandonado.
 3. Opcionalmente, você pode passar [variáveis de contexto]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables) (como nome do produto ou detalhes do carrinho) para personalizar as mensagens subsequentes.
 

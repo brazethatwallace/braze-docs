@@ -13,7 +13,7 @@ Se você está começando do zero, escolha um destino para sua transformação. 
 * **PUT: Atualizar vários itens do catálogo:** Transforma webhooks de uma plataforma de origem em atualizações de itens do catálogo.
 * **DELETE: Excluir vários itens do catálogo:** Transforma webhooks de uma plataforma de origem em exclusões de itens do catálogo.
 * **PATCH: Editar vários itens do catálogo:** Transforma webhooks de uma plataforma de origem em edições de itens do catálogo.
-* **POST: Enviar mensagens imediatamente via API or interface de programação do aplicativo (API) Only:** Transforma webhooks de uma plataforma de origem para enviar mensagens imediatas a usuários designados.
+* **POST: Enviar mensagens imediatamente via API Only:** Transforma webhooks de uma plataforma de origem para enviar mensagens imediatas a usuários designados.
 {% enddetails %}
 
 {% alert note %}

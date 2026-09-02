@@ -37,7 +37,7 @@ Avro, a diferencia de JSON (que no tiene esquema), admite de forma nativa la evo
 
 ## ¿Cómo gestiona Braze la carga de archivos? {#how-does-braze-handle-file-overhead}
 
-Construimos un proceso de extraer, transformar y cargar (ETL or extraer, transformar, cargar), que te permite extraer grandes cantidades de datos de una base de datos para colocarlos y almacenarlos en otra.
+Construimos un proceso de extraer, transformar y cargar (ETL), que te permite extraer grandes cantidades de datos de una base de datos para colocarlos y almacenarlos en otra.
 
 ## ¿Dónde debo almacenar estos datos para consultarlos? {#where-should-i-store-this-data-for-querying}
 
@@ -97,7 +97,7 @@ Braze no rellena eventos retroactivamente en Currents. Sin embargo, los eventos 
 
 Los eventos de participación de mensajes (envíos, aperturas, clics, etc.) incluyen el ID de usuario de Braze (`user_id`) y, cuando está presente en el perfil, el identificador externo (`external_user_id` en las cargas útiles de los eventos, etiquetado como `external_id` en la tabla de mapeado del esquema de Braze). Algunos eventos de participación de mensajes de correo electrónico también incluyen `email_address`. Los atributos personalizados no se incluyen.
 
-Si estás enrutando datos de Currents a un almacén de datos o CRM or administración de las relaciones con el cliente y necesitas hacer un join con los datos del perfil, realiza ese join en tu sistema downstream utilizando `user_id` o `external_user_id`.
+Si estás enrutando datos de Currents a un almacén de datos o CRM y necesitas hacer un join con los datos del perfil, realiza ese join en tu sistema downstream utilizando `user_id` o `external_user_id`.
 
 ## ¿Puedo incluir atributos personalizados en los eventos de envío de Currents? {#can-i-include-custom-attributes-in-currents-send-events}
 
@@ -105,7 +105,7 @@ No. Currents no incluye atributos personalizados en los eventos de envío. Curre
 
 ## ¿Currents incluye etiquetas de Campaign o Canvas o pares clave-valor? {#does-currents-include-campaign-or-canvas-tags-or-key-value-pairs}
 
-No. Currents no incluye etiquetas de Campaign o Canvas ni pares clave-valor a nivel de mensaje. Para recuperar datos de etiquetas, utiliza la [REST or transferencia de estado representacional API de exportación]({{site.baseurl}}/api/endpoints/export). Como alternativa, puedes usar un canal de webhook en una Campaign para enviar datos de etiquetas o pares clave-valor a tu propio endpoint, utilizando [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) para crear plantillas con los valores.
+No. Currents no incluye etiquetas de Campaign o Canvas ni pares clave-valor a nivel de mensaje. Para recuperar datos de etiquetas, utiliza la [REST API de exportación]({{site.baseurl}}/api/endpoints/export). Como alternativa, puedes usar un canal de webhook en una Campaign para enviar datos de etiquetas o pares clave-valor a tu propio endpoint, utilizando [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) para crear plantillas con los valores.
 
 ## ¿Cómo notifica Braze a los clientes sobre los cambios en Currents? {#how-does-braze-notify-customers-of-changes-to-currents}
 
@@ -121,9 +121,9 @@ Cuando creas una nueva Campaign o un Canvas, el nombre puede tardar un tiempo en
 
 ## ¿Por qué los eventos de fin de sesión se retrasan o faltan en Currents? {#why-are-session-end-events-delayed-or-missing-in-currents}
 
-Los eventos de fin de sesión siguen la programación normal de carga del SDK or kit de desarrollo de software. El SDK or kit de desarrollo de software de Braze almacena en caché los datos de sesión de forma local y los envía periódicamente en función de la calidad de la red; por ejemplo, aproximadamente cada 10 segundos con una conexión fuerte. Hasta que el SDK or kit de desarrollo de software carga el evento, este no aparece en Currents.
+Los eventos de fin de sesión siguen la programación normal de carga del SDK. El SDK de Braze almacena en caché los datos de sesión de forma local y los envía periódicamente en función de la calidad de la red; por ejemplo, aproximadamente cada 10 segundos con una conexión fuerte. Hasta que el SDK carga el evento, este no aparece en Currents.
 
-Si un usuario fuerza el cierre de la aplicación o se queda sin conexión antes del siguiente envío, el evento de fin de sesión puede llegar tarde o no llegar en absoluto. En iOS, los eventos de fin de sesión a menudo no se envían hasta que la aplicación se vuelve a abrir, porque el SDK or kit de desarrollo de software no puede enviar datos mientras la aplicación está en segundo plano.
+Si un usuario fuerza el cierre de la aplicación o se queda sin conexión antes del siguiente envío, el evento de fin de sesión puede llegar tarde o no llegar en absoluto. En iOS, los eventos de fin de sesión a menudo no se envían hasta que la aplicación se vuelve a abrir, porque el SDK no puede enviar datos mientras la aplicación está en segundo plano.
 
 Cuando necesites límites de sesión más oportunos en Currents, llama a `requestImmediateDataFlush()` en puntos del ciclo de vida, como cuando la aplicación pasa a segundo plano o vuelve a primer plano. Para más información, consulta [Carga y descarga de datos]({{site.baseurl}}/developer_guide/getting_started/sdk_overview#data-upload-and-download) y [El fin de sesión y el inicio de sesión tienen marcas de tiempo similares (iOS)]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log#session-end-and-session-start-have-similar-timestamps-ios).
 

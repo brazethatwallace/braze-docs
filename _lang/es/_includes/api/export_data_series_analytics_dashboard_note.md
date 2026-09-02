@@ -1,16 +1,16 @@
 {% comment %}
   Moved into the includes/api subfolder; previously, this wasn't in a subfolder.
-  Note for GET export campaign/Canvas/send data_series analytics endpoints.
+  Note for GET export campaign/canvas/send data_series analytics endpoints.
   Use with multi_lang_include.
 
   Parameters:
-  - type (required): "campaign", "Canvas", or "send" — selects the opening phrase and dashboard analytics label.
+  - type (required): "campaign", "canvas", or "send" — selects the opening phrase and dashboard analytics label.
 {% endcomment %}
 
 {% if include.type == 'send' %}
 {% capture counts_subject %}Los recuentos de `data_series` a nivel de envío{% endcapture %}
 {% capture dashboard_match %}análisis de interacción en el dashboard{% endcapture %}
-{% elsif include.type == 'Canvas' %}
+{% elsif include.type == 'canvas' %}
 {% capture counts_subject %}Los recuentos de este punto de conexión{% endcapture %}
 {% capture dashboard_match %}análisis de Canvas en el dashboard{% endcapture %}
 {% elsif include.type == 'campaign' %}

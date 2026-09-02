@@ -150,7 +150,7 @@ Sie können eine Produktnachricht entweder mit einem WhatsApp-Template oder eine
 Gehen Sie in Ihrem Meta Business Manager:in zu **Commerce Manager:in** und wählen Sie Ihre Organisation aus. Hier können Sie Ihre Katalog-Assets verwalten, wie zum Beispiel:
 - Neue Kataloge erstellen
 - Produkte zu bestehenden Katalogen hinzufügen
-- Produktinformationen Update or aktualisieren or aktualisieren
+- Produktinformationen aktualisieren
 - Eingestellte Artikel entfernen
 
 {% alert important %}
@@ -179,7 +179,7 @@ Wenn Nutzer:innen mit Ihren WhatsApp-Produktnachrichten interagieren, können si
 Wir unterstützen derzeit keine Zahlungen, die direkt in WhatsApp stattfinden. Zukünftige Unterstützung wird länderspezifisch sein (derzeit bietet Meta dies nur für Unternehmen an, die in Indien, Brasilien und Singapur ansässig sind und direkt mit Nutzer:innen in diesen Ländern arbeiten).
 {% endalert %}
 
-### Warenkorb-Event-Trigger or triggern einrichten {#setting-up-cart-event-triggers}
+### Warenkorb-Event-Trigger einrichten {#setting-up-cart-event-triggers}
 
 Wenn Kund:innen eine Bestellung in WhatsApp aufgeben, führt Braze automatisch folgende Schritte aus:
 1. Empfängt den Warenkorbinhalt von WhatsApp (Produkt-IDs, Mengen und andere Bestelldaten).
@@ -200,7 +200,7 @@ Weitere Informationen zu Braze-Warenkorb-Events finden Sie unter [Typen empfohle
 
 ### Eine getriggerte Antwort einrichten {#setting-up-a-triggered-response}
 
-1. Erstellen Sie einen angepassten Event-Trigger or triggern für `ecommerce.cart_updated`.
+1. Erstellen Sie einen angepassten Event-Trigger für `ecommerce.cart_updated`.
 2. Fügen Sie einen Eigenschaftsfilter für `source = "whats_app"` hinzu.
 
 ![Canvas-Schritt für einen angepassten Event-Trigger „ecommerce.cart_updated“ mit der grundlegenden Eigenschaft „source“ gleich „whats_app“.]({% image_buster /assets/img/whatsapp/product_message_canvas_step.png %})
@@ -235,7 +235,7 @@ Verwenden Sie Liquid, um Warenkorb-URLs direkt in Ihrer Antwortnachricht zu erst
 
 #### Einrichtung {#setup}
 
-1. Erstellen Sie eine WhatsApp-Antwortnachricht-Campaign mit dem Trigger or triggern eines `ecommerce.cart_update` E-Commerce-Events.
+1. Erstellen Sie eine WhatsApp-Antwortnachricht-Campaign mit dem Trigger eines `ecommerce.cart_update` E-Commerce-Events.
 2. Erstellen Sie eine Folgenachricht mit der Warenkorb-URL.
 3. Erstellen Sie Ihre Warenkorb-URL mit Liquid. Wenn Sie Shopify verwenden, können Sie mit dem obigen Liquid-Beispiel einen [Warenkorb-Permalink erstellen](https://shopify.dev/docs/apps/build/checkout/create-cart-permalinks).
 

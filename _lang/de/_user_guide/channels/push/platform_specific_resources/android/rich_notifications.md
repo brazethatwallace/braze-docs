@@ -27,7 +27,7 @@ Bevor Sie eine Rich-Push-Benachrichtigung für Android erstellen, beachten Sie d
   - **Groß:** 2048x1024
 - Derzeit unterstützen Android-Rich-Benachrichtigungen nur statische Bilder, einschließlich der Bildformate JPEG und PNG. GIF und andere Bildformate werden noch nicht unterstützt.
 - Das Hinzufügen von Aktions-Buttons zu Ihrer Push-Benachrichtigung kann den anzeigbaren Bereich des Bildes beeinflussen. Testen Sie mit der Dashboard-Vorschau und auf echten Geräten, um sicherzustellen, dass die Ergebnisse wie erwartet ausfallen.
-- Das Braze Android SDK or Software-Development-Kit muss aktiviert sein, damit das Bild gerendert wird.
+- Das Braze Android SDK muss aktiviert sein, damit das Bild gerendert wird.
 
 {% alert note %}
 Braze stellt zwar Anleitungen zur Einrichtung von Rich-Push-Benachrichtigungen bereit, das tatsächliche Rendering kann jedoch je nach externen Faktoren wie Seitenverhältnis des Geräts, Android-Version, OEM-spezifischen Einschränkungen und anderen variieren. Wir empfehlen, einen Testversand an mehrere Android-Geräte durchzuführen, um sicherzustellen, dass Ihre Rich-Push-Benachrichtigungen wie beabsichtigt angezeigt werden.

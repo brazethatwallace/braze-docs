@@ -10,14 +10,14 @@ alias: /scim/automated_user_provisioning/
 
 # Provisionamento automatizado de usuários {#automated-user-provisioning}
 
-> O provisionamento automatizado de usuários permite criar e gerenciar usuários da Braze por meio de uma API or interface de programação do aplicativo (API), em vez de fazer isso manualmente no dashboard. A Braze oferece suporte a isso por meio do System for Cross-domain Identity Management (SCIM). Este artigo orienta você sobre quais informações fornecer, como gerar seu token SCIM e onde encontrar seu endpoint da API or interface de programação do aplicativo (API) SCIM.
+> O provisionamento automatizado de usuários permite criar e gerenciar usuários da Braze por meio de uma API, em vez de fazer isso manualmente no dashboard. A Braze oferece suporte a isso por meio do System for Cross-domain Identity Management (SCIM). Este artigo orienta você sobre quais informações fornecer, como gerar seu token SCIM e onde encontrar seu endpoint da API SCIM.
 
 {% multi_lang_include scim/scim_alerts.md alert='one_integration' %}
 
 ## Acessando as configurações de provisionamento SCIM {#accessing-scim-provisioning-settings}
 
 {% alert important %}
-A disponibilidade do provisionamento SCIM depende da sua edição da plataforma. Se esse recurso não estiver no seu espaço de trabalho, entre em contato com o seu gerente de sucesso do cliente para mais informações.
+A disponibilidade do provisionamento SCIM depende da sua edição da plataforma. Se esse recurso não estiver no seu espaço de trabalho, entre em contato com o seu CSM para mais informações.
 {% endalert %}
 
 1. No dashboard da Braze, acesse **Configurações** > **Configurações da empresa** > **Configurações de administrador** > **Provisionamento SCIM** e selecione **Configurar integração SCIM**.
@@ -61,9 +61,9 @@ Use a opção **Okta - App da Braze** se você configurou o app da Braze para SA
 1. Selecione a guia **Provisioning**.
 2. Em **Settings** > **Integration** > **SCIM Connection**, selecione **Edit** e preencha os valores dos campos que aparecem na tabela da página **Setup SCIM provisioning**.
 
-### Etapa 1.4: Testar as credenciais da API or interface de programação do aplicativo (API) {#step-14-test-the-api-credentials}
+### Etapa 1.4: Testar as credenciais da API {#step-14-test-the-api-credentials}
 
-Selecione **Test API or interface de programação do aplicativo (API) Credentials**. Uma mensagem de verificação será exibida se a integração for bem-sucedida e você poderá salvar.
+Selecione **Test API Credentials**. Uma mensagem de verificação será exibida se a integração for bem-sucedida e você poderá salvar.
 
 ### Etapa 1.5: Ativar o provisionamento para o app {#step-15-enable-provisioning-to-the-app}
 
@@ -104,7 +104,7 @@ Use a opção **Okta - Integração de app personalizado** se você configurou u
 
 1. Selecione a guia **Provisioning**.
 2. Em **Settings** > **Integration** > **SCIM Connection**, selecione **Edit** e preencha os valores dos campos que aparecem na tabela da página **Setup SCIM provisioning**.
-3. Teste as credenciais da API or interface de programação do aplicativo (API) selecionando **Test API or interface de programação do aplicativo (API) Credentials**.
+3. Teste as credenciais da API selecionando **Test API Credentials**.
 4. Selecione **Save**.
 
 ### Etapa 1.3: Ativar o provisionamento para o app {#step-13-enable-provisioning-to-the-app}
@@ -173,17 +173,17 @@ O atributo `userName` deve corresponder exatamente ao endereço de e-mail do usu
 
 ## Etapa 1: Configurar as definições do SCIM {#step-1-configure-your-scim-settings}
 
-- **Espaço de trabalho padrão:** selecione o espaço de trabalho onde novos usuários devem ser adicionados por padrão. Se você não especificar um espaço de trabalho na sua [solicitação da API or interface de programação do aplicativo (API) SCIM]({{site.baseurl}}/post_create_user_account), a Braze atribui os usuários a esse espaço de trabalho.
+- **Espaço de trabalho padrão:** selecione o espaço de trabalho onde novos usuários devem ser adicionados por padrão. Se você não especificar um espaço de trabalho na sua [solicitação da API SCIM]({{site.baseurl}}/post_create_user_account), a Braze atribui os usuários a esse espaço de trabalho.
 - **Service Origin:** insira o domínio de origem das suas solicitações SCIM. A Braze usa isso no cabeçalho `X-Request-Origin` para verificar a origem das solicitações.
 - **Lista de IPs permitidos (opcional):** você pode restringir as solicitações SCIM a endereços IP específicos. Insira uma lista separada por vírgulas ou um intervalo de endereços IP permitidos. O cabeçalho `X-Request-Origin` em cada solicitação é usado para verificar o endereço IP da solicitação em relação à lista de permitidos.
 
 ## Etapa 2: Gerar um token SCIM {#step-2-generate-a-scim-token}
 
-Após preencher os campos obrigatórios, pressione **Generate SCIM token** para gerar um token SCIM e ver o endpoint da API or interface de programação do aplicativo (API) SCIM. Certifique-se de copiar o token SCIM antes de sair da página. **Este token é exibido apenas uma vez.**
+Após preencher os campos obrigatórios, pressione **Generate SCIM token** para gerar um token SCIM e ver o endpoint da API SCIM. Certifique-se de copiar o token SCIM antes de sair da página. **Este token é exibido apenas uma vez.**
 
 ![Campos de endpoint da API SCIM e token SCIM exibidos com valores mascarados e botões de cópia. Abaixo do campo de token há um botão "Reset Token".]({% image_buster /assets/img/scim.png %})
 
-A Braze espera que todas as solicitações SCIM contenham o token bearer da API or interface de programação do aplicativo (API) SCIM anexado por meio de um cabeçalho HTTP `Authorization`.
+A Braze espera que todas as solicitações SCIM contenham o token bearer da API SCIM anexado por meio de um cabeçalho HTTP `Authorization`.
 
 {% endtab %}
 {% endtabs %}

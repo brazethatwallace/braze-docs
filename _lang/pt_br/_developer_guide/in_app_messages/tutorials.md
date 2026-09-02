@@ -5,7 +5,7 @@ page_order: 40
 hide_toc: true
 layout: dev_guide
 guide_top_header: "Tutoriais de mensagem no app"
-guide_top_text: "> Estes são tutoriais de mensagem no app para o SDK or kit de desenvolvimento de software da Braze que incluem código rolável passo a passo. Para a lista completa, veja <a href='/docs/developer_guide/tutorials'>Tutoriais do SDK or kit de desenvolvimento de software Braze</a>."
+guide_top_text: "> Estes são tutoriais de mensagem no app para o SDK da Braze que incluem código rolável passo a passo. Para a lista completa, veja <a href='/docs/developer_guide/tutorials'>Tutoriais do SDK Braze</a>."
 
 guide_featured_title: "Artigos da seção"
 guide_featured_list:

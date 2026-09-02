@@ -198,7 +198,7 @@ Mit Templating können Sie für jede Nutzerin und jeden Nutzer einen anderen Kat
 
 ### Eine CSV-Datei hochladen
 
-Sie können eine CSV-Datei mit neuen Katalogartikeln zum Hinzufügen oder Katalogartikeln zum Update or aktualisieren or aktualisieren hochladen. Um eine Liste von Artikeln zu löschen, können Sie eine CSV-Datei mit Artikel-IDs hochladen, um sie zu löschen.
+Sie können eine CSV-Datei mit neuen Katalogartikeln zum Hinzufügen oder Katalogartikeln zum Aktualisieren hochladen. Um eine Liste von Artikeln zu löschen, können Sie eine CSV-Datei mit Artikel-IDs hochladen, um sie zu löschen.
 
 ### Liquid verwenden
 
@@ -245,8 +245,8 @@ Wenn Katalog- oder Auswahl-Liquid in einer Nachricht oder einem Canvas-Schritt n
 
 | Symptom | Was zu prüfen ist |
 | --- | --- |
-| Vorschau zeigt Artikel an, aber Live-Sendungen sind leer | Bestätigen Sie, dass die **Artikel-IDs** des Katalogs zum Sendezeitpunkt vorhanden sind. Wenn die ID in Ihrem Liquid nicht mit einer Zeile übereinstimmt, gibt Braze ein leeres Items-Array zurück — siehe [Liquid verwenden](#using-liquid). Prüfen Sie auf Tippfehler und auf ID-Quellen (wie Event-Eigenschaften), die beim Trigger or triggern oder im Kundenprofil or Nutzerprofil fehlen. |
-| Editor-Vorschau funktioniert in einer Campaign, aber nicht in Canvas | Bestätigen Sie, dass Sie den richtigen Liquid-Kontext verwenden — **Canvas-Kontexteigenschaften** im Vergleich zu **Event-Eigenschaften** — und dass diese Felder beim Trigger or triggern vorhanden sind. Siehe [Kontext- und Event-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties). |
+| Vorschau zeigt Artikel an, aber Live-Sendungen sind leer | Bestätigen Sie, dass die **Artikel-IDs** des Katalogs zum Sendezeitpunkt vorhanden sind. Wenn die ID in Ihrem Liquid nicht mit einer Zeile übereinstimmt, gibt Braze ein leeres Items-Array zurück — siehe [Liquid verwenden](#using-liquid). Prüfen Sie auf Tippfehler und auf ID-Quellen (wie Event-Eigenschaften), die beim Trigger oder im Kundenprofil fehlen. |
+| Editor-Vorschau funktioniert in einer Campaign, aber nicht in Canvas | Bestätigen Sie, dass Sie den richtigen Liquid-Kontext verwenden — **Canvas-Kontexteigenschaften** im Vergleich zu **Event-Eigenschaften** — und dass diese Felder beim Trigger vorhanden sind. Siehe [Kontext- und Event-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties). |
 | Eine Auswahl gibt keine Artikel zurück | Überprüfen Sie [Auswahlfilter]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) und Limits; bestätigen Sie, dass die Katalogdaten synchronisiert sind und die Spaltennamen mit Ihren Filtern übereinstimmen. |
 | `:rerender` oder Template-basierte Zustellung sieht falsch aus | Für verschachteltes Liquid innerhalb von Katalogfeldern benötigen Sie `:rerender` und die korrekte Reihenfolge der Variablen — siehe [Katalogartikel mit Liquid als Template verwenden](#templating-catalog-items-including-liquid). Template-basierte In-App-Nachrichten werden zum Triggerzeitpunkt aufgelöst; siehe [Was sind Template-basierte In-App-Nachrichten?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#what-are-templated-in-app-messages). Einige Kanäle schränken Katalog-Tags ein (zum Beispiel bestimmte **:rerender**-Verwendungen mit Banner) — siehe [Werden alle Liquid-Tags unterstützt?]({{site.baseurl}}/user_guide/channels/banners/faq#are-all-liquid-tags-supported) in den Banner-FAQ. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Fehlerbehebung bei der Katalog-Personalisierung" }

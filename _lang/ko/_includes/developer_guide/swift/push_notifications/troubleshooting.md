@@ -158,7 +158,7 @@ APN은 푸시 토큰이 자격 증명에 구성된 토픽(번들 ID)과 일치�
 
 ## 딥링크가 작동하지 않는 경우 {#deep-links-not-working}
 
-모든 채널(유니버설 링크, 커스텀 스킴, 이메일, Branch or 브랜치와 같은 서드파티 공급자 포함)에 대한 종합적인 문제 해결은 [딥링킹 문제 해결]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting)을 참조하세요.
+모든 채널(유니버설 링크, 커스텀 스킴, 이메일, Branch와 같은 서드파티 공급자 포함)에 대한 종합적인 문제 해결은 [딥링킹 문제 해결]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting)을 참조하세요.
 
 ### 푸시 클릭 시 웹 링크가 열리지 않는 경우 {#web-links-from-push-clicks-not-opening}
 

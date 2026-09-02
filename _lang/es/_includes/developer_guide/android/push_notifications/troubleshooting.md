@@ -39,15 +39,15 @@ sequenceDiagram
 
 ### Paso 1: Configura tu clave de API de Google Cloud {#step-1-configure-your-google-cloud-api-key}
 
-Al desarrollar tu aplicación, deberás proporcionar al SDK or kit de desarrollo de software de Braze para Android tu ID de remitente de Firebase. Además, deberás proporcionar una clave de API para aplicaciones de servidor al panel de Braze. Braze utilizará esta clave de API para enviar mensajes a tus dispositivos. También deberás verificar que el servicio FCM esté habilitado en la consola para desarrolladores de Google.
+Al desarrollar tu aplicación, deberás proporcionar al SDK de Braze para Android tu ID de remitente de Firebase. Además, deberás proporcionar una clave de API para aplicaciones de servidor al panel de Braze. Braze utilizará esta clave de API para enviar mensajes a tus dispositivos. También deberás verificar que el servicio FCM esté habilitado en la consola para desarrolladores de Google.
 
 {% alert note %}
-Un error común durante este paso es usar la clave de API del identificador de la aplicación en lugar de la clave de API REST or transferencia de estado representacional.
+Un error común durante este paso es usar la clave de API del identificador de la aplicación en lugar de la clave de API REST.
 {% endalert %}
 
 ### Paso 2: Los dispositivos se registran en FCM y proporcionan a Braze los tokens de notificaciones push {#step-2-devices-register-for-fcm-and-provide-braze-with-push-tokens}
 
-En integraciones típicas, el SDK or kit de desarrollo de software de Braze para Android se encargará de registrar los dispositivos para la funcionalidad de FCM. Esto generalmente ocurre inmediatamente al abrir la aplicación por primera vez. Después del registro, Braze recibirá un ID de registro de FCM, que se utiliza para enviar mensajes a ese dispositivo específicamente. Almacenaremos el ID de registro para ese usuario, y ese usuario pasará a estar "registrado para push" si anteriormente no tenía un token de notificaciones push para ninguna de tus aplicaciones.
+En integraciones típicas, el SDK de Braze para Android se encargará de registrar los dispositivos para la funcionalidad de FCM. Esto generalmente ocurre inmediatamente al abrir la aplicación por primera vez. Después del registro, Braze recibirá un ID de registro de FCM, que se utiliza para enviar mensajes a ese dispositivo específicamente. Almacenaremos el ID de registro para ese usuario, y ese usuario pasará a estar "registrado para push" si anteriormente no tenía un token de notificaciones push para ninguna de tus aplicaciones.
 
 ### Paso 3: Lanza una Campaign push de Braze {#step-3-launch-a-braze-push-campaign}
 
@@ -175,11 +175,11 @@ La clave de servidor de Firebase Cloud Messaging proporcionada en el panel de Br
 
 ### Los clics push no se registran {#push-clicks-not-logged}
 
-Si los clics push no se están registrando, es posible que los datos de clics push aún no se hayan enviado a nuestros servidores. El SDK or kit de desarrollo de software de Braze para Android puede limitar la frecuencia de los envíos.
+Si los clics push no se están registrando, es posible que los datos de clics push aún no se hayan enviado a nuestros servidores. El SDK de Braze para Android puede limitar la frecuencia de los envíos.
 
 Si implementaste un controlador push personalizado, asegúrate de que estés [preservando correctamente los análisis push nativos]({{site.baseurl}}/developer_guide/push_notifications/logging_message_data/?tab=android#preserving-native-push-analytics-with-custom-push-handling).
 
-El registro de clics push es una operación de red y está sujeto a las limitaciones de la red. Por lo tanto, aunque el SDK or kit de desarrollo de software de Braze para Android intenta acomodarse a los fallos de red y reintentará las solicitudes fallidas, se puede esperar cierta pérdida de eventos.
+El registro de clics push es una operación de red y está sujeto a las limitaciones de la red. Por lo tanto, aunque el SDK de Braze para Android intenta acomodarse a los fallos de red y reintentará las solicitudes fallidas, se puede esperar cierta pérdida de eventos.
 
 ### Los vínculos profundos no funcionan {#deep-links-not-working}
 

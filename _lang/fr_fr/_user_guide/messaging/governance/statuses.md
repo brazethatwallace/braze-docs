@@ -42,7 +42,7 @@ Voici les statuts disponibles pour les Campaigns et les Canvas :
 Lorsqu'un Canvas est arrêté, voici ce qui se produit :
 
 - **Messages planifiés :** Vos messages planifiés ne seront pas envoyés, quel que soit l'emplacement de l'utilisateur dans le Canvas. Cela inclut également les utilisateurs qui étaient en file d'attente en raison de la limitation du débit.
-- **Envois d'e-mails :** Les envois d'e-mails peuvent ne pas s'arrêter immédiatement, car votre fournisseur de services d'e-mail marketing or e-mailing (fournisseur de services d'e-mailing) peut continuer à traiter vos requêtes existantes.
+- **Envois d'e-mails :** Les envois d'e-mails peuvent ne pas s'arrêter immédiatement, car votre fournisseur de services d'e-mail marketing (fournisseur de services d'e-mailing) peut continuer à traiter vos requêtes existantes.
 - **Étapes de délai :** Les utilisateurs dans une [étape de délai]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) y restent normalement, mais quitteront le Canvas lorsque la période définie prendra fin.
 - **Modifications en brouillon :** Toute modification en brouillon apportée au Canvas sera supprimée lorsque le Canvas est arrêté.
 

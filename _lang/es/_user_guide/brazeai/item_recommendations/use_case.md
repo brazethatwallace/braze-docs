@@ -9,7 +9,7 @@ page_type: tutorial
 
 > Este ejemplo muestra cómo una marca ficticia utiliza las Recomendaciones de elementos de IA de Braze para entregar contenido personalizado y sugerencias de productos en momentos clave para los clientes. Descubre cómo la lógica de recomendación puede mejorar la interacción, aumentar las conversiones y reducir el esfuerzo manual.
 
-Supongamos que Camila es administradora de CRM or administración de las relaciones con el cliente en MovieCanon, una plataforma de streaming que ofrece películas y series seleccionadas.
+Supongamos que Camila es administradora de CRM en MovieCanon, una plataforma de streaming que ofrece películas y series seleccionadas.
 
 El objetivo de Camila es mantener la interacción de los espectadores después de que terminen de ver algo. Históricamente, los mensajes «También te puede interesar» de MovieCanon se basaban en una amplia coincidencia de géneros y se enviaban en momentos arbitrarios, a menudo horas o días después de una sesión. La interacción era baja, y su equipo sabía que podía hacerlo mejor.
 

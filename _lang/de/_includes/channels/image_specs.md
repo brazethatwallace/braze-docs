@@ -73,7 +73,7 @@ SVG-Bilder werden für In-App-Nachrichten nicht unterstützt, da sie nicht auf a
 {% endtabs %}
 
 {% alert tip %}
-Das Rendering von In-App-Nachrichten im Web SDK or Software-Development-Kit kann durch benutzerdefinierte Textgrößeneinstellungen des Browsers beeinflusst werden. Nutzer:innen mit benutzerdefinierter Textgrößenskalierung können geringfügige Darstellungsprobleme feststellen, wie z. B. einen 1-px-Spalt am Rand eines modalen Bildes. Beim Testen und in der Vorschau von In-App-Nachrichten empfehlen wir, die Standard-Textgrößeneinstellungen des Browsers zu verwenden, um eine möglichst genaue Darstellung zu erhalten.
+Das Rendering von In-App-Nachrichten im Web SDK kann durch benutzerdefinierte Textgrößeneinstellungen des Browsers beeinflusst werden. Nutzer:innen mit benutzerdefinierter Textgrößenskalierung können geringfügige Darstellungsprobleme feststellen, wie z. B. einen 1-px-Spalt am Rand eines modalen Bildes. Beim Testen und in der Vorschau von In-App-Nachrichten empfehlen wir, die Standard-Textgrößeneinstellungen des Browsers zu verwenden, um eine möglichst genaue Darstellung zu erhalten.
 {% endalert %}
 
 {% endif %}
@@ -185,7 +185,7 @@ Weitere Informationen finden Sie unter [Kreative Details für Content Cards]({{s
 
 {% endif %}
 
-{% if include.variable_name == "Kurzmitteilungsdienst or SMS and mms" %}
+{% if include.variable_name == "sms and mms" %}
 
 MMS-Nachrichten unterstützen ein einzelnes Bild pro Nachricht. Nur MMS-fähige Abo-Gruppen können Bilder versenden.
 
@@ -193,7 +193,7 @@ MMS-Nachrichten unterstützen ein einzelnes Bild pro Nachricht. Nur MMS-fähige 
 | --- | --- |
 | Größe | 600&nbsp;KB oder kleiner für eine zuverlässige Zustellung durch den Mobilfunkanbieter. Der Composer blockiert Uploads, die größer als 1&nbsp;MB sind. |
 | Dateitypen | PNG, JPEG, GIF |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Kurzmitteilungsdienst or SMS und MMS" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS und MMS" }
 
 Informationen zu den Dateigrößenbeschränkungen und dem Durchsatz der Mobilfunkanbieter finden Sie unter [MMS-Nachrichtenlimits und Durchsatz]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup#mms-message-limits-and-throughput).
 

@@ -14,7 +14,7 @@ description: "Este artículo de referencia explica cómo realizar un control de 
 
 ## Cómo acceder {#how-to-access}
 
-En la pestaña **Test** para servicio de mensajes cortos, push de Android, push de iOS y mensajes dentro de la aplicación tradicionales, selecciona **Review with Operator** para revisar tu contenido antes de enviarlo. Operator comprueba errores ortográficos y gramaticales, tonos inapropiados o fuera de marca, lenguaje ofensivo y código suelto o Liquid sin renderizar. Señala cada problema con el texto específico y una corrección sugerida, o confirma que el contenido está limpio.
+En la pestaña **Test** para SMS, push de Android, push de iOS y mensajes dentro de la aplicación tradicionales, selecciona **Review with Operator** para revisar tu contenido antes de enviarlo. Operator comprueba errores ortográficos y gramaticales, tonos inapropiados o fuera de marca, lenguaje ofensivo y código suelto o Liquid sin renderizar. Señala cada problema con el texto específico y una corrección sugerida, o confirma que el contenido está limpio.
 
 
 Para más información, incluidas las características compatibles, buenas prácticas y ejemplos de indicaciones, consulta [Revisar la calidad del contenido en las capacidades de Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#review-content-quality).

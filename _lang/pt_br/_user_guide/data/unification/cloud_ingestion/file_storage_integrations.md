@@ -281,7 +281,7 @@ Não configure uma fila de mensagens mortas nessa assinatura. A Braze não ofere
 ### Etapa 3: Enviar notificações do bucket para o tópico {#step-3-send-bucket-notifications-to-the-topic}
 
 {% alert important %}
-Criar uma notificação do Cloud Storage para o Pub/Sub não está disponível no console do Google Cloud. Você deve usar o gcloud (mostrado aqui), Terraform ou a API or interface de programação do aplicativo (API) JSON. Para saber mais, consulte [Configure Pub/Sub notifications for Cloud Storage](https://cloud.google.com/storage/docs/reporting-changes#enabling) na documentação do Google Cloud.
+Criar uma notificação do Cloud Storage para o Pub/Sub não está disponível no console do Google Cloud. Você deve usar o gcloud (mostrado aqui), Terraform ou a API JSON. Para saber mais, consulte [Configure Pub/Sub notifications for Cloud Storage](https://cloud.google.com/storage/docs/reporting-changes#enabling) na documentação do Google Cloud.
 {% endalert %}
 
 Primeiro, atribua ao agente de serviço do Cloud Storage a permissão de publicar no tópico e, em seguida, crie a notificação para `OBJECT_FINALIZE`. O evento `OBJECT_FINALIZE` é disparado sempre que um novo objeto é criado ou finalizado no bucket.
@@ -472,7 +472,7 @@ Para sincronizações de dados de usuários (atributos, eventos personalizados, 
 | --- | --- |
 | `EXTERNAL_ID` | Identifica o usuário que você deseja atualizar. Deve corresponder ao valor `external_id` usado na Braze. |
 | `ALIAS_NAME` e `ALIAS_LABEL` | Essas duas colunas criam um objeto de alias de usuário. `alias_name` deve ser um identificador único, e `alias_label` especifica o tipo de alias. Os usuários podem ter vários aliases com rótulos diferentes, mas apenas um `alias_name` por `alias_label`. |
-| `BRAZE_ID` | O identificador de usuário da Braze. É gerado pelo SDK or kit de desenvolvimento de software da Braze, e novos usuários não podem ser criados usando um Braze ID por meio da ingestão de dados na nuvem. Para criar novos usuários, especifique um ID externo ou alias de usuário. |
+| `BRAZE_ID` | O identificador de usuário da Braze. É gerado pelo SDK da Braze, e novos usuários não podem ser criados usando um Braze ID por meio da ingestão de dados na nuvem. Para criar novos usuários, especifique um ID externo ou alias de usuário. |
 | `EMAIL` | O endereço de e-mail do usuário. Se existirem vários perfis com o mesmo endereço de e-mail, o perfil atualizado mais recentemente terá prioridade. Se você incluir tanto e-mail quanto telefone, a Braze usará o e-mail como identificador principal. |
 | `PHONE` | O número de telefone do usuário. Se existirem vários perfis com o mesmo número de telefone, o perfil atualizado mais recentemente terá prioridade. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Identificadores de usuário" }

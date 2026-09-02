@@ -55,7 +55,7 @@ guide_featured_list:
 | 목표 | 권장 기능 |
 | --- | --- |
 | 사용자의 맥락을 활용하여 사용자별로 메시지 카피를 개인화 | [Braze 에이전트]({{site.baseurl}}/user_guide/brazeai/agents) ([Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step) 또는 [카탈로그]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#use-catalog-agents)); 일회성 초안 카피의 경우 [생성형 AI]({{site.baseurl}}/user_guide/brazeai/generative_ai) |
-| 시간이 지남에 따라 가장 효과적인 메시지 콘텐츠(제목란 또는 CTA 등)를 최적화 | [콘텐츠 최적화 프로그램]({{site.baseurl}}/user_guide/brazeai/content_optimizer) (이메일, 푸시 알림, 단문 메시지 서비스/MMS/RCS) 또는 [BrazeAI<sup>TM</sup>로 최적화]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection) |
+| 시간이 지남에 따라 가장 효과적인 메시지 콘텐츠(제목란 또는 CTA 등)를 최적화 | [콘텐츠 최적화 프로그램]({{site.baseurl}}/user_guide/brazeai/content_optimizer) (이메일, 푸시 알림, SMS/MMS/RCS) 또는 [BrazeAI<sup>TM</sup>로 최적화]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection) |
 | 오퍼, 채널, 타이밍에 대한 1:1 의사결정으로 비즈니스 측정기준(매출, 전환) 극대화 | [Decisioning Studio]({{site.baseurl}}/user_guide/brazeai/decisioning_studio) |
 | 이탈 가능성이 높거나 특정 이벤트를 수행할 가능성이 있는 사용자 찾기 | [예측 이탈]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) 또는 [예측 이벤트]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events) |
 | 메시지에서 카탈로그의 특정 제품 추천 | [아이템 추천]({{site.baseurl}}/user_guide/brazeai/item_recommendations) |

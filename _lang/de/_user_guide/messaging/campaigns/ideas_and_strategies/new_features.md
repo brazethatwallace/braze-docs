@@ -12,7 +12,7 @@ tool: Campaigns
 
 > Dieser Referenzartikel beschreibt, wie Sie die Braze-Plattform nutzen können, um Ihre Kund:innen über neue Features und Versionen Ihrer App auf dem Laufenden zu halten.
 
-Sie arbeiten kontinuierlich daran, Ihre App zu Update or aktualisieren or aktualisieren und zu verbessern, und möchten, dass Ihre Nutzer:innen diese aufregenden neuen Features und App-Versionen erleben. Erfahren Sie, wie Sie Ihren Nutzer:innen die neuen Features näherbringen, die sie noch nicht genutzt haben, und sie ermutigen, die App zu erkunden, um das Beste aus Ihrem Angebot herauszuholen.
+Sie arbeiten kontinuierlich daran, Ihre App zu aktualisieren und zu verbessern, und möchten, dass Ihre Nutzer:innen diese aufregenden neuen Features und App-Versionen erleben. Erfahren Sie, wie Sie Ihren Nutzer:innen die neuen Features näherbringen, die sie noch nicht genutzt haben, und sie ermutigen, die App zu erkunden, um das Beste aus Ihrem Angebot herauszuholen.
 
 Feature-Awareness-Campaigns sind eine großartige Möglichkeit, Nutzer:innen dazu zu ermutigen, mit Ihrer App engagiert zu bleiben, während Sie die Funktionalität Ihrer App weiter verbessern. Nutzer:innen auf dem Laufenden zu halten ist eine hervorragende Methode, um sie aktiv zu halten, Bewertungen zu verbessern und das Engagement der Nutzer:innen sicherzustellen.
 
@@ -23,14 +23,14 @@ Braze SDKs erfassen automatisch die neueste App-Version einer Nutzer:in. Diese V
 ![Das Panel „Targeting-Optionen“ im Schritt „Zielgruppe zusammenstellen“ im Workflow zur Campaign-Erstellung. Der Abschnitt „Zusätzliche Filter“ enthält den folgenden Filter: „Neueste App-Versionsnummer für Android Stopwatch (Android) ist unter 3.7.0 (134.0.0.0)“.]({% image_buster /assets/img_archive/new_app_version.png %}){: style="max-width:90%;"}
 
 {% alert note %}
-Es kann einige Zeit dauern, bis die aktuellen App-Versionen befüllt werden. Die App-Version im Kundenprofil or Nutzerprofil wird aktualisiert, wenn die Informationen vom SDK or Software-Development-Kit erfasst werden – das hängt davon ab, wann Nutzer:innen ihre App öffnen. Wenn Nutzer:innen die App nicht öffnen, wird die aktuelle Version nicht aktualisiert. <br><br> Diese Filter gelten außerdem nicht rückwirkend. Es empfiehlt sich, „größer als“ oder „gleich“ für aktuelle und zukünftige Versionen zu verwenden. Die Verwendung von Filtern für vergangene Versionen kann zu unerwartetem Verhalten führen.
+Es kann einige Zeit dauern, bis die aktuellen App-Versionen befüllt werden. Die App-Version im Kundenprofil wird aktualisiert, wenn die Informationen vom SDK erfasst werden – das hängt davon ab, wann Nutzer:innen ihre App öffnen. Wenn Nutzer:innen die App nicht öffnen, wird die aktuelle Version nicht aktualisiert. <br><br> Diese Filter gelten außerdem nicht rückwirkend. Es empfiehlt sich, „größer als“ oder „gleich“ für aktuelle und zukünftige Versionen zu verwenden. Die Verwendung von Filtern für vergangene Versionen kann zu unerwartetem Verhalten führen.
 {% endalert %}
 
 ### App-Versionsnummer {#app-version-number}
 
 Verwenden Sie den Filter **App-Versionsnummer**, um Nutzer:innen nach der Version und Build-Nummer der App zu segmentieren.
 
-Dieser Filter unterstützt numerische Vergleiche, um einen Bereich von App-Versionen anzusprechen. Sie können beispielsweise Nutzer:innen ansprechen, deren App „kleiner als“, „größer als“ oder „gleich“ der App-Version „1.2.3“ ist. Das kann nützlich sein, um ein neues Feature zu bewerben, das ein App-Upgrade or upgraden erfordert.
+Dieser Filter unterstützt numerische Vergleiche, um einen Bereich von App-Versionen anzusprechen. Sie können beispielsweise Nutzer:innen ansprechen, deren App „kleiner als“, „größer als“ oder „gleich“ der App-Version „1.2.3“ ist. Das kann nützlich sein, um ein neues Feature zu bewerben, das ein App-Upgrade erfordert.
 
 Dieser Filter kann den älteren Filter „App-Versionsname“ ersetzen, bei dem jede ältere Version explizit aufgelistet oder ein regulärer Ausdruck verwendet werden musste.
 
@@ -46,16 +46,16 @@ Dieser Filter kann den älteren Filter „App-Versionsname“ ersetzen, bei dem 
 - Dies kann zu Verwirrung führen, wenn `versionName` und `versionCode` Ihrer App nicht mehr synchron sind, insbesondere da beide Felder im Braze-Dashboard eingesehen werden können. Als Best Practice sollten Sie sicherstellen, dass `versionName` und `versionCode` Ihrer App gemeinsam inkrementiert werden.
 - Wenn Sie stattdessen nach dem für Menschen lesbaren Feld `versionName` filtern müssen (unüblich), verwenden Sie den Filter „App-Versionsname“.
 
-#### SDK or Software-Development-Kit-Anforderungen {#sdk-requirements}
+#### SDK-Anforderungen {#sdk-requirements}
 
-Werte für diesen Filter werden ab Braze Android SDK or Software-Development-Kit v3.6.0+ und iOS SDK or Software-Development-Kit v3.21.0+ erfasst. Auch wenn dieser Filter SDK or Software-Development-Kit-Anforderungen hat, können Sie mit diesem Feature dennoch Nutzer:innen ansprechen, die niedrigere (ältere) Versionen Ihrer App verwenden.
+Werte für diesen Filter werden ab Braze Android SDK v3.6.0+ und iOS SDK v3.21.0+ erfasst. Auch wenn dieser Filter SDK-Anforderungen hat, können Sie mit diesem Feature dennoch Nutzer:innen ansprechen, die niedrigere (ältere) Versionen Ihrer App verwenden.
 
 Für Android basiert diese Versionsnummer auf dem [Package Long Version Code](https://developer.android.com/reference/android/content/pm/PackageInfo.html#getLongVersionCode()) der App.
 
 Für iOS basiert diese Versionsnummer auf dem [Short Version String](https://developer.apple.com/documentation/bundleresources/information_property_list/cfbundleshortversionstring) der App.
 
 {% alert tip %}
-Dieser Filter wird erst mit Werten befüllt, nachdem Nutzer:innen ihre Apps auf die unterstützten Braze-SDK or Software-Development-Kit-Versionen aktualisiert haben. Bis dahin zeigt der Filter bei Auswahl keine Versionen an.
+Dieser Filter wird erst mit Werten befüllt, nachdem Nutzer:innen ihre Apps auf die unterstützten Braze-SDK-Versionen aktualisiert haben. Bis dahin zeigt der Filter bei Auswahl keine Versionen an.
 {% endalert %}
 
 #### Anwendungsfall {#use-case}
@@ -66,7 +66,7 @@ Sobald Braze Daten von Version 2.0.0 Ihrer App empfängt, können Sie Nutzer:inn
 
 | Filter | App-Version der Nutzer:in | Ergebnis |
 | :------------- | :----------- | :--------- |
-| Kleiner als 2.0.0 | 1.0.0 | Die Nutzer:in ist im Segment, obwohl ihr Braze SDK or Software-Development-Kit den Filter „App-Versionsnummer“ nicht unterstützte. |
+| Kleiner als 2.0.0 | 1.0.0 | Die Nutzer:in ist im Segment, obwohl ihr Braze SDK den Filter „App-Versionsnummer“ nicht unterstützte. |
 | Größer als 2.0.0 | 2.5.1 | Die Nutzer:in und alle zukünftigen Installationen sind im Segment. |
 | Größer als 2.0.0 | 1.9.9 | Die Nutzer:in ist nicht im Segment. |
 | Kleiner als oder gleich 2.0.0 | 3.0.1 | Die Nutzer:in ist nicht im Segment. |

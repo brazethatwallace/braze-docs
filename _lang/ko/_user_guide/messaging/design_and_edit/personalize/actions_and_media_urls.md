@@ -41,7 +41,7 @@ iOS 및 Android에서 기본적으로 처리되는 표준 URI 스킴(예: `tel:`
 | ------ | ------- | ------ |
 | `tel:` | `tel:+18005555555` | 전화 다이얼러 열기 |
 | `mailto:` | `mailto:support@example.com` | 이메일 작성 열기 |
-| `sms:` | `sms:+18005555555` | 단문 메시지 서비스 작성 열기 |
+| `sms:` | `sms:+18005555555` | SMS 작성 열기 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="시스템 URI 스킴"}
 
 이 스킴은 푸시 알림 클릭 시 동작과 인앱 메시지 버튼 동작에 사용할 수 있습니다. 추가 SDK 구성이나 앱 코드 변경은 필요하지 않습니다.
@@ -141,7 +141,7 @@ https://example.com/{{url_var}}
 
 ### Liquid 변수로 렌더링된 URL 단축하기 {#shorten-urls-rendered-by-liquid-variables}
 
-**지원 채널:** KakaoTalk, LINE, 단문 메시지 서비스, RCS, WhatsApp
+**지원 채널:** KakaoTalk, LINE, SMS, RCS, WhatsApp
 
 API 트리거 속성에 포함된 URL을 포함하여 Liquid로 렌더링된 URL을 단축합니다. 예를 들어, {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %}가 유효한 URL을 나타내는 경우, 메시지를 보내기 전에 해당 URL을 단축하고 추적합니다.
 

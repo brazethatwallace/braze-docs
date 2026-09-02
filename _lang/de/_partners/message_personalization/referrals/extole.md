@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Extole
 
-> [Extole](https://www.extole.com/), ein SaaS or Software-as-a-Service-Unternehmen, ist branchenführend im Empfehlungsmarketing und hilft bei der Erstellung und Optimierung effektiver Programme für das Empfehlungsmarketing, um die Kundenakquise zu steigern.
+> [Extole](https://www.extole.com/), ein SaaS-Unternehmen, ist branchenführend im Empfehlungsmarketing und hilft bei der Erstellung und Optimierung effektiver Programme für das Empfehlungsmarketing, um die Kundenakquise zu steigern.
 
 _Diese Integration wird von Extole gepflegt._
 
@@ -23,7 +23,7 @@ Mit der Integration von Braze und Extole können Sie Kunden-Events und -Attribut
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | Extole-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Extole-Konto. |
-| Braze Representational State Transfer-API-Schlüssel | Ein Braze Representational State Transfer-API-Schlüssel mit der Berechtigung `users.track`. Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit der Berechtigung `users.track`. Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
 | Braze-API-URL | Ihre Braze-API-URL ist spezifisch für Ihre [Braze-Instanz]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
@@ -31,19 +31,19 @@ Mit der Integration von Braze und Extole können Sie Kunden-Events und -Attribut
 
 Die folgenden Anwendungsfälle zeigen Ihnen einige Möglichkeiten, wie Sie die Integration von Extole in Braze nutzen können. Arbeiten Sie mit Ihren Extole-Implementierungs- und Customer-Success-Managern zusammen, um eine Option zu entwickeln, die den speziellen Anforderungen Ihres Unternehmens entspricht.
 
-- Verwenden Sie angepasste Events aus Ihren Empfehlungs- und Engagement-Programmen, um eine Braze-Campaign oder ein Canvas zu Trigger or triggern or triggern
+- Verwenden Sie angepasste Events aus Ihren Empfehlungs- und Engagement-Programmen, um eine Braze-Campaign oder ein Canvas zu triggern
 - Erstellen Sie angepasste Segmente, Dashboards und Berichte mit Daten aus Ihren Extole-Programmen
 - Melden Sie Nutzer:innen automatisch von Ihrer Marketing-Liste in Braze ab oder dafür an
 
 ## Integration
 
-Führen Sie die folgenden Schritte aus, um Ihre Integration schnell zum Laufen zu bringen. Ihre Extole-Implementierungs- und CSM or Customer-Success-Manager or Customer-Success-Manager:in unterstützen Sie bei diesem Prozess und beantworten alle Ihre Fragen.
+Führen Sie die folgenden Schritte aus, um Ihre Integration schnell zum Laufen zu bringen. Ihre Extole-Implementierungs- und CSM unterstützen Sie bei diesem Prozess und beantworten alle Ihre Fragen.
 
 ### Verbindung mit Ihrem Braze-Konto herstellen {#connect-to-your-braze-account}
 
 1. Wählen Sie die Braze-Integration auf der [Partnerseite](https://my.extole.com/partners) Ihres My-Extole-Kontos aus.
 2. Wählen Sie in der Braze-Integration **Install** aus, um die Verbindung zwischen Extole und Braze herzustellen.
-3. Füllen Sie die erforderlichen Felder aus, beginnend mit Ihrem Braze Representational State Transfer-API-Schlüssel.
+3. Füllen Sie die erforderlichen Felder aus, beginnend mit Ihrem Braze REST-API-Schlüssel.
 4. Geben Sie Ihre Braze-API-URL ein. Diese URL hängt davon ab, auf welcher Instanz Ihr Braze-Konto eingerichtet ist.
 5. Fügen Sie alle Extole-Events hinzu, die Sie an Braze senden möchten. Die Standard-Events, Event-Eigenschaften und Nutzerattribute sind in der [Tabelle „Extole Events“](https://dev.extole.com/docs/braze#extole-program-events) beschrieben.
 6. Fügen Sie alle Reward-Status hinzu, die Sie an Braze senden möchten, außer dem Status `FULFILLED`. In der [Tabelle „Extole Rewards“](https://dev.extole.com/docs/braze#extole-rewards) finden Sie Beschreibungen der verfügbaren Reward-Status.
@@ -52,7 +52,7 @@ Führen Sie die folgenden Schritte aus, um Ihre Integration schnell zum Laufen z
 
 ### Extole-Programm-Events {#extole-program-events}
 
-Im Folgenden finden Sie die Standard-Events, Event-Eigenschaften und Nutzerattribute, die Extole an Braze sendet. Wenden Sie sich an Ihre Extole-Implementierungs- oder CSM or Customer-Success-Manager or Customer-Success-Manager:in, um zusätzliche Extole-Events zu identifizieren und zu Ihrer Integration hinzuzufügen.
+Im Folgenden finden Sie die Standard-Events, Event-Eigenschaften und Nutzerattribute, die Extole an Braze sendet. Wenden Sie sich an Ihre Extole-Implementierungs- oder CSM, um zusätzliche Extole-Events zu identifizieren und zu Ihrer Integration hinzuzufügen.
 
 | Event | Beschreibung | Event-Eigenschaften | Nutzerattribute |
 | ----------- | ----------- | ----------- | ----------- |
@@ -71,7 +71,7 @@ Im Folgenden finden Sie die Standard-Events, Event-Eigenschaften und Nutzerattri
 
 ### Extole Rewards
 
-Standardmäßig sendet Extole Reward-Events im Status `FULFILLED` an Braze, damit Sie Reward-Benachrichtigungen über eine Braze-Campaign oder ein Canvas Trigger or triggern or triggern können. In der folgenden Tabelle finden Sie weitere Reward-Status.
+Standardmäßig sendet Extole Reward-Events im Status `FULFILLED` an Braze, damit Sie Reward-Benachrichtigungen über eine Braze-Campaign oder ein Canvas triggern können. In der folgenden Tabelle finden Sie weitere Reward-Status.
 
 | Reward-Status | Beschreibung | Event-Eigenschaften | Nutzerattribute |
 | ----------- | ----------- | ----------- | ----------- |
@@ -89,7 +89,7 @@ Standardmäßig sendet Extole Reward-Events im Status `FULFILLED` an Braze, dami
 
 ### Nutzer:innen in Braze finden und erstellen {#find-and-create-users-in-braze}
 
-Für bestimmte Anwendungsfälle, wie z. B. ein neues E-Mail- oder Kurzmitteilungsdienst or SMS-Abo, für das Extole keine externe ID (Nutzer-ID) hat, kann Extole über den Braze-Endpunkt [Kundenprofil or Nutzerprofil nach Bezeichner exportieren]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) nach dem Bezeichner der/des Nutzer:in suchen. Extole fügt alle Profilattribute hinzu und aktualisiert sie, wenn die/der Nutzer:in in Braze existiert. Wenn die Anfrage kein Kundenprofil or Nutzerprofil zurückgibt, verwendet Extole den Endpunkt `/users/track`, um einen Nutzer-Alias mit der E-Mail-Adresse der/des Nutzer:in als Alias-Namen zu erstellen.
+Für bestimmte Anwendungsfälle, wie z. B. ein neues E-Mail- oder SMS-Abo, für das Extole keine externe ID (Nutzer-ID) hat, kann Extole über den Braze-Endpunkt [Kundenprofil nach Bezeichner exportieren]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) nach dem Bezeichner der/des Nutzer:in suchen. Extole fügt alle Profilattribute hinzu und aktualisiert sie, wenn die/der Nutzer:in in Braze existiert. Wenn die Anfrage kein Kundenprofil zurückgibt, verwendet Extole den Endpunkt `/users/track`, um einen Nutzer-Alias mit der E-Mail-Adresse der/des Nutzer:in als Alias-Namen zu erstellen.
 
 ## Verwendung dieser Integration {#using-this-integration}
 

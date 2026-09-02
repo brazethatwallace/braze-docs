@@ -13,12 +13,12 @@ hidden: true
 > Este artículo cubre la integración de Shopify Markets (actualmente en beta), incluyendo qué está dentro del alcance, cómo funciona y cómo usar los datos de tus mercados en tu mensajería. Braze está lanzando progresivamente funcionalidades adicionales de Markets a lo largo del período beta, escalando para soportar estructuras de mercado más complejas con el tiempo.
 
 {% alert important %}
-Shopify Markets está actualmente en beta. Para más información, contacta a tu CSM or administrador de éxito de cliente or administrador de éxito de cliente de Braze.
+Shopify Markets está actualmente en beta. Para más información, contacta a tu CSM de Braze.
 {% endalert %}
 
 ## Cómo funciona la integración {#how-the-integration-works}
 
-Shopify Markets extiende tu integración existente de Shopify. Conecta tu tienda predeterminada a través de la ruta de integración [estándar]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration) o [personalizada (SDK or kit de desarrollo de software)]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration), luego selecciona los mercados que quieres que Braze sincronice desde los mercados configurados de tu tienda. Las integraciones existentes pueden agregar mercados sin interrumpir catálogos, grupos de suscripción o eventos. Para instrucciones paso a paso, consulta [Configuración de Shopify Markets](#shopify-markets-setup).
+Shopify Markets extiende tu integración existente de Shopify. Conecta tu tienda predeterminada a través de la ruta de integración [estándar]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration) o [personalizada (SDK)]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration), luego selecciona los mercados que quieres que Braze sincronice desde los mercados configurados de tu tienda. Las integraciones existentes pueden agregar mercados sin interrumpir catálogos, grupos de suscripción o eventos. Para instrucciones paso a paso, consulta [Configuración de Shopify Markets](#shopify-markets-setup).
 
 Shopify Markets proporciona estas capacidades:
 
@@ -65,7 +65,7 @@ Cada mercado seleccionado requiere un catálogo de mercado con productos activos
 Las siguientes no son compatibles en esta beta:
 
 - Desencadenadores de bajada de precio y vuelta en stock para catálogos de mercado
-- Doble adhesión voluntaria por correo electrónico y servicio de mensajes cortos para grupos de suscripción configurados por mercado
+- Doble adhesión voluntaria por correo electrónico y SMS para grupos de suscripción configurados por mercado
 - Grupos de mercado anidados o flujos de trabajo de grupos de países más allá del modelo actual de selección de un solo país y múltiples países
 - Seleccionar más de 25 mercados
 - Exportación de catálogo para catálogos habilitados para mercados
@@ -81,7 +81,7 @@ Las siguientes no son compatibles en esta beta:
    - `read_publications`
    - `read_locales`
 3. Después de que la autorización sea exitosa y se abra el creador de configuración, selecciona **Begin Setup**.
-4. Activa los SDK or kit de desarrollo de software de Braze.
+4. Activa los SDK de Braze.
 
 ### Paso 2: Selecciona tu mercado y la configuración de datos {#step-2-select-your-market-and-data-settings}
 
@@ -98,8 +98,8 @@ Braze escribe este contexto de mercado adicional en cada perfil de usuario:
 | Tipo de datos | Valor | Origen de datos |
 | --- | --- | --- |
 | Atributo personalizado | `shopify_locale` | Shopify |
-| Atributo estándar | idioma del navegador | SDK or kit de desarrollo de software de Braze |
-| Atributo estándar | país | SDK or kit de desarrollo de software de Braze |
+| Atributo estándar | idioma del navegador | SDK de Braze |
+| Atributo estándar | país | SDK de Braze |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tipo de datos del perfil de usuario"}
 
 Braze también recopila las siguientes propiedades adicionales de eventos de pedido para soportar el contexto de mercados:
@@ -122,25 +122,25 @@ Cada propiedad se deriva de las siguientes fuentes:
 ### Paso 3: Administrar usuarios {#step-3-manage-users}
 
 1. Selecciona tu tipo de `external_id` del menú desplegable.
-2. Activa las adhesiones voluntarias de correo electrónico y servicio de mensajes cortos desde Shopify, lo que permite a Braze sincronizar los estados de suscripción de correo electrónico y servicio de mensajes cortos desde Shopify. Tienes dos opciones:
-  - **Usar la integración:** Braze sincroniza los estados de correo electrónico y servicio de mensajes cortos. Solo necesitas elegir los grupos de suscripción a los que se sincronizan.
+2. Activa las adhesiones voluntarias de correo electrónico y SMS desde Shopify, lo que permite a Braze sincronizar los estados de suscripción de correo electrónico y SMS desde Shopify. Tienes dos opciones:
+  - **Usar la integración:** Braze sincroniza los estados de correo electrónico y SMS. Solo necesitas elegir los grupos de suscripción a los que se sincronizan.
   - **Construir la tuya propia:** Para más control sobre la gestión de estados, puedes construir una integración personalizada usando los endpoints de grupos de suscripción de Braze.
 3. Crea grupos de suscripción predeterminados para cada país asociado con tus mercados sincronizados durante la configuración.
-  - **Nueva integración de Shopify:** Asigna un grupo de suscripción predeterminado de correo electrónico y servicio de mensajes cortos por país.
-  - **Integración existente de Shopify:** El grupo predeterminado actual de tu tienda deja de sincronizarse. Asigna nuevos grupos predeterminados de correo electrónico y servicio de mensajes cortos por país. Tu configuración anterior no se transfiere automáticamente.
+  - **Nueva integración de Shopify:** Asigna un grupo de suscripción predeterminado de correo electrónico y SMS por país.
+  - **Integración existente de Shopify:** El grupo predeterminado actual de tu tienda deja de sincronizarse. Asigna nuevos grupos predeterminados de correo electrónico y SMS por país. Tu configuración anterior no se transfiere automáticamente.
 
 #### Cómo funcionan las adhesiones voluntarias y las cancelaciones de suscripción {#how-opt-ins-and-unsubscribes-work}
 
-Durante la configuración, configuras grupos de suscripción predeterminados de correo electrónico y servicio de mensajes cortos para cada país asociado con tus mercados sincronizados (hasta 25 países). Esto es obligatorio antes de que puedas guardar la configuración de tu país. También puedes asignar grupos de suscripción adicionales por país si deseas dirigir el consentimiento a más de una lista.
+Durante la configuración, configuras grupos de suscripción predeterminados de correo electrónico y SMS para cada país asociado con tus mercados sincronizados (hasta 25 países). Esto es obligatorio antes de que puedas guardar la configuración de tu país. También puedes asignar grupos de suscripción adicionales por país si deseas dirigir el consentimiento a más de una lista.
 
 ##### El consentimiento se aplica a todos los países configurados {#consent-applies-to-all-configured-countries}
 
 Cuando el estado de consentimiento de un usuario cambia en Shopify, Braze aplica ese cambio en los grupos de suscripción predeterminados de cada país vinculados a tu tienda conectada, no solo al país específico del usuario:
-  - Si un usuario se suscribe en Shopify, se suscribe al grupo de suscripción predeterminado de correo electrónico o servicio de mensajes cortos de cada país que hayas configurado.
-  - Si un usuario cancela su suscripción en Shopify, se cancela su suscripción del grupo de suscripción predeterminado de correo electrónico o servicio de mensajes cortos de cada país que hayas configurado.
+  - Si un usuario se suscribe en Shopify, se suscribe al grupo de suscripción predeterminado de correo electrónico o SMS de cada país que hayas configurado.
+  - Si un usuario cancela su suscripción en Shopify, se cancela su suscripción del grupo de suscripción predeterminado de correo electrónico o SMS de cada país que hayas configurado.
 
 {% alert important %}
-El consentimiento de Shopify es por tienda, no por país. En Shopify, el consentimiento se rastrea una vez para correo electrónico y una vez para servicio de mensajes cortos por registro de cliente, y no suscribe ni cancela la suscripción por país o por tipo de lista. Debido a esto, Braze no puede aplicar cambios de consentimiento a un solo país o a un solo grupo de suscripción. Un evento de suscripción o cancelación de suscripción en Shopify siempre se aplica a los grupos de suscripción predeterminados de todos tus países configurados a la vez. <br><br> Sin embargo, dentro de Braze, puedes tener un control más granular de las adhesiones voluntarias y cancelaciones a nivel de grupo de suscripción a medida que los usuarios interactúan con los canales de mensajería.
+El consentimiento de Shopify es por tienda, no por país. En Shopify, el consentimiento se rastrea una vez para correo electrónico y una vez para SMS por registro de cliente, y no suscribe ni cancela la suscripción por país o por tipo de lista. Debido a esto, Braze no puede aplicar cambios de consentimiento a un solo país o a un solo grupo de suscripción. Un evento de suscripción o cancelación de suscripción en Shopify siempre se aplica a los grupos de suscripción predeterminados de todos tus países configurados a la vez. <br><br> Sin embargo, dentro de Braze, puedes tener un control más granular de las adhesiones voluntarias y cancelaciones a nivel de grupo de suscripción a medida que los usuarios interactúan con los canales de mensajería.
 {% endalert %}
 
 ### Paso 4: Sincronizar productos {#step-4-sync-products}

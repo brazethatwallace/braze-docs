@@ -21,7 +21,7 @@ Um das Template für inaktive Nutzer:innen erfolgreich zu verwenden, müssen Sie
 
 Nehmen wir an, Sie arbeiten für MovieCanon, einen Streaming-Dienst mit exklusiven Inhalten für Filme und Serien. Sie können das Template für inaktive Nutzer:innen verwenden, um Vorteile und Premium-Inhalte für Nutzer:innen zu bewerben, die Ihre App seit 30 Tagen nicht besucht haben.
 
-Bevor Sie das Canvas erstellen, richten Sie die Integration [Braze Audience Sync to Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync) ein, damit Sie Nutzerdaten aus Braze zu Google Audiences hinzufügen können, um Werbung basierend auf Verhaltens-Trigger or triggern or triggern, Segmentierung und mehr zu schalten.
+Bevor Sie das Canvas erstellen, richten Sie die Integration [Braze Audience Sync to Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync) ein, damit Sie Nutzerdaten aus Braze zu Google Audiences hinzufügen können, um Werbung basierend auf Verhaltens-Triggern, Segmentierung und mehr zu schalten.
 
 Um auf das Template für inaktive Nutzer:innen zuzugreifen, wählen Sie beim Erstellen eines neuen Canvas **Use a Canvas template** > **Braze templates**. Wählen Sie dann neben **Lapsing User** die Option **Apply Template**. Jetzt können Sie das Template durchgehen und an Ihre Bedürfnisse anpassen.
 
@@ -32,13 +32,13 @@ Passen Sie die Canvas-Details an Ihr Ziel an.
 1. Wählen Sie **Edit** neben dem Template-Namen.
 
 {:start="2"}
-2. Update or aktualisieren or aktualisieren Sie den Canvas-Namen, um anzugeben, dass dieses Canvas Nutzer:innen mit Aktionen anspricht und einen Audience Sync für diejenigen durchführt, die eine Sitzung starten.
-3. Update or aktualisieren or aktualisieren Sie die Beschreibung, um zu erklären, dass dieses Canvas Vorteile und Aktionen enthält.
+2. Aktualisieren Sie den Canvas-Namen, um anzugeben, dass dieses Canvas Nutzer:innen mit Aktionen anspricht und einen Audience Sync für diejenigen durchführt, die eine Sitzung starten.
+3. Aktualisieren Sie die Beschreibung, um zu erklären, dass dieses Canvas Vorteile und Aktionen enthält.
 4. Fügen Sie den Tag **Lapsing/Retention** hinzu, damit Sie auf der Canvas-Startseite nach diesem Canvas filtern können.
 
 ### Schritt 2: Konversions-Events zuweisen {#step-2-assign-your-conversion-events}
 
-Update or aktualisieren or aktualisieren Sie **Primary Conversion Event - A**, um Nutzer:innen aus Ihrer App (MovieCanon) anzusprechen, und belassen Sie **Primary Conversion Event - B** bei der Standardeinstellung „Beliebigen Kauf tätigen“.
+Aktualisieren Sie **Primary Conversion Event - A**, um Nutzer:innen aus Ihrer App (MovieCanon) anzusprechen, und belassen Sie **Primary Conversion Event - B** bei der Standardeinstellung „Beliebigen Kauf tätigen“.
 
 ### Schritt 3: Entry-Zeitplan anpassen {#step-3-tailor-the-entry-schedule}
 
@@ -75,7 +75,7 @@ Jetzt erstellen Sie Ihr Canvas, indem Sie die vordefinierten Schritte anpassen:
 {: start="3"}
 3. Behalten Sie die Standardeinstellung für den Decision-Split-Schritt namens „Sessions?“ bei, der die Gruppe „>1 Session“ als Nutzer:innen definiert, die Ihre App am letzten Kalendertag mehr als einmal genutzt haben.
 4. Passen Sie den Nachrichtenschritt für Nutzer:innen an, die in die Gruppe „>1 Session“ fallen. In diesem Anwendungsfall bedanken Sie sich bei den Nutzer:innen für ihren Besuch in Ihrer App und heben die Vorteile hervor, die sie freigeschaltet haben.
-5. Stellen Sie sicher, dass Ihr Google Audience Sync im Schritt „Ad Audience Update or aktualisieren“ eingerichtet ist, damit Sie die Nutzerdaten von Nutzer:innen Update or aktualisieren or aktualisieren und synchronisieren, die nach Erhalt der ersten E-Mail mehrere Sitzungen hatten.
+5. Stellen Sie sicher, dass Ihr Google Audience Sync im Schritt „Ad Audience Update“ eingerichtet ist, damit Sie die Nutzerdaten von Nutzer:innen aktualisieren und synchronisieren, die nach Erhalt der ersten E-Mail mehrere Sitzungen hatten.
 6. Behalten Sie die Standardeinstellung für die [Experiment-Pfad]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step)-Komponente namens „A/B Test“ bei. Diese sendet zufällig eine von zwei Aktionen (die Sie im nächsten Schritt anpassen) an Nutzer:innen, die weniger als zwei Sitzungen hatten.
 7. Passen Sie die beiden Aktionen an, die im Rahmen des Experiment-Pfads an Nutzer:innen gesendet werden. In diesem Anwendungsfall machen Sie eine zu einer 20 %-Aktion für ein Drei-Monats-Abo und die andere zu einer 10 %-Aktion für ein Ein-Monats-Abo.
 

@@ -18,7 +18,7 @@ platform:
 
 ## Schlüssel-Wert-Paare {#key-value-pairs}
 
-Braze ermöglicht es Ihnen, zusätzliche Daten-Payloads über Content Cards mithilfe von Schlüssel-Wert-Paaren an die Geräte der Nutzer:innen zu senden. Diese können Ihnen helfen, interne Metriken zu verfolgen, App-Inhalte zu Update or aktualisieren or aktualisieren und Eigenschaften anzupassen. [Fügen Sie Schlüssel-Wert-Paare über das Dashboard hinzu]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card#step-4-configure-additional-settings-optional).
+Braze ermöglicht es Ihnen, zusätzliche Daten-Payloads über Content Cards mithilfe von Schlüssel-Wert-Paaren an die Geräte der Nutzer:innen zu senden. Diese können Ihnen helfen, interne Metriken zu verfolgen, App-Inhalte zu aktualisieren und Eigenschaften anzupassen. [Fügen Sie Schlüssel-Wert-Paare über das Dashboard hinzu]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card#step-4-configure-additional-settings-optional).
 
 {% alert note %}
 Wir empfehlen nicht, verschachtelte JSON-Werte als Schlüssel-Wert-Paare zu senden. Stattdessen sollten Sie das JSON vor dem Senden flach strukturieren.
@@ -90,7 +90,7 @@ Sie können die Anzahl ungelesener Karten jederzeit abfragen, indem Sie Folgende
 braze.getCachedContentCards().getUnviewedCardCount();
 ```
 
-Anschließend können Sie diese Information verwenden, um ein Badge mit der Anzahl ungelesener Content Cards anzuzeigen. Weitere Informationen finden Sie in den <a href="https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.contentcards.html" target="_blank">SDK or Software-Development-Kit-Referenzdokumenten</a>.
+Anschließend können Sie diese Information verwenden, um ein Badge mit der Anzahl ungelesener Content Cards anzuzeigen. Weitere Informationen finden Sie in den <a href="https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.contentcards.html" target="_blank">SDK-Referenzdokumenten</a>.
 
 {% endtab %}
 {% tab android %}
@@ -114,7 +114,7 @@ Braze.getInstance(context).contentCardUnviewedCount
 {% endsubtab %}
 {% endsubtabs %}
 
-Anschließend können Sie diese Information verwenden, um ein Badge mit der Anzahl ungelesener Content Cards anzuzeigen. Weitere Informationen finden Sie in den <a href="https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/get-content-card-unviewed-count.html" target="_blank">SDK or Software-Development-Kit-Referenzdokumenten</a>.
+Anschließend können Sie diese Information verwenden, um ein Badge mit der Anzahl ungelesener Content Cards anzuzeigen. Weitere Informationen finden Sie in den <a href="https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/get-content-card-unviewed-count.html" target="_blank">SDK-Referenzdokumenten</a>.
 
 
 {% endtab %}

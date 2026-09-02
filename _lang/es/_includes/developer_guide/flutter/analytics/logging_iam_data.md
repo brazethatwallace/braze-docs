@@ -41,19 +41,19 @@ inAppMessageStreamSubscription = braze.subscribeToInAppMessages((BrazeInAppMessa
 inAppMessageStreamSubscription.cancel();
 ```
 
-Para ver un ejemplo, consulta [main.dart](https://github.com/braze-inc/braze-flutter-sdk/blob/master/example/lib/main.dart) en la aplicación de ejemplo del SDK or kit de desarrollo de software de Braze para Flutter.
+Para ver un ejemplo, consulta [main.dart](https://github.com/braze-inc/braze-flutter-sdk/blob/master/example/lib/main.dart) en la aplicación de ejemplo del SDK de Braze para Flutter.
 
 ### Reenviar datos de mensajes dentro de la aplicación desde la capa nativa {#forward-in-app-message-data-from-the-native-layer}
 
 {% tabs %}
-{% tab Flutter SDK or kit de desarrollo de software 18.0.0+ %}
+{% tab Flutter SDK 18.0.0+ %}
 
 Los datos de los mensajes dentro de la aplicación se reenvían automáticamente desde las capas nativas de Android e iOS. No se requiere configuración adicional.
 
 {% endtab %}
-{% tab Flutter SDK or kit de desarrollo de software 17.1.0 and earlier %}
+{% tab Flutter SDK 17.1.0 and earlier %}
 
-Si estás utilizando Flutter SDK or kit de desarrollo de software 17.1.0 o anterior, el reenvío de datos de mensajes dentro de la aplicación desde la capa nativa de iOS requiere configuración manual. Es probable que tu aplicación contenga uno de los siguientes. Para migrar a Flutter SDK or kit de desarrollo de software 18.0.0, elimina la llamada a `BrazePlugin.processInAppMessage(_:)`: el reenvío de datos ahora se gestiona automáticamente.
+Si estás utilizando Flutter SDK 17.1.0 o anterior, el reenvío de datos de mensajes dentro de la aplicación desde la capa nativa de iOS requiere configuración manual. Es probable que tu aplicación contenga uno de los siguientes. Para migrar a Flutter SDK 18.0.0, elimina la llamada a `BrazePlugin.processInAppMessage(_:)`: el reenvío de datos ahora se gestiona automáticamente.
 
 {% subtabs %}
 {% subtab UI Delegate %}

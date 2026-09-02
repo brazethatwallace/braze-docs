@@ -23,17 +23,17 @@ A integração entre a Braze e a actionable.me permite implantar um serviço par
 | Requisito | Descrição |
 | --- | --- |
 | Conta actionable.me | Uma conta actionable.me é necessária para aproveitar esta parceria. |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com as permissões listadas na próxima seção.<br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
-| Endpoint REST or transferir estado representacional da Braze | [Sua URL de endpoint REST or transferir estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com as permissões listadas na próxima seção.<br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Endpoint REST da Braze | [Sua URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
-Para integrar a Braze e a actionable.me, a plataforma actionable.me deve ser configurada, e é preciso criar uma chave de API or interface de programação do aplicativo (API) da Braze na Braze e configurá-la no dashboard da actionable.me.
+Para integrar a Braze e a actionable.me, a plataforma actionable.me deve ser configurada, e é preciso criar uma chave de API da Braze na Braze e configurá-la no dashboard da actionable.me.
 
-### Etapa 1: Crie sua chave de API or interface de programação do aplicativo (API) da Braze {#step-1-create-your-braze-api-key}
+### Etapa 1: Crie sua chave de API da Braze {#step-1-create-your-braze-api-key}
 
-Na Braze, navegue para **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. Selecione **Criar nova chave de API or interface de programação do aplicativo (API)** e confirme se as seguintes permissões foram adicionadas:
+Na Braze, navegue para **Configurações** > **Chaves de API**. Selecione **Criar nova chave de API** e confirme se as seguintes permissões foram adicionadas:
 
 - `campaigns.list`
 - `campaigns.data_series`
@@ -54,7 +54,7 @@ Na Braze, navegue para **Configurações** > **Chaves de API or interface de pro
 
 ### Etapa 2: Forneça informações para a equipe actionable.me {#step-2-provide-information-to-the-actionableme-team}
 
-Para completar a integração, você deve fornecer sua chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional e a [URL do endpoint REST or transferir estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints) para sua equipe de operações actionable.me. A actionable.me então estabelecerá a conexão e entrará em contato com você após a configuração estar completa para começar a compartilhar insights.
+Para completar a integração, você deve fornecer sua chave da API REST e a [URL do endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints) para sua equipe de operações actionable.me. A actionable.me então estabelecerá a conexão e entrará em contato com você após a configuração estar completa para começar a compartilhar insights.
 
 ![A página "adicionar plataforma" da actionable.me que a equipe de operações da actionable.me configurará.]({% image_buster /assets/img/actionableme/image2.png %})
 

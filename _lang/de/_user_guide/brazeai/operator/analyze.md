@@ -12,7 +12,7 @@ hidden: true
 > Operator Analyze beantwortet Performance-Fragen in natürlicher Sprache in BrazeAI Operator<sup>TM</sup>. Die Antworten umfassen Charts, Vergleiche und kurze Insights. Sie müssen kein Dashboard erstellen oder zuerst einen vollständigen Bericht abrufen.
 
 {% alert important %}
-Operator Analyze befindet sich derzeit in der Beta-Phase. Funktionen und unterstützte Analysen werden weiterentwickelt. Um Zugang für Ihr Konto anzufordern, wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in.
+Operator Analyze befindet sich derzeit in der Beta-Phase. Funktionen und unterstützte Analysen werden weiterentwickelt. Um Zugang für Ihr Konto anzufordern, wenden Sie sich an Ihren CSM.
 {% endalert %}
 
 ## Warum Operator Analyze verwenden? {#why-use-operator-analyze}
@@ -25,7 +25,7 @@ Operator Analyze deckt Engagement-Metriken, *Attributed Revenue* und Branchen-Be
 
 Operator Analyze läuft im Operator-Konversations-Panel.
 
-1. Wählen Sie **BrazeAI Operator<sup>TM</sup>** neben Ihrem Kundenprofil or Nutzerprofil auf einer beliebigen Seite im Braze-Dashboard aus.
+1. Wählen Sie **BrazeAI Operator<sup>TM</sup>** neben Ihrem Kundenprofil auf einer beliebigen Seite im Braze-Dashboard aus.
 2. Fragen Sie nach Kanal-Engagement oder Benchmark-Vergleichen (siehe [Beispielfragen](#example-questions)).
 3. Operator gibt die Antwort zurück und, wenn hilfreich, ein Chart oder eine Tabelle sowie eine kurze Liste von Insights.
 
@@ -39,7 +39,7 @@ Beschreiben Sie, was Sie wissen möchten. Es ist keine feste Formulierung erford
 {% tab Benchmark-Vergleiche %}
 
 * „Wie schneidet unsere E-Mail-*Öffnungsrate* im Vergleich zu Branchen-Benchmarks der letzten 30 Tage ab?“
-* „Liegen wir in diesem Quartal über oder unter dem Benchmark für die Kurzmitteilungsdienst or SMS-*Klick, der or klicken-Through-Rate*?“
+* „Liegen wir in diesem Quartal über oder unter dem Benchmark für die SMS-*Klick, der-Through-Rate*?“
 * „Wo liegen wir in unserem Kanal-Mix unter dem Branchendurchschnitt?“
 
 {% endtab %}
@@ -52,8 +52,8 @@ Beschreiben Sie, was Sie wissen möchten. Es ist keine feste Formulierung erford
 {% endtab %}
 {% tab Campaign- und Canvas-Detailanalysen %}
 
-* „Was sind unsere Top-10-E-Mail-Campaigns nach *Klick, der or klicken-Through-Rate* in diesem Geschäftsquartal?“
-* „Welche Canvase haben letzten Monat die meisten *Klicks* erzielt?“
+* „Was sind unsere Top-10-E-Mail-Campaigns nach *Klick, der-Through-Rate* in diesem Geschäftsquartal?“
+* „Welche Canvases haben letzten Monat die meisten *Klicks* erzielt?“
 * „Welche Campaigns haben im GJ26 Q1 den meisten *Attributed Revenue* generiert?“
 * „Zeige unsere am schlechtesten performenden Push-Campaigns der letzten 30 Tage.“
 
@@ -61,7 +61,7 @@ Beschreiben Sie, was Sie wissen möchten. Es ist keine feste Formulierung erford
 {% tab Trendanalyse %}
 
 * „Wie sieht der Monats-über-Monats-Trend beim Push-Engagement für GJ26 aus?“
-* „Wie hat sich die E-Mail-*Klick, der or klicken-Through-Rate* im Quartalsvergleich über das letzte Jahr verändert?“
+* „Wie hat sich die E-Mail-*Klick, der-Through-Rate* im Quartalsvergleich über das letzte Jahr verändert?“
 * „Wie hat sich unser *Attributed Revenue* in den letzten 12 Monaten entwickelt?“
 * „Zeige mir unseren wöchentlichen Engagement-Trend für In-App-Nachrichten über die letzten 90 Tage.“
 
@@ -97,7 +97,7 @@ Wenn eine Antwort mehrere Metriken enthält, priorisiert Operator Engagement-Rat
 | --- | --- | --- |
 | E-Mail | *Sends*, *Deliveries*, *Unique Opens*, *Unique Clicks*, *Unsubscribes* | Ja |
 | Push (iOS, Android, Web) | *Sends*, *Deliveries*, *Opens* | Ja |
-| Kurzmitteilungsdienst or SMS | *Sends*, *Deliveries*, *Link Clicks* | Ja |
+| SMS | *Sends*, *Deliveries*, *Link Clicks* | Ja |
 | In-App Messages | *Impressions*, *Clicks* | Ja |
 | Content Cards | *Sends*, *Impressions*, *Clicks* | Ja |
 | WhatsApp | *Sends*, *Deliveries*, *Reads*, *Clicks* | Noch nicht |
@@ -140,21 +140,21 @@ Wenn sich die Ergebnisse über die Fenster hinweg um mehr als 50 % unterscheiden
 
 ## Datenaktualität {#data-freshness}
 
-Die Daten werden täglich aktualisiert. Aktivitäten des aktuellen Tages erscheinen nach der nächsten Aktualisierung. Jede Antwort gibt das neueste Datum im Datensatz an. Wenn dieses Datum veraltet erscheint, wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in.
+Die Daten werden täglich aktualisiert. Aktivitäten des aktuellen Tages erscheinen nach der nächsten Aktualisierung. Jede Antwort gibt das neueste Datum im Datensatz an. Wenn dieses Datum veraltet erscheint, wenden Sie sich an Ihren CSM.
 
 ## Was nicht abgedeckt wird {#whats-out-of-scope}
 
-* **Performance-Aufschlüsselungen auf Produktebene.** *Attributed Revenue* und Engagement werden auf Campaign-, Canvas-, Kanal- oder Programmebene aggregiert. Sie werden nicht auf Produkte oder SKUs heruntergebrochen. Fragen auf Produkt- oder SKU-Ebene werden nicht unterstützt. Wenden Sie sich für diese Analysen an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in.
+* **Performance-Aufschlüsselungen auf Produktebene.** *Attributed Revenue* und Engagement werden auf Campaign-, Canvas-, Kanal- oder Programmebene aggregiert. Sie werden nicht auf Produkte oder SKUs heruntergebrochen. Fragen auf Produkt- oder SKU-Ebene werden nicht unterstützt. Wenden Sie sich für diese Analysen an Ihren CSM.
 * **Branchen-Benchmarks für WhatsApp und RCS.** Engagement-Metriken für beide Kanäle werden unterstützt. Benchmarks sind noch nicht verfügbar.
 
-Fragen außerhalb des Umfangs erhalten eine direkte Antwort, wenn möglich eine vorgeschlagene Alternative oder einen Verweis an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in.
+Fragen außerhalb des Umfangs erhalten eine direkte Antwort, wenn möglich eine vorgeschlagene Alternative oder einen Verweis an Ihren CSM.
 
 ## Tipps für bessere Ergebnisse {#tips-for-better-results}
 
 * **Zeitraum:** Bevorzugen Sie explizite Bereiche („GJ26 Q2“, „die letzten 90 Tage“) gegenüber vagen Formulierungen wie „letztes Quartal“, wenn Sie Präzision benötigen.
-* **Metriken:** Nennen Sie die Rate, die Sie interessiert (*Öffnungsrate*, *Klick, der or klicken-Through-Rate*, *Klick, der or klicken-to-Open-Rate*). Operator gibt die verwendete Formel an.
+* **Metriken:** Nennen Sie die Rate, die Sie interessiert (*Öffnungsrate*, *Klick, der-Through-Rate*, *Klick, der-to-Open-Rate*). Operator gibt die verwendete Formel an.
 * **Nachfragen:** Vertiefen Sie ein Ergebnis, ändern Sie das Fenster oder wechseln Sie den Kanal. Operator behält den Kontext über den Thread hinweg bei.
-* **Kanal-Formulierung:** WhatsApp und RCS verwenden *Read Rate* (nicht *Öffnungsrate*). Kurzmitteilungsdienst or SMS verwendet *Link Klick, der or klicken Rate*.
+* **Kanal-Formulierung:** WhatsApp und RCS verwenden *Read Rate* (nicht *Öffnungsrate*). SMS verwendet *Link Klick, der Rate*.
 * **Kombinierte Fragen:** Benchmark plus Trend in einem Prompt wird unterstützt.
 
 ## Datenschutz und Sicherheit {#data-privacy-and-security}

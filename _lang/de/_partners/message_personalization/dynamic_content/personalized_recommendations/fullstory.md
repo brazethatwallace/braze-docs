@@ -17,9 +17,9 @@ search_tag: Partner
 
 Sie können Fullstory-Insights in Braze nutzen, um ein detailliertes Bild des Website- oder App-Erlebnisses Ihrer Nutzer:innen zu erstellen und kontextuell hochrelevante Nachrichten zu versenden. Die Session-Summary-API von Fullstory ermöglicht es, detaillierte Metadaten zum Browsing-Verhalten von Nutzer:innen zu erfassen und im Braze-Messaging zu verwenden. Das ist besonders leistungsstark in mehrstufigen Messaging-Journeys wie einem Canvas.
 
-Der Realtime-Wert der Session-Summary-Daten von Fullstory lässt sich am besten über Connected-Content nutzen. Indem Sie Connected-Content in einem Canvas-Context-Schritt verwenden, können Sie die Daten von Fullstory während der gesamten Canvas-Journey von Nutzer:innen speichern und in allen nachfolgenden Canvas-Schritten verwenden. Das vermeidet auch die Notwendigkeit, diese Daten über angepasste Events oder Attribute in ein Braze-Kundenprofil or Nutzerprofil zu schreiben.
+Der Realtime-Wert der Session-Summary-Daten von Fullstory lässt sich am besten über Connected-Content nutzen. Indem Sie Connected-Content in einem Canvas-Context-Schritt verwenden, können Sie die Daten von Fullstory während der gesamten Canvas-Journey von Nutzer:innen speichern und in allen nachfolgenden Canvas-Schritten verwenden. Das vermeidet auch die Notwendigkeit, diese Daten über angepasste Events oder Attribute in ein Braze-Kundenprofil zu schreiben.
 
-Im folgenden Beispiel werden Canvas-Context-Daten in einem Agent-KI or künstliche Intelligenz-Canvas-Schritt genutzt, um die optimale Nachricht zu generieren, die Nutzer:innen dazu ermutigt, einen abgebrochenen Warenkorb wieder aufzunehmen. Sie können die Daten jedoch auch nutzen, um die Nachricht direkt zu personalisieren, die Journey der Nutzer:innen mit Zielgruppenpfaden zu bestimmen oder die Texte und Assets in nachfolgenden Messaging-Schritten festzulegen.
+Im folgenden Beispiel werden Canvas-Context-Daten in einem Agent-KI-Canvas-Schritt genutzt, um die optimale Nachricht zu generieren, die Nutzer:innen dazu ermutigt, einen abgebrochenen Warenkorb wieder aufzunehmen. Sie können die Daten jedoch auch nutzen, um die Nachricht direkt zu personalisieren, die Journey der Nutzer:innen mit Zielgruppenpfaden zu bestimmen oder die Texte und Assets in nachfolgenden Messaging-Schritten festzulegen.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -30,11 +30,11 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 | Ein Fullstory Session API Authorization Token / Textbaustein   | Siehe Schritt 1 in diesem Leitfaden. |
 | Ein aktiviertes Braze Connected-Content Authorization Token / Textbaustein | Siehe den Hinweis zum Early Access in diesem Abschnitt. |
 | Ein Braze-Canvas-Context-Schritt | Siehe den Hinweis zum Early Access in diesem Abschnitt. |
-| Ein aktivierter Braze KI or künstliche Intelligenz Agent-Schritt | Siehe den Hinweis zum Early Access in diesem Abschnitt. |
+| Ein aktivierter Braze KI Agent-Schritt | Siehe den Hinweis zum Early Access in diesem Abschnitt. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 {% alert important %}
-Braze Agents, Canvas Context und Connected Content Authorization Tokens befinden sich alle im Early Access. Wenn Sie diese Lösung nutzen möchten, sprechen Sie mit Ihrem Braze CSM or Customer-Success-Manager über die Aktivierung dieser Tools.
+Braze Agents, Canvas Context und Connected Content Authorization Tokens befinden sich alle im Early Access. Wenn Sie diese Lösung nutzen möchten, sprechen Sie mit Ihrem Braze CSM über die Aktivierung dieser Tools.
 {% endalert %}
 
 ## Fullstory integrieren {#integrate-fullstory}
@@ -68,7 +68,7 @@ In der Antwort auf diese Anfrage stellt Fullstory eine Session-Profil-ID bereit.
 
 ### Dynamische Nachrichten-Journeys erstellen {#create-dynamic-message-journeys}
 
-Mit den [Activation Streams](https://help.fullstory.com/hc/en-us/articles/360045134554-Streams) von Fullstory können Sie Braze-Canvase unmittelbar nach wichtigen Nutzerinteraktionen Trigger or triggern or triggern. Die Stärke dieser Integration liegt in der eindeutigen `client_session_id` (zugänglich über {% raw %}`{{canvas_entry_properties.${client_session_id}}}`{% endraw %}), die das System automatisch von Fullstory an Braze übergibt. Diese ID dient als Schlüssel, mit dem Braze die vollständige Session-Zusammenfassung dessen abrufen kann, was die Nutzer:innen erlebt haben.
+Mit den [Activation Streams](https://help.fullstory.com/hc/en-us/articles/360045134554-Streams) von Fullstory können Sie Braze-Canvases unmittelbar nach wichtigen Nutzerinteraktionen triggern. Die Stärke dieser Integration liegt in der eindeutigen `client_session_id` (zugänglich über {% raw %}`{{canvas_entry_properties.${client_session_id}}}`{% endraw %}), die das System automatisch von Fullstory an Braze übergibt. Diese ID dient als Schlüssel, mit dem Braze die vollständige Session-Zusammenfassung dessen abrufen kann, was die Nutzer:innen erlebt haben.
 
 Durch die Nutzung von Canvas-Context-Schritten und Connected-Content können Sie diese ID verwenden, um eine API-Anfrage an Fullstory zu stellen, die Sitzungsdaten abzurufen und als Variable zur späteren Verwendung im Journey zu speichern.
 
@@ -168,15 +168,15 @@ In diesem Beispiel nutzen Sie diese Daten, um den Braze-Agenten passende Nachric
 
 ![Screenshot des Braze-Agent-Context-Creators mit dem Prompt]({% image_buster /assets/img/fullstory/4.png %})
 
-Verwenden Sie für den in diesem Schritt erstellten Context-Liquid-Tag denselben Namen wie für den Context-Liquid-Tag, der im zuvor erstellten KI or künstliche Intelligenz-Agent-Schritt verwendet wird.
+Verwenden Sie für den in diesem Schritt erstellten Context-Liquid-Tag denselben Namen wie für den Context-Liquid-Tag, der im zuvor erstellten KI-Agent-Schritt verwendet wird.
 
 Der für Ihren Anwendungsfall erforderliche Prompt variiert. Best Practices für die Erstellung effektiver Agent-Prompts finden Sie unter [Anweisungen schreiben]({{site.baseurl}}/user_guide/brazeai/agents/reference#writing-instructions).
 
-Wählen Sie in Ihrem Canvas einen KI or künstliche Intelligenz-Agent-Schritt aus und wählen Sie dann den **Session Context**-Agenten aus dem Dropdown. Speichern Sie die Ausgabe als Variable – in diesem Fall „message“ – die Sie mit dem Liquid-Tag {% raw %}`{{context.${message}.message}}`{% endraw %} in den Nachrichtentext einfügen können.
+Wählen Sie in Ihrem Canvas einen KI-Agent-Schritt aus und wählen Sie dann den **Session Context**-Agenten aus dem Dropdown. Speichern Sie die Ausgabe als Variable – in diesem Fall „message“ – die Sie mit dem Liquid-Tag {% raw %}`{{context.${message}.message}}`{% endraw %} in den Nachrichtentext einfügen können.
 
 ![Screenshot des Braze-Agent-Context-Canvas-Schritts mit dem Prompt]({% image_buster /assets/img/fullstory/5.png %})
 
-Erstellen Sie einen Nachrichten-Schritt, der den vom KI or künstliche Intelligenz-Agenten erstellten Text nutzt. Verwenden Sie den Liquid-Tag in diesem Schritt.
+Erstellen Sie einen Nachrichten-Schritt, der den vom KI-Agenten erstellten Text nutzt. Verwenden Sie den Liquid-Tag in diesem Schritt.
 
 {% alert important %}
 Die Session-Summary-API von Fullstory kann sensible identifizierbare Nutzerdaten zurückgeben. Um die Compliance beim Umgang mit PII (personenbezogenen Daten) sicherzustellen, überprüfen Sie, dass Ihre Fullstory-Datenerfassungsregeln PII ausschließen, bevor Sie diesen Anwendungsfall nutzen.

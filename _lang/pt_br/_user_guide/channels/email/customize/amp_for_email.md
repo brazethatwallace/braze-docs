@@ -49,9 +49,9 @@ Acesse as configurações do Gmail e selecione **Ativar e-mail dinâmico** na gu
 
 ![Um exemplo das configurações do Gmail com a caixa de seleção "Ativar e-mail dinâmico" marcada.]({% image_buster /assets/img/dynamic-content.png %})
 
-## Uso da API or interface de programação do aplicativo (API) {#api-usage}
+## Uso da API {#api-usage}
 
-Você também pode usar o AMP para e-mail com a nossa API or interface de programação do aplicativo (API). Se você usar qualquer um dos [endpoints de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging) da Braze para enviar um e-mail, adicione `amp_body` como uma especificação de objeto, conforme mostrado na seção a seguir.
+Você também pode usar o AMP para e-mail com a nossa API. Se você usar qualquer um dos [endpoints de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging) da Braze para enviar um e-mail, adicione `amp_body` como uma especificação de objeto, conforme mostrado na seção a seguir.
 
 ### Especificação do objeto de e-mail {#email-object-specification}
 
@@ -76,7 +76,7 @@ Você também pode usar o AMP para e-mail com a nossa API or interface de progra
 
 ## Criando seu e-mail AMP {#create-your-amp-email}
 
-Primeiro, crie seu e-mail AMP usando [componentes](#components). Em seguida, use a [API or interface de programação do aplicativo (API) da Braze](#api-usage) para enviar sua mensagem, incluindo `amp_body` para o seu AMP HTML.
+Primeiro, crie seu e-mail AMP usando [componentes](#components). Em seguida, use a [API da Braze](#api-usage) para enviar sua mensagem, incluindo `amp_body` para o seu AMP HTML.
 
 Além do AMP HTML, exigimos uma versão HTML regular em `body` e sugerimos uma versão `plaintext_body` do seu e-mail AMP. Todos os e-mails AMP são enviados em formato multipart, o que significa que a Braze envia um e-mail que suporta HTML, texto simples e AMP HTML. Isso é útil caso seu e-mail seja enviado por um provedor que ainda não suporta AMP para e-mail, pois o e-mail será automaticamente exibido na versão apropriada com base no usuário e no dispositivo.
 

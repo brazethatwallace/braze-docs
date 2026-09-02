@@ -56,8 +56,8 @@ Les API publiques peuvent être soumises à des restrictions d'utilisation et à
 | --------- | --- |
 | [Last.fm](http://www.last.fm/api) | Fournit une variété de données musicales, incluant des informations sur les artistes, des recommandations d'artistes, et plus encore. |
 | [iTunes](https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/) | Fournit des données sur une variété d'éléments des boutiques iTunes, App Store et iBooks. |
-| [Bandsintown](http://www.bandsintown.com/api/overview) | Fournit des informations sur les concerts locaux et recommande des événements musicaux en direct or en ligne/en production/instantané. |
-| [Songkick](http://www.songkick.com/developer) | Fournit des informations sur la musique en direct or en ligne/en production/instantané : artistes, salles, emplacements, etc. |
+| [Bandsintown](http://www.bandsintown.com/api/overview) | Fournit des informations sur les concerts locaux et recommande des événements musicaux en direct. |
+| [Songkick](http://www.songkick.com/developer) | Fournit des informations sur la musique en direct : artistes, salles, emplacements, etc. |
 | [Discogs](http://www.discogs.com/developers/) | Fournit des informations sur les artistes, les labels et les enregistrements. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Musique" }
 

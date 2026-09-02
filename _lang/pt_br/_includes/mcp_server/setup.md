@@ -49,7 +49,7 @@ Quando um usuário se conecta com sucesso por meio do OAuth, um evento é regist
 
 No seu cliente MCP, adicione um novo servidor remoto ou conector personalizado e insira a URL do MCP da Braze. Por exemplo, no Claude, você pode acessar **Settings** > **Connectors** > **Add custom connector** e colar a URL.
 
-Não é necessário informar ID de cliente, segredo de cliente ou chave de API or interface de programação do aplicativo (API). Seu cliente se registra automaticamente na Braze.
+Não é necessário informar ID de cliente, segredo de cliente ou chave de API. Seu cliente se registra automaticamente na Braze.
 
 Opções de endpoint do MCP da Braze:
 
@@ -105,7 +105,7 @@ Para saber mais, consulte [Usando o servidor Braze MCP]{% if include.section == 
 Conectar um cliente leva apenas algumas etapas. O passo a passo a seguir usa o Claude, mas o fluxo é semelhante para outros clientes compatíveis.
 
 1. No Claude, acesse **Settings** > **Connectors** > **Add custom connector**.
-2. Insira um nome, como `Braze`, e cole a URL do Braze MCP: `https://mcp.braze.com/mcp` para US ou `https://mcp.braze.eu/mcp` para EU. Você não precisa de um client ID, client secret ou chave de API or interface de programação do aplicativo (API).
+2. Insira um nome, como `Braze`, e cole a URL do Braze MCP: `https://mcp.braze.com/mcp` para US ou `https://mcp.braze.eu/mcp` para EU. Você não precisa de um client ID, client secret ou chave de API.
 3. Selecione **Add** para salvar o conector. O Claude se registra na Braze automaticamente.
 4. Selecione **Connect** para iniciar a autenticação. O Claude abre uma janela do navegador e direciona você para a Braze para fazer login.
 5. Faça login na Braze com suas credenciais habituais, incluindo SSO se a sua empresa utiliza. Se o seu login pode acessar mais de uma empresa no mesmo cluster, selecione a empresa que você deseja usar.

@@ -8,7 +8,7 @@ page_type: reference
 description: "Este artigo traz informações sobre o endpoint da Braze \"Gerar URL da Central de Preferências\"."
 
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Gerar URL da Central de Preferências {#generate-preference-center-url}
 {% apimethod get %}
 /preference_center/v1/{preferenceCenterExternalID}/url/{userID}
@@ -22,11 +22,11 @@ Cada URL da Central de Preferências é exclusiva para cada usuário.
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `preference_center.user.get`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `preference_center.user.get`.
 
 ## Limite de frequência {#rate-limit}
 
-{% multi_lang_include rate_limits.md endpoint='get Central de Preferências' %} Esse limite de frequência é fixo e não é configurável.
+{% multi_lang_include rate_limits.md endpoint='get preference center' %} Esse limite de frequência é fixo e não é configurável.
 
 ## Parâmetros de caminho {#path-parameters}
 
@@ -62,5 +62,5 @@ curl --location --request GET 'https://rest.iad-01.braze.com/preference_center/v
 {% endapi %}
 
 {% alert note %}
-Este endpoint gera apenas URLs para a nova Central de Preferências (como Centrais de Preferências criadas usando nossa API or interface de programação do aplicativo (API) ou o editor de arrastar e soltar).
+Este endpoint gera apenas URLs para a nova Central de Preferências (como Centrais de Preferências criadas usando nossa API ou o editor de arrastar e soltar).
 {% endalert %}

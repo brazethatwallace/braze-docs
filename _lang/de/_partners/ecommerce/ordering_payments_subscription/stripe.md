@@ -13,8 +13,8 @@ search_tag: Partner
 
 Durch die Integration von Braze und Stripe können Sie:
 
-- Nutzerprofile in Braze mit Realtime-Zahlungs- und Abrechnungsdaten von Stripe Update or aktualisieren or aktualisieren.
-- Messaging in Braze auf der Grundlage von Stripe-Events Trigger or triggern or triggern, wie z. B. Beginn einer Testphase, Aktivierung eines Abos, Kündigung eines Abos und mehr.
+- Nutzerprofile in Braze mit Realtime-Zahlungs- und Abrechnungsdaten von Stripe aktualisieren.
+- Messaging in Braze auf der Grundlage von Stripe-Events triggern, wie z. B. Beginn einer Testphase, Aktivierung eines Abos, Kündigung eines Abos und mehr.
 - Braze-Messaging auf der Grundlage des Zahlungsverlaufs oder des Rechnungsstatus einer Nutzerin bzw. eines Nutzers personalisieren, die über Stripe-Webhooks empfangen werden.
 
 ## Voraussetzungen {#prerequisites}
@@ -45,8 +45,8 @@ Senden Sie dann ein Test-Event an Ihre Datentransformation.
 
 Als Nächstes transformieren Sie die Webhook-Nutzdaten, die von Stripe gesendet werden, in einen JavaScript-Objektrückgabewert.
 
-1. Update or aktualisieren or aktualisieren Sie Ihre Datentransformation und vergewissern Sie sich, dass Sie die Stripe-Test-Nutzdaten im Bereich **Webhook details** sehen können.
-2. Update or aktualisieren or aktualisieren Sie Ihren Code für die Datentransformation, um die von Ihnen gewählten Stripe-Events zu unterstützen.
+1. Aktualisieren Sie Ihre Datentransformation und vergewissern Sie sich, dass Sie die Stripe-Test-Nutzdaten im Bereich **Webhook details** sehen können.
+2. Aktualisieren Sie Ihren Code für die Datentransformation, um die von Ihnen gewählten Stripe-Events zu unterstützen.
 3. Wählen Sie **Validate** aus, um eine Vorschau auf die Ausgabe Ihres Codes zu erhalten und um zu prüfen, ob es sich um eine akzeptable `/users/track`-Anfrage handelt.
 4. Speichern und aktivieren Sie Ihre Datentransformation.
 

@@ -28,7 +28,7 @@ Baidu 계정을 만들려면 [Baidu 포털](https://www.baidu.com/)을 방문하
 
 ![Baidu 로그인 대화 상자]({% image_buster /assets/img_archive/baidu_login_dialog.png %}){: style="max-width:70%;"}
 
-계정 생성 페이지에 사용자 이름, 전화번호, 비밀번호를 입력합니다. 그런 다음 인증 코드 받기 버튼을 클릭합니다. Baidu에서 인증 코드가 포함된 단문 메시지 서비스 메시지를 받게 됩니다. 마지막으로 라이선스 계약에 동의하고 **注册**(계정 만들기)을 클릭하여 등록합니다. 이 설정 단계가 실패하면 이 [로그인 문서](https://www.adchina.io/how-to-open-a-baidu-account-outside-china/)에 설명된 대로 Baidu Cloud 로그인을 통해 등록해 보세요.
+계정 생성 페이지에 사용자 이름, 전화번호, 비밀번호를 입력합니다. 그런 다음 인증 코드 받기 버튼을 클릭합니다. Baidu에서 인증 코드가 포함된 SMS 메시지를 받게 됩니다. 마지막으로 라이선스 계약에 동의하고 **注册**(계정 만들기)을 클릭하여 등록합니다. 이 설정 단계가 실패하면 이 [로그인 문서](https://www.adchina.io/how-to-open-a-baidu-account-outside-china/)에 설명된 대로 Baidu Cloud 로그인을 통해 등록해 보세요.
 
 ![Baidu 가입 페이지]({% image_buster /assets/img_archive/baidu_signup.png %}){: style="max-width:80%;"}
 

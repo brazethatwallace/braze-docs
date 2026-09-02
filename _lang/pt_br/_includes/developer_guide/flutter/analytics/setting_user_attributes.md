@@ -22,7 +22,7 @@ Todos os valores de string, como nome, sobrenome, país e cidade natal, estão l
 
 ### Definindo atributos padrão 
 
-Para definir atributos de usuário coletados automaticamente pelo Braze, você pode usar os métodos de configuração incluídos no SDK or kit de desenvolvimento de software.
+Para definir atributos de usuário coletados automaticamente pelo Braze, você pode usar os métodos de configuração incluídos no SDK.
 
 ```dart
 braze.setFirstName('Name');

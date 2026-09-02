@@ -63,11 +63,11 @@ Wenn Sie mehr kreative Kontrolle wünschen, ist die Card „Nur Bild“ genau da
 
 ## Allgemeine Kreativdetails {#general}
 
-Content Cards unterstützen standardmäßig Text und Bilder, einschließlich GIFs. Derzeit können angepasste Stile für die Card, wie z. B. verschiedene Schriftfarben oder mehrere Bilder, nicht im Dashboard vorgenommen werden. Sie können Ihre Content Cards und den Feed während der Integration individuell gestalten. Weitere Details finden Sie unter [Cards anpassen]({{site.baseurl}}/developer_guide/content_cards/customizing_cards) für das Braze SDK or Software-Development-Kit.
+Content Cards unterstützen standardmäßig Text und Bilder, einschließlich GIFs. Derzeit können angepasste Stile für die Card, wie z. B. verschiedene Schriftfarben oder mehrere Bilder, nicht im Dashboard vorgenommen werden. Sie können Ihre Content Cards und den Feed während der Integration individuell gestalten. Weitere Details finden Sie unter [Cards anpassen]({{site.baseurl}}/developer_guide/content_cards/customizing_cards) für das Braze SDK.
 
 ### Verhalten beim Schließen {#dismissal-behavior}
 
-Um eine Card zu schließen, können Nutzer:innen sie auf dem Mobilgerät wegwischen oder die `close X`-Funktion verwenden, wie im folgenden Screenshot gezeigt. Das `x` erscheint beim Hovern nur im Web-SDK or Software-Development-Kit.
+Um eine Card zu schließen, können Nutzer:innen sie auf dem Mobilgerät wegwischen oder die `close X`-Funktion verwenden, wie im folgenden Screenshot gezeigt. Das `x` erscheint beim Hovern nur im Web-SDK.
 
 ![Bild, das das Wisch- oder Schließ-Verhalten für eine Card zeigt]({% image_buster /assets/img/dismissal-cc.png %}){: width="1800" height="504"}
 
@@ -83,5 +83,5 @@ Halten Sie Content Cards relevant, indem Sie sie so einstellen, dass sie geschlo
 
 | Content Cards für Android | Content Cards für iOS | Content Cards für Web |
 | --- | --- |---|
-| Das Android-SDK or Software-Development-Kit bietet standardmäßig keine Unterstützung für animierte GIFs. Weitere Details zur Aktivierung der GIF-Unterstützung finden Sie unter [GIFs]({{site.baseurl}}/developer_guide/content_cards/embedding_gifs?sdktab=android). | Das Swift-SDK or Software-Development-Kit bietet standardmäßig keine Unterstützung für animierte GIFs. Weitere Details zur Aktivierung der GIF-Unterstützung finden Sie im [GIF-Support-Tutorial](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c3-gif-support). | GIF-Unterstützung ist standardmäßig in der Web-SDK or Software-Development-Kit-Integration enthalten. |
+| Das Android-SDK bietet standardmäßig keine Unterstützung für animierte GIFs. Weitere Details zur Aktivierung der GIF-Unterstützung finden Sie unter [GIFs]({{site.baseurl}}/developer_guide/content_cards/embedding_gifs?sdktab=android). | Das Swift-SDK bietet standardmäßig keine Unterstützung für animierte GIFs. Weitere Details zur Aktivierung der GIF-Unterstützung finden Sie im [GIF-Support-Tutorial](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c3-gif-support). | GIF-Unterstützung ist standardmäßig in der Web-SDK-Integration enthalten. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="GIFs in Content Cards verwenden" }

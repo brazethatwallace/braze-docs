@@ -13,9 +13,9 @@ channel:
 
 # Dominios personalizados de autoservicio {#self-serve-custom-domains}
 
-> Esta página explica cómo configurar tus propios dominios personalizados en el panel de Braze. Los dominios personalizados te permiten usar un enlace acortado con tu marca que refleje la identidad de tu marca en lugar de un enlace acortado genérico o el dominio de Braze (`brz.ai`), lo que mejora la confianza del usuario y la participación en Campaigns a través de enlaces servicio de mensajes cortos.
+> Esta página explica cómo configurar tus propios dominios personalizados en el panel de Braze. Los dominios personalizados te permiten usar un enlace acortado con tu marca que refleje la identidad de tu marca en lugar de un enlace acortado genérico o el dominio de Braze (`brz.ai`), lo que mejora la confianza del usuario y la participación en Campaigns a través de enlaces SMS.
 
-Con los dominios personalizados de autoservicio, puedes configurar y administrar tus propios dominios personalizados para servicio de mensajes cortos, RCS y WhatsApp directamente desde tu panel de Braze. Puedes añadir, supervisar y administrar fácilmente hasta 10 dominios personalizados en un solo lugar.
+Con los dominios personalizados de autoservicio, puedes configurar y administrar tus propios dominios personalizados para SMS, RCS y WhatsApp directamente desde tu panel de Braze. Puedes añadir, supervisar y administrar fácilmente hasta 10 dominios personalizados en un solo lugar.
 
 ## Beneficios de los dominios personalizados de autoservicio {#benefits-of-self-serve-custom-domains}
 
@@ -36,12 +36,12 @@ Con los dominios personalizados de autoservicio, puedes configurar y administrar
 Necesitamos que delegues tu dominio personalizado a Braze para que podamos facilitar el enrutamiento adecuado y la compatibilidad de infraestructura con nuestros servicios de acortamiento de enlaces y seguimiento de clics. Cuando delegas tu dominio a Braze, gestionamos automáticamente la renovación del certificado para evitar una interrupción del servicio.
 
 {% alert important %}
-Si tus registros de DNS no se actualizan en un plazo de 45 días, el token de configuración caduca. Reinicia la configuración del dominio desde **Dominios de servicio de mensajes cortos/RCS y aplicaciones de mensajería** para generar nuevos registros de DNS.
+Si tus registros de DNS no se actualizan en un plazo de 45 días, el token de configuración caduca. Reinicia la configuración del dominio desde **Dominios de SMS/RCS y aplicaciones de mensajería** para generar nuevos registros de DNS.
 {% endalert %}
 
 ## Añadir un dominio personalizado {#adding-a-custom-domain}
 
-1. En Braze, ve a **Configuración de la empresa** > **Dominios de servicio de mensajes cortos/RCS y aplicaciones de mensajería**.
+1. En Braze, ve a **Configuración de la empresa** > **Dominios de SMS/RCS y aplicaciones de mensajería**.
 ![Página "Dominios de SMS/RCS y aplicaciones de mensajería" con varios dominios listados.]({% image_buster /assets/img/main_page.png %})
 
 {: start="2"}
@@ -59,12 +59,12 @@ Braze sondea tu configuración de DNS aproximadamente cada 30 minutos para compr
 ![Sección "Registro de DNS" con 3 pasos a completar para terminar de configurar tu dominio.]({% image_buster /assets/img/dns_record.png %})
 
 {% alert note %}
-El progreso de tu dominio se guarda automáticamente. Si necesitas salir a mitad del proceso, puedes retomarlo más tarde seleccionando la entrada del dominio pendiente en la página **Dominios de servicio de mensajes cortos/RCS y aplicaciones de mensajería**.
+El progreso de tu dominio se guarda automáticamente. Si necesitas salir a mitad del proceso, puedes retomarlo más tarde seleccionando la entrada del dominio pendiente en la página **Dominios de SMS/RCS y aplicaciones de mensajería**.
 {% endalert %}
 
 ### Gestión y uso continuos {#ongoing-management-and-usage}
 
-Una vez verificado tu dominio, tus dominios personalizados aparecerán en la tabla de la página **Dominios de servicio de mensajes cortos/RCS y aplicaciones de mensajería** con indicadores de estado. Puedes usar de inmediato los dominios conectados en múltiples grupos de suscripción, espacios de trabajo y a través de los canales de servicio de mensajes cortos, RCS y WhatsApp.
+Una vez verificado tu dominio, tus dominios personalizados aparecerán en la tabla de la página **Dominios de SMS/RCS y aplicaciones de mensajería** con indicadores de estado. Puedes usar de inmediato los dominios conectados en múltiples grupos de suscripción, espacios de trabajo y a través de los canales de SMS, RCS y WhatsApp.
 
 ![Lista de dominios personalizados y estados.]({% image_buster /assets/img/custom_domain_statuses.png %}){: style="max-width:60%;"}
 
@@ -72,13 +72,13 @@ La monitorización en vivo te alerta en el panel de Braze si alguno de tus domin
 
 ## Asignación de dominios personalizados a grupos de suscripción {#assigning-custom-domains-to-subscription-groups}
 
-Después de configurarlos, los dominios personalizados se pueden asignar a uno o varios grupos de suscripción de servicio de mensajes cortos, RCS y WhatsApp.
+Después de configurarlos, los dominios personalizados se pueden asignar a uno o varios grupos de suscripción de SMS, RCS y WhatsApp.
 
 1. Ve a **Audiencia** > **Gestión de grupos de suscripción**.
 2. Busca y selecciona tu grupo de suscripción en la lista.
 3. En **Detalles del grupo de suscripción**, selecciona tu dominio personalizado en el desplegable **Dominio de acortamiento de enlaces**.
 
-Las Campaigns enviadas con el acortamiento de enlaces activado utilizan el dominio asignado asociado a tu grupo de suscripción de servicio de mensajes cortos, RCS o WhatsApp.
+Las Campaigns enviadas con el acortamiento de enlaces activado utilizan el dominio asignado asociado a tu grupo de suscripción de SMS, RCS o WhatsApp.
 
 ![Vista previa del creador de mensajes SMS con un dominio de enlace acortado que es diferente del dominio en el cuadro "Mensaje".]({% image_buster /assets/img/custom_domain2.png %})
 
@@ -96,7 +96,7 @@ Sí. Los dominios se pueden asociar con grupos de suscripción en varios espacio
 
 Puedes añadir hasta 10 dominios personalizados por panel. Braze puede configurar un límite superior para tu empresa previa solicitud.
 
-Los dominios en estado **Pendiente** o **Error** cuentan para este límite. Elimínalos o resuelve el error en la página **servicio de mensajes cortos/RCS and Messaging Apps Domains**.
+Los dominios en estado **Pendiente** o **Error** cuentan para este límite. Elimínalos o resuelve el error en la página **SMS/RCS and Messaging Apps Domains**.
 
 No puedes eliminar un dominio que está asignado como **Link Shortening Domain** en un grupo de suscripción. Primero reasigna el dominio en cada grupo de suscripción y luego elimínalo.
 
@@ -110,7 +110,7 @@ Sí. Si hay un error, recibirás un banner en el panel de Braze con los detalles
 
 ### ¿Puedo usar un dominio personalizado en varios canales? {#can-i-use-a-custom-domain-across-multiple-channels}
 
-Sí. Después de verificar un dominio personalizado, se puede usar en todos los grupos de suscripción de servicio de mensajes cortos, RCS y WhatsApp en todos los espacios de trabajo dentro de un panel.
+Sí. Después de verificar un dominio personalizado, se puede usar en todos los grupos de suscripción de SMS, RCS y WhatsApp en todos los espacios de trabajo dentro de un panel.
 
 ### ¿Qué hago si tengo preguntas o necesito más asistencia? {#what-if-i-have-questions-or-need-further-support}
 

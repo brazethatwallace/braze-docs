@@ -1,8 +1,8 @@
 ---
 nav_title: Registrar eventos de comercio electrónico
-article_title: Registrar eventos de comercio electrónico a través del SDK or kit de desarrollo de software de Braze
+article_title: Registrar eventos de comercio electrónico a través del SDK de Braze
 page_order: 3.25
-description: "Aprende a registrar eventos recomendados de comercio electrónico a través de los SDK or kit de desarrollo de software de Android, Swift y Web de Braze usando clases de eventos tipadas y logEcommerceEvent."
+description: "Aprende a registrar eventos recomendados de comercio electrónico a través de los SDK de Android, Swift y Web de Braze usando clases de eventos tipadas y logEcommerceEvent."
 platform:
   - Android
   - Swift
@@ -11,15 +11,15 @@ platform:
 
 # Registrar eventos de comercio electrónico {#log-ecommerce-events}
 
-> Aprende a registrar [eventos recomendados de comercio electrónico]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events) a través de los SDK or kit de desarrollo de software de Android, Swift y Web de Braze usando clases de eventos tipadas y `logEcommerceEvent`. Para esquemas de propiedades del evento, características de la plataforma y validación de ingesta, consulta [Eventos recomendados]({{site.baseurl}}/user_guide/data/activation/events/recommended_events) y [Validación de eventos y solución de problemas]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#event-validation-and-troubleshooting).
+> Aprende a registrar [eventos recomendados de comercio electrónico]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events) a través de los SDK de Android, Swift y Web de Braze usando clases de eventos tipadas y `logEcommerceEvent`. Para esquemas de propiedades del evento, características de la plataforma y validación de ingesta, consulta [Eventos recomendados]({{site.baseurl}}/user_guide/data/activation/events/recommended_events) y [Validación de eventos y solución de problemas]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#event-validation-and-troubleshooting).
 
 {% alert note %}
-Para los SDK or kit de desarrollo de software envolventes no incluidos en la lista, usa el método nativo de Android o Swift correspondiente en su lugar.
+Para los SDK envolventes no incluidos en la lista, usa el método nativo de Android o Swift correspondiente en su lugar.
 {% endalert %}
 
 ## Esquemas de eventos {#event-schemas}
 
-Los seis eventos recomendados de comercio electrónico comparten un esquema a nivel de pedido en todas las plataformas. Usa las siguientes tablas de propiedades cuando construyas la carga útil de cada evento. Para el esquema canónico con el comportamiento de validación completo y ejemplos de REST or transferencia de estado representacional API, consulta [Eventos recomendados]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#event-schemas). Para características de la plataforma como segmentación, plantillas de Canvas e informes, consulta [Cómo usar eventos de comercio electrónico]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events).
+Los seis eventos recomendados de comercio electrónico comparten un esquema a nivel de pedido en todas las plataformas. Usa las siguientes tablas de propiedades cuando construyas la carga útil de cada evento. Para el esquema canónico con el comportamiento de validación completo y ejemplos de REST API, consulta [Eventos recomendados]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#event-schemas). Para características de la plataforma como segmentación, plantillas de Canvas e informes, consulta [Cómo usar eventos de comercio electrónico]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events).
 
 {% tabs local %}
 {% tab product_viewed %}
@@ -224,18 +224,18 @@ Se desencadena cuando se emite un reembolso total o parcial. Para reembolsos par
 
 ## Android
 
-El SDK or kit de desarrollo de software de Android [42.3.0+](https://github.com/braze-inc/braze-android-sdk/releases/tag/v42.3.0) proporciona clases de eventos de comercio electrónico tipadas con validación del lado del cliente en el momento de la construcción y serialización automática a `snake_case` cuando llamas a `Braze.logEcommerceEvent`.
+El SDK de Android [42.3.0+](https://github.com/braze-inc/braze-android-sdk/releases/tag/v42.3.0) proporciona clases de eventos de comercio electrónico tipadas con validación del lado del cliente en el momento de la construcción y serialización automática a `snake_case` cuando llamas a `Braze.logEcommerceEvent`.
 
 | Clase de Android | Nombre del evento | Notas |
 | ------------- | ---------- | ----- |
-| `ProductViewedEvent` | `ecommerce.product_viewed` | Aplana los campos del producto al nivel superior de `properties` (sin array `products`). Esta clase no admite la propiedad `type` de nivel superior para desencadenadores de catálogo. Si necesitas `type`, usa [`logCustomEvent`](#manual-logging-with-logcustomevent) o la REST or transferencia de estado representacional API. |
+| `ProductViewedEvent` | `ecommerce.product_viewed` | Aplana los campos del producto al nivel superior de `properties` (sin array `products`). Esta clase no admite la propiedad `type` de nivel superior para desencadenadores de catálogo. Si necesitas `type`, usa [`logCustomEvent`](#manual-logging-with-logcustomevent) o la REST API. |
 | `CartUpdatedEvent` | `ecommerce.cart_updated` | Usa `CartUpdatedAction` (`ADD`, `REMOVE`, `REPLACE`) para la propiedad `action`. |
 | `CheckoutStartedEvent` | `ecommerce.checkout_started` | |
 | `OrderPlacedEvent` | `ecommerce.order_placed` | Admite `cartId`, `totalDiscounts` y `discounts` opcionales. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Clases de eventos de comercio electrónico del SDK or kit de desarrollo de software de Android" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Clases de eventos de comercio electrónico del SDK de Android" }
 
 {% alert important %}
-`ecommerce.order_cancelled` y `ecommerce.order_refunded` no están disponibles como clases tipadas del SDK or kit de desarrollo de software de Android. Regístralos con [`logCustomEvent`](#manual-logging-with-logcustomevent) o la REST or transferencia de estado representacional API.
+`ecommerce.order_cancelled` y `ecommerce.order_refunded` no están disponibles como clases tipadas del SDK de Android. Regístralos con [`logCustomEvent`](#manual-logging-with-logcustomevent) o la REST API.
 {% endalert %}
 
 ### Bloques de construcción compartidos {#shared-building-blocks}
@@ -253,12 +253,12 @@ Las cargas útiles no válidas lanzan `IllegalArgumentException` cuando construy
 | ------------ | ---------- |
 | IDs y nombres de cadena (`product_id`, `product_name`, `variant_id`, `cart_id`, `checkout_id`, `order_id`, `source`, URLs opcionales) | No vacíos, hasta 255 caracteres |
 | `price`, `total_value`, `total_discounts` | Debe ser mayor o igual a `0` |
-| `currency` | Código ISO 4217 válido (recortado y convertido a mayúsculas por el SDK or kit de desarrollo de software) |
+| `currency` | Código ISO 4217 válido (recortado y convertido a mayúsculas por el SDK) |
 | `products` (eventos de carrito, pago, pedido) | Al menos un `EcommerceProduct` |
 | `quantity` (por producto) | Entero no negativo |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Reglas de validación del lado del cliente de Android para eventos de comercio electrónico" }
 
-En el momento del envío, si las propiedades serializadas superan el límite de tamaño del SDK or kit de desarrollo de software, `logEcommerceEvent` registra un error y no envía el evento.
+En el momento del envío, si las propiedades serializadas superan el límite de tamaño del SDK, `logEcommerceEvent` registra un error y no envía el evento.
 
 ### Ejemplos de código {#code-examples}
 
@@ -400,7 +400,7 @@ Braze.getInstance(context).logEcommerceEvent(orderPlacedEvent)
 {% endsubtab %}
 {% subtab order_cancelled %}
 
-Braze no proporciona una clase tipada del SDK or kit de desarrollo de software para este evento. Usa `logCustomEvent` con una carga útil que coincida con el esquema del evento `ecommerce.order_cancelled`.
+Braze no proporciona una clase tipada del SDK para este evento. Usa `logCustomEvent` con una carga útil que coincida con el esquema del evento `ecommerce.order_cancelled`.
 
 ```kotlin
 import com.braze.Braze
@@ -434,7 +434,7 @@ Braze.getInstance(context).logCustomEvent("ecommerce.order_cancelled", propertie
 {% endsubtab %}
 {% subtab order_refunded %}
 
-Braze no proporciona una clase tipada del SDK or kit de desarrollo de software para este evento. Usa `logCustomEvent` con una carga útil que coincida con el esquema del evento `ecommerce.order_refunded`.
+Braze no proporciona una clase tipada del SDK para este evento. Usa `logCustomEvent` con una carga útil que coincida con el esquema del evento `ecommerce.order_refunded`.
 
 ```kotlin
 import com.braze.Braze
@@ -609,7 +609,7 @@ Braze.getInstance(context).logEcommerceEvent(orderPlacedEvent);
 {% endsubtab %}
 {% subtab order_cancelled %}
 
-Braze no proporciona una clase tipada del SDK or kit de desarrollo de software para este evento. Usa `logCustomEvent` con una carga útil que coincida con el esquema del evento `ecommerce.order_cancelled`.
+Braze no proporciona una clase tipada del SDK para este evento. Usa `logCustomEvent` con una carga útil que coincida con el esquema del evento `ecommerce.order_cancelled`.
 
 ```java
 import com.braze.Braze;
@@ -637,7 +637,7 @@ Braze.getInstance(context).logCustomEvent(
 {% endsubtab %}
 {% subtab order_refunded %}
 
-Braze no proporciona una clase tipada del SDK or kit de desarrollo de software para este evento. Usa `logCustomEvent` con una carga útil que coincida con el esquema del evento `ecommerce.order_refunded`.
+Braze no proporciona una clase tipada del SDK para este evento. Usa `logCustomEvent` con una carga útil que coincida con el esquema del evento `ecommerce.order_refunded`.
 
 ```java
 import com.braze.Braze;
@@ -669,10 +669,10 @@ Braze.getInstance(context).logCustomEvent(
 
 ## iOS
 
-El SDK or kit de desarrollo de software de Swift proporciona clases de eventos de comercio electrónico tipadas —`ProductViewedEvent`, `CartUpdatedEvent`, `CheckoutStartedEvent` y `OrderPlacedEvent`— que construyes y pasas a `logEcommerceEvent`. Usa `ProductLineItem` para los productos en eventos de carrito, pago y pedido. Cada inicializador puede lanzar una excepción, así que envuélvelo en `try?` y registra el evento solo cuando la construcción sea exitosa.
-Esto está disponible en la versión `15.0.0` del SDK or kit de desarrollo de software de Swift y posteriores.
+El SDK de Swift proporciona clases de eventos de comercio electrónico tipadas —`ProductViewedEvent`, `CartUpdatedEvent`, `CheckoutStartedEvent` y `OrderPlacedEvent`— que construyes y pasas a `logEcommerceEvent`. Usa `ProductLineItem` para los productos en eventos de carrito, pago y pedido. Cada inicializador puede lanzar una excepción, así que envuélvelo en `try?` y registra el evento solo cuando la construcción sea exitosa.
+Esto está disponible en la versión `15.0.0` del SDK de Swift y posteriores.
 
-`ecommerce.order_cancelled` y `ecommerce.order_refunded` no están disponibles como clases tipadas del SDK or kit de desarrollo de software de Swift. Regístralos con `logCustomEvent`.
+`ecommerce.order_cancelled` y `ecommerce.order_refunded` no están disponibles como clases tipadas del SDK de Swift. Regístralos con `logCustomEvent`.
 
 ### Ejemplos de código
 
@@ -799,7 +799,7 @@ if let productLine = try? Braze.Ecommerce.ProductLineItem(
 {% endtab %}
 {% tab order_cancelled %}
 
-Braze no proporciona una clase tipada del SDK or kit de desarrollo de software para este evento. Usa `logCustomEvent` con una carga útil que coincida con el esquema del evento `ecommerce.order_cancelled`.
+Braze no proporciona una clase tipada del SDK para este evento. Usa `logCustomEvent` con una carga útil que coincida con el esquema del evento `ecommerce.order_cancelled`.
 
 ```swift
 let discounts: [[String: Any]] = [
@@ -849,7 +849,7 @@ AppDelegate.braze?.logCustomEvent(name: "ecommerce.order_cancelled", properties:
 {% endtab %}
 {% tab order_refunded %}
 
-Braze no proporciona una clase tipada del SDK or kit de desarrollo de software para este evento. Usa `logCustomEvent` con una carga útil que coincida con el esquema del evento `ecommerce.order_refunded`.
+Braze no proporciona una clase tipada del SDK para este evento. Usa `logCustomEvent` con una carga útil que coincida con el esquema del evento `ecommerce.order_refunded`.
 
 ```swift
 let discounts: [[String: Any]] = [
@@ -898,7 +898,7 @@ AppDelegate.braze?.logCustomEvent(name: "ecommerce.order_refunded", properties: 
 
 ## Web {#web}
 
-En el SDK or kit de desarrollo de software Web [6.8.0+](https://github.com/braze-inc/braze-web-sdk), llama a `logEcommerceEvent` con un `name` de evento y `properties`. En versiones anteriores del SDK or kit de desarrollo de software, llama a `logCustomEvent` con el nombre del evento y un objeto de propiedades. `ecommerce.order_cancelled` y `ecommerce.order_refunded` usan `logCustomEvent`.
+En el SDK Web [6.8.0+](https://github.com/braze-inc/braze-web-sdk), llama a `logEcommerceEvent` con un `name` de evento y `properties`. En versiones anteriores del SDK, llama a `logCustomEvent` con el nombre del evento y un objeto de propiedades. `ecommerce.order_cancelled` y `ecommerce.order_refunded` usan `logCustomEvent`.
 
 ### Ejemplos de código
 
@@ -907,7 +907,7 @@ En el SDK or kit de desarrollo de software Web [6.8.0+](https://github.com/braze
 
 {% sdk_min_versions web:6.8.0 %}
 
-En versiones más recientes del SDK or kit de desarrollo de software, llama a `logEcommerceEvent()`:
+En versiones más recientes del SDK, llama a `logEcommerceEvent()`:
 
 ```javascript
 braze.logEcommerceEvent({
@@ -930,7 +930,7 @@ braze.logEcommerceEvent({
 });
 ```
 
-En versiones anteriores del SDK or kit de desarrollo de software, llama a `logCustomEvent()`:
+En versiones anteriores del SDK, llama a `logCustomEvent()`:
 
 ```javascript
 braze.logCustomEvent("ecommerce.product_viewed", {
@@ -955,7 +955,7 @@ braze.logCustomEvent("ecommerce.product_viewed", {
 
 {% sdk_min_versions web:6.8.0 %}
 
-En versiones más recientes del SDK or kit de desarrollo de software, llama a `logEcommerceEvent()`:
+En versiones más recientes del SDK, llama a `logEcommerceEvent()`:
 
 ```javascript
 braze.logEcommerceEvent({
@@ -987,7 +987,7 @@ braze.logEcommerceEvent({
 });
 ```
 
-En versiones anteriores del SDK or kit de desarrollo de software, llama a `logCustomEvent()`:
+En versiones anteriores del SDK, llama a `logCustomEvent()`:
 
 ```javascript
 braze.logCustomEvent("ecommerce.cart_updated", {
@@ -1024,7 +1024,7 @@ braze.logCustomEvent("ecommerce.cart_updated", {
 
 {% sdk_min_versions web:6.8.0 %}
 
-En versiones más recientes del SDK or kit de desarrollo de software, llama a `logEcommerceEvent()`:
+En versiones más recientes del SDK, llama a `logEcommerceEvent()`:
 
 ```javascript
 braze.logEcommerceEvent({
@@ -1056,7 +1056,7 @@ braze.logEcommerceEvent({
 });
 ```
 
-En versiones anteriores del SDK or kit de desarrollo de software, llama a `logCustomEvent()`:
+En versiones anteriores del SDK, llama a `logCustomEvent()`:
 
 ```javascript
 braze.logCustomEvent("ecommerce.checkout_started", {
@@ -1093,7 +1093,7 @@ braze.logCustomEvent("ecommerce.checkout_started", {
 
 {% sdk_min_versions web:6.8.0 %}
 
-En versiones más recientes del SDK or kit de desarrollo de software, llama a `logEcommerceEvent()`:
+En versiones más recientes del SDK, llama a `logEcommerceEvent()`:
 
 ```javascript
 braze.logEcommerceEvent({
@@ -1136,7 +1136,7 @@ braze.logEcommerceEvent({
 });
 ```
 
-En versiones anteriores del SDK or kit de desarrollo de software, llama a `logCustomEvent()`:
+En versiones anteriores del SDK, llama a `logCustomEvent()`:
 
 ```javascript
 braze.logCustomEvent("ecommerce.order_placed", {
@@ -1265,9 +1265,9 @@ braze.logCustomEvent("ecommerce.order_refunded", {
 
 ## Registro manual con `logCustomEvent` {#manual-logging-with-logcustomevent}
 
-Para registrar manualmente un evento recomendado, llama a `logCustomEvent` con el nombre exacto del evento (por ejemplo, `ecommerce.product_viewed`) y una carga útil `BrazeProperties` o `JSONObject` construida manualmente. El SDK or kit de desarrollo de software no valida los esquemas de eventos recomendados en las llamadas manuales. Braze valida estas cargas útiles durante la ingesta:
+Para registrar manualmente un evento recomendado, llama a `logCustomEvent` con el nombre exacto del evento (por ejemplo, `ecommerce.product_viewed`) y una carga útil `BrazeProperties` o `JSONObject` construida manualmente. El SDK no valida los esquemas de eventos recomendados en las llamadas manuales. Braze valida estas cargas útiles durante la ingesta:
 
 - Las cargas útiles válidas se procesan como eventos recomendados con posprocesamiento completo.
-- Las cargas útiles no válidas (campos obligatorios faltantes, tipos incorrectos, propiedades adicionales de nivel superior) se descartan después de la ingesta. Los fallos aparecen en el registro de procesamiento del SDK or kit de desarrollo de software del espacio de trabajo y en el [correo electrónico de resumen de fallos]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#find-failures).
+- Las cargas útiles no válidas (campos obligatorios faltantes, tipos incorrectos, propiedades adicionales de nivel superior) se descartan después de la ingesta. Los fallos aparecen en el registro de procesamiento del SDK del espacio de trabajo y en el [correo electrónico de resumen de fallos]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#find-failures).
 
 Usa `logEcommerceEvent` siempre que sea posible para detectar datos no válidos antes de que salgan de la aplicación. Para el uso general de `logCustomEvent`, consulta [Registrar eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=android).

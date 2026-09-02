@@ -24,8 +24,8 @@ Los siguientes elementos son necesarios para utilizar esta integración:
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta de EmailShepherd | Se requiere una cuenta de EmailShepherd para utilizar esta integración. |
-| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos completos de "Templates". <br><br>Se puede crear en el dashboard de Braze desde **Configuración** > **Claves de API**. |
-| Instancia de Braze | Tu [instancia de clúster]({{site.baseurl}}/api/basics/#endpoints) de Braze se alinea con tu dashboard de Braze y tu punto de conexión REST or transferencia de estado representacional. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos completos de "Templates". <br><br>Se puede crear en el dashboard de Braze desde **Configuración** > **Claves de API**. |
+| Instancia de Braze | Tu [instancia de clúster]({{site.baseurl}}/api/basics/#endpoints) de Braze se alinea con tu dashboard de Braze y tu punto de conexión REST. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Casos de uso {#use-cases}

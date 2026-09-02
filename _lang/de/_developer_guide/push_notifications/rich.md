@@ -1,14 +1,14 @@
 ---
 page_order: 3
 nav_title: Rich-Benachrichtigung
-article_title: Rich-Push-Benachrichtigungen für das Braze SDK or Software-Development-Kit einrichten
+article_title: Rich-Push-Benachrichtigungen für das Braze SDK einrichten
 channel:
   - push notifications
 ---
 
 # Umfangreiche Push-Benachrichtigungen
 
-> Erfahren Sie, wie Sie Rich-Push-Benachrichtigungen für das Braze SDK or Software-Development-Kit einrichten.
+> Erfahren Sie, wie Sie Rich-Push-Benachrichtigungen für das Braze SDK einrichten.
 
 {% sdktabs %}
 {% sdktab swift %}

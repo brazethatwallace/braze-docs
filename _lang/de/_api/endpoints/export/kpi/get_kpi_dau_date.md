@@ -11,7 +11,7 @@ description: "Dieser Artikel beschreibt den Braze-Endpunkt „Täglich aktive Nu
 {% api %}
 # Täglich aktive Nutzer:innen nach Datum exportieren {#export-daily-active-users-by-date}
 {% apimethod get %}
-/KPI or Leistungskennzahl or Leistungskennzahlen/täglich aktive:r Nutzer:in; täglich aktiv/data_series
+/kpi/dau/data_series
 {% endapimethod %}
 
 > Verwenden Sie diesen Endpunkt, um eine tägliche Reihe der Gesamtzahl eindeutiger aktiver Nutzer:innen zu jedem Datum abzurufen.

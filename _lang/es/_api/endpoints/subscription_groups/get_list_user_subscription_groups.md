@@ -20,7 +20,7 @@ Si quieres ver ejemplos o probar este endpoint para **grupos de suscripción por
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#d1c3b617-22f1-47bf-9ee8-499526824470 {% endapiref %}
 
-Si quieres ver ejemplos o probar este endpoint para **grupos de suscripción servicio de mensajes cortos**:
+Si quieres ver ejemplos o probar este endpoint para **grupos de suscripción SMS**:
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#54bd7ca8-60d9-4654-aff5-406479f3c666 {% endapiref %}
 
@@ -59,7 +59,7 @@ Si hay varios usuarios (varios `external_ids`) que comparten la misma dirección
 `https://rest.iad-03.braze.com/subscription/user/status?external_id[]=1&external_id[]=2`
 {% endraw %}
 {% endtab %}
-{% tab servicio de mensajes cortos and WhatsApp %}
+{% tab SMS and WhatsApp %}
 {% raw %}
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/user/status?external_id={{external_id}}&limit=100&offset=1&phone=+11112223333' \

@@ -25,7 +25,7 @@ A Braze rastreia o status de inscrição em dois níveis:
 
 O estado global e o status do grupo de inscrições funcionam juntos. Para e-mail, um usuário que cancelou a inscrição globalmente não receberá e-mails mesmo que esteja inscrito em um grupo de inscrições. Para SMS, RCS, WhatsApp e LINE, os usuários precisam estar inscritos no grupo de inscrições relevante para receber mensagens daquele grupo.
 
-Você pode visualizar e atualizar o status de inscrição no perfil de um usuário em **Engagement** > **Contact settings**, pela REST or transferir estado representacional API or interface de programação do aplicativo (API), SDK or kit de desenvolvimento de software, importação de CSV, Central de Preferências e fluxos de aceitação específicos de cada canal. A Braze não conta alterações no estado de inscrição como pontos de dados.
+Você pode visualizar e atualizar o status de inscrição no perfil de um usuário em **Engagement** > **Contact settings**, pela REST API, SDK, importação de CSV, Central de Preferências e fluxos de aceitação específicos de cada canal. A Braze não conta alterações no estado de inscrição como pontos de dados.
 
 {% alert note %}
 Os grupos de inscrições adicionam aceitação granular dentro de um canal (por exemplo, SMS promocional versus transacional). O estado global de e-mail e a participação no grupo de inscrições trabalham juntos ao decidir quem pode ser alcançado.
@@ -87,8 +87,8 @@ SMS e RCS usam o status do grupo de inscrições, não um estado global de canal
 
 | Estado | Definição |
 | ------ | --------- |
-| Subscribed | O usuário está inscrito para receber SMS e RCS de um grupo de inscrições específico, seja pela API or interface de programação do aplicativo (API) de inscrições da Braze, por uma palavra-chave de aceitação ou por outro método compatível. Quando a [aceitação dupla]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in) está ativada, os usuários precisam confirmar a aceitação antes que o status seja atualizado para `Subscribed`. |
-| Unsubscribed | O usuário cancelou a participação naquele grupo de inscrições enviando uma palavra-chave de cancelamento ou pela [API or interface de programação do aplicativo (API) de inscrições da Braze]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status). |
+| Subscribed | O usuário está inscrito para receber SMS e RCS de um grupo de inscrições específico, seja pela API de inscrições da Braze, por uma palavra-chave de aceitação ou por outro método compatível. Quando a [aceitação dupla]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in) está ativada, os usuários precisam confirmar a aceitação antes que o status seja atualizado para `Subscribed`. |
+| Unsubscribed | O usuário cancelou a participação naquele grupo de inscrições enviando uma palavra-chave de cancelamento ou pela [API de inscrições da Braze]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Estados de inscrição de SMS e RCS" }
 
 ### Comportamento específico de SMS e RCS {#sms-and-rcs-specific-behavior}
@@ -105,7 +105,7 @@ O WhatsApp também usa o status do grupo de inscrições. A Meta exige [consenti
 
 | Estado | Definição |
 | ------ | --------- |
-| Subscribed | O usuário confirmou explicitamente que deseja receber mensagens do WhatsApp da sua empresa, por meio de um fluxo de aceitação ou pela API or interface de programação do aplicativo (API) de inscrições da Braze. |
+| Subscribed | O usuário confirmou explicitamente que deseja receber mensagens do WhatsApp da sua empresa, por meio de um fluxo de aceitação ou pela API de inscrições da Braze. |
 | Unsubscribed | O usuário não aceitou participar ou sua aceitação foi removida. Usuários que cancelaram a inscrição não recebem mensagens dos números de telefone daquele grupo de inscrições. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Estados de inscrição do WhatsApp" }
 

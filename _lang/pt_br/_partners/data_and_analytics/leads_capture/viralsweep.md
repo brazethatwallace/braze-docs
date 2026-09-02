@@ -23,8 +23,8 @@ A integração entre a Braze e o ViralSweep permite que você realize sorteios e
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Conta ViralSweep | É necessário ter uma conta no ViralSweep que utilize o plano de negócios para aproveitar essa parceria. |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com todas as permissões de dados de usuários e e-mail. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
-| Endpoint REST or transferir estado representacional da Braze | Sua URL de endpoint REST or transferir estado representacional. Seu endpoint dependerá da URL da Braze para [sua instância]({{site.baseurl}}/api/basics#endpoints). |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com todas as permissões de dados de usuários e e-mail. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Endpoint REST da Braze | Sua URL de endpoint REST. Seu endpoint dependerá da URL da Braze para [sua instância]({{site.baseurl}}/api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
@@ -37,7 +37,7 @@ No ViralSweep, navegue até **Integrations > Email & SMS > Add Service** e selec
 
 ### Etapa 2: Adicionar credenciais da Braze {#step-2-add-braze-credentials}
 
-Na janela de configuração de integrações, forneça sua chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze e o endpoint REST or transferir estado representacional. Confirme se o endpoint fornecido não inclui `https://`, por exemplo, `dashboard-03.braze.com`.
+Na janela de configuração de integrações, forneça sua chave da API REST da Braze e o endpoint REST. Confirme se o endpoint fornecido não inclui `https://`, por exemplo, `dashboard-03.braze.com`.
 
 ![Página de integração do serviço ViralSweep solicitando ao usuário a chave de API da Braze e a URL do dashboard da Braze.]({% image_buster /assets/img/viralsweep/connect2.png %}){: style="max-width:40%;"}
 

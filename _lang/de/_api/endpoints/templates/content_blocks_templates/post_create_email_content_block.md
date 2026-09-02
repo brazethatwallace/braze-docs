@@ -16,7 +16,7 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Conte
 > Verwenden Sie diesen Endpunkt, um einen [Content-Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) zu erstellen.
 
 {% alert tip %}
-Sie können diesen Endpunkt auch über den [Braze MCP-Server]({{site.baseurl}}/user_guide/brazeai/mcp_server) mit der Funktion [`create_content_block`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#content-blocks) aufrufen. So können KI or künstliche Intelligenz-Tools wie Claude und Cursor Content Blocks über natürlichsprachliche Eingaben erstellen.
+Sie können diesen Endpunkt auch über den [Braze MCP-Server]({{site.baseurl}}/user_guide/brazeai/mcp_server) mit der Funktion [`create_content_block`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#content-blocks) aufrufen. So können KI-Tools wie Claude und Cursor Content Blocks über natürlichsprachliche Eingaben erstellen.
 {% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#f1cefa8b-7a28-4e64-b579-198a4610d0a5 {% endapiref %}

@@ -13,7 +13,7 @@ channel:
 
 # Unbekannte Telefonnummern verarbeiten – neue Nutzer:innen {#handle-unknown-phone-numbers-new-users}
 
-> Nachdem Sie Kurzmitteilungsdienst or SMS, MMS und RCS mit Braze eingerichtet haben, kann es vorkommen, dass Sie Nachrichten von unbekannten Nutzer:innen erhalten. Die folgenden Schritte beschreiben, wie eine nicht identifizierte Nutzer:in und Nummer verarbeitet werden.
+> Nachdem Sie SMS, MMS und RCS mit Braze eingerichtet haben, kann es vorkommen, dass Sie Nachrichten von unbekannten Nutzer:innen erhalten. Die folgenden Schritte beschreiben, wie eine nicht identifizierte Nutzer:in und Nummer verarbeitet werden.
 
 ## Opt-in-/Opt-out- und angepasster Keyword-Workflow für unbekannte Nummern {#opt-inout-and-custom-keyword-workflow-for-unknown-numbers}
 

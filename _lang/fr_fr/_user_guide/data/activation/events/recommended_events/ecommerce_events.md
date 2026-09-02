@@ -59,7 +59,7 @@ Braze propose trois façons de segmenter les utilisateurs en fonction des donné
 - **Extensions de Segments :** pour segmenter sur des propriétés d'événement imbriquées, y compris le tableau imbriqué de produits ou les propriétés des objets de métadonnées, utilisez les [extensions de Segments]({{site.baseurl}}/user_guide/audience/segments/segment_extension) avec le filtrage des propriétés d'événement imbriquées. Cela vous permet de créer des audiences telles que « utilisateurs ayant acheté le produit SKU-123 au cours des 90 derniers jours » ou de combiner des critères portant sur différentes propriétés d'une même commande.
 
 {% alert important %}
-Les extensions de Segments pour les événements eCommerce recommandés sont une fonctionnalité payante en accès anticipé. Si vous souhaitez participer à l'accès anticipé, contactez votre CSM or gestionnaire de la satisfaction client or gestionnaire du succès des clients. Vérifiez que votre forfait inclut l'accès avant de recommander la segmentation par propriétés imbriquées à votre équipe.
+Les extensions de Segments pour les événements eCommerce recommandés sont une fonctionnalité payante en accès anticipé. Si vous souhaitez participer à l'accès anticipé, contactez votre CSM. Vérifiez que votre forfait inclut l'accès avant de recommander la segmentation par propriétés imbriquées à votre équipe.
 {% endalert %}
 
 ### Déclenchement {#triggering}

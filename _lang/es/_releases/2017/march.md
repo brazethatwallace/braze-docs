@@ -14,7 +14,7 @@ Hemos añadido un nuevo filtro "Convertido desde Canvas" para ofrecer opciones d
 
 ## Plantillas de webhook {#webhook-templates}
 
-Ahora puedes guardar mensajes de webhook como plantillas para reutilizarlos fácilmente o empezar con plantillas preconfiguradas para plataformas como servicio de mensajes cortos con Twilio o chatbots como Facebook Messenger. Más información sobre cómo [crear un webhook]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook#creating-a-webhook).
+Ahora puedes guardar mensajes de webhook como plantillas para reutilizarlos fácilmente o empezar con plantillas preconfiguradas para plataformas como SMS con Twilio o chatbots como Facebook Messenger. Más información sobre cómo [crear un webhook]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook#creating-a-webhook).
 
 ## Soporte de múltiples correos electrónicos para los informes de participación {#multiple-email-support-for-engagement-reports}
 

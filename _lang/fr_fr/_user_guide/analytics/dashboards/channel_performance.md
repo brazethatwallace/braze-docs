@@ -78,7 +78,7 @@ Pour les ouvertures d'e-mails, Braze distingue Google Image Proxy, Apple Image P
 
 #### Engagement par fournisseur de messagerie {#engagement-by-mailbox-provider}
 
-Le rapport **Engagement by Mailbox Provider** affiche les principaux fournisseurs de messagerie contribuant à vos clics ou ouvertures. Vous pouvez cliquer sur des fournisseurs de messagerie spécifiques pour accéder aux détails de domaines de réception spécifiques. Par exemple, si Microsoft figure dans ce rapport parmi vos principaux fournisseurs de messagerie, vous pouvez consulter les détails de leurs domaines de réception, tels que « outlook.com », « hotmail.com », « en direct or en ligne/en production/instantané.com », et bien d'autres.
+Le rapport **Engagement by Mailbox Provider** affiche les principaux fournisseurs de messagerie contribuant à vos clics ou ouvertures. Vous pouvez cliquer sur des fournisseurs de messagerie spécifiques pour accéder aux détails de domaines de réception spécifiques. Par exemple, si Microsoft figure dans ce rapport parmi vos principaux fournisseurs de messagerie, vous pouvez consulter les détails de leurs domaines de réception, tels que « outlook.com », « hotmail.com », « en direct.com », et bien d'autres.
 
 ![Exemple de rapport Engagement by Mailbox Provider avec Google, Apple iCloud, Yahoo, Microsoft et Mail.Ru Group et leur nombre de clics correspondant.]({% image_buster /assets/img_archive/mailbox_provider_time_engagement.png %}){: style="max-width:70%;"}
 

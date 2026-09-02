@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Nift
 
-> [Nift](https://gonift.com/) hilft Unternehmen, Kund:innen zu gewinnen, zu binden und zu halten. Die zweiseitige Plattform hilft Partnern, sich bei ihren Kund:innen mit Nift-Geschenkkarten zu bedanken. Sich bei Kund:innen zu bedanken steigert den LTV or Lifetime-Value or Lifetime-Value und generiert zusätzlichen Umsatz.
+> [Nift](https://gonift.com/) hilft Unternehmen, Kund:innen zu gewinnen, zu binden und zu halten. Die zweiseitige Plattform hilft Partnern, sich bei ihren Kund:innen mit Nift-Geschenkkarten zu bedanken. Sich bei Kund:innen zu bedanken steigert den LTV und generiert zusätzlichen Umsatz.
 
 _Diese Integration wird von Nift gepflegt._
 
@@ -23,8 +23,8 @@ Die Integration von Braze und Nift ermöglicht es Ihnen, zu wichtigen Zeitpunkte
 | Anforderung | Beschreibung |
 |---|---|
 | Nift-Konto | Um diese Partnerschaft zu nutzen, ist ein Nift-Konto erforderlich. |
-| Braze-Representational State Transfer-API-Schlüssel | Ein Braze-Representational State Transfer-API-Schlüssel mit allen Nutzerdaten-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze-Representational State Transfer-Endpunkt | Ihre Representational State Transfer-Endpunkt-URL. Ihr Endpunkt hängt von der Braze-URL für [Ihre Instanz]({{site.baseurl}}/api/basics/#endpoints) ab. |
+| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit allen Nutzerdaten-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze-REST-Endpunkt | Ihre REST-Endpunkt-URL. Ihr Endpunkt hängt von der Braze-URL für [Ihre Instanz]({{site.baseurl}}/api/basics/#endpoints) ab. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Integration
@@ -35,7 +35,7 @@ Besuchen Sie Ihr [Nift-Dashboard](https://www.gonift.com/users/sign_in), navigie
 
 ### 2. Schritt: Braze-Zugangsdaten hinzufügen {#step-2-add-braze-credentials}
 
-Geben Sie auf der Seite **Link your Braze Account** Ihren Braze-Representational State Transfer-API-Schlüssel ein und wählen Sie Ihren Braze-Endpunkt aus, der von der Braze-URL für [Ihre Instanz]({{site.baseurl}}/api/basics/#endpoints) abhängt.
+Geben Sie auf der Seite **Link your Braze Account** Ihren Braze-REST-API-Schlüssel ein und wählen Sie Ihren Braze-Endpunkt aus, der von der Braze-URL für [Ihre Instanz]({{site.baseurl}}/api/basics/#endpoints) abhängt.
 
 Sie können den Parameternamen der Kunden-ID im Empfehlungslink ändern, der an Ihre Kund:innen gesendet wird. Nift verwendet diesen, um Ihre Kund:innen in Braze als verarbeitet zu markieren, sobald sie ein Geschenk von einer unserer Marken ausgewählt haben.
 

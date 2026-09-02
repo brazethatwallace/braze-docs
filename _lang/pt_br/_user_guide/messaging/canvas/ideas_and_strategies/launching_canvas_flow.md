@@ -20,25 +20,25 @@ Ao se preparar para lançar seu Canvas, a Braze recomenda que você verifique se
 
 Considere as [condições de corrida]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions) que podem ocorrer antes de lançar seu Canvas.
 
-Para entrar em um Canvas, os usuários devem estar no público de entrada antes que o cronograma de entrada ocorra, independentemente de o Canvas ser agendado, baseado em ação ou disparado por API or interface de programação do aplicativo (API).
+Para entrar em um Canvas, os usuários devem estar no público de entrada antes que o cronograma de entrada ocorra, independentemente de o Canvas ser agendado, baseado em ação ou disparado por API.
 
 ![Um Canvas baseado em ação que inclui usuários quando eles fazem qualquer compra durante o fuso local do usuário, de 30 de abril de 2025 às 12h até 7 de maio de 2025 às 12h.]({% image_buster /assets/img_archive/launch_with_canvas_flow_example.png %}){: style="max-width:75%;"}
 
 Observe que os usuários que se qualificarem para o público de entrada após o lançamento do Canvas não entrarão no Canvas.
 
 {% alert tip %}
-Confira os [tipos de cronograma de entrada]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-12-determine-your-canvas-entry-schedule) para orientações e detalhes sobre quando usar entrega agendada, baseada em ação ou disparada por API or interface de programação do aplicativo (API) no seu Canvas!
+Confira os [tipos de cronograma de entrada]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-12-determine-your-canvas-entry-schedule) para orientações e detalhes sobre quando usar entrega agendada, baseada em ação ou disparada por API no seu Canvas!
 {% endalert %}
 
 ### Revisar filtros do público de entrada {#review-entry-audience-filters}
 
-De modo geral, evite configurar um Canvas baseado em ação ou disparado por API or interface de programação do aplicativo (API) com o mesmo disparador do filtro de público. Por exemplo, após o lançamento de um Canvas, os usuários que realizarem uma ação específica serão incluídos no público de entrada, então não há necessidade de adicionar o evento como filtro de público.
+De modo geral, evite configurar um Canvas baseado em ação ou disparado por API com o mesmo disparador do filtro de público. Por exemplo, após o lançamento de um Canvas, os usuários que realizarem uma ação específica serão incluídos no público de entrada, então não há necessidade de adicionar o evento como filtro de público.
 
 Para mais detalhes sobre os filtros de segmentação disponíveis para segmentar seu público, consulte [Filtros de segmentação]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters).
 
-### Agrupar múltiplas solicitações de API or interface de programação do aplicativo (API) {#batch-multiple-api-requests}
+### Agrupar múltiplas solicitações de API {#batch-multiple-api-requests}
 
-Faça suas solicitações na mesma chamada de API or interface de programação do aplicativo (API), em vez de múltiplas chamadas, para garantir que o perfil de usuário seja criado ou atualizado primeiro. Consulte [Usando múltiplos endpoints]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions#scenario-2-using-multiple-api-endpoints) para mais exemplos.
+Faça suas solicitações na mesma chamada de API, em vez de múltiplas chamadas, para garantir que o perfil de usuário seja criado ou atualizado primeiro. Consulte [Usando múltiplos endpoints]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions#scenario-2-using-multiple-api-endpoints) para mais exemplos.
 
 ### Adicionar uma postergação {#add-a-delay}
 
@@ -98,7 +98,7 @@ Depois de revisar os detalhes do seu Canvas, confira [Enviando Canvas de teste](
 
 - Verifique se há uma condição de corrida, que impacta as mensagens que os usuários recebem quando disparam múltiplas ações ao mesmo tempo.
 - Confirme que não há filtros específicos na etapa que possam ter impedido os usuários de receber a mensagem.
-- Procure conflitos entre diferentes etapas dentro do mesmo Canvas. Por exemplo, usuários que não receberam a mensagem podem ter sido parados por um filtro que exige a conclusão de outra etapa em uma Branch or ramificação or ramificação diferente.
+- Procure conflitos entre diferentes etapas dentro do mesmo Canvas. Por exemplo, usuários que não receberam a mensagem podem ter sido parados por um filtro que exige a conclusão de outra etapa em uma Branch diferente.
 - Confirme que os usuários atendem às regras de validação adicionais.
 - Confirme que a etapa do canva estava conectada à etapa anterior no momento do envio.
 
@@ -120,7 +120,7 @@ Se o Canvas não estiver carregando e não avançar, isso pode ser causado quand
 - Confirme se eles realizaram o evento personalizado ou a compra pré-requisito.
 - Verifique se há uma [condição de corrida]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions), que afeta as mensagens que os usuários recebem quando disparam múltiplas ações ao mesmo tempo.
 - Verifique se não há filtros específicos na etapa que possam ter impedido os usuários de receber a mensagem.
-- Procure conflitos entre etapas diferentes dentro do mesmo Canvas. Por exemplo, usuários que não receberam a mensagem podem ter sido barrados por um filtro que exige a conclusão de outra etapa em uma Branch or ramificação or ramificação diferente.
+- Procure conflitos entre etapas diferentes dentro do mesmo Canvas. Por exemplo, usuários que não receberam a mensagem podem ter sido barrados por um filtro que exige a conclusão de outra etapa em uma Branch diferente.
 - Confirme se os usuários atendem a regras de validação adicionais.
 - Confirme se a etapa do Canvas estava conectada à etapa anterior no momento do envio.
 {% enddetails %}

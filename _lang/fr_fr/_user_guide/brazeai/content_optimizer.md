@@ -86,7 +86,7 @@ Pour attribuer les comportements en aval dans vos propres outils d'analyse, ajou
 
 ## Configuration de l'entrée Canvas {#canvas-entry-setup}
 
-Pour de meilleurs résultats, utilisez l'Optimiseur de Contenu dans des Canvas où les utilisateurs entrent dans l'étape progressivement et régulièrement au fil du temps, comme dans des Canvas récurrents ou toujours actifs avec un volume quotidien constant. Si tous les utilisateurs entrent dans l'étape en même temps, l'Optimiseur de Contenu n'aura pas le temps d'apprendre des premiers résultats. L'étape se comportera davantage comme un test A/B statique que comme un moteur d'optimisation en direct or en ligne/en production/instantané.
+Pour de meilleurs résultats, utilisez l'Optimiseur de Contenu dans des Canvas où les utilisateurs entrent dans l'étape progressivement et régulièrement au fil du temps, comme dans des Canvas récurrents ou toujours actifs avec un volume quotidien constant. Si tous les utilisateurs entrent dans l'étape en même temps, l'Optimiseur de Contenu n'aura pas le temps d'apprendre des premiers résultats. L'étape se comportera davantage comme un test A/B statique que comme un moteur d'optimisation en direct.
 
 L'Optimiseur de Contenu est idéal pour les Canvas à entrée récurrente quotidienne, ainsi que pour les Canvas déclenchés par événement et déclenchés par API avec des entrées utilisateur quotidiennes relativement constantes. Si vous utilisez l'Optimiseur de Contenu dans des Canvas à envoi unique ou des Canvas à entrée « irrégulière » (comme les récurrents mensuels), envisagez d'utiliser les [Contrôles d'entrée]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#selecting-entry-controls) pour lisser les entrées utilisateur sur plusieurs jours.
 

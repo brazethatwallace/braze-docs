@@ -322,12 +322,12 @@ Revisa toda la configuración (desde el comportamiento de sincronización hasta 
 
 ### Consideraciones {#considerations}
 
-Los desencadenantes de CDI Canvas utilizan tu límite de velocidad de la REST or transferencia de estado representacional API para `/canvas/trigger/send`. Si utilizas este punto de conexión simultáneamente con los desencadenantes de CDI Canvas y tu integración de REST or transferencia de estado representacional API, ten en cuenta que el uso combinado se contabilizará en tu límite de velocidad.
+Los desencadenantes de CDI Canvas utilizan tu límite de velocidad de la REST API para `/canvas/trigger/send`. Si utilizas este punto de conexión simultáneamente con los desencadenantes de CDI Canvas y tu integración de REST API, ten en cuenta que el uso combinado se contabilizará en tu límite de velocidad.
 
 Cada ejecución de sincronización introduce a los usuarios en su Canvas de destino respectivo a una tasa máxima de aproximadamente 3,75 millones de usuarios por hora. Prepárate para tiempos de entrada más largos desde el origen hasta el Canvas cuando:
 
 * Sincronices más de 3,75 millones de usuarios por cada ejecución de sincronización.
-* Uses los desencadenantes de CDI Canvas cuando ya hayas saturado el [límite de velocidad de tu REST or transferencia de estado representacional API para `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases#rate-limit).
+* Uses los desencadenantes de CDI Canvas cuando ya hayas saturado el [límite de velocidad de tu REST API para `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases#rate-limit).
 
 Ten en cuenta lo siguiente sobre la CDI sin copia cuando el Archivado de mensajes está habilitado:
 

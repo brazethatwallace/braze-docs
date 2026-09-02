@@ -1,6 +1,6 @@
 ## Acerca de las tarjetas de contenido de Flutter {#about-flutter-content-cards}
 
-El SDK or kit de desarrollo de software de Braze incluye una fuente de tarjetas predeterminada para que empieces a utilizar las Content Cards. Para mostrar la fuente de tarjetas, puedes utilizar el método `braze.launchContentCards()`. La fuente predeterminada de tarjetas incluida en el SDK or kit de desarrollo de software de Braze gestionará todo el seguimiento de análisis, los descartes y la representación de las Content Cards de un usuario.
+El SDK de Braze incluye una fuente de tarjetas predeterminada para que empieces a utilizar las Content Cards. Para mostrar la fuente de tarjetas, puedes utilizar el método `braze.launchContentCards()`. La fuente predeterminada de tarjetas incluida en el SDK de Braze gestionará todo el seguimiento de análisis, los descartes y la representación de las Content Cards de un usuario.
 
 {% multi_lang_include developer_guide/prerequisites/flutter.md %}
 
@@ -10,7 +10,7 @@ Puedes utilizar estos métodos adicionales para crear una fuente de Content Card
 
 | Método                                         | Descripción                                                                                            |
 | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| `braze.requestContentCardsRefresh()`     | Solicita las últimas Content Cards al servidor del SDK or kit de desarrollo de software de Braze.                                           |
+| `braze.requestContentCardsRefresh()`     | Solicita las últimas Content Cards al servidor del SDK de Braze.                                           |
 | `braze.logContentCardClicked(contentCard)`    | Registra un clic para el objeto de tarjeta de contenido dado.                                                            |
 | `braze.logContentCardImpression(contentCard)` | Registra una impresión para el objeto de tarjeta de contenido dado.                                                      |
 | `braze.logContentCardDismissed(contentCard)`  | Registra un descarte para el objeto de tarjeta de contenido dado.                                                        |
@@ -38,21 +38,21 @@ contentCardsStreamSubscription = braze.subscribeToContentCards((List<BrazeConten
 contentCardsStreamSubscription.cancel();
 ```
 
-Para ver un ejemplo, consulta [main.dart](https://github.com/braze-inc/braze-flutter-sdk/blob/master/example/lib/main.dart) en la aplicación de ejemplo del SDK or kit de desarrollo de software de Braze para Flutter.
+Para ver un ejemplo, consulta [main.dart](https://github.com/braze-inc/braze-flutter-sdk/blob/master/example/lib/main.dart) en la aplicación de ejemplo del SDK de Braze para Flutter.
 
 ### Transmitir datos de Content Cards desde la capa nativa de iOS {#forward-content-card-data-from-the-native-ios-layer}
 
 {% tabs %}
-{% tab Flutter SDK or kit de desarrollo de software 18.0.0+ %}
+{% tab Flutter SDK 18.0.0+ %}
 
 Los datos de Content Cards se transmiten automáticamente desde las capas nativas de Android e iOS. No se requiere configuración adicional.
 
 {% endtab %}
-{% tab Flutter SDK or kit de desarrollo de software 17.1.0 y anteriores %}
+{% tab Flutter SDK 17.1.0 y anteriores %}
 
-Si estás utilizando Flutter SDK or kit de desarrollo de software 17.1.0 o anterior, la transmisión de datos de Content Cards desde la capa nativa de iOS requiere configuración manual. Es probable que tu aplicación contenga una devolución de llamada `contentCards.subscribeToUpdates` que llame a `BrazePlugin.processContentCards(contentCards)`. Para migrar a Flutter SDK or kit de desarrollo de software 18.0.0, elimina la llamada a `BrazePlugin.processContentCards(_:)`: la transmisión de datos ahora se gestiona automáticamente.
+Si estás utilizando Flutter SDK 17.1.0 o anterior, la transmisión de datos de Content Cards desde la capa nativa de iOS requiere configuración manual. Es probable que tu aplicación contenga una devolución de llamada `contentCards.subscribeToUpdates` que llame a `BrazePlugin.processContentCards(contentCards)`. Para migrar a Flutter SDK 18.0.0, elimina la llamada a `BrazePlugin.processContentCards(_:)`: la transmisión de datos ahora se gestiona automáticamente.
 
-Para ver un ejemplo, consulta [AppDelegate.swift](https://github.com/braze-inc/braze-flutter-sdk/blob/master/example/ios/Runner/AppDelegate.swift) en la aplicación de ejemplo del SDK or kit de desarrollo de software de Braze para Flutter.
+Para ver un ejemplo, consulta [AppDelegate.swift](https://github.com/braze-inc/braze-flutter-sdk/blob/master/example/ios/Runner/AppDelegate.swift) en la aplicación de ejemplo del SDK de Braze para Flutter.
 
 {% endtab %}
 {% endtabs %}

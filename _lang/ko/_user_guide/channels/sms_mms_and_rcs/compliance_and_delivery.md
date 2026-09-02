@@ -4,9 +4,9 @@ article_title: 규정 준수 및 전달
 page_order: 4
 layout: dev_guide
 guide_top_header: "규정 준수 및 전달"
-guide_top_text: "단문 메시지 서비스, MMS, RCS 메시지가 규정을 준수하고 전달 가능성과 사용자 신뢰를 위한 모범 사례를 따르도록 관리하세요."
+guide_top_text: "SMS, MMS, RCS 메시지가 규정을 준수하고 전달 가능성과 사용자 신뢰를 위한 모범 사례를 따르도록 관리하세요."
 page_type: landing
-description: "법률 및 규정, 옵트인, 트래픽 펌핑 사기 등 단문 메시지 서비스, MMS, RCS 메시징의 규정 준수 및 전달 가능성을 관리합니다."
+description: "법률 및 규정, 옵트인, 트래픽 펌핑 사기 등 SMS, MMS, RCS 메시징의 규정 준수 및 전달 가능성을 관리합니다."
 channel:
   - SMS
   - MMS

@@ -7,7 +7,7 @@ layout: api_page
 page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint Remover IDs externos."
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Remover ID externo {#remove-external-id}
 
 {% apimethod post %}
@@ -26,7 +26,7 @@ Este endpoint remove completamente o ID obsoleto e a ação não pode ser desfei
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics) com a permissão `users.external_ids.remove`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics) com a permissão `users.external_ids.remove`.
 
 ## Limite de frequência {#rate-limit}
 
@@ -83,7 +83,7 @@ A resposta confirmará todas as remoções bem-sucedidas, bem como as remoções
 ```
 
 O campo `message` retornará `success` para qualquer solicitação válida. Erros mais específicos são capturados no array `removal_errors`. O campo `message` retorna um erro no caso de:
-- Chave de API or interface de programação do aplicativo (API) inválida
+- Chave de API inválida
 - Array `external_ids` vazio
 - Array `external_ids` com mais de 50 itens
 - Limite de frequência atingido (mais de 1.000 solicitações/minuto)

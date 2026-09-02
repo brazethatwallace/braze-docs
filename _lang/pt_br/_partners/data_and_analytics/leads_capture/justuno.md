@@ -20,8 +20,8 @@ A integração do Justuno com a Braze oferece o melhor dos dois mundos. Você po
 
 ## Pré-requisitos {#prerequisites}
 
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com as permissões `users.track` e `custom_attributes.get`.<br><br>Isso pode ser criado no dashboard da Braze em **Settings** > **API or interface de programação do aplicativo (API) Keys**. |
-| Endpoint REST or transferir estado representacional da Braze | Seu URL do endpoint REST or transferir estado representacional. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com as permissões `users.track` e `custom_attributes.get`.<br><br>Isso pode ser criado no dashboard da Braze em **Settings** > **API Keys**. |
+| Endpoint REST da Braze | Seu URL do endpoint REST. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração do Justuno com a Braze {#integrating-justuno-with-braze}
@@ -38,7 +38,7 @@ Para adicionar o app da Braze à sua conta Justuno, acesse **Account Settings** 
 
 ![A página "Connect Apps" no Justuno com o app da Braze mostrado na lista de resultados de pesquisa.]({% image_buster /assets/img/justuno/search-for-braze.png %})
 
-Digite a chave de API or interface de programação do aplicativo (API) e o URL de base [que você criou anteriormente](#prerequisites) e selecione **Connect**.
+Digite a chave de API e o URL de base [que você criou anteriormente](#prerequisites) e selecione **Connect**.
 
 ![A janela pop-up de autenticação da Braze solicitando uma chave de API da Braze e um URL de base.]({% image_buster /assets/img/justuno/authenticate-braze.png %}){: style="max-width:75%;"}
 

@@ -18,13 +18,13 @@ function success(position) {
 navigator.geolocation.getCurrentPosition(success);
 ```
 
-Wenn nun Daten an Braze gesendet werden, kann das SDK or Software-Development-Kit das Land des Nutzers:innen anhand seiner IP-Adresse automatisch erkennen. Für weitere Informationen siehe [setLastKnownLocation()](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setlastknownlocation).
+Wenn nun Daten an Braze gesendet werden, kann das SDK das Land des Nutzers:innen anhand seiner IP-Adresse automatisch erkennen. Für weitere Informationen siehe [setLastKnownLocation()](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setlastknownlocation).
 
 ## Kontinuierliches Tracking des Standorts
 
 Um den Standort eines Nutzers während des Ladens einer Seite kontinuierlich zu verfolgen, verwenden Sie die Geolocation API's [`watchPosition()`](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/watchPosition) Methode. Wenn Sie diese Methode aufrufen, wird der Nutzer:in sofort aufgefordert, das Tracking zuzulassen oder zu verbieten (es sei denn, er hat dies bereits getan).
 
-Bei Opt-in wird nun bei jedem Update or aktualisieren des Standorts ein Callback für den Erfolg aufgerufen.
+Bei Opt-in wird nun bei jedem Update des Standorts ein Callback für den Erfolg aufgerufen.
 
 ```javascript
 function success(position) {

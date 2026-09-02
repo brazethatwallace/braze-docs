@@ -10,7 +10,7 @@ description: "Esta página explica cómo usar el editor de arrastrar y soltar de
 
 > Usa el editor de arrastrar y soltar de mensajes dentro de la aplicación para aumentar el conocimiento de los lanzamientos de nuevos productos.
 
-{% multi_lang_include drag_and_drop/templates.md section='SDK or kit de desarrollo de software requirements' %}
+{% multi_lang_include drag_and_drop/templates.md section='SDK requirements' %}
 
 ## Creando un anuncio de producto {#creating-a-product-announcement}
 

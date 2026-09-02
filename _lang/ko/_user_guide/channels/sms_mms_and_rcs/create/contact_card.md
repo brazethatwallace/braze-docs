@@ -2,7 +2,7 @@
 nav_title: 연락처 카드
 article_title: 연락처 카드
 page_order: 3
-description: "이 참조 문서에서는 MMS 및 단문 메시지 서비스 메시지에 포함할 연락처 카드를 만드는 방법을 다룹니다."
+description: "이 참조 문서에서는 MMS 및 SMS 메시지에 포함할 연락처 카드를 만드는 방법을 다룹니다."
 page_type: reference
 alias: /mms_contact_cards/
 channel:
@@ -24,7 +24,7 @@ channel:
 
 ### 1단계: 이름 할당 {#step-1-assign-name}
 
-연락처 카드는 단문 메시지 서비스 및 MMS 작성기에서 만들 수 있습니다. **Contact Card Generator** 탭을 선택하여 시작하세요.
+연락처 카드는 SMS 및 MMS 작성기에서 만들 수 있습니다. **Contact Card Generator** 탭을 선택하여 시작하세요.
 
 다음으로 회사 이름 또는 닉네임을 입력하라는 메시지가 표시됩니다. 이 이름은 사용자가 카드를 저장할 때 표시되는 이름입니다. 사용자가 연락처 및 메시징 앱에서 전체 회사 이름 또는 별칭을 볼 수 있도록 20자 제한이 적용됩니다.
 

@@ -2,7 +2,7 @@
 nav_title: Mit einem LLM entwickeln
 article_title: Mit einem LLM entwickeln
 page_order: 4
-description: "Erfahren Sie, wie Sie KI or künstliche Intelligenz-Codierungsassistenten mit der Braze-Dokumentation einsetzen können, um Ihren SDK or Software-Development-Kit-Integrations-Workflow zu beschleunigen."
+description: "Erfahren Sie, wie Sie KI-Codierungsassistenten mit der Braze-Dokumentation einsetzen können, um Ihren SDK-Integrations-Workflow zu beschleunigen."
 platform:
   - Web
   - React Native
@@ -10,17 +10,17 @@ platform:
 
 # Mit einem LLM entwickeln {#building-with-an-llm}
 
-> Nutzen Sie KI or künstliche Intelligenz-Codierungsassistenten, um Ihren Braze-Integrations-Workflow zu beschleunigen. Verbinden Sie Ihre IDE über Context7 mit dem Braze Docs MCP-Server und erhalten Sie präzise, aktuelle SDK or Software-Development-Kit-Anleitungen direkt in Ihrer Entwicklungsumgebung.
+> Nutzen Sie KI-Codierungsassistenten, um Ihren Braze-Integrations-Workflow zu beschleunigen. Verbinden Sie Ihre IDE über Context7 mit dem Braze Docs MCP-Server und erhalten Sie präzise, aktuelle SDK-Anleitungen direkt in Ihrer Entwicklungsumgebung.
 
-KI or künstliche Intelligenz-Codierungsassistenten können Ihnen beim Schreiben von Integrationscode, bei der Fehlerbehebung und beim Erkunden der Features des Braze SDK or Software-Development-Kit behilflich sein&#8212;jedoch nur, wenn sie über den richtigen Kontext verfügen. Der Braze Docs MCP-Server ermöglicht Ihrem KI or künstliche Intelligenz-Assistenten direkten Zugriff auf die Braze-Dokumentation, sodass er präzise Code-Snippets generieren und technische Fragen auf Grundlage der neuesten SDK or Software-Development-Kit-Referenzen beantworten kann.
+KI-Codierungsassistenten können Ihnen beim Schreiben von Integrationscode, bei der Fehlerbehebung und beim Erkunden der Features des Braze SDK behilflich sein&#8212;jedoch nur, wenn sie über den richtigen Kontext verfügen. Der Braze Docs MCP-Server ermöglicht Ihrem KI-Assistenten direkten Zugriff auf die Braze-Dokumentation, sodass er präzise Code-Snippets generieren und technische Fragen auf Grundlage der neuesten SDK-Referenzen beantworten kann.
 
 ## Verbindung mit dem Braze Docs MCP herstellen {#connecting-to-the-braze-docs-mcp}
 
-[Context7](https://context7.com/braze-inc/braze-docs) fungiert als Schnittstelle zwischen Ihrem KI or künstliche Intelligenz-Assistenten und der Braze-Dokumentationsbibliothek. Durch Hinzufügen von Context7 zur MCP-Konfiguration Ihrer IDE kann Ihr KI or künstliche Intelligenz-Assistent die gesamte Braze-Dokumentation abfragen und bei Bedarf relevante SDK or Software-Development-Kit-Referenzen, Code-Beispiele und Integrationsanleitungen abrufen.
+[Context7](https://context7.com/braze-inc/braze-docs) fungiert als Schnittstelle zwischen Ihrem KI-Assistenten und der Braze-Dokumentationsbibliothek. Durch Hinzufügen von Context7 zur MCP-Konfiguration Ihrer IDE kann Ihr KI-Assistent die gesamte Braze-Dokumentation abfragen und bei Bedarf relevante SDK-Referenzen, Code-Beispiele und Integrationsanleitungen abrufen.
 
 ### Einrichtung von Context7 {#setting-up-context7}
 
-Um Ihren KI or künstliche Intelligenz-Assistenten über Context7 mit dem Braze Docs MCP zu verbinden, fügen Sie die folgende Konfiguration zur `mcp.json`-Datei Ihrer IDE hinzu.
+Um Ihren KI-Assistenten über Context7 mit dem Braze Docs MCP zu verbinden, fügen Sie die folgende Konfiguration zur `mcp.json`-Datei Ihrer IDE hinzu.
 
 {% tabs %}
 {% tab Cursor %}
@@ -37,7 +37,7 @@ Gehen Sie in [Cursor](https://cursor.com/) zu **Settings** > **Tools and Integra
 }
 ```
 
-Speichern Sie die Konfiguration und starten Sie Cursor neu. Ihr KI or künstliche Intelligenz-Assistent kann nun über Context7 auf die Braze-Dokumentation zugreifen, wenn Sie `use context7` in Ihre Prompts einfügen.
+Speichern Sie die Konfiguration und starten Sie Cursor neu. Ihr KI-Assistent kann nun über Context7 auf die Braze-Dokumentation zugreifen, wenn Sie `use context7` in Ihre Prompts einfügen.
 {% endtab %}
 
 {% tab Claude %}
@@ -76,18 +76,18 @@ Speichern Sie die Konfiguration und starten Sie VS Code neu.
 {% endtabs %}
 
 {% alert note %}
-Context7 unterscheidet sich vom [Braze MCP-Server]({{site.baseurl}}/developer_guide/mcp_server). Context7 gewährt Ihrem KI or künstliche Intelligenz-Assistenten Zugriff auf die **Braze-Dokumentation**, während der Braze MCP-Server schreibgeschützten Zugriff auf **Ihre Braze-Workspace-Daten** (wie Campaigns, Segmente und Analytics) ermöglicht. Sie können beide zusammen verwenden, um eine umfassendere KI or künstliche Intelligenz-gestützte Entwicklungserfahrung zu erzielen.
+Context7 unterscheidet sich vom [Braze MCP-Server]({{site.baseurl}}/developer_guide/mcp_server). Context7 gewährt Ihrem KI-Assistenten Zugriff auf die **Braze-Dokumentation**, während der Braze MCP-Server schreibgeschützten Zugriff auf **Ihre Braze-Workspace-Daten** (wie Campaigns, Segmente und Analytics) ermöglicht. Sie können beide zusammen verwenden, um eine umfassendere KI-gestützte Entwicklungserfahrung zu erzielen.
 {% endalert %}
 
-## Prompts für die Braze-SDK or Software-Development-Kit-Entwicklung schreiben {#writing-prompts-for-braze-sdk-development}
+## Prompts für die Braze-SDK-Entwicklung schreiben {#writing-prompts-for-braze-sdk-development}
 
-Nachdem Sie Context7 eingerichtet haben, fügen Sie `use context7` in Ihre Prompts ein, um Ihrem KI or künstliche Intelligenz-Assistenten mitzuteilen, dass er die Braze-Dokumentation als Kontext heranziehen soll. Die folgenden Beispiele veranschaulichen, wie Sie effektive Prompts für gängige SDK or Software-Development-Kit-Aufgaben erstellen können.
+Nachdem Sie Context7 eingerichtet haben, fügen Sie `use context7` in Ihre Prompts ein, um Ihrem KI-Assistenten mitzuteilen, dass er die Braze-Dokumentation als Kontext heranziehen soll. Die folgenden Beispiele veranschaulichen, wie Sie effektive Prompts für gängige SDK-Aufgaben erstellen können.
 
-### React Native SDK or Software-Development-Kit {#react-native-sdk}
+### React Native SDK {#react-native-sdk}
 
-Diese Prompts veranschaulichen gängige Integrationsaufgaben für das [Braze React Native SDK or Software-Development-Kit]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=react%20native).
+Diese Prompts veranschaulichen gängige Integrationsaufgaben für das [Braze React Native SDK]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=react%20native).
 
-#### Initialisierung des SDK or Software-Development-Kit {#initializing-the-sdk}
+#### Initialisierung des SDK {#initializing-the-sdk}
 
 ```text
 Using the Braze React Native SDK, show me how to initialize the SDK
@@ -120,11 +120,11 @@ Native SDK, including how to log impressions and button clicks
 programmatically. Use context7.
 ```
 
-### Web SDK or Software-Development-Kit {#web-sdk}
+### Web SDK {#web-sdk}
 
-Diese Prompts veranschaulichen gängige Integrationsaufgaben für das [Braze Web SDK or Software-Development-Kit]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web).
+Diese Prompts veranschaulichen gängige Integrationsaufgaben für das [Braze Web SDK]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web).
 
-#### Initialisierung des SDK or Software-Development-Kit
+#### Initialisierung des SDK
 
 ```text
 Using the Braze Web SDK, show me how to initialize the SDK with
@@ -162,7 +162,7 @@ subscription_tier) for the current user. Use context7.
 
 ## Klartext-Dokumentation {#plain-text-documentation}
 
-Sie können auf die Dokumentation des Braze Developer Guide als reine Textdateien zugreifen, die für KI or künstliche Intelligenz-Tools und LLMs optimiert sind. Diese Dateien enthalten die Braze-Dokumentation in einem Format, das KI or künstliche Intelligenz-Assistenten ohne den Aufwand des HTML-Renderings analysieren und verstehen können.
+Sie können auf die Dokumentation des Braze Developer Guide als reine Textdateien zugreifen, die für KI-Tools und LLMs optimiert sind. Diese Dateien enthalten die Braze-Dokumentation in einem Format, das KI-Assistenten ohne den Aufwand des HTML-Renderings analysieren und verstehen können.
 
 | Datei | Beschreibung |
 |------|-------------|
@@ -170,4 +170,4 @@ Sie können auf die Dokumentation des Braze Developer Guide als reine Textdateie
 | [llms-full.txt]({{site.baseurl}}/developer_guide/llms-full.txt) | Die vollständige Braze-Dokumentation für Entwickler:innen in einer einzigen Textdatei, formatiert für die Verwendung mit LLMs. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Klartext-Dokumentation" }
 
-Diese Dateien entsprechen dem [llms.txt-Standard](https://llmstxt.org/), einer sich entwickelnden Konvention, um Dokumentationen für KI or künstliche Intelligenz-Tools zugänglich zu machen. Sie können diese Dateien direkt in Ihren Prompts referenzieren oder ihren Inhalt zur Kontextualisierung in ein LLM einfügen.
+Diese Dateien entsprechen dem [llms.txt-Standard](https://llmstxt.org/), einer sich entwickelnden Konvention, um Dokumentationen für KI-Tools zugänglich zu machen. Sie können diese Dateien direkt in Ihren Prompts referenzieren oder ihren Inhalt zur Kontextualisierung in ein LLM einfügen.

@@ -8,7 +8,7 @@ page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint da Braze para exportar o número de compras."
 
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Exportar número de compras {#export-number-of-purchases}
 {% apimethod get %}
 /purchases/quantity_series
@@ -20,7 +20,7 @@ description: "Este artigo descreve detalhes sobre o endpoint da Braze para expor
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `purchases.quantity_series`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `purchases.quantity_series`.
 
 ## Limite de frequência {#rate-limit}
 
@@ -33,7 +33,7 @@ Para usar esse endpoint, você precisará de uma [chave de API or interface de p
 | `ending_at` | Opcional | Datetime (string [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Data em que a exportação de dados deve terminar. O padrão é o momento da solicitação. |
 | `length` | Obrigatório | Inteiro | Número máximo de dias antes de `ending_at` para incluir na série retornada. Deve estar entre 1 e 100 (inclusive). |
 | `unit` | Opcional | String | Unidade de tempo entre os pontos de dados. Pode ser dia ou hora; o padrão é dia. |
-| `app_id` | Opcional | String | Identificador de API or interface de programação do aplicativo (API) do app recuperado da página [Chaves de API or interface de programação do aplicativo (API)]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers). Se excluído, serão retornados os resultados de todos os apps em um espaço de trabalho. |
+| `app_id` | Opcional | String | Identificador de API do app recuperado da página [Chaves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers). Se excluído, serão retornados os resultados de todos os apps em um espaço de trabalho. |
 | `product` | Opcional | String | Nome do produto para filtrar a resposta. Se excluído, os resultados de todos os apps serão retornados. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
@@ -62,5 +62,5 @@ curl --location --request GET 'https://rest.iad-01.braze.com/purchases/quantity_
 {% endapi %}
 
 {% alert tip %}
-Para obter ajuda com exportações de CSV e API or interface de programação do aplicativo (API), acesse [Solução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
+Para obter ajuda com exportações de CSV e API, acesse [Solução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}

@@ -11,7 +11,7 @@ description: "Dieser Referenzartikel erklärt, wie Sie Shopify-Segmente als Koho
 > Die Shopify-Segmentsynchronisierung erweitert Ihren Shopify-Shop in Braze und gibt Ihrem Marketing-Team direkten Zugang zu umfangreicheren Nutzerdaten, die in Shopify vorliegen – einschließlich Signalen, die von der Standard-Braze-Shopify-Integration nicht erfasst werden. Durch die Synchronisierung von Shopify-Segmenten als Kohorten stimmen Sie Zielgruppendefinitionen plattformübergreifend ab und bieten konsistente, koordinierte Nutzererlebnisse – unabhängig davon, ob Nutzer:innen in Shopify angesprochen oder über eine Braze-Campaign erreicht werden.
 
 {% alert important %}
-Die Shopify-Segmentsynchronisierung befindet sich derzeit in der Beta-Phase. Um Zugang zu erhalten, wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in.
+Die Shopify-Segmentsynchronisierung befindet sich derzeit in der Beta-Phase. Um Zugang zu erhalten, wenden Sie sich an Ihren CSM.
 {% endalert %}
 
 ## Voraussetzungen {#prerequisites}
@@ -76,7 +76,7 @@ Gehen Sie in Braze zu **Audience** > **Segments** und erstellen Sie ein neues Se
 
 ## Erneutes Synchronisieren eines Segments {#re-syncing-a-segment}
 
-Nachdem ein Segment synchronisiert wurde, können Sie die Kohorten-Mitgliedschaft jederzeit über dieselbe Aktionserweiterung Update or aktualisieren or aktualisieren.
+Nachdem ein Segment synchronisiert wurde, können Sie die Kohorten-Mitgliedschaft jederzeit über dieselbe Aktionserweiterung aktualisieren.
 
 1. Öffnen Sie in Shopify das synchronisierte Segment und wählen Sie **Use segment** > **Braze Segment Sync**.
 2. Wählen Sie im Modal **Sync now** aus.
@@ -114,7 +114,7 @@ Speichern Sie Ihre Änderungen, um die Synchronisierungen zu starten.
 
 Um die Synchronisierung für ein Segment zu pausieren, wählen Sie **Pause sync** in der entsprechenden Zeile der Segmenttabelle aus und bestätigen Sie. Wenn die Synchronisierung eines Segments pausiert ist:
 
-- Die Kohorte und ihre Mitglieder bleiben in Braze und sind weiterhin für Targeting verfügbar. Campaigns und Canvase, die die Kohorte verwenden, senden weiterhin an die aktuellen Mitglieder der Kohorte.
+- Die Kohorte und ihre Mitglieder bleiben in Braze und sind weiterhin für Targeting verfügbar. Campaigns und Canvases, die die Kohorte verwenden, senden weiterhin an die aktuellen Mitglieder der Kohorte.
 - Mitgliedschafts-Updates werden gestoppt.
 - Das Umbenennen des Segments in Shopify aktualisiert weiterhin den Anzeigenamen der Kohorte.
 - Das Löschen des Segments in Shopify beendet weiterhin das Tracking.
@@ -145,7 +145,7 @@ Braze aktualisiert die Kohortenzugehörigkeit nicht automatisch, wenn Sie die Kr
 
 ## Nutzer:innen-Zuordnung {#user-matching}
 
-Nutzer:innen, die aus Shopify-Segmenten synchronisiert werden, werden anhand des `shopify_customer_id`-Alias, der im Rahmen der Braze-Shopify-Integration gesetzt wird, mit Braze-Nutzerprofilen abgeglichen. Nutzer:innen ohne ein übereinstimmendes Braze-Kundenprofil or Nutzerprofil werden bei der Synchronisierung übersprungen.
+Nutzer:innen, die aus Shopify-Segmenten synchronisiert werden, werden anhand des `shopify_customer_id`-Alias, der im Rahmen der Braze-Shopify-Integration gesetzt wird, mit Braze-Nutzerprofilen abgeglichen. Nutzer:innen ohne ein übereinstimmendes Braze-Kundenprofil werden bei der Synchronisierung übersprungen.
 
 Weitere Informationen darüber, wie die Shopify-Integration Nutzer:innen identifiziert und Aliase zuweist, finden Sie unter [Shopify-Daten-Features]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features).
 
@@ -154,6 +154,6 @@ Braze gleicht synchronisierte Nutzer:innen mit bestehenden Braze-Nutzerprofilen 
 ## Einschränkungen {#limitations}
 
 - **Einseitige Synchronisierung.** Die Segment-Mitgliedschaft fließt nur von Shopify zu Braze. Änderungen an der Kohorte, die direkt in Braze vorgenommen werden, werden nicht an Shopify zurückgesendet.
-- **Keine Profilerstellung.** Nur Shopify-Kund:innen, die bereits ein Braze-Kundenprofil or Nutzerprofil haben, werden der Kohorte hinzugefügt.
+- **Keine Profilerstellung.** Nur Shopify-Kund:innen, die bereits ein Braze-Kundenprofil haben, werden der Kohorte hinzugefügt.
 - **Keine Möglichkeit, die Synchronisierung über Braze zu stoppen.** Um die Synchronisierung eines Segments zu stoppen, löschen Sie es in Shopify. Die Kohorte und ihre Mitglieder bleiben in Braze erhalten und werden nicht mehr aktualisiert.
 - **Erneute Synchronisierung fügt nur Mitglieder hinzu.** Bei einer erneuten Synchronisierung eines Segments werden neu passende Nutzer:innen zur Kohorte hinzugefügt, aber Nutzer:innen, die nicht mehr im Shopify-Segment sind, werden nicht entfernt.

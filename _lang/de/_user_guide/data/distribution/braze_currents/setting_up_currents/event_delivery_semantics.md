@@ -40,7 +40,7 @@ Alle von Currents exportierten Zeitstempel werden in der UTC-Zeitzone gesendet. 
 
 ### Latenz {#latency}
 
-Events, die über SDK or Software-Development-Kit oder API an Braze gesendet werden, können einen Zeitstempel aus der Vergangenheit enthalten. Das häufigste Beispiel ist, wenn SDK or Software-Development-Kit-Daten in eine Warteschlange gestellt werden, etwa wenn keine mobile Konnektivität besteht. In diesem Fall spiegelt der Event-Zeitstempel wider, wann das Event generiert wurde. Das bedeutet, dass ein gewisser Prozentsatz der Events eine hohe Latenz aufweisen wird.
+Events, die über SDK oder API an Braze gesendet werden, können einen Zeitstempel aus der Vergangenheit enthalten. Das häufigste Beispiel ist, wenn SDK-Daten in eine Warteschlange gestellt werden, etwa wenn keine mobile Konnektivität besteht. In diesem Fall spiegelt der Event-Zeitstempel wider, wann das Event generiert wurde. Das bedeutet, dass ein gewisser Prozentsatz der Events eine hohe Latenz aufweisen wird.
 
 ## Apache-Avro-Format {#apache-avro-format}
 
@@ -104,15 +104,15 @@ Von Zeit zu Zeit kann Braze Änderungen am Avro-Schema vornehmen, wenn Felder hi
 
 #### Nicht-brechende Änderungen {#non-breaking-changes}
 
-Wenn ein Feld zum Avro-Schema hinzugefügt wird, betrachten wir dies als nicht-brechende Änderung. Hinzugefügte Felder sind immer „optionale“ Avro-Felder (z. B. mit einem Standardwert von `null`), sodass sie gemäß der [Avro-Schema-Auflösungsspezifikation](http://avro.apache.org/docs/current/spec.html#schema+resolution) mit älteren Schemas „übereinstimmen“. Diese Ergänzungen sollten bestehende ETL or Extract, Transform, Load-Prozesse (ETL or Extract, Transform, Load or Extract, Transform, Load) nicht beeinträchtigen, da das Feld einfach ignoriert wird, bis es zu Ihrem ETL or Extract, Transform, Load-Prozess hinzugefügt wird.
+Wenn ein Feld zum Avro-Schema hinzugefügt wird, betrachten wir dies als nicht-brechende Änderung. Hinzugefügte Felder sind immer „optionale“ Avro-Felder (z. B. mit einem Standardwert von `null`), sodass sie gemäß der [Avro-Schema-Auflösungsspezifikation](http://avro.apache.org/docs/current/spec.html#schema+resolution) mit älteren Schemas „übereinstimmen“. Diese Ergänzungen sollten bestehende ETL-Prozesse (ETL) nicht beeinträchtigen, da das Feld einfach ignoriert wird, bis es zu Ihrem ETL-Prozess hinzugefügt wird.
 
 {% alert important %}
-Wir empfehlen, dass Ihr ETL or Extract, Transform, Load-Setup explizit die zu verarbeitenden Felder angibt, um zu vermeiden, dass der Ablauf beim Hinzufügen neuer Felder unterbrochen wird.
+Wir empfehlen, dass Ihr ETL-Setup explizit die zu verarbeitenden Felder angibt, um zu vermeiden, dass der Ablauf beim Hinzufügen neuer Felder unterbrochen wird.
 {% endalert %}
 
 #### Brechende Änderungen {#breaking-changes}
 
-Wenn ein Feld aus dem Avro-Schema entfernt oder darin geändert wird, betrachten wir dies als brechende Änderung. Brechende Änderungen können Anpassungen an bestehenden ETL or Extract, Transform, Load-Prozessen erfordern, da Felder, die zuvor verwendet wurden, möglicherweise nicht mehr wie erwartet aufgezeichnet werden.
+Wenn ein Feld aus dem Avro-Schema entfernt oder darin geändert wird, betrachten wir dies als brechende Änderung. Brechende Änderungen können Anpassungen an bestehenden ETL-Prozessen erfordern, da Felder, die zuvor verwendet wurden, möglicherweise nicht mehr wie erwartet aufgezeichnet werden.
 
 Alle brechenden Änderungen werden vor dem Release im Voraus kommuniziert.
 

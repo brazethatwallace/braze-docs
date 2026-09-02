@@ -12,7 +12,7 @@ description: "Dieser Artikel enthält Versionshinweise für September 2021."
 
 ### Apple Mail-Datenschutz {#apple-mail-privacy-protection}
 
-Apples Mail-Datenschutz (E-Mail-Datenschutz or MPP) ist ein Update or aktualisieren zum Schutz der Privatsphäre, das für Nutzer:innen der Apple Mail App unter iOS 15, iPadOS 15, macOS Monterey und watchOS 8 ab Mitte September verfügbar sein wird. Für Nutzer:innen, die sich für E-Mail-Datenschutz or MPP entschieden haben, werden E-Mails nun über Proxy-Server vorgeladen, wodurch Bilder zwischengespeichert werden und die Möglichkeit, Tracking-Pixel für Metriken wie das [Öffnungs-Tracking]({{site.baseurl}}/user_guide/administrative/app_settings/email_settings#open-tracking-pixel) zu nutzen, eingeschränkt wird. Wenn Sie mehr über E-Mail-Datenschutz or MPP und Probleme mit Metriken zur Zustellbarkeit von E-Mails sowie mit bereits bestehenden Campaigns und Canvase, die auf der Grundlage dieser Metriken Trigger or triggern or triggern, erfahren möchten, besuchen Sie unsere [Dokumentation]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/mpp).
+Apples Mail-Datenschutz (E-Mail-Datenschutz) ist ein Update zum Schutz der Privatsphäre, das für Nutzer:innen der Apple Mail App unter iOS 15, iPadOS 15, macOS Monterey und watchOS 8 ab Mitte September verfügbar sein wird. Für Nutzer:innen, die sich für E-Mail-Datenschutz entschieden haben, werden E-Mails nun über Proxy-Server vorgeladen, wodurch Bilder zwischengespeichert werden und die Möglichkeit, Tracking-Pixel für Metriken wie das [Öffnungs-Tracking]({{site.baseurl}}/user_guide/administrative/app_settings/email_settings#open-tracking-pixel) zu nutzen, eingeschränkt wird. Wenn Sie mehr über E-Mail-Datenschutz und Probleme mit Metriken zur Zustellbarkeit von E-Mails sowie mit bereits bestehenden Campaigns und Canvases, die auf der Grundlage dieser Metriken triggern, erfahren möchten, besuchen Sie unsere [Dokumentation]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/mpp).
 
 ### Push-Features
 
@@ -20,7 +20,7 @@ Mit iOS 15 wurden neue Features für Benachrichtigungen eingeführt, die den Nut
 
 ## Kontaktkarten {#contact-cards}
 
-Kontaktkarten sind ein standardisiertes Dateiformat zum Senden von Geschäfts- und Kontaktinformationen, die einfach in Adressbücher oder Kontaktbücher importiert werden können. Sie können jetzt Kontaktkarten für Ihre Kurzmitteilungsdienst or SMS- und MMS-Nachrichten hochladen und erstellen. Weitere Informationen zum Erstellen von Kontaktkarten mit unserem integrierten Kontaktkarten-Generator finden Sie in unserer [Dokumentation]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/contact_card).
+Kontaktkarten sind ein standardisiertes Dateiformat zum Senden von Geschäfts- und Kontaktinformationen, die einfach in Adressbücher oder Kontaktbücher importiert werden können. Sie können jetzt Kontaktkarten für Ihre SMS- und MMS-Nachrichten hochladen und erstellen. Weitere Informationen zum Erstellen von Kontaktkarten mit unserem integrierten Kontaktkarten-Generator finden Sie in unserer [Dokumentation]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/contact_card).
 
 ## Standardmäßige Content-Card-Anpassung {#default-content-cards-customization}
 
@@ -36,4 +36,4 @@ Die Entwicklerhandbücher für Android und FireOS wurden an einem Ort zusammenge
 
 ## Updates für Funnel- und Retention-Berichte {#updates-to-funnel-and-retention-reports}
 
-[Funnel-Berichte]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports) und [Retention-Berichte]({{site.baseurl}}/user_guide/analytics/reports/retention_reports) sind jetzt für Kurzmitteilungsdienst or SMS-Campaigns verfügbar.
+[Funnel-Berichte]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports) und [Retention-Berichte]({{site.baseurl}}/user_guide/analytics/reports/retention_reports) sind jetzt für SMS-Campaigns verfügbar.

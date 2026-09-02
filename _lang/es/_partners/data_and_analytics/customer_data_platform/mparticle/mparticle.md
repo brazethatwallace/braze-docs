@@ -2,7 +2,7 @@
 nav_title: mParticle de Rokt
 article_title: mParticle de Rokt
 alias: /partners/mparticle/
-description: "Este artículo de referencia describe la asociación entre Braze y mParticle, una CDP or plataforma de datos de los clientes or plataforma de datos de los clientes que recopila y encamina información entre fuentes de tu stack de marketing."
+description: "Este artículo de referencia describe la asociación entre Braze y mParticle, una CDP que recopila y encamina información entre fuentes de tu stack de marketing."
 page_type: partner
 search_tag: Partner
 
@@ -12,7 +12,7 @@ search_tag: Partner
 
 {% multi_lang_include video.html id="Njhqwd36gZM" align="right" %}
 
-> Con la CDP or plataforma de datos de los clientes or plataforma de datos de los clientes de mParticle, podrás hacer mucho más con tus datos. Los especialistas en marketing más sofisticados utilizan mParticle para orquestar los datos de todo su stack de crecimiento, lo que les permite ganar en los momentos clave del recorrido del cliente.
+> Con la CDP de mParticle, podrás hacer mucho más con tus datos. Los especialistas en marketing más sofisticados utilizan mParticle para orquestar los datos de todo su stack de crecimiento, lo que les permite ganar en los momentos clave del recorrido del cliente.
 
 La integración de Braze y mParticle te permite controlar fácilmente el flujo de información entre ambos sistemas:
 - Sincroniza las audiencias de mParticle con Braze para la segmentación de Campaign y Canvas de Braze.
@@ -26,7 +26,7 @@ La integración de Braze y mParticle te permite controlar fácilmente el flujo d
 | Cuenta de mParticle | Se necesita una [cuenta de mParticle](https://app.mparticle.com/login) para beneficiarse de esta asociación. |
 | Instancia de Braze | Tu instancia de Braze se puede encontrar en la [página de resumen de la API]({{site.baseurl}}/api/basics#endpoints) (por ejemplo, `US-01` o `US-02`). |
 | Clave del identificador de la aplicación de Braze | Tu clave de identificador de la aplicación. <br><br>Se puede encontrar en **Administrar configuración** > **Clave de API** en el panel de Braze. |
-| Clave de API REST or transferencia de estado representacional del espacio de trabajo | (Servidor a servidor) Una clave de API REST or transferencia de estado representacional de Braze<br><br>Se puede crear en **Consola para desarrolladores** > **Configuración de API** > **Clave de API** en el panel de Braze. |
+| Clave de API REST del espacio de trabajo | (Servidor a servidor) Una clave de API REST de Braze<br><br>Se puede crear en **Consola para desarrolladores** > **Configuración de API** > **Clave de API** en el panel de Braze. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
@@ -107,7 +107,7 @@ Para crear una audiencia en mParticle:
 | Clave de API | En el panel de Braze, ve a **Configuración** > **Claves de API**. |
 | Sistema operativo de la clave de API | Selecciona a qué sistema operativo corresponde tu clave de API de Braze. Esta selección limitará los tipos de tokens de notificaciones push reenviados en una actualización de audiencia. |
 | Enviar segmentos como | El método de envío de audiencias a Braze. Consulta la sección [Reenvío de audiencias](#forwarding-audiences) para más detalles. |
-| Clave de API REST or transferencia de estado representacional del espacio de trabajo | Clave de API REST or transferencia de estado representacional de Braze con permisos completos. Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Clave de API REST del espacio de trabajo | Clave de API REST de Braze con permisos completos. Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
 | Tipo de identidad externa | El tipo de identidad de usuario de mParticle que se reenviará como ID externo a Braze. Recomendamos dejar el valor predeterminado, Customer ID. |
 | Tipo de identidad de correo electrónico | El tipo de identidad de usuario de mParticle que se reenviará como correo electrónico a Braze. |
 | Instancia de Braze | Especifica a qué clúster se reenviarán tus datos de Braze. |
@@ -156,19 +156,19 @@ En mParticle, ve a **Setup > Outputs > Add Outputs** y selecciona **Braze** para
 
 ### Integración de kit integrado {#embedded-kit-integration}
 
-Los SDK or kit de desarrollo de software de mParticle y Braze estarán presentes en tu aplicación a través de la integración de kit integrado. Sin embargo, a diferencia de una integración directa con Braze, mParticle se encarga de llamar a la mayoría de los métodos del SDK or kit de desarrollo de software de Braze por ti. Los métodos de mParticle que usas para rastrear datos de usuario se mapearán automáticamente a los métodos del SDK or kit de desarrollo de software de Braze.
+Los SDK de mParticle y Braze estarán presentes en tu aplicación a través de la integración de kit integrado. Sin embargo, a diferencia de una integración directa con Braze, mParticle se encarga de llamar a la mayoría de los métodos del SDK de Braze por ti. Los métodos de mParticle que usas para rastrear datos de usuario se mapearán automáticamente a los métodos del SDK de Braze.
 
-Estos mapeados del SDK or kit de desarrollo de software de mParticle para [Android](https://github.com/mparticle-integrations/mparticle-android-integration-appboy), [iOS](https://github.com/mparticle-integrations/mparticle-apple-integration-appboy) y [Web](https://github.com/mparticle-integrations/mparticle-javascript-integration-braze) son de código abierto y se pueden encontrar en la [página de GitHub de mParticle](https://github.com/mparticle-integrations).
+Estos mapeados del SDK de mParticle para [Android](https://github.com/mparticle-integrations/mparticle-android-integration-appboy), [iOS](https://github.com/mparticle-integrations/mparticle-apple-integration-appboy) y [Web](https://github.com/mparticle-integrations/mparticle-javascript-integration-braze) son de código abierto y se pueden encontrar en la [página de GitHub de mParticle](https://github.com/mparticle-integrations).
 
-La integración del SDK or kit de desarrollo de software del kit integrado te permite aprovechar nuestra línea de productos completa de características (push, mensajes dentro de la aplicación y todo el seguimiento de análisis de mensajes relevante).
+La integración del SDK del kit integrado te permite aprovechar nuestra línea de productos completa de características (push, mensajes dentro de la aplicación y todo el seguimiento de análisis de mensajes relevante).
 
 {% alert note %}
-Para Content Cards e integraciones de mensajes dentro de la aplicación personalizados, llama directamente a los métodos del SDK or kit de desarrollo de software de Braze.
+Para Content Cards e integraciones de mensajes dentro de la aplicación personalizados, llama directamente a los métodos del SDK de Braze.
 {% endalert %}
 
-#### Paso 1: Integra los SDK or kit de desarrollo de software de mParticle {#step-1-integrate-the-mparticle-sdks}
+#### Paso 1: Integra los SDK de mParticle {#step-1-integrate-the-mparticle-sdks}
 
-Integra los SDK or kit de desarrollo de software de mParticle apropiados en tu aplicación según las necesidades de tu plataforma:
+Integra los SDK de mParticle apropiados en tu aplicación según las necesidades de tu plataforma:
 
 * [mParticle para Android](https://docs.mparticle.com/developers/sdk/android/getting-started/)
 * [mParticle para iOS](https://docs.mparticle.com/developers/sdk/ios/getting-started/)
@@ -176,7 +176,7 @@ Integra los SDK or kit de desarrollo de software de mParticle apropiados en tu a
 
 #### Paso 2: Completa la integración del kit de eventos de Braze de mParticle {#step-2-complete-mparticles-braze-event-kit-integration}
 
-Si bien el SDK or kit de desarrollo de software de Braze no necesita incluirse directamente en tu sitio web o aplicación para esta integración de mParticle, se debe instalar el siguiente kit Appboy de mParticle para reenviar datos desde tu aplicación a Braze.
+Si bien el SDK de Braze no necesita incluirse directamente en tu sitio web o aplicación para esta integración de mParticle, se debe instalar el siguiente kit Appboy de mParticle para reenviar datos desde tu aplicación a Braze.
 
 La [guía de integración del kit de eventos de Braze](https://docs.mparticle.com/integrations/braze/event/#kit-integration) de mParticle te guiará a través de instrucciones personalizadas de alineación de mParticle y Braze según tus necesidades de mensajería (push, seguimiento de ubicación, etc.).
 
@@ -190,7 +190,7 @@ No todos los ajustes de conexión se aplican a todas las plataformas y tipos de 
 
 ### Integración de API de servidor {#server-api-integration}
 
-Este es un complemento para enrutar los datos de tu backend a Braze si estás utilizando los SDK or kit de desarrollo de software del lado del servidor de mParticle (por ejemplo, Ruby, Python, etc.). Para configurar esta integración de servidor a servidor con Braze, sigue la [documentación de mParticle](https://docs.mparticle.com/guides/platform-guide/connections/).
+Este es un complemento para enrutar los datos de tu backend a Braze si estás utilizando los SDK del lado del servidor de mParticle (por ejemplo, Ruby, Python, etc.). Para configurar esta integración de servidor a servidor con Braze, sigue la [documentación de mParticle](https://docs.mparticle.com/guides/platform-guide/connections/).
 
 {% alert important %}
 La integración de servidor a servidor no es compatible con las características de la interfaz de Braze, como los mensajes dentro de la aplicación, Content Cards o las notificaciones push. También hay datos capturados automáticamente, como los campos a nivel de dispositivo, que no están disponibles a través de este método.
@@ -272,8 +272,8 @@ Hay algunas consideraciones que debes tener en cuenta al desactivar **Include En
 
 Si las notificaciones push no funcionan al utilizar el kit de eventos de Braze (integración de kit embebido) en iOS, comprueba lo siguiente:
 1. **Reenvío de tokens de notificaciones push:** Confirma que mParticle está reenviando los tokens de notificaciones push a Braze. En tu panel de mParticle, verifica que la conexión del kit de Braze tenga habilitado el push y que la credencial de push de Apple correcta esté configurada en el panel de Braze.
-2. **Orden de inicialización del kit:** El kit de Braze debe inicializarse antes de que tu aplicación solicite los permisos de push. Si los permisos de push se solicitan antes de que el kit esté activo, es posible que el token de notificaciones push no se reenvíe a Braze. Comprueba que el SDK or kit de desarrollo de software de mParticle se inicie de forma temprana en el ciclo de vida de tu aplicación.
-3. **Method swizzling:** El kit de mParticle para Apple utiliza method swizzling para reenviar automáticamente los tokens de notificaciones push y gestionar los eventos de notificaciones push. Si has deshabilitado el swizzling o si otro SDK or kit de desarrollo de software está interfiriendo, es posible que los tokens de notificaciones push no lleguen a Braze. Verifica que el swizzling esté habilitado en tu configuración de mParticle.
+2. **Orden de inicialización del kit:** El kit de Braze debe inicializarse antes de que tu aplicación solicite los permisos de push. Si los permisos de push se solicitan antes de que el kit esté activo, es posible que el token de notificaciones push no se reenvíe a Braze. Comprueba que el SDK de mParticle se inicie de forma temprana en el ciclo de vida de tu aplicación.
+3. **Method swizzling:** El kit de mParticle para Apple utiliza method swizzling para reenviar automáticamente los tokens de notificaciones push y gestionar los eventos de notificaciones push. Si has deshabilitado el swizzling o si otro SDK está interfiriendo, es posible que los tokens de notificaciones push no lleguen a Braze. Verifica que el swizzling esté habilitado en tu configuración de mParticle.
 4. **Gestión manual de tokens:** Si gestionas los tokens de notificaciones push de forma manual (por ejemplo, implementando `application:didRegisterForRemoteNotificationsWithDeviceToken:`), asegúrate de pasar el token a mParticle asignándolo a la propiedad del token de notificaciones push, por ejemplo: `MParticle.sharedInstance().pushNotificationToken = deviceToken`. El kit lo reenviará entonces a Braze.
 5. **Discrepancia de entorno:** Confirma que el entorno de la credencial de APN (desarrollo frente a producción) coincida con la compilación de tu aplicación. Para más detalles, consulta [Solución de problemas de push en iOS]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=swift).
 6. **Tiempo de inicialización del kit:** Si accedes a la instancia de Braze desde `didFinishLaunchingWithOptions`, es posible que el kit de mParticle no esté listo cuando llega una notificación push. Inicializa la gestión de push en [`userNotificationCenter(_:didReceive:withCompletionHandler:)`]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift) (o el delegado de respuesta de notificación equivalente) para que el kit de Braze esté activo cuando el usuario abra una notificación.
@@ -285,7 +285,7 @@ Braze contabiliza un punto de datos cada vez que se envía un atributo a Braze, 
 
 Si los eventos o atributos de mParticle no aparecen en Braze, el problema suele deberse a una configuración incorrecta en tu conexión de mParticle o en el mapeado de eventos, no a una interrupción de Braze. Comprueba lo siguiente:
 
-- **Salida de conexión:** Confirma que Braze está habilitado como salida para la conexión correspondiente y que la instancia de Braze correcta, el identificador de la aplicación y la clave de API REST or transferencia de estado representacional están configurados.
+- **Salida de conexión:** Confirma que Braze está habilitado como salida para la conexión correspondiente y que la instancia de Braze correcta, el identificador de la aplicación y la clave de API REST están configurados.
 - **Mapeado de identidad:** Las sincronizaciones de servidor a servidor y de audiencias requieren un `external_id`. Los usuarios anónimos no se reenvían.
 - **Mapeado de eventos:** Verifica que los eventos se enrutan a la salida de Braze y que los tipos de datos no compatibles (objetos anidados, arrays en propiedades del evento) no se están descartando.
 

@@ -1,7 +1,7 @@
 ---
 nav_title: Regal
 article_title: Regal
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Regal, einer Voice-KI or künstliche Intelligenz-Agenten-Plattform, mit der Sie personalisierte, Omnichannel-Customer-Journeys mithilfe von Braze-Daten und Regal-Gesprächen orchestrieren können."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Regal, einer Voice-KI-Agenten-Plattform, mit der Sie personalisierte, Omnichannel-Customer-Journeys mithilfe von Braze-Daten und Regal-Gesprächen orchestrieren können."
 alias: /partners/regal/
 page_type: partner
 search_tag: Partner
@@ -9,13 +9,13 @@ search_tag: Partner
 
 # Regal
 
-> [Regal.io](https://regal.io) ist eine Voice-KI or künstliche Intelligenz-Agenten-Plattform, die Unternehmen dabei unterstützt, durch intelligente Realtime-Gespräche über verschiedene Kanäle hinweg bessere Kundenerlebnisse zu schaffen.
+> [Regal.io](https://regal.io) ist eine Voice-KI-Agenten-Plattform, die Unternehmen dabei unterstützt, durch intelligente Realtime-Gespräche über verschiedene Kanäle hinweg bessere Kundenerlebnisse zu schaffen.
 
 _Diese Integration wird von Regal gepflegt._
 
-Durch die Integration von Regal mit Braze können Sie Verhaltensdaten und konversationelle KI or künstliche Intelligenz vereinen, um personalisierte, Omnichannel-Customer-Journeys zu orchestrieren. Braze erfasst Signale über den gesamten Kundenlebenszyklus, die Regal nutzt, um KI or künstliche Intelligenz-Agenten-Gespräche, Routing und Realtime-Entscheidungen zu steuern.
+Durch die Integration von Regal mit Braze können Sie Verhaltensdaten und konversationelle KI vereinen, um personalisierte, Omnichannel-Customer-Journeys zu orchestrieren. Braze erfasst Signale über den gesamten Kundenlebenszyklus, die Regal nutzt, um KI-Agenten-Gespräche, Routing und Realtime-Entscheidungen zu steuern.
 
-Verwenden Sie Braze-Daten, um zu bestimmen, was Ihre KI or künstliche Intelligenz-Agenten sagen, wie sie reagieren und wann sie aktiv werden. Senden Sie Gesprächsergebnisse und Insights zurück an Braze, um Targeting und Lifecycle-Marketing zu verbessern. Lösen Sie KI or künstliche Intelligenz-gestützte Anrufe und Kurzmitteilungsdienst or SMS an wichtigen Punkten der Customer Journey aus und setzen Sie in Braze basierend auf dem Gesprächsverlauf nach.
+Verwenden Sie Braze-Daten, um zu bestimmen, was Ihre KI-Agenten sagen, wie sie reagieren und wann sie aktiv werden. Senden Sie Gesprächsergebnisse und Insights zurück an Braze, um Targeting und Lifecycle-Marketing zu verbessern. Lösen Sie KI-gestützte Anrufe und SMS an wichtigen Punkten der Customer Journey aus und setzen Sie in Braze basierend auf dem Gesprächsverlauf nach.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -28,7 +28,7 @@ Verwenden Sie Braze-Daten, um zu bestimmen, was Ihre KI or künstliche Intellige
 
 ## Integration: Daten von Braze an Regal senden {#integration-sending-data-from-braze-to-regal}
 
-Verwenden Sie Braze-Canvas- oder Campaign-Webhooks, um Kundenprofil or Kundenprofil or Nutzerprofil- und Event-Daten von Braze an Regal zu senden.
+Verwenden Sie Braze-Canvas- oder Campaign-Webhooks, um Kundenprofil- und Event-Daten von Braze an Regal zu senden.
 
 ### Schritt 1: Neue Kontakte in Regal erstellen {#step-1-create-new-contacts-in-regal}
 
@@ -36,7 +36,7 @@ Erstellen Sie ein Canvas oder eine Campaign, die Webhooks an Regal sendet, wenn 
 
 1. Erstellen Sie ein Canvas oder eine Campaign mit dem Titel „Create New Contact for Regal“ und wählen Sie **Action-Based** als Entry-Typ aus.
 
-2. Setzen Sie die Trigger or triggern-Logik auf **Custom Event** und wählen Sie dann das Event aus, das ausgelöst wird, wenn ein Profil mit einer Telefonnummer erstellt wird. Regal empfiehlt außerdem, einen Filter hinzuzufügen, um zu bestätigen, dass das Telefonnummernfeld ausgefüllt ist.
+2. Setzen Sie die Trigger-Logik auf **Custom Event** und wählen Sie dann das Event aus, das ausgelöst wird, wenn ein Profil mit einer Telefonnummer erstellt wird. Regal empfiehlt außerdem, einen Filter hinzuzufügen, um zu bestätigen, dass das Telefonnummernfeld ausgefüllt ist.
 
 3. Füllen Sie in Ihrem neuen Webhook-Template die folgenden Felder aus:
    - **Webhook-URL**: <https://events.regalvoice.com/events>
@@ -54,7 +54,7 @@ Regal erfordert außerdem einen HTTP-Header zur Autorisierung und eine HTTP-Meth
 
 #### Request Body
 
-Der einzige erforderliche Bezeichner ist eine Telefonnummer innerhalb von `traits.phones`. Verwenden Sie das Objekt `traits.phones`, um einem Kontakt eine oder mehrere Telefonnummern zuzuordnen. Jede Telefonnummer kann ein eigenes Label, eine primäre Kennzeichnung sowie einen Voice- und Kurzmitteilungsdienst or SMS-Opt-in-Status speichern. Diese Struktur ist besonders nützlich, wenn ein Kontakt mehrere Telefonnummern hat.
+Der einzige erforderliche Bezeichner ist eine Telefonnummer innerhalb von `traits.phones`. Verwenden Sie das Objekt `traits.phones`, um einem Kontakt eine oder mehrere Telefonnummern zuzuordnen. Jede Telefonnummer kann ein eigenes Label, eine primäre Kennzeichnung sowie einen Voice- und SMS-Opt-in-Status speichern. Diese Struktur ist besonders nützlich, wenn ein Kontakt mehrere Telefonnummern hat.
 
 ```json
 {
@@ -108,11 +108,11 @@ Der einzige erforderliche Bezeichner ist eine Telefonnummer innerhalb von `trait
 }
 ```
 
-Dieses Payload-Beispiel geht davon aus, dass die aufgeführten Telefonnummern den aktuellen Voice- und Kurzmitteilungsdienst or SMS-Einwilligungsstatus enthalten. Falls das nicht zutrifft, können Sie `voiceOptIn` und `smsOptIn` beim Erstellen des Kontakts weglassen und ein separates Canvas oder eine separate Campaign einrichten, um die Einwilligung für die jeweilige Telefonnummer zu Update or aktualisieren or aktualisieren, sobald das Opt-in erfasst wird.
+Dieses Payload-Beispiel geht davon aus, dass die aufgeführten Telefonnummern den aktuellen Voice- und SMS-Einwilligungsstatus enthalten. Falls das nicht zutrifft, können Sie `voiceOptIn` und `smsOptIn` beim Erstellen des Kontakts weglassen und ein separates Canvas oder eine separate Campaign einrichten, um die Einwilligung für die jeweilige Telefonnummer zu aktualisieren, sobald das Opt-in erfasst wird.
 
-### Schritt 2: Opt-in-Informationen Update or aktualisieren or aktualisieren {#step-2-update-opt-in-information}
+### Schritt 2: Opt-in-Informationen aktualisieren {#step-2-update-opt-in-information}
 
-Wenn Opt-in und Opt-out an verschiedenen Stellen Ihrer App auftreten können, Update or aktualisieren or aktualisieren Sie Regal, wenn Nutzer:innen ihren Abo-Status ändern.
+Wenn Opt-in und Opt-out an verschiedenen Stellen Ihrer App auftreten können, aktualisieren Sie Regal, wenn Nutzer:innen ihren Abo-Status ändern.
 
 Regal empfiehlt die Verwendung des `traits.phones`-Schemas, damit Sie Opt-in und Opt-out pro Telefonnummer statt auf Kontaktebene verwalten können.
 
@@ -120,9 +120,9 @@ Verwenden Sie die folgende Canvas-Konfiguration, um aktuelle Opt-in-Informatione
 
 1. Erstellen Sie ein neues Canvas oder eine neue Campaign mit dem Titel „Send Opt In or Out to Regal“.
 
-2. Wählen Sie eine der folgenden Trigger or triggern-Optionen und dann das Feld aus, das den Opt-in-Status der Nutzer:innen repräsentiert:
-    - **Kundenprofil or Nutzerprofil Field Updated**
-    - **Update or aktualisieren Subscription Group Status**
+2. Wählen Sie eine der folgenden Trigger-Optionen und dann das Feld aus, das den Opt-in-Status der Nutzer:innen repräsentiert:
+    - **Kundenprofil Field Updated**
+    - **Update Subscription Group Status**
     - **Subscription Status**
 
 3. Füllen Sie in Ihrem neuen Webhook-Template die folgenden Felder aus:
@@ -168,22 +168,22 @@ Regal erfordert außerdem einen HTTP-Header zur Autorisierung und eine HTTP-Meth
 }
 ```
 
-Sie können auch zusätzliche Kundenprofil or Nutzerprofil-Attribute in diesen Payload aufnehmen, um andere Attribute gleichzeitig aktuell zu halten.
+Sie können auch zusätzliche Kundenprofil-Attribute in diesen Payload aufnehmen, um andere Attribute gleichzeitig aktuell zu halten.
 
 ### Schritt 3: Angepasste Events senden {#step-3-send-custom-events}
 
 Richten Sie ein Canvas oder eine Campaign für jedes wichtige Event ein, das Sie an Regal senden möchten.
 
-Diese Events dienen nicht nur dazu, Kontaktaufnahmen auszulösen (zum Beispiel eine Bestätigungsnachricht, wenn ein Lead die Registrierung abschließt). Sie liefern den Realtime-Kontext, der bestimmt, wie Regal-KI or künstliche Intelligenz-Agenten sprechen, Entscheidungen treffen und Gespräche entlang der Customer Journey weiterleiten. Indem Sie Event-Daten und Attribute von Braze senden, ermöglichen Sie KI or künstliche Intelligenz-Agenten, Gespräche basierend auf dem Verhalten, den Präferenzen und der Lebenszyklusphase jeder Nutzer:in anzupassen.
+Diese Events dienen nicht nur dazu, Kontaktaufnahmen auszulösen (zum Beispiel eine Bestätigungsnachricht, wenn ein Lead die Registrierung abschließt). Sie liefern den Realtime-Kontext, der bestimmt, wie Regal-KI-Agenten sprechen, Entscheidungen treffen und Gespräche entlang der Customer Journey weiterleiten. Indem Sie Event-Daten und Attribute von Braze senden, ermöglichen Sie KI-Agenten, Gespräche basierend auf dem Verhalten, den Präferenzen und der Lebenszyklusphase jeder Nutzer:in anzupassen.
 
 Braze-Events und -Attribute können in Regal zum Beispiel verwendet werden, um:
 
-- **Sprache von KI or künstliche Intelligenz-Agenten zu personalisieren**: Aktuelles Verhalten oder Produktinteresse direkt in Gesprächen referenzieren.
+- **Sprache von KI-Agenten zu personalisieren**: Aktuelles Verhalten oder Produktinteresse direkt in Gesprächen referenzieren.
   - Beispiel: Wenn eine Nutzer:in Lebensversicherungsoptionen erkundet hat, kann der Agent `contact.firstName` und `contact.brazeProductInterest` im Gespräch referenzieren.
 - **Dynamische Gesprächslogik zu steuern**: Anpassen, was der Agent in Realtime priorisiert.
   - Beispiel: Wenn `contact.brazeAge` größer als 65 ist, Medicare-Abdeckung priorisieren; andernfalls auf ACA-Pläne und den aktuellen Versicherungsstatus fokussieren.
 - **Intelligentes Routing und Eskalation zu ermöglichen**: Gespräche basierend auf Wert oder Absicht weiterleiten.
-  - Beispiel: Wenn `contact.brazeLeadTier` „High Value“ ist, nach der Qualifizierung an einen Senior-Agenten weiterleiten; andernfalls mit dem KI or künstliche Intelligenz-Agenten fortfahren.
+  - Beispiel: Wenn `contact.brazeLeadTier` „High Value“ ist, nach der Qualifizierung an einen Senior-Agenten weiterleiten; andernfalls mit dem KI-Agenten fortfahren.
 - **Nachrichten und Angebote abzustimmen**: Anpassen, was der Agent basierend auf dem Campaign-Kontext präsentiert.
   - Beispiel: Wenn `contact.brazeCampaignName` „Spring Mortgage Promo“ ist, das Aktionsangebot während des Gesprächs hervorheben.
 
@@ -253,10 +253,10 @@ Erstellen Sie ein neues Canvas oder eine neue Campaign mit dem Titel „Send Pro
 
 #### Aktuelle Kontakt-Attribute {#up-to-date-contact-attributes}
 
-Regal empfiehlt außerdem, wichtige Kundenprofil or Nutzerprofil-Attribute in Event-Payloads mitzusenden, damit Regal bei wichtigen Events über aktuelle Kontakt-Attribute verfügt.
+Regal empfiehlt außerdem, wichtige Kundenprofil-Attribute in Event-Payloads mitzusenden, damit Regal bei wichtigen Events über aktuelle Kontakt-Attribute verfügt.
 
 {% alert note %}
-Falls Sie Fragen dazu haben, welche Events Sie an Regal senden sollten oder wie Sie diese Canvase und Campaigns einrichten, schreiben Sie an [support@regal.io](mailto:support@regal.io).
+Falls Sie Fragen dazu haben, welche Events Sie an Regal senden sollten oder wie Sie diese Canvases und Campaigns einrichten, schreiben Sie an [support@regal.io](mailto:support@regal.io).
 {% endalert %}
 
 ## Integration: Daten von Regal an Braze senden {#integration-sending-data-from-regal-to-braze}
@@ -281,7 +281,7 @@ So richten Sie Reporting-Webhooks ein:
 
 3. Geben Sie im Eingabefeld für den Webhook-Endpunkt die Braze-Datentransformation-Webhook-URL für die zugehörige Datentransformation ein.
 
-#### Einen Endpunkt Update or aktualisieren or aktualisieren {#updating-an-endpoint}
+#### Einen Endpunkt aktualisieren {#updating-an-endpoint}
 
 Wenn Sie einen Endpunkt bearbeiten, kann es bis zu 5 Minuten dauern, bis der Cache aktualisiert wurde und Events an Ihren neuen Endpunkt gesendet werden.
 
@@ -314,9 +314,9 @@ In Braze-zu-Regal-Event-Payloads empfiehlt Regal die Verwendung von `traits.phon
 ## Anwendungsfälle {#use-cases}
 
 {% tabs %}
-{% tab Eine E-Mail Trigger or triggern or triggern %}
+{% tab Eine E-Mail triggern %}
 
-**Eine E-Mail aus Braze basierend auf einem Anrufergebnis in Regal Trigger or triggern or triggern**
+**Eine E-Mail aus Braze basierend auf einem Anrufergebnis in Regal triggern**
 
 Die folgende Beispiel-Payload zeigt ein `call.completed`-Event in Regal.
 
@@ -412,9 +412,9 @@ return brazecall;
 ```
 
 {% endtab %}
-{% tab Profilattribute Update or aktualisieren or aktualisieren %}
+{% tab Profilattribute aktualisieren %}
 
-**Profilattribute in Braze basierend auf `contact.attribute.edited`-Events von Regal Update or aktualisieren or aktualisieren**
+**Profilattribute in Braze basierend auf `contact.attribute.edited`-Events von Regal aktualisieren**
 
 Die folgende Beispiel-Payload zeigt ein `contact.attribute.edited`-Event in Regal. Regal sendet dieses Event, wenn ein Agent während eines Gesprächs ein Attribut im Profil eines Kontakts aktualisiert.
 
@@ -593,11 +593,11 @@ return brazecall;
 ```
 
 {% endtab %}
-{% tab Follow-up aus Anrufanalyse Trigger or triggern or triggern %}
+{% tab Follow-up aus Anrufanalyse triggern %}
 
-**Maßgeschneiderte Follow-up-Journeys in Braze basierend auf `call.analysis.available`-Events von Regal Trigger or triggern or triggern**
+**Maßgeschneiderte Follow-up-Journeys in Braze basierend auf `call.analysis.available`-Events von Regal triggern**
 
-Verwenden Sie das `call.analysis.available`-Event von Regal, um den Hauptgrund zu identifizieren, warum eine Kund:in nicht konvertiert hat, und Trigger or triggern or triggern Sie eine maßgeschneiderte Follow-up-Journey in Braze.
+Verwenden Sie das `call.analysis.available`-Event von Regal, um den Hauptgrund zu identifizieren, warum eine Kund:in nicht konvertiert hat, und triggern Sie eine maßgeschneiderte Follow-up-Journey in Braze.
 
 Zum Beispiel:
 
@@ -662,9 +662,9 @@ Verwenden Sie eine Datentransformation, um `call_analysis`-Felder (wie `primary_
 {% endtab %}
 {% tab Anruftranskript-Links speichern %}
 
-**Profilattribute mit Transkript-Links aus `call.transcript.available`-Events Update or aktualisieren or aktualisieren**
+**Profilattribute mit Transkript-Links aus `call.transcript.available`-Events aktualisieren**
 
-Verwenden Sie das `call.transcript.available`-Event, um einen Link zum vollständigen Anruftranskript an Braze zu senden. Ordnen Sie die Transkript-URL mit einer Datentransformation einem Braze-Kundenprofil or Nutzerprofil-Attribut zu, damit Ihr Team Gespräche direkt über das Kundenprofil or Nutzerprofil aufrufen und überprüfen kann.
+Verwenden Sie das `call.transcript.available`-Event, um einen Link zum vollständigen Anruftranskript an Braze zu senden. Ordnen Sie die Transkript-URL mit einer Datentransformation einem Braze-Kundenprofil-Attribut zu, damit Ihr Team Gespräche direkt über das Kundenprofil aufrufen und überprüfen kann.
 
 Die folgende Beispiel-Payload zeigt ein `call.transcript.available`-Event in Regal.
 

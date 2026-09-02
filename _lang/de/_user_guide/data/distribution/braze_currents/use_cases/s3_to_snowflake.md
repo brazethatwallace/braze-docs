@@ -3,7 +3,7 @@ nav_title: Daten von Amazon S3 zu Snowflake übertragen
 article_title: Daten von Amazon S3 zu Snowflake übertragen
 page_order: 7
 page_type: tutorial
-description: "In diesem Artikel erfahren Sie, wie Sie mit Hilfe des ETL or Extract, Transform, Load or Extract, Transform, Load-Prozesses (ETL or Extract, Transform, Load) Daten aus einem Cloud-Speicher (z. B. Amazon S3) in ein Data Warehouse (z. B. Snowflake) übertragen."
+description: "In diesem Artikel erfahren Sie, wie Sie mit Hilfe des ETL-Prozesses (ETL) Daten aus einem Cloud-Speicher (z. B. Amazon S3) in ein Data Warehouse (z. B. Snowflake) übertragen."
 tool: Currents
 
 ---
@@ -18,7 +18,7 @@ Wenn Sie spezifischere Anwendungsfälle haben und möchten, dass Braze Ihre Curr
 
 ## Funktionsweise {#how-it-works}
 
-Der Prozess Extract, Load, Transform (ELT) ist ein automatisierter Prozess, der Daten in [Snowflake](https://www.snowflake.com/) überträgt, sodass Sie die [Braze Looker Blocks](https://marketplace.looker.com/marketplace/directory) verwenden können, um diese Daten in Looker zu visualisieren und so Insights und Feedback für Ihre Campaigns, Canvase und Segmente zu gewinnen.
+Der Prozess Extract, Load, Transform (ELT) ist ein automatisierter Prozess, der Daten in [Snowflake](https://www.snowflake.com/) überträgt, sodass Sie die [Braze Looker Blocks](https://marketplace.looker.com/marketplace/directory) verwenden können, um diese Daten in Looker zu visualisieren und so Insights und Feedback für Ihre Campaigns, Canvases und Segmente zu gewinnen.
 
 Nachdem Sie einen Export von Currents nach S3 eingerichtet haben und Live-Ereignisdaten empfangen, können Sie Ihre Live-ELT-Pipeline in Snowflake konfigurieren, indem Sie die folgenden Komponenten einrichten:
 

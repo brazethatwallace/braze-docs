@@ -9,7 +9,7 @@ descriptions: "A segmentação de público é essencial para o marketing estrat�
 search_rank: 4
 tool: Segments
 page_type: landing
-description: "Esta landing page abrange artigos sobre segmentação dentro de Campaigns no dashboard. Aqui, você encontra informações sobre como configurar um Segment or segmento or segmento, filtros, funis, insights, extensões e muito mais."
+description: "Esta landing page abrange artigos sobre segmentação dentro de Campaigns no dashboard. Aqui, você encontra informações sobre como configurar um Segment, filtros, funis, insights, extensões e muito mais."
 
 guide_featured_title: "Artigos da seção"
 guide_featured_list:
@@ -56,7 +56,7 @@ guide_menu_list:
 
 Na Braze, os segmentos são grupos dinâmicos de usuários que atendem a critérios específicos definidos por você, como atributos de usuário, comportamento do usuário e eventos personalizados. Você pode ser granular com os critérios aninhando segmentos dentro de outros segmentos e aplicando recursos adicionais, refinando o escopo do seu público para enviar conteúdo altamente personalizado e envolvente para os usuários certos.
 
-Você pode criar quantos segmentos quiser para direcionar usuários. Explore diferentes combinações de recursos de Segment or segmento or segmento e filtros de segmentação para descobrir formas criativas de utilizar seus dados de usuários e desbloquear novas maneiras de enviar mensagens relevantes e aumentar o engajamento.
+Você pode criar quantos segmentos quiser para direcionar usuários. Explore diferentes combinações de recursos de Segment e filtros de segmentação para descobrir formas criativas de utilizar seus dados de usuários e desbloquear novas maneiras de enviar mensagens relevantes e aumentar o engajamento.
 
 Confira os casos de uso abaixo para uma pequena prévia de como os segmentos da Braze podem ajudar você a direcionar seus usuários.
 
@@ -68,12 +68,12 @@ Confira os casos de uso abaixo para uma pequena prévia de como os segmentos da 
 - **Recomendações de itens:** segmente usuários que compraram produtos específicos e envie recomendações de produtos complementares ou de nível superior.
 - **Testes A/B:** segmente usuários para testes A/B com diferentes mensagens, linhas de assunto ou conteúdos para determinar o que funciona melhor com usuários de idades, gêneros e outros atributos específicos.
 
-#### Casos de uso de extensões de Segment or segmento or segmento {#segment-extension-use-cases}
+#### Casos de uso de extensões de Segment {#segment-extension-use-cases}
 
-Você pode refinar ainda mais seus segmentos usando [extensões de Segment or segmento or segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension) para direcionar usuários com base em eventos personalizados ou comportamento de compra armazenados durante toda a vida útil do perfil de usuário.
+Você pode refinar ainda mais seus segmentos usando [extensões de Segment]({{site.baseurl}}/user_guide/audience/segments/segment_extension) para direcionar usuários com base em eventos personalizados ou comportamento de compra armazenados durante toda a vida útil do perfil de usuário.
 
 - **Compras históricas:** segmente usuários por terem comprado uma cor específica de um produto específico pelo menos duas vezes nos últimos dois anos.
 - **Eventos e interações com mensagens:** segmente usuários por terem feito uma compra nos últimos trinta dias e também interagido com uma mensagem no app específica.
 - **Consultar dados:**
-  - **Consultar Snowflake:** segmente usuários com dados combinados da Braze e de fontes externas, como um CRM ou um data warehouse, usando [extensões de Segment or segmento or segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) para consultar o Snowflake.
-  - **Sincronizar do data warehouse:** segmente usuários com dados sincronizados diretamente do seu data warehouse ou sistema de armazenamento de arquivos para a Braze usando [extensões de Segment or segmento or segmento CDI]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments).
+  - **Consultar Snowflake:** segmente usuários com dados combinados da Braze e de fontes externas, como um CRM ou um data warehouse, usando [extensões de Segment SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) para consultar o Snowflake.
+  - **Sincronizar do data warehouse:** segmente usuários com dados sincronizados diretamente do seu data warehouse ou sistema de armazenamento de arquivos para a Braze usando [extensões de Segment CDI]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments).

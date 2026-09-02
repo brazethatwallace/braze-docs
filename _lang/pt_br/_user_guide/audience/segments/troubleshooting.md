@@ -5,7 +5,7 @@ page_order: 9
 page_type: reference
 tool:
   - Segments
-description: "Este artigo de referência aborda a solução de problemas para erros de Segments, elegibilidade de usuários, problemas com filtros e divergências na análise de dados. Para definições de filtros, consulte Filtros de segmentação. Para estimativas de tamanho de Segments e contagens exatas, consulte Medir o tamanho do Segment or segmento."
+description: "Este artigo de referência aborda a solução de problemas para erros de Segments, elegibilidade de usuários, problemas com filtros e divergências na análise de dados. Para definições de filtros, consulte Filtros de segmentação. Para estimativas de tamanho de Segments e contagens exatas, consulte Medir o tamanho do Segment."
 ---
 
 # Solução de problemas de Segments {#troubleshoot-segments}
@@ -18,37 +18,37 @@ description: "Este artigo de referência aborda a solução de problemas para er
 |---------|-------|
 | O público é muito complexo | [O público-alvo é muito complexo para lançar](#target-audience-is-too-complex-to-launch) |
 | O filtro não salva | [O filtro excede 10.000 bytes](#filter-exceeds-10000-bytes-or-is-too-long-to-save) |
-| O Segment or segmento não tem usuários | [O Segment or segmento mostra zero usuários](#segment-shows-zero-users) |
-| Usuário não está no Segment or segmento | [Caminho de investigação padrão](#standard-investigation-path) |
-| O Segment or segmento é maior do que o esperado | [O Segment or segmento é muito maior do que o esperado](#segment-is-much-larger-than-expected) |
-| A contagem do Segment or segmento não corresponde à análise de dados da Campaign | [Divergência em *Mensagens enviadas* ou *Destinatários únicos*](#message-sent-or-unique-recipients-in-campaign-analytics-doesnt-match-segment-count) |
+| O Segment não tem usuários | [O Segment mostra zero usuários](#segment-shows-zero-users) |
+| Usuário não está no Segment | [Caminho de investigação padrão](#standard-investigation-path) |
+| O Segment é maior do que o esperado | [O Segment é muito maior do que o esperado](#segment-is-much-larger-than-expected) |
+| A contagem do Segment não corresponde à análise de dados da Campaign | [Divergência em *Mensagens enviadas* ou *Destinatários únicos*](#message-sent-or-unique-recipients-in-campaign-analytics-doesnt-match-segment-count) |
 | As opções de filtro mudaram | [As opções de filtro mudaram](#filter-options-changed) |
 | Atributo personalizado aninhado não está disponível como filtro | [Atributo personalizado aninhado não está disponível como opção de filtro](#nested-custom-attribute-not-available-as-a-filter-option) |
 | Usuário está no app errado | [Informações exibidas para usuários de outros apps](#info-displays-for-users-of-other-apps-when-i-filter-for-a-specific-app) |
-| O usuário estava neste Segment or segmento em um momento passado? | [Associação retroativa ao Segment or segmento](#retroactive-segment-membership) |
+| O usuário estava neste Segment em um momento passado? | [Associação retroativa ao Segment](#retroactive-segment-membership) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Comece aqui: identifique seu sintoma" }
 
 ## Caminho de investigação padrão {#standard-investigation-path}
 
-Use este fluxo de trabalho quando um usuário deveria estar em um Segment or segmento mas não está, ou quando a contagem de um Segment or segmento parece incorreta.
+Use este fluxo de trabalho quando um usuário deveria estar em um Segment mas não está, ou quando a contagem de um Segment parece incorreta.
 
 1. **Envio bloqueado:** Se você vir um erro de complexidade de público ou de filtro de 10.000 bytes em uma Campaign ou Canvas, comece por [Erros](#errors) (solução alternativa com CSV, simplificação de filtros).
-2. **Prévia do usuário ou busca de usuário:** Teste um usuário específico em relação aos filtros do seu Segment or segmento. Quando um usuário não corresponde a parte ou a todos os critérios, os critérios ausentes são listados para solução de problemas. Para ver as etapas, consulte [Testando Segments]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#testing-segments) em Criar um Segment or segmento.
-3. **Calcular estatísticas exatas:** Se a estimativa do Segment or segmento mostrar 0 usuários ou parecer incorreta, selecione **Calcular estatísticas exatas** no painel **Usuários contatáveis**. Salve seu Segment or segmento antes de calcular. Se um cálculo já estiver em andamento, aguarde sua conclusão; números desatualizados podem ser exibidos até que o novo cálculo termine. Para saber mais, consulte [Calculando estatísticas exatas]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size#calculating-exact-statistics).
+2. **Prévia do usuário ou busca de usuário:** Teste um usuário específico em relação aos filtros do seu Segment. Quando um usuário não corresponde a parte ou a todos os critérios, os critérios ausentes são listados para solução de problemas. Para ver as etapas, consulte [Testando Segments]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#testing-segments) em Criar um Segment.
+3. **Calcular estatísticas exatas:** Se a estimativa do Segment mostrar 0 usuários ou parecer incorreta, selecione **Calcular estatísticas exatas** no painel **Usuários contatáveis**. Salve seu Segment antes de calcular. Se um cálculo já estiver em andamento, aguarde sua conclusão; números desatualizados podem ser exibidos até que o novo cálculo termine. Para saber mais, consulte [Calculando estatísticas exatas]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size#calculating-exact-statistics).
 4. **Verifique os valores dos filtros:** Procure erros de digitação, incompatibilidades de tipo de dados, referências desatualizadas de etapas do Canvas e [filtro negativo + lógica OR](#segment-is-much-larger-than-expected).
 5. **Verifique a complexidade:** Se o envio estiver bloqueado, consulte [Público-alvo complexo demais para envio](#target-audience-is-too-complex-to-launch).
 6. **Entre em contato com o suporte:** Se ainda estiver com problemas, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
-## Segment or segmento mostra zero usuários {#segment-shows-zero-users}
+## Segment mostra zero usuários {#segment-shows-zero-users}
 
-O tamanho do Segment or segmento no dashboard é frequentemente uma estimativa baseada em uma amostra de usuários. Segments muito pequenos podem mostrar uma faixa estimada que inclui 0, mesmo quando há usuários que correspondem aos seus filtros.
+O tamanho do Segment no dashboard é frequentemente uma estimativa baseada em uma amostra de usuários. Segments muito pequenos podem mostrar uma faixa estimada que inclui 0, mesmo quando há usuários que correspondem aos seus filtros.
 
-- Selecione **Calculate exact stats** no painel **Usuários contatáveis** para obter uma contagem precisa. Salve o Segment or segmento primeiro. Para saber mais, consulte [Considerações sobre contagens estimadas]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size#considerations-for-estimate-counts).
-- Se a **Prévia do usuário** retornar zero usuários para um Segment or segmento pequeno, isso não significa necessariamente que o Segment or segmento está vazio. Execute **Calculate exact stats** para confirmar. Para saber mais, consulte [Prévia do usuário]({{site.baseurl}}/user_guide/audience/segments/segment_data#user-preview).
+- Selecione **Calculate exact stats** no painel **Usuários contatáveis** para obter uma contagem precisa. Salve o Segment primeiro. Para saber mais, consulte [Considerações sobre contagens estimadas]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size#considerations-for-estimate-counts).
+- Se a **Prévia do usuário** retornar zero usuários para um Segment pequeno, isso não significa necessariamente que o Segment está vazio. Execute **Calculate exact stats** para confirmar. Para saber mais, consulte [Prévia do usuário]({{site.baseurl}}/user_guide/audience/segments/segment_data#user-preview).
 
 ## Associação retroativa a Segments {#retroactive-segment-membership}
 
-A Braze não armazena o histórico de associação a Segments por usuário. Não é possível consultar se um usuário específico estava em um Segment or segmento em um momento passado de envio.
+A Braze não armazena o histórico de associação a Segments por usuário. Não é possível consultar se um usuário específico estava em um Segment em um momento passado de envio.
 
 Para capturar a associação em um ponto no tempo, exporte os usuários do Segment no dashboard ou chame o endpoint [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) antes de enviar uma Campaign ou Canvas. Para saber mais, consulte [Filtros de segmentação]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) (filtro de associação a Segment) e [Exportar dados de Segment para CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv).
 
@@ -60,14 +60,14 @@ Esse erro raro ocorre quando o público-alvo contém muitos valores de regex, va
 
 ![Erro para um público-alvo que atinge o limite de complexidade.]({% image_buster /assets/img/segment/target_audience_too_complex_error.png %})
 
-Quando você adiciona filtros de Segment or segmento a uma Campaign ou Canvas, esses filtros são traduzidos em consultas na Braze (a contagem de caracteres dessas consultas não é proporcional à quantidade de caracteres que o usuário do dashboard visualiza). Quando a Braze envia uma Campaign ou Canvas, ela executa uma consulta que combina todos os filtros do público-alvo. Aplicamos um limite na quantidade de caracteres da consulta resultante para o público-alvo. Para uma determinada Campaign ou Canvas, somamos a contagem de caracteres de todos os Segments referenciados, incluindo todos os filtros adicionais. Para um determinado Segment or segmento, somamos a contagem de caracteres de todos os filtros e seus valores.
+Quando você adiciona filtros de Segment a uma Campaign ou Canvas, esses filtros são traduzidos em consultas na Braze (a contagem de caracteres dessas consultas não é proporcional à quantidade de caracteres que o usuário do dashboard visualiza). Quando a Braze envia uma Campaign ou Canvas, ela executa uma consulta que combina todos os filtros do público-alvo. Aplicamos um limite na quantidade de caracteres da consulta resultante para o público-alvo. Para uma determinada Campaign ou Canvas, somamos a contagem de caracteres de todos os Segments referenciados, incluindo todos os filtros adicionais. Para um determinado Segment, somamos a contagem de caracteres de todos os filtros e seus valores.
 
-O dashboard exibirá um erro quando uma Campaign, Canvas ou Segment or segmento ultrapassar o limite e não puder ser lançado. Se você receber esse erro, simplifique o público-alvo antes de lançar novamente, considerando:
+O dashboard exibirá um erro quando uma Campaign, Canvas ou Segment ultrapassar o limite e não puder ser lançado. Se você receber esse erro, simplifique o público-alvo antes de lançar novamente, considerando:
 
 - Se o público referencia múltiplos Segments, verifique se não há redundâncias, como os mesmos filtros aparecendo em vários Segments.
-- Certifique-se de que não está referenciando dados desatualizados nos filtros de Segment or segmento. Por exemplo, um filtro desatualizado pode procurar usuários que não receberam uma determinada etapa do Canvas na última semana, mesmo que o Canvas esteja parado há meses.
+- Certifique-se de que não está referenciando dados desatualizados nos filtros de Segment. Por exemplo, um filtro desatualizado pode procurar usuários que não receberam uma determinada etapa do Canvas na última semana, mesmo que o Canvas esteja parado há meses.
 - Segments que são apenas listas de IDs de usuário ou e-mails (que geralmente usam um filtro de regex) podem ser convertidos em uma [importação de CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import) e simplificados em um único filtro baseado em CSV.
-- Se você usa CDI, pode ser possível criar um Segment or segmento de CDI que extrai o grupo diretamente do seu data warehouse.
+- Se você usa CDI, pode ser possível criar um Segment de CDI que extrai o grupo diretamente do seu data warehouse.
 
 Você também pode [entrar em contato com o suporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) para obter assistência adicional com a otimização de filtros.
 
@@ -83,7 +83,7 @@ Esse banner é exibido no topo de uma lista de Campaigns ou Canvas sempre que Ca
 
 ### Filtro excede 10.000 bytes ou é longo demais para salvar {#filter-exceeds-10000-bytes-or-is-too-long-to-save}
 
-A Braze limita filtros individuais de Segment or segmento a no máximo 10.000 bytes, o que equivale a 10.000 caracteres em inglês ou 3.333 caracteres em japonês. Um aviso aparece sempre que um filtro individual excede 10.000 bytes, seja ele dentro de um Segment or segmento ou adicionado diretamente a uma Campaign ou Canvas.
+A Braze limita filtros individuais de Segment a no máximo 10.000 bytes, o que equivale a 10.000 caracteres em inglês ou 3.333 caracteres em japonês. Um aviso aparece sempre que um filtro individual excede 10.000 bytes, seja ele dentro de um Segment ou adicionado diretamente a uma Campaign ou Canvas.
 
 ![Banner de erro para um filtro cujo valor excede 10.000 caracteres.]({% image_buster /assets/img/segment/filter_error.png %})
 
@@ -91,17 +91,17 @@ A Braze limita filtros individuais de Segment or segmento a no máximo 10.000 by
 
 Esse erro ocorre muito raramente, mas quando acontece, geralmente envolve filtros de regex que segmentam uma lista de IDs de usuário ou endereços de e-mail. Nesse caso, você pode seguir estas etapas para converter os filtros em um CSV:
 
-1. Exporte os usuários do Segment or segmento afetado ou do filtro de regex específico.
+1. Exporte os usuários do Segment afetado ou do filtro de regex específico.
 2. Limpe o CSV conforme necessário. Você precisa do Braze ID ou do Appboy ID, mas pode remover todas as outras colunas se não forem necessárias. Também recomendamos revisar seus dados para confirmar que estão atualizados (por exemplo, remova usuários que você não está mais tentando segmentar).
 3. [Importe]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import) o arquivo CSV novamente, o que agrupa automaticamente os usuários em um único filtro baseado em CSV altamente eficiente.
 
 ## Comportamento do usuário {#user-behavior}
 
-### O usuário não está mais em um Segment or segmento {#user-is-no-longer-in-a-segment}
+### O usuário não está mais em um Segment {#user-is-no-longer-in-a-segment}
 
-Se um usuário não estiver disponível ao criar um Segment or segmento, os dados do usuário que determinam sua elegibilidade para o Segment or segmento podem ter sido alterados como resultado de sua própria atividade ou de outras Campaigns e Canvas com os quais ele interagiu anteriormente. Se a reelegibilidade estiver ativada, o perfil de usuário mostra os dados mais recentes da Campaign recebida.
+Se um usuário não estiver disponível ao criar um Segment, os dados do usuário que determinam sua elegibilidade para o Segment podem ter sido alterados como resultado de sua própria atividade ou de outras Campaigns e Canvas com os quais ele interagiu anteriormente. Se a reelegibilidade estiver ativada, o perfil de usuário mostra os dados mais recentes da Campaign recebida.
 
-Para testar se um usuário específico corresponde ao seu Segment or segmento hoje, use a [prévia de usuário ou busca de usuários]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#testing-segments).
+Para testar se um usuário específico corresponde ao seu Segment hoje, use a [prévia de usuário ou busca de usuários]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#testing-segments).
 
 ### Informações de usuários de outros apps aparecem quando filtro por um app específico {#info-displays-for-users-of-other-apps-when-i-filter-for-a-specific-app}
 
@@ -121,29 +121,29 @@ A guia **Values** em um atributo personalizado mostra resultados de uma amostra 
 
 ### Atributo personalizado aninhado não disponível como opção de filtro {#nested-custom-attribute-not-available-as-a-filter-option}
 
-Se seu atributo personalizado aninhado não está aparecendo como opção de filtro ao criar um Segment or segmento, gere o esquema primeiro. Acesse **Data Settings** > **Custom Attributes**, encontre o atributo e selecione **Generate Schema**. Depois de gerado, o atributo ficará disponível no menu suspenso de filtros do Segment or segmento. Para saber mais, consulte [Gerar um esquema usando o explorador de objetos aninhados]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#generate-schema).
+Se seu atributo personalizado aninhado não está aparecendo como opção de filtro ao criar um Segment, gere o esquema primeiro. Acesse **Data Settings** > **Custom Attributes**, encontre o atributo e selecione **Generate Schema**. Depois de gerado, o atributo ficará disponível no menu suspenso de filtros do Segment. Para saber mais, consulte [Gerar um esquema usando o explorador de objetos aninhados]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#generate-schema).
 
-### O Segment or segmento é muito maior do que o esperado {#segment-is-much-larger-than-expected}
+### O Segment é muito maior do que o esperado {#segment-is-much-larger-than-expected}
 
-Se seu Segment or segmento parece muito maior do que você espera, apesar de filtros aparentemente restritivos, verifique se você está usando filtros negativos (`is not`, `does not equal`, `does not match regex` ou `not included`) com o operador **OR** no mesmo atributo mais de uma vez. Essa combinação pode segmentar usuários com todos os valores desse atributo.
+Se seu Segment parece muito maior do que você espera, apesar de filtros aparentemente restritivos, verifique se você está usando filtros negativos (`is not`, `does not equal`, `does not match regex` ou `not included`) com o operador **OR** no mesmo atributo mais de uma vez. Essa combinação pode segmentar usuários com todos os valores desse atributo.
 
 Para orientações sobre quando usar **AND** em vez de **OR**, consulte [Quando evitar o operador OR]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#segmentation-logic-using-and-and-or) em Criar um Segment.
 
 ## Análise de dados e relatórios {#analytics-and-reporting}
 
-### *Mensagens Enviadas* ou *Destinatários Únicos* na análise de dados de Campaigns não corresponde à contagem do Segment or segmento {#message-sent-or-unique-recipients-in-campaign-analytics-doesnt-match-segment-count}
+### *Mensagens Enviadas* ou *Destinatários Únicos* na análise de dados de Campaigns não corresponde à contagem do Segment {#message-sent-or-unique-recipients-in-campaign-analytics-doesnt-match-segment-count}
 
-Se a contagem de *Mensagens Enviadas* ou *Destinatários Únicos* na análise de dados da sua Campaign não corresponde ao número de usuários no filtro de Segment or segmento `Has received message from campaign X`, pode haver três razões possíveis.
+Se a contagem de *Mensagens Enviadas* ou *Destinatários Únicos* na análise de dados da sua Campaign não corresponde ao número de usuários no filtro de Segment `Has received message from campaign X`, pode haver três razões possíveis.
 
 1. **Usuários podem ter sido arquivados, ficado órfãos ou sido excluídos desde o lançamento da Campaign**<br><br>Por exemplo, digamos que 1.000 usuários recebam uma Campaign e você faça uma exportação CSV no mesmo dia. Você verá 1.000 usuários reportados. Ao longo do mês seguinte, 50 desses 1.000 usuários são excluídos (por exemplo, pelo endpoint `users/delete`). Quando você fizer outra exportação CSV, verá 950 usuários reportados, enquanto a contagem de *Destinatários Únicos* em **Campaign Analytics** ainda será 1.000.<br><br>Em outras palavras, a métrica *Destinatários Únicos* é uma contagem incremental, enquanto o segmentador e a exportação CSV fornecem uma contagem de usuários atualmente existentes.<br><br>
 
-2. **A Campaign tem reelegibilidade configurada, permitindo que os usuários reentrem na Campaign várias vezes**<br><br>Por exemplo, digamos que uma Campaign de e-mail tem reelegibilidade configurada para zero minutos (os usuários podem reentrar na Campaign desde que atendam aos requisitos do Segment or segmento do público), e a Campaign está em execução há mais de um mês. O número de *Mensagens Enviadas* em **Campaign Analytics** não corresponderia ao número no Segment or segmento porque esse campo incluiria mensagens enviadas a usuários duplicados.<br><br>Isso acontece porque a Braze conta usuários únicos como *Destinatários Diários Únicos*, ou o número de usuários que receberam uma mensagem específica em um dia. Isso significa que usuários reelegíveis são contados mais de uma vez como destinatário único, porque a janela de "unicidade" dura apenas um dia. Isso pode resultar em um número de *Destinatários Diários Únicos* maior do que o número de perfis de usuário na exportação CSV. Os perfis de usuário no arquivo CSV são verdadeiramente únicos.<br><br>
+2. **A Campaign tem reelegibilidade configurada, permitindo que os usuários reentrem na Campaign várias vezes**<br><br>Por exemplo, digamos que uma Campaign de e-mail tem reelegibilidade configurada para zero minutos (os usuários podem reentrar na Campaign desde que atendam aos requisitos do Segment do público), e a Campaign está em execução há mais de um mês. O número de *Mensagens Enviadas* em **Campaign Analytics** não corresponderia ao número no Segment porque esse campo incluiria mensagens enviadas a usuários duplicados.<br><br>Isso acontece porque a Braze conta usuários únicos como *Destinatários Diários Únicos*, ou o número de usuários que receberam uma mensagem específica em um dia. Isso significa que usuários reelegíveis são contados mais de uma vez como destinatário único, porque a janela de "unicidade" dura apenas um dia. Isso pode resultar em um número de *Destinatários Diários Únicos* maior do que o número de perfis de usuário na exportação CSV. Os perfis de usuário no arquivo CSV são verdadeiramente únicos.<br><br>
 
 3. **Usuários que compartilham um identificador de canal corresponderam ao filtro**<br><br> O filtro `Has received message from campaign X` (e outros filtros de "recebimento") pode corresponder a usuários que compartilham um identificador de canal, como o mesmo token por push ou endereço de e-mail, com outro perfil de usuário que recebeu, abriu ou clicou na mensagem.
 
 ### Usuário é atribuído a dois apps apesar de ter registrado uma sessão em apenas um app {#user-is-assigned-to-two-apps-despite-logging-a-session-in-only-one-app}
 
-Ao criar um Segment or segmento, você pode direcionar usuários que [usaram apps específicos]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#step-3-choose-your-app-or-platform). Um usuário precisa ter tido uma sessão em um app específico para ser atribuído a esse app; no entanto, existem dois cenários em que um usuário ainda pode ser atribuído a um app específico sem ter registrado sessões nele.
+Ao criar um Segment, você pode direcionar usuários que [usaram apps específicos]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#step-3-choose-your-app-or-platform). Um usuário precisa ter tido uma sessão em um app específico para ser atribuído a esse app; no entanto, existem dois cenários em que um usuário ainda pode ser atribuído a um app específico sem ter registrado sessões nele.
 
 O primeiro cenário é quando o campo `app_id` é preenchido ao usar o endpoint `/users/track` — especificamente ao usar um [objeto de evento]({{site.baseurl}}/api/objects_filters/event_object) ou [objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object), como neste exemplo:
 

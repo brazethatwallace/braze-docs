@@ -7,7 +7,7 @@ layout: api_page
 page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint da Braze para exportar usuários por identificador."
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Exportar perfil de usuário por identificador {#export-user-profile-by-identifier}
 {% apimethod post %}
 /users/export/ids
@@ -21,7 +21,7 @@ Até 50 `external_ids` ou `user_aliases` podem ser incluídos em uma única soli
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `users.export.ids`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `users.export.ids`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -56,7 +56,7 @@ Para clientes que fizeram a integração com a Braze em 22 de agosto de 2024 ou 
 | ------------------ | -------- | ------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | `external_ids` | Opcional | Matriz de strings | Identificadores externos para os usuários que deseja exportar. |
 | `user_aliases` | Opcional | Matriz de objetos de alias de usuário | [Aliases de usuário]({{site.baseurl}}/api/objects_filters/user_alias_object) para usuários a serem exportados. |
-| `device_id` | Opcional | String | Identificador do dispositivo, conforme retornado por vários métodos do SDK or kit de desenvolvimento de software, como `getDeviceId`. |
+| `device_id` | Opcional | String | Identificador do dispositivo, conforme retornado por vários métodos do SDK, como `getDeviceId`. |
 | `braze_id` | Opcional | String | Identificador da Braze para um usuário específico. |
 | `email_address` | Opcional | String | Endereço de e-mail do usuário. |
 | `phone` | Opcional | String no formato [E.164](https://en.wikipedia.org/wiki/E.164) | Número de telefone do usuário. |
@@ -88,7 +88,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
 
 ## Campos a serem exportados {#fields-to-export}
 
-A seguir, uma lista de `fields_to_export` válidos. Usar `fields_to_export` para minimizar os dados retornados pode melhorar o tempo de resposta desse endpoint da API or interface de programação do aplicativo (API):
+A seguir, uma lista de `fields_to_export` válidos. Usar `fields_to_export` para minimizar os dados retornados pode melhorar o tempo de resposta desse endpoint da API:
 
 | Campo a ser exportado | Tipo de dados | Descrição |
 | --------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -124,9 +124,9 @@ A seguir, uma lista de `fields_to_export` válidos. Usar `fields_to_export` para
 | `user_aliases` | Objeto | [Objeto de aliases de usuário]({{site.baseurl}}/api/objects_filters/user_alias_object) contendo `alias_name` e `alias_label`, se houver. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Campos a serem exportados" }
 
-Esteja ciente de que o endpoint `/users/export/ids` reunirá todo o perfil desse usuário, incluindo dados como todas as Campaigns e Canvas recebidos, todos os eventos personalizados realizados, todas as compras feitas e todos os atributos personalizados. Como resultado, esse endpoint é mais lento do que outros endpoints da REST or transferir estado representacional API or interface de programação do aplicativo (API).
+Esteja ciente de que o endpoint `/users/export/ids` reunirá todo o perfil desse usuário, incluindo dados como todas as Campaigns e Canvas recebidos, todos os eventos personalizados realizados, todas as compras feitas e todos os atributos personalizados. Como resultado, esse endpoint é mais lento do que outros endpoints da REST API.
 
-Dependendo dos dados solicitados, esse endpoint da API or interface de programação do aplicativo (API) pode não ser suficiente para atender às suas necessidades devido ao limite de taxa de 250 solicitações por minuto. Se você pretende usar esse endpoint regularmente para exportar usuários, considere exportar usuários por Segment or segmento or segmento, que é um processo assíncrono e mais otimizado para extrações de dados maiores.
+Dependendo dos dados solicitados, esse endpoint da API pode não ser suficiente para atender às suas necessidades devido ao limite de taxa de 250 solicitações por minuto. Se você pretende usar esse endpoint regularmente para exportar usuários, considere exportar usuários por segmento, que é um processo assíncrono e mais otimizado para extrações de dados maiores.
 
 ## Resposta {#response}
 
@@ -431,7 +431,7 @@ Objeto de exportação do usuário (incluiremos o mínimo de dados possível —
 {% endtabs %}
 
 {% alert tip %}
-Para obter ajuda com exportações de CSV e API or interface de programação do aplicativo (API), acesse [Resolução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
+Para obter ajuda com exportações de CSV e API, acesse [Resolução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}

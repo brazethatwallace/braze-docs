@@ -34,7 +34,7 @@ Los **extras de mensaje** son pares clave-valor que se adjuntan en el momento de
 
 ## Canales compatibles {#supported-channels}
 
-La etiqueta `message_extras` es compatible con todos los tipos de mensajes que tienen un evento de envío, junto con los eventos de impresión de mensajes dentro de la aplicación. El uso de `message_extras` con mensajes dentro de la aplicación requiere que se cumplan ciertas [versiones mínimas del SDK or kit de desarrollo de software](#iam-sdk).
+La etiqueta `message_extras` es compatible con todos los tipos de mensajes que tienen un evento de envío, junto con los eventos de impresión de mensajes dentro de la aplicación. El uso de `message_extras` con mensajes dentro de la aplicación requiere que se cumplan ciertas [versiones mínimas del SDK](#iam-sdk).
 
 ## Cómo usar la etiqueta `message_extras` {#how-to-use-the-message_extras-tag}
 
@@ -82,6 +82,6 @@ Se genera un `dispatch_id` y se proporciona en tus eventos de envío, que puedes
 
 #### ¿Puedo usar message_extras con mensajes dentro de la aplicación? {#iam-sdk}
 
-Sí, puedes usar `message_extras` en tus mensajes dentro de la aplicación siempre que los dispositivos de tus usuarios tengan las siguientes versiones mínimas del SDK or kit de desarrollo de software:
+Sí, puedes usar `message_extras` en tus mensajes dentro de la aplicación siempre que los dispositivos de tus usuarios tengan las siguientes versiones mínimas del SDK:
 
 {% sdk_min_versions web:5.2.0 android:30.4.0 swift:8.4.0 %}

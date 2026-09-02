@@ -87,7 +87,7 @@ En la mayoría de los casos, `alert` puede especificarse como una cadena en un o
 
 ## Objeto de botón de acción para notificación push de Apple {#apple-push-action-button-object}
 
-Debes incluir el campo `category` en el objeto push de Apple para utilizar los botones de acción push de iOS. Si incluyes el campo `category`, se mostrarán todos los botones de acción push asociados; incluye el campo `buttons` solo si quieres definir adicionalmente las acciones de clic individuales de los botones. El SDK or kit de desarrollo de software de Braze proporciona un conjunto de botones de acción para notificación push predeterminados que se muestran en la tabla siguiente. También puedes utilizar tus propios botones si se han registrado en tu aplicación.
+Debes incluir el campo `category` en el objeto push de Apple para utilizar los botones de acción push de iOS. Si incluyes el campo `category`, se mostrarán todos los botones de acción push asociados; incluye el campo `buttons` solo si quieres definir adicionalmente las acciones de clic individuales de los botones. El SDK de Braze proporciona un conjunto de botones de acción para notificación push predeterminados que se muestran en la tabla siguiente. También puedes utilizar tus propios botones si se han registrado en tu aplicación.
 
 ### Objeto de botón de acción de Apple para los botones predeterminados de Braze {#apple-push-action-button-object-for-braze-default-buttons}
 

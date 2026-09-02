@@ -1,4 +1,4 @@
-{% multi_lang_include in-app_messages/troubleshooting.md SDK or kit de desarrollo de software="iOS" %}
+{% multi_lang_include in-app_messages/troubleshooting.md sdk="iOS" %}
 
 ### Solución de problemas de carga de activos (`NSURLError` código `-1008`) {#asset-loading}
 

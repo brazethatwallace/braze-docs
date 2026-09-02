@@ -4,7 +4,7 @@
 
 {% tabs %}
 {% tab implementação padrão %}
-Para desabilitar a atividade de rastreamento de dados no SDK or kit de desenvolvimento de software para web, use o método [`disableSDK()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#disablesdk). Isso sincronizará todos os dados registrados antes da chamada de `disableSDK()` e fará com que todas as chamadas subsequentes ao SDK or kit de desenvolvimento de software da Braze para web nesta página e em carregamentos futuros sejam ignoradas.
+Para desabilitar a atividade de rastreamento de dados no SDK para web, use o método [`disableSDK()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#disablesdk). Isso sincronizará todos os dados registrados antes da chamada de `disableSDK()` e fará com que todas as chamadas subsequentes ao SDK da Braze para web nesta página e em carregamentos futuros sejam ignoradas.
 {% endtab %}
 
 {% tab Google Tag Manager %}
@@ -17,7 +17,7 @@ Use o tipo de tag **Disable Tracking** ou **Resume Tracking** para desabilitar o
 Para oferecer aos usuários a opção de interromper o rastreamento, recomendamos criar uma página simples com dois links ou botões: um que chama `disableSDK()` ao ser clicado e outro que chama `enableSDK()` para permitir que os usuários optem por participar novamente. Você pode usar esses controles para iniciar ou interromper o rastreamento por meio de outros subprocessadores de dados também.
 
 {% alert note %}
-O SDK or kit de desenvolvimento de software da Braze não precisa ser inicializado para chamar `disableSDK()`, o que permite desabilitar o rastreamento para usuários totalmente anônimos. Por outro lado, `enableSDK()` não inicializa o SDK or kit de desenvolvimento de software da Braze, então você também precisa chamar `initialize()` em seguida para ativar o rastreamento.
+O SDK da Braze não precisa ser inicializado para chamar `disableSDK()`, o que permite desabilitar o rastreamento para usuários totalmente anônimos. Por outro lado, `enableSDK()` não inicializa o SDK da Braze, então você também precisa chamar `initialize()` em seguida para ativar o rastreamento.
 {% endalert %}
 
 ## Retomando o rastreamento de dados {#resuming-data-tracking}
@@ -26,14 +26,14 @@ Para retomar a coleta de dados, você pode usar o método [`enableSDK()`](https:
 
 ## Logout e cancelamento de registro de push {#logout-and-unregister-push}
 
-O SDK or kit de desenvolvimento de software da Braze fornece métodos para parar de direcionar um dispositivo quando um usuário cancela o registro de notificações por push ou faz logout. Esses métodos removem os dados de registro de push do usuário atual no servidor da Braze e no SDK or kit de desenvolvimento de software, de modo que a Braze não envia mais Campaigns de notificação por push futuras para esse usuário.
+O SDK da Braze fornece métodos para parar de direcionar um dispositivo quando um usuário cancela o registro de notificações por push ou faz logout. Esses métodos removem os dados de registro de push do usuário atual no servidor da Braze e no SDK, de modo que a Braze não envia mais Campaigns de notificação por push futuras para esse usuário.
 
 ### Logout {#logout}
 
-Quando um usuário faz logout de um aplicativo, chame o método `logout` do SDK or kit de desenvolvimento de software para remover o registro de push do dispositivo do usuário atual e executar automaticamente ações de limpeza no SDK or kit de desenvolvimento de software. O método `logout` executa o seguinte:
+Quando um usuário faz logout de um aplicativo, chame o método `logout` do SDK para remover o registro de push do dispositivo do usuário atual e executar automaticamente ações de limpeza no SDK. O método `logout` executa o seguinte:
 
 - Cancela o registro do token por push do dispositivo do usuário atual no servidor da Braze.
-- Se a chamada de cancelamento de registro for bem-sucedida, o SDK or kit de desenvolvimento de software apaga os dados do SDK or kit de desenvolvimento de software armazenados localmente e desabilita o SDK or kit de desenvolvimento de software.
+- Se a chamada de cancelamento de registro for bem-sucedida, o SDK apaga os dados do SDK armazenados localmente e desabilita o SDK.
 - Em caso de falha, invoca o `errorCallback` para permitir que o integrador tome uma ação.
 
 O exemplo a seguir mostra o tratamento de `logout` baseado em retorno de chamada. Use-o quando precisar de tratamento imediato de sucesso e erro, e substitua o registro de log pelo fluxo do seu app.
@@ -85,7 +85,7 @@ unregisterPush(successCallback, errorCallback);
 Após chamar `unregisterPush`, registre-se novamente para notificações com seu SO ou provedor de push seguindo a [configuração de web push]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=web) antes de enviar notificações por push da Braze novamente.
 
 {% alert note %}
-Em navegadores compatíveis, quando existe uma inscrição de push ativa, `unregisterPush` também cancela o registro do service worker gerenciado pela Braze após cancelar a inscrição da API or interface de programação do aplicativo (API) Push do navegador. Se você definir `manageServiceWorkerExternally` como `true`, o SDK or kit de desenvolvimento de software não cancela o registro do service worker para você.
+Em navegadores compatíveis, quando existe uma inscrição de push ativa, `unregisterPush` também cancela o registro do service worker gerenciado pela Braze após cancelar a inscrição da API Push do navegador. Se você definir `manageServiceWorkerExternally` como `true`, o SDK não cancela o registro do service worker para você.
 {% endalert %}
 
 #### Evite chamadas imediatas de cancelamento de registro

@@ -12,11 +12,11 @@ noindex: true
 
 # Google Tag Administrador para iOS {#google-tag-manager-for-ios}
 
-## Inicializar el SDK or kit de desarrollo de software {#initializing-ios-google-tag-provider}
+## Inicializar el SDK {#initializing-ios-google-tag-provider}
 
-El SDK or kit de desarrollo de software de Braze para iOS puede inicializarse y controlarse mediante etiquetas configuradas en [Google Tag Administrador](https://tagmanager.google.com/).
+El SDK de Braze para iOS puede inicializarse y controlarse mediante etiquetas configuradas en [Google Tag Administrador](https://tagmanager.google.com/).
 
-Antes de utilizar Google Tag Administrador, asegúrate de seguir primero nuestra [configuración inicial del SDK or kit de desarrollo de software]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview).
+Antes de utilizar Google Tag Administrador, asegúrate de seguir primero nuestra [configuración inicial del SDK]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview).
 
 ## Configurar tu Google Tag Administrador {#configuring-ios-google-tag-manager}
 
@@ -95,15 +95,15 @@ NSDictionary *parameters = @{@"externalUserId" : userId};
 {% endtab %}
 {% endtabs %}
 
-## Proveedor de etiquetas personalizadas del SDK or kit de desarrollo de software de Braze {#adding-ios-google-tag-provider}
+## Proveedor de etiquetas personalizadas del SDK de Braze {#adding-ios-google-tag-provider}
 
 Con las etiquetas y los desencadenantes configurados, también tendrás que implementar Google Tag Administrador en tu aplicación para iOS, lo cual puedes encontrar en la [documentación](https://developers.google.com/tag-manager/ios/v5/) de Google.
 
-Una vez que Google Tag Administrador esté instalado en tu aplicación, añade un proveedor de etiquetas personalizado para llamar a los métodos del SDK or kit de desarrollo de software de Braze en función de las etiquetas que hayas configurado en Google Tag Administrador.
+Una vez que Google Tag Administrador esté instalado en tu aplicación, añade un proveedor de etiquetas personalizado para llamar a los métodos del SDK de Braze en función de las etiquetas que hayas configurado en Google Tag Administrador.
 
 Asegúrate de anotar la "Ruta de clase" del archivo: es lo que introducirás cuando configures una etiqueta en la consola de [Google Tag Administrador](https://tagmanager.google.com/).
 
-Este ejemplo muestra una de las muchas formas de estructurar tu proveedor de etiquetas personalizado, en el que determinamos a qué método del SDK or kit de desarrollo de software de Braze llamar en función del par clave-valor `actionType` enviado desde la etiqueta GTM.
+Este ejemplo muestra una de las muchas formas de estructurar tu proveedor de etiquetas personalizado, en el que determinamos a qué método del SDK de Braze llamar en función del par clave-valor `actionType` enviado desde la etiqueta GTM.
 
 Los `actionType` que hemos admitido en nuestro ejemplo son `logEvent`, `customAttribute` y `changeUser`, pero puede que prefieras cambiar la forma en que tu proveedor de etiquetas gestiona los datos de Google Tag Administrador.
 

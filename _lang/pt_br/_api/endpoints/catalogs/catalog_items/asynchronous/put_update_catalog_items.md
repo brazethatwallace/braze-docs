@@ -9,7 +9,7 @@ page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint da Braze para substituir vários itens do catálogo."
 
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Substituir itens do catálogo {#replace-catalog-items}
 {% apimethod put %}
 /catalogs/{catalog_name}/items
@@ -23,7 +23,7 @@ Se um item de catálogo não existir, esse endpoint criará o item no seu catál
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `catalogs.replace_items`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `catalogs.replace_items`.
 
 ## Limite de frequência {#rate-limit}
 
@@ -139,7 +139,7 @@ A tabela a seguir lista os possíveis erros retornados e as etapas de solução 
 | `items-missing-ids` | Alguns itens não têm IDs de item. Confirme que cada item tem um ID. |
 | `items-too-large` | Os valores dos itens não podem exceder 5.000 caracteres. |
 | `invalid-ids` | Os caracteres compatíveis com os nomes de ID de item são letras, números, hífens e sublinhados. |
-| `invalid-fields` | Confirme que todos os campos que está enviando na solicitação de API or interface de programação do aplicativo (API) já existem no catálogo. Isso não está relacionado ao campo ID mencionado no erro. |
+| `invalid-fields` | Confirme que todos os campos que está enviando na solicitação de API já existem no catálogo. Isso não está relacionado ao campo ID mencionado no erro. |
 | `invalid-keys-in-value-object` | As chaves de objeto do item não podem incluir `.` ou `$`. |
 | `too-deep-nesting-in-value-object` | Os objetos de item não podem ter mais de 50 níveis de aninhamento. |
 | `request-includes-too-many-items` | Sua solicitação tem muitos itens. O limite de itens por solicitação é de 50. |

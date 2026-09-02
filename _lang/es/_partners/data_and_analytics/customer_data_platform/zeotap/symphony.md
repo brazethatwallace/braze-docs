@@ -1,6 +1,6 @@
 ---
 nav_title: Zeotap Symphony
-description: "Este artículo de referencia describe la asociación entre Braze y Zeotap, una CDP or plataforma de datos de los clientes or plataforma de datos de los clientes de nueva generación que proporciona resolución de identidades, información y enriquecimiento."
+description: "Este artículo de referencia describe la asociación entre Braze y Zeotap, una CDP de nueva generación que proporciona resolución de identidades, información y enriquecimiento."
 page_type: partner
 search_tag: Partner
 page_order: 2
@@ -22,7 +22,7 @@ Para crear campañas de marketing por correo electrónico, incorpora los correos
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Nombre del cliente | Este es tu nombre de cliente para tu cuenta de Braze. Puedes encontrarlo navegando hasta la consola de Braze. |
-| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos `users.track`. <br><br> Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. <br><br> Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
 | Instancia | Tu instancia de Braze se puede obtener a través de tu administrador de incorporación de Braze o en la [página de resumen de la API]({{site.baseurl}}/api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
@@ -32,11 +32,11 @@ Esta sección proporciona información sobre los dos métodos de integración co
 
 ### Método 1 {#method-1}
 En este método, tienes que realizar las siguientes tareas:
-1. Integra el SDK or kit de desarrollo de software de Braze en tu sitio web o aplicación.
+1. Integra el SDK de Braze en tu sitio web o aplicación.
 2. Integra Braze con Zeotap a través de Symphony.
 
 - `User traits` deben asignarse a los respectivos campos de Braze en la pestaña **Data To Send**. Si asignas los atributos `Event` y `Purchase`, se producirá una duplicación de eventos dentro de Braze.
-- Asigna `External ID` al `User ID` configurado al configurar el SDK or kit de desarrollo de software de Braze.
+- Asigna `External ID` al `User ID` configurado al configurar el SDK de Braze.
 
 Cuando la integración se haya configurado correctamente, podrás crear campañas de correo electrónico y notificaciones push basadas en atributos personalizados enviados a Braze a través de Symphony.
 

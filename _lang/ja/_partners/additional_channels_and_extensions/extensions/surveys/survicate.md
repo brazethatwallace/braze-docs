@@ -85,7 +85,7 @@ SurvicateとBrazeの統合はリアルタイムのデータ同期を提供する
 ![メールコードを取得する]({% image_buster /assets/img/survicate/survicate_5.gif %})
 
 {: start="2"}
-2. アンケートに使用するBrazeキャンペーンに移動し、**メール本文を編集**をクリックして、テンプレートにHTMLブロックを追加します：
+2. アンケートに使用するBrazeキャンペーンに移動し、**Edit email body**をクリックして、テンプレートにHTMLブロックを追加します：
 
 ![HTMLブロックコードを取得する]({% image_buster /assets/img/survicate/survicate_6.png %})
 

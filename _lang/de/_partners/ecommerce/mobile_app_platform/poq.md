@@ -25,7 +25,7 @@ Die folgenden Kanäle und Features werden unterstützt.
 | :---- | :---- |
 | Push-Benachrichtigungen | Senden Sie gezielte, personalisierte Push-Benachrichtigungen über Braze an App-Nutzer:innen, einschließlich Rich-Push-Benachrichtigungen. |
 | In-App-Nachrichten | Zeigen Sie Braze In-App Messages innerhalb des nativen App-Erlebnisses an, um Nutzer:innen im richtigen Moment ihrer Journey anzusprechen. |
-| Analytics und Event-Tracking | Poq sendet einen umfassenden Satz von App-Events an Braze, der die gesamte Customer Journey abdeckt. Diese Daten ermöglichen Segmentierung, Campaign-Trigger or triggern und Personalisierung in Braze. |
+| Analytics und Event-Tracking | Poq sendet einen umfassenden Satz von App-Events an Braze, der die gesamte Customer Journey abdeckt. Diese Daten ermöglichen Segmentierung, Campaign-Trigger und Personalisierung in Braze. |
 | Content Cards und Nachrichten-Posteingang | Stellen Sie persistente Braze Content Cards innerhalb der App bereit – entweder in einem dedizierten Nachrichten-Posteingang oder auf Seiten, die mit dem Dynamic-Content-Seiteneditor von Poq erstellt wurden, oder in vordefinierten Bereichen innerhalb der App. Content Cards werden mithilfe von Schlüssel-Wert-Paaren gefiltert, die in Braze konfiguriert werden. |
 | Banner | Zeigen Sie Braze-Banner innerhalb der App an – entweder auf Seiten, die mit dem Dynamic-Content-Seiteneditor von Poq erstellt wurden, oder in vordefinierten Bereichen innerhalb der App. Banner-Inhalte werden über eine Placement-ID abgerufen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Was unterstützt wird" }

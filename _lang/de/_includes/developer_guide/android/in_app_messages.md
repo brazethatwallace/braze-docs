@@ -8,7 +8,7 @@
 
 ## Aktivieren von In-App-Nachrichten
 
-### Schritt 1: Registrierung or registrieren Sie sich `BrazeInAppMessageManager`
+### Schritt 1: Registrierung Sie sich `BrazeInAppMessageManager`
 
 Die Anzeige von In-App-Nachrichten wird von der Klasse [`BrazeInAppMessageManager`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage/-braze-in-app-message-manager/index.html) verwaltet. Jede Aktivität in Ihrer App muss bei `BrazeInAppMessageManager` registriert sein, damit sie In-App-Nachricht-Ansichten zur Ansichtshierarchie hinzufügen kann. Es gibt zwei Möglichkeiten, dies zu erreichen:
 
@@ -101,7 +101,7 @@ public override fun onPause() {
 {% endtab %}
 {% endtabs %}
 
-### Schritt 2: Update or aktualisieren der Blockliste des Managers (optional)
+### Schritt 2: Update der Blockliste des Managers (optional)
 
 In Ihrer Integration können Sie festlegen, dass bestimmte Aktivitäten in Ihrer App keine In-App-Nachrichten anzeigen sollen. Die [Integration von Callbacks in den Aktivitätslebenszyklus]({{site.baseurl}}/developer_guide/sdk_integration#android_step-4-enable-user-session-tracking) bietet eine einfache Möglichkeit, dies zu erreichen.
 

@@ -18,7 +18,7 @@ _Esta integração é mantida pela Lob._
 
 Com essa integração, você pode:
 
-- Enviar cartas, cartões-postais e cheques semelhantes a mala direta pelo correio usando webhooks da Braze e a API or interface de programação do aplicativo (API) da Lob.
+- Enviar cartas, cartões-postais e cheques semelhantes a mala direta pelo correio usando webhooks da Braze e a API da Lob.
 - Compartilhar eventos da Lob com a Braze como atributos e eventos personalizados usando a Transformação de Dados da Braze e webhooks da Lob.
 
 ## Pré-requisitos {#prerequisites}
@@ -26,14 +26,14 @@ Com essa integração, você pode:
 | Requisito | Descrição |
 | --- | --- |
 | Conta da Lob | É necessário ter uma conta da Lob para aproveitar essa parceria. |
-| Chave de API or interface de programação do aplicativo (API) da Lob | Sua chave de API or interface de programação do aplicativo (API) da Lob pode ser encontrada na seção de configurações, abaixo do seu nome, no dashboard da Lob. |
+| Chave de API da Lob | Sua chave de API da Lob pode ser encontrada na seção de configurações, abaixo do seu nome, no dashboard da Lob. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Enviando mala direta usando webhooks da Braze {#sending-mail-using-braze-webhooks}
 
 ### Etapa 1: Escolha um endpoint da Lob {#step-1-choose-a-lob-endpoint}
 
-Dependendo do que você gostaria de fazer na Lob, será necessário usar o endpoint correspondente na solicitação HTTP do seu webhook. Para informações detalhadas sobre cada endpoint, consulte [a documentação de referência da API or interface de programação do aplicativo (API) da Lob](https://lob.com/docs#intro).
+Dependendo do que você gostaria de fazer na Lob, será necessário usar o endpoint correspondente na solicitação HTTP do seu webhook. Para informações detalhadas sobre cada endpoint, consulte [a documentação de referência da API da Lob](https://lob.com/docs#intro).
 
 | URL base | Endpoints disponíveis |
 | ------------ | ------------------- |
@@ -53,7 +53,7 @@ Em seu novo modelo de webhook, preencha os seguintes campos:
 
 #### Cabeçalhos de solicitação e método {#request-headers-and-method}
 
-A Lob requer um cabeçalho HTTP para autorização e um método HTTP. O seguinte já estará incluído no modelo como um par chave-valor, mas na guia **Configurações**, você deve substituir o `<LOB_API_KEY>` pela sua chave de API or interface de programação do aplicativo (API) da Lob. Essa chave deve incluir um ":" logo após a chave e ser codificada em base 64.
+A Lob requer um cabeçalho HTTP para autorização e um método HTTP. O seguinte já estará incluído no modelo como um par chave-valor, mas na guia **Configurações**, você deve substituir o `<LOB_API_KEY>` pela sua chave de API da Lob. Essa chave deve incluir um ":" logo após a chave e ser codificada em base 64.
 
 - **Método HTTP**: POST
 - **Cabeçalhos de solicitação**:

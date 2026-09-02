@@ -10,7 +10,7 @@ alias:
   - /api/endpoints/user_data/post_user_track_bulk_partners/
 description: "Este artigo descreve detalhes sobre o endpoint de rastreamento de usuários em massa."
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Criar e atualizar usuários (em massa) {#create-and-update-users-bulk}
 {% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track/bulk
@@ -37,13 +37,13 @@ Os limites do objeto de solicitação do endpoint `/users/track` variam de acord
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisa de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics) com a permissão `users.track.bulk`.
+Para usar este endpoint, você precisa de uma [chave de API]({{site.baseurl}}/api/basics) com a permissão `users.track.bulk`.
 
-Se você estiver fazendo chamadas servidor-a-servidor atrás de um firewall, pode ser necessário adicionar seu endpoint REST or transferir estado representacional da Braze à lista de permissões (por exemplo, `rest.iad-01.braze.com`). Para saber mais, consulte [Endpoints de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#api-definitions).
+Se você estiver fazendo chamadas servidor-a-servidor atrás de um firewall, pode ser necessário adicionar seu endpoint REST da Braze à lista de permissões (por exemplo, `rest.iad-01.braze.com`). Para saber mais, consulte [Endpoints de API]({{site.baseurl}}/api/basics#api-definitions).
 
 ## Limite de frequência {#rate-limit}
 
-{% multi_lang_include API or interface de programação do aplicativo (API)/user_track_custom_attributes_data_points.md endpoint="/users/track/bulk" %}
+{% multi_lang_include api/user_track_custom_attributes_data_points.md endpoint="/users/track/bulk" %}
 
 Para a maioria dos clientes, este endpoint tem um limite de velocidade base de 50 solicitações por segundo.
 

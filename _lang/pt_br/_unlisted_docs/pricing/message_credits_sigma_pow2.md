@@ -44,7 +44,7 @@ As definições das colunas são as seguintes:
     </tr>
     <tr>
         <td>Agent Console</td>
-        <td>BYO LLM API or interface de programação do aplicativo (API) Key</td>
+        <td>BYO LLM API Key</td>
         <td>0.16</td>
     </tr>
     <tr>
@@ -1774,157 +1774,157 @@ As definições das colunas são as seguintes:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferir estado representacional of Africa Authentication</td>
+        <td>Rest of Africa Authentication</td>
         <td>0.80</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferir estado representacional of Africa Marketing</td>
+        <td>Rest of Africa Marketing</td>
         <td>4.48</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferir estado representacional of Africa Marketing - BYO or Meta Direct</td>
+        <td>Rest of Africa Marketing - BYO or Meta Direct</td>
         <td>0.23</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferir estado representacional of Africa Marketing - Optimized Delivery</td>
+        <td>Rest of Africa Marketing - Optimized Delivery</td>
         <td>4.48</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferir estado representacional of Africa Utility</td>
+        <td>Rest of Africa Utility</td>
         <td>0.80</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferir estado representacional of Asia Pacific Authentication</td>
+        <td>Rest of Asia Pacific Authentication</td>
         <td>2.25</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferir estado representacional of Asia Pacific Marketing</td>
+        <td>Rest of Asia Pacific Marketing</td>
         <td>14.55</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferir estado representacional of Asia Pacific Marketing - BYO or Meta Direct</td>
+        <td>Rest of Asia Pacific Marketing - BYO or Meta Direct</td>
         <td>0.73</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferir estado representacional of Asia Pacific Marketing - Optimized Delivery</td>
+        <td>Rest of Asia Pacific Marketing - Optimized Delivery</td>
         <td>14.55</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferir estado representacional of Asia Pacific Utility</td>
+        <td>Rest of Asia Pacific Utility</td>
         <td>2.25</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferir estado representacional of Central & Eastern Europe Authentication</td>
+        <td>Rest of Central & Eastern Europe Authentication</td>
         <td>4.20</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferir estado representacional of Central & Eastern Europe Marketing</td>
+        <td>Rest of Central & Eastern Europe Marketing</td>
         <td>17.10</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferir estado representacional of Central & Eastern Europe Marketing - BYO or Meta Direct</td>
+        <td>Rest of Central & Eastern Europe Marketing - BYO or Meta Direct</td>
         <td>0.86</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferir estado representacional of Central & Eastern Europe Marketing - Optimized Delivery</td>
+        <td>Rest of Central & Eastern Europe Marketing - Optimized Delivery</td>
         <td>17.10</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferir estado representacional of Central & Eastern Europe Utility</td>
+        <td>Rest of Central & Eastern Europe Utility</td>
         <td>4.20</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferir estado representacional of Latin America Authentication</td>
+        <td>Rest of Latin America Authentication</td>
         <td>2.25</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferir estado representacional of Latin America Marketing</td>
+        <td>Rest of Latin America Marketing</td>
         <td>14.63</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferir estado representacional of Latin America Marketing - BYO or Meta Direct</td>
+        <td>Rest of Latin America Marketing - BYO or Meta Direct</td>
         <td>0.74</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferir estado representacional of Latin America Marketing - Optimized Delivery</td>
+        <td>Rest of Latin America Marketing - Optimized Delivery</td>
         <td>14.63</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferir estado representacional of Latin America Utility</td>
+        <td>Rest of Latin America Utility</td>
         <td>2.25</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferir estado representacional of Message Types - BYO or Meta Direct</td>
+        <td>Rest of Message Types - BYO or Meta Direct</td>
         <td>0.10</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferir estado representacional of Middle East Authentication</td>
+        <td>Rest of Middle East Authentication</td>
         <td>1.80</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferir estado representacional of Middle East Marketing</td>
+        <td>Rest of Middle East Marketing</td>
         <td>6.75</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferir estado representacional of Middle East Marketing - BYO or Meta Direct</td>
+        <td>Rest of Middle East Marketing - BYO or Meta Direct</td>
         <td>0.34</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferir estado representacional of Middle East Marketing - Optimized Delivery</td>
+        <td>Rest of Middle East Marketing - Optimized Delivery</td>
         <td>6.75</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferir estado representacional of Middle East Utility</td>
+        <td>Rest of Middle East Utility</td>
         <td>1.80</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferir estado representacional of Western Europe Authentication</td>
+        <td>Rest of Western Europe Authentication</td>
         <td>3.38</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferir estado representacional of Western Europe Marketing</td>
+        <td>Rest of Western Europe Marketing</td>
         <td>11.63</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferir estado representacional of Western Europe Marketing - BYO or Meta Direct</td>
+        <td>Rest of Western Europe Marketing - BYO or Meta Direct</td>
         <td>0.59</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferir estado representacional of Western Europe Marketing - Optimized Delivery</td>
+        <td>Rest of Western Europe Marketing - Optimized Delivery</td>
         <td>11.63</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>REST or transferir estado representacional of Western Europe Utility</td>
+        <td>Rest of Western Europe Utility</td>
         <td>3.38</td>
     </tr>
     <tr>
@@ -2276,7 +2276,7 @@ A Braze cobrará Créditos de Mensagem pelas Invocações do Agent Console envia
 
 ### Segmentos de SMS {#sms-segments}
 
-Segmentos de mensagem SMS são a forma como o setor de SMS contabiliza as mensagens. Um Segment or segmento or segmento de mensagem é um agrupamento de até um número definido de caracteres (160 para codificação GSM-7; 67 para codificação UCS-2) que será enviado em um único despacho de SMS. Se você enviar um SMS com 161 caracteres usando codificação GSM-7, verá que dois (2) segmentos de mensagem foram enviados. O envio de múltiplos segmentos de mensagem resultará em cobranças adicionais.
+Segmentos de mensagem SMS são a forma como o setor de SMS contabiliza as mensagens. Um Segment de mensagem é um agrupamento de até um número definido de caracteres (160 para codificação GSM-7; 67 para codificação UCS-2) que será enviado em um único despacho de SMS. Se você enviar um SMS com 161 caracteres usando codificação GSM-7, verá que dois (2) segmentos de mensagem foram enviados. O envio de múltiplos segmentos de mensagem resultará em cobranças adicionais.
 
 ### Segmentos de MMS {#mms-segments}
 

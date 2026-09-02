@@ -58,7 +58,7 @@ UNNotificationCategory *newsCategory = [UNNotificationCategory categoryWithIdent
 ```
 
 {% alert important %}
-Hierfür ist kein SDK or Software-Development-Kit-Update or aktualisieren erforderlich.
+Hierfür ist kein SDK-Update erforderlich.
 {% endalert %}
 
 {% alert tip %}
@@ -97,7 +97,7 @@ Wenn Sie zusätzliche Push-Aufforderungen oder [In-App-Push-Primer](https://www.
 
 #### Vorläufige Push-Benachrichtigungen einrichten {#set-up-provisional-push-notifications}
 
-Braze ermöglicht es Ihnen, sich für die vorläufige Authentifizierung zu Registrierung or registrieren, indem Sie Ihren Code im Token / Textbaustein-Registrierungs-Snippet innerhalb Ihrer Braze iOS SDK or Software-Development-Kit-Implementierung Update or aktualisieren or aktualisieren. Verwenden Sie die folgenden Snippets als Beispiel (senden Sie diese an Ihre Entwickler:innen oder stellen Sie sicher, dass diese die [vorläufige Push-Authentifizierung während des Integrationsprozesses implementieren]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift)).
+Braze ermöglicht es Ihnen, sich für die vorläufige Authentifizierung zu Registrierung, indem Sie Ihren Code im Token / Textbaustein-Registrierungs-Snippet innerhalb Ihrer Braze iOS SDK-Implementierung aktualisieren. Verwenden Sie die folgenden Snippets als Beispiel (senden Sie diese an Ihre Entwickler:innen oder stellen Sie sicher, dass diese die [vorläufige Push-Authentifizierung während des Integrationsprozesses implementieren]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift)).
 
 {% alert warning %}
 Die Implementierung der vorläufigen Push-Authentifizierung unterstützt nur iOS 12+ und gibt bei einem früheren Deployment-Target einen Fehler aus. Weitere Informationen finden Sie [in unserer ausführlicheren Implementierungsdokumentation hier]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift).
@@ -141,7 +141,7 @@ Um die Unterbrechungsstufe für eine iOS-Push-Benachrichtigung zu ändern, wähl
 
 ![Dropdown-Menü zur Auswahl der Unterbrechungsstufe.]({% image_buster /assets/img/ios/interruption_level.png %}){: style="max-width:50%"}
 
-Dieses Feature hat keine Mindestanforderungen an die SDK or Software-Development-Kit-Version, wird jedoch nur auf Geräten mit iOS 15+ angewendet.
+Dieses Feature hat keine Mindestanforderungen an die SDK-Version, wird jedoch nur auf Geräten mit iOS 15+ angewendet.
 
 Bedenken Sie, dass die Nutzer:innen letztlich die Kontrolle über ihren Fokus haben und selbst wenn eine zeitkritische Benachrichtigung zugestellt wird, können sie festlegen, welche Apps ihren Fokus nicht durchbrechen dürfen.
 
@@ -169,7 +169,7 @@ Um die Relevanzbewertung einer iOS-Benachrichtigung festzulegen, geben Sie im Ta
 
 ![Relevanzbewertung von „0.5“.]({% image_buster /assets/img/ios/relevance-score.png %}){: style="max-width:80%;"}
 
-Dieses Feature hat keine Mindestanforderungen an die SDK or Software-Development-Kit-Version, wird jedoch nur auf Geräten mit iOS 15+ angewendet.
+Dieses Feature hat keine Mindestanforderungen an die SDK-Version, wird jedoch nur auf Geräten mit iOS 15+ angewendet.
 
 Weitere Informationen zu maximalen Nachrichtenlängen für verschiedene Nachrichtentypen finden Sie in den folgenden Ressourcen:
 

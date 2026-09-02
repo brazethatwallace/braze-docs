@@ -2,7 +2,7 @@
 
 ## Habilitar historias push
 
-Para el SDK or kit de desarrollo de software de React Native, **las historias push están disponibles para Android de forma predeterminada**.
+Para el SDK de React Native, **las historias push están disponibles para Android de forma predeterminada**.
 
 Para habilitar las historias push en iOS mediante Expo, asegúrate de que tienes un grupo de aplicaciones definido para tu aplicación. Para más información, consulta [Añadir un grupo de aplicaciones]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/push_story/#adding-an-app-group).
 

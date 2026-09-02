@@ -21,12 +21,12 @@ platform:
 
 Häufige Fehlerursachen können sein:
 - Falsche [senderID]({{site.baseurl}}/developer_guide/push_notifications?sdktab=android)
-- Mehrfachregistrierung, wenn sich Nutzer:innen bei einem anderen Push-Dienst mit einer anderen senderID Registrierung or registrieren
+- Mehrfachregistrierung, wenn sich Nutzer:innen bei einem anderen Push-Dienst mit einer anderen senderID Registrierung
 
 ### Push-Bounce: InvalidRegistration {#push-bounced-invalidregistration}
 `InvalidRegistration` kann auftreten, wenn ein Push-Token / Textbaustein fehlerhaft ist. Häufige Fehlerursachen können sein:
 - Nutzer:innen übergeben Braze-Registrierungstoken manuell, rufen aber nicht `getToken()` auf. Zum Beispiel übergeben sie möglicherweise die gesamte Instanz-ID. Das Token / Textbaustein in der Fehlermeldung sieht dann wie folgt aus: `&#124;ID&#124;1&#124;:[regular token]`.
-- Nutzer:innen Registrierung or registrieren sich bei mehreren Diensten. Derzeit erwarten wir, dass Push-Registrierungs-Intents im alten Stil eintreffen. Wenn sich Nutzer:innen also an mehreren Stellen Registrierung or registrieren und wir Intents von anderen Diensten abfangen, können fehlerhafte Push-Token / Textbaustein entstehen.
+- Nutzer:innen Registrierung sich bei mehreren Diensten. Derzeit erwarten wir, dass Push-Registrierungs-Intents im alten Stil eintreffen. Wenn sich Nutzer:innen also an mehreren Stellen Registrierung und wir Intents von anderen Diensten abfangen, können fehlerhafte Push-Token / Textbaustein entstehen.
 
 ### Push-Bounce: NotRegistered {#notregistered}
 
@@ -40,7 +40,7 @@ Dies tritt typischerweise aus einem der folgenden Gründe auf:
 
 - Die Nutzer:innen haben die App deinstalliert. Dies ist die häufigste Ursache. Wenn die App von einem Gerät entfernt wird, wird das Push-Token / Textbaustein ungültig.
 - Die Push-Zugangsdaten wurden in der App aktualisiert. Wenn Ihr Team die FCM-Zugangsdaten oder Zertifikate geändert hat, die mit der App gebündelt sind, haben Nutzer:innen, die sich mit den vorherigen Zugangsdaten registriert haben, ungültige Token / Textbaustein, bis die App sie erneut registriert.
-- Angepasste Logik meldet Nutzer:innen von Push ab. Dies ist selten, aber es ist technisch möglich, ein Gerät programmatisch über das [Firebase/Android-SDK or Software-Development-Kit](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/FirebaseMessaging#deleteToken()) von Push abzumelden.
+- Angepasste Logik meldet Nutzer:innen von Push ab. Dies ist selten, aber es ist technisch möglich, ein Gerät programmatisch über das [Firebase/Android-SDK](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/FirebaseMessaging#deleteToken()) von Push abzumelden.
 
 {% alert note %}
 Dieser Fehler bedeutet nicht, dass Push für die Nutzer:innen deaktiviert ist – nur, dass ein bestimmtes Token / Textbaustein aus ihrem Profil entfernt wurde. Dies ist häufig bei Nutzer:innen, die Funktionen testen und die App häufig installieren und deinstallieren. Um zu prüfen, ob die Nutzer:innen noch gültige Token / Textbaustein haben, gehen Sie zur **Nutzersuche** und überprüfen Sie den Abschnitt **Kontakteinstellungen** auf dem Tab **Engagement**.
@@ -50,7 +50,7 @@ Dieser Fehler bedeutet nicht, dass Push für die Nutzer:innen deaktiviert ist �
 
 Dieser Fehler kann aus folgenden Gründen auftreten:
 
-- Die Endnutzer:innen haben die App deinstalliert. Sie können deren Kundenprofil or Nutzerprofil überprüfen, um zu bestätigen, ob dies der Fall ist.
+- Die Endnutzer:innen haben die App deinstalliert. Sie können deren Kundenprofil überprüfen, um zu bestätigen, ob dies der Fall ist.
 - Es liegt ein ungültiger Benachrichtigungskanal vor. Je nach Ihrer Integration können Geräte Push-Token / Textbaustein haben, die nur für bestimmte Benachrichtigungskanäle gültig sind. Beim Senden an einen ungültigen Kanal wird die Nachricht als Bounce zurückgewiesen.
 - Die Payload-Größe ist zu groß.
 
@@ -61,7 +61,7 @@ Weitere Informationen finden Sie in [Googles Dokumentation](https://firebase.goo
 
 ### Fehler beim Senden von Push, da die Payload ungültig war {#error-sending-push-because-the-payload-was-invalid}
 
-Diese Nachricht kann im Kundenprofil or Nutzerprofil auf dem Tab **Engagement** unter **Kontakteinstellungen** > **Push-Changelog** erscheinen, wenn der Apple Push Notification Service (APNs) die Push-Anfrage aufgrund einer ungültigen Payload ablehnt.
+Diese Nachricht kann im Kundenprofil auf dem Tab **Engagement** unter **Kontakteinstellungen** > **Push-Changelog** erscheinen, wenn der Apple Push Notification Service (APNs) die Push-Anfrage aufgrund einer ungültigen Payload ablehnt.
 
 In Braze kann diese Dashboard-Nachricht einem der folgenden APNs-Fehlergründe zugeordnet werden:
 
@@ -84,7 +84,7 @@ Der `BadToken`-Fehler kann aus verschiedenen Gründen auftreten:
 - Das Push-Token / Textbaustein wird nicht korrekt an Braze gesendet (z. B. in `registerDeviceToken:` oder dem Äquivalent Ihrer Plattform).
 	- Überprüfen Sie das Token / Textbaustein im [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log). Es sollte in der Regel wie ein langer String aus Buchstaben und Zahlen aussehen (z. B. `6e407a9be8d07f0cdeb9e714733a89445f57a89ec890d63867c482a483506fa6`). Wenn nicht, überprüfen Sie den Code, der das Push-Token / Textbaustein an Braze sendet.<br><br>
 - Nicht übereinstimmende Bereitstellungsumgebung:
-	- Wenn Sie sich mit einem Entwicklungszertifikat Registrierung or registrieren und versuchen, mit einem Produktionszertifikat zu senden, kann dieser Fehler auftreten.
+	- Wenn Sie sich mit einem Entwicklungszertifikat Registrierung und versuchen, mit einem Produktionszertifikat zu senden, kann dieser Fehler auftreten.
 	- Braze unterstützt nur universelle Zertifikate für Produktionsumgebungen. Das Testen von Push in Entwicklungsumgebungen mit einem universellen Zertifikat funktioniert nicht.
 	- Diese Meldung zeigt Bounces in der Produktion, aber nicht in der Entwicklung an.<br><br>
 - Nicht übereinstimmendes Bereitstellungsprofil:
@@ -110,7 +110,7 @@ Dies ist das iOS-Äquivalent des Android-Fehlers [DEVICE_UNREGISTERED](#device-u
 
 - Die Nutzer:innen haben die App deinstalliert. Dies ist die häufigste Ursache.
 - Push-Zertifikate wurden aktualisiert. Wenn Ihr Team die APNs-Zertifikate geändert oder erneuert hat, haben Nutzer:innen, die sich mit den vorherigen Zertifikaten registriert haben, möglicherweise ungültige Token / Textbaustein, bis die App sie erneut registriert.
-- Angepasste Logik meldet Nutzer:innen von Push ab. Dies ist selten, aber es ist technisch möglich, sich programmatisch über das iOS-SDK or Software-Development-Kit von Remote-Benachrichtigungen abzumelden.
+- Angepasste Logik meldet Nutzer:innen von Push ab. Dies ist selten, aber es ist technisch möglich, sich programmatisch über das iOS-SDK von Remote-Benachrichtigungen abzumelden.
 
 {% alert note %}
 Dieser Fehler bedeutet nicht, dass Push für die Nutzer:innen deaktiviert ist – nur, dass ein bestimmtes Token / Textbaustein aus ihrem Profil entfernt wurde. Um zu prüfen, ob die Nutzer:innen noch gültige Token / Textbaustein haben, gehen Sie zur **Nutzersuche** und überprüfen Sie den Abschnitt **Kontakteinstellungen** auf dem Tab **Engagement**.

@@ -8,7 +8,7 @@ description: "Braze SDKを使用して購入を記録する方法について説
 
 # 購入記録 {#log-purchases}
 
-> Braze SDKを使用してアプリ内購入を記録する方法について説明します。これにより、売上を経時的にトラッキングしたり、売上源を横断してトラッキングしたりできます。カスタムイベント、カスタム属性、および購入イベントを使用して、[LTV or 生涯価値に基づいて]({{site.baseurl}}/developer_guide/analytics#purchase-events-revenue-tracking)ユーザーをセグメント化できます。
+> Braze SDKを使用してアプリ内購入を記録する方法について説明します。これにより、売上を経時的にトラッキングしたり、売上源を横断してトラッキングしたりできます。カスタムイベント、カスタム属性、および購入イベントを使用して、[LTVに基づいて]({{site.baseurl}}/developer_guide/analytics#purchase-events-revenue-tracking)ユーザーをセグメント化できます。
 
 {% alert note %}
 リストされていないラッパーSDKの場合は、代わりに関連するネイティブAndroidまたはSwiftメソッドを使用してください。

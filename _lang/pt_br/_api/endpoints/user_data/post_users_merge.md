@@ -7,7 +7,7 @@ layout: api_page
 page_type: reference
 description: "Este artigo traz informações sobre o endpoint da Braze \"Mesclar usuários\"."
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Mesclar usuários {#merge-users}
 {% apimethod post %}
 /users/merge
@@ -21,7 +21,7 @@ Até 50 mesclagens podem ser especificadas por solicitação. Este endpoint é a
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics) com a permissão `users.merge`.
+Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics) com a permissão `users.merge`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -49,7 +49,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 ### Comportamento de mesclagem {#merge-behavior}
 
-O comportamento documentado abaixo é verdadeiro para todos os recursos da Braze que **não são** alimentados pelo Snowflake. As mesclagens de usuários não serão refletidas na guia **Histórico de mensagens**, extensões de Segment or segmento or segmento, Criador de consultas e Currents.
+O comportamento documentado abaixo é verdadeiro para todos os recursos da Braze que **não são** alimentados pelo Snowflake. As mesclagens de usuários não serão refletidas na guia **Histórico de mensagens**, extensões de segmento, Criador de consultas e Currents.
 
 {% alert important %}
 O endpoint não garante a sequência de atualização dos objetos `merge_updates`.
@@ -74,7 +74,7 @@ Este endpoint mescla os seguintes campos se eles não forem encontrados no usuá
 - Atributos personalizados (a Braze mantém os atributos personalizados existentes no perfil alvo e inclui atributos personalizados que não existiam no perfil alvo)
 - Dados de eventos personalizados e de eventos de compra
 - Propriedades de evento personalizado e de compra para segmentação "X vezes em Y dias" (onde X<=50 e Y<=30)
-- Resumo dos eventos personalizados Segment or segmentoáveis
+- Resumo dos eventos personalizados segmentáveis
   - Contagem de eventos (a soma de ambos os perfis)
   - O evento ocorreu pela primeira vez (a Braze escolhe a data mais antiga das duas)
   - O evento ocorreu pela última vez (a Braze escolhe a data mais recente das duas)
@@ -269,7 +269,7 @@ O código de status `400` poderia retornar o seguinte corpo de resposta. Consult
 
 Uma resposta de sucesso confirma que a solicitação foi aceita, mas a operação de mesclagem envolve duas etapas: mesclar os perfis e depois remover o perfil de origem. Por causa disso, o perfil `identifier_to_merge` pode continuar pesquisável no dashboard por um curto período após uma resposta de sucesso. Esse é o comportamento esperado — aguarde alguns minutos e depois verifique se a mesclagem foi concluída.
 
-Se o usuário mesclado ainda existir após vários minutos, verifique se os identificadores na sua solicitação estão corretos e pertencem a usuários no mesmo espaço de trabalho da chave de API or interface de programação do aplicativo (API) usada na solicitação.
+Se o usuário mesclado ainda existir após vários minutos, verifique se os identificadores na sua solicitação estão corretos e pertencem a usuários no mesmo espaço de trabalho da chave de API usada na solicitação.
 
 ### Referência de erros {#error-reference}
 

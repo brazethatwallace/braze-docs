@@ -20,7 +20,7 @@ La integración de Braze y Punchh te permite sincronizar datos con fines de obse
 ## ¿Cuáles son los beneficios? {#what-are-the-benefits}
 
 - Ingesta de datos de fidelización de Punchh a Braze en tiempo real.
-- Aprovecha y combina potentes datos de audiencia de Braze para ofrecer experiencias multicanal significativas y dinámicas (aplicación, móvil, web, correo electrónico y servicio de mensajes cortos).
+- Aprovecha y combina potentes datos de audiencia de Braze para ofrecer experiencias multicanal significativas y dinámicas (aplicación, móvil, web, correo electrónico y SMS).
   - ¿Los clientes abrieron correos electrónicos? ¿Los clientes abrieron la aplicación cerca de una tienda?
 - Estandariza la apariencia de los correos transaccionales enviados a través de Braze.
 - Crea recorridos que permitan pruebas A/B y optimización sobre la marcha.
@@ -30,8 +30,8 @@ La integración de Braze y Punchh te permite sincronizar datos con fines de obse
 | Requisito | Descripción |
 |---|---|
 | Cuenta Punchh | Necesitas una cuenta Punchh activa para aprovechar esta integración. |
-| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos de `users.track`. <br><br> Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
-| Endpoint REST or transferencia de estado representacional de Braze | [La URL de tu endpoint REST or transferencia de estado representacional]({{site.baseurl}}/api/basics#endpoints). Tu endpoint depende de la URL de Braze de tu instancia. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos de `users.track`. <br><br> Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Endpoint REST de Braze | [La URL de tu endpoint REST]({{site.baseurl}}/api/basics#endpoints). Tu endpoint depende de la URL de Braze de tu instancia. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## ¿Qué más debo saber? {#what-else-should-i-know}
@@ -45,7 +45,7 @@ La integración de Braze y Punchh te permite sincronizar datos con fines de obse
 
 - Punchh ha añadido la posibilidad de deshabilitar el envío de atributos de usuario predeterminados a Braze, para que el cliente no incurra en excedentes de puntos de datos. Esto se configura durante la configuración del adaptador.
 - Si se utilizan Segments personalizados en campañas recurrentes, se debe usar el nombre de la campaña en lugar del ID de la campaña, ya que los ID cambian cada vez que se ejecuta la campaña.
-- Los canales de comunicación disponibles dentro de cada campaña de regalo de Punchh incluyen mensajes enriquecidos, notificaciones push, servicio de mensajes cortos y correo electrónico.
+- Los canales de comunicación disponibles dentro de cada campaña de regalo de Punchh incluyen mensajes enriquecidos, notificaciones push, SMS y correo electrónico.
 - Después de que los usuarios han sido enviados a un Segment personalizado de Punchh desde Braze, no se pueden eliminar. Solo se pueden añadir nuevos invitados a un Segment personalizado existente. Si es necesario eliminar invitados de un Segment personalizado de Punchh existente, será necesario crear una nueva campaña de webhook en Braze para enviar usuarios a un nuevo Segment personalizado de Punchh.
 
 ## Integración {#integration}
@@ -150,7 +150,7 @@ Para configurar la integración de Braze y Punchh, haz lo siguiente:
 1. En el panel de Punchh, navega a **Cockpit** > **Dashboard** > **Major Features** > **Enable Webhook Management** y activa **Enable Webhook Management**.<br><br>
 2. A continuación, habilita los adaptadores navegando a **Settings** > **Webhooks Administrador** > **Configurations** > **Show Adapters Tab** y activa **Show Adapters Tab**.<br><br>
 3. Navega a **Webhooks Manager** en la pestaña **Settings**, selecciona la pestaña **Adapters** y haz clic en **Create Adapter**. <br><br>![Pestaña de adaptadores del Webhooks Manager de Punchh con Create Adapter seleccionado.]({% image_buster /assets/img/punchh/punchh1.png %})<br><br>
-4. Completa el nombre del adaptador, la descripción y el correo electrónico del administrador. Selecciona **Braze** como tu adaptador y proporciona tu endpoint de la REST or transferencia de estado representacional API de Braze y tu clave de API de Braze.<br><br>
+4. Completa el nombre del adaptador, la descripción y el correo electrónico del administrador. Selecciona **Braze** como tu adaptador y proporciona tu endpoint de la REST API de Braze y tu clave de API de Braze.<br><br>
 5. A continuación, selecciona los eventos disponibles que deseas habilitar. Puedes encontrar una lista de estos eventos en [Eventos disponibles para sincronizar](#available-events-to-sync).<br><br>![Configuración del adaptador Punchh mostrando los eventos seleccionables para la sincronización con Braze.]({% image_buster /assets/img/punchh/punchh3.png %})<br><br>
 6. Haz clic en **Submit** para habilitar el webhook.
 

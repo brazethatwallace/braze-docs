@@ -188,7 +188,7 @@ iOS의 경우 iPad 기기에만 푸시 알림을 보내거나 iPhone 및 iPod �
 
 ### 타겟 사용자 선택하기 {#choose-users-to-target}
 
-다음으로, Segments 또는 필터를 선택하여 오디언스를 좁혀 [사용자를 타겟팅]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users)해야 합니다. 해당 대략적인 Segment 인구가 어떤 모양인지 자동으로 미리보기가 표시됩니다. Campaign이 타겟팅하는 채널에 대한 자세한 오디언스 통계는 하단에서 확인할 수 있습니다. 사용자 기반의 몇 퍼센트가 타겟팅되고 있는지와 이 Segment의 LTV or 생애주기 가치를 확인하려면 **추가 통계 보기**를 선택하세요.
+다음으로, Segments 또는 필터를 선택하여 오디언스를 좁혀 [사용자를 타겟팅]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users)해야 합니다. 해당 대략적인 Segment 인구가 어떤 모양인지 자동으로 미리보기가 표시됩니다. Campaign이 타겟팅하는 채널에 대한 자세한 오디언스 통계는 하단에서 확인할 수 있습니다. 사용자 기반의 몇 퍼센트가 타겟팅되고 있는지와 이 Segment의 LTV를 확인하려면 **추가 통계 보기**를 선택하세요.
 
 {% multi_lang_include audience/target_audiences.md %}
 

@@ -11,7 +11,7 @@ description: "Crea y gestiona plantillas de Canvas reutilizables, o empieza con 
 > Este artículo de referencia explica cómo crear y gestionar plantillas para Canvas. Usar plantillas puede mejorar tu mensajería creando un marco coherente que se puede personalizar fácilmente para adaptarse a tus objetivos específicos en tus Canvas.
 
 {% alert tip %}
-Ahorra tiempo y agiliza la creación de tu Canvas utilizando las [plantillas de BRAZE Canvas](#available-braze-templates). Explora nuestra biblioteca de plantillas prediseñadas para encontrar una que se ajuste a tu caso de uso y personalízala para satisfacer tus necesidades específicas.
+Ahorra tiempo y agiliza la creación de tu Canvas utilizando las [plantillas de BRAZE CANVAS](#available-braze-templates). Explora nuestra biblioteca de plantillas prediseñadas para encontrar una que se ajuste a tu caso de uso y personalízala para satisfacer tus necesidades específicas.
 {% endalert %}
 
 ## Método 1: Crear a partir de un Canvas existente {#method-1-create-from-an-existing-canvas}

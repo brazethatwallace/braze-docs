@@ -23,7 +23,7 @@ La asociación entre Braze y Toovio proporciona la activación de mensajes casi 
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta Toovio | Se necesita una cuenta Toovio para beneficiarse de esta asociación. |
-| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos `users.track`. <br><br> Puede crearse en el panel de Braze desde **Settings** > **API Keys**. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. <br><br> Puede crearse en el panel de Braze desde **Settings** > **API Keys**. |
 | Braze Currents | Braze Currents permite a los clientes de Braze transmitir datos de eventos o comportamiento a un socio de datos de Braze (AWS S3, Google Cloud Storage o Microsoft Azure Blob Storage) para su procesamiento externo a la plataforma Braze. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 

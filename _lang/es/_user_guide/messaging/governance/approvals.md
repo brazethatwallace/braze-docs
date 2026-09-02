@@ -29,7 +29,7 @@ Para lanzar una Campaign, debes aprobar estos componentes:
 - **Conversion Events:** Esta es la métrica que estás rastreando con fines de participación e informes.
 {% endtab %}
 
-{% tab Canvas %}
+{% tab canvas %}
 Para lanzar un Canvas, debes aprobar estos componentes clave:
 
 - **Conversion Events:** Esta es la métrica que estás rastreando con fines de participación e informes.
@@ -68,7 +68,7 @@ Después de que los estados de aprobación se establezcan en el paso **Summary**
 
 {% endtab %}
 
-{% tab Canvas %}
+{% tab canvas %}
 Debes tener el [permiso "Approve and Deny Canvases"]({{site.baseurl}}/user_guide/administer/global/user_management/permissions). Este permiso controla quién puede actualizar el estado de aprobación de un Canvas. Con este permiso, puedes hacer lo siguiente:
 
 - Autoaprobar el Canvas

@@ -33,13 +33,13 @@ Hier sind einige Beispiel-Anwendungsfälle für das Hinzufügen von Metadaten mi
 2. **Angepasste Tags:** Tags für internes Routing oder Kategorisierung hinzufügen
    - Schlüssel: `priority`
    - Wert: `high`
-3. **Verhaltens-Trigger or triggern:** Metadaten, die verwendet werden, um In-App-Verhaltensweisen zu Trigger or triggern or triggern oder anzupassen
+3. **Verhaltens-Trigger:** Metadaten, die verwendet werden, um In-App-Verhaltensweisen zu triggern oder anzupassen
    - Schlüssel: `deep_link`
    - Wert: `app://promo-page`
 
 ## Push-Benachrichtigungen {#push-notifications}
 
-Schlüssel-Wert-Paare können zu Android-, iOS- und Web-Push-Benachrichtigungen hinzugefügt werden. Sie können Schlüssel-Wert-Paare verwenden, um interne Metriken und App-Inhalte zu Update or aktualisieren or aktualisieren oder Push-Benachrichtigungseigenschaften wie Alarmpriorisierung, Lokalisierung und Töne anzupassen.
+Schlüssel-Wert-Paare können zu Android-, iOS- und Web-Push-Benachrichtigungen hinzugefügt werden. Sie können Schlüssel-Wert-Paare verwenden, um interne Metriken und App-Inhalte zu aktualisieren oder Push-Benachrichtigungseigenschaften wie Alarmpriorisierung, Lokalisierung und Töne anzupassen.
 
 Wählen Sie im Nachrichten-Editor den Tab **Einstellungen**, wählen Sie **Neues Paar hinzufügen** und geben Sie Ihre Schlüssel-Wert-Paare an.
 
@@ -157,7 +157,7 @@ Android-Push-Benachrichtigungen können mit FCM-Nachrichtenoptionen weiter angep
 
 ### Stille Push-Benachrichtigungen {#silent-push-notifications}
 
-Eine stille Push-Benachrichtigung ist eine Push-Benachrichtigung ohne Alert-Nachricht oder Sound, die verwendet wird, um die Oberfläche oder den Inhalt Ihrer App im Hintergrund zu Update or aktualisieren or aktualisieren. Diese Benachrichtigungen nutzen Schlüssel-Wert-Paare, um diese Hintergrund-App-Aktionen auszulösen. Stille Push-Benachrichtigungen ermöglichen auch unser [Uninstall-Tracking]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking).
+Eine stille Push-Benachrichtigung ist eine Push-Benachrichtigung ohne Alert-Nachricht oder Sound, die verwendet wird, um die Oberfläche oder den Inhalt Ihrer App im Hintergrund zu aktualisieren. Diese Benachrichtigungen nutzen Schlüssel-Wert-Paare, um diese Hintergrund-App-Aktionen auszulösen. Stille Push-Benachrichtigungen ermöglichen auch unser [Uninstall-Tracking]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking).
 
 Marketer sollten testen, ob stille Push-Benachrichtigungen das erwartete Verhalten auslösen, bevor sie diese an die Nutzer:innen ihrer App senden. Nachdem Sie Ihre stille Push-Benachrichtigung für [iOS]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=swift) oder [Android]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=android) erstellt haben, stellen Sie sicher, dass Sie nur eine Testnutzer:in ansprechen, indem Sie nach [externer Nutzer-ID]({{site.baseurl}}/api/endpoints/messaging#external-user-id) oder [E-Mail-Adresse]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) filtern.
 

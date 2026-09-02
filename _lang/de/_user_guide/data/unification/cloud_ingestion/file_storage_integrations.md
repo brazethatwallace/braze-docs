@@ -112,7 +112,7 @@ Fügen Sie die folgende Anweisung an die Zugriffsrichtlinie der Warteschlange an
 3. Wählen Sie unter **Destination** die Option **SQS queue** und geben Sie den ARN der in Schritt 2 erstellten SQS an.
 
 {% alert note %}
-Wenn Sie Ihre Dateien in den Stammordner eines S3-Buckets hochladen und dann einige der Dateien in einen bestimmten Ordner im Bucket verschieben, kann ein unerwarteter Fehler auftreten. Stattdessen können Sie die Event-Benachrichtigungen so konfigurieren, dass sie nur für Dateien im Präfix gesendet werden, keine Dateien außerhalb dieses Präfixes im S3-Bucket ablegen oder die Integration ohne Präfix Update or aktualisieren or aktualisieren, wodurch dann alle Dateien aufgenommen werden.
+Wenn Sie Ihre Dateien in den Stammordner eines S3-Buckets hochladen und dann einige der Dateien in einen bestimmten Ordner im Bucket verschieben, kann ein unerwarteter Fehler auftreten. Stattdessen können Sie die Event-Benachrichtigungen so konfigurieren, dass sie nur für Dateien im Präfix gesendet werden, keine Dateien außerhalb dieses Präfixes im S3-Bucket ablegen oder die Integration ohne Präfix aktualisieren, wodurch dann alle Dateien aufgenommen werden.
 {% endalert %}
 
 ### Schritt 5: IAM-Richtlinie erstellen {#step-5-create-an-iam-policy}
@@ -470,9 +470,9 @@ Für Nutzerdaten-Synchronisierungen (Attribute, angepasste Events, Kauf-Events) 
 
 | Bezeichner | Beschreibung |
 | --- | --- |
-| `EXTERNAL_ID` | Identifiziert die Nutzer:in, die Sie Update or aktualisieren or aktualisieren möchten. Dieser Wert sollte mit dem in Braze verwendeten `external_id`-Wert übereinstimmen. |
+| `EXTERNAL_ID` | Identifiziert die Nutzer:in, die Sie aktualisieren möchten. Dieser Wert sollte mit dem in Braze verwendeten `external_id`-Wert übereinstimmen. |
 | `ALIAS_NAME` und `ALIAS_LABEL` | Diese beiden Spalten erstellen ein Nutzer-Alias-Objekt. `alias_name` sollte ein eindeutiger Bezeichner sein, und `alias_label` gibt den Typ des Alias an. Nutzer:innen können mehrere Aliase mit unterschiedlichen Labels haben, aber nur einen `alias_name` pro `alias_label`. |
-| `BRAZE_ID` | Der Braze-Nutzer-Bezeichner. Dieser wird vom Braze SDK or Software-Development-Kit generiert, und neue Nutzer:innen können nicht über eine Braze-ID durch die Cloud-Datenaufnahme erstellt werden. Um neue Nutzer:innen zu erstellen, geben Sie eine externe ID oder einen Nutzer-Alias an. |
+| `BRAZE_ID` | Der Braze-Nutzer-Bezeichner. Dieser wird vom Braze SDK generiert, und neue Nutzer:innen können nicht über eine Braze-ID durch die Cloud-Datenaufnahme erstellt werden. Um neue Nutzer:innen zu erstellen, geben Sie eine externe ID oder einen Nutzer-Alias an. |
 | `EMAIL` | Die E-Mail-Adresse der Nutzer:in. Wenn mehrere Profile mit derselben E-Mail-Adresse vorhanden sind, wird das zuletzt aktualisierte Profil für Aktualisierungen priorisiert. Wenn Sie sowohl E-Mail als auch Telefonnummer angeben, verwendet Braze die E-Mail als primären Bezeichner. |
 | `PHONE` | Die Telefonnummer der Nutzer:in. Wenn mehrere Profile mit derselben Telefonnummer vorhanden sind, wird das zuletzt aktualisierte Profil für Aktualisierungen priorisiert. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Nutzer-Bezeichner" }
@@ -489,7 +489,7 @@ Für Katalog-Synchronisierungen muss Ihre Quelldatei die folgenden Spalten entha
 
 | Spalte | Erforderlich | Beschreibung |
 | --- | --- | --- |
-| `ID` | Ja | Der eindeutige Bezeichner für den Katalogartikel. Wird verwendet, um den Artikel in Braze zu erstellen, zu Update or aktualisieren or aktualisieren oder zu löschen. |
+| `ID` | Ja | Der eindeutige Bezeichner für den Katalogartikel. Wird verwendet, um den Artikel in Braze zu erstellen, zu aktualisieren oder zu löschen. |
 | `PAYLOAD` | Ja | Ein JSON-String mit den Katalogfeldern und -werten, die synchronisiert werden sollen. Muss mit dem Schema Ihres Katalogs in Braze übereinstimmen. |
 | `DELETED` | Nein | Wenn `true`, wird der Katalogartikel mit der entsprechenden `ID` aus dem Katalog in Braze entfernt. Lassen Sie diese Spalte weg oder setzen Sie sie auf `false` für Erstellungs- oder Aktualisierungsvorgänge. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Katalog-Bezeichner" }

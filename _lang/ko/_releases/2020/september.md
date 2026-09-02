@@ -32,8 +32,8 @@ iOS 14에서는 사용자가 광고 추적에 옵트인하고 앱 방문 시 앱
 
 Braze는 Canvases의 유연성과 기능을 향상시키는 데 도움이 되는 네 가지 새로운 Canvas 구성요소를 추가했습니다. 이러한 새로운 구성요소에는 다음이 포함됩니다: [결정 분할 단계]({{site.baseurl}}/decision_split/), [지연 단계]({{site.baseurl}}/delay_step/), [메시징 단계]({{site.baseurl}}/message_step/) 및 [Facebook에 오디언스 동기화]({{site.baseurl}}/audience_sync_facebook/).
 - **Canvas 결정 분할, 지연 및 메시징 단계**<br>결정 분할을 사용하여 사용자가 정의된 쿼리와 일치하는지 여부에 따라 Canvas 브랜치를 만들 수 있습니다. 지연 단계를 사용하면 해당 메시지 없이도 Canvas에 독립형 지연을 추가할 수 있습니다. 메시징 단계를 사용하면 Canvas 흐름에서 원하는 위치에 독립형 메시지를 추가할 수 있습니다.
-- **Facebook에 오디언스 동기화**<br>브랜드는 Braze 오디언스 동기화 기능을 Facebook에 사용하여 자체 Braze 통합의 사용자 데이터를 Facebook 커스텀 오디언스에 추가하여 행동 트리거, 세분화 등을 기반으로 광고를 게재할 수 있습니다. 사용자 데이터를 기반으로 BRAZE 캔버스에서 메시지(푸시, 이메일, 단문 메시지 서비스, 웹훅 등)를 트리거하는 데 일반적으로 사용하는 모든 기준을 이제 Facebook 커스텀 오디언스를 통해 해당 사용자에게 광고를 트리거하는 데 사용할 수 있습니다.
+- **Facebook에 오디언스 동기화**<br>브랜드는 Braze 오디언스 동기화 기능을 Facebook에 사용하여 자체 Braze 통합의 사용자 데이터를 Facebook 커스텀 오디언스에 추가하여 행동 트리거, 세분화 등을 기반으로 광고를 게재할 수 있습니다. 사용자 데이터를 기반으로 BRAZE 캔버스에서 메시지(푸시, 이메일, SMS, 웹훅 등)를 트리거하는 데 일반적으로 사용하는 모든 기준을 이제 Facebook 커스텀 오디언스를 통해 해당 사용자에게 광고를 트리거하는 데 사용할 수 있습니다.
 
-## 단문 메시지 서비스 인바운드 수신 이벤트 {#sms-inbound-received-events}
+## SMS 인바운드 수신 이벤트 {#sms-inbound-received-events}
 
-Currents에 새로운 메시징 참여 이벤트가 추가되었습니다. 이 이벤트는 사용자 중 한 명이 Braze 단문 메시지 서비스 구독 그룹 중 하나에 있는 전화번호로 단문 메시지 서비스를 보낼 때 발생합니다. 자세한 내용은 Currents [메시징 및 참여 이벤트 용어집]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)에서 확인하세요.
+Currents에 새로운 메시징 참여 이벤트가 추가되었습니다. 이 이벤트는 사용자 중 한 명이 Braze SMS 구독 그룹 중 하나에 있는 전화번호로 SMS를 보낼 때 발생합니다. 자세한 내용은 Currents [메시징 및 참여 이벤트 용어집]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)에서 확인하세요.

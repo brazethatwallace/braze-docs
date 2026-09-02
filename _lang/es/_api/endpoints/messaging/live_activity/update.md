@@ -27,7 +27,7 @@ Si `content-available` no está configurado, la prioridad predeterminada del ser
 Para usar este endpoint, tendrás que completar lo siguiente:
 
 - Generar una clave de API con el permiso `messages.live_activity.update`.
-- Registrar una actividad en vivo [de forma remota]({{site.baseurl}}/developer_guide/live_notifications?tab=remote&sdktab=swift) o [local]({{site.baseurl}}/developer_guide/live_notifications?tab=local&sdktab=swift) utilizando el SDK or kit de desarrollo de software Swift de Braze.
+- Registrar una actividad en vivo [de forma remota]({{site.baseurl}}/developer_guide/live_notifications?tab=remote&sdktab=swift) o [local]({{site.baseurl}}/developer_guide/live_notifications?tab=local&sdktab=swift) utilizando el SDK Swift de Braze.
 
 {% multi_lang_include api/payload_size_alert.md %}
 

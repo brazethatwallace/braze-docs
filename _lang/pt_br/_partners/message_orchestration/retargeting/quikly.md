@@ -23,9 +23,9 @@ A parceria Braze e Quikly permite que você acelere as conversões em eventos de
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Conta Quikly | É necessário ter uma conta de parceiro da marca [Quikly](https://www.quikly.com) para aproveitar essa parceria. |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com as permissões `users.track`, `subscription.status.set`, `users.export.ids` e `subscription.status.get`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
-| Endpoint REST or transferir estado representacional da Braze | [Sua URL de endpoint REST or transferir estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
-| Chave de API or interface de programação do aplicativo (API) da Quikly (opcional) | Uma chave de API or interface de programação do aplicativo (API) da Quikly fornecida por seu gerente de sucesso do cliente (somente webhook). |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com as permissões `users.track`, `subscription.status.set`, `users.export.ids` e `subscription.status.get`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Endpoint REST da Braze | [Sua URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
+| Chave de API da Quikly (opcional) | Uma chave de API da Quikly fornecida por seu CSM (somente webhook). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
@@ -47,10 +47,10 @@ Esta seção descreve quatro integrações diferentes: aquisição de e-mail, aq
 
 ### Aquisição de e-mail {#email-acquisition}
 
-Se suas ativações da Quikly coletarem endereços de e-mail de clientes ou dados de perfil, a única etapa necessária é fornecer à Quikly sua chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional e o endpoint. A Quikly configurará sua conta de marca para passar esses dados para a Braze. Se houver atributos de usuário adicionais que você gostaria de incluir, mencione isso ao fornecer as credenciais da API or interface de programação do aplicativo (API) à Quikly.
+Se suas ativações da Quikly coletarem endereços de e-mail de clientes ou dados de perfil, a única etapa necessária é fornecer à Quikly sua chave da API REST e o endpoint. A Quikly configurará sua conta de marca para passar esses dados para a Braze. Se houver atributos de usuário adicionais que você gostaria de incluir, mencione isso ao fornecer as credenciais da API à Quikly.
 
 Aqui está um esboço de como a Quikly executa esse fluxo de trabalho.
-1. Ao participar de uma ativação da Quikly, a Quikly agenda uma pesquisa de usuário usando a [API or interface de programação do aplicativo (API) de exportação]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) para ver se existe um usuário com um determinado `email_address`.
+1. Ao participar de uma ativação da Quikly, a Quikly agenda uma pesquisa de usuário usando a [API de exportação]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) para ver se existe um usuário com um determinado `email_address`.
 2. Registre ou atualize o usuário.
   - Se o usuário existir:
     - Não crie um novo perfil.
@@ -88,7 +88,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ### Inscrições para SMS {#sms-subscriptions}
 
-As ativações da Quikly podem coletar números de telefones celulares diretamente dos clientes e iniciar uma nova inscrição por SMS. Para ativar essa integração, forneça ao gerente de sucesso do cliente da Quikly o `subscription_group_id`. É possível acessar o `subscription_group_id` de um grupo de inscrições navegando até a página **Grupo de inscrições**.
+As ativações da Quikly podem coletar números de telefones celulares diretamente dos clientes e iniciar uma nova inscrição por SMS. Para ativar essa integração, forneça ao CSM da Quikly o `subscription_group_id`. É possível acessar o `subscription_group_id` de um grupo de inscrições navegando até a página **Grupo de inscrições**.
 
 A Quikly realizará uma pesquisa de inscrição usando o número de telefone do cliente e o creditará automaticamente na ativação se já existir uma inscrição por SMS. Caso contrário, uma nova inscrição será iniciada e, depois que o status da inscrição for verificado, o cliente receberá o crédito.
 
@@ -175,4 +175,4 @@ Lembre-se de salvar seu modelo antes de sair da página! <br>Os modelos de webho
 {% endtabs %}
 
 ## Suporte {#support}
-Entre em contato com o gerente de sucesso do cliente da Quikly em caso de dúvidas.
+Entre em contato com o CSM da Quikly em caso de dúvidas.

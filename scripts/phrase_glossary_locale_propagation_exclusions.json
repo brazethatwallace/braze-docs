@@ -5,11 +5,20 @@
     "settings",
     "data",
     "operator",
-    "team"
+    "team",
+    "REST",
+    "SMS",
+    "update",
+    "trigger",
+    "canvas",
+    "canvases",
+    "Canvases",
+    "Canvas"
   ],
   "de": [
     "customer",
-    "gear"
+    "gear",
+    "customer profile"
   ],
   "es": [
     "data"

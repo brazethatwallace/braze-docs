@@ -15,7 +15,7 @@ search_tag: Partner
 
 ## Sobre esta integração {#about-this-integration}
 
-Você pode aproveitar os insights do Fullstory na Braze para construir uma visão momento a momento da experiência de um usuário no website ou app, entregando mensagens hipercontextuais. A API or interface de programação do aplicativo (API) de resumo de sessão do Fullstory permite capturar metadados detalhados sobre o comportamento de navegação de um usuário para uso no envio de mensagens da Braze, o que é especialmente poderoso quando utilizado em uma jornada de envio de mensagens de várias etapas, como um Canvas.
+Você pode aproveitar os insights do Fullstory na Braze para construir uma visão momento a momento da experiência de um usuário no website ou app, entregando mensagens hipercontextuais. A API de resumo de sessão do Fullstory permite capturar metadados detalhados sobre o comportamento de navegação de um usuário para uso no envio de mensagens da Braze, o que é especialmente poderoso quando utilizado em uma jornada de envio de mensagens de várias etapas, como um Canvas.
 
 O valor em tempo real dos dados de resumo de sessão do Fullstory é melhor aproveitado por meio do Connected Content. Ao usar o Connected Content em uma etapa de contexto do Canvas, você pode armazenar os dados do Fullstory ao longo da jornada do Canvas de um usuário para uso em qualquer etapa subsequente do Canvas. Isso também elimina a necessidade de gravar esses dados em um perfil de usuário da Braze por meio de eventos personalizados ou atributos.
 
@@ -27,25 +27,25 @@ Antes de começar, você precisa do seguinte:
 
 |Requisito     | Descrição |
 |-----------------------|-----------------|
-| Um token de autorização da API or interface de programação do aplicativo (API) de sessão do Fullstory   | Consulte a Etapa 1 neste guia. |
+| Um token de autorização da API de sessão do Fullstory   | Consulte a Etapa 1 neste guia. |
 | Um token de autorização de Connected Content da Braze ativado | Consulte a nota de Acesso Antecipado nesta seção. |
 | Uma etapa de contexto do Canvas da Braze | Consulte a nota de Acesso Antecipado nesta seção. |
 | Etapa de Braze AI Agent ativada | Consulte a nota de Acesso Antecipado nesta seção. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 {% alert important %}
-Braze Agents, Canvas Context e tokens de autorização de Connected Content estão todos em Acesso Antecipado. Se você tem interesse em alavancar essa solução, fale com seu CSM or gerente de sucesso do cliente or gestor de sucesso do cliente da Braze sobre como ativar essas ferramentas.
+Braze Agents, Canvas Context e tokens de autorização de Connected Content estão todos em Acesso Antecipado. Se você tem interesse em alavancar essa solução, fale com seu CSM da Braze sobre como ativar essas ferramentas.
 {% endalert %}
 
 ## Integrar o Fullstory {#integrate-fullstory}
 
-### Etapa 1: Configurar o Fullstory para habilitação da API or interface de programação do aplicativo (API) de resumo de sessão {#step-1}
+### Etapa 1: Configurar o Fullstory para habilitação da API de resumo de sessão {#step-1}
 
-#### Etapa 1.1: Recuperar o token de autenticação para o endpoint da API or interface de programação do aplicativo (API) de resumo de sessão {#step-11-retrieve-the-authentication-token-for-the-session-summary-api-endpoint}
+#### Etapa 1.1: Recuperar o token de autenticação para o endpoint da API de resumo de sessão {#step-11-retrieve-the-authentication-token-for-the-session-summary-api-endpoint}
 
-Para criar uma [chave de API or interface de programação do aplicativo (API) do Fullstory](https://developer.fullstory.com/server/authentication/):
+Para criar uma [chave de API do Fullstory](https://developer.fullstory.com/server/authentication/):
 
-1. No Fullstory, acesse **Settings** > **API or interface de programação do aplicativo (API) Keys**.
+1. No Fullstory, acesse **Settings** > **API Keys**.
 2. Selecione o nível de permissão **Standard**.
 3. Copie o valor da chave imediatamente, pois ele aparece apenas uma vez.
 
@@ -60,7 +60,7 @@ Na resposta a essa solicitação, o Fullstory fornece um ID de perfil de sessão
 1. Na Braze, acesse **Configurações** > **Configurações do espaço de trabalho** > **Connected Content** > **Adicionar credencial** > **Autenticação por token**.
 2. Nomeie a autenticação como `fullstory`.
 3. Adicione a chave de cabeçalho "Authorization". Forneça o valor do cabeçalho que o Fullstory disponibilizou na etapa anterior.
-4. Em **Domínio permitido**, insira **API or interface de programação do aplicativo (API).fullstory.com**.
+4. Em **Domínio permitido**, insira **api.fullstory.com**.
 
 ![Captura de tela da Braze mostrando os campos de edição de credencial]({% image_buster /assets/img/fullstory/1.png %}){: style="max-width:50%;"}
 
@@ -70,7 +70,7 @@ Na resposta a essa solicitação, o Fullstory fornece um ID de perfil de sessão
 
 Usando os [Activation Streams](https://help.fullstory.com/hc/en-us/articles/360045134554-Streams) da Fullstory, você pode disparar Canvas da Braze imediatamente após interações importantes do usuário. O poder dessa integração está no `client_session_id` exclusivo (acessível via {% raw %}`{{canvas_entry_properties.${client_session_id}}}`{% endraw %}), que o sistema passa automaticamente da Fullstory para a Braze. Esse ID funciona como uma chave, permitindo que a Braze busque o Resumo de Sessão completo de exatamente o que o usuário vivenciou.
 
-Ao alavancar etapas de Contexto do Canvas e Connected Content, você pode usar esse ID para fazer uma requisição de API or interface de programação do aplicativo (API) à Fullstory, recuperar os dados da sessão e armazená-los como uma variável para uso posterior na jornada.
+Ao alavancar etapas de Contexto do Canvas e Connected Content, você pode usar esse ID para fazer uma requisição de API à Fullstory, recuperar os dados da sessão e armazená-los como uma variável para uso posterior na jornada.
 
 ![Etapa de Contexto do Canvas na Braze mostrando a variável de contexto "summary_result" sendo criada e preenchida com uma chamada de Connected Content para a Fullstory, para recuperar um resumo de sessão]({% image_buster /assets/img/fullstory/2.png %})
 
@@ -89,7 +89,7 @@ A resposta é armazenada como a Liquid tag {% raw %}`{{context.${summary_result}
 
 Nesta etapa, o Canvas pode acessar a resposta da chamada de Connected Content, que contém toda a carga útil da mensagem referente à sessão do usuário.
 
-{% details Exemplo de carga útil da API or interface de programação do aplicativo (API) de Resumo de Sessão %}
+{% details Exemplo de carga útil da API de Resumo de Sessão %}
 
 {% raw %}
 ```bash
@@ -179,5 +179,5 @@ No seu Canvas, selecione uma etapa de Agente de IA e, em seguida, selecione o ag
 Crie uma etapa de Mensagem que aproveite o copy criado pelo Agente de IA. Use a Liquid tag nesta etapa.
 
 {% alert important %}
-A API or interface de programação do aplicativo (API) de Resumo de Sessão da Fullstory pode retornar dados sensíveis e identificáveis do usuário. Para garantir conformidade ao lidar com IPI (informações pessoais identificáveis), confirme que suas regras de captura de dados da Fullstory excluam IPI antes de usar este caso de uso.
+A API de Resumo de Sessão da Fullstory pode retornar dados sensíveis e identificáveis do usuário. Para garantir conformidade ao lidar com IPI (informações pessoais identificáveis), confirme que suas regras de captura de dados da Fullstory excluam IPI antes de usar este caso de uso.
 {% endalert %}

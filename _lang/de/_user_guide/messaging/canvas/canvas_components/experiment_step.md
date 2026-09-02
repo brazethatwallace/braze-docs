@@ -18,7 +18,7 @@ Wenn Sie einen Experimentpfad-Schritt in Ihre User Journey einfügen, werden Nut
 
 ## Voraussetzungen {#prerequisites}
 
-Um Experimentpfade zu verwenden, muss Ihr Canvas Konversions-Events enthalten. Obwohl Sie nach dem Start eines Canvas keine Konversions-Events mehr hinzufügen können, können Sie den gestarteten Canvas Klon or klonen und Konversions-Events hinzufügen, um Experimentpfade zu ergänzen.
+Um Experimentpfade zu verwenden, muss Ihr Canvas Konversions-Events enthalten. Obwohl Sie nach dem Start eines Canvas keine Konversions-Events mehr hinzufügen können, können Sie den gestarteten Canvas Klon und Konversions-Events hinzufügen, um Experimentpfade zu ergänzen.
 
 ## Anwendungsfälle {#use-cases}
 
@@ -68,7 +68,7 @@ Zuletzt müssen Sie Ihre nachgelagerten Pfade erstellen. Wählen Sie **Fertig** 
 Beachten Sie, dass Pfade und ihre nachgelagerten Schritte nach der Erstellung nicht mehr aus einem Canvas entfernt werden können. Nach dem Start können Sie jedoch die Zielgruppenverteilung über die Pfade nach Bedarf anpassen. Wenn Sie beispielsweise einen Tag nach dem Start eines Canvas anhand der Analytics feststellen, dass ein Pfad den anderen überlegen ist, können Sie diesen Pfad auf 100 % und die anderen auf 0 % setzen. Oder Sie können je nach Bedarf weiterhin Nutzer:innen über mehrere Pfade senden.
 
 {% alert important %}
-Um eine Verfälschung des Experiments zu vermeiden, beendet das Update or aktualisieren or aktualisieren eines aktiven Canvas mit einem laufenden Winning-Path-Experiment das Experiment. Dies gilt auch dann, wenn Sie den Experimentpfad-Schritt nicht Update or aktualisieren or aktualisieren. Um das Experiment neu zu starten, trennen Sie den bestehenden Experimentpfad und starten Sie einen neuen, oder duplizieren Sie den Canvas und starten Sie das Duplikat. Sie können Winning Path nicht für einen bereits aktiven Canvas mit einem Experimentpfad-Schritt aktivieren.<br><br>Weitere Informationen finden Sie unter [Canvase nach dem Start bearbeiten]({{site.baseurl}}/post-launch_edits).
+Um eine Verfälschung des Experiments zu vermeiden, beendet das Aktualisieren eines aktiven Canvas mit einem laufenden Winning-Path-Experiment das Experiment. Dies gilt auch dann, wenn Sie den Experimentpfad-Schritt nicht aktualisieren. Um das Experiment neu zu starten, trennen Sie den bestehenden Experimentpfad und starten Sie einen neuen, oder duplizieren Sie den Canvas und starten Sie das Duplikat. Sie können Winning Path nicht für einen bereits aktiven Canvas mit einem Experimentpfad-Schritt aktivieren.<br><br>Weitere Informationen finden Sie unter [Canvases nach dem Start bearbeiten]({{site.baseurl}}/post-launch_edits).
 {% endalert %}
 
 ## Performance-Tracking {#tracking-performance}
@@ -89,7 +89,7 @@ Verwenden Sie Winning Path, um die Performance über die Zeit zu verfolgen und n
 Die Gewinn-Metrik und die in Experimentpfaden angezeigten Analysen können voneinander abweichen:
 
 - Das Konversions-Event, das Sie für **Winning Path** konfigurieren, bestimmt, wie Braze Pfade vergleicht und während des Experimentfensters einen Gewinner auswählt.
-- Experimentpfad-Analysen folgen weiterhin dem gleichen [Konversions-Event]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)-Framework des Canvas wie der Representational State Transfer des Canvas, einschließlich Ihres [primären Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#primary-conversion-event). Dadurch stimmen die im Dashboard hervorgehobenen Metriken möglicherweise nicht mit der Gewinn-Metrik überein.
+- Experimentpfad-Analysen folgen weiterhin dem gleichen [Konversions-Event]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)-Framework des Canvas wie der Rest des Canvas, einschließlich Ihres [primären Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#primary-conversion-event). Dadurch stimmen die im Dashboard hervorgehobenen Metriken möglicherweise nicht mit der Gewinn-Metrik überein.
 - Für Push unterscheiden sich *Direct Opens* und *Total Opens*. Weitere Informationen finden Sie unter [Beeinflusste Öffnungen]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens).
 
 ### Zusätzliche Einstellungen {#additional-settings}

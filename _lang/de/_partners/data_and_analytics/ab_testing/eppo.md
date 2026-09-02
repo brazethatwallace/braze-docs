@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Eppo
 
-> [Eppo](https://www.geteppo.com/) ist eine Experimentierplattform der nächsten Generation, die es Teams ermöglicht, A/B-Tests durchzuführen, Features in großem Umfang zu verwalten und KI or künstliche Intelligenz-gestützte Insights für datengestützte Entscheidungen zu nutzen.
+> [Eppo](https://www.geteppo.com/) ist eine Experimentierplattform der nächsten Generation, die es Teams ermöglicht, A/B-Tests durchzuführen, Features in großem Umfang zu verwalten und KI-gestützte Insights für datengestützte Entscheidungen zu nutzen.
 
 *Diese Integration wird von Eppo verwaltet.*
 
@@ -31,7 +31,7 @@ Eppo analysiert Experimente direkt in Ihrem Data Warehouse. Um die Integration z
 
 ### Schritt 2: Experiment in einer Braze-Campaign oder einem Canvas einrichten {#step-2-set-up-your-experiment-in-a-braze-campaign-or-canvas}
 
-Sie können in Ihren Campaigns und Canvase native Features für A/B-Tests verwenden. Mehr dazu erfahren Sie unter [Multivariate und A/B-Tests]({{site.baseurl}}/user_guide/messaging/ab_testing).
+Sie können in Ihren Campaigns und Canvases native Features für A/B-Tests verwenden. Mehr dazu erfahren Sie unter [Multivariate und A/B-Tests]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 ### Schritt 3: Eppo für die Messung von Braze-Experimenten einrichten {#step-3-set-up-eppo-to-measure-braze-experiments}
 
@@ -49,7 +49,7 @@ In diesen Fällen werden Felder wie `canvas_name`, `experiment_step_id`, `canvas
 {% endtab %}
 
 {% tab Campaign-Experimente %}
-Bei Campaign-Experimenten verwenden Sie Sendeereignisse (wie Push, E-Mail, Kurzmitteilungsdienst or SMS), um festzustellen, wann Nutzer:innen das Experiment betreten haben. `campaign_name`, `message_variation_name` und `time` werden verwendet, um die Zuweisungstabelle aufzufüllen.
+Bei Campaign-Experimenten verwenden Sie Sendeereignisse (wie Push, E-Mail, SMS), um festzustellen, wann Nutzer:innen das Experiment betreten haben. `campaign_name`, `message_variation_name` und `time` werden verwendet, um die Zuweisungstabelle aufzufüllen.
 
 {% endtab %}
 {% endtabs %}
@@ -60,6 +60,6 @@ Eppo verwendet diese Zuweisungen und Faktentabellen, um die Ergebnisse zu analys
 
 ## Support
 
-Wenn Sie Fragen zur Einrichtung von Braze-Currents, Snowflake-Datenfreigabe oder zur Konfiguration von multivariaten Kampagnen haben, wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in von Braze.
+Wenn Sie Fragen zur Einrichtung von Braze-Currents, Snowflake-Datenfreigabe oder zur Konfiguration von multivariaten Kampagnen haben, wenden Sie sich an Ihren CSM von Braze.
 
 Wenn Sie Hilfe bei der Konfiguration von Eppo zur Messung von Braze-Experimenten benötigen, wenden Sie sich an das Eppo-Support-Team.

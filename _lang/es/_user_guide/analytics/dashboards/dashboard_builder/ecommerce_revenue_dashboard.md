@@ -42,7 +42,7 @@ Las siguientes interacciones con mensajes califican como eventos de toque para l
 - Apertura de push
 - Clic en tarjeta de contenido
 - Clic en mensaje dentro de la aplicación
-- Clic en enlace corto de servicio de mensajes cortos
+- Clic en enlace corto de SMS
 - Clic en enlace corto de WhatsApp
 
 {% alert important %}
@@ -74,7 +74,7 @@ Los ingresos y los recuentos de pedidos utilizan los cálculos estandarizados de
 
 ### Datos excluidos {#excluded-data}
 
-Las compras registradas mediante el evento de compra heredado no se incluyen. El dashboard **eCommerce Revenue - Last Touch Attribution** actualmente no es compatible con características vinculadas a eventos de compra heredados, como LTV or valor de duración del ciclo de vida o informes de ingresos dentro de Campaigns o Canvas.
+Las compras registradas mediante el evento de compra heredado no se incluyen. El dashboard **eCommerce Revenue - Last Touch Attribution** actualmente no es compatible con características vinculadas a eventos de compra heredados, como LTV o informes de ingresos dentro de Campaigns o Canvas.
 
 ## Manejo de divisas {#currency-handling}
 

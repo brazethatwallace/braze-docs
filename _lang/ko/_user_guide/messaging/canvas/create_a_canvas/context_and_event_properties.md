@@ -48,7 +48,7 @@ local_redirect:
 - 컨텍스트는 Liquid에서 참조용으로만 사용할 수 있습니다. Canvas 내 속성정보를 기준으로 필터링하려면 [이벤트 속성정보 세분화]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects)를 대신 사용하세요.
 - 인앱 메시지 채널의 경우 Canvas에서 `context`와 `event_properties`를 참조할 수 있습니다. `event_properties`는 트리거 기반이므로 첫 번째 캔버스 단계에 포함된 경우 액세스할 수 있습니다.
 - 리드 메시지 단계에서는 `event_properties`를 사용할 수 없습니다. 대신 `context`를 사용하거나 `event_properties`를 포함하는 메시지 단계 **앞에** 해당 이벤트가 포함된 작업 경로 단계를 추가할 수 있습니다.
-- 작업 경로 단계에 "인바운드 단문 메시지 서비스 메시지 전송" 또는 "인바운드 WhatsApp 메시지 전송" 트리거가 포함된 경우, 후속 캔버스 단계에서 단문 메시지 서비스 또는 WhatsApp Liquid 속성정보를 포함할 수 있습니다. 이는 Canvases에서 이벤트 속성정보가 작동하는 방식과 동일합니다. 이를 통해 메시지를 활용하여 고객 프로필에 퍼스트파티 데이터를 저장 및 참조하고 대화형 메시징을 구현할 수 있습니다.
+- 작업 경로 단계에 "인바운드 SMS 메시지 전송" 또는 "인바운드 WhatsApp 메시지 전송" 트리거가 포함된 경우, 후속 캔버스 단계에서 SMS 또는 WhatsApp Liquid 속성정보를 포함할 수 있습니다. 이는 Canvases에서 이벤트 속성정보가 작동하는 방식과 동일합니다. 이를 통해 메시지를 활용하여 고객 프로필에 퍼스트파티 데이터를 저장 및 참조하고 대화형 메시징을 구현할 수 있습니다.
 
 {% alert note %}
 오디언스 자격은 Canvas 진입 시 한 번만 평가됩니다. 진입 중 사용자가 병합되면 식별된 사용자는 Canvas를 계속 진행하며, Canvas Segment 기준에 대해 다시 평가되지 않습니다.

@@ -12,11 +12,11 @@ search_rank: 3
 
 # Webhooks {#webhooks}
 
-> Ein Webhook ist eine automatisierte Nachricht von einem System an ein anderes, nachdem bestimmte Kriterien erfüllt sind. In Braze ist dieses Kriterium in der Regel das Trigger or triggern or triggern eines angepassten Events. Webhooks bieten dynamischen und flexiblen Zugriff auf Daten und programmatische Funktionalität und ermöglichen es Ihnen, Customer Journeys einzurichten, die Prozesse optimieren.
+> Ein Webhook ist eine automatisierte Nachricht von einem System an ein anderes, nachdem bestimmte Kriterien erfüllt sind. In Braze ist dieses Kriterium in der Regel das Triggern eines angepassten Events. Webhooks bieten dynamischen und flexiblen Zugriff auf Daten und programmatische Funktionalität und ermöglichen es Ihnen, Customer Journeys einzurichten, die Prozesse optimieren.
 
 ## Voraussetzungen {#prerequisites}
 
-Die Verfügbarkeit von Webhooks hängt von Ihrem Braze-Paket ab. Wenden Sie sich an Ihren Account Manager:in oder CSM or Customer-Success-Manager or Customer-Success-Manager:in, um loszulegen.
+Die Verfügbarkeit von Webhooks hängt von Ihrem Braze-Paket ab. Wenden Sie sich an Ihren Account Manager:in oder CSM, um loszulegen.
 
 ## Anwendungsfälle {#use-cases}
 
@@ -29,10 +29,10 @@ Webhooks sind eine hervorragende Möglichkeit, Ihre Systeme miteinander zu verbi
 Einige spezifischere Anwendungsfälle umfassen:
 
 - Erstellen Sie einen [Lead-Scoring-Workflow]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring) mithilfe von Webhooks und Canvas, um Leads zu qualifizieren und weiterzuleiten.
-- Wenn sich eine Nutzer:in von E-Mails abmeldet, könnte ein Webhook Ihre Analytics-Datenbank oder Ihr CRM or Customer-Relationship-Management [-System] (CRM) mit denselben Informationen Update or aktualisieren or aktualisieren, um einen ganzheitlichen Überblick über das Verhalten dieser Nutzer:in zu gewährleisten.
+- Wenn sich eine Nutzer:in von E-Mails abmeldet, könnte ein Webhook Ihre Analytics-Datenbank oder Ihr CRM mit denselben Informationen aktualisieren, um einen ganzheitlichen Überblick über das Verhalten dieser Nutzer:in zu gewährleisten.
 - Senden Sie [transaktionale Nachrichten]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email) an Nutzer:innen innerhalb von Facebook Messenger oder Line.
 - Senden Sie Direkt-Mailings an Kund:innen als Reaktion auf deren In-App- und Web-Aktivitäten, indem Sie Webhooks zur Kommunikation mit Drittanbieterdiensten wie [Lob.com]({{site.baseurl}}/partners/additional_channels_and_extensions/additional_channels/direct_mail/lob) verwenden.
-- Wenn eine Spieler:in ein bestimmtes Level erreicht oder eine bestimmte Anzahl von Punkten ansammelt, verwenden Sie Webhooks und Ihr vorhandenes API-Setup, um ein Charakter-Upgrade or upgraden oder Münzen direkt auf das Konto zu senden. Wenn Sie den Webhook als Teil einer Multichannel-Messaging-Kampagne senden, können Sie gleichzeitig eine Push-Nachricht oder andere Nachricht senden, um die Spieler:in über die Belohnung zu informieren.
+- Wenn eine Spieler:in ein bestimmtes Level erreicht oder eine bestimmte Anzahl von Punkten ansammelt, verwenden Sie Webhooks und Ihr vorhandenes API-Setup, um ein Charakter-Upgrade oder Münzen direkt auf das Konto zu senden. Wenn Sie den Webhook als Teil einer Multichannel-Messaging-Kampagne senden, können Sie gleichzeitig eine Push-Nachricht oder andere Nachricht senden, um die Spieler:in über die Belohnung zu informieren.
 - Wenn Sie eine Fluggesellschaft sind, können Sie Webhooks und Ihr vorhandenes API-Setup verwenden, um das Konto einer Kund:in mit einem Rabatt zu versehen, nachdem sie eine bestimmte Anzahl von Flügen gebucht hat.
 - Endlose „If This Then That“ ([IFTTT](https://ifttt.com/about))-Rezepte – wenn sich beispielsweise eine Kund:in über E-Mail in die App einloggt, kann diese Adresse automatisch in Salesforce konfiguriert werden.
 

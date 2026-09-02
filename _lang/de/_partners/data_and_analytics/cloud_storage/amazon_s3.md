@@ -13,7 +13,7 @@ search_tag: Partner
 > [Amazon S3](https://aws.amazon.com/s3/) ist ein hoch skalierbares Speichersystem, das von Amazon Web Services angeboten wird.
 
 {% alert important %}
-Wenn Sie zwischen Cloud-Speicheranbietern wechseln, wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in von Braze, um weitere Unterstützung bei der Einrichtung und Validierung Ihrer neuen Integration zu erhalten.
+Wenn Sie zwischen Cloud-Speicheranbietern wechseln, wenden Sie sich an Ihren CSM von Braze, um weitere Unterstützung bei der Einrichtung und Validierung Ihrer neuen Integration zu erhalten.
 {% endalert %}
 
 Die Integration von Braze und Amazon S3 bietet zwei Integrationsstrategien:
@@ -339,11 +339,11 @@ Eine Benachrichtigung informiert Sie, ob Ihre Zugangsdaten erfolgreich validiert
 
 ## Aktualisierung der Amazon S3-Zugangsdaten für Currents {#updating-currents-credentials}
 
-Sie können die Amazon S3-Zugangsdaten eines bestehenden Braze-Currents-Konnektors Update or aktualisieren or aktualisieren, ohne die Integration zu stoppen oder bereits in Ihren Bucket exportierte Daten zu verlieren.
+Sie können die Amazon S3-Zugangsdaten eines bestehenden Braze-Currents-Konnektors aktualisieren, ohne die Integration zu stoppen oder bereits in Ihren Bucket exportierte Daten zu verlieren.
 
-Um Zugangsdaten zu Update or aktualisieren or aktualisieren – oder zwischen **AWS Secret Access Key** und **AWS Role ARN** zu wechseln – führen Sie zunächst die IAM- und AWS-seitigen Schritte für Ihre gewählte Methode weiter oben in diesem Artikel durch (Richtlinien, Nutzer:in oder Rolle und Bezeichner nach Bedarf).
+Um Zugangsdaten zu aktualisieren – oder zwischen **AWS Secret Access Key** und **AWS Role ARN** zu wechseln – führen Sie zunächst die IAM- und AWS-seitigen Schritte für Ihre gewählte Methode weiter oben in diesem Artikel durch (Richtlinien, Nutzer:in oder Rolle und Bezeichner nach Bedarf).
 
-Wenn Sie die Zugangsdaten in AWS vorbereitet haben, gehen Sie in Braze zu **Partnerintegrationen** > **Currents**, suchen Sie Ihren Amazon S3-Konnektor in der Liste, wählen Sie **Edit**, Update or aktualisieren or aktualisieren Sie die **Zugangsdaten** und wählen Sie **Update or aktualisieren Current**. Braze validiert die eingegebenen Zugangsdaten; Ihr Konnektor läuft weiter und die bereits in Ihrem Bucket vorhandenen Daten bleiben verfügbar. Weitere Informationen finden Sie unter [Currents Update or aktualisieren or aktualisieren in Currents einrichten]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents#updating-currents).
+Wenn Sie die Zugangsdaten in AWS vorbereitet haben, gehen Sie in Braze zu **Partnerintegrationen** > **Currents**, suchen Sie Ihren Amazon S3-Konnektor in der Liste, wählen Sie **Edit**, aktualisieren Sie die **Zugangsdaten** und wählen Sie **Update Current**. Braze validiert die eingegebenen Zugangsdaten; Ihr Konnektor läuft weiter und die bereits in Ihrem Bucket vorhandenen Daten bleiben verfügbar. Weitere Informationen finden Sie unter [Currents aktualisieren in Currents einrichten]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents#updating-currents).
 
 ## Exportverhalten {#export-behavior}
 
@@ -356,7 +356,7 @@ Nutzer:innen, die eine Cloud-Datenspeicherlösung und Export-APIs, Dashboard-Ber
 
 Wenn Sie diesen Fehler beim Herunterladen eines CSV-Exports sehen, öffnen Sie die [Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3)-Integration auf der Seite **Technologie-Partner** und wählen Sie **Test Credentials** aus. Das Ergebnis erklärt, was bei der Validierung fehlgeschlagen ist – beispielsweise könnte dem Schlüssel die Berechtigung `GetObject` fehlen, was Braze daran hindert, Download-Links zu generieren.
 
-Update or aktualisieren or aktualisieren Sie Ihre IAM-Richtlinie, damit die Integrations-Nutzer:in oder -Rolle `s3:GetObject` auf dem in Ihrer Braze-Integration konfigurierten S3-Bucket und Objektpfad aufrufen kann. Weitere Informationen zu Exportproblemen finden Sie unter [Fehlerbehebung beim Export]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
+Aktualisieren Sie Ihre IAM-Richtlinie, damit die Integrations-Nutzer:in oder -Rolle `s3:GetObject` auf dem in Ihrer Braze-Integration konfigurierten S3-Bucket und Objektpfad aufrufen kann. Weitere Informationen zu Exportproblemen finden Sie unter [Fehlerbehebung beim Export]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 
 {% alert important %}
 **Anforderung an das JSON-Format:** Für JSON-Exporte verwendet Braze das JSONL-Format (durch Zeilenumbrüche getrenntes JSON), bei dem jede Zeile ein separates JSON-Objekt enthält. Dieses Format unterscheidet sich von Standard-JSON, das ein einzelnes JSON-Array oder -Objekt ist. Jede Zeile in der exportierten Datei ist ein gültiges JSON-Objekt, aber die Datei als Ganzes ist kein einzelnes gültiges JSON-Dokument. Beim Verarbeiten dieser Dateien sollten Sie jede Zeile einzeln als separates JSON-Objekt parsen, anstatt zu versuchen, die gesamte Datei als ein einzelnes JSON-Dokument zu parsen.

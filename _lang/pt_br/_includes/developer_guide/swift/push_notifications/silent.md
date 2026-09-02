@@ -22,7 +22,7 @@ Para enviar uma notificação por push silenciosa, defina a flag `content-availa
 O que a Apple chama de notificação remota é apenas uma notificação por push normal com a flag `content-available` definida.
 {% endalert %}
 
-A flag `content-available` pode ser definida no dashboard da Braze, assim como dentro do nosso [objeto push da Apple]({{site.baseurl}}/api/objects_filters/messaging/apple_object/) na [API or interface de programação do aplicativo (API) de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging/).
+A flag `content-available` pode ser definida no dashboard da Braze, assim como dentro do nosso [objeto push da Apple]({{site.baseurl}}/api/objects_filters/messaging/apple_object/) na [API de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging/).
 
 {% alert warning %}
 Anexar tanto um título quanto um corpo com `content-available=1` não é recomendado porque pode levar a um comportamento indefinido. Para garantir que uma notificação seja realmente silenciosa, exclua tanto o título quanto o corpo ao definir a flag `content-available` como `1.` Para mais detalhes, consulte a [documentação oficial da Apple sobre atualizações em segundo plano](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/pushing_background_updates_to_your_app).

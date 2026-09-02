@@ -11,12 +11,12 @@ page_type: reference
 
 > As fontes conectadas são uma alternativa de cópia zero à sincronização direta de dados com o recurso de Ingestão de Dados na Nuvem (CDI) da Braze. Uma fonte conectada consulta diretamente seu data warehouse para criar novos segmentos sem copiar nenhum dos dados subjacentes para a Braze.
 
-Depois de adicionar uma fonte conectada ao seu espaço de trabalho da Braze, você pode criar um Segment or segmento or segmento CDI dentro das extensões de Segment or segmento or segmento. As extensões de Segment or segmento or segmento CDI permitem que você escreva SQL que consulta diretamente seu data warehouse (usando os dados disponibilizados por meio da sua fonte conectada CDI) e cria e mantém um grupo de usuários que podem ser direcionados dentro da Braze.
+Depois de adicionar uma fonte conectada ao seu espaço de trabalho da Braze, você pode criar um Segment CDI dentro das extensões de Segment. As extensões de Segment CDI permitem que você escreva SQL que consulta diretamente seu data warehouse (usando os dados disponibilizados por meio da sua fonte conectada CDI) e cria e mantém um grupo de usuários que podem ser direcionados dentro da Braze.
 
-Para saber mais sobre como criar um Segment or segmento or segmento com essa fonte, consulte [Extensões de Segment or segmento or segmento CDI]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments).
+Para saber mais sobre como criar um Segment com essa fonte, consulte [Extensões de Segment CDI]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments).
 
 {% alert warning %}
-Como as fontes conectadas são executadas diretamente no seu data warehouse, você incorrerá em todos os custos associados à execução dessas consultas no seu data warehouse. As fontes conectadas não registram pontos de dados, e as extensões de Segment or segmento or segmento CDI não consomem créditos de Segment or segmento or segmento SQL.
+Como as fontes conectadas são executadas diretamente no seu data warehouse, você incorrerá em todos os custos associados à execução dessas consultas no seu data warehouse. As fontes conectadas não registram pontos de dados, e as extensões de Segment CDI não consomem créditos de Segment SQL.
 {% endalert %}
 
 ## Integrando fontes conectadas {#integrating-connected-sources}
@@ -43,14 +43,14 @@ As fontes conectadas da Ingestão de Dados na Nuvem exigem algumas configuraçõ
 **No seu data warehouse**
 
 {: start="8"}
-8. Adicione a chave pública do dashboard da Braze ao [usuário do Snowflake para autenticação](https://docs.snowflake.com/en/user-guide/key-pair-auth.html). Quando terminar, você poderá usar a fonte conectada para criar uma ou mais extensões de Segment or segmento or segmento CDI.
+8. Adicione a chave pública do dashboard da Braze ao [usuário do Snowflake para autenticação](https://docs.snowflake.com/en/user-guide/key-pair-auth.html). Quando terminar, você poderá usar a fonte conectada para criar uma ou mais extensões de Segment CDI.
 {% endtab %}
 
 {% tab Redshift %}
 1. Configure os dados de origem e os recursos necessários no seu ambiente Redshift.
 2. Crie uma nova fonte conectada no dashboard da Braze.
 3. Teste a integração.
-4. Use a fonte conectada para criar uma ou mais extensões de Segment or segmento or segmento CDI.
+4. Use a fonte conectada para criar uma ou mais extensões de Segment CDI.
 {% endtab %}
 
 {% tab BigQuery %}
@@ -58,7 +58,7 @@ As fontes conectadas da Ingestão de Dados na Nuvem exigem algumas configuraçõ
 2. Crie uma conta de serviço e permita o acesso ao(s) projeto(s) e conjunto(s) de dados do BigQuery que contêm os dados que você deseja sincronizar.
 3. Crie uma nova fonte conectada no dashboard da Braze.
 4. Teste a integração.
-5. Use a fonte conectada para criar uma ou mais extensões de Segment or segmento or segmento CDI.
+5. Use a fonte conectada para criar uma ou mais extensões de Segment CDI.
 {% endtab %}
 
 {% tab Databricks %}
@@ -66,10 +66,10 @@ As fontes conectadas da Ingestão de Dados na Nuvem exigem algumas configuraçõ
 2. Crie uma conta de serviço e permita o acesso ao(s) projeto(s) e conjunto(s) de dados do Databricks que contêm os dados que você deseja sincronizar.
 3. Crie uma nova fonte conectada no dashboard da Braze.
 4. Teste a integração.
-5. Use a fonte conectada para criar uma ou mais extensões de Segment or segmento or segmento CDI.
+5. Use a fonte conectada para criar uma ou mais extensões de Segment CDI.
 
 {% alert important %}
-Pode haver de dois a cinco minutos de tempo de aquecimento quando a Braze se conecta a instâncias SQL Classic e Pro, o que causará atrasos durante a configuração e teste da conexão, bem como durante a criação e atualização de extensões de Segment or segmento or segmento CDI. Usar uma instância SQL serverless minimizará o tempo de aquecimento e melhorará a taxa de transferência de consultas, mas pode resultar em custos de integração ligeiramente mais altos.
+Pode haver de dois a cinco minutos de tempo de aquecimento quando a Braze se conecta a instâncias SQL Classic e Pro, o que causará atrasos durante a configuração e teste da conexão, bem como durante a criação e atualização de extensões de Segment CDI. Usar uma instância SQL serverless minimizará o tempo de aquecimento e melhorará a taxa de transferência de consultas, mas pode resultar em custos de integração ligeiramente mais altos.
 {% endalert %}
 
 {% endtab %}
@@ -79,7 +79,7 @@ Pode haver de dois a cinco minutos de tempo de aquecimento quando a Braze se con
 2. No seu espaço de trabalho do Fabric, configure os dados de origem e conceda permissões à sua entidade de serviço.
 3. Crie uma nova fonte conectada no dashboard da Braze.
 4. Teste a integração.
-5. Use a fonte conectada para criar uma ou mais extensões de Segment or segmento or segmento CDI.
+5. Use a fonte conectada para criar uma ou mais extensões de Segment CDI.
 {% endtab %}
 
 {% endtabs %}
@@ -92,11 +92,11 @@ Configure os dados de origem e os recursos necessários no ambiente do seu data 
 {% tab Snowflake %}
 #### Etapa 2.1: Crie uma função e conceda permissões {#step-21-create-a-role-and-grant-permissions}
 
-Crie uma função para a sua fonte conectada usar. Essa função será usada para gerar a lista de tabelas disponíveis nas suas extensões de Segment or segmento or segmento CDI e para consultar tabelas de origem para criar novos segmentos. Após a criação da fonte conectada, a Braze descobrirá os nomes e a descrição de todas as tabelas disponíveis para o usuário no esquema de origem.
+Crie uma função para a sua fonte conectada usar. Essa função será usada para gerar a lista de tabelas disponíveis nas suas extensões de Segment CDI e para consultar tabelas de origem para criar novos segmentos. Após a criação da fonte conectada, a Braze descobrirá os nomes e a descrição de todas as tabelas disponíveis para o usuário no esquema de origem.
 
-Você pode optar por conceder acesso a todas as tabelas em um esquema ou conceder privilégios apenas a tabelas específicas. As tabelas às quais a função da Braze tiver acesso estarão disponíveis para consulta na extensão de Segment or segmento or segmento CDI.
+Você pode optar por conceder acesso a todas as tabelas em um esquema ou conceder privilégios apenas a tabelas específicas. As tabelas às quais a função da Braze tiver acesso estarão disponíveis para consulta na extensão de Segment CDI.
 
-A permissão `create table` é necessária para que a Braze possa criar uma tabela com os resultados da consulta da extensão de Segment or segmento or segmento CDI antes de atualizar o Segment or segmento or segmento na Braze. A Braze criará uma tabela temporária por Segment or segmento or segmento, e a tabela persistirá apenas enquanto a Braze estiver atualizando o Segment or segmento or segmento.
+A permissão `create table` é necessária para que a Braze possa criar uma tabela com os resultados da consulta da extensão de Segment CDI antes de atualizar o Segment na Braze. A Braze criará uma tabela temporária por Segment, e a tabela persistirá apenas enquanto a Braze estiver atualizando o Segment.
 
 ```sql
 CREATE ROLE BRAZE_INGESTION_ROLE;
@@ -156,11 +156,11 @@ GRANT CREATE ON SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION to braze_user;
 GRANT SELECT ON TABLE USERS_ATTRIBUTES_SYNC TO braze_user;
 ```
 
-Crie um usuário para a sua fonte conectada usar. Esse usuário será usado para gerar a lista de tabelas disponíveis nas suas extensões de Segment or segmento or segmento CDI e para consultar tabelas de origem para criar novos segmentos. Após a criação da fonte conectada, a Braze descobrirá os nomes e a descrição de todas as tabelas disponíveis para o usuário no esquema de origem. Se estiver criando múltiplas integrações CDI, você pode conceder permissões a um esquema ou gerenciar permissões usando um grupo.
+Crie um usuário para a sua fonte conectada usar. Esse usuário será usado para gerar a lista de tabelas disponíveis nas suas extensões de Segment CDI e para consultar tabelas de origem para criar novos segmentos. Após a criação da fonte conectada, a Braze descobrirá os nomes e a descrição de todas as tabelas disponíveis para o usuário no esquema de origem. Se estiver criando múltiplas integrações CDI, você pode conceder permissões a um esquema ou gerenciar permissões usando um grupo.
 
-Você pode optar por conceder acesso a todas as tabelas em um esquema ou conceder privilégios apenas a tabelas específicas. As tabelas às quais a função da Braze tiver acesso estarão disponíveis para consulta na extensão de Segment or segmento or segmento CDI. Certifique-se de conceder acesso a quaisquer novas tabelas ao usuário quando elas forem criadas, ou defina permissões padrão para o usuário.
+Você pode optar por conceder acesso a todas as tabelas em um esquema ou conceder privilégios apenas a tabelas específicas. As tabelas às quais a função da Braze tiver acesso estarão disponíveis para consulta na extensão de Segment CDI. Certifique-se de conceder acesso a quaisquer novas tabelas ao usuário quando elas forem criadas, ou defina permissões padrão para o usuário.
 
-A permissão `create table` é necessária para que a Braze possa criar uma tabela com os resultados da consulta da extensão de Segment or segmento or segmento CDI antes de atualizar o Segment or segmento or segmento na Braze. A Braze criará uma tabela temporária por Segment or segmento or segmento, que persistirá apenas enquanto a Braze atualizar o Segment or segmento or segmento.
+A permissão `create table` é necessária para que a Braze possa criar uma tabela com os resultados da consulta da extensão de Segment CDI antes de atualizar o Segment na Braze. A Braze criará uma tabela temporária por Segment, que persistirá apenas enquanto a Braze atualizar o Segment.
 
 
 #### Etapa 2.2: Permita o acesso aos IPs da Braze {#step-22-allow-access-to-braze-ips}
@@ -186,11 +186,11 @@ Crie uma conta de serviço no GCP para a Braze usar para se conectar e ler dados
 - **BigQuery Job User:** Fornece à Braze acesso para executar jobs.
 - **bigquery.tables.create** Fornece à Braze acesso para criar tabelas temporárias durante a atualização de segmentos.
 
-Crie uma conta de serviço para a sua fonte conectada usar. Esse usuário será usado para gerar a lista de tabelas disponíveis nas suas extensões de Segment or segmento or segmento CDI e para consultar tabelas de origem para criar novos segmentos. Após a criação da fonte conectada, a Braze descobrirá os nomes e a descrição de todas as tabelas disponíveis para o usuário no esquema de origem.
+Crie uma conta de serviço para a sua fonte conectada usar. Esse usuário será usado para gerar a lista de tabelas disponíveis nas suas extensões de Segment CDI e para consultar tabelas de origem para criar novos segmentos. Após a criação da fonte conectada, a Braze descobrirá os nomes e a descrição de todas as tabelas disponíveis para o usuário no esquema de origem.
 
-Você pode optar por conceder acesso a todas as tabelas em um conjunto de dados ou conceder privilégios apenas a tabelas específicas. As tabelas às quais a função da Braze tiver acesso estarão disponíveis para consulta na extensão de Segment or segmento or segmento CDI.
+Você pode optar por conceder acesso a todas as tabelas em um conjunto de dados ou conceder privilégios apenas a tabelas específicas. As tabelas às quais a função da Braze tiver acesso estarão disponíveis para consulta na extensão de Segment CDI.
 
-A permissão `create table` é necessária para que a Braze possa criar uma tabela com os resultados da consulta da extensão de Segment or segmento or segmento CDI antes de atualizar o Segment or segmento or segmento na Braze. A Braze criará uma tabela temporária por Segment or segmento or segmento, e a tabela persistirá apenas enquanto a Braze estiver atualizando o Segment or segmento or segmento.
+A permissão `create table` é necessária para que a Braze possa criar uma tabela com os resultados da consulta da extensão de Segment CDI antes de atualizar o Segment na Braze. A Braze criará uma tabela temporária por Segment, e a tabela persistirá apenas enquanto a Braze estiver atualizando o Segment.
 
 Após criar a conta de serviço e conceder as permissões, gere uma chave JSON. Para saber mais, consulte [Google Cloud: Criar e excluir chaves de conta de serviço](https://cloud.google.com/iam/docs/keys-create-delete). Você fará o upload dessa chave no dashboard da Braze posteriormente.
 
@@ -214,11 +214,11 @@ Para que a Braze acesse o Databricks, é necessário criar um token de acesso pe
 5. Selecione **Generate**.
 6. Copie o token exibido e selecione **Done**.
 
-Esse token será usado para gerar a lista de tabelas disponíveis nas suas extensões de Segment or segmento or segmento CDI e para consultar tabelas de origem para criar novos segmentos. Após a criação da fonte conectada, a Braze descobrirá os nomes e a descrição de todas as tabelas disponíveis para o usuário no esquema de origem.
+Esse token será usado para gerar a lista de tabelas disponíveis nas suas extensões de Segment CDI e para consultar tabelas de origem para criar novos segmentos. Após a criação da fonte conectada, a Braze descobrirá os nomes e a descrição de todas as tabelas disponíveis para o usuário no esquema de origem.
 
-Você pode optar por conceder acesso a todas as tabelas em um esquema ou conceder privilégios apenas a tabelas específicas. As tabelas às quais a função da Braze tiver acesso estarão disponíveis para consulta na extensão de Segment or segmento or segmento CDI.
+Você pode optar por conceder acesso a todas as tabelas em um esquema ou conceder privilégios apenas a tabelas específicas. As tabelas às quais a função da Braze tiver acesso estarão disponíveis para consulta na extensão de Segment CDI.
 
-A permissão `create table` é necessária para que a Braze possa criar uma tabela com os resultados da consulta da extensão de Segment or segmento or segmento CDI antes de atualizar o Segment or segmento or segmento na Braze. A Braze criará uma tabela temporária por Segment or segmento or segmento, que persistirá apenas enquanto a Braze atualizar o Segment or segmento or segmento.
+A permissão `create table` é necessária para que a Braze possa criar uma tabela com os resultados da consulta da extensão de Segment CDI antes de atualizar o Segment na Braze. A Braze criará uma tabela temporária por Segment, que persistirá apenas enquanto a Braze atualizar o Segment.
 
 Guarde o token em um local seguro até que precise inseri-lo no dashboard da Braze durante a etapa de criação de credenciais.
 
@@ -279,9 +279,9 @@ Se estiver criando novas credenciais do Snowflake, selecione **Save credentials 
 
 #### Etapa 3.2: Configure os detalhes de sincronização {#step-32-configure-sync-details}
 
-Escolha um nome para a fonte conectada. Esse nome será usado na lista de fontes disponíveis quando você criar uma nova extensão de Segment or segmento or segmento CDI.
+Escolha um nome para a fonte conectada. Esse nome será usado na lista de fontes disponíveis quando você criar uma nova extensão de Segment CDI.
 
-Configure um tempo máximo de execução para essa fonte. A Braze interromperá automaticamente quaisquer consultas que excedam o tempo máximo de execução. O tempo máximo de execução permitido é de 60 minutos; um tempo de execução menor reduzirá os custos incorridos na sua conta do Snowflake. Essa configuração se aplica a consultas executadas por meio dessa fonte, incluindo sincronizações e extensões de Segment or segmento or segmento CDI que a utilizam.
+Configure um tempo máximo de execução para essa fonte. A Braze interromperá automaticamente quaisquer consultas que excedam o tempo máximo de execução. O tempo máximo de execução permitido é de 60 minutos; um tempo de execução menor reduzirá os custos incorridos na sua conta do Snowflake. Essa configuração se aplica a consultas executadas por meio dessa fonte, incluindo sincronizações e extensões de Segment CDI que a utilizam.
 
 {% alert note %}
 Se as consultas estiverem atingindo o tempo limite consistentemente e você tiver definido um tempo máximo de execução de 60 minutos, considere otimizar o tempo de execução da consulta ou dedicar um warehouse maior ao usuário da Braze.
@@ -305,10 +305,10 @@ Se necessário, ative **Connect with SSH Tunnel** e insira **Tunnel Host**, **Tu
 
 #### Etapa 3.2: Configure os detalhes de sincronização
 
-Escolha um nome para a fonte conectada. Esse nome será usado na lista de fontes disponíveis quando você criar uma nova extensão de Segment or segmento or segmento CDI.
+Escolha um nome para a fonte conectada. Esse nome será usado na lista de fontes disponíveis quando você criar uma nova extensão de Segment CDI.
 
 Configure um tempo máximo de execução para essa fonte. A Braze interromperá automaticamente quaisquer consultas que excedam o tempo máximo de execução. O tempo máximo de execução permitido é de 60 minutos; um tempo de execução menor reduzirá os custos incorridos na sua conta do Redshift.
-Essa configuração se aplica a consultas executadas por meio dessa fonte, incluindo sincronizações e extensões de Segment or segmento or segmento CDI que a utilizam.
+Essa configuração se aplica a consultas executadas por meio dessa fonte, incluindo sincronizações e extensões de Segment CDI que a utilizam.
 
 {% alert note %}
 Se as consultas estiverem atingindo o tempo limite consistentemente e você tiver definido um tempo máximo de execução de 60 minutos, considere otimizar o tempo de execução da consulta ou dedicar um warehouse maior ao usuário da Braze.
@@ -330,9 +330,9 @@ Em **Setup source**, insira o seguinte:
 
 #### Etapa 3.2: Configure os detalhes de sincronização
 
-Escolha um nome para a fonte conectada. Esse nome será usado na lista de fontes disponíveis quando você criar uma nova extensão de Segment or segmento or segmento CDI.
+Escolha um nome para a fonte conectada. Esse nome será usado na lista de fontes disponíveis quando você criar uma nova extensão de Segment CDI.
 
-Configure um tempo máximo de execução para essa fonte. A Braze interromperá automaticamente quaisquer consultas que excedam o tempo máximo de execução. O tempo máximo de execução permitido é de 60 minutos; um tempo de execução menor reduzirá os custos incorridos na sua conta do BigQuery. Essa configuração se aplica a consultas executadas por meio dessa fonte, incluindo sincronizações e extensões de Segment or segmento or segmento CDI que a utilizam.
+Configure um tempo máximo de execução para essa fonte. A Braze interromperá automaticamente quaisquer consultas que excedam o tempo máximo de execução. O tempo máximo de execução permitido é de 60 minutos; um tempo de execução menor reduzirá os custos incorridos na sua conta do BigQuery. Essa configuração se aplica a consultas executadas por meio dessa fonte, incluindo sincronizações e extensões de Segment CDI que a utilizam.
 
 {% alert note %}
 Se as consultas estiverem atingindo o tempo limite consistentemente e você tiver definido um tempo máximo de execução de 60 minutos, considere otimizar o tempo de execução da consulta ou dedicar um warehouse maior ao usuário da Braze.
@@ -340,7 +340,7 @@ Se as consultas estiverem atingindo o tempo limite consistentemente e você tive
 
 #### Etapa 3.3: Teste a conexão {#step-33-test-the-connection}
 
-Selecione **Test Connection** para verificar se a lista de tabelas visíveis para o usuário é a esperada e, em seguida, selecione **Done**. Sua fonte conectada foi criada e está pronta para uso em extensões de Segment or segmento or segmento CDI.
+Selecione **Test Connection** para verificar se a lista de tabelas visíveis para o usuário é a esperada e, em seguida, selecione **Done**. Sua fonte conectada foi criada e está pronta para uso em extensões de Segment CDI.
 
 {% endtab %}
 {% tab Databricks %}
@@ -354,9 +354,9 @@ Em **Setup source**, insira o seguinte:
 
 #### Etapa 3.2: Configure os detalhes de sincronização
 
-Escolha um nome para a fonte conectada. Esse nome será usado na lista de fontes disponíveis quando você criar uma nova extensão de Segment or segmento or segmento CDI.
+Escolha um nome para a fonte conectada. Esse nome será usado na lista de fontes disponíveis quando você criar uma nova extensão de Segment CDI.
 
-Configure um tempo máximo de execução para essa fonte. A Braze interromperá automaticamente quaisquer consultas que excedam o tempo máximo de execução. O tempo máximo de execução permitido é de 60 minutos; um tempo de execução menor reduzirá os custos incorridos na sua conta do Databricks. Essa configuração se aplica a consultas executadas por meio dessa fonte, incluindo sincronizações e extensões de Segment or segmento or segmento CDI que a utilizam.
+Configure um tempo máximo de execução para essa fonte. A Braze interromperá automaticamente quaisquer consultas que excedam o tempo máximo de execução. O tempo máximo de execução permitido é de 60 minutos; um tempo de execução menor reduzirá os custos incorridos na sua conta do Databricks. Essa configuração se aplica a consultas executadas por meio dessa fonte, incluindo sincronizações e extensões de Segment CDI que a utilizam.
 
 {% alert note %}
 Se as consultas estiverem atingindo o tempo limite consistentemente e você tiver definido um tempo máximo de execução de 60 minutos, considere otimizar o tempo de execução da consulta ou dedicar um warehouse maior ao usuário da Braze.
@@ -364,7 +364,7 @@ Se as consultas estiverem atingindo o tempo limite consistentemente e você tive
 
 #### Etapa 3.3: Teste a conexão
 
-Selecione **Test Connection** para verificar se a lista de tabelas visíveis para o usuário é a esperada e, em seguida, selecione **Done**. Sua fonte conectada foi criada e está pronta para uso em extensões de Segment or segmento or segmento CDI.
+Selecione **Test Connection** para verificar se a lista de tabelas visíveis para o usuário é a esperada e, em seguida, selecione **Done**. Sua fonte conectada foi criada e está pronta para uso em extensões de Segment CDI.
 
 {% endtab %}
 {% tab Microsoft Fabric %}
@@ -380,9 +380,9 @@ Se **Connect with SSH Tunnel** estiver disponível no seu espaço de trabalho e 
 
 #### Etapa 3.2: Configure os detalhes de sincronização
 
-Escolha um nome para a fonte conectada. Esse nome será usado na lista de fontes disponíveis quando você criar uma nova extensão de Segment or segmento or segmento CDI.
+Escolha um nome para a fonte conectada. Esse nome será usado na lista de fontes disponíveis quando você criar uma nova extensão de Segment CDI.
 
-Configure um tempo máximo de execução para essa fonte. A Braze interromperá automaticamente quaisquer consultas que excedam o tempo máximo de execução. O tempo máximo de execução permitido é de 60 minutos; um tempo de execução menor reduzirá os custos incorridos na sua conta do Microsoft Fabric. Essa configuração se aplica a consultas executadas por meio dessa fonte, incluindo sincronizações e extensões de Segment or segmento or segmento CDI que a utilizam.
+Configure um tempo máximo de execução para essa fonte. A Braze interromperá automaticamente quaisquer consultas que excedam o tempo máximo de execução. O tempo máximo de execução permitido é de 60 minutos; um tempo de execução menor reduzirá os custos incorridos na sua conta do Microsoft Fabric. Essa configuração se aplica a consultas executadas por meio dessa fonte, incluindo sincronizações e extensões de Segment CDI que a utilizam.
 
 {% alert note %}
 Se as consultas estiverem atingindo o tempo limite consistentemente e você tiver definido um tempo máximo de execução de 60 minutos, considere otimizar o tempo de execução da consulta ou escalar a capacidade do Fabric.
@@ -390,7 +390,7 @@ Se as consultas estiverem atingindo o tempo limite consistentemente e você tive
 
 #### Etapa 3.3: Teste a conexão
 
-Selecione **Test Connection** para verificar se a lista de tabelas visíveis para o usuário é a esperada e, em seguida, selecione **Done**. Sua fonte conectada foi criada e está pronta para uso em extensões de Segment or segmento or segmento CDI.
+Selecione **Test Connection** para verificar se a lista de tabelas visíveis para o usuário é a esperada e, em seguida, selecione **Done**. Sua fonte conectada foi criada e está pronta para uso em extensões de Segment CDI.
 
 {% endtab %}
 {% endtabs %}
@@ -407,13 +407,13 @@ Se você quiser fazer a rotação das chaves em algum momento, pode criar uma no
 ALTER USER BRAZE_INGESTION_USER SET rsa_public_key='{INSERT_YOUR_KEY}';
 ```
 
-Após adicionar a chave ao usuário no Snowflake, selecione **Test Connection** na Braze e, em seguida, selecione **Done**. Sua fonte conectada foi criada e está pronta para uso em extensões de Segment or segmento or segmento CDI.
+Após adicionar a chave ao usuário no Snowflake, selecione **Test Connection** na Braze e, em seguida, selecione **Done**. Sua fonte conectada foi criada e está pronta para uso em extensões de Segment CDI.
 {% endtab %}
 
 {% tab Redshift %}
 Se estiver conectando com um túnel SSH, adicione a chave pública que você anotou na última etapa ao usuário do túnel SSH.
 
-Após adicionar a chave ao usuário, selecione **Test Connection** na Braze e, em seguida, selecione **Done**. Sua fonte conectada foi criada e está pronta para uso em extensões de Segment or segmento or segmento CDI.
+Após adicionar a chave ao usuário, selecione **Test Connection** na Braze e, em seguida, selecione **Done**. Sua fonte conectada foi criada e está pronta para uso em extensões de Segment CDI.
 
 {% endtab %}
 {% tab BigQuery %}
@@ -438,7 +438,7 @@ Você deve testar uma fonte com sucesso antes que ela possa passar do estado "ra
 
 {% tabs %}
 {% tab Snowflake %}
-Você pode configurar várias integrações com a Braze, mas cada integração deve ser configurada para se conectar a um schema diferente. Ao construir relacionamentos or criar conexões adicionais, você pode reutilizar credenciais existentes se estiver se conectando à mesma conta do Snowflake.
+Você pode configurar várias integrações com a Braze, mas cada integração deve ser configurada para se conectar a um schema diferente. Ao construir relacionamentos adicionais, você pode reutilizar credenciais existentes se estiver se conectando à mesma conta do Snowflake.
 
 Se você reutilizar o mesmo usuário e a mesma função entre integrações, não será necessário adicionar a chave pública novamente.
 {% endtab %}
@@ -462,7 +462,7 @@ Você pode configurar várias fontes de dados com a Braze, mas cada fonte deve s
 
 ## Usando a fonte conectada {#using-the-connected-source}
 
-Após a criação da fonte, você pode usá-la para criar uma ou mais extensões de Segment or segmento or segmento CDI. Para saber mais sobre como criar um Segment or segmento or segmento com essa fonte, consulte a [documentação de extensões de Segment or segmento or segmento CDI]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments).
+Após a criação da fonte, você pode usá-la para criar uma ou mais extensões de Segment CDI. Para saber mais sobre como criar um Segment com essa fonte, consulte a [documentação de extensões de Segment CDI]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments).
 
 {% alert note %}
 Se as consultas estiverem atingindo o tempo limite de forma consistente e você tiver definido um tempo máximo de execução de 60 minutos, considere otimizar o tempo de execução da consulta ou dedicar mais recursos computacionais (como um data warehouse maior) ao usuário da Braze.

@@ -5,7 +5,7 @@ page_order: 3
 layout: dev_guide
 
 guide_top_header: "Catálogos"
-guide_top_text: "Os catálogos acessam dados de arquivos CSV importados e endpoints de API or interface de programação do aplicativo (API) para enriquecer suas mensagens, de forma semelhante a como você acessaria atributos personalizados ou propriedades de eventos personalizados por meio do Liquid."
+guide_top_text: "Os catálogos acessam dados de arquivos CSV importados e endpoints de API para enriquecer suas mensagens, de forma semelhante a como você acessaria atributos personalizados ou propriedades de eventos personalizados por meio do Liquid."
 
 description: "Esta landing page contém catálogos. Use catálogos e conjuntos filtrados para aproveitar dados de não usuários em suas campanhas da Braze para enviar mensagens personalizadas."
 

@@ -1,28 +1,28 @@
 ---
 nav_title: E-Mail-Nachrichten senden
-article_title: E-Mail-Nachrichten über die Representational State Transfer API senden
+article_title: E-Mail-Nachrichten über die REST API senden
 page_order: 3
 page_type: reference
-description: "Dieser Referenzartikel erklärt, wie Sie E-Mail-Nachrichten über die Braze Representational State Transfer API und eine API-Kampagne senden."
+description: "Dieser Referenzartikel erklärt, wie Sie E-Mail-Nachrichten über die Braze REST API und eine API-Kampagne senden."
 channel:
   - email
 ---
 
-# E-Mail-Nachrichten über die Representational State Transfer API senden {#sending-email-messages-using-the-rest-api}
+# E-Mail-Nachrichten über die REST API senden {#sending-email-messages-using-the-rest-api}
 
-> Verwenden Sie die Braze Representational State Transfer API, um Transaktions-E-Mails in Echtzeit aus Ihrem Backend zu senden. Mit diesem Ansatz können Sie einen Dienst aufbauen, der E-Mails programmatisch versendet und gleichzeitig die Zustellungs-Analytics neben Ihren anderen Campaigns und Canvase im Braze-Dashboard verfolgt.
+> Verwenden Sie die Braze REST API, um Transaktions-E-Mails in Echtzeit aus Ihrem Backend zu senden. Mit diesem Ansatz können Sie einen Dienst aufbauen, der E-Mails programmatisch versendet und gleichzeitig die Zustellungs-Analytics neben Ihren anderen Campaigns und Canvases im Braze-Dashboard verfolgt.
 
 Dies kann besonders nützlich für Transaktions-Messaging sein, bei dem der Inhalt in Ihren Backend-Systemen definiert wird. Zum Beispiel können Sie Verbraucher:innen benachrichtigen, wenn sie eine Nachricht von einer anderen Person erhalten, und sie einladen, Ihre Website zu besuchen und ihren Posteingang zu überprüfen.
 
 Mit diesem Ansatz können Sie:
 
-- E-Mails in Echtzeit aus Ihrem Backend Trigger or triggern or triggern.
-- Analytics neben all Ihren Marketing-eigenen Campaigns und Canvase verfolgen, einschließlich Öffnungen, Klicks und Bounces.
+- E-Mails in Echtzeit aus Ihrem Backend triggern.
+- Analytics neben all Ihren Marketing-eigenen Campaigns und Canvases verfolgen, einschließlich Öffnungen, Klicks und Bounces.
 - Nachrichteninteraktionsdaten verwenden, um Folgenachrichten auszulösen, z. B. Follow-up-Retargeting.
 - Den Anwendungsfall mit zusätzlichen Braze-Features erweitern, wie z. B. Nachrichtenverzögerungen und A/B-Tests.
-- Optional zur [API-getriggerten Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery) wechseln, um Ihre E-Mail-Templates im Braze-Dashboard zu definieren und trotzdem den Versand aus Ihrem Backend zu Trigger or triggern or triggern.
+- Optional zur [API-getriggerten Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery) wechseln, um Ihre E-Mail-Templates im Braze-Dashboard zu definieren und trotzdem den Versand aus Ihrem Backend zu triggern.
 
-Um eine E-Mail über die Representational State Transfer API zu senden, müssen Sie eine API-Kampagne im Braze-Dashboard einrichten und dann den [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)-Endpunkt verwenden, um die Nachricht zu senden.
+Um eine E-Mail über die REST API zu senden, müssen Sie eine API-Kampagne im Braze-Dashboard einrichten und dann den [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)-Endpunkt verwenden, um die Nachricht zu senden.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -30,10 +30,10 @@ Um diese Anleitung abzuschließen, benötigen Sie:
 
 | Anforderung | Beschreibung |
 | --- | --- |
-| Braze Representational State Transfer-API-Schlüssel | Einen Schlüssel mit der Berechtigung `messages.send`. Um einen zu erstellen, gehen Sie zu **Einstellungen** > **APIs und Bezeichner** > **API-Schlüssel**. |
+| Braze REST-API-Schlüssel | Einen Schlüssel mit der Berechtigung `messages.send`. Um einen zu erstellen, gehen Sie zu **Einstellungen** > **APIs und Bezeichner** > **API-Schlüssel**. |
 | Braze App-ID | Der Bezeichner für Ihre App innerhalb Ihres Workspace. Um ihn zu finden, gehen Sie zu **Einstellungen** > **APIs und Bezeichner** und prüfen Sie den Abschnitt **App-Bezeichner**. Dieser Wert ist im Feld `app_id` des E-Mail-Messaging-Objekts erforderlich. Weitere Informationen finden Sie unter [App-Bezeichner]({{site.baseurl}}/api/identifier_types). |
 | HTML-E-Mail-Inhalt | Der HTML-Body Ihrer E-Mail-Nachricht, im Voraus vorbereitet. |
-| Backend-Dienst | Ein Backend-Dienst oder eine Skriptumgebung, die HTTP-POST-Anfragen an die Braze Representational State Transfer API senden kann. |
+| Backend-Dienst | Ein Backend-Dienst oder eine Skriptumgebung, die HTTP-POST-Anfragen an die Braze REST API senden kann. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## 1. Schritt: Eine API-Kampagne erstellen {#step-1-create-an-api-campaign}
@@ -61,7 +61,7 @@ Content-Type: application/json
 Authorization: Bearer YOUR_REST_API_KEY
 ```
 
-Ersetzen Sie `YOUR_REST_ENDPOINT` durch die [Representational State Transfer-Endpunkt-URL]({{site.baseurl}}/api/basics#endpoints) für Ihren Workspace.
+Ersetzen Sie `YOUR_REST_ENDPOINT` durch die [REST-Endpunkt-URL]({{site.baseurl}}/api/basics#endpoints) für Ihren Workspace.
 
 {% raw %}
 ```json
@@ -83,7 +83,7 @@ Ersetzen Sie `YOUR_REST_ENDPOINT` durch die [Representational State Transfer-End
 
 Ersetzen Sie die Platzhalter-Werte durch Ihre tatsächlichen IDs. Das Feld `from` muss das Format `"Anzeigename <user@example.com>"` verwenden. Das Feld `body` akzeptiert gültiges HTML und unterstützt [Liquid-Personalisierung]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), sodass Sie den E-Mail-Inhalt für jede Empfängerin und jeden Empfänger individuell anpassen können. Die vollständige Liste der vom E-Mail-Messaging-Objekt unterstützten Parameter finden Sie unter [E-Mail-Objekt]({{site.baseurl}}/api/objects_filters/messaging/email_object).
 
-Nachdem Sie die Anfrage erstellt haben, senden Sie die POST-Anfrage von Ihrem Backend-Dienst an die Braze Representational State Transfer API.
+Nachdem Sie die Anfrage erstellt haben, senden Sie die POST-Anfrage von Ihrem Backend-Dienst an die Braze REST API.
 
 ## 3. Schritt: Ihre Integration überprüfen {#step-3-verify-your-integration}
 
@@ -98,4 +98,4 @@ Nachdem Sie die Einrichtung abgeschlossen haben, überprüfen Sie Ihre Integrati
 
 - Stellen Sie sicher, dass Ihre E-Mail-Kampagnen den relevanten Vorschriften entsprechen, wie z. B. der DSGVO und CAN-SPAM, indem Sie die erforderlichen Abmeldeoptionen und Datenschutzhinweise einbinden. Weitere Informationen finden Sie unter [Nutzer-Abos verwalten]({{site.baseurl}}/user_guide/channels/email/subscriptions) und [Best Practices für E-Mails]({{site.baseurl}}/user_guide/channels/email/best_practices).
 - Verwenden Sie die [Personalisierungs-Features]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize) von Braze, um E-Mail-Inhalte auf individuelle Verbraucher:innen zuzuschneiden, einschließlich dynamischem Content und nutzerspezifischen Daten.
-- Die Braze Representational State Transfer API bietet zusätzliche [Messaging-Endpunkte]({{site.baseurl}}/api/endpoints/messaging) zum Planen von Nachrichten, Trigger or triggern or triggern von Campaigns und mehr.
+- Die Braze REST API bietet zusätzliche [Messaging-Endpunkte]({{site.baseurl}}/api/endpoints/messaging) zum Planen von Nachrichten, Triggern von Campaigns und mehr.

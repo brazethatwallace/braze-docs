@@ -23,8 +23,8 @@ A integração entre a Braze e o Stripo permite que você exporte seus e-mails p
 | Requisito | Descrição |
 | ------------| ----------- |
 | Conta Stripo | É necessário ter uma conta Stripo para aproveitar esta parceria. |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões completas de **Templates**. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
-| Instância do cluster | Sua [instância de cluster]({{site.baseurl}}/api/basics/#endpoints) da Braze se alinha com o dashboard e o endpoint REST or transferir estado representacional da Braze. |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões completas de **Templates**. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Instância do cluster | Sua [instância de cluster]({{site.baseurl}}/api/basics/#endpoints) da Braze se alinha com o dashboard e o endpoint REST da Braze. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
@@ -39,12 +39,12 @@ Crie um e-mail no Stripo na plataforma Stripo e clique em **Export**.
 
 Na caixa de diálogo que aparece, selecione **Braze** como seu método de exportação.
 
-Em seguida, insira seu **nome da conta** (como o nome do espaço de trabalho), **chave de API or interface de programação do aplicativo (API)** e sua **instância do cluster**.
+Em seguida, insira seu **nome da conta** (como o nome do espaço de trabalho), **chave de API** e sua **instância do cluster**.
 
 ![Formulário do Stripo]({% image_buster /assets/img_archive/stripo_form.png %})
 
 {% alert important %}
-Esta é uma configuração única, e qualquer exportação futura utilizará automaticamente essa chave de API or interface de programação do aplicativo (API).
+Esta é uma configuração única, e qualquer exportação futura utilizará automaticamente essa chave de API.
 {% endalert %}
 
 ## Uso {#usage}

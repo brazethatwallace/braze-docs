@@ -12,7 +12,7 @@ tool:
 
 # Sincronización de la audiencia con Snapchat {#audience-sync-to-snapchat}
 
-Con Braze Audience Sync to Snapchat, las marcas pueden añadir datos de usuarios de su integración con Braze a las listas de clientes de Snapchat para entregar anuncios basados en desencadenantes de comportamiento, segmentación y mucho más. Cualquier criterio que normalmente utilizarías para desencadenar un mensaje (push, correo electrónico, servicio de mensajes cortos, webhook, etc.) en un Canvas de Braze basado en tus datos de usuario ahora se puede utilizar para desencadenar un anuncio dirigido a ese usuario en tus listas de clientes de Snapchat.
+Con Braze Audience Sync to Snapchat, las marcas pueden añadir datos de usuarios de su integración con Braze a las listas de clientes de Snapchat para entregar anuncios basados en desencadenantes de comportamiento, segmentación y mucho más. Cualquier criterio que normalmente utilizarías para desencadenar un mensaje (push, correo electrónico, SMS, webhook, etc.) en un Canvas de Braze basado en tus datos de usuario ahora se puede utilizar para desencadenar un anuncio dirigido a ese usuario en tus listas de clientes de Snapchat.
 
 **Entre los casos de uso habituales de la sincronización de audiencias se incluyen:**
 

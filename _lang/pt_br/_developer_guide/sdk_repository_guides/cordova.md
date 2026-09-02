@@ -1,16 +1,16 @@
 ---
-nav_title: Cordova SDK or kit de desenvolvimento de software
-article_title: Guia do repositório do Cordova SDK or kit de desenvolvimento de software
+nav_title: Cordova SDK
+article_title: Guia do repositório do Cordova SDK
 page_order: 5
-description: "Referência do README do Cordova SDK or kit de desenvolvimento de software da Braze espelhada do GitHub."
+description: "Referência do README do Cordova SDK da Braze espelhada do GitHub."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
-# Guia do repositório do Cordova SDK or kit de desenvolvimento de software {#cordova-sdk-repository-guide}
+# Guia do repositório do Cordova SDK {#cordova-sdk-repository-guide}
 
-## Sobre o SDK or kit de desenvolvimento de software Cordova da Braze {#about-the-braze-cordova-sdk}
+## Sobre o SDK Cordova da Braze {#about-the-braze-cordova-sdk}
 
-O SDK or kit de desenvolvimento de software Cordova da Braze ajuda você a integrar recursos de envio de mensagens, análise de dados e engajamento de usuários da Braze ao seu app.
+O SDK Cordova da Braze ajuda você a integrar recursos de envio de mensagens, análise de dados e engajamento de usuários da Braze ao seu app.
 
 Para começar, consulte os seguintes recursos:
 
@@ -25,13 +25,13 @@ Para começar, consulte os seguintes recursos:
 | 2.31.0+      | >= 12.0.0       | >= 5.0.0    |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Requisitos mínimos de versão" }
 
-Esse SDK or kit de desenvolvimento de software também herda os requisitos dos SDKs nativos da Braze subjacentes. Certifique-se de seguir também as listas de requisitos dos SDKs Android e Swift nos links abaixo:
-* [Requisitos do SDK or kit de desenvolvimento de software Android](https://github.com/braze-inc/braze-android-sdk?tab=readme-ov-file#version-information)
-* [Requisitos do SDK or kit de desenvolvimento de software Swift](https://github.com/braze-inc/braze-swift-sdk?tab=readme-ov-file#version-information)
+Esse SDK também herda os requisitos dos SDKs nativos da Braze subjacentes. Certifique-se de seguir também as listas de requisitos dos SDKs Android e Swift nos links abaixo:
+* [Requisitos do SDK Android](https://github.com/braze-inc/braze-android-sdk?tab=readme-ov-file#version-information)
+* [Requisitos do SDK Swift](https://github.com/braze-inc/braze-swift-sdk?tab=readme-ov-file#version-information)
 
-## Instalando o SDK or kit de desenvolvimento de software {#installing-the-sdk}
+## Instalando o SDK {#installing-the-sdk}
 {% alert warning %}
-Adicione o SDK or kit de desenvolvimento de software Cordova da Braze somente usando os métodos abaixo. Não tente instalar usando outros métodos, pois isso pode causar uma falha de segurança.
+Adicione o SDK Cordova da Braze somente usando os métodos abaixo. Não tente instalar usando outros métodos, pois isso pode causar uma falha de segurança.
 {% endalert %}
 ``` text
 # To use the base SDK functionality, install using the `master` branch.

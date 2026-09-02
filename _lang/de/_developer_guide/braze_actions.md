@@ -2,15 +2,15 @@
 nav_title: Braze-Aktionen-Deeplinks
 article_title: Braze-Aktionen-Deeplinks
 page_order: 100
-description: "Dieser Referenzartikel beschreibt, wie Sie Braze-Aktionen-Deeplinks verwenden, um SDK or Software-Development-Kit-Aktionen über Buttons in Messaging-Kanälen auszuführen."
+description: "Dieser Referenzartikel beschreibt, wie Sie Braze-Aktionen-Deeplinks verwenden, um SDK-Aktionen über Buttons in Messaging-Kanälen auszuführen."
 hidden: true
 ---
 
 # Braze-Aktionen-Deeplinks {#braze-actions-deeplinks}
 
-> Mit Braze-Aktionen können Sie „Deeplinks“ verwenden, um native SDK or Software-Development-Kit-Funktionen auszuführen.<br><br>Das Braze-Dashboard enthält mehrere standardmäßige On-Klick, der or klicken-Aktionen (Push-Berechtigung anfordern, angepasstes Event protokollieren und angepasstes Attribut protokollieren), die in In-App-Nachrichten und Content Cards verwendet werden können.<br><br>Für alle anderen Aktionen oder um mehrere Aktionen zu kombinieren, verwenden Sie diese Anleitung, um Ihren eigenen Braze-Aktionen-Deeplink zu erstellen.
+> Mit Braze-Aktionen können Sie „Deeplinks“ verwenden, um native SDK-Funktionen auszuführen.<br><br>Das Braze-Dashboard enthält mehrere standardmäßige On-Klick, der-Aktionen (Push-Berechtigung anfordern, angepasstes Event protokollieren und angepasstes Attribut protokollieren), die in In-App-Nachrichten und Content Cards verwendet werden können.<br><br>Für alle anderen Aktionen oder um mehrere Aktionen zu kombinieren, verwenden Sie diese Anleitung, um Ihren eigenen Braze-Aktionen-Deeplink zu erstellen.
 
-## SDK or Software-Development-Kit-Unterstützung {#sdk-support}
+## SDK-Unterstützung {#sdk-support}
 
 {% sdk_min_versions swift:5.4.0 android:21.0.0 web:4.0.3 %}
 

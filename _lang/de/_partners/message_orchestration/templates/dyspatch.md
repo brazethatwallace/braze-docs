@@ -23,7 +23,7 @@ Die Integration von Dyspatch und Braze ermöglicht es Ihnen, den Lebenszyklus Ih
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | Dyspatch-Konto | Ein [Dyspatch-Konto](https://www.dyspatch.io/login/) mit einer [Eigentümer- oder Administratorrolle](https://docs.dyspatch.io/administration/dyspatch_roles/) ist erforderlich, um diese Partnerschaft zu nutzen. |
-| Braze-Representational State Transfer-API-Schlüssel | Ein Braze-Representational State Transfer-API-Schlüssel mit vollständigen **Templates**-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit vollständigen **Templates**-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration

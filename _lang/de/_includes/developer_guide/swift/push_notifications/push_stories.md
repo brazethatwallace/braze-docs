@@ -1,6 +1,6 @@
 {% multi_lang_include developer_guide/prerequisites/swift.md %} Sie müssen außerdem [Push-Benachrichtigungen einrichten]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift), was die Implementierung des `UNNotification`-Frameworks beinhaltet.
 
-Die folgende Mindestversion des SDK or Software-Development-Kit ist erforderlich, um Push-Storys zu empfangen:
+Die folgende Mindestversion des SDK ist erforderlich, um Push-Storys zu empfangen:
 
 {% sdk_min_versions swift:5.0.0 %}
 
@@ -86,7 +86,7 @@ Stellen Sie sicher, dass unter der Spalte **Embed** die Option **Do Not Embed** 
 {% endtab %}
 {% endtabs %}
 
-### Schritt 4: View-Controller für Benachrichtigungen Update or aktualisieren or aktualisieren
+### Schritt 4: View-Controller für Benachrichtigungen aktualisieren
 
 Fügen Sie in `NotificationViewController.swift` die folgende Zeile hinzu, um die Header-Dateien zu importieren:
 
@@ -147,7 +147,7 @@ Ihre `Info.plist`-Datei sollte dem folgenden Bild entsprechen:
 
 ![Info.plist der Notification Content Extension mit Braze-Push-Story-Schlüsseln und App-Gruppen-Einstellungen.]({% image_buster /assets/img/swift/push_story/notificationcontentextension_plist.png %})
 
-### Schritt 6: Braze-Integration in der Haupt-App Update or aktualisieren or aktualisieren {#update-braze}
+### Schritt 6: Braze-Integration in der Haupt-App aktualisieren {#update-braze}
 
 Weisen Sie vor der Initialisierung von Braze der Eigenschaft [`push.appGroup`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/push-swift.class/appgroup) der Braze-Konfiguration den Namen Ihrer App-Gruppe zu.
 

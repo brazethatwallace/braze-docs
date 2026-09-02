@@ -467,7 +467,7 @@ glossaries:
     tags:
       - eCommerce
   - name: Customer lifetime value (last 730 days)
-    display_name: "顧客LTV or 生涯価値（過去730日間）"
+    display_name: "顧客LTV（過去730日間）"
     description: ブランドとの購入履歴を通じてユーザーが生み出すと予想される総収益でセグメント化します。計算は過去730日間を考慮し、平均注文額（AOV）に注文合計数を掛け、ユーザーのアクティブな購入期間（最初の注文から最新の注文までの期間）を考慮します。このフィルターは<a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">eコマース推奨イベント</a> で追跡されたデータを使用します（eコマースイベントを追跡していないワークスペースにはこのフィルターのデータがありません）。ユーザーはこのフィルターに対して1日1回評価されます。<br><br>このフィルターはベータ版です。このフィルターの使用に興味がある場合は、Brazeアカウントマネージャーにお問い合わせください。
     tags:
       - eCommerce

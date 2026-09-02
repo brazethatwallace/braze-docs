@@ -1,7 +1,7 @@
 ---
 nav_title: Wyng
 article_title: Wyng
-description: "Este artigo de referência descreve a parceria entre a Braze e a Wyng, uma plataforma de dados voluntários usada para coletar, usar e integrar preferências e atributos do cliente por meio de microexperiências, portais de preferências do cliente e uma plataforma de API or interface de programação do aplicativo (API)."
+description: "Este artigo de referência descreve a parceria entre a Braze e a Wyng, uma plataforma de dados voluntários usada para coletar, usar e integrar preferências e atributos do cliente por meio de microexperiências, portais de preferências do cliente e uma plataforma de API."
 alias: /partners/wyng/
 page_type: partner
 search_tag: Partner
@@ -22,7 +22,7 @@ A integração entre a Braze e a Wyng permite que você aproveite os dados volun
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Conta Wyng | É necessário ter uma conta Wyng para aproveitar essa parceria. |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões `users.track`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Integração {#integration}
@@ -35,7 +35,7 @@ Na Wyng, acesse [**Integrations**](https://wyng.com/dashboard/integrations/) e s
 
 ### Etapa 2: Configure o conector da Braze {#step-2-configure-the-braze-connector}
 
-1. Na janela de configuração que se abre, forneça sua chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze.
+1. Na janela de configuração que se abre, forneça sua chave da API REST da Braze.
 ![Uma imagem mostrando a aparência do prompt de credenciais.]({% image_buster /assets/img/wyng/4.png %}){: style="max-width:80%;"}<br><br>
 2. Em seguida, use o menu suspenso para selecionar a campanha da Wyng que deseja compartilhar com a Braze.![Uma imagem do conector da Braze solicitando que você selecione uma campanha da Wyng existente para compartilhar com a Braze.]({% image_buster /assets/img/wyng/5.png %}){: style="max-width:80%;"}<br><br>
 3. Em seguida, você deve configurar inscrições, objetos de atributo e evento e eventos personalizados.<br><br>
@@ -45,7 +45,7 @@ Para inscrever usuários em grupos de inscrições, clique em **Add Subscription
 Clique em **Add custom property** para adicionar pares de objetos de atributo e evento para enviar ao endpoint `/users/track`. Use isso para adicionar valores de atributo codificados para cada transação de dados enviada para a integração. Para adicionar várias propriedades, clique novamente no botão **Add custom property**.<br>![Uma imagem solicitando que você adicione propriedades personalizadas de atributo.]({% image_buster /assets/img/wyng/9.png %}){: style="max-width:80%;"}<br><br>
 - **Enviar evento personalizado**<br>
 Opcionalmente, você pode ativar o **Sending custom event**. Se essa opção estiver ativada, inclua o nome do evento e o ID do app correspondente.<br>![Uma imagem solicitando que você envie eventos personalizados, se necessário.]({% image_buster /assets/img/wyng/10.png %}){: style="max-width:80%;"}<br><br>
-4. Por fim, mapeie os campos da Wyng para os campos da API or interface de programação do aplicativo (API) da Braze com base em seu caso de uso. Clique em **Select a field** para escolher os campos a serem mapeados e, em seguida, clique em **Save** para salvar sua integração. Quando salvos, esses campos mapeados podem ser encontrados em **Integrations > Manage**.
+4. Por fim, mapeie os campos da Wyng para os campos da API da Braze com base em seu caso de uso. Clique em **Select a field** para escolher os campos a serem mapeados e, em seguida, clique em **Save** para salvar sua integração. Quando salvos, esses campos mapeados podem ser encontrados em **Integrations > Manage**.
 ![Um exemplo dos diferentes campos da Wyng que você pode mapear para determinados campos da Braze.]({% image_buster /assets/img/wyng/11.png %}){: style="max-width:80%;"}
 ![Uma lista dos campos de sincronização disponíveis.]({% image_buster /assets/img/wyng/12.png %}){: style="max-width:80%;margin-top:2px"}
 

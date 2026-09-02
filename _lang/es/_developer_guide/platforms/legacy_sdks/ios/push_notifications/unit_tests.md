@@ -26,9 +26,9 @@ Omite este paso si el proyecto de tu aplicación en Xcode ya contiene un paquete
 
 En el proyecto de tu aplicación, ve al menú **File > New > Target** y añade un nuevo "Unit Testing Bundle". Este paquete puede utilizar Objective-C o Swift y tener cualquier nombre. Establece el "Target to be Tested" como el objetivo principal de tu aplicación.
 
-## Paso 2: Añade el SDK or kit de desarrollo de software de Braze a tus pruebas unitarias {#step-2-add-the-braze-sdk-to-your-unit-tests}
+## Paso 2: Añade el SDK de Braze a tus pruebas unitarias {#step-2-add-the-braze-sdk-to-your-unit-tests}
 
-Utilizando el mismo método que utilizaste inicialmente para [instalar el SDK or kit de desarrollo de software de Braze]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview), asegúrate de que la misma instalación del SDK or kit de desarrollo de software también esté disponible para el objetivo de tus pruebas unitarias. Por ejemplo, utilizando CocoaPods:
+Utilizando el mismo método que utilizaste inicialmente para [instalar el SDK de Braze]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview), asegúrate de que la misma instalación del SDK también esté disponible para el objetivo de tus pruebas unitarias. Por ejemplo, utilizando CocoaPods:
 
 ```
 target 'YourAppTarget' do
@@ -57,7 +57,7 @@ end
 
 ## Paso 4: Termina de instalar las bibliotecas añadidas {#step-4-finish-installing-the-added-libraries}
 
-Termina de instalar el SDK or kit de desarrollo de software de Braze y OCMock. Por ejemplo, utilizando CocoaPods, navega hasta el directorio de tu proyecto de aplicación Xcode dentro de tu terminal y ejecuta el siguiente comando:
+Termina de instalar el SDK de Braze y OCMock. Por ejemplo, utilizando CocoaPods, navega hasta el directorio de tu proyecto de aplicación Xcode dentro de tu terminal y ejecuta el siguiente comando:
 
 ```
 pod install

@@ -8,7 +8,7 @@ layout: scrolly
 
 # Tutorial: Mostrar mensajes dentro de la aplicación de forma condicional {#tutorial-conditionally-displaying-in-app-messages}
 
-> Sigue el código de ejemplo de este tutorial para mostrar mensajes dentro de la aplicación de forma condicional utilizando el SDK or kit de desarrollo de software de Braze.
+> Sigue el código de ejemplo de este tutorial para mostrar mensajes dentro de la aplicación de forma condicional utilizando el SDK de Braze.
 
 {% sdktabs %}
 {% sdktab web %}

@@ -79,7 +79,7 @@ Sie können bis zu vier der folgenden Konversions-Events zur Nachverfolgung defi
 - Sitzung starten
 - Bestellung aufgeben
 - Angepasstes Event ausführen
-- App-Upgrade or upgraden durchführen
+- App-Upgrade durchführen
 - E-Mail öffnen
 - E-Mail anklicken
 
@@ -143,7 +143,7 @@ Informationen dazu, was passiert, wenn das Volumen gehalten wird, finden Sie unt
 Sie können einen IP-Warming-Plan stoppen, um die Erstellung zukünftiger Campaigns zu verhindern. Durch das Stoppen eines Plans werden auch alle zugehörigen Campaigns deaktiviert. Nachdem Sie einen Plan gestoppt haben, können Sie ihn nicht wieder fortsetzen. Richten Sie einen neuen Plan ein, um dort weiterzumachen, wo Sie aufgehört haben, indem Sie:
 
 - Die vorhandenen Daten Ihres gestoppten Plans herunterladen, um sie für Ihre Unterlagen aufzubewahren
-- Das **Aktuelle tägliche Sendevolumen** auf das zuletzt verwendete Volumen Update or aktualisieren or aktualisieren
+- Das **Aktuelle tägliche Sendevolumen** auf das zuletzt verwendete Volumen aktualisieren
 - Einen Filter zu einem Segment hinzufügen, falls Sie dasselbe Segment aus dem letzten IP-Warming verwenden möchten, indem Sie Nutzer:innen ausschließen, die bereits vorherige Campaigns erhalten haben
 
 ## Wenn ein IP-Warming abgeschlossen ist {#when-an-ip-warming-completes}

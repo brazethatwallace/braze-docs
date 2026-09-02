@@ -9,7 +9,7 @@ page_type: reference
 description: "Este artigo traz informações sobre o endpoint da Braze \"Listar catálogos\"."
 
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Listar catálogos {#list-catalogs}
 {% apimethod get %}
 /catalogs
@@ -21,7 +21,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Listar 
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `catalogs.get`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `catalogs.get`.
 
 ## Limite de frequência {#rate-limit}
 

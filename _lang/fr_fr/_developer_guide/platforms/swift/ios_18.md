@@ -15,9 +15,9 @@ La [WWDC](https://developer.apple.com/wwdc24/) d'Apple a eu lieu du 9 au 11 juin
 
 ## Changements dans iOS 18 {#changes-in-ios-18}
 
-### en direct or en ligne/en production/instantané Activities sur Apple Watch {#live-activities-on-apple-watch}
+### en direct Activities sur Apple Watch {#live-activities-on-apple-watch}
 
-Les [en direct or en ligne/en production/instantané Activities]({{site.baseurl}}/developer_guide/live_notifications?sdktab=swift) seront prises en charge sur watchOS 11. Aucune configuration supplémentaire n'est requise. Cependant, Apple offre la possibilité de personnaliser l'interface de la montre.
+Les [en direct Activities]({{site.baseurl}}/developer_guide/live_notifications?sdktab=swift) seront prises en charge sur watchOS 11. Aucune configuration supplémentaire n'est requise. Cependant, Apple offre la possibilité de personnaliser l'interface de la montre.
 
 ### Apple Vision Pro
 

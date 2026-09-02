@@ -41,7 +41,7 @@ Para conectar Edge Network a Braze, se necesita lo siguiente:
 | Tipo de clave | Descripción |
 | --- | --- |
 | Instancia de Braze | Tu instancia de Braze puede obtenerse de tu administrador de incorporación de Braze o puede encontrarse en la [página de resumen de la API]({{site.baseurl}}/api/basics#endpoints). |
-| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con todos los permisos. <br><br> Esta puede crearse en el panel de Braze desde **Configuración** > **Claves de API**.|
+| Clave de API REST de Braze | Una clave de API REST de Braze con todos los permisos. <br><br> Esta puede crearse en el panel de Braze desde **Configuración** > **Claves de API**.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 1: Recopilar los detalles de configuración necesarios" }
 
 ### Paso 2: Crear un secreto {#step-2-create-a-secret}
@@ -52,7 +52,7 @@ Crea un nuevo [secreto de reenvío de eventos](https://experienceleague.adobe.co
 
 1. Para instalar la extensión, [crea una propiedad de reenvío de eventos](https://experienceleague.adobe.com/docs/experience-platform/tags/event-forwarding/overview.html?lang=en#properties) o elige una propiedad existente para editarla.
 2. A continuación, selecciona **Extensions** en la navegación izquierda. En la pestaña **Catalog**, selecciona **Install** en la tarjeta de la extensión de Braze.
-3. En la siguiente pantalla, introduce tu instancia REST or transferencia de estado representacional y la clave de API, y selecciona **Save** cuando hayas terminado.
+3. En la siguiente pantalla, introduce tu instancia REST y la clave de API, y selecciona **Save** cuando hayas terminado.
 
 ### Paso 4: Crear una regla de envío de eventos {#step-4-create-a-send-event-rule}
 

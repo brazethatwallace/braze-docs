@@ -7,7 +7,7 @@ guide_top_header: "Currents-Event-Glossar"
 guide_top_text: "Schlagen Sie Schema, Felder und Beispiel-Payloads für jedes Currents-Event nach. Wählen Sie unten eine Kategorie aus, um das gewünschte Event zu finden."
 
 page_type: landing
-description: "Eine Referenz für alle Braze-Currents-Events, einschließlich Nachrichten-Engagement-Ereignisse, Kundenverhalten-Events und Kundenprofil or Nutzerprofil-Events."
+description: "Eine Referenz für alle Braze-Currents-Events, einschließlich Nachrichten-Engagement-Ereignisse, Kundenverhalten-Events und Kundenprofil-Events."
 
 guide_featured_title: "Event-Typen"
 guide_featured_list:

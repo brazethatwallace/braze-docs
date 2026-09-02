@@ -20,7 +20,7 @@ tool:
 
 Eine Benachrichtigungs-ID ist ein eindeutiger Bezeichner für eine von Ihnen gewählte Nachrichtenkategorie, der den Messaging-Dienst anweist, nur die aktuellste Nachricht mit dieser ID zu berücksichtigen. Durch das Setzen einer Benachrichtigungs-ID können Sie nur die aktuellste und relevanteste Nachricht senden, anstatt einen Stapel veralteter, irrelevanter Nachrichten.
 
-Um eine Benachrichtigungs-ID zuzuweisen, navigieren Sie zur Erstellungsseite der Push-Benachrichtigung, die Sie Update or aktualisieren or aktualisieren möchten, und wählen Sie den Tab **Settings** aus. Geben Sie dann eine Ganzzahl im Abschnitt **Notification ID** ein. Um diese Benachrichtigung nach dem Versand zu Update or aktualisieren or aktualisieren, senden Sie eine weitere Benachrichtigung mit derselben ID, die Sie zuvor verwendet haben.
+Um eine Benachrichtigungs-ID zuzuweisen, navigieren Sie zur Erstellungsseite der Push-Benachrichtigung, die Sie aktualisieren möchten, und wählen Sie den Tab **Settings** aus. Geben Sie dann eine Ganzzahl im Abschnitt **Notification ID** ein. Um diese Benachrichtigung nach dem Versand zu aktualisieren, senden Sie eine weitere Benachrichtigung mit derselben ID, die Sie zuvor verwendet haben.
 
 ![Feld für die Benachrichtigungs-ID.]({% image_buster /assets/img_archive/notification_ids.png %}){: style="max-width:60%;" }
 
@@ -30,7 +30,7 @@ Das Feld **TTL** ermöglicht es Ihnen, eine benutzerdefinierte Speicherdauer fü
 
 Um die Gültigkeitsdauer für Ihre Android-Push-Benachrichtigung zu bearbeiten, gehen Sie zum Composer und wählen Sie den Tab **Settings** aus. Suchen Sie das Feld **TTL** und geben Sie einen Wert in Tagen, Stunden oder Sekunden ein.
 
-Die Standardwerte für die Gültigkeitsdauer werden von Ihren Admins auf der Seite [Push-Einstellungen]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings) festgelegt. Standardmäßig setzt Braze die Push TTL or Push-Time-to-Live auf den Maximalwert für jeden Push-Messaging-Dienst. Während die Standard-TTL-Einstellungen global gelten, können Sie sie bei der Campaign-Erstellung auf Nachrichtenebene überschreiben. Dies ist hilfreich, wenn verschiedene Campaigns unterschiedliche Dringlichkeiten oder Zustellungsfenster erfordern.
+Die Standardwerte für die Gültigkeitsdauer werden von Ihren Admins auf der Seite [Push-Einstellungen]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings) festgelegt. Standardmäßig setzt Braze die Push TTL auf den Maximalwert für jeden Push-Messaging-Dienst. Während die Standard-TTL-Einstellungen global gelten, können Sie sie bei der Campaign-Erstellung auf Nachrichtenebene überschreiben. Dies ist hilfreich, wenn verschiedene Campaigns unterschiedliche Dringlichkeiten oder Zustellungsfenster erfordern.
 
 Nehmen wir zum Beispiel an, Ihre App veranstaltet einen wöchentlichen Quizwettbewerb. Sie senden eine Push-Benachrichtigung eine Stunde vor Beginn. Indem Sie die TTL auf 1 Stunde setzen, stellen Sie sicher, dass Nutzer:innen, die die App nach Beginn des Wettbewerbs öffnen, keine Benachrichtigung über ein bereits gestartetes Ereignis erhalten.
 
@@ -48,7 +48,7 @@ Kürzere TTLs stellen sicher, dass Nutzer:innen zeitnahe Benachrichtigungen für
 ### Wann kürzere TTL vermieden werden sollten {#when-to-avoid-shorter-ttl}
 
 - Wenn die Nachricht Ihrer Campaign über mehrere Tage oder Wochen relevant bleibt, wie z. B. Abo-Verlängerungserinnerungen oder laufende Aktionen.
-- Wenn maximale Reichweite wichtiger ist als Dringlichkeit, wie bei App-Update or aktualisieren-Ankündigungen oder Feature-Aktionen.
+- Wenn maximale Reichweite wichtiger ist als Dringlichkeit, wie bei App-Update-Ankündigungen oder Feature-Aktionen.
 
 {% enddetails %}
 
@@ -127,13 +127,13 @@ Android-Push-Benachrichtigungen bieten die Möglichkeit anzugeben, ob Ihre Benac
 | Email | Asynchrone Massennachricht (E-Mail). |
 | Error | Fehler bei einem Hintergrundvorgang oder Authentifizierungsstatus. |
 | Event | Kalenderereignis. |
-| Message | Eingehende Direktnachricht (Kurzmitteilungsdienst or SMS, Sofortnachricht usw.). |
+| Message | Eingehende Direktnachricht (SMS, Sofortnachricht usw.). |
 | Progress | Fortschritt eines lang laufenden Hintergrundvorgangs. |
 | Promotion | Aktion oder Werbung. |
 | Recommendation | Eine spezifische, zeitnahe Empfehlung für eine einzelne Sache. |
 | Reminder | Von Nutzer:innen geplante Erinnerung. |
 | Service | Anzeige eines laufenden Hintergrunddienstes. |
-| Social | Update or aktualisieren aus einem sozialen Netzwerk oder einer Sharing-Funktion. |
+| Social | Update aus einem sozialen Netzwerk oder einer Sharing-Funktion. |
 | Status | Laufende Informationen über den Geräte- oder Kontextstatus. |
 | System | System- oder Gerätestatusupdate. Reserviert für Systemnutzung. |
 | Transport | Medientransportsteuerung für die Wiedergabe. |

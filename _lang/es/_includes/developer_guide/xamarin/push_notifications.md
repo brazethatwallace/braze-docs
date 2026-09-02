@@ -48,7 +48,7 @@ Consulta [las instrucciones de integración de Swift]({{site.baseurl}}/developer
 
 ### Paso 2: Solicitar permiso para notificaciones push
 
-Nuestro SDK or kit de desarrollo de software .NET MAUI ahora admite la configuración automática de push. Configura la automatización push y los permisos añadiendo el siguiente código a la configuración de tu instancia de Braze:
+Nuestro SDK .NET MAUI ahora admite la configuración automática de push. Configura la automatización push y los permisos añadiendo el siguiente código a la configuración de tu instancia de Braze:
 
 ```csharp
 configuration.Push.Automation = new BRZConfigurationPushAutomation(true);

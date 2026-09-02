@@ -67,7 +67,7 @@ Si vous ne pouvez pas ou ne souhaitez pas utiliser les CDN répertoriés pour le
 Pour la résolution des problèmes liés à la configuration de votre CDN, contactez votre fournisseur CDN ou consultez la section [Résolution des problèmes]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/troubleshooting) pour des conseils généraux.
 {% endalert %}
 
-Consultez les ressources suivantes des partenaires fournisseurs de services d'e-mail marketing or e-mailing sur la configuration de certains CDN. Même si votre CDN spécifique n'est pas listé, vous devez vous assurer qu'il a la capacité d'appliquer des certificats SSL.
+Consultez les ressources suivantes des partenaires fournisseurs de services d'e-mail marketing sur la configuration de certains CDN. Même si votre CDN spécifique n'est pas listé, vous devez vous assurer qu'il a la capacité d'appliquer des certificats SSL.
 
 Lorsque vous configurez le domaine de suivi des clics de votre CDN, activez l'en-tête `X-Forwarded-Host` pour prévenir d'éventuels problèmes de sécurité tels que les attaques par en-tête d'hôte. Consultez la documentation de votre CDN ou votre équipe de support pour connaître la procédure.
 
@@ -91,7 +91,7 @@ Lorsque vous configurez le domaine de suivi des clics de votre CDN, activez l'en
 
 ### Amazon SES
 
-Si vous utilisez Amazon SES comme fournisseur de services d'e-mail marketing or e-mailing, consultez l'**Option 2 : Configurer un domaine HTTPS** dans la [documentation d'Amazon SES](https://docs.aws.amazon.com/ses/latest/dg/configure-custom-open-click-domains.html) et spécifiez le domaine de suivi AWS par région en fonction de votre cluster Braze :
+Si vous utilisez Amazon SES comme fournisseur de services d'e-mail marketing, consultez l'**Option 2 : Configurer un domaine HTTPS** dans la [documentation d'Amazon SES](https://docs.aws.amazon.com/ses/latest/dg/configure-custom-open-click-domains.html) et spécifiez le domaine de suivi AWS par région en fonction de votre cluster Braze :
 
 - **Clusters Braze US :** `r.us-east-1.awstrack.me`
 - **Clusters Braze EU :** `r.eu-central-1.awstrack.me`
@@ -102,7 +102,7 @@ Lorsque vous configurez le domaine de suivi des clics de votre CDN, activez l'en
 
 ## Modèles d'URL de suivi des clics et des ouvertures {#click-and-open-tracking-url-patterns}
 
-Votre fournisseur de services d'e-mail marketing or e-mailing (fournisseur de services d'e-mailing) réécrit chaque lien suivi pour le faire pointer vers votre domaine de suivi des clics, puis ajoute un préfixe de chemin qui identifie la requête comme un clic ou une ouverture suivie. Braze ne construit pas ces chemins. C'est votre fournisseur de services d'e-mailing qui les ajoute lorsqu'il réécrit le lien. Pour les règles CDN ou proxy, les listes d'autorisations de sécurité ou la gestion des liens dans les applications mobiles, consultez la documentation de votre fournisseur de services d'e-mailing comme source de référence.
+Votre fournisseur de services d'e-mail marketing (fournisseur de services d'e-mailing) réécrit chaque lien suivi pour le faire pointer vers votre domaine de suivi des clics, puis ajoute un préfixe de chemin qui identifie la requête comme un clic ou une ouverture suivie. Braze ne construit pas ces chemins. C'est votre fournisseur de services d'e-mailing qui les ajoute lorsqu'il réécrit le lien. Pour les règles CDN ou proxy, les listes d'autorisations de sécurité ou la gestion des liens dans les applications mobiles, consultez la documentation de votre fournisseur de services d'e-mailing comme source de référence.
 
 | fournisseur de services d'e-mailing | Modèles de chemins | Documentation de l'fournisseur de services d'e-mailing |
 | --- | --- | --- |

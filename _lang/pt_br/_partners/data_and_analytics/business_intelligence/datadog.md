@@ -26,11 +26,11 @@ A integração entre a Braze e o Datadog permite que os clientes coletem dados d
 
 ### Etapa 1: Gerar a chave do Datadog {#step-1-generate-datadog-key}
 
-No Datadog, você precisará criar uma [chave de API or interface de programação do aplicativo (API)](https://docs.datadoghq.com/account_management/api-app-keys/#api-keys). Para adicionar uma chave de API or interface de programação do aplicativo (API), acesse **Organization Settings** > **API or interface de programação do aplicativo (API) Keys** > **New Key**.
+No Datadog, você precisará criar uma [chave de API](https://docs.datadoghq.com/account_management/api-app-keys/#api-keys). Para adicionar uma chave de API, acesse **Organization Settings** > **API Keys** > **New Key**.
 
 ### Etapa 2: Adicionar a chave à Braze {#step-2-add-key-to-braze}
 
-No dashboard da Braze, acesse **Integrações com Parceiros** > **Parceiros de Tecnologia** e pesquise **Datadog**. Na página de parceiro do Datadog, forneça a chave de API or interface de programação do aplicativo (API) do Datadog. Isso criará uma conexão para permitir que a Braze envie dados para o Datadog.
+No dashboard da Braze, acesse **Integrações com Parceiros** > **Parceiros de Tecnologia** e pesquise **Datadog**. Na página de parceiro do Datadog, forneça a chave de API do Datadog. Isso criará uma conexão para permitir que a Braze envie dados para o Datadog.
 
 ## Eventos da Braze {#braze-events}
 
@@ -45,7 +45,7 @@ Cada um desses eventos possui metadados na forma de tags do Datadog para fornece
 - `campaign_id` / `campaign_name` (se disponível)
 - `canvas_id` / `canvas_name` / `canvas_step_id` / `canvas_step_name` (se disponível)
 
-Esses eventos e tags podem ser monitorados na página **Metrics Explorer** do Datadog. Essas métricas são registradas como [distribuições](https://docs.datadoghq.com/metrics/distributions/) no DataDog. Dada a natureza das métricas e a imprecisão das agregações e rollups do DataDog, a Braze não faz novas tentativas em caso de erros intermitentes de rede ou outros erros da API or interface de programação do aplicativo (API) do DataDog que possam ocorrer durante a transmissão. Isso significa que essas contagens de métricas podem diferir ligeiramente das contagens vistas no dashboard da Braze e/ou por meio do Currents.
+Esses eventos e tags podem ser monitorados na página **Metrics Explorer** do Datadog. Essas métricas são registradas como [distribuições](https://docs.datadoghq.com/metrics/distributions/) no DataDog. Dada a natureza das métricas e a imprecisão das agregações e rollups do DataDog, a Braze não faz novas tentativas em caso de erros intermitentes de rede ou outros erros da API do DataDog que possam ocorrer durante a transmissão. Isso significa que essas contagens de métricas podem diferir ligeiramente das contagens vistas no dashboard da Braze e/ou por meio do Currents.
 
 ![Metrics Explorer do Datadog mostrando métricas e tags de eventos da Braze.]({% image_buster /assets/img/datadog.png %})
 

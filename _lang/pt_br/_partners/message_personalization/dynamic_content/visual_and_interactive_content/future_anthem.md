@@ -24,8 +24,8 @@ Este recurso está atualmente em acesso antecipado. Entre em contato com a equip
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Conta da Future Anthem | Uma conta da Future Anthem. |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissão para o [endpoint `users.track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/). Você pode criar essa chave no dashboard da Braze em **Settings** > **API or interface de programação do aplicativo (API) Keys**. |
-| Endpoint REST or transferir estado representacional da Braze | O [endpoint REST or transferir estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints) da Braze que corresponde à sua instância, como `rest.iad-01.com`. |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com permissão para o [endpoint `users.track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/). Você pode criar essa chave no dashboard da Braze em **Settings** > **API Keys**. |
+| Endpoint REST da Braze | O [endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints) da Braze que corresponde à sua instância, como `rest.iad-01.com`. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Casos de uso {#use-cases}

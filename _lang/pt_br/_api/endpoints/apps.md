@@ -10,7 +10,7 @@ page_type: landing
 search_tag: Endpoint
 
 guide_top_header: "Endpoints de app"
-guide_top_text: "Use as APIs REST or transferir estado representacional de app para gerenciar programaticamente as configurações no nível do app que você normalmente configura no dashboard da Braze, como credenciais push."
+guide_top_text: "Use as APIs REST de app para gerenciar programaticamente as configurações no nível do app que você normalmente configura no dashboard da Braze, como credenciais push."
 
 guide_featured_title: ""
 guide_featured_list:

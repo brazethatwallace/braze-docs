@@ -9,15 +9,15 @@ search_tag: Partner
 
 # Narvar
 
-> Narvar ist eine Post-Purchase-Plattform, die die Loyalität der Kund:innen durch Sendungsverfolgung, Zustellungsupdates und Retourenmanagement stärkt. Die Integration von Braze und Narvar ermöglicht es Marken, die Benachrichtigungsereignisse von Narvar zu nutzen, um Nachrichten direkt von Braze zu Trigger or triggern or triggern und Kund:innen mit zeitnahen Updates auf dem Laufenden zu halten.
+> Narvar ist eine Post-Purchase-Plattform, die die Loyalität der Kund:innen durch Sendungsverfolgung, Zustellungsupdates und Retourenmanagement stärkt. Die Integration von Braze und Narvar ermöglicht es Marken, die Benachrichtigungsereignisse von Narvar zu nutzen, um Nachrichten direkt von Braze zu triggern und Kund:innen mit zeitnahen Updates auf dem Laufenden zu halten.
 
 ## Voraussetzungen {#prerequisites}
 
 | Anforderung           | Beschreibung                                                                                   |
 |-----------------------|-----------------------------------------------------------------------------------------------|
 | Narvar-Konto        | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Narvar-Konto.                           |
-| Braze-Representational State Transfer-API-Schlüssel    | Ein Braze-Representational State Transfer-API-Schlüssel mit der Berechtigung `messages.send`. Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden.                                            |
-| Braze-Representational State Transfer-Endpunkt   | [Ihre Representational State Transfer-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints), die von der URL Ihrer Braze-Instanz abhängt.         |
+| Braze-REST-API-Schlüssel    | Ein Braze-REST-API-Schlüssel mit der Berechtigung `messages.send`. Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden.                                            |
+| Braze-REST-Endpunkt   | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints), die von der URL Ihrer Braze-Instanz abhängt.         |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Unterstützte Features {#supported-features}
@@ -29,7 +29,7 @@ search_tag: Partner
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Unterstützte Features" }
 
 {% alert note %}
-Wenn Sie an weiteren Benachrichtigungsarten oder Kanälen interessiert sind, wenden Sie sich bitte an Ihren Braze- und Narvar-CSM or Customer-Success-Manager.
+Wenn Sie an weiteren Benachrichtigungsarten oder Kanälen interessiert sind, wenden Sie sich bitte an Ihren Braze- und Narvar-CSM.
 {% endalert %}
 
 ## Details zur Integration {#integration-details}
@@ -40,7 +40,7 @@ Narvar ist für die Konfiguration der Push-Benachrichtigungs-Payloads für jede 
 
 ## Erste Schritte mit der Braze-Narvar-Integration {#getting-started-with-the-braze-narvar-integration}
 
-1. **Kontaktieren Sie Ihren Narvar-CSM or Customer-Success-Manager**, um Ihr Interesse an der Integration zu bekunden.
+1. **Kontaktieren Sie Ihren Narvar-CSM**, um Ihr Interesse an der Integration zu bekunden.
 2. **Bestimmen Sie Braze-Umgebungen** für Staging und Produktion.
 3. **Generieren Sie einen API-Schlüssel** in Braze für die Verwendung durch Narvar.
 4. **Erzeugen Sie Campaign-Schlüssel** nach Bedarf in Braze.

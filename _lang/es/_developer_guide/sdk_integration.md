@@ -1,22 +1,22 @@
 ---
-nav_title: Integrar el SDK or kit de desarrollo de software
-article_title: Integra el SDK or kit de desarrollo de software de Braze
-description: "Aprende a integrar el SDK or kit de desarrollo de software de Braze."
+nav_title: Integrar el SDK
+article_title: Integra el SDK de Braze
+description: "Aprende a integrar el SDK de Braze."
 page_order: 2.0
 ---
 
-# ![Logotipo de Braze]({% image_buster /assets/Braze_Primary_Icon_BLACK.svg %}){: style="float:right;width:120px;border:0;" class="noimgborder"}Integra el SDK or kit de desarrollo de software de Braze {#braze-logo-image_buster-assetsbraze_primary_icon_blacksvg-stylefloatrightwidth120pxborder0-classnoimgborderintegrate-the-braze-sdk}
+# ![Logotipo de Braze]({% image_buster /assets/Braze_Primary_Icon_BLACK.svg %}){: style="float:right;width:120px;border:0;" class="noimgborder"}Integra el SDK de Braze {#braze-logo-image_buster-assetsbraze_primary_icon_blacksvg-stylefloatrightwidth120pxborder0-classnoimgborderintegrate-the-braze-sdk}
 
-> Aprende a integrar el SDK or kit de desarrollo de software de Braze. Cada SDK or kit de desarrollo de software está alojado en su propio repositorio público de GitHub, que incluye aplicaciones de muestra totalmente compilables que puedes utilizar para probar las características de Braze o implementar junto con tus propias aplicaciones. Para obtener más información, consulta [Referencias, repositorios y aplicaciones de ejemplo]({{site.baseurl}}/developer_guide/references). Para obtener información más general sobre el SDK or kit de desarrollo de software, consulta [Introducción: Resumen de la integración]({{site.baseurl}}/developer_guide/getting_started/integration_overview).
+> Aprende a integrar el SDK de Braze. Cada SDK está alojado en su propio repositorio público de GitHub, que incluye aplicaciones de muestra totalmente compilables que puedes utilizar para probar las características de Braze o implementar junto con tus propias aplicaciones. Para obtener más información, consulta [Referencias, repositorios y aplicaciones de ejemplo]({{site.baseurl}}/developer_guide/references). Para obtener información más general sobre el SDK, consulta [Introducción: Resumen de la integración]({{site.baseurl}}/developer_guide/getting_started/integration_overview).
 
-Para ver el contenido del README del SDK or kit de desarrollo de software reflejado en la documentación, consulta [Guías de repositorios]({{site.baseurl}}/developer_guide/sdk_repository_guides).
+Para ver el contenido del README del SDK reflejado en la documentación, consulta [Guías de repositorios]({{site.baseurl}}/developer_guide/sdk_repository_guides).
 
 {% alert tip %}
-Después de integrar el SDK or kit de desarrollo de software, puedes habilitar la [autenticación del SDK or kit de desarrollo de software]({{site.baseurl}}/developer_guide/sdk_integration/authentication) para añadir una capa adicional de seguridad evitando las solicitudes no autorizadas al SDK or kit de desarrollo de software. La autenticación del SDK or kit de desarrollo de software está disponible para Web, Android, Swift, React Native, Flutter, Unity, Cordova, .NET MAUI (Xamarin) y Expo.
+Después de integrar el SDK, puedes habilitar la [autenticación del SDK]({{site.baseurl}}/developer_guide/sdk_integration/authentication) para añadir una capa adicional de seguridad evitando las solicitudes no autorizadas al SDK. La autenticación del SDK está disponible para Web, Android, Swift, React Native, Flutter, Unity, Cordova, .NET MAUI (Xamarin) y Expo.
 {% endalert %}
 
 {% alert note %}
-Si la inicialización del SDK or kit de desarrollo de software falla con errores de confianza de certificados HTTPS (por ejemplo, `SSLHandshakeException` con `Trust anchor for certification path not found`), consulta [Solución de problemas de errores de confianza de certificados del SDK or kit de desarrollo de software]({{site.baseurl}}/developer_guide/sdk_integration/troubleshooting_certificate_errors).
+Si la inicialización del SDK falla con errores de confianza de certificados HTTPS (por ejemplo, `SSLHandshakeException` con `Trust anchor for certification path not found`), consulta [Solución de problemas de errores de confianza de certificados del SDK]({{site.baseurl}}/developer_guide/sdk_integration/troubleshooting_certificate_errors).
 {% endalert %}
 
 {% sdktabs %}
@@ -45,11 +45,11 @@ Si la inicialización del SDK or kit de desarrollo de software falla con errores
 {% endsdktab %}
 
 {% sdktab roku %}
-## Integración del SDK or kit de desarrollo de software de Roku {#integrating-the-roku-sdk}
+## Integración del SDK de Roku {#integrating-the-roku-sdk}
 
 ### Paso 1: Añadir archivos {#step-1-add-files}
 
-Los archivos del SDK or kit de desarrollo de software de Braze se encuentran en el directorio `sdk_files` del [repositorio del SDK or kit de desarrollo de software de Braze para Roku](https://github.com/braze-inc/braze-roku-sdk).
+Los archivos del SDK de Braze se encuentran en el directorio `sdk_files` del [repositorio del SDK de Braze para Roku](https://github.com/braze-inc/braze-roku-sdk).
 
 1. Añade `BrazeSDK.brs` a tu aplicación en el directorio `source`.
 2. Añade `BrazeTask.brs` y `BrazeTask.xml` a tu aplicación en el directorio `components`.
@@ -77,7 +77,7 @@ config[config_fields.HEARTBEAT_FREQ_IN_SECONDS] = 5
 globalNode.addFields({brazeConfig: config})
 ```
 
-Puedes encontrar tu [punto final de SDK or kit de desarrollo de software]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) y tu clave de API en el panel de Braze.
+Puedes encontrar tu [punto final de SDK]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) y tu clave de API en el panel de Braze.
 
 ### Paso 4: Inicializar Braze {#step-4-initialize-braze}
 
@@ -114,5 +114,5 @@ Para depurar tu integración de Braze, puedes ver la consola de depuración de R
 {% endsdktabs %}
 
 {% alert note %}
-Mientras realizas el control de calidad de tu integración de SDK or kit de desarrollo de software, utiliza el [Depurador de SDK or kit de desarrollo de software]({{site.baseurl}}/developer_guide/sdk_integration/debugging) para solucionar problemas sin necesidad de activar el registro detallado en tu aplicación.
+Mientras realizas el control de calidad de tu integración de SDK, utiliza el [Depurador de SDK]({{site.baseurl}}/developer_guide/sdk_integration/debugging) para solucionar problemas sin necesidad de activar el registro detallado en tu aplicación.
 {% endalert %}

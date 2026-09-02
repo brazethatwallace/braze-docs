@@ -1,16 +1,16 @@
-## Über das Braze Vega SDK or Software-Development-Kit {#about-the-braze-vega-sdk}
+## Über das Braze Vega SDK {#about-the-braze-vega-sdk}
 
-Mit dem Braze Vega SDK or Software-Development-Kit können Sie Analytics erfassen und Ihren Nutzer:innen reichhaltige In-App-Nachrichten anzeigen. Die meisten Methoden im Braze Vega SDK or Software-Development-Kit sind asynchron und geben Promises zurück, die abgewartet oder aufgelöst werden sollten.
+Mit dem Braze Vega SDK können Sie Analytics erfassen und Ihren Nutzer:innen reichhaltige In-App-Nachrichten anzeigen. Die meisten Methoden im Braze Vega SDK sind asynchron und geben Promises zurück, die abgewartet oder aufgelöst werden sollten.
 
-## Integration des Braze Vega SDK or Software-Development-Kit {#integrating-the-braze-vega-sdk}
+## Integration des Braze Vega SDK {#integrating-the-braze-vega-sdk}
 
 ### Schritt 1: Braze-Bibliothek installieren {#step-1-install-the-braze-library}
 
-Installieren Sie das Braze Vega SDK or Software-Development-Kit mit dem Paketmanager Ihrer Wahl.
+Installieren Sie das Braze Vega SDK mit dem Paketmanager Ihrer Wahl.
 
 {% tabs local %}
 {% tab npm %}
-Wenn Ihr Projekt NPM verwendet, können Sie das Braze Vega SDK or Software-Development-Kit als Abhängigkeit hinzufügen.
+Wenn Ihr Projekt NPM verwendet, können Sie das Braze Vega SDK als Abhängigkeit hinzufügen.
 
 ```bash
 npm install @braze/vega-sdk --save
@@ -24,7 +24,7 @@ import { initialize, changeUser, openSession } from "@braze/vega-sdk";
 {% endtab %}
 
 {% tab yarn %}
-Wenn Ihr Projekt Yarn verwendet, können Sie das Braze Vega SDK or Software-Development-Kit als Abhängigkeit hinzufügen.
+Wenn Ihr Projekt Yarn verwendet, können Sie das Braze Vega SDK als Abhängigkeit hinzufügen.
 
 ```bash
 yarn add @braze/vega-sdk
@@ -38,9 +38,9 @@ import { initialize, changeUser, openSession } from "@braze/vega-sdk";
 {% endtab %}
 {% endtabs %}
 
-### Schritt 2: SDK or Software-Development-Kit initialisieren {#step-2-initialize-the-sdk}
+### Schritt 2: SDK initialisieren {#step-2-initialize-the-sdk}
 
-Nachdem das Braze Vega SDK or Software-Development-Kit zu Ihrem Projekt hinzugefügt wurde, initialisieren Sie die Bibliothek mit dem API-Schlüssel und der [SDK or Software-Development-Kit-Endpunkt-URL]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints), die Sie im Braze-Dashboard unter **Einstellungen** > **App-Einstellungen** finden.
+Nachdem das Braze Vega SDK zu Ihrem Projekt hinzugefügt wurde, initialisieren Sie die Bibliothek mit dem API-Schlüssel und der [SDK-Endpunkt-URL]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints), die Sie im Braze-Dashboard unter **Einstellungen** > **App-Einstellungen** finden.
 
 {% alert important %}
 Sie müssen das `changeUser`-Promise abwarten oder auflösen, bevor Sie andere Braze-Methoden aufrufen, da Events und Attribute andernfalls möglicherweise der falschen Nutzer:in zugewiesen werden.
@@ -89,14 +89,14 @@ const App = () => {
 ```
 
 {% alert important %}
-Anonyme Nutzer:innen werden möglicherweise auf Ihre [MAU or monatlich aktive:r Nutzer:in]({{site.baseurl}}/user_guide/data_and_analytics/reporting/understanding_your_app_usage_data#monthly-active-users) angerechnet. Daher sollten Sie das SDK or Software-Development-Kit gegebenenfalls nur bedingt laden oder initialisieren, um diese Nutzer:innen von Ihrer MAU or monatlich aktive:r Nutzer:in-Zählung auszuschließen.
+Anonyme Nutzer:innen werden möglicherweise auf Ihre [MAU]({{site.baseurl}}/user_guide/data_and_analytics/reporting/understanding_your_app_usage_data#monthly-active-users) angerechnet. Daher sollten Sie das SDK gegebenenfalls nur bedingt laden oder initialisieren, um diese Nutzer:innen von Ihrer MAU-Zählung auszuschließen.
 {% endalert %}
 
 ## Optionale Konfigurationen {#optional-configurations}
 
 ### Protokollierung {#logging}
 
-Sie können die SDK or Software-Development-Kit-Protokollierung aktivieren, um das Debugging und die Fehlerbehebung zu unterstützen. Es gibt mehrere Möglichkeiten, die Protokollierung zu aktivieren.
+Sie können die SDK-Protokollierung aktivieren, um das Debugging und die Fehlerbehebung zu unterstützen. Es gibt mehrere Möglichkeiten, die Protokollierung zu aktivieren.
 
 #### Protokollierung bei der Initialisierung aktivieren {#enable-logging-during-initialization}
 
@@ -114,7 +114,7 @@ Einfache Protokolle sind für alle Nutzer:innen sichtbar. Deaktivieren Sie daher
 
 #### Protokollierung nach der Initialisierung aktivieren {#enable-logging-after-initialization}
 
-Verwenden Sie `toggleLogging()`, um die SDK or Software-Development-Kit-Protokollierung nach der Initialisierung zu aktivieren oder zu deaktivieren:
+Verwenden Sie `toggleLogging()`, um die SDK-Protokollierung nach der Initialisierung zu aktivieren oder zu deaktivieren:
 
 ```javascript
 import { toggleLogging } from "@braze/vega-sdk";
@@ -125,7 +125,7 @@ toggleLogging();
 
 #### Benutzerdefinierte Protokollierung {#custom-logging}
 
-Verwenden Sie `setLogger()`, um eine benutzerdefinierte Logger-Funktion bereitzustellen, mit der Sie mehr Kontrolle darüber haben, wie SDK or Software-Development-Kit-Protokolle verarbeitet werden:
+Verwenden Sie `setLogger()`, um eine benutzerdefinierte Logger-Funktion bereitzustellen, mit der Sie mehr Kontrolle darüber haben, wie SDK-Protokolle verarbeitet werden:
 
 ```javascript
 import { setLogger } from "@braze/vega-sdk";
@@ -138,7 +138,7 @@ setLogger((message) => {
 
 ### Konfigurationsoptionen {#configuration-options}
 
-Sie können zusätzliche Konfigurationsoptionen an `initialize()` übergeben, um das SDK or Software-Development-Kit-Verhalten anzupassen:
+Sie können zusätzliche Konfigurationsoptionen an `initialize()` übergeben, um das SDK-Verhalten anzupassen:
 
 ```javascript
 await initialize("YOUR-API-KEY", "YOUR-SDK-ENDPOINT", {
@@ -148,9 +148,9 @@ await initialize("YOUR-API-KEY", "YOUR-SDK-ENDPOINT", {
 });
 ```
 
-## Upgrade or upgraden des SDK or Software-Development-Kit {#upgrading-the-sdk}
+## Upgrade des SDK {#upgrading-the-sdk}
 
-Wenn Sie das Braze Vega SDK or Software-Development-Kit über NPM oder Yarn referenzieren, können Sie auf die neueste Version Update or aktualisieren or aktualisieren, indem Sie Ihre Paketabhängigkeit Update or aktualisieren or aktualisieren:
+Wenn Sie das Braze Vega SDK über NPM oder Yarn referenzieren, können Sie auf die neueste Version aktualisieren, indem Sie Ihre Paketabhängigkeit aktualisieren:
 
 ```bash
 npm update @braze/vega-sdk
@@ -160,10 +160,10 @@ yarn upgrade @braze/vega-sdk
 
 ## Testen Ihrer Integration {#testing-your-integration}
 
-So überprüfen Sie, ob Ihre SDK or Software-Development-Kit-Integration korrekt funktioniert:
+So überprüfen Sie, ob Ihre SDK-Integration korrekt funktioniert:
 
-1. Initialisieren Sie das SDK or Software-Development-Kit mit `enableLogging: true`, um Debug-Nachrichten in der Konsole anzuzeigen.
-2. Stellen Sie sicher, dass Sie `await changeUser()` aufrufen, bevor Sie andere SDK or Software-Development-Kit-Methoden verwenden.
+1. Initialisieren Sie das SDK mit `enableLogging: true`, um Debug-Nachrichten in der Konsole anzuzeigen.
+2. Stellen Sie sicher, dass Sie `await changeUser()` aufrufen, bevor Sie andere SDK-Methoden verwenden.
 3. Rufen Sie `await openSession()` auf, um eine Sitzung zu starten.
 4. Prüfen Sie in Ihrem Braze-Dashboard unter **Übersicht**, ob die Sitzungsdaten korrekt erfasst werden.
 5. Testen Sie die Protokollierung eines angepassten Events und überprüfen Sie, ob es in Ihrem Dashboard angezeigt wird.

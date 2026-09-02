@@ -12,12 +12,12 @@ description: "Este artigo contém notas de versão para outubro de 2021."
 
 Use o dashboard **Total de uso de pontos de dados** para acompanhar o ritmo de uso dos seus pontos de dados em relação à sua alocação contratual. Esse dashboard fornece informações sobre seu contrato, ciclo de faturamento atual, dados de faturamento da empresa e dados de faturamento do espaço de trabalho. Para saber mais, consulte [Faturamento]({{site.baseurl}}/user_guide/onboarding_with_braze/subscription_and_usage#total-data-points-dashboard).
 
-## Alteração na regeneração de extensões de Segment or segmento or segmento {#change-to-segment-extension-regeneration}
+## Alteração na regeneração de extensões de Segment {#change-to-segment-extension-regeneration}
 
-A partir de 1º de fevereiro de 2022, a configuração para regenerar extensões diariamente será desativada automaticamente para [extensões de Segment or segmento or segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension) não utilizadas. A Braze define extensões não utilizadas como aquelas que atendem aos seguintes critérios:
+A partir de 1º de fevereiro de 2022, a configuração para regenerar extensões diariamente será desativada automaticamente para [extensões de Segment]({{site.baseurl}}/user_guide/audience/segments/segment_extension) não utilizadas. A Braze define extensões não utilizadas como aquelas que atendem aos seguintes critérios:
 
-- Não utilizada em nenhuma campanha, Canvas ou Segment or segmento or segmento ativo
-- Não utilizada em nenhuma campanha, Canvas ou Segment or segmento or segmento inativo (rascunho, interrompido ou arquivado)
+- Não utilizada em nenhuma campanha, Canvas ou Segment ativo
+- Não utilizada em nenhuma campanha, Canvas ou Segment inativo (rascunho, interrompido ou arquivado)
 - Sem modificação há mais de 7 dias
 
 A Braze notificará o contato da empresa e quem criou a extensão quando essa configuração for desativada. A opção de regenerar extensões diariamente pode ser ativada novamente a qualquer momento.
@@ -38,11 +38,11 @@ Este [guia de implementação]({{site.baseurl}}/developer_guide/push_notificatio
 
 ## Novas parcerias da Braze {#new-braze-partnerships}
 
-### Adobe - CDP or plataforma de dados do cliente or CDP or plataforma de dados do cliente or plataforma de dados do cliente {#adobe-customer-data-platform}
+### Adobe - CDP {#adobe-customer-data-platform}
 
-Construída na Adobe Experience Platform, a CDP or plataforma de dados do cliente or CDP or plataforma de dados do cliente or plataforma de dados do cliente em tempo real (real-time CDP or plataforma de dados do cliente) da Adobe ajuda as empresas a reunir dados conhecidos e anônimos de várias fontes empresariais para criar perfis de clientes que podem ser usados para fornecer experiências personalizadas aos clientes em todos os canais e dispositivos em tempo real.
+Construída na Adobe Experience Platform, a CDP em tempo real (real-time CDP) da Adobe ajuda as empresas a reunir dados conhecidos e anônimos de várias fontes empresariais para criar perfis de clientes que podem ser usados para fornecer experiências personalizadas aos clientes em todos os canais e dispositivos em tempo real.
 
-A integração da Braze com o [Adobe]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/adobe) CDP or plataforma de dados do cliente permite que as marcas conectem e mapeiem seus dados do Adobe (atributos personalizados e segmentos) para a Braze em tempo real. As marcas podem então agir com base nesses dados, oferecendo experiências personalizadas e direcionadas a esses usuários.
+A integração da Braze com o [Adobe]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/adobe) CDP permite que as marcas conectem e mapeiem seus dados do Adobe (atributos personalizados e segmentos) para a Braze em tempo real. As marcas podem então agir com base nesses dados, oferecendo experiências personalizadas e direcionadas a esses usuários.
 
 ### Shopify - eCommerce
 

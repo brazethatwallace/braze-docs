@@ -133,10 +133,10 @@ Por exemplo, imagine que temos uma Campaign com um evento personalizado de carri
 ![Campaign de carrinho abandonado filtrada por uma propriedade de evento personalizado para valor do carrinho entre $100 e $200.]({% image_buster /assets/img_archive/customEventProperties.png %})
 
 {% alert note %}
-O evento-gatilho **Start Session** pode ser a primeira abertura do app pelo usuário se o Segment or segmento da sua Campaign se aplicar a novos usuários (por exemplo, se o seu Segment or segmento incluir aqueles sem sessões).
+O evento-gatilho **Start Session** pode ser a primeira abertura do app pelo usuário se o Segment da sua Campaign se aplicar a novos usuários (por exemplo, se o seu Segment incluir aqueles sem sessões).
 {% endalert %}
 
-Lembre-se de que você ainda pode enviar uma Campaign disparada para um Segment or segmento específico de usuários, portanto usuários que não fazem parte do Segment or segmento não recebem a Campaign mesmo que completem o evento-gatilho.
+Lembre-se de que você ainda pode enviar uma Campaign disparada para um Segment específico de usuários, portanto usuários que não fazem parte do Segment não recebem a Campaign mesmo que completem o evento-gatilho.
 
 Com relação ao evento-gatilho para quando um usuário adiciona um endereço de e-mail ao perfil, as seguintes regras se aplicam:
 
@@ -218,21 +218,21 @@ Qualquer uma dessas situações impede que um usuário que completou o evento-ga
 - O usuário já recebeu a Campaign (incluindo atribuição por meio de identificadores de canal compartilhados — por exemplo, se ele compartilha um e-mail com alguém que recebeu, abriu ou clicou nele), e os usuários não se tornam reelegíveis.
 - Embora os usuários sejam reelegíveis para receber a Campaign, eles só podem redispará-la após um determinado período, e esse período ainda não transcorreu.
 
-[Segmentar]({{site.baseurl}}/user_guide/audience/segments) uma Campaign disparada com base em dados de usuários registrados no momento do evento pode causar uma [condição de corrida]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions). Isso acontece quando o atributo do usuário no qual a Campaign é segmentada é alterado, mas a alteração ainda não foi processada para o usuário quando a Campaign é enviada. Como as campanhas verificam a participação no Segment or segmento na entrada, isso pode fazer com que o usuário não receba a Campaign.
+[Segmentar]({{site.baseurl}}/user_guide/audience/segments) uma Campaign disparada com base em dados de usuários registrados no momento do evento pode causar uma [condição de corrida]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions). Isso acontece quando o atributo do usuário no qual a Campaign é segmentada é alterado, mas a alteração ainda não foi processada para o usuário quando a Campaign é enviada. Como as campanhas verificam a participação no Segment na entrada, isso pode fazer com que o usuário não receba a Campaign.
 
 Por exemplo, imagine que você quer enviar uma Campaign disparada por evento para usuários masculinos que acabaram de se registrar. Quando o usuário se registra, você grava um evento personalizado `registration` e simultaneamente define o atributo `gender` do usuário. O evento pode disparar a Campaign antes que a Braze tenha processado o gênero do usuário, impedindo-o de receber a Campaign.
 
 Como prática recomendada, garanta que o atributo no qual a Campaign é segmentada seja enviado aos servidores da Braze antes do evento. Se isso não for possível, a melhor forma de garantir a entrega é usar [propriedades de evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties) para anexar as propriedades relevantes do usuário ao evento e aplicar um filtro de propriedade para a propriedade específica do evento em vez de um filtro de segmentação. No nosso exemplo, adicione uma propriedade `gender` ao evento personalizado `registration` para que a Braze tenha garantidamente os dados necessários quando sua Campaign for disparada.
 
-Além disso, se uma Campaign é baseada em ação e tem um atraso, você pode marcar a opção **Reavaliar participação no Segment or segmento no momento do envio** para garantir que os usuários ainda façam parte do público-alvo quando a mensagem for enviada.
+Além disso, se uma Campaign é baseada em ação e tem um atraso, você pode marcar a opção **Reavaliar participação no Segment no momento do envio** para garantir que os usuários ainda façam parte do público-alvo quando a mensagem for enviada.
 
 #### Avaliação dos critérios de público {#audience-criteria-evaluation}
 
-Para campanhas que envolvem um atraso antes do envio (incluindo limite de frequência, fuso local, Intelligent Timing ou cronograma de disparo), o momento em que o Segment or segmento é reavaliado depende do tipo e das configurações da Campaign.
+Para campanhas que envolvem um atraso antes do envio (incluindo limite de frequência, fuso local, Intelligent Timing ou cronograma de disparo), o momento em que o Segment é reavaliado depende do tipo e das configurações da Campaign.
 
-Em campanhas baseadas em ação com atraso, se você selecionar **Reavaliar participação no Segment or segmento no momento do envio**, os usuários serão reavaliados antes do envio da mensagem, de modo que apenas os usuários que ainda atendam aos critérios do Segment or segmento no momento do envio receberão a mensagem.
+Em campanhas baseadas em ação com atraso, se você selecionar **Reavaliar participação no Segment no momento do envio**, os usuários serão reavaliados antes do envio da mensagem, de modo que apenas os usuários que ainda atendam aos critérios do Segment no momento do envio receberão a mensagem.
 
-Se sua Campaign é disparada por um evento personalizado específico e você seleciona um Segment or segmento como público, os usuários precisam realizar o mesmo evento personalizado para serem incluídos no Segment or segmento. Isso significa que os usuários precisam fazer parte do público antes que uma Campaign baseada em ação possa ser disparada. O fluxo geral de uma Campaign disparada é o seguinte:
+Se sua Campaign é disparada por um evento personalizado específico e você seleciona um Segment como público, os usuários precisam realizar o mesmo evento personalizado para serem incluídos no Segment. Isso significa que os usuários precisam fazer parte do público antes que uma Campaign baseada em ação possa ser disparada. O fluxo geral de uma Campaign disparada é o seguinte:
 
 1. **Entrar no público:** Quando um usuário realiza o evento personalizado, ele é adicionado ao público-alvo da Campaign.
 2. **Disparar o e-mail:** O usuário precisa realizar o evento personalizado novamente para disparar o e-mail, pois ele precisa fazer parte do público antes que o e-mail possa ser enviado.
@@ -248,16 +248,16 @@ Primeiro, confirme que o evento personalizado está sendo enviado para a Braze. 
 Se o evento personalizado aparecer, continue a solução de problemas fazendo o seguinte:
 
 - Verifique o download do perfil do usuário para confirmar que ele disparou o evento e quando isso aconteceu. Se o evento foi disparado, compare o timestamp de quando o evento foi disparado com o momento em que a Campaign ficou ativa. O evento pode ter sido disparado antes da Campaign ficar ativa.
-- Revise os changelogs da Campaign e de quaisquer Segments usados no direcionamento para determinar se o usuário estava no Segment or segmento quando o evento personalizado foi disparado. Se ele não estava no Segment or segmento, ele não teria recebido a Campaign.
+- Revise os changelogs da Campaign e de quaisquer Segments usados no direcionamento para determinar se o usuário estava no Segment quando o evento personalizado foi disparado. Se ele não estava no Segment, ele não teria recebido a Campaign.
 - Verifique se o usuário foi inserido em um grupo de controle por meio de segmentação e, consequentemente, impedido de receber a Campaign.
 - Se houver um atraso agendado, verifique se o evento personalizado do usuário foi disparado antes do atraso. Se o evento foi disparado antes do atraso, ele não teria recebido a Campaign.
 
 {% alert note %}
-Mensagens no app só podem ser disparadas por eventos enviados pelo SDK or kit de desenvolvimento de software, não pela REST or transferir estado representacional API or interface de programação do aplicativo (API).
+Mensagens no app só podem ser disparadas por eventos enviados pelo SDK, não pela REST API.
 {% endalert %}
 
 ### Quando as campanhas baseadas em ação avaliam a participação no público? {#when-do-action-based-campaigns-evaluate-audience-membership}
 
-A Braze avalia a participação no público quando processa o evento-gatilho, antes do envio da mensagem. Por padrão, a Braze verifica se o usuário corresponde ao público-alvo no momento do enfileiramento. Se a Campaign tiver um atraso, você pode selecionar **Reavaliar participação no Segment or segmento no momento do envio** para verificar os critérios de público novamente imediatamente antes do envio — por exemplo, quando um usuário pode realizar a ação-gatilho e depois sair do público antes que o envio seja concluído.
+A Braze avalia a participação no público quando processa o evento-gatilho, antes do envio da mensagem. Por padrão, a Braze verifica se o usuário corresponde ao público-alvo no momento do enfileiramento. Se a Campaign tiver um atraso, você pode selecionar **Reavaliar participação no Segment no momento do envio** para verificar os critérios de público novamente imediatamente antes do envio — por exemplo, quando um usuário pode realizar a ação-gatilho e depois sair do público antes que o envio seja concluído.
 
 Para saber mais, consulte [Avaliação dos critérios de público](#audience-criteria-evaluation).

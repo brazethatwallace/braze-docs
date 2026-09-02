@@ -8,7 +8,7 @@ page_type: reference
 description: "Este artigo traz informações sobre o endpoint da Braze \"Atualizar modelo de e-mail\"."
 
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Atualizar modelos de e-mail existentes {#update-existing-email-templates}
 {% apimethod post %}
 /templates/email/update
@@ -27,7 +27,7 @@ Você também pode chamar esse endpoint por meio do [servidor MCP da Braze]({{si
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#afb25494-3350-458d-932d-5bf4220049fa {% endapiref %}
 
 ## Pré-requisitos {#prerequisites}
-Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics) com a permissão `templates.email.update`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics) com a permissão `templates.email.update`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -57,7 +57,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 | Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-| `email_template_id` | Obrigatório | String | O [identificador de API or interface de programação do aplicativo (API) do seu modelo de e-mail]({{site.baseurl}}/api/identifier_types). |
+| `email_template_id` | Obrigatório | String | O [identificador de API do seu modelo de e-mail]({{site.baseurl}}/api/identifier_types). |
 | `template_name` | Opcional | String | Nome do seu modelo de e-mail. |
 | `subject` | Opcional | String | Linha de assunto do modelo de e-mail. |
 | `body` | Opcional | String | Corpo do modelo de e-mail que pode incluir HTML. |

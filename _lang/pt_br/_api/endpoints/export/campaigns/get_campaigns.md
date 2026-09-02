@@ -8,14 +8,14 @@ page_type: reference
 description: "Este artigo traz informações sobre o endpoint da Braze \"Exportar lista de campanhas\"."
 
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Exportar lista de campanhas {#export-campaigns-list}
 
 {% apimethod get %}
 /campaigns/list
 {% endapimethod %}
 
-> Use esse endpoint para exportar uma lista de campanhas, cada uma das quais incluirá seu nome, o identificador de API or interface de programação do aplicativo (API) da campanha, se é uma campanha de API or interface de programação do aplicativo (API) e as tags associadas à campanha.
+> Use esse endpoint para exportar uma lista de campanhas, cada uma das quais incluirá seu nome, o identificador de API da campanha, se é uma campanha de API e as tags associadas à campanha.
 
 As campanhas são retornadas em grupos de 100, classificadas por hora de criação (da mais antiga para a mais recente, por padrão).
 
@@ -23,7 +23,7 @@ As campanhas são retornadas em grupos de 100, classificadas por hora de criaç�
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `campaigns.list`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `campaigns.list`.
 
 ## Limite de frequência {#rate-limit}
 
@@ -65,7 +65,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/list?p
 ```
 
 {% alert tip %}
-Para obter ajuda com exportações de CSV e API or interface de programação do aplicativo (API), acesse [Resolução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
+Para obter ajuda com exportações de CSV e API, acesse [Resolução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}

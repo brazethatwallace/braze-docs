@@ -29,7 +29,7 @@ O seu direito de Distribuição de Dados determina quais tipos de eventos estão
 | **Perfis e atributos de usuário** | Eventos de engajamento com mensagem, eventos de comportamento do cliente e eventos de perfil de usuário | Inclui eventos de engajamento com mensagem e eventos de comportamento do cliente, além de eventos relacionados a alterações em perfis e atributos de usuário | [Eventos de engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events), [Eventos de comportamento do cliente e do usuário]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events), [Eventos de perfil de usuário]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/user_profiles_events) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Direitos de Distribuição de Dados" }
 
-Para dúvidas sobre quais eventos estão incluídos no seu direito, entre em contato com o gerente da sua conta ou gerente de sucesso do cliente na Braze.
+Para dúvidas sobre quais eventos estão incluídos no seu direito, entre em contato com o gerente da sua conta ou CSM na Braze.
 
 ## Sobre o compartilhamento seguro de dados {#about-secure-data-sharing}
 
@@ -47,7 +47,7 @@ Para saber mais sobre o compartilhamento de dados do Snowflake, consulte [Introd
 
 | Requisito | Descrição |
 | ----------- | ----------- |
-| Acesso à Braze | Entre em contato com o gerente de conta ou gerente de sucesso do cliente da Braze para configurar o Compartilhamento de Dados. |
+| Acesso à Braze | Entre em contato com o gerente de conta ou CSM da Braze para configurar o Compartilhamento de Dados. |
 | Conta Snowflake | Uma conta Snowflake com permissões de `admin`. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 

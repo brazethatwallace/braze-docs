@@ -7,7 +7,7 @@ permalink: /track_users_bulk_partners/
 description: "Se você é um parceiro da Braze, use este endpoint para registrar eventos personalizados e compras e atualizar atributos de perfil de usuário em massa."
 ---
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Rastrear usuários (em massa) para parceiros da Braze {#track-users-bulk-for-braze-partners}
 {% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track/bulk
@@ -34,11 +34,11 @@ Planejamos reduzir o limite de objetos de `/users/track` de 225 para 5, a fim de
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/api_key/) com a permissão `users.track`. Essa permissão fornece acesso tanto a `/users/track` quanto a `/users/track/bulk`.
+Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key/) com a permissão `users.track`. Essa permissão fornece acesso tanto a `/users/track` quanto a `/users/track/bulk`.
 
-Como a maioria dos nossos clientes compartilhados já estará usando uma chave de API or interface de programação do aplicativo (API) com permissões `users.track` para sua integração com parceiros da Braze, eles não precisarão alterar as chaves de API or interface de programação do aplicativo (API) enquanto você migra sua integração para usar `/users/track/bulk`.
+Como a maioria dos nossos clientes compartilhados já estará usando uma chave de API com permissões `users.track` para sua integração com parceiros da Braze, eles não precisarão alterar as chaves de API enquanto você migra sua integração para usar `/users/track/bulk`.
 
-Se seus clientes estiverem usando a API or interface de programação do aplicativo (API) para chamadas servidor-a-servidor, eles podem precisar adicionar o endpoint à lista de permissões (por exemplo, `rest.iad-01.braze.com`) se estiverem atrás de um firewall. Consulte os [endpoints por instância]({{site.baseurl}}/api/basics/#endpoints) para mais informações.
+Se seus clientes estiverem usando a API para chamadas servidor-a-servidor, eles podem precisar adicionar o endpoint à lista de permissões (por exemplo, `rest.iad-01.braze.com`) se estiverem atrás de um firewall. Consulte os [endpoints por instância]({{site.baseurl}}/api/basics/#endpoints) para mais informações.
 
 ## Limite de taxa {#rate-limit}
 
@@ -46,7 +46,7 @@ Para a maioria dos clientes, aplicamos um limite de velocidade base de 50 solici
 
 No entanto, clientes com contratos mais recentes podem receber um limite de taxa de pico (por segundo) e estável (por hora), que está vinculado ao MAU contratado com a Braze.
 
-Para melhorar as interações em tempo real com nossa API or interface de programação do aplicativo (API), certifique-se de usar nossos [cabeçalhos de resposta recomendados]({{site.baseurl}}/api/api_limits/#monitoring-your-rate-limits).
+Para melhorar as interações em tempo real com nossa API, certifique-se de usar nossos [cabeçalhos de resposta recomendados]({{site.baseurl}}/api/api_limits/#monitoring-your-rate-limits).
 
 Cada solicitação `/users/track/bulk` tem um limite de carga útil de 2&nbsp;MB e pode conter até 1.000 objetos de evento, atributo ou compra.
 

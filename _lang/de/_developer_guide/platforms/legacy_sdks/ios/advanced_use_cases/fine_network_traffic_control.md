@@ -21,7 +21,7 @@ Braze erlaubt es den Nutzer, den Netzwerkverkehr mit den folgenden Protokollen z
 ***`ABKRequestProcessingPolicy` Enum-Wert: `ABKAutomaticRequestProcessing`***
 
 - Dies ist der **Standardwert für die Anfragenrichtlinie**.
-- Das Braze SDK or Software-Development-Kit kümmert sich automatisch um die gesamte Serverkommunikation, darunter:
+- Das Braze SDK kümmert sich automatisch um die gesamte Serverkommunikation, darunter:
     - Flushen der Daten von angepassten Events und Attributen an die Braze-Server
     - Updates von Content-Cards und Geofences
     - Anfordern neuer In-App-Nachrichten

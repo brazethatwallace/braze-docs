@@ -138,7 +138,7 @@ Los factores que afectan la calificación de calidad del número de teléfono in
 Cuando una calificación de calidad es baja, el estado del número de teléfono cambia de **Connected** a **Flagged**. Si la calidad no mejora en siete días, el estado vuelve a **Connected**. Sin embargo, el límite de mensajería disminuirá al siguiente nivel. Por ejemplo, un número de teléfono que solía tener un límite de mensajería de 100.000 ahora tiene un límite de mensajería de 10.000.
 
 #### ¿Cuál es el límite de rendimiento de Meta? {#what-is-the-meta-throughput-limit}
-Meta tiene su propio límite de rendimiento separado del límite de mensajería de WABA. El límite predeterminado que admite la API en la nube es de 80 MPS or mensajes por segundo or mensajes por segundo. Si crees que tus Campaigns superarán este límite, puedes [solicitar](https://developers.facebook.com/docs/whatsapp/cloud-api/overview/#throughput) que se aumente tu límite. Meta recomienda que envíes esta solicitud con al menos tres días de antelación a los envíos de la Campaign.
+Meta tiene su propio límite de rendimiento separado del límite de mensajería de WABA. El límite predeterminado que admite la API en la nube es de 80 MPS. Si crees que tus Campaigns superarán este límite, puedes [solicitar](https://developers.facebook.com/docs/whatsapp/cloud-api/overview/#throughput) que se aumente tu límite. Meta recomienda que envíes esta solicitud con al menos tres días de antelación a los envíos de la Campaign.
 
 ### Plantillas y creador de WhatsApp {#whatsapp-templates-and-composer}
 
@@ -208,9 +208,9 @@ Braze no recibe notificaciones de WhatsApp cuando tu cuenta es marcada o reporta
 
 Sin embargo, puedes configurar una Campaign que se desencadene cuando un usuario responde con una palabra clave de cancelación, lo que automáticamente cancela su suscripción usando el [endpoint `/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status). Para obtener más información, consulta [Proceso de adhesión voluntaria y cancelación de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-opt-in-and-opt-out-process).
 
-#### ¿Braze admite respaldo automático a servicio de mensajes cortos cuando falla la entrega de WhatsApp? {#does-braze-support-automatic-sms-fallback-when-whatsapp-delivery-fails}
+#### ¿Braze admite respaldo automático a SMS cuando falla la entrega de WhatsApp? {#does-braze-support-automatic-sms-fallback-when-whatsapp-delivery-fails}
 
-No. Braze no ofrece una ruta nativa de respaldo de WhatsApp a servicio de mensajes cortos. Para reintentar en otro canal, segmenta a los usuarios con envíos fallidos de WhatsApp (por ejemplo, a través de eventos de error de Currents) y dirige una Campaign de servicio de mensajes cortos o correo electrónico.
+No. Braze no ofrece una ruta nativa de respaldo de WhatsApp a SMS. Para reintentar en otro canal, segmenta a los usuarios con envíos fallidos de WhatsApp (por ejemplo, a través de eventos de error de Currents) y dirige una Campaign de SMS o correo electrónico.
 
 #### ¿Los mensajes de respuesta de WhatsApp son gratuitos? {#are-whatsapp-response-messages-free}
 

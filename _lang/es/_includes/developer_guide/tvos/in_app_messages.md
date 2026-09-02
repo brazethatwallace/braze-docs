@@ -1,5 +1,5 @@
 {% alert important %}
-Ten en cuenta que tendrás que implementar tu propia interfaz de usuario personalizada, ya que la mensajería dentro de la aplicación se admite a través de la interfaz de usuario sin cabeza mediante el SDK or kit de desarrollo de software de Swift, que no incluye ninguna interfaz de usuario ni vistas predeterminadas para tvOS.
+Ten en cuenta que tendrás que implementar tu propia interfaz de usuario personalizada, ya que la mensajería dentro de la aplicación se admite a través de la interfaz de usuario sin cabeza mediante el SDK de Swift, que no incluye ninguna interfaz de usuario ni vistas predeterminadas para tvOS.
 {% endalert %}
 
 {% multi_lang_include developer_guide/prerequisites/swift.md %}
@@ -24,8 +24,8 @@ En la configuración de tu aplicación, selecciona tu nueva aplicación para tvO
 
 ### Paso 3: Integrar BrazeKit
 
-Utiliza la clave de API de tu aplicación para integrar el [SDK or kit de desarrollo de software de Braze Swift](https://github.com/braze-inc/braze-swift-sdk) en tu proyecto de tvOS en Xcode. Solo tienes que integrar BrazeKit desde el SDK or kit de desarrollo de software Swift de Braze.
+Utiliza la clave de API de tu aplicación para integrar el [SDK de Braze Swift](https://github.com/braze-inc/braze-swift-sdk) en tu proyecto de tvOS en Xcode. Solo tienes que integrar BrazeKit desde el SDK Swift de Braze.
 
 ### Paso 4: Crea tu interfaz de usuario personalizada
 
-Como Braze no proporciona una interfaz predeterminada para los mensajes dentro de la aplicación en tvOS, tendrás que personalizarla tú mismo. Para un recorrido completo, consulta nuestro tutorial paso a paso: [Personaliza los mensajes dentro de la aplicación para tvOS](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/in-app-message-customization). Para ver un proyecto de ejemplo, consulta [los ejemplos del SDK or kit de desarrollo de software Swift de Braze](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples#inappmessages-custom-ui).
+Como Braze no proporciona una interfaz predeterminada para los mensajes dentro de la aplicación en tvOS, tendrás que personalizarla tú mismo. Para un recorrido completo, consulta nuestro tutorial paso a paso: [Personaliza los mensajes dentro de la aplicación para tvOS](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/in-app-message-customization). Para ver un proyecto de ejemplo, consulta [los ejemplos del SDK Swift de Braze](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples#inappmessages-custom-ui).

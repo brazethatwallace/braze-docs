@@ -33,7 +33,7 @@ Los usuarios en Braze generalmente se encuentran en uno de dos estados.
 
 Un [usuario anónimo]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users) es alguien que ha interactuado con tu aplicación o sitio web pero aún no se le ha asignado un identificador de tu sistema (como un `external_id`).
 
-- Los usuarios anónimos se crean automáticamente cuando el SDK or kit de desarrollo de software de Braze se inicializa
+- Los usuarios anónimos se crean automáticamente cuando el SDK de Braze se inicializa
 - Aún puedes rastrear eventos, atributos e interacción con mensajes
 - Estos usuarios pueden recibir mensajes, dependiendo del canal y el estado de adhesión voluntaria
 
@@ -56,7 +56,7 @@ Un [canal]({{site.baseurl}}/user_guide/channels) es una forma específica en la 
 
 - [Push (web o móvil)]({{site.baseurl}}/user_guide/channels/push)
 - [Correo electrónico]({{site.baseurl}}/user_guide/channels/email)
-- [servicio de mensajes cortos, MMS y RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs)
+- [SMS, MMS y RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs)
 - [WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp)
 - [Mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages)
 - [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards)
@@ -74,25 +74,25 @@ Los usuarios se crean en Braze cada vez que alguien interactúa con tu marca a t
 
 {% tabs %}
 {% tab Aplicaciones móviles %}
-- Cuando un usuario abre tu aplicación por primera vez, el SDK or kit de desarrollo de software de Braze crea un perfil de usuario.
+- Cuando un usuario abre tu aplicación por primera vez, el SDK de Braze crea un perfil de usuario.
 - Los dispositivos y los tokens de notificaciones push se registran automáticamente.
 - Los eventos y atributos se pueden registrar de inmediato.
 {% endtab %}
 
 {% tab Web %}
-- Los usuarios se crean cuando el SDK or kit de desarrollo de software web se inicializa.
+- Los usuarios se crean cuando el SDK web se inicializa.
 - Las suscripciones a notificaciones push web registran un navegador como canal de mensajería.
 {% endtab %}
 
-{% tab Correo electrónico y servicio de mensajes cortos %}
+{% tab Correo electrónico y SMS %}
 - Los usuarios se pueden crear cuando cargas datos, llamas a API o recopilas adhesiones voluntarias.
 - Las direcciones de correo electrónico y los números de teléfono se almacenan como identificadores de canal.
 - El estado de adhesión voluntaria se rastrea por canal y por región.
 {% endtab %}
 
 {% tab API e integraciones %}
-- Puedes crear o actualizar usuarios directamente a través de [REST or transferencia de estado representacional API]({{site.baseurl}}/api/endpoints/user_data) o [importando un CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import).
-- Las herramientas externas (como CDP or plataforma de datos de los clientes, CRM or administración de las relaciones con el cliente o almacenes de datos) pueden sincronizar usuarios en Braze automáticamente.
+- Puedes crear o actualizar usuarios directamente a través de [REST API]({{site.baseurl}}/api/endpoints/user_data) o [importando un CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import).
+- Las herramientas externas (como CDP, CRM o almacenes de datos) pueden sincronizar usuarios en Braze automáticamente.
 {% endtab %}
 {% endtabs %}
 
@@ -102,7 +102,7 @@ Los datos de usuario en Braze generalmente provienen de una combinación de fuen
 
 {% tabs %}
 {% tab Recopilación automática %}
-Los SDK or kit de desarrollo de software de Braze recopilan automáticamente datos contextuales como:
+Los SDK de Braze recopilan automáticamente datos contextuales como:
 
 - Tipo de dispositivo y sistema operativo
 - Idioma y zona horaria
@@ -120,7 +120,7 @@ Cuando los usuarios interactúan con tu aplicación o mensajes, Braze registra:
 {% tab Tus sistemas %}
 Puedes enviar datos desde tus propias herramientas a Braze usando:
 
-- [REST or transferencia de estado representacional API]({{site.baseurl}}/api/endpoints/user_data)
+- [REST API]({{site.baseurl}}/api/endpoints/user_data)
 - [Cargas de CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import)
 - Sincronizaciones de datos programadas
 
@@ -133,7 +133,7 @@ Esto a menudo incluye identificadores, datos de cuenta o contexto histórico.
 Los usuarios pueden proporcionar datos directamente a través de:
 
 - [Centros de preferencias]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center)
-- Formularios o cuestionarios (SDK or kit de desarrollo de software o integraciones)
+- Formularios o cuestionarios (SDK o integraciones)
 - Experiencias dentro de la aplicación
 
 ### Integraciones {#integrations}
@@ -146,7 +146,7 @@ Puedes añadir, actualizar o eliminar datos de usuario de varias formas:
 
 - **Herramientas del dashboard** para ediciones manuales o cargas de CSV
 - **API** para actualizaciones en tiempo real o programáticas
-- **SDK or kit de desarrollo de software** para capturar comportamiento directamente en tu aplicación o sitio web
+- **SDK** para capturar comportamiento directamente en tu aplicación o sitio web
 - **Integraciones** para sincronización continua
 
 Los datos se pueden eliminar mediante:

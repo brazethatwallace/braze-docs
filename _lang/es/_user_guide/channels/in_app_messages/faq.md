@@ -89,7 +89,7 @@ Los mensajes dentro de la aplicación se entregan como mensajes dentro de la apl
 
 - `canvas_entry_properties`
 - `connected_content`
-- Variables de servicio de mensajes cortos como {% raw %}`{sms.${*}}`{% endraw %}
+- Variables de SMS como {% raw %}`{sms.${*}}`{% endraw %}
 - `catalog_items`
 - `catalog_selection_items`
 - `event_properties`
@@ -135,7 +135,7 @@ Braze no registra ningún evento de cancelación en el caso de Sam porque esto n
 
 ### Comportamiento de cancelación de mensajes dentro de la aplicación con plantilla {#templated-in-app-message-abort-behavior}
 
-Los [mensajes dentro de la aplicación con plantilla](#what-are-templated-in-app-messages) obligan al SDK or kit de desarrollo de software a reevaluar si un mensaje debe mostrarse cuando ocurre el evento desencadenante. Esto tiene un comportamiento de cancelación diferente. Para demostrarlo, considera este ejemplo:
+Los [mensajes dentro de la aplicación con plantilla](#what-are-templated-in-app-messages) obligan al SDK a reevaluar si un mensaje debe mostrarse cuando ocurre el evento desencadenante. Esto tiene un comportamiento de cancelación diferente. Para demostrarlo, considera este ejemplo:
 
 1. Sam inicia una sesión de Braze abriendo una aplicación con tecnología de Braze en su teléfono.
 2. Los criterios de audiencia de las Campaigns activas dicen que Sam podría ser elegible para un mensaje dentro de la aplicación con plantilla, por lo que la información del desencadenante se envía a su dispositivo sin la carga útil del mensaje.
@@ -157,7 +157,7 @@ Esta tabla compara los flujos de mensajes dentro de la aplicación que experimen
 
 Para los [mensajes dentro de la aplicación con plantilla](#what-are-templated-in-app-messages), Connected Content y otras etiquetas Liquid se resuelven cuando ocurre el evento desencadenante y el dispositivo solicita la carga útil del mensaje, no cuando el usuario hace clic en un botón dentro del mensaje. Cada solicitud de plantilla puede incluir llamadas de Connected Content para esa visualización.
 
-Si tu HTML hace referencia a datos REST or transferencia de estado representacional devueltos por Connected Content, esos datos están disponibles durante la sesión en la que se evaluó la plantilla del mensaje. Múltiples botones pueden hacer referencia a la misma respuesta de Connected Content sin desencadenar llamadas adicionales al hacer clic.
+Si tu HTML hace referencia a datos REST devueltos por Connected Content, esos datos están disponibles durante la sesión en la que se evaluó la plantilla del mensaje. Múltiples botones pueden hacer referencia a la misma respuesta de Connected Content sin desencadenar llamadas adicionales al hacer clic.
 
 ### ¿Cuál es el retraso máximo después de un desencadenante para Campaigns de mensajes dentro de la aplicación? {#what-is-the-maximum-delay-after-a-trigger-for-in-app-message-campaigns}
 
@@ -189,7 +189,7 @@ Los envíos de prueba de mensajes dentro de la aplicación Web requieren que pus
 
 ### ¿Los mensajes dentro de la aplicación requieren integración push? {#do-in-app-messages-require-push-integration}
 
-Los mensajes dentro de la aplicación no requieren notificaciones push para funcionar en producción. Los mensajes dentro de la aplicación se entregan a través del SDK or kit de desarrollo de software de Braze y aparecen durante una sesión activa de la aplicación sin necesidad de integración push.
+Los mensajes dentro de la aplicación no requieren notificaciones push para funcionar en producción. Los mensajes dentro de la aplicación se entregan a través del SDK de Braze y aparecen durante una sesión activa de la aplicación sin necesidad de integración push.
 
 Sin embargo, los envíos de prueba de mensajes dentro de la aplicación sí requieren que push esté habilitado en tus dispositivos de prueba. Esto se debe a que los mensajes de prueba dentro de la aplicación se entregan a través de una notificación push que desencadena la visualización del mensaje dentro de la aplicación. El usuario de prueba debe tener push habilitado y debe tocar la notificación push de prueba para ver el mensaje dentro de la aplicación.
 
@@ -205,9 +205,9 @@ Para corregir caracteres sueltos o no renderizados, vuelve a escribir el texto a
 
 En dispositivos con pantallas de borde a borde (incluido Android 15+), los mensajes HTML dentro de la aplicación a pantalla completa pueden dibujarse detrás de la barra de estado del sistema y ocultar un control de cierre en la parte superior del diseño.
 
-La versión 37.0.0 y posteriores del SDK or kit de desarrollo de software de Braze para Android aplican los márgenes de ventana a los mensajes HTML dentro de la aplicación de forma predeterminada, de modo que los controles permanezcan en el área segura. Si los usuarios siguen viendo superposición, actualiza a la última versión del SDK or kit de desarrollo de software de Braze para Android.
+La versión 37.0.0 y posteriores del SDK de Braze para Android aplican los márgenes de ventana a los mensajes HTML dentro de la aplicación de forma predeterminada, de modo que los controles permanezcan en el área segura. Si los usuarios siguen viendo superposición, actualiza a la última versión del SDK de Braze para Android.
 
-En versiones anteriores del SDK or kit de desarrollo de software, los desarrolladores podían habilitar `BrazeConfig.setIsHtmlInAppMessageApplyWindowInsetsEnabled(true)` antes de que este comportamiento se convirtiera en el predeterminado.
+En versiones anteriores del SDK, los desarrolladores podían habilitar `BrazeConfig.setIsHtmlInAppMessageApplyWindowInsetsEnabled(true)` antes de que este comportamiento se convirtiera en el predeterminado.
 
 ## ¿Qué debo saber al personalizar mensajes dentro de la aplicación de arrastrar y soltar? {#what-should-i-know-when-customizing-drag-and-drop-in-app-messages}
 
@@ -225,7 +225,7 @@ Ten en cuenta lo siguiente:
 
 Para más consideraciones sobre el editor, consulta la [Guía de preparación de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices/prep_guide#drag-and-drop-editor-considerations).
 
-## ¿Qué significa "Event was published, but no subscribers were found" en los registros del SDK or kit de desarrollo de software de Android? {#what-does-event-was-published-but-no-subscribers-were-found-mean-in-android-sdk-logs}
+## ¿Qué significa "Event was published, but no subscribers were found" en los registros del SDK de Android? {#what-does-event-was-published-but-no-subscribers-were-found-mean-in-android-sdk-logs}
 
 Esta línea de registro generalmente no es un error. Suele aparecer cuando Braze publica un evento interno (como `NoMatchingTriggerEvent`) y no hay ningún oyente de mensajes dentro de la aplicación o Content Cards suscrito en ese momento.
 

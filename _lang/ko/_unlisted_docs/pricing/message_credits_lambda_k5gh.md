@@ -8,7 +8,7 @@ hide_toc: true
 
 # 메시지 크레딧 - Lambda (기밀) {#message-credits-lambda-confidential}
 
-> 메시지 크레딧은 Braze의 네이티브 Agent Console, 단문 메시지 서비스, MMS, RCS, WhatsApp, LINE 오퍼링을 위한 Braze의 교차 제품 패키징 구조입니다. 메시지 크레딧은 Braze 메시징 채널과 특정 인공지능 기능을 활용할 때 유연하고 투명한 경험을 제공합니다. 크레딧을 통해 이 페이지의 표에 제시된 모든 채널에 접근할 수 있습니다.
+> 메시지 크레딧은 Braze의 네이티브 Agent Console, SMS, MMS, RCS, WhatsApp, LINE 오퍼링을 위한 Braze의 교차 제품 패키징 구조입니다. 메시지 크레딧은 Braze 메시징 채널과 특정 인공지능 기능을 활용할 때 유연하고 투명한 경험을 제공합니다. 크레딧을 통해 이 페이지의 표에 제시된 모든 채널에 접근할 수 있습니다.
 
 {% multi_lang_include pricing/message_credits_units_of_measure.md %}
 
@@ -48,22 +48,22 @@ hide_toc: true
         <td>0.16</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 - US / CA</td>
+        <td>SMS - US / CA</td>
         <td>캐나다</td>
         <td>1.00</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 - US / CA</td>
+        <td>SMS - US / CA</td>
         <td>캐나다 수신자 부담</td>
         <td>1.30</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 - US / CA</td>
+        <td>SMS - US / CA</td>
         <td>미국</td>
         <td>1.00</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 - US / CA</td>
+        <td>SMS - US / CA</td>
         <td>미국 수신자 부담</td>
         <td>1.50</td>
     </tr>
@@ -93,1117 +93,1117 @@ hide_toc: true
         <td>6.00</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>압하지야</td>
         <td>6.20</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>아프가니스탄</td>
         <td>24.80</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>알바니아</td>
         <td>10.40</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>알제리</td>
         <td>32.60</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>아메리칸사모아</td>
         <td>9.90</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>안도라</td>
         <td>11.80</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>앙골라</td>
         <td>8.10</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>앵귈라</td>
         <td>9.90</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>앤티가 바부다</td>
         <td>9.80</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>아르헨티나</td>
         <td>14.00</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>아르메니아</td>
         <td>18.40</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>아루바</td>
         <td>9.50</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
-        <td>호주 단문 메시지 서비스</td>
+        <td>SMS / MMS - Global</td>
+        <td>호주 SMS</td>
         <td>3.90</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>오스트리아</td>
         <td>5.30</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>아제르바이잔</td>
         <td>33.20</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>바하마</td>
         <td>9.30</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>바레인</td>
         <td>5.00</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>방글라데시</td>
         <td>27.60</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>바베이도스</td>
         <td>10.00</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>벨라루스</td>
         <td>32.00</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>벨기에</td>
         <td>14.80</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>벨리즈</td>
         <td>16.60</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>베냉</td>
         <td>9.20</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>버뮤다</td>
         <td>10.40</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>부탄</td>
         <td>25.00</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>볼리비아</td>
         <td>14.00</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>보스니아 헤르체고비나</td>
         <td>10.10</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>보츠와나</td>
         <td>12.30</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>브라질</td>
         <td>2.10</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>브루나이</td>
         <td>2.70</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>불가리아</td>
         <td>19.40</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>부르키나파소</td>
         <td>14.40</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>부룬디</td>
         <td>18.40</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>캄보디아</td>
         <td>24.10</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>카메룬</td>
         <td>11.30</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>카보베르데</td>
         <td>14.30</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>카리브 네덜란드</td>
         <td>21.70</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>케이맨 제도</td>
         <td>9.90</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>중앙아프리카공화국</td>
         <td>3.10</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>차드</td>
         <td>23.10</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>칠레</td>
         <td>7.80</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>중국</td>
         <td>1.70</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>콜롬비아</td>
         <td>0.30</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>코모로</td>
         <td>6.00</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>콩고</td>
         <td>6.80</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>쿡 제도</td>
         <td>6.80</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>코스타리카</td>
         <td>6.50</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>크로아티아</td>
         <td>8.50</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>쿠바</td>
         <td>18.60</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>퀴라소</td>
         <td>9.90</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>키프로스</td>
         <td>2.20</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>체코</td>
         <td>9.00</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>덴마크</td>
         <td>8.50</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>지부티</td>
         <td>10.90</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>도미니카</td>
         <td>9.60</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>도미니카 공화국</td>
         <td>10.20</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>콩고민주공화국</td>
         <td>14.80</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>에콰도르</td>
         <td>22.00</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>이집트</td>
         <td>21.00</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>엘살바도르</td>
         <td>8.60</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>적도 기니</td>
         <td>5.40</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>에리트레아</td>
         <td>14.70</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>에스토니아</td>
         <td>9.40</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>에스와티니</td>
         <td>5.80</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>에티오피아</td>
         <td>26.40</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>포클랜드 제도</td>
         <td>2.00</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>페로 제도</td>
         <td>2.30</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>피지</td>
         <td>14.00</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>핀란드</td>
         <td>11.50</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>프랑스</td>
         <td>9.30</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>프랑스령 기아나</td>
         <td>20.10</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>프랑스령 폴리네시아</td>
         <td>15.80</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>가봉</td>
         <td>21.20</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>감비아</td>
         <td>12.40</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>조지아</td>
         <td>21.80</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>독일</td>
         <td>17.30</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>가나</td>
         <td>17.40</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>지브롤터</td>
         <td>1.60</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>그리스</td>
         <td>10.20</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>그린란드</td>
         <td>1.60</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>그레나다</td>
         <td>10.30</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>과들루프</td>
         <td>20.00</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>괌</td>
         <td>6.20</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>과테말라</td>
         <td>18.60</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>건지</td>
         <td>8.70</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>기니</td>
         <td>18.30</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>기니비사우</td>
         <td>14.50</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>가이아나</td>
         <td>10.60</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>아이티</td>
         <td>11.60</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>온두라스</td>
         <td>7.20</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>홍콩</td>
         <td>9.80</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>헝가리</td>
         <td>11.60</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>아이슬란드</td>
         <td>11.50</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>인도</td>
         <td>8.40</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>인도네시아</td>
         <td>36.60</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>이란</td>
         <td>15.90</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>이라크</td>
         <td>23.80</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>아일랜드</td>
         <td>10.60</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>맨섬</td>
         <td>8.10</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>이스라엘</td>
         <td>15.00</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>이탈리아</td>
         <td>8.90</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>코트디부아르</td>
         <td>15.50</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>자메이카</td>
         <td>11.00</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>일본</td>
         <td>9.20</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>저지</td>
         <td>7.00</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>요르단</td>
         <td>25.80</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>카자흐스탄</td>
         <td>25.40</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>케냐</td>
         <td>22.50</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>키리바시</td>
         <td>3.10</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>대한민국</td>
         <td>3.00</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>코소보</td>
         <td>9.70</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>쿠웨이트</td>
         <td>24.50</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>키르기스스탄</td>
         <td>26.40</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>라오스</td>
         <td>8.00</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>라트비아</td>
         <td>7.40</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>레바논</td>
         <td>19.40</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>레소토</td>
         <td>6.50</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>라이베리아</td>
         <td>7.20</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>리비아</td>
         <td>26.80</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>리히텐슈타인</td>
         <td>3.80</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>리투아니아</td>
         <td>5.00</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>룩셈부르크</td>
         <td>10.30</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>마카오</td>
         <td>3.80</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>마다가스카르</td>
         <td>22.20</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>말라위</td>
         <td>22.40</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>말레이시아</td>
         <td>7.90</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>몰디브</td>
         <td>8.70</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>말리</td>
         <td>21.70</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>몰타</td>
         <td>10.50</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>마르티니크</td>
         <td>18.80</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>모리타니</td>
         <td>19.50</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>모리셔스</td>
         <td>18.90</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>마요트</td>
         <td>23.30</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>멕시코</td>
         <td>2.80</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>미크로네시아</td>
         <td>9.30</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>몰도바</td>
         <td>8.70</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>모나코</td>
         <td>16.20</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>몽골</td>
         <td>19.30</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>몬테네그로</td>
         <td>9.90</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>몬트세랫</td>
         <td>9.00</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>모로코</td>
         <td>15.50</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>모잠비크</td>
         <td>6.10</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>미얀마</td>
         <td>24.80</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>나미비아</td>
         <td>5.00</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>나우루</td>
         <td>11.20</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>네팔</td>
         <td>18.50</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>네덜란드</td>
         <td>18.20</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>뉴칼레도니아</td>
         <td>14.90</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>뉴질랜드</td>
         <td>14.20</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>니카라과</td>
         <td>12.70</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>니제르</td>
         <td>16.00</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>나이지리아</td>
         <td>21.30</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>북마케도니아</td>
         <td>3.40</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>북키프로스</td>
         <td>2.00</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>노르웨이</td>
         <td>9.00</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>오만</td>
         <td>16.80</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>파키스탄</td>
         <td>22.20</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>팔라우</td>
         <td>3.70</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>파나마</td>
         <td>9.30</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>파푸아뉴기니</td>
         <td>9.90</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>파라과이</td>
         <td>2.80</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>페루</td>
         <td>11.00</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>필리핀</td>
         <td>8.00</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>폴란드</td>
         <td>3.90</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>포르투갈</td>
         <td>3.70</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>푸에르토리코</td>
         <td>1.30</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>카타르</td>
         <td>3.90</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>레위니옹/마요트</td>
         <td>11.30</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>루마니아</td>
         <td>7.80</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>러시아</td>
         <td>18.90</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>르완다</td>
         <td>12.10</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>세인트키츠 네비스</td>
         <td>9.20</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>세인트루시아</td>
         <td>10.70</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>생피에르 미클롱</td>
         <td>23.10</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>세인트빈센트 그레나딘</td>
         <td>10.60</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>사모아</td>
         <td>7.50</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>상투메 프린시페</td>
         <td>6.50</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>사우디아라비아</td>
         <td>10.70</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>세네갈</td>
         <td>20.20</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>세르비아</td>
         <td>8.90</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>세이셸</td>
         <td>9.00</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>시에라리온</td>
         <td>13.50</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>싱가포르</td>
         <td>6.20</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>신트마르턴</td>
         <td>1.60</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>슬로바키아</td>
         <td>8.10</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>슬로베니아</td>
         <td>2.80</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>솔로몬 제도</td>
         <td>7.80</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>소말리아</td>
         <td>17.80</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>남아프리카공화국</td>
         <td>2.70</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>남오세티야</td>
         <td>20.50</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>남수단</td>
         <td>8.00</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>스페인</td>
         <td>7.00</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>스리랑카</td>
         <td>25.10</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>수단</td>
         <td>22.40</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>수리남</td>
         <td>7.30</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>스웨덴</td>
         <td>8.00</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>스위스</td>
         <td>6.10</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>대만</td>
         <td>16.30</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>타지키스탄</td>
         <td>34.50</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>탄자니아</td>
         <td>16.20</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>태국</td>
         <td>1.30</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>동티모르</td>
         <td>8.70</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>토고</td>
         <td>6.20</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>통가</td>
         <td>6.10</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>트리니다드 토바고</td>
         <td>10.20</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>튀니지</td>
         <td>22.00</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>튀르키예</td>
         <td>0.50</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>투르크메니스탄</td>
         <td>19.70</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>터크스 케이커스 제도</td>
         <td>9.90</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>우간다</td>
         <td>19.00</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>우크라이나</td>
         <td>22.80</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>아랍에미리트</td>
         <td>4.20</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>영국</td>
         <td>6.10</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>우루과이</td>
         <td>7.10</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>우즈베키스탄</td>
         <td>35.20</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>바누아투</td>
         <td>14.30</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>베네수엘라</td>
         <td>8.40</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>베트남</td>
         <td>14.90</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>영국령 버진아일랜드</td>
         <td>10.00</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>왈리스 푸투나</td>
         <td>14.60</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>예멘</td>
         <td>16.30</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>잠비아</td>
         <td>19.90</td>
     </tr>
     <tr>
-        <td>단문 메시지 서비스 / MMS - Global</td>
+        <td>SMS / MMS - Global</td>
         <td>짐바브웨</td>
         <td>16.40</td>
     </tr>
@@ -1908,12 +1908,12 @@ hide_toc: true
         <td>0.08</td>
     </tr>
     <tr>
-        <td>BYO 단문 메시지 서비스 커넥터</td>
+        <td>BYO SMS 커넥터</td>
         <td>Infobip - 전 지역</td>
         <td>0.30</td>
     </tr>
     <tr>
-        <td>BYO 단문 메시지 서비스 커넥터</td>
+        <td>BYO SMS 커넥터</td>
         <td>Twilio - 전 지역</td>
         <td>0.30</td>
     </tr>
@@ -2042,11 +2042,11 @@ hide_toc: true
 ## Agent Console 세부 사항 {#agent-console-details}
 Braze는 Braze 플랫폼에서 전송된 Agent Console 호출에 대해 메시지 크레딧을 청구합니다. 호출은 에이전트가 LLM에 대한 호출을 시작할 때 기록됩니다. 기본적으로, 계약에는 구독 기간의 각 기간당 만 건의 호출이 포함되어 있습니다.
 
-## 단문 메시지 서비스/MMS 채널 세부 정보 {#smsmms-channel-details}
+## SMS/MMS 채널 세부 정보 {#smsmms-channel-details}
 
-### 단문 메시지 서비스 메시지 세그먼트 {#sms-segments}
+### SMS 메시지 세그먼트 {#sms-segments}
 
-단문 메시지 서비스 메시지 세그먼트는 단문 메시지 서비스 업계에서 메시지를 집계하는 방식입니다. 메시지 세그먼트는 정해진 문자 수(GSM-7 인코딩의 경우 160자, UCS-2 인코딩의 경우 67자)까지의 문자 그룹으로, 단일 단문 메시지 서비스 발송으로 전송됩니다. GSM-7 인코딩을 사용하여 161자의 단문 메시지 서비스를 발송하면 두(2)개의 메시지 세그먼트가 전송된 것을 확인할 수 있습니다. 여러 메시지 세그먼트를 전송하면 추가 요금이 발생합니다.
+SMS 메시지 세그먼트는 SMS 업계에서 메시지를 집계하는 방식입니다. 메시지 세그먼트는 정해진 문자 수(GSM-7 인코딩의 경우 160자, UCS-2 인코딩의 경우 67자)까지의 문자 그룹으로, 단일 SMS 발송으로 전송됩니다. GSM-7 인코딩을 사용하여 161자의 SMS를 발송하면 두(2)개의 메시지 세그먼트가 전송된 것을 확인할 수 있습니다. 여러 메시지 세그먼트를 전송하면 추가 요금이 발생합니다.
 
 ### MMS 메시지 세그먼트 {#mms-segments}
 
@@ -2054,7 +2054,7 @@ MMS의 경우 메시지 제한은 5MB입니다(멀티미디어 자산과 메시�
 
 ### RCS 유형 {#rcs-types}
 
-RCS는 단문 메시지 서비스와 MMS의 차세대 버전입니다. 단문 메시지 서비스와 같은 직접적이고 높은 인게이지먼트 채널의 장점을 제공하면서, 현대 소비자가 기대하는 리치 콘텐츠(이미지, 비디오, 문서), 인증 및 브랜드 발신, 추천 답장 및 액션과 같은 인터랙티브 기능 등 더욱 풍부한 기능을 갖추고 있습니다.
+RCS는 SMS와 MMS의 차세대 버전입니다. SMS와 같은 직접적이고 높은 인게이지먼트 채널의 장점을 제공하면서, 현대 소비자가 기대하는 리치 콘텐츠(이미지, 비디오, 문서), 인증 및 브랜드 발신, 추천 답장 및 액션과 같은 인터랙티브 기능 등 더욱 풍부한 기능을 갖추고 있습니다.
 
 {% multi_lang_include pricing/rcs_billing_message_types.md %}
 
@@ -2070,9 +2070,9 @@ RCS는 단문 메시지 서비스와 MMS의 차세대 버전입니다. 단문 �
 
 {% multi_lang_include pricing/webhook_failed_requests_billing.md credit_name='Message Credits' %}
 
-### BYO(Bring Your Own) 단문 메시지 서비스 커넥터 {#bring-your-own-byo-sms-connectors}
+### BYO(Bring Your Own) SMS 커넥터 {#bring-your-own-byo-sms-connectors}
 
-Braze는 고객이 "BYO 단문 메시지 서비스 커넥터" 모델을 통해 서드파티 공급자와 통합하여 단문 메시지 서비스 메시지를 전송할 수 있도록 지원합니다. Braze는 BYO 단문 메시지 서비스 커넥터를 통해 Braze 플랫폼에서 전송되는 각 메시지에 대해 메시지 크레딧을 부과합니다.
+Braze는 고객이 "BYO SMS 커넥터" 모델을 통해 서드파티 공급자와 통합하여 SMS 메시지를 전송할 수 있도록 지원합니다. Braze는 BYO SMS 커넥터를 통해 Braze 플랫폼에서 전송되는 각 메시지에 대해 메시지 크레딧을 부과합니다.
 
 ### LINE
 

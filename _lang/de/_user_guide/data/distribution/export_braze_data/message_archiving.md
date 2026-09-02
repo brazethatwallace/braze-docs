@@ -12,11 +12,11 @@ description: "Dieser Referenzartikel behandelt die Nachrichtenarchivierung, ein 
 
 > Mit der Nachrichtenarchivierung können Sie eine Kopie der an Nutzer:innen gesendeten Nachrichten zu Archivierungs- oder Compliance-Zwecken in Ihrem AWS S3-Bucket, Azure Blob Storage-Container oder Google Cloud Storage-Bucket speichern. <br><br> Dieser Artikel behandelt die Einrichtung der Nachrichtenarchivierung, JSON-Payload-Referenzen und häufig gestellte Fragen.
 
-Die Nachrichtenarchivierung ist als zusätzliches Feature verfügbar. Um mit der Nachrichtenarchivierung zu beginnen, wenden Sie sich bitte an Ihren Braze-CSM or Customer-Success-Manager or Customer-Success-Manager:in.
+Die Nachrichtenarchivierung ist als zusätzliches Feature verfügbar. Um mit der Nachrichtenarchivierung zu beginnen, wenden Sie sich bitte an Ihren Braze-CSM.
 
 ## Funktionsweise {#how-it-works}
 
-Wenn dieses Feature eingeschaltet ist, schreibt Braze für jede Nachricht, die über die von Ihnen ausgewählten Kanäle (E-Mail, Kurzmitteilungsdienst or SMS/MMS oder Push) an eine:n Nutzer:in gesendet wird, eine gzipped JSON-Datei. Braze schreibt diese Dateien in Ihr Standard-Datenexportziel. Dazu gehören alle Campaign-Typen für jeden Kanal, wie z. B. Transaktions-E-Mail-Campaigns, die über die [Transaktions-E-Mail-API]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email) gesendet werden.
+Wenn dieses Feature eingeschaltet ist, schreibt Braze für jede Nachricht, die über die von Ihnen ausgewählten Kanäle (E-Mail, SMS/MMS oder Push) an eine:n Nutzer:in gesendet wird, eine gzipped JSON-Datei. Braze schreibt diese Dateien in Ihr Standard-Datenexportziel. Dazu gehören alle Campaign-Typen für jeden Kanal, wie z. B. Transaktions-E-Mail-Campaigns, die über die [Transaktions-E-Mail-API]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email) gesendet werden.
 
 Diese Datei enthält die unter [Dateireferenzen](#file-references) definierten Felder und spiegelt die endgültigen, als Template gerenderten Nachrichten wider, die an die Nutzer:innen gesendet wurden. Alle in Ihrer Campaign definierten Template-Werte (z. B. {% raw %}`{{${first_name}}}`{% endraw %}) zeigen den endgültigen Wert an, den die Nutzer:innen auf der Grundlage ihrer Profilinformationen erhalten haben. Auf diese Weise können Sie eine Kopie der gesendeten Nachricht aufbewahren, um den Anforderungen der Compliance, der Rechnungsprüfung oder des Kundensupports gerecht zu werden.
 
@@ -117,7 +117,7 @@ Das Feld `extras` enthält die Schlüssel-Wert-Paare, die beim Verfassen einer E
 ![Abschnitt „E-Mail-Extras“ im E-Mail-Composer mit Schlüssel- und Wertfeldern sowie der Option „Neues Extra hinzufügen“.]({% image_buster /assets/img_archive/email_extras.png %}){: style="max-width:60%" }
 
 {% endtab %}
-{% tab Kurzmitteilungsdienst or SMS/MMS %}
+{% tab SMS/MMS %}
 
 ```json
 {
@@ -205,7 +205,7 @@ Das JSON-Payload-Format kann zwischen Nachrichten variieren und sich im Laufe de
 
 ### Was sind Nachrichten unter dem Wert „unassociated“ im Campaign-Pfad? {#what-are-messages-under-the-unassociated-value-in-the-campaign-path}
 
-Wenn eine Nachricht außerhalb einer Campaign oder eines Canvas gesendet wird, lautet die Campaign-ID im Dateinamen „unassociated“. Dies geschieht, wenn Sie Testnachrichten über das Dashboard senden, wenn Braze automatische Kurzmitteilungsdienst or SMS/MMS-Antworten sendet oder wenn über die API gesendete Nachrichten keine Campaign-ID enthalten.
+Wenn eine Nachricht außerhalb einer Campaign oder eines Canvas gesendet wird, lautet die Campaign-ID im Dateinamen „unassociated“. Dies geschieht, wenn Sie Testnachrichten über das Dashboard senden, wenn Braze automatische SMS/MMS-Antworten sendet oder wenn über die API gesendete Nachrichten keine Campaign-ID enthalten.
 
 ### Wie finde ich weitere Informationen zu diesem Versand? {#how-do-i-find-more-information-about-this-send}
 

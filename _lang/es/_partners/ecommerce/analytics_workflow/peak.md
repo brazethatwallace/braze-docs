@@ -26,7 +26,7 @@ Como punto de partida, un tenant de Peak debe alojar la integración entre Peak 
 | ----------- | ----------- |
 | Tenant de Peak | Se requiere una instancia de la plataforma Peak, conocida como tenant, para alojar y orquestar la integración. |
 | Solución de inteligencia de decisiones | La integración entre Peak y Braze se basa en resultados impulsados por IA y, por lo tanto, requiere una solución desplegada por Peak o el cliente dentro de tu tenant. |
-| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos `users.track`. <br><br>Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. <br><br>Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}

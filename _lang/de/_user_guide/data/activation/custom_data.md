@@ -10,7 +10,7 @@ description: "Angepasste Daten sind die Grundlage Ihrer Engagement-Strategie in 
 
 > Angepasste Daten sind der Treibstoff für Ihre Engagement-Strategie. Während Standardattribute wie Vorname und Land bereits integriert sind, können Sie mit angepassten Daten die einzigartigen Details erfassen, die Ihre Beziehung zu Ihren Kund:innen ausmachen – vom Lieblingsfilmgenre bis zum genauen Zeitpunkt eines abgeschlossenen Kaufs.
 
-Indem Sie diese Informationen in Braze einbringen, können Sie über generisches Messaging hinausgehen und Erlebnisse schaffen, die sich persönlich, zeitnah und relevant anfühlen. Sie können diese Daten nutzen, um präzise Segmente zu erstellen, Nachrichteninhalte mit Liquid zu personalisieren und automatisierte Journeys basierend auf Realtime-Verhalten zu Trigger or triggern or triggern.
+Indem Sie diese Informationen in Braze einbringen, können Sie über generisches Messaging hinausgehen und Erlebnisse schaffen, die sich persönlich, zeitnah und relevant anfühlen. Sie können diese Daten nutzen, um präzise Segmente zu erstellen, Nachrichteninhalte mit Liquid zu personalisieren und automatisierte Journeys basierend auf Realtime-Verhalten zu triggern.
 
 ## Attribute und Events {#attributes-and-events}
 
@@ -22,7 +22,7 @@ Stellen Sie sich angepasste Attribute als die persistenten Merkmale oder Eigensc
 
 - **Anwendungsfall:** Sie könnten ein `loyalty_tier`-Attribut verwenden, um zwischen Ihren „Silver“- und „Gold“-Mitgliedern zu unterscheiden.
 - **Personalisierung:** Attribute eignen sich hervorragend für die Personalisierung. Sie können die `favorite_category` einer Nutzerin oder eines Nutzers in eine E-Mail-Betreffzeile einfügen, um Aufmerksamkeit zu erzeugen.
-- **Speicherung:** Diese Daten bleiben dauerhaft im Kundenprofil or Nutzerprofil gespeichert, solange das Profil aktiv ist.
+- **Speicherung:** Diese Daten bleiben dauerhaft im Kundenprofil gespeichert, solange das Profil aktiv ist.
 
 Weitere Informationen finden Sie unter [Angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes).
 
@@ -31,7 +31,7 @@ Weitere Informationen finden Sie unter [Angepasste Attribute]({{site.baseurl}}/u
 Angepasste Events erfassen bestimmte Aktionen, die Ihre Nutzer:innen zu einem bestimmten Zeitpunkt ausführen. Es handelt sich um wertvolle Interaktionen, die Ihnen helfen, das „Wann“ und „Wie oft“ des Nutzerverhaltens zu verstehen.
 
 - **Anwendungsfall:** Wenn eine Nutzerin oder ein Nutzer eine Registrierung abschließt, können Sie ein `completed_registration`-Event protokollieren.
-- **Trigger or triggern or triggern:** Events sind die primäre Methode, um eine aktionsbasierte Zustellung zu Trigger or triggern or triggern. Sie können eine „Willkommen“-Push-Benachrichtigung genau in dem Moment senden, in dem das `completed_registration`-Event protokolliert wird.
+- **Triggern:** Events sind die primäre Methode, um eine aktionsbasierte Zustellung zu triggern. Sie können eine „Willkommen“-Push-Benachrichtigung genau in dem Moment senden, in dem das `completed_registration`-Event protokolliert wird.
 - **Metadaten:** Sie können einem Event mithilfe von Event-Eigenschaften zusätzliche Details hinzufügen, z. B. den Namen des Artikels, der in den Warenkorb gelegt wurde.
 - **Analytics:** Events ermöglichen Segmentierung, Berichte und Analytics, sodass Sie Engagement messen und Ihr Messaging optimieren können.
 
@@ -41,7 +41,7 @@ Weitere Informationen finden Sie unter [Angepasste Events]({{site.baseurl}}/user
 
 Während sich Attribute und Events auf Ihre Nutzer:innen konzentrieren, ermöglichen Ihnen Kataloge, nicht-nutzerbezogene Daten wie Produktbestände, Kursdetails oder Eventlisten einzubringen.
 
-Indem Sie diese Metadaten per CSV oder API importieren, können Sie Ihre Nachrichten mit Informationen anreichern, die nicht im Kundenprofil or Nutzerprofil gespeichert sind. Sie können beispielsweise einen Katalog verwenden, um Kund:innen automatisch zu benachrichtigen, wenn ein zuvor angesehener Artikel wieder auf Lager ist oder im Preis gesunken ist.
+Indem Sie diese Metadaten per CSV oder API importieren, können Sie Ihre Nachrichten mit Informationen anreichern, die nicht im Kundenprofil gespeichert sind. Sie können beispielsweise einen Katalog verwenden, um Kund:innen automatisch zu benachrichtigen, wenn ein zuvor angesehener Artikel wieder auf Lager ist oder im Preis gesunken ist.
 
 Weitere Informationen finden Sie unter [Kataloge]({{site.baseurl}}/user_guide/data/activation/catalogs).
 

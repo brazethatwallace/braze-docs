@@ -22,7 +22,7 @@ Der Endpunkt `/campaign/details` liefert jetzt Informationen über seine Nachric
 
 ## Updates für Liquid-Templates {#updates-to-liquid-templating}
 
-Wir haben die Möglichkeit hinzugefügt, in Canvase und Campaigns Variantenattribute als Template zu verwenden. In Canvas können Sie jetzt sowohl die API-ID der Variante als auch den Namen der Variante als Template verwenden, und in Campaigns können Sie jetzt die `message_api_id` und den `message_name` einer Nachricht als Template verwenden. Beide Updates ermöglichen mehr Flexibilität bei Ihren Nachrichten und erlauben es Ihnen, personalisierte Campaigns zu erstellen. Erfahren Sie mehr über [personalisiertes Messaging]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/).
+Wir haben die Möglichkeit hinzugefügt, in Canvases und Campaigns Variantenattribute als Template zu verwenden. In Canvas können Sie jetzt sowohl die API-ID der Variante als auch den Namen der Variante als Template verwenden, und in Campaigns können Sie jetzt die `message_api_id` und den `message_name` einer Nachricht als Template verwenden. Beide Updates ermöglichen mehr Flexibilität bei Ihren Nachrichten und erlauben es Ihnen, personalisierte Campaigns zu erstellen. Erfahren Sie mehr über [personalisiertes Messaging]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/).
 
 ## Neuer HTML-E-Mail-Editor {#new-html-email-editor}
 
@@ -30,12 +30,12 @@ Mit einem Vollbild-HTML-Editor, der eine Live-Vorschau, Personalisierung über L
 
 ## Updates für Vorschauen {#updates-to-previews}
 
-Sie können jetzt dem Bildschirmfenster folgen, wenn Sie in der Nachrichtenvorschau in Campaigns und Canvase nach unten scrollen, sodass Sie die Änderungen immer im Blick haben. Erfahren Sie mehr über [Vorschau und Tests]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/campaigns_in_multiple_languages/#step-6-preview-message).
+Sie können jetzt dem Bildschirmfenster folgen, wenn Sie in der Nachrichtenvorschau in Campaigns und Canvases nach unten scrollen, sodass Sie die Änderungen immer im Blick haben. Erfahren Sie mehr über [Vorschau und Tests]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/campaigns_in_multiple_languages/#step-6-preview-message).
 
 ## Neuer Filter für die Segment-Mitgliedschaft {#new-segment-membership-filter}
 
 Wir haben den [Filter „Segment Membership“]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/new_features/#targeting-filters) hinzugefügt, der es Ihnen ermöglicht, Nutzer:innen auf der Grundlage ihrer Mitgliedschaft in einem Ihrer bestehenden Segmente zu targetieren. Darüber hinaus haben wir die Möglichkeit hinzugefügt, sowohl „Und“- als auch „Oder“-Logik in Segmentfiltern zu verwenden sowie Segmente ineinander zu verschachteln. Diese Updates ermöglichen es Ihnen, angepasste Nachrichten mit größerer Präzision an Ihre Kund:innen zu versenden.
 
-## Update or aktualisieren der Android-Vorschau {#update-to-android-preview}
+## Update der Android-Vorschau {#update-to-android-preview}
 
 Wir haben die [Android-Vorschau]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/create/#step-5-preview-message) aktualisiert, um neuere Versionen von Android seit Android N zu berücksichtigen.

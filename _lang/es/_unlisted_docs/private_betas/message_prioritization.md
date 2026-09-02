@@ -62,7 +62,7 @@ La priorización de mensajes es compatible con los mismos canales que la limitac
 
 - Notificaciones push
 - Correo electrónico
-- servicio de mensajes cortos
+- SMS
 - Webhooks
 - WhatsApp
 - LINE
@@ -195,7 +195,7 @@ Para Canvas, esto incluye:
 
 La priorización de Canvas no es de todo o nada. Una Campaign de mayor prioridad puede provocar que un paso de Canvas se despriorice, mientras que pasos elegibles posteriores en ese mismo Canvas aún pueden enviarse, dependiendo de la clasificación de categoría, el momento del envío y las reglas de limitación de frecuencia.
 
-Braze compara los mensajes priorizados solo cuando comparten la misma regla de limitación de frecuencia aplicable. Por ejemplo, dos Campaigns de correo electrónico que cuentan para la misma regla de limitación de frecuencia de correo electrónico pueden priorizarse entre sí, pero una Campaign de correo electrónico de menor prioridad no se desprioriza a favor de un mensaje servicio de mensajes cortos de mayor prioridad a menos que ambos cuenten para la misma regla. Los mensajes fuera de la priorización de mensajes también comparten estos límites de frecuencia, por lo que incluso un mensaje de alta prioridad puede cancelarse debido a un mensaje fuera de la priorización de mensajes.
+Braze compara los mensajes priorizados solo cuando comparten la misma regla de limitación de frecuencia aplicable. Por ejemplo, dos Campaigns de correo electrónico que cuentan para la misma regla de limitación de frecuencia de correo electrónico pueden priorizarse entre sí, pero una Campaign de correo electrónico de menor prioridad no se desprioriza a favor de un mensaje SMS de mayor prioridad a menos que ambos cuenten para la misma regla. Los mensajes fuera de la priorización de mensajes también comparten estos límites de frecuencia, por lo que incluso un mensaje de alta prioridad puede cancelarse debido a un mensaje fuera de la priorización de mensajes.
 
 Braze evalúa Campaigns y Canvas de manera diferente, porque un Canvas puede ramificarse y desarrollarse con el tiempo.
 
@@ -351,6 +351,6 @@ Para Campaigns, la priorización de mensajes utiliza la hora óptima de envío d
 
 ### ¿Hay alguna funcionalidad de informes o análisis específica para la priorización de mensajes? {#is-there-any-reporting-or-analytics-functionality-specific-to-message-prioritization}
 
-Braze proporciona eventos relacionados con la priorización de mensajes en Currents y compartición de datos para los canales compatibles, incluyendo correo electrónico, LINE, notificaciones push, servicio de mensajes cortos, webhooks y WhatsApp. Estos incluyen eventos de despriorización y limitación de frecuencia, registrados como el evento `users.messages.<channel>.Abort`, así como eventos de reintento que muestran cuándo un mensaje fue reintentado posteriormente dentro de la ventana de reintento configurada, registrados como el evento `users.messages.<channel>.Retry`.
+Braze proporciona eventos relacionados con la priorización de mensajes en Currents y compartición de datos para los canales compatibles, incluyendo correo electrónico, LINE, notificaciones push, SMS, webhooks y WhatsApp. Estos incluyen eventos de despriorización y limitación de frecuencia, registrados como el evento `users.messages.<channel>.Abort`, así como eventos de reintento que muestran cuándo un mensaje fue reintentado posteriormente dentro de la ventana de reintento configurada, registrados como el evento `users.messages.<channel>.Retry`.
 
 También puedes usar el panel de diagnóstico de mensajería, las estadísticas diarias existentes de mensajes despriorizados y reintentados, y la [funcionalidad de informes de Braze]({{site.baseurl}}/user_guide/analytics/reports) existente para monitorear el estado y el rendimiento de tus Campaigns y Canvas priorizados.

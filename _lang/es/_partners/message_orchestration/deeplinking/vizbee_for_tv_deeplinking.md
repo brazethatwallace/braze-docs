@@ -25,13 +25,13 @@ La integración de Braze y Vizbee te permite utilizar una única consola para pr
 |---|---|
 | Cuenta Vizbee | Se necesita una cuenta de [Vizbee](https://vizbee.tv/) para beneficiarse de esta asociación. Debes registrar tu aplicación en Vizbee y tener asignado un ID de Vizbee. |
 | Aplicación para iOS o Android | Esta integración es compatible con aplicaciones iOS y Android. Dependiendo de tu plataforma, puede que se requieran fragmentos de código en tu aplicación. |
-| SDK or kit de desarrollo de software de Vizbee | Además del SDK or kit de desarrollo de software de Braze necesario, debes instalar el SDK or kit de desarrollo de software de Vizbee. |
+| SDK de Vizbee | Además del SDK de Braze necesario, debes instalar el SDK de Vizbee. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integración {#integration}
 
-Sigue la [guía de integración de SDK or kit de desarrollo de software](https://console.vizbee.tv/app/vzb1765003429/develop/guides/ios-continuity) de Vizbee para poner en marcha tu integración de Vizbee y Braze. Aquí puedes encontrar orientaciones sobre la vinculación en profundidad del móvil a la TV, la instalación de aplicaciones de TV y la atribución de audiencia.
+Sigue la [guía de integración de SDK](https://console.vizbee.tv/app/vzb1765003429/develop/guides/ios-continuity) de Vizbee para poner en marcha tu integración de Vizbee y Braze. Aquí puedes encontrar orientaciones sobre la vinculación en profundidad del móvil a la TV, la instalación de aplicaciones de TV y la atribución de audiencia.
 
 ### Visualización de los informes de instalación y atribución {#vizbee-tv-app-installs-viewership-attribution}
 
-Vizbee y Braze también te permiten ver el rendimiento holístico de tus campañas en dispositivos móviles y CTV. El SDK or kit de desarrollo de software de Vizbee envía eventos personalizados al SDK or kit de desarrollo de software de Braze que pueden verse en tus informes de campaña desde el panel de Braze.
+Vizbee y Braze también te permiten ver el rendimiento holístico de tus campañas en dispositivos móviles y CTV. El SDK de Vizbee envía eventos personalizados al SDK de Braze que pueden verse en tus informes de campaña desde el panel de Braze.

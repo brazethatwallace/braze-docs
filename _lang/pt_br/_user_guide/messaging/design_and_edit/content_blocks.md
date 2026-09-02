@@ -13,7 +13,7 @@ tool:
 
 # Blocos de conteúdo {#content-blocks}
 
-> Os blocos de conteúdo permitem que você gerencie conteúdo reutilizável e multicanal em um único local centralizado. Use-os para criar uma aparência consistente em suas campanhas, distribuir os mesmos códigos de oferta por diferentes canais ou criar ativos predefinidos para envio de mensagens consistente em escala. Você também pode criar e gerenciar seus blocos de conteúdo [usando a API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/endpoints/templates).
+> Os blocos de conteúdo permitem que você gerencie conteúdo reutilizável e multicanal em um único local centralizado. Use-os para criar uma aparência consistente em suas campanhas, distribuir os mesmos códigos de oferta por diferentes canais ou criar ativos predefinidos para envio de mensagens consistente em escala. Você também pode criar e gerenciar seus blocos de conteúdo [usando a API]({{site.baseurl}}/api/endpoints/templates).
 
 ## Criar um bloco de conteúdo {#create-a-content-block}
 

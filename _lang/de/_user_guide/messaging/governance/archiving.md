@@ -3,18 +3,18 @@ nav_title: Archivieren
 article_title: Archivieren
 page_order: 2
 page_type: reference
-description: "Dieser Referenzartikel beschreibt, wie Sie Ihre Campaigns und Canvase archivieren können."
+description: "Dieser Referenzartikel beschreibt, wie Sie Ihre Campaigns und Canvases archivieren können."
 tool:
     - Campaigns
     - Canvas
 ---
 
-# Campaigns und Canvase archivieren {#archive-campaigns-and-canvases}
+# Campaigns und Canvases archivieren {#archive-campaigns-and-canvases}
 
-> Das Archivieren Ihrer Campaigns und Canvase ist eine effektive Möglichkeit, Ihren Workspace zu organisieren. Wenn Sie immer mehr Nachrichten erstellen, kann das Archivieren dazu beitragen, dass Sie sich auf aktive und relevante Messaging-Aktivitäten konzentrieren.
+> Das Archivieren Ihrer Campaigns und Canvases ist eine effektive Möglichkeit, Ihren Workspace zu organisieren. Wenn Sie immer mehr Nachrichten erstellen, kann das Archivieren dazu beitragen, dass Sie sich auf aktive und relevante Messaging-Aktivitäten konzentrieren.
 
 {% alert important %}
-Sie können Campaigns und Canvase nicht aus dem Dashboard löschen, aber Sie können sie archivieren.
+Sie können Campaigns und Canvases nicht aus dem Dashboard löschen, aber Sie können sie archivieren.
 {% endalert %}
 
 ## Archivieren {#archiving}
@@ -51,6 +51,6 @@ Um die Campaign oder das Canvas fortzusetzen und mit dem Senden von Nachrichten 
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
-### Werden Campaigns und Canvase gelöscht, wenn ich sie archiviere? {#are-campaigns-and-canvases-deleted-when-i-archive-them}
+### Werden Campaigns und Canvases gelöscht, wenn ich sie archiviere? {#are-campaigns-and-canvases-deleted-when-i-archive-them}
 
 Nein. Wenn Sie **Archivieren** auswählen, wird die Zustellung gestoppt und die Nachricht in den täglichen Listen ausgeblendet. Braze bewahrt die Campaign oder das Canvas jedoch für Berichte und den Workspace-Verlauf auf. Archivieren Sie Ihre Nachrichten zur Lifecycle-Bereinigung, wenn eine Nachricht nicht mehr gesendet werden soll.

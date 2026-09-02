@@ -13,7 +13,7 @@ channel: email
 
 ## O que acontece quando um e-mail é enviado e vários perfis têm o mesmo endereço de e-mail? {#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address}
 
-Se vários usuários com endereços de e-mail correspondentes estiverem em um Segment or segmento para receber uma Campaign, um único perfil de usuário com esse endereço de e-mail é selecionado no momento do envio. Dessa forma, o e-mail é enviado apenas uma vez e deduplicado, garantindo que não chegue ao mesmo endereço de e-mail várias vezes.
+Se vários usuários com endereços de e-mail correspondentes estiverem em um Segment para receber uma Campaign, um único perfil de usuário com esse endereço de e-mail é selecionado no momento do envio. Dessa forma, o e-mail é enviado apenas uma vez e deduplicado, garantindo que não chegue ao mesmo endereço de e-mail várias vezes.
 
 **Endereços de e-mail exclusivos:** A Braze não exige endereços de e-mail exclusivos entre perfis. Se você depende de uma relação um-para-um entre um endereço de e-mail e um perfil, monitore duplicatas internamente ao criar usuários.
 
@@ -32,20 +32,20 @@ Os seguintes cenários podem fazer parecer que um usuário recebeu um e-mail dua
 
 Essa deduplicação se aplica quando os usuários direcionados estão no mesmo despacho. A reelegibilidade é avaliada por perfil, não por endereço de e-mail.
 
-A reelegibilidade de Campaigns de e-mail e etapas do Canvas usa o perfil de cada usuário — não a caixa de entrada — então vários perfis podem se qualificar para envios separados enquanto essa lógica é satisfeita. Combinado com disparadores, isso pode entregar mais de uma mensagem para a mesma caixa de entrada, mesmo quando você está tentando respeitar um único período de inelegibilidade no nível do endereço. Campaigns disparadas (excluindo Campaigns disparadas por API or interface de programação do aplicativo (API)) e Canvas também podem enviar duas vezes para um endereço quando perfis diferentes com endereços de e-mail correspondentes atendem ao disparador em momentos diferentes — por exemplo, se o usuário A e o usuário B compartilham `johndoe@example.com`, mas estão em fusos horários diferentes enquanto a entrega usa fusos horários locais.
+A reelegibilidade de Campaigns de e-mail e etapas do Canvas usa o perfil de cada usuário — não a caixa de entrada — então vários perfis podem se qualificar para envios separados enquanto essa lógica é satisfeita. Combinado com disparadores, isso pode entregar mais de uma mensagem para a mesma caixa de entrada, mesmo quando você está tentando respeitar um único período de inelegibilidade no nível do endereço. Campaigns disparadas (excluindo Campaigns disparadas por API) e Canvas também podem enviar duas vezes para um endereço quando perfis diferentes com endereços de e-mail correspondentes atendem ao disparador em momentos diferentes — por exemplo, se o usuário A e o usuário B compartilham `johndoe@example.com`, mas estão em fusos horários diferentes enquanto a entrega usa fusos horários locais.
 
 Os usuários não são deduplicados por e-mail na entrada do Canvas, então podem não ser deduplicados além da primeira etapa de um Canvas se progredirem em momentos ligeiramente diferentes devido à entrada com limite de frequência. Quando um usuário associado a um determinado endereço de e-mail abre ou clica em um e-mail, todos os perfis de usuário que compartilham esse endereço de e-mail são marcados como tendo aberto ou clicado na Campaign.
 
-### Exceção: Campaigns disparadas por API or interface de programação do aplicativo (API) {#exception-api-triggered-campaigns}
+### Exceção: Campaigns disparadas por API {#exception-api-triggered-campaigns}
 
-Campaigns disparadas por API or interface de programação do aplicativo (API) deduplicarão ou enviarão duplicatas dependendo de onde o público é definido. E-mails duplicados devem ser direcionados separadamente na chamada de API or interface de programação do aplicativo (API) usando `user_ids` distintos para receber várias entregas. Aqui estão três cenários possíveis para Campaigns disparadas por API or interface de programação do aplicativo (API):
+Campaigns disparadas por API deduplicarão ou enviarão duplicatas dependendo de onde o público é definido. E-mails duplicados devem ser direcionados separadamente na chamada de API usando `user_ids` distintos para receber várias entregas. Aqui estão três cenários possíveis para Campaigns disparadas por API:
 
-- **Cenário 1: E-mails duplicados no Segment or segmento de destino:** Se o mesmo e-mail aparece em vários perfis de usuário que estão agrupados nos filtros de público do dashboard para uma Campaign disparada por API or interface de programação do aplicativo (API), apenas um dos perfis recebe o e-mail.
+- **Cenário 1: E-mails duplicados no Segment de destino:** Se o mesmo e-mail aparece em vários perfis de usuário que estão agrupados nos filtros de público do dashboard para uma Campaign disparada por API, apenas um dos perfis recebe o e-mail.
 - **Cenário 2: E-mails duplicados em `user_ids` diferentes dentro do objeto de destinatários:** Se o mesmo e-mail aparece em vários valores `external_user_id` referenciados pelo objeto `recipients`, o e-mail é enviado duas vezes.
 - **Cenário 3: E-mails duplicados devido a `user_ids` duplicados dentro do objeto de destinatários:** Se você tenta adicionar o mesmo perfil de usuário duas vezes, apenas um dos perfis recebe o e-mail.
 
 {% alert important %}
-Se você enviar uma Campaign de API or interface de programação do aplicativo (API) por meio de uma chamada de API or interface de programação do aplicativo (API) (excluindo Campaigns disparadas por API or interface de programação do aplicativo (API)), e vários usuários forem especificados no público do Segment or segmento com o mesmo endereço de e-mail, o envio será feito para esse endereço tantas vezes quanto listado na chamada. Isso ocorre porque as chamadas de API or interface de programação do aplicativo (API) são consideradas construídas intencionalmente.
+Se você enviar uma Campaign de API por meio de uma chamada de API (excluindo Campaigns disparadas por API), e vários usuários forem especificados no público do Segment com o mesmo endereço de e-mail, o envio será feito para esse endereço tantas vezes quanto listado na chamada. Isso ocorre porque as chamadas de API são consideradas construídas intencionalmente.
 {% endalert %}
 
 #### Testes A/B com endereços de e-mail duplicados {#ab-testing-with-duplicate-email-addresses}
@@ -130,11 +130,11 @@ _Total de aberturas_ é a contagem de quantas vezes o e-mail foi aberto pelos us
 - Os usuários clicam em alguns links de e-mail dentro do painel de visualização dos seus celulares. Nesse caso, a Braze registra esse e-mail como clicado, mas não como aberto.
 - Os usuários reabrem um e-mail que visualizaram anteriormente.
 
-### Por que minhas contagens de cliques são maiores do que meu Segment or segmento de usuários que clicaram? {#why-are-my-click-counts-higher-than-my-segment-of-users-who-clicked}
+### Por que minhas contagens de cliques são maiores do que meu Segment de usuários que clicaram? {#why-are-my-click-counts-higher-than-my-segment-of-users-who-clicked}
 
-As análises da Campaign mostram o número total de eventos de clique, enquanto os Segments retornam o número de usuários únicos que realizaram esses cliques. Como cada usuário pode clicar várias vezes, o total de cliques nas análises é geralmente maior do que a contagem de usuários que clicaram quando você cria um Segment or segmento.
+As análises da Campaign mostram o número total de eventos de clique, enquanto os Segments retornam o número de usuários únicos que realizaram esses cliques. Como cada usuário pode clicar várias vezes, o total de cliques nas análises é geralmente maior do que a contagem de usuários que clicaram quando você cria um Segment.
 
-Por exemplo, se 100 usuários clicam em um link 3 vezes cada, as análises da Campaign mostram 300 cliques totais, mas um Segment or segmento filtrado por "Clicou no e-mail" para essa Campaign retorna 100 usuários.
+Por exemplo, se 100 usuários clicam em um link 3 vezes cada, as análises da Campaign mostram 300 cliques totais, mas um Segment filtrado por "Clicou no e-mail" para essa Campaign retorna 100 usuários.
 
 ### Por que estou vendo zero aberturas e cliques de e-mail? {#why-am-i-seeing-zero-email-opens-and-clicks}
 
@@ -235,7 +235,7 @@ Para saber mais sobre como a verificação do lado do servidor pode afetar as m�
 
 ### Por que minha taxa de abertura por máquina mudou inesperadamente? {#why-has-my-machine-open-rate-changed-unexpectedly}
 
-[Aberturas por máquina]({{site.baseurl}}/user_guide/analytics/metrics_glossary#machine-opens) são disparadas por recursos de segurança de e-mail, como a Proteção de Privacidade do Apple Mail (MPP or proteção de privacidade de e-mail), que pré-carrega o conteúdo do e-mail (incluindo o pixel de rastreamento) sem que o usuário abra fisicamente o e-mail. As taxas de abertura por máquina podem flutuar com base em:
+[Aberturas por máquina]({{site.baseurl}}/user_guide/analytics/metrics_glossary#machine-opens) são disparadas por recursos de segurança de e-mail, como a Proteção de Privacidade do Apple Mail (MPP), que pré-carrega o conteúdo do e-mail (incluindo o pixel de rastreamento) sem que o usuário abra fisicamente o e-mail. As taxas de abertura por máquina podem flutuar com base em:
 
 - Mudanças na proporção do seu público usando Apple Mail ou outros clientes de e-mail com privacidade ativada.
 - Atualizações nos recursos de privacidade dos provedores de e-mail ou comportamentos de detecção de bots.
@@ -250,7 +250,7 @@ O Gmail remove todos os links não-HTTP/HTTPS de mensagens de e-mail. Se o seu d
 Para contornar isso:
 
 - **Use Universal Links (iOS) ou App Links (Android).** Eles usam URLs `https://` padrão que abrem seu app quando instalado e redirecionam para uma página web caso contrário. Consulte [Universal Links e App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links) para instruções de configuração.
-- **Use um provedor de deep linking.** Serviços como [Branch or ramificação](https://www.branch.io/) geram deep links no formato HTTP compatíveis com clientes de e-mail, incluindo o Gmail.
+- **Use um provedor de deep linking.** Serviços como [Branch](https://www.branch.io/) geram deep links no formato HTTP compatíveis com clientes de e-mail, incluindo o Gmail.
 - **Configure um endpoint de redirecionamento.** Hospede um endpoint `https://` no seu servidor que redirecione para a URL de esquema personalizado do seu app. Os clientes de e-mail preservarão o link `https://`, e o redirecionamento cuidará de abrir o app.
 
 ### A métrica *Aberturas únicas* inclui *Aberturas por máquina*? {#does-the-unique-opens-metric-include-machine-opens}
@@ -278,11 +278,11 @@ A entrega pode parecer incorreta mesmo quando a Braze se comportou conforme conf
 
 - **Perfis duplicados** que compartilham uma caixa de entrada (consulte [O que acontece quando um e-mail é enviado e vários perfis têm o mesmo endereço de e-mail?](#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address)).
 - **Listas de teste, destinatários de teste ou endereços internos** incluídos no público ou em um envio como CC/BCC.
-- **Momento do Segment or segmento ou Canvas:** o usuário correspondia ao público ou à etapa do Canvas quando a Braze avaliou a elegibilidade, mas os atributos ou estado de inscrição mudaram antes de ele ler a mensagem.
+- **Momento do Segment ou Canvas:** o usuário correspondia ao público ou à etapa do Canvas quando a Braze avaliou a elegibilidade, mas os atributos ou estado de inscrição mudaram antes de ele ler a mensagem.
 - **Grupos de inscrições:** o usuário permaneceu inscrito em um grupo que sua mensagem direcionou, mesmo que seu estado de inscrição global sugeria o contrário.
-- **Importações de API or interface de programação do aplicativo (API) ou arquivos** que atualizaram o usuário após a segmentação, mas antes de você esperar que a alteração fosse aplicada.
+- **Importações de API ou arquivos** que atualizaram o usuário após a segmentação, mas antes de você esperar que a alteração fosse aplicada.
 
-Revise o [Log de atividades de mensagens]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log), changelogs da Campaign ou Canvas e definição do Segment or segmento. Se você ainda não conseguir reconciliar o envio, entre em contato com o suporte da Braze com identificadores do usuário, `dispatch_id` (se disponível) e timestamps.
+Revise o [Log de atividades de mensagens]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log), changelogs da Campaign ou Canvas e definição do Segment. Se você ainda não conseguir reconciliar o envio, entre em contato com o suporte da Braze com identificadores do usuário, `dispatch_id` (se disponível) e timestamps.
 
 ### Por que um usuário não recebeu minha mensagem de e-mail? {#why-hasnt-a-user-received-my-email-message}
 
@@ -303,7 +303,7 @@ Use as tabelas a seguir para identificar a causa.
 
 | Causa possível | O que verificar |
 |---|---|
-| O usuário não era elegível para a Campaign ou Canvas | Verifique as configurações de **Públicos-alvo** (para Campaigns) ou **Público-alvo** (para Canvas) nas [configurações]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) para confirmar que o usuário atendeu a todos os filtros de público, critérios de Segment or segmento e regras de entrega no momento do envio. |
+| O usuário não era elegível para a Campaign ou Canvas | Verifique as configurações de **Públicos-alvo** (para Campaigns) ou **Público-alvo** (para Canvas) nas [configurações]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) para confirmar que o usuário atendeu a todos os filtros de público, critérios de Segment e regras de entrega no momento do envio. |
 | A mensagem foi interrompida | Verifique o [Log de atividades de mensagens]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) para motivos de interrupção, como erros de Liquid ou campos obrigatórios ausentes. |
 | O endereço de e-mail do usuário era inválido ou estava ausente | Na **Pesquisa de usuário**, verifique o perfil do usuário para confirmar que um endereço de e-mail válido estava registrado no momento do envio. |
 | O endereço de e-mail do usuário sofreu hard bounce anteriormente | Um hard bounce marca o endereço de e-mail como inválido e impede envios futuros para esse endereço. Da mesma forma, se um destinatário marcar seu e-mail como SPAM, a Braze envia apenas e-mails de transação para esse usuário, não Campaigns padrão. Verifique a guia **Engajamento** do perfil do usuário. Para saber mais, consulte [Endereços de e-mail cancelados]({{site.baseurl}}/user_guide/channels/email/subscriptions#unsubscribed-email-addresses) e [Bounces e e-mails inválidos]({{site.baseurl}}/user_guide/channels/email/subscriptions#bounces-and-invalid-emails). |
@@ -338,7 +338,7 @@ Se seus e-mails estão atrasados, adiados ou sofrendo bounce, revise o [Log de a
 Seu provedor de serviços de e-mail (ESP), como Amazon SES, SparkPost ou SendGrid, retorna códigos de resposta SMTP ao aceitar ou adiar mensagens. Respostas de limite de frequência normalmente usam códigos 4xx, que indicam falhas temporárias:
 
 - **421:** Serviço temporariamente indisponível, frequentemente devido a alto volume, limites de conexão ou restrições de recursos do servidor. A mensagem permanece na fila e seu ESP tenta a entrega novamente automaticamente.
-- **429:** Limite de frequência de API or interface de programação do aplicativo (API) excedido. Você enviou muitas solicitações dentro da janela de tempo permitida.
+- **429:** Limite de frequência de API excedido. Você enviou muitas solicitações dentro da janela de tempo permitida.
 - **450 / 451:** Adiamento temporário devido a volume ou conexões. O servidor do destinatário está pedindo para você reduzir a velocidade.
 
 Quando você vê esses códigos no [Log de atividades de mensagens]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) ou no dashboard do seu ESP, reduza o volume de envio para o domínio afetado e use intervalos de tentativa progressivamente mais longos. Continuar com volume total enquanto está com limite de frequência pode escalar adiamentos temporários para rejeições permanentes.

@@ -9,7 +9,7 @@ description: "Use este endpoint para recuperar Banners elegíveis para um usuár
 hidden: true
 ---
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Recuperar Banners para um usuário {#retrieve-banners-for-a-user}
 {% apimethod post %}
 /v1/device-messaging/banners/sync
@@ -20,7 +20,7 @@ hidden: true
 A resposta contém propriedades estruturadas do Banner que você pode usar para criar uma interface personalizada. Ela não contém HTML renderizado.
 
 {% alert important %}
-Esta página está em beta. Os recursos e a documentação da API or interface de programação do aplicativo (API) de envio de mensagens para dispositivos estão sujeitos a alterações. Entre em contato com o gerente da sua conta Braze para solicitar acesso.
+Esta página está em beta. Os recursos e a documentação da API de envio de mensagens para dispositivos estão sujeitos a alterações. Entre em contato com o gerente da sua conta Braze para solicitar acesso.
 {% endalert %}
 
 ## Pré-requisitos {#prerequisites}
@@ -28,16 +28,16 @@ Esta página está em beta. Os recursos e a documentação da API or interface d
 Para usar este endpoint, você precisa do seguinte:
 
 - Um espaço de trabalho com Banners ativados
-- Uma [chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional do lado do cliente]({{site.baseurl}}/api/device_messaging_api/authentication) com a permissão `banners.sync`
-- O [endpoint REST or transferir estado representacional]({{site.baseurl}}/api/basics#endpoints) da sua instância da Braze
+- Uma [chave da API REST do lado do cliente]({{site.baseurl}}/api/device_messaging_api/authentication) com a permissão `banners.sync`
+- O [endpoint REST]({{site.baseurl}}/api/basics#endpoints) da sua instância da Braze
 
-Inclua a chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional do lado do cliente no cabeçalho `Authorization` como um token bearer.
+Inclua a chave da API REST do lado do cliente no cabeçalho `Authorization` como um token bearer.
 
 ## Limite de frequência {#rate-limit}
 
 Os limites de frequência se aplicam por espaço de trabalho. Se você exceder o limite de frequência, a Braze retornará um código de status `429`. Quando disponíveis, use os cabeçalhos de resposta `X-RateLimit-Limit`, `X-RateLimit-Remaining` e `X-RateLimit-Reset` para monitorar seu uso.
 
-Para saber mais, consulte [Limites de frequência da API or interface de programação do aplicativo (API) de envio de mensagens para dispositivos]({{site.baseurl}}/api/device_messaging_api/rate_limits).
+Para saber mais, consulte [Limites de frequência da API de envio de mensagens para dispositivos]({{site.baseurl}}/api/device_messaging_api/rate_limits).
 
 ## Corpo da requisição {#request-body}
 
@@ -59,7 +59,7 @@ Para saber mais, consulte [Limites de frequência da API or interface de program
 | Parâmetro | Obrigatório | Tipo de dados | Descrição | Exemplo |
 |---|---|---|---|---|
 | `external_user_id` | Obrigatório | String | O ID externo do usuário. | `user_abc123` |
-| `app_id` | Obrigatório | String | O [identificador de API or interface de programação do aplicativo (API) do app]({{site.baseurl}}/api/identifier_types#app-identifier). Deve identificar um app no espaço de trabalho autenticado. | `26a39c72-e647-4766-b62e-4521fa2dae59` |
+| `app_id` | Obrigatório | String | O [identificador de API do app]({{site.baseurl}}/api/identifier_types#app-identifier). Deve identificar um app no espaço de trabalho autenticado. | `26a39c72-e647-4766-b62e-4521fa2dae59` |
 | `app_version` | Obrigatório | String | A versão do app host. Não deve exceder 255 caracteres. | `1.0.0` |
 | `placements` | Obrigatório | Array de strings | Um ou mais IDs de posicionamento para recuperar Banners. Inclua pelo menos um ID de posicionamento. | `["home_hero", "sidebar_promo"]` |
 | `device_id` | Opcional | String | O identificador de dispositivo da Braze para o dispositivo alvo desta requisição. Não deve exceder 1.011 bytes. | `7bb8ac35-0a3f-4b8c-96ad-2e2e0dd1a4c9` |
@@ -73,7 +73,7 @@ Se você omitir `device_id`, enviar um valor vazio ou enviar um identificador qu
 
 ## Exemplo de requisição {#example-request}
 
-Substitua *`YOUR_REST_API_URL`* pelo [endpoint REST or transferir estado representacional]({{site.baseurl}}/api/basics#endpoints) da sua instância da Braze.
+Substitua *`YOUR_REST_API_URL`* pelo [endpoint REST]({{site.baseurl}}/api/basics#endpoints) da sua instância da Braze.
 
 ```bash
 curl --location --request POST '{YOUR_REST_API_URL}/v1/device-messaging/banners/sync' \
@@ -141,11 +141,11 @@ Uma requisição bem-sucedida retorna um código de status `200` e o Banner reso
 |---|---|
 | `200` | A Braze resolveu os dados do Banner para cada posicionamento solicitado. |
 | `400` | A requisição contém parâmetros ausentes ou inválidos. |
-| `401` | A chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional do lado do cliente está ausente, é inválida ou não possui a permissão `banners.sync`. |
-| `404` | O endpoint não está disponível. Esta resposta não diferencia uma chave de API or interface de programação do aplicativo (API) ausente ou inválida de um recurso de Banners desativado. |
+| `401` | A chave da API REST do lado do cliente está ausente, é inválida ou não possui a permissão `banners.sync`. |
+| `404` | O endpoint não está disponível. Esta resposta não diferencia uma chave de API ausente ou inválida de um recurso de Banners desativado. |
 | `429` | O espaço de trabalho excedeu seu limite de frequência. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Códigos de status" }
 
-Para saber mais, consulte [Tratamento de erros e novas tentativas da API or interface de programação do aplicativo (API) de envio de mensagens para dispositivos]({{site.baseurl}}/api/device_messaging_api/error_handling).
+Para saber mais, consulte [Tratamento de erros e novas tentativas da API de envio de mensagens para dispositivos]({{site.baseurl}}/api/device_messaging_api/error_handling).
 
 {% endapi %}

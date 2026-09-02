@@ -1,8 +1,8 @@
 ---
 nav_title: Tarjetas de contenido
-article_title: Registra los datos de la tarjeta de contenido a través del SDK or kit de desarrollo de software de Braze.
+article_title: Registra los datos de la tarjeta de contenido a través del SDK de Braze.
 page_order: 7.0
-description: "Aprende a registrar datos de tarjetas de contenido a través del SDK or kit de desarrollo de software de Braze."
+description: "Aprende a registrar datos de tarjetas de contenido a través del SDK de Braze."
 noindex: true
 ---
 

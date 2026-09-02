@@ -38,7 +38,7 @@ Votre client MCP fait référence à ces outils pour interagir avec le serveur B
 | `archive_campaign`<sup>*</sup> | N/A | mise à jour | Archive une Campaign. |
 | `unarchive_campaign`<sup>*</sup> | N/A | mise à jour | Désarchive une Campaign. |
 | `get_campaign_draft`<sup>*</sup> | N/A | lecture | Récupère les détails du brouillon d'une Campaign. |
-| `get_campaign_live_details`<sup>*</sup> | N/A | lecture | Récupère les détails d'une Campaign en direct or en ligne/en production/instantané. |
+| `get_campaign_live_details`<sup>*</sup> | N/A | lecture | Récupère les détails d'une Campaign en direct. |
 | `create_campaign_message`<sup>*</sup> | N/A | création | Crée un message au sein d'une Campaign. |
 | `update_campaign_message`<sup>*</sup> | N/A | mise à jour | Met à jour un message de Campaign. |
 | `delete_campaign_message`<sup>*</sup> | N/A | suppression | Supprime un message de Campaign. |

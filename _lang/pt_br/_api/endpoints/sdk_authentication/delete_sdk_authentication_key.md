@@ -1,20 +1,20 @@
 ---
-nav_title: "DELETE: Remover chave de autenticação do SDK or kit de desenvolvimento de software"
-article_title: "DELETE: Remover chave de autenticação do SDK or kit de desenvolvimento de software"
+nav_title: "DELETE: Remover chave de autenticação do SDK"
+article_title: "DELETE: Remover chave de autenticação do SDK"
 search_tag: Endpoint
 page_order: 3
 layout: api_page
 page_type: reference
-description: "Este artigo descreve detalhes sobre o endpoint da Braze para excluir a chave de autenticação do SDK or kit de desenvolvimento de software."
+description: "Este artigo descreve detalhes sobre o endpoint da Braze para excluir a chave de autenticação do SDK."
 ---
 
-{% API or interface de programação do aplicativo (API) %}
-# Excluir chave de autenticação do SDK or kit de desenvolvimento de software {#delete-sdk-authentication-key}
+{% api %}
+# Excluir chave de autenticação do SDK {#delete-sdk-authentication-key}
 {% apimethod delete %}
 /app_group/sdk_authentication/delete
 {% endapimethod %}
 
-> Use este endpoint para excluir uma chave de autenticação do SDK or kit de desenvolvimento de software para seu app.
+> Use este endpoint para excluir uma chave de autenticação do SDK para seu app.
 
 {% alert important %}
 A chave primária não pode ser excluída. Se você tentar excluir a chave primária, este endpoint retornará um erro.
@@ -22,7 +22,7 @@ A chave primária não pode ser excluída. Se você tentar excluir a chave prim�
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `sdk_authentication.delete`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `sdk_authentication.delete`.
 
 ## Limite de frequência {#rate-limit}
 
@@ -44,8 +44,8 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | -------- | --------- | ----------- |
-| `app_id` | Obrigatório | String | O identificador de API or interface de programação do aplicativo (API) do app. |
-| `key_id` | Obrigatório | String | O ID da chave de autenticação do SDK or kit de desenvolvimento de software a ser excluída. |
+| `app_id` | Obrigatório | String | O identificador de API do app. |
+| `key_id` | Obrigatório | String | O ID da chave de autenticação do SDK a ser excluída. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}
@@ -79,20 +79,20 @@ curl --location --request DELETE 'https://rest.iad-01.braze.com/app_group/sdk_au
 
 | Parâmetro | Tipo de dados | Descrição |
 | --------- | --------- | ----------- |
-| `keys` | Array | Array de objetos de chaves de autenticação do SDK or kit de desenvolvimento de software restantes. |
-| `keys[].id` | String | O ID da chave de autenticação do SDK or kit de desenvolvimento de software. |
+| `keys` | Array | Array de objetos de chaves de autenticação do SDK restantes. |
+| `keys[].id` | String | O ID da chave de autenticação do SDK. |
 | `keys[].rsa_public_key` | String | A string da chave pública RSA. |
-| `keys[].description` | String | Descrição da chave de autenticação do SDK or kit de desenvolvimento de software. |
-| `keys[].is_primary` | Boolean | Se esta chave é a chave primária de autenticação do SDK or kit de desenvolvimento de software. |
+| `keys[].description` | String | Descrição da chave de autenticação do SDK. |
+| `keys[].is_primary` | Boolean | Se esta chave é a chave primária de autenticação do SDK. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Parâmetros de resposta" }
 
 ### Regras de validação {#validation-rules}
 
 Este endpoint possui as seguintes regras de validação:
 
-- O `key_id` deve ser um ID válido de chave de autenticação do SDK or kit de desenvolvimento de software.
-- O `app_id` deve ser um identificador de API or interface de programação do aplicativo (API) de app válido.
-- A chave de autenticação do SDK or kit de desenvolvimento de software deve existir para o app especificado.
-- A chave primária de autenticação do SDK or kit de desenvolvimento de software não pode ser excluída.
+- O `key_id` deve ser um ID válido de chave de autenticação do SDK.
+- O `app_id` deve ser um identificador de API de app válido.
+- A chave de autenticação do SDK deve existir para o app especificado.
+- A chave primária de autenticação do SDK não pode ser excluída.
 
 {% endapi %}

@@ -12,26 +12,26 @@ tool: Canvas
 
 # Kontext {#context}
 
-> Mit Kontext-Schritten können Sie eine oder mehrere Variablen für Nutzer:innen erstellen und Update or aktualisieren or aktualisieren, während diese sich durch einen Canvas bewegen. Wenn Sie beispielsweise einen Canvas haben, der saisonale Rabatte verwaltet, können Sie eine Kontextvariable verwenden, um bei jedem Eintritt in den Canvas einen anderen Rabattcode zu speichern.
+> Mit Kontext-Schritten können Sie eine oder mehrere Variablen für Nutzer:innen erstellen und aktualisieren, während diese sich durch einen Canvas bewegen. Wenn Sie beispielsweise einen Canvas haben, der saisonale Rabatte verwaltet, können Sie eine Kontextvariable verwenden, um bei jedem Eintritt in den Canvas einen anderen Rabattcode zu speichern.
 
 ## So funktioniert es {#how-it-works}
 
 ![Ein Kontext-Schritt als erster Schritt eines Canvas.]({% image_buster /assets/img/context_step3.png %}){: style="float:right;max-width:40%;margin-left:15px;"}
 
-Kontext-Schritte ermöglichen es Ihnen, temporäre Daten während der Journey von Nutzer:innen durch einen bestimmten Canvas zu erstellen und zu verwenden. Diese Daten existieren nur innerhalb dieser Canvas-Journey und bleiben nicht über verschiedene Canvase hinweg oder außerhalb der Sitzung bestehen.
+Kontext-Schritte ermöglichen es Ihnen, temporäre Daten während der Journey von Nutzer:innen durch einen bestimmten Canvas zu erstellen und zu verwenden. Diese Daten existieren nur innerhalb dieser Canvas-Journey und bleiben nicht über verschiedene Canvases hinweg oder außerhalb der Sitzung bestehen.
 
-Kontextvariablen existieren nur für diese spezifische Canvas-Journey. Sie ändern das Profil der Nutzer:innen nicht dauerhaft und erscheinen nicht in anderen Canvase. Das macht sie ideal für temporäre Informationen, die nur für eine bestimmte Kampagne oder einen bestimmten Workflow relevant sind.
+Kontextvariablen existieren nur für diese spezifische Canvas-Journey. Sie ändern das Profil der Nutzer:innen nicht dauerhaft und erscheinen nicht in anderen Canvases. Das macht sie ideal für temporäre Informationen, die nur für eine bestimmte Kampagne oder einen bestimmten Workflow relevant sind.
 
 {% alert tip %}
 Eine vollständige Referenz zu Kontextvariablen, einschließlich Datentypen, Verwendung und Best Practices, finden Sie in der [Referenz zu Kontextvariablen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables).
 {% endalert %}
 
-Innerhalb eines Kontext-Schritts können Sie bis zu 10 Kontextvariablen definieren oder Update or aktualisieren or aktualisieren. Diese Variablen können verwendet werden, um Verzögerungen zu personalisieren, Nutzer:innen dynamisch zu segmentieren und Nachrichten im gesamten Canvas anzureichern. Sie könnten beispielsweise eine Kontextvariable für die geplante Flugzeit erstellen und diese dann verwenden, um personalisierte Verzögerungen festzulegen und Erinnerungen zu senden.
+Innerhalb eines Kontext-Schritts können Sie bis zu 10 Kontextvariablen definieren oder aktualisieren. Diese Variablen können verwendet werden, um Verzögerungen zu personalisieren, Nutzer:innen dynamisch zu segmentieren und Nachrichten im gesamten Canvas anzureichern. Sie könnten beispielsweise eine Kontextvariable für die geplante Flugzeit erstellen und diese dann verwenden, um personalisierte Verzögerungen festzulegen und Erinnerungen zu senden.
 
 Sie können Kontextvariablen auf zwei Arten festlegen:
 
-- **Beim Canvas-Eintritt:** Eigenschaften aus dem angepassten Event oder dem API-Trigger or triggern werden automatisch als Kontextvariablen befüllt.
-- **In einem Kontext-Schritt:** Definieren oder Update or aktualisieren or aktualisieren Sie Kontextvariablen manuell, indem Sie einen Kontext-Schritt hinzufügen.
+- **Beim Canvas-Eintritt:** Eigenschaften aus dem angepassten Event oder dem API-Trigger werden automatisch als Kontextvariablen befüllt.
+- **In einem Kontext-Schritt:** Definieren oder aktualisieren Sie Kontextvariablen manuell, indem Sie einen Kontext-Schritt hinzufügen.
 
 Jede Kontextvariable erfordert einen Namen, einen Datentyp und einen Wert (festgelegt mit Liquid oder dem Tool „Personalisierung hinzufügen“). Nach der Definition können Sie Kontextvariablen im gesamten Canvas mit Liquid referenzieren, z. B. {% raw %}`{{context.${flight_time}}}`{% endraw %}. Im Feld **Context variable name** können Sie auch den Namen der Kontextvariable eingeben oder ihn aus dem Dropdown im Schritt-Editor auswählen. Details finden Sie in der [Referenz zu Kontextvariablen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables).
 
@@ -56,7 +56,7 @@ Ohne Connected-Content verarbeiten Kontext-Schritte deutlich schneller, da keine
 - Sie können bis zu 10 Kontextvariablen pro Kontext-Schritt definieren.
 - Jede Variable erfordert einen eindeutigen Namen (nur Buchstaben, Zahlen, Unterstriche, bis zu 100 Zeichen).
 - Die Gesamtgröße aller Variablen in einem Schritt darf 50 KB nicht überschreiten.
-- Variablen, die über API-Trigger or triggern übergeben werden, teilen sich denselben Namespace wie die in Kontext-Schritten erstellten; das Neudefinieren einer Variable in einem Kontext-Schritt überschreibt den API-Wert.
+- Variablen, die über API-Trigger übergeben werden, teilen sich denselben Namespace wie die in Kontext-Schritten erstellten; das Neudefinieren einer Variable in einem Kontext-Schritt überschreibt den API-Wert.
 
 Weitere Details und fortgeschrittene Nutzung finden Sie in der [Referenz zu Kontextvariablen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables).
 
@@ -168,7 +168,7 @@ Wenn Ihr Connected-Content-Endpunkt Rate-Limits hat, beachten Sie, dass Kontext-
 
 ## Standardisierung der Zeitzonenkonsistenz {#time-zone-consistency-standardization}
 
-Mit der allgemeinen Verfügbarkeit von Canvas-Kontext sind alle Standard-Zeitstempel-Event-Eigenschaften in aktionsbasierten Canvase in UTC. Diese Änderung ist Teil einer umfassenderen Initiative, um eine vorhersehbarere und konsistentere Erfahrung beim Bearbeiten von Canvas-Schritten und Nachrichten zu gewährleisten. Beachten Sie, dass diese Änderung alle aktionsbasierten Canvase betrifft, unabhängig davon, ob der jeweilige Canvas einen Kontext-Schritt verwendet oder nicht.
+Mit der allgemeinen Verfügbarkeit von Canvas-Kontext sind alle Standard-Zeitstempel-Event-Eigenschaften in aktionsbasierten Canvases in UTC. Diese Änderung ist Teil einer umfassenderen Initiative, um eine vorhersehbarere und konsistentere Erfahrung beim Bearbeiten von Canvas-Schritten und Nachrichten zu gewährleisten. Beachten Sie, dass diese Änderung alle aktionsbasierten Canvases betrifft, unabhängig davon, ob der jeweilige Canvas einen Kontext-Schritt verwendet oder nicht.
 
 {% alert important %}
 In allen Fällen empfehlen wir dringend die Verwendung von [Liquid-time_zone-Filtern]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties#things-to-know) für Zeitstempel, damit diese in der gewünschten Zeitzone dargestellt werden. Ein Beispiel finden Sie in dieser [häufig gestellten Frage](#faq-example).
@@ -180,14 +180,14 @@ In allen Fällen empfehlen wir dringend die Verwendung von [Liquid-time_zone-Fil
 
 Seit Canvas-Kontext allgemein verfügbar ist, gelten folgende Details:
 
-- Alle Zeitstempel mit einem [Datetime-Typ]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties) aus [Trigger or triggern-Event-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) in aktionsbasierten Canvase sind in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
-- Diese Änderung betrifft alle aktionsbasierten Canvase, unabhängig davon, ob der jeweilige Canvas einen Kontext-Schritt verwendet oder nicht.
+- Alle Zeitstempel mit einem [Datetime-Typ]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties) aus [Trigger-Event-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) in aktionsbasierten Canvases sind in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
+- Diese Änderung betrifft alle aktionsbasierten Canvases, unabhängig davon, ob der jeweilige Canvas einen Kontext-Schritt verwendet oder nicht.
 
 #### Was ist der Grund für diese Änderung? {#what-is-the-reason-for-this-change}
 
 Diese Änderung ist Teil einer umfassenderen Initiative, um eine vorhersehbarere und konsistentere Erfahrung beim Bearbeiten von Canvas-Schritten und Nachrichten zu schaffen.
 
-#### Sind API-getriggerte oder geplante Canvase von dieser Änderung betroffen? {#are-api-triggered-or-scheduled-canvases-impacted-by-this-change}
+#### Sind API-getriggerte oder geplante Canvases von dieser Änderung betroffen? {#are-api-triggered-or-scheduled-canvases-impacted-by-this-change}
 
 Nein.
 

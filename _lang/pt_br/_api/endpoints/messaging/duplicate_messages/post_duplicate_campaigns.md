@@ -8,21 +8,21 @@ page_type: reference
 description: "Este artigo traz informações sobre o endpoint \"Duplicar Campaigns\"."
 
 ---
-{% API or interface de programação do aplicativo (API) %}
-# Duplicar Campaigns usando a API or interface de programação do aplicativo (API) {#duplicate-campaigns-using-the-api}
+{% api %}
+# Duplicar Campaigns usando a API {#duplicate-campaigns-using-the-api}
 {% apimethod post core_endpoint|/docs/core_endpoints %}
 /campaigns/duplicate
 {% endapimethod %}
 
-> Use esse endpoint para duplicar Campaigns. Esse endpoint da API or interface de programação do aplicativo (API) é semelhante à [duplicação de Campaigns no dashboard da Braze]({{site.baseurl}}/user_guide/messaging/governance/duplicating).
+> Use esse endpoint para duplicar Campaigns. Esse endpoint da API é semelhante à [duplicação de Campaigns no dashboard da Braze]({{site.baseurl}}/user_guide/messaging/governance/duplicating).
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará gerar uma chave de API or interface de programação do aplicativo (API) com a permissão `campaigns.duplicate`.
+Para usar esse endpoint, você precisará gerar uma chave de API com a permissão `campaigns.duplicate`.
 
 ## Limite de frequência {#rate-limit}
 
-Esse endpoint está limitado a 100 chamadas de API or interface de programação do aplicativo (API) por minuto.
+Esse endpoint está limitado a 100 chamadas de API por minuto.
 
 ## Corpo da solicitação {#request-body}
 
@@ -53,6 +53,6 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## Resposta {#response}
 
-Esse endpoint retorna um código de status `202`, e a criação da Campaign ocorre de forma assíncrona. Você pode usar o [download de eventos de segurança]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#security-event-report) para ver registros de quando as Campaigns foram duplicadas e por qual chave de API or interface de programação do aplicativo (API).
+Esse endpoint retorna um código de status `202`, e a criação da Campaign ocorre de forma assíncrona. Você pode usar o [download de eventos de segurança]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#security-event-report) para ver registros de quando as Campaigns foram duplicadas e por qual chave de API.
 
 {% endapi %}

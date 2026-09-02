@@ -13,7 +13,7 @@ channel:
 
 > Die Handhabung von WhatsApp-Opt-ins und -Opt-outs ist entscheidend, da WhatsApp Ihre [Qualitätsbewertung der Telefonnummer](https://www.facebook.com/business/help/896873687365001) überwacht und niedrige Bewertungen dazu führen können, dass Ihre Nachrichtenlimits reduziert werden. <br><br>Eine Möglichkeit, eine hohe Qualitätsbewertung aufzubauen, besteht darin, zu verhindern, dass Nutzer:innen Ihr Unternehmen blockieren oder melden. Dies kann erreicht werden, indem Sie [qualitativ hochwertige Nachrichten](https://developers.facebook.com/docs/whatsapp/messaging-limits#quality-rating-and-messaging-limits) bereitstellen (z. B. Mehrwert für Ihre Nutzer:innen), die Nachrichtenhäufigkeit kontrollieren und Kund:innen die Möglichkeit geben, den Empfang zukünftiger Kommunikation abzulehnen. <br><br>Einen kanalübergreifenden Überblick über den WhatsApp-Abo-Status finden Sie unter [Abo-Status]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_status#whatsapp). Diese Seite beschreibt, wie Sie Opt-ins und Opt-outs einrichten und welche Unterschiede zwischen den Modifikatoren „Regex“ und „is“ bestehen.
 
-Opt-ins können aus externen Quellen oder über Braze-Methoden wie Kurzmitteilungsdienst or SMS oder In-App- und In-Browser-Nachrichten stammen. Opt-outs können über in Braze festgelegte Schlüsselwörter und WhatsApp-Marketing-Buttons verarbeitet werden. Nutzen Sie die folgenden Methoden als Leitfaden für die Einrichtung von Opt-ins und Opt-outs.
+Opt-ins können aus externen Quellen oder über Braze-Methoden wie SMS oder In-App- und In-Browser-Nachrichten stammen. Opt-outs können über in Braze festgelegte Schlüsselwörter und WhatsApp-Marketing-Buttons verarbeitet werden. Nutzen Sie die folgenden Methoden als Leitfaden für die Einrichtung von Opt-ins und Opt-outs.
 
 ## Opt-in-Methoden {#opt-in-methods}
 - [Externe Opt-in-Methoden (außerhalb von Braze)](#external-to-braze-opt-in-methods)
@@ -29,9 +29,9 @@ Opt-ins können aus externen Quellen oder über Braze-Methoden wie Kurzmitteilun
 ## Opt-ins für Ihren Braze WhatsApp-Kanal einrichten {#set-up-opt-ins-for-your-braze-whatsapp-channel}
 
 Für WhatsApp Opt-ins müssen Sie die [Anforderungen von WhatsApp](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in/) einhalten. Außerdem müssen Sie Braze die folgenden Informationen bereitstellen:
-- Eine `external_id`, eine [Telefonnummer]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers) und einen aktualisierten Abo-Status für jede:n Nutzer:in. Dies kann über das [SDK or Software-Development-Kit](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)/) oder über den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) erfolgen, um die Telefonnummer und den Abo-Status zu Update or aktualisieren or aktualisieren.
+- Eine `external_id`, eine [Telefonnummer]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers) und einen aktualisierten Abo-Status für jede:n Nutzer:in. Dies kann über das [SDK](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)/) oder über den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) erfolgen, um die Telefonnummer und den Abo-Status zu aktualisieren.
 
-Eine eingehende WhatsApp-Nachricht abonniert Nutzer:innen nicht automatisch für Ihre WhatsApp-Abo-Gruppe. Sie müssen den Abo-Status explizit mit einem [User-Update or aktualisieren-Schritt](#user-update-step), einem [Webhook](#webhook-campaign-to-trigger-a-second-whatsapp-campaign) oder einem API-Aufruf Update or aktualisieren or aktualisieren.
+Eine eingehende WhatsApp-Nachricht abonniert Nutzer:innen nicht automatisch für Ihre WhatsApp-Abo-Gruppe. Sie müssen den Abo-Status explizit mit einem [User-Update-Schritt](#user-update-step), einem [Webhook](#webhook-campaign-to-trigger-a-second-whatsapp-campaign) oder einem API-Aufruf aktualisieren.
 
 Meta verlangt, dass der Opt-in-Text:
 
@@ -60,7 +60,7 @@ Angepasste Attribute ersetzen nicht die WhatsApp-Abo-Gruppe. Nutzer:innen müsse
 
 Ihre App oder Website (Kontoregistrierung, Checkout-Seite, Kontoeinstellungen, Kreditkartenterminal) zu Braze.
 
-Überall dort, wo Sie bereits Marketing-Einwilligungen für E-Mail oder Kurzmitteilungsdienst or SMS haben, fügen Sie einen zusätzlichen Abschnitt für WhatsApp hinzu. Nachdem Nutzer:innen sich angemeldet haben, benötigen sie eine `external_id`, eine [Telefonnummer]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers) und einen aktualisierten Abo-Status. Nutzen Sie dafür je nach Konfiguration Ihrer Braze-Installation entweder den [`/subscription/status/set`-Endpunkt]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) oder das [SDK or Software-Development-Kit](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)/).
+Überall dort, wo Sie bereits Marketing-Einwilligungen für E-Mail oder SMS haben, fügen Sie einen zusätzlichen Abschnitt für WhatsApp hinzu. Nachdem Nutzer:innen sich angemeldet haben, benötigen sie eine `external_id`, eine [Telefonnummer]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers) und einen aktualisierten Abo-Status. Nutzen Sie dafür je nach Konfiguration Ihrer Braze-Installation entweder den [`/subscription/status/set`-Endpunkt]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) oder das [SDK](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)/).
 
 #### Extern erstellte Opt-in-Liste {#externally-built-opt-in-list}
 
@@ -72,10 +72,10 @@ Senden Sie in Ihrem Kundenservice-Kanal nach gelösten Problemen automatisch ein
 
 1. Stellen Sie einen [Nachrichtenlink](https://business.facebook.com/business/help/890732351439459?ref=search_new_0) von Ihrer WhatsApp-Business-Telefonnummer bereit.
 2. Stellen Sie [Schnellantwort-Aktionen]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies) bereit, bei denen Kund:innen mit „Ja“ antworten, um das Opt-in zu bestätigen.
-3. Richten Sie einen angepassten Keyword-Trigger or triggern ein.
+3. Richten Sie einen angepassten Keyword-Trigger ein.
 4. Für beide Ansätze müssen Sie den Pfad wahrscheinlich mit Folgendem abschließen:
-	- Rufen Sie den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) auf, um Nutzer:innen zu Update or aktualisieren or aktualisieren oder zu erstellen.
-	- Nutzen Sie den [`/subscription/status/set`-Endpunkt]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) oder das [SDK or Software-Development-Kit](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)/).
+	- Rufen Sie den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) auf, um Nutzer:innen zu aktualisieren oder zu erstellen.
+	- Nutzen Sie den [`/subscription/status/set`-Endpunkt]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) oder das [SDK](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)/).
 
 #### Eingehende WhatsApp-Nachricht {#inbound-whatsapp-message}
 
@@ -83,7 +83,7 @@ Lassen Sie Kund:innen eine eingehende Nachricht an die WhatsApp-Nummer senden.
 
 Dies kann je nachdem, ob Nutzer:innen eine Bestätigungsnachricht auf dem neuen Kanal erhalten sollen, als Canvas oder Campaign eingerichtet werden.
 
-1. Erstellen Sie eine Campaign mit dem aktionsbasierten Zustellungs-Trigger or triggern einer eingehenden Nachricht.
+1. Erstellen Sie eine Campaign mit dem aktionsbasierten Zustellungs-Trigger einer eingehenden Nachricht.
 2. Erstellen Sie eine Webhook-Campaign. Ein Beispiel-Webhook finden Sie unter [Abo-Gruppen]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs#step-2-update-the-users-profile).
 
 {% alert tip %}
@@ -92,11 +92,11 @@ Sie können auch eine URL oder einen QR-Code erstellen, um einem WhatsApp-Kanal 
 
 ### Braze-gestützte Opt-in-Methoden {#braze-powered-opt-in-methods}
 
-#### Kurzmitteilungsdienst or SMS-Nachricht {#sms-message}
+#### SMS-Nachricht {#sms-message}
 
 Richten Sie in Canvas eine Campaign ein, die Kund:innen fragt, ob sie WhatsApp-Nachrichten erhalten möchten, indem Sie eine der folgenden Methoden verwenden:
 - Kundensegment: abonnierte Marketing-Gruppe außerhalb der USA
-- Angepasste Keyword-Trigger or triggern-Einrichtung
+- Angepasste Keyword-Trigger-Einrichtung
 
 Erfahren Sie mehr über die Aktualisierung des Abo-Status von Nutzerprofilen unter [Abo-Gruppen]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#update-subscription-status).
 
@@ -104,7 +104,7 @@ Erfahren Sie mehr über die Aktualisierung des Abo-Status von Nutzerprofilen unt
 
 Erstellen Sie eine In-App-Nachricht oder ein In-Browser-Pop-up, das Kund:innen dazu auffordert, sich für die WhatsApp-Nutzung anzumelden.
 
-Verwenden Sie [HTML-In-App-Nachrichten](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates/4-sms-capture-modal) mit dem [JavaScript-„Bridge“]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#javascript-bridge), um eine Schnittstelle zum Braze SDK or Software-Development-Kit herzustellen. Stellen Sie sicher, dass Sie die WhatsApp-Abo-Gruppen-ID verwenden.
+Verwenden Sie [HTML-In-App-Nachrichten](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates/4-sms-capture-modal) mit dem [JavaScript-„Bridge“]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#javascript-bridge), um eine Schnittstelle zum Braze SDK herzustellen. Stellen Sie sicher, dass Sie die WhatsApp-Abo-Gruppen-ID verwenden.
 
 #### Formular zur Erfassung von Telefonnummern {#phone-number-capture-form}
 
@@ -116,7 +116,7 @@ Verwenden Sie das Template [Formular zur Erfassung von Telefonnummern]({{site.ba
 
 WhatsApp bietet in den App-Einstellungen einen Umschalter „Angebote und Ankündigungen“, mit dem Nutzer:innen Marketing-Nachrichten abbestellen können. Dieser Umschalter funktioniert unabhängig von Braze-Abo-Gruppen:
 
-- **Braze-Abo-Gruppen** werden über Ihre Braze-Integration (API, Preference Center oder SDK or Software-Development-Kit) verwaltet und steuern, welche Nutzer:innen Sie für Messaging ansprechen.
+- **Braze-Abo-Gruppen** werden über Ihre Braze-Integration (API, Preference Center oder SDK) verwaltet und steuern, welche Nutzer:innen Sie für Messaging ansprechen.
 - **Der native WhatsApp-Umschalter** wird von Meta gesteuert und auf Plattformebene durchgesetzt, außerhalb von Braze.
 
 Diese beiden Ebenen synchronisieren sich absichtlich nicht automatisch. Wenn ein:e Nutzer:in den Umschalter „Angebote und Ankündigungen“ in WhatsApp deaktiviert, blockiert Meta die Zustellung von Marketing-Nachrichten auf Plattformebene – auch wenn der Braze-Abo-Status des/der Nutzer:in als „Subscribed“ angezeigt wird. Die Präferenz der Nutzer:innen wird zum Zeitpunkt der Zustellung berücksichtigt.
@@ -127,19 +127,19 @@ Da Braze kein Opt-out-Signal erhält, bis ein Sendeversuch unternommen wird und 
 
 ### Allgemeine Opt-out-Schlüsselwörter {#general-opt-out-keywords}
 
-Sie können eine Campaign oder einen Canvas einrichten, die/der es Nutzer:innen, die bestimmte Wörter senden, ermöglicht, sich von zukünftigen Nachrichten abzumelden. Canvase können besonders vorteilhaft sein, da Sie eine Folgenachricht einschließen können, die das erfolgreiche Opt-out bestätigt.
+Sie können eine Campaign oder einen Canvas einrichten, die/der es Nutzer:innen, die bestimmte Wörter senden, ermöglicht, sich von zukünftigen Nachrichten abzumelden. Canvases können besonders vorteilhaft sein, da Sie eine Folgenachricht einschließen können, die das erfolgreiche Opt-out bestätigt.
 
-#### Schritt 1: Einen Canvas mit dem Trigger or triggern „Eingehende WhatsApp-Nachricht“ erstellen {#step-1-create-a-canvas-with-a-trigger-of-inbound-whatsapp-message}
+#### Schritt 1: Einen Canvas mit dem Trigger „Eingehende WhatsApp-Nachricht“ erstellen {#step-1-create-a-canvas-with-a-trigger-of-inbound-whatsapp-message}
 
 ![Aktionsbasierter Canvas-Entry-Schritt, der Nutzer:innen aufnimmt, die eine eingehende WhatsApp-Nachricht senden.]({% image_buster /assets/img/whatsapp/whatsapp116.png %}){: style="max-width:85%;"}
 
-Wenn Sie Schlüsselwort-Trigger or triggern auswählen, schließen Sie Wörter wie „Stop“ oder „No Message“ ein. Wenn Sie diese Methode wählen, stellen Sie sicher, dass Ihre Kund:innen Ihre Opt-out-Wörter kennen. Beispielsweise können Sie nach dem ersten Opt-in eine Folgenachricht wie „Um sich von diesen Nachrichten abzumelden, senden Sie jederzeit „Stop“." einschließen.
+Wenn Sie Schlüsselwort-Trigger auswählen, schließen Sie Wörter wie „Stop“ oder „No Message“ ein. Wenn Sie diese Methode wählen, stellen Sie sicher, dass Ihre Kund:innen Ihre Opt-out-Wörter kennen. Beispielsweise können Sie nach dem ersten Opt-in eine Folgenachricht wie „Um sich von diesen Nachrichten abzumelden, senden Sie jederzeit „Stop“." einschließen.
 
 ![Nachrichtenschritt zum Senden einer eingehenden WhatsApp-Nachricht, bei der der Nachrichtentext „STOP“ oder „NO MESSAGE“ lautet.]({% image_buster /assets/img/whatsapp/whatsapp117.png %}){: style="max-width:85%;"}
 
-#### Schritt 2: Das Kundenprofil or Nutzerprofil Update or aktualisieren or aktualisieren {#step-2-update-the-users-profile}
+#### Schritt 2: Das Kundenprofil aktualisieren {#step-2-update-the-users-profile}
 
-Update or aktualisieren or aktualisieren Sie das Kundenprofil or Nutzerprofil mit einer der in [Abo-Gruppen]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#update-subscription-status) beschriebenen Methoden.
+Aktualisieren Sie das Kundenprofil mit einer der in [Abo-Gruppen]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#update-subscription-status) beschriebenen Methoden.
 
 ### Marketing-Opt-out-Auswahl {#marketing-opt-out-selection}
 
@@ -147,33 +147,33 @@ Im WhatsApp-Nachrichtentemplate-Creator können Sie die Option „Marketing-Opt-
 
 1. Erstellen Sie ein Nachrichtentemplate mit der Schnellantwort „Marketing-Opt-out“.<br>![Nachrichtentemplate mit einer Fußzeilenoption „Marketing-Opt-out“]({% image_buster /assets/img/whatsapp/whatsapp121.png %})<br><br>![Bereich zur Konfiguration eines Marketing-Opt-out-Buttons.]({% image_buster /assets/img/whatsapp/whatsapp122.png %})<br><br>
 2. Erstellen Sie einen Canvas, der dieses Nachrichtentemplate verwendet.<br><br>
-3. Befolgen Sie die Schritte im vorherigen Beispiel, jedoch mit dem Trigger or triggern-Text „STOP PROMOTIONS“.<br><br>
-4. Update or aktualisieren or aktualisieren Sie den Abo-Status der Nutzer:innen mit einer der in [Abo-Gruppen]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#update-subscription-status) beschriebenen Methoden.
+3. Befolgen Sie die Schritte im vorherigen Beispiel, jedoch mit dem Trigger-Text „STOP PROMOTIONS“.<br><br>
+4. Aktualisieren Sie den Abo-Status der Nutzer:innen mit einer der in [Abo-Gruppen]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#update-subscription-status) beschriebenen Methoden.
 
 ## Opt-in- und Opt-out-Workflows einrichten {#set-up-opt-in-and-opt-out-workflows}
 
 Sie können „START“- und „STOP“-Keyword-Antwort-Workflows für WhatsApp mit diesen zwei Methoden konfigurieren:
 
-- [User-Update or aktualisieren-Schritt](#user-update-step)
-- [Webhook-Campaign zum Trigger or triggern or triggern einer zweiten WhatsApp-Campaign](#webhook-campaign-to-trigger-a-second-whatsapp-campaign)
+- [User-Update-Schritt](#user-update-step)
+- [Webhook-Campaign zum Triggern einer zweiten WhatsApp-Campaign](#webhook-campaign-to-trigger-a-second-whatsapp-campaign)
 
-### User-Update or aktualisieren-Schritt {#user-update-step}
+### User-Update-Schritt {#user-update-step}
 
-Der [User-Update or aktualisieren-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) kann die Telefonnummer der Nutzer:innen zur WhatsApp-Abo-Gruppe hinzufügen, wenn sie ein Keyword an die Telefonnummer der Abo-Gruppe senden.
+Der [User-Update-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) kann die Telefonnummer der Nutzer:innen zur WhatsApp-Abo-Gruppe hinzufügen, wenn sie ein Keyword an die Telefonnummer der Abo-Gruppe senden.
 
-Der User-Update or aktualisieren-Schritt vermeidet Race-Conditions, da die Nutzer:innen nicht zum nächsten Schritt im Canvas weitergeleitet werden, bevor ihre Telefonnummer zur Abo-Gruppe hinzugefügt wurde. Außerdem sind weniger Schritte zur Einrichtung erforderlich als bei den anderen Methoden, weshalb Braze diese Methode generell empfiehlt.
+Der User-Update-Schritt vermeidet Race-Conditions, da die Nutzer:innen nicht zum nächsten Schritt im Canvas weitergeleitet werden, bevor ihre Telefonnummer zur Abo-Gruppe hinzugefügt wurde. Außerdem sind weniger Schritte zur Einrichtung erforderlich als bei den anderen Methoden, weshalb Braze diese Methode generell empfiehlt.
 
 1. Erstellen Sie einen Canvas mit dem aktionsbasierten Schritt **Send a WhatsApp Inbound Message**. Wählen Sie **Where the message body** und geben Sie „START“ bei **Is** ein.
 
 {% alert important %}
-Für „STOP“-Nachrichten kehren Sie den Nachrichtenschritt, der das Opt-out bestätigt, und den User-Update or aktualisieren-Schritt um. Andernfalls werden die Nutzer:innen zuerst aus der Abo-Gruppe entfernt und sind dann nicht mehr berechtigt, die Bestätigungsnachricht zu empfangen.
+Für „STOP“-Nachrichten kehren Sie den Nachrichtenschritt, der das Opt-out bestätigt, und den User-Update-Schritt um. Andernfalls werden die Nutzer:innen zuerst aus der Abo-Gruppe entfernt und sind dann nicht mehr berechtigt, die Bestätigungsnachricht zu empfangen.
 {% endalert %}
 
 ![Ein WhatsApp-Nachrichtenschritt, bei dem der Nachrichtentext „START“ lautet.]({% image_buster /assets/img/whatsapp/whatsapp_inbound_message.png %}){: style="max-width:80%;"}
 
 {: start="2"}
 2. Erstellen Sie im Canvas einen **Set Up User Update**-Schritt und wählen Sie unter **Action** den **Advanced JSON Editor** aus. <br><br>![User-Update-Schritt mit der Aktion „Advanced JSON Editor“.]({% image_buster /assets/img/whatsapp/user_update.png %})<br><br>
-3. Füllen Sie das **User Update or aktualisieren object** mit dem folgenden JSON-Payload aus und ersetzen Sie `XXXXXXXXXXX` durch Ihre Abo-Gruppen-ID:
+3. Füllen Sie das **User Update object** mit dem folgenden JSON-Payload aus und ersetzen Sie `XXXXXXXXXXX` durch Ihre Abo-Gruppen-ID:
 
 {% raw %}
 ```json
@@ -197,11 +197,11 @@ Für „STOP“-Nachrichten kehren Sie den Nachrichtenschritt, der das Opt-out b
 
 #### Hinweise {#considerations}
 
-Das Update or aktualisieren kann mit unterschiedlicher Geschwindigkeit abgeschlossen werden, da Braze die Anfragen des [User-Update or aktualisieren-Schritts]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) bündelt. Für zeitkritische Opt-in-Flows, bei denen die Bestätigung sofort nach dem Abo-Update or aktualisieren gesendet werden muss, verwenden Sie stattdessen die [Webhook-Methode](#webhook-campaign-to-trigger-a-second-whatsapp-campaign) anstelle eines User-Update or aktualisieren-Schritts.
+Das Update kann mit unterschiedlicher Geschwindigkeit abgeschlossen werden, da Braze die Anfragen des [User-Update-Schritts]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) bündelt. Für zeitkritische Opt-in-Flows, bei denen die Bestätigung sofort nach dem Abo-Update gesendet werden muss, verwenden Sie stattdessen die [Webhook-Methode](#webhook-campaign-to-trigger-a-second-whatsapp-campaign) anstelle eines User-Update-Schritts.
 
-### Webhook-Campaign zum Trigger or triggern or triggern einer zweiten WhatsApp-Campaign {#webhook-campaign-to-trigger-a-second-whatsapp-campaign}
+### Webhook-Campaign zum Triggern einer zweiten WhatsApp-Campaign {#webhook-campaign-to-trigger-a-second-whatsapp-campaign}
 
-Eine Webhook-Campaign kann den Einstieg in eine zweite Campaign Trigger or triggern or triggern, nachdem die Telefonnummer der Nutzer:innen zur WhatsApp-Abo-Gruppe hinzugefügt wurde, wenn sie ein Keyword an die Telefonnummer der Abo-Gruppe senden.
+Eine Webhook-Campaign kann den Einstieg in eine zweite Campaign triggern, nachdem die Telefonnummer der Nutzer:innen zur WhatsApp-Abo-Gruppe hinzugefügt wurde, wenn sie ein Keyword an die Telefonnummer der Abo-Gruppe senden.
 
 {% alert important %}
 Sie müssen diese Methode nicht für STOP-Nachrichten verwenden. Die Bestätigungsnachricht wird gesendet, bevor die Nutzer:innen aus der Abo-Gruppe entfernt werden. Sie können daher einen der beiden anderen Schritte verwenden.
@@ -246,18 +246,18 @@ Sie müssen diese Methode nicht für STOP-Nachrichten verwenden. Die Bestätigun
 {% endraw %}
 
 {: start="5"}
-5. Erstellen Sie eine WhatsApp-Campaign (Ihre zweite Campaign) und setzen Sie den Trigger or triggern auf API. Stellen Sie sicher, dass Sie diese `campaign_id` in den JSON-Payload Ihrer ersten Campaign kopieren.
+5. Erstellen Sie eine WhatsApp-Campaign (Ihre zweite Campaign) und setzen Sie den Trigger auf API. Stellen Sie sicher, dass Sie diese `campaign_id` in den JSON-Payload Ihrer ersten Campaign kopieren.
 
 #### Hinweise
 
-- Attribut-Updates innerhalb des Canvas-API-Trigger or triggern-JSON-Payloads werden noch nicht unterstützt. Sie können daher nur eine WhatsApp-Campaign für die WhatsApp-Antwortnachricht Trigger or triggern or triggern (wie in Schritt 2).
-- Ein WhatsApp-Template muss genehmigt sein, um es als Antwortnachricht zu senden. Dies liegt daran, dass eine Schnellantwort den Trigger or triggern für eingehende Nachrichten innerhalb derselben Campaign oder desselben Canvas erfordert. Wenn Sie einen [User-Update or aktualisieren-Schritt](#user-update-step) verwenden, können Sie eine Schnellantwort-Nachricht ohne Meta-Genehmigung senden.
+- Attribut-Updates innerhalb des Canvas-API-Trigger-JSON-Payloads werden noch nicht unterstützt. Sie können daher nur eine WhatsApp-Campaign für die WhatsApp-Antwortnachricht triggern (wie in Schritt 2).
+- Ein WhatsApp-Template muss genehmigt sein, um es als Antwortnachricht zu senden. Dies liegt daran, dass eine Schnellantwort den Trigger für eingehende Nachrichten innerhalb derselben Campaign oder desselben Canvas erfordert. Wenn Sie einen [User-Update-Schritt](#user-update-step) verwenden, können Sie eine Schnellantwort-Nachricht ohne Meta-Genehmigung senden.
 
 ## Den Unterschied zwischen den Modifikatoren „Regex“ und „ist“ verstehen {#understanding-the-difference-between-regex-and-is-modifiers}
 
-In dieser Tabelle wird `STOP` als Beispiel für ein Trigger or triggern-Wort verwendet, um zu zeigen, wie die Modifikatoren funktionieren.
+In dieser Tabelle wird `STOP` als Beispiel für ein Trigger-Wort verwendet, um zu zeigen, wie die Modifikatoren funktionieren.
 
-| Modifikator | Trigger or triggern-Wort | Aktion |
+| Modifikator | Trigger-Wort | Aktion |
 | --- | --- | --- |
 | `Is` | `STOP` | Erkennt jede Verwendung von „stop“ als ganzes Wort, unabhängig von der Groß- und Kleinschreibung. Dies erkennt beispielsweise „stop“, aber nicht „please stop“. |
 | `Matches regex` | `STOP` | Erkennt jede Verwendung von „STOP“ in genau dieser Schreibweise. Dies erkennt beispielsweise „STOP“ und „PLEASE STOP“, aber nicht „stop“. |

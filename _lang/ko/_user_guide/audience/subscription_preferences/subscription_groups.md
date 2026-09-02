@@ -2,7 +2,7 @@
 nav_title: 구독 그룹
 article_title: 구독 그룹
 page_order: 4
-description: "Braze 채널 전반에서 구독 그룹이 어떻게 작동하는지, 구독 그룹을 생성하고 관리하는 방법, 이메일, WhatsApp, 단문 메시지 서비스, MMS, RCS, LINE의 채널별 동작에 대해 알아보세요."
+description: "Braze 채널 전반에서 구독 그룹이 어떻게 작동하는지, 구독 그룹을 생성하고 관리하는 방법, 이메일, WhatsApp, SMS, MMS, RCS, LINE의 채널별 동작에 대해 알아보세요."
 ---
 
 # 구독 그룹 {#subscription-groups}
@@ -11,7 +11,7 @@ description: "Braze 채널 전반에서 구독 그룹이 어떻게 작동하는�
 
 구독 그룹은 채널 내 특정 발송 리소스 세트로부터 메시지를 수신할 수 있는 사용자를 제어합니다.
 
-이메일의 경우, 구독 그룹은 글로벌 가입 상태 위에 적용되는 선택적 카테고리 필터입니다. 단문 메시지 서비스, WhatsApp, LINE의 경우, 구독 그룹은 모든 발송에 필수적인 오디언스 필터입니다. 이를 통해 뉴스레터 대 프로모션, 트랜잭션 단문 메시지 서비스 대 마케팅 단문 메시지 서비스 등 세분화된 옵트인 및 옵트아웃 옵션을 제공할 수 있으며, 글로벌 채널 가입 상태가 있는 경우 해당 상태를 변경하지 않습니다.
+이메일의 경우, 구독 그룹은 글로벌 가입 상태 위에 적용되는 선택적 카테고리 필터입니다. SMS, WhatsApp, LINE의 경우, 구독 그룹은 모든 발송에 필수적인 오디언스 필터입니다. 이를 통해 뉴스레터 대 프로모션, 트랜잭션 SMS 대 마케팅 SMS 등 세분화된 옵트인 및 옵트아웃 옵션을 제공할 수 있으며, 글로벌 채널 가입 상태가 있는 경우 해당 상태를 변경하지 않습니다.
 
 [구독 그룹 엔드포인트]({{site.baseurl}}/api/endpoints/subscription_groups)를 사용하여 Braze 워크스페이스에 저장된 구독 그룹을 프로그래밍 방식으로 관리할 수 있습니다.
 
@@ -24,16 +24,16 @@ description: "Braze 채널 전반에서 구독 그룹이 어떻게 작동하는�
 | 채널 | 글로벌 가입 상태 | 구독 그룹 |
 | --- | --- | --- |
 | 이메일 | 모든 이메일에 대해 옵트인, 가입됨 또는 가입 취소됨 | 이메일 내 선택적 카테고리(예: 뉴스레터 또는 프로모션) |
-| 단문 메시지 서비스, MMS, RCS | 글로벌 단문 메시지 서비스 상태 없음; 가입은 그룹별로 관리 | 모든 발송에 필수; 각 그룹에 발송 전화번호 또는 RCS 발신자 포함 |
+| SMS, MMS, RCS | 글로벌 SMS 상태 없음; 가입은 그룹별로 관리 | 모든 발송에 필수; 각 그룹에 발송 전화번호 또는 RCS 발신자 포함 |
 | WhatsApp | 글로벌 WhatsApp 상태 없음; 가입은 그룹별로 관리 | WhatsApp 통합 시 생성; 각 그룹이 발송 전화번호에 매핑됨 |
 | LINE | 글로벌 LINE 상태 없음; 가입은 그룹별로 관리 | LINE 채널 통합별로 생성; LINE 앱에서의 팔로우 또는 언팔로우가 상태를 결정 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="글로벌 가입 상태 대 구독 그룹" }
 
-사용자가 이메일에 글로벌로 가입되어 있으면서 특정 이메일 구독 그룹에서는 가입 취소된 상태일 수 있습니다. 단문 메시지 서비스의 경우, 사용자가 트랜잭션 그룹에는 가입되어 있으면서 프로모션 그룹에는 가입 취소된 상태일 수 있습니다.
+사용자가 이메일에 글로벌로 가입되어 있으면서 특정 이메일 구독 그룹에서는 가입 취소된 상태일 수 있습니다. SMS의 경우, 사용자가 트랜잭션 그룹에는 가입되어 있으면서 프로모션 그룹에는 가입 취소된 상태일 수 있습니다.
 
 ## 구독 그룹 생성하기 {#create-a-subscription-group}
 
-구독 그룹을 얻는 방법은 채널에 따라 다릅니다. 이메일 그룹은 대시보드에서 생성하고, 단문 메시지 서비스, MMS, RCS 그룹은 온보딩 중에 프로비저닝되며, WhatsApp과 LINE 그룹은 채널 통합 중에 생성됩니다. 채널별 프로비저닝 세부 정보는 [채널별 동작](#channel-specific-behavior)을 참조하세요.
+구독 그룹을 얻는 방법은 채널에 따라 다릅니다. 이메일 그룹은 대시보드에서 생성하고, SMS, MMS, RCS 그룹은 온보딩 중에 프로비저닝되며, WhatsApp과 LINE 그룹은 채널 통합 중에 생성됩니다. 채널별 프로비저닝 세부 정보는 [채널별 동작](#channel-specific-behavior)을 참조하세요.
 
 ### 이메일 {#email}
 
@@ -62,18 +62,18 @@ Braze는 보관된 그룹으로의 메시징을 차단하므로, 보관된 구�
 
 ## 사용자의 구독 그룹 확인하기 {#check-a-users-subscription-groups}
 
-- **고객 프로필:** [사용자 검색]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles)에서 프로필을 엽니다. **인게이지먼트** 탭에서 이메일, 단문 메시지 서비스, WhatsApp 및 관련 채널의 구독 그룹과 상태를 확인할 수 있습니다.
+- **고객 프로필:** [사용자 검색]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles)에서 프로필을 엽니다. **인게이지먼트** 탭에서 이메일, SMS, WhatsApp 및 관련 채널의 구독 그룹과 상태를 확인할 수 있습니다.
 - **REST API:** [사용자의 구독 그룹 목록]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) 또는 [사용자의 구독 그룹 상태 목록]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) 엔드포인트를 사용합니다.
 
 ### 구독 그룹 상태 업데이트하기 {#update-subscription-group-status}
 
-REST API, SDK, 사용자 가져오기, 고객 프로필, 이메일 환경설정 센터, Canvas의 User Update 단계 및 기타 채널별 플로우를 통해 사용자의 구독 그룹 멤버십을 업데이트할 수 있습니다. 정확한 방법은 채널에 따라 다릅니다. 각 [채널 섹션](#channel-specific-behavior) 및 단문 메시지 서비스 관련 타이밍 가이드는 [단문 메시지 서비스, MMS, RCS 구독 그룹]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#set-a-users-state)을 참조하세요.
+REST API, SDK, 사용자 가져오기, 고객 프로필, 이메일 환경설정 센터, Canvas의 User Update 단계 및 기타 채널별 플로우를 통해 사용자의 구독 그룹 멤버십을 업데이트할 수 있습니다. 정확한 방법은 채널에 따라 다릅니다. 각 [채널 섹션](#channel-specific-behavior) 및 SMS 관련 타이밍 가이드는 [SMS, MMS, RCS 구독 그룹]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#set-a-users-state)을 참조하세요.
 
 ## 환경설정 센터 {#preference-centers}
 
 이메일 구독 그룹은 [이메일 환경설정 센터]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center)에 표시되어 사용자가 카테고리 수준의 이메일 옵트인을 한 곳에서 관리할 수 있습니다. 환경설정 센터를 구축할 때 활성 이메일 구독 그룹을 추가할 수 있으며, 레거시 환경설정 센터는 모든 활성 이메일 그룹을 자동으로 나열합니다.
 
-단문 메시지 서비스 및 WhatsApp의 경우, REST API, 옵트인 플로우, 키워드(단문 메시지 서비스), 고객 프로필 및 각 [채널 섹션](#channel-specific-behavior)의 기타 채널별 방법을 통해 가입 상태를 관리합니다.
+SMS 및 WhatsApp의 경우, REST API, 옵트인 플로우, 키워드(SMS), 고객 프로필 및 각 [채널 섹션](#channel-specific-behavior)의 기타 채널별 방법을 통해 가입 상태를 관리합니다.
 
 ## 채널별 동작 {#channel-specific-behavior}
 
@@ -113,19 +113,19 @@ WhatsApp은 명시적 옵트인을 요구합니다. 이 채널에서는 옵트�
 
 보관 단계, Canvas 업데이트, REST API 예시에 대해서는 [WhatsApp 구독 그룹]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups)을 참조하세요.
 
-### 단문 메시지 서비스, MMS, RCS 구독 그룹 {#sms-mms-and-rcs-subscription-groups}
+### SMS, MMS, RCS 구독 그룹 {#sms-mms-and-rcs-subscription-groups}
 
-단문 메시지 서비스, MMS, RCS 구독 그룹은 해당 채널에서 발송하기 위한 기반입니다. 각 그룹은 짧은 코드, 긴 코드, 영숫자 발신자 ID 또는 RCS 인증 발신자와 같은 [발송 엔티티]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup)의 모음이며, 특정 메시징 목적(예: 트랜잭션 대 프로모션)에 사용됩니다.
+SMS, MMS, RCS 구독 그룹은 해당 채널에서 발송하기 위한 기반입니다. 각 그룹은 짧은 코드, 긴 코드, 영숫자 발신자 ID 또는 RCS 인증 발신자와 같은 [발송 엔티티]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup)의 모음이며, 특정 메시징 목적(예: 트랜잭션 대 프로모션)에 사용됩니다.
 
 | 상태 | 정의 |
 | --- | --- |
 | 가입됨 | 사용자가 구독 API, 옵트인 키워드 또는 기타 지원되는 플로우를 통해 해당 구독 그룹에서 메시지를 수신하도록 가입한 상태입니다. [이중 옵트인]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in)이 활성화된 경우, 사용자는 가입 상태로 업데이트되기 전에 확인해야 합니다. |
-| 가입 취소됨 | 사용자가 키워드 또는 API 업데이트를 통해 옵트아웃한 상태입니다. 가입 취소된 사용자는 해당 그룹의 발신자로부터 단문 메시지 서비스, MMS 또는 RCS를 수신하지 않습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="단문 메시지 서비스 및 RCS 가입 상태" }
+| 가입 취소됨 | 사용자가 키워드 또는 API 업데이트를 통해 옵트아웃한 상태입니다. 가입 취소된 사용자는 해당 그룹의 발신자로부터 SMS, MMS 또는 RCS를 수신하지 않습니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS 및 RCS 가입 상태" }
 
-단문 메시지 서비스 또는 RCS 메시지를 발송할 때 작성기에서 구독 그룹을 선택합니다. Braze는 가입된 사용자만 타겟팅되도록 오디언스 필터를 추가합니다. Braze는 선택한 그룹에 가입되지 않은 사용자에게 단문 메시지 서비스 또는 RCS를 발송하지 않습니다. 단문 메시지 서비스 테스트 메시지를 수신하려면 수신자가 테스트용으로 선택한 구독 그룹에 속해 있어야 합니다. 자세한 내용은 [단문 메시지 서비스 FAQ]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs#does-a-user-need-to-be-part-of-an-sms-subscription-group-to-receive-sms-test-messages)를 참조하세요.
+SMS 또는 RCS 메시지를 발송할 때 작성기에서 구독 그룹을 선택합니다. Braze는 가입된 사용자만 타겟팅되도록 오디언스 필터를 추가합니다. Braze는 선택한 그룹에 가입되지 않은 사용자에게 SMS 또는 RCS를 발송하지 않습니다. SMS 테스트 메시지를 수신하려면 수신자가 테스트용으로 선택한 구독 그룹에 속해 있어야 합니다. 자세한 내용은 [SMS FAQ]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs#does-a-user-need-to-be-part-of-an-sms-subscription-group-to-receive-sms-test-messages)를 참조하세요.
 
-단문 메시지 서비스 구독 그룹은 온보딩 중에 프로비저닝됩니다. MMS 태그, RCS 발신자 설정, 지리적 권한, RCS 마이그레이션 및 고급 옵트아웃 처리에 대해서는 [단문 메시지 서비스, MMS, RCS 구독 그룹]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups)을 참조하세요.
+SMS 구독 그룹은 온보딩 중에 프로비저닝됩니다. MMS 태그, RCS 발신자 설정, 지리적 권한, RCS 마이그레이션 및 고급 옵트아웃 처리에 대해서는 [SMS, MMS, RCS 구독 그룹]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups)을 참조하세요.
 
 ### LINE 구독 그룹 {#line-subscription-groups}
 

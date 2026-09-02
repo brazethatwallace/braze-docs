@@ -9,7 +9,7 @@ hidden: true
 > Añade métricas de atribución de último contacto a tus informes en el generador de informes.
 
 {% alert note %}
-Las métricas de atribución de último contacto están en acceso anticipado. Si te interesa participar en el acceso anticipado, ponte en contacto con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente.
+Las métricas de atribución de último contacto están en acceso anticipado. Si te interesa participar en el acceso anticipado, ponte en contacto con tu CSM.
 {% endalert %}
 
 La atribución de último contacto (LTA) es un modelo de atribución de conversión que otorga todo el crédito de una conversión al último mensaje con el que un usuario interactuó antes de convertir. A diferencia de las ventanas de conversión a nivel de Campaign, la LTA utiliza ventanas de atribución estándar del sector para cada canal:
@@ -17,7 +17,7 @@ La atribución de último contacto (LTA) es un modelo de atribución de conversi
 | Canal | Ventana de atribución |
 | --- | --- |
 | Correo electrónico | 30 días |
-| servicio de mensajes cortos | 7 días |
+| SMS | 7 días |
 | WhatsApp | 7 días |
 | Push | 7 días |
 | Mensaje dentro de la aplicación | 3 días |

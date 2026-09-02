@@ -2,7 +2,7 @@
 
 ## Desabilitando o rastreamento de dados {#disabling-data-tracking}
 
-Para desabilitar a coleta de dados, use o método `disableSDK`. Após chamar esse método, o SDK or kit de desenvolvimento de software da Braze para de enviar dados para os servidores da Braze.
+Para desabilitar a coleta de dados, use o método `disableSDK`. Após chamar esse método, o SDK da Braze para de enviar dados para os servidores da Braze.
 
 ```javascript
 Braze.disableSDK();
@@ -18,7 +18,7 @@ Braze.enableSDK();
 
 ## Limpando dados {#wiping-data}
 
-Para excluir todos os dados do SDK or kit de desenvolvimento de software da Braze armazenados localmente no dispositivo, use o método `wipeData`. Após chamar esse método, o SDK or kit de desenvolvimento de software será desabilitado e precisará ser reabilitado com `enableSDK`.
+Para excluir todos os dados do SDK da Braze armazenados localmente no dispositivo, use o método `wipeData`. Após chamar esse método, o SDK será desabilitado e precisará ser reabilitado com `enableSDK`.
 
 ```javascript
 Braze.wipeData();
@@ -34,7 +34,7 @@ Braze.requestImmediateDataFlush();
 
 ## Configurando o rastreamento de anúncios ativado {#setting-ad-tracking-enabled}
 
-Para informar a Braze se o rastreamento de anúncios está ativado para este dispositivo, use o método `setAdTrackingEnabled`. O SDK or kit de desenvolvimento de software não coleta esses dados automaticamente.
+Para informar a Braze se o rastreamento de anúncios está ativado para este dispositivo, use o método `setAdTrackingEnabled`. O SDK não coleta esses dados automaticamente.
 
 ```javascript
 Braze.setAdTrackingEnabled(true, "GOOGLE_ADVERTISING_ID");
@@ -61,4 +61,4 @@ Para saber mais, consulte [Manifesto de privacidade]({{site.baseurl}}/developer_
 
 ## Logout e cancelamento de registro de push {#logout-and-unregister-push}
 
-Este recurso ainda não é compatível com o SDK or kit de desenvolvimento de software do React Native.
+Este recurso ainda não é compatível com o SDK do React Native.

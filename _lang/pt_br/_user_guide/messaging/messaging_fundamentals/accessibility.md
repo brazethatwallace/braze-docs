@@ -443,7 +443,7 @@ Não preencha o texto alternativo com termos de SEO ou chamadas para ação que 
   <tbody>
     <tr>
       <td>"Laptop mostrando o gráfico de análise de dados do dashboard da Braze"</td>
-      <td>"Aumente conversões e dispare o ROI or retorno sobre o investimento (ROI) com a melhor plataforma do mundo!" (Adiciona linguagem de marketing desnecessária)</td>
+      <td>"Aumente conversões e dispare o ROI com a melhor plataforma do mundo!" (Adiciona linguagem de marketing desnecessária)</td>
     </tr>
     <tr>
       <td>"Conjunto de pátio com quatro cadeiras e uma mesa de vidro"</td>

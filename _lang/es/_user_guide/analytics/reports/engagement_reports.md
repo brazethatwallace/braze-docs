@@ -76,7 +76,7 @@ Los informes de participación agregan datos por Campaign o Canvas, no a nivel d
 | Notificación push web | Sends, Opens, Bounces, Body Clicks |
 | Mensaje dentro de la aplicación | Impressions, Clicks, First Button Clicks, Second Button Clicks |
 | Webhook  |  Sends, Errors |
-| servicio de mensajes cortos | Sends, Sends to Carrier, Confirmed Deliveries, Delivery Failures, Rejections |
+| SMS | Sends, Sends to Carrier, Confirmed Deliveries, Delivery Failures, Rejections |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 3: Añadir estadísticas #add-statistics-to-your-reports" }
 
 ### Paso 4: Completar la configuración del informe {#step-4-complete-report-setup}

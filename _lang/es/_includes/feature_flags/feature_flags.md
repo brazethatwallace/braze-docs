@@ -8,7 +8,7 @@ Cuando estés listo para crear tus propios conmutadores de características, con
 
 ## Requisitos previos {#prerequisites}
 
-Estas son las versiones mínimas del SDK or kit de desarrollo de software necesarias para empezar a usar los conmutadores de características:
+Estas son las versiones mínimas del SDK necesarias para empezar a usar los conmutadores de características:
 
 {% sdk_min_versions swift:5.9.0 android:24.2.0 web:4.6.0 unity:4.1.0 cordova:5.0.0 reactnative:4.1.0 flutter:6.0.0 roku:1.0.0 %}
 
@@ -113,7 +113,7 @@ if (liveChatEnabled) {
 {% tab Swift %}
 
 {% alert note %}
-Leer `braze.featureFlags.featureFlags` o `braze.featureFlags.featureFlag(id:)` bloquea el hilo que lo llama hasta que el SDK or kit de desarrollo de software haya completado sus operaciones posteriores a la inicialización. Para contextos del hilo principal o sensibles a la latencia, usa [`getAllFeatureFlags(_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/featureflags-swift.class/getallfeatureflags(_:)) en su lugar.
+Leer `braze.featureFlags.featureFlags` o `braze.featureFlags.featureFlag(id:)` bloquea el hilo que lo llama hasta que el SDK haya completado sus operaciones posteriores a la inicialización. Para contextos del hilo principal o sensibles a la latencia, usa [`getAllFeatureFlags(_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/featureflags-swift.class/getallfeatureflags(_:)) en su lugar.
 
 ```swift
 // Non-blocking — completion handler always delivers on the main thread.

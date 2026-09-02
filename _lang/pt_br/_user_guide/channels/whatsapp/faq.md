@@ -138,7 +138,7 @@ Os fatores que afetam a classificação de qualidade do número de telefone incl
 Quando a classificação de qualidade está baixa, o status do número de telefone muda de **Conectado** para **Sinalizado**. Se a qualidade não melhorar em sete dias, o status retorna para **Conectado**. No entanto, o limite de envio diminuirá para o próximo nível. Por exemplo, um número de telefone que tinha um limite de 100.000 agora tem um limite de 10.000.
 
 #### Qual é o limite de throughput da Meta? {#what-is-the-meta-throughput-limit}
-A Meta tem seu próprio limite de throughput, separado do limite de envio da WABA. O limite padrão que a API or interface de programação do aplicativo (API) Cloud suporta é de 80 MPS or mensagens por segundo or mensagens por segundo. Se você acha que suas Campaigns excederão esse limite, pode [solicitar](https://developers.facebook.com/docs/whatsapp/cloud-api/overview/#throughput) que seu limite seja aumentado. A Meta recomenda que você envie essa solicitação com pelo menos três dias de antecedência dos envios de Campaigns.
+A Meta tem seu próprio limite de throughput, separado do limite de envio da WABA. O limite padrão que a API Cloud suporta é de 80 MPS. Se você acha que suas Campaigns excederão esse limite, pode [solicitar](https://developers.facebook.com/docs/whatsapp/cloud-api/overview/#throughput) que seu limite seja aumentado. A Meta recomenda que você envie essa solicitação com pelo menos três dias de antecedência dos envios de Campaigns.
 
 ### Modelos e criador do WhatsApp {#whatsapp-templates-and-composer}
 

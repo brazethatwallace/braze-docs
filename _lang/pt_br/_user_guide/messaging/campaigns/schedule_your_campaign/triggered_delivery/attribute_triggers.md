@@ -49,12 +49,12 @@ As origens de atualização disponíveis variam por canal:
 - Importação de CSV
 - List-Unsubscribe
 - Central de Preferências
-- REST or transferir estado representacional API or interface de programação do aplicativo (API)
-- SDK or kit de desenvolvimento de software
+- REST API
+- SDK
 - Shopify (e-mail, SMS)
 - Mensagem de entrada (SMS)
 
-Por exemplo, você pode querer enviar seu SMS de boas-vindas apenas quando a atualização vier da REST or transferir estado representacional API or interface de programação do aplicativo (API) e não de uma mensagem de entrada, já que a Braze já responde automaticamente a determinadas mensagens SMS de entrada.
+Por exemplo, você pode querer enviar seu SMS de boas-vindas apenas quando a atualização vier da REST API e não de uma mensagem de entrada, já que a Braze já responde automaticamente a determinadas mensagens SMS de entrada.
 
 ## Alterar valor de atributo personalizado {#change-custom-attribute-value}
 

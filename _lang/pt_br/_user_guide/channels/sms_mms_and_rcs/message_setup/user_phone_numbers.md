@@ -65,7 +65,7 @@ Esses números de telefone inválidos podem ser gerenciados usando [endpoints de
 Se vários perfis de usuário tiverem o mesmo número de telefone e esse número de telefone for marcado como inválido, todos os perfis de usuário existentes com esse número serão exibidos como inválidos. Perfis de usuário recém-criados nunca serão inicialmente marcados como inválidos.
 {% endalert %}
 
-Você também pode incluir ou excluir qualquer usuário com números de telefone inválidos ao [criar um Segment or segmento or segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#step-4-add-filters-to-your-segment).
+Você também pode incluir ou excluir qualquer usuário com números de telefone inválidos ao [criar um Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#step-4-add-filters-to-your-segment).
 
 ## Excluir envios de SMS rejeitados da segmentação {#exclude-rejected-sms-sends-from-segmentation}
 
@@ -73,13 +73,13 @@ Você também pode incluir ou excluir qualquer usuário com números de telefone
 As rejeições de SMS podem contar para a sua cota de SMS, dependendo do seu contrato com a Braze e do provedor de SMS. Para detalhes sobre faturamento, consulte [Relatórios]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting).
 {% endalert %}
 
-Para excluir usuários com envios de SMS rejeitados dos seus Segments, use [extensões de Segment or segmento or segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) e faça o seguinte:
+Para excluir usuários com envios de SMS rejeitados dos seus Segments, use [extensões de Segment SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) e faça o seguinte:
 
 1. Acesse **Audience** > **Segment Extensions**.
 2. Selecione **Create New Extension** > **Full refresh** ou **Incremental refresh**.
 3. Escreva uma consulta SQL que identifique usuários com rejeições de SMS. Por exemplo, você pode consultar o evento `USERS_MESSAGES_SMS_REJECTION_SHARED` para encontrar usuários que receberam rejeições de SMS.
-4. Salve sua extensão de Segment or segmento or segmento.
-5. Ao criar seu Segment or segmento de SMS, adicione um filtro para excluir os usuários dessa extensão de Segment or segmento or segmento.
+4. Salve sua extensão de Segment.
+5. Ao criar seu Segment de SMS, adicione um filtro para excluir os usuários dessa extensão de Segment.
 
 ## Adicionar usuários a grupos de inscrições de SMS e RCS {#add-users-to-sms-and-rcs-subscription-groups}
 

@@ -8,7 +8,7 @@ noindex: true
 
 > O layout de visão geral é ideal para criar uma opção de navegação específica na parte superior de uma página, permitindo que os usuários cliquem em um botão para ir a uma parte específica da página ou a uma página completamente diferente.
 
-Exemplos clássicos do layout de seletor são a página de [changelogs do SDK or kit de desenvolvimento de software]({{site.baseurl}}/developer_guide/changelogs) ou a página de [detalhes de criativos de In-App Messages]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types).
+Exemplos clássicos do layout de seletor são a página de [changelogs do SDK]({{site.baseurl}}/developer_guide/changelogs) ou a página de [detalhes de criativos de In-App Messages]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types).
 
 ## Componentes obrigatórios
 

@@ -1,20 +1,20 @@
 ---
-nav_title: "POST: Excluir campanhas programadas disparadas pela API or interface de programação do aplicativo (API)"
-article_title: "POST: Excluir campanhas programadas disparadas pela API or interface de programação do aplicativo (API)"
+nav_title: "POST: Excluir campanhas programadas disparadas pela API"
+article_title: "POST: Excluir campanhas programadas disparadas pela API"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Este artigo descreve detalhes sobre o endpoint da Braze \"Excluir campanhas programadas disparadas pela API or interface de programação do aplicativo (API)\"."
+description: "Este artigo descreve detalhes sobre o endpoint da Braze \"Excluir campanhas programadas disparadas pela API\"."
 
 ---
-{% API or interface de programação do aplicativo (API) %}
-# Excluir campanhas programadas disparadas pela API or interface de programação do aplicativo (API) {#delete-scheduled-api-triggered-campaigns}
+{% api %}
+# Excluir campanhas programadas disparadas pela API {#delete-scheduled-api-triggered-campaigns}
 {% apimethod post core_endpoint|/docs/core_endpoints %}
-/campaigns/trigger/agendar/cronograma/delete
+/campaigns/trigger/schedule/delete
 {% endapimethod %}
 
-> Use esse endpoint para cancelar uma mensagem do Canvas que você programou anteriormente via API or interface de programação do aplicativo (API) antes de ser enviada.
+> Use esse endpoint para cancelar uma mensagem do Canvas que você programou anteriormente via API antes de ser enviada.
 
 As mensagens programadas ou os disparos que são excluídos perto ou durante o horário em que deveriam ser enviados são atualizados com base no melhor esforço, de modo que a Braze pode aplicar exclusões de último segundo a todos, alguns ou nenhum dos seus usuários direcionados.
 
@@ -22,7 +22,7 @@ As mensagens programadas ou os disparos que são excluídos perto ou durante o h
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `campaigns.trigger.schedule.delete`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `campaigns.trigger.schedule.delete`.
 
 ## Limite de frequência {#rate-limit}
 

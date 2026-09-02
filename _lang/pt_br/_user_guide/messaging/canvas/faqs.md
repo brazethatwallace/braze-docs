@@ -92,9 +92,9 @@ Interromper um Canvas não fará com que os usuários que estão aguardando para
 
 Se _Mensagens enviadas_ for sempre zero para um Canvas que contém uma etapa de mensagem no app, isso acontece porque a entrega de mensagens no app funciona de forma diferente dos outros canais de envio de mensagens.
 
-As mensagens no app são "puxadas" pelo SDK or kit de desenvolvimento de software, em vez de serem "enviadas" pela Braze. As mensagens no app para usuários elegíveis são entregues automaticamente no início da sessão e "aguardam" o evento-gatilho antes de serem exibidas. Como os usuários elegíveis recebem a mensagem quando iniciam uma sessão, a Braze não registra isso como um evento de envio. Quando os usuários executam o evento-gatilho, a mensagem é exibida e a Braze registra uma impressão e marca a etapa do Canvas (ou Campaign) como recebida no perfil do usuário. Consequentemente, o total de _Envios_ é zero para mensagens no app.
+As mensagens no app são "puxadas" pelo SDK, em vez de serem "enviadas" pela Braze. As mensagens no app para usuários elegíveis são entregues automaticamente no início da sessão e "aguardam" o evento-gatilho antes de serem exibidas. Como os usuários elegíveis recebem a mensagem quando iniciam uma sessão, a Braze não registra isso como um evento de envio. Quando os usuários executam o evento-gatilho, a mensagem é exibida e a Braze registra uma impressão e marca a etapa do Canvas (ou Campaign) como recebida no perfil do usuário. Consequentemente, o total de _Envios_ é zero para mensagens no app.
 
-### Por que os usuários não receberam minha mensagem no app após uma postergação longa ou Branch or ramificação or ramificação? {#why-didnt-users-receive-my-in-app-message-after-a-long-delay-or-branch}
+### Por que os usuários não receberam minha mensagem no app após uma postergação longa ou Branch? {#why-didnt-users-receive-my-in-app-message-after-a-long-delay-or-branch}
 
 Após a conclusão de etapas de [Postergação]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) upstream e verificações de público, os usuários se tornam elegíveis para uma mensagem no app apenas quando alcançam a etapa de Mensagem. Se a mensagem expirar em uma data do calendário ou em uma janela curta de **duração após a etapa estar disponível**, os usuários em ramificações mais lentas podem chegar após a expiração e nunca ver a mensagem. Alinhe a expiração com os atrasos mais longos e realistas do caminho. Para saber mais e ver exemplos, consulte [Expiração de mensagens no app]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas#in-app-message-expiration).
 
@@ -128,17 +128,17 @@ Os envios podem ser menores do que o **Público estimado** por muitas das mesmas
 
 Fatores específicos do Canvas também se aplicam:
 
-- **Entrada baseada em ação ou disparada por API or interface de programação do aplicativo (API):** Os usuários só entram (e recebem etapas) após executarem o comportamento de entrada, portanto os envios realizados ficam atrás da estimativa inicial até que essas ações ocorram.
-- **Jornadas do público:** Os usuários são direcionados para a Branch or ramificação or ramificação de maior prioridade para a qual se qualificam, então ramificações posteriores podem receber menos usuários do que uma contagem simples de Segment or segmento sugere.
+- **Entrada baseada em ação ou disparada por API:** Os usuários só entram (e recebem etapas) após executarem o comportamento de entrada, portanto os envios realizados ficam atrás da estimativa inicial até que essas ações ocorram.
+- **Jornadas do público:** Os usuários são direcionados para a Branch de maior prioridade para a qual se qualificam, então ramificações posteriores podem receber menos usuários do que uma contagem simples de Segment sugere.
 - **Verificações de público e horário de envio:** Etapas completas reavaliam os filtros no momento do envio, a menos que você configure de outra forma. Usuários que se qualificaram quando o Canvas foi criado podem sair antes de uma mensagem ser enviada.
 - **Grupos de controle:** Grupos de controle globais ou do Canvas retêm uma parcela dos entrantes do envio de mensagens.
 - **Horário de silêncio e postergações:** As mensagens podem ser retidas ou reagendadas, deslocando os envios para fora da janela de relatório que você está visualizando.
-- **Limites máximos de entrada ou público:** Limites de entrada ou envio interrompem usuários adicionais mesmo quando o Segment or segmento subjacente é maior.
+- **Limites máximos de entrada ou público:** Limites de entrada ou envio interrompem usuários adicionais mesmo quando o Segment subjacente é maior.
 - **Janela de relatório:** O intervalo de análise de dados pode não incluir todos os envios que você está comparando com a estimativa.
 
 ### Por que o público estimado e a contagem de usuários do Canvas não coincidem? {#why-dont-estimated-audience-and-canvas-user-counts-match}
 
-O **Público estimado** reflete quem corresponde ao seu Segment or segmento e filtros de entrada no momento em que a estimativa é executada. Após esse momento, entradas com postergação ou baseadas em ação, reelegibilidade, disparos por API or interface de programação do aplicativo (API) ou roteamento de ramificações podem aumentar o número de perfis que passam pela jornada em comparação com o snapshot. Os usuários também podem sair quando os filtros no momento do envio falham, o que reduz as entradas ou envios realizados. Compare os horários, limites e configurações de avaliação junto com [Por que os envios são menores do que o tamanho estimado do público?](#why-are-sends-lower-than-the-estimated-audience-size).
+O **Público estimado** reflete quem corresponde ao seu Segment e filtros de entrada no momento em que a estimativa é executada. Após esse momento, entradas com postergação ou baseadas em ação, reelegibilidade, disparos por API ou roteamento de ramificações podem aumentar o número de perfis que passam pela jornada em comparação com o snapshot. Os usuários também podem sair quando os filtros no momento do envio falham, o que reduz as entradas ou envios realizados. Compare os horários, limites e configurações de avaliação junto com [Por que os envios são menores do que o tamanho estimado do público?](#why-are-sends-lower-than-the-estimated-audience-size).
 
 ### Por que _Destinatários únicos_ é maior do que o número de usuários que eu direcionei? {#why-is-_unique-recipients_-higher-than-the-number-of-users-i-targeted}
 
@@ -151,13 +151,13 @@ Por exemplo, se um usuário recebe uma etapa do Canvas na segunda-feira e novame
 Se você perceber que o seu Canvas agendado diário envia para menos usuários ao longo do tempo, verifique o seguinte:
 
 - **Verifique se a reelegibilidade está ativada:** Sem reelegibilidade, a Braze insere cada usuário no Canvas apenas uma vez. Em Canvas agendados diários, apenas os usuários que correspondem ao público e ainda não entraram no Canvas são elegíveis para cada entrada. À medida que mais usuários entram, cada entrada posterior tem menos usuários elegíveis, então o volume de entradas diminui.
-- **Verifique se o público tem membros fixos:** Públicos construídos a partir de uma lista fixa de usuários (como uma [importação de CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import) usada como filtro de Segment or segmento) não ganham novos membros automaticamente. Sem novos entrantes, o volume de entradas não consegue se recuperar à medida que os usuários entram no Canvas.
+- **Verifique se o público tem membros fixos:** Públicos construídos a partir de uma lista fixa de usuários (como uma [importação de CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import) usada como filtro de Segment) não ganham novos membros automaticamente. Sem novos entrantes, o volume de entradas não consegue se recuperar à medida que os usuários entram no Canvas.
 
 Para [limites de taxa de velocidade de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) e outros fatores que reduzem os envios para uma única ocorrência, consulte [Por que os envios são menores do que o tamanho estimado do público?](#why-are-sends-lower-than-the-estimated-audience-size).
 
-### Por que um Segment or segmento pequeno de grupo de controle mostra mudanças no histórico de membros? {#why-does-a-small-control-group-segment-show-changes-in-historical-membership}
+### Por que um Segment pequeno de grupo de controle mostra mudanças no histórico de membros? {#why-does-a-small-control-group-segment-show-changes-in-historical-membership}
 
-Os gráficos de histórico de membros usam amostras estimadas, então Segments pequenos — incluindo Segments de [grupo de controle global]({{site.baseurl}}/user_guide/audience/global_control_group) — podem mostrar variações diárias mesmo quando o público subjacente está estável. Para saber como as estimativas funcionam e por que os gráficos podem flutuar, consulte [Visualizar o tamanho histórico de membros do Segment or segmento]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size#viewing-historical-segment-membership-size).
+Os gráficos de histórico de membros usam amostras estimadas, então Segments pequenos — incluindo Segments de [grupo de controle global]({{site.baseurl}}/user_guide/audience/global_control_group) — podem mostrar variações diárias mesmo quando o público subjacente está estável. Para saber como as estimativas funcionam e por que os gráficos podem flutuar, consulte [Visualizar o tamanho histórico de membros do Segment]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size#viewing-historical-segment-membership-size).
 
 ## Análise de dados e conversões {#analytics-and-conversions}
 
@@ -214,9 +214,9 @@ Há um Canvas de uma única etapa com horário de silêncio ativado:
 
 Observe que também é possível que um usuário entre em uma variante, não receba nenhuma mensagem de uma etapa e, mesmo assim, converta. Nesse caso, a conversão não é registrada no nível da etapa. No entanto, como o usuário tecnicamente converteu, a conversão é registrada no nível do Canvas.
 
-### Como posso confirmar se meus usuários receberam um Canvas disparado por API or interface de programação do aplicativo (API)? {#how-can-i-confirm-if-my-users-received-an-api-triggered-canvas}
+### Como posso confirmar se meus usuários receberam um Canvas disparado por API? {#how-can-i-confirm-if-my-users-received-an-api-triggered-canvas}
 
-Você pode [criar um Segment or segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) usando um filtro de Canvas para confirmar se os usuários entraram no Canvas ou receberam uma etapa específica do Canvas. Por exemplo, use um filtro de entrada no Canvas se quiser confirmar que os usuários entraram no Canvas disparado por API or interface de programação do aplicativo (API), ou um filtro de etapa recebida se quiser confirmar que receberam uma mensagem do Canvas. Depois, use o [endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) para exportar os usuários desse Segment or segmento.
+Você pode [criar um Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) usando um filtro de Canvas para confirmar se os usuários entraram no Canvas ou receberam uma etapa específica do Canvas. Por exemplo, use um filtro de entrada no Canvas se quiser confirmar que os usuários entraram no Canvas disparado por API, ou um filtro de etapa recebida se quiser confirmar que receberam uma mensagem do Canvas. Depois, use o [endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) para exportar os usuários desse Segment.
 
 ### Posso excluir um Canvas? {#can-i-delete-a-canvas}
 
@@ -258,7 +258,7 @@ Embora usuários anônimos possam entrar e sair de Canvas, as ações deles não
 Para obter mais assistência com a solução de problemas do Canvas, entre em contato com o suporte da Braze dentro de 30 dias após a ocorrência do problema, pois temos apenas os últimos 30 dias de registros de diagnóstico.
 {% endalert %}
 
-### Posso excluir de um Campaign ou Segment or segmento os usuários que estão atualmente em uma jornada de Canvas? {#can-i-exclude-users-who-are-currently-in-a-canvas-journey-from-a-campaign-or-segment}
+### Posso excluir de um Campaign ou Segment os usuários que estão atualmente em uma jornada de Canvas? {#can-i-exclude-users-who-are-currently-in-a-canvas-journey-from-a-campaign-or-segment}
 
 Use [filtros de segmentação]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) como `Entered Canvas Variation`, `In Canvas Control Group` ou `Received Message from Canvas Step` para direcionar usuários com base na entrada no Canvas, atribuição de variante ou engajamento com etapas. Esses filtros avaliam o histórico de entrada e as interações — eles não indicam se um usuário ainda está progredindo por uma jornada ativa.
 
@@ -386,17 +386,17 @@ Verifique o JSON na sua etapa de [Atualização de Usuário]({{site.baseurl}}/us
 
 ### Posso enviar mensagens do Canvas para usuários sem `external_id`? {#can-i-send-canvas-messages-to-users-without-an-external_id}
 
-Sim, se já existir um perfil de usuário na Braze. Usuários sem `external_id` são [usuários anônimos]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#anonymous-user-profiles) e podem ser referenciados com um `braze_id` ou [alias de usuário]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases). Crie ou atualize o perfil com o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) ou seu SDK or kit de desenvolvimento de software antes da entrada no Canvas, e então use [entrada baseada em ação ou disparada por API or interface de programação do aplicativo (API)]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-12-determine-your-canvas-entry-schedule). O direcionamento padrão do Canvas ainda exige um perfil de usuário na Braze — não é possível enviar mensagens do Canvas apenas para um endereço de e-mail sem perfil.
+Sim, se já existir um perfil de usuário na Braze. Usuários sem `external_id` são [usuários anônimos]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#anonymous-user-profiles) e podem ser referenciados com um `braze_id` ou [alias de usuário]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases). Crie ou atualize o perfil com o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) ou seu SDK antes da entrada no Canvas, e então use [entrada baseada em ação ou disparada por API]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-12-determine-your-canvas-entry-schedule). O direcionamento padrão do Canvas ainda exige um perfil de usuário na Braze — não é possível enviar mensagens do Canvas apenas para um endereço de e-mail sem perfil.
 
 ### Por que um usuário entrou no Canvas menos vezes do que realizou o evento-gatilho? {#why-did-a-user-enter-a-canvas-fewer-times-than-they-performed-the-trigger-event}
 
-Para Canvas baseados em ação e disparados por API or interface de programação do aplicativo (API), a Braze deduplica eventos-gatilho para que um usuário possa entrar no máximo **uma vez por segundo** para o mesmo Canvas. Se um usuário executa o mesmo gatilho várias vezes dentro de um segundo, apenas uma entrada é processada.
+Para Canvas baseados em ação e disparados por API, a Braze deduplica eventos-gatilho para que um usuário possa entrar no máximo **uma vez por segundo** para o mesmo Canvas. Se um usuário executa o mesmo gatilho várias vezes dentro de um segundo, apenas uma entrada é processada.
 
 Para permitir múltiplas entradas no mesmo segundo, espaçe os eventos-gatilho em pelo menos 1,1 segundo (por exemplo, quando você controla o timing dos eventos a partir do seu servidor). Para um comportamento estilo Campaign que permita múltiplos gatilhos no mesmo segundo, compare seu caso de uso com [Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns) com agendamento e configurações de reelegibilidade apropriados.
 
-### Quando os usuários são deduplicados em Canvas disparados por API or interface de programação do aplicativo (API)? {#when-are-users-de-duplicated-in-api-triggered-canvases}
+### Quando os usuários são deduplicados em Canvas disparados por API? {#when-are-users-de-duplicated-in-api-triggered-canvases}
 
-Se um usuário reentrar em um Canvas disparado por API or interface de programação do aplicativo (API) e chegar a uma etapa de postergação onde já está enfileirado de uma entrada anterior para uma mensagem idêntica, a Braze deduplica o usuário para evitar envios duplicados. A segunda instância do Canvas é encerrada, então o número de entradas pode exceder o número de envios.
+Se um usuário reentrar em um Canvas disparado por API e chegar a uma etapa de postergação onde já está enfileirado de uma entrada anterior para uma mensagem idêntica, a Braze deduplica o usuário para evitar envios duplicados. A segunda instância do Canvas é encerrada, então o número de entradas pode exceder o número de envios.
 
 ### Por que um push de teste vai para o app errado, mas os envios reais parecem corretos? {#why-does-a-test-push-go-to-the-wrong-app-but-live-sends-look-correct}
 
@@ -404,7 +404,7 @@ O **push de teste** em um perfil de usuário é entregue a todos os dispositivos
 
 Para confirmar o direcionamento específico do app, envie uma mensagem real ou de teste por meio de uma Campaign ou Canvas com um público restrito (por exemplo, filtrando por `external_id`) em vez de depender apenas do **push de teste** do perfil.
 
-Para etapas de mensagem do **Canvas** com vários apps, ative **Validate audience at message send** na etapa de mensagem para que as verificações de Segment or segmento e filtro sejam executadas no momento do envio. Para saber mais, consulte [Etapa de mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step).
+Para etapas de mensagem do **Canvas** com vários apps, ative **Validate audience at message send** na etapa de mensagem para que as verificações de Segment e filtro sejam executadas no momento do envio. Para saber mais, consulte [Etapa de mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step).
 
 Para o comportamento geral do push de teste, consulte [Envio de mensagens de teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages) e [FAQ de push]({{site.baseurl}}/user_guide/channels/push/faqs).
 
@@ -426,4 +426,4 @@ Grupos de ação que usam gatilhos de interatividade de e-mail (por exemplo, **C
 
 ### Como timestamps históricos de eventos personalizados afetam Canvas e Campaigns baseados em ação? {#how-do-historical-custom-event-timestamps-affect-action-based-canvases-and-campaigns}
 
-A Braze avalia jornadas baseadas em ação quando eventos qualificados são ingeridos e o usuário atende às suas regras de público. Se um evento é registrado no perfil fora da janela em que seu Canvas ou Campaign estava ativo, ou antes de o usuário corresponder ao seu público, a entrada ou envios subsequentes podem não ocorrer como esperado. Compare os timestamps dos eventos com os horários de ativação e a associação ao Segment or segmento usando o log de atividade do perfil de usuário e as etapas de solução de problemas em [Solução de problemas de eventos personalizados]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#troubleshooting-custom-events). Se o comportamento ainda não corresponder às expectativas, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support).
+A Braze avalia jornadas baseadas em ação quando eventos qualificados são ingeridos e o usuário atende às suas regras de público. Se um evento é registrado no perfil fora da janela em que seu Canvas ou Campaign estava ativo, ou antes de o usuário corresponder ao seu público, a entrada ou envios subsequentes podem não ocorrer como esperado. Compare os timestamps dos eventos com os horários de ativação e a associação ao Segment usando o log de atividade do perfil de usuário e as etapas de solução de problemas em [Solução de problemas de eventos personalizados]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#troubleshooting-custom-events). Se o comportamento ainda não corresponder às expectativas, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support).

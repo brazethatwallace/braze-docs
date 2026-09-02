@@ -4,7 +4,7 @@ article_title: Fazendo upgrade para o iOS 18
 page_order: 7.1
 platform:
   - iOS
-description: "Este artigo aborda insights sobre a versão do iOS 18 para ajudar você a fazer upgrade do seu SDK or kit de desenvolvimento de software sem problemas."
+description: "Este artigo aborda insights sobre a versão do iOS 18 para ajudar você a fazer upgrade do seu SDK sem problemas."
 ---
 
 # Fazendo upgrade para o iOS 18 {#upgrading-to-ios-18}

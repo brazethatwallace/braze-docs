@@ -4,7 +4,7 @@ article_title: Zielgruppe
 page_order: 4
 layout: dev_guide
 guide_top_header: "Zielgruppe"
-guide_top_text: "Erstellen und verwalten Sie die Zielgruppen, die Ihr Messaging antreiben. Erstellen Sie Segmente basierend auf Nutzerverhalten und Attributen, verwalten Sie Nutzerprofile und Abos und organisieren Sie Ihre Zielgruppendaten für präzises Targeting über Campaigns und Canvase hinweg. Informationen zum Erfassen und Verwalten von Nutzerdaten finden Sie unter <a href='/docs/user_guide/data/unification/user_data'>Nutzerdaten</a>."
+guide_top_text: "Erstellen und verwalten Sie die Zielgruppen, die Ihr Messaging antreiben. Erstellen Sie Segmente basierend auf Nutzerverhalten und Attributen, verwalten Sie Nutzerprofile und Abos und organisieren Sie Ihre Zielgruppendaten für präzises Targeting über Campaigns und Canvases hinweg. Informationen zum Erfassen und Verwalten von Nutzerdaten finden Sie unter <a href='/docs/user_guide/data/unification/user_data'>Nutzerdaten</a>."
 
 page_type: landing
 description: "Dieser Abschnitt behandelt die Zielgruppenverwaltung in Braze – Segmente, Nutzerprofile, Abo-Einstellungen und standortbasiertes Targeting."

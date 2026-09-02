@@ -2,12 +2,12 @@
 nav_title: Angepasste Events protokollieren
 article_title: Angepasste Events protokollieren
 page_order: 3.1
-description: "Erfahren Sie, wie Sie angepasste Events über das Braze SDK or Software-Development-Kit protokollieren können."
+description: "Erfahren Sie, wie Sie angepasste Events über das Braze SDK protokollieren können."
 ---
 
 # Angepasste Events protokollieren {#log-custom-events}
 
-> Erfahren Sie, wie Sie angepasste Events über das Braze SDK or Software-Development-Kit protokollieren können.
+> Erfahren Sie, wie Sie angepasste Events über das Braze SDK protokollieren können.
 
 {% alert note %}
 Für Wrapper-SDKs, die nicht aufgeführt sind, verwenden Sie stattdessen die entsprechende native Android- oder Swift-Methode.
@@ -21,7 +21,7 @@ Um ein angepasstes Event zu protokollieren, verwenden Sie die folgende Methode z
 
 {% tabs %}
 {% tab web %}
-Für eine Standard-Internet-SDK or Software-Development-Kit-Implementierung können Sie die folgende Methode verwenden:
+Für eine Standard-Internet-SDK-Implementierung können Sie die folgende Methode verwenden:
 
 ```javascript
 braze.logCustomEvent("YOUR_EVENT_NAME");
@@ -87,7 +87,7 @@ Die `logCustomEvent`-API akzeptiert:
 
 Für Eigenschaftswerte verwenden Sie `string` (bis zu 255 Zeichen), `numeric`, `boolean`, Arrays oder verschachtelte JSON-Objekte.
 
-Weitere Implementierungsdetails finden Sie im Quellcode des Braze Cordova SDK or Software-Development-Kit:
+Weitere Implementierungsdetails finden Sie im Quellcode des Braze Cordova SDK:
 - [`www/BrazePlugin.js` `logCustomEvent`-Methode (Zeilen 138–140)](https://github.com/braze-inc/braze-cordova-sdk/blob/86132bc7f0b6ddf1b598b0e612db70f11744801c/www/BrazePlugin.js#L138-L140)
 - [`www/BrazePlugin.js` JSDoc (Zeilen 128–140)](https://github.com/braze-inc/braze-cordova-sdk/blob/86132bc7f0b6ddf1b598b0e612db70f11744801c/www/BrazePlugin.js#L128-L140)
 - [Android-Handler in `src/android/BrazePlugin.kt` (Zeilen 108–115)](https://github.com/braze-inc/braze-cordova-sdk/blob/86132bc7f0b6ddf1b598b0e612db70f11744801c/src/android/BrazePlugin.kt#L108-L115)
@@ -362,7 +362,7 @@ Nachdem Sie [sich selbst als Testnutzer:in hinzugefügt]({{site.baseurl}}/user_g
 
 1. Führen Sie das angepasste Event innerhalb der App aus.
 2. Warten Sie ungefähr 10 Sekunden, bis die Daten übertragen wurden.
-3. Update or aktualisieren or aktualisieren Sie das [Event-Nutzerprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log), um das angepasste Event und den übergebenen Wert der Event-Eigenschaft einzusehen.
+3. Aktualisieren Sie das [Event-Nutzerprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log), um das angepasste Event und den übergebenen Wert der Event-Eigenschaft einzusehen.
 
 ## Fehlerbehebung bei angepassten Events {#troubleshooting-custom-events}
 
@@ -373,13 +373,13 @@ Nutzen Sie diese Szenarien, um die Protokollierung angepasster Events über SDKs
 Wenn ein angepasstes Event nicht angezeigt wird, stimmt die getrackte Aktion in Ihrer App möglicherweise nicht mit der Aktion überein, die Sie testen.
 
 - Klären Sie mit Ihrem Entwicklerteam, welche App-Aktion das angepasste Event auslöst.
-- Prüfen Sie nach SDK or Software-Development-Kit-Upgrades auf veraltete Code-Pfade, z. B. Verweise auf `appboy` statt `braze`.
+- Prüfen Sie nach SDK-Upgrades auf veraltete Code-Pfade, z. B. Verweise auf `appboy` statt `braze`.
 
 ### Angepasste Events werden einem anonymen Profil zugeordnet {#custom-events-are-logged-to-an-anonymous-profile}
 
 Wenn Sie eine:n Nutzer:in nicht identifizieren, bevor Sie ein angepasstes Event protokollieren, kann Braze dieses Event einem anonymen Profil zuordnen.
 
-- Rufen Sie `changeUser()` auf, bevor Sie das angepasste Event ausführen, damit Braze es einem identifizierten Kundenprofil or Nutzerprofil zuordnet.
+- Rufen Sie `changeUser()` auf, bevor Sie das angepasste Event ausführen, damit Braze es einem identifizierten Kundenprofil zuordnet.
 - Testen Sie mit einer/einem identifizierten Testnutzer:in und überprüfen Sie dann das [Event-Nutzerprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log).
 
 ### Überprüfen der Einrichtung der Protokollierung angepasster Events {#verifying-custom-event-logging-setup}
@@ -388,5 +388,5 @@ Wenn angepasste Events nicht wie erwartet angezeigt werden, bestätigen Sie, das
 
 - Bitten Sie Ihr Entwicklerteam zu überprüfen, ob das Event korrekt protokolliert und durch die erwartete Nutzeraktion ausgelöst wird.
 - Wenn Ihr Team ein Ticket beim Braze-Support eröffnet, fügen Sie [ausführliche Protokolle]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging) und relevante Code-Snippets bei.
-- Wenn Ihre App Swift oder Android verwendet, kann Ihr Entwicklerteam die [Voraussetzungen für den SDK or Software-Development-Kit-Debugger]({{site.baseurl}}/developer_guide/sdk_integration/debugging#prerequisites) nutzen, um ausführliche Protokolle zu erstellen.
+- Wenn Ihre App Swift oder Android verwendet, kann Ihr Entwicklerteam die [Voraussetzungen für den SDK-Debugger]({{site.baseurl}}/developer_guide/sdk_integration/debugging#prerequisites) nutzen, um ausführliche Protokolle zu erstellen.
 - Wenn Ihr Entwicklerteam das Problem nicht identifizieren kann, eröffnen Sie ein [Braze-Support-Ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support).

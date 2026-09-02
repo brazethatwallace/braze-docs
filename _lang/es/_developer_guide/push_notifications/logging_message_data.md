@@ -25,7 +25,7 @@ Los siguientes flujos de trabajo tienen diferentes superficies de informes.
 | Categoría de análisis | Descripción | Dónde aparece |
 | --- | --- | --- |
 | Análisis nativos de push | Métricas push como aperturas e Influenced Opens, vinculadas a Campaigns push de Braze | Análisis de Campaigns push, eventos de interacción de mensajes en Currents, Generador de informes |
-| Eventos personalizados y atributos | Análisis que defines y registras a través de métodos del SDK or kit de desarrollo de software o del punto de conexión `/users/track` | Perfiles de usuario, segmentación, Campaigns y Canvas basados en acciones, análisis de eventos personalizados |
+| Eventos personalizados y atributos | Análisis que defines y registras a través de métodos del SDK o del punto de conexión `/users/track` | Perfiles de usuario, segmentación, Campaigns y Canvas basados en acciones, análisis de eventos personalizados |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Análisis nativos de push vs. registro de eventos personalizados" }
 
 {% alert important %}
@@ -34,17 +34,17 @@ Registrar un evento personalizado (como `push_notification_opened`) no es lo mis
 
 ## Qué registra Braze automáticamente {#what-braze-logs-automatically}
 
-Cuando la integración de tu SDK or kit de desarrollo de software está configurada, Braze registra automáticamente los datos principales de interacción del canal, incluyendo aperturas push e Influenced Opens. No se requiere código adicional para los análisis push estándar. Para una lista completa de los datos recopilados automáticamente, consulta [Recopilación de datos del SDK or kit de desarrollo de software]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection).
+Cuando la integración de tu SDK está configurada, Braze registra automáticamente los datos principales de interacción del canal, incluyendo aperturas push e Influenced Opens. No se requiere código adicional para los análisis push estándar. Para una lista completa de los datos recopilados automáticamente, consulta [Recopilación de datos del SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection).
 
 Para más detalles, consulta lo siguiente:
 
-- [Recopilación de datos del SDK or kit de desarrollo de software]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection) para una lista completa de datos recopilados automáticamente y opcionales.
+- [Recopilación de datos del SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection) para una lista completa de datos recopilados automáticamente y opcionales.
 - [Influenced Opens]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens) para saber cómo Braze calcula las Influenced Opens.
 - [Eventos de interacción de mensajes]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) para los esquemas de eventos posteriores en Currents.
 
 ## Preservar los análisis nativos de push con manejo personalizado de push {#preserving-native-push-analytics-with-custom-push-handling}
 
-Podrías usar un controlador push personalizado cuando necesites integrar múltiples proveedores push, procesar datos adicionales de la carga útil o implementar lógica personalizada de visualización de notificaciones. Si usas un controlador push personalizado, debes seguir pasando las cargas útiles push a los métodos del SDK or kit de desarrollo de software de Braze. Esto permite que Braze extraiga los datos de seguimiento integrados y registre los análisis nativos de push (aperturas, Influenced Opens y métricas de entrega).
+Podrías usar un controlador push personalizado cuando necesites integrar múltiples proveedores push, procesar datos adicionales de la carga útil o implementar lógica personalizada de visualización de notificaciones. Si usas un controlador push personalizado, debes seguir pasando las cargas útiles push a los métodos del SDK de Braze. Esto permite que Braze extraiga los datos de seguimiento integrados y registre los análisis nativos de push (aperturas, Influenced Opens y métricas de entrega).
 
 {% tabs %}
 {% tab Android %}
@@ -65,7 +65,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 }
 ```
 
-Para un ejemplo completo de implementación, consulta la [aplicación de ejemplo de push Firebase del SDK or kit de desarrollo de software de Braze para Android](https://github.com/braze-inc/braze-android-sdk/tree/master/samples/firebase-push).
+Para un ejemplo completo de implementación, consulta la [aplicación de ejemplo de push Firebase del SDK de Braze para Android](https://github.com/braze-inc/braze-android-sdk/tree/master/samples/firebase-push).
 
 {% endtab %}
 {% tab Swift %}
@@ -115,14 +115,14 @@ func userNotificationCenter(
 }
 ```
 
-Para un ejemplo completo de implementación, consulta el [ejemplo de push manual del SDK or kit de desarrollo de software Swift de Braze (`AppDelegate.swift`)](https://github.com/braze-inc/braze-swift-sdk/blob/main/Examples/Swift/Sources/PushNotifications-Manual/AppDelegate.swift).
+Para un ejemplo completo de implementación, consulta el [ejemplo de push manual del SDK Swift de Braze (`AppDelegate.swift`)](https://github.com/braze-inc/braze-swift-sdk/blob/main/Examples/Swift/Sources/PushNotifications-Manual/AppDelegate.swift).
 
 {% endtab %}
 {% tab Web %}
 
-Para notificaciones push web, configura tu prestador de servicios y la inicialización del SDK or kit de desarrollo de software como se describe en [Notificaciones push web]({{site.baseurl}}/developer_guide/push_notifications?sdktab=web).
+Para notificaciones push web, configura tu prestador de servicios y la inicialización del SDK como se describe en [Notificaciones push web]({{site.baseurl}}/developer_guide/push_notifications?sdktab=web).
 
-Para más ejemplos de código, consulta el [repositorio del SDK or kit de desarrollo de software Web de Braze](https://github.com/braze-inc/braze-web-sdk).
+Para más ejemplos de código, consulta el [repositorio del SDK Web de Braze](https://github.com/braze-inc/braze-web-sdk).
 
 {% endtab %}
 {% endtabs %}
@@ -131,7 +131,7 @@ Para más ejemplos de código, consulta el [repositorio del SDK or kit de desarr
 
 Usa esta sección cuando necesites registrar datos adicionales a partir de pares clave-valor de la carga útil push, como eventos personalizados o atributos vinculados a tu lógica de negocio.
 
-Para más información sobre eventos personalizados, consulta [Eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events). Para registrar eventos personalizados a través de métodos del SDK or kit de desarrollo de software, consulta [Registrar eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events).
+Para más información sobre eventos personalizados, consulta [Eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events). Para registrar eventos personalizados a través de métodos del SDK, consulta [Registrar eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events).
 
 ### Opción A: Registrar con el punto de conexión `/users/track` {#option-a-log-with-the-userstrack-endpoint}
 
@@ -143,9 +143,9 @@ Para identificar el perfil de usuario, incluye `braze_id` en los pares clave-val
 Pasar `braze_id` solo identifica el perfil. Aún necesitas lógica de implementación que lea los valores de la carga útil y envíe la solicitud `/users/track` con los eventos o atributos que deseas registrar.
 {% endalert %}
 
-### Opción B: Registrar con métodos del SDK or kit de desarrollo de software después del lanzamiento de la aplicación {#option-b-log-with-sdk-methods-after-app-launch}
+### Opción B: Registrar con métodos del SDK después del lanzamiento de la aplicación {#option-b-log-with-sdk-methods-after-app-launch}
 
-También puedes guardar los datos de la carga útil localmente y registrar eventos personalizados y atributos a través de métodos del SDK or kit de desarrollo de software después de que la aplicación se inicialice. Este enfoque es común en flujos de extensiones de contenido de notificaciones donde los datos de análisis se persisten primero y se envían en el siguiente lanzamiento de la aplicación.
+También puedes guardar los datos de la carga útil localmente y registrar eventos personalizados y atributos a través de métodos del SDK después de que la aplicación se inicialice. Este enfoque es común en flujos de extensiones de contenido de notificaciones donde los datos de análisis se persisten primero y se envían en el siguiente lanzamiento de la aplicación.
 
 {% alert important %}
 Los análisis no se envían a Braze hasta que la aplicación se lance. Dependiendo de tu configuración de descarte, puede haber un retraso entre el momento en que el usuario descarta la notificación y cuando la aplicación se abre y envía los análisis.
@@ -169,7 +169,7 @@ Antes de implementar los fragmentos de código, elige qué categoría de anális
 - **Atributos personalizados:** Campos de perfil que defines (por ejemplo, `plan_tier` o `preferred_language`) y actualizas con el tiempo. Para más información, consulta [Atributos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types) y [Configurar atributos de usuario]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes).
 - **Atributos de usuario:** Campos estándar del perfil (por ejemplo, correo electrónico, nombre y número de teléfono). En el código de ejemplo, estos se representan mediante un modelo tipado `UserAttribute` y luego se mapean a campos de usuario de Braze.
 
-Los archivos auxiliares en esta sección (`RemoteStorage`, `UserAttribute` y `EventName Dictionary`) son archivos de utilidad locales usados por esta implementación de ejemplo. No son clases integradas del SDK or kit de desarrollo de software. Almacenan datos derivados de la carga útil en `UserDefaults`, definen un modelo tipado para actualizaciones pendientes de usuario y estandarizan la construcción de la carga útil de eventos. Para más información sobre el comportamiento de almacenamiento local de datos, consulta [Almacenamiento]({{site.baseurl}}/developer_guide/storage?tab=swift).
+Los archivos auxiliares en esta sección (`RemoteStorage`, `UserAttribute` y `EventName Dictionary`) son archivos de utilidad locales usados por esta implementación de ejemplo. No son clases integradas del SDK. Almacenan datos derivados de la carga útil en `UserDefaults`, definen un modelo tipado para actualizaciones pendientes de usuario y estandarizan la construcción de la carga útil de eventos. Para más información sobre el comportamiento de almacenamiento local de datos, consulta [Almacenamiento]({{site.baseurl}}/developer_guide/storage?tab=swift).
 
 {% alert note %}
 Los ejemplos de archivos auxiliares en esta sección son específicos de iOS (Swift y Objective-C). Para enfoques de Android y Web para registrar eventos personalizados y atributos, consulta [Registrar eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events) ([Android]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=android), [Web]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=web)) y [Configurar atributos de usuario]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes) ([Android]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?tab=android), [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?tab=web)).
@@ -233,7 +233,7 @@ func saveCustomEvent(with properties: [String: Any]? = nil) {
 
 #### Enviar eventos personalizados a Braze {#sending-custom-events-to-braze}
 
-Registra los análisis guardados justo después de la inicialización del SDK or kit de desarrollo de software.
+Registra los análisis guardados justo después de la inicialización del SDK.
 
 1. Recorre los eventos pendientes.
 2. Recorre los pares clave-valor de cada evento.
@@ -375,7 +375,7 @@ func saveCustomAttribute() {
 
 #### Enviar atributos personalizados a Braze {#sending-custom-attributes-to-braze}
 
-Registra los análisis guardados justo después de la inicialización del SDK or kit de desarrollo de software.
+Registra los análisis guardados justo después de la inicialización del SDK.
 
 1. Recorre los atributos pendientes.
 2. Recorre cada par clave-valor.
@@ -499,7 +499,7 @@ func saveUserAttribute() {
 
 #### Enviar atributos de usuario a Braze {#sending-user-attributes-to-braze}
 
-Registra los análisis guardados justo después de la inicialización del SDK or kit de desarrollo de software.
+Registra los análisis guardados justo después de la inicialización del SDK.
 
 1. Recorre los datos de `pendingAttributes`.
 2. Decodifica cada `UserAttribute`.
@@ -813,6 +813,6 @@ Para la creación de informes personalizados, consulta [Generador de informes]({
 - [Registrar eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events)
 - [Eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events)
 - [Punto de conexión de seguimiento de usuarios (`/users/track`)]({{site.baseurl}}/api/endpoints/user_data/post_user_track)
-- [Repositorio del SDK or kit de desarrollo de software de Braze para Android](https://github.com/braze-inc/braze-android-sdk)
-- [Repositorio del SDK or kit de desarrollo de software Swift de Braze](https://github.com/braze-inc/braze-swift-sdk)
-- [Repositorio del SDK or kit de desarrollo de software Web de Braze](https://github.com/braze-inc/braze-web-sdk)
+- [Repositorio del SDK de Braze para Android](https://github.com/braze-inc/braze-android-sdk)
+- [Repositorio del SDK Swift de Braze](https://github.com/braze-inc/braze-swift-sdk)
+- [Repositorio del SDK Web de Braze](https://github.com/braze-inc/braze-web-sdk)

@@ -13,11 +13,11 @@ toc_headers: h2
 
 ## Datenparität mit dem Dashboard {#data-parity-with-the-dashboard}
 
-In seltenen Fällen können die Werte von Standard- und angepassten Attributen in den Snowflake-Views auf dieser Seite von dem abweichen, was Sie im Kundenprofil or Nutzerprofil im Braze-Dashboard sehen.
+In seltenen Fällen können die Werte von Standard- und angepassten Attributen in den Snowflake-Views auf dieser Seite von dem abweichen, was Sie im Kundenprofil im Braze-Dashboard sehen.
 
 Beispielsweise kann ein Attribut in Snowflake als `NULL` erscheinen, während das Dashboard einen Wert für diese:n Nutzer:in anzeigt.
 
-Wenn Sie weitverbreitete Abweichungen feststellen, wenden Sie sich an Ihre:n CSM or Customer-Success-Manager or Customer-Success-Manager:in:in oder den Braze-Support.
+Wenn Sie weitverbreitete Abweichungen feststellen, wenden Sie sich an Ihre:n CSM:in oder den Braze-Support.
 
 ## Verfügbare Ansichten {#available-views}
 
@@ -86,7 +86,7 @@ Diese Views bieten periodische Snapshots von Nutzerprofilattributen. Die Daten h
 | `USER_ID` | VARCHAR | Der eindeutige Braze-Nutzerbezeichner |
 | `TIME` | NUMBER | Unix-Zeitstempel (Sekunden) der Profilaktualisierung |
 | `TIME_MS` | NUMBER | Unix-Zeitstempel (Millisekunden) der Profilaktualisierung |
-| `UPDATE_SOURCE` | VARCHAR | Die Quelle der Attributaktualisierung (API, SDK or Software-Development-Kit, Dashboard usw.) |
+| `UPDATE_SOURCE` | VARCHAR | Die Quelle der Attributaktualisierung (API, SDK, Dashboard usw.) |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ | Wann die Daten zuletzt in Snowflake aktualisiert wurden |
 | `EXTERNAL_USER_ID` | VARCHAR | Ihr eigener Nutzerbezeichner (falls festgelegt) |
 | `FIRST_NAME` | VARCHAR | Vorname der Nutzerin bzw. des Nutzers |
@@ -99,7 +99,7 @@ Diese Views bieten periodische Snapshots von Nutzerprofilattributen. Die Daten h
 | `HOME_CITY` | VARCHAR | Heimatort der Nutzerin bzw. des Nutzers |
 | `COUNTRY` | VARCHAR | Land der Nutzerin bzw. des Nutzers |
 | `LANGUAGE` | VARCHAR | Sprachpräferenz der Nutzerin bzw. des Nutzers |
-| `ARCHIVED` | BOOLEAN | Ob das Kundenprofil or Nutzerprofil archiviert ist |
+| `ARCHIVED` | BOOLEAN | Ob das Kundenprofil archiviert ist |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERDEFAULTATTRIBUTESVIEWSHARED-Schema" }
 
 
@@ -113,10 +113,10 @@ Diese Views bieten periodische Snapshots von Nutzerprofilattributen. Die Daten h
 | `EXTERNAL_USER_ID` | VARCHAR | Ihr eigener Nutzerbezeichner (falls festgelegt) |
 | `TIME` | NUMBER | Unix-Zeitstempel (Sekunden) der Profilaktualisierung |
 | `TIME_MS` | NUMBER | Unix-Zeitstempel (Millisekunden) der Profilaktualisierung |
-| `UPDATE_SOURCE` | VARCHAR | Die Quelle der Attributaktualisierung (API, SDK or Software-Development-Kit, Dashboard usw.) |
+| `UPDATE_SOURCE` | VARCHAR | Die Quelle der Attributaktualisierung (API, SDK, Dashboard usw.) |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ | Wann die Daten zuletzt in Snowflake aktualisiert wurden |
 | `CUSTOM_ATTRIBUTES` | VARIANT | JSON-Objekt mit allen angepassten Attributen (Schlüssel-Wert-Paare) |
-| `ARCHIVED` | BOOLEAN | Ob das Kundenprofil or Nutzerprofil archiviert ist |
+| `ARCHIVED` | BOOLEAN | Ob das Kundenprofil archiviert ist |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERCUSTOMATTRIBUTESVIEWSHARED-Schema" }
 
 #### Arbeiten mit CUSTOM_ATTRIBUTES {#working-with-custom_attributes}
@@ -189,8 +189,8 @@ Diese Ansichten bieten nahezu Realtime-Aktualisierungen von Nutzerprofilattribut
 | `USER_ID` | VARCHAR | Der eindeutige Braze-Nutzerbezeichner |
 | `TIME` | NUMBER | Unix-Zeitstempel (Sekunden) der Profilaktualisierung |
 | `TIME_MS` | NUMBER | Unix-Zeitstempel (Millisekunden) der Profilaktualisierung |
-| `UPDATE_SOURCE` | VARCHAR | Die Quelle der Attributaktualisierung (API, SDK or Software-Development-Kit, Dashboard usw.) |
-| `ARCHIVED` | BOOLEAN | Ob das Kundenprofil or Nutzerprofil archiviert ist |
+| `UPDATE_SOURCE` | VARCHAR | Die Quelle der Attributaktualisierung (API, SDK, Dashboard usw.) |
+| `ARCHIVED` | BOOLEAN | Ob das Kundenprofil archiviert ist |
 | `SF_UPDATED_AT` | TIMESTAMP_LTZ | Wann die Daten zuletzt in Snowflake aktualisiert wurden |
 | `EXTERNAL_USER_ID` | VARCHAR | Ihr eigener Nutzerbezeichner (falls festgelegt) |
 | `FIRST_NAME` | VARCHAR | Vorname der/des Nutzer:in |
@@ -233,7 +233,7 @@ Diese Ansichten speichern historische Änderungsprotokolle von Nutzerattributen 
 | `APP_ID` | VARCHAR | Die spezifische App innerhalb Ihres Workspace |
 | `TIME` | NUMBER | Unix-Zeitstempel (Sekunden) der Profilaktualisierung |
 | `TIME_MS` | NUMBER | Unix-Zeitstempel (Millisekunden) der Profilaktualisierung |
-| `UPDATE_SOURCE` | VARCHAR | Die Quelle der Attributaktualisierung (API, SDK or Software-Development-Kit, Dashboard usw.) |
+| `UPDATE_SOURCE` | VARCHAR | Die Quelle der Attributaktualisierung (API, SDK, Dashboard usw.) |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ | Wann die Daten zuletzt in Snowflake aktualisiert wurden |
 | `EXTERNAL_USER_ID` | VARCHAR | Ihr eigener Nutzerbezeichner (falls festgelegt) |
 | `FIRST_NAME` | VARCHAR | Vorname der Nutzer:innen |

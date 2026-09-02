@@ -2,7 +2,7 @@
 nav_title: Status
 article_title: Status
 page_order: 6
-description: "Erfahren Sie mehr über Status für Campaigns und Canvase und wie Sie diese im Dashboard verwenden können."
+description: "Erfahren Sie mehr über Status für Campaigns und Canvases und wie Sie diese im Dashboard verwenden können."
 tool:
     - Campaigns
     - Canvas
@@ -10,11 +10,11 @@ tool:
 
 # Campaign- und Canvas-Status {#campaign-and-canvas-statuses}
 
-> Erfahren Sie mehr über Status für Campaigns und Canvase und wie Sie diese im Dashboard verwenden können.
+> Erfahren Sie mehr über Status für Campaigns und Canvases und wie Sie diese im Dashboard verwenden können.
 
 ## Nach Status filtern {#filtering-by-status}
 
-Um Ihre Campaigns oder Canvase nach Status zu filtern, wählen Sie **All Statuses** aus und wählen Sie dann einen Status.
+Um Ihre Campaigns oder Canvases nach Status zu filtern, wählen Sie **All Statuses** aus und wählen Sie dann einen Status.
 
 ![Das Dropdown-Menü „All Statuses“ im Braze-Dashboard.]({% image_buster /assets/img/messaging_fundamentals/filter-by-status.png %}){: style="max-width:70%;"}
 
@@ -26,23 +26,23 @@ Um den Status einer Campaign oder eines Canvas zu ändern, wählen Sie das Menü
 
 ## Verfügbare Status {#available-statuses}
 
-Dies sind die verfügbaren Status für Campaigns und Canvase:
+Dies sind die verfügbaren Status für Campaigns und Canvases:
 
 | Status | Beschreibung |
 | --- | --- |
-| Aktiv | Aktive Campaigns und Canvase befinden sich im Versandprozess. Standardmäßig werden aktive Campaigns und Canvase auf den jeweiligen Seiten angezeigt. |
-| Entwurf | Entwürfe von Campaigns und Canvase sind gespeichert, aber noch nicht gestartet. Um die Bearbeitung fortzusetzen und den Versand zu starten, können Sie den Entwurf auswählen, indem Sie im Braze-Dashboard zu **Messaging** gehen und **Canvas** oder **Campaigns** auswählen. |
-| Archiviert | Archivierte Campaigns und Canvase sind Nachrichten, die nicht mehr versendet werden. Diese Campaigns und Canvase werden auch aus den Statistikdiagrammen auf den Seiten [**Startseite**]({{site.baseurl}}/user_guide/analytics/dashboards/home) und [**Umsatz**]({{site.baseurl}}/user_guide/analytics/reports/revenue_report) entfernt. |
-| Gestoppt | Gestoppte Campaigns und Canvase sind pausiert, können aber weiterhin bearbeitet werden. Um ein Canvas fortzusetzen, gehen Sie zum Schritt **Zusammenfassung** im Canvas-Builder und wählen Sie **Canvas fortsetzen**. Für Campaigns wählen Sie das Menü <i class="fas fa-ellipsis-vertical" aria-label="Weitere Optionen"></i> und dann **Fortsetzen**. Weitere Informationen finden Sie unter [Verhalten gestoppter Canvase](#stopped-canvas-behavior). |
-| Inaktiv | Wenn ein Campaign oder Canvas keine Nachrichten mehr versendet, weist Braze einen Inaktiv-Status zu, um die Sortierung und Verwaltung Ihrer Liste von Campaigns und Canvase zu erleichtern. Sie können einsehen, welche Campaigns oder Canvase automatisch gestoppt werden und das zugehörige Stoppdatum. |
+| Aktiv | Aktive Campaigns und Canvases befinden sich im Versandprozess. Standardmäßig werden aktive Campaigns und Canvases auf den jeweiligen Seiten angezeigt. |
+| Entwurf | Entwürfe von Campaigns und Canvases sind gespeichert, aber noch nicht gestartet. Um die Bearbeitung fortzusetzen und den Versand zu starten, können Sie den Entwurf auswählen, indem Sie im Braze-Dashboard zu **Messaging** gehen und **Canvas** oder **Campaigns** auswählen. |
+| Archiviert | Archivierte Campaigns und Canvases sind Nachrichten, die nicht mehr versendet werden. Diese Campaigns und Canvases werden auch aus den Statistikdiagrammen auf den Seiten [**Startseite**]({{site.baseurl}}/user_guide/analytics/dashboards/home) und [**Umsatz**]({{site.baseurl}}/user_guide/analytics/reports/revenue_report) entfernt. |
+| Gestoppt | Gestoppte Campaigns und Canvases sind pausiert, können aber weiterhin bearbeitet werden. Um ein Canvas fortzusetzen, gehen Sie zum Schritt **Zusammenfassung** im Canvas-Builder und wählen Sie **Canvas fortsetzen**. Für Campaigns wählen Sie das Menü <i class="fas fa-ellipsis-vertical" aria-label="Weitere Optionen"></i> und dann **Fortsetzen**. Weitere Informationen finden Sie unter [Verhalten gestoppter Canvases](#stopped-canvas-behavior). |
+| Inaktiv | Wenn ein Campaign oder Canvas keine Nachrichten mehr versendet, weist Braze einen Inaktiv-Status zu, um die Sortierung und Verwaltung Ihrer Liste von Campaigns und Canvases zu erleichtern. Sie können einsehen, welche Campaigns oder Canvases automatisch gestoppt werden und das zugehörige Stoppdatum. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Verfügbare Status" }
 
-### Verhalten gestoppter Canvase {#stopped-canvas-behavior}
+### Verhalten gestoppter Canvases {#stopped-canvas-behavior}
 
 Wenn ein Canvas gestoppt wird, geschieht Folgendes:
 
 - **Geplante Nachrichten:** Ihre geplanten Nachrichten werden nicht gesendet, unabhängig davon, wo sich Nutzer:innen im Canvas befinden. Dies gilt auch für Nutzer:innen, die aufgrund von Rate-Limiting in der Warteschlange standen.
-- **E-Mail-Versand:** Der E-Mail-Versand wird möglicherweise nicht sofort gestoppt, da Ihr E-Mail-Anbieter (E-Mail-Anbieter or ESP) Ihre bestehenden Anfragen möglicherweise weiterhin verarbeitet.
+- **E-Mail-Versand:** Der E-Mail-Versand wird möglicherweise nicht sofort gestoppt, da Ihr E-Mail-Anbieter (E-Mail-Anbieter) Ihre bestehenden Anfragen möglicherweise weiterhin verarbeitet.
 - **Verzögerungsschritte:** Nutzer:innen in einem [Verzögerungsschritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) verbleiben dort wie gewohnt, verlassen das Canvas jedoch, wenn der festgelegte Zeitraum endet.
 - **Entwurfsänderungen:** Alle Entwurfsänderungen am Canvas werden verworfen, wenn das Canvas gestoppt wird.
 
@@ -76,7 +76,7 @@ Sie haben ein Canvas mit einem siebentägigen Verzögerungsschritt. Sie stoppen 
 
 ### Nachrichten nach Status überwachen {#monitor-your-messages-by-status}
 
-Sie können Ihre Nachrichten nach Status überwachen, um die Performance-Details zu überprüfen. Wenn Sie beispielsweise eine Reihe aktiver Campaigns haben, können Sie die Performance jeder Campaign anhand ihrer Engagement-Metriken bewerten und bei Bedarf Anpassungen vornehmen. Wenn Sie stattdessen einige gestoppte Canvase haben, können Sie überlegen, ob diese für das Messaging fortgesetzt oder vollständig archiviert werden sollten.
+Sie können Ihre Nachrichten nach Status überwachen, um die Performance-Details zu überprüfen. Wenn Sie beispielsweise eine Reihe aktiver Campaigns haben, können Sie die Performance jeder Campaign anhand ihrer Engagement-Metriken bewerten und bei Bedarf Anpassungen vornehmen. Wenn Sie stattdessen einige gestoppte Canvases haben, können Sie überlegen, ob diese für das Messaging fortgesetzt oder vollständig archiviert werden sollten.
 
 {% alert tip %}
 Suchen Sie nach weiteren Möglichkeiten, organisiert zu bleiben? Fügen Sie [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams) und [Tags]({{site.baseurl}}/user_guide/messaging/governance/tags) hinzu, um mehr Kontext auf einen Blick zu bieten.
@@ -84,4 +84,4 @@ Suchen Sie nach weiteren Möglichkeiten, organisiert zu bleiben? Fügen Sie [Tea
 
 ### Aktive Nachrichten überprüfen {#audit-your-active-messages}
 
-Durch regelmäßige Überprüfungen Ihrer aktiven Campaigns und Canvase können Sie die Relevanz und Performance bewerten und veraltete Campaigns und Canvase entfernen oder Update or aktualisieren or aktualisieren, um Ihr Messaging aktuell zu halten.
+Durch regelmäßige Überprüfungen Ihrer aktiven Campaigns und Canvases können Sie die Relevanz und Performance bewerten und veraltete Campaigns und Canvases entfernen oder aktualisieren, um Ihr Messaging aktuell zu halten.

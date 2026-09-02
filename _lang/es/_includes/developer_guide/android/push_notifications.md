@@ -2,12 +2,12 @@
 
 ## Características integradas {#built-in-features}
 
-Las siguientes características están integradas en el SDK or kit de desarrollo de software de Braze para Android. Para utilizar cualquier otra característica de notificaciones push, tendrás que [configurar las notificaciones push](#android_setting-up-push-notifications) para tu aplicación.
+Las siguientes características están integradas en el SDK de Braze para Android. Para utilizar cualquier otra característica de notificaciones push, tendrás que [configurar las notificaciones push](#android_setting-up-push-notifications) para tu aplicación.
 
 |Característica|Descripción|
 |-------|-----------|
-|Push Stories|Las Push Stories de Android están integradas en el SDK or kit de desarrollo de software de Braze para Android de forma predeterminada. Para obtener más información, consulta [Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories).|
-|Push Primers|Las campañas de push primer animan a tus usuarios a habilitar las notificaciones push en su dispositivo para tu aplicación. Esto se puede hacer sin personalización del SDK or kit de desarrollo de software utilizando nuestro [push primer sin código]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages).|
+|Push Stories|Las Push Stories de Android están integradas en el SDK de Braze para Android de forma predeterminada. Para obtener más información, consulta [Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories).|
+|Push Primers|Las campañas de push primer animan a tus usuarios a habilitar las notificaciones push en su dispositivo para tu aplicación. Esto se puede hacer sin personalización del SDK utilizando nuestro [push primer sin código]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages).|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Características integradas" }
 
 ## Acerca del ciclo de vida de las notificaciones push {#push-notification-lifecycle}
@@ -182,7 +182,7 @@ class H1,H2,H3,I1,J1,J2,J3,K1,L1,L2,L3,note1 brazeClass
 ## Configurar las notificaciones push {#setting-up-push-notifications}
 
 {% alert tip %}
-Para consultar una aplicación de ejemplo que utiliza FCM con el SDK or kit de desarrollo de software de Braze para Android, consulta [Braze: Firebase Push Sample App](https://github.com/braze-inc/braze-android-sdk/tree/master/samples/firebase-push).
+Para consultar una aplicación de ejemplo que utiliza FCM con el SDK de Braze para Android, consulta [Braze: Firebase Push Sample App](https://github.com/braze-inc/braze-android-sdk/tree/master/samples/firebase-push).
 {% endalert %}
 
 ### Límites de velocidad {#rate-limits}
@@ -268,7 +268,7 @@ Las claves privadas pueden representar un riesgo de seguridad si se ven comprome
 
 ### Paso 7: Configura el registro automático de tokens {#step-7-set-up-automatic-token-registration}
 
-Cuando uno de tus usuarios acepta recibir notificaciones push, tu aplicación necesita generar un token de FCM en su dispositivo antes de que puedas enviarle notificaciones push. Con el SDK or kit de desarrollo de software de Braze, puedes habilitar el registro automático de tokens de FCM para el dispositivo de cada usuario en los archivos de configuración de Braze de tu proyecto.
+Cuando uno de tus usuarios acepta recibir notificaciones push, tu aplicación necesita generar un token de FCM en su dispositivo antes de que puedas enviarle notificaciones push. Con el SDK de Braze, puedes habilitar el registro automático de tokens de FCM para el dispositivo de cada usuario en los archivos de configuración de Braze de tu proyecto.
 
 Primero, ve a Firebase Console, abre tu proyecto y selecciona <i class="fa-solid fa-gear" aria-label="Configuración"></i>&nbsp;**Settings** > **Project settings**.
 
@@ -381,7 +381,7 @@ Si tu aplicación utiliza múltiples proyectos de Firebase, sigue estos pasos:
 Firebase Cloud Messaging no tiene una API compatible para recuperar un token de un `FirebaseApp` que inicialices manualmente. Las devoluciones de llamada de `FirebaseMessagingService` como `onNewToken` y `onRegistered` solo se activan para el proyecto predeterminado. Para más información, consulta [Configurar múltiples proyectos](https://firebase.google.com/docs/projects/multiprojects) en la documentación de Firebase.
 {% endalert %}
 
-Para ver los detalles de la versión, consulta los [registros de cambios del SDK or kit de desarrollo de software]({{site.baseurl}}/developer_guide/changelogs?sdktab=android).
+Para ver los detalles de la versión, consulta los [registros de cambios del SDK]({{site.baseurl}}/developer_guide/changelogs?sdktab=android).
 
 ### Paso 8: Elimina las solicitudes automáticas en tu clase de aplicación {#step-8-remove-automatic-requests-in-your-application-class}
 
@@ -411,7 +411,7 @@ Braze incluye un servicio para gestionar la recepción de push y las intenciones
 Nuestro código de notificaciones también usa `BrazeFirebaseMessagingService` para gestionar el seguimiento de acciones de apertura y clic. Este servicio debe registrarse en el `AndroidManifest.xml` para funcionar correctamente. Además, recuerda que Braze añade un prefijo con una clave única a las notificaciones de nuestro sistema para que solo se muestren las notificaciones enviadas desde nuestros sistemas. Puedes registrar servicios adicionales por separado para mostrar notificaciones enviadas desde otros servicios FCM. Consulta [`AndroidManifest.xml`](https://github.com/braze-inc/braze-android-sdk/blob/master/samples/firebase-push/src/main/AndroidManifest.xml) en la aplicación de ejemplo de push de Firebase.
 
 {% alert important %}
-Antes del SDK or kit de desarrollo de software 3.1.1 de Braze, se utilizaba `AppboyFcmReceiver` para gestionar push de FCM. La clase `AppboyFcmReceiver` debe eliminarse de tu manifiesto y sustituirse por la integración anterior.
+Antes del SDK 3.1.1 de Braze, se utilizaba `AppboyFcmReceiver` para gestionar push de FCM. La clase `AppboyFcmReceiver` debe eliminarse de tu manifiesto y sustituirse por la integración anterior.
 {% endalert %}
 {% endtab %}
 
@@ -519,7 +519,7 @@ Braze.configure(this, brazeConfig)
 
 Para información general sobre los iconos de notificación de Android, consulta la [descripción general de notificaciones](https://developer.android.com/guide/topics/ui/notifiers/notifications).
 
-A partir de Android N, deberías actualizar o eliminar los activos de iconos de notificación pequeños que incluyan color. El sistema Android (no el SDK or kit de desarrollo de software de Braze) ignora todos los canales no alfa y de transparencia en los iconos de acción y en el icono pequeño de notificación. En otras palabras, Android convertirá todas las partes de tu icono pequeño de notificación a monocromo, excepto las regiones transparentes.
+A partir de Android N, deberías actualizar o eliminar los activos de iconos de notificación pequeños que incluyan color. El sistema Android (no el SDK de Braze) ignora todos los canales no alfa y de transparencia en los iconos de acción y en el icono pequeño de notificación. En otras palabras, Android convertirá todas las partes de tu icono pequeño de notificación a monocromo, excepto las regiones transparentes.
 
 Para crear un activo de icono pequeño de notificación que se muestre correctamente:
 - Elimina todos los colores de la imagen excepto el blanco.
@@ -656,7 +656,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 {% endtab %}
 {% endtabs %}
 
-Para más información, consulta el [ejemplo de integración con Firebase](https://github.com/braze-inc/braze-android-sdk/blob/master/samples/firebase-push/src/main/java/com/braze/firebasepush/FirebaseMessagingService.kt) en el repositorio del SDK or kit de desarrollo de software de Android de Braze.
+Para más información, consulta el [ejemplo de integración con Firebase](https://github.com/braze-inc/braze-android-sdk/blob/master/samples/firebase-push/src/main/java/com/braze/firebasepush/FirebaseMessagingService.kt) en el repositorio del SDK de Android de Braze.
 
 ### Personalizar el comportamiento en primer plano {#customizing-foreground-behavior}
 
@@ -679,7 +679,7 @@ El panel de Braze permite configurar vínculos profundos o URL web en notificaci
 
 #### Personalizar el comportamiento de la pila de retroceso {#customizing-back-stack-behavior}
 
-El SDK or kit de desarrollo de software de Android, de forma predeterminada, colocará la actividad principal del lanzador de tu aplicación anfitriona en la pila de retroceso al seguir vínculos profundos de push. Braze te permite establecer una actividad personalizada para abrirse en la pila de retroceso en lugar de tu actividad principal del lanzador, o desactivar la pila de retroceso por completo.
+El SDK de Android, de forma predeterminada, colocará la actividad principal del lanzador de tu aplicación anfitriona en la pila de retroceso al seguir vínculos profundos de push. Braze te permite establecer una actividad personalizada para abrirse en la pila de retroceso en lugar de tu actividad principal del lanzador, o desactivar la pila de retroceso por completo.
 
 Por ejemplo, para establecer una actividad llamada `YourMainActivity` como la actividad de la pila de retroceso usando la [configuración en tiempo de ejecución]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration):
 
@@ -717,7 +717,7 @@ Consulta la configuración equivalente para tu `braze.xml`. Ten en cuenta que el
 
 ### Paso 5: Definir canales de notificación {#step-5-define-notification-channels}
 
-El SDK or kit de desarrollo de software de Android de Braze es compatible con los [canales de notificación de Android](https://developer.android.com/preview/features/notification-channels.html). Si una notificación de Braze no contiene el ID de un canal de notificación o si contiene un ID de canal no válido, Braze mostrará la notificación con el canal de notificación predeterminado definido en el SDK or kit de desarrollo de software. Los usuarios de la empresa utilizan los [canales de notificación de Android]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/notification_channels) dentro de la plataforma para agrupar notificaciones.
+El SDK de Android de Braze es compatible con los [canales de notificación de Android](https://developer.android.com/preview/features/notification-channels.html). Si una notificación de Braze no contiene el ID de un canal de notificación o si contiene un ID de canal no válido, Braze mostrará la notificación con el canal de notificación predeterminado definido en el SDK. Los usuarios de la empresa utilizan los [canales de notificación de Android]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/notification_channels) dentro de la plataforma para agrupar notificaciones.
 
 Para establecer el nombre del canal de notificación predeterminado de Braze visible para el usuario, usa [`BrazeConfig.setDefaultNotificationChannelName()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-default-notification-channel-name.html).
 
@@ -784,10 +784,10 @@ La [iniciativa de personas y conversaciones](https://developer.android.com/guide
 
 ### Requisitos de uso {#usage-requirements}
 
-- Este tipo de notificación requiere el SDK or kit de desarrollo de software de Braze para Android v15.0.0+ y dispositivos con Android 11+.
-- Los dispositivos o SDK or kit de desarrollo de software no compatibles recurrirán a una notificación push estándar.
+- Este tipo de notificación requiere el SDK de Braze para Android v15.0.0+ y dispositivos con Android 11+.
+- Los dispositivos o SDK no compatibles recurrirán a una notificación push estándar.
 
-Esta característica solo está disponible a través de la REST or transferencia de estado representacional API de Braze. Consulta el [objeto push de Android]({{site.baseurl}}/api/objects_filters/messaging/android_object#android-conversation-push-object) para obtener más información.
+Esta característica solo está disponible a través de la REST API de Braze. Consulta el [objeto push de Android]({{site.baseurl}}/api/objects_filters/messaging/android_object#android-conversation-push-object) para obtener más información.
 
 ## Errores de cuota excedida de FCM {#fcm-quota-exceeded-errors}
 

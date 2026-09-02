@@ -75,7 +75,7 @@ Send this message in English!
 
 중단 로직 평가 시점은 메시지 채널에 따라 다릅니다.
 
-### 푸시, 이메일, 단문 메시지 서비스, 웹훅, Content Cards {#push-email-sms-webhooks-and-content-cards}
+### 푸시, 이메일, SMS, 웹훅, Content Cards {#push-email-sms-webhooks-and-content-cards}
 
 중단 로직은 Braze가 메시지를 전송 처리할 때, 즉 발송 시점에 평가됩니다.
 
@@ -95,7 +95,7 @@ Campaign 또는 캔버스 단계에서 많은 사용자가 진입했지만 발�
 
 ### 발송 시점의 속성 및 Liquid 확인 {#verify-attributes-and-liquid-at-send-time}
 
-푸시, 이메일, 단문 메시지 서비스, 웹훅, Content Cards의 경우, 중단 로직은 Braze가 전달을 위해 메시지를 처리하는 시점에 실행됩니다. 사용자가 Canvas에 진입하거나 트리거 이벤트가 발생한 시점이 아닙니다.
+푸시, 이메일, SMS, 웹훅, Content Cards의 경우, 중단 로직은 Braze가 전달을 위해 메시지를 처리하는 시점에 실행됩니다. 사용자가 Canvas에 진입하거나 트리거 이벤트가 발생한 시점이 아닙니다.
 
 - 메시지 단계가 실행되기 전에 필요한 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), 이벤트 속성정보 또는 [카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs) 필드가 사용자에게 설정되어 있는지 확인합니다.
 - `abort_message()`를 호출하기 전에 명시적인 nil 또는 빈 값 확인을 추가합니다. 값이 없을 때 중단하는 `else` 분기는 해당 데이터가 없는 모든 사용자의 발송을 중지시킵니다.

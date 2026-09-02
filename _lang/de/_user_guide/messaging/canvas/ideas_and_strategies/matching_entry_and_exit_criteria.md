@@ -21,7 +21,7 @@ Verwenden Sie [Ausstiegskriterien]({{site.baseurl}}/user_guide/messaging/canvas/
 
 ### Beispiel: Abgebrochener Ticketkauf {#example-abandoned-ticket-purchase}
 
-In diesem Szenario treten Nutzer:innen in den Canvas ein, wenn sie das angepasste Event `Selected Ticket` ausführen, das eine Eigenschaft namens `event_id` enthält. Die Ausstiegskriterien sind so konfiguriert, dass beim Trigger or triggern or triggern des angepassten Events `Purchased Ticket` – das ebenfalls eine Eigenschaft namens `event_id` enthält – die Event-Eigenschaft des Ausstiegs-Events mit der Event-Eigenschaft des Eingangs-Events verglichen wird. Stimmen beide überein, verlassen die Nutzer:innen den Canvas.
+In diesem Szenario treten Nutzer:innen in den Canvas ein, wenn sie das angepasste Event `Selected Ticket` ausführen, das eine Eigenschaft namens `event_id` enthält. Die Ausstiegskriterien sind so konfiguriert, dass beim Triggern des angepassten Events `Purchased Ticket` – das ebenfalls eine Eigenschaft namens `event_id` enthält – die Event-Eigenschaft des Ausstiegs-Events mit der Event-Eigenschaft des Eingangs-Events verglichen wird. Stimmen beide überein, verlassen die Nutzer:innen den Canvas.
 
 Das bedeutet:
 
@@ -52,8 +52,8 @@ In diesem Szenario erhalten Nutzer:innen, die einen Artikel ausgewählt, aber de
 So richten Sie dies ein:
 
 1. Fügen Sie einen [Aktionspfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)-Schritt hinzu und legen Sie das Auswertungsfenster fest (z. B. eine Woche).
-2. Fügen Sie für die erste Aktionsgruppe (ursprünglicher Kauf) einen Trigger or triggern für das abschließende angepasste Event hinzu (z. B. `Purchased_Ticket`). Wählen Sie **Eigenschaftsfilter hinzufügen** aus und fügen Sie einen Filter hinzu, bei dem der Vergleich der Basiseigenschaft `event_id` auf `equals` gesetzt ist. Aktivieren Sie **Wert personalisieren**, setzen Sie den **Personalisierungstyp** auf `Context Variables` und das **Attribut** auf `event_id`.
-3. Fügen Sie für die zweite Aktionsgruppe (anderer Kauf) dasselbe Trigger or triggern-Event hinzu, setzen Sie den Vergleich jedoch auf `does not equal` mit derselben Kontext-Variablen-Konfiguration.
+2. Fügen Sie für die erste Aktionsgruppe (ursprünglicher Kauf) einen Trigger für das abschließende angepasste Event hinzu (z. B. `Purchased_Ticket`). Wählen Sie **Eigenschaftsfilter hinzufügen** aus und fügen Sie einen Filter hinzu, bei dem der Vergleich der Basiseigenschaft `event_id` auf `equals` gesetzt ist. Aktivieren Sie **Wert personalisieren**, setzen Sie den **Personalisierungstyp** auf `Context Variables` und das **Attribut** auf `event_id`.
+3. Fügen Sie für die zweite Aktionsgruppe (anderer Kauf) dasselbe Trigger-Event hinzu, setzen Sie den Vergleich jedoch auf `does not equal` mit derselben Kontext-Variablen-Konfiguration.
 4. Verwenden Sie die Gruppe **Alle anderen** für Nutzer:innen, die das abschließende Event überhaupt nicht ausgeführt haben.
 
 Weitere Details zur Konfiguration dieser Filter finden Sie unter [Beispiele für Aktionspfade]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables#action-path-examples).

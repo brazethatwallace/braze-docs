@@ -30,9 +30,9 @@ Las ventajas de utilizar esta integración incluyen:
 | Requisito   | Descripción  |
 | ------------------- | ---------------- |
 | Cuenta de Jasper      | Necesitas una cuenta de Jasper para utilizar esta asociación. |
-| Clave de API REST or transferencia de estado representacional de Braze  | Una clave de API REST or transferencia de estado representacional de Braze con los siguientes permisos. <br>  <br>`templates.email.create` <br> `templates.email.update` <br>`content_blocks.create` <br>`content_blocks.update` <br><br>Esta clave puede generarse en el dashboard de Braze navegando a **Configuración > Claves de API**.  |
-| Punto de conexión REST or transferencia de estado representacional de Braze | La URL de tu punto de conexión REST or transferencia de estado representacional. Tu punto de conexión específico depende de la URL de Braze de tu instancia. Consulta la documentación de [Aspectos básicos de la API de Braze: puntos de conexión]({{site.baseurl}}/api/basics/#endpoints) para más detalles. |
-{: .reset-td-br-1 .REST or transferencia de estado representacional-td-br-2 aria-label="Requisitos previos" }
+| Clave de API REST de Braze  | Una clave de API REST de Braze con los siguientes permisos. <br>  <br>`templates.email.create` <br> `templates.email.update` <br>`content_blocks.create` <br>`content_blocks.update` <br><br>Esta clave puede generarse en el dashboard de Braze navegando a **Configuración > Claves de API**.  |
+| Punto de conexión REST de Braze | La URL de tu punto de conexión REST. Tu punto de conexión específico depende de la URL de Braze de tu instancia. Consulta la documentación de [Aspectos básicos de la API de Braze: puntos de conexión]({{site.baseurl}}/api/basics/#endpoints) para más detalles. |
+{: .reset-td-br-1 .rest-td-br-2 aria-label="Requisitos previos" }
 
 ## Métodos de integración {#integration-methods}
 
@@ -60,7 +60,7 @@ Este método es ideal para crear y actualizar mediante programación plantillas 
 | `ctaLink` | La URL de tu llamada a la acción. |
 | `unsubscribeLink` | Obligatoria para los correos electrónicos de marketing. |
 | `brandColor` | El color primario de tu marca en formato hexadecimal (por ejemplo, `#4dfa8a`). |
-{: .reset-td-br-1 .REST or transferencia de estado representacional-td-br-2 aria-label="Paso 1: Configurar Jasper" }
+{: .reset-td-br-1 .rest-td-br-2 aria-label="Paso 1: Configurar Jasper" }
 
 **Campos opcionales**
 
@@ -70,7 +70,7 @@ Este método es ideal para crear y actualizar mediante programación plantillas 
 | `audienceId` | Segmentación de la audiencia |
 | `styleId` | Guía de estilo |
 | `knowledgeIds` | Contexto de contenido mejorado. Puedes añadir hasta tres ID. |
-{: .reset-td-br-1 .REST or transferencia de estado representacional-td-br-2 aria-label="Paso 1: Configurar Jasper" }
+{: .reset-td-br-1 .rest-td-br-2 aria-label="Paso 1: Configurar Jasper" }
 
 {: start="4"}
 4. Genera tu salida ejecutando la plantilla a través de la API de Jasper. Esto producirá una carga útil JSON que contendrá `subject`, `preheader` y `body` (contenido HTML).
@@ -118,7 +118,7 @@ curl --location 'https://api.jasper.ai/v1/templates/skl_BC53D8AC5B4B47E8BE557EBB
 
 ### Paso 2: Configurar Braze {#step-2-set-up-braze}
 
-Utilizando los valores de `subject`, `preheader` y `body` generados por Jasper en el paso 1, haz una solicitud POST a la REST or transferencia de estado representacional API de Braze para [crear una nueva plantilla de correo electrónico]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template/). Asegúrate de que tu clave de API REST or transferencia de estado representacional de Braze tiene los permisos `templates.email.create` y `templates.email.update`.
+Utilizando los valores de `subject`, `preheader` y `body` generados por Jasper en el paso 1, haz una solicitud POST a la REST API de Braze para [crear una nueva plantilla de correo electrónico]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template/). Asegúrate de que tu clave de API REST de Braze tiene los permisos `templates.email.create` y `templates.email.update`.
 
 ### Ejemplo de solicitud de la API de Braze para crear una plantilla de correo electrónico {#sample-braze-api-request-to-create-an-email-template}
 

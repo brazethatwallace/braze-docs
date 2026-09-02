@@ -8,7 +8,7 @@ page_type: reference
 description: "Este artigo descreve os detalhes sobre o endpoint da Braze para recuperar a lista ou consultar cancelamentos de inscrição de e-mail."
 
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Consulta à lista de endereços de e-mail que cancelaram inscrição {#query-list-of-unsubscribed-email-addresses}
 {% apimethod get %}
 /email/unsubscribes
@@ -22,7 +22,7 @@ Você pode usar esse endpoint para configurar uma sincronização bidirecional e
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `email.unsubscribe`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `email.unsubscribe`.
 
 ## Limite de frequência {#rate-limit}
 
@@ -32,8 +32,8 @@ Para usar esse endpoint, você precisará de uma [chave de API or interface de p
 
 | Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | ----------|-----------| ---------|------ |
-| `start_date` | Opcional <br>(ver nota) | String no formato YYYY-MM-DD | Data de início do intervalo para recuperar cancelamentos de inscrição; deve ser anterior a end_date. A API or interface de programação do aplicativo (API) trata essa data como meia-noite no horário UTC. |
-| `end_date` | Opcional <br>(ver nota) | String no formato YYYY-MM-DD | Data final do intervalo para recuperar cancelamentos de inscrição. A API or interface de programação do aplicativo (API) trata essa data como meia-noite no horário UTC. |
+| `start_date` | Opcional <br>(ver nota) | String no formato YYYY-MM-DD | Data de início do intervalo para recuperar cancelamentos de inscrição; deve ser anterior a end_date. A API trata essa data como meia-noite no horário UTC. |
+| `end_date` | Opcional <br>(ver nota) | String no formato YYYY-MM-DD | Data final do intervalo para recuperar cancelamentos de inscrição. A API trata essa data como meia-noite no horário UTC. |
 | `limit` | Opcional | Inteiro | Campo opcional para limitar o número de resultados retornados. O padrão é 100, o máximo é 500. |
 | `offset` | Opcional | Inteiro | Ponto inicial opcional na lista a ser recuperado. |
 | `sort_direction` | Opcional | String | Passe o valor `asc` para classificar os cancelamentos de inscrição do mais antigo para o mais recente. Passe `desc` para classificar do mais recente para o mais antigo. Se `sort_direction` não estiver incluído, a ordem padrão será do mais recente para o mais antigo. |
@@ -44,7 +44,7 @@ Para usar esse endpoint, você precisará de uma [chave de API or interface de p
 Você precisa fornecer um `end_date`, bem como um `email` ou um `start_date`.
 {% endalert %}
 
-Se o seu intervalo de datas tiver mais do que `limit` cancelamentos de inscrição, será necessário fazer várias chamadas à API or interface de programação do aplicativo (API), aumentando o `offset` a cada vez até que uma chamada retorne menos do que `limit` ou zero resultados.
+Se o seu intervalo de datas tiver mais do que `limit` cancelamentos de inscrição, será necessário fazer várias chamadas à API, aumentando o `offset` a cada vez até que uma chamada retorne menos do que `limit` ou zero resultados.
 
 ## Exemplo de solicitação {#example-request}
 ```

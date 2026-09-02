@@ -39,7 +39,7 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 
 ### 1. Schritt: Braze-Webhook-Campaign einrichten {#step-1-set-up-a-braze-webhook-campaign}
 
-Richten Sie eine aktionsbasierte Braze-Webhook-Campaign ein, um die Trustpilot-APIs zu Trigger or triggern or triggern und E-Mail-Bewertungseinladungen an Nutzer:innen zu senden. Sie könnten zum Beispiel eine Einladung zur Bewertung senden, nachdem Nutzer:innen eine Bestellung aufgegeben haben, mit den folgenden Webhook-Details:
+Richten Sie eine aktionsbasierte Braze-Webhook-Campaign ein, um die Trustpilot-APIs zu triggern und E-Mail-Bewertungseinladungen an Nutzer:innen zu senden. Sie könnten zum Beispiel eine Einladung zur Bewertung senden, nachdem Nutzer:innen eine Bestellung aufgegeben haben, mit den folgenden Webhook-Details:
    * [Webhook-URL](https://developers.trustpilot.com/invitation-api?_gl=1*1hxojlc*_ga*MjEzMDkzNjQ5NS4xNzMxNjgxOTQ0*_ga_3TEL80JZSG*MTczNjU0MzY0Ny45LjAuMTczNjU0MzY0Ny4wLjAuMA..#create-invitation(s)): `https://invitations-api.trustpilot.com/v1/private/business-units/{businessUnitId}/email-invitations`
    * Methode: POST
    * Fügen Sie die relevanten Kundeninformationen als Schlüssel-Wert-Paare hinzu.

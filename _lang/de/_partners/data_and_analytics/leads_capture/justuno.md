@@ -20,8 +20,8 @@ Die Integration von Justuno und Braze bietet Ihnen das Beste aus beiden Welten. 
 
 ## Voraussetzungen {#prerequisites}
 
-| Braze-Representational State Transfer-API-Schlüssel | Ein Braze-Representational State Transfer-API-Schlüssel mit den Berechtigungen `users.track` und `custom_attributes.get`.<br><br>Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden. |
-| Braze-Representational State Transfer-Endpunkt | Ihre Representational State Transfer-Endpunkt-URL. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints) ab. |
+| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit den Berechtigungen `users.track` und `custom_attributes.get`.<br><br>Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden. |
+| Braze-REST-Endpunkt | Ihre REST-Endpunkt-URL. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints) ab. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration von Justuno mit Braze {#integrating-justuno-with-braze}
@@ -50,11 +50,11 @@ Um die Braze-App zu Ihrem [Justuno-Workflow](https://hub.justuno.com/knowledge/w
 
 ### 3. Schritt: Ihre Braze-Abo-Gruppen verbinden {#step-3-connect-your-braze-subscription-groups}
 
-Um Profildaten von Justuno an eine bestimmte E-Mail- oder Kurzmitteilungsdienst or SMS-Abo-Gruppe von Braze zu senden, müssen Sie deren ID in der Braze-App in Ihrem Justuno-Workflow hinzufügen.
+Um Profildaten von Justuno an eine bestimmte E-Mail- oder SMS-Abo-Gruppe von Braze zu senden, müssen Sie deren ID in der Braze-App in Ihrem Justuno-Workflow hinzufügen.
 
 | ID-Typ                          | Erforderlich? | Beschreibung                                                                                                   |
 |----------------------------------|-----------|---------------------------------------------------------------------------------------------------------------|
-| Braze-Kurzmitteilungsdienst or SMS-Abo-Gruppen-ID  | Ja       | Diese ID wird verwendet, um Kurzmitteilungsdienst or SMS-Einwilligungen von Nutzer:innen-Profilen zu erfassen. Wenn in Justuno keine ID eingegeben wird, haben die Profile keine Einwilligung, wenn Justuno dieses Profil an Braze überträgt. |
+| Braze-SMS-Abo-Gruppen-ID  | Ja       | Diese ID wird verwendet, um SMS-Einwilligungen von Nutzer:innen-Profilen zu erfassen. Wenn in Justuno keine ID eingegeben wird, haben die Profile keine Einwilligung, wenn Justuno dieses Profil an Braze überträgt. |
 | Braze-E-Mail-Abo-Gruppen-ID | Nein        | Wenn diese ID nicht in Justuno eingegeben wird, sendet Justuno die Profildaten an Braze als Nutzer:in ohne zugehörige Abo-Gruppen. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="3. Schritt: Ihre Braze-Abo-Gruppen verbinden" }
 
@@ -96,5 +96,5 @@ Um zusätzliche Attribute zu synchronisieren:
 
 - Sie müssen die Abo-Gruppen-ID manuell in den App-Einstellungen eingeben.
 - Die folgenden Braze-Datentypen werden **nicht unterstützt**: Objekt, Objekt-Array.
-- Eine implizite Kurzmitteilungsdienst or SMS-Einwilligung wird erteilt, wenn das Kurzmitteilungsdienst or SMS-Einwilligungsfeld von Justuno nicht verwendet wird.
-- Die explizite Kurzmitteilungsdienst or SMS-Einwilligung wird berücksichtigt, wenn das Justuno-Design das Einwilligungsfeld enthält.
+- Eine implizite SMS-Einwilligung wird erteilt, wenn das SMS-Einwilligungsfeld von Justuno nicht verwendet wird.
+- Die explizite SMS-Einwilligung wird berücksichtigt, wenn das Justuno-Design das Einwilligungsfeld enthält.

@@ -15,8 +15,8 @@ Sie können API-Nutzungswarnungen verwenden, um Anfragevolumen für die folgende
 
 | API-Kategorie | Details |
 |--------------|---------|
-| Representational State Transfer API-Endpunkte | Verfolgt die Nutzung aller Representational State Transfer API-Aufrufe an das Braze-Backend, wie z. B. das Senden von Nachrichten, das Erstellen von Campaigns oder das Exportieren von Nutzer:innen. |
-| SDK or Software-Development-Kit-API-Anfragen | Verfolgt API-Anfragen, die von Braze SDKs in Client-Apps gestellt werden, wie z. B. das Trigger or triggern or triggern von In-App-Nachrichten oder das Synchronisieren von Nutzerdaten.<br><br>_*Nur für Kund:innen verfügbar, die „Monthly Active Users – CY 24-25“ erworben haben._ |
+| REST API-Endpunkte | Verfolgt die Nutzung aller REST API-Aufrufe an das Braze-Backend, wie z. B. das Senden von Nachrichten, das Erstellen von Campaigns oder das Exportieren von Nutzer:innen. |
+| SDK-API-Anfragen | Verfolgt API-Anfragen, die von Braze SDKs in Client-Apps gestellt werden, wie z. B. das Triggern von In-App-Nachrichten oder das Synchronisieren von Nutzerdaten.<br><br>_*Nur für Kund:innen verfügbar, die „Monthly Active Users – CY 24-25“ erworben haben._ |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Informationen zu API-Nutzungswarnungen" }
 
 ## Erstellen einer API-Nutzungswarnung {#creating-an-api-usage-alert}
@@ -24,7 +24,7 @@ Sie können API-Nutzungswarnungen verwenden, um Anfragevolumen für die folgende
 So erstellen Sie eine API-Nutzungswarnung:
 
 1. Navigieren Sie zu **Einstellungen** > **APIs und Bezeichner** > **API-Nutzungswarnungen** und erstellen Sie dann eine neue Warnung.
-2. Geben Sie einen Namen für Ihre Warnung ein und wählen Sie die Representational State Transfer API-Endpunkte und API-Schlüssel aus, für die Sie benachrichtigt werden möchten.
+2. Geben Sie einen Namen für Ihre Warnung ein und wählen Sie die REST API-Endpunkte und API-Schlüssel aus, für die Sie benachrichtigt werden möchten.
 3. Definieren Sie Ihre Warnungskriterien, indem Sie einen oder mehrere Antwortcodes auswählen und die [Warnungsschwellenwerte](#api-usage-alert-thresholds) festlegen.
 4. Wenn Sie fertig sind, schalten Sie **Alert enabled** um.
     ![Ein Beispiel für eine API-Nutzungswarnung, die Benachrichtigungen sendet, wenn der Track-Users-Endpunkt innerhalb einer Stunde um 100 Prozent ansteigt.]({% image_buster /assets/img/api_usage_alerts/api_usage_alerts1.png %})
@@ -146,11 +146,11 @@ Lassen Sie sich benachrichtigen, wenn Ihr Workspace das Rate-Limit für den Endp
 {% endtab %}
 
 {% tab API-getriggerte Campaigns %}
-Diese Warnmeldungskonfiguration benachrichtigt Sie, wenn Fehler bei API-getriggerten Campaigns und Canvase auftreten, von denen einige eine hohe Priorität haben können.
+Diese Warnmeldungskonfiguration benachrichtigt Sie, wenn Fehler bei API-getriggerten Campaigns und Canvases auftreten, von denen einige eine hohe Priorität haben können.
 
 | Endpunkt | API-Schlüssel | Antwortcode | Schwellenwertbedingung | Schwellenwert | Innerhalb |
 | --- | --- | --- | --- | --- | --- |
-| {::nomarkdown}<ul><li><code>/campaigns/Trigger or triggern/send</code></li><li><code>/Canvas/Trigger or triggern/send</code></li><li><code>/messages/send</code></li></ul>{:/} | Alle API-Schlüssel | `4XX` und `5XX` | Größer als oder gleich | 1 | 1 Stunde |
+| {::nomarkdown}<ul><li><code>/campaigns/trigger/send</code></li><li><code>/canvas/trigger/send</code></li><li><code>/messages/send</code></li></ul>{:/} | Alle API-Schlüssel | `4XX` und `5XX` | Größer als oder gleich | 1 | 1 Stunde |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Beispielwarnmeldungen" }
 {% endtab %}
 

@@ -8,7 +8,7 @@ description: "Aprende a utilizar el puente JavaScript brazeBridge para registrar
 
 # Puente JavaScript para páginas de destino {#javascript-bridge-for-landing-pages}
 
-> Las páginas de destino admiten un «puente» JavaScript para conectar tu código personalizado (HTML, CSS y JavaScript) con el SDK or kit de desarrollo de software de Braze.
+> Las páginas de destino admiten un «puente» JavaScript para conectar tu código personalizado (HTML, CSS y JavaScript) con el SDK de Braze.
 
 Accede al puente utilizando `brazeBridge` en un bloque de código personalizado para registrar eventos, establecer atributos personalizados, identificar usuarios y más cuando un visitante interactúa con tu página de destino.
 
@@ -30,9 +30,9 @@ El puente de la página de destino es asíncrono; cada método devuelve una Prom
 
 Cuando un visitante abre tu página de destino, `brazeBridge` ya está disponible en el JavaScript de tu **código personalizado**. Llama a los métodos del puente directamente en las páginas de destino: no necesitas esperar un evento de disponibilidad separado como el que usan los mensajes dentro de la aplicación con `ab.BridgeReady`.
 
-Que el objeto del puente esté disponible no significa que el SDK or kit de desarrollo de software de Braze esté inicializado para ese visitante. El SDK or kit de desarrollo de software se inicializa para una visita a la página de destino en cualquiera de estos casos:
+Que el objeto del puente esté disponible no significa que el SDK de Braze esté inicializado para ese visitante. El SDK se inicializa para una visita a la página de destino en cualquiera de estos casos:
 
-- El visitante abre la página a través de una [etiqueta de Liquid de página de destino]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) enviada mediante un canal de Braze (correo electrónico, servicio de mensajes cortos, push, etc.). El SDK or kit de desarrollo de software se inicializa automáticamente cuando la página se carga.
+- El visitante abre la página a través de una [etiqueta de Liquid de página de destino]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) enviada mediante un canal de Braze (correo electrónico, SMS, push, etc.). El SDK se inicializa automáticamente cuando la página se carga.
 - El visitante envía el formulario de la página, por ejemplo, haciendo clic en un botón **Enviar** que envía los datos del formulario. Esto incluye las llamadas a `brazeBridge` realizadas dentro de las devoluciones de llamada `registerFormInput` de un [bloque de formulario personalizado]({{site.baseurl}}/user_guide/messaging/landing_pages/custom_form_blocks), ya que estas se ejecutan como parte del envío del formulario.
 
 Si un visitante abre la página de destino directamente, sin una etiqueta de Liquid de página de destino, y nunca envía el formulario, la página es anónima para Braze y las llamadas a los métodos del puente no tienen efecto.
@@ -101,8 +101,8 @@ Los siguientes métodos de `brazeBridge` devuelven una promesa y son compatibles
 | `getUser().removeFromCustomAttributeArray(key, value)` | Elimina un valor de un arreglo de atributos personalizados. |
 | `getUser().incrementCustomUserAttribute(key, incrementValue?)` | Incrementa un atributo personalizado numérico. |
 | `getUser().setCustomLocationAttribute(key, latitude, longitude)` | Establece un atributo de ubicación personalizado. |
-| `getUser().addToSubscriptionGroup(subscriptionGroupId)` | Añade al usuario a un grupo de suscripción de correo electrónico o servicio de mensajes cortos. |
-| `getUser().removeFromSubscriptionGroup(subscriptionGroupId)` | Elimina al usuario de un grupo de suscripción de correo electrónico o servicio de mensajes cortos. |
+| `getUser().addToSubscriptionGroup(subscriptionGroupId)` | Añade al usuario a un grupo de suscripción de correo electrónico o SMS. |
+| `getUser().removeFromSubscriptionGroup(subscriptionGroupId)` | Elimina al usuario de un grupo de suscripción de correo electrónico o SMS. |
 | `getUser().setEmailNotificationSubscriptionType(type: "opted_in" \| "subscribed" \| "unsubscribed")` | Establece el estado de suscripción a notificaciones por correo electrónico. |
 | `getUser().setPushNotificationSubscriptionType(type: "opted_in" \| "subscribed" \| "unsubscribed")` | Establece el estado de suscripción a notificaciones push. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Métodos de getUser()" }

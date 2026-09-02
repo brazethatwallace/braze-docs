@@ -8,7 +8,7 @@ page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint da Braze para listar os grupos de inscrições do usuário."
 
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Listar os grupos de inscrições do usuário {#list-users-subscription-groups}
 {% apimethod get %}
 /subscription/user/status
@@ -30,7 +30,7 @@ Se você quiser ver exemplos ou testar este endpoint para **grupos do WhatsApp**
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `subscription.groups.get`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `subscription.groups.get`.
 
 ## Limite de frequência {#rate-limit}
 

@@ -23,7 +23,7 @@ Die Integration von Braze und Taxi for Email nutzt die einfache, aber leistungss
 | Anforderung | Beschreibung |
 | ------------| ----------- |
 | Taxi for Email for Email-Konto | Um diese Partnerschaft zu nutzen, ist ein Taxi for Email for Email-Konto erforderlich. |
-| Braze Representational State Transfer-API-Schlüssel | Ein Braze Representational State Transfer-API-Schlüssel mit vollständigen **Templates**-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit vollständigen **Templates**-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
 | Braze-Endpunkt | [Ihr Braze-Endpunkt]({{site.baseurl}}/api/basics/#endpoints) entspricht der URL Ihres Braze-Dashboards.<br><br> Wenn Ihre Dashboard-URL zum Beispiel `https://dashboard-03.braze.com` lautet, ist Ihr Endpunkt `dashboard-03`. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
@@ -31,7 +31,7 @@ Die Integration von Braze und Taxi for Email nutzt die einfache, aber leistungss
 
 ### 1. Schritt: Taxi for Email-E-Mail-Template erstellen {#step-1-create-a-taxi-email-template}
 
-Erstellen Sie ein Taxi for Email-Template auf der Taxi for Email-Plattform. Nachdem das Template erstellt wurde, navigieren Sie zu Ihren **Organisationseinstellungen** und wählen Sie den Tab **E-Mail-Anbieter or ESP Connectors** aus.
+Erstellen Sie ein Taxi for Email-Template auf der Taxi for Email-Plattform. Nachdem das Template erstellt wurde, navigieren Sie zu Ihren **Organisationseinstellungen** und wählen Sie den Tab **E-Mail-Anbieter Connectors** aus.
 
 ### 2. Schritt: Braze-Konnektor erstellen {#step-2-create-braze-connector}
 

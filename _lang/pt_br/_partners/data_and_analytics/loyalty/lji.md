@@ -11,7 +11,7 @@ search_tag: Partner
 
 > A [GRAVTY®](https://www.lji.io/) é uma plataforma de fidelidade de nível empresarial da Loyalty Juggernaut Inc. (LJI) que permite a marcas de varejo, viagens, restaurantes (incluindo redes de fast-food) e serviços financeiros projetar, gerenciar e escalar programas de próxima geração — impulsionando crescimento mensurável em engajamento, retenção e lifetime value do cliente por meio de experiências personalizadas e orientadas por dados.
 
-Construída sobre uma arquitetura flexível e API or interface de programação do aplicativo (API)-first, a GRAVTY® oferece suporte a acúmulo e resgate em tempo real, gerenciamento de ecossistema de parceiros e integração entre canais. As equipes podem lançar mais rápido, iterar nos programas e entregar experiências de fidelidade em escala.
+Construída sobre uma arquitetura flexível e API-first, a GRAVTY® oferece suporte a acúmulo e resgate em tempo real, gerenciamento de ecossistema de parceiros e integração entre canais. As equipes podem lançar mais rápido, iterar nos programas e entregar experiências de fidelidade em escala.
 
 _Esta integração é mantida pela LJI._
 
@@ -26,9 +26,9 @@ Antes de começar, você precisa do seguinte:
 | Requisito | Descrição |
 | :--- | :--- |
 | Conta GRAVTY® | Uma conta GRAVTY® com permissão para configurar integrações e gerenciar inscrições de eventos. |
-| Conta Braze | Uma conta Braze ativa com acesso à API or interface de programação do aplicativo (API) ativado. |
-| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional com as permissões `campaigns.trigger.send`, `canvas.trigger.send` e `users.track`.<br><br> Crie essa chave no dashboard da Braze em **Settings** > **API or interface de programação do aplicativo (API) Keys**. |
-| Endpoint da API or interface de programação do aplicativo (API) da Braze | Seu endpoint REST or transferir estado representacional da Braze (por exemplo, `https://rest.fra-01.braze.eu`). Para saber mais, consulte [Instâncias e endpoints da Braze]({{site.baseurl}}/api/basics/#endpoints). |
+| Conta Braze | Uma conta Braze ativa com acesso à API ativado. |
+| Chave da API REST da Braze | Uma chave da API REST com as permissões `campaigns.trigger.send`, `canvas.trigger.send` e `users.track`.<br><br> Crie essa chave no dashboard da Braze em **Settings** > **API Keys**. |
+| Endpoint da API da Braze | Seu endpoint REST da Braze (por exemplo, `https://rest.fra-01.braze.eu`). Para saber mais, consulte [Instâncias e endpoints da Braze]({{site.baseurl}}/api/basics/#endpoints). |
 | IDs de Campaign ou Canvas | IDs dos fluxos de trabalho de **Campaigns** ou **Canvas** que você aciona a partir da GRAVTY®. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
@@ -43,7 +43,7 @@ Esta integração oferece suporte às seguintes funcionalidades da Braze:
 
 ## Integração {#integration}
 
-A integração entre a GRAVTY® e a Braze é baseada em API or interface de programação do aplicativo (API), permitindo sincronização de dados em tempo real e acionamento de comunicações entre a GRAVTY® e a Braze.
+A integração entre a GRAVTY® e a Braze é baseada em API, permitindo sincronização de dados em tempo real e acionamento de comunicações entre a GRAVTY® e a Braze.
 
 ### Etapa 1: Conectar a Braze com a GRAVTY® {#step-1-connect-braze-with-gravty}
 
@@ -51,8 +51,8 @@ A integração entre a GRAVTY® e a Braze é baseada em API or interface de prog
 2. Selecione **Add New Subscriber**.
 3. Selecione **Braze** como o provedor de integração.
 4. Insira o seguinte:
-   * **API or interface de programação do aplicativo (API) URL** (seu endpoint REST or transferir estado representacional da Braze)
-   * **API or interface de programação do aplicativo (API) Key** (sua chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze)
+   * **API URL** (seu endpoint REST da Braze)
+   * **API Key** (sua chave da API REST da Braze)
 5. Salve a configuração e confirme que a conexão está ativa.
 
 ![Formulário Add Subscriber da GRAVTY® com Braze selecionado, campos de API URL e API key, e um botão de ativação do subscriber.]({% image_buster /assets/img/lji/braze-subscriber-setup.png %}){: style="max-width:70%;"}

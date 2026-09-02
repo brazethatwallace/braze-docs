@@ -40,7 +40,7 @@ Esto generalmente ocurre por una de las siguientes razones:
 
 - El usuario desinstaló la aplicación. Esta es la causa más común. Cuando la aplicación se elimina de un dispositivo, el token de notificaciones push se vuelve inválido.
 - Las credenciales push se actualizaron en la aplicación. Si tu equipo cambió las credenciales o certificados de FCM incluidos en la aplicación, los usuarios que se registraron con las credenciales anteriores tienen tokens inválidos hasta que la aplicación los vuelva a registrar.
-- Una lógica personalizada está cancelando el registro de los usuarios de push. Esto es poco frecuente, pero es técnicamente posible cancelar programáticamente el registro de un dispositivo de push usando el [SDK or kit de desarrollo de software de Firebase/Android](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/FirebaseMessaging#deleteToken()).
+- Una lógica personalizada está cancelando el registro de los usuarios de push. Esto es poco frecuente, pero es técnicamente posible cancelar programáticamente el registro de un dispositivo de push usando el [SDK de Firebase/Android](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/FirebaseMessaging#deleteToken()).
 
 {% alert note %}
 Este error no significa que el usuario tenga push deshabilitado, solo que un token específico fue eliminado de su perfil. Esto es común en usuarios que están probando funcionalidades e instalando y desinstalando la aplicación con frecuencia. Para verificar si el usuario aún tiene tokens válidos, ve a **Búsqueda de usuarios** y revisa la sección **Configuración de contacto** en la pestaña **Participación**.
@@ -110,7 +110,7 @@ Este es el equivalente en iOS del error [DEVICE_UNREGISTERED](#device-unregister
 
 - El usuario desinstaló la aplicación. Esta es la causa más común.
 - Los certificados push se actualizaron. Si tu equipo cambió o renovó los certificados de APN, los usuarios que se registraron con los certificados anteriores pueden tener tokens inválidos hasta que la aplicación los vuelva a registrar.
-- Una lógica personalizada está cancelando el registro de los usuarios de push. Esto es poco frecuente, pero es técnicamente posible cancelar programáticamente el registro de notificaciones remotas usando el SDK or kit de desarrollo de software de iOS.
+- Una lógica personalizada está cancelando el registro de los usuarios de push. Esto es poco frecuente, pero es técnicamente posible cancelar programáticamente el registro de notificaciones remotas usando el SDK de iOS.
 
 {% alert note %}
 Este error no significa que el usuario tenga push deshabilitado, solo que un token específico fue eliminado de su perfil. Para verificar si el usuario aún tiene tokens válidos, ve a **Búsqueda de usuarios** y revisa la sección **Configuración de contacto** en la pestaña **Participación**.

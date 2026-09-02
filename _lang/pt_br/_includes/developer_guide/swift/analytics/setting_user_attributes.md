@@ -264,9 +264,9 @@ NSDictionary *favoriteBook = @{
 {% endtab %}
 {% endtabs %}
 
-### Usando a REST or transferir estado representacional API or interface de programação do aplicativo (API) {#using-the-rest-api}
+### Usando a REST API {#using-the-rest-api}
 
-Você também pode usar nossa REST or transferir estado representacional API or interface de programação do aplicativo (API) para definir ou remover atributos do usuário. Para saber mais, consulte [Endpoints de dados de usuários]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data).
+Você também pode usar nossa REST API para definir ou remover atributos do usuário. Para saber mais, consulte [Endpoints de dados de usuários]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data).
 
 ## Definindo inscrições do usuário {#setting-user-subscriptions}
 

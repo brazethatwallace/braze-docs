@@ -18,7 +18,7 @@ _Diese Integration wird von Lokalise gepflegt._
 
 Lokalise bietet zwei Integrationsoptionen für Braze:
 
-- **Mehrsprachige Integration (empfohlen)**: Nutzt die [Multi-Language Composition API]({{site.baseurl}}/api/endpoints/translations) von Braze, um eine direkte bidirektionale Synchronisierung zwischen Lokalise und Braze bereitzustellen. Diese Integration funktioniert mit lokalisierten Nachrichtenvarianten für Campaigns, Canvase und E-Mail-Templates und unterstützt Workflows vor und nach dem Start für Push, E-Mail und In-App Messages.
+- **Mehrsprachige Integration (empfohlen)**: Nutzt die [Multi-Language Composition API]({{site.baseurl}}/api/endpoints/translations) von Braze, um eine direkte bidirektionale Synchronisierung zwischen Lokalise und Braze bereitzustellen. Diese Integration funktioniert mit lokalisierten Nachrichtenvarianten für Campaigns, Canvases und E-Mail-Templates und unterstützt Workflows vor und nach dem Start für Push, E-Mail und In-App Messages.
 - **Connected-Content-Integration (Legacy)**: Nutzt Braze Connected-Content, um übersetzte Inhalte basierend auf den Spracheinstellungen der Nutzer:innen einzufügen.
 
 Dieser Artikel behandelt die Einrichtung beider Integrationen.
@@ -34,7 +34,7 @@ Die mehrsprachige Integration nutzt die Multi-Language Composition API von Braze
 | Lokalise-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Lokalise-Konto. |
 | Lokalise-Übersetzungsprojekt | Erstellen Sie ein Lokalise-Projekt mit dem Typ **Marketing and support** und wählen Sie **Braze** als **Content integration**. |
 | Braze-Einstellungen für mehrere Sprachen | Die [Unterstützung mehrerer Sprachen]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings) muss in Ihrem Braze-Workspace aktiviert sein. |
-| Braze Representational State Transfer-API-Schlüssel | Ein Braze Representational State Transfer-API-Schlüssel mit Berechtigungen zum Lesen und Update or aktualisieren or aktualisieren von Campaigns, Canvase und E-Mail-Templates. Sie können einen im Braze-Dashboard unter **Settings** > **API Keys** erstellen. |
+| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit Berechtigungen zum Lesen und Aktualisieren von Campaigns, Canvases und E-Mail-Templates. Sie können einen im Braze-Dashboard unter **Settings** > **API Keys** erstellen. |
 | Braze-Serverregion | Ihre [Braze-Serverregion]({{site.baseurl}}/api/basics#endpoints) (z. B. US-01, EU-01). Sie finden diese im Braze-Dashboard. |
 | Übersetzungs-Tags in Braze-Inhalten | Nachrichten müssen [Übersetzungs-Tags]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) verwenden, um übersetzbare Inhalte zu kennzeichnen. Umschließen Sie jeden übersetzbaren Block mit {% raw %}`{% translation ID %}...{% endtranslation %}`{% endraw %}-Tags mit einer eindeutigen ID. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
@@ -45,7 +45,7 @@ Detaillierte Anweisungen zum Verbinden der mehrsprachigen Braze-Integration in L
 
 Die Integration unterstützt:
 - Direkte bidirektionale Synchronisierung zwischen Lokalise und Braze (keine manuelle Dateiverarbeitung)
-- Lokalisierte Nachrichtenvarianten für Campaigns, Canvase und E-Mail-Templates
+- Lokalisierte Nachrichtenvarianten für Campaigns, Canvases und E-Mail-Templates
 - Übersetzungsworkflows vor und nach dem Start
 
 {% alert note %}
@@ -112,7 +112,7 @@ In der **Translation File URL** veröffentlicht Lokalise eine JSON-Datei mit all
 1. Der erste Teil des URL-Pfads ist für alle Sprachen gleich.
 2. Der JSON-Dateiname am Ende der URL basiert auf dem Sprachcode.
 
-Die URL der Übersetzungsdatei ist die URL, die Sie benötigen, wenn Sie eine Braze-Campaign konfigurieren. Sie können den Inhalt der JSON-Datei Update or aktualisieren or aktualisieren, indem Sie auf **Refresh** klicken. Beachten Sie, dass die URL gleich bleibt und Sie Ihren Connected-Content-Aufruf in Braze nicht ändern müssen.
+Die URL der Übersetzungsdatei ist die URL, die Sie benötigen, wenn Sie eine Braze-Campaign konfigurieren. Sie können den Inhalt der JSON-Datei aktualisieren, indem Sie auf **Refresh** klicken. Beachten Sie, dass die URL gleich bleibt und Sie Ihren Connected-Content-Aufruf in Braze nicht ändern müssen.
 
 ##### Test-URL
 
@@ -165,6 +165,6 @@ Nein, die ISO-Codes der Lokalisierung müssen in Braze und Lokalise übereinstim
 
 Ja, selbstverständlich. Sie können in der Braze-Dokumentation nachlesen, wie Sie dieses Flag hinzufügen können.
 
-### Warum kann ich nach dem Update or aktualisieren or aktualisieren der Übersetzungsdatei auf Lokalise keine Änderungen an den übersetzten Inhalten in Braze sehen? {#after-refreshing-the-translation-file-on-lokalise-why-cant-i-see-any-changes-in-the-translated-content-on-braze}
+### Warum kann ich nach dem Aktualisieren der Übersetzungsdatei auf Lokalise keine Änderungen an den übersetzten Inhalten in Braze sehen? {#after-refreshing-the-translation-file-on-lokalise-why-cant-i-see-any-changes-in-the-translated-content-on-braze}
 
 Braze speichert übersetzte Inhalte im Cache. Die Aktualisierung kann einige Minuten dauern. Wenn Sie Ihre Campaigns testen und die Ergebnisse der Übersetzungen sofort sehen müssen, können Sie den Parameter `:cache_max_age` verwenden, wie in diesem Referenzartikel beschrieben.

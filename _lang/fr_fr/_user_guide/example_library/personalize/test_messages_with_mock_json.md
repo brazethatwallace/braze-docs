@@ -8,13 +8,13 @@ description: "Utilisez les balises Liquid capture et json_parse pour simuler du 
 
 # Tester les messages avec du JSON simulé dans l'aperçu {#test-messages-with-mock-json-in-preview}
 
-> Simulez du JSON de type API ou de type entrée dans votre message avec `capture` et `json_parse` afin de valider le Liquid et la mise en page dans l'aperçu du compositeur avant de lancer une Campaign, de déclencher un Canvas ou d'appeler du contenu connecté en direct or en ligne/en production/instantané.
+> Simulez du JSON de type API ou de type entrée dans votre message avec `capture` et `json_parse` afin de valider le Liquid et la mise en page dans l'aperçu du compositeur avant de lancer une Campaign, de déclencher un Canvas ou d'appeler du contenu connecté en direct.
 
 ## À propos de cet exemple {#about-this-example}
 
 Flash & Thread, une marque fictive de vêtements, crée des messages qui dépendent de réponses de contenu connecté, de variables de contexte Canvas ou de données de profil sous forme de tableaux d'objets. Déclencher de vrais appels API ou lancer des Campaigns à chaque itération ralentit le développement.
 
-Ce modèle intègre un payload JSON simulé dans le corps du message, le stocke avec `capture`, puis l'analyse avec `json_parse` afin que Liquid puisse référencer des champs structurés dans la section **Preview**, sans appel de contenu connecté en direct or en ligne/en production/instantané, sans entrée Canvas déclenchée par API, ni envoi de test.
+Ce modèle intègre un payload JSON simulé dans le corps du message, le stocke avec `capture`, puis l'analyse avec `json_parse` afin que Liquid puisse référencer des champs structurés dans la section **Preview**, sans appel de contenu connecté en direct, sans entrée Canvas déclenchée par API, ni envoi de test.
 
 Utilisez ce modèle pendant le développement de vos messages. Il ne remplace pas les tests de bout en bout avec de vrais déclencheurs, des envois de test ou la [prévisualisation des parcours utilisateur]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths) dans Canvas.
 
@@ -25,7 +25,7 @@ Utilisez ce modèle pendant le développement de vos messages. Il ne remplace pa
 - Le JSON fictif doit être valide. Un JSON invalide provoque l'échec de `json_parse` ou renvoie des structures inattendues.
 - Supprimez ou retirez les blocs fictifs avant le lancement, ou protégez votre Liquid de production afin que les données fictives ne soient utilisées que dans l'aperçu (par exemple avec un indicateur de commentaire que vous supprimez avant la mise en production).
 - Les extraits de code Liquid de cet article sont des exemples. Testez-les dans vos canaux et avec vos propres structures de payload.
-- Pour le contenu connecté en production, supprimez le bloc fictif et utilisez votre tag d'URL en direct or en ligne/en production/instantané. Consultez [Effectuer un appel API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call).
+- Pour le contenu connecté en production, supprimez le bloc fictif et utilisez votre tag d'URL en direct. Consultez [Effectuer un appel API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call).
 
 ## Configuration {#setup}
 
@@ -78,7 +78,7 @@ Sans `json_parse`, la notation par points sur la chaîne capturée (par exemple 
 
 ### Étape 3 : Référencer les champs analysés en Liquid {#step-3-reference-parsed-fields-in-liquid}
 
-Parcourez le tableau analysé et affichez les champs comme vous le feriez pour une réponse d'API en direct or en ligne/en production/instantané.
+Parcourez le tableau analysé et affichez les champs comme vous le feriez pour une réponse d'API en direct.
 
 {% raw %}
 ```liquid

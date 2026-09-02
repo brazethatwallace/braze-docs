@@ -12,7 +12,7 @@ toc_headers: h2
 > O dashboard **Messaging Diagnostics** oferece uma visão geral dos resultados de envio de mensagens, permitindo que você identifique tendências e diagnostique possíveis problemas na sua configuração de envio de mensagens. Esse dashboard pode ajudar a entender por que as mensagens de suas campanhas ou Canvas podem não ter sido enviadas conforme o esperado.
 
 {% alert important %}
-O dashboard **Messaging Diagnostics** está disponível de forma geral. Entre em contato com seu gerente de sucesso do cliente se tiver interesse em obter acesso ao recurso.
+O dashboard **Messaging Diagnostics** está disponível de forma geral. Entre em contato com seu CSM se tiver interesse em obter acesso ao recurso.
 {% endalert %}
 
 {% alert note %}
@@ -150,7 +150,7 @@ Os resultados de interrupção no Messaging Diagnostics são rótulos legíveis 
 | Usuário não é mais elegível | O usuário estava inicialmente no público-alvo, mas deixou de corresponder aos critérios do público antes que a Braze enviasse a mensagem ou inserisse o usuário no Canvas. O intervalo entre o usuário atender inicialmente aos critérios de público e deixar de atendê-los pode ser causado por atrasos de: {::nomarkdown}<ul><li>Intelligent Timing</li><li>Horário de silêncio</li><li>Fuso local</li><li>Limites de velocidade de entrega (não aplicável para entrada no Canvas)</li><li>Atrasos no pipeline de envio de mensagens</li></ul>{:/} |
 | Usuário não elegível para a etapa | O usuário não atendeu às [validações de entrega]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations) configuradas para a etapa de mensagem ou fazia parte de uma [lista de supressão]({{site.baseurl}}/user_guide/audience/suppression_lists). Dependendo das configurações de **Validações de entrega**, o usuário pode ter saído do Canvas ou seguido para a próxima etapa. |
 | Usuário não reelegível | O usuário era elegível para receber a mensagem ou entrar no Canvas, mas o envio foi cancelado devido às configurações de reelegibilidade ou reentrada. Isso pode acontecer se o usuário já recebeu a Campaign ou entrou no Canvas muito recentemente, se outro envio da mesma Campaign já está em andamento para este usuário, ou se a reelegibilidade ou reentrada está desativada. |
-| Perfil de usuário não encontrado | O usuário nunca existiu ou não existe mais na Braze. Alguns casos comuns incluem: {::nomarkdown}<ul><li> O usuário foi direcionado usando envio de mensagens via API or interface de programação do aplicativo (API), mas nunca existiu na Braze. </li><li>O usuário foi excluído antes que a mensagem fosse enviada ou a etapa do Canvas fosse executada. </li><li>O usuário foi mesclado com outro perfil antes que a mensagem fosse enviada.</li></ul>{:/} |
+| Perfil de usuário não encontrado | O usuário nunca existiu ou não existe mais na Braze. Alguns casos comuns incluem: {::nomarkdown}<ul><li> O usuário foi direcionado usando envio de mensagens via API, mas nunca existiu na Braze. </li><li>O usuário foi excluído antes que a mensagem fosse enviada ou a etapa do Canvas fosse executada. </li><li>O usuário foi mesclado com outro perfil antes que a mensagem fosse enviada.</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Elegibilidade e perfil do usuário" }
 
 #### Canal e entrega {#channel-and-delivery}
@@ -180,7 +180,7 @@ São interrupções que não se enquadram nas categorias existentes do dashboard
 
 Isso pode acontecer por vários motivos:
 
-- **Critérios de público:** Menos usuários do que o esperado podem ter atendido aos critérios de público (por exemplo, não estavam no Segment or segmento ou não tinham os atributos necessários) quando a Campaign ou o Canvas foi lançado.
+- **Critérios de público:** Menos usuários do que o esperado podem ter atendido aos critérios de público (por exemplo, não estavam no Segment ou não tinham os atributos necessários) quando a Campaign ou o Canvas foi lançado.
 - **Processamento em andamento:** As mensagens podem ainda estar sendo processadas. Os usuários podem ainda estar em etapas anteriores do Canvas e ainda não terem chegado a nenhuma etapa de mensagem.
 - **Atualização dos dados:** Os dados do dashboard são atualizados aproximadamente a cada 15 minutos, mas isso não é garantido. Os dados mais recentes dessa Campaign ou Canvas podem ainda não ter chegado ao dashboard.
 - **Casos extremos:** Há uma pequena chance de você estar encontrando um caso extremo que não é capturado nesse dashboard no momento. Se você suspeitar que esse é o caso, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support).

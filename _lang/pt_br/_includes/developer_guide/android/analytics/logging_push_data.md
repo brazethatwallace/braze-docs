@@ -1,4 +1,4 @@
-## Registro de dados com a API or interface de programação do aplicativo (API) do Braze (recomendado)
+## Registro de dados com a API do Braze (recomendado)
 
 É possível registrar análises de dados em tempo real fazendo chamadas para o [endpoint`/users/track` ]({{site.baseurl}}/api/endpoints/user_data/post_user_track/). Para análise de dados, envie o valor `braze_id` do dashboard do Braze para identificar qual perfil de usuário deve ser atualizado.
 

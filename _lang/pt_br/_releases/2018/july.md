@@ -9,7 +9,7 @@ description: "Este artigo contém notas de versão para julho de 2018."
 
 ## Disparos a partir de alterações de atributos {#triggers-from-attribute-changes}
 
-Agora você pode disparar Campaigns e etapas do Canvas com base em alterações de valores de atributos, como status de inscrição e alterações de atributos personalizados. Anteriormente, você precisava enviar à Braze um evento ou um disparador de API or interface de programação do aplicativo (API) para acionar uma campanha em tempo real. Mas com os disparadores de atributos, você pode configurar fluxos de trabalho disparados diretamente da Braze sem adicionar um evento!
+Agora você pode disparar Campaigns e etapas do Canvas com base em alterações de valores de atributos, como status de inscrição e alterações de atributos personalizados. Anteriormente, você precisava enviar à Braze um evento ou um disparador de API para acionar uma campanha em tempo real. Mas com os disparadores de atributos, você pode configurar fluxos de trabalho disparados diretamente da Braze sem adicionar um evento!
 
 Esse recurso ainda não está disponível para todos os clientes. Entre em contato com o gerente da sua conta se estiver interessado em ativar esse recurso na sua conta Braze.
 

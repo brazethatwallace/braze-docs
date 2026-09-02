@@ -28,5 +28,5 @@ Siga as etapas abaixo na ordem indicada.
 |---|---|---|
 | `131049` | Limite de frequência de marketing por usuário da Meta ou pausa de marketing nos EUA | Consulte [Recursos da Meta]({{site.baseurl}}/user_guide/channels/whatsapp/meta_resources) e [Redirecionar usuários em outros canais da Braze]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/optimized_delivery#retargeting-users-on-other-braze-channels) |
 | `130472` | Grupo de controle de experimento de marketing da Meta | Consulte [FAQ de recursos da Meta]({{site.baseurl}}/user_guide/channels/whatsapp/meta_resources#faq) |
-| `131026` | Diversos motivos de não entrega (a Meta não divulga detalhes específicos) | Evite novas tentativas imediatas; consulte a [solução de problemas da Meta Cloud API or interface de programação do aplicativo (API)](https://developers.facebook.com/docs/whatsapp/cloud-api/support#troubleshooting) |
+| `131026` | Diversos motivos de não entrega (a Meta não divulga detalhes específicos) | Evite novas tentativas imediatas; consulte a [solução de problemas da Meta Cloud API](https://developers.facebook.com/docs/whatsapp/cloud-api/support#troubleshooting) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Códigos de falha comuns do WhatsApp" }

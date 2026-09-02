@@ -18,7 +18,7 @@ La asociación entre Braze y Zapier aprovecha la API de Braze y los [webhooks]({
 | Requisitos | Descripción |
 |---|---|
 | Cuenta Zapier | Se requiere una cuenta Zapier para aprovechar esta asociación. |
-| Endpoint REST or transferencia de estado representacional de Braze | La URL de tu endpoint REST or transferencia de estado representacional. Tu endpoint dependerá de la [URL de Braze para tu instancia]({{site.baseurl}}/api/basics#api-definitions). |
+| Endpoint REST de Braze | La URL de tu endpoint REST. Tu endpoint dependerá de la [URL de Braze para tu instancia]({{site.baseurl}}/api/basics#api-definitions). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
@@ -45,7 +45,7 @@ Siguiendo con nuestro ejemplo, queremos enviar una solicitud POST como JSON a un
 
 ### Paso 3: Configurar el POST de Braze {#step-3-set-up-braze-post}
 
-Cuando configures tu webhook, utiliza la siguiente configuración y proporciona tu endpoint REST or transferencia de estado representacional de Braze en la URL del webhook. Cuando hayas terminado, selecciona **Publish**.
+Cuando configures tu webhook, utiliza la siguiente configuración y proporciona tu endpoint REST de Braze en la URL del webhook. Cuando hayas terminado, selecciona **Publish**.
 
 - **Method**: POST
 - **Webhook URL**: `https://rest.iad-01.braze.com/canvas/trigger/send`
@@ -83,10 +83,10 @@ Para enviar datos al endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/us
 
 1. En Zapier, elige tu desencadenante (por ejemplo, **New or Updated Spreadsheet Row** en Google Sheets).
 2. Para la acción, selecciona **Webhooks by Zapier** y elige **Custom Request** (no POST).
-3. Establece **Method** en POST, introduce la URL de tu endpoint REST or transferencia de estado representacional de Braze (por ejemplo, `https://rest.iad-01.braze.com/users/track`) y formatea el cuerpo de la solicitud con comillas dobles alrededor de cada elemento, como lo harías en Postman o en una llamada a la API. Mapea los campos de tu desencadenante (por ejemplo, columnas de la hoja de cálculo) en el cuerpo JSON donde corresponda.
+3. Establece **Method** en POST, introduce la URL de tu endpoint REST de Braze (por ejemplo, `https://rest.iad-01.braze.com/users/track`) y formatea el cuerpo de la solicitud con comillas dobles alrededor de cada elemento, como lo harías en Postman o en una llamada a la API. Mapea los campos de tu desencadenante (por ejemplo, columnas de la hoja de cálculo) en el cuerpo JSON donde corresponda.
 4. Añade los encabezados obligatorios:
    - **Content-Type**: `application/json`
-   - **Authorization**: `Bearer YOUR-REST-API-KEY` (usa tu clave de API REST or transferencia de estado representacional de Braze sin corchetes ni comillas)
+   - **Authorization**: `Bearer YOUR-REST-API-KEY` (usa tu clave de API REST de Braze sin corchetes ni comillas)
 5. Prueba el paso y activa tu zap.
 
 [5]: {% image_buster /assets/img_archive/zapier1.png %}

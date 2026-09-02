@@ -96,21 +96,21 @@ O que acontece com uma mensagem que cai dentro de uma janela de horário de sil�
 - **Campaigns e Canvas baseados em ação:** O fallback pode ser **Interromper mensagem** ou **Enviar no próximo horário disponível**, as mesmas opções do horário de silêncio no nível de Campaign e Canvas.
 - **Campaigns agendadas com horário de envio fixo:** O fallback é **Interromper mensagem**. A Braze não adia um envio de horário fixo para o próximo horário disponível, pois isso poderia concentrar um grande volume de mensagens em uma janela de envio comprimida assim que o horário de silêncio terminar.
 - **Campaigns usando Intelligent Timing:** Nenhum fallback separado é necessário. A Braze já considera a janela de horário de silêncio do espaço de trabalho no horário de envio ideal calculado para cada usuário, então as mensagens não são agendadas dentro da janela.
-- **Campaigns disparadas por API or interface de programação do aplicativo (API) e Campaigns de API or interface de programação do aplicativo (API):** O fallback é **Interromper mensagem** por padrão.
+- **Campaigns disparadas por API e Campaigns de API:** O fallback é **Interromper mensagem** por padrão.
 
-### Campaigns disparadas por API or interface de programação do aplicativo (API) e Campaigns de API or interface de programação do aplicativo (API) {#api-triggered-and-api-campaigns}
+### Campaigns disparadas por API e Campaigns de API {#api-triggered-and-api-campaigns}
 
-O horário de silêncio funciona de forma diferente para Campaigns disparadas por API or interface de programação do aplicativo (API) e Campaigns de API or interface de programação do aplicativo (API).
+O horário de silêncio funciona de forma diferente para Campaigns disparadas por API e Campaigns de API.
 
-#### Campaigns disparadas por API or interface de programação do aplicativo (API) {#api-triggered-campaigns}
+#### Campaigns disparadas por API {#api-triggered-campaigns}
 
-Campaigns disparadas por API or interface de programação do aplicativo (API) seguem as mesmas opções de horário de silêncio que outras Campaigns no dashboard. Você pode usar o padrão de horário de silêncio do espaço de trabalho, definir uma janela personalizada no nível de Campaign ou desativar o horário de silêncio na configuração da Campaign. Não existe um parâmetro de API or interface de programação do aplicativo (API) `ignore_workspace_quiet_hours` para envios disparados por API or interface de programação do aplicativo (API).
+Campaigns disparadas por API seguem as mesmas opções de horário de silêncio que outras Campaigns no dashboard. Você pode usar o padrão de horário de silêncio do espaço de trabalho, definir uma janela personalizada no nível de Campaign ou desativar o horário de silêncio na configuração da Campaign. Não existe um parâmetro de API `ignore_workspace_quiet_hours` para envios disparados por API.
 
-Para envios agendados disparados por API or interface de programação do aplicativo (API) usando `at_optimal_time`, o horário de silêncio do espaço de trabalho já é considerado no horário de envio ideal, de forma semelhante ao [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing).
+Para envios agendados disparados por API usando `at_optimal_time`, o horário de silêncio do espaço de trabalho já é considerado no horário de envio ideal, de forma semelhante ao [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing).
 
-#### Campaigns de API or interface de programação do aplicativo (API) {#api-campaigns}
+#### Campaigns de API {#api-campaigns}
 
-Campaigns de API or interface de programação do aplicativo (API) não podem usar horário de silêncio no nível de Campaign. Apenas a janela de horário de silêncio do espaço de trabalho é aplicada. Para enviar durante essa janela, inclua o parâmetro opcional `ignore_workspace_quiet_hours` na sua requisição de API or interface de programação do aplicativo (API).
+Campaigns de API não podem usar horário de silêncio no nível de Campaign. Apenas a janela de horário de silêncio do espaço de trabalho é aplicada. Para enviar durante essa janela, inclua o parâmetro opcional `ignore_workspace_quiet_hours` na sua requisição de API.
 
 ### Exclusões {#exclusions}
 

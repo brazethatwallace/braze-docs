@@ -9,7 +9,7 @@ description: "Este artículo de referencia cubre cuándo usar Actualización de 
 
 # Crear un webhook de Braze a Braze {#create-a-braze-to-braze-webhook}
 
-> Los webhooks de Braze a Braze te permiten llamar a la [REST or transferencia de estado representacional API de Braze]({{site.baseurl}}/api/basics) desde dentro de Braze usando un [webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) en una [Campaign]({{site.baseurl}}/user_guide/messaging/campaigns) o [Canvas]({{site.baseurl}}/user_guide/messaging/canvas). Úsalos para tareas de orquestación como desencadenar un [Canvas activado por API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases). Para actualizar [atributos de usuario]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), [eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events) o [compras]({{site.baseurl}}/user_guide/data/activation/events/purchase_events) desde Canvas, usa [Actualización de usuario]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) en su lugar. Está diseñado para cambios en el perfil de usuario y procesa las actualizaciones de forma más eficiente.
+> Los webhooks de Braze a Braze te permiten llamar a la [REST API de Braze]({{site.baseurl}}/api/basics) desde dentro de Braze usando un [webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) en una [Campaign]({{site.baseurl}}/user_guide/messaging/campaigns) o [Canvas]({{site.baseurl}}/user_guide/messaging/canvas). Úsalos para tareas de orquestación como desencadenar un [Canvas activado por API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases). Para actualizar [atributos de usuario]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), [eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events) o [compras]({{site.baseurl}}/user_guide/data/activation/events/purchase_events) desde Canvas, usa [Actualización de usuario]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) en su lugar. Está diseñado para cambios en el perfil de usuario y procesa las actualizaciones de forma más eficiente.
 
 Para sacar el máximo provecho de este artículo, deberías estar familiarizado con [cómo funcionan los webhooks]({{site.baseurl}}/user_guide/channels/webhooks) y cómo [crear un webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) en Braze.
 
@@ -39,7 +39,7 @@ Actualización de usuario puede manejar casi todas las mismas tareas que un webh
 
 Enviar a destino proporciona una forma más sencilla de desencadenar un segundo Canvas desde dentro de Canvas sin necesidad de configuración de webhook.
 
-Puedes usar un webhook de Braze a Braze cuando necesites llamar a la [REST or transferencia de estado representacional API]({{site.baseurl}}/api/basics) de Braze desde dentro de Braze para escenarios que no tienen un componente de Canvas dedicado. Ejemplos comunes incluyen:
+Puedes usar un webhook de Braze a Braze cuando necesites llamar a la [REST API]({{site.baseurl}}/api/basics) de Braze desde dentro de Braze para escenarios que no tienen un componente de Canvas dedicado. Ejemplos comunes incluyen:
 
 - Desencadenar una [Campaign activada por API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) desde un Canvas
 - Llamar a otros [endpoints de mensajería]({{site.baseurl}}/api/endpoints/messaging) para patrones de orquestación en los que un flujo de trabajo en Braze necesita invocar una API que no tiene un componente de Canvas dedicado
@@ -76,7 +76,7 @@ El desencadenante **Interact with Canvas Step** solo está disponible para Campa
 
 Consulta lo siguiente al configurar tu webhook:
 
-- **URL del webhook:** La [URL de tu endpoint REST or transferencia de estado representacional]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) seguida de `/canvas/trigger/send`. Por ejemplo, para la instancia `US-06`, la URL sería `https://rest.iad-06.braze.com/canvas/trigger/send`.
+- **URL del webhook:** La [URL de tu endpoint REST]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) seguida de `/canvas/trigger/send`. Por ejemplo, para la instancia `US-06`, la URL sería `https://rest.iad-06.braze.com/canvas/trigger/send`.
 - **Cuerpo de la solicitud:** Texto sin formato
 
 ### Encabezados de solicitud y método {#request-headers-and-method}

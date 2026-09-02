@@ -28,7 +28,7 @@ Wenn Sie das [Analytics-Tracking für ein Segment]({{site.baseurl}}/user_guide/a
 
 ### Segment-Statistiken {#segment-statistics}
 
-Sie können die folgenden Segment-Statistiken einsehen, die sich in Realtime Update or aktualisieren or aktualisieren, wenn Sie Filter hinzufügen oder entfernen:
+Sie können die folgenden Segment-Statistiken einsehen, die sich in Realtime aktualisieren, wenn Sie Filter hinzufügen oder entfernen:
 
 <style>
     .no-split {
@@ -54,8 +54,8 @@ Sie können die folgenden Segment-Statistiken einsehen, die sich in Realtime Upd
             <td class="no-split">Wie viele Nutzer:innen sich in Ihrem Segment befinden und welchen Prozentsatz Ihrer gesamten Nutzerbasis sie ausmachen.</td>
         </tr>
         <tr>
-            <td class="no-split">LTV or Lifetime-Value (Paying Users)</td>
-            <td class="no-split">Der LTV or Lifetime-Value or Lifetime-Value pro Nutzer:in (LTV or Lifetime-Value) in diesem Segment und der LTV or Lifetime-Value or Lifetime-Value pro zahlende:r Nutzer:in in diesem Segment. Der LTV or Lifetime-Value wird berechnet, indem Ihr Lifetime-Umsatz durch die Lifetime-Nutzer:innen geteilt wird.</td>
+            <td class="no-split">LTV (Paying Users)</td>
+            <td class="no-split">Der LTV pro Nutzer:in (LTV) in diesem Segment und der LTV pro zahlende:r Nutzer:in in diesem Segment. Der LTV wird berechnet, indem Ihr Lifetime-Umsatz durch die Lifetime-Nutzer:innen geteilt wird.</td>
         </tr>
         <tr>
             <td class="no-split">Emailable (Opted-In)</td>
@@ -73,7 +73,7 @@ Sie können die folgenden Segment-Statistiken einsehen, die sich in Realtime Upd
 Sie können sehen, wie ein Segment im Vergleich zu einem anderen anhand einer Reihe vorausgewählter KPIs abschneidet, indem Sie die Seite [Segment-Insights]({{site.baseurl}}/user_guide/audience/segments/segment_insights) in Ihrem Dashboard aufrufen.
 
 ### Messaging-Nutzung {#messaging-use}
-Der Abschnitt **Messaging Use** zeigt, welche Segmente, derzeit aktivierten Campaigns und derzeit aktivierten Canvase Ihr Segment als Zielgruppe verwenden.
+Der Abschnitt **Messaging Use** zeigt, welche Segmente, derzeit aktivierten Campaigns und derzeit aktivierten Canvases Ihr Segment als Zielgruppe verwenden.
 
 ### Historische Mitgliedschaft {#historical-membership}
 
@@ -93,7 +93,7 @@ Beachten Sie, dass in Fällen, in denen Ihr Segment im Verhältnis zur Workspace
 
 ## Performance-Daten nach Segment anzeigen {#viewing-performance-data-by-segment}
 
-Verwenden Sie [Berichtsvorlagen des Abfrage-Builders]({{site.baseurl}}/user_guide/analytics/reports/query_builder/data_by_segments), um Performance-Metriken für Campaigns, Canvase, Varianten und Schritte nach Segmenten aufzuschlüsseln.
+Verwenden Sie [Berichtsvorlagen des Abfrage-Builders]({{site.baseurl}}/user_guide/analytics/reports/query_builder/data_by_segments), um Performance-Metriken für Campaigns, Canvases, Varianten und Schritte nach Segmenten aufzuschlüsseln.
 
 ## Einen Segment-Aufschlüsselungsbericht mit dem Abfrage-Builder erstellen {#creating-a-segment-breakdown-report-using-query-builder}
 
@@ -112,14 +112,14 @@ Bevor Sie Ihren Bericht generieren, navigieren Sie zum Tab **Variables**, um Inf
 
 Die Variablen umfassen:
 
-- **Campaign oder Canvas:** Sie können eine oder mehrere Campaigns oder Canvase einbeziehen (es gibt kein Maximum für die Anzahl der Campaigns oder Canvase, die Sie angeben können). Wenn Sie keine Campaigns oder Canvase angeben, enthält der Bericht alle Campaigns oder Canvase aus Ihrem gewählten Zeitraum.
+- **Campaign oder Canvas:** Sie können eine oder mehrere Campaigns oder Canvases einbeziehen (es gibt kein Maximum für die Anzahl der Campaigns oder Canvases, die Sie angeben können). Wenn Sie keine Campaigns oder Canvases angeben, enthält der Bericht alle Campaigns oder Canvases aus Ihrem gewählten Zeitraum.
 - **Variante:** Wenn Sie eine Vorlage verwenden, die Aufschlüsselungen auf Variantenebene bietet, können Sie nach Auswahl einer Campaign oder eines Canvas Varianten innerhalb dieser Campaign oder dieses Canvas auswählen. Wenn Sie mehrere Varianten auswählen, werden Ihre Ergebnisse nach Variante gruppiert.
 - **Schritt:** Wenn Sie eine Canvas-Variante auswählen, können Sie einen Canvas-Schritt auswählen. Sie können keinen Schritt auswählen, ohne zuvor eine Canvas-Variante ausgewählt zu haben.
 - **Zeitraum:** Legen Sie den Zeitraum fest, aus dem Sie Daten abrufen möchten. Wenn kein Zeitraum angegeben wird, werden standardmäßig die letzten 30 Tage verwendet.
 - **Produktname:** Wenn Sie einen Bericht für Kaufdaten erstellen, können Sie ein bestimmtes Produkt angeben, für das Daten abgerufen werden sollen.
 - **Conversion-Fenster:** Immer erforderlich für Berichte mit Umsatz- und Kaufdaten. Die Anzahl der Tage nach E-Mail-Empfang oder -Klick, in denen Braze Käufe oder Umsatz zuordnen soll.
 - **Segmente:** Geben Sie die Segmente an, nach denen die Daten aufgeschlüsselt werden sollen. Wenn keine angegeben werden, wird der Bericht für alle Segmente ausgeführt, für die Analytics-Tracking aktiviert ist.
-- **Tags:** Geben Sie Tags unter **Variables** an, um Ihren Bericht für alle Campaigns oder Canvase mit bestimmten Tags auszuführen. Sie können mehrere Tags einbeziehen. Wenn Sie sowohl Tags als auch bestimmte Campaigns oder Canvase zu einem Bericht hinzufügen, enthält Ihr Bericht Daten aus Ihren Tags und den angegebenen Campaigns oder Canvase.
+- **Tags:** Geben Sie Tags unter **Variables** an, um Ihren Bericht für alle Campaigns oder Canvases mit bestimmten Tags auszuführen. Sie können mehrere Tags einbeziehen. Wenn Sie sowohl Tags als auch bestimmte Campaigns oder Canvases zu einem Bericht hinzufügen, enthält Ihr Bericht Daten aus Ihren Tags und den angegebenen Campaigns oder Canvases.
 
 ## Datenverfügbarkeit {#data-availability}
 
@@ -128,6 +128,6 @@ Daten sind für Zeiträume verfügbar, in denen beide der folgenden Bedingungen 
 1. [Segment-Analytics-Tracking]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) ist für die Segmente aktiviert, für die Sie Daten einsehen möchten.
 2. Das Feature „Performance-Daten nach Segment“ ist aktiviert.
 
-Sie können nicht auf Daten aus Zeiträumen zugreifen, die vor der Aktivierung dieses Features für Ihr Unternehmen liegen. Wenn beispielsweise Analytics-Tracking für Segment A am 1. Oktober aktiviert wird und dieses Feature für Ihr Unternehmen am 2. Oktober aktiviert wird, können Sie nur Daten für Segment A für die Campaigns und Canvase einsehen, die nach dem 2. Oktober Metriken aufgezeichnet haben.
+Sie können nicht auf Daten aus Zeiträumen zugreifen, die vor der Aktivierung dieses Features für Ihr Unternehmen liegen. Wenn beispielsweise Analytics-Tracking für Segment A am 1. Oktober aktiviert wird und dieses Feature für Ihr Unternehmen am 2. Oktober aktiviert wird, können Sie nur Daten für Segment A für die Campaigns und Canvases einsehen, die nach dem 2. Oktober Metriken aufgezeichnet haben.
 
-Wenn Ihr Unternehmen dieses Feature am 2. Oktober aktiviert hat und Analytics-Tracking für Segment B am 3. Oktober aktiviert wurde, können Sie nur Daten für Segment B für die Campaigns und Canvase einsehen, die nach dem 3. Oktober Metriken aufgezeichnet haben.
+Wenn Ihr Unternehmen dieses Feature am 2. Oktober aktiviert hat und Analytics-Tracking für Segment B am 3. Oktober aktiviert wurde, können Sie nur Daten für Segment B für die Campaigns und Canvases einsehen, die nach dem 3. Oktober Metriken aufgezeichnet haben.

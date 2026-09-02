@@ -11,7 +11,7 @@ search_tag: Partner
 
 > [Seen](https://seen.io) ermöglicht es Marken, personalisierte Video-Erlebnisse in großem Umfang zu erstellen und zuzustellen. Mit Seen können Sie ein Video rund um Ihre Daten entwerfen, es in großem Umfang in der Cloud personalisieren und dann dort verteilen, wo es am besten funktioniert.
 >
-> Diese Integration sendet Nutzerdaten von Braze an Seen, generiert personalisierte Videos und gibt Assets – wie eine eindeutige Player-URL und ein Vorschaubild – zur Verwendung in Campaigns und Canvase an Braze zurück.
+> Diese Integration sendet Nutzerdaten von Braze an Seen, generiert personalisierte Videos und gibt Assets – wie eine eindeutige Player-URL und ein Vorschaubild – zur Verwendung in Campaigns und Canvases an Braze zurück.
 
 
 ## Anwendungsfälle {#use-cases}
@@ -21,7 +21,7 @@ Seen unterstützt die automatisierte, personalisierte Zustellung von Videos übe
 - **Onboarding**: Begrüßen Sie neue Nutzer:innen mit Videos, die auf ihr Profil oder ihren Anmeldekontext personalisiert sind
 - **Conversion und Aktivierung**: Verstärken Sie wichtige Aktionen mit kontextuellem Video-Messaging
 - **Loyalität und Upselling**: Heben Sie personalisierte Angebote oder Nutzungs-Meilensteine hervor
-- **Rückgewinnung und Abwanderung or Abwanderung, Churn or Abwanderung, churnen-Prävention**: Reaktivieren Sie inaktive Nutzer:innen mit maßgeschneiderten Video-Inhalten
+- **Rückgewinnung und Abwanderung-Prävention**: Reaktivieren Sie inaktive Nutzer:innen mit maßgeschneiderten Video-Inhalten
 
 
 ## Voraussetzungen {#prerequisites}
@@ -100,7 +100,7 @@ Konfigurieren Sie den Webhook wie folgt:
   - `Authorization`: Bearer `{Seen_API_TOKEN}`
   - `Content-Type`: `application/json`
 
-  Generieren Sie ein [API-Token / Textbaustein](https://docs.seen.io/authorization) auf dem Run-Tab Ihres Seen-Plattform-Projekts. Kontaktieren Sie Ihren Seen CSM or Customer-Success-Manager or Customer-Success-Manager:in, wenn Sie Unterstützung benötigen.
+  Generieren Sie ein [API-Token / Textbaustein](https://docs.seen.io/authorization) auf dem Run-Tab Ihres Seen-Plattform-Projekts. Kontaktieren Sie Ihren Seen CSM, wenn Sie Unterstützung benötigen.
 
 - Testen Sie den Webhook mit einer/einem Nutzer:in auf dem **Test**-Tab.
 - Schließen Sie nach einem erfolgreichen Test die Webhook-Einrichtung ab.
@@ -108,7 +108,7 @@ Konfigurieren Sie den Webhook wie folgt:
 
 ### 2. Schritt: Konfigurieren Sie ein Projekt in der Seen-Plattform {#step-2-configure-a-project-in-the-seen-platform}
 
-Verwenden Sie in Ihrem Seen-Projekt den [Run](https://docs.seen.io/run)-Tab, um Ihr Video zu veröffentlichen und den ausgehenden Webhook zu Registrierung or registrieren. Eine konzeptionelle Übersicht über den Run-Tab finden Sie unter [Wie Seen-Projekte funktionieren](#how-seen-projects-work).
+Verwenden Sie in Ihrem Seen-Projekt den [Run](https://docs.seen.io/run)-Tab, um Ihr Video zu veröffentlichen und den ausgehenden Webhook zu Registrierung. Eine konzeptionelle Übersicht über den Run-Tab finden Sie unter [Wie Seen-Projekte funktionieren](#how-seen-projects-work).
 
 1. Erstellen Sie in der Seen-Plattform ein Projekt, erstellen Sie Ihr Video und wählen Sie dann **Publish**. Videos werden aus eingehenden Daten generiert, sobald das Projekt veröffentlicht ist.
 2. Wählen Sie auf dem Run-Tab **Add a webhook**.
@@ -129,7 +129,7 @@ Wenn Sie zusätzliche Attribute benötigen, fügen Sie diese zur Antwort hinzu u
 
 ### 3. Schritt: Erstellen Sie eine Datentransformation, um Daten von Seen zu empfangen {#step-3-create-a-data-transformation-to-receive-data-from-seen}
 
-Verwenden Sie Braze-Datentransformationen, um die Seen-Antwort zu verarbeiten und Video-Assets im Kundenprofil or Nutzerprofil zu speichern.
+Verwenden Sie Braze-Datentransformationen, um die Seen-Antwort zu verarbeiten und Video-Assets im Kundenprofil zu speichern.
 
 1. Erstellen Sie die folgenden [angepassten Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) in Braze:
    - `player_url`

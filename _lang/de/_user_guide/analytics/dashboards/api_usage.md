@@ -8,13 +8,13 @@ description: "Dieser Artikel bietet eine Übersicht über das Dashboard für API
 
 # Dashboard für API-Nutzung {#api-usage-dashboard}
 
-> Das Dashboard für API-Nutzung ermöglicht es Ihnen, Ihren eingehenden Representational State Transfer API-Traffic in Braze zu überwachen, um Trends in Ihrer Nutzung unserer Representational State Transfer APIs zu verstehen und potenzielle Probleme zu beheben.
+> Das Dashboard für API-Nutzung ermöglicht es Ihnen, Ihren eingehenden REST API-Traffic in Braze zu überwachen, um Trends in Ihrer Nutzung unserer REST APIs zu verstehen und potenzielle Probleme zu beheben.
 
 ## Über das Dashboard für API-Nutzung {#about-the-api-usage-dashboard}
 
 Um Ihr Dashboard für API-Nutzung aufzurufen, gehen Sie zu **Einstellungen** > **APIs und Bezeichner** und wählen Sie dann **Dashboard** aus.
 
-Das Standard-Dashboard zeigt alle eingehenden Representational State Transfer API-Anfragen für Ihren Workspace über den letzten Tag (24 Stunden) an. Je nach Anwendungsfall können Sie die Dashboard-Steuerelemente anpassen, um den Traffic zu filtern oder zu gruppieren, und auch den Zeitraum des Dashboards konfigurieren.
+Das Standard-Dashboard zeigt alle eingehenden REST API-Anfragen für Ihren Workspace über den letzten Tag (24 Stunden) an. Je nach Anwendungsfall können Sie die Dashboard-Steuerelemente anpassen, um den Traffic zu filtern oder zu gruppieren, und auch den Zeitraum des Dashboards konfigurieren.
 
 ![Dashboard für API-Nutzung mit insgesamt 130 Anfragen, einer Erfolgsrate von 70 Prozent und einer Fehlerrate von 30 Prozent.]({% image_buster /assets/img/api_usage_dashboard/api_usage_dashboard.png %})
 
@@ -35,7 +35,7 @@ Das Dashboard für API-Nutzung enthält die folgenden Statistiken:
 
 ### Filter {#filters}
 
-Wählen Sie **Filter** aus, um die Ansicht des Representational State Transfer API-Traffics für Ihren Workspace einzugrenzen, darunter:
+Wählen Sie **Filter** aus, um die Ansicht des REST API-Traffics für Ihren Workspace einzugrenzen, darunter:
 
 - API-Schlüssel
 - Endpunkt
@@ -72,9 +72,9 @@ Die Optionen **Letzte 3 Stunden** und **Letzte 6 Stunden** zeigen den Traffic mi
 
 ## Hinweise {#considerations}
 
-Das Dashboard für API-Nutzung umfasst alle Representational State Transfer API-Anfragen, die Braze empfangen hat und für die eine `2XX`-, `4XX`- oder `5XX`-Antwort zurückgegeben wurde. Dies schließt Datentransformation-Ausgaben und Cloud-Datenaufnahme-Synchronisierungen ein. SDK or Software-Development-Kit-Traffic und Nutzeraktualisierung-Schritte sind in diesem Dashboard nicht enthalten.
+Das Dashboard für API-Nutzung umfasst alle REST API-Anfragen, die Braze empfangen hat und für die eine `2XX`-, `4XX`- oder `5XX`-Antwort zurückgegeben wurde. Dies schließt Datentransformation-Ausgaben und Cloud-Datenaufnahme-Synchronisierungen ein. SDK-Traffic und Nutzeraktualisierung-Schritte sind in diesem Dashboard nicht enthalten.
 
-Die im Dashboard angezeigten Daten können eine kurze Verzögerung bei der Darstellung des aktuellen Traffics aufweisen. In Zeiten hoher Nutzung können Sie das Dashboard bis zu 4 Mal pro Minute Update or aktualisieren or aktualisieren. Möglicherweise müssen Sie einige Minuten warten, bevor Sie das Dashboard erneut Update or aktualisieren or aktualisieren können.
+Die im Dashboard angezeigten Daten können eine kurze Verzögerung bei der Darstellung des aktuellen Traffics aufweisen. In Zeiten hoher Nutzung können Sie das Dashboard bis zu 4 Mal pro Minute aktualisieren. Möglicherweise müssen Sie einige Minuten warten, bevor Sie das Dashboard erneut aktualisieren können.
 
 ### API-Schlüssel im Anfrage-Body {#api-keys-in-request-body}
 

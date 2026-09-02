@@ -12,7 +12,7 @@ description: "Esta página explica como medir a retenção de usuários que real
 > A retenção de usuários é uma das métricas mais importantes para qualquer profissional de marketing. Manter os usuários engajados voltando para mais indica que o negócio está saudável. A Braze permite que você meça a retenção de usuários diretamente na página **Analytics** da sua Campaign ou Canvas.
 
 {% alert important %}
-Os relatórios de retenção não estão disponíveis para Campaigns disparadas por API or interface de programação do aplicativo (API).
+Os relatórios de retenção não estão disponíveis para Campaigns disparadas por API.
 {% endalert %}
 
 ## Executando um relatório de retenção {#running-a-retention-report}

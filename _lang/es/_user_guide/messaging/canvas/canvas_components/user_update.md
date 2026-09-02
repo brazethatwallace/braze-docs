@@ -54,7 +54,7 @@ Al incrementar un atributo personalizado que hace seguimiento de un evento, pued
 
 ### Actualizar una matriz de objetos {#updating-an-array-of-objects}
 
-Una [matriz de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects) es un atributo personalizado rico en datos almacenado en el perfil de un usuario. Puedes usarla para crear un historial de las interacciones del usuario con tu marca y para crear segmentos basados en un campo calculado, como el historial de compras o el LTV or valor de duración del ciclo de vida or valor de duración del ciclo de vida total.
+Una [matriz de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects) es un atributo personalizado rico en datos almacenado en el perfil de un usuario. Puedes usarla para crear un historial de las interacciones del usuario con tu marca y para crear segmentos basados en un campo calculado, como el historial de compras o el LTV total.
 
 Con la opción **Advanced JSON Editor**, puedes insertar JSON para añadir o eliminar elementos de esta matriz de objetos.
 

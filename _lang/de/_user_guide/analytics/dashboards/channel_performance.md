@@ -3,7 +3,7 @@ nav_title: Kanal-Performance
 article_title: Kanal-Performance-Dashboards
 page_order: 2
 page_type: reference
-description: "Dieser Referenzartikel behandelt das Kanal-Performance-Dashboard, mit dem Sie Performance-Metriken für ganze Kanäle über Campaigns und Canvase hinweg anzeigen können."
+description: "Dieser Referenzartikel behandelt das Kanal-Performance-Dashboard, mit dem Sie Performance-Metriken für ganze Kanäle über Campaigns und Canvases hinweg anzeigen können."
 tool:
   - Reports
 toc_headers: h2
@@ -11,7 +11,7 @@ toc_headers: h2
 
 # Kanal-Performance-Dashboards {#channel-performance-dashboards}
 
-> Kanal-Performance-Dashboards zeigen aggregierte Performance-Metriken für einen gesamten Kanal, sowohl aus Campaigns als auch aus Canvase. Diese Dashboards sind derzeit für E-Mail, Push und Kurzmitteilungsdienst or SMS verfügbar.
+> Kanal-Performance-Dashboards zeigen aggregierte Performance-Metriken für einen gesamten Kanal, sowohl aus Campaigns als auch aus Canvases. Diese Dashboards sind derzeit für E-Mail, Push und SMS verfügbar.
 
 ## Dashboards {#dashboards}
 
@@ -41,7 +41,7 @@ Um das **Email Performance**-Dashboard anzuzeigen, benötigen Sie die Berechtigu
 | Sends | Anzahl | Gesamtanzahl der Sends über jeden Tag im Datumsbereich |
 | Zustellrate | Rate | (Gesamtanzahl der Zustellungen über jeden Tag im Datumsbereich) / (Gesamtanzahl der Sends über jeden Tag im Datumsbereich) |
 | Absprungrate | Rate | (Gesamtanzahl der Bounces über jeden Tag im Datumsbereich) / (Gesamtanzahl der Sends über jeden Tag im Datumsbereich) |
-| Abmelderate | Rate | (Gesamtanzahl der eindeutigen Abmeldungen über jeden Tag im Datumsbereich) / (Gesamtanzahl der Zustellungen für einen Datumsbereich)<br><br>Hier werden eindeutige Abmeldungen verwendet, die auch in Campaign Analytics, der Übersicht und dem Berichts-Builder genutzt werden. Diese Abmeldungen werden über alle Quellen hinweg erfasst (z. B. Representational State Transfer API, CSV-Importe, E-Mails und List-Unsubscribes). Die Abmelderaten in Campaign- und Canvas-Analytics sind Abmeldungen, die durch einen Abmelde-Klick in einer über Braze zugestellten E-Mail erfolgen. |
+| Abmelderate | Rate | (Gesamtanzahl der eindeutigen Abmeldungen über jeden Tag im Datumsbereich) / (Gesamtanzahl der Zustellungen für einen Datumsbereich)<br><br>Hier werden eindeutige Abmeldungen verwendet, die auch in Campaign Analytics, der Übersicht und dem Berichts-Builder genutzt werden. Diese Abmeldungen werden über alle Quellen hinweg erfasst (z. B. REST API, CSV-Importe, E-Mails und List-Unsubscribes). Die Abmelderaten in Campaign- und Canvas-Analytics sind Abmeldungen, die durch einen Abmelde-Klick in einer über Braze zugestellten E-Mail erfolgen. |
 | Eindeutige Öffnungsrate | Rate | (Gesamtanzahl der eindeutigen Öffnungen über jeden Tag im Datumsbereich) / (Gesamtanzahl der Zustellungen für einen Datumsbereich) |
 | Rate sonstiger Öffnungen | Rate | (Gesamtanzahl der sonstigen Öffnungen über jeden Tag im Datumsbereich) / (Gesamtanzahl der Zustellungen für den Datumsbereich)<br><br>Sonstige Öffnungen umfassen E-Mails, die nicht als maschinelle Öffnungen identifiziert wurden, z. B. wenn ein:e Nutzer:in eine E-Mail öffnet. Diese Metrik ist nicht eindeutig und ist eine Teilmetrik der Gesamtöffnungen. |
 | Eindeutige Klickrate | Rate | (Gesamtanzahl der eindeutigen Klicks über jeden Tag im Datumsbereich) / (Gesamtanzahl der Zustellungen für einen Datumsbereich) |
@@ -60,7 +60,7 @@ Das E-Mail-Insights-Dashboard verfolgt, wo und wann Ihre Kund:innen mit Ihren E-
 Der Bericht **Engagement by Device** bietet eine Aufschlüsselung der Geräte, die Ihre Nutzer:innen für die Interaktion mit Ihren E-Mails verwenden. Diese Daten verfolgen das E-Mail-Engagement über Mobilgeräte, Desktop, Tablet und andere Gerätetypen. Die Daten basieren auf dem User-Agent-String, der von den Geräten Ihrer Nutzer:innen übermittelt wird.
 
 {% alert note %}
-Wenn Sie CloudFront als CDN verwenden, stellen Sie sicher, dass der User-Agent Ihrer Nutzer:innen an den E-Mail-Anbieter or ESP weitergeleitet wird. Andernfalls wird jeder User-Agent als „Amazon Cloudfront“ angezeigt.
+Wenn Sie CloudFront als CDN verwenden, stellen Sie sicher, dass der User-Agent Ihrer Nutzer:innen an den E-Mail-Anbieter weitergeleitet wird. Andernfalls wird jeder User-Agent als „Amazon Cloudfront“ angezeigt.
 {% endalert %}
 
 Die Kategorie „Other“ umfasst alle User-Strings, die nicht als Desktop, Mobilgerät oder Tablet identifiziert werden können. Beispiele sind Fernseher, Autos, Spielekonsolen, OTT (Over-the-Top- oder Streaming-Geräte) und Ähnliches. Dies kann auch Null- oder leere Werte beinhalten.
@@ -68,7 +68,7 @@ Die Kategorie „Other“ umfasst alle User-Strings, die nicht als Desktop, Mobi
 Um besser zu verstehen, was in dieser Kategorie „Other“ enthalten ist, können Sie die User-Agents über eine der folgenden Optionen extrahieren:
 
 1. [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) sendet Ihnen den genauen User-Agent-String, der von den Geräten Ihrer Nutzer:innen abgerufen wurde.
-2. Nutzen Sie unseren [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder), um SQL oder unseren [KI or künstliche Intelligenz Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder#generating-sql-with-the-ai-query-builder) zur Anzeige der User-Agents zu verwenden.
+2. Nutzen Sie unseren [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder), um SQL oder unseren [KI Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder#generating-sql-with-the-ai-query-builder) zur Anzeige der User-Agents zu verwenden.
 
 ![Bericht „Engagement by Device“ mit der Anzahl der Klicks für Mobilgeräte, Desktop, Tablet und andere Geräte. Die meisten Klicks erfolgen auf Mobilgeräten.]({% image_buster /assets/img/engagement_by_device_type.png %}){: style="max-width:70%;"}
 
@@ -97,17 +97,17 @@ Der Engagement-Bericht **Time of the day** schlüsselt Öffnungen oder Klicks na
 Weitere Informationen zu Analytics für Ihre E-Mails finden Sie unter [E-Mail-Reporting]({{site.baseurl}}/user_guide/channels/email/reporting).
 
 {% endtab %}
-{% tab Kurzmitteilungsdienst or SMS-Performance %}
+{% tab SMS-Performance %}
 
-### Kurzmitteilungsdienst or SMS-Performance-Dashboard {#sms-performance-dashboard}
+### SMS-Performance-Dashboard {#sms-performance-dashboard}
 
-Um Ihr Kurzmitteilungsdienst or SMS-Performance-Dashboard zu verwenden, navigieren Sie zu **Analytics** > **Kurzmitteilungsdienst or SMS Performance** und wählen Sie den Datumsbereich für den Zeitraum aus, den Sie anzeigen möchten. Ihr Datumsbereich kann bis zu ein Jahr in der Vergangenheit liegen.
+Um Ihr SMS-Performance-Dashboard zu verwenden, navigieren Sie zu **Analytics** > **SMS Performance** und wählen Sie den Datumsbereich für den Zeitraum aus, den Sie anzeigen möchten. Ihr Datumsbereich kann bis zu ein Jahr in der Vergangenheit liegen.
 
-![Eine Beispiel-Kurzmitteilungsdienst or SMS-Campaign mit 335.630 Sends und einem Durchschnitt von 11.187,667 pro Tag.]({% image_buster /assets/img_archive/email_performance_dashboard_2.png %}){: style="max-width:40%;float:right;margin-left:15px;border:none;"}
+![Eine Beispiel-SMS-Campaign mit 335.630 Sends und einem Durchschnitt von 11.187,667 pro Tag.]({% image_buster /assets/img_archive/email_performance_dashboard_2.png %}){: style="max-width:40%;float:right;margin-left:15px;border:none;"}
 
 #### Berechnung der Metriken
 
-{% multi_lang_include analytics/channel_performance_how_metrics_calculated.md channel="Kurzmitteilungsdienst or SMS" %}
+{% multi_lang_include analytics/channel_performance_how_metrics_calculated.md channel="SMS" %}
 
 | Metrik | Typ | Berechnung |
 | --- | --- | ---- |
@@ -125,7 +125,7 @@ Um Ihr Kurzmitteilungsdienst or SMS-Performance-Dashboard zu verwenden, navigier
 
 ### Push-Performance-Dashboard {#push-performance-dashboard}
 
-Das **Push Performance**-Dashboard bietet Ihnen eine kanalweite Ansicht des Push-Engagements über alle Ihre Campaigns und Canvase hinweg, sodass Sie den Zustand des Kanals verstehen können, ohne Daten einzelner Nachrichten zusammenfassen zu müssen.
+Das **Push Performance**-Dashboard bietet Ihnen eine kanalweite Ansicht des Push-Engagements über alle Ihre Campaigns und Canvases hinweg, sodass Sie den Zustand des Kanals verstehen können, ohne Daten einzelner Nachrichten zusammenfassen zu müssen.
 
 Um das Dashboard zu öffnen, navigieren Sie zu **Analytics** > **Push Performance** und wählen Sie den Datumsbereich für den Zeitraum aus, den Sie anzeigen möchten. Ihr Datumsbereich kann bis zu ein Jahr in der Vergangenheit liegen.
 
@@ -227,14 +227,14 @@ Sie können die Daten in Ihrem Dashboard mithilfe der folgenden Filteroptionen f
 
 - **Tag:** Wählen Sie ein Tag aus. Nach Anwendung zeigt Ihr Dashboard nur Metriken für Ihr ausgewähltes Tag an. Beachten Sie, dass das Push-Dashboard mehrere Tags unterstützt.
 - **Plattformen:** (Nur Push-Dashboards) Wählen Sie eine Push-Plattform aus, z. B. **All Push**, **Android**, **iOS**, **Mobile combined**, **Kindle** oder **Web**. Nach Anwendung zeigt Ihr Dashboard nur Metriken für die ausgewählte Plattform an.
-- **Canvas:** Wählen Sie bis zu 10 Canvase aus. Nach Anwendung zeigt Ihr Dashboard nur Metriken für Ihre ausgewählten Canvase an. Wenn Sie zuerst einen Tag-Filter auswählen, enthalten Ihre Canvas-Filteroptionen nur Canvase mit dem ausgewählten Tag.
+- **Canvas:** Wählen Sie bis zu 10 Canvases aus. Nach Anwendung zeigt Ihr Dashboard nur Metriken für Ihre ausgewählten Canvases an. Wenn Sie zuerst einen Tag-Filter auswählen, enthalten Ihre Canvas-Filteroptionen nur Canvases mit dem ausgewählten Tag.
 - **Campaign:** Wählen Sie bis zu 10 Campaigns aus. Nach Anwendung zeigt Ihr Dashboard nur Metriken für Ihre ausgewählten Campaigns an. Wenn Sie zuerst einen Tag-Filter auswählen, enthalten Ihre Campaign-Filteroptionen nur Campaigns mit dem ausgewählten Tag.
 
 {% alert note %}
 Filter werden in den verschiedenen Push-Dashboards unterschiedlich angewendet. Das Push-Performance-Dashboard unterstützt alle Filter. Das Push-Zustellbarkeits-Dashboard unterstützt nur den Datumsbereich, wobei eine Plattform-Aufschlüsselung in jedem Chart angezeigt wird. Die Frequenz- und Kadenzberichte im Push-Insights-Dashboard unterstützen nur den Datumsbereich.
 {% endalert %}
 
-![Filteroptionen im Channel-Performance-Dashboard, in dem Sie ein Tag und eine Liste von Canvase zum Filtern auswählen können.]({% image_buster /assets/img_archive/dashboard_filters.png %})
+![Filteroptionen im Channel-Performance-Dashboard, in dem Sie ein Tag und eine Liste von Canvases zum Filtern auswählen können.]({% image_buster /assets/img_archive/dashboard_filters.png %})
 
 ## Zeiträume vergleichen {#comparing-time-periods}
 

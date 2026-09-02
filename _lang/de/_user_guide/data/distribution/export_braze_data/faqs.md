@@ -31,7 +31,7 @@ Nein. Currents verwendet einen eigenen Konnektor und eigene Speichereinstellunge
 
 Dies ist das erwartete Verhalten für Workspaces mit vielen Nutzer:innen. Braze teilt Ihren Export in mehrere Dateien auf, basierend auf der Anzahl der Nutzer:innen in Ihrem Workspace. In der Regel wird eine Datei pro 5.000 Nutzer:innen ausgegeben. Beachten Sie, dass Sie auch dann mehrere Dateien erhalten können, wenn Sie ein kleines Segment innerhalb eines großen Workspace exportieren.
 
-## Warum sehe ich Duplikate, wenn ich Nutzer:innen über die Representational State Transfer API nach Segmenten exportiere? {#why-do-i-see-duplicates-when-i-export-users-by-segment-through-rest-api}
+## Warum sehe ich Duplikate, wenn ich Nutzer:innen über die REST API nach Segmenten exportiere? {#why-do-i-see-duplicates-when-i-export-users-by-segment-through-rest-api}
 
 Dies ist ein sehr seltenes Vorkommen, das durch die zugrunde liegende Architektur des Datenbankanbieters verursacht wird. Duplikate werden jede Woche bereinigt; in den meisten Wochen werden jedoch keine Duplikate entfernt.
 

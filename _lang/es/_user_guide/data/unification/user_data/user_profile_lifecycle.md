@@ -11,7 +11,7 @@ description: "Este artículo de referencia describe el ciclo de vida del perfil 
 
 > Este artículo describe el ciclo de vida del perfil de usuario de Braze y las distintas formas de identificar y hacer referencia a un perfil de usuario. Si deseas comprender mejor el ciclo de vida de tus clientes, consulta nuestro curso de Braze Learning sobre [Mapeo de los ciclos de vida de los usuarios](https://learning.braze.com/mapping-customer-lifecycles).
 
-Todos los datos persistentes asociados con un usuario se almacenan en su perfil de usuario. Después de crear un perfil de usuario, ya sea a través de la API o después de que el SDK or kit de desarrollo de software reconozca a un usuario, puedes asignar una serie de parámetros a ese perfil para identificar y hacer referencia a ese usuario.
+Todos los datos persistentes asociados con un usuario se almacenan en su perfil de usuario. Después de crear un perfil de usuario, ya sea a través de la API o después de que el SDK reconozca a un usuario, puedes asignar una serie de parámetros a ese perfil para identificar y hacer referencia a ese usuario.
 
 Estos parámetros incluyen:
 
@@ -25,7 +25,7 @@ Estos parámetros incluyen:
 
 Cualquier usuario sin un `external_id` designado se denomina [usuario anónimo]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users). Por ejemplo, podrían ser usuarios que visitaron tu sitio web pero no se registraron, o usuarios que descargaron tu aplicación móvil pero no crearon un perfil.
 
-Inicialmente, cuando el SDK or kit de desarrollo de software reconoce a un usuario, se crea un perfil de usuario anónimo con un `braze_id` asociado: un identificador único que Braze asigna automáticamente, que no se puede editar y que es específico del dispositivo. Este identificador se puede utilizar para actualizar el perfil de usuario a través de la [API]({{site.baseurl}}/api/endpoints/user_data).
+Inicialmente, cuando el SDK reconoce a un usuario, se crea un perfil de usuario anónimo con un `braze_id` asociado: un identificador único que Braze asigna automáticamente, que no se puede editar y que es específico del dispositivo. Este identificador se puede utilizar para actualizar el perfil de usuario a través de la [API]({{site.baseurl}}/api/endpoints/user_data).
 
 ## Perfiles de usuario identificados {#identified-user-profiles}
 
@@ -82,7 +82,7 @@ Los usuarios huérfanos no son elegibles para recibir mensajes.
 
 ### Fusionar usuarios duplicados {#merging-duplicate-users}
 
-Cuando identifies perfiles de usuario duplicados en tu espacio de trabajo, puedes fusionarlos utilizando la REST or transferencia de estado representacional API. Para obtener más información sobre la fusión de usuarios y los métodos disponibles, consulta [Fusionar usuarios duplicados]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users).
+Cuando identifies perfiles de usuario duplicados en tu espacio de trabajo, puedes fusionarlos utilizando la REST API. Para obtener más información sobre la fusión de usuarios y los métodos disponibles, consulta [Fusionar usuarios duplicados]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users).
 
 ## Alias de usuario {#user-aliases}
 
@@ -92,7 +92,7 @@ Cada alias funciona como un par clave-valor que consta de dos partes: un `alias_
 
 ### Actualización de alias de usuario {#updating-user-aliases}
 
-Un alias puede actualizarse con un nuevo nombre para una etiqueta determinada después de haberse establecido, ya sea utilizando nuestros [endpoints de datos de usuario]({{site.baseurl}}/api/endpoints/user_data) o pasando un nuevo nombre a través del SDK or kit de desarrollo de software. El alias de usuario será entonces visible al exportar los datos de ese usuario.
+Un alias puede actualizarse con un nuevo nombre para una etiqueta determinada después de haberse establecido, ya sea utilizando nuestros [endpoints de datos de usuario]({{site.baseurl}}/api/endpoints/user_data) o pasando un nuevo nombre a través del SDK. El alias de usuario será entonces visible al exportar los datos de ese usuario.
 
 ![Dos perfiles de usuario diferentes para usuarios distintos con la misma etiqueta de alias de usuario pero diferentes nombres de alias]({% image_buster /assets/img_archive/Braze_User_aliases.png %})
 
@@ -124,7 +124,7 @@ Para obtener información sobre cómo establecer un alias de usuario, consulta n
 
 ## Caso de uso avanzado {#advanced-use-case}
 
-Puedes establecer un nuevo alias de usuario para perfiles de usuario identificados existentes a través de nuestro SDK or kit de desarrollo de software y nuestra API utilizando los [endpoints de datos de usuario]({{site.baseurl}}/api/endpoints/user_data). Sin embargo, los alias de usuario no se pueden establecer a través de la API para un perfil de usuario desconocido existente.
+Puedes establecer un nuevo alias de usuario para perfiles de usuario identificados existentes a través de nuestro SDK y nuestra API utilizando los [endpoints de datos de usuario]({{site.baseurl}}/api/endpoints/user_data). Sin embargo, los alias de usuario no se pueden establecer a través de la API para un perfil de usuario desconocido existente.
 
 Los alias de usuario también se fusionan en el proceso. Sin embargo, si tanto el usuario que va a quedar huérfano como el usuario de destino tienen un alias con la misma etiqueta, solo se mantiene el alias del usuario de destino.
 
@@ -141,5 +141,5 @@ Braze bloquea los perfiles de usuario que crecen de forma anormalmente grande ("
 - Más de 20.000 nombres de eventos personalizados distintos
 - Más de 20.000 nombres de productos distintos en compras
 
-Después de que un perfil es bloqueado, Braze deja de ingerir todos los datos entrantes para ese perfil, tanto de los SDK or kit de desarrollo de software como de la REST or transferencia de estado representacional API. Si descubres que esto le ha ocurrido a un usuario legítimo, ponte en contacto con tu director de cuentas de Braze. Para obtener más información, consulta [Bloqueo de correo no deseado]({{site.baseurl}}/user_archival).
+Después de que un perfil es bloqueado, Braze deja de ingerir todos los datos entrantes para ese perfil, tanto de los SDK como de la REST API. Si descubres que esto le ha ocurrido a un usuario legítimo, ponte en contacto con tu director de cuentas de Braze. Para obtener más información, consulta [Bloqueo de correo no deseado]({{site.baseurl}}/user_archival).
 {% endalert %}

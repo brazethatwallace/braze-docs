@@ -23,8 +23,8 @@ La integración de Braze y Stripo te permite exportar tus correos electrónicos 
 | Requisito | Descripción |
 | ------------| ----------- |
 | Cuenta Stripo | Se requiere una cuenta Stripo para beneficiarse de esta asociación. |
-| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos completos de **Templates**. <br><br> Puede crearse en el panel de Braze desde **Settings** > **API Keys**. |
-| Instancia de clúster | Tu [instancia de clúster]({{site.baseurl}}/api/basics/#endpoints) de Braze se alinea con tu panel de Braze y tu punto de conexión REST or transferencia de estado representacional.  |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos completos de **Templates**. <br><br> Puede crearse en el panel de Braze desde **Settings** > **API Keys**. |
+| Instancia de clúster | Tu [instancia de clúster]({{site.baseurl}}/api/basics/#endpoints) de Braze se alinea con tu panel de Braze y tu punto de conexión REST.  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}

@@ -73,7 +73,7 @@ Las imágenes SVG no son compatibles con los mensajes dentro de la aplicación p
 {% endtabs %}
 
 {% alert tip %}
-El renderizado de los mensajes dentro de la aplicación en el SDK or kit de desarrollo de software Web puede verse afectado por la configuración personalizada del tamaño de texto del navegador. Los usuarios con escalado personalizado del tamaño de texto pueden experimentar problemas menores de renderizado, como un espacio de 1 px a lo largo del borde de una imagen modal. Al previsualizar y probar los mensajes dentro de la aplicación, recomendamos usar la configuración predeterminada del tamaño de texto del navegador para obtener la representación más precisa.
+El renderizado de los mensajes dentro de la aplicación en el SDK Web puede verse afectado por la configuración personalizada del tamaño de texto del navegador. Los usuarios con escalado personalizado del tamaño de texto pueden experimentar problemas menores de renderizado, como un espacio de 1 px a lo largo del borde de una imagen modal. Al previsualizar y probar los mensajes dentro de la aplicación, recomendamos usar la configuración predeterminada del tamaño de texto del navegador para obtener la representación más precisa.
 {% endalert %}
 
 {% endif %}
@@ -185,7 +185,7 @@ Para más información, consulta [Detalles creativos de Content Cards]({{site.ba
 
 {% endif %}
 
-{% if include.variable_name == "servicio de mensajes cortos and mms" %}
+{% if include.variable_name == "sms and mms" %}
 
 Los mensajes MMS admiten una sola imagen por mensaje. Solo los grupos de suscripción habilitados para MMS pueden enviar imágenes.
 
@@ -193,7 +193,7 @@ Los mensajes MMS admiten una sola imagen por mensaje. Solo los grupos de suscrip
 | --- | --- |
 | Tamaño | 600&nbsp;KB o menos para una entrega fiable por parte del operador. El creador bloquea las subidas superiores a 1&nbsp;MB. |
 | Tipos de archivo | PNG, JPEG, GIF |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="servicio de mensajes cortos y MMS" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS y MMS" }
 
 Para conocer los límites de tamaño de archivo y rendimiento del operador, consulta [Límites y rendimiento de los mensajes MMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup#mms-message-limits-and-throughput).
 

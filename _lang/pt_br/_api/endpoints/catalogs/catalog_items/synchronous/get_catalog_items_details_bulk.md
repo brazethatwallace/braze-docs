@@ -9,7 +9,7 @@ page_type: reference
 description: "Este artigo traz informações sobre o endpoint da Braze \"Listar vários detalhes de itens do catálogo\"."
 
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Listar vários detalhes de itens do catálogo {#list-multiple-catalog-item-details}
 {% apimethod get %}
 /catalogs/{catalog_name}/items
@@ -21,7 +21,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Listar 
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `catalogs.get_items`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `catalogs.get_items`.
 
 ## Limite de frequência {#rate-limit}
 

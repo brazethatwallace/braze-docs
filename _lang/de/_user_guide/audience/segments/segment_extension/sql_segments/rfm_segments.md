@@ -41,7 +41,7 @@ Kauf-Events müssen aktiviert sein, um RFM-SQL-Segmente verwenden zu können, da
 | --- | --- | --- |
 | Relative | Aktivität innerhalb der letzten X Tage angeben | Das aktuellste Nutzerverhalten mit einem rollierenden Fenster analysieren. |
 | Start date | Einen festen Startpunkt für Ihre Analyse angeben | Nutzeraktivität ab einem bestimmten Datum analysieren, z. B. nach dem Start einer Campaign. |
-| End date | Einen festen Endpunkt für Ihre Analyse angeben | Nutzeraktivität bis zu einem bestimmten Datum analysieren, z. B. vor einem Produkt-Update or aktualisieren. |
+| End date | Einen festen Endpunkt für Ihre Analyse angeben | Nutzeraktivität bis zu einem bestimmten Datum analysieren, z. B. vor einem Produkt-Update. |
 | Date range | Sowohl ein Start- als auch ein Enddatum für einen benutzerdefinierten Zeitraum angeben | Nutzerverhalten während eines definierten Zeitraums analysieren, z. B. während einer Aktion. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Ein RFM-Segment erstellen" }
 

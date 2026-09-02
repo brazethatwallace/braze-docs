@@ -35,7 +35,7 @@ O criador de Canvas guiará você passo a passo pela configuração do seu Canva
     Aqui, você decidirá como e quando seus usuários entrarão no Canvas:
     - Agendado: Trata-se de uma entrada no Canvas baseada em tempo
     - Baseada em ação: Seu usuário entrará no Canvas após realizar uma ação definida
-    - Disparada por API or interface de programação do aplicativo (API): Use uma requisição de API or interface de programação do aplicativo (API) para inserir usuários no seu Canvas
+    - Disparada por API: Use uma requisição de API para inserir usuários no seu Canvas
 
     Saiba mais sobre a [etapa Cronograma de entrada](#step-12-determine-your-canvas-entry-schedule).
   {% endtab %}
@@ -117,15 +117,15 @@ Você pode controlar outros aspectos do comportamento do Canvas na janela **Púb
 Se o seu Canvas baseado em ação envia mensagens antes do esperado, verifique se o timestamp do evento personalizado está sendo enviado com a hora atual, e não com uma hora retroativa. Por exemplo, se um Canvas baseado em ação tem uma postergação de três horas após o usuário realizar um evento personalizado, a Braze usa o timestamp enviado com o evento personalizado para avaliar essa postergação. Se o timestamp for retroativo em mais de três horas, a Braze trata a postergação como já decorrida e envia a mensagem imediatamente.
 {% endalert %}
 {% endtab %}
-{% tab Entrega disparada por API or interface de programação do aplicativo (API) %}
-Com a entrega disparada por API or interface de programação do aplicativo (API), os usuários entrarão no seu Canvas e começarão a receber mensagens após serem adicionados usando o [endpoint `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases) via API or interface de programação do aplicativo (API). No dashboard, você pode encontrar um exemplo de requisição cURL que faz isso, bem como atribuir [`context`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases) opcional usando o [objeto de contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context).
+{% tab Entrega disparada por API %}
+Com a entrega disparada por API, os usuários entrarão no seu Canvas e começarão a receber mensagens após serem adicionados usando o [endpoint `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases) via API. No dashboard, você pode encontrar um exemplo de requisição cURL que faz isso, bem como atribuir [`context`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases) opcional usando o [objeto de contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context).
 
-![Um exemplo de entrega disparada por API or interface de programação do aplicativo (API) com um ID do Canvas e um exemplo de requisição cURL.]({% image_buster /assets/img_archive/Canvas_API_Triggered_Delivery.png %})
+![Um exemplo de entrega disparada por API com um ID do Canvas e um exemplo de requisição cURL.]({% image_buster /assets/img_archive/Canvas_API_Triggered_Delivery.png %})
 
-Você pode usar os seguintes endpoints para entrega disparada por API or interface de programação do aplicativo (API):
-- [POST: Enviar mensagens de Canvas via entrega disparada por API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)
-- [POST: Agendar Canvas disparados por API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases)
-- [POST: Atualizar Canvas agendados disparados por API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_update_scheduled_triggered_canvases)
+Você pode usar os seguintes endpoints para entrega disparada por API:
+- [POST: Enviar mensagens de Canvas via entrega disparada por API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)
+- [POST: Agendar Canvas disparados por API]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases)
+- [POST: Atualizar Canvas agendados disparados por API]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_update_scheduled_triggered_canvases)
 {% endtab %}
 {% endtabs %}
 
@@ -139,7 +139,7 @@ Se um usuário reentrar no Canvas, alcançar o mesmo componente da entrada anter
 
 ### Etapa 1.3: Defina seu público de entrada {#step-13-set-your-target-entry-audience}
 
-Somente os usuários que correspondam aos critérios definidos poderão entrar na jornada na etapa **Público-alvo**, ou seja, a Braze avalia a elegibilidade do público-alvo primeiro, **antes** de os usuários entrarem na jornada do Canvas. Por exemplo, se você quiser direcionar novos usuários, pode selecionar um Segment or segmento de usuários que usaram seu app pela primeira vez há menos de uma semana.
+Somente os usuários que correspondam aos critérios definidos poderão entrar na jornada na etapa **Público-alvo**, ou seja, a Braze avalia a elegibilidade do público-alvo primeiro, **antes** de os usuários entrarem na jornada do Canvas. Por exemplo, se você quiser direcionar novos usuários, pode selecionar um Segment de usuários que usaram seu app pela primeira vez há menos de uma semana.
 
 {% alert important %}
 Em espaços de trabalho com múltiplos apps, a elegibilidade do público de entrada do Canvas (incluindo Segments e filtros) é avaliada somente quando os usuários entram no Canvas, não nas etapas de Mensagem individuais. Se seu espaço de trabalho tem múltiplos apps e você precisa garantir que as etapas de mensagem direcionem apenas usuários de um app específico, use uma das seguintes abordagens em cada etapa de Mensagem:
@@ -149,7 +149,7 @@ Em espaços de trabalho com múltiplos apps, a elegibilidade do público de entr
 Sem essas proteções, usuários que se qualificaram para a jornada em um app podem receber mensagens destinadas a outro app se também usarem outros apps no seu espaço de trabalho.
 {% endalert %}
 
-Em **Controles de entrada**, você pode limitar o número de usuários cada vez que o Canvas for agendado para execução. Para Canvas baseados em disparador de API or interface de programação do aplicativo (API) e em ação, esse limite ocorre a cada hora UTC.
+Em **Controles de entrada**, você pode limitar o número de usuários cada vez que o Canvas for agendado para execução. Para Canvas baseados em disparador de API e em ação, esse limite ocorre a cada hora UTC.
 
 {% multi_lang_include alerts/warning_alerts.md alert='Canvas race condition audience trigger' %}
 
@@ -165,7 +165,7 @@ Os controles de entrada determinam se os usuários podem reentrar em um Canvas. 
 
 - **Agendado:** Tempo de vida do Canvas ou a cada vez que o Canvas for agendado
 - **Baseado em ação:** Por hora, diário ou tempo de vida do Canvas
-- **Disparado por API or interface de programação do aplicativo (API):** Por hora, diário ou tempo de vida do Canvas
+- **Disparado por API:** Por hora, diário ou tempo de vida do Canvas
 
 Por exemplo, se você tem um Canvas agendado e seleciona **Limitar volume de entrada** e define o campo **Máximo de entradas** para 500.000 usuários com **A cada vez que o Canvas for agendado** como cadência limite, então o Canvas envia apenas para 500.000 usuários por envio agendado.
 
@@ -185,7 +185,7 @@ Na seção **Público-alvo**, você pode ver um resumo do seu público, como os 
 
 Observe que:
 
-- Calcular estatísticas exatas pode levar alguns minutos para ser executado. Essa função calcula as estatísticas exatas apenas no nível do Segment or segmento, não no nível do filtro ou grupo de filtros.
+- Calcular estatísticas exatas pode levar alguns minutos para ser executado. Essa função calcula as estatísticas exatas apenas no nível do Segment, não no nível do filtro ou grupo de filtros.
 - Enquanto as estatísticas exatas estão carregando, uma estimativa arredondada pode aparecer. O número exato aparece na seção **Usuários contatáveis** quando carregado. Você pode selecionar **Mostrar estatísticas adicionais** para um detalhamento completo.
 - Para Segments grandes, é normal ver pequenas variações mesmo ao calcular estatísticas exatas. A precisão desse recurso é esperada em 99,999% ou mais.
 
@@ -315,7 +315,7 @@ Selecione **Concluído** após terminar de configurar seu componente do Canvas.
 {% tabs local %}
 {% tab Propriedades de entrada do Canvas %}
 
-O [objeto `context`]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) é configurado na etapa **Cronograma de entrada** da criação de um Canvas e indica o gatilho que insere um usuário em um Canvas. Essas propriedades também podem acessar as propriedades das cargas úteis de entrada em Canvas disparados por API or interface de programação do aplicativo (API). Observe que o objeto `context` pode ter até 50 KB.
+O [objeto `context`]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) é configurado na etapa **Cronograma de entrada** da criação de um Canvas e indica o gatilho que insere um usuário em um Canvas. Essas propriedades também podem acessar as propriedades das cargas úteis de entrada em Canvas disparados por API. Observe que o objeto `context` pode ter até 50 KB.
 
 Use o Liquid a seguir ao referenciar essas propriedades criadas ao entrar no Canvas: {% raw %} ``context.${property_name}`` {% endraw %}. Observe que os eventos devem ser eventos personalizados ou eventos de compra para serem usados dessa forma.
 
@@ -339,7 +339,7 @@ Na primeira etapa de mensagem após uma jornada de ação, você pode usar `even
 
 Para mover uma conexão entre etapas, selecione a seta que conecta os dois componentes e selecione um componente diferente. Para remover a conexão, selecione a seta seguida de **Cancelar conexão** no rodapé do criador do Canvas.
 
-Se uma única variante tiver múltiplas ramificações com o mesmo público e horário de envio, a Braze não garante uma divisão uniforme entre essas ramificações. A distribuição pode favorecer a Branch or ramificação or ramificação que foi criada primeiro. Para uma divisão uniforme, use filtros de [número de bucket aleatório]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers) em cada Branch or ramificação or ramificação. Para saber mais, consulte [O que acontece se o público e o horário de envio são idênticos para um Canvas que tem uma variante, mas múltiplas ramificações?]({{site.baseurl}}/user_guide/messaging/canvas/faqs#what-happens-if-the-audience-and-send-time-are-identical-for-a-canvas-that-has-one-variant-but-multiple-branches).
+Se uma única variante tiver múltiplas ramificações com o mesmo público e horário de envio, a Braze não garante uma divisão uniforme entre essas ramificações. A distribuição pode favorecer a Branch que foi criada primeiro. Para uma divisão uniforme, use filtros de [número de bucket aleatório]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers) em cada Branch. Para saber mais, consulte [O que acontece se o público e o horário de envio são idênticos para um Canvas que tem uma variante, mas múltiplas ramificações?]({{site.baseurl}}/user_guide/messaging/canvas/faqs#what-happens-if-the-audience-and-send-time-are-identical-for-a-canvas-that-has-one-variant-but-multiple-branches).
 
 ## Etapa 3: Adicionar um grupo de controle {#step-3-add-a-control-group}
 

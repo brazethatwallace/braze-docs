@@ -7,7 +7,7 @@ description: "Dieser Artikel enthält Versionshinweise für April 2018."
 ---
 # April 2018
 
-## Webhooks Update or aktualisieren auf dem Weg
+## Webhooks Update auf dem Weg
 
 Im Mai wird Braze eine Sicherheitsinitiative für Webhook-Umleitungen einführen. In Zukunft wird der Webhook-Sender diesen Weiterleitungen nicht mehr folgen können. Stattdessen werden Weiterleitungen als Fehler behandelt, um unendliche Weiterleitungsschleifen zu vermeiden. Braze geht nicht davon aus, dass dies irgendjemanden betrifft, aber wenn Sie Webhooks haben, die umleiten, empfehlen wir Ihnen, diese Kampagne noch einmal zu überprüfen und zu bearbeiten.
 
@@ -32,6 +32,6 @@ Beachten Sie, dass Sie auf die neueste Version von Android (Version 2.2.0+) und 
 
 ## Posteingang Vision
 
-Sie können jetzt [eine Vorschau Ihrer E-Mails]({{site.baseurl}}/user_guide/message_building_by_channel/email/inbox_vision/#inbox-vision) auf der Grundlage der Plattform Ihrer Kund:innen erstellen, entweder über eine Übersichtsseite mit Miniaturansichten oder eine Listenansicht, die einen großen Screenshot und eine genauere Analyse der Probleme enthält, die möglicherweise mit der HTML-Darstellung für jeden Client bestehen. Kontaktieren Sie Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in oder Account Manager:in:in für weitere Informationen.
+Sie können jetzt [eine Vorschau Ihrer E-Mails]({{site.baseurl}}/user_guide/message_building_by_channel/email/inbox_vision/#inbox-vision) auf der Grundlage der Plattform Ihrer Kund:innen erstellen, entweder über eine Übersichtsseite mit Miniaturansichten oder eine Listenansicht, die einen großen Screenshot und eine genauere Analyse der Probleme enthält, die möglicherweise mit der HTML-Darstellung für jeden Client bestehen. Kontaktieren Sie Ihren CSM oder Account Manager:in:in für weitere Informationen.
 
 

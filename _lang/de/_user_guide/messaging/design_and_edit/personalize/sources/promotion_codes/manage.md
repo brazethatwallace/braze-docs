@@ -2,12 +2,12 @@
 nav_title: Codes verwenden
 article_title: Aktionscodes verwenden
 page_order: 0.2
-description: "Erfahren Sie, wie Sie Aktionscodes verwenden und die Nutzung für Ihre Campaigns und Canvase einsehen können."
+description: "Erfahren Sie, wie Sie Aktionscodes verwenden und die Nutzung für Ihre Campaigns und Canvases einsehen können."
 ---
 
 # Aktionscodes verwenden {#use-promotion-codes}
 
-> Erfahren Sie, wie Sie Aktionscodes verwenden und die Nutzung für Ihre Campaigns und Canvase einsehen können.
+> Erfahren Sie, wie Sie Aktionscodes verwenden und die Nutzung für Ihre Campaigns und Canvases einsehen können.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -44,7 +44,7 @@ Nachdem Sie eine [In-App-Nachricht-Campaign]({{site.baseurl}}/user_guide/channel
 
 ### Testnachrichten {#test-messages}
 
-Testversendungen und Seed-Gruppen-E-Mail-Versendungen verbrauchen Aktionscodes, sofern nicht anders angefordert. Kontaktieren Sie Ihre:n Braze Account Manager:in:in, um dieses Feature-Verhalten zu Update or aktualisieren or aktualisieren, damit Aktionscodes bei Testversendungen und Seed-Gruppen-E-Mail-Versendungen nicht verwendet werden.
+Testversendungen und Seed-Gruppen-E-Mail-Versendungen verbrauchen Aktionscodes, sofern nicht anders angefordert. Kontaktieren Sie Ihre:n Braze Account Manager:in:in, um dieses Feature-Verhalten zu aktualisieren, damit Aktionscodes bei Testversendungen und Seed-Gruppen-E-Mail-Versendungen nicht verwendet werden.
 
 ### Mit Message Extras für Currents {#with-message-extras-for-currents}
 
@@ -52,12 +52,12 @@ Testversendungen und Seed-Gruppen-E-Mail-Versendungen verbrauchen Aktionscodes, 
 
 ## Aktionscodes in Nutzerprofilen speichern {#save-to-profile}
 
-Um denselben Aktionscode in nachfolgenden Nachrichten zu referenzieren, muss der Code als angepasstes Attribut im Kundenprofil or Nutzerprofil gespeichert werden. Dies kann über einen [Nutzeraktualisierungs-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) erfolgen, der den Rabattcode einem angepassten Attribut wie „Aktionscode“ direkt vor einem Nachrichten-Schritt zuweist.
+Um denselben Aktionscode in nachfolgenden Nachrichten zu referenzieren, muss der Code als angepasstes Attribut im Kundenprofil gespeichert werden. Dies kann über einen [Nutzeraktualisierungs-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) erfolgen, der den Rabattcode einem angepassten Attribut wie „Aktionscode“ direkt vor einem Nachrichten-Schritt zuweist.
 
 Wählen Sie zunächst Folgendes für jedes Feld im Nutzeraktualisierungs-Schritt aus:
 
 - **Attributname:** Aktionscode
-- **Aktion:** Update or aktualisieren
+- **Aktion:** Update
 - **Schlüsselwert:** Das Liquid-Code-Snippet des Aktionscodes, z. B. {% raw %}`{% promotion('spring25') %}`{% endraw %}
 
 Fügen Sie anschließend das angepasste Attribut (in diesem Beispiel {% raw %}`{{custom_attribute.${Promo Code}}}`{% endraw %}) zu einer Nachricht hinzu. Der Rabattcode wird dann als Template eingefügt.
@@ -74,7 +74,7 @@ Diese Code-Anzahl kann auch beim erneuten Aufrufen einer bestehenden Aktionscode
 
 ## Multichannel- und Einzelkanal-Versendungen {#multichannel-and-single-channel-sends}
 
-Bei Multichannel- und Einzelversand-Campaigns und Canvase werden alle Aktionscodes, die im Liquid einer Nachricht referenziert werden, **vor** dem Senden der Nachricht abgezogen, um Folgendes sicherzustellen:
+Bei Multichannel- und Einzelversand-Campaigns und Canvases werden alle Aktionscodes, die im Liquid einer Nachricht referenziert werden, **vor** dem Senden der Nachricht abgezogen, um Folgendes sicherzustellen:
 
 - Dieselben Aktionscodes werden kanalübergreifend in einer Multichannel-Nachricht verwendet.
 - Zusätzliche Aktionscodes werden nicht verbraucht, wenn eine Nachricht fehlschlägt oder abgebrochen wird.

@@ -9,7 +9,7 @@ description: "Cet article vous explique comment configurer Braze pour utiliser O
 
 # Okta
 
-> Okta connecte toute personne à n'importe quelle application sur n'importe quel appareil. Il s'agit d'un service de gestion d'identité de qualité professionnelle, conçu pour le cloud, mais compatible avec de nombreuses applications sur site. Avec Okta, votre équipe informatique peut gérer l'accès de n'importe quel employé or salarié à toute application ou à tout appareil.
+> Okta connecte toute personne à n'importe quelle application sur n'importe quel appareil. Il s'agit d'un service de gestion d'identité de qualité professionnelle, conçu pour le cloud, mais compatible avec de nombreuses applications sur site. Avec Okta, votre équipe informatique peut gérer l'accès de n'importe quel employé à toute application ou à tout appareil.
 
 {% alert note %}
 L'application Braze préconfigurée disponible sur la marketplace Okta utilise l'Entity ID partagé `braze_dashboard`. Si vous avez besoin d'un Entity ID unique pour ce tableau de bord — par exemple, pour connecter plusieurs tableaux de bord Braze via Okta — configurez une application SAML personnalisée au lieu de l'application de la marketplace, puis suivez les instructions de la section [Utiliser un Entity ID personnalisé]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#using-a-custom-entity-id).

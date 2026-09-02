@@ -1,26 +1,26 @@
 ---
-nav_title: "POST: E-Mail-Template Update or aktualisieren or aktualisieren"
-article_title: "POST: E-Mail-Templates Update or aktualisieren or aktualisieren"
+nav_title: "POST: E-Mail-Template aktualisieren"
+article_title: "POST: E-Mail-Templates aktualisieren"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „E-Mail-Template Update or aktualisieren or aktualisieren“."
+description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „E-Mail-Template aktualisieren“."
 ---
 {% api %}
-# Vorhandene E-Mail-Templates Update or aktualisieren or aktualisieren {#update-existing-email-templates}
+# Vorhandene E-Mail-Templates aktualisieren {#update-existing-email-templates}
 {% apimethod post %}
-/templates/email/Update or aktualisieren
+/templates/email/update
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um E-Mail-Templates im Braze-Dashboard zu Update or aktualisieren or aktualisieren.
+> Verwenden Sie diesen Endpunkt, um E-Mail-Templates im Braze-Dashboard zu aktualisieren.
 
 Sie können auf die `email_template_id` eines E-Mail-Templates zugreifen, indem Sie auf der Seite **Templates und Medien** dorthin navigieren. Der Endpunkt [E-Mail-Template erstellen]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template) gibt ebenfalls eine `email_template_id`-Referenz zurück.
 
-Alle Felder außer `email_template_id` sind optional, aber Sie müssen mindestens ein Feld zum Update or aktualisieren or aktualisieren angeben.
+Alle Felder außer `email_template_id` sind optional, aber Sie müssen mindestens ein Feld zum Aktualisieren angeben.
 
 {% alert tip %}
-Sie können diesen Endpunkt auch über den [Braze MCP-Server]({{site.baseurl}}/user_guide/brazeai/mcp_server) mit der Funktion [`update_email_template`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#templates) aufrufen. So können KI or künstliche Intelligenz-Tools wie Claude und Cursor E-Mail-Templates über natürlichsprachliche Eingaben Update or aktualisieren or aktualisieren.
+Sie können diesen Endpunkt auch über den [Braze MCP-Server]({{site.baseurl}}/user_guide/brazeai/mcp_server) mit der Funktion [`update_email_template`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#templates) aufrufen. So können KI-Tools wie Claude und Cursor E-Mail-Templates über natürlichsprachliche Eingaben aktualisieren.
 {% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#afb25494-3350-458d-932d-5bf4220049fa {% endapiref %}

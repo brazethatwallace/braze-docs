@@ -1,6 +1,6 @@
 ---
 nav_title: Berichte zur Bindung
-article_title: Berichte zur Bindung für Campaigns und Canvase
+article_title: Berichte zur Bindung für Campaigns und Canvases
 page_order: 9
 tool: Reports
 page_type: reference
@@ -54,7 +54,7 @@ Diese Abfrage kann je nach Datenmenge einige Minuten dauern. Wenn es zu lange da
 
 Nachdem der Bericht generiert wurde, kann er für 24 Stunden nicht erneut mit demselben Bindungsereignis ausgeführt werden. Sie sehen immer einen Zeitstempel, wann der Bericht zuletzt generiert wurde, sowie eine Option zur Neugenerierung, wenn mehr als ein Tag vergangen ist. Sie können jedoch das Bindungsereignis ändern und den Bericht erneut ausführen, um die Auswirkungen der Campaign auf verschiedene KPIs zu untersuchen.
 
-Der Bericht listet nur Tage auf, an denen die Campaign oder das Canvas Nachrichten gesendet hat. Bei einigen Campaigns und Canvase kann das bedeuten, dass der Bericht nur einen Tag anzeigt, wenn die Nachricht nur einmal gesendet wurde. Bei wiederkehrenden oder getriggerten Campaigns sehen Sie möglicherweise mehrere Tage in der Tabelle.
+Der Bericht listet nur Tage auf, an denen die Campaign oder das Canvas Nachrichten gesendet hat. Bei einigen Campaigns und Canvases kann das bedeuten, dass der Bericht nur einen Tag anzeigt, wenn die Nachricht nur einmal gesendet wurde. Bei wiederkehrenden oder getriggerten Campaigns sehen Sie möglicherweise mehrere Tage in der Tabelle.
 
 {% tabs %}
 {% tab Campaign %}

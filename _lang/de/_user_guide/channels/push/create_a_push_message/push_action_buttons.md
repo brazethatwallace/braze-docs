@@ -19,7 +19,7 @@ channel:
 
 Jeder interaktive Button kann auf eine Webseite oder einen Deeplink verweisen oder die App öffnen.
 
-- Bei Standard-Push-Campaigns können Sie Ihre Push-Action-Buttons im Abschnitt **On-Klick, der or klicken Behavior** des Push-Nachrichten-Editors im Dashboard festlegen.
+- Bei Standard-Push-Campaigns können Sie Ihre Push-Action-Buttons im Abschnitt **On-Klick, der Behavior** des Push-Nachrichten-Editors im Dashboard festlegen.
 - Bei [plattformübergreifenden Push-Campaigns]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push) können Aktions-Buttons unter dem Tab **Einstellungen** für jede Plattform separat konfiguriert werden.
 
 {% tabs %}
@@ -50,12 +50,12 @@ Voreingestellte Paare wie **Yes** / **No** ordnen dem zweiten Button standardmä
 Um Aktions-Buttons in Ihren Android-Push-Nachrichten zu verwenden, gehen Sie wie folgt vor:
 
 1. Aktivieren Sie Aktions-Buttons im Tab **Verfassen**.
-2. Wählen Sie <i class="fas fa-plus-circle"></i> **Add Button** und geben Sie Ihren Button-Text sowie das **On-Klick, der or klicken Behavior** an. Sie können aus den folgenden verfügbaren Aktionen auswählen:
+2. Wählen Sie <i class="fas fa-plus-circle"></i> **Add Button** und geben Sie Ihren Button-Text sowie das **On-Klick, der Behavior** an. Sie können aus den folgenden verfügbaren Aktionen auswählen:
   - App öffnen
   - Zu Web-URL weiterleiten
   - [Deeplink]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls) in die Anwendung
 
-![Auswahl von „App öffnen“ als On-Klick, der or klicken-Verhalten für einen Benachrichtigungs-Button.]({% image_buster /assets/img_archive/push_action_buttons_android.png %}){: style="max-width:70%"}
+![Auswahl von „App öffnen“ als On-Klick, der-Verhalten für einen Benachrichtigungs-Button.]({% image_buster /assets/img_archive/push_action_buttons_android.png %}){: style="max-width:70%"}
 
 Sie können bis zu drei Buttons in Ihrer Push-Benachrichtigung hinzufügen.
 

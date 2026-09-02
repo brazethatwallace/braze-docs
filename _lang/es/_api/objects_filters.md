@@ -30,7 +30,7 @@ description: "Esta página de inicio enumera los objetos y filtros de la API de 
   - [Objeto de tarjeta de contenido]({{site.baseurl}}/api/objects_filters/messaging/content_cards_object)
   - [Objeto de correo electrónico]({{site.baseurl}}/api/objects_filters/messaging/email_object)
   - [Objeto push para Kindle y FireOS]({{site.baseurl}}/api/objects_filters/messaging/kindle_and_fireos_object)
-  - [Objeto servicio de mensajes cortos]({{site.baseurl}}/api/objects_filters/messaging/sms_object)
+  - [Objeto SMS]({{site.baseurl}}/api/objects_filters/messaging/sms_object)
   - [Objeto Web]({{site.baseurl}}/api/objects_filters/messaging/web_objects)
   - [Objeto webhook]({{site.baseurl}}/api/objects_filters/messaging/webhook_object)
   - [Objeto WhatsApp]({{site.baseurl}}/api/objects_filters/messaging/whats_app_object)

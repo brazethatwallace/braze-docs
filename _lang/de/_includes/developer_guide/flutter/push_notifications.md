@@ -6,9 +6,9 @@
 
 {% tabs %}
 {% tab Android %}
-#### Schritt 1.1: Für Push Registrierung or registrieren {#step-11-register-for-push}
+#### Schritt 1.1: Für Push Registrierung {#step-11-register-for-push}
 
-Registrierung or registrieren Sie sich für Push über die Firebase Cloud Messaging (FCM) API von Google. Eine vollständige Anleitung finden Sie in den folgenden Schritten aus dem [nativen Android-Push-Integrationsleitfaden]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/?tab=android/):
+Registrierung Sie sich für Push über die Firebase Cloud Messaging (FCM) API von Google. Eine vollständige Anleitung finden Sie in den folgenden Schritten aus dem [nativen Android-Push-Integrationsleitfaden]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/?tab=android/):
 
 1. [Firebase zu Ihrem Projekt hinzufügen]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/integration/standard_integration#step-1-add-firebase-to-your-project).
 2. [Cloud Messaging zu Ihren Abhängigkeiten hinzufügen]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/integration/standard_integration#step-2-add-cloud-messaging-to-your-dependencies).
@@ -26,7 +26,7 @@ Wählen Sie **Cloud Messaging** und kopieren Sie unter **Firebase Cloud Messagin
 
 ![Die Seite „Cloud Messaging“ des Firebase-Projekts mit hervorgehobener „Sender ID“.]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/copy-sender-id.png %})
 
-#### Schritt 1.3: Ihre `braze.xml` Update or aktualisieren or aktualisieren {#step-13-update-your-brazexml}
+#### Schritt 1.3: Ihre `braze.xml` aktualisieren {#step-13-update-your-brazexml}
 
 Fügen Sie Folgendes zu Ihrer `braze.xml`-Datei hinzu. Ersetzen Sie `FIREBASE_SENDER_ID` durch die zuvor kopierte Sender-ID.
 
@@ -73,14 +73,14 @@ pushEventsStreamSubscription.cancel();
 #### Felder für Push-Benachrichtigungsereignisse {#push-notification-event-fields}
 
 {% alert note %}
-Aufgrund von Plattformbeschränkungen unter iOS kann das Braze SDK or Software-Development-Kit Push-Payloads nur verarbeiten, während die App im Vordergrund ist. Listener werden unter iOS nur für den Ereignistyp `push_opened` ausgelöst, nachdem Nutzer:innen mit einer Push-Benachrichtigung interagiert haben.
+Aufgrund von Plattformbeschränkungen unter iOS kann das Braze SDK Push-Payloads nur verarbeiten, während die App im Vordergrund ist. Listener werden unter iOS nur für den Ereignistyp `push_opened` ausgelöst, nachdem Nutzer:innen mit einer Push-Benachrichtigung interagiert haben.
 {% endalert %}
 
 Eine vollständige Liste der Push-Benachrichtigungsfelder finden Sie in der folgenden Tabelle:
 
 | Feldname | Typ | Beschreibung |
 | ------------------ | --------- | ----------- |
-| `payloadType` | String | Gibt den Payload-Typ der Benachrichtigung an. Die beiden Werte, die vom Braze Flutter SDK or Software-Development-Kit gesendet werden, sind `push_opened` und `push_received`. Nur `push_opened`-Ereignisse werden unter iOS unterstützt. |
+| `payloadType` | String | Gibt den Payload-Typ der Benachrichtigung an. Die beiden Werte, die vom Braze Flutter SDK gesendet werden, sind `push_opened` und `push_received`. Nur `push_opened`-Ereignisse werden unter iOS unterstützt. |
 | `url` | String | Gibt die URL an, die durch die Benachrichtigung geöffnet wurde. |
 | `useWebview` | Boolean | Wenn `true`, wird die URL in der App in einem modalen Webview geöffnet. Wenn `false`, wird die URL im Gerätebrowser geöffnet. |
 | `title` | String | Stellt den Titel der Benachrichtigung dar. |
@@ -89,7 +89,7 @@ Eine vollständige Liste der Push-Benachrichtigungsfelder finden Sie in der folg
 | `badgeCount` | Number | Stellt die Badge-Anzahl der Benachrichtigung dar. |
 | `timestamp` | Number | Stellt den Zeitpunkt dar, zu dem der Payload von der Anwendung empfangen wurde. |
 | `isSilent` | Boolean | Wenn `true`, wird der Payload still empfangen. Details zum Senden stiller Android-Push-Benachrichtigungen finden Sie unter [Stille Push-Benachrichtigungen auf Android]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android). Details zum Senden stiller iOS-Push-Benachrichtigungen finden Sie unter [Stille Push-Benachrichtigungen auf iOS]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift). |
-| `isBrazeInternal` | Boolean | Dies ist `true`, wenn ein Benachrichtigungs-Payload für ein internes SDK or Software-Development-Kit-Feature gesendet wurde, z. B. Feature-Flag-Synchronisierung oder Uninstall-Tracking. Der Payload wird für die Nutzer:innen still empfangen. |
+| `isBrazeInternal` | Boolean | Dies ist `true`, wenn ein Benachrichtigungs-Payload für ein internes SDK-Feature gesendet wurde, z. B. Feature-Flag-Synchronisierung oder Uninstall-Tracking. Der Payload wird für die Nutzer:innen still empfangen. |
 | `imageUrl` | String | Gibt die URL an, die mit dem Benachrichtigungsbild verknüpft ist. |
 | `brazeProperties` | Object | Stellt Braze-Eigenschaften dar, die mit der Campaign verknüpft sind (Schlüssel-Wert-Paare). |
 | `ios` | Object | Stellt iOS-spezifische Felder dar. |
@@ -103,7 +103,7 @@ Um Ihre Integration nach der Konfiguration von Push-Benachrichtigungen in der na
 1. Legen Sie eine:n aktive:n Nutzer:in in der Flutter-Anwendung fest. Initialisieren Sie dazu Ihr Plugin, indem Sie `braze.changeUser('your-user-id')` aufrufen.
 2. Gehen Sie zu **Campaigns** und erstellen Sie eine neue Push-Benachrichtigungs-Campaign. Wählen Sie die Plattformen aus, die Sie testen möchten.
 3. Verfassen Sie Ihre Testbenachrichtigung und wechseln Sie zum Tab **Test**. Fügen Sie dieselbe `user-id` als Testnutzer:in hinzu und klicken Sie auf **Send Test**.
-4. Sie sollten die Benachrichtigung in Kürze auf Ihrem Gerät erhalten. Möglicherweise müssen Sie im Benachrichtigungscenter nachsehen oder die Einstellungen Update or aktualisieren or aktualisieren, wenn sie nicht angezeigt wird.
+4. Sie sollten die Benachrichtigung in Kürze auf Ihrem Gerät erhalten. Möglicherweise müssen Sie im Benachrichtigungscenter nachsehen oder die Einstellungen aktualisieren, wenn sie nicht angezeigt wird.
 
 {% alert tip %}
 Ab Xcode 14 können Sie Remote-Push-Benachrichtigungen auf einem iOS-Simulator testen.
@@ -112,7 +112,7 @@ Ab Xcode 14 können Sie Remote-Push-Benachrichtigungen auf einem iOS-Simulator t
 ### Schritt 4: Deeplinks hinzufügen (Android) {#step-4-add-deep-links-android}
 
 {% alert warning %}
-Unter Android ist `com_braze_handle_push_deep_links_automatically` standardmäßig auf `false` gesetzt. Mit der Standardeinstellung sendet das Tippen auf eine Push-Benachrichtigung zwar ein `push_opened`-Ereignis an Ihren Dart-Listener, aber das native SDK or Software-Development-Kit bringt Ihre App nicht in den Vordergrund und öffnet das Deeplink-Ziel nicht automatisch. Wenn Ihre App beim Tippen auf eine Benachrichtigung nicht gestartet wird, ist dieses Flag die wahrscheinlichste Ursache.
+Unter Android ist `com_braze_handle_push_deep_links_automatically` standardmäßig auf `false` gesetzt. Mit der Standardeinstellung sendet das Tippen auf eine Push-Benachrichtigung zwar ein `push_opened`-Ereignis an Ihren Dart-Listener, aber das native SDK bringt Ihre App nicht in den Vordergrund und öffnet das Deeplink-Ziel nicht automatisch. Wenn Ihre App beim Tippen auf eine Benachrichtigung nicht gestartet wird, ist dieses Flag die wahrscheinlichste Ursache.
 {% endalert %}
 
 Um Braze zu ermöglichen, Ihre App und alle Deeplinks automatisch zu öffnen, wenn auf eine Push-Benachrichtigung getippt wird, setzen Sie `com_braze_handle_push_deep_links_automatically` in Ihrer `braze.xml` auf `true`:

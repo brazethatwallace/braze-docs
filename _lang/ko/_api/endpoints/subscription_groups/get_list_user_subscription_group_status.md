@@ -24,7 +24,7 @@ description: "이 문서에서는 사용자의 구독 그룹 상태 나열 Braze
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#488c8923-fa44-4124-9245-036d13c615f2 {% endapiref %}
 
-**단문 메시지 서비스 구독 그룹**에 대한 이 엔드포인트의 예제를 보거나 테스트하려면 다음을 참조하세요:
+**SMS 구독 그룹**에 대한 이 엔드포인트의 예제를 보거나 테스트하려면 다음을 참조하세요:
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4b8515b8-067f-41fd-b213-8bb2d18b1557 {% endapiref %}
 
@@ -52,7 +52,7 @@ description: "이 문서에서는 사용자의 구독 그룹 상태 나열 Braze
 
 *각 사용자에 대해 `external_id` 또는 `email` 또는 `phone` 중 하나가 필요합니다.
 
-- 단문 메시지 서비스 및 WhatsApp 구독 그룹의 경우 `external_id` 또는 `phone`이 필요합니다. 둘 다 제출하면 `external_id`만 쿼리에 사용되며 해당 사용자에게 전화번호가 적용됩니다.
+- SMS 및 WhatsApp 구독 그룹의 경우 `external_id` 또는 `phone`이 필요합니다. 둘 다 제출하면 `external_id`만 쿼리에 사용되며 해당 사용자에게 전화번호가 적용됩니다.
 - 이메일 구독 그룹의 경우 `external_id` 또는 `email`이 필요합니다. 둘 다 제출하면 `external_id`만 쿼리에 사용되며 해당 사용자에게 이메일 주소가 적용됩니다.
 
 ## 예시 요청 {#example-request}
@@ -65,7 +65,7 @@ https://rest.iad-03.braze.com/subscription/status/get?subscription_group_id={{su
 ```
 {% endraw %}
 {% endtab %}
-{% tab 단문 메시지 서비스 and WhatsApp %}
+{% tab SMS and WhatsApp %}
 {% raw %}
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/status/get?subscription_group_id={{subscription_group_id}}&phone=+11112223333' \

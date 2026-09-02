@@ -22,7 +22,7 @@ Todos los valores de cadena como nombre, apellidos, país y ciudad de residencia
 
 ### Configuración de atributos predeterminados 
 
-Para configurar los atributos de usuario recogidos automáticamente por Braze, puedes utilizar los métodos de configuración incluidos en el SDK or kit de desarrollo de software.
+Para configurar los atributos de usuario recogidos automáticamente por Braze, puedes utilizar los métodos de configuración incluidos en el SDK.
 
 ```dart
 braze.setFirstName('Name');

@@ -25,7 +25,7 @@ El servicio 10DLC fue creado específicamente para facilitar la mensajería A2P 
 - **Mayor rendimiento**: Los números 10DLC admiten un volumen de mensajes más alto que los códigos largos regulares.
 - **Mejor capacidad de entrega**: Los números 10DLC están designados para tráfico A2P, por lo que los mensajes enviados con estos números tienen más probabilidades de llegar al destinatario y menos probabilidades de ser filtrados o rechazados por el operador que los mensajes enviados a través de códigos largos locales regulares.
 - **Cumplimiento mejorado**: Usar un código largo local para mensajes de texto comerciales va en contra de las directrices de la [CTIA](https://api.ctia.org/wp-content/uploads/2019/07/190719-CTIA-Messaging-Principles-and-Best-Practices-FINAL.pdf). Los números 10DLC fueron designados para mensajería masiva y permiten a las marcas cumplir con las regulaciones de la industria sin depender de códigos abreviados.
-- **Económico**: 10DLC es una excelente opción para empresas que quieren empezar a enviar servicio de mensajes cortos o enviar servicio de mensajes cortos en volúmenes pequeños. Para marcas que envían volúmenes de mensajería más grandes, de más de 100,000 mensajes al día, recomendamos usar un código abreviado.
+- **Económico**: 10DLC es una excelente opción para empresas que quieren empezar a enviar SMS o enviar SMS en volúmenes pequeños. Para marcas que envían volúmenes de mensajería más grandes, de más de 100,000 mensajes al día, recomendamos usar un código abreviado.
 
 Desde 2019, los operadores han comenzado a adoptar 10DLC para mensajería comercial, con Verizon y AT&T actualmente soportando 10DLC, y esperamos que todos los operadores principales sigan pronto. Si bien puede causar inconvenientes a corto plazo, a largo plazo los clientes disfrutarán de mejores tasas de capacidad de entrega mientras protegen a sus consumidores de mensajes no deseados.
 
@@ -43,7 +43,7 @@ Registrarse con A2P 10DLC puede incluir varios tipos de tarifas:
 | -------- | ---------- |
 | Tarifas de registro | Tarifas nominales aplicadas al registrar tu marca y caso de uso en todas las principales redes de EE. UU. |
 | Tarifas de verificación secundaria | Las marcas pueden apelar su [puntuación de confianza de marca](#trust-score) y solicitar un proceso de verificación secundaria para mejorar su rendimiento general; hay una tarifa asociada con este proceso. |
-| Tarifas de operador | Tarifas cobradas por los operadores por mensajes servicio de mensajes cortos y MMS salientes enviados a usuarios después del registro 10DLC. A partir del 1 de octubre de 2021, las tarifas de operador serán más altas para el tráfico no registrado (códigos largos estándar) que para el tráfico registrado (10DLC). |
+| Tarifas de operador | Tarifas cobradas por los operadores por mensajes SMS y MMS salientes enviados a usuarios después del registro 10DLC. A partir del 1 de octubre de 2021, las tarifas de operador serán más altas para el tráfico no registrado (códigos largos estándar) que para el tráfico registrado (10DLC). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Costos" }
 
 Visita el artículo de Twilio sobre 10DLC para consultar las [estimaciones de tarifas](https://support.twilio.com/hc/en-us/articles/1260803965530-What-pricing-and-fees-are-associated-with-the-A2P-10DLC-service-) actualizadas.
@@ -54,13 +54,13 @@ El rendimiento de mensajes para tu 10DLC depende de varios factores, incluyendo 
 
 #### Puntuación de confianza de marca {#trust-score}
 
-El Campaign Registry (TCR) es una agencia de terceros que utiliza un algoritmo de reputación para revisar criterios específicos relacionados con tu empresa y asignar una puntuación de confianza que determina el rendimiento de mensajería para cada marca. Esta puntuación de confianza se asignará cuando un cliente se registre para la mensajería 10DLC en EE. UU. Cuanto mayor sea la puntuación de confianza, mejores MPS or mensajes por segundo or mensajes por segundo (MPS or mensajes por segundo) experimentarás.
+El Campaign Registry (TCR) es una agencia de terceros que utiliza un algoritmo de reputación para revisar criterios específicos relacionados con tu empresa y asignar una puntuación de confianza que determina el rendimiento de mensajería para cada marca. Esta puntuación de confianza se asignará cuando un cliente se registre para la mensajería 10DLC en EE. UU. Cuanto mayor sea la puntuación de confianza, mejores MPS (MPS) experimentarás.
 
 |     | Puntuación de confianza | AT&T | T-Mobile | Verizon |
 | --- | ----------- | ---- | -------- | ------- |
-| Alta | 75-100 | 75 MPS or mensajes por segundo | 75 MPS or mensajes por segundo | 75 MPS or mensajes por segundo |
-| Media | 50-74 | 40 MPS or mensajes por segundo | 40 MPS or mensajes por segundo | 40 MPS or mensajes por segundo |
-| Baja | 1-49 | 4 MPS or mensajes por segundo | 4 MPS or mensajes por segundo | 4 MPS or mensajes por segundo |
+| Alta | 75-100 | 75 MPS | 75 MPS | 75 MPS |
+| Media | 50-74 | 40 MPS | 40 MPS | 40 MPS |
+| Baja | 1-49 | 4 MPS | 4 MPS | 4 MPS |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Puntuación de confianza de marca" }
 
 {% alert tip %}
@@ -69,7 +69,7 @@ Las empresas que figuran en el índice Russell 3000 recibirán un alto rendimien
 
 #### Límites diarios de mensajes {#daily-message-limits}
 
-Los límites diarios van desde 2,000 hasta 200,000 mensajes dependiendo de tu puntuación de confianza de marca y se aplican a todos los códigos largos. Si bien las puntuaciones de confianza de marca altas vienen con un rendimiento de 60 MPS or mensajes por segundo or mensajes por segundo, cualquier límite diario de mensajes establecido por el operador seguirá aplicándose. Esto significa que los códigos abreviados serían una mejor opción si los mensajes pico diarios de una marca son superiores al límite diario impuesto.
+Los límites diarios van desde 2,000 hasta 200,000 mensajes dependiendo de tu puntuación de confianza de marca y se aplican a todos los códigos largos. Si bien las puntuaciones de confianza de marca altas vienen con un rendimiento de 60 MPS, cualquier límite diario de mensajes establecido por el operador seguirá aplicándose. Esto significa que los códigos abreviados serían una mejor opción si los mensajes pico diarios de una marca son superiores al límite diario impuesto.
 
 #### Casos de uso de mensajería {#messaging-use-cases}
 
@@ -98,9 +98,9 @@ Un caso de uso declarado significa que has elegido un caso de uso específico qu
 
 | Puntuación de confianza | Rendimiento total hacia las principales redes de EE. UU. | AT&T | T-Mobile | Verizon |
 | --- | ----------- | ---- | -------- | ------- |
-| 75-100 | 225 MPS or mensajes por segundo | 75 MPS or mensajes por segundo | 75 MPS or mensajes por segundo | 75 MPS or mensajes por segundo |
-| 50-74	 | 120 MPS or mensajes por segundo | 40 MPS or mensajes por segundo | 40 MPS or mensajes por segundo | 40 MPS or mensajes por segundo |
-| 1-49 | 12 MPS or mensajes por segundo | 4 MPS or mensajes por segundo | 4 MPS or mensajes por segundo | 4 MPS or mensajes por segundo|
+| 75-100 | 225 MPS | 75 MPS | 75 MPS | 75 MPS |
+| 50-74	 | 120 MPS | 40 MPS | 40 MPS | 40 MPS |
+| 1-49 | 12 MPS | 4 MPS | 4 MPS | 4 MPS|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Casos de uso de mensajería" }
 
 {% endtab %}
@@ -110,9 +110,9 @@ Los casos de uso de marketing mixto se pueden registrar para clientes que desean
 
 | Puntuación de confianza | Rendimiento total hacia las principales redes de EE. UU. | AT&T | T-Mobile  | Verizon |
 | --- | ----------- | ---- | -------- | ------- |
-| 75-100 | 225 MPS or mensajes por segundo | 75 MPS or mensajes por segundo | 75 MPS or mensajes por segundo | 75 MPS or mensajes por segundo |
-| 50-74 | 120 MPS or mensajes por segundo | 40 MPS or mensajes por segundo | 40 MPS or mensajes por segundo | 40 MPS or mensajes por segundo |
-| 1-49 | 12 MPS or mensajes por segundo | 4 MPS or mensajes por segundo | 4 MPS or mensajes por segundo | 4 MPS or mensajes por segundo|
+| 75-100 | 225 MPS | 75 MPS | 75 MPS | 75 MPS |
+| 50-74 | 120 MPS | 40 MPS | 40 MPS | 40 MPS |
+| 1-49 | 12 MPS | 4 MPS | 4 MPS | 4 MPS|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Casos de uso de mensajería" }
 
 {% endtab %}

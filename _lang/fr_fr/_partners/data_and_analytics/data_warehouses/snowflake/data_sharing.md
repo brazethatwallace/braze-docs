@@ -47,7 +47,7 @@ Pour en savoir plus sur le partage de données de Snowflake, consultez [Introduc
 
 | Condition | Description |
 | ----------- | ----------- |
-| Accès à Braze | Contactez votre gestionnaire de compte Braze ou votre CSM or gestionnaire de la satisfaction client or gestionnaire du succès des clients pour configurer le partage de données. |
+| Accès à Braze | Contactez votre gestionnaire de compte Braze ou votre CSM pour configurer le partage de données. |
 | Compte Snowflake | Un compte Snowflake avec les permissions `admin`. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prérequis" }
 

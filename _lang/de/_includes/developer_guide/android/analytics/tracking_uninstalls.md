@@ -2,11 +2,11 @@
 
 ### Schritt 1: FCM einrichten
 
-Das Android Braze SDK or Software-Development-Kit verwendet Firebase Cloud Messaging (FCM), um stille Push-Benachrichtigungen zu versenden, die zum Sammeln von Analytics für das Uninstall-Tracking verwendet werden. Falls noch nicht geschehen, [richten Sie die]({{site.baseurl}}/developer_guide/platforms/android/push_notifications/#setting-up-push-notifications) Firebase Cloud Messaging API für Push-Benachrichtigungen ein oder [migrieren Sie zu dieser]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android).
+Das Android Braze SDK verwendet Firebase Cloud Messaging (FCM), um stille Push-Benachrichtigungen zu versenden, die zum Sammeln von Analytics für das Uninstall-Tracking verwendet werden. Falls noch nicht geschehen, [richten Sie die]({{site.baseurl}}/developer_guide/platforms/android/push_notifications/#setting-up-push-notifications) Firebase Cloud Messaging API für Push-Benachrichtigungen ein oder [migrieren Sie zu dieser]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android).
 
 ### Schritt 2: Manuelles Uninstall-Tracking erkennen (optional)
 
-Standardmäßig erkennt und ignoriert das Android Braze SDK or Software-Development-Kit automatisch stille Push-Benachrichtigungen im Zusammenhang mit dem Uninstall-Tracking. Sie können das Tracking jedoch auch manuell mit der [`isUninstallTrackingPush()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/is-uninstall-tracking-push.html) Methode.
+Standardmäßig erkennt und ignoriert das Android Braze SDK automatisch stille Push-Benachrichtigungen im Zusammenhang mit dem Uninstall-Tracking. Sie können das Tracking jedoch auch manuell mit der [`isUninstallTrackingPush()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/is-uninstall-tracking-push.html) Methode.
 
 {% alert important %}
 Da stille Benachrichtigungen für das Uninstall-Tracking nicht an Push-Callbacks von Braze weitergeleitet werden, können Sie diese Methode nur verwenden, bevor Sie eine Push-Benachrichtigung an Braze übergeben.

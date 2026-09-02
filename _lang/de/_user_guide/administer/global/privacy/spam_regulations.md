@@ -13,7 +13,7 @@ channel:
 
 # Spam-Vorschriften {#spam-regulations}
 
-> Es gibt eine Reihe von Gesetzen, die Absender elektronischer Kommunikation regulieren, einschließlich E-Mail, Push-Benachrichtigungen und Kurzmitteilungsdienst or SMS. Sie sollten sich immer über die [örtlichen Vorschriften](https://en.wikipedia.org/wiki/Email_spam_legislation_by_country) informieren, die Sie oder Ihre Nutzer:innen betreffen können.
+> Es gibt eine Reihe von Gesetzen, die Absender elektronischer Kommunikation regulieren, einschließlich E-Mail, Push-Benachrichtigungen und SMS. Sie sollten sich immer über die [örtlichen Vorschriften](https://en.wikipedia.org/wiki/Email_spam_legislation_by_country) informieren, die Sie oder Ihre Nutzer:innen betreffen können.
 
 Braze stellt relevante Informationen auf Grundlage eigener Recherchen bereit. Für vollständige und aktuelle Details sollten Sie jedoch auch den vollständigen Text dieser Gesetze lesen.
 
@@ -68,7 +68,7 @@ Dies ist keine vollständige Liste der Ausnahmen. Weitere Details finden Sie im 
 
 ### Zustimmung zu Nachrichten {#message-consent}
 
-Braze erfordert eine ausdrückliche Zustimmung für alle E-Mail- und Kurzmitteilungsdienst or SMS/MMS-Nachrichten.
+Braze erfordert eine ausdrückliche Zustimmung für alle E-Mail- und SMS/MMS-Nachrichten.
 
 #### Stillschweigende Zustimmung {#implied-consent}
 

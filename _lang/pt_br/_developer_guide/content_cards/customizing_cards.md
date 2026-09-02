@@ -1,11 +1,11 @@
 ---
 page_order: 0.1
 nav_title: Personalizar cartões
-description: "Saiba como personalizar Content Cards para o SDK or kit de desenvolvimento de software da Braze."
+description: "Saiba como personalizar Content Cards para o SDK da Braze."
 layout: dev_guide
 
 guide_top_header: "Personalizando Content Cards"
-guide_top_text: "> Saiba como personalizar Content Cards para o SDK or kit de desenvolvimento de software da Braze."
+guide_top_text: "> Saiba como personalizar Content Cards para o SDK da Braze."
 
 guide_featured_title: "Artigos nesta seção"
 guide_featured_list:

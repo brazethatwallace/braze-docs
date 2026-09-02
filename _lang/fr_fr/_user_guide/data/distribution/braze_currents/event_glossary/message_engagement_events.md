@@ -11264,13 +11264,13 @@ Cet événement se produit lorsqu'un message LINE est envoyé à LINE.
 {% endapi %}
 
 {% api %}
-## Événements de résultat en direct or en ligne/en production/instantané Activity {#live-activity-outcome-events}
+## Événements de résultat en direct Activity {#live-activity-outcome-events}
 
 {% apitags %}
-en direct or en ligne/en production/instantané Activity, Outcome
+en direct Activity, Outcome
 {% endapitags %}
 
-Cet événement se produit lorsque Braze reçoit une réponse d'un fournisseur tiers (par exemple APNs) après l'envoi de la en direct or en ligne/en production/instantané Activity.
+Cet événement se produit lorsque Braze reçoit une réponse d'un fournisseur tiers (par exemple APNs) après l'envoi de la en direct Activity.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -11440,13 +11440,13 @@ Cet événement se produit lorsque Braze reçoit une réponse d'un fournisseur t
 {% endapi %}
 
 {% api %}
-## Événements d'envoi de en direct or en ligne/en production/instantané Activity {#live-activity-send-events}
+## Événements d'envoi de en direct Activity {#live-activity-send-events}
 
 {% apitags %}
-en direct or en ligne/en production/instantané Activity, Sends
+en direct Activity, Sends
 {% endapitags %}
 
-Cet événement se produit lorsque le système Braze envoie une requête à son fournisseur concernant une en direct or en ligne/en production/instantané Activity.
+Cet événement se produit lorsque le système Braze envoie une requête à son fournisseur concernant une en direct Activity.
 
 {% tabs %}
 {% tab Cloud Storage %}

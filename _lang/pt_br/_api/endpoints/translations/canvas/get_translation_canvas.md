@@ -9,7 +9,7 @@ page_type: reference
 description: "Este artigo traz informações sobre o endpoint da Braze \"Ver tradução para um Canvas\"."
 ---
 
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Ver tradução para um Canvas {#view-translation-for-a-canvas}
 {% apimethod get %}
 /canvas/translations
@@ -19,7 +19,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Ver tra
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `canvas.translations.get`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `canvas.translations.get`.
 
 ## Limite de frequência {#rate-limit}
 

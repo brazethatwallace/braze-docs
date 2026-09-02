@@ -13,7 +13,7 @@ channel:
 
 # Normativa sobre correo no deseado {#spam-regulations}
 
-> Hay una serie de leyes que regulan a los remitentes de comunicaciones electrónicas, incluidos el correo electrónico, las notificaciones push y los servicio de mensajes cortos. Siempre debes conocer las [normativas locales](https://en.wikipedia.org/wiki/Email_spam_legislation_by_country) que puedan afectarte a ti o a tus usuarios.
+> Hay una serie de leyes que regulan a los remitentes de comunicaciones electrónicas, incluidos el correo electrónico, las notificaciones push y los SMS. Siempre debes conocer las [normativas locales](https://en.wikipedia.org/wiki/Email_spam_legislation_by_country) que puedan afectarte a ti o a tus usuarios.
 
 Braze proporciona información relevante basada en nuestra propia investigación, pero también debes consultar el texto completo de estas leyes para obtener detalles completos y actualizados.
 
@@ -68,7 +68,7 @@ Esta no es la lista completa de exenciones. Consulta el [texto completo de la le
 
 ### Consentimiento del mensaje {#message-consent}
 
-Braze requiere consentimiento explícito para todos los mensajes de correo electrónico y servicio de mensajes cortos/MMS.
+Braze requiere consentimiento explícito para todos los mensajes de correo electrónico y SMS/MMS.
 
 #### Consentimiento implícito {#implied-consent}
 
@@ -96,7 +96,7 @@ Asegúrate de establecer expectativas cuando las personas se registren para reci
 
 ### Mantén tu reputación {#maintain-your-reputation}
 
-Mantente en contacto constante con tus usuarios para evitar que tus listas de correo electrónico se vuelvan obsoletas. Esperar demasiado tiempo para enviar un mensaje puede hacer que el destinatario se olvide de ti y te marque como correo no deseado. Mantén tus listas de correo electrónico actualizadas implementando una política de caducidad para eliminar las direcciones de correo electrónico que rebotan. Las tasas de rebote son un factor clave que utilizan los ISP or proveedor de servicios de Internet para evaluar la reputación de un remitente.
+Mantente en contacto constante con tus usuarios para evitar que tus listas de correo electrónico se vuelvan obsoletas. Esperar demasiado tiempo para enviar un mensaje puede hacer que el destinatario se olvide de ti y te marque como correo no deseado. Mantén tus listas de correo electrónico actualizadas implementando una política de caducidad para eliminar las direcciones de correo electrónico que rebotan. Las tasas de rebote son un factor clave que utilizan los ISP para evaluar la reputación de un remitente.
 
 ### Verifica y prueba {#check-and-test}
 

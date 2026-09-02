@@ -47,14 +47,14 @@ Nur Nutzer:innen mit der Berechtigung „Admin“ können den **MCP-OAuth-Zugrif
 
 ## MCP-OAuth-Zugriff ein- oder ausschalten {#turn-mcp-oauth-access-on-or-off}
 
-So Update or aktualisieren or aktualisieren Sie den MCP-OAuth-Zugriff für Ihr Unternehmen:
+So aktualisieren Sie den MCP-OAuth-Zugriff für Ihr Unternehmen:
 
 1. Gehen Sie zu **Einstellungen** > **Admin-Einstellungen** > **OAuth**.
 2. Schalten Sie unter **Globale Zugriffssteuerungen** den **MCP-OAuth-Zugriff** ein oder aus.
 
 Wenn der **MCP-OAuth-Zugriff** aktiviert ist, können Nutzer:innen mit der Berechtigung „Use MCP Server“ genehmigte MCP-Clients autorisieren.
 
-Wenn er deaktiviert ist, wird der OAuth-Zugriff auf den MCP-Server für alle Nutzer:innen und Workspaces in Ihrem Unternehmen verweigert. Bestehende MCP-Verbindungen funktionieren nicht mehr, sobald sie ihr OAuth-Zugriffstoken das nächste Mal verwenden oder Update or aktualisieren or aktualisieren.
+Wenn er deaktiviert ist, wird der OAuth-Zugriff auf den MCP-Server für alle Nutzer:innen und Workspaces in Ihrem Unternehmen verweigert. Bestehende MCP-Verbindungen funktionieren nicht mehr, sobald sie ihr OAuth-Zugriffstoken das nächste Mal verwenden oder aktualisieren.
 
 Wenn Braze den Remote-MCP-Server für Ihre Umgebung deaktiviert hat, ist der Schalter **MCP-OAuth-Zugriff** deaktiviert und eine Meldung erklärt, dass die Unternehmenseinstellung keine Wirkung hat, bis der Remote-MCP-Server wieder aktiviert wird.
 

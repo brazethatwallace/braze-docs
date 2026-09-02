@@ -1,14 +1,14 @@
 ---
 nav_title: Notificaciones push
-article_title: Registrar datos de notificaciones push a través del SDK or kit de desarrollo de software de Braze
+article_title: Registrar datos de notificaciones push a través del SDK de Braze
 page_order: 7.2
-description: "Aprende a registrar datos de notificaciones push a través del SDK or kit de desarrollo de software de Braze."
+description: "Aprende a registrar datos de notificaciones push a través del SDK de Braze."
 noindex: true
 ---
 
 # Registrar datos de notificaciones push {#log-push-notification-data}
 
-> Aprende a registrar datos de notificaciones push a través del SDK or kit de desarrollo de software de Braze.
+> Aprende a registrar datos de notificaciones push a través del SDK de Braze.
 
 {% sdktabs %}
 {% sdktab android %}

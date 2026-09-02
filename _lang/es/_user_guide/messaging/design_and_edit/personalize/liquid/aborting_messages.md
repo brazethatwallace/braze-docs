@@ -75,13 +75,13 @@ Puedes usar el [Generador de consultas]({{site.baseurl}}/user_guide/analytics/re
 
 El momento en que se evalúa la lógica de cancelación depende del canal de mensaje.
 
-### Push, correo electrónico, servicio de mensajes cortos, webhooks y Content Cards {#push-email-sms-webhooks-and-content-cards}
+### Push, correo electrónico, SMS, webhooks y Content Cards {#push-email-sms-webhooks-and-content-cards}
 
 La lógica de cancelación se evalúa en el momento del envío, cuando Braze procesa el mensaje para su entrega.
 
 ### In-App Messages {#in-app-messages}
 
-La lógica de cancelación se evalúa para [mensajes dentro de la aplicación con plantilla]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#templated_iam-templated) solo en el momento en que se activa el mensaje dentro de la aplicación (por ejemplo, cuando el usuario realiza el evento desencadenante o inicia una sesión), no cuando el mensaje se envía inicialmente al dispositivo. Los mensajes dentro de la aplicación se entregan al SDK or kit de desarrollo de software al inicio de la sesión y se almacenan en caché de forma local; el Liquid, incluidas las llamadas a `abort_message()`, se ejecuta cuando se cumple la condición de activación.
+La lógica de cancelación se evalúa para [mensajes dentro de la aplicación con plantilla]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#templated_iam-templated) solo en el momento en que se activa el mensaje dentro de la aplicación (por ejemplo, cuando el usuario realiza el evento desencadenante o inicia una sesión), no cuando el mensaje se envía inicialmente al dispositivo. Los mensajes dentro de la aplicación se entregan al SDK al inicio de la sesión y se almacenan en caché de forma local; el Liquid, incluidas las llamadas a `abort_message()`, se ejecuta cuando se cumple la condición de activación.
 
 ## Solución de problemas de tasas de cancelación altas {#troubleshooting-high-abort-rates}
 
@@ -95,7 +95,7 @@ Si un Campaign o un paso en Canvas muestra que muchos usuarios ingresaron pero h
 
 ### Verifica los atributos y Liquid en el momento del envío {#verify-attributes-and-liquid-at-send-time}
 
-Para push, correo electrónico, servicio de mensajes cortos, webhooks y Content Cards, la lógica de cancelación se ejecuta cuando Braze procesa el mensaje para la entrega, no cuando el usuario ingresó a un Canvas ni cuando un evento desencadenante se activó anteriormente.
+Para push, correo electrónico, SMS, webhooks y Content Cards, la lógica de cancelación se ejecuta cuando Braze procesa el mensaje para la entrega, no cuando el usuario ingresó a un Canvas ni cuando un evento desencadenante se activó anteriormente.
 
 - Confirma que los [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) requeridos, las propiedades del evento o los campos de [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs) estén configurados en el usuario antes de que se ejecute el paso de mensaje.
 - Agrega comprobaciones explícitas de nil o vacío antes de llamar a `abort_message()`. Una rama `else` que cancela cuando falta un valor detiene el envío para cualquier usuario sin esos datos.

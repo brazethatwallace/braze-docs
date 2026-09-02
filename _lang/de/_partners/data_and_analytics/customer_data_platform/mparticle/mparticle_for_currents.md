@@ -59,7 +59,7 @@ Navigieren Sie in Braze zu **Currents > + Create Current > Create mParticle Expo
 Es ist wichtig, Ihren mParticle-API-Schlüssel und Ihr mParticle-Geheimnis aktuell zu halten. Wenn die Zugangsdaten Ihres Konnektors ablaufen, stellt der Konnektor das Senden von Events ein. Wenn dies länger als **5 Tage** andauert, werden die Events des Konnektors verworfen und Daten gehen dauerhaft verloren.
 {% endalert %}
 
-Alle an mParticle gesendeten Events enthalten die `external_user_id` der Nutzer:innen als `customerid`. Derzeit sendet Braze keine Event-Daten für Nutzer:innen, deren `external_user_id` nicht festgelegt ist. Wenn Sie die `external_user_id` einer anderen ID in mParticle zuordnen möchten, die nicht die Standard-`customerid` ist, wenden Sie sich bitte an Ihren Braze-CSM or Customer-Success-Manager.
+Alle an mParticle gesendeten Events enthalten die `external_user_id` der Nutzer:innen als `customerid`. Derzeit sendet Braze keine Event-Daten für Nutzer:innen, deren `external_user_id` nicht festgelegt ist. Wenn Sie die `external_user_id` einer anderen ID in mParticle zuordnen möchten, die nicht die Standard-`customerid` ist, wenden Sie sich bitte an Ihren Braze-CSM.
 
 ## Unterstützte Currents-Events {#supported-currents-events}
 

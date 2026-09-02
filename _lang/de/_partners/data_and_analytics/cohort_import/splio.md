@@ -10,9 +10,9 @@ search_tag: Partner
 
 # Splio
 
-> [Splio](https://splio.com/) ist ein Tool zum Aufbau von Zielgruppen, mit dem Sie die Anzahl der Kampagnen und den Umsatz steigern können, ohne das Kundenerlebnis zu beeinträchtigen, und das Analytics zur Verfügung stellt, um die Performance von CRM or Customer-Relationship-Management [-System] (CRM)-Kampagnen sowohl online als auch offline zu verfolgen.
+> [Splio](https://splio.com/) ist ein Tool zum Aufbau von Zielgruppen, mit dem Sie die Anzahl der Kampagnen und den Umsatz steigern können, ohne das Kundenerlebnis zu beeinträchtigen, und das Analytics zur Verfügung stellt, um die Performance von CRM-Kampagnen sowohl online als auch offline zu verfolgen.
 
-Mit der Integration von Braze und Splio können Sie bessere CRM or Customer-Relationship-Management [-System] (CRM)-Strategien planen und durchführen, gezieltere Kampagnen versenden, neue Produktchancen entdecken und Ihren Umsatz steigern.
+Mit der Integration von Braze und Splio können Sie bessere CRM-Strategien planen und durchführen, gezieltere Kampagnen versenden, neue Produktchancen entdecken und Ihren Umsatz steigern.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -31,7 +31,7 @@ Gehen Sie in Braze zu **Partnerintegrationen** > **Technologie-Partner** und wä
 
 Suchen Sie Ihren REST-Endpunkt und generieren Sie Ihren Datenimport-Schlüssel für Braze. Nachdem Sie den Schlüssel generiert haben, können Sie einen neuen Schlüssel erstellen oder einen bestehenden Schlüssel ungültig machen.<br><br>![Die Technologie-Partnerseite von Splio mit dem REST-Endpunkt und dem Datenimport-Schlüssel.]({% image_buster /assets/img/tinyclues/tinyclues_6.png %}){: style="max-width:90%;"}
 
-Um die Integration abzuschließen, geben Sie den Datenimport-Schlüssel und den Representational State Transfer-Endpunkt an Ihr Splio-Data-Operations-Team weiter. Splio stellt die Verbindung her und kontaktiert Sie, nachdem die Einrichtung abgeschlossen ist.
+Um die Integration abzuschließen, geben Sie den Datenimport-Schlüssel und den REST-Endpunkt an Ihr Splio-Data-Operations-Team weiter. Splio stellt die Verbindung her und kontaktiert Sie, nachdem die Einrichtung abgeschlossen ist.
 
 ### 2. Schritt: Kampagne aus der Splio-Plattform exportieren {#step-2-export-a-campaign-from-the-splio-platform}
 

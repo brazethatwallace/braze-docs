@@ -10,7 +10,7 @@ description: "Dieser Artikel beschreibt, wie Sie verschachtelte JSON-Daten als E
 
 > Auf dieser Seite erfahren Sie, wie Sie verschachtelte JSON-Daten als Eigenschaften von angepassten Events und Käufen senden und wie Sie diese verschachtelten Objekte in Ihrem Messaging verwenden können.
 
-Sie können verschachtelte Objekte – also Objekte innerhalb eines anderen Objekts – verwenden, um verschachtelte JSON-Daten als Eigenschaften von angepassten Events und Käufen zu senden. Diese verschachtelten Daten können für die Personalisierung von Nachrichten per Template, das Trigger or triggern or triggern von Nachrichtenversand und die Segmentierung von Nutzer:innen verwendet werden.
+Sie können verschachtelte Objekte – also Objekte innerhalb eines anderen Objekts – verwenden, um verschachtelte JSON-Daten als Eigenschaften von angepassten Events und Käufen zu senden. Diese verschachtelten Daten können für die Personalisierung von Nachrichten per Template, das Triggern von Nachrichtenversand und die Segmentierung von Nutzer:innen verwendet werden.
 
 ## Hinweise {#considerations}
 
@@ -19,9 +19,9 @@ Sie können verschachtelte Objekte – also Objekte innerhalb eines anderen Obje
 - Event-Eigenschafts-Schemas können nicht für Kauf-Events generiert werden.
 - Event-Eigenschafts-Schemas werden durch Sampling angepasster Events der letzten 24 Stunden generiert.
 
-### Mindest-SDK or Software-Development-Kit-Versionen {#minimum-sdk-versions}
+### Mindest-SDK-Versionen {#minimum-sdk-versions}
 
-Die folgenden SDK or Software-Development-Kit-Versionen unterstützen verschachtelte Objekte:
+Die folgenden SDK-Versionen unterstützen verschachtelte Objekte:
 
 {% sdk_min_versions swift:5.0.0 android:20.0.0 web:3.3.0 %}
 
@@ -134,25 +134,25 @@ Templating in Liquid in einer Nachricht, die durch das Event „Ordered“ getri
 
 ### Nachrichten-Triggering {#message-triggering}
 
-Um diese Eigenschaften zum Trigger or triggern or triggern einer Campaign zu verwenden, wählen Sie Ihr angepasstes Event oder Ihren Kauf aus und fügen Sie dann einen Filter für **verschachtelte Eigenschaften** hinzu. Beachten Sie, dass das Nachrichten-Triggering für In-App-Nachrichten noch nicht unterstützt wird, aber verschachtelte Eigenschaften in der Liquid-Personalisierung in den Nachrichten werden trotzdem angezeigt.
+Um diese Eigenschaften zum Triggern einer Campaign zu verwenden, wählen Sie Ihr angepasstes Event oder Ihren Kauf aus und fügen Sie dann einen Filter für **verschachtelte Eigenschaften** hinzu. Beachten Sie, dass das Nachrichten-Triggering für In-App-Nachrichten noch nicht unterstützt wird, aber verschachtelte Eigenschaften in der Liquid-Personalisierung in den Nachrichten werden trotzdem angezeigt.
 
 {% tabs %}
 {% tab Music Example %}
 
-Trigger or triggern or triggern einer Campaign mit verschachtelten Eigenschaften aus dem Event „Created Playlist“:
+Triggern einer Campaign mit verschachtelten Eigenschaften aus dem Event „Created Playlist“:
 
 ![Nutzer:in wählt eine verschachtelte Eigenschaft für Eigenschaftsfilter bei einem angepassten Event aus.]({% image_buster /assets/img/nested_object2.png %})
 
-Die Trigger or triggern-Bedingung `songs[].album.yearReleased` „ist“ „1968“ trifft auf ein Event zu, bei dem einer der Songs ein Album hat, das 1968 veröffentlicht wurde. Wir verwenden die Klammer-Notation `[]` zum Durchlaufen von Arrays und matchen, wenn **ein beliebiges** Element im durchlaufenen Array mit der Event-Eigenschaft übereinstimmt.
+Die Trigger-Bedingung `songs[].album.yearReleased` „ist“ „1968“ trifft auf ein Event zu, bei dem einer der Songs ein Album hat, das 1968 veröffentlicht wurde. Wir verwenden die Klammer-Notation `[]` zum Durchlaufen von Arrays und matchen, wenn **ein beliebiges** Element im durchlaufenen Array mit der Event-Eigenschaft übereinstimmt.
 
 {% alert important %}
-Der Filter **ist nicht gleich** matcht nur, wenn keine der Eigenschaften in Ihrem Array dem angegebenen Wert entspricht. <br><br>Nehmen wir zum Beispiel an, Canvas A hat den aktionsbasierten Filter für verschachtelte angepasste Event-Eigenschaften **ist gleich** „smartwatch“, und Canvas B hat den aktionsbasierten Filter für verschachtelte angepasste Event-Eigenschaften **ist nicht gleich** „simphone“. Wenn Sie „smartwatch“ und „simphone“ in Ihren Eigenschaften haben, werden beide Canvase getriggert. Wenn Sie jedoch „simphone“ oder „sim only“ in einer beliebigen Eigenschaft haben, wird keines der beiden Canvase getriggert.
+Der Filter **ist nicht gleich** matcht nur, wenn keine der Eigenschaften in Ihrem Array dem angegebenen Wert entspricht. <br><br>Nehmen wir zum Beispiel an, Canvas A hat den aktionsbasierten Filter für verschachtelte angepasste Event-Eigenschaften **ist gleich** „smartwatch“, und Canvas B hat den aktionsbasierten Filter für verschachtelte angepasste Event-Eigenschaften **ist nicht gleich** „simphone“. Wenn Sie „smartwatch“ und „simphone“ in Ihren Eigenschaften haben, werden beide Canvases getriggert. Wenn Sie jedoch „simphone“ oder „sim only“ in einer beliebigen Eigenschaft haben, wird keines der beiden Canvases getriggert.
 {% endalert %}
 
 {% endtab %}
 {% tab Restaurant Example %}
 
-Trigger or triggern or triggern einer Campaign mit verschachtelten Eigenschaften aus dem Event „Ordered“:
+Triggern einer Campaign mit verschachtelten Eigenschaften aus dem Event „Ordered“:
 
 ![Nutzer:in fügt den Eigenschaftsfilter r_details.name ist SandwichEmperor für ein angepasstes Event hinzu.]({% image_buster /assets/img/nested_object1.png %})
 
@@ -193,11 +193,11 @@ Das Dashboard-Tool **Vorschau & Test** unterstützt nicht das Hinzufügen von Mo
 
 ### Verschachtelte Event-Eigenschaften {#nested-event-properties}
 
-Verschachtelte Event-Eigenschaften können im Dashboard nicht in der Vorschau angezeigt werden, da sie einen Live-Event-Trigger or triggern erfordern. So testen Sie:
+Verschachtelte Event-Eigenschaften können im Dashboard nicht in der Vorschau angezeigt werden, da sie einen Live-Event-Trigger erfordern. So testen Sie:
 
 1. Erstellen Sie eine Campaign oder einen Canvas-Schritt, der nur Ihre Testnutzer:innen anspricht und durch das angepasste Event mit verschachtelten Eigenschaften getriggert wird (oder darauf verweist).
 2. Starten Sie die Campaign für Ihre Testzielgruppe.
-3. Loggen Sie das angepasste Event mit der verschachtelten Objekt-Payload im Profil Ihrer/Ihres Testnutzer:in (über die API oder das SDK or Software-Development-Kit).
+3. Loggen Sie das angepasste Event mit der verschachtelten Objekt-Payload im Profil Ihrer/Ihres Testnutzer:in (über die API oder das SDK).
 4. Überprüfen Sie, ob die Nachricht mit den verschachtelten Eigenschaftswerten korrekt gerendert wird.
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}

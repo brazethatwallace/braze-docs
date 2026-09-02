@@ -10,7 +10,7 @@ search_tag: Partner
 
 # loplat
 
-> [Loplat](https://www.loplat.com/) es la principal plataforma offline basada en la ubicación. Usa el SDK or kit de desarrollo de software de loplat para aumentar la afluencia a tu tienda de forma inteligente y ejecutar campañas de marketing que fomenten las compras en tienda. Puedes medir el rendimiento de la tienda mediante el análisis de afluencia una vez finalizada la campaña.
+> [Loplat](https://www.loplat.com/) es la principal plataforma offline basada en la ubicación. Usa el SDK de loplat para aumentar la afluencia a tu tienda de forma inteligente y ejecutar campañas de marketing que fomenten las compras en tienda. Puedes medir el rendimiento de la tienda mediante el análisis de afluencia una vez finalizada la campaña.
 
 _Esta integración está mantenida por Loplat._
 
@@ -23,8 +23,8 @@ La integración de Braze y loplat te permite usar los servicios de ubicación de
 | Requisito | Descripción |
 | --- | --- |
 | Cuenta loplat X | Se necesita una cuenta loplat X para aprovechar esta integración.<br><br>Envía un correo electrónico a [support@loplat.com](mailto:support@loplat.com) para solicitar una cuenta loplat X. |
-| SDK or kit de desarrollo de software de loplat | El SDK or kit de desarrollo de software de loplat reconoce las visitas de los usuarios a las tiendas, procesa los eventos de ubicación y distingue si los usuarios permanecen en un lugar o se desplazan. Puedes usar el SDK or kit de desarrollo de software de loplat para analizar la afluencia a tu tienda, enviar mensajes push cuando los usuarios entren en ella, etc.<br><br>Ten en cuenta que el SDK or kit de desarrollo de software solo está disponible para Android e iOS. |
-| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con los siguientes permisos:<br>- `users.track`<br>- `campaigns.trigger.send`<br>- `campaigns.list`<br>- `canvas.trigger.send`<br>- `canvas.list`<br><br>Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
+| SDK de loplat | El SDK de loplat reconoce las visitas de los usuarios a las tiendas, procesa los eventos de ubicación y distingue si los usuarios permanecen en un lugar o se desplazan. Puedes usar el SDK de loplat para analizar la afluencia a tu tienda, enviar mensajes push cuando los usuarios entren en ella, etc.<br><br>Ten en cuenta que el SDK solo está disponible para Android e iOS. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con los siguientes permisos:<br>- `users.track`<br>- `campaigns.trigger.send`<br>- `campaigns.list`<br>- `canvas.trigger.send`<br>- `canvas.list`<br><br>Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Ejemplos {#use-cases}
@@ -38,9 +38,9 @@ La información de ubicación de eventos personalizados que proporciona loplat p
 
 ## Integración {#integration}
 
-### Paso 1: Integrar los SDK or kit de desarrollo de software {#step-1-integrate-the-sdks}
+### Paso 1: Integrar los SDK {#step-1-integrate-the-sdks}
 
-Integra el SDK or kit de desarrollo de software de loplat y el SDK or kit de desarrollo de software de Braze en tu aplicación siguiendo los pasos indicados en la documentación de [integración de loplat-Braze](https://developers.loplat.com/braze/).
+Integra el SDK de loplat y el SDK de Braze en tu aplicación siguiendo los pasos indicados en la documentación de [integración de loplat-Braze](https://developers.loplat.com/braze/).
 
 ### Paso 2: Sincronizar los paneles de Braze y loplat X y crear una campaña {#step-2-sync-the-braze-and-loplat-x-dashboards-and-create-a-campaign}
 

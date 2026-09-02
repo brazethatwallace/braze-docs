@@ -4,15 +4,15 @@ article_title: Zwischen Workspaces kopieren
 page_order: 3
 alias: "/copying_to_workspaces/"
 page_type: reference
-description: "Dieser Referenzartikel bietet einen Überblick darüber, wie Sie Campaigns, Canvase und Landing-Pages in verschiedene Workspaces kopieren können."
+description: "Dieser Referenzartikel bietet einen Überblick darüber, wie Sie Campaigns, Canvases und Landing-Pages in verschiedene Workspaces kopieren können."
 tool:
     - Campaigns
     - Canvas
 ---
 
-# Campaigns, Canvase und Landing-Pages zwischen Workspaces kopieren {#copy-campaigns-canvases-and-landing-pages-across-workspaces}
+# Campaigns, Canvases und Landing-Pages zwischen Workspaces kopieren {#copy-campaigns-canvases-and-landing-pages-across-workspaces}
 
-> Das Kopieren von Campaigns, Canvase und Landing-Pages zwischen Workspaces ermöglicht es Ihnen, Ihre Inhaltserstellung zu beschleunigen, indem Sie vorhandene Inhalte aus einem anderen Workspace als Ausgangspunkt verwenden. Diese Seite beschreibt, wie Sie Campaigns, Canvase und Landing-Pages in verschiedene Workspaces kopieren und listet auf, was kopiert wird und was nicht.
+> Das Kopieren von Campaigns, Canvases und Landing-Pages zwischen Workspaces ermöglicht es Ihnen, Ihre Inhaltserstellung zu beschleunigen, indem Sie vorhandene Inhalte aus einem anderen Workspace als Ausgangspunkt verwenden. Diese Seite beschreibt, wie Sie Campaigns, Canvases und Landing-Pages in verschiedene Workspaces kopieren und listet auf, was kopiert wird und was nicht.
 
 Wenn Sie eine Campaign, ein Canvas oder eine Landing-Page in einen anderen Workspace kopieren, bleibt die Kopie als Entwurf erhalten, bis Sie sie bearbeiten und die Campaign oder das Canvas starten bzw. die Landing-Page veröffentlichen. So können Sie Ihre erfolgreichen Messaging-Strategien beibehalten und darauf aufbauen.
 
@@ -23,7 +23,7 @@ Wenn Sie eine Campaign, ein Canvas oder eine Landing-Page in einen anderen Works
 Das Kopieren von Campaigns zwischen Workspaces ist allgemein verfügbar. Kanalunterstützung für Content Cards ist derzeit nicht verfügbar.
 {% endalert %}
 
-Sie können Campaigns zwischen Workspaces für diese unterstützten Kanäle kopieren: Kurzmitteilungsdienst or SMS, In-App-Nachrichten, Push-Benachrichtigungen, E-Mail und Webhooks. Sie können auch E-Mail-Templates, Feature-Flags und Content Blocks kopieren. Beachten Sie, dass Multichannel-Kampagnen mit nicht unterstützten Kanälen nicht in einen anderen Workspace kopiert werden können.
+Sie können Campaigns zwischen Workspaces für diese unterstützten Kanäle kopieren: SMS, In-App-Nachrichten, Push-Benachrichtigungen, E-Mail und Webhooks. Sie können auch E-Mail-Templates, Feature-Flags und Content Blocks kopieren. Beachten Sie, dass Multichannel-Kampagnen mit nicht unterstützten Kanälen nicht in einen anderen Workspace kopiert werden können.
 
 So kopieren Sie eine Campaign in einen anderen Workspace:
 
@@ -35,10 +35,10 @@ So kopieren Sie eine Campaign in einen anderen Workspace:
 {% tab Canvas %}
 
 {% alert important %}
-Das Kopieren von Canvase zwischen Workspaces ist allgemein verfügbar. Die folgenden Kanäle werden derzeit nicht unterstützt: LINE, Content Cards und WhatsApp.
+Das Kopieren von Canvases zwischen Workspaces ist allgemein verfügbar. Die folgenden Kanäle werden derzeit nicht unterstützt: LINE, Content Cards und WhatsApp.
 {% endalert %}
 
-Sie können Canvase zwischen Workspaces für diese unterstützten Kanäle kopieren: E-Mail, In-App-Nachrichten, Push, Webhooks und Kurzmitteilungsdienst or SMS.
+Sie können Canvases zwischen Workspaces für diese unterstützten Kanäle kopieren: E-Mail, In-App-Nachrichten, Push, Webhooks und SMS.
 
 So kopieren Sie ein Canvas in einen anderen Workspace:
 
@@ -74,7 +74,7 @@ Beachten Sie, dass die folgenden Tabellen Campaign- und Canvas-Felder abdecken u
 Landing-Pages werden als Entwürfe kopiert. Bevor Sie eine kopierte Landing-Page veröffentlichen, überprüfen Sie deren Seiten-URL, benutzerdefinierte Domain-Einstellungen, Formularübermittlungsverarbeitung sowie alle Liquid- oder Workspace-spezifischen Referenzen.
 
 {% alert note %}
-Übersetzungen werden beim Kopieren von E-Mail-Campaigns, Canvase oder Templates zwischen Workspaces nicht übernommen. Geben Sie nach dem Kopieren die Übersetzungen im Ziel-Workspace erneut ein oder laden Sie sie erneut hoch.
+Übersetzungen werden beim Kopieren von E-Mail-Campaigns, Canvases oder Templates zwischen Workspaces nicht übernommen. Geben Sie nach dem Kopieren die Übersetzungen im Ziel-Workspace erneut ein oder laden Sie sie erneut hoch.
 {% endalert %}
 
 ### Details {#details}
@@ -88,7 +88,7 @@ Landing-Pages werden als Entwürfe kopiert. Bevor Sie eine kopierte Landing-Page
 | Typ | Tags |
 | Aktionen (verschachtelt) | Segmente und Filter |
 | Konversionsverhalten (verschachtelt) | [Genehmigungen]({{site.baseurl}}/user_guide/messaging/governance/approvals) |
-| Ruhezeit-Konfigurationen | Trigger or triggern-Zeitplan |
+| Ruhezeit-Konfigurationen | Trigger-Zeitplan |
 | Frequency-Capping-Konfigurationen | Campaign-Zusammenfassungen |
 | Abo-Status der Empfänger:innen |  |
 | Wiederkehrender Zeitplan |  |
@@ -96,7 +96,7 @@ Landing-Pages werden als Entwürfe kopiert. Bevor Sie eine kopierte Landing-Page
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Details" }
 
 {% endtab %}
-{% tab Canvas %}
+{% tab canvas %}
 
 | Kopiert | Ausgelassen |
 |---|---|
@@ -104,7 +104,7 @@ Landing-Pages werden als Entwürfe kopiert. Bevor Sie eine kopierte Landing-Page
 | Typ | Tags |
 | Aktionen (verschachtelt) | Segmente und Filter |
 | Konversionsverhalten (verschachtelt) | [Genehmigungen]({{site.baseurl}}/user_guide/messaging/governance/approvals) |
-| Ruhezeit-Konfigurationen | Trigger or triggern-Zeitplan |
+| Ruhezeit-Konfigurationen | Trigger-Zeitplan |
 | Frequency-Capping-Konfigurationen | Canvas-Zusammenfassungen |
 | Abo-Status der Empfänger:innen |  |
 | Wiederkehrender Zeitplan | Exit-Kriterien |
@@ -130,7 +130,7 @@ Filterkriterien aus Canvas-Schritten (z. B. [Decision-Split]({{site.baseurl}}/us
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Konversionsverhalten" }
 
 {% endtab %}
-{% tab Canvas %}
+{% tab canvas %}
 
 | Kopiert | Ausgelassen |
 |---|---|
@@ -157,7 +157,7 @@ Filterkriterien aus Canvas-Schritten (z. B. [Decision-Split]({{site.baseurl}}/us
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Aktionen" }
 
 {% endtab %}
-{% tab Canvas %}
+{% tab canvas %}
 
 | Kopiert | Ausgelassen |
 |---|---|
@@ -184,7 +184,7 @@ Filterkriterien aus Canvas-Schritten (z. B. [Decision-Split]({{site.baseurl}}/us
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Nachrichtenvarianten" }
 
 {% endtab %}
-{% tab Canvas %}
+{% tab canvas %}
 
 | Kopiert | Ausgelassen |
 |---|---|
@@ -207,20 +207,20 @@ Filterkriterien aus Canvas-Schritten (z. B. [Decision-Split]({{site.baseurl}}/us
 |---|---|
 | E-Mail-Text | Absenderadresse |
 | Nachrichtenextras | Antwort an |
-| Titel | BCC or Banner-Content-Card |
+| Titel | BCC |
 | Betreff | Link-Template |
 |  | Link Aliasing |
 |  | Übersetzungen |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="E-Mail-Nachrichtenvariation" }
 
 {% endtab %}
-{% tab Canvas %}
+{% tab canvas %}
 
 | Kopiert | Ausgelassen |
 |---|---|
 | E-Mail-Text | Absenderadresse |
 | Nachrichtenextras | Antwort an |
-| Titel | BCC or Banner-Content-Card |
+| Titel | BCC |
 | Betreff | Link-Template |
 |  | Link Aliasing |
 |  | Übersetzungen |
@@ -240,11 +240,11 @@ Filterkriterien aus Canvas-Schritten (z. B. [Decision-Split]({{site.baseurl}}/us
 | HTML- und Drag-and-Drop-Inhalte | Übersetzungen |
 | Preheader |  |
 | Inline-CSS |  |
-| AMP or Accelerated Mobile Pages-HTML |  |
+| AMP-HTML |  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="E-Mail-Text" }
 
 {% endtab %}
-{% tab Canvas %}
+{% tab canvas %}
 
 | Kopiert | Ausgelassen |
 |---|---|
@@ -252,7 +252,7 @@ Filterkriterien aus Canvas-Schritten (z. B. [Decision-Split]({{site.baseurl}}/us
 | HTML- und Drag-and-Drop-Inhalte | Übersetzungen |
 | Preheader |  |
 | Inline-CSS |  |
-| AMP or Accelerated Mobile Pages-HTML |  |
+| AMP-HTML |  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="E-Mail-Text" }
 
 {% endtab %}
@@ -273,7 +273,7 @@ Filterkriterien aus Canvas-Schritten (z. B. [Decision-Split]({{site.baseurl}}/us
 {: .reset-td-br-1 .reset-td-br-2 aria-label="E-Mail-Templates" }
 
 {% endtab %}
-{% tab Canvas %}
+{% tab canvas %}
 
 | Kopiert | Ausgelassen |
 |---|---|
@@ -301,7 +301,7 @@ Filterkriterien aus Canvas-Schritten (z. B. [Decision-Split]({{site.baseurl}}/us
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Content Blocks" }
 
 {% endtab %}
-{% tab Canvas %}
+{% tab canvas %}
 
 | Kopiert | Ausgelassen |
 |---|---|
@@ -314,7 +314,7 @@ Filterkriterien aus Canvas-Schritten (z. B. [Decision-Split]({{site.baseurl}}/us
 {% endtab %}
 {% endtabs %}
 
-### Kurzmitteilungsdienst or SMS-Nachrichtenvariation {#sms-message-variation}
+### SMS-Nachrichtenvariation {#sms-message-variation}
 
 {% tabs local %}
 {% tab campaigns %}
@@ -325,10 +325,10 @@ Filterkriterien aus Canvas-Schritten (z. B. [Decision-Split]({{site.baseurl}}/us
 | Linkverkürzung | VCF-Medienelemente |
 | Klick-Tracking |  |
 | Medienelemente |  |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Kurzmitteilungsdienst or SMS-Nachrichtenvariation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS-Nachrichtenvariation" }
 
 {% endtab %}
-{% tab Canvas %}
+{% tab canvas %}
 
 | Kopiert | Ausgelassen |
 |---|---|
@@ -336,16 +336,16 @@ Filterkriterien aus Canvas-Schritten (z. B. [Decision-Split]({{site.baseurl}}/us
 | Linkverkürzung | VCF-Medienelemente |
 | Klick-Tracking |  |
 | Medienelemente |  |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Kurzmitteilungsdienst or SMS-Nachrichtenvariation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS-Nachrichtenvariation" }
 
 {% endtab %}
 {% endtabs %}
 
 ## Nachrichten mit Liquid kopieren {#copying-messages-that-contain-liquid}
 
-Liquid-Referenzen innerhalb von Nachrichtentexten werden in den Ziel-Workspace kopiert, funktionieren dort aber möglicherweise nicht wie erwartet. Das bedeutet: Wenn ein Canvas aus Workspace A in Workspace B kopiert wird, kann Workspace B nicht auf die Details von Workspace A zugreifen, einschließlich Liquid-Referenzen. Beispielsweise werden Felder wie Aktionen Trigger or triggern or triggern, Zielgruppenfilter und Filterkriterien für [Decision-Splits]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split) nicht mitkopiert.
+Liquid-Referenzen innerhalb von Nachrichtentexten werden in den Ziel-Workspace kopiert, funktionieren dort aber möglicherweise nicht wie erwartet. Das bedeutet: Wenn ein Canvas aus Workspace A in Workspace B kopiert wird, kann Workspace B nicht auf die Details von Workspace A zugreifen, einschließlich Liquid-Referenzen. Beispielsweise werden Felder wie Aktionen triggern, Zielgruppenfilter und Filterkriterien für [Decision-Splits]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split) nicht mitkopiert.
 
-Behalten Sie die folgenden Liquid-Referenzen mit Abhängigkeiten im Blick, wenn Sie Campaigns, Canvase und Landing-Pages zwischen Workspaces kopieren:
+Behalten Sie die folgenden Liquid-Referenzen mit Abhängigkeiten im Blick, wenn Sie Campaigns, Canvases und Landing-Pages zwischen Workspaces kopieren:
 
 - Katalog-Artikel-Tags
 - Connected-Content-Tags
@@ -366,4 +366,4 @@ Wenn Sie eine Campaign oder ein Canvas mit einem Feature-Flag-Schritt kopieren, 
 
 Wenn Sie eine Campaign über Workspaces hinweg kopieren, werden Content Blocks nicht mitkopiert. Ein Content-Block kann jedoch im Ziel-Workspace referenziert werden, wenn dort ein Block mit demselben Namen existiert. Alternativ können Sie den Content-Block (oder diese Liquid-Referenzen) im Ziel-Workspace erstellen, um Fehler beim Starten einer Campaign zu vermeiden.
 
-Bei Canvase, die auf einen Content-Block verweisen, muss der Content-Block zuerst in den Ziel-Workspace kopiert werden.
+Bei Canvases, die auf einen Content-Block verweisen, muss der Content-Block zuerst in den Ziel-Workspace kopiert werden.

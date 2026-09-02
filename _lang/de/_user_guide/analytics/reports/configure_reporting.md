@@ -21,4 +21,4 @@ Sie können diesen Bericht über die Seite **Benachrichtigungseinstellungen** ab
 
 ## Angepasste Events zu Berichten hinzufügen {#adding-custom-events-to-reports}
 
-Wenn Sie angepasste Events verwenden, können Sie zusätzlich bis zu fünf wichtige Events auf der Seite **Angepasste Events** auswählen, die in Ihren Wochenbericht aufgenommen werden. Gehen Sie zu **Dateneinstellungen** > **Angepasste Events**, um diese Events jederzeit zu Update or aktualisieren or aktualisieren.
+Wenn Sie angepasste Events verwenden, können Sie zusätzlich bis zu fünf wichtige Events auf der Seite **Angepasste Events** auswählen, die in Ihren Wochenbericht aufgenommen werden. Gehen Sie zu **Dateneinstellungen** > **Angepasste Events**, um diese Events jederzeit zu aktualisieren.

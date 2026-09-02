@@ -2,16 +2,16 @@
 nav_title: Importar usuários
 article_title: Importar usuários
 page_order: 3
-description: "Conheça as diversas opções de importação de usuários da Braze, como importação por CSV, REST or transferir estado representacional API or interface de programação do aplicativo (API), Ingestão de dados na nuvem e muito mais."
+description: "Conheça as diversas opções de importação de usuários da Braze, como importação por CSV, REST API, Ingestão de dados na nuvem e muito mais."
 
 ---
 # Importar usuários {#import-users}
 
-> Conheça as diversas opções de importação de usuários da Braze, como importação por CSV, REST or transferir estado representacional API or interface de programação do aplicativo (API), Ingestão de dados na nuvem e muito mais.
+> Conheça as diversas opções de importação de usuários da Braze, como importação por CSV, REST API, Ingestão de dados na nuvem e muito mais.
 
 ## Opções de importação {#import-options}
 
-Você pode fazer o upload de atributos de usuários e eventos por meio de uma importação via CSV na Braze, um script serverless de importação CSV pelo S3 Lambda, chamadas diretas à API or interface de programação do aplicativo (API) ou Cloud Data Ingestion a partir do seu data warehouse.
+Você pode fazer o upload de atributos de usuários e eventos por meio de uma importação via CSV na Braze, um script serverless de importação CSV pelo S3 Lambda, chamadas diretas à API ou Cloud Data Ingestion a partir do seu data warehouse.
 
 ### Importação via CSV da Braze {#braze-csv-import}
 
@@ -36,11 +36,11 @@ Ao importar eventos personalizados com propriedades, você deve usar notação d
 
 ### Importação de CSV de usuários via Lambda {#lambda-user-csv-import}
 
-Use nosso script serverless de importação CSV pelo S3 Lambda para fazer upload de atributos de usuários na Braze. Essa solução funciona como um uploader de CSV, no qual você coloca seus CSVs em um bucket S3, e os scripts fazem o upload por meio da nossa API or interface de programação do aplicativo (API).
+Use nosso script serverless de importação CSV pelo S3 Lambda para fazer upload de atributos de usuários na Braze. Essa solução funciona como um uploader de CSV, no qual você coloca seus CSVs em um bucket S3, e os scripts fazem o upload por meio da nossa API.
 
 O tempo estimado de execução para um arquivo com 1.000.000 de linhas é de cerca de cinco minutos. Para saber mais, consulte [Importação de atributos de usuário via CSV para a Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
 
-### REST or transferir estado representacional API or interface de programação do aplicativo (API)
+### REST API
 
 Use o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) para registrar eventos personalizados, atributos de usuários e compras.
 
@@ -52,7 +52,7 @@ Use o [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_
 
 Lembre-se de que a Braze não sanitiza, valida ou reformata dados HTML durante a importação, o que significa que as tags de script devem ser removidas de todos os dados de importação que você usa para personalização web.
 
-Ao importar dados para a Braze que são especificamente destinados ao uso de personalização em um navegador de internet or navegador web, certifique-se de que estejam livres de HTML, JavaScript ou qualquer outra tag de script que possa ser explorada de forma maliciosa ao ser renderizada em um navegador de internet or navegador web.
+Ao importar dados para a Braze que são especificamente destinados ao uso de personalização em um navegador de internet, certifique-se de que estejam livres de HTML, JavaScript ou qualquer outra tag de script que possa ser explorada de forma maliciosa ao ser renderizada em um navegador de internet.
 
 Como alternativa, para HTML, você pode usar os filtros Liquid da Braze (`strip_html`) para remover o HTML do texto renderizado. Por exemplo:
 

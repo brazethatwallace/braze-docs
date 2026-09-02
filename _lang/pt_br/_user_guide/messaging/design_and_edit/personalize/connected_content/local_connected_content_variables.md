@@ -22,7 +22,7 @@ Você também pode especificar `:save nome_da_sua_variavel` após a URL para sal
 ```
 {% endraw %}
 
-Metaweather é uma API or interface de programação do aplicativo (API) gratuita de clima que usa um "Where-on-Earth ID" para retornar o clima de uma área. Use este código apenas para fins de teste e aprendizado.
+Metaweather é uma API gratuita de clima que usa um "Where-on-Earth ID" para retornar o clima de uma área. Use este código apenas para fins de teste e aprendizado.
 
 A variável armazenada só pode ser acessada dentro do campo que contém a requisição `connected_content`. Por exemplo, se você quiser usar a variável `localweather` tanto no campo de mensagem quanto no campo de título, faça a requisição `connected_content` em ambos os campos.
 
@@ -86,7 +86,7 @@ Enjoy the weather!
 ```
 {% endraw %}
 
-Se a API or interface de programação do aplicativo (API) respondesse com {%raw%}`{{localweather.consolidated_weather[0].weather_state_name}}`{%endraw%} retornando `Rain`, o usuário receberia esta notificação por push.
+Se a API respondesse com {%raw%}`{{localweather.consolidated_weather[0].weather_state_name}}`{%endraw%} retornando `Rain`, o usuário receberia esta notificação por push.
 
 ![Notificação por push com a mensagem "It's raining! Grab an umbrella!"]({% image_buster /assets/img_archive/connected_weather_push2.png %} "Connected Content Push Usage Example"){:style="max-width:50%" }
 

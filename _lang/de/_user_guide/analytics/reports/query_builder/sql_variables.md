@@ -241,7 +241,7 @@ message_variation_api_id IN ({{campaign_variants.${custom_label}}})
 Alle Campaign- und Canvas-Variablen müssen dieselben Bezeichner verwenden, um Zustände innerhalb einer einzelnen Gruppe zu synchronisieren.
 {% endalert %}
 
-### Canvase {#canvases}
+### Canvases {#canvases}
 
 {% tabs local %}
 {% tab Ein Canvas %}
@@ -260,10 +260,10 @@ canvas_id = '{{canvas.${custom_label}}}'
 {% endsubtabs %}
 {% endtab %}
 
-{% tab Mehrere Canvase %}
-Zur Auswahl mehrerer Canvase. Wenn dasselbe Label mit einer Campaign geteilt wird, erscheint im Tab **Variablen** ein Optionsfeld zur Auswahl von entweder Canvas oder Campaign.
+{% tab Mehrere Canvases %}
+Zur Auswahl mehrerer Canvases. Wenn dasselbe Label mit einer Campaign geteilt wird, erscheint im Tab **Variablen** ein Optionsfeld zur Auswahl von entweder Canvas oder Campaign.
 
-- **Ersetzungswert:** BSON-IDs der Canvase
+- **Ersetzungswert:** BSON-IDs der Canvases
 
 {% subtabs %}
 {% subtab Verwendung %}
@@ -277,7 +277,7 @@ canvas_id IN ({{canvases.${custom_label}}})
 {% endtab %}
 
 {% tab Canvas-Varianten %}
-Zur Auswahl von Canvas-Varianten, die zu einem ausgewählten Canvas gehören. Dies muss mit einer Canvas- oder Canvase-Variable verwendet werden. Wird auf eine oder mehrere API-IDs der Canvas-Varianten gesetzt, als kommagetrennte Zeichenkette, z. B. `api-id1, api-id2`.
+Zur Auswahl von Canvas-Varianten, die zu einem ausgewählten Canvas gehören. Dies muss mit einer Canvas- oder Canvases-Variable verwendet werden. Wird auf eine oder mehrere API-IDs der Canvas-Varianten gesetzt, als kommagetrennte Zeichenkette, z. B. `api-id1, api-id2`.
 
 {% subtabs %}
 {% subtab Verwendung %}
@@ -305,7 +305,7 @@ canvas_step_api_id = '{{canvas_step.${custom_label}}}'
 {% endtab %}
 
 {% tab Mehrere Canvas-Schritte %}
-Zur Auswahl von Canvas-Schritten, die zu ausgewählten Canvase gehören. Dies muss mit einer Canvas- oder Canvase-Variable verwendet werden.
+Zur Auswahl von Canvas-Schritten, die zu ausgewählten Canvases gehören. Dies muss mit einer Canvas- oder Canvases-Variable verwendet werden.
 
 {% subtabs %}
 {% subtab Verwendung %}
@@ -455,7 +455,7 @@ Zur Auswahl von Segmenten, bei denen [Analytics-Tracking]({{site.baseurl}}/user_
 
 ### Tags {#tags}
 
-Zur Auswahl von Tags für Campaigns und Canvase. Wird auf Campaigns und Canvase mit einfach zitierten, kommagetrennten BSON-IDs gesetzt, die mit den ausgewählten Tags verknüpft sind.
+Zur Auswahl von Tags für Campaigns und Canvases. Wird auf Campaigns und Canvases mit einfach zitierten, kommagetrennten BSON-IDs gesetzt, die mit den ausgewählten Tags verknüpft sind.
 
 {% tabs %}
 {% tab Verwendung %}

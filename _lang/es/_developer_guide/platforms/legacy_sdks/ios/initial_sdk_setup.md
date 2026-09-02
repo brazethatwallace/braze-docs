@@ -1,5 +1,5 @@
 ---
-nav_title: Configuración inicial del SDK or kit de desarrollo de software
+nav_title: Configuración inicial del SDK
 page_order: 0
 config_only: true
 noindex: true

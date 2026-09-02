@@ -41,7 +41,7 @@ O **Resultado do teste A/B** é dividido em duas guias: **Teste inicial** e **Va
 {% tabs local %}
 {% tab Teste inicial %}
 
-A guia **Teste inicial** mostra as métricas de cada variante do teste A/B inicial enviado a uma parte do seu Segment or segmento or segmento-alvo. Você pode ver um resumo de como todas as variantes se saíram e se houve ou não uma vencedora durante o teste.
+A guia **Teste inicial** mostra as métricas de cada variante do teste A/B inicial enviado a uma parte do seu Segment-alvo. Você pode ver um resumo de como todas as variantes se saíram e se houve ou não uma vencedora durante o teste.
 
 Se uma variante superou todas as outras com mais de 95% de [confiança]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics#understanding-confidence), a Braze marca essa variante com o rótulo "Vencedora".
 
@@ -60,7 +60,7 @@ Uma variante pode ter desempenho melhor que o grupo de controle, mas o teste qui
 {% endtab %}
 {% tab Variante vencedora %}
 
-A guia **Variante vencedora** mostra os resultados do segundo envio, em que cada usuário restante recebeu a variante com melhor desempenho do teste inicial. Seu **% do público** somará a porcentagem do Segment or segmento or segmento-alvo que você reservou para o grupo da variante vencedora.
+A guia **Variante vencedora** mostra os resultados do segundo envio, em que cada usuário restante recebeu a variante com melhor desempenho do teste inicial. Seu **% do público** somará a porcentagem do Segment-alvo que você reservou para o grupo da variante vencedora.
 
 ![Resultados da variante vencedora enviada ao grupo da variante vencedora.]({% image_buster /assets/img_archive/ab_analytics_wv_1.png %})
 
@@ -76,7 +76,7 @@ A variante personalizada não está disponível para novas campanhas. Para uma c
 {% tabs local %}
 {% tab Teste inicial %}
 
-A guia **Teste inicial** mostra as métricas de cada variante do teste A/B inicial enviado a uma parte do seu Segment or segmento or segmento-alvo.
+A guia **Teste inicial** mostra as métricas de cada variante do teste A/B inicial enviado a uma parte do seu Segment-alvo.
 
 ![Resultados de um teste inicial enviado para determinar a variante com melhor desempenho para cada usuário. Uma tabela mostra o desempenho de cada variante com base em várias métricas para o canal-alvo.]({% image_buster /assets/img_archive/ab_analytics_pv_initial_test_1.png %})
 
@@ -123,7 +123,7 @@ Os três cartões nesta página mostram o aumento projetado, os resultados gerai
 
 ![Guia Variante personalizada para uma campanha otimizada para aberturas únicas. Os cartões mostram o aumento projetado, as aberturas únicas gerais (com variante personalizada) e as aberturas únicas projetadas (com variante vencedora).]({% image_buster /assets/img_archive/ab_analytics_pv_1.png %})
 
-A tabela nesta página mostra as métricas de cada variante do envio da variante personalizada. Seu **% do público** soma a porcentagem do Segment or segmento or segmento-alvo que você reservou para o grupo de variante personalizada.
+A tabela nesta página mostra as métricas de cada variante do envio da variante personalizada. Seu **% do público** soma a porcentagem do Segment-alvo que você reservou para o grupo de variante personalizada.
 
 ![Tabela de resultados do envio da variante personalizada mostrando métricas de desempenho para Variante A, Variante B e Todas as variações, incluindo porcentagem do público, envios, entregas, aberturas, cliques e conversões.]({% image_buster /assets/img_archive/ab_analytics_pv_2.png %})
 
@@ -210,9 +210,9 @@ Amostras maiores aumentam as chances de detectar pequenas diferenças entre vari
 
 Se você descobrir que uma estratégia específica é muito eficaz em um canal, pode querer testar essa estratégia em outros canais. Se um tipo de mensagem é eficaz em um canal, mas não em outro, você pode concluir que certos canais são mais propícios a certos tipos de mensagens. Ou talvez haja uma diferença entre usuários que são mais propensos a ativar notificações por push e aqueles que são mais propensos a prestar atenção em mensagens no app. Em última análise, executar esse tipo de teste ajudará você a aprender como seu público interage com seus diferentes canais de comunicação.
 
-### Executar um teste de acompanhamento em um Segment or segmento or segmento diferente de usuários {#run-a-follow-up-test-on-a-different-segment-of-users}
+### Executar um teste de acompanhamento em um Segment diferente de usuários {#run-a-follow-up-test-on-a-different-segment-of-users}
 
-Para fazer isso, crie outro teste com o mesmo canal de envio de mensagens e variantes, mas escolha um Segment or segmento or segmento diferente de usuários. Por exemplo, se um tipo de mensagem foi extremamente eficaz para usuários engajados, pode ser útil investigar seu efeito em usuários inativos. É possível que os usuários inativos respondam de forma semelhante, ou podem preferir outra variante. Esse teste ajudará você a aprender mais sobre seus diferentes segmentos e como eles respondem a diferentes tipos de mensagens. Por que fazer suposições sobre seus segmentos quando você pode basear sua estratégia em dados?
+Para fazer isso, crie outro teste com o mesmo canal de envio de mensagens e variantes, mas escolha um Segment diferente de usuários. Por exemplo, se um tipo de mensagem foi extremamente eficaz para usuários engajados, pode ser útil investigar seu efeito em usuários inativos. É possível que os usuários inativos respondam de forma semelhante, ou podem preferir outra variante. Esse teste ajudará você a aprender mais sobre seus diferentes segmentos e como eles respondem a diferentes tipos de mensagens. Por que fazer suposições sobre seus segmentos quando você pode basear sua estratégia em dados?
 
 ### Executar um teste de acompanhamento baseado em insights de um teste anterior {#run-a-follow-up-test-based-on-insights-from-a-previous-test}
 

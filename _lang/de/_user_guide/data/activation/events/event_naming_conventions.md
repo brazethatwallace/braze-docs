@@ -9,7 +9,7 @@ description: "Dieser Referenzartikel behandelt die korrekten Konventionen zur Be
 
 # Konventionen zur Benennung von Events {#event-naming-conventions}
 
-> Diese Seite behandelt die korrekten Konventionen zur Benennung von Events und bewährte Verfahren. Wenn Sie die Konsistenz Ihrer Event- und Attribut-Taxonomie wahren, bleiben Ihre Daten sauber und für neue und bestehende Nutzer:innen der Braze-Plattform nutzbar. Dies hilft, spätere Probleme zu vermeiden, z. B. das Trigger or triggern or triggern einer Campaign an die falsche Zielgruppe oder die Generierung falscher Ergebnisse nach Verwendung des falschen Events.
+> Diese Seite behandelt die korrekten Konventionen zur Benennung von Events und bewährte Verfahren. Wenn Sie die Konsistenz Ihrer Event- und Attribut-Taxonomie wahren, bleiben Ihre Daten sauber und für neue und bestehende Nutzer:innen der Braze-Plattform nutzbar. Dies hilft, spätere Probleme zu vermeiden, z. B. das Triggern einer Campaign an die falsche Zielgruppe oder die Generierung falscher Ergebnisse nach Verwendung des falschen Events.
 
 ## Bewährte Verfahren {#best-practices}
 

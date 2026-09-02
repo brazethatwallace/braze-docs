@@ -3,7 +3,7 @@ nav_title: Armazenamento
 article_title: Armazenamento
 page_order: 3.60
 page_type: reference
-description: "Saiba mais sobre as diferentes propriedades no nível de dispositivo armazenadas pelo SDK or kit de desenvolvimento de software da Braze."
+description: "Saiba mais sobre as diferentes propriedades no nível de dispositivo armazenadas pelo SDK da Braze."
 platform:
   - Android
   - FireOS
@@ -13,7 +13,7 @@ platform:
 
 # Armazenamento {#storage}
 
-> Saiba mais sobre as diferentes propriedades no nível de dispositivo armazenadas pelo SDK or kit de desenvolvimento de software da Braze.
+> Saiba mais sobre as diferentes propriedades no nível de dispositivo armazenadas pelo SDK da Braze.
 
 ## Propriedades do dispositivo {#device-properties}
 
@@ -42,7 +42,7 @@ Por padrão, a Braze coleta as seguintes propriedades no nível de dispositivo p
 - `TIMEZONE`
 
 {% alert note %}
-`AD_TRACKING_ENABLED` e `TIMEZONE` não são coletados se forem `null` ou estiverem em branco. `GOOGLE_ADVERTISING_ID` não é coletado automaticamente pelo SDK or kit de desenvolvimento de software e deve ser passado via [`setGoogleAdvertisingId`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/set-google-advertising-id.html).
+`AD_TRACKING_ENABLED` e `TIMEZONE` não são coletados se forem `null` ou estiverem em branco. `GOOGLE_ADVERTISING_ID` não é coletado automaticamente pelo SDK e deve ser passado via [`setGoogleAdvertisingId`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/set-google-advertising-id.html).
 {% endalert %}
 {% endtab %}
 
@@ -58,7 +58,7 @@ Por padrão, a Braze coleta as seguintes propriedades no nível de dispositivo p
 - Fuso horário do dispositivo
 
 {% alert note %}
-O SDK or kit de desenvolvimento de software da Braze não coleta o IDFA automaticamente. Os apps podem, opcionalmente, passar o IDFA para a Braze implementando os métodos nas seções a seguir. Os apps precisam obter a aceitação explícita do rastreamento pelo usuário final por meio do framework App Tracking Transparency antes de passar o IDFA para a Braze.
+O SDK da Braze não coleta o IDFA automaticamente. Os apps podem, opcionalmente, passar o IDFA para a Braze implementando os métodos nas seções a seguir. Os apps precisam obter a aceitação explícita do rastreamento pelo usuário final por meio do framework App Tracking Transparency antes de passar o IDFA para a Braze.
 
 1. Para definir o estado de rastreamento de publicidade, use [`set(adTrackingEnabled:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(adtrackingenabled:)/).
 2. Para definir o identificador do anunciante (IDFA), use [`set(identifierForAdvertiser:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(identifierforadvertiser:)/).
@@ -66,7 +66,7 @@ O SDK or kit de desenvolvimento de software da Braze não coleta o IDFA automati
 {% endtab %}
 {% endtabs %}
 
-Por padrão, todas as propriedades estão ativadas. No entanto, você pode ativá-las ou desativá-las manualmente. Lembre-se de que alguns recursos do SDK or kit de desenvolvimento de software da Braze exigem propriedades específicas (como entrega no fuso local e fuso horário), então certifique-se de testar sua configuração antes de liberar para produção.
+Por padrão, todas as propriedades estão ativadas. No entanto, você pode ativá-las ou desativá-las manualmente. Lembre-se de que alguns recursos do SDK da Braze exigem propriedades específicas (como entrega no fuso local e fuso horário), então certifique-se de testar sua configuração antes de liberar para produção.
 
 {% tabs %}
 {% tab web %}
@@ -117,12 +117,12 @@ configuration.devicePropertyAllowList = @[
 {% endtabs %}
 
 {% alert tip %}
-Para saber mais sobre as propriedades de dispositivo coletadas automaticamente, consulte [Coleta de dados do SDK or kit de desenvolvimento de software]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection).
+Para saber mais sobre as propriedades de dispositivo coletadas automaticamente, consulte [Coleta de dados do SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection).
 {% endalert %}
 
 ## Armazenamento de cookies (apenas web) {#cookies}
 
-Após [inicializar o SDK or kit de desenvolvimento de software Web da Braze](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize), o SDK or kit de desenvolvimento de software cria e armazena cookies primários (definidos no seu próprio domínio) com um vencimento de 400 dias que se renova automaticamente em novas sessões.
+Após [inicializar o SDK Web da Braze](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize), o SDK cria e armazena cookies primários (definidos no seu próprio domínio) com um vencimento de 400 dias que se renova automaticamente em novas sessões.
 
 Os cookies armazenam apenas identificadores de usuário, sessão e dispositivo. Outros dados — como mensagens no app aguardando para serem disparadas, Content Cards e eventos ou atributos na fila que ainda não foram sincronizados com a Braze — são armazenados no `localStorage`.
 
@@ -134,12 +134,12 @@ Os seguintes cookies são armazenados:
 | `ab.storage.sessionId.[your-api-key]` | String gerada aleatoriamente usada para determinar se o usuário está iniciando uma sessão nova ou existente para sincronizar mensagens e calcular a análise de dados da sessão. | ~200 bytes |
 | `ab.storage.deviceId.[your-api-key]` | String gerada aleatoriamente usada para identificar usuários anônimos e para diferenciar os dispositivos dos usuários, além de ativar o envio de mensagens com base no dispositivo. | ~200 bytes |
 | `ab.optOut` | Usado para armazenar a preferência de descadastramento do usuário quando `disableSDK` é chamado | ~40 bytes |
-| `ab._gd` | Criado temporariamente (e depois excluído) para determinar o domínio do cookie de nível raiz, o que permite que o SDK or kit de desenvolvimento de software funcione corretamente em subdomínios. | n/a |
+| `ab._gd` | Criado temporariamente (e depois excluído) para determinar o domínio do cookie de nível raiz, o que permite que o SDK funcione corretamente em subdomínios. | n/a |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Armazenamento de cookies (apenas web)" }
 
 ### Alterando o vencimento do cookie {#cookie-expiry}
 
-Por padrão, os cookies da Braze expiram após 400 dias. Para substituir esse valor, use a opção `cookieExpiryInDays` ao inicializar o Web SDK or kit de desenvolvimento de software. Os valores devem ser maiores que 0; se a opção for omitida ou definida como 0 ou menos, o padrão de 400 dias será aplicado. Esta opção requer o Web SDK or kit de desenvolvimento de software 6.6.0 ou posterior.
+Por padrão, os cookies da Braze expiram após 400 dias. Para substituir esse valor, use a opção `cookieExpiryInDays` ao inicializar o Web SDK. Os valores devem ser maiores que 0; se a opção for omitida ou definida como 0 ou menos, o padrão de 400 dias será aplicado. Esta opção requer o Web SDK 6.6.0 ou posterior.
 
 ```javascript
 import * as braze from "@braze/web-sdk";
@@ -151,7 +151,7 @@ braze.initialize("API-KEY", {
 
 ### Desativando cookies {#disable-cookies}
 
-Para desativar todos os cookies, use a opção [`noCookies`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) ao inicializar o Web SDK or kit de desenvolvimento de software. Quando os cookies estão desativados, o SDK or kit de desenvolvimento de software usa o `localStorage` para identificar usuários e sessões. Isso impedirá que você associe usuários anônimos que navegam entre subdomínios e resultará em um novo usuário em cada subdomínio.
+Para desativar todos os cookies, use a opção [`noCookies`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) ao inicializar o Web SDK. Quando os cookies estão desativados, o SDK usa o `localStorage` para identificar usuários e sessões. Isso impedirá que você associe usuários anônimos que navegam entre subdomínios e resultará em um novo usuário em cada subdomínio.
 
 ```javascript
 import * as braze from "@braze/web-sdk";
@@ -161,4 +161,4 @@ braze.initialize("API-KEY", {
 });
 ```
 
-Para interromper o rastreamento da Braze em geral ou para limpar todos os dados armazenados do navegador, consulte os métodos do SDK or kit de desenvolvimento de software [`disableSDK`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#disableSDK) e [`wipeData`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#wipedata), respectivamente. Esses dois métodos podem ser úteis se um usuário revogar o consentimento ou se você quiser interromper todas as funcionalidades da Braze depois que o SDK or kit de desenvolvimento de software já tiver sido inicializado.
+Para interromper o rastreamento da Braze em geral ou para limpar todos os dados armazenados do navegador, consulte os métodos do SDK [`disableSDK`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#disableSDK) e [`wipeData`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#wipedata), respectivamente. Esses dois métodos podem ser úteis se um usuário revogar o consentimento ou se você quiser interromper todas as funcionalidades da Braze depois que o SDK já tiver sido inicializado.

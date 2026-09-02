@@ -9,7 +9,7 @@ tool: Reports
 ---
 # Crear una fórmula {#create-a-formula}
 
-> Al visualizar los análisis en Braze, puedes combinar varios puntos de datos para obtener información valiosa sobre tus datos de usuario. Esto se conoce como fórmulas. Usa fórmulas para normalizar tus datos de series temporales en función de tu número total de MAU or usuarios activos al mes or usuarios activos al mes (MAU or usuarios activos al mes) y usuarios activos diarios (usuario activo diario).
+> Al visualizar los análisis en Braze, puedes combinar varios puntos de datos para obtener información valiosa sobre tus datos de usuario. Esto se conoce como fórmulas. Usa fórmulas para normalizar tus datos de series temporales en función de tu número total de MAU (MAU) y usuarios activos diarios (usuario activo diario).
 
 Las fórmulas te ayudan a comprender las relaciones complejas que existen en tus datos. Por ejemplo, puedes comparar cuántos eventos personalizados completaron los usuarios activos diarios que cumplen los requisitos de un segmento concreto frente a la población general (o frente a otro segmento).
 
@@ -20,7 +20,7 @@ Las fórmulas, especialmente cuando se combinan con eventos personalizados, pued
 Los siguientes son algunos ejemplos de los tipos de patrones de comportamiento que se pueden detectar usando fórmulas:
 
 - **Aplicaciones de transporte compartido:** Si tienes un evento personalizado para cuando el usuario cancela un viaje, puedes configurar una función de Viajes cancelados / usuarios activos diarios para averiguar si ciertos Segments de usuarios tienden a cancelar más viajes que otros.
-- **Aplicaciones de comercio electrónico:** Al configurar una función de compras de un ID de producto determinado / MAU or usuarios activos al mes, puedes comparar la popularidad de un producto promocionado recientemente entre Segments, incluso si todas las promociones no pudieron rastrearse usando Braze.
+- **Aplicaciones de comercio electrónico:** Al configurar una función de compras de un ID de producto determinado / MAU, puedes comparar la popularidad de un producto promocionado recientemente entre Segments, incluso si todas las promociones no pudieron rastrearse usando Braze.
 - **Aplicaciones de medios que usan anuncios:** Si la experiencia de los usuarios se interrumpe con anuncios entre clips de video o audio, registrar las salidas a mitad de anuncio como un evento personalizado y calcular la proporción de salidas a mitad de anuncio / usuarios activos diarios puede ayudar a encontrar los mejores Segments a los que dirigir una Campaign de suscripciones premium sin anuncios.
 
 ## Creación de fórmulas {#creating-formulas}
@@ -65,7 +65,7 @@ table td {
 
 | Numeradores | Denominadores |
 | --- | --- |
-| usuario activo diario | MAU or usuarios activos al mes |
+| usuario activo diario | MAU |
 | Sesiones | usuario activo diario |
 | | Tamaño del Segment |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Panel de resumen" }
@@ -75,14 +75,14 @@ table td {
 | Numeradores | Denominadores |
 | --- | --- |
 | Compras (todas) | usuario activo diario |
-| Compras seleccionadas (como una tarjeta de regalo o un ID de producto) | MAU or usuarios activos al mes |
+| Compras seleccionadas (como una tarjeta de regalo o un ID de producto) | MAU |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Panel de ingresos" }
 
 ### Panel de eventos personalizados {#custom-event-dashboard}
 
 | Numeradores | Denominadores |
 | --- | --- |
-| Recuento de eventos personalizados | MAU or usuarios activos al mes |
+| Recuento de eventos personalizados | MAU |
 |  | usuario activo diario |
 |  | Tamaño del Segment (solo se pueden usar Segments que tengan habilitado el [seguimiento de análisis]({{site.baseurl}}/viewing_and_understanding_segment_data)) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Panel de eventos personalizados" }

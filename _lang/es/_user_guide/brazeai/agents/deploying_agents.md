@@ -24,19 +24,19 @@ Seleccionas el tipo de agente en **Agent Console** cuando creas el agente. Para 
 
 ## Buenas prácticas {#best-practices}
 
-Apunta a casos de uso de alto valor donde los agentes puedan generar el mayor ROI or retorno de la inversión or retorno de la inversión (ROI or retorno de la inversión) y elige audiencias con probabilidad de responder. Una audiencia más pequeña y con alta oportunidad a menudo supera a una audiencia grande con baja oportunidad.
+Apunta a casos de uso de alto valor donde los agentes puedan generar el mayor ROI (ROI) y elige audiencias con probabilidad de responder. Una audiencia más pequeña y con alta oportunidad a menudo supera a una audiencia grande con baja oportunidad.
 
 Para los agentes de paso en Canvas, comienza con usuarios que tengan señales fuertes, como búsquedas recientes, alta participación o datos de perfil enriquecidos, antes de expandirte a Segments más amplios. Para los agentes de catálogo, prioriza las filas donde las columnas de entrada que necesitas ya estén completadas, de modo que cada invocación tenga suficiente contexto para producir resultados útiles.
 
-Para probar el ROI or retorno de la inversión a pequeña escala antes de implementar un agente de forma amplia, usa un paso de [recorrido de experimentos]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) para que solo una parte de tu audiencia entre en la rama que contiene tu paso de agente.
+Para probar el ROI a pequeña escala antes de implementar un agente de forma amplia, usa un paso de [recorrido de experimentos]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) para que solo una parte de tu audiencia entre en la rama que contiene tu paso de agente.
 
 ### Escalar después de una prueba exitosa {#scale-after-a-successful-test}
 
-Después de que una prueba a pequeña escala (por ejemplo, una rama de [recorrido de experimentos]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step)) muestre calidad y ROI or retorno de la inversión aceptables, planifica implementar el agente para toda tu audiencia objetivo (no solo el grupo de prueba) para que cada usuario elegible se beneficie.
+Después de que una prueba a pequeña escala (por ejemplo, una rama de [recorrido de experimentos]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step)) muestre calidad y ROI aceptables, planifica implementar el agente para toda tu audiencia objetivo (no solo el grupo de prueba) para que cada usuario elegible se beneficie.
 
 Antes de escalar, ten en cuenta lo siguiente:
 
-- Aumenta el límite diario de invocaciones del agente en Agent Console para que pueda manejar el volumen completo de tu audiencia. El valor predeterminado es 250 000; puedes aumentarlo hasta 1 000 000 (o más con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente). Consulta [Límites diarios de invocaciones y créditos]({{site.baseurl}}/user_guide/brazeai/agents/reference#daily-invocation-and-credit-limits).
+- Aumenta el límite diario de invocaciones del agente en Agent Console para que pueda manejar el volumen completo de tu audiencia. El valor predeterminado es 250 000; puedes aumentarlo hasta 1 000 000 (o más con tu CSM). Consulta [Límites diarios de invocaciones y créditos]({{site.baseurl}}/user_guide/brazeai/agents/reference#daily-invocation-and-credit-limits).
 - Revisa la estimación del **Límite de costo de créditos de acción diaria** y confirma que tu espacio de trabajo tiene suficientes créditos para envíos a escala completa.
 - Elimina o reconfigura el experimento para que toda la audiencia objetivo entre en el paso de agente (o promueve la variante ganadora a la ruta principal).
 
@@ -73,7 +73,7 @@ Para tipos de datos de salida, plantillas Liquid y capturas de pantalla, consult
 | Gestión de comentarios de clientes | Pasa los comentarios de los clientes a un agente para analizar el sentimiento y generar mensajes de seguimiento empáticos. Para usuarios de alto valor, el agente podría escalar la respuesta o incluir beneficios. |
 | Enrutamiento inteligente | Usa las salidas del agente (booleanas o numéricas) para dividir a los usuarios en diferentes rutas de Canvas. Por ejemplo, clasifica a los usuarios como "en riesgo" o "saludables" y ajusta la cadencia de mensajería en consecuencia. |
 | Interpretación de cuestionarios o respuestas | Permite que un agente analice respuestas abiertas de cuestionarios o campos de texto libre, devolviendo valores estructurados (por ejemplo, categorizando la intención o necesidad) que impulsen recorridos posteriores. |
-| Razonamiento de múltiples pasos | Configura un agente para combinar campos de contexto y tomar decisiones complejas, como recomendar la siguiente mejor acción (correo electrónico, servicio de mensajes cortos o contacto humano) basándose en múltiples atributos de usuario. |
+| Razonamiento de múltiples pasos | Configura un agente para combinar campos de contexto y tomar decisiones complejas, como recomendar la siguiente mejor acción (correo electrónico, SMS o contacto humano) basándose en múltiples atributos de usuario. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Ejemplos" }
 
 ### Usar la salida del agente {#use-the-agent-output}
@@ -158,7 +158,7 @@ No dejes una columna marcada como obligatoria si esperas que permanezca vacía p
 | Enriquecer atributos de productos | Rellena valores faltantes como familia de color, estilo o temporada basándose en el nombre y los detalles del producto. Por ejemplo, si el nombre de un producto es "Laguna Polarized Sunglasses", el agente podría asignar el estilo como "sport" y la familia de color como "blue". |
 | Calcular campos derivados | Usa campos existentes para generar nuevos datos, como una "puntuación de ajuste" basada en atributos o una "etiqueta de popularidad" a partir de ventas y recuentos de reseñas. |
 | Categorizar o etiquetar artículos | Asigna etiquetas para la lógica de recomendación de modo que los modelos de personalización puedan segmentar productos de manera más efectiva. Por ejemplo, etiquetar productos como "outdoor", "festival-ready" o "premium". |
-| Localizar contenido | Traduce el texto del catálogo a otro idioma para campañas globales, o ajusta el tono y la longitud para canales específicos de cada región. Por ejemplo, traducir "Classic Clubmaster Sunglasses" al español como "Gafas de sol Classic Clubmaster", o acortar descripciones para campañas de servicio de mensajes cortos. |
+| Localizar contenido | Traduce el texto del catálogo a otro idioma para campañas globales, o ajusta el tono y la longitud para canales específicos de cada región. Por ejemplo, traducir "Classic Clubmaster Sunglasses" al español como "Gafas de sol Classic Clubmaster", o acortar descripciones para campañas de SMS. |
 | Resumir reseñas o comentarios | Resume el sentimiento o los comentarios en un nuevo campo, como asignar puntuaciones de sentimiento como Positivo, Neutro o Negativo, o crear un breve resumen de texto como "La mayoría de los clientes mencionan un gran ajuste, pero señalan envíos lentos". |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Ejemplos" }
 

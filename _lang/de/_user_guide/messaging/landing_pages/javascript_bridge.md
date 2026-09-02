@@ -3,12 +3,12 @@ nav_title: JavaScript-Bridge
 article_title: JavaScript-Bridge für Landing-Pages
 page_order: 5
 page_type: reference
-description: "Erfahren Sie, wie Sie die brazeBridge-JavaScript-Bridge verwenden, um Events zu protokollieren, angepasste Attribute zu setzen und Braze-Aktionen aus dem Custom-Code-Block einer Landing-Page zu Trigger or triggern or triggern."
+description: "Erfahren Sie, wie Sie die brazeBridge-JavaScript-Bridge verwenden, um Events zu protokollieren, angepasste Attribute zu setzen und Braze-Aktionen aus dem Custom-Code-Block einer Landing-Page zu triggern."
 ---
 
 # JavaScript-Bridge für Landing-Pages {#javascript-bridge-for-landing-pages}
 
-> Landing-Pages unterstützen eine JavaScript-„Bridge“ zur Verbindung Ihres angepassten Codes (HTML, CSS und JavaScript) mit dem Braze SDK or Software-Development-Kit.
+> Landing-Pages unterstützen eine JavaScript-„Bridge“ zur Verbindung Ihres angepassten Codes (HTML, CSS und JavaScript) mit dem Braze SDK.
 
 Greifen Sie auf die Bridge zu, indem Sie `brazeBridge` in einem Custom-Code-Block verwenden, um Events zu protokollieren, angepasste Attribute zu setzen, Nutzer:innen zu identifizieren und mehr, wenn Besucher:innen mit Ihrer Landing-Page interagieren.
 
@@ -30,9 +30,9 @@ Die Landing-Page-Bridge ist asynchron; jede Methode gibt ein Promise zurück. Da
 
 Wenn Besucher:innen Ihre Landing-Page öffnen, ist `brazeBridge` bereits in Ihrem **Custom-Code**-JavaScript verfügbar. Rufen Sie Bridge-Methoden direkt auf Landing-Pages auf – Sie müssen nicht auf ein separates Ready-Event warten, wie es In-App-Nachrichten mit `ab.BridgeReady` verwenden.
 
-Dass das Bridge-Objekt verfügbar ist, bedeutet nicht, dass das Braze SDK or Software-Development-Kit für diese:n Besucher:in initialisiert ist. Das SDK or Software-Development-Kit wird bei einem Landing-Page-Besuch in einem der folgenden Fälle initialisiert:
+Dass das Bridge-Objekt verfügbar ist, bedeutet nicht, dass das Braze SDK für diese:n Besucher:in initialisiert ist. Das SDK wird bei einem Landing-Page-Besuch in einem der folgenden Fälle initialisiert:
 
-- Die:der Besucher:in öffnet die Seite über einen [Landing-Page-Liquid-Tag]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users), der über einen Braze-Kanal (E-Mail, Kurzmitteilungsdienst or SMS, Push usw.) gesendet wurde. Das SDK or Software-Development-Kit wird automatisch beim Laden der Seite initialisiert.
+- Die:der Besucher:in öffnet die Seite über einen [Landing-Page-Liquid-Tag]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users), der über einen Braze-Kanal (E-Mail, SMS, Push usw.) gesendet wurde. Das SDK wird automatisch beim Laden der Seite initialisiert.
 - Die:der Besucher:in übermittelt das Formular der Seite – zum Beispiel durch Klicken auf einen **Absenden**-Button, der Formulardaten sendet. Dies umfasst auch `brazeBridge`-Aufrufe, die innerhalb der `registerFormInput`-Callbacks eines [angepassten Formularblocks]({{site.baseurl}}/user_guide/messaging/landing_pages/custom_form_blocks) ausgeführt werden, da diese als Teil der Formularübermittlung laufen.
 
 Wenn Besucher:innen die Landing-Page direkt öffnen, ohne einen Landing-Page-Liquid-Tag, und das Formular nie übermitteln, ist die Seite für Braze anonym, und Bridge-Methodenaufrufe haben keine Wirkung.
@@ -101,8 +101,8 @@ Die folgenden `brazeBridge`-Methoden geben ein Promise zurück und werden in **C
 | `getUser().removeFromCustomAttributeArray(key, value)` | Entfernt einen Wert aus einem angepassten Attribut-Array. |
 | `getUser().incrementCustomUserAttribute(key, incrementValue?)` | Erhöht ein numerisches angepasstes Attribut. |
 | `getUser().setCustomLocationAttribute(key, latitude, longitude)` | Setzt ein angepasstes Standortattribut. |
-| `getUser().addToSubscriptionGroup(subscriptionGroupId)` | Fügt die:den Nutzer:in einer E-Mail- oder Kurzmitteilungsdienst or SMS-Abo-Gruppe hinzu. |
-| `getUser().removeFromSubscriptionGroup(subscriptionGroupId)` | Entfernt die:den Nutzer:in aus einer E-Mail- oder Kurzmitteilungsdienst or SMS-Abo-Gruppe. |
+| `getUser().addToSubscriptionGroup(subscriptionGroupId)` | Fügt die:den Nutzer:in einer E-Mail- oder SMS-Abo-Gruppe hinzu. |
+| `getUser().removeFromSubscriptionGroup(subscriptionGroupId)` | Entfernt die:den Nutzer:in aus einer E-Mail- oder SMS-Abo-Gruppe. |
 | `getUser().setEmailNotificationSubscriptionType(type: "opted_in" \| "subscribed" \| "unsubscribed")` | Setzt den E-Mail-Benachrichtigungs-Abo-Status. |
 | `getUser().setPushNotificationSubscriptionType(type: "opted_in" \| "subscribed" \| "unsubscribed")` | Setzt den Push-Benachrichtigungs-Abo-Status. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="getUser()-Methoden" }

@@ -38,7 +38,7 @@ Sie können einzelne Nutzer:innen ([Einzellöschung](#delete-individual)) oder e
 
 ### Einzelne Nutzer:innen löschen {#delete-individual}
 
-Um einzelne Nutzer:innen aus Braze zu löschen, gehen Sie zu **Audience** > **Search Users**, suchen Sie dann nach den gewünschten Nutzer:innen und wählen Sie sie aus. Wenn Sie ein doppeltes Kundenprofil or Nutzerprofil löschen, vergewissern Sie sich, dass Sie das richtige ausgewählt haben.
+Um einzelne Nutzer:innen aus Braze zu löschen, gehen Sie zu **Audience** > **Search Users**, suchen Sie dann nach den gewünschten Nutzer:innen und wählen Sie sie aus. Wenn Sie ein doppeltes Kundenprofil löschen, vergewissern Sie sich, dass Sie das richtige ausgewählt haben.
 
 ![Die Seite „Search Users“ in Braze.]({% image_buster /assets/img/audience_management/duplicate_users/individual_merging/search_user.png %}){: style="max-width:75%;"}
 
@@ -67,7 +67,7 @@ Geben Sie **DELETE** ein, um Ihre Anfrage zu bestätigen, und wählen Sie dann *
 
 Die Nutzer:innen in diesem Segment werden nicht sofort gelöscht. Stattdessen werden sie für die nächsten 7 Tage als zur Löschung ausstehend markiert. Nach Ablauf dieser Zeit werden sie gelöscht und Sie erhalten eine E-Mail-Benachrichtigung.
 
-Während der 7-tägigen Wartezeit können Nutzer:innen, deren Löschung aussteht, weiterhin Campaigns und Canvase erhalten, sofern Sie sie nicht ausdrücklich ausschließen. Um zu verhindern, dass ausstehende Nutzer:innen Nachrichten erhalten, fügen Sie einen Segmentfilter hinzu, der Nutzer:innen mit dem Status **Pending Deletion** aus Ihren Campaigns und Canvase ausschließt.
+Während der 7-tägigen Wartezeit können Nutzer:innen, deren Löschung aussteht, weiterhin Campaigns und Canvases erhalten, sofern Sie sie nicht ausdrücklich ausschließen. Um zu verhindern, dass ausstehende Nutzer:innen Nachrichten erhalten, fügen Sie einen Segmentfilter hinzu, der Nutzer:innen mit dem Status **Pending Deletion** aus Ihren Campaigns und Canvases ausschließt.
 
 {% alert tip %}
 Um sicherzustellen, dass genau diese Nutzer:innen unabhängig von Segmentänderungen gelöscht werden, wird automatisch ein Segmentfilter namens **Pending Deletion** erstellt. Sie können [diesen Filter verwenden]({{site.baseurl}}/user_guide/audience/segments/managing_segments#filters), um den Status ausstehender Löschungen zu überprüfen.
@@ -157,7 +157,7 @@ Wenn eine geplante Zusammenführung Nutzerprofile enthält, die zur Löschung au
 
 Daten, die von externen Systemen oder SDKs gesendet werden, werden weiterhin akzeptiert, aber die Nutzer:innen werden unabhängig von der Aktivität wie geplant gelöscht.
 
-### Werden Canvase und Campaigns für zur Löschung ausstehende Nutzer:innen ausgelöst? {#do-canvases-and-campaigns-trigger-for-users-pending-deletion}
+### Werden Canvases und Campaigns für zur Löschung ausstehende Nutzer:innen ausgelöst? {#do-canvases-and-campaigns-trigger-for-users-pending-deletion}
 
 Ja. Sie können jedoch einen Segment-Einschlussfilter hinzufügen, um alle Nutzer:innen mit dem [Segmentfilter](#segment-filters) **Pending Deletion** auszuschließen.
 

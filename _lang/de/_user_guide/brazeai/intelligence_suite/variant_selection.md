@@ -42,7 +42,7 @@ Die standardmäßige Experimentdauer beträgt 4 Stunden. Wenn Sie für ein prim�
 |---|---|
 | Push-Benachrichtigungen | *Opens* |
 | E-Mail | *Unique Clicks* |
-| Kurzmitteilungsdienst or SMS, MMS, RCS und WhatsApp | *Clicks* |
+| SMS, MMS, RCS und WhatsApp | *Clicks* |
 | Andere unterstützte Kanäle | *Primary Conversion Event - A* |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Standard-Optimierungsziele nach Kanal" }
 

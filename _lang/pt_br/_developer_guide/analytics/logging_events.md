@@ -2,12 +2,12 @@
 nav_title: Registrar eventos personalizados
 article_title: Registrar eventos personalizados
 page_order: 3.1
-description: "Aprenda como registrar eventos personalizados por meio do SDK or kit de desenvolvimento de software da Braze."
+description: "Aprenda como registrar eventos personalizados por meio do SDK da Braze."
 ---
 
 # Registrar eventos personalizados {#log-custom-events}
 
-> Aprenda como registrar eventos personalizados por meio do SDK or kit de desenvolvimento de software da Braze.
+> Aprenda como registrar eventos personalizados por meio do SDK da Braze.
 
 {% alert note %}
 Para wrapper SDKs não listados, use o método nativo relevante do Android ou Swift.
@@ -21,7 +21,7 @@ Para registrar um evento personalizado, use o seguinte método de registro de ev
 
 {% tabs %}
 {% tab web %}
-Para uma implementação padrão do SDK or kit de desenvolvimento de software para web, você pode usar o seguinte método:
+Para uma implementação padrão do SDK para web, você pode usar o seguinte método:
 
 ```javascript
 braze.logCustomEvent("YOUR_EVENT_NAME");
@@ -81,13 +81,13 @@ Use o método do plugin Cordova da Braze:
 BrazePlugin.logCustomEvent("YOUR_EVENT_NAME");
 ```
 
-A API or interface de programação do aplicativo (API) `logCustomEvent` aceita:
+A API `logCustomEvent` aceita:
 - `eventName` (string obrigatória): Use até 255 caracteres. Não inicie o nome com `$`. Use caracteres alfanuméricos e pontuação.
 - `eventProperties` (objeto opcional): Adicione pares chave-valor para metadados do evento. Use chaves de até 255 caracteres e não inicie as chaves com `$`.
 
 Para valores de propriedade, use `string` (até 255 caracteres), `numeric`, `boolean`, arrays ou objetos JSON aninhados.
 
-Para detalhes de implementação, consulte o código-fonte do SDK or kit de desenvolvimento de software Cordova da Braze:
+Para detalhes de implementação, consulte o código-fonte do SDK Cordova da Braze:
 - [Método `logCustomEvent` em `www/BrazePlugin.js` (linhas 138-140)](https://github.com/braze-inc/braze-cordova-sdk/blob/86132bc7f0b6ddf1b598b0e612db70f11744801c/www/BrazePlugin.js#L138-L140)
 - [JSDoc em `www/BrazePlugin.js` (linhas 128-140)](https://github.com/braze-inc/braze-cordova-sdk/blob/86132bc7f0b6ddf1b598b0e612db70f11744801c/www/BrazePlugin.js#L128-L140)
 - [Handler Android em `src/android/BrazePlugin.kt` (linhas 108-115)](https://github.com/braze-inc/braze-cordova-sdk/blob/86132bc7f0b6ddf1b598b0e612db70f11744801c/src/android/BrazePlugin.kt#L108-L115)
@@ -297,7 +297,7 @@ BrazePlugin.logCustomEvent("cordovaCustomEventWithNestedProperties", {
 });
 ```
 
-Para detalhes sobre a API or interface de programação do aplicativo (API) e a ponte nativa, consulte:
+Para detalhes sobre a API e a ponte nativa, consulte:
 - [`www/BrazePlugin.js` JSDoc (linhas 128-140)](https://github.com/braze-inc/braze-cordova-sdk/blob/86132bc7f0b6ddf1b598b0e612db70f11744801c/www/BrazePlugin.js#L128-L140)
 - [Handler Android em `src/android/BrazePlugin.kt` (linhas 108-115)](https://github.com/braze-inc/braze-cordova-sdk/blob/86132bc7f0b6ddf1b598b0e612db70f11744801c/src/android/BrazePlugin.kt#L108-L115)
 - [Handler iOS em `src/ios/BrazePlugin.m` (linhas 308-313)](https://github.com/braze-inc/braze-cordova-sdk/blob/86132bc7f0b6ddf1b598b0e612db70f11744801c/src/ios/BrazePlugin.m#L308-L313)
@@ -373,7 +373,7 @@ Use estes cenários para solucionar problemas de registro de eventos personaliza
 Se um evento personalizado não aparece, a ação rastreada no seu app pode não corresponder à ação que você está testando.
 
 - Confirme com sua equipe de desenvolvimento qual ação do app dispara o evento personalizado.
-- Verifique se há caminhos de código descontinuados após atualizações do SDK or kit de desenvolvimento de software, como referências a `appboy` em vez de `braze`.
+- Verifique se há caminhos de código descontinuados após atualizações do SDK, como referências a `appboy` em vez de `braze`.
 
 ### Eventos personalizados registrados em um perfil anônimo {#custom-events-are-logged-to-an-anonymous-profile}
 
@@ -388,5 +388,5 @@ Se os eventos personalizados não estão aparecendo como esperado, confirme que 
 
 - Peça à sua equipe de desenvolvimento que verifique se o evento está sendo registrado corretamente e disparado a partir da ação de usuário esperada.
 - Quando sua equipe abrir um ticket de suporte com o suporte da Braze, inclua [logs detalhados]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging) e snippets de código relevantes.
-- Se o seu app usa SWIFT ou Android, sua equipe de desenvolvimento pode usar os [pré-requisitos do debugger do SDK or kit de desenvolvimento de software]({{site.baseurl}}/developer_guide/sdk_integration/debugging#prerequisites) para ajudar a gerar logs detalhados.
+- Se o seu app usa SWIFT ou Android, sua equipe de desenvolvimento pode usar os [pré-requisitos do debugger do SDK]({{site.baseurl}}/developer_guide/sdk_integration/debugging#prerequisites) para ajudar a gerar logs detalhados.
 - Se sua equipe de desenvolvimento não conseguir identificar o problema, abra um [ticket de suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support).

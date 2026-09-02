@@ -177,7 +177,7 @@ Os critérios de filtro das etapas do Canvas (por exemplo, etapas de [divisão d
 
 | Copiado | Omitido |
 |---|---|
-| Percentual de envio | ID da API or interface de programação do aplicativo (API) |
+| Percentual de envio | ID da API |
 | Tipo | IDs do grupo de teste |
 |  | IDs do modelo de link |
 |  | IDs do grupo de usuários internos |
@@ -188,7 +188,7 @@ Os critérios de filtro das etapas do Canvas (por exemplo, etapas de [divisão d
 
 | Copiado | Omitido |
 |---|---|
-| Percentual de envio | ID da API or interface de programação do aplicativo (API) |
+| Percentual de envio | ID da API |
 | Tipo | IDs do grupo de teste |
 |  | IDs do modelo de link |
 |  | IDs do grupo de usuários internos |
@@ -265,7 +265,7 @@ Os critérios de filtro das etapas do Canvas (por exemplo, etapas de [divisão d
 
 | Copiado | Omitido |
 |---|---|
-| Corpo do e-mail | IDs da API or interface de programação do aplicativo (API) |
+| Corpo do e-mail | IDs da API |
 | Descrição | IDs de imagem |
 | Assunto | Territórios |
 | Cabeçalhos | Tags |
@@ -277,7 +277,7 @@ Os critérios de filtro das etapas do Canvas (por exemplo, etapas de [divisão d
 
 | Copiado | Omitido |
 |---|---|
-| Corpo do e-mail | IDs da API or interface de programação do aplicativo (API) |
+| Corpo do e-mail | IDs da API |
 | Descrição | IDs de imagem |
 | Assunto | Territórios |
 | Cabeçalhos | Tags |
@@ -295,7 +295,7 @@ Os critérios de filtro das etapas do Canvas (por exemplo, etapas de [divisão d
 | Copiado | Omitido |
 |---|---|
 | Nome | Alias de link |
-| Descrição | Chaves de API or interface de programação do aplicativo (API) |
+| Descrição | Chaves de API |
 | Conteúdo | Territórios |
 | Conteúdo HTML e arrastar e soltar | Tags |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Content Blocks" }
@@ -306,7 +306,7 @@ Os critérios de filtro das etapas do Canvas (por exemplo, etapas de [divisão d
 | Copiado | Omitido |
 |---|---|
 | Nome | Alias de link |
-| Descrição | Chaves de API or interface de programação do aplicativo (API) |
+| Descrição | Chaves de API |
 | Conteúdo | Territórios |
 | Conteúdo HTML e arrastar e soltar | Tags |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Content Blocks" }

@@ -16,7 +16,7 @@ noindex: true
 # [엔드포인트 이름] {#endpoint-name}
 
 {% apimethod post %}
-/단문 메시지 서비스/invalid_phone_numbers/remove
+/sms/invalid_phone_numbers/remove
 {% endapimethod %}
 
 <!--
@@ -57,7 +57,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## 요청 예시 {#example-request}
 
-<!--The following example demonstrates a request that will remove specific 단문 메시지 서비스 numbers from Braze's invalid phone number list via the API:-->
+<!--The following example demonstrates a request that will remove specific SMS numbers from Braze's invalid phone number list via the API:-->
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/sms/invalid_phone_numbers/remove' \

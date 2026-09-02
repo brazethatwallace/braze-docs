@@ -9,7 +9,7 @@ page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint da Braze \"Excluir campo de catálogo\"."
 
 ---
-{% API or interface de programação do aplicativo (API) %}
+{% api %}
 # Excluir campo de catálogo {#delete-catalog-field}
 {% apimethod delete %}
 /catalogs/{catalog_name}/fields/{field_name}
@@ -19,7 +19,7 @@ description: "Este artigo descreve detalhes sobre o endpoint da Braze \"Excluir 
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `catalogs.delete_fields`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `catalogs.delete_fields`.
 
 ## Limite de frequência {#rate-limit}
 

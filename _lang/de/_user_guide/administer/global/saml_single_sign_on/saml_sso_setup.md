@@ -99,12 +99,12 @@ Die vorgefertigte [Braze Okta Marketplace-App](https://www.okta.com/integrations
 
 Gehen Sie zu **Einstellungen** > **Administratoreinstellungen** > **Sicherheitseinstellungen** und öffnen Sie den Abschnitt „SAML Single Sign-on“. Aktivieren Sie den Schalter **Benutzerdefinierte Entity-ID**. Braze generiert eine eindeutige Entity-ID für Ihr Dashboard im Format `braze_dashboard_<COMPANY_ID>`. Wenn Sie die Option **Benutzerdefinierte Entity-ID** nicht sehen, wenden Sie sich an Ihren Braze Account Manager:in.
 
-### Schritt 2: Identitätsanbieter Update or aktualisieren or aktualisieren {#step-2-update-your-identity-provider}
+### Schritt 2: Identitätsanbieter aktualisieren {#step-2-update-your-identity-provider}
 
 Kopieren Sie die generierte Entity-ID und fügen Sie sie in das Entity-ID-Feld der Braze-Anwendung Ihres Identitätsanbieters ein. Je nach Anbieter kann dieses Feld als **Entity ID**, **Audience** oder **Audience URI** bezeichnet sein.
 
 {% alert important %}
-Die Entity-ID muss sowohl in Braze als auch bei Ihrem Identitätsanbieter übereinstimmen. Solange nicht beide Seiten denselben Wert verwenden, können sich Nutzer:innen nicht mit SAML Single Sign-on anmelden. Update or aktualisieren or aktualisieren Sie Ihren Identitätsanbieter, bevor Sie diese Seite speichern, um zu vermeiden, dass Nutzer:innen ausgesperrt werden.
+Die Entity-ID muss sowohl in Braze als auch bei Ihrem Identitätsanbieter übereinstimmen. Solange nicht beide Seiten denselben Wert verwenden, können sich Nutzer:innen nicht mit SAML Single Sign-on anmelden. Aktualisieren Sie Ihren Identitätsanbieter, bevor Sie diese Seite speichern, um zu vermeiden, dass Nutzer:innen ausgesperrt werden.
 {% endalert %}
 
 ### Schritt 3: Speichern und testen {#step-3-save-and-test}

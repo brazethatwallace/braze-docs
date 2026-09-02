@@ -3,7 +3,7 @@ nav_title: "Datos y análisis"
 article_title: Partners de datos y análisis
 page_order: 5
 page_type: landing
-description: "Explora los partners tecnológicos de Braze para enviar, almacenar y coordinar datos a través de CDP or plataforma de datos de los clientes, almacenes de datos, análisis, privacidad y herramientas de flujo de trabajo."
+description: "Explora los partners tecnológicos de Braze para enviar, almacenar y coordinar datos a través de CDP, almacenes de datos, análisis, privacidad y herramientas de flujo de trabajo."
 layout: dev_guide
 search_tag: Partner
 

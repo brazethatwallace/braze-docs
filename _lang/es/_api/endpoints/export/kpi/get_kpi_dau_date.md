@@ -11,7 +11,7 @@ description: "En este artículo se describen los detalles del endpoint Exportar 
 {% api %}
 # Exportar usuarios activos diarios por fecha {#export-daily-active-users-by-date}
 {% apimethod get %}
-/indicador clave de rendimiento/usuario activo diario/data_series
+/kpi/dau/data_series
 {% endapimethod %}
 
 > Utiliza este endpoint para recuperar una serie diaria del número total de usuarios activos únicos en cada fecha.

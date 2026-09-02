@@ -56,7 +56,7 @@ Braze incluye objetos de cuenta con campos estándar de forma predeterminada. Pu
 
 | Nombre del campo | Tipo de campo | Obligatorio | Descripción |
 | --- | --- | --- | --- |
-| `id` | cadena | Sí | El ID de tu sistema para la cuenta (por ejemplo, ID de CRM or administración de las relaciones con el cliente). Debe ser único en tu espacio de trabajo. |
+| `id` | cadena | Sí | El ID de tu sistema para la cuenta (por ejemplo, ID de CRM). Debe ser único en tu espacio de trabajo. |
 | `name` | cadena | Sí | Nombre de la cuenta. |
 | `type` | cadena | No | Tipo de cuenta, como cliente, partner o revendedor. |
 | `annual_revenue` | número | No | Ingresos anuales de la cuenta. |
@@ -79,7 +79,7 @@ Braze incluye objetos de cuenta con campos estándar de forma predeterminada. Pu
 
 Puedes gestionar los registros de cuentas a través de:
 
-- Endpoints de REST or transferencia de estado representacional API para registros de cuentas
+- Endpoints de REST API para registros de cuentas
 - Edición en el navegador en **Data Settings** > **Accounts** para registros individuales
 
 ## Primeros pasos {#get-started}
@@ -92,7 +92,7 @@ Cuando Accounts esté habilitado, ve a **Configuración de datos** > **Accounts*
 
 ### Paso 2: Agregar registros de cuenta {#step-2-add-account-records}
 
-Agrega o actualiza registros de cuenta a través de la REST or transferencia de estado representacional API o mediante la edición en el navegador.
+Agrega o actualiza registros de cuenta a través de la REST API o mediante la edición en el navegador.
 
 ### Paso 3: Crear un filtro calculado para los criterios de cuenta {#step-3-create-a-calculated-filter-for-account-criteria}
 
@@ -151,11 +151,11 @@ Para iterar sobre todas las cuentas coincidentes:
 
 ## Conceptos básicos de la API {#api-basics}
 
-Puedes usar la REST or transferencia de estado representacional API para gestionar registros de cuenta durante el acceso anticipado.
+Puedes usar la REST API para gestionar registros de cuenta durante el acceso anticipado.
 
 Para obtener detalles sobre los endpoints, consulta [Endpoints de objetos de datos]({{site.baseurl}}/api/endpoints/data_objects).
 
-Para conocer los conceptos básicos de autenticación y endpoints REST or transferencia de estado representacional, consulta [Resumen de la API de Braze]({{site.baseurl}}/api/basics).
+Para conocer los conceptos básicos de autenticación y endpoints REST, consulta [Resumen de la API de Braze]({{site.baseurl}}/api/basics).
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 

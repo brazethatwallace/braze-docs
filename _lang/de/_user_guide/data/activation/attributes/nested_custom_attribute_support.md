@@ -30,11 +30,11 @@ Im folgenden Beispiel enthält das angepasste Attribut `favorite_book` die versc
 
 ## Hinweise {#considerations}
 
-- Verschachtelte angepasste Attribute sind für angepasste Attribute vorgesehen, die über das Braze SDK or Software-Development-Kit oder die API gesendet werden.
+- Verschachtelte angepasste Attribute sind für angepasste Attribute vorgesehen, die über das Braze SDK oder die API gesendet werden.
 - Objekte haben eine maximale Größe von 100&nbsp;KB. Wenn eine Aktualisierung dazu führt, dass das Objekt 100&nbsp;KB überschreitet, verwirft Braze die Aktualisierung und das Attribut bleibt unverändert.
 - Schlüsselnamen und String-Werte haben eine Größenbeschränkung von 255 Zeichen.
 - Schlüsselnamen dürfen keine Leerzeichen enthalten.
-- Punkte (`.`) und Dollarzeichen (`$`) werden in einem API-Payload nicht unterstützt, wenn Sie versuchen, ein verschachteltes angepasstes Attribut an ein Kundenprofil or Nutzerprofil zu senden.
+- Punkte (`.`) und Dollarzeichen (`$`) werden in einem API-Payload nicht unterstützt, wenn Sie versuchen, ein verschachteltes angepasstes Attribut an ein Kundenprofil zu senden.
 - Nicht alle Braze-Partner unterstützen verschachtelte angepasste Attribute. Weitere Informationen finden Sie in der [Partnerdokumentation]({{site.baseurl}}/partners/home), um zu bestätigen, ob bestimmte Partnerintegrationen dieses Feature unterstützen.
 - Verschachtelte angepasste Attribute können nicht als Filter verwendet werden, wenn ein Connected-Audience-API-Aufruf durchgeführt wird.
 - Standardmäßig enthält der Segment-Filter **Verschachtelte angepasste Attribute** angepasste Attribute vom Typ „Objekt“, Attribute vom Typ „Array von Objekten“ und angepasste Attribute vom Typ „Array“. Wenn Sie ein Attribut auswählen, enthält der Selektor für das Eigenschaftsschema Array-Pfade (unter Verwendung der `[]`-Notation) für verschachtelte Array-Felder. Um angepasste Array-Attribute der obersten Ebene aus diesem Filter auszublenden, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support).
@@ -67,8 +67,8 @@ Das folgende Beispiel zeigt eine `/users/track`-Anfrage mit einem Objekt „Most
 ```
 
 {% endtab %}
-{% tab Update or aktualisieren or aktualisieren %}
-Um ein vorhandenes Objekt zu Update or aktualisieren or aktualisieren, senden Sie eine POST-Anfrage an `users/track` mit dem Parameter `_merge_objects` in der Anfrage. Dadurch wird Ihre Aktualisierung per Deep Merge mit den vorhandenen Objektdaten zusammengeführt. Deep Merging stellt sicher, dass alle Ebenen eines Objekts in ein anderes Objekt zusammengeführt werden und nicht nur die erste Ebene. In diesem Beispiel haben wir bereits ein `most_played_song`-Objekt in Braze und fügen nun ein neues Feld, `year_released`, zum `most_played_song`-Objekt hinzu.
+{% tab Aktualisieren %}
+Um ein vorhandenes Objekt zu aktualisieren, senden Sie eine POST-Anfrage an `users/track` mit dem Parameter `_merge_objects` in der Anfrage. Dadurch wird Ihre Aktualisierung per Deep Merge mit den vorhandenen Objektdaten zusammengeführt. Deep Merging stellt sicher, dass alle Ebenen eines Objekts in ein anderes Objekt zusammengeführt werden und nicht nur die erste Ebene. In diesem Beispiel haben wir bereits ein `most_played_song`-Objekt in Braze und fügen nun ein neues Feld, `year_released`, zum `most_played_song`-Objekt hinzu.
 
 ```json
 {
@@ -126,14 +126,14 @@ Dieser Ansatz kann nicht verwendet werden, um einen verschachtelten Schlüssel i
 {% endtab %}
 {% endtabs %}
 
-## SDK or Software-Development-Kit-Beispiel {#sdk-example}
+## SDK-Beispiel {#sdk-example}
 
 {% sdk_min_versions android:25.0.0 ios:6.1.0 web:4.7.0 unity:5.1.0 %}
 
-Die folgenden Beispiele zeigen, wie Sie dasselbe verschachtelte angepasste Attribut-Objekt (`most_played_song`) über die einzelnen SDKs erstellen, per Merge Update or aktualisieren or aktualisieren und löschen können.
+Die folgenden Beispiele zeigen, wie Sie dasselbe verschachtelte angepasste Attribut-Objekt (`most_played_song`) über die einzelnen SDKs erstellen, per Merge aktualisieren und löschen können.
 
 {% tabs local %}
-{% tab Android SDK or Software-Development-Kit %}
+{% tab Android SDK %}
 
 **Erstellen**
 ```kotlin
@@ -154,7 +154,7 @@ braze.getCurrentUser { user ->
 }
 ```
 
-**Update or aktualisieren or aktualisieren**
+**Aktualisieren**
 ```kotlin
 val json = JSONObject()
     .put("year_released", 1960)
@@ -172,7 +172,7 @@ braze.getCurrentUser { user ->
 ```
 
 {% endtab %}
-{% tab Swift SDK or Software-Development-Kit %}
+{% tab Swift SDK %}
 
 **Erstellen**
 ```swift
@@ -190,7 +190,7 @@ let json: [String: Any?] = [
 braze.user.setCustomAttribute(key: "most_played_song", dictionary: json)
 ```
 
-**Update or aktualisieren or aktualisieren**
+**Aktualisieren**
 ```swift
 let json: [String: Any?] = [
   "year_released": 1960
@@ -205,7 +205,7 @@ braze.user.unsetCustomAttribute(key: "most_played_song")
 ```
 
 {% endtab %}
-{% tab Web SDK or Software-Development-Kit %}
+{% tab Web SDK %}
 
 **Erstellen**
 ```javascript
@@ -223,7 +223,7 @@ const json = {
 braze.getUser().setCustomUserAttribute("most_played_song", json);
 ```
 
-**Update or aktualisieren or aktualisieren**
+**Aktualisieren**
 ```javascript
 import * as braze from "@braze/web-sdk";
 const json = {
@@ -240,7 +240,7 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 ```
 
 {% endtab %}
-{% tab Unity SDK or Software-Development-Kit %}
+{% tab Unity SDK %}
 
 **Erstellen**
 ```csharp
@@ -258,7 +258,7 @@ attributes.Add("play_analytics", playAnalytics);
 AppboyBinding.SetCustomUserAttribute("most_played_song", attributes);
 ```
 
-**Update or aktualisieren or aktualisieren**
+**Aktualisieren**
 ```csharp
 Dictionary<string, object> attributes = new Dictionary<string, object>();
 attributes.Add("year_released", 1960);
@@ -373,19 +373,19 @@ Um das Schema für ein Objekt-Array mit einem vorhandenen Objekt zurückzusetzen
 
 Wenn Daten nach der Schema-Neugenerierung nicht wie erwartet angezeigt werden, wird das Attribut möglicherweise nicht häufig genug erfasst. Nutzerdaten werden auf Basis zuvor an Braze gesendeter Daten für das jeweilige verschachtelte Attribut gesampelt. Wenn das Attribut nicht häufig genug erfasst wird, wird es nicht für das Schema berücksichtigt.
 
-## Verschachtelte angepasste Attributänderungen Trigger or triggern or triggern {#trigger-nested-custom-attribute-changes}
+## Verschachtelte angepasste Attributänderungen triggern {#trigger-nested-custom-attribute-changes}
 
-Sie können Trigger or triggern or triggern, wenn sich ein verschachteltes angepasstes Attributobjekt ändert. Diese Option ist für Änderungen an Objekt-Arrays nicht verfügbar. Wenn Sie keine Option zum Anzeigen des Pfad-Explorers sehen, überprüfen Sie, ob Sie ein Schema generiert haben.
+Sie können triggern, wenn sich ein verschachteltes angepasstes Attributobjekt ändert. Diese Option ist für Änderungen an Objekt-Arrays nicht verfügbar. Wenn Sie keine Option zum Anzeigen des Pfad-Explorers sehen, überprüfen Sie, ob Sie ein Schema generiert haben.
 
 Beispielsweise können Sie in einer aktionsbasierten Campaign eine neue Aktion für **Angepassten Attributwert ändern** hinzufügen, um Nutzer:innen anzusprechen, die ihre Präferenzen für das Nachbarschaftsbüro geändert haben.
 
-So konfigurieren Sie diesen Trigger or triggern in einer aktionsbasierten Campaign:
+So konfigurieren Sie diesen Trigger in einer aktionsbasierten Campaign:
 
 1. Erstellen oder bearbeiten Sie eine Campaign und setzen Sie den Zustellungstyp auf **Aktionsbasierte Zustellung**.
-2. Wählen Sie in den Trigger or triggern-Einstellungen **Angepassten Attributwert ändern** aus.
+2. Wählen Sie in den Trigger-Einstellungen **Angepassten Attributwert ändern** aus.
 3. Wählen Sie den Pfad des verschachtelten angepassten Attributs aus, den Sie überwachen möchten.
    Wählen Sie beispielsweise `preferences.neighborhood_office` aus.
-4. Wählen Sie die gewünschte Trigger or triggern-Bedingung aus, z. B. **Beliebiger neuer Wert**.
+4. Wählen Sie die gewünschte Trigger-Bedingung aus, z. B. **Beliebiger neuer Wert**.
 5. Schließen Sie die Konfiguration Ihrer Campaign-Nachricht und Zielgruppe ab und starten Sie dann die Campaign.
 
 ## Fehlerbehebung {#troubleshooting}
@@ -408,7 +408,7 @@ So diagnostizieren und beheben Sie dieses Problem:
    - Nachdem das Schema generiert wurde, wählen Sie das Plus-Symbol in der Spalte **Attributname** für dieses Attribut aus.
    - Überprüfen Sie im Modal **Schema bearbeiten** die verschachtelten Attribute und ihre entsprechenden Werte in der Spalte **Datentyp**.
 
-Wenn Sie feststellen, dass der Datentyp nicht mit dem beabsichtigten Format über alle Nutzerprofile hinweg übereinstimmt, entfernen Sie den falsch formatierten Wert aus den betroffenen Nutzerprofilen und senden Sie das Attribut im korrekten Format über die entsprechende API-Anfrage oder SDK or Software-Development-Kit-Methode erneut.
+Wenn Sie feststellen, dass der Datentyp nicht mit dem beabsichtigten Format über alle Nutzerprofile hinweg übereinstimmt, entfernen Sie den falsch formatierten Wert aus den betroffenen Nutzerprofilen und senden Sie das Attribut im korrekten Format über die entsprechende API-Anfrage oder SDK-Methode erneut.
 
 ## Segmentierungsverhalten bei Objekt-Arrays {#segmentation-behavior-with-arrays-of-objects}
 
@@ -436,7 +436,7 @@ Wenn alle Bedingungen auf dasselbe Element innerhalb eines Arrays zutreffen müs
 
 ## Datenpunkte {#data-points}
 
-Jeder gesendete Schlüssel verbraucht einen Datenpunkt. Zum Beispiel zählt dieses im Kundenprofil or Nutzerprofil initialisierte Objekt als sieben (7) Datenpunkte:
+Jeder gesendete Schlüssel verbraucht einen Datenpunkt. Zum Beispiel zählt dieses im Kundenprofil initialisierte Objekt als sieben (7) Datenpunkte:
 
 ```json
 {
@@ -460,5 +460,5 @@ Jeder gesendete Schlüssel verbraucht einen Datenpunkt. Zum Beispiel zählt dies
 ```
 
 {% alert note %}
-Das Update or aktualisieren or aktualisieren eines angepassten Attribut-Objekts auf `null` verbraucht ebenfalls einen Datenpunkt.
+Das Aktualisieren eines angepassten Attribut-Objekts auf `null` verbraucht ebenfalls einen Datenpunkt.
 {% endalert %}
