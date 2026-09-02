@@ -18,6 +18,7 @@ You can use CSV import to record and update the following user attributes and cu
 |Default Attributes|Reserved user attributes recognized by Braze.|`first_name`, `email`|500 MB|
 |Custom Attributes|User attributes unique to your business.|`last_destination_searched`|500 MB|
 |Custom Events|Events unique to your business that represent user actions.|`trip_booked`|50 MB|
+|Recommended Events|Standardized custom events with defined schemas and specialized processing.|`ecommerce.order_placed`|50 MB|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="About CSV import" }
 
 ## Using CSV import
@@ -40,7 +41,8 @@ The CSV file you import needs a dedicated identifier. Choose one of the followin
 When importing your customer data, you can use an `external_id` to serve as each customer’s unique identifier. When you provide an `external_id` in your import, Braze updates any existing user with the same `external_id` or creates a newly identified user with that `external_id` set if one is not found.
 
 - Download: [CSV Attributes Import Template: External ID]({{site.baseurl}}/assets/download_file/braze-user-import-template-csv.xlsx?3aafd0c03634ac03f248b3055fbc3126)
-- Download: [CSV Events Import Template: External ID](https://braze.com/unlisted_docs/assets/download_file/braze-csv-events-import-template.csv?3b64ea284baa9a21cfe0a7ab4b46fce4)
+- Download: [CSV Custom Events Import Template: External ID]({{site.baseurl}}/assets/download_file/braze-csv-events-import-template.csv?3b64ea284baa9a21cfe0a7ab4b46fce4)
+- Download: [CSV Recommended Events Import Template: External ID]({{site.baseurl}}/assets/download_file/braze-csv-recommended-events-import-template.csv)
 
 {% alert note %} 
 If you’re uploading a mix of users with an `external_id` and users without, you need to create one CSV for each import. One CSV can’t contain both `external_id` and user aliases.
@@ -286,6 +288,95 @@ In this example:
 - Each event only populates its relevant property columns, leaving other event property columns blank
 
 {% endtab %}
+
+<!-- TAB -->
+{% tab recommended events %}
+#### Required identifiers {#required-identifiers-recommended-events}
+
+While `external_id` is not required, you **must** include **one** of the following identifiers as a header in your CSV file. For details about each one, review [Choose an identifier](#choose-an-identifier).
+
+- `external_id`
+- `braze_id`
+- `user_alias_name` **and** `user_alias_label`
+- `email`
+- `phone`
+
+#### Recommended event fields
+
+In addition to the following, your CSV must also contain additional column headers for recommended event properties depending on the recommended event you are trying to import. These properties should have a column header of `<event_name>.properties.<property_name>.`
+
+For example, the recommended event `ecommerce.order_placed` must have the properties `order_id` and `total_value`, amongst others. These can be imported by having the column headers `order_placed.properties.order_id` and `order_placed.properties.total_value`. For a full list of recommended event properties, see [Recommended event schemas]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#event-schemas).
+
+| User Profile Field | Data Type | Information | Required? |
+| :---- | :---- | :---- | :---- |
+| `external_id` | String | A unique user identifier for your user. | Conditionally. See [Required identifiers](#required-identifiers-custom-events). |
+| `braze_id` | String | A Braze assigned identifier for your user. | Conditionally. See [Required identifiers](#required-identifiers-custom-events). |
+| `user_alias_name` | String | A unique user identifier for anonymous users, that's an alternative to `external_id`. Must be used with `user_alias_label`. | Conditionally. See [Required identifiers](#required-identifiers-custom-events). |
+| `user_alias_label` | String | A common label by which to group user aliases. Must be used with `user_alias_name`. | Conditionally. See [Required identifiers](#required-identifiers-custom-events). |
+| `email` | String | The email of your users as they have indicated (for example, `jane.doe@braze.com`). | No, and can only be used in the absence of other identifiers. See the following note. |
+| `phone` | String | A telephone number as indicated by your users, in `E.164` format (for example, `+442071838750`). Refer to [User Phone Numbers]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/) for formatting guidance. | No, and can only be used in the absence of other identifiers. See the following note. |
+| `name` | String | A custom event of your users. | Yes |
+| `time` | String | The time of the event. May be passed in one of the following ISO-8601 formats: "YYYY-MM-DD" "YYYY-MM-DDTHH:MM:SS+00:00" "YYYY-MM-DDTHH:MM:SSZ" "YYYY-MM-DDTHH:MM:SS" (for example, 2019-11-20T18:38:57) | Yes |
+| `<event_name>.properties.<property_name>` or `<property_name>`| Multiple | An event property associated with a recommended event. An example is `order_placed.properties.order_id` or `order_id`. | Conditionally. See [Recommended event schemas]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#event-schemas). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Custom event fields" }
+
+#### Format requirements for recommended events
+
+When importing recommended events using CSV, you must format your file according to the following requirements for a successful data import. **It is recommended to include only one event type per file**. 
+
+##### Understanding recommended event formatting
+
+It is important to correctly format your recommended events CSV with proper headers so each identified property is mapped to the correct event property. If the format is incorrect, events may be dropped or the import may fail, especially when multiple event types are included in one file.
+
+##### Using dot notation for event properties
+
+Although not required when using the data mapper, dot notation can be used to define the hierarchical relationship between an event and its properties. This formatting convention allows you to import structured event data that includes specific attributes for each event.
+
+The dot notation format follows this structure: `event_name.properties.property_name`
+
+Dot notation works in the following sequence:
+
+1. The event name comes first
+2. Followed by `.properties.` to indicate that what follows is an event property
+3. Finally, the specific property name
+
+**Example:**
+
+For the recommended event `order_placed` with required properties `order_id` and `total_value`, your CSV column headers would be:
+
+- `order_placed.properties.order_id`
+- `order_placed.properties.total_value`
+
+This notation tells Braze to associate the event `order_placed` with the properties `order_id` and `total_value`.
+
+##### Recommended event groupings for nested properties
+
+Recommended events have a defined schema, with certain events such as `order_placed` having a required property that is an array type. The required property `products` for the event `order_placed`, is an array of objects, with each nested object also containing its own set of required subproperties.
+
+The recommended events CSV supports grouping multiple rows that have the same identifier, event name and time, so long as the rows are not separated in the file. This enables the use of sequential rows to populate values for nested subproperties. When formatting your file, it is important to **only populate extra rows with the identifier, event name, time and relevant subproperties**. You do not need to repeat the top-level property values for every row. 
+
+#### Metadata and optional properties
+
+Although recommended events have a defined schema (see [Recommended event schemas]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#event-schemas)), it is possible to map and import optional properties such as `image_url` for the `products` array property, or push additional properties as-is into the top-level `metadata` property, the products-level `metadata` subproperty, or into the `discounts` property array. After mapping all required properties, click **Load optional properties** to load and map additional properties. 
+
+
+##### Example CSV structure
+
+The following example demonstrates the correct formatting for importing recommended events with required properties and subproperties. This example shows three users, each placing one order with two distinct products.
+
+![Recommended events formatting example.]({% image_buster /assets/img/csv_import/csv_recommended_events_format.png %})
+
+In this example:
+
+- Orders are identified and grouped by having the same identifer, event name and time, with all relevant rows in sequence
+- Users `user_101`, `user_102` and `user_103` each triggered the `order_placed` event with the required properties and subproperties
+- The orders for users `user_101` and `user_102` have metadata that will be added to the `discounts` property array 
+
+{% alert important %}
+When a row contains data for a specific event, only populate the columns for that event's properties. Leave the columns for other events blank.
+{% endalert %}
+
+{% endtab %}
 {% endtabs %}
 
 ### Step 4: Upload your file
@@ -300,13 +391,10 @@ Before you upload your CSV file, rename it to the import name you want to see in
 The file preview shows only the first few rows of your file. To check every row before importing, use [file validation](#file-validation).
 {% endalert %}
 
-{% alert important %}
-CSV user imports are available to download from the dashboard for 14 days after upload. After this period, the file is deleted from storage and is no longer accessible.
-{% endalert %}
 
 ### Step 5: Map your fields {#csv-data-mapping}
 
-After the preview, you can map your CSV headers to Braze attributes, events, or event properties. Braze automatically maps fields in your CSV file to attributes, events, or event properties with identical names, and creates new fields where necessary. You’ll also have the flexibility to manually adjust suggestions or select different attributes, events, or properties.
+After the preview, you can map your CSV headers to Braze attributes, events, or event properties. Braze automatically maps fields in your CSV file to attributes, events, or event properties with identical names and casing, and creates new fields where necessary. You’ll also have the flexibility to manually adjust suggestions or select different attributes, events, or properties.
 
 For event properties, Braze detects properties and associates them with relevant events based on whether a CSV cell contains a non-null value, or from headers that use dot notation in the format `<event name>.properties.<property name>`.
 
@@ -329,13 +417,13 @@ The mapping status column indicates the action that occurs when your CSV file is
 
 #### Editing new attributes, events, and properties
 
-When a matching attribute, event, or event property does not exist in your workspace, Braze attempts to create a new attribute, event, or property on import using the name of the CSV field and the detected data type. You can edit this new field before import by selecting the **Edit new attribute**, **Edit new event**, or **Edit new property** button next to the mapping status.
+When a matching attribute, event, or event property does not exist in your workspace, Braze attempts to create a new attribute, event, or property on import using the name of the CSV field and the detected data type. You can edit this new field before import by selecting the **Edit new attribute**, **Edit new event**, or **Edit new property** button next to the mapping status. Recommended events do not support the creation and editing of new properties. Since recommended events have a defined schema, you will only be permitted to map to an existing optional property or subproperty, or push into a metadata property as-is.
 
 ![The edit new attribute button on the column mapping page.]({% image_buster /assets/img/csv_import/column_mapping_edit_attribute_button.png %})
 
 
 {% alert note %}
-You can't proceed beyond the mapping step until an identifier is mapped. Braze automatically maps an identifier when possible. For custom events, you must also map the `name` and `time` columns. Refer to the **Required fields** section for more information.
+You can't proceed beyond the mapping step until an identifier is mapped. Braze automatically maps an identifier when possible. For custom events and recommended events, you must also map the `name` and `time` columns. Refer to the **Required fields** section for more information.
 {% endalert %}
 
 ### Step 6: Choose targeting preferences {#targeting-preferences}
@@ -399,8 +487,8 @@ After starting your import, you can check its status on the **Import Users** pag
 
 | Status | Description |
 |---|---|
-| **Complete** | All rows imported successfully. |
-| **Partial success** | Some rows failed. Select the three-dot menu next to the import to download an error report or the original uploaded CSV. |
+| **Complete** | All records imported successfully. |
+| **Partial success** | Some records failed. Select the three-dot menu next to the import to download an error report or the original uploaded CSV. |
 | **In progress** | The import is currently running. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Import statuses" }
 
@@ -501,6 +589,10 @@ Values encapsulated in single (`''`) or double (`""`) quotation marks will be re
 #### Incorrectly formatted dates
 
 Dates not in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format won't be read as `datetimes` on import.
+
+#### Ungrouped rows for Recommended Events
+
+Recommended events support nested properties and subproperties by using a combination of identical key values (identifier, event name and time), and sequential rows. If a related row does not share the same key values or is not in sequence (separated by one or more rows in between), subsequent rows will be treated as a separate event. 
 
 ### Data structure issues
 
