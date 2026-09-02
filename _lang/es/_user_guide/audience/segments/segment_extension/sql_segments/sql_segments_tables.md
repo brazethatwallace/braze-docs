@@ -1480,7 +1480,7 @@ Campo | Tipo | Descripción
 `link_alias` | `null,`&nbsp;`string` | Alias asociado con este ID de enlace
 `esp` | `null,`&nbsp;`string` | ESP relacionado con el evento (SparkPost, SendGrid o Amazon SES)
 `from_domain` | `null,`&nbsp;`string` | Dominio de envío del correo electrónico
-`is_amp` | `null, boolean` | Indica que se trata de un evento AMP
+`is_amp` | `null, boolean` | Indica que se trata de un evento páginas móviles aceleradas
 `app_group_id` | `null,`&nbsp;`string` | ID BSON del grupo de aplicaciones al que pertenece este usuario
 `is_suspected_bot_click` | `null, boolean` | Si este evento fue procesado como un evento de bot
 `suspected_bot_click_reason` | `null, object` | Por qué este evento fue clasificado como bot
@@ -1510,7 +1510,7 @@ Campo | Tipo | Descripción
 `dispatch_id` | `null,`&nbsp;`string` | ID del envío al que pertenece este mensaje
 `email_address` | `null,`&nbsp;`string` | [PII] Dirección de correo electrónico del usuario
 `recipient_domain` | `null,`&nbsp;`string` | Dominio de correo electrónico del destinatario
-`esp` | `null,`&nbsp;`string` | ESP relacionado con el evento (Sparkpost, Sendgrid o Amazon SES)
+`esp` | `null,`&nbsp;`string` | ESP relacionado con el evento (Sparkpost, SendGrid o Amazon SES)
 `from_domain` | `null,`&nbsp;`string` | Dominio de envío del correo electrónico
 `ip_pool` | `null,`&nbsp;`string` | Pool de IP desde el que se realizó el envío de correo electrónico
 `sending_ip` | `null,`&nbsp;`string` | Dirección IP desde la que se realizó el envío de correo electrónico
@@ -1613,10 +1613,10 @@ Campo | Tipo | Descripción
 `email_address` | `string` | [PII] Dirección de correo electrónico del usuario
 `user_agent` | `null,`&nbsp;`string` | Agente de usuario en el que ocurrió la apertura
 `ip_pool` | `null,`&nbsp;`string` | Pool de IP desde el que se realizó el envío de correo electrónico
-`machine_open` | `null,`&nbsp;`string` | Se establece como 'true' si el evento de apertura se activó sin interacción del usuario, por ejemplo, por un dispositivo Apple con la protección de la privacidad en los correos electrónicos habilitada. El valor puede cambiar con el tiempo para proporcionar mayor granularidad.
+`machine_open` | `null,`&nbsp;`string` | Se establece como 'true' si el evento de apertura se activó sin interacción del usuario, por ejemplo, por un dispositivo Apple con la MPP habilitada. El valor puede cambiar con el tiempo para proporcionar mayor granularidad.
 `esp` | `null,`&nbsp;`string` | ESP relacionado con el evento (SparkPost, SendGrid o Amazon SES)
 `from_domain` | `null,`&nbsp;`string` | Dominio de envío del correo electrónico
-`is_amp` | `null, boolean` | Indica que se trata de un evento AMP
+`is_amp` | `null, boolean` | Indica que se trata de un evento páginas móviles aceleradas
 `app_group_id` | `null,`&nbsp;`string` | ID BSON del grupo de aplicaciones al que pertenece este usuario
 `sf_created_at` | `timestamp`,&nbsp;`null` | Momento en que este evento fue recogido por Snowpipe
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESEMAILOPENSHARED #USERSMESSAGESEMAILOPENSHARED" }
@@ -3145,8 +3145,8 @@ Campo | Tipo | Descripción
 `dispatch_id` | `null,`&nbsp;`string` | ID del envío al que pertenece este mensaje
 `sf_created_at` | `timestamp`,&nbsp;`null` | Momento en que Snowpipe recogió este evento
 `send_id` | `null,`&nbsp;`string` | ID de envío del mensaje al que pertenece este mensaje
-`flow_id` | `null,`&nbsp;`string` | ID único del Flow en WhatsApp Manager. Presente si el usuario está respondiendo a un WhatsApp Flow.
-`template_name` | `null,`&nbsp;`string` | [PII] Nombre de la plantilla en WhatsApp Manager. Presente si se envía un mensaje de plantilla
+`flow_id` | `null,`&nbsp;`string` | ID único del Flow en WhatsApp Administrador. Presente si el usuario está respondiendo a un WhatsApp Flow.
+`template_name` | `null,`&nbsp;`string` | [PII] Nombre de la plantilla en WhatsApp Administrador. Presente si se envía un mensaje de plantilla
 `message_id` | `null,`&nbsp;`string` | ID único generado por Meta para este mensaje
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWHATSAPPDELIVERYSHARED #USERSMESSAGESWHATSAPPDELIVERYSHARED" }
 
@@ -3179,8 +3179,8 @@ Campo | Tipo | Descripción
 `sf_created_at` | `timestamp`,&nbsp;`null` | Momento en que Snowpipe recogió este evento
 `send_id` | `null,`&nbsp;`string` | ID de envío del mensaje al que pertenece este mensaje
 `message_id` | `null,`&nbsp;`string` | ID único generado por Meta para este mensaje
-`template_name` | `null,`&nbsp;`string` | [PII] Nombre de la plantilla en WhatsApp Manager. Presente si se envía un mensaje de plantilla
-`flow_id` | `null,`&nbsp;`string` | ID único del Flow en WhatsApp Manager. Presente si el usuario está respondiendo a un WhatsApp Flow.
+`template_name` | `null,`&nbsp;`string` | [PII] Nombre de la plantilla en WhatsApp Administrador. Presente si se envía un mensaje de plantilla
+`flow_id` | `null,`&nbsp;`string` | ID único del Flow en WhatsApp Administrador. Presente si el usuario está respondiendo a un WhatsApp Flow.
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWHATSAPPFAILURESHARED #USERSMESSAGESWHATSAPPFAILURESHARED" }
 
 ### USERS_MESSAGES_WHATSAPP_INBOUNDRECEIVE_SHARED {#USERS_MESSAGES_WHATSAPP_INBOUNDRECEIVE_SHARED}
@@ -3213,7 +3213,7 @@ Campo | Tipo | Descripción
 `sf_created_at` | `timestamp`,&nbsp;`null` | Momento en que Snowpipe recogió este evento
 `catalog_id` | `null,`&nbsp;`string` | ID de catálogo de un producto si se hace referencia a un producto en el mensaje entrante. De lo contrario, vacío.
 `product_id` | `null,`&nbsp;`string` | ID del producto comprado
-`flow_id` | `null,`&nbsp;`string` | ID único del Flow en WhatsApp Manager. Presente si el usuario está respondiendo a un WhatsApp Flow.
+`flow_id` | `null,`&nbsp;`string` | ID único del Flow en WhatsApp Administrador. Presente si el usuario está respondiendo a un WhatsApp Flow.
 `flow_response_json` | `null,`&nbsp;`string` | [PII] Valores del formulario con los que respondió el usuario. Presente si el usuario está respondiendo a un WhatsApp Flow.
 `message_id` | `null,`&nbsp;`string` | ID único generado por Meta para este mensaje
 `in_reply_to` | `null,`&nbsp;`string` | El message_id del mensaje al que este mensaje estaba respondiendo
@@ -3245,9 +3245,9 @@ Campo | Tipo | Descripción
 `dispatch_id` | `null,`&nbsp;`string` | ID del envío al que pertenece este mensaje
 `sf_created_at` | `timestamp`,&nbsp;`null` | Momento en que Snowpipe recogió este evento
 `send_id` | `null,`&nbsp;`string` | ID de envío del mensaje al que pertenece este mensaje
-`template_name` | `null,`&nbsp;`string` | [PII] Nombre de la plantilla en WhatsApp Manager. Presente si se envía un mensaje de plantilla
+`template_name` | `null,`&nbsp;`string` | [PII] Nombre de la plantilla en WhatsApp Administrador. Presente si se envía un mensaje de plantilla
 `message_id` | `null,`&nbsp;`string` | ID único generado por Meta para este mensaje
-`flow_id` | `null,`&nbsp;`string` | ID único del Flow en WhatsApp Manager. Presente si el usuario está respondiendo a un WhatsApp Flow.
+`flow_id` | `null,`&nbsp;`string` | ID único del Flow en WhatsApp Administrador. Presente si el usuario está respondiendo a un WhatsApp Flow.
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWHATSAPPREADSHARED #USERSMESSAGESWHATSAPPREADSHARED" }
 
 ### USERS_MESSAGES_WHATSAPP_SEND_SHARED {#USERS_MESSAGES_WHATSAPP_SEND_SHARED}
@@ -3277,8 +3277,8 @@ Campo | Tipo | Descripción
 `message_extras` | `null,`&nbsp;`string` | [PII] Cadena JSON de los pares clave-valor etiquetados durante el renderizado con Liquid
 `sf_created_at` | `timestamp`,&nbsp;`null` | Momento en que Snowpipe recogió este evento
 `send_id` | `null,`&nbsp;`string` | ID de envío del mensaje al que pertenece este mensaje
-`flow_id` | `null,`&nbsp;`string` | ID único del Flow en WhatsApp Manager. Presente si el usuario está respondiendo a un WhatsApp Flow.
-`template_name` | `null,`&nbsp;`string` | [PII] Nombre de la plantilla en WhatsApp Manager. Presente si se envía un mensaje de plantilla
+`flow_id` | `null,`&nbsp;`string` | ID único del Flow en WhatsApp Administrador. Presente si el usuario está respondiendo a un WhatsApp Flow.
+`template_name` | `null,`&nbsp;`string` | [PII] Nombre de la plantilla en WhatsApp Administrador. Presente si se envía un mensaje de plantilla
 `message_id` | `null,`&nbsp;`string` | ID único generado por Meta para este mensaje
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWHATSAPPSENDSHARED #USERSMESSAGESWHATSAPPSENDSHARED" }
 

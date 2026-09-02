@@ -21,7 +21,7 @@ WhatsAppでユーザーに初めてメッセージを送信すると、メッセ
 ![ビジネスをブロックまたは報告するオプションが表示されたWhatsAppメッセージスレッド]({% image_buster /assets/img/whatsapp/whatsapp_block_report.png %}){: style="max-width:30%;"}
 
 {% alert note %}
-ブロックや報告に関する指標を確認するには、WhatsApp Managerで[インサイトタブ](https://www.facebook.com/business/help/683499390267496)がオンになっていることを確認してください。
+ブロックや報告に関する指標を確認するには、WhatsApp マネージャーで[インサイトタブ](https://www.facebook.com/business/help/683499390267496)がオンになっていることを確認してください。
 {% endalert %}
 
 ブロックや報告の高率化を回避するために、Brazeでは高い電話品質評価と安定したメッセージング制限を維持するための以下のベストプラクティスを推奨しています。

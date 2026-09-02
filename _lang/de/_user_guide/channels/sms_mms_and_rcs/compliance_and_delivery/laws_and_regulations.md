@@ -35,7 +35,7 @@ Beachten Sie beim Versand von Nachrichten die folgenden Regeln:
 
 3. **Halten Sie wesentliche Informationen aktuell und sichtbar.** Stellen Sie sicher, dass die aktuellste Version der Allgemeinen Geschäftsbedingungen Ihrer Marke und Ihrer SMS-/MMS-/RCS-Marketing-Datenschutzrichtlinie auf Ihrer Opt-in-Seite klar sichtbar und leicht zugänglich ist.<br><br>
 
-4. **Senden Sie SMS, MMS oder RCS nur an rechtmäßig erhaltene, eingewilligte Telefonnummern.** Im Rahmen der technischen Migrationsplanung stellen Sie sicher, dass Ihr Team den Mechanismus versteht, mit dem Opt-in-Status mit jedem einzelnen Nutzerprofil in Ihrer Customer-Engagement-Plattform verknüpft werden.<br><br>
+4. **Senden Sie SMS, MMS oder RCS nur an rechtmäßig erhaltene, eingewilligte Telefonnummern.** Im Rahmen der technischen Migrationsplanung stellen Sie sicher, dass Ihr Team den Mechanismus versteht, mit dem Opt-in-Status mit jedem einzelnen Kundenprofil in Ihrer Customer-Engagement-Plattform verknüpft werden.<br><br>
 
 5. **Stellen Sie die SHAFT-Compliance in den USA und anderen relevanten Regionen sicher.** Das Senden von SMS-, MMS- oder RCS-Nachrichten mit Inhalten zu den Themen Sex, Hass, Alkohol, Schusswaffen und Tabak (SHAFT) gilt in den USA und einigen anderen Regionen generell als illegal.<br><br>
 

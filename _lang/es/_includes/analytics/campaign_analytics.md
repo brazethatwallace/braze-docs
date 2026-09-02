@@ -123,40 +123,40 @@ El número de actualizaciones de la campaña por parte de otros miembros de tu e
 <!--
 ### Message Performance
 
-The **Message Performance** panel outlines how well your message has performed across various dimensions. The metrics in this panel vary depending on your chosen messaging channel, and whether or not you are running a multivariate test. You can click on the <i class="fa fa-eye preview-icon"></i> **Preview** icon to view your message for each variant or channel.
+The **Message Performance** panel outlines how well your message has performed across various dimensions. The metrics in this panel vary depending on your chosen messaging channel, and whether or not you are running a multivariate test. You can click on the <i class="fa fa-eye vista previa-icon"></i> **vista previa** icon to view your message for each variant or channel.
 -->
 {% if include.channel == "Content Card" %}
 ### Rendimiento de la tarjeta de contenido {#content-card-performance}
 
-El panel **Content Card Performance** muestra el rendimiento de tu mensaje en varias dimensiones. Las métricas de este panel varían en función del canal de mensajería elegido y de si estás realizando o no una prueba multivariante. Puedes hacer clic en el icono <i class="fa fa-eye preview-icon"></i> **Preview** para ver tu mensaje para cada variante o canal.
+El panel **Content Card Performance** muestra el rendimiento de tu mensaje en varias dimensiones. Las métricas de este panel varían en función del canal de mensajería elegido y de si estás realizando o no una prueba multivariante. Puedes hacer clic en el icono <i class="fa fa-eye vista previa-icon"></i> **vista previa** para ver tu mensaje para cada variante o canal.
 
 ![Análisis del rendimiento de los mensajes de las tarjetas de contenido]({% image_buster /assets/img/cc-message-performance.png %})
 
 {% elsif include.channel == "email" %}
 ### Rendimiento del correo electrónico {#email-performance}
 
-El panel **Email Performance** muestra el rendimiento de tu mensaje en varias dimensiones. Las métricas de este panel varían en función del canal de mensajería elegido y de si estás realizando o no una prueba multivariante. Puedes seleccionar el icono <i class="fa fa-eye preview-icon"></i> **Preview** para ver tu mensaje para cada variante o canal.
+El panel **Email Performance** muestra el rendimiento de tu mensaje en varias dimensiones. Las métricas de este panel varían en función del canal de mensajería elegido y de si estás realizando o no una prueba multivariante. Puedes seleccionar el icono <i class="fa fa-eye vista previa-icon"></i> **vista previa** para ver tu mensaje para cada variante o canal.
 
 ![Análisis del rendimiento de los mensajes de correo electrónico]({% image_buster /assets/img_archive/email_message_performance.png %})
 
 {% elsif include.channel == "in-app message" %}
 ### Rendimiento de los mensajes dentro de la aplicación {#in-app-message-performance}
 
-El panel **In-App Message Performance** muestra el rendimiento de tu mensaje en varias dimensiones. Las métricas de este panel varían en función del canal de mensajería elegido y de si estás realizando o no una prueba multivariante. Puedes hacer clic en el icono <i class="fa fa-eye preview-icon"></i> **Preview** para ver tu mensaje para cada variante o canal.
+El panel **In-App Message Performance** muestra el rendimiento de tu mensaje en varias dimensiones. Las métricas de este panel varían en función del canal de mensajería elegido y de si estás realizando o no una prueba multivariante. Puedes hacer clic en el icono <i class="fa fa-eye vista previa-icon"></i> **vista previa** para ver tu mensaje para cada variante o canal.
 
 ![Análisis del rendimiento de los mensajes dentro de la aplicación]({% image_buster /assets/img_archive/iam_message_performance.png %})
 
 {% elsif include.channel == "push" %}
 ### Rendimiento de push {#push-performance}
 
-El panel **Push Performance** muestra el rendimiento de tu mensaje en varias dimensiones. Las métricas de este panel varían en función del canal de mensajería elegido y de si estás realizando o no una prueba multivariante. Puedes hacer clic en el icono <i class="fa fa-eye preview-icon"></i> **Preview** para ver tu mensaje para cada variante o canal.
+El panel **Push Performance** muestra el rendimiento de tu mensaje en varias dimensiones. Las métricas de este panel varían en función del canal de mensajería elegido y de si estás realizando o no una prueba multivariante. Puedes hacer clic en el icono <i class="fa fa-eye vista previa-icon"></i> **vista previa** para ver tu mensaje para cada variante o canal.
 
 ![Análisis del rendimiento de los mensajes push]({% image_buster /assets/img_archive/push_message_performance.png %})
 
 {% elsif include.channel == "SMS" %}
 ### Rendimiento de SMS/MMS/RCS {#smsmmsrcs-performance}
 
-El panel **SMS/MMS/RCS Performance** muestra el rendimiento de tu mensaje en varias dimensiones. Las métricas de este panel varían en función del canal de mensajería elegido y de si estás realizando o no una prueba multivariante. Puedes hacer clic en el icono <i class="fa fa-eye preview-icon"></i> **Preview** para ver tu mensaje para cada variante o canal.
+El panel **SMS/MMS/RCS Performance** muestra el rendimiento de tu mensaje en varias dimensiones. Las métricas de este panel varían en función del canal de mensajería elegido y de si estás realizando o no una prueba multivariante. Puedes hacer clic en el icono <i class="fa fa-eye vista previa-icon"></i> **vista previa** para ver tu mensaje para cada variante o canal.
 
 ![Panel de rendimiento de SMS/MMS/RCS que incluye una tabla de métricas para un grupo de control, la variante 1 y la variante 2.]({% image_buster /assets/img_archive/sms_message_performance.png %})
 
@@ -170,19 +170,19 @@ El panel **Banner Performance** muestra el rendimiento de tu mensaje en varias d
 {% elsif include.channel == "KakaoTalk" %}
 ### Rendimiento de KakaoTalk {#kakaotalk-performance}
 
-El panel **KakaoTalk Performance** muestra el rendimiento de tu mensaje en varias dimensiones. Las métricas de este panel varían en función del canal de mensajería elegido y de si estás realizando o no una prueba multivariante. Puedes hacer clic en el icono <i class="fa fa-eye preview-icon"></i> **Preview** para ver tu mensaje para cada variante o canal.
+El panel **KakaoTalk Performance** muestra el rendimiento de tu mensaje en varias dimensiones. Las métricas de este panel varían en función del canal de mensajería elegido y de si estás realizando o no una prueba multivariante. Puedes hacer clic en el icono <i class="fa fa-eye vista previa-icon"></i> **vista previa** para ver tu mensaje para cada variante o canal.
 
 {% elsif include.channel == "webhook" %}
 ### Rendimiento del webhook {#webhook-performance}
 
-El panel **Webhook Performance** muestra el rendimiento de tu mensaje en varias dimensiones. Las métricas de este panel varían en función del canal de mensajería elegido y de si estás realizando o no una prueba multivariante. Puedes hacer clic en el icono <i class="fa fa-eye preview-icon"></i> **Preview** para ver tu mensaje para cada variante o canal.
+El panel **Webhook Performance** muestra el rendimiento de tu mensaje en varias dimensiones. Las métricas de este panel varían en función del canal de mensajería elegido y de si estás realizando o no una prueba multivariante. Puedes hacer clic en el icono <i class="fa fa-eye vista previa-icon"></i> **vista previa** para ver tu mensaje para cada variante o canal.
 
 ![Panel de rendimiento de webhooks que incluye una tabla de métricas para un grupo de control y la variante 1.]({% image_buster /assets/img/webhook_message_performance.png %})
 
 {% elsif include.channel == "whatsapp" %}
 ### Rendimiento de WhatsApp {#whatsapp-performance}
 
-El panel **WhatsApp Performance** muestra el rendimiento de tu mensaje en varias dimensiones. Las métricas de este panel varían en función del canal de mensajería elegido y de si estás realizando o no una prueba multivariante. Puedes hacer clic en el icono <i class="fa fa-eye preview-icon"></i> **Preview** para ver tu mensaje para cada variante o canal.
+El panel **WhatsApp Performance** muestra el rendimiento de tu mensaje en varias dimensiones. Las métricas de este panel varían en función del canal de mensajería elegido y de si estás realizando o no una prueba multivariante. Puedes hacer clic en el icono <i class="fa fa-eye vista previa-icon"></i> **vista previa** para ver tu mensaje para cada variante o canal.
 
 ![Panel de rendimiento de WhatsApp que incluye una tabla de métricas para la variante 1.]({% image_buster /assets/img/whatsapp_message_performance.png %})
 
@@ -201,7 +201,7 @@ Si quieres simplificar la vista, haz clic en <i class="fas fa-plus"></i> **Add/R
 
 #### Mapas de calor {#heatmaps}
 
-Con los mapas de calor, puedes ver el éxito de los distintos enlaces de una misma campaña de correo electrónico. En la sección **Message Analytics**, ve al panel **Email Performance**. Selecciona **Preview & Heatmap** para ver una vista previa de tu campaña de correo electrónico y el mapa de calor. También puedes seleccionar el hipervínculo del nombre de la variante para ver el mapa de calor.
+Con los mapas de calor, puedes ver el éxito de los distintos enlaces de una misma campaña de correo electrónico. En la sección **Message Analytics**, ve al panel **Email Performance**. Selecciona **vista previa & Heatmap** para ver una vista previa de tu campaña de correo electrónico y el mapa de calor. También puedes seleccionar el hipervínculo del nombre de la variante para ver el mapa de calor.
 
 {% alert note %}
 Los análisis de campaña muestran datos de clics para un máximo de 100 URL únicas por variante, ordenadas por clics totales. Las URL se agrupan por su forma normalizada, que no incluye parámetros de consulta. Si una variante tiene más de 100 URL normalizadas únicas, solo se muestran las 100 principales por número de clics. Los datos de clics de las URL que superan este límite siguen existiendo, pero no aparecerán en el panel ni en el mapa de calor. Cuando el aliasing de enlaces está habilitado, los clics se rastrean por ID de enlace en lugar de por URL sin procesar, lo que normalmente da como resultado menos entradas únicas y hace que sea menos probable alcanzar este límite.
@@ -213,7 +213,7 @@ En esta vista, puedes usar la opción **Show Heatmap** para obtener una vista vi
 Si los enlaces utilizan Liquid para URL dinámicas, las URL en las que se hizo clic pueden no coincidir lo suficiente con el enlace renderizado en el mensaje como para que el mapa de calor asocie los clics con ese enlace, por lo que esos enlaces podrían no aparecer en el mapa de calor. Para atribuir los datos de clics a los enlaces con plantillas en el mapa de calor, utiliza el [aliasing de enlaces]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing). Para obtener una imagen completa, utiliza los datos de clics del panel **Link Table by Total Clicks**.
 {% endalert %}
 
-![Ejemplo de la página Preview & Heatmap que incluye una campaña de correo electrónico y un panel con ejemplos de alias de enlaces con su total de clics.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
+![Ejemplo de la página vista previa & Heatmap que incluye una campaña de correo electrónico y un panel con ejemplos de alias de enlaces con su total de clics.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
 
 ##### Clics de cancelación de suscripción en el mapa de calor frente a análisis de campaña {#heatmap-unsubscribe-clicks-versus-campaign-analytics}
 
@@ -358,7 +358,7 @@ Para obtener las definiciones completas de todas las métricas de banners, consu
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#primary-conversions">Primary Conversions</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or Primary Conversion Event' %}</td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or conversión primaria Event' %}</td>
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-daily-impressions">Unique Daily Impressions</a></td>

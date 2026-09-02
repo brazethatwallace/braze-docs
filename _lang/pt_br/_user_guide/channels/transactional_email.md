@@ -15,7 +15,7 @@ description: "Envie e-mails de transação para notificações críticas e urgen
 
 ## Pré-requisitos {#prerequisites}
 
-O e-mail de transação está disponível apenas como parte de pacotes selecionados da Braze. Entre em contato com o seu gerente de sucesso do cliente da Braze ou abra um [ticket de suporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) para mais detalhes.
+O e-mail de transação está disponível apenas como parte de pacotes selecionados da Braze. Entre em contato com o seu CSM da Braze ou abra um [ticket de suporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) para mais detalhes.
 
 Antes de começar, verifique se você tem o seguinte:
 

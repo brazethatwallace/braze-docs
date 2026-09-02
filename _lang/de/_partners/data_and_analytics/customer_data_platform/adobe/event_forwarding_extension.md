@@ -40,7 +40,7 @@ Um das Edge Network mit Braze zu verbinden, benötigen Sie Folgendes:
 
 | Schlüssel-Typ | Beschreibung |
 | --- | --- |
-| Braze-Instanz | Ihre Braze-Instanz erhalten Sie von Ihrem Braze-Onboarding-Manager oder auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics#endpoints). |
+| Braze-Instanz | Ihre Braze-Instanz erhalten Sie von Ihrem Braze-Onboarding-Manager:in oder auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics#endpoints). |
 | Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit allen Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 1: Erforderliche Konfigurationsdetails sammeln" }
 
@@ -92,7 +92,7 @@ Für die Aktion **Braze Send Event** müssen nur ein **Event Name** und eine **E
 {% endtab %}
 {% tab Nutzerattribut %}
 
-Nutzerattribute können ein JSON-Objekt sein, das Felder enthält, mit denen ein Attribut mit dem angegebenen Namen und Wert für das angegebene Nutzerprofil erstellt oder aktualisiert wird. Die folgenden Eigenschaften werden unterstützt:
+Nutzerattribute können ein JSON-Objekt sein, das Felder enthält, mit denen ein Attribut mit dem angegebenen Namen und Wert für das angegebene Kundenprofil erstellt oder aktualisiert wird. Die folgenden Eigenschaften werden unterstützt:
 
 | Nutzerattribut | Beschreibung |
 | --- | --- |
@@ -160,7 +160,7 @@ Für die Aktion **Send Purchase Event** müssen nur `Product ID`, `Purchase Time
 
 In der Konfigurationsansicht können Sie wählen, ob Attribute mit jedem Ereignis gesendet werden sollen.
 
-Nutzerattribute können ein JSON-Objekt sein, das Felder enthält, mit denen ein Attribut mit dem angegebenen Namen und Wert für das angegebene Nutzerprofil erstellt oder aktualisiert wird. Die folgenden Eigenschaften werden unterstützt:
+Nutzerattribute können ein JSON-Objekt sein, das Felder enthält, mit denen ein Attribut mit dem angegebenen Namen und Wert für das angegebene Kundenprofil erstellt oder aktualisiert wird. Die folgenden Eigenschaften werden unterstützt:
 
 | Nutzerattribut | Beschreibung |
 | --- | --- |

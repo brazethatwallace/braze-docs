@@ -278,15 +278,15 @@ Cuando usas una interfaz personalizada, las impresiones, los clics y los descart
 El argumento pasado a `logContentCardClick()` debe ser un objeto `Card` original de Braze. Si transformas o reconstruyes los datos de la tarjeta (por ejemplo, serializando y deserializando), los clics no se registran y verás el error: "card must be a Card object."
 {% endalert %}
 
-## Uso de Google Tag Manager {#using-google-tag-manager}
+## Uso de Google Tag Administrador {#using-google-tag-manager}
 
-Google Tag Manager funciona inyectando el [CDN de Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup#install-cdn) (una versión de nuestro SDK Web) directamente en el código de tu sitio web, lo que significa que todos los métodos del SDK están disponibles igual que si hubieras integrado el SDK sin Google Tag Manager, excepto al implementar Content Cards.
+Google Tag Administrador funciona inyectando el [CDN de Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup#install-cdn) (una versión de nuestro SDK Web) directamente en el código de tu sitio web, lo que significa que todos los métodos del SDK están disponibles igual que si hubieras integrado el SDK sin Google Tag Administrador, excepto al implementar Content Cards.
 
 ### Configuración de Content Cards {#setting-up-content-cards}
 
 {% tabs local %}
-{% tab Google Tag Manager %}
-Para una integración estándar de la fuente de Content Cards, puedes utilizar una etiqueta **Custom HTML** en Google Tag Manager. Añade lo siguiente a tu etiqueta Custom HTML, que activará la fuente estándar de Content Cards:
+{% tab Google Tag Administrador %}
+Para una integración estándar de la fuente de Content Cards, puedes utilizar una etiqueta **Custom HTML** en Google Tag Administrador. Añade lo siguiente a tu etiqueta Custom HTML, que activará la fuente estándar de Content Cards:
 
 ```html
 <script>
@@ -322,11 +322,11 @@ body .ab-feed {
 
 ### Actualización de plantillas {#upgrading}
 
-Para actualizar a la última versión del SDK Web de Braze, sigue los tres pasos siguientes en tu panel de Google Tag Manager:
+Para actualizar a la última versión del SDK Web de Braze, sigue los tres pasos siguientes en tu panel de Google Tag Administrador:
 
 1. **Actualizar plantilla de etiquetas**<br>Ve a la página **Templates** dentro de tu espacio de trabajo. Aquí deberías ver un icono que indica que hay una actualización disponible.<br><br>![Página de plantillas que muestra que hay una actualización disponible]({% image_buster /assets/img/web-gtm/gtm-update-available.png %})<br><br>Haz clic en ese icono y, tras revisar el cambio, haz clic en **Accept Update**.<br><br>![Pantalla que compara las plantillas de etiquetas antigua y nueva con un botón para aceptar la actualización]({% image_buster /assets/img/web-gtm/gtm-accept-update.png %})<br><br>
 2. **Actualizar número de versión**<br>Una vez actualizada tu plantilla de etiquetas, edita la etiqueta de inicialización de Braze y actualiza la versión del SDK a la versión más reciente de `major.minor`. Por ejemplo, si la última versión es `4.1.2`, introduce `4.1`. Puedes ver una lista de las versiones del SDK en nuestro [registro de cambios](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md).<br><br>![Plantilla de inicialización de Braze con un campo de entrada para cambiar la versión del SDK]({% image_buster /assets/img/web-gtm/gtm-version-number.png %})<br><br>
-3. **Control de calidad y publicación**<br>Comprueba que la nueva versión del SDK funciona utilizando la [herramienta de depuración](https://support.google.com/tagmanager/answer/6107056?hl=en) de Google Tag Manager antes de publicar una actualización en tu contenedor de etiquetas.
+3. **Control de calidad y publicación**<br>Comprueba que la nueva versión del SDK funciona utilizando la [herramienta de depuración](https://support.google.com/tagmanager/answer/6107056?hl=en) de Google Tag Administrador antes de publicar una actualización en tu contenedor de etiquetas.
 
 ### Solución de problemas {#troubleshooting}
 
@@ -338,7 +338,7 @@ Cada plantilla de etiqueta de Braze tiene una casilla de verificación opcional 
 
 #### Entrar en modo depuración {#enter-debug-mode}
 
-Otra forma de ayudar a depurar tu integración con Google Tag Manager es utilizar la característica de [modo de vista previa](https://support.google.com/tagmanager/answer/6107056) de Google.
+Otra forma de ayudar a depurar tu integración con Google Tag Administrador es utilizar la característica de [modo de vista previa](https://support.google.com/tagmanager/answer/6107056) de Google.
 
 Esto ayudará a identificar qué valores se envían desde la capa de datos de tu página web a cada etiqueta de Braze desencadenada y también explicará qué etiquetas se desencadenaron o no.
 
@@ -356,10 +356,10 @@ Esto asegura que el SDK esté completamente inicializado antes de que cualquier 
 
 #### Habilitar el registro detallado {#enable-verbose-logging}
 
-Para capturar registros detallados para la solución de problemas, puedes habilitar el registro detallado en tu integración con Google Tag Manager. Estos registros aparecerán en la pestaña **Console** de las [herramientas de desarrollador](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools) de tu navegador.
+Para capturar registros detallados para la solución de problemas, puedes habilitar el registro detallado en tu integración con Google Tag Administrador. Estos registros aparecerán en la pestaña **Console** de las [herramientas de desarrollador](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools) de tu navegador.
 
-En tu integración de Google Tag Manager, navega hasta tu etiqueta de inicialización de Braze y selecciona **Enable Web SDK Logging**.
+En tu integración de Google Tag Administrador, navega hasta tu etiqueta de inicialización de Braze y selecciona **Enable Web SDK Logging**.
 
 ![La página de resumen de la etiqueta de inicialización de Braze con la opción de habilitar el registro del SDK Web activada.]({% image_buster /assets/img/web-gtm/gtm_verbose_logging.png %})
 
-[changelog]: https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md
+[Registro de cambios]: https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md

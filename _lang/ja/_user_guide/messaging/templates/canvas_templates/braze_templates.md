@@ -77,7 +77,7 @@ page_type: reference
 - 「オーディエンス分割」という名前のオーディエンスパスステップで、エンゲージしたユーザーの主要なアクションのカスタマイズを検討してください。テンプレートでは、セグメントフィルターは「ウェルカムメールステップのメールをクリックした」です。
 
 {% endtab %}
-{% tab Post-Purchase Feedback %}
+{% tab Post-Purchase フィードバック %}
 
 ### 購入後のフィードバック {#post-purchase-feedback}
 

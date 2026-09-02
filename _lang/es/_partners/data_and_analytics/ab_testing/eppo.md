@@ -60,6 +60,6 @@ Eppo utiliza estas asignaciones y tablas de hechos para analizar resultados, y s
 
 ## Soporte {#support}
 
-Si tienes preguntas sobre la configuración de Braze Currents, el uso compartido de datos de Snowflake o la configuración de Campaigns multivariantes, contacta a tu administrador de éxito de cliente de Braze.
+Si tienes preguntas sobre la configuración de Braze Currents, el uso compartido de datos de Snowflake o la configuración de Campaigns multivariantes, contacta a tu CSM de Braze.
 
 Para obtener asistencia con la configuración de Eppo para medir experimentos de Braze, contacta al equipo de soporte de Eppo.

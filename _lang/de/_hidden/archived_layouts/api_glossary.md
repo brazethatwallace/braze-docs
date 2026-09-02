@@ -263,7 +263,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 #### PARAMETER-DETAILS
 
-| Nutzerprofil-Feld | Datentyp-Spezifikation |
+| Kundenprofil-Feld | Datentyp-Spezifikation |
 | ---| --- |
 | country | (String) Wir verlangen, dass Ländercodes im [ISO-3166-1-alpha-2-Standard][17] an Braze übergeben werden. |
 | current_location | (Objekt) In der Form {"longitude": -73.991443, "latitude": 40.753824} |
@@ -277,7 +277,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | first_name | (String) |
 | gender | (String) „M“, „F“, „O“ (andere), „N“ (nicht zutreffend), „P“ (möchte ich nicht angeben) oder nil (unbekannt). |
 | home_city | (String) |
-| image_url | (String) URL des Bildes, das mit dem Nutzerprofil verknüpft werden soll. |
+| image_url | (String) URL des Bildes, das mit dem Kundenprofil verknüpft werden soll. |
 | language | (String) Wir verlangen, dass die Sprache im [ISO-639-1-Standard][24] an Braze übergeben wird. <br>[Liste der akzeptierten Sprachen](/docs/user_guide/data_and_analytics/user_data_collection/language_codes/) |
 | last_name | (String) |
 | marked_email_as_spam_at | (String) Datum, an dem die E-Mail der Nutzer:in als Spam markiert wurde. Erscheint im ISO-8601-Format oder im Format yyyy-MM-dd'T'HH:mm:ss:SSSZ. |

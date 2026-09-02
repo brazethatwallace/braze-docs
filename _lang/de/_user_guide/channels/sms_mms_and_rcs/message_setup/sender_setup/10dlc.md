@@ -54,7 +54,7 @@ Der Nachrichtendurchsatz für Ihr 10DLC hängt von mehreren Faktoren ab, darunte
 
 #### Vertrauens-Score der Marke {#trust-score}
 
-Die Campaign Registry (TCR) ist eine Drittanbieter-Agentur, die einen Reputationsalgorithmus verwendet, um bestimmte Kriterien in Bezug auf Ihr Unternehmen zu überprüfen und einen Vertrauens-Score zuzuweisen, der den Messaging-Durchsatz für jede Marke bestimmt. Dieser Vertrauens-Score wird zugewiesen, wenn sich Kund:innen für US-10DLC-Messaging registrieren. Je höher der Vertrauens-Score, desto besser die Messages pro Sekunde (MPS), die Sie erleben werden.
+Die Campaign Registry (TCR) ist eine Drittanbieter-Agentur, die einen Reputationsalgorithmus verwendet, um bestimmte Kriterien in Bezug auf Ihr Unternehmen zu überprüfen und einen Vertrauens-Score zuzuweisen, der den Messaging-Durchsatz für jede Marke bestimmt. Dieser Vertrauens-Score wird zugewiesen, wenn sich Kund:innen für US-10DLC-Messaging registrieren. Je höher der Vertrauens-Score, desto besser die MPS (MPS), die Sie erleben werden.
 
 |     | Vertrauens-Score | AT&T | T-Mobile | Verizon |
 | --- | ----------- | ---- | -------- | ------- |
@@ -69,7 +69,7 @@ Unternehmen, die im Russell 3000 Index gelistet sind, erhalten nach der 10DLC-Re
 
 #### Tägliche Nachrichtenlimits {#daily-message-limits}
 
-Tägliche Limits reichen von 2.000 bis 200.000 Nachrichten, abhängig von Ihrem Vertrauens-Score der Marke, und gelten für alle Langcodes. Obwohl hohe Vertrauens-Scores einen Durchsatz von 60 Messages pro Sekunde ermöglichen, gelten die vom Mobilfunkanbieter festgelegten täglichen Nachrichtenlimits weiterhin. Das bedeutet, dass Shortcodes die bessere Option wären, wenn die täglichen Spitzennachrichten einer Marke das auferlegte Tageslimit überschreiten.
+Tägliche Limits reichen von 2.000 bis 200.000 Nachrichten, abhängig von Ihrem Vertrauens-Score der Marke, und gelten für alle Langcodes. Obwohl hohe Vertrauens-Scores einen Durchsatz von 60 MPS ermöglichen, gelten die vom Mobilfunkanbieter festgelegten täglichen Nachrichtenlimits weiterhin. Das bedeutet, dass Shortcodes die bessere Option wären, wenn die täglichen Spitzennachrichten einer Marke das auferlegte Tageslimit überschreiten.
 
 #### Messaging-Anwendungsfälle {#messaging-use-cases}
 
@@ -122,4 +122,4 @@ Besuchen Sie den Twilio-10DLC-Artikel, um aktuelle [Durchsatzschätzungen](https
 
 ## Nächste Schritte {#next-steps}
 
-Kund:innen, die sich noch nicht für 10DLC registriert haben, müssen mit ihrem Customer-Success-Manager zusammenarbeiten, um ihre Langcodes zu registrieren. **Wenn Kund:innen ihre Langcodes nicht registrieren, wird ab dem 1. Oktober 2021 jeder A2P-Sender, der Langcodes verwendet, eine starke Filterung aller Nachrichten erfahren.** Kontaktieren Sie Ihren Customer-Success-Manager, um mit Ihrer 10DLC-Registrierung zu beginnen.
+Kund:innen, die sich noch nicht für 10DLC registriert haben, müssen mit ihrem CSM zusammenarbeiten, um ihre Langcodes zu registrieren. **Wenn Kund:innen ihre Langcodes nicht registrieren, wird ab dem 1. Oktober 2021 jeder A2P-Sender, der Langcodes verwendet, eine starke Filterung aller Nachrichten erfahren.** Kontaktieren Sie Ihren CSM, um mit Ihrer 10DLC-Registrierung zu beginnen.

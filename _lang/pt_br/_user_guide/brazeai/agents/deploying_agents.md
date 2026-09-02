@@ -28,15 +28,15 @@ Priorize casos de uso de alto valor em que os agentes possam gerar o maior retor
 
 Para agentes de etapa do Canvas, comece com usuários que apresentam sinais fortes — como buscas recentes, alto engajamento ou dados de perfil ricos — antes de expandir para Segments mais amplos. Para agentes de catálogo, priorize linhas em que as colunas de entrada necessárias já estejam preenchidas, para que cada invocação tenha contexto suficiente para produzir resultados úteis.
 
-Para testar o ROI em pequena escala antes de lançar um agente de forma ampla, use uma etapa de [jornada experimental]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) para que apenas parte do seu público entre na ramificação que contém a etapa do agente.
+Para testar o ROI em pequena escala antes de lançar um agente de forma ampla, use uma etapa de [jornada experimental]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) para que apenas parte do seu público entre na Branch que contém a etapa do agente.
 
 ### Escale após um teste bem-sucedido {#scale-after-a-successful-test}
 
-Depois que um teste em pequena escala (por exemplo, uma ramificação de [jornada experimental]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step)) apresentar qualidade e ROI aceitáveis, planeje lançar o agente para todo o seu público-alvo (não apenas o grupo de teste) para que todos os usuários elegíveis se beneficiem.
+Depois que um teste em pequena escala (por exemplo, uma Branch de [jornada experimental]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step)) apresentar qualidade e ROI aceitáveis, planeje lançar o agente para todo o seu público-alvo (não apenas o grupo de teste) para que todos os usuários elegíveis se beneficiem.
 
 Antes de escalar, considere o seguinte:
 
-- Aumente o limite diário de invocações do agente no Agent Console para que ele possa lidar com o volume total do seu público. O padrão é 250.000; você pode aumentá-lo para até 1.000.000 (ou mais, com o seu gerente de sucesso do cliente). Consulte [Limites diários de invocação e créditos]({{site.baseurl}}/user_guide/brazeai/agents/reference#daily-invocation-and-credit-limits).
+- Aumente o limite diário de invocações do agente no Agent Console para que ele possa lidar com o volume total do seu público. O padrão é 250.000; você pode aumentá-lo para até 1.000.000 (ou mais, com o seu CSM). Consulte [Limites diários de invocação e créditos]({{site.baseurl}}/user_guide/brazeai/agents/reference#daily-invocation-and-credit-limits).
 - Revise a estimativa de **Daily action credit cost limit** e confirme que o seu espaço de trabalho tem créditos suficientes para envios em escala total.
 - Remova ou reconfigure o experimento para que todo o público-alvo entre na etapa do agente (ou promova a variante vencedora para a jornada principal).
 

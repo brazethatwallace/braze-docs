@@ -113,7 +113,7 @@ Mit den Braze SDKs können Sie angepasste Events oder angepasste Attribute track
 
 Das Tracking angepasster Daten bietet tiefere Insights in das Nutzerverhalten und unterstützt eine zusätzliche Personalisierung. Um angepasste Events zu implementieren, müssen Sie [den Theme-Code Ihres Storefronts](https://help.shopify.com/en/manual/online-store/themes/theme-structure/extend/edit-theme-code) in der Datei `theme.liquid` bearbeiten. Möglicherweise benötigen Sie die Hilfe Ihrer Entwickler:innen.
 
-Das folgende JavaScript-Snippet prüft zum Beispiel, ob die aktuelle Nutzer:in einen Newsletter abonniert hat, und protokolliert dies als angepasstes Event im Nutzerprofil in Braze:
+Das folgende JavaScript-Snippet prüft zum Beispiel, ob die aktuelle Nutzer:in einen Newsletter abonniert hat, und protokolliert dies als angepasstes Event im Kundenprofil in Braze:
 
 ```javascript
 braze.logCustomEvent(
@@ -165,10 +165,10 @@ Nachdem Sie das Metafeld erstellt haben, füllen Sie es für Ihre Kund:innen aus
 
 #### Mögliche Race-Condition {#potential-race-condition}
 
-Der Shopify-Webhook `customers/create` kann ausgelöst werden, bevor das Metafeld `braze.external_id` in das Nutzerprofil geschrieben wurde. In diesem Fall:
+Der Shopify-Webhook `customers/create` kann ausgelöst werden, bevor das Metafeld `braze.external_id` in das Kundenprofil geschrieben wurde. In diesem Fall:
 
 1. Wenn das Metafeld fehlt, ruft Braze den konfigurierten Endpunkt (Schritt 4.2) auf, um die externe ID abzurufen.
-2. Wenn auch dieser Aufruf fehlschlägt oder ein Timeout auftritt, erstellt Braze ein temporäres Nutzerprofil mit der Shopify-Kund:innen-ID als externe ID.
+2. Wenn auch dieser Aufruf fehlschlägt oder ein Timeout auftritt, erstellt Braze ein temporäres Kundenprofil mit der Shopify-Kund:innen-ID als externe ID.
 3. Bei jedem nachfolgenden Event, bei dem das Metafeld vorhanden ist (z. B. `customers/update` oder `orders/create` für ein `ecommerce.order_placed`-Event), erkennt Braze automatisch die Abweichung und führt das temporäre Profil mit der korrekten externen ID zusammen.
 
 Das bedeutet, dass temporäre doppelte Profile möglich sind, sich aber automatisch korrigieren. Sie müssen keine manuellen Maßnahmen ergreifen, um diese Profile zusammenzuführen.

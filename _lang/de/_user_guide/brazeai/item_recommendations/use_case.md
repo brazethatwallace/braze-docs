@@ -28,7 +28,7 @@ Camila beginnt damit, eine Empfehlung zu erstellen, die relevante Titel anzeigt,
 
 1. Im Braze-Dashboard navigiert Camila zu **KI-Artikelempfehlungen**.
 2. Sie erstellt eine neue Empfehlung und benennt sie „Vorschläge nach dem Anschauen“.
-3. Für den Empfehlungstyp wählt sie **AI Personalized**, sodass jede Nutzer:in auf der Grundlage ihres bisherigen Verhaltens personalisierte Empfehlungen erhält.
+3. Für den Empfehlungstyp wählt sie **KI Personalized**, sodass jede Nutzer:in auf der Grundlage ihres bisherigen Verhaltens personalisierte Empfehlungen erhält.
 4. Sie wählt **Do not recommend items users have previously interacted with**, damit Nutzer:innen keine Empfehlungen für Inhalte erhalten, die sie bereits angesehen haben.
 5. Sie wählt den Katalog aus, der die aktuelle Inhaltsbibliothek von MovieCanon enthält. Camila fügt keine Katalogauswahl hinzu, da sie möchte, dass alle Artikel im Katalog für Empfehlungen in Frage kommen.
 6. Camila verknüpft die Empfehlung mit dem angepassten Event `Watched Content`, das abgeschlossene Aufrufe nachverfolgt, und legt den **Property Name** auf den Titel des Inhalts fest.
@@ -84,4 +84,4 @@ Sie plant außerdem einen A/B-Test:
 - Inhaltslayout (Karussell versus Liste)
 - CTA-Varianten („Jetzt ansehen“ versus „Zur Warteschlange hinzufügen“)
 
-Durch die Kombination von ereignisgesteuerten Nachrichten mit KI-Artikelempfehlungen verwandelt Camila die Entdeckung von Inhalten in ein automatisches, personalisiertes Erlebnis. MovieCanon sorgt dafür, dass Nutzer:innen ohne Spekulationen engagiert bleiben – indem relevante Inhalte zum richtigen Zeitpunkt bereitgestellt werden, um die Sitzungstiefe zu erhöhen und Churn zu verringern.
+Durch die Kombination von ereignisgesteuerten Nachrichten mit KI-Artikelempfehlungen verwandelt Camila die Entdeckung von Inhalten in ein automatisches, personalisiertes Erlebnis. MovieCanon sorgt dafür, dass Nutzer:innen ohne Spekulationen engagiert bleiben – indem relevante Inhalte zum richtigen Zeitpunkt bereitgestellt werden, um die Sitzungstiefe zu erhöhen und Abwanderung zu verringern.

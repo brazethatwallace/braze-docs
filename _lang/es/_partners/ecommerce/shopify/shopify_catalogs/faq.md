@@ -48,7 +48,7 @@ Puedes sincronizar hasta 20 de cada uno por configuración:
 
 ### ¿Qué sucede si un producto pertenece a más de 250 colecciones? {#what-if-a-product-belongs-to-more-than-250-collections}
 
-Shopify permite que los productos pertenezcan a más de 250 colecciones, pero Braze solo puede obtener las primeras 250 asociaciones de colecciones por producto. Si un producto pertenece a una colección seleccionada que queda fuera de las primeras 250 obtenidas, esa asociación no se reflejará en tu catálogo de Shopify. Si notas que faltan asociaciones de colecciones, contacta a tu administrador de éxito de cliente.
+Shopify permite que los productos pertenezcan a más de 250 colecciones, pero Braze solo puede obtener las primeras 250 asociaciones de colecciones por producto. Si un producto pertenece a una colección seleccionada que queda fuera de las primeras 250 obtenidas, esa asociación no se reflejará en tu catálogo de Shopify. Si notas que faltan asociaciones de colecciones, contacta a tu CSM.
 
 ### ¿Por qué no veo todas mis colecciones en el modal de configuración? {#why-dont-i-see-all-my-collections-in-the-configuration-modal}
 

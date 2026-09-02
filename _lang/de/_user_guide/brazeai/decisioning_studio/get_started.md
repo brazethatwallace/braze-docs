@@ -40,7 +40,7 @@ Diese Referenz gibt einen Überblick über die Schritte zur Einrichtung von Deci
 
 ## Wichtige Designentscheidungen {#key-design-decisions}
 
-Arbeiten Sie mit dem AI Decisioning Services-Team zusammen, um die folgenden Entscheidungen zu treffen:
+Arbeiten Sie mit dem KI Decisioning Services-Team zusammen, um die folgenden Entscheidungen zu treffen:
 
 | Entscheidung | Beschreibung | Beispiele |
 |----------|-------------|----------|
@@ -52,7 +52,7 @@ Arbeiten Sie mit dem AI Decisioning Services-Team zusammen, um die folgenden Ent
 | **Einschränkungen** | Die Geschäftsregeln und Limits, die die Entscheidungen des Agenten einschränken. | Geografische Beschränkungen, Budgetlimits, Berechtigungsregeln |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Wichtige Designentscheidungen" }
 
-Jede dieser Entscheidungen hat Auswirkungen darauf, wie viel inkrementellen Uplift der Agent generieren kann und wie schnell. Unser AI Decisioning Services-Team arbeitet mit Ihnen zusammen, um einen Agenten zu entwerfen, der maximalen Mehrwert generiert und gleichzeitig alle Ihre Geschäftsregeln einhält.
+Jede dieser Entscheidungen hat Auswirkungen darauf, wie viel inkrementellen Uplift der Agent generieren kann und wie schnell. Unser KI Decisioning Services-Team arbeitet mit Ihnen zusammen, um einen Agenten zu entwerfen, der maximalen Mehrwert generiert und gleichzeitig alle Ihre Geschäftsregeln einhält.
 
 ![Diagramm, das zeigt, wie Erfolgsmetriken, Zielgruppe, Experimentgruppen, Dimensionen, Optionen und Einschränkungen in das Design eines Decisioning-Studio-Agenten einfließen]({% image_buster /assets/img/decisioning_studio/decisioning_studio_pro_agent_design.png %})
 
@@ -63,7 +63,7 @@ Jede dieser Entscheidungen hat Auswirkungen darauf, wie viel inkrementellen Upli
 | **Jede Erfolgsmetrik** | Optimierung für Umsatz, Conversions, ARPU, LTV oder jeden beliebigen Geschäfts-KPI |
 | **Unbegrenzte Dimensionen** | Personalisierung über Angebote, Kanäle, Timing, Häufigkeit, Kreativmaterial und mehr |
 | **Jede CEP** | Native Integrationen mit Braze, Salesforce Marketing Cloud oder angepasste Integrationen für jede Plattform |
-| **AI Decisioning Services** | Dedizierter Support durch das Data-Science-Team von Braze |
+| **KI Decisioning Services** | Dedizierter Support durch das Data-Science-Team von Braze |
 | **Erweitertes Experimentdesign** | Vollständig anpassbare Behandlungsgruppen und Holdouts |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Funktionen von Decisioning Studio" }
 

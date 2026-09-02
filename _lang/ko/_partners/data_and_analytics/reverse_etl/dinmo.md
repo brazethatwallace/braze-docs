@@ -10,7 +10,7 @@ search_tag: Partner
 
 # DinMo
 
-> [DinMo](https://www.dinmo.com/)는 리버스 ETL(Extract, Transform, Load)을 통해 클라우드 데이터 웨어하우스를 Braze에 연결하는 구성 가능한 고객 데이터 플랫폼(CDP)입니다. 마케팅 팀은 데이터 웨어하우스 데이터에서 오디언스 세그먼트를 구축하고, 사용자 속성 및 이벤트를 Braze로 동기화하며, CSV 업로드나 엔지니어링 지원 없이 구독 상태를 최신으로 유지할 수 있습니다.
+> [DinMo](https://www.dinmo.com/)는 리버스 ETL(Extract, Transform, Load)을 통해 클라우드 데이터 웨어하우스를 Braze에 연결하는 구성 가능한 고객 데이터 플랫폼(고객 데이터 플랫폼)입니다. 마케팅 팀은 데이터 웨어하우스 데이터에서 오디언스 세그먼트를 구축하고, 사용자 속성 및 이벤트를 Braze로 동기화하며, CSV 업로드나 엔지니어링 지원 없이 구독 상태를 최신으로 유지할 수 있습니다.
 
 _이 통합은 DinMo에서 관리합니다._
 

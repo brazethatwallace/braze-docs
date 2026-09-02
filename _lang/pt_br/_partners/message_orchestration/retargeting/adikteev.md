@@ -63,12 +63,12 @@ Para concluir a integração, você deve fornecer sua chave da API REST e a URL 
 O endpoint `user.track` é usado para atualizar detalhes sobre seus usuários. Consulte a [documentação da API]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) para obter detalhes completos sobre os limites de taxa do endpoint, solicitações em lote e detalhes da solicitação.
 
 {% alert tip %}
-Lembre-se de que as chamadas de API devem ser feitas apenas para atualizar dados que foram alterados, a fim de reduzir o número total de chamadas. Em outras palavras, atualize apenas os usuários cujo segmento de churn foi alterado.
+Lembre-se de que as chamadas de API devem ser feitas apenas para atualizar dados que foram alterados, a fim de reduzir o número total de chamadas. Em outras palavras, atualize apenas os usuários cujo Segment de churn foi alterado.
 {% endalert %}
 
 ## Identificadores de usuários e dispositivos {#user-and-device-identifiers}
 
-Os perfis de usuário na Braze podem ser associados a qualquer tipo de identificador de usuário ou dispositivo; a lista de opções disponíveis depende de como você integrou a coleta de dados com a Braze. Para a Adikteev, será necessário encontrar um identificador comum entre o seu MMP e os perfis de usuário na Braze para enviar as informações do segmento de churn corretamente.
+Os perfis de usuário na Braze podem ser associados a qualquer tipo de identificador de usuário ou dispositivo; a lista de opções disponíveis depende de como você integrou a coleta de dados com a Braze. Para a Adikteev, será necessário encontrar um identificador comum entre o seu MMP e os perfis de usuário na Braze para enviar as informações do Segment de churn corretamente.
 
 ## Retenção e exclusão de dados {#data-retention-and-deletion}
 

@@ -62,7 +62,7 @@ Aktionscodes werden für E-Mail, mobilen Push, Web-Push, Content Cards, Webhook,
 
 ### Zählen Test- und Seed-Sendungen zur Nutzung? {#do-test-and-seed-sends-count-towards-usage}
 
-Standardmäßig verwenden Testsendungen und Seed-Gruppen-E-Mail-Sendungen Aktionscodes pro Nutzer:in und pro Testsendung. Sie können jedoch Ihren Braze Account Manager kontaktieren, um dieses Verhalten so zu ändern, dass während des Testens keine Aktionscodes verwendet werden.
+Standardmäßig verwenden Testsendungen und Seed-Gruppen-E-Mail-Sendungen Aktionscodes pro Nutzer:in und pro Testsendung. Sie können jedoch Ihren Braze Account Manager:in kontaktieren, um dieses Verhalten so zu ändern, dass während des Testens keine Aktionscodes verwendet werden.
 
 ### Was passiert, wenn mehrere Messaging-Kanäle dasselbe Aktionscode-Snippet verwenden? {#what-happens-when-multiple-messaging-channels-use-the-same-promotion-code-snippet}
 
@@ -98,6 +98,6 @@ Wenn Sie Codes mit Nutzer:innen verknüpfen oder die Einlösung selbst nachverfo
 - Aktionscodes über einen Nutzeraktualisierung-Schritt in Nutzerprofilen speichern. Weitere Informationen finden Sie unter [Aktionscodes in Nutzerprofilen speichern]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#save-to-profile).
 - Aktionscode-Werte über den `message_extras`-Liquid-Tag an Currents senden. Weitere Informationen finden Sie unter [Aktionscode-Informationen an Currents senden]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras#sending-promotion-code-information-to-currents).
 
-### Kann ich einen Aktionscode im Nutzerprofil für zukünftige Nachrichten speichern? {#can-i-save-a-promotion-code-to-a-users-profile-for-future-messages}
+### Kann ich einen Aktionscode im Kundenprofil für zukünftige Nachrichten speichern? {#can-i-save-a-promotion-code-to-a-users-profile-for-future-messages}
 
-Ja. Sie können Aktionscodes über einen Nutzeraktualisierung-Schritt im Nutzerprofil speichern. Weitere Informationen finden Sie unter [Aktionscodes in Nutzerprofilen speichern]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#save-to-profile).
+Ja. Sie können Aktionscodes über einen Nutzeraktualisierung-Schritt im Kundenprofil speichern. Weitere Informationen finden Sie unter [Aktionscodes in Nutzerprofilen speichern]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#save-to-profile).

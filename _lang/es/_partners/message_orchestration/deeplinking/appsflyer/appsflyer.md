@@ -223,7 +223,7 @@ En esta etapa, después de compartir y validar los detalles de CTD en AppsFlyer,
 Puedes realizar el control de calidad y la solución de problemas enviando un vínculo profundo usando OneLink. Consulta la [documentación de AppsFlyer](https://support.appsflyer.com/hc/en-us/articles/360001437497-Integrating-AppsFlyer-and-Braze#step-3-sending-your-first-email::2ffdb79a) para obtener detalles sobre el uso de OneLink.
 
 Si los enlaces CTD se identifican como HTTP, contacta al equipo de Email Ops de Braze para habilitar el seguimiento de clics SSL. Esto garantiza que todos los enlaces HTTP se conviertan automáticamente a HTTPS.
-Puedes usar el siguiente mensaje de ejemplo cuando contactes a tu administrador de éxito de cliente, o al crear un ticket en el panel de Braze nuevamente, como en el paso 1:
+Puedes usar el siguiente mensaje de ejemplo cuando contactes a tu CSM, o al crear un ticket en el panel de Braze nuevamente, como en el paso 1:
 
 ```
 Hi Team,

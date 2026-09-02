@@ -52,7 +52,7 @@ Isso é renderizado da seguinte forma:
 Existem duas formas de exportar catálogos a partir do dashboard:
 
 - Passe o cursor sobre a linha do catálogo na seção **Catalogs**. Em seguida, selecione o botão **Export catalog**.
-- Selecione seu catálogo. Em seguida, selecione o botão **Export catalog** na guia **Preview** do catálogo.
+- Selecione seu catálogo. Em seguida, selecione o botão **Export catalog** na guia **prévia** do catálogo.
 
 Você receberá um e-mail para baixar o arquivo CSV após iniciar a exportação. Você terá até quatro horas para recuperar esse arquivo.
 

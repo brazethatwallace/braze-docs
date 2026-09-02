@@ -13,9 +13,9 @@ search_tag: Partner
 
 Das Feature Data Push von Oracle Crowdtwist erlaubt die Übermittlung von Nutzer:innen- oder Event-Metadaten, sobald ein Update in der Crowdtwist-Plattform stattfindet.
 
-In diesem Leitfaden wird beschrieben, wie Sie die Live-Push-Feeds für Nutzerprofil, Nutzeraktivität und Nutzereinlösung von Oracle Crowdtwist in Ihre Braze-Umgebung integrieren. Es gibt zwei weitere Data-Push-Typen, die in dieser Dokumentation nicht explizit behandelt werden, deren Einrichtung jedoch den gleichen Prinzipien folgt, die in diesem Leitfaden beschrieben sind.
+In diesem Leitfaden wird beschrieben, wie Sie die Live-Push-Feeds für Kundenprofil, Nutzeraktivität und Nutzereinlösung von Oracle Crowdtwist in Ihre Braze-Umgebung integrieren. Es gibt zwei weitere Data-Push-Typen, die in dieser Dokumentation nicht explizit behandelt werden, deren Einrichtung jedoch den gleichen Prinzipien folgt, die in diesem Leitfaden beschrieben sind.
 
-* [Live Push Nutzerprofil](https://docs.oracle.com/en/cloud/saas/marketing/crowdtwist-develop/Developers/PushUserProfile-withTiersv2.html): Umfasst die Erstellung neuer Profile und Updates für bestehende Profile.
+* [Live Push Kundenprofil](https://docs.oracle.com/en/cloud/saas/marketing/crowdtwist-develop/Developers/PushUserProfile-withTiersv2.html): Umfasst die Erstellung neuer Profile und Updates für bestehende Profile.
 
 * [Live Push Nutzeraktivität](https://docs.oracle.com/en/cloud/saas/marketing/crowdtwist-develop/Developers/LivePushUserActivity.html): Enthält Daten über abgeschlossene Nutzeraktivitäten.
 
@@ -23,7 +23,7 @@ In diesem Leitfaden wird beschrieben, wie Sie die Live-Push-Feeds für Nutzerpro
 
 Mit einem Braze-Datentransformations-Template können Sie die Elemente des Data Push herausfiltern, die für Braze nicht relevant sind, und die in Braze benötigten Werte zuweisen, damit sie von den verfügbaren „Zielen“ genutzt werden können.
 
-Verwenden Sie zum Beispiel einen Data Push, um relevante angepasste Events und Attribute an Braze zu übermitteln, z. B. wenn Nutzer:innen die Treuestufe wechseln oder eine Prämie einlösen. Sie können es auch verwenden, um angepasste Attribute in Braze zu protokollieren, sobald diese Daten im Nutzerprofil eines Mitglieds aktualisiert werden, z. B. der Punktestand von Nutzer:innen.
+Verwenden Sie zum Beispiel einen Data Push, um relevante angepasste Events und Attribute an Braze zu übermitteln, z. B. wenn Nutzer:innen die Treuestufe wechseln oder eine Prämie einlösen. Sie können es auch verwenden, um angepasste Attribute in Braze zu protokollieren, sobald diese Daten im Kundenprofil eines Mitglieds aktualisiert werden, z. B. der Punktestand von Nutzer:innen.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -36,13 +36,13 @@ Verwenden Sie zum Beispiel einen Data Push, um relevante angepasste Events und A
 
 ## Integration
 
-Braze und Oracle Crowdtwist haben [Datentransformations-Templates]({{site.baseurl}}/user_guide/data/unification/data_transformation/creating_a_transformation?redirected=1#step-2-create-a-transformation) erstellt, um unseren Kund:innen zu helfen, ihre eigenen Datentransformationen zu entwickeln, die die Events Nutzerprofil, Nutzereinlösung und Nutzeraktivität nutzen.
+Braze und Oracle Crowdtwist haben [Datentransformations-Templates]({{site.baseurl}}/user_guide/data/unification/data_transformation/creating_a_transformation?redirected=1#step-2-create-a-transformation) erstellt, um unseren Kund:innen zu helfen, ihre eigenen Datentransformationen zu entwickeln, die die Events Kundenprofil, Nutzereinlösung und Nutzeraktivität nutzen.
 
 ## Schritt 1: Datentransformation aus Oracle Crowdtwist-Template erstellen {#step-1-create-data-transformation-from-oracle-crowdtwist-template}
 
 Navigieren Sie zu **Dateneinstellungen > Datentransformation > Transformationen erstellen > Template verwenden** und wählen Sie das „BRAZE <> CROWDTWIST“-Template Ihrer Wahl aus.
 
-Sie finden vier Templates – jeweils eines für die Transformation von Nutzerprofil-, Nutzeraktivitäts- und Nutzereinlösungs-Events sowie ein Master-Template, das bedingte Logik verwendet, um verschiedene Data-Push-Events zu verarbeiten.
+Sie finden vier Templates – jeweils eines für die Transformation von Kundenprofil-, Nutzeraktivitäts- und Nutzereinlösungs-Events sowie ein Master-Template, das bedingte Logik verwendet, um verschiedene Data-Push-Events zu verarbeiten.
 
 Wie in der [Data-Push-Dokumentation von Oracle Crowdtwist](https://docs.oracle.com/en/cloud/saas/marketing/crowdtwist-develop/Developers/DataPush.html) beschrieben, enthalten Data-Push-Objekte unterschiedliche Metadaten, sodass jedes seinen eigenen Transformations-Code benötigt, um geeignete Braze-Objekte zu erstellen. Das Master-Template zeigt, wie Sie eine einzelne Datentransformation einrichten, die jeden der drei Objekttypen akzeptiert, und erstellt eine passende Ausgabe mit Werten aus jedem Objekt.
 
@@ -57,12 +57,12 @@ Beachten Sie, dass die „Werte“ jedes „Schlüssels“ mit `payload.` beginn
 {% endalert %}
 
 {% alert important %}
-Verwenden Sie die von Oracle Crowdtwist gesendeten Objekte, um Nutzer:innen in Braze zu erstellen. Indem Sie den Schlüssel `update_existing_only` mit dem Wert `false` einbeziehen, erstellt Braze ein Nutzerprofil mit den enthaltenen Attributen, wenn ein Attribut- oder Event-Objekt einen Bezeichner enthält, der in Braze nicht existiert. Wenn Sie möchten, dass Oracle Crowdtwist nur bereits in Braze vorhandene Profile aktualisiert, setzen Sie dieses Attribut in jedem Attribut- oder Event-Objekt auf `true`.
+Verwenden Sie die von Oracle Crowdtwist gesendeten Objekte, um Nutzer:innen in Braze zu erstellen. Indem Sie den Schlüssel `update_existing_only` mit dem Wert `false` einbeziehen, erstellt Braze ein Kundenprofil mit den enthaltenen Attributen, wenn ein Attribut- oder Event-Objekt einen Bezeichner enthält, der in Braze nicht existiert. Wenn Sie möchten, dass Oracle Crowdtwist nur bereits in Braze vorhandene Profile aktualisiert, setzen Sie dieses Attribut in jedem Attribut- oder Event-Objekt auf `true`.
 {% endalert %}
 
 ### Datentransformations-Templates {#data-transformation-templates}
 {% tabs %}
-{% tab User Profile Event Template%}
+{% tab Kundenprofil Event Template%}
 ```javascript
 let brazecall = {
  "attributes": [
@@ -247,7 +247,7 @@ Wenn Sie mit dem Objekt zufrieden sind, das Sie im Feld **Output** sehen, wähle
 Sie finden die Webhook-URL Ihrer Datentransformation im Panel mit den Transformationsdetails. Kopieren Sie diese und verwenden Sie sie für die Konfiguration im Integration Hub von Oracle Crowdtwist.
 
 {% alert important %}
-Die Braze-Datentransformations-Endpunkte haben ein Rate-Limit von 1.000 Anfragen pro Minute. Überlegen Sie, wie schnell diese Daten in Braze verfügbar sein sollen, und sprechen Sie mit Ihrem Braze Account Manager, wenn Sie ein höheres Datentransformations-Rate-Limit benötigen.
+Die Braze-Datentransformations-Endpunkte haben ein Rate-Limit von 1.000 Anfragen pro Minute. Überlegen Sie, wie schnell diese Daten in Braze verfügbar sein sollen, und sprechen Sie mit Ihrem Braze Account Manager:in, wenn Sie ein höheres Datentransformations-Rate-Limit benötigen.
 {% endalert %}
 
-Datentransformationen sind ein sehr dynamisches Werkzeug, und Sie können sie mit JavaScript-Kenntnissen und mithilfe unserer REST API-Dokumentation für Zwecke gestalten, die über das in diesem Dokument Beschriebene hinausgehen. Für Unterstützung oder Fehlerbehebung bei komplexen Änderungen an Ihren Datentransformations-Templates sprechen Sie mit Ihrem Customer-Success-Manager, um mehr über die verfügbare Beratung zu erfahren.
+Datentransformationen sind ein sehr dynamisches Werkzeug, und Sie können sie mit JavaScript-Kenntnissen und mithilfe unserer REST API-Dokumentation für Zwecke gestalten, die über das in diesem Dokument Beschriebene hinausgehen. Für Unterstützung oder Fehlerbehebung bei komplexen Änderungen an Ihren Datentransformations-Templates sprechen Sie mit Ihrem CSM, um mehr über die verfügbare Beratung zu erfahren.

@@ -798,17 +798,17 @@ require(['path/to/braze.min.js'], function(braze) {
 });
 ```
 
-### Páginas móviles aceleradas (AMP) {#accelerated-mobile-pages-amp}
+### Páginas móviles aceleradas (páginas móviles aceleradas) {#accelerated-mobile-pages-amp}
 
-Para la integración con AMP, necesitarás:
+Para la integración con páginas móviles aceleradas, necesitarás:
 
-1. **Incluir el script de notificaciones push web AMP**: añade la etiqueta de script asíncrono a tu head
+1. **Incluir el script de notificaciones push web páginas móviles aceleradas**: añade la etiqueta de script asíncrono a tu head
 2. **Añadir widgets de suscripción**: añade widgets para permitir que los usuarios se suscriban o cancelen su suscripción
 3. **Añadir archivos auxiliares**: incluye `helper-iframe.html` y `permission-dialog.html`
 4. **Crear un prestador de servicios**: añade el archivo de prestador de servicios de Braze
-5. **Configurar el elemento amp-web-push**: añade el elemento `amp-web-push` con tu clave de API y URL base como parámetros de consulta
+5. **Configurar el elemento páginas móviles aceleradas-web-push**: añade el elemento `amp-web-push` con tu clave de API y URL base como parámetros de consulta
 
-Para instrucciones detalladas sobre la integración con AMP, consulta la [Guía para desarrolladores de Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=web#amp).
+Para instrucciones detalladas sobre la integración con páginas móviles aceleradas, consulta la [Guía para desarrolladores de Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=web#amp).
 
 ### Electron
 
@@ -832,9 +832,9 @@ Electron no es compatible oficialmente con las notificaciones push web (consulta
 
 Tealium iQ ofrece una integración básica llave en mano con Braze. Para configurar la integración, busca Braze en la interfaz de gestión de etiquetas de Tealium y proporciona la clave de API del SDK Web desde tu panel. Para más detalles o soporte de configuración avanzada de Tealium, consulta nuestra [documentación de integración](https://www.braze.com/docs/partners/data_and_infrastructure_agility/customer_data_platform/tealium/#about-tealium) o comunícate con tu director de cuentas de Tealium.
 
-#### Google Tag Manager
+#### Google Tag Administrador
 
-El SDK Web se puede inicializar y llamar desde una etiqueta HTML personalizada en tu contenedor de Google Tag Manager. Consulta nuestra [aplicación de ejemplo de Google Tag Manager](https://github.com/braze-inc/braze-web-sdk/blob/master/sample-builds/google-tag-manager) para ver un ejemplo de envío de eventos a Braze a través de GTM, o revisa nuestra [documentación de integración](https://www.braze.com/docs/developer_guide/sdk_integration/google_tag_manager) para más detalles.
+El SDK Web se puede inicializar y llamar desde una etiqueta HTML personalizada en tu contenedor de Google Tag Administrador. Consulta nuestra [aplicación de ejemplo de Google Tag Administrador](https://github.com/braze-inc/braze-web-sdk/blob/master/sample-builds/google-tag-manager) para ver un ejemplo de envío de eventos a Braze a través de GTM, o revisa nuestra [documentación de integración](https://www.braze.com/docs/developer_guide/sdk_integration/google_tag_manager) para más detalles.
 
 #### Otros gestores de etiquetas {#other-tag-managers}
 

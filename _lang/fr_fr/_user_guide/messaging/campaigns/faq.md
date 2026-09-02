@@ -283,7 +283,7 @@ Pour les [limites de débit de distribution]({{site.baseurl}}/user_guide/messagi
 
 ### Pourquoi le nombre de destinataires uniques peut-il dépasser le nombre d'envois pour les e-mails et les SMS ? {#why-can-unique-recipients-exceed-sends-for-email-and-sms}
 
-Pour les e-mails et les SMS, Braze incrémente les **destinataires uniques** avant la tentative d'envoi via le fournisseur de services d'e-mail (ESP) et incrémente les **envois** après une réponse réussie de l'ESP. Les erreurs permanentes (telles que les adresses e-mail invalides) ou les adresses en double entraînent un nombre de destinataires uniques supérieur au nombre d'envois.
+Pour les e-mails et les SMS, Braze incrémente les **destinataires uniques** avant la tentative d'envoi via le fournisseur de services d'e-mail (fournisseur de services d'e-mailing) et incrémente les **envois** après une réponse réussie de l'fournisseur de services d'e-mailing. Les erreurs permanentes (telles que les adresses e-mail invalides) ou les adresses en double entraînent un nombre de destinataires uniques supérieur au nombre d'envois.
 
 ### Pourquoi le champ **Dernier envoi** ne correspond-il pas à l'heure d'envoi planifiée ? {#why-doesnt-last-sent-match-my-scheduled-send-time}
 

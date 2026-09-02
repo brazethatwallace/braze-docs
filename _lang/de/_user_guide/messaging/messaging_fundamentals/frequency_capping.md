@@ -70,7 +70,7 @@ Wenn Sie Folge-Campaigns benötigen, die Nutzer:innen ansprechen, denen eine fr�
 
 Für eine Einzelversand-Campaign mit **Optimize with BrazeAI<sup>TM</sup>** besteht die Campaign aus zwei Versendungen: dem anfänglichen Experiment und dem optimierten Versand.
 
-Um in diesem Szenario eine maximale Nutzer:innen-Obergrenze einzurichten, wählen Sie **Limit send volume**, dann **Lifetime of the campaign** und geben Sie einen Wert für **Maximum sends** ein. Ihre Zielgruppenbegrenzung wird nach den im **A/B Testing**-Panel angezeigten Prozentsätzen aufgeteilt.
+Um in diesem Szenario eine maximale Nutzer:innen-Obergrenze einzurichten, wählen Sie **Limit send volume**, dann **Lifetime of the campaign** und geben Sie einen Wert für **Maximum sends** ein. Ihre Zielgruppenbegrenzung wird nach den im **A/B-Tests**-Panel angezeigten Prozentsätzen aufgeteilt.
 
 Wenn Sie **Every time campaign is scheduled** auswählen, werden diese beiden Phasen separat auf die festgelegte Zahl begrenzt. Dies ist in der Regel nicht erwünscht.
 
@@ -208,7 +208,7 @@ Wenn Sie bei gleichzeitiger Nutzung beider Features eine bestimmte Anzahl von Nu
 
 - **Erhöhen Sie Ihr Rate-Limit:** Um Nutzer:innen zu berücksichtigen, die vom Frequency-Capping betroffen sind. Wenn Sie beispielsweise 500 Nutzer:innen erreichen möchten, aber erwarten, dass einige durch Frequency-Capping herausgefiltert werden, setzen Sie Ihr Rate-Limit höher an (z. B. 1.000 Nutzer:innen).
 - **Verwenden Sie nur Rate-Limiting:** Wenn Ihr Ziel die Kontrolle des Nachrichtenvolumens pro Campaign ist.
-- **Wenden Sie sich an Ihren Customer-Success-Manager:** Für Unterstützung bei der Entwicklung einer robusten Messaging-Strategie, die sowohl geschäftliche Anforderungen als auch technische Aspekte berücksichtigt.
+- **Wenden Sie sich an Ihren CSM:** Für Unterstützung bei der Entwicklung einer robusten Messaging-Strategie, die sowohl geschäftliche Anforderungen als auch technische Aspekte berücksichtigt.
 
 ### Feature-Übersicht {#freq-cap-feat-over}
 
@@ -262,7 +262,7 @@ In-App-Nachrichten und Content Cards werden nicht als Caps auf Campaigns oder Ca
 
 ##### Push-Benachrichtigungen mit mehreren Geräten {#push-notifications-with-multiple-devices}
 
-Für Push-Campaigns zählt Frequency-Capping auf der Campaign- oder Canvas-Komponenten-Ebene, nicht pro einzelnem Gerät. Wenn ein Nutzerprofil mehrere für Push registrierte Geräte hat (z. B. ein iPhone und ein iPad), zählt ein Campaign-Level-Frequency-Cap dies als einen Versand, unabhängig davon, wie viele Geräte die Benachrichtigung erhalten. Dies ähnelt dem Verhalten einer wiederkehrenden Campaign mit täglicher Kadenz, die als ein Versand pro Tag gezählt wird, auch wenn sie mehrmals während der Woche wiederholt wird.
+Für Push-Campaigns zählt Frequency-Capping auf der Campaign- oder Canvas-Komponenten-Ebene, nicht pro einzelnem Gerät. Wenn ein Kundenprofil mehrere für Push registrierte Geräte hat (z. B. ein iPhone und ein iPad), zählt ein Campaign-Level-Frequency-Cap dies als einen Versand, unabhängig davon, wie viele Geräte die Benachrichtigung erhalten. Dies ähnelt dem Verhalten einer wiederkehrenden Campaign mit täglicher Kadenz, die als ein Versand pro Tag gezählt wird, auch wenn sie mehrmals während der Woche wiederholt wird.
 
 {% alert important %}
 Globales Frequency-Capping basiert auf der Zeitzone der:des Nutzer:in und wird nach Kalendertagen berechnet, nicht nach 24-Stunden-Zeiträumen. Wenn Sie beispielsweise eine Frequency-Capping-Regel einrichten, die den Versand auf maximal eine Campaign pro Tag begrenzt, könnte ein:e Nutzer:in um 23 Uhr in der eigenen Ortszeit eine Nachricht erhalten und wäre eine Stunde später bereits für eine weitere Nachricht berechtigt.
@@ -388,7 +388,7 @@ Das bedeutet in der Regel, dass das [Rate-Limit für die Zustellgeschwindigkeit]
 
 **Sendevolumen begrenzen** steuert, wie viele Nutzer:innen für einen Versand infrage kommen, nicht wie viele Nachrichten Braze pro Minute versendet. Nur ein Rate-Limit für die Zustellgeschwindigkeit legt den Durchsatz pro Minute fest.
 
-Wenn Sie bereits das maximale Rate-Limit für die Zustellgeschwindigkeit erreicht haben, das für Ihr Unternehmen verfügbar ist, wenden Sie sich an Ihre:n Customer-Success-Manager, um eine Erhöhung anzufordern.
+Wenn Sie bereits das maximale Rate-Limit für die Zustellgeschwindigkeit erreicht haben, das für Ihr Unternehmen verfügbar ist, wenden Sie sich an Ihre:n CSM, um eine Erhöhung anzufordern.
 
 ### Was bedeutet „Gesendet“ im Zusammenhang mit Frequency-Capping? {#what-does-sent-mean-for-frequency-capping}
 

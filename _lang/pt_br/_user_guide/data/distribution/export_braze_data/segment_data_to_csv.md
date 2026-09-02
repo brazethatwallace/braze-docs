@@ -3,30 +3,30 @@ nav_title: Dados do Segment
 article_title: Exportar dados do Segment
 page_order: 4
 page_type: reference
-description: "Este artigo de referência aborda como exportar dados de segmento para CSV, as permissões necessárias para exportar dados de usuários, exportações de etapas do Canvas e os campos incluídos na exportação."
+description: "Este artigo de referência aborda como exportar dados de Segment para CSV, as permissões necessárias para exportar dados de usuários, exportações de etapas do Canvas e os campos incluídos na exportação."
 ---
 
-# Exportar dados do segmento para CSV {#export-segment-data-to-csv}
+# Exportar dados do Segment para CSV {#export-segment-data-to-csv}
 
-> Esta página aborda como solicitar uma exportação CSV de dados de usuários de um segmento e os dados incluídos na exportação.
+> Esta página aborda como solicitar uma exportação CSV de dados de usuários de um Segment e os dados incluídos na exportação.
 
 {% alert note %}
 As opções de exportação CSV aparecem no menu suspenso **User Data** apenas para usuários da empresa que possuem a [permissão "Export User Data"]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) para esse espaço de trabalho.
 {% endalert %}
 
-Para exportar dados de segmento para um CSV, selecione o menu suspenso **User Data** ao editar um segmento e selecione exportar os dados do usuário ou os endereços de e-mail do segmento.
+Para exportar dados de Segment para um CSV, selecione o menu suspenso **User Data** ao editar um Segment e selecione exportar os dados do usuário ou os endereços de e-mail do Segment.
 
-![Seção de informações do segmento com o menu suspenso User Data mostrando opções de exportação.]({% image_buster /assets/img_archive/csvexport.png %})
+![Seção de informações do Segment com o menu suspenso User Data mostrando opções de exportação.]({% image_buster /assets/img_archive/csvexport.png %})
 
-Você também pode solicitar uma exportação CSV na página principal de **Segments**, selecionando o menu suspenso <i class="fas fa-gear" aria-label="Configurações"></i> **Settings** de um segmento:
+Você também pode solicitar uma exportação CSV na página principal de **Segments**, selecionando o menu suspenso <i class="fas fa-gear" aria-label="Configurações"></i> **Settings** de um Segment:
 
 ![Menu suspenso Settings na página principal de Segments.]({% image_buster /assets/img_archive/csvexport2.png %})
 
 {% alert tip %}
-Para exportar dados de todos os seus perfis de usuários, crie um segmento sem filtros e solicite uma exportação CSV.
+Para exportar dados de todos os seus perfis de usuários, crie um Segment sem filtros e solicite uma exportação CSV.
 {% endalert %}
 
-A saída CSV contém os dados de cada perfil de usuário capturado no segmento no momento da exportação. Você pode exportar qualquer segmento selecionando o ícone de engrenagem e a exportação CSV. A Braze gerará o relatório em segundo plano e o enviará por e-mail para o usuário que estiver conectado no momento.
+A saída CSV contém os dados de cada perfil de usuário capturado no Segment no momento da exportação. Você pode exportar qualquer Segment selecionando o ícone de engrenagem e a exportação CSV. A Braze gerará o relatório em segundo plano e o enviará por e-mail para o usuário que estiver conectado no momento.
 
 ## Detalhes da exportação CSV de Segments {#segment-csv-export-details}
 

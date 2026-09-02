@@ -45,7 +45,7 @@ Vamos ajustar os detalhes do Canvas para refletir nosso objetivo.
 
 ### Etapa 2: Atribuir eventos de conversão {#step-2-assign-conversion-events}
 
-Atualize o **Primary Conversion Event - A** para **Performs Custom Event**. Em seguida, selecione **Last Used App** como o evento personalizado.
+Atualize o **conversão primária Event - A** para **Performs Custom Event**. Em seguida, selecione **Last Used App** como o evento personalizado.
 
 ![Last Used App como o nome do evento personalizado selecionado para o evento de conversão.]({% image_buster /assets/img/canvas_templates/preference_survey3.png %}){: style="max-width:90%;"}
 

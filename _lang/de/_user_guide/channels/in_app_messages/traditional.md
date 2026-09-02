@@ -178,7 +178,7 @@ Wenn Braze erkennt, dass in Ihrem Code kein Schließen- oder Dismiss-Button enth
 
 Der Tab **Verfassen** ermöglicht es Ihnen, alle Aspekte des Inhalts und Verhaltens Ihrer Nachricht zu bearbeiten.
 
-![Beispiel einer In-App-Nachricht einer Marke, die neue Kund:innen begrüßt und sie auffordert, ein Nutzerprofil einzurichten.]({% image_buster /assets/img_archive/iam_compose.png %}){: style="max-width:85%" }
+![Beispiel einer In-App-Nachricht einer Marke, die neue Kund:innen begrüßt und sie auffordert, ein Kundenprofil einzurichten.]({% image_buster /assets/img_archive/iam_compose.png %}){: style="max-width:85%" }
 
 Der Inhalt des Tabs **Verfassen** variiert je nach den im vorherigen Schritt gewählten Nachrichtenoptionen, kann aber eine der folgenden Optionen umfassen:
 

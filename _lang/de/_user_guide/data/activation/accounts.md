@@ -22,7 +22,7 @@ Mit Kontoobjekten können Sie:
 
 Kontoobjekte sind Datenmodelle auf Workspace-Ebene, die mit Nutzerprofilen verknüpft sind. Ein Kontodatensatz ist ein bestimmtes Konto und die zugehörigen Felddaten.
 Verwenden Sie Kontoobjekte, wenn Kontokontext, wie z. B. Unternehmensattribute, Ihnen beim Targeting und der Personalisierung von Messaging hilft.
-Sie können auch Kontohierarchien modellieren (z. B. übergeordnete und untergeordnete Konten) und ein Nutzerprofil mit mehreren Konten verknüpfen.
+Sie können auch Kontohierarchien modellieren (z. B. übergeordnete und untergeordnete Konten) und ein Kundenprofil mit mehreren Konten verknüpfen.
 
 ## Warum Kontoobjekte verwenden? {#why-use-account-objects}
 
@@ -34,7 +34,7 @@ So können Sie:
 
 - Nach Kontoattributen segmentieren
 - Nachrichten mit gemeinsamem Kontokontext personalisieren (z. B. Firmenname oder Branche)
-- Beziehungen zwischen Konten modellieren und ein Nutzerprofil mit mehreren Konten verknüpfen
+- Beziehungen zwischen Konten modellieren und ein Kundenprofil mit mehreren Konten verknüpfen
 
 Dieser Ansatz ersetzt das Duplizieren derselben Kontoattribute über viele Nutzerprofile hinweg.
 

@@ -67,7 +67,7 @@ Content Cardsは、ユーザーが購入を完了したりカスタムイベン�
 
 キャンバスでContent Cardsステップを開始した後、このステップのさまざまなメトリクスの分析を開始できます。これらのメトリクスには、送信されたメッセージ数、日次ユニークインプレッション数、コンバージョン率、合計収益などが含まれます。
 
-![Content Cardメッセージパフォーマンスを表示するメッセージステップの分析]({% image_buster /assets/img_archive/content-cards-in-canvas-analytics.png %})
+![Content カードメッセージパフォーマンスを表示するメッセージステップの分析]({% image_buster /assets/img_archive/content-cards-in-canvas-analytics.png %})
 
 利用可能なメトリクスとその定義の詳細については、[レポートメトリクス用語集]({{site.baseurl}}/user_guide/analytics/metrics_glossary)を参照してください。
 

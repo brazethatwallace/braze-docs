@@ -77,7 +77,7 @@ Mit Braze Feature-Flags können Sie beispielsweise ein neues Kundenbindungs-Prog
 
 ### Welchen Nutzen haben Feature-Flags für Produkt-Teams? {#product-teams}
 
-Produkt-Teams können Feature-Flags für schrittweise Rollouts oder Soft Launches neuer Features nutzen, um Leistungskennzahlen und Kundenfeedback zu überwachen, bevor das Feature allen Nutzer:innen zur Verfügung gestellt wird.
+Produkt-Teams können Feature-Flags für schrittweise Rollouts oder Soft Launches neuer Features nutzen, um KPI und Kundenfeedback zu überwachen, bevor das Feature allen Nutzer:innen zur Verfügung gestellt wird.
 
 Produkt-Teams können [Feature-Flag-Eigenschaften]({{site.baseurl}}/developer_guide/feature_flags/create#accessing-properties) verwenden, um Inhalte in einer App aus der Ferne zu befüllen, wie z. B. Deeplinks, Text, Bilder oder andere dynamische Inhalte.
 
@@ -135,7 +135,7 @@ Sie können Feature-Flags für Nutzer:innen in Ihrer [globalen Kontrollgruppe]({
 
 Nein. Die Identifizierung von Empfänger:innen per E-Mail beim Senden einer Nachricht ist nicht Teil des Feature-Flags-Produkts auf dieser Seite. Feature-Flags steuern In-App- oder On-Site-Erlebnisse über das Braze SDK.
 
-API-getriggerte Campaign- und Canvas-Sendungen können `email` im [Empfängerobjekt]({{site.baseurl}}/api/objects_filters/recipient_object) anstelle einer `external_user_id` enthalten. Wenn Sie `email` verwenden, fügen Sie `prioritization` hinzu, damit Braze das passende Nutzerprofil auswählen kann. Diese Sendeoption ist nicht in jedem Workspace verfügbar.
+API-getriggerte Campaign- und Canvas-Sendungen können `email` im [Empfängerobjekt]({{site.baseurl}}/api/objects_filters/recipient_object) anstelle einer `external_user_id` enthalten. Wenn Sie `email` verwenden, fügen Sie `prioritization` hinzu, damit Braze das passende Kundenprofil auswählen kann. Diese Sendeoption ist nicht in jedem Workspace verfügbar.
 
 Informationen zur Anfrage-Struktur finden Sie unter [POST: Campaigns über API-getriggerte Zustellung senden]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) und [POST: Canvas-Nachrichten über API-getriggerte Zustellung senden]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases).
 

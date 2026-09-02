@@ -249,7 +249,7 @@ Alguns recursos do iOS são parcialmente compatíveis ou não são compatíveis.
 
 ## Direcionamento de apps {#app-targeting}
 
-Para direcionar apps OTT para envio de mensagens, recomendamos criar um segmento específico para o seu app OTT.
+Para direcionar apps OTT para envio de mensagens, recomendamos criar um Segment específico para o seu app OTT.
 
 ![Um segmento criado usando o app Android OTT.]({% image_buster /assets/img/android_ott.png %})
 

@@ -17,7 +17,7 @@ description: "Erfahren Sie mehr über SMS, MMS und RCS in Braze, einschließlich
 
 ## Voraussetzungen {#prerequisites}
 
-Die Verfügbarkeit von SMS, MMS und RCS hängt von Ihrem Braze-Paket ab. Wenden Sie sich an Ihren Account Manager oder Customer-Success-Manager, um loszulegen.
+Die Verfügbarkeit von SMS, MMS und RCS hängt von Ihrem Braze-Paket ab. Wenden Sie sich an Ihren Account Manager:in oder CSM, um loszulegen.
 
 Bevor Sie beginnen, stellen Sie sicher, dass Sie über Folgendes verfügen:
 

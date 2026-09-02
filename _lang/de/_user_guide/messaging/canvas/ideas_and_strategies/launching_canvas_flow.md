@@ -38,7 +38,7 @@ Weitere Details zu verfügbaren Segmentierungsfiltern für die Zielgruppenanspra
 
 ### Mehrere API-Anfragen bündeln {#batch-multiple-api-requests}
 
-Fassen Sie Ihre Anfragen in einem einzigen API-Aufruf zusammen, anstatt mehrere Aufrufe zu verwenden, um sicherzustellen, dass das Nutzerprofil zuerst erstellt oder aktualisiert wird. Weitere Beispiele finden Sie unter [Mehrere Endpunkte verwenden]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions#scenario-2-using-multiple-api-endpoints).
+Fassen Sie Ihre Anfragen in einem einzigen API-Aufruf zusammen, anstatt mehrere Aufrufe zu verwenden, um sicherzustellen, dass das Kundenprofil zuerst erstellt oder aktualisiert wird. Weitere Beispiele finden Sie unter [Mehrere Endpunkte verwenden]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions#scenario-2-using-multiple-api-endpoints).
 
 ### Eine Verzögerung hinzufügen {#add-a-delay}
 

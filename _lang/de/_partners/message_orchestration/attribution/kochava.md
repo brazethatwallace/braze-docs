@@ -33,7 +33,7 @@ Die Integration von Braze und Kochava trägt zu einem ganzheitlicheren Verständ
 
 #### Android
 
-Das [Android](https://support.kochava.com/sdk-integration/sdk-kochavatracker-android/class-tracker?scrollto=marker_3) SDK generiert beim Sitzungsstart einen Globally Unique Identifier (GUID) als Braze-ID. Dieser Bezeichner sollte an die Kochava-Methode `IdentityLink` übergeben werden, damit Braze die Daten wieder mit dem richtigen Nutzerprofil abgleichen kann. Rufen Sie die Braze-ID mit der folgenden Methode ab:
+Das [Android](https://support.kochava.com/sdk-integration/sdk-kochavatracker-android/class-tracker?scrollto=marker_3) SDK generiert beim Sitzungsstart einen Globally Unique Identifier (GUID) als Braze-ID. Dieser Bezeichner sollte an die Kochava-Methode `IdentityLink` übergeben werden, damit Braze die Daten wieder mit dem richtigen Kundenprofil abgleichen kann. Rufen Sie die Braze-ID mit der folgenden Methode ab:
 
 ```java
 Apppboy.getInstance(context).getDeviceId();
@@ -82,7 +82,7 @@ Attributionsdaten für Facebook- und X-Campaigns (ehemals Twitter) sind nicht ü
 
 ## Kochava-Click-Tracking-URLs in Braze (optional)
 
-Wenn Sie Click-Tracking-Links in Ihren Braze-Campaigns verwenden, können Sie leicht erkennen, welche Campaigns zu App-Installationen und erneuter Interaktion führen. So können Sie Ihre Marketing-Bemühungen effektiver messen und datengestützte Entscheidungen darüber treffen, wo Sie mehr Ressourcen für einen maximalen ROI investieren sollten.
+Wenn Sie Click-Tracking-Links in Ihren Braze-Campaigns verwenden, können Sie leicht erkennen, welche Campaigns zu App-Installationen und erneuter Interaktion führen. So können Sie Ihre Marketing-Bemühungen effektiver messen und datengestützte Entscheidungen darüber treffen, wo Sie mehr Ressourcen für einen maximalen Kapitalrendite investieren sollten.
 
 Um mit Kochava-Click-Tracking-Links zu beginnen, besuchen Sie die [Dokumentation](https://support.kochava.com/reference-information/attribution-overview/). Sie können die Kochava-Click-Tracking-Links direkt in Ihre Braze-Campaigns einfügen. Kochava verwendet dann seine [probabilistischen Attributionsmethoden](https://www.kochava.com/getting-prepared-for-ios-14/), um die Nutzer:innen zuzuordnen, die auf den Link geklickt haben. Wir empfehlen, Ihre Kochava-Tracking-Links mit einem Geräte-Bezeichner zu versehen, um die Genauigkeit der Attributionen Ihrer Braze-Campaigns zu verbessern. Dadurch werden die Nutzer:innen, die auf den Link geklickt haben, deterministisch attributiert.
 

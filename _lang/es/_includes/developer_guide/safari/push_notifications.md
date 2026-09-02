@@ -6,7 +6,7 @@
 
 Un [manifiesto de aplicación web](https://developer.mozilla.org/en-US/docs/Web/Manifest) es un archivo JSON que controla cómo se presenta tu sitio web cuando se instala en la pantalla de inicio del usuario.
 
-Por ejemplo, puedes configurar el color del tema de fondo y el icono que usa el [selector de aplicaciones](https://support.apple.com/en-us/HT202070), si se renderiza a pantalla completa para parecerse a una aplicación nativa, o si la aplicación debe abrirse en modo horizontal o vertical.
+Por ejemplo, puedes configurar el color del tema de fondo y el icono que usa el [SELECTOR de aplicaciones](https://support.apple.com/en-us/HT202070), si se renderiza a pantalla completa para parecerse a una aplicación nativa, o si la aplicación debe abrirse en modo horizontal o vertical.
 
 Crea un nuevo archivo `manifest.json` en el directorio raíz de tu sitio web, con los siguientes campos obligatorios.
 

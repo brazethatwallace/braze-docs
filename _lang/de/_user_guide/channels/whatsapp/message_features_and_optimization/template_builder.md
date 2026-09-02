@@ -10,7 +10,7 @@ channel:
 
 # WhatsApp-Template-Builder {#whatsapp-template-builder}
 
-> Mit dem WhatsApp-Template-Builder können Sie WhatsApp-Nachrichten-Templates direkt in Braze erstellen und einreichen – ohne zwischen Braze und dem Meta Business Manager wechseln zu müssen. Nachdem Meta Ihr Template genehmigt hat, können Sie es in beliebig vielen Campaigns und Canvases verwenden.
+> Mit dem WhatsApp-Template-Builder können Sie WhatsApp-Nachrichten-Templates direkt in Braze erstellen und einreichen – ohne zwischen Braze und dem Meta Business Manager:in wechseln zu müssen. Nachdem Meta Ihr Template genehmigt hat, können Sie es in beliebig vielen Campaigns und Canvases verwenden.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -43,7 +43,7 @@ Marketing-Templates sind für Werbe- und Engagement-Nachrichten gedacht (zum Bei
 | **Angepasst** | Eine Standard-WhatsApp-Nachricht, die Sie von Grund auf erstellen. Dies ist das Layout, das unter [Ihr Template erstellen](#step-4-build-your-template) beschrieben wird. |
 | **Karussell** | Eine Nachricht mit horizontal scrollbaren Karten. Weitere Informationen finden Sie unter [Karussell-Templates]({{site.baseurl}}/whatsapp_carousel_templates). |
 | **Zeitlich begrenztes Angebot** | Ein zeitlich begrenztes Werbeangebot. Weitere Informationen finden Sie unter [Templates für zeitlich begrenzte Angebote]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/message_and_image_formats#limited-time-offer-templates). |
-| **Flow** | Ein Template, das einen WhatsApp-Flow öffnet (zum Beispiel Umfragen oder Terminbuchungen). Erstellen und verwalten Sie den Flow in Metas WhatsApp Manager und wählen Sie ihn dann beim Erstellen des Templates aus. Weitere Informationen finden Sie unter [WhatsApp Flows]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/whatsapp_flows). |
+| **Flow** | Ein Template, das einen WhatsApp-Flow öffnet (zum Beispiel Umfragen oder Terminbuchungen). Erstellen und verwalten Sie den Flow in Metas WhatsApp Manager:in und wählen Sie ihn dann beim Erstellen des Templates aus. Weitere Informationen finden Sie unter [WhatsApp Flows]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/whatsapp_flows). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Marketing-Template-Typen" }
 
 #### Utility {#utility}
@@ -53,7 +53,7 @@ Utility-Templates sind für nicht-werbliche Nachrichten gedacht (zum Beispiel Be
 | Typ | Beschreibung |
 | --- | --- |
 | **Angepasst** | Eine Standard-Utility-Nachricht, die Sie von Grund auf erstellen. Folgen Sie denselben Schritten wie unter [Ihr Template erstellen](#step-4-build-your-template). |
-| **Flow** | Ein Utility-Flow-Template (zum Beispiel Erinnerungen, Feedback oder Bestellverwaltung). Erstellen und verwalten Sie den Flow in Metas WhatsApp Manager und wählen Sie ihn dann beim Erstellen des Templates aus. Weitere Informationen finden Sie unter [WhatsApp Flows]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/whatsapp_flows). |
+| **Flow** | Ein Utility-Flow-Template (zum Beispiel Erinnerungen, Feedback oder Bestellverwaltung). Erstellen und verwalten Sie den Flow in Metas WhatsApp Manager:in und wählen Sie ihn dann beim Erstellen des Templates aus. Weitere Informationen finden Sie unter [WhatsApp Flows]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/whatsapp_flows). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Utility-Template-Typen" }
 
 {% alert note %}
@@ -124,7 +124,7 @@ Für Flow-Templates konfigurieren Sie den Flow-Button und wählen einen bestehen
 Bevor Sie es einreichen, sehen Sie in der Vorschau, wie Ihre Nachricht bei Empfänger:innen angezeigt wird:
 
 - **Vorschau als Nutzer:in:** Sehen Sie eine generische Vorschau der Nachricht.
-- **Vorschau als bestimmte:r Nutzer:in:** Wählen Sie ein Nutzerprofil aus, um zu sehen, wie das Template mit den Daten dieser/dieses Nutzers/Nutzerin gerendert wird.
+- **Vorschau als bestimmte:r Nutzer:in:** Wählen Sie ein Kundenprofil aus, um zu sehen, wie das Template mit den Daten dieser/dieses Nutzers/Nutzerin gerendert wird.
 
 ### Schritt 6: Zur Überprüfung einreichen {#step-6-submit-for-review}
 
@@ -165,11 +165,11 @@ Weitere Informationen zum Erstellen von WhatsApp-Campaigns finden Sie unter [Ein
 
 ### Kann ich ein Template bearbeiten, nachdem es genehmigt wurde? {#can-i-edit-a-template-after-its-been-approved}
 
-Sie können variable Inhalte und Personalisierung beim Erstellen einer Campaign oder eines Canvas aktualisieren. Änderungen an gesperrten Inhalten (Fließtext, Button-Layout oder andere von Meta kontrollierte Felder) erfordern das Erstellen eines neuen Templates im Template-Builder oder das Bearbeiten des Templates im WhatsApp Manager von Meta und das Warten auf eine erneute Genehmigung durch Meta. Wenn Sie [Klick-Tracking]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/click_tracking) verwenden, lesen Sie diesen Artikel, bevor Sie in Braze erstellte Templates im WhatsApp Manager von Meta bearbeiten.
+Sie können variable Inhalte und Personalisierung beim Erstellen einer Campaign oder eines Canvas aktualisieren. Änderungen an gesperrten Inhalten (Fließtext, Button-Layout oder andere von Meta kontrollierte Felder) erfordern das Erstellen eines neuen Templates im Template-Builder oder das Bearbeiten des Templates im WhatsApp Manager:in von Meta und das Warten auf eine erneute Genehmigung durch Meta. Wenn Sie [Klick-Tracking]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/click_tracking) verwenden, lesen Sie diesen Artikel, bevor Sie in Braze erstellte Templates im WhatsApp Manager:in von Meta bearbeiten.
 
 ### Was passiert mit Templates, die ich vor der Verfügbarkeit des Template-Builders eingereicht habe? {#what-happens-to-templates-i-submitted-before-the-template-builder-was-available}
 
-Templates, die im Meta Business Manager erstellt wurden, können weiterhin in Braze verwendet werden. Der Template-Builder ist eine zusätzliche Möglichkeit, Templates zu erstellen und zu verwalten, ohne das Braze-Dashboard zu verlassen.
+Templates, die im Meta Business Manager:in erstellt wurden, können weiterhin in Braze verwendet werden. Der Template-Builder ist eine zusätzliche Möglichkeit, Templates zu erstellen und zu verwalten, ohne das Braze-Dashboard zu verlassen.
 
 ### Warum kann ich nicht in jedem Feld Personalisierung hinzufügen? {#why-cant-i-add-personalization-to-every-field}
 

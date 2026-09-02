@@ -13,7 +13,7 @@ description: "Esta página de referência lista filtros que podem ser usados par
 Filtros são a forma de modificar a saída de números, strings, variáveis e objetos em Liquid. Você pode usar filtros para reformatar texto estático ou dinâmico, como converter uma string de minúsculas para maiúsculas ou realizar operações matemáticas, como adição ou divisão.
 
 {% alert important %}
-A Braze não suporta todos os filtros Liquid da Shopify. Esta página tenta listar os filtros Liquid que a Braze testou, mas pode não ser uma lista completa. Sempre teste seu Liquid antes de enviar qualquer mensagem. <br><br>Se você tiver dúvidas sobre um filtro que não está listado aqui, entre em contato com seu gerente de sucesso do cliente.
+A Braze não suporta todos os filtros Liquid da Shopify. Esta página tenta listar os filtros Liquid que a Braze testou, mas pode não ser uma lista completa. Sempre teste seu Liquid antes de enviar qualquer mensagem. <br><br>Se você tiver dúvidas sobre um filtro que não está listado aqui, entre em contato com seu CSM.
 {% endalert %}
 
 ## Sintaxe de filtro {#filter-syntax}

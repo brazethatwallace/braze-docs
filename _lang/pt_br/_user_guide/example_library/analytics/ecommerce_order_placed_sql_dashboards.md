@@ -15,14 +15,14 @@ tool: Reports
 
 Flash e Thread, uma marca fictícia de varejo de roupas, registra pedidos com [eventos recomendados de eCommerce]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events). A equipe de marketing quer receita diária, valor médio do pedido (AOV) e volume de pedidos em um único dashboard — não apenas a visualização pré-construída de atribuição de último ponto de contato.
 
-Esse padrão usa o Query Builder para consultar `ecommerce.order_placed` nas tabelas de eventos compartilhadas do Snowflake e, em seguida, adiciona a consulta salva como um bloco de **Custom Queries** no Dashboard Builder. Você pode repetir o fluxo de trabalho para métricas adicionais (compradores novos versus recorrentes, categorias de produtos ou receita por segmento).
+Esse padrão usa o Query Builder para consultar `ecommerce.order_placed` nas tabelas de eventos compartilhadas do Snowflake e, em seguida, adiciona a consulta salva como um bloco de **Custom Queries** no Dashboard Builder. Você pode repetir o fluxo de trabalho para métricas adicionais (compradores novos versus recorrentes, categorias de produtos ou receita por Segment).
 
 Use isso quando os dashboards de eCommerce integrados não cobrirem sua combinação de métricas. Para receita atribuída por último ponto de contato, consulte o dashboard [Revenue - Last Touch Attribution]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder#revenue---last-touch-attribution).
 
 ## Considerações {#considerations}
 
 - **Implementação do evento:** `ecommerce.order_placed` deve estar implementado e enviando `total_value` (e dados de produto quando necessário) antes que as consultas retornem dados. Se você usa o [conector Shopify]({{site.baseurl}}/partners/ecommerce/shopify/multiple_stores/?tab=shopify%20connector), os eventos recomendados podem já estar disponíveis.
-- **Acesso ao Query Builder:** Você precisa da [permissão de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) "View PII" para usar o Query Builder.
+- **Acesso ao Query Builder:** Você precisa da [permissão de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) "View IPI" para usar o Query Builder.
 - **Retenção de dados:** O Query Builder retorna dados dos últimos 60 dias por padrão. Com o [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake), você pode consultar até dois anos de dados retidos. Consulte [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder).
 - **Timeouts:** Consultas que levam mais de seis minutos expiram. Reduza o intervalo de datas, filtre por `TIME` ou diminua o tamanho do público se um relatório falhar. As tabelas de eventos são clusterizadas em `TIME`; prefira filtrar pelo momento em que o evento ocorreu.
 - **Campo de receita:** As consultas de exemplo somam `total_value` das `properties` do evento. A receita padronizada de eCommerce da Braze nos relatórios de produto geralmente é derivada do `price` e `quantity` de cada produto. Alinhe `total_value` com seus itens de linha de produto ou ajuste o SQL para corresponder ao seu esquema.
@@ -157,9 +157,9 @@ ORDER BY 2 DESC;
 ```
 {% endraw %}
 
-#### Compras e receita por segmento (análise de segmento) {#purchases-and-revenue-by-segment-segment-analytics}
+#### Compras e receita por Segment (análise de Segment) {#purchases-and-revenue-by-segment-segment-analytics}
 
-Isso requer [rastreamento de análise de segmento]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) nos segmentos sobre os quais você está gerando relatórios. Use [variáveis SQL]({{site.baseurl}}/user_guide/analytics/reports/query_builder/sql_variables) para seletores de data.
+Isso requer [rastreamento de análise de Segment]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) nos segmentos sobre os quais você está gerando relatórios. Use [variáveis SQL]({{site.baseurl}}/user_guide/analytics/reports/query_builder/sql_variables) para seletores de data.
 
 {% raw %}
 ```sql
@@ -203,4 +203,4 @@ ORDER BY 3 DESC;
 - [Dashboard Builder]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder)
 - [Revenue - Last Touch Attribution]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder#revenue---last-touch-attribution)
 - [Referência de tabelas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#USERS_BEHAVIORS_CUSTOMEVENT_SHARED)
-- [Rastreamento de análise de segmento]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking)
+- [Rastreamento de análise de Segment]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking)

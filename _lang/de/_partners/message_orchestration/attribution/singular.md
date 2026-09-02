@@ -92,7 +92,7 @@ Attribution-Daten für Facebook- und X-Kampagnen (ehemals Twitter) sind nicht ü
 
 ## Singular-Click-Tracking-URLs in Braze (optional)
 
-Wenn Sie Click-Tracking-Links in Ihren Braze-Kampagnen verwenden, können Sie leicht erkennen, welche Kampagnen zu App-Installationen und erneuter Interaktion führen. So können Sie Ihre Marketing-Bemühungen effektiver messen und datengestützte Entscheidungen darüber treffen, wo Sie mehr Ressourcen für einen maximalen ROI investieren sollten.
+Wenn Sie Click-Tracking-Links in Ihren Braze-Kampagnen verwenden, können Sie leicht erkennen, welche Kampagnen zu App-Installationen und erneuter Interaktion führen. So können Sie Ihre Marketing-Bemühungen effektiver messen und datengestützte Entscheidungen darüber treffen, wo Sie mehr Ressourcen für einen maximalen Kapitalrendite investieren sollten.
 
 Um mit Singular-Click-Tracking-Links zu beginnen, besuchen Sie deren [Dokumentation](https://support.singular.net/hc/en-us/articles/360030934212-Singular-Links-FAQ?navigation_side_bar=true). Sie können die Singular-Click-Tracking-Links direkt in Ihre Braze-Kampagnen einfügen. Singular verwendet dann seine [probabilistischen Attributionsmethoden](https://support.singular.net/hc/en-us/articles/115000526963-Understanding-Singular-Mobile-App-Attribution?navigation_side_bar=true), um die Nutzer:innen zuzuordnen, die auf den Link geklickt haben. Wir empfehlen, Ihre Singular-Tracking-Links mit einem Geräte-Bezeichner zu versehen, um die Genauigkeit der Attributionen Ihrer Braze-Kampagnen zu verbessern. Dadurch werden die Nutzer:innen, die auf den Link geklickt haben, deterministisch attributiert.
 

@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Eagle Eye
 
-> [Eagle Eye](https://eagleeye.com/) es una empresa líder en SaaS y tecnología de IA que habilita a las marcas de comercio minorista, viajes y hostelería para ganarse la fidelización de sus clientes finales potenciando sus actividades de marketing del consumidor en tiempo real, omnicanal y personalizadas, a escala.
+> [Eagle Eye](https://eagleeye.com/) es una empresa líder en software como servicio (SaaS) y tecnología de IA que habilita a las marcas de comercio minorista, viajes y hostelería para ganarse la fidelización de sus clientes finales potenciando sus actividades de marketing del consumidor en tiempo real, omnicanal y personalizadas, a escala.
 
 _Esta integración está mantenida por Eagle Eye._
 

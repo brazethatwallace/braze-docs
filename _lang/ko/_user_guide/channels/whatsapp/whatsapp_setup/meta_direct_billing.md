@@ -22,7 +22,7 @@ Meta Direct Billing을 설정하기 전에 다음 사항을 확인하세요.
 | 요구 사항 | 설명 |
 | --- | --- |
 | Braze 워크스페이스 접근 권한 | 임베디드 가입 플로우를 시작하려면 Braze에서 **파트너 통합** > **기술 파트너**에 접근할 수 있어야 합니다. |
-| Meta Business Manager 계정 | 결제는 Meta Business Manager의 **결제 및 결제 수단**에서 구성합니다. |
+| Meta Business 매니저 계정 | 결제는 Meta Business 매니저의 **결제 및 결제 수단**에서 구성합니다. |
 | 직불카드 또는 신용카드 | 설정을 완료하려면 유효한 카드가 필요합니다. 일부 계정에서는 월별 청구서 발행이 옵션으로 표시될 수 있지만, 보장되지는 않습니다. |
 | 완전한 비즈니스 정보 | 비즈니스 이름, 주소, 통화가 정확하게 입력되어 있어야 합니다. Meta는 메시징을 활성화하기 전에 이 정보를 검토합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="전제 조건" }
@@ -39,8 +39,8 @@ Meta Direct Billing을 설정하기 전에 다음 사항을 확인하세요.
 
 Meta의 임베디드 가입을 완료한 후 다음 중 하나를 수행합니다.
 
-- **결제 수단 추가**를 선택하면 Meta Business Manager로 이동합니다.
-- Meta Business Manager에서 **결제 및 결제 수단** > **계정**으로 이동한 후 WABA를 선택합니다.
+- **결제 수단 추가**를 선택하면 Meta Business 매니저로 이동합니다.
+- Meta Business 매니저에서 **결제 및 결제 수단** > **계정**으로 이동한 후 WABA를 선택합니다.
 
 ### 3단계: 결제 수단 추가 {#step-3-add-a-payment-method}
 

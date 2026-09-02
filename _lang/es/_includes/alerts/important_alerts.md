@@ -9,7 +9,7 @@ Las ventanas de navegación privada no admiten notificaciones push web.
 {% if include.alert == 'BCC address billable emails' %}
 
 {% alert important %}
-Añadir una dirección BCC a tu Campaign o Canvas hace que se dupliquen los correos electrónicos facturables para la Campaign o el componente de Canvas, ya que Braze envía un mensaje a tu usuario y otro a tu dirección BCC.
+Añadir una dirección tarjeta de contenido de banner a tu Campaign o Canvas hace que se dupliquen los correos electrónicos facturables para la Campaign o el componente de Canvas, ya que Braze envía un mensaje a tu usuario y otro a tu dirección tarjeta de contenido de banner.
 {% endalert %}
 
 {% endif %}
@@ -93,7 +93,7 @@ Las propiedades de entrada de Canvas forman parte de las variables de contexto d
 {% if include.alert == 'Braze Agents' %}
 
 {% alert important %}
-Este partner aparece en tu página de **Partners tecnológicos** solo si tienes habilitados los [agentes de Braze]({{site.baseurl}}/user_guide/brazeai/agents). Para obtener ayuda para empezar, ponte en contacto con tu administrador de éxito de cliente.
+Este partner aparece en tu página de **Partners tecnológicos** solo si tienes habilitados los [agentes de Braze]({{site.baseurl}}/user_guide/brazeai/agents). Para obtener ayuda para empezar, ponte en contacto con tu CSM.
 {% endalert %}
 
 {% endif %}

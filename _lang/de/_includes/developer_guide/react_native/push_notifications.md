@@ -64,11 +64,11 @@ Beachten Sie, dass Sie diese Einstellungen anstelle der nativen Einrichtungsanwe
 {% endtab %}
 
 {% tab Android Native %}
-Wenn Sie das Braze Expo Plugin nicht verwenden oder diese Einstellungen stattdessen nativ konfigurieren möchten, registrieren Sie sich für Push anhand der [Anleitung zur nativen Android-Push-Integration]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/?tab=android/).
+Wenn Sie das Braze Expo Plugin nicht verwenden oder diese Einstellungen stattdessen nativ konfigurieren möchten, Registrieren Sie sich für Push anhand der [Anleitung zur nativen Android-Push-Integration]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/?tab=android/).
 {% endtab %}
 
 {% tab iOS Native %}
-Wenn Sie das Braze Expo Plugin nicht verwenden oder diese Einstellungen stattdessen nativ konfigurieren möchten, registrieren Sie sich für Push, indem Sie die folgenden Schritte aus der [Anleitung zur nativen iOS-Push-Integration]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift) befolgen:
+Wenn Sie das Braze Expo Plugin nicht verwenden oder diese Einstellungen stattdessen nativ konfigurieren möchten, Registrieren Sie sich für Push, indem Sie die folgenden Schritte aus der [Anleitung zur nativen iOS-Push-Integration]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift) befolgen:
 
 #### Schritt 1.1: Push-Berechtigungen anfordern {#step-11-request-for-push-permissions}
 

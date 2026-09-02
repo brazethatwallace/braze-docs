@@ -12,7 +12,7 @@ tool: Segments
 > Mit berechneten Filtern können Sie sehr präzise Segmente über einen längeren Zeitraum der Nutzer:innenhistorie erstellen. Verwenden Sie berechnete Filter beispielsweise, um Nutzer:innen anzusprechen, die in den letzten 16 Monaten ein bestimmtes Produkt gekauft oder einen bestimmten Betrag für Ihren Dienst ausgegeben haben. Verfeinern Sie diese Zielgruppe mithilfe von Event-Eigenschaften, um das Targeting noch granularer zu gestalten.
 
 {% alert important %}
-Berechnete Filter befinden sich derzeit im Early Access. Wenn Sie am Early Access teilnehmen möchten, wenden Sie sich an Ihren Account Manager.
+Berechnete Filter befinden sich derzeit im Early Access. Wenn Sie am Early Access teilnehmen möchten, wenden Sie sich an Ihren Account Manager:in.
 {% endalert %}
 
 ## So funktioniert es {#how-it-works}
@@ -78,7 +78,7 @@ Wenn **Create filter** den User-Activity-Builder direkt öffnet oder Sie **User 
 - **Performed a Custom Event**
 - **Interacted with Message Channel**
 
-Die verfügbaren **Criterion**-Optionen variieren je nach den in Ihrem Workspace aktivierten Features. **Performed an eCommerce event** ist immer verfügbar. Wenn Sie eine benötigte Option nicht sehen, wenden Sie sich an Ihren Braze Account Manager.
+Die verfügbaren **Criterion**-Optionen variieren je nach den in Ihrem Workspace aktivierten Features. **Performed an eCommerce event** ist immer verfügbar. Wenn Sie eine benötigte Option nicht sehen, wenden Sie sich an Ihren Braze Account Manager:in.
 
 Nachdem Sie einen Event-Typ ausgewählt haben, wählen Sie das spezifische Event, wie oft die Nutzer:innen es abgeschlossen haben müssen (mehr als, weniger als oder gleich) und den Zeitraum.
 
@@ -150,7 +150,7 @@ Jeder berechnete Filter zeigt einen der folgenden Status an. **Processing** und 
 Für nicht archivierte Filter enthält das Zeilenmenü **Edit**, **Messaging use**, **Archive** und **Update audience**. **Update audience** ist für aktive Filter verfügbar, die gerade nicht verarbeitet werden. Sie können einen berechneten Filter während der Verarbeitung bearbeiten, Ihre Änderungen jedoch erst speichern, wenn die Verarbeitung abgeschlossen ist.
 
 {% alert note %}
-Ihr Workspace kann gleichzeitig bis zu 100 aktive berechnete Filter enthalten. Wenden Sie sich an Ihren Braze Account Manager, wenn Sie dieses Limit erhöhen möchten.
+Ihr Workspace kann gleichzeitig bis zu 100 aktive berechnete Filter enthalten. Wenden Sie sich an Ihren Braze Account Manager:in, wenn Sie dieses Limit erhöhen möchten.
 {% endalert %}
 
 #### Archivierung aufheben {#unarchive}

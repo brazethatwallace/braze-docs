@@ -196,7 +196,7 @@ Push-Benachrichtigungen können durch Drücken eines Aktions-Buttons automatisch
 
 #### Andere Anwendungsfälle
 
-Das Anfordern von Nutzereingaben über Push-Benachrichtigungen ist eine spannende Möglichkeit, die viele Unternehmen nicht nutzen. In diesen Push-Nachrichten können Sie nicht nur grundlegende Informationen wie Name, E-Mail oder Telefonnummer abfragen, sondern Nutzer:innen auch auffordern, ein Nutzerprofil zu vervollständigen, falls es noch nicht abgeschlossen ist, oder sogar Feedback zu übermitteln.
+Das Anfordern von Nutzereingaben über Push-Benachrichtigungen ist eine spannende Möglichkeit, die viele Unternehmen nicht nutzen. In diesen Push-Nachrichten können Sie nicht nur grundlegende Informationen wie Name, E-Mail oder Telefonnummer abfragen, sondern Nutzer:innen auch auffordern, ein Kundenprofil zu vervollständigen, falls es noch nicht abgeschlossen ist, oder sogar Feedback zu übermitteln.
 
 ##### Sind Sie bereit für die Protokollierung von Analytics?
 Im [folgenden Abschnitt](#logging-analytics) wird näher beschrieben, wie der Datenfluss aussehen sollte.
@@ -205,7 +205,7 @@ Im [folgenden Abschnitt](#logging-analytics) wird näher beschrieben, wie der Da
 
 ### Protokollierung mit der Braze-API (empfohlen) {#logging-with-the-braze-api-recommended}
 
-Das Protokollieren von Analytics kann nur in Realtime erfolgen, wenn der Server der Kund:innen unseren [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) aufruft. Zum Protokollieren von Analytics übermitteln Sie den Wert `braze_id` im Feld für Schlüssel-Wert-Paare (wie im folgenden Screenshot gezeigt), um das zu aktualisierende Nutzerprofil zu identifizieren.
+Das Protokollieren von Analytics kann nur in Realtime erfolgen, wenn der Server der Kund:innen unseren [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) aufruft. Zum Protokollieren von Analytics übermitteln Sie den Wert `braze_id` im Feld für Schlüssel-Wert-Paare (wie im folgenden Screenshot gezeigt), um das zu aktualisierende Kundenprofil zu identifizieren.
 
 ![Eine Push-Nachricht mit drei Gruppen von Schlüssel-Wert-Paaren. 1. „Braze_id“ als Liquid-Aufruf zum Abrufen der Braze-ID festgelegt. 2. „cert_title“ als „Braze Marketer Certification“ festgelegt. 3. „Cert_description“ als „Certified Braze marketers drive...“ festgelegt.]({% image_buster /assets/img/push_implementation_guide/push18.png %}){: style="max-width:80%;"}
 

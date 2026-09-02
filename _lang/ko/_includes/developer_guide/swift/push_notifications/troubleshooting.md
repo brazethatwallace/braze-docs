@@ -55,7 +55,7 @@ Braze는 대시보드에 업로드된 SSL 푸시 인증서를 사용하여 인�
 
 ![오류가 발생한 시간, 앱 이름, 채널, 오류 유형 및 오류 메시지를 표시하는 푸시 오류 로그.]({% image_buster /assets/img_archive/message_activity_log.png %})
 
-여기에서 볼 수 있는 일반적인 오류로는 ["Received Unregistered Sending to Push Token"](#swift_received-unregistered-sending)과 같은 사용자별 알림이 있습니다.
+여기에서 볼 수 있는 일반적인 오류로는 ["Received Unregistered Sending to 푸시 토큰"](#swift_received-unregistered-sending)과 같은 사용자별 알림이 있습니다.
 
 또한 Braze는 고객 프로필의 **Engagement** 탭 아래에 푸시 체인지로그도 제공합니다. 이 체인지로그는 토큰 무효화, 푸시 등록 오류, 토큰이 새 사용자로 이동하는 등의 푸시 등록 동작에 대한 인사이트를 제공합니다.
 
@@ -63,7 +63,7 @@ Braze는 대시보드에 업로드된 SSL 푸시 인증서를 사용하여 인�
 
 ### 메시지 활동 로그 오류 {#message-activity-log-errors}
 
-#### Received unregistered sending to push token {#received-unregistered-sending}
+#### Received unregistered sending to 푸시 토큰 {#received-unregistered-sending}
 
 - `AppDelegate.braze?.notifications.register(deviceToken:)` 메서드에서 Braze로 전송되는 푸시 토큰이 유효한지 확인하세요. **메시지 활동 로그**에서 푸시 토큰을 확인할 수 있습니다. 토큰은 `6e407a9be8d07f0cdeb9e724733a89445f57a89ec890d63867c482a483506fa6`와 같이 문자와 숫자가 혼합된 긴 문자열이어야 합니다. 푸시 토큰이 다르게 보이는 경우, Braze에 푸시 토큰을 전송하는 [코드]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#step-4-register-push-tokens-with-braze)를 확인하세요.
 - 푸시 프로비저닝 프로필이 테스트 중인 환경과 일치하는지 확인하세요. 유니버설 인증서는 Braze 대시보드에서 개발 또는 프로덕션 APN 환경으로 발송하도록 구성할 수 있습니다. 프로덕션 앱에 개발 인증서를 사용하거나 개발 앱에 프로덕션 인증서를 사용하면 작동하지 않습니다.
@@ -83,7 +83,7 @@ APN은 푸시 토큰이 자격 증명에 구성된 토픽(번들 ID)과 일치�
 
 가능하면 `.p8` 인증 키를 사용하는 것이 좋습니다. 자격 증명 유형과 대시보드 상태 표시기에 대해서는 [.p8 인증 키로 마이그레이션]({{site.baseurl}}/user_guide/channels/push/troubleshooting#migrate-to-a-p8-authentication-key)을 참조하세요.
 
-#### BadDeviceToken sending to push token
+#### BadDeviceToken sending to 푸시 토큰
 
 `BadDeviceToken`은 APN 오류 코드이며 Braze에서 발생하는 것이 아닙니다. 이 응답이 반환되는 데는 다음과 같은 여러 가지 이유가 있을 수 있습니다:
 

@@ -22,9 +22,9 @@ Bevor Sie Ihre E-Mail-Liste in Braze importieren, vergewissern Sie sich, dass Ih
 
 E-Mail-Listenbereinigungsdienste können dies für Sie übernehmen, indem sie feststellen, ob die E-Mail-Adresse der korrekten Syntax folgt und die physischen Eigenschaften einer E-Mail-Adresse aufweist, die E-Mail-Domain überprüfen und eine Verbindung zum E-Mail-Server herstellen, um zu verifizieren, ob die E-Mail-Adresse dort existiert.
 
-### Prüfen Sie, ob eine E-Mail-Adresse bereits mit einem Nutzerprofil verknüpft ist {#check-if-an-email-address-is-already-associated-with-a-user}
+### Prüfen Sie, ob eine E-Mail-Adresse bereits mit einem Kundenprofil verknüpft ist {#check-if-an-email-address-is-already-associated-with-a-user}
 
-Bevor Sie eine Nutzer:in über die API oder das SDK anlegen, rufen Sie den Endpunkt [`/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) auf und geben Sie die `email_address` der Nutzer:in an. Wenn ein Nutzerprofil zurückgegeben wird, ist diese Braze-Nutzer:in bereits mit dieser E-Mail-Adresse verknüpft.
+Bevor Sie eine Nutzer:in über die API oder das SDK anlegen, rufen Sie den Endpunkt [`/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) auf und geben Sie die `email_address` der Nutzer:in an. Wenn ein Kundenprofil zurückgegeben wird, ist diese Braze-Nutzer:in bereits mit dieser E-Mail-Adresse verknüpft.
 
 Wir empfehlen dringend, bei der Erstellung neuer Nutzer:innen auf eindeutige E-Mail-Adressen zu achten und zu vermeiden, Nutzer:innen mit derselben E-Mail-Adresse zu übergeben oder zu importieren. Andernfalls können unbeabsichtigte Auswirkungen auf den Nachrichtenversand, das Targeting, das Reporting und andere Features auftreten.
 

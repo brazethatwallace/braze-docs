@@ -462,7 +462,7 @@ Ajoute un espacement vertical entre les éléments.
 
 ### Code personnalisé
 
-Insère du HTML, CSS ou JavaScript personnalisé pour une personnalisation avancée, comme [Google Tag Manager]({{site.baseurl}}/user_guide/messaging/landing_pages#adding-google-tag-manager-to-a-landing-page).
+Insère du HTML, CSS ou JavaScript personnalisé pour une personnalisation avancée, comme [Google Tag gestionnaire]({{site.baseurl}}/user_guide/messaging/landing_pages#adding-google-tag-manager-to-a-landing-page).
 
 | Propriété | Description |
 | --- | --- |

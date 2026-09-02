@@ -38,7 +38,7 @@ Para configurar o rastreamento de cliques em uma mensagem de texto:
 2. Acesse a guia **Settings** e confirme que o **Click Tracking** está ativado. O rastreamento de cliques é ativado por padrão para todas as novas mensagens.
 
 {% alert note %}
-Você pode visualizar prévias do link encurtado nas guias **Settings** ou **Preview & Test**. O link completo será exibido no criador enquanto você constrói sua mensagem.
+Você pode visualizar prévias do link encurtado nas guias **Settings** ou **prévia & Test**. O link completo será exibido no criador enquanto você constrói sua mensagem.
 {% endalert %}
 
 ![Guia "Settings" do criador de mensagens LINE com "Click Tracking" ativado e uma prévia de mensagem de texto contendo uma URL encurtada: https://olaf.brz.ai/p/9rcfdqdD]({% image_buster /assets/img/line/click_tracking_settings.png %})

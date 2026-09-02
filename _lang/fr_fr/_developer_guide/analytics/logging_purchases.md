@@ -28,7 +28,7 @@ Pour un déploiement standard du SDK Web, vous pouvez utiliser la méthode suiva
 braze.logPurchase(product_id, price, "USD", quantity);
 ```
 
-Si vous préférez utiliser Google Tag Manager à la place, vous pouvez utiliser le type d'étiquette **Purchase** pour appeler la [méthode `logPurchase`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logpurchase). Utilisez cette étiquette pour suivre les achats dans Braze, avec la possibilité d'inclure des propriétés d'achat. Pour ce faire :
+Si vous préférez utiliser Google Tag gestionnaire à la place, vous pouvez utiliser le type d'étiquette **Purchase** pour appeler la [méthode `logPurchase`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logpurchase). Utilisez cette étiquette pour suivre les achats dans Braze, avec la possibilité d'inclure des propriétés d'achat. Pour ce faire :
 
 1. Les champs **Product ID** et **Price** sont obligatoires.
 2. Utilisez le bouton **Add Row** pour ajouter des propriétés d'achat.
@@ -145,7 +145,7 @@ Pour un déploiement standard du SDK Web, vous pouvez utiliser la méthode suiva
 braze.logPurchase(product_id, price, "USD", quantity, {key: "value"});
 ```
 
-Si votre site enregistre les achats en utilisant l'élément de couche de données de l'[événement eCommerce](https://developers.google.com/analytics/devguides/collection/ga4/ecommerce?client_type=gtm) standard vers Google Tag Manager, vous pouvez utiliser le type d'étiquette **E-commerce Purchase**. Ce type d'action enregistrera un « achat » séparé dans Braze pour chaque article envoyé dans la liste `items`.
+Si votre site enregistre les achats en utilisant l'élément de couche de données de l'[événement eCommerce](https://developers.google.com/analytics/devguides/collection/ga4/ecommerce?client_type=gtm) standard vers Google Tag gestionnaire, vous pouvez utiliser le type d'étiquette **E-commerce Purchase**. Ce type d'action enregistrera un « achat » séparé dans Braze pour chaque article envoyé dans la liste `items`.
 
 Vous pouvez également spécifier des noms de propriétés supplémentaires que vous souhaitez inclure en tant que propriétés d'achat en indiquant leurs clés dans la liste des propriétés d'achat. Notez que Braze recherchera dans l'`item` individuel en cours d'enregistrement toute propriété d'achat que vous avez ajoutée à la liste.
 

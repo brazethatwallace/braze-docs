@@ -69,7 +69,7 @@ Um personenbezogene Daten aus Braze in einem maschinenlesbaren Format als Antwor
 
 #### BrazeAI Decisioning Studio™
 
-Um eine Auskunftsanfrage in Bezug auf personenbezogene Daten in BrazeAI Decisioning Studio™ zu erfüllen, wenden Sie sich mit den relevanten customer_id(s) und/oder E-Mail(s) an Ihren Account Manager.
+Um eine Auskunftsanfrage in Bezug auf personenbezogene Daten in BrazeAI Decisioning Studio™ zu erfüllen, wenden Sie sich mit den relevanten customer_id(s) und/oder E-Mail(s) an Ihren Account Manager:in.
 
 ## Das Recht auf Berichtigung {#the-right-to-rectification}
 
@@ -90,15 +90,15 @@ Das Recht auf Löschung ist auch als „Recht auf Vergessenwerden“ oder „Rec
 Nachdem Sie die Datenerfassung eingestellt haben, können Sie den [REST-API-Endpunkt zur Löschung von Nutzer:innen von Braze]({{site.baseurl}}/api/endpoints/user_data/post_user_delete) verwenden, um eine:n Endnutzer:in zu löschen. Dadurch werden alle Datensätze dieser:dieses Endnutzer:in aus den Braze-Diensten entfernt:
 
 - Für Endnutzer:innen, die eine external_id innerhalb der Braze-Dienste haben, können Sie diese ID verwenden, um die Daten dieser:dieses Endnutzer:in zu löschen.
-- Für anonyme Endnutzer:innen, die keine external_id innerhalb der Braze-Dienste haben, können Sie den Gerätebezeichner über das Braze SDK abrufen und mit diesem Gerätebezeichner das Nutzerprofil finden, das mit diesem Gerät verknüpft ist. Anschließend können Sie die API zur Löschung von Nutzer:innen verwenden, um das mit dieser:diesem Endnutzer:in verknüpfte Profil zu löschen.
+- Für anonyme Endnutzer:innen, die keine external_id innerhalb der Braze-Dienste haben, können Sie den Gerätebezeichner über das Braze SDK abrufen und mit diesem Gerätebezeichner das Kundenprofil finden, das mit diesem Gerät verknüpft ist. Anschließend können Sie die API zur Löschung von Nutzer:innen verwenden, um das mit dieser:diesem Endnutzer:in verknüpfte Profil zu löschen.
 
-Das Löschen einer:eines Endnutzer:in aus den Braze-Diensten löscht dauerhaft das zentrale Nutzerprofil dieser:dieses Endnutzer:in bei Braze, wie durch die bereitgestellte `external_id` definiert. Dies umfasst strukturierte Profilinformationen, die Braze standardmäßig erfasst hat oder die Sie die Braze-Dienste zur Erfassung konfiguriert haben, wie z. B. Geräteinformationen, Land, Sprache und E-Mail-Adresse.
+Das Löschen einer:eines Endnutzer:in aus den Braze-Diensten löscht dauerhaft das zentrale Kundenprofil dieser:dieses Endnutzer:in bei Braze, wie durch die bereitgestellte `external_id` definiert. Dies umfasst strukturierte Profilinformationen, die Braze standardmäßig erfasst hat oder die Sie die Braze-Dienste zur Erfassung konfiguriert haben, wie z. B. Geräteinformationen, Land, Sprache und E-Mail-Adresse.
 
 Beachten Sie, dass die E-Mail-Adresse oder Telefonnummer, die mit dem Profil der:des Endnutzer:in verknüpft ist, möglicherweise weiterhin bei Braze gespeichert sein kann, da sie mit dem Profil einer:eines anderen Endnutzer:in verknüpft sein könnte. E-Mail-Adressen und Telefonnummern sind in den Braze-Diensten nicht eindeutig. Das bedeutet, dass Ihr Team Braze so konfiguriert haben könnte, dass dieselbe E-Mail-Adresse oder Telefonnummer in mehreren Nutzerprofilen gespeichert ist. Wenn Ihr Team Braze auf diese Weise konfiguriert hat, beachten Sie, dass Sie möglicherweise alle Nutzerprofile löschen müssen, die eine bestimmte betroffene Person repräsentieren, um einem Löschungsantrag einer betroffenen Person nachzukommen, und Ihr Team müsste mehrere API-Aufrufe durchführen, um alle Nutzerprofile zu löschen, die sich auf eine bestimmte betroffene Person beziehen.
 
 #### BrazeAI Decisioning Studio™
 
-Um einem Recht-auf-Löschung-Antrag in Bezug auf personenbezogene Daten in BrazeAI Decisioning Studio™ nachzukommen, kontaktieren Sie Ihre:n Account Manager mit den relevanten customer_id(s) und/oder E-Mail(s). Ihr:e Account Manager kann veranlassen, dass alle zugehörigen personenbezogenen Daten im Data Warehouse gelöscht werden.
+Um einem Recht-auf-Löschung-Antrag in Bezug auf personenbezogene Daten in BrazeAI Decisioning Studio™ nachzukommen, kontaktieren Sie Ihre:n Account Manager:in mit den relevanten customer_id(s) und/oder E-Mail(s). Ihr:e Account Manager:in kann veranlassen, dass alle zugehörigen personenbezogenen Daten im Data Warehouse gelöscht werden.
 
 #### Zusätzliche Hinweise zur Löschung {#additional-deletion-considerations}
 
@@ -165,7 +165,7 @@ Das Recht auf Datenübertragbarkeit ermöglicht es betroffenen Personen, ihre pe
 
 ### Braze-Empfehlung
 
-Ähnlich wie beim Recht auf Auskunft können Sie die Braze [REST API]({{site.baseurl}}/api/endpoints/export) verwenden, um die personenbezogenen Daten einer Endnutzerin oder eines Endnutzers zu exportieren und sie der betroffenen Person auf deren Anfrage hin zur Verfügung zu stellen. Wenden Sie sich darüber hinaus mit den relevanten customer_id(s) und/oder E-Mail(s) an Ihren Account Manager, um eine Kopie aller in BrazeAI Decisioning Studio gespeicherten personenbezogenen Daten anzufordern.
+Ähnlich wie beim Recht auf Auskunft können Sie die Braze [REST API]({{site.baseurl}}/api/endpoints/export) verwenden, um die personenbezogenen Daten einer Endnutzerin oder eines Endnutzers zu exportieren und sie der betroffenen Person auf deren Anfrage hin zur Verfügung zu stellen. Wenden Sie sich darüber hinaus mit den relevanten customer_id(s) und/oder E-Mail(s) an Ihren Account Manager:in, um eine Kopie aller in BrazeAI Decisioning Studio gespeicherten personenbezogenen Daten anzufordern.
 
 ## Das Recht auf Widerspruch {#the-right-to-object}
 
@@ -177,7 +177,7 @@ Einzelpersonen können das Recht haben, Widerspruch einzulegen gegen:
 
 ### Braze-Empfehlung
 
-Braze bietet die Möglichkeit, ein Nutzerprofil über unsere [REST APIs]({{site.baseurl}}/api/home) sowie über die [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=swift)-, [Android]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=android)- und [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=web)-SDKs als von SMS, E-Mails oder Push-Benachrichtigungen abgemeldet zu markieren. Wenn Sie von betroffenen Personen Widersprüche gegen den Erhalt solcher Nachrichten erhalten, können Sie die APIs von Braze nutzen, um diese Endnutzer:innen abzumelden.
+Braze bietet die Möglichkeit, ein Kundenprofil über unsere [REST APIs]({{site.baseurl}}/api/home) sowie über die [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=swift)-, [Android]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=android)- und [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=web)-SDKs als von SMS, E-Mails oder Push-Benachrichtigungen abgemeldet zu markieren. Wenn Sie von betroffenen Personen Widersprüche gegen den Erhalt solcher Nachrichten erhalten, können Sie die APIs von Braze nutzen, um diese Endnutzer:innen abzumelden.
 
 Falls dies nicht ausreichend ist, sollte das Endnutzer:innenprofil – um die Verarbeitung personenbezogener Daten von Endnutzer:innen durch Braze zu vermeiden – auf die gleiche Weise gelöscht werden, wie im Abschnitt „Recht auf Löschung“ beschrieben.
 
@@ -187,7 +187,7 @@ Einige Datenschutzgesetze verbieten oder ermöglichen es betroffenen Personen, d
 
 ### Empfehlung von Braze
 
-Braze führt kein automatisiertes Profiling und keine automatisierte Entscheidungsfindung mit rechtlichen oder gleichwertigen Auswirkungen für betroffene Personen durch. Wenn Sie der Meinung sind, dass Ihre eigene Nutzung der Braze-Dienste rechtliche oder gleichwertige Auswirkungen hat und Sie einen Widerspruch dagegen erhalten haben, können Sie das Nutzerprofil auf die gleiche Weise löschen wie unter dem „Recht auf Löschung“ beschrieben.
+Braze führt kein automatisiertes Profiling und keine automatisierte Entscheidungsfindung mit rechtlichen oder gleichwertigen Auswirkungen für betroffene Personen durch. Wenn Sie der Meinung sind, dass Ihre eigene Nutzung der Braze-Dienste rechtliche oder gleichwertige Auswirkungen hat und Sie einen Widerspruch dagegen erhalten haben, können Sie das Kundenprofil auf die gleiche Weise löschen wie unter dem „Recht auf Löschung“ beschrieben.
 
 ## Targeting Advertising
 

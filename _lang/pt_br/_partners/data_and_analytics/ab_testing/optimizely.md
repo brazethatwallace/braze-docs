@@ -49,7 +49,7 @@ A integração entre a Braze e a Optimizely é uma integração bidirecional que
 ![Sincronização de segments do Optimizely com a Braze.]({% image_buster /assets/img/optimizely/image2_syncsegment.png %})
 
 {% alert tip %}
-Você deve selecionar segments para importar perfis de usuário da Braze. Se você não selecionar nenhum segment, a integração não importará nenhum perfil de usuário.
+Você deve selecionar segments para importar perfis de usuário da Braze. Se você não selecionar nenhum Segment, a integração não importará nenhum perfil de usuário.
 {% endalert %}
 
 ### Etapa 2: Mapear campos de dados {#step-2-map-data-fields}
@@ -84,7 +84,7 @@ Após configurar a integração, você pode configurar uma ativação no ODP par
 1. Acesse **Activation** > **Engage** e selecione **Create New Campaign**.
 2. Selecione **Behavioral** para configurar uma sincronização automatizada e recorrente.
 3. Selecione **Create From Scratch** e insira um nome para sua ativação que represente os dados que você está sincronizando com a Braze (como **Braze Data Sync**).
-4. Na seção **Enrollment**, você pode sincronizar dados de clientes que correspondem a um segment ou sincronizar dados de clientes que disparam um evento (como quando o ODP registra que um cliente abre um e-mail):
+4. Na seção **Enrollment**, você pode sincronizar dados de clientes que correspondem a um Segment ou sincronizar dados de clientes que disparam um evento (como quando o ODP registra que um cliente abre um e-mail):
    - **Clientes que correspondem a um segment:** Selecione o segment desejado e depois selecione **Next**.<br><br>![Seleção de segment no Optimizely]({% image_buster /assets/img/optimizely/image6_segment.png %})
    - **Clientes que disparam um evento:** Expanda a lista suspensa **Filter** e selecione o evento do ODP para usar como gatilho para essa sincronização de dados com a Braze. Em seguida, expanda **Automation Rules** e ajuste conforme desejado. <br><br>![Evento-gatilho do Optimizely]({% image_buster /assets/img/optimizely/image7_trigger.png %})
 5. Expanda **Touchpoints**, selecione para editar **Touchpoint 1** e depois selecione **Braze**.
@@ -98,7 +98,7 @@ Após configurar a integração, você pode configurar uma ativação no ODP par
     - Em cada lista suspensa **Field #**, selecione o campo da Braze que deseja preencher.
     - Em cada **Field # Value** correspondente, insira o campo do ODP que deseja enviar para o campo selecionado da Braze. Por exemplo, se você selecionou **Company Name** na lista suspensa **Field #**, insira `{{customer.company_name}}` para o **Field # Value** correspondente.
 9. Selecione **Save** e depois selecione o nome da sua ativação na trilha de navegação.
-10. Selecione **Select start time and schedule** na seção **Touchpoints** se você selecionou **Customers that match a segment** para a inscrição.
+10. Selecione **Select start time and agendar/cronograma** na seção **Touchpoints** se você selecionou **Customers that match a Segment** para a inscrição.
 11. Complete as seguintes configurações:
     - **Recurring or Continuous:** Selecione **Recurring**.
     - **Start Date:** Insira a data em que deseja enviar os dados para a Braze.

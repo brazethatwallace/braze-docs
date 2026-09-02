@@ -4,9 +4,9 @@
 
 ## Pré-requisitos {#prerequisites}
 
-Antes de rastrear dados de usuários no experimento, seu app precisa registrar quando um usuário interage com uma feature flag. Isso é chamado de impressão de feature flag. Certifique-se de registrar uma impressão de feature flag sempre que um usuário vir ou puder ter visto o recurso que você está testando, mesmo que ele esteja no grupo de controle.
+Antes de rastrear dados de usuários no experimento, seu app precisa registrar quando um usuário interage com uma Feature Flag. Isso é chamado de impressão de Feature Flag. Certifique-se de registrar uma impressão de Feature Flag sempre que um usuário vir ou puder ter visto o recurso que você está testando, mesmo que ele esteja no grupo de controle.
 
-Para saber mais sobre o registro de impressões de feature flag, consulte [Criando feature flags]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create#impressions).
+Para saber mais sobre o registro de impressões de Feature Flag, consulte [Criando feature flags]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create#impressions).
 
 {% tabs %}
 {% tab Web %}
@@ -118,4 +118,4 @@ Você também pode visualizar as configurações do experimento para entrega, p�
 
 ### Desempenho do experimento com Feature Flag {#feature-flag-experiment-performance}
 
-**Feature Flags Experiments Performance** mostra o desempenho da sua mensagem em várias dimensões. As métricas específicas que você verá variam dependendo do canal de envio de mensagens escolhido e se você está executando um teste multivariante. Para ver os valores de Feature Flag associados a cada variante, selecione **Preview**.
+**Feature Flags Experiments Performance** mostra o desempenho da sua mensagem em várias dimensões. As métricas específicas que você verá variam dependendo do canal de envio de mensagens escolhido e se você está executando um teste multivariante. Para ver os valores de Feature Flag associados a cada variante, selecione **prévia**.

@@ -38,7 +38,7 @@ Para los SDK envolventes que no aparecen en la lista, utiliza el método nativo 
 {% multi_lang_include developer_guide/unity/analytics/setting_user_attributes.md %}
 {% endsdktab %}
 
-{% sdktab react native %}
+{% sdktab React Native %}
 {% multi_lang_include developer_guide/react_native/analytics/setting_user_attributes.md %}
 {% endsdktab %}
 

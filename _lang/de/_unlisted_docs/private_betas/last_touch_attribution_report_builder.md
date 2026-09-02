@@ -9,7 +9,7 @@ hidden: true
 > Fügen Sie Last-Touch-Attribution-Metriken zu Ihren Berichten im Berichts-Builder hinzu.
 
 {% alert note %}
-Last-Touch-Attribution-Metriken befinden sich im Early Access. Wenn Sie an der Teilnahme am Early Access interessiert sind, wenden Sie sich an Ihren Customer-Success-Manager.
+Last-Touch-Attribution-Metriken befinden sich im Early Access. Wenn Sie an der Teilnahme am Early Access interessiert sind, wenden Sie sich an Ihren CSM.
 {% endalert %}
 
 Last-Touch-Attribution (LTA) ist ein Konversions-Attributionsmodell, das die vollständige Zuordnung einer Konversion der letzten Nachricht zuschreibt, mit der ein:e Nutzer:in vor der Konversion interagiert hat. Im Gegensatz zu Konversions-Fenstern auf Campaign-Ebene verwendet LTA branchenübliche Attributionsfenster für jeden Kanal:

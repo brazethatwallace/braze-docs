@@ -61,7 +61,7 @@ Fügen Sie das Liquid-Snippet in eine Campaign oder einen Canvas-Schritt ein.
 Wenn Nutzer:innen einen einzigen eindeutigen Rabattcode erhalten sollen, unabhängig davon, wie oft der Rabattcode in Campaigns oder Canvases referenziert wird, erstellen Sie einen [User Update]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)-Schritt direkt vor dem ersten Nachrichtenschritt, der den Rabattcode einem angepassten Attribut zuweist, z. B. „Promo Code“.
 
 {% alert tip %}
-Sie können auch [ein angepasstes Attribut erstellen]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), indem Sie zu **Data Settings** > **Custom Attributes** gehen.
+Sie können auch [ein angepasstes Attribut erstellen]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), indem Sie zu **Data Settings** > **angepasste Attribute** gehen.
 {% endalert %}
 
 Führen Sie im User-Update-Schritt für jedes Feld Folgendes aus:

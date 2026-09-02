@@ -37,11 +37,11 @@ glossary_tags:
 
 glossaries:
   - name: Segment Membership
-    description: Permite filtrar com base na associação a segmentos em qualquer lugar onde filtros são usados (como segmentos, Campaigns e outros) e direcionar vários segmentos diferentes dentro de uma única Campaign. <br><br>Para capturar a associação a um segmento em um momento específico, exporte os usuários do segmento no dashboard ou chame o <a href="/docs/api/endpoints/export/user_data/post_users_segment/"><code>/users/export/segment</code> endpoint</a> antes de enviar uma Campaign ou Canvas. A Braze não armazena o histórico de segmentação por usuário, então você não pode verificar retroativamente se um usuário estava em um segmento em um momento passado. Para saber mais, consulte <a href="/docs/user_guide/data/distribution/export_braze_data/segment_data_to_csv/">Exportar dados de segmento para CSV</a>.<br><br>Observe que segmentos que já usam esse filtro não podem ser incluídos ou aninhados em outros segmentos, pois isso pode criar um ciclo em que o Segmento A inclui o Segmento B, que então tenta incluir o Segmento A novamente. Se isso acontecesse, o segmento ficaria referenciando a si mesmo, tornando impossível calcular quem realmente pertence a ele. Além disso, aninhar segmentos dessa forma adiciona complexidade e pode deixar as coisas mais lentas. Em vez disso, recrie o segmento que você está tentando incluir usando os mesmos filtros.<br><br>Se um segmento não aparecer no menu suspenso do filtro **Segment Membership**, recrie-o com os mesmos filtros e selecione o novo segmento, ou confirme que ele não depende desse público de uma forma que criaria um ciclo.
+    description: Permite filtrar com base na associação a segmentos em qualquer lugar onde filtros são usados (como segmentos, Campaigns e outros) e direcionar vários segmentos diferentes dentro de uma única Campaign. <br><br>Para capturar a associação a um Segment em um momento específico, exporte os usuários do Segment no dashboard ou chame o <a href="/docs/api/endpoints/export/user_data/post_users_segment/"><code>/users/export/segment</code> endpoint</a> antes de enviar uma Campaign ou Canvas. A Braze não armazena o histórico de segmentação por usuário, então você não pode verificar retroativamente se um usuário estava em um Segment em um momento passado. Para saber mais, consulte <a href="/docs/user_guide/data/distribution/export_braze_data/segment_data_to_csv/">Exportar dados de Segment para CSV</a>.<br><br>Observe que segmentos que já usam esse filtro não podem ser incluídos ou aninhados em outros segmentos, pois isso pode criar um ciclo em que o Segment A inclui o Segment B, que então tenta incluir o Segment A novamente. Se isso acontecesse, o Segment ficaria referenciando a si mesmo, tornando impossível calcular quem realmente pertence a ele. Além disso, aninhar segmentos dessa forma adiciona complexidade e pode deixar as coisas mais lentas. Em vez disso, recrie o Segment que você está tentando incluir usando os mesmos filtros.<br><br>Se um Segment não aparecer no menu suspenso do filtro **Segment Membership**, recrie-o com os mesmos filtros e selecione o novo Segment, ou confirme que ele não depende desse público de uma forma que criaria um ciclo.
     tags:
       - Segment or CSV membership
   - name: Braze Segment Extensions
-    description: Depois de criar uma extensão de segmento no dashboard da Braze, você pode optar por incluir/excluir essas extensões no seu segmento.
+    description: Depois de criar uma extensão de Segment no dashboard da Braze, você pode optar por incluir/excluir essas extensões no seu Segment.
     tags:
       - Segment or CSV membership
   - name: Updated/Imported from CSV
@@ -57,7 +57,7 @@ glossaries:
     tags:
       - Other Filters
   - name: Created From
-    description: "Segmenta os usuários por onde o perfil de usuário foi criado.<br><br>Os seguintes valores são suportados:<br>- SDK (<code>sdk</code>): Perfil de usuário criado pelo SDK da Braze.<br>- REST API (<code>rest</code>): Perfil de usuário criado pela REST API da Braze.<br>- Push Token Import (<code>pti</code>): Perfil de usuário criado por importação de token por push.<br>- CSV (<code>csv</code>): Perfil de usuário criado por importação de CSV.<br>- Demo (<code>demo</code>): Perfil de usuário criado por dados de demonstração.<br>- SMS (<code>sms</code>): Perfil de usuário criado por SMS.<br>- Shopify (<code>shopify</code>): Perfil de usuário criado pelo Shopify.<br>- WhatsApp (<code>whats_app</code>): Perfil de usuário criado pelo WhatsApp.<br>- Provider Event (<code>provider_event</code>): Perfil de usuário criado por um evento de provedor.<br>- Provider Sync (<code>provider_sync</code>): Perfil de usuário criado por uma sincronização de provedor.<br>- Landing Page (<code>landing_page</code>): Perfil de usuário criado por uma landing page."
+    description: "Segmenta os usuários por onde o perfil de usuário foi criado.<br><br>Os seguintes valores são suportados:<br>- SDK (<code>sdk</code>): Perfil de usuário criado pelo SDK da Braze.<br>- REST API (<code>rest</code>): Perfil de usuário criado pela REST API da Braze.<br>- token por push Import (<code>pti</code>): Perfil de usuário criado por importação de token por push.<br>- CSV (<code>csv</code>): Perfil de usuário criado por importação de CSV.<br>- Demo (<code>demo</code>): Perfil de usuário criado por dados de demonstração.<br>- SMS (<code>sms</code>): Perfil de usuário criado por SMS.<br>- Shopify (<code>shopify</code>): Perfil de usuário criado pelo Shopify.<br>- WhatsApp (<code>whats_app</code>): Perfil de usuário criado pelo WhatsApp.<br>- Provider Event (<code>provider_event</code>): Perfil de usuário criado por um evento de provedor.<br>- Provider Sync (<code>provider_sync</code>): Perfil de usuário criado por uma sincronização de provedor.<br>- Landing Page (<code>landing_page</code>): Perfil de usuário criado por uma landing page."
     tags:
       - Other Filters
   - name: Nested Custom Attributes
@@ -81,11 +81,11 @@ glossaries:
     tags:
       - Custom events
   - name: X Custom Event In Y Days
-    description: Determina se um usuário realizou ou não um evento especialmente registrado entre 0 e 50 vezes no último número especificado de dias corridos entre 1 e 30. (Dia corrido = 1 dia corrido considera 24-48 horas do histórico do usuário)<br> <a href="/docs/x-in-y-behavior"> Saiba mais sobre o comportamento X em Y aqui.</a> <br><br>Exemplo:<br>Carrinho abandonado exatamente 0 vezes no último 1 dia corrido<br><br>Fuso horário:<br>UTC - Para considerar todos os fusos horários, 1 dia corrido considera 24-48 horas do histórico do usuário, dependendo do momento em que o segmento é avaliado; para 2 dias corridos, considera 48-72 horas do histórico do usuário, e assim por diante.
+    description: Determina se um usuário realizou ou não um evento especialmente registrado entre 0 e 50 vezes no último número especificado de dias corridos entre 1 e 30. (Dia corrido = 1 dia corrido considera 24-48 horas do histórico do usuário)<br> <a href="/docs/x-in-y-behavior"> Saiba mais sobre o comportamento X em Y aqui.</a> <br><br>Exemplo:<br>Carrinho abandonado exatamente 0 vezes no último 1 dia corrido<br><br>Fuso horário:<br>UTC - Para considerar todos os fusos horários, 1 dia corrido considera 24-48 horas do histórico do usuário, dependendo do momento em que o Segment é avaliado; para 2 dias corridos, considera 48-72 horas do histórico do usuário, e assim por diante.
     tags:
       - Custom events
   - name: X Custom Event Property In Y Days
-    description: Determina se um usuário realizou ou não um evento especialmente registrado em relação a uma propriedade específica entre 0 e 50 vezes no último número especificado de dias corridos entre 1 e 30. (Dia corrido = 1 dia corrido considera 24-48 horas do histórico do usuário)<br><a href="/docs/x-in-y-behavior">Saiba mais sobre o comportamento X em Y aqui.</a> <br><br>Exemplo:<br> Adicionado aos favoritos com a propriedade "event_name" exatamente 0 vezes no último 1 dia corrido<br><br>Fuso horário:<br>UTC - Para considerar todos os fusos horários, 1 dia corrido considera 24-48 horas do histórico do usuário, dependendo do momento em que o segmento é avaliado; para 2 dias corridos, considera 48-72 horas do histórico do usuário, e assim por diante.
+    description: Determina se um usuário realizou ou não um evento especialmente registrado em relação a uma propriedade específica entre 0 e 50 vezes no último número especificado de dias corridos entre 1 e 30. (Dia corrido = 1 dia corrido considera 24-48 horas do histórico do usuário)<br><a href="/docs/x-in-y-behavior">Saiba mais sobre o comportamento X em Y aqui.</a> <br><br>Exemplo:<br> Adicionado aos favoritos com a propriedade "event_name" exatamente 0 vezes no último 1 dia corrido<br><br>Fuso horário:<br>UTC - Para considerar todos os fusos horários, 1 dia corrido considera 24-48 horas do histórico do usuário, dependendo do momento em que o Segment é avaliado; para 2 dias corridos, considera 48-72 horas do histórico do usuário, e assim por diante.
     tags:
       - Custom events
   - name: Email Address
@@ -217,11 +217,11 @@ glossaries:
     tags:
       - Retargeting
   - name: Hard Bounced
-    description: Segmenta seus usuários por se o endereço de e-mail deles sofreu hard bounce (como quando o endereço de e-mail é inválido). Para exportar usuários com e-mails inválidos, chame o <a href="/docs/api/endpoints/email/get_list_hard_bounces/"><code>/email/hard_bounces</code> endpoint</a> ou crie um segmento com filtros como "endereço de e-mail não está em branco", "e-mail não está disponível" e "status de inscrição de e-mail não é cancelado".
+    description: Segmenta seus usuários por se o endereço de e-mail deles sofreu hard bounce (como quando o endereço de e-mail é inválido). Para exportar usuários com e-mails inválidos, chame o <a href="/docs/api/endpoints/email/get_list_hard_bounces/"><code>/email/hard_bounces</code> endpoint</a> ou crie um Segment com filtros como "endereço de e-mail não está em branco", "e-mail não está disponível" e "status de inscrição de e-mail não é cancelado".
     tags:
       - Retargeting
   - name: Soft Bounced
-    description: Segmenta seus usuários por terem sofrido soft bounce X vezes em Y dias. Os filtros de segmento só podem consultar os últimos 30 dias, mas você pode consultar períodos anteriores com extensões de segmento.<br><br>Este filtro opera de forma diferente de um evento de soft bounce no Currents. O filtro de segmento de soft bounce conta um soft bounce se não houve entrega bem-sucedida durante o período de tentativas de 72 horas. No Currents, cada tentativa malsucedida é enviada como um evento de soft bounce.
+    description: Segmenta seus usuários por terem sofrido soft bounce X vezes em Y dias. Os filtros de Segment só podem consultar os últimos 30 dias, mas você pode consultar períodos anteriores com extensões de Segment.<br><br>Este filtro opera de forma diferente de um evento de soft bounce no Currents. O filtro de Segment de soft bounce conta um soft bounce se não houve entrega bem-sucedida durante o período de tentativas de 72 horas. No Currents, cada tentativa malsucedida é enviada como um evento de soft bounce.
     tags:
       - Retargeting
   - name: Has Marked You As Spam
@@ -273,7 +273,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Feature Flags
-    description: O segmento dos seus usuários que possuem uma <a href="/docs/developer_guide/feature_flags">Feature Flag</a> específica atualmente ativada.
+    description: O Segment dos seus usuários que possuem uma <a href="/docs/developer_guide/feature_flags">Feature Flag</a> específica atualmente ativada.
     tags:
       - Retargeting
   - name: Subscription Group
@@ -297,7 +297,7 @@ glossaries:
     tags:
       - Channel subscription behavior
   - name: Foreground Push Enabled
-    description: Segmenta seus usuários que possuem autorização provisória de push ou estão habilitados para push em primeiro plano. Especificamente, essa contagem inclui:<br>1. Usuários iOS que estão provisoriamente autorizados para push. <br>2. Usuários que estão habilitados para push em primeiro plano e cujo status de inscrição de push não é cancelado, para qualquer um dos seus apps. Para esses usuários, essa contagem inclui apenas push em primeiro plano.<br><br>Push em primeiro plano ativado não inclui usuários que cancelaram a inscrição. <br><br>Após segmentar com esse filtro, você pode ver um detalhamento de quem está nesse segmento para Android, iOS e web no painel inferior, chamado <em>Usuários contatáveis</em>.
+    description: Segmenta seus usuários que possuem autorização provisória de push ou estão habilitados para push em primeiro plano. Especificamente, essa contagem inclui:<br>1. Usuários iOS que estão provisoriamente autorizados para push. <br>2. Usuários que estão habilitados para push em primeiro plano e cujo status de inscrição de push não é cancelado, para qualquer um dos seus apps. Para esses usuários, essa contagem inclui apenas push em primeiro plano.<br><br>Push em primeiro plano ativado não inclui usuários que cancelaram a inscrição. <br><br>Após segmentar com esse filtro, você pode ver um detalhamento de quem está nesse Segment para Android, iOS e web no painel inferior, chamado <em>Usuários contatáveis</em>.
     tags:
       - Channel subscription behavior
   - name: Foreground Push Enabled for App
@@ -489,7 +489,7 @@ glossaries:
     tags:
       - Devices
   - name: Web Browser
-    description: Segmenta seus usuários pelo navegador web que usam para acessar seu site. Este filtro corresponde a qualquer navegador no histórico de dispositivos do usuário, não apenas ao navegador usado mais recentemente.
+    description: Segmenta seus usuários pelo navegador de internet que usam para acessar seu site. Este filtro corresponde a qualquer navegador no histórico de dispositivos do usuário, não apenas ao navegador usado mais recentemente.
     tags:
       - Devices
   - name: Device IDFA
@@ -613,7 +613,7 @@ glossaries:
     tags:
       - Social activity
   - name: Phone Number
-    description: Segmenta seus usuários pelo campo de número de telefone no formato E.164.<br><br> Quando um número de telefone é enviado para a Braze, a Braze tenta convertê-lo para o <a href="/docs/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#import-phone-numbers">formato E.164</a> que é usado para enviar por canais SMS, RCS e WhatsApp. O processo de conversão pode falhar se o número não estiver formatado corretamente, o que resulta no perfil do usuário tendo um número de telefone não formatado, mas não um número de telefone de envio. Este filtro de segmento retorna usuários pelo número de telefone no formato E.164 (quando disponível).<br><br>Casos de uso:<br> - Use esse filtro para entender o tamanho mais preciso do público-alvo ao enviar mensagens SMS, RCS ou WhatsApp.<br>- Use expressões regulares (regex) com esse filtro para segmentar por números de telefone com um código de país específico. <br>- Use esse filtro para segmentar usuários por números de telefone que falharam no processo de conversão para E.164.
+    description: Segmenta seus usuários pelo campo de número de telefone no formato E.164.<br><br> Quando um número de telefone é enviado para a Braze, a Braze tenta convertê-lo para o <a href="/docs/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#import-phone-numbers">formato E.164</a> que é usado para enviar por canais SMS, RCS e WhatsApp. O processo de conversão pode falhar se o número não estiver formatado corretamente, o que resulta no perfil do usuário tendo um número de telefone não formatado, mas não um número de telefone de envio. Este filtro de Segment retorna usuários pelo número de telefone no formato E.164 (quando disponível).<br><br>Casos de uso:<br> - Use esse filtro para entender o tamanho mais preciso do público-alvo ao enviar mensagens SMS, RCS ou WhatsApp.<br>- Use expressões regulares (regex) com esse filtro para segmentar por números de telefone com um código de país específico. <br>- Use esse filtro para segmentar usuários por números de telefone que falharam no processo de conversão para E.164.
     tags:
       - Other Filters
 ---

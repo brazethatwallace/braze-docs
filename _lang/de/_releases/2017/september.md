@@ -15,9 +15,9 @@ Sie können jetzt [Engagement-Berichte]({{site.baseurl}}/user_guide/data_and_ana
 - einen Zeitplan für einen Engagement-Bericht erstellen, der regelmäßig an eine:n oder mehrere Empfänger:innen gesendet wird, und
 - Campaigns und Canvases auf der Grundlage ihrer Tags zu Ihrem Bericht hinzufügen.
 
-## Updates für die Seite „Nutzerprofil“ {#updates-to-user-profile-page}
+## Updates für die Seite „Kundenprofil“ {#updates-to-user-profile-page}
 
-Die [Seite „Nutzerprofil“]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles) wurde aktualisiert.
+Die [Seite „Kundenprofil“]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles) wurde aktualisiert.
 
 ## Web-Push-Benachrichtigungen, die eine Aktion der Nutzer:innen erfordern, um sie zu schließen {#web-push-notifications-that-require-user-action-to-dismiss}
 

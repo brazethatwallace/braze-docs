@@ -1,11 +1,11 @@
 ---
-nav_title: Partenaires ISV
+nav_title: Partenaires éditeur de logiciels indépendant
 layout: dev_guide
 page_order: 9
 hidden: true
 
-guide_top_header: "Partenaires ISV"
-guide_top_text: "Les articles suivants sont mis à la disposition de nos partenaires ISV Alloys pour qu'ils puissent s'y référer lors du développement d'une intégration avec la plateforme Braze. Consultez le document d'intégration correspondant à votre partenaire pour commencer !"
+guide_top_header: "Partenaires éditeur de logiciels indépendant"
+guide_top_text: "Les articles suivants sont mis à la disposition de nos partenaires éditeur de logiciels indépendant Alloys pour qu'ils puissent s'y référer lors du développement d'une intégration avec la plateforme Braze. Consultez le document d'intégration correspondant à votre partenaire pour commencer !"
 
 guide_featured_title: "Documentation du partenaire"
 guide_featured_list:

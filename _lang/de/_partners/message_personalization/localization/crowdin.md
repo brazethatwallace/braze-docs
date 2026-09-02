@@ -142,7 +142,7 @@ So bestätigen Sie die Integration:
 1. Öffnen Sie Ihre Campaign im **Braze Nachrichten-Editor**.
 2. Wechseln Sie zum Tab **Test**.
 3. Wählen Sie **Preview Message as User**.
-4. Suchen Sie nach einem Nutzerprofil, dessen `language`-Attribut einem Ihrer übersetzten Locales entspricht.
+4. Suchen Sie nach einem Kundenprofil, dessen `language`-Attribut einem Ihrer übersetzten Locales entspricht.
 5. Bestätigen Sie, dass der Inhalt von der Ausgangssprache zur übersetzten Version wechselt.
 
 ## Integration von Braze E-Mail-Templates {#braze-email-templates-integration}

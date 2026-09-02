@@ -104,7 +104,7 @@ Neste exemplo, a tag de abertura `<img` começa fora de qualquer bloco Liquid, e
 ```
 {% endraw %}
 
-Na versão balanceada, cada ramificação Liquid contém uma tag `<img>` completa e independente. Essa abordagem garante que o parser processe cada ramificação corretamente.
+Na versão balanceada, cada Branch Liquid contém uma tag `<img>` completa e independente. Essa abordagem garante que o parser processe cada Branch corretamente.
 
 #### Correções adicionais {#additional-fixes}
 

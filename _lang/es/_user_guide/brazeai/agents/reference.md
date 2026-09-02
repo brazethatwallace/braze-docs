@@ -22,7 +22,7 @@ El modelo **Auto** impulsado por Braze está optimizado para modelos cuyas capac
 Esta es la opción más sencilla, sin configuración adicional necesaria. Braze proporciona acceso a modelos de lenguaje grande (LLM) directamente. Para usar esta opción, selecciona **Auto**, que utiliza modelos Gemini.
 
 {% alert important %}
-Si no ves **Braze Auto** como opción en el menú desplegable **Modelo** al crear un agente, contacta a tu administrador de éxito de cliente para saber cómo ser elegible para usar el modelo Braze Auto.
+Si no ves **Braze Auto** como opción en el menú desplegable **Modelo** al crear un agente, contacta a tu CSM para saber cómo ser elegible para usar el modelo Braze Auto.
 {% endalert %}
 
 ### Opción 2: Trae tu propia clave de API {#option-2-bring-your-own-api-key}
@@ -39,7 +39,7 @@ Para configurar esto:
 
 Luego, puedes volver a tu agente y seleccionar tu modelo.
 
-Cuando utilizas un LLM proporcionado por Braze, los proveedores de dicho modelo actuarán como subprocesadores de Braze, sujetos a los términos del Acuerdo de procesamiento de datos (DPA) entre tú y Braze. Si eliges traer tu propia clave de API, el proveedor de tu suscripción de LLM se considera un proveedor externo según el contrato entre tú y Braze.
+Cuando utilizas un LLM proporcionado por Braze, los proveedores de dicho modelo actuarán como subprocesadores de Braze, sujetos a los términos del Acuerdo de procesamiento de datos (asesor sobre protección de datos) entre tú y Braze. Si eliges traer tu propia clave de API, el proveedor de tu suscripción de LLM se considera un proveedor externo según el contrato entre tú y Braze.
 
 #### Niveles de razonamiento {#thinking-levels}
 
@@ -58,7 +58,7 @@ Te recomendamos comenzar con **Mínimo** y probar las respuestas de tu agente. L
 Braze utiliza los mismos rangos de IP para las llamadas LLM salientes que para el contenido conectado. Los rangos están listados en la [lista de IPs permitidas de contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting). Si tu proveedor admite listas de IPs permitidas, puedes restringir la clave a esos rangos para que solo Braze pueda usarla.
 
 {% alert important %}
-Cuando utilizas un LLM proporcionado por Braze, los proveedores de dicho modelo actuarán como subprocesadores de Braze, sujetos a los términos del Acuerdo de procesamiento de datos (DPA) entre tú y Braze. Si eliges traer tu propia clave de API, el proveedor de tu suscripción de LLM se considera un proveedor externo según el contrato entre tú y Braze.
+Cuando utilizas un LLM proporcionado por Braze, los proveedores de dicho modelo actuarán como subprocesadores de Braze, sujetos a los términos del Acuerdo de procesamiento de datos (asesor sobre protección de datos) entre tú y Braze. Si eliges traer tu propia clave de API, el proveedor de tu suscripción de LLM se considera un proveedor externo según el contrato entre tú y Braze.
 {% endalert %}
 
 #### Determinar qué modelo usar {#determine-which-model-to-use}

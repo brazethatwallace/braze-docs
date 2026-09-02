@@ -93,7 +93,7 @@ La siguiente tabla muestra las versiones mínimas compatibles de las herramienta
 | :----------------------------------------------------------- | :------------------------ |
 | Dart                                                         | 2.17.0+                   |
 | Flutter (integración vía CocoaPods)                          | 1.10.0+                   |
-| Flutter (integración vía CocoaPods o Swift Package Manager)  | 3.24.0+                   |
+| Flutter (integración vía CocoaPods o Swift Package Administrador)  | 3.24.0+                   |
 | Objetivo de despliegue de iOS                                | 12.0+                     |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Compatibilidad de versiones" }
 

@@ -266,7 +266,7 @@ Wählen Sie unter den **Push Notification Settings** Ihrer Android-App **Firebas
 Private Keys können ein Sicherheitsrisiko darstellen, wenn sie kompromittiert werden. Da Ihr Schlüssel nun zu Braze hochgeladen wurde, löschen Sie die Datei, die [Sie zuvor generiert haben](#android_json).
 {% endalert %}
 
-### Schritt 7: Automatische Token-Registrierung einrichten {#step-7-set-up-automatic-token-registration}
+### Schritt 7: Automatische Token-registrieren einrichten {#step-7-set-up-automatic-token-registration}
 
 Wenn Nutzer:innen Push-Benachrichtigungen aktivieren, muss Ihre App ein FCM-Token auf deren Gerät generieren, bevor Sie ihnen Push-Benachrichtigungen senden können. Mit dem Braze SDK können Sie die automatische FCM-Token-Registrierung für das Gerät jeder Nutzerin und jedes Nutzers in den Braze-Konfigurationsdateien Ihres Projekts aktivieren.
 
@@ -422,7 +422,7 @@ Wenn Sie bereits einen Firebase Messaging Service registriert haben, können Sie
 
 #### Installations-IDs in benutzerdefinierten Firebase Messaging Services registrieren {#register-installation-id-custom-firebase-service}
 
-Wenn Sie `firebase-messaging` v25.1.0 oder höher verwenden, nutzt die Firebase-Registrierung die Firebase Installation ID. Überschreiben Sie in Ihrem benutzerdefinierten Firebase Messaging Service `onRegistered` und setzen Sie `registeredPushToken`.
+Wenn Sie `firebase-messaging` v25.1.0 oder höher verwenden, nutzt die Firebase-registrieren die Firebase Installation ID. Überschreiben Sie in Ihrem benutzerdefinierten Firebase Messaging Service `onRegistered` und setzen Sie `registeredPushToken`.
 
 {% subtabs %}
 {% subtab JAVA %}
@@ -675,7 +675,7 @@ Folgen Sie den Anweisungen in der [Android-Entwicklerdokumentation](http://devel
 
 Das Braze-Dashboard unterstützt das Festlegen von Deeplinks oder Web-URLs in Push-Benachrichtigungs-Campaigns und Canvases, die beim Anklicken der Benachrichtigung geöffnet werden.
 
-![Die Einstellung „On Click Behavior“ im Braze-Dashboard mit der aus dem Dropdown ausgewählten Option „Deep Link Into Application“.]({% image_buster /assets/img_archive/deep_link_click_action.png %} "Deep Link Click Action")
+![Die Einstellung „On click Behavior“ im Braze-Dashboard mit der aus dem Dropdown ausgewählten Option „Deep Link Into Application“.]({% image_buster /assets/img_archive/deep_link_click_action.png %} "Deep Link Click Action")
 
 #### Back-Stack-Verhalten anpassen {#customizing-back-stack-behavior}
 

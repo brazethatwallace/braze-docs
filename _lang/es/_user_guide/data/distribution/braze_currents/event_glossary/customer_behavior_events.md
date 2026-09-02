@@ -74,7 +74,7 @@ Este evento de usuario se produce cada vez que se crea un nuevo usuario dentro d
 
 {% alert important %}
 Este evento de Currents solo está disponible para los clientes que hayan adquirido un "conector para todos los eventos" y solo está disponible para conectores de eventos de almacenamiento (como Amazon S3, Microsoft Azure y Google Cloud Storage).
-<br><br>Para habilitar este evento y programar el relleno de los números de contenedor aleatorios de los usuarios existentes en tu espacio de trabajo, ponte en contacto con tu administrador de éxito de cliente.
+<br><br>Para habilitar este evento y programar el relleno de los números de contenedor aleatorios de los usuarios existentes en tu espacio de trabajo, ponte en contacto con tu CSM.
 {% endalert %}
 
 {% tabs %}
@@ -250,7 +250,7 @@ Este evento se produce cuando se desencadena un evento personalizado específico
 
 - En el caso de los eventos personalizados, la carga útil también se completará con cualquier [propiedad del evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties) asociada al evento.
 - Para `ad_id`, `ad_id_type` y `ad_tracking_enabled`, debes recopilar explícitamente el IDFA de iOS y el ID de publicidad de Google de Android a través de los SDK nativos. Más información aquí: [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Si utilizas Kafka para ingestar datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), ponte en contacto con tu administrador de éxito de cliente o director de cuentas para habilitar el feature flipper para el envío de `ad_id`.
+- Si utilizas Kafka para ingestar datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), ponte en contacto con tu CSM o director de cuentas para habilitar el feature flipper para el envío de `ad_id`.
 
 {% endapi %}
 
@@ -537,7 +537,7 @@ Este evento se desencadena cuando un usuario visita una ubicación determinada. 
 ### Detalles de la propiedad
 
 - Para `ad_id`, `ad_id_type` y `ad_tracking_enabled`, debes recopilar explícitamente el IDFA de iOS y el ID de publicidad de Google de Android a través de los SDK nativos. Más información aquí: [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Si utilizas Kafka para ingestar datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), ponte en contacto con tu administrador de éxito de cliente o director de cuentas para habilitar el feature flipper para el envío de `ad_id`.
+- Si utilizas Kafka para ingestar datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), ponte en contacto con tu CSM o director de cuentas para habilitar el feature flipper para el envío de `ad_id`.
 
 {% endapi %}
 
@@ -708,7 +708,7 @@ Las compras son eventos personalizados especiales y vienen con una cadena codifi
 
 - En el caso de los eventos de compra, la carga útil también se completará con cualquier [propiedad del evento de compra]({{site.baseurl}}/user_guide/data/activation/events/purchase_events#purchase-properties) asociada al evento.
 - Para `ad_id`, `ad_id_type` y `ad_tracking_enabled`, debes recopilar explícitamente el IDFA de iOS y el ID de publicidad de Google de Android a través de los SDK nativos. Más información aquí: [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Si utilizas Kafka para ingestar datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), ponte en contacto con tu administrador de éxito de cliente o director de cuentas para habilitar el feature flipper para el envío de `ad_id`.
+- Si utilizas Kafka para ingestar datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), ponte en contacto con tu CSM o director de cuentas para habilitar el feature flipper para el envío de `ad_id`.
 
 {% endapi %}
 

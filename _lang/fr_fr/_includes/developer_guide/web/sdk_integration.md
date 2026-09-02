@@ -9,7 +9,7 @@ Le SDK Web de Braze vous permet de collecter des données analytiques et d'affic
 Vous pouvez intégrer le SDK Web de Braze à l'aide des méthodes suivantes. Pour des options supplémentaires, consultez [autres méthodes d'intégration](#web_other-integration-methods).
 
 - **Intégration basée sur le code :** Intégrez le SDK Web de Braze directement dans votre base de code à l'aide de votre gestionnaire de paquets préféré ou du CDN de Braze. Cela vous donne un contrôle total sur la manière dont le SDK est chargé et configuré.
-- **Google Tag Manager :** Une solution sans code qui vous permet d'intégrer le SDK Web de Braze sans modifier le code de votre site. Pour en savoir plus, consultez [Google Tag Manager avec le SDK de Braze]({{site.baseurl}}/developer_guide/sdk_integration/google_tag_manager).
+- **Google Tag gestionnaire :** Une solution sans code qui vous permet d'intégrer le SDK Web de Braze sans modifier le code de votre site. Pour en savoir plus, consultez [Google Tag gestionnaire avec le SDK de Braze]({{site.baseurl}}/developer_guide/sdk_integration/google_tag_manager).
 
 {% alert important %}
 Nous recommandons d'utiliser la [méthode d'intégration NPM]({{site.baseurl}}/developer_guide/sdk_integration/?subtab=package%20manager&sdktab=web). Les avantages incluent le stockage local des bibliothèques du SDK sur votre site web, l'immunité contre les extensions de blocage de publicités et des temps de chargement plus rapides grâce à la prise en charge des bundlers.
@@ -26,7 +26,7 @@ Bien que la plupart des bloqueurs de publicités ne bloquent pas le SDK Web de B
 {% endalert %}
 
 {% subtabs %}
-{% subtab package manager %}
+{% subtab package gestionnaire %}
 Si votre site utilise les gestionnaires de paquets NPM ou Yarn, vous pouvez ajouter le [paquet NPM de Braze](https://www.npmjs.com/package/@braze/web-sdk) comme dépendance.
 
 Les définitions Typescript sont incluses depuis la version 3.0.0. Pour les notes de mise à niveau de la version 2.x vers la version 3.x, consultez notre [journal des modifications](https://github.com/braze-inc/braze-web-sdk/blob/master/UPGRADE_GUIDE.md).
@@ -112,7 +112,7 @@ Les utilisateurs anonymes sur appareils mobiles ou web peuvent être comptabilis
 {% endalert %}
 {% endtab %}
 
-{% tab Google Tag Manager %}
+{% tab Google Tag gestionnaire %}
 {% multi_lang_include developer_guide/web/google_tag_manager/initialization_tag.md %}
 {% endtab %}
 {% endtabs %}

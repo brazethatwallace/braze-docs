@@ -11,7 +11,7 @@
 | `UPDATE_SOURCE` | VARCHAR | Die Quelle der Attributaktualisierung (API, SDK, Dashboard usw.) |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ | Wann die Daten zuletzt in Snowflake aktualisiert wurden |
 | `CUSTOM_ATTRIBUTES` | VARIANT | JSON-Objekt mit allen angepassten Attributen (Schlüssel-Wert-Paare) |
-| `ARCHIVED` | BOOLEAN | Ob das Nutzerprofil archiviert ist |
+| `ARCHIVED` | BOOLEAN | Ob das Kundenprofil archiviert ist |
 | `EFF_DT` | TIMESTAMP_NTZ | Gültigkeitsdatum: Wann dieser Attributzustand begann |
 | `END_DT` | TIMESTAMP_NTZ | Enddatum: Wann dieser Attributzustand endete (NULL für den aktuellen Zustand) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERCUSTOMATTRIBUTESHISTORYVIEWSHARED schema" }
@@ -26,7 +26,7 @@
 | `TIME` | NUMBER | Unix-Zeitstempel (Sekunden) der Profilaktualisierung |
 | `TIME_MS` | NUMBER | Unix-Zeitstempel (Millisekunden) der Profilaktualisierung |
 | `UPDATE_SOURCE` | VARCHAR | Die Quelle der Attributaktualisierung (API, SDK, Dashboard usw.) |
-| `ARCHIVED` | BOOLEAN | Ob das Nutzerprofil archiviert ist |
+| `ARCHIVED` | BOOLEAN | Ob das Kundenprofil archiviert ist |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ | Wann die Daten zuletzt in Snowflake aktualisiert wurden |
 | `APP_ID` | VARCHAR | Die spezifische App innerhalb Ihres Workspace |
 | `CUSTOM_ATTRIBUTES` | OBJECT | JSON-Objekt mit allen angepassten Attributen (Schlüssel-Wert-Paare) |

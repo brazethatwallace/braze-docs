@@ -76,7 +76,7 @@ Wenn eine Nachricht empfangen, geöffnet oder angeklickt wird, aktualisiert Braz
 
 {% endif %}
 
-{% if include.section == "Canvas variant archived segment" %}
+{% if include.section == "Canvas-Variante archived segment" %}
 
 ### Eine Canvas-Variante kann aufgrund eines archivierten Segments nicht gelöscht werden {#cant-delete-a-canvas-variant-because-of-an-archived-segment}
 

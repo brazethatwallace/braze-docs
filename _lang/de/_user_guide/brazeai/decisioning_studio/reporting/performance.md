@@ -26,7 +26,7 @@ Nichts im Dashboard erzeugt neue Daten. Es visualisiert gespeicherte tägliche E
 Oben im Dashboard wählen Sie:
 
 - **Datumsbereich:** Der Zeitraum für den Bericht.
-- **Vergleichsgruppen:** Die Gruppen, die verglichen werden (z. B. Decisioning Studio versus Business as Usual).
+- **Vergleichsgruppen:** Die Gruppen, die verglichen werden (z. B. Decisioning Studio versus Kontrollgruppe).
 - **Aggregation:** Die Chart-Aggregationseinstellung (Täglich, 7-Tage-Durchschnitt oder 30-Tage-Durchschnitt).
 - **Segments:** Alle angewendeten Segmente. Diese werden individuell mit Ihrem AI Expert Services-Team konfiguriert.
 - **Timeline-Ereignisse:** Ob konfigurierte Timeline-Ereignisse im Chart eingeblendet werden sollen, um Ihnen zu helfen, Änderungen oder Ereignisse zu verstehen, die die Performance beeinflussen könnten.
@@ -41,14 +41,14 @@ Das Ändern der Aggregationseinstellung (z. B. 7-Tage-Durchschnitt) wirkt sich n
 
 Wenn Sie ein aktuelles Datum in der Datumsauswahl nicht auswählen können, ist dieses Datum wahrscheinlich aufgrund konfigurierter Datenverzögerungen deaktiviert. Es gibt zwei Arten von Verzögerungen, die die Datumsverfügbarkeit einschränken können:
 
-- **Datenpipeline-Verzögerungen:** Die Zeit, die benötigt wird, um Daten aus Ihrer CDP in Decisioning Studio aufzunehmen und zu verarbeiten. Dadurch wird sichergestellt, dass Berichte nur vollständige, zuverlässige Daten anzeigen.
+- **Datenpipeline-Verzögerungen:** Die Zeit, die benötigt wird, um Daten aus Ihrer Customer Data Platform (CDP) in Decisioning Studio aufzunehmen und zu verarbeiten. Dadurch wird sichergestellt, dass Berichte nur vollständige, zuverlässige Daten anzeigen.
 - **Empfehlungsaktivierungsverzögerungen:** Die Zeit zwischen dem Zeitpunkt, an dem die Decisioning-Studio-Engine eine Empfehlung vorhersagt, und dem Zeitpunkt, an dem Sie sie in Ihren Campaigns aktivieren. Berichte enthalten keine Tage, an denen Empfehlungen noch nicht aktiviert wurden.
 
-Diese Verzögerungen werden für Ihren Anwendungsfall konfiguriert. Wenn Sie Ihr spezifisches Berichtsfenster verstehen möchten, wenden Sie sich an Ihre:n AI Success Manager:in.
+Diese Verzögerungen werden für Ihren Anwendungsfall konfiguriert. Wenn Sie Ihr spezifisches Berichtsfenster verstehen möchten, wenden Sie sich an Ihre:n KI Success Manager:in.
 
 ## KPI-Karten {#kpi-cards}
 
-Die KPI-Karten auf der primären Seite des Berichts zeigen die für Ihren Anwendungsfall konfigurierten Leistungskennzahlen, wie z. B.:
+Die KPI-Karten auf der primären Seite des Berichts zeigen die für Ihren Anwendungsfall konfigurierten KPI, wie z. B.:
 
 - Inkrementeller LTV / Kund:in
 - Conversions / Kund:in
@@ -126,11 +126,11 @@ Die KPIs für Go-Anwendungsfälle werden automatisch festgelegt und standardisie
 
 Die Datumsauswahl erlaubt möglicherweise nicht die Auswahl der letzten Tage. Dies ist beabsichtigt. Berichte können die folgenden Einschränkungen anwenden, um zu verhindern, dass unvollständige oder instabile Daten angezeigt werden:
 
-- **Datenpipeline-Verzögerungen:** Konfiguriert, um die Zeit zu berücksichtigen, die für die Aufnahme und Verarbeitung von Daten aus Ihrer CDP benötigt wird. Dadurch wird sichergestellt, dass alle Daten für einen bestimmten Tag vollständig sind, bevor dieser Tag in Berichten erscheint.
+- **Datenpipeline-Verzögerungen:** Konfiguriert, um die Zeit zu berücksichtigen, die für die Aufnahme und Verarbeitung von Daten aus Ihrer Customer Data Platform (CDP) benötigt wird. Dadurch wird sichergestellt, dass alle Daten für einen bestimmten Tag vollständig sind, bevor dieser Tag in Berichten erscheint.
 - **Empfehlungsaktivierungsverzögerungen:** Konfiguriert, um die Verzögerung zwischen dem Zeitpunkt, an dem Empfehlungen generiert werden, und dem Zeitpunkt, an dem sie in Ihren Campaigns aktiviert werden, zu berücksichtigen. Tage, an denen Empfehlungen noch nicht aktiviert wurden, erscheinen nicht in Berichten.
 - **Explizit ausgeschlossene Daten:** Daten, die Sie in den Berichtseinstellungen manuell ausgeschlossen haben.
 
-Wenn Sie Klarheit über Ihr spezifisches Berichtsfenster oder die Datenverfügbarkeitsregeln benötigen, wenden Sie sich an Ihre:n AI Success Manager:in.
+Wenn Sie Klarheit über Ihr spezifisches Berichtsfenster oder die Datenverfügbarkeitsregeln benötigen, wenden Sie sich an Ihre:n KI Success Manager:in.
 
 ### Was ist der Unterschied zwischen „Volumen“- und „Raten“-KPIs? {#whats-the-difference-between-volume-and-rate-kpis}
 
@@ -147,11 +147,11 @@ Wenn eine Metrik als „eindeutig“ definiert ist, werden Personen mithilfe ein
 
 „Eindeutig pro Tag“ unterscheidet sich von „eindeutig über den gesamten Datumsbereich“. Wenn Sie tägliche eindeutige Zählungen über mehrere Tage summiert sehen, kann dieselbe Person mehr als einmal erscheinen (einmal pro Tag, an dem sie aktiv war). Das ist beabsichtigt.
 
-Wenn Sie verstehen möchten, wie Eindeutigkeit in Ihrem Setup definiert wurde, wenden Sie sich an Ihre:n AI Success Manager:in.
+Wenn Sie verstehen möchten, wie Eindeutigkeit in Ihrem Setup definiert wurde, wenden Sie sich an Ihre:n KI Success Manager:in.
 
 ### Warum könnte dieser Bericht von einem anderen System abweichen? {#why-might-this-report-differ-from-another-system}
 
-Wenn Ihr Performance-Bericht nicht mit einem anderen Dashboard übereinstimmt (z. B. einem ESP, Analytics-Tool oder internen BI-Bericht), bedeutet das nicht unbedingt, dass etwas falsch ist. Verschiedene Systeme wenden oft unterschiedliche Definitionen und Regeln an. Häufige Gründe sind:
+Wenn Ihr Performance-Bericht nicht mit einem anderen Dashboard übereinstimmt (z. B. einem E-Mail-Anbieter, Analytics-Tool oder internen BI-Bericht), bedeutet das nicht unbedingt, dass etwas falsch ist. Verschiedene Systeme wenden oft unterschiedliche Definitionen und Regeln an. Häufige Gründe sind:
 
 - **Attributionsregeln:** Einige Metriken wenden Attributionslogik an, was bedeutet, dass nur Aktivitäten gezählt werden, die definierten Kriterien entsprechen. Wenn ein anderes System alle Aktivitäten ohne Attributionslogik zählt, können die Gesamtwerte abweichen.
 - **Filterung von Maschinen- und Bot-Engagement:** Bekanntes maschinen- oder bot-gesteuertes Engagement (wie automatisierte Sicherheitsscans oder nicht-menschliche Klicks) wird herausgefiltert, um sicherzustellen, dass die Performance echtes menschliches Verhalten widerspiegelt. Einige Plattformen schließen diese Interaktionen in ihre Gesamtwerte ein.
@@ -186,4 +186,4 @@ Das Chart zeigt 3 an Tag 1 und 3 an Tag 2. Über beide Tage hinweg sehen Sie 3 +
 
 Diese Konfiguration beantwortet: „Wie viele eindeutige Kund:innen-Engagements gab es über die Tage hinweg?“ Sie beantwortet nicht: „Wie viele einzelne Kund:innen haben sich mindestens einmal über den gesamten Zeitraum engagiert?“
 
-Wenn Ihr Ziel die Eindeutigkeit auf Fensterebene ist (eindeutige Personen über die gesamte Campaign oder das gesamte Quartal), ist das ein anderer Modellierungsansatz. Wenden Sie sich an Ihre:n AI Success Manager:in für Hinweise zur Gestaltung.
+Wenn Ihr Ziel die Eindeutigkeit auf Fensterebene ist (eindeutige Personen über die gesamte Campaign oder das gesamte Quartal), ist das ein anderer Modellierungsansatz. Wenden Sie sich an Ihre:n KI Success Manager:in für Hinweise zur Gestaltung.

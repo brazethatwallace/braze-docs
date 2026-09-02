@@ -120,7 +120,7 @@ Todos os objetos do modelo de dados [`Card`](https://braze-inc.github.io/braze-a
 {% multi_lang_include developer_guide/flutter/content_cards.md %}
 {% endsdktab %}
 
-{% sdktab react native %}
+{% sdktab React Native %}
 {% multi_lang_include developer_guide/react_native/content_cards.md %}
 {% endsdktab %}
 

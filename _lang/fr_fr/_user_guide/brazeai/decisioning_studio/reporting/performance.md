@@ -44,7 +44,7 @@ Si vous ne pouvez pas sélectionner une date récente dans le sélecteur de date
 - **Délais du pipeline de données :** le temps nécessaire pour ingérer et traiter les données de votre CDP dans Decisioning Studio. Cela garantit que les rapports n'affichent que des données complètes et fiables.
 - **Délais d'activation des recommandations :** le temps entre le moment où le moteur de Decisioning Studio prédit une recommandation et celui où vous l'activez dans vos Campaigns. Le reporting n'inclura pas les jours où les recommandations n'ont pas encore été activées.
 
-Ces délais sont configurés pour votre cas d'usage. Si vous avez besoin de comprendre votre fenêtre de reporting spécifique, contactez votre AI Success Manager.
+Ces délais sont configurés pour votre cas d'usage. Si vous avez besoin de comprendre votre fenêtre de reporting spécifique, contactez votre AI Success gestionnaire.
 
 ## Cartes KPI {#kpi-cards}
 
@@ -130,7 +130,7 @@ Le sélecteur de dates peut ne pas permettre de sélectionner les jours les plus
 - **Délais d'activation des recommandations :** configurés pour tenir compte du décalage entre le moment où les recommandations sont générées et celui où elles sont activées dans vos Campaigns. Les jours où les recommandations n'ont pas encore été activées n'apparaîtront pas dans le reporting.
 - **Dates explicitement exclues :** dates que vous avez manuellement exclues dans les paramètres de reporting.
 
-Si vous avez besoin de précisions sur votre fenêtre de reporting ou vos règles de disponibilité des données, contactez votre AI Success Manager.
+Si vous avez besoin de précisions sur votre fenêtre de reporting ou vos règles de disponibilité des données, contactez votre AI Success gestionnaire.
 
 ### Quelle est la différence entre les KPI de « volume » et de « taux » ? {#whats-the-difference-between-volume-and-rate-kpis}
 
@@ -147,11 +147,11 @@ Lorsqu'un indicateur est défini comme « unique », les individus sont dédupli
 
 « Unique par jour » est différent de « unique sur l'ensemble de la plage de dates ». Si vous voyez des comptages uniques quotidiens additionnés sur plusieurs jours, le même individu peut apparaître plus d'une fois (une fois par jour où il a interagi). C'est intentionnel.
 
-Si vous avez besoin de comprendre comment l'unicité a été définie dans votre configuration, contactez votre AI Success Manager.
+Si vous avez besoin de comprendre comment l'unicité a été définie dans votre configuration, contactez votre AI Success gestionnaire.
 
 ### Pourquoi ce rapport peut-il différer d'un autre système ? {#why-might-this-report-differ-from-another-system}
 
-Si votre rapport de performance ne correspond pas à un autre tableau de bord (comme un ESP, un outil d'analyse ou un rapport BI interne), cela ne signifie pas nécessairement qu'il y a un problème. Les différents systèmes appliquent souvent des définitions et des règles différentes. Voici les raisons les plus courantes :
+Si votre rapport de performance ne correspond pas à un autre tableau de bord (comme un fournisseur de services d'e-mailing, un outil d'analyse ou un rapport BI interne), cela ne signifie pas nécessairement qu'il y a un problème. Les différents systèmes appliquent souvent des définitions et des règles différentes. Voici les raisons les plus courantes :
 
 - **Règles d'attribution :** certains indicateurs appliquent une logique d'attribution, ce qui signifie que seule l'activité répondant à des critères définis est comptabilisée. Si un autre système comptabilise toute l'activité sans logique d'attribution, les totaux peuvent différer.
 - **Filtrage des engagements de machines et de bots :** les engagements connus provenant de machines ou de bots (comme les scans de sécurité automatisés ou les clics non humains) sont filtrés pour garantir que la performance reflète le comportement humain réel. Certaines plateformes incluent ces interactions dans leurs totaux.
@@ -186,4 +186,4 @@ Le graphique affiche 3 au Jour 1 et 3 au Jour 2. Sur les deux jours, vous obtene
 
 Cette configuration répond à la question : « Combien d'engagements clients uniques se sont produits sur l'ensemble des jours ? » Elle ne répond pas à : « Combien de clients individuels se sont engagés au moins une fois sur l'ensemble de la période ? »
 
-Si votre objectif est l'unicité au niveau de la fenêtre (individus uniques sur l'ensemble d'une Campaign ou d'un trimestre), il s'agit d'une approche de modélisation différente. Contactez votre AI Success Manager pour obtenir des conseils sur sa conception.
+Si votre objectif est l'unicité au niveau de la fenêtre (individus uniques sur l'ensemble d'une Campaign ou d'un trimestre), il s'agit d'une approche de modélisation différente. Contactez votre AI Success gestionnaire pour obtenir des conseils sur sa conception.

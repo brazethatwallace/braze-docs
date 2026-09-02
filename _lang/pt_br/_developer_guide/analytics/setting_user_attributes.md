@@ -38,7 +38,7 @@ Para wrapper SDKs não listados, use o método nativo relevante do Android ou SW
 {% multi_lang_include developer_guide/unity/analytics/setting_user_attributes.md %}
 {% endsdktab %}
 
-{% sdktab react native %}
+{% sdktab React Native %}
 {% multi_lang_include developer_guide/react_native/analytics/setting_user_attributes.md %}
 {% endsdktab %}
 

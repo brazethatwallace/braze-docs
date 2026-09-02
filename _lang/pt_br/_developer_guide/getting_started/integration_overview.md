@@ -54,7 +54,7 @@ Sua equipe de CRM planejará os casos de uso de envio de mensagens que serão la
 * [Público-alvo]({{site.baseurl}}/user_guide/audience/segments)
 * [Métricas de sucesso]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)
 
-Por exemplo, uma Campaign para novos clientes pode ser: um e-mail enviado diariamente às 10h para um segmento de clientes que registraram sua primeira sessão ontem. O evento de conversão (a métrica de sucesso) é o registro de uma sessão.
+Por exemplo, uma Campaign para novos clientes pode ser: um e-mail enviado diariamente às 10h para um Segment de clientes que registraram sua primeira sessão ontem. O evento de conversão (a métrica de sucesso) é o registro de uma sessão.
 
 <br>
 {% alert important %}
@@ -113,7 +113,7 @@ Você precisará de desenvolvedores que estejam familiarizados com:
 
 ### Parceiros de integração CDP {#cdp-integration-partners}
 
-Muitos clientes usam a integração da Braze como uma oportunidade de também se integrar a uma plataforma de dados do cliente (CDP) como parceiro de integração. A Braze oferece rastreamento e análise de dados, enquanto uma CDP pode oferecer roteamento e orquestração de dados adicionais. A Braze oferece integração perfeita com muitas CDPs, como a [mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle) e o [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment).
+Muitos clientes usam a integração da Braze como uma oportunidade de também se integrar a uma CDP (CDP) como parceiro de integração. A Braze oferece rastreamento e análise de dados, enquanto uma CDP pode oferecer roteamento e orquestração de dados adicionais. A Braze oferece integração perfeita com muitas CDPs, como a [mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle) e o [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment).
 
 Se estiver realizando a integração lado a lado com uma CDP, você mapeará as chamadas do SDK da sua CDP para o SDK da Braze. Essencialmente, você irá:
 * Mapear chamadas de identificação para `changeUser` ([Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/change-user.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/changeuser(userid:sdkauthsignature:fileid:line:)/), [web](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser)) e definir atributos.
@@ -251,7 +251,7 @@ Para o histórico de uso, acesse **Configurações** > **APIs e Identificadores*
 
 ### Solicitando limites de frequência mais altos {#requesting-higher-rate-limits}
 
-Se você precisa de um limite de frequência mais alto na Braze, entre em contato com o suporte da Braze ou com seu gerente de sucesso do cliente e inclua os seguintes detalhes:
+Se você precisa de um limite de frequência mais alto na Braze, entre em contato com o suporte da Braze ou com seu CSM e inclua os seguintes detalhes:
 
 * Se você precisa de um aumento temporário ou permanente.
 * Por que você precisa do aumento.
@@ -263,4 +263,4 @@ Após o envio da sua solicitação, a Braze a revisa e informa o resultado.
 
 ### Alterações e suporte {#changes-and-support}
 
-A Braze pode modificar os limites de frequência para proteger a estabilidade do sistema ou permitir um maior throughput de dados na sua conta. Entre em contato com o suporte da Braze ou com seu gerente de sucesso do cliente para dúvidas ou questões sobre limites de frequência e como eles impactam o seu negócio.
+A Braze pode modificar os limites de frequência para proteger a estabilidade do sistema ou permitir um maior throughput de dados na sua conta. Entre em contato com o suporte da Braze ou com seu CSM para dúvidas ou questões sobre limites de frequência e como eles impactam o seu negócio.

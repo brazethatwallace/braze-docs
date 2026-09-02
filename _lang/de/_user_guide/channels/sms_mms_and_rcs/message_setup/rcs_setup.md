@@ -48,7 +48,7 @@ Wenn Sie Ihre ausgefüllten Formulare an Braze übermittelt haben, schließt Bra
 
 Da die aktuelle Carrier-Abdeckung je nach Land variiert und die Hardware- und Software-Unterstützung der Nutzer:innen individuell unterschiedlich ist, ist SMS-Fallback heute eine Schlüsselkomponente für ein erfolgreiches RCS-Programm. Wir empfehlen, SMS-Fallback einzurichten. Wenn ein Carrier RCS nicht unterstützt oder das Gerät einer Nutzerin oder eines Nutzers keine RCS-Nachrichten empfangen kann, sendet SMS-Fallback Ihre Nachricht trotzdem, sodass Sie keinen wichtigen Moment mit Ihren Nutzer:innen verpassen.
 
-Wir empfehlen dringend, Ihre aktuelle SMS-Opt-in-Erfahrung, Abo-Gruppen und Zielgruppen-Segmentierung zu überprüfen, bevor Sie Ihre erste RCS-Campaign bereitstellen. Bei Bedarf steht Ihnen Ihr Customer-Success-Manager jederzeit zur Verfügung, um Sie zu beraten und durch den Einrichtungsprozess zu begleiten.
+Wir empfehlen dringend, Ihre aktuelle SMS-Opt-in-Erfahrung, Abo-Gruppen und Zielgruppen-Segmentierung zu überprüfen, bevor Sie Ihre erste RCS-Campaign bereitstellen. Bei Bedarf steht Ihnen Ihr CSM jederzeit zur Verfügung, um Sie zu beraten und durch den Einrichtungsprozess zu begleiten.
 
 #### Wie SMS-Fallback mit Events und Segmentierung funktioniert {#how-sms-fallback-works-with-events-and-segmentation}
 

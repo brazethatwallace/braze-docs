@@ -111,20 +111,20 @@ Sie brauchen Entwickler:innen, die sich mit Folgendem auskennen:
 * Allgemeine Kenntnisse der Datenverwaltung
 * Einrichten von DNS-Einträgen
 
-### CDP-Integrationspartner {#cdp-integration-partners}
+### Customer Data Platform (CDP)-Integrationspartner {#cdp-integration-partners}
 
-Viele Kund:innen sehen im Onboarding von Braze eine Gelegenheit, auch eine Customer Data Platform (CDP) als Integrationspartner einzubinden. Braze bietet Daten-Tracking und Analytics, während eine CDP zusätzlich Daten-Routing und Orchestrierung bieten kann. Braze unterstützt die nahtlose Integration mit vielen CDPs, darunter u. a. [mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle) und [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment).
+Viele Kund:innen sehen im Onboarding von Braze eine Gelegenheit, auch eine Customer Data Platform (CDP) als Integrationspartner einzubinden. Braze bietet Daten-Tracking und Analytics, während eine Customer Data Platform (CDP) zusätzlich Daten-Routing und Orchestrierung bieten kann. Braze unterstützt die nahtlose Integration mit vielen CDPs, darunter u. a. [mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle) und [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment).
 
-Wenn Sie eine Side-by-Side-Integration mit einer CDP durchführen, werden die Aufrufe aus dem SDK der CDP dem Braze SDK zugeordnet. Im Wesentlichen werden Sie:
+Wenn Sie eine Side-by-Side-Integration mit einer Customer Data Platform (CDP) durchführen, werden die Aufrufe aus dem SDK der Customer Data Platform (CDP) dem Braze SDK zugeordnet. Im Wesentlichen werden Sie:
 * Identifizierungsaufrufe auf `changeUser` ([Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/change-user.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/changeuser(userid:sdkauthsignature:fileid:line:)/), [Web](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser)) zuordnen und Attribute festlegen.
 * Daten-Flush-Aufrufe auf `requestImmediateDataFlush` ([Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/request-immediate-data-flush.html?query=abstract%20fun%20requestImmediateDataFlush()), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/requestimmediatedataflush()), [Web](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestimmediatedataflush)) zuordnen.
 * Angepasste Events oder Käufe protokollieren.
 
-Je nachdem, für welche Plattform Sie sich entschieden haben, sind möglicherweise Beispiel-Integrationen zwischen dem Braze SDK und der CDP Ihrer Wahl verfügbar. Weitere Informationen finden Sie in unserer [Liste der CDP-Technologie-Partner]({{site.baseurl}}/partners/data_and_analytics).
+Je nachdem, für welche Plattform Sie sich entschieden haben, sind möglicherweise Beispiel-Integrationen zwischen dem Braze SDK und der Customer Data Platform (CDP) Ihrer Wahl verfügbar. Weitere Informationen finden Sie in unserer [Liste der Customer Data Platform (CDP)-Technologie-Partner]({{site.baseurl}}/partners/data_and_analytics).
 
 ### Braze-SDK-Integration {#braze-sdk-integration}
 
-Das Braze SDK stellt zwei wichtige Funktionen bereit: Es erfasst und synchronisiert Nutzerdaten in ein konsolidiertes Nutzerprofil und stellt Messaging-Kanäle wie Push-Benachrichtigungen, In-App-Nachrichten und Content Cards bereit.
+Das Braze SDK stellt zwei wichtige Funktionen bereit: Es erfasst und synchronisiert Nutzerdaten in ein konsolidiertes Kundenprofil und stellt Messaging-Kanäle wie Push-Benachrichtigungen, In-App-Nachrichten und Content Cards bereit.
 
 {% alert tip %}
 Wenn das Braze SDK vollständig in Ihre App oder Website integriert ist, eröffnen sich völlig neue Marketing-Möglichkeiten. Wenn Sie die Integration des Braze SDK aufschieben, sind einige der in der Dokumentation beschriebenen Funktionen nicht verfügbar.
@@ -145,7 +145,7 @@ Während der SDK-Implementierung werden Sie:
 Sie werden unsere REST API zu verschiedenen Zeitpunkten Ihrer Nutzung von Braze für verschiedene Aufgaben verwenden. Die Braze API ist nützlich für:
 
 1. Importieren von historischen Daten; und
-2. Kontinuierliche Updates, die nicht in Braze ausgelöst werden. Wenn ein Nutzerprofil beispielsweise auf VIP hochgestuft wird, ohne dass sich die Person bei einer App anmeldet, muss die API diese Information an Braze übermitteln.
+2. Kontinuierliche Updates, die nicht in Braze ausgelöst werden. Wenn ein Kundenprofil beispielsweise auf VIP hochgestuft wird, ohne dass sich die Person bei einer App anmeldet, muss die API diese Information an Braze übermitteln.
 
 Starten Sie mit der [Braze API]({{site.baseurl}}/api/basics).
 
@@ -155,7 +155,7 @@ Achten Sie bei der Verwendung der API darauf, dass Sie Ihre Anfragen bündeln un
 
 ### Einrichten der Produktanalytik {#setting-up-product-analytics}
 
-Bei Braze dreht sich alles um Daten. Die Daten in Braze werden im Nutzerprofil gespeichert.
+Bei Braze dreht sich alles um Daten. Die Daten in Braze werden im Kundenprofil gespeichert.
 
 Datenpunkte sind eine Struktur, mit der Sie sicherstellen, dass Sie die richtigen Daten für Ihre Marketer erfassen – und nicht bloß „irgendwelche“ Daten. Machen Sie sich mit den [Datenpunkten]({{site.baseurl}}/user_guide/data/infrastructure/data_points) vertraut.
 
@@ -252,7 +252,7 @@ Für die historische Nutzung gehen Sie zu **Einstellungen** > **APIs und Bezeich
 
 ### Höhere Rate-Limits anfordern {#requesting-higher-rate-limits}
 
-Wenn Sie ein höheres Braze-Rate-Limit benötigen, wenden Sie sich an den Braze-Support oder Ihre:n Customer-Success-Manager:in und geben Sie die folgenden Details an:
+Wenn Sie ein höheres Braze-Rate-Limit benötigen, wenden Sie sich an den Braze-Support oder Ihre:n CSM:in und geben Sie die folgenden Details an:
 
 * Ob Sie eine vorübergehende oder dauerhafte Erhöhung benötigen.
 * Warum Sie die Erhöhung benötigen.
@@ -264,4 +264,4 @@ Nachdem Sie Ihre Anfrage eingereicht haben, prüft Braze diese und informiert Si
 
 ### Änderungen und Support {#changes-and-support}
 
-Braze kann Rate-Limits anpassen, um die Systemstabilität zu schützen oder einen erhöhten Datendurchsatz in Ihrem Konto zu ermöglichen. Wenden Sie sich bei Fragen oder Bedenken zu Rate-Limits und deren Auswirkungen auf Ihr Unternehmen an den Braze-Support oder Ihre:n Customer-Success-Manager:in.
+Braze kann Rate-Limits anpassen, um die Systemstabilität zu schützen oder einen erhöhten Datendurchsatz in Ihrem Konto zu ermöglichen. Wenden Sie sich bei Fragen oder Bedenken zu Rate-Limits und deren Auswirkungen auf Ihr Unternehmen an den Braze-Support oder Ihre:n CSM:in.

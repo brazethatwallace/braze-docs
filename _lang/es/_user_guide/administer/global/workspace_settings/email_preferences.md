@@ -25,7 +25,7 @@ Los ajustes de correo electrónico en la sección **Configuración de envío** d
 
 Al configurar tus ajustes de correo electrónico, los ajustes de correo electrónico saliente identifican qué nombre y direcciones de correo electrónico se utilizan cuando Braze envía correos electrónicos a tus usuarios.
 
-Si necesitas añadir un nuevo dominio o grupo de IP (proveedor de envío) a tu espacio de trabajo, o eliminar uno de la lista disponible, ponte en contacto con tu administrador de éxito de cliente para obtener ayuda.
+Si necesitas añadir un nuevo dominio o grupo de IP (proveedor de envío) a tu espacio de trabajo, o eliminar uno de la lista disponible, ponte en contacto con tu CSM para obtener ayuda.
 
 {% tabs local %}
 {% tab Nombre y dirección de visualización %}

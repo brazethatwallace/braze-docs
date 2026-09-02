@@ -146,7 +146,7 @@ Neste caso de uso, o Salesforce é o sistema de CRM de exemplo. Você pode mapea
 
 ### Opção 2: Usar fontes conectadas para contas e oportunidades {#option-2-use-connected-sources-for-accounts-and-opportunities}
 
-Fontes conectadas são tabelas de dados hospedadas por você em seu próprio data warehouse e consultadas pelas [extensões de segmento CDI]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments) da Braze. Ao contrário dos catálogos, em vez de duplicar seus objetos de negócios (contas e oportunidades) na Braze, você os manteria em seu data warehouse e os usaria como a fonte da verdade.
+Fontes conectadas são tabelas de dados hospedadas por você em seu próprio data warehouse e consultadas pelas [extensões de Segment CDI]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments) da Braze. Ao contrário dos catálogos, em vez de duplicar seus objetos de negócios (contas e oportunidades) na Braze, você os manteria em seu data warehouse e os usaria como a fonte da verdade.
 
 Para configurar fontes conectadas, consulte [Integração de fontes conectadas]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources#integrating-connected-sources).
 

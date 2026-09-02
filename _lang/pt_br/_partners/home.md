@@ -110,7 +110,7 @@ Braze Alloys é o programa de parceiros de tecnologia da Braze. Os parceiros amp
 ## E
 
 - [Eagle Eye]({{site.baseurl}}/partners/data_and_analytics/loyalty/eagleeye)
-- [eduMe]({{site.baseurl}}/partners/additional_channels_and_extensions/extensions/learning/edume)
+- [EduMe]({{site.baseurl}}/partners/additional_channels_and_extensions/extensions/learning/edume)
 - [Email Love]({{site.baseurl}}/partners/message_orchestration/templates/email_love)
 - [EmailShepherd]({{site.baseurl}}/partners/message_orchestration/templates/emailshepherd)
 - [Eppo]({{site.baseurl}}/partners/data_and_analytics/ab_testing/eppo)

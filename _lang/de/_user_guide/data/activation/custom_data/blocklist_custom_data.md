@@ -81,11 +81,11 @@ Wenn ein Event oder Attribut auf die Blocklist gesetzt wird, werden alle Segment
 
 Um das Tracking eines bestimmten angepassten Attributs, Events oder Produkts zu stoppen, führen Sie die folgenden Schritte aus:
 
-1. Suchen Sie danach auf den Seiten **Custom Attributes**, **Custom Events** oder **Products**.
+1. Suchen Sie danach auf den Seiten **angepasste Attribute**, **Custom Events** oder **Products**.
 2. Wählen Sie das angepasste Attribut, Event oder Produkt aus. Bei angepassten Attributen und Events können Sie bis zu 100 gleichzeitig für das Blocklisting auswählen.
 3. Wählen Sie **Blocklist**.
 
-![Mehrere ausgewählte angepasste Attribute, die auf der Seite „Custom Attributes“ auf die Blocklist gesetzt werden.]({% image_buster /assets/img_archive/blocklist_custom_attr.png %})
+![Mehrere ausgewählte angepasste Attribute, die auf der Seite „angepasste Attribute“ auf die Blocklist gesetzt werden.]({% image_buster /assets/img_archive/blocklist_custom_attr.png %})
 
 Sie können bis zu 300 angepasste Attribute und 300 angepasste Events auf die Blocklist setzen. Um das Erfassen bestimmter Geräteattribute zu verhindern, lesen Sie unseren [SDK-Leitfaden]({{site.baseurl}}/developer_guide/getting_started/sdk_overview#blocking-data-collection).
 

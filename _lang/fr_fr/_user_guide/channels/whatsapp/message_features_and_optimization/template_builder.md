@@ -10,7 +10,7 @@ channel:
 
 # Générateur de modèles WhatsApp {#whatsapp-template-builder}
 
-> Le générateur de modèles WhatsApp vous permet de créer et de soumettre des modèles de messages WhatsApp directement dans Braze, sans avoir à basculer entre Braze et le Meta Business Manager. Une fois votre modèle approuvé par Meta, utilisez-le dans autant de Campaigns et de Canvas que vous le souhaitez.
+> Le générateur de modèles WhatsApp vous permet de créer et de soumettre des modèles de messages WhatsApp directement dans Braze, sans avoir à basculer entre Braze et le Meta Business gestionnaire. Une fois votre modèle approuvé par Meta, utilisez-le dans autant de Campaigns et de Canvas que vous le souhaitez.
 
 ## Conditions préalables {#prerequisites}
 
@@ -43,7 +43,7 @@ Les modèles marketing sont destinés aux messages promotionnels et d'engagement
 | **Personnalisé** | Un message WhatsApp standard que vous créez de zéro. C'est la mise en page décrite dans [Créer votre modèle](#step-4-build-your-template). |
 | **Carrousel** | Un message avec des cartes défilables horizontalement. Pour plus d'informations, consultez [Modèles carrousel]({{site.baseurl}}/whatsapp_carousel_templates). |
 | **Offre limitée dans le temps** | Une offre promotionnelle limitée dans le temps. Pour plus d'informations, consultez [Modèles d'offre limitée dans le temps]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/message_and_image_formats#limited-time-offer-templates). |
-| **Flow** | Un modèle qui ouvre un WhatsApp Flow (par exemple, sondages ou prises de rendez-vous). Créez et gérez le Flow dans le WhatsApp Manager de Meta, puis sélectionnez-le lorsque vous créez le modèle. Pour plus d'informations, consultez [WhatsApp Flows]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/whatsapp_flows). |
+| **Flow** | Un modèle qui ouvre un WhatsApp Flow (par exemple, sondages ou prises de rendez-vous). Créez et gérez le Flow dans le WhatsApp gestionnaire de Meta, puis sélectionnez-le lorsque vous créez le modèle. Pour plus d'informations, consultez [WhatsApp Flows]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/whatsapp_flows). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Types de modèles marketing" }
 
 #### Utilitaire {#utility}
@@ -53,7 +53,7 @@ Les modèles utilitaires sont destinés aux messages non promotionnels (par exem
 | Type | Description |
 | --- | --- |
 | **Personnalisé** | Un message utilitaire standard que vous créez de zéro. Suivez les mêmes étapes de composition que [Créer votre modèle](#step-4-build-your-template). |
-| **Flow** | Un modèle Flow utilitaire (par exemple, rappels, retours d'information ou gestion de commandes). Créez et gérez le Flow dans le WhatsApp Manager de Meta, puis sélectionnez-le lorsque vous créez le modèle. Pour plus d'informations, consultez [WhatsApp Flows]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/whatsapp_flows). |
+| **Flow** | Un modèle Flow utilitaire (par exemple, rappels, retours d'information ou gestion de commandes). Créez et gérez le Flow dans le WhatsApp gestionnaire de Meta, puis sélectionnez-le lorsque vous créez le modèle. Pour plus d'informations, consultez [WhatsApp Flows]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/whatsapp_flows). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Types de modèles utilitaires" }
 
 {% alert note %}
@@ -165,11 +165,11 @@ Les examens sont généralement terminés en cinq minutes, mais peuvent prendre 
 
 ### Puis-je modifier un modèle après son approbation ? {#can-i-edit-a-template-after-its-been-approved}
 
-Vous pouvez mettre à jour le contenu variable et la personnalisation lors de la création d'une Campaign ou d'un Canvas. Les modifications du contenu verrouillé (texte du corps, disposition des boutons ou autres champs contrôlés par Meta) nécessitent la création d'un nouveau modèle dans le générateur de modèles ou la modification du modèle dans le WhatsApp Manager de Meta, puis l'attente d'une nouvelle approbation par Meta. Si vous utilisez le [suivi des clics]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/click_tracking), consultez cet article avant de modifier les modèles créés par Braze dans le WhatsApp Manager de Meta.
+Vous pouvez mettre à jour le contenu variable et la personnalisation lors de la création d'une Campaign ou d'un Canvas. Les modifications du contenu verrouillé (texte du corps, disposition des boutons ou autres champs contrôlés par Meta) nécessitent la création d'un nouveau modèle dans le générateur de modèles ou la modification du modèle dans le WhatsApp gestionnaire de Meta, puis l'attente d'une nouvelle approbation par Meta. Si vous utilisez le [suivi des clics]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/click_tracking), consultez cet article avant de modifier les modèles créés par Braze dans le WhatsApp gestionnaire de Meta.
 
 ### Qu'advient-il des modèles que j'ai soumis avant la disponibilité du générateur de modèles ? {#what-happens-to-templates-i-submitted-before-the-template-builder-was-available}
 
-Les modèles créés dans Meta Business Manager sont toujours disponibles pour être utilisés dans Braze. Le générateur de modèles est un moyen supplémentaire de créer et de gérer des modèles sans quitter le tableau de bord de Braze.
+Les modèles créés dans Meta Business gestionnaire sont toujours disponibles pour être utilisés dans Braze. Le générateur de modèles est un moyen supplémentaire de créer et de gérer des modèles sans quitter le tableau de bord de Braze.
 
 ### Pourquoi ne puis-je pas ajouter de la personnalisation à tous les champs ? {#why-cant-i-add-personalization-to-every-field}
 

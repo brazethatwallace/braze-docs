@@ -102,7 +102,7 @@ Existem duas maneiras de adicionar um remetente verificado por RCS:
 - Criar um novo grupo de inscrições RCS
 A escolha depende em grande parte dos casos de uso de RCS nos quais você está interessado.
 
-Dependendo da sua integração, a Braze pode adicionar remetentes verificados por RCS aos seus grupos de inscrições de SMS existentes ou configurar novos grupos de inscrições para você. Em ambos os casos, seu gerente de sucesso do cliente orienta você em uma atualização de tráfego de SMS eficiente e sem complicações.
+Dependendo da sua integração, a Braze pode adicionar remetentes verificados por RCS aos seus grupos de inscrições de SMS existentes ou configurar novos grupos de inscrições para você. Em ambos os casos, seu CSM orienta você em uma atualização de tráfego de SMS eficiente e sem complicações.
 {% endtab %}
 {% endtabs %}
 

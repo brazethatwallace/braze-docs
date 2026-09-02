@@ -153,7 +153,7 @@ Consultez les [Bonnes pratiques e-mail]({{site.baseurl}}/user_guide/channels/ema
 
 #### Personnaliser l'en-tête de votre e-mail (avancé) {#personalize-your-email-header-advanced}
 
-Sous **Paramètres d'envoi**, vous pouvez ajouter une personnalisation pour les en-têtes d'e-mail et les extras d'e-mail, ce qui vous permet d'envoyer des données supplémentaires à d'autres fournisseurs de services d'e-mailing. La personnalisation d'un en-tête d'e-mail, comme l'inclusion du nom du destinataire, peut également contribuer à augmenter la probabilité que votre e-mail soit ouvert.
+Sous **Paramètres d'envoi**, vous pouvez ajouter une personnalisation pour les en-têtes d'e-mail et les extras d'e-mail, ce qui vous permet d'envoyer des données supplémentaires à d'autres fournisseurs de services d'e-mail marketing. La personnalisation d'un en-tête d'e-mail, comme l'inclusion du nom du destinataire, peut également contribuer à augmenter la probabilité que votre e-mail soit ouvert.
 
 {% alert note %}
 La fonctionnalité avancée apparaîtra dans le composeur de Campaign ou de Canvas. Dans la fonctionnalité avancée, vous pouvez modifier votre paramètre CSS en ligne et saisir un en-tête ou des paires clé-valeur supplémentaires (si configuré).
@@ -242,7 +242,7 @@ Pour ajuster l'espacement, faites défiler vers le bas jusqu'à **Options de blo
 
 ### Arrière-plan du contenu {#content-background}
 
-Vous pouvez ajouter une image d'arrière-plan à la configuration de votre ligne, ce qui vous permet d'intégrer davantage d'éléments de design et de contenu visuel dans votre campagne d'e-mailing.
+Vous pouvez ajouter une image d'arrière-plan à la configuration de votre ligne, ce qui vous permet d'intégrer davantage d'éléments de design et de contenu visuel dans votre campagne d'e-mail marketing.
 
 ### Attribut de langue {#language-attribute}
 

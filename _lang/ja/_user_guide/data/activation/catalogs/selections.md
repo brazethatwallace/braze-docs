@@ -103,12 +103,12 @@ Liquid作成パネルのパーソナライゼーションプレビューでは�
 
 このカタログとセレクションをキャンペーンで使用するには、キャンペーン作成のメッセージ作成セクションにある**パーソナライゼーションを追加**モーダルを使用します。この例では、食事宅配サービスの情報を含むカタログと、最近閲覧したカテゴリに基づく食事のおすすめのセレクションを選択しています。これにより、食事名と価格を表示できます。メッセージをさらに充実させるために、セレクションを使用して最初のおすすめ食事の画像を追加することもできます。
 
-![「You will LOVE these highly rated meals!」というヘッダーのContent Cardで、メッセージ作成セクションにセレクション「recommendations_be_recent_category」が表示されています。]({% image_buster /assets/img_archive/catalog_selections3.png %}){: style="max-width:90%;"}
+![「You will LOVE these highly rated meals!」というヘッダーのContent カードで、メッセージ作成セクションにセレクション「recommendations_be_recent_category」が表示されています。]({% image_buster /assets/img_archive/catalog_selections3.png %}){: style="max-width:90%;"}
 
-たとえば、最近閲覧したカテゴリが「チキン」のユーザーがいるとします。設定したパーソナライゼーションとContent Cardキャンペーンを使用すると、このユーザーにチキンを含む3つの食事のおすすめを送信できます。
+たとえば、最近閲覧したカテゴリが「チキン」のユーザーがいるとします。設定したパーソナライゼーションとContent カードキャンペーンを使用すると、このユーザーにチキンを含む3つの食事のおすすめを送信できます。
 
-![炭火焼きレモンチキンの画像が表示されたContent Cardで、ユーザーが最近閲覧したカテゴリに基づいてチキンを含む3つの食事のおすすめが一覧表示されています。]({% image_buster /assets/img_archive/catalog_selections4.png %}){: style="max-width:90%;"}
+![炭火焼きレモンチキンの画像が表示されたContent カードで、ユーザーが最近閲覧したカテゴリに基づいてチキンを含む3つの食事のおすすめが一覧表示されています。]({% image_buster /assets/img_archive/catalog_selections4.png %}){: style="max-width:90%;"}
 
 同じパーソナライゼーションを使用して、最近閲覧したカテゴリが「ビーフ」のユーザーに3つの食事のおすすめを送信することもできます。
 
-![ビーフストロガノフの画像が表示されたContent Cardで、ユーザーが最近閲覧したカテゴリに基づいてビーフを含む2つの食事のおすすめが一覧表示されています。]({% image_buster /assets/img_archive/catalog_selections5.png %}){: style="max-width:90%;"}
+![ビーフストロガノフの画像が表示されたContent カードで、ユーザーが最近閲覧したカテゴリに基づいてビーフを含む2つの食事のおすすめが一覧表示されています。]({% image_buster /assets/img_archive/catalog_selections5.png %}){: style="max-width:90%;"}

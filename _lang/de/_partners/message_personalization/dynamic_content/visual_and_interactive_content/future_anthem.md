@@ -58,7 +58,7 @@ Dies sind die verfügbaren angepassten Attribute in Braze. Weitere Informationen
 | Akkumulator-Wettempfehlungen (Event-Labels) | `{"Bet_1": "Haaland goal vs. Manchester United", "Bet_2": "Liverpool vs. Everton"}` | Objekt |
 | Akkumulator-Wettempfehlungen (numerische Quoten) | `{"Bet_1": 1.5, "Bet_2": 2}` | Objekt |
 | Bet-Builder-Wettempfehlungen | `{"Sport":"American Football", "Competition":"NFL", "Event":"Seahawks@Giants", "Market":"MoneyLine", "Selection":"Seahawks"}` | Objekt |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze custom attributes" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze angepasste Attribute" }
 
 {% endtab %}
 {% tab Bonus Recommendations %}
@@ -69,12 +69,12 @@ Dies sind die verfügbaren angepassten Attribute in Braze. Weitere Informationen
 | NGR14 (Nettospielertrag, letzte 14 Aktivitätstage) | 42 | Zahl |
 | Spieler-Profitabilitäts-Score | 130 | Zahl |
 | Engagement-Score | 0.78 | Zahl |
-| Churn-Risiko-Score | 0.02 | Zahl |
+| Abwanderung-Risiko-Score | 0.02 | Zahl |
 | Geschätztes nächstes Wettdatum | 2024-08-29 | Zeit |
 | Bet-and-Get-Bonuswert-Empfehlung | 20 | Zahl |
 | Weitere Bonuswert-Empfehlungen | 0 | Zahl |
 | Zukünftiger CLTV | 3126 | Zahl |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze custom attributes" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze angepasste Attribute" }
 
 {% endtab %}
 {% tab Game Recommendations %}
@@ -89,7 +89,7 @@ Dies sind die verfügbaren angepassten Attribute in Braze. Weitere Informationen
 | Up Next (Spielabfolge) | Fishin' Frenzy The Big Catch, Big Banker, 9 Masks of Fire, Super Lion, Fishin' Bigger Pots of Gold | Array |
 | Beliebte Spiele | Temple of Iris, Fishin' Frenzy, Fishing Reward, Crazy Time, Fluffy Favourites | Array |
 | Trendspiele | Pig Banker, Hyper Gold, Pyramid King, Gold Cash | Array |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze custom attributes" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze angepasste Attribute" }
 
 {% endtab %}
 
@@ -98,7 +98,7 @@ Dies sind die verfügbaren angepassten Attribute in Braze. Weitere Informationen
 | Unterkategorie | Beispiel | Datentyp |
 | ----------- | ------- | --------- |
 | Zeigt, in welchem Cluster sich der Spieler befindet | High Value Game Diverse | String |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze custom attributes" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze angepasste Attribute" }
 
 {% endtab %}
 
@@ -108,7 +108,7 @@ Dies sind die verfügbaren angepassten Attribute in Braze. Weitere Informationen
 | ----------- | ------- | --------- |
 | Risiko-Score | 0.5 | Zahl |
 | Riskanter Spieler | True | Boolescher Wert |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze custom attributes" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze angepasste Attribute" }
 
 {% endtab %}
 {% endtabs %}

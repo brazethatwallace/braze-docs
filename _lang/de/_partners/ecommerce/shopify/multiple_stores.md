@@ -61,7 +61,7 @@ Für Ihre externe Braze-ID können Sie aus den folgenden Optionen wählen:
 
 ### Zusammengeführte Felder {#merged-fields}
 
-Wenn ein Nutzerprofil synchronisiert wird, werden die folgenden Felder zusammengeführt. Ausführliche Informationen zum Zusammenführungsverhalten finden Sie unter [Zusammenführungsverhalten]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior).
+Wenn ein Kundenprofil synchronisiert wird, werden die folgenden Felder zusammengeführt. Ausführliche Informationen zum Zusammenführungsverhalten finden Sie unter [Zusammenführungsverhalten]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior).
 
 - Geräteinformationen
 - Gesamtzahl der Sitzungen (kombiniert aus beiden Profilen)

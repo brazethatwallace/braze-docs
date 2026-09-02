@@ -18,11 +18,11 @@ Cada exemplo neste guia é rotulado com um dos seguintes níveis de adequação:
 |---|---|
 | **Melhor adequação** | O agente tem tempo suficiente para aprender, seu público é estável o bastante para mostrar aumento, e a personalização pode afetar significativamente o engajamento. Comece por aqui. |
 | **Compatível** | O exemplo pode funcionar bem, mas o sucesso depende do timing, do tamanho do público ou do sequenciamento. Analise as considerações antes de se comprometer. |
-| **Não recomendado** | O exemplo entra em conflito com a forma como o agente aprende. Escolha um tipo de programa diferente ou converse com seu gerente de sucesso do cliente ou consultor de soluções sobre uma configuração diferente. |
+| **Não recomendado** | O exemplo entra em conflito com a forma como o agente aprende. Escolha um tipo de programa diferente ou converse com seu CSM ou consultor de soluções sobre uma configuração diferente. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Níveis de adequação" }
 
 {% alert note %}
-Em todos os níveis de adequação, o agente aprende melhor quando seu público gera sinal de engajamento suficiente para que o algoritmo detecte padrões. Como regra prática, direcione públicos na casa das dezenas de milhares de usuários ou mais, com volume de envio semanal consistente. O agente pode funcionar com públicos menores, mas espere um período de aprendizado mais longo e um aumento menos confiável. Seu gerente de sucesso do cliente ou consultor de soluções pode ajudar a confirmar se um determinado público tem o tamanho adequado.
+Em todos os níveis de adequação, o agente aprende melhor quando seu público gera sinal de engajamento suficiente para que o algoritmo detecte padrões. Como regra prática, direcione públicos na casa das dezenas de milhares de usuários ou mais, com volume de envio semanal consistente. O agente pode funcionar com públicos menores, mas espere um período de aprendizado mais longo e um aumento menos confiável. Seu CSM ou consultor de soluções pode ajudar a confirmar se um determinado público tem o tamanho adequado.
 {% endalert %}
 
 ## Melhor ajuste {#best-fit}
@@ -62,7 +62,7 @@ Em todos os níveis de adequação, o agente aprende melhor quando seu público 
 |---|---|
 | Como funciona | Um único e-mail ou sequência disparada por uma ação do cliente — abandono de carrinho, abandono de navegação ou acompanhamento pós-compra. |
 | Por que funciona | Os disparadores criam um ponto de entrada claro. Se a jornada é recorrente e o volume de público é consistente, o agente pode aprender qual conteúdo funciona para quais usuários. |
-| Considerações | O momento importa. Se o e-mail precisa ser enviado minutos após o evento-gatilho, entre em contato com seu gerente de sucesso do cliente ou consultor de soluções para confirmar se o cronograma de envio do agente é compatível. Se os usuários precisam receber os e-mails em uma ordem específica (e-mail A antes do e-mail B), você precisa orquestrar a movimentação do público por conta própria — o agente não sequencia envios para um único usuário ao longo de uma jornada com múltiplos e-mails. |
+| Considerações | O momento importa. Se o e-mail precisa ser enviado minutos após o evento-gatilho, entre em contato com seu CSM ou consultor de soluções para confirmar se o cronograma de envio do agente é compatível. Se os usuários precisam receber os e-mails em uma ordem específica (e-mail A antes do e-mail B), você precisa orquestrar a movimentação do público por conta própria — o agente não sequencia envios para um único usuário ao longo de uma jornada com múltiplos e-mails. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Jornadas baseadas em ações ou eventos" }
 
 ## Não recomendado {#not-recommended}
@@ -73,7 +73,7 @@ Em todos os níveis de adequação, o agente aprende melhor quando seu público 
 |---|---|
 | Como é | Uma sequência de múltiplos e-mails — por exemplo, um tutorial de integração — em que os usuários precisam receber o e-mail A, depois o e-mail B e depois o e-mail C, nessa ordem. |
 | Por que não se encaixa | O agente seleciona o que enviar para cada usuário com base no que tem mais probabilidade de gerar um clique para aquele usuário. Ele não modela requisitos de sequência. Se você precisa impor uma ordem específica, é necessário orquestrar o público por conta própria (movendo usuários de Segment para Segment após cada e-mail), o que reduz a maior parte do benefício de usar o agente. O agente também não consegue confirmar de forma independente que o e-mail A foi bem-sucedido antes de enviar o e-mail B. |
-| O que fazer em vez disso | Use o [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) para orquestrar a sequência de gotejamento. Se você deseja otimização com IA dentro de uma sequência, converse com seu gerente de sucesso do cliente ou consultor de soluções sobre se o [Decisioning Studio Pro]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/get_started) é uma opção mais adequada. |
+| O que fazer em vez disso | Use o [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) para orquestrar a sequência de gotejamento. Se você deseja otimização com IA dentro de uma sequência, converse com seu CSM ou consultor de soluções sobre se o [Decisioning Studio Pro]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/get_started) é uma opção mais adequada. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Sequências de gotejamento (drip)" }
 
 ### Disparos únicos de e-mail {#one-time-email-blasts}
@@ -99,7 +99,7 @@ Em todos os níveis de adequação, o agente aprende melhor quando seu público 
 
 ## Próximas etapas {#next-steps}
 
-Entre em contato com seu gerente de sucesso do cliente ou consultor de soluções da Braze se você não tiver certeza se o seu programa é adequado. Sinais fortes incluem:
+Entre em contato com seu CSM ou consultor de soluções da Braze se você não tiver certeza se o seu programa é adequado. Sinais fortes incluem:
 
 - O público recebe e-mails regularmente — pelo menos semanalmente — por um período de um mês ou mais.
 - O público é grande o suficiente para gerar um sinal de engajamento consistente (dezenas de milhares de usuários é um bom ponto de partida).

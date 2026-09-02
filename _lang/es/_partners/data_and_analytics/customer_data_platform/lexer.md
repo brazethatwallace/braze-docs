@@ -1,7 +1,7 @@
 ---
 nav_title: Lexer
 article_title: Lexer
-description: "Este artículo de referencia describe la asociación entre Braze y Lexer, una plataforma de datos de los clientes que pone los datos de los clientes en manos de los especialistas en marketing para inspirar experiencias que impulsen las ventas."
+description: "Este artículo de referencia describe la asociación entre Braze y Lexer, una CDP que pone los datos de los clientes en manos de los especialistas en marketing para inspirar experiencias que impulsen las ventas."
 alias: /partners/lexer/
 page_type: partner
 search_tag: Partner
@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Lexer
 
-> [Lexer](https://lexer.io/), una plataforma de datos de los clientes creada para el comercio minorista, ayuda a las marcas a impulsar ventas incrementales mediante la mejora de la experiencia del cliente, combinando un sólido enriquecimiento de datos con las herramientas más intuitivas y el asesoramiento de expertos.
+> [Lexer](https://lexer.io/), una CDP creada para el comercio minorista, ayuda a las marcas a impulsar ventas incrementales mediante la mejora de la experiencia del cliente, combinando un sólido enriquecimiento de datos con las herramientas más intuitivas y el asesoramiento de expertos.
 
 _Esta integración está mantenida por Lexer._
 

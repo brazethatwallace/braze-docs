@@ -110,7 +110,7 @@ func didReceive(_ notification: UNNotification) {
 
 ## Push-Benachrichtigung zur Informationserfassung {#information-capture-push-notification}
 
-Push-Benachrichtigungen können Nutzerinformationen innerhalb einer Content-App-Erweiterung erfassen und erweitern so die Möglichkeiten, was mit einem Push realisierbar ist. Durch die Eingabeaufforderung über Push-Benachrichtigungen können Sie nicht nur grundlegende Informationen wie Name oder E-Mail-Adresse abfragen, sondern auch Nutzer:innen dazu auffordern, Feedback zu geben oder ein unvollständiges Nutzerprofil zu vervollständigen.
+Push-Benachrichtigungen können Nutzerinformationen innerhalb einer Content-App-Erweiterung erfassen und erweitern so die Möglichkeiten, was mit einem Push realisierbar ist. Durch die Eingabeaufforderung über Push-Benachrichtigungen können Sie nicht nur grundlegende Informationen wie Name oder E-Mail-Adresse abfragen, sondern auch Nutzer:innen dazu auffordern, Feedback zu geben oder ein unvollständiges Kundenprofil zu vervollständigen.
 
 {% alert tip %}
 Weitere Informationen finden Sie unter [Push-Benachrichtigungsdaten protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_channel_data/push_notifications).

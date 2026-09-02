@@ -22,7 +22,7 @@ toc_headers: h2
 
 ## 최적화 켜기 {#turn-on-optimization}
 
-**타겟 오디언스** 단계에서 **A/B Testing**으로 이동한 다음, **Optimize with BrazeAI<sup>TM</sup>**를 켜세요.
+**타겟 오디언스** 단계에서 **A/B 테스트**으로 이동한 다음, **Optimize with BrazeAI<sup>TM</sup>**를 켜세요.
 
 ## 단일 발송 Campaign {#single-send-campaigns}
 

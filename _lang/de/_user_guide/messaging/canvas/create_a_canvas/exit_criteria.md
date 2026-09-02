@@ -77,7 +77,7 @@ Array-Attribute werden derzeit nicht als Exit-Kriterien bei Ausnahme-Events unte
 
 ### Gleiches Exit-Event und Konversions-Event {#having-the-same-exit-event-and-conversion-event}
 
-Wenn das Exit-Event und das Konversions-Event identisch sind, werden sowohl die Konversion als auch das Exit-Event berücksichtigt. Wenn ein Canvas beispielsweise einen Delay-Schritt hat und Nutzer:innen die Exit-Kriterien während dieses Delay-Schritts erfüllen, wird das Exit-Event inkrementiert, sobald sie den Delay-Schritt verlassen. Die Konversion wird ebenfalls inkrementiert, sobald das Event im Nutzerprofil protokolliert wird.
+Wenn das Exit-Event und das Konversions-Event identisch sind, werden sowohl die Konversion als auch das Exit-Event berücksichtigt. Wenn ein Canvas beispielsweise einen Delay-Schritt hat und Nutzer:innen die Exit-Kriterien während dieses Delay-Schritts erfüllen, wird das Exit-Event inkrementiert, sobald sie den Delay-Schritt verlassen. Die Konversion wird ebenfalls inkrementiert, sobald das Event im Kundenprofil protokolliert wird.
 
 Konversionen werden auch nach dem Ende des Canvas erfasst, Exits hingegen nicht mehr, nachdem Nutzer:innen den Canvas verlassen haben. Das Konversionsfenster erstreckt sich bis zu drei Tage über die maximale Dauer des Canvas hinaus. Das bedeutet, dass Konversionen weiterhin erfasst werden, nachdem die Erfassung von Exits bereits eingestellt wurde.
 

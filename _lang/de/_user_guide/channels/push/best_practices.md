@@ -105,11 +105,11 @@ Wir empfehlen außerdem, die Anzahl der API-Aufrufe durch Optimierung der benöt
 
 ### Push-Abo-Status verstehen {#understand-push-subscription-states}
 
-Der Push-Abo-Status garantiert nicht, dass eine Push-Benachrichtigung zugestellt wird – Nutzer:innen müssen außerdem Push-aktiviert sein, um Benachrichtigungen zu empfangen. Dies liegt daran, dass ein Nutzerprofil mehrere Geräte mit unterschiedlichen Vordergrund-Push-Berechtigungen haben kann, aber nur einen einzigen Push-Abo-Status besitzt.
+Der Push-Abo-Status garantiert nicht, dass eine Push-Benachrichtigung zugestellt wird – Nutzer:innen müssen außerdem Push-aktiviert sein, um Benachrichtigungen zu empfangen. Dies liegt daran, dass ein Kundenprofil mehrere Geräte mit unterschiedlichen Vordergrund-Push-Berechtigungen haben kann, aber nur einen einzigen Push-Abo-Status besitzt.
 
 Wenn Nutzer:innen kein gültiges Vordergrund-Push-Token für eine App haben (d. h. sie Push-Tokens auf Geräteebene über die Einstellungen deaktivieren und sich entscheiden, keine Benachrichtigungen zu empfangen), kann ihr Abo-Status dennoch als `subscribed` für Push gelten. Diese Nutzer:innen wären jedoch in Braze nicht als `Foreground Push Enabled for App` eingestuft, da das Vordergrund-Push-Token ungültig ist.
 
-Darüber hinaus ist der Filter `Foreground Push Enabled` in der Segmentierung auch auf „false“ gesetzt, wenn ein Nutzerprofil kein gültiges oder registriertes Push-Token für andere Apps besitzt.
+Darüber hinaus ist der Filter `Foreground Push Enabled` in der Segmentierung auch auf „false“ gesetzt, wenn ein Kundenprofil kein gültiges oder registriertes Push-Token für andere Apps besitzt.
 
 ## Eine Sunset-Richtlinie für nicht reagierende Nutzer:innen umsetzen {#implement-a-sunset-policy-for-unresponsive-users}
 

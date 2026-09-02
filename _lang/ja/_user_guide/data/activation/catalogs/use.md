@@ -145,11 +145,11 @@ Liquid構文エラーを回避するには、メッセージ作成画面の**+**
 ```
 {% endraw %}
 
-![画像フィールドにカタログのLiquidタグが使用されたContent Cardメッセージ作成画面。]({% image_buster /assets/img_archive/catalog_image_link1.png %})
+![画像フィールドにカタログのLiquidタグが使用されたContent カードメッセージ作成画面。]({% image_buster /assets/img_archive/catalog_image_link1.png %})
 
 Liquidがレンダリングされると次のようになります：
 
-![カタログのLiquidタグがレンダリングされたContent Cardの例。]({% image_buster /assets/img_archive/catalog_image_link2.png %}){: style="max-width:50%" }
+![カタログのLiquidタグがレンダリングされたContent カードの例。]({% image_buster /assets/img_archive/catalog_image_link2.png %}){: style="max-width:50%" }
 
 {% alert important %}
 メールなどの**HTML**チャネルでは、`{% raw %}{% catalog_items ... %}{% endraw %}`の閉じタグと画像URLを出力するLiquid（例：`{% raw %}{{ items[0].image_link }}{% endraw %}`）の間に余分なスペースや改行を入れないでください。テンプレート内の余分な空白は、レンダリングされたメッセージで画像URLが正しく解決されない原因となる場合があります。次のように、URL式をカタログタグの直後に配置してください：`{% raw %}<img src="{% catalog_items Games 1234 %}{{ items[0].image_link }}">{% endraw %}`。

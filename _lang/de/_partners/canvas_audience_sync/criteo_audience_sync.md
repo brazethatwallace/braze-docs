@@ -21,7 +21,7 @@ Dieses Feature gibt Marken die Möglichkeit zu kontrollieren, welche spezifische
 
 {% alert important %}
 **Audience Sync Pro – Haftungsausschluss**<br>
-Braze Audience Sync to Criteo ist eine Audience Sync Pro-Integration. Für weitere Informationen zu dieser Integration wenden Sie sich bitte an Ihren Braze Account Manager. <br>
+Braze Audience Sync to Criteo ist eine Audience Sync Pro-Integration. Für weitere Informationen zu dieser Integration wenden Sie sich bitte an Ihren Braze Account Manager:in. <br>
 {% endalert %}
 
 ## Voraussetzungen {#prerequisites}
@@ -114,7 +114,7 @@ Braze bietet auch die Möglichkeit, Nutzer:innen zu bestehenden Criteo-Zielgrupp
 
 Sobald Sie Ihre Zielgruppen-Synchronisation mit Criteo konfiguriert haben, starten Sie das Canvas! Die neue Zielgruppe wird erstellt, und Nutzer:innen, die den Audience Sync-Schritt durchlaufen, werden in diese Zielgruppe auf Criteo übertragen. Wenn Ihr Canvas nachfolgende Komponenten enthält, werden Ihre Nutzer:innen zum nächsten Schritt in ihrer User Journey vorangebracht.
 
-Sie können die Zielgruppe in Criteo ansehen, indem Sie in Ihr Ads-Manager-Konto gehen und dann Segmente aus der **Audience Library** in der Navigation auswählen. Auf der Seite **Segments** sehen Sie die Größe der einzelnen Zielgruppen, nachdem sie ~1.000 erreicht haben.
+Sie können die Zielgruppe in Criteo ansehen, indem Sie in Ihr Ads-Manager:in-Konto gehen und dann Segmente aus der **Audience Library** in der Navigation auswählen. Auf der Seite **Segments** sehen Sie die Größe der einzelnen Zielgruppen, nachdem sie ~1.000 erreicht haben.
 
 ![Die Audience Library mit Segment, ID, Quelle, Typ, Größe, aktueller Verwendung und letztem Update.]({% image_buster /assets/img/criteo/criteo.png %})
 

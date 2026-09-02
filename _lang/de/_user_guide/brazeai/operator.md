@@ -15,7 +15,7 @@ description: "Erfahren Sie, wie Sie auf BrazeAI Operator<sup>TM</sup> zugreifen 
 
 Öffnen Sie Operator von jeder Seite im Braze-Dashboard.
 
-1. Wählen Sie **BrazeAI Operator<sup>TM</sup>** neben Ihrem Nutzerprofil aus.
+1. Wählen Sie **BrazeAI Operator<sup>TM</sup>** neben Ihrem Kundenprofil aus.
 2. Das Operator-Chat-Panel öffnet sich in einem Seitenpanel.
 
 ![Das Operator-Chat-Panel.]({% image_buster /assets/img/operator/operator_chat_panel.png %})
@@ -139,7 +139,7 @@ Am Ende jeder Antwort können Sie über die Daumen-hoch- oder Daumen-runter-Butt
 
 ## Datenschutz und Sicherheit {#data-privacy-and-security}
 
-BrazeAI Operator<sup>TM</sup> ist mit OpenAI integriert, das als Unterauftragsverarbeiter von Braze dem Datenverarbeitungsnachtrag (DPA) zwischen Ihnen und Braze unterliegt. Daten, die über Braze an OpenAI gesendet werden, werden nicht zum Trainieren oder Verbessern von OpenAI-Modellen verwendet. Einzelheiten zur HIPAA-Konformität, Datenaufbewahrung, PII-Behandlung und Governance finden Sie unter [Datenschutz und Sicherheit]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security).
+BrazeAI Operator<sup>TM</sup> ist mit OpenAI integriert, das als Unterauftragsverarbeiter von Braze dem Datenverarbeitungsnachtrag (Datenschutzbeauftragte:r) zwischen Ihnen und Braze unterliegt. Daten, die über Braze an OpenAI gesendet werden, werden nicht zum Trainieren oder Verbessern von OpenAI-Modellen verwendet. Einzelheiten zur HIPAA-Konformität, Datenaufbewahrung, PII-Behandlung und Governance finden Sie unter [Datenschutz und Sicherheit]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security).
 
 ## Nächste Schritte {#next-steps}
 

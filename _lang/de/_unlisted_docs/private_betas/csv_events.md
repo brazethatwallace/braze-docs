@@ -41,7 +41,7 @@ Wenn Sie eine Mischung aus Nutzer:innen mit einer `external_id` und Nutzer:innen
 
 ### Import mit externer ID {#importing-with-external-id}
 
-Beim Import Ihrer Kundendaten müssen Sie den eindeutigen Bezeichner jedes Kunden bzw. jeder Kundin angeben, auch bekannt als `external_id`. Bevor Sie mit Ihrem CSV-Import beginnen, ist es wichtig, von Ihrem Entwicklerteam zu erfahren, wie Nutzer:innen in Braze identifiziert werden. In der Regel handelt es sich um eine interne Datenbank-ID. Diese sollte damit übereinstimmen, wie Nutzer:innen vom Braze SDK auf Mobilgeräten und im Internet identifiziert werden, und ist so konzipiert, dass jede:r Kund:in ein einzelnes Nutzerprofil innerhalb von Braze über alle Geräte hinweg hat. Lesen Sie mehr über den [Nutzerprofil-Lebenszyklus]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle) von Braze.
+Beim Import Ihrer Kundendaten müssen Sie den eindeutigen Bezeichner jedes Kunden bzw. jeder Kundin angeben, auch bekannt als `external_id`. Bevor Sie mit Ihrem CSV-Import beginnen, ist es wichtig, von Ihrem Entwicklerteam zu erfahren, wie Nutzer:innen in Braze identifiziert werden. In der Regel handelt es sich um eine interne Datenbank-ID. Diese sollte damit übereinstimmen, wie Nutzer:innen vom Braze SDK auf Mobilgeräten und im Internet identifiziert werden, und ist so konzipiert, dass jede:r Kund:in ein einzelnes Kundenprofil innerhalb von Braze über alle Geräte hinweg hat. Lesen Sie mehr über den [Kundenprofil-Lebenszyklus]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle) von Braze.
 
 Wenn Sie eine `external_id` in Ihrem Import angeben, aktualisiert Braze alle bestehenden Nutzer:innen mit derselben `external_id` oder erstellt eine:n neu identifizierte:n Nutzer:in mit dieser `external_id`, falls keine gefunden wird.
 
@@ -66,7 +66,7 @@ Wenn Sie Nutzerprofile hochladen oder aktualisieren, die nur Aliase enthalten, m
 Wenn Sie sowohl einen `user_alias_name` als auch ein `user_alias_label` in Ihrem Import angeben, aktualisiert Braze alle bestehenden Nutzer:innen mit demselben `user_alias_name` und `user_alias_label`. Falls keine:r gefunden wird, erstellt Braze eine:n neu identifizierte:n Nutzer:in mit diesem `user_alias_name`.
 
 {% alert important %}
-Sie können einen CSV-Import nicht verwenden, um eine:n bestehende:n Nutzer:in mit einem `user_alias_name` zu aktualisieren, wenn diese:r bereits eine `external_id` hat. Stattdessen wird ein neues Nutzerprofil mit dem zugehörigen `user_alias_name` erstellt. Um eine:n Nutzer:in, die:der nur einen Alias hat, mit einer `external_id` zu verknüpfen, verwenden Sie den [Endpunkt zur Nutzeridentifizierung]({{site.baseurl}}/api/endpoints/user_data/post_user_identify).
+Sie können einen CSV-Import nicht verwenden, um eine:n bestehende:n Nutzer:in mit einem `user_alias_name` zu aktualisieren, wenn diese:r bereits eine `external_id` hat. Stattdessen wird ein neues Kundenprofil mit dem zugehörigen `user_alias_name` erstellt. Um eine:n Nutzer:in, die:der nur einen Alias hat, mit einer `external_id` zu verknüpfen, verwenden Sie den [Endpunkt zur Nutzeridentifizierung]({{site.baseurl}}/api/endpoints/user_data/post_user_identify).
 {% endalert %}
 
 - **Download:** [CSV-Importvorlage für Alias-Attribute][template_alias_attributes]
@@ -139,7 +139,7 @@ Die folgenden Datentypen werden beim Nutzerimport akzeptiert:
 | Boolean | TRUE oder FALSE |
 | Number | Ganzzahl oder Gleitkommazahl ohne Leerzeichen oder Kommas; Gleitkommazahlen müssen einen Punkt (.) als Dezimaltrennzeichen verwenden |
 | String | Kann Kommas enthalten, solange doppelte Anführungszeichen den Spaltenwert umschließen |
-| Leer | Leere Werte überschreiben keine bestehenden Werte im Nutzerprofil, und Sie müssen nicht alle vorhandenen Nutzerattribute in Ihre CSV-Datei aufnehmen |
+| Leer | Leere Werte überschreiben keine bestehenden Werte im Kundenprofil, und Sie müssen nicht alle vorhandenen Nutzerattribute in Ihre CSV-Datei aufnehmen |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert important %}
@@ -233,7 +233,7 @@ Jedes über CSV importierte Kundendatum überschreibt den bestehenden Wert in Nu
 
 - Über CSV-Import hochgeladene externe IDs verbrauchen keine Datenpunkte. Wenn Sie eine CSV-Datei hochladen, um bestehende Braze-Nutzer:innen zu segmentieren, indem Sie nur externe IDs hochladen, kann dies ohne Verbrauch von Datenpunkten erfolgen. Wenn Sie zusätzliche Daten wie die E-Mail oder Telefonnummer einer:eines Nutzers:Nutzerin in Ihrem Import hinzufügen, würde dies bestehende Nutzerdaten überschreiben und Ihre Datenpunkte verbrauchen.
     - CSV-Importe zu Segmentierungszwecken (Importe, bei denen `external_id`, `braze_id` oder `user_alias_name` das einzige Feld ist) verbrauchen keine Datenpunkte.
-- Leere Werte überschreiben keine bestehenden Werte im Nutzerprofil, und Sie müssen nicht alle vorhandenen Nutzerattribute oder angepassten Events in Ihre CSV-Datei aufnehmen.
+- Leere Werte überschreiben keine bestehenden Werte im Kundenprofil, und Sie müssen nicht alle vorhandenen Nutzerattribute oder angepassten Events in Ihre CSV-Datei aufnehmen.
 - Das Aktualisieren von `email_subscribe`, `push_subscribe`, `subscription_group_id` oder `subscription_state` zählt nicht zum Datenpunktverbrauch.
 
 {% alert important %}

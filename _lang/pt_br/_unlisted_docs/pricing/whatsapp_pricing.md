@@ -186,4 +186,4 @@ Informações detalhadas sobre a redução das conversas utilitárias estão na 
 | Reino Unido                                | 44,7%                            |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-Para entender melhor como você pode aproveitar essas atualizações, entre em contato com seu gerente de sucesso do cliente.
+Para entender melhor como você pode aproveitar essas atualizações, entre em contato com seu CSM.

@@ -59,7 +59,7 @@ Braze ofrece tres formas de segmentar usuarios basándose en datos de eCommerce:
 - **Extensiones de segmento:** Para segmentar con propiedades de eventos anidados, incluyendo el array de productos anidados o las propiedades de los objetos de metadatos, usa las [extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension) con el filtrado de propiedades de eventos anidados. Esto te permite crear audiencias como "usuarios que compraron el producto SKU-123 en los últimos 90 días" o combinar criterios en diferentes propiedades del mismo pedido.
 
 {% alert important %}
-Las extensiones de segmento para eventos recomendados de eCommerce son una característica de pago y en acceso anticipado. Si te interesa participar en el acceso anticipado, ponte en contacto con tu administrador de éxito de cliente. Confirma que tu plan incluye acceso antes de recomendar la segmentación por propiedades anidadas a tu equipo.
+Las extensiones de segmento para eventos recomendados de eCommerce son una característica de pago y en acceso anticipado. Si te interesa participar en el acceso anticipado, ponte en contacto con tu CSM. Confirma que tu plan incluye acceso antes de recomendar la segmentación por propiedades anidadas a tu equipo.
 {% endalert %}
 
 ### Desencadenamiento {#triggering}

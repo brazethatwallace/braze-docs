@@ -533,9 +533,9 @@ In ausführlichen Protokoll-Payloads verwendet Braze abgekürzte Ereignisnamen. 
 
 Braze Android SDK 13.1.0 bis 15.x hatte eine Regression, die dazu führen konnte, dass Geofence-Update-Ereignisse nicht aufgezeichnet wurden. Auf Geräten mit Android 10 oder älter konnten auch Standortaktualisierungen beim Sitzungsstart fehlschlagen. Führen Sie ein Upgrade auf Android SDK 16.0.0 oder höher durch. Informationen zur SDK-Einrichtung finden Sie unter [Geofences]({{site.baseurl}}/developer_guide/geofences).
 
-### Wann kann ein Nutzerprofil 0 aufgezeichnete Sitzungen aufweisen? {#when-might-a-user-have-0-sessions-recorded-against-their-profile}
+### Wann kann ein Kundenprofil 0 aufgezeichnete Sitzungen aufweisen? {#when-might-a-user-have-0-sessions-recorded-against-their-profile}
 
-Ein Nutzerprofil kann 0 Sitzungen anzeigen, wenn Sie die:den Nutzer:in über die REST API ([`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)) oder einen CSV-Import ohne die Felder **First session** oder **Last session** importieren. Sitzungen werden aufgezeichnet, wenn Nutzer:innen über das SDK mit Ihrer App interagieren. Weitere Informationen finden Sie unter [Nutzerprofil hat 0 Sitzungen]({{site.baseurl}}/developer_guide/analytics/tracking_sessions#user-profile-has-0-sessions).
+Ein Kundenprofil kann 0 Sitzungen anzeigen, wenn Sie die:den Nutzer:in über die REST API ([`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)) oder einen CSV-Import ohne die Felder **First session** oder **Last session** importieren. Sitzungen werden aufgezeichnet, wenn Nutzer:innen über das SDK mit Ihrer App interagieren. Weitere Informationen finden Sie unter [Kundenprofil hat 0 Sitzungen]({{site.baseurl}}/developer_guide/analytics/tracking_sessions#user-profile-has-0-sessions).
 
 ### Diskrepanzen bei Nutzerdaten bei gleichzeitiger Verwendung von SDK und REST API {#user-data-discrepancies-when-using-the-sdk-and-rest-api-together}
 

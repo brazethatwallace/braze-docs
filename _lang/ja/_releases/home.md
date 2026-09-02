@@ -162,11 +162,11 @@ Brazeアンケートは、[アプリ内メッセージ]({{site.baseurl}}/user_gu
 
 ### パートナーシップ {#partnerships}
 
-#### Audience Sync：Google Data Manager API {#audience-sync-google-data-manager-api}
+#### Audience Sync：Google Data マネージャー API {#audience-sync-google-data-manager-api}
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-[Audience Sync to Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync)が早期アクセスでGoogle Data Manager APIをサポートします。
+[Audience Sync to Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync)が早期アクセスでGoogle Data マネージャー APIをサポートします。
 
 #### Amazon Bedrock - AIモデルプロバイダー {#amazon-bedrock-ai-model-provider}
 
@@ -696,7 +696,7 @@ Currentsとデータ共有に、新しい`Banner.Dismiss`イベントと既存�
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-[WhatsAppテンプレートビルダー]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization)を使用すると、BrazeとMeta Business Managerを切り替えることなく、Braze内で直接WhatsAppメッセージテンプレートを作成・送信できます。Metaがテンプレートを承認した後、必要な数のキャンペーンやキャンバスで使用できます。
+[WhatsAppテンプレートビルダー]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization)を使用すると、BrazeとMeta Business マネージャーを切り替えることなく、Braze内で直接WhatsAppメッセージテンプレートを作成・送信できます。Metaがテンプレートを承認した後、必要な数のキャンペーンやキャンバスで使用できます。
 
 #### Shopify製品タグ、メタフィールド、コレクション {#shopify-product-tags-metafields-and-collections}
 
@@ -710,7 +710,7 @@ Shopifyストアから[Shopify製品タグ、コレクション、メタフィ�
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-[GRAVTY®](https://www.lji.io/)は、Loyalty Juggernaut Inc.（LJI）のエンタープライズグレードのロイヤルティプラットフォームで、小売、旅行、レストラン（クイックサービスレストランを含む）、金融サービスのブランドが次世代プログラムを設計、管理、スケールできるようにし、パーソナライズされたデータ主導のエクスペリエンスを通じて、エンゲージメント、リテンション、顧客生涯価値の測定可能な成長を促進します。
+[GRAVTY®](https://www.lji.io/)は、Loyalty Juggernaut Inc.（LJI）のエンタープライズグレードのロイヤルティプラットフォームで、小売、旅行、レストラン（クイックサービスレストランを含む）、金融サービスのブランドが次世代プログラムを設計、管理、スケールできるようにし、パーソナライズされたデータ主導のエクスペリエンスを通じて、エンゲージメント、リテンション、顧客LTVの測定可能な成長を促進します。
 
 <!-- Use this section to list any new SDKs or SDK updates that are already released. -->
 ### SDK

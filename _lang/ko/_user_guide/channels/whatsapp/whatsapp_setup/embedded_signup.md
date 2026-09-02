@@ -34,7 +34,7 @@ Meta 임베디드 가입 플로는 어느 진입점에서 시작하든 동일합
 
 시작하기 전에 다음을 준비하세요:
 
-- **Meta Business Manager 액세스:** 대부분의 회사는 Meta Business Manager를 사용하여 Facebook 페이지, 광고 및 관련 비즈니스 자산을 관리합니다. 액세스 권한이 없는 경우 관리자에게 권한을 부여해 달라고 요청하거나, 가입 중에 Business Manager 계정을 만드세요.
+- **Meta Business 매니저 액세스:** 대부분의 회사는 Meta Business 매니저를 사용하여 Facebook 페이지, 광고 및 관련 비즈니스 자산을 관리합니다. 액세스 권한이 없는 경우 관리자에게 권한을 부여해 달라고 요청하거나, 가입 중에 Business 매니저 계정을 만드세요.
 - **전화번호:** [Meta의 WhatsApp 전화번호 요구 사항](https://developers.facebook.com/docs/whatsapp/phone-numbers)을 충족하는 번호를 사용하세요. 가입 중에 문자 메시지 또는 전화 통화로 일회용 인증 코드를 받게 됩니다.
 
 {% alert important %}
@@ -43,7 +43,7 @@ Meta 임베디드 가입 플로는 어느 진입점에서 시작하든 동일합
 
 ## WhatsApp 임베디드 가입 워크플로 {#whatsapp-embedded-signup-workflow}
 
-Braze가 Meta 임베디드 가입을 실행한 후, 회사의 Business Manager에 액세스할 수 있는 Meta 계정으로 로그인합니다. Meta가 가입 화면을 호스팅하며, Braze는 해당 레이아웃이나 레이블을 제어하지 않습니다.
+Braze가 Meta 임베디드 가입을 실행한 후, 회사의 Business 매니저에 액세스할 수 있는 Meta 계정으로 로그인합니다. Meta가 가입 화면을 호스팅하며, Braze는 해당 레이아웃이나 레이블을 제어하지 않습니다.
 
 {% alert note %}
 Meta는 사전 통지 없이 임베디드 가입 화면을 변경할 수 있습니다. 워크플로가 이 문서와 다를 경우 Meta의 안내를 따르고 [Meta의 임베디드 가입 설명서](https://developers.facebook.com/docs/whatsapp/embedded-signup/embed-the-flow)를 참조하세요.
@@ -52,7 +52,7 @@ Meta는 사전 통지 없이 임베디드 가입 화면을 변경할 수 있습�
 일반적으로 Meta는 다음 단계를 안내합니다:
 
 1. **로그인 및 권한 부여.** Meta로 인증하고 Braze가 WhatsApp Business 계정에 연결할 수 있도록 허용합니다.
-2. **비즈니스 포트폴리오 선택.** WhatsApp Business 계정을 소유할 Business Manager 포트폴리오를 연결합니다. 예상한 포트폴리오가 보이지 않으면 Meta 권한을 확인하세요.
+2. **비즈니스 포트폴리오 선택.** WhatsApp Business 계정을 소유할 Business 매니저 포트폴리오를 연결합니다. 예상한 포트폴리오가 보이지 않으면 Meta 권한을 확인하세요.
 3. **WhatsApp Business 계정 연결 또는 생성.** 새 계정을 생성하거나 사용하지 않는 기존 계정을 선택합니다. 다른 메시징 공급자에 현재 연결된 WhatsApp Business 계정은 선택하지 마세요. 해당 연결은 Braze에서 성공하지 않습니다. [다른 공급자로부터 번호를 마이그레이션]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number)하려면, 시작하기 전에 Braze 계정 팀에 문의하세요.
 4. **비즈니스 및 표시 세부 정보 제공.** Meta가 WhatsApp Business 계정에 대해 요청하는 계정 이름, 표시 이름 및 카테고리를 입력합니다.
 5. **전화번호 인증.** WhatsApp 메시징에 사용할 번호를 추가하고 문자 메시지 또는 전화 통화로 인증을 완료합니다.

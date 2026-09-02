@@ -9,7 +9,7 @@ alias: /partners/okendo/
 
 # Okendo
 
-> [Okendo](https://okendo.io/) es una plataforma unificada de marketing del cliente que proporciona herramientas para cultivar la promoción, ampliar el boca a boca y maximizar el valor de duración del ciclo de vida para movilizar a tus clientes y conseguir un crecimiento más rápido y eficiente.
+> [Okendo](https://okendo.io/) es una plataforma unificada de marketing del cliente que proporciona herramientas para cultivar la promoción, ampliar el boca a boca y maximizar el LTV para movilizar a tus clientes y conseguir un crecimiento más rápido y eficiente.
 
 *Esta integración está mantenida por Okendo.*
 

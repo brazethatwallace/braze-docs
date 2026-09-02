@@ -68,7 +68,7 @@ Para más información sobre el sistema de compilación del SDK de Android, cons
 Sigue estas instrucciones para compilar y ejecutar nuestras aplicaciones de prueba.
 
 1. Crea un nuevo [espacio de trabajo]({{site.baseurl}}/user_guide/get_started/workspaces) y anota la clave de API del identificador de la aplicación y el endpoint.
-2. Según tu método de integración (Swift Package Manager, CocoaPods, manual), selecciona el archivo `xcodeproj` correspondiente para abrir.
+2. Según tu método de integración (Swift Package Administrador, CocoaPods, manual), selecciona el archivo `xcodeproj` correspondiente para abrir.
 3. Coloca tu clave de API y tu endpoint en el campo correspondiente del archivo `Credentials`.
 {% endtab %}
 {% endtabs %}

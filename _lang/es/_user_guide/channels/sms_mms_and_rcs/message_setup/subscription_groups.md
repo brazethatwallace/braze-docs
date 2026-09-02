@@ -102,7 +102,7 @@ Hay dos formas de añadir un remitente verificado de RCS:
 - Crear un nuevo grupo de suscripción de RCS
 La elección depende en gran medida de los ejemplos de RCS que te interesen.
 
-Dependiendo de tu integración, Braze puede añadir remitentes verificados de RCS a tus grupos de suscripción de SMS existentes o configurar nuevos grupos de suscripción para ti. En cualquier caso, tu administrador de éxito de cliente te guiará a través de una actualización de tráfico SMS fluida y eficiente.
+Dependiendo de tu integración, Braze puede añadir remitentes verificados de RCS a tus grupos de suscripción de SMS existentes o configurar nuevos grupos de suscripción para ti. En cualquier caso, tu CSM te guiará a través de una actualización de tráfico SMS fluida y eficiente.
 {% endtab %}
 {% endtabs %}
 

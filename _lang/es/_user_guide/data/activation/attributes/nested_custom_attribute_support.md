@@ -37,7 +37,7 @@ En el siguiente ejemplo, el atributo personalizado `favorite_book` contiene los 
 - Los puntos (`.`) y los signos de dólar (`$`) no son caracteres admitidos en una carga útil de API si estás intentando enviar un atributo personalizado anidado a un perfil de usuario.
 - No todos los partners de Braze son compatibles con los atributos personalizados anidados. Consulta la [documentación de partners]({{site.baseurl}}/partners/home) para confirmar si integraciones de partners específicas son compatibles con esta característica.
 - Los atributos personalizados anidados no se pueden usar como filtro al realizar una llamada a la API de Connected Audience.
-- De forma predeterminada, el filtro de Segment de **atributos personalizados anidados** incluye atributos personalizados de tipo objeto, atributos de matriz de objetos y atributos personalizados de tipo matriz. Cuando seleccionas un atributo, el selector de esquema de propiedades incluye rutas de matriz (usando la notación `[]`) para campos de matriz anidados. Para ocultar los atributos personalizados de matriz de nivel superior de ese filtro, ponte en contacto con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support).
+- De forma predeterminada, el filtro de Segment de **atributos personalizados anidados** incluye atributos personalizados de tipo objeto, atributos de matriz de objetos y atributos personalizados de tipo matriz. Cuando seleccionas un atributo, el SELECTOR de esquema de propiedades incluye rutas de matriz (usando la notación `[]`) para campos de matriz anidados. Para ocultar los atributos personalizados de matriz de nivel superior de ese filtro, ponte en contacto con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 - Al previsualizar mensajes en el panel usando **Vista previa como usuario personalizado**, solo puedes introducir datos simulados como cadena o matriz de cadenas: los objetos anidados no son compatibles. Para previsualizar un mensaje que hace referencia a atributos personalizados anidados, selecciona un usuario existente que ya tenga el atributo anidado en su perfil. Para propiedades de eventos personalizados anidados, debes lanzar una campaña en vivo dirigida a un usuario de prueba para verificar la representación.
 
 ## Ejemplo de API {#api-example}
@@ -316,7 +316,7 @@ Para usar Liquid de atributos personalizados anidados en tu mensaje:
 
 1. Ve a una Campaign o Canvas y abre el paso de mensaje donde quieras añadir personalización.
 2. En el creador de mensajes, inserta el fragmento de código Liquid donde quieras que aparezca el valor.
-3. Usa **Preview & Test** con un usuario existente que ya tenga el atributo personalizado anidado en su perfil para confirmar que el valor se muestra como se espera.
+3. Usa **vista previa & Test** con un usuario existente que ya tenga el atributo personalizado anidado en su perfil para confirmar que el valor se muestra como se espera.
 
 ### Personalización {#personalization}
 

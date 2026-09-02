@@ -68,7 +68,7 @@ Braze에 저장된 커스텀 속성을 사용하여 오디언스 Segment를 구�
 
 ### 개인 식별 정보(PII)로 표시 {#mark-as-personally-identifiable-information-pii}
 
-관리자는 이 페이지에서 커스텀 속성을 생성하고 PII로 표시할 수도 있습니다. 이러한 속성은 관리자와 "View Custom Attributes Marked as PII" 권한이 있는 대시보드 사용자에게만 표시됩니다.
+관리자는 이 페이지에서 커스텀 속성을 생성하고 PII로 표시할 수도 있습니다. 이러한 속성은 관리자와 "View 커스텀 속성 Marked as PII" 권한이 있는 대시보드 사용자에게만 표시됩니다.
 
 ### 설명 추가 {#add-descriptions}
 

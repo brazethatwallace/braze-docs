@@ -69,13 +69,13 @@ Die standardmäßigen Startzeiten gelten weiterhin, der Eintrittszeitpunkt ist j
 
 Nachrichten- und Verzögerungsschritte zeigen den Zeitpunkt an, zu dem Nutzer:innen weitergeleitet werden oder die Nachricht erhalten würden, ohne dass die Verzögerungen neu konfiguriert werden müssen. Beachten Sie, dass die Schritte zwar anzeigen, ob intelligentes Timing verwendet wird, diese Vorschau des Nutzerpfads jedoch keine Schätzung für Testnutzer:innen berechnet.
 
-Bei Canvases mit einem Aktions-Trigger wie „Änderung des Werts eines angepassten Attributs“ versucht Braze, die Änderung zu simulieren, indem das Attribut der Nutzer:in im Trigger vorübergehend auf leer gesetzt wird – **nur für den Testlauf des Canvas** (dies hat keine Auswirkung auf das Nutzerprofil). Damit soll getestet werden, dass sich das Attribut von seinem aktuellen Wert ändert.
+Bei Canvases mit einem Aktions-Trigger wie „Änderung des Werts eines angepassten Attributs“ versucht Braze, die Änderung zu simulieren, indem das Attribut der Nutzer:in im Trigger vorübergehend auf leer gesetzt wird – **nur für den Testlauf des Canvas** (dies hat keine Auswirkung auf das Kundenprofil). Damit soll getestet werden, dass sich das Attribut von seinem aktuellen Wert ändert.
 
 ## Wann Nutzer:innen eintreten und austreten {#when-users-enter-and-exit}
 
 Testnutzer:innen treten in die Vorschau ein, auch wenn sie im Normalfall nicht teilnahmeberechtigt wären. Falls sie nicht berechtigt sind, können Sie sehen, warum sie die Kriterien nicht erfüllt haben. Wenn ein:e Testnutzer:in die Vorschau betritt, wird davon ausgegangen, dass die Person die Zielgruppenkriterien erfüllt und die Aktions-Trigger-Kriterien ausgeführt hat. Beispielsweise wird bei einem Canvas, das angepasste Events in den Eintrittskriterien verwendet, davon ausgegangen, dass der/die Testnutzer:in das angepasste Event wie in den Eintrittskriterien erwartet ausgeführt hat. Wird dasselbe angepasste Event jedoch an anderer Stelle im Canvas verwendet (z. B. in den Austrittskriterien), sollten Sie berücksichtigen, wie sich dies auf den Nutzerpfad auswirken könnte.
 
-Events, API-Trigger, angepasste Attribute und Canvas-Entry-Eigenschaften, die angenommen werden, um eine:n Testnutzer:in in das Canvas eintreten zu lassen, werden nicht im tatsächlichen Nutzerprofil aktualisiert und bestehen nicht über den Testlauf hinaus. Wenn beispielsweise während des Tests ein angepasstes Attribut als Canvas-Trigger verwendet wird, werden die Trigger-Kriterien auf die Vorschau des/der Nutzer:in angewendet, **als ob** die Änderung des angepassten Attributs ausgelöst worden wäre.
+Events, API-Trigger, angepasste Attribute und Canvas-Entry-Eigenschaften, die angenommen werden, um eine:n Testnutzer:in in das Canvas eintreten zu lassen, werden nicht im tatsächlichen Kundenprofil aktualisiert und bestehen nicht über den Testlauf hinaus. Wenn beispielsweise während des Tests ein angepasstes Attribut als Canvas-Trigger verwendet wird, werden die Trigger-Kriterien auf die Vorschau des/der Nutzer:in angewendet, **als ob** die Änderung des angepassten Attributs ausgelöst worden wäre.
 
 ### Hinweis {#consideration}
 
@@ -97,7 +97,7 @@ Um alle Testnachrichten in einem Canvas auf einmal zu senden, unabhängig vom Pf
 
 ## Responsivität {#responsiveness}
 
-Canvas-Schritte reagieren bei der Vorschau von Nutzerpfaden zeitabhängig. Änderungen, die über den Nutzeraktualisierungsschritt vorgenommen werden, werden in nachfolgenden Schritten im Ablauf berücksichtigt, aber nicht auf das tatsächliche Nutzerprofil angewendet. Die Auswirkungen des Eintritts von Nutzer:innen in eine Variante werden in zukünftigen Schritten einer Vorschau berücksichtigt.
+Canvas-Schritte reagieren bei der Vorschau von Nutzerpfaden zeitabhängig. Änderungen, die über den Nutzeraktualisierungsschritt vorgenommen werden, werden in nachfolgenden Schritten im Ablauf berücksichtigt, aber nicht auf das tatsächliche Kundenprofil angewendet. Die Auswirkungen des Eintritts von Nutzer:innen in eine Variante werden in zukünftigen Schritten einer Vorschau berücksichtigt.
 
 Ebenso erkennen Filter Aktionen, die dadurch entstanden sind, dass die Testnutzer:in mit anderen Schritten im Canvas interagiert hat. Beispielsweise erkennt dieser Vorschaumodus, dass eine Nutzer:in auf einen Nachrichtenschritt gestoßen ist, der zuvor im Canvas „gesendet“ wurde, und er erkennt, dass die Testnutzer:in eine „Aktion durchgeführt“ hat, um durch einen Aktionspfad voranzukommen.
 
@@ -119,7 +119,7 @@ Bei einem Nachrichtenschritt mit E-Mail als Messaging-Kanal senden Seed-Gruppen 
 
 ## Von Nutzer:innen empfangene Nachrichten anzeigen {#view-messages-sent-to-users}
 
-„Nutzerpfade in der Vorschau anzeigen“ simuliert eine Journey – es ersetzt nicht die Überprüfung tatsächlicher Sendungen in einem Nutzerprofil. Um Nachrichten zu überprüfen, die Braze an bestimmte Nutzer:innen gesendet hat, öffnen Sie deren Profil über **Audience** > **Search Users** und verwenden Sie dann die Tabs **Messaging History** und **Engagement**.
+„Nutzerpfade in der Vorschau anzeigen“ simuliert eine Journey – es ersetzt nicht die Überprüfung tatsächlicher Sendungen in einem Kundenprofil. Um Nachrichten zu überprüfen, die Braze an bestimmte Nutzer:innen gesendet hat, öffnen Sie deren Profil über **Audience** > **Search Users** und verwenden Sie dann die Tabs **Messaging History** und **Engagement**.
 
 Informationen zu Suchfeldern, Tab-Details und dem 30-Tage-Fenster für den Messaging-Verlauf finden Sie unter [Nutzerprofile]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles).
 

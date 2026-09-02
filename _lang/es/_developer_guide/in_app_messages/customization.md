@@ -27,7 +27,7 @@ platform:
 {% multi_lang_include developer_guide/swift/in_app_messages/customization.md %}
 {% endsdktab %}
 
-{% sdktab react native %}
+{% sdktab React Native %}
 {% multi_lang_include developer_guide/react_native/analytics/logging_iam_data.md %}
 {% endsdktab %}
 

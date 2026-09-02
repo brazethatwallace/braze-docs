@@ -115,7 +115,7 @@ Depois que seus registros de conta e o filtro calculado estiverem prontos:
 1. Acesse o [criador de segmentos]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment).
 2. Adicione seu filtro calculado pré-configurado para os critérios de conta.
 3. Adicione quaisquer filtros de atributo de usuário adicionais.
-4. Salve seu segmento.
+4. Salve seu Segment.
 
 Por exemplo:
 
@@ -127,7 +127,7 @@ Por exemplo:
 Use a Liquid tag `{% raw %}{% data_object account %}{% endraw %}` para carregar os dados da conta do usuário no array `data_objects`.
 
 {% alert note %}
-Ao usar **Preview and Test**, use um Segment que inclua dados de conta para que a personalização seja resolvida corretamente.
+Ao usar **prévia and Test**, use um Segment que inclua dados de conta para que a personalização seja resolvida corretamente.
 {% endalert %}
 
 {% raw %}

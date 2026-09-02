@@ -379,7 +379,7 @@ Wenn ein angepasstes Event nicht angezeigt wird, stimmt die getrackte Aktion in 
 
 Wenn Sie eine:n Nutzer:in nicht identifizieren, bevor Sie ein angepasstes Event protokollieren, kann Braze dieses Event einem anonymen Profil zuordnen.
 
-- Rufen Sie `changeUser()` auf, bevor Sie das angepasste Event ausführen, damit Braze es einem identifizierten Nutzerprofil zuordnet.
+- Rufen Sie `changeUser()` auf, bevor Sie das angepasste Event ausführen, damit Braze es einem identifizierten Kundenprofil zuordnet.
 - Testen Sie mit einer/einem identifizierten Testnutzer:in und überprüfen Sie dann das [Event-Nutzerprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log).
 
 ### Überprüfen der Einrichtung der Protokollierung angepasster Events {#verifying-custom-event-logging-setup}

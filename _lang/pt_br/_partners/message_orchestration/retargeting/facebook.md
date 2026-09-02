@@ -130,8 +130,8 @@ Se você receber um erro ao exportar um Segment como público do Facebook, a doc
 
 Use as verificações a seguir para confirmar sua configuração:
 
-- **Verifique se você é administrador do app:** Acesse [developers.facebook.com](https://developers.facebook.com/), abra **My Apps** e selecione o app da sua empresa. Se você não vir o app, sua equipe de desenvolvimento pode precisar adicioná-lo. No dashboard do app, acesse **Roles** para confirmar sua função (Admin, Developer, Tester ou Analytics User).
+- **Verifique se você é administrador do app:** Acesse [developers.Facebook.com](https://developers.facebook.com/), abra **My Apps** e selecione o app da sua empresa. Se você não vir o app, sua equipe de desenvolvimento pode precisar adicioná-lo. No dashboard do app, acesse **Roles** para confirmar sua função (Admin, Developer, Tester ou Analytics User).
 - **Verifique se sua conta de anúncios está associada ao seu app:** No dashboard do app do Facebook, acesse **Settings** > **Advanced**, role até **Advertising Accounts** e adicione o ID da conta de anúncios do Facebook que você deseja usar para exportações de público da Braze, caso ainda não esteja listado.
-- **Verifique se você é administrador da conta de anúncios:** Acesse [business.facebook.com](https://business.facebook.com/), abra **Business Settings** no menu principal e acesse **Accounts** > **Ad accounts** e selecione a conta de anúncios. Confirme seu acesso e que você tem as permissões necessárias para criar públicos personalizados.
+- **Verifique se você é administrador da conta de anúncios:** Acesse [business.Facebook.com](https://business.facebook.com/), abra **Business Settings** no menu principal e acesse **Accounts** > **Ad accounts** e selecione a conta de anúncios. Confirme seu acesso e que você tem as permissões necessárias para criar públicos personalizados.
 
 Para mais detalhes, consulte a [documentação da API de públicos personalizados do Facebook](https://developers.facebook.com/docs/) e o [guia do Central de Ajuda para Empresas do Facebook sobre públicos personalizados](https://www.facebook.com/business/help).

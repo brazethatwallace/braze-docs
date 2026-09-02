@@ -233,7 +233,7 @@ Se você sair da página de Campaigns e retornar, defina **Status** como **All**
 ### Etapa 4: Testar a Campaign de webhook {#step-4-test-the-webhook-campaign}
 
 1. No criador de webhook, selecione a guia **Test**.
-2. Em **Preview message as user**, selecione **Select existing user** e pesquise pelo seu usuário teste (por exemplo, `stayfilm-poc-001`).
+2. Em **prévia message as user**, selecione **Select existing user** e pesquise pelo seu usuário teste (por exemplo, `stayfilm-poc-001`).
 3. Selecione **Send test**.
 
 Uma resposta bem-sucedida retorna o status HTTP `201` com um corpo JSON semelhante ao seguinte:
@@ -317,7 +317,7 @@ Your browser does not support HTML5 video.
 {: start="8"}
 8. Selecione **Save Draft**.
 9. Selecione a guia **Test**.
-10. Em **Preview message as user**, selecione **Select existing user** e pesquise pelo `external_id` do seu usuário teste.
+10. Em **prévia message as user**, selecione **Select existing user** e pesquise pelo `external_id` do seu usuário teste.
 
 O vídeo renderizado aparece e é reproduzido na prévia quando `stayfilm_video_url` está definido no perfil.
 

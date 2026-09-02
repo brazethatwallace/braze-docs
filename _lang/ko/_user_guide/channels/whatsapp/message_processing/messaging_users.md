@@ -88,7 +88,7 @@ Campaign과 Canvases 모두 인바운드 WhatsApp 메시지(사용자가 WhatsAp
 
 ![각 행동 유도 버튼에 대한 응답이 표시된 Canvas 구성.]({% image_buster /assets/img/whatsapp/whatsapp18.png %})
 
-응답 메시지, 고객 프로필 업데이트, Braze-to-Braze 웹훅 등 Braze Canvas가 제공하는 모든 후속 액션을 사용할 수 있습니다.
+응답 메시지, 고객 프로필 업데이트, Braze-to-Braze 웹훅 등 BRAZE 캔버스가 제공하는 모든 후속 액션을 사용할 수 있습니다.
 
 ## 리스트 메시지 {#list-messages}
 

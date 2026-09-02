@@ -40,7 +40,7 @@ Si la inicialización del SDK falla con errores de confianza de certificados HTT
 {% multi_lang_include developer_guide/flutter/sdk_integration.md %}
 {% endsdktab %}
 
-{% sdktab react native %}
+{% sdktab React Native %}
 {% multi_lang_include developer_guide/react_native/sdk_integration.md %}
 {% endsdktab %}
 

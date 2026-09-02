@@ -28,7 +28,7 @@ search_rank: 2
 
 | 要件 | 説明 |
 | --- | --- |
-| Meta Business Managerアカウント | このメッセージングチャネルを利用するには、Meta Businessアカウントが必要です。 |
+| Meta Business マネージャーアカウント | このメッセージングチャネルを利用するには、Meta Businessアカウントが必要です。 |
 | WhatsApp Businessアカウント | このメッセージングチャネルを利用するには、WhatsApp Businessアカウントが必要です。 |
 | WhatsApp電話番号 | メッセージングチャネルを使用するには、WhatsAppの[Cloud API](https://developers.facebook.com/docs/whatsapp/cloud-api/phone-numbers)または[On-Premises API](https://developers.facebook.com/docs/whatsapp/on-premises/phone-numbers)の要件を満たす電話番号を取得する必要があります。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
@@ -60,10 +60,10 @@ WhatsAppパートナーページで、**Begin Integration**を選択します。
 
 ### ステップ3：WhatsAppテンプレートを作成する {#step-3-create-whatsapp-templates}
 
-承認されたWhatsAppメッセージテンプレートのみが、顧客との会話を開始するために使用できます。WhatsAppテンプレートは[Meta Business Manager](https://www.facebook.com/business/help/2055875911147364?id=2129163877102343)で作成できます。BrazeがサポートするWhatsAppメッセージング機能のリストについては、[サポートされているWhatsApp機能]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#supported-whatsapp-features)を確認してください。
+承認されたWhatsAppメッセージテンプレートのみが、顧客との会話を開始するために使用できます。WhatsAppテンプレートは[Meta Business マネージャー](https://www.facebook.com/business/help/2055875911147364?id=2129163877102343)で作成できます。BrazeがサポートするWhatsAppメッセージング機能のリストについては、[サポートされているWhatsApp機能]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#supported-whatsapp-features)を確認してください。
 
 1. **[テンプレートマネージャー](https://business.facebook.com/wa/manage/message-templates)に移動する**<br>
-Meta Business Managerで、**Account Tools**の下にある**Message Templates**を選択します。
+Meta Business マネージャーで、**Account Tools**の下にある**Message Templates**を選択します。
 次に、**Create Templates**を選択します。<br><br>![メッセージテンプレートのリストが表示されたWhatsApp Manager。]({% image_buster /assets/img/whatsapp/whatsapp2.png %}){: style="max-width:100%;"}<br><br>
 2. **メッセージ設定**<br>
 新しいメッセージテンプレートコンポーザーで、メッセージのカテゴリを選択し、テンプレートに名前を付け、サポートする言語を選択します。言語は後から削除または追加できます。<br><br>
@@ -79,7 +79,7 @@ Meta Business Managerで、**Account Tools**の下にある**Message Templates**
 
 #### テンプレートの承認時間 {#template-approval-time}
 
-メッセージテンプレートの承認ステータスは、Meta Business Managerの**Message Template**ページ、またはBrazeでキャンペーンやキャンバスを作成する際に確認できます。また、通知権限の設定に応じて、WhatsAppチームからメールで通知を受け取ることもできます。
+メッセージテンプレートの承認ステータスは、Meta Business マネージャーの**Message Template**ページ、またはBrazeでキャンペーンやキャンバスを作成する際に確認できます。また、通知権限の設定に応じて、WhatsAppチームからメールで通知を受け取ることもできます。
 
 {% alert note %}
 承認されたテンプレートは、好きなだけ多くのキャンペーンやキャンバスで使用できます。また、オプトインしたユーザーにも好きなだけ送信できます。ただし、テンプレートの品質が低下した場合はこの限りではありません。
@@ -97,7 +97,7 @@ WhatsApp Businessアカウントが作成された後、Metaが開始時のメ�
 
 統合が完了したら、以下の2つのMetaプロセスを完了することをお勧めします。
 - [ビジネス認証](https://www.facebook.com/business/help/2058515294227817?id=180505742745347)
-	- 既存のMeta Business Managerを使用している場合、すでにビジネス認証が完了している可能性があります。
+	- 既存のMeta Business マネージャーを使用している場合、すでにビジネス認証が完了している可能性があります。
 - [公式ビジネスアカウント](https://www.facebook.com/business/help/604726921052590?ref=search_new_0)
 
 また、[ユーザーの電話番号]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers)について確認し、[組織でメッセージテンプレートを作成する](https://www.facebook.com/business/help/2169003770027706?id=2190812977867143)必要があるユーザーにアクセス権を付与することもお勧めします。

@@ -34,7 +34,7 @@ Se você não vê **Surveys** em **Messaging**, entre em contato com o gerente d
 
 ## Análise de dados {#analytics}
 
-Todo tipo de pergunta de pesquisa inclui relatórios aprimorados por padrão, permitindo que você revise os dados de respostas rapidamente, sem precisar criar um segmento ou exportar para uma ferramenta separada.
+Todo tipo de pergunta de pesquisa inclui relatórios aprimorados por padrão, permitindo que você revise os dados de respostas rapidamente, sem precisar criar um Segment ou exportar para uma ferramenta separada.
 
 A análise de dados de nível superior inclui:
 
@@ -70,15 +70,15 @@ Esse recurso é específico do canal de landing pages. As pesquisas em mensagens
 
 ## Blocos de perguntas e formulários {#question-and-form-blocks}
 
-Landing pages e mensagens no app oferecem suporte a todos os blocos de formulário padrão também em pesquisas, incluindo grupo de botões de opção, caixa de seleção, grupo de caixas de seleção, dropdown, captura de telefone, captura de e-mail e captura de texto curto. Esta seção destaca os três blocos de formulário com relatórios criados especificamente para pesquisas: NPS, escala numérica e texto longo.
+Landing pages e mensagens no app oferecem suporte a todos os blocos de formulário padrão também em pesquisas, incluindo grupo de botões de opção, caixa de seleção, grupo de caixas de seleção, dropdown, captura de telefone, captura de e-mail e captura de texto curto. Esta seção destaca os três blocos de formulário com relatórios criados especificamente para pesquisas: Net Promoter Score (NPS), escala numérica e texto longo.
 
 {% tabs local %}
-{% tab NPS %}
-### Bloco NPS independente {#standalone-nps-block}
+{% tab Net Promoter Score (NPS) %}
+### Bloco Net Promoter Score (NPS) independente {#standalone-nps-block}
 
-O bloco **NPS** é um bloco de formulário separado do bloco **Classificação** (escala numérica), não uma opção de configuração dentro dele. Adicione-o a uma pesquisa para fazer a pergunta padrão de Net Promoter Score (0–10) e obter relatórios criados especificamente para esse caso de uso.
+O bloco **Net Promoter Score (NPS)** é um bloco de formulário separado do bloco **Classificação** (escala numérica), não uma opção de configuração dentro dele. Adicione-o a uma pesquisa para fazer a pergunta padrão de Net Promoter Score (0–10) e obter relatórios criados especificamente para esse caso de uso.
 
-O bloco **NPS** oferece relatórios mais completos no dashboard do que uma pergunta simples de classificação usada para o mesmo propósito. Em vez de uma contagem simples de respostas por número, a Braze agrupa automaticamente as respostas em promotores (9–10), passivos (7–8) e detratores (0–6) e exibe esses segmentos — e a pontuação NPS resultante — diretamente na visualização de análise de dados da pesquisa.
+O bloco **Net Promoter Score (NPS)** oferece relatórios mais completos no dashboard do que uma pergunta simples de classificação usada para o mesmo propósito. Em vez de uma contagem simples de respostas por número, a Braze agrupa automaticamente as respostas em promotores (9–10), passivos (7–8) e detratores (0–6) e exibe esses segmentos — e a pontuação Net Promoter Score (NPS) resultante — diretamente na visualização de análise de dados da pesquisa.
 
 O Currents exporta a pontuação numérica (e, se adicionado, o campo de feedback em texto livre) no evento **Survey Response**. Os segmentos de promotores, passivos e detratores não são campos separados no Currents.
 

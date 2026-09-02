@@ -24,16 +24,16 @@ guide_menu_list:
   - name: E-Mail-Registrierungsformular
     link: /docs/user_guide/messaging/templates/in_app_message_templates/email_capture
     image: /assets/img/braze_icons/mail-01.svg
-  - name: E-Mail-Registrierung mit Rabatt
+  - name: E-Mail-registrieren mit Rabatt
     link: /docs/user_guide/messaging/templates/in_app_message_templates/email_discount
     image: /assets/img/braze_icons/sale-03.svg
-  - name: E-Mail-Registrierung mit Bild
+  - name: E-Mail-registrieren mit Bild
     link: /docs/user_guide/messaging/templates/in_app_message_templates/email_image
     image: /assets/img/braze_icons/image-01.svg
-  - name: E-Mail-Registrierung mit Angebot
+  - name: E-Mail-registrieren mit Angebot
     link: /docs/user_guide/messaging/templates/in_app_message_templates/email_offer
     image: /assets/img/braze_icons/gift-02.svg
-  - name: E-Mail-Registrierung mit Bestätigung
+  - name: E-Mail-registrieren mit Bestätigung
     link: /docs/user_guide/messaging/templates/in_app_message_templates/email_confirmation_page
     image: /assets/img/braze_icons/check-verified-02.svg
   - name: Produktankündigung

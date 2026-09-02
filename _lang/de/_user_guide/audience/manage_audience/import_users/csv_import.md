@@ -65,7 +65,7 @@ Wenn Sie Nutzerprofile hochladen oder aktualisieren, die nur einen Alias haben, 
 Wenn Sie in Ihrem Import sowohl einen `user_alias_name` als auch ein `user_alias_label` angeben, aktualisiert Braze alle bestehenden Nutzer:innen mit demselben `user_alias_name` und `user_alias_label`. Wird kein:e Nutzer:in gefunden, erstellt Braze eine:n neu identifizierte:n Nutzer:in mit diesem `user_alias_name`.
 
 {% alert important %}
-Sie können einen CSV-Import nicht verwenden, um eine:n bestehende:n Nutzer:in mit einem `user_alias_name` zu aktualisieren, wenn diese:r bereits eine `external_id` hat. Stattdessen wird ein neues Nutzerprofil mit dem zugehörigen `user_alias_name` erstellt. Um eine:n Nutzer:in nur mit Alias einer `external_id` zuzuordnen, verwenden Sie den [Endpunkt „Nutzer:innen identifizieren“]({{site.baseurl}}/api/endpoints/user_data/post_user_identify).
+Sie können einen CSV-Import nicht verwenden, um eine:n bestehende:n Nutzer:in mit einem `user_alias_name` zu aktualisieren, wenn diese:r bereits eine `external_id` hat. Stattdessen wird ein neues Kundenprofil mit dem zugehörigen `user_alias_name` erstellt. Um eine:n Nutzer:in nur mit Alias einer `external_id` zuzuordnen, verwenden Sie den [Endpunkt „Nutzer:innen identifizieren“]({{site.baseurl}}/api/endpoints/user_data/post_user_identify).
 {% endalert %}
 
 Download: [CSV-Attribut-Importvorlage: Nutzer-Alias]({{site.baseurl}}/assets/download_file/braze-user-import-alias-template-csv.xlsx?c0ce6c0aa1e901395161d87c5ba17747)
@@ -99,7 +99,7 @@ Wenn Sie sowohl E-Mail-Adressen als auch Telefonnummern in Ihrer CSV-Datei angeb
 
 Wenn ein bestehendes Profil diese E-Mail-Adresse oder Telefonnummer hat, wird dieses Profil aktualisiert, und Braze erstellt kein neues Profil. Wenn es mehrere Profile mit derselben E-Mail-Adresse gibt, verwendet Braze dieselbe Logik wie der [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track), wobei das zuletzt aktualisierte Profil aktualisiert wird.
 
-Wenn kein Profil mit dieser E-Mail-Adresse oder Telefonnummer existiert, erstellt Braze ein neues Profil mit diesem Bezeichner. Sie können den [`/users/identify`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) verwenden, um dieses Profil später zu identifizieren. Um ein Nutzerprofil zu löschen, können Sie auch den [`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete)-Endpunkt verwenden.
+Wenn kein Profil mit dieser E-Mail-Adresse oder Telefonnummer existiert, erstellt Braze ein neues Profil mit diesem Bezeichner. Sie können den [`/users/identify`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) verwenden, um dieses Profil später zu identifizieren. Um ein Kundenprofil zu löschen, können Sie auch den [`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete)-Endpunkt verwenden.
 {% endtab %}
 {% endtabs %}
 
@@ -135,7 +135,7 @@ Die folgenden Datentypen können als angepasste Attribute für den CSV-Import ve
 | Boolean | Akzeptiert `true` oder `false`. |
 | Zahl | Muss eine Ganzzahl oder Gleitkommazahl ohne Leerzeichen oder Kommata sein. Gleitkommazahlen müssen einen Punkt (`.`) als Dezimaltrennzeichen verwenden. |
 | String | Kann Kommata enthalten, wenn der Wert in doppelte Anführungszeichen (`""`) eingeschlossen ist. |
-| Leer | Leere Werte überschreiben keine vorhandenen Werte im Nutzerprofil, und Sie müssen nicht alle vorhandenen Nutzerattribute in Ihrer CSV-Datei angeben. |
+| Leer | Leere Werte überschreiben keine vorhandenen Werte im Kundenprofil, und Sie müssen nicht alle vorhandenen Nutzerattribute in Ihrer CSV-Datei angeben. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Angepasste Attribute" }
 
 {% alert important %}
@@ -414,7 +414,7 @@ Zuvor hochgeladene CSV-Dateien stehen auf der Seite **Import Users** 14 Tage nac
 
 ## Datenpunkt-Überlegungen {#data-point-considerations}
 
-Jede über eine CSV-Datei importierte Kundendateninformation überschreibt den vorhandenen Wert in Nutzerprofilen und protokolliert einen Datenpunkt, mit Ausnahme von externen IDs und leeren Werten. Wenn Sie Fragen zu den Feinheiten der Braze-Datenpunkte haben, kann Ihr Account Manager bei Braze diese beantworten.
+Jede über eine CSV-Datei importierte Kundendateninformation überschreibt den vorhandenen Wert in Nutzerprofilen und protokolliert einen Datenpunkt, mit Ausnahme von externen IDs und leeren Werten. Wenn Sie Fragen zu den Feinheiten der Braze-Datenpunkte haben, kann Ihr Account Manager:in bei Braze diese beantworten.
 
 | Überlegung | Details |
 |---|---|
@@ -513,7 +513,7 @@ Wenn Ihr Upload mit Fehlern abgeschlossen wurde, enthält er möglicherweise ein
 
 #### Daten werden als angepasstes Attribut importiert {#data-imported-as-custom-attribute}
 
-Wenn Standardnutzerdaten (wie `email` oder `first_name`) als angepasstes Attribut importiert werden, überprüfen Sie die Groß-/Kleinschreibung und Leerzeichen in Ihrer CSV-Datei. Beispielsweise wird `First_name` als angepasstes Attribut importiert, während `first_name` korrekt in das Feld „Vorname“ im Nutzerprofil importiert wird.
+Wenn Standardnutzerdaten (wie `email` oder `first_name`) als angepasstes Attribut importiert werden, überprüfen Sie die Groß-/Kleinschreibung und Leerzeichen in Ihrer CSV-Datei. Beispielsweise wird `First_name` als angepasstes Attribut importiert, während `first_name` korrekt in das Feld „Vorname“ im Kundenprofil importiert wird.
 
 #### Datentyp eines angepassten Attributs ändern {#change-a-custom-attributes-data-type}
 

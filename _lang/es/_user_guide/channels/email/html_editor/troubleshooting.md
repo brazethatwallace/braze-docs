@@ -73,7 +73,7 @@ Braze utiliza un analizador HTML interno para preparar los correos electrónicos
 - Espaciado extraño por etiquetas `<p>` añadidas al cuerpo del correo electrónico
 - Contenido de la etiqueta `<head>` movido al preencabezado
 - Renderizado inconsistente entre sistemas operativos móviles
-- Código específico de AMP eliminado de los cuerpos de correo electrónico AMP, lo que causa fallos de validación
+- Código específico de páginas móviles aceleradas eliminado de los cuerpos de correo electrónico páginas móviles aceleradas, lo que causa fallos de validación
 - Enlaces rotos cuando se utilizan muchos parámetros de consulta o media queries diferentes
 
 #### Balancear HTML dentro de bloques Liquid {#balance-html-within-liquid-blocks}

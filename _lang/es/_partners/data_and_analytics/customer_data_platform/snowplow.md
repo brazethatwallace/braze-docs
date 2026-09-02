@@ -22,7 +22,7 @@ La integración de Braze y Snowplow te permite reenviar eventos de Snowplow a Br
 - Conservar todos los datos en tu nube privada hasta que decidas reenviarlos.
 - Desplegar tú mismo la solución en tu cuenta existente de Snowplow en la nube.
 
-El [reenvío de eventos](https://docs.snowplow.io/docs/destinations/forwarding-events/) de Snowplow es una característica adicional de pago disponible para los clientes de Snowplow. Para reenviar eventos a Braze sin este complemento, utiliza la integración de [Google Tag Manager Server-Side](https://docs.snowplow.io/docs/destinations/forwarding-events/google-tag-manager-server-side/) de Snowplow.
+El [reenvío de eventos](https://docs.snowplow.io/docs/destinations/forwarding-events/) de Snowplow es una característica adicional de pago disponible para los clientes de Snowplow. Para reenviar eventos a Braze sin este complemento, utiliza la integración de [Google Tag Administrador Server-Side](https://docs.snowplow.io/docs/destinations/forwarding-events/google-tag-manager-server-side/) de Snowplow.
 
 Aprovecha los ricos datos de comportamiento de Snowplow para impulsar potentes interacciones centradas en el cliente en Braze y entregar mensajes personalizados en tiempo real.
 

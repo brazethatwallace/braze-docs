@@ -9,7 +9,7 @@ search_tag: Partner
 
 # GRAVTY® Loyalty Platform
 
-> [GRAVTY®](https://www.lji.io/) ist eine Enterprise-Loyalty-Plattform von Loyalty Juggernaut Inc. (LJI), mit der Marken aus den Bereichen Einzelhandel, Reise, Gastronomie (einschließlich Schnellrestaurants) und Finanzdienstleistungen Programme der nächsten Generation entwerfen, verwalten und skalieren können – für messbares Wachstum bei Engagement, Bindung und Lifetime-Value durch personalisierte, datengestützte Erlebnisse.
+> [GRAVTY®](https://www.lji.io/) ist eine Enterprise-Loyalty-Plattform von Loyalty Juggernaut Inc. (LJI), mit der Marken aus den Bereichen Einzelhandel, Reise, Gastronomie (einschließlich Schnellrestaurants) und Finanzdienstleistungen Programme der nächsten Generation entwerfen, verwalten und skalieren können – für messbares Wachstum bei Engagement, Bindung und LTV durch personalisierte, datengestützte Erlebnisse.
 
 GRAVTY® basiert auf einer flexiblen, API-first-Architektur und unterstützt Realtime-Earn-and-Burn, Partner-Ökosystem-Management und kanalübergreifende Integration. Teams können Programme schneller starten, iterieren und Loyalty-Erlebnisse im großen Maßstab bereitstellen.
 
@@ -88,7 +88,7 @@ So konfigurieren Sie das Feld-Mapping in GRAVTY®:
 3. Geben Sie den entsprechenden **Braze-Attributnamen** ein, auf den die Daten abgebildet werden sollen.
 
 {% alert important %}
-Sie müssen `external_id` nicht mappen. GRAVTY® generiert diesen Wert intern durch Hashing der Mitglieds-ID (dem eindeutigen Mitglieds-Bezeichner in GRAVTY®), und Braze empfängt diesen gehashten Wert als `external_id` im Nutzerprofil.<br><br> Bevor Sie die Integration aktivieren, stellen Sie sicher, dass dies mit der Art übereinstimmt, wie Sie `external_id` heute in Braze setzen. Wenn Braze bereits eine andere `external_id` für dieselben Personen verwendet, arbeiten Sie mit LJI zusammen, um die Bezeichner abzugleichen, bevor Sie Daten synchronisieren.
+Sie müssen `external_id` nicht mappen. GRAVTY® generiert diesen Wert intern durch Hashing der Mitglieds-ID (dem eindeutigen Mitglieds-Bezeichner in GRAVTY®), und Braze empfängt diesen gehashten Wert als `external_id` im Kundenprofil.<br><br> Bevor Sie die Integration aktivieren, stellen Sie sicher, dass dies mit der Art übereinstimmt, wie Sie `external_id` heute in Braze setzen. Wenn Braze bereits eine andere `external_id` für dieselben Personen verwendet, arbeiten Sie mit LJI zusammen, um die Bezeichner abzugleichen, bevor Sie Daten synchronisieren.
 {% endalert %}
 
 {: start="4"}

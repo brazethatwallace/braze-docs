@@ -5,7 +5,7 @@
 {% multi_lang_include mcp_server/beta_alert.md %}
 
 {% alert note %}
-Der Braze MCP-Server enthält Tools, die nur für Kund:innen verfügbar sind, die an Beta-Programmen teilnehmen. Wenn Sie versuchen, auf ein Tool zuzugreifen, das Teil eines Beta-Programms ist, und Ihr Konto das Feature nicht aktiviert hat, erhalten Sie möglicherweise eine Fehlerantwort. Um an einem Beta-Programm teilzunehmen, wenden Sie sich an Ihren Account Manager.
+Der Braze MCP-Server enthält Tools, die nur für Kund:innen verfügbar sind, die an Beta-Programmen teilnehmen. Wenn Sie versuchen, auf ein Tool zuzugreifen, das Teil eines Beta-Programms ist, und Ihr Konto das Feature nicht aktiviert hat, erhalten Sie möglicherweise eine Fehlerantwort. Um an einem Beta-Programm teilzunehmen, wenden Sie sich an Ihren Account Manager:in.
 {% endalert %}
 
 ## Voraussetzungen {#prerequisites}
@@ -48,7 +48,7 @@ Ihr MCP-Client referenziert diese Tools, um mit dem Braze MCP-Server zu interagi
 | `update_campaign_distribution`<sup>*</sup> | N/A | update | Aktualisieren Sie die Verteilungseinstellungen einer Campaign. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Campaigns" }
 
-<sup>*</sup> Dieses Tool steht nur Kund:innen zur Verfügung, die am Betaprogramm für Campaign-APIs teilnehmen. Wenn dieses Feature für Ihr Konto nicht aktiviert ist, erhalten Sie möglicherweise eine Fehlermeldung, wenn Sie versuchen, es zu verwenden. Um am Betaprogramm teilzunehmen, wenden Sie sich an Ihren Account Manager.
+<sup>*</sup> Dieses Tool steht nur Kund:innen zur Verfügung, die am Betaprogramm für Campaign-APIs teilnehmen. Wenn dieses Feature für Ihr Konto nicht aktiviert ist, erhalten Sie möglicherweise eine Fehlermeldung, wenn Sie versuchen, es zu verwenden. Um am Betaprogramm teilzunehmen, wenden Sie sich an Ihren Account Manager:in.
 {: .reset-td-br-1 }
 
 ### Canvases
@@ -143,7 +143,7 @@ Ihr MCP-Client referenziert diese Tools, um mit dem Braze MCP-Server zu interagi
 | `edit_segment`<sup>*</sup> | N/A | update | Bearbeiten Sie ein bestehendes Segment. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Segments" }
 
-<sup>*</sup> Dieses Tool steht nur Kund:innen zur Verfügung, die am Betaprogramm für Segment-APIs teilnehmen. Wenn dieses Feature für Ihr Konto nicht aktiviert ist, erhalten Sie möglicherweise eine Fehlermeldung, wenn Sie versuchen, es zu verwenden. Um am Betaprogramm teilzunehmen, wenden Sie sich an Ihren Account Manager.
+<sup>*</sup> Dieses Tool steht nur Kund:innen zur Verfügung, die am Betaprogramm für Segment-APIs teilnehmen. Wenn dieses Feature für Ihr Konto nicht aktiviert ist, erhalten Sie möglicherweise eine Fehlermeldung, wenn Sie versuchen, es zu verwenden. Um am Betaprogramm teilzunehmen, wenden Sie sich an Ihren Account Manager:in.
 {: .reset-td-br-1 }
 
 ### Sends
@@ -190,7 +190,7 @@ Ihr MCP-Client referenziert diese Tools, um mit dem Braze MCP-Server zu interagi
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Operator" }
 
 {% alert important %}
-Diese Tools stehen nur Kund:innen zur Verfügung, die am Operator-Betaprogramm teilnehmen. Wenn dieses Feature für Ihr Konto nicht aktiviert ist, erhalten Sie möglicherweise eine Fehlermeldung, wenn Sie versuchen, es zu verwenden. Um am Betaprogramm teilzunehmen, wenden Sie sich an Ihren Account Manager.
+Diese Tools stehen nur Kund:innen zur Verfügung, die am Operator-Betaprogramm teilnehmen. Wenn dieses Feature für Ihr Konto nicht aktiviert ist, erhalten Sie möglicherweise eine Fehlermeldung, wenn Sie versuchen, es zu verwenden. Um am Betaprogramm teilzunehmen, wenden Sie sich an Ihren Account Manager:in.
 {% endalert %}
 
 {% multi_lang_include mcp_server/legal_disclaimer.md %}

@@ -12,7 +12,7 @@ hidden: true
 > Operator Analyze beantwortet Performance-Fragen in natürlicher Sprache in BrazeAI Operator<sup>TM</sup>. Die Antworten umfassen Charts, Vergleiche und kurze Insights. Sie müssen kein Dashboard erstellen oder zuerst einen vollständigen Bericht abrufen.
 
 {% alert important %}
-Operator Analyze befindet sich derzeit in der Beta-Phase. Funktionen und unterstützte Analysen werden weiterentwickelt. Um Zugang für Ihr Konto anzufordern, wenden Sie sich an Ihren Customer-Success-Manager.
+Operator Analyze befindet sich derzeit in der Beta-Phase. Funktionen und unterstützte Analysen werden weiterentwickelt. Um Zugang für Ihr Konto anzufordern, wenden Sie sich an Ihren CSM.
 {% endalert %}
 
 ## Warum Operator Analyze verwenden? {#why-use-operator-analyze}
@@ -25,7 +25,7 @@ Operator Analyze deckt Engagement-Metriken, *Attributed Revenue* und Branchen-Be
 
 Operator Analyze läuft im Operator-Konversations-Panel.
 
-1. Wählen Sie **BrazeAI Operator<sup>TM</sup>** neben Ihrem Nutzerprofil auf einer beliebigen Seite im Braze-Dashboard aus.
+1. Wählen Sie **BrazeAI Operator<sup>TM</sup>** neben Ihrem Kundenprofil auf einer beliebigen Seite im Braze-Dashboard aus.
 2. Fragen Sie nach Kanal-Engagement oder Benchmark-Vergleichen (siehe [Beispielfragen](#example-questions)).
 3. Operator gibt die Antwort zurück und, wenn hilfreich, ein Chart oder eine Tabelle sowie eine kurze Liste von Insights.
 
@@ -140,21 +140,21 @@ Wenn sich die Ergebnisse über die Fenster hinweg um mehr als 50 % unterscheiden
 
 ## Datenaktualität {#data-freshness}
 
-Die Daten werden täglich aktualisiert. Aktivitäten des aktuellen Tages erscheinen nach der nächsten Aktualisierung. Jede Antwort gibt das neueste Datum im Datensatz an. Wenn dieses Datum veraltet erscheint, wenden Sie sich an Ihren Customer-Success-Manager.
+Die Daten werden täglich aktualisiert. Aktivitäten des aktuellen Tages erscheinen nach der nächsten Aktualisierung. Jede Antwort gibt das neueste Datum im Datensatz an. Wenn dieses Datum veraltet erscheint, wenden Sie sich an Ihren CSM.
 
 ## Was nicht abgedeckt wird {#whats-out-of-scope}
 
-* **Performance-Aufschlüsselungen auf Produktebene.** *Attributed Revenue* und Engagement werden auf Campaign-, Canvas-, Kanal- oder Programmebene aggregiert. Sie werden nicht auf Produkte oder SKUs heruntergebrochen. Fragen auf Produkt- oder SKU-Ebene werden nicht unterstützt. Wenden Sie sich für diese Analysen an Ihren Customer-Success-Manager.
+* **Performance-Aufschlüsselungen auf Produktebene.** *Attributed Revenue* und Engagement werden auf Campaign-, Canvas-, Kanal- oder Programmebene aggregiert. Sie werden nicht auf Produkte oder SKUs heruntergebrochen. Fragen auf Produkt- oder SKU-Ebene werden nicht unterstützt. Wenden Sie sich für diese Analysen an Ihren CSM.
 * **Branchen-Benchmarks für WhatsApp und RCS.** Engagement-Metriken für beide Kanäle werden unterstützt. Benchmarks sind noch nicht verfügbar.
 
-Fragen außerhalb des Umfangs erhalten eine direkte Antwort, wenn möglich eine vorgeschlagene Alternative oder einen Verweis an Ihren Customer-Success-Manager.
+Fragen außerhalb des Umfangs erhalten eine direkte Antwort, wenn möglich eine vorgeschlagene Alternative oder einen Verweis an Ihren CSM.
 
 ## Tipps für bessere Ergebnisse {#tips-for-better-results}
 
 * **Zeitraum:** Bevorzugen Sie explizite Bereiche („GJ26 Q2“, „die letzten 90 Tage“) gegenüber vagen Formulierungen wie „letztes Quartal“, wenn Sie Präzision benötigen.
 * **Metriken:** Nennen Sie die Rate, die Sie interessiert (*Öffnungsrate*, *Click-Through-Rate*, *Click-to-Open-Rate*). Operator gibt die verwendete Formel an.
 * **Nachfragen:** Vertiefen Sie ein Ergebnis, ändern Sie das Fenster oder wechseln Sie den Kanal. Operator behält den Kontext über den Thread hinweg bei.
-* **Kanal-Formulierung:** WhatsApp und RCS verwenden *Read Rate* (nicht *Öffnungsrate*). SMS verwendet *Link Click Rate*.
+* **Kanal-Formulierung:** WhatsApp und RCS verwenden *Read Rate* (nicht *Öffnungsrate*). SMS verwendet *Link click Rate*.
 * **Kombinierte Fragen:** Benchmark plus Trend in einem Prompt wird unterstützt.
 
 ## Datenschutz und Sicherheit {#data-privacy-and-security}

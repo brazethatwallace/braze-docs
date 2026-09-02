@@ -269,13 +269,13 @@ Você também pode definir a duração da campanha, especificar o [horário de s
 
 ### Escolha os usuários-alvo {#choose-users-to-target}
 
-Em seguida, [direcione os usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) escolhendo segmentos ou filtros. A Braze exibe uma prévia em tempo real da população do segmento, incluindo quantos usuários podem ser alcançados por e-mail. A composição exata do segmento é calculada imediatamente antes do envio.
+Em seguida, [direcione os usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) escolhendo segmentos ou filtros. A Braze exibe uma prévia em tempo real da população do Segment, incluindo quantos usuários podem ser alcançados por e-mail. A composição exata do Segment é calculada imediatamente antes do envio.
 
 {% multi_lang_include audience/target_audiences.md %}
 
 Você também pode optar por enviar sua campanha apenas para usuários que tenham um [status de inscrição]({{site.baseurl}}/user_guide/channels/email/subscriptions) específico, como aqueles que estão inscritos e aceitaram receber e-mails.
 
-Opcionalmente, você também pode limitar a entrega a um número específico de usuários dentro do segmento, ou permitir que os usuários recebam a mesma mensagem duas vezes em uma recorrência da campanha.
+Opcionalmente, você também pode limitar a entrega a um número específico de usuários dentro do Segment, ou permitir que os usuários recebam a mesma mensagem duas vezes em uma recorrência da campanha.
 
 {% alert note %}
 Ao criar uma nova campanha de e-mail, o grupo de controle é configurado como 20% por padrão e pode ser ajustado ou removido conforme necessário para sua campanha.

@@ -12,7 +12,7 @@ hidden: true
 > O Operator Analyze responde a perguntas de desempenho em linguagem natural no BrazeAI Operator<sup>TM</sup>. As respostas incluem gráficos, comparações e insights curtos. Você não precisa criar um dashboard nem gerar um relatório completo antes.
 
 {% alert important %}
-O Operator Analyze está atualmente em beta. Os recursos e as análises compatíveis estão em evolução. Para solicitar acesso para a sua conta, entre em contato com o seu gerente de sucesso do cliente.
+O Operator Analyze está atualmente em beta. Os recursos e as análises compatíveis estão em evolução. Para solicitar acesso para a sua conta, entre em contato com o seu CSM.
 {% endalert %}
 
 ## Por que usar o Operator Analyze? {#why-use-operator-analyze}
@@ -140,14 +140,14 @@ Se os resultados diferirem em mais de 50% entre as janelas, o Operator mostra as
 
 ## Atualização dos dados {#data-freshness}
 
-Os dados são atualizados diariamente. A atividade do mesmo dia aparece após a próxima atualização. Cada resposta informa a data mais recente no conjunto de dados. Se essa data parecer desatualizada, entre em contato com o seu gerente de sucesso do cliente.
+Os dados são atualizados diariamente. A atividade do mesmo dia aparece após a próxima atualização. Cada resposta informa a data mais recente no conjunto de dados. Se essa data parecer desatualizada, entre em contato com o seu CSM.
 
 ## O que está fora do escopo {#whats-out-of-scope}
 
-* **Detalhamento de desempenho por produto.** *Receita Atribuída* e engajamento são agregados no nível de Campaign, Canvas, canal ou programa. Eles não são detalhados por produtos ou SKUs. Perguntas no nível de produto ou SKU não são compatíveis. Entre em contato com o seu gerente de sucesso do cliente para essas análises.
+* **Detalhamento de desempenho por produto.** *Receita Atribuída* e engajamento são agregados no nível de Campaign, Canvas, canal ou programa. Eles não são detalhados por produtos ou SKUs. Perguntas no nível de produto ou SKU não são compatíveis. Entre em contato com o seu CSM para essas análises.
 * **Benchmarks do setor para WhatsApp e RCS.** As métricas de engajamento para ambos os canais são compatíveis. Os benchmarks ainda não estão disponíveis.
 
-Perguntas fora do escopo recebem uma resposta direta, uma alternativa sugerida quando possível ou um direcionamento para o seu gerente de sucesso do cliente.
+Perguntas fora do escopo recebem uma resposta direta, uma alternativa sugerida quando possível ou um direcionamento para o seu CSM.
 
 ## Dicas para melhores resultados {#tips-for-better-results}
 

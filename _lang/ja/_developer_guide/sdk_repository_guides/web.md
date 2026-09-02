@@ -832,9 +832,9 @@ Electron は Web プッシュ通知を公式にサポートしていません（
 
 Tealium iQ は基本的なターンキー Braze 統合を提供しています。統合を設定するには、Tealium Tag Management インターフェイスで Braze を検索し、ダッシュボードから Web SDK APIキーを入力してください。詳細や Tealium の詳しい設定サポートについては、[統合ドキュメント](https://www.braze.com/docs/partners/data_and_infrastructure_agility/customer_data_platform/tealium/#about-tealium)を確認するか、Tealium のアカウントマネージャーにお問い合わせください。
 
-#### Google Tag Manager
+#### Google Tag マネージャー
 
-Web SDKは、Google Tag Manager コンテナのカスタム HTML タグから初期化および呼び出しが可能です。GTM を介した Braze へのイベント送信の例については、[Google Tag Manager サンプルアプリ](https://github.com/braze-inc/braze-web-sdk/blob/master/sample-builds/google-tag-manager)を参照するか、詳細については[統合ドキュメント](https://www.braze.com/docs/developer_guide/sdk_integration/google_tag_manager)を確認してください。
+Web SDKは、Google Tag マネージャー コンテナのカスタム HTML タグから初期化および呼び出しが可能です。GTM を介した Braze へのイベント送信の例については、[Google Tag マネージャー サンプルアプリ](https://github.com/braze-inc/braze-web-sdk/blob/master/sample-builds/google-tag-manager)を参照するか、詳細については[統合ドキュメント](https://www.braze.com/docs/developer_guide/sdk_integration/google_tag_manager)を確認してください。
 
 #### その他のタグマネージャー {#other-tag-managers}
 

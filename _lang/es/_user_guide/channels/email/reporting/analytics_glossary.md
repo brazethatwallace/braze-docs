@@ -338,7 +338,7 @@ Count
 Count, Percentage
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or Primary Conversion Event' %} Para correo electrónico, push y webhooks, comenzamos a rastrear las conversiones después del envío inicial.
+{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or conversión primaria Event' %} Para correo electrónico, push y webhooks, comenzamos a rastrear las conversiones después del envío inicial.
 
 {::nomarkdown}
 <span class="calculation-line">

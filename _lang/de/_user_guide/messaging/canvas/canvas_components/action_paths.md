@@ -63,7 +63,7 @@ Fügen Sie einen oder mehrere Trigger hinzu, um Ihre Aktionsgruppen zu definiere
 - Ein Konversions-Event ausführen
 - Eine E-Mail-Adresse hinzufügen
 - Einen angepassten Attributwert ändern
-  - Dies umfasst auch das erstmalige Hinzufügen eines neuen Attributs mit einem Wert zu einem Nutzerprofil (wenn das Attribut zuvor nicht vorhanden war).
+  - Dies umfasst auch das erstmalige Hinzufügen eines neuen Attributs mit einem Wert zu einem Kundenprofil (wenn das Attribut zuvor nicht vorhanden war).
   - Attribut-Trigger sind für Array-Attribute nicht verfügbar.
 - Ihren Abo-Status oder Abo-Gruppenstatus aktualisieren
 - Mit einer Campaign oder Content-Card interagieren
@@ -73,7 +73,7 @@ Fügen Sie einen oder mehrere Trigger hinzu, um Ihre Aktionsgruppen zu definiere
 
 #### Trigger „E-Mail-Adresse hinzufügen“ {#add-an-email-address-trigger}
 
-Der Aktionsgruppen-Trigger **Add an Email Address** wird ausgelöst, wenn eine E-Mail-Adresse während des **Evaluation Window** des Aktionspfads zu einem Nutzerprofil hinzugefügt oder aktualisiert wird. Dieses Verhalten entspricht anderen Profilaktualisierungs-Triggern: Nutzer:innen werden durch die Aktionsgruppe weitergeleitet, wenn die Profiländerung unter Ihrer Konfiguration qualifiziert ist, einschließlich aller Filter auf dem Trigger.
+Der Aktionsgruppen-Trigger **Add an Email Address** wird ausgelöst, wenn eine E-Mail-Adresse während des **Evaluation Window** des Aktionspfads zu einem Kundenprofil hinzugefügt oder aktualisiert wird. Dieses Verhalten entspricht anderen Profilaktualisierungs-Triggern: Nutzer:innen werden durch die Aktionsgruppe weitergeleitet, wenn die Profiländerung unter Ihrer Konfiguration qualifiziert ist, einschließlich aller Filter auf dem Trigger.
 
 ![Eine Aktionsgruppe namens „Gruppe 1“ für Nutzer:innen, die einen beliebigen Kauf tätigen.]({% image_buster /assets/img/actionpath_group.png %})
 

@@ -20,15 +20,15 @@ Wenn Sie nicht die erste Nutzer:in im Braze-Konto Ihres Unternehmens sind, wende
 
 Egal, ob Sie sich zum ersten oder zum hundertsten Mal anmelden – so greifen Sie auf Ihr Dashboard zu. Wenn Sie die erste Nutzer:in Ihres Unternehmens sind, folgen Sie der Anleitung im vorherigen Abschnitt. Andernfalls können Sie sich anmelden, nachdem der Braze-Admin Ihres Unternehmens Ihr Konto erstellt hat.
 
-Sie können sich entweder über die [Braze.com](https://www.braze.com)-Startseite anmelden oder die Dashboard-URL verwenden, die Ihrer spezifischen [Braze-Instanz]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) entspricht. Für Ihren Komfort bietet Braze mehrere Single-Sign-on-Optionen (SSO) an, darunter:
+Sie können sich entweder über die [Braze.com](https://www.braze.com)-Startseite anmelden oder die Dashboard-URL verwenden, die Ihrer spezifischen [Braze-Instanz]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) entspricht. Für Ihren Komfort bietet Braze mehrere Single-Sign-on-Optionen (Single Sign-on) an, darunter:
 
-* [SAML SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup)
+* [SAML Single Sign-on]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup)
     * [SAML-Just-in-Time-Bereitstellung]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning)
-* [Microsoft Entra SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/microsoft_entra_sso)
+* [Microsoft Entra Single Sign-on]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/microsoft_entra_sso)
 * [Okta]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/okta)
 * [OneLogin]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/onelogin)
 
-Nachdem Sie sich über SSO bei Braze angemeldet haben, können Sie sich nicht mehr mit Ihrem Passwort am Dashboard anmelden. Beide E-Mail-Adressen leiten E-Mails an denselben Posteingang weiter, aber Braze erkennt sie bei der Anmeldung als separate Konten. Durch das Löschen von Cookies werden Sie abgemeldet, sodass nicht gespeicherte Arbeit verloren geht.
+Nachdem Sie sich über Single Sign-on bei Braze angemeldet haben, können Sie sich nicht mehr mit Ihrem Passwort am Dashboard anmelden. Beide E-Mail-Adressen leiten E-Mails an denselben Posteingang weiter, aber Braze erkennt sie bei der Anmeldung als separate Konten. Durch das Löschen von Cookies werden Sie abgemeldet, sodass nicht gespeicherte Arbeit verloren geht.
 
 ## Unterstützte Browser {#supported-browsers}
 
@@ -60,9 +60,9 @@ Wenn Ihr E-Mail-Anbieter kein `+`-Aliasing unterstützt, können Sie dennoch sep
 
 Das Feature „Multi-Company-Entwickler:innen“ ermöglicht die gemeinsame Nutzung eines einzelnen Nutzerkontos über mehrere Unternehmen hinweg. Dashboard-Nutzer:innen können über ihr Nutzerprofilmenü zwischen verschiedenen Unternehmens-Dashboards wechseln.
 
-Wenn Sie SSO verwenden und Multi-Company-Entwickler:innen einrichten möchten, müssen Sie eine benutzerdefinierte SAML-Entity-ID aktivieren, indem Sie eine benutzerdefinierte SAML-SSO-Integration einrichten. Folgen Sie den Schritten unter [Service Provider (SP) initiated login]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup), wenden Sie jedoch diese Änderungen an:
+Wenn Sie Single Sign-on verwenden und Multi-Company-Entwickler:innen einrichten möchten, müssen Sie eine benutzerdefinierte SAML-Entity-ID aktivieren, indem Sie eine benutzerdefinierte SAML-Single Sign-on-Integration einrichten. Folgen Sie den Schritten unter [Service Provider (SP) initiated login]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup), wenden Sie jedoch diese Änderungen an:
 - Ändern Sie die **Entity ID** für jede Dashboard-Integration auf `braze_dashboard_<companyID>`.
-- Kontaktieren Sie Ihren Customer-Success-Manager oder Account Manager, um den `saml_sso_custom_entity_id`-Feature-Flipper für jedes Dashboard zu aktivieren.
+- Kontaktieren Sie Ihren CSM oder Account Manager:in, um den `saml_sso_custom_entity_id`-Feature-Flipper für jedes Dashboard zu aktivieren.
 
 #### Zwei-Faktor-Authentifizierung (2FA) {#two-factor-authentication-2fa}
 
@@ -73,9 +73,9 @@ Wie 2FA für Multi-Company-Entwickler:innen funktioniert, hängt von Ihrer 2FA-M
 
 Wenn Sie innerhalb des Dashboards zwischen Konten wechseln, müssen Sie die 2FA nur einmal durchführen – beim ersten Anmelden bei einem verknüpften Konto während dieser Sitzung.
 
-### Hinweise zu Single Sign-on (SSO) {#considerations-for-single-sign-on-sso}
+### Hinweise zu Single Sign-on (Single Sign-on) {#considerations-for-single-sign-on-sso}
 
-Wenn Sie Single Sign-on (SSO) verwenden, beachten Sie, dass mehrere unterschiedliche E-Mail-Adressen zu Komplikationen führen können. Stellen Sie sicher, dass Ihre SSO-Einstellungen korrekt konfiguriert sind, um Zugriffsprobleme zu vermeiden.
+Wenn Sie Single Sign-on (Single Sign-on) verwenden, beachten Sie, dass mehrere unterschiedliche E-Mail-Adressen zu Komplikationen führen können. Stellen Sie sicher, dass Ihre Single Sign-on-Einstellungen korrekt konfiguriert sind, um Zugriffsprobleme zu vermeiden.
 
 ## Fehlerbehebung {#troubleshooting}
 
@@ -89,13 +89,13 @@ Um Ihr Passwort zurückzusetzen, wählen Sie den Link **Forgot your password?** 
 Wenn Sie eine Passwortzurücksetzung angefordert haben, aber die E-Mail nicht erhalten haben, probieren Sie die folgenden Schritte zur Fehlerbehebung:
 
 {% alert note %}
-Wenn Ihr Unternehmen [Single Sign-on (SSO)]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup) erzwingt, bietet die Anmeldeseite möglicherweise kein **Forgot your password?** an und sendet keine E-Mails zum Zurücksetzen des Passworts, da die Passwort-Anmeldung deaktiviert ist. Melden Sie sich stattdessen über den Identitätsanbieter Ihres Unternehmens an oder wenden Sie sich an Ihren Braze-Administrator.
+Wenn Ihr Unternehmen [Single Sign-on (Single Sign-on)]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup) erzwingt, bietet die Anmeldeseite möglicherweise kein **Forgot your password?** an und sendet keine E-Mails zum Zurücksetzen des Passworts, da die Passwort-Anmeldung deaktiviert ist. Melden Sie sich stattdessen über den Identitätsanbieter Ihres Unternehmens an oder wenden Sie sich an Ihren Braze-Administrator.
 {% endalert %}
 
 1. **Überprüfen Sie Ihre E-Mail-Adresse:** Lassen Sie einen Administrator prüfen, ob die E-Mail-Adresse in Ihrem Konto unter **Settings** > **Company Users** übereinstimmt. Der Link zum Zurücksetzen wird an die im System registrierte E-Mail-Adresse gesendet.
 2. **Spam- und Junk-Ordner überprüfen:** Suchen Sie in Ihrem Spam- oder Junk-Ordner nach E-Mails von `@alerts.braze.com`.
 3. **IT-E-Mail-Filter überprüfen:** Bestätigen Sie mit Ihrem IT-Team, dass E-Mails von `@alerts.braze.com` nicht blockiert oder gefiltert werden.
-4. **Korrekte Dashboard-Instanz bestätigen:** Stellen Sie sicher, dass Sie die Zurücksetzung von der richtigen [Braze-Dashboard-Instanz]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) anfordern. Wenden Sie sich an Ihren Account-Administrator oder Braze Account Manager, wenn Sie unsicher sind.
+4. **Korrekte Dashboard-Instanz bestätigen:** Stellen Sie sicher, dass Sie die Zurücksetzung von der richtigen [Braze-Dashboard-Instanz]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) anfordern. Wenden Sie sich an Ihren Account-Administrator oder Braze Account Manager:in, wenn Sie unsicher sind.
 5. **Anderen Browser verwenden:** Einige Browsererweiterungen oder -einstellungen können den Vorgang zum Zurücksetzen des Passworts beeinträchtigen. Versuchen Sie es mit einem anderen Browser oder einem Inkognito-Fenster.
 
 Links zum Zurücksetzen des Passworts laufen zwei Stunden nach dem E-Mail-Versand ab. Wenn Ihr Link abgelaufen ist, fordern Sie auf der Anmeldeseite eine neue Zurücksetzung an.
@@ -154,8 +154,8 @@ Wenn Sie Probleme bei der Anmeldung bei Braze-Lernangeboten haben und in einer S
 
 1. Wenn Sie mehrere Braze-Konten haben, werden Sie beim zweimaligen Anmelden mit dem falschen Konto zum Braze-Dashboard weitergeleitet. Bestätigen Sie, dass Sie sich beim richtigen Konto anmelden.
 2. Wenn Sie einen Werbeblocker verwenden, bestätigen Sie, dass er ausgeschaltet ist. Er kann Cookies blockieren, die für die Single-Sign-on-Funktionalität erforderlich sind.
-3. Gehen Sie zu **Einstellungen** > **Unternehmenseinstellungen** > **Administratoreinstellungen** > **Sicherheitseinstellungen** und überprüfen Sie, dass Single Sign-on (SSO) aktiviert ist.
-4. Bestätigen Sie, dass Ihr Dashboard-Nutzerprofil sowohl einen Vor- als auch einen Nachnamen enthält. Ein fehlender Nachname kann den Anmeldevorgang stören.
+3. Gehen Sie zu **Einstellungen** > **Unternehmenseinstellungen** > **Administratoreinstellungen** > **Sicherheitseinstellungen** und überprüfen Sie, dass Single Sign-on (Single Sign-on) aktiviert ist.
+4. Bestätigen Sie, dass Ihr Dashboard-Kundenprofil sowohl einen Vor- als auch einen Nachnamen enthält. Ein fehlender Nachname kann den Anmeldevorgang stören.
 5. Greifen Sie auf die Braze-Lernangebote über Ihr Dashboard zu, indem Sie zu **Support** > **Braze Learning** navigieren.
 6. Wenn weiterhin Probleme auftreten, ziehen Sie in Betracht, Ihr Konto neu zu erstellen. Nutzer:innen, die während der kostenlosen Demophase auf die Braze-Lernangebote zugegriffen haben, können jetzt möglicherweise Schwierigkeiten beim Zugriff haben.
 
@@ -195,7 +195,7 @@ Sie können anhand der Fehlermeldung erkennen, welche Art von Aussperrung vorlie
 #### Passwortfehler {#password-error}
 
 Ihre Kontosicherheit ist uns wichtig, daher sind Passwörter für die Anmeldung bei Ihrem Braze-Konto erforderlich.
-- Überprüfen Sie, ob Sie sich bei der richtigen [Braze-Dashboard-Instanz]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) anmelden. Wenden Sie sich zur Bestätigung an Ihren Account-Administrator oder Braze Account Manager.
+- Überprüfen Sie, ob Sie sich bei der richtigen [Braze-Dashboard-Instanz]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) anmelden. Wenden Sie sich zur Bestätigung an Ihren Account-Administrator oder Braze Account Manager:in.
 - Ihr Passwort ist möglicherweise abgelaufen und Sie müssen es [zurücksetzen](#resetting-your-password).
 - Wenn Sie einen [Single-Sign-on]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup)-Dienst verwenden, prüfen Sie mit Ihrem Account-Administrator, ob die Einrichtung korrekt abgeschlossen wurde.
 - Wenn Ihr Unternehmen mehrere Braze-Instanzen nutzt, verwenden Sie möglicherweise die falsche E-Mail-Adresse zur Anmeldung.
@@ -206,7 +206,7 @@ Im Zweifelsfall können Sie jederzeit [Ihr Passwort zurücksetzen](#resetting-yo
 
 Wenn Sie den gleichen Computer wie üblich zur Anmeldung verwenden, sollte Braze automatisch die richtige Instanz erkennen. Falls dies jedoch nicht der Fall ist oder Sie sich zum ersten Mal anmelden, beachten Sie Folgendes:
 
-- Überprüfen Sie, ob Sie sich bei der richtigen [Braze-Dashboard-Instanz]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) anmelden. Wenden Sie sich zur Bestätigung an Ihren Account-Administrator oder Braze Account Manager.
+- Überprüfen Sie, ob Sie sich bei der richtigen [Braze-Dashboard-Instanz]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) anmelden. Wenden Sie sich zur Bestätigung an Ihren Account-Administrator oder Braze Account Manager:in.
 - Wenn Ihr Unternehmen mehrere Braze-Instanzen nutzt, verwenden Sie möglicherweise die falsche E-Mail-Adresse zur Anmeldung.
 
 #### Kontosperrung {#account-suspension}
@@ -220,7 +220,7 @@ Dies kommt nicht sehr häufig vor, aber Braze nimmt Kontosperrungen und -löschu
 | Sicherheitsbedenken | Verdächtige Aktivitäten haben möglicherweise aus Sicherheitsgründen eine automatische Sperrung ausgelöst. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Grund für Kontosperrung" }
 
-Um dieses Problem zu lösen, wenden Sie sich an den Braze-Administrator Ihres Unternehmens, Ihren Braze Account Manager oder den [Support]({{site.baseurl}}/support_contact).
+Um dieses Problem zu lösen, wenden Sie sich an den Braze-Administrator Ihres Unternehmens, Ihren Braze Account Manager:in oder den [Support]({{site.baseurl}}/support_contact).
 
 ### Braze-Dashboard wird nicht geladen oder funktioniert nicht wie erwartet {#braze-dashboard-wont-load-or-work-as-expected}
 

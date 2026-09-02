@@ -32,6 +32,6 @@ Note que você deve atualizar para a versão mais recente do Android (versão 2.
 
 ## Visão da caixa de entrada
 
-Agora é possível fazer [uma prévia de seus e-mails]({{site.baseurl}}/user_guide/message_building_by_channel/email/inbox_vision/#inbox-vision) com base na plataforma do cliente, seja por meio de uma página de visão geral de miniaturas ou de uma exibição de lista que inclui uma captura de tela grande e uma análise mais específica de quaisquer problemas que possam existir com a renderização de HTML para cada cliente. Entre em contato com seu gerente de sucesso do cliente ou gerente de conta para saber mais.
+Agora é possível fazer [uma prévia de seus e-mails]({{site.baseurl}}/user_guide/message_building_by_channel/email/inbox_vision/#inbox-vision) com base na plataforma do cliente, seja por meio de uma página de visão geral de miniaturas ou de uma exibição de lista que inclui uma captura de tela grande e uma análise mais específica de quaisquer problemas que possam existir com a renderização de HTML para cada cliente. Entre em contato com seu CSM ou gerente de conta para saber mais.
 
 

@@ -41,7 +41,7 @@ Antes de iniciar el proceso de actualización en la página de integración de S
 - **Verifica las personalizaciones del SDK:** Si has personalizado tu integración de Braze y Shopify (por ejemplo, registrando eventos personalizados o atributos), asegúrate de que estas personalizaciones funcionen correctamente después de la actualización. Si has creado tus propios eventos de navegador para acciones como "producto visto" o "carrito actualizado", coordina con tus desarrolladores para eliminarlos antes de la actualización, ya que duplicarán la funcionalidad proporcionada por el nuevo conector.
 
 {% alert important %}
-Si tienes una tienda en línea de Shopify y tus desarrolladores implementaron los SDK de Braze directamente en tu sitio de Shopify, o a través de Google Tag Manager o una plataforma de datos de los clientes, debes planificar dejar de usarlos a medida que actualices al nuevo conector de Shopify.
+Si tienes una tienda en línea de Shopify y tus desarrolladores implementaron los SDK de Braze directamente en tu sitio de Shopify, o a través de Google Tag Administrador o una CDP, debes planificar dejar de usarlos a medida que actualices al nuevo conector de Shopify.
 {% endalert %}
 
 - **Revisa la gestión de identidades:** Si estás usando un ID externo de Braze, trabaja con tu equipo de desarrollo para asegurarte de que sea compatible con la nueva integración. Si configuras el ID externo dentro de la experiencia de tu tienda Shopify, haz que tus desarrolladores lo ajusten para evitar conflictos con el [nuevo proceso de gestión de identidades]({{site.baseurl}}/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_overview#user-and-data-syncing).

@@ -11,7 +11,7 @@ hidden: true
 > Der Shopify-Kollektionen-Sync ermöglicht es Ihnen, Ihre Produkte in Kollektionen zu gruppieren, damit Kund:innen Ihre Produkte nach Kategorie finden können. Für ein nahtloseres Einkaufserlebnis können Sie Artikel aus den Kollektionen Ihres Shops in Ihre Braze-Nachrichten einbinden.
 
 {% alert important %}
-Der Shopify-Kollektionen-Sync befindet sich derzeit in der Beta-Phase. Kontaktieren Sie Ihren Braze Account Manager, wenn Sie an der Beta teilnehmen möchten.
+Der Shopify-Kollektionen-Sync befindet sich derzeit in der Beta-Phase. Kontaktieren Sie Ihren Braze Account Manager:in, wenn Sie an der Beta teilnehmen möchten.
 {% endalert %}
 
 ## Einrichtung der Shopify-Kollektions-Synchronisierung {#setting-up-shopify-collections-sync}

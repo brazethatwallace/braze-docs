@@ -12,7 +12,7 @@ toc_headers: h2
 > Das **Messaging-Diagnose**-Dashboard bietet eine allgemeine Aufschlüsselung der Ergebnisse beim Nachrichtenversand, mit der Sie Trends erkennen und potenzielle Probleme in Ihrem Messaging-Setup diagnostizieren können. Dieses Dashboard kann Ihnen helfen zu verstehen, warum Nachrichten aus Ihren Campaigns oder Canvases möglicherweise nicht wie erwartet gesendet wurden.
 
 {% alert important %}
-Das **Messaging-Diagnose**-Dashboard ist allgemein verfügbar. Kontaktieren Sie Ihren Customer-Success-Manager, wenn Sie Zugang zu diesem Feature erhalten möchten.
+Das **Messaging-Diagnose**-Dashboard ist allgemein verfügbar. Kontaktieren Sie Ihren CSM, wenn Sie Zugang zu diesem Feature erhalten möchten.
 {% endalert %}
 
 {% alert note %}
@@ -32,7 +32,7 @@ Wenn Braze eine Nachricht „sendet“, kann die endgültige Zustellung von exte
 | Kanal | Beispiel für die endgültige Zustellung |
 | --- | --- |
 | Content Cards | Die Card wurde gesendet und ist zur Anzeige berechtigt. |
-| E-Mail | Braze übergibt die Nachricht an einen E-Mail-Anbieter (ESP). Der ESP ist dann für die endgültige Zustellung verantwortlich. Der ESP kann beispielsweise einen „Bounce“ melden, wenn die E-Mail-Adresse ungültig oder der Posteingang voll ist. |
+| E-Mail | Braze übergibt die Nachricht an einen E-Mail-Anbieter (E-Mail-Anbieter). Der E-Mail-Anbieter ist dann für die endgültige Zustellung verantwortlich. Der E-Mail-Anbieter kann beispielsweise einen „Bounce“ melden, wenn die E-Mail-Adresse ungültig oder der Posteingang voll ist. |
 | In-App Messages | Die Nachricht wurde von den Nutzer:innen angesehen und eine Impression wurde protokolliert. |
 | LINE | Die Nachricht wurde erfolgreich an einen Versandpartner übergeben. |
 | Push | Braze übergibt die Nachricht an den entsprechenden Push-Benachrichtigungsdienst (z. B. Apple Push Notification Service für iOS oder Firebase Cloud Messaging für Android). Dieser Dienst ist für die endgültige Zustellung der Benachrichtigung auf das Gerät verantwortlich. |
@@ -150,7 +150,7 @@ Abbruchergebnisse in der Messaging-Diagnose sind menschenlesbare Dashboard-Bezei
 | Nutzer:in nicht mehr berechtigt | Die/Der Nutzer:in war ursprünglich in der Zielgruppe, hat aber die Zielgruppenkriterien nicht mehr erfüllt, bevor Braze die Nachricht gesendet oder die/den Nutzer:in in den Canvas aufgenommen hat. Die Zeitspanne zwischen dem ursprünglichen Erfüllen der Zielgruppenkriterien und dem Herausfallen aus der Zielgruppe kann durch Verzögerungen verursacht werden durch: {::nomarkdown}<ul><li>Intelligentes Timing</li><li>Ruhezeiten</li><li>Ortszeit</li><li>Zustellgeschwindigkeits-Rate-Limits (nicht zutreffend für Canvas-Entry)</li><li>Messaging-Pipeline-Verzögerungen</li></ul>{:/} |
 | Nutzer:in nicht für Schritt berechtigt | Die/Der Nutzer:in hat die festgelegten [Zustellungsvalidierungen]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations) für den Nachrichtenschritt nicht erfüllt oder war Teil einer [Unterdrückungsliste]({{site.baseurl}}/user_guide/audience/suppression_lists). Abhängig von den Einstellungen der **Zustellungsvalidierungen** hat die/der Nutzer:in den Canvas möglicherweise verlassen oder ist zum nächsten Schritt weitergegangen. |
 | Nutzer:in nicht wiederberechtigt | Die/Der Nutzer:in war berechtigt, die Nachricht zu erhalten oder den Canvas zu betreten, aber der Versand wurde aufgrund von Wiederberechtigungs- oder Wiedereintrittseinstellungen abgebrochen. Dies kann passieren, wenn die/der Nutzer:in die Campaign bereits zu kürzlich erhalten hat oder in den Canvas eingetreten ist, wenn ein anderer Versand für dieselbe Campaign bereits für diese/n Nutzer:in läuft, oder wenn die Wiederberechtigung oder der Wiedereintritt deaktiviert ist. |
-| Nutzerprofil nicht gefunden | Die/Der Nutzer:in hat entweder nie existiert oder existiert nicht mehr in Braze. Häufige Fälle umfassen: {::nomarkdown}<ul><li> Die/Der Nutzer:in wurde über API-Messaging angesprochen, existierte aber nie in Braze. </li><li>Die/Der Nutzer:in wurde gelöscht, bevor die Nachricht gesendet oder der Canvas-Schritt ausgeführt wurde. </li><li>Die/Der Nutzer:in wurde mit einem anderen Profil zusammengeführt, bevor die Nachricht gesendet wurde.</li></ul>{:/} |
+| Kundenprofil nicht gefunden | Die/Der Nutzer:in hat entweder nie existiert oder existiert nicht mehr in Braze. Häufige Fälle umfassen: {::nomarkdown}<ul><li> Die/Der Nutzer:in wurde über API-Messaging angesprochen, existierte aber nie in Braze. </li><li>Die/Der Nutzer:in wurde gelöscht, bevor die Nachricht gesendet oder der Canvas-Schritt ausgeführt wurde. </li><li>Die/Der Nutzer:in wurde mit einem anderen Profil zusammengeführt, bevor die Nachricht gesendet wurde.</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Nutzerberechtigung und Profil" }
 
 #### Kanal und Zustellung {#channel-and-delivery}

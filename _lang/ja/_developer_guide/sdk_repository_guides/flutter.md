@@ -93,7 +93,7 @@ _braze.changeUser("Jane Doe");
 | :----------------------------------------------------------- | :------------------------ |
 | Dart                                                         | 2.17.0+                   |
 | Flutter（CocoaPods経由の統合）                                 | 1.10.0+                   |
-| Flutter（CocoaPodsまたはSwift Package Manager経由の統合）       | 3.24.0+                   |
+| Flutter（CocoaPodsまたはSwift Package マネージャー経由の統合）       | 3.24.0+                   |
 | iOSデプロイメントターゲット                                     | 12.0+                     |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="バージョンサポート" }
 

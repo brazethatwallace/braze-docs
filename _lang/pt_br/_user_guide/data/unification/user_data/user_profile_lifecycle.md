@@ -47,7 +47,7 @@ Os benefícios adicionais de usar um `external_id` incluem:
 Usar um endereço de e-mail ou um endereço de e-mail com hash como seu ID externo da Braze pode simplificar o gerenciamento de identidade em suas fontes de dados. No entanto, é importante considerar os riscos potenciais para a privacidade do usuário e a segurança dos dados.
 
 - **Informação previsível:** endereços de e-mail são facilmente previsíveis, tornando-os vulneráveis a ataques.
-- **Risco de exploração:** se um usuário mal-intencionado alterar seu navegador web para enviar o endereço de e-mail de outra pessoa como seu ID externo, ele poderá acessar mensagens confidenciais ou informações da conta.
+- **Risco de exploração:** se um usuário mal-intencionado alterar seu navegador de internet para enviar o endereço de e-mail de outra pessoa como seu ID externo, ele poderá acessar mensagens confidenciais ou informações da conta.
 
 ### O que acontece quando você identifica usuários anônimos {#what-happens-when-you-identify-anonymous-users}
 

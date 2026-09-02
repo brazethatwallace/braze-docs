@@ -67,11 +67,11 @@ Les valeurs des champs `external_source` et `external_source_id` doivent être u
 1. Nouveaux utilisateurs Punchh<br>
 Créez de nouveaux utilisateurs dans Punchh avec un endpoint d'inscription Punchh en utilisant les champs `external_source` et `external_source_id`. Punchh permet d'envoyer des identifiants externes avec un profil utilisateur via l'un des endpoints d'inscription suivants :
 - [API d'inscription mobile](https://developers.punchh.com/docs/dev-portal-mobile/2e67abf6f8e12-sign-up-register)
-- [API d'inscription SSO](https://developers.punchh.com/docs/dev-portal-online-ordering/58f18dfdd2a3d-signup-with-email-and-password)<br><br>
+- [API d'inscription authentification unique](https://developers.punchh.com/docs/dev-portal-online-ordering/58f18dfdd2a3d-signup-with-email-and-password)<br><br>
 2. Utilisateurs Punchh existants <br>
 Mettez à jour l'`external_source_id` pour les utilisateurs Punchh existants. Punchh permet d'ajouter des identifiants externes à un profil via un endpoint de mise à jour de l'API utilisateur :
 - [Mise à jour utilisateur mobile](https://developers.punchh.com/docs/dev-portal-mobile/c9b928e35a6f3-update-user-profile)
-- [Mise à jour utilisateur SSO](https://developers.punchh.com/docs/dev-portal-online-ordering/eef4eef6c97a0-update-user-information)
+- [Mise à jour utilisateur authentification unique](https://developers.punchh.com/docs/dev-portal-online-ordering/eef4eef6c97a0-update-user-information)
 - [Mise à jour utilisateur tableau de bord](https://developers.punchh.com/docs/dev-portal-platform-functions/6351feaf591aa-update-a-user)
 <br><br>
 {% tabs local %}
@@ -148,7 +148,7 @@ Travaillez avec votre responsable de déploiement Punchh pour configurer cet ada
 Pour configurer l'intégration Braze et Punchh, procédez comme suit :
 
 1. Dans le tableau de bord Punchh, accédez à **Cockpit** > **Dashboard** > **Major Features** > **Enable Webhook Management** et activez **Enable Webhook Management**.<br><br>
-2. Ensuite, activez les adaptateurs en accédant à **Settings** > **Webhooks Manager** > **Configurations** > **Show Adapters Tab** et activez **Show Adapters Tab**.<br><br>
+2. Ensuite, activez les adaptateurs en accédant à **Settings** > **Webhooks gestionnaire** > **Configurations** > **Show Adapters Tab** et activez **Show Adapters Tab**.<br><br>
 3. Accédez à **Webhooks Manager** sous l'onglet **Settings**, sélectionnez l'onglet **Adapters**, puis cliquez sur **Create Adapter**. <br><br>![Onglet Adapters du gestionnaire de webhooks Punchh avec l'option Create Adapter sélectionnée.]({% image_buster /assets/img/punchh/punchh1.png %})<br><br>
 4. Renseignez le nom de l'adaptateur, la description et l'e-mail de l'administrateur. Sélectionnez **Braze** comme adaptateur et fournissez votre endpoint REST API Braze et votre clé API Braze.<br><br>
 5. Ensuite, sélectionnez les événements disponibles que vous souhaitez activer. Une liste de ces événements est disponible dans [Événements disponibles à synchroniser](#available-events-to-sync).<br><br>![Paramètres de l'adaptateur Punchh affichant les événements sélectionnables pour la synchronisation avec Braze.]({% image_buster /assets/img/punchh/punchh3.png %})<br><br>

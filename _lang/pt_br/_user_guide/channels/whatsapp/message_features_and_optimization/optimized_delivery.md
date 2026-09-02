@@ -57,7 +57,7 @@ A entrega otimizada deve ser usada para **mensagens de marketing**. A Braze remo
 
 Como a API MM para WhatsApp não oferece 100% de entregabilidade, é importante entender como redirecionar usuários que podem não ter recebido sua mensagem em outros canais.
 
-Para redirecionar usuários, recomendamos criar um Segment de usuários que não receberam uma mensagem específica. Para isso, filtre pelo código de erro `131049`, que indica que uma mensagem de modelo de marketing não foi enviada devido ao limite de modelo de marketing por usuário aplicado pelo WhatsApp. Você pode fazer isso usando Braze Currents ou extensões de segmento SQL:
+Para redirecionar usuários, recomendamos criar um Segment de usuários que não receberam uma mensagem específica. Para isso, filtre pelo código de erro `131049`, que indica que uma mensagem de modelo de marketing não foi enviada devido ao limite de modelo de marketing por usuário aplicado pelo WhatsApp. Você pode fazer isso usando Braze Currents ou extensões de Segment SQL:
 
 - **Braze Currents:** Exporte eventos de falha de mensagem usando Braze Currents. Depois, você pode usar esses dados para atualizar um atributo personalizado no perfil de usuário (como `whatsapp_failed_last_msg: true`), que pode ser usado como filtro para sua Campaign de redirecionamento.
-- **Extensões de segmento SQL:** Se você tiver acesso a esse recurso, pode usar SQL para consultar os logs de falha de mensagem e criar um Segment desses usuários. Então, direcione esse Segment em um canal diferente.
+- **Extensões de Segment SQL:** Se você tiver acesso a esse recurso, pode usar SQL para consultar os logs de falha de mensagem e criar um Segment desses usuários. Então, direcione esse Segment em um canal diferente.

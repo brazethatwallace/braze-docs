@@ -18,7 +18,7 @@ Wenn Ihre iOS-App `RCTAppDelegate` implementiert und Sie unserer bisherigen `App
 
 Braze veröffentlicht keine separaten Mindestversionen für React über das hinaus, was das React Native SDK unterstützt. Um das SDK zu integrieren, verwenden Sie React Native Version 0.71 oder höher. Die vollständige Liste der unterstützten React Native-Versionen finden Sie im [React Native SDK GitHub-Repository](https://github.com/braze-inc/braze-react-native-sdk?tab=readme-ov-file#version-support).
 
-Wenn Sie React, React Native oder das Braze SDK aktualisieren, überprüfen Sie das SDK-[CHANGELOG](https://github.com/braze-inc/braze-react-native-sdk/blob/master/CHANGELOG.md) auf Breaking Changes, bevor Sie Ihre Änderungen bereitstellen.
+Wenn Sie React, React Native oder das Braze SDK aktualisieren, überprüfen Sie das SDK-[Changelog](https://github.com/braze-inc/braze-react-native-sdk/blob/master/CHANGELOG.md) auf Breaking Changes, bevor Sie Ihre Änderungen bereitstellen.
 
 ## Integration des React Native SDK {#integrating-the-react-native-sdk}
 

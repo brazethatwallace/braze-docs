@@ -26,7 +26,7 @@ Braze verwendet Hintergrund-Push-Benachrichtigungen, um Uninstall-Tracking-Analy
 
 ## Schritt 3: Vom Dashboard aus testen {#step-3-test-from-the-dashboard}
 
-Senden Sie sich als Nächstes einen Test-Push über das Dashboard. Dieser Test-Push aktualisiert Ihr Nutzerprofil nicht.
+Senden Sie sich als Nächstes einen Test-Push über das Dashboard. Dieser Test-Push aktualisiert Ihr Kundenprofil nicht.
 
 1. Erstellen Sie auf der Seite **Campaigns** eine Push-Benachrichtigungs-Campaign und wählen Sie **iOS push** als Ihre Plattform aus.<br><br>
 2. Fügen Sie auf der Seite **Settings** den Schlüssel `appboy_uninstall_tracking` mit dem entsprechenden Wert `true` hinzu und aktivieren Sie **Add Content-Available Flag**.<br><br>

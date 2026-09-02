@@ -126,7 +126,7 @@ Un aperçu dans le panneau de droite sera renseigné avec les informations d'env
 
 Sous **Sending Settings** > **Advanced**, activez **inline CSS** pour la prise en charge la plus large des clients de messagerie. Si les messages sont tronqués ou si les images s'étirent à la hauteur de la ligne, essayez de désactiver temporairement l'insertion CSS. Certains modèles fonctionnent mieux sans insertion.
 
-Vous pouvez également ajouter une personnalisation pour les en-têtes d'e-mail et des extras d'e-mail afin de renvoyer des données supplémentaires à d'autres fournisseurs de services d'e-mailing.
+Vous pouvez également ajouter une personnalisation pour les en-têtes d'e-mail et des extras d'e-mail afin de renvoyer des données supplémentaires à d'autres fournisseurs de services d'e-mail marketing.
 
 ##### Pièces jointes {#email-attachments}
 
@@ -162,7 +162,7 @@ Braze vous offre la flexibilité d'ajouter des en-têtes d'e-mail supplémentair
 </thead>
 <tbody>
   <tr>
-    <td>BCC</td>
+    <td>CCI</td>
     <td>dkim-signature</td>
     <td>Reply-To</td>
   </tr>
@@ -191,7 +191,7 @@ Braze vous offre la flexibilité d'ajouter des en-têtes d'e-mail supplémentair
 
 ##### Ajouter des extras d'e-mail {#adding-email-extras}
 
-Les extras d'e-mail vous permettent de renvoyer des données supplémentaires à d'autres fournisseurs de services d'e-mailing. Cela ne s'applique qu'à des cas d'usage avancés, vous ne devriez donc utiliser les extras d'e-mail que si votre entreprise a déjà mis cela en place.
+Les extras d'e-mail vous permettent de renvoyer des données supplémentaires à d'autres fournisseurs de services d'e-mail marketing. Cela ne s'applique qu'à des cas d'usage avancés, vous ne devriez donc utiliser les extras d'e-mail que si votre entreprise a déjà mis cela en place.
 
 Pour ajouter des extras d'e-mail, accédez aux **Sending Info** et sélectionnez **Add New Extra**.
 

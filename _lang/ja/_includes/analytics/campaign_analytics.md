@@ -1,12 +1,12 @@
 ## 分析を表示する {#viewing-analytics}
 
-キャンペーンを開始したら、そのキャンペーンの詳細ページに戻って主要な指標を確認できます。**キャンペーン**ページに移動し、キャンペーンを選択して詳細ページを開きます。{% if include.channel != "banner" %}{% if include.channel == "Content Card" %}Content Cards{% elsif include.channel == "banner" %}バナー{% elsif include.channel == "email" %}メール{% elsif include.channel == "in-app message" %}アプリ内メッセージ{% elsif include.channel == "KakaoTalk" %}KakaoTalkメッセージ{% elsif include.channel == "push" %}プッシュメッセージ{% elsif include.channel == "SMS" %}SMSメッセージ{% elsif include.channel == "whatsapp" %}WhatsAppメッセージ{% elsif include.channel == "webhook" %}webhook{% endif %}をキャンバスで送信した場合は、[キャンバス分析]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics)を参照してください。{% endif %}
+キャンペーンを開始したら、そのキャンペーンの詳細ページに戻って主要な指標を確認できます。**キャンペーン**ページに移動し、キャンペーンを選択して詳細ページを開きます。{% if include.channel != "banner" %}{% if include.channel == "Content カード" %}Content Cards{% elsif include.channel == "banner" %}バナー{% elsif include.channel == "email" %}メール{% elsif include.channel == "in-app message" %}アプリ内メッセージ{% elsif include.channel == "KakaoTalk" %}KakaoTalkメッセージ{% elsif include.channel == "push" %}プッシュメッセージ{% elsif include.channel == "SMS" %}SMSメッセージ{% elsif include.channel == "whatsapp" %}WhatsAppメッセージ{% elsif include.channel == "webhook" %}webhook{% endif %}をキャンバスで送信した場合は、[キャンバス分析]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics)を参照してください。{% endif %}
 
 {% alert tip %}
 レポートに記載されている用語や指標の定義をお探しですか？以下を参照してください。
   {% if include.channel == "email" %}[メール分析用語集]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary)
   {% elsif include.channel == "banner" %}[レポート指標用語集]({{site.baseurl}}/user_guide/analytics/metrics_glossary)でバナーによるフィルタリングを行ってください。
-  {% elsif include.channel == "Content Card" %}[レポート指標用語集]({{site.baseurl}}/user_guide/analytics/metrics_glossary)でContent Cardsによるフィルタリングを行ってください。
+  {% elsif include.channel == "Content カード" %}[レポート指標用語集]({{site.baseurl}}/user_guide/analytics/metrics_glossary)でContent Cardsによるフィルタリングを行ってください。
   {% elsif include.channel == "in-app message" %}[レポート指標用語集]({{site.baseurl}}/user_guide/analytics/metrics_glossary)でアプリ内メッセージによるフィルタリングを行ってください。
   {% elsif include.channel == "push" %}[レポート指標用語集]({{site.baseurl}}/user_guide/analytics/metrics_glossary)でプッシュによるフィルタリングを行ってください。
   {% elsif include.channel == "SMS" %}[レポート指標用語集]({{site.baseurl}}/user_guide/analytics/metrics_glossary)でSMS/MMSおよびRCSによるフィルタリングを行ってください。
@@ -24,7 +24,7 @@
 
 **キャンペーンの詳細**パネルには、
   {% if include.channel == "banner" %}バナー
-  {% elsif include.channel == "Content Card" %}コンテンツカード
+  {% elsif include.channel == "Content カード" %}コンテンツカード
   {% elsif include.channel == "email" %}メール
   {% elsif include.channel == "in-app message" %}アプリ内メッセージ
   {% elsif include.channel == "KakaoTalk" %}KakaoTalkメッセージ
@@ -46,7 +46,7 @@ WhatsAppチャネルには既読率が含まれます。この指標は既読通
 {% endalert %}
 {% endif %}
 
-{% if include.channel == "Content Card" %}
+{% if include.channel == "Content カード" %}
 ![キャンペーンのパフォーマンスを判断するために使用される指標の概要を含むキャンペーン詳細パネル。]({% image_buster /assets/img/cc-campaign-details.png %})
 
 {% elsif include.channel == "banner" %}
@@ -90,7 +90,7 @@ WhatsAppチャネルには既読率が含まれます。この指標は既読通
 
 サンプリングの動作、**正確な統計を計算**、**到達可能なユーザー**のセグメンテーションの詳細については、[セグメントサイズの測定]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size)を参照してください。
 
-{% if include.channel == "Content Card" %}
+{% if include.channel == "Content カード" %}
 
 #### コントロールグループ {#cc-control-group}
 
@@ -125,7 +125,7 @@ WhatsAppチャネルには既読率が含まれます。この指標は既読通
 
 The **Message Performance** panel outlines how well your message has performed across various dimensions. The metrics in this panel vary depending on your chosen messaging channel, and whether or not you are running a multivariate test. You can click on the <i class="fa fa-eye preview-icon"></i> **Preview** icon to view your message for each variant or channel.
 -->
-{% if include.channel == "Content Card" %}
+{% if include.channel == "Content カード" %}
 ### Content Cardsのパフォーマンス {#content-card-performance}
 
 **Content Cardsパフォーマンス**パネルでは、メッセージがさまざまな側面でどの程度のパフォーマンスを示したかを確認できます。このパネルの指標は、選択したメッセージングチャネルや、多変量テストを実行しているかどうかに応じて異なります。<i class="fa fa-eye preview-icon"></i>**プレビュー**アイコンをクリックすると、バリアントやチャネルごとにメッセージを表示できます。
@@ -240,7 +240,7 @@ The **Message Performance** panel outlines how well your message has performed a
 
 {% endif %}
 
-{% if include.channel == "Content Card" %}
+{% if include.channel == "Content カード" %}
 
 #### コンテンツカードの指標 {#content-card-metrics}
 
@@ -265,7 +265,7 @@ The **Message Performance** panel outlines how well your message has performed a
             <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#messages-sent">Messages Sent</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Messages Sent' %} <br><br>
                 この計算方法は、
-                <a href="/docs/user_guide/message_building_by_channel/content_cards/create/card_creation/#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression">カード作成</a> で選択した内容によって異なります：<br><br>
+                <a href="/docs/user_guide/message_building_by_channel/content_cards/create/card_creation/#differences-between-creating-cards-at-launch-or-エントリ-versus-at-first-impression">カード作成</a> で選択した内容によって異なります：<br><br>
                 <ul>
                     <li><b>開始時またはステップエントリ時：</b>作成され、閲覧可能なカードの数です。ユーザーがカードを閲覧したかどうかはカウントされません。</li>
                     <li><b>最初のインプレッション発生時：</b>ユーザーに表示されたカードの数です。</li>
@@ -358,7 +358,7 @@ _Messages Sent_は閲覧可能なContent Cardsを指し、_Unique Daily Impressi
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#primary-conversions">Primary Conversions</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or Primary Conversion Event' %}</td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or 1次コンバージョン Event' %}</td>
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-daily-impressions">Unique Daily Impressions</a></td>

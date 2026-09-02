@@ -149,7 +149,7 @@ También puedes ver las etiquetas de productos, metacampos y colecciones sincron
 ![Catálogo de Shopify con datos sincronizados.]({% image_buster /assets/img/shopify/synced_catalog.png %})
 
 {% alert important %}
-Si tu sincronización supera el límite de almacenamiento de tu catálogo, Braze dejará de sincronizar y las nuevas actualizaciones de productos ya no se reflejarán. Ponte en contacto con tu administrador de éxito de cliente para subir de nivel si es necesario.
+Si tu sincronización supera el límite de almacenamiento de tu catálogo, Braze dejará de sincronizar y las nuevas actualizaciones de productos ya no se reflejarán. Ponte en contacto con tu CSM para subir de nivel si es necesario.
 {% endalert %}
 
 ### Paso 5: Administra tu configuración {#step-5-manage-your-configuration}
@@ -202,7 +202,7 @@ Tu catálogo de Shopify está administrado por Shopify. Para actualizar tu catá
 Estos ejemplos de uso muestran cómo puedes utilizar los datos de tu catálogo de Shopify sincronizado para personalizar mensajes.
 
 {% alert warning %}
-Braze sincroniza hasta 250 variantes de cada producto de Shopify en tu catálogo. Las variantes que superen ese límite no se sincronizan. Si necesitas más de 250 variantes por producto, contacta con tu administrador de éxito de cliente de Braze.
+Braze sincroniza hasta 250 variantes de cada producto de Shopify en tu catálogo. Las variantes que superen ese límite no se sincronizan. Si necesitas más de 250 variantes por producto, contacta con tu CSM de Braze.
 {% endalert %}
 
 {% tabs %}

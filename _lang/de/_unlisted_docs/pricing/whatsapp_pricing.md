@@ -61,7 +61,7 @@ WhatsApp nimmt ab dem 1. Juli 2025 zwei weitere Änderungen an der Preisgestaltu
 
 #### Warum wird diese Änderung vorgenommen? {#why-are-they-making-this-change}
 
-Meta wechselt zu einem „Pro-Nachricht“-Modell, um Marken die Berechnung des Return-on-Investment (ROI) zu vereinfachen. Diese Änderung erleichtert es Marken außerdem, direkte ROI-Vergleiche mit anderen Kanälen anzustellen, die pro Nachricht abgerechnet werden.
+Meta wechselt zu einem „Pro-Nachricht“-Modell, um Marken die Berechnung des Return-on-Investment (Kapitalrendite) zu vereinfachen. Diese Änderung erleichtert es Marken außerdem, direkte Kapitalrendite-Vergleiche mit anderen Kanälen anzustellen, die pro Nachricht abgerechnet werden.
 
 #### Wie wirkt sich das auf meine aktuelle WhatsApp-Nutzung aus? {#how-will-this-affect-my-current-whatsapp-usage}
 
@@ -186,4 +186,4 @@ Detaillierte Informationen zur Senkung der Utility-Conversations finden Sie im f
 | Vereinigtes Königreich                     | 44,7 %                   |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-Um besser zu verstehen, wie Sie von diesen Updates profitieren können, wenden Sie sich an Ihren Customer-Success-Manager.
+Um besser zu verstehen, wie Sie von diesen Updates profitieren können, wenden Sie sich an Ihren CSM.

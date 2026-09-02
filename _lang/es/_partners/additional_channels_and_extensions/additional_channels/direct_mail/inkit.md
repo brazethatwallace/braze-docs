@@ -88,7 +88,7 @@ Asegúrate de que tu Liquid coincide con los atributos personalizados adecuados 
 
 El texto sin formato se resaltará automáticamente si se trata de una etiqueta de Braze aplicable. `street`, `unit`, `state` y `zip` deben configurarse como [atributos personalizados]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#custom-attributes) para enviar este webhook.
 
-Previsualiza tu solicitud en el panel de **Preview** o ve a la pestaña de **Test**, donde puedes seleccionar un usuario al azar, un usuario existente o personalizar el tuyo propio para probar tu webhook.
+Previsualiza tu solicitud en el panel de **vista previa** o ve a la pestaña de **Test**, donde puedes seleccionar un usuario al azar, un usuario existente o personalizar el tuyo propio para probar tu webhook.
 
 {% alert important %}
 Recuerda guardar tu plantilla antes de salir de la página. <br>Las plantillas de webhook actualizadas pueden encontrarse en la lista **Plantillas de Webhook guardadas** al crear una nueva [campaña de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).

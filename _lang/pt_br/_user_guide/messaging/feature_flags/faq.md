@@ -24,11 +24,11 @@ A Braze oferece suporte a feature flags nas plataformas iOS, Android e web com o
 
 Precisa de suporte em outras plataformas? Envie um e-mail para nossa equipe: [feature-flags-feedback@braze.com](mailto:feature-flags-feedback@braze.com).
 
-### Qual é o nível de esforço envolvido na implementação de um feature flag? {#level-of-effort}
+### Qual é o nível de esforço envolvido na implementação de um Feature Flag? {#level-of-effort}
 
-Um feature flag pode ser criado e integrado em poucos minutos.
+Um Feature Flag pode ser criado e integrado em poucos minutos.
 
-A maior parte do esforço estará relacionada à equipe de engenharia construindo o novo recurso que você planeja lançar. Quando se trata de adicionar um feature flag, é tão simples quanto uma instrução `IF`/`ELSE` no código do seu app ou website:
+A maior parte do esforço estará relacionada à equipe de engenharia construindo o novo recurso que você planeja lançar. Quando se trata de adicionar um Feature Flag, é tão simples quanto uma instrução `IF`/`ELSE` no código do seu app ou website:
 
 {% tabs %}
 {% tab JavaScript %}
@@ -79,7 +79,7 @@ Por exemplo, com os feature flags da Braze, você pode lançar um novo programa 
 
 As equipes de produto podem usar feature flags para realizar lançamentos graduais ou soft launches de novos recursos, monitorando KPIs e feedback de clientes antes de disponibilizar para todos os usuários.
 
-As equipes de produto podem usar [propriedades de feature flag]({{site.baseurl}}/developer_guide/feature_flags/create#accessing-properties) para popular remotamente conteúdo em um app, como deep links, texto, imagens ou outro conteúdo dinâmico.
+As equipes de produto podem usar [propriedades de Feature Flag]({{site.baseurl}}/developer_guide/feature_flags/create#accessing-properties) para popular remotamente conteúdo em um app, como deep links, texto, imagens ou outro conteúdo dinâmico.
 
 Usando a etapa Feature Flag do Canvas, as equipes de produto também podem executar um teste A/B para medir como um novo recurso impacta as taxas de conversão em comparação com usuários que não têm o recurso ativado.
 
@@ -87,7 +87,7 @@ Usando a etapa Feature Flag do Canvas, as equipes de produto também podem execu
 
 As equipes de engenharia podem usar feature flags para reduzir o risco inerente ao lançamento de novos recursos e evitar a necessidade de implantar correções de código de última hora durante a madrugada.
 
-Ao lançar um novo código oculto por trás de um feature flag, sua equipe pode ativar ou desativar o recurso remotamente a partir do dashboard da Braze, evitando o atraso de publicar novo código ou aguardar a aprovação de uma atualização na app store.
+Ao lançar um novo código oculto por trás de um Feature Flag, sua equipe pode ativar ou desativar o recurso remotamente a partir do dashboard da Braze, evitando o atraso de publicar novo código ou aguardar a aprovação de uma atualização na app store.
 
 ## Lançamentos de recursos e direcionamento {#feature-rollouts-and-targeting}
 

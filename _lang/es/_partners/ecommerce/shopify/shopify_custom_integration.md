@@ -146,7 +146,7 @@ Las políticas de seguridad de contenido (generalmente ubicadas en el archivo `e
 Realiza el seguimiento de cuándo un comprador inicia sesión en su cuenta y sincroniza su información de usuario con Braze. Esto incluye llamar a nuestro método `changeUser` para identificar a los clientes con un ID externo de Braze.
 
 {% alert note %}
-Actualmente no tenemos orientación para soportar un ID externo de Braze personalizado. Si lo necesitas para tu integración ahora, contacta a tu administrador de éxito de cliente.
+Actualmente no tenemos orientación para soportar un ID externo de Braze personalizado. Si lo necesitas para tu integración ahora, contacta a tu CSM.
 {% endalert %}
 
 Antes de empezar, asegúrate de haber configurado los URI de devolución de llamada para que el inicio de sesión de clientes funcione dentro de Hydrogen. Para más información, consulta [Usar la API de cuenta de cliente con Hydrogen](https://shopify.dev/docs/storefronts/headless/building-with-the-customer-account-api/hydrogen).
@@ -590,7 +590,7 @@ Ve a la página del partner de Shopify para iniciar tu configuración. Primero, 
 
 Para tiendas Shopify Hydrogen o headless, selecciona la opción **Custom setup**.
 
-La configuración personalizada incluye un selector de aplicación de sitio web. Selecciona o crea la aplicación que impulsa tu tienda en línea, luego copia la clave de API y el punto final de SDK que se muestran en el paso de incorporación. Para más detalles, consulta [Paso 1: Selecciona una aplicación de sitio web y copia las credenciales del SDK](#step-1).
+La configuración personalizada incluye un SELECTOR de aplicación de sitio web. Selecciona o crea la aplicación que impulsa tu tienda en línea, luego copia la clave de API y el punto final de SDK que se muestran en el paso de incorporación. Para más detalles, consulta [Paso 1: Selecciona una aplicación de sitio web y copia las credenciales del SDK](#step-1).
 
 Antes de continuar con el proceso de incorporación, confirma que has añadido el SDK de Braze a tu sitio web de Shopify utilizando esas credenciales.
 

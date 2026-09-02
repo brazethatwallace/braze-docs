@@ -14,7 +14,7 @@ description: "Dieser Referenzartikel erläutert den Unterschied zwischen Snapsho
 
 Ein Snapshot repräsentiert den Zustand einer Kund:in zu einem bestimmten Zeitpunkt. Er beantwortet die Frage: „Wie sieht diese Kund:in gerade aus?“
 
-Ein Snapshot ist statisch und aggregiert. Er spiegelt das kumulative Ergebnis aller Änderungen bis zu diesem Zeitpunkt wider. Dies eignet sich am besten für Kundenprofile, berechnete Features (zum Beispiel „Tage seit dem letzten Kauf“, „Treuestufe“, „Churn-Score“).
+Ein Snapshot ist statisch und aggregiert. Er spiegelt das kumulative Ergebnis aller Änderungen bis zu diesem Zeitpunkt wider. Dies eignet sich am besten für Kundenprofile, berechnete Features (zum Beispiel „Tage seit dem letzten Kauf“, „Treuestufe“, „Abwanderung-Score“).
 
 ### Erforderliche Felder {#required-fields}
 

@@ -45,7 +45,7 @@ Antes de usar esse recurso, você precisará concluir o seguinte:
 
 | Requisito | Descrição |
 | ----------- | ----------- |
-| Acesso à Braze | Para acessar esse recurso na Braze, você precisará entrar em contato com o gerente de conta da Braze ou o gerente de sucesso do cliente. |
+| Acesso à Braze | Para acessar esse recurso na Braze, você precisará entrar em contato com o gerente de conta da Braze ou o CSM. |
 | Conta Snowflake | Uma conta Snowflake com permissões de `admin`. Para clientes não HIPAA, o Snowflake Standard ou Enterprise Edition é suportado. Para compartilhamento de dados em conformidade com HIPAA, o Business Critical Edition é necessário. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 

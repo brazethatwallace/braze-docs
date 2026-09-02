@@ -113,7 +113,7 @@ Necesitarás desarrolladores que estén familiarizados con:
 
 ### Partners de integración de CDP {#cdp-integration-partners}
 
-Muchos clientes utilizan la incorporación a Braze como una oportunidad para integrarse también con una plataforma de datos de los clientes (CDP) como partner de integración. Braze proporciona seguimiento y análisis de datos, mientras que un CDP puede proporcionar enrutamiento y orquestación de datos adicionales. Braze ofrece una integración fluida con muchos CDP, como [mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle) y [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment).
+Muchos clientes utilizan la incorporación a Braze como una oportunidad para integrarse también con una CDP (CDP) como partner de integración. Braze proporciona seguimiento y análisis de datos, mientras que un CDP puede proporcionar enrutamiento y orquestación de datos adicionales. Braze ofrece una integración fluida con muchos CDP, como [mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle) y [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment).
 
 Si realizas una integración en paralelo con un CDP, mapearás las llamadas del SDK de tu CDP al SDK de Braze. Esencialmente, harás lo siguiente:
 * Mapear las llamadas de identificación a `changeUser` ([Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/change-user.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/changeuser(userid:sdkauthsignature:fileid:line:)/), [web](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser)) y establecer atributos.
@@ -235,7 +235,7 @@ Realizarás un seguimiento de las actualizaciones de la plataforma Braze a trav�
 
 Para los clientes que han adquirido Monthly Active Users CY 24-25, Universal MAU, Web MAU y Mobile MAU, Braze aplica límites de velocidad del lado del servidor en las solicitudes de API utilizadas por nuestros SDK para actualizar sesiones, atributos de usuario, eventos y otros datos del perfil de usuario. Esto es para garantizar la estabilidad de la plataforma y mantener un servicio rápido y fiable.
 
-* Los límites de velocidad por hora se establecen de acuerdo con el tráfico esperado del SDK en tu cuenta, que puede corresponder al número de usuarios activos al mes (MAU) que has adquirido, el sector, la estacionalidad u otros factores. Cuando se alcanza el límite de velocidad por hora, Braze limitará las solicitudes hasta la hora siguiente.
+* Los límites de velocidad por hora se establecen de acuerdo con el tráfico esperado del SDK en tu cuenta, que puede corresponder al número de MAU (MAU) que has adquirido, el sector, la estacionalidad u otros factores. Cuando se alcanza el límite de velocidad por hora, Braze limitará las solicitudes hasta la hora siguiente.
 * Todas las solicitudes con límite de velocidad son reintentadas automáticamente por el SDK.
 * Las solicitudes del SDK se correlacionan con la cantidad de datos personalizados recopilados en tu implementación. Si te encuentras constantemente cerca o en tu límite de velocidad por hora, considera:
     * Revisar tu integración de SDK para reducir la recopilación excesiva de datos.
@@ -251,7 +251,7 @@ Para el uso histórico, ve a **Configuración** > **API e identificadores** > **
 
 ### Solicitar límites de velocidad más altos {#requesting-higher-rate-limits}
 
-Si necesitas un límite de velocidad de Braze más alto, contacta con soporte de Braze o tu administrador de éxito de cliente e incluye los siguientes detalles:
+Si necesitas un límite de velocidad de Braze más alto, contacta con soporte de Braze o tu CSM e incluye los siguientes detalles:
 
 * Si necesitas un aumento temporal o permanente.
 * Por qué necesitas el aumento.
@@ -263,4 +263,4 @@ Después de enviar tu solicitud, Braze la revisa y te informa del resultado.
 
 ### Cambios y soporte {#changes-and-support}
 
-Braze puede modificar los límites de velocidad para proteger la estabilidad del sistema o permitir un mayor rendimiento de datos en tu cuenta. Contacta con soporte de Braze o tu administrador de éxito de cliente si tienes preguntas o inquietudes sobre los límites de velocidad y cómo afectan a tu negocio.
+Braze puede modificar los límites de velocidad para proteger la estabilidad del sistema o permitir un mayor rendimiento de datos en tu cuenta. Contacta con soporte de Braze o tu CSM si tienes preguntas o inquietudes sobre los límites de velocidad y cómo afectan a tu negocio.

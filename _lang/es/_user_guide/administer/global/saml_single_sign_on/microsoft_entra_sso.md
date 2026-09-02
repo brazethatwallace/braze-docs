@@ -1,15 +1,15 @@
 ---
-nav_title: SSO de Microsoft Entra
-article_title: SSO de Microsoft Entra
+nav_title: inicio de sesión único de Microsoft Entra
+article_title: inicio de sesión único de Microsoft Entra
 page_order: 2
 page_type: tutorial
 description: "Este artículo te guiará sobre cómo configurar las capacidades de inicio de sesión único de Microsoft Entra con Braze."
 
 ---
 
-# SSO de Microsoft Entra {#microsoft-entra-sso}
+# inicio de sesión único de Microsoft Entra {#microsoft-entra-sso}
 
-> [Microsoft Entra SSO](https://learn.microsoft.com/en-us/entra/identity/saas-apps/braze-tutorial) es el servicio de gestión de identidades y acceso basado en la nube de Microsoft, que ayuda a tus empleados a iniciar sesión y acceder a recursos. Puedes usar Entra SSO para controlar el acceso a tus aplicaciones y los recursos de tus aplicaciones, en función de tus requisitos empresariales.
+> [Microsoft Entra inicio de sesión único](https://learn.microsoft.com/en-us/entra/identity/saas-apps/braze-tutorial) es el servicio de gestión de identidades y acceso basado en la nube de Microsoft, que ayuda a tus empleados a iniciar sesión y acceder a recursos. Puedes usar Entra inicio de sesión único para controlar el acceso a tus aplicaciones y los recursos de tus aplicaciones, en función de tus requisitos empresariales.
 
 ## Requisitos {#requirements}
 
@@ -22,14 +22,14 @@ Durante la configuración, se te pedirá que proporciones una URL del servicio d
 | Clave de API de RelayState | Para habilitar el inicio de sesión del proveedor de identidad, ve a **Configuración** > **Claves de API** y crea una clave de API con permisos `sso.saml.login`. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos" }
 
-## Inicio de sesión iniciado por el proveedor de servicios (SP) en Microsoft Entra SSO {#service-provider-sp-initiated-login-within-microsoft-entra-sso}
+## Inicio de sesión iniciado por el proveedor de servicios (SP) en Microsoft Entra inicio de sesión único {#service-provider-sp-initiated-login-within-microsoft-entra-sso}
 
 ### Paso 1: Añade Braze desde la galería {#step-1-add-braze-from-the-gallery}
 
 1. En tu centro de administración de Microsoft Entra, ve a **Identity** > **Applications** > **Enterprise Applications** y selecciona **New application**.
 2. Busca **Braze** en el cuadro de búsqueda, selecciónalo en el panel de resultados y luego selecciona **Add**.
 
-### Paso 2: Configura Microsoft Entra SSO {#step-2-configure-microsoft-entra-sso}
+### Paso 2: Configura Microsoft Entra inicio de sesión único {#step-2-configure-microsoft-entra-sso}
 
 1. En tu centro de administración de Microsoft Entra, ve a la página de integración de la aplicación Braze y selecciona **Single sign-on**.
 2. En la página **Select a single sign-on method**, selecciona **SAML** como tu método.
@@ -39,7 +39,7 @@ Durante la configuración, se te pedirá que proporciones una URL del servicio d
 6. Configura el RelayState introduciendo tu clave de API de Relay State generada en el campo **Relay State**.
 
 {% alert important %}
-**No** configures el campo **Sign-On URL**. Deja este campo en blanco para evitar problemas con tu SAML SSO iniciado por IdP.
+**No** configures el campo **Sign-On URL**. Deja este campo en blanco para evitar problemas con tu SAML inicio de sesión único iniciado por IdP.
 {% endalert %}
 
 {: start="7"}
@@ -90,13 +90,13 @@ Puedes gestionar estas declaraciones de usuario y sus valores desde la sección 
 8. Ve a la página **Set up Single Sign-On with SAML**, luego desplázate hasta la sección **SAML Signing Certificate** y descarga el **Certificate (Base64)** apropiado según tus requisitos.
 9. Ve a la sección **Set up Braze** y copia las URL apropiadas para usarlas en la [configuración de Braze](#step-3).
 
-### Paso 3: Configura Microsoft Entra SSO dentro de Braze {#step-3}
+### Paso 3: Configura Microsoft Entra inicio de sesión único dentro de Braze {#step-3}
 
 Después de configurar Braze en el centro de administración de Microsoft Entra, Microsoft Entra proporciona una URL de destino (URL de inicio de sesión) y un certificado **x.509**, que introduces en tu cuenta de Braze.
 
-Después de que tu director de cuentas haya habilitado SAML SSO para tu cuenta, haz lo siguiente:
+Después de que tu director de cuentas haya habilitado SAML inicio de sesión único para tu cuenta, haz lo siguiente:
 
-1. Ve a **Configuración** > **Configuración de la empresa** > **Configuración de administrador** > **Configuración de seguridad** y alterna la sección SAML SSO a **ON**.
+1. Ve a **Configuración** > **Configuración de la empresa** > **Configuración de administrador** > **Configuración de seguridad** y alterna la sección SAML inicio de sesión único a **ON**.
 2. En la misma página, añade lo siguiente:
 
 | Requisito | Detalles |
@@ -104,8 +104,8 @@ Después de que tu director de cuentas haya habilitado SAML SSO para tu cuenta, 
 | `SAML Name` | Aparecerá como el texto del botón en la pantalla de inicio de sesión. Normalmente es el nombre de tu proveedor de identidad, como "Microsoft Entra". |
 | `Target URL` | Esta es la URL de inicio de sesión proporcionada por Microsoft Entra. |
 | `Certificate` | El certificado `x.509` codificado en PEM lo proporciona tu proveedor de identidad. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 3: Configura Microsoft Entra SSO dentro de Braze #step-3" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 3: Configura Microsoft Entra inicio de sesión único dentro de Braze #step-3" }
 
 {% alert tip %}
-Si quieres que los usuarios de tu cuenta de Braze solo inicien sesión con SAML SSO, puedes [restringir la autenticación de inicio de sesión único]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#restriction) en la página **Configuración de seguridad** en **Reglas de autenticación**.
+Si quieres que los usuarios de tu cuenta de Braze solo inicien sesión con SAML inicio de sesión único, puedes [restringir la autenticación de inicio de sesión único]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#restriction) en la página **Configuración de seguridad** en **Reglas de autenticación**.
 {% endalert %}

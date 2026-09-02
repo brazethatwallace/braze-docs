@@ -13,7 +13,7 @@ channel: email
 
 ## Was passiert, wenn eine E-Mail gesendet wird und mehrere Profile dieselbe E-Mail-Adresse haben? {#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address}
 
-Wenn sich mehrere Nutzer:innen mit übereinstimmenden E-Mail-Adressen in einem Segment befinden, das eine Campaign erhalten soll, wird zum Sendezeitpunkt ein einzelnes Nutzerprofil mit dieser E-Mail-Adresse ausgewählt. Auf diese Weise wird die E-Mail nur einmal gesendet und dedupliziert, sodass sie nicht mehrfach an dieselbe E-Mail-Adresse zugestellt wird.
+Wenn sich mehrere Nutzer:innen mit übereinstimmenden E-Mail-Adressen in einem Segment befinden, das eine Campaign erhalten soll, wird zum Sendezeitpunkt ein einzelnes Kundenprofil mit dieser E-Mail-Adresse ausgewählt. Auf diese Weise wird die E-Mail nur einmal gesendet und dedupliziert, sodass sie nicht mehrfach an dieselbe E-Mail-Adresse zugestellt wird.
 
 **Eindeutige E-Mail-Adressen:** Braze erzwingt keine eindeutigen E-Mail-Adressen über Profile hinweg. Wenn Sie sich auf eine Eins-zu-eins-Beziehung zwischen einer E-Mail-Adresse und einem Profil verlassen, überwachen Sie beim Erstellen von Nutzer:innen intern auf Duplikate.
 
@@ -32,7 +32,7 @@ Die folgenden Szenarien können den Eindruck erwecken, dass ein:e Nutzer:in eine
 
 Diese Deduplizierung gilt, wenn angesprochene Nutzer:innen sich im selben Versand befinden. Die erneute Berechtigung wird pro Profil bewertet, nicht pro E-Mail-Adresse.
 
-Die erneute Berechtigung für E-Mail-Campaigns und Canvas-Schritte verwendet jedes Nutzerprofil – nicht den Posteingang – sodass mehrere Profile für separate Sendungen qualifiziert sein können, solange diese Logik erfüllt ist. In Kombination mit Triggern kann dies mehr als eine Nachricht an denselben Posteingang zustellen, auch wenn Sie versuchen, eine einzige Sperrfrist auf Adressebene einzuhalten. Getriggerte Campaigns (ausgenommen API-getriggerte Campaigns) und Canvases können ebenfalls zweimal an eine Adresse senden, wenn verschiedene Profile mit übereinstimmenden E-Mail-Adressen den Trigger zu unterschiedlichen Zeitpunkten erfüllen – zum Beispiel wenn Nutzer:in A und Nutzer:in B `johndoe@example.com` teilen, sich aber in verschiedenen Zeitzonen befinden und die Zustellung Ortszeitzonen verwendet.
+Die erneute Berechtigung für E-Mail-Campaigns und Canvas-Schritte verwendet jedes Kundenprofil – nicht den Posteingang – sodass mehrere Profile für separate Sendungen qualifiziert sein können, solange diese Logik erfüllt ist. In Kombination mit Triggern kann dies mehr als eine Nachricht an denselben Posteingang zustellen, auch wenn Sie versuchen, eine einzige Sperrfrist auf Adressebene einzuhalten. Getriggerte Campaigns (ausgenommen API-getriggerte Campaigns) und Canvases können ebenfalls zweimal an eine Adresse senden, wenn verschiedene Profile mit übereinstimmenden E-Mail-Adressen den Trigger zu unterschiedlichen Zeitpunkten erfüllen – zum Beispiel wenn Nutzer:in A und Nutzer:in B `johndoe@example.com` teilen, sich aber in verschiedenen Zeitzonen befinden und die Zustellung Ortszeitzonen verwendet.
 
 Nutzer:innen werden beim Canvas-Eintritt nicht nach E-Mail-Adresse dedupliziert, sodass sie über den ersten Schritt eines Canvas hinaus möglicherweise nicht dedupliziert werden, wenn sie aufgrund eines ratenlimitierten Eintritts zu leicht unterschiedlichen Zeitpunkten fortschreiten. Wenn ein:e Nutzer:in, die:der einer bestimmten E-Mail-Adresse zugeordnet ist, eine E-Mail öffnet oder anklickt, werden alle Nutzerprofile, die diese E-Mail-Adresse teilen, als geöffnet oder geklickt markiert.
 
@@ -42,7 +42,7 @@ API-getriggerte Campaigns deduplizieren oder senden Duplikate, je nachdem, wo di
 
 - **Szenario 1: Doppelte E-Mails im Zielsegment:** Wenn dieselbe E-Mail in mehreren Nutzerprofilen erscheint, die in den Zielgruppenfiltern des Dashboards für eine API-getriggerte Campaign gruppiert sind, erhält nur eines der Profile die E-Mail.
 - **Szenario 2: Doppelte E-Mails in verschiedenen `user_ids` innerhalb des Empfängerobjekts:** Wenn dieselbe E-Mail in mehreren `external_user_id`-Werten erscheint, die vom `recipients`-Objekt referenziert werden, wird die E-Mail zweimal gesendet.
-- **Szenario 3: Doppelte E-Mails durch doppelte `user_ids` innerhalb des Empfängerobjekts:** Wenn Sie versuchen, dasselbe Nutzerprofil zweimal hinzuzufügen, erhält nur eines der Profile die E-Mail.
+- **Szenario 3: Doppelte E-Mails durch doppelte `user_ids` innerhalb des Empfängerobjekts:** Wenn Sie versuchen, dasselbe Kundenprofil zweimal hinzuzufügen, erhält nur eines der Profile die E-Mail.
 
 {% alert important %}
 Wenn Sie eine API-Campaign über einen API-Aufruf senden (ausgenommen API-getriggerte Campaigns) und mehrere Nutzer:innen im Segmentpublikum mit derselben E-Mail-Adresse angegeben sind, wird an diese Adresse so oft gesendet, wie im Aufruf aufgelistet. Dies liegt daran, dass API-Aufrufe als absichtlich konstruiert angenommen werden.
@@ -110,9 +110,9 @@ Bei der Analyse von E-Mail-Metriken beachten Sie, dass Weiterleitungsaktivitäte
 
 ### Kann eine gesendete E-Mail-Campaign oder ein Canvas zurückgerufen werden? {#can-a-sent-email-campaign-or-canvas-be-recalled}
 
-Nein. Nachdem Braze eine Sendeanfrage an Ihren E-Mail-Anbieter (ESP) übergeben hat, kann diese Sendung nicht zurückgerufen werden. Nachdem die Nachricht im Posteingang des:der Empfänger:in ist, kann sie ebenfalls nicht entfernt werden.
+Nein. Nachdem Braze eine Sendeanfrage an Ihren E-Mail-Anbieter (E-Mail-Anbieter) übergeben hat, kann diese Sendung nicht zurückgerufen werden. Nachdem die Nachricht im Posteingang des:der Empfänger:in ist, kann sie ebenfalls nicht entfernt werden.
 
-Um weitere Sendungen zu stoppen, wählen Sie **Campaign stoppen** oder **Canvas stoppen**. Nachrichten, die bereits an den ESP übergeben wurden, können trotzdem zugestellt werden. Weitere Details finden Sie unter [Was passiert, wenn eine E-Mail-Campaign oder ein Canvas gestoppt wird?](#what-happens-when-an-email-campaign-or-canvas-is-stopped).
+Um weitere Sendungen zu stoppen, wählen Sie **Campaign stoppen** oder **Canvas stoppen**. Nachrichten, die bereits an den E-Mail-Anbieter übergeben wurden, können trotzdem zugestellt werden. Weitere Details finden Sie unter [Was passiert, wenn eine E-Mail-Campaign oder ein Canvas gestoppt wird?](#what-happens-when-an-email-campaign-or-canvas-is-stopped).
 
 ### Was passiert, wenn eine E-Mail-Campaign oder ein Canvas gestoppt wird? {#what-happens-when-an-email-campaign-or-canvas-is-stopped}
 
@@ -120,7 +120,7 @@ Nutzer:innen werden daran gehindert, das Canvas zu betreten, und es werden keine
 
 Bei E-Mail-Campaigns und Canvases stoppt die Stopp-Schaltfläche den Versand nicht sofort. Wenn die Sendeanfragen gesendet wurden, können sie nicht daran gehindert werden, an die Nutzer:innen zugestellt zu werden, was mit einer gewissen Verzögerung geschehen kann.
 
-Obwohl Braze keine weiteren Anfragen sendet, sobald die Campaign oder das Canvas gestoppt wurde, können die Analytics noch steigen, während der ESP bereits laufende Anfragen weiter verarbeitet.
+Obwohl Braze keine weiteren Anfragen sendet, sobald die Campaign oder das Canvas gestoppt wurde, können die Analytics noch steigen, während der E-Mail-Anbieter bereits laufende Anfragen weiter verarbeitet.
 
 ### Warum sehe ich mehr _Gesamtklicks_ als _Gesamtöffnungen_ in meinen E-Mail-Analytics? {#why-am-i-seeing-more-_total-clicks_-than-_total-opens_-in-my-email-analytics}
 
@@ -235,7 +235,7 @@ Weitere Details dazu, wie serverseitiges Scannen E-Mail-Metriken beeinflussen ka
 
 ### Warum hat sich meine Machine-Open-Rate unerwartet verändert? {#why-has-my-machine-open-rate-changed-unexpectedly}
 
-[Machine Opens]({{site.baseurl}}/user_guide/analytics/metrics_glossary#machine-opens) werden durch E-Mail-Sicherheitsfunktionen wie den E-Mail-Datenschutz von Apple Mail (MPP) ausgelöst, der E-Mail-Inhalte (einschließlich des Tracking-Pixels) vorab lädt, ohne dass der:die Nutzer:in die E-Mail physisch öffnet. Machine-Open-Raten können schwanken aufgrund von:
+[Machine Opens]({{site.baseurl}}/user_guide/analytics/metrics_glossary#machine-opens) werden durch E-Mail-Sicherheitsfunktionen wie den E-Mail-Datenschutz von Apple Mail (E-Mail-Datenschutz) ausgelöst, der E-Mail-Inhalte (einschließlich des Tracking-Pixels) vorab lädt, ohne dass der:die Nutzer:in die E-Mail physisch öffnet. Machine-Open-Raten können schwanken aufgrund von:
 
 - Änderungen im Anteil Ihrer Zielgruppe, die Apple Mail oder andere datenschutzfähige E-Mail-Clients verwenden.
 - Aktualisierungen der Datenschutzfunktionen oder des Bot-Erkennungsverhaltens von E-Mail-Anbietern.
@@ -261,7 +261,7 @@ Wie sich dies auf die Attribution im **Conversion Dashboard** auswirkt, erfahren
 
 ### Warum stimmt mein E-Mail-Zustellvolumen nicht mit meinem Sendevolumen überein? {#why-does-my-email-delivery-volume-not-match-my-send-volume}
 
-Nachdem eine E-Mail gesendet wurde, entscheidet der Posteingang des:der Empfänger:in, wann sie zugestellt wird. Nachrichten können aufgrund eines vollen Postfachs, ESP-Drosselung von einer bestimmten IP und ähnlichen Gründen für Stunden oder Tage zurückgestellt werden.
+Nachdem eine E-Mail gesendet wurde, entscheidet der Posteingang des:der Empfänger:in, wann sie zugestellt wird. Nachrichten können aufgrund eines vollen Postfachs, E-Mail-Anbieter-Drosselung von einer bestimmten IP und ähnlichen Gründen für Stunden oder Tage zurückgestellt werden.
 
 Wenn zurückgestellte Nachrichten an einem anderen Kalendertag als dem Sendetag zugestellt werden, können _Zustellungen_ die _Sendungen_ für denselben Zeitraum übersteigen. Wenn viele Zurückstellungen an einem Tag landen, können _Sendungen_ die _Zustellungen_ für diesen Zeitraum übersteigen.
 
@@ -333,15 +333,15 @@ Weitere Informationen finden Sie unter [Bounces und ungültige E-Mails]({{site.b
 
 Wenn Ihre E-Mails verzögert, zurückgestellt oder zurückgewiesen werden, überprüfen Sie das [Nachrichtenaktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) auf Bounce- und Zurückstellungsdetails und identifizieren Sie dann, wo das Problem in der Zustellkette auftritt. Häufige Zustellbarkeitsprobleme fallen in vier Kategorien:
 
-#### ESP-Rate-Limit-Antworten lesen {#reading-esp-rate-limit-responses}
+#### E-Mail-Anbieter-Rate-Limit-Antworten lesen {#reading-esp-rate-limit-responses}
 
-Ihr E-Mail-Anbieter (ESP), wie Amazon SES, SparkPost oder SendGrid, gibt SMTP-Antwortcodes zurück, wenn er Nachrichten annimmt oder zurückstellt. Rate-Limit-Antworten verwenden typischerweise 4xx-Codes, die temporäre Fehler anzeigen:
+Ihr E-Mail-Anbieter (E-Mail-Anbieter), wie Amazon SES, SparkPost oder SendGrid, gibt SMTP-Antwortcodes zurück, wenn er Nachrichten annimmt oder zurückstellt. Rate-Limit-Antworten verwenden typischerweise 4xx-Codes, die temporäre Fehler anzeigen:
 
-- **421:** Dienst vorübergehend nicht verfügbar, oft aufgrund hohen Volumens, Verbindungslimits oder Server-Ressourceneinschränkungen. Die Nachricht bleibt in der Warteschlange und Ihr ESP versucht automatisch die Zustellung erneut.
+- **421:** Dienst vorübergehend nicht verfügbar, oft aufgrund hohen Volumens, Verbindungslimits oder Server-Ressourceneinschränkungen. Die Nachricht bleibt in der Warteschlange und Ihr E-Mail-Anbieter versucht automatisch die Zustellung erneut.
 - **429:** API-Rate-Limit überschritten. Sie haben zu viele Anfragen innerhalb des erlaubten Zeitfensters gesendet.
 - **450 / 451:** Vorübergehende Zurückstellung aufgrund von Volumen oder Verbindungen. Der Empfängerserver bittet Sie, langsamer zu werden.
 
-Wenn Sie diese Codes im [Nachrichtenaktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) oder in Ihrem ESP-Dashboard sehen, reduzieren Sie das Sendevolumen an die betroffene Domain und verwenden Sie progressiv längere Wiederholungsintervalle. Bei vollem Volumen weiterzusenden, während ein Rate-Limit greift, kann temporäre Zurückstellungen zu permanenten Ablehnungen eskalieren.
+Wenn Sie diese Codes im [Nachrichtenaktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) oder in Ihrem E-Mail-Anbieter-Dashboard sehen, reduzieren Sie das Sendevolumen an die betroffene Domain und verwenden Sie progressiv längere Wiederholungsintervalle. Bei vollem Volumen weiterzusenden, während ein Rate-Limit greift, kann temporäre Zurückstellungen zu permanenten Ablehnungen eskalieren.
 
 #### Rate-Limits von Postfachanbietern {#mailbox-provider-rate-limits}
 
@@ -425,7 +425,7 @@ Bestätigen Sie zunächst, dass Sie die [Nutzerberechtigungen]({{site.baseurl}}/
 
 ### Kann ich Hyperlinks in E-Mail-Betreffzeilen oder Preheadern hinzufügen? {#can-i-add-hyperlinks-in-email-subject-lines-or-preheaders}
 
-Nein. Das Hinzufügen von Hyperlinks in E-Mail-Betreffzeilen wird von Postfachanbietern nicht unterstützt. Einige Postfachanbieter scannen Betreffzeilen automatisch und wandeln physische Adressen, Daten oder Uhrzeiten in anklickbare Links um, aber dies geschieht automatisch auf dem Gerät des:der Empfänger:in und liegt außerhalb der Kontrolle von Braze (oder eines anderen ESP).
+Nein. Das Hinzufügen von Hyperlinks in E-Mail-Betreffzeilen wird von Postfachanbietern nicht unterstützt. Einige Postfachanbieter scannen Betreffzeilen automatisch und wandeln physische Adressen, Daten oder Uhrzeiten in anklickbare Links um, aber dies geschieht automatisch auf dem Gerät des:der Empfänger:in und liegt außerhalb der Kontrolle von Braze (oder eines anderen E-Mail-Anbieter).
 
 Ebenso wird das Hinzufügen von Hyperlinks im Preheader branchenweit nicht unterstützt.
 

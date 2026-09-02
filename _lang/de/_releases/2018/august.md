@@ -17,7 +17,7 @@ Sie können jetzt Nutzer:innen auf der Grundlage bestimmter Seitenklicks auf Pus
 
 ## S3- und Azure-Daten-Events von anonymen Nutzer:innen {#s3-and-azure-data-events-from-anonymous-users}
 
-Kund:innen, die Daten zu Amazon S3 und Microsoft Azure exportieren, können jetzt auch Events von anonymen Nutzer:innen einbeziehen. Diese Funktion ist standardmäßig für alle neu erstellten Integrationen aktiviert, bleibt aber für alle bestehenden Integrationen deaktiviert. Wenn Sie Fragen haben, wenden Sie sich an Ihren Account Manager oder öffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support/).
+Kund:innen, die Daten zu Amazon S3 und Microsoft Azure exportieren, können jetzt auch Events von anonymen Nutzer:innen einbeziehen. Diese Funktion ist standardmäßig für alle neu erstellten Integrationen aktiviert, bleibt aber für alle bestehenden Integrationen deaktiviert. Wenn Sie Fragen haben, wenden Sie sich an Ihren Account Manager:in oder öffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support/).
 
 ## Mixpanel-Kohorten-Integration {#mixpanel-cohorts-integration}
 

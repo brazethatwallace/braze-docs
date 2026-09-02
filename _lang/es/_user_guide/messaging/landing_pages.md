@@ -14,7 +14,7 @@ alias: /landing_pages/
 Utiliza las páginas de inicio para hacer crecer tu audiencia, capturar datos de usuario, promocionar ofertas especiales y apoyar campañas multicanal. Para una referencia de los bloques de arrastrar y soltar de las páginas de inicio, consulta [Bloques de editor (páginas de inicio)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=landing%20pages).
 
 {% alert note %}
-La disponibilidad de páginas de inicio y dominios personalizados depende de tu paquete de Braze. Ponte en contacto con tu director de cuentas o administrador de éxito de cliente para empezar.
+La disponibilidad de páginas de inicio y dominios personalizados depende de tu paquete de Braze. Ponte en contacto con tu director de cuentas o CSM para empezar.
 {% endalert %}
 
 {% multi_lang_include video.html id="eg4r7agod1" source="wistia" %}
@@ -47,9 +47,9 @@ Braze aplica un límite de velocidad de 500 solicitudes cada tres segundos (apro
 
 Las visualizaciones de páginas de destino almacenadas en caché no cuentan para este límite. Para saber cómo afecta el almacenamiento en caché al tráfico, consulta [¿Pueden las páginas de destino manejar escenarios de alto tráfico?](#can-landing-pages-handle-high-traffic-scenarios).
 
-## Añadir Google Tag Manager a una página de destino {#adding-google-tag-manager-to-a-landing-page}
+## Añadir Google Tag Administrador a una página de destino {#adding-google-tag-manager-to-a-landing-page}
 
-Para añadir Google Tag Manager a tus páginas de destino, añade un bloque de **Custom Code** a tu página de destino en el editor de arrastrar y soltar, luego inserta el código de Tag Manager en el bloque. Asegúrate de añadir una capa de datos antes del código de Tag Manager, como en este ejemplo:
+Para añadir Google Tag Administrador a tus páginas de destino, añade un bloque de **Custom Code** a tu página de destino en el editor de arrastrar y soltar, luego inserta el código de Tag Administrador en el bloque. Asegúrate de añadir una capa de datos antes del código de Tag Administrador, como en este ejemplo:
 
 ```
 <script>
@@ -64,7 +64,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 ```
 
-Para más información sobre la implementación de Google Tag Manager, consulta la [documentación de Google](https://developers.google.com/tag-platform/tag-manager/datalayer#installation).
+Para más información sobre la implementación de Google Tag Administrador, consulta la [documentación de Google](https://developers.google.com/tag-platform/tag-manager/datalayer#installation).
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 

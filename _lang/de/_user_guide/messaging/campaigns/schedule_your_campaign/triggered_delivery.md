@@ -65,7 +65,7 @@ Für Kampagnen, die keine In-App-Nachrichten sind, wählen Sie bei Auswahl von *
 - **Open email (machine opens)**
 - **Open email (other opens)**
 - **Click alias in email**
-- **Clicked Alias in any campaign or canvas step**
+- **Clicked Alias in any campaign or Canvas-Schritt**
 - **Directly open push notification**
 - **Click push notification button**
 - **Click push story page**
@@ -98,7 +98,7 @@ Für Kampagnen, die keine In-App-Nachrichten sind, wählen Sie bei Auswahl von *
 - **Open email (machine opens)**
 - **Open email (other opens)**
 - **Click alias in email**
-- **Clicked Alias in any campaign or canvas step**
+- **Clicked Alias in any campaign or Canvas-Schritt**
 - **Directly open push notification**
 - **Click push notification button**
 - **Click push story page**
@@ -140,8 +140,8 @@ Beachten Sie, dass Sie eine getriggerte Campaign weiterhin an ein bestimmtes Seg
 
 Hinsichtlich des Trigger-Events, wenn eine:r Nutzer:in eine E-Mail-Adresse zu ihrem/seinem Profil hinzufügt, gelten die folgenden Regeln:
 
-- Das Trigger-Event wird ausgelöst, nachdem das Nutzerprofil-Attribut aktualisiert wurde. Das bedeutet, dass die Auswertung der Segmente und Filter der Campaign nach allen Attribut-Aktualisierungen erfolgt. Dies ist vorteilhaft, da Sie so Filter wie „E-Mail-Adresse stimmt mit gmail.com überein“ einrichten können, um eine Trigger-Campaign zu erstellen, die nur an Gmail-Nutzer:innen gesendet wird und sofort ausgelöst wird, wenn diese ihre E-Mail-Adresse hinzufügen.
-- Das Trigger-Event wird ausgelöst, wenn eine E-Mail-Adresse zu einem Nutzerprofil hinzugefügt wird. Wenn Sie mehrere Nutzerprofile mit derselben E-Mail-Adresse erstellen, kann die Campaign mehrfach ausgelöst werden, einmal für jedes Nutzerprofil.
+- Das Trigger-Event wird ausgelöst, nachdem das Kundenprofil-Attribut aktualisiert wurde. Das bedeutet, dass die Auswertung der Segmente und Filter der Campaign nach allen Attribut-Aktualisierungen erfolgt. Dies ist vorteilhaft, da Sie so Filter wie „E-Mail-Adresse stimmt mit gmail.com überein“ einrichten können, um eine Trigger-Campaign zu erstellen, die nur an Gmail-Nutzer:innen gesendet wird und sofort ausgelöst wird, wenn diese ihre E-Mail-Adresse hinzufügen.
+- Das Trigger-Event wird ausgelöst, wenn eine E-Mail-Adresse zu einem Kundenprofil hinzugefügt wird. Wenn Sie mehrere Nutzerprofile mit derselben E-Mail-Adresse erstellen, kann die Campaign mehrfach ausgelöst werden, einmal für jedes Kundenprofil.
 
 Darüber hinaus unterliegen getriggerte In-App-Nachrichten weiterhin den Zustellungsregeln für In-App-Nachrichten und werden zu Beginn einer App-Sitzung angezeigt.
 

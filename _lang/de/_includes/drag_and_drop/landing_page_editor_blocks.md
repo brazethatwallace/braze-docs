@@ -26,7 +26,7 @@ Wenn Sie einen Button mit **Submit form when button is clicked** konfigurieren u
 
 ### Optionsfeld {#radio-button}
 
-Fügt eine Liste von Optionen hinzu, aus der Nutzer:innen eine auswählen können. Verwenden Sie das Eigenschaftenpanel, um die verfügbaren Optionen und das angepasste Attribut zu konfigurieren, das den ausgewählten Wert empfängt. Das Nutzerprofil protokolliert den ausgewählten Wert als [angepasstes String-Attribut]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), wenn das Formular abgesendet wird. Angepasste Attribute mit anderen Datentypen werden nicht im Nutzerprofil gespeichert.
+Fügt eine Liste von Optionen hinzu, aus der Nutzer:innen eine auswählen können. Verwenden Sie das Eigenschaftenpanel, um die verfügbaren Optionen und das angepasste Attribut zu konfigurieren, das den ausgewählten Wert empfängt. Das Kundenprofil protokolliert den ausgewählten Wert als [angepasstes String-Attribut]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), wenn das Formular abgesendet wird. Angepasste Attribute mit anderen Datentypen werden nicht im Kundenprofil gespeichert.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/radio_button_properties.md %}
 
@@ -70,7 +70,7 @@ Fügt benutzerdefiniertes HTML, CSS oder JavaScript für erweiterte Anpassungen 
 <!-- Countdown timer is not yet released. Uncomment when available.
 ### Countdown timer
 
-Displays a countdown to a date and time you set. If you don't see this block, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze customer success manager.
+Displays a countdown to a date and time you set. If you don't see this block, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze CSM.
 
 After you add a **Countdown timer** block, use the properties panel to set the target date and time, labels, and styling.
 -->
@@ -113,14 +113,14 @@ Nutzer:innen wählen mehrere Optionen aus; die Werte werden in einem definierten
 
 ### Langer Text {#long-text}
 
-Mehrzeiliges Textfeld für umfrageähnliche Abläufe. Wenn Sie diesen Block nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Customer-Success-Manager. Dieser Block ist für Standard-Landing-Pages nicht verfügbar.
+Mehrzeiliges Textfeld für umfrageähnliche Abläufe. Wenn Sie diesen Block nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren CSM. Dieser Block ist für Standard-Landing-Pages nicht verfügbar.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 <!-- Saved row is not yet released. Uncomment when available.
 ### Saved row
 
-Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze customer success manager.
+Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze CSM.
 -->
 
 ## Wissenswertes {#things-to-know}

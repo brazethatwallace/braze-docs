@@ -7,7 +7,7 @@
 Web SDKのデータトラッキングアクティビティを無効にするには、メソッド[`disableSDK()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#disablesdk)を使用します。これにより、`disableSDK()`が呼び出される前にログされたデータが同期され、このページおよび今後のページ読み込みにおけるBraze Web SDKへの後続のすべての呼び出しが無視されます。
 {% endtab %}
 
-{% tab Google Tag Manager %}
+{% tab Google Tag マネージャー %}
 Webトラッキングを無効にしたり再度有効にしたりするには、それぞれ**Disable Tracking**または**Resume Tracking**タグタイプを使用します。これらの2つのオプションは、[`disableSDK`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#disablesdk)と[`enableSDK`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#enablesdk)を呼び出します。
 {% endtab %}
 {% endtabs %}

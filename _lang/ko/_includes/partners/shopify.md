@@ -22,7 +22,7 @@ Shopify 커스텀 통합을 사용하려면 [Shopify 커스텀 통합 설정]({{
 
 {% endif %}
 
-{% if include.section == "Liquid promotion codes with Currents" %}
+{% if include.section == "Liquid 프로모션 코드 with Currents" %}
 
 [`message_extras`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras)와 [프로모션 코드]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes)를 결합하여 Currents에 프로모션 코드 정보를 전송할 수 있습니다. `capture` 태그를 사용하여 프로모션 코드를 변수에 저장한 후, 해당 변수를 `message_extras`에서 참조하세요:
 

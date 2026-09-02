@@ -21,7 +21,7 @@ VideoSmart integriert sich mit Braze, um zum Sendezeitpunkt dynamisch personalis
 
 In Braze wählen Sie die entsprechende VideoSmart-Campaign aus und übergeben beim Senden Kundenattribute (über Liquid-Templating) an VideoSmart. Diese Attribute werden verwendet, um für jede Empfängerin und jeden Empfänger ein einzigartiges, personalisiertes Videoerlebnis zu rendern. Anschließend können Sie Braze Connected-Content verwenden, um Video-URLs oder -Assets in Echtzeit von der VideoSmart-API anzufordern, was skalierbare Personalisierung ermöglicht.
 
-Diese Integration ist für Braze-E-Mail-Nachrichten konzipiert, die Liquid-Templating und Connected-Content unterstützen, und kann so konfiguriert werden, dass sie mit Standard-Braze-Nutzerprofil-Attributen oder angepassten Datenfeldern funktioniert.
+Diese Integration ist für Braze-E-Mail-Nachrichten konzipiert, die Liquid-Templating und Connected-Content unterstützen, und kann so konfiguriert werden, dass sie mit Standard-Braze-Kundenprofil-Attributen oder angepassten Datenfeldern funktioniert.
 
 ## Anwendungsfälle {#use-cases}
 

@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Snowflake
 
-> [Snowflake](https://docs.snowflake.net/manuals/user-guide/intro-key-concepts.html) es un almacén de datos SQL en la nube creado específicamente y proporcionado como software como servicio (SaaS). Snowflake proporciona un almacén de datos más rápido, fácil de usar y mucho más flexible que las ofertas tradicionales de almacén de datos. Con la arquitectura única y patentada de Snowflake, es fácil acumular todos tus datos, habilitar análisis rápidos y obtener información basada en datos para todos tus usuarios.
+> [Snowflake](https://docs.snowflake.net/manuals/user-guide/intro-key-concepts.html) es un almacén de datos SQL en la nube creado específicamente y proporcionado como software como servicio (software como servicio (SaaS)). Snowflake proporciona un almacén de datos más rápido, fácil de usar y mucho más flexible que las ofertas tradicionales de almacén de datos. Con la arquitectura única y patentada de Snowflake, es fácil acumular todos tus datos, habilitar análisis rápidos y obtener información basada en datos para todos tus usuarios.
 
 Braze ofrece dos integraciones con Snowflake. Juntas, proporcionan un pipeline de datos bidireccional completo entre tus entornos de Braze y Snowflake.
 
@@ -45,7 +45,7 @@ Antes de poder utilizar esta característica, tendrás que completar lo siguient
 
 | Requisito | Descripción |
 | ----------- | ----------- |
-| Acceso a Braze | Para acceder a esta característica en Braze, tendrás que ponerte en contacto con tu administrador de cuenta de Braze o tu administrador de éxito de cliente. |
+| Acceso a Braze | Para acceder a esta característica en Braze, tendrás que ponerte en contacto con tu administrador de cuenta de Braze o tu CSM. |
 | Cuenta de Snowflake | Una cuenta de Snowflake con permisos de `admin`. Para clientes que no están bajo HIPAA, se admite Snowflake Standard o Enterprise Edition. Para el uso compartido de datos con conformidad HIPAA, se requiere Business Critical Edition. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 

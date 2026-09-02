@@ -26,10 +26,10 @@ Ihre Berechtigung für die Datenverteilung legt fest, welche Event-Typen in Ihre
 |------------|----------------|-------------|--------------------------|
 | **Engagement-Events** | Nachrichten-Engagement-Events | Events im Zusammenhang mit Nachrichtenversand, Zustellung, Öffnungen, Klicks, Bounces und anderen Messaging-Kanal-Interaktionen | [Nachrichten-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) |
 | **Kundenverhalten-Events** | Nachrichten-Engagement-Events und Kundenverhalten-Events | Umfasst alle Nachrichten-Engagement-Events sowie Events im Zusammenhang mit Käufen, angepassten Events, Sitzungen, Attribution und In-App-Nutzeraktionen | [Nachrichten-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events), [Kundenverhalten- und Nutzer-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) |
-| **Nutzerprofile und Attribute** | Nachrichten-Engagement-Events, Kundenverhalten-Events und Nutzerprofil-Events | Umfasst Nachrichten-Engagement-Events und Kundenverhalten-Events sowie Events im Zusammenhang mit Änderungen an Nutzerprofilen und Attributen | [Nachrichten-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events), [Kundenverhalten- und Nutzer-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events), [Nutzerprofil-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/user_profiles_events) |
+| **Nutzerprofile und Attribute** | Nachrichten-Engagement-Events, Kundenverhalten-Events und Kundenprofil-Events | Umfasst Nachrichten-Engagement-Events und Kundenverhalten-Events sowie Events im Zusammenhang mit Änderungen an Nutzerprofilen und Attributen | [Nachrichten-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events), [Kundenverhalten- und Nutzer-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events), [Kundenprofil-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/user_profiles_events) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Berechtigungen für die Datenverteilung" }
 
-Bei Fragen dazu, welche Events in Ihrer Berechtigung enthalten sind, wenden Sie sich an Ihren Braze-Konto- oder Customer-Success-Manager.
+Bei Fragen dazu, welche Events in Ihrer Berechtigung enthalten sind, wenden Sie sich an Ihren Braze-Konto- oder CSM.
 
 ## Über Secure Data Sharing {#about-secure-data-sharing}
 
@@ -47,7 +47,7 @@ Weitere Informationen zum Data Sharing von Snowflake finden Sie unter [Introduct
 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
-| Braze-Zugang | Kontaktieren Sie Ihre:n Braze-Konto- oder Customer-Success-Manager:in, um Data Sharing einzurichten. |
+| Braze-Zugang | Kontaktieren Sie Ihre:n Braze-Konto- oder CSM:in, um Data Sharing einzurichten. |
 | Snowflake-Konto | Ein Snowflake-Konto mit `admin`-Berechtigungen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 

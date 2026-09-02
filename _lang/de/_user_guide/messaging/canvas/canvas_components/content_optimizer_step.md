@@ -13,7 +13,7 @@ page_type: reference
 > Der Content Optimizer-Schritt ermöglicht es Ihnen, mehrere Versionen von Inhaltskomponenten innerhalb eines einzelnen Schritts zu konfigurieren und zu testen. Er hilft Ihnen, mit Inhaltsvarianten zu experimentieren und optimiert im Laufe der Zeit automatisch in Richtung der leistungsstärksten Kombinationen. Eine Einführung finden Sie unter [Content Optimizer]({{site.baseurl}}/user_guide/brazeai/content_optimizer).
 
 {% alert important %}
-Content Optimizer befindet sich derzeit in der Beta-Phase. Wenn Sie Hilfe beim Einstieg benötigen, wenden Sie sich an Ihren Customer-Success-Manager.
+Content Optimizer befindet sich derzeit in der Beta-Phase. Wenn Sie Hilfe beim Einstieg benötigen, wenden Sie sich an Ihren CSM.
 {% endalert %}
 
 ## Einen Otimizador de Conteúdo-Schritt erstellen {#create-a-content-optimizer-step}
@@ -86,7 +86,7 @@ Inhaltskomponenten sind die einzelnen Elemente Ihrer Nachricht, die Sie testen m
 - **Push-Benachrichtigungen:** Sie können bis zu zwei Komponenten pro Schritt und bis zu fünf Varianten pro Komponente hinzufügen, für insgesamt 25 einzigartige Inhaltskombinationen.
 - **SMS/MMS/RCS:** Sie können bis zu zwei Inhaltskomponenten pro Schritt und bis zu fünf Varianten pro Komponente hinzufügen, für insgesamt 25 einzigartige Inhaltskombinationen.
 
-Wenn Sie **Generate AI suggestions** verwenden, sendet Braze Inhalte an OpenAI, um Variantenideen zu generieren. Die Zuweisung des Datenverkehrs zur Sendezeit verwendet OpenAI nicht. Details darüber, welche Daten gesendet werden und wie sie verwendet werden, finden Sie unter [OpenAI und Otimizador de Conteúdo]({{site.baseurl}}/user_guide/brazeai/content_optimizer#openai-and-content-optimizer).
+Wenn Sie **Generate KI suggestions** verwenden, sendet Braze Inhalte an OpenAI, um Variantenideen zu generieren. Die Zuweisung des Datenverkehrs zur Sendezeit verwendet OpenAI nicht. Details darüber, welche Daten gesendet werden und wie sie verwendet werden, finden Sie unter [OpenAI und Otimizador de Conteúdo]({{site.baseurl}}/user_guide/brazeai/content_optimizer#openai-and-content-optimizer).
 
 ![Optionen zum Hinzufügen und Konfigurieren von Inhaltskomponenten in der Otimizador-de-Conteúdo-Oberfläche. Die Oberfläche zeigt auswählbare Komponenten wie Subject, Body Header, Body Content und Primary CTA, jeweils mit Feldern zur Eingabe verschiedener Varianten.]({% image_buster /assets/img/content_optimizer/add_content_components.png %})
 
@@ -297,7 +297,7 @@ Für SMS/MMS/RCS-Schritte können auch die Abo-Gruppe und der Nachrichtentyp nac
 - Testen Sie generell mehr Komponenten statt weniger für den Content-Optimizer-Schritt. Zum Beispiel: Statt zwei Komponenten für E-Mail zu testen, testen Sie drei.
 - Das Testen von mindestens 10 Gesamtkombinationen liefert in der Regel bessere Ergebnisse.
 - Bei E-Mails übertreffen Schritte, die auf Klicks optimieren, tendenziell solche, die auf Öffnungen optimieren. Wenn Klicks zu Ihrem Anwendungsfall passen, wählen Sie Klicks als Ihr Optimierungsereignis.
-- Wenn Sie den Content Optimizer zum ersten Mal verwenden, sollten Sie einen [Experimentpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step)-Schritt einsetzen, sodass nur ein Teil Ihrer Zielgruppe den Zweig betritt, der den Content-Optimizer-Schritt enthält. Sie könnten zum Beispiel die Hälfte Ihrer Nutzer:innen über einen Pfad mit dem Content-Optimizer-Schritt leiten und die andere Hälfte über einen Kontrollpfad, der den Nachrichtenschritt mit Ihren aktuellen Standardinhalten sendet. Sammeln Sie dann 2–3 Wochen lang Daten und vergleichen Sie alle Leistungskennzahlen (KPIs) oder Gegenmetriken, bevor Sie den Traffic zu den Pfaden mit Content-Optimizer-Schritten erhöhen.
+- Wenn Sie den Content Optimizer zum ersten Mal verwenden, sollten Sie einen [Experimentpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step)-Schritt einsetzen, sodass nur ein Teil Ihrer Zielgruppe den Zweig betritt, der den Content-Optimizer-Schritt enthält. Sie könnten zum Beispiel die Hälfte Ihrer Nutzer:innen über einen Pfad mit dem Content-Optimizer-Schritt leiten und die andere Hälfte über einen Kontrollpfad, der den Nachrichtenschritt mit Ihren aktuellen Standardinhalten sendet. Sammeln Sie dann 2–3 Wochen lang Daten und vergleichen Sie alle KPI (KPIs) oder Gegenmetriken, bevor Sie den Traffic zu den Pfaden mit Content-Optimizer-Schritten erhöhen.
   - Für einen effektiven Eins-zu-eins-Vergleich fügen Sie Ihre Standardinhalte als eine der Varianten für jede Komponente in Ihrem Content-Optimizer-Schritt ein.
 - Wenn Sie nach einiger Zeit im Optimierungsstatus Ihres Content-Optimizer-Schritts bereit für eine Aktualisierung sind, deaktivieren Sie leistungsschwache Varianten und fügen Sie neue hinzu, die auf den Merkmalen Ihrer Top-Performer aufbauen.
 
@@ -362,9 +362,9 @@ Gründe, warum die Analytics im Content-Optimizer-Schritt von denen im Bereich *
 - Im Content-Optimizer-Schritt werden nur Klicks und Öffnungen gezählt, die innerhalb von sieben Tagen nach dem Senden einer Nachricht erfolgen.
 - Ausgeschlossene Link-Klicks werden in den Gesamt-Analytics des Schritts gezählt, aber nicht in den Tabellen **Performance nach Komponente** oder **Performance nach Kombination**. Weitere Informationen finden Sie unter [Links von der Optimierung ausschließen](#exclude-links-from-optimization).
 
-### Varianten in einem Nutzerprofil anzeigen {#view-variants-on-a-user-profile}
+### Varianten in einem Kundenprofil anzeigen {#view-variants-on-a-user-profile}
 
-Um zu sehen, welche Varianten einzelne Nutzer:innen erhalten haben, öffnen Sie deren Nutzerprofil und navigieren Sie zum Tab **Nachrichtenverlauf**. In der Zeile des Sendeereignisses für einen Content-Optimizer-Schritt zeigt die Tabelle die Komponentenvarianten, die an diese(n) Nutzer:in gesendet wurden. Weitere Informationen finden Sie unter [Tab „Nachrichtenverlauf“]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#messaging-history-tab).
+Um zu sehen, welche Varianten einzelne Nutzer:innen erhalten haben, öffnen Sie deren Kundenprofil und navigieren Sie zum Tab **Nachrichtenverlauf**. In der Zeile des Sendeereignisses für einen Content-Optimizer-Schritt zeigt die Tabelle die Komponentenvarianten, die an diese(n) Nutzer:in gesendet wurden. Weitere Informationen finden Sie unter [Tab „Nachrichtenverlauf“]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#messaging-history-tab).
 
 ### Schritte im Berichts-Builder vergleichen {#compare-steps-in-report-builder}
 

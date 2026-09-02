@@ -3,7 +3,7 @@ nav_title: プリファレンス調査によるオンボーディング
 article_title: プリファレンス調査によるオンボーディング
 page_order: 5.5
 page_type: reference
-description: "この記事では、Braze Canvasテンプレートを使用して、新規ユーザーにブランドを紹介し、プリファレンスを収集して長期的なエンゲージメントを維持するガイド付きオンボーディングフローで早期導入を促進する方法について説明します。"
+description: "この記事では、Braze キャンバステンプレートを使用して、新規ユーザーにブランドを紹介し、プリファレンスを収集して長期的なエンゲージメントを維持するガイド付きオンボーディングフローで早期導入を促進する方法について説明します。"
 tool: Canvas
 ---
 
@@ -45,7 +45,7 @@ tool: Canvas
 
 ### ステップ 2: コンバージョンイベントを割り当てる {#step-2-assign-conversion-events}
 
-**Primary Conversion Event - A**を**Performs Custom Event**に更新します。次に、カスタムイベントとして**Last Used App**を選択します。
+**1次コンバージョン Event - A**を**Performs Custom Event**に更新します。次に、カスタムイベントとして**Last Used App**を選択します。
 
 ![コンバージョンイベントの選択されたカスタムイベント名として「Last Used App」が表示されている。]({% image_buster /assets/img/canvas_templates/preference_survey3.png %}){: style="max-width:90%;"}
 

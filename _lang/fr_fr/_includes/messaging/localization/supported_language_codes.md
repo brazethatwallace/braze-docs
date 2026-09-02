@@ -43,7 +43,7 @@ Braze prend en charge la plupart des codes de langues de la norme [ISO-639-1](ht
 | DZONGKHA | `dz` |
 | EKUGUSII | `guz` |
 | ESTONIEN | `et` |
-| ESPÉRANTO | `eo` |
+| fournisseur de services d'e-mailingÉRANTO | `eo` |
 | EWONDO | `ewo` |
 | ÉWÉ | `ee` |
 | FÉROÏEN | `fo` |

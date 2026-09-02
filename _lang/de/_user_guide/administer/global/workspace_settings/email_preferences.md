@@ -25,7 +25,7 @@ Die E-Mail-Einstellungen im Abschnitt **Sendekonfiguration** bestimmen, welche D
 
 Wenn Sie Ihre E-Mail-Einstellungen konfigurieren, legen die Einstellungen für ausgehende E-Mails fest, welche Namen und E-Mail-Adressen verwendet werden, wenn Braze E-Mails an Ihre Nutzer:innen sendet.
 
-Wenn Sie eine neue Domain oder einen neuen IP-Pool (Sendeanbieter) zu Ihrem Workspace hinzufügen oder aus der verfügbaren Liste entfernen möchten, wenden Sie sich an Ihren Customer-Success-Manager.
+Wenn Sie eine neue Domain oder einen neuen IP-Pool (Sendeanbieter) zu Ihrem Workspace hinzufügen oder aus der verfügbaren Liste entfernen möchten, wenden Sie sich an Ihren CSM.
 
 {% tabs local %}
 {% tab Anzeigename und Adresse %}
@@ -130,7 +130,7 @@ Um unerwartetes Verhalten zu vermeiden, sollten Sie Liquid innerhalb von `<html>
 
 ### Platzierung aktualisieren {#update-the-placement}
 
-Braze unterstützt derzeit die Möglichkeit, die standardmäßige Platzierung des Öffnungs-Tracking-Pixels des ESP (das letzte Tag im `<body>` einer E-Mail) zu überschreiben und es an das erste Tag im `<body>` zu verschieben.
+Braze unterstützt derzeit die Möglichkeit, die standardmäßige Platzierung des Öffnungs-Tracking-Pixels des E-Mail-Anbieter (das letzte Tag im `<body>` einer E-Mail) zu überschreiben und es an das erste Tag im `<body>` zu verschieben.
 
 ![Bereich „Open Tracking Pixel“ mit den Optionen zum Verschieben für SendGrid, SparkPost oder Amazon SES.]({% image_buster /assets/img/open_pixel.png %}){: style="max-width:80%;" }
 
@@ -140,7 +140,7 @@ So ändern Sie die Platzierung:
 2. Wählen Sie eine der folgenden Optionen aus: **Move for SendGrid**, **Move for SparkPost** oder **Move for Amazon SES**
 3. Wählen Sie **Speichern** aus.
 
-Nach dem Speichern sendet Braze spezielle Anweisungen an den ESP, um das Öffnungs-Tracking-Pixel am Anfang aller HTML-E-Mails zu platzieren.
+Nach dem Speichern sendet Braze spezielle Anweisungen an den E-Mail-Anbieter, um das Öffnungs-Tracking-Pixel am Anfang aller HTML-E-Mails zu platzieren.
 
 {% alert important %}
 Die SSL-Aktivierung umschließt die URL des Tracking-Pixels mit HTTPS anstelle von HTTP. Wenn Ihr SSL falsch konfiguriert ist, kann dies die Wirksamkeit des Tracking-Pixels beeinträchtigen.
@@ -208,7 +208,7 @@ Bei Verwendung des „Workspace-Standards“ fügt Braze den One-Click-Abmelde-H
 Gmail beabsichtigt, dass Absender die One-Click-Abmeldung für alle ihre ausgehenden kommerziellen und werblichen Nachrichten ab dem 1. Juni 2024 implementieren. Weitere Informationen finden Sie in den [Gmail-Absenderrichtlinien](https://support.google.com/mail/answer/81126?hl=en#subscriptions&zippy=%2Crequirements-for-sending-or-more-messages-per-day:~:text=Make%20it%20easy%20to%20unsubscribe) und den [FAQ zu Gmails E-Mail-Absenderrichtlinien](https://support.google.com/a/answer/14229414#zippy=%2Cwhat-time-range-or-duration-is-used-when-calculating-spam-rate%2Cif-the-list-header-is-missing-is-the-message-body-checked-for-a-one-click-unsubscribe-link%2Cif-unsubscribe-links-are-temporarily-unavailable-due-to-maintenance-or-other-reasons-are-messages-flagged-as-spam%2Ccan-a-one-click-unsubscribe-link-to-a-landing-or-preferences-page%2Cwhat-is-a-bulk-sender%2Chow-can-bulk-senders-make-sure-theyre-meeting-the-sender-guidelines%2Cdo-the-sender-guidelines-apply-to-messages-sent-to-google-workspace-accounts%2Cdo-the-sender-guidelines-apply-to-messages-sent-from-google-workspace-accounts%2Cwhat-happens-if-senders-dont-meet-the-requirements-in-the-sender-guidelines%2Cif-messages-are-rejected-because-they-dont-meet-the-sender-guidelines-do-you-send-an-error-message-or-other-alert%2Cwhat-happens-when-sender-spam-rate-exceeds-the-maximum-spam-rate-allowed-by-the-guidelines%2Cwhat-is-the-dmarc-alignment-requirement-for-bulk-senders%2Cif-messages-fail-dmarc-authentication-can-they-be-delivered-using-ip-allow-lists-or-spam-bypass-lists-or-will-these-messages-be-quarantined%2Ccan-bulk-senders-get-technical-support-for-email-delivery-issues%2Cdo-all-messages-require-one-click-unsubscribe:~:text=for%20mitigations.-,Unsubscribe%20links,-Do%20all%20messages). Yahoo hat einen Zeitplan für Anfang 2024 für die aktualisierten Anforderungen angekündigt. Weitere Informationen finden Sie unter [More Secure, Less Spam: Enforcing Email Standards for a Better Experience](https://blog.postmaster.yahooinc.com/).
 {% endalert %}
 
-Um die Braze-Abmeldefunktion zur direkten Verarbeitung von Abmeldungen zu verwenden, wählen Sie **Include a one-click list-unsubscribe (mailto and HTTP) email header for emails sent to subscribed or opted-in users** und wählen Sie **Braze default** als Standard-Braze-URL und Mail-to.
+Um die Braze-Abmeldefunktion zur direkten Verarbeitung von Abmeldungen zu verwenden, wählen Sie **Include a one-Click list-unsubscribe (mailto and HTTP) email header for emails sent to subscribed or opted-in users** und wählen Sie **Braze default** als Standard-Braze-URL und Mail-to.
 
 ![Option zum automatischen Einschließen eines List-Unsubscribe-Headers für E-Mails an abonnierte oder angemeldete Nutzer:innen.]({% image_buster /assets/img/email_settings/email_unsubscribe_header.png %})
 
@@ -376,7 +376,7 @@ Nein. Wenn die Workspace-Einstellung deaktiviert ist und die Nachrichteneinstell
 {% enddetails %}
 
 {% details Was passiert, wenn eine Abo-Gruppe archiviert wird? Bricht das die Ein-Klick-Abmeldung bei bereits gesendeten E-Mails? %}
-Wenn eine in den **Versandinformationen** für die Ein-Klick-Abmeldung referenzierte Abo-Gruppe archiviert wird, verarbeitet Braze die Abmeldungen über die Ein-Klick-Funktion weiterhin. Die Abo-Gruppe wird im Dashboard nicht mehr angezeigt (Segment-Filter, Nutzerprofil und ähnliche Bereiche).
+Wenn eine in den **Versandinformationen** für die Ein-Klick-Abmeldung referenzierte Abo-Gruppe archiviert wird, verarbeitet Braze die Abmeldungen über die Ein-Klick-Funktion weiterhin. Die Abo-Gruppe wird im Dashboard nicht mehr angezeigt (Segment-Filter, Kundenprofil und ähnliche Bereiche).
 {% enddetails %}
 
 {% details Ist die Ein-Klick-Abmelde-Einstellung für E-Mail-Templates verfügbar? %}

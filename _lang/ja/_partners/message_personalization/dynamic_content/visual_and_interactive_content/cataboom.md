@@ -43,7 +43,7 @@ Catapultプラットフォームでゲームエクスペリエンスを作成し
 
 ナビゲーションメニューで**Link Configuration**を選択します。
 
-**Link Configuration**ページで**Request Unique URL API**を有効にします。このオプションにより、Content Cardなど、後でBrazeで使用できるシステム間URLが作成されます。
+**Link Configuration**ページで**Request Unique URL API**を有効にします。このオプションにより、Content カードなど、後でBrazeで使用できるシステム間URLが作成されます。
 
 ![Request Unique URL APIが有効になっており、API URLが表示されているCataBoom Link Configurationページ。]({% image_buster /assets/img/cataboom/link_configuration.png %})
 

@@ -41,7 +41,7 @@ Antes de iniciar o processo de upgrade na página de integração do Shopify, co
 - **Verifique personalizações do SDK:** Se você personalizou sua integração entre a Braze e o Shopify (por exemplo, registrando eventos personalizados ou atributos personalizados), certifique-se de que essas personalizações funcionarão corretamente após o upgrade. Se você criou seus próprios eventos de navegador para ações como "produto visualizado" ou "carrinho atualizado", coordene com seus desenvolvedores para removê-los antes do upgrade, pois eles duplicarão a funcionalidade fornecida pelo novo conector.
 
 {% alert important %}
-Se você tem uma loja online no Shopify e seus desenvolvedores implementaram os SDKs da Braze diretamente no seu site Shopify, ou por meio do Google Tag Manager ou de uma plataforma de dados do cliente, você deve planejar parar de usá-los ao fazer upgrade para o novo conector do Shopify.
+Se você tem uma loja online no Shopify e seus desenvolvedores implementaram os SDKs da Braze diretamente no seu site Shopify, ou por meio do Google Tag Manager ou de uma CDP, você deve planejar parar de usá-los ao fazer upgrade para o novo conector do Shopify.
 {% endalert %}
 
 - **Revise o gerenciamento de identidade:** Se você está usando um ID externo da Braze, trabalhe com sua equipe de desenvolvimento para garantir que ele seja compatível com a nova integração. Se você define o ID externo dentro da experiência da sua loja Shopify, peça aos seus desenvolvedores para ajustá-lo e evitar conflitos com o [novo processo de gerenciamento de identidade]({{site.baseurl}}/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_overview#user-and-data-syncing).

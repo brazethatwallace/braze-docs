@@ -55,7 +55,7 @@ O [Registro de atividade de mensagens]({{site.baseurl}}/user_guide/administer/gl
 
 ![Logs de erro de push exibindo o horário em que o erro ocorreu, o nome do app, o canal, o tipo de erro e a mensagem de erro.]({% image_buster /assets/img_archive/message_activity_log.png %})
 
-Erros comuns que você pode ver aqui incluem notificações específicas do usuário, como ["Received Unregistered Sending to Push Token"](#swift_received-unregistered-sending).
+Erros comuns que você pode ver aqui incluem notificações específicas do usuário, como ["Received Unregistered Sending to token por push"](#swift_received-unregistered-sending).
 
 Além disso, a Braze também fornece um changelog de push no perfil de usuário na guia **Engajamento**. Esse changelog oferece insights sobre o comportamento de registro de push, como invalidação de token, erros de registro de push, tokens sendo transferidos para novos usuários, etc.
 
@@ -63,7 +63,7 @@ Além disso, a Braze também fornece um changelog de push no perfil de usuário 
 
 ### Erros do registro de atividade de mensagens {#message-activity-log-errors}
 
-#### Received unregistered sending to push token {#received-unregistered-sending}
+#### Received unregistered sending to token por push {#received-unregistered-sending}
 
 - Certifique-se de que o token por push enviado para a Braze pelo método `AppDelegate.braze?.notifications.register(deviceToken:)` seja válido. Você pode consultar o **Registro de atividade de mensagens** para ver o token por push. Ele deve se parecer com algo como `6e407a9be8d07f0cdeb9e724733a89445f57a89ec890d63867c482a483506fa6`, uma string longa contendo uma combinação de letras e números. Se o seu token por push parecer diferente, verifique seu [código]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#step-4-register-push-tokens-with-braze) para o envio dos tokens por push para a Braze.
 - Verifique se o perfil de provisionamento de push corresponde ao ambiente em que você está testando. Certificados universais podem ser configurados no dashboard da Braze para enviar ao ambiente de APNs de desenvolvimento ou de produção. Usar um certificado de desenvolvimento para um app de produção, ou um certificado de produção para um app de desenvolvimento, não funcionará.
@@ -83,7 +83,7 @@ Para resolver a divergência:
 
 Prefira chaves de autenticação `.p8` quando possível. Para tipos de credenciais e indicadores de status do dashboard, consulte [Migrar para uma chave de autenticação .p8]({{site.baseurl}}/user_guide/channels/push/troubleshooting#migrate-to-a-p8-authentication-key).
 
-#### BadDeviceToken sending to push token
+#### BadDeviceToken sending to token por push
 
 O `BadDeviceToken` é um código de erro do APNs e não tem origem na Braze. Pode haver vários motivos para essa resposta ser retornada, incluindo os seguintes:
 

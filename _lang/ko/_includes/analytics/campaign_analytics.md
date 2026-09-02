@@ -265,7 +265,7 @@ The **Message Performance** panel outlines how well your message has performed a
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#messages-sent">Messages Sent</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Messages Sent' %} <br><br>
-                이 값은 <a href="/docs/user_guide/message_building_by_channel/content_cards/create/card_creation/#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression">카드 생성</a> 시 선택한 항목에 따라 다르게 계산됩니다:<br><br>
+                이 값은 <a href="/docs/user_guide/message_building_by_channel/content_cards/create/card_creation/#differences-between-creating-cards-at-launch-or-항목-versus-at-first-impression">카드 생성</a> 시 선택한 항목에 따라 다르게 계산됩니다:<br><br>
                 <ul>
                     <li><b>시작 또는 단계 진입 시:</b> 생성되어 볼 수 있는 카드의 수입니다. 사용자가 카드를 실제로 조회했는지 여부는 포함되지 않습니다.</li>
                     <li><b>첫 노출 시:</b> 사용자에게 표시된 카드 수입니다.</li>
@@ -358,7 +358,7 @@ _Messages Sent_는 볼 수 있도록 제공된 Content Cards를 의미하고, _U
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#primary-conversions">Primary Conversions</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or Primary Conversion Event' %}</td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or 주요 전환 Event' %}</td>
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-daily-impressions">Unique Daily Impressions</a></td>

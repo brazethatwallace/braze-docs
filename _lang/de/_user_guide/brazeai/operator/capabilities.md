@@ -230,7 +230,7 @@ Fragen Sie zum Beispiel: „Erstelle mir einen Bericht, der das SMS-Engagement m
 
 ### Prognosen erstellen {#create-predictions}
 
-Operator kann Ihnen helfen, [Predictive-Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn)-Prognosen und [KI-Artikelempfehlungen]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai) anzuzeigen und zu erstellen. Beschreiben Sie das gewünschte Ergebnis, und Operator schlägt die Prognose oder Empfehlung vor, die Sie überprüfen können.
+Operator kann Ihnen helfen, [Predictive-Abwanderung]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn)-Prognosen und [KI-Artikelempfehlungen]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai) anzuzeigen und zu erstellen. Beschreiben Sie das gewünschte Ergebnis, und Operator schlägt die Prognose oder Empfehlung vor, die Sie überprüfen können.
 
 ### SQL-Anfragen schreiben {#write-sql-queries}
 
@@ -275,7 +275,7 @@ Die Dashboard-Unterstützung von Operator ist umfassend, hat aber Grenzen.
 
 ## Frühere Assistenten {#legacy-assistants}
 
-Vor Operator waren mehrere KI-Features als eigenständige Assistenten verfügbar: der AI Copywriter, der AI Liquid Assistant, der AI Image Generator, der AI SQL Generator, der Data Transformations AI Copilot und die Inhaltsüberprüfung. Alle ihre Einstiegspunkte bleiben erhalten und leiten zu Operator weiter, sodass Ihre bestehenden Workflows nicht beeinträchtigt werden. Was diese heute leisten, erfahren Sie unter [Inhalt und Kreatives](#content-and-creative) und [Datenautomatisierung und -suche](#data-automation-and-lookup).
+Vor Operator waren mehrere KI-Features als eigenständige Assistenten verfügbar: der KI Copywriter, der KI Liquid Assistant, der KI Image Generator, der KI SQL Generator, der Data Transformations KI Copilot und die Inhaltsüberprüfung. Alle ihre Einstiegspunkte bleiben erhalten und leiten zu Operator weiter, sodass Ihre bestehenden Workflows nicht beeinträchtigt werden. Was diese heute leisten, erfahren Sie unter [Inhalt und Kreatives](#content-and-creative) und [Datenautomatisierung und -suche](#data-automation-and-lookup).
 
 {% multi_lang_include brazeai/generative_ai/policy.md %}
 

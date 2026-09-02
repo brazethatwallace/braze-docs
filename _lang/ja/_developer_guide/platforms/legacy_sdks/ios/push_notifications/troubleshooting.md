@@ -52,11 +52,11 @@ Brazeは、**メッセージアクティビティログ**でプッシュ通知�
 
 ![エラーが発生した時刻、アプリ名、チャネル、エラータイプ、エラーメッセージを表示するプッシュエラーログ。]({% image_buster /assets/img_archive/message_activity_log.png %})
 
-ここで表示される一般的なエラーには、[「Received Unregistered Sending to Push Token」](#received-unregistered-sending)などのユーザー固有の通知があります。
+ここで表示される一般的なエラーには、[「Received Unregistered Sending to プッシュトークン」](#received-unregistered-sending)などのユーザー固有の通知があります。
 
 さらに、Brazeはユーザープロファイルの**エンゲージメント**タブでプッシュの変更ログも提供しています。この変更ログは、トークンの無効化、プッシュ登録エラー、トークンが新しいユーザーに移動された場合など、プッシュ登録の動作に関するインサイトを提供します。
 
-![アニメーション付きContent Cardの例。]({% image_buster /assets/img_archive/push_changelog.gif %}){: style="max-width:50%;" }
+![アニメーション付きContent カードの例。]({% image_buster /assets/img_archive/push_changelog.gif %}){: style="max-width:50%;" }
 
 ## プッシュ通知の登録に関する問題 {#push-registration-issues}
 

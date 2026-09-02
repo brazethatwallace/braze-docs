@@ -734,7 +734,7 @@ Este evento se produce cuando Braze recibe una solicitud para actualizar el esta
 | Subscription Page | Cuando un usuario cancela la suscripción a través de un enlace de correo electrónico que no es el centro de preferencias |
 | REST API | Endpoints de la REST API |
 | CSV import | Importación de usuarios en CSV |
-| Preference Center | Cuando se actualiza un usuario desde el centro de preferencias |
+| centro de preferencias | Cuando se actualiza un usuario desde el centro de preferencias |
 | Inbound Message | Cuando un usuario es actualizado por mensajes entrantes de usuarios finales a través de canales, como SMS |
 | Migration | Cuando un usuario se actualiza mediante migraciones internas o scripts de mantenimiento |
 | User Merge | Cuando se actualiza un usuario mediante el proceso de fusión de usuarios |
@@ -1024,7 +1024,7 @@ Los grupos de suscripción solo están disponibles para los canales de correo el
 <tr><td>Subscription Page</td><td>Cuando un usuario cancela la suscripción a través de un enlace de correo electrónico que no es el centro de preferencias</td></tr>
 <tr><td>REST API</td><td>Endpoints de la REST API</td></tr>
 <tr><td>CSV import</td><td>Importación de usuarios en CSV</td></tr>
-<tr><td>Preference Center</td><td>Cuando se actualiza un usuario desde el centro de preferencias</td></tr>
+<tr><td>centro de preferencias</td><td>Cuando se actualiza un usuario desde el centro de preferencias</td></tr>
 <tr><td>Inbound Message</td><td>Cuando un usuario es actualizado por mensajes entrantes de usuarios finales a través de canales como SMS</td></tr>
 <tr><td>Migration</td><td>Cuando un usuario se actualiza mediante migraciones internas o scripts de mantenimiento</td></tr>
 <tr><td>User Merge</td><td>Cuando se actualiza un usuario mediante el proceso de fusión de usuarios</td></tr>
@@ -4770,7 +4770,7 @@ Este evento se produce cuando un usuario hace clic en una Content Card.
 ### Detalles de la propiedad
 
 - Para `ad_id`, `ad_id_type` y `ad_tracking_enabled`, necesitas recopilar explícitamente el IDFA de iOS y el ID de publicidad de Google de Android a través de los SDK nativos. Obtén más información sobre esta configuración para [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) y [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Si utilizas Kafka para la ingesta de datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), ponte en contacto con tu administrador de éxito de cliente para habilitar el envío de `ad_id`.
+- Si utilizas Kafka para la ingesta de datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), ponte en contacto con tu CSM para habilitar el envío de `ad_id`.
 
 {% endapi %}
 
@@ -5047,7 +5047,7 @@ Este evento se produce cuando un usuario descarta una Content Card.
 ### Detalles de la propiedad
 
 - Para `ad_id`, `ad_id_type` y `ad_tracking_enabled`, necesitas recopilar explícitamente el IDFA de iOS y el ID de publicidad de Google de Android a través de los SDK nativos. Más información sobre esta configuración para [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) y [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Si utilizas Kafka para la ingesta de datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), ponte en contacto con tu administrador de éxito de cliente para habilitar el envío de `ad_id`.
+- Si utilizas Kafka para la ingesta de datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), ponte en contacto con tu CSM para habilitar el envío de `ad_id`.
 
 {% endapi %}
 
@@ -5324,7 +5324,7 @@ Este evento se produce cuando un usuario visualiza una Content Card.
 ### Detalles de la propiedad
 
 - Para `ad_id`, `ad_id_type` y `ad_tracking_enabled`, necesitas recopilar explícitamente el IDFA de iOS y el ID de publicidad de Google de Android a través de los SDK nativos. Más información sobre esta configuración para [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) y [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Si utilizas Kafka para la ingesta de datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), ponte en contacto con tu administrador de éxito de cliente para habilitar el envío de `ad_id`.
+- Si utilizas Kafka para la ingesta de datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), ponte en contacto con tu CSM para habilitar el envío de `ad_id`.
 
 {% endapi %}
 
@@ -5816,7 +5816,7 @@ Este evento se produce si un mensaje de correo electrónico fue cancelado debido
 Email, Bounce
 {% endapitags %}
 
-Este evento se produce cuando un proveedor de servicios de Internet devuelve un rebote duro. Un rebote duro indica un fallo permanente en la capacidad de entrega.
+Este evento se produce cuando un ISP devuelve un rebote duro. Un rebote duro indica un fallo permanente en la capacidad de entrega.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -6413,7 +6413,7 @@ Este evento se produce cuando un usuario hace clic en un correo electrónico. Se
 Email, Deferral
 {% endapitags %}
 
-Este evento se produce cuando un proveedor de servicios de Internet no entrega inmediatamente el correo electrónico a una dirección que no ha sufrido un rebote duro y Braze reintenta enviar el correo electrónico durante un máximo de 72 horas. Las razones habituales para los aplazamientos incluyen la limitación de velocidad del volumen de correo electrónico basada en la reputación por parte del proveedor del buzón de entrada, problemas temporales de conectividad, el buzón del destinatario está lleno o errores de DNS.
+Este evento se produce cuando un ISP no entrega inmediatamente el correo electrónico a una dirección que no ha sufrido un rebote duro y Braze reintenta enviar el correo electrónico durante un máximo de 72 horas. Las razones habituales para los aplazamientos incluyen la limitación de velocidad del volumen de correo electrónico basada en la reputación por parte del proveedor del buzón de entrada, problemas temporales de conectividad, el buzón del destinatario está lleno o errores de DNS.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -7998,7 +7998,7 @@ Este evento se produce cuando una solicitud de envío de correo electrónico se 
 Email, Bounce
 {% endapitags %}
 
-Este evento se produce cuando un proveedor de servicios de Internet devuelve un rebote blando. Un rebote blando significa que no se pudo entregar un correo electrónico debido a un fallo temporal de capacidad de entrega.
+Este evento se produce cuando un ISP devuelve un rebote blando. Un rebote blando significa que no se pudo entregar un correo electrónico debido a un fallo temporal de capacidad de entrega.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -9306,7 +9306,7 @@ Para los mensajes dentro de la aplicación, `dispatch_id` devuelve `null`.
 ### Detalles de la propiedad
 
 - Para `ad_id`, `ad_id_type` y `ad_tracking_enabled`, necesitas recopilar explícitamente el IDFA de iOS y el ID de publicidad de Google de Android a través de los SDK nativos. Más información sobre esta configuración para [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) y [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Si utilizas Kafka para la ingesta de datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), ponte en contacto con tu administrador de éxito de cliente para habilitar el envío de `ad_id`.
+- Si utilizas Kafka para la ingesta de datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), ponte en contacto con tu CSM para habilitar el envío de `ad_id`.
 
 {% endapi %}
 
@@ -9593,7 +9593,7 @@ Para los mensajes dentro de la aplicación, `dispatch_id` devuelve `null`.
 ### Detalles de la propiedad
 
 - Para `ad_id`, `ad_id_type` y `ad_tracking_enabled`, necesitas recopilar explícitamente el IDFA de iOS y el ID de publicidad de Google de Android a través de los SDK nativos. Más información sobre esta configuración para [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) y [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Si utilizas Kafka para la ingesta de datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), ponte en contacto con tu administrador de éxito de cliente para habilitar el envío de `ad_id`.
+- Si utilizas Kafka para la ingesta de datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), ponte en contacto con tu CSM para habilitar el envío de `ad_id`.
 
 {% endapi %}
 
@@ -12113,7 +12113,7 @@ Este evento se produce cuando se recibe un error del servicio de notificaciones 
 
 ### Detalles de la propiedad
 
-- Si utilizas Kafka para ingestar datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), ponte en contacto con tu administrador de éxito de cliente o director de cuentas para habilitar el conmutador de características para el envío de `ad_id`.
+- Si utilizas Kafka para ingestar datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), ponte en contacto con tu CSM o director de cuentas para habilitar el conmutador de características para el envío de `ad_id`.
 - `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una Campaign. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
 
 {% endapi %}
@@ -12324,7 +12324,7 @@ Este evento no es compatible con nuestro [SDK Swift](https://github.com/braze-in
 ### Detalles de la propiedad
 
 - Para `ad_id`, `ad_id_type` y `ad_tracking_enabled`, necesitas recopilar explícitamente el IDFA de iOS y el ID de publicidad de Google de Android a través de los SDK nativos. Más información sobre esta configuración para [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) y [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Si utilizas Kafka para ingestar datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), ponte en contacto con tu administrador de éxito de cliente para habilitar el envío de `ad_id`.
+- Si utilizas Kafka para ingestar datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), ponte en contacto con tu CSM para habilitar el envío de `ad_id`.
 - `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una Campaign. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
 
 {% endapi %}
@@ -12602,7 +12602,7 @@ En casos excepcionales, puede aparecer una apertura push antes del evento de env
 ### Detalles de la propiedad
 
 - Para `ad_id`, `ad_id_type` y `ad_tracking_enabled`, necesitas recopilar explícitamente el IDFA de iOS y el ID de publicidad de Google de Android a través de los SDK nativos. Más información sobre esta configuración para [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) y [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Si utilizas Kafka para ingestar datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), ponte en contacto con tu administrador de éxito de cliente para habilitar el envío de `ad_id`.
+- Si utilizas Kafka para ingestar datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), ponte en contacto con tu CSM para habilitar el envío de `ad_id`.
 - `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
 
 {% endapi %}
@@ -13120,7 +13120,7 @@ Este evento se produce cuando Braze procesa un mensaje push para un usuario, com
 ### Detalles de la propiedad
 
 - Para `ad_id`, `ad_id_type` y `ad_tracking_enabled`, necesitas recopilar explícitamente el IDFA de iOS y el ID de publicidad de Google de Android a través de los SDK nativos. Más información sobre esta configuración para [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) y [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Si utilizas Kafka para ingestar datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), ponte en contacto con tu administrador de éxito de cliente para habilitar el envío de `ad_id`.
+- Si utilizas Kafka para ingestar datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), ponte en contacto con tu CSM para habilitar el envío de `ad_id`.
 - `message_extras` te permite anotar tus eventos de envío con datos dinámicos de contenido conectado, atributos personalizados (como idioma, país) y propiedades de entrada en Canvas. Consulta [Extras de los mensajes]({{site.baseurl}}/message_extras_tag) para obtener más información.
 - `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
 

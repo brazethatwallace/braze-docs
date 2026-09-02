@@ -42,7 +42,7 @@ Para los clientes que han adquirido Monthly Active Users CY 24-25, Universal MAU
 Para los clientes con límites de velocidad heredados, cada solicitud `/users/track` puede contener hasta 75 objetos de atributo, 75 objetos de evento y 75 objetos de compra. Cada objeto puede actualizar un usuario, para un máximo combinado de hasta 225 objetos por solicitud. Un único perfil de usuario puede ser actualizado por varios objetos.
 {% enddetails %}
 
-Para más información, consulta [Límites de velocidad de la API]({{site.baseurl}}/api/api_limits). Ponte en contacto con tu administrador de éxito de cliente para solicitar un aumento.
+Para más información, consulta [Límites de velocidad de la API]({{site.baseurl}}/api/api_limits). Ponte en contacto con tu CSM para solicitar un aumento.
 
 <!---/users/export/ids-->
 
@@ -121,11 +121,11 @@ Los endpoints de Braze admiten [solicitudes de API por lotes]({{site.baseurl}}/a
 El endpoint `/transactional/v1/campaigns/{campaign_id}/send` es un endpoint de pago por unidades por hora (por ejemplo, 50 000 por hora, dependiendo de tu paquete). No hay un límite de velocidad por endpoint independiente: puedes enviar más allá del volumen asignado, pero solo el volumen asignado está cubierto por el SLA. Las solicitudes a este endpoint cuentan para tu [límite de velocidad de API externa general]({{site.baseurl}}/api/api_limits). Si superas ese límite (por ejemplo, 250 000 solicitudes por hora en todos los endpoints), Braze devuelve 429 y las solicitudes se limitan. El recuento del volumen transaccional se restablece cada hora, por lo que, transcurrida una hora, hay disponible otra asignación. Dentro del volumen cubierto por el SLA, el 99,9 % de los correos electrónicos se enviarán en menos de un minuto.
 
 <!---POST /preference_center/v1 and PUT /preference_center/v1/{preferenceCenterExternalID}-->
-{% elsif include.endpoint == "post or put preference center" %}
+{% elsif include.endpoint == "post or put centro de preferencias" %}
 Este endpoint tiene un límite de velocidad de 10 solicitudes por minuto, por espacio de trabajo, como se documenta en [Límites de velocidad de la API]({{site.baseurl}}/api/api_limits).
 
 <!---GET /preference_center/v1-->
-{% elsif include.endpoint == "get preference center" %}
+{% elsif include.endpoint == "get centro de preferencias" %}
 Este endpoint tiene un límite de velocidad de 1000 solicitudes por minuto, por espacio de trabajo, como se documenta en [Límites de velocidad de la API]({{site.baseurl}}/api/api_limits).
 
 <!---/sends/id/create-->

@@ -162,11 +162,11 @@ Braze 설문조사는 [인앱 메시지]({{site.baseurl}}/user_guide/channels/in
 
 ### 파트너십 {#partnerships}
 
-#### 오디언스 동기화: Google Data Manager API {#audience-sync-google-data-manager-api}
+#### 오디언스 동기화: Google Data 매니저 API {#audience-sync-google-data-manager-api}
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-[Google로의 오디언스 동기화]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync)가 얼리 액세스로 Google Data Manager API를 지원합니다.
+[Google로의 오디언스 동기화]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync)가 얼리 액세스로 Google Data 매니저 API를 지원합니다.
 
 #### Amazon Bedrock - AI 모델 제공업체 {#amazon-bedrock-ai-model-provider}
 
@@ -333,7 +333,7 @@ Campaign이나 메시지에서 링크를 생성하여 Braze 대시보드 액세�
 
 #### Refiner - 설문조사 {#refiner-surveys}
 
-[Refiner](https://refiner.io)는 SaaS 및 모바일 앱을 위한 인앱 설문조사 플랫폼입니다. 제품 및 고객의 소리 팀이 타겟팅된 인앱 설문조사를 출시하고 NPS, CSAT, CES, 제품 피드백, 제로파티 사용자 데이터를 지속적으로 수집할 수 있습니다.
+[Refiner](https://refiner.io)는 SaaS(software-as-a-service) 및 모바일 앱을 위한 인앱 설문조사 플랫폼입니다. 제품 및 고객의 소리 팀이 타겟팅된 인앱 설문조사를 출시하고 NPS, CSAT, CES, 제품 피드백, 제로파티 사용자 데이터를 지속적으로 수집할 수 있습니다.
 
 #### Stayfilm - 시각적 및 인터랙티브 콘텐츠 {#stayfilm-visual-and-interactive-content}
 
@@ -490,7 +490,7 @@ Quick Push A/B 테스트는 이제 배리언트 그룹을 통해 멀티 플랫�
 
 #### Convercus - 데이터 및 분석 - 로열티 {#convercus-data-and-analytics-loyalty}
 
-[Convercus]({{site.baseurl}}/partners/data_and_analytics/loyalty/convercus)는 브랜드와 소매업체가 옴니채널 로열티 프로그램과 개인화된 쿠폰 캠페인을 통해 고객 빈도, 장바구니 가치 및 재구매율을 높일 수 있도록 돕는 SaaS 로열티 및 쿠폰 플랫폼입니다.
+[Convercus]({{site.baseurl}}/partners/data_and_analytics/loyalty/convercus)는 브랜드와 소매업체가 옴니채널 로열티 프로그램과 개인화된 쿠폰 캠페인을 통해 고객 빈도, 장바구니 가치 및 재구매율을 높일 수 있도록 돕는 SaaS(software-as-a-service) 로열티 및 쿠폰 플랫폼입니다.
 
 #### Copy Pastd - 메시지 오케스트레이션 - 템플릿 {#copy-pastd-message-orchestration-templates}
 
@@ -502,7 +502,7 @@ Quick Push A/B 테스트는 이제 배리언트 그룹을 통해 멀티 플랫�
 
 #### DinMo - 데이터 및 분석 - 리버스 ETL {#dinmo-data-and-analytics-reverse-etl}
 
-[DinMo]({{site.baseurl}}/partners/dinmo)는 리버스 ETL을 통해 클라우드 데이터 웨어하우스를 Braze에 연결하는 구성 가능한 고객 데이터 플랫폼(CDP)입니다. 마케팅 팀은 웨어하우스 데이터에서 오디언스 세그먼트를 구축하고, 사용자 속성 및 이벤트를 Braze에 동기화하며, CSV 업로드나 엔지니어링 지원 없이 구독 상태를 최신으로 유지할 수 있습니다.
+[DinMo]({{site.baseurl}}/partners/dinmo)는 리버스 ETL을 통해 클라우드 데이터 웨어하우스를 Braze에 연결하는 구성 가능한 고객 데이터 플랫폼(고객 데이터 플랫폼)입니다. 마케팅 팀은 웨어하우스 데이터에서 오디언스 세그먼트를 구축하고, 사용자 속성 및 이벤트를 Braze에 동기화하며, CSV 업로드나 엔지니어링 지원 없이 구독 상태를 최신으로 유지할 수 있습니다.
 
 #### EmailShepherd - 메시지 오케스트레이션 - 템플릿 {#emailshepherd-message-orchestration-templates}
 
@@ -710,7 +710,7 @@ Canvas에서 이제 컨텍스트 변수를 참조하여 다음을 설정할 수 
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-[GRAVTY®](https://www.lji.io/)는 Loyalty Juggernaut Inc.(LJI)의 엔터프라이즈급 로열티 플랫폼으로, 소매, 여행, 레스토랑(퀵서비스 레스토랑 포함) 및 금융 서비스 전반의 브랜드가 차세대 프로그램을 설계, 관리 및 확장할 수 있도록 지원하여 개인화된 데이터 중심 경험을 통해 인게이지먼트, 유지 및 고객 생애주기 가치에서 측정 가능한 성장을 이끌어냅니다.
+[GRAVTY®](https://www.lji.io/)는 Loyalty Juggernaut Inc.(LJI)의 엔터프라이즈급 로열티 플랫폼으로, 소매, 여행, 레스토랑(퀵서비스 레스토랑 포함) 및 금융 서비스 전반의 브랜드가 차세대 프로그램을 설계, 관리 및 확장할 수 있도록 지원하여 개인화된 데이터 중심 경험을 통해 인게이지먼트, 유지 및 고객 LTV에서 측정 가능한 성장을 이끌어냅니다.
 
 <!-- Use this section to list any new SDKs or SDK updates that are already released. -->
 ### SDK
@@ -1031,7 +1031,7 @@ Radius Networks의 [Flybuy]({{site.baseurl}}/partners/message_personalization/lo
 
 #### LinkedIn – Canvas 오디언스 동기화 {#linkedin-canvas-audience-sync}
 
-[Braze 오디언스 동기화를 LinkedIn]({{site.baseurl}}/partners/canvas_audience_sync/linkedin_audience_sync)에 사용하면 Braze 통합의 사용자 데이터를 LinkedIn 고객 목록에 추가하여 행동 트리거, 세분화 등을 기반으로 광고를 게재할 수 있습니다. 일반적으로 사용자 데이터를 기반으로 Braze Canvas에서 메시지(푸시, 이메일, SMS, 웹훅 등)를 트리거하는 데 사용했던 모든 기준을 이제 LinkedIn 고객 목록에서 해당 사용자에게 광고를 트리거할 수 있습니다.
+[Braze 오디언스 동기화를 LinkedIn]({{site.baseurl}}/partners/canvas_audience_sync/linkedin_audience_sync)에 사용하면 Braze 통합의 사용자 데이터를 LinkedIn 고객 목록에 추가하여 행동 트리거, 세분화 등을 기반으로 광고를 게재할 수 있습니다. 일반적으로 사용자 데이터를 기반으로 BRAZE 캔버스에서 메시지(푸시, 이메일, SMS, 웹훅 등)를 트리거하는 데 사용했던 모든 기준을 이제 LinkedIn 고객 목록에서 해당 사용자에게 광고를 트리거할 수 있습니다.
 
 #### Oracle CrowdTwist - 데이터 및 분석 {#oracle-crowdtwist-data-analytics}
 

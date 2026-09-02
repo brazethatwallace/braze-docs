@@ -8,7 +8,7 @@ description: "Aprende a registrar compras a través del SDK de Braze."
 
 # Registrar compras {#log-purchases}
 
-> Aprende a registrar las compras dentro de la aplicación a través del SDK de Braze, para que puedas determinar tus ingresos a lo largo del tiempo y de las distintas fuentes. Esto te permitirá segmentar a los usuarios [en función de su valor de duración del ciclo de vida]({{site.baseurl}}/developer_guide/analytics#purchase-events-revenue-tracking) utilizando eventos personalizados, atributos personalizados y eventos de compra.
+> Aprende a registrar las compras dentro de la aplicación a través del SDK de Braze, para que puedas determinar tus ingresos a lo largo del tiempo y de las distintas fuentes. Esto te permitirá segmentar a los usuarios [en función de su LTV]({{site.baseurl}}/developer_guide/analytics#purchase-events-revenue-tracking) utilizando eventos personalizados, atributos personalizados y eventos de compra.
 
 {% alert note %}
 Para los SDK envolventes que no aparecen en la lista, utiliza el método nativo de Android o Swift correspondiente.
@@ -28,7 +28,7 @@ Para una implementación estándar del SDK Web, puedes utilizar el siguiente mé
 braze.logPurchase(product_id, price, "USD", quantity);
 ```
 
-Si prefieres utilizar Google Tag Manager, puedes emplear el tipo de etiqueta **Purchase** para llamar al [método `logPurchase`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logpurchase). Usa esta etiqueta para hacer seguimiento de compras en Braze, incluyendo opcionalmente propiedades de la compra. Para hacerlo:
+Si prefieres utilizar Google Tag Administrador, puedes emplear el tipo de etiqueta **Purchase** para llamar al [método `logPurchase`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logpurchase). Usa esta etiqueta para hacer seguimiento de compras en Braze, incluyendo opcionalmente propiedades de la compra. Para hacerlo:
 
 1. Los campos **Product ID** y **Price** son obligatorios.
 2. Utiliza el botón **Add Row** para añadir propiedades de la compra.
@@ -104,7 +104,7 @@ braze.logPurchase(productId, currencyCode, price, quantity, properties: properti
 
 {% endtab %}
 
-{% tab react native %}
+{% tab React Native %}
 
 ```javascript
 Braze.logPurchase(productId, price, currencyCode, quantity, properties);
@@ -145,7 +145,7 @@ Para una implementación estándar del SDK Web, puedes utilizar el siguiente mé
 braze.logPurchase(product_id, price, "USD", quantity, {key: "value"});
 ```
 
-Si tu sitio registra compras utilizando el elemento de capa de datos de [evento de comercio electrónico](https://developers.google.com/analytics/devguides/collection/ga4/ecommerce?client_type=gtm) estándar en Google Tag Manager, puedes emplear el tipo de etiqueta **E-commerce Purchase**. Este tipo de acción registrará una "compra" separada en Braze por cada elemento enviado en la lista de `items`.
+Si tu sitio registra compras utilizando el elemento de capa de datos de [evento de comercio electrónico](https://developers.google.com/analytics/devguides/collection/ga4/ecommerce?client_type=gtm) estándar en Google Tag Administrador, puedes emplear el tipo de etiqueta **E-commerce Purchase**. Este tipo de acción registrará una "compra" separada en Braze por cada elemento enviado en la lista de `items`.
 
 También puedes especificar nombres de propiedades adicionales que deseas incluir como propiedades de la compra, indicando sus claves en la lista de propiedades de la compra. Ten en cuenta que Braze buscará dentro del `item` individual que se está registrando cualquier propiedad de la compra que hayas añadido a la lista.
 
@@ -229,7 +229,7 @@ braze.logPurchase(productId, currencyCode, price, quantity, properties: {"key": 
 
 {% endtab %}
 
-{% tab react native %}
+{% tab React Native %}
 
 ```javascript
 Braze.logPurchase(productId, price, currencyCode, quantity, { key: "value" });

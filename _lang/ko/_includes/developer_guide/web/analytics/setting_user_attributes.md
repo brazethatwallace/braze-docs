@@ -41,8 +41,8 @@ braze.getUser().setDateOfBirth(2000, 12, 25);
 {% endsubtabs %}
 {% endtab %}
 
-{% tab Google Tag Manager %}
-Google Tag Manager를 사용하는 경우, 표준 사용자 속성(예: 사용자의 이름)은 커스텀 사용자 속성과 동일한 방식으로 기록해야 합니다. 표준 속성에 전달하는 값이 [User 클래스](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html) 설명서에 지정된 예상 형식과 일치하는지 확인하세요.
+{% tab Google Tag 매니저 %}
+Google Tag 매니저를 사용하는 경우, 표준 사용자 속성(예: 사용자의 이름)은 커스텀 사용자 속성과 동일한 방식으로 기록해야 합니다. 표준 속성에 전달하는 값이 [User 클래스](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html) 설명서에 지정된 예상 형식과 일치하는지 확인하세요.
 
 예를 들어, 성별 속성은 다음 중 하나를 값으로 허용할 수 있습니다: `"m" | "f" | "o" | "u" | "n" | "p"`. 따라서 사용자의 성별을 여성으로 설정하려면 다음 내용이 포함된 Custom HTML 태그를 생성하세요:
 
@@ -166,8 +166,8 @@ braze.getUser().removeFromCustomAttributeArray(YOUR_ATTRIBUTE_KEY_STRING, "value
 {% endalert %}
 {% endtab %}
 
-{% tab Google Tag Manager %}
-Google Tag Manager의 스크립팅 언어 제한으로 인해 커스텀 사용자 속성을 사용할 수 없습니다. 커스텀 속성을 로깅하려면 다음 내용으로 커스텀 HTML 태그를 생성하세요:
+{% tab Google Tag 매니저 %}
+Google Tag 매니저의 스크립팅 언어 제한으로 인해 커스텀 사용자 속성을 사용할 수 없습니다. 커스텀 속성을 로깅하려면 다음 내용으로 커스텀 HTML 태그를 생성하세요:
 
 ```html
 <script>

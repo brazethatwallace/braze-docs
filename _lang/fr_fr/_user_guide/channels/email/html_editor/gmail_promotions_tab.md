@@ -111,7 +111,7 @@ Pour tester les annotations lors d'envois à faible volume, vous devez d'abord u
 
 ## Mesurer les cartes Gmail {#measure-gmail-cards}
 
-Gmail ne fournit pas d'analyse sur ces cartes, et les fournisseurs de services d'e-mailing (ESP) comme Braze ne peuvent pas insérer leur propre suivi de liens sur les liens de la section d'en-tête (y compris les cartes de promotion et les carrousels de produits). Cependant, vous pouvez ajouter des paramètres UTM ou des codes uniques aux URL lors de la configuration. Ces paramètres vous permettent de suivre l'engagement à l'aide de vos propres outils d'analyse web ou de suivi des conversions, car le suivi fait partie de l'URL elle-même et n'est pas inséré par l'ESP. Le suivi des clics au niveau de l'ESP n'est pas disponible pour ces liens.
+Gmail ne fournit pas d'analyse sur ces cartes, et les fournisseurs de services d'e-mail marketing (fournisseur de services d'e-mailing) comme Braze ne peuvent pas insérer leur propre suivi de liens sur les liens de la section d'en-tête (y compris les cartes de promotion et les carrousels de produits). Cependant, vous pouvez ajouter des paramètres UTM ou des codes uniques aux URL lors de la configuration. Ces paramètres vous permettent de suivre l'engagement à l'aide de vos propres outils d'analyse web ou de suivi des conversions, car le suivi fait partie de l'URL elle-même et n'est pas inséré par l'fournisseur de services d'e-mailing. Le suivi des clics au niveau de l'fournisseur de services d'e-mailing n'est pas disponible pour ces liens.
 
 ### Intégrer des images {#incorporate-images}
 
@@ -177,7 +177,7 @@ En raison des réglementations de Google en matière de confidentialité et de s
 
 ### Comment les clics sur une carte de promotion ou un carrousel de produits sont-ils suivis ? {#how-are-clicks-on-a-promotion-card-or-product-carousel-tracked}
 
-Braze ou tout autre ESP ne peut pas insérer de suivi de liens sur les liens de la section d'en-tête. Cela signifie que les clics ne peuvent pas être suivis sur une carte de promotion ou un carrousel de produits.
+Braze ou tout autre fournisseur de services d'e-mailing ne peut pas insérer de suivi de liens sur les liens de la section d'en-tête. Cela signifie que les clics ne peuvent pas être suivis sur une carte de promotion ou un carrousel de produits.
 
 ### Existe-t-il un moyen de savoir combien d'utilisateurs ont reçu un carrousel de produits ? {#is-there-a-way-to-see-how-many-users-received-a-product-carousel}
 

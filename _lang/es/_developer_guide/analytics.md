@@ -21,7 +21,7 @@ platform:
 > Obtén información sobre el análisis del SDK de Braze para comprender mejor qué datos recopila Braze, la diferencia entre eventos personalizados y atributos personalizados, y las prácticas recomendadas para gestionar los análisis.
 
 {% alert tip %}
-Durante la implementación de Braze, asegúrate de hablar sobre los objetivos de marketing con tu equipo, para que puedas decidir mejor qué datos deseas rastrear y cómo deseas rastrearlos con Braze. Para ver un ejemplo, consulta nuestro caso de estudio [sobre aplicaciones de taxi/transporte compartido](#example-case) al final de esta guía.
+Durante la implementación de Braze, asegúrate de hablar sobre los objetivos de marketing con tu equipo, para que puedas decidir mejor qué datos deseas rastrear y cómo deseas rastrearlos con Braze. Para ver un ejemplo, consulta nuestro caso de estudio [sobre aplicaciones de Taxi for Email/transporte compartido](#example-case) al final de esta guía.
 {% endalert %}
 
 ## Datos recopilados automáticamente {#automatically-collected-data}
@@ -82,7 +82,7 @@ Talk to villagers for essential tips on how to beat levels!
 ```
 {% endraw %}
 
-Las propiedades de eventos personalizados están diseñadas para ayudarte a personalizar tus mensajes o crear campañas de entrega basada en acciones con mayor detalle. Si deseas crear segmentos basados en la antigüedad y frecuencia de las propiedades de eventos, ponte en contacto con tu administrador de éxito de cliente o con nuestro equipo de soporte.
+Las propiedades de eventos personalizados están diseñadas para ayudarte a personalizar tus mensajes o crear campañas de entrega basada en acciones con mayor detalle. Si deseas crear segmentos basados en la antigüedad y frecuencia de las propiedades de eventos, ponte en contacto con tu CSM o con nuestro equipo de soporte.
 
 ## Atributos personalizados {#custom-attributes}
 
@@ -244,7 +244,7 @@ La siguiente tabla describe las opciones de segmentación disponibles para los e
 Si deseas segmentar por el número de veces que se ha realizado una compra específica, también deberías registrar esa compra individualmente como un [atributo personalizado incremental](#integers).
 {% endalert %}
 
-## Caso de uso de aplicación de taxi/transporte compartido {#example-case}
+## Caso de uso de aplicación de Taxi for Email/transporte compartido {#example-case}
 
 Para este ejemplo, consideremos una aplicación de transporte compartido que quiere decidir qué datos de usuario recopilar. Las siguientes preguntas y el proceso de lluvia de ideas son un gran modelo a seguir por los equipos de marketing y desarrollo. Al final de este ejercicio, ambos equipos deberían tener una comprensión sólida de qué eventos y atributos personalizados tiene sentido recopilar para ayudar a cumplir su objetivo.
 
@@ -256,22 +256,22 @@ Su objetivo es sencillo: quieren que los usuarios pidan taxis a través de su ap
 
 1. Necesitan que los usuarios inicien el proceso de registro y rellenen sus datos personales.
 2. Necesitan que los usuarios completen y verifiquen el proceso de registro introduciendo un código en la aplicación que reciben por SMS.
-3. Tienen que intentar pedir un taxi.
-4. Para pedir un taxi, debe haber uno disponible cuando lo busquen.
+3. Tienen que intentar pedir un Taxi for Email.
+4. Para pedir un Taxi for Email, debe haber uno disponible cuando lo busquen.
 
 Estas acciones podrían entonces etiquetarse como los siguientes eventos personalizados:
 
 - Inicio del registro
 - Registro completado
-- Solicitudes de taxi exitosas
-- Solicitudes de taxi fallidas
+- Solicitudes de Taxi for Email exitosas
+- Solicitudes de Taxi for Email fallidas
 
 Después de implementar los eventos, ahora puedes ejecutar las siguientes campañas:
 
 1. Envía mensajes a los usuarios que iniciaron el registro, pero no desencadenaron el evento de registro completado en un plazo de tiempo determinado.
 2. Envía mensajes de felicitación a los usuarios que completen el registro.
-3. Envía disculpas y crédito promocional a los usuarios que hayan tenido solicitudes de taxi fallidas que no hayan ido seguidas de una solicitud de taxi exitosa en un plazo de tiempo determinado.
-4. Envía promociones a usuarios avanzados con muchas solicitudes de taxi exitosas para agradecerles su fidelización.
+3. Envía disculpas y crédito promocional a los usuarios que hayan tenido solicitudes de Taxi for Email fallidas que no hayan ido seguidas de una solicitud de Taxi for Email exitosa en un plazo de tiempo determinado.
+4. Envía promociones a usuarios avanzados con muchas solicitudes de Taxi for Email exitosas para agradecerles su fidelización.
 
 ¡Y muchas más!
 

@@ -32,7 +32,7 @@ Lorsque Braze « envoie » un message, la distribution finale peut dépendre de 
 | Canal | Exemple de distribution finale |
 | --- | --- |
 | Content Cards | La carte a été envoyée et est éligible à la consultation. |
-| E-mail | Braze transmet le message à un fournisseur de services d'e-mailing (ESP). L'ESP est ensuite responsable de la distribution finale. Cet ESP, par exemple, peut signaler un « bounce » si l'adresse e-mail est invalide ou si la boîte de réception est pleine. |
+| E-mail | Braze transmet le message à un fournisseur de services d'e-mail marketing (fournisseur de services d'e-mailing). L'fournisseur de services d'e-mailing est ensuite responsable de la distribution finale. Cet fournisseur de services d'e-mailing, par exemple, peut signaler un « bounce » si l'adresse e-mail est invalide ou si la boîte de réception est pleine. |
 | In-App Messages | Le message a été consulté par l'utilisateur et une impression a été enregistrée. |
 | LINE | Le message a été transmis avec succès à un partenaire d'envoi. |
 | Notification push | Braze transmet le message au service de notification push approprié (comme Apple Push Notification service pour iOS ou Firebase Cloud Messaging pour Android). Ce service est responsable de la distribution finale de la notification sur l'appareil. |

@@ -56,7 +56,7 @@ Puedes usar [Segments]({{site.baseurl}}/user_guide/audience/segments) predefinid
 
 *¿Por qué estás creando esta campaña?*
 
-Siempre es importante tener un objetivo definido en mente, y las campañas te ayudan a entender tu rendimiento frente a KPI como la interacción en sesiones, las compras y los eventos personalizados. Seleccionar al menos un [evento de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) te dará la capacidad de comprender el rendimiento de tu campaña.
+Siempre es importante tener un objetivo definido en mente, y las campañas te ayudan a entender tu rendimiento frente a indicador clave de rendimiento como la interacción en sesiones, las compras y los eventos personalizados. Seleccionar al menos un [evento de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) te dará la capacidad de comprender el rendimiento de tu campaña.
 
 ### El "dónde": encuentra a mi audiencia {#the-where-find-my-audience}
 

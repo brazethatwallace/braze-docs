@@ -172,6 +172,6 @@ A Braze suporta três estados de direcionamento:
 
 Use os filtros "Email Subscription Status" e "Push Subscription Status" para segmentar usuários por status de inscrição.
 
-Use isso para direcionar usuários que não fizeram opt-in nem opt-out e incentive um opt-in explícito. Crie um segmento com o filtro "Email/Push Subscription Status is Subscribed" e envie Campaigns para usuários que estão inscritos, mas não fizeram opt-in.
+Use isso para direcionar usuários que não fizeram opt-in nem opt-out e incentive um opt-in explícito. Crie um Segment com o filtro "Email/Push Subscription Status is Subscribed" e envie Campaigns para usuários que estão inscritos, mas não fizeram opt-in.
 
-![Email Subscription Status usado como filtro de segmento.]({% image_buster /assets/img_archive/not_optin.png %})
+![Email Subscription Status usado como filtro de Segment.]({% image_buster /assets/img_archive/not_optin.png %})

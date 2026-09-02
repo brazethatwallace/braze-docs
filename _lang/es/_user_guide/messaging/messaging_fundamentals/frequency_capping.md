@@ -18,7 +18,7 @@ Braze te permite controlar la presión de marketing limitando la velocidad de tu
 1. [Límite de velocidad centrado en el usuario:](#user-centric-rate-limiting) se centra en proporcionar la mejor experiencia para el usuario.
 2. [Límite de velocidad de entrega:](#delivery-speed-rate-limiting) tiene en cuenta el ancho de banda de tus servidores.
 
-Braze no admite un límite de velocidad por segundo. Braze intenta distribuir uniformemente los envíos de mensajes a lo largo del minuto, pero no puede garantizarlo. Por ejemplo, si tienes una Campaign con un límite de velocidad de 5000 mensajes por minuto, intentamos distribuir las 5000 solicitudes uniformemente a lo largo del minuto (alrededor de 84 mensajes por segundo), pero puede haber cierta variación en la tasa por segundo.
+Braze no admite un límite de velocidad por segundo. Braze intenta distribuir uniformemente los envíos de mensajes a lo largo del minuto, pero no puede garantizarlo. Por ejemplo, si tienes una Campaign con un límite de velocidad de 5000 mensajes por minuto, intentamos distribuir las 5000 solicitudes uniformemente a lo largo del minuto (alrededor de 84 MPS), pero puede haber cierta variación en la tasa por segundo.
 
 ### Límite de velocidad centrado en el usuario {#user-centric-rate-limiting}
 
@@ -70,7 +70,7 @@ Si necesitas Campaigns de seguimiento dirigidas a usuarios que recibieron una Ca
 
 Para una Campaign de envío único que utilice **Optimizar con BrazeAI<sup>TM</sup>**, la Campaign consta de dos envíos: el experimento inicial y el envío optimizado.
 
-Para configurar un límite máximo de usuarios en este escenario, selecciona **Limitar volumen de envío**, luego selecciona **Duración de la Campaign** e introduce un valor para **Envíos máximos**. Tu límite de audiencia se divide según los porcentajes mostrados en el panel de **A/B Testing**.
+Para configurar un límite máximo de usuarios en este escenario, selecciona **Limitar volumen de envío**, luego selecciona **Duración de la Campaign** e introduce un valor para **Envíos máximos**. Tu límite de audiencia se divide según los porcentajes mostrados en el panel de **Pruebas A/B**.
 
 Si seleccionas **Cada vez que se programe la Campaign**, esas dos fases se limitarán por separado al número establecido. Esto normalmente no es lo deseado.
 
@@ -208,7 +208,7 @@ Si necesitas llegar a un número específico de usuarios al usar ambas caracter�
 
 - **Aumenta tu límite de velocidad:** para tener en cuenta a los usuarios que están limitados por frecuencia. Por ejemplo, si deseas llegar a 500 usuarios pero esperas que algunos estén limitados por frecuencia, establece tu límite de velocidad más alto (como 1000 usuarios).
 - **Usa solo los límites de velocidad:** si tu objetivo es controlar el volumen de mensajes enviados por Campaign.
-- **Contacta a tu administrador de éxito de cliente:** para obtener ayuda en el diseño de una estrategia de mensajería sólida que equilibre las necesidades del negocio y las consideraciones técnicas.
+- **Contacta a tu CSM:** para obtener ayuda en el diseño de una estrategia de mensajería sólida que equilibre las necesidades del negocio y las consideraciones técnicas.
 
 ### Resumen de la característica {#freq-cap-feat-over}
 
@@ -388,7 +388,7 @@ Esto suele significar que el [límite de velocidad de entrega](#delivery-speed-r
 
 **Limitar volumen de envío** controla cuántos usuarios son elegibles para un envío, no cuántos mensajes envía Braze por minuto. Solo un límite de velocidad de entrega establece el rendimiento por minuto.
 
-Si ya estás en el límite de velocidad de entrega máximo disponible para tu empresa, contacta a tu administrador de éxito de cliente para solicitar un aumento.
+Si ya estás en el límite de velocidad de entrega máximo disponible para tu empresa, contacta a tu CSM para solicitar un aumento.
 
 ### ¿Qué significa "Enviado" para la limitación de frecuencia? {#what-does-sent-mean-for-frequency-capping}
 

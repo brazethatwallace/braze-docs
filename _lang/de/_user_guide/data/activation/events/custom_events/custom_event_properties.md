@@ -126,7 +126,7 @@ Event-Eigenschaften für angepasste Events werden in Echtzeit für jedes Segment
 
 Sie benötigen die Nutzerberechtigung „Edit Custom Event Property Segmentation“ ([Nutzerberechtigung]({{site.baseurl}}/user_guide/data/infrastructure/data_points#viewing-data-point-usage)), um Segmente basierend auf der Aktualität und Häufigkeit von Event-Eigenschaften zu erstellen.
 
-Standardmäßig können Sie 20 segmentierbare Event-Eigenschaften pro Workspace haben. Wenden Sie sich an Ihren Braze Account Manager, um dieses Limit zu erhöhen.
+Standardmäßig können Sie 20 segmentierbare Event-Eigenschaften pro Workspace haben. Wenden Sie sich an Ihren Braze Account Manager:in, um dieses Limit zu erhöhen.
 
 Um Event-Eigenschaften für die Segmentierung hinzuzufügen, gehen Sie wie folgt vor:
 
@@ -167,4 +167,4 @@ Sie können auf zwei Arten basierend auf den Werten von Event-Eigenschaften segm
 1. **Innerhalb von 30 Tagen:** Sie können die Segmentierung nach Event-Eigenschaften basierend auf der Häufigkeit und Aktualität bestimmter Event-Eigenschaftswerte innerhalb von Braze-Segments nutzen. Diese Option wirkt sich auf die Datennutzung aus.<br><br>
 2. **Innerhalb und über 30 Tage hinaus:** Um sowohl kurzfristige als auch langfristige Segmentierung nach Event-Eigenschaften abzudecken, können Sie [Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension) verwenden. Dieses Feature segmentiert Nutzer:innen basierend auf angepassten Events und Event-Eigenschaften, die innerhalb der letzten zwei Jahre erfasst wurden. Diese Option wirkt sich nicht auf die Datennutzung aus.
 
-Wenden Sie sich an Ihren Customer-Success-Manager bei Braze, um Empfehlungen zum besten Ansatz für Ihre spezifischen Anforderungen zu erhalten.
+Wenden Sie sich an Ihren CSM bei Braze, um Empfehlungen zum besten Ansatz für Ihre spezifischen Anforderungen zu erhalten.

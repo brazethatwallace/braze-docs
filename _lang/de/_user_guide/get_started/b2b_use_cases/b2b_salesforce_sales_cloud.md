@@ -43,7 +43,7 @@ Als Customer-Engagement-Plattform kann Braze neue Leads auf Basis von Nutzer:inn
 
 ### Schritt 1: `client_id` und `client_secret` erfassen {#step-1-collect-your-client_id-and-client_secret}
 
-1. Gehen Sie in Salesforce zu **Platform Tools** > **Apps** > **App Manager**.
+1. Gehen Sie in Salesforce zu **Platform Tools** > **Apps** > **App Manager:in**.
 2. Suchen Sie Ihre neu erstellte Braze-App und wählen Sie **View**.
 3. Wählen Sie unter **Consumer Key and Secret** die Option **Manage Consumer Details**.
 4. Notieren Sie sich auf der angezeigten Seite Ihren **Consumer Key** und Ihr **Consumer Secret**. Der **Consumer Key** ist Ihre `client_id` und das **Consumer Secret** ist Ihr `client_secret`.
@@ -100,7 +100,7 @@ Dieses Beispiel zeigt konkret, wie Sie die Lead-Stufe eines Leads auf „MQL“ 
 
 ### Schritt 1: `client_id` und `client_secret` erfassen
 
-1. Gehen Sie in Salesforce zu **Platform Tools** > **Apps** > **App Manager**.
+1. Gehen Sie in Salesforce zu **Platform Tools** > **Apps** > **App Manager:in**.
 2. Suchen Sie Ihre neu erstellte Braze-App und wählen Sie **View**.
 3. Wählen Sie unter **Consumer Key and Secret** die Option **Manage Consumer Details**.
 4. Notieren Sie sich auf der angezeigten Seite Ihren **Consumer Key** und Ihr **Consumer Secret**.

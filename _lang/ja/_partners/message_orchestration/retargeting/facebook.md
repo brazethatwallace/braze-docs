@@ -30,8 +30,8 @@ Facebookオーディエンスエクスポートは、**ユーザーアクセス�
 
 | 要件 | 説明 |
 | ----------- | ----------- |
-| [Facebook Business Manager](https://www.facebook.com/business/help/113163272211510?id=180505742745347) | ブランドのFacebookアセット（広告アカウント、ページ、アプリなど）を管理するための一元的なツールです。 |
-| [Facebook広告アカウント](https://www.facebook.com/business/help/910137316041095?id=420299598837059) | ブランドのBusiness Managerに紐づいたアクティブなFacebook広告アカウントで、Brazeカスタムオーディエンスで使用するものです。<br><br>Facebook Business Managerの管理者が、Brazeで使用する予定のFacebook広告アカウントに対する管理者権限を付与していること、また広告アカウントの利用規約に同意していることを確認してください。これらが完了していない場合、Braze内でFacebook広告アカウントにアクセスできません。 |
+| [Facebook Business マネージャー](https://www.facebook.com/business/help/113163272211510?id=180505742745347) | ブランドのFacebookアセット（広告アカウント、ページ、アプリなど）を管理するための一元的なツールです。 |
+| [Facebook広告アカウント](https://www.facebook.com/business/help/910137316041095?id=420299598837059) | ブランドのBusiness マネージャーに紐づいたアクティブなFacebook広告アカウントで、Brazeカスタムオーディエンスで使用するものです。<br><br>Facebook Business マネージャーの管理者が、Brazeで使用する予定のFacebook広告アカウントに対する管理者権限を付与していること、また広告アカウントの利用規約に同意していることを確認してください。これらが完了していない場合、Braze内でFacebook広告アカウントにアクセスできません。 |
 | [Facebookカスタムオーディエンス利用規約](https://www.facebook.com/ads/manage/customaudiences/tos.php)| Brazeで使用する予定のFacebook広告アカウントについて、Facebookのカスタムオーディエンス利用規約に同意する必要があります。|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
@@ -49,7 +49,7 @@ Facebookオーディエンスエクスポートは、**ユーザーアクセス�
 
 {: start="4"}
 4. BrazeがFacebookアカウントにリンクされたら、Brazeワークスペース内で同期する広告アカウントを選択します。<br><br>![Facebookに接続可能な広告アカウントの一覧。]({% image_buster /assets/img/fb/afb_4.png %}){: style="max-width:70%;"}<br><br> 接続後、パートナーページに戻り、接続されているアカウントの確認や既存アカウントの切断が可能です。<br><br> ![広告アカウントが正常に接続されたことを示すFacebookテクノロジーパートナーページの更新版。]({% image_buster /assets/img/fb/afb_5.png %}){: style="max-width:70%;"}<br>
-<br> Facebookの接続はBrazeワークスペースレベルで適用されます。Facebook管理者がFacebook Business Managerからあなたを削除したり、接続されたFacebookアカウントへのアクセスを取り消したりした場合、Brazeは無効なトークンを検出します。その結果、Facebook オーディエンスステップを使用しているアクティブなキャンバスにエラーが表示され、Brazeはユーザーを同期できなくなります。
+<br> Facebookの接続はBrazeワークスペースレベルで適用されます。Facebook管理者がFacebook Business マネージャーからあなたを削除したり、接続されたFacebookアカウントへのアクセスを取り消したりした場合、Brazeは無効なトークンを検出します。その結果、Facebook オーディエンスステップを使用しているアクティブなキャンバスにエラーが表示され、Brazeはユーザーを同期できなくなります。
 
 {% alert important %}
 [Ads Management](https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management)および[Ads Management Standard Access](https://developers.facebook.com/docs/marketing-api/access#standard)のFacebookアプリレビュープロセスを以前に受けた顧客の場合、システムユーザートークンは引き続きFacebook オーディエンスステップで有効です。Facebookパートナーページからシステムユーザートークンを編集または取り消すことはできません。代わりに、Facebookアカウントを接続して、Brazeワークスペース内のFacebookシステムユーザートークンを置き換えることができます。
@@ -76,7 +76,7 @@ Brazeでは、Facebook オーディエンスエクスポートは**セグメン�
 
 {: start="4"}
 4. ユーザーフィールドを選択した後、**Export セグメント**を選択します。CSVエクスポートと同様に、セグメントのFacebookへのエクスポートが完了するとメールが届きます。
-5. [Facebook Ads Manager](https://www.facebook.com/ads/manager/audiences/manage/)でカスタムオーディエンスを確認します。
+5. [Facebook Ads マネージャー](https://www.facebook.com/ads/manager/audiences/manage/)でカスタムオーディエンスを確認します。
 
 {% alert important %}
 ユーザーのプライバシー上の理由から、Facebookでは以下を確認できません：

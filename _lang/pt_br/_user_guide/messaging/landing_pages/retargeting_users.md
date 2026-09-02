@@ -7,7 +7,7 @@ page_order: 3
 
 # Redirecionar usuários por meio de uma landing page {#retarget-users-through-a-landing-page}
 
-> Saiba como redirecionar usuários que enviaram um formulário por meio de uma landing page criando um segmento dedicado ou disparando uma mensagem quando o formulário é enviado.
+> Saiba como redirecionar usuários que enviaram um formulário por meio de uma landing page criando um Segment dedicado ou disparando uma mensagem quando o formulário é enviado.
 
 ## Pré-requisitos {#prerequisites}
 

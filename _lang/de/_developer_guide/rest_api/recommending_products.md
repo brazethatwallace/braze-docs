@@ -32,7 +32,7 @@ Um diese Anleitung abzuschließen, benötigen Sie:
 Speichern Sie zunächst die von Ihrem Empfehlungssystem generierten Produktempfehlungen als angepasste Attribute in Braze-Nutzerprofilen. So können Sie bei der Nachrichtenzustellung auf die empfohlenen Produkte der einzelnen Nutzer:innen zugreifen.
 
 1. Legen Sie fest, welche Empfehlungsdaten gespeichert werden sollen, z. B. Produkt-IDs oder bevorzugte Kategorien.
-2. Verwenden Sie den Endpunkt [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), um die Empfehlung als angepasstes Attribut im Nutzerprofil zu speichern.
+2. Verwenden Sie den Endpunkt [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), um die Empfehlung als angepasstes Attribut im Kundenprofil zu speichern.
 
 ### Beispielanfrage {#example-request}
 
@@ -59,7 +59,7 @@ Verwenden Sie aussagekräftige Attributnamen (wie `recommended_product_id`), dam
 
 ## Schritt 2: Produktmetadaten abrufen {#step-2-retrieve-product-metadata}
 
-Nachdem Sie einen Empfehlungsbezeichner in jedem Nutzerprofil gespeichert haben, müssen Sie die vollständigen Produktmetadaten (Name, Preis, Bild usw.) abrufen, um sie in Ihre Nachricht einzubinden. Dafür stehen Ihnen zwei Optionen zur Verfügung:
+Nachdem Sie einen Empfehlungsbezeichner in jedem Kundenprofil gespeichert haben, müssen Sie die vollständigen Produktmetadaten (Name, Preis, Bild usw.) abrufen, um sie in Ihre Nachricht einzubinden. Dafür stehen Ihnen zwei Optionen zur Verfügung:
 
 - **Option A:** [Braze-Kataloge](#option-a-braze-catalogs) — Produktinformationen direkt in Braze speichern, um schnelle, integrierte Abfragen zu ermöglichen.
 - **Option B:** [Connected Content](#option-b-connected-content) — Produktinformationen zum Sendezeitpunkt von einer externen API abrufen.
@@ -138,7 +138,7 @@ Vermeiden Sie es, Connected Content zu verwenden, um eine große Liste von Produ
 
 Überprüfen Sie nach Abschluss der Einrichtung Ihre Integration:
 
-1. Verwenden Sie den Endpunkt [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), um eine Testempfehlung in Ihr eigenes Nutzerprofil zu schreiben.
+1. Verwenden Sie den Endpunkt [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), um eine Testempfehlung in Ihr eigenes Kundenprofil zu schreiben.
 2. Senden Sie eine Testnachricht, die auf das empfohlene Produkt verweist – entweder über Catalogs oder Connected-Content.
 3. Bestätigen Sie, dass die Produktdetails in der zugestellten Nachricht korrekt dargestellt werden.
 4. Gehen Sie im Braze-Dashboard zur Ergebnisseite der Campaign oder des Canvas und bestätigen Sie, dass der Versand aufgezeichnet wurde.

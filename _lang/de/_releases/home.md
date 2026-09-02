@@ -10,7 +10,7 @@ page_type: reference
 # Was ist neu in Braze {#whats-new-in-braze}
 
 {% alert tip %}
-Weitere Informationen zu den auf dieser Seite aufgeführten Updates erhalten Sie von Ihrem Account Manager oder [öffnen Sie ein Support-Ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support). In unseren [SDK Changelogs]({{site.baseurl}}/developer_guide/changelogs) finden Sie weitere Informationen über unsere monatlichen SDK-Versionen, Verbesserungen und grundlegenden Änderungen.
+Weitere Informationen zu den auf dieser Seite aufgeführten Updates erhalten Sie von Ihrem Account Manager:in oder [öffnen Sie ein Support-Ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support). In unseren [SDK Changelogs]({{site.baseurl}}/developer_guide/changelogs) finden Sie weitere Informationen über unsere monatlichen SDK-Versionen, Verbesserungen und grundlegenden Änderungen.
 {% endalert %}
 
 {% details 20. August 2026 %}
@@ -83,7 +83,7 @@ Der [Content Optimizer]({{site.baseurl}}/user_guide/brazeai/content_optimizer)-S
 
 - **Schrittstatus:** Content-Optimizer-Schritte zeigen an, ob sie sich im Status **Learning**, **Optimizing** oder **Action Recommended** befinden, sodass Sie sehen können, wo jeder Schritt steht.
 - **Vorab-Konfigurationsprüfungen:** Content Optimizer prüft während der Entwurfsphase auf wichtige Fehlkonfigurationen, sodass Sie Probleme erkennen können, bevor Sie starten.
-- **Nachverfolgen, welche Kombination jede:r Nutzer:in erhalten hat:** Ein neuer Liquid-Tag und die Sichtbarkeit im Nutzerprofil ermöglichen es Ihnen, nachzuverfolgen, welche Variantenkombination jede:r Nutzer:in erhalten hat – von Anfang bis Ende.
+- **Nachverfolgen, welche Kombination jede:r Nutzer:in erhalten hat:** Ein neuer Liquid-Tag und die Sichtbarkeit im Kundenprofil ermöglichen es Ihnen, nachzuverfolgen, welche Variantenkombination jede:r Nutzer:in erhalten hat – von Anfang bis Ende.
 - **Neue Currents-Daten:** Drei neue Event-Typen ermöglichen es Ihnen, Content-Optimizer-Daten in Ihr Warehouse zu übertragen: `users.canvas.costep.Send`, `users.canvas.costep.Conversion` und `contentoptimizer.ComponentStore`.
 
 Einrichtungsdetails finden Sie unter [Content-Optimizer-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step).
@@ -162,11 +162,11 @@ Der Block [Abos verwalten]({{site.baseurl}}/user_guide/messaging/landing_pages/m
 
 ### Partnerschaften {#partnerships}
 
-#### Audience Sync: Google Data Manager API
+#### Audience Sync: Google Data Manager:in API
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-[Audience Sync zu Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync) unterstützt die Google Data Manager API im Early Access.
+[Audience Sync zu Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync) unterstützt die Google Data Manager:in API im Early Access.
 
 #### Amazon Bedrock – KI-Modellanbieter {#amazon-bedrock-ai-model-provider}
 
@@ -224,7 +224,7 @@ Weitere Details finden Sie in den [SDK Changelogs]({{site.baseurl}}/developer_gu
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Das [Messaging-Diagnostics-Dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard) bietet eine Aufschlüsselung der Ergebnisse des Nachrichtenversands auf hoher Ebene, mit der Sie Trends erkennen und potenzielle Probleme in Ihrer Messaging-Konfiguration diagnostizieren können. Dieses Dashboard kann Ihnen helfen zu verstehen, warum Nachrichten aus Ihren Campaigns oder Canvases möglicherweise nicht wie erwartet gesendet wurden. Wenden Sie sich an Ihren Customer-Success-Manager, um Zugang zu diesem Feature zu erhalten.
+Das [Messaging-Diagnostics-Dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard) bietet eine Aufschlüsselung der Ergebnisse des Nachrichtenversands auf hoher Ebene, mit der Sie Trends erkennen und potenzielle Probleme in Ihrer Messaging-Konfiguration diagnostizieren können. Dieses Dashboard kann Ihnen helfen zu verstehen, warum Nachrichten aus Ihren Campaigns oder Canvases möglicherweise nicht wie erwartet gesendet wurden. Wenden Sie sich an Ihren CSM, um Zugang zu diesem Feature zu erhalten.
 
 #### CSV-Mapper für angepasste Events {#csv-custom-events-mapper}
 
@@ -261,7 +261,7 @@ Bitten Sie Operator beispielsweise auf der Seite „Ruhezeiten“, die Ruhezeite
 
 Der [Braze-MCP-Server]({{site.baseurl}}/user_guide/brazeai/mcp_server) ist eine remote gehostete Verbindung, mit der Sie KI-Agenten wie Claude, ChatGPT, Cursor, VSCode, Codex, Google Antigravity und Claude Code direkt mit Braze verbinden können. Über natürliche Sprache können Agenten Campaign-, Canvas- und Segment-Analytics, angepasste Attribute, Events, KPIs und Kataloge lesen sowie E-Mail-Templates, Content Blocks und Medienbibliotheks-Assets erstellen oder aktualisieren. Es werden keine personenbezogenen Nutzerprofildaten offengelegt.
 
-Um eine Verbindung herzustellen, fügen Sie eine einzelne Endpunkt-URL in Ihren MCP-Client ein – `https://mcp.braze.com/mcp` für US oder `https://mcp.braze.eu/mcp` für EU – und melden Sie sich dann mit OAuth an, einschließlich SSO. Der Server startet mit den verfügbaren Tools.
+Um eine Verbindung herzustellen, fügen Sie eine einzelne Endpunkt-URL in Ihren MCP-Client ein – `https://mcp.braze.com/mcp` für US oder `https://mcp.braze.eu/mcp` für EU – und melden Sie sich dann mit OAuth an, einschließlich Single Sign-on. Der Server startet mit den verfügbaren Tools.
 
 ### Orchestrierung
 
@@ -277,7 +277,7 @@ Die [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams)
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-Fügen Sie einem Formularblock sowohl in [Landing-Page-Umfragen]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/surveys#rating-scale) als auch in [In-App-Nachrichten-Umfragen]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/surveys#rating-scale) eine numerische Bewertungsskala hinzu, um Stimmung, Zufriedenheit und Weiterempfehlungswahrscheinlichkeit ohne angepassten Code zu erfassen. Drei Bereiche werden unterstützt: 1–10, 1–5 und 0–10 (der Standard-NPS-Bereich).
+Fügen Sie einem Formularblock sowohl in [Landing-Page-Umfragen]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/surveys#rating-scale) als auch in [In-App-Nachrichten-Umfragen]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/surveys#rating-scale) eine numerische Bewertungsskala hinzu, um Stimmung, Zufriedenheit und Weiterempfehlungswahrscheinlichkeit ohne angepassten Code zu erfassen. Drei Bereiche werden unterstützt: 1–10, 1–5 und 0–10 (der Standard-Net Promoter Score-Bereich).
 
 #### WhatsApp-Templates für zeitlich begrenzte Angebote {#whatsapp-limited-time-offer-templates}
 
@@ -333,7 +333,7 @@ Sie können Push-Zugangsdaten jetzt programmatisch mit dem [Endpunkt zur Aktuali
 
 #### Refiner – Umfragen {#refiner-surveys}
 
-[Refiner](https://refiner.io) ist eine In-App-Umfrageplattform für SaaS- und mobile Apps. Sie ermöglicht es Produkt- und Voice-of-Customer-Teams, gezielte In-App-Umfragen zu starten und kontinuierlich NPS, CSAT, CES, Produktfeedback und Zero-Party-Nutzerdaten zu erfassen.
+[Refiner](https://refiner.io) ist eine In-App-Umfrageplattform für SaaS- und mobile Apps. Sie ermöglicht es Produkt- und Voice-of-Customer-Teams, gezielte In-App-Umfragen zu starten und kontinuierlich Net Promoter Score, CSAT, CES, Produktfeedback und Zero-Party-Nutzerdaten zu erfassen.
 
 #### Stayfilm – Visuelle und interaktive Inhalte {#stayfilm-visual-and-interactive-content}
 
@@ -502,7 +502,7 @@ Nach dem Senden einer WhatsApp-Testnachricht können Sie einen [detaillierten Zu
 
 #### DinMo – Daten und Analytics – Reverse ETL {#dinmo-data-and-analytics-reverse-etl}
 
-[DinMo]({{site.baseurl}}/partners/dinmo) ist eine Composable Customer Data Platform (CDP), die Ihr Cloud Data Warehouse über Reverse Extract, Transform, Load (ETL) mit Braze verbindet. Marketing-Teams können Zielgruppensegmente aus Warehouse-Daten erstellen, Nutzerattribute und Events in Braze synchronisieren und Abo-Status aktuell halten – ohne CSV-Uploads oder Engineering-Support.
+[DinMo]({{site.baseurl}}/partners/dinmo) ist eine Composable Customer Data Platform (CDP), die Ihr Cloud Data Warehouse über Reverse ETL (ETL) mit Braze verbindet. Marketing-Teams können Zielgruppensegmente aus Warehouse-Daten erstellen, Nutzerattribute und Events in Braze synchronisieren und Abo-Status aktuell halten – ohne CSV-Uploads oder Engineering-Support.
 
 #### EmailShepherd – Nachrichtenorchestrierung – Templates {#emailshepherd-message-orchestration-templates}
 
@@ -572,7 +572,7 @@ Sie können den WhatsApp-Anzeigenamen eines Nutzers bzw. einer Nutzerin automati
 
 #### Verwaiste SMS-Abo-Status {#orphaned-sms-subscription-states}
 
-Braze [verwaltet automatisch verwaiste Abo-Status-Datensätze]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#how-braze-handles-orphaned-subscription-states) (Abo-Daten, die für eine Telefonnummer oder E-Mail-Adresse gespeichert sind, die keinem Nutzerprofil zugeordnet ist), um eine unbeabsichtigte Vererbung des Abo-Status zu verhindern. Dies schützt Nutzer:innen vor Szenarien, in denen ein neu erstelltes Nutzerprofil fälschlicherweise den Abo-Status eines zuvor gelöschten oder nicht verwandten Nutzers bzw. einer Nutzerin erbt.
+Braze [verwaltet automatisch verwaiste Abo-Status-Datensätze]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#how-braze-handles-orphaned-subscription-states) (Abo-Daten, die für eine Telefonnummer oder E-Mail-Adresse gespeichert sind, die keinem Kundenprofil zugeordnet ist), um eine unbeabsichtigte Vererbung des Abo-Status zu verhindern. Dies schützt Nutzer:innen vor Szenarien, in denen ein neu erstelltes Kundenprofil fälschlicherweise den Abo-Status eines zuvor gelöschten oder nicht verwandten Nutzers bzw. einer Nutzerin erbt.
 
 ### Partnerschaften
 
@@ -613,7 +613,7 @@ Die neuesten SDK-Updates wurden veröffentlicht. Grundlegende Updates sind im Ab
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Sie können jetzt ein individuelles Nutzerprofil über **Import Users** erstellen, indem Sie **Quick User Add** auswählen und eine E-Mail-Adresse oder externe ID eingeben.
+Sie können jetzt ein individuelles Kundenprofil über **Import Users** erstellen, indem Sie **Quick User Add** auswählen und eine E-Mail-Adresse oder externe ID eingeben.
 
 Zuvor erforderte die Erstellung von Nutzer:innen über diesen Workflow einen CSV-Upload oder eine automatisierte Aufnahmemethode.
 
@@ -696,7 +696,7 @@ Verwenden Sie [Workspace-Messaging-Rate-Limits]({{site.baseurl}}/user_guide/admi
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-Der [WhatsApp Template Builder]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization) ermöglicht es Ihnen, WhatsApp-Nachrichten-Templates direkt in Braze zu erstellen und einzureichen – ohne zwischen Braze und dem Meta Business Manager wechseln zu müssen. Nachdem Meta Ihr Template genehmigt hat, können Sie es in beliebig vielen Campaigns und Canvases verwenden.
+Der [WhatsApp Template Builder]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization) ermöglicht es Ihnen, WhatsApp-Nachrichten-Templates direkt in Braze zu erstellen und einzureichen – ohne zwischen Braze und dem Meta Business Manager:in wechseln zu müssen. Nachdem Meta Ihr Template genehmigt hat, können Sie es in beliebig vielen Campaigns und Canvases verwenden.
 
 #### Shopify-Produkt-Tags, Metafelder und Sammlungen {#shopify-product-tags-metafields-and-collections}
 
@@ -710,7 +710,7 @@ Sie können jetzt [Shopify-Produkt-Tags, Sammlungen und Metafelder]({{site.baseu
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-[GRAVTY®](https://www.lji.io/) ist eine Enterprise-Kundenbindungsplattform von Loyalty Juggernaut Inc. (LJI), die es Marken in den Bereichen Einzelhandel, Reisen, Gastronomie (einschließlich Schnellrestaurants) und Finanzdienstleistungen ermöglicht, Programme der nächsten Generation zu entwerfen, zu verwalten und zu skalieren – und so messbares Wachstum bei Engagement, Bindung und Customer Lifetime Value durch personalisierte, datengestützte Erlebnisse zu erzielen.
+[GRAVTY®](https://www.lji.io/) ist eine Enterprise-Kundenbindungsplattform von Loyalty Juggernaut Inc. (LJI), die es Marken in den Bereichen Einzelhandel, Reisen, Gastronomie (einschließlich Schnellrestaurants) und Finanzdienstleistungen ermöglicht, Programme der nächsten Generation zu entwerfen, zu verwalten und zu skalieren – und so messbares Wachstum bei Engagement, Bindung und Customer LTV durch personalisierte, datengestützte Erlebnisse zu erzielen.
 
 <!-- Use this section to list any new SDKs or SDK updates that are already released. -->
 ### SDK

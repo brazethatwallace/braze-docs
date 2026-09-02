@@ -3,7 +3,7 @@ nav_title: Usuario inactivo
 article_title: Usuario inactivo
 page_order: 4
 page_type: reference
-description: "Este artículo describe cómo usar una plantilla de Braze Canvas para traer de vuelta a los usuarios a tu aplicación con incentivos basados en sus interacciones pasadas."
+description: "Este artículo describe cómo usar una plantilla de BRAZE CANVAS para traer de vuelta a los usuarios a tu aplicación con incentivos basados en sus interacciones pasadas."
 tool: Canvas
 ---
 
@@ -38,7 +38,7 @@ Ajusta los detalles del Canvas para reflejar tu objetivo.
 
 ### Paso 2: Asigna tus eventos de conversión {#step-2-assign-your-conversion-events}
 
-Actualiza **Primary Conversion Event - A** para dirigirte a los usuarios de tu aplicación (MovieCanon), y deja **Primary Conversion Event - B** con el valor predeterminado de realizar cualquier compra.
+Actualiza **conversión primaria Event - A** para dirigirte a los usuarios de tu aplicación (MovieCanon), y deja **conversión primaria Event - B** con el valor predeterminado de realizar cualquier compra.
 
 ### Paso 3: Adapta el horario de entrada {#step-3-tailor-the-entry-schedule}
 

@@ -74,7 +74,7 @@ Cuando detienes un Canvas, se aplica lo siguiente:
 
 ### ¿Debo crear un solo Canvas o Canvas separados por ciclo de vida del usuario? {#should-i-build-one-canvas-or-separate-canvases-per-user-lifecycle}
 
-Dependiendo de lo que quieras lograr con tu Canvas, es posible que necesites diferentes enfoques para crear el recorrido del usuario. La flexibilidad de Canvas te permite trazar recorridos de usuario para cualquier etapa del ciclo de vida del usuario. Consulta nuestras [plantillas de Braze Canvas]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates) para ver varios ejemplos de enfoques optimizados para crear recorridos de usuario efectivos.
+Dependiendo de lo que quieras lograr con tu Canvas, es posible que necesites diferentes enfoques para crear el recorrido del usuario. La flexibilidad de Canvas te permite trazar recorridos de usuario para cualquier etapa del ciclo de vida del usuario. Consulta nuestras [plantillas de BRAZE CANVAS]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates) para ver varios ejemplos de enfoques optimizados para crear recorridos de usuario efectivos.
 
 ## Mensajes y entrega {#messages-and-delivery}
 

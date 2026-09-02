@@ -12,11 +12,11 @@ description: "Erfahren Sie, wie Sie Ihren Decisioning Studio Agent starten und d
 
 ## Schritte zum Starten {#launch-steps}
 
-Nachdem Sie alle Konfigurationsschritte mit Ihrem AI Decisioning Services-Team abgeschlossen haben:
+Nachdem Sie alle Konfigurationsschritte mit Ihrem KI Decisioning Services-Team abgeschlossen haben:
 
 1. Überprüfen Sie die Konfiguration Ihres Agents, um sicherzustellen, dass alle Einstellungen korrekt sind.
 2. Stellen Sie sicher, dass Ihre Datenverbindungen und Orchestrierungs-Integrationen aktiv sind.
-3. Arbeiten Sie mit Ihrem AI Decisioning Services-Team zusammen, um den Agent zu aktivieren.
+3. Arbeiten Sie mit Ihrem KI Decisioning Services-Team zusammen, um den Agent zu aktivieren.
 
 Nach dem Start wird Ihr Agent:
 - Zielgruppen- und Kundendaten empfangen
@@ -36,7 +36,7 @@ Wenn der Agent nativ in die Customer-Engagement-Plattform integriert ist (z. B. 
 
 ## Agent überwachen {#monitor-your-agent}
 
-Arbeiten Sie nach dem Start mit Ihrem AI Decisioning Services-Team zusammen, um die Performance zu überwachen:
+Arbeiten Sie nach dem Start mit Ihrem KI Decisioning Services-Team zusammen, um die Performance zu überwachen:
 
 - **Performance-Metriken:** Verfolgen Sie Ihre Erfolgsmetrik über Experimentgruppen hinweg
 - **Lernfortschritt:** Beobachten Sie, wie sich die Empfehlungen des Agents im Laufe der Zeit entwickeln
@@ -44,7 +44,7 @@ Arbeiten Sie nach dem Start mit Ihrem AI Decisioning Services-Team zusammen, um 
 
 ## Laufende Optimierung {#ongoing-optimization}
 
-Ihr AI Decisioning Services-Team wird weiterhin mit Ihnen zusammenarbeiten, um:
+Ihr KI Decisioning Services-Team wird weiterhin mit Ihnen zusammenarbeiten, um:
 
 - Die Performance des Agents zu analysieren und Optimierungsmöglichkeiten zu identifizieren
 - Dimensionen oder Optionen nach Bedarf zu erweitern

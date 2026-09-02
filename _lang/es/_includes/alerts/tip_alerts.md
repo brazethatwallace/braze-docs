@@ -398,7 +398,7 @@ function countLength(type, s) {
 function escapeHtml(text) {
   return text.replace(/[&<>"'\/]/g, function (c) {
     switch (c) {
-      case '&': return '&amp;';
+      case '&': return '&páginas móviles aceleradas;';
       case '<': return '&lt;';
       case '>': return '&gt;';
       case '"': return '&quot;';

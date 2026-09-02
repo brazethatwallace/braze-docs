@@ -3,7 +3,7 @@ nav_title: Intención abandonada
 article_title: Intención abandonada
 page_order: 1
 page_type: reference
-description: "Este artículo describe cómo utilizar una plantilla de Braze Canvas para interactuar con los usuarios en tiempo real y animarlos a completar sus compras."
+description: "Este artículo describe cómo utilizar una plantilla de BRAZE CANVAS para interactuar con los usuarios en tiempo real y animarlos a completar sus compras."
 tool: Canvas
 ---
 

@@ -283,7 +283,7 @@ Für [Rate-Limits für die Zustellgeschwindigkeit]({{site.baseurl}}/user_guide/m
 
 ### Warum können eindeutige Empfänger:innen die Sendungen bei E-Mail und SMS übersteigen? {#why-can-unique-recipients-exceed-sends-for-email-and-sms}
 
-Bei E-Mail und SMS inkrementiert Braze **Eindeutige Empfänger:innen** vor dem ESP-Sendeversuch und inkrementiert **Sendungen** nach einer erfolgreichen ESP-Antwort. Permanente Fehler (wie ungültige E-Mail-Adressen) oder doppelte Adressen führen dazu, dass die eindeutigen Empfänger:innen die Sendungen übersteigen.
+Bei E-Mail und SMS inkrementiert Braze **Eindeutige Empfänger:innen** vor dem E-Mail-Anbieter-Sendeversuch und inkrementiert **Sendungen** nach einer erfolgreichen E-Mail-Anbieter-Antwort. Permanente Fehler (wie ungültige E-Mail-Adressen) oder doppelte Adressen führen dazu, dass die eindeutigen Empfänger:innen die Sendungen übersteigen.
 
 ### Warum stimmt **Zuletzt gesendet** nicht mit meiner geplanten Sendezeit überein? {#why-doesnt-last-sent-match-my-scheduled-send-time}
 

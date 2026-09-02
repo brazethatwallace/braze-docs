@@ -65,7 +65,7 @@ Pour en savoir plus, consultez : [Pour commencer : Espaces de travail]({{site.ba
 
 ## Intégrer Braze {#integrating-braze}
 
-Braze est conçu pour être opérationnel rapidement et facilement. Notre délai moyen de retour sur investissement est de six semaines pour l'ensemble de notre base de clients composée de centaines de marques.
+Braze est conçu pour être opérationnel rapidement et facilement. Notre délai moyen de ROI est de six semaines pour l'ensemble de notre base de clients composée de centaines de marques.
 
 ![Capture d'écran liée à l'intégration de Braze.]({% image_buster /assets/img/getting_started/timetovalue.png %})
 

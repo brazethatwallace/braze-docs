@@ -161,6 +161,15 @@ class TestReplaceInMarkdown:
         assert "**設定** > **APIキー**." in out
 
 
+class TestPropagationReplaceValue:
+    def test_uses_primary_synonym(self):
+        assert glp.propagation_replace_value("SDK or Software-Development-Kit") == "SDK"
+        assert glp.propagation_replace_value("KPI or Leistungskennzahl or Leistungskennzahlen") == "KPI"
+
+    def test_preserves_single_value(self):
+        assert glp.propagation_replace_value("Kampagne") == "Kampagne"
+
+
 class TestBuildLocaleChanges:
     def test_builds_added_and_updated_changes(self):
         old = {"Campaign": "キャンペーン", "contractor": "請負業者"}
@@ -179,6 +188,13 @@ class TestBuildLocaleChanges:
             "ja", old, new, exclusions
         )
         assert changes == []
+
+    def test_uses_primary_synonym_for_added_terms(self):
+        old = {}
+        new = {"SMS": "Kurzmitteilungsdienst or SMS"}
+        changes = glp.build_locale_changes_from_glossary_diff("de", old, new, {"global": []})
+        assert len(changes) == 1
+        assert changes[0]["replace"] == "Kurzmitteilungsdienst"
 
 
     def test_skips_duplicate_when_old_translation_equals_english_term(self):
@@ -230,3 +246,63 @@ class TestPropagateGlossaryChanges:
         )
         assert result["files_changed"] == 1
         assert "セグメント" in md.read_text(encoding="utf-8")
+
+    def test_skips_api_reference_files(self, tmp_path):
+        user_guide = tmp_path / "_lang" / "de" / "_user_guide" / "sample.md"
+        api_doc = tmp_path / "_lang" / "de" / "_api" / "endpoints" / "sample.md"
+        user_guide.parent.mkdir(parents=True)
+        api_doc.parent.mkdir(parents=True)
+        text = "Use the SDK for integration.\n"
+        user_guide.write_text(text, encoding="utf-8")
+        api_doc.write_text(text, encoding="utf-8")
+
+        result = glp.propagate_glossary_changes(
+            [{
+                "lang": "de",
+                "term": "SDK",
+                "kind": "added",
+                "search": "SDK",
+                "replace": "Software Development Kit",
+            }],
+            repo_root=tmp_path,
+        )
+        assert result["files_changed"] == 1
+        assert "Software Development Kit" in user_guide.read_text(encoding="utf-8")
+        assert api_doc.read_text(encoding="utf-8") == text
+
+
+class TestRepairGlossaryPropagationCorruption:
+    def test_click_corruption_repairs_javascript_literals(self):
+        import repair_glossary_propagation_corruption as repair  # noqa: WPS433
+
+        text = (
+            "$('#x').click(function() {});\n"
+            "$('#y').on('click', function() {});\n"
+            "document.getElementById('z').addEventListener('click', function () {});\n"
+        )
+        corrupted = text.replace("click", "Klick, der")
+        repaired, count = repair.apply_click_corruption_repairs(corrupted)
+        assert repaired == text
+        assert count > 0
+
+    def test_inclusive_marker_repairs_manager_doubling(self):
+        import repair_glossary_propagation_corruption as repair  # noqa: WPS433
+
+        text = 'Kontaktieren Sie Ihre:n Braze Account Manager:in:in.\n'
+        repaired, count = repair.apply_inclusive_marker_repairs(text)
+        assert repaired == 'Kontaktieren Sie Ihre:n Braze Account Manager:in.\n'
+        assert count == 1
+
+    def test_phrase_repairs_restore_support_form_literals(self):
+        import repair_glossary_propagation_corruption as repair  # noqa: WPS433
+
+        text = (
+            "'angepasste Attribute' : {}\n"
+            'document.Cookie = "x";\n'
+            '"Token": "abc"\n'
+        )
+        repaired, count = repair.apply_phrase_repairs(text)
+        assert "'Custom Attributes' :" in repaired
+        assert "document.cookie" in repaired
+        assert '"token":' in repaired
+        assert count > 0

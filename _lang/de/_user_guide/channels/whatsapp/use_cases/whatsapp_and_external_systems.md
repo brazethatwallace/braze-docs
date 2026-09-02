@@ -115,4 +115,4 @@ Jetzt haben Sie eine solide Grundlage für den Aufbau eines KI-Chatbot-Workflows
 Sie können Ihre Integrationslogik erweitern, um:
 - Verschiedene Schlüsselwörter zu verwenden, um unterschiedliche Webhook-Campaigns zu triggern.
 - Komplexere Konversationsabläufe mit mehrstufigen API-getriggerten Campaigns zu erstellen.
-- Chat-Informationen in Braze als angepasste Attribute zu speichern, um das Nutzerprofil anzureichern und zukünftige Campaigns zu segmentieren.
+- Chat-Informationen in Braze als angepasste Attribute zu speichern, um das Kundenprofil anzureichern und zukünftige Campaigns zu segmentieren.

@@ -18,7 +18,7 @@ Para pré-visualizar seus Content Blocks, acesse a seção **Content** > **Desig
 Somente Content Blocks usados exclusivamente no editor de arrastar e soltar podem ser visualizados na guia **Rows**.
 {% endalert %}
 
-Depois de arrastar e soltar o Content Block na sua campanha de e-mail, você pode fazer alterações em todo o conteúdo do Content Block. Observe que, se um Content Block contiver Liquid, você verá o Liquid na seção **Preview & Test**.
+Depois de arrastar e soltar o Content Block na sua campanha de e-mail, você pode fazer alterações em todo o conteúdo do Content Block. Observe que, se um Content Block contiver Liquid, você verá o Liquid na seção **prévia & Test**.
 
 ![A guia Rows na seção Content do editor de arrastar e soltar, mostrando a opção Content Blocks selecionada. Há duas prévias de Content Blocks disponíveis para uso como cabeçalho de e-mail para MyDealz e ArtNight.][1]{: style="max-width:50%" }
 

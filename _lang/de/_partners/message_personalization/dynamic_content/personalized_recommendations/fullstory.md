@@ -17,9 +17,9 @@ search_tag: Partner
 
 Sie können Fullstory-Insights in Braze nutzen, um ein detailliertes Bild des Website- oder App-Erlebnisses Ihrer Nutzer:innen zu erstellen und kontextuell hochrelevante Nachrichten zu versenden. Die Session-Summary-API von Fullstory ermöglicht es, detaillierte Metadaten zum Browsing-Verhalten von Nutzer:innen zu erfassen und im Braze-Messaging zu verwenden. Das ist besonders leistungsstark in mehrstufigen Messaging-Journeys wie einem Canvas.
 
-Der Realtime-Wert der Session-Summary-Daten von Fullstory lässt sich am besten über Connected-Content nutzen. Indem Sie Connected-Content in einem Canvas-Context-Schritt verwenden, können Sie die Daten von Fullstory während der gesamten Canvas-Journey von Nutzer:innen speichern und in allen nachfolgenden Canvas-Schritten verwenden. Das vermeidet auch die Notwendigkeit, diese Daten über angepasste Events oder Attribute in ein Braze-Nutzerprofil zu schreiben.
+Der Realtime-Wert der Session-Summary-Daten von Fullstory lässt sich am besten über Connected-Content nutzen. Indem Sie Connected-Content in einem Canvas-Context-Schritt verwenden, können Sie die Daten von Fullstory während der gesamten Canvas-Journey von Nutzer:innen speichern und in allen nachfolgenden Canvas-Schritten verwenden. Das vermeidet auch die Notwendigkeit, diese Daten über angepasste Events oder Attribute in ein Braze-Kundenprofil zu schreiben.
 
-Im folgenden Beispiel werden Canvas-Context-Daten in einem Agent-AI-Canvas-Schritt genutzt, um die optimale Nachricht zu generieren, die Nutzer:innen dazu ermutigt, einen abgebrochenen Warenkorb wieder aufzunehmen. Sie können die Daten jedoch auch nutzen, um die Nachricht direkt zu personalisieren, die Journey der Nutzer:innen mit Zielgruppenpfaden zu bestimmen oder die Texte und Assets in nachfolgenden Messaging-Schritten festzulegen.
+Im folgenden Beispiel werden Canvas-Context-Daten in einem Agent-KI-Canvas-Schritt genutzt, um die optimale Nachricht zu generieren, die Nutzer:innen dazu ermutigt, einen abgebrochenen Warenkorb wieder aufzunehmen. Sie können die Daten jedoch auch nutzen, um die Nachricht direkt zu personalisieren, die Journey der Nutzer:innen mit Zielgruppenpfaden zu bestimmen oder die Texte und Assets in nachfolgenden Messaging-Schritten festzulegen.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -30,7 +30,7 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 | Ein Fullstory Session API Authorization Token   | Siehe Schritt 1 in diesem Leitfaden. |
 | Ein aktiviertes Braze Connected-Content Authorization Token | Siehe den Hinweis zum Early Access in diesem Abschnitt. |
 | Ein Braze-Canvas-Context-Schritt | Siehe den Hinweis zum Early Access in diesem Abschnitt. |
-| Ein aktivierter Braze AI Agent-Schritt | Siehe den Hinweis zum Early Access in diesem Abschnitt. |
+| Ein aktivierter Braze KI Agent-Schritt | Siehe den Hinweis zum Early Access in diesem Abschnitt. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 {% alert important %}

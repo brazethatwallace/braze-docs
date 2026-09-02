@@ -17,7 +17,7 @@ alias: /scim/automated_user_provisioning/
 ## Acceder a la configuración de aprovisionamiento SCIM {#accessing-scim-provisioning-settings}
 
 {% alert important %}
-La disponibilidad del aprovisionamiento SCIM depende de tu edición de la plataforma. Si esta característica no está en tu espacio de trabajo, contacta a tu administrador de éxito de cliente para obtener información.
+La disponibilidad del aprovisionamiento SCIM depende de tu edición de la plataforma. Si esta característica no está en tu espacio de trabajo, contacta a tu CSM para obtener información.
 {% endalert %}
 
 1. En el panel de Braze, ve a **Configuración** > **Configuración de la empresa** > **Configuración de administrador** > **Aprovisionamiento SCIM** y selecciona **Configurar integración SCIM**.
@@ -33,7 +33,7 @@ La disponibilidad del aprovisionamiento SCIM depende de tu edición de la plataf
 
 {% multi_lang_include alerts/early_access_beta_alert.md feature='The Okta integration' %}
 
-Usa la opción **Okta - Braze app** si configuraste la aplicación de Braze para SAML SSO en Okta. Si configuraste una aplicación personalizada para SSO, sigue las instrucciones en la pestaña [Okta - Custom app integration]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning?tab=okta%20-%20custom%20app%20integration#step-1-set-up-scim-provisioning).
+Usa la opción **Okta - Braze app** si configuraste la aplicación de Braze para SAML inicio de sesión único en Okta. Si configuraste una aplicación personalizada para inicio de sesión único, sigue las instrucciones en la pestaña [Okta - Custom app integration]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning?tab=okta%20-%20custom%20app%20integration#step-1-set-up-scim-provisioning).
 
 {% multi_lang_include scim/scim_alerts.md alert='idp_integration' idp='Okta' %}
 
@@ -53,7 +53,7 @@ Usa la opción **Okta - Braze app** si configuraste la aplicación de Braze para
 
 ### Paso 1.2: Desactivar la visibilidad de la aplicación {#step-12-disable-application-visibility}
 
-1. En el campo **Application visibility**, selecciona la casilla **Do not display application icon to user**. Esto evita que los usuarios accedan a SSO a través de la aplicación, que está destinada únicamente para SCIM.
+1. En el campo **Application visibility**, selecciona la casilla **Do not display application icon to user**. Esto evita que los usuarios accedan a inicio de sesión único a través de la aplicación, que está destinada únicamente para SCIM.
 2. Selecciona **Save**.
 
 ### Paso 1.3: Configurar la integración SCIM {#step-13-set-up-the-scim-integration}
@@ -86,7 +86,7 @@ Selecciona **Test API Credentials**. Si la integración es exitosa, aparece un m
 
 {% multi_lang_include alerts/early_access_beta_alert.md feature='The Okta integration' %}
 
-Usa la opción **Okta - Custom app integration** si configuraste una aplicación personalizada para SSO. Si configuraste la aplicación de Braze para SAML SSO en Okta, sigue las instrucciones en la pestaña [Okta - Braze app]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning?tab=okta%20-%20braze%20app#step-1-set-up-scim-provisioning).
+Usa la opción **Okta - Custom app integration** si configuraste una aplicación personalizada para inicio de sesión único. Si configuraste la aplicación de Braze para SAML inicio de sesión único en Okta, sigue las instrucciones en la pestaña [Okta - Braze app]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning?tab=okta%20-%20braze%20app#step-1-set-up-scim-provisioning).
 
 {% multi_lang_include scim/scim_alerts.md alert='idp_integration' idp='Okta' %}
 
@@ -152,7 +152,7 @@ Inicia sesión en tu centro de administración de Microsoft Entra.
 
 ### Paso 1.4: Habilitar el aprovisionamiento en la aplicación {#step-14-enable-provisioning-to-the-app}
 
-1. Ve a la sección **Manage** > **Attribute mapping (Preview)** de tu aplicación SCIM.
+1. Ve a la sección **Manage** > **Attribute mapping (vista previa)** de tu aplicación SCIM.
 2. Selecciona **Provision Microsoft Entra ID Users**.
 3. Revisa y configura la sección **Attribute Mapping** para que coincida con los atributos que aparecen en la tabla de la página **Setup SCIM provisioning**.
 4. Cierra la página **Attribute Mapping**.

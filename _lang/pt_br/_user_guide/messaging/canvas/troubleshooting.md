@@ -110,7 +110,7 @@ Em seguida, verifique o seguinte por tipo de gatilho ou etapa:
 Quando uma etapa de mensagem do Canvas interrompe um envio, o usuário ainda avança para a próxima etapa. O Canvas avança na interrupção para que etapas posteriores de postergação e jornadas de ação não fiquem permanentemente bloqueadas. Consulte [Como os usuários avançam]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#how-users-advance) e [Resultados de interrupção]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard#abort-outcomes).
 {% endalert %}
 
-Para filtros em nível de etapa, conflitos entre ramificações e comportamento de ramificação de mensagens no app, consulte [Lançar com Canvas Flow — Solução de problemas]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/launching_canvas_flow#troubleshooting) e as [Perguntas frequentes do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/faqs#messages-and-delivery).
+Para filtros em nível de etapa, conflitos entre ramificações e comportamento de Branch de mensagens no app, consulte [Lançar com Canvas Flow — Solução de problemas]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/launching_canvas_flow#troubleshooting) e as [Perguntas frequentes do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/faqs#messages-and-delivery).
 
 {% alert important %}
 Se o seu Canvas baseado em ação está enviando mensagens antes do esperado, verifique se o registro de data/hora do seu evento personalizado usa a hora atual, e não uma hora retroativa. A Braze avalia as postergações a partir do registro de data/hora enviado com o evento. Consulte [Entrega baseada em ação]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-12-determine-your-canvas-entry-schedule).
@@ -199,13 +199,13 @@ Se o editor congelar em um Canvas grande ou complexo, tente o seguinte:
 
 - Limpe o cache e os cookies do navegador e recarregue a página. Bloqueadores de anúncios corporativos ou extensões do navegador podem interferir na plataforma da Braze.
 - Use os controles de zoom do Canvas para reduzir a visualização para 25% ou 10%, diminuindo a quantidade de UI que o navegador precisa renderizar.
-- Tente um navegador web diferente.
+- Tente um navegador de internet diferente.
 
 Se o Canvas não carregar e não avançar, uma versão anterior não foi salva corretamente e pode conter etapas inválidas. Duplique o Canvas pelo dashboard. Se o problema persistir, abra um [ticket de suporte]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
 Para tickets de suporte sobre "Request Timed Out", inclua uma gravação de tela, carimbo de data/hora e fuso horário, navegador e versão, etapas para reproduzir e, opcionalmente, um log HAR das ferramentas de desenvolvedor do navegador. Consulte [O que devo incluir ao enviar um ticket de suporte para um erro "Request Timed Out"?]({{site.baseurl}}/user_guide/messaging/canvas/faqs#what-should-i-include-when-submitting-a-support-ticket-for-a-request-timed-out-error) nas Perguntas frequentes sobre Canvas.
 
-{% multi_lang_include audience/segments.md section='Canvas variant archived segment' %}
+{% multi_lang_include audience/segments.md section='Canvas variant archived Segment' %}
 
 ## Comportamento de Canvas interrompido {#stopped-canvas-behavior}
 

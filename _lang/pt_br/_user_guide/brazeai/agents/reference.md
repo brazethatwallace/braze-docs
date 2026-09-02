@@ -22,7 +22,7 @@ O modelo **Auto** da Braze é otimizado para modelos cujas capacidades de racioc
 Esta é a opção mais simples, sem necessidade de configuração adicional. A Braze fornece acesso a modelos de linguagem de grande porte (LLMs) diretamente. Para usar esta opção, selecione **Auto**, que utiliza modelos Gemini.
 
 {% alert important %}
-Se você não vir **Braze Auto** como opção no menu suspenso **Model** ao criar um agente, entre em contato com seu gerente de sucesso do cliente para saber como se tornar elegível para usar o modelo Braze Auto.
+Se você não vir **Braze Auto** como opção no menu suspenso **Model** ao criar um agente, entre em contato com seu CSM para saber como se tornar elegível para usar o modelo Braze Auto.
 {% endalert %}
 
 ### Opção 2: Trazer sua própria chave de API {#option-2-bring-your-own-api-key}

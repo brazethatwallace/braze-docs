@@ -97,7 +97,7 @@ Los Content Blocks insertados a través de Liquid **están vinculados** al bloqu
 
 ## Vista previa de Content Blocks {#preview-content-blocks}
 
-Después de añadir un bloque de contenido en una Campaign o Canvas activo, puedes previsualizarlo desde la biblioteca de Content Blocks pasando el cursor sobre el bloque de contenido y seleccionando el icono <i class="fa fa-eye preview-icon"></i> **Vista previa**.
+Después de añadir un bloque de contenido en una Campaign o Canvas activo, puedes previsualizarlo desde la biblioteca de Content Blocks pasando el cursor sobre el bloque de contenido y seleccionando el icono <i class="fa fa-eye vista previa-icon"></i> **Vista previa**.
 
 Esta vista previa incluye información sobre el bloque de contenido, como quién lo creó, etiquetas, fecha de creación, fecha de última edición, descripción, tipo de editor, recuento de inclusiones con detalles (una lista clicable de mensajes o Content Blocks que utilizan el bloque de contenido) y una vista previa real del bloque de contenido.
 

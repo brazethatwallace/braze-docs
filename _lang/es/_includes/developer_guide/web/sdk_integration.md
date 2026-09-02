@@ -9,7 +9,7 @@ El SDK Web de Braze te permite recopilar análisis y mostrar mensajes enriquecid
 Puedes integrar el SDK Web de Braze utilizando los siguientes métodos. Para opciones adicionales, consulta [otros métodos de integración](#web_other-integration-methods).
 
 - **Integración basada en código:** Integra el SDK Web de Braze directamente en tu base de código utilizando tu gestor de paquetes preferido o la CDN de Braze. Esto te da control total sobre cómo se carga y configura el SDK.
-- **Google Tag Manager:** Una solución sin código que te permite integrar el SDK Web de Braze sin modificar el código de tu sitio. Para más información, consulta [Google Tag Manager con el SDK de Braze]({{site.baseurl}}/developer_guide/sdk_integration/google_tag_manager).
+- **Google Tag Administrador:** Una solución sin código que te permite integrar el SDK Web de Braze sin modificar el código de tu sitio. Para más información, consulta [Google Tag Administrador con el SDK de Braze]({{site.baseurl}}/developer_guide/sdk_integration/google_tag_manager).
 
 {% alert important %}
 Recomendamos utilizar el [método de integración NPM]({{site.baseurl}}/developer_guide/sdk_integration/?subtab=package%20manager&sdktab=web). Sus ventajas incluyen almacenar las bibliotecas del SDK localmente en tu sitio web, proporcionar inmunidad frente a extensiones de bloqueo de anuncios y contribuir a tiempos de carga más rápidos como parte del soporte de bundlers.
@@ -26,7 +26,7 @@ Aunque la mayoría de los bloqueadores de anuncios no bloquean el SDK Web de Bra
 {% endalert %}
 
 {% subtabs %}
-{% subtab package manager %}
+{% subtab package Administrador %}
 Si tu sitio utiliza los gestores de paquetes NPM o Yarn, puedes añadir el [paquete NPM de Braze](https://www.npmjs.com/package/@braze/web-sdk) como dependencia.
 
 Las definiciones de Typescript se incluyen a partir de la versión v3.0.0. Para notas sobre la actualización de 2.x a 3.x, consulta nuestro [registro de cambios](https://github.com/braze-inc/braze-web-sdk/blob/master/UPGRADE_GUIDE.md).
@@ -112,14 +112,14 @@ Los usuarios anónimos en dispositivos móviles o web pueden contarse como parte
 {% endalert %}
 {% endtab %}
 
-{% tab Google Tag Manager %}
+{% tab Google Tag Administrador %}
 {% multi_lang_include developer_guide/web/google_tag_manager/initialization_tag.md %}
 {% endtab %}
 {% endtabs %}
 
 ## Filtrado del tráfico de bots {#bot-filtering}
 
-Los MAU pueden incluir un porcentaje de usuarios bot, lo que infla tu recuento de usuarios activos al mes. Aunque el SDK Web de Braze incluye detección integrada para algunos rastreadores web comunes (como los bots de motores de búsqueda y los bots de vista previa de redes sociales), es especialmente importante mantenerse proactivo con soluciones robustas para detectar bots, ya que las actualizaciones del SDK por sí solas no pueden detectar de forma consistente todos los bots nuevos.
+Los MAU pueden incluir un porcentaje de usuarios bot, lo que infla tu recuento de MAU. Aunque el SDK Web de Braze incluye detección integrada para algunos rastreadores web comunes (como los bots de motores de búsqueda y los bots de vista previa de redes sociales), es especialmente importante mantenerse proactivo con soluciones robustas para detectar bots, ya que las actualizaciones del SDK por sí solas no pueden detectar de forma consistente todos los bots nuevos.
 
 ### Limitaciones de la detección de bots por parte del SDK {#limitations-of-sdk-side-bot-detection}
 
@@ -253,9 +253,9 @@ Debes actualizar estos dos archivos de forma coordinada para asegurar un funcion
 
 ## Otros métodos de integración {#other-integration-methods}
 
-### Páginas móviles aceleradas (AMP) {#accelerated-mobile-pages-amp}
+### Páginas móviles aceleradas (páginas móviles aceleradas) {#accelerated-mobile-pages-amp}
 {% details Ver más %}
-#### Paso 1: Incluir el script de web push de AMP {#step-1-include-amp-web-push-script}
+#### Paso 1: Incluir el script de web push de páginas móviles aceleradas {#step-1-include-amp-web-push-script}
 
 Añade la siguiente etiqueta de script asíncrono a tu encabezado:
 
@@ -281,7 +281,7 @@ Añade un widget al cuerpo de tu HTML que permita a los usuarios suscribirse y c
 
 #### Paso 3: Añadir `helper-iframe` y `permission-dialog` {#step-3-add-helper-iframe-and-permission-dialog}
 
-El componente AMP Web Push crea un popup para gestionar las suscripciones push, por lo que debes añadir los siguientes archivos auxiliares a tu proyecto para habilitar esta característica:
+El componente páginas móviles aceleradas Web Push crea un popup para gestionar las suscripciones push, por lo que debes añadir los siguientes archivos auxiliares a tu proyecto para habilitar esta característica:
 
 - [`helper-iframe.html`](https://cdn.ampproject.org/v0/amp-web-push-helper-frame.html)
 - [`permission-dialog.html`](https://cdn.ampproject.org/v0/amp-web-push-permission-dialog.html)
@@ -292,7 +292,7 @@ Crea un archivo `service-worker.js` en el directorio raíz de tu sitio web y añ
 
 <script src="{{site.baseurl}}/assets/js/embed.js?target=https://github.com/braze-inc/braze-web-sdk/blob/master/sample-builds/cdn/service-worker.js&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on&showCopy=on"></script>
 
-#### Paso 5: Configurar el elemento HTML de AMP web push {#step-5-configure-the-amp-web-push-html-element}
+#### Paso 5: Configurar el elemento HTML de páginas móviles aceleradas web push {#step-5-configure-the-amp-web-push-html-element}
 
 Añade el siguiente elemento HTML `amp-web-push` al cuerpo de tu HTML. Ten en cuenta que necesitas agregar tu [`apiKey` y `baseUrl`](https://documenter.getpostman.com/view/4689407/SVYrsdsG) como parámetros de consulta a `service-worker-URL`.
 

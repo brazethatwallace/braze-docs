@@ -393,12 +393,12 @@ gcloud iam service-accounts keys create braze-cdi-gcs-key.json \
 4. Crie uma sincronização. Acesse **Data Settings** > **Cloud Data Ingestion** > **Syncs** e selecione **Create data sync**. Escolha um nome para a sincronização e um **Data Type** (como **User Attributes**, **Custom Events**, **Purchase Events**, **Catalog** ou **Delete Users**) e, em seguida, selecione **Next**.
 5. Na etapa **Data definition**, selecione a fonte GCS e especifique o seguinte:
     - **Pub/Sub subscription ID** — o ID da assinatura da etapa 2 (não o tópico)
-    - **Folder path** (opcional) — um prefixo de caminho dentro do bucket (consulte [Sincronizando uma pasta em um bucket compartilhado](#syncing-a-folder-in-a-shared-bucket))
+    - **Folder jornada** (opcional) — um prefixo de caminho dentro do bucket (consulte [Sincronizando uma pasta em um bucket compartilhado](#syncing-a-folder-in-a-shared-bucket))
 
 ![O formulário de sincronização do Google Cloud Storage mostrando os campos Pub/Sub subscription ID e caminho da pasta.]({% image_buster /assets/img/cloud_ingestion/gcs_sync_form.png %})
 
 {: start="6"}
-6. Selecione **Preview and validate** para confirmar que a Braze consegue acessar a assinatura e listar os arquivos disponíveis para ingestão. Um teste bem-sucedido listará os arquivos existentes no bucket, mas esses arquivos não serão sincronizados automaticamente.
+6. Selecione **prévia and validate** para confirmar que a Braze consegue acessar a assinatura e listar os arquivos disponíveis para ingestão. Um teste bem-sucedido listará os arquivos existentes no bucket, mas esses arquivos não serão sincronizados automaticamente.
 7. Adicione e-mail(s) de contato para notificações de erro. As sincronizações do Google Cloud Storage são orientadas por eventos, portanto não é necessário um cronograma — a Braze ingere novos arquivos conforme eles são carregados. Revise o resumo e selecione **Create sync**.
 
 ### Sincronizando uma pasta em um bucket compartilhado {#syncing-a-folder-in-a-shared-bucket}
@@ -445,7 +445,7 @@ Para cada pasta que você deseja sincronizar em um bucket compartilhado:
     ```
 
     Se você criou a função personalizada na [Etapa 5](#step-5-assign-permissions), use `--role="projects/YOUR-PROJECT-ID/roles/brazeCdiGcs"` em vez disso.
-4. Ao criar a sincronização na Braze, insira o novo **Pub/Sub subscription ID** e o **Folder path** dessa pasta para que a sincronização ingira apenas os arquivos dessa pasta.
+4. Ao criar a sincronização na Braze, insira o novo **Pub/Sub subscription ID** e o **Folder jornada** dessa pasta para que a sincronização ingira apenas os arquivos dessa pasta.
 
 
 {% endtab %}

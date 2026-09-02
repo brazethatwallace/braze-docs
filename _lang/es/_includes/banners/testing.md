@@ -1,10 +1,10 @@
-{% if include.page == "testing" %}Mientras [redactas tu mensaje de banner]({{site.baseurl}}/user_guide/message_building_by_channel/banners/create/#compose-a-banner), selecciona{% elsif include.page == "campaigns" %}Selecciona{% endif %} **Preview** para obtener una vista previa de tu banner o enviar un mensaje de prueba.
+{% if include.page == "testing" %}Mientras [redactas tu mensaje de banner]({{site.baseurl}}/user_guide/message_building_by_channel/banners/create/#compose-a-banner), selecciona{% elsif include.page == "campaigns" %}Selecciona{% endif %} **vista previa** para obtener una vista previa de tu banner o enviar un mensaje de prueba.
 
 ![Pestaña Vista previa del compositor de banners.]({% image_buster /assets/img/banners/select_preview.png %}){: style="max-width:50%;"}
 
 Ten en cuenta que la vista previa puede no ser idéntica al renderizado final en el dispositivo del usuario debido a las diferencias entre los distintos equipos.
 
-Para enviar un mensaje de prueba, añade un grupo de prueba de contenido o uno o varios usuarios individuales como **Test Recipients** y, a continuación, selecciona **Send Test**. Podrás ver tu mensaje de prueba en el dispositivo durante un máximo de 5 minutos. A continuación, puedes seleccionar **Copy preview link** para generar y copiar un enlace de vista previa compartible que muestra cómo se verá el banner para un usuario aleatorio. El enlace tendrá una validez de siete días antes de que sea necesario volver a generarlo.
+Para enviar un mensaje de prueba, añade un grupo de prueba de contenido o uno o varios usuarios individuales como **Test Recipients** y, a continuación, selecciona **Send Test**. Podrás ver tu mensaje de prueba en el dispositivo durante un máximo de 5 minutos. A continuación, puedes seleccionar **Copy vista previa link** para generar y copiar un enlace de vista previa compartible que muestra cómo se verá el banner para un usuario aleatorio. El enlace tendrá una validez de siete días antes de que sea necesario volver a generarlo.
 
 ![Pestaña Vista previa del compositor de banners.]({% image_buster /assets/img/banners/preview_banner.png %})
 

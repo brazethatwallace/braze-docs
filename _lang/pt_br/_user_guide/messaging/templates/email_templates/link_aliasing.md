@@ -260,7 +260,7 @@ https://example.com/campaign/to/abc123?#user_id={{${user_id}}}&source=email
 ```
 {% endraw %}
 
-No exemplo anterior, o `?` antes do `#` fornece à Braze um segmento de consulta para adicionar o `lid`. Sem ele, o link pode não aparecer no **Link Management**.
+No exemplo anterior, o `?` antes do `#` fornece à Braze um Segment de consulta para adicionar o `lid`. Sem ele, o link pode não aparecer no **Link Management**.
 
 Sem identificar onde adicionar os parâmetros de consulta, o aliasing de links não reconhece essas URLs e os modelos de link não são aplicados. Se você encontrar erros como **Failed to be assigned an LID** para uma URL dinâmica, confirme que o `href` usa o padrão `?` ou `&` mostrado nos exemplos desta seção.
 
@@ -280,9 +280,9 @@ Cada `href` distinto na mensagem é mapeado para **um** ID de link e um alias de
 
 Use as seguintes abordagens na Braze primeiro:
 
-- **Análise de dados de e-mail de Campaigns e Canvas:** Revise os cliques agregados por link em **Message Analytics** > **Email Performance** > **Preview & Heatmap** com **Show Heatmap** ativado, conforme descrito em [Links sem rastreamento](#untracking-links).
+- **Análise de dados de e-mail de Campaigns e Canvas:** Revise os cliques agregados por link em **Message Analytics** > **Email Performance** > **prévia & Heatmap** com **Show Heatmap** ativado, conforme descrito em [Links sem rastreamento](#untracking-links).
 - **Cliques por destinatário no Query Builder:** Execute o [modelo do Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates#email-templates) **Email URLs clicked** para uma Campaign ou Canvas. O modelo exibe links despersonalizados para contagens resumidas; a exportação em CSV inclui os IDs de usuário dos que clicaram, o link clicado e um carimbo de data/hora. (URLs despersonalizadas removem tags Liquid para a visualização resumida; veja a descrição do modelo para detalhes.)
-- **Detalhamentos por alias no criador:** Se você precisa que cada destino (por exemplo, cada `offer_id`) apareça como sua própria linha no **Link Management** e nos relatórios baseados em alias, use valores de `href` separados (e, portanto, aliases separados) — por exemplo, links distintos por ramificação — em vez de um único link cujo caminho muda por usuário.
+- **Detalhamentos por alias no criador:** Se você precisa que cada destino (por exemplo, cada `offer_id`) apareça como sua própria linha no **Link Management** e nos relatórios baseados em alias, use valores de `href` separados (e, portanto, aliases separados) — por exemplo, links distintos por Branch — em vez de um único link cujo caminho muda por usuário.
 
 Se você também utiliza exportações de engajamento por streaming, os eventos de clique em e-mail incluem um campo **`url`**; veja [Evento de cliques em e-mail](#email-clicks-event) nesta página para saber como essa carga útil se relaciona com o aliasing de links.
 

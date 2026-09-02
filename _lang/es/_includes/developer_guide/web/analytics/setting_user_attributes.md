@@ -41,8 +41,8 @@ braze.getUser().setDateOfBirth(2000, 12, 25);
 {% endsubtabs %}
 {% endtab %}
 
-{% tab Google Tag Manager %}
-Con Google Tag Manager, los atributos estándar del usuario (como el nombre de un usuario) deben registrarse de la misma manera que los atributos personalizados del usuario. Asegúrate de que los valores que estás pasando para los atributos estándar coincidan con el formato esperado especificado en la documentación de la [clase User](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html).
+{% tab Google Tag Administrador %}
+Con Google Tag Administrador, los atributos estándar del usuario (como el nombre de un usuario) deben registrarse de la misma manera que los atributos personalizados del usuario. Asegúrate de que los valores que estás pasando para los atributos estándar coincidan con el formato esperado especificado en la documentación de la [clase User](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html).
 
 Por ejemplo, el atributo de género puede aceptar cualquiera de los siguientes valores: `"m" | "f" | "o" | "u" | "n" | "p"`. Por lo tanto, para establecer el género de un usuario como femenino, crea una etiqueta HTML personalizada con el siguiente contenido:
 
@@ -166,8 +166,8 @@ Las claves y los valores de atributos personalizados solo pueden tener un máxim
 {% endalert %}
 {% endtab %}
 
-{% tab Google Tag Manager %}
-Los atributos personalizados del usuario no están disponibles debido a una limitación en el lenguaje de scripting de Google Tag Manager. Para registrar atributos personalizados, crea una etiqueta HTML personalizada con el siguiente contenido:
+{% tab Google Tag Administrador %}
+Los atributos personalizados del usuario no están disponibles debido a una limitación en el lenguaje de scripting de Google Tag Administrador. Para registrar atributos personalizados, crea una etiqueta HTML personalizada con el siguiente contenido:
 
 ```html
 <script>

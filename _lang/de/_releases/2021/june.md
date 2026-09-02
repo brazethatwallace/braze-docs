@@ -32,7 +32,7 @@ Möchten Sie mehr über die Details von Kauf-Events bei Braze erfahren? Besuchen
 
 ### Amperity – Customer Data Platform {#amperity-customer-data-platform}
 
-[Amperity]({{site.baseurl}}/partners/amperity) ist eine umfassende Customer Data Platform (CDP) für Unternehmen, die Marken dabei unterstützt, ihre Kund:innen besser kennenzulernen, strategische Entscheidungen zu treffen und konsequent die richtigen Maßnahmen zu ergreifen, um ihre Verbraucher:innen besser zu bedienen. Amperity unterstützt die Braze-Plattform, indem es eine einheitliche Sicht auf Ihre Kund:innen über die CDP und Braze hinweg bereitstellt und es Ihnen ermöglicht, wertvolle Amperity-Daten an Braze zu senden.
+[Amperity]({{site.baseurl}}/partners/amperity) ist eine umfassende Customer Data Platform (CDP) für Unternehmen, die Marken dabei unterstützt, ihre Kund:innen besser kennenzulernen, strategische Entscheidungen zu treffen und konsequent die richtigen Maßnahmen zu ergreifen, um ihre Verbraucher:innen besser zu bedienen. Amperity unterstützt die Braze-Plattform, indem es eine einheitliche Sicht auf Ihre Kund:innen über die Customer Data Platform (CDP) und Braze hinweg bereitstellt und es Ihnen ermöglicht, wertvolle Amperity-Daten an Braze zu senden.
 
 ### Digioh – Umfragen {#digioh-surveys}
 

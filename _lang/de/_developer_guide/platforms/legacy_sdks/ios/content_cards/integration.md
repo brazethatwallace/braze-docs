@@ -93,7 +93,7 @@ Braze bietet drei Content-Card-Typen: Banner, Bild mit Bildunterschrift und klas
 |---|---|
 | `image` | Diese Eigenschaft ist die URL des Bildes der Karte. |
 | `imageAspectRatio` | Diese Eigenschaft ist das Seitenverhältnis des Kartenbildes und dient als Hinweis, bevor das Laden des Bildes abgeschlossen ist. Beachten Sie, dass die Eigenschaft unter bestimmten Umständen nicht übermittelt werden kann. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Banner Content Card properties - ABKBannerContentCard" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="BCC properties - ABKBannerContentCard" }
 
 ### Eigenschaften von Content Cards mit Bildunterschriften – ABKCaptionedImageCard {#captioned-image-content-card-properties-abkcaptionedimagecard}
 

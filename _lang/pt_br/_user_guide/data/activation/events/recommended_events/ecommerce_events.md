@@ -13,7 +13,7 @@ description: "Saiba como usar eventos recomendados de eCommerce na Braze, inclui
 Como os eventos de eCommerce seguem um esquema previsível, a Braze pode criar recursos confiáveis com base neles, desde rastreamento de receita e modelos de Canvas pré-construídos até recomendações com IA. As seções a seguir oferecem uma visão geral rápida de cada recurso com links para a documentação completa.
 
 {% alert note %}
-Os eventos de eCommerce da Braze e suas propriedades de evento segmentáveis não contam como [pontos de dados]({{site.baseurl}}/user_guide/data/infrastructure/data_points).
+Os eventos de eCommerce da Braze e suas propriedades de evento Segmentáveis não contam como [pontos de dados]({{site.baseurl}}/user_guide/data/infrastructure/data_points).
 {% endalert %}
 
 <a id="transactions-tab" aria-hidden="true"></a>
@@ -54,12 +54,12 @@ O **Carrinho ativo** inclui o seguinte:
 
 A Braze oferece três maneiras de segmentar usuários com base em dados de eCommerce:
 
-- **Filtros de eCommerce:** Use a categoria **eCommerce** no segmentador, que contém filtros alimentados por eventos recomendados de eCommerce (como **Last Order Placed**, **Total Revenue** e **Average Order Value**). Para ver a lista completa de filtros disponíveis, consulte [Filtros de segmento]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters).
+- **Filtros de eCommerce:** Use a categoria **eCommerce** no segmentador, que contém filtros alimentados por eventos recomendados de eCommerce (como **Last Order Placed**, **Total Revenue** e **Average Order Value**). Para ver a lista completa de filtros disponíveis, consulte [Filtros de Segment]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters).
 - **Filtros de eventos personalizados:** Como os eventos de eCommerce se comportam como eventos personalizados, todos os filtros de eventos personalizados existentes funcionam imediatamente. Por exemplo, você pode filtrar por "Realizou evento personalizado `ecommerce.order_placed` mais de X vezes" ou "Realizou evento personalizado `ecommerce.order_placed` pela primeira vez".
-- **Extensões de segmento:** Para segmentar com base em propriedades de evento aninhadas, incluindo o array de produtos aninhados ou as propriedades de objetos de metadados, use [extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension) com filtragem de propriedades de evento aninhadas. Isso permite criar públicos como "usuários que compraram o produto SKU-123 nos últimos 90 dias" ou combinar critérios em diferentes propriedades do mesmo pedido.
+- **Extensões de Segment:** Para segmentar com base em propriedades de evento aninhadas, incluindo o array de produtos aninhados ou as propriedades de objetos de metadados, use [extensões de Segment]({{site.baseurl}}/user_guide/audience/segments/segment_extension) com filtragem de propriedades de evento aninhadas. Isso permite criar públicos como "usuários que compraram o produto SKU-123 nos últimos 90 dias" ou combinar critérios em diferentes propriedades do mesmo pedido.
 
 {% alert important %}
-As extensões de segmento para eventos recomendados de eCommerce são um recurso pago e estão em acesso antecipado. Se você tiver interesse em participar do acesso antecipado, entre em contato com seu gerente de sucesso do cliente. Confirme se seu plano inclui acesso antes de recomendar a segmentação por propriedades aninhadas à sua equipe.
+As extensões de Segment para eventos recomendados de eCommerce são um recurso pago e estão em acesso antecipado. Se você tiver interesse em participar do acesso antecipado, entre em contato com seu CSM. Confirme se seu plano inclui acesso antes de recomendar a segmentação por propriedades aninhadas à sua equipe.
 {% endalert %}
 
 ### Disparo {#triggering}
@@ -165,7 +165,7 @@ Os eventos recomendados de eCommerce alimentam as mesmas superfícies de receita
 | Dashboard de receita por último ponto de contato | Receita atribuída à última Campaign ou Canvas com que o usuário interagiu antes de fazer um pedido. Os eventos de contato incluem cliques em e-mail, aberturas de push, cliques em cartões de conteúdo, cliques em mensagens no app e cliques em links curtos de SMS ou WhatsApp. |
 | Análises de Campaign e Canvas                | Receita total atribuída a uma Campaign ou Canvas específica dentro da janela de conversão primária.                                                                                   |
 | Relatório de conversões                      | Receita vinculada a eventos de conversão em Campaigns e Canvas.<br> **Nota:** Para contabilizar a receita de `ecommerce.order_placed`, a Campaign ou Canvas deve usar o tipo de evento de conversão "Place Order" como seu evento de conversão.                                                                                    |
-| Insights de segmento                         | Comparações de receita entre segmentos no dashboard de insights de segmento.                                                               |
+| Insights de Segment                         | Comparações de receita entre segmentos no dashboard de insights de Segment.                                                               |
 | Report Builder                               | Métricas de receita em relatórios personalizados criados no Report Builder.                                                                                  |
 | Dashboard Builder                            | Métricas de receita em dashboards personalizados criados no Dashboard Builder.                                                                                  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Relatórios de eCommerce" }
@@ -189,10 +189,10 @@ A Braze oferece várias maneiras de exportar dados de eventos de eCommerce para 
 |--------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)                            | Os eventos de eCommerce são transmitidos como eventos personalizados; pesquise o namespace `ecommerce.*` para encontrá-los. Os produtos de cada pedido estão disponíveis como compras.                                                |
 | [Compartilhamento de dados do Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing)               | Os eventos de eCommerce são compartilhados como eventos personalizados; pesquise o namespace `ecommerce.*` para encontrá-los. Os produtos de cada pedido estão disponíveis na tabela de compras.                                   |
-| [Exportar dados de segmento para CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv)           | Exportação em CSV dos membros do segmento. Para incluir eventos de eCommerce, selecione-os pelo nome no dropdown de eventos personalizados.                                                                                |
-| [Exportar perfil de usuário por Segment (API)]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment#prerequisites) | Dados de perfil de usuário para membros do segmento, retornados via API. Os eventos de eCommerce são incluídos como eventos personalizados.                                                                                        |
+| [Exportar dados de Segment para CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv)           | Exportação em CSV dos membros do Segment. Para incluir eventos de eCommerce, selecione-os pelo nome no dropdown de eventos personalizados.                                                                                |
+| [Exportar perfil de usuário por Segment (API)]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment#prerequisites) | Dados de perfil de usuário para membros do Segment, retornados via API. Os eventos de eCommerce são incluídos como eventos personalizados.                                                                                        |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Exportar dados" }
 
 ### Como segmentar usuários por um produto específico? {#how-do-i-segment-users-by-a-specific-product}
 
-O segmentador permite filtrar pelo número de vezes que um usuário realizou um evento de eCommerce. Para filtrar por propriedades específicas de produto (como `product_id` ou `product_name`), use [extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension), que aceitam filtragem por propriedades de evento aninhadas. Por exemplo, você pode encontrar todos os usuários que compraram o produto "SKU-123" nos últimos 90 dias.
+O segmentador permite filtrar pelo número de vezes que um usuário realizou um evento de eCommerce. Para filtrar por propriedades específicas de produto (como `product_id` ou `product_name`), use [extensões de Segment]({{site.baseurl}}/user_guide/audience/segments/segment_extension), que aceitam filtragem por propriedades de evento aninhadas. Por exemplo, você pode encontrar todos os usuários que compraram o produto "SKU-123" nos últimos 90 dias.

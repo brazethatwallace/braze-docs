@@ -19,7 +19,7 @@ Facebook Lead Ads es un formato de anuncio que permite a las empresas recopilar 
 |---|---|
 | Cuenta de Zapier | Se requiere una cuenta de Zapier para aprovechar esta integración. Esta integración requiere el uso de <a href="https://zapier.com/app/pricing/" target="_blank">aplicaciones premium de Zapier</a>, así que verifica que tu plan de Zapier tenga acceso a aplicaciones premium. |
 | <a href="https://www.facebook.com/business/help/540596413257598?id=735435806665862/" target="_blank">Acceso a Facebook Leads</a> | Se requiere acceso a Facebook Leads para cada cuenta de anuncios que planees usar con Braze. |
-| <a href="https://www.facebook.com/business/help/1710077379203657?id=180505742745347" target="_blank">Facebook Business Manager</a> | Usarás Facebook Business Manager, una herramienta centralizada para gestionar los activos de Facebook de tu marca (por ejemplo, cuentas de anuncios, páginas y aplicaciones), como parte de esta integración. |
+| <a href="https://www.facebook.com/business/help/1710077379203657?id=180505742745347" target="_blank">Facebook Business Administrador</a> | Usarás Facebook Business Administrador, una herramienta centralizada para gestionar los activos de Facebook de tu marca (por ejemplo, cuentas de anuncios, páginas y aplicaciones), como parte de esta integración. |
 | <a href="https://www.facebook.com/business/help/195296697183682?id=829106167281625/" target="_blank">Cuenta de anuncios de Facebook</a> | Necesitarás una cuenta de anuncios de Facebook activa vinculada al administrador de negocios de tu marca. <br><br>Asegúrate de que tengas el permiso "Manage ad accounts" para cada cuenta de anuncios que planees usar con Braze, y de que hayas aceptado los términos y condiciones de tu cuenta de anuncios. |
 | <a href="https://www.facebook.com/business/help/183277585892925?id=420299598837059/" target="_blank">Página de Facebook</a> | Necesitarás una página de Facebook activa vinculada al administrador de negocios de tu marca. <br><br>Asegúrate de que tengas los permisos "Manage Pages" para cada página de Facebook que planees usar con Braze. |
 | Endpoint REST de Braze | Asegúrate de conocer tu [URL del endpoint REST]({{site.baseurl}}/api/basics#api-definitions). Tu endpoint de API coincide con la URL del panel para tu instancia de Braze. <br><br> Por ejemplo, si la URL de tu panel es `https://dashboard-03.braze.com`, tu endpoint será `dashboard-03`. |
@@ -30,7 +30,7 @@ Facebook Lead Ads es un formato de anuncio que permite a las empresas recopilar 
 
 ### Paso 1: Crea una Campaign de Lead Ads con un formulario instantáneo {#step-1-create-a-lead-ads-campaign-with-an-instant-form}
 
-Desde Facebook Ads Manager, crea una <a href="https://www.facebook.com/business/help/397336587121938?id=735435806665862&helpref=uf_permalink" target="_blank">Campaign de Facebook Leads y un formulario de Facebook Lead Ads</a>.
+Desde Facebook Ads Administrador, crea una <a href="https://www.facebook.com/business/help/397336587121938?id=735435806665862&helpref=uf_permalink" target="_blank">Campaign de Facebook Leads y un formulario de Facebook Lead Ads</a>.
 
 Puedes utilizar una dirección de correo electrónico o un número de teléfono al realizar una solicitud al [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) para actualizar o crear el perfil de usuario. Por este motivo, incluye un **campo de contacto** para **correo electrónico** o **teléfono** en tu formulario de anuncio de leads. Si recopilas nombres o apellidos, recógelos por separado en tu formulario en lugar de utilizar nombres completos.
 
@@ -47,9 +47,9 @@ Para obtener más información sobre estos dos métodos de conexión de tu cuent
 
 ![Búsqueda de aplicaciones en Zapier mostrando las opciones de conexión de Facebook Lead Ads.]({% image_buster /assets/img/fb_lead_ads_zapier/integration1.png %}){: style="max-width:80%;"}
 
-#### Paso 2b: Añade Zapier al acceso de leads en Facebook Business Manager {#step-2b-add-zapier-to-leads-access-in-facebook-business-manager}
+#### Paso 2b: Añade Zapier al acceso de leads en Facebook Business Administrador {#step-2b-add-zapier-to-leads-access-in-facebook-business-manager}
 
-En tu Facebook Business Manager, ve a **Integrations** > **Leads Access** en el menú de navegación. Selecciona tu página de Facebook y luego haz clic en **CRMs**. En la pestaña CRM, selecciona **Assign CRMs** y añade **Zapier**.
+En tu Facebook Business Administrador, ve a **Integrations** > **Leads Access** en el menú de navegación. Selecciona tu página de Facebook y luego haz clic en **CRMs**. En la pestaña CRM, selecciona **Assign CRMs** y añade **Zapier**.
 
 ![Página de acceso de leads de Facebook Business Manager con Zapier asignado como integración de CRM.]({% image_buster /assets/img/fb_lead_ads_zapier/integration2.png %}){: style="max-width:80%;"}
 
@@ -147,7 +147,7 @@ Para utilizar esta integración, debes tener un <a href="https://zapier.com/app/
 {% details ¿Por qué los leads de Facebook no se sincronizan con Braze? %}
 1. Comprueba que tienes acceso de administrador a tu página de Facebook, cuenta publicitaria y acceso a leads. Luego, vuelve a conectar tu cuenta en Zapier.
 2. Verifica que el formulario instantáneo que creaste en Facebook coincida con el formulario seleccionado en tu paso de desencadenador.
-3. Comprueba que has asignado Zapier al acceso a leads yendo a **Facebook Business Manager** > **Integrations** > **Lead Access**.
+3. Comprueba que has asignado Zapier al acceso a leads yendo a **Facebook Business Administrador** > **Integrations** > **Lead Access**.
 {% enddetails %}
 
 {% details ¿Por qué veo perfiles de usuario duplicados con el mismo correo electrónico? %}

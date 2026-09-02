@@ -26,7 +26,7 @@ Eingebettete Videos werden von vielen E-Mail-Clients nicht nativ unterstützt un
 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
-| Playable-Konto | Ein Playable-Konto ist erforderlich, um diese Partnerschaft nutzen zu können. Wenn Sie noch kein Playable-Konto haben, [registrieren Sie sich für ein Playable-Konto](https://signup.playable.video). |
+| Playable-Konto | Ein Playable-Konto ist erforderlich, um diese Partnerschaft nutzen zu können. Wenn Sie noch kein Playable-Konto haben, [Registrieren Sie sich für ein Playable-Konto](https://signup.playable.video). |
 | Video-Inhalte | Laden Sie Videodateien bei Playable hoch oder geben Sie Video-URLs von Websites wie Facebook, Instagram, YouTube, X (ehemals Twitter), TikTok und weiteren an. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 

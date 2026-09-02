@@ -191,13 +191,13 @@ braze.subscribeToInAppMessage(function(inAppMessage) {
 {% subtab Android %}
 Androidの場合、Braze設定エディターで **Automatically Display In-App Messages** の選択を解除します。または、Unityプロジェクトの `braze.xml` で `com_braze_inapp_show_inapp_messages_automatically` を `false` に設定することもできます。
 
-最初のアプリ内メッセージ表示操作は、Braze設定の「In App Message Manager Initial Display Operation」で設定できます。
+最初のアプリ内メッセージ表示操作は、Braze設定の「In App Message マネージャー Initial Display Operation」で設定できます。
 {% endsubtab %}
 
 {% subtab iOS %}
 iOSの場合、Braze設定エディターでゲームオブジェクトリスナーを設定し、**Braze Displays In-App Messages** が選択されていないことを確認します。
 
-最初のアプリ内メッセージ表示操作は、Braze設定の「In App Message Manager Initial Display Operation」で設定できます。
+最初のアプリ内メッセージ表示操作は、Braze設定の「In App Message マネージャー Initial Display Operation」で設定できます。
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}

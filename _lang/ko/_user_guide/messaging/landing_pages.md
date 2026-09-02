@@ -47,9 +47,9 @@ Braze는 캐시되지 않은 랜딩 페이지에 대해 워크스페이스당 3�
 
 캐시된 랜딩 페이지 조회수는 이 제한에 포함되지 않습니다. 캐싱이 트래픽에 미치는 영향에 대한 자세한 내용은 [랜딩 페이지가 대량의 트래픽 시나리오를 처리할 수 있나요?](#can-landing-pages-handle-high-traffic-scenarios)를 참조하세요.
 
-## 랜딩 페이지에 Google Tag Manager 추가하기 {#adding-google-tag-manager-to-a-landing-page}
+## 랜딩 페이지에 Google Tag 매니저 추가하기 {#adding-google-tag-manager-to-a-landing-page}
 
-랜딩 페이지에 Google Tag Manager를 추가하려면 드래그 앤 드롭 편집기에서 랜딩 페이지에 **커스텀 코드** 블록을 추가한 다음, 해당 블록에 Tag Manager 코드를 삽입합니다. 다음 예시와 같이 Tag Manager 코드 앞에 데이터 레이어를 추가해야 합니다:
+랜딩 페이지에 Google Tag 매니저를 추가하려면 드래그 앤 드롭 편집기에서 랜딩 페이지에 **커스텀 코드** 블록을 추가한 다음, 해당 블록에 Tag 매니저 코드를 삽입합니다. 다음 예시와 같이 Tag 매니저 코드 앞에 데이터 레이어를 추가해야 합니다:
 
 ```
 <script>
@@ -64,7 +64,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 ```
 
-Google Tag Manager 구현에 대한 자세한 내용은 [Google 설명서](https://developers.google.com/tag-platform/tag-manager/datalayer#installation)를 참조하세요.
+Google Tag 매니저 구현에 대한 자세한 내용은 [Google 설명서](https://developers.google.com/tag-platform/tag-manager/datalayer#installation)를 참조하세요.
 
 ## 자주 묻는 질문 {#frequently-asked-questions}
 

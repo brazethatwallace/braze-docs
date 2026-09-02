@@ -181,7 +181,7 @@ Cambia las [opciones de diseño](#layout-options) para actualizar cómo se muest
 {% tabs %}
 {% tab Bloque de producto dinámico %}
 
-1. En la sección **Preview & Test**, previsualiza el mensaje como un usuario personalizado.
+1. En la sección **vista previa & Test**, previsualiza el mensaje como un usuario personalizado.
 2. Especifica cuántos artículos deseas renderizar en la vista previa.
 3. Confirma que aparece el número correcto de artículos y que tus opciones de diseño se aplican correctamente. Ten en cuenta que los artículos que aparecen se seleccionan aleatoriamente.
 

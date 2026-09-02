@@ -156,7 +156,7 @@ RudderStack의 [`alias` 메서드](https://www.rudderstack.com/docs/destinations
 
 ## 사용자 특성을 중첩 커스텀 속성으로 전송하기 {#send-user-traits-as-nested-custom-attributes}
 
-사용자 특성을 Braze에 중첩 커스텀 속성으로 전송하고, 이에 대해 추가, 업데이트 및 제거 작업을 수행할 수 있습니다. 이를 위해 Braze 대상을 설정할 때 RudderStack에서 "Use Custom Attributes Operation dashboard" 설정을 활성화합니다. 이 기능은 클라우드 모드에서만 사용할 수 있습니다.
+사용자 특성을 Braze에 중첩 커스텀 속성으로 전송하고, 이에 대해 추가, 업데이트 및 제거 작업을 수행할 수 있습니다. 이를 위해 Braze 대상을 설정할 때 RudderStack에서 "Use 커스텀 속성 Operation dashboard" 설정을 활성화합니다. 이 기능은 클라우드 모드에서만 사용할 수 있습니다.
 
 다음 형식으로 `identify` 이벤트에서 사용자 특성을 중첩 커스텀 속성으로 전송할 수 있습니다:
 ```javascript

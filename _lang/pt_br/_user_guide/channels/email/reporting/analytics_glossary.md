@@ -191,7 +191,7 @@ Count
 
 {% multi_lang_include analytics/metrics.md metric='Soft Bounce' %} Se um e-mail receber um soft bounce, geralmente tentaremos novamente dentro de 72 horas, mas o número de tentativas varia de acordo com o destinatário.
 
-Embora os soft bounces não sejam rastreados na análise de dados da sua campanha, você pode monitorá-los no [Registro de atividades de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) ou excluir esses usuários do seu envio com o [filtro de segmento Soft Bounce]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced). No Registro de atividades de mensagem, você também pode ver o motivo dos soft bounces e entender possíveis discrepâncias entre os "envios" e as "entregas" das suas campanhas de e-mail.
+Embora os soft bounces não sejam rastreados na análise de dados da sua campanha, você pode monitorá-los no [Registro de atividades de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) ou excluir esses usuários do seu envio com o [filtro de Segment Soft Bounce]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced). No Registro de atividades de mensagem, você também pode ver o motivo dos soft bounces e entender possíveis discrepâncias entre os "envios" e as "entregas" das suas campanhas de e-mail.
 
 <span class="calculation-line">Cálculo: Contagem </span>
 
@@ -338,7 +338,7 @@ Count
 Count, Percentage
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or Primary Conversion Event' %} Para e-mail, push e webhooks, começamos a rastrear conversões após o envio inicial.
+{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or conversão primária Event' %} Para e-mail, push e webhooks, começamos a rastrear conversões após o envio inicial.
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -414,7 +414,7 @@ Percentage
 
 #### Pontuações de probabilidade de abertura de mensagem (segmentação) {#message-open-likelihood-scores-segmentation}
 
-O filtro de segmento [`Message Open Likelihood`]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#message-open-likelihood) classifica a probabilidade de um usuário abrir e-mails em uma escala de 0 a 100%. Usuários sem histórico suficiente de envio ou abertura para o canal aparecem em branco. Para e-mail, as aberturas por máquina são excluídas do cálculo, que usa o histórico recente de mensagens nesse canal (consulte [Filtro de probabilidade de abertura de mensagem para canais individuais]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel#individual-channels)).
+O filtro de Segment [`Message Open Likelihood`]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#message-open-likelihood) classifica a probabilidade de um usuário abrir e-mails em uma escala de 0 a 100%. Usuários sem histórico suficiente de envio ou abertura para o canal aparecem em branco. Para e-mail, as aberturas por máquina são excluídas do cálculo, que usa o histórico recente de mensagens nesse canal (consulte [Filtro de probabilidade de abertura de mensagem para canais individuais]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel#individual-channels)).
 
 {% endapi %}
 

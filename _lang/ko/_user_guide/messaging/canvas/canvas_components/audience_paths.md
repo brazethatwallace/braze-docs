@@ -112,5 +112,5 @@ Canvas에서 [사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_
 예를 들어, 오디언스 경로 단계에서 이메일, 모바일 푸시, Everyone Else의 세 가지 오디언스를 생성할 수 있습니다. 이메일 오디언스에는 `Intelligent Channel is Email` 필터를 추가합니다. 모바일 푸시 오디언스에는 `Intelligent Channel is Mobile Push` 필터를 추가합니다. 그런 다음 각 오디언스 경로에 메시지 단계를 추가하여 개인화되고 관련성 높은 메시지를 전달할 수 있습니다.
 
 {% alert tip %}
-이러한 사전 제작 템플릿을 어떻게 활용하여 맞춤 설정할 수 있는지에 대한 예제는 [Braze Canvas 템플릿]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates)을 확인하세요.
+이러한 사전 제작 템플릿을 어떻게 활용하여 맞춤 설정할 수 있는지에 대한 예제는 [BRAZE 캔버스 템플릿]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates)을 확인하세요.
 {% endalert %}

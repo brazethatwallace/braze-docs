@@ -13,7 +13,7 @@ search_tag: Partner
 > [Amazon S3](https://aws.amazon.com/s3/) es un sistema de almacenamiento altamente escalable ofrecido por Amazon Web Services.
 
 {% alert important %}
-Si vas a cambiar de proveedor de almacenamiento en el cloud, ponte en contacto con tu administrador de éxito de cliente de Braze para que te ayude a configurar y validar tu nueva integración.
+Si vas a cambiar de proveedor de almacenamiento en el cloud, ponte en contacto con tu CSM de Braze para que te ayude a configurar y validar tu nueva integración.
 {% endalert %}
 
 La integración de Braze y Amazon S3 presenta dos estrategias de integración:
@@ -265,7 +265,7 @@ Obtén tu ID de cuenta de Braze y el ID externo desde tu cuenta de Braze:
 - **Currents:** En Braze, ve a **Integraciones de partners** > **Currents**. A continuación, selecciona **Crear nueva corriente** y luego **Amazon S3 Data Export**. Aquí encontrarás los identificadores necesarios para crear tu rol.
 - **Exportación de datos del panel:** En Braze, ve a **Integraciones de partners** > **Partners tecnológicos** y selecciona **Amazon S3**. Aquí encontrarás los identificadores necesarios para crear tu rol. (Crea tus roles aquí si solo estás configurando el archivado de mensajes).
 
-De vuelta en la consola de AWS, selecciona **Another AWS Account** como tipo de entidad de confianza del selector. Proporciona tu ID de cuenta de Braze, marca la casilla **Require external ID** e introduce el ID externo de Braze. Selecciona **Next** cuando hayas terminado.
+De vuelta en la consola de AWS, selecciona **Another AWS Account** como tipo de entidad de confianza del SELECTOR. Proporciona tu ID de cuenta de Braze, marca la casilla **Require external ID** e introduce el ID externo de Braze. Selecciona **Next** cuando hayas terminado.
 
 ![La página "Create Role" de S3. Esta página tiene campos para nombre del rol, descripción del rol, entidades de confianza, políticas y límite de permisos.]({{site.baseurl}}/assets/img/create_role_2_another.png)
 

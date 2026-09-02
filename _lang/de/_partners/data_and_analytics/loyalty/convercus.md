@@ -31,7 +31,7 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 
 | Voraussetzung | Beschreibung |
 | --- | --- |
-| Ein Convercus-Konto | Ein aktives Convercus-Programm. Kontaktieren Sie Ihren Convercus Account Manager, wenn Sie noch kein:e Kund:in sind. |
+| Ein Convercus-Konto | Ein aktives Convercus-Programm. Kontaktieren Sie Ihren Convercus Account Manager:in, wenn Sie noch kein:e Kund:in sind. |
 | Ein Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit der Berechtigung `users.track`. Erstellen Sie diesen Schlüssel im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel**. |
 | Ein Braze-REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/api/basics#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
@@ -42,7 +42,7 @@ Sie benötigen einen konsistenten Bezeichner für Nutzer:innen zwischen den Syst
 
 ### Schritt 1: Braze in Convercus Selfservice konfigurieren {#step-1-configure-braze-in-convercus-selfservice}
 
-Öffnen Sie in Convercus Selfservice (der kundenorientierten Admin-Oberfläche – öffnen Sie sie über die URL, die Ihr Convercus Account Manager bereitstellt) das Programm, das Sie mit Braze verbinden möchten, und verwenden Sie die **Braze-Integrationskarte**, um:
+Öffnen Sie in Convercus Selfservice (der kundenorientierten Admin-Oberfläche – öffnen Sie sie über die URL, die Ihr Convercus Account Manager:in bereitstellt) das Programm, das Sie mit Braze verbinden möchten, und verwenden Sie die **Braze-Integrationskarte**, um:
 
 1. Die Braze-Verbindung zu konfigurieren, indem Sie das Integrationsformular ausfüllen:
 
@@ -69,7 +69,7 @@ Um Convercus-Aktionen aus einem Canvas oder einer Campaign auszulösen, erstelle
 - `X-Convercus-Key: cvc_…` – der in Schritt 1 generierte API-Schlüssel.
 - `Content-Type: application/json`
 
-Alle Endpunkte befinden sich unter der Basis-URL `<SERVICE_HOST>/v1/programs/{programId}`. Ersetzen Sie `<SERVICE_HOST>` durch den von Ihrem Convercus Account Manager bereitgestellten Host und `{programId}` durch Ihre Convercus-Programm-ID.
+Alle Endpunkte befinden sich unter der Basis-URL `<SERVICE_HOST>/v1/programs/{programId}`. Ersetzen Sie `<SERVICE_HOST>` durch den von Ihrem Convercus Account Manager:in bereitgestellten Host und `{programId}` durch Ihre Convercus-Programm-ID.
 
 | Aktion | Endpunkt |
 | --- | --- |
@@ -121,7 +121,7 @@ Die anderen Aktionen folgen demselben Muster und ändern nur den Endpunkt und de
 
 ### Schritt 1: Nachrichten mit synchronisierten Treue-Daten personalisieren {#step-1-personalize-messages-with-synced-loyalty-data}
 
-Sobald die Integration aktiv ist, treffen Convercus-Events über den [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)-Endpunkt auf jedem Nutzerprofil in Braze ein und können wie alle anderen nativen Daten verwendet werden:
+Sobald die Integration aktiv ist, treffen Convercus-Events über den [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)-Endpunkt auf jedem Kundenprofil in Braze ein und können wie alle anderen nativen Daten verwendet werden:
 
 1. Verwenden Sie angepasste Attribute für die Kundenbindung (zum Beispiel `convercus_status_level`, `convercus_balance`) in **Segments**, um Stufeninhaber:innen, Mitglieder mit hohem Punktestand oder kürzlich herabgestufte Nutzer:innen anzusprechen.
 2. Verwenden Sie angepasste Events (zum Beispiel `convercus_status_level_changed`, Gutschein- und Mitgliedschafts-Events) als **Trigger-Schritte** in Canvas oder als Filter in Campaigns zur erneuten Interaktion.

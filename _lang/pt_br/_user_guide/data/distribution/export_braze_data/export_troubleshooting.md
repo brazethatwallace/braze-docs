@@ -8,7 +8,7 @@ description: "Diagnostique falhas de exportação CSV e API usando um índice de
 
 # Solução de problemas de exportação {#export-troubleshooting}
 
-> Use esta página para diagnosticar problemas de exportação CSV e API no dashboard e nas APIs de exportação. Para fluxos de trabalho e limites de exportação, consulte [Exportar dados de segmento para CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv) e [APIs de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_apis).
+> Use esta página para diagnosticar problemas de exportação CSV e API no dashboard e nas APIs de exportação. Para fluxos de trabalho e limites de exportação, consulte [Exportar dados de Segment para CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv) e [APIs de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_apis).
 
 ## Comece aqui: identifique seu sintoma {#start-here-match-your-symptom}
 
@@ -18,8 +18,8 @@ Encontre o comportamento que você está observando na tabela e vá até a seç�
 | --- | --- |
 | O link de download do CSV retorna `AccessDenied`, `ExpiredToken` ou "file doesn't exist" | [Exportação padrão: erros de CSV](#defaultexport_csv-exports) ou [Armazenamento em nuvem: erros de CSV](#csv-exports-1) |
 | A URL de download da exportação via API retorna `403 Forbidden` | [Não é possível fazer download de um ZIP de Segment exportado](#cant-download-an-exported-segment-zip-from-a-braze-url) |
-| A exportação de Segment falha ou informa que o segmento é muito grande | [O segmento é muito grande](#segment-is-too-large-or-export-fails-when-my-segment-looks-under-500000-users) |
-| Nenhum e-mail de exportação de Segment recebido | [Nenhum e-mail de exportação de segmento](#not-receiving-segment-export-emails) |
+| A exportação de Segment falha ou informa que o Segment é muito grande | [O Segment é muito grande](#segment-is-too-large-or-export-fails-when-my-segment-looks-under-500000-users) |
+| Nenhum e-mail de exportação de Segment recebido | [Nenhum e-mail de exportação de Segment](#not-receiving-segment-export-emails) |
 | A contagem de linhas do CSV não corresponde à análise de dados da campanha | [Divergência na análise de dados de Campaign e Canvas](#number-of-users-in-csv-export-doesnt-match-messages-sent-or-unique-recipients) |
 | Colunas esperadas ausentes no arquivo de exportação | [Colunas ausentes](#expected-columns-are-missing-from-a-segment-export-file) |
 | A exportação para armazenamento em nuvem exibe `AccessDenied` ou `ExpiredToken` | [Armazenamento em nuvem conectado: erros de API](#common-errors-1) |
@@ -169,14 +169,14 @@ As exportações levam tempo para serem concluídas, então o acesso imediato a 
 
 ## Campos da API de exportação de Segments e usuários {#segment-and-user-export-api-fields}
 
-### Colunas esperadas estão ausentes de um arquivo de exportação de segmento {#expected-columns-are-missing-from-a-segment-export-file}
+### Colunas esperadas estão ausentes de um arquivo de exportação de Segment {#expected-columns-are-missing-from-a-segment-export-file}
 
 Sintoma: Uma exportação via API ou dashboard está sem campos que você esperava.
 
 
-A opção **CSV Export User Data** do dashboard em um segmento usa um conjunto fixo de colunas (consulte [Exportar dados de segmento para CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#data-included-in-export)). Ela não inclui uma coluna ou parâmetro `fields_to_export`.
+A opção **CSV Export User Data** do dashboard em um Segment usa um conjunto fixo de colunas (consulte [Exportar dados de Segment para CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#data-included-in-export)). Ela não inclui uma coluna ou parâmetro `fields_to_export`.
 
-Para exportações de segmento via API, você deve informar `fields_to_export` no corpo da requisição. Alguns campos carregam dados relacionados automaticamente — por exemplo, solicitar `canvases_received` também requer dados de resumo de jornada no perfil de usuário. Consulte a referência do endpoint [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) para nomes de campos válidos e requisitos.
+Para exportações de Segment via API, você deve informar `fields_to_export` no corpo da requisição. Alguns campos carregam dados relacionados automaticamente — por exemplo, solicitar `canvases_received` também requer dados de resumo de jornada no perfil de usuário. Consulte a referência do endpoint [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) para nomes de campos válidos e requisitos.
 
 Se houver colunas ausentes no ZIP de exportação da API, confirme se o array `fields_to_export` na sua requisição inclui todos os campos necessários e se o seu espaço de trabalho possui as permissões de exportação exigidas.
 

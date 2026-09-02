@@ -14,7 +14,7 @@ alias: /landing_pages/
 Nutzen Sie Landing-Pages, um Ihre Zielgruppe zu vergrößern, Nutzerdaten zu erfassen, Sonderangebote zu bewerben und Multichannel-Kampagnen zu unterstützen. Eine Referenz der Drag-and-Drop-Blöcke für Landing-Pages finden Sie unter [Editor-Blöcke (Landing-Pages)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=landing%20pages).
 
 {% alert note %}
-Die Verfügbarkeit von Landing-Pages und angepassten Domains hängt von Ihrem Braze-Paket ab. Kontaktieren Sie Ihren Account Manager oder Customer-Success-Manager, um loszulegen.
+Die Verfügbarkeit von Landing-Pages und angepassten Domains hängt von Ihrem Braze-Paket ab. Kontaktieren Sie Ihren Account Manager:in oder CSM, um loszulegen.
 {% endalert %}
 
 {% multi_lang_include video.html id="eg4r7agod1" source="wistia" %}
@@ -101,6 +101,6 @@ Nein, aber das Ereignis **Submitted a Landing Page form** kann als Trigger für 
 - **Canvas:** Verwenden Sie das Ereignis **Submitted a Landing Page form** als Canvas-Entry-Trigger und fügen Sie einen Webhook-Schritt hinzu.
 - **Campaign:** Verwenden Sie das Ereignis **Submitted a Landing Page form**, um basierend auf der Formularübermittlung zu triggern.
 
-Wenn die Seite nicht über einen Braze-Kanal gesendet wird (z. B. über eine Website oder Anzeige), kann bei der Übermittlung ein neues Nutzerprofil erstellt werden – auch wenn diese Person bereits in Braze existiert. Um dies zu handhaben, richten Sie ein Canvas ein, das durch **Submitted a Landing Page form** getriggert wird, und fügen Sie einen Braze-to-Braze-Webhook-Schritt hinzu, der den Endpunkt [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) aufruft, um das neue Profil mit dem bestehenden zusammenzuführen.
+Wenn die Seite nicht über einen Braze-Kanal gesendet wird (z. B. über eine Website oder Anzeige), kann bei der Übermittlung ein neues Kundenprofil erstellt werden – auch wenn diese Person bereits in Braze existiert. Um dies zu handhaben, richten Sie ein Canvas ein, das durch **Submitted a Landing Page form** getriggert wird, und fügen Sie einen Braze-to-Braze-Webhook-Schritt hinzu, der den Endpunkt [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) aufruft, um das neue Profil mit dem bestehenden zusammenzuführen.
 
-Wenn Sie den Liquid-Tag `landing_page_url` verwenden, um die Seite zu teilen, werden Formularübermittlungen automatisch dem bestehenden Nutzerprofil zugeordnet. Sie können dann die auf der Landing-Page übermittelten Nutzerattribute über Liquid für nachfolgendes Templating referenzieren.
+Wenn Sie den Liquid-Tag `landing_page_url` verwenden, um die Seite zu teilen, werden Formularübermittlungen automatisch dem bestehenden Kundenprofil zugeordnet. Sie können dann die auf der Landing-Page übermittelten Nutzerattribute über Liquid für nachfolgendes Templating referenzieren.

@@ -48,7 +48,7 @@ Geräte erhalten unabhängig von der SDK-Version weiterhin In-App-Nachrichten be
 
 ## Am Early Access teilnehmen {#participate-in-early-access}
 
-1. Kontaktieren Sie Ihren Braze Account Manager, um Ihren Workspace zum Early Access hinzufügen zu lassen.
+1. Kontaktieren Sie Ihren Braze Account Manager:in, um Ihren Workspace zum Early Access hinzufügen zu lassen.
 2. Aktualisieren Sie Ihre App auf die Mindest-SDK-Version für Ihre Plattform.
 3. Veröffentlichen Sie die aktualisierte App für Ihre Nutzer:innen.
 
@@ -56,4 +56,4 @@ Die Realtime-Zustellung erfordert keine Dashboard-Konfiguration, keine Campaign-
 
 ## Feedback teilen {#share-feedback}
 
-Braze entwickelt dieses Feature aktiv weiter, und Ihr Feedback beeinflusst, was bei der allgemeinen Verfügbarkeit veröffentlicht wird. Teilen Sie Ihrem Account Manager Ihre Beobachtungen zur Zustellzeit mit, alles, was sich anders verhalten hat als erwartet, und die Szenarien, die die Realtime-Zustellung als Nächstes abdecken soll.
+Braze entwickelt dieses Feature aktiv weiter, und Ihr Feedback beeinflusst, was bei der allgemeinen Verfügbarkeit veröffentlicht wird. Teilen Sie Ihrem Account Manager:in Ihre Beobachtungen zur Zustellzeit mit, alles, was sich anders verhalten hat als erwartet, und die Szenarien, die die Realtime-Zustellung als Nächstes abdecken soll.

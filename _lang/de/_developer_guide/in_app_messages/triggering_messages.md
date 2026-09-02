@@ -372,7 +372,7 @@ func handleExtras(userInfo: [AnyHashable : Any]) {
 {% endsubtab %}
 {% endsubtabs %}
 
-Wenn die stille Push-Benachrichtigung empfangen wird, wird ein SDK-erfasstes Event „In-App-Nachricht-Trigger“ gegen das Nutzerprofil protokolliert.
+Wenn die stille Push-Benachrichtigung empfangen wird, wird ein SDK-erfasstes Event „In-App-Nachricht-Trigger“ gegen das Kundenprofil protokolliert.
 
 {% alert important %}
 Da eine Push-Nachricht verwendet wird, um ein SDK-protokolliertes angepasstes Event aufzuzeichnen, muss Braze für jede:n Nutzer:in ein Push-Token speichern, um diese Lösung zu ermöglichen. Für iOS-Nutzer:innen speichert Braze ein Token erst ab dem Zeitpunkt, an dem Nutzer:innen die Push-Eingabeaufforderung des Betriebssystems erhalten haben. Vorher sind Nutzer:innen nicht per Push erreichbar, und die oben beschriebene Lösung ist nicht möglich.

@@ -13,7 +13,7 @@ search_rank: 3
 
 {% multi_lang_include alerts/important_alerts.md alert='Purchase event deprecation' %}
 
-Kauf-Events sind Kaufaktionen Ihrer Nutzer:innen und werden verwendet, um In-App-Käufe zu erfassen und den Lifetime-Value (LTV) für jedes Nutzerprofil zu ermitteln. Diese Events müssen von Ihrem Team eingerichtet werden. Die Protokollierung von Kauf-Events ermöglicht es Ihnen, Eigenschaften wie Menge und Typ hinzuzufügen, sodass Sie Ihre Nutzer:innen auf der Grundlage dieser Eigenschaften noch gezielter ansprechen können.
+Kauf-Events sind Kaufaktionen Ihrer Nutzer:innen und werden verwendet, um In-App-Käufe zu erfassen und den Lifetime Value (LTV) für jedes Kundenprofil zu ermitteln. Diese Events müssen von Ihrem Team eingerichtet werden. Die Protokollierung von Kauf-Events ermöglicht es Ihnen, Eigenschaften wie Menge und Typ hinzuzufügen, sodass Sie Ihre Nutzer:innen auf der Grundlage dieser Eigenschaften noch gezielter ansprechen können.
 
 ## Kauf-Events protokollieren {#log-purchase-events}
 
@@ -137,8 +137,8 @@ Sie finden diese Daten auf der Seite [Umsatzbericht]({{site.baseurl}}/user_guide
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Lifetime Revenue' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#lifetime-value-per-user">Lifetime Value Per User</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Lifetime Value Per User' %}</td>
+            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#LTV-per-user">LTV Per User</a></td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='LTV Per User' %}</td>
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#average-daily-revenue">Average Daily Revenue</a></td>
@@ -161,14 +161,14 @@ Wenn Kauf-Events in einer anderen Währung als USD protokolliert werden, rechnet
 
 #### Berechnung des Lifetime-Umsatzes {#lifetime-revenue-calculation}
 
-Braze nutzt Kauf-Events, um den Lifetime-Umsatz (auch als Lifetime-Value oder LTV bezeichnet) von Nutzer:innen zu berechnen. Dies ist eine Prognose des Nettogewinns, der der gesamten zukünftigen Beziehung mit einer Kundin oder einem Kunden zugerechnet wird. Dies kann Ihnen helfen, fundierte Entscheidungen über Strategien zur Kundengewinnung und Kundenbindung zu treffen.
+Braze nutzt Kauf-Events, um den Lifetime-Umsatz (auch als LTV oder LTV bezeichnet) von Nutzer:innen zu berechnen. Dies ist eine Prognose des Nettogewinns, der der gesamten zukünftigen Beziehung mit einer Kundin oder einem Kunden zugerechnet wird. Dies kann Ihnen helfen, fundierte Entscheidungen über Strategien zur Kundengewinnung und Kundenbindung zu treffen.
 
 $$\text{Average purchase value} = \frac{\text{Total spend in dollars}}{\text{Total number of purchase events}}$$
 
 Es gibt zwei Hauptstellen in Braze, an denen Sie den LTV Ihrer Nutzer:innen einsehen können:
 
-- Für Gesamtmetriken wie *Lifetime Revenue* und den *Lifetime Value Per User* für jede App und Website finden Sie Informationen in Ihrem [Umsatzbericht]({{site.baseurl}}/user_guide/analytics/reports/revenue_report#exporting-revenue-data).
-- Um den Lifetime-Umsatz einzelner Nutzer:innen einzusehen, schauen Sie in deren [Nutzerprofil]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#overview-tab).
+- Für Gesamtmetriken wie *Lifetime Revenue* und den *LTV Per User* für jede App und Website finden Sie Informationen in Ihrem [Umsatzbericht]({{site.baseurl}}/user_guide/analytics/reports/revenue_report#exporting-revenue-data).
+- Um den Lifetime-Umsatz einzelner Nutzer:innen einzusehen, schauen Sie in deren [Kundenprofil]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#overview-tab).
 
 ##### Auswirkungen von Rückerstattungen auf den Lifetime-Umsatz {#impact-of-refunds-on-lifetime-revenue}
 
@@ -209,7 +209,7 @@ Diese Segmentierungsfilter umfassen:
 - Hat Käufe mit Eigenschaft Y mit Wert V X-mal in den letzten Y Tagen getätigt
 - Fügt eine 1-30-Tage-Segmentierung für alle Käufe, Events und Eigenschaften innerhalb von Käufen und Events hinzu
 
-Im Gegensatz zu [Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension) werden die verwendeten Segmente in Realtime aktualisiert, unterstützen eine unbegrenzte Anzahl von Segmenten, bieten einen Rückblickzeitraum von maximal 30 Tagen und verbrauchen Datenpunkte. Aufgrund der zusätzlichen Datenpunktkosten müssen Sie Ihren Braze-Customer-Success-Manager kontaktieren, um Event-Eigenschaften für Ihre angepassten Events aktivieren zu lassen.
+Im Gegensatz zu [Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension) werden die verwendeten Segmente in Realtime aktualisiert, unterstützen eine unbegrenzte Anzahl von Segmenten, bieten einen Rückblickzeitraum von maximal 30 Tagen und verbrauchen Datenpunkte. Aufgrund der zusätzlichen Datenpunktkosten müssen Sie Ihren Braze-CSM kontaktieren, um Event-Eigenschaften für Ihre angepassten Events aktivieren zu lassen.
 
 Nach der Genehmigung können zusätzliche Eigenschaften im Dashboard unter **Dateneinstellungen** > **Angepasste Events** hinzugefügt werden, indem Sie **Eigenschaften verwalten** auswählen. Sie können diese Event-Eigenschaften dann im Zielgruppen-Schritt des Campaign- oder Canvas-Builders verwenden.
 

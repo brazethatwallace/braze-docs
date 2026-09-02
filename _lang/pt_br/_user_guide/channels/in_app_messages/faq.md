@@ -13,7 +13,7 @@ tool: in-app messages
 
 ## O que é uma mensagem no navegador e como ela difere de uma mensagem no app? {#what-is-an-in-browser-message-and-how-does-it-differ-from-an-in-app-message}
 
-Mensagens no navegador são mensagens no app enviadas para navegadores web. Para criar uma mensagem no navegador, selecione **Web Browser** no campo **Send To** ao criar sua Campaign de mensagem no app ou Canvas.
+Mensagens no navegador são mensagens no app enviadas para navegadores web. Para criar uma mensagem no navegador, selecione **navegador de internet** no campo **Send To** ao criar sua Campaign de mensagem no app ou Canvas.
 
 ## Uma mensagem no app é exibida se o dispositivo estiver offline? {#does-an-in-app-message-display-if-a-device-is-offline}
 

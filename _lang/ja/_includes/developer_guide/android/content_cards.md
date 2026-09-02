@@ -30,7 +30,7 @@ Content Cardsデータモデルは Android SDKで利用可能であり、以下�
 | `isClicked()` | このカードのクリック状態を反映したブール値を返します。|
 | `isDismissed` | カードが却下されたかどうかを示すブール値を返します。カードを却下済みとしてマークするには、`true`に設定します。カードがすでに却下済みとしてマークされている場合、そのカードを再度却下済みとしてマークすることはできません。|
 | `isControl()` | このカードがコントロールカードであり、レンダリングされるべきでない場合にブール値を返します。|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Base card model #base-card-for-android" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Base カード model #base-カード-for-android" }
 
 ### 画像のみ {#banner-image-card-for-android}
 
@@ -41,7 +41,7 @@ Content Cardsデータモデルは Android SDKで利用可能であり、以下�
 | `getImageUrl()` | カードの画像のURLを返します。|
 | `getUrl()` | カードがクリックされた後に開かれるURLを返します。HTTP(s) URLでもプロトコルURLでもかまいません。|
 | `getDomain()` | プロパティURLのリンクテキストを返します。|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Image only #banner-image-card-for-android" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Image only #banner-image-カード-for-android" }
 
 ### キャプション付き画像 {#captioned-image-card-for-android}
 
@@ -54,7 +54,7 @@ Content Cardsデータモデルは Android SDKで利用可能であり、以下�
 | `getDescription()` | カードの本文テキストを返します。|
 | `getUrl()` | カードがクリックされた後に開かれるURLを返します。HTTP(s) URLでもプロトコルURLでもかまいません。|
 | `getDomain()` | プロパティURLのリンクテキストを返します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Captioned image #captioned-image-card-for-android" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Captioned image #captioned-image-カード-for-android" }
 
 ### クラシック {#text-Announcement-card-for-android}
 
@@ -68,7 +68,7 @@ Content Cardsデータモデルは Android SDKで利用可能であり、以下�
 | `getDomain()` | プロパティURLのリンクテキストを返します。 |
 | `getImageUrl()` | カードの画像のURLを返します。クラシックショートニュースカードにのみ適用されます。 |
 | `isDismissed` | カードが却下されたかどうかを示すブール値を返します。カードを却下済みとしてマークするには、`true`に設定します。カードがすでに却下済みとしてマークされている場合、そのカードを再度却下済みとしてマークすることはできません。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Classic #text-Announcement-card-for-android" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Classic #text-Announcement-カード-for-android" }
 
 ## カードメソッド {#card-methods}
 
@@ -78,4 +78,4 @@ Content Cardsデータモデルは Android SDKで利用可能であり、以下�
 |---|---|
 | `logImpression()` | 特定のカードのインプレッションを手動でBrazeに記録します。 |
 | `logClick()` | 特定のカードのクリックを手動でBrazeに記録します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Card methods" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="カード methods" }

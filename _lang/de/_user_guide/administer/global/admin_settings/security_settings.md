@@ -39,11 +39,11 @@ Verwenden Sie dieses Feld, um festzulegen, wann Ihre Braze-Konto-Nutzer:innen ih
 
 Verwenden Sie dieses Feld, um zu definieren, wie lange Braze Ihre Sitzung aktiv hält. Sobald Braze Ihre Sitzung als inaktiv einstuft (keine Aktivität für die festgelegte Anzahl von Minuten), werden Sie von Braze abgemeldet. Die maximale Anzahl von Minuten, die Sie eingeben können, beträgt 10.080 (entspricht einer Woche), wenn die Zwei-Faktor-Authentifizierung für Ihr Unternehmen erzwungen wird. Andernfalls beträgt die maximale Sitzungsdauer 1.440 Minuten (entspricht 24 Stunden).
 
-### Single-Sign-on-(SSO)-Authentifizierung
+### Single-Sign-on-(Single Sign-on)-Authentifizierung
 
-Sie können Ihren Nutzer:innen die Anmeldung entweder per Passwort oder per SSO einschränken.
+Sie können Ihren Nutzer:innen die Anmeldung entweder per Passwort oder per Single Sign-on einschränken.
 
-Für [SAML SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on) müssen Kund:innen ihre SAML-Einstellungen konfigurieren, bevor sie diese erzwingen. Wenn Kund:innen Google SSO verwenden, müssen sie lediglich die Sicherheitseinstellungen-Seite erzwingen, ohne zusätzlichen Aufwand.
+Für [SAML Single Sign-on]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on) müssen Kund:innen ihre SAML-Einstellungen konfigurieren, bevor sie diese erzwingen. Wenn Kund:innen Google Single Sign-on verwenden, müssen sie lediglich die Sicherheitseinstellungen-Seite erzwingen, ohne zusätzlichen Aufwand.
 
 ## Dashboard-IP-Allowlisting {#dashboard-ip-allowlisting}
 
@@ -51,7 +51,7 @@ Verwenden Sie das angezeigte Feld, um bestimmte IP-Adressen und Subnetze auf die
 
 ## Zwei-Faktor-Authentifizierung (2FA)
 
-Die Zwei-Faktor-Authentifizierung ist für alle Unternehmensnutzer:innen erforderlich. Sie fügt einer Kontoanmeldung eine zweite Ebene der Identitätsprüfung hinzu und macht sie damit sicherer als nur einen Nutzernamen und ein Passwort. Falls Ihr Dashboard die Zwei-Faktor-Authentifizierung nicht unterstützen kann, wenden Sie sich an Ihren Customer-Success-Manager.
+Die Zwei-Faktor-Authentifizierung ist für alle Unternehmensnutzer:innen erforderlich. Sie fügt einer Kontoanmeldung eine zweite Ebene der Identitätsprüfung hinzu und macht sie damit sicherer als nur einen Nutzernamen und ein Passwort. Falls Ihr Dashboard die Zwei-Faktor-Authentifizierung nicht unterstützen kann, wenden Sie sich an Ihren CSM.
 
 Wenn die Zwei-Faktor-Authentifizierung aktiviert ist:
 
@@ -95,7 +95,7 @@ Wenn 2FA auf Unternehmensebene nicht erzwungen wird, können einzelne Nutzer:inn
 Wenn 2FA auf Unternehmensebene erzwungen wird, werden Nutzer:innen, die es nicht bei der Anmeldung in ihren eigenen Konten einrichten, vom Dashboard gesperrt. Nutzer:innen müssen die 2FA-Einrichtung abschließen, um den Zugang aufrechtzuerhalten.
 
 {% alert important %}
-2FA ist nur dann für alle Unternehmensnutzer:innen erforderlich, wenn Single Sign-on (SSO) nicht aktiviert ist. Wenn SSO verwendet wird, muss 2FA nicht auf Unternehmensebene erzwungen werden.
+2FA ist nur dann für alle Unternehmensnutzer:innen erforderlich, wenn Single Sign-on (Single Sign-on) nicht aktiviert ist. Wenn Single Sign-on verwendet wird, muss 2FA nicht auf Unternehmensebene erzwungen werden.
 {% endalert %}
 
 ## 2FA manuell einrichten
@@ -365,5 +365,5 @@ Wenn die Probleme weiterhin bestehen, löschen Sie das alte Profil in der Authy-
 
 Weitere Informationen zu Authentifizierung und Zugriff finden Sie unter:
 
-- [SAML und Single Sign-on]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on), um SSO mit Ihrem Identitätsanbieter einzurichten.
+- [SAML und Single Sign-on]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on), um Single Sign-on mit Ihrem Identitätsanbieter einzurichten.
 - [Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions), um zu steuern, welche Aktionen Nutzer:innen im Dashboard ausführen können.

@@ -16,11 +16,11 @@ alias: /whatsapp/
 
 ## Requisitos previos {#prerequisites}
 
-La disponibilidad de WhatsApp depende de tu paquete de Braze. Ponte en contacto con tu director de cuentas o administrador de éxito de cliente para empezar.
+La disponibilidad de WhatsApp depende de tu paquete de Braze. Ponte en contacto con tu director de cuentas o CSM para empezar.
 
 Antes de empezar, asegúrate de tener lo siguiente:
 
-- Una cuenta de Meta Business Manager y una cuenta de WhatsApp Business
+- Una cuenta de Meta Business Administrador y una cuenta de WhatsApp Business
 - Un número de teléfono de WhatsApp que cumpla los requisitos de [Cloud API](https://developers.facebook.com/docs/whatsapp/cloud-api/phone-numbers)
 
 Para un recorrido completo, consulta [Configuración de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup).
@@ -40,7 +40,7 @@ Para un recorrido completo, consulta [Configuración de WhatsApp]({{site.baseurl
 
 ### ¿Cómo conecto WhatsApp a Braze? {#how-do-i-connect-whatsapp-to-braze}
 
-Crea una cuenta de Meta Business Manager y una cuenta de WhatsApp Business, luego completa los pasos en [Configuración de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup).
+Crea una cuenta de Meta Business Administrador y una cuenta de WhatsApp Business, luego completa los pasos en [Configuración de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup).
 
 ### ¿Qué tipos de mensajes puedo enviar en WhatsApp? {#what-message-types-can-i-send-on-whatsapp}
 

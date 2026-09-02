@@ -205,7 +205,7 @@ Wenn der Canvas sich nicht laden lässt und nicht weiterkommt, wurde eine frühe
 
 Fügen Sie für „Request Timed Out“-Support-Tickets eine Bildschirmaufnahme, einen Zeitstempel mit Zeitzone, den Browser und die Version, Schritte zur Reproduktion und optional ein HAR-Log aus den Entwicklertools Ihres Browsers bei. Siehe [Was sollte ich bei der Einreichung eines Support-Tickets für einen „Request Timed Out“-Fehler angeben?]({{site.baseurl}}/user_guide/messaging/canvas/faqs#what-should-i-include-when-submitting-a-support-ticket-for-a-request-timed-out-error) in den Canvas-FAQ.
 
-{% multi_lang_include audience/segments.md section='Canvas variant archived segment' %}
+{% multi_lang_include audience/segments.md section='Canvas-Variante archived segment' %}
 
 ## Verhalten bei gestopptem Canvas {#stopped-canvas-behavior}
 
@@ -228,7 +228,7 @@ So beheben Sie das Problem:
 - Reduzieren Sie die Schritt-Verzweigungen im Canvas.
 - Verkleinern Sie die Eintrittszielgruppe.
 - Verwenden Sie [Zielgruppenpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths), um Verzweigungen zu konsolidieren, anstatt viele parallele Pfade zu nutzen.
-- Wenn Ihr Canvas den ursprünglichen Editor verwendet, [klonen Sie es zu Canvas Flow]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases) und bauen Sie es mit Canvas-Komponenten neu auf.
+- Wenn Ihr Canvas den ursprünglichen Editor verwendet, [Klon Sie es zu Canvas Flow]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases) und bauen Sie es mit Canvas-Komponenten neu auf.
 
 Wenn Sie das Canvas dennoch ohne Änderungen starten müssen und nicht zu Canvas Flow wechseln können, kontaktieren Sie den [Support]({{site.baseurl}}/support_contact).
 

@@ -41,7 +41,7 @@ Sie müssen das [Braze Web SDK]({{site.baseurl}}/developer_guide/platform_integr
 
 ### Schritt 2: Merkles Merkury-Tag bereitstellen {#step-2-deploy-merkles-merkury-tag}
 
-Stellen Sie den Merkury-Tag auf Ihrer Website bereit, um den Merkury-Identity-Konnektor auf Ihrer Website verfügbar zu machen. Ihr Merkle Account Manager stellt Ihnen eine detaillierte Anleitung mit Anweisungen zur Verfügung.
+Stellen Sie den Merkury-Tag auf Ihrer Website bereit, um den Merkury-Identity-Konnektor auf Ihrer Website verfügbar zu machen. Ihr Merkle Account Manager:in stellt Ihnen eine detaillierte Anleitung mit Anweisungen zur Verfügung.
 
 ### Schritt 3: Angepasste Attribute erstellen {#step-3-create-custom-attributes}
 

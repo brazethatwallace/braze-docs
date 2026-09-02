@@ -390,7 +390,7 @@ Sim, mas apenas após a próxima atualização programada. As recomendações ex
 
 ### Como posso fazer com que todas as recomendações que duram vários dias expirem de uma vez? {#how-can-i-make-all-recommendations-that-last-multiple-days-expire-at-once}
 
-Se você quiser expirar todas as recomendações de vários dias em uma data específica (para que todas essas recomendações ativas recebam novas previsões de uma vez), entre em contato com o suporte da Braze ou seu gerente de sucesso do cliente para obter assistência. Os especialistas em IA da Braze realizam isso manualmente para garantir o máximo desempenho do modelo.
+Se você quiser expirar todas as recomendações de vários dias em uma data específica (para que todas essas recomendações ativas recebam novas previsões de uma vez), entre em contato com o suporte da Braze ou seu CSM para obter assistência. Os especialistas em IA da Braze realizam isso manualmente para garantir o máximo desempenho do modelo.
 
 ### O que acontece se eu atualizar o nome da propriedade de uma recomendação de item de IA ativa? {#what-happens-if-i-update-the-property-name-for-an-active-ai-item-recommendation}
 

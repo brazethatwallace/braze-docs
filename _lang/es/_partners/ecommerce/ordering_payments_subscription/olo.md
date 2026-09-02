@@ -1,7 +1,7 @@
 ---
 nav_title: Olo
 article_title: Olo
-description: "Este artículo describe la asociación entre Braze y Olo, una plataforma SaaS abierta líder para restaurantes que habilita la hostelería en cada punto de intervención."
+description: "Este artículo describe la asociación entre Braze y Olo, una plataforma software como servicio (SaaS) abierta líder para restaurantes que habilita la hostelería en cada punto de intervención."
 alias: /partners/olo/
 page_type: partner
 search_tag: Partner
@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Olo
 
-> [Olo](https://www.olo.com/) es una plataforma SaaS abierta líder para restaurantes que habilita la hostelería en cada punto de intervención.
+> [Olo](https://www.olo.com/) es una plataforma software como servicio (SaaS) abierta líder para restaurantes que habilita la hostelería en cada punto de intervención.
 
 Al integrar Olo y Braze, puedes:
 

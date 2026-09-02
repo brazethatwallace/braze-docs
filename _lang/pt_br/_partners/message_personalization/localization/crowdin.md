@@ -141,7 +141,7 @@ Para confirmar a integração:
 
 1. Abra sua Campaign no **Braze Message Composer**.
 2. Acesse a guia **Test**.
-3. Selecione **Preview Message as User**.
+3. Selecione **prévia Message as User**.
 4. Pesquise um perfil de usuário que tenha um atributo `language` correspondente a um dos seus locales traduzidos.
 5. Confirme que o conteúdo muda do idioma de origem para a versão traduzida.
 

@@ -8,7 +8,7 @@ description: "Cet article vous explique comment configurer le provisionnement ju
 
 # Provisionnement juste-à-temps SAML {#saml-just-in-time-provisioning}
 
-> Le provisionnement juste-à-temps fonctionne avec l'[authentification unique (SSO) SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup) pour permettre aux nouveaux utilisateurs de l'entreprise de créer un compte Braze lors de leur première connexion. Cela évite aux administrateurs de devoir créer manuellement un compte pour un nouvel utilisateur, de choisir ses autorisations, de l'affecter à un espace de travail et d'attendre qu'il active son compte.
+> Le provisionnement juste-à-temps fonctionne avec l'[authentification unique (authentification unique) SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup) pour permettre aux nouveaux utilisateurs de l'entreprise de créer un compte Braze lors de leur première connexion. Cela évite aux administrateurs de devoir créer manuellement un compte pour un nouvel utilisateur, de choisir ses autorisations, de l'affecter à un espace de travail et d'attendre qu'il active son compte.
 
 Par mesure de sécurité, le provisionnement juste-à-temps SAML (JITP) ne fonctionne que pour les utilisateurs dont les domaines d'e-mail existent déjà dans votre entreprise. Le JITP n'est possible que pour les domaines où il existe déjà au moins un développeur confirmé et non usurpé dans l'entreprise.
 
@@ -18,11 +18,11 @@ Pour demander une exception pour une entreprise, contactez l'[Assistance]({{site
 
 ## Prérequis {#prerequisites}
 
-Le provisionnement SAML JITP nécessite que l'authentification unique (SSO) SAML soit configurée et intégrée. Il n'est pas compatible avec le SSO Google et n'est pris en charge que pour les flux de connexion initiés par le fournisseur d'identité (IdP-initiated).
+Le provisionnement SAML JITP nécessite que l'authentification unique (authentification unique) SAML soit configurée et intégrée. Il n'est pas compatible avec le authentification unique Google et n'est pris en charge que pour les flux de connexion initiés par le fournisseur d'identité (IdP-initiated).
 
 | Exigence | Détails |
 |---|---|
-| Authentification unique (SSO) SAML | Configurée et testée avant d'activer le JITP. Voir [Configuration de l'authentification unique (SSO) SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup). |
+| Authentification unique (authentification unique) SAML | Configurée et testée avant d'activer le JITP. Voir [Configuration de l'authentification unique (authentification unique) SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup). |
 | Connexion initiée par l'IdP | Les utilisateurs doivent se connecter via votre portail IdP lors de leur première connexion. La connexion initiée par le SP seule ne provisionne pas de nouveaux utilisateurs. |
 | Domaine e-mail | Le domaine e-mail de l'utilisateur doit déjà exister dans votre entreprise (au moins un développeur confirmé, non usurpé, avec ce domaine). |
 | Activation au niveau de l'entreprise | Braze doit activer la fonctionnalité `saml_jit_provisioning` pour votre entreprise avant que le bouton **Automatic user provisioning** n'apparaisse. |
@@ -48,7 +48,7 @@ Le JITP ne met pas à jour les permissions des utilisateurs existants. Il crée 
 Demandez à un administrateur Braze d'effectuer les opérations suivantes :
 
 1. Accédez à **Paramètres** > **Paramètres de l'entreprise** > **Paramètres d'administration** > **Paramètres de sécurité**.
-2. Dans la section **Authentification unique (SSO) SAML**, activez l'option **Approvisionnement automatique des utilisateurs**.
+2. Dans la section **Authentification unique (authentification unique) SAML**, activez l'option **Approvisionnement automatique des utilisateurs**.
 3. Sélectionnez un espace de travail par défaut dans lequel ajouter un nouvel utilisateur de l'entreprise.
 4. Sélectionnez l'ensemble d'autorisations par défaut à attribuer à ce nouvel utilisateur de l'entreprise. Pour savoir comment créer un ensemble d'autorisations, consultez [Définir les autorisations des utilisateurs]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 
@@ -58,7 +58,7 @@ Si votre entreprise utilise des autorisations granulaires, vérifiez l'ensemble 
 
 {: start="5"}
 5. Sélectionnez **Enregistrer les modifications**.
-6. Dans les paramètres de votre fournisseur SSO, ajoutez tous les utilisateurs ayant besoin d'un accès à Braze au répertoire de votre fournisseur SSO.
+6. Dans les paramètres de votre fournisseur authentification unique, ajoutez tous les utilisateurs ayant besoin d'un accès à Braze au répertoire de votre fournisseur authentification unique.
 7. Demandez aux utilisateurs d'accéder à Braze via le portail de votre IdP pour leur première connexion. Ensuite, le bouton d'authentification unique SAML s'affiche pour les connexions suivantes.
 
 ## Questions fréquemment posées {#frequently-asked-questions}
@@ -77,7 +77,7 @@ Non. Le JITP ne s'exécute que lors d'une connexion initiée par l'IdP, lorsqu'u
 
 ## Résolution des problèmes {#troubleshooting}
 
-### L'utilisateur n'a pas été provisionné lors de la première connexion SSO {#user-was-not-provisioned-on-first-sso-sign-in}
+### L'utilisateur n'a pas été provisionné lors de la première connexion authentification unique {#user-was-not-provisioned-on-first-sso-sign-in}
 
 Vérifiez les points suivants :
 
@@ -88,4 +88,4 @@ Vérifiez les points suivants :
 
 ### Le bouton d'authentification unique n'apparaît pas avec Microsoft Entra ID {#single-sign-on-button-doesnt-appear-with-microsoft-entra-id}
 
-Le champ **Sign-On URL** dans le formulaire **Basic SAML Configuration** de Microsoft Entra pour Braze peut amener les utilisateurs à ne voir qu'une option de mot de passe, et non un bouton SSO, lors d'une connexion initiée par l'IdP. Pour éviter ce problème, laissez le champ **Sign-On URL** vide lors de la configuration de Braze dans votre centre d'administration Microsoft Entra.
+Le champ **Sign-On URL** dans le formulaire **Basic SAML Configuration** de Microsoft Entra pour Braze peut amener les utilisateurs à ne voir qu'une option de mot de passe, et non un bouton authentification unique, lors d'une connexion initiée par l'IdP. Pour éviter ce problème, laissez le champ **Sign-On URL** vide lors de la configuration de Braze dans votre centre d'administration Microsoft Entra.

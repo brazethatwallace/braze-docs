@@ -13,7 +13,7 @@ page_type: reference
 {% alert important %}
 La generación de plantillas de correo electrónico HTML con Operator se encuentra en acceso anticipado. Ponte en contacto con tu director de cuentas de Braze si te interesa participar en este acceso anticipado.
 
-Esta funcionalidad solo es compatible con el canal de correo electrónico en el editor HTML, no en otros editores (como arrastrar y soltar o AMP).
+Esta funcionalidad solo es compatible con el canal de correo electrónico en el editor HTML, no en otros editores (como arrastrar y soltar o páginas móviles aceleradas).
 {% endalert %}
 
 {% multi_lang_include brazeai/generative_ai/unification_note.md %}

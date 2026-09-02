@@ -173,13 +173,13 @@ Se sua página de confirmação abrir em uma nova aba, um usuário que retornar 
 
 ### Etapa 5: Visualizar a página {#step-5-preview-the-page}
 
-Você pode visualizar sua landing page na guia **Preview** do editor. Depois de salvar sua landing page como rascunho, você pode visitar a URL acessando **Landing Pages** e selecionando **Copy URL** ao lado da sua landing page.
+Você pode visualizar sua landing page na guia **prévia** do editor. Depois de salvar sua landing page como rascunho, você pode visitar a URL acessando **Landing Pages** e selecionando **Copy URL** ao lado da sua landing page.
 
 ![Uma landing page com o menu aberto mostrando a opção "Copy URL".]({% image_buster /assets/img/landing_pages/copy-url.png %})
 
 #### Compartilhar um link de prévia {#sharing-a-preview-link}
 
-No editor, você também pode selecionar **Copy preview link** para compartilhar a página com revisores que não têm acesso ao dashboard.
+No editor, você também pode selecionar **Copy prévia link** para compartilhar a página com revisores que não têm acesso ao dashboard.
 
 - Se sua landing page não usar Liquid, esse link é o mesmo que a URL direta de **Copy URL**, aberta no modo de prévia.
 - Se sua landing page usar Liquid e você tiver o direito Landing Pages Pro, o link renderiza a página ativa sob demanda e reflete suas alterações atuais em vez de um snapshot de quando você gerou o link. O conteúdo é personalizado por usuário. A prévia exibe o favicon da Braze e não pode ser alterada.

@@ -14,7 +14,7 @@ alias: /landing_pages/
 Use landing pages para expandir seu público, capturar dados de usuários, promover ofertas especiais e dar suporte a campanhas multicanal. Para uma referência dos blocos de arrastar e soltar de landing pages, consulte [Blocos do editor (landing pages)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=landing%20pages).
 
 {% alert note %}
-A disponibilidade de landing pages e domínios personalizados depende do seu pacote Braze. Entre em contato com seu gerente de conta ou gerente de sucesso do cliente para começar.
+A disponibilidade de landing pages e domínios personalizados depende do seu pacote Braze. Entre em contato com seu gerente de conta ou CSM para começar.
 {% endalert %}
 
 {% multi_lang_include video.html id="eg4r7agod1" source="wistia" %}

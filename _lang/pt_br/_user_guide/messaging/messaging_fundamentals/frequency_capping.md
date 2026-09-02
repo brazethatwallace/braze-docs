@@ -18,7 +18,7 @@ A Braze permite que você controle a pressão de marketing limitando a taxa das 
 1. [Limite de taxa centrado no usuário:](#user-centric-rate-limiting) Foca em proporcionar a melhor experiência para o usuário.
 2. [Limite de taxa de velocidade de entrega:](#delivery-speed-rate-limiting) Leva em consideração a largura de banda dos seus servidores.
 
-A Braze não oferece suporte a limite de taxa por segundo. A Braze tenta distribuir os envios de mensagens de maneira uniforme ao longo do minuto, mas não pode garantir isso. Por exemplo, se você tem uma Campaign com um limite de taxa de 5.000 mensagens por minuto, tentamos distribuir as 5.000 solicitações uniformemente ao longo do minuto (cerca de 84 mensagens por segundo), mas pode haver alguma variação na taxa por segundo.
+A Braze não oferece suporte a limite de taxa por segundo. A Braze tenta distribuir os envios de mensagens de maneira uniforme ao longo do minuto, mas não pode garantir isso. Por exemplo, se você tem uma Campaign com um limite de taxa de 5.000 mensagens por minuto, tentamos distribuir as 5.000 solicitações uniformemente ao longo do minuto (cerca de 84 MPS), mas pode haver alguma variação na taxa por segundo.
 
 ### Limite de taxa centrado no usuário {#user-centric-rate-limiting}
 
@@ -208,7 +208,7 @@ Se você precisar alcançar um número específico de usuários ao usar ambos os
 
 - **Aumente seu limite de taxa:** Para compensar os usuários que são limitados por frequência. Por exemplo, se você deseja alcançar 500 usuários, mas espera que alguns sejam limitados por frequência, defina seu limite de taxa mais alto (como 1.000 usuários).
 - **Use apenas o limite de taxa:** Se seu objetivo é controlar o volume de mensagens enviadas por campanha.
-- **Entre em contato com seu gerente de sucesso do cliente:** Para obter ajuda no planejamento de uma estratégia robusta de envio de mensagens que equilibre necessidades de negócios e considerações técnicas.
+- **Entre em contato com seu CSM:** Para obter ajuda no planejamento de uma estratégia robusta de envio de mensagens que equilibre necessidades de negócios e considerações técnicas.
 
 ### Visão geral do recurso {#freq-cap-feat-over}
 
@@ -380,7 +380,7 @@ Não. Se um usuário do Canvas for limitado por frequência devido às configura
 
 ### Como posso identificar usuários que foram limitados por frequência em um Canvas? {#how-can-i-identify-users-who-were-frequency-capped-in-a-canvas}
 
-Usuários que são limitados por frequência não geram um evento de envio para essa etapa. Para identificar esses usuários, você pode usar o [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) para rastrear eventos de mensagens limitadas por frequência. Alternativamente, você pode criar uma [extensão de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension) para analisar os usuários que entraram no Canvas, mas não receberam a mensagem esperada.
+Usuários que são limitados por frequência não geram um evento de envio para essa etapa. Para identificar esses usuários, você pode usar o [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) para rastrear eventos de mensagens limitadas por frequência. Alternativamente, você pode criar uma [extensão de Segment]({{site.baseurl}}/user_guide/audience/segments/segment_extension) para analisar os usuários que entraram no Canvas, mas não receberam a mensagem esperada.
 
 ### Por que o dashboard mostra um erro de limite de taxa para minha campanha? {#why-does-the-dashboard-show-a-rate-limit-error-for-my-campaign}
 
@@ -388,7 +388,7 @@ Isso geralmente significa que o [limite de taxa de velocidade de entrega](#deliv
 
 **Limit send volume** controla quantos usuários são elegíveis para um envio, e não quantas mensagens a Braze envia por minuto. Apenas um limite de taxa de velocidade de entrega define a taxa de envio por minuto.
 
-Se você já está no limite máximo de taxa de velocidade de entrega disponível para sua empresa, entre em contato com seu gerente de sucesso do cliente para solicitar um aumento.
+Se você já está no limite máximo de taxa de velocidade de entrega disponível para sua empresa, entre em contato com seu CSM para solicitar um aumento.
 
 ### O que significa "Enviada" para o limite de frequência? {#what-does-sent-mean-for-frequency-capping}
 

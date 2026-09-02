@@ -54,7 +54,7 @@ So erstellen Sie eine SQL-Segmenterweiterung mit inkrementeller Aktualisierung:
 {% tab KI-SQL-Generator %}
 
 {% alert note %}
-Der KI-SQL-Generator ist derzeit als Beta-Feature verfügbar. Wenden Sie sich an Ihren Customer-Success-Manager, wenn Sie an diesem Beta-Test teilnehmen möchten.
+Der KI-SQL-Generator ist derzeit als Beta-Feature verfügbar. Wenden Sie sich an Ihren CSM, wenn Sie an diesem Beta-Test teilnehmen möchten.
 {% endalert %}
 
 Der KI-SQL-Generator nutzt [GPT](https://openai.com/gpt-4), unterstützt durch OpenAI, um SQL für Ihr SQL-Segment zu empfehlen.
@@ -207,7 +207,7 @@ Wählen Sie eine SQL-Segmenterweiterung aus, um anzuzeigen, wo die Erweiterung v
 
 ## Snowflake-Credits {#credits}
 
-Jeder Braze Workspace verfügt über 5 Snowflake-Credits pro Monat. Wenn Sie mehr Credits benötigen, wenden Sie sich an Ihren Account Manager. Credits werden immer dann verbraucht, wenn Sie die Mitgliedschaft eines SQL-Segments aktualisieren oder speichern und aktualisieren. Credits werden nicht verbraucht, wenn Sie Vorschauen innerhalb eines SQL-Segments ausführen oder eine klassische Segmenterweiterung speichern oder aktualisieren.
+Jeder Braze Workspace verfügt über 5 Snowflake-Credits pro Monat. Wenn Sie mehr Credits benötigen, wenden Sie sich an Ihren Account Manager:in. Credits werden immer dann verbraucht, wenn Sie die Mitgliedschaft eines SQL-Segments aktualisieren oder speichern und aktualisieren. Credits werden nicht verbraucht, wenn Sie Vorschauen innerhalb eines SQL-Segments ausführen oder eine klassische Segmenterweiterung speichern oder aktualisieren.
 
 {% alert note %}
 Snowflake-Credits werden nicht zwischen Features geteilt. So sind beispielsweise Credits für SQL-Segmenterweiterungen und den Abfrage-Builder unabhängig voneinander.
@@ -228,4 +228,4 @@ Wenn Ihre Credits null erreichen, geschieht Folgendes:
 
 Alle Unternehmensnutzer:innen, die ein SQL-Segment erstellt haben, und Ihre Unternehmensadministrator:innen erhalten eine Benachrichtigungs-E-Mail, wenn Sie 50 %, 80 % und 100 % Ihrer Credits verbraucht haben. Nachdem Ihre Credits zu Beginn des nächsten Monats zurückgesetzt wurden, können Sie weitere SQL-Segmente erstellen, und die automatischen Aktualisierungen werden wieder aufgenommen.
 
-Wenn Sie mehr SQL-Segment-Credits oder zusätzliche Segmenterweiterungen erwerben möchten, wenden Sie sich bitte an Ihren Account Manager.
+Wenn Sie mehr SQL-Segment-Credits oder zusätzliche Segmenterweiterungen erwerben möchten, wenden Sie sich bitte an Ihren Account Manager:in.

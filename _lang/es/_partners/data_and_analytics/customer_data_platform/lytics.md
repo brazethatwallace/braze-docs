@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Lytics
 
-> [Lytics](https://www.lytics.com/) es la plataforma de datos de los clientes (CDP) elegida por la próxima generación de empresas centradas en el cliente. Las soluciones Lytics Decision Engine, Conductor y Cloud Connect ofrecen a los especialistas en marketing y a los equipos de datos la oportunidad de llevar a cabo la resolución de identidades, la orquestación y la optimización de campañas en tiempo real y respetando la privacidad.
+> [Lytics](https://www.lytics.com/) es la CDP (CDP) elegida por la próxima generación de empresas centradas en el cliente. Las soluciones Lytics Decision Engine, Conductor y Cloud Connect ofrecen a los especialistas en marketing y a los equipos de datos la oportunidad de llevar a cabo la resolución de identidades, la orquestación y la optimización de campañas en tiempo real y respetando la privacidad.
 
 _Esta integración está mantenida por Lytics._
 
@@ -61,7 +61,7 @@ A continuación, elige una autorización dentro de las opciones de **Select Auth
 
 ### Paso 3: Configurar el trabajo {#step-3-configure-the-job}
 
-Dentro del mensaje **Configure Job**, proporciona una etiqueta y una descripción opcional. A continuación, en la entrada **Braze External User ID Field**, selecciona el campo de Lytics que contiene el ID externo de usuario de Braze (`braze_id`). El siguiente paso es el más importante: en el mismo cuadro de diálogo, selecciona las audiencias que vas a exportar a Braze mediante el selector de audiencias.
+Dentro del mensaje **Configure Job**, proporciona una etiqueta y una descripción opcional. A continuación, en la entrada **Braze External User ID Field**, selecciona el campo de Lytics que contiene el ID externo de usuario de Braze (`braze_id`). El siguiente paso es el más importante: en el mismo cuadro de diálogo, selecciona las audiencias que vas a exportar a Braze mediante el SELECTOR de audiencias.
 
 Por último, elige la opción preferida para la casilla **Existing Users**. Si dejas marcada esta casilla, se añadirán los usuarios que ya existan en la audiencia de Lytics seleccionada. Si no está marcada, los usuarios solo se exportarán a Braze cuando entren o salgan de la audiencia una vez iniciado el flujo de trabajo.
 
@@ -118,7 +118,7 @@ Navega hasta el menú de cuenta de Lytics seleccionando tu nombre de cuenta y se
 
 ![Pantalla de tokens de acceso de Lytics con Create API Token seleccionado desde el menú de cuenta.]({% image_buster /assets/img/lytics/create_token.png %}){: style="max-width:80%;"}
 
-Introduce un nombre, una descripción opcional y un periodo de caducidad del token. A continuación, activa el ámbito **Data Manager** para los permisos de API y selecciona **Generate Token**. Copia el token y guárdalo en un lugar seguro.
+Introduce un nombre, una descripción opcional y un periodo de caducidad del token. A continuación, activa el ámbito **Data Administrador** para los permisos de API y selecciona **Generate Token**. Copia el token y guárdalo en un lugar seguro.
 
 ![Permisos del token de API de Lytics con el ámbito Data Manager habilitado antes de generar el token.]({% image_buster /assets/img/lytics/data_manager.png %}){: style="max-width:80%;"}
 

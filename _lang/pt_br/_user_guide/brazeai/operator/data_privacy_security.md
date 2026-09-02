@@ -73,7 +73,7 @@ Existem várias etapas que você pode seguir para limitar a exposição de IPI a
 - **Ao testar, use um perfil de usuário personalizado** em vez de selecionar um existente. Este é o comportamento padrão do Operator.
 - **Não digite nem cole IPI** diretamente no prompt do Operator. O Operator não bloqueia IPI incluídas nos prompts do usuário. Se um usuário digitar IPI manualmente em uma requisição, esse conteúdo será enviado ao modelo de linguagem subjacente.
 - **Desative a aprovação automática de ações** para manter o controle sobre o que o Operator pode acessar e executar.
-- **Não peça ao Operator para exibir valores de prévia de atributos** ao criar um segmento ou escrever Liquid.
+- **Não peça ao Operator para exibir valores de prévia de atributos** ao criar um Segment ou escrever Liquid.
 
 ## Governança e controle de acesso {#governance-and-access-control}
 

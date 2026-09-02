@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Refiner
 
-> [Refiner](https://refiner.io) es una plataforma de cuestionarios dentro de la aplicación para SaaS y aplicaciones móviles. Permite a los equipos de producto y de voz del cliente lanzar cuestionarios segmentados dentro de la aplicación y recopilar continuamente datos de NPS, CSAT, CES, comentarios sobre el producto y datos de usuario de tipo zero-party.
+> [Refiner](https://refiner.io) es una plataforma de cuestionarios dentro de la aplicación para software como servicio (SaaS) y aplicaciones móviles. Permite a los equipos de producto y de voz del cliente lanzar cuestionarios segmentados dentro de la aplicación y recopilar continuamente datos de NPS, CSAT, CES, comentarios sobre el producto y datos de usuario de tipo zero-party.
 
 _Esta integración es mantenida por Refiner._
 
@@ -22,7 +22,7 @@ Usa la integración de Refiner y Braze para enviar eventos de cuestionarios y da
 
 - Segmentar usuarios según las respuestas de cuestionarios, como puntuaciones NPS o calificaciones CSAT.
 - Desencadenar campañas personalizadas en Braze basadas en los resultados de cuestionarios.
-- Impulsar recorridos multicanal usando Braze Canvas u otras herramientas de orquestación.
+- Impulsar recorridos multicanal usando BRAZE CANVAS u otras herramientas de orquestación.
 
 ## Requisitos previos {#prerequisites}
 

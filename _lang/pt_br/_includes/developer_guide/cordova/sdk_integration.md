@@ -14,7 +14,7 @@ Se você está no Cordova 6 ou posterior, pode adicionar o SDK diretamente do Gi
 
 {% tabs local %}
 {% tab geofence desativado %}
-Se você não pretende usar coleta de localização e geofences, use a branch `master` do GitHub.
+Se você não pretende usar coleta de localização e geofences, use a Branch `master` do GitHub.
 
 ```bash
 cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#master

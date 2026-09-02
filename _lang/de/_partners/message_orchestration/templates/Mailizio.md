@@ -37,7 +37,7 @@ Mit der Integration von Mailizio und Braze können Sie dynamische E-Mail-Templat
 
 ## Integration
 
-Stellen Sie Ihrem Mailizio Customer-Success-Manager Ihren Braze-REST-API-Schlüssel und Ihre Cluster-Instanz zur Verfügung. Das Mailizio-Team richtet dann die erste Integration für Sie ein.
+Stellen Sie Ihrem Mailizio CSM Ihren Braze-REST-API-Schlüssel und Ihre Cluster-Instanz zur Verfügung. Das Mailizio-Team richtet dann die erste Integration für Sie ein.
 
 {% alert important %}
 Dies ist eine einmalige Einrichtung, und alle zukünftigen Exporte verwenden automatisch diesen API-Schlüssel.

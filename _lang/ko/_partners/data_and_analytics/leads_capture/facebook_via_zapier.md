@@ -19,7 +19,7 @@ Facebook Lead Ads는 비즈니스가 Facebook 내에서 직접 리드 정보를 
 |---|---|
 | Zapier 계정 | 이 파트너십을 활용하려면 Zapier 계정이 필요합니다. 이 통합은 <a href="https://zapier.com/app/pricing/" target="_blank">프리미엄 Zapier 앱</a> 을 사용해야 하므로, 사용 중인 Zapier 플랜이 프리미엄 앱에 접근할 수 있는지 확인하세요. |
 | <a href="https://www.facebook.com/business/help/540596413257598?id=735435806665862/" target="_blank">Facebook Leads 액세스</a> | Braze와 함께 사용할 각 광고 계정에 대해 Facebook Leads 액세스가 필요합니다. |
-| <a href="https://www.facebook.com/business/help/1710077379203657?id=180505742745347" target="_blank">Facebook Business Manager</a> | 이 통합의 일부로 브랜드의 Facebook 자산(예: 광고 계정, 페이지, 앱)을 관리하는 중앙 집중식 도구인 Facebook Business Manager를 사용하게 됩니다. |
+| <a href="https://www.facebook.com/business/help/1710077379203657?id=180505742745347" target="_blank">Facebook Business 매니저</a> | 이 통합의 일부로 브랜드의 Facebook 자산(예: 광고 계정, 페이지, 앱)을 관리하는 중앙 집중식 도구인 Facebook Business 매니저를 사용하게 됩니다. |
 | <a href="https://www.facebook.com/business/help/195296697183682?id=829106167281625/" target="_blank">Facebook 광고 계정</a> | 브랜드의 비즈니스 매니저에 연결된 활성 Facebook 광고 계정이 필요합니다. <br><br>Braze와 함께 사용할 각 광고 계정에 대해 "Manage ad accounts" 권한이 있는지, 광고 계정 이용약관에 동의했는지 확인하세요. |
 | <a href="https://www.facebook.com/business/help/183277585892925?id=420299598837059/" target="_blank">Facebook 페이지</a> | 브랜드의 비즈니스 매니저에 연결된 활성 Facebook 페이지가 필요합니다. <br><br>Braze와 함께 사용할 각 Facebook 페이지에 대해 "Manage Pages" 권한이 있는지 확인하세요. |
 | Braze REST 엔드포인트 | [REST 엔드포인트 URL]({{site.baseurl}}/api/basics#api-definitions)을 알고 있는지 확인하세요. API 엔드포인트는 Braze 인스턴스의 대시보드 URL과 일치합니다. <br><br> 예를 들어, 대시보드 URL이 `https://dashboard-03.braze.com`인 경우 엔드포인트는 `dashboard-03`이 됩니다. |
@@ -147,7 +147,7 @@ Facebook 계정을 선택한 다음 **Continue**를 클릭합니다.
 {% details Facebook 리드가 Braze에 동기화되지 않는 이유는 무엇인가요? %}
 1. Facebook 페이지, 광고 계정, 리드 액세스에 대한 관리자 권한이 있는지 확인하세요. 그런 다음 Zapier에서 계정을 다시 연결하세요.
 2. Facebook에서 만든 인스턴트 양식이 트리거 단계에서 선택한 양식에 매핑되는지 확인하세요.
-3. **Facebook Business Manager** > **Integrations** > **Lead Access**로 이동하여 Zapier에 리드 액세스를 할당했는지 확인하세요.
+3. **Facebook Business 매니저** > **Integrations** > **Lead Access**로 이동하여 Zapier에 리드 액세스를 할당했는지 확인하세요.
 {% enddetails %}
 
 {% details 동일한 이메일을 가진 중복 고객 프로필이 표시되는 이유는 무엇인가요? %}

@@ -212,7 +212,7 @@ Isso gera uma lista de produtos recomendados a partir dos resultados da Recommen
 
 ### Evitar consultas únicas {#avoiding-unique-queries}
 
-Esteja atento aos limites de taxa da Algolia definidos no seu contrato. Evite fazer consultas específicas por usuário, pois elas podem exceder rapidamente o número de solicitações permitidas. Para personalizar os resultados, direcione para um segmento em vez de um ID de usuário individual, ou filtre por categoria ou marca em vez de um objectID específico. Use atributos da Braze para personalizar ainda mais as recomendações.
+Esteja atento aos limites de taxa da Algolia definidos no seu contrato. Evite fazer consultas específicas por usuário, pois elas podem exceder rapidamente o número de solicitações permitidas. Para personalizar os resultados, direcione para um Segment em vez de um ID de usuário individual, ou filtre por categoria ou marca em vez de um objectID específico. Use atributos da Braze para personalizar ainda mais as recomendações.
 
 ### Armazenar em cache os resultados do Conteúdo conectado {#caching-connected-content-results}
 

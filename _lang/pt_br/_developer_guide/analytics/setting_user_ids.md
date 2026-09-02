@@ -120,7 +120,7 @@ AppboyBinding.ChangeUser("YOUR_USER_ID_STRING");
 ```
 {% endtab %}
 
-{% tab REACT NATIVE %}
+{% tab React Native %}
 ```javascript
 Braze.changeUser("YOUR_USER_ID_STRING");
 ```
@@ -202,7 +202,7 @@ Appboy.sharedInstance()?.user.addAlias(ALIAS_NAME, ALIAS_LABEL)
 ```
 {% endtab %}
 
-{% tab react native %}
+{% tab React Native %}
 ```javascript
 Braze.addAlias("ALIAS_NAME", "ALIAS_LABEL");
 ```

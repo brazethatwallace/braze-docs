@@ -53,7 +53,7 @@ Durante la incorporación de la integración, deberás seleccionar cuándo los S
     - **Qué hace:** Evita el seguimiento de usuarios anónimos para un enfoque más conservador y orientado a la privacidad, de modo que la actividad del usuario se rastrea *después* de que el usuario inicia sesión en su cuenta
 
 {% alert note %}
-- Las visitas al sitio web (sesiones) cuentan para tus asignaciones de usuarios activos al mes (MAU).
+- Las visitas al sitio web (sesiones) cuentan para tus asignaciones de MAU (MAU).
 - Las versiones del SDK web de Braze y del SDK de JavaScript se configuran automáticamente en v6.8.0. Puedes actualizar la versión de tu SDK en cualquier momento desde la configuración de la integración.
 {% endalert %}
 

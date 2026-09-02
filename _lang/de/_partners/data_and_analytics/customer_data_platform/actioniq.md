@@ -41,11 +41,11 @@ Die Standard-Namenskonvention für das erstellte angepasste Attribut lautet: `AI
 Um ein Segment für diese Nutzer:innen zu erstellen, gehen Sie wie folgt vor:
 1. Navigieren Sie in Braze zu **Segments**.
 2. Erstellen Sie ein neues Segment.
-3. Wählen Sie **Custom Attributes** als Filter aus.
+3. Wählen Sie **angepasste Attribute** als Filter aus.
 4. Wählen Sie hier das angepasste Attribut von ActionIQ aus.
 5. Nachdem das Segment erstellt wurde, können Sie es als Zielgruppen-Filter auswählen, wenn Sie eine Campaign oder ein Canvas erstellen.
 
-Darüber hinaus aktualisiert diese Integration jedes angepasste oder Standardattribut in einem Braze-Nutzerprofil mit den ActionIQ-Attributwerten.
+Darüber hinaus aktualisiert diese Integration jedes angepasste oder Standardattribut in einem Braze-Kundenprofil mit den ActionIQ-Attributwerten.
 
 #### Anforderungen {#requirements}
 

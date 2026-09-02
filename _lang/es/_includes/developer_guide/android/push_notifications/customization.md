@@ -381,9 +381,9 @@ Para evitar que las notificaciones idénticas se sobrescriban entre sí, puedes 
 
 El campo [Prioridad de entrega de Firebase Messaging](https://firebase.google.com/docs/cloud-messaging/android/message-priority#setting-priority-for-messages) te permite controlar si un push se envía con prioridad "normal" o "alta" a Firebase Cloud Messaging.
 
-### Tiempo de vida (TTL) {#ttl}
+### TTL (TTL) {#ttl}
 
-El campo **Tiempo de vida** (TTL) te permite establecer un tiempo personalizado para almacenar mensajes con el servicio de mensajería push. Los valores predeterminados para el tiempo de vida son cuatro semanas para FCM y 31 días para ADM.
+El campo **TTL** (TTL) te permite establecer un tiempo personalizado para almacenar mensajes con el servicio de mensajería push. Los valores predeterminados para el TTL son cuatro semanas para FCM y 31 días para ADM.
 
 ### Texto resumido {#summary-text}
 

@@ -358,9 +358,9 @@ Acompanhe as seguintes referências de Liquid com dependências ao copiar Campai
 
 ## Copiando mensagens com feature flags {#copying-messages-with-feature-flags}
 
-Para copiar uma campanha de feature flag e um Canvas com uma etapa de Feature Flag entre espaços de trabalho, certifique-se de que o espaço de trabalho de destino tenha um [experimento de feature flag]({{site.baseurl}}/developer_guide/feature_flags/experiments) configurado com um ID que corresponda à feature flag referenciada na campanha original ou à etapa de Feature Flag referenciada no Canvas original.
+Para copiar uma campanha de Feature Flag e um Canvas com uma etapa de Feature Flag entre espaços de trabalho, certifique-se de que o espaço de trabalho de destino tenha um [experimento de Feature Flag]({{site.baseurl}}/developer_guide/feature_flags/experiments) configurado com um ID que corresponda à Feature Flag referenciada na campanha original ou à etapa de Feature Flag referenciada no Canvas original.
 
-Se você copiar uma campanha ou um Canvas que tenha uma etapa de Feature Flag com um ID de feature flag que não existe no espaço de trabalho de destino, a etapa de Feature Flag será copiada, mas seu conteúdo não será.
+Se você copiar uma campanha ou um Canvas que tenha uma etapa de Feature Flag com um ID de Feature Flag que não existe no espaço de trabalho de destino, a etapa de Feature Flag será copiada, mas seu conteúdo não será.
 
 ## Copiando mensagens com Content Blocks {#copying-messages-with-content-blocks}
 

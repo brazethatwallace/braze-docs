@@ -240,7 +240,7 @@ Los criterios de filtro de los pasos en Canvas (por ejemplo, los pasos de [divis
 | Contenido HTML y de arrastrar y soltar | Traducciones |
 | Preencabezado |  |
 | CSS en línea |  |
-| AMP HTML |  |
+| páginas móviles aceleradas HTML |  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Cuerpo del correo electrónico" }
 
 {% endtab %}
@@ -252,7 +252,7 @@ Los criterios de filtro de los pasos en Canvas (por ejemplo, los pasos de [divis
 | Contenido HTML y de arrastrar y soltar | Traducciones |
 | Preencabezado |  |
 | CSS en línea |  |
-| AMP HTML |  |
+| páginas móviles aceleradas HTML |  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Cuerpo del correo electrónico" }
 
 {% endtab %}

@@ -209,7 +209,7 @@ Damit Braze auf Databricks zugreifen kann, muss ein persönliches Zugriffstoken 
 
 1. Wählen Sie in Ihrem Databricks-Workspace Ihren Databricks-Benutzernamen in der oberen Leiste aus und wählen Sie dann **User Settings** aus dem Dropdown-Menü.
 2. Stellen Sie sicher, dass das Dienstkonto `CREATE TABLE`-Berechtigungen für das Schema hat, das für die verbundene Quelle verwendet wird.
-3. Wählen Sie auf dem Tab **Access tokens** die Option **Generate new token**.
+3. Wählen Sie auf dem Tab **Access tokens** die Option **Generate new Token**.
 4. Geben Sie einen Kommentar ein, der Ihnen hilft, dieses Token zu identifizieren, z. B. „Braze CDI“, und ändern Sie die Lebensdauer des Tokens auf unbegrenzt, indem Sie das Feld „Lifetime (days)“ leer lassen.
 5. Wählen Sie **Generate**.
 6. Kopieren Sie das angezeigte Token und wählen Sie dann **Done**.

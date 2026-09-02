@@ -1,7 +1,7 @@
 ---
 nav_title: Lemnisk
 article_title: Integre Lemnisk com Braze
-description: "Este artigo de referência detalha a parceria entre Braze e Lemnisk, uma plataforma de automação de marketing liderada por uma plataforma de dados do cliente habilitada por IA, permitindo que você transmita dados de usuários coletados na Lemnisk de várias fontes para a Braze, para ativá-los em vários canais e destinos usando as ferramentas da Braze."
+description: "Este artigo de referência detalha a parceria entre Braze e Lemnisk, uma plataforma de automação de marketing liderada por uma CDP habilitada por IA, permitindo que você transmita dados de usuários coletados na Lemnisk de várias fontes para a Braze, para ativá-los em vários canais e destinos usando as ferramentas da Braze."
 alias: /partners/lemnisk/
 page_type: partner
 search_tag: Partner
@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Lemnisk
 
-> [Lemnisk](https://www.lemnisk.co/) é uma plataforma de dados do cliente (CDP) alimentada por IA e uma solução de automação de marketing que permite a captura, unificação e ativação em tempo real de dados de clientes de fontes diversas e isoladas. Ela entrega esses dados unificados de forma integrada em várias plataformas de MarTech e negócios, enquanto oferece análises robustas em tempo real para rastrear cada estágio do ciclo de vida dos dados do cliente.
+> [Lemnisk](https://www.lemnisk.co/) é uma CDP (CDP) alimentada por IA e uma solução de automação de marketing que permite a captura, unificação e ativação em tempo real de dados de clientes de fontes diversas e isoladas. Ela entrega esses dados unificados de forma integrada em várias plataformas de MarTech e negócios, enquanto oferece análises robustas em tempo real para rastrear cada estágio do ciclo de vida dos dados do cliente.
 
 _Esta integração é mantida pela Lemnisk._
 
@@ -60,8 +60,8 @@ Em seguida, você verificará se seus eventos estão sendo enviados para a Braze
 
 ### Etapa 3: Disparar eventos de usuário na Braze {#step-3-trigger-user-events-in-braze}
 
-1. Na Lemnisk, crie um novo segmento. Por exemplo, você poderia criar um segmento que envia informações para a Braze assim que os usuários enviarem um formulário de lead.
-2. No seu novo segmento, acesse **External API** > **Add Engagement**.
+1. Na Lemnisk, crie um novo Segment. Por exemplo, você poderia criar um Segment que envia informações para a Braze assim que os usuários enviarem um formulário de lead.
+2. No seu novo Segment, acesse **External API** > **Add Engagement**.
 3. Em **Engagement Creation**, insira os detalhes básicos e selecione a configuração [que você criou anteriormente](#create-a-braze-external-api).
 4. Em **Configure Parameters**, você encontrará as entradas para os parâmetros da Braze que você escolheu expor no nível de engajamento. No exemplo a seguir, são exibidos _Name of the User_, _Product ID_ e _Event Time_.
     ![Criando um engajamento para enviar dados de usuários para a Braze]({% image_buster /assets/img/lemnisk/create_an_engagement.png %})

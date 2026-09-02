@@ -53,7 +53,7 @@ Informationen zum Aktualisieren des Abo-Status, zur Statusprüfung, zu Präferen
 
 ## LINE {#line}
 
-LINE ist die maßgebliche Quelle für den LINE-Abo-Status. Selbst wenn ein Nutzerprofil eine `native_line_id` hat, stellt Braze keine LINE-Nachrichten zu, sofern die Nutzer:in nicht Ihrem LINE-Kanal folgt.
+LINE ist die maßgebliche Quelle für den LINE-Abo-Status. Selbst wenn ein Kundenprofil eine `native_line_id` hat, stellt Braze keine LINE-Nachrichten zu, sofern die Nutzer:in nicht Ihrem LINE-Kanal folgt.
 
 Der LINE-Abo-Status wird anhand der `native_line_id` verfolgt, nicht anhand der `external_id`. Wenn mehrere Profile dieselbe `native_line_id` teilen, übernehmen sie denselben LINE-Abo-Status.
 

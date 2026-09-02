@@ -17,7 +17,7 @@ Weitere Informationen zu Einrichtung, Verbindungsoptionen und Feldlisten finden 
 
 ## Über die Integration {#about-the-integration}
 
-Chord fungiert als Datenschicht zwischen Ihrem Shop und Braze. Nachdem Sie Braze als Ziel im Chord CDP verbunden haben, bildet Chord Ereignisse aus seinem Tracking-Plan auf Braze ab. Verwenden Sie diese Daten in Segments, Canvases und der Personalisierung von Nachrichten, um widerzuspiegeln, was Ihre Verbraucher:innen auf Ihrer Website tun.
+Chord fungiert als Datenschicht zwischen Ihrem Shop und Braze. Nachdem Sie Braze als Ziel im Chord Customer Data Platform (CDP) verbunden haben, bildet Chord Ereignisse aus seinem Tracking-Plan auf Braze ab. Verwenden Sie diese Daten in Segments, Canvases und der Personalisierung von Nachrichten, um widerzuspiegeln, was Ihre Verbraucher:innen auf Ihrer Website tun.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -36,7 +36,7 @@ Chord unterstützt den Cloud-Modus (Server-zu-Server-Aufrufe über die Braze RES
 
 ### Cloud-Modus {#cloud-mode}
 
-1. Öffnen Sie in der Chord-Datenplattform die CDP und navigieren Sie zu **Destinations**.
+1. Öffnen Sie in der Chord-Datenplattform die Customer Data Platform (CDP) und navigieren Sie zu **Destinations**.
 2. Wählen Sie **Add** neben „Destinations“, wählen Sie **Braze** aus dem Katalog und geben Sie dann einen Zielnamen und Ihren Braze REST-API-Schlüssel ein.
 3. Erstellen Sie das Ziel, um die Verbindung abzuschließen.
 
@@ -44,7 +44,7 @@ Erstellen Sie den REST-API-Schlüssel im Braze-Dashboard unter **Einstellungen**
 
 ### Gerätemodus {#device-mode}
 
-1. Öffnen Sie in der Chord-Datenplattform die CDP und navigieren Sie zu **Destinations**.
+1. Öffnen Sie in der Chord-Datenplattform die Customer Data Platform (CDP) und navigieren Sie zu **Destinations**.
 2. Wählen Sie **Add** neben „Destinations“, wählen Sie **Braze (device mode)** aus dem Katalog und geben Sie dann einen Zielnamen und Ihren Web-Kanal-API-Schlüssel ein.
 3. Erstellen Sie das Ziel, um die Verbindung abzuschließen.
 
@@ -54,7 +54,7 @@ Verwenden Sie den Web-Kanal-API-Schlüssel aus **Einstellungen** > **App-Einstel
 
 Konfigurieren Sie in den Chord-Zieleinstellungen die folgenden Optionen:
 
-- **Braze Web SDK-Version:** Chord stellt in der CDP auswählbare SDK-Versionen zur Verfügung. Überprüfen Sie den verfügbaren Versionsbereich in der Chord-Dokumentation.
+- **Braze Web SDK-Version:** Chord stellt in der Customer Data Platform (CDP) auswählbare SDK-Versionen zur Verfügung. Überprüfen Sie den verfügbaren Versionsbereich in der Chord-Dokumentation.
 - **SDK-Endpunkt:** Muss mit Ihrer Braze-Instanz übereinstimmen. Weitere Informationen finden Sie unter [API- und SDK-Endpunkte]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints).
 - **Ereignis- und SDK-Optionen:** Zum Beispiel, welche Track- oder Identify-Verhaltensweisen gesendet werden sollen, Seitenereignis-Handling, In-App-Nachricht-Verhalten, Zeitpunkt der SDK-Initialisierung und Einstellungen zur Einwilligung.
 
@@ -90,14 +90,14 @@ Verwenden Sie synchronisierte Ereignisse und Attribute in [Segments]({{site.base
 ## Überlegungen {#considerations}
 
 {% alert important %}
-Wenn ein anderes Tool bereits dieselben Events an Braze sendet, stimmen Sie sich mit den Verantwortlichen dieser Integration ab, bevor Sie Braze über die Chord CDP verbinden. Parallele Ziele können nachgelagert doppelte Events erzeugen.
+Wenn ein anderes Tool bereits dieselben Events an Braze sendet, stimmen Sie sich mit den Verantwortlichen dieser Integration ab, bevor Sie Braze über die Chord Customer Data Platform (CDP) verbinden. Parallele Ziele können nachgelagert doppelte Events erzeugen.
 {% endalert %}
 
 ## Fehlerbehebung {#troubleshooting}
 
 Wenn Ereignisse nicht in Braze erscheinen:
 
-1. Bestätigen Sie im Chord CDP, dass Live-Ereignisse von Ihren Quellen eingehen.
+1. Bestätigen Sie im Chord Customer Data Platform (CDP), dass Live-Ereignisse von Ihren Quellen eingehen.
 2. Überprüfen Sie, ob das Braze-Ziel den richtigen API-Schlüssel, die richtige SDK-Version (Device-Modus) und den richtigen REST- oder SDK-Endpunkt für Ihre Instanz verwendet.
 3. Bestätigen Sie, dass das Ziel in Chord mit der erwarteten Quelle verknüpft ist.
 4. Überprüfen Sie in Chord die API-Ziel- oder Funktionsprotokolle auf erfolgreiche Aufrufe an `/users/track` und `/users/identify` und prüfen Sie dann erneut in Braze.

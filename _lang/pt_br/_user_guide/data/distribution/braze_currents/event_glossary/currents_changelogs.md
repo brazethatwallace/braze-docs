@@ -290,30 +290,30 @@ tool: Currents
 
 * Alterações de campo no tipo de evento `users.messages.whatsapp.Delivery`:
     * Adicionado novo campo `string` `flow_id`: O ID exclusivo do Flow no WhatsApp Manager. Presente se a mensagem incluir um CTA para responder a um WhatsApp Flow
-    * Adicionado novo campo `string` `template_name`: [PII] Nome do modelo no WhatsApp Manager. Presente se estiver enviando uma mensagem de modelo
+    * Adicionado novo campo `string` `template_name`: [IPI] Nome do modelo no WhatsApp Manager. Presente se estiver enviando uma mensagem de modelo
     * Adicionado novo campo `string` `message_id`: O ID exclusivo gerado pela Meta para esta mensagem
 
 * Alterações de campo no tipo de evento `users.messages.whatsapp.Failure`:
     * Adicionado novo campo `string` `message_id`: O ID exclusivo gerado pela Meta para esta mensagem
-    * Adicionado novo campo `string` `template_name`: [PII] Nome do modelo no WhatsApp Manager. Presente se estiver enviando uma mensagem de modelo
+    * Adicionado novo campo `string` `template_name`: [IPI] Nome do modelo no WhatsApp Manager. Presente se estiver enviando uma mensagem de modelo
     * Adicionado novo campo `string` `flow_id`: O ID exclusivo do Flow no WhatsApp Manager. Presente se a mensagem incluir um CTA para responder a um WhatsApp Flow
 
 * Alterações de campo no tipo de evento `users.messages.whatsapp.InboundReceive`:
     * Adicionado novo campo `string` `catalog_id`: ID do catálogo de um produto, se um produto for referenciado na mensagem de entrada. Caso contrário, vazio.
     * Adicionado novo campo `string` `product_id`: SKU do produto, se um produto for referenciado na mensagem de entrada. Caso contrário, vazio.
     * Adicionado novo campo `string` `flow_id`: O ID exclusivo do Flow no WhatsApp Manager. Presente se o usuário estiver respondendo a um WhatsApp Flow.
-    * Adicionado novo campo `string` `flow_response_json`: [PII] Os valores do formulário com os quais o usuário respondeu. Presente se o usuário estiver respondendo a um WhatsApp Flow.
+    * Adicionado novo campo `string` `flow_response_json`: [IPI] Os valores do formulário com os quais o usuário respondeu. Presente se o usuário estiver respondendo a um WhatsApp Flow.
     * Adicionado novo campo `string` `message_id`: O ID exclusivo gerado pela Meta para esta mensagem
     * Adicionado novo campo `string` `in_reply_to`: O message_id da mensagem à qual esta mensagem estava respondendo
 
 * Alterações de campo no tipo de evento `users.messages.whatsapp.Read`:
-    * Adicionado novo campo `string` `template_name`: [PII] Nome do modelo no WhatsApp Manager. Presente se estiver enviando uma mensagem de modelo
+    * Adicionado novo campo `string` `template_name`: [IPI] Nome do modelo no WhatsApp Manager. Presente se estiver enviando uma mensagem de modelo
     * Adicionado novo campo `string` `message_id`: O ID exclusivo gerado pela Meta para esta mensagem
     * Adicionado novo campo `string` `flow_id`: O ID exclusivo do Flow no WhatsApp Manager. Presente se a mensagem incluir um CTA para responder a um WhatsApp Flow
 
 * Alterações de campo no tipo de evento `users.messages.whatsapp.Send`:
     * Adicionado novo campo `string` `flow_id`: O ID exclusivo do Flow no WhatsApp Manager. Presente se a mensagem incluir um CTA para responder a um WhatsApp Flow
-    * Adicionado novo campo `string` `template_name`: [PII] Nome do modelo no WhatsApp Manager. Presente se estiver enviando uma mensagem de modelo
+    * Adicionado novo campo `string` `template_name`: [IPI] Nome do modelo no WhatsApp Manager. Presente se estiver enviando uma mensagem de modelo
     * Adicionado novo campo `string` `message_id`: O ID exclusivo gerado pela Meta para esta mensagem
 
 ## Alterações na Versão 2 (data de lançamento nula) {#changes-in-version-2-release-date-null}

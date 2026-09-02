@@ -1,6 +1,6 @@
 ---
 nav_title: Zeotap Symphony
-description: "Este artículo de referencia describe la asociación entre Braze y Zeotap, una plataforma de datos de los clientes de nueva generación que proporciona resolución de identidades, información y enriquecimiento."
+description: "Este artículo de referencia describe la asociación entre Braze y Zeotap, una CDP de nueva generación que proporciona resolución de identidades, información y enriquecimiento."
 page_type: partner
 search_tag: Partner
 page_order: 2

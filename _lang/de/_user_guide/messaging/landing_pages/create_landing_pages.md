@@ -67,7 +67,7 @@ Sie können diese Blöcke verwenden, um Inhalte hinzuzufügen und das Layout Ihr
 | Titel | Ein Textblock zum Hinzufügen einer Überschrift oder eines Titels zu Ihrem Inhalt. Nützlich zum Strukturieren von Abschnitten und zur Verbesserung der Lesbarkeit. |
 | Absatz | Ein Textblock für längere Beschreibungen oder zusätzlichen Kontext. Unterstützt Rich-Text-Formatierung. |
 | Button | Ein klickbares Element, das Nutzer:innen zu einer bestimmten Aktion weiterleitet, z. B. einen Link öffnen oder ein Formular absenden. |
-| Radio-Button | Fügt eine Liste von Optionen hinzu, aus der Nutzer:innen eine auswählen müssen. Beim Absenden wird das zugehörige angepasste Attribut im Nutzerprofil protokolliert. |
+| Radio-Button | Fügt eine Liste von Optionen hinzu, aus der Nutzer:innen eine auswählen müssen. Beim Absenden wird das zugehörige angepasste Attribut im Kundenprofil protokolliert. |
 | Bild | Ein Block zur Anzeige von Bildern. Sie können ein Bild hochladen oder eine URL angeben, um auf eine externe Quelle zu verweisen. |
 | Link | Ein Hyperlink, auf den Nutzer:innen klicken können, um zu einer bestimmten URL zu navigieren. Kann in Text eingebettet oder eigenständig verwendet werden. |
 | Abstandshalter | Ein unsichtbarer Block, der vertikalen Abstand zwischen Elementen hinzufügt, um Layout und Lesbarkeit zu verbessern. |
@@ -104,7 +104,7 @@ Sie können ein langes Formular in mehrere Schritte mit jeweils eigenen Feldern 
 
 | Blocktyp | Beschreibung |
 |---------------|-------------|
-| E-Mail-Erfassung | Ein Formularfeld für E-Mail-Adressen. Beim Absenden wird die E-Mail-Adresse dem Nutzerprofil in Braze hinzugefügt. |
+| E-Mail-Erfassung | Ein Formularfeld für E-Mail-Adressen. Beim Absenden wird die E-Mail-Adresse dem Kundenprofil in Braze hinzugefügt. |
 | Telefon-Erfassung | Ein Formularfeld für Telefonnummern. Beim Absenden wird die Nutzer:in für Ihre SMS- oder WhatsApp-Abo-Gruppe angemeldet. |
 | Eingabefeld | Ein Formularfeld, das Standardattribute (wie Vor- und Nachname) oder einen angepassten Attribut-String Ihrer Wahl unterstützt. |
 | Dropdown | Nutzer:innen können einen Artikel aus einer vordefinierten Liste auswählen. Sie können beliebige angepasste Attribut-Strings zur Liste hinzufügen. |
@@ -130,7 +130,7 @@ Wir empfehlen, zunächst Stile auf Seitencontainer-Ebene einzurichten, bevor Sie
 
 #### Responsiv für Nutzergeräte {#responsive-to-user-devices}
 
-Sie können Ihre Landing-Page responsiv für die Bildschirmgröße der Nutzergeräte machen, indem Sie Spalten auf kleineren Bildschirmen vertikal stapeln. Um dies zu aktivieren, fügen Sie eine Spalte in die Zeile ein, die Sie responsiv gestalten möchten, und schalten Sie dann **Vertically stack on smaller screens** im Abschnitt **Customize columns** ein.
+Sie können Ihre Landing-Page responsiv für die Bildschirmgröße der Nutzergeräte machen, indem Sie Spalten auf kleineren Bildschirmen vertikal stapeln. Um dies zu aktivieren, fügen Sie eine Spalte in die Zeile ein, die Sie responsiv gestalten möchten, und schalten Sie dann **Vertically Stack on smaller screens** im Abschnitt **Customize columns** ein.
 
 Wenn aktiviert, können Sie auch Spalten in umgekehrter Reihenfolge stapeln, um die vertikale Reihenfolge von mehrspaltigem Inhalt auf kleineren Bildschirmen zu steuern. So sehen Seiten auf Mobilgeräten besser aus und fühlen sich besser an – ohne angepassten Code.
 

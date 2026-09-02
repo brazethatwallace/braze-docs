@@ -390,7 +390,7 @@ Es gibt einige Situationen, in denen sich Testnachrichten nicht genauso verhalte
 - Zum Testen von In-App-Nachrichten und Content Cards muss die Zielnutzer:in über ein Push-Token für das Zielgerät verfügen.
 - Zum Testen von Abmeldelinks in E-Mails stellen Sie sicher, dass sich die E-Mail-Adresse Ihrer Testnutzer:in im entsprechenden Workspace befindet.
 - Der `List-Unsubscribe`-Header ist nicht in E-Mails enthalten, die über die Testnachrichtenfunktion gesendet werden.
-- E-Mails, die an Nutzer:innen einer Seed-Gruppe gesendet werden, aktualisieren nicht die Liste der empfangenen Campaigns im Nutzerprofil und erhöhen auch nicht die Sendungen in den Dashboard-Analytics.
+- E-Mails, die an Nutzer:innen einer Seed-Gruppe gesendet werden, aktualisieren nicht die Liste der empfangenen Campaigns im Kundenprofil und erhöhen auch nicht die Sendungen in den Dashboard-Analytics.
 
 ## Fehlerbehebung {#troubleshooting}
 

@@ -22,7 +22,7 @@ Entonces, ¿qué hacen cuando integran Braze con tu aplicación o sitio? ¡Qué 
 
 ### Paso 1: Implementan el SDK de Braze {#step-1-they-implement-the-braze-sdk}
 
-El SDK de Braze (kit de desarrollo de software) es la forma en que enviamos y recibimos información de tu aplicación o sitio. Tus ingenieros, en esencia, están conectando nuestras aplicaciones. Para hacer esto, necesitan algunos datos clave:
+El SDK de Braze (SDK) es la forma en que enviamos y recibimos información de tu aplicación o sitio. Tus ingenieros, en esencia, están conectando nuestras aplicaciones. Para hacer esto, necesitan algunos datos clave:
 
 * Tus [claves de API]({{site.baseurl}}/api/basics)
 * Tu [punto final de SDK]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints)
@@ -45,7 +45,7 @@ Asegúrate de indicarles a tus desarrolladores qué canales quieres utilizar par
 | In-App Messages | Requiere la implementación del SDK, así como estos pasos específicos del canal. |
 | Push | Requiere la implementación del SDK para proporcionar el manejo adecuado de las credenciales de mensajería y los tokens de notificaciones push. |
 | Correo electrónico | Este es un proceso completamente diferente. Consulta la sección [Configuración de correo electrónico]({{site.baseurl}}/user_guide/channels/email/email_setup) para obtener más detalles sobre la integración. |
-| Content Cards | Para comenzar con [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards), comunícate con tu administrador de éxito de cliente de Braze. |
+| Content Cards | Para comenzar con [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards), comunícate con tu CSM de Braze. |
 | SMS y MMS | Consulta la sección [Configuración de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sms_sending) para obtener más detalles sobre la integración. |
 | Webhooks | Requiere la implementación del SDK, así como pasos específicos del canal. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 2: Implementan los canales de mensajería que deseas" }

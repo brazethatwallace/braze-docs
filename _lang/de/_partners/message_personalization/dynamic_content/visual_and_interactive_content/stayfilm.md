@@ -23,7 +23,7 @@ Stayfilm unterstützt die personalisierte Videozustellung über den gesamten Kun
 - **Produkt- und Marktplatzinhalte:** Generieren Sie produktbezogene Videos aus Katalogen oder von Nutzer:innen bereitgestellten Medien
 - **Konversion und Aktivierung:** Verstärken Sie wichtige Aktionen mit kontextuellem Video-Messaging
 - **Kundenbindung und Upselling:** Heben Sie personalisierte Angebote oder Nutzungsmeilensteine im Videoformat hervor
-- **Rückgewinnung und Churn-Prävention:** Reaktivieren Sie inaktive Nutzer:innen mit maßgeschneiderten Videoinhalten
+- **Rückgewinnung und Abwanderung-Prävention:** Reaktivieren Sie inaktive Nutzer:innen mit maßgeschneiderten Videoinhalten
 
 ## Voraussetzungen {#prerequisites}
 
@@ -42,7 +42,7 @@ Bevor Sie beginnen, stellen Sie sicher, dass Folgendes vorhanden ist:
 Diese Integration verwendet einen bidirektionalen Webhook-Ablauf:
 
 1. **Ausgehend:** Eine Braze-[Webhook-Campaign]({{site.baseurl}}/user_guide/channels/webhooks) sendet einen Render-Auftrag an den Stayfilm-Endpunkt `POST /Job`. Die Anfrage enthält Nutzermedien, die Template-Konfiguration und `CallbackRelayData`, das auf die `external_id` der/des Braze-Nutzer:in gesetzt ist.
-2. **Eingehend:** Wenn Stayfilm das Rendering abgeschlossen hat, sendet es einen Callback an Ihre Braze-Datentransformations-Webhook-URL. Die Transformation bildet die Antwort auf [angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) und angepasste Events im entsprechenden Nutzerprofil ab.
+2. **Eingehend:** Wenn Stayfilm das Rendering abgeschlossen hat, sendet es einen Callback an Ihre Braze-Datentransformations-Webhook-URL. Die Transformation bildet die Antwort auf [angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) und angepasste Events im entsprechenden Kundenprofil ab.
 3. **Zustellung:** Verwenden Sie das gespeicherte Attribut `stayfilm_video_url` in Messaging-Kanälen, z. B. in einer [In-App-Nachricht]({{site.baseurl}}/user_guide/channels/in_app_messages) mit benutzerdefiniertem HTML.
 
 Die Datentransformation in dieser Anleitung schreibt die folgenden angepassten Attribute:
@@ -272,7 +272,7 @@ Stayfilm rendert das Video asynchron und sendet einen Callback an Ihre Datentran
 
 ### Schritt 6: Video in einer In-App-Nachricht anzeigen {#step-6-display-the-video-in-an-in-app-message}
 
-Nachdem `stayfilm_video_url` im Nutzerprofil befüllt ist, zeigen Sie das gerenderte Video in einer Campaign oder einem Canvas an.
+Nachdem `stayfilm_video_url` im Kundenprofil befüllt ist, zeigen Sie das gerenderte Video in einer Campaign oder einem Canvas an.
 
 1. Gehen Sie zu **Messaging** > **Campaigns**.
 2. Wählen Sie **Create campaign** > **In-app message** aus.

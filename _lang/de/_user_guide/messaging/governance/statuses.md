@@ -42,7 +42,7 @@ Dies sind die verfügbaren Status für Campaigns und Canvases:
 Wenn ein Canvas gestoppt wird, geschieht Folgendes:
 
 - **Geplante Nachrichten:** Ihre geplanten Nachrichten werden nicht gesendet, unabhängig davon, wo sich Nutzer:innen im Canvas befinden. Dies gilt auch für Nutzer:innen, die aufgrund von Rate-Limiting in der Warteschlange standen.
-- **E-Mail-Versand:** Der E-Mail-Versand wird möglicherweise nicht sofort gestoppt, da Ihr E-Mail-Anbieter (ESP) Ihre bestehenden Anfragen möglicherweise weiterhin verarbeitet.
+- **E-Mail-Versand:** Der E-Mail-Versand wird möglicherweise nicht sofort gestoppt, da Ihr E-Mail-Anbieter (E-Mail-Anbieter) Ihre bestehenden Anfragen möglicherweise weiterhin verarbeitet.
 - **Verzögerungsschritte:** Nutzer:innen in einem [Verzögerungsschritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) verbleiben dort wie gewohnt, verlassen das Canvas jedoch, wenn der festgelegte Zeitraum endet.
 - **Entwurfsänderungen:** Alle Entwurfsänderungen am Canvas werden verworfen, wenn das Canvas gestoppt wird.
 

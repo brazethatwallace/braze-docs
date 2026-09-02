@@ -27,7 +27,7 @@ channel:
 
 ユーザーのプロファイル（[**ユーザー検索**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) > ユーザーを選択 > **エンゲージメント**タブ）では、**Contact Settings**にプッシュサブスクリプション状態が表示され、**Push Registered For**（Brazeがそのプロファイルにフォアグラウンドプッシュを送信するために使用できるアプリとプラットフォーム）、およびトークンの移動、エラー、登録更新に関する**Push Changelog**が表示されます。**Push Registered For**とフォアグラウンドおよびバックグラウンドの認可の読み方については、[プッシュ登録ステータスの確認]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle#checking-push-registration-status)を参照してください。
 
-iOSおよびAndroidでは、デバイスがフォアグラウンドプッシュ認可からバックグラウンドのみに移行した場合（たとえば、ユーザーがシステム設定で通知をオフにし、SDKがその変更を報告した場合）、プッシュ変更ログに「Push token was updated from foreground push enabled to foreground push disabled」などのエントリが含まれることがあります。
+iOSおよびAndroidでは、デバイスがフォアグラウンドプッシュ認可からバックグラウンドのみに移行した場合（たとえば、ユーザーがシステム設定で通知をオフにし、SDKがその変更を報告した場合）、プッシュ変更ログに「プッシュトークン was updated from foreground push enabled to foreground push disabled」などのエントリが含まれることがあります。
 
 新しいSDKデータを期待している場合（たとえば、テストセッションの直後）、値が古く見える場合はユーザープロファイルで**Refresh**を選択してください。SDKがデータをフラッシュしてからプロファイルに最新のプッシュ登録が反映されるまでに短い遅延が発生する場合があります。
 
@@ -159,7 +159,7 @@ iOSやAndroidではアプリがいつでも権限プロンプトを表示でき�
 - **キャンペーン分析** – 単一のキャンペーンまたはキャンバスのプッシュ統計とフィードバックを表示します。
 - **ユーザープロファイル（エンゲージメントタブ）** – 特定のユーザーの**Contact Settings**とプッシュ変更ログを表示します。
 
-プッシュ有効状態を確認する際、**Push Registered for**は、Brazeがそのユーザーにフォアグラウンドプッシュを送信できるプラットフォームを示します。iOSおよびAndroidでは、ユーザーがフォアグラウンドプッシュ有効からバックグラウンドプッシュ有効（`remote_notification_enabled`）に移行した場合、プッシュ変更ログに「Push token was updated from foreground push enabled to foreground push disabled.」と記録されます。
+プッシュ有効状態を確認する際、**Push Registered for**は、Brazeがそのユーザーにフォアグラウンドプッシュを送信できるプラットフォームを示します。iOSおよびAndroidでは、ユーザーがフォアグラウンドプッシュ有効からバックグラウンドプッシュ有効（`remote_notification_enabled`）に移行した場合、プッシュ変更ログに「プッシュトークン was updated from foreground push enabled to foreground push disabled.」と記録されます。
 
 ユーザーがテストユーザーとして追加されている場合、**開発者コンソール** > **User Event Log**で、ユーザープロファイルに`remote_notification_enabled`が`true`または`false`のSDKリクエストが表示されます。SDKの更新がユーザープロファイルに反映されるまでに短い遅延があるため、ユーザープロファイルを更新する必要がある場合があります。
 

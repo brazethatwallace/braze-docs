@@ -155,7 +155,7 @@ Entradas de uso frecuente:
 | `com_braze_enable_delayed_initialization` | `bool` | **Obligatorio.** Configúralo como `true` para que el SDK espere a `Braze.initialize()` desde JavaScript. |
 | `com_braze_api_key` | `string` | No es necesario cuando se utiliza `Braze.initialize()` desde JavaScript (las credenciales se pasan desde JS). Solo es obligatorio para la inicialización heredada nativa. |
 | `com_braze_custom_endpoint` | `string` | No es necesario cuando se utiliza `Braze.initialize()` desde JavaScript. Solo es obligatorio para la inicialización heredada nativa. |
-| `com_braze_server_target` | `string` | Selector opcional de clúster/entorno (por ejemplo, algunas compilaciones internas o de staging). Prefiere `com_braze_custom_endpoint` para producción, a menos que tu integración de Braze especifique lo contrario. |
+| `com_braze_server_target` | `string` | SELECTOR opcional de clúster/entorno (por ejemplo, algunas compilaciones internas o de staging). Prefiere `com_braze_custom_endpoint` para producción, a menos que tu integración de Braze especifique lo contrario. |
 | `com_braze_firebase_cloud_messaging_registration_enabled` | `bool` | Cuando es `true`, Braze se registra para FCM (configuración típica de push). |
 | `com_braze_firebase_cloud_messaging_sender_id` | `string` | ID de remitente de FCM cuando el registro automático está habilitado. |
 | `com_braze_handle_push_deep_links_automatically` | `bool` | Permite que Braze abra vínculos profundos de push automáticamente. |

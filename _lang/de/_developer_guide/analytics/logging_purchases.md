@@ -8,7 +8,7 @@ description: "Erfahren Sie, wie Sie Einkäufe über das Braze SDK protokollieren
 
 # Einkäufe protokollieren {#log-purchases}
 
-> Erfahren Sie, wie Sie In-App-Käufe über das Braze SDK protokollieren können, damit Sie Ihren Umsatz im Zeitverlauf und über verschiedene Quellen hinweg bestimmen können. So können Sie Nutzer:innen [anhand ihres Lifetime-Value]({{site.baseurl}}/developer_guide/analytics#purchase-events-revenue-tracking) mit angepassten Events, angepassten Attributen und Kauf-Events segmentieren.
+> Erfahren Sie, wie Sie In-App-Käufe über das Braze SDK protokollieren können, damit Sie Ihren Umsatz im Zeitverlauf und über verschiedene Quellen hinweg bestimmen können. So können Sie Nutzer:innen [anhand ihres LTV]({{site.baseurl}}/developer_guide/analytics#purchase-events-revenue-tracking) mit angepassten Events, angepassten Attributen und Kauf-Events segmentieren.
 
 {% alert note %}
 Für Wrapper-SDKs, die nicht aufgeführt sind, verwenden Sie stattdessen die entsprechende native Android- oder Swift-Methode.

@@ -145,7 +145,7 @@ Wenn eine Phase einen Fehler anzeigt, zeigt das Panel den Fehler und empfohlene 
 - Die Telefonnummer der Empfänger:innen unterliegt einem Rate-Limit
 - Liquid-Variablen in der Nachricht wurden für die ausgewählte Testnutzer:in nicht befüllt
 
-Überprüfen Sie bei anhaltenden Problemen den Template-Status im Meta Business Manager oder stellen Sie sicher, dass Ihre Testempfänger:innen die erforderlichen Nutzerattribute in Braze hinterlegt haben.
+Überprüfen Sie bei anhaltenden Problemen den Template-Status im Meta Business Manager:in oder stellen Sie sicher, dass Ihre Testempfänger:innen die erforderlichen Nutzerattribute in Braze hinterlegt haben.
 
 ## Wissenswertes {#supported-whatsapp-features}
 

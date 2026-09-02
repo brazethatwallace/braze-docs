@@ -10,7 +10,7 @@ description: "Dieser Referenzartikel beschreibt die übergeordnete Nachrichtenpr
 > Verwenden Sie die Nachrichtenpriorisierung, um sicherzustellen, dass Ihre Nutzer:innen die Nachrichten erhalten, die für Ihr Unternehmen am wichtigsten sind – und nicht nur diejenigen, die zufällig zuerst gesendet werden.
 
 {% alert important %}
-Die Nachrichtenpriorisierung befindet sich derzeit in der Beta-Phase. Kontaktieren Sie Ihren Braze Account Manager, wenn Sie an der Teilnahme an dieser Beta interessiert sind.<br><br>Dieser Artikel spiegelt die Version der Nachrichtenpriorisierung wider, die für das Produktionsrelease Ende Juli 2026 geplant ist. Einige hier beschriebene Verhaltensweisen sind möglicherweise noch nicht in allen Beta-Workspaces verfügbar.
+Die Nachrichtenpriorisierung befindet sich derzeit in der Beta-Phase. Kontaktieren Sie Ihren Braze Account Manager:in, wenn Sie an der Teilnahme an dieser Beta interessiert sind.<br><br>Dieser Artikel spiegelt die Version der Nachrichtenpriorisierung wider, die für das Produktionsrelease Ende Juli 2026 geplant ist. Einige hier beschriebene Verhaltensweisen sind möglicherweise noch nicht in allen Beta-Workspaces verfügbar.
 {% endalert %}
 
 ## Warum Nachrichtenpriorisierung verwenden? {#why-use-message-prioritization}
@@ -81,7 +81,7 @@ Wenn eine Campaign oder ein Canvas-Schritt nur nicht unterstützte Kanäle verwe
 
 ## Kategorien {#categories}
 
-Priorisierungsregeln basieren auf einer Rangfolge von Kategorien, die Labels sind, die Sie einer bestimmten Campaign oder einem Canvas zuweisen können (ähnlich wie ein [Tag]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags)). Es gibt eine Obergrenze für die Anzahl der Kategorien, die Sie zu einem bestimmten Zeitpunkt erstellen können. Sprechen Sie mit Ihrem Account Manager, wenn Sie ein höheres Limit wünschen.
+Priorisierungsregeln basieren auf einer Rangfolge von Kategorien, die Labels sind, die Sie einer bestimmten Campaign oder einem Canvas zuweisen können (ähnlich wie ein [Tag]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags)). Es gibt eine Obergrenze für die Anzahl der Kategorien, die Sie zu einem bestimmten Zeitpunkt erstellen können. Sprechen Sie mit Ihrem Account Manager:in, wenn Sie ein höheres Limit wünschen.
 
 So fügen Sie eine neue Kategorie hinzu:
 
@@ -100,7 +100,7 @@ Um eine Kategorie zu bearbeiten oder zu löschen, wählen Sie das Menü <i class
 
 ## Priorisierungsregeln {#prioritization-rules}
 
-Nachdem Ihre Kategorien eingerichtet sind, können Sie sie in einem Satz von Priorisierungsregeln einstufen. Regeln werden in absteigender Prioritätsreihenfolge eingestuft. Es gibt eine Obergrenze für die Anzahl der Priorisierungsregeln, die Sie zu einem bestimmten Zeitpunkt erstellen können. Wenden Sie sich an Ihren Account Manager, wenn Sie ein höheres Limit wünschen.
+Nachdem Ihre Kategorien eingerichtet sind, können Sie sie in einem Satz von Priorisierungsregeln einstufen. Regeln werden in absteigender Prioritätsreihenfolge eingestuft. Es gibt eine Obergrenze für die Anzahl der Priorisierungsregeln, die Sie zu einem bestimmten Zeitpunkt erstellen können. Wenden Sie sich an Ihren Account Manager:in, wenn Sie ein höheres Limit wünschen.
 
 1. Gehen Sie zu **Einstellungen** > **Nachrichtenpriorisierung** > **Priorisierungsregeln**, um Ihre Regeln zu konfigurieren.
 
@@ -289,7 +289,7 @@ Angenommen, eine Nutzerin oder ein Nutzer tritt in einen Canvas-Nachrichten-Schr
 
 ## Einschränkungen {#limitations}
 
-Die Nachrichtenpriorisierung hat die folgenden Feature-Grenzen. Spezifische Grenzen hängen von Ihrer Braze-Plattform-Edition ab; wenden Sie sich an Ihren Braze Account Manager für Details.
+Die Nachrichtenpriorisierung hat die folgenden Feature-Grenzen. Spezifische Grenzen hängen von Ihrer Braze-Plattform-Edition ab; wenden Sie sich an Ihren Braze Account Manager:in für Details.
 
 - Ein Limit für die Anzahl aktiver, angemeldeter geplanter Campaigns und Canvases (kombiniert)
 - Ein Limit für die Anzahl aktiver, angemeldeter aktionsbasierter Campaigns und Canvases (kombiniert)

@@ -102,7 +102,7 @@ Historische Kontrollgruppen werden nicht aufbewahrt, sodass Sie nur die Mitglied
 
 ## Anzeigen, ob Nutzer:innen in einer globalen Kontrollgruppe sind {#view-whether-a-user-is-in-a-global-control-group}
 
-Sie können die Mitgliedschaft in der globalen Kontrollgruppe einsehen, indem Sie im Nutzerprofil auf dem Tab **Engagement** zum Abschnitt **Miscellaneous** navigieren.
+Sie können die Mitgliedschaft in der globalen Kontrollgruppe einsehen, indem Sie im Kundenprofil auf dem Tab **Engagement** zum Abschnitt **Miscellaneous** navigieren.
 
 ![Ein Abschnitt „Miscellaneous“, der anzeigt, dass die Nutzer:in eine zufällige Bucket-Nummer von 6356 hat und nicht in der globalen Kontrollgruppe ist.]({% image_buster /assets/img/control_group/control_group1.png %}){: style="max-width:50%;"}
 

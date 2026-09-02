@@ -12,7 +12,7 @@ toc_headers: h2
 > O dashboard **Messaging Diagnostics** oferece uma visão geral dos resultados de envio de mensagens, permitindo que você identifique tendências e diagnostique possíveis problemas na sua configuração de envio de mensagens. Esse dashboard pode ajudar a entender por que as mensagens de suas campanhas ou Canvas podem não ter sido enviadas conforme o esperado.
 
 {% alert important %}
-O dashboard **Messaging Diagnostics** está disponível de forma geral. Entre em contato com seu gerente de sucesso do cliente se tiver interesse em obter acesso ao recurso.
+O dashboard **Messaging Diagnostics** está disponível de forma geral. Entre em contato com seu CSM se tiver interesse em obter acesso ao recurso.
 {% endalert %}
 
 {% alert note %}

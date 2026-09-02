@@ -55,7 +55,7 @@ Die folgenden Daten sind je nach Ihrer Auswahl in Ihrem Export enthalten.
 | Appboy ID                   | Interne ID (kann nicht geändert werden)                  |
 | country                     | Land                                                     |
 | created_at                  | Datum und Uhrzeit der Erstellung des Nutzerprofils       |
-| created_from                | Methode, mit der das Nutzerprofil erstellt wurde (z. B. REST API, SDK oder CSV-Import) |
+| created_from                | Methode, mit der das Kundenprofil erstellt wurde (z. B. REST API, SDK oder CSV-Import) |
 | devices                     | Geräteinformationen                                      |
 | date_of_birth               | Geburtsdatum                                             |
 | email                       | E-Mail-Adresse                                           |
@@ -89,7 +89,7 @@ Die folgenden Daten sind je nach Ihrer Auswahl in Ihrem Export enthalten.
 | user_aliases                | Nutzer-Aliase, falls vorhanden                           |
 | windows_ad_ids              | Windows-Werbe-IDs                                        |
 | Custom events               | Basierend auf der Auswahl beim Export                    |
-| Custom attributes           | Basierend auf der Auswahl beim Export                    |
+| angepasste Attribute           | Basierend auf der Auswahl beim Export                    |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="CSV-Export – Nutzerdaten" }
 
 {% alert note %}

@@ -36,7 +36,7 @@ Com a integração da Braze e da Storyly, os proprietários de aplicativos podem
 
 Alguns casos de uso comuns incluem:
 
-__Direcione segmentos da Braze na Storyly__<br>Após a conclusão da integração, você poderá criar um público da Storyly com base em seus segmentos da Braze. Esse pode ser um segmento demográfico ou comportamental. Por exemplo, direcione os usuários que moram em um local específico, aqueles que realizam uma ação específica no seu app ou aqueles interessados em produtos específicos com stories específicas para aumentar a conversão.<br>
+__Direcione segmentos da Braze na Storyly__<br>Após a conclusão da integração, você poderá criar um público da Storyly com base em seus segmentos da Braze. Esse pode ser um Segment demográfico ou comportamental. Por exemplo, direcione os usuários que moram em um local específico, aqueles que realizam uma ação específica no seu app ou aqueles interessados em produtos específicos com stories específicas para aumentar a conversão.<br>
 __Stories personalizadas com atributos do usuário__<br>Os atributos do usuário da Braze também podem ser usados na Storyly para gerar stories dinâmicas. Isso pode incluir o nome de um usuário, produtos em um carrinho ou até mesmo produtos favoritos, fornecendo aos usuários stories personalizadas exclusivas. A personalização ajuda a aumentar as taxas de conversão nas stories e a taxa geral de engajamento nas stories.
 
 ## Integração de exportação de dados {#data-export-integration}

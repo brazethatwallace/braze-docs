@@ -70,7 +70,7 @@ Si vous avez besoin que des Campaigns de suivi ciblent les utilisateurs auxquels
 
 Pour une Campaign à envoi unique utilisant **Optimize with BrazeAI<sup>TM</sup>**, la Campaign se compose de deux envois : l'expérience initiale et l'envoi optimisé.
 
-Pour configurer un plafond maximum d'utilisateurs dans ce scénario, sélectionnez **Limit send volume**, puis sélectionnez **Lifetime of the campaign** et saisissez une valeur pour **Maximum sends**. Votre limite d'audience est répartie selon les pourcentages affichés dans le panneau **A/B Testing**.
+Pour configurer un plafond maximum d'utilisateurs dans ce scénario, sélectionnez **Limit send volume**, puis sélectionnez **Lifetime of the campaign** et saisissez une valeur pour **Maximum sends**. Votre limite d'audience est répartie selon les pourcentages affichés dans le panneau **test A/B**.
 
 Si vous sélectionnez **Every time campaign is scheduled**, ces deux phases seront limitées séparément au nombre défini. Ce n'est généralement pas souhaitable.
 

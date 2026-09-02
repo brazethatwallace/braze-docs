@@ -65,7 +65,7 @@ Beispielsweise können Sie mit Braze Feature-Flags ein neues Kundenbindungs-Prog
 
 ### Wie können Feature-Flags Produkt-Teams zugutekommen? {#product-teams}
 
-Produkt-Teams können Feature-Flags für schrittweise Rollouts oder Soft-Launches neuer Features verwenden, um Leistungskennzahlen und Kundenfeedback zu beobachten, bevor das Feature allen Nutzer:innen zur Verfügung gestellt wird.
+Produkt-Teams können Feature-Flags für schrittweise Rollouts oder Soft-Launches neuer Features verwenden, um KPI und Kundenfeedback zu beobachten, bevor das Feature allen Nutzer:innen zur Verfügung gestellt wird.
 
 Produkt-Teams können [Feature-Flag-Eigenschaften]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create#properties) nutzen, um Inhalte in einer App remote bereitzustellen, wie z. B. Deeplinks, Texte, Bilder oder andere dynamische Inhalte.
 

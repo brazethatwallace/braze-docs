@@ -39,7 +39,7 @@ Para una implementación estándar del SDK Web, puedes utilizar el siguiente mé
 braze.changeUser(YOUR_USER_ID_STRING);
 ```
 
-Si prefieres utilizar Google Tag Manager, puedes usar el tipo de etiqueta **Change User** para llamar al [método `changeUser`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser). Úsalo cada vez que un usuario inicie sesión o se identifique de alguna otra forma con su identificador único `external_id`.
+Si prefieres utilizar Google Tag Administrador, puedes usar el tipo de etiqueta **Change User** para llamar al [método `changeUser`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser). Úsalo cada vez que un usuario inicie sesión o se identifique de alguna otra forma con su identificador único `external_id`.
 
 Asegúrate de introducir el ID único del usuario actual en el campo **External User ID**, que generalmente se rellena mediante una variable de capa de datos enviada por tu sitio web.
 
@@ -120,7 +120,7 @@ AppboyBinding.ChangeUser("YOUR_USER_ID_STRING");
 ```
 {% endtab %}
 
-{% tab REACT NATIVE %}
+{% tab React Native %}
 ```javascript
 Braze.changeUser("YOUR_USER_ID_STRING");
 ```
@@ -202,7 +202,7 @@ Appboy.sharedInstance()?.user.addAlias(ALIAS_NAME, ALIAS_LABEL)
 ```
 {% endtab %}
 
-{% tab react native %}
+{% tab React Native %}
 ```javascript
 Braze.addAlias("ALIAS_NAME", "ALIAS_LABEL");
 ```

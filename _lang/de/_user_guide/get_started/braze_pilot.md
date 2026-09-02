@@ -72,15 +72,15 @@ Weitere Informationen zum Braze SDK finden Sie unter [Integration]({{site.baseur
 
 ## Nutzerprofile in Braze {#user-profiles-in-braze}
 
-Jedes an Braze gesendete Datenelement wird in einem Nutzerprofil gespeichert, das einer/einem bestimmten Nutzer:in Ihrer App oder Website zugeordnet ist. Sobald Sie Pilot mit Ihrem Braze-Dashboard verbinden, beginnt Braze mit der Protokollierung von Daten über Sie als Nutzer:in von Pilot. Es gibt zwei Arten von Nutzer:innen, die über diese Verbindung für Sie erstellt werden können: anonyme und identifizierte.
+Jedes an Braze gesendete Datenelement wird in einem Kundenprofil gespeichert, das einer/einem bestimmten Nutzer:in Ihrer App oder Website zugeordnet ist. Sobald Sie Pilot mit Ihrem Braze-Dashboard verbinden, beginnt Braze mit der Protokollierung von Daten über Sie als Nutzer:in von Pilot. Es gibt zwei Arten von Nutzer:innen, die über diese Verbindung für Sie erstellt werden können: anonyme und identifizierte.
 
 ### Anonym {#anonymous}
 
-Dieser Verbindungsstatus spiegelt die Erfahrung eines Gastes Ihrer App oder Website wider, der sich noch nicht angemeldet hat. Wenn Sie Pilot als anonyme:r Nutzer:in initialisieren, erstellt Braze ein [anonymes Nutzerprofil]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users) für Sie und protokolliert dort Daten zu Ihren Aktivitäten. Anonyme Nutzer:innen können weiterhin mit Campaigns angesprochen werden, jedoch ist es nicht möglich, ihr Nutzerprofil direkt in Ihrem Braze-Dashboard aufzurufen.
+Dieser Verbindungsstatus spiegelt die Erfahrung eines Gastes Ihrer App oder Website wider, der sich noch nicht angemeldet hat. Wenn Sie Pilot als anonyme:r Nutzer:in initialisieren, erstellt Braze ein [anonymes Kundenprofil]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users) für Sie und protokolliert dort Daten zu Ihren Aktivitäten. Anonyme Nutzer:innen können weiterhin mit Campaigns angesprochen werden, jedoch ist es nicht möglich, ihr Kundenprofil direkt in Ihrem Braze-Dashboard aufzurufen.
 
 ### Identifiziert {#identified}
 
-Dieser Verbindungsstatus bedeutet, dass Braze Ihr Nutzerprofil anhand eines Ihnen zugewiesenen eindeutigen Bezeichners erkennt, der als externe ID bezeichnet wird. Sie können auf der Seite **Nutzersuche** Ihres Dashboards nach dieser externen ID suchen, um Ihr Nutzerprofil zu finden, in dem alle Nutzerattribute und Events gespeichert sind, die von Pilot basierend auf Ihren Aktivitäten in der App protokolliert wurden. Gehen Sie im Braze-Dashboard zu **Audience** > **Nutzersuche**, geben Sie Ihre **externe ID** für Pilot ein und öffnen Sie das Profil, um Attribute und Events zu prüfen.
+Dieser Verbindungsstatus bedeutet, dass Braze Ihr Kundenprofil anhand eines Ihnen zugewiesenen eindeutigen Bezeichners erkennt, der als externe ID bezeichnet wird. Sie können auf der Seite **Nutzersuche** Ihres Dashboards nach dieser externen ID suchen, um Ihr Kundenprofil zu finden, in dem alle Nutzerattribute und Events gespeichert sind, die von Pilot basierend auf Ihren Aktivitäten in der App protokolliert wurden. Gehen Sie im Braze-Dashboard zu **Audience** > **Nutzersuche**, geben Sie Ihre **externe ID** für Pilot ein und öffnen Sie das Profil, um Attribute und Events zu prüfen.
 
 ### Verbindungstyp {#connection-type}
 

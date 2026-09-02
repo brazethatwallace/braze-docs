@@ -12,7 +12,7 @@ page_type: reference
 
 > Este artigo explica como usar Segments como dimensão de relatório no Report Builder, incluindo como gerar relatórios por Segments, detalhar por Segment e quais combinações são compatíveis.
 
-{% multi_lang_include alerts/early_access_beta_alert.md feature='Segment reporting' contact='customer success manager' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Segment reporting' contact='CSM' %}
 
 O Report Builder oferece suporte a **Segments** em linhas e como opção de detalhamento, para que você possa ver o desempenho dos seus Segments e detalhar o desempenho de Campaigns ou Canvas por associação a Segments. Se **Segments** não aparecer nos menus suspensos **Rows** ou **Drilldown**, esse recurso ainda não foi ativado para a sua conta.
 

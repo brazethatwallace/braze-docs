@@ -16,7 +16,7 @@ description: "Si eres un socio de Braze, utiliza este punto de conexión para re
 > Si eres un socio de Braze, utiliza este punto de conexión para registrar eventos personalizados y compras, y actualizar atributos de perfil de usuario de forma masiva.
 
 {% alert important %}
-Este punto de conexión está disponible para que los socios de Braze migren casos de uso masivos en su integración con Braze. Si tienes preguntas, ponte en contacto con [isv-support@braze.com](mailto:isv-support@braze.com).
+Este punto de conexión está disponible para que los socios de Braze migren casos de uso masivos en su integración con Braze. Si tienes preguntas, ponte en contacto con [proveedor de software independiente-support@braze.com](mailto:isv-support@braze.com).
 {% endalert %}
 
 ## Cuándo usar este punto de conexión {#when-to-use-this-endpoint}

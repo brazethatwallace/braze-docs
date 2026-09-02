@@ -12,7 +12,7 @@ toc_headers: h2
 > El dashboard de **diagnóstico de mensajería** proporciona un desglose de alto nivel de los resultados del envío de mensajes, lo que te permite detectar tendencias y diagnosticar posibles problemas en tu configuración de mensajería. Este dashboard puede ayudarte a entender por qué los mensajes de tus Campaigns o Canvas pueden no haberse enviado como se esperaba.
 
 {% alert important %}
-El dashboard de **diagnóstico de mensajería** está disponible de forma general. Ponte en contacto con tu administrador de éxito de cliente si te interesa obtener acceso a esta característica.
+El dashboard de **diagnóstico de mensajería** está disponible de forma general. Ponte en contacto con tu CSM si te interesa obtener acceso a esta característica.
 {% endalert %}
 
 {% alert note %}

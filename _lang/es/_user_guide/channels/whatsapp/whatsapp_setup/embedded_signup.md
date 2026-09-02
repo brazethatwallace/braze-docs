@@ -34,7 +34,7 @@ Cuando selecciones **Begin Integration**, Braze abre una ventana de incorporaci�
 
 Antes de comenzar, prepara lo siguiente:
 
-- **Acceso a Meta Business Manager:** La mayoría de las empresas utilizan Meta Business Manager para gestionar páginas de Facebook, anuncios y activos empresariales relacionados. Si no tienes acceso, pide a un administrador que te otorgue permisos o crea una cuenta de Business Manager durante el registro.
+- **Acceso a Meta Business Administrador:** La mayoría de las empresas utilizan Meta Business Administrador para gestionar páginas de Facebook, anuncios y activos empresariales relacionados. Si no tienes acceso, pide a un administrador que te otorgue permisos o crea una cuenta de Business Administrador durante el registro.
 - **Número de teléfono:** Usa un número que cumpla con los [requisitos de número de teléfono de WhatsApp de Meta](https://developers.facebook.com/docs/whatsapp/phone-numbers). Recibirás un código de verificación único por mensaje de texto o llamada telefónica durante el registro.
 
 {% alert important %}
@@ -43,7 +43,7 @@ Solo completarás el registro integrado inicial una vez por ruta de integración
 
 ## Flujo de trabajo de registro integrado de WhatsApp {#whatsapp-embedded-signup-workflow}
 
-Después de que Braze inicie el registro integrado de Meta, inicia sesión con una cuenta de Meta que tenga acceso al Business Manager de tu empresa. Meta aloja las pantallas de registro; Braze no controla su diseño ni sus etiquetas.
+Después de que Braze inicie el registro integrado de Meta, inicia sesión con una cuenta de Meta que tenga acceso al Business Administrador de tu empresa. Meta aloja las pantallas de registro; Braze no controla su diseño ni sus etiquetas.
 
 {% alert note %}
 Meta puede cambiar las pantallas de registro integrado sin previo aviso. Si el flujo de trabajo difiere de este artículo, sigue las indicaciones de Meta y consulta la [documentación de registro integrado de Meta](https://developers.facebook.com/docs/whatsapp/embedded-signup/embed-the-flow).
@@ -52,7 +52,7 @@ Meta puede cambiar las pantallas de registro integrado sin previo aviso. Si el f
 En general, Meta te guía a través de lo siguiente:
 
 1. **Iniciar sesión y otorgar permisos.** Autentícate con Meta y permite que Braze se conecte a tu cuenta de WhatsApp Business.
-2. **Seleccionar tu portafolio de empresa.** Conecta el portafolio de Business Manager que debe ser propietario de la cuenta de WhatsApp Business. Si no ves el portafolio esperado, confirma tus permisos de Meta.
+2. **Seleccionar tu portafolio de empresa.** Conecta el portafolio de Business Administrador que debe ser propietario de la cuenta de WhatsApp Business. Si no ves el portafolio esperado, confirma tus permisos de Meta.
 3. **Conectar o crear una cuenta de WhatsApp Business.** Crea una cuenta nueva o selecciona una cuenta no utilizada cuando se te solicite. No selecciones una cuenta de WhatsApp Business que esté conectada activamente a otro proveedor de mensajería; esa conexión no tendrá éxito en Braze. Para [migrar un número desde otro proveedor]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number), contacta con tu equipo de cuenta de Braze antes de comenzar.
 4. **Proporcionar detalles de la empresa y de visualización.** Introduce el nombre de la cuenta, el nombre de visualización y la categoría que Meta solicita para tu cuenta de WhatsApp Business.
 5. **Verificar tu número de teléfono.** Añade el número que quieras usar para la mensajería de WhatsApp y completa la verificación por mensaje de texto o llamada telefónica.

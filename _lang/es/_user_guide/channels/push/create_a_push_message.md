@@ -167,7 +167,7 @@ Para iOS, puedes limitar aún más la mensajería enviando notificaciones push s
 
 ## Paso 5: Vista previa y prueba de tu mensaje (opcional) {#step-5-preview-and-test-your-message-optional}
 
-Probar es posiblemente uno de los pasos más importantes. Después de terminar de redactar tu mensaje push perfecto, pruébalo antes de enviarlo. Selecciona la pestaña **Test** para elegir entre las opciones de cómo probar tu mensaje push. En **Test Recipients**, puedes seleccionar un grupo de prueba de contenido o usuarios individuales. También puedes usar **Preview message as user** para hacerte una idea de cómo puede verse tu mensaje en dispositivos móviles para un usuario aleatorio, un usuario existente, un usuario personalizado o un usuario multilingüe.
+Probar es posiblemente uno de los pasos más importantes. Después de terminar de redactar tu mensaje push perfecto, pruébalo antes de enviarlo. Selecciona la pestaña **Test** para elegir entre las opciones de cómo probar tu mensaje push. En **Test Recipients**, puedes seleccionar un grupo de prueba de contenido o usuarios individuales. También puedes usar **vista previa message as user** para hacerte una idea de cómo puede verse tu mensaje en dispositivos móviles para un usuario aleatorio, un usuario existente, un usuario personalizado o un usuario multilingüe.
 
 Para más información, consulta [Enviar mensajes de prueba]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=push).
 
@@ -188,7 +188,7 @@ En este paso también puedes especificar los controles de entrega, como permitir
 
 ### Elige los usuarios a los que dirigirte {#choose-users-to-target}
 
-A continuación, debes [segmentar a los usuarios]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) eligiendo segmentos o filtros para reducir tu audiencia. Recibirás automáticamente una vista previa de cómo se ve aproximadamente la población de ese segmento. Las estadísticas detalladas de audiencia para los canales a los que se dirige tu campaña están disponibles en el pie de página. Para ver qué porcentaje de tu base de usuarios está siendo segmentado y el valor de duración del ciclo de vida para este segmento, selecciona **Show Additional Stats**.
+A continuación, debes [segmentar a los usuarios]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) eligiendo segmentos o filtros para reducir tu audiencia. Recibirás automáticamente una vista previa de cómo se ve aproximadamente la población de ese segmento. Las estadísticas detalladas de audiencia para los canales a los que se dirige tu campaña están disponibles en el pie de página. Para ver qué porcentaje de tu base de usuarios está siendo segmentado y el LTV para este segmento, selecciona **Show Additional Stats**.
 
 {% multi_lang_include audience/target_audiences.md %}
 

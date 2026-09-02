@@ -30,7 +30,7 @@ Definitionen der WhatsApp-Abo-Status und deren Zusammenhang mit den Opt-in-Anfor
 
 ### WhatsApp-Abo-Gruppe einer Nutzer:in überprüfen {#checking-a-users-whatsapp-subscription-group}
 
-- **Nutzerprofil:** Auf einzelne Nutzerprofile kann im Braze-Dashboard über **Zielgruppe** > **Nutzer:innen suchen** zugegriffen werden. Dort können Sie Nutzerprofile nach E-Mail-Adresse, Telefonnummer oder externer Nutzer-ID suchen. Innerhalb eines Nutzerprofils können Sie unter dem Tab **Engagement** die WhatsApp-Abo-Gruppe und den zugehörigen Status einsehen.
+- **Kundenprofil:** Auf einzelne Nutzerprofile kann im Braze-Dashboard über **Zielgruppe** > **Nutzer:innen suchen** zugegriffen werden. Dort können Sie Nutzerprofile nach E-Mail-Adresse, Telefonnummer oder externer Nutzer-ID suchen. Innerhalb eines Nutzerprofils können Sie unter dem Tab **Engagement** die WhatsApp-Abo-Gruppe und den zugehörigen Status einsehen.
 
 - **REST API:** Die Abo-Gruppe einzelner Nutzerprofile kann über den [Endpunkt „Abo-Gruppen der Nutzer:in auflisten“]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) oder den [Endpunkt „Abo-Gruppenstatus der Nutzer:in auflisten“]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) mithilfe der Braze REST API abgerufen werden.
 
@@ -64,7 +64,7 @@ Unabhängig davon, welche Opt-in- und Opt-out-Methoden Sie verwenden, können Si
 
 Um Race-Conditions zu vermeiden, sollte jedes Folge-Messaging nach dem Webhook in einem zweiten Canvas enthalten sein, der durch Ergebnisse des ersten Canvas getriggert wird (z. B. wenn Nutzer:innen eine Canvas-Variante betreten haben und sich in einer WhatsApp-Abo-Gruppe befinden).
 
-- Verwenden Sie den erweiterten JSON-Editor, um das Nutzerprofil mit dem folgenden Template zu aktualisieren:
+- Verwenden Sie den erweiterten JSON-Editor, um das Kundenprofil mit dem folgenden Template zu aktualisieren:
 
 	```json
 	{

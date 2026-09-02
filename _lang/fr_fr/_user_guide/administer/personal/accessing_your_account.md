@@ -20,15 +20,15 @@ Si vous n'êtes pas le premier utilisateur du compte Braze de votre entreprise, 
 
 Que ce soit votre première ou votre centième connexion, voici comment accéder à votre tableau de bord. Si vous êtes le premier utilisateur de votre entreprise, suivez les instructions de la section précédente. Sinon, vous pouvez vous connecter une fois que l'administrateur Braze de votre entreprise a créé votre compte.
 
-Vous pouvez vous connecter depuis le site [Braze.com](https://www.braze.com), ou utiliser l'URL de votre tableau de bord correspondant à votre [instance Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) spécifique. Pour plus de commodité, Braze propose plusieurs options d'authentification unique (SSO) telles que :
+Vous pouvez vous connecter depuis le site [Braze.com](https://www.braze.com), ou utiliser l'URL de votre tableau de bord correspondant à votre [instance Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) spécifique. Pour plus de commodité, Braze propose plusieurs options d'authentification unique (authentification unique) telles que :
 
-* [Authentification unique (SSO) SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup)
+* [Authentification unique (authentification unique) SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup)
     * [Provisionnement juste-à-temps SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning)
-* [SSO Microsoft Entra]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/microsoft_entra_sso)
+* [authentification unique Microsoft Entra]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/microsoft_entra_sso)
 * [Okta]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/okta)
 * [OneLogin]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/onelogin)
 
-Une fois connecté à Braze via SSO, vous ne pouvez plus utiliser votre mot de passe pour vous connecter au tableau de bord. Les deux adresses e-mail dirigent les e-mails vers la même boîte de réception, mais Braze les reconnaît comme des comptes distincts lors de la connexion. La suppression des cookies vous déconnecte, ce qui entraîne la perte de tout travail non enregistré.
+Une fois connecté à Braze via authentification unique, vous ne pouvez plus utiliser votre mot de passe pour vous connecter au tableau de bord. Les deux adresses e-mail dirigent les e-mails vers la même boîte de réception, mais Braze les reconnaît comme des comptes distincts lors de la connexion. La suppression des cookies vous déconnecte, ce qui entraîne la perte de tout travail non enregistré.
 
 ## Navigateurs pris en charge {#supported-browsers}
 
@@ -60,7 +60,7 @@ Si votre fournisseur de messagerie ne prend pas en charge l'aliasing avec `+`, v
 
 La fonctionnalité de développeurs multi-entreprises permet de partager un seul compte utilisateur entre plusieurs entreprises. Les utilisateurs du tableau de bord peuvent basculer entre différents tableaux de bord d'entreprise depuis le menu de leur profil utilisateur.
 
-Si vous utilisez l'authentification unique (SSO) et souhaitez configurer les développeurs multi-entreprises, vous devez activer un identifiant d'entité SAML personnalisé en mettant en place une intégration SSO SAML personnalisée. Suivez les étapes décrites dans [Connexion initiée par le fournisseur de services (SP)]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup), en appliquant les modifications suivantes :
+Si vous utilisez l'authentification unique (authentification unique) et souhaitez configurer les développeurs multi-entreprises, vous devez activer un identifiant d'entité SAML personnalisé en mettant en place une intégration authentification unique SAML personnalisée. Suivez les étapes décrites dans [Connexion initiée par le fournisseur de services (SP)]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup), en appliquant les modifications suivantes :
 - Changez l'**identifiant d'entité** en `braze_dashboard_<companyID>` pour chaque intégration de tableau de bord.
 - Contactez votre gestionnaire du succès des clients ou votre gestionnaire de compte pour activer le feature flipper `saml_sso_custom_entity_id` pour chaque tableau de bord.
 
@@ -73,9 +73,9 @@ Le fonctionnement de la 2FA pour les développeurs multi-entreprises dépend de 
 
 Lorsque vous basculez entre les comptes depuis le tableau de bord, vous n'avez besoin d'effectuer la 2FA qu'une seule fois — la première fois que vous vous connectez à l'un des comptes liés au cours de cette session.
 
-### Considérations pour l'authentification unique (SSO) {#considerations-for-single-sign-on-sso}
+### Considérations pour l'authentification unique (authentification unique) {#considerations-for-single-sign-on-sso}
 
-Si vous utilisez l'authentification unique (SSO), sachez que le fait d'avoir plusieurs adresses e-mail différentes peut entraîner des complications. Vérifiez que vos paramètres SSO sont correctement configurés pour éviter tout problème d'accès.
+Si vous utilisez l'authentification unique (authentification unique), sachez que le fait d'avoir plusieurs adresses e-mail différentes peut entraîner des complications. Vérifiez que vos paramètres authentification unique sont correctement configurés pour éviter tout problème d'accès.
 
 ## Résolution des problèmes {#troubleshooting}
 
@@ -89,7 +89,7 @@ Pour réinitialiser votre mot de passe, sélectionnez le lien **Forgot your pass
 Si vous avez demandé une réinitialisation de mot de passe mais n'avez pas reçu l'e-mail, essayez les étapes de résolution des problèmes suivantes :
 
 {% alert note %}
-Si votre entreprise impose l'[authentification unique (SSO)]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup), la page de connexion peut ne pas proposer l'option **Forgot your password?** ni envoyer d'e-mails de réinitialisation de mot de passe, car la connexion par mot de passe est désactivée. Connectez-vous via le fournisseur d'identité de votre organisation ou contactez votre administrateur Braze.
+Si votre entreprise impose l'[authentification unique (authentification unique)]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup), la page de connexion peut ne pas proposer l'option **Forgot your password?** ni envoyer d'e-mails de réinitialisation de mot de passe, car la connexion par mot de passe est désactivée. Connectez-vous via le fournisseur d'identité de votre organisation ou contactez votre administrateur Braze.
 {% endalert %}
 
 1. **Vérifiez votre adresse e-mail :** Demandez à un administrateur de vérifier que l'adresse e-mail de votre compte correspond dans **Settings** > **Company Users**. Le lien de réinitialisation est envoyé à l'adresse e-mail enregistrée dans le système.
@@ -154,7 +154,7 @@ Si vous rencontrez des problèmes de connexion à Braze Learning et vous retrouv
 
 1. Si vous avez plusieurs comptes Braze, vous connecter avec le mauvais compte deux fois vous redirige vers le tableau de bord de Braze. Confirmez que vous vous connectez au bon compte.
 2. Si vous avez un bloqueur de publicités, vérifiez qu'il est désactivé. Il peut bloquer les cookies nécessaires au fonctionnement de l'authentification unique.
-3. Accédez à **Settings** > **Company Settings** > **Admin Settings** > **Security Settings** et vérifiez que l'authentification unique (SSO) est activée.
+3. Accédez à **Settings** > **Company Settings** > **Admin Settings** > **Security Settings** et vérifiez que l'authentification unique (authentification unique) est activée.
 4. Confirmez que votre profil utilisateur du tableau de bord inclut à la fois un prénom et un nom de famille. L'absence de nom de famille peut perturber le processus de connexion.
 5. Accédez à Braze Learning depuis votre tableau de bord en allant dans **Support** > **Braze Learning**.
 6. Si vous continuez à rencontrer des problèmes, envisagez de recréer votre compte. Les utilisateurs qui ont accédé à Braze Learning pendant la phase d'essai gratuit peuvent avoir des difficultés à y accéder maintenant.

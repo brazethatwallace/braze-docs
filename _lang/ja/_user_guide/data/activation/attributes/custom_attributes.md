@@ -68,7 +68,7 @@ Brazeに保存すると、カスタム属性を使用してオーディエンス
 
 ### 個人を特定できる情報（PII）としてマークする {#mark-as-personally-identifiable-information-pii}
 
-管理者は、このページからカスタム属性を作成し、PIIとしてマークすることもできます。これらの属性は、管理者と「View Custom Attributes Marked as PII」権限を持つダッシュボードユーザーにのみ表示されます。
+管理者は、このページからカスタム属性を作成し、PIIとしてマークすることもできます。これらの属性は、管理者と「View カスタム属性 Marked as PII」権限を持つダッシュボードユーザーにのみ表示されます。
 
 ### 説明を追加する {#add-descriptions}
 

@@ -137,9 +137,9 @@ Wenn Sie Schlüsselwort-Trigger auswählen, schließen Sie Wörter wie „Stop�
 
 ![Nachrichtenschritt zum Senden einer eingehenden WhatsApp-Nachricht, bei der der Nachrichtentext „STOP“ oder „NO MESSAGE“ lautet.]({% image_buster /assets/img/whatsapp/whatsapp117.png %}){: style="max-width:85%;"}
 
-#### Schritt 2: Das Nutzerprofil aktualisieren {#step-2-update-the-users-profile}
+#### Schritt 2: Das Kundenprofil aktualisieren {#step-2-update-the-users-profile}
 
-Aktualisieren Sie das Nutzerprofil mit einer der in [Abo-Gruppen]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#update-subscription-status) beschriebenen Methoden.
+Aktualisieren Sie das Kundenprofil mit einer der in [Abo-Gruppen]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#update-subscription-status) beschriebenen Methoden.
 
 ### Marketing-Opt-out-Auswahl {#marketing-opt-out-selection}
 

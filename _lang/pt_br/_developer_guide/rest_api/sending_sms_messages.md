@@ -40,7 +40,7 @@ Para completar este guia, você precisa de:
 2. Selecione **Create Campaign** e depois selecione **API Campaigns**.
 3. Digite um nome e uma descrição para sua campanha, como "notificação de mensagem SMS".
 4. Adicione tags relevantes para identificação e rastreamento.
-5. Selecione **Add Messaging Channel** e depois selecione **SMS**.
+5. Selecione **Add canal de envio de mensagens** e depois selecione **SMS**.
 6. Anote o **Campaign ID** e o **Message Variation ID** exibidos na página da campanha. Você precisará de ambos os valores ao construir sua solicitação de API.
 
 ## Etapa 2: Enviar uma mensagem SMS usando a API {#step-2-send-an-sms-message-using-the-api}

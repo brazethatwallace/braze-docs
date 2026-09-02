@@ -398,9 +398,9 @@ Segment의 [이커머스 API](https://segment.com/docs/spec/ecommerce/v2/)에 �
 
 ### 5단계: 통합 테스트 {#step-5-test-your-integration}
 
-병렬(디바이스 모드) 통합을 사용할 때 [개요]({{site.baseurl}}/user_guide/analytics/dashboards/home) 측정기준(전체 세션, MAU, DAU, 사용자 고착도, 일일 세션 및 MAU당 일일 세션)을 사용하여 Braze가 Segment에서 데이터를 수신하고 있는지 확인할 수 있습니다.
+병렬(디바이스 모드) 통합을 사용할 때 [개요]({{site.baseurl}}/user_guide/analytics/dashboards/home) 측정기준(전체 세션, MAU, 일일 활성 사용자, 사용자 고착도, 일일 세션 및 MAU당 일일 세션)을 사용하여 Braze가 Segment에서 데이터를 수신하고 있는지 확인할 수 있습니다.
 
-[커스텀 이벤트]({{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/export_custom_event_data#custom-event-data) 또는 [매출]({{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/exporting_revenue_data#revenue-data) 페이지에서 데이터를 보거나 [Segment를 생성]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment#creating-a-segment)하여 데이터를 확인할 수 있습니다. 대시보드의 **커스텀 이벤트** 페이지에서 시간 경과에 따른 커스텀 이벤트 횟수를 확인할 수 있습니다. 서버 간(클라우드 모드) 통합을 사용할 때는 MAU 및 DAU 통계를 포함하는 [수식]({{site.baseurl}}/user_guide/data_and_analytics/creating_a_formula#creating-a-formula)을 사용할 수 없습니다.
+[커스텀 이벤트]({{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/export_custom_event_data#custom-event-data) 또는 [매출]({{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/exporting_revenue_data#revenue-data) 페이지에서 데이터를 보거나 [Segment를 생성]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment#creating-a-segment)하여 데이터를 확인할 수 있습니다. 대시보드의 **커스텀 이벤트** 페이지에서 시간 경과에 따른 커스텀 이벤트 횟수를 확인할 수 있습니다. 서버 간(클라우드 모드) 통합을 사용할 때는 MAU 및 일일 활성 사용자 통계를 포함하는 [수식]({{site.baseurl}}/user_guide/data_and_analytics/creating_a_formula#creating-a-formula)을 사용할 수 없습니다.
 
 구매 데이터를 Braze에 전송하는 경우([3단계](#methods)의 **Track** 탭에서 주문 완료 참조) [매출]({{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/exporting_revenue_data#revenue-data) 페이지에서 특정 기간의 매출 또는 구매 데이터나 앱의 전체 매출을 확인할 수 있습니다.
 

@@ -10,9 +10,9 @@ page_order: 2
 
 # Intégration standard de Shopify avec un outil de tags tiers {#shopify-standard-integration-with-third-party-tagging-tool}
 
-> Cette page vous guide dans l'utilisation d'outils tiers, comme Google Tag Manager, avec l'[intégration standard de Shopify]({{site.baseurl}}/shopify_standard_integration) pour initialiser et charger le SDK Web de Braze.
+> Cette page vous guide dans l'utilisation d'outils tiers, comme Google Tag gestionnaire, avec l'[intégration standard de Shopify]({{site.baseurl}}/shopify_standard_integration) pour initialiser et charger le SDK Web de Braze.
 
-Pour les boutiques en ligne Shopify, nous vous recommandons d'utiliser la méthode d'intégration standard de Braze pour prendre en charge les SDK de Braze sur votre site. Toutefois, nous comprenons que vous puissiez préférer utiliser un outil tiers, comme Google Tag Manager. Si vous choisissez d'utiliser un outil tiers avec le connecteur Shopify de Braze, gardez à l'esprit que l'intégration Braze et l'app embed géreront le SDK pendant le processus de paiement.
+Pour les boutiques en ligne Shopify, nous vous recommandons d'utiliser la méthode d'intégration standard de Braze pour prendre en charge les SDK de Braze sur votre site. Toutefois, nous comprenons que vous puissiez préférer utiliser un outil tiers, comme Google Tag gestionnaire. Si vous choisissez d'utiliser un outil tiers avec le connecteur Shopify de Braze, gardez à l'esprit que l'intégration Braze et l'app embed géreront le SDK pendant le processus de paiement.
 
 ## Conditions requises {#requirements}
 
@@ -34,7 +34,7 @@ Si vous ne suivez pas les étapes indiquées, vous risquez d'être confronté à
 3. Collez la clé API dans la configuration du SDK Web de votre outil tiers et définissez la version du SDK pour qu'elle corresponde à celle de l'intégration Shopify de Braze.
 
 {% alert note %}
-Si vous utilisez Google Tag Manager, veillez à ce que les versions du SDK soient alignées entre GTM et la configuration de votre intégration Shopify de Braze.
+Si vous utilisez Google Tag gestionnaire, veillez à ce que les versions du SDK soient alignées entre GTM et la configuration de votre intégration Shopify de Braze.
 {% endalert %}
 
 ## Capture des données Shopify et synchronisation des utilisateurs {#capturing-shopify-data-and-syncing-users}

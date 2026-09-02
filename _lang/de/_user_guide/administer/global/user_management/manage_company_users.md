@@ -29,7 +29,7 @@ Jede E-Mail-Adresse, die in einer [Instanz]({{site.baseurl}}/user_guide/administ
 
 Wenn Ihr Team Gmail verwendet und Probleme beim Hinzufügen einer E-Mail-Adresse auftreten, können Sie einen Alias erstellen, indem Sie ein Pluszeichen (+) wie „+1“ oder „+test“ an die E-Mail-Adresse anhängen. Beispielsweise kann `contractor@braze.com` den Alias `contractor+1@braze.com` haben. E-Mails an `contractor+1@braze.com` werden weiterhin an `contractor@braze.com` zugestellt, aber der Alias wird als eindeutige E-Mail-Adresse erkannt.
 
-Um ein Konto ohne Aliase über mehrere Firmen hinweg zu nutzen, lesen Sie [Multi-Firmen-Entwickler:innen verwenden]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account#use-multi-company-developers). Wenn Sie SSO verwenden, lesen Sie [Überlegungen zu Single Sign-on (SSO)]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account#considerations-for-single-sign-on-sso), bevor Sie sich mit mehreren E-Mail-Adressen registrieren.
+Um ein Konto ohne Aliase über mehrere Firmen hinweg zu nutzen, lesen Sie [Multi-Firmen-Entwickler:innen verwenden]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account#use-multi-company-developers). Wenn Sie Single Sign-on verwenden, lesen Sie [Überlegungen zu Single Sign-on (Single Sign-on)]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account#considerations-for-single-sign-on-sso), bevor Sie sich mit mehreren E-Mail-Adressen registrieren.
 
 ### Kann ich die E-Mail-Adresse meines Braze-Kontos ändern? {#can-i-change-my-braze-accounts-email-address}
 

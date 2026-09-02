@@ -61,7 +61,7 @@ Bevor Sie Ihre CSV-Datei hochladen, stellen Sie sicher, dass Ihre CSV-Datei die 
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
 {% alert note %}
-Benötigen Sie mehr Speicherplatz für Ihre CSV-Dateien? Wenden Sie sich an Ihren Braze Account Manager, um weitere Informationen über ein Upgrade Ihrer Kataloge zu erhalten.
+Benötigen Sie mehr Speicherplatz für Ihre CSV-Dateien? Wenden Sie sich an Ihren Braze Account Manager:in, um weitere Informationen über ein Upgrade Ihrer Kataloge zu erhalten.
 {% endalert %}
 
 ### Schritt 2: CSV hochladen {#step-2-upload-csv}
@@ -246,7 +246,7 @@ Wenn Sie beispielsweise einen einzelnen Katalogartikel bearbeiten möchten, kön
 Die kostenlose Version von Catalogs unterstützt CSV-Dateien mit einer Gesamtgröße von bis zu 500 MB für alle CSV-Dateien in Ihrem Unternehmen, während die Catalogs-Pro-Version CSV-Dateien mit einer Größe von bis zu 2 GB für eine einzelne CSV-Datei unterstützt.
 
 {% alert important %}
-Der im Braze-Dashboard angezeigte Paketanspruch wird aus optischen Gründen auf die nächste Einheit gerundet; Sie haben jedoch weiterhin Anspruch auf den vollen erworbenen Umfang. Um ein Upgrade für den Katalogspeicher anzufordern, wenden Sie sich an Ihren Braze Account Manager.
+Der im Braze-Dashboard angezeigte Paketanspruch wird aus optischen Gründen auf die nächste Einheit gerundet; Sie haben jedoch weiterhin Anspruch auf den vollen erworbenen Umfang. Um ein Upgrade für den Katalogspeicher anzufordern, wenden Sie sich an Ihren Braze Account Manager:in.
 {% endalert %}
 
 ### Kostenlose Version {#free-version}

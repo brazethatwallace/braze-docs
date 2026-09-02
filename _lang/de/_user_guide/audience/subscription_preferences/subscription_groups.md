@@ -62,18 +62,18 @@ Einige Kanäle haben zusätzliche Archivierungsregeln. Informationen zum Workspa
 
 ## Abo-Gruppen einer Nutzer:in prüfen {#check-a-users-subscription-groups}
 
-- **Nutzerprofil:** Öffnen Sie ein Profil über [Nutzersuche]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles). Auf dem Tab **Engagement** können Sie Abo-Gruppen und den Status für E-Mail, SMS, WhatsApp und verwandte Kanäle einsehen.
+- **Kundenprofil:** Öffnen Sie ein Profil über [Nutzersuche]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles). Auf dem Tab **Engagement** können Sie Abo-Gruppen und den Status für E-Mail, SMS, WhatsApp und verwandte Kanäle einsehen.
 - **REST API:** Verwenden Sie die Endpunkte [Abo-Gruppen einer Nutzer:in auflisten]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) oder [Abo-Gruppenstatus einer Nutzer:in auflisten]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status).
 
 ### Abo-Gruppenstatus aktualisieren {#update-subscription-group-status}
 
-Sie können die Abo-Gruppen-Mitgliedschaft einer Nutzer:in über die REST API, das SDK, Nutzerimport, das Nutzerprofil, das E-Mail-Präferenzzentrum, den User-Update-Schritt in einem Canvas und andere kanalspezifische Abläufe aktualisieren. Die verfügbaren Methoden hängen vom Kanal ab – siehe jeden [Kanalabschnitt](#channel-specific-behavior) und [SMS-, MMS- und RCS-Abo-Gruppen]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#set-a-users-state) für SMS-spezifische Hinweise zum Timing.
+Sie können die Abo-Gruppen-Mitgliedschaft einer Nutzer:in über die REST API, das SDK, Nutzerimport, das Kundenprofil, das E-Mail-Präferenzzentrum, den User-Update-Schritt in einem Canvas und andere kanalspezifische Abläufe aktualisieren. Die verfügbaren Methoden hängen vom Kanal ab – siehe jeden [Kanalabschnitt](#channel-specific-behavior) und [SMS-, MMS- und RCS-Abo-Gruppen]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#set-a-users-state) für SMS-spezifische Hinweise zum Timing.
 
 ## Präferenzzentren {#preference-centers}
 
 E-Mail-Abo-Gruppen können in einem [E-Mail-Präferenzzentrum]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center) angezeigt werden, damit Nutzer:innen ihre E-Mail-Opt-ins auf Kategorieebene an einem Ort verwalten können. Aktive E-Mail-Abo-Gruppen stehen zur Verfügung, wenn Sie ein Präferenzzentrum erstellen; ältere Präferenzzentren listen alle aktiven E-Mail-Gruppen automatisch auf.
 
-Für SMS und WhatsApp verwalten Sie den Abo-Status über die REST API, Opt-in-Abläufe, Schlüsselwörter (SMS), das Nutzerprofil und andere kanalspezifische Methoden in jedem [Kanalabschnitt](#channel-specific-behavior).
+Für SMS und WhatsApp verwalten Sie den Abo-Status über die REST API, Opt-in-Abläufe, Schlüsselwörter (SMS), das Kundenprofil und andere kanalspezifische Methoden in jedem [Kanalabschnitt](#channel-specific-behavior).
 
 ## Kanalspezifisches Verhalten {#channel-specific-behavior}
 

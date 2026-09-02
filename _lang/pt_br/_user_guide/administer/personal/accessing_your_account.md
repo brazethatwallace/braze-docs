@@ -62,7 +62,7 @@ O recurso de desenvolvedores multiempresa permite compartilhar uma única conta 
 
 Se você usa SSO e deseja configurar desenvolvedores multiempresa, é necessário ativar um ID de entidade SAML personalizado configurando uma integração SAML SSO personalizada. Siga as etapas em [Login iniciado pelo provedor de serviço (SP)]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup), mas aplique estas alterações:
 - Altere o **Entity ID** para `braze_dashboard_<companyID>` para cada integração de dashboard.
-- Entre em contato com seu gerente de sucesso do cliente ou gerente de conta para ativar o feature flipper `saml_sso_custom_entity_id` para cada dashboard.
+- Entre em contato com seu CSM ou gerente de conta para ativar o feature flipper `saml_sso_custom_entity_id` para cada dashboard.
 
 #### Autenticação de dois fatores (2FA) {#two-factor-authentication-2fa}
 
@@ -95,7 +95,7 @@ Se a sua empresa aplica [single sign-on (SSO)]({{site.baseurl}}/user_guide/admin
 1. **Verifique seu endereço de e-mail:** Peça a um administrador que confirme se o e-mail da sua conta corresponde ao registrado em **Configurações** > **Usuários da empresa**. O link de redefinição é enviado para o e-mail registrado no sistema.
 2. **Verifique as pastas de spam e lixo eletrônico:** Procure e-mails de `@alerts.braze.com` nas suas pastas de spam ou lixo eletrônico.
 3. **Verifique os filtros de e-mail da TI:** Confirme com sua equipe de TI que os e-mails de `@alerts.braze.com` não estão sendo bloqueados ou filtrados.
-4. **Confirme a instância correta do dashboard:** Certifique-se de que você está solicitando a redefinição na [instância correta do dashboard da Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). Verifique com o administrador da sua conta ou com o gerente de sucesso do cliente da Braze se tiver dúvidas.
+4. **Confirme a instância correta do dashboard:** Certifique-se de que você está solicitando a redefinição na [instância correta do dashboard da Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). Verifique com o administrador da sua conta ou com o CSM da Braze se tiver dúvidas.
 5. **Tente um navegador diferente:** Algumas extensões ou configurações do navegador podem interferir no processo de redefinição de senha. Tente usar um navegador diferente ou uma janela anônima.
 
 Os links de redefinição de senha expiram duas horas após o envio do e-mail. Se o seu link expirou, solicite uma nova redefinição na página de login.
@@ -195,7 +195,7 @@ Você pode identificar o tipo de bloqueio pela mensagem de erro que recebe:
 #### Erro de senha {#password-error}
 
 A segurança da sua conta é importante para nós, e por isso senhas são necessárias para fazer login na sua conta Braze.
-- Verifique se você está fazendo login na [instância correta do dashboard da Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). Consulte o administrador da sua conta ou o gerente de sucesso do cliente da Braze para ter certeza.
+- Verifique se você está fazendo login na [instância correta do dashboard da Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). Consulte o administrador da sua conta ou o CSM da Braze para ter certeza.
 - Sua senha pode ter expirado, então você precisa [redefini-la](#resetting-your-password).
 - Se você usa um serviço de [single sign-on]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup), verifique com o administrador da sua conta se a configuração foi concluída corretamente.
 - Se a sua empresa está em várias instâncias da Braze, pode ser que você esteja usando o e-mail incorreto para fazer login.
@@ -206,7 +206,7 @@ Em caso de dúvida, você sempre pode [redefinir sua senha](#resetting-your-pass
 
 Se você está usando a mesma máquina que normalmente usa para fazer login, a Braze deve detectar automaticamente a instância correta. No entanto, se isso não acontecer ou se você está fazendo login pela primeira vez, considere o seguinte:
 
-- Verifique se você está fazendo login na [instância correta do dashboard da Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). Consulte o administrador da sua conta ou o gerente de sucesso do cliente da Braze para ter certeza.
+- Verifique se você está fazendo login na [instância correta do dashboard da Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). Consulte o administrador da sua conta ou o CSM da Braze para ter certeza.
 - Se a sua empresa está em várias instâncias da Braze, pode ser que você esteja usando o e-mail incorreto para fazer login.
 
 #### Suspensão da conta {#account-suspension}
@@ -220,7 +220,7 @@ Isso não acontece com frequência, mas a Braze leva a suspensão e exclusão de
 | Preocupações de segurança | Atividade suspeita pode ter acionado uma suspensão automática por motivos de segurança. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Motivo para suspensão da conta" }
 
-Para resolver esse problema, entre em contato com o administrador da Braze da sua empresa, o gerente de sucesso do cliente da Braze ou o [Suporte]({{site.baseurl}}/support_contact).
+Para resolver esse problema, entre em contato com o administrador da Braze da sua empresa, o CSM da Braze ou o [Suporte]({{site.baseurl}}/support_contact).
 
 ### O dashboard da Braze não carrega ou não funciona como esperado {#braze-dashboard-wont-load-or-work-as-expected}
 

@@ -64,12 +64,12 @@ Os clientes precisarão criar uma fonte de dados que pode ser um CSV, importaç�
 
 {% tabs local %}
 {% tab CSV Data Source %}
-- **Fonte de dados CSV**: Cada linha deve ter pelo menos uma coluna de segmento e uma coluna de conteúdo. Depois que seu CSV for enviado, selecione quais colunas devem ser usadas para direcionar o conteúdo. [Exemplo de arquivo CSV]({% image_buster /assets/download_file/movable_ink_CSV.csv %})
+- **Fonte de dados CSV**: Cada linha deve ter pelo menos uma coluna de Segment e uma coluna de conteúdo. Depois que seu CSV for enviado, selecione quais colunas devem ser usadas para direcionar o conteúdo. [Exemplo de arquivo CSV]({% image_buster /assets/download_file/movable_ink_CSV.csv %})
 
 ![Os campos que aparecerão ao selecionar "CSV" como sua fonte de dados.]({% image_buster /assets/img/movable_ink/movable_ink2.png %})
 {% endtab %}
 {% tab Website Data Source %}
-- **Fonte de dados do site**: Cada linha deve ter pelo menos uma coluna de segmento e uma coluna de conteúdo. Após o upload do seu CSV, selecione quais colunas devem ser usadas para direcionamento do conteúdo.
+- **Fonte de dados do site**: Cada linha deve ter pelo menos uma coluna de Segment e uma coluna de conteúdo. Após o upload do seu CSV, selecione quais colunas devem ser usadas para direcionamento do conteúdo.
   - Nesse processo, você precisará mapear:
     - Quais campos serão usados como segmentos
     - Quais campos você deseja como campos de dados que podem ser personalizados dinamicamente na criação (por exemplo: atributos do usuário ou atributos personalizados como nome, sobrenome, cidade, etc.)
@@ -140,7 +140,7 @@ Para fazer isso, use a sintaxe a seguir, substituindo a URL da imagem conforme n
 {% endraw %}
 Esse modelo pega o horário atual (em segundos), anexa-o ao fim da guia da imagem da Movable Ink (como parâmetro de consulta) e depois calcula o resultado final. Você pode visualizá-lo com a guia **Test**&#8212;isso avaliará o código e mostrará uma prévia.
 
-**3.** Por fim, reavalie a inscrição no segmento. Para fazer isso, ative a opção `Re-evaluate audience membership and liquid at send-time` localizada na etapa **Target Audiences** de uma Campaign. Se esta opção não estiver disponível, entre em contato com seu gerente de sucesso do cliente ou suporte da Braze. Esta opção instruirá os SDKs da Braze a solicitar novamente a Campaign, fornecendo uma URL única cada vez que uma mensagem no app for acionada.
+**3.** Por fim, reavalie a inscrição no Segment. Para fazer isso, ative a opção `Re-evaluate audience membership and liquid at send-time` localizada na etapa **Target Audiences** de uma Campaign. Se esta opção não estiver disponível, entre em contato com seu CSM ou suporte da Braze. Esta opção instruirá os SDKs da Braze a solicitar novamente a Campaign, fornecendo uma URL única cada vez que uma mensagem no app for acionada.
 
 {% endtab %}
 {% tab Content Card %}

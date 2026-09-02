@@ -20,7 +20,7 @@ La entrega generalmente sigue tres etapas: **procesamiento** de Braze (segmentac
 
 Cuando un usuario cierra sesión en un dispositivo o sitio web, seguirá siendo alcanzable por push hasta que otro usuario inicie sesión. En ese momento, el token de notificaciones push se reasigna al nuevo usuario. Esto se debe a que cada dispositivo solo puede tener una suscripción push activa por aplicación o sitio web.
 
-Cuando se reasigna un token de notificaciones push, el cambio se refleja en el **Push Changelog** del perfil de usuario. En el perfil de usuario, ve a la pestaña **Engagement**.
+Cuando se reasigna un token de notificaciones push, el cambio se refleja en el **Push Registro de cambios** del perfil de usuario. En el perfil de usuario, ve a la pestaña **Engagement**.
 
 ![El "Push Changelog" en la sección "Contact Settings".]({% image_buster /assets/img/push_changelog_faq.png %}){: style="max-width:50%;"}
 
@@ -40,7 +40,7 @@ Para más detalles y próximos pasos, consulta [Mensajes de error push comunes](
 
 Esto puede ocurrir si el token de notificaciones push del usuario fue reasignado a otra persona que usó el mismo dispositivo.
 
-1. Ve al **Push Changelog** en la pestaña **Engagement** del perfil del usuario afectado.
+1. Ve al **Push Registro de cambios** en la pestaña **Engagement** del perfil del usuario afectado.
 2. Busca un mensaje que indique que el token de notificaciones push fue trasladado a otro usuario.
 3. Copia el token de notificaciones push y pégalo en la barra de búsqueda de usuarios.
 4. Si el token de notificaciones push aún existe, serás dirigido al usuario que inició sesión más recientemente en el dispositivo.

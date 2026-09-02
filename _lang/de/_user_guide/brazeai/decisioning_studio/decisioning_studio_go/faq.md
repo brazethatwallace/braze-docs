@@ -22,7 +22,7 @@ A/B-Tests ermitteln die Variante, die im Durchschnitt über eine gesamte Zielgru
 
 Go ist die Self-Service-Stufe. Es ist der richtige Einstiegspunkt für Marketer, die Eins-zu-eins-E-Mail-Personalisierung ohne großen Implementierungsaufwand wünschen. Es optimiert auf Klicks und arbeitet mit Optionen, die Sie direkt in Braze konfigurieren.
 
-Pro ist die Full-Service-Stufe. Es optimiert für jede beliebige Geschäftsmetrik, verbindet sich mit jeder First-Party-Datenquelle, unterstützt mehrere Kanäle und wird von einem dedizierten Support durch das Braze AI Decisioning Services-Team begleitet.
+Pro ist die Full-Service-Stufe. Es optimiert für jede beliebige Geschäftsmetrik, verbindet sich mit jeder First-Party-Datenquelle, unterstützt mehrere Kanäle und wird von einem dedizierten Support durch das Braze KI Decisioning Services-Team begleitet.
 
 ### Welche Art von KI ist das? Ist sie generativ? {#what-kind-of-ai-is-this-is-it-generative}
 
@@ -72,7 +72,7 @@ Sie wählen eine einzelne Frequenz, z. B. drei Versendungen pro Woche. Der Agent
 
 ### Wie funktioniert Frequency-Capping? {#how-do-frequency-caps-work}
 
-Während der Einrichtung können Sie die Frequency-Capping-Regeln Ihres Workspace auf den Agent anwenden und festlegen, ob die Versendungen des Agents auf das globale Frequency-Cap jede:r Nutzer:in angerechnet werden. Ihr Customer-Success-Manager oder Solutions Consultant kann Ihnen helfen, den richtigen Ansatz für Ihr Programm zu bestimmen, basierend darauf, wie Frequency-Caps in Ihrem Workspace konfiguriert sind.
+Während der Einrichtung können Sie die Frequency-Capping-Regeln Ihres Workspace auf den Agent anwenden und festlegen, ob die Versendungen des Agents auf das globale Frequency-Cap jede:r Nutzer:in angerechnet werden. Ihr CSM oder Solutions Consultant kann Ihnen helfen, den richtigen Ansatz für Ihr Programm zu bestimmen, basierend darauf, wie Frequency-Caps in Ihrem Workspace konfiguriert sind.
 
 ### Kann der Agent über mehrere Kanäle hinweg senden? {#can-the-agent-send-across-multiple-channels}
 
@@ -118,4 +118,4 @@ Sie. Der Agent versendet ausschließlich Inhalte, die Sie als Variante hinzugef�
 
 ### Wo erhalte ich Hilfe zu meinem Agent? {#where-do-i-get-help-with-my-agent}
 
-Wenden Sie sich an Ihren Braze Customer-Success-Manager oder Solutions Consultant, um Unterstützung bei der Konfiguration, der Performance-Überprüfung oder dem Programmdesign zu erhalten.
+Wenden Sie sich an Ihren Braze CSM oder Solutions Consultant, um Unterstützung bei der Konfiguration, der Performance-Überprüfung oder dem Programmdesign zu erhalten.

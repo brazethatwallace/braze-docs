@@ -160,7 +160,7 @@ Symptom: Ein `403 Forbidden`-Fehler beim Herunterladen von der `/users/export/se
 
 Wenn Sie beim Verwenden des [`/users/export/segment`-Endpunkts]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) einen `403 Forbidden`-Fehler erhalten, ist die Datei möglicherweise noch nicht bereit. Große Exporte können eine Weile dauern. Warten Sie bis zu einer Stunde, bevor Sie den Download erneut versuchen.
 
-Wenn Sie ein automatisiertes Skript zum Abrufen der Datei verwenden, erhalten Sie möglicherweise ebenfalls einen `403 Forbidden`-Fehler, wenn Sie die URL zu früh anfordern. Falls Sie regelmäßig Segmentdaten exportieren, sollten Sie Ihre eigene S3-Bucket-Integration anbinden und die Dateien in Ihre eigene ETL-Pipeline (Extract, Transform, Load) einspeisen.
+Wenn Sie ein automatisiertes Skript zum Abrufen der Datei verwenden, erhalten Sie möglicherweise ebenfalls einen `403 Forbidden`-Fehler, wenn Sie die URL zu früh anfordern. Falls Sie regelmäßig Segmentdaten exportieren, sollten Sie Ihre eigene S3-Bucket-Integration anbinden und die Dateien in Ihre eigene ETL-Pipeline (ETL) einspeisen.
 
 Exporte benötigen Zeit, daher schlägt ein sofortiger Zugriff über ein Skript häufig fehl. Sie können:
 
@@ -176,7 +176,7 @@ Symptom: Bei einem API- oder Dashboard-Export fehlen Felder, die Sie erwartet ha
 
 Der Dashboard-Export **CSV Export User Data** aus einem Segment verwendet einen festen Spaltensatz (siehe [Segmentdaten als CSV exportieren]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#data-included-in-export)). Er enthält weder eine `fields_to_export`-Spalte noch einen entsprechenden Parameter.
 
-Für API-Segment-Exporte müssen Sie `fields_to_export` im Anfrage-Body übergeben. Einige Felder ziehen automatisch zugehörige Daten mit ein – wenn Sie beispielsweise `canvases_received` anfordern, werden auch Journey-Zusammenfassungsdaten im Nutzerprofil benötigt. In der Endpunkt-Referenz unter [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) finden Sie gültige Feldnamen und Anforderungen.
+Für API-Segment-Exporte müssen Sie `fields_to_export` im Anfrage-Body übergeben. Einige Felder ziehen automatisch zugehörige Daten mit ein – wenn Sie beispielsweise `canvases_received` anfordern, werden auch Journey-Zusammenfassungsdaten im Kundenprofil benötigt. In der Endpunkt-Referenz unter [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) finden Sie gültige Feldnamen und Anforderungen.
 
 Falls in einem API-Export-ZIP Spalten fehlen, prüfen Sie, ob das `fields_to_export`-Array in Ihrer Anfrage jedes benötigte Feld enthält und ob Ihr Workspace über die erforderlichen Exportberechtigungen verfügt.
 

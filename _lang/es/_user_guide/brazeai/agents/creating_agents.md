@@ -60,7 +60,7 @@ A continuación, configura los detalles de tu agente:
 2. (opcional) Añade etiquetas para filtrar tu agente.
 3. Elige el [modelo]({{site.baseurl}}/user_guide/brazeai/agents/reference#models) que usará tu agente.
 4. Si no estás usando el modelo **Braze Auto**, selecciona el [nivel de razonamiento]({{site.baseurl}}/user_guide/brazeai/agents/reference#thinking-levels) del modelo. Puedes elegir entre mínimo, bajo, medio o alto. Recomendamos empezar con **Minimal** y probar las respuestas de tu agente, ajustando según sea necesario.
-5. Establece un límite diario de invocaciones. De forma predeterminada, este valor está configurado en 250 000, pero puede aumentarse hasta 1 000 000. Si te interesa aumentar el límite por encima de 1 000 000, contacta a tu administrador de éxito de cliente para obtener más información. Establece el límite lo suficientemente alto para el tamaño de audiencia planificado después de las pruebas. Un límite demasiado bajo provoca fallos por límite diario (que no consumen créditos pero sí aplican valores alternativos o dejan la salida como `null`).
+5. Establece un límite diario de invocaciones. De forma predeterminada, este valor está configurado en 250 000, pero puede aumentarse hasta 1 000 000. Si te interesa aumentar el límite por encima de 1 000 000, contacta a tu CSM para obtener más información. Establece el límite lo suficientemente alto para el tamaño de audiencia planificado después de las pruebas. Un límite demasiado bajo provoca fallos por límite diario (que no consumen créditos pero sí aplican valores alternativos o dejan la salida como `null`).
 
 El campo **Daily action credit cost limit** especifica el número máximo de créditos que este agente puede consumir por día. Braze lo calcula a partir de la proporción de créditos por invocación de tu espacio de trabajo para el modelo seleccionado (según tu contrato, que se muestra en la página [Credit Ratios]({{site.baseurl}}/user_guide/administer/global/billing/credits_usage)) multiplicada por el límite diario de invocaciones. La estimación se actualiza cuando cambias el modelo o el límite de invocaciones.
 
@@ -130,7 +130,7 @@ Para conocer el comportamiento en tiempo de ejecución, consulta [Manejo de erro
 
 ### Paso 6: Prueba el agente {#step-6-test-the-agent}
 
-El panel **Preview** es una instancia del agente que aparece como un panel lateral dentro de la experiencia de configuración. Puedes usar esta sección para probar el agente mientras lo creas o realizas actualizaciones, experimentándolo de forma similar a los usuarios finales. Este paso te ayuda a confirmar que se comporta como esperas y te da la oportunidad de ajustarlo antes de que entre en vivo.
+El panel **vista previa** es una instancia del agente que aparece como un panel lateral dentro de la experiencia de configuración. Puedes usar esta sección para probar el agente mientras lo creas o realizas actualizaciones, experimentándolo de forma similar a los usuarios finales. Este paso te ayuda a confirmar que se comporta como esperas y te da la oportunidad de ajustarlo antes de que entre en vivo.
 
 1. En el campo **Test your agent**, introduce datos de ejemplo del cliente o respuestas del cliente, cualquier cosa que refleje escenarios reales que tu agente manejará.
 2. Previsualiza la respuesta del agente para un usuario aleatorio, un usuario existente o un usuario personalizado.

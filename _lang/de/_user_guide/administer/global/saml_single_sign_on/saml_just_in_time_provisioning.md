@@ -8,7 +8,7 @@ description: "Dieser Artikel erklärt, wie Sie die SAML Just-in-Time-Bereitstell
 
 # SAML Just-in-Time-Bereitstellung {#saml-just-in-time-provisioning}
 
-> Die Just-in-Time-Bereitstellung funktioniert mit [SAML SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup) und ermöglicht es neuen Unternehmensnutzer:innen, bei ihrer ersten Anmeldung automatisch ein Braze-Konto zu erstellen. Dadurch entfällt für Administrator:innen die Notwendigkeit, manuell ein Konto für neue Unternehmensnutzer:innen anzulegen, Berechtigungen auszuwählen, sie einem Workspace zuzuweisen und auf die Aktivierung des Kontos zu warten.
+> Die Just-in-Time-Bereitstellung funktioniert mit [SAML Single Sign-on]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup) und ermöglicht es neuen Unternehmensnutzer:innen, bei ihrer ersten Anmeldung automatisch ein Braze-Konto zu erstellen. Dadurch entfällt für Administrator:innen die Notwendigkeit, manuell ein Konto für neue Unternehmensnutzer:innen anzulegen, Berechtigungen auszuwählen, sie einem Workspace zuzuweisen und auf die Aktivierung des Kontos zu warten.
 
 Als Sicherheitsmaßnahme funktioniert die SAML Just-in-Time-Bereitstellung (JITP) nur für Nutzer:innen mit E-Mail-Domains, die bereits in Ihrem Unternehmen vorhanden sind. JITP ist nur für Domains möglich, in denen es bereits mindestens eine:n bestätigte:n Entwickler:in ohne Identitätswechsel im Unternehmen gibt.
 
@@ -18,18 +18,18 @@ Um eine Ausnahme für ein Unternehmen zu beantragen, kontaktieren Sie den [Suppo
 
 ## Voraussetzungen {#prerequisites}
 
-SAML JITP erfordert, dass SAML SSO eingerichtet und integriert ist. Es ist nicht mit Google SSO kompatibel und wird nur für Identity-Provider-initiierte (IdP-initiierte) Anmeldeworkflows unterstützt.
+SAML JITP erfordert, dass SAML Single Sign-on eingerichtet und integriert ist. Es ist nicht mit Google Single Sign-on kompatibel und wird nur für Identity-Provider-initiierte (IdP-initiierte) Anmeldeworkflows unterstützt.
 
 | Anforderung | Details |
 |---|---|
-| SAML SSO | Konfiguriert und getestet, bevor JITP aktiviert wird. Siehe [SAML SSO einrichten]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup). |
+| SAML Single Sign-on | Konfiguriert und getestet, bevor JITP aktiviert wird. Siehe [SAML Single Sign-on einrichten]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup). |
 | IdP-initiierte Anmeldung | Nutzer:innen müssen sich bei der ersten Anmeldung über Ihr IdP-Portal anmelden. Eine ausschließlich SP-initiierte Anmeldung erstellt keine neuen Nutzer:innen. |
 | E-Mail-Domain | Die E-Mail-Domain der Nutzer:innen muss bereits in Ihrem Unternehmen vorhanden sein (mindestens eine bestätigte Entwickler:in ohne Identitätswechsel mit dieser Domain). |
 | Unternehmensfreischaltung | Braze muss das Feature `saml_jit_provisioning` für Ihr Unternehmen aktivieren, bevor der Umschalter **Automatic user provisioning** angezeigt wird. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="JITP-Voraussetzungen" }
 
 {% alert important %}
-SAML Just-in-Time-Provisioning muss von Braze für Ihr Unternehmen aktiviert werden. Wenden Sie sich an Ihren Account Manager oder den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support), wenn der Umschalter **Automatic user provisioning** nicht verfügbar ist.
+SAML Just-in-Time-Provisioning muss von Braze für Ihr Unternehmen aktiviert werden. Wenden Sie sich an Ihren Account Manager:in oder den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support), wenn der Umschalter **Automatic user provisioning** nicht verfügbar ist.
 {% endalert %}
 
 ## Funktionsweise von JITP {#how-jitp-works}
@@ -48,7 +48,7 @@ JITP aktualisiert keine Berechtigungen für bestehende Nutzer:innen. Es erstellt
 Lassen Sie eine:n Braze-Administrator:in die folgenden Schritte ausführen:
 
 1. Navigieren Sie zu **Einstellungen** > **Unternehmenseinstellungen** > **Administratoreinstellungen** > **Sicherheitseinstellungen**.
-2. Schalten Sie im Abschnitt **SAML SSO** die Option **Automatische Nutzer:innenbereitstellung** ein.
+2. Schalten Sie im Abschnitt **SAML Single Sign-on** die Option **Automatische Nutzer:innenbereitstellung** ein.
 3. Wählen Sie einen Standard-Workspace aus, dem neue Unternehmensnutzer:innen hinzugefügt werden sollen.
 4. Wählen Sie das Standard-Berechtigungsset aus, das diesen neuen Unternehmensnutzer:innen zugewiesen werden soll. Informationen zum Erstellen eines Berechtigungssets finden Sie unter [Nutzer:innenberechtigungen festlegen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 
@@ -58,7 +58,7 @@ Wenn Ihr Unternehmen granulare Berechtigungen verwendet, überprüfen Sie das St
 
 {: start="5"}
 5. Wählen Sie **Änderungen speichern**.
-6. Fügen Sie in den Einstellungen Ihres SSO-Anbieters alle Nutzer:innen, die Braze-Zugriff benötigen, zum Verzeichnis Ihres SSO-Anbieters hinzu.
+6. Fügen Sie in den Einstellungen Ihres Single Sign-on-Anbieters alle Nutzer:innen, die Braze-Zugriff benötigen, zum Verzeichnis Ihres Single Sign-on-Anbieters hinzu.
 7. Weisen Sie die Nutzer:innen an, für ihre erste Anmeldung über Ihr IdP-Portal auf Braze zuzugreifen. Danach wird der SAML-Single-Sign-on-Button für zukünftige Anmeldungen angezeigt.
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
@@ -77,7 +77,7 @@ Nein. JITP wird nur bei IdP-initiierter Anmeldung ausgeführt, wenn Nutzer:innen
 
 ## Fehlerbehebung {#troubleshooting}
 
-### Nutzer:in wurde bei der ersten SSO-Anmeldung nicht bereitgestellt {#user-was-not-provisioned-on-first-sso-sign-in}
+### Nutzer:in wurde bei der ersten Single Sign-on-Anmeldung nicht bereitgestellt {#user-was-not-provisioned-on-first-sso-sign-in}
 
 Überprüfen Sie Folgendes:
 
@@ -88,4 +88,4 @@ Nein. JITP wird nur bei IdP-initiierter Anmeldung ausgeführt, wenn Nutzer:innen
 
 ### Single-Sign-on-Button wird bei Microsoft Entra ID nicht angezeigt {#single-sign-on-button-doesnt-appear-with-microsoft-entra-id}
 
-Das Feld **Sign-On URL** im Formular **Basic SAML Configuration** von Microsoft Entra für Braze kann dazu führen, dass Nutzer:innen bei einer IdP-initiierten Anmeldung nur eine Passwort-Option sehen und keinen SSO-Button. Um dieses Problem zu vermeiden, lassen Sie das Feld **Sign-On URL** leer, wenn Sie Braze in Ihrem Microsoft Entra Admin Center konfigurieren.
+Das Feld **Sign-On URL** im Formular **Basic SAML Configuration** von Microsoft Entra für Braze kann dazu führen, dass Nutzer:innen bei einer IdP-initiierten Anmeldung nur eine Passwort-Option sehen und keinen Single Sign-on-Button. Um dieses Problem zu vermeiden, lassen Sie das Feld **Sign-On URL** leer, wenn Sie Braze in Ihrem Microsoft Entra Admin Center konfigurieren.

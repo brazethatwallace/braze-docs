@@ -15,9 +15,9 @@ description: "BrazeAI Operator의 예시 프롬프트를 목적별로 정리하�
 {% sdktabs local %}
 {% sdktab 데이터 분석 %}
 
-{% include copy_block.html content="Summarize the key trends for MAU, DAU, and New Users in this date range and what to do next." available="Home page" %}
+{% include copy_block.html content="Summarize the key trends for MAU, 일일 활성 사용자, and New Users in this date range and what to do next." available="Home page" %}
 
-{% include copy_block.html content="Show the MAU, DAU, and New Users trends for the last 90 days—where are the biggest dips and spikes?" available="Home page" %}
+{% include copy_block.html content="Show the MAU, 일일 활성 사용자, and New Users trends for the last 90 days—where are the biggest dips and spikes?" available="Home page" %}
 
 {% include copy_block.html content="Break down sessions by app (if available) and highlight which app is driving the most growth this month." available="Home page" %}
 

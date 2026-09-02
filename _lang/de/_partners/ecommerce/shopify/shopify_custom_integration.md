@@ -146,7 +146,7 @@ Content-Security-Policies (in der Regel in der Hydrogen-Datei `entry.server.jsx`
 Verfolgen Sie, wann sich eine Käuferin oder ein Käufer in ihr bzw. sein Konto einloggt und die Nutzerinformationen mit Braze synchronisiert werden. Dazu gehört der Aufruf unserer `changeUser`-Methode, um Kund:innen mit einer externen Braze-ID zu identifizieren.
 
 {% alert note %}
-Derzeit gibt es keine Anleitung zur Unterstützung einer benutzerdefinierten externen Braze-ID. Falls Sie dies für Ihre Integration benötigen, wenden Sie sich an Ihren Customer-Success-Manager.
+Derzeit gibt es keine Anleitung zur Unterstützung einer benutzerdefinierten externen Braze-ID. Falls Sie dies für Ihre Integration benötigen, wenden Sie sich an Ihren CSM.
 {% endalert %}
 
 Stellen Sie vor dem Start sicher, dass Sie die Callback-URIs für die Kundenanmeldung eingerichtet haben, damit sie innerhalb von Hydrogen funktionieren. Weitere Informationen finden Sie unter [Using the Customer Account API with Hydrogen](https://shopify.dev/docs/storefronts/headless/building-with-the-customer-account-api/hydrogen).

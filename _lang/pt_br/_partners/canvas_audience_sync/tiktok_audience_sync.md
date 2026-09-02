@@ -120,7 +120,7 @@ A tabela a seguir inclui métricas e descrições para ajudar você a entender m
 | Métrica | Descrição |
 | ------ | ----------- |
 | Entered | Número de usuários que entraram neste componente para serem sincronizados com o TikTok. |
-| Proceeded to Next Step | Número de usuários que avançaram para o próximo componente, se houver. Todos os usuários avançarão automaticamente se esta for a última etapa na ramificação do Canvas. |
+| Proceeded to Next Step | Número de usuários que avançaram para o próximo componente, se houver. Todos os usuários avançarão automaticamente se esta for a última etapa na Branch do Canvas. |
 | Users Synced | Número de usuários que foram sincronizados com sucesso com o TikTok. Observe que isso não equivale a usuários correspondidos no TikTok. |
 | Users Not Synced | Número de usuários que não foram sincronizados devido à falta de campos para correspondência. |
 | Users Pending | Número de usuários que estão sendo processados pela Braze para sincronização com o TikTok. |

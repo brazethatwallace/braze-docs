@@ -11,7 +11,7 @@ search_tag: Partner
 
 # Tealium
 
-> [Tealium](https://tealium.com/) es un centro de datos universal y una plataforma de datos de los clientes compuesta por EventStream, AudienceStream e iQ Tag Management que te permite conectar datos móviles, web y alternativos de fuentes de terceros. La conexión de Tealium con Braze permite un flujo de datos de eventos personalizados, atributos de usuario y compras que te permiten actuar sobre tus datos en tiempo real.
+> [Tealium](https://tealium.com/) es un centro de datos universal y una CDP compuesta por EventStream, AudienceStream e iQ Tag Management que te permite conectar datos móviles, web y alternativos de fuentes de terceros. La conexión de Tealium con Braze permite un flujo de datos de eventos personalizados, atributos de usuario y compras que te permiten actuar sobre tus datos en tiempo real.
 
 ![Un gráfico resumen de Tealium que muestra cómo encajan los distintos productos de Tealium y la plataforma Braze para activar campañas multicanal en tiempo real.]({% image_buster /assets/img/tealium/tealium_overview.png %}){: style="border:0;"}
 
@@ -42,7 +42,7 @@ Para saber más sobre los pros y los contras de cada método, consulta la siguie
 {% endtabs %}
 
 {% alert important %}
-Tealium ofrece acciones de conector por lotes y no por lotes. El conector no por lotes debe utilizarse cuando las solicitudes en tiempo real sean importantes para el caso de uso y no haya preocupación por alcanzar las especificaciones del límite de velocidad de la API de Braze. Ponte en contacto con soporte de Braze o con tu administrador de éxito de cliente si tienes alguna pregunta.<br><br>
+Tealium ofrece acciones de conector por lotes y no por lotes. El conector no por lotes debe utilizarse cuando las solicitudes en tiempo real sean importantes para el caso de uso y no haya preocupación por alcanzar las especificaciones del límite de velocidad de la API de Braze. Ponte en contacto con soporte de Braze o con tu CSM si tienes alguna pregunta.<br><br>
 
 En el caso de los conectores por lotes, las solicitudes se ponen en cola hasta que se alcanza uno de los siguientes umbrales:<br><br>
 - Número máximo de solicitudes: 75

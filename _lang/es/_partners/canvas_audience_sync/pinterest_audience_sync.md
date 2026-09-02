@@ -135,7 +135,7 @@ Recuerda que habrá un retraso en los informes de las métricas de usuarios sinc
 
 ### ¿Cuánto tiempo tardará en llenarse mi audiencia en Pinterest? {#how-long-will-it-take-for-my-audiences-to-populate-in-pinterest}
 
-El tamaño de la audiencia se actualizará en un plazo de 24 a 48 horas en la página **Audiences** en el Ads Manager de Pinterest.
+El tamaño de la audiencia se actualizará en un plazo de 24 a 48 horas en la página **Audiences** en el Ads Administrador de Pinterest.
 
 ### ¿Cómo sé si los usuarios coincidieron después de pasarlos a Pinterest? {#how-do-i-know-if-users-have-matched-after-passing-users-to-pinterest}
 

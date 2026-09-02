@@ -20,7 +20,7 @@ La disponibilité de WhatsApp dépend de votre forfait Braze. Contactez votre ge
 
 Avant de commencer, assurez-vous de disposer des éléments suivants :
 
-- Un compte Meta Business Manager et un compte WhatsApp Business
+- Un compte Meta Business gestionnaire et un compte WhatsApp Business
 - Un numéro de téléphone WhatsApp qui répond aux exigences de l'[API Cloud](https://developers.facebook.com/docs/whatsapp/cloud-api/phone-numbers)
 
 Pour un guide complet, consultez la [configuration de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup).
@@ -40,7 +40,7 @@ Pour un guide complet, consultez la [configuration de WhatsApp]({{site.baseurl}}
 
 ### Comment connecter WhatsApp à Braze ? {#how-do-i-connect-whatsapp-to-braze}
 
-Créez un compte Meta Business Manager et un compte WhatsApp Business, puis suivez les étapes décrites dans la [configuration de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup).
+Créez un compte Meta Business gestionnaire et un compte WhatsApp Business, puis suivez les étapes décrites dans la [configuration de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup).
 
 ### Quels types de messages puis-je envoyer sur WhatsApp ? {#what-message-types-can-i-send-on-whatsapp}
 

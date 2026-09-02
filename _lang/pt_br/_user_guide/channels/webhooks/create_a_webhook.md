@@ -181,7 +181,7 @@ Nessa etapa, você também pode especificar controles de entrega, como permitir 
 
 ### Escolha os usuários a serem direcionados {#choose-users-to-target}
 
-Em seguida, você deve [direcionar os usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) escolhendo segmentos ou filtros para refinar seu público. Nessa etapa, você seleciona o público mais amplo dos seus segmentos e, se desejar, refina ainda mais esse segmento com nossos filtros. Você recebe automaticamente uma prévia de como é a população aproximada desse segmento. Lembre-se de que a contagem exata de membros do segmento é sempre calculada antes do envio da mensagem.
+Em seguida, você deve [direcionar os usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) escolhendo segmentos ou filtros para refinar seu público. Nessa etapa, você seleciona o público mais amplo dos seus segmentos e, se desejar, refina ainda mais esse Segment com nossos filtros. Você recebe automaticamente uma prévia de como é a população aproximada desse Segment. Lembre-se de que a contagem exata de membros do Segment é sempre calculada antes do envio da mensagem.
 
 {% multi_lang_include audience/target_audiences.md %}
 

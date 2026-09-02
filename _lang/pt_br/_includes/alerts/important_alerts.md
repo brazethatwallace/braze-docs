@@ -61,7 +61,7 @@ O evento de compra legado está entrando em modo de manutenção. Clientes exist
 {% if include.alert == 'Purchase event deprecation for eCommerce filters' %}
 
 {% alert important %}
-O evento de compra legado entrará em estado de descontinuação (modo de manutenção). Os eventos de compra continuarão funcionando como esperado, mas nenhuma nova funcionalidade será desenvolvida sobre eles, em favor dos [eventos recomendados de eCommerce]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events). Quando isso acontecer, os filtros de segmento não serão mais preenchidos sob o comportamento de compra.<br><br> Se você está usando eventos de compra atualmente, receberá um aviso prévio sobre os planos de descontinuação. Por enquanto, você pode continuar usando eventos de compra até a data oficial de descontinuação. Para saber mais, consulte a [visão geral de eventos recomendados]({{site.baseurl}}/user_guide/data/activation/events/recommended_events).
+O evento de compra legado entrará em estado de descontinuação (modo de manutenção). Os eventos de compra continuarão funcionando como esperado, mas nenhuma nova funcionalidade será desenvolvida sobre eles, em favor dos [eventos recomendados de eCommerce]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events). Quando isso acontecer, os filtros de Segment não serão mais preenchidos sob o comportamento de compra.<br><br> Se você está usando eventos de compra atualmente, receberá um aviso prévio sobre os planos de descontinuação. Por enquanto, você pode continuar usando eventos de compra até a data oficial de descontinuação. Para saber mais, consulte a [visão geral de eventos recomendados]({{site.baseurl}}/user_guide/data/activation/events/recommended_events).
 {% endalert %}
 
 {% endif %}
@@ -93,7 +93,7 @@ As propriedades de entrada do Canvas fazem parte das variáveis de contexto do C
 {% if include.alert == 'Braze Agents' %}
 
 {% alert important %}
-Este parceiro aparece na sua página **Parceiros de tecnologia** apenas se você tiver os [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents) ativados. Para ajuda para começar, entre em contato com seu gerente de sucesso do cliente.
+Este parceiro aparece na sua página **Parceiros de tecnologia** apenas se você tiver os [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents) ativados. Para ajuda para começar, entre em contato com seu CSM.
 {% endalert %}
 
 {% endif %}

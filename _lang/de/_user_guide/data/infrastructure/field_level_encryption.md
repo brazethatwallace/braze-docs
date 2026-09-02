@@ -14,7 +14,7 @@ page_type: reference
 {% multi_lang_include data_activation/field_level_encryption_pii_description.md %}
 
 {% alert important %}
-Die Verschlüsselung auf Bezeichner-Feldebene ist als zusätzliches Feature verfügbar. Wenden Sie sich an Ihren Braze Account Manager, um mit der Verschlüsselung auf Bezeichner-Feldebene zu beginnen.
+Die Verschlüsselung auf Bezeichner-Feldebene ist als zusätzliches Feature verfügbar. Wenden Sie sich an Ihren Braze Account Manager:in, um mit der Verschlüsselung auf Bezeichner-Feldebene zu beginnen.
 {% endalert %}
 
 ## So funktioniert es {#how-it-works}
@@ -111,7 +111,7 @@ Ja. Unter **Dateneinstellungen** > **Verschlüsselung auf Feldebene** akzeptiert
 
 ### Wie entferne oder setze ich einen HMAC-Schlüssel zurück? {#how-do-i-remove-or-reset-an-hmac-key}
 
-Sie können einen HMAC-Schlüssel nach dem Speichern nicht mehr im Dashboard entfernen oder zurücksetzen. Um ein Zurücksetzen des HMAC-Schlüssels oder die Entfernung der Bezeichner-Verschlüsselung auf Feldebene anzufordern, wenden Sie sich an Ihren Braze Account Manager oder eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support).
+Sie können einen HMAC-Schlüssel nach dem Speichern nicht mehr im Dashboard entfernen oder zurücksetzen. Um ein Zurücksetzen des HMAC-Schlüssels oder die Entfernung der Bezeichner-Verschlüsselung auf Feldebene anzufordern, wenden Sie sich an Ihren Braze Account Manager:in oder eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support).
 
 {%raw%}
 ### Was passiert, wenn ich diese E-Mail-Adressen-Liquid-Variable `{{${email_address}}}` in Braze hinzufüge? {#what-happens-if-i-add-this-email-address-liquid-email_address-in-braze}

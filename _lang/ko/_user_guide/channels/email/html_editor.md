@@ -68,7 +68,7 @@ HTML 편집기를 사용하고 기기가 다크 모드일 때 Gmail 모바일 �
 
 ## 3단계: 이메일 작성하기 {#step-3-compose-your-email}
 
-템플릿을 선택한 후, 이메일의 개요를 확인할 수 있습니다. 여기에서 전체 화면 편집기로 바로 이동하여 이메일을 작성하고, 발송 정보를 변경하며, 전달 가능성 또는 법률 준수에 대한 경고를 확인할 수 있습니다. 작성 중에 HTML, 클래식, 일반 텍스트 및 [AMP]({{site.baseurl}}/user_guide/channels/email/customize/amp_for_email) 탭 간에 전환할 수 있습니다.
+템플릿을 선택한 후, 이메일의 개요를 확인할 수 있습니다. 여기에서 전체 화면 편집기로 바로 이동하여 이메일을 작성하고, 발송 정보를 변경하며, 전달 가능성 또는 법률 준수에 대한 경고를 확인할 수 있습니다. 작성 중에 HTML, 클래식, 일반 텍스트 및 [가속 모바일 페이지]({{site.baseurl}}/user_guide/channels/email/customize/amp_for_email) 탭 간에 전환할 수 있습니다.
 
 !["HTML에서 재생성" 버튼.]({% image_buster /assets/img_archive/regenerate_from_html.png %}){: style="max-width:30%;float:right;margin-left:15px;border:none;" }
 

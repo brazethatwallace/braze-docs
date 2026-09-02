@@ -145,7 +145,7 @@ implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1"
 implementation 'androidx.core:core:1.6.0'
 ```
 
-これらの依存関係は、[External Dependency Manager](https://github.com/googlesamples/unity-jar-resolver)を使用して設定することもできます。
+これらの依存関係は、[External Dependency マネージャー](https://github.com/googlesamples/unity-jar-resolver)を使用して設定することもできます。
 
 #### ステップ3.4:Unity Android統合を自動化する {#step-34-automate-the-unity-android-integration}
 

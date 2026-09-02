@@ -16,7 +16,7 @@ Wenn Sie eine Kohorte von Mixpanel mit Braze synchronisieren, empfängt Braze Ak
 
 Die Kohortensynchronisierung importiert keine Mixpanel-Ereignisse, Mixpanel-Nutzer:inneneigenschaften oder angepasste Attribute in Braze. Das Konnektor-Verhalten, einschließlich der Synchronisierungsfrequenz, wird in Mixpanel gesteuert. Einzelheiten zur Einrichtung finden Sie in der [Mixpanel-Dokumentation zur Braze-Kohortensynchronisierung](https://docs.mixpanel.com/docs/cohort-sync/integrations/braze). Informationen zu den Anforderungen für den Nutzer:innen-Abgleich finden Sie unter [Nutzer:innen-Abgleich](#user-matching).
 
-Jede Integration, die Sie einrichten, protokolliert Datenpunkte. Wenn Sie Fragen zu den Feinheiten der Braze-Datenpunkte haben, kann Ihr Braze Account Manager diese beantworten.
+Jede Integration, die Sie einrichten, protokolliert Datenpunkte. Wenn Sie Fragen zu den Feinheiten der Braze-Datenpunkte haben, kann Ihr Braze Account Manager:in diese beantworten.
 
 {% alert important %}
 In Übereinstimmung mit den Richtlinien von Mixpanel zur Datenaufbewahrung werden Ereignisse, die vor dem 1. Januar 2010 gesendet wurden, beim Import entfernt.

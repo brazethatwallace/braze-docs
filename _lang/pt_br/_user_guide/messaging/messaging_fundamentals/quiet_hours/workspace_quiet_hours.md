@@ -39,12 +39,12 @@ Você pode definir uma janela de horário de silêncio no espaço de trabalho pa
 
 ## Pré-requisitos {#prerequisites}
 
-Para criar ou atualizar o horário de silêncio do espaço de trabalho, você precisa da permissão "Edit Quiet Hours".
+Para criar ou atualizar o horário de silêncio do espaço de trabalho, você precisa da permissão "Edit horário de silêncio".
 
 | Permissão | Acesso |
 |---|---|
-| Edit Quiet Hours | Criar e atualizar o horário de silêncio do espaço de trabalho. |
-| View Quiet Hours | Visualizar a configuração do horário de silêncio do espaço de trabalho sem editá-la. |
+| Edit horário de silêncio | Criar e atualizar o horário de silêncio do espaço de trabalho. |
+| View horário de silêncio | Visualizar a configuração do horário de silêncio do espaço de trabalho sem editá-la. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Permissões de horário de silêncio" }
 
 As permissões existentes de edição de Campaign e Canvas não são afetadas. Usuários com essas permissões ainda podem editar o horário de silêncio no nível de Campaign ou Canvas.

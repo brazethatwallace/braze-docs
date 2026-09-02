@@ -549,9 +549,9 @@ Nesse cenário, você pode usar Liquid para percorrer o vetor `pets` e imprimir 
 
 ## Segmentação {#segmentation}
 
-Ao segmentar usuários com base em vetores de objetos, um usuário se qualificará para o segmento se qualquer objeto no vetor corresponder aos critérios.
+Ao segmentar usuários com base em vetores de objetos, um usuário se qualificará para o Segment se qualquer objeto no vetor corresponder aos critérios.
 
-Crie um novo segmento e selecione **Nested Custom Attribute** como seu filtro. Em seguida, pesquise e selecione o nome do seu vetor de objetos.
+Crie um novo Segment e selecione **Nested Custom Attribute** como seu filtro. Em seguida, pesquise e selecione o nome do seu vetor de objetos.
 
 ![Filtrar por vetor de objetos.]({% image_buster /assets/img_archive/array_of_objects_segmenting_1.gif %})
 
@@ -562,7 +562,7 @@ Por exemplo, se você quiser filtrar um vetor de objetos `top_3_movies` com base
 
 ### Níveis de aninhamento {#levels-of-nesting}
 
-Você pode criar um segmento com até um nível de aninhamento de vetor (vetor dentro de outro vetor). Por exemplo, considerando os atributos a seguir, você pode criar um segmento para `pets[].name` contém `Mochi`, mas não pode criar um segmento para `pets[].nicknames[]` contém `Gugu`.
+Você pode criar um Segment com até um nível de aninhamento de vetor (vetor dentro de outro vetor). Por exemplo, considerando os atributos a seguir, você pode criar um Segment para `pets[].name` contém `Mochi`, mas não pode criar um Segment para `pets[].nicknames[]` contém `Gugu`.
 
 {% raw %}
 ```json

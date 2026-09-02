@@ -10,7 +10,7 @@ tool:
 
 # Sobre o Audience Sync {#about-audience-sync}
 
-> O recurso de Audience Sync da Braze ajuda você a expandir o alcance das suas campanhas para muitas das principais tecnologias sociais e de publicidade. Por meio do [Braze Canvas]({{site.baseurl}}/user_guide/messaging/canvas), as marcas podem sincronizar dinamicamente e com segurança os dados de usuários de primeira parte no ecossistema de publicidade para impulsionar a eficiência de marketing e operacional.
+> O recurso de Audience Sync da Braze ajuda você a expandir o alcance das suas campanhas para muitas das principais tecnologias sociais e de publicidade. Por meio do [BRAZE CANVAS]({{site.baseurl}}/user_guide/messaging/canvas), as marcas podem sincronizar dinamicamente e com segurança os dados de usuários de primeira parte no ecossistema de publicidade para impulsionar a eficiência de marketing e operacional.
 
 ## Disponibilidade do recurso {#feature-availability}
 
@@ -109,7 +109,7 @@ Se o erro estiver relacionado à integração geral do parceiro (como um problem
 
 Se o erro estiver relacionado a problemas com o componente de Audience Sync (como "Público não existe") no Canvas, um e-mail é enviado ao usuário que configurou o Canvas. Se esse usuário não existir mais, o e-mail é encaminhado ao administrador da empresa.
 
-Para configurar quem recebe esses e-mails, entre em contato com seu gerente de sucesso do cliente para adicionar destinatários em **Notification Preferences**. Essa preferência cobre tanto erros de integração quanto erros do componente de Audience Sync. Os destinatários que você adicionar recebem esses e-mails além do usuário associado ao erro.
+Para configurar quem recebe esses e-mails, entre em contato com seu CSM para adicionar destinatários em **Notification Preferences**. Essa preferência cobre tanto erros de integração quanto erros do componente de Audience Sync. Os destinatários que você adicionar recebem esses e-mails além do usuário associado ao erro.
 
 ## Considerações sobre privacidade de dados {#data-privacy-considerations}
 

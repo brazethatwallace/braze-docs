@@ -45,7 +45,7 @@ Sie können Ihr E-Mail-Messaging auf verschiedene Arten anpassen, unter anderem 
 
 ## E-Mail-Dienste {#email-services}
 
-Wenn Sie zusätzliche Unterstützung für Ihr E-Mail-Programm benötigen, bietet Braze wiederkehrende und einmalige Serviceleistungen gegen Aufpreis an. Kontaktieren Sie Ihren Braze Account Manager für weitere Informationen.
+Wenn Sie zusätzliche Unterstützung für Ihr E-Mail-Programm benötigen, bietet Braze wiederkehrende und einmalige Serviceleistungen gegen Aufpreis an. Kontaktieren Sie Ihren Braze Account Manager:in für weitere Informationen.
 
 ### E-Mail-Zustellbarkeitsdienste {#email-deliverability-services}
 

@@ -21,9 +21,9 @@ Antes de revisar as estruturas específicas de cada provedor, entenda o que esse
 
 O SPF é um registro DNS em um domínio que especifica quais endereços IP estão autorizados a enviar e-mail em nome desse domínio.
 
-A Braze não solicita que você modifique ou adicione registros SPF no domínio raiz corporativo (como `example.com`). Em vez disso, a Braze isola a entrega usando um domínio Return-Path dedicado e personalizado (também conhecido como domínio de bounce, domínio MAIL FROM ou domínio envelope From), como `bounce.mail.example.com`.
+A Braze não solicita que você modifique ou adicione registros SPF no domínio raiz corporativo (como `example.com`). Em vez disso, a Braze isola a entrega usando um domínio Return-jornada dedicado e personalizado (também conhecido como domínio de bounce, domínio MAIL FROM ou domínio envelope From), como `bounce.mail.example.com`.
 
-Como os provedores de caixa de entrada receptores validam o SPF com base nesse domínio Return-Path, e não no domínio visível do cabeçalho `From:`, a configuração do SPF fica inteiramente no nível do subdomínio. Dependendo do provedor de serviços de e-mail subjacente, a Braze lida com essa validação de duas formas:
+Como os provedores de caixa de entrada receptores validam o SPF com base nesse domínio Return-jornada, e não no domínio visível do cabeçalho `From:`, a configuração do SPF fica inteiramente no nível do subdomínio. Dependendo do provedor de serviços de e-mail subjacente, a Braze lida com essa validação de duas formas:
 
 - Delegação CNAME (SendGrid e SparkPost): Crie um `CNAME` apontando seu subdomínio de volta para o provedor de serviços de e-mail. O provedor hospeda e atualiza as políticas SPF em sua infraestrutura, passando na verificação SPF automaticamente.
 - Registro TXT explícito (Amazon SES): Publique um registro `TXT` fixo diretamente no subdomínio de bounce contendo uma string de autorização explícita (por exemplo, `v=spf1 include:amazonses.com ~all`), concedendo à AWS permissão para enviar e-mails a partir dessa zona.
@@ -36,7 +36,7 @@ A Braze exige que as chaves públicas DKIM sejam publicadas por meio de registro
 
 ### Alinhamento DMARC {#dmarc}
 
-Para que um e-mail passe na verificação DMARC, o domínio no cabeçalho `From:` visível ao usuário deve corresponder (alinhar-se) ao domínio validado pelo SPF (o Return-Path) ou pelo DKIM. Como as configurações da Braze alcançam o alinhamento tanto pelo SPF quanto pelo DKIM, suas políticas DMARC são atendidas com segurança.
+Para que um e-mail passe na verificação DMARC, o domínio no cabeçalho `From:` visível ao usuário deve corresponder (alinhar-se) ao domínio validado pelo SPF (o Return-jornada) ou pelo DKIM. Como as configurações da Braze alcançam o alinhamento tanto pelo SPF quanto pelo DKIM, suas políticas DMARC são atendidas com segurança.
 
 A Braze lida com a autenticação básica de SPF e DKIM por padrão, mas você ainda precisa adicionar um registro DMARC ao seu domínio de envio. O DMARC é uma ferramenta de autenticação essencial exigida por quase todos os principais provedores de caixa de entrada. Ele comprova que seus e-mails são legítimos, fortalece a reputação do seu domínio e mantém sua entregabilidade saudável ao longo do tempo.
 
@@ -48,9 +48,9 @@ Diferentes arquiteturas de provedores de serviços de e-mail lidam com a delega�
 
 ### Arquitetura SparkPost {#sparkpost-architecture}
 
-O SparkPost usa uma configuração híbrida. Ele usa registros `CNAME` explícitos para direcionar a infraestrutura de rastreamento e Return-Path de volta ao SparkPost, enquanto usa um registro `TXT` bruto para autenticação DKIM.
+O SparkPost usa uma configuração híbrida. Ele usa registros `CNAME` explícitos para direcionar a infraestrutura de rastreamento e Return-jornada de volta ao SparkPost, enquanto usa um registro `TXT` bruto para autenticação DKIM.
 
-- Configuração de SPF e Return-Path: o SparkPost solicita um subdomínio designado para bounces (por exemplo, `mail.example.com`). Um registro `CNAME` aponta esse subdomínio para os processadores de bounce de entrada do SparkPost. Isso roteia o tráfego de bounce corretamente e valida o SPF automaticamente, pois o servidor de destino do SparkPost gerencia o protocolo.
+- Configuração de SPF e Return-jornada: o SparkPost solicita um subdomínio designado para bounces (por exemplo, `mail.example.com`). Um registro `CNAME` aponta esse subdomínio para os processadores de bounce de entrada do SparkPost. Isso roteia o tráfego de bounce corretamente e valida o SPF automaticamente, pois o servidor de destino do SparkPost gerencia o protocolo.
 - Configuração de DKIM: o SparkPost requer um registro `TXT` contendo a string exata da chave pública mapeada para um seletor específico.
 - Rastreamento de cliques e aberturas: configure um subdomínio de rastreamento com um `CNAME` apontando para os endpoints de rastreamento do SparkPost (ou um proxy CDN se o rastreamento SSL for solicitado).
 
@@ -60,7 +60,7 @@ A tabela a seguir mostra exemplos de registros DNS para uma configuração Spark
 
 | Tipo de registro | Host/Nome | Valor/Destino | Finalidade |
 | --- | --- | --- | --- |
-| CNAME | mail.example.com | smtp.sparkpostmail.com | Alinhamento de Return-Path / SPF |
+| CNAME | mail.example.com | smtp.sparkpostmail.com | Alinhamento de Return-jornada / SPF |
 | TXT | scph1226._domainkey.mail.example.com | v=DKIM1; k=rsa; p=... | Autenticação criptográfica DKIM |
 | CNAME | click.mail.example.com | spgo.io (ou endpoint CDN) | Rastreamento de cliques e aberturas |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Exemplo de tabela DNS do SparkPost" }
@@ -69,7 +69,7 @@ A tabela a seguir mostra exemplos de registros DNS para uma configuração Spark
 
 O SendGrid utiliza uma infraestrutura automatizada conhecida como Domain Authentication. Em vez de fornecer chaves `TXT` brutas, o SendGrid fornece uma série de registros `CNAME` que apontam diretamente para servidores gerenciados pelo SendGrid.
 
-- Configuração de SPF e Return-Path: o SendGrid usa um `CNAME` específico (geralmente prefixado com `em`) mapeando seu subdomínio de envio para `uXXXXXX.wl.sendgrid.net`. O SendGrid hospeda e atualiza dinamicamente o registro SPF nesse endpoint.
+- Configuração de SPF e Return-jornada: o SendGrid usa um `CNAME` específico (geralmente prefixado com `em`) mapeando seu subdomínio de envio para `uXXXXXX.wl.sendgrid.net`. O SendGrid hospeda e atualiza dinamicamente o registro SPF nesse endpoint.
 - Configuração de DKIM: o SendGrid gera dois registros `CNAME` separados para DKIM (geralmente usando seletores como `s1` e `s2`). Eles apontam de volta para as chaves do SendGrid.
 - O SendGrid fornece dois registros `CNAME` de DKIM para que possa rotacionar as chaves criptográficas automaticamente sem exigir que você atualize seu DNS manualmente.
 
@@ -79,7 +79,7 @@ A tabela a seguir mostra exemplos de registros DNS para uma configuração SendG
 
 | Tipo de registro | Host/Nome | Valor/Destino | Finalidade |
 | --- | --- | --- | --- |
-| CNAME | em.mail.example.com | u123456.wl.sendgrid.net | Return-Path / SPF dinâmico |
+| CNAME | em.mail.example.com | u123456.wl.sendgrid.net | Return-jornada / SPF dinâmico |
 | CNAME | s1._domainkey.mail.example.com | s1.domainkey.u123456.wl.sendgrid.net | Chave DKIM primária (rotacional) |
 | CNAME | s2._domainkey.mail.example.com | s2.domainkey.u123456.wl.sendgrid.net | Chave DKIM secundária (rotacional) |
 | CNAME | email.mail.example.com | sendgrid.net (ou endpoint CDN) | Rastreamento de cliques e aberturas |

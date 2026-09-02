@@ -146,7 +146,7 @@ As políticas de segurança de conteúdo (geralmente localizadas no arquivo Hydr
 Rastreie quando um comprador faz login em sua conta e sincroniza suas informações de usuário com a Braze. Isso inclui chamar nosso método `changeUser` para identificar clientes com um ID externo da Braze.
 
 {% alert note %}
-No momento, não temos orientações para oferecer suporte a um ID externo personalizado da Braze. Se você precisar disso para sua integração agora, entre em contato com seu gerente de sucesso do cliente.
+No momento, não temos orientações para oferecer suporte a um ID externo personalizado da Braze. Se você precisar disso para sua integração agora, entre em contato com seu CSM.
 {% endalert %}
 
 Antes de começar, certifique-se de ter configurado os URIs de retorno de chamada para que o login do cliente funcione no Hydrogen. Para saber mais, consulte [Usando a API de conta de cliente com Hydrogen](https://shopify.dev/docs/storefronts/headless/building-with-the-customer-account-api/hydrogen).
@@ -662,7 +662,7 @@ Selecione o tipo de `external_id` no menu suspenso.
 Usar um endereço de e-mail ou um endereço de e-mail com hash como seu ID externo na Braze pode ajudar a simplificar o gerenciamento de identidade em todas as suas fontes de dados. No entanto, é importante considerar os possíveis riscos à privacidade do usuário e à segurança dos dados.<br><br>
 
 - **Informação previsível:** Endereços de e-mail são facilmente previsíveis, tornando-os vulneráveis a ataques.
-- **Risco de exploração:** Se um usuário mal-intencionado alterar seu navegador web para enviar o endereço de e-mail de outra pessoa como seu ID externo, ele poderá acessar mensagens confidenciais ou informações da conta.
+- **Risco de exploração:** Se um usuário mal-intencionado alterar seu navegador de internet para enviar o endereço de e-mail de outra pessoa como seu ID externo, ele poderá acessar mensagens confidenciais ou informações da conta.
 {% endalert %}
 
 Por padrão, a Braze converte automaticamente os e-mails do Shopify para letras minúsculas antes de usá-los como ID externo. Se você estiver usando e-mail ou e-mail com hash como seu ID externo, confirme que seus endereços de e-mail também são convertidos para letras minúsculas antes de atribuí-los como seu ID externo ou antes de aplicar o hash a partir de outras fontes de dados. Isso ajuda a evitar discrepâncias nos IDs externos e a criação de perfis de usuário duplicados na Braze.

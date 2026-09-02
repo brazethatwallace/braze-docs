@@ -57,7 +57,7 @@ Observe que o tipo de dados da variável de saída é definido no [Console de Ag
 | Objeto | Aproveite um ou mais dos tipos de dados anteriores nesta seção com uma única chamada LLM em uma estrutura de dados previsível |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 3: Definir a saída do seu agente #define-the-output-variable" }
 
-Você pode usar uma variável de saída em todo o Canvas utilizando a mesma sintaxe de modelo que usaria com uma variável de contexto. Use o filtro de segmento **Context Variable** ou insira as respostas do agente diretamente usando Liquid: {% raw %}`{{context.${response_variable_name}}}`{% endraw %}.
+Você pode usar uma variável de saída em todo o Canvas utilizando a mesma sintaxe de modelo que usaria com uma variável de contexto. Use o filtro de Segment **Context Variable** ou insira as respostas do agente diretamente usando Liquid: {% raw %}`{{context.${response_variable_name}}}`{% endraw %}.
 
 Para usar uma propriedade específica de uma variável de saída do tipo objeto, use notação de ponto para acessar essa propriedade usando Liquid: {% raw %}`{{context.${response_variable_name}.field_name}}`{% endraw %}
 
@@ -113,14 +113,14 @@ Se você perceber que um agente está com dificuldades diante da complexidade da
 O padrão a seguir usa três agentes para um exemplo de viagens: alguém pesquisou recentemente no seu app, mas não fez a reserva, e você quer um texto de redirecionamento que incentive essa pessoa a concluir a compra.
 
 - O Agente 1 resume o contexto do Canvas. Ele lê campos como nível de fidelidade, última cidade pesquisada e comportamento de busca de alta intenção, e retorna um resumo estruturado curto como variável de saída que etapas posteriores podem reutilizar.
-- O Agente 2 retorna um valor de roteamento no qual seu Canvas pode ramificar. Use um número, booleano ou objeto estruturado para que a saída corresponda à forma como você faz a ramificação. Mapeie esse valor para uma etapa de [jornada do público]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) ou [divisão de decisão]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split). Por exemplo, considere jornadas separadas para mensagens baseadas em fidelidade versus mensagens baseadas em ofertas.
-- O Agente 3 redige o texto gerado da mensagem apenas nas ramificações onde você deseja isso. Passe o resumo do Agente 1 (e qualquer contexto específico da ramificação) para que esse agente foque no tom e nos limites do canal, em vez de normalizar entradas e escolher estratégia no mesmo prompt.
+- O Agente 2 retorna um valor de roteamento no qual seu Canvas pode ramificar. Use um número, booleano ou objeto estruturado para que a saída corresponda à forma como você faz a Branch. Mapeie esse valor para uma etapa de [jornada do público]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) ou [divisão de decisão]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split). Por exemplo, considere jornadas separadas para mensagens baseadas em fidelidade versus mensagens baseadas em ofertas.
+- O Agente 3 redige o texto gerado da mensagem apenas nas ramificações onde você deseja isso. Passe o resumo do Agente 1 (e qualquer contexto específico da Branch) para que esse agente foque no tom e nos limites do canal, em vez de normalizar entradas e escolher estratégia no mesmo prompt.
 
 ### Use a etapa da jornada experimental para testar jornadas com agentes em pequena escala {#use-the-experiment-paths-step-to-test-agentic-journeys-at-small-scale}
 
-Para testar o desempenho e o consumo de créditos do seu agente em comparação com suas jornadas existentes, adicione uma etapa de [jornada experimental]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) para que apenas parte do seu público entre na ramificação que contém a etapa do agente.
+Para testar o desempenho e o consumo de créditos do seu agente em comparação com suas jornadas existentes, adicione uma etapa de [jornada experimental]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) para que apenas parte do seu público entre na Branch que contém a etapa do agente.
 
-Por exemplo, você pode começar enviando alguns milhares de usuários por dia para uma jornada com o agente e enviar o restante para uma jornada de controle ou uma jornada sem o agente. Colete dados por 1 a 2 semanas e compare indicadores chave de desempenho (KPIs), contra-métricas e consumo de créditos do agente entre as jornadas. Dessa forma, você ganha confiança e comprova o ROI antes de aumentar o tráfego para a ramificação com o agente habilitado, limitando o consumo de invocações ao mesmo tempo.
+Por exemplo, você pode começar enviando alguns milhares de usuários por dia para uma jornada com o agente e enviar o restante para uma jornada de controle ou uma jornada sem o agente. Colete dados por 1 a 2 semanas e compare indicadores chave de desempenho (KPIs), contra-métricas e consumo de créditos do agente entre as jornadas. Dessa forma, você ganha confiança e comprova o ROI antes de aumentar o tráfego para a Branch com o agente habilitado, limitando o consumo de invocações ao mesmo tempo.
 
 ## Perguntas frequentes {#frequently-asked-questions}
 

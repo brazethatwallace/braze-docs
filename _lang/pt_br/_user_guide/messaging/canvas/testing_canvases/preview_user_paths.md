@@ -87,7 +87,7 @@ Neste momento, não é possível selecionar um evento ou propriedade específica
 
 - Para Canvas com variantes de nível superior, selecione uma variante no início do teste.
 - Para jornadas experimentais, selecione a variante pela qual o usuário progride quando o usuário teste encontra a etapa.
-- Para jornadas experimentais que usam Winning Path, a prévia não inclui o período de postergação quando um usuário teste aguarda em uma etapa de mensagem. A Braze assume que o usuário progrediu pela jornada selecionada imediatamente.
+- Para jornadas experimentais que usam Winning jornada, a prévia não inclui o período de postergação quando um usuário teste aguarda em uma etapa de mensagem. A Braze assume que o usuário progrediu pela jornada selecionada imediatamente.
 
 ## Envios de teste {#test-sends}
 

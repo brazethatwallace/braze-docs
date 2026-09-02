@@ -40,7 +40,7 @@ Um die Datenpunkt-Nutzung zu minimieren, empfehlen wir, ein Programm einzurichte
 
 Zusammenfassend werden Datenpunkte gesammelt, wenn die Profildaten einer Nutzer:in aktualisiert werden oder wenn sie bestimmte Aktionen ausführen. Im Wesentlichen sind Datenpunkte Zählungen für jede `session starts`, `session ends`, `events` und `purchases` Ihrer Nutzer:innen.
 
-In den folgenden Abschnitten finden Sie eine Aufschlüsselung, wie Braze Datenpunkte akkumuliert. Falls Sie jemals Fragen zu den Feinheiten der Braze-Datenpunkte haben, kann Ihr Braze Account Manager diese beantworten.
+In den folgenden Abschnitten finden Sie eine Aufschlüsselung, wie Braze Datenpunkte akkumuliert. Falls Sie jemals Fragen zu den Feinheiten der Braze-Datenpunkte haben, kann Ihr Braze Account Manager:in diese beantworten.
 
 Bei der API-Aufnahme folgt jedes abrechnungsrelevante Update über [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) denselben Regeln wie andere Profil-Updates: Zum Beispiel zählt jedes protokollierte **angepasste Event** als ein Datenpunkt, und **angepasste Attribute** zählen in der Regel pro aktualisiertem Attribut in dieser Anfrage (siehe die abrechnungsrelevanten Tabellen im folgenden Abschnitt und [Besondere Umstände](#special-circumstances)).
 
@@ -167,7 +167,7 @@ table td {
 | Mixpanel-Kohortenzuweisung | Alle Zuweisungen | |
 | Hightouch-Kohortenzuweisung | Alle Zuweisungen | |
 | Appsflyer-Kohortenzuweisung | Alle Zuweisungen | |
-| Letzter Standort | Alle letzten Standorte | Das Betreten oder Verlassen von Geofences protokolliert keine Datenpunkte, da Geofence-Daten nicht im Nutzerprofil gespeichert werden. Geofences werden von den Standortdiensten von Apple und Google überwacht; Braze wird nur benachrichtigt, wenn Nutzer:innen einen Geofence auslösen. |
+| Letzter Standort | Alle letzten Standorte | Das Betreten oder Verlassen von Geofences protokolliert keine Datenpunkte, da Geofence-Daten nicht im Kundenprofil gespeichert werden. Geofences werden von den Standortdiensten von Apple und Google überwacht; Braze wird nur benachrichtigt, wenn Nutzer:innen einen Geofence auslösen. |
 | Twitter | Nutzername | |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Abrechenbare Datenpunkte" }
 

@@ -57,7 +57,7 @@ Existem algumas maneiras diferentes de fazer isso, dependendo das suas seleçõe
 | Seleção anterior | Opções |
 | --- | --- |
 | Campaign de notificação por push | Selecione uma ou mais plataformas e dispositivos. Se você optar por direcionar múltiplos dispositivos e plataformas, sua experiência de edição será otimizada para criar uma mensagem para todas as plataformas selecionadas. Consulte [Push para múltiplas plataformas]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push) para entender o que muda nessa experiência de edição. |
-| Campaign multicanal | Selecione **Add Messaging Channel** para adicionar plataformas de push adicionais. Como as seleções de plataforma são específicas para cada variante, você pode testar o engajamento com mensagem por plataforma. |
+| Campaign multicanal | Selecione **Add canal de envio de mensagens** para adicionar plataformas de push adicionais. Como as seleções de plataforma são específicas para cada variante, você pode testar o engajamento com mensagem por plataforma. |
 | Canvas | Na sua etapa de Mensagem, selecione **+ Add more** para adicionar plataformas de push adicionais. Assim como em Campaigns multicanais, as seleções de plataforma são específicas para cada variante. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 2: Selecionar plataformas de push" }
 
@@ -241,7 +241,7 @@ Em seguida, confira [Relatórios de push]({{site.baseurl}}/user_guide/channels/p
 
 #### Comportamento ao clicar
 
-Se você estiver usando o comportamento ao clicar padrão para a versão do seu SDK e selecionar uma notificação por push com uma URL da web que abre no app em vez de no navegador web, consulte os seguintes guias de integração para determinar o tratamento de notificações por push:
+Se você estiver usando o comportamento ao clicar padrão para a versão do seu SDK e selecionar uma notificação por push com uma URL da web que abre no app em vez de no navegador de internet, consulte os seguintes guias de integração para determinar o tratamento de notificações por push:
 
 - [Swift]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift#swift_step-2-enable-push-capabilities)
 - [Android]({{site.baseurl}}/developer_guide/push_notifications#android_step-1-register-braze-firebase-messaging-service)

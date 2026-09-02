@@ -12,12 +12,12 @@ description: "Dieser Artikel erklärt, wie die A/B-Test-Projektion funktioniert,
 > Die A/B-Test-Projektion verwendet neuronale Netzwerke, um vorherzusagen, welche Betreffzeilen am besten abschneiden. Unser Modell extrahiert sprachliche Merkmale aus erfolgreichen A/B-Tests, die auf Braze durchgeführt wurden, und nutzt diese statistischen Sprachmuster, um unserer KI beizubringen, was bessere Betreffzeilen ausmacht.
 
 {% alert important %}
-Dieses Feature befindet sich derzeit in der Early-Access-Phase. Wenden Sie sich an Ihren Braze-Kundenerfolgs- oder Account Manager, wenn Sie an einer Teilnahme am Early Access interessiert sind.
+Dieses Feature befindet sich derzeit in der Early-Access-Phase. Wenden Sie sich an Ihren Braze-Kundenerfolgs- oder Account Manager:in, wenn Sie an einer Teilnahme am Early Access interessiert sind.
 {% endalert %}
 
 ## Eine Projektion durchführen {#running-a-projection}
 
-Fügen Sie bei der Campaign-Erstellung Ihre Nachrichtenvarianten und deren Betreffzeilen in den Editor ein. Wenn Sie bereit sind, gehen Sie zum Schritt **Target Audience** im Campaign-Erstellungsablauf. Wählen Sie im Panel **A/B Testing** die Option **Run Projection** aus.
+Fügen Sie bei der Campaign-Erstellung Ihre Nachrichtenvarianten und deren Betreffzeilen in den Editor ein. Wenn Sie bereit sind, gehen Sie zum Schritt **Target Audience** im Campaign-Erstellungsablauf. Wählen Sie im Panel **A/B-Tests** die Option **Run Projection** aus.
 
 <img width="518" alt="Bild" src="https://github.com/braze-inc/braze-docs/assets/17167198/8e74835c-76e4-4241-9763-c4f86a622c75">
 

@@ -7,7 +7,7 @@
 5. Depois de criar seu Content Block, selecione **Done**.
 6. Dê um nome ao seu Content Block. Esse nome será preenchido automaticamente como parte da **Content Block Liquid Tag**.
 7. (Opcional) Adicione uma descrição.
-8. Selecione a guia **Preview** para ver como seu Content Block aparecerá. Opcionalmente, selecione **Copy preview link** para gerar e copiar um link de prévia compartilhável que mostra como o e-mail ficará para um usuário aleatório. O link terá validade de sete dias antes de precisar ser gerado novamente.<br><br> ![Guia de prévia do criador de Content Blocks de arrastar e soltar.]({% image_buster /assets/img_archive/dnd_content_block_preview_link.png %})<br><br>
+8. Selecione a guia **prévia** para ver como seu Content Block aparecerá. Opcionalmente, selecione **Copy prévia link** para gerar e copiar um link de prévia compartilhável que mostra como o e-mail ficará para um usuário aleatório. O link terá validade de sete dias antes de precisar ser gerado novamente.<br><br> ![Guia de prévia do criador de Content Blocks de arrastar e soltar.]({% image_buster /assets/img_archive/dnd_content_block_preview_link.png %})<br><br>
 9. Selecione **Launch Content Block**.
 
 {% elsif include.location == "html" %}
@@ -17,7 +17,7 @@
 3. Depois de criar seu Content Block, selecione **Done**.
 4. Digite um nome para o seu Content Block. Esse nome será preenchido automaticamente como parte da **Content Block Liquid Tag**.
 5. (Opcional) Adicione uma descrição.
-6. Selecione a guia **Preview** para ver como seu Content Block aparecerá. Opcionalmente, selecione **Copy preview link** para gerar e copiar um link de prévia compartilhável que mostra como o e-mail ficará para um usuário aleatório. O link terá validade de sete dias antes de precisar ser gerado novamente.<br><br> ![Guia de prévia do criador do editor de código HTML.]({% image_buster /assets/img_archive/content_block_html_preview_link.png %})<br><br>
+6. Selecione a guia **prévia** para ver como seu Content Block aparecerá. Opcionalmente, selecione **Copy prévia link** para gerar e copiar um link de prévia compartilhável que mostra como o e-mail ficará para um usuário aleatório. O link terá validade de sete dias antes de precisar ser gerado novamente.<br><br> ![Guia de prévia do criador do editor de código HTML.]({% image_buster /assets/img_archive/content_block_html_preview_link.png %})<br><br>
 7. Selecione **Launch Content Block**.
 
 {% endif %}

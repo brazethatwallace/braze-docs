@@ -12,7 +12,7 @@ page_order: 3
 > El Optimizador de contenidos te ayuda a probar y optimizar el contenido de los mensajes a gran escala, utilizando la IA para generar y evaluar automáticamente grandes volúmenes de variantes de contenido.
 
 {% alert important %}
-El Optimizador de contenidos se encuentra actualmente en fase beta y solo está disponible para estos canales: correo electrónico, notificaciones push y mensajes SMS/MMS/RCS. Para obtener ayuda para empezar, ponte en contacto con tu administrador de éxito de cliente.
+El Optimizador de contenidos se encuentra actualmente en fase beta y solo está disponible para estos canales: correo electrónico, notificaciones push y mensajes SMS/MMS/RCS. Para obtener ayuda para empezar, ponte en contacto con tu CSM.
 {% endalert %}
 
 ## Acerca del Otimizador de Contenido {#about-content-optimizer}
@@ -118,5 +118,5 @@ La mejor opción para Content Optimizer son los Canvas con entrada recurrente di
 
 ## Próximos pasos {#next-steps}
 
-- Contacta a tu administrador de éxito de cliente para unirte a la beta o para recibir soporte de incorporación.
+- Contacta a tu CSM para unirte a la beta o para recibir soporte de incorporación.
 - Aprende a crear un [paso del Otimizador de Contenido]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step).

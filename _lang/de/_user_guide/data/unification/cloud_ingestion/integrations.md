@@ -356,7 +356,7 @@ Sie können Schema und Tabelle beliebig benennen, die Spaltennamen sollten jedoc
 Damit Braze auf Databricks zugreifen kann, muss ein persönlicher Zugriffstoken erstellt werden.
 
 1. Wählen Sie in Ihrem Databricks-Workspace Ihren Databricks-Nutzernamen in der oberen Leiste aus und wählen Sie dann **User Settings** aus dem Dropdown-Menü.
-2. Wählen Sie auf dem Tab „Access tokens“ die Option **Generate new token**.
+2. Wählen Sie auf dem Tab „Access tokens“ die Option **Generate new Token**.
 3. Geben Sie einen Kommentar ein, der Ihnen hilft, dieses Token zu identifizieren, z. B. „Braze CDI“, und ändern Sie die Lebensdauer des Tokens auf unbegrenzt, indem Sie das Feld „Lifetime (days)“ leer lassen.
 4. Wählen Sie **Generate**.
 5. Kopieren Sie das angezeigte Token und wählen Sie dann **Done**.

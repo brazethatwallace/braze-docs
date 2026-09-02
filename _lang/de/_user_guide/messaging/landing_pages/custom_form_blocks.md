@@ -81,7 +81,7 @@ Sie müssen mindestens eine Möglichkeit zur Identifizierung des Elements (`sele
 
 `onSubmit` ist ein einfacher JavaScript-Callback, sodass Sie den erfassten Wert so verarbeiten können, wie es Ihre Integration erfordert. Da `onSubmit` als Teil der Formularübermittlung ausgeführt wird, funktionieren `brazeBridge`-Aufrufe darin wie erwartet, auch für Besucher:innen, die die Landing-Page anonym geöffnet haben. Siehe [Bridge-Verfügbarkeit]({{site.baseurl}}/user_guide/messaging/landing_pages/javascript_bridge#bridge-availability) für die andere Situation, in der Bridge-Aufrufe funktionieren.
 
-Das häufigste Muster ist das Schreiben des erfassten Werts in das Nutzerprofil mit der [Braze JavaScript Bridge]({{site.baseurl}}/user_guide/messaging/landing_pages/javascript_bridge), die auf Landing-Pages verfügbar ist:
+Das häufigste Muster ist das Schreiben des erfassten Werts in das Kundenprofil mit der [Braze JavaScript Bridge]({{site.baseurl}}/user_guide/messaging/landing_pages/javascript_bridge), die auf Landing-Pages verfügbar ist:
 
 ```js
 window.brazeBridge.getUser().setCustomUserAttribute("attribute_name", value);
@@ -353,7 +353,7 @@ Das Styling des Fehlerzustands ist optional, wird aber empfohlen, damit Besucher
 - Halten Sie `getValue` schlank und synchron. Braze kann es mehrfach aufrufen, daher sollte es den aktuellen Wert lesen und zurückgeben, anstatt aufwendige Operationen durchzuführen.
 - Stylen Sie den `bz-validation-error`-Zustand, damit Besucher:innen sehen können, welche angepasste Eingabe die Übermittlung blockiert.
 - Definieren Sie Ihre Namen für angepasste Attribute im Voraus und halten Sie sie konsistent, damit Sie die Daten später zuverlässig für die Segmentierung nutzen können.
-- Testen Sie die vollständige Übermittlung. Bestätigen Sie, dass das Attribut nach der Übermittlung im Nutzerprofil erscheint und dass Pflichtfeld- und Validierungsregeln die Übermittlung wie erwartet blockieren.
+- Testen Sie die vollständige Übermittlung. Bestätigen Sie, dass das Attribut nach der Übermittlung im Kundenprofil erscheint und dass Pflichtfeld- und Validierungsregeln die Übermittlung wie erwartet blockieren.
 
 ## Fehlerbehebung {#troubleshooting}
 

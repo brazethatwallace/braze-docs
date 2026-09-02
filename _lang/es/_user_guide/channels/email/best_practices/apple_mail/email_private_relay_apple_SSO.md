@@ -11,7 +11,7 @@ toc_headers: h2
 
 # Enviar correos electrónicos a Apple Private Relay {#send-emails-to-apple-private-relay}
 
-> La característica de inicio de sesión único (SSO) de Apple permite a sus usuarios compartir sus direcciones de correo electrónico (`example@icloud.com`) u ocultar sus direcciones de correo electrónico enmascarando lo que se proporciona a las marcas (`tq1234snin@privaterelay.appleid.com`) en lugar de su dirección de correo electrónico personal. Apple reenviará entonces los mensajes enviados a las direcciones de retransmisión a la dirección de correo electrónico real del usuario.
+> La característica de inicio de sesión único (inicio de sesión único) de Apple permite a sus usuarios compartir sus direcciones de correo electrónico (`example@icloud.com`) u ocultar sus direcciones de correo electrónico enmascarando lo que se proporciona a las marcas (`tq1234snin@privaterelay.appleid.com`) en lugar de su dirección de correo electrónico personal. Apple reenviará entonces los mensajes enviados a las direcciones de retransmisión a la dirección de correo electrónico real del usuario.
 
 Para enviar correos electrónicos al relé de correo electrónico privado de Apple, registra tus dominios de envío con Apple. Si no configuras tus dominios con Apple, los correos electrónicos enviados a direcciones de retransmisión rebotarán.
 

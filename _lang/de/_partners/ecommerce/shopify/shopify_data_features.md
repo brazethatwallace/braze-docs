@@ -827,7 +827,7 @@ Diese Seite wird aktualisiert, sobald Shopify dieses Problem behoben hat.
 
 ### Liquid-Personalisierung {#liquid-personalization}
 
-Um Liquid-Personalisierung für Ihre angepassten Shopify-Attribute hinzuzufügen, wählen Sie **+ Personalisierung** aus. Wählen Sie dann **Custom Attributes** als Personalisierungstyp aus.
+Um Liquid-Personalisierung für Ihre angepassten Shopify-Attribute hinzuzufügen, wählen Sie **+ Personalisierung** aus. Wählen Sie dann **angepasste Attribute** als Personalisierungstyp aus.
 
 ![Der Bereich „Personalisierung hinzufügen“ mit geöffnetem Dropdown „Attribut“.]({% image_buster /assets/img/shopify/add_personalization_2.png %}){: style="max-width:40%;"}
 
@@ -849,7 +849,7 @@ Nachdem Sie Ihr angepasstes Attribut ausgewählt haben, geben Sie einen Standard
 - Land
 
 {% alert note %}
-Braze aktualisiert unterstützte angepasste Shopify-Attribute und Braze-Standardattribute nur dann, wenn die Daten vom bestehenden Nutzerprofil abweichen. Wenn die eingehenden Shopify-Daten beispielsweise den Vornamen Bob enthalten und Bob bereits als Vorname im Braze-Nutzerprofil existiert, löst Braze kein Update aus und es wird kein Datenpunkt berechnet.
+Braze aktualisiert unterstützte angepasste Shopify-Attribute und Braze-Standardattribute nur dann, wenn die Daten vom bestehenden Kundenprofil abweichen. Wenn die eingehenden Shopify-Daten beispielsweise den Vornamen Bob enthalten und Bob bereits als Vorname im Braze-Kundenprofil existiert, löst Braze kein Update aus und es wird kein Datenpunkt berechnet.
 {% endalert %}
 
 ## SDK-Datenerfassung {#sdk-data-collection}

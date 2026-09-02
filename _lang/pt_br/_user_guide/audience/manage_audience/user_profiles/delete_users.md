@@ -3,13 +3,13 @@ nav_title: Excluir usuários
 article_title: Excluir usuários
 page_order: 6
 toc_headers: h2
-description: "Saiba como excluir um usuário individual ou um segmento de usuários diretamente pelo dashboard da Braze."
+description: "Saiba como excluir um usuário individual ou um Segment de usuários diretamente pelo dashboard da Braze."
 alias: /delete_users/
 ---
 
 # Excluir usuários {#delete-users}
 
-> Saiba como excluir um usuário individual ou um segmento de usuários diretamente pelo dashboard da Braze.
+> Saiba como excluir um usuário individual ou um Segment de usuários diretamente pelo dashboard da Braze.
 
 ## Pré-requisitos {#prerequisites}
 
@@ -87,7 +87,7 @@ Você tem 7 dias para cancelar exclusões de segmentos pendentes. Para cancelar,
 
 ![A guia "Delete Users" na seção "Manage Audience" do dashboard da Braze.]({% image_buster /assets/img/audience_management/deleting_users/delete_users_tab.png %}){: style="max-width:85%;"}
 
-Ao lado de uma exclusão de segmento pendente, selecione <i class="fa-solid fa-eye"></i> **View details** para abrir os detalhes do registro de exclusão.
+Ao lado de uma exclusão de Segment pendente, selecione <i class="fa-solid fa-eye"></i> **View details** para abrir os detalhes do registro de exclusão.
 
 ![Uma exclusão de segmento pendente na guia "Delete Users".]({% image_buster /assets/img/audience_management/deleting_users/pending_deletion.png %})
 
@@ -101,11 +101,11 @@ Quando a exclusão em massa de usuários está em andamento, você pode cancelá
 
 ## Verificando o status da exclusão {#status}
 
-Você pode verificar o status de uma exclusão usando [filtros de segmento](#segment-filters), a página [Gerenciar público](#manage-audience) ou [relatórios de eventos de segurança](#security-event-report).
+Você pode verificar o status de uma exclusão usando [filtros de Segment](#segment-filters), a página [Gerenciar público](#manage-audience) ou [relatórios de eventos de segurança](#security-event-report).
 
-### Filtros de segmento {#segment-filters}
+### Filtros de Segment {#segment-filters}
 
-Quando você solicita a exclusão de um segmento de usuários, um [filtro de segmento]({{site.baseurl}}/user_guide/audience/segments/managing_segments#filters) chamado **Pending Deletion** é criado automaticamente. Você pode usá-lo para:
+Quando você solicita a exclusão de um Segment de usuários, um [filtro de Segment]({{site.baseurl}}/user_guide/audience/segments/managing_segments#filters) chamado **Pending Deletion** é criado automaticamente. Você pode usá-lo para:
 
 - Ver o conjunto exato de usuários vinculados a uma data de execução de exclusão específica.
 - Excluir esses usuários de Campaigns para que não recebam mensagens antes da remoção.
@@ -114,7 +114,7 @@ Quando você solicita a exclusão de um segmento de usuários, um [filtro de seg
 ### Gerenciar público {#manage-audience}
 
 {% alert note %}
-Para obter a lista exata de usuários que serão excluídos, use o [filtro de segmento Pending Deletion](#segment-filters).
+Para obter a lista exata de usuários que serão excluídos, use o [filtro de Segment Pending Deletion](#segment-filters).
 {% endalert %}
 
 Acesse **Audience** > **Manage Audience** e selecione a guia **Delete Users**.
@@ -127,7 +127,7 @@ Nesta página, você encontra as seguintes informações gerais para todas as ex
 |-------|-------------|
 | Data da solicitação | A data em que a solicitação foi feita originalmente. Use-a com o filtro **Pending Deletion** para obter a lista de perfis pendentes de exclusão. |
 | Solicitante | O usuário que iniciou a solicitação de exclusão. |
-| Nome do segmento | O nome do segmento usado para selecionar os usuários pendentes de exclusão. |
+| Nome do Segment | O nome do Segment usado para selecionar os usuários pendentes de exclusão. |
 | Status | Indica se a solicitação de exclusão está pendente, em andamento ou concluída. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Gerenciar público" }
 
@@ -143,11 +143,11 @@ Você também pode verificar o status de exclusões anteriores baixando um relat
 
 ### Posso excluir segmentos com mais de 10 milhões de usuários? {#can-i-delete-segments-with-more-than-10-million-users}
 
-Não. Você não pode excluir segmentos com mais de 10 milhões de usuários. Se precisar de ajuda para excluir um segmento desse tamanho, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support).
+Não. Você não pode excluir segmentos com mais de 10 milhões de usuários. Se precisar de ajuda para excluir um Segment desse tamanho, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
 ### Só consigo excluir até 10 milhões de usuários por vez. Isso é um bug? {#i-can-only-delete-up-to-10-million-users-at-a-time-is-this-a-bug}
 
-Não, isso não é um bug. O número máximo de perfis de usuários que podem ser excluídos em uma única execução de exclusão de segmento é 10 milhões.
+Não, isso não é um bug. O número máximo de perfis de usuários que podem ser excluídos em uma única execução de exclusão de Segment é 10 milhões.
 
 ### A mesclagem automatizada de usuários afeta a exclusão de usuários? {#does-automated-user-merging-affect-user-deletion}
 
@@ -159,7 +159,7 @@ Os dados enviados por sistemas externos ou SDKs ainda são aceitos, mas os usuá
 
 ### Canvas e Campaigns são disparados para usuários pendentes de exclusão? {#do-canvases-and-campaigns-trigger-for-users-pending-deletion}
 
-Sim. No entanto, você pode adicionar um filtro de inclusão de segmento para excluir todos os usuários com o [filtro de segmento](#segment-filters) **Pending Deletion**.
+Sim. No entanto, você pode adicionar um filtro de inclusão de Segment para excluir todos os usuários com o [filtro de Segment](#segment-filters) **Pending Deletion**.
 
 ### Posso recuperar perfis de usuários excluídos? {#can-i-recover-deleted-user-profiles}
 

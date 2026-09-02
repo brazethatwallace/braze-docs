@@ -153,7 +153,7 @@ El cliente reconoce que el uso del archivado de mensajes y/o el cifrado a nivel 
 
 ### Proveedores de LLM como subencargados o proveedores externos {#llm-providers-as-sub-processors-or-third-party-providers}
 
-Cuando el cliente utiliza una integración con un modelo de lenguaje grande proporcionado por Braze a través de la opción Braze Auto en los servicios de Braze ("LLM proporcionado por Braze"), el proveedor de dicho LLM proporcionado por Braze actuará como subencargado de Braze, sujeto a los términos del Anexo de procesamiento de datos (DPA) entre el cliente y Braze.
+Cuando el cliente utiliza una integración con un modelo de lenguaje grande proporcionado por Braze a través de la opción Braze Auto en los servicios de Braze ("LLM proporcionado por Braze"), el proveedor de dicho LLM proporcionado por Braze actuará como subencargado de Braze, sujeto a los términos del Anexo de procesamiento de datos (asesor sobre protección de datos) entre el cliente y Braze.
 
 Si el cliente elige traer su propia clave de API para integrarse con la funcionalidad de BrazeAI, el proveedor de la suscripción LLM propia del cliente se considerará un proveedor externo, según se define en el contrato entre el cliente y Braze.
 

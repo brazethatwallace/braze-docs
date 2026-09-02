@@ -10,7 +10,7 @@ tool:
 
 # Acerca de Audience Sync {#about-audience-sync}
 
-> La característica Braze Audience Sync te ayuda a ampliar el alcance de tus campañas a muchas de las principales tecnologías sociales y publicitarias. A través de [Braze Canvas]({{site.baseurl}}/user_guide/messaging/canvas), las marcas pueden sincronizar de forma dinámica y segura datos de usuarios de primera mano en el ecosistema publicitario para impulsar el marketing y la eficiencia operativa.
+> La característica Braze Audience Sync te ayuda a ampliar el alcance de tus campañas a muchas de las principales tecnologías sociales y publicitarias. A través de [BRAZE CANVAS]({{site.baseurl}}/user_guide/messaging/canvas), las marcas pueden sincronizar de forma dinámica y segura datos de usuarios de primera mano en el ecosistema publicitario para impulsar el marketing y la eficiencia operativa.
 
 ## Disponibilidad de la característica {#feature-availability}
 
@@ -101,7 +101,7 @@ Los Canvas de alto volumen pueden enviar antes porque los lotes se llenan más r
 
 Braze registra la actividad de envío en registros internos para monitorización y solución de problemas, pero estas marcas de tiempo no se exponen como campos consultables. Después de que Braze envía un lote a la API del partner, el partner procesa la actualización de audiencia de acuerdo con sus propios acuerdos de nivel de servicio, normalmente entre 6 y 48 horas.
 
-Braze no recibe confirmación de los partners de que los usuarios individuales hayan sido emparejados o sincronizados. Las respuestas del partner son confirmaciones HTTP de recepción, no confirmaciones de coincidencia. Para verificar que una audiencia se ha poblado, comprueba la plataforma publicitaria del partner (como Google Ads Audience Manager o Meta Business Manager).
+Braze no recibe confirmación de los partners de que los usuarios individuales hayan sido emparejados o sincronizados. Las respuestas del partner son confirmaciones HTTP de recepción, no confirmaciones de coincidencia. Para verificar que una audiencia se ha poblado, comprueba la plataforma publicitaria del partner (como Google Ads Audience Administrador o Meta Business Administrador).
 
 ### Correos electrónicos de error de Audience Sync {#audience-sync-error-emails}
 
@@ -109,7 +109,7 @@ Si el error está relacionado con la integración general del partner (como un p
 
 Si el error está relacionado con problemas del componente de Audience Sync (como "La audiencia no existe") en Canvas, se envía un correo electrónico al usuario que configuró el Canvas. Si ese usuario ya no existe, se recurre al administrador de la empresa.
 
-Para configurar quién recibe estos correos electrónicos, contacta con tu administrador de éxito de cliente para añadir destinatarios en **Preferencias de notificación**. Esta preferencia cubre tanto los errores de integración como los errores del componente de Audience Sync. Los destinatarios que añadas reciben estos correos electrónicos además del usuario asociado con el error.
+Para configurar quién recibe estos correos electrónicos, contacta con tu CSM para añadir destinatarios en **Preferencias de notificación**. Esta preferencia cubre tanto los errores de integración como los errores del componente de Audience Sync. Los destinatarios que añadas reciben estos correos electrónicos además del usuario asociado con el error.
 
 ## Consideraciones de privacidad de datos {#data-privacy-considerations}
 

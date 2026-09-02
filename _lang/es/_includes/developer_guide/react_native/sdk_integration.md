@@ -18,7 +18,7 @@ Si tu aplicación iOS se ajusta a `RCTAppDelegate` y sigue nuestra configuració
 
 Braze no publica versiones mínimas de React independientes más allá de lo que admite el SDK de React Native. Para integrar el SDK, usa React Native versión 0.71 o posterior. Para consultar la lista completa de versiones de React Native compatibles, consulta el [repositorio de GitHub del SDK de React Native](https://github.com/braze-inc/braze-react-native-sdk?tab=readme-ov-file#version-support).
 
-Cuando actualices React, React Native o el SDK de Braze, revisa el [CHANGELOG](https://github.com/braze-inc/braze-react-native-sdk/blob/master/CHANGELOG.md) del SDK en busca de cambios de última hora antes de desplegar.
+Cuando actualices React, React Native o el SDK de Braze, revisa el [Registro de cambios](https://github.com/braze-inc/braze-react-native-sdk/blob/master/CHANGELOG.md) del SDK en busca de cambios de última hora antes de desplegar.
 
 ## Integración del SDK de React Native {#integrating-the-react-native-sdk}
 

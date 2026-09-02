@@ -297,7 +297,7 @@ SMS/MMS/RCS 단계의 경우, 구독 그룹과 메시지 유형도 런칭 후에
 - 일반적으로 Content Optimizer 단계에서는 테스트하는 구성 요소가 적은 것보다 많은 것이 좋습니다. 예를 들어, 이메일에서 두 개의 구성 요소를 테스트하는 대신 세 개를 테스트하세요.
 - 최소 10개 이상의 조합을 테스트하면 더 나은 결과를 얻을 수 있습니다.
 - 이메일의 경우, 클릭을 최적화하는 단계가 열람을 최적화하는 단계보다 더 나은 성과를 보이는 경향이 있습니다. 클릭이 사용 사례에 적합하다면 최적화 이벤트로 클릭을 선택하세요.
-- Content Optimizer를 처음 사용하는 경우, [실험 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) 단계를 사용하여 오디언스의 일부만 Content Optimizer 단계가 포함된 분기로 진입하도록 하는 것이 좋습니다. 예를 들어, 사용자의 절반은 Content Optimizer 단계가 있는 경로로 보내고, 나머지 절반은 현재 기존 콘텐츠를 담은 메시지 단계를 전송하는 대조 경로로 보낼 수 있습니다. 그런 다음 2~3주간 데이터를 수집하고, Content Optimizer 단계가 있는 경로로 트래픽을 늘리기 전에 핵심 성과 지표(KPI) 또는 반대 측정기준을 비교하세요.
+- Content Optimizer를 처음 사용하는 경우, [실험 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) 단계를 사용하여 오디언스의 일부만 Content Optimizer 단계가 포함된 분기로 진입하도록 하는 것이 좋습니다. 예를 들어, 사용자의 절반은 Content Optimizer 단계가 있는 경로로 보내고, 나머지 절반은 현재 기존 콘텐츠를 담은 메시지 단계를 전송하는 대조 경로로 보낼 수 있습니다. 그런 다음 2~3주간 데이터를 수집하고, Content Optimizer 단계가 있는 경로로 트래픽을 늘리기 전에 KPI 또는 반대 측정기준을 비교하세요.
   - 효과적인 일대일 비교를 위해, Content Optimizer 단계의 각 구성 요소에서 배리언트 중 하나로 기존 콘텐츠를 포함하세요.
 - Content Optimizer 단계가 일정 기간 동안 최적화 상태에 있은 후 업데이트할 준비가 되면, 성과가 낮은 배리언트를 비활성화하고 최고 성과 배리언트의 특성을 기반으로 한 새로운 배리언트를 추가하세요.
 

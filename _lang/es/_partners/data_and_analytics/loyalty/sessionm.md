@@ -51,7 +51,7 @@ En Braze, crea un Segment de usuarios al que dirigirte con promociones y ofertas
 
 Primero, crea una Campaign webhook en Braze y configura la URL del webhook como {% raw %}`{{endpoint_core}}/priv/v1/apps/{{appkey_core}}/users/{{${user_id}}}/tags`{% endraw %}. Utiliza Liquid para definir el `user_id` dentro de la URL.
 
-Utilizando un **cuerpo de solicitud** de texto sin formato, compón el cuerpo del webhook para incluir las etiquetas deseadas que se añadirán al perfil de usuario en SessionM y el tiempo de vida deseado. Un ejemplo:
+Utilizando un **cuerpo de solicitud** de texto sin formato, compón el cuerpo del webhook para incluir las etiquetas deseadas que se añadirán al perfil de usuario en SessionM y el TTL deseado. Un ejemplo:
 
  ```
  {
@@ -73,7 +73,7 @@ En la pestaña **Configuración**, añade los pares clave-valor para cada campo 
 Programa tu entrega, configura tu **Públicos objetivo** para que se dirija al Segment [que creaste anteriormente](#step-1-create-a-segment-in-braze) y, a continuación, lanza tu Campaign.
 
 {% alert important %}
-Este proceso también puede realizarse a través de un cliente API, como Postman, haciendo una solicitud directamente al [endpoint de etiquetas de SessionM](https://docs.sessionm.com/developer/APIs/Core/Customers/customers_tags.htm#create-or-increment-a-customer-tag) especificando el cliente, el nombre de la etiqueta y un tiempo de vida para cada usuario en la llamada (un único usuario por llamada).
+Este proceso también puede realizarse a través de un cliente API, como Postman, haciendo una solicitud directamente al [endpoint de etiquetas de SessionM](https://docs.sessionm.com/developer/APIs/Core/Customers/customers_tags.htm#create-or-increment-a-customer-tag) especificando el cliente, el nombre de la etiqueta y un TTL para cada usuario en la llamada (un único usuario por llamada).
 <br><br>
 El siguiente ejemplo de solicitud utiliza cURL.
 
@@ -95,7 +95,7 @@ curl --location -g --request POST '{{endpoint_core}}/priv/v1/apps/{{apikey_core}
 
 #### Opción 2: Importación CSV {#option-2-csv-import}
 
-Exporta tu Segment de Braze utilizando el segmentador de Braze y proporciona un archivo CSV a SessionM que contenga los clientes a etiquetar, el nombre de la etiqueta y un tiempo de vida para cada usuario del archivo.
+Exporta tu Segment de Braze utilizando el segmentador de Braze y proporciona un archivo CSV a SessionM que contenga los clientes a etiquetar, el nombre de la etiqueta y un TTL para cada usuario del archivo.
 
 ## Recuperar la cartera de ofertas en tiempo real con Braze {#retrieving-real-time-offer-wallet-with-braze}
 

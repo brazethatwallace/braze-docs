@@ -49,7 +49,7 @@ Algunos países te permiten elegir un número específico por una tarifa adicion
 
 | Longitud | Acceso | Rendimiento | MMS habilitado | Unidireccional vs. bidireccional |
 | --- | --- | --- | --- | --- |
-| 5-6 dígitos | 4-12 semanas de solicitud | 100 mensajes por segundo o más | Sí | Bidireccional |
+| 5-6 dígitos | 4-12 semanas de solicitud | 100 MPS o más | Sí | Bidireccional |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Detalles" }
 
 ##### Pros y contras
@@ -86,7 +86,7 @@ Un código largo es un número de teléfono estándar utilizado para enviar y re
 | Pros |
 | ---- |
 | **Familiaridad y confianza**<br> Los códigos largos se ven como números de teléfono personales, a menudo incluyendo un código de área local. Para las marcas, esto representa un equilibrio entre presencia profesional y un toque personal y accesible. |
-| **Mayor disponibilidad mundial**<br> Los códigos largos están disponibles en más de 100 países principales en todo el mundo. Contacta a tu administrador de éxito de cliente o a [soporte de Braze]({{site.baseurl}}/braze_support) para obtener una lista de países disponibles. |
+| **Mayor disponibilidad mundial**<br> Los códigos largos están disponibles en más de 100 países principales en todo el mundo. Contacta a tu CSM o a [soporte de Braze]({{site.baseurl}}/braze_support) para obtener una lista de países disponibles. |
 {: .reset-td-br-1 aria-label="Pros y contras" }
 
 | Contras |
@@ -118,7 +118,7 @@ Pueden tener hasta 11 caracteres y contener letras mayúsculas (A-Z) y minúscul
 | {::nomarkdown} <ul><li> Mejor reconocimiento de marca </li><li> En muchos mercados internacionales, los operadores locales prerregistran y verifican los remitentes alfanuméricos, por lo que tus mensajes tienen menos probabilidades de ser atrapados por filtros agresivos de correo no deseado del operador que podrían bloquear códigos largos aleatorios </li><li> Disponible en 1 semana si no se requiere prerregistro </li></ul> {:/} | {::nomarkdown} <ul><li> La <a href='/docs/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling#two-way-messaging-custom-keyword-responses'>mensajería bidireccional</a> no es compatible </li><li> No todos los países admiten esta característica. Por ejemplo, es compatible en el Reino Unido pero está bloqueada en los EE. UU. </li><li> Algunos países tienen un proceso extenso de prerregistro que requiere la presentación de documentación legal y plazos de entrega más largos. </li></ul> {:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pros y contras" }
 
-Para más información sobre los IDs de remitente alfanuméricos, contacta a tu administrador de éxito de cliente.
+Para más información sobre los IDs de remitente alfanuméricos, contacta a tu CSM.
 {% endtab %}
 {% tab Números gratuitos SMS %}
 
@@ -206,7 +206,7 @@ Cuando todos tus materiales de solicitud estén listos, Braze presenta la solici
 El plazo de revisión y aprobación de códigos abreviados varía, pero generalmente toma de 4 a 12 semanas dependiendo del país y la naturaleza del programa.
 
 {% alert important %}
-Si ya tienes tu propio código abreviado, contacta a tu administrador de éxito de cliente durante el proceso de incorporación para discutir la migración o transferencia de tu código abreviado.
+Si ya tienes tu propio código abreviado, contacta a tu CSM durante el proceso de incorporación para discutir la migración o transferencia de tu código abreviado.
 {% endalert %}
 
 {% endtab %}

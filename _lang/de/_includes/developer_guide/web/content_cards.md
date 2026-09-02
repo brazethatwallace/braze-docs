@@ -362,4 +362,4 @@ Navigieren Sie in Ihrer Google Tag Manager-Integration zu Ihrem Braze-Initialisi
 
 ![Die Übersichtsseite des Braze-Initialisierungs-Tags mit der aktivierten Option „Enable Web SDK Logging“.]({% image_buster /assets/img/web-gtm/gtm_verbose_logging.png %})
 
-[changelog]: https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md
+[Changelog]: https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md

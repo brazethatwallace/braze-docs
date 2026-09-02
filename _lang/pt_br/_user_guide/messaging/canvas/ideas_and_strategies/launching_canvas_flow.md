@@ -98,7 +98,7 @@ Depois de revisar os detalhes do seu Canvas, confira [Enviando Canvas de teste](
 
 - Verifique se há uma condição de corrida, que impacta as mensagens que os usuários recebem quando disparam múltiplas ações ao mesmo tempo.
 - Confirme que não há filtros específicos na etapa que possam ter impedido os usuários de receber a mensagem.
-- Procure conflitos entre diferentes etapas dentro do mesmo Canvas. Por exemplo, usuários que não receberam a mensagem podem ter sido parados por um filtro que exige a conclusão de outra etapa em uma ramificação diferente.
+- Procure conflitos entre diferentes etapas dentro do mesmo Canvas. Por exemplo, usuários que não receberam a mensagem podem ter sido parados por um filtro que exige a conclusão de outra etapa em uma Branch diferente.
 - Confirme que os usuários atendem às regras de validação adicionais.
 - Confirme que a etapa do canva estava conectada à etapa anterior no momento do envio.
 
@@ -120,7 +120,7 @@ Se o Canvas não estiver carregando e não avançar, isso pode ser causado quand
 - Confirme se eles realizaram o evento personalizado ou a compra pré-requisito.
 - Verifique se há uma [condição de corrida]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions), que afeta as mensagens que os usuários recebem quando disparam múltiplas ações ao mesmo tempo.
 - Verifique se não há filtros específicos na etapa que possam ter impedido os usuários de receber a mensagem.
-- Procure conflitos entre etapas diferentes dentro do mesmo Canvas. Por exemplo, usuários que não receberam a mensagem podem ter sido barrados por um filtro que exige a conclusão de outra etapa em uma ramificação diferente.
+- Procure conflitos entre etapas diferentes dentro do mesmo Canvas. Por exemplo, usuários que não receberam a mensagem podem ter sido barrados por um filtro que exige a conclusão de outra etapa em uma Branch diferente.
 - Confirme se os usuários atendem a regras de validação adicionais.
 - Confirme se a etapa do Canvas estava conectada à etapa anterior no momento do envio.
 {% enddetails %}

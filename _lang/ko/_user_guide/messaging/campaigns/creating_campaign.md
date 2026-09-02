@@ -169,7 +169,7 @@ Segment 또는 필터를 추가한 후, 사용자를 조회하여 Segment 기준
 
 ## 4단계: 전환 이벤트 할당 {#step-4-assign-conversion-events}
 
-[전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)는 사용자가 캠페인을 수신한 후(또는 대조군에 진입한 후) 성과를 측정합니다. Braze는 기본적으로 짧은 기간(3일) 내의 **세션 시작**을 사용합니다. 캠페인당 최대 4개의 이벤트까지 핵심 성과 지표(KPI)에 맞는 전환 이벤트를 정의할 수 있습니다.
+[전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)는 사용자가 캠페인을 수신한 후(또는 대조군에 진입한 후) 성과를 측정합니다. Braze는 기본적으로 짧은 기간(3일) 내의 **세션 시작**을 사용합니다. 캠페인당 최대 4개의 이벤트까지 KPI에 맞는 전환 이벤트를 정의할 수 있습니다.
 
 시작 후, [전환 대시보드]({{site.baseurl}}/user_guide/analytics/dashboards/conversions)를 사용하여 여러 Campaigns 또는 Canvases에 걸친 전환 추세를 분석하고, 채널을 비교하며, 날짜 범위, 기여도 방법 및 분석 항목을 한 곳에서 조정하세요.
 

@@ -60,7 +60,7 @@ Das E-Mail-Insights-Dashboard verfolgt, wo und wann Ihre Kund:innen mit Ihren E-
 Der Bericht **Engagement by Device** bietet eine Aufschlüsselung der Geräte, die Ihre Nutzer:innen für die Interaktion mit Ihren E-Mails verwenden. Diese Daten verfolgen das E-Mail-Engagement über Mobilgeräte, Desktop, Tablet und andere Gerätetypen. Die Daten basieren auf dem User-Agent-String, der von den Geräten Ihrer Nutzer:innen übermittelt wird.
 
 {% alert note %}
-Wenn Sie CloudFront als CDN verwenden, stellen Sie sicher, dass der User-Agent Ihrer Nutzer:innen an den ESP weitergeleitet wird. Andernfalls wird jeder User-Agent als „Amazon Cloudfront“ angezeigt.
+Wenn Sie CloudFront als CDN verwenden, stellen Sie sicher, dass der User-Agent Ihrer Nutzer:innen an den E-Mail-Anbieter weitergeleitet wird. Andernfalls wird jeder User-Agent als „Amazon Cloudfront“ angezeigt.
 {% endalert %}
 
 Die Kategorie „Other“ umfasst alle User-Strings, die nicht als Desktop, Mobilgerät oder Tablet identifiziert werden können. Beispiele sind Fernseher, Autos, Spielekonsolen, OTT (Over-the-Top- oder Streaming-Geräte) und Ähnliches. Dies kann auch Null- oder leere Werte beinhalten.
@@ -68,7 +68,7 @@ Die Kategorie „Other“ umfasst alle User-Strings, die nicht als Desktop, Mobi
 Um besser zu verstehen, was in dieser Kategorie „Other“ enthalten ist, können Sie die User-Agents über eine der folgenden Optionen extrahieren:
 
 1. [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) sendet Ihnen den genauen User-Agent-String, der von den Geräten Ihrer Nutzer:innen abgerufen wurde.
-2. Nutzen Sie unseren [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder), um SQL oder unseren [AI Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder#generating-sql-with-the-ai-query-builder) zur Anzeige der User-Agents zu verwenden.
+2. Nutzen Sie unseren [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder), um SQL oder unseren [KI Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder#generating-sql-with-the-ai-query-builder) zur Anzeige der User-Agents zu verwenden.
 
 ![Bericht „Engagement by Device“ mit der Anzahl der Klicks für Mobilgeräte, Desktop, Tablet und andere Geräte. Die meisten Klicks erfolgen auf Mobilgeräten.]({% image_buster /assets/img/engagement_by_device_type.png %}){: style="max-width:70%;"}
 

@@ -137,7 +137,7 @@ En la página **Custom Events Report**, puedes ver de forma agregada con qué fr
 
 ![Gráfico de recuento de eventos personalizados en la página Custom Events del panel que muestra las tendencias de un evento personalizado]({% image_buster /assets/img_archive/custom_event_analytics_example.png %} "custom_event_analytics_example.png")
 
-También puedes usar **Filters** para desglosar tus eventos personalizados por hora, usuarios activos mensuales (MAU), Segments o fórmulas de KPI.
+También puedes usar **Filters** para desglosar tus eventos personalizados por hora, usuarios activos mensuales (MAU), Segments o fórmulas de indicador clave de rendimiento.
 
 ![Filtros del gráfico de eventos personalizados]({% image_buster /assets/img/custom_events_report_filters.png %}){: style="max-width:40%;"}
 

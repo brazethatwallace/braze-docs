@@ -13,13 +13,13 @@ channel: email
 
 ## Como funciona {#how-it-works}
 
-Você pode usar o aquecimento de IP automatizado para aumentar gradualmente seu volume de envio diário, permitindo que os provedores de caixa de entrada aprendam e confiem nos seus padrões de envio. Ao adicionar um domínio ao seu espaço de trabalho, você pode selecionar o bloco **Automated IP Warming** na seção **Pick up where you left off** do seu dashboard inicial. Esse bloco permanece visível por 60 dias enquanto seu espaço de trabalho está na janela de integração de novo remetente, e fica oculto depois que você conclui pelo menos um plano.
+Você pode usar o aquecimento de IP automatizado para aumentar gradualmente seu volume de envio diário, permitindo que os provedores de caixa de entrada aprendam e confiem nos seus padrões de envio. Ao adicionar um domínio ao seu espaço de trabalho, você pode selecionar o bloco **Automated aquecimento de IP** na seção **Pick up where you left off** do seu dashboard inicial. Esse bloco permanece visível por 60 dias enquanto seu espaço de trabalho está na janela de integração de novo remetente, e fica oculto depois que você conclui pelo menos um plano.
 
 Cada plano de aquecimento de IP automatizado está vinculado a um endereço de remetente. Esse endereço de remetente é mapeado para um subdomínio de envio e um pool de IP. Se o pool contiver vários IPs dedicados, a Braze faz o aquecimento de todos juntos em um único plano.
 
 A Braze envia primeiro para seus inscritos com maior engajamento, o que permite que o volume diário cresça em um ritmo alinhado às melhores práticas. Em seguida, a Braze monitora sinais de engajamento e entregabilidade. Se a Braze detectar algum problema, o sistema ajusta seu cronograma automaticamente.
 
-Depois de concluir pelo menos um plano, você pode visualizar os planos concluídos em **Settings** > **Email Preferences** > **Automated IP warming**.
+Depois de concluir pelo menos um plano, você pode visualizar os planos concluídos em **Settings** > **Email Preferences** > **Automated aquecimento de IP**.
 
 ## Pré-requisitos {#prerequisites}
 
@@ -69,7 +69,7 @@ Se o fluxo de trabalho de aprovação de Campaigns estiver ativado, a Braze apro
 4. Após adicionar o número necessário de modelos, selecione **Próximo: Resumo**.
 
 {% alert important %}
-Alterações feitas nas Campaigns criadas a partir da ferramenta de aquecimento de IP (como alterar a data agendada, o segment ou o volume) não são refletidas na página de **Resumo** do aquecimento de IP.
+Alterações feitas nas Campaigns criadas a partir da ferramenta de aquecimento de IP (como alterar a data agendada, o Segment ou o volume) não são refletidas na página de **Resumo** do aquecimento de IP.
 {% endalert %}
 
 ### Etapa 4: Selecione os eventos de conversão {#step-4-select-conversion-events}
@@ -150,7 +150,7 @@ Você pode parar um plano de aquecimento de IP para impedir a criação de futur
 
 O aquecimento de IP é marcado como concluído quando o último dia do aquecimento de IP termina à meia-noite no fuso horário do seu espaço de trabalho (ou no fuso horário da empresa, se o espaço de trabalho não tiver uma substituição). Por exemplo, se a última Campaign do plano é enviada às 20h, o plano é marcado como concluído à meia-noite, quatro horas depois.
 
-Os planos concluídos permanecem disponíveis em **Settings** > **Email Preferences** > **Automated IP warming**. O rastreador também permanece no dashboard inicial por 90 dias após o término do plano. Após 90 dias, o rastreador do dashboard inicial é removido.
+Os planos concluídos permanecem disponíveis em **Settings** > **Email Preferences** > **Automated aquecimento de IP**. O rastreador também permanece no dashboard inicial por 90 dias após o término do plano. Após 90 dias, o rastreador do dashboard inicial é removido.
 
 O download dos dados inclui estas métricas padrão de e-mail:
 

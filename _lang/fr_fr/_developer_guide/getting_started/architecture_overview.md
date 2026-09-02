@@ -119,7 +119,7 @@ Le [SDK Braze]({{site.baseurl}}/user_guide/get_started/sdk_overview) alimente de
 ![Schéma des canaux de communication Braze disponibles via le SDK.]({% image_buster /assets/img/getting_started/channels.png %})
 
 ## Exportation des données {#exporting-data}
-De manière essentielle, toutes les interactions des utilisateurs finaux avec Braze sont suivies afin que vous puissiez mesurer votre engagement et votre portée. Une fois que Braze a agrégé vos données provenant de toutes ces sources, elles peuvent être réexportées vers votre tech stack à l'aide de divers outils, bouclant ainsi la boucle.
+De manière essentielle, toutes les interactions des utilisateurs finaux avec Braze sont suivies afin que vous puissiez mesurer votre engagement et votre portée. Une fois que Braze a agrégé vos données provenant de toutes ces sources, elles peuvent être réexportées vers votre outils à l'aide de divers outils, bouclant ainsi la boucle.
 
 ### Currents
 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) est un module complémentaire optionnel de Braze qui fournit une exportation granulaire en flux continu alimentant en permanence d'autres destinations de votre stack. Currents est un flux de données brutes par utilisateur et par événement qui exporte les données toutes les cinq minutes ou tous les 15 000 événements, selon ce qui se produit en premier. Parmi les exemples de destinations en aval pour Currents, on trouve Segment, S3, Redshift et Mixpanel, entre autres.

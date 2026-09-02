@@ -42,7 +42,7 @@ Além de gerar textos e Liquid, o Operator pode ajudar você a criar vários out
 - Previsões
 - Relatórios
 - Segments
-- Extensões de segmento
+- Extensões de Segment
 
 {% alert note %}
 As funcionalidades do Operator no dashboard são expandidas regularmente. **Pergunte diretamente ao Operator** para obter a resposta mais atualizada sobre o que ele pode fazer.
@@ -59,7 +59,7 @@ Para começar, procure a opção **Create with Operator** ao criar uma Campaign 
 - **Criar e editar Campaigns:** ao iniciar uma Campaign, o Operator pode ajudar você a rascunhá-la de ponta a ponta a partir de um único briefing em linguagem natural. Isso inclui público, conteúdo e configurações de entrega. Você também pode pedir ao Operator para ajudar a editar uma Campaign existente, como ajustar o direcionamento ou atualizar o conteúdo da mensagem.
 - **Do briefing à Campaign:** descreva um briefing completo de Campaign, e o Operator ajuda você a criar um rascunho que inclui texto, imagens, personalização, direcionamento e recomendações de horário de envio. Revise o rascunho no criador de Campaign e refine com prompts de acompanhamento antes de lançar.
 - **Criar e editar Segments:** ao iniciar um Segment, descreva o público que você quer e o Operator ajuda a construir a lógica de filtros, incluindo condições de atributos, histórico de eventos e consultas de catálogo. O Operator também pode ajudar a editar os filtros de um Segment existente quando sua estratégia de direcionamento precisa de alterações.
-- **Criar extensões de segmento:** o Operator pode ajudar você a criar uma [extensão de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension) definida por SQL, escrevendo a consulta que a define. Descreva a lógica de público que você quer, e o Operator rascunha a consulta para você revisar antes de salvar. Você também pode pedir ajuda ao Operator a partir da visão geral de extensões de segmento. Para saber mais sobre o Operator e SQL, consulte [Escrever consultas de SQL](#write-sql-queries).
+- **Criar extensões de Segment:** o Operator pode ajudar você a criar uma [extensão de Segment]({{site.baseurl}}/user_guide/audience/segments/segment_extension) definida por SQL, escrevendo a consulta que a define. Descreva a lógica de público que você quer, e o Operator rascunha a consulta para você revisar antes de salvar. Você também pode pedir ajuda ao Operator a partir da visão geral de extensões de Segment. Para saber mais sobre o Operator e SQL, consulte [Escrever consultas de SQL](#write-sql-queries).
 - **Importar e gerenciar usuários:** em páginas de público compatíveis, o Operator pode ajudar você a [importar usuários]({{site.baseurl}}/user_guide/audience/manage_audience/import_users), [excluir usuários]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users) e [mesclar perfis duplicados]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users). Revise cada ação proposta antes de ela ser salva.
 
 ## Canvas {#canvases}
@@ -234,7 +234,7 @@ O Operator pode ajudar você a visualizar e criar previsões de [Churn Preditivo
 
 ### Escrever consultas de SQL {#write-sql-queries}
 
-O Operator pode ajudar você a escrever SQL para [extensões de segmento](#campaigns-and-audiences) e para [modelos de consulta]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates) do Query Builder. Descreva a consulta que você quer em linguagem natural, e o Operator gera o SQL para você revisar antes de executar.
+O Operator pode ajudar você a escrever SQL para [extensões de Segment](#campaigns-and-audiences) e para [modelos de consulta]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates) do Query Builder. Descreva a consulta que você quer em linguagem natural, e o Operator gera o SQL para você revisar antes de executar.
 
 ### Gerar código de transformação de dados {#generate-data-transformation-code}
 
@@ -267,7 +267,7 @@ A cobertura do Operator muda com frequência. Se você não tem certeza se uma t
 
 O suporte do Operator no dashboard é amplo, mas tem limites.
 
-- **Canvas:** o Operator pode [criar e editar Canvas](#canvases) no editor de Canvas atual. Ele não é compatível com o [editor de Canvas original]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas), com iniciar um Canvas a partir da página de seleção de modelos ou com o uso de **Preview as User** durante a criação de Canvas. O Operator ainda pode referenciar a configuração de um Canvas existente, como direcionamento e configurações de entrega, para responder perguntas e fundamentar seu resultado.
+- **Canvas:** o Operator pode [criar e editar Canvas](#canvases) no editor de Canvas atual. Ele não é compatível com o [editor de Canvas original]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas), com iniciar um Canvas a partir da página de seleção de modelos ou com o uso de **prévia as User** durante a criação de Canvas. O Operator ainda pode referenciar a configuração de um Canvas existente, como direcionamento e configurações de entrega, para responder perguntas e fundamentar seu resultado.
 - **Duplicação de Campaign:** o Operator não pode duplicar uma Campaign existente a partir da visualização de lista de Campaigns. Para criar uma Campaign semelhante, peça ao Operator para criar uma nova do zero, ou duplique a Campaign manualmente pelo menu **More Actions** da visualização de lista.
 - **Editores de arrastar e soltar:** o Operator não pode gerar ou inserir um design de mensagem diretamente em um editor de arrastar e soltar, como os de [e-mail]({{site.baseurl}}/user_guide/channels/email/drag_and_drop), [Banners]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#compose-a-banner) e [mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop). Mude para o editor de HTML correspondente para usar o Operator, ou peça ao Operator para gerar conteúdo, como texto, que você pode colar manualmente. Consulte [Gerar mensagens](#generate-messages) para os canais e editores compatíveis.
 - **Visibilidade da tela:** o Operator usa contexto da página para entender o que você está vendo, incluindo conteúdo dentro de prévias e editores compatíveis. Quando parte de uma página está fora do que o Operator pode ler, ele avisa em vez de adivinhar, para que você saiba descrever esse conteúdo por conta própria.

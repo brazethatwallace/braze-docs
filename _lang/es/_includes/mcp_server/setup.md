@@ -11,7 +11,7 @@ Antes de empezar, asegúrate de tener lo siguiente:
 | Requisito previo | Descripción |
 |--------------|-------------|
 | Cliente MCP compatible | Cualquier cliente que admita servidores MCP remotos con OAuth puede funcionar. Braze ha verificado Claude, ChatGPT, Cursor, OpenAI Codex, Claude Code y Visual Studio Code. |
-| Cuenta en el panel de Braze | Inicias sesión con tus credenciales normales de Braze, incluido SSO o SAML si tu empresa lo utiliza. No hay un inicio de sesión MCP independiente. |
+| Cuenta en el panel de Braze | Inicias sesión con tus credenciales normales de Braze, incluido inicio de sesión único o SAML si tu empresa lo utiliza. No hay un inicio de sesión MCP independiente. |
 | Selección de endpoint del servidor | Elige `https://mcp.braze.com/mcp` (EE. UU.) o `https://mcp.braze.eu/mcp` (UE). Cualquiera de los dos endpoints puede llegar a cualquier clúster de Braze. |
 | Sin lista de IP permitidas | Los clientes que utilizan la [lista de IP permitidas](https://www.braze.com/docs/user_guide/administer/global/admin_settings/security_settings#dashboard-ip-allowlisting) no pueden usar el servidor Braze MCP en este momento. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
@@ -73,7 +73,7 @@ Guías de configuración de clientes:
 
 La primera vez que tu agente llame a una herramienta de Braze, tu cliente abrirá una ventana del navegador y te enviará a Braze para iniciar sesión.
 
-1. Inicia sesión en Braze como lo harías normalmente, incluyendo SSO si es necesario.
+1. Inicia sesión en Braze como lo harías normalmente, incluyendo inicio de sesión único si es necesario.
 2. Si tu inicio de sesión puede acceder a más de una empresa en el mismo clúster, selecciona la empresa que deseas utilizar.
 3. En la pantalla de consentimiento, revisa el acceso que la aplicación está solicitando.
 4. Selecciona la casilla de reconocimiento para aceptar la Política de Privacidad de Braze y luego selecciona **Continue** para volver a tu cliente MCP.
@@ -108,7 +108,7 @@ Conectar un cliente toma solo unos pasos. El siguiente tutorial usa Claude, pero
 2. Introduce un nombre, como `Braze`, y pega tu URL de Braze MCP: `https://mcp.braze.com/mcp` para US o `https://mcp.braze.eu/mcp` para EU. No necesitas un ID de cliente, secreto de cliente ni clave de API.
 3. Selecciona **Agregar** para guardar el conector. Claude se registra con Braze automáticamente.
 4. Selecciona **Conectar** para iniciar la autenticación. Claude abre una ventana del navegador y te dirige a Braze para iniciar sesión.
-5. Inicia sesión en Braze con tus credenciales habituales, incluido SSO si tu empresa lo utiliza. Si tu inicio de sesión puede acceder a más de una empresa en el mismo clúster, selecciona la empresa que quieras usar.
+5. Inicia sesión en Braze con tus credenciales habituales, incluido inicio de sesión único si tu empresa lo utiliza. Si tu inicio de sesión puede acceder a más de una empresa en el mismo clúster, selecciona la empresa que quieras usar.
 6. En la pantalla de consentimiento, revisa el acceso solicitado, selecciona la casilla de reconocimiento y luego selecciona **Continuar**. Claude vuelve a tu chat, y tu agente ya puede usar las herramientas de Braze.
 
 Para confirmar la conexión, envía un mensaje de prueba como `Show my recent Canvases from the Production workspace`.

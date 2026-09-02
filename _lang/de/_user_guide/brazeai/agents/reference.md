@@ -22,7 +22,7 @@ Das von Braze bereitgestellte **Auto**-Modell ist für Modelle optimiert, deren 
 Dies ist die einfachste Option, ohne zusätzliche Einrichtung. Braze bietet direkten Zugang zu Large Language Models (LLMs). Um diese Option zu nutzen, wählen Sie **Auto** aus, das Gemini-Modelle verwendet.
 
 {% alert important %}
-Wenn Sie **Braze Auto** nicht als Option im **Modell**-Dropdown beim Erstellen eines Agenten sehen, wenden Sie sich an Ihren Customer-Success-Manager, um zu erfahren, wie Sie das Braze-Auto-Modell nutzen können.
+Wenn Sie **Braze Auto** nicht als Option im **Modell**-Dropdown beim Erstellen eines Agenten sehen, wenden Sie sich an Ihren CSM, um zu erfahren, wie Sie das Braze-Auto-Modell nutzen können.
 {% endalert %}
 
 ### Option 2: Eigenen API-Schlüssel mitbringen {#option-2-bring-your-own-api-key}
@@ -39,7 +39,7 @@ So richten Sie dies ein:
 
 Anschließend können Sie zu Ihrem Agenten zurückkehren und Ihr Modell auswählen.
 
-Wenn Sie ein von Braze bereitgestelltes LLM verwenden, agieren die Anbieter eines solchen Modells als Braze-Unterauftragsverarbeiter, vorbehaltlich der Bedingungen des Datenverarbeitungsvertrags (DPA) zwischen Ihnen und Braze. Wenn Sie Ihren eigenen API-Schlüssel mitbringen, gilt der Anbieter Ihres LLM-Abos als Drittanbieter gemäß dem Vertrag zwischen Ihnen und Braze.
+Wenn Sie ein von Braze bereitgestelltes LLM verwenden, agieren die Anbieter eines solchen Modells als Braze-Unterauftragsverarbeiter, vorbehaltlich der Bedingungen des Datenverarbeitungsvertrags (Datenschutzbeauftragte:r) zwischen Ihnen und Braze. Wenn Sie Ihren eigenen API-Schlüssel mitbringen, gilt der Anbieter Ihres LLM-Abos als Drittanbieter gemäß dem Vertrag zwischen Ihnen und Braze.
 
 #### Denkstufen {#thinking-levels}
 
@@ -58,7 +58,7 @@ Wir empfehlen, mit **Minimal** zu beginnen und die Antworten Ihres Agenten zu te
 Braze verwendet für ausgehende LLM-Aufrufe dieselben IP-Bereiche wie für Connected-Content. Die Bereiche sind in der [Connected-Content-IP-Zulassungsliste]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting) aufgeführt. Wenn Ihr Anbieter IP-Zulassungslisten unterstützt, können Sie den Schlüssel auf diese Bereiche beschränken, damit nur Braze ihn verwenden kann.
 
 {% alert important %}
-Wenn Sie ein von Braze bereitgestelltes LLM verwenden, agieren die Anbieter eines solchen Modells als Braze-Unterauftragsverarbeiter, vorbehaltlich der Bedingungen des Datenverarbeitungsvertrags (DPA) zwischen Ihnen und Braze. Wenn Sie Ihren eigenen API-Schlüssel mitbringen, gilt der Anbieter Ihres LLM-Abos als Drittanbieter gemäß dem Vertrag zwischen Ihnen und Braze.
+Wenn Sie ein von Braze bereitgestelltes LLM verwenden, agieren die Anbieter eines solchen Modells als Braze-Unterauftragsverarbeiter, vorbehaltlich der Bedingungen des Datenverarbeitungsvertrags (Datenschutzbeauftragte:r) zwischen Ihnen und Braze. Wenn Sie Ihren eigenen API-Schlüssel mitbringen, gilt der Anbieter Ihres LLM-Abos als Drittanbieter gemäß dem Vertrag zwischen Ihnen und Braze.
 {% endalert %}
 
 #### Bestimmen, welches Modell verwendet werden soll {#determine-which-model-to-use}

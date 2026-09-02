@@ -277,7 +277,7 @@ Esta advertencia puede persistir para Campaigns duplicadas desde una Campaign qu
 La entrega puede parecer incorrecta incluso cuando Braze se comportó según lo configurado. Revisa lo siguiente:
 
 - **Perfiles duplicados** que comparten un buzón de entrada (consulta [¿Qué pasa cuando se envía un correo electrónico y varios perfiles tienen la misma dirección de correo electrónico?](#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address)).
-- **Listas semilla, destinatarios de prueba o direcciones internas** incluidas en la audiencia o en un envío como CC/BCC.
+- **Listas semilla, destinatarios de prueba o direcciones internas** incluidas en la audiencia o en un envío como CC/tarjeta de contenido de banner.
 - **Temporización del Segment o Canvas:** el usuario coincidió con la audiencia o el paso en Canvas cuando Braze evaluó la elegibilidad, y luego los atributos o el estado de suscripción cambiaron antes de que leyeran el mensaje.
 - **Grupos de suscripción:** el usuario permaneció suscrito a un grupo al que se dirigió tu mensaje, incluso si su estado de suscripción global sugería lo contrario.
 - **Importaciones de API o archivos** que actualizaron al usuario después de la segmentación pero antes de que esperaras que el cambio se aplicara.

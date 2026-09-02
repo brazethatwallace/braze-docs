@@ -23,7 +23,7 @@ description: "Aprenda a gerenciar a coleta de dados para o SDK da Braze."
 {% multi_lang_include developer_guide/swift/analytics/managing_data_collection.md %}
 {% endsdktab %}
 
-{% sdktab react native %}
+{% sdktab React Native %}
 {% multi_lang_include developer_guide/react_native/analytics/managing_data_collection.md %}
 {% endsdktab %}
 

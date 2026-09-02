@@ -11,7 +11,7 @@ page_type: reference
 > Generieren und iterieren Sie HTML-E-Mail-Templates mit Operator. Beschreiben Sie das gewünschte Template in natürlicher Sprache, und Operator erstellt oder modifiziert es anhand Ihrer Markenrichtlinien und globalen Stileinstellungen.
 
 {% alert important %}
-Die Generierung von HTML-E-Mail-Templates mit Operator befindet sich im Early Access. Kontaktieren Sie Ihren Braze Account Manager, wenn Sie an diesem Early Access teilnehmen möchten.
+Die Generierung von HTML-E-Mail-Templates mit Operator befindet sich im Early Access. Kontaktieren Sie Ihren Braze Account Manager:in, wenn Sie an diesem Early Access teilnehmen möchten.
 
 Diese Funktionalität wird nur für den E-Mail-Kanal im HTML-Editor unterstützt, nicht in anderen Editoren (wie Drag-and-Drop oder AMP).
 {% endalert %}

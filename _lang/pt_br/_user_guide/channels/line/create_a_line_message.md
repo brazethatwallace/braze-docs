@@ -123,7 +123,7 @@ Configure controles de entrega como [reelegibilidade]({{site.baseurl}}/user_guid
 
 #### Escolha os usuários para direcionar {#choose-users-to-target}
 
-[Direcione usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) selecionando segmentos e filtros. A Braze calcula a associação exata ao segmento antes de enviar a mensagem.
+[Direcione usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) selecionando segmentos e filtros. A Braze calcula a associação exata ao Segment antes de enviar a mensagem.
 
 O LINE controla o status de inscrição de cada usuário. Um usuário deve ter um `native_line_id` e seguir o canal LINE associado ao grupo de inscrições selecionado para receber a mensagem. Para mais detalhes, consulte [Status de inscrição do LINE]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_status#line).
 

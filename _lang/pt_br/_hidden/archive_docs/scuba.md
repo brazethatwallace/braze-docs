@@ -78,9 +78,9 @@ O Scuba aplica um limite de frequência de 50.000 requisições por minuto a ess
 
 Depois de [fazer upload dos seus dados](#uploading-your-scuba-data-to-braze), você pode criar segmentos de usuários na Braze usando os dados comportamentais do Scuba.
 
-### Etapa 1: Criar um novo segmento {#step-1-create-a-new-segment}
+### Etapa 1: Criar um novo Segment {#step-1-create-a-new-segment}
 
-Na Braze, acesse **Público** > **Segments** e selecione **Criar Segment**. Em seguida, insira um nome para o seu segmento.
+Na Braze, acesse **Público** > **Segments** e selecione **Criar Segment**. Em seguida, insira um nome para o seu Segment.
 
 ![Criando um novo segmento na Braze.]({% image_buster /assets/img/scuba/analytics/segment_name.png %})
 

@@ -17,7 +17,7 @@ alias: "/api/api_campaigns/transactional_campaigns"
 > Os e-mails de transação da Braze são enviados para facilitar uma transação acordada entre um remetente e o destinatário. Este artigo de referência aborda como criar uma campanha de e-mail de transação no dashboard da Braze e gerar um `campaign_id` para incluir nas suas chamadas de API para o nosso [endpoint `/transactional/v1/campaigns/{campaign_id}/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_transactional_message).
 
 {% alert important %}
-O e-mail de transação da Braze está disponível apenas como parte de pacotes selecionados da Braze. Entre em contato com o seu gerente de sucesso do cliente da Braze ou abra um [ticket de suporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) para mais detalhes.
+O e-mail de transação da Braze está disponível apenas como parte de pacotes selecionados da Braze. Entre em contato com o seu CSM da Braze ou abra um [ticket de suporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) para mais detalhes.
 {% endalert %}
 
 O tipo de campanha de e-mail de transação foi criado especificamente para enviar mensagens de e-mail automatizadas e não promocionais, facilitando uma transação acordada entre você e seus clientes. Isso inclui informações como:

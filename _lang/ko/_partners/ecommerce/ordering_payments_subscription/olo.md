@@ -1,7 +1,7 @@
 ---
 nav_title: Olo
 article_title: Olo
-description: "이 문서에서는 모든 터치포인트에서 호스피탈리티를 실현하는 레스토랑 업계 선도적인 오픈 SaaS 플랫폼인 Olo와 Braze 간의 파트너십에 대해 설명합니다."
+description: "이 문서에서는 모든 터치포인트에서 호스피탈리티를 실현하는 레스토랑 업계 선도적인 오픈 SaaS(software-as-a-service) 플랫폼인 Olo와 Braze 간의 파트너십에 대해 설명합니다."
 alias: /partners/olo/
 page_type: partner
 search_tag: Partner
@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Olo
 
-> [Olo](https://www.olo.com/)는 모든 터치포인트에서 호스피탈리티를 실현하는 레스토랑 업계 선도적인 오픈 SaaS 플랫폼입니다.
+> [Olo](https://www.olo.com/)는 모든 터치포인트에서 호스피탈리티를 실현하는 레스토랑 업계 선도적인 오픈 SaaS(software-as-a-service) 플랫폼입니다.
 
 Olo와 Braze를 통합하면 다음을 수행할 수 있습니다.
 

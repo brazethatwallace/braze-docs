@@ -16,7 +16,7 @@ channel:
 
 Disposer de plusieurs comptes WhatsApp Business est utile si vous souhaitez envoyer des messages WhatsApp aux utilisateurs dans un espace de travail Braze qui comporte plusieurs marques. En effet, chaque compte professionnel fonctionne de manière indépendante au sein de WhatsApp et possède son propre numéro de téléphone, ses propres modèles de messages et sa propre évaluation de qualité.
 
-Les comptes professionnels imbriqués dans le même Meta Business Manager partagent également la gestion des autorisations d'accès des utilisateurs et les catalogues (pas encore pris en charge sur Braze).
+Les comptes professionnels imbriqués dans le même Meta Business gestionnaire partagent également la gestion des autorisations d'accès des utilisateurs et les catalogues (pas encore pris en charge sur Braze).
 
 ![Diagramme de l'écosystème Braze et WhatsApp, montrant comment les espaces de travail et les comptes WhatsApp Business se connectent entre eux : vous pouvez connecter un groupe d'abonnement à un numéro de téléphone, plusieurs comptes WhatsApp Business à un espace de travail, et un espace de travail à plusieurs Meta Business Portfolios.]({% image_buster /assets/img/whatsapp/whatsapp_braze_ecosystem.png %})
 
@@ -59,4 +59,4 @@ Vous pouvez ajouter jusqu'à 20 groupes d'abonnement (et numéros de téléphone
 ### Supprimer un groupe d'abonnement et un numéro de téléphone {#removing-a-subscription-group-and-phone-number}
 
 1. Accédez à **Audience** > **Abonnements** et archivez le groupe d'abonnement.
-2. Accédez à votre Meta Business Manager et supprimez le numéro de téléphone.
+2. Accédez à votre Meta Business gestionnaire et supprimez le numéro de téléphone.

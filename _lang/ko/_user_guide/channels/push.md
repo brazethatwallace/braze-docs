@@ -44,7 +44,7 @@ search_rank: 3
 | --- | --- |
 | Apple [3.2.2](https://developer.apple.com/app-store/review/guidelines/#unacceptable) | 허용되지 않는 용도에는 App Store와 유사한 서드파티 앱, 확장 프로그램 또는 플러그인을 표시하는 인터페이스를 만들거나 일반적인 관심사 컬렉션으로 사용하는 것이 포함됩니다. |
 | Apple [4.5.4](https://developer.apple.com/app-store/review/guidelines/#apple-sites-and-services) | 푸시는 앱 작동에 필수적이어서는 안 되며, 민감한 개인 정보나 기밀 정보를 전달해서는 안 됩니다. 고객이 앱 UI의 동의 문구를 통해 명시적으로 옵트인하고 앱 내에서 수신 거부할 수 있는 경우가 아니면, 프로모션이나 직접 마케팅에 푸시를 사용하지 마세요. |
-| Apple [4.10](https://developer.apple.com/app-store/review/guidelines/#monetizing-built-in-capabilities) | 푸시 알림, 카메라, 자이로스코프 등 내장 기능이나 Apple Music, iCloud 등 Apple 서비스를 수익화해서는 안 됩니다. |
+| Apple [4.10](https://developer.apple.com/app-store/review/guidelines/#monetizing-built-in-capabilities) | 푸시 알림, 카메라, 자이로스코프 등 내장 기능이나 Apple Music, iCloud 등 Apple 서비스를 수익 창출해서는 안 됩니다. |
 | Google Play — [시스템 기능의 무단 사용 또는 모방](https://developers.google.com/android/play-protect/mobile-unwanted-software#muws-categories) | 앱은 시스템 알림을 모방하거나 방해해서는 안 됩니다. 시스템 수준 알림은 앱의 핵심 기능에만 사용할 수 있습니다(예: 항공사 앱이 사용자에게 특가 정보를 알리거나, 게임이 사용자에게 인게임 프로모션을 알리는 경우). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="푸시 메시지 규정" }
 

@@ -121,15 +121,15 @@ Wenn Sie einen Universal Link lange gedrückt halten und **Öffnen** auswählen,
 
 **Symptom:** Ein Link in einer E-Mail öffnet Ihre App nicht über den Universal Link.
 
-E-Mail-Links durchlaufen das Klick-Tracking-System Ihres ESP, das Links in eine Tracking-Domain einbettet (zum Beispiel `https://click.yourdomain.com/...`). Damit Universal Links aus E-Mails funktionieren, müssen Sie die AASA-Datei auf Ihrer Klick-Tracking-Domain konfigurieren – nicht nur auf Ihrer primären Domain.
+E-Mail-Links durchlaufen das Klick-Tracking-System Ihres E-Mail-Anbieter, das Links in eine Tracking-Domain einbettet (zum Beispiel `https://click.yourdomain.com/...`). Damit Universal Links aus E-Mails funktionieren, müssen Sie die AASA-Datei auf Ihrer Klick-Tracking-Domain konfigurieren – nicht nur auf Ihrer primären Domain.
 
 ### AASA der Klick-Tracking-Domain überprüfen {#verify-click-tracking-domain-aasa}
 
-1. Identifizieren Sie Ihre Klick-Tracking-Domain in den Einstellungen Ihres ESP (SendGrid, SparkPost oder Amazon SES).
+1. Identifizieren Sie Ihre Klick-Tracking-Domain in den Einstellungen Ihres E-Mail-Anbieter (SendGrid, SparkPost oder Amazon SES).
 2. Hosten Sie die AASA-Datei unter `https://your-click-tracking-domain/.well-known/apple-app-site-association`.
 3. Bestätigen Sie, dass die AASA-Datei auf der Klick-Tracking-Domain dieselbe `appID` und gültige Pfadmuster enthält.
 
-ESP-spezifische Einrichtungsanweisungen finden Sie unter [Universal Links und App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links).
+E-Mail-Anbieter-spezifische Einrichtungsanweisungen finden Sie unter [Universal Links und App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links).
 
 ### Weiterleitungskette prüfen {#check-the-redirect-chain}
 
@@ -149,7 +149,7 @@ Ihre AASA-Datei auf der Klick-Tracking-Domain verwendet `paths`, die jede URL au
 
 Beschränken Sie `paths` auf die URLs, die die App öffnen sollen. Für SendGrid matchen Sie `/uni/` und fügen Sie `universal="true"` nur bei diesen Links hinzu.
 
-Informationen zur ESP-spezifischen Einrichtung, einschließlich Android-`pathPrefix`-Werte, finden Sie unter [Universelle Links und App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#universal-links-app-links-and-click-tracking).
+Informationen zur E-Mail-Anbieter-spezifischen Einrichtung, einschließlich Android-`pathPrefix`-Werte, finden Sie unter [Universelle Links und App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#universal-links-app-links-and-click-tracking).
 
 ## Deeplink funktioniert über Push, aber nicht über In-App-Nachricht (oder umgekehrt) {#deep-link-works-from-push-but-not-from-in-app-message}
 

@@ -22,7 +22,7 @@ Confirma que tienes lo siguiente listo:
 - El contenido de las variantes que quieras probar, como líneas del asunto alternativas, CTAs e imágenes principales. Puedes crear variantes durante la configuración, pero tenerlas listas acelera el proceso
 - Acceso al espacio de trabajo con permisos para configurar agentes de AI Decisioning
 
-Si tu espacio de trabajo no ha sido aprovisionado para Decisioning Studio Go, no verás la opción de configuración de agentes en la pestaña **AI Decisioning**. Ponte en contacto con tu administrador de éxito de cliente para obtener acceso.
+Si tu espacio de trabajo no ha sido aprovisionado para Decisioning Studio Go, no verás la opción de configuración de agentes en la pestaña **AI Decisioning**. Ponte en contacto con tu CSM para obtener acceso.
 
 ## Paso 1: Configura tu agente {#step-1-set-up-your-agent}
 
@@ -87,7 +87,7 @@ Tus reglas de limitación de frecuencia pueden aplicarse a nivel del agente:
 - **Contar para el límite:** Elige si los envíos de este agente cuentan para el límite general del usuario.
 
 {% alert tip %}
-Si tu limitación de frecuencia protege la experiencia del usuario, los envíos del agente ya están segmentados y es posible que no necesites contarlos para el límite. Si tu límite controla el volumen total de envíos o el gasto, probablemente quieras que se contabilicen. Tu administrador de éxito de cliente o consultor de soluciones puede ayudarte a confirmar el enfoque adecuado para tu espacio de trabajo.
+Si tu limitación de frecuencia protege la experiencia del usuario, los envíos del agente ya están segmentados y es posible que no necesites contarlos para el límite. Si tu límite controla el volumen total de envíos o el gasto, probablemente quieras que se contabilicen. Tu CSM o consultor de soluciones puede ayudarte a confirmar el enfoque adecuado para tu espacio de trabajo.
 {% endalert %}
 
 ## Paso 4: Añade contenido y plantillas {#step-4-add-content-and-templates}
@@ -204,6 +204,6 @@ La siguiente tabla resume las áreas de Decisioning Studio Go y los detalles rel
 
 ## Solución de problemas {#troubleshooting}
 
-Contacta a tu administrador de éxito de cliente o consultor de soluciones para obtener ayuda con la configuración de agentes, la revisión de rendimiento o el diseño de programas.
+Contacta a tu CSM o consultor de soluciones para obtener ayuda con la configuración de agentes, la revisión de rendimiento o el diseño de programas.
 
 Para preguntas frecuentes, consulta las [Preguntas frecuentes de Decisioning Studio Go]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/faq).

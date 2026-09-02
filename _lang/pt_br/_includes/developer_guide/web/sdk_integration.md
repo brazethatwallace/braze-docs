@@ -253,7 +253,7 @@ Esses dois arquivos devem ser atualizados em conjunto para que tudo funcione cor
 
 ## Outros métodos de integração {#other-integration-methods}
 
-### Accelerated Mobile Pages (AMP)
+### Accelerated Mobile Pages (AMP) (AMP)
 {% details Saiba mais %}
 #### Etapa 1: Inclua o script de web push do AMP {#step-1-include-amp-web-push-script}
 

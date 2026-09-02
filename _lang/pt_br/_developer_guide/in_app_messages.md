@@ -38,7 +38,7 @@ description: "Saiba mais sobre mensagens no app e como configurá-las para o SDK
 {% multi_lang_include developer_guide/flutter/in_app_messages.md %}
 {% endsdktab %}
 
-{% sdktab react native %}
+{% sdktab React Native %}
 {% multi_lang_include developer_guide/react_native/in_app_messages.md %}
 {% endsdktab %}
 

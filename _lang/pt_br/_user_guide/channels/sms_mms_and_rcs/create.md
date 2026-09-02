@@ -94,7 +94,7 @@ Os campos e limites no criador dependem do tipo de mensagem selecionado.
 | **Link shortening** | Encurta URLs HTTP e HTTPS e rastreia o engajamento. Para encurtamento de links legado, selecione rastreamento básico ou avançado. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Campos e configurações de SMS e MMS" }
 
-As mensagens SMS usam codificação GSM-7 ou UCS-2 e são cobradas por segmento de mensagem. Um único caractere pode alterar a codificação e aumentar o número de segmentos faturáveis. Para regras de codificação, tamanhos de segmento e a calculadora de segmentos, consulte [Calculadoras de faturamento de SMS e RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator).
+As mensagens SMS usam codificação GSM-7 ou UCS-2 e são cobradas por Segment de mensagem. Um único caractere pode alterar a codificação e aumentar o número de segmentos faturáveis. Para regras de codificação, tamanhos de Segment e a calculadora de segmentos, consulte [Calculadoras de faturamento de SMS e RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator).
 
 ![Criador de SMS mostrando o texto da mensagem e as estimativas de contagem de caracteres e segmentos.]({% image_buster /assets/img/sms_campaign_compose.png %})
 
@@ -246,7 +246,7 @@ Após o lançamento, use os [relatórios de SMS, MMS e RCS]({{site.baseurl}}/use
 
 ## Informações importantes {#things-to-know}
 
-- O SMS é cobrado por segmento de mensagem, o MMS tem sua própria taxa, e o RCS é cobrado por tipo de mensagem. Consulte as [calculadoras de faturamento de SMS e RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator) antes de enviar.
+- O SMS é cobrado por Segment de mensagem, o MMS tem sua própria taxa, e o RCS é cobrado por tipo de mensagem. Consulte as [calculadoras de faturamento de SMS e RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator) antes de enviar.
 - O MMS é compatível com uma imagem ou vCard. O suporte da operadora determina se os destinatários recebem a mídia ou um link para a imagem.
 - Os recursos e limites do RCS variam de acordo com o provedor de serviços de SMS. O criador exibe apenas as opções disponíveis para o grupo de inscrições selecionado.
 - Você pode enviar um correio de voz pré-gravado como áudio em uma mensagem RCS do tipo **Mídia**.

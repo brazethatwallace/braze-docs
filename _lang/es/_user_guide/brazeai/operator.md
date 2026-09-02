@@ -139,7 +139,7 @@ En la parte inferior de cada respuesta, utiliza los botones de pulgar hacia arri
 
 ## Privacidad y seguridad de datos {#data-privacy-and-security}
 
-BrazeAI Operator<sup>TM</sup> se integra con OpenAI, que actúa como subprocesador de Braze sujeto al Acuerdo de procesamiento de datos (DPA) entre tú y Braze. Los datos enviados a OpenAI a través de Braze no se utilizan para entrenar ni mejorar los modelos de OpenAI. Para más información sobre el cumplimiento de HIPAA, la retención de datos, el manejo de PII y la gobernanza, consulta [Privacidad y seguridad de datos]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security).
+BrazeAI Operator<sup>TM</sup> se integra con OpenAI, que actúa como subprocesador de Braze sujeto al Acuerdo de procesamiento de datos (asesor sobre protección de datos) entre tú y Braze. Los datos enviados a OpenAI a través de Braze no se utilizan para entrenar ni mejorar los modelos de OpenAI. Para más información sobre el cumplimiento de HIPAA, la retención de datos, el manejo de PII y la gobernanza, consulta [Privacidad y seguridad de datos]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security).
 
 ## Próximos pasos {#next-steps}
 

@@ -19,7 +19,7 @@ Für gemeinsame Kund:innen würde das in etwa so aussehen:
 4. Zurück in Braze senden sie einen Test-Webhook an die kopierte Transformations-URL.
 5. In Braze kopieren sie das Transformationscode-Template und fügen es ein.
 6. Sie aktivieren die Transformation.
-7. Nach der Aktivierung können sie über die Braze-Nutzersuche überprüfen, ob das Nutzerprofil basierend auf dem Webhook aktualisiert wurde, und den Transformationscode nach Bedarf bearbeiten.
+7. Nach der Aktivierung können sie über die Braze-Nutzersuche überprüfen, ob das Kundenprofil basierend auf dem Webhook aktualisiert wurde, und den Transformationscode nach Bedarf bearbeiten.
 
 {% alert tip %}
 Es wird empfohlen, pro Webhook-Typ, der an Braze gesendet wird, eine eigene Transformation zu erstellen, wenn Sie Beispiele für Transformationscode entwickeln.

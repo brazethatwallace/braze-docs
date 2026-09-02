@@ -15,7 +15,7 @@ description: "Senden Sie Transaktions-E-Mails für kritische, zeitkritische Bena
 
 ## Voraussetzungen {#prerequisites}
 
-Transaktions-E-Mails sind nur als Teil ausgewählter Braze-Pakete verfügbar. Kontaktieren Sie Ihren Braze-Customer-Success-Manager oder eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support) für weitere Details.
+Transaktions-E-Mails sind nur als Teil ausgewählter Braze-Pakete verfügbar. Kontaktieren Sie Ihren Braze-CSM oder eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support) für weitere Details.
 
 Bevor Sie beginnen, stellen Sie sicher, dass Folgendes vorhanden ist:
 

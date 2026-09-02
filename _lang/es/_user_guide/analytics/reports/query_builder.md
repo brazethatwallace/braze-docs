@@ -52,7 +52,7 @@ Consulta [Plantillas de consultas]({{site.baseurl}}/user_guide/analytics/reports
 
 ### Periodo de tiempo de los datos {#data-timeframe}
 
-Las consultas devuelven datos de los últimos 60 días. Si usas Currents o [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake), es posible que puedas consultar hasta dos años de datos, que es el tiempo que se retienen tus datos en Snowflake. Para más detalles sobre la retención extendida de datos, contacta a tu administrador de éxito de cliente.
+Las consultas devuelven datos de los últimos 60 días. Si usas Currents o [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake), es posible que puedas consultar hasta dos años de datos, que es el tiempo que se retienen tus datos en Snowflake. Para más detalles sobre la retención extendida de datos, contacta a tu CSM.
 
 ### Zona horaria del Generador de consultas {#query-builder-time-zone}
 

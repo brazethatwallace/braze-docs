@@ -89,7 +89,7 @@ Brazeで、**パートナー連携** > **テクノロジーパートナー**に�
 ### ステップ3:データフィードを設定する {#step-3-set-up-data-feeds}
 
 1. Branchの**Exports**セクションで、**Data Feeds**を選択します。
-2. **Data Feeds Manager**ページで、ページ上部の**Data Integrations**タブを選択します。
+2. **Data Feeds マネージャー**ページで、ページ上部の**Data Integrations**タブを選択します。
 3. 利用可能なデータパートナーのリストからBrazeを選択します。
 4. Brazeエクスポートページで、Brazeダッシュボードで見つけたデータインポートキーとRESTエンドポイントを入力し、**Enable**を選択します。
 

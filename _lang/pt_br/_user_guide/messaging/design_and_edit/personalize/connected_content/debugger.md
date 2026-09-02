@@ -37,10 +37,10 @@ O depurador está disponível para a maioria dos canais, mas ainda não para Kak
 
 ## Usar o depurador {#use-the-debugger}
 
-Cada vez que você executa uma prévia, a Braze renderiza automaticamente os resultados da chamada de Connected Content na guia **Preview**. Para usar o depurador:
+Cada vez que você executa uma prévia, a Braze renderiza automaticamente os resultados da chamada de Connected Content na guia **prévia**. Para usar o depurador:
 
 1. Configure sua mensagem com a tag {% raw %}`{% connected_content %}`{% endraw %}.
-2. Acesse a seção **Preview & Test**. Se sua mensagem incluir uma tag de Connected Content, você pode ver um resumo com o número de chamadas de Connected Content e os status de sucesso e erro.
+2. Acesse a seção **prévia & Test**. Se sua mensagem incluir uma tag de Connected Content, você pode ver um resumo com o número de chamadas de Connected Content e os status de sucesso e erro.
 
 ![Seção de Connected Content na seção de teste.]({% image_buster /assets/img/connected_content/debugger1.png %})
 
@@ -101,7 +101,7 @@ Para enviar um `User-Agent` consistente, defina-o em `:headers`. A Braze usa o s
 
 ## Redação de credenciais {#credential-redaction}
 
-Se a sua tag de Connected Content usar `:basic_auth`, cabeçalhos secretos comuns, chaves ou outras [opções de credenciais de autenticação]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#authentication-types), o depurador oculta esses valores na guia **Request** e os substitui por uma série de asteriscos (*). Isso permite que você confirme que as credenciais foram incluídas na solicitação sem expor os valores em **Preview & Test**.
+Se a sua tag de Connected Content usar `:basic_auth`, cabeçalhos secretos comuns, chaves ou outras [opções de credenciais de autenticação]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#authentication-types), o depurador oculta esses valores na guia **Request** e os substitui por uma série de asteriscos (*). Isso permite que você confirme que as credenciais foram incluídas na solicitação sem expor os valores em **prévia & Test**.
 
 Falhas de autenticação ainda ficam visíveis mesmo quando as credenciais estão ocultas: se o seu endpoint retornar um `401` ou `403`, esse código de status aparece normalmente na guia **Response**, para que você saiba que sua solicitação foi rejeitada por falha de autenticação, mesmo que a credencial em si esteja oculta.
 

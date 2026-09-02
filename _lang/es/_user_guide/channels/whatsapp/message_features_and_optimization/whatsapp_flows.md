@@ -25,7 +25,7 @@ channel:
 ![WhatsApp Manager con una página para crear una plantilla de Flows.]({% image_buster /assets/img/whatsapp/flows/create_flows_template.png %})
 
 {% alert tip %}
-También puedes crear una plantilla de Flow de marketing o utilidad en Braze con el [Creador de plantillas de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder). Crea y gestiona el Flow en el WhatsApp Manager de Meta y, a continuación, selecciona ese Flow cuando construyas la plantilla en Braze.
+También puedes crear una plantilla de Flow de marketing o utilidad en Braze con el [Creador de plantillas de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder). Crea y gestiona el Flow en el WhatsApp Administrador de Meta y, a continuación, selecciona ese Flow cuando construyas la plantilla en Braze.
 {% endalert %}
 
 {: start="3"}
@@ -60,7 +60,7 @@ También puedes crear una plantilla de Flow de marketing o utilidad en Braze con
 
 ### Vista previa del Flow {#preview-flow}
 
-Antes de lanzar un Canvas con un Flow, puedes seleccionar **Preview Flow** para previsualizar el Flow directamente en Braze y confirmar que se comporta como se espera. También puedes interactuar con el Flow en la vista previa para experimentar cómo un usuario navegaría por el Flow, y luego realizar ajustes en tiempo real. Si un Flow contiene varias páginas, puedes interactuar con cada página.
+Antes de lanzar un Canvas con un Flow, puedes seleccionar **vista previa Flow** para previsualizar el Flow directamente en Braze y confirmar que se comporta como se espera. También puedes interactuar con el Flow en la vista previa para experimentar cómo un usuario navegaría por el Flow, y luego realizar ajustes en tiempo real. Si un Flow contiene varias páginas, puedes interactuar con cada página.
 
 ![Ventana de vista previa mostrando un formulario para que un usuario complete su suscripción.]({% image_buster /assets/img/whatsapp/flows/flow_preview.png %}){: style="max-width:50%;"}
 

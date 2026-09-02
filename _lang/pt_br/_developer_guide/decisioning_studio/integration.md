@@ -29,8 +29,8 @@ Na Braze, acesse **Configurações** > **Chaves de API** e crie uma nova chave c
 
 {% multi_lang_include decisioning_studio/api_key_permissions.md %}
 
-### Etapa 3: Fale com o seu gerente de sucesso do cliente do BrazeAI Decisioning Studio™ {#step-3-contact-your-brazeai-decisioning-studio-customer-success-manager}
+### Etapa 3: Fale com o seu CSM do BrazeAI Decisioning Studio™ {#step-3-contact-your-brazeai-decisioning-studio-customer-success-manager}
 
-Fale com o seu gerente de sucesso do cliente do BrazeAI Decisioning Studio™ e peça para ativar o BrazeAI Decisioning Studio™. Ele usará sua chave de API da Braze e a URL do endpoint para concluir a configuração da sua integração.
+Fale com o seu CSM do BrazeAI Decisioning Studio™ e peça para ativar o BrazeAI Decisioning Studio™. Ele usará sua chave de API da Braze e a URL do endpoint para concluir a configuração da sua integração.
 
 Quando a configuração estiver concluída, você trabalhará junto com a equipe de Serviços Especializados em IA para [começar a criar agentes para o seu produto]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup). Cada agente é personalizado para uma meta comercial específica, então vocês trabalharão juntos para projetar uma implementação ideal para você.

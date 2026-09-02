@@ -1,25 +1,25 @@
 ---
-nav_title: "Ads That Click to WhatsApp"
-article_title: "Ads That Click to WhatsApp"
+nav_title: "Ads That click to WhatsApp"
+article_title: "Ads That click to WhatsApp"
 page_order: 1
-description: "Dieser Referenzartikel bietet eine Schritt-für-Schritt-Anleitung zum Einrichten und Verwenden von Ads That Click to WhatsApp."
+description: "Dieser Referenzartikel bietet eine Schritt-für-Schritt-Anleitung zum Einrichten und Verwenden von Ads That click to WhatsApp."
 page_type: reference
 alias: /whatsapp_use_cases/
 channel:
   - WhatsApp
 ---
 
-# Ads That Click to WhatsApp {#ads-that-click-to-whatsapp}
+# Ads That click to WhatsApp {#ads-that-click-to-whatsapp}
 
-> Diese Seite bietet eine Schritt-für-Schritt-Anleitung zum Einrichten und Verwenden von Ads That Click to WhatsApp, damit Sie und Ihr Team Ihr WhatsApp-Programm auf das nächste Level heben können.
+> Diese Seite bietet eine Schritt-für-Schritt-Anleitung zum Einrichten und Verwenden von Ads That click to WhatsApp, damit Sie und Ihr Team Ihr WhatsApp-Programm auf das nächste Level heben können.
 
-Ads That Click to WhatsApp sind eine effiziente Möglichkeit, sowohl neue als auch bestehende Kund:innen über Meta-Anzeigen auf Facebook, Instagram oder anderen Plattformen zu erreichen. Nutzen Sie diese Anzeigen, um Ihre Produkte und Dienste zu bewerben und gleichzeitig Nutzer:innen auf Ihre WhatsApp-Präsenz aufmerksam zu machen.
+Ads That click to WhatsApp sind eine effiziente Möglichkeit, sowohl neue als auch bestehende Kund:innen über Meta-Anzeigen auf Facebook, Instagram oder anderen Plattformen zu erreichen. Nutzen Sie diese Anzeigen, um Ihre Produkte und Dienste zu bewerben und gleichzeitig Nutzer:innen auf Ihre WhatsApp-Präsenz aufmerksam zu machen.
 
 ![Eine Facebook-Anzeige von Calorie Rocket, die kostenlose Lieferung bewirbt, und die entsprechende WhatsApp-Konversation, die stattfindet, wenn ein:e Nutzer:in den Button der Anzeige auswählt.]({% image_buster /assets/img/whatsapp/ads_that_click_whatsapp.png %}){: style="max-width:70%;"}
 
-## Einrichten von Ads That Click to WhatsApp {#setting-up-ads-that-click-to-whatsapp}
+## Einrichten von Ads That click to WhatsApp {#setting-up-ads-that-click-to-whatsapp}
 
-1. Erstellen Sie im Meta Ads Manager eine Anzeige auf Facebook, Instagram oder anderen Plattformen, indem Sie der Schritt-für-Schritt-Anleitung [How to create Ads That Click to WhatsApp](https://business.whatsapp.com/products/create-ads-that-click-to-whatsapp) folgen. Richten Sie **keine** automatisierten Antworten ein – Sie werden die Antworten stattdessen in Braze einrichten.
+1. Erstellen Sie im Meta Ads Manager:in eine Anzeige auf Facebook, Instagram oder anderen Plattformen, indem Sie der Schritt-für-Schritt-Anleitung [How to create Ads That click to WhatsApp](https://business.whatsapp.com/products/create-ads-that-click-to-whatsapp) folgen. Richten Sie **keine** automatisierten Antworten ein – Sie werden die Antworten stattdessen in Braze einrichten.
 
 ![Ads Manager mit einem Editor zum Erstellen einer Engagement-Anzeige.]({% image_buster /assets/img/whatsapp/meta_ads_composer.png %})
 
@@ -52,7 +52,7 @@ Vergessen Sie nicht, auch Rabattcodes, Angebote oder andere in der Anzeige versp
 {: start="4"}
 4. Führen Sie das Opt-in der Nutzer:innen durch, indem Sie den Abo-Status der Nutzerprofile mit einer der folgenden Aktualisierungsmethoden ändern:
     - Erstellen Sie einen Braze-zu-Braze-Webhook, der den Abo-Status über die REST API aktualisiert.
-    - Verwenden Sie den erweiterten JSON-Editor, um das Nutzerprofil mit dem Template zum [Aktualisieren des Abo-Status eines Nutzers/einer Nutzerin für ein WhatsApp-Canvas]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-opt-in-and-opt-out-process) zu aktualisieren.
+    - Verwenden Sie den erweiterten JSON-Editor, um das Kundenprofil mit dem Template zum [Aktualisieren des Abo-Status eines Nutzers/einer Nutzerin für ein WhatsApp-Canvas]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-opt-in-and-opt-out-process) zu aktualisieren.
 
 ![Canvas-Schritt „Nutzer:in aktualisieren“, der den erweiterten JSON-Editor zur Aktualisierung des Nutzerprofils verwendet.]({% image_buster /assets/img/whatsapp/user_update_step_json.png %})
 

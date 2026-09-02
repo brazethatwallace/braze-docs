@@ -29,7 +29,7 @@ Tu derecho de Distribución de datos determina qué tipos de eventos están disp
 | **Perfiles y atributos de usuario** | Eventos de participación en mensajes, eventos de comportamiento del cliente y eventos de perfil de usuario | Incluye los eventos de participación en mensajes y los eventos de comportamiento del cliente, además de eventos relacionados con cambios en los perfiles y atributos de usuario | [Eventos de participación en mensajes]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events), [Eventos de comportamiento del cliente y del usuario]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events), [Eventos de perfil de usuario]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/user_profiles_events) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Derechos de Distribución de datos" }
 
-Si tienes preguntas sobre qué eventos están incluidos en tu derecho, ponte en contacto con tu cuenta de Braze o tu administrador de éxito de cliente.
+Si tienes preguntas sobre qué eventos están incluidos en tu derecho, ponte en contacto con tu cuenta de Braze o tu CSM.
 
 ## Acerca del uso compartido seguro de datos {#about-secure-data-sharing}
 

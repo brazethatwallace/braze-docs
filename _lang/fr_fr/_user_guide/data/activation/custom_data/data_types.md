@@ -304,8 +304,8 @@ Pour les attributs de type **heure**, les options de segmentation suivantes sont
 
 | Options de segmentation | Filtre déroulant | Options de saisie | Exemples |
 | ---------------------| --------------- | ------------- | -------- |
-| Vérifier si l'attribut temporel **est avant** une **date sélectionnée**| **BEFORE** | **CALENDAR DATE SELECTOR** | Si ce filtre spécifie `2024-01-31` et qu'un profil utilisateur possède une date avant le `2024-1-31`, l'utilisateur correspondra à ce filtre. |
-| Vérifier si l'attribut temporel **est après** une **date sélectionnée**| **AFTER** | **CALENDAR DATE SELECTOR** | Si ce filtre spécifie `2024-01-31` et qu'un profil utilisateur possède une date après le `2024-1-31`, l'utilisateur correspondra à ce filtre. |
+| Vérifier si l'attribut temporel **est avant** une **date sélectionnée**| **BEFORE** | **CALENDAR DATE sélecteur** | Si ce filtre spécifie `2024-01-31` et qu'un profil utilisateur possède une date avant le `2024-1-31`, l'utilisateur correspondra à ce filtre. |
+| Vérifier si l'attribut temporel **est après** une **date sélectionnée**| **AFTER** | **CALENDAR DATE sélecteur** | Si ce filtre spécifie `2024-01-31` et qu'un profil utilisateur possède une date après le `2024-1-31`, l'utilisateur correspondra à ce filtre. |
 | Vérifier si l'attribut temporel remonte à **plus de X** **jours** | **MORE THAN** | **NUMBER OF DAYS AGO** | Si ce filtre spécifie `7` et qu'un profil utilisateur possède une date datant de plus de sept jours, l'utilisateur correspondra à ce filtre. |
 | Vérifier si l'attribut temporel remonte à **moins de X** **jours**| **LESS THAN** | **NUMBER OF DAYS AGO** | Si ce filtre spécifie `7` et qu'un profil utilisateur possède une date datant de moins de sept jours, l'utilisateur correspondra à ce filtre.|
 | Vérifier si l'attribut temporel est dans **plus de X** **jours dans le futur** | **IN MORE THAN** | **NUMBER OF DAYS IN FUTURE** | Si ce filtre spécifie `7` et qu'un profil utilisateur possède une date située à plus de sept jours dans le futur, l'utilisateur correspondra à ce filtre.|

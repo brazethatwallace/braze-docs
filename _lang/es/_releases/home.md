@@ -162,11 +162,11 @@ El bloque [Gestionar suscripciones]({{site.baseurl}}/user_guide/messaging/landin
 
 ### Asociaciones {#partnerships}
 
-#### Audience Sync: API de Google Data Manager {#audience-sync-google-data-manager-api}
+#### Audience Sync: API de Google Data Administrador {#audience-sync-google-data-manager-api}
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-[Audience Sync con Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync) admite la API de Google Data Manager en acceso anticipado.
+[Audience Sync con Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync) admite la API de Google Data Administrador en acceso anticipado.
 
 #### Amazon Bedrock - Proveedor de modelos de IA {#amazon-bedrock-ai-model-provider}
 
@@ -224,7 +224,7 @@ Para más detalles, consulta los [registros de cambios del SDK]({{site.baseurl}}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-El [dashboard de diagnóstico de mensajería]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard) proporciona un desglose de alto nivel de los resultados de envío de mensajes, permitiéndote detectar tendencias y diagnosticar posibles problemas en tu configuración de mensajería. Este dashboard puede ayudarte a entender por qué los mensajes de tus campañas o Canvas pueden no haberse enviado como se esperaba. Ponte en contacto con tu administrador de éxito de cliente para acceder a la característica.
+El [dashboard de diagnóstico de mensajería]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard) proporciona un desglose de alto nivel de los resultados de envío de mensajes, permitiéndote detectar tendencias y diagnosticar posibles problemas en tu configuración de mensajería. Este dashboard puede ayudarte a entender por qué los mensajes de tus campañas o Canvas pueden no haberse enviado como se esperaba. Ponte en contacto con tu CSM para acceder a la característica.
 
 #### Mapeador de eventos personalizados en la importación CSV {#csv-custom-events-mapper}
 
@@ -259,9 +259,9 @@ Por ejemplo, en la página de horas tranquilas, pide a Operator que configure la
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-El [servidor MCP de Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server) es una conexión alojada de forma remota que te permite conectar agentes de IA como Claude, ChatGPT, Cursor, VSCode, Codex, Google Antigravity y Claude Code directamente a Braze. A través de lenguaje natural, los agentes pueden leer análisis de campañas, Canvas y segmentos, atributos personalizados, eventos, KPI y catálogos, y crear o actualizar plantillas de correo electrónico, Content Blocks y activos de la biblioteca multimedia. No se expone información personal identificable de perfiles de usuario.
+El [servidor MCP de Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server) es una conexión alojada de forma remota que te permite conectar agentes de IA como Claude, ChatGPT, Cursor, VSCode, Codex, Google Antigravity y Claude Code directamente a Braze. A través de lenguaje natural, los agentes pueden leer análisis de campañas, Canvas y segmentos, atributos personalizados, eventos, indicador clave de rendimiento y catálogos, y crear o actualizar plantillas de correo electrónico, Content Blocks y activos de la biblioteca multimedia. No se expone información personal identificable de perfiles de usuario.
 
-Para conectarte, pega una única URL de endpoint en tu cliente MCP —`https://mcp.braze.com/mcp` para EE. UU. o `https://mcp.braze.eu/mcp` para la UE— y luego inicia sesión con OAuth, incluyendo SSO. El servidor se inicia con las herramientas disponibles.
+Para conectarte, pega una única URL de endpoint en tu cliente MCP —`https://mcp.braze.com/mcp` para EE. UU. o `https://mcp.braze.eu/mcp` para la UE— y luego inicia sesión con OAuth, incluyendo inicio de sesión único. El servidor se inicia con las herramientas disponibles.
 
 ### Orquestación
 
@@ -333,7 +333,7 @@ Ahora puedes actualizar las credenciales push de forma programática con el [end
 
 #### Refiner - Encuestas {#refiner-surveys}
 
-[Refiner](https://refiner.io) es una plataforma de encuestas dentro de la aplicación para aplicaciones SaaS y móviles. Permite a los equipos de producto y de voz del cliente lanzar encuestas dirigidas dentro de la aplicación y recopilar continuamente datos de NPS, CSAT, CES, comentarios sobre el producto y datos de usuario de primera mano.
+[Refiner](https://refiner.io) es una plataforma de encuestas dentro de la aplicación para aplicaciones software como servicio (SaaS) y móviles. Permite a los equipos de producto y de voz del cliente lanzar encuestas dirigidas dentro de la aplicación y recopilar continuamente datos de NPS, CSAT, CES, comentarios sobre el producto y datos de usuario de primera mano.
 
 #### Stayfilm - Contenido visual e interactivo {#stayfilm-visual-and-interactive-content}
 
@@ -490,7 +490,7 @@ Después de enviar un mensaje de prueba de WhatsApp, puedes ver un [informe de e
 
 #### Convercus - Datos y análisis - Fidelización {#convercus-data-and-analytics-loyalty}
 
-[Convercus]({{site.baseurl}}/partners/data_and_analytics/loyalty/convercus) es una plataforma SaaS de fidelización y cupones que ayuda a las marcas y minoristas a aumentar la frecuencia de compra, el valor del carrito y las tasas de recompra a través de programas de fidelización omnicanal y campañas de cupones personalizadas.
+[Convercus]({{site.baseurl}}/partners/data_and_analytics/loyalty/convercus) es una plataforma software como servicio (SaaS) de fidelización y cupones que ayuda a las marcas y minoristas a aumentar la frecuencia de compra, el valor del carrito y las tasas de recompra a través de programas de fidelización omnicanal y campañas de cupones personalizadas.
 
 #### Copy Pastd - Orquestación de mensajes - Plantillas {#copy-pastd-message-orchestration-templates}
 
@@ -502,7 +502,7 @@ Después de enviar un mensaje de prueba de WhatsApp, puedes ver un [informe de e
 
 #### DinMo - Datos y análisis - ETL inverso {#dinmo-data-and-analytics-reverse-etl}
 
-[DinMo]({{site.baseurl}}/partners/dinmo) es una plataforma de datos de los clientes (CDP) componible que conecta tu almacén de datos en la nube con Braze a través de ETL inverso (extraer, transformar, cargar). Los equipos de marketing pueden crear segmentos de audiencia a partir de datos del almacén, sincronizar atributos de usuario y eventos en Braze, y mantener los estados de suscripción actualizados sin cargas de CSV ni soporte de ingeniería.
+[DinMo]({{site.baseurl}}/partners/dinmo) es una CDP (CDP) componible que conecta tu almacén de datos en la nube con Braze a través de ETL inverso (ETL). Los equipos de marketing pueden crear segmentos de audiencia a partir de datos del almacén, sincronizar atributos de usuario y eventos en Braze, y mantener los estados de suscripción actualizados sin cargas de CSV ni soporte de ingeniería.
 
 #### EmailShepherd - Orquestación de mensajes - Plantillas {#emailshepherd-message-orchestration-templates}
 
@@ -578,9 +578,9 @@ Braze [gestiona automáticamente los registros de estado de suscripción huérfa
 
 ### Asociaciones
 
-#### Chord - Plataforma de datos de los clientes {#chord-customer-data-platform}
+#### Chord - CDP {#chord-customer-data-platform}
 
-[Chord](https://www.chord.co/) proporciona una plataforma de datos de los clientes que captura y estandariza eventos de tu tienda de comercio electrónico. Cuando conectas Chord a Braze, la actividad de compra, los eventos de comportamiento y las actualizaciones de identidad fluyen hacia Braze para que puedas desencadenar campañas y mantener los perfiles actualizados sin construir esos pipelines tú mismo.
+[Chord](https://www.chord.co/) proporciona una CDP que captura y estandariza eventos de tu tienda de comercio electrónico. Cuando conectas Chord a Braze, la actividad de compra, los eventos de comportamiento y las actualizaciones de identidad fluyen hacia Braze para que puedas desencadenar campañas y mantener los perfiles actualizados sin construir esos pipelines tú mismo.
 
 Para más información, consulta [Chord]({{site.baseurl}}/partners/chord).
 
@@ -698,7 +698,7 @@ Usa los [límites de velocidad de mensajería del espacio de trabajo]({{site.bas
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-El [constructor de plantillas de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization) te permite crear y enviar plantillas de mensajes de WhatsApp directamente en Braze, sin necesidad de alternar entre Braze y el Meta Business Manager. Después de que Meta apruebe tu plantilla, úsala en tantas campañas y Canvas como desees.
+El [constructor de plantillas de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization) te permite crear y enviar plantillas de mensajes de WhatsApp directamente en Braze, sin necesidad de alternar entre Braze y el Meta Business Administrador. Después de que Meta apruebe tu plantilla, úsala en tantas campañas y Canvas como desees.
 
 #### Etiquetas de producto, metacampos y colecciones de Shopify {#shopify-product-tags-metafields-and-collections}
 
@@ -712,7 +712,7 @@ Ahora puedes [sincronizar etiquetas de producto, colecciones y metacampos de Sho
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-[GRAVTY®](https://www.lji.io/) es una plataforma de fidelización de nivel empresarial de Loyalty Juggernaut Inc. (LJI) que permite a las marcas de comercio minorista, viajes, restaurantes (incluidos los de servicio rápido) y servicios financieros diseñar, gestionar y escalar programas de nueva generación, impulsando un crecimiento medible en la participación, la retención y el valor de duración del ciclo de vida del cliente a través de experiencias personalizadas y basadas en datos.
+[GRAVTY®](https://www.lji.io/) es una plataforma de fidelización de nivel empresarial de Loyalty Juggernaut Inc. (LJI) que permite a las marcas de comercio minorista, viajes, restaurantes (incluidos los de servicio rápido) y servicios financieros diseñar, gestionar y escalar programas de nueva generación, impulsando un crecimiento medible en la participación, la retención y el LTV del cliente a través de experiencias personalizadas y basadas en datos.
 
 <!-- Use this section to list any new SDKs or SDK updates that are already released. -->
 ### SDK

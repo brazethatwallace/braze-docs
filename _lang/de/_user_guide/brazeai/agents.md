@@ -10,7 +10,7 @@ description: "Braze Agents können Inhalte generieren, intelligente Entscheidung
 > Braze Agents sind KI-gestützte Assistenten, die Sie innerhalb von Braze erstellen können. Agenten können Inhalte generieren, intelligente Entscheidungen treffen und Ihre Daten anreichern, damit Sie personalisiertere Kundenerlebnisse bieten können.
 
 {% alert important %}
-Für den Zugriff auf und die Nutzung von Braze Agents sind Nachrichten- oder Aktionsguthaben erforderlich. Sollten Sie derzeit nicht über Aktionsguthaben verfügen und Braze Agents nutzen möchten, wenden Sie sich an Ihren Account Manager, um die nächsten Schritte zu besprechen.
+Für den Zugriff auf und die Nutzung von Braze Agents sind Nachrichten- oder Aktionsguthaben erforderlich. Sollten Sie derzeit nicht über Aktionsguthaben verfügen und Braze Agents nutzen möchten, wenden Sie sich an Ihren Account Manager:in, um die nächsten Schritte zu besprechen.
 {% endalert %}
 
 Sehen Sie sich dieses Video an, um einen Überblick über Braze Agents in der Agentenkonsole zu erhalten.
@@ -64,17 +64,17 @@ Agenten werden mit Anweisungen (Systemprompts) konfiguriert, die ihr Verhalten d
 
 Die folgenden Einschränkungen gelten:
 
-- Jeder Agent hat ein standardmäßiges tägliches Aufruf-Limit von 250.000 Durchläufen, das auf maximal 1.000.000 Durchläufe pro Tag erhöht werden kann. Kontaktieren Sie Ihren Customer-Success-Manager, wenn Sie dieses Limit erhöhen möchten.
+- Jeder Agent hat ein standardmäßiges tägliches Aufruf-Limit von 250.000 Durchläufen, das auf maximal 1.000.000 Durchläufe pro Tag erhöht werden kann. Kontaktieren Sie Ihren CSM, wenn Sie dieses Limit erhöhen möchten.
 - Die Agent Console zeigt für jeden Agenten ein **Tägliches Aktions-Credit-Kostenlimit** an – die geschätzten maximalen Credits pro Tag basierend auf dem Credit-Verhältnis pro Aufruf Ihres Modells und dem täglichen Aufruf-Limit. Siehe [Tägliche Aufruf- und Credit-Limits]({{site.baseurl}}/user_guide/brazeai/agents/reference#daily-invocation-and-credit-limits).
 - Standardmäßig muss jeder Durchlauf innerhalb von 20 Sekunden abgeschlossen sein. Nach 20 Sekunden gibt der Agent eine `null`-Antwort zurück, wo immer er eingesetzt wird.
-    - Wenn Ihre Agenten regelmäßig ein Timeout erreichen, kontaktieren Sie Ihren Braze Account Manager, um dieses Limit zu erhöhen.
+    - Wenn Ihre Agenten regelmäßig ein Timeout erreichen, kontaktieren Sie Ihren Braze Account Manager:in, um dieses Limit zu erhöhen.
 - Eingabedaten sind auf 25 KB pro Anfrage begrenzt. Längere Eingaben werden abgeschnitten.
 
 ## Best Practices {#best-practices}
 
-Setzen Sie auf hochwertige Anwendungsfälle, bei denen Agenten die größte Kapitalrendite (ROI) erzielen können, und wählen Sie Zielgruppen, die wahrscheinlich reagieren. Eine kleinere Zielgruppe mit hoher Opportunity übertrifft oft eine große Zielgruppe mit geringer Opportunity – zum Beispiel das Retargeting von Nutzer:innen, die kürzlich gesucht, aber keine Konversion durchgeführt haben, anstatt agentengenerierte Texte an Ihre gesamte Nutzerbasis zu senden.
+Setzen Sie auf hochwertige Anwendungsfälle, bei denen Agenten die größte Kapitalrendite (Kapitalrendite) erzielen können, und wählen Sie Zielgruppen, die wahrscheinlich reagieren. Eine kleinere Zielgruppe mit hoher Opportunity übertrifft oft eine große Zielgruppe mit geringer Opportunity – zum Beispiel das Retargeting von Nutzer:innen, die kürzlich gesucht, aber keine Konversion durchgeführt haben, anstatt agentengenerierte Texte an Ihre gesamte Nutzerbasis zu senden.
 
-Um die ROI vor der Skalierung zu validieren, verwenden Sie einen [Experimentpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step)-Schritt, um nur einen Teil Ihrer Zielgruppe durch einen Agent-Schritt zu senden. Wenn ein Test im kleinen Maßstab gute Ergebnisse zeigt, skalieren Sie den Agenten auf Ihre vollständige Zielgruppe und erhöhen Sie das [tägliche Aufruf-Limit]({{site.baseurl}}/user_guide/brazeai/agents/reference#daily-invocation-and-credit-limits), damit Aufrufe nicht mitten im Versand begrenzt werden. Vergewissern Sie sich, dass Sie mit dem geschätzten Credit-Verbrauch einverstanden sind, bevor Sie auf Ihre vollständige Zielgruppe skalieren. Weitere Hinweise zur Bereitstellung finden Sie unter [Angepasste Agenten bereitstellen]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents).
+Um die Kapitalrendite vor der Skalierung zu validieren, verwenden Sie einen [Experimentpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step)-Schritt, um nur einen Teil Ihrer Zielgruppe durch einen Agent-Schritt zu senden. Wenn ein Test im kleinen Maßstab gute Ergebnisse zeigt, skalieren Sie den Agenten auf Ihre vollständige Zielgruppe und erhöhen Sie das [tägliche Aufruf-Limit]({{site.baseurl}}/user_guide/brazeai/agents/reference#daily-invocation-and-credit-limits), damit Aufrufe nicht mitten im Versand begrenzt werden. Vergewissern Sie sich, dass Sie mit dem geschätzten Credit-Verbrauch einverstanden sind, bevor Sie auf Ihre vollständige Zielgruppe skalieren. Weitere Hinweise zur Bereitstellung finden Sie unter [Angepasste Agenten bereitstellen]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents).
 
 ## Fehlerbehandlung {#error-handling}
 

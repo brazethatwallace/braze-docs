@@ -1,7 +1,7 @@
 ---
 nav_title: Wunderkind
 article_title: Wunderkind (Signals)
-description: "이 참조 문서에서는 Wunderkind Signals와 Braze의 통합에 대해 다루며, Canvas 여정을 트리거하는 행동 신호, Canvas Entry API를 사용한 설정, API 트리거 전달의 Canvas 컨텍스트 페이로드, 보고서 등을 포함합니다."
+description: "이 참조 문서에서는 Wunderkind Signals와 Braze의 통합에 대해 다루며, Canvas 여정을 트리거하는 행동 신호, Canvas 항목 API를 사용한 설정, API 트리거 전달의 Canvas 컨텍스트 페이로드, 보고서 등을 포함합니다."
 alias: /partners/wunderkind/
 page_type: partner
 search_tag: Partner
@@ -16,7 +16,7 @@ search_tag: Partner
 
 ## 통합 정보 {#about-the-integration}
 
-Wunderkind Signals 통합을 사용하면 장바구니 유기, 제품 이탈, 가격 하락 등 높은 의도를 가진 행동 신호가 Braze에서 실시간 Canvas 여정을 트리거할 수 있습니다. Wunderkind는 웹사이트의 익명 사용자를 식별하고, 해당 사용자의 신원을 전달 가능한 이메일 주소로 확인한 뒤, Canvas Entry API를 통해 구조화된 신호 페이로드를 Braze로 전달하여 사전 구성된 이메일 플로우를 자동으로 시작합니다.
+Wunderkind Signals 통합을 사용하면 장바구니 유기, 제품 이탈, 가격 하락 등 높은 의도를 가진 행동 신호가 Braze에서 실시간 Canvas 여정을 트리거할 수 있습니다. Wunderkind는 웹사이트의 익명 사용자를 식별하고, 해당 사용자의 신원을 전달 가능한 이메일 주소로 확인한 뒤, Canvas 항목 API를 통해 구조화된 신호 페이로드를 Braze로 전달하여 사전 구성된 이메일 플로우를 자동으로 시작합니다.
 
 ## 사전 요구 사항 {#prerequisites}
 

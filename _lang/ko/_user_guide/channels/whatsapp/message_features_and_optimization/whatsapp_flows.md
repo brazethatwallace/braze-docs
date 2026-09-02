@@ -25,7 +25,7 @@ channel:
 ![Flows 템플릿을 생성하는 페이지가 표시된 WhatsApp Manager.]({% image_buster /assets/img/whatsapp/flows/create_flows_template.png %})
 
 {% alert tip %}
-[WhatsApp 템플릿 빌더]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder)를 사용하여 Braze에서 마케팅 또는 유틸리티 Flow 템플릿을 생성할 수도 있습니다. Meta의 WhatsApp Manager에서 Flow 자체를 생성하고 관리한 다음, Braze에서 템플릿을 빌드할 때 해당 Flow를 선택합니다.
+[WhatsApp 템플릿 빌더]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder)를 사용하여 Braze에서 마케팅 또는 유틸리티 Flow 템플릿을 생성할 수도 있습니다. Meta의 WhatsApp 매니저에서 Flow 자체를 생성하고 관리한 다음, Braze에서 템플릿을 빌드할 때 해당 Flow를 선택합니다.
 {% endalert %}
 
 {: start="3"}
@@ -38,7 +38,7 @@ channel:
 {% tabs local %}
 {% tab 템플릿 메시지 %}
 
-1. Braze Canvas에서 해당 Flow가 포함된 템플릿 메시지를 사용하는 WhatsApp 메시지 단계를 생성합니다.
+1. BRAZE 캔버스에서 해당 Flow가 포함된 템플릿 메시지를 사용하는 WhatsApp 메시지 단계를 생성합니다.
 2. 템플릿 생성을 계속합니다. 필요한 경우 미디어, 변수 콘텐츠 또는 둘 다를 메시지에 추가합니다. Flow 선택은 템플릿 생성 시 이루어지므로 Flow 경험에 대한 추가 정보는 필요하지 않습니다.
 
 ![WhatsApp Flow 템플릿을 사용하는 WhatsApp 메시지 작성기.]({% image_buster /assets/img/whatsapp/flows/composer_flow_template.png %}){: style="max-width:80%;"}
@@ -46,7 +46,7 @@ channel:
 {% endtab %}
 {% tab 응답 메시지 %}
 
-1. Braze Canvas에서 응답 메시지와 Flow 메시지를 사용하는 WhatsApp 메시지 단계를 생성합니다.
+1. BRAZE 캔버스에서 응답 메시지와 Flow 메시지를 사용하는 WhatsApp 메시지 단계를 생성합니다.
 
 ![WhatsApp 응답 메시지 유형과 Flow 메시지 레이아웃을 위한 메시지 단계.]({% image_buster /assets/img/whatsapp/flows/message_step_flow_message.png %}){: style="max-width:80%;"}
 
@@ -66,7 +66,7 @@ Flow가 포함된 Canvas를 시작하기 전에 **Preview Flow**를 선택하여
 
 ## 전체 Flow 응답 저장하기 {#full-flow}
 
-WhatsApp Flow 메시지를 Braze Canvas 또는 Campaign에 통합할 때, 사용자가 Flow를 통해 제출하는 특정 정보를 캡처하고 활용하고 싶을 수 있습니다. Braze는 사용자 응답의 구조, 특히 JSON 응답의 예상 형태에 대한 추가 정보를 받아야 필요한 중첩 고객 속성(NCA) 스키마를 생성할 수 있습니다.
+WhatsApp Flow 메시지를 BRAZE 캔버스 또는 Campaign에 통합할 때, 사용자가 Flow를 통해 제출하는 특정 정보를 캡처하고 활용하고 싶을 수 있습니다. Braze는 사용자 응답의 구조, 특히 JSON 응답의 예상 형태에 대한 추가 정보를 받아야 필요한 중첩 고객 속성(NCA) 스키마를 생성할 수 있습니다.
 
 ### 1단계: Flow 커스텀 속성 생성하기 {#step-1-generate-the-flow-custom-attribute}
 

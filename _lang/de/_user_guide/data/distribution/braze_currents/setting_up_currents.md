@@ -25,7 +25,7 @@ Wenn beim Hinzufügen einer neuen Integration die Meldung „You do not have any
 - Für diesen Workspace wurde kein Currents-Kontingent erworben.
 - Das Currents-Kontingent ist in einem anderen Workspace Ihres Unternehmens verfügbar.
 
-Um das Problem zu beheben, prüfen Sie andere Workspaces in Ihrem Unternehmen. Ein anderer Workspace zeigt möglicherweise ein verfügbares Currents-Kontingent an. Wenn Sie ein Kontingent anfordern oder Ihre Konfiguration anpassen müssen, wenden Sie sich an Ihren Braze Account Manager.
+Um das Problem zu beheben, prüfen Sie andere Workspaces in Ihrem Unternehmen. Ein anderer Workspace zeigt möglicherweise ein verfügbares Currents-Kontingent an. Wenn Sie ein Kontingent anfordern oder Ihre Konfiguration anpassen müssen, wenden Sie sich an Ihren Braze Account Manager:in.
 
 ### Zusätzliches Event-Tracking kann nicht aktiviert werden {#cannot-enable-additional-event-tracking}
 
@@ -34,7 +34,7 @@ Wenn Sie einen Konnektor erstellen oder bearbeiten können, aber einen der optio
 - **Track Customer Behavior and User Events** erfordert verfügbare Kontingente für **Customer Behavior Events**.
 - **Track user profiles and attributes** erfordert verfügbare Kontingente für **User Profiles and Attributes**.
 
-Wenn Sie zusätzliche Kontingente benötigen oder Hilfe bei der Anpassung Ihrer Konfiguration brauchen, wenden Sie sich an Ihren Braze Account Manager.
+Wenn Sie zusätzliche Kontingente benötigen oder Hilfe bei der Anpassung Ihrer Konfiguration brauchen, wenden Sie sich an Ihren Braze Account Manager:in.
 
 ## Anforderungen {#requirements}
 
@@ -46,7 +46,7 @@ Die folgenden Anforderungen sind die grundlegenden Mindestanforderungen für die
 
 | Anforderung | Herkunft | Zugang | Beschreibung
 |---|---|---|---|
-| Konto beim Partner | Richten Sie ein Konto bei dem Partner ein oder wenden Sie sich an Ihren Braze Account Manager für Vorschläge. | Besuchen Sie die Website des Partners oder kontaktieren Sie den Partner, um sich zu registrieren. | Braze sendet keine Daten an einen Partner, wenn Sie über das Konto Ihres Unternehmens keinen Zugriff auf diese Daten haben.
+| Konto beim Partner | Richten Sie ein Konto bei dem Partner ein oder wenden Sie sich an Ihren Braze Account Manager:in für Vorschläge. | Besuchen Sie die Website des Partners oder kontaktieren Sie den Partner, um sich zu registrieren. | Braze sendet keine Daten an einen Partner, wenn Sie über das Konto Ihres Unternehmens keinen Zugriff auf diese Daten haben.
 | Partner-API-Schlüssel oder Token | In der Regel im Dashboard des Partners. | Kopieren Sie ihn und fügen Sie ihn in das entsprechende Braze-Feld ein. | Braze stellt dafür ein eigenes Feld auf der Integrationsseite des jeweiligen Partners bereit. Wir benötigen dies, um festzulegen, wohin wir Ihre Daten senden. **Halten Sie Ihre Partner-Schlüssel oder Token aktuell. Ungültige Zugangsdaten können Ihren Konnektor deaktivieren und dazu führen, dass Events verworfen werden.**
 | Authentifizierungscode/-schlüssel, geheimer Schlüssel, Zertifikatsdatei | Wenden Sie sich an eine Vertretung Ihres Kontos bei dem Partner. Kann auch im Dashboard des Partners zu finden sein. | Kopieren Sie die Schlüssel und fügen Sie sie in das entsprechende Braze-Feld ein. Generieren und laden Sie `.json`- oder andere Zertifikatsdateien an der entsprechenden Stelle in Braze hoch. | Braze stellt dafür ein eigenes Feld auf der Integrationsseite des jeweiligen Partners bereit. Dies gibt Braze die Zugangsdaten und berechtigt uns, Dateien in Ihr Partnerkonto zu schreiben. **Es ist wichtig, Ihre Authentifizierungsdetails aktuell zu halten. Ungültige Zugangsdaten können dazu führen, dass Ihr Konnektor deaktiviert wird und Events verworfen werden.**
 | Bucket, Ordnerpfad | Einige Partner organisieren und sortieren Daten nach Buckets. Dies sollte im Dashboard des Partners zu finden sein. | Falls erforderlich, kopieren Sie den Bucket-Namen oder Dateipfad exakt in das dafür vorgesehene Feld in Braze. | Obwohl dies nur bei einigen Partnern erforderlich ist, ist es wichtig, die Angaben korrekt zu machen, wenn Sie sie benötigen. |

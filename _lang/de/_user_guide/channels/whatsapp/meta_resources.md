@@ -46,7 +46,7 @@ Geschäftliche Nutzernamen müssen die folgenden Formatanforderungen erfüllen:
 
 Bevor die Nutzernamen-Funktion allgemein verfügbar ist, hat Meta möglicherweise bereits einen Nutzernamen für Ihr Unternehmen reserviert – in der Regel passend zu einem bestehenden Facebook-Seiten- oder Instagram-Nutzernamen. Sie können diesen reservierten Nutzernamen beanspruchen oder einen anderen über [WhatsApp Manage](https://business.facebook.com/wa/manage/) wählen. Beanspruchte Nutzernamen werden erst aktiviert, wenn Meta die Funktion verfügbar macht.
 
-Wenn der reservierte Nutzername mit einem bereits mit Ihrer Facebook-Seite oder Ihrem Instagram-Konto verknüpften Nutzernamen übereinstimmt, müssen Sie zunächst Ihre geschäftliche Telefonnummer mit dieser Seite oder diesem Konto verknüpfen. Dies können Sie tun, während Sie den Nutzernamen im WhatsApp Manager oder der Meta Business Suite beanspruchen, oder indem Sie Ihre Telefonnummer direkt über die entsprechende Seite oder das Konto hinzufügen. Für die Verknüpfung ist entweder die vollständige Kontrolle über die Seite oder das Konto erforderlich, oder ein grundlegender Teilzugriff mit der Berechtigung `manage_phone`.
+Wenn der reservierte Nutzername mit einem bereits mit Ihrer Facebook-Seite oder Ihrem Instagram-Konto verknüpften Nutzernamen übereinstimmt, müssen Sie zunächst Ihre geschäftliche Telefonnummer mit dieser Seite oder diesem Konto verknüpfen. Dies können Sie tun, während Sie den Nutzernamen im WhatsApp Manager:in oder der Meta Business Suite beanspruchen, oder indem Sie Ihre Telefonnummer direkt über die entsprechende Seite oder das Konto hinzufügen. Für die Verknüpfung ist entweder die vollständige Kontrolle über die Seite oder das Konto erforderlich, oder ein grundlegender Teilzugriff mit der Berechtigung `manage_phone`.
 
 #### Anzeige-Priorität in Chatfenstern {#display-priority-in-chat-windows}
 
@@ -67,7 +67,7 @@ Weitere Informationen finden Sie in der Meta-Dokumentation zu [geschäftlichen N
 - Zu den Template-Aktivitäten gehören das Erstellen, Bearbeiten, Senden, Einlegen eines Einspruchs oder Entarchivieren eines Templates.
 - Archivierte Templates können nicht gesendet werden und werden nach 28 Tagen zur endgültigen Löschung vorgemerkt.
 - Sie können Templates innerhalb des 28-Tage-Fensters entarchivieren, um sie wiederherzustellen und die geplante Löschung abzubrechen.
-- Benachrichtigungen werden über den `message_template_status_update`-Webhook, per E-Mail und über ein einmaliges WhatsApp-Manager-Banner gesendet.
+- Benachrichtigungen werden über den `message_template_status_update`-Webhook, per E-Mail und über ein einmaliges WhatsApp-Manager:in-Banner gesendet.
 
 Weitere Informationen finden Sie in der Meta-Dokumentation zur [Template-Archivierung](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/template-archival).
 
@@ -88,10 +88,10 @@ Weitere Informationen finden Sie in der Meta-Dokumentation zur [Template-Archivi
 ### Oktober 2025: Genehmigungsprozess für Official Business Account (OBA) geändert {#october-2025-official-business-account-oba-approval-process-changed}
 *Zuletzt aktualisiert: März 2026*
 
-- Zuvor über den WhatsApp Manager für alle Kund:innen zugänglich
+- Zuvor über den WhatsApp Manager:in für alle Kund:innen zugänglich
 - Jetzt beschränkt auf: Regierungs-/große Meta-Werbetreibende, direkte Werbetreibende oder über einen BSP wie Braze (bis zu 5 pro Woche)
 - Neue Voraussetzungen: Unternehmensverifizierung, Zwei-Stufen-Verifizierung, genehmigter Anzeigename, Bekanntheit
-- Wenden Sie sich an Ihren Customer-Success-Manager für Unterstützung
+- Wenden Sie sich an Ihren CSM für Unterstützung
 
 ### Oktober 2025: Regionale Preissenkungen {#october-2025-regional-pricing-rate-cuts}
 *Zuletzt aktualisiert: März 2026*
@@ -190,13 +190,13 @@ Wenn die Leserate eines Accounts extrem niedrig ist, werden die folgenden Maßna
 
 #### So bleiben Sie über diese Warnungen und Durchsetzungen informiert {#how-to-stay-updated-on-these-warnings-and-enforcements}
 
-Ähnlich wie bei bestehenden Plattformdurchsetzungen werden Unternehmen über diese Maßnahmen benachrichtigt und können sie über die Seite „Account Quality“ im WhatsApp Business Manager bestätigen. Stellen Sie sicher, dass die korrekten Kontaktdaten im WhatsApp Business Manager für alle erforderlichen Administrator:innen hinterlegt sind, da die Durchsetzungsbenachrichtigungs-E-Mails basierend auf diesen Informationen gesendet werden.
+Ähnlich wie bei bestehenden Plattformdurchsetzungen werden Unternehmen über diese Maßnahmen benachrichtigt und können sie über die Seite „Account Quality“ im WhatsApp Business Manager:in bestätigen. Stellen Sie sicher, dass die korrekten Kontaktdaten im WhatsApp Business Manager:in für alle erforderlichen Administrator:innen hinterlegt sind, da die Durchsetzungsbenachrichtigungs-E-Mails basierend auf diesen Informationen gesendet werden.
 
 Benachrichtigungen über schwerwiegende Spam-Verstöße werden:
 
-- Im Benachrichtigungscenter des WhatsApp Business Manager angezeigt
-- Als Banner im WhatsApp Manager angezeigt
-- Per E-Mail an alle im WhatsApp Business Manager eingerichteten Administrator:innen gesendet
+- Im Benachrichtigungscenter des WhatsApp Business Manager:in angezeigt
+- Als Banner im WhatsApp Manager:in angezeigt
+- Per E-Mail an alle im WhatsApp Business Manager:in eingerichteten Administrator:innen gesendet
 
 ### Mai 2024: Cloud API geht in der Türkei live {#may-2024-cloud-api-going-live-in-trkiye}
 *Zuletzt aktualisiert: Mai 2024*
@@ -209,7 +209,7 @@ Cloud-API-Unternehmen können jetzt Konversationen mit WhatsApp-Nutzer:innen mit
 
 Damit eine Geschäftsnachricht „zugestellt“ oder „gelesen“ wird, muss der:die Nutzer:in die WhatsApp-Bedingungen akzeptiert haben. Einem Unternehmen wird nichts berechnet, es sei denn, die Nachricht wird zugestellt.
 
-Nutzer:innen, die eine Nachricht von einem Cloud-API-Unternehmen erhalten oder versuchen, eine Nachricht an ein solches zu senden, wird eine In-App-Benachrichtigung über das Bedingungsupdate angezeigt, die deutlich macht, dass sie einem Cloud-API-Unternehmen erst dann Nachrichten senden können, wenn sie das WhatsApp-Update akzeptiert haben. Darüber hinaus werden Nutzer:innen, die die App auf ihrem Telefon registrieren oder erneut registrieren, aufgefordert, das WhatsApp-Update zu akzeptieren.
+Nutzer:innen, die eine Nachricht von einem Cloud-API-Unternehmen erhalten oder versuchen, eine Nachricht an ein solches zu senden, wird eine In-App-Benachrichtigung über das Bedingungsupdate angezeigt, die deutlich macht, dass sie einem Cloud-API-Unternehmen erst dann Nachrichten senden können, wenn sie das WhatsApp-Update akzeptiert haben. Darüber hinaus werden Nutzer:innen, die die App auf ihrem Telefon Registrierung oder erneut registrieren, aufgefordert, das WhatsApp-Update zu akzeptieren.
 
 Wenn ein:e Nutzer:in das Update akzeptiert, sieht er:sie den bestehenden Cloud-API-Systemnachrichtenhinweis, wenn er:sie mit einem Cloud-API-Unternehmen chattet.
 

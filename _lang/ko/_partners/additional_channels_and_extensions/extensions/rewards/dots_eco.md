@@ -15,7 +15,7 @@ _이 통합은 DOTS.ECO에서 유지 관리합니다._
 
 ## 이 통합 정보 {#about-this-integration}
 
-Braze와 DOTS.ECO는 고객 참여 여정을 실제 임팩트 보상으로 연결합니다. Braze Canvas 또는 Campaign 단계에서 연결된 콘텐츠를 사용하여 DOTS.ECO 인증서 생성 요청을 트리거할 수 있습니다. DOTS.ECO는 인증서 메타데이터(예: `certificate_url` 및 `certificate_image_url`)를 반환하며, 이를 고객 프로필에 커스텀 속성으로 저장하고 인앱 메시지, Content Cards, 푸시 알림과 같은 채널에서 재사용할 수 있습니다.
+Braze와 DOTS.ECO는 고객 참여 여정을 실제 임팩트 보상으로 연결합니다. BRAZE 캔버스 또는 Campaign 단계에서 연결된 콘텐츠를 사용하여 DOTS.ECO 인증서 생성 요청을 트리거할 수 있습니다. DOTS.ECO는 인증서 메타데이터(예: `certificate_url` 및 `certificate_image_url`)를 반환하며, 이를 고객 프로필에 커스텀 속성으로 저장하고 인앱 메시지, Content Cards, 푸시 알림과 같은 채널에서 재사용할 수 있습니다.
 
 ## 활용 사례 {#use-cases}
 

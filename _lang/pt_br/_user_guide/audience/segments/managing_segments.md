@@ -48,9 +48,9 @@ Estas são as colunas de informação que você pode selecionar para exibir na l
 
 Selecionar **Show Starred Only** restringe sua visualização aos Segments que foram marcados como favoritos por você.
 
-## Visualizando o uso de um segmento em mensagens {#messaging-use}
+## Visualizando o uso de um Segment em mensagens {#messaging-use}
 
-Acesse a seção **Messaging Use** de um segmento para ter uma visão geral de onde o segmento está sendo usado, como em outros segmentos, Campaigns e Canvas.
+Acesse a seção **Messaging Use** de um Segment para ter uma visão geral de onde o Segment está sendo usado, como em outros segmentos, Campaigns e Canvas.
 
 {% alert note %}
 Para evitar loops de segmentos referenciando uns aos outros, segmentos que usam o filtro **Segment Membership** não podem ser referenciados por outros segmentos. Para mais detalhes, consulte [Filtros de segmentação]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters).
@@ -60,11 +60,11 @@ Para evitar loops de segmentos referenciando uns aos outros, segmentos que usam 
 
 ![O menu de edição de um segment mostrando as opções "Edit", "Duplicate", "Archive" e "Add to starred".]({% image_buster /assets/img/segment/segments_page_edit_menu.png %}){: style="float:right;max-width:25%;"}
 
-Para gerenciar um segment específico, passe o cursor sobre ele e selecione o ícone de menu no final da linha para revelar as seguintes opções:
-- **Edit:** Edite os filtros do seu segment.
-- **Duplicate:** Crie uma cópia do seu segment.
-- **Archive:** Arquive o segment. Isso também arquivará quaisquer Campaigns ou Canvas que usem esse segment.
-- **Add to starred:** Marque o segment com estrela, o que permite acessá-lo rapidamente marcando a caixa "Show starred only" na seção de segments.
+Para gerenciar um Segment específico, passe o cursor sobre ele e selecione o ícone de menu no final da linha para revelar as seguintes opções:
+- **Edit:** Edite os filtros do seu Segment.
+- **Duplicate:** Crie uma cópia do seu Segment.
+- **Archive:** Arquive o Segment. Isso também arquivará quaisquer Campaigns ou Canvas que usem esse Segment.
+- **Add to starred:** Marque o Segment com estrela, o que permite acessá-lo rapidamente marcando a caixa "Show starred only" na seção de segments.
 
 Você também pode realizar ações em massa — especificamente, arquivamento em massa e adição de tags em massa — marcando as caixas de seleção ao lado de vários nomes de segments.
 
@@ -76,22 +76,22 @@ Se você precisar de uma exportação legível por máquina dos segments existen
 
 ### Alterações desde a última visualização {#changes-since-last-viewed}
 
-O número de atualizações nos segments feitas por outros membros da sua equipe é rastreado pela métrica *Alterações desde a última visualização* na página de visão geral do segment. Selecione **Changes Since Last Viewed** para visualizar um changelog de atualizações no nome, descrição e público-alvo do segment. Para cada atualização, você pode ver quem realizou a alteração e quando. Você pode usar esse changelog para auditar alterações no seu segment.
+O número de atualizações nos segments feitas por outros membros da sua equipe é rastreado pela métrica *Alterações desde a última visualização* na página de visão geral do Segment. Selecione **Changes Since Last Viewed** para visualizar um changelog de atualizações no nome, descrição e público-alvo do Segment. Para cada atualização, você pode ver quem realizou a alteração e quando. Você pode usar esse changelog para auditar alterações no seu Segment.
 
 ## Pesquisando Segments {#searching-for-segments}
 
 Pesquise nomes de Segments inserindo termos no campo de pesquisa.
 
-Todos os termos e strings inseridos nesse campo serão pesquisados. Por exemplo, ao pesquisar "test segment 1", serão retornados Segments que contenham "test", "segment" ou "1" em qualquer parte do nome. Para pesquisar uma string exata, coloque aspas ao redor do termo de pesquisa. Pesquisar ["test segment 1"] retornará todos os Segments que contenham a frase exata "test segment 1" no nome.
+Todos os termos e strings inseridos nesse campo serão pesquisados. Por exemplo, ao pesquisar "test Segment 1", serão retornados Segments que contenham "test", "Segment" ou "1" em qualquer parte do nome. Para pesquisar uma string exata, coloque aspas ao redor do termo de pesquisa. Pesquisar ["test Segment 1"] retornará todos os Segments que contenham a frase exata "test Segment 1" no nome.
 
 ![Os resultados da pesquisa ao inserir "all users" no campo de pesquisa incluem "All Users (Test)", "All Users" e "All Users 15".]({% image_buster /assets/img/segment/segments_search.png %})
 
 ### Segments em Canvas {#segments-in-canvases}
 
-Para pesquisar todas as referências de Segments, incluindo aquelas em outros Segments, Campaigns ou Canvas, acesse a seção [Uso em mensagens](#messaging-use) de um Segment. O filtro **Target segment** na página **Canvas** pesquisa apenas Segments de público do Canvas.
+Para pesquisar todas as referências de Segments, incluindo aquelas em outros Segments, Campaigns ou Canvas, acesse a seção [Uso em mensagens](#messaging-use) de um Segment. O filtro **Target Segment** na página **Canvas** pesquisa apenas Segments de público do Canvas.
 
 ![Filtro Target segment na página Canvas.]({% image_buster /assets/img/segment/target_segment.png %}){: style="max-width:45%;"}
 
 ## Solução de problemas {#troubleshooting}
 
-{% multi_lang_include audience/segments.md section='Canvas variant archived segment' %}
+{% multi_lang_include audience/segments.md section='Canvas variant archived Segment' %}

@@ -1,7 +1,7 @@
 ---
 nav_title: Chord
 article_title: Chord
-description: "Conecta la plataforma de datos de los clientes (CDP) de Chord a Braze para reenviar eventos de comercio electrónico y actualizaciones de identidad para mensajería, segmentación y journeys."
+description: "Conecta la CDP (CDP) de Chord a Braze para reenviar eventos de comercio electrónico y actualizaciones de identidad para mensajería, segmentación y journeys."
 alias: /partners/chord/
 page_type: partner
 search_tag: Partner
@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Chord
 
-> [Chord](https://www.chord.co/) proporciona una plataforma de datos de los clientes que captura y estandariza eventos de tu tienda de comercio electrónico. Cuando conectas Chord a Braze, la actividad de compra, los eventos de comportamiento y las actualizaciones de identidad fluyen hacia Braze para que puedas desencadenar Campaigns y mantener los perfiles actualizados sin tener que construir esas canalizaciones tú mismo.
+> [Chord](https://www.chord.co/) proporciona una CDP que captura y estandariza eventos de tu tienda de comercio electrónico. Cuando conectas Chord a Braze, la actividad de compra, los eventos de comportamiento y las actualizaciones de identidad fluyen hacia Braze para que puedas desencadenar Campaigns y mantener los perfiles actualizados sin tener que construir esas canalizaciones tú mismo.
 
 _Esta integración es mantenida por Chord._
 

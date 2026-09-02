@@ -68,7 +68,7 @@ Android SDK ビルドシステムの詳細については、[GitHub リポジト
 以下の手順に従って、テストアプリケーションをビルドおよび実行してください。
 
 1. 新しい[ワークスペース]({{site.baseurl}}/user_guide/get_started/workspaces)を作成し、アプリ識別子 API キーとエンドポイントをメモします。
-2. 統合方法（Swift Package Manager、CocoaPods、手動）に基づいて、適切な `xcodeproj` ファイルを選択して開きます。
+2. 統合方法（Swift Package マネージャー、CocoaPods、手動）に基づいて、適切な `xcodeproj` ファイルを選択して開きます。
 3. API キーとエンドポイントを `Credentials` ファイルの適切なフィールドに入力します。
 {% endtab %}
 {% endtabs %}

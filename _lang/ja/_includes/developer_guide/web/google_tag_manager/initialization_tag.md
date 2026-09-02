@@ -1,10 +1,10 @@
 ### 前提条件 {#prerequisites}
 
-この連携方法を使用する前に、[Google Tag Managerのアカウントとコンテナを作成](https://support.google.com/tagmanager/answer/14842164)する必要があります。
+この連携方法を使用する前に、[Google Tag マネージャーのアカウントとコンテナを作成](https://support.google.com/tagmanager/answer/14842164)する必要があります。
 
 ### ステップ 1: タグテンプレートギャラリーを開く {#step-1-open-the-tag-template-gallery}
 
-[Google Tag Manager](https://tagmanager.google.com/)でワークスペースを選択し、**Templates**を選びます。**Tag Template**ペインで、**Search Gallery**を選択します。
+[Google Tag マネージャー](https://tagmanager.google.com/)でワークスペースを選択し、**Templates**を選びます。**Tag Template**ペインで、**Search Gallery**を選択します。
 
 ![Google Tag Managerのサンプルワークスペースのテンプレートページ。]({% image_buster /assets/img/web-gtm/search_tag_template_gallery.png %}){: style="max-width:95%;"}
 
@@ -51,7 +51,7 @@ Braze Initialization Tagは以下のオプションを公開しています。�
 | **App Version Number** | `appVersion`, `appVersionNumber` | セグメンテーション用のアプリバージョン（例: `1.2.3.4`）。 |
 | **Automatically Open New Session** | `braze.openSession()` | このメソッドを呼び出すことで、SDKの初期化後に新しいセッションを自動的に開きます。 |
 | **Automatically show new in app messages** | `braze.automaticallyShowInAppMessages()` | 初期化後にこのメソッドを呼び出すことで、サーバーから新しいアプリ内メッセージが届いた際に自動的に表示します。 |
-| **Disable Automatic Push Token Maintenance** | `disablePushTokenMaintenance` | 新しいセッションでSDKがプッシュトークンをBrazeバックエンドと同期するのを停止します。 |
+| **Disable Automatic プッシュトークン Maintenance** | `disablePushTokenMaintenance` | 新しいセッションでSDKがプッシュトークンをBrazeバックエンドと同期するのを停止します。 |
 | **Disable Automatic Service Worker Registration** | `manageServiceWorkerExternally` | サービスワーカーを自分で登録・制御する場合に使用します。 |
 | **Disable Cookies** | `noCookies` | ユーザー/セッションデータにCookieではなくlocalStorageを使用します。クロスサブドメイン認識を防ぎます。 |
 | **Disable Font Awesome** | `doNotLoadFontAwesome` | SDKがCDNからFont Awesomeを読み込むのを防ぎます。サイトに独自のFont Awesomeがある場合に使用します。 |
@@ -64,7 +64,7 @@ Braze Initialization Tagは以下のオプションを公開しています。�
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ 4: 初期化オプションを選択する" }
 
 {% alert note %}
-Google Tag ManagerのBraze Initialization Tagを使用する際に[カスタムHTMLアプリ内メッセージ]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html)を有効にするには、**Braze Initialization Options**で**Allow HTML In-App Messages**を選択します。このチェックボックスは `braze.initialize()` の `allowUserSuppliedJavascript` 初期化オプションに対応し、`true` に設定します。Google Tag ManagerのBraze Initialization Tagは、オプション名ではなくこのラベルを使用します。
+Google Tag マネージャーのBraze Initialization Tagを使用する際に[カスタムHTMLアプリ内メッセージ]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html)を有効にするには、**Braze Initialization Options**で**Allow HTML In-App Messages**を選択します。このチェックボックスは `braze.initialize()` の `allowUserSuppliedJavascript` 初期化オプションに対応し、`true` に設定します。Google Tag マネージャーのBraze Initialization Tagは、オプション名ではなくこのラベルを使用します。
 {% endalert %}
 
 GTMテンプレートで公開されていないオプション（`contentSecurityNonce`、`localization`、`devicePropertyAllowlist` など）については、代わりに[ランタイム初期化]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web)を使用してください。
@@ -81,5 +81,5 @@ GTMテンプレートで公開されていないオプション（`contentSecuri
 
 以下のいずれかの方法で連携を確認できます。
 
-- **オプション 1:** Google Tag Managerの[デバッグツール](https://support.google.com/tagmanager/answer/6107056?hl=en)を使用して、設定したページやイベントでBraze Initialization Tagが正しくトリガーされているか確認できます。
+- **オプション 1:** Google Tag マネージャーの[デバッグツール](https://support.google.com/tagmanager/answer/6107056?hl=en)を使用して、設定したページやイベントでBraze Initialization Tagが正しくトリガーされているか確認できます。
 - **オプション 2:** Webページからのネットワークリクエストを確認し、Brazeへのリクエストが行われているか確認します。さらに、グローバルの `window.braze` ライブラリが定義されていることを確認してください。

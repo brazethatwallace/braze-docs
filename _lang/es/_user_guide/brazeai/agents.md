@@ -64,7 +64,7 @@ Los agentes se configuran con instrucciones (indicaciones del sistema) que defin
 
 Se aplican las siguientes limitaciones:
 
-- Cada agente tiene un límite diario predeterminado de 250,000 ejecuciones, que puede aumentarse hasta un máximo de 1,000,000 ejecuciones por día. Ponte en contacto con tu administrador de éxito de cliente si te interesa aumentar este límite.
+- Cada agente tiene un límite diario predeterminado de 250,000 ejecuciones, que puede aumentarse hasta un máximo de 1,000,000 ejecuciones por día. Ponte en contacto con tu CSM si te interesa aumentar este límite.
 - La Consola de Agente muestra un **Límite diario de coste de créditos de acción** para cada agente: el máximo estimado de créditos por día basado en la proporción de créditos por invocación de tu modelo y el límite diario de invocaciones. Consulta [Límites diarios de invocaciones y créditos]({{site.baseurl}}/user_guide/brazeai/agents/reference#daily-invocation-and-credit-limits).
 - De forma predeterminada, cada ejecución debe completarse en 20 segundos. Después de 20 segundos, el agente devuelve una respuesta `null` donde se utiliza.
     - Si tus agentes agotan el tiempo de espera de forma constante, ponte en contacto con tu director de cuentas de Braze para aumentar este límite.
@@ -72,7 +72,7 @@ Se aplican las siguientes limitaciones:
 
 ## Buenas prácticas {#best-practices}
 
-Orienta los casos de uso de alto valor en los que los agentes puedan generar el mayor retorno de la inversión (ROI), y elige audiencias con probabilidades de responder. Una audiencia más pequeña y de alta oportunidad suele superar a una audiencia grande con baja oportunidad; por ejemplo, reorientar a usuarios que buscaron recientemente pero no convirtieron, en lugar de enviar textos generados por agentes a toda tu base de usuarios.
+Orienta los casos de uso de alto valor en los que los agentes puedan generar el mayor ROI (ROI), y elige audiencias con probabilidades de responder. Una audiencia más pequeña y de alta oportunidad suele superar a una audiencia grande con baja oportunidad; por ejemplo, reorientar a usuarios que buscaron recientemente pero no convirtieron, en lugar de enviar textos generados por agentes a toda tu base de usuarios.
 
 Para validar el ROI antes de escalar, usa un paso de [recorrido de experimentos]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) para enviar solo una parte de tu audiencia a través de un paso de agente. Cuando una prueba a pequeña escala dé buenos resultados, escala el agente a tu público objetivo completo y aumenta el [límite diario de invocaciones]({{site.baseurl}}/user_guide/brazeai/agents/reference#daily-invocation-and-credit-limits) para que las invocaciones no se detengan a mitad del envío. Confirma que te sientes cómodo con el consumo estimado de créditos antes de escalar a tu audiencia completa. Para más orientación sobre el despliegue, consulta [Implementar agentes personalizados]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents).
 

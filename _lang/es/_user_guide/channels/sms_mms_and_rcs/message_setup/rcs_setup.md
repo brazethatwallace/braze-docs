@@ -48,7 +48,7 @@ Cuando hayas enviado tus formularios completados a Braze, Braze completa el proc
 
 Dado que la cobertura actual de los operadores varía según el país, y el hardware y software de los usuarios varían según cada individuo, la alternativa de SMS es un componente clave para tener un programa de RCS exitoso hoy en día. Recomendamos configurar la alternativa de SMS. Si un operador no es compatible con RCS o el dispositivo de un usuario no puede recibir mensajes RCS, la alternativa de SMS envía tu mensaje de todas formas, para que nunca pierdas un momento importante con tus usuarios.
 
-Recomendamos encarecidamente revisar tu experiencia actual de adhesión voluntaria a SMS, los grupos de suscripción y la segmentación de audiencia antes de desplegar tu primera Campaign de RCS. Si es necesario, tu administrador de éxito de cliente siempre está disponible para orientarte y ayudarte a navegar el proceso de configuración.
+Recomendamos encarecidamente revisar tu experiencia actual de adhesión voluntaria a SMS, los grupos de suscripción y la segmentación de audiencia antes de desplegar tu primera Campaign de RCS. Si es necesario, tu CSM siempre está disponible para orientarte y ayudarte a navegar el proceso de configuración.
 
 #### Cómo funciona la alternativa de SMS con eventos y segmentación {#how-sms-fallback-works-with-events-and-segmentation}
 

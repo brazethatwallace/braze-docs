@@ -58,13 +58,13 @@ A Braze utiliza diferentes sistemas de armazenamento de dados para várias funci
 - A maioria das funcionalidades de segmentação e direcionamento
 
 #### Funcionalidades baseadas em Snowflake {#snowflake-powered-features}
-- [Extensões de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments)
+- [Extensões de Segment SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments)
 - [Pacote de previsões]({{site.baseurl}}/user_guide/brazeai)
 - [Recomendações de itens personalizados por IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai)
 - [Taxa de abertura real estimada]({{site.baseurl}}/user_guide/channels/email/reporting#estimated-real-open-rate) (não utiliza eventos personalizados)
 
 {% alert important %}
-**Considerações sobre remoção de dados:** Eventos personalizados são armazenados no MongoDB e são separados dos dados do Snowflake. Se você precisar remover dados de eventos personalizados errôneos, deve tratá-los no MongoDB. Funcionalidades baseadas em Snowflake (como extensões de segmento SQL e outras funcionalidades baseadas em Snowflake) utilizam dados do Snowflake, que são tratados separadamente. Remover dados de um sistema não remove automaticamente do outro.
+**Considerações sobre remoção de dados:** Eventos personalizados são armazenados no MongoDB e são separados dos dados do Snowflake. Se você precisar remover dados de eventos personalizados errôneos, deve tratá-los no MongoDB. Funcionalidades baseadas em Snowflake (como extensões de Segment SQL e outras funcionalidades baseadas em Snowflake) utilizam dados do Snowflake, que são tratados separadamente. Remover dados de um sistema não remove automaticamente do outro.
 {% endalert %}
 
 ### Fontes de dados de backend por meio da API da Braze {#backend-data-sources-through-the-braze-api}
@@ -101,7 +101,7 @@ As campanhas disparadas por API são ideais para casos de uso transacionais mais
 
 
 ### Feature Flags {#feature-flags}
-A Braze permite ativar ou desativar remotamente a funcionalidade para uma seleção de usuários por meio de [Feature Flags]({{site.baseurl}}/developer_guide/feature_flags). Isso permite que os profissionais de marketing direcionem o segmento correto da sua base de usuários com envio de mensagens para recursos que ainda não foram implementados para todo o público. Mas, mais do que isso, as Feature Flags podem ser usadas para ativar e desativar um recurso em produção sem implementação de código adicional ou atualizações da loja de aplicativos. Isso permite que você implemente novos recursos com segurança e confiança.
+A Braze permite ativar ou desativar remotamente a funcionalidade para uma seleção de usuários por meio de [Feature Flags]({{site.baseurl}}/developer_guide/feature_flags). Isso permite que os profissionais de marketing direcionem o Segment correto da sua base de usuários com envio de mensagens para recursos que ainda não foram implementados para todo o público. Mas, mais do que isso, as Feature Flags podem ser usadas para ativar e desativar um recurso em produção sem implementação de código adicional ou atualizações da loja de aplicativos. Isso permite que você implemente novos recursos com segurança e confiança.
 
 ## Personalização {#personalization}
 A camada de personalização representa a capacidade de fornecer conteúdo dinâmico em suas mensagens. Ao usar o Liquid, uma linguagem de personalização amplamente utilizada, sua equipe pode extrair dinamicamente os dados existentes para exibir a mensagem personalizada para cada destinatário. Além disso, você pode inserir qualquer informação acessível no seu servidor web ou por meio da API diretamente nas mensagens que está enviando, como notificações por push ou e-mails, usando [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content). O Conteúdo conectado se baseia no Liquid e usa uma sintaxe familiar.

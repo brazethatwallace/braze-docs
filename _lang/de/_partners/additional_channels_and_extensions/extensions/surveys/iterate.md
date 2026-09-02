@@ -31,7 +31,7 @@ Mit dem in Ihrer App oder Website installierten Braze SDK können Sie die in Bra
 
 ## Anwendungsfälle {#use-cases}
 
-Mit Iterate können Sie nahezu alle Arten von Daten erfassen – von persönlichen Informationen (Name, Alter, E-Mail) über Performance-Daten (NPS, Kundenzufriedenheit, Sternebewertungen) und Präferenzen (bevorzugtes Gerät, bevorzugte Kommunikationshäufigkeit) bis hin zu Persönlichkeitsmerkmalen (Lieblingsbuch, Hunde- oder Katzenmensch). Was Sie fragen, bleibt ganz Ihnen überlassen – ebenso wie die Art der Daten, die Sie erfassen, oder die Zielgruppen, die Sie aufbauen möchten.
+Mit Iterate können Sie nahezu alle Arten von Daten erfassen – von persönlichen Informationen (Name, Alter, E-Mail) über Performance-Daten (Net Promoter Score, Kundenzufriedenheit, Sternebewertungen) und Präferenzen (bevorzugtes Gerät, bevorzugte Kommunikationshäufigkeit) bis hin zu Persönlichkeitsmerkmalen (Lieblingsbuch, Hunde- oder Katzenmensch). Was Sie fragen, bleibt ganz Ihnen überlassen – ebenso wie die Art der Daten, die Sie erfassen, oder die Zielgruppen, die Sie aufbauen möchten.
 
 ## Integration
 

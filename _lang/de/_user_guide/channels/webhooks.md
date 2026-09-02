@@ -16,7 +16,7 @@ search_rank: 3
 
 ## Voraussetzungen {#prerequisites}
 
-Die Verfügbarkeit von Webhooks hängt von Ihrem Braze-Paket ab. Wenden Sie sich an Ihren Account Manager oder Customer-Success-Manager, um loszulegen.
+Die Verfügbarkeit von Webhooks hängt von Ihrem Braze-Paket ab. Wenden Sie sich an Ihren Account Manager:in oder CSM, um loszulegen.
 
 ## Anwendungsfälle {#use-cases}
 

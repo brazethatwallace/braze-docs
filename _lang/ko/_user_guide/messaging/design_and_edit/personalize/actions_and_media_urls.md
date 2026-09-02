@@ -65,7 +65,7 @@ iOS 및 Android에서 기본적으로 처리되는 표준 URI 스킴(예: `tel:`
 
 #### UTM 태그란? {#what-is-a-utm-tag}
 
-[UTM(Urchin Traffic Manager) 태그](https://support.google.com/analytics/answer/10917952?sjid=14344007686729081565-NC#zippy=%2Cin-this-article)를 사용하면 링크에 캠페인 기여도 세부 정보를 직접 포함할 수 있습니다. UTM 태그는 Google Analytics에서 캠페인 기여도 데이터를 수집하는 데 사용되며, 다음 속성을 추적하는 데 활용할 수 있습니다:
+[UTM(Urchin Traffic 매니저) 태그](https://support.google.com/analytics/answer/10917952?sjid=14344007686729081565-NC#zippy=%2Cin-this-article)를 사용하면 링크에 캠페인 기여도 세부 정보를 직접 포함할 수 있습니다. UTM 태그는 Google Analytics에서 캠페인 기여도 데이터를 수집하는 데 사용되며, 다음 속성을 추적하는 데 활용할 수 있습니다:
 
 - `utm_source`: 트래픽 소스의 식별자(예: `my_app`)
 - `utm_medium`: 캠페인 매체(예: `newsfeed`)

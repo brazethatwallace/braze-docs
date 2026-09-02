@@ -1,19 +1,19 @@
 ---
-nav_title: Rastreamento de análise de dados por segmento
-article_title: Rastreamento de análise de dados por segmento
+nav_title: Rastreamento de análise de dados por Segment
+article_title: Rastreamento de análise de dados por Segment
 page_order: 3
 page_type: reference
-description: "Este artigo de referência aborda o rastreamento de análise de dados por segmento e como visualizar receita e compras ao longo do tempo, sessões ao longo do tempo e eventos personalizados ao longo do tempo."
+description: "Este artigo de referência aborda o rastreamento de análise de dados por Segment e como visualizar receita e compras ao longo do tempo, sessões ao longo do tempo e eventos personalizados ao longo do tempo."
 tool:
   - Segments
   - Reports
 ---
 
-# Rastreamento de análise de dados por segmento {#segment-analytics-tracking}
+# Rastreamento de análise de dados por Segment {#segment-analytics-tracking}
 
-> Quando o rastreamento de análise de dados está ativado para um segmento, você pode visualizar sessões, eventos personalizados e receita ao longo do tempo para esse segmento.
+> Quando o rastreamento de análise de dados está ativado para um Segment, você pode visualizar sessões, eventos personalizados e receita ao longo do tempo para esse Segment.
 
-Se você não ativar o rastreamento de análise de dados para um segmento, ainda poderá acessar [estatísticas em tempo real]({{site.baseurl}}/user_guide/audience/segments/segment_data#segment-statistics) para esse segmento e direcionar seus usuários com Campaigns. A única diferença é se você pode acessar as ferramentas de análise específicas mencionadas nesta página.
+Se você não ativar o rastreamento de análise de dados para um Segment, ainda poderá acessar [estatísticas em tempo real]({{site.baseurl}}/user_guide/audience/segments/segment_data#segment-statistics) para esse Segment e direcionar seus usuários com Campaigns. A única diferença é se você pode acessar as ferramentas de análise específicas mencionadas nesta página.
 
 ## Ativando a análise de dados de Segments {#turning-on-segment-analytics}
 
@@ -29,15 +29,15 @@ Após ativar o rastreamento de análise de dados, espere uma postergação antes
 
 ## Visualizando receita e compras ao longo do tempo {#viewing-revenue-and-purchases-over-time}
 
-Acesse **Analytics** > **Revenue Report** para visualizar dados sobre [receita e compras ao longo do tempo para esse segmento]({{site.baseurl}}/user_guide/analytics/reports/revenue_report).
+Acesse **Analytics** > **Revenue Report** para visualizar dados sobre [receita e compras ao longo do tempo para esse Segment]({{site.baseurl}}/user_guide/analytics/reports/revenue_report).
 
-Os gráficos de receita e compras refletem a atividade registrada após o rastreamento de análise de dados ser ativado para esse segmento. Ativar o rastreamento não preenche retroativamente compras anteriores nesses relatórios. Ao comparar segmentos, use apenas intervalos de tempo em que o rastreamento estava ativado para cada segmento selecionado.
+Os gráficos de receita e compras refletem a atividade registrada após o rastreamento de análise de dados ser ativado para esse Segment. Ativar o rastreamento não preenche retroativamente compras anteriores nesses relatórios. Ao comparar segmentos, use apenas intervalos de tempo em que o rastreamento estava ativado para cada Segment selecionado.
 
-![Dados de receita por segmento]({% image_buster /assets/img_archive/Revenue.png %})
+![Dados de receita por Segment]({% image_buster /assets/img_archive/Revenue.png %})
 
 Para comparar visualmente os dados de segmentos em qualquer intervalo de tempo personalizado, adicione ou remova segmentos do gráfico. Selecione **By Segment** no menu suspenso **Breakdown** e, em seguida, selecione seus segmentos em **Breakdown values**.
 
-Selecione qualquer nome de segmento na legenda do gráfico para ativar ou desativar a visibilidade das métricas desse segmento.
+Selecione qualquer nome de Segment na legenda do gráfico para ativar ou desativar a visibilidade das métricas desse Segment.
 
 ![Receita para múltiplos segmentos]({% image_buster /assets/img_archive/segment_revenue_multiple.png %})
 
@@ -45,7 +45,7 @@ Selecione qualquer nome de segmento na legenda do gráfico para ativar ou desati
 
 Da mesma forma, você pode encontrar dados sobre [sessões ao longo do tempo para esse Segment específico]({{site.baseurl}}/user_guide/analytics/dashboards/home) na página **Home**.
 
-![Dados de sessão por segmento]({% image_buster /assets/img_archive/events_over_time2.png %})
+![Dados de sessão por Segment]({% image_buster /assets/img_archive/events_over_time2.png %})
 
 ## Visualizar eventos personalizados ao longo do tempo {#view-custom-events-over-time}
 

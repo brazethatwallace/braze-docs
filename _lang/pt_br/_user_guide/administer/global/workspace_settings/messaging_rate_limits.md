@@ -70,7 +70,7 @@ O limite de taxa é aplicado ao despacho, ou seja, ao início da tentativa de en
 
 Quando uma Campaign ou um Canvas tem seu próprio limite de taxa definido e um limite de taxa no nível do espaço de trabalho também se aplica, ambos são aplicados. Por exemplo, se uma Campaign tem um limite de taxa de 500.000, mas, devido aos limites de taxa do espaço de trabalho, ela só pode enviar 100.000 mensagens por minuto naquele momento, então o limite de taxa do espaço de trabalho prevalece.
 
-A Braze tenta distribuir uniformemente os despachos de mensagens ao longo do minuto, mas não pode garantir isso. Por exemplo, se você tem uma Campaign com um limite de taxa de 500.000 mensagens por minuto, tentaremos distribuir as 500.000 mensagens uniformemente ao longo do minuto (cerca de 8.400 mensagens por segundo), mas pode haver alguma variação na taxa por segundo.
+A Braze tenta distribuir uniformemente os despachos de mensagens ao longo do minuto, mas não pode garantir isso. Por exemplo, se você tem uma Campaign com um limite de taxa de 500.000 mensagens por minuto, tentaremos distribuir as 500.000 mensagens uniformemente ao longo do minuto (cerca de 8.400 MPS), mas pode haver alguma variação na taxa por segundo.
 
 Observe que você ainda pode definir limites de taxa individuais nas suas Campaigns e Canvas. Eles são aplicados independentemente dos limites de taxa de envio de mensagens do espaço de trabalho.
 

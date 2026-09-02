@@ -18,20 +18,20 @@ Google met à jour ses [règles de consentement des utilisateurs de l'Union euro
 L'intégration de la synchronisation de l'audience Braze avec Google permet aux marques d'étendre la portée de leurs parcours clients cross-canal à Google Search, Google Shopping, Gmail, YouTube et Google Display. Grâce à vos données clients first-party, vous pouvez diffuser en toute sécurité des publicités basées sur des déclencheurs comportementaux dynamiques, la segmentation, etc. Tous les critères que vous utilisez habituellement pour déclencher un message (par exemple, notification push, e-mail ou SMS) dans le cadre d'un Canvas Braze peuvent être utilisés pour déclencher un message publicitaire à l'intention de cet utilisateur grâce à la fonction [Customer Match](https://support.google.com/google-ads/answer/6379332?hl=en) de Google.
 
 {% alert note %}
-L'intégration de Braze Audience Sync to Google est prise en charge pour Google Ads, et non pour Google Ads Manager.
+L'intégration de Braze Audience Sync to Google est prise en charge pour Google Ads, et non pour Google Ads gestionnaire.
 {% endalert %}
 
 Google Ads ne génère plus d'audiences similaires, également appelées « lookalike audiences », pour le ciblage et la création de rapports. Pour en savoir plus, consultez la [documentation de Google Ads](https://support.google.com/google-ads/answer/12463119?).
 
-## API Google Data Manager {#google-data-manager-api}
+## API Google Data gestionnaire {#google-data-manager-api}
 
 {% alert important %}
-La prise en charge de l'API Google Data Manager pour Audience Sync to Google est en accès anticipé. Contactez votre gestionnaire de compte Braze pour connaître les conditions d'éligibilité et le calendrier de déploiement.
+La prise en charge de l'API Google Data gestionnaire pour Audience Sync to Google est en accès anticipé. Contactez votre gestionnaire de compte Braze pour connaître les conditions d'éligibilité et le calendrier de déploiement.
 {% endalert %}
 
-Google consolide ses intégrations publicitaires vers l'API Data Manager. En accès anticipé, Braze Audience Sync to Google peut utiliser cette API pour prendre en charge les évolutions en cours de l'API publicitaire de Google.
+Google consolide ses intégrations publicitaires vers l'API Data gestionnaire. En accès anticipé, Braze Audience Sync to Google peut utiliser cette API pour prendre en charge les évolutions en cours de l'API publicitaire de Google.
 
-Pour les connexions Google Audience Sync nouvelles ou reconnectées, Braze demande automatiquement le périmètre Data Manager requis. Les connexions existantes continuent de se synchroniser via le chemin hérité jusqu'à leur reconnexion.
+Pour les connexions Google Audience Sync nouvelles ou reconnectées, Braze demande automatiquement le périmètre Data gestionnaire requis. Les connexions existantes continuent de se synchroniser via le chemin hérité jusqu'à leur reconnexion.
 
 Continuez à suivre ce guide pour la connexion de compte, la configuration de l'audience et le comportement de synchronisation.
 

@@ -116,7 +116,7 @@ Para usuários com permissões apenas no nível de equipe, a Braze pode atribuir
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-O [depurador de Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/debugger) mostra a solicitação e a resposta ao vivo para cada chamada de Connected Content em **Preview & Test**, para que você possa verificar seu endpoint, cabeçalhos e Liquid tags antes de lançar uma Campaign ou Canvas. Abra **View details** para inspecionar o URL, método, código de status, cabeçalhos de solicitação e resposta, carga útil, duração e se a resposta foi servida do cache.
+O [depurador de Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/debugger) mostra a solicitação e a resposta ao vivo para cada chamada de Connected Content em **prévia & Test**, para que você possa verificar seu endpoint, cabeçalhos e Liquid tags antes de lançar uma Campaign ou Canvas. Abra **View details** para inspecionar o URL, método, código de status, cabeçalhos de solicitação e resposta, carga útil, duração e se a resposta foi servida do cache.
 
 Durante o acesso antecipado, o depurador está disponível para Content Cards, e-mail, mensagens no app, push, SMS/MMS/RCS, webhooks e WhatsApp.
 
@@ -224,7 +224,7 @@ Para mais detalhes, consulte os [Changelogs do SDK]({{site.baseurl}}/developer_g
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-O [dashboard de Diagnóstico de Mensagens]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard) fornece uma visão geral dos resultados de envio de mensagens, permitindo que você identifique tendências e diagnostique possíveis problemas na sua configuração de envio de mensagens. Esse dashboard pode ajudá-lo a entender por que as mensagens das suas Campaigns ou Canvas podem não ter sido enviadas como esperado. Entre em contato com o seu gerente de sucesso do cliente para obter acesso ao recurso.
+O [dashboard de Diagnóstico de Mensagens]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard) fornece uma visão geral dos resultados de envio de mensagens, permitindo que você identifique tendências e diagnostique possíveis problemas na sua configuração de envio de mensagens. Esse dashboard pode ajudá-lo a entender por que as mensagens das suas Campaigns ou Canvas podem não ter sido enviadas como esperado. Entre em contato com o seu CSM para obter acesso ao recurso.
 
 #### Mapeador de eventos personalizados na importação por CSV {#csv-custom-events-mapper}
 
@@ -259,7 +259,7 @@ Por exemplo, na página de Horário de silêncio, peça ao Operator para definir
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-O [servidor MCP da Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server) é uma conexão hospedada remotamente que permite conectar agentes de IA como Claude, ChatGPT, Cursor, VSCode, Codex, Google Antigravity e Claude Code diretamente à Braze. Por meio de linguagem natural, os agentes podem ler análises de Campaigns, Canvas e Segments, atributos personalizados, eventos, KPIs e catálogos, além de criar ou atualizar modelos de e-mail, Content Blocks e ativos da biblioteca de mídia. Nenhuma PII de perfil de usuário é exposta.
+O [servidor MCP da Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server) é uma conexão hospedada remotamente que permite conectar agentes de IA como Claude, ChatGPT, Cursor, VSCode, Codex, Google Antigravity e Claude Code diretamente à Braze. Por meio de linguagem natural, os agentes podem ler análises de Campaigns, Canvas e Segments, atributos personalizados, eventos, KPIs e catálogos, além de criar ou atualizar modelos de e-mail, Content Blocks e ativos da biblioteca de mídia. Nenhuma IPI de perfil de usuário é exposta.
 
 Para conectar, cole um único URL de endpoint no seu cliente MCP — `https://mcp.braze.com/mcp` para US ou `https://mcp.braze.eu/mcp` para EU — e faça login com OAuth, incluindo SSO. O servidor é iniciado com as ferramentas disponíveis.
 
@@ -277,7 +277,7 @@ A configuração de público das [Equipes]({{site.baseurl}}/user_guide/administe
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-Adicione uma escala de avaliação numérica a um bloco de formulário em [pesquisas de landing page]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/surveys#rating-scale) e [pesquisas de mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/surveys#rating-scale) para capturar sentimento, satisfação e probabilidade de recomendação sem nenhum código personalizado. Três intervalos são suportados: 1–10, 1–5 e 0–10 (o intervalo padrão de NPS).
+Adicione uma escala de avaliação numérica a um bloco de formulário em [pesquisas de landing page]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/surveys#rating-scale) e [pesquisas de mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/surveys#rating-scale) para capturar sentimento, satisfação e probabilidade de recomendação sem nenhum código personalizado. Três intervalos são suportados: 1–10, 1–5 e 0–10 (o intervalo padrão de Net Promoter Score (NPS)).
 
 #### Modelos de oferta por tempo limitado do WhatsApp {#whatsapp-limited-time-offer-templates}
 
@@ -333,7 +333,7 @@ Agora você pode atualizar credenciais de push programaticamente com o [endpoint
 
 #### Refiner - Pesquisas {#refiner-surveys}
 
-O [Refiner](https://refiner.io) é uma plataforma de pesquisas no app para apps SaaS e móveis. Ele permite que equipes de produto e voz do cliente lancem pesquisas direcionadas no app e coletem continuamente NPS, CSAT, CES, feedback de produto e dados zero-party dos usuários.
+O [Refiner](https://refiner.io) é uma plataforma de pesquisas no app para apps SaaS e móveis. Ele permite que equipes de produto e voz do cliente lancem pesquisas direcionadas no app e coletem continuamente Net Promoter Score (NPS), CSAT, CES, feedback de produto e dados zero-party dos usuários.
 
 #### Stayfilm - Conteúdo visual e interativo {#stayfilm-visual-and-interactive-content}
 
@@ -502,7 +502,7 @@ O [Databricks Mosaic]({{site.baseurl}}/partners/ai_model_providers/databricks_mo
 
 #### DinMo - Dados e análises - Reverse ETL {#dinmo-data-and-analytics-reverse-etl}
 
-O [DinMo]({{site.baseurl}}/partners/dinmo) é uma plataforma de dados do cliente (CDP) composável que conecta seu data warehouse na nuvem à Braze por meio de Reverse Extract, Transform, Load (ETL). As equipes de marketing podem construir segmentos de público a partir de dados do warehouse, sincronizar atributos e eventos de usuários na Braze e manter os status de inscrição atualizados sem uploads de CSV ou suporte de engenharia.
+O [DinMo]({{site.baseurl}}/partners/dinmo) é uma CDP (CDP) composável que conecta seu data warehouse na nuvem à Braze por meio de Reverse ETL (ETL). As equipes de marketing podem construir segmentos de público a partir de dados do warehouse, sincronizar atributos e eventos de usuários na Braze e manter os status de inscrição atualizados sem uploads de CSV ou suporte de engenharia.
 
 #### EmailShepherd - Orquestração de mensagens - Modelos {#emailshepherd-message-orchestration-templates}
 
@@ -576,9 +576,9 @@ A Braze [gerencia automaticamente registros de estado de inscrição órfãos]({
 
 ### Parcerias
 
-#### Chord - Plataforma de dados do cliente {#chord-customer-data-platform}
+#### Chord - CDP {#chord-customer-data-platform}
 
-O [Chord](https://www.chord.co/) fornece uma plataforma de dados do cliente que captura e padroniza eventos da sua loja de eCommerce. Quando você conecta o Chord à Braze, atividades de compra, eventos comportamentais e atualizações de identidade fluem para a Braze, para que você possa acionar campanhas e manter os perfis atualizados sem precisar construir esses pipelines por conta própria.
+O [Chord](https://www.chord.co/) fornece uma CDP que captura e padroniza eventos da sua loja de eCommerce. Quando você conecta o Chord à Braze, atividades de compra, eventos comportamentais e atualizações de identidade fluem para a Braze, para que você possa acionar campanhas e manter os perfis atualizados sem precisar construir esses pipelines por conta própria.
 
 Para saber mais, consulte [Chord]({{site.baseurl}}/partners/chord).
 
@@ -1030,7 +1030,7 @@ Use o [aquecimento automatizado de IP]({{site.baseurl}}/user_guide/channels/emai
 
 #### LinkedIn – Canvas Audience Sync
 
-Usando o [Braze Audience Sync para LinkedIn]({{site.baseurl}}/partners/canvas_audience_sync/linkedin_audience_sync), adicione dados de usuários da sua integração com a Braze às listas de clientes do LinkedIn para fornecer anúncios com base em acionadores comportamentais, segmentação e muito mais. Qualquer critério que você normalmente usaria para acionar uma mensagem (como push, e-mail, SMS e webhook) em um Braze Canvas com base nos dados do usuário agora pode acionar um anúncio para esse usuário em suas listas de clientes do LinkedIn.
+Usando o [Braze Audience Sync para LinkedIn]({{site.baseurl}}/partners/canvas_audience_sync/linkedin_audience_sync), adicione dados de usuários da sua integração com a Braze às listas de clientes do LinkedIn para fornecer anúncios com base em acionadores comportamentais, segmentação e muito mais. Qualquer critério que você normalmente usaria para acionar uma mensagem (como push, e-mail, SMS e webhook) em um BRAZE CANVAS com base nos dados do usuário agora pode acionar um anúncio para esse usuário em suas listas de clientes do LinkedIn.
 
 #### Oracle Crowdtwist - Dados e análises {#oracle-crowdtwist-data-analytics}
 

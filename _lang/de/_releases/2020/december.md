@@ -11,9 +11,9 @@ description: "Dieser Artikel enthält Versionshinweise für Dezember 2020."
 
 Innerhalb der Currents E-Mail-Messaging-Engagement-Ereignisse wurde die Tracking-Eigenschaft `ip_pool` hinzugefügt. Die Tracking-Eigenschaften `bounce_reason` und `bounce_code` wurden ebenfalls zu den Ereignissen `users.messages.email.Bounce` und `users.messages.email.SoftBounce` hinzugefügt. <br>Die vollständige Liste finden Sie im [Glossar der Nachrichten-Engagement-Ereignisse]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events).
 
-## Predictive Churn FAQ
+## Predictive Abwanderung FAQ
 
-Die Dokumentation zu Predictive Churn wurde um einen Artikel mit häufig gestellten Fragen ergänzt. Wenn Sie mehr über diese potenziellen Fehler, zeitliche Erläuterungen und Datenüberlegungen erfahren möchten, lesen Sie unsere [Predictive Churn FAQ]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/troubleshooting).
+Die Dokumentation zu Predictive Abwanderung wurde um einen Artikel mit häufig gestellten Fragen ergänzt. Wenn Sie mehr über diese potenziellen Fehler, zeitliche Erläuterungen und Datenüberlegungen erfahren möchten, lesen Sie unsere [Predictive Abwanderung FAQ]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/troubleshooting).
 
 ## Fehlerbehebung bei CSV- und API-Exporten {#csv-and-api-exports-troubleshooting-doc}
 

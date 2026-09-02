@@ -12,7 +12,7 @@ tool: Currents
 
 > Braze verwendet Currents intern mit ausgewählten [Partnern]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners).
 
-Wir filtern unsere Daten aus E-Mail- und Push-Campaigns in ein Business-Insights-Tool, Looker, aber der Weg dorthin ist etwas anders. Wir verwenden eine umgekehrte Version der Extract, Transform, Load (ETL)-Methode – wir ändern die Reihenfolge in Extract, Load, Transform (ELT).
+Wir filtern unsere Daten aus E-Mail- und Push-Campaigns in ein Business-Insights-Tool, Looker, aber der Weg dorthin ist etwas anders. Wir verwenden eine umgekehrte Version der ETL (ETL)-Methode – wir ändern die Reihenfolge in Extract, Load, Transform (ELT).
 
 ## 1. Schritt: Ereignisdaten eingeben und aggregieren {#step-1-intake-and-aggregate-event-data}
 
@@ -34,7 +34,7 @@ Snowflake ist nicht die einzige Warehouse-Option. Weitere Optionen sind [Redshif
 
 Snowflake Reader Accounts bieten Nutzer:innen Zugriff auf dieselben Daten und Funktionen wie die [Snowflake Datenfreigabe]({{site.baseurl}}/partners/snowflake), ohne dass ein Snowflake-Konto oder eine Kundenbeziehung mit Snowflake erforderlich ist. Mit Reader Accounts erstellt und teilt Braze Ihre Daten in einem Konto und stellt Ihnen Zugangsdaten zur Verfügung, um sich anzumelden und auf Ihre Daten zuzugreifen. Dadurch werden alle Datenfreigabe- und Nutzungskosten vollständig von Braze übernommen.
 
-Um mehr zu erfahren, kontaktieren Sie Ihren Customer-Success-Manager.
+Um mehr zu erfahren, kontaktieren Sie Ihren CSM.
 
 #### Zusätzliche Ressourcen {#additional-resources}
 Hilfreiche Ressourcen zur Nutzungsüberwachung finden Sie in den Snowflake-Artikeln zu [Resource Monitors](https://docs.snowflake.com/en/user-guide/resource-monitors.html) und [Viewing Warehouse Credit Usage](https://docs.snowflake.com/en/user-guide/credits.html#viewing-warehouse-credit-usage-for-your-account).

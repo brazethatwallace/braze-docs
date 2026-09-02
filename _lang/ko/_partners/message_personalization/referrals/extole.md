@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Extole
 
-> [Extole](https://www.extole.com/)은 SaaS 회사로, 친구 추천 마케팅 분야의 업계 리더입니다. 효과적인 추천 마케팅 프로그램을 만들고 최적화하여 고객 확보를 늘리는 데 도움을 줍니다.
+> [Extole](https://www.extole.com/)은 SaaS(software-as-a-service) 회사로, 친구 추천 마케팅 분야의 업계 리더입니다. 효과적인 추천 마케팅 프로그램을 만들고 최적화하여 고객 확보를 늘리는 데 도움을 줍니다.
 
 _이 통합은 Extole에서 유지 관리합니다._
 

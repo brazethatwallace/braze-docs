@@ -86,7 +86,7 @@ Verwenden Sie dieses Muster immer, wenn Sie JSON aus Connected Content speichern
 
 ### Variablen hinzufügen {#add-variables}
 
-Sie können auch Nutzerprofil-Attribute als Variablen im URL-String einfügen, wenn Sie Connected-Content-Anfragen senden.
+Sie können auch Kundenprofil-Attribute als Variablen im URL-String einfügen, wenn Sie Connected-Content-Anfragen senden.
 
 Zum Beispiel könnten Sie einen Webdienst haben, der Inhalte basierend auf der E-Mail-Adresse und ID einer Nutzerin oder eines Nutzers zurückgibt. Wenn Sie Attribute übergeben, die Sonderzeichen wie das At-Zeichen (@) enthalten, verwenden Sie den Liquid-Filter `url_param_escape`, um Zeichen, die in URLs nicht erlaubt sind, durch ihre URL-kompatiblen, escapten Versionen zu ersetzen, wie beim folgenden E-Mail-Adress-Attribut gezeigt.
 
@@ -120,7 +120,7 @@ Wenn Anfragen an den Ziel-Host durch den Detektor für ungesunde Hosts gestoppt 
 Wenn Sie vermuten, dass die Erkennung ungesunder Hosts Probleme verursacht, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/support_contact).
 
 {% alert note %}
-Sie können bestimmte URLs auf eine Zulassungsliste setzen, die für Connected Content verwendet werden sollen. Wenden Sie sich an Ihren Customer-Success-Manager, um auf dieses Feature zuzugreifen.
+Sie können bestimmte URLs auf eine Zulassungsliste setzen, die für Connected Content verwendet werden sollen. Wenden Sie sich an Ihren CSM, um auf dieses Feature zuzugreifen.
 {% endalert %}
 
 {% alert tip %}

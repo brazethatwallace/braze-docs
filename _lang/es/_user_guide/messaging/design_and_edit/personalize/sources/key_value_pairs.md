@@ -151,7 +151,7 @@ Braze te permite enviar pares clave-valor de cadena personalizados, conocidos co
 
 ##### Opciones de mensajería FCM {#fcm-messaging-options}
 
-Las notificaciones push de Android pueden personalizarse aún más con las opciones de mensajes FCM. Estas incluyen [prioridad de notificación]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=android#android_settings), [sonido]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=android#android_settings), retraso, tiempo de vida y compresibilidad. Estos valores pueden especificarse en la pestaña **Configuración** al crear un mensaje push. Consulta [Configuración avanzada de notificaciones push]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=android#android_settings) para obtener más instrucciones sobre cómo establecer estas opciones en el creador de mensajes de Braze.
+Las notificaciones push de Android pueden personalizarse aún más con las opciones de mensajes FCM. Estas incluyen [prioridad de notificación]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=android#android_settings), [sonido]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=android#android_settings), retraso, TTL y compresibilidad. Estos valores pueden especificarse en la pestaña **Configuración** al crear un mensaje push. Consulta [Configuración avanzada de notificaciones push]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=android#android_settings) para obtener más instrucciones sobre cómo establecer estas opciones en el creador de mensajes de Braze.
 
 ![Captura de pantalla relacionada con las opciones de mensajería FCM.]({% image_buster /assets/img_archive/keyvalue_androidkeys.png %})
 

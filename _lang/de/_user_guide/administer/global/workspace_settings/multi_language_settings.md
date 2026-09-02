@@ -17,7 +17,7 @@ description: "Dieser Artikel bietet eine Übersicht über die mehrsprachigen Ein
 ## Gebietsschema hinzufügen {#add-a-locale}
 
 1. Gehen Sie zu **Einstellungen** > **Lokalisierungseinstellungen**.
-2. Wählen Sie **Add locale** und dann **Default locale** oder **Custom Attributes**.
+2. Wählen Sie **Add locale** und dann **Default locale** oder **angepasste Attribute**.
 3. Geben Sie einen Namen für das Gebietsschema ein.
 4. [Wählen Sie eine Sprache für die Barrierefreiheit aus]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages#language-settings-and-accessibility). Diese Einstellung ermöglicht es assistiven Technologien wie Screenreadern, Text korrekt auszusprechen.
 5. Wählen Sie die entsprechenden Nutzerattribute für die von Ihnen gewählte Gebietsschema-Option aus. Beim Einrichten eines Gebietsschemas können Sie entweder Sprachen aus den Standard-Nutzerattributen oder aus angepassten Attributen auswählen. Eine Kombination aus beiden ist nicht möglich.
@@ -30,9 +30,9 @@ Verwenden Sie für **Default locale** die Dropdown-Menüs, um die hinzuzufügend
 ![Ein Fenster mit dem Titel „Add locale – Default Language and Country“ zur Angabe der Sprache und des Landes.]({% image_buster /assets/img/multi-language_support/default_option.png %})
 
 {% endtab %}
-{% tab Custom attributes %}
+{% tab angepasste Attribute %}
 
-Verwenden Sie für **Custom Attributes** das Dropdown-Menü, um das zugehörige angepasste Attribut auszuwählen, und geben Sie im Textfeld den Wert ein.
+Verwenden Sie für **angepasste Attribute** das Dropdown-Menü, um das zugehörige angepasste Attribut auszuwählen, und geben Sie im Textfeld den Wert ein.
 
 ![Ein Fenster mit dem Titel „Add locale – Custom Attributes“ zur Angabe des angepassten Attributs und des Werts.]({% image_buster /assets/img/multi-language_support/custom_attributes_option.png %})
 

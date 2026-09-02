@@ -59,7 +59,7 @@ Stellen Sie sicher, dass das Braze-Feld `external_id` dem Primärschlüssel in I
 
 Abschnitt **Send Record Properties**: Eine Liste der voreingestellten Nutzerprofilfelder, die für die Abbildung von Daten zur Verfügung stehen. Jede dieser Eigenschaften kann mit Grouparoo-Eigenschaften synchronisiert werden.
 
-Abschnitt **Optional Braze User Profile Fields**: Erstellen Sie optional angepasste Braze-Nutzerprofilfelder. Wenn Sie auf **Add New Braze User Profile Field** klicken, werden alle verfügbaren Eigenschaften angezeigt, die Sie Braze zuordnen können. Der Name jedes neuen Feldes, das Sie erstellen, ist derselbe wie die Grouparoo-Eigenschaft, kann aber umbenannt werden.
+Abschnitt **Optional Braze Kundenprofil Fields**: Erstellen Sie optional angepasste Braze-Nutzerprofilfelder. Wenn Sie auf **Add New Braze Kundenprofil Field** klicken, werden alle verfügbaren Eigenschaften angezeigt, die Sie Braze zuordnen können. Der Name jedes neuen Feldes, das Sie erstellen, ist derselbe wie die Grouparoo-Eigenschaft, kann aber umbenannt werden.
 
 #### Grouparoo-Gruppen {#grouparoo-groups}
 

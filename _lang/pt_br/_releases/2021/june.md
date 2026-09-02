@@ -30,9 +30,9 @@ Quer saber mais sobre os detalhes dos eventos de compra na Braze? Visite nosso a
 
 A [Nexla]({{site.baseurl}}/partners/nexla) é líder em operações unificadas de dados e foi reconhecida como Gartner Cool Vendor em 2021. Clientes que usam Currents para enviar dados a data warehouses podem alavancar a Nexla para extrair, transformar e carregar esses dados para outros locais, tornando os dados facilmente acessíveis em todo o seu ecossistema. A Nexla permite que você use o Braze Currents para obter dados em um formato personalizado e entregá-los ao destino de sua escolha com um simples apontar e clicar.
 
-### Amperity - Plataforma de dados do cliente {#amperity-customer-data-platform}
+### Amperity - CDP {#amperity-customer-data-platform}
 
-A [Amperity]({{site.baseurl}}/partners/amperity) é uma plataforma de dados do cliente empresarial abrangente, que ajuda marcas a conhecer seus clientes, tomar decisões estratégicas e agir de forma consistente para atender melhor seus consumidores. A Amperity oferece suporte à plataforma da Braze fornecendo uma visão unificada dos seus clientes em sua CDP e na Braze, permitindo que você envie dados valiosos da Amperity para a Braze.
+A [Amperity]({{site.baseurl}}/partners/amperity) é uma CDP empresarial abrangente, que ajuda marcas a conhecer seus clientes, tomar decisões estratégicas e agir de forma consistente para atender melhor seus consumidores. A Amperity oferece suporte à plataforma da Braze fornecendo uma visão unificada dos seus clientes em sua CDP e na Braze, permitindo que você envie dados valiosos da Amperity para a Braze.
 
 ### Digioh - Pesquisas {#digioh-surveys}
 

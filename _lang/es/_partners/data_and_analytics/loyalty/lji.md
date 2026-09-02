@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Plataforma de fidelización GRAVTY® {#gravty-loyalty-platform}
 
-> [GRAVTY®](https://www.lji.io/) es una plataforma de fidelización de nivel empresarial de Loyalty Juggernaut Inc. (LJI) que permite a las marcas de comercio minorista, viajes, restaurantes (incluidos los de servicio rápido) y servicios financieros diseñar, administrar y escalar programas de nueva generación, impulsando un crecimiento medible en interacción, retención y valor de duración del ciclo de vida del cliente a través de experiencias personalizadas y basadas en datos.
+> [GRAVTY®](https://www.lji.io/) es una plataforma de fidelización de nivel empresarial de Loyalty Juggernaut Inc. (LJI) que permite a las marcas de comercio minorista, viajes, restaurantes (incluidos los de servicio rápido) y servicios financieros diseñar, administrar y escalar programas de nueva generación, impulsando un crecimiento medible en interacción, retención y LTV del cliente a través de experiencias personalizadas y basadas en datos.
 
 Construida sobre una arquitectura flexible y API-first, GRAVTY® admite acumulación y canje en tiempo real, gestión de ecosistemas de socios e integración entre canales. Los equipos pueden lanzar más rápido, iterar en los programas y ofrecer experiencias de fidelización a escala.
 

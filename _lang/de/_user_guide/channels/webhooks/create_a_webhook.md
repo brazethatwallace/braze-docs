@@ -213,7 +213,7 @@ Webhooks basieren darauf, dass Braze-Server Anfragen an einen externen Endpunkt 
 
 Wenn Ihr Webhook nicht gesendet werden kann, wird eine Fehlermeldung im [Nachrichtenaktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) protokolliert, einschließlich Details wie dem Fehlerzeitstempel, dem App-Namen und Details zum Fehler.
 
-![Webhook-Fehler mit der Meldung „An active access token must be used to query information about the current user“.]({% image_buster /assets/img_archive/webhook-error.png %})
+![Webhook-Fehler mit der Meldung „An active access Token must be used to query information about the current user“.]({% image_buster /assets/img_archive/webhook-error.png %})
 
 Wenn die Fehlermeldung nicht eindeutig genug ist, um die Fehlerquelle zu identifizieren, sollten Sie die Dokumentation des von Ihnen verwendeten API-Endpunkts prüfen. Diese enthalten in der Regel eine Erklärung der vom Endpunkt verwendeten Fehlercodes sowie deren übliche Ursachen.
 

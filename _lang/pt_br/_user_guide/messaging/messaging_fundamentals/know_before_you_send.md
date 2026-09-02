@@ -20,7 +20,7 @@ Embora ofereçamos uma lista extensa de recursos para consultar antes do envio, 
 ## Geral {#general}
 
 ### Itens para verificar {#things-to-check}
-- [**Limites de frequência de API**](https://braze.com/resources/articles/whats-rate-limiting): Revise os [limites de frequência]({{site.baseurl}}/api/api_limits) da API da Braze para seus espaços de trabalho e evite erros. Se você deseja aumentar seus limites de frequência (e já está agrupando solicitações em lotes), entre em contato com seu gerente de sucesso do cliente. Lembre-se de que esse processo requer um prazo de antecedência, então planeje-se adequadamente.
+- [**Limites de frequência de API**](https://braze.com/resources/articles/whats-rate-limiting): Revise os [limites de frequência]({{site.baseurl}}/api/api_limits) da API da Braze para seus espaços de trabalho e evite erros. Se você deseja aumentar seus limites de frequência (e já está agrupando solicitações em lotes), entre em contato com seu CSM. Lembre-se de que esse processo requer um prazo de antecedência, então planeje-se adequadamente.
 - [**Substituições necessárias de limite de frequência**]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping): Existem algumas campanhas, como mensagens transacionais, que você vai querer que sempre cheguem ao usuário, mesmo que ele já tenha atingido seu limite de frequência (por exemplo, uma notificação de entrega). Se você quiser que uma Campaign específica substitua as regras de limite de frequência, configure isso no dashboard da Braze ao agendar a entrega dessa Campaign, desativando o limite de frequência.
 
 ### Itens para saber {#things-to-know}
@@ -62,7 +62,7 @@ Para mais assistência com solução de problemas de Canvas e Campaign, entre em
 - **Cache de Content Cards**: As opções de cache de Content Cards podem ser encontradas em nossa documentação para [Android/FireOS]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style) e [Web](https://js.appboycdn.com/web-sdk/latest/doc/modules/appboy.html#getcachedcontentcards).
 - **Limite de frequência**: O limite de frequência não se aplica a Content Cards.
 - **Impressões**: As impressões geralmente são registradas quando um cartão é visualizado. Por exemplo, se você tiver uma caixa de entrada cheia de Content Cards, uma impressão não será registrada até que o usuário role até o Content Card específico. Existem algumas diferenças entre as plataformas Web, Android e iOS.
-- **Sessões do SDK e criação de cartões**: Content Cards não são criados para usuários sem sessões do SDK, mesmo que esses usuários atendam aos critérios do segmento. No entanto, se um usuário já tiver uma sessão Android, Content Cards com ações de clique específicas para iOS ainda serão criados, e o usuário poderá visualizar esses Content Cards no iOS assim que tiver uma sessão lá. Consulte [Criação de cartão]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card) para saber mais sobre quando os cartões são criados.
+- **Sessões do SDK e criação de cartões**: Content Cards não são criados para usuários sem sessões do SDK, mesmo que esses usuários atendam aos critérios do Segment. No entanto, se um usuário já tiver uma sessão Android, Content Cards com ações de clique específicas para iOS ainda serão criados, e o usuário poderá visualizar esses Content Cards no iOS assim que tiver uma sessão lá. Consulte [Criação de cartão]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card) para saber mais sobre quando os cartões são criados.
 
 ## E-mail {#email}
 

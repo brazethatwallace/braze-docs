@@ -64,7 +64,7 @@ Os agentes são configurados com instruções (prompts de sistema) que definem c
 
 As seguintes limitações se aplicam:
 
-- Cada agente tem um limite diário padrão de invocação de 250.000 execuções, que pode ser aumentado até um máximo de 1.000.000 de execuções por dia. Entre em contato com o gerente de sucesso do cliente se tiver interesse em aumentar esse limite.
+- Cada agente tem um limite diário padrão de invocação de 250.000 execuções, que pode ser aumentado até um máximo de 1.000.000 de execuções por dia. Entre em contato com o CSM se tiver interesse em aumentar esse limite.
 - O Agent Console exibe um **Limite diário de custo de créditos por ação** para cada agente — o máximo estimado de créditos por dia com base na proporção de créditos por invocação do seu modelo e no limite diário de invocação. Consulte [Limites diários de invocação e créditos]({{site.baseurl}}/user_guide/brazeai/agents/reference#daily-invocation-and-credit-limits).
 - Por padrão, cada execução deve ser concluída em 20 segundos. Após 20 segundos, o agente retorna uma resposta `null` onde é utilizado.
     - Se seus agentes atingirem o tempo limite de forma consistente, entre em contato com o gerente da sua conta na Braze para aumentar esse limite.

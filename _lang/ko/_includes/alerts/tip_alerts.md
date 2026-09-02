@@ -398,7 +398,7 @@ function countLength(type, s) {
 function escapeHtml(text) {
   return text.replace(/[&<>"'\/]/g, function (c) {
     switch (c) {
-      case '&': return '&amp;';
+      case '&': return '&가속 모바일 페이지;';
       case '<': return '&lt;';
       case '>': return '&gt;';
       case '"': return '&quot;';

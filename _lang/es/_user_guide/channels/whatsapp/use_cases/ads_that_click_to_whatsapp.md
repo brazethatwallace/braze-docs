@@ -19,7 +19,7 @@ Los anuncios que redirigen a WhatsApp son una forma eficiente de atraer tanto a 
 
 ## Configuración de anuncios que hacen clic a WhatsApp {#setting-up-ads-that-click-to-whatsapp}
 
-1. En Meta Ads Manager, crea un anuncio en Facebook, Instagram u otras plataformas siguiendo la guía paso a paso [Cómo crear anuncios que hacen clic a WhatsApp](https://business.whatsapp.com/products/create-ads-that-click-to-whatsapp). **No** configures respuestas automatizadas; configurarás las respuestas en Braze en su lugar.
+1. En Meta Ads Administrador, crea un anuncio en Facebook, Instagram u otras plataformas siguiendo la guía paso a paso [Cómo crear anuncios que hacen clic a WhatsApp](https://business.whatsapp.com/products/create-ads-that-click-to-whatsapp). **No** configures respuestas automatizadas; configurarás las respuestas en Braze en su lugar.
 
 ![Ads Manager con un creador para crear un anuncio de participación.]({% image_buster /assets/img/whatsapp/meta_ads_composer.png %})
 

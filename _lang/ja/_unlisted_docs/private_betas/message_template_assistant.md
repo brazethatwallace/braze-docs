@@ -36,7 +36,7 @@ HTMLメールテンプレートエディターの**生成**サイドバーグル
 
 {% include copy_block.html content="Create a clean, single-column newsletter template that matches our brand guidelines." %}
 
-{% include copy_block.html content="Add a feedback survey at the bottom of the email" %}
+{% include copy_block.html content="Add a フィードバック survey at the bottom of the email" %}
 
 {% include copy_block.html content="Change font to [font name] and font size of the paragraph to size [number]" %}
 

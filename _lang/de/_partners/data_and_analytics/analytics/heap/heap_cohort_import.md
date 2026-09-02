@@ -37,7 +37,7 @@ Verwenden Sie die Heap-zu-Braze-Integration, um Kohorten, die in Heap definiert 
 
 Navigieren Sie in Braze zu **Partnerintegrationen** > **Technologie-Partner** und wählen Sie dann **Heap** aus.
 
-Auf dieser Seite finden Sie Ihren Datenimport-Schlüssel und einen REST-Endpunkt. Notieren Sie sich diese beiden Werte und geben Sie sie an Ihren Heap Account Manager weiter, um die Einrichtung der Integration abzuschließen.
+Auf dieser Seite finden Sie Ihren Datenimport-Schlüssel und einen REST-Endpunkt. Notieren Sie sich diese beiden Werte und geben Sie sie an Ihren Heap Account Manager:in weiter, um die Einrichtung der Integration abzuschließen.
 
 ![Braze-Technologie-Partnerseite für Heap mit Datenimport-Schlüssel und Endpunkt.]({% image_buster /assets/img/heap/heap2.png %}){: style="max-width:90%;"}
 

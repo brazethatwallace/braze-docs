@@ -24,19 +24,19 @@ Sie wählen den Agent-Typ in der **Agent Console** aus, wenn Sie den Agent erste
 
 ## Best Practices {#best-practices}
 
-Konzentrieren Sie sich auf hochwertige Anwendungsfälle, bei denen Agents die größte Kapitalrendite (ROI) erzielen können, und wählen Sie Zielgruppen aus, die wahrscheinlich reagieren werden. Eine kleinere Zielgruppe mit hoher Opportunity übertrifft oft eine große Zielgruppe mit geringer Opportunity.
+Konzentrieren Sie sich auf hochwertige Anwendungsfälle, bei denen Agents die größte Kapitalrendite (Kapitalrendite) erzielen können, und wählen Sie Zielgruppen aus, die wahrscheinlich reagieren werden. Eine kleinere Zielgruppe mit hoher Opportunity übertrifft oft eine große Zielgruppe mit geringer Opportunity.
 
 Beginnen Sie bei Canvas-Schritt-Agents mit Nutzer:innen, die starke Signale aufweisen – wie kürzliche Suchanfragen, hohes Engagement oder umfangreiche Profildaten – bevor Sie auf breitere Segmente ausweiten. Priorisieren Sie bei Catalog-Agents Zeilen, in denen die benötigten Eingabespalten bereits befüllt sind, damit jeder Aufruf genügend Kontext hat, um nützliche Ergebnisse zu liefern.
 
-Um die ROI in kleinem Maßstab zu testen, bevor Sie einen Agent breit ausrollen, verwenden Sie einen [Experimentpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step)-Schritt, sodass nur ein Teil Ihrer Zielgruppe den Branch betritt, der Ihren Agent-Schritt enthält.
+Um die Kapitalrendite in kleinem Maßstab zu testen, bevor Sie einen Agent breit ausrollen, verwenden Sie einen [Experimentpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step)-Schritt, sodass nur ein Teil Ihrer Zielgruppe den Branch betritt, der Ihren Agent-Schritt enthält.
 
 ### Nach einem erfolgreichen Test skalieren {#scale-after-a-successful-test}
 
-Nachdem ein Test in kleinem Maßstab (zum Beispiel ein [Experimentpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step)-Branch) akzeptable Qualität und ROI gezeigt hat, planen Sie den Rollout des Agents auf Ihre gesamte Zielgruppe (nicht nur die Testgruppe), damit alle berechtigten Nutzer:innen davon profitieren.
+Nachdem ein Test in kleinem Maßstab (zum Beispiel ein [Experimentpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step)-Branch) akzeptable Qualität und Kapitalrendite gezeigt hat, planen Sie den Rollout des Agents auf Ihre gesamte Zielgruppe (nicht nur die Testgruppe), damit alle berechtigten Nutzer:innen davon profitieren.
 
 Bevor Sie skalieren, beachten Sie Folgendes:
 
-- Erhöhen Sie das tägliche Aufruf-Limit des Agents in der Agent Console, damit er das volle Zielgruppenvolumen bewältigen kann. Der Standardwert beträgt 250.000; Sie können ihn auf bis zu 1.000.000 erhöhen (oder mit Ihrem Customer-Success-Manager auf einen höheren Wert). Siehe [Tägliche Aufruf- und Credit-Limits]({{site.baseurl}}/user_guide/brazeai/agents/reference#daily-invocation-and-credit-limits).
+- Erhöhen Sie das tägliche Aufruf-Limit des Agents in der Agent Console, damit er das volle Zielgruppenvolumen bewältigen kann. Der Standardwert beträgt 250.000; Sie können ihn auf bis zu 1.000.000 erhöhen (oder mit Ihrem CSM auf einen höheren Wert). Siehe [Tägliche Aufruf- und Credit-Limits]({{site.baseurl}}/user_guide/brazeai/agents/reference#daily-invocation-and-credit-limits).
 - Überprüfen Sie die Schätzung des **Daily action credit cost limit** und bestätigen Sie, dass Ihr Workspace über genügend Credits für Sends im vollen Umfang verfügt.
 - Entfernen oder rekonfigurieren Sie das Experiment, sodass die gesamte Zielgruppe den Agent-Schritt betritt (oder stufen Sie die Gewinnervariante zum Hauptpfad hoch).
 
@@ -82,7 +82,7 @@ Nachdem der Agent ausgeführt wurde, verwenden Sie die Ausgabevariable in Ihrem 
 
 - **Journey-Routing:** Leiten Sie Nutzer:innen basierend auf der Antwort des Agents in verschiedene Canvas-Pfade. Verwenden Sie [Zielgruppenpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) oder [Decision-Splits]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split) mit numerischen, booleschen oder strukturierten Ausgaben.
 - **Personalisierung:** Fügen Sie die Antwort des Agents mithilfe von Liquid direkt in einen Nachrichtenschritt ein.
-- **Nutzerdaten verarbeiten:** Analysieren und standardisieren Sie Nutzerdaten und speichern Sie diese dann im Nutzerprofil (zum Beispiel mit einem [Nutzeraktualisierung]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)-Schritt) oder senden Sie sie über einen Webhook.
+- **Nutzerdaten verarbeiten:** Analysieren und standardisieren Sie Nutzerdaten und speichern Sie diese dann im Kundenprofil (zum Beispiel mit einem [Nutzeraktualisierung]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)-Schritt) oder senden Sie sie über einen Webhook.
 
 Beispiele finden Sie unter [Funktionsweise]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step#how-it-works) im Agent-Schritt.
 
@@ -115,7 +115,7 @@ Wenn Sie Eingabespalten für einen Catalog Agent konfigurieren, aktivieren Sie d
 
 Catalog Agents berücksichtigen auch Abhängigkeiten zwischen Spalten. Wenn Spalte D aus den Spalten B und C generiert wird, führt der Agent Spalte D für eine Zeile erst aus, wenn B und C Werte für diese Zeile enthalten.
 
-Sie können die Felder in Ihrem Katalog, die Agents verwenden, aktualisieren und bearbeiten. Um einen Agent aus einer Spalte zu entfernen, deaktivieren Sie **Apply AI agent**. Dadurch wird die Spalte wieder zu einer nicht-agentischen Spalte, und die Felder behalten die letzten Werte bei, die der Agent bei seiner letzten Ausführung auf den Katalog angewendet hat.
+Sie können die Felder in Ihrem Katalog, die Agents verwenden, aktualisieren und bearbeiten. Um einen Agent aus einer Spalte zu entfernen, deaktivieren Sie **Apply KI agent**. Dadurch wird die Spalte wieder zu einer nicht-agentischen Spalte, und die Felder behalten die letzten Werte bei, die der Agent bei seiner letzten Ausführung auf den Katalog angewendet hat.
 
 Zirkuläre Referenzen in Katalogen werden nicht unterstützt, d. h. das folgende Szenario kann nicht auftreten:
 
@@ -129,7 +129,7 @@ Zirkuläre Referenzen in Katalogen werden nicht unterstützt, d. h. das folgende
 So fügen Sie einen Agent zu Ihrem Katalogfeld hinzu:
 
 1. Fügen Sie in Ihrem Katalog ein neues Feld hinzu.
-2. Wählen Sie **Apply AI agent** aus.
+2. Wählen Sie **Apply KI agent** aus.
 3. Weisen Sie diesem Feld einen Agent zu.
 4. Wählen Sie aus, welche Spalten als Eingabe übergeben werden sollen. Wenn keine ausgewählt sind, hat der Agent Zugriff auf alle Spalten im Katalog.
 5. (Optional) Aktivieren Sie **Only run when required columns have values**, um Zeilen zu überspringen, in denen eine oder mehrere ausgewählte Eingabespalten leer sind. Wenn diese Option aktiviert ist, wählen Sie aus, welche der Eingabespalten ausgefüllt sein müssen, damit der Agent ausgeführt wird – alle ausgewählten Spalten sind standardmäßig als erforderlich markiert, aber Sie können alle entfernen, die leer bleiben dürfen, ohne eine Ausführung zu blockieren.

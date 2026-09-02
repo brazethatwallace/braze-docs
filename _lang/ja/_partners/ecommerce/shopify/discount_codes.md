@@ -61,7 +61,7 @@ Liquidスニペットをキャンペーンまたはキャンバスステップ�
 キャンペーンやキャンバスでディスカウントコードが何度参照されても、ユーザーに1つのユニークなディスカウントコードのみを受け取らせたい場合は、最初のメッセージステップの直前に[ユーザー更新]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)ステップを作成し、ディスカウントコードを「Promo Code」のようなカスタム属性に割り当てます。
 
 {% alert tip %}
-**Data Settings** > **Custom Attributes** に移動して、[カスタム属性を作成]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)することもできます。
+**Data Settings** > **カスタム属性** に移動して、[カスタム属性を作成]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)することもできます。
 {% endalert %}
 
 ユーザー更新ステップで、各フィールドに対して以下を設定します。

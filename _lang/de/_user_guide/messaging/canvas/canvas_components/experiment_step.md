@@ -18,7 +18,7 @@ Wenn Sie einen Experimentpfad-Schritt in Ihre User Journey einfügen, werden Nut
 
 ## Voraussetzungen {#prerequisites}
 
-Um Experimentpfade zu verwenden, muss Ihr Canvas Konversions-Events enthalten. Obwohl Sie nach dem Start eines Canvas keine Konversions-Events mehr hinzufügen können, können Sie den gestarteten Canvas klonen und Konversions-Events hinzufügen, um Experimentpfade zu ergänzen.
+Um Experimentpfade zu verwenden, muss Ihr Canvas Konversions-Events enthalten. Obwohl Sie nach dem Start eines Canvas keine Konversions-Events mehr hinzufügen können, können Sie den gestarteten Canvas Klon und Konversions-Events hinzufügen, um Experimentpfade zu ergänzen.
 
 ## Anwendungsfälle {#use-cases}
 

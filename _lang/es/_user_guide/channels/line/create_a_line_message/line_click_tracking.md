@@ -38,7 +38,7 @@ Para configurar el seguimiento de clics en un mensaje de texto:
 2. Ve a la pestaña **Settings** y confirma que **Click Tracking** está activado. El seguimiento de clics está activado de forma predeterminada para todos los mensajes nuevos.
 
 {% alert note %}
-Puedes ver vistas previas del enlace acortado en la pestaña **Settings** o **Preview & Test**. El enlace completo se mostrará en el creador mientras construyes tu mensaje.
+Puedes ver vistas previas del enlace acortado en la pestaña **Settings** o **vista previa & Test**. El enlace completo se mostrará en el creador mientras construyes tu mensaje.
 {% endalert %}
 
 ![Pestaña "Settings" del creador de mensajes LINE con "Click Tracking" activado y una vista previa del mensaje de texto con una URL acortada: https://olaf.brz.ai/p/9rcfdqdD]({% image_buster /assets/img/line/click_tracking_settings.png %})

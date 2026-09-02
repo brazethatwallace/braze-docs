@@ -1,7 +1,7 @@
 ---
 nav_title: Adobe
 article_title: Adobe
-description: "Esta página descreve a parceria entre a Braze e a Adobe, uma plataforma de dados do cliente, que permite que as marcas conectem e mapeiem seus dados da Adobe (atributos personalizados e Segments) para a Braze em tempo real. As marcas podem então agir com base nesses dados, oferecendo experiências personalizadas e direcionadas para esses usuários."
+description: "Esta página descreve a parceria entre a Braze e a Adobe, uma CDP, que permite que as marcas conectem e mapeiem seus dados da Adobe (atributos personalizados e Segments) para a Braze em tempo real. As marcas podem então agir com base nesses dados, oferecendo experiências personalizadas e direcionadas para esses usuários."
 page_type: partner
 page_order: 1
 search_tag: Partner
@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Adobe
 
-> Criada com base na Adobe Experience Platform, a plataforma de dados do cliente em tempo real da Adobe reúne dados conhecidos e anônimos de várias fontes corporativas para criar perfis de clientes. Esses perfis podem então ser usados para fornecer experiências personalizadas em todos os canais e dispositivos em tempo real.
+> Criada com base na Adobe Experience Platform, a CDP em tempo real da Adobe reúne dados conhecidos e anônimos de várias fontes corporativas para criar perfis de clientes. Esses perfis podem então ser usados para fornecer experiências personalizadas em todos os canais e dispositivos em tempo real.
 
 A integração entre a Braze e o Adobe CDP conecta e mapeia os dados da Adobe da sua marca (atributos personalizados e Segments) para a Braze em tempo real. Em seguida, é possível agir com base nesses dados, oferecendo experiências personalizadas e direcionadas aos seus usuários. Com a Adobe, a integração é intuitiva. Basta pegar qualquer [identidade](https://experienceleague.adobe.com/docs/experience-platform/identity/namespaces.html?lang=en) da Adobe, mapeá-la para um ID externo da Braze e enviá-la para a plataforma da Braze. Todos os dados enviados estarão acessíveis na Braze por meio de um novo atributo `AdobeExperiencePlatformSegments`.
 
@@ -29,7 +29,7 @@ A integração da Adobe Experience Platform atualmente não oferece suporte à a
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 {% alert important %}
-O envio de atributos personalizados adicionais aumentará o uso de seus pontos de dados. Sugerimos que fale com seu gerente de sucesso do cliente para entender melhor esse possível aumento de pontos de dados.
+O envio de atributos personalizados adicionais aumentará o uso de seus pontos de dados. Sugerimos que fale com seu CSM para entender melhor esse possível aumento de pontos de dados.
 {% endalert %}
 
 ## Integração {#integration}
@@ -66,11 +66,11 @@ Selecione **Create destination**. Seu destino foi criado. Você pode selecionar 
 ### Etapa 5: Ativar segmentos {#step-5-activate-segments}
 Ative os dados que você tem na CDP em tempo real da Adobe mapeando segmentos para o destino da Braze.
 
-A lista a seguir destaca as etapas gerais necessárias para ativar um segmento. Para obter orientações completas sobre os segmentos da Adobe e o fluxo de trabalho de ativação de segmentos, visite [Adobe](https://experienceleague.adobe.com/docs/experience-platform/destinations/ui/activate-destinations.html?lang=en#prerequisites).
+A lista a seguir destaca as etapas gerais necessárias para ativar um Segment. Para obter orientações completas sobre os segmentos da Adobe e o fluxo de trabalho de ativação de segmentos, visite [Adobe](https://experienceleague.adobe.com/docs/experience-platform/destinations/ui/activate-destinations.html?lang=en#prerequisites).
 
 1. Selecione e ative o destino Braze.
 2. Selecione os segmentos aplicáveis.
-4. Configure o agendamento e os nomes dos arquivos para cada segmento que você exportar.
+4. Configure o agendamento e os nomes dos arquivos para cada Segment que você exportar.
 5. Selecione atributos para enviar para a Braze.
 6. Revise e verifique a ativação.
 

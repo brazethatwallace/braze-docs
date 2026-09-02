@@ -39,7 +39,7 @@ Um angepasste Attribute im Dashboard zu erstellen und zu verwalten, gehen Sie zu
 In der Spalte **Letztes Update** sehen Sie, wann das angepasste Attribut das letzte Mal bearbeitet wurde, z. B. wann es zuletzt auf Blockliste oder aktiv gesetzt wurde.
 
 {% alert note %}
-Wenn ein angepasstes Array-Attribut in einem Nutzerprofil ohne Werte angezeigt wird, überprüfen Sie, ob die **Maximale Länge** des Attributs größer als `0` ist. Eine schrittweise Fehlerbehebung finden Sie unter [Datentypen]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#arrays).
+Wenn ein angepasstes Array-Attribut in einem Kundenprofil ohne Werte angezeigt wird, überprüfen Sie, ob die **Maximale Länge** des Attributs größer als `0` ist. Eine schrittweise Fehlerbehebung finden Sie unter [Datentypen]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#arrays).
 {% endalert %}
 
 {% alert important %}
@@ -105,7 +105,7 @@ Das angepasste Attribut darf derzeit nicht in aktiven Campaigns, Canvases oder S
 
 ### Wissenswert {#things-to-know}
 
-- **Nutzerdaten werden nicht rückwirkend aktualisiert.** Wenn ein Nutzerprofil das Attribut mit dem alten Datentyp enthielt, bleibt dieser Wert unverändert. Der Segmentierungsfilter sucht nach dem neuen Datentyp, sodass Nutzer:innen mit dem alten Wert aus übereinstimmenden Segments ausgeschlossen werden, bis ihr Profil aktualisiert wurde.
+- **Nutzerdaten werden nicht rückwirkend aktualisiert.** Wenn ein Kundenprofil das Attribut mit dem alten Datentyp enthielt, bleibt dieser Wert unverändert. Der Segmentierungsfilter sucht nach dem neuen Datentyp, sodass Nutzer:innen mit dem alten Wert aus übereinstimmenden Segments ausgeschlossen werden, bis ihr Profil aktualisiert wurde.
 - **Neue Daten müssen dem neuen Datentyp entsprechen.** Nach der Änderung werden API-Aufrufe oder SDK-Events, die den vorherigen Datentyp für dieses Attribut senden, nicht akzeptiert. Nur Werte, die dem neuen Datentyp entsprechen, werden aufgenommen.
 - **Filter werden nicht automatisch aktualisiert.** Segments und Campaign-Filter, die auf das geänderte Attribut verweisen, werden nicht rückwirkend aktualisiert. Sie müssen sie nach der Änderung entfernen und erneut hinzufügen.
 
@@ -139,7 +139,7 @@ Die folgenden Listen zeigen Methoden auf verschiedenen Plattformen, die zum Fest
 
 ## Speicherung angepasster Attribute {#custom-attribute-storage}
 
-Alle im **Nutzerprofil** gespeicherten Daten, einschließlich angepasster Attribute, werden unbegrenzt aufbewahrt, solange jedes Profil <a href="/docs/user_archival#active-users">aktiv</a> ist.
+Alle im **Kundenprofil** gespeicherten Daten, einschließlich angepasster Attribute, werden unbegrenzt aufbewahrt, solange jedes Profil <a href="/docs/user_archival#active-users">aktiv</a> ist.
 
 Eine vollständige Übersicht aller Datentypen, die Sie als angepasste Attribute speichern können – einschließlich boolescher Werte, Zahlen, Strings, Arrays, Zeitangaben, Objekte und Arrays von Objekten – finden Sie unter [Datentypen für angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types).
 
@@ -149,8 +149,8 @@ Beim Löschen oder Zurücksetzen eines angepassten Attributs unterscheidet sich 
 
 | Wert | Verhalten |
 | --- | --- |
-| `""` (leerer String) | Das Attribut wird auf einen leeren Wert gesetzt und bleibt im Nutzerprofil sichtbar. |
-| `null` | Das Attribut wird vollständig aus dem Nutzerprofil entfernt. |
+| `""` (leerer String) | Das Attribut wird auf einen leeren Wert gesetzt und bleibt im Kundenprofil sichtbar. |
+| `null` | Das Attribut wird vollständig aus dem Kundenprofil entfernt. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Leere Strings im Vergleich zu Null-Werten" }
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Leere Strings im Vergleich zu Null-Werten" }
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Leere Strings im Vergleich zu Null-Werten" }

@@ -117,7 +117,7 @@ Alguns pontos adicionais a observar:
 
 <!-- Segments -->
 
-### Como crio um segmento quando importo um grupo de usuários por CSV? {#how-do-i-create-a-segment-when-i-import-a-group-of-users-through-csv}
+### Como crio um Segment quando importo um grupo de usuários por CSV? {#how-do-i-create-a-segment-when-i-import-a-group-of-users-through-csv}
 
 {% apitags %}
 Segments
@@ -127,14 +127,14 @@ Para importar seu arquivo CSV, navegue até a página **Importação de usuário
 
 O painel **Importar CSV** contém instruções de importação e um botão para iniciar sua importação. Clique em **Selecionar arquivo CSV** e selecione seu arquivo de interesse. Em seguida, antes de clicar em **Iniciar importação**, você tem a opção de informar à Braze o que fazer com esta lista em "O que você quer que façamos com os usuários neste CSV".
 
-Selecione **Importar usuários neste CSV e também possibilitar redirecionar este lote específico de usuários como um grupo**, e então selecione **Gerar automaticamente um segmento dos usuários que são importados deste CSV**. Depois que você clicar em **Iniciar importação**, a Braze fará upload do seu arquivo, verificará os cabeçalhos das colunas e os tipos de dados de cada coluna, e criará um segmento.
+Selecione **Importar usuários neste CSV e também possibilitar redirecionar este lote específico de usuários como um grupo**, e então selecione **Gerar automaticamente um Segment dos usuários que são importados deste CSV**. Depois que você clicar em **Iniciar importação**, a Braze fará upload do seu arquivo, verificará os cabeçalhos das colunas e os tipos de dados de cada coluna, e criará um Segment.
 
 Para baixar um modelo de CSV, consulte [importação de usuário]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv).
 
 {% endapi %}
 {% api %}
 
-### Quais tipos de filtros posso usar ao criar um segmento? {#what-types-of-filters-can-i-use-when-creating-a-segment}
+### Quais tipos de filtros posso usar ao criar um Segment? {#what-types-of-filters-can-i-use-when-creating-a-segment}
 
 {% apitags %}
 Segments
@@ -151,12 +151,12 @@ O SDK da Braze fornece um arsenal poderoso de filtros para segmentar e direciona
 Segments
 {% endapitags %}
 
-Navegue até a página **Segments**, em Engajamento, para ver todos os seus segmentos de usuários atuais. Nesta página, você pode criar e nomear novos segmentos. Para começar, clique em **Criar segmento** e dê um nome ao seu segmento.
+Navegue até a página **Segments**, em Engajamento, para ver todos os seus segmentos de usuários atuais. Nesta página, você pode criar e nomear novos segmentos. Para começar, clique em **Criar Segment** e dê um nome ao seu Segment.
 
-Depois de criar seu segmento, adicione um filtro `Most Recent Location` para segmentar os usuários pelo último lugar em que usaram seu app. Você pode destacar usuários em uma região circular padrão ou criar uma região poligonal personalizada.
+Depois de criar seu Segment, adicione um filtro `Most Recent Location` para segmentar os usuários pelo último lugar em que usaram seu app. Você pode destacar usuários em uma região circular padrão ou criar uma região poligonal personalizada.
 
 - Para regiões circulares, você pode mover a origem e ajustar o raio de localização para sua segmentação.
-- Para regiões poligonais, você pode designar mais especificamente quais áreas deseja incluir em seu segmento.
+- Para regiões poligonais, você pode designar mais especificamente quais áreas deseja incluir em seu Segment.
 
 {% alert tip %}
 Quer aproveitar o direcionamento por local com a ajuda de um parceiro da Braze? Confira nossos [parceiros de localização contextual]({{site.baseurl}}/partners/message_personalization) disponíveis.
@@ -171,13 +171,13 @@ Quer aproveitar o direcionamento por local com a ajuda de um parceiro da Braze? 
 Segments
 {% endapitags %}
 
-Você pode usar [extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension)! As extensões de segmento permitem que você segmente uma lista mais precisa de usuários do que seria possível com um segmento regular.
+Você pode usar [extensões de Segment]({{site.baseurl}}/user_guide/audience/segments/segment_extension)! As extensões de Segment permitem que você segmente uma lista mais precisa de usuários do que seria possível com um Segment regular.
 
-Você pode criar até 10 extensões de segmento por espaço de trabalho. Depois que essas listas de extensões são geradas, elas podem ser incluídas ou excluídas como um filtro em seus segmentos. Ao criar uma extensão de segmento, você também pode especificar que a lista seja regenerada uma vez a cada 24 horas.
+Você pode criar até 10 extensões de Segment por espaço de trabalho. Depois que essas listas de extensões são geradas, elas podem ser incluídas ou excluídas como um filtro em seus segmentos. Ao criar uma extensão de Segment, você também pode especificar que a lista seja regenerada uma vez a cada 24 horas.
 
-1. Em Engajamentos, expanda **Segments** e clique em **Extensão de Segmento**.
-2. Na tabela de extensões de segmento, clique em **+ Criar nova extensão**.
-3. Nomeie sua extensão de segmento descrevendo o tipo de usuários que você pretende filtrar. Isso garantirá que esta extensão possa ser facilmente e precisamente encontrada ao aplicá-la como um filtro em seu segmento.
+1. Em Engajamentos, expanda **Segments** e clique em **Extensão de Segment**.
+2. Na tabela de extensões de Segment, clique em **+ Criar nova extensão**.
+3. Nomeie sua extensão de Segment descrevendo o tipo de usuários que você pretende filtrar. Isso garantirá que esta extensão possa ser facilmente e precisamente encontrada ao aplicá-la como um filtro em seu Segment.
 4. Selecione entre um critério de compra ou evento personalizado para direcionamento.
 5. Escolha qual item comprado ou evento personalizado específico você gostaria de direcionar para sua lista de usuários.
 6. Escolha quantas vezes (mais que, menos que ou igual a) o usuário precisaria ter completado o evento, e quantos dias retroceder, até 365 dias.
@@ -186,16 +186,16 @@ Para aumentar a precisão do direcionamento, você pode selecionar **Adicionar f
 
 Também suportamos segmentação com base em [propriedades de eventos aninhados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects).
 
-As extensões de segmento dependem do armazenamento de longo prazo das propriedades de eventos e não têm o limite de armazenamento de propriedades de eventos personalizados de 30 dias. Isso significa que você pode consultar propriedades de eventos rastreadas no último ano, e o rastreamento não espera até que a extensão tenha sido configurada primeiro.
+As extensões de Segment dependem do armazenamento de longo prazo das propriedades de eventos e não têm o limite de armazenamento de propriedades de eventos personalizados de 30 dias. Isso significa que você pode consultar propriedades de eventos rastreadas no último ano, e o rastreamento não espera até que a extensão tenha sido configurada primeiro.
 
 {% alert note %}
-O uso de propriedades de eventos dentro de extensões de segmento não impacta o uso de pontos de dados.
+O uso de propriedades de eventos dentro de extensões de Segment não impacta o uso de pontos de dados.
 {% endalert %}
 
 {% endapi %}
 {% api %}
 
-#### Manter as extensões de segmento atualizadas {#keeping-segment-extensions-up-to-date}
+#### Manter as extensões de Segment atualizadas {#keeping-segment-extensions-up-to-date}
 
 {% apitags %}
 Segments
@@ -205,7 +205,7 @@ Você pode especificar se deseja que esta extensão represente um momento espec�
 
 Quando terminar, clique em **Salvar**. Sua extensão começará a ser processada. O tempo necessário para gerar sua extensão depende de quantos usuários você tem, quantos eventos personalizados ou eventos de compra você está capturando e quantos dias está consultando no histórico.
 
-Por fim, depois de criar uma extensão, você pode usá-la como um filtro ao criar um segmento ou definir um público para uma Campaign ou Canvas. Comece escolhendo `Braze Segment Extension` na lista de filtros na seção **User Attributes**. Na lista de filtros de Braze Segment Extension, escolha a extensão que deseja incluir ou excluir neste segmento. Para ver os critérios da extensão, clique em **Ver detalhes da extensão**. Agora você pode continuar normalmente criando seu segmento.
+Por fim, depois de criar uma extensão, você pode usá-la como um filtro ao criar um Segment ou definir um público para uma Campaign ou Canvas. Comece escolhendo `Braze Segment Extension` na lista de filtros na seção **User Attributes**. Na lista de filtros de Braze Segment Extension, escolha a extensão que deseja incluir ou excluir neste Segment. Para ver os critérios da extensão, clique em **Ver detalhes da extensão**. Agora você pode continuar normalmente criando seu Segment.
 
 {% endapi %}
 {% api %}
@@ -240,7 +240,7 @@ Criar Campaigns multivariantes e executar Canvas com várias variantes é uma ó
 Campaigns
 {% endapitags %}
 
-Uma possível explicação para essa diferença pode ser a Campaign ou Canvas ter a re-elegibilidade ativada. Com isso ativado, os usuários que se qualificarem para o segmento e as configurações de entrega poderão receber a mensagem mais de uma vez. Se a re-elegibilidade não estiver ativada, a provável explicação para a diferença entre envios e destinatários únicos pode ser que os usuários possuem vários dispositivos em diferentes plataformas associados aos seus perfis.
+Uma possível explicação para essa diferença pode ser a Campaign ou Canvas ter a re-elegibilidade ativada. Com isso ativado, os usuários que se qualificarem para o Segment e as configurações de entrega poderão receber a mensagem mais de uma vez. Se a re-elegibilidade não estiver ativada, a provável explicação para a diferença entre envios e destinatários únicos pode ser que os usuários possuem vários dispositivos em diferentes plataformas associados aos seus perfis.
 
 Por exemplo, se você tiver um Canvas com notificações por push para iOS e web, um determinado usuário com dispositivos móveis e desktop pode receber mais de uma mensagem.
 
@@ -253,7 +253,7 @@ Por exemplo, se você tiver um Canvas com notificações por push para iOS e web
 Campaigns
 {% endapitags %}
 
-A entrega no fuso local permite que você entregue Campaigns de mensagens para um segmento com base no fuso horário individual de cada usuário. Sem a entrega no fuso local, as Campaigns serão agendadas com base nas configurações de fuso horário da sua empresa na Braze.
+A entrega no fuso local permite que você entregue Campaigns de mensagens para um Segment com base no fuso horário individual de cada usuário. Sem a entrega no fuso local, as Campaigns serão agendadas com base nas configurações de fuso horário da sua empresa na Braze.
 
 Por exemplo, uma empresa com sede em Londres que envia uma Campaign às 12h atingirá usuários na costa oeste dos Estados Unidos às 4h da manhã. Se o seu app estiver disponível apenas em alguns países, isso pode não ser um risco para você. Caso contrário, recomendamos fortemente evitar enviar notificações por push de madrugada para sua base de usuários!
 
@@ -281,11 +281,11 @@ Campaigns
 
 Ao agendar uma Campaign, você precisa escolher enviá-la em um horário designado e então selecionar **Enviar Campaign para os usuários no fuso local deles**.
 
-A Braze recomenda fortemente que todas as Campaigns no fuso local sejam agendadas com 24 horas de antecedência. Como essa Campaign precisa ser enviada ao longo de um dia inteiro, agendá-la com 24 horas de antecedência permite que sua mensagem alcance todo o seu segmento. No entanto, você pode agendar essas Campaigns com menos de 24 horas de antecedência, se necessário. Lembre-se de que a Braze não enviará mensagens para nenhum usuário que tenha perdido o horário de envio por mais de 1 hora.
+A Braze recomenda fortemente que todas as Campaigns no fuso local sejam agendadas com 24 horas de antecedência. Como essa Campaign precisa ser enviada ao longo de um dia inteiro, agendá-la com 24 horas de antecedência permite que sua mensagem alcance todo o seu Segment. No entanto, você pode agendar essas Campaigns com menos de 24 horas de antecedência, se necessário. Lembre-se de que a Braze não enviará mensagens para nenhum usuário que tenha perdido o horário de envio por mais de 1 hora.
 
 Por exemplo, se for 13h e você agendar uma Campaign no fuso local para 15h, a Campaign será enviada imediatamente para todos os usuários cujo horário local é entre 15h e 16h, mas não para os usuários cujo horário local é 17h. Além disso, o horário de envio que você escolher para sua Campaign ainda não deve ter ocorrido no fuso horário da sua empresa.
 
-Editar uma Campaign no fuso local que está agendada para menos de 24 horas de antecedência não alterará o cronograma da mensagem. Se você decidir editar uma Campaign no fuso local para enviar em um horário posterior (por exemplo, 19h em vez de 18h), os usuários que estavam no segmento-alvo quando o horário de envio original foi escolhido ainda receberão a mensagem no horário original (18h). Se você editar o fuso local para enviar em um horário anterior (por exemplo, 16h em vez de 17h), a Campaign ainda será enviada a todos os membros do segmento no horário original (17h).
+Editar uma Campaign no fuso local que está agendada para menos de 24 horas de antecedência não alterará o cronograma da mensagem. Se você decidir editar uma Campaign no fuso local para enviar em um horário posterior (por exemplo, 19h em vez de 18h), os usuários que estavam no Segment-alvo quando o horário de envio original foi escolhido ainda receberão a mensagem no horário original (18h). Se você editar o fuso local para enviar em um horário anterior (por exemplo, 16h em vez de 17h), a Campaign ainda será enviada a todos os membros do Segment no horário original (17h).
 
 {% alert note %}
 Para etapas do Canvas, os usuários não precisam estar na etapa por 24 horas para receber a próxima etapa na entrega no fuso local.
@@ -302,12 +302,12 @@ Se você permitiu que os usuários se tornassem re-elegíveis para a Campaign, e
 Campaigns
 {% endapitags %}
 
-Os segmentos-alvo para Campaigns de fuso local devem incluir pelo menos uma janela de 48 horas para quaisquer filtros baseados em tempo, a fim de garantir a entrega a todo o segmento. Por exemplo, considere um segmento direcionando usuários no seu segundo dia com os seguintes filtros:
+Os segmentos-alvo para Campaigns de fuso local devem incluir pelo menos uma janela de 48 horas para quaisquer filtros baseados em tempo, a fim de garantir a entrega a todo o Segment. Por exemplo, considere um Segment direcionando usuários no seu segundo dia com os seguintes filtros:
 
 - Usou o app pela primeira vez há mais de 1 dia
 - Usou o app pela primeira vez há menos de 2 dias
 
-A entrega no fuso local pode não alcançar os usuários deste segmento com base no horário de entrega e no fuso local dos usuários. Isso ocorre porque um usuário pode sair do segmento no momento em que seu fuso horário aciona a entrega.
+A entrega no fuso local pode não alcançar os usuários deste Segment com base no horário de entrega e no fuso local dos usuários. Isso ocorre porque um usuário pode sair do Segment no momento em que seu fuso horário aciona a entrega.
 
 {% endapi %}
 {% api %}
@@ -380,7 +380,7 @@ Para que um usuário seja elegível para entrada, ele deve ser elegível em amba
 - Nova York em 6 de agosto de 2021 às 21h
 - Nova York em 7 de agosto de 2021 às 14h
 
-Para entrar, o usuário precisa corresponder ao seu público e filtros em ambos os momentos de avaliação. Se o usuário não for elegível na primeira verificação, a Braze não executará a segunda verificação. Não há um tempo mínimo que o usuário precise estar no segmento antes do lançamento — apenas a elegibilidade em cada verificação importa.
+Para entrar, o usuário precisa corresponder ao seu público e filtros em ambos os momentos de avaliação. Se o usuário não for elegível na primeira verificação, a Braze não executará a segunda verificação. Não há um tempo mínimo que o usuário precise estar no Segment antes do lançamento — apenas a elegibilidade em cada verificação importa.
 
 Esse comportamento de avaliação é separado de [com quanta antecedência você agenda a Campaign no dashboard]({{site.baseurl}}/user_guide/messaging/campaigns/faq#how-do-i-schedule-a-local-time-zone-campaign). Para a explicação completa, exemplos e orientações de agendamento, consulte [Quando a Braze avalia os usuários para a entrega no fuso local?]({{site.baseurl}}/user_guide/messaging/campaigns/faq#when-does-braze-evaluate-users-for-local-time-zone-delivery) e [Como faço para agendar uma Campaign no fuso local?]({{site.baseurl}}/user_guide/messaging/campaigns/faq#how-do-i-schedule-a-local-time-zone-campaign) nas perguntas frequentes de Campaigns.
 

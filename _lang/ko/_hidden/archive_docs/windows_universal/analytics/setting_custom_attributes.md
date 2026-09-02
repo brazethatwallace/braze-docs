@@ -1,5 +1,5 @@
 ---
-nav_title: Set custom attributes
+nav_title: Set 커스텀 속성
 article_title: Windows 유니버설용 커스텀 속성 설정
 platform: Windows Universal
 page_order: 3

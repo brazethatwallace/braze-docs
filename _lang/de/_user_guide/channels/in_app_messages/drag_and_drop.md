@@ -118,7 +118,7 @@ So verbinden Sie Seiten miteinander:
 
 1. Wählen Sie Ihre Startseite aus.
 2. Wählen Sie ein Button- oder Bildelement im Canvas aus.
-3. Setzen Sie **On-click behavior** auf **Go to page**.
+3. Setzen Sie **On-Click behavior** auf **Go to page**.
 4. Wählen Sie die Seite aus, zu der Sie von der Startseite aus verlinken möchten.
 5. Fahren Sie fort, bis alle Seiten verknüpft sind.
 

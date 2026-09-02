@@ -89,7 +89,7 @@ Para sincronizar atributos adicionales:
     ![La aplicación Braze abierta en un flujo de trabajo de Justuno mostrando la opción "Sync Another Property".]({% image_buster /assets/img/justuno/sync-another-property.png %}){: style="max-width:55%;"}
 2. Elige qué atributos de Braze quieres sincronizar.
 3. Haz coincidir las propiedades en Justuno con sus equivalentes en Braze (como identificadores sociales, cumpleaños, preferencias de compra, respuestas a cuestionarios y similares). Ten en cuenta que estas propiedades se consideran datos de parte cero o datos de primera parte. Para saber más, consulta [Justuno: Recopilación de datos de visitantes](https://www.justuno.com/guides/zero-first-party-data/).
-4. En el constructor de flujos de trabajo, elige **Save**, **Preview** o **Publish** para tu flujo de trabajo.
+4. En el constructor de flujos de trabajo, elige **Save**, **vista previa** o **Publish** para tu flujo de trabajo.
     ![El menú "Publish" abierto con las opciones de guardar, vista previa o mostrar el historial de versiones.]({% image_buster /assets/img/justuno/publish-workflow.png %}){: style="max-width:45%;"}
 
 ## Lo que debes saber {#things-to-know}

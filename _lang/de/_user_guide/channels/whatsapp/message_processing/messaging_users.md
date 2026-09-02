@@ -54,7 +54,7 @@ Schnellantworten erscheinen als anklickbare Button-Optionen innerhalb der Konver
 
 #### Schritt 1: CTAs erstellen {#step-1-build-out-ctas}
 
-Erstellen Sie zunächst Ihre Schnellantwort-CTAs im [WhatsApp-Nachrichtentemplate-Manager](https://business.facebook.com/wa/manage/message-templates/) innerhalb eines Nachrichtentemplates.
+Erstellen Sie zunächst Ihre Schnellantwort-CTAs im [WhatsApp-Nachrichtentemplate-Manager:in](https://business.facebook.com/wa/manage/message-templates/) innerhalb eines Nachrichtentemplates.
 
 ![Die WhatsApp-Nachrichtentemplate-Manager-UI, die zeigt, wie ein CTA-Button erstellt wird, mit Angabe des Button-Typs (angepasst) und des Button-Textes.]({% image_buster /assets/img/whatsapp/whatsapp12.png %}){: style="max-width:80%;"}
 
@@ -88,7 +88,7 @@ In den meisten Fällen möchten Sie für jede Antwort eine Antwortnachricht habe
 
 ![Ein Canvas, das die Antworten für jeden Call-to-Action-Button zeigt.]({% image_buster /assets/img/whatsapp/whatsapp18.png %})
 
-Beachten Sie, dass Sie alle nachfolgenden Aktionen nutzen können, die Braze Canvas bietet, wie z. B. Antwortnachrichten, Nutzerprofil-Aktualisierungen oder Braze-zu-Braze-Webhooks.
+Beachten Sie, dass Sie alle nachfolgenden Aktionen nutzen können, die Braze Canvas bietet, wie z. B. Antwortnachrichten, Kundenprofil-Aktualisierungen oder Braze-zu-Braze-Webhooks.
 
 ## Listennachrichten {#list-messages}
 

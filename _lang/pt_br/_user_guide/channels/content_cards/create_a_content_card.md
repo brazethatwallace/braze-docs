@@ -152,7 +152,7 @@ Para campanhas de Content Card com entrega agendada, você pode escolher quando 
 
 #### Escolha os usuários a direcionar {#choose-users-to-target}
 
-Em seguida, [direcione os usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) escolhendo segmentos ou filtros para refinar seu público. Você recebe automaticamente uma prévia de como é a população aproximada desse segmento. Lembre-se de que a associação exata ao segmento é sempre calculada antes do envio da mensagem.
+Em seguida, [direcione os usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) escolhendo segmentos ou filtros para refinar seu público. Você recebe automaticamente uma prévia de como é a população aproximada desse Segment. Lembre-se de que a associação exata ao Segment é sempre calculada antes do envio da mensagem.
 
 {% multi_lang_include audience/target_audiences.md %}
 

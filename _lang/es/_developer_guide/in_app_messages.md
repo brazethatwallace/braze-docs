@@ -38,7 +38,7 @@ description: "Obtén información sobre los mensajes dentro de la aplicación y 
 {% multi_lang_include developer_guide/flutter/in_app_messages.md %}
 {% endsdktab %}
 
-{% sdktab react native %}
+{% sdktab React Native %}
 {% multi_lang_include developer_guide/react_native/in_app_messages.md %}
 {% endsdktab %}
 

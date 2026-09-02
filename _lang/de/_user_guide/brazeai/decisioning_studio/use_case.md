@@ -23,7 +23,7 @@ Diese Anleitung beschreibt, wie Poppy:
 
 Poppy bestätigt die Erfolgsmetrik, die der Agent maximieren soll: Umsatz aus Wiederkäufen bei Kund:innen, die aufgehört haben zu kaufen.
 
-Sie definiert, wer in das Programm aufgenommen wird: ein Braze-Segment inaktiver Käufer:innen oder hochwertiger inaktiver Nutzer:innen. Poppy muss nun lediglich dem AI Decisioning Services-Team mitteilen, welches Segment der Agent ansprechen soll. Die Integration zum Abrufen der Daten dieses Segments erfolgt im Hintergrund, ohne dass Poppy eine Integration einrichten muss.
+Sie definiert, wer in das Programm aufgenommen wird: ein Braze-Segment inaktiver Käufer:innen oder hochwertiger inaktiver Nutzer:innen. Poppy muss nun lediglich dem KI Decisioning Services-Team mitteilen, welches Segment der Agent ansprechen soll. Die Integration zum Abrufen der Daten dieses Segments erfolgt im Hintergrund, ohne dass Poppy eine Integration einrichten muss.
 
 ## 2. Schritt: Aktionsbank und Einschränkungen erstellen {#step-2-build-the-action-bank-and-constraints}
 
@@ -44,6 +44,6 @@ Für die Orchestrierung nutzt sie den nativen Braze-Pfad: Decisioning Studio ent
 
 ## 4. Schritt: Starten, überwachen und für Umsatz optimieren {#step-4-launch-monitor-and-optimize-for-revenue}
 
-Nach einer Konfigurationsüberprüfung mit dem AI Decisioning Services-Team startet Poppy den Agenten. Der Agent beginnt, Aktionen pro Nutzer:in zu empfehlen und Sendungen über Braze zu orchestrieren, um sich im Laufe der Zeit zu verbessern.
+Nach einer Konfigurationsüberprüfung mit dem KI Decisioning Services-Team startet Poppy den Agenten. Der Agent beginnt, Aktionen pro Nutzer:in zu empfehlen und Sendungen über Braze zu orchestrieren, um sich im Laufe der Zeit zu verbessern.
 
 Durch die Kombination einer umsatzorientierten Erfolgsmetrik mit einem Decisioning-Agenten, der kontinuierlich zulässige Aktionen testet, entwickelt sich Kitchenerie von statischen Rückgewinnungs-Massensendungen hin zu 1:1-Entscheidungen, die sich pro Kund:in anpassen – mit dem Ziel, mehr Kund:innen zurückzugewinnen und den Umsatz zu steigern, während die von Poppy definierten Geschäftsregeln eingehalten werden.

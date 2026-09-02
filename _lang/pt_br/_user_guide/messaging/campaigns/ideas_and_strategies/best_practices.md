@@ -60,11 +60,11 @@ Usuários avançados podem ser defensores do seu app. Geralmente, eles interagem
 - Uso recente do app
 - Gastos e compras realizadas
 
-Para garantir avaliações mais altas, peça aos seus usuários avançados que avaliem seu app na loja de apps, pois eles têm mais chances de ter coisas boas a dizer. Por exemplo, você poderia criar um segmento chamado "Usuários avançados" com estes filtros:
+Para garantir avaliações mais altas, peça aos seus usuários avançados que avaliem seu app na loja de apps, pois eles têm mais chances de ter coisas boas a dizer. Por exemplo, você poderia criar um Segment chamado "Usuários avançados" com estes filtros:
 - Usou estes apps mais de 10 vezes nos últimos 14 dias
 - Gastou mais de 50 dólares
 
-![Um exemplo de segmento que direciona usuários avançados de um app.]({% image_buster /assets/img_archive/ratings_power_users.png %})
+![Um exemplo de Segment que direciona usuários avançados de um app.]({% image_buster /assets/img_archive/ratings_power_users.png %})
 
 Visitar a loja de apps demanda tempo dos seus usuários. Para maximizar a probabilidade de que eles façam esse esforço extra, solicite uma avaliação logo após uma experiência positiva com o app. Por exemplo, peça após eles passarem de fase em um jogo ou realizarem uma compra usando um código de desconto. Nosso artigo sobre [opt-in de dados]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-states) tem mais informações sobre formas de garantir que sua solicitação esteja alinhada com as expectativas de fluxo de trabalho dos usuários.
 

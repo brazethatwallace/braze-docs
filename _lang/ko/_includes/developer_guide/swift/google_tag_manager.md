@@ -1,8 +1,8 @@
 {% multi_lang_include developer_guide/prerequisites/swift.md %}
 
-## Swift용 Google Tag Manager 사용하기
+## Swift용 Google Tag 매니저 사용하기
 
-다음 예시에서는 음악 스트리밍 앱에서 사용자가 노래를 들을 때 다양한 이벤트를 기록하려고 합니다. iOS용 Google Tag Manager를 사용하여 이 이벤트를 수신할 Braze 타사 공급업체를 제어하고 Braze 전용 태그를 생성할 수 있습니다.
+다음 예시에서는 음악 스트리밍 앱에서 사용자가 노래를 들을 때 다양한 이벤트를 기록하려고 합니다. iOS용 Google Tag 매니저를 사용하여 이 이벤트를 수신할 Braze 서드파티 업체를 제어하고 Braze 전용 태그를 생성할 수 있습니다.
 
 ### 1단계: 커스텀 이벤트 트리거 만들기
 
@@ -20,13 +20,13 @@
 
 ![클래스 경로 및 키-값 페어 필드에서 Google Tag Manager의 태그. 이 태그는 이전에 생성된 'played song' 트리거로 트리거되도록 설정됩니다.]({% image_buster /assets/img/android_google_tag_manager/gtm_android_function_call_tag.png %})
 
-태그에 추가적인 키-값 페어 인수를 포함할 수 있습니다. 그러면 Braze에 커스텀 이벤트 속성정보로 전송됩니다. `eventName` 및 `actionType`은 커스텀 이벤트 속성정보에 대해 무시되지 않습니다. 다음 예제 태그에서는 Google Tag Manager에서 태그 변수를 사용하여 정의하고 앱에 기록된 커스텀 이벤트에서 소싱한 `genre` 을 전달합니다.
+태그에 추가적인 키-값 페어 인수를 포함할 수 있습니다. 그러면 Braze에 커스텀 이벤트 속성정보로 전송됩니다. `eventName` 및 `actionType`은 커스텀 이벤트 속성정보에 대해 무시되지 않습니다. 다음 예제 태그에서는 Google Tag 매니저에서 태그 변수를 사용하여 정의하고 앱에 기록된 커스텀 이벤트에서 소싱한 `genre` 을 전달합니다.
 
-`genre` 이벤트 속성정보는 iOS용 Google Tag Manager가 데이터 레이어로 Firebase를 사용하기 때문에 'Firebase - 이벤트 매개변수' 변수로 Google Tag Manager에 전송됩니다.
+`genre` 이벤트 속성정보는 iOS용 Google Tag 매니저가 데이터 레이어로 Firebase를 사용하기 때문에 'Firebase - 이벤트 매개변수' 변수로 Google Tag 매니저에 전송됩니다.
 
 ![Google Tag Manager의 변수로, "Braze - Played Song Event" 태그에 "genre"가 이벤트 매개변수로 추가됩니다.]({% image_buster /assets/img/android_google_tag_manager/gtm_android_eventname_variable.png %})
 
-사용자가 앱에서 노래를 재생하면 태그의 트리거 이름과 일치하는 Firebase 분석 이벤트 이름( `played song`)을 사용하여 Firebase 및 Google Tag Manager를 통해 이벤트를 로그합니다:
+사용자가 앱에서 노래를 재생하면 태그의 트리거 이름과 일치하는 Firebase 분석 이벤트 이름( `played song`)을 사용하여 Firebase 및 Google Tag 매니저를 통해 이벤트를 로그합니다:
 
 {% tabs %}
 {% tab SWIFT %}
@@ -97,7 +97,7 @@ NSDictionary *parameters = @{@"externalUserId" : userId};
 
 ### 4단계: 커스텀 태그 공급자 추가하기 {#adding-ios-google-tag-provider}
 
-태그 및 트리거를 설정한 상태에서 Google Tag Manager를 iOS 앱에서도 구현해야 합니다(Google [설명서](https://developers.google.com/tag-manager/ios/v5/) 참조).
+태그 및 트리거를 설정한 상태에서 Google Tag 매니저를 iOS 앱에서도 구현해야 합니다(Google [설명서](https://developers.google.com/tag-manager/ios/v5/) 참조).
 
 앱에 Google 태그 매니저를 설치한 후 커스텀 태그 공급자를 추가하여 Google 태그 매니저 내에서 구성한 태그를 기반으로 Braze SDK 메서드를 호출하세요.
 
@@ -105,7 +105,7 @@ NSDictionary *parameters = @{@"externalUserId" : userId};
 
 이 예는 커스텀 태그 공급자를 구성할 수 있는 여러 방법 중 하나를 강조합니다. 특히 GTM 태그에서 전송된 `actionType` 키-값 페어에 따라 호출할 Braze SDK 메서드를 결정하는 방법을 보여줍니다. 이 예제에서는 AppDelegate에서 Braze 인스턴스를 변수로 할당했다고 가정합니다.
 
-이 예제에서 지원되는 `actionType` 은 `logEvent`, `customAttribute`, `changeUser` 이지만 태그 제공업체가 Google Tag Manager에서 데이터를 처리하는 방식을 변경할 수 있습니다.
+이 예제에서 지원되는 `actionType` 은 `logEvent`, `customAttribute`, `changeUser` 이지만 태그 제공업체가 Google Tag 매니저에서 데이터를 처리하는 방식을 변경할 수 있습니다.
 {% tabs %}
 {% tab SWIFT %}
 

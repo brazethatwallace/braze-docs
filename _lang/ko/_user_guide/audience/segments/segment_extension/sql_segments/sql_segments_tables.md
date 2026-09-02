@@ -1480,7 +1480,7 @@ table td {
 `link_alias` | `null,`&nbsp;`string` | 이 링크 ID와 연결된 별칭
 `esp` | `null,`&nbsp;`string` | 이벤트와 관련된 ESP (SparkPost, SendGrid 또는 Amazon SES)
 `from_domain` | `null,`&nbsp;`string` | 이메일의 발신 도메인
-`is_amp` | `null, boolean` | 이것이 AMP 이벤트인지 나타냅니다
+`is_amp` | `null, boolean` | 이것이 가속 모바일 페이지 이벤트인지 나타냅니다
 `app_group_id` | `null,`&nbsp;`string` | 이 사용자가 속한 앱 그룹의 BSON ID
 `is_suspected_bot_click` | `null, boolean` | 이 이벤트가 봇 이벤트로 처리되었는지 여부
 `suspected_bot_click_reason` | `null, object` | 이 이벤트가 봇으로 분류된 사유
@@ -1616,7 +1616,7 @@ table td {
 `machine_open` | `null,`&nbsp;`string` | 사용자 참여 없이 열람 이벤트가 트리거된 경우 'true'로 채워집니다(예: MPP가 활성화된 Apple 기기). 시간이 지남에 따라 더 세분화된 값이 제공될 수 있습니다.
 `esp` | `null,`&nbsp;`string` | 이벤트와 관련된 ESP (SparkPost, SendGrid 또는 Amazon SES)
 `from_domain` | `null,`&nbsp;`string` | 이메일의 발신 도메인
-`is_amp` | `null, boolean` | 이것이 AMP 이벤트인지 나타냅니다
+`is_amp` | `null, boolean` | 이것이 가속 모바일 페이지 이벤트인지 나타냅니다
 `app_group_id` | `null,`&nbsp;`string` | 이 사용자가 속한 앱 그룹의 BSON ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | 이 이벤트가 Snowpipe에 의해 수집된 시점
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESEMAILOPENSHARED #USERSMESSAGESEMAILOPENSHARED" }
@@ -3145,8 +3145,8 @@ table td {
 `dispatch_id` | `null,`&nbsp;`string` | 이 메시지가 속한 디스패치의 ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | 이 이벤트가 Snowpipe에 의해 수집된 시점
 `send_id` | `null,`&nbsp;`string` | 이 메시지가 속한 메시지 전송 ID
-`flow_id` | `null,`&nbsp;`string` | WhatsApp Manager의 Flow 고유 ID. 사용자가 WhatsApp Flow에 응답하는 경우 존재합니다.
-`template_name` | `null,`&nbsp;`string` | [PII] WhatsApp Manager의 템플릿 이름. 템플릿 메시지를 전송하는 경우 존재합니다.
+`flow_id` | `null,`&nbsp;`string` | WhatsApp 매니저의 Flow 고유 ID. 사용자가 WhatsApp Flow에 응답하는 경우 존재합니다.
+`template_name` | `null,`&nbsp;`string` | [PII] WhatsApp 매니저의 템플릿 이름. 템플릿 메시지를 전송하는 경우 존재합니다.
 `message_id` | `null,`&nbsp;`string` | Meta가 이 메시지에 대해 생성한 고유 ID
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWHATSAPPDELIVERYSHARED #USERSMESSAGESWHATSAPPDELIVERYSHARED" }
 
@@ -3179,8 +3179,8 @@ table td {
 `sf_created_at` | `timestamp`,&nbsp;`null` | 이 이벤트가 Snowpipe에 의해 수집된 시점
 `send_id` | `null,`&nbsp;`string` | 이 메시지가 속한 메시지 전송 ID
 `message_id` | `null,`&nbsp;`string` | Meta가 이 메시지에 대해 생성한 고유 ID
-`template_name` | `null,`&nbsp;`string` | [PII] WhatsApp Manager의 템플릿 이름. 템플릿 메시지를 전송하는 경우 존재합니다.
-`flow_id` | `null,`&nbsp;`string` | WhatsApp Manager의 Flow 고유 ID. 사용자가 WhatsApp Flow에 응답하는 경우 존재합니다.
+`template_name` | `null,`&nbsp;`string` | [PII] WhatsApp 매니저의 템플릿 이름. 템플릿 메시지를 전송하는 경우 존재합니다.
+`flow_id` | `null,`&nbsp;`string` | WhatsApp 매니저의 Flow 고유 ID. 사용자가 WhatsApp Flow에 응답하는 경우 존재합니다.
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWHATSAPPFAILURESHARED #USERSMESSAGESWHATSAPPFAILURESHARED" }
 
 ### USERS_MESSAGES_WHATSAPP_INBOUNDRECEIVE_SHARED {#USERS_MESSAGES_WHATSAPP_INBOUNDRECEIVE_SHARED}
@@ -3213,7 +3213,7 @@ table td {
 `sf_created_at` | `timestamp`,&nbsp;`null` | 이 이벤트가 Snowpipe에 의해 수집된 시점
 `catalog_id` | `null,`&nbsp;`string` | 수신 메시지에서 제품이 참조된 경우 해당 제품의 카탈로그 ID. 그렇지 않으면 비어 있습니다.
 `product_id` | `null,`&nbsp;`string` | 구매한 제품의 ID
-`flow_id` | `null,`&nbsp;`string` | WhatsApp Manager의 Flow 고유 ID. 사용자가 WhatsApp Flow에 응답하는 경우 존재합니다.
+`flow_id` | `null,`&nbsp;`string` | WhatsApp 매니저의 Flow 고유 ID. 사용자가 WhatsApp Flow에 응답하는 경우 존재합니다.
 `flow_response_json` | `null,`&nbsp;`string` | [PII] 사용자가 응답한 양식 값. 사용자가 WhatsApp Flow에 응답하는 경우 존재합니다.
 `message_id` | `null,`&nbsp;`string` | Meta가 이 메시지에 대해 생성한 고유 ID
 `in_reply_to` | `null,`&nbsp;`string` | 이 메시지가 답장한 메시지의 message_id
@@ -3245,9 +3245,9 @@ table td {
 `dispatch_id` | `null,`&nbsp;`string` | 이 메시지가 속한 디스패치의 ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | 이 이벤트가 Snowpipe에 의해 수집된 시점
 `send_id` | `null,`&nbsp;`string` | 이 메시지가 속한 메시지 전송 ID
-`template_name` | `null,`&nbsp;`string` | [PII] WhatsApp Manager의 템플릿 이름. 템플릿 메시지를 전송하는 경우 존재합니다.
+`template_name` | `null,`&nbsp;`string` | [PII] WhatsApp 매니저의 템플릿 이름. 템플릿 메시지를 전송하는 경우 존재합니다.
 `message_id` | `null,`&nbsp;`string` | Meta가 이 메시지에 대해 생성한 고유 ID
-`flow_id` | `null,`&nbsp;`string` | WhatsApp Manager의 Flow 고유 ID. 사용자가 WhatsApp Flow에 응답하는 경우 존재합니다.
+`flow_id` | `null,`&nbsp;`string` | WhatsApp 매니저의 Flow 고유 ID. 사용자가 WhatsApp Flow에 응답하는 경우 존재합니다.
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWHATSAPPREADSHARED #USERSMESSAGESWHATSAPPREADSHARED" }
 
 ### USERS_MESSAGES_WHATSAPP_SEND_SHARED {#USERS_MESSAGES_WHATSAPP_SEND_SHARED}
@@ -3277,8 +3277,8 @@ table td {
 `message_extras` | `null,`&nbsp;`string` | [PII] Liquid 렌더링 중 태그된 키-값 페어의 JSON 문자열
 `sf_created_at` | `timestamp`,&nbsp;`null` | 이 이벤트가 Snowpipe에 의해 수집된 시점
 `send_id` | `null,`&nbsp;`string` | 이 메시지가 속한 메시지 전송 ID
-`flow_id` | `null,`&nbsp;`string` | WhatsApp Manager의 Flow 고유 ID. 사용자가 WhatsApp Flow에 응답하는 경우 존재합니다.
-`template_name` | `null,`&nbsp;`string` | [PII] WhatsApp Manager의 템플릿 이름. 템플릿 메시지를 전송하는 경우 존재합니다.
+`flow_id` | `null,`&nbsp;`string` | WhatsApp 매니저의 Flow 고유 ID. 사용자가 WhatsApp Flow에 응답하는 경우 존재합니다.
+`template_name` | `null,`&nbsp;`string` | [PII] WhatsApp 매니저의 템플릿 이름. 템플릿 메시지를 전송하는 경우 존재합니다.
 `message_id` | `null,`&nbsp;`string` | Meta가 이 메시지에 대해 생성한 고유 ID
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWHATSAPPSENDSHARED #USERSMESSAGESWHATSAPPSENDSHARED" }
 

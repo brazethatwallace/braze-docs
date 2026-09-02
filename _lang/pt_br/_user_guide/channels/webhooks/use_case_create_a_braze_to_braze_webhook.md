@@ -69,7 +69,7 @@ O gatilho **Interact with Canvas Step** está disponível apenas para Campaigns,
 {% endalert %}
 
 1. Comece criando o segundo Canvas — o Canvas que deve ser disparado pelo Canvas inicial.
-2. Para o **Entry Schedule** do Canvas, selecione **API-Triggered**.
+2. Para o **Entry agendar/cronograma** do Canvas, selecione **API-Triggered**.
 3. Anote o **Canvas ID**. Você precisará dele em uma etapa posterior.
 4. Continue criando as etapas do segundo Canvas e salve o Canvas.
 5. Por fim, crie o primeiro Canvas. Encontre a etapa em que você deseja disparar o segundo Canvas e crie uma nova etapa com um webhook.

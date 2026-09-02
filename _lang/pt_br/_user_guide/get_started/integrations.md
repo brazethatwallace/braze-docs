@@ -22,7 +22,7 @@ Então, o que eles estão fazendo quando integram a Braze com seu app ou site? Q
 
 ### Etapa 1: Eles implementam o SDK da Braze {#step-1-they-implement-the-braze-sdk}
 
-O SDK da Braze (kit de desenvolvimento de software) é como enviamos e recebemos informações do seu app ou site. Seus engenheiros estão, essencialmente, conectando nossos apps. Para fazer isso, eles precisam de algumas informações importantes:
+O SDK da Braze (SDK) é como enviamos e recebemos informações do seu app ou site. Seus engenheiros estão, essencialmente, conectando nossos apps. Para fazer isso, eles precisam de algumas informações importantes:
 
 * Suas [chaves de API]({{site.baseurl}}/api/basics)
 * Seu [endpoint de SDK]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints)
@@ -45,7 +45,7 @@ Informe seus desenvolvedores sobre quais canais você deseja usar para garantir 
 | In-App Messages | Requer implementação do SDK, bem como etapas específicas do canal. |
 | Push | Requer implementação do SDK para fornecer o tratamento adequado de credenciais de mensagens e tokens por push. |
 | E-mail | Este é um processo completamente diferente. Confira a seção [Configuração de e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup) para mais detalhes sobre a integração. |
-| Content Cards | Para começar com [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards), entre em contato com seu gerente de sucesso do cliente da Braze. |
+| Content Cards | Para começar com [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards), entre em contato com seu CSM da Braze. |
 | SMS e MMS | Confira a seção [Configuração de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sms_sending) para mais detalhes sobre a integração. |
 | Webhooks | Requer implementação do SDK, bem como etapas específicas do canal. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 2: Eles implementam os canais de envio de mensagens desejados" }

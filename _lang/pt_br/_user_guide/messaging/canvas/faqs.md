@@ -94,7 +94,7 @@ Se _Mensagens enviadas_ for sempre zero para um Canvas que contém uma etapa de 
 
 As mensagens no app são "puxadas" pelo SDK, em vez de serem "enviadas" pela Braze. As mensagens no app para usuários elegíveis são entregues automaticamente no início da sessão e "aguardam" o evento-gatilho antes de serem exibidas. Como os usuários elegíveis recebem a mensagem quando iniciam uma sessão, a Braze não registra isso como um evento de envio. Quando os usuários executam o evento-gatilho, a mensagem é exibida e a Braze registra uma impressão e marca a etapa do Canvas (ou Campaign) como recebida no perfil do usuário. Consequentemente, o total de _Envios_ é zero para mensagens no app.
 
-### Por que os usuários não receberam minha mensagem no app após uma postergação longa ou ramificação? {#why-didnt-users-receive-my-in-app-message-after-a-long-delay-or-branch}
+### Por que os usuários não receberam minha mensagem no app após uma postergação longa ou Branch? {#why-didnt-users-receive-my-in-app-message-after-a-long-delay-or-branch}
 
 Após a conclusão de etapas de [Postergação]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) upstream e verificações de público, os usuários se tornam elegíveis para uma mensagem no app apenas quando alcançam a etapa de Mensagem. Se a mensagem expirar em uma data do calendário ou em uma janela curta de **duração após a etapa estar disponível**, os usuários em ramificações mais lentas podem chegar após a expiração e nunca ver a mensagem. Alinhe a expiração com os atrasos mais longos e realistas do caminho. Para saber mais e ver exemplos, consulte [Expiração de mensagens no app]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas#in-app-message-expiration).
 
@@ -129,7 +129,7 @@ Os envios podem ser menores do que o **Público estimado** por muitas das mesmas
 Fatores específicos do Canvas também se aplicam:
 
 - **Entrada baseada em ação ou disparada por API:** Os usuários só entram (e recebem etapas) após executarem o comportamento de entrada, portanto os envios realizados ficam atrás da estimativa inicial até que essas ações ocorram.
-- **Jornadas do público:** Os usuários são direcionados para a ramificação de maior prioridade para a qual se qualificam, então ramificações posteriores podem receber menos usuários do que uma contagem simples de Segment sugere.
+- **Jornadas do público:** Os usuários são direcionados para a Branch de maior prioridade para a qual se qualificam, então ramificações posteriores podem receber menos usuários do que uma contagem simples de Segment sugere.
 - **Verificações de público e horário de envio:** Etapas completas reavaliam os filtros no momento do envio, a menos que você configure de outra forma. Usuários que se qualificaram quando o Canvas foi criado podem sair antes de uma mensagem ser enviada.
 - **Grupos de controle:** Grupos de controle globais ou do Canvas retêm uma parcela dos entrantes do envio de mensagens.
 - **Horário de silêncio e postergações:** As mensagens podem ser retidas ou reagendadas, deslocando os envios para fora da janela de relatório que você está visualizando.
@@ -382,7 +382,7 @@ Campos de nome de Campaign e Canvas, como `canvas_step_name`, podem ser `null` q
 
 ### Por que minha array não está atualizando em uma etapa de Atualização de Usuário? {#why-isnt-my-array-updating-in-a-user-update-step}
 
-Verifique o JSON na sua etapa de [Atualização de Usuário]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update). Atualizações de arrays e atributos aninhados precisam de caminhos e valores válidos para o atributo que você está alterando. Não inclua campos que a etapa fornece automaticamente, como o ID de usuário externo. Use a guia **Preview and test** da etapa para confirmar a carga útil antes do lançamento.
+Verifique o JSON na sua etapa de [Atualização de Usuário]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update). Atualizações de arrays e atributos aninhados precisam de caminhos e valores válidos para o atributo que você está alterando. Não inclua campos que a etapa fornece automaticamente, como o ID de usuário externo. Use a guia **prévia and test** da etapa para confirmar a carga útil antes do lançamento.
 
 ### Posso enviar mensagens do Canvas para usuários sem `external_id`? {#can-i-send-canvas-messages-to-users-without-an-external_id}
 

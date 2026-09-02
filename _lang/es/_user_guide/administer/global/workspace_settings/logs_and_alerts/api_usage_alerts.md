@@ -16,7 +16,7 @@ Puedes usar las alertas de uso de API para monitorizar los volúmenes de solicit
 | Categoría de API | Detalles |
 |--------------|---------|
 | Endpoints de REST API | Realiza el seguimiento del uso de todas las llamadas a la REST API realizadas al backend de Braze, como el envío de mensajes, la creación de Campaigns o la exportación de usuarios. |
-| Solicitudes de API del SDK | Realiza el seguimiento de las solicitudes de API realizadas desde los SDK de Braze en las aplicaciones del cliente, como desencadenar mensajes dentro de la aplicación o sincronizar datos de usuario.<br><br>_*Solo disponible para clientes que hayan adquirido usuarios activos al mes – CY 24-25._ |
+| Solicitudes de API del SDK | Realiza el seguimiento de las solicitudes de API realizadas desde los SDK de Braze en las aplicaciones del cliente, como desencadenar mensajes dentro de la aplicación o sincronizar datos de usuario.<br><br>_*Solo disponible para clientes que hayan adquirido MAU – CY 24-25._ |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Acerca de las alertas de uso de API" }
 
 ## Crear una alerta de uso de API {#creating-an-api-usage-alert}

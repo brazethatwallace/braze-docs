@@ -54,7 +54,7 @@ _この統合はFriendbuyによって管理されています。_
 | **Friendbuy Coupon Status** | 顧客に配布された最新のクーポンコードのステータス。注: ステータスは「distributed」または「redeemed」です。 | 文字列 |
 | **Friendbuy Coupon Currency** | 顧客に配布された最新のクーポンコードに関連する通貨コード（USD、CADなど）またはパーセント（%）。 | 文字列 |
 | **Friendbuy Coupon キャンペーン ID** | 顧客のために生成されたクーポンコードに関連するキャンペーン ID。 | 文字列 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Custom attributes" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="カスタム属性" }
 
 ## デフォルトの動作 {#default-behavior}
 

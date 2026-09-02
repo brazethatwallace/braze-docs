@@ -226,7 +226,7 @@ Um eine modale In-App-Nachricht im Dashboard einzurichten, müssen Sie eine Arti
 
 ![Der In-App-Nachrichten-Editor zeigt eine Vorschau, wie die In-App-Nachricht aussehen wird. Stattdessen wird die Artikelliste angezeigt, die Sie an Braze übermittelt haben. Da die Braze-Benutzeroberfläche Ihre angepasste In-App-Nachrichten-UI nur anzeigt, wenn sie an ein Telefon gesendet wird, gibt die Vorschau keinen Aufschluss darüber, wie Ihre Nachricht tatsächlich aussehen wird. Wir empfehlen daher, vor dem Senden einen Test durchzuführen.]({% image_buster /assets/img/iam_implementation/dashboard1.png %})
 
-Geben Sie in den Schlüssel-Wert-Paaren einen `attribute_key` an. Dieser Schlüssel wird zusammen mit dem von Nutzer:innen ausgewählten Wert als angepasstes Attribut in ihrem Nutzerprofil gespeichert. Ihre angepasste Ansichtslogik muss die an Braze gesendeten Nutzerattribute verarbeiten.
+Geben Sie in den Schlüssel-Wert-Paaren einen `attribute_key` an. Dieser Schlüssel wird zusammen mit dem von Nutzer:innen ausgewählten Wert als angepasstes Attribut in ihrem Kundenprofil gespeichert. Ihre angepasste Ansichtslogik muss die an Braze gesendeten Nutzerattribute verarbeiten.
 
 Das Wörterbuch `extras` im Objekt `ABKInAppMessage` ermöglicht Ihnen die Abfrage eines Schlüssels des Typs `view_type` (falls vorhanden), der die korrekte Ansicht für die Anzeige angibt. Es ist wichtig zu wissen, dass In-App-Nachrichten pro Nachricht konfiguriert werden, sodass angepasste und standardmäßige modale Ansichten harmonisch zusammenarbeiten können.
 
@@ -365,7 +365,7 @@ Besuchen Sie den [`FullListViewController`](https://github.com/braze-inc/braze-g
 
 Um eine angepasste Full-In-App-Nachricht im Dashboard einzurichten, müssen Sie eine Liste Ihrer Tags angeben, die als kommagetrennte Zeichenkette formatiert ist.
 
-Geben Sie in den Schlüssel-Wert-Paaren einen `attribute_key` an. Dieser Schlüssel wird zusammen mit den von Nutzer:innen ausgewählten Werten als angepasstes Attribut in ihrem Nutzerprofil gespeichert. Ihre angepasste Ansichtslogik muss die an Braze gesendeten Nutzerattribute verarbeiten.
+Geben Sie in den Schlüssel-Wert-Paaren einen `attribute_key` an. Dieser Schlüssel wird zusammen mit den von Nutzer:innen ausgewählten Werten als angepasstes Attribut in ihrem Kundenprofil gespeichert. Ihre angepasste Ansichtslogik muss die an Braze gesendeten Nutzerattribute verarbeiten.
 
 ![Drei Schlüssel-Wert-Paare im Nachrichten-Editor. Das erste „attribute_key“ ist als „Push Tags“ festgelegt, das zweite „subtitle_text“ als „Durch das Aktivieren von Benachrichtigungen wird auch …“ und das dritte „view_type“ als „table_list“.]({% image_buster /assets/img/iam_implementation/dashboard3.png %}){: style="max-width:65%;"}
 

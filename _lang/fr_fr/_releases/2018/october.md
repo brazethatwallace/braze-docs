@@ -31,7 +31,7 @@ Vous pouvez désormais trouver une liste de vos intégrations sur la plateforme 
 
 ## Calculs des analyses e-mail {#email-analytics-calculations}
 
-Braze calcule désormais toutes les analyses e-mail en utilisant les données d'événements de notre partenaire d'envoi d'e-mails (ESP) afin d'améliorer considérablement la précision de nos analyses e-mail. Cette solution utilise Postgres, une solution de base de données open source, pour garantir l'intégrité des données.
+Braze calcule désormais toutes les analyses e-mail en utilisant les données d'événements de notre partenaire d'envoi d'e-mails (fournisseur de services d'e-mailing) afin d'améliorer considérablement la précision de nos analyses e-mail. Cette solution utilise Postgres, une solution de base de données open source, pour garantir l'intégrité des données.
 
 {% alert important %}
 Les ouvertures uniques et les clics uniques dépendent actuellement encore des données agrégées fournies par nos partenaires d'envoi d'e-mails. Un travail est en cours pour calculer ces statistiques d'unicité en utilisant la même infrastructure introduite dans cette version.

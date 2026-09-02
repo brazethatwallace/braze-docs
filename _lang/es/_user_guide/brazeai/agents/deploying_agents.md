@@ -24,7 +24,7 @@ Seleccionas el tipo de agente en **Agent Console** cuando creas el agente. Para 
 
 ## Buenas prácticas {#best-practices}
 
-Apunta a casos de uso de alto valor donde los agentes puedan generar el mayor retorno de la inversión (ROI) y elige audiencias con probabilidad de responder. Una audiencia más pequeña y con alta oportunidad a menudo supera a una audiencia grande con baja oportunidad.
+Apunta a casos de uso de alto valor donde los agentes puedan generar el mayor ROI (ROI) y elige audiencias con probabilidad de responder. Una audiencia más pequeña y con alta oportunidad a menudo supera a una audiencia grande con baja oportunidad.
 
 Para los agentes de paso en Canvas, comienza con usuarios que tengan señales fuertes, como búsquedas recientes, alta participación o datos de perfil enriquecidos, antes de expandirte a Segments más amplios. Para los agentes de catálogo, prioriza las filas donde las columnas de entrada que necesitas ya estén completadas, de modo que cada invocación tenga suficiente contexto para producir resultados útiles.
 
@@ -36,7 +36,7 @@ Después de que una prueba a pequeña escala (por ejemplo, una rama de [recorrid
 
 Antes de escalar, ten en cuenta lo siguiente:
 
-- Aumenta el límite diario de invocaciones del agente en Agent Console para que pueda manejar el volumen completo de tu audiencia. El valor predeterminado es 250 000; puedes aumentarlo hasta 1 000 000 (o más con tu administrador de éxito de cliente). Consulta [Límites diarios de invocaciones y créditos]({{site.baseurl}}/user_guide/brazeai/agents/reference#daily-invocation-and-credit-limits).
+- Aumenta el límite diario de invocaciones del agente en Agent Console para que pueda manejar el volumen completo de tu audiencia. El valor predeterminado es 250 000; puedes aumentarlo hasta 1 000 000 (o más con tu CSM). Consulta [Límites diarios de invocaciones y créditos]({{site.baseurl}}/user_guide/brazeai/agents/reference#daily-invocation-and-credit-limits).
 - Revisa la estimación del **Límite de costo de créditos de acción diaria** y confirma que tu espacio de trabajo tiene suficientes créditos para envíos a escala completa.
 - Elimina o reconfigura el experimento para que toda la audiencia objetivo entre en el paso de agente (o promueve la variante ganadora a la ruta principal).
 

@@ -3,35 +3,35 @@ nav_title: Best Practices
 hidden: true
 ---
 
-# Best Practices für den Nutzerprofil-Lebenszyklus und Bezeichner {#user-lifecycle-and-identifiers-best-practices}
+# Best Practices für den Kundenprofil-Lebenszyklus und Bezeichner {#user-lifecycle-and-identifiers-best-practices}
 
 ## Datenerfassung {#data-collection}
 
 Erfahren Sie mehr darüber, wie Braze Daten erfasst:
 - [SDK-Datenerfassung]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection)
 - [Best Practices für die Datenerfassung]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices)
-- [Nutzerprofil-Lebenszyklus]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)
+- [Kundenprofil-Lebenszyklus]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)
 
 ## Braze-Bezeichner {#braze-identifiers}
 
 - `braze_id`: Ein von Braze zugewiesener Bezeichner, der unveränderlich ist und einem/einer bestimmten Nutzer:in bei der Erstellung in unserer Datenbank zugeordnet wird.
 - `external_id`: Ein vom Kunden zugewiesener Bezeichner, in der Regel eine UUID. Wir empfehlen, die `external_id` zuzuweisen, wenn die/der Nutzer:in eindeutig identifiziert werden kann. Sobald ein:e Nutzer:in identifiziert wurde, kann der Status nicht mehr auf anonym zurückgesetzt werden.
 - `user_alias`: Ein eindeutiger alternativer Bezeichner, den der Kunde zuweisen kann, um die/den Nutzer:in über eine ID zu referenzieren, bevor eine `external_id` zugewiesen wurde. Nutzer-Aliase können später über den Braze-Endpunkt [Nutzer:in identifizieren]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) mit anderen Aliasen oder einer `external_id` zusammengeführt werden, sobald eine verfügbar wird.
-    - Innerhalb des Endpunkts [Nutzer:in identifizieren]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) kann das Feld `merge_behavior` verwendet werden, um festzulegen, welche Daten aus dem Nutzer-Alias-Profil im bekannten Nutzerprofil erhalten bleiben sollen.
+    - Innerhalb des Endpunkts [Nutzer:in identifizieren]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) kann das Feld `merge_behavior` verwendet werden, um festzulegen, welche Daten aus dem Nutzer-Alias-Profil im bekannten Kundenprofil erhalten bleiben sollen.
     - Beachten Sie, dass der Nutzer-Alias nur dann ein versandfähiges Profil darstellt, wenn Sie zusätzlich eine E-Mail-Adresse und/oder Telefonnummer als Standardattribut im Profil hinterlegen.
-- `device_id`: Ein automatisch generierter, gerätespezifischer Bezeichner. Einem Nutzerprofil können mehrere `device_ids` zugeordnet sein. Beispielsweise hätte ein:e Nutzer:in, die/der sich auf dem Arbeitscomputer, dem Heimcomputer, dem Tablet und in der iOS-App angemeldet hat, 4 `device_ids`, die mit dem Profil verknüpft sind.
+- `device_id`: Ein automatisch generierter, gerätespezifischer Bezeichner. Einem Kundenprofil können mehrere `device_ids` zugeordnet sein. Beispielsweise hätte ein:e Nutzer:in, die/der sich auf dem Arbeitscomputer, dem Heimcomputer, dem Tablet und in der iOS-App angemeldet hat, 4 `device_ids`, die mit dem Profil verknüpft sind.
 - E-Mail-Adresse und Telefonnummer:
     - Werden als Bezeichner im Braze-Endpunkt „Nutzer:in tracken“ unterstützt.
     - Wenn die E-Mail-Adresse oder Telefonnummer als Bezeichner in einer Anfrage verwendet wird, gibt es drei mögliche Ergebnisse:
-        1. Wenn ein:e Nutzer:in mit dieser E-Mail/Telefonnummer in Braze nicht existiert, wird ein reines E-Mail-/Telefon-Nutzerprofil erstellt, und alle Daten in der Anfrage werden dem Profil hinzugefügt.
+        1. Wenn ein:e Nutzer:in mit dieser E-Mail/Telefonnummer in Braze nicht existiert, wird ein reines E-Mail-/Telefon-Kundenprofil erstellt, und alle Daten in der Anfrage werden dem Profil hinzugefügt.
         2. Wenn ein Profil mit dieser E-Mail/Telefonnummer bereits in Braze existiert, wird es aktualisiert und enthält alle in der Anfrage gesendeten Daten.
         3. In einem Anwendungsfall mit mehr als einem Profil mit dieser E-Mail/Telefonnummer wird das zuletzt aktualisierte Profil priorisiert.
-    - Beachten Sie: Wenn ein reines E-Mail-/Telefon-Nutzerprofil existiert und anschließend ein identifiziertes Profil mit derselben E-Mail/Telefonnummer erstellt wird (z. B. ein weiteres Profil mit derselben E-Mail-Adresse UND einer externen ID), erstellt Braze ein zweites Profil. Nachfolgende Aktualisierungen werden an das Profil mit der externen ID gesendet.
+    - Beachten Sie: Wenn ein reines E-Mail-/Telefon-Kundenprofil existiert und anschließend ein identifiziertes Profil mit derselben E-Mail/Telefonnummer erstellt wird (z. B. ein weiteres Profil mit derselben E-Mail-Adresse UND einer externen ID), erstellt Braze ein zweites Profil. Nachfolgende Aktualisierungen werden an das Profil mit der externen ID gesendet.
         - Die beiden Profile können über den Braze-Endpunkt [/merge/users]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) zusammengeführt werden.
 
 ## Anonyme Nutzer:innen verwalten {#handling-anonymous-users}
 
-Für einen Anwendungsfall, in dem Sie ein Nutzerprofil in Braze erstellen oder aktualisieren müssen, ohne Zugriff auf eine `external_id` zu haben, kann ein anderer Bezeichner wie eine E-Mail-Adresse oder Telefonnummer an den Braze-Endpunkt [Nutzer:in nach Bezeichner exportieren]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) übergeben werden, um festzustellen, ob ein Profil für die/den Nutzer:in in Braze existiert.
+Für einen Anwendungsfall, in dem Sie ein Kundenprofil in Braze erstellen oder aktualisieren müssen, ohne Zugriff auf eine `external_id` zu haben, kann ein anderer Bezeichner wie eine E-Mail-Adresse oder Telefonnummer an den Braze-Endpunkt [Nutzer:in nach Bezeichner exportieren]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) übergeben werden, um festzustellen, ob ein Profil für die/den Nutzer:in in Braze existiert.
 
 ```json
 {
@@ -42,7 +42,7 @@ Für einen Anwendungsfall, in dem Sie ein Nutzerprofil in Braze erstellen oder a
 
 Wenn eine:r Nutzer:in mit dieser E-Mail oder Telefonnummer in Braze existiert, wird das Profil zurückgegeben. Andernfalls wird ein leeres „users“-Array zurückgegeben. Der Vorteil der Nutzung des Export-Endpunkts, um festzustellen, ob bereits eine:r Nutzer:in mit dieser E-Mail-Adresse existiert, besteht darin, dass Sie ermitteln können, ob anonyme Nutzerprofile mit der/dem Nutzer:in verknüpft sind. Zum Beispiel ein anonymes Profil, das über das SDK erstellt wurde (das eine `braze_id` hat), oder ein zuvor erstelltes Nutzer-Alias-Profil.
 
-Wenn die Anfrage kein Nutzerprofil zurückgibt, können Sie entweder einen Nutzer-Alias erstellen oder eine:n reine:n E-Mail-Nutzer:in anlegen:
+Wenn die Anfrage kein Kundenprofil zurückgibt, können Sie entweder einen Nutzer-Alias erstellen oder eine:n reine:n E-Mail-Nutzer:in anlegen:
 
 ### Nutzer-Alias {#user-alias}
 
@@ -98,27 +98,27 @@ Diese Funktion befindet sich im Early Access.
 ## Daten mit Nutzerprofilen synchronisieren {#syncing-data-to-user-profiles}
 
 [User Track]({{site.baseurl}}/api/endpoints/user_data/post_user_track)
-- Dies ist ein öffentlich zugänglicher Endpunkt, der Nutzer:innen in Braze erstellen und aktualisieren kann, z. B. durch das Protokollieren von Attributen im Nutzerprofil. Dieser Endpunkt hat ein Rate-Limit von 50.000 Anfragen pro Minute, das auf Workspace-Ebene angewendet wird.
+- Dies ist ein öffentlich zugänglicher Endpunkt, der Nutzer:innen in Braze erstellen und aktualisieren kann, z. B. durch das Protokollieren von Attributen im Kundenprofil. Dieser Endpunkt hat ein Rate-Limit von 50.000 Anfragen pro Minute, das auf Workspace-Ebene angewendet wird.
 - Wenn Sie diesen Endpunkt verwenden, fügen Sie den `partner`-Schlüssel ein, wie in unserer Partner-Dokumentation beschrieben.
 
 [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/cloud_ingestion/overview#what-is-cloud-data-ingestion)
 - Ähnlich wie beim User-Track-Endpunkt können Daten über die Cloud-Datenaufnahme mit Nutzerprofilen synchronisiert werden. Bei der Verwendung dieses Tools werden Attribute, Ereignisse und Käufe in Profilen protokolliert, indem Sie die Data-Warehouse-Tabelle oder -Ansicht einrichten und verbinden, die Sie mit dem gewünschten Braze-Workspace synchronisieren möchten.
 
 [Datenpunkte]({{site.baseurl}}/user_guide/data/infrastructure/data_points)
-- Braze verwendet ein Datenpunkt-Modell, bei dem Datenpunkte pro „Schreibvorgang“ im Nutzerprofil protokolliert werden – unabhängig davon, ob sich der Wert geändert hat. Aus diesem Grund empfehlen wir, nur die Attribute an Braze zu senden, die sich geändert haben.
+- Braze verwendet ein Datenpunkt-Modell, bei dem Datenpunkte pro „Schreibvorgang“ im Kundenprofil protokolliert werden – unabhängig davon, ob sich der Wert geändert hat. Aus diesem Grund empfehlen wir, nur die Attribute an Braze zu senden, die sich geändert haben.
 
 ## Zielgruppen von Nutzer:innen an Braze senden {#sending-audiences-of-users-to-braze}
 
 [Dokumentation zu Kohortenimport-Sync-Partnern]({{site.baseurl}}/partners/isv_partners/cohort_import)<br>
-- Zielgruppen von Nutzer:innen können mithilfe der Braze-Kohortenimport-API-Endpunkte als Kohorte mit Braze synchronisiert werden. Anstatt diese Zielgruppen als Nutzerattribute im Nutzerprofil zu speichern, können Kund:innen diese Kohorte über einen Partner-gebrandeten Filter innerhalb unseres Segmentierungs-Tools erstellen und ansprechen. So können Sie ein bestimmtes Segment von Nutzer:innen effizienter finden und ansprechen.
+- Zielgruppen von Nutzer:innen können mithilfe der Braze-Kohortenimport-API-Endpunkte als Kohorte mit Braze synchronisiert werden. Anstatt diese Zielgruppen als Nutzerattribute im Kundenprofil zu speichern, können Kund:innen diese Kohorte über einen Partner-gebrandeten Filter innerhalb unseres Segmentierungs-Tools erstellen und ansprechen. So können Sie ein bestimmtes Segment von Nutzer:innen effizienter finden und ansprechen.
 - Kohortenimport-Endpunkte sind nicht öffentlich und spezifisch für jeden Partner. Aus diesem Grund werden Synchronisierungen mit den Kohortenendpunkten nicht auf die Workspace-Rate-Limits eines Kunden/einer Kundin angerechnet.
 
 [User Track]({{site.baseurl}}/api/endpoints/user_data/post_user_track)<br>
-- Dies ist ein öffentlich zugänglicher Endpunkt, der sofort verwendet werden kann, um Nutzer:innen in Braze zu erstellen, indem eine:r Nutzer:in über ein Nutzerattribut einer bestimmten Zielgruppe zugeordnet wird. Der Hauptunterschied zwischen diesem Endpunkt und dem Kohortenimport-Endpunkt besteht darin, dass Zielgruppen, die über diesen Endpunkt gesendet werden, im Nutzerprofil gespeichert werden, während der Kohortenimport-Endpunkt als Filter in unserem Segmentierungs-Tool angezeigt wird. Dieser Endpunkt hat ein Rate-Limit von 50.000 Anfragen pro Minute, das auf Workspace-Ebene angewendet wird.
+- Dies ist ein öffentlich zugänglicher Endpunkt, der sofort verwendet werden kann, um Nutzer:innen in Braze zu erstellen, indem eine:r Nutzer:in über ein Nutzerattribut einer bestimmten Zielgruppe zugeordnet wird. Der Hauptunterschied zwischen diesem Endpunkt und dem Kohortenimport-Endpunkt besteht darin, dass Zielgruppen, die über diesen Endpunkt gesendet werden, im Kundenprofil gespeichert werden, während der Kohortenimport-Endpunkt als Filter in unserem Segmentierungs-Tool angezeigt wird. Dieser Endpunkt hat ein Rate-Limit von 50.000 Anfragen pro Minute, das auf Workspace-Ebene angewendet wird.
 - Stellen Sie bei der Verwendung dieses Endpunkts sicher, dass Sie den `partner`-Schlüssel wie in unserer [Partner-Dokumentation]({{site.baseurl}}/partners/isv_partners/api_partner) gezeigt einfügen.
 
 [Datenpunkte]({{site.baseurl}}/user_guide/data/infrastructure/data_points)<br>
-- Braze verwendet ein Datenpunkt-Modell, bei dem Datenpunkte pro „Schreibvorgang“ im Nutzerprofil protokolliert werden – unabhängig davon, ob sich der Wert geändert hat.
+- Braze verwendet ein Datenpunkt-Modell, bei dem Datenpunkte pro „Schreibvorgang“ im Kundenprofil protokolliert werden – unabhängig davon, ob sich der Wert geändert hat.
 - Datenpunkte fallen sowohl bei Kohortenimporten als auch bei User-Track-Endpunkten an.
 
 ## Streaming von Engagement-Analytics an Partner {#engagement-analytics-streaming-to-partner}

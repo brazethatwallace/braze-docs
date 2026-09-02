@@ -38,7 +38,7 @@ Atributos personalizados podem ser adicionados à blocklist individualmente no m
 
 ### Marcação como informação pessoalmente identificável (IPI) {#marking-as-personally-identifiable-information-pii}
 
-Os administradores também podem criar atributos personalizados e marcá-los como IPI nesta página. Esses atributos serão visíveis apenas para administradores e usuários do dashboard com a permissão "View Custom Attributes Marked as PII".
+Os administradores também podem criar atributos personalizados e marcá-los como IPI nesta página. Esses atributos serão visíveis apenas para administradores e usuários do dashboard com a permissão "View Custom Attributes Marked as IPI".
 
 ### Adição de descrições {#adding-descriptions}
 
@@ -171,7 +171,7 @@ Atributos de array são bons para armazenar listas de informações relacionadas
 
 Por padrão, o comprimento máximo de um array para um atributo é definido como 25 e pode ser aumentado para 100 para um array individual. Por exemplo, se você estiver enviando um atributo como "Filmes Assistidos" e ele estiver definido como 100, quando um usuário assistir a um 101º filme, o primeiro filme será removido do array e o filme mais recente será adicionado.
 
-Se você quiser que esse máximo seja aumentado, entre em contato com seu gerente de sucesso do cliente. Seu administrador do dashboard poderá então aumentar o comprimento máximo para arrays individuais para mais de 100 na guia **Custom Attributes** da página **Manage Settings**.
+Se você quiser que esse máximo seja aumentado, entre em contato com seu CSM. Seu administrador do dashboard poderá então aumentar o comprimento máximo para arrays individuais para mais de 100 na guia **Custom Attributes** da página **Manage Settings**.
 
 Se você inserir quaisquer valores com espaços entre, antes ou depois das palavras, a Braze também verificará os mesmos espaços.
 

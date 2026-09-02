@@ -1,9 +1,9 @@
 {% if include.alert == 'User profile external_id' %}
 
 {% alert warning %}
-Weisen Sie einem Nutzerprofil keine `external_id` zu, bevor Sie die Person eindeutig identifizieren können. Nachdem Sie eine:n Nutzer:in identifiziert haben, können Sie sie oder ihn nicht mehr auf anonym zurücksetzen.
+Weisen Sie einem Kundenprofil keine `external_id` zu, bevor Sie die Person eindeutig identifizieren können. Nachdem Sie eine:n Nutzer:in identifiziert haben, können Sie sie oder ihn nicht mehr auf anonym zurücksetzen.
 <br><br>
-Eine `external_id` kann über den [`/users/external_ids/rename`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_rename) aktualisiert werden. Jeder Versuch, während der Sitzung einer Nutzer:in eine andere `external_id` festzulegen, erstellt jedoch ein neues Nutzerprofil, das mit der neuen `external_id` verknüpft ist. Es werden keine Daten zwischen den beiden Profilen übertragen.
+Eine `external_id` kann über den [`/users/external_ids/rename`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_rename) aktualisiert werden. Jeder Versuch, während der Sitzung einer Nutzer:in eine andere `external_id` festzulegen, erstellt jedoch ein neues Kundenprofil, das mit der neuen `external_id` verknüpft ist. Es werden keine Daten zwischen den beiden Profilen übertragen.
 {% endalert %}
 
 {% endif %}

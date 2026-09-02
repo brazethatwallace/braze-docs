@@ -8,7 +8,7 @@ search_tag: Partner
 
 # Convercus
 
-> [Convercus](https://www.convercus.com/en) es una plataforma SaaS de fidelización y cupones que ayuda a marcas y comercios minoristas a aumentar la frecuencia de compra, el valor de la cesta y las tasas de recompra a través de programas de fidelización omnicanal y campañas de cupones personalizadas.
+> [Convercus](https://www.convercus.com/en) es una plataforma software como servicio (SaaS) de fidelización y cupones que ayuda a marcas y comercios minoristas a aumentar la frecuencia de compra, el valor de la cesta y las tasas de recompra a través de programas de fidelización omnicanal y campañas de cupones personalizadas.
 
 _Esta integración es mantenida por Convercus._
 

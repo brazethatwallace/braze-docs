@@ -19,7 +19,7 @@ Quando a Braze envia uma mensagem com um código de promoção, o código é ded
 
 - Uma mensagem com falha ainda consome o código.
 - Em envios multicanal, o mesmo código é aplicado em todos os canais.
-- Com Liquid condicional, todas as listas referenciadas têm códigos deduzidos, mesmo que apenas uma ramificação seja exibida.
+- Com Liquid condicional, todas as listas referenciadas têm códigos deduzidos, mesmo que apenas uma Branch seja exibida.
 - Entrar ou reentrar em uma etapa do Canvas consome um novo código.
 
 Se você inserir vários snippets da mesma lista em uma mensagem, a Braze aplicará o mesmo código em todos os snippets. Para evitar ficar sem códigos, recomendamos fazer upload de mais códigos do que você espera usar.
@@ -28,7 +28,7 @@ Se você inserir vários snippets da mesma lista em uma mensagem, a Braze aplica
 {% tab Exemplo %}
 Pense nos códigos de promoção como cupons em uma agência dos correios. Quando o atendente retira um cupom da pilha para a sua carta, ele já foi usado — mesmo que a carta nunca chegue ao destino.
 
-Por exemplo, no seguinte Liquid condicional, os códigos de ambas as listas (`vip-deal` e `regular-deal`) são deduzidos, mesmo que cada usuário veja apenas uma ramificação:
+Por exemplo, no seguinte Liquid condicional, os códigos de ambas as listas (`vip-deal` e `regular-deal`) são deduzidos, mesmo que cada usuário veja apenas uma Branch:
 
 {% raw %}
 ```liquid

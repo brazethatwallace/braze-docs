@@ -77,7 +77,7 @@ In S3-Buckets gespeicherte Exportdateien werden automatisch gelöscht, sobald de
 {% if include.alert == 'Shopify customer create' %}
 
 {% alert important %}
-Die Shopify-Integration unterstützt Shopify-Webhooks für die Erstellung und Aktualisierung von Kund:innen, die sich in Ihren Datenkonfigurationseinstellungen befinden. Wenn ein Nutzerprofil in Shopify erstellt oder aktualisiert wird, wird ein entsprechendes Nutzerprofil in Braze erstellt oder aktualisiert. <br><br>Diese Aktionen triggern keine angepassten Events in Braze und dienen ausschließlich dazu, [Shopify-Nutzerdaten mit Braze zu synchronisieren]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview#how-the-integration-works). Die synchronisierten Daten umfassen [angepasste Attribute]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#supported-shopify-custom-attributes), [Standardattribute]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#supported-shopify-standard-attributes) und, sofern in Ihrer Konfiguration aktiviert, [den Status von Abo-Gruppen]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview#syncing-shopify-email-and-sms-marketing-opt-ins).
+Die Shopify-Integration unterstützt Shopify-Webhooks für die Erstellung und Aktualisierung von Kund:innen, die sich in Ihren Datenkonfigurationseinstellungen befinden. Wenn ein Kundenprofil in Shopify erstellt oder aktualisiert wird, wird ein entsprechendes Kundenprofil in Braze erstellt oder aktualisiert. <br><br>Diese Aktionen triggern keine angepassten Events in Braze und dienen ausschließlich dazu, [Shopify-Nutzerdaten mit Braze zu synchronisieren]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview#how-the-integration-works). Die synchronisierten Daten umfassen [angepasste Attribute]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#supported-shopify-custom-attributes), [Standardattribute]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#supported-shopify-standard-attributes) und, sofern in Ihrer Konfiguration aktiviert, [den Status von Abo-Gruppen]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview#syncing-shopify-email-and-sms-marketing-opt-ins).
 {% endalert %}
 
 {% endif %}
@@ -93,7 +93,7 @@ Canvas-Entry-Eigenschaften sind Teil der Canvas-Kontextvariablen. Das bedeutet, 
 {% if include.alert == 'Braze Agents' %}
 
 {% alert important %}
-Dieser Partner wird auf Ihrer Seite **Technologie-Partner** nur angezeigt, wenn Sie [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents) aktiviert haben. Für Unterstützung beim Einstieg wenden Sie sich an Ihren Customer-Success-Manager.
+Dieser Partner wird auf Ihrer Seite **Technologie-Partner** nur angezeigt, wenn Sie [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents) aktiviert haben. Für Unterstützung beim Einstieg wenden Sie sich an Ihren CSM.
 {% endalert %}
 
 {% endif %}
@@ -138,7 +138,7 @@ Meta hat ein bekanntes Problem, das dazu führen kann, dass einige MP4-Videos au
 {% if include.alert == 'Shopify cart token alias' %}
 
 {% alert important %}
-Für diese Integration muss der Nutzer-Alias das folgende Format verwenden, damit Braze Webhooks dem richtigen Nutzerprofil zuordnen kann:<br><br>
+Für diese Integration muss der Nutzer-Alias das folgende Format verwenden, damit Braze Webhooks dem richtigen Kundenprofil zuordnen kann:<br><br>
 - `alias_label`: `shopify_cart_${cartToken}`
 - `alias_name`: `shopify_cart_token`
 {% endalert %}

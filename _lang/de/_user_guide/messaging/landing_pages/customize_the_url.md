@@ -13,7 +13,7 @@ page_order: 1
 
 Wenn Sie [Ihre Domain mit Braze verbinden](#connect-your-domain-to-braze), wird sie als Standard-Domain für alle Landing-Pages verwendet. Wenn Sie beispielsweise die Subdomain `forms.example.com` verbinden, lauten Ihre Landing-Page-URLs nun `forms.example.com/holiday-sale`.
 
-Die Anzahl der angepassten Domains, die Sie mit Ihrem Braze-Konto verbinden können, hängt von Ihrer [Planstufe]({{site.baseurl}}/user_guide/messaging/landing_pages#plan-tiers) ab. Um Ihr Limit zu erhöhen, kontaktieren Sie Ihren Braze Account Manager.
+Die Anzahl der angepassten Domains, die Sie mit Ihrem Braze-Konto verbinden können, hängt von Ihrer [Planstufe]({{site.baseurl}}/user_guide/messaging/landing_pages#plan-tiers) ab. Um Ihr Limit zu erhöhen, kontaktieren Sie Ihren Braze Account Manager:in.
 
 ## Ihre Domain mit Braze verbinden {#connect-your-domain-to-braze}
 

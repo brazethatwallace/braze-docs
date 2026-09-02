@@ -54,7 +54,7 @@ Para crear una extensión de Segment SQL de actualización incremental:
 {% tab Generador de SQL con IA %}
 
 {% alert note %}
-El generador de SQL con IA está disponible actualmente como característica en fase beta. Contacta con tu administrador de éxito de cliente si estás interesado en participar en esta prueba beta.
+El generador de SQL con IA está disponible actualmente como característica en fase beta. Contacta con tu CSM si estás interesado en participar en esta prueba beta.
 {% endalert %}
 
 El generador de SQL con IA aprovecha [GPT](https://openai.com/gpt-4), impulsado por OpenAI, para recomendar SQL para tu segmento SQL.

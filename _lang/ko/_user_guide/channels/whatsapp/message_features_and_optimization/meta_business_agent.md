@@ -21,7 +21,7 @@ Meta는 Meta Business Agent를 지속적으로 개발하고 있으므로 일부 
 
 Meta Business Agent는 Meta가 WhatsApp Business 전화번호에서 직접 운영하는 AI 기반 응답 시스템입니다. 적격한 번호에 대해 활성화하면, Meta 도구에서 구성한 지식(비즈니스 정보, FAQ, 파일, 웹사이트 콘텐츠)과 커넥터를 사용하여 비즈니스를 대신해 사용자의 인바운드 메시지에 응답할 수 있습니다.
 
-Meta Business Agent 활성화는 전적으로 WhatsApp Manager와 Meta Business Suite에서 설정하며, Braze 워크스페이스와는 별개입니다. 설정에 Braze가 필요하지 않으며, 현재 이를 위한 Braze 대시보드 컨트롤은 없습니다.
+Meta Business Agent 활성화는 전적으로 WhatsApp 매니저와 Meta Business Suite에서 설정하며, Braze 워크스페이스와는 별개입니다. 설정에 Braze가 필요하지 않으며, 현재 이를 위한 Braze 대시보드 컨트롤은 없습니다.
 
 ## Braze에 연결된 번호와의 상호작용 방식 {#how-it-interacts-with-your-braze-connected-number}
 
@@ -44,7 +44,7 @@ Meta Business Agent와 Braze는 동일한 WhatsApp Business 전화번호에서 �
 
 Meta Business Agent는 Braze가 아닌 Meta 도구에서 전화번호별로 활성화합니다.
 
-1. [WhatsApp Manager](https://business.facebook.com/wa/manage/home/)에서 적격 여부를 확인하고 전화번호에 대해 활성화하며, Meta Business Agent 서비스 약관에 동의합니다.
+1. [WhatsApp 매니저](https://business.facebook.com/wa/manage/home/)에서 적격 여부를 확인하고 전화번호에 대해 활성화하며, Meta Business Agent 서비스 약관에 동의합니다.
 2. Meta의 [에이전트 구성 API](https://developers.facebook.com/documentation/meta-business-agent/reference/configure/agent-skills)를 통해 에이전트의 지식과 스킬(비즈니스 정보, FAQ, 파일, 커넥터)을 구성합니다.
 3. [Agent Settings](https://developers.facebook.com/documentation/meta-business-agent/reference/onboard/agent-settings)를 사용하여 에이전트를 켭니다.
 

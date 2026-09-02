@@ -1244,7 +1244,7 @@ Campaign, Conversion
 ## キャンペーンコントロールグループの登録イベント {#campaign-control-group-enrollment-events}
 
 {% apitags %}
-Campaign, Entry
+Campaign, エントリ
 {% endapitags %}
 
 このイベントは、複数のバリアントを持つキャンペーンに設定されたコントロールバリアントにユーザーが登録されたときに発生します。このイベントは、このユーザーに対するチャネル送信イベントが発生しないために生成されます。
@@ -1631,7 +1631,7 @@ Canvas, Conversion
 ## キャンバスエントリイベント {#canvas-entry-events}
 
 {% apitags %}
-Canvas, Entry
+Canvas, エントリ
 {% endapitags %}
 
 このイベントは、ユーザーがキャンバスに入ったときに発生します。このイベントは、ユーザーがどのバリアントに入ったかを示します。
@@ -2691,7 +2691,7 @@ Canvas, Conversion
 ## 実験分割エントリイベント {#experiment-split-entry-events}
 
 {% apitags %}
-Canvas, Entry
+Canvas, エントリ
 {% endapitags %}
 
 このイベントは、ユーザーがキャンバスの実験ステップパスに入ったときに発生します。

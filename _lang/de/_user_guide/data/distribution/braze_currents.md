@@ -43,14 +43,14 @@ Currents verwendet Berechtigungskontingente, um die Erstellung von Konnektoren u
 
 - **Engagement-Events-Berechtigungen** sind für jeden Standard-Currents-Konnektor erforderlich, den Sie erstellen.
 - **Kundenverhalten-Events-Berechtigungen** sind erforderlich, wenn Sie **Track Customer Behavior and User Events** bei einem Konnektor aktivieren.
-- **Nutzerprofil- und Attribut-Berechtigungen** sind erforderlich, wenn Sie **Track user profiles and attributes** bei einem Konnektor aktivieren.
+- **Kundenprofil- und Attribut-Berechtigungen** sind erforderlich, wenn Sie **Track user profiles and attributes** bei einem Konnektor aktivieren.
 
 Test-Currents-Konnektoren verwenden ein separates Testlimit und verbrauchen keine Standard-Konnektor-Berechtigungen.
 
-Wenn Sie ein Berechtigungslimit erreichen, lesen Sie den Abschnitt [Fehlerbehebung bei der Currents-Einrichtung]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents#troubleshooting) und die [Currents FAQ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/faq), oder wenden Sie sich an Ihren Account Manager.
+Wenn Sie ein Berechtigungslimit erreichen, lesen Sie den Abschnitt [Fehlerbehebung bei der Currents-Einrichtung]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents#troubleshooting) und die [Currents FAQ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/faq), oder wenden Sie sich an Ihren Account Manager:in.
 
 ## Zugriff auf Currents {#how-to-access-currents}
 
-Ein Currents-Konnektor ist bereits in vielen unserer Pro- und Enterprise-Pakete enthalten. Wenn Sie Currents nutzen möchten, wenden Sie sich an Ihren Account Manager. Ihr Account Manager und unsere Datenspezialist:innen unterstützen Sie bei der [Einrichtung und Integration von Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents).
+Ein Currents-Konnektor ist bereits in vielen unserer Pro- und Enterprise-Pakete enthalten. Wenn Sie Currents nutzen möchten, wenden Sie sich an Ihren Account Manager:in. Ihr Account Manager:in und unsere Datenspezialist:innen unterstützen Sie bei der [Einrichtung und Integration von Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents).
 
 <br><br>

@@ -109,8 +109,8 @@ Brazeがメッセージを「送信」した場合、最終的な配信は外部
 
 | 中止結果 | 説明 |
 | ---- | ---- |
-| Content Cardの期限切れ | ユーザーが閲覧する前にContent Cardの有効期限が切れました。 |
-| Content Cardが無効 | Content Cardにエラーがあり、ユーザーに送信されませんでした。一般的な理由は以下の通りです: {::nomarkdown}<ul><li>最大サイズ超過（2 KB）</li><li>有効期限が無効</li><li>メッセージに無効な文字が含まれている</li></ul>{:/} |
+| Content カードの期限切れ | ユーザーが閲覧する前にContent カードの有効期限が切れました。 |
+| Content カードが無効 | Content カードにエラーがあり、ユーザーに送信されませんでした。一般的な理由は以下の通りです: {::nomarkdown}<ul><li>最大サイズ超過（2 KB）</li><li>有効期限が無効</li><li>メッセージに無効な文字が含まれている</li></ul>{:/} |
 | Connected Contentの失敗 | Brazeはメッセージの送信を試みましたが、Connected Contentが最大リトライ回数（デフォルトは5回）に達した後に失敗しました。**注:** このカウントは、最大リトライ回数に達したために中止されたメッセージの数を表しており、Connected Contentリクエストの失敗の合計数ではありません。 |
 | アプリ内メッセージのレンダリングタイムアウト | 複数回のリトライ後、Liquidをレンダリングできずタイムアウトしました。 |
 | Liquidの中止 | [abort_message]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) Liquidタグが呼び出されたため、送信がキャンセルされました。 |

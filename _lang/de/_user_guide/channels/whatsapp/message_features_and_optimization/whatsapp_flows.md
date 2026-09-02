@@ -25,7 +25,7 @@ channel:
 ![WhatsApp Manager mit einer Seite zum Erstellen eines Flows-Templates.]({% image_buster /assets/img/whatsapp/flows/create_flows_template.png %})
 
 {% alert tip %}
-Sie können auch ein Marketing- oder Utility-Flow-Template in Braze mit dem [WhatsApp Template Builder]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder) erstellen. Erstellen und verwalten Sie den Flow selbst im WhatsApp Manager von Meta und wählen Sie dann diesen Flow aus, wenn Sie das Template in Braze erstellen.
+Sie können auch ein Marketing- oder Utility-Flow-Template in Braze mit dem [WhatsApp Template Builder]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder) erstellen. Erstellen und verwalten Sie den Flow selbst im WhatsApp Manager:in von Meta und wählen Sie dann diesen Flow aus, wenn Sie das Template in Braze erstellen.
 {% endalert %}
 
 {: start="3"}
@@ -109,7 +109,7 @@ Geben Sie im erweiterten JSON-Editor {% raw %}`{"attributes": [{"flow_1": {{what
 
 ![Nutzeraktualisierungsschritt, der den UI-Editor verwendet.]({% image_buster /assets/img/whatsapp/flows/user_update_ui_editor.png %})
 
-Nachdem Braze eine Flow-Antwort erhalten hat, wird das verschachtelte angepasste Attribut mit der vorgegebenen Benennung im Nutzerprofil gespeichert. Dieses angepasste Attribut kann beim Erstellen von Canvases abgerufen werden.
+Nachdem Braze eine Flow-Antwort erhalten hat, wird das verschachtelte angepasste Attribut mit der vorgegebenen Benennung im Kundenprofil gespeichert. Dieses angepasste Attribut kann beim Erstellen von Canvases abgerufen werden.
 
 ![Ein Fenster, das den Inhalt eines angepassten Attributs „flow_1“ anzeigt.]({% image_buster /assets/img/whatsapp/flows/user_attribute_flow.png %})
 
@@ -120,7 +120,7 @@ Nachdem Braze eine Flow-Antwort erhalten hat, wird das verschachtelte angepasste
 
 ### 2. Schritt: Die gespeicherte Flow-Antwort anzeigen {#step-2-view-the-saved-flow-response}
 
-Wenn der Flow abgeschlossen ist, erstellt Braze automatisch ein angepasstes Flow-Attribut mit einem Namen, der auf der Flow-ID basiert. Sie können dann zum Nutzerprofil gehen, um die gespeicherte Flow-Antwort als verschachteltes Objekt im Abschnitt **Custom Attributes** anzuzeigen.
+Wenn der Flow abgeschlossen ist, erstellt Braze automatisch ein angepasstes Flow-Attribut mit einem Namen, der auf der Flow-ID basiert. Sie können dann zum Kundenprofil gehen, um die gespeicherte Flow-Antwort als verschachteltes Objekt im Abschnitt **angepasste Attribute** anzuzeigen.
 
 Nachdem das Schema generiert wurde, zeigt der Abschnitt **Custom Attribute** des Flows die erwartete Struktur an, einschließlich der erwarteten Datentypen für jede Antwort (zum Beispiel „String“ oder „String Array“).
 

@@ -14,7 +14,7 @@ toc_headers: h2
 Com o destino Decisioning Studio da CDI, é possível sincronizar dados do warehouse diretamente com o BrazeAI Decisioning Studio. Os dados dessas sincronizações ficam disponíveis para o Decisioning Studio para ativação, mas seus perfis de usuário e espaços de trabalho da Braze permanecem inalterados.
 
 {% alert important %}
-Esse recurso está em acesso antecipado. Entre em contato com seu gerente de sucesso do cliente ou gerente de conta para obter acesso.
+Esse recurso está em acesso antecipado. Entre em contato com seu CSM ou gerente de conta para obter acesso.
 {% endalert %}
 
 ## Como funciona {#how-it-works}
@@ -62,7 +62,7 @@ Apenas consultas de leitura com uma única instrução são suportadas, incluind
 
 ### Etapa 3: Pré-visualizar e validar sua consulta {#step-3-preview-and-validate-your-query}
 
-Selecione **Preview and validate** para executar sua consulta. A seção **Query preview (first 10 rows)** mostra as primeiras 10 linhas retornadas da sua fonte, junto com o tipo de dado detectado de cada coluna, para que você possa confirmar que os dados estão corretos antes de continuar.
+Selecione **prévia and validate** para executar sua consulta. A seção **Query prévia (first 10 rows)** mostra as primeiras 10 linhas retornadas da sua fonte, junto com o tipo de dado detectado de cada coluna, para que você possa confirmar que os dados estão corretos antes de continuar.
 
 ### Etapa 4: Selecionar uma chave primária {#step-4-select-a-primary-key}
 
@@ -75,7 +75,7 @@ Uma boa chave primária é única para cada linha, nunca está vazia e é estáv
 ### Etapa 5: Configurar notificações, cronograma e criar a sincronização {#step-5-set-notifications-schedule-and-create-the-sync}
 
 1. Na etapa **Notifications**, insira um ou mais **Contact Email(s)** para receber notificações de erros de sincronização. Você também pode ativar as notificações de **Row Error** e **Sync success**.
-2. Na etapa **Schedule**, ative **Recurring sync** para executar a sincronização automaticamente em um cronograma. Com **Recurring sync** desativado, a sincronização é executada apenas quando você a dispara, seja manualmente pelo dashboard ou pelo endpoint [Disparar uma sincronização]({{site.baseurl}}/api/endpoints/cdi/post_job_sync).
+2. Na etapa **agendar/cronograma**, ative **Recurring sync** para executar a sincronização automaticamente em um cronograma. Com **Recurring sync** desativado, a sincronização é executada apenas quando você a dispara, seja manualmente pelo dashboard ou pelo endpoint [Disparar uma sincronização]({{site.baseurl}}/api/endpoints/cdi/post_job_sync).
 3. Revise o **Summary** e crie a sincronização.
 
 ## Editar uma sincronização {#editing-a-sync}

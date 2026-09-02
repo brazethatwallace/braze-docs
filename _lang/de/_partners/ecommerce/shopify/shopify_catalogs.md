@@ -149,7 +149,7 @@ Sie können auch synchronisierte Produkt-Tags, Metafelder und Kollektionen in Ih
 ![Shopify-Katalog mit synchronisierten Daten.]({% image_buster /assets/img/shopify/synced_catalog.png %})
 
 {% alert important %}
-Wenn Ihre Synchronisierung Ihr Katalogspeicherlimit überschreitet, stoppt Braze die Synchronisierung und neue Produkt-Updates werden nicht mehr berücksichtigt. Wenden Sie sich an Ihren Customer-Success-Manager, um bei Bedarf ein Upgrade Ihrer Stufe durchzuführen.
+Wenn Ihre Synchronisierung Ihr Katalogspeicherlimit überschreitet, stoppt Braze die Synchronisierung und neue Produkt-Updates werden nicht mehr berücksichtigt. Wenden Sie sich an Ihren CSM, um bei Bedarf ein Upgrade Ihrer Stufe durchzuführen.
 {% endalert %}
 
 ### Schritt 5: Konfiguration verwalten {#step-5-manage-your-configuration}
@@ -202,7 +202,7 @@ Ihr Shopify-Katalog wird von Shopify verwaltet. Um Ihren Katalog zu aktualisiere
 Diese Anwendungsfälle zeigen, wie Sie Ihre synchronisierten Shopify-Katalogdaten nutzen können, um Nachrichten zu personalisieren.
 
 {% alert warning %}
-Braze synchronisiert bis zu 250 Varianten jedes Shopify-Produkts in Ihren Katalog. Varianten über dieses Limit hinaus werden nicht synchronisiert. Wenn Sie mehr als 250 Varianten pro Produkt benötigen, wenden Sie sich an Ihren Braze Customer-Success-Manager.
+Braze synchronisiert bis zu 250 Varianten jedes Shopify-Produkts in Ihren Katalog. Varianten über dieses Limit hinaus werden nicht synchronisiert. Wenn Sie mehr als 250 Varianten pro Produkt benötigen, wenden Sie sich an Ihren Braze CSM.
 {% endalert %}
 
 {% tabs %}
@@ -726,7 +726,7 @@ Wenn bei der Synchronisierung Ihrer Shopify-Produkte ein Fehler auftritt, kann d
 | --- | --- | --- |
 | Server-Fehler | Dies tritt auf, wenn auf der Seite von Shopify ein Serverfehler vorliegt, wenn wir versuchen, Ihre Produkte zu synchronisieren. | [Deaktivieren Sie die Synchronisierung](#deactivate) und synchronisieren Sie Ihren gesamten Produktbestand erneut. |
 | Doppelte SKU | Dies tritt auf, wenn Sie die SKU als Ihre Katalog-Artikel-ID verwenden und mehrere Varianten dieselbe SKU teilen. Jede `item_id` im Katalog muss eindeutig sein, sodass betroffene Artikel möglicherweise nicht synchronisiert werden, Fehlerdatensätze ansammeln oder Produktinformationen unbeabsichtigt überschrieben werden. | Überprüfen Sie Ihre vollständige Liste der Produkte und Varianten in Shopify, um sicherzustellen, dass keine doppelten SKUs vorhanden sind. Falls doppelte SKUs vorhanden sind, aktualisieren Sie diese in Ihrem Shopify-Shop-Konto, sodass nur eindeutige SKUs verwendet werden. Nachdem dies korrigiert wurde, [deaktivieren Sie die Synchronisierung](#deactivate) und synchronisieren Sie Ihren gesamten Produktbestand erneut. |
-| Kataloglimit überschritten | Dies tritt auf, wenn Sie Ihr Kataloglimit überschreiten. Braze kann die Synchronisierung nicht abschließen oder aktiv halten, da kein Speicherplatz mehr verfügbar ist. | Es gibt zwei Lösungen für dieses Problem:<br><br>1. Kontaktieren Sie Ihren Account Manager, um Ihr Paket zu aktualisieren und Ihr Kataloglimit zu erhöhen. <br><br>2. Geben Sie Speicherplatz frei, indem Sie Folgendes löschen:<br>- Katalogartikel aus anderen Katalogen<br>- Andere Kataloge<br>- Erstellte Selections<br><br> Nachdem Sie eine der beiden Lösungen angewendet haben, muss die Synchronisierung deaktiviert und anschließend erneut durchgeführt werden. |
+| Kataloglimit überschritten | Dies tritt auf, wenn Sie Ihr Kataloglimit überschreiten. Braze kann die Synchronisierung nicht abschließen oder aktiv halten, da kein Speicherplatz mehr verfügbar ist. | Es gibt zwei Lösungen für dieses Problem:<br><br>1. Kontaktieren Sie Ihren Account Manager:in, um Ihr Paket zu aktualisieren und Ihr Kataloglimit zu erhöhen. <br><br>2. Geben Sie Speicherplatz frei, indem Sie Folgendes löschen:<br>- Katalogartikel aus anderen Katalogen<br>- Andere Kataloge<br>- Erstellte Selections<br><br> Nachdem Sie eine der beiden Lösungen angewendet haben, muss die Synchronisierung deaktiviert und anschließend erneut durchgeführt werden. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fehlerbehebung" }
 
 Weitere Informationen zur Validierung von Katalogartikeln finden Sie unter [Fehlerbehebung]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/post_create_catalog_items_bulk#troubleshooting) in der Katalog-API-Dokumentation.

@@ -20,7 +20,7 @@ E-Commerce-Events von Braze und ihre segmentierbaren Event-Eigenschaften zählen
 
 ## Tab „Commerce“ {#commerce-tab}
 
-Der Tab **Commerce** in jedem Nutzerprofil kombiniert zwei Module: **Order activity** (berechnete Umsatz- und Bestellmetriken) und **Active cart** (der neueste Warenkorb aus `ecommerce.cart_updated`-Events).
+Der Tab **Commerce** in jedem Kundenprofil kombiniert zwei Module: **Order activity** (berechnete Umsatz- und Bestellmetriken) und **Active cart** (der neueste Warenkorb aus `ecommerce.cart_updated`-Events).
 
 ### Bestellaktivität {#order-activity}
 
@@ -39,7 +39,7 @@ Empfohlene E-Commerce-Events werden nicht im Abschnitt **Purchase history** des 
 
 ### Aktiver Warenkorb {#active-cart}
 
-Das Modul **Active cart** zeigt den neuesten Warenkorb im Nutzerprofil an. Diese Ansicht ist besonders hilfreich beim Testen. Sie können damit Warenkorb-Inhalte bestätigen, warenkorbbasierte Journeys validieren oder überprüfen, ob `ecommerce.cart_updated`-Events das Profil wie erwartet aktualisieren.
+Das Modul **Active cart** zeigt den neuesten Warenkorb im Kundenprofil an. Diese Ansicht ist besonders hilfreich beim Testen. Sie können damit Warenkorb-Inhalte bestätigen, warenkorbbasierte Journeys validieren oder überprüfen, ob `ecommerce.cart_updated`-Events das Profil wie erwartet aktualisieren.
 
 **Active cart** umfasst Folgendes:
 
@@ -59,7 +59,7 @@ Braze bietet drei Möglichkeiten, Nutzer:innen auf Basis von E-Commerce-Daten zu
 - **Segmenterweiterungen:** Für die Segmentierung anhand verschachtelter Event-Eigenschaften – einschließlich des verschachtelten Produkt-Arrays oder der Eigenschaften von Metadatenobjekten – verwenden Sie [Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension) mit Filterung nach verschachtelten Event-Eigenschaften. So können Sie Zielgruppen wie „Nutzer:innen, die Produkt SKU-123 in den letzten 90 Tagen gekauft haben“ erstellen oder Kriterien über verschiedene Eigenschaften derselben Bestellung hinweg kombinieren.
 
 {% alert important %}
-Segmenterweiterungen für empfohlene E-Commerce-Events sind ein kostenpflichtiges Feature mit eingeschränktem Vorabzugang. Wenn Sie am Vorabzugang teilnehmen möchten, wenden Sie sich an Ihren Customer-Success-Manager. Bestätigen Sie, dass Ihr Tarif den Zugang zur Segmentierung nach verschachtelten Eigenschaften umfasst, bevor Sie diese Funktion Ihrem Team empfehlen.
+Segmenterweiterungen für empfohlene E-Commerce-Events sind ein kostenpflichtiges Feature mit eingeschränktem Vorabzugang. Wenn Sie am Vorabzugang teilnehmen möchten, wenden Sie sich an Ihren CSM. Bestätigen Sie, dass Ihr Tarif den Zugang zur Segmentierung nach verschachtelten Eigenschaften umfasst, bevor Sie diese Funktion Ihrem Team empfehlen.
 {% endalert %}
 
 ### Triggering {#triggering}
@@ -190,7 +190,7 @@ Braze bietet verschiedene Möglichkeiten, E-Commerce-Event-Daten für die Verwen
 | [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) | E-Commerce-Events werden als angepasste Events gestreamt. Suchen Sie im Namespace `ecommerce.*`, um sie zu finden. Produkte aus jeder Bestellung sind als Käufe verfügbar. |
 | [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing) | E-Commerce-Events werden als angepasste Events geteilt. Suchen Sie im Namespace `ecommerce.*`, um sie zu finden. Produkte aus jeder Bestellung sind in der Kauftabelle verfügbar. |
 | [Segmentdaten als CSV exportieren]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv) | CSV-Export von Segmentmitgliedern. Um E-Commerce-Events einzuschließen, wählen Sie sie namentlich aus dem Dropdown der angepassten Events aus. |
-| [Nutzerprofil nach Segment exportieren (API)]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment#prerequisites) | Nutzerprofile für Segmentmitglieder, die über die API zurückgegeben werden. E-Commerce-Events sind als angepasste Events enthalten. |
+| [Kundenprofil nach Segment exportieren (API)]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment#prerequisites) | Nutzerprofile für Segmentmitglieder, die über die API zurückgegeben werden. E-Commerce-Events sind als angepasste Events enthalten. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Daten exportieren" }
 
 ### Wie segmentiere ich Nutzer:innen nach einem bestimmten Produkt? {#how-do-i-segment-users-by-a-specific-product}

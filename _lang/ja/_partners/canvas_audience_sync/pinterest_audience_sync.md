@@ -135,7 +135,7 @@ PinterestのセグメントAPIレート制限では、1ユーザーあたり1秒
 
 ### Pinterest でオーディエンスが反映されるまでどのくらいかかりますか？ {#how-long-will-it-take-for-my-audiences-to-populate-in-pinterest}
 
-オーディエンスのサイズは、Pinterest の Ads Manager の**Audiences**ページで24〜48時間以内に更新されます。
+オーディエンスのサイズは、Pinterest の Ads マネージャー の**Audiences**ページで24〜48時間以内に更新されます。
 
 ### Pinterest にユーザーを渡した後、ユーザーがマッチしたかどうかはどうすればわかりますか？ {#how-do-i-know-if-users-have-matched-after-passing-users-to-pinterest}
 

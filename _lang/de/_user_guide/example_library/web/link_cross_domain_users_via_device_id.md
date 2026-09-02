@@ -3,12 +3,12 @@ nav_title: Domainübergreifende Web-SDK-Nutzer:innen verknüpfen
 article_title: Domainübergreifende Web-SDK-Nutzer:innen über die Geräte-ID verknüpfen
 page_order: 1
 page_type: reference
-description: "Übergeben Sie die Geräte-ID des Braze Web SDK von der Marketing-Website von Kitchenerie an eine separate Shop-Domain, damit anonyme Aktivitäten ein gemeinsames Nutzerprofil verwenden."
+description: "Übergeben Sie die Geräte-ID des Braze Web SDK von der Marketing-Website von Kitchenerie an eine separate Shop-Domain, damit anonyme Aktivitäten ein gemeinsames Kundenprofil verwenden."
 ---
 
 # Domainübergreifende Web-SDK-Nutzer:innen über die Geräte-ID verknüpfen {#link-cross-domain-web-sdk-users-through-device-id}
 
-> Übergeben Sie die Geräte-ID des Braze Web SDK über die Ziel-URL, wenn zwei Domains keine Cookies teilen können, damit anonyme Sitzungen auf beiden Websites demselben Braze-Nutzerprofil zugeordnet werden.
+> Übergeben Sie die Geräte-ID des Braze Web SDK über die Ziel-URL, wenn zwei Domains keine Cookies teilen können, damit anonyme Sitzungen auf beiden Websites demselben Braze-Kundenprofil zugeordnet werden.
 
 ## Über dieses Beispiel {#about-this-example}
 
@@ -124,5 +124,5 @@ Wenn sich die Person anmeldet, rufen Sie `changeUser` mit ihrer `external_id` au
 - [Multi-Domain-Integration für das Braze Web SDK]({{site.baseurl}}/developer_guide/platforms/web/multi_domain_integration)
 - [Nutzer-IDs über das Braze SDK festlegen]({{site.baseurl}}/developer_guide/analytics/setting_user_ids)
 - [Anonyme Nutzer:innen]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users)
-- [Nutzerprofil-Lebenszyklus]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)
+- [Kundenprofil-Lebenszyklus]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)
 - [Web SDK-Speicher]({{site.baseurl}}/developer_guide/storage)

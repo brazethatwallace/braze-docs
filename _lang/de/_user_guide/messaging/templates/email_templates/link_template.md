@@ -15,7 +15,7 @@ channel:
 > Mit Link-Templates können Sie dynamische und wiederverwendbare Links für Ihre E-Mail-Campaigns erstellen, indem Sie Parameter anhängen oder URLs voranstellen. So schaffen Sie Konsistenz bei den URLs in Ihren Campaigns und Nachrichten.
 
 {% alert note %}
-Link-Templates sind ein optionales Feature. Wenn **E-Mail-Link-Templates** im Abschnitt **Templates** fehlt, wenden Sie sich an Ihren Account Manager, um das Feature zu aktivieren.
+Link-Templates sind ein optionales Feature. Wenn **E-Mail-Link-Templates** im Abschnitt **Templates** fehlt, wenden Sie sich an Ihren Account Manager:in, um das Feature zu aktivieren.
 {% endalert %}
 
 ## So funktioniert es {#how-it-works}

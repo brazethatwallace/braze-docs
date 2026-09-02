@@ -2,11 +2,11 @@
 
 ## 分析のログ記録 {#logging-analytics}
 
-カスタムContent Cardsを実装する際、Content Cardオブジェクトを解析し、`title`、`cardDescription`、`imageUrl`などのペイロードデータを抽出できます。その後、取得したモデルデータを使用してカスタムUIに表示できます。
+カスタムContent Cardsを実装する際、Content カードオブジェクトを解析し、`title`、`cardDescription`、`imageUrl`などのペイロードデータを抽出できます。その後、取得したモデルデータを使用してカスタムUIに表示できます。
 
-Content Cardのデータモデルを取得するには、Content Cardの更新を購読します。特に注意すべきプロパティが2つあります。
+Content カードのデータモデルを取得するには、Content カードの更新を購読します。特に注意すべきプロパティが2つあります。
 
-* **`id`**：Content CardのID文字列を表します。カスタムContent Cardsから分析をログに記録するために使用される一意の識別子です。
+* **`id`**：Content カードのID文字列を表します。カスタムContent Cardsから分析をログに記録するために使用される一意の識別子です。
 * **`extras`**：Brazeダッシュボードからのすべてのキーと値のペアを含みます。
 
 `id`と`extras`以外のすべてのプロパティは、カスタムContent Cardsの解析においてオプションです。データモデルの詳細については、各プラットフォームの統合記事を参照してください：[Android]({{site.baseurl}}/developer_guide/content_cards/?sdktab=android)、[iOS]({{site.baseurl}}/developer_guide/content_cards/?sdktab=swift)、[Web]({{site.baseurl}}/developer_guide/content_cards/?sdktab=web)。
@@ -59,7 +59,7 @@ private IEventSubscriber<ContentCardsUpdatedEvent> mContentCardsUpdatedSubscribe
 
 ### ステップ2：更新を購読する {#step-2-subscribe-to-updates}
 
-次に、以下のコードを追加してBrazeからのContent Cardの更新を購読します。通常、カスタムContent Cardsアクティビティの`Activity.onCreate()`内に配置します。
+次に、以下のコードを追加してBrazeからのContent カードの更新を購読します。通常、カスタムContent Cardsアクティビティの`Activity.onCreate()`内に配置します。
 
 ```java
 // Remove the previous subscriber before rebuilding a new one with our new activity.
@@ -98,7 +98,7 @@ private var contentCardsUpdatedSubscriber: IEventSubscriber<ContentCardsUpdatedE
 
 ### ステップ2：更新を購読する
 
-次に、以下のコードを追加してBrazeからのContent Cardの更新を購読します。通常、カスタムContent Cardsアクティビティの`Activity.onCreate()`内に配置します。
+次に、以下のコードを追加してBrazeからのContent カードの更新を購読します。通常、カスタムContent Cardsアクティビティの`Activity.onCreate()`内に配置します。
 
 ```kotlin
 // Remove the previous subscriber before rebuilding a new one with our new activity.
@@ -222,7 +222,7 @@ BRZCancellable *cancellable = [self.braze.contentCards subscribeToUpdates:^(NSAr
 
 {% tab React Native %}
 
-更新をリッスンするには、Content Cardの更新イベントを購読します。
+更新をリッスンするには、Content カードの更新イベントを購読します。
 
 ```javascript
 const subscription = Braze.addListener(Braze.Events.CONTENT_CARDS_UPDATED, (update) => {
@@ -237,7 +237,7 @@ const subscription = Braze.addListener(Braze.Events.CONTENT_CARDS_UPDATED, (upda
 });
 ```
 
-最新のキャッシュされたContent Cardデータを取得するには：
+最新のキャッシュされたContent カードデータを取得するには：
 
 ```javascript
 import Braze from "@braze/react-native-sdk";

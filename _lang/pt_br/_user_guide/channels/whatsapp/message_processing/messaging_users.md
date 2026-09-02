@@ -147,7 +147,7 @@ Para respostas em menos de um minuto em fluxos bidirecionais do Canvas, minimize
 Os seguintes eventos desbloqueiam mensagens de resposta:
 
 - Mensagem de entrada
-  - [Action Path]({{site.baseurl}}/action_paths) ou [entrada baseada em ação]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) com o gatilho **Send a WhatsApp inbound message**.
+  - [Action jornada]({{site.baseurl}}/action_paths) ou [entrada baseada em ação]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) com o gatilho **Send a WhatsApp inbound message**.
 
 ![Uma etapa de entrada baseada em ação com o gatilho "Send a WhatsApp inbound message".]({% image_buster /assets/img/whatsapp/whatsapp_inbound_message_trigger.png %})
 
@@ -161,7 +161,7 @@ Os seguintes eventos desbloqueiam mensagens de resposta:
 
 Quando um usuário interage com sua empresa no WhatsApp — incluindo ao tocar em um botão de resposta rápida em um modelo de mensagem mais antigo — sua ação conta como uma mensagem de entrada. Essa mensagem de entrada abre uma nova janela de atendimento ao cliente de 24 horas, mesmo que o modelo original tenha sido enviado há mais de 24 horas.
 
-Em um Canvas com botões de resposta rápida, os usuários podem tocar em um botão dias após receberem o modelo de boas-vindas e ainda entrar no Action Path correto. A Braze avalia o Action Path quando a mensagem de entrada chega; não é necessário estender a duração do Action Path além do padrão para capturar respostas tardias.
+Em um Canvas com botões de resposta rápida, os usuários podem tocar em um botão dias após receberem o modelo de boas-vindas e ainda entrar no Action jornada correto. A Braze avalia o Action jornada quando a mensagem de entrada chega; não é necessário estender a duração do Action jornada além do padrão para capturar respostas tardias.
 
 O diagrama a seguir mostra um fluxo comum de resposta rápida:
 
@@ -178,7 +178,7 @@ sequenceDiagram
 
 #### Informações importantes {#things-to-know}
 
-- A etapa de mensagem de resposta ainda precisa estar dentro de 24 horas após a mensagem de entrada do usuário. Na maioria dos fluxos do Canvas, a resposta é enviada imediatamente após a avaliação do Action Path, então isso não é um problema.
+- A etapa de mensagem de resposta ainda precisa estar dentro de 24 horas após a mensagem de entrada do usuário. Na maioria dos fluxos do Canvas, a resposta é enviada imediatamente após a avaliação do Action jornada, então isso não é um problema.
 - A janela de atendimento ao cliente de 24 horas é diferente dos [eventos de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) do Canvas, que podem usar uma janela de até 30 dias. As janelas de conversão controlam a atribuição; elas não afetam se uma mensagem de resposta pode ser enviada.
 - Para informações sobre cobrança, consulte [As mensagens de resposta do WhatsApp são gratuitas?]({{site.baseurl}}/user_guide/channels/whatsapp/faq#are-whatsapp-response-messages-free).
 

@@ -53,7 +53,7 @@ Event-Eigenschaften hingegen können nur im ersten Nachrichtenschritt nach einem
 
 ### Nachrichtenschritte für den Fortschritt der Nutzer:innen überprüfen {#review-message-steps-for-user-advancement}
 
-Standardmäßig durchlaufen Nutzer:innen alle Nachrichtenschritte, unabhängig davon, ob sie die Nachricht erhalten haben. Wenn Sie nur die Nutzer:innen voranbringen möchten, die eine bestimmte Nachricht erhalten haben, können Sie dies tun, indem Sie einen Decision-Split-Schritt direkt nach Ihrer Nachrichtenkomponente hinzufügen. Fügen Sie den Filter „Received Message from Canvas Step“ als zusätzlichen Filter hinzu und wählen Sie dann das Canvas und den Nachrichtenschritt aus.
+Standardmäßig durchlaufen Nutzer:innen alle Nachrichtenschritte, unabhängig davon, ob sie die Nachricht erhalten haben. Wenn Sie nur die Nutzer:innen voranbringen möchten, die eine bestimmte Nachricht erhalten haben, können Sie dies tun, indem Sie einen Decision-Split-Schritt direkt nach Ihrer Nachrichtenkomponente hinzufügen. Fügen Sie den Filter „Received Message from Canvas-Schritt“ als zusätzlichen Filter hinzu und wählen Sie dann das Canvas und den Nachrichtenschritt aus.
 
 Bei Nachrichtenschritten mit In-App-Nachrichten sollten Sie eine Aktionspfad-Komponente anstelle der Decision-Split-Komponente verwenden. Dadurch können Sie Nutzer:innen basierend darauf voranbringen, ob sie Ihre In-App-Nachricht gesehen haben. Definieren Sie eine Aktionsgruppe, indem Sie den Filter „Interact with Step“ hinzufügen und **View in app message** auswählen. Setzen Sie dann das Bewertungsfenster des Schritts auf das Ablaufzeitfenster der In-App-Nachricht.
 

@@ -48,7 +48,7 @@ Eventos personalizados são ações realizadas pelos seus usuários; eles são i
 | Verificar se o evento personalizado ocorreu **exatamente X (Máx = 50) vezes** | **EXACTLY** | nos últimos **Y dias (Y = 1,3,7,14,21,30)** |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Eventos personalizados" }
 
-A Braze registra o número de vezes que esses eventos ocorreram, bem como a última vez que foram realizados por cada usuário para segmentação. Na página de análise de dados de **Custom Events**, você pode visualizar de forma agregada com que frequência cada evento personalizado ocorre, assim como por segmento ao longo do tempo para uma análise mais detalhada. Isso é particularmente útil para ver como suas campanhas afetaram a atividade de eventos personalizados, observando as linhas cinzas que a Braze sobrepõe na série temporal para indicar a última vez que uma campanha foi enviada.
+A Braze registra o número de vezes que esses eventos ocorreram, bem como a última vez que foram realizados por cada usuário para segmentação. Na página de análise de dados de **Custom Events**, você pode visualizar de forma agregada com que frequência cada evento personalizado ocorre, assim como por Segment ao longo do tempo para uma análise mais detalhada. Isso é particularmente útil para ver como suas campanhas afetaram a atividade de eventos personalizados, observando as linhas cinzas que a Braze sobrepõe na série temporal para indicar a última vez que uma campanha foi enviada.
 
 ![Um gráfico de análise de dados de evento personalizado mostrando estatísticas de usuários que adicionaram um cartão de crédito e fizeram uma pesquisa ao longo de um período de trinta dias.]({% image_buster /assets/img_archive/custom_event_analytics_example.png %} "custom_event_analytics_example.png")
 
@@ -82,7 +82,7 @@ Talk to villagers for essential tips on how to beat levels!
 ```
 {% endraw %}
 
-As propriedades de eventos personalizados foram projetadas para ajudar você a personalizar suas mensagens ou criar campanhas granulares de entrega baseada em ação. Se você deseja criar segmentos com base na recência e frequência de propriedades de eventos, entre em contato com seu gerente de sucesso do cliente ou com nossa equipe de suporte.
+As propriedades de eventos personalizados foram projetadas para ajudar você a personalizar suas mensagens ou criar campanhas granulares de entrega baseada em ação. Se você deseja criar segmentos com base na recência e frequência de propriedades de eventos, entre em contato com seu CSM ou com nossa equipe de suporte.
 
 ## Atributos personalizados {#custom-attributes}
 

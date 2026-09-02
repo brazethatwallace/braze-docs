@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Snowflake
 
-> [Snowflake](https://docs.snowflake.net/manuals/user-guide/intro-key-concepts.html) ist ein speziell entwickeltes SQL Data Warehouse in der Cloud, das als Software-as-a-Service (SaaS) angeboten wird. Snowflake bietet ein Data Warehouse, das schneller, benutzerfreundlicher und wesentlich flexibler ist als herkömmliche Data-Warehouse-Angebote. Mit der einzigartigen und patentierten Architektur von Snowflake ist es ein Leichtes, all Ihre Daten zu sammeln, schnelle Analytics zu ermöglichen und datengestützte Insights für alle Ihre Nutzer:innen zu gewinnen.
+> [Snowflake](https://docs.snowflake.net/manuals/user-guide/intro-key-concepts.html) ist ein speziell entwickeltes SQL Data Warehouse in der Cloud, das als SaaS (SaaS) angeboten wird. Snowflake bietet ein Data Warehouse, das schneller, benutzerfreundlicher und wesentlich flexibler ist als herkömmliche Data-Warehouse-Angebote. Mit der einzigartigen und patentierten Architektur von Snowflake ist es ein Leichtes, all Ihre Daten zu sammeln, schnelle Analytics zu ermöglichen und datengestützte Insights für alle Ihre Nutzer:innen zu gewinnen.
 
 Braze bietet zwei Integrationen mit Snowflake an. Zusammen ermöglichen sie eine vollständige, bidirektionale Datenpipeline zwischen Ihren Braze- und Snowflake-Umgebungen.
 
@@ -45,7 +45,7 @@ Bevor Sie dieses Feature nutzen können, müssen Sie Folgendes abschließen:
 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
-| Braze-Zugang | Um auf dieses Feature in Braze zuzugreifen, müssen Sie sich an Ihren Braze-Konto- oder Customer-Success-Manager wenden. |
+| Braze-Zugang | Um auf dieses Feature in Braze zuzugreifen, müssen Sie sich an Ihren Braze-Konto- oder CSM wenden. |
 | Snowflake-Konto | Ein Snowflake-Konto mit `admin`-Berechtigungen. Für Nicht-HIPAA-Kund:innen wird die Snowflake Standard oder Enterprise Edition unterstützt. Für HIPAA-konforme Datenfreigabe ist die Business Critical Edition erforderlich. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 

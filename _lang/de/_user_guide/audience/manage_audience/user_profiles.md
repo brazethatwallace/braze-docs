@@ -11,7 +11,7 @@ description: "Dieser Referenzartikel beschreibt, wie Sie auf das Profil einer Nu
 
 # Nutzerprofile {#user-profiles}
 
-> Nutzerprofile sind eine hervorragende Möglichkeit, Informationen über bestimmte Nutzer:innen zu finden. Alle persistenten Daten, die mit einer Nutzerin oder einem Nutzer verknüpft sind, werden in ihrem Nutzerprofil gespeichert.
+> Nutzerprofile sind eine hervorragende Möglichkeit, Informationen über bestimmte Nutzer:innen zu finden. Alle persistenten Daten, die mit einer Nutzerin oder einem Nutzer verknüpft sind, werden in ihrem Kundenprofil gespeichert.
 
 ## Auf Profile zugreifen {#access-profiles}
 
@@ -90,7 +90,7 @@ Der Tab **Engagement** enthält Informationen über die Interaktionen von Nutzer
 | Install-Attribution | Informationen darüber, wie und wann Nutzer:innen Ihre App installiert haben. Erfahren Sie mehr über das [Verstehen von Nutzerinstallationen]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/install_attribution). |
 | Sonstiges | Die [zufällige Bucket-Nummer]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers) der Nutzer:innen. |
 | Empfangene Canvas-Nachrichten | Canvas-Nachrichten, die diese Nutzer:innen erhalten haben, und wann. Die Sendezeitpunkte folgen denselben Kanalregeln wie **Empfangene Campaigns**; siehe [Wann Campaigns unter „Empfangene Campaigns“ erscheinen](#when-campaigns-appear-in-campaigns-received).<br><br> Wenn eine Nachricht empfangen, geöffnet oder angeklickt wird, aktualisiert Braze die Daten für alle Profile, die denselben Kanalbezeichner wie das Profil teilen, das die Interaktion protokolliert hat (z. B. dieselbe E-Mail-Adresse für E-Mail oder dieselbe Telefonnummer für SMS oder WhatsApp). Nutzer:innen, die einen Bezeichner mit jemandem teilen, der die Nachricht empfangen, geöffnet oder angeklickt hat, können diesen Filter erfüllen, auch wenn sie ursprünglich nicht in der Campaign waren oder die Nachricht nicht direkt erhalten haben.<br><br> Wählen Sie eine Nachricht aus der Liste aus, um sie anzuzeigen. |
-| Prognosen | [Churn-Prognose]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) und [Event-Prognose]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events) für diese Nutzer:innen. |
+| Prognosen | [Abwanderung-Prognose]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) und [Event-Prognose]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events) für diese Nutzer:innen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Tab „Engagement“" }
 
 {% endtab %}
@@ -125,10 +125,10 @@ Im Allgemeinen listet Braze eine Campaign unter **Empfangene Campaigns** auf, na
 Wenn Zeitstempel im relativen Format angezeigt werden (z. B. „vor 6 Tagen“), fahren Sie mit der Maus darüber, um das genaue Datum und die Uhrzeit zu sehen.
 {% endalert %}
 
-- **E-Mail:** Braze protokolliert einen Versand, wenn die Nachricht an Ihren E-Mail-Anbieter (ESP) übergeben wird. Nach dieser Übergabe wird die Nachricht nicht aufgrund von Liquid-Logik, Rate-Limiting oder weil die Nutzer:innen als nicht erreichbar markiert sind, abgebrochen. Die nächsten Ereignisse sind oft eine Zustellung oder ein Bounce.
+- **E-Mail:** Braze protokolliert einen Versand, wenn die Nachricht an Ihren E-Mail-Anbieter (E-Mail-Anbieter) übergeben wird. Nach dieser Übergabe wird die Nachricht nicht aufgrund von Liquid-Logik, Rate-Limiting oder weil die Nutzer:innen als nicht erreichbar markiert sind, abgebrochen. Die nächsten Ereignisse sind oft eine Zustellung oder ein Bounce.
 - **Push:** Braze protokolliert einen Versand, wenn die Nachricht an den Push-Anbieter übergeben wird (z. B. Apple Push Notification service (APNs) oder Firebase Cloud Messaging (FCM)). Der Anbieter versucht in der Regel, sofort zuzustellen; wenn das Gerät nicht verfügbar ist (z. B. offline), kann der Anbieter es erneut versuchen, bis die Nachricht abläuft.
 - **In-App Messages:** Braze protokolliert einen Versand, wenn die Campaign gestartet wird.
-- **Content Cards:** Wann Braze ein _Gesendet_-Event aufzeichnet, hängt vom Zustellungstyp und Ihrer Einstellung **Card Creation** ab. Eine Content-Card-Campaign erscheint unter **Empfangene Campaigns** im Nutzerprofil erst, nachdem die Nutzer:innen die Karte in der App angesehen haben. Die vollständige Aufschlüsselung finden Sie unter [Wann Versendungen protokolliert werden]({{site.baseurl}}/user_guide/channels/content_cards/reporting#when-sends-are-logged) und [Empfangene Campaigns und Retargeting-Filter]({{site.baseurl}}/user_guide/channels/content_cards/reporting#campaigns-received-and-retargeting-filters) im Artikel zum Content-Card-Reporting.
+- **Content Cards:** Wann Braze ein _Gesendet_-Event aufzeichnet, hängt vom Zustellungstyp und Ihrer Einstellung **Card Creation** ab. Eine Content-Card-Campaign erscheint unter **Empfangene Campaigns** im Kundenprofil erst, nachdem die Nutzer:innen die Karte in der App angesehen haben. Die vollständige Aufschlüsselung finden Sie unter [Wann Versendungen protokolliert werden]({{site.baseurl}}/user_guide/channels/content_cards/reporting#when-sends-are-logged) und [Empfangene Campaigns und Retargeting-Filter]({{site.baseurl}}/user_guide/channels/content_cards/reporting#campaigns-received-and-retargeting-filters) im Artikel zum Content-Card-Reporting.
 - **SMS, WhatsApp und Webhooks:** Braze protokolliert einen Versand, wenn die Nachricht den Zustellungspfad für diesen Kanal betritt (z. B. den SMS- oder WhatsApp-Anbieter oder Ihren Webhook-Endpunkt).
 
 {% alert note %}
@@ -213,7 +213,7 @@ Braze erzwingt keine Gesamtkapazitätsbeschränkung für die Gesamtgröße eines
 
 ### Arrays angepasster Attribute {#custom-attribute-arrays}
 
-Arrays angepasster Attribute (einschließlich Arrays von Objekten) haben eine Kapazität von 100 KB. Wenn Sie ein Array senden, das diese Kapazität überschreitet, wird das angepasste Attribut nicht verarbeitet. Die API gibt eine Erfolgsantwort (201) zurück, aber das Array erscheint nicht im Nutzerprofil und vorhandene Daten für dieses Attribut werden nicht aktualisiert.
+Arrays angepasster Attribute (einschließlich Arrays von Objekten) haben eine Kapazität von 100 KB. Wenn Sie ein Array senden, das diese Kapazität überschreitet, wird das angepasste Attribut nicht verarbeitet. Die API gibt eine Erfolgsantwort (201) zurück, aber das Array erscheint nicht im Kundenprofil und vorhandene Daten für dieses Attribut werden nicht aktualisiert.
 
 Wenn Ihre Arrays sich dieser Kapazität nähern, sollten Sie die Anzahl der Objekte begrenzen, die Sie befüllen, um die Gesamtgröße innerhalb von 100 KB zu halten.
 
@@ -221,6 +221,6 @@ Weitere Informationen zu angepassten Attributen finden Sie unter [Datentypen ang
 
 ## Verwandte Artikel {#related-articles}
 
-- [Nutzerprofil-Lebenszyklus]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)
-- [POST: Nutzerprofil nach Bezeichner exportieren]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier)
+- [Kundenprofil-Lebenszyklus]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)
+- [POST: Kundenprofil nach Bezeichner exportieren]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier)
 - [POST: Nutzer:innen löschen]({{site.baseurl}}/api/endpoints/user_data/post_user_delete)

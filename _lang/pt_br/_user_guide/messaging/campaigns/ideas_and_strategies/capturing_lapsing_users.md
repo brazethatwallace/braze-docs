@@ -29,9 +29,9 @@ Dê ao Segment um nome fácil de lembrar, como "Lapsed Users – 2 Weeks". Como 
 
 ## Etapa 2: Criar uma campaign {#step-2-create-a-campaign}
 
-Em seguida, clique em **Create Campaign** e escolha o tipo de campaign que enviaremos para esse segmento. Neste exemplo, criaremos uma nova [campanha de push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message).
+Em seguida, clique em **Create Campaign** e escolha o tipo de campaign que enviaremos para esse Segment. Neste exemplo, criaremos uma nova [campanha de push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message).
 
-![Em seguida, clique em Create Campaign e escolha o tipo de campaign que enviaremos para esse segmento. Neste exemplo, criaremos uma nova campanha de push.]({% image_buster /assets/img_archive/2weeklapse2.png %}){: style="max-width:70%;"}
+![Em seguida, clique em Create Campaign e escolha o tipo de campaign que enviaremos para esse Segment. Neste exemplo, criaremos uma nova campanha de push.]({% image_buster /assets/img_archive/2weeklapse2.png %}){: style="max-width:70%;"}
 
 Vamos nomear a campaign como "Message to Lapsed Users - 2 Weeks" e então criar o conteúdo da nossa mensagem. Neste exemplo, vamos direcionar apenas usuários iOS, mas você pode usar a Braze para notificações por push tanto no Android quanto no iOS.
 

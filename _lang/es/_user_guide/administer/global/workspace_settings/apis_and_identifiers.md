@@ -35,7 +35,7 @@ Configura alertas de uso de la API para monitorizar la actividad clave de la API
 Puedes rastrear dos tipos de actividad de la API:
 
 - **Endpoints de API REST:** Acciones como enviar mensajes, crear Campaigns o exportar datos.
-- **Solicitudes de API del SDK:** Eventos de tu experiencia del cliente, como desencadenar mensajes dentro de la aplicación o sincronizar perfiles de usuario. *Esta característica está disponible si has adquirido usuarios activos al mes (CY 24–25).*
+- **Solicitudes de API del SDK:** Eventos de tu experiencia del cliente, como desencadenar mensajes dentro de la aplicación o sincronizar perfiles de usuario. *Esta característica está disponible si has adquirido MAU (CY 24–25).*
 
 Una vez que elijas qué rastrear, puedes definir las condiciones de la alerta. Por ejemplo, recibir una notificación si las respuestas de error aumentan un 20 % en una hora. Recibirás una notificación por correo electrónico, webhook o ambos, según tu configuración. Para comenzar, consulta [Alertas de uso de la API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts).
 

@@ -20,7 +20,7 @@ Obwohl wir eine umfangreiche Liste von Ressourcen bereitstellen, die Sie vor dem
 ## Allgemein {#general}
 
 ### Checkliste {#things-to-check}
-- [**API-Rate-Limits**](https://braze.com/resources/articles/whats-rate-limiting): Überprüfen Sie die Braze-API-[Rate-Limits]({{site.baseurl}}/api/api_limits) für Ihre Workspaces, um Fehler zu vermeiden. Wenn Sie Ihre Rate-Limits erhöhen möchten (und bereits Anfragen bündeln), wenden Sie sich an Ihren Customer-Success-Manager. Beachten Sie, dass dieser Prozess eine gewisse Vorlaufzeit erfordert – planen Sie entsprechend.
+- [**API-Rate-Limits**](https://braze.com/resources/articles/whats-rate-limiting): Überprüfen Sie die Braze-API-[Rate-Limits]({{site.baseurl}}/api/api_limits) für Ihre Workspaces, um Fehler zu vermeiden. Wenn Sie Ihre Rate-Limits erhöhen möchten (und bereits Anfragen bündeln), wenden Sie sich an Ihren CSM. Beachten Sie, dass dieser Prozess eine gewisse Vorlaufzeit erfordert – planen Sie entsprechend.
 - [**Erforderliche Frequency-Capping-Ausnahmen**]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping): Es gibt einige Campaigns, wie z. B. transaktionale Nachrichten, die Nutzer:innen immer erreichen sollen, auch wenn das Frequency-Capping bereits erreicht wurde (beispielsweise eine Zustellbenachrichtigung). Wenn eine bestimmte Campaign die Frequency-Capping-Regeln umgehen soll, können Sie dies im Braze-Dashboard einrichten, indem Sie beim Planen der Zustellung dieser Campaign das Frequency-Capping deaktivieren.
 
 ### Wissenswertes {#things-to-know}

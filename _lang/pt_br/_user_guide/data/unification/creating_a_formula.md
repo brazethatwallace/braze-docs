@@ -11,7 +11,7 @@ tool: Reports
 
 > Ao visualizar a análise de dados na Braze, é possível combinar vários pontos de dados para obter insights valiosos sobre os dados de usuários. Esses recursos são chamados de fórmulas. Use fórmulas para normalizar os dados da série temporal com base no número total de usuários ativos mensais (MAU) e usuários ativos diários (DAU).
 
-As fórmulas ajudam você a entender as relações complexas que existem em seus dados. Por exemplo, é possível comparar quantos eventos personalizados foram concluídos por usuários ativos diários que se qualificam para um determinado segmento em comparação com a população geral (ou com outro segmento).
+As fórmulas ajudam você a entender as relações complexas que existem em seus dados. Por exemplo, é possível comparar quantos eventos personalizados foram concluídos por usuários ativos diários que se qualificam para um determinado Segment em comparação com a população geral (ou com outro Segment).
 
 ## Casos de uso {#use-cases}
 

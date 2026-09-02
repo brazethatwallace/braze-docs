@@ -155,7 +155,7 @@ As <i>compras diárias</i> são a média do total de <code>PurchaseEvents</code>
 {% endif %}
 
 {% if include.metric == "Machine Opens" %}
-As <i>aberturas de máquina</i> incluem aberturas não humanas e humanas que indicam uma abertura por um usuário com a proteção de privacidade de e-mail (MPP) da Apple ativada. Isso significa que um usuário pode registrar múltiplas <i>aberturas de máquina</i>. As <i>aberturas de máquina</i> não são geradas automaticamente se o dispositivo não estiver conectado ao Wi-Fi, então um usuário pode potencialmente abrir um e-mail no app Apple Mail antes que a Apple pré-carregue as imagens, o que ainda resulta em uma <i>abertura de máquina</i>.
+As <i>aberturas de máquina</i> incluem aberturas não humanas e humanas que indicam uma abertura por um usuário com a MPP (MPP) da Apple ativada. Isso significa que um usuário pode registrar múltiplas <i>aberturas de máquina</i>. As <i>aberturas de máquina</i> não são geradas automaticamente se o dispositivo não estiver conectado ao Wi-Fi, então um usuário pode potencialmente abrir um e-mail no app Apple Mail antes que a Apple pré-carregue as imagens, o que ainda resulta em uma <i>abertura de máquina</i>.
 <br><br>
 Para usuários com MPP ativada:
 <ul>
@@ -192,7 +192,7 @@ As <i>aberturas</i> são instâncias que incluem <i>Aberturas Diretas</i> e <i>A
 <i>Tentativa pendente</i> é o número de solicitações que foram temporariamente rejeitadas pelo servidor de recebimento, mas que ainda tentaram ser reentregues pelo provedor de serviços de e-mail (ESP). O ESP tentará novamente a entrega até que um período de tempo limite seja atingido (normalmente após 72 horas).
 {% endif %}
 
-{% if include.metric == "Primary Conversions (A) or Primary Conversion Event" %}
+{% if include.metric == "Primary Conversions (A) or conversão primária Event" %}
 <i>Conversões primárias (A)</i> ou <i>evento de conversão primária</i> é o número de vezes que um evento definido ocorreu após a interação ou a visualização de uma mensagem recebida de uma Campaign da Braze. Esse evento definido é determinado por você ao criar a Campaign.
 {% endif %}
 

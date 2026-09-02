@@ -11,9 +11,9 @@ toc_headers: h2
 
 # E-Mails an Apple Private Relay senden {#send-emails-to-apple-private-relay}
 
-> Das Single Sign-on (SSO)-Feature von Apple erlaubt es Nutzer:innen, ihre E-Mail-Adressen (`example@icloud.com`) zu teilen oder ihre E-Mail-Adressen auszublenden, indem anstelle der persönlichen E-Mail-Adresse eine maskierte Adresse (`tq1234snin@privaterelay.appleid.com`) an Marken weitergegeben wird. Apple leitet dann die an die Relay-Adressen gesendeten Nachrichten an die tatsächliche E-Mail-Adresse der Nutzer:innen weiter.
+> Das Single Sign-on (Single Sign-on)-Feature von Apple erlaubt es Nutzer:innen, ihre E-Mail-Adressen (`example@icloud.com`) zu teilen oder ihre E-Mail-Adressen auszublenden, indem anstelle der persönlichen E-Mail-Adresse eine maskierte Adresse (`tq1234snin@privaterelay.appleid.com`) an Marken weitergegeben wird. Apple leitet dann die an die Relay-Adressen gesendeten Nachrichten an die tatsächliche E-Mail-Adresse der Nutzer:innen weiter.
 
-Um E-Mails an das private E-Mail-Relay von Apple zu senden, registrieren Sie Ihre Versanddomains bei Apple. Wenn Sie Ihre Domains nicht bei Apple konfigurieren, führen E-Mails an Relay-Adressen zu Bounces.
+Um E-Mails an das private E-Mail-Relay von Apple zu senden, Registrieren Sie Ihre Versanddomains bei Apple. Wenn Sie Ihre Domains nicht bei Apple konfigurieren, führen E-Mails an Relay-Adressen zu Bounces.
 
 Wenn Nutzer:innen beschließen, die E-Mail-Weiterleitung an die Relay-E-Mail Ihrer App zu deaktivieren, erhält Braze wie gewohnt die Bounce-Informationen. Diese Nutzer:innen können Apps, die „Mit Apple anmelden“ verwenden, über die Einstellungsseite ihrer Apple-ID verwalten (siehe [Dokumentation von Apple](https://support.apple.com/en-us/HT210426)).
 

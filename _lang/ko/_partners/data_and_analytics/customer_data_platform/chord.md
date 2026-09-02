@@ -1,7 +1,7 @@
 ---
 nav_title: Chord
 article_title: Chord
-description: "Chord 고객 데이터 플랫폼(CDP)을 Braze에 연결하여 이커머스 이벤트와 ID 업데이트를 메시징, 세분화, 여정에 전달합니다."
+description: "Chord 고객 데이터 플랫폼(고객 데이터 플랫폼)을 Braze에 연결하여 이커머스 이벤트와 ID 업데이트를 메시징, 세분화, 여정에 전달합니다."
 alias: /partners/chord/
 page_type: partner
 search_tag: Partner
@@ -17,7 +17,7 @@ _이 통합은 Chord에서 유지 관리합니다._
 
 ## 통합 정보 {#about-the-integration}
 
-Chord는 스토어와 Braze 간의 데이터 레이어 역할을 합니다. Chord CDP에서 Braze를 대상으로 연결하면, Chord는 추적 기술 계획의 이벤트를 Braze에 매핑합니다. 이 데이터를 Segments, Canvases 및 메시지 개인화에 활용하여 소비자가 사이트에서 수행하는 활동을 반영할 수 있습니다.
+Chord는 스토어와 Braze 간의 데이터 레이어 역할을 합니다. Chord 고객 데이터 플랫폼에서 Braze를 대상으로 연결하면, Chord는 추적 기술 계획의 이벤트를 Braze에 매핑합니다. 이 데이터를 Segments, Canvases 및 메시지 개인화에 활용하여 소비자가 사이트에서 수행하는 활동을 반영할 수 있습니다.
 
 ## 전제 조건 {#prerequisites}
 
@@ -36,7 +36,7 @@ Chord는 클라우드 모드(Braze REST API를 통한 서버 간 호출)와 디�
 
 ### 클라우드 모드 {#cloud-mode}
 
-1. Chord 데이터 플랫폼에서 CDP를 열고 **대상**으로 이동합니다.
+1. Chord 데이터 플랫폼에서 고객 데이터 플랫폼를 열고 **대상**으로 이동합니다.
 2. 대상 옆의 **추가**를 선택하고, 카탈로그에서 **Braze**를 선택한 다음 대상 이름과 Braze REST API 키를 입력합니다.
 3. 대상을 생성하여 연결을 완료합니다.
 
@@ -44,7 +44,7 @@ Braze 대시보드에서 **설정** > **API 키**로 이동하여 REST API 키�
 
 ### 디바이스 모드 {#device-mode}
 
-1. Chord 데이터 플랫폼에서 CDP를 열고 **대상**으로 이동합니다.
+1. Chord 데이터 플랫폼에서 고객 데이터 플랫폼를 열고 **대상**으로 이동합니다.
 2. 대상 옆의 **추가**를 선택하고, 카탈로그에서 **Braze (device mode)**를 선택한 다음 대상 이름과 웹 채널 API 키를 입력합니다.
 3. 대상을 생성하여 연결을 완료합니다.
 
@@ -54,7 +54,7 @@ Braze 대시보드에서 **설정** > **앱 설정** > **웹** > **API 키**로 
 
 Chord 대상 설정에서 다음을 구성합니다:
 
-- **Braze 웹 SDK 버전:** Chord는 CDP에서 선택 가능한 SDK 버전을 제공합니다. 사용 가능한 범위는 Chord 설명서에서 확인하세요.
+- **Braze 웹 SDK 버전:** Chord는 고객 데이터 플랫폼에서 선택 가능한 SDK 버전을 제공합니다. 사용 가능한 범위는 Chord 설명서에서 확인하세요.
 - **SDK 엔드포인트:** Braze 인스턴스와 일치해야 합니다. 자세한 내용은 [API 및 SDK 엔드포인트]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints)를 참조하세요.
 - **이벤트 및 SDK 옵션:** 예를 들어, 전송할 추적 또는 식별 동작, 페이지 이벤트 처리, 인앱 메시지 동작, SDK 초기화 타이밍, 동의 관련 설정 등이 있습니다.
 
@@ -90,14 +90,14 @@ Chord 추적 계획에 포함되고 Braze 대상으로 구성된 이벤트만 �
 ## 고려 사항 {#considerations}
 
 {% alert important %}
-다른 도구가 이미 동일한 이벤트를 Braze로 전송하고 있는 경우, Chord CDP를 통해 Braze를 연결하기 전에 해당 통합의 담당자와 조율하세요. 병렬 대상을 동시에 실행하면 다운스트림에서 중복 이벤트가 발생할 수 있습니다.
+다른 도구가 이미 동일한 이벤트를 Braze로 전송하고 있는 경우, Chord 고객 데이터 플랫폼를 통해 Braze를 연결하기 전에 해당 통합의 담당자와 조율하세요. 병렬 대상을 동시에 실행하면 다운스트림에서 중복 이벤트가 발생할 수 있습니다.
 {% endalert %}
 
 ## 문제 해결 {#troubleshooting}
 
 Braze에 이벤트가 표시되지 않는 경우:
 
-1. Chord CDP에서 소스로부터 실시간 이벤트가 도착하고 있는지 확인합니다.
+1. Chord 고객 데이터 플랫폼에서 소스로부터 실시간 이벤트가 도착하고 있는지 확인합니다.
 2. Braze 대상이 인스턴스에 맞는 올바른 API 키, SDK 버전(기기 모드) 및 REST 또는 SDK 엔드포인트를 사용하고 있는지 확인합니다.
 3. Chord에서 대상이 예상 소스에 연결되어 있는지 확인합니다.
 4. Chord에서 API 대상 또는 함수 로그를 검토하여 `/users/track` 및 `/users/identify`에 대한 호출이 성공했는지 확인한 다음, Braze에서 다시 확인합니다.

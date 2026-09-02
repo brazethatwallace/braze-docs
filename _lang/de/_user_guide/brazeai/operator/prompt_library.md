@@ -15,9 +15,9 @@ description: "Durchsuchen Sie Beispiel-Prompts für BrazeAI Operator, organisier
 {% sdktabs local %}
 {% sdktab Datenanalyse %}
 
-{% include copy_block.html content="Fassen Sie die wichtigsten Trends für MAU, DAU und neue Nutzer:innen in diesem Zeitraum zusammen und nennen Sie die nächsten Schritte." available="Home page" %}
+{% include copy_block.html content="Fassen Sie die wichtigsten Trends für MAU, täglich aktive:r Nutzer:in; täglich aktiv und neue Nutzer:innen in diesem Zeitraum zusammen und nennen Sie die nächsten Schritte." available="Home page" %}
 
-{% include copy_block.html content="Zeigen Sie die MAU-, DAU- und Neue-Nutzer:innen-Trends der letzten 90 Tage – wo sind die größten Einbrüche und Spitzen?" available="Home page" %}
+{% include copy_block.html content="Zeigen Sie die MAU-, täglich aktive:r Nutzer:in; täglich aktiv- und Neue-Nutzer:innen-Trends der letzten 90 Tage – wo sind die größten Einbrüche und Spitzen?" available="Home page" %}
 
 {% include copy_block.html content="Schlüsseln Sie die Sitzungen nach App auf (falls verfügbar) und heben Sie hervor, welche App diesen Monat das meiste Wachstum antreibt." available="Home page" %}
 
@@ -30,17 +30,17 @@ description: "Durchsuchen Sie Beispiel-Prompts für BrazeAI Operator, organisier
 {% endsdktab %}
 {% sdktab Strategie und Optimierung %}
 
-{% include copy_block.html content="Welche 3 Möglichkeiten gibt es, diese App-Nutzungs-Insights zu nutzen, um einen Re-Engagement-Canvas für Nutzer:innen mit Churn-Risiko zu gestalten?" available="Home page" %}
+{% include copy_block.html content="Welche 3 Möglichkeiten gibt es, diese App-Nutzungs-Insights zu nutzen, um einen Re-Engagement-Canvas für Nutzer:innen mit Abwanderung-Risiko zu gestalten?" available="Home page" %}
 
 {% include copy_block.html content="Was bedeutet unsere x%-Kundenbindung, und welche 3 Möglichkeiten gibt es, sie mit Lifecycle-Messaging zu verbessern?" available="Home page" %}
 
-{% include copy_block.html content="Welche 3 Möglichkeiten gibt es, unsere aktiven Lifecycle-Canvases zu optimieren, um die Aktivierung zu steigern und Churn zu reduzieren?" available="Canvas" %}
+{% include copy_block.html content="Welche 3 Möglichkeiten gibt es, unsere aktiven Lifecycle-Canvases zu optimieren, um die Aktivierung zu steigern und Abwanderung zu reduzieren?" available="Canvas" %}
 
 {% include copy_block.html content="Welche 3 Möglichkeiten gibt es, unsere Onboarding-Canvases umzustrukturieren, um Abbrüche zu reduzieren und die Aktivierung zu verbessern?" available="Canvas" %}
 
 {% include copy_block.html content="Zeigen Sie meine inaktiven Canvases und fassen Sie zusammen, was sie zuletzt gesendet haben und wann Nutzer:innen zuletzt eingetreten sind (letzte 90 Tage)." available="Canvas" %}
 
-{% include copy_block.html content="Wie können wir das Segment [Ihr Segmentname] nutzen, um eine Re-Engagement-Journey aufzubauen und Churn zu reduzieren?" available="Segments" %}
+{% include copy_block.html content="Wie können wir das Segment [Ihr Segmentname] nutzen, um eine Re-Engagement-Journey aufzubauen und Abwanderung zu reduzieren?" available="Segments" %}
 
 {% include copy_block.html content="Wie sollten wir Frequency-Capping-Segmenterweiterungen (E-Mail/SMS/48 h) strukturieren, um Über-Messaging zu reduzieren, ohne Conversions zu beeinträchtigen?" available="Segment Extensions" %}
 

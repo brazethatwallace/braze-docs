@@ -162,11 +162,11 @@ Le bloc [Gérer les abonnements]({{site.baseurl}}/user_guide/messaging/landing_p
 
 ### Partenariats {#partnerships}
 
-#### Audience Sync : Google Data Manager API
+#### Audience Sync : Google Data gestionnaire API
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-[Audience Sync vers Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync) prend en charge l'API Google Data Manager en accès anticipé.
+[Audience Sync vers Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync) prend en charge l'API Google Data gestionnaire en accès anticipé.
 
 #### Amazon Bedrock - Fournisseur de modèles IA {#amazon-bedrock-ai-model-provider}
 
@@ -202,7 +202,7 @@ Les dernières mises à jour du SDK ont été publiées. Les mises à jour majeu
     - Mise à jour du pont iOS natif [de Braze Swift SDK 17.0.0 à 18.0.0](https://github.com/braze-inc/braze-swift-sdk/compare/17.0.0...18.0.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
 - Swift SDK 18.0.0-18.1.0
     - Renomme `Braze.Ecommerce.ProductViewedEvent.typeIdentifiers` en `type` sur les surfaces API Swift et Objective-C.
-    Renomme les événements de mise à jour push-to-start des Live Activities sur `Braze.LiveActivities.UpdateEvent.ActivityType`, qui sont émis lors de l'utilisation de `Braze.LiveActivities.subscribeToStateUpdates(_:)` :
+    Renomme les événements de mise à jour push-to-start des en direct Activities sur `Braze.LiveActivities.UpdateEvent.ActivityType`, qui sont émis lors de l'utilisation de `Braze.LiveActivities.subscribeToStateUpdates(_:)` :
         - `pushToStartOptedOut` en `pushToStartUnregistered`
         - `pushToStartOptOutFlushed` en `pushToStartUnregisterFlushed`
 
@@ -261,7 +261,7 @@ Par exemple, sur la page Heures calmes, demandez à Operator de définir les heu
 
 Le [serveur MCP Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server) est une connexion hébergée à distance qui vous permet de connecter des agents d'intelligence artificielle tels que Claude, ChatGPT, Cursor, VSCode, Codex, Google Antigravity et Claude Code directement à Braze. En langage naturel, les agents peuvent lire les analyses de Campaigns, Canvas et Segments, les attributs personnalisés, les événements, les KPI et les catalogues, et créer ou mettre à jour des modèles d'e-mail, des Content Blocks et des ressources de la bibliothèque multimédia. Aucune donnée personnelle de profil utilisateur n'est exposée.
 
-Pour vous connecter, collez une seule URL d'endpoint dans votre client MCP — `https://mcp.braze.com/mcp` pour les États-Unis ou `https://mcp.braze.eu/mcp` pour l'UE — puis connectez-vous avec OAuth, y compris le SSO. Le serveur se lance avec les outils disponibles.
+Pour vous connecter, collez une seule URL d'endpoint dans votre client MCP — `https://mcp.braze.com/mcp` pour les États-Unis ou `https://mcp.braze.eu/mcp` pour l'UE — puis connectez-vous avec OAuth, y compris le authentification unique. Le serveur se lance avec les outils disponibles.
 
 ### Orchestration
 
@@ -502,7 +502,7 @@ Après l'envoi d'un message WhatsApp de test, vous pouvez consulter un [rapport 
 
 #### DinMo - Données et analyse - Reverse ETL {#dinmo-data-and-analytics-reverse-etl}
 
-[DinMo]({{site.baseurl}}/partners/dinmo) est une plateforme de données client (CDP) composable qui connecte votre entrepôt de données cloud à Braze via un processus ETL inversé (Extract, Transform, Load). Les équipes marketing peuvent créer des segments d'audience à partir des données de l'entrepôt, synchroniser les attributs et événements utilisateur dans Braze et maintenir les statuts d'abonnement à jour sans téléchargements CSV ni support d'ingénierie.
+[DinMo]({{site.baseurl}}/partners/dinmo) est une plateforme de données client (CDP) composable qui connecte votre entrepôt de données cloud à Braze via un processus ETL inversé (ETL). Les équipes marketing peuvent créer des segments d'audience à partir des données de l'entrepôt, synchroniser les attributs et événements utilisateur dans Braze et maintenir les statuts d'abonnement à jour sans téléchargements CSV ni support d'ingénierie.
 
 #### EmailShepherd - Orchestration des messages - Modèles {#emailshepherd-message-orchestration-templates}
 
@@ -696,7 +696,7 @@ Utilisez les [limites de débit de messagerie de l'espace de travail]({{site.bas
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-Le [générateur de modèles WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization) vous permet de créer et de soumettre des modèles de messages WhatsApp directement dans Braze, sans avoir à basculer entre Braze et le Meta Business Manager. Une fois que Meta a approuvé votre modèle, utilisez-le dans autant de Campaigns et de Canvas que vous le souhaitez.
+Le [générateur de modèles WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization) vous permet de créer et de soumettre des modèles de messages WhatsApp directement dans Braze, sans avoir à basculer entre Braze et le Meta Business gestionnaire. Une fois que Meta a approuvé votre modèle, utilisez-le dans autant de Campaigns et de Canvas que vous le souhaitez.
 
 #### Étiquettes de produits, métachamps et collections Shopify {#shopify-product-tags-metafields-and-collections}
 

@@ -20,7 +20,7 @@ Aunque proporcionamos una amplia lista de recursos de referencia previos al env�
 ## General {#general}
 
 ### Cosas que verificar {#things-to-check}
-- [**Límites de velocidad de la API**](https://braze.com/resources/articles/whats-rate-limiting): Revisa los [límites de velocidad]({{site.baseurl}}/api/api_limits) de la API de Braze para tus espacios de trabajo y así evitar errores. Si deseas aumentar tus límites de velocidad (y ya estás agrupando solicitudes en lotes), ponte en contacto con tu administrador de éxito de cliente. Ten en cuenta que este proceso requiere tiempo de preparación, así que planifica con antelación.
+- [**Límites de velocidad de la API**](https://braze.com/resources/articles/whats-rate-limiting): Revisa los [límites de velocidad]({{site.baseurl}}/api/api_limits) de la API de Braze para tus espacios de trabajo y así evitar errores. Si deseas aumentar tus límites de velocidad (y ya estás agrupando solicitudes en lotes), ponte en contacto con tu CSM. Ten en cuenta que este proceso requiere tiempo de preparación, así que planifica con antelación.
 - [**Anulaciones necesarias de limitación de frecuencia**]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping): Hay algunas campañas, como los mensajes transaccionales, que siempre querrás que lleguen al usuario, incluso si ya has alcanzado su límite de frecuencia (por ejemplo, una notificación de entrega). Si deseas que una Campaign en particular anule las reglas de limitación de frecuencia, puedes configurarlo en el panel de Braze al programar la entrega de esa Campaign desactivando la limitación de frecuencia.
 
 ### Cosas que debes saber {#things-to-know}

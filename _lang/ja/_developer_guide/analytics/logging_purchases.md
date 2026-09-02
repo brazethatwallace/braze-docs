@@ -8,7 +8,7 @@ description: "Braze SDKを使用して購入を記録する方法について説
 
 # 購入記録 {#log-purchases}
 
-> Braze SDKを使用してアプリ内購入を記録する方法について説明します。これにより、売上を経時的にトラッキングしたり、売上源を横断してトラッキングしたりできます。カスタムイベント、カスタム属性、および購入イベントを使用して、[生涯価値に基づいて]({{site.baseurl}}/developer_guide/analytics#purchase-events-revenue-tracking)ユーザーをセグメント化できます。
+> Braze SDKを使用してアプリ内購入を記録する方法について説明します。これにより、売上を経時的にトラッキングしたり、売上源を横断してトラッキングしたりできます。カスタムイベント、カスタム属性、および購入イベントを使用して、[LTVに基づいて]({{site.baseurl}}/developer_guide/analytics#purchase-events-revenue-tracking)ユーザーをセグメント化できます。
 
 {% alert note %}
 リストされていないラッパーSDKの場合は、代わりに関連するネイティブAndroidまたはSwiftメソッドを使用してください。
@@ -28,7 +28,7 @@ description: "Braze SDKを使用して購入を記録する方法について説
 braze.logPurchase(product_id, price, "USD", quantity);
 ```
 
-代わりにGoogle Tag Managerを使用する場合は、**Purchase**タグタイプを使用して[`logPurchase`メソッド](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logpurchase)を呼び出すことができます。このタグを使用して、Brazeへの購入をトラッキングし、オプションで購入プロパティを含めることもできます。設定方法は以下の通りです。
+代わりにGoogle Tag マネージャーを使用する場合は、**Purchase**タグタイプを使用して[`logPurchase`メソッド](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logpurchase)を呼び出すことができます。このタグを使用して、Brazeへの購入をトラッキングし、オプションで購入プロパティを含めることもできます。設定方法は以下の通りです。
 
 1. **Product ID**フィールドと**Price**フィールドは必須です。
 2. **Add Row**ボタンを使用して購入プロパティを追加します。
@@ -145,7 +145,7 @@ AppboyBinding.LogPurchase("product_id", "currencyCode", price(decimal));
 braze.logPurchase(product_id, price, "USD", quantity, {key: "value"});
 ```
 
-サイトが標準的な[eコマースイベント](https://developers.google.com/analytics/devguides/collection/ga4/ecommerce?client_type=gtm)のデータレイヤーアイテムを使用してGoogle Tag Managerに購入を記録している場合、**E-commerce Purchase**タグタイプを使用できます。このアクションタイプは、`items`のリストで送信された各アイテムに対して、Brazeに個別の「購入」を記録します。
+サイトが標準的な[eコマースイベント](https://developers.google.com/analytics/devguides/collection/ga4/ecommerce?client_type=gtm)のデータレイヤーアイテムを使用してGoogle Tag マネージャーに購入を記録している場合、**E-commerce Purchase**タグタイプを使用できます。このアクションタイプは、`items`のリストで送信された各アイテムに対して、Brazeに個別の「購入」を記録します。
 
 購入プロパティリストにキーを指定することで、購入プロパティとして含めたい追加のプロパティ名を指定することもできます。Brazeは、リストに追加した購入プロパティについて、記録される個々の`item`内を検索します。
 

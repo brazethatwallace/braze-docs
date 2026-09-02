@@ -12,7 +12,7 @@ noindex: true
 
 # Completa la integración {#complete-the-integration}
 
-Antes de seguir estos pasos, asegúrate de haber integrado el SDK mediante [Carthage]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/carthage_integration), [CocoaPods]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/cocoapods), [Swift Package Manager]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/swift_package_manager) o una integración [manual]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options).
+Antes de seguir estos pasos, asegúrate de haber integrado el SDK mediante [Carthage]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/carthage_integration), [CocoaPods]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/cocoapods), [Swift Package Administrador]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/swift_package_manager) o una integración [manual]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options).
 
 ## Paso 1: Actualiza tu app delegate {#step-1-update-your-app-delegate}
 
@@ -25,7 +25,7 @@ Si estás integrando el SDK de Braze con CocoaPods, Carthage o con una [integrac
 #import "Appboy-iOS-SDK/AppboyKit.h"
 ```
 
-Si estás integrando con Swift Package Manager o con una [integración manual estática]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options), usa esta línea en su lugar:
+Si estás integrando con Swift Package Administrador o con una [integración manual estática]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options), usa esta línea en su lugar:
 
 ```objc
 #import "AppboyKit.h"
@@ -50,7 +50,7 @@ Si estás integrando el SDK de Braze con CocoaPods, Carthage o con una [integrac
 import Appboy_iOS_SDK
 ```
 
-Si estás integrando con Swift Package Manager o con una [integración manual estática]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options), usa esta línea en su lugar:
+Si estás integrando con Swift Package Administrador o con una [integración manual estática]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options), usa esta línea en su lugar:
 
 ```swift
 import AppboyKit

@@ -1,16 +1,16 @@
-## 웹용 Google Tag Manager 정보 {#google-tag-manager}
+## 웹용 Google Tag 매니저 정보 {#google-tag-manager}
 
-Google Tag Manager(GTM)를 사용하면 프로덕션 코드 릴리스나 엔지니어링 리소스 없이도 웹사이트에 원격으로 태그를 추가, 제거, 편집할 수 있습니다. Braze는 웹 SDK를 위해 다음과 같은 템플릿을 제공합니다:
+Google Tag 매니저(GTM)를 사용하면 프로덕션 코드 릴리스나 엔지니어링 리소스 없이도 웹사이트에 원격으로 태그를 추가, 제거, 편집할 수 있습니다. Braze는 웹 SDK를 위해 다음과 같은 템플릿을 제공합니다:
 
 | 태그 유형 | 사용 사례 |
 |--------|--------|
 | 초기화 태그 | 이 태그를 사용하면 사이트의 코드를 수정할 필요 없이 [Web Braze SDK를 통합]({{site.baseurl}}/developer_guide/sdk_integration/?tab=google%20tag%20manager&sdktab=web)할 수 있습니다.|
 | 동작 태그 | 이 태그를 사용하면 [Content Cards를 생성]({{site.baseurl}}/developer_guide/content_cards/?sdktab=web#web_using-google-tag-manager)하고, [사용자 속성을 설정]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?tab=google%20tag%20manager&sdktab=web)하고, [데이터 수집을 관리]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?tab=google%20tag%20manager&sdktab=web)할 수 있습니다.|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="웹용 Google Tag Manager 정보" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="웹용 Google Tag 매니저 정보" }
 
 ## Braze 동작 태그의 태그 시퀀싱 {#tag-sequencing-for-braze-action-tags}
 
-커스텀 이벤트 및 기타 Braze 동작 태그는 **Braze Initialization** 태그가 웹 SDK 로드를 완료하기 전에 실행되면 실패할 수 있습니다. Google Tag Manager에서 동작 태그를 열고 **Advanced Settings** > **Tag Sequencing**으로 이동한 다음 **A tag that fires before [this tag] is fired**를 선택하고 Braze Initialization 태그를 선택합니다.
+커스텀 이벤트 및 기타 Braze 동작 태그는 **Braze Initialization** 태그가 웹 SDK 로드를 완료하기 전에 실행되면 실패할 수 있습니다. Google Tag 매니저에서 동작 태그를 열고 **Advanced Settings** > **Tag Sequencing**으로 이동한 다음 **A tag that fires before [this tag] is fired**를 선택하고 Braze Initialization 태그를 선택합니다.
 
 자세한 내용은 [커스텀 이벤트의 태그 시퀀싱 확인]({{site.baseurl}}/developer_guide/content_cards/?sdktab=web#tag-sequencing)을 참조하세요.
 

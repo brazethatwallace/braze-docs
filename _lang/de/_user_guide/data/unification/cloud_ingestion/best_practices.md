@@ -119,7 +119,7 @@ Fügen Sie in Ihrem Data Warehouse die folgenden Nutzer:innen und Attribute zu I
   </tbody>
 </table>
 
-Während der nächsten geplanten Synchronisierung synchronisiert Braze alle Zeilen mit einem `UPDATED_AT`-Zeitstempel, der später als der zuletzt synchronisierte Zeitstempel ist. Braze aktualisiert oder fügt Felder hinzu, sodass Sie nicht jedes Mal das vollständige Nutzerprofil synchronisieren müssen. Nach der Synchronisierung spiegeln die Nutzerprofile die neuen Aktualisierungen wider:
+Während der nächsten geplanten Synchronisierung synchronisiert Braze alle Zeilen mit einem `UPDATED_AT`-Zeitstempel, der später als der zuletzt synchronisierte Zeitstempel ist. Braze aktualisiert oder fügt Felder hinzu, sodass Sie nicht jedes Mal das vollständige Kundenprofil synchronisieren müssen. Nach der Synchronisierung spiegeln die Nutzerprofile die neuen Aktualisierungen wider:
 
 **Wiederkehrende Synchronisierung, zweiter Durchlauf am 20. Juli 2022 um 12 Uhr**
 
@@ -540,7 +540,7 @@ CDI synchronisiert nur die neuen Zeilen. Bei der nächsten Synchronisierung werd
 
 ### Nur neue oder aktualisierte Attribute schreiben, um den Verbrauch zu minimieren {#only-write-new-or-updated-attributes-to-minimize-consumption}
 
-Bei jeder Synchronisierung sucht Braze nach Zeilen, die zuvor noch nicht synchronisiert wurden. Dies wird anhand der `UPDATED_AT`-Spalte in Ihrer Tabelle oder Ansicht überprüft. Braze wählt alle Zeilen aus und importiert sie, bei denen `UPDATED_AT` nach dem zuletzt synchronisierten `UPDATED_AT`-Wert liegt – unabhängig davon, ob sie mit dem übereinstimmen, was aktuell im Nutzerprofil gespeichert ist. Zeilen am Grenz-Timestamp können ebenfalls erneut synchronisiert werden, wenn neue Zeilen denselben Timestamp aufweisen. Daher empfehlen wir, nur Attribute zu synchronisieren, die Sie hinzufügen oder aktualisieren möchten.
+Bei jeder Synchronisierung sucht Braze nach Zeilen, die zuvor noch nicht synchronisiert wurden. Dies wird anhand der `UPDATED_AT`-Spalte in Ihrer Tabelle oder Ansicht überprüft. Braze wählt alle Zeilen aus und importiert sie, bei denen `UPDATED_AT` nach dem zuletzt synchronisierten `UPDATED_AT`-Wert liegt – unabhängig davon, ob sie mit dem übereinstimmen, was aktuell im Kundenprofil gespeichert ist. Zeilen am Grenz-Timestamp können ebenfalls erneut synchronisiert werden, wenn neue Zeilen denselben Timestamp aufweisen. Daher empfehlen wir, nur Attribute zu synchronisieren, die Sie hinzufügen oder aktualisieren möchten.
 
 Der Datenpunkt-Verbrauch ist bei CDI identisch mit anderen Aufnahmemethoden wie REST APIs oder SDKs. Stellen Sie daher sicher, dass Sie nur neue oder aktualisierte Attribute in Ihre Quelltabellen aufnehmen.
 
@@ -710,7 +710,7 @@ Wir empfehlen, Abfragen innerhalb einer Stunde abzuschließen, um eine optimale 
 | Einschränkung | Beschreibung |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Anzahl der Integrationen | Es gibt keine Begrenzung für die Anzahl der Integrationen, die Sie einrichten können. Sie können jedoch nur eine Integration pro Tabelle oder Ansicht einrichten. |
-| Anzahl der Zeilen | Standardmäßig kann jeder Durchlauf bis zu 500 Millionen Zeilen synchronisieren. Braze stoppt alle Synchronisierungen mit mehr als 500 Millionen neuen Zeilen. Wenn Sie ein höheres Limit benötigen, wenden Sie sich an Ihren Braze Customer-Success-Manager oder den Braze-Support. |
+| Anzahl der Zeilen | Standardmäßig kann jeder Durchlauf bis zu 500 Millionen Zeilen synchronisieren. Braze stoppt alle Synchronisierungen mit mehr als 500 Millionen neuen Zeilen. Wenn Sie ein höheres Limit benötigen, wenden Sie sich an Ihren Braze CSM oder den Braze-Support. |
 | Attribute pro Zeile | Jede Zeile sollte eine einzelne Nutzer-ID und ein JSON-Objekt mit bis zu 250 Attributen enthalten. Jeder Schlüssel im JSON-Objekt zählt als ein Attribut (d. h. ein Array zählt als ein Attribut). |
 | Payload-Größe | Jede Zeile kann eine Payload von bis zu 1 MB enthalten. Braze lehnt Payloads ab, die größer als 1&nbsp;MB sind, und protokolliert den Fehler „Payload was greater than 1MB“ im Synchronisierungsprotokoll zusammen mit der zugehörigen externen ID und der gekürzten Payload. |
 | Datentyp | Sie können Nutzerattribute, Events und Käufe über die Cloud-Datenaufnahme synchronisieren. |

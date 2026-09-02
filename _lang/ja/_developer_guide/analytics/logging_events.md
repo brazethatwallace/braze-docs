@@ -27,7 +27,7 @@ eコマースの推奨イベントについては、[eコマースイベント�
 braze.logCustomEvent("YOUR_EVENT_NAME");
 ```
 
-代わりにGoogle Tag Managerを使用する場合は、**カスタムイベント**タグタイプを使用して[`logCustomEvent`メソッド](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcustomevent)を呼び出し、カスタムイベントをBrazeに送信できます。オプションでカスタムイベントプロパティを含めることも可能です。手順は以下のとおりです。
+代わりにGoogle Tag マネージャーを使用する場合は、**カスタムイベント**タグタイプを使用して[`logCustomEvent`メソッド](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcustomevent)を呼び出し、カスタムイベントをBrazeに送信できます。オプションでカスタムイベントプロパティを含めることも可能です。手順は以下のとおりです。
 
 1. 変数を使用するか、イベント名を直接入力して**イベント名**を入力します。
 2. **行を追加**ボタンを使用してイベントプロパティを追加します。

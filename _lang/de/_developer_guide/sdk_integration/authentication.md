@@ -43,7 +43,7 @@ Denken Sie daran, Ihre Private Keys _privat_ zu halten. Geben Sie Ihren Private 
 
 Sobald Sie Ihren Private Key haben, sollte Ihre serverseitige Anwendung diesen verwenden, um ein JWT an Ihre App oder Website für die aktuell angemeldete Nutzerin oder den aktuell angemeldeten Nutzer zurückzugeben.
 
-Typischerweise könnte diese Logik dort implementiert werden, wo Ihre App normalerweise das Profil der aktuellen Nutzerin oder des aktuellen Nutzers abfragt – zum Beispiel an einem Login-Endpunkt oder überall dort, wo Ihre App das aktuelle Nutzerprofil aktualisiert.
+Typischerweise könnte diese Logik dort implementiert werden, wo Ihre App normalerweise das Profil der aktuellen Nutzerin oder des aktuellen Nutzers abfragt – zum Beispiel an einem Login-Endpunkt oder überall dort, wo Ihre App das aktuelle Kundenprofil aktualisiert.
 
 Bei der Generierung des JWT werden die folgenden Felder erwartet:
 
@@ -493,7 +493,7 @@ Braze.setSdkAuthenticationSignature("NEW-JWT-FROM-SERVER");
 {% endtab %}
 {% endtabs %}
 
-#### Schritt 2.3: Callback-Funktion für ungültige Token registrieren {#sdk-callback}
+#### Schritt 2.3: Callback-Funktion für ungültige Token manuell registrieren {#sdk-callback}
 
 Wenn dieses Feature auf [Erforderlich](#enforcement-options) gesetzt ist, führen die folgenden Szenarien dazu, dass SDK-Anfragen von Braze abgelehnt werden:
 - Das JWT war zum Zeitpunkt des Eingangs bei der Braze-API abgelaufen

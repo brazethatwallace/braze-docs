@@ -32,7 +32,7 @@ Es gibt zwei Arten von [Provisioning-Profilen](https://developer.apple.com/libra
 
 #### Schritt 2: Geräte registrieren sich bei APNs und stellen Braze Push-Token bereit {#step-2-devices-register-for-apns-and-provide-braze-with-push-tokens}
 
-Wenn Nutzer:innen Ihre App öffnen, werden sie aufgefordert, Push-Benachrichtigungen zu akzeptieren. Wenn sie diese Aufforderung akzeptieren, generiert APNs ein Push-Token für das jeweilige Gerät. Das iOS SDK sendet das Push-Token sofort und asynchron für Apps, die die standardmäßige [automatische Flush-Richtlinie]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/advanced_use_cases/fine_network_traffic_control#automatic-request-processing) verwenden. Sobald wir ein Push-Token mit einer:m Nutzer:in verknüpft haben, wird diese:r im Dashboard in ihrem/seinem Nutzerprofil unter dem Tab **Engagement** als „Push-registriert“ angezeigt und ist berechtigt, Push-Benachrichtigungen aus Braze Campaigns zu erhalten.
+Wenn Nutzer:innen Ihre App öffnen, werden sie aufgefordert, Push-Benachrichtigungen zu akzeptieren. Wenn sie diese Aufforderung akzeptieren, generiert APNs ein Push-Token für das jeweilige Gerät. Das iOS SDK sendet das Push-Token sofort und asynchron für Apps, die die standardmäßige [automatische Flush-Richtlinie]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/advanced_use_cases/fine_network_traffic_control#automatic-request-processing) verwenden. Sobald wir ein Push-Token mit einer:m Nutzer:in verknüpft haben, wird diese:r im Dashboard in ihrem/seinem Kundenprofil unter dem Tab **Engagement** als „Push-registriert“ angezeigt und ist berechtigt, Push-Benachrichtigungen aus Braze Campaigns zu erhalten.
 
 {% alert note %}
 Ab Xcode 14 können Sie Remote-Push-Benachrichtigungen in einem iOS-Simulator testen.
@@ -52,9 +52,9 @@ Braze stellt ein Protokoll der Push-Benachrichtigungsfehler im **Nachrichtenakti
 
 ![Push-Fehlerprotokolle mit dem Zeitpunkt des Fehlers, dem App-Namen, dem Kanal, dem Fehlertyp und der Fehlermeldung.]({% image_buster /assets/img_archive/message_activity_log.png %})
 
-Häufige Fehler, die hier auftreten können, umfassen nutzerspezifische Benachrichtigungen wie [„Received Unregistered Sending to Push Token“](#received-unregistered-sending).
+Häufige Fehler, die hier auftreten können, umfassen nutzerspezifische Benachrichtigungen wie [„Received Unregistered Sending to Push-Token“](#received-unregistered-sending).
 
-Darüber hinaus stellt Braze auch ein Push-Changelog im Nutzerprofil unter dem Tab **Engagement** bereit. Dieses Changelog bietet Einblicke in das Push-Registrierungsverhalten, wie z. B. Token-Invalidierung, Push-Registrierungsfehler, Token-Übertragung an neue Nutzer:innen usw.
+Darüber hinaus stellt Braze auch ein Push-Changelog im Kundenprofil unter dem Tab **Engagement** bereit. Dieses Changelog bietet Einblicke in das Push-Registrierungsverhalten, wie z. B. Token-Invalidierung, Push-Registrierungsfehler, Token-Übertragung an neue Nutzer:innen usw.
 
 ![Beispiel für eine animierte Content-Card.]({% image_buster /assets/img_archive/push_changelog.gif %}){: style="max-width:50%;" }
 
@@ -109,11 +109,11 @@ Bei iOS-Versionen, die Push nicht über das `UserNotifications`-Framework integr
 
 #### Nutzer:in ist nicht „push-registriert“ für die getestete App {#user-not-push-registered-for-the-app-being-tested}
 
-Überprüfen Sie das Nutzerprofil der Person, an die Sie eine Testnachricht senden möchten. Unter dem Tab **Engagement** sollte eine Liste der „push-fähigen Apps“ angezeigt werden. Stellen Sie sicher, dass die App, an die Sie Testnachrichten senden möchten, in dieser Liste enthalten ist. Nutzer:innen werden als „Push-registriert“ angezeigt, wenn sie ein Push-Token für eine beliebige App in Ihrem Workspace haben, sodass dies ein falsch positives Ergebnis sein könnte.
+Überprüfen Sie das Kundenprofil der Person, an die Sie eine Testnachricht senden möchten. Unter dem Tab **Engagement** sollte eine Liste der „push-fähigen Apps“ angezeigt werden. Stellen Sie sicher, dass die App, an die Sie Testnachrichten senden möchten, in dieser Liste enthalten ist. Nutzer:innen werden als „Push-registriert“ angezeigt, wenn sie ein Push-Token für eine beliebige App in Ihrem Workspace haben, sodass dies ein falsch positives Ergebnis sein könnte.
 
 Folgendes würde auf ein Problem mit der Push-Registrierung hindeuten oder darauf, dass das Token der:des Nutzer:in nach dem Senden durch APNs als ungültig an Braze zurückgegeben wurde:
 
-![Ein Nutzerprofil, das die Kontakteinstellungen einer:eines Nutzer:in anzeigt. Hier können Sie sehen, für welche Apps Push registriert ist.]({% image_buster /assets/img_archive/registration_problem.png %}){: style="max-width:50%"}
+![Ein Kundenprofil, das die Kontakteinstellungen einer:eines Nutzer:in anzeigt. Hier können Sie sehen, für welche Apps Push registriert ist.]({% image_buster /assets/img_archive/registration_problem.png %}){: style="max-width:50%"}
 
 ## Push-Nachrichten werden nicht gesendet {#push-messages-not-sending}
 
@@ -121,17 +121,17 @@ Informationen zur Fehlerbehebung bei Push-Benachrichtigungen, die nicht gesendet
 
 ## Fehlerprotokoll für Nachrichtenaktivitäten {#message-activity-log-errors}
 
-### Received unregistered sending to push token {#received-unregistered-sending}
+### Received unregistered sending to Push-Token {#received-unregistered-sending}
 
 - Stellen Sie sicher, dass das Push-Token, das über die Methode `[[Appboy sharedInstance] registerPushToken:]` an Braze gesendet wird, gültig ist. Sie können im **Nachrichtenaktivitätsprotokoll** das Push-Token einsehen. Es sollte in etwa so aussehen wie `6e407a9be8d07f0cdeb9e724733a89445f57a89ec890d63867c482a483506fa6`, ein langer String aus einer Mischung von Buchstaben und Zahlen. Wenn Ihr Push-Token anders aussieht, überprüfen Sie Ihren [Code]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration#step-4-register-push-tokens-with-braze) zum Senden der Push-Token an Braze.
 - Stellen Sie sicher, dass Ihr Push-Bereitstellungsprofil mit der Umgebung übereinstimmt, in der Sie testen. Universalzertifikate können im Braze-Dashboard so konfiguriert werden, dass sie entweder an die Entwicklungs- oder die Produktions-APNs-Umgebung senden. Die Verwendung eines Entwicklungszertifikats für eine Produktions-App oder eines Produktionszertifikats für eine Entwicklungs-App funktioniert nicht.
  - Überprüfen Sie, ob das Push-Token, das Sie bei Braze hochgeladen haben, mit dem Bereitstellungsprofil übereinstimmt, das Sie zum Erstellen der App verwendet haben, von der das Push-Token gesendet wurde.
 
-#### Device token not for topic {#device-token-not-for-topic}
+#### Device Token not for topic {#device-token-not-for-topic}
 
 Dieser Fehler weist darauf hin, dass das Push-Zertifikat Ihrer App und die Bundle-ID nicht übereinstimmen. Überprüfen Sie, ob das Push-Zertifikat, das Sie bei Braze hochgeladen haben, mit dem Bereitstellungsprofil übereinstimmt, das zum Erstellen der App verwendet wurde, von der das Push-Token gesendet wurde.
 
-#### BadDeviceToken sending to push token {#baddevicetoken-sending-to-push-token}
+#### BadDeviceToken sending to Push-Token {#baddevicetoken-sending-to-push-token}
 
 `BadDeviceToken` ist ein APNs-Fehlercode und stammt nicht von Braze. Es kann mehrere Gründe geben, warum diese Antwort zurückgegeben wird, darunter die folgenden:
 

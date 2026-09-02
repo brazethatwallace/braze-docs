@@ -86,7 +86,7 @@ Ein Langcode ist eine Standard-Telefonnummer, die zum Senden und Empfangen von S
 | Vorteile |
 | ---- |
 | **Vertrautheit und Vertrauen**<br> Langcodes sehen aus wie persönliche Telefonnummern und enthalten oft eine lokale Vorwahl. Für Marken stellt dies eine Balance zwischen professioneller Präsenz und einem persönlichen, zugänglichen Gefühl dar. |
-| **Größere weltweite Verfügbarkeit**<br>Langcodes sind in über 100 wichtigen Ländern weltweit verfügbar. Wenden Sie sich an Ihren Customer-Success-Manager oder den [Braze-Support]({{site.baseurl}}/braze_support) für eine Liste der verfügbaren Länder.|
+| **Größere weltweite Verfügbarkeit**<br>Langcodes sind in über 100 wichtigen Ländern weltweit verfügbar. Wenden Sie sich an Ihren CSM oder den [Braze-Support]({{site.baseurl}}/braze_support) für eine Liste der verfügbaren Länder.|
 {: .reset-td-br-1 aria-label="Vor- und Nachteile" }
 
 | Nachteile |
@@ -118,7 +118,7 @@ Sie kann bis zu 11 Zeichen haben und Groß- (A–Z) und Kleinbuchstaben (a–z),
 | {::nomarkdown} <ul><li> Verbesserte Markenwiedererkennung </li><li> In vielen internationalen Märkten registrieren und prüfen lokale Carrier alphanumerische Sender vorab, sodass Ihre Nachrichten weniger wahrscheinlich in aggressiven Carrier-Spam-Filtern hängen bleiben, die andernfalls zufällige Langcodes blockieren könnten </li><li> Verfügbar innerhalb einer Woche, wenn keine Vorregistrierung erforderlich ist </li></ul> {:/} | {::nomarkdown} <ul><li> <a href='/docs/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling#two-way-messaging-custom-keyword-responses'>Zwei-Wege-Messaging</a> wird nicht unterstützt </li><li> Nicht alle Länder unterstützen dieses Feature. Es wird beispielsweise in Großbritannien unterstützt, ist jedoch in den USA blockiert. </li><li> Einige Länder haben einen umfangreichen Vorregistrierungsprozess, der die Einreichung rechtlicher Dokumente und längere Vorlaufzeiten erfordert. </li></ul> {:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Vor- und Nachteile" }
 
-Für weitere Informationen zu alphanumerischen Sender-IDs wenden Sie sich an Ihren Customer-Success-Manager.
+Für weitere Informationen zu alphanumerischen Sender-IDs wenden Sie sich an Ihren CSM.
 {% endtab %}
 {% tab Gebührenfreie SMS-Nummern %}
 
@@ -189,7 +189,7 @@ Die Zeitrahmen für RCS variieren je nach Land und mit zunehmender Einführung d
 
 ### SMS-Shortcodes
 
-Shortcodes werden länderspezifisch bereitgestellt. Je nach Land ist der Shortcode-Antragsprozess dafür bekannt, unvorhersehbar zu sein. Braze unterstützt Sie bei jedem Schritt. Wenn Sie einen Shortcode möchten, wenden Sie sich an Ihren Onboarding-Manager oder eine andere Braze-Vertretung.
+Shortcodes werden länderspezifisch bereitgestellt. Je nach Land ist der Shortcode-Antragsprozess dafür bekannt, unvorhersehbar zu sein. Braze unterstützt Sie bei jedem Schritt. Wenn Sie einen Shortcode möchten, wenden Sie sich an Ihren Onboarding-Manager:in oder eine andere Braze-Vertretung.
 
 Braze hilft Ihnen bei der Zusammenstellung aller Materialien und Informationen, die für die Einreichung eines Antrags und die Konfiguration eines neuen Shortcodes erforderlich sind. Die Anforderungen variieren je nach Land, aber viele erfordern mindestens Folgendes:
 
@@ -206,7 +206,7 @@ Wenn alle Ihre Antragsmaterialien bereit sind, reicht Braze den Antrag in Ihrem 
 Der Zeitrahmen für die Prüfung und Genehmigung von Shortcodes variiert, beträgt aber in der Regel 4–12 Wochen, abhängig vom Land und der Art des Programms.
 
 {% alert important %}
-Wenn Sie bereits über einen eigenen Shortcode verfügen, wenden Sie sich während des Onboarding-Prozesses an Ihren Customer-Success-Manager, um die Migration oder Übertragung Ihres Shortcodes zu besprechen.
+Wenn Sie bereits über einen eigenen Shortcode verfügen, wenden Sie sich während des Onboarding-Prozesses an Ihren CSM, um die Migration oder Übertragung Ihres Shortcodes zu besprechen.
 {% endalert %}
 
 {% endtab %}

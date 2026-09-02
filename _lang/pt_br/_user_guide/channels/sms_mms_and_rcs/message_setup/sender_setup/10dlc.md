@@ -54,7 +54,7 @@ O throughput de mensagens para seu 10DLC depende de vários fatores, incluindo a
 
 #### Pontuação de confiança da marca {#trust-score}
 
-O Campaign Registry (TCR) é uma agência terceirizada que usa um algoritmo de reputação para avaliar critérios específicos relacionados à sua empresa e atribuir uma pontuação de confiança que determina o throughput de mensagens para cada marca. Essa pontuação de confiança será atribuída quando um cliente se registrar para o envio de mensagens 10DLC nos EUA. Quanto maior a pontuação de confiança, melhor será a taxa de mensagens por segundo (MPS) que você terá.
+O Campaign Registry (TCR) é uma agência terceirizada que usa um algoritmo de reputação para avaliar critérios específicos relacionados à sua empresa e atribuir uma pontuação de confiança que determina o throughput de mensagens para cada marca. Essa pontuação de confiança será atribuída quando um cliente se registrar para o envio de mensagens 10DLC nos EUA. Quanto maior a pontuação de confiança, melhor será a taxa de MPS (MPS) que você terá.
 
 |     | Pontuação de confiança | AT&T | T-Mobile | Verizon |
 | --- | ----------- | ---- | -------- | ------- |
@@ -69,7 +69,7 @@ Empresas listadas no Índice Russell 3000 receberão alto throughput e pontuaç�
 
 #### Limites diários de mensagens {#daily-message-limits}
 
-Os limites diários variam de 2.000 a 200.000 mensagens, dependendo da sua pontuação de confiança da marca, e se aplicam a todos os long codes. Embora pontuações de confiança altas venham com um throughput de 60 mensagens por segundo, quaisquer limites diários de mensagens definidos pela operadora ainda se aplicam. Isso significa que short codes seriam uma opção melhor se o pico diário de mensagens de uma marca for maior do que o limite diário imposto.
+Os limites diários variam de 2.000 a 200.000 mensagens, dependendo da sua pontuação de confiança da marca, e se aplicam a todos os long codes. Embora pontuações de confiança altas venham com um throughput de 60 MPS, quaisquer limites diários de mensagens definidos pela operadora ainda se aplicam. Isso significa que short codes seriam uma opção melhor se o pico diário de mensagens de uma marca for maior do que o limite diário imposto.
 
 #### Casos de uso de envio de mensagens {#messaging-use-cases}
 
@@ -122,4 +122,4 @@ Visite o artigo da Twilio sobre 10DLC para conferir as [estimativas de throughpu
 
 ## Próximas etapas {#next-steps}
 
-Os clientes que ainda não se registraram para o 10DLC devem trabalhar com seu gerente de sucesso do cliente para registrar seus long codes. **Se os clientes não registrarem seus long codes, a partir de 1º de outubro de 2021, qualquer remetente A2P usando long codes terá uma filtragem intensa de todas as mensagens.** Entre em contato com seu gerente de sucesso do cliente para iniciar o registro do seu 10DLC.
+Os clientes que ainda não se registraram para o 10DLC devem trabalhar com seu CSM para registrar seus long codes. **Se os clientes não registrarem seus long codes, a partir de 1º de outubro de 2021, qualquer remetente A2P usando long codes terá uma filtragem intensa de todas as mensagens.** Entre em contato com seu CSM para iniciar o registro do seu 10DLC.

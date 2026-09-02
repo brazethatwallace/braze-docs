@@ -22,11 +22,11 @@ Stellen Sie sicher, dass Sie über Folgendes verfügen:
 - Den Varianteninhalt, den Sie testen möchten, z. B. alternative Betreffzeilen, CTAs und Hero-Bilder. Sie können Varianten während der Einrichtung erstellen, aber wenn Sie sie vorab vorbereiten, beschleunigt das die Konfiguration
 - Workspace-Zugriff mit Berechtigungen zur Konfiguration von KI-Decisioning-Agenten
 
-Wenn Ihr Workspace nicht für Decisioning Studio Go bereitgestellt wurde, sehen Sie die Agentenkonfigurationsoption im Tab **AI Decisioning** nicht. Wenden Sie sich an Ihren Customer-Success-Manager, um Zugang zu erhalten.
+Wenn Ihr Workspace nicht für Decisioning Studio Go bereitgestellt wurde, sehen Sie die Agentenkonfigurationsoption im Tab **KI Decisioning** nicht. Wenden Sie sich an Ihren CSM, um Zugang zu erhalten.
 
 ## Schritt 1: Richten Sie Ihren Agenten ein {#step-1-set-up-your-agent}
 
-1. Gehen Sie im Braze-Dashboard zum Tab **AI Decisioning**.
+1. Gehen Sie im Braze-Dashboard zum Tab **KI Decisioning**.
 2. Wählen Sie **Create Agent** aus.
 3. Geben Sie Ihrem Agenten einen Namen, der ihn von anderen in Ihrem Workspace unterscheidet. Ein Beispiel wäre „Loyalty Members—Weekly Engagement“ statt „Email Agent“.
 4. (Optional) Fügen Sie eine Beschreibung hinzu, um Kontext bereitzustellen, den Sie oder ein Teammitglied später benötigen könnten. Dazu kann gehören, wofür der Agent gedacht ist, welches Segment er anspricht und wie Erfolg aussieht.
@@ -87,7 +87,7 @@ Ihre Frequency-Capping-Regeln können auf Agent-Ebene angewendet werden:
 - **Auf das Cap anrechnen:** Wählen Sie, ob Sendungen dieses Agenten auf das Gesamt-Cap der Nutzer:innen angerechnet werden.
 
 {% alert tip %}
-Wenn Ihr Frequency-Cap die Nutzererfahrung schützt, sind die Sendungen des Agenten bereits gezielt und Sie müssen sie möglicherweise nicht auf das Cap anrechnen. Wenn Ihr Cap das gesamte Sendevolumen oder die Ausgaben kontrolliert, sollten sie wahrscheinlich angerechnet werden. Ihr Customer-Success-Manager oder Solutions Consultant kann Ihnen helfen, den richtigen Ansatz für Ihren Workspace zu bestätigen.
+Wenn Ihr Frequency-Cap die Nutzererfahrung schützt, sind die Sendungen des Agenten bereits gezielt und Sie müssen sie möglicherweise nicht auf das Cap anrechnen. Wenn Ihr Cap das gesamte Sendevolumen oder die Ausgaben kontrolliert, sollten sie wahrscheinlich angerechnet werden. Ihr CSM oder Solutions Consultant kann Ihnen helfen, den richtigen Ansatz für Ihren Workspace zu bestätigen.
 {% endalert %}
 
 ## Schritt 4: Inhalte und Templates hinzufügen {#step-4-add-content-and-templates}
@@ -204,6 +204,6 @@ Die folgende Tabelle fasst die Bereiche von Decisioning Studio Go und die zugeh�
 
 ## Fehlerbehebung {#troubleshooting}
 
-Wenden Sie sich bei Fragen zur Agentenkonfiguration, Performance-Überprüfung oder Programmgestaltung an Ihren Customer-Success-Manager oder Solutions Consultant.
+Wenden Sie sich bei Fragen zur Agentenkonfiguration, Performance-Überprüfung oder Programmgestaltung an Ihren CSM oder Solutions Consultant.
 
 Häufig gestellte Fragen finden Sie in den [Decisioning Studio Go FAQ]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/faq).

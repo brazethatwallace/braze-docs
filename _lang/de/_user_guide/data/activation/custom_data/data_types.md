@@ -118,7 +118,7 @@ Es gibt zwei Möglichkeiten, angepasste Attribute aus Nutzerprofilen zu entferne
 Ein Attribut auf `null` zu setzen und es auf `""` (leerer String) zu setzen, ist nicht dasselbe.
 {% endalert %}
 
-- `null` entfernt das Attribut vollständig aus dem Nutzerprofil. Es erscheint nicht im Profil und stimmt mit keinem **IS NOT BLANK**-Filter überein.
+- `null` entfernt das Attribut vollständig aus dem Kundenprofil. Es erscheint nicht im Profil und stimmt mit keinem **IS NOT BLANK**-Filter überein.
 - `""` setzt das Attribut auf einen leeren String-Wert. Das Attribut erscheint im Profil mit einem leeren String-Wert, stimmt aber nicht mit **IS NOT BLANK**-Filtern überein (es wird als leer behandelt).
 
 Außerdem ist `""` nur für String-Attribute gültig. Wenn der Datentyp des Attributs im Dashboard auf einen Nicht-String-Typ (wie boolescher Wert, Zahl oder Zeit) gesetzt ist, löscht das Senden von `""` den Wert nicht – verwenden Sie stattdessen `null`.
@@ -157,7 +157,7 @@ Im Folgenden finden Sie Methoden für verschiedene Plattformen, die zum Festlege
 
 ## Speicherung angepasster Attribute {#custom-attribute-storage}
 
-Alle im **Nutzerprofil** gespeicherten Daten, einschließlich angepasster Attributdaten, werden unbegrenzt aufbewahrt, solange jedes Profil [aktiv]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival#active-users) ist.
+Alle im **Kundenprofil** gespeicherten Daten, einschließlich angepasster Attributdaten, werden unbegrenzt aufbewahrt, solange jedes Profil [aktiv]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival#active-users) ist.
 
 ## Datentypen für angepasste Attribute
 
@@ -182,8 +182,8 @@ Für Attribute vom Typ **Boolescher Wert** stehen die folgenden Segmentierungsop
 | Segmentierungsoptionen | Dropdown-Filter | Eingabeoptionen | Beispiele |
 | ---------------------| --------------- | ------------- | -------- |
 | Prüfen, ob der boolesche Wert entweder wahr, falsch, wahr oder nicht gesetzt bzw. falsch oder nicht gesetzt **ist** | **IS**  | **TRUE**, **FALSE**, **TRUE OR NOT SET** oder **FALSE OR NOT SET** | Wenn dieser Filter `coffee_drinker` angibt, stimmt ein:e Nutzer:in in den folgenden Fällen mit diesem Filter überein: <br> {::nomarkdown}<ul><li>Wenn dieser Filter <code>true</code> ist und der/die Nutzer:in den Wert <code>coffee_drinker</code> hat</li><li>Wenn dieser Filter <code>false</code> ist und der/die Nutzer:in den Wert <code>coffee_drinker</code> nicht hat</li><li>Wenn dieser Filter <code>true or not set</code> ist und der/die Nutzer:in den Wert <code>coffee_drinker</code> oder keinen Wert hat</li><li>Wenn dieser Filter <code>false or not set</code> ist und der/die Nutzer:in <code>coffee_drinker</code> oder keinen Wert nicht hat</li></ul>{:/} |
-| Prüfen, ob der boolesche Wert im Nutzerprofil **vorhanden** und nicht null ist | **IS NOT BLANK**  | **N/A** | Wenn dieser Filter `coffee_drinker` angibt und ein Nutzerprofil einen Wert für das Attribut `coffee_drinker` hat, stimmt der/die Nutzer:in mit diesem Filter überein. |
-| Prüfen, ob der boolesche Wert im Nutzerprofil **nicht vorhanden** oder null ist | **IS BLANK**  | **N/A** | Wenn dieser Filter `coffee_drinker` angibt und ein Nutzerprofil das Attribut `coffee_drinker` nicht hat oder der Wert für `coffee_drinker` null ist, stimmt der/die Nutzer:in mit diesem Filter überein.|
+| Prüfen, ob der boolesche Wert im Kundenprofil **vorhanden** und nicht null ist | **IS NOT BLANK**  | **N/A** | Wenn dieser Filter `coffee_drinker` angibt und ein Kundenprofil einen Wert für das Attribut `coffee_drinker` hat, stimmt der/die Nutzer:in mit diesem Filter überein. |
+| Prüfen, ob der boolesche Wert im Kundenprofil **nicht vorhanden** oder null ist | **IS BLANK**  | **N/A** | Wenn dieser Filter `coffee_drinker` angibt und ein Kundenprofil das Attribut `coffee_drinker` nicht hat oder der Wert für `coffee_drinker` null ist, stimmt der/die Nutzer:in mit diesem Filter überein.|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Boolesche Werte (wahr/falsch)" }
 
 {% endtab %}
@@ -197,12 +197,12 @@ Für Attribute vom Typ **Zahl** stehen die folgenden Segmentierungsoptionen zur 
 
 | Segmentierungsoptionen | Dropdown-Filter | Eingabeoptionen | Beispiele |
 | ---------------------| --------------- | ------------- | -------- |
-| Prüfen, ob das numerische Attribut **genau** einer **Zahl** entspricht | **EXACTLY** | **NUMBER** | Wenn dieser Filter `10` angibt und ein Nutzerprofil den Wert `10` hat, stimmt der/die Nutzer:in mit diesem Filter überein. |
-| Prüfen, ob das numerische Attribut **nicht gleich** einer **Zahl** ist | **DOES NOT EQUAL** | **NUMBER** | Wenn dieser Filter `10` angibt und ein Nutzerprofil den Wert `10` nicht hat, stimmt der/die Nutzer:in mit diesem Filter überein. |
-| Prüfen, ob das numerische Attribut **größer als** eine **Zahl** ist | **MORE THAN** | **NUMBER** | Wenn dieser Filter `10` angibt und ein Nutzerprofil einen Wert größer als `10` hat, stimmt der/die Nutzer:in mit diesem Filter überein. |
-| Prüfen, ob das numerische Attribut **kleiner als** eine **Zahl** ist | **LESS THAN** | **NUMBER** | Wenn dieser Filter `10` angibt und ein Nutzerprofil einen Wert kleiner als `10` hat, stimmt der/die Nutzer:in mit diesem Filter überein. |
-| Prüfen, ob das numerische Attribut im Nutzerprofil **vorhanden** und nicht null ist | **IS NOT BLANK** | **N/A** | Wenn ein Nutzerprofil das angegebene numerische Attribut enthält, stimmt der/die Nutzer:in unabhängig vom Wert mit diesem Filter überein. |
-| Prüfen, ob das numerische Attribut im Nutzerprofil **nicht vorhanden** oder null ist | **IS BLANK** | **N/A** | Wenn ein Nutzerprofil das angegebene numerische Attribut nicht enthält oder der Wert des Attributs null ist, stimmt der/die Nutzer:in mit diesem Filter überein.|
+| Prüfen, ob das numerische Attribut **genau** einer **Zahl** entspricht | **EXACTLY** | **NUMBER** | Wenn dieser Filter `10` angibt und ein Kundenprofil den Wert `10` hat, stimmt der/die Nutzer:in mit diesem Filter überein. |
+| Prüfen, ob das numerische Attribut **nicht gleich** einer **Zahl** ist | **DOES NOT EQUAL** | **NUMBER** | Wenn dieser Filter `10` angibt und ein Kundenprofil den Wert `10` nicht hat, stimmt der/die Nutzer:in mit diesem Filter überein. |
+| Prüfen, ob das numerische Attribut **größer als** eine **Zahl** ist | **MORE THAN** | **NUMBER** | Wenn dieser Filter `10` angibt und ein Kundenprofil einen Wert größer als `10` hat, stimmt der/die Nutzer:in mit diesem Filter überein. |
+| Prüfen, ob das numerische Attribut **kleiner als** eine **Zahl** ist | **LESS THAN** | **NUMBER** | Wenn dieser Filter `10` angibt und ein Kundenprofil einen Wert kleiner als `10` hat, stimmt der/die Nutzer:in mit diesem Filter überein. |
+| Prüfen, ob das numerische Attribut im Kundenprofil **vorhanden** und nicht null ist | **IS NOT BLANK** | **N/A** | Wenn ein Kundenprofil das angegebene numerische Attribut enthält, stimmt der/die Nutzer:in unabhängig vom Wert mit diesem Filter überein. |
+| Prüfen, ob das numerische Attribut im Kundenprofil **nicht vorhanden** oder null ist | **IS BLANK** | **N/A** | Wenn ein Kundenprofil das angegebene numerische Attribut nicht enthält oder der Wert des Attributs null ist, stimmt der/die Nutzer:in mit diesem Filter überein.|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Details zu Zahlenattributen" }
 
 #### Details zu Zahlenattributen {#number-attribute-details}
@@ -221,18 +221,18 @@ Für Attribute vom Typ **String** stehen die folgenden Segmentierungsoptionen zu
 | ---------------------| --------------- | ------------- | -------- |
 | Prüfen, ob das String-Attribut **teilweise übereinstimmt** mit einem eingegebenen String **ODER** regulären Ausdruck | **MATCHES REGEX** | **STRING** **ODER** **REGULÄRER AUSDRUCK** <br>Nicht case-sensitiv; maximal 32.764 Zeichen |
 | Prüfen, ob das String-Attribut **nicht teilweise übereinstimmt** mit einem eingegebenen String **ODER** regulären Ausdruck | **DOES NOT MATCH REGEX** * | **STRING** **ODER** **REGULÄRER AUSDRUCK**<br>Nicht case-sensitiv; maximal 32.764 Zeichen |
-| Prüfen, ob das String-Attribut im Nutzerprofil **vorhanden** und kein leerer String ist | **IS NOT BLANK** | **N/A** | Wenn dieser Filter `favorite_genre` angibt und ein Nutzerprofil das Attribut `favorite_genre` hat, stimmt der/die Nutzer:in unabhängig vom Attributwert mit diesem Filter überein. Zum Beispiel kann der/die Nutzer:in `sci-fi`, `romance` oder einen anderen Wert haben.|
-| Prüfen, ob das String-Attribut im Nutzerprofil **nicht vorhanden** ist | **BLANK** | **N/A** | Wenn dieser Filter `favorite_genre` angibt und ein Nutzerprofil das Attribut `favorite_genre` nicht hat, stimmt der/die Nutzer:in mit diesem Filter überein.|
-| Prüfen, ob der String genau mit **einem** der eingegebenen Strings übereinstimmt | **IS ANY OF** | **STRING**<br>Case-sensitiv; mehrere Strings zulässig (maximal 256) | Wenn dieser Filter `book`, `bookmark` und `reading light` angibt und ein Nutzerprofil mindestens einen dieser Strings hat, stimmt der/die Nutzer:in mit diesem Filter überein. |
-| Prüfen, ob das String-Attribut **nicht genau mit einem** der eingegebenen Strings übereinstimmt | **IS NONE OF** |**STRING**<br>Case-sensitiv; mehrere Strings zulässig (maximal 256) | Wenn dieser Filter `book`, `bookmark` und `reading light` angibt und ein Nutzerprofil keinen dieser Strings enthält, stimmt der/die Nutzer:in mit diesem Filter überein.|
-| Prüfen, ob das String-Attribut **teilweise mit einem** der eingegebenen Strings übereinstimmt | **CONTAINS ANY OF** | **STRING**<br>Case-sensitiv; mehrere Strings zulässig (maximal 256) | Wenn dieser Filter `gold` angibt und ein Nutzerprofil `gold` in einem beliebigen String enthält, z. B. `gold_tier` oder `former_gold_tier`, stimmt der/die Nutzer:in mit diesem Filter überein. |
-| Prüfen, ob das String-Attribut **nicht teilweise mit einem** der eingegebenen Strings übereinstimmt | **DOESN'T CONTAIN ANY OF** | **STRING**<br>Case-sensitiv; mehrere Strings zulässig (maximal 256) | Wenn dieser Filter `gold` angibt und ein Nutzerprofil `gold` in keinem String enthält, stimmt der/die Nutzer:in mit diesem Filter überein.|
+| Prüfen, ob das String-Attribut im Kundenprofil **vorhanden** und kein leerer String ist | **IS NOT BLANK** | **N/A** | Wenn dieser Filter `favorite_genre` angibt und ein Kundenprofil das Attribut `favorite_genre` hat, stimmt der/die Nutzer:in unabhängig vom Attributwert mit diesem Filter überein. Zum Beispiel kann der/die Nutzer:in `sci-fi`, `romance` oder einen anderen Wert haben.|
+| Prüfen, ob das String-Attribut im Kundenprofil **nicht vorhanden** ist | **BLANK** | **N/A** | Wenn dieser Filter `favorite_genre` angibt und ein Kundenprofil das Attribut `favorite_genre` nicht hat, stimmt der/die Nutzer:in mit diesem Filter überein.|
+| Prüfen, ob der String genau mit **einem** der eingegebenen Strings übereinstimmt | **IS ANY OF** | **STRING**<br>Case-sensitiv; mehrere Strings zulässig (maximal 256) | Wenn dieser Filter `book`, `bookmark` und `reading light` angibt und ein Kundenprofil mindestens einen dieser Strings hat, stimmt der/die Nutzer:in mit diesem Filter überein. |
+| Prüfen, ob das String-Attribut **nicht genau mit einem** der eingegebenen Strings übereinstimmt | **IS NONE OF** |**STRING**<br>Case-sensitiv; mehrere Strings zulässig (maximal 256) | Wenn dieser Filter `book`, `bookmark` und `reading light` angibt und ein Kundenprofil keinen dieser Strings enthält, stimmt der/die Nutzer:in mit diesem Filter überein.|
+| Prüfen, ob das String-Attribut **teilweise mit einem** der eingegebenen Strings übereinstimmt | **CONTAINS ANY OF** | **STRING**<br>Case-sensitiv; mehrere Strings zulässig (maximal 256) | Wenn dieser Filter `gold` angibt und ein Kundenprofil `gold` in einem beliebigen String enthält, z. B. `gold_tier` oder `former_gold_tier`, stimmt der/die Nutzer:in mit diesem Filter überein. |
+| Prüfen, ob das String-Attribut **nicht teilweise mit einem** der eingegebenen Strings übereinstimmt | **DOESN'T CONTAIN ANY OF** | **STRING**<br>Case-sensitiv; mehrere Strings zulässig (maximal 256) | Wenn dieser Filter `gold` angibt und ein Kundenprofil `gold` in keinem String enthält, stimmt der/die Nutzer:in mit diesem Filter überein.|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Details zu Zahlenattributen" }
 
 {% multi_lang_include alerts/note_alerts.md alert='Custom Attributes time attribute' %}
 
 {% alert important %}
-Bei der Segmentierung mit dem Filter **DOES NOT MATCH REGEX** muss bereits ein angepasstes Attribut mit einem zugewiesenen Wert in diesem Nutzerprofil vorhanden sein. Braze empfiehlt, „ODER“-Logik zu verwenden, um zu prüfen, ob ein angepasstes Attribut leer ist, damit Nutzer:innen korrekt angesprochen werden.
+Bei der Segmentierung mit dem Filter **DOES NOT MATCH REGEX** muss bereits ein angepasstes Attribut mit einem zugewiesenen Wert in diesem Kundenprofil vorhanden sein. Braze empfiehlt, „ODER“-Logik zu verwenden, um zu prüfen, ob ein angepasstes Attribut leer ist, damit Nutzer:innen korrekt angesprochen werden.
 {% endalert %}
 
 {% endtab %}
@@ -248,16 +248,16 @@ Angepasste Attribute vom Typ Array können nicht über den [CSV-Import]({{site.b
 Die Option zur Erhöhung der maximalen Länge ist nicht verfügbar, wenn das Attribut auf automatische Datentyperkennung eingestellt ist. Der Datentyp muss auf Array gesetzt werden.
 {% endalert %}
 
-#### Fehlerbehebung: Array-Attribut zeigt keinen Wert im Nutzerprofil {#troubleshooting-array-custom-attribute-shows-no-value-on-a-user-profile}
+#### Fehlerbehebung: Array-Attribut zeigt keinen Wert im Kundenprofil {#troubleshooting-array-custom-attribute-shows-no-value-on-a-user-profile}
 
-Wenn ein angepasstes Array-Attribut in einem Nutzerprofil erscheint, aber keine Werte anzeigt, prüfen Sie, ob die **Max Length** des Attributs im Dashboard auf `0` gesetzt ist.
+Wenn ein angepasstes Array-Attribut in einem Kundenprofil erscheint, aber keine Werte anzeigt, prüfen Sie, ob die **Max Length** des Attributs im Dashboard auf `0` gesetzt ist.
 
-1. Gehen Sie zu **Data Settings** > **Custom Attributes**.
+1. Gehen Sie zu **Data Settings** > **angepasste Attribute**.
 2. Filtern Sie die Liste nach **Array**.
 3. Suchen Sie das Attribut und überprüfen Sie seine **Max Length**.
 4. Wenn **Max Length** `0` ist, aktualisieren Sie den Wert auf einen Wert größer als `0`.
 
-Das Setzen von **Max Length** auf `0` verhindert, dass Werte im Nutzerprofil angezeigt werden.
+Das Setzen von **Max Length** auf `0` verhindert, dass Werte im Kundenprofil angezeigt werden.
 
 SDK-spezifische Beispiele zum Array-Verhalten finden Sie unter [Analytics-Übersicht]({{site.baseurl}}/developer_guide/analytics).
 
@@ -265,17 +265,17 @@ Für Attribute vom Typ **Array** stehen die folgenden Segmentierungsoptionen zur
 
 | Segmentierungsoptionen | Dropdown-Filter | Eingabeoptionen | Beispiele |
 | ---------------------| --------------- | ------------- | -------- |
-| Prüfen, ob das Array-Attribut **einen Wert enthält, der genau übereinstimmt** mit einem eingegebenen Wert | **INCLUDES VALUE** | **STRING** | Wenn dieser Filter `sci-fi` angibt und ein Nutzerprofil den Wert `sci-fi` hat, stimmt der/die Nutzer:in mit diesem Filter überein.|
-| Prüfen, ob das Array-Attribut **keinen Wert enthält, der genau übereinstimmt** mit einem eingegebenen Wert | **DOESN'T INCLUDE VALUE** | **STRING** | Wenn dieser Filter `sci-fi` angibt und ein Nutzerprofil den Wert `sci-fi` nicht hat, stimmt der/die Nutzer:in mit diesem Filter überein.|
+| Prüfen, ob das Array-Attribut **einen Wert enthält, der genau übereinstimmt** mit einem eingegebenen Wert | **INCLUDES VALUE** | **STRING** | Wenn dieser Filter `sci-fi` angibt und ein Kundenprofil den Wert `sci-fi` hat, stimmt der/die Nutzer:in mit diesem Filter überein.|
+| Prüfen, ob das Array-Attribut **keinen Wert enthält, der genau übereinstimmt** mit einem eingegebenen Wert | **DOESN'T INCLUDE VALUE** | **STRING** | Wenn dieser Filter `sci-fi` angibt und ein Kundenprofil den Wert `sci-fi` nicht hat, stimmt der/die Nutzer:in mit diesem Filter überein.|
 | Prüfen, ob das Array-Attribut **einen Wert enthält, der teilweise übereinstimmt** mit einem eingegebenen Wert **ODER** regulären Ausdruck | **MATCHES REGEX** | **STRING** **ODER** **REGULÄRER AUSDRUCK**<br>Maximal 32.764 Zeichen | |
-| Prüfen, ob das Array-Attribut **einen beliebigen Wert hat** oder nicht leer ist | **HAS A VALUE** | **N/A** | Wenn dieser Filter `favorite_genres` angibt und ein Nutzerprofil `favorite_genres` mit einem beliebigen Wert enthält, stimmt der/die Nutzer:in mit diesem Filter überein. |
-| Prüfen, ob das Array-Attribut **leer** ist oder nicht existiert | **IS EMPTY** | **N/A** | Wenn dieser Filter `favorite_genres` angibt und ein Nutzerprofil `favorite_genres` nicht enthält oder `favorite_genres` enthält, aber keine Werte hat, stimmt der/die Nutzer:in mit diesem Filter überein.|
-| Prüfen, ob das Array-Attribut **einen Wert enthält, der genau mit einem** der eingegebenen Werte übereinstimmt | **INCLUDES ANY OF** | **STRING**<br>Case-sensitiv; mehrere Werte zulässig (maximal 256) | Wenn dieser Filter `sci-fi, fantasy, romance` angibt und ein Nutzerprofil eine beliebige Kombination von `sci-fi`, `fantasy` oder `romance` hat, einschließlich nur eines davon (z. B. nur `sci-fi`). Ein:e Nutzer:in kann `horror` oder einen anderen Wert in seinem/ihrem String haben, wenn er/sie auch einen der Werte `sci-fi`, `fantasy` und `romance` hat.|
-| Prüfen, ob das Array-Attribut **keinen Wert enthält, der genau mit einem** der eingegebenen Werte übereinstimmt | **INCLUDES NONE OF** | **STRING**<br>Case-sensitiv; mehrere Werte zulässig (maximal 256) | Wenn dieser Filter `sci-fi, fantasy, romance` angibt und ein Nutzerprofil keine Kombination von `sci-fi`, `fantasy` oder `romance` hat, stimmt der/die Nutzer:in mit diesem Filter überein. Der/die Nutzer:in kann `horror` oder einen anderen Wert haben, solange er/sie keinen der Werte `sci-fi`, `fantasy` oder `romance` hat.|
-| Prüfen, ob das Array-Attribut **einen Wert enthält, der teilweise mit einem** der eingegebenen Werte übereinstimmt | **VALUES CONTAIN ANY OF** | **STRING**<br>Case-sensitiv; mehrere Werte zulässig (maximal 256) | Wenn dieser Filter `gold` angibt und ein Nutzerprofil-Array `gold` in mindestens einem String enthält, stimmt der/die Nutzer:in mit diesem Filter überein. Dies schließt String-Werte wie `gold_tier`, `former_gold_tier` und andere ein.|
-| Prüfen, ob das Array-Attribut **keinen Wert enthält, der teilweise mit einem** der eingegebenen Werte übereinstimmt | **VALUES DON'T CONTAIN ANY OF** | **STRING**<br>Case-sensitiv; mehrere Werte zulässig (maximal 256) | Wenn dieser Filter `gold` angibt und ein Nutzerprofil-Array `gold` in keinem String enthält, stimmt der/die Nutzer:in mit diesem Filter überein. Das bedeutet, dass Nutzer:innen mit String-Werten wie `gold_tier` und `former_gold_tier` nicht mit diesem Filter übereinstimmen.|
-| Prüfen, ob das Array-Attribut **alle** eingegebenen Werte enthält | **IS ALL OF** | **STRING**<br>Case-sensitiv; mehrere Werte zulässig (maximal 256) | Wenn dieser Filter `sci-fi, fantasy, romance` angibt und ein Nutzerprofil alle diese Werte hat, stimmt der/die Nutzer:in mit diesem Filter überein. Der/die Nutzer:in kann auch `horror` oder andere Werte haben und trotzdem mit diesem Filter übereinstimmen.|
-| Prüfen, ob das Array-Attribut **nicht alle** eingegebenen Werte enthält | **ISN'T ALL OF** | **STRING**<br>Case-sensitiv; mehrere Werte zulässig (maximal 256) | Wenn dieser Filter `sci-fi, fantasy, romance` angibt und ein Nutzerprofil nicht alle diese Werte hat, stimmt der/die Nutzer:in mit diesem Filter überein.|
+| Prüfen, ob das Array-Attribut **einen beliebigen Wert hat** oder nicht leer ist | **HAS A VALUE** | **N/A** | Wenn dieser Filter `favorite_genres` angibt und ein Kundenprofil `favorite_genres` mit einem beliebigen Wert enthält, stimmt der/die Nutzer:in mit diesem Filter überein. |
+| Prüfen, ob das Array-Attribut **leer** ist oder nicht existiert | **IS EMPTY** | **N/A** | Wenn dieser Filter `favorite_genres` angibt und ein Kundenprofil `favorite_genres` nicht enthält oder `favorite_genres` enthält, aber keine Werte hat, stimmt der/die Nutzer:in mit diesem Filter überein.|
+| Prüfen, ob das Array-Attribut **einen Wert enthält, der genau mit einem** der eingegebenen Werte übereinstimmt | **INCLUDES ANY OF** | **STRING**<br>Case-sensitiv; mehrere Werte zulässig (maximal 256) | Wenn dieser Filter `sci-fi, fantasy, romance` angibt und ein Kundenprofil eine beliebige Kombination von `sci-fi`, `fantasy` oder `romance` hat, einschließlich nur eines davon (z. B. nur `sci-fi`). Ein:e Nutzer:in kann `horror` oder einen anderen Wert in seinem/ihrem String haben, wenn er/sie auch einen der Werte `sci-fi`, `fantasy` und `romance` hat.|
+| Prüfen, ob das Array-Attribut **keinen Wert enthält, der genau mit einem** der eingegebenen Werte übereinstimmt | **INCLUDES NONE OF** | **STRING**<br>Case-sensitiv; mehrere Werte zulässig (maximal 256) | Wenn dieser Filter `sci-fi, fantasy, romance` angibt und ein Kundenprofil keine Kombination von `sci-fi`, `fantasy` oder `romance` hat, stimmt der/die Nutzer:in mit diesem Filter überein. Der/die Nutzer:in kann `horror` oder einen anderen Wert haben, solange er/sie keinen der Werte `sci-fi`, `fantasy` oder `romance` hat.|
+| Prüfen, ob das Array-Attribut **einen Wert enthält, der teilweise mit einem** der eingegebenen Werte übereinstimmt | **VALUES CONTAIN ANY OF** | **STRING**<br>Case-sensitiv; mehrere Werte zulässig (maximal 256) | Wenn dieser Filter `gold` angibt und ein Kundenprofil-Array `gold` in mindestens einem String enthält, stimmt der/die Nutzer:in mit diesem Filter überein. Dies schließt String-Werte wie `gold_tier`, `former_gold_tier` und andere ein.|
+| Prüfen, ob das Array-Attribut **keinen Wert enthält, der teilweise mit einem** der eingegebenen Werte übereinstimmt | **VALUES DON'T CONTAIN ANY OF** | **STRING**<br>Case-sensitiv; mehrere Werte zulässig (maximal 256) | Wenn dieser Filter `gold` angibt und ein Kundenprofil-Array `gold` in keinem String enthält, stimmt der/die Nutzer:in mit diesem Filter überein. Das bedeutet, dass Nutzer:innen mit String-Werten wie `gold_tier` und `former_gold_tier` nicht mit diesem Filter übereinstimmen.|
+| Prüfen, ob das Array-Attribut **alle** eingegebenen Werte enthält | **IS ALL OF** | **STRING**<br>Case-sensitiv; mehrere Werte zulässig (maximal 256) | Wenn dieser Filter `sci-fi, fantasy, romance` angibt und ein Kundenprofil alle diese Werte hat, stimmt der/die Nutzer:in mit diesem Filter überein. Der/die Nutzer:in kann auch `horror` oder andere Werte haben und trotzdem mit diesem Filter übereinstimmen.|
+| Prüfen, ob das Array-Attribut **nicht alle** eingegebenen Werte enthält | **ISN'T ALL OF** | **STRING**<br>Case-sensitiv; mehrere Werte zulässig (maximal 256) | Wenn dieser Filter `sci-fi, fantasy, romance` angibt und ein Kundenprofil nicht alle diese Werte hat, stimmt der/die Nutzer:in mit diesem Filter überein.|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Details zu Zahlenattributen" }
 
 {% alert tip %}
@@ -304,14 +304,14 @@ Für Attribute vom Typ **Zeit** stehen die folgenden Segmentierungsoptionen zur 
 
 | Segmentierungsoptionen | Dropdown-Filter | Eingabeoptionen | Beispiele |
 | ---------------------| --------------- | ------------- | -------- |
-| Prüfen, ob das Zeitattribut **vor** einem **ausgewählten Datum** liegt | **BEFORE** | **KALENDER-DATUMSAUSWAHL** | Wenn dieser Filter `2024-01-31` angibt und ein Nutzerprofil ein Datum vor dem `2024-01-31` hat, stimmt der/die Nutzer:in mit diesem Filter überein. |
-| Prüfen, ob das Zeitattribut **nach** einem **ausgewählten Datum** liegt | **AFTER** | **KALENDER-DATUMSAUSWAHL** | Wenn dieser Filter `2024-01-31` angibt und ein Nutzerprofil ein Datum nach dem `2024-01-31` hat, stimmt der/die Nutzer:in mit diesem Filter überein. |
-| Prüfen, ob das Zeitattribut **mehr als X Tage** zurückliegt | **MORE THAN** | **ANZAHL DER VERGANGENEN TAGE** | Wenn dieser Filter `7` angibt und ein Nutzerprofil ein Datum hat, das mehr als sieben Tage zurückliegt, stimmt der/die Nutzer:in mit diesem Filter überein. |
-| Prüfen, ob das Zeitattribut **weniger als X Tage** zurückliegt | **LESS THAN** | **ANZAHL DER VERGANGENEN TAGE** | Wenn dieser Filter `7` angibt und ein Nutzerprofil ein Datum hat, das weniger als sieben Tage zurückliegt, stimmt der/die Nutzer:in mit diesem Filter überein.|
-| Prüfen, ob das Zeitattribut **in mehr als X Tagen** in der Zukunft liegt | **IN MORE THAN** | **ANZAHL DER ZUKÜNFTIGEN TAGE** | Wenn dieser Filter `7` angibt und ein Nutzerprofil ein Datum hat, das mehr als sieben Tage in der Zukunft liegt, stimmt der/die Nutzer:in mit diesem Filter überein.|
-| Prüfen, ob das Zeitattribut **in weniger als X Tagen** in der Zukunft liegt | **IN LESS THAN** | **ANZAHL DER ZUKÜNFTIGEN TAGE**  | Wenn dieser Filter `7` angibt und ein Nutzerprofil ein Datum hat, das weniger als sieben Tage in der Zukunft liegt, stimmt der/die Nutzer:in mit diesem Filter überein.|
-| Prüfen, ob das Zeitattribut im Nutzerprofil **vorhanden** und nicht null ist | **IS NOT BLANK** | **N/A** | Wenn dieser Filter ein Zeitattribut angibt, das in einem Nutzerprofil vorhanden ist, stimmt der/die Nutzer:in mit diesem Filter überein.|
-| Prüfen, ob das Zeitattribut im Nutzerprofil **nicht vorhanden** oder null ist | **IS BLANK** | **N/A** | Wenn dieser Filter ein Zeitattribut angibt, das nicht in einem Nutzerprofil vorhanden ist, stimmt der/die Nutzer:in mit diesem Filter überein. |
+| Prüfen, ob das Zeitattribut **vor** einem **ausgewählten Datum** liegt | **BEFORE** | **KALENDER-DATUMSAUSWAHL** | Wenn dieser Filter `2024-01-31` angibt und ein Kundenprofil ein Datum vor dem `2024-01-31` hat, stimmt der/die Nutzer:in mit diesem Filter überein. |
+| Prüfen, ob das Zeitattribut **nach** einem **ausgewählten Datum** liegt | **AFTER** | **KALENDER-DATUMSAUSWAHL** | Wenn dieser Filter `2024-01-31` angibt und ein Kundenprofil ein Datum nach dem `2024-01-31` hat, stimmt der/die Nutzer:in mit diesem Filter überein. |
+| Prüfen, ob das Zeitattribut **mehr als X Tage** zurückliegt | **MORE THAN** | **ANZAHL DER VERGANGENEN TAGE** | Wenn dieser Filter `7` angibt und ein Kundenprofil ein Datum hat, das mehr als sieben Tage zurückliegt, stimmt der/die Nutzer:in mit diesem Filter überein. |
+| Prüfen, ob das Zeitattribut **weniger als X Tage** zurückliegt | **LESS THAN** | **ANZAHL DER VERGANGENEN TAGE** | Wenn dieser Filter `7` angibt und ein Kundenprofil ein Datum hat, das weniger als sieben Tage zurückliegt, stimmt der/die Nutzer:in mit diesem Filter überein.|
+| Prüfen, ob das Zeitattribut **in mehr als X Tagen** in der Zukunft liegt | **IN MORE THAN** | **ANZAHL DER ZUKÜNFTIGEN TAGE** | Wenn dieser Filter `7` angibt und ein Kundenprofil ein Datum hat, das mehr als sieben Tage in der Zukunft liegt, stimmt der/die Nutzer:in mit diesem Filter überein.|
+| Prüfen, ob das Zeitattribut **in weniger als X Tagen** in der Zukunft liegt | **IN LESS THAN** | **ANZAHL DER ZUKÜNFTIGEN TAGE**  | Wenn dieser Filter `7` angibt und ein Kundenprofil ein Datum hat, das weniger als sieben Tage in der Zukunft liegt, stimmt der/die Nutzer:in mit diesem Filter überein.|
+| Prüfen, ob das Zeitattribut im Kundenprofil **vorhanden** und nicht null ist | **IS NOT BLANK** | **N/A** | Wenn dieser Filter ein Zeitattribut angibt, das in einem Kundenprofil vorhanden ist, stimmt der/die Nutzer:in mit diesem Filter überein.|
+| Prüfen, ob das Zeitattribut im Kundenprofil **nicht vorhanden** oder null ist | **IS BLANK** | **N/A** | Wenn dieser Filter ein Zeitattribut angibt, das nicht in einem Kundenprofil vorhanden ist, stimmt der/die Nutzer:in mit diesem Filter überein. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Details zu Zahlenattributen" }
 
 {% alert note %}
@@ -376,7 +376,7 @@ Kauf- und Umsatzdaten werden über [Kauf-Events]({{site.baseurl}}/user_guide/dat
 Empfohlene Events haben vordefinierte Schemas mit festgelegten Datentypen. Weitere Details finden Sie unter [Empfohlene E-Commerce-Events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events).
 {% endalert %}
 
-Das Protokollieren von Kauf-Events legt den Lifetime-Value (LTV) für jedes Nutzerprofil fest, und diese Daten sind auf der Umsatzseite als Zeitreihe einsehbar. Sie können nach ausgegebenem Betrag, letztem Kaufdatum, Anzahl der Käufe in einem Zeitfenster und mehr segmentieren.
+Das Protokollieren von Kauf-Events legt den Lifetime Value (LTV) für jedes Kundenprofil fest, und diese Daten sind auf der Umsatzseite als Zeitreihe einsehbar. Sie können nach ausgegebenem Betrag, letztem Kaufdatum, Anzahl der Käufe in einem Zeitfenster und mehr segmentieren.
 
 ### Datentypen für Kauf-Event-Eigenschaften {#purchase-event-property-data-types}
 
@@ -390,7 +390,7 @@ Für das vollständige Schema des Kauf-Objekts und Beispiele siehe [Kauf-Objekt]
 
 So ändern Sie den Datentyp eines angepassten Attributs oder Events:
 
-1. Gehen Sie zu **Data Settings** und wählen Sie entweder **Custom Attributes** oder **Custom Events**.
+1. Gehen Sie zu **Data Settings** und wählen Sie entweder **angepasste Attribute** oder **Custom Events**.
 2. Suchen Sie Ihr Attribut oder Event in der Liste und wählen Sie <i class="fa fa-ellipsis-v" aria-label="Weitere Aktionen"></i> **More actions**.
 3. Wählen Sie einen neuen **Data type** aus dem Dropdown.
 4. Wählen Sie **Save**.
@@ -398,11 +398,11 @@ So ändern Sie den Datentyp eines angepassten Attributs oder Events:
 Wenn Sie den Datentyp eines angepassten Attributs oder Events ändern (z. B. von `time` zu `string`), beachten Sie Folgendes:
 
 - **Filter werden nicht automatisch aktualisiert.** Segmente, Campaigns, Canvases oder andere Stellen, die das geänderte Attribut oder Event verwenden, werden nicht aktualisiert. Bevor Sie den Datentyp ändern, stoppen Sie alle Campaigns oder Canvases, die das Attribut in Segmenten oder Filtern verwenden, und entfernen Sie das Attribut aus Filtern, die darauf verweisen.
-- **Bestehende Nutzerdaten werden nicht rückwirkend aktualisiert.** Wenn das geänderte Attribut vor der Änderung in einem Nutzerprofil vorhanden war, behält dieser Wert den alten Datentyp. Nutzer:innen können aus Segmenten herausfallen, die das geänderte Attribut enthalten, da der Filter nach dem neuen Datentyp sucht. Aktualisieren Sie diese Nutzerprofile (z. B. mit dem [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track)), damit sie dem neuen Typ entsprechen und bei Bedarf wieder in das Segment aufgenommen werden.
+- **Bestehende Nutzerdaten werden nicht rückwirkend aktualisiert.** Wenn das geänderte Attribut vor der Änderung in einem Kundenprofil vorhanden war, behält dieser Wert den alten Datentyp. Nutzer:innen können aus Segmenten herausfallen, die das geänderte Attribut enthalten, da der Filter nach dem neuen Datentyp sucht. Aktualisieren Sie diese Nutzerprofile (z. B. mit dem [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track)), damit sie dem neuen Typ entsprechen und bei Bedarf wieder in das Segment aufgenommen werden.
 - **Neue Daten müssen dem neuen Typ entsprechen.** API-Aufrufe, die den vorherigen Datentyp für das geänderte Attribut senden, werden nicht akzeptiert. Senden Sie den neuen Datentyp.
 
 {% alert important %}
-Die Möglichkeit, die automatische Erkennung daran zu hindern, den Datentyp des angepassten Attributs zu aktualisieren, befindet sich derzeit im Early Access. Wenden Sie sich an Ihren Customer-Success-Manager, wenn Sie daran teilnehmen möchten.
+Die Möglichkeit, die automatische Erkennung daran zu hindern, den Datentyp des angepassten Attributs zu aktualisieren, befindet sich derzeit im Early Access. Wenden Sie sich an Ihren CSM, wenn Sie daran teilnehmen möchten.
 {% endalert %}
 
 ## Katalog-Datentypen {#catalog-data-types}

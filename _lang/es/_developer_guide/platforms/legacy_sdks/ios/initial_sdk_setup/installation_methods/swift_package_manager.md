@@ -1,21 +1,21 @@
 ---
-nav_title: Swift Package Manager
-article_title: Integración de Swift Package Manager para iOS
+nav_title: Swift Package Administrador
+article_title: Integración de Swift Package Administrador para iOS
 platform: iOS
 page_order: 3
-description: "Este tutorial cubre la instalación del SDK de Braze utilizando Swift Package Manager para iOS."
+description: "Este tutorial cubre la instalación del SDK de Braze utilizando Swift Package Administrador para iOS."
 
 noindex: true
 ---
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Integración con Swift Package Manager {#swift-package-manager-integration}
+# Integración con Swift Package Administrador {#swift-package-manager-integration}
 
-La instalación del SDK de iOS mediante [Swift Package Manager](https://swift.org/package-manager/) (SPM) automatiza la mayor parte del proceso de instalación. Antes de comenzar este proceso, asegúrate de que utilizas Xcode 12 o superior.
+La instalación del SDK de iOS mediante [Swift Package Administrador](https://swift.org/package-manager/) (SPM) automatiza la mayor parte del proceso de instalación. Antes de comenzar este proceso, asegúrate de que utilizas Xcode 12 o superior.
 
 {% alert note %}
-tvOS no está disponible actualmente a través de Swift Package Manager.
+tvOS no está disponible actualmente a través de Swift Package Administrador.
 {% endalert %}
 
 ## Paso 1: Añadir la dependencia a tu proyecto {#step-1-adding-the-dependency-to-your-project}
@@ -32,7 +32,7 @@ Para las versiones `3.29.0` a `3.32.0`, utiliza la URL `https://github.com/Appbo
 
 ![Diálogo de Xcode para añadir dependencia de paquete con la URL del repositorio del SDK de Braze para iOS.]({% image_buster /assets/img/ios/spm/importsdk_example.png %})
 
-En la siguiente pantalla, selecciona la versión del SDK y haz clic en **Next**. Las versiones `3.29.0` y posteriores son compatibles con Swift Package Manager.
+En la siguiente pantalla, selecciona la versión del SDK y haz clic en **Next**. Las versiones `3.29.0` y posteriores son compatibles con Swift Package Administrador.
 
 ![Selección de versión de paquete en Xcode para el SDK de Braze para iOS.]({% image_buster /assets/img/ios/spm/select_version.png %})
 
@@ -58,7 +58,7 @@ A continuación, ve a la **configuración de compilación** de tu proyecto y añ
 ![Configuración de compilación en Xcode mostrando el campo Other Linker Flags.]({% image_buster /assets/img/ios/spm/buildsettings.png %})
 
 {% alert note %}
-Si no añades el indicador `-ObjC`, pueden faltar partes de la API y el comportamiento será indefinido. Puedes encontrarte con errores inesperados como "unrecognized selector sent to class", fallos de la aplicación y otros problemas.
+Si no añades el indicador `-ObjC`, pueden faltar partes de la API y el comportamiento será indefinido. Puedes encontrarte con errores inesperados como "unrecognized SELECTOR sent to class", fallos de la aplicación y otros problemas.
 {% endalert %}
 
 ## Paso 3: Editar el esquema del objetivo {#step-3-editing-the-targets-scheme}

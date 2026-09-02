@@ -146,4 +146,4 @@ Credits werden nicht verbraucht, wenn Sie Berichte im Braze SQL-Editor schreiben
 
 ![Abfrage-Builder mit der Anzeige der im aktuellen Monat verbrauchten Credits.]({% image_buster /assets/img_archive/query_builder_credits.png %}){: style="max-width:60%;"}
 
-Wenn Sie das Credit-Limit erreicht haben, können Sie keine Anfragen mehr ausführen, aber Sie können SQL-Berichte erstellen, bearbeiten und speichern. Wenn Sie weitere Credits für den Abfrage-Builder erwerben möchten, wenden Sie sich bitte an Ihren Account Manager.
+Wenn Sie das Credit-Limit erreicht haben, können Sie keine Anfragen mehr ausführen, aber Sie können SQL-Berichte erstellen, bearbeiten und speichern. Wenn Sie weitere Credits für den Abfrage-Builder erwerben möchten, wenden Sie sich bitte an Ihren Account Manager:in.

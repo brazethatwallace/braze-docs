@@ -33,7 +33,7 @@ As seguintes métricas da Braze podem ser afetadas por cliques de bots:
 - Taxa de clique por abertura
 - Taxa de conversão (se "Cliques na campanha" for selecionado como evento de conversão)
 - Mapa de calor
-- Determinados filtros de segmento
+- Determinados filtros de Segment
 
 Quando a filtragem de bots está ativada, cliques suspeitos de bots são excluídos dos dados de cliques. Os seguintes [recursos do Braze Intelligence]({{site.baseurl}}/user_guide/brazeai/intelligence_suite) podem refletir volumes menores relacionados a cliques como resultado:
 

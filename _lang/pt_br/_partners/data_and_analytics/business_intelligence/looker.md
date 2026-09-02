@@ -143,11 +143,11 @@ Authorization: Bearer [API_KEY]
 
 ### Segmentar usuários na Braze {#segment-users}
 
-Na Braze, para criar um segmento desses usuários sinalizados, navegue até **Segments** em **Engagement**, nomeie seu segmento e selecione **Looker_Export** como o filtro. Em seguida, use a opção "includes value" e forneça o sinalizador de atributo personalizado que você atribuiu no Looker.
+Na Braze, para criar um Segment desses usuários sinalizados, navegue até **Segments** em **Engagement**, nomeie seu Segment e selecione **Looker_Export** como o filtro. Em seguida, use a opção "includes value" e forneça o sinalizador de atributo personalizado que você atribuiu no Looker.
 
 ![No criador de segmentos da Braze, o filtro "looker_export" está definido como "includes_value" e "Looker".]({% image_buster /assets/img/braze_segments.png %})
 
-Depois de salvo, você pode fazer referência a esse segmento durante a criação de Canvas ou Campaign na etapa de direcionamento de usuários.
+Depois de salvo, você pode fazer referência a esse Segment durante a criação de Canvas ou Campaign na etapa de direcionamento de usuários.
 
 ## Solução de problemas {#troubleshooting}
 Se estiver tendo problemas com as Looker Actions, adicione um usuário teste aos [grupos internos]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups) e verifique o seguinte:

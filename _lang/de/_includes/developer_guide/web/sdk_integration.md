@@ -26,7 +26,7 @@ Obwohl die meisten Werbeblocker das Braze Internet-SDK nicht blockieren, sind ei
 {% endalert %}
 
 {% subtabs %}
-{% subtab package manager %}
+{% subtab package Manager:in %}
 Falls Ihre Website NPM- oder Yarn-Paketmanager verwendet, können Sie das [Braze NPM-Paket](https://www.npmjs.com/package/@braze/web-sdk) als Abhängigkeit hinzufügen.
 
 TypeScript-Definitionen sind seit v3.0.0 enthalten. Hinweise zum Upgrade von 2.x auf 3.x finden Sie in unserem [Changelog](https://github.com/braze-inc/braze-web-sdk/blob/master/UPGRADE_GUIDE.md).

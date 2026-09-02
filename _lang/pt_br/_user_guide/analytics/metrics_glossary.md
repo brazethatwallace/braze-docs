@@ -635,26 +635,26 @@ Email
 
 {% api %}
 
-## Primary Conversions (A) ou Primary Conversion Event {#primary-conversions-a-or-primary-conversion-event}
+## Primary Conversions (A) ou conversão primária Event {#primary-conversions-a-or-primary-conversion-event}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, WhatsApp
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or Primary Conversion Event' %}
+{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or conversão primária Event' %}
 
 | Canal | Informações adicionais |
 |-------|-----------------------|
 | E-mail, push, webhooks | Após o envio inicial. |
 | Content Cards, mensagens no app | Quando o usuário visualiza o Content Card ou a mensagem pela primeira vez. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Primary Conversions (A) or Primary Conversion Event" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Primary Conversions (A) or conversão primária Event" }
 
 {::nomarkdown}
 <span class="calculation-line">
     Cálculo:
     <ul>
-        <li><i>Primary Conversions (A) ou Primary Conversion Event</i>: Contagem</li>
-        <li><i>Primary Conversions (A) %</i> ou <i>Primary Conversion Event Rate</i>: (Primary Conversions) / (Unique Recipients)</li>
+        <li><i>Primary Conversions (A) ou conversão primária Event</i>: Contagem</li>
+        <li><i>Primary Conversions (A) %</i> ou <i>conversão primária Event Rate</i>: (Primary Conversions) / (Unique Recipients)</li>
     </ul>
 </span>
 {:/}
@@ -833,7 +833,7 @@ Email
 
 Observe que _Soft Bounces_ diferem de _Deferrals_. Se nenhum e-mail for entregue com sucesso durante esse período de nova tentativa, a Braze envia um evento de soft bounce por tentativa de envio de campanha. Antes de 25 de fevereiro de 2025, essas novas tentativas eram contadas como múltiplos soft bounces para um envio de campanha.
 
-Embora os soft bounces não sejam rastreados na análise de dados da sua campanha, você pode monitorar os soft bounces no [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log). Você também pode excluir esses usuários do seu envio ou verificar a quantidade de soft bounces dos últimos 30 dias com o [filtro de segmento Soft Bounced]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced). No Registro de atividades de envio de mensagem, você também pode ver o motivo dos soft bounces e entender possíveis discrepâncias entre os "envios" e as "entregas" das suas campanhas de e-mail.
+Embora os soft bounces não sejam rastreados na análise de dados da sua campanha, você pode monitorar os soft bounces no [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log). Você também pode excluir esses usuários do seu envio ou verificar a quantidade de soft bounces dos últimos 30 dias com o [filtro de Segment Soft Bounced]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced). No Registro de atividades de envio de mensagem, você também pode ver o motivo dos soft bounces e entender possíveis discrepâncias entre os "envios" e as "entregas" das suas campanhas de e-mail.
 
 {% endapi %}
 

@@ -227,7 +227,7 @@ Die Verarbeitungsreihenfolge ist nicht zu 100 % vorhersagbar. Wenn beispielsweis
 
 ## Warum werden durch meinen CDI-Sync keine neuen Nutzer:innen erstellt? {#why-are-new-users-not-being-created-from-my-cdi-sync}
 
-Wenn in Ihrer CDI-Integration die Option **Nur bestehende Nutzer:innen aktualisieren** aktiviert ist, werden nur Nutzer:innen aktualisiert, die bereits in Braze vorhanden sind, und es werden keine neuen Nutzer:innen erstellt. Das bedeutet, dass eine Zeile in Ihrer Sync-Tabelle übersprungen wird, wenn sie eine `EXTERNAL_ID` referenziert, die keinem bestehenden Braze-Nutzerprofil entspricht.
+Wenn in Ihrer CDI-Integration die Option **Nur bestehende Nutzer:innen aktualisieren** aktiviert ist, werden nur Nutzer:innen aktualisiert, die bereits in Braze vorhanden sind, und es werden keine neuen Nutzer:innen erstellt. Das bedeutet, dass eine Zeile in Ihrer Sync-Tabelle übersprungen wird, wenn sie eine `EXTERNAL_ID` referenziert, die keinem bestehenden Braze-Kundenprofil entspricht.
 
 Um neue Nutzer:innen über CDI zu erstellen, deaktivieren Sie den Schalter **Nur bestehende Nutzer:innen aktualisieren** in Ihren Integrationseinstellungen. Navigieren Sie zu **Dateneinstellungen** > **Cloud-Datenaufnahme** und wählen Sie eine Integration aus.
 

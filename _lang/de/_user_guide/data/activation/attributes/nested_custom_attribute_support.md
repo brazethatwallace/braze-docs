@@ -34,7 +34,7 @@ Im folgenden Beispiel enthält das angepasste Attribut `favorite_book` die versc
 - Objekte haben eine maximale Größe von 100&nbsp;KB. Wenn eine Aktualisierung dazu führt, dass das Objekt 100&nbsp;KB überschreitet, verwirft Braze die Aktualisierung und das Attribut bleibt unverändert.
 - Schlüsselnamen und String-Werte haben eine Größenbeschränkung von 255 Zeichen.
 - Schlüsselnamen dürfen keine Leerzeichen enthalten.
-- Punkte (`.`) und Dollarzeichen (`$`) werden in einem API-Payload nicht unterstützt, wenn Sie versuchen, ein verschachteltes angepasstes Attribut an ein Nutzerprofil zu senden.
+- Punkte (`.`) und Dollarzeichen (`$`) werden in einem API-Payload nicht unterstützt, wenn Sie versuchen, ein verschachteltes angepasstes Attribut an ein Kundenprofil zu senden.
 - Nicht alle Braze-Partner unterstützen verschachtelte angepasste Attribute. Weitere Informationen finden Sie in der [Partnerdokumentation]({{site.baseurl}}/partners/home), um zu bestätigen, ob bestimmte Partnerintegrationen dieses Feature unterstützen.
 - Verschachtelte angepasste Attribute können nicht als Filter verwendet werden, wenn ein Connected-Audience-API-Aufruf durchgeführt wird.
 - Standardmäßig enthält der Segment-Filter **Verschachtelte angepasste Attribute** angepasste Attribute vom Typ „Objekt“, Attribute vom Typ „Array von Objekten“ und angepasste Attribute vom Typ „Array“. Wenn Sie ein Attribut auswählen, enthält der Selektor für das Eigenschaftsschema Array-Pfade (unter Verwendung der `[]`-Notation) für verschachtelte Array-Felder. Um angepasste Array-Attribute der obersten Ebene aus diesem Filter auszublenden, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support).
@@ -350,7 +350,7 @@ Um verschachtelte angepasste Attribute in der Segmentierung und Personalisierung
 
 Nachdem Sie ein verschachteltes angepasstes Attribut erstellt und Daten an Braze gesendet haben, können Sie das Schema generieren:
 
-1. Gehen Sie zu **Data Settings** > **Custom Attributes**.
+1. Gehen Sie zu **Data Settings** > **angepasste Attribute**.
 2. Suchen Sie nach Ihrem verschachtelten angepassten Attribut.
 3. Wählen Sie in der Spalte **Attribute Name** für Ihr Attribut <i class="fas fa-arrows-rotate" aria-label="Schema generieren"></i> **Generate Schema** aus.
 
@@ -360,7 +360,7 @@ Nachdem das Schema generiert wurde, ändert sich das <i class="fas fa-arrows-rot
 
 So generieren Sie das Schema für Ihr verschachteltes angepasstes Attribut neu:
 
-1. Gehen Sie zu **Data Settings** > **Custom Attributes**.
+1. Gehen Sie zu **Data Settings** > **angepasste Attribute**.
 2. Suchen Sie nach Ihrem verschachtelten angepassten Attribut.
 3. Wählen Sie in der Spalte **Attribute Name** für Ihr Attribut <i class="fas fa-plus" aria-label="Schema verwalten"></i> **Manage schema** aus, um das Schema zu verwalten.
 4. Ein Modal wird angezeigt. Wählen Sie **Regenerate Schema** aus.
@@ -436,7 +436,7 @@ Wenn alle Bedingungen auf dasselbe Element innerhalb eines Arrays zutreffen müs
 
 ## Datenpunkte {#data-points}
 
-Jeder gesendete Schlüssel verbraucht einen Datenpunkt. Zum Beispiel zählt dieses im Nutzerprofil initialisierte Objekt als sieben (7) Datenpunkte:
+Jeder gesendete Schlüssel verbraucht einen Datenpunkt. Zum Beispiel zählt dieses im Kundenprofil initialisierte Objekt als sieben (7) Datenpunkte:
 
 ```json
 {

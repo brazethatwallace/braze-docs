@@ -60,7 +60,7 @@ Você também pode criar um modelo de Flow de Marketing ou Utilitário na Braze 
 
 ### Prévia do Flow {#preview-flow}
 
-Antes de lançar um Canvas com um Flow, você pode selecionar **Preview Flow** para visualizar o Flow diretamente na Braze e confirmar que ele se comporta como esperado. Você também pode interagir com o Flow na prévia para experimentar como um usuário navegaria pelo Flow e, em seguida, fazer ajustes em tempo real. Se um Flow contiver várias páginas, você pode interagir com cada página.
+Antes de lançar um Canvas com um Flow, você pode selecionar **prévia Flow** para visualizar o Flow diretamente na Braze e confirmar que ele se comporta como esperado. Você também pode interagir com o Flow na prévia para experimentar como um usuário navegaria pelo Flow e, em seguida, fazer ajustes em tempo real. Se um Flow contiver várias páginas, você pode interagir com cada página.
 
 ![Janela de prévia exibindo um formulário para o usuário concluir o cadastro.]({% image_buster /assets/img/whatsapp/flows/flow_preview.png %}){: style="max-width:50%;"}
 

@@ -12,7 +12,7 @@ search_tag: Partner
 
 > Adobe Experience Platform을 기반으로 구축된 Adobe의 실시간 고객 데이터 플랫폼은 여러 엔터프라이즈 소스에서 알려진 데이터와 익명 데이터를 통합하여 고객 프로필을 생성합니다. 이러한 프로필을 사용하여 모든 채널과 기기에서 실시간으로 개인화된 경험을 제공할 수 있습니다.
 
-Braze와 Adobe CDP 통합은 브랜드의 Adobe 데이터(커스텀 속성 및 Segments)를 Braze에 실시간으로 연결하고 매핑합니다. 이 데이터를 기반으로 사용자에게 개인화된 타겟 경험을 제공할 수 있습니다. Adobe를 사용하면 통합이 직관적입니다. Adobe [ID](https://experienceleague.adobe.com/docs/experience-platform/identity/namespaces.html?lang=en)를 가져와 Braze 외부 ID에 매핑하고 Braze 플랫폼으로 전송하기만 하면 됩니다. 전송된 모든 데이터는 새로운 `AdobeExperiencePlatformSegments` 속성을 통해 Braze에서 액세스할 수 있습니다.
+Braze와 Adobe 고객 데이터 플랫폼 통합은 브랜드의 Adobe 데이터(커스텀 속성 및 Segments)를 Braze에 실시간으로 연결하고 매핑합니다. 이 데이터를 기반으로 사용자에게 개인화된 타겟 경험을 제공할 수 있습니다. Adobe를 사용하면 통합이 직관적입니다. Adobe [ID](https://experienceleague.adobe.com/docs/experience-platform/identity/namespaces.html?lang=en)를 가져와 Braze 외부 ID에 매핑하고 Braze 플랫폼으로 전송하기만 하면 됩니다. 전송된 모든 데이터는 새로운 `AdobeExperiencePlatformSegments` 속성을 통해 Braze에서 액세스할 수 있습니다.
 
 {% alert important %}
 Adobe Experience Platform 통합은 현재 동적 오디언스 멤버십을 지원하지 않습니다. 즉, 고객 프로필에 값을 추가할 수만 있고 제거할 수는 없습니다.
@@ -66,7 +66,7 @@ Braze와의 연결이 이미 존재하는 경우 대상 카드에 **Activate** �
 
 ### 5단계: Segments 활성화 {#step-5-activate-segments}
 
-Segments를 Braze 대상에 매핑하여 Adobe 실시간 CDP에 있는 데이터를 활성화합니다.
+Segments를 Braze 대상에 매핑하여 Adobe 실시간 고객 데이터 플랫폼에 있는 데이터를 활성화합니다.
 
 다음 목록은 Segment를 활성화하는 데 필요한 일반적인 단계를 설명합니다. Adobe Segments 및 Segment 활성화 워크플로에 대한 자세한 안내는 [Adobe](https://experienceleague.adobe.com/docs/experience-platform/destinations/ui/activate-destinations.html?lang=en#prerequisites)를 참조하세요.
 
@@ -106,4 +106,4 @@ XDM 프로필 스키마와 Braze 인스턴스에 다음과 같은 속성과 ID�
 데이터가 Braze로 성공적으로 내보내졌는지 확인하려면 Braze 계정을 확인하세요. Adobe Experience Platform Segments는 `AdobeExperiencePlatformSegments` 속성 아래에서 Braze로 내보내집니다.
 
 ## 데이터 사용 및 거버넌스 {#data-usage-and-governance}
-모든 Adobe Experience Platform 대상은 데이터를 처리할 때 데이터 사용 정책을 준수합니다. Adobe Experience Platform이 데이터 거버넌스를 시행하는 방법에 대한 자세한 내용은 [실시간 CDP의 데이터 거버넌스](https://experienceleague.adobe.com/docs/experience-platform/rtcdp/privacy/data-governance-overview.html?lang=en)를 참조하세요.
+모든 Adobe Experience Platform 대상은 데이터를 처리할 때 데이터 사용 정책을 준수합니다. Adobe Experience Platform이 데이터 거버넌스를 시행하는 방법에 대한 자세한 내용은 [실시간 고객 데이터 플랫폼의 데이터 거버넌스](https://experienceleague.adobe.com/docs/experience-platform/rtcdp/privacy/data-governance-overview.html?lang=en)를 참조하세요.

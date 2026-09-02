@@ -14,7 +14,7 @@ description: "Vergleichen Sie Standard-CDI-Syncs, CDI Segments, CDI Canvas-Trigg
 
 MovieCanon ist ein fiktiver Film-Streaming-Dienst. Kund:innen-, Ticket- und Aufrufdaten werden zentral in einem Warehouse gespeichert. Das Datenteam muss entscheiden, wie Braze für drei gängige Anforderungen mit Daten versorgt wird:
 
-- **Profildaten:** Treueprogramm-Stufe, Lifetime-Value und Präferenzattribute für Genre oder Format, die auf Braze-Nutzerprofilen persistent gespeichert werden.
+- **Profildaten:** Treueprogramm-Stufe, LTV und Präferenzattribute für Genre oder Format, die auf Braze-Nutzerprofilen persistent gespeichert werden.
 - **Zielgruppenbildung:** SQL-gesteuerte Segmente aus Warehouse-Tabellen, ohne jede Spalte nach Braze zu kopieren.
 - **Getriggerte Nachrichten:** Warehouse-Zeilen, die einen Canvas-Eintritt mit zeilenspezifischer Personalisierung auslösen sollen, die nicht auf dem Profil gespeichert werden muss.
 
@@ -25,7 +25,7 @@ Nutzen Sie diesen Vergleich, wenn Sie Architektur planen, Durchsatz dimensionier
 ## Hinweise {#considerations}
 
 - Cloud Data Ingestion ist ein übergeordnetes Feature. Standard-CDI-Syncs kopieren Daten auf Braze-Profile (ähnlich wie `/users/track`). CDI Segments und CDI Canvas-Trigger lassen Warehouse-Daten an Ort und Stelle, ohne sie auf Braze-Nutzerprofile zu schreiben.
-- Wiederkehrende CDI-Syncs können alle 15 Minuten bis einmal im Monat ausgeführt werden. Wenn Sie eine höhere Kadenz als 15 Minuten benötigen, wenden Sie sich an Ihren Customer-Success-Manager oder verwenden Sie die REST-API-Datenaufnahme. Siehe [Braze Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
+- Wiederkehrende CDI-Syncs können alle 15 Minuten bis einmal im Monat ausgeführt werden. Wenn Sie eine höhere Kadenz als 15 Minuten benötigen, wenden Sie sich an Ihren CSM oder verwenden Sie die REST-API-Datenaufnahme. Siehe [Braze Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
 - CDI Canvas-Trigger teilen sich das Rate-Limit von [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases) mit anderem Traffic an diesen Endpunkt. `/users/track` hat eigene Limits und Batching-Regeln. Standardlimits können erhöht werden. Gehen Sie zu **Einstellungen** > **APIs und Bezeichner** > **API-Limits** und lesen Sie [API-Rate-Limits]({{site.baseurl}}/api/api_limits).
 - Connected Sources und CDI-Segmenterweiterungen führen Abfragen in Ihrem Warehouse aus. Sie tragen die Warehouse-Compute-Kosten; Braze protokolliert für diese Abfragen keine Datenpunkte. Siehe [Connected Sources]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources).
 

@@ -338,7 +338,7 @@ Count
 Count, Percentage
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or Primary Conversion Event' %} メール、プッシュ、webhookの場合、最初の送信後からコンバージョンの追跡を開始します。
+{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or 1次コンバージョン Event' %} メール、プッシュ、webhookの場合、最初の送信後からコンバージョンの追跡を開始します。
 
 {::nomarkdown}
 <span class="calculation-line">

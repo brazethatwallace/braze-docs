@@ -73,7 +73,7 @@ Verwenden Sie dynamischen Content, um verschiedene Aktionen und Nachrichten an v
 
 Diese Integration erlaubt es Ihnen, personalisierte Empfehlungs-Widgets und dynamischen Content von Dynamic Yield in Ihre Braze E-Mail-Campaigns einzubetten. Das Einbetten in Braze Campaigns erfolgt über einen einfachen Einbettungscode, den Sie in den E-Mail-Editor von Braze einfügen.
 
-1. Klicken Sie auf das Symbol für die ESP-Integration auf der Seite der Experience-E-Mail-Liste.<br><br>
+1. Klicken Sie auf das Symbol für die E-Mail-Anbieter-Integration auf der Seite der Experience-E-Mail-Liste.<br><br>
 2. Geben Sie das entsprechende Token von Braze ein, das die CUID und die E-Mail-ID der Nutzer:innen einfügt.<br>![Dynamic Yield ESP-Integrations-Dialog mit Braze-Nutzer:innen-Token-Feldern.]({% image_buster /assets/img/dynamic_yield/dynamic_yield2_new.png %})
 
 Wenn Sie mit Ihrer E-Mail zufrieden sind, generieren Sie im nächsten Schritt den Code zum Einbetten in Braze.

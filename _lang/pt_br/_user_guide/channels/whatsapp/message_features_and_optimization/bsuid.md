@@ -162,7 +162,7 @@ A Braze receberá o BSUID do usuário no webhook de entrada e fará a correspond
 
 ### Posso segmentar usuários com BSUID em Segments? {#can-i-target-bsuid-users-in-segments}
 
-Usuários com BSUID são perfis de usuário completos na Braze, então você pode segmentá-los por meio de filtros de público padrão (como "recebeu uma mensagem do WhatsApp" ou associação a grupo de inscrições). No entanto, a segmentação especificamente por valores de BSUID (como "BSUID existe" ou "BSUID igual a X") não é suportada.
+Usuários com BSUID são perfis de usuário completos na Braze, então você pode Segmentá-los por meio de filtros de público padrão (como "recebeu uma mensagem do WhatsApp" ou associação a grupo de inscrições). No entanto, a segmentação especificamente por valores de BSUID (como "BSUID existe" ou "BSUID igual a X") não é suportada.
 
 ### Como funciona a precificação do WhatsApp para usuários com BSUID? {#how-does-whatsapp-pricing-work-for-bsuid-users}
 

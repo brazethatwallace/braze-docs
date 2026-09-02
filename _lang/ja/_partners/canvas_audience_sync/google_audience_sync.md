@@ -18,20 +18,20 @@ Google は、2024年3月6日より施行されている[デジタル市場法（
 Braze Audience Sync to Google 統合により、ブランドはクロスチャネルのカスタマージャーニーの範囲を Google 検索、Google ショッピング、Gmail、YouTube、および Google ディスプレイに拡大できます。ファーストパーティの顧客データを使用して、ダイナミックな行動トリガー、セグメンテーションなどに基づいて安全に広告を配信できます。Braze キャンバスの一部としてメッセージ（例えば、プッシュ、メール、SMS）をトリガーするために通常使用する任意の基準を使用して、Googleの[カスタマーマッチ](https://support.google.com/google-ads/answer/6379332?hl=en)を通じてそのユーザーに広告をトリガーすることができます。
 
 {% alert note %}
-Braze Audience Sync to Google 統合は、Google Ads Manager ではなく Google Ads でサポートされています。
+Braze Audience Sync to Google 統合は、Google Ads マネージャー ではなく Google Ads でサポートされています。
 {% endalert %}
 
 Google Ads は、ターゲティングとレポート用に「lookalike audiences」とも呼ばれる類似オーディエンスを生成しなくなりました。詳細については、[Google 広告ドキュメント](https://support.google.com/google-ads/answer/12463119?)を参照してください。
 
-## Google Data Manager API
+## Google Data マネージャー API
 
 {% alert important %}
-Google Data Manager APIによるGoogle向けオーディエンス同期のサポートは、早期アクセス段階です。利用資格とロールアウトのタイミングについては、Brazeアカウントマネージャーにお問い合わせください。
+Google Data マネージャー APIによるGoogle向けオーディエンス同期のサポートは、早期アクセス段階です。利用資格とロールアウトのタイミングについては、Brazeアカウントマネージャーにお問い合わせください。
 {% endalert %}
 
-Googleは広告連携をData Manager APIに統合しています。早期アクセスでは、BrazeのGoogle向けオーディエンス同期がこのAPIを使用して、進行中のGoogle広告APIの変更に対応できます。
+Googleは広告連携をData マネージャー APIに統合しています。早期アクセスでは、BrazeのGoogle向けオーディエンス同期がこのAPIを使用して、進行中のGoogle広告APIの変更に対応できます。
 
-新規および再接続されたGoogleオーディエンス同期の接続では、Brazeが必要なData Managerスコープを自動的にリクエストします。既存の接続は、再接続するまでレガシーパスを通じて同期を継続します。
+新規および再接続されたGoogleオーディエンス同期の接続では、Brazeが必要なData マネージャースコープを自動的にリクエストします。既存の接続は、再接続するまでレガシーパスを通じて同期を継続します。
 
 アカウント接続、オーディエンスの設定、同期の動作については、引き続きこのガイドに従ってください。
 

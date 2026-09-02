@@ -93,4 +93,4 @@ In der Dokumentation existiert keine offizielle migrationsspezifische Checkliste
 
 ### Garantiert `changeUser`, dass Push-Token dem neuen/der neuen Nutzer:in folgen? {#does-changeuser-guarantee-that-push-tokens-follow-the-new-user}
 
-Es gibt keine explizite schriftlich dokumentierte Garantie. Die Designabsicht ist jedoch, dass Push-Token dem Gerät folgen, nicht dem/der Nutzer:in. Der Aufruf von `changeUser` sollte das vorhandene Geräte-Token mit dem neuen Nutzerprofil neu verknüpfen. Sie sollten `changeUser` testen, das Dashboard überprüfen und bestätigen, dass das Token im neuen Profil erscheint, bevor Sie einen Massen-Rollout durchführen.
+Es gibt keine explizite schriftlich dokumentierte Garantie. Die Designabsicht ist jedoch, dass Push-Token dem Gerät folgen, nicht dem/der Nutzer:in. Der Aufruf von `changeUser` sollte das vorhandene Geräte-Token mit dem neuen Kundenprofil neu verknüpfen. Sie sollten `changeUser` testen, das Dashboard überprüfen und bestätigen, dass das Token im neuen Profil erscheint, bevor Sie einen Massen-Rollout durchführen.

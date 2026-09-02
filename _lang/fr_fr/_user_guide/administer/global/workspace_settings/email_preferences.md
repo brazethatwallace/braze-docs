@@ -99,9 +99,9 @@ Les adresses CCI sont disponibles pour Amazon SES, SendGrid et SparkPost. Comme 
 
 {% multi_lang_include alerts/important_alerts.md alert='BCC address billable emails' %}
 
-Après avoir ajouté une adresse, celle-ci est disponible à la sélection lors de la composition d'un e-mail dans des Campaigns ou des étapes Canvas. Sélectionnez **Make Default** à côté d'une adresse pour la définir comme sélectionnée par défaut lors du lancement d'une nouvelle campagne d'e-mail ou d'un composant Canvas. Pour remplacer ce paramètre au niveau du message, vous pouvez sélectionner **No BCC** lors de la configuration de votre message.
+Après avoir ajouté une adresse, celle-ci est disponible à la sélection lors de la composition d'un e-mail dans des Campaigns ou des étapes Canvas. Sélectionnez **Make Default** à côté d'une adresse pour la définir comme sélectionnée par défaut lors du lancement d'une nouvelle campagne d'e-mail ou d'un composant Canvas. Pour remplacer ce paramètre au niveau du message, vous pouvez sélectionner **No CCI** lors de la configuration de votre message.
 
-Si vous exigez que tous les messages e-mail envoyés depuis Braze incluent une adresse CCI, vous pouvez activer le bouton bascule **Require a BCC address for all your email campaigns**. Cela vous oblige à sélectionner une adresse par défaut, qui est automatiquement sélectionnée pour les nouvelles campagnes d'e-mail ou les étapes Canvas. L'adresse par défaut est également ajoutée automatiquement à tous les messages déclenchés via notre REST API. Il n'est pas nécessaire de modifier la requête API existante pour inclure l'adresse.
+Si vous exigez que tous les messages e-mail envoyés depuis Braze incluent une adresse CCI, vous pouvez activer le bouton bascule **Require a CCI address for all your email campaigns**. Cela vous oblige à sélectionner une adresse par défaut, qui est automatiquement sélectionnée pour les nouvelles campagnes d'e-mail ou les étapes Canvas. L'adresse par défaut est également ajoutée automatiquement à tous les messages déclenchés via notre REST API. Il n'est pas nécessaire de modifier la requête API existante pour inclure l'adresse.
 
 #### CCI dynamique {#dynamic-bcc}
 
@@ -130,7 +130,7 @@ Pour réduire les comportements inattendus, gardez le Liquid à l'intérieur des
 
 ### Modifier l'emplacement {#update-the-placement}
 
-Braze prend actuellement en charge le remplacement de l'emplacement par défaut du pixel de suivi d'ouverture de l'ESP (la dernière balise dans le `<body>` d'un e-mail) pour le déplacer vers la première balise du `<body>`.
+Braze prend actuellement en charge le remplacement de l'emplacement par défaut du pixel de suivi d'ouverture de l'fournisseur de services d'e-mailing (la dernière balise dans le `<body>` d'un e-mail) pour le déplacer vers la première balise du `<body>`.
 
 ![Section « Pixel de suivi d'ouverture » avec les options de déplacement pour SendGrid, SparkPost ou Amazon SES.]({% image_buster /assets/img/open_pixel.png %}){: style="max-width:80%;" }
 
@@ -140,7 +140,7 @@ Pour modifier l'emplacement :
 2. Sélectionnez l'une des options suivantes : **Move for SendGrid**, **Move for SparkPost** ou **Move for Amazon SES**
 3. Sélectionnez **Enregistrer**.
 
-Après l'enregistrement, Braze envoie des instructions spéciales à l'ESP pour placer le pixel de suivi d'ouverture en haut de tous les e-mails HTML.
+Après l'enregistrement, Braze envoie des instructions spéciales à l'fournisseur de services d'e-mailing pour placer le pixel de suivi d'ouverture en haut de tous les e-mails HTML.
 
 {% alert important %}
 L'activation du SSL encapsule l'URL du pixel de suivi avec HTTPS au lieu de HTTP. Si votre SSL est mal configuré, cela peut affecter l'efficacité du pixel de suivi.

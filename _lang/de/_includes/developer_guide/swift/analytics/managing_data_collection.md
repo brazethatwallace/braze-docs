@@ -209,7 +209,7 @@ Dieses Objective-C-Beispiel zeigt die Completion-basierte `logout`-Behandlung. V
 
 #### Tracking und Push nach `logout` wieder aktivieren {#re-enable-tracking-and-push-after-logout}
 
-Setzen Sie nach einem erfolgreichen `logout` [`enabled`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/enabled/) wieder auf `true` und registrieren Sie sich dann erneut für Benachrichtigungen bei Ihrem Betriebssystem oder Push-Anbieter, indem Sie der [Swift-Push-Einrichtung]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift) folgen.
+Setzen Sie nach einem erfolgreichen `logout` [`enabled`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/enabled/) wieder auf `true` und Registrieren Sie sich dann erneut für Benachrichtigungen bei Ihrem Betriebssystem oder Push-Anbieter, indem Sie der [Swift-Push-Einrichtung]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift) folgen.
 
 #### Sofortige Abmeldeaufrufe vermeiden {#avoid-immediate-unregister-calls}
 

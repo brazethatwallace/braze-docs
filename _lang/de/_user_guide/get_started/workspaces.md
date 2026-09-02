@@ -93,7 +93,7 @@ Wenn Sie z. B. getrennte Workspaces für die Entwicklungs- und Produktionsumgebu
 
 #### Nutzerprofile {#user-profiles}
 
-Alle persistenten Daten, die mit Nutzer:innen verknüpft sind, werden in ihrem [Nutzerprofil]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) gespeichert. Nutzerprofile sind jedoch auch eine hervorragende Ressource für Fehlerbehebung und Tests, da Sie einfach auf Informationen zum Engagement-Verlauf, zur Segmentzugehörigkeit, zum Gerät und zum Betriebssystem von Nutzer:innen zugreifen können.
+Alle persistenten Daten, die mit Nutzer:innen verknüpft sind, werden in ihrem [Kundenprofil]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) gespeichert. Nutzerprofile sind jedoch auch eine hervorragende Ressource für Fehlerbehebung und Tests, da Sie einfach auf Informationen zum Engagement-Verlauf, zur Segmentzugehörigkeit, zum Gerät und zum Betriebssystem von Nutzer:innen zugreifen können.
 
 #### Segments, Campaigns und Canvases {#segments-campaigns-and-canvases}
 
@@ -103,8 +103,8 @@ Ein Segment, eine Campaign oder ein Canvas kann nicht auf Daten zugreifen oder d
 
 Die folgende Tabelle beschreibt die Vorteile und Nachteile dieser beiden Ansätze zur Workspace-Planung:
 
-- **Getrennte Workspaces und Nutzerprofile:** Ein Workspace hat eine App-Instanz, und eine Person hat ein Nutzerprofil für diese App-Instanz.
-- **Gemeinsame Workspaces und Nutzerprofile:** Ein Workspace hat mehrere App-Instanzen, und eine Person hat ein Nutzerprofil für alle diese App-Instanzen.
+- **Getrennte Workspaces und Nutzerprofile:** Ein Workspace hat eine App-Instanz, und eine Person hat ein Kundenprofil für diese App-Instanz.
+- **Gemeinsame Workspaces und Nutzerprofile:** Ein Workspace hat mehrere App-Instanzen, und eine Person hat ein Kundenprofil für alle diese App-Instanzen.
 
 <style type="text/css">
   table {
@@ -173,7 +173,7 @@ Die folgende Tabelle beschreibt die Vorteile und Nachteile dieser beiden Ansätz
     <tr>
         <th scope="row">Targeting</th>
         <td>Sicherste Methode, um Kommunikation getrennt zu halten. Campaigns sprechen garantiert nur bestimmte Nutzerprofile an.</td>
-        <td>Cross-Promotion-Nachrichten können nicht gesendet werden, selbst wenn Sie wissen, dass Nutzer:innen ein weiteres Nutzerprofil in einem anderen Workspace haben.</td>
+        <td>Cross-Promotion-Nachrichten können nicht gesendet werden, selbst wenn Sie wissen, dass Nutzer:innen ein weiteres Kundenprofil in einem anderen Workspace haben.</td>
         <td>Cross-Promotion-Nachrichten können gesendet werden, wenn Sie wissen, dass Nutzer:innen mehrere Apps in Ihrem Workspace haben.<br><br>Nutzerdaten aus verschiedenen Apps können referenziert werden. Beispiel: Max hat das Attribut X, das für App 1 relevant ist, und das Attribut Y, das für App 2 relevant ist – beide können in einer Campaign referenziert werden.</td>
         <td>Mehr Raum für menschliche Fehler – Sie könnten versehentlich Nutzer:innen über mehrere App-Instanzen hinweg ansprechen.<br><br>Um In-App-Nachrichten zu senden, benötigen Sie app-spezifische angepasste Events, damit eine Campaign nicht versehentlich in einer anderen App angezeigt wird. Zum Beispiel <code>app_1_action</code> versus <code>app_2_action</code>.</td>
     </tr>
@@ -182,7 +182,7 @@ Die folgende Tabelle beschreibt die Vorteile und Nachteile dieser beiden Ansätz
         <td>Angepasste Attribute und Events sind garantiert spezifisch für eine App-Instanz.</td>
         <td>Nutzerverhalten kann nicht workspace-übergreifend verfolgt werden.<br><br><b>Tipp:</b> Sie können mehrere Currents-Konnektoren nutzen, um dies zu erreichen.</td>
         <td>Nutzerverhalten kann über alle App-Instanzen im Workspace hinweg verfolgt werden.</td>
-        <td>Angepasste Attribute und Events gelten für alle App-Instanzen, was es schwierig machen kann, zu erkennen, welche Daten in einem Nutzerprofil für welche App-Instanz relevant sind. Beispiel: Ist „date_of_parking“ relevant für App 1 oder App 2? Verwenden Sie daher gut strukturierte Namenskonventionen.</td>
+        <td>Angepasste Attribute und Events gelten für alle App-Instanzen, was es schwierig machen kann, zu erkennen, welche Daten in einem Kundenprofil für welche App-Instanz relevant sind. Beispiel: Ist „date_of_parking“ relevant für App 1 oder App 2? Verwenden Sie daher gut strukturierte Namenskonventionen.</td>
     </tr>
     <tr>
         <th scope="row">Frequency-Capping</th>

@@ -44,7 +44,7 @@ De forma predeterminada, recopilamos números a nivel global; sin embargo, puede
 
 #### Números de teléfono no válidos {#invalid-phone-numbers}
 
-Si tus usuarios introducen un número de teléfono que incluye caracteres especiales no aceptados, verán un indicador de error genérico que no es personalizable y no podrán enviar el formulario. Puedes ver el comportamiento del error en la pestaña **Preview & Test** y en tu dispositivo de prueba. Consulta este artículo para saber [cómo Braze formatea los números de teléfono]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#import-phone-numbers).
+Si tus usuarios introducen un número de teléfono que incluye caracteres especiales no aceptados, verán un indicador de error genérico que no es personalizable y no podrán enviar el formulario. Puedes ver el comportamiento del error en la pestaña **vista previa & Test** y en tu dispositivo de prueba. Consulta este artículo para saber [cómo Braze formatea los números de teléfono]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#import-phone-numbers).
 
 ### Paso 4: Añade el texto de exención de responsabilidad (para formularios de registro de SMS y RCS) {#step-4-add-disclaimer-language-for-sms-and-rcs-sign-up-forms}
 

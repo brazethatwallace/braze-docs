@@ -103,7 +103,7 @@ Use variáveis Liquid estrategicamente para personalizar conteúdo como porcenta
 
 ### Etapa 6: Pré-visualizar e enviar {#step-6-preview-and-submit}
 
-1. Use a seção **Preview** para visualizar como seu carrossel aparecerá para os usuários.
+1. Use a seção **prévia** para visualizar como seu carrossel aparecerá para os usuários.
 2. Selecione **Submit to Meta for review** para que a Braze envie o modelo à Meta para aprovação.
 3. A aprovação normalmente leva alguns minutos, mas pode levar até 24 horas.
 4. Verifique o status do modelo na lista de **Templates** na página de modelos do WhatsApp ou no seletor de Canvas e Campaign.

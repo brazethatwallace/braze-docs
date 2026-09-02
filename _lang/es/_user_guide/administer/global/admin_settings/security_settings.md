@@ -39,11 +39,11 @@ Utiliza este campo para establecer cuándo quieres que los usuarios de tu cuenta
 
 Utiliza este campo para definir cuánto tiempo Braze mantendrá tu sesión activa. Cuando Braze considere que tu sesión está inactiva (sin actividad durante el número de minutos definido), cerrará la sesión del usuario. El número máximo de minutos que puedes introducir es 10 080 (equivalente a una semana) si la autenticación de dos factores está habilitada para tu empresa; de lo contrario, la duración máxima de la sesión es de 1440 minutos (equivalente a 24 horas).
 
-### Autenticación de inicio de sesión único (SSO) {#single-sign-on-sso-authentication}
+### Autenticación de inicio de sesión único (inicio de sesión único) {#single-sign-on-sso-authentication}
 
-Puedes restringir a tus usuarios para que inicien sesión utilizando una contraseña o SSO.
+Puedes restringir a tus usuarios para que inicien sesión utilizando una contraseña o inicio de sesión único.
 
-Para [SAML SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on), los clientes deben configurar sus ajustes de SAML antes de aplicarlos. Si los clientes utilizan Google SSO, solo necesitan aplicar la página de configuración de seguridad sin ningún paso adicional.
+Para [SAML inicio de sesión único]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on), los clientes deben configurar sus ajustes de SAML antes de aplicarlos. Si los clientes utilizan Google inicio de sesión único, solo necesitan aplicar la página de configuración de seguridad sin ningún paso adicional.
 
 ## Lista de IP permitidas del panel {#dashboard-ip-allowlisting}
 
@@ -51,7 +51,7 @@ Usa el campo que se muestra para añadir a la lista de permitidas las direccione
 
 ## Autenticación de dos factores (2FA) {#two-factor-authentication-2fa}
 
-La autenticación de dos factores es obligatoria para todos los usuarios de la empresa. Agrega un segundo nivel de verificación de identidad a un inicio de sesión de cuenta, haciéndolo más seguro que solo un nombre de usuario y una contraseña. Si tu panel no admite la autenticación de dos factores, ponte en contacto con tu administrador de éxito de cliente.
+La autenticación de dos factores es obligatoria para todos los usuarios de la empresa. Agrega un segundo nivel de verificación de identidad a un inicio de sesión de cuenta, haciéndolo más seguro que solo un nombre de usuario y una contraseña. Si tu panel no admite la autenticación de dos factores, ponte en contacto con tu CSM.
 
 Cuando la autenticación de dos factores está activada:
 
@@ -95,7 +95,7 @@ Si 2FA no se aplica a nivel de empresa, los usuarios individuales pueden configu
 Si 2FA se aplica a nivel de empresa, los usuarios que no la configuren en sus propias cuentas al iniciar sesión serán bloqueados del panel. Los usuarios deben completar la configuración de 2FA para mantener el acceso.
 
 {% alert important %}
-2FA es obligatoria para todos los usuarios de la empresa solo si el inicio de sesión único (SSO) no está habilitado. Si se utiliza SSO, no es necesario aplicar 2FA a nivel de empresa.
+2FA es obligatoria para todos los usuarios de la empresa solo si el inicio de sesión único (inicio de sesión único) no está habilitado. Si se utiliza inicio de sesión único, no es necesario aplicar 2FA a nivel de empresa.
 {% endalert %}
 
 ## Configurar 2FA manualmente {#manually-set-up-2fa}
@@ -365,5 +365,5 @@ Si los problemas persisten, elimina el perfil antiguo en la aplicación Authy y 
 
 Para obtener más información sobre autenticación y acceso, consulta:
 
-- [SAML e inicio de sesión único]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on) para configurar SSO con tu proveedor de identidad.
+- [SAML e inicio de sesión único]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on) para configurar inicio de sesión único con tu proveedor de identidad.
 - [Permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) para controlar qué acciones pueden realizar los usuarios en el panel.

@@ -51,7 +51,7 @@ Para cada app, você pode selecionar **Ver detalhamento** para visualizar uma co
 
 ![Guia de detalhamento de eventos e atributos mais usados por app]({% image_buster /assets/img/most_used_events_attributes_2.png %}){: style="max-width:60%"}
 
-Detalhamentos de dados como esses podem ajudar você a entender quais pontos de dados específicos estão consumindo grandes porcentagens da sua cota. Recomendamos que você monitore essas informações periodicamente para garantir que não está gastando pontos de dados de forma acidental e desnecessária. Seu gerente de sucesso do cliente pode orientar você a aproveitar ao máximo o seu plano atual ou oferecer opções com maior flexibilidade.
+Detalhamentos de dados como esses podem ajudar você a entender quais pontos de dados específicos estão consumindo grandes porcentagens da sua cota. Recomendamos que você monitore essas informações periodicamente para garantir que não está gastando pontos de dados de forma acidental e desnecessária. Seu CSM pode orientar você a aproveitar ao máximo o seu plano atual ou oferecer opções com maior flexibilidade.
 
 ## Dashboard de total de pontos de dados {#total-data-points-dashboard}
 

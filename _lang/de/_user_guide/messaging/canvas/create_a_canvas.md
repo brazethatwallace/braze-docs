@@ -12,7 +12,7 @@ search_rank: 1
 > Dieser Referenzartikel behandelt die notwendigen Schritte zum Erstellen, Pflegen und Testen eines Canvas. Folgen Sie dieser Anleitung oder schauen Sie sich unseren [Braze-Lernkurs zu Canvas](https://learning.braze.com/quick-overview-canvas-setup) an. Sie können auch mit einem [Braze-Canvas-Template]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates) starten, um Ihre Einrichtung zu beschleunigen. Weitere Informationen finden Sie unter [Canvas-Templates]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates). Um ein Canvas aus einer Beschreibung in natürlicher Sprache zu entwerfen, nutzen Sie [Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#canvases).
 
 {% details Erweitern für Details zum ursprünglichen Canvas-Editor %}
-Sie können keine Canvases mehr mit dem ursprünglichen Canvas-Editor erstellen oder duplizieren. Braze empfiehlt, [Ihre Canvases zu klonen]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases), um den aktuellsten Editor zu verwenden.
+Sie können keine Canvases mehr mit dem ursprünglichen Canvas-Editor erstellen oder duplizieren. Braze empfiehlt, [Ihre Canvases zu Klon]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases), um den aktuellsten Editor zu verwenden.
 {% enddetails %}
 
 ## Schritt 1: Ein neues Canvas einrichten {#step-1-set-up-a-new-canvas}
@@ -240,7 +240,7 @@ Standardmäßig wird die Canvas-Variantenzuweisung durch einen deterministischen
 
 {% details Zum Anzeigen der Schritte aufklappen %}
 
-1. Erstellen Sie ein angepasstes Attribut vom Typ **Number**, um Ihre zufällige Zahl zu speichern. Benennen Sie es so, dass es leicht zu finden ist, z. B. `lottery_number` oder `random_assignment`. Gehen Sie in Ihrem Dashboard zu **Data Settings** > **Custom Attributes**.<br><br>
+1. Erstellen Sie ein angepasstes Attribut vom Typ **Number**, um Ihre zufällige Zahl zu speichern. Benennen Sie es so, dass es leicht zu finden ist, z. B. `lottery_number` oder `random_assignment`. Gehen Sie in Ihrem Dashboard zu **Data Settings** > **angepasste Attribute**.<br><br>
 2. Verwenden Sie eine einzelne Canvas-Variante (oder fügen Sie denselben User-Update-Schritt zu jeder Variante hinzu). Fügen Sie am Anfang der Journey einen [User-Update]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)-Schritt hinzu. Dieser Schritt generiert und speichert die zufällige Zahl, bevor Nutzer:innen Ihren Zielgruppenpfade-Schritt erreichen.<br><br>
 3. Wählen Sie im User-Update-Schritt den [erweiterten JSON-Editor]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-editor). Verwenden Sie den {% raw %}{% random %}{% endraw %}-Tag, um die Zahl zu generieren. Weitere Informationen finden Sie unter [Nachrichten mit einer zufälligen Zahl senden]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#send-messages-with-a-random-number). Zum Beispiel gibt {% raw %}`{% random 10 %}`{% endraw %} eine Ganzzahl von 0 bis 9 zurück. Setzen Sie das angepasste Attribut aus Schritt 1 mit folgendem JSON:<br><br>{% raw %}
 ```json

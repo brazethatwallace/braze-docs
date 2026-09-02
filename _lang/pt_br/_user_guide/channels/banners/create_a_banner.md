@@ -226,7 +226,7 @@ A contagem regressiva começa quando o usuário dispensa o Banner. Após a janel
 
 #### Escolher seu público {#choose-your-audience}
 
-1. Em **Públicos-alvo**, escolha segmentos ou filtros para refinar seu público. Você recebe automaticamente uma prévia da população aproximada do segmento. A associação exata ao segmento é calculada antes do envio da mensagem.
+1. Em **Públicos-alvo**, escolha segmentos ou filtros para refinar seu público. Você recebe automaticamente uma prévia da população aproximada do Segment. A associação exata ao Segment é calculada antes do envio da mensagem.
 
 {% multi_lang_include audience/target_audiences.md %}
 

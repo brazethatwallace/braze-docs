@@ -27,7 +27,7 @@ Das Senden von MMS an Nummern außerhalb der USA und Kanadas ist möglich, aller
 
 Einige Nutzer:innen implementieren oder verwenden möglicherweise keine MMS-Shortcodes, diese stehen jedoch bei Bedarf zu einem späteren Zeitpunkt zur Verfügung.
 
-Für Nutzer:innen, die ihre Shortcodes erhalten haben, bevor Braze MMS unterstützte, sind alle bestehenden Kund:innen mit US-Shortcodes berechtigt, MMS sofort zu aktivieren. Wenden Sie sich an Ihren Customer-Success-Manager, wenn diese Situation auf Sie zutrifft und Sie MMS aktivieren möchten.
+Für Nutzer:innen, die ihre Shortcodes erhalten haben, bevor Braze MMS unterstützte, sind alle bestehenden Kund:innen mit US-Shortcodes berechtigt, MMS sofort zu aktivieren. Wenden Sie sich an Ihren CSM, wenn diese Situation auf Sie zutrifft und Sie MMS aktivieren möchten.
 
 {% alert important %}
 Beim Aktivieren von MMS für Shortcodes, bei denen MMS zuvor nicht aktiviert war, müssen die Shortcodes möglicherweise in einem Genehmigungsverfahren erneut genehmigt werden, das Wochen dauern kann. Es ist wichtig, diesen Zeitrahmen bei der Entscheidung zur Aktivierung von MMS zu berücksichtigen.

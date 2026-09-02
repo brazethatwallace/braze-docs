@@ -34,7 +34,7 @@ All dies zusammen sorgt für erfolgreiche Interaktionen zwischen Ihrer Nutzerbas
 
 ## Datenaufnahme {#ingestion}
 
-Braze basiert auf einer Streaming-Daten-Architektur, die Snowflake, Kafka, MongoDB und Redis nutzt. Daten aus verschiedenen Quellen können über SDK und API in Braze geladen werden. Die Plattform kann alle Daten in Realtime verarbeiten, unabhängig davon, wie verschachtelt oder strukturiert sie sind. Die Daten in Braze werden im Nutzerprofil gespeichert.
+Braze basiert auf einer Streaming-Daten-Architektur, die Snowflake, Kafka, MongoDB und Redis nutzt. Daten aus verschiedenen Quellen können über SDK und API in Braze geladen werden. Die Plattform kann alle Daten in Realtime verarbeiten, unabhängig davon, wie verschachtelt oder strukturiert sie sind. Die Daten in Braze werden im Kundenprofil gespeichert.
 
 {% alert tip %}
 Braze kann die Daten von Nutzer:innen während ihrer gesamten Journey mit Ihnen verfolgen – von dem Zeitpunkt, an dem sie anonym sind, bis zu dem Zeitpunkt, an dem sie in Ihrer App angemeldet und bekannt sind. Für alle Ihre Nutzer:innen sollten Nutzer-IDs festgelegt werden, die in Braze `external_id`s heißen. Diese sollten sich nicht ändern und zugänglich sein, wenn Nutzer:innen die App öffnen, damit Sie sie über verschiedene Geräte und Plattformen hinweg verfolgen können. Lesen Sie den [Artikel zum Nutzer:innen-Lebenszyklus]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle) für bewährte Verfahren.

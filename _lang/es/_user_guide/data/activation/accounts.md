@@ -127,7 +127,7 @@ Por ejemplo:
 Usa la etiqueta de Liquid `{% raw %}{% data_object account %}{% endraw %}` para cargar datos de cuenta del usuario en el array `data_objects`.
 
 {% alert note %}
-Cuando uses **Preview and Test**, utiliza un Segment que incluya datos de cuenta para que la personalización pueda resolverse correctamente.
+Cuando uses **vista previa and Test**, utiliza un Segment que incluya datos de cuenta para que la personalización pueda resolverse correctamente.
 {% endalert %}
 
 {% raw %}

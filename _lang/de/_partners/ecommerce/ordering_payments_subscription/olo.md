@@ -80,7 +80,7 @@ Nachdem die `/users/track`-Anfrage `brazecall` zugewiesen wurde, geben Sie `braz
 
 ### Einzelne Event-Transformation {#single-event-transformation}
 
-Wenn Sie nur ein einzelnes Olo-Event unterstützen möchten, müssen Sie den `X-Olo-Event-Type`-Header nicht verwenden, um den `/users/track`-Anfrage-Payload bedingt zu erstellen. Zum Beispiel das Protokollieren eines Kauf-Events oder eines angepassten Events im Nutzerprofil, wenn ein Olo-Order-Placed-Webhook an Braze gesendet wird.
+Wenn Sie nur ein einzelnes Olo-Event unterstützen möchten, müssen Sie den `X-Olo-Event-Type`-Header nicht verwenden, um den `/users/track`-Anfrage-Payload bedingt zu erstellen. Zum Beispiel das Protokollieren eines Kauf-Events oder eines angepassten Events im Kundenprofil, wenn ein Olo-Order-Placed-Webhook an Braze gesendet wird.
 
 ### Jedes Produkt als Kauf protokollieren {#logging-each-product-as-a-purchase}
 

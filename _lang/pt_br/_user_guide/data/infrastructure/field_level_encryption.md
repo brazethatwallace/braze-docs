@@ -102,8 +102,8 @@ A criptografia é uma função bidirecional em que é possível criptografar e d
 
 Endereços de e-mail em texto simples são aceitos no envio de teste. Para ver como um e-mail fica para um usuário específico, faça o seguinte:
 
-1. Selecione **Preview message as a user**.
-2. Em **Test Send**, selecione **Override recipients attributes with current preview user's attributes**.
+1. Selecione **prévia message as a user**.
+2. Em **Test Send**, selecione **Override recipients attributes with current prévia user's attributes**.
 
 ### Posso usar um ARN para a chave HMAC? {#can-i-use-an-arn-for-the-hmac-key}
 

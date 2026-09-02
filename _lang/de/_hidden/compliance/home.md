@@ -154,7 +154,7 @@ Die Kund:innen erkennen an, dass die Nutzung der Nachrichtenarchivierung und/ode
 
 ### LLM-Anbieter als Unterauftragsverarbeiter oder Drittanbieter {#llm-providers-as-sub-processors-or-third-party-providers}
 
-Wenn Kund:innen eine Integration mit einem großen Sprachmodell nutzen, das von Braze über die Braze Auto-Option in den Braze-Diensten bereitgestellt wird („von Braze bereitgestelltes LLM“), fungiert der Anbieter eines solchen von Braze bereitgestellten LLM als Braze-Unterauftragsverarbeiter, vorbehaltlich der Bedingungen des Datenverarbeitungszusatzes (DPA) zwischen den Kund:innen und Braze.
+Wenn Kund:innen eine Integration mit einem großen Sprachmodell nutzen, das von Braze über die Braze Auto-Option in den Braze-Diensten bereitgestellt wird („von Braze bereitgestelltes LLM“), fungiert der Anbieter eines solchen von Braze bereitgestellten LLM als Braze-Unterauftragsverarbeiter, vorbehaltlich der Bedingungen des Datenverarbeitungszusatzes (Datenschutzbeauftragte:r) zwischen den Kund:innen und Braze.
 
 Wenn Kund:innen sich dafür entscheiden, ihren eigenen API-Schlüssel für die Integration mit der Braze-KI-Funktionalität einzubringen, wird der Anbieter des eigenen LLM-Abos der Kund:innen als Drittanbieter betrachtet, wie im Vertrag zwischen den Kund:innen und Braze definiert.
 

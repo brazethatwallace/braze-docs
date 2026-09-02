@@ -157,7 +157,7 @@ Esse processo usa webhooks da Braze para enviar uma solicitação `PATCH` para a
 
 ### Etapa 2: Configurar o gatilho {#step-2-configure-the-trigger}
 
-1.  Navegue até a guia **Delivery** ou **Entry Schedule**.
+1.  Navegue até a guia **Delivery** ou **Entry agendar/cronograma**.
 2.  Preencha os seguintes campos:
     * **Delivery Method**: Baseado em ações.
     * **Trigger**: Defina o gatilho relevante (por exemplo, um usuário entra em um Segment específico na Braze).

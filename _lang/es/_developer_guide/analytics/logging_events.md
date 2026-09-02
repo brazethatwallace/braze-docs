@@ -27,7 +27,7 @@ Para una implementación estándar del SDK Web, puedes utilizar el siguiente mé
 braze.logCustomEvent("YOUR_EVENT_NAME");
 ```
 
-Si prefieres utilizar Google Tag Manager, puedes usar el tipo de etiqueta **Evento personalizado** para llamar al [método `logCustomEvent`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcustomevent) y enviar eventos personalizados a Braze, incluyendo opcionalmente propiedades del evento personalizado. Para hacerlo:
+Si prefieres utilizar Google Tag Administrador, puedes usar el tipo de etiqueta **Evento personalizado** para llamar al [método `logCustomEvent`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcustomevent) y enviar eventos personalizados a Braze, incluyendo opcionalmente propiedades del evento personalizado. Para hacerlo:
 
 1. Ingresa el **Nombre del evento** utilizando una variable o escribiendo el nombre de un evento.
 2. Usa el botón **Agregar fila** para añadir propiedades del evento.
@@ -115,7 +115,7 @@ Braze.getInstance(context).requestImmediateDataFlush()
 {% endsubtabs %}
 {% endtab %}
 
-{% tab react native %}
+{% tab React Native %}
 ```javascript
 Braze.logCustomEvent("YOUR_EVENT_NAME");
 ```
@@ -303,7 +303,7 @@ Para obtener detalles sobre la API y el puente nativo, consulta:
 - [Controlador de iOS en `src/ios/BrazePlugin.m` (líneas 308-313)](https://github.com/braze-inc/braze-cordova-sdk/blob/86132bc7f0b6ddf1b598b0e612db70f11744801c/src/ios/BrazePlugin.m#L308-L313)
 {% endtab %}
 
-{% tab react native %}
+{% tab React Native %}
 ```javascript
 Braze.logCustomEvent("custom_event_with_properties", {
     key1: "value1",

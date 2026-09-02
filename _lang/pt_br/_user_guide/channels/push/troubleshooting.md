@@ -61,17 +61,17 @@ Pushes só podem ser enviados para usuários inscritos ou que optaram por recebe
 Você também pode exportar perfis de usuário usando os endpoints de exportação da Braze:
 
 - [Usuários por identificador]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier)
-- [Usuários por segmento]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment)
+- [Usuários por Segment]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment)
 
 Ambos os endpoints retornam um objeto de token por push que inclui informações de ativação de push por dispositivo.
 
 ### Segment {#segment}
 
-Confirme que você faz parte do segmento que está sendo direcionado (se for uma campanha ativa e não um teste). No **Perfil de usuário**, você pode ver em quais segmentos o usuário está atualmente incluído. A associação ao segmento é atualizada em tempo real.
+Confirme que você faz parte do Segment que está sendo direcionado (se for uma campanha ativa e não um teste). No **Perfil de usuário**, você pode ver em quais segmentos o usuário está atualmente incluído. A associação ao Segment é atualizada em tempo real.
 
 ![Lista de Segments]({% image_buster /assets/img_archive/trouble2.png %})
 
-Você também pode confirmar que o usuário faz parte do segmento usando a **Pesquisa de usuário** ao criar um segmento. A **Pesquisa de usuário** aceita apenas `external_id` ou `braze_id` — não endereços de e-mail ou números de telefone. Para pesquisar por e-mail, telefone, token por push ou alias de usuário, consulte [**Pesquisar usuários**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles).
+Você também pode confirmar que o usuário faz parte do Segment usando a **Pesquisa de usuário** ao criar um Segment. A **Pesquisa de usuário** aceita apenas `external_id` ou `braze_id` — não endereços de e-mail ou números de telefone. Para pesquisar por e-mail, telefone, token por push ou alias de usuário, consulte [**Pesquisar usuários**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles).
 
 ![Seção de pesquisa de usuário com um campo de busca.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:80%;"}
 
@@ -92,7 +92,7 @@ Se você tiver um limite de frequência definido para sua Campaign ou Canvas, po
 Se for uma Campaign de canal único ou um Canvas com grupo de controle, é possível que você esteja no grupo de controle.
 
   1. Verifique a [distribuição de variantes]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#step-4-choose-a-segment-and-distribute-your-users-across-variants) para ver se há um grupo de controle.
-  2. Se houver, crie um segmento filtrando por [no grupo de controle da Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns#in-campaign-control-group) e depois [exporte o segmento]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#segment-csv-export-details) e verifique se o ID do seu usuário está nessa lista.
+  2. Se houver, crie um Segment filtrando por [no grupo de controle da Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns#in-campaign-control-group) e depois [exporte o Segment]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#segment-csv-export-details) e verifique se o ID do seu usuário está nessa lista.
 
 ### Token por push válido {#valid-push-token}
 
@@ -184,15 +184,15 @@ Se clicar em uma notificação por push não abre seu app, verifique o seguinte 
 
 ## Cliques em push abrem inesperadamente no app {#push-clicks-unexpectedly-open-in-app}
 
-**Sintoma:** Links em notificações por push abrem dentro do app em vez do navegador web do dispositivo.
+**Sintoma:** Links em notificações por push abrem dentro do app em vez do navegador de internet do dispositivo.
 
-Se você está enfrentando problemas com links em notificações por push que abrem inesperadamente no seu app em vez do navegador web, pode haver um problema com a configuração da sua Campaign ou com a implementação do SDK. Consulte as etapas a seguir para obter ajuda.
+Se você está enfrentando problemas com links em notificações por push que abrem inesperadamente no seu app em vez do navegador de internet, pode haver um problema com a configuração da sua Campaign ou com a implementação do SDK. Consulte as etapas a seguir para obter ajuda.
 
 ### Verifique o comportamento ao clicar {#verify-on-click-behavior}
 
 Na sua Campaign ou etapa do Canvas, verifique novamente se **Open web URL inside mobile app** não está selecionado. Se estiver, desmarque a seleção e relance.
 
-A interação padrão para o comportamento ao clicar "Open web URL" difere por versão do SDK. Para as versões do SDK iOS 2.29.0 e Android 2.0.0 e superiores, essa opção é selecionada por padrão e as URLs da web são abertas em uma web view dentro do app. Antes dessas versões, essa opção é desmarcada por padrão e as URLs da web abrem no navegador web padrão do dispositivo.
+A interação padrão para o comportamento ao clicar "Open web URL" difere por versão do SDK. Para as versões do SDK iOS 2.29.0 e Android 2.0.0 e superiores, essa opção é selecionada por padrão e as URLs da web são abertas em uma web view dentro do app. Antes dessas versões, essa opção é desmarcada por padrão e as URLs da web abrem no navegador de internet padrão do dispositivo.
 
 Se esse não for o problema, pode haver um problema com sua implementação de push.
 

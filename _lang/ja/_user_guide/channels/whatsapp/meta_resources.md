@@ -46,7 +46,7 @@ Metaは、WhatsApp向けのビジネスユーザー名を導入しています�
 
 ユーザー名機能が広く利用可能になる前に、Metaがお客様のビジネスにユーザー名を事前予約している場合があります。通常、既存のFacebookページまたはInstagramのユーザー名と一致するものです。この予約ユーザー名を申請するか、[WhatsApp Manage](https://business.facebook.com/wa/manage/)を通じて別のユーザー名を選択できます。申請されたユーザー名は、Metaが機能を利用可能にするまで有効化されません。
 
-予約ユーザー名がFacebookページまたはInstagramアカウントに既に関連付けられているユーザー名と一致する場合、まずビジネス電話番号をそのページまたはアカウントにリンクする必要があります。これは、WhatsApp ManagerまたはMeta Business Suiteでユーザー名を申請する際に行うか、関連するページまたはアカウントから直接電話番号を追加することで行えます。リンクには、ページまたはアカウントの完全なコントロール、または`manage_phone`権限を持つ基本的な部分的アクセスが必要です。
+予約ユーザー名がFacebookページまたはInstagramアカウントに既に関連付けられているユーザー名と一致する場合、まずビジネス電話番号をそのページまたはアカウントにリンクする必要があります。これは、WhatsApp マネージャーまたはMeta Business Suiteでユーザー名を申請する際に行うか、関連するページまたはアカウントから直接電話番号を追加することで行えます。リンクには、ページまたはアカウントの完全なコントロール、または`manage_phone`権限を持つ基本的な部分的アクセスが必要です。
 
 #### チャットウィンドウでの表示優先順位 {#display-priority-in-chat-windows}
 
@@ -67,7 +67,7 @@ Metaは、WhatsApp向けのビジネスユーザー名を導入しています�
 - テンプレートのアクティビティには、テンプレートの作成、編集、送信、異議申し立て、またはアーカイブ解除が含まれます。
 - アーカイブされたテンプレートは送信できず、28日後に永久削除がスケジュールされます。
 - 28日以内にテンプレートのアーカイブを解除して復元し、スケジュールされた削除をキャンセルできます。
-- 通知は`message_template_status_update` Webhook、メール、およびWhatsApp Managerのワンタイムバナーを通じて送信されます。
+- 通知は`message_template_status_update` Webhook、メール、およびWhatsApp マネージャーのワンタイムバナーを通じて送信されます。
 
 詳細については、Metaの[テンプレートのアーカイブ](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/template-archival)に関するドキュメントを参照してください。
 
@@ -88,7 +88,7 @@ Metaは、WhatsApp向けのビジネスユーザー名を導入しています�
 ### 2025年10月：公式ビジネスアカウント（OBA）承認プロセスの変更 {#october-2025-official-business-account-oba-approval-process-changed}
 *最終更新：2026年3月*
 
-- 以前はWhatsApp Managerを通じてすべての顧客に公開されていました
+- 以前はWhatsApp マネージャーを通じてすべての顧客に公開されていました
 - 現在は以下に限定：政府/大規模Metaアドバタイザー、ダイレクトアドバタイザー、またはBrazeのようなBSP経由（週最大5件）
 - 新しい前提条件：ビジネス認証、2段階認証、承認済み表示名、著名性
 - 支援が必要な場合は、カスタマーサクセスマネージャーにお問い合わせください
@@ -190,13 +190,13 @@ WhatsAppは、プラットフォーム上のスパムのような行為を削減
 
 #### これらの警告と適用に関する最新情報の取得方法 {#how-to-stay-updated-on-these-warnings-and-enforcements}
 
-既存のプラットフォーム適用と同様に、ビジネスはこれらのアクションについて通知を受け、WhatsApp Business ManagerのAccount Qualityページを使用して確認できます。適用通知メールはその情報に基づいて送信されるため、WhatsApp Business Managerに必要なすべての管理者の正しい連絡先詳細が記載されていることを確認してください。
+既存のプラットフォーム適用と同様に、ビジネスはこれらのアクションについて通知を受け、WhatsApp Business マネージャーのAccount Qualityページを使用して確認できます。適用通知メールはその情報に基づいて送信されるため、WhatsApp Business マネージャーに必要なすべての管理者の正しい連絡先詳細が記載されていることを確認してください。
 
 重大なスパム違反に関する通知は以下の方法で行われます：
 
-- WhatsApp Business Managerの通知センターに表示
-- WhatsApp Managerのバナーに表示
-- WhatsApp Business Managerで設定されたすべての管理者にメールで送信
+- WhatsApp Business マネージャーの通知センターに表示
+- WhatsApp マネージャーのバナーに表示
+- WhatsApp Business マネージャーで設定されたすべての管理者にメールで送信
 
 ### 2024年5月：Cloud APIがトルコで利用可能に {#may-2024-cloud-api-going-live-in-trkiye}
 *最終更新：2024年5月*

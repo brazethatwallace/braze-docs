@@ -28,7 +28,7 @@ Braze 데이터를 사용하여 AI 에이전트가 무엇을 말하고, 어떻�
 
 ## 통합: Braze에서 Regal로 데이터 전송 {#integration-sending-data-from-braze-to-regal}
 
-Braze Canvas 또는 Campaign 웹훅을 사용하여 고객 프로필 및 이벤트 데이터를 Braze에서 Regal로 전송합니다.
+BRAZE 캔버스 또는 Campaign 웹훅을 사용하여 고객 프로필 및 이벤트 데이터를 Braze에서 Regal로 전송합니다.
 
 ### 1단계: Regal에서 새 연락처 만들기 {#step-1-create-new-contacts-in-regal}
 

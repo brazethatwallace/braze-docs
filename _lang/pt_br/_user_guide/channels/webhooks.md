@@ -16,7 +16,7 @@ search_rank: 3
 
 ## Pré-requisitos {#prerequisites}
 
-A disponibilidade de webhooks depende do seu pacote da Braze. Entre em contato com o seu gerente de conta ou gerente de sucesso do cliente para começar.
+A disponibilidade de webhooks depende do seu pacote da Braze. Entre em contato com o seu gerente de conta ou CSM para começar.
 
 ## Casos de uso {#use-cases}
 

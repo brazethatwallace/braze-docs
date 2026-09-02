@@ -93,7 +93,7 @@ Après avoir configuré vos modèles de liens, vous pouvez les appliquer dans vo
 Pour appliquer un modèle de lien dans l'éditeur HTML ou l'éditeur par glisser-déposer, suivez ces étapes :
 
 {% alert note %}
-Si les modèles de liens e-mail ou l'[aliasing de lien]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing) sont activés pour votre espace de travail, vous pouvez accéder à l'onglet **Gestion des liens** dans l'éditeur HTML mis à jour et l'éditeur par glisser-déposer.
+Si les modèles de liens e-mail ou l'[aliasage de lien]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing) sont activés pour votre espace de travail, vous pouvez accéder à l'onglet **Gestion des liens** dans l'éditeur HTML mis à jour et l'éditeur par glisser-déposer.
 {% endalert %}
 
 - **Éditeur HTML mis à jour :** Dans l'onglet **Contenu**, sélectionnez **Gestion des liens**, sélectionnez **Ajouter un modèle de lien**, choisissez votre modèle de lien, puis sélectionnez **Ajouter**.
@@ -123,7 +123,7 @@ L'archivage des modèles n'est pas disponible actuellement pour les modèles de 
 
 ### Paramètres UTM manquants {#missing-utm-parameters}
 
-Les modèles de liens ne sont pas appliqués aux liens figurant dans les commentaires HTML standard (`<!-- ... -->`). Pour les commentaires conditionnels Outlook (par exemple, `<!--[if mso]>`), les modèles de liens sont appliqués lorsque l'aliasing de lien est activé pour votre espace de travail. Les espaces de travail sans aliasing de lien activé ignorent toujours les commentaires conditionnels.
+Les modèles de liens ne sont pas appliqués aux liens figurant dans les commentaires HTML standard (`<!-- ... -->`). Pour les commentaires conditionnels Outlook (par exemple, `<!--[if mso]>`), les modèles de liens sont appliqués lorsque l'aliasage de lien est activé pour votre espace de travail. Les espaces de travail sans aliasage de lien activé ignorent toujours les commentaires conditionnels.
 
 ### Paramètres UTM présents dans le navigateur mais absents des liens {#utm-parameters-present-in-browser-but-missing-from-links}
 

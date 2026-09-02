@@ -48,7 +48,7 @@ Você pode sincronizar até 20 de cada por configuração:
 
 ### E se um produto pertencer a mais de 250 coleções? {#what-if-a-product-belongs-to-more-than-250-collections}
 
-O Shopify permite que produtos pertençam a mais de 250 coleções, mas a Braze só consegue buscar as primeiras 250 associações de coleção por produto. Se um produto pertence a uma coleção selecionada que está fora das primeiras 250 buscadas, essa associação não será refletida no seu catálogo do Shopify. Se você notar associações de coleção ausentes, entre em contato com seu gerente de sucesso do cliente.
+O Shopify permite que produtos pertençam a mais de 250 coleções, mas a Braze só consegue buscar as primeiras 250 associações de coleção por produto. Se um produto pertence a uma coleção selecionada que está fora das primeiras 250 buscadas, essa associação não será refletida no seu catálogo do Shopify. Se você notar associações de coleção ausentes, entre em contato com seu CSM.
 
 ### Por que não vejo todas as minhas coleções no modal de configuração? {#why-dont-i-see-all-my-collections-in-the-configuration-modal}
 
@@ -56,7 +56,7 @@ O modal de configuração exibe até 5.000 das coleções atualizadas mais recen
 
 ### Posso filtrar por tags e coleções ao mesmo tempo em uma única seleção de catálogo? {#can-i-filter-by-both-tags-and-collections-in-a-single-catalog-selection}
 
-Não. As seleções de catálogo suportam apenas um campo de array por filtro de seleção. Não é possível combinar tags e coleções na mesma seleção. Se você precisa segmentar usuários com base em critérios de tag e coleção simultaneamente, use [extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension) com consultas de SQL.
+Não. As seleções de catálogo suportam apenas um campo de array por filtro de seleção. Não é possível combinar tags e coleções na mesma seleção. Se você precisa segmentar usuários com base em critérios de tag e coleção simultaneamente, use [extensões de Segment]({{site.baseurl}}/user_guide/audience/segments/segment_extension) com consultas de SQL.
 
 ### Quais são os limites de seleção de catálogo? {#what-are-the-catalog-selection-limits}
 

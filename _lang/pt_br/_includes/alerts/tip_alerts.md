@@ -51,7 +51,7 @@ Se você quiser ver quantos segmentos sua mensagem vai enviar, insira seu texto 
   .segment_data_hide {
     display: none;
   }
-  .segment {
+  .Segment {
     display: inline-flex;
     padding: 2px;
     font-size: 10px;
@@ -356,7 +356,7 @@ return function (listOfUnichrs) {
     }
     var segments = []
     while(listOfUnichrs.length > 0) {
-        var segment = {text: [], bytes: []};
+        var Segment = {text: [], bytes: []};
         var length = 0;
         function nextChrLen() {
             return bytes[0] === undefined ? length : length + bytes[0].length;
@@ -364,11 +364,11 @@ return function (listOfUnichrs) {
         while(listOfUnichrs.length > 0 && nextChrLen() <= maxConcatSegmentSize) {
             var c = listOfUnichrs.shift()
             var b = bytes.shift();
-            segment.text.push(c);
-            segment.bytes.push(b);
+            Segment.text.push(c);
+            Segment.bytes.push(b);
             if(b != undefined) length += b.length;
         }
-        segments.push(segment);
+        segments.push(Segment);
     }
     return segments;
 }
@@ -443,12 +443,12 @@ function updateSMSSplit(){
     $('#character_encoding').html(displayCharacterEncoding(sms_text, sms_type));
 
     const segmentColors = (i) => `segment_color_${i > 3 ? i%3 : i}`;
-    const segmentsHtml = smsSegments.map((segment,segment_index) =>  segment.bytes.map((byte, i) => `<div id='sms_segments_data_${segment_index}-${i}' class='segment ${segmentColors(segment_index)}'>${byte.map(b => smsutil.hexEncode(b)).join(" ")}</div>`).join("")).join("");
+    const segmentsHtml = smsSegments.map((Segment,segment_index) =>  Segment.bytes.map((byte, i) => `<div id='sms_segments_data_${segment_index}-${i}' class='segment ${segmentColors(segment_index)}'>${byte.map(b => smsutil.hexEncode(b)).join(" ")}</div>`).join("")).join("");
 
-    // Create message output with both segment and character indexing
+    // Create message output with both Segment and character indexing
     let characterIndex = 0;
-    const messageOutput = smsSegments.map((segment,segment_index) =>
-      segment.text.map((ch, i) => {
+    const messageOutput = smsSegments.map((Segment,segment_index) =>
+      Segment.text.map((ch, i) => {
         const safeCh = ch === " " ? "\u00A0" : escapeHtml(ch);
         const result = `<div id='message_output_data_${segment_index}-${i}' data-char-index='${characterIndex}' class='message_output_char ${segmentColors(segment_index)}'>${safeCh}</div>`;
         characterIndex++;

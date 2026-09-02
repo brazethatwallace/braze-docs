@@ -14,12 +14,12 @@ channel:
 > Mit Inbox Vision können Sie Ihre E-Mails aus der Perspektive verschiedener E-Mail-Clients und mobiler Geräte anzeigen. So können Sie beispielsweise Unterschiede zwischen Dark Mode und Light Mode testen, um sicherzustellen, dass Ihre E-Mails wie beabsichtigt dargestellt werden.
 
 {% alert important %}
-Inbox Vision funktioniert möglicherweise nicht, wenn Ihr E-Mail-Inhalt auf Template-Informationen wie Nutzerprofildaten basiert. Braze verwendet beim Versenden von E-Mails für dieses Feature ein leeres Nutzerprofil als Template.<br><br>Fügen Sie Standardwerte zu jedem Liquid in Ihrer E-Mail-Nachricht hinzu. Ohne Standardwerte kann es zu einem falschen positiven Ergebnis kommen oder der Test kann fehlschlagen.
+Inbox Vision funktioniert möglicherweise nicht, wenn Ihr E-Mail-Inhalt auf Template-Informationen wie Nutzerprofildaten basiert. Braze verwendet beim Versenden von E-Mails für dieses Feature ein leeres Kundenprofil als Template.<br><br>Fügen Sie Standardwerte zu jedem Liquid in Ihrer E-Mail-Nachricht hinzu. Ohne Standardwerte kann es zu einem falschen positiven Ergebnis kommen oder der Test kann fehlschlagen.
 {% endalert %}
 
 ## Überlegungen {#considerations}
 
-Im Allgemeinen funktioniert Ihre E-Mail nicht mit Inbox Vision, wenn der Inhalt Ihrer E-Mail auf Template-Informationen angewiesen ist, wie z. B. Nutzerprofil-Informationen. Das liegt daran, dass Braze beim Versand von E-Mails mit diesem Feature ein leeres Nutzerprofil als Template verwendet.
+Im Allgemeinen funktioniert Ihre E-Mail nicht mit Inbox Vision, wenn der Inhalt Ihrer E-Mail auf Template-Informationen angewiesen ist, wie z. B. Kundenprofil-Informationen. Das liegt daran, dass Braze beim Versand von E-Mails mit diesem Feature ein leeres Kundenprofil als Template verwendet.
 
 Sie können dieses Problem beheben, indem Sie Standardwerte oder beliebige Werte zum Liquid in Ihrer E-Mail-Nachricht hinzufügen, bevor Sie Inbox Vision ausführen. Wenn Sie die Tests in Inbox Vision abgeschlossen haben, wird die ursprüngliche E-Mail-Nachricht wieder angezeigt. Wenn keine Werte angegeben werden, kann der Test die Vorschauen möglicherweise nicht erfolgreich rendern.
 

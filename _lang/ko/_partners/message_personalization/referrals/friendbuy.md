@@ -54,7 +54,7 @@ _이 통합은 Friendbuy에서 유지 관리합니다._
 | **Friendbuy Coupon Status** | 고객에게 배포된 가장 최근 쿠폰 코드의 상태입니다. 참고: 상태는 'distributed' 또는 'redeemed'입니다. | 문자열 |
 | **Friendbuy Coupon Currency** | 고객에게 배포된 가장 최근 쿠폰 코드와 연결된 통화 코드(USD, CAD 등) 또는 퍼센트(%)입니다. | 문자열 |
 | **Friendbuy Coupon Campaign ID** | 고객을 위해 생성된 쿠폰 코드와 연결된 Campaign ID입니다. | 문자열 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Custom attributes" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="커스텀 속성" }
 
 ## 기본 동작 {#default-behavior}
 

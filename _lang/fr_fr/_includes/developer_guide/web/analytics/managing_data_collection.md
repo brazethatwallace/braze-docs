@@ -7,7 +7,7 @@
 Pour désactiver le suivi des données sur le SDK Web, utilisez la méthode [`disableSDK()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#disablesdk). Cela synchronisera toutes les données enregistrées avant l'appel de `disableSDK()`, et tous les appels ultérieurs au SDK Web de Braze pour cette page et les chargements de pages futurs seront ignorés.
 {% endtab %}
 
-{% tab Google Tag Manager %}
+{% tab Google Tag gestionnaire %}
 Utilisez le type d'étiquette **Disable Tracking** ou **Resume Tracking** pour désactiver ou réactiver le suivi Web, respectivement. Ces deux options appellent [`disableSDK`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#disablesdk) et [`enableSDK`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#enablesdk).
 {% endtab %}
 {% endtabs %}

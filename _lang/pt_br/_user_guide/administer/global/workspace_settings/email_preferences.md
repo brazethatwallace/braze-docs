@@ -25,7 +25,7 @@ As configurações de e-mail na seção **Configuração de envio** determinam q
 
 Ao configurar suas definições de e-mail, as configurações de e-mail de saída identificam quais nomes e endereços de e-mail são usados quando a Braze envia e-mails para seus usuários.
 
-Se você precisar adicionar um novo domínio ou pool de IP (provedor de envio) ao seu espaço de trabalho, ou remover um da lista disponível, entre em contato com seu gerente de sucesso do cliente para obter assistência.
+Se você precisar adicionar um novo domínio ou pool de IP (provedor de envio) ao seu espaço de trabalho, ou remover um da lista disponível, entre em contato com seu CSM para obter assistência.
 
 {% tabs local %}
 {% tab Display Name Address %}

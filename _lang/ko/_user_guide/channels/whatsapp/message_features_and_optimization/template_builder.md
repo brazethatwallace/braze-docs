@@ -10,7 +10,7 @@ channel:
 
 # WhatsApp 템플릿 빌더 {#whatsapp-template-builder}
 
-> WhatsApp 템플릿 빌더를 사용하면 Braze에서 직접 WhatsApp 메시지 템플릿을 생성하고 제출할 수 있으며, Braze와 Meta Business Manager 사이를 오갈 필요가 없습니다. Meta가 템플릿을 승인하면 원하는 만큼 많은 Campaign과 Canvas에서 사용할 수 있습니다.
+> WhatsApp 템플릿 빌더를 사용하면 Braze에서 직접 WhatsApp 메시지 템플릿을 생성하고 제출할 수 있으며, Braze와 Meta Business 매니저 사이를 오갈 필요가 없습니다. Meta가 템플릿을 승인하면 원하는 만큼 많은 Campaign과 Canvas에서 사용할 수 있습니다.
 
 ## 필수 조건 {#prerequisites}
 
@@ -43,7 +43,7 @@ Meta는 [카테고리 가이드라인](https://developers.facebook.com/documenta
 | **커스텀** | 처음부터 직접 작성하는 표준 WhatsApp 메시지입니다. 이 레이아웃은 [템플릿 작성하기](#step-4-build-your-template)에서 다룹니다. |
 | **캐러셀** | 가로로 스크롤할 수 있는 카드가 포함된 메시지입니다. 자세한 내용은 [캐러셀 템플릿]({{site.baseurl}}/whatsapp_carousel_templates)을 참조하세요. |
 | **한정 기간 오퍼** | 시간 제한이 있는 프로모션 오퍼입니다. 자세한 내용은 [한정 기간 오퍼 템플릿]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/message_and_image_formats#limited-time-offer-templates)을 참조하세요. |
-| **Flow** | WhatsApp Flow를 여는 템플릿입니다(예: 설문조사 또는 예약). Meta의 WhatsApp Manager에서 Flow를 만들고 관리한 다음, 템플릿을 작성할 때 선택합니다. 자세한 내용은 [WhatsApp Flows]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/whatsapp_flows)를 참조하세요. |
+| **Flow** | WhatsApp Flow를 여는 템플릿입니다(예: 설문조사 또는 예약). Meta의 WhatsApp 매니저에서 Flow를 만들고 관리한 다음, 템플릿을 작성할 때 선택합니다. 자세한 내용은 [WhatsApp Flows]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/whatsapp_flows)를 참조하세요. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="마케팅 템플릿 유형" }
 
 #### 유틸리티 {#utility}
@@ -53,7 +53,7 @@ Meta는 [카테고리 가이드라인](https://developers.facebook.com/documenta
 | 유형 | 설명 |
 | --- | --- |
 | **커스텀** | 처음부터 직접 작성하는 표준 유틸리티 메시지입니다. [템플릿 작성하기](#step-4-build-your-template)와 동일한 구성 단계를 따릅니다. |
-| **Flow** | 유틸리티 Flow 템플릿입니다(예: 리마인더, 피드백, 주문 관리). Meta의 WhatsApp Manager에서 Flow를 만들고 관리한 다음, 템플릿을 작성할 때 선택합니다. 자세한 내용은 [WhatsApp Flows]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/whatsapp_flows)를 참조하세요. |
+| **Flow** | 유틸리티 Flow 템플릿입니다(예: 리마인더, 피드백, 주문 관리). Meta의 WhatsApp 매니저에서 Flow를 만들고 관리한 다음, 템플릿을 작성할 때 선택합니다. 자세한 내용은 [WhatsApp Flows]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/whatsapp_flows)를 참조하세요. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="유틸리티 템플릿 유형" }
 
 {% alert note %}
@@ -165,11 +165,11 @@ WhatsApp Campaign 작성에 대한 자세한 내용은 [WhatsApp 메시지 만�
 
 ### 승인된 후 템플릿을 수정할 수 있나요? {#can-i-edit-a-template-after-its-been-approved}
 
-Campaign 또는 Canvas를 작성할 때 변수 콘텐츠와 개인화를 업데이트할 수 있습니다. 잠긴 콘텐츠(본문 텍스트, 버튼 레이아웃 또는 기타 Meta가 제어하는 필드)를 변경하려면 템플릿 빌더에서 새 템플릿을 만들거나 Meta의 WhatsApp Manager에서 템플릿을 수정한 후 Meta의 재승인을 기다려야 합니다. [클릭 추적]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/click_tracking)을 사용하는 경우, Meta의 WhatsApp Manager에서 Braze가 생성한 템플릿을 수정하기 전에 해당 문서를 참고하세요.
+Campaign 또는 Canvas를 작성할 때 변수 콘텐츠와 개인화를 업데이트할 수 있습니다. 잠긴 콘텐츠(본문 텍스트, 버튼 레이아웃 또는 기타 Meta가 제어하는 필드)를 변경하려면 템플릿 빌더에서 새 템플릿을 만들거나 Meta의 WhatsApp 매니저에서 템플릿을 수정한 후 Meta의 재승인을 기다려야 합니다. [클릭 추적]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/click_tracking)을 사용하는 경우, Meta의 WhatsApp 매니저에서 Braze가 생성한 템플릿을 수정하기 전에 해당 문서를 참고하세요.
 
 ### 템플릿 빌더가 제공되기 전에 제출한 템플릿은 어떻게 되나요? {#what-happens-to-templates-i-submitted-before-the-template-builder-was-available}
 
-Meta Business Manager에서 만든 템플릿은 Braze에서 계속 사용할 수 있습니다. 템플릿 빌더는 Braze 대시보드를 벗어나지 않고 템플릿을 만들고 관리할 수 있는 추가적인 방법입니다.
+Meta Business 매니저에서 만든 템플릿은 Braze에서 계속 사용할 수 있습니다. 템플릿 빌더는 Braze 대시보드를 벗어나지 않고 템플릿을 만들고 관리할 수 있는 추가적인 방법입니다.
 
 ### 모든 필드에 개인화를 추가할 수 없는 이유는 무엇인가요? {#why-cant-i-add-personalization-to-every-field}
 

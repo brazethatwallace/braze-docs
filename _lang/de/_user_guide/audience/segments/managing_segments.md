@@ -94,4 +94,4 @@ Um nach allen Segment-Referenzen zu suchen, einschließlich solcher in anderen S
 
 ## Fehlerbehebung {#troubleshooting}
 
-{% multi_lang_include audience/segments.md section='Canvas variant archived segment' %}
+{% multi_lang_include audience/segments.md section='Canvas-Variante archived segment' %}

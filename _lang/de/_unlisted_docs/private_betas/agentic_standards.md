@@ -13,7 +13,7 @@ hidden: true
 Agentic Standards reduzieren den manuellen Überwachungsaufwand, sodass jede von Braze gesendete Nachricht korrekt, regelkonform und startbereit ist.
 
 {% alert important %}
-Agentic Standards für Agent Console befinden sich derzeit in der Betaphase. Kontaktieren Sie Ihren Braze Account Manager, wenn Sie an dieser Beta teilnehmen möchten.
+Agentic Standards für Agent Console befinden sich derzeit in der Betaphase. Kontaktieren Sie Ihren Braze Account Manager:in, wenn Sie an dieser Beta teilnehmen möchten.
 {% endalert %}
 
 ## Funktionsweise {#how-it-works}

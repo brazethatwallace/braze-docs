@@ -104,7 +104,7 @@ En la página **Informe de eventos personalizados**, puedes ver de forma agregad
 
 ![Gráfico de recuento de eventos personalizados en la página de eventos personalizados del panel, que muestra las tendencias de un evento personalizado][8]
 
-También puedes usar **Filtros** para desglosar tus eventos personalizados por hora, usuarios activos mensuales promedio (MAU), Segments o fórmulas de KPI.
+También puedes usar **Filtros** para desglosar tus eventos personalizados por hora, usuarios activos mensuales promedio (MAU), Segments o fórmulas de indicador clave de rendimiento.
 
 {% alert tip %}
 [Incrementa los atributos personalizados]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes#integers) para mantener un contador de una acción de usuario similar a un evento personalizado. Sin embargo, no puedes ver los datos de atributos personalizados en una serie temporal. Las acciones de usuario que no necesitan analizarse en una serie temporal deben registrarse con este método.
@@ -211,7 +211,7 @@ Los filtros de segmentación de propiedades de eventos incluyen:
 
 ![Un grupo de filtros que "tiene 'Abandoned Cart' con propiedad 'number of items' y valor '2' 'más de' '1' vez en los últimos '30' días del calendario.][3]
 
-Los datos solo se registran para una propiedad de evento determinada después de que haya sido habilitada por tu administrador de éxito de cliente, y las propiedades de eventos solo están disponibles a partir de esa fecha en adelante.
+Los datos solo se registran para una propiedad de evento determinada después de que haya sido habilitada por tu CSM, y las propiedades de eventos solo están disponibles a partir de esa fecha en adelante.
 
 ##### Puntos de datos {#data-points}
 
@@ -298,10 +298,10 @@ Las propiedades de eventos personalizados están diseñadas para ayudarte a aume
 
 Puedes segmentar en función de los valores de las propiedades de eventos de dos maneras:
 
-1. **En un plazo de 30 días:** El personal de soporte de Braze puede habilitar la segmentación por propiedades de eventos basada en la frecuencia y la antigüedad de valores específicos de propiedades de eventos dentro de Segments de Braze. Si deseas aprovechar las propiedades de eventos dentro de Segments, contacta con tu director de cuentas de Braze o tu administrador de éxito de cliente. Esta opción afectará al uso de datos.<br><br>
+1. **En un plazo de 30 días:** El personal de soporte de Braze puede habilitar la segmentación por propiedades de eventos basada en la frecuencia y la antigüedad de valores específicos de propiedades de eventos dentro de Segments de Braze. Si deseas aprovechar las propiedades de eventos dentro de Segments, contacta con tu director de cuentas de Braze o tu CSM. Esta opción afectará al uso de datos.<br><br>
 2. **Dentro y más allá de 30 días:** Para cubrir tanto la segmentación de propiedades de eventos a corto como a largo plazo, puedes usar las [extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension). Esta característica segmenta a los usuarios en función de eventos personalizados y propiedades de eventos rastreados en los últimos dos años. Esta opción no afectará al uso de datos.
 
-Contacta con tu administrador de éxito de cliente de Braze para recibir recomendaciones sobre el mejor enfoque en función de tus necesidades específicas.
+Contacta con tu CSM de Braze para recibir recomendaciones sobre el mejor enfoque en función de tus necesidades específicas.
 
 [1]: {% image_buster /assets/unlisted_docs/img/custom_events_entitlements/nested_object1.png %}
 [2]: {% image_buster /assets/unlisted_docs/img/custom_events_entitlements/nested_object2.png %}

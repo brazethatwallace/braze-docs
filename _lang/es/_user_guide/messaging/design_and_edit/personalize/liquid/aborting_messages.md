@@ -18,7 +18,7 @@ Si un paso de mensaje se cancela en un Canvas, el usuario **no** saldrá del Can
 
 `abort_message()` detiene el envío para los usuarios que no cumplen tu condición. El mensaje no aparecerá en su perfil y no contará como entrega ni para la limitación de frecuencia.
 
-Si los envíos de prueba nunca llegan, previsualiza como un usuario que satisface la condición de cancelación y, a continuación, en **Test Send** habilita **Override recipients' attributes with current preview user's attributes** (o añade un miembro de un grupo de prueba de contenido que cumpla los requisitos).
+Si los envíos de prueba nunca llegan, previsualiza como un usuario que satisface la condición de cancelación y, a continuación, en **Test Send** habilita **Override recipients' attributes with current vista previa user's attributes** (o añade un miembro de un grupo de prueba de contenido que cumpla los requisitos).
 
 ## Abortar mensaje si "Number Games Attended" = 0 {#abort-message-if-number-games-attended-0}
 

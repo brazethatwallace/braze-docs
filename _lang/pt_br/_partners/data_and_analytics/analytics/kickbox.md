@@ -87,7 +87,7 @@ Isso significa que você pode criar Segments de público com usuários que possu
 
 Para fazer isso, siga estas etapas:
 
-1. Na Braze, acesse **Público** > **Segments** > **Criar segmento**.
+1. Na Braze, acesse **Público** > **Segments** > **Criar Segment**.
 2. Na seção **Grupo de filtros**, adicione o filtro **Atributo personalizado** e selecione "result" no menu suspenso.
 
 Dependendo do seu caso de uso, pode ser apropriado criar um Segment onde o atributo personalizado da Kickbox "result" exista em um perfil de usuário, ou onde seu valor seja igual a "deliverable". Esse filtro pode ser usado sozinho para criar um Segment, ou pode ser parte de todos os Segments futuros para validar todos os usuários dentro deles.

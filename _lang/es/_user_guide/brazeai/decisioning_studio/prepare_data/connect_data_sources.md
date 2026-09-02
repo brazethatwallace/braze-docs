@@ -31,7 +31,7 @@ Los siguientes activos de datos de clientes ayudan a los agentes a personalizar 
 
 | Tipo de dato | Descripción | Ejemplos |
 |-----------|-------------|----------|
-| **Perfil de cliente** | Atributos estáticos y de cambio lento | Años como cliente, geografía, canal de adquisición, nivel de satisfacción, estimación del valor de duración del ciclo de vida |
+| **Perfil de cliente** | Atributos estáticos y de cambio lento | Años como cliente, geografía, canal de adquisición, nivel de satisfacción, estimación del LTV |
 | **Comportamiento del cliente** | Patrones de actividad y participación | Inicios de sesión en la cuenta, tipo de dispositivo, interacciones con atención al cliente, uso del producto |
 | **Historial de transacciones** | Datos de compras y conversiones | Productos comprados, importes de transacciones, métodos de pago, canales de compra |
 | **Participación en marketing** | Respuestas a las comunicaciones | Aperturas/clics de correo electrónico, participación en SMS, actividad web y móvil, respuestas a cuestionarios |

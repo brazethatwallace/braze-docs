@@ -34,7 +34,7 @@ Agora você pode acompanhar a janela da tela enquanto rola as pré-visualizaçõ
 
 ## Novo filtro de associação de Segment {#new-segment-membership-filter}
 
-Adicionamos o filtro [Segment Membership]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/new_features/#targeting-filters), permitindo que você direcione usuários com base na associação deles em qualquer um dos seus Segments existentes. Além disso, adicionamos a capacidade de usar tanto a lógica "E" quanto a lógica "Ou" nos filtros de segmento, bem como a capacidade de aninhar segmentos uns dentro dos outros. Essas atualizações permitem que você envie mensagens personalizadas para seus clientes com mais precisão.
+Adicionamos o filtro [Segment Membership]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/new_features/#targeting-filters), permitindo que você direcione usuários com base na associação deles em qualquer um dos seus Segments existentes. Além disso, adicionamos a capacidade de usar tanto a lógica "E" quanto a lógica "Ou" nos filtros de Segment, bem como a capacidade de aninhar segmentos uns dentro dos outros. Essas atualizações permitem que você envie mensagens personalizadas para seus clientes com mais precisão.
 
 ## Atualização na pré-visualização do Android {#update-to-android-preview}
 

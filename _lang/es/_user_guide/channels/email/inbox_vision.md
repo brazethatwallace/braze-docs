@@ -34,7 +34,7 @@ Si al previsualizar una Campaign aparece un error de permiso, borra la caché y 
 Para probar tu mensaje de correo electrónico en Inbox Vision:
 
 1. Ve a tu editor de arrastrar y soltar o editor HTML de correo electrónico.
-2. En tu editor, selecciona **Preview & Test**.
+2. En tu editor, selecciona **vista previa & Test**.
 3. Selecciona **Inbox Vision**.
 4. Selecciona **Run Inbox Vision**. Esto tarda hasta diez minutos.
 5. A continuación, selecciona un mosaico para ver la vista previa con más detalle. Estas vistas previas se agrupan en las siguientes secciones: **Web Clients**, **Application Clients** y **Mobile Clients**.

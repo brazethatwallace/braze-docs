@@ -149,7 +149,7 @@ Votre fichier AASA sur le domaine de suivi des clics utilise des `paths` qui cor
 
 Limitez les `paths` aux URL qui doivent ouvrir l'application. Pour Sendgrid, faites correspondre `/uni/` et ajoutez `universal="true"` uniquement sur ces liens.
 
-Pour la configuration spécifique à votre ESP, y compris les valeurs `pathPrefix` pour Android, consultez [Liens universels et App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#universal-links-app-links-and-click-tracking).
+Pour la configuration spécifique à votre fournisseur de services d'e-mailing, y compris les valeurs `pathPrefix` pour Android, consultez [Liens universels et App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#universal-links-app-links-and-click-tracking).
 
 ## Le deep link fonctionne depuis une notification push mais pas depuis un message in-app (ou inversement) {#deep-link-works-from-push-but-not-from-in-app-message}
 

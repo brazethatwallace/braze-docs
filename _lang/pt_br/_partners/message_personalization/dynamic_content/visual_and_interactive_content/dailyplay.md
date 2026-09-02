@@ -80,7 +80,7 @@ Crie uma [Campaign]({{site.baseurl}}/user_guide/messaging/campaigns) ou um [Canv
 
 ## Use a DailyPlay com a Braze {#use-dailyplay-with-braze}
 
-Para engajar um segmento específico de clientes, siga estas etapas após concluir a configuração da integração.
+Para engajar um Segment específico de clientes, siga estas etapas após concluir a configuração da integração.
 
 ### Etapa 1: Configurar a DailyPlay {#step-1-set-up-your-dailyplay-configuration}
 

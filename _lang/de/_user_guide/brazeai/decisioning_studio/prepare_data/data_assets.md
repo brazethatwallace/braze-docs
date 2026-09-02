@@ -36,7 +36,7 @@ Häufige Profilattribute umfassen:
 - Geografie (sofern durch Ihre Branche und Datenschutzanforderungen erlaubt)
 - Akquisitionskanal (z. B. Internet, Telefon, im Shop)
 - Zufriedenheits- oder Stimmungswert
-- Modellbasierte Scores (z. B. Churn-Wahrscheinlichkeit, Lifetime-Value-Schätzung)
+- Modellbasierte Scores (z. B. Abwanderung-Wahrscheinlichkeit, LTV-Schätzung)
 - Treuestufe oder Programmmitgliedschaft
 
 ### Aktivierungs- und Engagement-Daten {#activation-and-engagement-data}
@@ -81,5 +81,5 @@ Mehr Daten führen in der Regel zu einer besseren Modell-Performance, sollten je
 
 - Ausgehende Kommunikation, die außerhalb von Decisioning-Studio-Empfehlungen gesendet wurde (z. B. E-Mails, SMS)
 - E-Mail-Engagement, das nicht von Decisioning Studio getriggert wurde (z. B. Öffnungen, Klicks)
-- Umfrageantworten (z. B. NPS-Scores, Engagement-Umfragen)
+- Umfrageantworten (z. B. Net Promoter Score-Scores, Engagement-Umfragen)
 - Web- und Mobile-App-Aktivität (z. B. durchsuchte Seiten, angesehene Produkte)

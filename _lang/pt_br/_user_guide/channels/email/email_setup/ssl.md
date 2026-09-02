@@ -37,7 +37,7 @@ Se você tem um domínio com HTTP Strict Transport Security (HSTS), configure o 
 
 Adquira um certificado SSL por meio de terceiros, geralmente uma rede de distribuição de conteúdo (CDN). Uma CDN hospeda o certificado e o disponibiliza ao navegador quando um usuário clica em um link, redirecionando o tráfego pela CDN para aplicar os certificados antes de enviá-lo ao SendGrid ou SparkPost.
 
-Para iniciar a configuração do SSL, entre em contato com seu gerente de sucesso do cliente da Braze para iniciar uma configuração completa de e-mail da Braze.
+Para iniciar a configuração do SSL, entre em contato com seu CSM da Braze para iniciar uma configuração completa de e-mail da Braze.
 
 Depois que a Braze iniciar a configuração, siga estas etapas:
 
@@ -45,14 +45,14 @@ Depois que a Braze iniciar a configuração, siga estas etapas:
 2. A Braze verificará se os registros foram adicionados corretamente ao seu registro.
 3. Em seguida, selecione uma CDN e obtenha certificados SSL de um provedor terceirizado.
 4. Neste ponto, configure sua CDN. A Braze não pode ajudar a solucionar problemas de configuração da CDN. Entre em contato com seu provedor de CDN para obter assistência adicional.
-5. Entre em contato com seu gerente de sucesso do cliente para ativar o SSL.
+5. Entre em contato com seu CSM para ativar o SSL.
 
 ## O que é uma CDN e por que preciso de uma? {#what-is-a-cdn-and-why-do-i-need-it}
 
 Uma rede de distribuição de conteúdo (CDN) é uma plataforma de servidores que ajuda a garantir tempos de carregamento rápidos de conteúdo em diversas mídias, além de lidar com certificados de segurança.
 
 {% alert important %}
-A configuração da CDN sempre vem depois da validação dos seus registros DNS pela Braze. Se você ainda não iniciou essa etapa, entre em contato com o seu gerente de sucesso do cliente para saber mais sobre como começar.
+A configuração da CDN sempre vem depois da validação dos seus registros DNS pela Braze. Se você ainda não iniciou essa etapa, entre em contato com o seu CSM para saber mais sobre como começar.
 {% endalert %}
 
 Para rastreamento de cliques e aberturas, os parceiros de entrega transformam os links usando um subdomínio de marca, e a CDN aplica o certificado SSL a esses links transformados. Os parceiros frequentemente precisam apresentar certificados válidos ao navegador do destinatário para que links e imagens sejam exibidos corretamente. Como a Braze não solicita nem gerencia certificados, você precisa configurar isso por meio de uma CDN.

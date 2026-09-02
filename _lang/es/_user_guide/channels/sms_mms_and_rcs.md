@@ -17,7 +17,7 @@ description: "Aprende sobre SMS, MMS y RCS en Braze, incluyendo la configuració
 
 ## Requisitos previos {#prerequisites}
 
-La disponibilidad de SMS, MMS y RCS depende de tu paquete de Braze. Ponte en contacto con tu director de cuentas o administrador de éxito de cliente para empezar.
+La disponibilidad de SMS, MMS y RCS depende de tu paquete de Braze. Ponte en contacto con tu director de cuentas o CSM para empezar.
 
 Antes de empezar, asegúrate de tener lo siguiente:
 

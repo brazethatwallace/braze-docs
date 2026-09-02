@@ -38,7 +38,7 @@ No exemplo a seguir, o atributo personalizado `favorite_book` contém os atribut
 - Nem todos os parceiros da Braze oferecem suporte a atributos personalizados aninhados. Consulte a [documentação de parceiros]({{site.baseurl}}/partners/home) para confirmar se integrações específicas com parceiros oferecem suporte a esse recurso.
 - Os atributos personalizados aninhados não podem ser usados como filtro ao fazer uma chamada de API de Connected Audience.
 - Por padrão, o filtro de Segment **Atributos personalizados aninhados** inclui atributos personalizados do tipo objeto, atributos de vetor de objetos e atributos personalizados do tipo vetor. Ao selecionar um atributo, o seletor de esquema de propriedade inclui caminhos de vetor (usando a notação `[]`) para campos de vetor aninhados. Para ocultar atributos personalizados de vetor de nível superior desse filtro, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support).
-- Ao pré-visualizar mensagens no dashboard usando **Preview as a Custom User**, você pode inserir dados simulados apenas como uma string ou vetor de strings — objetos aninhados não são compatíveis. Para pré-visualizar uma mensagem que faz referência a atributos personalizados aninhados, selecione um usuário existente que já tenha o atributo aninhado em seu perfil. Para propriedades de eventos personalizados aninhados, você precisa lançar uma campanha ativa direcionada a um usuário teste para verificar a renderização.
+- Ao pré-visualizar mensagens no dashboard usando **prévia as a Custom User**, você pode inserir dados simulados apenas como uma string ou vetor de strings — objetos aninhados não são compatíveis. Para pré-visualizar uma mensagem que faz referência a atributos personalizados aninhados, selecione um usuário existente que já tenha o atributo aninhado em seu perfil. Para propriedades de eventos personalizados aninhados, você precisa lançar uma campanha ativa direcionada a um usuário teste para verificar a renderização.
 
 ## Exemplo de API {#api-example}
 
@@ -316,7 +316,7 @@ Para usar atributos personalizados aninhados com Liquid na sua mensagem:
 
 1. Acesse uma Campaign ou um Canvas e abra a etapa de mensagem onde você deseja adicionar personalização.
 2. No criador de mensagem, insira o snippet de Liquid onde você deseja que o valor apareça.
-3. Use **Preview & Test** com um usuário existente que já tenha o atributo personalizado aninhado no perfil para confirmar que o valor é renderizado conforme esperado.
+3. Use **prévia & Test** com um usuário existente que já tenha o atributo personalizado aninhado no perfil para confirmar que o valor é renderizado conforme esperado.
 
 ### Personalização {#personalization}
 

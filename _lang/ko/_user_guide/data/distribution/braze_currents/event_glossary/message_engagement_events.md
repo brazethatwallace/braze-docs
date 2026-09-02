@@ -1244,7 +1244,7 @@ Campaign, Conversion
 ## Campaign 대조군 등록 이벤트 {#campaign-control-group-enrollment-events}
 
 {% apitags %}
-Campaign, Entry
+Campaign, 항목
 {% endapitags %}
 
 이 이벤트는 사용자가 다변량 Campaign에 설정된 대조군 배리언트에 등록될 때 발생합니다. 이 사용자에 대한 채널 발송 이벤트가 없으므로 이 이벤트가 생성됩니다.
@@ -1631,7 +1631,7 @@ Canvas, Conversion
 ## Canvas 진입 이벤트 {#canvas-entry-events}
 
 {% apitags %}
-Canvas, Entry
+Canvas, 항목
 {% endapitags %}
 
 이 이벤트는 사용자가 Canvas에 진입할 때 발생합니다. 이 이벤트를 통해 사용자가 어떤 배리언트에 진입했는지 알 수 있습니다.
@@ -2691,7 +2691,7 @@ Canvas, Conversion
 ## 실험 분할 진입 이벤트 {#experiment-split-entry-events}
 
 {% apitags %}
-Canvas, Entry
+Canvas, 항목
 {% endapitags %}
 
 이 이벤트는 사용자가 Canvas 실험 단계 경로에 진입할 때 발생합니다.

@@ -41,7 +41,7 @@ Para crear tu mensaje de derecha a izquierda en Braze:
 
 El método de copiar y pegar para mensajes push puede ser difícil de usar con notificaciones push más largas porque el contenido más extenso puede renderizarse en múltiples líneas en un dispositivo móvil. Si copias el texto de tu mensaje desde fuera de Braze (como un documento de Word) y lo pegas directamente en Braze, la alineación de las oraciones y la ubicación de las palabras pueden cambiar. Para evitar este escenario, copia y pega por partes y añade un salto de línea. Por ejemplo, copia y pega las primeras cinco palabras, añade un salto de línea, copia las siguientes cinco palabras, añade un salto de línea, y así sucesivamente.
 
-Las funciones de vista previa y prueba están diseñadas para mensajes de izquierda a derecha, por lo que los mensajes de derecha a izquierda no se renderizarán correctamente en la sección **Preview & Test**, pero sí se renderizarán correctamente en los dispositivos de los usuarios si su configuración está preparada para ello. Te sugerimos enviarte mensajes a ti mismo en un entorno en vivo para confirmar que se renderizan correctamente según la configuración del dispositivo.
+Las funciones de vista previa y prueba están diseñadas para mensajes de izquierda a derecha, por lo que los mensajes de derecha a izquierda no se renderizarán correctamente en la sección **vista previa & Test**, pero sí se renderizarán correctamente en los dispositivos de los usuarios si su configuración está preparada para ello. Te sugerimos enviarte mensajes a ti mismo en un entorno en vivo para confirmar que se renderizan correctamente según la configuración del dispositivo.
 
 ### Alineación del título y el cuerpo {#title-and-body-alignment}
 

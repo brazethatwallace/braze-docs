@@ -11,11 +11,11 @@ description: "Dieser Artikel enthält Versionshinweise für August 2020."
 
 Braze hat zwei neue Endpunkte für die externe ID-Migration veröffentlicht. Mit diesen Endpunkten können Kund:innen die externen Braze-IDs ihrer Nutzer:innen über die Braze API umbenennen oder entfernen. Diese Endpunkte können genutzt werden, um Nutzer:innen mit unterschiedlichen Namensschemata zu migrieren und dabei die historischen Daten dieser Nutzer:innen zu erhalten. Sehen Sie sich unsere Dokumentation an, um mehr über die Endpunkte [`users.external_ids.rename`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_rename/) und [`users.external_ids.remove`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_remove/) zu erfahren.
 
-## Predictive Churn
+## Predictive Abwanderung
 
-Mit der Predictive Suite von Braze liegt maschinelles Lernen direkt in Ihren Händen. Beginnend mit [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/) ist es einfacher denn je, Daten nahtlos innerhalb der Braze-Plattform effektiv zu nutzen und darauf zu reagieren. Damit können Sie ein maßgeschneidertes Modell für maschinelles Lernen erstellen, um das Churn-Risiko für eine bestimmte Kundenbasis vorherzusagen, und dann den Nutzer:innen Nachrichten senden, die das maschinelle Lernen als gefährdet einstuft – bevor es zu spät ist.
+Mit der Predictive Suite von Braze liegt maschinelles Lernen direkt in Ihren Händen. Beginnend mit [Predictive Abwanderung]({{site.baseurl}}/user_guide/brazeai/) ist es einfacher denn je, Daten nahtlos innerhalb der Braze-Plattform effektiv zu nutzen und darauf zu reagieren. Damit können Sie ein maßgeschneidertes Modell für maschinelles Lernen erstellen, um das Abwanderung-Risiko für eine bestimmte Kundenbasis vorherzusagen, und dann den Nutzer:innen Nachrichten senden, die das maschinelle Lernen als gefährdet einstuft – bevor es zu spät ist.
 
-Eine Vorschau auf dieses Feature wird Anfang August in den Dashboards der berechtigten Braze-Kund:innen erscheinen. Wenden Sie sich an Ihren Account Manager, um Zugriff auf das vollständige Feature zu erhalten.
+Eine Vorschau auf dieses Feature wird Anfang August in den Dashboards der berechtigten Braze-Kund:innen erscheinen. Wenden Sie sich an Ihren Account Manager:in, um Zugriff auf das vollständige Feature zu erhalten.
 
 ## Updates der Currents-Tracking-Eigenschaften {#updates-to-currents-tracking-properties}
 

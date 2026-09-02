@@ -13,7 +13,7 @@ hidden: true
 > Este artículo cubre la integración de Shopify Markets (actualmente en beta), incluyendo qué está dentro del alcance, cómo funciona y cómo usar los datos de tus mercados en tu mensajería. Braze está lanzando progresivamente funcionalidades adicionales de Markets a lo largo del período beta, escalando para soportar estructuras de mercado más complejas con el tiempo.
 
 {% alert important %}
-Shopify Markets está actualmente en beta. Para más información, contacta a tu administrador de éxito de cliente de Braze.
+Shopify Markets está actualmente en beta. Para más información, contacta a tu CSM de Braze.
 {% endalert %}
 
 ## Cómo funciona la integración {#how-the-integration-works}
@@ -224,7 +224,7 @@ Las [selecciones]({{site.baseurl}}/catalog_selections) son conjuntos de producto
    - **Personalized:** Cada destinatario ve productos y precios del mercado que coincide con el atributo `country` de su perfil.
    - **A synced market:** Selecciona un mercado por nombre para fijar la selección a los productos y precios de ese mercado. Usa esto cuando un mensaje se dirige a un solo mercado.
 4. Termina cualquier criterio de filtro adicional, luego guarda la selección.
-5. En **Preview for user**, selecciona un usuario para ver qué devuelve la selección para ese perfil. Las selecciones que usan **Personalized** solo pueden previsualizarse después de seleccionar un usuario.
+5. En **vista previa for user**, selecciona un usuario para ver qué devuelve la selección para ese perfil. Las selecciones que usan **Personalized** solo pueden previsualizarse después de seleccionar un usuario.
 
 | Objetivo | Filtro |
 | --- | --- |

@@ -72,7 +72,7 @@ Seleccionas una única frecuencia, como tres envíos por semana. El agente no de
 
 ### ¿Cómo funciona la limitación de frecuencia? {#how-do-frequency-caps-work}
 
-Durante la configuración, puedes aplicar las reglas de limitación de frecuencia de tu espacio de trabajo al agente y elegir si los envíos del agente cuentan para el límite de frecuencia global de cada usuario. Tu administrador de éxito de cliente o consultor de soluciones puede ayudarte a decidir el enfoque adecuado para tu programa según cómo estén configurados los límites de frecuencia en tu espacio de trabajo.
+Durante la configuración, puedes aplicar las reglas de limitación de frecuencia de tu espacio de trabajo al agente y elegir si los envíos del agente cuentan para el límite de frecuencia global de cada usuario. Tu CSM o consultor de soluciones puede ayudarte a decidir el enfoque adecuado para tu programa según cómo estén configurados los límites de frecuencia en tu espacio de trabajo.
 
 ### ¿Puede el agente enviar a través de múltiples canales? {#can-the-agent-send-across-multiple-channels}
 
@@ -118,4 +118,4 @@ Tú. El agente solo envía contenido que has agregado como variante. El agente d
 
 ### ¿Dónde puedo obtener ayuda con mi agente? {#where-do-i-get-help-with-my-agent}
 
-Contacta a tu administrador de éxito de cliente o consultor de soluciones de Braze para obtener ayuda con la configuración, la revisión del rendimiento o el diseño del programa.
+Contacta a tu CSM o consultor de soluciones de Braze para obtener ayuda con la configuración, la revisión del rendimiento o el diseño del programa.

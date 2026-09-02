@@ -170,7 +170,7 @@ Para completar la configuración en AWS, crea un rol IAM y adjúntale la políti
 ![El botón "Create role".]({% image_buster /assets/img/create_role_1_list.png %})
 
 {: start="2"}
-2. En AWS, selecciona **Another AWS Account** como tipo de selector de entidad de confianza. Proporciona tu ID de cuenta de Braze. Selecciona la casilla **Require external ID**.
+2. En AWS, selecciona **Another AWS Account** como tipo de SELECTOR de entidad de confianza. Proporciona tu ID de cuenta de Braze. Selecciona la casilla **Require external ID**.
 3. En Braze, ve a **Configuración de datos** > **Ingesta de datos en la nube** > **Orígenes**, selecciona **Añadir origen de datos** y selecciona **Amazon S3** en la sección de orígenes de archivos.
 4. Copia el **ID de cuenta de Braze** generado automáticamente.
 

@@ -51,7 +51,7 @@ Use o campo exibido para adicionar à lista de permissões endereços IP e sub-r
 
 ## Autenticação de dois fatores (2FA) {#two-factor-authentication-2fa}
 
-A autenticação de dois fatores é obrigatória para todos os usuários da empresa. Ela adiciona um segundo nível de verificação de identidade ao login de uma conta, tornando-o mais seguro do que apenas um nome de usuário e uma senha. Se o seu dashboard não oferecer suporte à autenticação de dois fatores, entre em contato com o seu gerente de sucesso do cliente.
+A autenticação de dois fatores é obrigatória para todos os usuários da empresa. Ela adiciona um segundo nível de verificação de identidade ao login de uma conta, tornando-o mais seguro do que apenas um nome de usuário e uma senha. Se o seu dashboard não oferecer suporte à autenticação de dois fatores, entre em contato com o seu CSM.
 
 Quando a autenticação de dois fatores está ativada:
 

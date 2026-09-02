@@ -61,7 +61,7 @@ extension ContentCardable {
   }
 }
 ```
-**Content Card データ構造体**<br>
+**Content カード データ構造体**<br>
 `ContentCardData`は`ABKContentCard`のパースされた値を表します。
 
 ```swift
@@ -98,7 +98,7 @@ extension ContentCardData: Equatable {
 
 @end
 ```
-**Content Card データ構造体**<br>
+**Content カード データ構造体**<br>
 `ContentCardData`は`ABKContentCard`のパースされた値を表します。
 
 ```objc
@@ -569,7 +569,7 @@ customObject.logContentCardDismissed()
 ```
 
 **`ABKContentCard` の取得**<br>
-カスタムオブジェクトから渡された `idString` は、分析をロギングするための関連する Content Card を識別するために使用されます。
+カスタムオブジェクトから渡された `idString` は、分析をロギングするための関連する Content カード を識別するために使用されます。
 
 ```swift
 extension BrazeManager {
@@ -595,7 +595,7 @@ extension BrazeManager {
 ```
 
 **`ABKContentCard` の取得**<br>
-カスタムオブジェクトから渡された `idString` は、分析をロギングするための関連する Content Card を識別するために使用されます。
+カスタムオブジェクトから渡された `idString` は、分析をロギングするための関連する Content カード を識別するために使用されます。
 
 ```objc
 - (void)logContentCardImpression:(NSString *)idString {
@@ -614,7 +614,7 @@ extension BrazeManager {
 {% endtabs %}
 
 {% alert important %}
-コントロールバリアントの Content Card の場合でも、カスタムオブジェクトをインスタンス化し、UIロジックでそのオブジェクトに対応するビューを非表示に設定する必要があります。その後、オブジェクトはインプレッションをロギングして、ユーザーがコントロールカードを見たであろうタイミングを分析に通知できます。
+コントロールバリアントの Content カード の場合でも、カスタムオブジェクトをインスタンス化し、UIロジックでそのオブジェクトに対応するビューを非表示に設定する必要があります。その後、オブジェクトはインプレッションをロギングして、ユーザーがコントロールカードを見たであろうタイミングを分析に通知できます。
 {% endalert %}
 
 ## ヘルパーファイル {#helper-files}

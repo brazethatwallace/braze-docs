@@ -54,7 +54,7 @@ A continuación se detallan los requisitos mínimos del SDK para estas caracter�
 ### Requisitos previos adicionales {#additional-prerequisites}
 
 - Para el SDK Web, la opción de inicialización [`allowUserSuppliedJavascript`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) debe configurarse como `true`. La opción `enableHtmlInAppMessages` también permitirá que estos mensajes funcionen, pero está obsoleta y debe actualizarse a `allowUserSuppliedJavascript`.
-- Si usas Google Tag Manager, debes habilitar "Allow HTML In-App Messages" en la configuración de GTM.
+- Si usas Google Tag Administrador, debes habilitar "Allow HTML In-App Messages" en la configuración de GTM.
 
 ## Paso 1: Crea un mensaje dentro de la aplicación {#step-1-create-an-in-app-message}
 

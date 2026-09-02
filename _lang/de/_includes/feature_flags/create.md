@@ -125,7 +125,7 @@ Angenommen, Sie arbeiten für eine E-Commerce-Marke und haben eine neue Checkout
 
 #### Interne Tester:innen zuerst erreichen {#reach-internal-testers-first}
 
-Angenommen, Sie sind Product Manager und möchten sicherstellen, dass Ihre internen Tester:innen bei jedem neuen Produktrelease immer das Feature-Flag erhalten. Sie können das Segment Ihrer internen Tester:innen zur ersten Regel hinzufügen und es auf 100 % setzen, sodass Ihre internen Tester:innen bei jedem Feature-Rollout berechtigt sind.
+Angenommen, Sie sind Product Manager:in und möchten sicherstellen, dass Ihre internen Tester:innen bei jedem neuen Produktrelease immer das Feature-Flag erhalten. Sie können das Segment Ihrer internen Tester:innen zur ersten Regel hinzufügen und es auf 100 % setzen, sodass Ihre internen Tester:innen bei jedem Feature-Rollout berechtigt sind.
 
 ## Verwendung des Felds „aktiviert“ für Feature-Flags {#enabled}
 
@@ -137,7 +137,7 @@ Feature-Flags werden beim Sitzungsstart automatisch aktualisiert, sodass Sie jew
 Vergewissern Sie sich, dass Sie [Feature-Flag-Impressionen](#impressions) protokollieren.
 {% endalert %}
 
-Nehmen wir an, Sie möchten einen neuen Typ von Nutzerprofil für Ihre App einführen. Sie können die `ID` als `expanded_user_profile` festlegen. Dann würden Sie Ihre App prüfen lassen, ob sie dieses neue Nutzerprofil einer bestimmten Nutzer:in anzeigen soll. Zum Beispiel:
+Nehmen wir an, Sie möchten einen neuen Typ von Kundenprofil für Ihre App einführen. Sie können die `ID` als `expanded_user_profile` festlegen. Dann würden Sie Ihre App prüfen lassen, ob sie dieses neue Kundenprofil einer bestimmten Nutzer:in anzeigen soll. Zum Beispiel:
 
 {% tabs %}
 {% tab Web %}

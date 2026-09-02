@@ -33,11 +33,11 @@ Avec les indicateurs de fonctionnalité de Braze, nous pouvons déployer progres
 * Nous activerons cette nouvelle fonctionnalité pour seulement 10 % des utilisateurs afin de déterminer si nous avons les effectifs appropriés.
 * En cas de bugs, nous pouvons rapidement désactiver la fonctionnalité au lieu de nous précipiter pour publier une nouvelle version.
 
-Pour déployer progressivement cette fonctionnalité, nous pouvons [créer un indicateur de fonctionnalité]({{site.baseurl}}/developer_guide/feature_flags/create) nommé « Live Chat Widget ».
+Pour déployer progressivement cette fonctionnalité, nous pouvons [créer un indicateur de fonctionnalité]({{site.baseurl}}/developer_guide/feature_flags/create) nommé « en direct Chat Widget ».
 
 ![Détails de l'indicateur de fonctionnalité pour un exemple nommé Live Chat Widget. L'ID est enable_live_chat. La description de cet indicateur de fonctionnalité indique que le widget de chat en direct s'affichera sur la page d'assistance.]({% image_buster /assets/img/feature_flags/feature-flags-use-case-livechat-1.png %})
 
-Dans le code de notre application, nous n'afficherons le bouton **Start Live Chat** que lorsque l'indicateur de fonctionnalité Braze est activé :
+Dans le code de notre application, nous n'afficherons le bouton **Start en direct Chat** que lorsque l'indicateur de fonctionnalité Braze est activé :
 
 {% tabs %}
 {% tab JavaScript %}

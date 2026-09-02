@@ -158,7 +158,7 @@ Falls gewünscht, können Sie das Push-Ziel auf **Zuletzt verwendetes Gerät** s
 „Zuletzt verwendet“ ist ein technischer Status, kein verhaltensbezogener. Da Braze standardmäßig alle Geräte anspricht, schränkt der Wechsel zu dieser Einstellung Ihre Reichweite erheblich ein und stützt sich ausschließlich auf den Status des einzelnen Geräts mit dem neuesten Token.
 
 Das zuletzt verwendete Gerät wird anhand des Geräts mit dem zuletzt aktualisierten Push-Token bestimmt, nicht anhand des Geräts mit der letzten Sitzung.
-* Wenn ein Push-Token eines neuen Geräts über die API zu einem Nutzerprofil hinzugefügt wird, gilt dieses Gerät sofort als das zuletzt verwendete, auch wenn die Nutzer:innen noch keine Sitzung darauf gestartet haben.
+* Wenn ein Push-Token eines neuen Geräts über die API zu einem Kundenprofil hinzugefügt wird, gilt dieses Gerät sofort als das zuletzt verwendete, auch wenn die Nutzer:innen noch keine Sitzung darauf gestartet haben.
 * Wenn das zuletzt verwendete Gerät von Nutzer:innen nicht [Push-aktiviert]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#foreground-push-enabled) ist, wird die Nachricht überhaupt nicht gesendet.
 
 Mehrfache Sendungen können weiterhin auftreten, wenn eine Campaign auf verschiedene Plattformen abzielt, z. B. sowohl iOS als auch Android. Wenn Nutzer:innen die App auf beiden Plattformen haben, können sie eine Push-Benachrichtigung für beide Plattformen erhalten.
@@ -188,7 +188,7 @@ In diesem Schritt können Sie auch Zustellungskontrollen festlegen, z. B. ob Nut
 
 ### Zielgruppe zusammenstellen {#choose-users-to-target}
 
-Als Nächstes müssen Sie [Nutzer:innen als Zielgruppe auswählen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users), indem Sie Segmente oder Filter verwenden, um Ihre Zielgruppe einzugrenzen. Sie erhalten automatisch eine Vorschau auf die ungefähre Größe der Segmentpopulation. Detaillierte Zielgruppenstatistiken für die von Ihrer Campaign angesprochenen Kanäle sind in der Fußzeile verfügbar. Um zu sehen, welcher Prozentsatz Ihrer Nutzerbasis angesprochen wird und welchen Lifetime-Value dieses Segment hat, wählen Sie **Zusätzliche Statistiken anzeigen**.
+Als Nächstes müssen Sie [Nutzer:innen als Zielgruppe auswählen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users), indem Sie Segmente oder Filter verwenden, um Ihre Zielgruppe einzugrenzen. Sie erhalten automatisch eine Vorschau auf die ungefähre Größe der Segmentpopulation. Detaillierte Zielgruppenstatistiken für die von Ihrer Campaign angesprochenen Kanäle sind in der Fußzeile verfügbar. Um zu sehen, welcher Prozentsatz Ihrer Nutzerbasis angesprochen wird und welchen LTV dieses Segment hat, wählen Sie **Zusätzliche Statistiken anzeigen**.
 
 {% multi_lang_include audience/target_audiences.md %}
 

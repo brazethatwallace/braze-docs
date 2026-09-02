@@ -86,7 +86,7 @@ Nach dieser Änderung wird ein:e Nutzer:in, der/die das angepasste Event am 6. M
 
 ## Auswirkungen auf Performance-Daten {#impact-on-performance-data}
 
-Die Aktualisierung der Zeitzone Ihres Workspace beeinflusst, wie Performance-Daten in Ihrem Dashboard aggregiert und angezeigt werden. Da Analytics für Daten wie *täglich aktive Nutzer:innen* (DAU) auf die Workspace-Zeitzone angewiesen sind, um den Beginn und das Ende eines 24-Stunden-Tages zu definieren, verschiebt eine Änderung dieser Einstellung die entsprechenden Berichtszeiträume.
+Die Aktualisierung der Zeitzone Ihres Workspace beeinflusst, wie Performance-Daten in Ihrem Dashboard aggregiert und angezeigt werden. Da Analytics für Daten wie *täglich aktive Nutzer:innen* (täglich aktive:r Nutzer:in; täglich aktiv) auf die Workspace-Zeitzone angewiesen sind, um den Beginn und das Ende eines 24-Stunden-Tages zu definieren, verschiebt eine Änderung dieser Einstellung die entsprechenden Berichtszeiträume.
 
 Wenn Sie die Zeitzone ändern, können Schwankungen oder „Verschiebungen“ in Ihren historischen Daten auftreten. Dies geschieht, weil sich das Zeitfenster von 0:00 Uhr bis 23:59 Uhr relativ zu UTC verschoben hat.
 

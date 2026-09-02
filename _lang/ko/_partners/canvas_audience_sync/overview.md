@@ -10,7 +10,7 @@ tool:
 
 # Audience Sync 소개 {#about-audience-sync}
 
-> Braze Audience Sync 기능은 Campaigns의 도달 범위를 주요 소셜 및 광고 기술로 확장하는 데 도움을 줍니다. [Braze Canvas]({{site.baseurl}}/user_guide/messaging/canvas)를 통해 브랜드는 퍼스트파티 사용자 데이터를 광고 생태계에 동적이고 안전하게 동기화하여 마케팅 및 운영 효율성을 높일 수 있습니다.
+> Braze Audience Sync 기능은 Campaigns의 도달 범위를 주요 소셜 및 광고 기술로 확장하는 데 도움을 줍니다. [BRAZE 캔버스]({{site.baseurl}}/user_guide/messaging/canvas)를 통해 브랜드는 퍼스트파티 사용자 데이터를 광고 생태계에 동적이고 안전하게 동기화하여 마케팅 및 운영 효율성을 높일 수 있습니다.
 
 ## 기능 사용 가능 여부 {#feature-availability}
 
@@ -101,7 +101,7 @@ TikTok, Pinterest, Snapchat 또는 Criteo를 포함한 오디언스 동기화 �
 
 Braze는 모니터링 및 문제 해결을 위해 내부 로그에 발송 활동을 기록하지만, 이러한 타임스탬프는 쿼리 가능한 필드로 노출되지 않습니다. Braze가 파트너 API에 배치를 발송한 후, 파트너는 자체 서비스 수준 계약에 따라 오디언스 업데이트를 처리합니다. 일반적으로 6~48시간이 소요됩니다.
 
-Braze는 개별 사용자가 매칭되었거나 동기화되었다는 확인을 파트너로부터 받지 않습니다. 파트너 응답은 수신 확인인 HTTP 응답이며, 매칭 확인이 아닙니다. 오디언스가 채워졌는지 확인하려면 파트너의 광고 플랫폼(예: Google Ads 오디언스 매니저 또는 Meta Business Manager)을 확인하세요.
+Braze는 개별 사용자가 매칭되었거나 동기화되었다는 확인을 파트너로부터 받지 않습니다. 파트너 응답은 수신 확인인 HTTP 응답이며, 매칭 확인이 아닙니다. 오디언스가 채워졌는지 확인하려면 파트너의 광고 플랫폼(예: Google Ads 오디언스 매니저 또는 Meta Business 매니저)을 확인하세요.
 
 ### 오디언스 동기화 오류 이메일 {#audience-sync-error-emails}
 

@@ -137,17 +137,17 @@ As [listas de supressão]({{site.baseurl}}/user_guide/audience/suppression_lists
 
 ### Resumo do público {#audience-summary}
 
-Após adicionar segmentos ou filtros, o **Resumo do público** oferece uma prévia de como é a população desse segmento, incluindo quantos usuários dentro dele são alcançáveis pelos canais selecionados. As contagens de alcance refletem os dados do seu espaço de trabalho, a configuração do canal e os filtros. Lembre-se de que a composição exata do segmento é sempre calculada antes do envio da mensagem. Para públicos muito grandes, a Braze pode exibir estimativas até que você calcule as estatísticas exatas.
+Após adicionar segmentos ou filtros, o **Resumo do público** oferece uma prévia de como é a população desse Segment, incluindo quantos usuários dentro dele são alcançáveis pelos canais selecionados. As contagens de alcance refletem os dados do seu espaço de trabalho, a configuração do canal e os filtros. Lembre-se de que a composição exata do Segment é sempre calculada antes do envio da mensagem. Para públicos muito grandes, a Braze pode exibir estimativas até que você calcule as estatísticas exatas.
 
 {% alert note %}
-Se você tiver um [grupo de controle global]({{site.baseurl}}/user_guide/audience/global_control_group) configurado, a contagem de usuários alcançáveis exibida no público-alvo da sua campanha será menor do que a contagem de usuários alcançáveis exibida para o mesmo segmento. Isso ocorre porque a campanha exclui os usuários do grupo de controle global, enquanto a contagem do segmento não.
+Se você tiver um [grupo de controle global]({{site.baseurl}}/user_guide/audience/global_control_group) configurado, a contagem de usuários alcançáveis exibida no público-alvo da sua campanha será menor do que a contagem de usuários alcançáveis exibida para o mesmo Segment. Isso ocorre porque a campanha exclui os usuários do grupo de controle global, enquanto a contagem do Segment não.
 {% endalert %}
 
 ### Busca de usuário {#user-lookup}
 
-Após adicionar segmentos ou filtros, você pode testar se seu público está configurado conforme esperado buscando um usuário para confirmar se ele corresponde aos critérios do segmento. Para isso, pesquise o `external_id` ou `braze_id` de um usuário na seção **Busca de usuário**. Não é possível pesquisar por endereço de e-mail aqui. Consulte [Testando segmentos]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#testing-segments) para saber mais.
+Após adicionar segmentos ou filtros, você pode testar se seu público está configurado conforme esperado buscando um usuário para confirmar se ele corresponde aos critérios do Segment. Para isso, pesquise o `external_id` ou `braze_id` de um usuário na seção **Busca de usuário**. Não é possível pesquisar por endereço de e-mail aqui. Consulte [Testando segmentos]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#testing-segments) para saber mais.
 
-Quando um usuário corresponde aos critérios de segmento, filtro e app, um alerta informa isso. Quando um usuário não corresponde a parte ou a todos os critérios de segmento, filtro ou app, os critérios ausentes são listados para fins de solução de problemas.
+Quando um usuário corresponde aos critérios de Segment, filtro e app, um alerta informa isso. Quando um usuário não corresponde a parte ou a todos os critérios de Segment, filtro ou app, os critérios ausentes são listados para fins de solução de problemas.
 
 ### Enviar para estes usuários {#send-to-these-users}
 

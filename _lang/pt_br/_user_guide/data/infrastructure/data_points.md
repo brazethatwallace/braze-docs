@@ -9,7 +9,7 @@ search_rank: 6
 
 # Pontos de dados {#data-points}
 
-> Na Braze, dados significam ação: cada dado que chega à Braze atualiza a associação do segmento, pode disparar e cancelar o envio de mensagens, está imediatamente disponível para a personalização de mensagens e muito mais. Os pontos de dados ajudam você a definir as informações mais impactantes para sua empresa. Ao considerar cuidadosamente quais informações devem ser rastreadas, você garante o direcionamento dos dados de maior impacto para a experiência dos usuários.
+> Na Braze, dados significam ação: cada dado que chega à Braze atualiza a associação do Segment, pode disparar e cancelar o envio de mensagens, está imediatamente disponível para a personalização de mensagens e muito mais. Os pontos de dados ajudam você a definir as informações mais impactantes para sua empresa. Ao considerar cuidadosamente quais informações devem ser rastreadas, você garante o direcionamento dos dados de maior impacto para a experiência dos usuários.
 
 Os pontos de dados são baseados em informações registradas em perfis de usuários. Você pode encontrar uma descrição mais detalhada dessa definição em seu contrato com a Braze. Nossa equipe de sucesso do cliente pode ajudar a recomendar as melhores práticas de dados para atender às suas necessidades.
 

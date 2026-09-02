@@ -23,7 +23,7 @@ channel:
 
 ## Onboarding {#onboarding}
 
-Lorsqu'un nouveau compte WhatsApp Business est créé, Meta utilise divers facteurs pour déterminer la limite d'envoi initiale. Vous pouvez trouver cette limite dans votre WhatsApp Business Manager, ainsi que des détails supplémentaires sur votre page Phone Number Insights.
+Lorsqu'un nouveau compte WhatsApp Business est créé, Meta utilise divers facteurs pour déterminer la limite d'envoi initiale. Vous pouvez trouver cette limite dans votre WhatsApp Business gestionnaire, ainsi que des détails supplémentaires sur votre page Phone Number Insights.
 
 Consultez la documentation de Meta pour en savoir plus sur la [vérification de votre limite](https://developers.facebook.com/docs/whatsapp/messaging-limits#checking-your-limit) et les [exigences relatives aux numéros de téléphone](https://developers.facebook.com/docs/whatsapp/cloud-api/phone-numbers).
 

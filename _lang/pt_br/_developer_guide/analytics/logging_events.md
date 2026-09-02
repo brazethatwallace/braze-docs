@@ -115,7 +115,7 @@ Braze.getInstance(context).requestImmediateDataFlush()
 {% endsubtabs %}
 {% endtab %}
 
-{% tab react native %}
+{% tab React Native %}
 ```javascript
 Braze.logCustomEvent("YOUR_EVENT_NAME");
 ```
@@ -303,7 +303,7 @@ Para detalhes sobre a API e a ponte nativa, consulte:
 - [Handler iOS em `src/ios/BrazePlugin.m` (linhas 308-313)](https://github.com/braze-inc/braze-cordova-sdk/blob/86132bc7f0b6ddf1b598b0e612db70f11744801c/src/ios/BrazePlugin.m#L308-L313)
 {% endtab %}
 
-{% tab react native %}
+{% tab React Native %}
 ```javascript
 Braze.logCustomEvent("custom_event_with_properties", {
     key1: "value1",

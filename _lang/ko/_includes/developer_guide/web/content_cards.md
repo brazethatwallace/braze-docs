@@ -278,15 +278,15 @@ braze.subscribeToContentCardsUpdates((updates) => {
 `logContentCardClick()`에 전달되는 인수는 원본 Braze `Card` 오브젝트여야 합니다. 카드 데이터를 변환하거나 재구성하면(예: 직렬화 및 역직렬화) 클릭이 기록되지 않으며 "card must be a Card object"라는 오류가 표시됩니다.
 {% endalert %}
 
-## Google Tag Manager 사용 {#using-google-tag-manager}
+## Google Tag 매니저 사용 {#using-google-tag-manager}
 
-Google Tag Manager는 웹사이트 코드에 [Braze CDN]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup#install-cdn)(Web SDK 버전)을 직접 삽입하는 방식으로 작동하므로 Content Cards를 구현할 때를 제외하고는 Google Tag Manager 없이 SDK를 통합한 것처럼 모든 SDK 메서드를 사용할 수 있습니다.
+Google Tag 매니저는 웹사이트 코드에 [Braze CDN]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup#install-cdn)(Web SDK 버전)을 직접 삽입하는 방식으로 작동하므로 Content Cards를 구현할 때를 제외하고는 Google Tag 매니저 없이 SDK를 통합한 것처럼 모든 SDK 메서드를 사용할 수 있습니다.
 
 ### Content Cards 설정하기 {#setting-up-content-cards}
 
 {% tabs local %}
-{% tab Google Tag Manager %}
-Content Cards 피드의 표준 통합을 위해 Google Tag Manager에서 **커스텀 HTML** 태그를 사용할 수 있습니다. 표준 Content Cards 피드를 활성화하는 커스텀 HTML 태그에 다음을 추가합니다:
+{% tab Google Tag 매니저 %}
+Content Cards 피드의 표준 통합을 위해 Google Tag 매니저에서 **커스텀 HTML** 태그를 사용할 수 있습니다. 표준 Content Cards 피드를 활성화하는 커스텀 HTML 태그에 다음을 추가합니다:
 
 ```html
 <script>
@@ -322,11 +322,11 @@ body .ab-feed {
 
 ### 템플릿 업그레이드 {#upgrading}
 
-Braze Web SDK의 최신 버전으로 업그레이드하려면 Google Tag Manager 대시보드에서 다음 세 단계를 수행합니다:
+Braze Web SDK의 최신 버전으로 업그레이드하려면 Google Tag 매니저 대시보드에서 다음 세 단계를 수행합니다:
 
 1. **태그 템플릿 업데이트**<br>워크스페이스 내의 **Templates** 페이지로 이동합니다. 여기에 업데이트를 사용할 수 있음을 나타내는 아이콘이 표시됩니다.<br><br>![업데이트를 사용할 수 있음을 보여주는 Templates 페이지]({% image_buster /assets/img/web-gtm/gtm-update-available.png %})<br><br>해당 아이콘을 클릭하고 변경 사항을 검토한 후 **Accept Update**를 클릭합니다.<br><br>![이전 태그 템플릿과 새 태그 템플릿을 비교하는 화면과 'Accept Update' 버튼]({% image_buster /assets/img/web-gtm/gtm-accept-update.png %})<br><br>
 2. **버전 번호 업데이트**<br>태그 템플릿이 업데이트되면 Braze Initialization Tag를 편집하고 SDK 버전을 최신 `major.minor` 버전으로 업데이트합니다. 예를 들어 최신 버전이 `4.1.2`인 경우 `4.1`을 입력합니다. SDK 버전 목록은 [체인지로그](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md)에서 확인할 수 있습니다.<br><br>![SDK 버전을 변경할 수 있는 입력 필드가 있는 Braze Initialization Template]({% image_buster /assets/img/web-gtm/gtm-version-number.png %})<br><br>
-3. **QA 및 게시**<br>태그 컨테이너에 업데이트를 게시하기 전에 Google Tag Manager의 [디버깅 툴](https://support.google.com/tagmanager/answer/6107056?hl=en)을 사용하여 새 SDK 버전이 작동하는지 확인합니다.
+3. **QA 및 게시**<br>태그 컨테이너에 업데이트를 게시하기 전에 Google Tag 매니저의 [디버깅 툴](https://support.google.com/tagmanager/answer/6107056?hl=en)을 사용하여 새 SDK 버전이 작동하는지 확인합니다.
 
 ### 문제 해결 {#troubleshooting}
 
@@ -338,7 +338,7 @@ Braze Web SDK의 최신 버전으로 업그레이드하려면 Google Tag Manager
 
 #### 디버그 모드로 전환 {#enter-debug-mode}
 
-Google Tag Manager 통합 디버깅에 도움이 되는 또 다른 방법은 Google의 [미리보기 모드](https://support.google.com/tagmanager/answer/6107056) 기능을 사용하는 것입니다.
+Google Tag 매니저 통합 디버깅에 도움이 되는 또 다른 방법은 Google의 [미리보기 모드](https://support.google.com/tagmanager/answer/6107056) 기능을 사용하는 것입니다.
 
 이를 통해 웹 페이지의 데이터 레이어에서 트리거된 각 Braze 태그로 전송되는 값을 식별하고, 어떤 태그가 트리거되었는지 또는 트리거되지 않았는지도 확인할 수 있습니다.
 
@@ -356,10 +356,10 @@ Google Tag Manager 통합 디버깅에 도움이 되는 또 다른 방법은 Goo
 
 #### 상세 로깅 활성화 {#enable-verbose-logging}
 
-문제 해결을 위해 상세 로그를 캡처하려면 Google Tag Manager 통합에서 상세 로깅을 활성화할 수 있습니다. 이러한 로그는 브라우저 [개발자 도구](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools)의 **Console** 탭에 표시됩니다.
+문제 해결을 위해 상세 로그를 캡처하려면 Google Tag 매니저 통합에서 상세 로깅을 활성화할 수 있습니다. 이러한 로그는 브라우저 [개발자 도구](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools)의 **Console** 탭에 표시됩니다.
 
-Google Tag Manager 통합에서 Braze Initialization Tag로 이동하고 **Enable Web SDK Logging**을 선택합니다.
+Google Tag 매니저 통합에서 Braze Initialization Tag로 이동하고 **Enable Web SDK Logging**을 선택합니다.
 
 ![Enable Web SDK Logging 옵션이 켜져 있는 Braze Initialization Tag 요약 페이지]({% image_buster /assets/img/web-gtm/gtm_verbose_logging.png %})
 
-[changelog]: https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md
+[체인지로그]: https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md

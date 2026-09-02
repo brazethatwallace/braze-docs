@@ -10,7 +10,7 @@ hidden: true
 
 # Mises à jour en direct pour Android {#live-updates-for-android}
 
-> Découvrez comment utiliser les mises à jour en direct Android dans le SDK de Braze, également connues sous le nom de [Progress Centric Notifications](https://developer.android.com/about/versions/16/features/progress-centric-notifications). Ces notifications sont similaires aux [Live Activities pour le SDK Swift de Braze]({{site.baseurl}}/developer_guide/live_notifications/live_activities), vous permettant d'afficher des notifications interactives sur l'écran de verrouillage. Android 16 introduit les notifications centrées sur la progression pour aider les utilisateurs à suivre de façon fluide les parcours initiés par l'utilisateur, du début à la fin.
+> Découvrez comment utiliser les mises à jour en direct Android dans le SDK de Braze, également connues sous le nom de [Progress Centric Notifications](https://developer.android.com/about/versions/16/features/progress-centric-notifications). Ces notifications sont similaires aux [en direct Activities pour le SDK Swift de Braze]({{site.baseurl}}/developer_guide/live_notifications/live_activities), vous permettant d'afficher des notifications interactives sur l'écran de verrouillage. Android 16 introduit les notifications centrées sur la progression pour aider les utilisateurs à suivre de façon fluide les parcours initiés par l'utilisateur, du début à la fin.
 
 ## Fonctionnement {#how-it-works}
 
@@ -18,7 +18,7 @@ Vous pouvez utiliser l'interface [`IBrazeNotificationFactory`](https://braze-inc
 
 ## Afficher une mise à jour en direct {#displaying-a-live-update}
 
-Dans cette section, vous collaborerez avec Superb Owl, l'hôte d'un nouveau jeu télévisé où des équipes de sauvetage animalier s'affrontent pour déterminer laquelle peut sauver le plus de hiboux. Ils souhaitent tirer parti des Live Updates dans leur application Android, afin de pouvoir afficher le statut d'un match en cours et effectuer des mises à jour dynamiques de la notification en temps réel.
+Dans cette section, vous collaborerez avec Superb Owl, l'hôte d'un nouveau jeu télévisé où des équipes de sauvetage animalier s'affrontent pour déterminer laquelle peut sauver le plus de hiboux. Ils souhaitent tirer parti des en direct Updates dans leur application Android, afin de pouvoir afficher le statut d'un match en cours et effectuer des mises à jour dynamiques de la notification en temps réel.
 
 ![Un exemple de mise à jour en direct sur Android]({% image_buster /assets/img/android/android-live-update.png %}){: style="max-width:40%;"}
 
@@ -26,7 +26,7 @@ Dans cette section, vous collaborerez avec Superb Owl, l'hôte d'un nouveau jeu 
 
 ### Étape 1 : Créer une fabrique de notifications personnalisée {#step-1-create-a-custom-notification-factory}
 
-Dans votre application, créez un nouveau fichier nommé `MyCustomNotificationFactory.kt` qui étend [`BrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html) pour gérer la manière dont les Live Updates de Braze sont affichées.
+Dans votre application, créez un nouveau fichier nommé `MyCustomNotificationFactory.kt` qui étend [`BrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html) pour gérer la manière dont les en direct Updates de Braze sont affichées.
 
 Dans l'exemple suivant, Superb Owl a créé une fabrique de notifications personnalisée pour afficher une mise à jour en direct des matchs en cours. À l'étape suivante, vous créerez une nouvelle méthode appelée `getTeamInfo` pour mapper les données d'une équipe à l'activité.
 
@@ -70,9 +70,9 @@ class MyCustomNotificationFactory : IBrazeNotificationFactory {
 
 ### Étape 2 : Mapper des données personnalisées {#step-2-map-custom-data}
 
-Dans `MyCustomNotificationFactory.kt`, créez une nouvelle méthode pour gérer les données lorsque les Live Updates sont affichées.
+Dans `MyCustomNotificationFactory.kt`, créez une nouvelle méthode pour gérer les données lorsque les en direct Updates sont affichées.
 
-Superb Owl a créé la méthode suivante pour mapper le nom et le logo de chaque équipe aux Live Updates en vue étendue :
+Superb Owl a créé la méthode suivante pour mapper le nom et le logo de chaque équipe aux en direct Updates en vue étendue :
 
 ```kotlin
 class CustomNotificationFactory : BrazeNotificationFactory() {
@@ -141,7 +141,7 @@ curl -X POST "https://BRAZE_REST_ENDPOINT/messages/send" \
 ```
 
 {% alert tip %}
-Bien que les commandes curl soient utiles pour les tests, nous recommandons de gérer cet appel dans votre backend, là où vous gérez déjà vos [Live Activities iOS]({{site.baseurl}}/developer_guide/live_notifications?sdktab=swift).
+Bien que les commandes curl soient utiles pour les tests, nous recommandons de gérer cet appel dans votre backend, là où vous gérez déjà vos [en direct Activities iOS]({{site.baseurl}}/developer_guide/live_notifications?sdktab=swift).
 {% endalert %}
 
 #### Paramètres de la requête {#request-parameters}

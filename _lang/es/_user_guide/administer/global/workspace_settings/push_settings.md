@@ -10,7 +10,7 @@ channel: push
 
 # Configuración de push {#push-settings}
 
-> La página de **Configuración de push** te permite configurar los ajustes clave para tus notificaciones push, incluido el tiempo de vida de push (TTL) y la prioridad predeterminada de FCM para Campaigns de Android. Estas configuraciones ayudan a optimizar la entrega y la eficacia de tus notificaciones push, garantizando una mejor experiencia para tus usuarios.
+> La página de **Configuración de push** te permite configurar los ajustes clave para tus notificaciones push, incluido el TTL de push (TTL) y la prioridad predeterminada de FCM para Campaigns de Android. Estas configuraciones ayudan a optimizar la entrega y la eficacia de tus notificaciones push, garantizando una mejor experiencia para tus usuarios.
 
 ## ¿Qué es el TTL de push? {#what-is-push-ttl}
 
@@ -33,7 +33,7 @@ Estas configuraciones se aplican globalmente a todas las campañas push, a menos
 Para establecer un TTL de push predeterminado diferente:
 
 1. Ve a **Settings** > **Manage Settings** > **Push Settings**.
-2. Para cada plataforma Android, define un valor predeterminado de tiempo de vida. Puedes establecer incrementos más pequeños, como horas o segundos, para un control más preciso.
+2. Para cada plataforma Android, define un valor predeterminado de TTL. Puedes establecer incrementos más pequeños, como horas o segundos, para un control más preciso.
 3. Selecciona **Save** para aplicar tus cambios.
 
 ![Configuración de TTL de push para dispositivos Firebase, Web, Kindle y Huawei.]({% image_buster /assets/img/push_ttl.png %})

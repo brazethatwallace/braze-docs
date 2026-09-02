@@ -13,7 +13,7 @@ hidden: true
 > O [Databricks](https://www.databricks.com/) é uma plataforma de análise de dados unificada e aberta para criar, implantar, compartilhar e manter soluções corporativas de dados, análise de dados e IA em escala. A Plataforma de Inteligência de Dados do Databricks se integra ao armazenamento em nuvem e à segurança da sua conta na nuvem, além de gerenciar e implantar a infraestrutura de nuvem para você.
 
 {% alert important %}
-O Databricks Delta Sharing com a Braze está em **beta fechado**. A disponibilidade, as regiões suportadas e o comportamento do produto podem mudar. Entre em contato com o seu gerente de sucesso do cliente da Braze para participar ou confirmar se esse recurso está ativado para o seu espaço de trabalho.
+O Databricks Delta Sharing com a Braze está em **beta fechado**. A disponibilidade, as regiões suportadas e o comportamento do produto podem mudar. Entre em contato com o seu CSM da Braze para participar ou confirmar se esse recurso está ativado para o seu espaço de trabalho.
 {% endalert %}
 
 ## Delta Sharing (da Braze para o Databricks) {#delta-sharing-braze-to-databricks}
@@ -36,7 +36,7 @@ Antes de usar esse recurso, conclua o seguinte:
 
 | Requisito | Descrição |
 | ----------- | ----------- |
-| Acesso à Braze | Para acessar esse recurso na Braze, entre em contato com o gerente da sua conta ou gerente de sucesso do cliente da Braze. |
+| Acesso à Braze | Para acessar esse recurso na Braze, entre em contato com o gerente da sua conta ou CSM da Braze. |
 | Conta do Databricks | Uma conta do Databricks com permissões de `admin`. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 

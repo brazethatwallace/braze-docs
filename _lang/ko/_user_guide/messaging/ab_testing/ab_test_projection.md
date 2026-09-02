@@ -17,7 +17,7 @@ description: "이 문서에서는 A/B 테스트 예측의 작동 방식, 예측�
 
 ## 예측 실행 {#running-a-projection}
 
-Campaign 작성 시, 메시지 배리언트와 제목란을 편집기에 입력합니다. 준비가 되면 Campaign 생성 플로우의 **타겟 오디언스** 단계로 이동합니다. **A/B Testing** 패널에서 **Run Projection**을 선택합니다.
+Campaign 작성 시, 메시지 배리언트와 제목란을 편집기에 입력합니다. 준비가 되면 Campaign 생성 플로우의 **타겟 오디언스** 단계로 이동합니다. **A/B 테스트** 패널에서 **Run Projection**을 선택합니다.
 
 <img width="518" alt="image" src="https://github.com/braze-inc/braze-docs/assets/17167198/8e74835c-76e4-4241-9763-c4f86a622c75">
 

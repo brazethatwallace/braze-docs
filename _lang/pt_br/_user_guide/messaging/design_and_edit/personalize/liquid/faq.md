@@ -267,7 +267,7 @@ Quando você utiliza um Content Block com modelo via Liquid, as media queries pa
 
 ### Como faço para pré-visualizar valores de propriedades de evento no criador de mensagem? {#how-do-i-preview-event-property-values-in-message-composer}
 
-Use **Preview as Custom User** e insira valores de exemplo de propriedades de evento personalizado para o usuário que você está pré-visualizando. Isso também é útil para mensagens com lógica de interrupção quando você precisa de valores de prévia que não disparem uma interrupção.
+Use **prévia as Custom User** e insira valores de exemplo de propriedades de evento personalizado para o usuário que você está pré-visualizando. Isso também é útil para mensagens com lógica de interrupção quando você precisa de valores de prévia que não disparem uma interrupção.
 
 ## Liquid em mensagens de e-mail {#liquid-in-email-messages}
 

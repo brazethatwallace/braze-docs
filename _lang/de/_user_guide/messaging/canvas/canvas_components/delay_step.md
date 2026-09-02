@@ -67,7 +67,7 @@ Wenn Sie am [Canvas-Kontext Early Access]({{site.baseurl}}/user_guide/messaging/
 Beispielsweise erhalten Nutzer:innen in diesen Szenarien keine Schritte oder Nachrichten:
 
 - Eine Nachricht ist für den 3. Mai um 21 Uhr geplant, aber der Verzögerungsschritt läuft am 3. Mai um 9 Uhr ab.
-- Ein Canvas-Schritt verzögert bis zu einer bestimmten Uhrzeit in der Ortszeit der Nutzer:innen, aber die Nutzer:innen haben keine Zeitzone in ihrem Nutzerprofil hinterlegt. Die Verzögerung verwendet dann standardmäßig die Unternehmens-Zeitzone für diese Nutzer:innen, und die angegebene Uhrzeit ist dort bereits vergangen.
+- Ein Canvas-Schritt verzögert bis zu einer bestimmten Uhrzeit in der Ortszeit der Nutzer:innen, aber die Nutzer:innen haben keine Zeitzone in ihrem Kundenprofil hinterlegt. Die Verzögerung verwendet dann standardmäßig die Unternehmens-Zeitzone für diese Nutzer:innen, und die angegebene Uhrzeit ist dort bereits vergangen.
 
 #### Nutzer:innen verlassen den Canvas, wenn ein nachfolgender Verzögerungsschritt innerhalb des Zeitrahmens eines vorherigen Verzögerungsschritts liegt {#users-exit-if-a-subsequent-delay-step-is-within-a-prior-delay-steps-timeline}
 

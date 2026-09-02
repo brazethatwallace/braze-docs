@@ -19,7 +19,7 @@ Um envio não equivale a uma chamada de Conteúdo conectado. A Braze não garant
 
 A Braze pode fazer a mesma chamada de API de Conteúdo conectado mais de uma vez por destinatário. Os motivos mais comuns incluem:
 
-- **E-mail com múltiplas partes:** Um único e-mail pode acionar passes de renderização separados para o corpo HTML, corpo em texto simples e versão Accelerated Mobile Pages (AMP) (se presente). Cada passe pode acionar o Conteúdo conectado naquela parte, então um destinatário pode gerar múltiplas chamadas idênticas ou semelhantes.
+- **E-mail com múltiplas partes:** Um único e-mail pode acionar passes de renderização separados para o corpo HTML, corpo em texto simples e versão Accelerated Mobile Pages (AMP) (AMP) (se presente). Cada passe pode acionar o Conteúdo conectado naquela parte, então um destinatário pode gerar múltiplas chamadas idênticas ou semelhantes.
 - **Validação e novas tentativas:** As cargas úteis das mensagens podem ser renderizadas múltiplas vezes por destinatário para validação, lógica de nova tentativa ou outros propósitos internos.
 - **Comportamento do canal:** O Conteúdo conectado é executado quando a mensagem é renderizada. Para mensagens no app, a mensagem é renderizada no momento da impressão.
 
@@ -120,7 +120,7 @@ Se as solicitações ao host de destino forem interrompidas pelo detector de hos
 Se você acredita que a detecção de host não íntegro possa estar causando problemas, entre em contato com o [suporte da Braze]({{site.baseurl}}/support_contact).
 
 {% alert note %}
-Você pode adicionar URLs específicas a uma lista de permissões para uso com o Connected Content. Para acessar esse recurso, entre em contato com seu gerente de sucesso do cliente.
+Você pode adicionar URLs específicas a uma lista de permissões para uso com o Connected Content. Para acessar esse recurso, entre em contato com seu CSM.
 {% endalert %}
 
 {% alert tip %}
@@ -333,7 +333,7 @@ As solicitações de webhook também enviam um `User-Agent` que começa com `Bra
 
 Se a sua chamada de Connected Content não está sendo renderizada corretamente ou não está sendo renderizada, verifique os seguintes detalhes:
 
-- **Inspecione a solicitação e a resposta em tempo real:** Use o [Depurador de Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/debugger) em **Preview & Test**.
+- **Inspecione a solicitação e a resposta em tempo real:** Use o [Depurador de Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/debugger) em **prévia & Test**.
 - **Confirme se uma chamada de Connected Content foi feita:** Você pode verificar se uma chamada foi feita na [guia histórico de mensagens]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#messaging-history-tab). Você também pode fazer um envio de teste de uma única solicitação de Connected Content.
 - **Verifique pelo Postman ou por uma solicitação CURL se a solicitação esperada funciona:** Se a solicitação funcionar e retornar uma resposta, compare a solicitação em detalhes (incluindo cabeçalhos). Confirme se os cabeçalhos estão capturados em pares chave-valor com aspas duplas.
 - **Valide se a autorização está sendo tratada corretamente:** Confirme se a opção `:basic_auth`/`:auth_credentials` está sendo usada e se a autorização de Connected Content foi adicionada às configurações do espaço de trabalho de Connected Content. Às vezes, a URL de Connected Content exige cabeçalhos além da autenticação que precisam ser inseridos.
@@ -341,7 +341,7 @@ Se a sua chamada de Connected Content não está sendo renderizada corretamente 
 - **Confirme se os dados foram analisados corretamente:** Verifique se o Liquid está referenciando corretamente o campo esperado. Para JSON aninhado, use {% raw %}`{{sampleresult.data[0].sample_field}}`{% endraw %} para apontar para o campo aninhado desejado. Você pode verificar as propriedades do JSON aninhado imprimindo o resultado esperado com {% raw %}`RESPONSE:{{sampleresult.data}}`{% endraw %}.
 - **Verifique o código de status da resposta:** O código de status da resposta deve ser um código `2XX`. O Connected Content não tem como consumir a resposta quando o código não é `2XX`.
 
-Gere uma prévia em **Preview & Test** e selecione **View details** para abrir o [Depurador de Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/debugger). O depurador lista os cabeçalhos da sua tag de Connected Content. Para os cabeçalhos que a Braze adiciona à solicitação de saída, consulte [Cabeçalhos de solicitação de saída](#outgoing-request-headers).
+Gere uma prévia em **prévia & Test** e selecione **View details** para abrir o [Depurador de Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/debugger). O depurador lista os cabeçalhos da sua tag de Connected Content. Para os cabeçalhos que a Braze adiciona à solicitação de saída, consulte [Cabeçalhos de solicitação de saída](#outgoing-request-headers).
 
 Você também pode verificar se a Liquid tag inclui os parâmetros que o seu endpoint espera (por exemplo, `:method`, `:headers`, `:content_type`, `:body` e `:basic_auth`, quando necessário). Se você depende da chave de código de status HTTP em um objeto JSON salvo, o endpoint deve retornar um objeto JSON e um status `2XX`.
 

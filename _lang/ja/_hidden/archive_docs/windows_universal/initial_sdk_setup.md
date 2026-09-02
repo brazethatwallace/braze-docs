@@ -17,7 +17,7 @@ Braze SDKは、分析、セグメンテーション、エンゲージメント�
 
 ## ステップ 1: NuGet パッケージマネージャーを使用したSDKのインストール {#step-1-install-the-sdk-via-the-nuget-package-manager}
 
-Windows ユニバーサルSDKは、[NuGet Package Manager](http://www.nuget.org/) を使用してインストールします。NuGetを使用してBraze Windows SDKをインストールするには:
+Windows ユニバーサルSDKは、[NuGet Package マネージャー](http://www.nuget.org/) を使用してインストールします。NuGetを使用してBraze Windows SDKをインストールするには:
 
 1. プロジェクトファイルを右クリックします
 2. **Manage NuGet Packages** をクリックします

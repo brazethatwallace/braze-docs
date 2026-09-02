@@ -158,15 +158,15 @@ Wenn Link Aliasing für Ihren Workspace aktiviert ist, können Sie aktionsbasier
 
 - Wenn eine Campaign archiviert wird, wird das Link-Tracking deaktiviert und dieser Link-Alias kann nicht in einem anderen Filter verwendet werden.
 - Wenn ein Link mit aktiviertem Tracking angeklickt wurde, finden Sie die Campaign als verfügbare Option im Segmentfilter, selbst wenn das Link-Tracking inzwischen deaktiviert wurde – vorausgesetzt, mindestens ein Link in dieser Nachricht wird noch getrackt.
-- Sie können einen getrackten Link nur als Filter auswählen, wenn er sich in einem aktiven (gestarteten) Canvas befindet, über das Dropdown **Clicked Alias in Canvas Step**. Wenn der Link in einem Canvas-Entwurf getrackt wird, können Sie den getrackten Link nicht als Filter auswählen.
+- Sie können einen getrackten Link nur als Filter auswählen, wenn er sich in einem aktiven (gestarteten) Canvas befindet, über das Dropdown **Clicked Alias in Canvas-Schritt**. Wenn der Link in einem Canvas-Entwurf getrackt wird, können Sie den getrackten Link nicht als Filter auswählen.
 
 Um Links als nicht getrackt festzulegen, gehen Sie zu **Einstellungen** > **E-Mail-Einstellungen** > **Link-Aliasing-Einstellungen**.
 
 ### Segmentierungsfilter {#segmentation-filters}
 
-Wenn Sie in Braze einen Link-Alias in Ihrer E-Mail haben und ein:e Nutzer:in darauf klickt, wird das Ereignis im Nutzerprofil mit dem Alias erfasst.
+Wenn Sie in Braze einen Link-Alias in Ihrer E-Mail haben und ein:e Nutzer:in darauf klickt, wird das Ereignis im Kundenprofil mit dem Alias erfasst.
 
-Wenn Sie den Segmentierungsfilter „Clicked Alias in Any Campaign or Canvas Step“ verwenden und später den Link-Alias umbenennen, werden die bisherigen Klickdaten im Nutzerprofil **nicht** aktualisiert – sie zeigen weiterhin den vorherigen Link-Alias an. Wenn Sie also Nutzer:innen auf Basis des neuen Link-Alias ansprechen, enthält dies nicht die Daten des vorherigen Link-Alias.
+Wenn Sie den Segmentierungsfilter „Clicked Alias in Any Campaign or Canvas-Schritt“ verwenden und später den Link-Alias umbenennen, werden die bisherigen Klickdaten im Kundenprofil **nicht** aktualisiert – sie zeigen weiterhin den vorherigen Link-Alias an. Wenn Sie also Nutzer:innen auf Basis des neuen Link-Alias ansprechen, enthält dies nicht die Daten des vorherigen Link-Alias.
 
 Wenn Sie den Segmentierungsfilter „Clicked Alias in Campaign“ oder „Clicked Alias in Canvas“ verwenden, werden Ihre Nutzer:innen danach gefiltert, ob sie auf einen bestimmten Alias in einer bestimmten Campaign oder einem bestimmten Canvas geklickt haben. Wenn mehrere Nutzer:innen dieselbe E-Mail-Adresse teilen und der Link-Alias angeklickt wird, werden die Nutzerprofile aller anderen Nutzer:innen, die die E-Mail-Adresse teilen, aktualisiert. Diese Profile werden auch durch Zustellungs- und Öffnungsereignisse aktualisiert, nicht nur durch Klickereignisse.
 

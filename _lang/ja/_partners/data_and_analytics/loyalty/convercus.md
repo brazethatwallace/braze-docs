@@ -42,7 +42,7 @@ Convercusが連携をホストするため、追加のインフラを導入す�
 
 ### ステップ1: Convercus SelfserviceでBrazeを設定する {#step-1-configure-braze-in-convercus-selfservice}
 
-Convercus Selfservice（顧客向けの管理UI。Convercusのアカウントマネージャーが提供するURLから開きます）で、Brazeに接続したいプログラムを開き、**Braze integration card**を使用して以下を行います。
+Convercus Selfservice（顧客向けの管理UI。Convercusのアカウントマネージャーが提供するURLから開きます）で、Brazeに接続したいプログラムを開き、**Braze integration カード**を使用して以下を行います。
 
 1. 統合フォームに入力してBraze接続を設定します。
 

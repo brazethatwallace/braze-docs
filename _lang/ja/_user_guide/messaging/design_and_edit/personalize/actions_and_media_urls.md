@@ -65,7 +65,7 @@ iOSおよびAndroidでネイティブに処理される標準URIスキーム（`
 
 #### UTMタグとは {#what-is-a-utm-tag}
 
-[UTM（Urchin Traffic Manager）タグ](https://support.google.com/analytics/answer/10917952?sjid=14344007686729081565-NC#zippy=%2Cin-this-article)を使用すると、キャンペーンアトリビューションの詳細をリンクに直接含めることができます。UTMタグはGoogle Analyticsでキャンペーンアトリビューションデータを収集するために使用され、以下のプロパティを追跡できます。
+[UTM（Urchin Traffic マネージャー）タグ](https://support.google.com/analytics/answer/10917952?sjid=14344007686729081565-NC#zippy=%2Cin-this-article)を使用すると、キャンペーンアトリビューションの詳細をリンクに直接含めることができます。UTMタグはGoogle Analyticsでキャンペーンアトリビューションデータを収集するために使用され、以下のプロパティを追跡できます。
 
 - `utm_source`: トラフィックのソースの識別子（例: `my_app`）
 - `utm_medium`: キャンペーンメディア（例: `newsfeed`）

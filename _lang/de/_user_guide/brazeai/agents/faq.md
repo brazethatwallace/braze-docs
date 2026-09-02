@@ -84,7 +84,7 @@ Ein angepasster Agent kann ein Timeout haben, wenn:
 
 #### So reduzieren Sie Timeouts {#how-to-reduce-timeouts}
 
-Wenn Ihr Agent häufig Timeouts hat, versuchen Sie Folgendes, bevor Sie Ihren Account Manager wegen eines höheren Timeout-Limits kontaktieren:
+Wenn Ihr Agent häufig Timeouts hat, versuchen Sie Folgendes, bevor Sie Ihren Account Manager:in wegen eines höheren Timeout-Limits kontaktieren:
 
 - **Wählen Sie ein einfacheres oder kostengünstigeres Modell:** Schnellere Modelle werden in der Regel innerhalb des Standard-Timeout-Fensters fertig. Siehe [Bestimmen, welches Modell verwendet werden soll]({{site.baseurl}}/user_guide/brazeai/agents/reference#determine-which-model-to-use).
 - **Senken Sie das Thinking-Level (nur BYO-Modelle):** Beginnen Sie mit **Minimal** und erhöhen Sie nur, wenn die Ausgabequalität leidet. Siehe [Thinking-Levels]({{site.baseurl}}/user_guide/brazeai/agents/reference#thinking-levels).
@@ -109,7 +109,7 @@ Wenn Ihr Agent beim Testen korrekt funktioniert, aber in einem Live-Canvas keine
 
 ### Ist Agent Console DSGVO-/CCPA-konform? {#is-agent-console-gdprccpa-compliant}
 
-Ja. Wenn Kund:innen das Braze-Auto-Modell (basierend auf Gemini) verwenden, agiert Google als Unterauftragsverarbeiter von Braze, vorbehaltlich der Bedingungen des Datenverarbeitungszusatzes (DPA) zwischen den Kund:innen und Braze.
+Ja. Wenn Kund:innen das Braze-Auto-Modell (basierend auf Gemini) verwenden, agiert Google als Unterauftragsverarbeiter von Braze, vorbehaltlich der Bedingungen des Datenverarbeitungszusatzes (Datenschutzbeauftragte:r) zwischen den Kund:innen und Braze.
 
 ### Ist Agent Console HIPAA-konform? {#is-agent-console-hipaa-compliant}
 

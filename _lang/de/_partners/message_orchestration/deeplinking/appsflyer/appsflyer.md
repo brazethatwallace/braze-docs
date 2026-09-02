@@ -149,7 +149,7 @@ Deeplinks – Links, die Nutzer:innen zu einer bestimmten Seite oder Stelle inne
 
 Obwohl sie weit verbreitet sind, können Probleme auftreten, wenn per E-Mail versendete Deeplinks zusammen mit Klick-Tracking verwendet werden – einem weiteren wichtigen Feature zur Erfassung von Nutzerdaten. Diese Probleme entstehen dadurch, dass E-Mail-Anbieter (ESPs) Deeplinks in eine Klick-Tracking-Domain einbetten, wodurch der ursprüngliche Link beschädigt wird. Daher erfordert die Unterstützung von Deeplinks eine zusätzliche Einrichtung.
 
-AppsFlyer bietet einen [Dienst](https://support.appsflyer.com/hc/en-us/articles/26967438815377-Set-up-your-ESP-integration-with-AppsFlyer) an, der diese Probleme vermeidet, indem AppsFlyer als Vermittler zwischen dem ESP-Server und Ihrem Domainnamen fungiert. In der Rolle als Proxy ermöglicht er die Bereitstellung von Assoziationsdateien (AASA/Asset Links), die das Deeplinking erleichtern.
+AppsFlyer bietet einen [Dienst](https://support.appsflyer.com/hc/en-us/articles/26967438815377-Set-up-your-ESP-integration-with-AppsFlyer) an, der diese Probleme vermeidet, indem AppsFlyer als Vermittler zwischen dem E-Mail-Anbieter-Server und Ihrem Domainnamen fungiert. In der Rolle als Proxy ermöglicht er die Bereitstellung von Assoziationsdateien (AASA/Asset Links), die das Deeplinking erleichtern.
 
 ## Schritt 1 – Eine Klick-Tracking-Domain erstellen {#step-1-create-a-click-tracking-domain}
 
@@ -173,7 +173,7 @@ Erstellen Sie ein [OneLink-Template](https://support.appsflyer.com/hc/en-us/arti
 Jetzt ist es an der Zeit, Ihre Braze-Integration in AppsFlyer einzurichten. Dieser Schritt und der folgende („Ihre App konfigurieren“) können gleichzeitig durchgeführt werden.
 So richten Sie Ihre Braze-Integration in AppsFlyer ein:
 
-### 1. Wählen Sie in AppsFlyer im Seitenmenü Engage > ESP integration aus. {#1-in-appsflyer-from-the-side-menu-select-engage-esp-integration}
+### 1. Wählen Sie in AppsFlyer im Seitenmenü Engage > E-Mail-Anbieter integration aus. {#1-in-appsflyer-from-the-side-menu-select-engage-esp-integration}
 ![AppsFlyer-UI mit dem Button „ESP Integration“ im Navigationsmenü.]({% image_buster /assets/img/attribution/appsflyer/2.png %})
 
 
@@ -200,9 +200,9 @@ Klicken Sie anschließend auf **Next**.
 
 #### a. Kopieren Sie die angepassten vorgefertigten Anweisungen in AppsFlyer und senden Sie sie an Ihre IT-Abteilung oder Ihren Domain-Administrator. {#a-copy-and-send-the-customized-pre-fabricated-instructions-in-appsflyer-to-your-it-or-domain-administrator}
 
-Ihr Administrator muss den Traffic Ihrer E-Mail-Campaigns von den ESP-Servern zu den AppsFlyer-Servern umleiten, indem er Ihre DNS-CNAME-Einträge mit der neuen Domain aktualisiert, die AppsFlyer bereitgestellt hat.
+Ihr Administrator muss den Traffic Ihrer E-Mail-Campaigns von den E-Mail-Anbieter-Servern zu den AppsFlyer-Servern umleiten, indem er Ihre DNS-CNAME-Einträge mit der neuen Domain aktualisiert, die AppsFlyer bereitgestellt hat.
 
-Dadurch wird jeder Klick auf einen Link an AppsFlyer weitergeleitet, das den Klick wiederum an den ESP-Endpunkt weiterleitet.
+Dadurch wird jeder Klick auf einen Link an AppsFlyer weitergeleitet, das den Klick wiederum an den E-Mail-Anbieter-Endpunkt weiterleitet.
 
 ![Diagramm, das zeigt, wie Klickdaten von Ihrer Domain über AppsFlyer an Ihren ESP-Endpunkt weitergeleitet werden.]({% image_buster /assets/img/attribution/appsflyer/6.png %})
 
@@ -223,7 +223,7 @@ In dieser Phase empfehlen wir Ihnen, nach dem Teilen und Validieren der CTD-Deta
 Sie können Qualitätssicherung und Fehlerbehebung durchführen, indem Sie einen Deeplink über OneLink senden. Weitere Informationen zur Verwendung von OneLink finden Sie in der [AppsFlyer-Dokumentation](https://support.appsflyer.com/hc/en-us/articles/360001437497-Integrating-AppsFlyer-and-Braze#step-3-sending-your-first-email::2ffdb79a).
 
 Wenn CTD-Links als HTTP erkannt werden, wenden Sie sich an das E-Mail-Ops-Team von Braze, um das SSL-Klick-Tracking zu aktivieren. Dadurch wird sichergestellt, dass alle HTTP-Links automatisch in HTTPS konvertiert werden.
-Sie können den folgenden Beispielnachrichtentext verwenden, wenn Sie sich an Ihren Customer-Success-Manager wenden, oder indem Sie wie in Schritt 1 ein Ticket im Braze-Dashboard erstellen:
+Sie können den folgenden Beispielnachrichtentext verwenden, wenn Sie sich an Ihren CSM wenden, oder indem Sie wie in Schritt 1 ein Ticket im Braze-Dashboard erstellen:
 
 ```
 Hi Team,

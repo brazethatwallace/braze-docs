@@ -74,7 +74,7 @@ Dieses Nutzer-Event wird jedes Mal ausgelöst, wenn ein:e neue:r Nutzer:in inner
 
 {% alert important %}
 Dieses Currents-Event ist nur für Kund:innen verfügbar, die einen „All Events Connector“ erworben haben, und steht nur für Storage-Event-Konnektoren (wie Amazon S3, Microsoft Azure und Google Cloud Storage) zur Verfügung.
-<br><br>Wenden Sie sich an Ihren Customer-Success-Manager, um dieses Event zu aktivieren und den Backfill für die zufälligen Bucket-Nummern bestehender Nutzer:innen in Ihrem Workspace zu planen.
+<br><br>Wenden Sie sich an Ihren CSM, um dieses Event zu aktivieren und den Backfill für die zufälligen Bucket-Nummern bestehender Nutzer:innen in Ihrem Workspace zu planen.
 {% endalert %}
 
 {% tabs %}
@@ -250,7 +250,7 @@ Dieses Event tritt ein, wenn ein bestimmtes angepasstes Event getriggert wird. V
 
 - Bei angepassten Events wird die Payload auch mit allen [angepassten Event-Eigenschaften]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties) befüllt, die mit dem Event verknüpft sind.
 - Für `ad_id`, `ad_id_type` und `ad_tracking_enabled` müssen Sie den Identifier for Advertisers (IDFA) für iOS und die Google Ad ID für Android explizit über die nativen SDKs erfassen. Mehr erfahren Sie hier: [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren Customer-Success-Manager oder Account Manager, um den Feature-Flipper zum Senden von `ad_id` zu aktivieren.
+- Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren CSM oder Account Manager:in, um den Feature-Flipper zum Senden von `ad_id` zu aktivieren.
 
 {% endapi %}
 
@@ -537,7 +537,7 @@ Dieses Event wird getriggert, wenn ein:e Nutzer:in einen bestimmten Standort bes
 ### Details zu den Eigenschaften
 
 - Für `ad_id`, `ad_id_type` und `ad_tracking_enabled` müssen Sie den Identifier for Advertisers (IDFA) für iOS und die Google Ad ID für Android explizit über die nativen SDKs erfassen. Mehr erfahren Sie hier: [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren Customer-Success-Manager oder Account Manager, um den Feature-Flipper zum Senden von `ad_id` zu aktivieren.
+- Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren CSM oder Account Manager:in, um den Feature-Flipper zum Senden von `ad_id` zu aktivieren.
 
 {% endapi %}
 
@@ -708,7 +708,7 @@ Käufe sind spezielle angepasste Events und werden mit einem JSON-kodierten Stri
 
 - Bei Kauf-Events wird die Payload auch mit den [Kauf-Event-Eigenschaften]({{site.baseurl}}/user_guide/data/activation/events/purchase_events#purchase-properties) befüllt, die mit dem Event verknüpft sind.
 - Für `ad_id`, `ad_id_type` und `ad_tracking_enabled` müssen Sie den Identifier for Advertisers (IDFA) für iOS und die Google Ad ID für Android explizit über die nativen SDKs erfassen. Mehr erfahren Sie hier: [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren Customer-Success-Manager oder Account Manager, um den Feature-Flipper zum Senden von `ad_id` zu aktivieren.
+- Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren CSM oder Account Manager:in, um den Feature-Flipper zum Senden von `ad_id` zu aktivieren.
 
 {% endapi %}
 
@@ -1608,7 +1608,7 @@ Ein „update“-Event wird erfasst, wenn sich eine Eigenschaft eines bestehende
 Braze löst außerdem ein „update“-Event mit `push_token_state_change_type` auf `"update"` aus, wenn ein:e anonyme:r Nutzer:in auf demselben Profil identifiziert wird und bestehende Push-Tokens auf diesem Profil verbleiben. In diesem Fall ändert sich die `user_id` nicht, und `external_user_id` wird auf die externe ID des/der identifizierten Nutzer:in gesetzt. Dies umfasst die Identifizierung über den [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)-Endpunkt und SDK-`changeUser`, wenn dem anonymen Profil auf dem Gerät eine externe ID zugewiesen wird.
 
 {% alert note %}
-In den meisten Fällen führt eine Neuinstallation der App oder eine Backup-Wiederherstellung zu einem neuen „add“-Event mit einem neuen `push_token` und einer neuen `device_id` (da das SDK eine neue `device_id` generiert und das Betriebssystem einen neuen Push-Token-String bereitstellt). Dadurch werden zwei separate Token- und Geräteeinträge im Nutzerprofil erstellt, wobei der ältere Eintrag später durch Uninstall-Tracking oder Campaign-Versand bereinigt wird.<br><br>
+In den meisten Fällen führt eine Neuinstallation der App oder eine Backup-Wiederherstellung zu einem neuen „add“-Event mit einem neuen `push_token` und einer neuen `device_id` (da das SDK eine neue `device_id` generiert und das Betriebssystem einen neuen Push-Token-String bereitstellt). Dadurch werden zwei separate Token- und Geräteeinträge im Kundenprofil erstellt, wobei der ältere Eintrag später durch Uninstall-Tracking oder Campaign-Versand bereinigt wird.<br><br>
 
 Es wäre äußerst ungewöhnlich, wenn sich nur die `device_id` ändern würde, ohne dass sich das `push_token` ändert (dies würde erfordern, dass das Betriebssystem nach der Neuinstallation denselben Token-String zurückgibt).
 {% endalert %}
@@ -1646,7 +1646,7 @@ Hinzufügen- und Entfernen-Paare lassen sich in zwei Kategorien einteilen:
 Die Identifizierung auf demselben Profil über den REST-Endpunkt [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) oder SDK-[`changeUser`]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#identified-user-profiles) kann einem anonymen Profil eine externe ID zuweisen, ohne die `user_id` zu ändern.
 In diesem Fall löst Braze keine [gepaarten Hinzufügen- und Entfernen-Events](#add-and-remove-pairs) aus.
 Stattdessen löst Braze ein „update“-Event für jedes bestehende Push-Token aus und setzt `external_user_id` auf die externe ID des/der identifizierten Nutzer:in.
-Wenn `changeUser` Tokens von einem Nutzerprofil zu einem anderen verschiebt, löst Braze weiterhin die im Abschnitt [Hinzufügen- und Entfernen-Paare](#add-and-remove-pairs) beschriebenen [gepaarten Hinzufügen- und Entfernen-Events](#add-and-remove-pairs) aus.
+Wenn `changeUser` Tokens von einem Kundenprofil zu einem anderen verschiebt, löst Braze weiterhin die im Abschnitt [Hinzufügen- und Entfernen-Paare](#add-and-remove-pairs) beschriebenen [gepaarten Hinzufügen- und Entfernen-Events](#add-and-remove-pairs) aus.
 {% endalert %}
 
 #### Abfrage des aktuellsten aktiven Token-Status {#querying-for-the-latest-active-token-state}

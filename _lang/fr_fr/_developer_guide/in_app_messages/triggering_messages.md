@@ -191,13 +191,13 @@ Pour un contrôle plus avancé du timing des messages, y compris le report et la
 {% subtab Android %}
 Pour Android, décochez **Automatically Display In-App Messages** dans l'éditeur de configuration Braze. Vous pouvez également définir `com_braze_inapp_show_inapp_messages_automatically` sur `false` dans le fichier `braze.xml` de votre projet Unity.
 
-L'opération d'affichage initiale des messages in-app peut être définie dans la configuration Braze en utilisant « In App Message Manager Initial Display Operation ».
+L'opération d'affichage initiale des messages in-app peut être définie dans la configuration Braze en utilisant « In App Message gestionnaire Initial Display Operation ».
 {% endsubtab %}
 
 {% subtab iOS %}
 Pour iOS, définissez les écouteurs d'objet de jeu dans l'éditeur de configuration Braze et assurez-vous que **Braze Displays In-App Messages** n'est pas sélectionné.
 
-L'opération d'affichage initiale des messages in-app peut être définie dans la configuration Braze en utilisant « In App Message Manager Initial Display Operation ».
+L'opération d'affichage initiale des messages in-app peut être définie dans la configuration Braze en utilisant « In App Message gestionnaire Initial Display Operation ».
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}

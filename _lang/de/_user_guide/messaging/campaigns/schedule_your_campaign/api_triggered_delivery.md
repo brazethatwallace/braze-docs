@@ -27,7 +27,7 @@ Konfigurieren Sie als Nächstes Ihren Text und Ihre Benachrichtigungen auf die g
 
 ## Verzögerung zwischen API-Trigger und Versand reduzieren {#reducing-delay-between-your-api-trigger-and-send}
 
-Wenn Nachrichten nach dem Aufruf des Trigger-Endpunkts länger als erwartet zum Senden brauchen, prüfen Sie, ob das Nutzerprofil zum Zeitpunkt des Triggers bereits vorhanden ist.
+Wenn Nachrichten nach dem Aufruf des Trigger-Endpunkts länger als erwartet zum Senden brauchen, prüfen Sie, ob das Kundenprofil zum Zeitpunkt des Triggers bereits vorhanden ist.
 
 Standardmäßig ist `send_to_existing_only` auf `true` gesetzt bei [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns). Braze sendet nur an bestehende Nutzer:innen und erstellt in diesem Aufruf keine komplett neuen Profile. Um eine:n Nutzer:in im selben Request anzulegen oder zu aktualisieren und gleichzeitig zu senden, setzen Sie `send_to_existing_only` auf `false` und fügen Sie ein `attributes`-Objekt für jede:n Empfänger:in hinzu.
 
@@ -47,7 +47,7 @@ Verwenden Sie genau zwei geschweifte Klammern pro Liquid-Tag in `trigger_propert
 
 Sehen Sie sich das folgende Beispiel einer sozialen Benachrichtigung für zusätzlichen Kontext an.
 
-![Die oben genannte Trigger-Eigenschaft in der Nachricht, die automatisch den Namen der Nutzer:innen einfügt, gefolgt von dem Text: „liked your photo! Click here to see what they've been up to.“]({% image_buster /assets/img_archive/api_triggered_photo_social_example_1.png %}){: style="max-width:70%;"}
+![Die oben genannte Trigger-Eigenschaft in der Nachricht, die automatisch den Namen der Nutzer:innen einfügt, gefolgt von dem Text: „liked your photo! click here to see what they've been up to.“]({% image_buster /assets/img_archive/api_triggered_photo_social_example_1.png %}){: style="max-width:70%;"}
 
 ## Wiederzulassung bei API-getriggerten Campaigns {#re-eligibility-with-api-triggered-campaigns}
 

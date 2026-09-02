@@ -12,7 +12,7 @@ tool:
 
 # Sincronização de público com o Pinterest {#audience-sync-to-pinterest}
 
-Usando o Braze Audience Sync com o Pinterest, as marcas podem optar por adicionar dados de usuários da sua própria integração da Braze ao Pinterest Audiences para entregar anúncios com base em disparadores comportamentais, segmentação e muito mais. Qualquer critério que você normalmente usaria para disparar uma mensagem (push, e-mail, SMS, webhook etc.) em um Braze Canvas com base nos dados de seus usuários agora pode ser usado para disparar um anúncio para esse usuário em seus públicos do Pinterest.
+Usando o Braze Audience Sync com o Pinterest, as marcas podem optar por adicionar dados de usuários da sua própria integração da Braze ao Pinterest Audiences para entregar anúncios com base em disparadores comportamentais, segmentação e muito mais. Qualquer critério que você normalmente usaria para disparar uma mensagem (push, e-mail, SMS, webhook etc.) em um BRAZE CANVAS com base nos dados de seus usuários agora pode ser usado para disparar um anúncio para esse usuário em seus públicos do Pinterest.
 
 **Os casos de uso comuns para sincronização de público incluem:**
 
@@ -119,7 +119,7 @@ A tabela a seguir inclui métricas e descrições para ajudar você a entender m
 | Métrica | Descrição |
 | --- | --- |
 | Entered | Número de usuários que entraram neste componente para serem sincronizados com o Pinterest. |
-| Proceeded to Next Step | Quantos usuários avançaram para o próximo componente, se houver um? Todos os usuários avançarão automaticamente se esta for a última etapa na ramificação do Canvas. |
+| Proceeded to Next Step | Quantos usuários avançaram para o próximo componente, se houver um? Todos os usuários avançarão automaticamente se esta for a última etapa na Branch do Canvas. |
 | Users Synced | Número de usuários que foram sincronizados com sucesso com o Pinterest. |
 | Users Not Synced | Número de usuários que não foram sincronizados devido à falta de campos para correspondência. |
 | Users Pending | Número de usuários que estão sendo processados pela Braze para sincronização com o Pinterest. |

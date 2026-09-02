@@ -32,7 +32,7 @@ Braze의 구매 이벤트에 대해 자세히 알고 싶으신가요? 전용 [�
 
 ### Amperity - 고객 데이터 플랫폼 {#amperity-customer-data-platform}
 
-[Amperity]({{site.baseurl}}/partners/amperity)는 브랜드가 고객을 더 잘 이해하고, 전략적 결정을 내리며, 소비자에게 더 나은 서비스를 제공하기 위해 일관되게 올바른 조치를 취할 수 있도록 돕는 종합 엔터프라이즈 고객 데이터 플랫폼입니다. Amperity는 CDP와 Braze 전반에 걸쳐 고객에 대한 통합 뷰를 제공함으로써 Braze 플랫폼을 지원하며, 가치 있는 Amperity 데이터를 Braze로 전송할 수 있게 합니다.
+[Amperity]({{site.baseurl}}/partners/amperity)는 브랜드가 고객을 더 잘 이해하고, 전략적 결정을 내리며, 소비자에게 더 나은 서비스를 제공하기 위해 일관되게 올바른 조치를 취할 수 있도록 돕는 종합 엔터프라이즈 고객 데이터 플랫폼입니다. Amperity는 고객 데이터 플랫폼와 Braze 전반에 걸쳐 고객에 대한 통합 뷰를 제공함으로써 Braze 플랫폼을 지원하며, 가치 있는 Amperity 데이터를 Braze로 전송할 수 있게 합니다.
 
 ### Digioh - 설문조사 {#digioh-surveys}
 

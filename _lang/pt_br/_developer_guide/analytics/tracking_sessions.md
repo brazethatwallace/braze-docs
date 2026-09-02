@@ -170,7 +170,7 @@ BRZCancellable *cancellable = [AppDelegate.braze subscribeToSessionUpdates:^(BRZ
 {% endsubtabs %}
 {% endtab %}
 
-{% tab react native %}
+{% tab React Native %}
 O SDK React Native não expõe um método para assinar atualizações de sessão diretamente. O ciclo de vida da sessão é gerenciado pelo SDK nativo subjacente. Portanto, para assinar atualizações, use a abordagem nativa da plataforma na guia **Android** ou **Swift**.
 {% endtab %}
 {% endtabs %}
@@ -240,7 +240,7 @@ AppDelegate.braze = braze;
 {% endsubtabs %}
 {% endtab %}
 
-{% tab react native %}
+{% tab React Native %}
 O SDK React Native depende dos SDKs nativos para gerenciar sessões. Para alterar o tempo limite padrão da sessão, configure-o na camada nativa:
 
 - **Android:** Defina `com_braze_session_timeout` no seu arquivo `braze.xml`. Para detalhes, selecione a guia **Android**.

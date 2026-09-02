@@ -41,7 +41,7 @@ Die folgenden Anwendungsfälle zeigen einige Möglichkeiten, angepasste Agenten 
 Um einen Agenten zu erstellen, wählen Sie zunächst Ihren Agententyp:
 
 1. Gehen Sie zur **Agent Console**.
-2. Wählen Sie **Canvas Step Agents** oder **Catalog Agents**.
+2. Wählen Sie **Canvas-Schritt Agents** oder **Catalog Agents**.
 
 ### Schritt 2: Erstellungsmethode auswählen {#step-2-choose-how-to-build-an-agent}
 
@@ -60,7 +60,7 @@ Richten Sie als Nächstes die Details für Ihren Agenten ein:
 2. (optional) Fügen Sie Tags hinzu, um Ihren Agenten zu filtern.
 3. Wählen Sie das [Modell]({{site.baseurl}}/user_guide/brazeai/agents/reference#models), das Ihr Agent verwenden soll.
 4. Wenn Sie nicht das Modell **Braze Auto** verwenden, wählen Sie die [Denkstufe]({{site.baseurl}}/user_guide/brazeai/agents/reference#thinking-levels) des Modells. Sie können zwischen Minimal, Niedrig, Mittel oder Hoch wählen. Wir empfehlen, mit **Minimal** zu beginnen und die Antworten Ihres Agenten zu testen und diese Einstellung bei Bedarf anzupassen.
-5. Legen Sie ein tägliches Aufruf-Limit fest. Standardmäßig ist dieser Wert auf 250.000 eingestellt, kann aber auf 1.000.000 erhöht werden. Wenn Sie das Limit über 1.000.000 hinaus erhöhen möchten, wenden Sie sich an Ihren Customer-Success-Manager, um mehr zu erfahren. Setzen Sie das Limit nach dem Testen hoch genug für Ihre geplante Zielgruppengröße. Ein zu niedriges Limit verursacht Tageslimit-Fehler (die keine Credits verbrauchen, aber Fallback-Werte anwenden oder die Ausgabe auf `null` belassen).
+5. Legen Sie ein tägliches Aufruf-Limit fest. Standardmäßig ist dieser Wert auf 250.000 eingestellt, kann aber auf 1.000.000 erhöht werden. Wenn Sie das Limit über 1.000.000 hinaus erhöhen möchten, wenden Sie sich an Ihren CSM, um mehr zu erfahren. Setzen Sie das Limit nach dem Testen hoch genug für Ihre geplante Zielgruppengröße. Ein zu niedriges Limit verursacht Tageslimit-Fehler (die keine Credits verbrauchen, aber Fallback-Werte anwenden oder die Ausgabe auf `null` belassen).
 
 Das Feld **Daily action credit cost limit** gibt die maximale Anzahl an Credits an, die dieser Agent pro Tag verbrauchen kann. Braze berechnet diesen Wert aus dem Pro-Aufruf-Credit-Verhältnis Ihres Workspace für das ausgewählte Modell (aus Ihrem Vertrag, angezeigt auf der Seite [Credit Ratios]({{site.baseurl}}/user_guide/administer/global/billing/credits_usage)), multipliziert mit dem täglichen Aufruf-Limit. Die Schätzung wird aktualisiert, wenn Sie das Modell oder das Aufruf-Limit ändern.
 

@@ -25,7 +25,7 @@ Die Partnerschaft von Braze und Quikly ermöglicht es Ihnen, Conversions bei Eve
 | Quikly-Konto | Ein [Quikly](https://www.quikly.com)-Markenpartnerkonto ist erforderlich, um diese Partnerschaft nutzen zu können. |
 | Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit den Berechtigungen `users.track`, `subscription.status.set`, `users.export.ids` und `subscription.status.get`. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
 | Braze REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
-| Quikly-API-Schlüssel (optional) | Ein Quikly-API-Schlüssel, der von Ihrem Client Success Manager bereitgestellt wird (nur Webhook). |
+| Quikly-API-Schlüssel (optional) | Ein Quikly-API-Schlüssel, der von Ihrem Client Success Manager:in bereitgestellt wird (nur Webhook). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
@@ -36,7 +36,7 @@ Zum Beispiel:
  - Bauen Sie über Tage hinweg Vorfreude und Engagement auf, indem Verbraucher:innen sich für die Chance auf attraktive Rewards mit [Quikly Hype](https://www.quikly.com/urgency-marketing/platform/product-overview/hype) per Opt-in anmelden. First-Party-Daten werden automatisch an Braze übertragen.
  - Beschleunigen Sie die Gewinnung neuer E-Mail- und SMS-Abonnent:innen mit einzigartigen Realtime-Angeboten, die auf der Reaktionsgeschwindigkeit der Verbraucher:innen, dem Ranking gegenüber anderen, dem Zufallsprinzip oder dem Ablauf von Zeit oder Kontingenten basieren – mit [Quikly Swap](https://www.quikly.com/urgency-marketing/platform/product-overview/swap).
  - Motivieren Sie bestimmte Schritte in der Customer Journey mit einzigartigen Belohnungsstrukturen über Webhooks.
- - Wenden Sie angepasste Attribute oder Events auf das Nutzerprofil an, wenn Nutzer:innen an einer Quikly-Aktivierung teilnehmen.
+ - Wenden Sie angepasste Attribute oder Events auf das Kundenprofil an, wenn Nutzer:innen an einer Quikly-Aktivierung teilnehmen.
 
 ## Integration
 
@@ -54,7 +54,7 @@ Im Folgenden finden Sie eine Übersicht, wie Quikly diesen Workflow ausführt.
 2. Nutzer:in protokollieren oder aktualisieren.
   - Wenn die/der Nutzer:in existiert:
     - Kein neues Profil erstellen.
-    - Falls gewünscht, kann Quikly ein angepasstes Attribut im Nutzerprofil protokollieren, um anzuzeigen, dass die/der Nutzer:in an der Aktivierung teilgenommen hat.
+    - Falls gewünscht, kann Quikly ein angepasstes Attribut im Kundenprofil protokollieren, um anzuzeigen, dass die/der Nutzer:in an der Aktivierung teilgenommen hat.
   - Wenn die/der Nutzer:in nicht existiert:
     - Quikly erstellt über den Braze [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) ein reines Alias-Profil, wobei die E-Mail als Nutzer-Alias festgelegt wird, um diese:n Nutzer:in in Zukunft zu referenzieren (da keine externe ID vorhanden ist).
     - Falls gewünscht, kann Quikly angepasste Events protokollieren, um anzuzeigen, dass dieses Profil an der Quikly-Aktivierung teilgenommen hat.
@@ -88,19 +88,19 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ### SMS-Abonnements {#sms-subscriptions}
 
-Quikly-Aktivierungen können Mobilfunknummern direkt von Kund:innen erfassen und ein neues SMS-Abo einrichten. Um diese Integration zu aktivieren, stellen Sie Ihrem Quikly Client Success Manager die `subscription_group_id` zur Verfügung. Sie können auf die `subscription_group_id` einer Abo-Gruppe zugreifen, indem Sie zur Seite **Abo-Gruppe** navigieren.
+Quikly-Aktivierungen können Mobilfunknummern direkt von Kund:innen erfassen und ein neues SMS-Abo einrichten. Um diese Integration zu aktivieren, stellen Sie Ihrem Quikly Client Success Manager:in die `subscription_group_id` zur Verfügung. Sie können auf die `subscription_group_id` einer Abo-Gruppe zugreifen, indem Sie zur Seite **Abo-Gruppe** navigieren.
 
 Quikly führt eine Abo-Suche anhand der Telefonnummer der/des Kund:in durch und schreibt ihr/ihm bei der Aktivierung automatisch gut, wenn bereits ein SMS-Abo besteht. Andernfalls wird ein neues Abo eingeleitet, und nachdem der Abo-Status verifiziert wurde, wird der/dem Kund:in die Gutschrift erteilt.
 
 Hier sehen Sie den vollständigen Workflow, wenn Kund:innen ihre Mobilfunknummer und Einwilligung über Quikly angeben:
 1. Quikly führt eine Abo-Suche anhand des [Abo-Gruppenstatus]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) durch, um festzustellen, ob eine bestimmte `phone` bei einer `subscription_group_id` abonniert ist. Wenn ein Abo besteht, wird der/dem Nutzer:in in der Quikly-Aktivierung gutgeschrieben. Es sind keine weiteren Maßnahmen erforderlich.
-2. Quikly führt eine Nutzersuche über den [Endpunkt „Nutzerprofil nach Bezeichner exportieren“]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) durch, um festzustellen, ob ein Nutzerprofil mit einer bestimmten `email_address` existiert. Wenn kein:e Nutzer:in existiert, wird über den Braze [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) ein reines Alias-Profil erstellt, wobei die E-Mail als Nutzer-Alias festgelegt wird, um diese:n Nutzer:in in Zukunft zu referenzieren (da keine externe ID vorhanden ist).
+2. Quikly führt eine Nutzersuche über den [Endpunkt „Kundenprofil nach Bezeichner exportieren“]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) durch, um festzustellen, ob ein Kundenprofil mit einer bestimmten `email_address` existiert. Wenn kein:e Nutzer:in existiert, wird über den Braze [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) ein reines Alias-Profil erstellt, wobei die E-Mail als Nutzer-Alias festgelegt wird, um diese:n Nutzer:in in Zukunft zu referenzieren (da keine externe ID vorhanden ist).
 3. Aktualisieren Sie den Abo-Status über den [Endpunkt „Abo-Gruppenstatus der/des Nutzer:in aktualisieren“]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status).
 
 Um bestehende Double-Opt-in-SMS-Abo-Workflows zu unterstützen, kann Quikly anstelle des oben beschriebenen Workflows ein angepasstes Event an Braze senden. In diesem Fall wird der Abo-Status nicht direkt aktualisiert, sondern das [angepasste Event triggert den Double-Opt-in-Prozess]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in), und der Abo-Status wird regelmäßig überwacht, um zu verifizieren, dass die/der Nutzer:in vollständig per Opt-in angemeldet ist, bevor die Gutschrift in der Quikly-Aktivierung erfolgt.
 
 {% alert important %}
-Braze empfiehlt, bei der Erstellung neuer Nutzer:innen über den `/users/track`-Endpunkt eine Verzögerung von etwa 2 Minuten einzuhalten, bevor Nutzer:innen der entsprechenden Abo-Gruppe hinzugefügt werden, damit Braze Zeit hat, das Nutzerprofil vollständig zu erstellen.
+Braze empfiehlt, bei der Erstellung neuer Nutzer:innen über den `/users/track`-Endpunkt eine Verzögerung von etwa 2 Minuten einzuhalten, bevor Nutzer:innen der entsprechenden Abo-Gruppe hinzugefügt werden, damit Braze Zeit hat, das Kundenprofil vollständig zu erstellen.
 {% endalert %}
 
 {% details Detaillierte /subscription/status/set-Anfrage %}
@@ -175,4 +175,4 @@ Denken Sie daran, Ihr Template zu speichern, bevor Sie die Seite verlassen! <br>
 {% endtabs %}
 
 ## Support
-Kontaktieren Sie Ihren Client Success Manager bei Quikly, wenn Sie Fragen haben.
+Kontaktieren Sie Ihren Client Success Manager:in bei Quikly, wenn Sie Fragen haben.

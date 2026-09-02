@@ -37,7 +37,7 @@ Avro unterstützt im Gegensatz zu schemalosem JSON nativ die Schema-Evolution. D
 
 ## Wie geht Braze mit Datei-Overhead um? {#how-does-braze-handle-file-overhead}
 
-Wir bauen einen Extract, Transform, Load (ETL)-Prozess auf, mit dem Sie große Datenmengen aus einer Datenbank abrufen und in einer anderen ablegen und speichern können.
+Wir bauen einen ETL (ETL)-Prozess auf, mit dem Sie große Datenmengen aus einer Datenbank abrufen und in einer anderen ablegen und speichern können.
 
 ## Wo sollte ich diese Daten für Abfragen speichern? {#where-should-i-store-this-data-for-querying}
 
@@ -74,12 +74,12 @@ Currents und das Braze-Dashboard berechnen bestimmte Metriken unterschiedlich, d
 
 **Doppelte Events:** Currents bietet eine At-Least-Once-Zustellung, was bedeutet, dass gelegentlich doppelte Events geschrieben werden können. Deduplizieren Sie anhand des eindeutigen `id`-Feldes jedes Events, bevor Sie Gesamtzahlen mit Dashboard-Metriken vergleichen.
 
-## Warum weicht die `external_user_id` (Braze-Schema: `external_id`) in meinem Currents-E-Mail-Öffnungs- oder Klick-Event vom Nutzerprofil im Braze-Dashboard ab? {#why-does-the-external_user_id-braze-schema-external_id-in-my-currents-email-open-or-click-event-differ-from-the-user-profile-in-the-braze-dashboard}
+## Warum weicht die `external_user_id` (Braze-Schema: `external_id`) in meinem Currents-E-Mail-Öffnungs- oder Klick-Event vom Kundenprofil im Braze-Dashboard ab? {#why-does-the-external_user_id-braze-schema-external_id-in-my-currents-email-open-or-click-event-differ-from-the-user-profile-in-the-braze-dashboard}
 
 - **Im Braze-Dashboard:** Wenn eine mit einer E-Mail-Adresse verknüpfte Person eine E-Mail öffnet oder anklickt, werden alle Nutzerprofile, die diese E-Mail-Adresse teilen, als geöffnet bzw. angeklickt markiert. Weitere Informationen finden Sie unter [Was passiert, wenn eine E-Mail versendet wird und mehrere Profile dieselbe E-Mail-Adresse haben?]({{site.baseurl}}/user_guide/channels/email/faq#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address).
 - **In Currents:** Derselbe Öffnungs- oder Klick-Vorgang wird nur in einem Profil gespeichert. Braze ordnet ihn dem Profil zu, das ursprünglich für den Versand ausgewählt wurde, sofern dieses Profil die E-Mail-Adresse noch teilt. Andernfalls ordnet Braze ihn einem zufällig ausgewählten Profil unter denjenigen zu, die die E-Mail-Adresse gemeinsam nutzen.
 
-Aus diesem Grund stimmt der `external_user_id`-Wert (in der Braze-Schema-Zuordnungstabelle als `external_id` bezeichnet) eines Currents-E-Mail-Öffnungs- oder Klick-Events möglicherweise nicht mit dem Nutzerprofil überein, das Sie erwarten, wenn Sie Currents mit dem Braze-Dashboard vergleichen.
+Aus diesem Grund stimmt der `external_user_id`-Wert (in der Braze-Schema-Zuordnungstabelle als `external_id` bezeichnet) eines Currents-E-Mail-Öffnungs- oder Klick-Events möglicherweise nicht mit dem Kundenprofil überein, das Sie erwarten, wenn Sie Currents mit dem Braze-Dashboard vergleichen.
 
 ## Werden alle Sende-Events in Currents protokolliert? {#are-all-send-events-logged-to-currents}
 
@@ -139,7 +139,7 @@ Currents verwendet separate Berechtigungspools für unterschiedliche Konnektor-F
 - **Customer Behavior Events**: Erforderlich, um **Track Customer Behavior and User Events** zu aktivieren.
 - **User Profiles and Attributes**: Erforderlich, um **Track user profiles and attributes** zu aktivieren.
 
-Wenn ein Pool erschöpft ist, zeigt Braze eine Berechtigungswarnung an und blockiert die jeweilige Aktion. Wenden Sie sich an Ihren Braze Account Manager, um zusätzliche Berechtigungen anzufordern oder Ihre Konfiguration anpassen zu lassen.
+Wenn ein Pool erschöpft ist, zeigt Braze eine Berechtigungswarnung an und blockiert die jeweilige Aktion. Wenden Sie sich an Ihren Braze Account Manager:in, um zusätzliche Berechtigungen anzufordern oder Ihre Konfiguration anpassen zu lassen.
 
 ## Wie oft ändert sich die Currents-Version im Speicherpfad? {#how-often-does-the-currents-version-in-the-storage-path-change}
 

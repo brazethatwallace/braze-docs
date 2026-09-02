@@ -19,7 +19,7 @@ Facebookリード獲得広告は、企業がFacebook上で直接リード情報�
 |---|---|
 | Zapierアカウント | このパートナーシップを利用するには、Zapierアカウントが必要です。この統合では<a href="https://zapier.com/app/pricing/" target="_blank">Zapierのプレミアムアプリ</a> を使用するため、お使いのZapierプランがプレミアムアプリにアクセスできることを確認してください。 |
 | <a href="https://www.facebook.com/business/help/540596413257598?id=735435806665862/" target="_blank">Facebook Leadsアクセス</a> | Brazeで使用する予定の各広告アカウントに対して、Facebook Leadsアクセスが必要です。 |
-| <a href="https://www.facebook.com/business/help/1710077379203657?id=180505742745347" target="_blank">Facebook Business Manager</a> | この統合の一環として、ブランドのFacebookアセット（広告アカウント、ページ、アプリなど）を管理する一元管理ツールであるFacebook Business Managerを使用します。 |
+| <a href="https://www.facebook.com/business/help/1710077379203657?id=180505742745347" target="_blank">Facebook Business マネージャー</a> | この統合の一環として、ブランドのFacebookアセット（広告アカウント、ページ、アプリなど）を管理する一元管理ツールであるFacebook Business マネージャーを使用します。 |
 | <a href="https://www.facebook.com/business/help/195296697183682?id=829106167281625/" target="_blank">Facebook広告アカウント</a> | ブランドのビジネスマネージャーに紐づいたアクティブなFacebook広告アカウントが必要です。<br><br>Brazeで使用する予定の各広告アカウントに対して「広告アカウントの管理」権限があること、また広告アカウントの利用規約に同意していることを確認してください。 |
 | <a href="https://www.facebook.com/business/help/183277585892925?id=420299598837059/" target="_blank">Facebookページ</a> | ブランドのビジネスマネージャーに紐づいたアクティブなFacebookページが必要です。<br><br>Brazeで使用する予定の各Facebookページに対して「ページの管理」権限があることを確認してください。 |
 | Braze RESTエンドポイント | [RESTエンドポイントURL]({{site.baseurl}}/api/basics#api-definitions)を把握していることを確認してください。APIエンドポイントは、お使いのBrazeインスタンスのダッシュボードURLと一致します。<br><br>たとえば、ダッシュボードURLが`https://dashboard-03.braze.com`の場合、エンドポイントは`dashboard-03`になります。 |
@@ -47,9 +47,9 @@ FacebookアカウントをZapierに接続するこれら2つの方法の詳細�
 
 ![Facebook Lead Adsの接続オプションを表示するZapierアプリ検索画面。]({% image_buster /assets/img/fb_lead_ads_zapier/integration1.png %}){: style="max-width:80%;"}
 
-#### ステップ2b：Facebook Business ManagerのリードアクセスにZapierを追加する {#step-2b-add-zapier-to-leads-access-in-facebook-business-manager}
+#### ステップ2b：Facebook Business マネージャーのリードアクセスにZapierを追加する {#step-2b-add-zapier-to-leads-access-in-facebook-business-manager}
 
-Facebook Business Managerで、ナビゲーションメニューから**Integrations** > **Leads Access**に移動します。Facebookページを選択し、**CRMs**をクリックします。CRMタブで**Assign CRMs**を選択し、**Zapier**を追加します。
+Facebook Business マネージャーで、ナビゲーションメニューから**Integrations** > **Leads Access**に移動します。Facebookページを選択し、**CRMs**をクリックします。CRMタブで**Assign CRMs**を選択し、**Zapier**を追加します。
 
 ![ZapierがCRM連携として割り当てられたFacebook Business Managerのリードアクセスページ。]({% image_buster /assets/img/fb_lead_ads_zapier/integration2.png %}){: style="max-width:80%;"}
 
@@ -147,7 +147,7 @@ webhookを設定したら、**Continue and test**を選択します。テスト�
 {% details FacebookリードがBrazeに同期されないのはなぜですか？ %}
 1. Facebookページ、広告アカウント、およびリードアクセスへの管理者アクセス権があることを確認してください。その後、Zapierでアカウントを再接続してください。
 2. Facebookで作成したインスタントフォームが、トリガーステップで選択したフォームにマッピングされていることを確認してください。
-3. **Facebook Business Manager** > **Integrations** > **Lead Access** に移動して、ZapierにLeads Accessが割り当てられていることを確認してください。
+3. **Facebook Business マネージャー** > **Integrations** > **Lead Access** に移動して、ZapierにLeads Accessが割り当てられていることを確認してください。
 {% enddetails %}
 
 {% details 同じメールアドレスでユーザープロファイルが重複して表示されるのはなぜですか？ %}

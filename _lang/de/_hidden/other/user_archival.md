@@ -80,7 +80,7 @@ Braze blockiert einzelne Nutzerprofile, die ungewöhnlich groß werden („Dummy
 | Mehr als 20.000 verschiedene Produktnamen in Käufen | Wird typischerweise dadurch verursacht, dass für jeden Kauf eine neue `product_id` generiert wird, anstatt einen festen Satz von Produkt-IDs wiederzuverwenden. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Schwellenwerte für die Blockierung von Dummy-Nutzer:innen" }
 
-Nachdem ein Profil blockiert wurde, stoppt Braze die Aufnahme aller eingehenden Daten für dieses Profil – sowohl von den SDKs als auch von der REST API. Anfragen an [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), die einen blockierten Bezeichner referenzieren, geben den Fehler `"provided external_id is blacklisted and disallowed"` zurück. Dieser Wortlaut stammt wörtlich aus der API-Antwort. Braze benachrichtigt außerdem Ihren Braze Account Manager, damit dieser das Integrationsproblem mit Ihnen besprechen kann.
+Nachdem ein Profil blockiert wurde, stoppt Braze die Aufnahme aller eingehenden Daten für dieses Profil – sowohl von den SDKs als auch von der REST API. Anfragen an [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), die einen blockierten Bezeichner referenzieren, geben den Fehler `"provided external_id is blacklisted and disallowed"` zurück. Dieser Wortlaut stammt wörtlich aus der API-Antwort. Braze benachrichtigt außerdem Ihren Braze Account Manager:in, damit dieser das Integrationsproblem mit Ihnen besprechen kann.
 
 Falls dies bei einem legitimen Nutzer bzw. einer legitimen Nutzerin passiert ist, erstellen Sie ein Ticket beim Braze-[Support]({{site.baseurl}}/braze_support).
 
@@ -90,7 +90,7 @@ Um die Dummy-Nutzer:innen Ihres Dashboards zu finden, führen Sie die folgenden 
 2. Wählen Sie den Filter `Session Count` aus und setzen Sie ihn auf `more than 5,000,000`.
 3. Exportieren Sie das Segment als CSV.
 
-Der Filter **Session Count** findet nur sitzungsbasierte Dummy-Nutzer:innen. Es gibt keinen Segmentierungsfilter für die Anzahl verschiedener Namen angepasster Events oder Produktnamen in einem Profil. Wenden Sie sich daher an Ihren Braze Account Manager, um Profile zu identifizieren, die aus diesen Gründen blockiert wurden.
+Der Filter **Session Count** findet nur sitzungsbasierte Dummy-Nutzer:innen. Es gibt keinen Segmentierungsfilter für die Anzahl verschiedener Namen angepasster Events oder Produktnamen in einem Profil. Wenden Sie sich daher an Ihren Braze Account Manager:in, um Profile zu identifizieren, die aus diesen Gründen blockiert wurden.
 
 Bei Bedarf können Sie die Nutzer:innen über den [`/users/delete`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_delete) löschen.
 
@@ -101,7 +101,7 @@ Braze bietet Features zur Datenorchestrierung, mit denen Sie Ihre Nutzerarchivie
 Damit können Sie:
 
 - Die DSGVO und bewährte Datenschutzpraktiken einhalten, indem Sie Nutzerprofile löschen, die nicht mehr wertvoll sind.
-- Jedes Nutzerprofil beibehalten, für das ein berechtigtes geschäftliches Interesse besteht.
+- Jedes Kundenprofil beibehalten, für das ein berechtigtes geschäftliches Interesse besteht.
 
 ### Schritte {#steps}
 
@@ -112,7 +112,7 @@ Damit können Sie:
 2. Stellen Sie die erneute Berechtigung auf etwas weniger als 6 Monate ein.<br><br>
       ![Entry-Kontrollen mit aktivierter erneuter Berechtigung und einem Fenster für die erneute Berechtigung von 23 Wochen.][3]<br><br>
 3. Konfigurieren Sie den User-Update-Schritt, um jedem Profil ein Event hinzuzufügen.<br><br>
-      ![User-Update-Schritt, der das Event „do_not_archive“ zum Nutzerprofil hinzufügt.][4]
+      ![User-Update-Schritt, der das Event „do_not_archive“ zum Kundenprofil hinzufügt.][4]
 {% details Beispiel für ein User-Update-Objekt %}
 
 {% raw %}

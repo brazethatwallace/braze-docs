@@ -383,14 +383,14 @@ Los usuarios pueden seleccionar entre múltiples opciones. Los valores se establ
 
 ### Texto largo {#long-text}
 
-Campo de texto multilínea para flujos de tipo cuestionario. Si no ves este bloque, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu administrador de éxito de cliente de Braze.
+Campo de texto multilínea para flujos de tipo cuestionario. Si no ves este bloque, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu CSM de Braze.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 <!-- Saved row is not yet released. Uncomment when available.
 ### Fila guardada {#saved-row}
 
-Inserta una fila reutilizable que guardaste anteriormente como un Content Block de arrastrar y soltar. Las filas guardadas **no están vinculadas** al Content Block original — si el original se actualiza, necesitarás arrastrarlo al editor de nuevo para obtener la última versión. Para más información, consulta [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Si no ves **Fila guardada** en **Filas**, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu administrador de éxito de cliente de Braze.
+Inserta una fila reutilizable que guardaste anteriormente como un Content Block de arrastrar y soltar. Las filas guardadas **no están vinculadas** al Content Block original — si el original se actualiza, necesitarás arrastrarlo al editor de nuevo para obtener la última versión. Para más información, consulta [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Si no ves **Fila guardada** en **Filas**, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu CSM de Braze.
 -->
 
 ## Cosas que debes saber {#things-to-know}
@@ -462,7 +462,7 @@ Añade espaciado vertical entre elementos.
 
 ### Código personalizado
 
-Inserta HTML, CSS o JavaScript personalizado para personalización avanzada, como [Google Tag Manager]({{site.baseurl}}/user_guide/messaging/landing_pages#adding-google-tag-manager-to-a-landing-page).
+Inserta HTML, CSS o JavaScript personalizado para personalización avanzada, como [Google Tag Administrador]({{site.baseurl}}/user_guide/messaging/landing_pages#adding-google-tag-manager-to-a-landing-page).
 
 | Propiedad | Descripción |
 | --- | --- |
@@ -472,7 +472,7 @@ Inserta HTML, CSS o JavaScript personalizado para personalización avanzada, com
 <!-- Countdown timer is not yet released. Uncomment when available.
 ### Temporizador de cuenta regresiva {#countdown-timer}
 
-Muestra una cuenta regresiva hasta una fecha y hora que establezcas. Si no ves este bloque, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu administrador de éxito de cliente de Braze.
+Muestra una cuenta regresiva hasta una fecha y hora que establezcas. Si no ves este bloque, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu CSM de Braze.
 
 Después de añadir un bloque de **Temporizador de cuenta regresiva**, usa el panel de propiedades para establecer la fecha y hora objetivo, las etiquetas y el estilo.
 -->
@@ -537,14 +537,14 @@ Para el flujo de configuración completo, consulta [Bloque de gestión de suscri
 
 ### Texto largo
 
-Campo de texto multilínea para flujos de tipo cuestionario. Si no ves este bloque, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu administrador de éxito de cliente de Braze. Este bloque no está disponible para páginas de destino estándar.
+Campo de texto multilínea para flujos de tipo cuestionario. Si no ves este bloque, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu CSM de Braze. Este bloque no está disponible para páginas de destino estándar.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 <!-- Saved row is not yet released. Uncomment when available.
 ### Fila guardada
 
-Inserta una fila reutilizable que guardaste anteriormente como un Content Block de arrastrar y soltar. Las filas guardadas **no están vinculadas** al Content Block original — si el original se actualiza, necesitarás arrastrarlo al editor de nuevo para obtener la última versión. Para más información, consulta [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Si no ves **Fila guardada** en **Filas**, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu administrador de éxito de cliente de Braze.
+Inserta una fila reutilizable que guardaste anteriormente como un Content Block de arrastrar y soltar. Las filas guardadas **no están vinculadas** al Content Block original — si el original se actualiza, necesitarás arrastrarlo al editor de nuevo para obtener la última versión. Para más información, consulta [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Si no ves **Fila guardada** en **Filas**, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu CSM de Braze.
 -->
 
 ## Cosas que debes saber
@@ -631,14 +631,14 @@ Recopila una dirección de correo electrónico y la añade al perfil de Braze de
 
 ### Texto largo
 
-Campo de texto multilínea para flujos de tipo cuestionario. Si no ves este bloque, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu administrador de éxito de cliente de Braze.
+Campo de texto multilínea para flujos de tipo cuestionario. Si no ves este bloque, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu CSM de Braze.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 <!-- Saved row is not yet released. Uncomment when available.
 ### Fila guardada
 
-Inserta una fila reutilizable que guardaste anteriormente como un Content Block de arrastrar y soltar. Las filas guardadas **no están vinculadas** al Content Block original — si el original se actualiza, necesitarás arrastrarlo al editor de nuevo para obtener la última versión. Para más información, consulta [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Si no ves **Fila guardada** en **Filas**, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu administrador de éxito de cliente de Braze.
+Inserta una fila reutilizable que guardaste anteriormente como un Content Block de arrastrar y soltar. Las filas guardadas **no están vinculadas** al Content Block original — si el original se actualiza, necesitarás arrastrarlo al editor de nuevo para obtener la última versión. Para más información, consulta [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Si no ves **Fila guardada** en **Filas**, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu CSM de Braze.
 -->
 
 ## Cosas que debes saber
@@ -648,7 +648,7 @@ Inserta una fila reutilizable que guardaste anteriormente como un Content Block 
 
 {% endsdktab %}
 
-{% sdktab preference center %}
+{% sdktab centro de preferencias %}
 ## Bloques de editor del centro de preferencias {#preference-center-editor-blocks}
 
 Arrastra bloques desde la sección **Crear** a una fila en el editor de arrastrar y soltar del centro de preferencias. Cada bloque tiene su propia configuración; el panel del lado derecho cambia a propiedades o estilo para el elemento seleccionado.

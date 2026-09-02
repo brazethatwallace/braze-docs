@@ -460,7 +460,7 @@ func logCustomEvent(_ eventName: String, withProperties properties: [AnyHashable
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
-{% tab Step 2: Custom Attributes %}
+{% tab Step 2: カスタム属性 %}
 
 ##### カスタム属性のログ記録メソッドの作成 {#create-log-custom-attributes-method}
 
@@ -674,7 +674,7 @@ extension AppboyManager: ABKInAppMessageUIDelegate{
 ### Content Cards {#content-cards}
 
 {% tabs local %}
-{% tab Create Content Card Variables and Methods %}
+{% tab Create Content カード Variables and Methods %}
 
 {% alert important %}
 以下のContent Cardsセクションは、アプリケーションでこのチャネルを使用する予定がない場合、連携に必須ではありません。

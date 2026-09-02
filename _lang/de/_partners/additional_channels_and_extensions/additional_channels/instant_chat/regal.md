@@ -121,7 +121,7 @@ Verwenden Sie die folgende Canvas-Konfiguration, um aktuelle Opt-in-Informatione
 1. Erstellen Sie ein neues Canvas oder eine neue Campaign mit dem Titel „Send Opt In or Out to Regal“.
 
 2. Wählen Sie eine der folgenden Trigger-Optionen und dann das Feld aus, das den Opt-in-Status der Nutzer:innen repräsentiert:
-    - **User Profile Field Updated**
+    - **Kundenprofil Field Updated**
     - **Update Subscription Group Status**
     - **Subscription Status**
 
@@ -168,7 +168,7 @@ Regal erfordert außerdem einen HTTP-Header zur Autorisierung und eine HTTP-Meth
 }
 ```
 
-Sie können auch zusätzliche Nutzerprofil-Attribute in diesen Payload aufnehmen, um andere Attribute gleichzeitig aktuell zu halten.
+Sie können auch zusätzliche Kundenprofil-Attribute in diesen Payload aufnehmen, um andere Attribute gleichzeitig aktuell zu halten.
 
 ### Schritt 3: Angepasste Events senden {#step-3-send-custom-events}
 
@@ -253,7 +253,7 @@ Erstellen Sie ein neues Canvas oder eine neue Campaign mit dem Titel „Send Pro
 
 #### Aktuelle Kontakt-Attribute {#up-to-date-contact-attributes}
 
-Regal empfiehlt außerdem, wichtige Nutzerprofil-Attribute in Event-Payloads mitzusenden, damit Regal bei wichtigen Events über aktuelle Kontakt-Attribute verfügt.
+Regal empfiehlt außerdem, wichtige Kundenprofil-Attribute in Event-Payloads mitzusenden, damit Regal bei wichtigen Events über aktuelle Kontakt-Attribute verfügt.
 
 {% alert note %}
 Falls Sie Fragen dazu haben, welche Events Sie an Regal senden sollten oder wie Sie diese Canvases und Campaigns einrichten, schreiben Sie an [support@regal.io](mailto:support@regal.io).
@@ -664,7 +664,7 @@ Verwenden Sie eine Datentransformation, um `call_analysis`-Felder (wie `primary_
 
 **Profilattribute mit Transkript-Links aus `call.transcript.available`-Events aktualisieren**
 
-Verwenden Sie das `call.transcript.available`-Event, um einen Link zum vollständigen Anruftranskript an Braze zu senden. Ordnen Sie die Transkript-URL mit einer Datentransformation einem Braze-Nutzerprofil-Attribut zu, damit Ihr Team Gespräche direkt über das Nutzerprofil aufrufen und überprüfen kann.
+Verwenden Sie das `call.transcript.available`-Event, um einen Link zum vollständigen Anruftranskript an Braze zu senden. Ordnen Sie die Transkript-URL mit einer Datentransformation einem Braze-Kundenprofil-Attribut zu, damit Ihr Team Gespräche direkt über das Kundenprofil aufrufen und überprüfen kann.
 
 Die folgende Beispiel-Payload zeigt ein `call.transcript.available`-Event in Regal.
 

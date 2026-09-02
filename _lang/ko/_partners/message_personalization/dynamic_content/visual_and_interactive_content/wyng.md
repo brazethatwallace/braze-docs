@@ -15,7 +15,7 @@ _이 통합은 Wyng에서 유지 관리합니다._
 
 ## 통합 소개 {#about-the-integration}
 
-Braze와 Wyng 통합을 사용하면 Wyng 경험을 통해 수집한 제로파티 데이터를 활용하여 Braze Campaigns 및 Braze Canvas에서 상호작용을 개인화할 수 있습니다. Wyng은 환경설정 센터를 지원하여 소비자가 브랜드와 공유하는 데이터 및 선호도(커뮤니케이션 선호도 포함)를 직접 제어할 수 있도록 합니다.
+Braze와 Wyng 통합을 사용하면 Wyng 경험을 통해 수집한 제로파티 데이터를 활용하여 Braze Campaigns 및 BRAZE 캔버스에서 상호작용을 개인화할 수 있습니다. Wyng은 환경설정 센터를 지원하여 소비자가 브랜드와 공유하는 데이터 및 선호도(커뮤니케이션 선호도 포함)를 직접 제어할 수 있도록 합니다.
 
 ## 필수 조건 {#prerequisites}
 

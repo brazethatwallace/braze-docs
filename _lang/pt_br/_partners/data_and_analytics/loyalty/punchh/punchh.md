@@ -46,11 +46,11 @@ A integração entre a Braze e a Punchh permite sincronizar dados para fins de p
 - A Punchh adicionou a capacidade de desativar o envio de atributos de usuário padrão para a Braze, para que o cliente não incorra em excedentes de pontos de dados. Isso é configurado durante a configuração do adaptador.
 - Se estiver usando segmentos personalizados em campanhas recorrentes, o nome da campanha deve ser usado em vez do ID da campanha, pois os IDs mudam cada vez que a campanha é executada.
 - Os canais de comunicação disponíveis em cada campanha de presente da Punchh incluem mensagens ricas, notificações por push, SMS e e-mail.
-- Depois que os usuários forem enviados para um segmento personalizado da Punchh a partir da Braze, eles não poderão ser removidos. Apenas novos convidados podem ser adicionados a um segmento personalizado existente. Se for necessário remover convidados de um segmento personalizado existente da Punchh, uma nova campanha de webhook precisará ser criada na Braze para enviar usuários a um novo segmento personalizado da Punchh.
+- Depois que os usuários forem enviados para um Segment personalizado da Punchh a partir da Braze, eles não poderão ser removidos. Apenas novos convidados podem ser adicionados a um Segment personalizado existente. Se for necessário remover convidados de um Segment personalizado existente da Punchh, uma nova campanha de webhook precisará ser criada na Braze para enviar usuários a um novo Segment personalizado da Punchh.
 
 ## Integração {#integration}
 
-A Punchh oferece vários endpoints disponíveis para clientes da Braze para ajudar a adicionar IDs externos à plataforma Punchh usando os seguintes endpoints de API da Punchh. Depois que os IDs externos forem adicionados, crie um adaptador na Punchh, forneça suas credenciais da Braze e selecione quais eventos você gostaria de sincronizar. Em seguida, você pode pegar o ID do segmento da Punchh e usá-lo para construir um webhook Punchh para disparar a sincronização de clientes em uma jornada Canvas.
+A Punchh oferece vários endpoints disponíveis para clientes da Braze para ajudar a adicionar IDs externos à plataforma Punchh usando os seguintes endpoints de API da Punchh. Depois que os IDs externos forem adicionados, crie um adaptador na Punchh, forneça suas credenciais da Braze e selecione quais eventos você gostaria de sincronizar. Em seguida, você pode pegar o ID do Segment da Punchh e usá-lo para construir um webhook Punchh para disparar a sincronização de clientes em uma jornada Canvas.
 
 Observe que o `user_id` da Punchh e o `external_id` da Braze precisam estar disponíveis em ambas as plataformas para que a integração sincronize corretamente.
 - Os eventos enviados da Punchh para a Braze incluirão o `external_id` da Braze como identificador. Se a Punchh estiver configurada para usar o `external_source_id`, esse valor será definido como o `external_id` da Braze. Caso contrário, a integração usará por padrão o `user_id` da Punchh como o `external_id` da Braze.
@@ -137,7 +137,7 @@ curl --location --request PUT 'https://server_name_goes_here.punchh.com/api2/mob
 4. **Redemption:** Disparado em caso de qualquer resgate de recompensa, excluindo cupons Punchh, pois esses seriam enviados separadamente como eventos de cupom, incluindo emissão e resgate
 5. **Rewards:** Disparado a partir de recompensas presenteadas por campanhas, atividade, conversão de pontos em recompensas ou presenteamento pelo administrador
 6. **Transaction Notifications:** Disparado mediante atividade transacional para um usuário dentro do sistema Punchh (por exemplo, expiração de pontos)
-7. **Marketing Notifications:** Disparado com base em diferentes configurações de campanha na Punchh para um segmento associado de usuários
+7. **Marketing Notifications:** Disparado com base em diferentes configurações de campanha na Punchh para um Segment associado de usuários
 
 {% alert note %}
 Consulte a documentação da Punchh para ver exemplos de cargas úteis para esses eventos disponíveis.

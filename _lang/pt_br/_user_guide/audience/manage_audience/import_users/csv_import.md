@@ -463,9 +463,9 @@ Para verificar se a disponibilidade de direcionamento está ativada para uma imp
 3. Se **Go to Segment** aparecer, seu CSV está disponível no filtro de Segment `Updated/Imported from CSV`.
 4. Se **Go to Segment** não aparecer, a disponibilidade de direcionamento não foi ativada para essa importação.
 
-Não é possível ativar a disponibilidade de direcionamento após a conclusão de um upload de CSV. Para usar esse CSV como filtro de Segment, reenvie o arquivo e, na [Etapa 6: Escolha as preferências de direcionamento](#step-6-choose-targeting-preferences), selecione **Create targeting filter** ou **Create targeting filter and add to new segment**.
+Não é possível ativar a disponibilidade de direcionamento após a conclusão de um upload de CSV. Para usar esse CSV como filtro de Segment, reenvie o arquivo e, na [Etapa 6: Escolha as preferências de direcionamento](#step-6-choose-targeting-preferences), selecione **Create targeting filter** ou **Create targeting filter and add to new Segment**.
 
-Se seu objetivo é criar um Segment sem atualizar os dados do perfil, faça upload de um CSV que inclua apenas colunas de identificadores (por exemplo, `external_id` ou colunas de identificadores de alias) e selecione **Create targeting filter and add to new segment**.
+Se seu objetivo é criar um Segment sem atualizar os dados do perfil, faça upload de um CSV que inclua apenas colunas de identificadores (por exemplo, `external_id` ou colunas de identificadores de alias) e selecione **Create targeting filter and add to new Segment**.
 
 ### Problemas de formatação de arquivo {#file-formatting-issues}
 

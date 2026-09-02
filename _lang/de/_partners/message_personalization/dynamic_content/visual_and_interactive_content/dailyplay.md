@@ -21,7 +21,7 @@ Sie können Gameplay-Meilensteine, Reward-Einlösungen und Engagement-Metriken a
 
 - **Nutzerprofile anreichern:** Übergeben Sie Gameplay-Metriken, Punktestände und Reward-Status an Nutzerprofile in Braze.
 - **Erweiterte Segmentierung freischalten:** Erstellen Sie Zielgruppen-Segments basierend auf In-Game-Verhalten, z. B. Top-Scorer, kürzliche Gewinner:innen oder Nutzer:innen, die kurz davor stehen, einen Reward freizuschalten.
-- **Realtime-Campaigns automatisieren:** Triggern Sie personalisierte kanalübergreifende Nachrichten (Push, E-Mail, In-App) basierend auf Spiel-Interaktionen, um wiederholtes Spielen, Markentreue und einen höheren Lifetime-Value zu fördern.
+- **Realtime-Campaigns automatisieren:** Triggern Sie personalisierte kanalübergreifende Nachrichten (Push, E-Mail, In-App) basierend auf Spiel-Interaktionen, um wiederholtes Spielen, Markentreue und einen höheren LTV zu fördern.
 
 ## Anwendungsfälle {#use-cases}
 
@@ -30,7 +30,7 @@ Sie können Gameplay-Meilensteine, Reward-Einlösungen und Engagement-Metriken a
 - **Gezielte Spiele einsetzen:** Kombinieren Sie die Segmentierung und das Targeting von Braze mit der DailyPlay-Personalisierung, um ansprechende Spielinhalte für verschiedene Ziele und Ergebnisse zu erstellen.
 - **Onboarding und Aktivierung:** Binden Sie einen DailyPlay-Rubbellos- oder Sofortgewinn-Spiellink in Ihre Braze-Willkommensserie ein, um einen Erstkauf oder die Vervollständigung des Profils zu fördern.
 - **Bindung und Treue:** Wenn Verbraucher:innen einen Meilenstein in der Kundenbindung erreichen oder eine wichtige Aktion ausführen, die in Braze getrackt wird, triggern Sie ein personalisiertes DailyPlay-Spiel, das ihre Leistung feiert und stufenspezifische Rewards freischaltet.
-- **Churn-Prävention und Rückgewinnung:** Identifizieren Sie Nutzer:innen, die in Braze abzuwandern drohen, und senden Sie ihnen ein unkompliziertes DailyPlay-Spiel, um ihre Aufmerksamkeit zurückzugewinnen und sie wieder zu Ihrer App oder Website zu führen.
+- **Abwanderung-Prävention und Rückgewinnung:** Identifizieren Sie Nutzer:innen, die in Braze abzuwandern drohen, und senden Sie ihnen ein unkompliziertes DailyPlay-Spiel, um ihre Aufmerksamkeit zurückzugewinnen und sie wieder zu Ihrer App oder Website zu führen.
 
 ## Voraussetzungen {#prerequisites}
 

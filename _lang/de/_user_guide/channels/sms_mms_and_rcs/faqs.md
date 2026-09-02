@@ -68,7 +68,7 @@ Einige Nachteile dieses Ansatzes sind:
 
 ### Wie wird mir SMS in Rechnung gestellt? {#how-will-i-be-billed-for-sms}
 
-Neben den Gebühren für Short- und Langcodes bietet Braze ein Kontingent an SMS-Nachrichten für verschiedene Länder. Das bedeutet, wir legen gemeinsam mit Ihnen eine bestimmte Anzahl von Nachrichtensegmenten für verschiedene Länder fest, die Sie zum Versand von SMS-Campaigns nutzen. Die Abrechnung erfolgt nach der Anzahl der pro Land gesendeten Nachrichtensegmente. Weitere Informationen zur Berechnung von Nachrichtensegmenten finden Sie in unserem Leitfaden zu [Nachrichtensegmenten und Zeichenbegrenzungen]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator). Ihr Account Manager wird Sie kontaktieren, wenn Sie sich Ihrem Maximum nähern, und Ihnen relevante Berichte zur Verfügung stellen, damit Sie stets informiert bleiben. Bei weiteren Fragen zu Mehrkosten wenden Sie sich bitte an Ihre Braze-Vertretung.
+Neben den Gebühren für Short- und Langcodes bietet Braze ein Kontingent an SMS-Nachrichten für verschiedene Länder. Das bedeutet, wir legen gemeinsam mit Ihnen eine bestimmte Anzahl von Nachrichtensegmenten für verschiedene Länder fest, die Sie zum Versand von SMS-Campaigns nutzen. Die Abrechnung erfolgt nach der Anzahl der pro Land gesendeten Nachrichtensegmente. Weitere Informationen zur Berechnung von Nachrichtensegmenten finden Sie in unserem Leitfaden zu [Nachrichtensegmenten und Zeichenbegrenzungen]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator). Ihr Account Manager:in wird Sie kontaktieren, wenn Sie sich Ihrem Maximum nähern, und Ihnen relevante Berichte zur Verfügung stellen, damit Sie stets informiert bleiben. Bei weiteren Fragen zu Mehrkosten wenden Sie sich bitte an Ihre Braze-Vertretung.
 
 ### Unterscheiden sich die Preise für MMS und SMS? {#does-mms-and-sms-pricing-differ}
 
@@ -136,7 +136,7 @@ Angepasste Keywords werden als angepasste Events geschrieben, sodass Sie Segment
 
 ### Wenn ein:e Nutzer:in „Stop“ an unseren Shortcode sendet, wird er/sie von der Abo-Gruppe abgemeldet? {#if-a-user-texts-stop-to-our-short-code-are-they-unsubscribed-from-the-subscription-group}
 
-Wie sieht das im Nutzerprofil aus? Die Abo-Gruppe wird unter **Contact Settings** als abgemeldet angezeigt, und es gibt angepasste Events für das An- und Abmelden.
+Wie sieht das im Kundenprofil aus? Die Abo-Gruppe wird unter **Contact Settings** als abgemeldet angezeigt, und es gibt angepasste Events für das An- und Abmelden.
 
 ### Wenn ein:e Nutzer:in abgemeldet ist und ein Keyword an unseren Short- und Langcode sendet, erhält er/sie die Antwort, die wir für dieses Keyword in Braze konfiguriert haben? {#if-a-user-is-opted-out-and-sends-a-keyword-to-our-short-and-long-code-do-they-receive-the-response-we-configured-for-that-keyword-in-braze}
 
@@ -156,9 +156,9 @@ Ja. Behalten Sie dies beim Testen von Nachrichten im Hinterkopf.
 
 Ja. Nutzer:innen müssen eine gültige Telefonnummer haben, Teil der für den Testversand verwendeten SMS-Abo-Gruppe sein und mindestens ein Land unter **Geographic Permissions** für SMS ausgewählt haben.
 
-### Gibt es eine Möglichkeit zu sehen, ob ein Alias in einem Nutzerprofil vorhanden ist? {#is-there-a-way-to-see-if-an-alias-exists-on-a-user-profile}
+### Gibt es eine Möglichkeit zu sehen, ob ein Alias in einem Kundenprofil vorhanden ist? {#is-there-a-way-to-see-if-an-alias-exists-on-a-user-profile}
 
-Aliase sind im Nutzerprofil nicht sichtbar. Sie müssten die Endpunkte unter [Nutzerdaten exportieren]({{site.baseurl}}/api/endpoints/export) verwenden, um zu bestätigen, dass Aliase gesetzt wurden.
+Aliase sind im Kundenprofil nicht sichtbar. Sie müssten die Endpunkte unter [Nutzerdaten exportieren]({{site.baseurl}}/api/endpoints/export) verwenden, um zu bestätigen, dass Aliase gesetzt wurden.
 
 ## MMS
 

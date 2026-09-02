@@ -30,7 +30,7 @@ Acesse **Messaging** > **Feature Flags** e selecione **Create Feature Flag**.
 
 ### Etapa 2: Preencher os detalhes {#step-2-fill-out-the-details}
 
-Em **Feature flag details**, insira um nome, ID e descrição para sua Feature Flag.
+Em **Feature Flag details**, insira um nome, ID e descrição para sua Feature Flag.
 
 ![Um formulário mostrando que você pode adicionar um nome, ID, descrição e propriedades a uma Feature Flag.]({% image_buster /assets/img/feature_flags/create_ff_properties.png %}){: style="max-width:75%"}
 
@@ -905,12 +905,12 @@ Aqui, você pode conferir quando uma alteração ocorreu, quem fez a alteração
 
 ## Segmentação com Feature Flags {#segmentation}
 
-A Braze mantém automaticamente o rastreamento de quais usuários estão atualmente ativados para uma Feature Flag. Você pode criar um segmento ou direcionar o envio de mensagens usando o [filtro **Feature Flag**]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters#feature-flags). Para saber mais sobre filtragem em segmentos, consulte [Criação de um segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment).
+A Braze mantém automaticamente o rastreamento de quais usuários estão atualmente ativados para uma Feature Flag. Você pode criar um Segment ou direcionar o envio de mensagens usando o [filtro **Feature Flag**]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters#feature-flags). Para saber mais sobre filtragem em segmentos, consulte [Criação de um Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment).
 
 ![A seção "Filtros" com "Feature Flag" digitado na barra de pesquisa de filtros.]({% image_buster /assets/img/feature_flags/feature-flags-filter-name.png %}){: style="max-width:75%;"}
 
 {% alert note %}
-Para evitar segmentos recursivos, não é possível criar um segmento que faça referência a outras Feature Flags.
+Para evitar segmentos recursivos, não é possível criar um Segment que faça referência a outras Feature Flags.
 {% endalert %}
 
 ## Práticas recomendadas {#best-practices}

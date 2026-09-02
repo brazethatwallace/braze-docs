@@ -9,7 +9,7 @@ description: "Cet article vous explique comment configurer Braze pour utiliser O
 
 # OneLogin
 
-> [OneLogin](https://www.onelogin.com/) est une plateforme d'identité cloud qui offre une solution complète de gestion des identités utilisateur. OneLogin s'intègre aux applications cloud et sur site via SAML 2.0, pour l'authentification unique (SSO), le provisionnement utilisateur, l'authentification multifacteur, et plus encore.
+> [OneLogin](https://www.onelogin.com/) est une plateforme d'identité cloud qui offre une solution complète de gestion des identités utilisateur. OneLogin s'intègre aux applications cloud et sur site via SAML 2.0, pour l'authentification unique (authentification unique), le provisionnement utilisateur, l'authentification multifacteur, et plus encore.
 
 ## Prérequis {#requirements}
 
@@ -38,7 +38,7 @@ Lors de la configuration, il vous sera demandé de fournir une URL de connexion 
 
 Une fois que vous avez configuré Braze dans votre OneLogin, celui-ci vous fournira une URL cible (`SAML 2.0 Endpoint (HTTP)`) et un certificat `x.509` à saisir dans votre compte Braze.
 
-Après que votre gestionnaire de compte a activé l'authentification unique (SSO) SAML pour votre compte, allez dans **Paramètres** > **Paramètres de l'entreprise** > **Paramètres d'administration** > **Paramètres de sécurité** et basculez la section Authentification unique (SSO) SAML sur **ON**.
+Après que votre gestionnaire de compte a activé l'authentification unique (authentification unique) SAML pour votre compte, allez dans **Paramètres** > **Paramètres de l'entreprise** > **Paramètres d'administration** > **Paramètres de sécurité** et basculez la section Authentification unique (authentification unique) SAML sur **ON**.
 
 Sur cette page, saisissez les informations suivantes :
 
@@ -49,18 +49,18 @@ Sur cette page, saisissez les informations suivantes :
 | `Certificate` | Le certificat `x.509` encodé au format PEM est fourni par votre OneLogin. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 2 : Configurer OneLogin dans Braze" }
 
-Si votre IdP nécessite un Entity ID spécifique à l'entreprise, activez **Custom Entity ID** dans les **Paramètres de sécurité**, copiez la valeur générée et collez-la dans le champ Entity ID de OneLogin. Consultez [Entity ID personnalisé]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#custom-entity-id) dans l'article sur la configuration de l'authentification unique (SSO) SAML.
+Si votre IdP nécessite un Entity ID spécifique à l'entreprise, activez **Custom Entity ID** dans les **Paramètres de sécurité**, copiez la valeur générée et collez-la dans le champ Entity ID de OneLogin. Consultez [Entity ID personnalisé]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#custom-entity-id) dans l'article sur la configuration de l'authentification unique (authentification unique) SAML.
 
 ![Paramètres d'authentification unique (SSO) SAML avec le basculement sélectionné.]({% image_buster /assets/img/samlsso.png %})
 
 {% alert tip %}
-Si vous souhaitez que les utilisateurs de votre compte Braze se connectent uniquement via l'authentification unique (SSO) SAML, vous pouvez [restreindre l'authentification par authentification unique]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#restriction) depuis **Paramètres** > **Paramètres de l'entreprise** > **Paramètres d'administration** > **Paramètres de sécurité**.
+Si vous souhaitez que les utilisateurs de votre compte Braze se connectent uniquement via l'authentification unique (authentification unique) SAML, vous pouvez [restreindre l'authentification par authentification unique]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#restriction) depuis **Paramètres** > **Paramètres de l'entreprise** > **Paramètres d'administration** > **Paramètres de sécurité**.
 {% endalert %}
 
 ## Étapes suivantes {#next-steps}
 
-Une fois l'authentification unique (SSO) OneLogin opérationnelle :
+Une fois l'authentification unique (authentification unique) OneLogin opérationnelle :
 
-- [Imposer la connexion uniquement par SSO SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#restriction) si la connexion par mot de passe doit être désactivée.
+- [Imposer la connexion uniquement par authentification unique SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#restriction) si la connexion par mot de passe doit être désactivée.
 - [Configurer le provisionnement juste-à-temps SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning) pour créer automatiquement les utilisateurs du tableau de bord lors de leur première connexion via l'IdP.
 - Utiliser [Obtenir une trace SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#obtaining-a-saml-trace) si des utilisateurs rencontrent des erreurs de connexion.

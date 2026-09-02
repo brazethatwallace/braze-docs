@@ -34,7 +34,7 @@ Se a prévia de uma Campaign exibir um erro de permissão, limpe o cache e os co
 Para testar sua mensagem de e-mail no Inbox Vision:
 
 1. Acesse o editor de arrastar e soltar ou o editor de HTML de e-mail.
-2. No editor, selecione **Preview & Test**.
+2. No editor, selecione **prévia & Test**.
 3. Selecione **Inbox Vision**.
 4. Selecione **Run Inbox Vision**. Isso leva até dez minutos.
 5. Em seguida, selecione um bloco para visualizar a prévia com mais detalhes. Essas prévias são agrupadas nas seguintes seções: **Web Clients**, **Application Clients** e **Mobile Clients**.

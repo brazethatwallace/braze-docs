@@ -10,7 +10,7 @@ search_tag: Partner
 
 # SalesWings
 
-> [SalesWings](https://www.saleswingsapp.com/?utm_source=braze&utm_campaign=technicaldocs) es una solución SaaS B2B de operaciones de ventas y marketing que ayuda a gestionar la cualificación de clientes potenciales y cuentas mediante la puntuación y clasificación holística de clientes potenciales y proporciona información y alertas de ventas e informes de atribución B2B, junto con una estrecha integración con Salesforce CRM. Un complemento de interacción con el sitio web, similar a Digioh, te permite generar clientes potenciales en el sitio web. Puedes aprovechar los intereses e interacciones dentro de Braze para la personalización en Canvas y la segmentación.
+> [SalesWings](https://www.saleswingsapp.com/?utm_source=braze&utm_campaign=technicaldocs) es una solución software como servicio (SaaS) B2B de operaciones de ventas y marketing que ayuda a gestionar la cualificación de clientes potenciales y cuentas mediante la puntuación y clasificación holística de clientes potenciales y proporciona información y alertas de ventas e informes de atribución B2B, junto con una estrecha integración con Salesforce CRM. Un complemento de interacción con el sitio web, similar a Digioh, te permite generar clientes potenciales en el sitio web. Puedes aprovechar los intereses e interacciones dentro de Braze para la personalización en Canvas y la segmentación.
 
 _Esta integración está mantenida por SalesWings._
 

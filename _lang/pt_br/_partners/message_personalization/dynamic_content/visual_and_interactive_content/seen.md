@@ -100,7 +100,7 @@ Configure o webhook da seguinte forma:
   - `Authorization`: Bearer `{Seen_API_TOKEN}`
   - `Content-Type`: `application/json`
 
-  Gere um [token de API](https://docs.seen.io/authorization) na guia Run do seu projeto na plataforma Seen. Entre em contato com seu gerente de sucesso do cliente da Seen se precisar de ajuda.
+  Gere um [token de API](https://docs.seen.io/authorization) na guia Run do seu projeto na plataforma Seen. Entre em contato com seu CSM da Seen se precisar de ajuda.
 
 - Teste o webhook com um usuário na guia **Test**.
 - Após um teste bem-sucedido, conclua a configuração do webhook.

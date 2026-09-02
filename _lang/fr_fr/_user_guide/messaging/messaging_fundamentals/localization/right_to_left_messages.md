@@ -16,7 +16,7 @@ description: "Cette page présente les bonnes pratiques pour rédiger des messag
 Lorsque vous créez un message de droite à gauche, gardez les points suivants à l'esprit :
 
 - **Apparence dans le tableau de bord de Braze :** Lorsqu'un message s'affiche sur l'appareil d'un utilisateur, son apparence est largement déterminée par le système d'exploitation et les paramètres de langue de l'appareil&#8212;ce qui signifie que ce que vous voyez dans le tableau de bord n'est pas toujours fidèle à 100 %.
-- **Apparence sur l'appareil :** Apple et Android exercent un contrôle important sur le rendu des messages, tandis que les fournisseurs de services d'e-mailing (ESP) disposent d'un certain contrôle. La personnalisation des e-mails HTML dans Braze peut être plus flexible ; cependant, un même message peut s'afficher différemment selon les appareils en fonction des paramètres de l'utilisateur.
+- **Apparence sur l'appareil :** Apple et Android exercent un contrôle important sur le rendu des messages, tandis que les fournisseurs de services d'e-mail marketing (fournisseur de services d'e-mailing) disposent d'un certain contrôle. La personnalisation des e-mails HTML dans Braze peut être plus flexible ; cependant, un même message peut s'afficher différemment selon les appareils en fonction des paramètres de l'utilisateur.
 
 De plus, vérifiez la ponctuation et les emojis pour déterminer si votre message s'affiche en mode standard ou de droite à gauche.
 

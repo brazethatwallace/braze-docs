@@ -39,7 +39,7 @@ Braze 제공 **Auto** 모델은 카탈로그 검색 및 Segment 멤버십과 같
 
 그런 다음 에이전트로 돌아가서 모델을 선택할 수 있습니다.
 
-Braze 제공 LLM을 사용하는 경우, 해당 모델의 제공업체는 Braze 하위 처리자로 활동하며, 귀하와 Braze 간의 데이터 처리 부속서(DPA) 조건의 적용을 받습니다. 자체 API 키를 가져오는 경우, LLM 구독 제공업체는 귀하와 Braze 간의 계약에 따라 제3자 제공업체로 간주됩니다.
+Braze 제공 LLM을 사용하는 경우, 해당 모델의 제공업체는 Braze 하위 처리자로 활동하며, 귀하와 Braze 간의 데이터 처리 부속서(데이터 보호 어드바이저) 조건의 적용을 받습니다. 자체 API 키를 가져오는 경우, LLM 구독 제공업체는 귀하와 Braze 간의 계약에 따라 제3자 제공업체로 간주됩니다.
 
 #### 사고 수준 {#thinking-levels}
 
@@ -58,7 +58,7 @@ Braze 제공 LLM을 사용하는 경우, 해당 모델의 제공업체는 Braze 
 Braze는 아웃바운드 LLM 호출에 연결된 콘텐츠와 동일한 IP 범위를 사용합니다. 해당 범위는 [연결된 콘텐츠 IP 허용 목록]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting)에 나열되어 있습니다. 제공업체가 IP 허용 목록을 지원하는 경우, Braze만 사용할 수 있도록 해당 범위로 키를 제한할 수 있습니다.
 
 {% alert important %}
-Braze 제공 LLM을 사용하는 경우, 해당 모델의 제공업체는 Braze 하위 처리자로 활동하며, 귀하와 Braze 간의 데이터 처리 부속서(DPA) 조건의 적용을 받습니다. 자체 API 키를 가져오는 경우, LLM 구독 제공업체는 귀하와 Braze 간의 계약에 따라 제3자 제공업체로 간주됩니다.
+Braze 제공 LLM을 사용하는 경우, 해당 모델의 제공업체는 Braze 하위 처리자로 활동하며, 귀하와 Braze 간의 데이터 처리 부속서(데이터 보호 어드바이저) 조건의 적용을 받습니다. 자체 API 키를 가져오는 경우, LLM 구독 제공업체는 귀하와 Braze 간의 계약에 따라 제3자 제공업체로 간주됩니다.
 {% endalert %}
 
 #### 사용할 모델 결정 {#determine-which-model-to-use}

@@ -798,17 +798,17 @@ require(['path/to/braze.min.js'], function(braze) {
 });
 ```
 
-### 가속 모바일 페이지(AMP) {#accelerated-mobile-pages-amp}
+### 가속 모바일 페이지(가속 모바일 페이지) {#accelerated-mobile-pages-amp}
 
-AMP 통합을 위해 다음 단계가 필요합니다:
+가속 모바일 페이지 통합을 위해 다음 단계가 필요합니다:
 
-1. **AMP 웹 푸시 스크립트 포함**: head에 비동기 스크립트 태그를 추가합니다
+1. **가속 모바일 페이지 웹 푸시 스크립트 포함**: head에 비동기 스크립트 태그를 추가합니다
 2. **구독 위젯 추가**: 사용자가 구독/구독 취소할 수 있는 위젯을 추가합니다
 3. **헬퍼 파일 추가**: `helper-iframe.html` 및 `permission-dialog.html`을 포함합니다
 4. **서비스 워커 생성**: Braze 서비스 워커 파일을 추가합니다
-5. **AMP 웹 푸시 요소 구성**: API 키와 기본 URL을 쿼리 파라미터로 포함하여 `amp-web-push` 요소를 추가합니다
+5. **가속 모바일 페이지 웹 푸시 요소 구성**: API 키와 기본 URL을 쿼리 파라미터로 포함하여 `amp-web-push` 요소를 추가합니다
 
-자세한 AMP 통합 지침은 [Braze 개발자 가이드](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=web#amp)를 참조하세요.
+자세한 가속 모바일 페이지 통합 지침은 [Braze 개발자 가이드](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=web#amp)를 참조하세요.
 
 ### Electron
 
@@ -832,9 +832,9 @@ Electron은 공식적으로 웹 푸시 알림을 지원하지 않습니다(참�
 
 Tealium iQ는 기본적인 턴키 Braze 통합을 제공합니다. 통합을 구성하려면 Tealium 태그 관리 인터페이스에서 Braze를 검색하고 대시보드에서 웹 SDK API 키를 입력하세요. 자세한 내용이나 심층적인 Tealium 구성 지원은 [통합 설명서](https://www.braze.com/docs/partners/data_and_infrastructure_agility/customer_data_platform/tealium/#about-tealium)를 확인하거나 Tealium 계정 매니저에게 문의하세요.
 
-#### Google Tag Manager
+#### Google Tag 매니저
 
-웹 SDK는 Google Tag Manager 컨테이너의 커스텀 HTML 태그에서 초기화하고 호출할 수 있습니다. GTM을 통해 Braze에 이벤트를 전송하는 예시는 [Google Tag Manager 샘플 앱](https://github.com/braze-inc/braze-web-sdk/blob/master/sample-builds/google-tag-manager)을 참조하거나, 자세한 내용은 [통합 설명서](https://www.braze.com/docs/developer_guide/sdk_integration/google_tag_manager)를 확인하세요.
+웹 SDK는 Google Tag 매니저 컨테이너의 커스텀 HTML 태그에서 초기화하고 호출할 수 있습니다. GTM을 통해 Braze에 이벤트를 전송하는 예시는 [Google Tag 매니저 샘플 앱](https://github.com/braze-inc/braze-web-sdk/blob/master/sample-builds/google-tag-manager)을 참조하거나, 자세한 내용은 [통합 설명서](https://www.braze.com/docs/developer_guide/sdk_integration/google_tag_manager)를 확인하세요.
 
 #### 기타 태그 매니저 {#other-tag-managers}
 

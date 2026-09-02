@@ -116,7 +116,7 @@ En general, RCS se integra de forma más natural con dispositivos Android (este 
 {% tab Tarjeta enriquecida %}
 
 {% alert important %}
-Las tarjetas enriquecidas están en acceso anticipado. Contacta con tu administrador de éxito de cliente de Braze si te interesa participar en este acceso anticipado.
+Las tarjetas enriquecidas están en acceso anticipado. Contacta con tu CSM de Braze si te interesa participar en este acceso anticipado.
 {% endalert %}
 
 Una tarjeta enriquecida combina multimedia, texto y botones en un solo mensaje, creando una experiencia más intuitiva y atractiva para tus clientes. Puedes crear dos subtipos de tarjetas enriquecidas: Texto y Multimedia.

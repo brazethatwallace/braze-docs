@@ -82,7 +82,7 @@ Talk to villagers for essential tips on how to beat levels!
 ```
 {% endraw %}
 
-Eigenschaften angepasster Events sollen Ihnen helfen, Ihr Messaging zu personalisieren oder granulare Campaigns mit aktionsbasierter Zustellung zu erstellen. Wenn Sie Segmente auf der Grundlage von Event-Eigenschafts-Aktualität und -Häufigkeit erstellen möchten, wenden Sie sich an Ihren Customer-Success-Manager oder unser Support-Team.
+Eigenschaften angepasster Events sollen Ihnen helfen, Ihr Messaging zu personalisieren oder granulare Campaigns mit aktionsbasierter Zustellung zu erstellen. Wenn Sie Segmente auf der Grundlage von Event-Eigenschafts-Aktualität und -Häufigkeit erstellen möchten, wenden Sie sich an Ihren CSM oder unser Support-Team.
 
 ## Angepasste Attribute {#custom-attributes}
 
@@ -90,7 +90,7 @@ Angepasste Attribute sind außerordentlich flexible Werkzeuge, mit denen Sie Nut
 
 ### Speicherung angepasster Attribute {#custom-attribute-storage}
 
-Alle Nutzerprofil-Daten (angepasste Events, angepasste Attribute, angepasste Daten) werden gespeichert, solange diese Profile aktiv sind.
+Alle Kundenprofil-Daten (angepasste Events, angepasste Attribute, angepasste Daten) werden gespeichert, solange diese Profile aktiv sind.
 
 ### Datentypen angepasster Attribute {#custom-attribute-data-types}
 
@@ -108,12 +108,12 @@ Die folgende Tabelle beschreibt die verfügbaren Segmentierungsoptionen für Str
 | Prüfen, ob das String-Attribut **teilweise mit** einem eingegebenen String **ODER** regulären Ausdruck **übereinstimmt** | **MATCHES REGEX** | **STRING** **ODER** **REGULAR EXPRESSION** |
 | Prüfen, ob das String-Attribut **nicht teilweise mit** einem eingegebenen String **ODER** regulären Ausdruck **übereinstimmt** | **DOES NOT MATCH REGEX** | **STRING** **ODER** **REGULAR EXPRESSION** |
 | Prüfen, ob das String-Attribut **nicht mit** einem eingegebenen String **übereinstimmt** | **DOES NOT EQUAL** | **STRING** |
-| Prüfen, ob das String-Attribut **im Nutzerprofil vorhanden ist** | **IS BLANK** | **N/A** |
-| Prüfen, ob das String-Attribut **nicht im Nutzerprofil vorhanden ist** | **IS NOT BLANK** | **N/A** |
+| Prüfen, ob das String-Attribut **im Kundenprofil vorhanden ist** | **IS BLANK** | **N/A** |
+| Prüfen, ob das String-Attribut **nicht im Kundenprofil vorhanden ist** | **IS NOT BLANK** | **N/A** |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Strings (alphanumerische Zeichen)" }
 
 {% alert important %}
-Bei der Segmentierung mit dem Filter **DOES NOT MATCH REGEX** muss bereits ein angepasstes Attribut mit einem zugewiesenen Wert in diesem Nutzerprofil existieren. Braze empfiehlt die Verwendung von „ODER“-Logik, um zu prüfen, ob ein angepasstes Attribut leer ist, damit Sie Nutzer:innen korrekt ansprechen können.
+Bei der Segmentierung mit dem Filter **DOES NOT MATCH REGEX** muss bereits ein angepasstes Attribut mit einem zugewiesenen Wert in diesem Kundenprofil existieren. Braze empfiehlt die Verwendung von „ODER“-Logik, um zu prüfen, ob ein angepasstes Attribut leer ist, damit Sie Nutzer:innen korrekt ansprechen können.
 {% endalert %}
 
 {% alert tip %}
@@ -142,10 +142,10 @@ abUser.addToCustomAttributeArray('favorite_foods', 'pizza'); // => ['wings', 'pa
 abUser.addToCustomAttributeArray('favorite_foods', 'ice cream'); // => ['pasta', 'fries', 'pizza', 'ice cream']
 ```
 
-Die Standard- und Höchstzahl an Elementen in einem Array beträgt 500. Sie können die Höchstzahl der Arrays im Braze-Dashboard unter **Data Settings** > **Custom Attributes** aktualisieren. Arrays, die die Höchstzahl an Elementen überschreiten, werden auf die Höchstzahl der Elemente gekürzt.
+Die Standard- und Höchstzahl an Elementen in einem Array beträgt 500. Sie können die Höchstzahl der Arrays im Braze-Dashboard unter **Data Settings** > **angepasste Attribute** aktualisieren. Arrays, die die Höchstzahl an Elementen überschreiten, werden auf die Höchstzahl der Elemente gekürzt.
 
 {% alert note %}
-Wenn ein angepasstes Array-Attribut in einem Nutzerprofil angezeigt wird, aber keine Werte enthält, überprüfen Sie die **Max Length** des Attributs unter **Data Settings** > **Custom Attributes**. Eine **Max Length** von `0` verhindert, dass Werte im Profil angezeigt werden. Schritte zur Fehlerbehebung finden Sie unter [Datentypen angepasster Attribute]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#arrays).
+Wenn ein angepasstes Array-Attribut in einem Kundenprofil angezeigt wird, aber keine Werte enthält, überprüfen Sie die **Max Length** des Attributs unter **Data Settings** > **angepasste Attribute**. Eine **Max Length** von `0` verhindert, dass Werte im Profil angezeigt werden. Schritte zur Fehlerbehebung finden Sie unter [Datentypen angepasster Attribute]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#arrays).
 {% endalert %}
 
 Die folgende Tabelle beschreibt die verfügbaren Segmentierungsoptionen für Array-Attribute.
@@ -183,8 +183,8 @@ Die folgende Tabelle beschreibt die verfügbaren Segmentierungsoptionen für Zei
 | Prüfen, ob das Zeitattribut **weniger als X Tage** zurückliegt | **LESS THAN** | **NUMBER OF DAYS AGO** |
 | Prüfen, ob das Zeitattribut **mehr als X Tage in der Zukunft** liegt | **IN MORE THAN** | **NUMBER OF DAYS IN FUTURE** |
 | Prüfen, ob das Zeitattribut **weniger als X Tage in der Zukunft** liegt | **IN LESS THAN** | **NUMBER OF DAYS IN FUTURE** |
-| Prüfen, ob das Zeitattribut **im Nutzerprofil vorhanden ist** | **BLANK** | **N/A** |
-| Prüfen, ob das Zeitattribut **nicht im Nutzerprofil vorhanden ist** | **IS NOT BLANK** | **N/A** |
+| Prüfen, ob das Zeitattribut **im Kundenprofil vorhanden ist** | **BLANK** | **N/A** |
+| Prüfen, ob das Zeitattribut **nicht im Kundenprofil vorhanden ist** | **IS NOT BLANK** | **N/A** |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Datumsangaben" }
 
 #### Zahlen {#integers}
@@ -203,8 +203,8 @@ Die folgende Tabelle beschreibt die verfügbaren Segmentierungsoptionen für num
 | Prüfen, ob das numerische Attribut **kleiner als** eine **Zahl** ist | **LESS THAN** | **NUMBER** |
 | Prüfen, ob das numerische Attribut **exakt** einer **Zahl** entspricht | **EXACTLY** | **NUMBER** |
 | Prüfen, ob das numerische Attribut **ungleich** einer **Zahl** ist | **DOES NOT EQUAL** | **NUMBER** |
-| Prüfen, ob das numerische Attribut **im Nutzerprofil vorhanden ist** | **EXISTS** | **N/A** |
-| Prüfen, ob das numerische Attribut **nicht im Nutzerprofil vorhanden ist** | **DOES NOT EXIST** | **N/A** |
+| Prüfen, ob das numerische Attribut **im Kundenprofil vorhanden ist** | **EXISTS** | **N/A** |
+| Prüfen, ob das numerische Attribut **nicht im Kundenprofil vorhanden ist** | **DOES NOT EXIST** | **N/A** |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Zahlen #integers" }
 
 #### Boolesche Werte (wahr/falsch) {#booleans-truefalse}
@@ -216,13 +216,13 @@ Die folgende Tabelle beschreibt die verfügbaren Segmentierungsoptionen für boo
 | Segmentierungsoptionen | Dropdown-Filter | Eingabeoptionen |
 | ---------------------| --------------- | ------------- |
 | Prüfen, ob der boolesche Wert **ist** | **IS** | **TRUE**, **FALSE**, **TRUE OR NOT SET** oder **FALSE OR NOT SET** |
-| Prüfen, ob der boolesche Wert **im Nutzerprofil vorhanden ist** | **EXISTS** | **N/A** |
-| Prüfen, ob der boolesche Wert **nicht im Nutzerprofil vorhanden ist** | **DOES NOT EXIST** | **N/A** |
+| Prüfen, ob der boolesche Wert **im Kundenprofil vorhanden ist** | **EXISTS** | **N/A** |
+| Prüfen, ob der boolesche Wert **nicht im Kundenprofil vorhanden ist** | **DOES NOT EXIST** | **N/A** |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Boolesche Werte (wahr/falsch)" }
 
 ## Kauf-Events / Umsatz-Tracking {#purchase-events-revenue-tracking}
 
-Die Verwendung unserer Kaufmethoden zur Erfassung von In-App-Käufen legt den Lifetime Value (LTV) für jedes einzelne Nutzerprofil fest. Diese Daten können auf unserer Umsatzseite in Zeitreihendiagrammen eingesehen werden.
+Die Verwendung unserer Kaufmethoden zur Erfassung von In-App-Käufen legt den Lifetime Value (LTV) für jedes einzelne Kundenprofil fest. Diese Daten können auf unserer Umsatzseite in Zeitreihendiagrammen eingesehen werden.
 
 Die folgende Tabelle beschreibt die verfügbaren Segmentierungsoptionen für Kauf-Events.
 

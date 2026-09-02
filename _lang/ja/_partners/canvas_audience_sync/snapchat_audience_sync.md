@@ -31,8 +31,8 @@ BrazeオーディエンスのSnapchatへの同期はAudience Sync Pro統合で�
 
 | 要件 | Origin | 説明 |
 | --- | --- | --- |
-| Snapchat Business Manager | Snapchat | ブランドのSnapchatアセット（広告アカウント、ページ、アプリなど）を管理するための一元的なツールです。 |
-| Snapchat広告アカウント | Snapchat | ブランドのSnapchat Business Managerに紐づけられたアクティブなSnapchat広告アカウント。<br><br>Snapchat Business Managerの管理者が、Brazeで使用する予定のSnapchat広告アカウントに対する管理者権限を付与していることを確認してください。 |
+| Snapchat Business マネージャー | Snapchat | ブランドのSnapchatアセット（広告アカウント、ページ、アプリなど）を管理するための一元的なツールです。 |
+| Snapchat広告アカウント | Snapchat | ブランドのSnapchat Business マネージャーに紐づけられたアクティブなSnapchat広告アカウント。<br><br>Snapchat Business マネージャーの管理者が、Brazeで使用する予定のSnapchat広告アカウントに対する管理者権限を付与していることを確認してください。 |
 | Snapchatの利用規約とポリシー | [Snapchat](https://www.snap.com/en-US/policies) | Snapchat Audience Syncの使用に関連するSnapchatの必須の利用規約、ポリシー、ガイドライン、およびドキュメント（参照により組み込まれるものを含む）に準拠することに同意してください。これには、利用規約、ビジネス利用規約、開発者規約、Audience Match、広告ポリシー、商用コンテンツポリシー、コミュニティガイドライン、およびサプライヤー責任が含まれる場合があります。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="前提条件" }
 
@@ -58,7 +58,7 @@ Brazeダッシュボードで、**パートナー連携** > **テクノロジー
 
 ![更新されたSnapchatテクノロジーパートナーページ。広告アカウントが正常に接続されていることが表示されています。]({% image_buster /assets/img/snapchat/snapchat3.png %}){: style="max-width:80%;"}
 
-Snapchat接続はBrazeワークスペースレベルで適用されます。Snapchat管理者がSnapchat Business Managerからあなたを削除したり、接続されたSnapchat広告アカウントへのアクセスを取り消した場合、Brazeは無効なトークンを検出します。その結果、Snapchatを使用しているアクティブなキャンバスにエラーが表示され、Brazeはユーザーを同期できなくなります。
+Snapchat接続はBrazeワークスペースレベルで適用されます。Snapchat管理者がSnapchat Business マネージャーからあなたを削除したり、接続されたSnapchat広告アカウントへのアクセスを取り消した場合、Brazeは無効なトークンを検出します。その結果、Snapchatを使用しているアクティブなキャンバスにエラーが表示され、Brazeはユーザーを同期できなくなります。
 
 ### ステップ2：SnapchatのAudience Syncステップを追加する {#step-2-add-an-audience-sync-step-with-snapchat}
 
@@ -147,7 +147,7 @@ Snapchatはデータプライバシーポリシーにより、この情報を提
 
 ### 無効なトークンエラーが表示された場合はどうすればよいですか？ {#what-should-i-do-next-if-i-receive-an-invalid-token-error}
 
-Snapchatパートナーページで、Snapchatアカウントを切断してから再接続できます。同期したい広告アカウントに対する適切な権限があることを、Snapchat Business Managerの管理者に確認してください。
+Snapchatパートナーページで、Snapchatアカウントを切断してから再接続できます。同期したい広告アカウントに対する適切な権限があることを、Snapchat Business マネージャーの管理者に確認してください。
 
 ### キャンバスが起動できないのはなぜですか？ {#why-is-my-canvas-not-allowed-to-launch}
 

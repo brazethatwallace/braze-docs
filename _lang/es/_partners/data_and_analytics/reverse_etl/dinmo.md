@@ -1,7 +1,7 @@
 ---
 nav_title: DinMo
 article_title: DinMo
-description: "Este artículo de referencia describe la asociación entre Braze y DinMo, una plataforma de datos de los clientes componible que utiliza ETL inverso para sincronizar datos del almacén de datos en Braze."
+description: "Este artículo de referencia describe la asociación entre Braze y DinMo, una CDP componible que utiliza ETL inverso para sincronizar datos del almacén de datos en Braze."
 alias: /partners/dinmo/
 page_type: partner
 search_tag: Partner
@@ -10,7 +10,7 @@ search_tag: Partner
 
 # DinMo
 
-> [DinMo](https://www.dinmo.com/) es una plataforma de datos de los clientes (CDP) componible que conecta tu almacén de datos en la nube con Braze mediante extraer, transformar, cargar (ETL) inverso. Los equipos de marketing pueden crear segmentos de audiencia a partir de datos del almacén, sincronizar atributos de usuario y eventos en Braze, y mantener los estados de suscripción actualizados sin cargas de CSV ni soporte de ingeniería.
+> [DinMo](https://www.dinmo.com/) es una CDP (CDP) componible que conecta tu almacén de datos en la nube con Braze mediante ETL (ETL) inverso. Los equipos de marketing pueden crear segmentos de audiencia a partir de datos del almacén, sincronizar atributos de usuario y eventos en Braze, y mantener los estados de suscripción actualizados sin cargas de CSV ni soporte de ingeniería.
 
 _Esta integración está gestionada por DinMo._
 

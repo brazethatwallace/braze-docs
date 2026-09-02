@@ -162,7 +162,7 @@ Com o Intelligent Timing, a Braze envia uma mensagem no horário ideal de envio 
 
 Para Campaigns e etapas de mensagem do Canvas que usam Intelligent Timing, a Braze prevê o horário de envio com base no melhor esforço até calcular o horário de envio por usuário para cada um. Para Campaigns, a Priorização de Mensagens usa o horário ideal de envio desse usuário para a ocorrência atual ao comparar a Campaign com as outras mensagens priorizadas elegíveis do usuário. Para Campaigns recorrentes com Intelligent Timing, a Braze usa o horário ideal de envio escolhido para aquela ocorrência.
 
-Para etapas de mensagem do Canvas, a Braze atualiza essa previsão assim que o usuário entra na etapa e a Braze calcula o horário ideal de envio desse usuário para a etapa. A Priorização de Mensagens usa esse horário de envio calculado para a etapa atual. Em jornadas determinísticas (jornadas sem ramificação, onde a sequência de etapas é fixa), a Braze também reflete esse horário atualizado nas etapas de mensagem seguintes ao determinar os horários de envio esperados.
+Para etapas de mensagem do Canvas, a Braze atualiza essa previsão assim que o usuário entra na etapa e a Braze calcula o horário ideal de envio desse usuário para a etapa. A Priorização de Mensagens usa esse horário de envio calculado para a etapa atual. Em jornadas determinísticas (jornadas sem Branch, onde a sequência de etapas é fixa), a Braze também reflete esse horário atualizado nas etapas de mensagem seguintes ao determinar os horários de envio esperados.
 
 ## Janelas de nova tentativa {#retry-windows}
 
@@ -217,7 +217,7 @@ Conforme a antecipação avança, a Braze trata cada tipo de etapa do Canvas de 
 | Etapas de mensagem | Contadas como mensagens elegíveis para priorização |
 | Etapas de continuação | Puladas; a antecipação passa por elas |
 | Etapas de limite | A antecipação para até que o usuário passe pela etapa |
-| Etapas de ramificação | A antecipação segue todas as jornadas possíveis |
+| Etapas de Branch | A antecipação segue todas as jornadas possíveis |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Avaliando Canvas" }
 
 #### Etapas de mensagem {#messaging-steps}
@@ -242,20 +242,20 @@ Essas etapas são ignoradas para priorização e não afetam a antecipação.
 A Braze interrompe a antecipação nessas etapas até que o usuário realmente avance por elas no Canvas.
 
 - Etapa de postergação com atraso personalizado
-- Etapa de postergação que segue uma etapa de ramificação
+- Etapa de postergação que segue uma etapa de Branch
 - Etapa de jornada de ação
 - Etapa de experimento
 
-#### Etapas de ramificação {#branching-steps}
+#### Etapas de Branch {#branching-steps}
 
 Essas etapas dividem o Canvas em múltiplas jornadas possíveis.
 
 - Etapa de divisão de decisão
 - Etapa de jornada do público
 
-Quando uma jornada de priorização contém etapas de ramificação, a Braze assume que todas as jornadas são viáveis e considera todas as etapas de mensagem paralelas em canais compatíveis para priorização. Como as regras de limite de frequência podem ser específicas por canal, as etapas de mensagem paralelas são deduplicadas por canal quando necessário.
+Quando uma jornada de priorização contém etapas de Branch, a Braze assume que todas as jornadas são viáveis e considera todas as etapas de mensagem paralelas em canais compatíveis para priorização. Como as regras de limite de frequência podem ser específicas por canal, as etapas de mensagem paralelas são deduplicadas por canal quando necessário.
 
-Por exemplo, se uma ramificação pode enviar e-mail e outra ramificação também pode enviar e-mail, a Braze as trata como um único envio de e-mail possível durante a antecipação. Se outra ramificação pode enviar push, a Braze também considera esse possível envio de push separadamente.
+Por exemplo, se uma Branch pode enviar e-mail e outra Branch também pode enviar e-mail, a Braze as trata como um único envio de e-mail possível durante a antecipação. Se outra Branch pode enviar push, a Braze também considera esse possível envio de push separadamente.
 
 Para etapas de mensagem do Canvas que usam Intelligent Timing, a Braze usa o horário de envio calculado de cada usuário assim que o usuário chega à etapa. Para mais detalhes, consulte [Intelligent Timing](#intelligent-timing).
 
@@ -279,9 +279,9 @@ Suponha que um usuário seja elegível para uma Campaign de prioridade mais baix
 
 Suponha que um Canvas de prioridade mais alta inclua uma etapa de Jornada de Ação, um experimento ou uma postergação personalizada antes da próxima etapa de Mensagem. Até que o usuário alcance e passe por essa etapa, a Braze não antecipa a mensagem do Canvas de prioridade mais alta que está adiante. Nesse caso, uma Campaign de prioridade mais baixa ainda pode ser enviada primeiro.
 
-### Canvas com ramificação de prioridade mais alta versus mensagem de prioridade mais baixa {#higher-priority-branching-canvas-versus-lower-priority-message}
+### Canvas com Branch de prioridade mais alta versus mensagem de prioridade mais baixa {#higher-priority-branching-canvas-versus-lower-priority-message}
 
-Suponha que um Canvas de prioridade mais alta possa enviar mensagens diferentes dependendo de qual ramificação o usuário seguir. A Braze avalia esses possíveis caminhos futuros de forma conservadora ao comparar mensagens. Isso ajuda a evitar que uma mensagem de prioridade mais baixa seja enviada agora, caso uma ramificação do Canvas de prioridade mais alta possa usar o mesmo limite de frequência mais tarde.
+Suponha que um Canvas de prioridade mais alta possa enviar mensagens diferentes dependendo de qual Branch o usuário seguir. A Braze avalia esses possíveis caminhos futuros de forma conservadora ao comparar mensagens. Isso ajuda a evitar que uma mensagem de prioridade mais baixa seja enviada agora, caso uma Branch do Canvas de prioridade mais alta possa usar o mesmo limite de frequência mais tarde.
 
 ### Etapa do Canvas com Intelligent Timing e etapas subsequentes {#canvas-step-with-intelligent-timing-and-downstream-steps}
 
@@ -333,7 +333,7 @@ Quando uma mensagem é priorizada, a Braze assume que ela foi enviada no horári
 Digamos que você tenha duas mensagens: Mensagem 1 e Mensagem 2. Se a Mensagem 1 for abortada em favor de uma futura Mensagem 2 de maior prioridade, isso não garante que a Mensagem 2 será de fato enviada. A Mensagem 2 ainda pode ser abortada por qualquer motivo, incluindo:
 
 - Interrupções via Liquid
-- O usuário não fazer mais parte do segmento
+- O usuário não fazer mais parte do Segment
 - Limites de frequência devido a uma mensagem fora das regras de priorização.
 
 Se a Mensagem 2 for abortada, não haverá outra tentativa de enviar a Mensagem 1.

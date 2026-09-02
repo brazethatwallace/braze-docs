@@ -12,7 +12,7 @@ page_order: 0
 Sind Sie ein Marketer, der einen grundlegenden Überblick über das SDK benötigt? Sehen Sie sich stattdessen unsere [Übersicht für Marketer]({{site.baseurl}}/user_guide/get_started/sdk_overview) an.
 
 Kurz gesagt, das Braze SDK:
-* Sammelt und synchronisiert Nutzerdaten in einem konsolidierten Nutzerprofil
+* Sammelt und synchronisiert Nutzerdaten in einem konsolidierten Kundenprofil
 * Sammelt automatisch Sitzungsdaten, Geräteinformationen und Push-Token
 * Erfasst Marketingdaten und angepasste Daten speziell für Ihr Unternehmen
 * Unterstützt Push-Benachrichtigungen, In-App Messages und Content-Card-Nachrichtenkanäle

@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Toovio
 
-> [Toovio](https://toovio.com/) ist ein auf künstliche Intelligenz gestützter Data-as-a-Service-Anbieter, der Ihnen hilft, Ihre verwertbaren Daten zu entdecken und die wichtigsten Elemente zu nutzen, um auf der Grundlage vordefinierter Ziele zusätzliche Ergebnisse zu erzielen.
+> [Toovio](https://toovio.com/) ist ein auf KI gestützter Data-as-a-Service-Anbieter, der Ihnen hilft, Ihre verwertbaren Daten zu entdecken und die wichtigsten Elemente zu nutzen, um auf der Grundlage vordefinierter Ziele zusätzliche Ergebnisse zu erzielen.
 
 _Diese Integration wird von Toovio gepflegt._
 

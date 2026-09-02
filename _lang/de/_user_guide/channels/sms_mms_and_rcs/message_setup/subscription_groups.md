@@ -33,7 +33,7 @@ Es gibt zwei Abo-Status für SMS- und RCS-Nutzer:innen: `subscribed` und `unsubs
 
 ### Status einer Nutzer:in festlegen {#set-a-users-state}
 
-Wenn eine Telefonnummer in einem Nutzerprofil aktualisiert wird, erbt die neue Telefonnummer den Abo-Gruppenstatus der Nutzer:in. Wenn die Telefonnummer auf eine Nummer aktualisiert wird, die bereits in Braze existiert, wird der Abo-Status dieser vorhandenen Telefonnummer übernommen.
+Wenn eine Telefonnummer in einem Kundenprofil aktualisiert wird, erbt die neue Telefonnummer den Abo-Gruppenstatus der Nutzer:in. Wenn die Telefonnummer auf eine Nummer aktualisiert wird, die bereits in Braze existiert, wird der Abo-Status dieser vorhandenen Telefonnummer übernommen.
 
 Wenn beispielsweise Nutzer:in A eine Telefonnummer hat, die für mehrere Abo-Gruppen abonniert ist, und diese Telefonnummer dann zu Nutzer:in B hinzugefügt wird, ist Nutzer:in B für dieselben Abo-Gruppen abonniert. Um zu verhindern, dass eine Nutzer:in die vorhandenen Abos übernimmt, können Sie die Abo-Gruppen der alten Nummer über die Braze REST API zurücksetzen, wenn eine Nutzer:in ihre Nummer ändert. Wenn mehrere Nutzer:innen diese Telefonnummer teilen, werden alle abgemeldet.
 
@@ -60,7 +60,7 @@ Wenn Sie einen Webhook zur Aktualisierung von Abo-Gruppen verwenden, wird die Nu
 
 Um die Abo-Gruppe einer Nutzer:in zu prüfen, verwenden Sie eine der folgenden Methoden:
 
-- **Nutzerprofil:** Auf einzelne Nutzerprofile können Sie über das Braze-Dashboard zugreifen, indem Sie **Nutzersuche** in der Seitenleiste auswählen. Hier können Sie Nutzerprofile nach E-Mail-Adresse, Telefonnummer oder externer Nutzer-ID suchen. Innerhalb eines Nutzerprofils können Sie im Tab „Engagement“ die SMS- und RCS-Abo-Gruppen einer Nutzer:in einsehen.
+- **Kundenprofil:** Auf einzelne Nutzerprofile können Sie über das Braze-Dashboard zugreifen, indem Sie **Nutzersuche** in der Seitenleiste auswählen. Hier können Sie Nutzerprofile nach E-Mail-Adresse, Telefonnummer oder externer Nutzer-ID suchen. Innerhalb eines Nutzerprofils können Sie im Tab „Engagement“ die SMS- und RCS-Abo-Gruppen einer Nutzer:in einsehen.
 - **REST API:** Der Abo-Gruppenstatus einzelner Nutzerprofile kann über den [Endpunkt „Abo-Gruppen einer Nutzer:in auflisten“]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) oder den [Endpunkt „Abo-Gruppenstatus einer Nutzer:in auflisten“]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) mit der Braze REST API eingesehen werden.
 
 ## Nachrichten mit einer Abo-Gruppe senden {#send-messages-with-a-subscription-group}
@@ -85,7 +85,7 @@ Um Abo-Gruppen für SMS, MMS oder RCS zu aktivieren, beachten Sie die folgenden 
 
 {% tabs local %}
 {% tab SMS %}
-Während Ihres SMS-Onboarding-Prozesses richtet ein Braze-Onboarding-Manager Abo-Gruppen für Ihr Dashboard-Konto ein. Er arbeitet mit Ihnen zusammen, um festzulegen, wie viele Abo-Gruppen Sie benötigen, und fügt die entsprechenden Sende-Telefonnummern zu Ihren Abo-Gruppen hinzu. Die Zeitrahmen für die Einrichtung einer Abo-Gruppe hängen von der Art der Telefonnummern ab, die Sie hinzufügen. Shortcode-Anträge können beispielsweise zwischen 8 und 12 Wochen dauern, während Langcodes innerhalb eines Tages eingerichtet werden können. Wenn Sie Fragen zur Einrichtung Ihres Braze-Dashboards haben, wenden Sie sich an Ihre Braze-Vertretung.
+Während Ihres SMS-Onboarding-Prozesses richtet ein Braze-Onboarding-Manager:in Abo-Gruppen für Ihr Dashboard-Konto ein. Er arbeitet mit Ihnen zusammen, um festzulegen, wie viele Abo-Gruppen Sie benötigen, und fügt die entsprechenden Sende-Telefonnummern zu Ihren Abo-Gruppen hinzu. Die Zeitrahmen für die Einrichtung einer Abo-Gruppe hängen von der Art der Telefonnummern ab, die Sie hinzufügen. Shortcode-Anträge können beispielsweise zwischen 8 und 12 Wochen dauern, während Langcodes innerhalb eines Tages eingerichtet werden können. Wenn Sie Fragen zur Einrichtung Ihres Braze-Dashboards haben, wenden Sie sich an Ihre Braze-Vertretung.
 {% endtab %}
 
 {% tab MMS %}
@@ -102,7 +102,7 @@ Es gibt zwei Möglichkeiten, einen RCS-verifizierten Sender hinzuzufügen:
 - Eine neue RCS-Abo-Gruppe erstellen
 Die Wahl hängt weitgehend von den RCS-Anwendungsfällen ab, die Sie interessieren.
 
-Je nach Ihrer Integration kann Braze RCS-verifizierte Sender zu Ihren bestehenden SMS-Abo-Gruppen hinzufügen oder neue Abo-Gruppen für Sie einrichten. In beiden Fällen begleitet Ihr Customer-Success-Manager Sie durch ein nahtloses und effizientes SMS-Traffic-Upgrade.
+Je nach Ihrer Integration kann Braze RCS-verifizierte Sender zu Ihren bestehenden SMS-Abo-Gruppen hinzufügen oder neue Abo-Gruppen für Sie einrichten. In beiden Fällen begleitet Ihr CSM Sie durch ein nahtloses und effizientes SMS-Traffic-Upgrade.
 {% endtab %}
 {% endtabs %}
 
@@ -173,7 +173,7 @@ Fügen Sie Ihrem Canvas einen Schritt „Nutzer-Update“ hinzu. Öffnen Sie im 
 {% endraw %}
 
 {% alert important %}
-Bei Verwendung von `use_double_opt_in_logic` muss bereits ein Nutzerprofil vorhanden sein, damit der Abo-Status aktualisiert werden kann. Wenn dem angegebenen Bezeichner kein Nutzerprofil zugeordnet ist, wird der Abo-Status nicht aktualisiert.
+Bei Verwendung von `use_double_opt_in_logic` muss bereits ein Kundenprofil vorhanden sein, damit der Abo-Status aktualisiert werden kann. Wenn dem angegebenen Bezeichner kein Kundenprofil zugeordnet ist, wird der Abo-Status nicht aktualisiert.
 {% endalert %}
 
 ![„Nutzer-Update-Objekt“, das den oben angegebenen JSON-Code enthält.]({% image_buster /assets/img/sms/user_update_object.png %})

@@ -21,7 +21,7 @@ Puedes enviar hitos de juego, canjes de recompensas y métricas de participació
 
 - **Enriquecer perfiles de usuario:** Pasar métricas de juego, puntuaciones y estados de recompensas a los perfiles de usuario en Braze.
 - **Desbloquear segmentación avanzada:** Crear Segments de audiencia basados en el comportamiento dentro del juego, como los mejores jugadores, ganadores recientes o usuarios cerca de desbloquear una recompensa.
-- **Automatizar Campaigns en tiempo real:** Desencadenar mensajes multicanal personalizados (push, correo electrónico, in-app) basados en interacciones de juego para impulsar el juego recurrente, la fidelización de marca y un mayor valor de duración del ciclo de vida.
+- **Automatizar Campaigns en tiempo real:** Desencadenar mensajes multicanal personalizados (push, correo electrónico, in-app) basados en interacciones de juego para impulsar el juego recurrente, la fidelización de marca y un mayor LTV.
 
 ## Ejemplos {#use-cases}
 

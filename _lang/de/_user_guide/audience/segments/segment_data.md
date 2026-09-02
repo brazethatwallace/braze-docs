@@ -55,7 +55,7 @@ Sie können die folgenden Segment-Statistiken einsehen, die sich in Realtime akt
         </tr>
         <tr>
             <td class="no-split">LTV (Paying Users)</td>
-            <td class="no-split">Der Lifetime-Value pro Nutzer:in (LTV) in diesem Segment und der Lifetime-Value pro zahlende:r Nutzer:in in diesem Segment. Der LTV wird berechnet, indem Ihr Lifetime-Umsatz durch die Lifetime-Nutzer:innen geteilt wird.</td>
+            <td class="no-split">Der LTV pro Nutzer:in (LTV) in diesem Segment und der LTV pro zahlende:r Nutzer:in in diesem Segment. Der LTV wird berechnet, indem Ihr Lifetime-Umsatz durch die Lifetime-Nutzer:innen geteilt wird.</td>
         </tr>
         <tr>
             <td class="no-split">Emailable (Opted-In)</td>

@@ -1,7 +1,7 @@
 ---
 nav_title: Chord
 article_title: Chord
-description: "Conecte a plataforma de dados do cliente (CDP) Chord à Braze para encaminhar eventos de eCommerce e atualizações de identidade para envio de mensagens, segmentação e jornadas."
+description: "Conecte a CDP (CDP) Chord à Braze para encaminhar eventos de eCommerce e atualizações de identidade para envio de mensagens, segmentação e jornadas."
 alias: /partners/chord/
 page_type: partner
 search_tag: Partner
@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Chord
 
-> A [Chord](https://www.chord.co/) oferece uma plataforma de dados do cliente que captura e padroniza eventos da sua loja de eCommerce. Quando você conecta a Chord à Braze, atividades de compra, eventos comportamentais e atualizações de identidade fluem para a Braze, permitindo disparar Campaigns e manter perfis atualizados sem precisar construir esses pipelines por conta própria.
+> A [Chord](https://www.chord.co/) oferece uma CDP que captura e padroniza eventos da sua loja de eCommerce. Quando você conecta a Chord à Braze, atividades de compra, eventos comportamentais e atualizações de identidade fluem para a Braze, permitindo disparar Campaigns e manter perfis atualizados sem precisar construir esses pipelines por conta própria.
 
 _Essa integração é mantida pela Chord._
 
@@ -17,7 +17,7 @@ Para saber mais sobre configuração, opções de conexão e listas de campos, c
 
 ## Sobre a integração {#about-the-integration}
 
-O Chord atua como a camada de dados entre sua loja e a Braze. Depois de conectar a Braze como um destino na plataforma de dados do cliente do Chord, o Chord mapeia eventos de seu plano de rastreamento para a Braze. Use esses dados em Segments, Canvas e personalização de mensagens para refletir o que seus consumidores estão fazendo no seu site.
+O Chord atua como a camada de dados entre sua loja e a Braze. Depois de conectar a Braze como um destino na CDP do Chord, o Chord mapeia eventos de seu plano de rastreamento para a Braze. Use esses dados em Segments, Canvas e personalização de mensagens para refletir o que seus consumidores estão fazendo no seu site.
 
 ## Pré-requisitos {#prerequisites}
 
@@ -36,7 +36,7 @@ O Chord oferece suporte ao modo cloud (chamadas de servidor para servidor por me
 
 ### Modo cloud {#cloud-mode}
 
-1. Na plataforma de dados do Chord, abra a plataforma de dados do cliente e acesse **Destinations**.
+1. Na plataforma de dados do Chord, abra a CDP e acesse **Destinations**.
 2. Selecione **Add** ao lado de destinos, escolha **Braze** no catálogo, depois insira um nome para o destino e sua chave da API REST da Braze.
 3. Crie o destino para concluir a conexão.
 
@@ -44,7 +44,7 @@ Crie a chave da API REST no dashboard da Braze em **Configurações** > **Chaves
 
 ### Modo de dispositivo {#device-mode}
 
-1. Na plataforma de dados do Chord, abra a plataforma de dados do cliente e acesse **Destinations**.
+1. Na plataforma de dados do Chord, abra a CDP e acesse **Destinations**.
 2. Selecione **Add** ao lado de destinos, escolha **Braze (device mode)** no catálogo, depois insira um nome para o destino e sua chave de API do canal Web.
 3. Crie o destino para concluir a conexão.
 
@@ -54,7 +54,7 @@ Use a chave de API do canal Web em **Configurações** > **Configurações do ap
 
 Nas configurações de destino do Chord, configure o seguinte:
 
-- **Versão do Braze Web SDK:** O Chord disponibiliza versões selecionáveis do SDK na plataforma de dados do cliente; confirme o intervalo disponível na documentação do Chord.
+- **Versão do Braze Web SDK:** O Chord disponibiliza versões selecionáveis do SDK na CDP; confirme o intervalo disponível na documentação do Chord.
 - **Endpoint do SDK:** Deve corresponder à sua instância da Braze. Para saber mais, consulte [Endpoints de API e SDK]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints).
 - **Opções de eventos e SDK:** Por exemplo, quais comportamentos de rastreamento ou identificação enviar, tratamento de eventos de página, comportamento de mensagens no app, timing de inicialização do SDK e configurações relacionadas a consentimento.
 

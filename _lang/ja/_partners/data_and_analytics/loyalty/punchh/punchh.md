@@ -148,7 +148,7 @@ curl --location --request PUT 'https://server_name_goes_here.punchh.com/api2/mob
 BrazeとPunchhの統合を設定するには、以下を行います。
 
 1. Punchhダッシュボードで、**Cockpit** > **Dashboard** > **Major Features** > **Enable Webhook Management**に移動し、**Enable Webhook Management**をオンに切り替えます。<br><br>
-2. 次に、**Settings** > **Webhooks Manager** > **Configurations** > **Show Adapters Tab**に移動し、**Show Adapters Tab**をオンに切り替えてアダプターを有効にします。<br><br>
+2. 次に、**Settings** > **Webhooks マネージャー** > **Configurations** > **Show Adapters Tab**に移動し、**Show Adapters Tab**をオンに切り替えてアダプターを有効にします。<br><br>
 3. **Settings**タブの下にある**Webhooks Manager**に移動し、**Adapters**タブを選択して**Create Adapter**をクリックします。<br><br>![「Create Adapter」が選択されたPunchh Webhooksマネージャーのアダプタータブ。]({% image_buster /assets/img/punchh/punchh1.png %})<br><br>
 4. アダプター名、説明、管理者メールを入力します。アダプターとして**Braze**を選択し、BrazeのREST APIエンドポイントとBraze APIキーを入力します。<br><br>
 5. 次に、有効にする利用可能なイベントを選択します。これらのイベントの一覧は[同期可能なイベント](#available-events-to-sync)で確認できます。<br><br>![Braze同期用の選択可能なイベントが表示されたPunchhアダプター設定。]({% image_buster /assets/img/punchh/punchh3.png %})<br><br>

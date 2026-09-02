@@ -60,7 +60,7 @@ Em seguida, configure os detalhes do seu agente:
 2. (opcional) Adicione tags para filtrar seu agente.
 3. Escolha o [modelo]({{site.baseurl}}/user_guide/brazeai/agents/reference#models) que seu agente usará.
 4. Se você não estiver usando o modelo **Braze Auto**, selecione o [nível de raciocínio]({{site.baseurl}}/user_guide/brazeai/agents/reference#thinking-levels) do modelo. Você pode escolher entre mínimo, baixo, médio ou alto. Recomendamos começar com **Minimal** e testar as respostas do agente, ajustando conforme necessário.
-5. Defina um limite diário de invocações. Por padrão, esse valor é definido como 250.000, mas pode ser aumentado para 1.000.000. Se você tiver interesse em aumentar o limite acima de 1.000.000, entre em contato com seu gerente de sucesso do cliente para saber mais. Defina o limite alto o suficiente para o tamanho do público planejado após os testes. Um limite muito baixo causa falhas de limite diário (que não consomem créditos, mas aplicam valores de fallback ou deixam a saída como `null`).
+5. Defina um limite diário de invocações. Por padrão, esse valor é definido como 250.000, mas pode ser aumentado para 1.000.000. Se você tiver interesse em aumentar o limite acima de 1.000.000, entre em contato com seu CSM para saber mais. Defina o limite alto o suficiente para o tamanho do público planejado após os testes. Um limite muito baixo causa falhas de limite diário (que não consomem créditos, mas aplicam valores de fallback ou deixam a saída como `null`).
 
 O campo **Daily action credit cost limit** especifica o número máximo de créditos que esse agente pode consumir por dia. A Braze calcula esse valor a partir da proporção de créditos por invocação do seu espaço de trabalho para o modelo selecionado (do seu contrato, exibido na página [Credit Ratios]({{site.baseurl}}/user_guide/administer/global/billing/credits_usage)) multiplicado pelo limite diário de invocações. A estimativa é atualizada quando você altera o modelo ou o limite de invocações.
 
@@ -130,7 +130,7 @@ Para o comportamento em tempo de execução, consulte [Tratamento de erros e com
 
 ### Etapa 6: Teste o agente {#step-6-test-the-agent}
 
-O painel **Preview** é uma instância do agente que aparece como um painel lado a lado dentro da experiência de configuração. Você pode usar essa seção para testar o agente enquanto o cria ou faz atualizações, experimentando-o de forma semelhante aos usuários finais. Essa etapa ajuda a confirmar que ele está se comportando como esperado e oferece a chance de fazer ajustes finos antes de colocá-lo em produção.
+O painel **prévia** é uma instância do agente que aparece como um painel lado a lado dentro da experiência de configuração. Você pode usar essa seção para testar o agente enquanto o cria ou faz atualizações, experimentando-o de forma semelhante aos usuários finais. Essa etapa ajuda a confirmar que ele está se comportando como esperado e oferece a chance de fazer ajustes finos antes de colocá-lo em produção.
 
 1. No campo **Test your agent**, insira dados de exemplo do cliente ou respostas do cliente — qualquer coisa que reflita cenários reais que seu agente irá lidar.
 2. Visualize a resposta do agente para um usuário aleatório, um usuário existente ou um usuário personalizado.
@@ -167,7 +167,7 @@ O Operator pode pré-configurar instruções, campos de saída e contexto para o
 | Modelo | Descrição | Exemplo de saída |
 | --- | --- | --- |
 | Redator personalizado | Gera textos de mensagem específicos para o canal a partir de atributos do usuário, contexto do Canvas e diretrizes da marca | Linha de assunto e pré-cabeçalho de e-mail; título e corpo de push |
-| Analista de feedback | Analisa feedback aberto de pesquisas ou suporte em campos estruturados para ramificação no Canvas | Sentimento, tópico, próxima ação recomendada |
+| Analista de feedback | Analisa feedback aberto de pesquisas ou suporte em campos estruturados para Branch no Canvas | Sentimento, tópico, próxima ação recomendada |
 | Roteador de jornada | Direciona cada usuário para a jornada do Canvas mais relevante com base no perfil e no contexto da jornada | Nome da jornada ou booleano para etapas de divisão de decisão |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Modelos de agente de etapa do Canvas" }
 

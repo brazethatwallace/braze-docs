@@ -252,7 +252,7 @@ Por exemplo, para segmentar mulheres na população adulta dos EUA:
 
 {% alert note %}
 - Os segmentos são especificados usando um formato simplificado de chave composta (por exemplo, `gender::female`).
-- A chave composta completa da resposta da API (`us2::gender::female`) é abreviada para apenas o nome da categoria e do segmento.
+- A chave composta completa da resposta da API (`us2::gender::female`) é abreviada para apenas o nome da categoria e do Segment.
 - Para uma referência completa de populações e segmentos disponíveis, consulte [Limbik audiences](https://audiences.limbik.com/).
 {% endalert %}
 
@@ -351,7 +351,7 @@ curl -X 'POST' \
 
 Crie sua carga útil de previsão usando os segmentos selecionados. Os segmentos usam um formato simplificado de chave composta.
 
-{% details Exemplo de solicitação específica por segmento %}
+{% details Exemplo de solicitação específica por Segment %}
 
 ```json
 {

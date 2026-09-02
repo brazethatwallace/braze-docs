@@ -68,7 +68,7 @@ Para mais detalhes sobre bloqueio e exclusão de dados personalizados, consulte 
 
 ### Marcar como informação de identificação pessoal (IPI) {#mark-as-personally-identifiable-information-pii}
 
-Administradores também podem criar atributos personalizados e marcá-los como IPI nesta página. Esses atributos são visíveis apenas para administradores e usuários do dashboard com a permissão "View Custom Attributes Marked as PII".
+Administradores também podem criar atributos personalizados e marcá-los como IPI nesta página. Esses atributos são visíveis apenas para administradores e usuários do dashboard com a permissão "View Custom Attributes Marked as IPI".
 
 ### Adicionar descrições {#add-descriptions}
 

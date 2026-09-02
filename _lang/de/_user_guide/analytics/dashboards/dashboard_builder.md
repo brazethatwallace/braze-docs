@@ -105,7 +105,7 @@ Braze stellt vorgefertigte Dashboards für häufige Anwendungsfälle bereit. Ver
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Verfügbare Dashboards" }
 
 {% alert note %}
-Die Möglichkeit, von Braze erstellte Dashboards zu bearbeiten, ist noch nicht verfügbar. Kontaktieren Sie Ihren Customer-Success-Manager, wenn Sie zusätzliche Dashboards anfordern möchten.
+Die Möglichkeit, von Braze erstellte Dashboards zu bearbeiten, ist noch nicht verfügbar. Kontaktieren Sie Ihren CSM, wenn Sie zusätzliche Dashboards anfordern möchten.
 {% endalert %}
 
 #### Revenue - Last Touch Attribution {#revenue---last-touch-attribution}

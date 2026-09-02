@@ -3,7 +3,7 @@ nav_title: DNS-Einträge verstehen
 article_title: DNS-Einträge verstehen
 page_order: 2
 page_type: reference
-description: "Dieser Referenzartikel erklärt, wie DNS-Einträge bei den E-Mail-Anbietern von Braze funktionieren, einschließlich SPF, DKIM, DMARC und ESP-spezifischer Eintragsstrukturen."
+description: "Dieser Referenzartikel erklärt, wie DNS-Einträge bei den E-Mail-Anbietern von Braze funktionieren, einschließlich SPF, DKIM, DMARC und E-Mail-Anbieter-spezifischer Eintragsstrukturen."
 channel: email
 ---
 
@@ -23,16 +23,16 @@ SPF ist ein DNS-Eintrag auf einer Domain, der festlegt, welche IP-Adressen berec
 
 Braze fordert Sie nicht auf, SPF-Einträge auf Ihrer Unternehmens-Root-Domain (z. B. `example.com`) zu ändern oder zu ergänzen. Stattdessen isoliert Braze die Zustellung durch die Verwendung einer dedizierten, angepassten Return-Path-Domain (auch als Bounce-Domain, MAIL-FROM-Domain oder Envelope-From-Domain bekannt), wie etwa `bounce.mail.example.com`.
 
-Da empfangende Postfachanbieter SPF gegen diese Return-Path-Domain und nicht gegen die sichtbare `From:`-Header-Domain validieren, befindet sich die SPF-Konfiguration vollständig auf Subdomain-Ebene. Je nach zugrunde liegendem ESP handhabt Braze diese Validierung auf eine von zwei Arten:
+Da empfangende Postfachanbieter SPF gegen diese Return-Path-Domain und nicht gegen die sichtbare `From:`-Header-Domain validieren, befindet sich die SPF-Konfiguration vollständig auf Subdomain-Ebene. Je nach zugrunde liegendem E-Mail-Anbieter handhabt Braze diese Validierung auf eine von zwei Arten:
 
-- CNAME-Delegation (SendGrid und SparkPost): Erstellen Sie einen `CNAME`, der Ihre Subdomain zurück zum ESP verweist. Der ESP hostet und aktualisiert die SPF-Richtlinien auf seiner Infrastruktur und besteht die SPF-Prüfung automatisch.
+- CNAME-Delegation (SendGrid und SparkPost): Erstellen Sie einen `CNAME`, der Ihre Subdomain zurück zum E-Mail-Anbieter verweist. Der E-Mail-Anbieter hostet und aktualisiert die SPF-Richtlinien auf seiner Infrastruktur und besteht die SPF-Prüfung automatisch.
 - Expliziter TXT-Eintrag (Amazon SES): Veröffentlichen Sie einen fest codierten `TXT`-Eintrag direkt auf der Bounce-Subdomain mit einem expliziten Autorisierungs-String (zum Beispiel `v=spf1 include:amazonses.com ~all`), der AWS die Berechtigung erteilt, E-Mails aus dieser Zone zu versenden.
 
 ### Domain Keys Identified Mail (DKIM) {#dkim}
 
 DKIM fügt dem E-Mail-Header eine kryptografische digitale Signatur hinzu. Der empfangende Server verwendet den öffentlichen Schlüssel des Senders (veröffentlicht im DNS), um zu überprüfen, dass die E-Mail vom Domain-Inhaber stammt und während der Übertragung nicht verändert wurde.
 
-Braze erfordert, dass öffentliche DKIM-Schlüssel über `TXT`- oder `CNAME`-Einträge veröffentlicht werden, damit empfangende ISPs die kryptografischen Signaturen validieren können, die von Ihrem ESP generiert werden.
+Braze erfordert, dass öffentliche DKIM-Schlüssel über `TXT`- oder `CNAME`-Einträge veröffentlicht werden, damit empfangende ISPs die kryptografischen Signaturen validieren können, die von Ihrem E-Mail-Anbieter generiert werden.
 
 ### DMARC-Ausrichtung {#dmarc}
 
@@ -40,11 +40,11 @@ Damit eine E-Mail DMARC besteht, muss die Domain im für Nutzer:innen sichtbaren
 
 Braze übernimmt die grundlegende SPF- und DKIM-Authentifizierung standardmäßig, aber Sie müssen dennoch einen DMARC-Eintrag zu Ihrer Versand-Domain hinzufügen. DMARC ist ein unverzichtbares Authentifizierungswerkzeug, das von nahezu allen großen Posteingangsanbietern verlangt wird. Es beweist, dass Ihre E-Mails legitim sind, baut die Reputation Ihrer Domain auf und hält Ihre Zustellbarkeit langfristig gesund.
 
-Da dies Zugriff auf die Domain-Registrierung Ihres Unternehmens erfordert, müssen Sie oder Ihre Netzwerkadministrator:innen diesen Eintrag auf Root-Domain-Ebene hinzufügen. Wenn Sie gerade erst anfangen, erfüllt eine einfache Richtlinie wie `p=none` die Mindestanforderungen der Posteingangsanbieter. Weitere Informationen zu DMARC finden Sie unter [DMARC.org](https://dmarc.org/). Braze-spezifische DMARC-Anleitungen finden Sie unter [E-Mail-Authentifizierung]({{site.baseurl}}/user_guide/channels/email/email_setup/authentication#dmarc).
+Da dies Zugriff auf die Domain-registrieren Ihres Unternehmens erfordert, müssen Sie oder Ihre Netzwerkadministrator:innen diesen Eintrag auf Root-Domain-Ebene hinzufügen. Wenn Sie gerade erst anfangen, erfüllt eine einfache Richtlinie wie `p=none` die Mindestanforderungen der Posteingangsanbieter. Weitere Informationen zu DMARC finden Sie unter [DMARC.org](https://dmarc.org/). Braze-spezifische DMARC-Anleitungen finden Sie unter [E-Mail-Authentifizierung]({{site.baseurl}}/user_guide/channels/email/email_setup/authentication#dmarc).
 
-## ESP-spezifische DNS-Architektur {#esp-specific-dns-architecture}
+## E-Mail-Anbieter-spezifische DNS-Architektur {#esp-specific-dns-architecture}
 
-Verschiedene ESP-Architekturen handhaben die DNS-Delegation unterschiedlich. Verwenden Sie bei der Einrichtung Ihrer Umgebung genau die Einträge, die Ihrem spezifischen ESP-Cluster zugeordnet sind.
+Verschiedene E-Mail-Anbieter-Architekturen handhaben die DNS-Delegation unterschiedlich. Verwenden Sie bei der Einrichtung Ihrer Umgebung genau die Einträge, die Ihrem spezifischen E-Mail-Anbieter-Cluster zugeordnet sind.
 
 ### SparkPost-Architektur {#sparkpost-architecture}
 
@@ -62,7 +62,7 @@ Die folgende Tabelle zeigt beispielhafte DNS-Einträge für ein SparkPost-Setup.
 | --- | --- | --- | --- |
 | CNAME | mail.example.com | smtp.sparkpostmail.com | Return-Path / SPF-Alignment |
 | TXT | scph1226._domainkey.mail.example.com | v=DKIM1; k=rsa; p=... | Kryptografische DKIM-Authentifizierung |
-| CNAME | click.mail.example.com | spgo.io (oder CDN-Endpunkt) | Klick- und Öffnungs-Tracking |
+| CNAME | Click.mail.example.com | spgo.io (oder CDN-Endpunkt) | Klick- und Öffnungs-Tracking |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Beispiel einer SparkPost-DNS-Tabelle" }
 
 ### SendGrid-Architektur {#sendgrid-architecture}
@@ -130,13 +130,13 @@ Die Verwendung der übergeordneten Domain kann die Unternehmensinfrastruktur auf
 
 #### MX-Eintragskonflikte {#mx-record-conflicts}
 
-Eine Domain kann nur einen Satz primärer Routing-`MX`-Einträge unterstützen. Wenn Sie Ihre übergeordnete Domain (`example.com`) der ESP-Infrastruktur von Braze zuordnen, überschreiben die für Bounces erforderlichen benutzerdefinierten `MX`-Einträge Ihre Unternehmens-E-Mail-Einträge. Dies kann interne Messaging-Plattformen des Unternehmens wie Google Workspace oder Microsoft 365 stören.
+Eine Domain kann nur einen Satz primärer Routing-`MX`-Einträge unterstützen. Wenn Sie Ihre übergeordnete Domain (`example.com`) der E-Mail-Anbieter-Infrastruktur von Braze zuordnen, überschreiben die für Bounces erforderlichen benutzerdefinierten `MX`-Einträge Ihre Unternehmens-E-Mail-Einträge. Dies kann interne Messaging-Plattformen des Unternehmens wie Google Workspace oder Microsoft 365 stören.
 
 #### SPF-Include-Aufblähung und das Limit von 10 Lookups {#spf-include-bloat-and-the-10-lookup-limit}
 
 Die SPF-Spezifikation (RFC 7208) begrenzt empfangende Mailserver auf maximal 10 DNS-Lookups bei der Validierung eines SPF-Eintrags.
 
-- Wenn eine übergeordnete Domain die ESP-Mechanismen von Braze hinzufügt (`include:sparkpostmail.com` oder `include:amazonses.com`), zählt dies erheblich gegen dieses Limit.
+- Wenn eine übergeordnete Domain die E-Mail-Anbieter-Mechanismen von Braze hinzufügt (`include:sparkpostmail.com` oder `include:amazonses.com`), zählt dies erheblich gegen dieses Limit.
 - Wird das Limit überschritten, löst dies einen permanenten SPF-PermError aus, wodurch alle Unternehmens-E-Mails die Authentifizierung nicht bestehen.
 
 #### Isolation von IP- und Domain-Reputation {#ip-and-domain-reputation-isolation}

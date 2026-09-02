@@ -130,7 +130,7 @@ Para baixar uma imagem do gráfico do relatório, selecione o ícone de pontos e
 
 Você pode compartilhar um link do dashboard para o relatório selecionando **Share** e uma destas opções:
 - **Share a link:** Copie e compartilhe o link.
-- **Send or schedule an email:** Envie um e-mail imediatamente ou em um horário específico contendo um link de download que expira após uma hora. Você pode selecionar destinatários entre os usuários da empresa listados no menu suspenso **Email Recipients** ou inserir qualquer outro endereço de e-mail.
+- **Send or agendar/cronograma an email:** Envie um e-mail imediatamente ou em um horário específico contendo um link de download que expira após uma hora. Você pode selecionar destinatários entre os usuários da empresa listados no menu suspenso **Email Recipients** ou inserir qualquer outro endereço de e-mail.
 
 {% alert note %}
 O menu suspenso **Email Recipients** lista apenas usuários da empresa na Braze e salva os endereços de e-mail deles entre os agendamentos de relatórios. Endereços de e-mail externos precisam ser inseridos manualmente cada vez que você cria um novo agendamento de relatório. Se você envia relatórios frequentemente para destinatários externos, como um contato de parceiro, considere adicioná-los como usuário da empresa com as permissões apropriadas para que o endereço deles apareça no menu suspenso.

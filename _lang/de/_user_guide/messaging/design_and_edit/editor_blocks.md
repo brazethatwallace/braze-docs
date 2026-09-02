@@ -302,7 +302,7 @@ Fügt einen Standard-Button mit konfigurierbarem Styling, Links und Analytics hi
 
 ### Optionsfeld {#radio-button}
 
-Fügt eine Liste von Optionen hinzu, aus denen Nutzer:innen eine auswählen können. Beim Absenden protokolliert das Nutzerprofil das zugehörige [angepasste Attribut]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), das ein String sein muss, um gespeichert zu werden. Angepasste Attribute mit anderen Datentypen werden nicht im Nutzerprofil gespeichert.
+Fügt eine Liste von Optionen hinzu, aus denen Nutzer:innen eine auswählen können. Beim Absenden protokolliert das Kundenprofil das zugehörige [angepasste Attribut]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), das ein String sein muss, um gespeichert zu werden. Angepasste Attribute mit anderen Datentypen werden nicht im Kundenprofil gespeichert.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/radio_button_properties.md %}
 
@@ -353,7 +353,7 @@ Fügt ein Formularfeld für Telefonnummern ein. Beim Absenden wird die Nutzer:in
 
 ### E-Mail-Erfassung {#email-capture}
 
-Fügt ein Formularfeld für E-Mail-Adressen ein. Beim Absenden wird die E-Mail-Adresse dem Nutzerprofil in Braze hinzugefügt.
+Fügt ein Formularfeld für E-Mail-Adressen ein. Beim Absenden wird die E-Mail-Adresse dem Kundenprofil in Braze hinzugefügt.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/email_capture.md %}
 
@@ -383,14 +383,14 @@ Nutzer:innen können aus mehreren Optionen auswählen. Werte werden in einem def
 
 ### Langtext {#long-text}
 
-Mehrzeiliges Textfeld für umfrageähnliche Abläufe. Wenn Sie diesen Block nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-Customer-Success-Manager.
+Mehrzeiliges Textfeld für umfrageähnliche Abläufe. Wenn Sie diesen Block nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-CSM.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 <!-- Saved row is not yet released. Uncomment when available.
 ### Gespeicherte Zeile {#saved-row}
 
-Fügt eine wiederverwendbare Zeile ein, die Sie zuvor als Drag-and-Drop-Content Block gespeichert haben. Gespeicherte Zeilen sind **nicht verknüpft** mit dem ursprünglichen Content Block — wenn das Original aktualisiert wird, müssen Sie es erneut in den Editor ziehen, um die neueste Version zu erhalten. Weitere Informationen finden Sie unter [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Wenn Sie **Saved row** unter **Rows** nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-Customer-Success-Manager.
+Fügt eine wiederverwendbare Zeile ein, die Sie zuvor als Drag-and-Drop-Content Block gespeichert haben. Gespeicherte Zeilen sind **nicht verknüpft** mit dem ursprünglichen Content Block — wenn das Original aktualisiert wird, müssen Sie es erneut in den Editor ziehen, um die neueste Version zu erhalten. Weitere Informationen finden Sie unter [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Wenn Sie **Saved row** unter **Rows** nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-CSM.
 -->
 
 ## Wissenswertes {#things-to-know}
@@ -428,7 +428,7 @@ Wenn Sie einen Button mit **Submit form when button is clicked** konfigurieren u
 
 ### Optionsfeld
 
-Fügt eine Liste von Optionen hinzu, aus denen Nutzer:innen eine auswählen können. Verwenden Sie das Eigenschaftenpanel, um die verfügbaren Optionen und das angepasste Attribut zu konfigurieren, das den ausgewählten Wert empfängt. Das Nutzerprofil protokolliert den ausgewählten Wert als [angepasstes String-Attribut]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), wenn das Formular abgesendet wird. Angepasste Attribute mit anderen Datentypen werden nicht im Nutzerprofil gespeichert.
+Fügt eine Liste von Optionen hinzu, aus denen Nutzer:innen eine auswählen können. Verwenden Sie das Eigenschaftenpanel, um die verfügbaren Optionen und das angepasste Attribut zu konfigurieren, das den ausgewählten Wert empfängt. Das Kundenprofil protokolliert den ausgewählten Wert als [angepasstes String-Attribut]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), wenn das Formular abgesendet wird. Angepasste Attribute mit anderen Datentypen werden nicht im Kundenprofil gespeichert.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/radio_button_properties.md %}
 
@@ -472,7 +472,7 @@ Fügt benutzerdefiniertes HTML, CSS oder JavaScript für erweiterte Anpassungen 
 <!-- Countdown timer is not yet released. Uncomment when available.
 ### Countdown-Timer {#countdown-timer}
 
-Zeigt einen Countdown bis zu einem von Ihnen festgelegten Datum und Uhrzeit an. Wenn Sie diesen Block nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-Customer-Success-Manager.
+Zeigt einen Countdown bis zu einem von Ihnen festgelegten Datum und Uhrzeit an. Wenn Sie diesen Block nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-CSM.
 
 Nachdem Sie einen **Countdown-Timer**-Block hinzugefügt haben, verwenden Sie das Eigenschaftenpanel, um das Zieldatum und die Uhrzeit, Beschriftungen und das Styling festzulegen.
 -->
@@ -537,14 +537,14 @@ Den vollständigen Einrichtungsablauf finden Sie unter [Block „Abos verwalten�
 
 ### Langtext
 
-Mehrzeiliges Textfeld für umfrageähnliche Abläufe. Wenn Sie diesen Block nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-Customer-Success-Manager. Dieser Block ist für Standard-Landing-Pages nicht verfügbar.
+Mehrzeiliges Textfeld für umfrageähnliche Abläufe. Wenn Sie diesen Block nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-CSM. Dieser Block ist für Standard-Landing-Pages nicht verfügbar.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 <!-- Saved row is not yet released. Uncomment when available.
 ### Gespeicherte Zeile
 
-Fügt eine wiederverwendbare Zeile ein, die Sie zuvor als Drag-and-Drop-Content Block gespeichert haben. Gespeicherte Zeilen sind **nicht verknüpft** mit dem ursprünglichen Content Block — wenn das Original aktualisiert wird, müssen Sie es erneut in den Editor ziehen, um die neueste Version zu erhalten. Weitere Informationen finden Sie unter [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Wenn Sie **Saved row** unter **Rows** nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-Customer-Success-Manager.
+Fügt eine wiederverwendbare Zeile ein, die Sie zuvor als Drag-and-Drop-Content Block gespeichert haben. Gespeicherte Zeilen sind **nicht verknüpft** mit dem ursprünglichen Content Block — wenn das Original aktualisiert wird, müssen Sie es erneut in den Editor ziehen, um die neueste Version zu erhalten. Weitere Informationen finden Sie unter [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Wenn Sie **Saved row** unter **Rows** nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-CSM.
 -->
 
 ## Wissenswertes
@@ -631,14 +631,14 @@ Erfasst eine E-Mail-Adresse und fügt sie beim Absenden dem Braze-Profil der Nut
 
 ### Langtext
 
-Mehrzeiliges Textfeld für umfrageähnliche Abläufe. Wenn Sie diesen Block nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-Customer-Success-Manager.
+Mehrzeiliges Textfeld für umfrageähnliche Abläufe. Wenn Sie diesen Block nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-CSM.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 <!-- Saved row is not yet released. Uncomment when available.
 ### Gespeicherte Zeile
 
-Fügt eine wiederverwendbare Zeile ein, die Sie zuvor als Drag-and-Drop-Content Block gespeichert haben. Gespeicherte Zeilen sind **nicht verknüpft** mit dem ursprünglichen Content Block — wenn das Original aktualisiert wird, müssen Sie es erneut in den Editor ziehen, um die neueste Version zu erhalten. Weitere Informationen finden Sie unter [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Wenn Sie **Saved row** unter **Rows** nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-Customer-Success-Manager.
+Fügt eine wiederverwendbare Zeile ein, die Sie zuvor als Drag-and-Drop-Content Block gespeichert haben. Gespeicherte Zeilen sind **nicht verknüpft** mit dem ursprünglichen Content Block — wenn das Original aktualisiert wird, müssen Sie es erneut in den Editor ziehen, um die neueste Version zu erhalten. Weitere Informationen finden Sie unter [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Wenn Sie **Saved row** unter **Rows** nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-CSM.
 -->
 
 ## Wissenswertes

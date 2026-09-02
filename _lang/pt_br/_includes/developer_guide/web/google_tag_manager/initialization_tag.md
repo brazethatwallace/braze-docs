@@ -51,7 +51,7 @@ A Braze Initialization Tag expõe as seguintes opções. A maioria delas mapeia 
 | **App Version Number** | `appVersion`, `appVersionNumber` | Versão do app para segmentação (por exemplo, `1.2.3.4`). |
 | **Automatically Open New Session** | `braze.openSession()` | Abre uma nova sessão após o SDK ser inicializado, chamando este método automaticamente. |
 | **Automatically show new in app messages** | `braze.automaticallyShowInAppMessages()` | Exibe automaticamente novas mensagens no app quando elas chegam do servidor, chamando este método após a inicialização. |
-| **Disable Automatic Push Token Maintenance** | `disablePushTokenMaintenance` | Impede que o SDK sincronize tokens por push com o backend da Braze em novas sessões. |
+| **Disable Automatic token por push Maintenance** | `disablePushTokenMaintenance` | Impede que o SDK sincronize tokens por push com o backend da Braze em novas sessões. |
 | **Disable Automatic Service Worker Registration** | `manageServiceWorkerExternally` | Use se você registrar e controlar o service worker por conta própria. |
 | **Disable Cookies** | `noCookies` | Usa localStorage em vez de cookies para dados de usuário/sessão. Impede o reconhecimento entre subdomínios. |
 | **Disable Font Awesome** | `doNotLoadFontAwesome` | Impede que o SDK carregue o Font Awesome da rede de distribuição de conteúdo (CDN). Use se seu site já tiver o Font Awesome. |

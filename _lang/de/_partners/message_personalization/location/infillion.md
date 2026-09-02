@@ -26,14 +26,14 @@ Diese Integration funktioniert für Infillion Beacons und Infillion Geofence-Lö
 
 | Anforderung | Beschreibung |
 | --- | --- |
-| [Infillion-Manager-Konto](https://manager.gimbal.com/login/users/sign_in) | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Infillion-Manager-Konto. |
+| [Infillion-Manager:in-Konto](https://manager.gimbal.com/login/users/sign_in) | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Infillion-Manager:in-Konto. |
 | [Infillion Location SDK](https://docs.gimbal.com/index.html) | Das Infillion Location SDK ermöglicht makro- und mikrostandortbasierte mobile Erlebnisse unter Verwendung von Proximity Beacons und Geofences, die es Ihnen ermöglichen, effektiver mit Ihren App-Nutzer:innen zu kommunizieren. Sie müssen das SDK implementiert und Geofences (oder Beacons) eingerichtet haben. |
 | Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## SDK-Integration
 
-Um Braze und Infillion zu integrieren, müssen Sie das Infillion Location SDK implementieren und ein Infillion-Manager-Konto erstellen. Die folgenden Integrationen für Android, FireOS und iOS erstellen ein eindeutiges angepasstes Event für jeden neuen Ort, den ein:e Nutzer:in betritt. Diese Events können dann für das Triggern und Retargeting in Ihren Campaigns und Canvases verwendet werden.
+Um Braze und Infillion zu integrieren, müssen Sie das Infillion Location SDK implementieren und ein Infillion-Manager:in-Konto erstellen. Die folgenden Integrationen für Android, FireOS und iOS erstellen ein eindeutiges angepasstes Event für jeden neuen Ort, den ein:e Nutzer:in betritt. Diese Events können dann für das Triggern und Retargeting in Ihren Campaigns und Canvases verwendet werden.
 
 Wenn Sie voraussichtlich mehr als 50 Orte erstellen werden, empfehlen wir Ihnen, ein allgemeines angepasstes Event `Places Entered` zu erstellen und den Ortsnamen als Event-Eigenschaft hinzuzufügen.
 

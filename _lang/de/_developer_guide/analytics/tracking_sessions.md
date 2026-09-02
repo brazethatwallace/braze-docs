@@ -177,7 +177,7 @@ Das React Native SDK stellt keine Methode zum direkten Abonnieren von Sitzungs-U
 
 ### Schritt 2: Sitzungs-Tracking testen (optional) {#step-2-test-session-tracking-optional}
 
-Um das Sitzungs-Tracking zu testen, starten Sie eine Sitzung auf Ihrem Gerät und öffnen Sie dann das Braze-Dashboard und suchen Sie nach der entsprechenden Nutzer:in. Wählen Sie in ihrem Nutzerprofil **Sessions Overview** aus. Wenn die Metriken wie erwartet aktualisiert werden, funktioniert das Sitzungs-Tracking korrekt.
+Um das Sitzungs-Tracking zu testen, starten Sie eine Sitzung auf Ihrem Gerät und öffnen Sie dann das Braze-Dashboard und suchen Sie nach der entsprechenden Nutzer:in. Wählen Sie in ihrem Kundenprofil **Sessions Overview** aus. Wenn die Metriken wie erwartet aktualisiert werden, funktioniert das Sitzungs-Tracking korrekt.
 
 ![Der Abschnitt „Sitzungsübersicht“ eines Nutzerprofils mit der Anzahl der Sitzungen, dem Datum der letzten Nutzung und dem Datum der ersten Nutzung.]({% image_buster /assets/img_archive/test_session.png %}){: style="max-width:50%;"}
 
@@ -254,9 +254,9 @@ Wenn Sie ein Sitzungs-Timeout festlegen, werden alle Sitzungssemantiken automati
 
 ## Fehlerbehebung {#troubleshooting}
 
-### Nutzerprofil zeigt 0 Sitzungen {#user-profile-has-0-sessions}
+### Kundenprofil zeigt 0 Sitzungen {#user-profile-has-0-sessions}
 
-Ein Nutzerprofil kann 0 Sitzungen aufweisen, wenn die Nutzer:innen außerhalb des SDK erstellt wurden:
+Ein Kundenprofil kann 0 Sitzungen aufweisen, wenn die Nutzer:innen außerhalb des SDK erstellt wurden:
 
 - **Erstellt über die REST API:** Wenn Nutzer:innen über den Endpunkt [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) mit einer `app_id` in der Anfrage erstellt werden, erscheint das Profil zwar mit dieser App verknüpft, enthält aber keine Sitzungsdaten, da das SDK für diese Nutzer:innen nie initialisiert wurde.
 - **Erstellt per CSV-Import:** Wenn Nutzer:innen über [CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import) importiert werden, ohne Werte für die Felder „Erste Sitzung“ oder „Letzte Sitzung“ anzugeben, existiert das Profil mit 0 Sitzungen.

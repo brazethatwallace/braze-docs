@@ -2,7 +2,7 @@
 nav_title: mParticle para Currents
 article_title: mParticle para Currents
 alias: /partners/mparticle_for_currents/
-description: "Este artículo de referencia describe la asociación entre Braze Currents y mParticle, una plataforma de datos de los clientes que recopila y encamina información entre las fuentes de tu stack de marketing."
+description: "Este artículo de referencia describe la asociación entre Braze Currents y mParticle, una CDP que recopila y encamina información entre las fuentes de tu stack de marketing."
 page_type: partner
 tool: Currents
 search_tag: Partner
@@ -11,7 +11,7 @@ search_tag: Partner
 
 # mParticle para Currents {#mparticle-for-currents}
 
-> [mParticle](https://www.mparticle.com) es una plataforma de datos de los clientes que recopila y encamina información de múltiples fuentes a una variedad de otras ubicaciones en tu stack de marketing.
+> [mParticle](https://www.mparticle.com) es una CDP que recopila y encamina información de múltiples fuentes a una variedad de otras ubicaciones en tu stack de marketing.
 
 La integración de Braze y mParticle te permite controlar fácilmente el flujo de información entre ambos sistemas. Con [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), también puedes conectar los datos a mParticle para que sean procesables en todo el stack de crecimiento.
 

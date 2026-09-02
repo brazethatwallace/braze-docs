@@ -13,7 +13,7 @@ page_type: reference
 > El paso del Optimizador de contenidos te permite configurar y probar múltiples versiones de componentes de contenido dentro de un solo paso. Te ayuda a experimentar con variaciones de contenido y optimiza automáticamente hacia las combinaciones de mejor rendimiento a lo largo del tiempo. Para una introducción, consulta [Optimizador de contenidos]({{site.baseurl}}/user_guide/brazeai/content_optimizer).
 
 {% alert important %}
-El Optimizador de contenidos está actualmente en beta. Para obtener ayuda para empezar, ponte en contacto con tu administrador de éxito de cliente.
+El Optimizador de contenidos está actualmente en beta. Para obtener ayuda para empezar, ponte en contacto con tu CSM.
 {% endalert %}
 
 ## Crear un paso de Otimizador de Contenido {#create-a-content-optimizer-step}
@@ -297,7 +297,7 @@ Para pasos de SMS/MMS/RCS, el grupo de suscripción y el tipo de mensaje tampoco
 - En general, prueba más componentes en lugar de menos para el paso del Otimizador de Contenido. Por ejemplo, en lugar de probar dos componentes para correo electrónico, prueba tres.
 - Probar al menos 10 combinaciones totales generalmente produce mejores resultados.
 - Para correo electrónico, los pasos que optimizan para clics tienden a superar a los pasos que optimizan para aperturas. Cuando los clics se ajusten a tu caso de uso, elige clics como tu evento de optimización.
-- Si es la primera vez que usas el Otimizador de Contenido, considera usar un paso de [recorrido de experimentos]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) para que solo parte de tu audiencia entre en la rama que contiene el paso del Otimizador de Contenido. Por ejemplo, podrías enviar a la mitad de tus usuarios por un recorrido con el paso del Otimizador de Contenido y enviar a la otra mitad por un recorrido de control que envíe el paso de mensaje con tu contenido habitual actual. Luego, recopila datos durante 2-3 semanas y compara cualquier indicador clave de rendimiento (KPI) o contramétrica antes de aumentar el tráfico a los recorridos con pasos del Otimizador de Contenido.
+- Si es la primera vez que usas el Otimizador de Contenido, considera usar un paso de [recorrido de experimentos]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) para que solo parte de tu audiencia entre en la rama que contiene el paso del Otimizador de Contenido. Por ejemplo, podrías enviar a la mitad de tus usuarios por un recorrido con el paso del Otimizador de Contenido y enviar a la otra mitad por un recorrido de control que envíe el paso de mensaje con tu contenido habitual actual. Luego, recopila datos durante 2-3 semanas y compara cualquier indicador clave de rendimiento (indicador clave de rendimiento) o contramétrica antes de aumentar el tráfico a los recorridos con pasos del Otimizador de Contenido.
   - Para una comparación efectiva uno a uno, incluye tu contenido habitual como una de las variantes para cada componente en tu paso del Otimizador de Contenido.
 - Cuando estés listo para actualizar después de que tu paso del Otimizador de Contenido haya estado en el estado de optimización durante algún tiempo, desactiva las variantes de bajo rendimiento y agrega nuevas que se basen en las características de tus mejores variantes.
 

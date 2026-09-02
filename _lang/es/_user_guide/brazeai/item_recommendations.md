@@ -390,7 +390,7 @@ Sí, pero solo después de la próxima actualización programada. Las recomendac
 
 ### ¿Cómo puedo hacer que todas las recomendaciones que duran varios días caduquen a la vez? {#how-can-i-make-all-recommendations-that-last-multiple-days-expire-at-once}
 
-Si deseas que todas las recomendaciones de varios días caduquen en una fecha específica (para que todas las recomendaciones activas reciban nuevas predicciones a la vez), ponte en contacto con el soporte de Braze o con tu administrador de éxito de cliente para obtener ayuda. Los expertos de BrazeAI realizan esta tarea manualmente para garantizar el máximo rendimiento del modelo.
+Si deseas que todas las recomendaciones de varios días caduquen en una fecha específica (para que todas las recomendaciones activas reciban nuevas predicciones a la vez), ponte en contacto con el soporte de Braze o con tu CSM para obtener ayuda. Los expertos de BrazeAI realizan esta tarea manualmente para garantizar el máximo rendimiento del modelo.
 
 ### ¿Qué ocurre si actualizo el nombre de la propiedad de una recomendación de elementos de IA activa? {#what-happens-if-i-update-the-property-name-for-an-active-ai-item-recommendation}
 

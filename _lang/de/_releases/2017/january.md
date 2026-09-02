@@ -21,4 +21,4 @@ Sie können jetzt einen neu erstellten aktionsbasierten Trigger „Hinzugefügte
 Sie können jetzt List-Unsubscribe-Header konfigurieren, die den Abo-Status „Abonniert/Nutzer:innen mit Opt-in“ oder „nur Nutzer:innen mit Opt-in“ haben. Dies fügt einen „Abmelden“-Link in Gmail neben dem Namen des Senders hinzu, was die Zustellbarkeit verbessern kann.
 
 ## Updates zur Benutzerfreundlichkeit {#usability-updates}
-Sie können jetzt auf einen Button klicken, um die Canvas-Kopfzeile für kleinere Bildschirme zu minimieren, und den Mauszeiger über die vollständigen Namen Ihrer Canvases und Campaigns auf Ihrem Nutzerprofil in Braze bewegen.
+Sie können jetzt auf einen Button klicken, um die Canvas-Kopfzeile für kleinere Bildschirme zu minimieren, und den Mauszeiger über die vollständigen Namen Ihrer Canvases und Campaigns auf Ihrem Kundenprofil in Braze bewegen.

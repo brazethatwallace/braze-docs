@@ -79,7 +79,7 @@ Como prática recomendada, formate as propriedades de linha e coluna antes de fo
 {% endtab %}
 {% tab Blocos %}
 
-Blocos representam diferentes tipos de conteúdo que você pode usar na sua mensagem. Arraste um para dentro de um segmento de linha existente, que se ajusta automaticamente à largura da célula.
+Blocos representam diferentes tipos de conteúdo que você pode usar na sua mensagem. Arraste um para dentro de um Segment de linha existente, que se ajusta automaticamente à largura da célula.
 
 ![Opção para selecionar blocos, incluindo título, parágrafo, botão, imagem e espaçador.]({% image_buster /assets/img/preference_center/preference_center8.png %}){: style="max-width:45%;"}
 
@@ -106,7 +106,7 @@ Você pode visualizar sua Central de Preferências selecionando a guia **Prévia
 
 No entanto, a funcionalidade de teste está desativada. Além disso, envios de teste de Campaigns ou etapas do Canvas que incluem a Liquid tag da Central de Preferências não geram um link válido. Essa prévia não permite salvar alterações de inscrição — ela apenas mostra a aparência da página. Para testar o salvamento de preferências, consulte [Testando Centrais de Preferências](#testing-preference-centers). Após editar sua Central de Preferências, você pode fechar o editor selecionando o botão **Done**.
 
-Selecione **Save as Draft** para retornar a esta Central de Preferências mais tarde ou, se estiver satisfeito, selecione **Launch Preference Center**.
+Selecione **Save as Draft** para retornar a esta Central de Preferências mais tarde ou, se estiver satisfeito, selecione **Launch Central de Preferências**.
 
 Ao lançar a Central de Preferências, você será solicitado a confirmar o nome, pois ele não pode ser editado após o lançamento. Depois de confirmar o nome, a Central de Preferências é lançada e está pronta para uso.
 

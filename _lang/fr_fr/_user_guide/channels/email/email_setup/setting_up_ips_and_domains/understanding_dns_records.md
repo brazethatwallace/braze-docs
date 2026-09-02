@@ -3,13 +3,13 @@ nav_title: Comprendre les enregistrements DNS
 article_title: Comprendre les enregistrements DNS
 page_order: 2
 page_type: reference
-description: "Cet article de référence explique le fonctionnement des enregistrements DNS pour les différents fournisseurs de services d'e-mailing de Braze, notamment SPF, DKIM, DMARC et les structures d'enregistrements spécifiques à chaque fournisseur."
+description: "Cet article de référence explique le fonctionnement des enregistrements DNS pour les différents fournisseurs de services d'e-mail marketing de Braze, notamment SPF, DKIM, DMARC et les structures d'enregistrements spécifiques à chaque fournisseur."
 channel: email
 ---
 
 # Comprendre les enregistrements DNS {#understanding-dns-records}
 
-> Cet article de référence explique le fonctionnement des enregistrements DNS au sein de Braze pour les trois principaux fournisseurs de services d'e-mailing (ESP) : SparkPost, SendGrid et Amazon Simple Email Service (SES). Une configuration DNS correcte est essentielle pour l'authentification des e-mails (SPF, DKIM, DMARC) et la cohérence de marque, et elle a un impact direct sur la livrabilité.
+> Cet article de référence explique le fonctionnement des enregistrements DNS au sein de Braze pour les trois principaux fournisseurs de services d'e-mail marketing (fournisseur de services d'e-mailing) : SparkPost, SendGrid et Amazon Simple Email Service (SES). Une configuration DNS correcte est essentielle pour l'authentification des e-mails (SPF, DKIM, DMARC) et la cohérence de marque, et elle a un impact direct sur la livrabilité.
 
 Pour en savoir plus, consultez [Authentification des e-mails]({{site.baseurl}}/user_guide/channels/email/email_setup/authentication).
 
@@ -23,16 +23,16 @@ SPF est un enregistrement DNS sur un domaine qui spécifie quelles adresses IP s
 
 Braze ne vous demande pas de modifier ou d'ajouter des enregistrements SPF sur votre domaine racine d'entreprise (par exemple, `example.com`). Au lieu de cela, Braze isole la distribution en utilisant un domaine Return-Path dédié et personnalisé (également appelé domaine de rebond, domaine MAIL FROM ou domaine d'enveloppe From), tel que `bounce.mail.example.com`.
 
-Étant donné que les fournisseurs de boîtes de réception valident le SPF par rapport à ce domaine Return-Path plutôt que par rapport au domaine visible dans l'en-tête `From:`, la configuration SPF se situe entièrement au niveau du sous-domaine. Selon l'ESP sous-jacent, Braze gère cette validation de deux manières :
+Étant donné que les fournisseurs de boîtes de réception valident le SPF par rapport à ce domaine Return-Path plutôt que par rapport au domaine visible dans l'en-tête `From:`, la configuration SPF se situe entièrement au niveau du sous-domaine. Selon l'fournisseur de services d'e-mailing sous-jacent, Braze gère cette validation de deux manières :
 
-- Délégation CNAME (SendGrid et SparkPost) : créez un `CNAME` pointant votre sous-domaine vers l'ESP. L'ESP héberge et met à jour les politiques SPF sur son infrastructure, ce qui permet de passer automatiquement la vérification SPF.
+- Délégation CNAME (SendGrid et SparkPost) : créez un `CNAME` pointant votre sous-domaine vers l'fournisseur de services d'e-mailing. L'fournisseur de services d'e-mailing héberge et met à jour les politiques SPF sur son infrastructure, ce qui permet de passer automatiquement la vérification SPF.
 - Enregistrement TXT explicite (Amazon SES) : publiez un enregistrement `TXT` codé en dur directement sur le sous-domaine de rebond, contenant une chaîne d'autorisation explicite (par exemple, `v=spf1 include:amazonses.com ~all`), accordant à AWS la permission d'envoyer des e-mails depuis cette zone.
 
 ### Domain Keys Identified Mail (DKIM) {#dkim}
 
 DKIM ajoute une signature numérique cryptographique à l'en-tête de l'e-mail. Le serveur de réception utilise la clé publique de l'expéditeur (publiée dans le DNS) pour vérifier que l'e-mail provient bien du propriétaire du domaine et qu'il n'a pas été altéré en transit.
 
-Braze exige que les clés publiques DKIM soient publiées via des enregistrements `TXT` ou `CNAME` afin que les fournisseurs de services Internet de réception puissent valider les signatures cryptographiques générées par votre ESP.
+Braze exige que les clés publiques DKIM soient publiées via des enregistrements `TXT` ou `CNAME` afin que les fournisseurs de services Internet de réception puissent valider les signatures cryptographiques générées par votre fournisseur de services d'e-mailing.
 
 ### Alignement DMARC {#dmarc}
 
@@ -42,9 +42,9 @@ Braze gère l'authentification SPF et DKIM de base par défaut, mais vous devez 
 
 Comme cela nécessite un accès au registre de domaine de votre entreprise, vous ou votre administrateur réseau devez ajouter cet enregistrement au niveau de votre domaine racine. Si vous débutez, une politique de base comme `p=none` satisfait les exigences minimales des fournisseurs de boîtes de réception. Pour plus d'informations sur DMARC, consultez [DMARC.org](https://dmarc.org/). Pour des recommandations DMARC spécifiques à Braze, consultez [Authentification e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup/authentication#dmarc).
 
-## Architecture DNS spécifique aux fournisseurs de services d'e-mailing {#esp-specific-dns-architecture}
+## Architecture DNS spécifique aux fournisseurs de services d'e-mail marketing {#esp-specific-dns-architecture}
 
-Les différentes architectures de fournisseurs de services d'e-mailing gèrent la délégation DNS de manière différente. Lors du provisionnement de votre environnement, utilisez les enregistrements exacts mappés à votre cluster de fournisseur spécifique.
+Les différentes architectures de fournisseurs de services d'e-mail marketing gèrent la délégation DNS de manière différente. Lors du provisionnement de votre environnement, utilisez les enregistrements exacts mappés à votre cluster de fournisseur spécifique.
 
 ### Architecture SparkPost {#sparkpost-architecture}
 
@@ -130,13 +130,13 @@ L'utilisation du domaine parent peut perturber l'infrastructure de l'entreprise 
 
 #### Conflits d'enregistrements MX {#mx-record-conflicts}
 
-Un domaine ne peut prendre en charge qu'un seul ensemble d'enregistrements de routage principaux `MX`. Si vous mappez votre domaine parent (`example.com`) vers l'infrastructure du fournisseur de services d'e-mailing de Braze, les enregistrements `MX` personnalisés requis pour les rebonds écrasent vos enregistrements d'e-mail d'entreprise. Cela peut perturber les plateformes de messagerie interne de l'entreprise comme Google Workspace ou Microsoft 365.
+Un domaine ne peut prendre en charge qu'un seul ensemble d'enregistrements de routage principaux `MX`. Si vous mappez votre domaine parent (`example.com`) vers l'infrastructure du fournisseur de services d'e-mail marketing de Braze, les enregistrements `MX` personnalisés requis pour les rebonds écrasent vos enregistrements d'e-mail d'entreprise. Cela peut perturber les plateformes de messagerie interne de l'entreprise comme Google Workspace ou Microsoft 365.
 
 #### Surcharge des includes SPF et la limite de 10 résolutions DNS {#spf-include-bloat-and-the-10-lookup-limit}
 
 La spécification SPF (RFC 7208) limite les serveurs de réception à un maximum de 10 résolutions DNS lors de la validation d'un enregistrement SPF.
 
-- Si un domaine parent ajoute les mécanismes du fournisseur de services d'e-mailing de Braze (`include:sparkpostmail.com` ou `include:amazonses.com`), cela pèse fortement sur cette limite.
+- Si un domaine parent ajoute les mécanismes du fournisseur de services d'e-mail marketing de Braze (`include:sparkpostmail.com` ou `include:amazonses.com`), cela pèse fortement sur cette limite.
 - Si la limite est dépassée, cela déclenche une erreur SPF PermError permanente, entraînant l'échec de l'authentification de tous les e-mails d'entreprise.
 
 #### Isolation de la réputation des IP et du domaine {#ip-and-domain-reputation-isolation}

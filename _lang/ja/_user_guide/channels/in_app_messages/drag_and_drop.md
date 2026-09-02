@@ -54,7 +54,7 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 ### その他の前提条件 {#additional-prerequisites}
 
 - Web SDKの場合、初期化オプション[`allowUserSuppliedJavascript`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions)を`true`に設定する必要があります。`enableHtmlInAppMessages`オプションでもこれらのメッセージは機能しますが、非推奨であるため`allowUserSuppliedJavascript`に更新する必要があります。
-- Google Tag Managerを使用している場合は、GTM設定で「Allow HTML In-App Messages」を有効にする必要があります。
+- Google Tag マネージャーを使用している場合は、GTM設定で「Allow HTML In-App Messages」を有効にする必要があります。
 
 ## ステップ1：アプリ内メッセージを作成する {#step-1-create-an-in-app-message}
 

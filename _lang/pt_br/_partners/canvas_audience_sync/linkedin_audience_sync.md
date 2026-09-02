@@ -11,7 +11,7 @@ page_order: 4
 
 # Audience Sync com o LinkedIn {#audience-sync-to-linkedin}
 
-Usando o Braze Audience Sync com o LinkedIn, as marcas podem adicionar dados de usuários de sua integração com a Braze às listas de clientes do LinkedIn para veicular anúncios com base em gatilhos comportamentais, segmentação e muito mais. Qualquer critério que você normalmente usaria para disparar uma mensagem (push, e-mail, SMS, webhook etc.) em um Braze Canvas com base nos dados de seus usuários agora pode disparar um anúncio para esse usuário em suas listas de clientes do LinkedIn.
+Usando o Braze Audience Sync com o LinkedIn, as marcas podem adicionar dados de usuários de sua integração com a Braze às listas de clientes do LinkedIn para veicular anúncios com base em gatilhos comportamentais, segmentação e muito mais. Qualquer critério que você normalmente usaria para disparar uma mensagem (push, e-mail, SMS, webhook etc.) em um BRAZE CANVAS com base nos dados de seus usuários agora pode disparar um anúncio para esse usuário em suas listas de clientes do LinkedIn.
 
 **Os casos de uso comuns para a sincronização de público incluem**:
 
@@ -134,7 +134,7 @@ A tabela a seguir inclui métricas e descrições para ajudar você a entender m
 | MÉTRICA | DESCRIÇÃO |
 | ------ | ----------- |
 | Entered | Número de usuários que entraram neste componente para serem sincronizados com o LinkedIn. |
-| Proceeded to Next Step | Quantos usuários avançaram para o próximo componente, se houver um? Todos os usuários avançarão automaticamente se esta for a última etapa na ramificação do Canvas. |
+| Proceeded to Next Step | Quantos usuários avançaram para o próximo componente, se houver um? Todos os usuários avançarão automaticamente se esta for a última etapa na Branch do Canvas. |
 | Users Synced | Número de usuários que foram sincronizados com sucesso com o LinkedIn. |
 | Users Not Synced | Número de usuários que não foram sincronizados devido à falta de campos para correspondência. |
 | Users Pending | Número de usuários que estão sendo processados pela Braze para sincronização com o LinkedIn. |
@@ -180,6 +180,6 @@ O LinkedIn fornece informações sobre taxas de correspondência no dashboard de
 
 Atualmente, não há limite para o número de públicos na sua conta de anúncios do LinkedIn.
 
-### Por que um segmento está preso no status BUILDING e não é atualizado? {#why-is-a-segment-stuck-in-building-status-and-not-updated}
+### Por que um Segment está preso no status BUILDING e não é atualizado? {#why-is-a-segment-stuck-in-building-status-and-not-updated}
 
-Um segmento é considerado não utilizado e definido como ARCHIVED depois de não ser usado continuamente por 30 dias em uma Campaign de rascunho ou ativa. Por causa disso, um segmento pode parecer "preso" em BUILDING quando atualizações são transmitidas para um segmento ARCHIVED, empurrando-o para o estado BUILDING, e logo antes de ser arquivado novamente, novas atualizações são transmitidas para o segmento não utilizado.
+Um Segment é considerado não utilizado e definido como ARCHIVED depois de não ser usado continuamente por 30 dias em uma Campaign de rascunho ou ativa. Por causa disso, um Segment pode parecer "preso" em BUILDING quando atualizações são transmitidas para um Segment ARCHIVED, empurrando-o para o estado BUILDING, e logo antes de ser arquivado novamente, novas atualizações são transmitidas para o Segment não utilizado.

@@ -284,11 +284,11 @@ O tempo estimado de execução para um arquivo com um milhão de linhas é de ap
 
 ## Segmentação {#segmenting}
 
-A importação de usuário cria e atualiza perfis de usuário, e também pode ser usada para criar segmentos. Para criar um segmento, selecione **Gerar automaticamente um segmento a partir dos usuários importados deste CSV** antes de iniciar a importação.
+A importação de usuário cria e atualiza perfis de usuário, e também pode ser usada para criar segmentos. Para criar um Segment, selecione **Gerar automaticamente um Segment a partir dos usuários importados deste CSV** antes de iniciar a importação.
 
-Você pode definir o nome do segmento ou aceitar o padrão, que é o nome do seu arquivo. Os arquivos usados para criar um segmento terão um link para visualizar o segmento após a conclusão da importação.
+Você pode definir o nome do Segment ou aceitar o padrão, que é o nome do seu arquivo. Os arquivos usados para criar um Segment terão um link para visualizar o Segment após a conclusão da importação.
 
-O filtro usado para criar o segmento seleciona os usuários que foram criados ou atualizados em uma importação selecionada e está disponível com todos os outros filtros na página de edição de segmento.
+O filtro usado para criar o Segment seleciona os usuários que foram criados ou atualizados em uma importação selecionada e está disponível com todos os outros filtros na página de edição de Segment.
 
 ## Solução de problemas {#troubleshooting}
 

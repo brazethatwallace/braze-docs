@@ -3,7 +3,7 @@ nav_title: 재입고
 article_title: 재입고
 page_order: 2
 page_type: reference
-description: "이 문서에서는 Braze Canvas 템플릿을 사용하여 재입고된 상품을 개인화된 메시징으로 사용자에게 알려 구매를 유도하는 방법을 설명합니다."
+description: "이 문서에서는 BRAZE 캔버스 템플릿을 사용하여 재입고된 상품을 개인화된 메시징으로 사용자에게 알려 구매를 유도하는 방법을 설명합니다."
 tool: Canvas
 ---
 

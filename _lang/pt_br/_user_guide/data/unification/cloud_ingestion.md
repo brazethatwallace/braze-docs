@@ -13,7 +13,7 @@ toc_headers: h2
 
 ## Como funciona {#how-it-works}
 
-Com a Ingestão de Dados na Nuvem (CDI) da Braze, você configura uma integração entre sua instância de data warehouse e o espaço de trabalho da Braze para sincronizar dados de forma recorrente. Essa sincronização é executada conforme um cronograma que você define, e cada integração pode ter um cronograma diferente. As sincronizações podem ocorrer com frequência de até 15 minutos ou com pouca frequência, como uma vez por mês. Se você precisar que as sincronizações ocorram com mais frequência do que a cada 15 minutos, entre em contato com seu gerente de sucesso do cliente ou considere usar chamadas da REST API para ingestão de dados em tempo real.
+Com a Ingestão de Dados na Nuvem (CDI) da Braze, você configura uma integração entre sua instância de data warehouse e o espaço de trabalho da Braze para sincronizar dados de forma recorrente. Essa sincronização é executada conforme um cronograma que você define, e cada integração pode ter um cronograma diferente. As sincronizações podem ocorrer com frequência de até 15 minutos ou com pouca frequência, como uma vez por mês. Se você precisar que as sincronizações ocorram com mais frequência do que a cada 15 minutos, entre em contato com seu CSM ou considere usar chamadas da REST API para ingestão de dados em tempo real.
 
 As integrações de armazenamento de arquivos do Amazon S3 são orientadas a eventos. A Braze ingere novos arquivos quando as notificações do S3/SQS chegam. Para detalhes de configuração, consulte [Integrações de armazenamento de arquivos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations).
 
@@ -97,7 +97,7 @@ A Ingestão de Dados na Nuvem da Braze conta para o limite de frequência dispon
 | Limitação | Descrição |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Número de integrações | Não há limite para a quantidade de integrações que você pode configurar. No entanto, você pode configurar apenas uma integração por tabela ou visualização. |
-| Número de linhas | Por padrão, cada execução pode sincronizar até 500 milhões de linhas. Sincronizações com mais de 500 milhões de novas linhas são interrompidas. Se você precisar de um limite maior, entre em contato com seu gerente de sucesso do cliente ou com o suporte da Braze. |
+| Número de linhas | Por padrão, cada execução pode sincronizar até 500 milhões de linhas. Sincronizações com mais de 500 milhões de novas linhas são interrompidas. Se você precisar de um limite maior, entre em contato com seu CSM ou com o suporte da Braze. |
 | Atributos por linha | Cada linha deve conter um único ID de usuário e um objeto JSON com até 250 atributos. Cada chave no objeto JSON conta como um atributo (ou seja, um array conta como um atributo). |
 | Tamanho da carga útil | Cada linha pode conter uma carga útil de até 1 MB. Cargas úteis maiores que 1 MB são rejeitadas, e o erro "Payload was greater than 1MB" é registrado no log de sincronização junto com o ID externo associado e a carga útil truncada. |
 | Tipo de dados | Você pode sincronizar atributos de usuário, eventos e compras por meio da Ingestão de Dados na Nuvem. |

@@ -22,7 +22,7 @@ Bevor Sie Meta Direct Billing einrichten, stellen Sie sicher, dass Folgendes vor
 | Voraussetzung | Beschreibung |
 | --- | --- |
 | Zugang zum Braze-Workspace | Sie benötigen Zugang zu **Partnerintegrationen** > **Technologie-Partner** in Braze, um den eingebetteten Registrierungsablauf zu starten. |
-| Meta Business Manager-Konto | Die Abrechnung wird im Meta Business Manager unter **Billing & payments** konfiguriert. |
+| Meta Business Manager:in-Konto | Die Abrechnung wird im Meta Business Manager:in unter **Billing & payments** konfiguriert. |
 | Debit- oder Kreditkarte | Eine gültige Karte ist erforderlich, um die Einrichtung abzuschließen. Die monatliche Rechnungsstellung kann bei einigen Konten als Option angezeigt werden, ist aber nicht garantiert. |
 | Vollständige Geschäftsinformationen | Ihr Firmenname, Ihre Adresse und Ihre Währung müssen ausgefüllt und korrekt sein. Meta überprüft diese Angaben, bevor das Messaging aktiviert wird. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
@@ -39,8 +39,8 @@ Bevor Sie Meta Direct Billing einrichten, stellen Sie sicher, dass Folgendes vor
 
 Nachdem Sie Metas eingebettete Registrierung abgeschlossen haben, führen Sie einen der folgenden Schritte aus:
 
-- Wählen Sie **Add payment method** aus, um zum Meta Business Manager weitergeleitet zu werden.
-- Gehen Sie im Meta Business Manager zu **Billing & payments** > **Accounts** und wählen Sie Ihr WABA aus.
+- Wählen Sie **Add payment method** aus, um zum Meta Business Manager:in weitergeleitet zu werden.
+- Gehen Sie im Meta Business Manager:in zu **Billing & payments** > **Accounts** und wählen Sie Ihr WABA aus.
 
 ### Schritt 3: Zahlungsmethode hinzufügen {#step-3-add-a-payment-method}
 

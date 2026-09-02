@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Nift
 
-> [Nift](https://gonift.com/) ayuda a las empresas a captar, fidelizar y retener clientes. La plataforma de dos caras ayuda a los socios a dar las gracias a sus clientes con tarjetas regalo Nift. Dar las gracias a los clientes aumenta su valor de duración del ciclo de vida y genera ingresos incrementales.
+> [Nift](https://gonift.com/) ayuda a las empresas a captar, fidelizar y retener clientes. La plataforma de dos caras ayuda a los socios a dar las gracias a sus clientes con tarjetas regalo Nift. Dar las gracias a los clientes aumenta su LTV y genera ingresos incrementales.
 
 _Esta integración está mantenida por Nift._
 

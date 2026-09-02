@@ -105,7 +105,7 @@ Braze proporciona dashboards prediseñados para casos de uso frecuentes. Usa la 
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Dashboards disponibles" }
 
 {% alert note %}
-La posibilidad de editar los dashboards creados por Braze aún no está disponible. Ponte en contacto con tu administrador de éxito de cliente si deseas solicitar dashboards adicionales.
+La posibilidad de editar los dashboards creados por Braze aún no está disponible. Ponte en contacto con tu CSM si deseas solicitar dashboards adicionales.
 {% endalert %}
 
 #### Revenue - Last Touch Attribution {#revenue---last-touch-attribution}

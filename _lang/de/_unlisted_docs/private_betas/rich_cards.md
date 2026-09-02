@@ -81,7 +81,7 @@ Wie der Name schon sagt, konzentrieren sich RCS-Textnachrichten auf Text als Med
 - Für die Zeichenbegrenzung bei Text können Sie bis zu 160 Zeichen für eine reine Text-RCS-Nachricht (Basic) oder bis zu 3072 Zeichen für eine Rich-RCS-Nachricht (Single) schreiben.
 - Für Button-Limits können Sie bis zu fünf Buttons pro Nachricht hinzufügen. Diese Buttons können entweder Suggested Actions oder Suggested Replies sein.
 - Längere Textblöcke und zu viele Buttons können Nutzer:innen frustrieren, daher empfehlen wir nach Möglichkeit, auf Einfachheit zu setzen.
-- In einigen Fällen kann es kostengünstiger sein, längere reine Textnachrichten über RCS statt über SMS zu senden. Dies liegt daran, dass längere SMS-Nachrichten in mehrere Segmente aufgeteilt werden, von denen jedes einzeln abgerechnet wird, während RCS-Nachrichten stattdessen pro Nachricht abgerechnet werden. Wenden Sie sich an Ihren Braze Account Manager für weitere Details und Beratung.
+- In einigen Fällen kann es kostengünstiger sein, längere reine Textnachrichten über RCS statt über SMS zu senden. Dies liegt daran, dass längere SMS-Nachrichten in mehrere Segmente aufgeteilt werden, von denen jedes einzeln abgerechnet wird, während RCS-Nachrichten stattdessen pro Nachricht abgerechnet werden. Wenden Sie sich an Ihren Braze Account Manager:in für weitere Details und Beratung.
 {% endtab %}
 
 {% tab Medien %}
@@ -116,7 +116,7 @@ Im Allgemeinen integriert sich RCS natürlicher mit Android-Geräten (diese Meth
 {% tab Rich Card %}
 
 {% alert important %}
-Rich Cards befinden sich im Early Access. Wenden Sie sich an Ihren Braze Customer-Success-Manager, wenn Sie an diesem Early Access teilnehmen möchten.
+Rich Cards befinden sich im Early Access. Wenden Sie sich an Ihren Braze CSM, wenn Sie an diesem Early Access teilnehmen möchten.
 {% endalert %}
 
 Eine Rich Card kombiniert Medien, Text und Buttons in einer einzigen Nachricht und schafft so ein intuitiveres und ansprechenderes Erlebnis für Ihre Kund:innen. Sie können zwei Untertypen von Rich Cards erstellen: Text und Medien.
@@ -223,7 +223,7 @@ Der Early Access umfasst kein Klick-Tracking auf Nutzer:innen-Ebene. _Gesamtklic
 
 ### Liquid für die Nachrichtenpersonalisierung verwenden {#using-liquid-for-message-personalization}
 
-Wenn Sie Liquid verwenden möchten, sollten Sie unbedingt einen Standardwert für Ihre gewählte Personalisierung angeben. So wird den Empfänger:innen bei einem unvollständigen Nutzerprofil nicht ein leerer Platzhalter wie `Hi, !` anstelle ihres Namens oder eines sinnvollen Satzes angezeigt.
+Wenn Sie Liquid verwenden möchten, sollten Sie unbedingt einen Standardwert für Ihre gewählte Personalisierung angeben. So wird den Empfänger:innen bei einem unvollständigen Kundenprofil nicht ein leerer Platzhalter wie `Hi, !` anstelle ihres Namens oder eines sinnvollen Satzes angezeigt.
 
 ### KI-gestützte Texte erstellen {#generating-ai-copy}
 

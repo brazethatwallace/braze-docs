@@ -10,7 +10,7 @@ hidden: true
 # Einkäufe protokollieren {#log-purchases}
 {% multi_lang_include archive/windows_deprecation.md %}
 
-Erfassen Sie In-App-Käufe, damit Sie Ihren Umsatz im Zeitverlauf und über verschiedene Umsatzquellen hinweg verfolgen und Ihre Nutzer:innen nach ihrem Lifetime-Value segmentieren können.
+Erfassen Sie In-App-Käufe, damit Sie Ihren Umsatz im Zeitverlauf und über verschiedene Umsatzquellen hinweg verfolgen und Ihre Nutzer:innen nach ihrem LTV segmentieren können.
 
 Braze unterstützt Einkäufe in mehreren Währungen. Einkäufe, die Sie in einer anderen Währung als dem USD melden, werden im Dashboard in USD auf der Grundlage des Wechselkurses an dem Tag, an dem sie gemeldet wurden, angezeigt.
 

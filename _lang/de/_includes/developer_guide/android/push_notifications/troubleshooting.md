@@ -128,7 +128,7 @@ Wenn eine Push-Benachrichtigung nicht zugestellt wird, stellen Sie sicher, dass 
 
 #### Fehler: NotRegistered {#error-notregistered}
 
-2. `NotRegistered` kann auch auftreten, wenn mehrere Registrierungen stattfinden und eine zweite Registrierung das erste Token ungültig macht.
+2. `NotRegistered` kann auch auftreten, wenn mehrere Registrierungen stattfinden und eine zweite registrieren das erste Token ungültig macht.
 
 ### Push-Benachrichtigungen gesendet, aber nicht auf Geräten der Nutzer:innen angezeigt {#push-notifications-sent-but-not-displayed-on-users-devices}
 

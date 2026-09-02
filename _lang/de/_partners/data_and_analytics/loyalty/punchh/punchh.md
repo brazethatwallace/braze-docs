@@ -54,7 +54,7 @@ Punchh bietet verschiedene Endpunkte an, die Braze-Kund:innen zur Verfügung ste
 
 Beachten Sie, dass die Punchh `user_id` und die Braze `external_id` in beiden Plattformen verfügbar sein müssen, damit die Integration korrekt synchronisiert werden kann.
 - Ereignisse, die von Punchh an Braze gesendet werden, enthalten die Braze `external_id` als Bezeichner. Wenn Punchh so konfiguriert ist, dass die `external_source_id` verwendet wird, wird dieser Wert als Braze `external_id` gesetzt. Andernfalls wird bei der Integration standardmäßig die Punchh `user_id` als Braze `external_id` gesetzt.
-- Um Webhooks von Braze an Punchh zu senden, muss die Punchh `user_id` im Braze-Nutzerprofil verfügbar sein. Wenn die Punchh `user_id` nicht als Braze `external_id` verwendet wird, sollte sie als angepasstes Attribut „punchh_user_id“ festgelegt werden.
+- Um Webhooks von Braze an Punchh zu senden, muss die Punchh `user_id` im Braze-Kundenprofil verfügbar sein. Wenn die Punchh `user_id` nicht als Braze `external_id` verwendet wird, sollte sie als angepasstes Attribut „punchh_user_id“ festgelegt werden.
 
 ### 1. Schritt: Einrichten von externen ID-Ingestion-Endpunkten (optional) {#step-1-set-up-external-id-ingestion-endpoints-optional}
 
@@ -65,18 +65,18 @@ Die Werte in den Feldern `external_source` und `external_source_id` müssen für
 {% endalert %}
 
 1. Neue Punchh-Nutzer:innen<br>
-Erstellen Sie neue Nutzer:innen in Punchh mit einem Punchh-Registrierungsendpunkt unter Verwendung der Felder `external_source` und `external_source_id`. Punchh ermöglicht die Übermittlung externer Bezeichner mit einem Nutzerprofil über einen der folgenden Registrierungsendpunkte:
+Erstellen Sie neue Nutzer:innen in Punchh mit einem Punchh-Registrierungsendpunkt unter Verwendung der Felder `external_source` und `external_source_id`. Punchh ermöglicht die Übermittlung externer Bezeichner mit einem Kundenprofil über einen der folgenden Registrierungsendpunkte:
 - [Mobile Signup API](https://developers.punchh.com/docs/dev-portal-mobile/2e67abf6f8e12-sign-up-register)
-- [SSO Signup API](https://developers.punchh.com/docs/dev-portal-online-ordering/58f18dfdd2a3d-signup-with-email-and-password)<br><br>
+- [Single Sign-on Signup API](https://developers.punchh.com/docs/dev-portal-online-ordering/58f18dfdd2a3d-signup-with-email-and-password)<br><br>
 2. Bestehende Punchh-Nutzer:innen <br>
 Aktualisieren Sie die `external_source_id` für bestehende Punchh-Nutzer:innen. Punchh ermöglicht das Hinzufügen externer Bezeichner zu einem Profil über einen Nutzer-API-Update-Endpunkt:
 - [Mobile User Update](https://developers.punchh.com/docs/dev-portal-mobile/c9b928e35a6f3-update-user-profile)
-- [SSO User Update](https://developers.punchh.com/docs/dev-portal-online-ordering/eef4eef6c97a0-update-user-information)
+- [Single Sign-on User Update](https://developers.punchh.com/docs/dev-portal-online-ordering/eef4eef6c97a0-update-user-information)
 - [Dashboard User Update](https://developers.punchh.com/docs/dev-portal-platform-functions/6351feaf591aa-update-a-user)
 <br><br>
 {% tabs local %}
 {% tab Beispiel für die Nutzerregistrierungs-API %}
-Dieses Beispiel ermöglicht es Ihnen, bei der Registrierung externe Bezeichner mit einem Nutzerprofil zu senden. Dies geschieht, indem Sie `external_source` als "customer_id" und `external_source_id` als "111111111111111111" als String-Datentyp senden.
+Dieses Beispiel ermöglicht es Ihnen, bei der Registrierung externe Bezeichner mit einem Kundenprofil zu senden. Dies geschieht, indem Sie `external_source` als "customer_id" und `external_source_id` als "111111111111111111" als String-Datentyp senden.
 
 ```bash
 curl --location --request POST 'https://server_name_goes_here.punchh.com/api2/mobile/users' \
@@ -103,7 +103,7 @@ curl --location --request POST 'https://server_name_goes_here.punchh.com/api2/mo
 ```
 {% endtab %}
 {% tab Beispiel für die Nutzeraktualisierungs-API %}
-Dieses Beispiel ermöglicht es Ihnen, externe Bezeichner mit einem Nutzerprofil zu aktualisieren. Dies geschieht, indem Sie `external_source` als "customer_id" und `external_source_id` als "111111111111111111" als String-Datentyp senden.
+Dieses Beispiel ermöglicht es Ihnen, externe Bezeichner mit einem Kundenprofil zu aktualisieren. Dies geschieht, indem Sie `external_source` als "customer_id" und `external_source_id` als "111111111111111111" als String-Datentyp senden.
 
 ```bash
 curl --location --request PUT 'https://server_name_goes_here.punchh.com/api2/mobile/users' \
@@ -143,12 +143,12 @@ curl --location --request PUT 'https://server_name_goes_here.punchh.com/api2/mob
 In der Punchh-Dokumentation finden Sie Beispiel-Payloads für diese verfügbaren Ereignisse.
 {% endalert %}
 
-Arbeiten Sie mit Ihrem Punchh Implementation Manager zusammen, um diesen Adapter einzurichten.
+Arbeiten Sie mit Ihrem Punchh Implementation Manager:in zusammen, um diesen Adapter einzurichten.
 
 Um die Integration von Braze und Punchh einzurichten, gehen Sie wie folgt vor:
 
 1. Navigieren Sie im Punchh-Dashboard zu **Cockpit** > **Dashboard** > **Major Features** > **Enable Webhook Management** und schalten Sie **Enable Webhook Management** ein.<br><br>
-2. Aktivieren Sie als Nächstes die Adapter, indem Sie zu **Settings** > **Webhooks Manager** > **Configurations** > **Show Adapters Tab** navigieren und **Show Adapters Tab** einschalten.<br><br>
+2. Aktivieren Sie als Nächstes die Adapter, indem Sie zu **Settings** > **Webhooks Manager:in** > **Configurations** > **Show Adapters Tab** navigieren und **Show Adapters Tab** einschalten.<br><br>
 3. Navigieren Sie zum **Webhooks Manager** unter dem Tab **Settings**, wählen Sie den Tab **Adapters** und klicken Sie auf **Create Adapter**. <br><br>![Punchh Webhooks Manager – Tab „Adapters“ mit ausgewähltem „Create Adapter“.]({% image_buster /assets/img/punchh/punchh1.png %})<br><br>
 4. Geben Sie den Adapternamen, die Beschreibung und die Admin-E-Mail ein. Wählen Sie **Braze** als Ihren Adapter und geben Sie Ihren Braze REST-API-Endpunkt und Braze-API-Schlüssel an.<br><br>
 5. Wählen Sie dann die verfügbaren Ereignisse aus, die Sie aktivieren möchten. Eine Liste dieser Ereignisse finden Sie unter [Verfügbare zu synchronisierende Ereignisse](#available-events-to-sync).<br><br>![Punchh-Adaptereinstellungen mit auswählbaren Ereignissen für die Braze-Synchronisierung.]({% image_buster /assets/img/punchh/punchh3.png %})<br><br>

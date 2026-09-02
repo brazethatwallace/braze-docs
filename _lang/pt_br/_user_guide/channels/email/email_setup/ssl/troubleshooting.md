@@ -30,7 +30,7 @@ channel: email
 2. Confirme se o certificado SSL está ativo para o domínio de rastreamento. Peça à sua equipe de TI ou web para confirmar se o certificado está atualizado e cobre o subdomínio de rastreamento de cliques. Para etapas de configuração e guias específicos de CDN, consulte [Adquirir um certificado SSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate) e [Recursos adicionais]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#additional-resources).
 3. Envie um e-mail de teste usando o [modelo de solução de problemas de rastreamento de cliques](#click-tracking-issues). Compare as URLs rastreadas com as não rastreadas.
 4. Se os links rastreados falharem com erro 403, revise as regras de CDN e WAF (user agents, query strings, padrões de redirecionamento).
-5. Se a configuração estiver completa, mas os links continuarem em HTTP, entre em contato com o seu gerente de sucesso do cliente da Braze para confirmar se a Braze ativou o SSL.
+5. Se a configuração estiver completa, mas os links continuarem em HTTP, entre em contato com o seu CSM da Braze para confirmar se a Braze ativou o SSL.
 6. Para problemas persistentes, coordene com a sua equipe de CDN ou TI e entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) informando códigos de erro e quaisquer detalhes do seu CDN ou provedor de domínio.
 
 ## Conceitos-chave {#key-concepts}
@@ -144,7 +144,7 @@ Se você vir uma mensagem de erro informando que sua conexão não é privada, i
 
 **Sintoma:** A configuração do SSL está concluída, mas os links rastreados ainda aparecem como HTTP.
 
-Se você concluiu a configuração do SSL e os links ainda aparecem como HTTP, entre em contato com o seu gerente de sucesso do cliente da Braze para confirmar que a Braze ativou o SSL. A Braze ativa o SSL somente após todas as etapas de configuração estarem concluídas.
+Se você concluiu a configuração do SSL e os links ainda aparecem como HTTP, entre em contato com o seu CSM da Braze para confirmar que a Braze ativou o SSL. A Braze ativa o SSL somente após todas as etapas de configuração estarem concluídas.
 
 ### Amazon SES {#amazon-ses}
 

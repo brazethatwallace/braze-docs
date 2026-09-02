@@ -183,12 +183,12 @@ Um eine Liste Ihrer Nutzer:innen und deren Berechtigungen herunterzuladen, gehen
 | Campaigns | Campaigns starten | Bestehende Campaigns starten, stoppen, pausieren oder fortsetzen |
 | Campaigns | Campaigns archivieren | Campaigns ins Archiv verschieben |
 | Campaigns | Campaigns bearbeiten | Campaigns erstellen und aktualisieren |
-| Campaigns | Campaigns genehmigen und ablehnen | Campaigns genehmigen oder ablehnen. Der [Genehmigungsworkflow für Campaigns]({{site.baseurl}}/user_guide/messaging/governance/approvals) muss aktiviert sein, damit diese Berechtigung wirksam wird. Diese Einstellung befindet sich derzeit im Early Access. Kontaktieren Sie Ihren Account Manager, wenn Sie am Early Access teilnehmen möchten. |
+| Campaigns | Campaigns genehmigen und ablehnen | Campaigns genehmigen oder ablehnen. Der [Genehmigungsworkflow für Campaigns]({{site.baseurl}}/user_guide/messaging/governance/approvals) muss aktiviert sein, damit diese Berechtigung wirksam wird. Diese Einstellung befindet sich derzeit im Early Access. Kontaktieren Sie Ihren Account Manager:in, wenn Sie am Early Access teilnehmen möchten. |
 | Canvas | Canvases anzeigen | Canvases anzeigen |
 | Canvas | Canvases archivieren | Canvases ins Archiv verschieben |
 | Canvas | Canvases bearbeiten | Canvases erstellen und aktualisieren |
 | Canvas | Canvases starten | Bestehende Canvases starten, stoppen, pausieren oder fortsetzen |
-| Canvas | Canvases genehmigen und ablehnen | Canvases genehmigen oder ablehnen. Der [Genehmigungsworkflow für Canvases]({{site.baseurl}}/user_guide/messaging/governance/approvals) muss aktiviert sein, damit diese Berechtigung wirksam wird. Diese Einstellung befindet sich derzeit im Early Access. Kontaktieren Sie Ihren Account Manager, wenn Sie am Early Access teilnehmen möchten. |
+| Canvas | Canvases genehmigen und ablehnen | Canvases genehmigen oder ablehnen. Der [Genehmigungsworkflow für Canvases]({{site.baseurl}}/user_guide/messaging/governance/approvals) muss aktiviert sein, damit diese Berechtigung wirksam wird. Diese Einstellung befindet sich derzeit im Early Access. Kontaktieren Sie Ihren Account Manager:in, wenn Sie am Early Access teilnehmen möchten. |
 | Feature-Flags | Feature-Flags anzeigen | Feature-Flags anzeigen |
 | Feature-Flags | Feature-Flags archivieren | Feature-Flags ins Archiv verschieben |
 | Feature-Flags | Feature-Flags bearbeiten | Feature-Flags erstellen und aktualisieren |
@@ -221,7 +221,7 @@ Um eine Liste Ihrer Nutzer:innen und deren Berechtigungen herunterzuladen, gehen
 | Nutzerdaten | Nutzerdaten bearbeiten | Nutzerdaten erstellen und aktualisieren |
 | Nutzerdaten | Nutzerdaten exportieren | Nutzer:innen aus dem Dashboard herunterladen |
 | Doppelte Nutzer:innen | Zusammenführungseinträge anzeigen | Eine Liste der Zusammenführungseinträge von Nutzer:innen anzeigen |
-| Nutzer:innen | Nutzerprofile anzeigen (PII geschwärzt) | Nutzerprofile in PII-konformer Weise anzeigen. Nutzer:innen mit dieser Berechtigung können keine Campaigns speichern oder starten, die als PII gekennzeichnete angepasste Attribute referenzieren, es sei denn, sie verfügen zusätzlich über die Berechtigung „Als PII gekennzeichnete angepasste Attribute anzeigen“.<br><br>Die Berechtigung „Nutzerprofile anzeigen (PII geschwärzt)“ muss vor der Nutzung aktiviert werden. Wenden Sie sich an Ihren Customer-Success-Manager, um sie für Ihren Workspace zu aktivieren. |
+| Nutzer:innen | Nutzerprofile anzeigen (PII geschwärzt) | Nutzerprofile in PII-konformer Weise anzeigen. Nutzer:innen mit dieser Berechtigung können keine Campaigns speichern oder starten, die als PII gekennzeichnete angepasste Attribute referenzieren, es sei denn, sie verfügen zusätzlich über die Berechtigung „Als PII gekennzeichnete angepasste Attribute anzeigen“.<br><br>Die Berechtigung „Nutzerprofile anzeigen (PII geschwärzt)“ muss vor der Nutzung aktiviert werden. Wenden Sie sich an Ihren CSM, um sie für Ihren Workspace zu aktivieren. |
 | Nutzer:innen | Event-Eigenschaften von Nutzer:innen anzeigen | Event-Eigenschaften im Tab **Event-Verlauf** in Nutzerprofilen anzeigen |
 | Doppelte Nutzer:innen | Doppelte Nutzer:innen zusammenführen | Doppelte Nutzer:innen zu einem/einer Nutzer:in zusammenführen. Duplikate werden nach dem Zusammenführen entfernt. |
 | Nutzer:innen löschen | Löscheinträge von Nutzer:innen anzeigen | Eine Liste der Löscheinträge von Nutzer:innen anzeigen |

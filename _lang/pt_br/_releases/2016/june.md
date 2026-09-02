@@ -12,7 +12,7 @@ description: "Este artigo contém notas de versão de junho de 2016."
 
 Os eventos de exceção são usados para criar uma lógica poderosa em campanhas baseadas em ações. Eles são usados para impedir que os usuários finais recebam uma mensagem. Um exemplo é "enviar aos usuários que abandonam seus carrinhos de compras uma notificação por push, a menos que eles façam o checkout". Ao disparar a partir de um evento de exceção, os clientes podem direcionar mensagens adicionais e atenção aos usuários que fizeram o checkout após o abandono de seus carrinhos, criando uma experiência perfeita e coesa.
 
-## "Filtro do segmento de mensagens "Received Message from Campaign with Tag
+## "Filtro do Segment de mensagens "Received Message from Campaign with Tag
 
 Os clientes agora podem excluir usuários que receberam grupos de campanhas pela mesma funcionalidade "Tag" que já estavam usando.
 

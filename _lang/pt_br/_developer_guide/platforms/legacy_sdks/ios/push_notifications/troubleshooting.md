@@ -52,7 +52,7 @@ A Braze fornece um log de erros de notificações por push no **Message Activity
 
 ![Logs de erro de push exibindo o horário em que o erro ocorreu, o nome do app, o canal, o tipo de erro e a mensagem de erro.]({% image_buster /assets/img_archive/message_activity_log.png %})
 
-Erros comuns que você pode ver aqui incluem notificações específicas do usuário, como ["Received Unregistered Sending to Push Token"](#received-unregistered-sending).
+Erros comuns que você pode ver aqui incluem notificações específicas do usuário, como ["Received Unregistered Sending to token por push"](#received-unregistered-sending).
 
 Além disso, a Braze também fornece um changelog de push no perfil de usuário, na guia **Engagement**. Esse changelog oferece insights sobre o comportamento de registro de push, como invalidação de token, erros de registro de push, tokens sendo movidos para novos usuários, etc.
 

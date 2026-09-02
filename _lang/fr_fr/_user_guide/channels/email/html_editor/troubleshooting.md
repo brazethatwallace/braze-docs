@@ -67,7 +67,7 @@ Les e-mails s'affichent différemment selon les navigateurs et les clients de me
 
 Certains utilisateurs reçoivent une version modifiée de l'e-mail dans laquelle le code Liquid s'affiche dans le message, les liens sont cassés ou l'espacement semble incorrect.
 
-Braze utilise un analyseur HTML interne pour préparer les e-mails avant leur envoi. Cet analyseur prend en charge des fonctionnalités telles que la génération de l'accroche, le placement du pixel de suivi, le templating de liens et l'aliasing de lien. Lorsque les balises HTML ne sont pas équilibrées au sein de leurs blocs logiques Liquid ou Content Blocks correspondants, l'analyseur peut modifier le HTML sous-jacent de manière inattendue. Cela peut entraîner :
+Braze utilise un analyseur HTML interne pour préparer les e-mails avant leur envoi. Cet analyseur prend en charge des fonctionnalités telles que la génération de l'accroche, le placement du pixel de suivi, le templating de liens et l'aliasage de lien. Lorsque les balises HTML ne sont pas équilibrées au sein de leurs blocs logiques Liquid ou Content Blocks correspondants, l'analyseur peut modifier le HTML sous-jacent de manière inattendue. Cela peut entraîner :
 
 - Des retours à la ligne issus du rendu Liquid dans certains clients de messagerie
 - Un espacement inhabituel dû à des balises `<p>` ajoutées au corps de l'e-mail

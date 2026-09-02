@@ -226,7 +226,7 @@ Abschließend können Sie Ihre Deeplinks testen. Senden Sie sich selbst einen Li
 ## Universal Links, App Links und Klick-Tracking {#universal-links-app-links-and-click-tracking}
 
 {% alert note %}
-Klick-Tracking-Links werden in der Regel im Rahmen Ihres Onboardings für E-Mail eingerichtet. Wenn dies während des Onboardings nicht abgeschlossen wurde, wenden Sie sich an Ihren Account Manager, um Hilfe zu erhalten.
+Klick-Tracking-Links werden in der Regel im Rahmen Ihres Onboardings für E-Mail eingerichtet. Wenn dies während des Onboardings nicht abgeschlossen wurde, wenden Sie sich an Ihren Account Manager:in, um Hilfe zu erhalten.
 {% endalert %}
 
 Unsere E-Mail-Versandpartner verwenden Klick-Tracking-Domains, um alle Links zu umschließen und URL-Parameter für das Klick-Tracking in Braze-E-Mails einzufügen.
@@ -256,7 +256,7 @@ Zum Beispiel:
 ```
 
 {:start="3"}
-3. Stellen Sie sicher, dass Ihre App so eingerichtet ist, dass sie die umschlossenen Links korrekt verarbeitet. Lesen Sie den SendGrid-Artikel [Resolving SendGrid Click Tracking Links](https://docs.sendgrid.com/ui/sending-email/universal-links#resolving-sendgrid-click-tracking-links) und folgen Sie den Schritten für Ihr Betriebssystem. Dieser Artikel enthält Beispielcode für [iOS](https://docs.sendgrid.com/ui/sending-email/universal-links#resolving-links-in-ios) und [Android](https://docs.sendgrid.com/ui/sending-email/universal-links#resolving-links-in-android).
+3. Stellen Sie sicher, dass Ihre App so eingerichtet ist, dass sie die umschlossenen Links korrekt verarbeitet. Lesen Sie den SendGrid-Artikel [Resolving SendGrid click Tracking Links](https://docs.sendgrid.com/ui/sending-email/universal-links#resolving-sendgrid-click-tracking-links) und folgen Sie den Schritten für Ihr Betriebssystem. Dieser Artikel enthält Beispielcode für [iOS](https://docs.sendgrid.com/ui/sending-email/universal-links#resolving-links-in-ios) und [Android](https://docs.sendgrid.com/ui/sending-email/universal-links#resolving-links-in-android).
 
 Mit dieser Konfiguration funktionieren Links mit `/uni/` im URL-Pfad als Universal Links, während alle anderen Links als Web-Links funktionieren.
 
@@ -455,10 +455,10 @@ Beschränken Sie diese Muster auf die URLs, die die App öffnen sollen. Für Sen
 
 #### Tracking-Domain kann keine .well-known-Dateien bereitstellen {#tracking-domain-cant-serve-well-known-files}
 
-In einigen Fällen kann Ihre Klick-Tracking-Domain die erforderlichen `.well-known`-Dateien aufgrund von ESP-Einschränkungen oder Infrastruktur-Beschränkungen möglicherweise nicht hosten. Wenn Sie die AASA- oder Digital Asset Links-Datei nicht auf Ihrer Tracking-Domain hosten können, ziehen Sie die folgenden Optionen in Betracht:
+In einigen Fällen kann Ihre Klick-Tracking-Domain die erforderlichen `.well-known`-Dateien aufgrund von E-Mail-Anbieter-Einschränkungen oder Infrastruktur-Beschränkungen möglicherweise nicht hosten. Wenn Sie die AASA- oder Digital Asset Links-Datei nicht auf Ihrer Tracking-Domain hosten können, ziehen Sie die folgenden Optionen in Betracht:
 
 - **Klick-Tracking für Deeplink-URLs selektiv deaktivieren:** Sie können das Klick-Tracking für bestimmte Universal Links deaktivieren, damit sie direkt zu Ihrer Hauptdomain führen (auf der Sie die AASA- oder Digital Asset Links-Datei hosten können). Beachten Sie, dass bei dieser Methode die Klick-Analyse für diese bestimmten Links verloren gehen kann. Anleitungen finden Sie unter [Klick-Tracking pro Link deaktivieren](#turning-off-click-tracking-on-a-link-to-link-basis).
-- **Tracking-Subdomain mit einem CDN vorschalten:** Wenn Sie vollständiges Klick-Tracking und Deeplinking benötigen, können Sie ein CDN (wie Cloudflare oder CloudFront) vor Ihre Tracking-Subdomain schalten. Konfigurieren Sie das CDN so, dass es die `.well-known`-Dateien lokal bereitstellt und den gesamten übrigen Datenverkehr an Ihren ESP weiterleitet. Dieser Ansatz ist aufwendiger, gibt Ihnen aber die volle Kontrolle über sowohl Klick-Tracking als auch Universal Links.
+- **Tracking-Subdomain mit einem CDN vorschalten:** Wenn Sie vollständiges Klick-Tracking und Deeplinking benötigen, können Sie ein CDN (wie Cloudflare oder CloudFront) vor Ihre Tracking-Subdomain schalten. Konfigurieren Sie das CDN so, dass es die `.well-known`-Dateien lokal bereitstellt und den gesamten übrigen Datenverkehr an Ihren E-Mail-Anbieter weiterleitet. Dieser Ansatz ist aufwendiger, gibt Ihnen aber die volle Kontrolle über sowohl Klick-Tracking als auch Universal Links.
 
 #### Links funktionieren in einem Workspace, aber nicht in einem anderen {#links-working-in-one-workspace-but-not-another}
 

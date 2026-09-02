@@ -3,7 +3,7 @@ nav_title: 放棄インテント
 article_title: 放棄インテント
 page_order: 1
 page_type: reference
-description: "この記事では、Braze Canvasテンプレートを使用して、ユーザーにリアルタイムでエンゲージし、購入を完了するよう促す方法について説明します。"
+description: "この記事では、Braze キャンバステンプレートを使用して、ユーザーにリアルタイムでエンゲージし、購入を完了するよう促す方法について説明します。"
 tool: Canvas
 ---
 
@@ -57,7 +57,7 @@ tool: Canvas
 
 ### ステップ 2: コンバージョンイベントを割り当てる {#step-2-assign-your-conversion-events}
 
-テンプレートでは、**Primary Conversion Event - A**が**Makes Purchase (Legacy)**に設定されており、デフォルトで**Make any purchase (Legacy)**が選択されています。「Enormous Paper Plate」製品に焦点を当てているため、コンバージョンイベントを以下のようにカスタマイズします。
+テンプレートでは、**1次コンバージョン Event - A**が**Makes Purchase (Legacy)**に設定されており、デフォルトで**Make any purchase (Legacy)**が選択されています。「Enormous Paper Plate」製品に焦点を当てているため、コンバージョンイベントを以下のようにカスタマイズします。
 
 1. **Make a specific purchase (Legacy)**を選択します。
 2. **Product name**に**Enormous Paper Plate**と入力します。

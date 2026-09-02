@@ -26,11 +26,11 @@ Häufige Fehlerursachen können sein:
 ### Push-Bounce: InvalidRegistration {#push-bounced-invalidregistration}
 `InvalidRegistration` kann auftreten, wenn ein Push-Token fehlerhaft ist. Häufige Fehlerursachen können sein:
 - Nutzer:innen übergeben Braze-Registrierungstoken manuell, rufen aber nicht `getToken()` auf. Zum Beispiel übergeben sie möglicherweise die gesamte Instanz-ID. Das Token in der Fehlermeldung sieht dann wie folgt aus: `&#124;ID&#124;1&#124;:[regular token]`.
-- Nutzer:innen registrieren sich bei mehreren Diensten. Derzeit erwarten wir, dass Push-Registrierungs-Intents im alten Stil eintreffen. Wenn sich Nutzer:innen also an mehreren Stellen registrieren und wir Intents von anderen Diensten abfangen, können fehlerhafte Push-Token entstehen.
+- Nutzer:innen registrieren sich bei mehreren Diensten. Derzeit erwarten wir, dass Push-Registrierungs-Intents im alten Stil eintreffen. Wenn sich Nutzer:innen also an mehreren Stellen Registrierung und wir Intents von anderen Diensten abfangen, können fehlerhafte Push-Token entstehen.
 
 ### Push-Bounce: NotRegistered {#notregistered}
 
-`NotRegistered` bedeutet in der Regel, dass die App vom Gerät gelöscht wurde (z. B. unser Signal für eine Deinstallation). Dies kann auch auftreten, wenn eine Mehrfachregistrierung stattfindet und eine zweite Registrierung das Push-Token ungültig macht, das Braze erhalten hat.
+`NotRegistered` bedeutet in der Regel, dass die App vom Gerät gelöscht wurde (z. B. unser Signal für eine Deinstallation). Dies kann auch auftreten, wenn eine Mehrfachregistrierung stattfindet und eine zweite registrieren das Push-Token ungültig macht, das Braze erhalten hat.
 
 ### DEVICE_UNREGISTERED {#device-unregistered}
 
@@ -50,7 +50,7 @@ Dieser Fehler bedeutet nicht, dass Push für die Nutzer:innen deaktiviert ist �
 
 Dieser Fehler kann aus folgenden Gründen auftreten:
 
-- Die Endnutzer:innen haben die App deinstalliert. Sie können deren Nutzerprofil überprüfen, um zu bestätigen, ob dies der Fall ist.
+- Die Endnutzer:innen haben die App deinstalliert. Sie können deren Kundenprofil überprüfen, um zu bestätigen, ob dies der Fall ist.
 - Es liegt ein ungültiger Benachrichtigungskanal vor. Je nach Ihrer Integration können Geräte Push-Token haben, die nur für bestimmte Benachrichtigungskanäle gültig sind. Beim Senden an einen ungültigen Kanal wird die Nachricht als Bounce zurückgewiesen.
 - Die Payload-Größe ist zu groß.
 
@@ -61,7 +61,7 @@ Weitere Informationen finden Sie in [Googles Dokumentation](https://firebase.goo
 
 ### Fehler beim Senden von Push, da die Payload ungültig war {#error-sending-push-because-the-payload-was-invalid}
 
-Diese Nachricht kann im Nutzerprofil auf dem Tab **Engagement** unter **Kontakteinstellungen** > **Push-Changelog** erscheinen, wenn der Apple Push Notification Service (APNs) die Push-Anfrage aufgrund einer ungültigen Payload ablehnt.
+Diese Nachricht kann im Kundenprofil auf dem Tab **Engagement** unter **Kontakteinstellungen** > **Push-Changelog** erscheinen, wenn der Apple Push Notification Service (APNs) die Push-Anfrage aufgrund einer ungültigen Payload ablehnt.
 
 In Braze kann diese Dashboard-Nachricht einem der folgenden APNs-Fehlergründe zugeordnet werden:
 

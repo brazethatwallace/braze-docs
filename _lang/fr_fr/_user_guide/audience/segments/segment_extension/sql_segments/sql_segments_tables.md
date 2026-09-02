@@ -57,8 +57,8 @@ Table | Description
 [USERS_BEHAVIORS_APP_SESSIONSTART_SHARED](#USERS_BEHAVIORS_APP_SESSIONSTART_SHARED) | Lorsqu'un utilisateur démarre une session sur une application
 [USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED](#USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED) | Lorsqu'un utilisateur déclenche une zone de géorepérage — par exemple, en entrant ou en sortant d'un géorepérage. Cet événement est regroupé avec d'autres événements et reçu via l'endpoint d'événements standard, il peut donc ne pas apparaître en temps réel.<br><br>Pour enregistrer l'activité de géorepérage dans ce tableau, sélectionnez **Enable Analytics for Enter** et **Enable Analytics for Exit** dans les paramètres avancés de chaque géorepérage. Consultez l'étape 3 dans [Créer manuellement des géorepérages]({{site.baseurl}}/user_guide/audience/locations_and_geofences/creating_geofences#manually-create-geofences) pour plus de détails.
 [USERS_BEHAVIORS_GEOFENCE_RECORDEVENT_SHARED](#USERS_BEHAVIORS_GEOFENCE_RECORDEVENT_SHARED) | Lorsqu'un utilisateur déclenche une zone de géorepérage (par exemple, lorsqu'il entre ou sort d'un géorepérage). Cet événement est reçu via l'endpoint dédié au géorepérage et est donc reçu en temps réel dès que l'appareil de l'utilisateur détecte qu'il a déclenché un géorepérage. <br><br>De plus, en raison de la limitation du débit sur l'endpoint de géorepérage, il est possible que certains événements de géorepérage ne soient pas reflétés en tant que RecordEvent. Cependant, tous les événements de géorepérage sont représentés par DataEvent (mais potentiellement avec un certain délai dû au regroupement).
-[USERS_BEHAVIORS_LIVEACTIVITY_PUSHTOSTARTTOKENCHANGE_SHARED](#USERS_BEHAVIORS_LIVEACTIVITY_PUSHTOSTARTTOKENCHANGE_SHARED) | Lorsqu'un jeton push-to-start de Live Activity change
-[USERS_BEHAVIORS_LIVEACTIVITY_UPDATETOKENCHANGE_SHARED](#USERS_BEHAVIORS_LIVEACTIVITY_UPDATETOKENCHANGE_SHARED) | Lorsqu'un jeton de mise à jour de Live Activity change
+[USERS_BEHAVIORS_LIVEACTIVITY_PUSHTOSTARTTOKENCHANGE_SHARED](#USERS_BEHAVIORS_LIVEACTIVITY_PUSHTOSTARTTOKENCHANGE_SHARED) | Lorsqu'un jeton push-to-start de en direct Activity change
+[USERS_BEHAVIORS_LIVEACTIVITY_UPDATETOKENCHANGE_SHARED](#USERS_BEHAVIORS_LIVEACTIVITY_UPDATETOKENCHANGE_SHARED) | Lorsqu'un jeton de mise à jour de en direct Activity change
 [USERS_BEHAVIORS_PUSHNOTIFICATION_TOKENSTATECHANGE_SHARED](#USERS_BEHAVIORS_PUSHNOTIFICATION_TOKENSTATECHANGE_SHARED) | Lorsque l'état d'un jeton de notification push change
 [USERS_BEHAVIORS_SUBSCRIPTION_GLOBALSTATECHANGE_SHARED](#USERS_BEHAVIORS_SUBSCRIPTION_GLOBALSTATECHANGE_SHARED) | Lorsqu'un utilisateur est abonné ou désabonné globalement d'un canal tel que l'e-mail
 [USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED](#USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED) | Lorsqu'un utilisateur est abonné ou désabonné d'un groupe d'abonnement
@@ -84,7 +84,7 @@ Table | Description
 [USERS_MESSAGES_CONTENTCARD_IMPRESSION_SHARED](#USERS_MESSAGES_CONTENTCARD_IMPRESSION_SHARED) | Lorsqu'un utilisateur visualise une Content Card
 [USERS_MESSAGES_CONTENTCARD_SEND_SHARED](#USERS_MESSAGES_CONTENTCARD_SEND_SHARED) | Lorsque nous envoyons une Content Card à un utilisateur
 [USERS_MESSAGES_EMAIL_ABORT_SHARED](#USERS_MESSAGES_EMAIL_ABORT_SHARED) | Un e-mail initialement planifié a été abandonné pour une raison quelconque.
-[USERS_MESSAGES_EMAIL_BOUNCE_SHARED](#USERS_MESSAGES_EMAIL_BOUNCE_SHARED) | Un fournisseur de services d'e-mailing a renvoyé un échec d'envoi définitif. Un échec d'envoi définitif indique un problème permanent de livrabilité.
+[USERS_MESSAGES_EMAIL_BOUNCE_SHARED](#USERS_MESSAGES_EMAIL_BOUNCE_SHARED) | Un fournisseur de services d'e-mail marketing a renvoyé un échec d'envoi définitif. Un échec d'envoi définitif indique un problème permanent de livrabilité.
 [USERS_MESSAGES_EMAIL_CLICK_SHARED](#USERS_MESSAGES_EMAIL_CLICK_SHARED) | Lorsqu'un utilisateur clique sur un lien dans un e-mail
 [USERS_MESSAGES_EMAIL_DEFERRAL_SHARED](#USERS_MESSAGES_EMAIL_DEFERRAL_SHARED) | Lorsqu'un e-mail est différé
 [USERS_MESSAGES_EMAIL_DELIVERY_SHARED](#USERS_MESSAGES_EMAIL_DELIVERY_SHARED) | Lorsqu'un e-mail est distribué
@@ -103,8 +103,8 @@ Table | Description
 [USERS_MESSAGES_LINE_INBOUNDRECEIVE_SHARED](#USERS_MESSAGES_LINE_INBOUNDRECEIVE_SHARED) | Lorsqu'un message LINE est reçu d'un utilisateur
 [USERS_MESSAGES_LINE_SEND_SHARED](#USERS_MESSAGES_LINE_SEND_SHARED) | Lorsqu'un message LINE est envoyé à LINE
 [USERS_MESSAGES_LINE_RETRY_SHARED](#USERS_MESSAGES_LINE_RETRY_SHARED) | Lorsqu'un message LINE est réessayé après avoir été dépriorisé ou soumis à une limitation de fréquence (**Snowflake Data Sharing uniquement**)
-[USERS_MESSAGES_LIVEACTIVITY_OUTCOME_SHARED](#USERS_MESSAGES_LIVEACTIVITY_OUTCOME_SHARED) | Lorsqu'une Live Activity a un événement de résultat
-[USERS_MESSAGES_LIVEACTIVITY_SEND_SHARED](#USERS_MESSAGES_LIVEACTIVITY_SEND_SHARED) | Lorsqu'un message Live Activity est envoyé
+[USERS_MESSAGES_LIVEACTIVITY_OUTCOME_SHARED](#USERS_MESSAGES_LIVEACTIVITY_OUTCOME_SHARED) | Lorsqu'une en direct Activity a un événement de résultat
+[USERS_MESSAGES_LIVEACTIVITY_SEND_SHARED](#USERS_MESSAGES_LIVEACTIVITY_SEND_SHARED) | Lorsqu'un message en direct Activity est envoyé
 [USERS_MESSAGES_NEWSFEEDCARD_ABORT_SHARED](#USERS_MESSAGES_NEWSFEEDCARD_ABORT_SHARED) | Un message de carte News Feed initialement planifié a été abandonné pour une raison quelconque
 [USERS_MESSAGES_NEWSFEEDCARD_CLICK_SHARED](#USERS_MESSAGES_NEWSFEEDCARD_CLICK_SHARED) | Lorsqu'un utilisateur clique sur une carte News Feed
 [USERS_MESSAGES_NEWSFEEDCARD_IMPRESSION_SHARED](#USERS_MESSAGES_NEWSFEEDCARD_IMPRESSION_SHARED) | Lorsqu'un utilisateur visualise une carte News Feed
@@ -1437,7 +1437,7 @@ Champ | Type | Description
 `sending_ip` | `null,`&nbsp;`string` | Adresse IP à partir de laquelle l'e-mail a été envoyé
 `ip_pool` | `null,`&nbsp;`string` | Pool IP à partir duquel l'e-mail a été envoyé
 `bounce_reason` | `null,`&nbsp;`string` | [PII] Code de raison SMTP et message lisible reçu pour cet événement de rebond
-`esp` | `null,`&nbsp;`string` | ESP lié à l'événement (SparkPost, SendGrid ou Amazon SES)
+`esp` | `null,`&nbsp;`string` | fournisseur de services d'e-mailing lié à l'événement (SparkPost, SendGrid ou Amazon SES)
 `from_domain` | `null,`&nbsp;`string` | Domaine d'envoi de l'e-mail
 `is_drop` | `null, boolean` | Indique que cet événement est comptabilisé comme un événement de suppression
 `app_group_id` | `null,`&nbsp;`string` | ID BSON du groupe d'applications auquel cet utilisateur appartient
@@ -1478,7 +1478,7 @@ Champ | Type | Description
 `ip_pool` | `null,`&nbsp;`string` | Pool IP à partir duquel l'e-mail a été envoyé
 `link_id` | `null,`&nbsp;`string` | ID unique du lien cliqué, tel que créé par Braze
 `link_alias` | `null,`&nbsp;`string` | Alias associé à cet ID de lien
-`esp` | `null,`&nbsp;`string` | ESP lié à l'événement (SparkPost, SendGrid ou Amazon SES)
+`esp` | `null,`&nbsp;`string` | fournisseur de services d'e-mailing lié à l'événement (SparkPost, SendGrid ou Amazon SES)
 `from_domain` | `null,`&nbsp;`string` | Domaine d'envoi de l'e-mail
 `is_amp` | `null, boolean` | Indique qu'il s'agit d'un événement AMP
 `app_group_id` | `null,`&nbsp;`string` | ID BSON du groupe d'applications auquel cet utilisateur appartient
@@ -1510,7 +1510,7 @@ Champ | Type | Description
 `dispatch_id` | `null,`&nbsp;`string` | ID de l'envoi auquel ce message appartient
 `email_address` | `null,`&nbsp;`string` | [PII] Adresse e-mail de l'utilisateur
 `recipient_domain` | `null,`&nbsp;`string` | Domaine e-mail du destinataire
-`esp` | `null,`&nbsp;`string` | ESP lié à l'événement (Sparkpost, Sendgrid ou Amazon SES)
+`esp` | `null,`&nbsp;`string` | fournisseur de services d'e-mailing lié à l'événement (Sparkpost, Sendgrid ou Amazon SES)
 `from_domain` | `null,`&nbsp;`string` | Domaine d'envoi de l'e-mail
 `ip_pool` | `null,`&nbsp;`string` | Pool IP à partir duquel l'e-mail a été envoyé
 `sending_ip` | `null,`&nbsp;`string` | Adresse IP à partir de laquelle l'e-mail a été envoyé
@@ -1547,7 +1547,7 @@ Champ | Type | Description
 `email_address` | `string` | [PII] Adresse e-mail de l'utilisateur
 `sending_ip` | `null,`&nbsp;`string` | Adresse IP à partir de laquelle l'e-mail a été envoyé
 `ip_pool` | `null,`&nbsp;`string` | Pool IP à partir duquel l'e-mail a été envoyé
-`esp` | `null,`&nbsp;`string` | ESP lié à l'événement (SparkPost, SendGrid ou Amazon SES)
+`esp` | `null,`&nbsp;`string` | fournisseur de services d'e-mailing lié à l'événement (SparkPost, SendGrid ou Amazon SES)
 `from_domain` | `null,`&nbsp;`string` | Domaine d'envoi de l'e-mail
 `app_group_id` | `null,`&nbsp;`string` | ID BSON du groupe d'applications auquel cet utilisateur appartient
 `sf_created_at` | `timestamp`,&nbsp;`null` | Date à laquelle cet événement a été récupéré par le Snowpipe
@@ -1580,7 +1580,7 @@ Champ | Type | Description
 `email_address` | `string` | [PII] Adresse e-mail de l'utilisateur
 `user_agent` | `null,`&nbsp;`string` | User agent sur lequel le signalement de courrier indésirable s'est produit
 `ip_pool` | `null,`&nbsp;`string` | Pool IP à partir duquel l'e-mail a été envoyé
-`esp` | `null,`&nbsp;`string` | ESP lié à l'événement (SparkPost, SendGrid ou Amazon SES)
+`esp` | `null,`&nbsp;`string` | fournisseur de services d'e-mailing lié à l'événement (SparkPost, SendGrid ou Amazon SES)
 `from_domain` | `null,`&nbsp;`string` | Domaine d'envoi de l'e-mail
 `app_group_id` | `null,`&nbsp;`string` | ID BSON du groupe d'applications auquel cet utilisateur appartient
 `sf_created_at` | `timestamp`,&nbsp;`null` | Date à laquelle cet événement a été récupéré par le Snowpipe
@@ -1614,7 +1614,7 @@ Champ | Type | Description
 `user_agent` | `null,`&nbsp;`string` | User agent sur lequel l'ouverture s'est produite
 `ip_pool` | `null,`&nbsp;`string` | Pool IP à partir duquel l'e-mail a été envoyé
 `machine_open` | `null,`&nbsp;`string` | Renseigné à « true » si l'événement d'ouverture est déclenché sans interaction de l'utilisateur, par exemple par un appareil Apple avec la protection de la confidentialité dans Mail activée. La valeur peut évoluer pour fournir plus de granularité.
-`esp` | `null,`&nbsp;`string` | ESP lié à l'événement (SparkPost, SendGrid ou Amazon SES)
+`esp` | `null,`&nbsp;`string` | fournisseur de services d'e-mailing lié à l'événement (SparkPost, SendGrid ou Amazon SES)
 `from_domain` | `null,`&nbsp;`string` | Domaine d'envoi de l'e-mail
 `is_amp` | `null, boolean` | Indique qu'il s'agit d'un événement AMP
 `app_group_id` | `null,`&nbsp;`string` | ID BSON du groupe d'applications auquel cet utilisateur appartient
@@ -1648,7 +1648,7 @@ Champ | Type | Description
 `email_address` | `string` | [PII] Adresse e-mail de l'utilisateur
 `ip_pool` | `null,`&nbsp;`string` | Pool IP à partir duquel l'e-mail a été envoyé
 `message_extras` | `null,`&nbsp;`string` | [PII] Chaîne JSON des paires clé-valeur étiquetées lors du rendu Liquid
-`esp` | `null,`&nbsp;`string` | ESP lié à l'événement (SparkPost, SendGrid ou Amazon SES)
+`esp` | `null,`&nbsp;`string` | fournisseur de services d'e-mailing lié à l'événement (SparkPost, SendGrid ou Amazon SES)
 `from_domain` | `null,`&nbsp;`string` | Domaine d'envoi de l'e-mail
 `sf_created_at` | `timestamp`,&nbsp;`null` | Date à laquelle cet événement a été récupéré par le Snowpipe
 `app_group_id` | `null,`&nbsp;`string` | ID BSON du groupe d'applications auquel cet utilisateur appartient
@@ -1682,7 +1682,7 @@ Champ | Type | Description
 `sending_ip` | `null,`&nbsp;`string` | Adresse IP à partir de laquelle l'e-mail a été envoyé
 `ip_pool` | `null,`&nbsp;`string` | Pool IP à partir duquel l'e-mail a été envoyé
 `bounce_reason` | `null,`&nbsp;`string` | [PII] Code de raison SMTP et message lisible reçu pour cet événement de rebond
-`esp` | `null,`&nbsp;`string` | ESP lié à l'événement (SparkPost, SendGrid ou Amazon SES)
+`esp` | `null,`&nbsp;`string` | fournisseur de services d'e-mailing lié à l'événement (SparkPost, SendGrid ou Amazon SES)
 `from_domain` | `null,`&nbsp;`string` | Domaine d'envoi de l'e-mail
 `app_group_id` | `null,`&nbsp;`string` | ID BSON du groupe d'applications auquel cet utilisateur appartient
 `sf_created_at` | `timestamp`,&nbsp;`null` | Date à laquelle cet événement a été récupéré par le Snowpipe
@@ -1690,7 +1690,7 @@ Champ | Type | Description
 
 ### USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED {#USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED}
 
-Ce tableau enregistre les désabonnements e-mail au niveau du message côté destinataire : clic sur un lien de désabonnement, désabonnement en un clic via le client de messagerie (List-Unsubscribe), soumissions via le centre de préférences et désabonnements signalés par l'ESP. Les désabonnements effectués via la REST API ne sont pas inclus ; ceux-ci émettent des événements [`users.behaviors.subscriptiongroup.StateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#subscription-group-state-change-events) ou [`users.behaviors.subscription.GlobalStateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#global-subscription-state-change-events) à la place.
+Ce tableau enregistre les désabonnements e-mail au niveau du message côté destinataire : clic sur un lien de désabonnement, désabonnement en un clic via le client de messagerie (List-Unsubscribe), soumissions via le centre de préférences et désabonnements signalés par l'fournisseur de services d'e-mailing. Les désabonnements effectués via la REST API ne sont pas inclus ; ceux-ci émettent des événements [`users.behaviors.subscriptiongroup.StateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#subscription-group-state-change-events) ou [`users.behaviors.subscription.GlobalStateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#global-subscription-state-change-events) à la place.
 
 Champ | Type | Description
 ------|------|------------
@@ -2091,12 +2091,12 @@ Champ | Type | Description
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externe de l'utilisateur
 `time` | `int` | Horodatage UNIX de l'événement
 `app_group_id` | `null,`&nbsp;`string` | ID BSON du groupe d'applications auquel cet utilisateur appartient
-`activity_id` | `null,`&nbsp;`string` | Identifiant de la Live Activity
-`activity_attributes_type` | `null,`&nbsp;`string` | Type d'attribut de la Live Activity
-`push_to_start_token` | `null,`&nbsp;`string` | Jeton push to start de la Live Activity
-`update_token` | `null,`&nbsp;`string` | Jeton de mise à jour de la Live Activity
-`live_activity_event_type` | `null,`&nbsp;`string` | Type d'événement de la Live Activity. Un parmi ['start', 'update', 'end']
-`live_activity_event_outcome` | `null,`&nbsp;`string` | Résultat de l'événement Live Activity
+`activity_id` | `null,`&nbsp;`string` | Identifiant de la en direct Activity
+`activity_attributes_type` | `null,`&nbsp;`string` | Type d'attribut de la en direct Activity
+`push_to_start_token` | `null,`&nbsp;`string` | Jeton push to start de la en direct Activity
+`update_token` | `null,`&nbsp;`string` | Jeton de mise à jour de la en direct Activity
+`live_activity_event_type` | `null,`&nbsp;`string` | Type d'événement de la en direct Activity. Un parmi ['start', 'update', 'end']
+`live_activity_event_outcome` | `null,`&nbsp;`string` | Résultat de l'événement en direct Activity
 `app_group_api_id` | `null,`&nbsp;`string` | ID API du groupe d'applications auquel cet utilisateur appartient
 `app_api_id` | `null,`&nbsp;`string` | ID API de l'application sur laquelle cet événement s'est produit
 `sf_created_at` | `timestamp`,&nbsp;`null` | Date à laquelle cet événement a été capté par le Snowpipe
@@ -2112,11 +2112,11 @@ Champ | Type | Description
 `external_user_id` | `null,`&nbsp;`string` | [PII] ID externe de l'utilisateur
 `time` | `int` | Horodatage UNIX de l'événement
 `app_group_id` | `null,`&nbsp;`string` | ID BSON du groupe d'applications auquel cet utilisateur appartient
-`activity_id` | `null,`&nbsp;`string` | Identifiant de la Live Activity
-`activity_attributes_type` | `null,`&nbsp;`string` | Type d'attribut de la Live Activity
-`push_to_start_token` | `null,`&nbsp;`string` | Jeton push to start de la Live Activity
-`update_token` | `null,`&nbsp;`string` | Jeton de mise à jour de la Live Activity
-`live_activity_event_type` | `null,`&nbsp;`string` | Type d'événement de la Live Activity. Un parmi ['start', 'update', 'end']
+`activity_id` | `null,`&nbsp;`string` | Identifiant de la en direct Activity
+`activity_attributes_type` | `null,`&nbsp;`string` | Type d'attribut de la en direct Activity
+`push_to_start_token` | `null,`&nbsp;`string` | Jeton push to start de la en direct Activity
+`update_token` | `null,`&nbsp;`string` | Jeton de mise à jour de la en direct Activity
+`live_activity_event_type` | `null,`&nbsp;`string` | Type d'événement de la en direct Activity. Un parmi ['start', 'update', 'end']
 `app_group_api_id` | `null,`&nbsp;`string` | ID API du groupe d'applications auquel cet utilisateur appartient
 `app_api_id` | `null,`&nbsp;`string` | ID API de l'application sur laquelle cet événement s'est produit
 `sf_created_at` | `timestamp`,&nbsp;`null` | Date à laquelle cet événement a été capté par le Snowpipe
@@ -3145,8 +3145,8 @@ Champ | Type | Description
 `dispatch_id` | `null,`&nbsp;`string` | ID de l'envoi auquel ce message appartient
 `sf_created_at` | `timestamp`,&nbsp;`null` | Date à laquelle cet événement a été collecté par le Snowpipe
 `send_id` | `null,`&nbsp;`string` | ID d'envoi du message auquel ce message appartient
-`flow_id` | `null,`&nbsp;`string` | ID unique du Flow dans le WhatsApp Manager. Présent si l'utilisateur répond à un WhatsApp Flow.
-`template_name` | `null,`&nbsp;`string` | [PII] Nom du modèle dans le WhatsApp Manager. Présent en cas d'envoi d'un message de type Template
+`flow_id` | `null,`&nbsp;`string` | ID unique du Flow dans le WhatsApp gestionnaire. Présent si l'utilisateur répond à un WhatsApp Flow.
+`template_name` | `null,`&nbsp;`string` | [PII] Nom du modèle dans le WhatsApp gestionnaire. Présent en cas d'envoi d'un message de type Template
 `message_id` | `null,`&nbsp;`string` | ID unique généré par Meta pour ce message
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWHATSAPPDELIVERYSHARED #USERSMESSAGESWHATSAPPDELIVERYSHARED" }
 
@@ -3179,8 +3179,8 @@ Champ | Type | Description
 `sf_created_at` | `timestamp`,&nbsp;`null` | Date à laquelle cet événement a été collecté par le Snowpipe
 `send_id` | `null,`&nbsp;`string` | ID d'envoi du message auquel ce message appartient
 `message_id` | `null,`&nbsp;`string` | ID unique généré par Meta pour ce message
-`template_name` | `null,`&nbsp;`string` | [PII] Nom du modèle dans le WhatsApp Manager. Présent en cas d'envoi d'un message de type Template
-`flow_id` | `null,`&nbsp;`string` | ID unique du Flow dans le WhatsApp Manager. Présent si l'utilisateur répond à un WhatsApp Flow.
+`template_name` | `null,`&nbsp;`string` | [PII] Nom du modèle dans le WhatsApp gestionnaire. Présent en cas d'envoi d'un message de type Template
+`flow_id` | `null,`&nbsp;`string` | ID unique du Flow dans le WhatsApp gestionnaire. Présent si l'utilisateur répond à un WhatsApp Flow.
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWHATSAPPFAILURESHARED #USERSMESSAGESWHATSAPPFAILURESHARED" }
 
 ### USERS_MESSAGES_WHATSAPP_INBOUNDRECEIVE_SHARED {#USERS_MESSAGES_WHATSAPP_INBOUNDRECEIVE_SHARED}
@@ -3213,7 +3213,7 @@ Champ | Type | Description
 `sf_created_at` | `timestamp`,&nbsp;`null` | Date à laquelle cet événement a été collecté par le Snowpipe
 `catalog_id` | `null,`&nbsp;`string` | ID du catalogue d'un produit si un produit est référencé dans le message entrant. Vide dans le cas contraire.
 `product_id` | `null,`&nbsp;`string` | ID du produit acheté
-`flow_id` | `null,`&nbsp;`string` | ID unique du Flow dans le WhatsApp Manager. Présent si l'utilisateur répond à un WhatsApp Flow.
+`flow_id` | `null,`&nbsp;`string` | ID unique du Flow dans le WhatsApp gestionnaire. Présent si l'utilisateur répond à un WhatsApp Flow.
 `flow_response_json` | `null,`&nbsp;`string` | [PII] Valeurs du formulaire avec lesquelles l'utilisateur a répondu. Présent si l'utilisateur répond à un WhatsApp Flow.
 `message_id` | `null,`&nbsp;`string` | ID unique généré par Meta pour ce message
 `in_reply_to` | `null,`&nbsp;`string` | Le message_id du message auquel ce message répondait
@@ -3245,9 +3245,9 @@ Champ | Type | Description
 `dispatch_id` | `null,`&nbsp;`string` | ID de l'envoi auquel ce message appartient
 `sf_created_at` | `timestamp`,&nbsp;`null` | Date à laquelle cet événement a été collecté par le Snowpipe
 `send_id` | `null,`&nbsp;`string` | ID d'envoi du message auquel ce message appartient
-`template_name` | `null,`&nbsp;`string` | [PII] Nom du modèle dans le WhatsApp Manager. Présent en cas d'envoi d'un message de type Template
+`template_name` | `null,`&nbsp;`string` | [PII] Nom du modèle dans le WhatsApp gestionnaire. Présent en cas d'envoi d'un message de type Template
 `message_id` | `null,`&nbsp;`string` | ID unique généré par Meta pour ce message
-`flow_id` | `null,`&nbsp;`string` | ID unique du Flow dans le WhatsApp Manager. Présent si l'utilisateur répond à un WhatsApp Flow.
+`flow_id` | `null,`&nbsp;`string` | ID unique du Flow dans le WhatsApp gestionnaire. Présent si l'utilisateur répond à un WhatsApp Flow.
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWHATSAPPREADSHARED #USERSMESSAGESWHATSAPPREADSHARED" }
 
 ### USERS_MESSAGES_WHATSAPP_SEND_SHARED {#USERS_MESSAGES_WHATSAPP_SEND_SHARED}
@@ -3277,8 +3277,8 @@ Champ | Type | Description
 `message_extras` | `null,`&nbsp;`string` | [PII] Chaîne JSON des paires clé-valeur balisées lors du rendu Liquid
 `sf_created_at` | `timestamp`,&nbsp;`null` | Date à laquelle cet événement a été collecté par le Snowpipe
 `send_id` | `null,`&nbsp;`string` | ID d'envoi du message auquel ce message appartient
-`flow_id` | `null,`&nbsp;`string` | ID unique du Flow dans le WhatsApp Manager. Présent si l'utilisateur répond à un WhatsApp Flow.
-`template_name` | `null,`&nbsp;`string` | [PII] Nom du modèle dans le WhatsApp Manager. Présent en cas d'envoi d'un message de type Template
+`flow_id` | `null,`&nbsp;`string` | ID unique du Flow dans le WhatsApp gestionnaire. Présent si l'utilisateur répond à un WhatsApp Flow.
+`template_name` | `null,`&nbsp;`string` | [PII] Nom du modèle dans le WhatsApp gestionnaire. Présent en cas d'envoi d'un message de type Template
 `message_id` | `null,`&nbsp;`string` | ID unique généré par Meta pour ce message
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWHATSAPPSENDSHARED #USERSMESSAGESWHATSAPPSENDSHARED" }
 

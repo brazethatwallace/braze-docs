@@ -1,5 +1,5 @@
 ---
-nav_title: Google tag manager
+nav_title: Google Tag Manager
 article_title: Google Tag Manager with the Braze SDK
 platform:
   - Android

@@ -20,7 +20,7 @@ WhatsApp 사용 가능 여부는 Braze 패키지에 따라 다릅니다. 시작�
 
 시작하기 전에 다음 사항을 준비하세요:
 
-- Meta Business Manager 계정 및 WhatsApp Business 계정
+- Meta Business 매니저 계정 및 WhatsApp Business 계정
 - [Cloud API](https://developers.facebook.com/docs/whatsapp/cloud-api/phone-numbers) 요구 사항을 충족하는 WhatsApp 전화번호
 
 전체 안내는 [WhatsApp 설정]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup)을 참조하세요.
@@ -40,7 +40,7 @@ WhatsApp 사용 가능 여부는 Braze 패키지에 따라 다릅니다. 시작�
 
 ### WhatsApp을 Braze에 연결하려면 어떻게 하나요? {#how-do-i-connect-whatsapp-to-braze}
 
-Meta Business Manager 계정과 WhatsApp Business 계정을 생성한 다음, [WhatsApp 설정]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup)의 단계를 완료하세요.
+Meta Business 매니저 계정과 WhatsApp Business 계정을 생성한 다음, [WhatsApp 설정]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup)의 단계를 완료하세요.
 
 ### WhatsApp에서 어떤 메시지 유형을 보낼 수 있나요? {#what-message-types-can-i-send-on-whatsapp}
 

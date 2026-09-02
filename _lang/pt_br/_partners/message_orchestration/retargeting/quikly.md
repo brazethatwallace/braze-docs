@@ -25,7 +25,7 @@ A parceria Braze e Quikly permite que você acelere as conversões em eventos de
 | Conta Quikly | É necessário ter uma conta de parceiro da marca [Quikly](https://www.quikly.com) para aproveitar essa parceria. |
 | Chave da API REST da Braze | Uma chave da API REST da Braze com as permissões `users.track`, `subscription.status.set`, `users.export.ids` e `subscription.status.get`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
 | Endpoint REST da Braze | [Sua URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
-| Chave de API da Quikly (opcional) | Uma chave de API da Quikly fornecida por seu gerente de sucesso do cliente (somente webhook). |
+| Chave de API da Quikly (opcional) | Uma chave de API da Quikly fornecida por seu CSM (somente webhook). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
@@ -88,7 +88,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ### Inscrições para SMS {#sms-subscriptions}
 
-As ativações da Quikly podem coletar números de telefones celulares diretamente dos clientes e iniciar uma nova inscrição por SMS. Para ativar essa integração, forneça ao gerente de sucesso do cliente da Quikly o `subscription_group_id`. É possível acessar o `subscription_group_id` de um grupo de inscrições navegando até a página **Grupo de inscrições**.
+As ativações da Quikly podem coletar números de telefones celulares diretamente dos clientes e iniciar uma nova inscrição por SMS. Para ativar essa integração, forneça ao CSM da Quikly o `subscription_group_id`. É possível acessar o `subscription_group_id` de um grupo de inscrições navegando até a página **Grupo de inscrições**.
 
 A Quikly realizará uma pesquisa de inscrição usando o número de telefone do cliente e o creditará automaticamente na ativação se já existir uma inscrição por SMS. Caso contrário, uma nova inscrição será iniciada e, depois que o status da inscrição for verificado, o cliente receberá o crédito.
 
@@ -165,7 +165,7 @@ Selecione ***JSON key/value pairs*** e adicione os seguintes pares:
 
 ### Pré-visualize sua solicitação {#preview-your-request}
 
-Pré-visualize a solicitação no painel **Preview** ou navegue até a guia `Test`, onde é possível selecionar um usuário aleatório, um usuário existente ou personalizar o seu próprio para testar o webhook.
+Pré-visualize a solicitação no painel **prévia** ou navegue até a guia `Test`, onde é possível selecionar um usuário aleatório, um usuário existente ou personalizar o seu próprio para testar o webhook.
 
 {% alert important %}
 Lembre-se de salvar seu modelo antes de sair da página! <br>Os modelos de webhook atualizados podem ser encontrados na lista **Modelos de webhooks salvos** ao criar uma nova [Campaign de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook).
@@ -175,4 +175,4 @@ Lembre-se de salvar seu modelo antes de sair da página! <br>Os modelos de webho
 {% endtabs %}
 
 ## Suporte {#support}
-Entre em contato com o gerente de sucesso do cliente da Quikly em caso de dúvidas.
+Entre em contato com o CSM da Quikly em caso de dúvidas.

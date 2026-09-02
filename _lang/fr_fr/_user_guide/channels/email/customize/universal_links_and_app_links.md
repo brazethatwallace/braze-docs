@@ -359,7 +359,7 @@ Vous pouvez désactiver le suivi des clics pour des liens spécifiques en ajouta
 
 #### SendGrid
 
-Si votre fournisseur de services d'e-mailing est SendGrid, utilisez le code HTML `clicktracking=off` comme ceci :
+Si votre fournisseur de services d'e-mail marketing est SendGrid, utilisez le code HTML `clicktracking=off` comme ceci :
 
 ```HTML
 <a clicktracking=off href="[INSERT https LINK HERE]">click here</a>
@@ -367,7 +367,7 @@ Si votre fournisseur de services d'e-mailing est SendGrid, utilisez le code HTML
 
 #### SparkPost
 
-Si votre fournisseur de services d'e-mailing est SparkPost, utilisez le code HTML `data-msys-clicktrack="0"` comme ceci :
+Si votre fournisseur de services d'e-mail marketing est SparkPost, utilisez le code HTML `data-msys-clicktrack="0"` comme ceci :
 
 ```HTML
 <a data-msys-clicktrack="0" href="[INSERT https LINK HERE]">click here</a>
@@ -375,7 +375,7 @@ Si votre fournisseur de services d'e-mailing est SparkPost, utilisez le code HTM
 
 #### Amazon SES
 
-Si votre fournisseur de services d'e-mailing est Amazon SES, utilisez le code HTML `ses:no-track` comme ceci :
+Si votre fournisseur de services d'e-mail marketing est Amazon SES, utilisez le code HTML `ses:no-track` comme ceci :
 
 ```HTML
 <a ses:no-track href="[INSERT https LINK HERE]">click here</a>
@@ -455,10 +455,10 @@ Limitez ces schémas aux URL qui doivent ouvrir l'application. Pour SendGrid, fa
 
 #### Le domaine de suivi ne peut pas servir les fichiers .well-known {#tracking-domain-cant-serve-well-known-files}
 
-Dans certains cas, votre domaine de suivi des clics peut ne pas être en mesure d'héberger les fichiers `.well-known` requis en raison des limitations du fournisseur de services d'e-mailing ou de contraintes d'infrastructure. Si vous ne pouvez pas héberger le fichier AASA ou Digital Asset Links sur votre domaine de suivi, envisagez les options suivantes :
+Dans certains cas, votre domaine de suivi des clics peut ne pas être en mesure d'héberger les fichiers `.well-known` requis en raison des limitations du fournisseur de services d'e-mail marketing ou de contraintes d'infrastructure. Si vous ne pouvez pas héberger le fichier AASA ou Digital Asset Links sur votre domaine de suivi, envisagez les options suivantes :
 
 - **Désactiver sélectivement le suivi des clics sur les URL de deep link :** Vous pouvez désactiver le suivi des clics pour des universal links spécifiques afin qu'ils renvoient directement vers votre domaine principal (où vous pouvez héberger le fichier AASA ou Digital Asset Links). Notez que cette méthode peut entraîner une perte de données analytiques de clics pour ces liens spécifiques. Consultez [Désactiver le suivi des clics lien par lien](#turning-off-click-tracking-on-a-link-to-link-basis) pour les instructions.
-- **Placer un CDN devant le sous-domaine de suivi :** Si vous avez besoin d'une couverture complète du suivi des clics et de la création de liens profonds, vous pouvez placer un CDN (tel que Cloudflare ou CloudFront) devant votre sous-domaine de suivi. Configurez le CDN pour servir les fichiers `.well-known` localement et acheminer tout le reste du trafic vers votre fournisseur de services d'e-mailing. Cette approche est plus complexe mais vous donne un contrôle total sur le suivi des clics et les universal links.
+- **Placer un CDN devant le sous-domaine de suivi :** Si vous avez besoin d'une couverture complète du suivi des clics et de la création de liens profonds, vous pouvez placer un CDN (tel que Cloudflare ou CloudFront) devant votre sous-domaine de suivi. Configurez le CDN pour servir les fichiers `.well-known` localement et acheminer tout le reste du trafic vers votre fournisseur de services d'e-mail marketing. Cette approche est plus complexe mais vous donne un contrôle total sur le suivi des clics et les universal links.
 
 #### Les liens fonctionnent dans un espace de travail mais pas dans un autre {#links-working-in-one-workspace-but-not-another}
 

@@ -30,8 +30,8 @@ Wenn Sie an den Beta-Tests für Meta Work Accounts teilnehmen, stellen Sie siche
 
 | Voraussetzung | Beschreibung |
 | ----------- | ----------- |
-| [Facebook Business Manager](https://www.facebook.com/business/help/113163272211510?id=180505742745347) | Ein zentrales Tool zur Verwaltung der Facebook-Assets Ihrer Marke (zum Beispiel Werbekonten, Seiten, Apps). |
-| [Facebook-Werbekonto](https://www.facebook.com/business/help/910137316041095?id=420299598837059) | Ein aktives Facebook-Werbekonto, das mit dem Business Manager Ihrer Marke verknüpft ist und das Sie mit Custom Audiences von Braze verwenden möchten.<br><br>Stellen Sie sicher, dass Ihr Facebook Business Manager-Administrator Ihnen Administratorberechtigungen für die Facebook-Werbekonten erteilt hat, die Sie mit Braze verwenden möchten, und dass Sie die Geschäftsbedingungen Ihres Werbekontos akzeptiert haben. Andernfalls können Sie in Braze auf keine Facebook-Werbekonten zugreifen. |
+| [Facebook Business Manager:in](https://www.facebook.com/business/help/113163272211510?id=180505742745347) | Ein zentrales Tool zur Verwaltung der Facebook-Assets Ihrer Marke (zum Beispiel Werbekonten, Seiten, Apps). |
+| [Facebook-Werbekonto](https://www.facebook.com/business/help/910137316041095?id=420299598837059) | Ein aktives Facebook-Werbekonto, das mit dem Business Manager:in Ihrer Marke verknüpft ist und das Sie mit Custom Audiences von Braze verwenden möchten.<br><br>Stellen Sie sicher, dass Ihr Facebook Business Manager:in-Administrator Ihnen Administratorberechtigungen für die Facebook-Werbekonten erteilt hat, die Sie mit Braze verwenden möchten, und dass Sie die Geschäftsbedingungen Ihres Werbekontos akzeptiert haben. Andernfalls können Sie in Braze auf keine Facebook-Werbekonten zugreifen. |
 | [Facebook Custom Audiences-Nutzungsbedingungen](https://www.facebook.com/ads/manage/customaudiences/tos.php) | Sie müssen die Custom Audiences-Nutzungsbedingungen von Facebook für die Facebook-Werbekonten akzeptieren, die Sie mit Braze verwenden möchten. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
@@ -49,7 +49,7 @@ Wenn Sie an den Beta-Tests für Meta Work Accounts teilnehmen, stellen Sie siche
 
 {: start="4"}
 4. Nachdem Braze mit Ihrem Facebook-Konto verknüpft ist, wählen Sie aus, welche Werbekonten Sie in Ihrem Braze-Workspace synchronisieren möchten. <br><br>![Eine Liste der verfügbaren Werbekonten, die Sie mit Facebook verbinden können.]({% image_buster /assets/img/fb/afb_4.png %}){: style="max-width:70%;"}<br><br> Nachdem Sie die Verbindung hergestellt haben, gelangen Sie zurück zur Partnerseite, wo Sie sehen können, welche Konten verbunden sind, und bestehende Konten trennen können. <br><br> ![Eine aktualisierte Version der Technologie-Partnerseite von Facebook, auf der die erfolgreich verbundenen Werbekonten angezeigt werden.]({% image_buster /assets/img/fb/afb_5.png %}){: style="max-width:70%;"}<br>
-<br> Ihre Facebook-Verbindung wird auf der Ebene des Braze-Workspace angewendet. Wenn Ihr Facebook-Administrator Sie aus Ihrem Facebook Business Manager oder dem Zugriff auf die verbundenen Facebook-Konten entfernt, erkennt Braze ein ungültiges Token. Infolgedessen zeigen Ihre aktiven Canvases, die Facebook-Audience-Schritte verwenden, Fehler an, und Braze kann keine Nutzer:innen synchronisieren.
+<br> Ihre Facebook-Verbindung wird auf der Ebene des Braze-Workspace angewendet. Wenn Ihr Facebook-Administrator Sie aus Ihrem Facebook Business Manager:in oder dem Zugriff auf die verbundenen Facebook-Konten entfernt, erkennt Braze ein ungültiges Token. Infolgedessen zeigen Ihre aktiven Canvases, die Facebook-Audience-Schritte verwenden, Fehler an, und Braze kann keine Nutzer:innen synchronisieren.
 
 {% alert important %}
 Für Kund:innen, die bereits den Facebook-App-Überprüfungsprozess für [Ads Management](https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management) und [Ads Management Standard Access](https://developers.facebook.com/docs/marketing-api/access#standard) durchlaufen haben, ist Ihr System User Token für den Facebook-Audience-Schritt weiterhin gültig. Sie können das Facebook System User Token nicht über die Facebook-Partnerseite bearbeiten oder widerrufen. Stattdessen können Sie Ihr Facebook-Konto verbinden, um Ihr Facebook System User Token in Ihrem Braze-Workspace zu ersetzen.
@@ -76,7 +76,7 @@ Sie können in einem einzelnen Export nur ein Nutzer:innen-Feld auswählen. Wenn
 
 {: start="4"}
 4. Nachdem Sie das Nutzer:innen-Feld ausgewählt haben, wählen Sie **Export Segment**. Wie beim CSV-Export erhalten Sie eine E-Mail, wenn der Export des Segments nach Facebook abgeschlossen ist.
-5. Sehen Sie sich die Custom Audience im [Facebook Ads Manager](https://www.facebook.com/ads/manager/audiences/manage/) an.
+5. Sehen Sie sich die Custom Audience im [Facebook Ads Manager:in](https://www.facebook.com/ads/manager/audiences/manage/) an.
 
 {% alert important %}
 Aus Datenschutzgründen erlaubt Facebook es Ihnen nicht, Folgendes zu sehen:

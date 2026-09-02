@@ -116,7 +116,7 @@ Count
 <span class="calculation-line">Calcul : (Envois) - (Rebonds) </span>
 
 {% alert note %}
-Pour l'état **reçu** au niveau de l'utilisateur et la logique associée (comme la limite de fréquence), Braze marque généralement un utilisateur lorsque l'envoi est traité et transmis pour livraison, et non lorsque le fournisseur de services d'e-mailing (ESP) confirme la livraison finale dans la boîte de réception. Cela évite les décalages temporels entre la confirmation de l'ESP et les règles internes au produit. Les résultats peuvent différer des rapports de livraison de l'ESP ou de tiers.
+Pour l'état **reçu** au niveau de l'utilisateur et la logique associée (comme la limite de fréquence), Braze marque généralement un utilisateur lorsque l'envoi est traité et transmis pour livraison, et non lorsque le fournisseur de services d'e-mail marketing (fournisseur de services d'e-mailing) confirme la livraison finale dans la boîte de réception. Cela évite les décalages temporels entre la confirmation de l'fournisseur de services d'e-mailing et les règles internes au produit. Les résultats peuvent différer des rapports de livraison de l'fournisseur de services d'e-mailing ou de tiers.
 {% endalert %}
 
 {% endapi %}
@@ -150,7 +150,7 @@ Pour les e-mails, le *% de rebonds* ou le *taux de rebond* correspond au pourcen
 Un rebond d'e-mail pour les clients utilisant SendGrid comprend les échecs d'envoi définitifs, le spam (`spam_report_drops`) et les e-mails envoyés à des adresses invalides (`invalid_emails`).
 
 {% alert note %}
-Dans [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), les reports temporaires de l'ESP sont souvent représentés comme des échecs provisoires d'envoi. Les outils de livrabilité (par exemple, les rapports natifs de SendGrid ou les modèles Looker) peuvent utiliser les reports pour la même situation. Les reports sont généralement temporaires et le courrier est souvent livré après de nouvelles tentatives. Après des tentatives prolongées (jusqu'à environ 72 heures pour les échecs provisoires d'envoi dans l'analyse des campagnes), un message peut être considéré comme non livrable selon votre ESP. Les événements e-mail de Currents sont en ajout uniquement : un échec provisoire d'envoi enregistré n'est pas supprimé ultérieurement si le message finit par être livré.
+Dans [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), les reports temporaires de l'fournisseur de services d'e-mailing sont souvent représentés comme des échecs provisoires d'envoi. Les outils de livrabilité (par exemple, les rapports natifs de SendGrid ou les modèles Looker) peuvent utiliser les reports pour la même situation. Les reports sont généralement temporaires et le courrier est souvent livré après de nouvelles tentatives. Après des tentatives prolongées (jusqu'à environ 72 heures pour les échecs provisoires d'envoi dans l'analyse des campagnes), un message peut être considéré comme non livrable selon votre fournisseur de services d'e-mailing. Les événements e-mail de Currents sont en ajout uniquement : un échec provisoire d'envoi enregistré n'est pas supprimé ultérieurement si le message finit par être livré.
 {% endalert %}
 
 {::nomarkdown}
@@ -249,7 +249,7 @@ Count, Percentage
 Count, Percentage
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Le suivi s'effectue sur une période de sept jours pour les e-mails et est mesuré par <a href='/docs/user_guide/messaging/messaging_fundamentals/dispatch_id'>dispatch_id</a> (une seule tentative d'envoi). Cela inclut les clics sur les liens de désabonnement fournis par Braze. Les URL de désabonnement personnalisées suivies sont également comptabilisées dans les *Clics uniques* lorsqu'un utilisateur sélectionne le lien. Après sept jours, un nouveau clic unique est comptabilisé pour le même utilisateur s'il clique à nouveau. Les indicateurs d'engagement e-mail du tableau de bord, y compris les _Clics uniques_, sont calculés dans Braze et ne sont pas réconciliés à partir des rapports agrégés de l'ESP. Pour faire correspondre les chiffres du tableau de bord à partir de Currents, filtrez les événements où `is_unique` est `true`.
+{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Le suivi s'effectue sur une période de sept jours pour les e-mails et est mesuré par <a href='/docs/user_guide/messaging/messaging_fundamentals/dispatch_id'>dispatch_id</a> (une seule tentative d'envoi). Cela inclut les clics sur les liens de désabonnement fournis par Braze. Les URL de désabonnement personnalisées suivies sont également comptabilisées dans les *Clics uniques* lorsqu'un utilisateur sélectionne le lien. Après sept jours, un nouveau clic unique est comptabilisé pour le même utilisateur s'il clique à nouveau. Les indicateurs d'engagement e-mail du tableau de bord, y compris les _Clics uniques_, sont calculés dans Braze et ne sont pas réconciliés à partir des rapports agrégés de l'fournisseur de services d'e-mailing. Pour faire correspondre les chiffres du tableau de bord à partir de Currents, filtrez les événements où `is_unique` est `true`.
 
 {::nomarkdown}
 <span class="calculation-line">

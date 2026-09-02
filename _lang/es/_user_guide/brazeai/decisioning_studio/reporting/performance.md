@@ -39,48 +39,48 @@ Estas selecciones determinan qué días se incluyen, qué grupos se comparan, c�
 Cambiar la configuración de agregación (como promedio móvil de 7 días) solo afecta la visualización del gráfico. No cambia los datos almacenados.
 {% endalert %}
 
-Si no puedes seleccionar una fecha reciente en el selector de fechas, es probable que esa fecha esté deshabilitada debido a retrasos configurados en los datos. Hay dos tipos de retrasos que pueden limitar la disponibilidad de fechas:
+Si no puedes seleccionar una fecha reciente en el SELECTOR de fechas, es probable que esa fecha esté deshabilitada debido a retrasos configurados en los datos. Hay dos tipos de retrasos que pueden limitar la disponibilidad de fechas:
 
 - **Retrasos en el pipeline de datos:** El tiempo que toma ingerir y procesar datos de tu CDP en Decisioning Studio. Esto asegura que los informes solo muestren datos completos y confiables.
 - **Retrasos en la activación de recomendaciones:** El tiempo entre el momento en que el motor de Decisioning Studio predice una recomendación y el momento en que la activas en tus campañas. Los informes no incluirán días en los que las recomendaciones aún no se hayan activado.
 
-Estos retrasos se configuran para tu caso de uso. Si necesitas entender tu ventana de informes específica, ponte en contacto con tu AI Success Manager.
+Estos retrasos se configuran para tu caso de uso. Si necesitas entender tu ventana de informes específica, ponte en contacto con tu AI Success Administrador.
 
-## Tarjetas de KPI {#kpi-cards}
+## Tarjetas de indicador clave de rendimiento {#kpi-cards}
 
-Las tarjetas de KPI en el lado principal del informe muestran los indicadores clave de rendimiento configurados para tu caso de uso, como:
+Las tarjetas de indicador clave de rendimiento en el lado principal del informe muestran los indicadores clave de rendimiento configurados para tu caso de uso, como:
 
 - LTV incremental / Cliente
 - Conversiones / Cliente
 - Cancelaciones de suscripción / Cliente
 
-Cada tarjeta representa el KPI calculado a lo largo de todo el rango de fechas seleccionado. Este es un valor del período completo, no un promedio diario. Por ejemplo, si ves "LTV incremental / Cliente = 3.192", eso refleja el rendimiento a lo largo de toda la ventana seleccionada.
+Cada tarjeta representa el indicador clave de rendimiento calculado a lo largo de todo el rango de fechas seleccionado. Este es un valor del período completo, no un promedio diario. Por ejemplo, si ves "LTV incremental / Cliente = 3.192", eso refleja el rendimiento a lo largo de toda la ventana seleccionada.
 
 ![Informe de rendimiento que muestra las tarjetas de resumen de KPI en el lado izquierdo, incluyendo métricas como LTV incremental / Cliente, Conversiones / Cliente y Cancelaciones de suscripción / Cliente.]({% image_buster /assets/img/decisioning_studio/reporting_performance_kpi_cards.png %})
 
-## Gráfico de tendencia de KPI {#kpi-trend-chart}
+## Gráfico de tendencia de indicador clave de rendimiento {#kpi-trend-chart}
 
-Usa el gráfico para entender tendencias a lo largo del tiempo, cambios en el rendimiento y efectos de estacionalidad o temporalidad. Usa la tarjeta de KPI para entender el impacto general a lo largo de toda la ventana. El gráfico central muestra el mismo KPI que la tarjeta superior, pero calculado por día. Cada punto representa el valor del KPI de ese día. Si tienes seleccionado el promedio móvil de 7 días, cada punto refleja un promedio móvil, lo que suaviza la volatilidad diaria.
+Usa el gráfico para entender tendencias a lo largo del tiempo, cambios en el rendimiento y efectos de estacionalidad o temporalidad. Usa la tarjeta de indicador clave de rendimiento para entender el impacto general a lo largo de toda la ventana. El gráfico central muestra el mismo indicador clave de rendimiento que la tarjeta superior, pero calculado por día. Cada punto representa el valor del indicador clave de rendimiento de ese día. Si tienes seleccionado el promedio móvil de 7 días, cada punto refleja un promedio móvil, lo que suaviza la volatilidad diaria.
 
 ![Informe de rendimiento que muestra el gráfico de tendencia central titulado LTV incremental / Cliente, con líneas para Decisioning Studio y el grupo Business as Usual BAU trazadas a lo largo del tiempo.]({% image_buster /assets/img/decisioning_studio/reporting_performance_trend_chart.png %})
 
-El gráfico y la tarjeta de KPI están diseñados para mostrar cosas diferentes. El gráfico muestra el rendimiento diario ("¿Cómo fue tu rendimiento cada día?"). La tarjeta de KPI muestra el rendimiento del período completo ("¿Cómo fue tu rendimiento a lo largo de todo el período?"). Para métricas de tasa, responden preguntas diferentes.
+El gráfico y la tarjeta de indicador clave de rendimiento están diseñados para mostrar cosas diferentes. El gráfico muestra el rendimiento diario ("¿Cómo fue tu rendimiento cada día?"). La tarjeta de indicador clave de rendimiento muestra el rendimiento del período completo ("¿Cómo fue tu rendimiento a lo largo de todo el período?"). Para métricas de tasa, responden preguntas diferentes.
 
 Considera el siguiente ejemplo con estas tasas de conversión:
 
 - Día 1: 10 conversiones de 100 clientes = 10%
 - Día 2: 2 conversiones de 10 clientes = 20%
 
-El gráfico muestra ambos. La tarjeta de KPI recalcula combinando ambos días (12 conversiones / 110 clientes = 10.9%), no un promedio de 10% y 20%.
+El gráfico muestra ambos. La tarjeta de indicador clave de rendimiento recalcula combinando ambos días (12 conversiones / 110 clientes = 10.9%), no un promedio de 10% y 20%.
 
 ## Gráfico de uplift {#uplift-chart}
 
-El gráfico de uplift muestra la diferencia porcentual entre tus grupos de comparación. Se calcula como: **(Grupo primario - Grupo de comparación) / Grupo de comparación**. Esto se calcula dinámicamente basándose en los valores del gráfico de KPI.
+El gráfico de uplift muestra la diferencia porcentual entre tus grupos de comparación. Se calcula como: **(Grupo primario - Grupo de comparación) / Grupo de comparación**. Esto se calcula dinámicamente basándose en los valores del gráfico de indicador clave de rendimiento.
 
 ![Informe de rendimiento que muestra el gráfico de porcentaje de uplift en el lado derecho, mostrando la diferencia porcentual entre Decisioning Studio y el grupo BAU a lo largo del tiempo.]({% image_buster /assets/img/decisioning_studio/reporting_performance_uplift.png %})
 
 {% alert important %}
-El uplift no se almacena. Se calcula a partir de los resultados de KPI. Si el uplift cambia, es porque el KPI subyacente cambió.
+El uplift no se almacena. Se calcula a partir de los resultados de indicador clave de rendimiento. Si el uplift cambia, es porque el indicador clave de rendimiento subyacente cambió.
 {% endalert %}
 
 ## Tabla agregada {#aggregate-table}
@@ -89,26 +89,26 @@ La tabla en la parte inferior del informe muestra los totales brutos a lo largo 
 
 - LTV incremental total
 - Total de clientes
-- Valor de KPI derivado
+- Valor de indicador clave de rendimiento derivado
 
 Esta sección refuerza la relación entre las diferentes vistas:
 
-- La tarjeta de KPI es un cálculo a nivel de ventana.
+- La tarjeta de indicador clave de rendimiento es un cálculo a nivel de ventana.
 - El gráfico es un cálculo diario.
-- La tabla muestra los totales subyacentes que impulsan el KPI.
+- La tabla muestra los totales subyacentes que impulsan el indicador clave de rendimiento.
 
 ![Informe de rendimiento que muestra la tabla agregada en la parte inferior, con columnas para Grupo, LTV incremental, Cliente y LTV incremental / Cliente para cada grupo de comparación.]({% image_buster /assets/img/decisioning_studio/reporting_performance_aggregate_table.png %})
 
 ## Árbol de factores {#driver-tree}
 
-El árbol de factores descompone un KPI en sus factores componentes. Por ejemplo, LTV incremental / Cliente puede descomponerse en:
+El árbol de factores descompone un indicador clave de rendimiento en sus factores componentes. Por ejemplo, LTV incremental / Cliente puede descomponerse en:
 
 - Conversiones / Cliente
 - Ingresos por conversión
 
 ![Informe de rendimiento en vista de árbol de factores, mostrando un diagrama jerárquico que descompone KPIs como LTV incremental / Cliente en factores componentes como Conversiones / Cliente y Clics / Cliente.]({% image_buster /assets/img/decisioning_studio/reporting_performance_driver_tree.png %})
 
-Los árboles de factores usan las mismas definiciones de KPI que el resto del panel y no introducen cálculos nuevos. Ayudan a explicar qué está impulsando el rendimiento. Si una definición de KPI cambia, los gráficos, tarjetas, uplift y árboles de factores se actualizan juntos.
+Los árboles de factores usan las mismas definiciones de indicador clave de rendimiento que el resto del panel y no introducen cálculos nuevos. Ayudan a explicar qué está impulsando el rendimiento. Si una definición de indicador clave de rendimiento cambia, los gráficos, tarjetas, uplift y árboles de factores se actualizan juntos.
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 
@@ -124,13 +124,13 @@ Los KPIs para casos de uso Go se establecen automáticamente y están estandariz
 
 ### ¿Por qué no puedo seleccionar ciertas fechas recientes? {#why-cant-i-select-certain-recent-dates}
 
-El selector de fechas puede no permitir seleccionar los días más recientes. Esto es intencional. Los informes pueden aplicar las siguientes restricciones para evitar que aparezcan datos incompletos o inestables:
+El SELECTOR de fechas puede no permitir seleccionar los días más recientes. Esto es intencional. Los informes pueden aplicar las siguientes restricciones para evitar que aparezcan datos incompletos o inestables:
 
 - **Retrasos en el pipeline de datos:** Configurados para tener en cuenta el tiempo que toma ingerir y procesar datos de tu CDP. Esto asegura que todos los datos de un día determinado estén completos antes de que ese día aparezca en los informes.
 - **Retrasos en la activación de recomendaciones:** Configurados para tener en cuenta el desfase entre el momento en que se generan las recomendaciones y el momento en que se activan en tus campañas. Los días en los que las recomendaciones aún no se hayan activado no aparecerán en los informes.
 - **Fechas explícitamente excluidas:** Fechas que has excluido manualmente en la configuración de informes.
 
-Si necesitas claridad sobre tu ventana de informes específica o las reglas de disponibilidad de datos, ponte en contacto con tu AI Success Manager.
+Si necesitas claridad sobre tu ventana de informes específica o las reglas de disponibilidad de datos, ponte en contacto con tu AI Success Administrador.
 
 ### ¿Cuál es la diferencia entre KPIs de "volumen" y de "tasa"? {#whats-the-difference-between-volume-and-rate-kpis}
 
@@ -139,7 +139,7 @@ Los KPIs generalmente se dividen en dos categorías:
 - **Métricas de volumen** (como conversiones totales, ingresos totales o clics totales) responden: "¿Cuánto ocurrió?"
 - **Métricas de tasa** (como tasa de conversión, ingresos por usuario o tasa de click-through) responden: "¿Qué tan eficientemente ocurrió?"
 
-El volumen y la tasa cuentan historias diferentes. Una campaña puede generar mayor volumen pero menor eficiencia, o viceversa. Al interpretar los resultados, siempre confirma qué tipo de KPI estás viendo.
+El volumen y la tasa cuentan historias diferentes. Una campaña puede generar mayor volumen pero menor eficiencia, o viceversa. Al interpretar los resultados, siempre confirma qué tipo de indicador clave de rendimiento estás viendo.
 
 ### ¿Qué significa "único" (o "distinto")? {#what-does-unique-or-distinct-mean}
 
@@ -147,7 +147,7 @@ Cuando una métrica se define como "única", los individuos se deduplican usando
 
 "Único por día" es diferente de "único a lo largo de todo el rango de fechas". Si ves conteos únicos diarios sumados a lo largo de múltiples días, el mismo individuo puede aparecer más de una vez (una vez por cada día en que interactuó). Eso es intencional.
 
-Si necesitas entender cómo se definió la unicidad en tu configuración, ponte en contacto con tu AI Success Manager.
+Si necesitas entender cómo se definió la unicidad en tu configuración, ponte en contacto con tu AI Success Administrador.
 
 ### ¿Por qué este informe podría diferir de otro sistema? {#why-might-this-report-differ-from-another-system}
 
@@ -163,8 +163,8 @@ Si tu informe de rendimiento no coincide con otro panel (como un ESP, herramient
 
 El gráfico y la tarjeta de resumen responden preguntas diferentes:
 
-- **Gráfico:** Muestra el rendimiento diario. Cada punto refleja el KPI calculado para ese día individual.
-- **Tarjeta de resumen:** Muestra el rendimiento del período completo. Recalcula el KPI a lo largo de todo el rango de fechas seleccionado.
+- **Gráfico:** Muestra el rendimiento diario. Cada punto refleja el indicador clave de rendimiento calculado para ese día individual.
+- **Tarjeta de resumen:** Muestra el rendimiento del período completo. Recalcula el indicador clave de rendimiento a lo largo de todo el rango de fechas seleccionado.
 
 Usa el gráfico para entender la volatilidad día a día, los efectos de temporalidad y los cambios de rendimiento a lo largo del tiempo. Usa la tarjeta de resumen para entender el impacto general a lo largo del período.
 
@@ -186,4 +186,4 @@ El gráfico muestra 3 en el Día 1 y 3 en el Día 2. A lo largo de ambos días, 
 
 Esta configuración responde: "¿Cuántas interacciones únicas de clientes ocurrieron a lo largo de los días?" No responde: "¿Cuántos clientes individuales interactuaron al menos una vez a lo largo de todo el período?"
 
-Si tu objetivo es la unicidad a nivel de ventana (individuos únicos a lo largo de toda la campaña o trimestre), ese es un enfoque de modelado diferente. Ponte en contacto con tu AI Success Manager para obtener orientación sobre cómo diseñarlo.
+Si tu objetivo es la unicidad a nivel de ventana (individuos únicos a lo largo de toda la campaña o trimestre), ese es un enfoque de modelado diferente. Ponte en contacto con tu AI Success Administrador para obtener orientación sobre cómo diseñarlo.

@@ -118,4 +118,4 @@ También puedes ver la configuración del experimento en cuanto a entrega, audie
 
 ### Rendimiento de los experimentos de conmutadores de características {#feature-flag-experiment-performance}
 
-**Feature Flags Experiments Performance** muestra el rendimiento de tu mensaje en varias dimensiones. Las métricas específicas que veas variarán en función del canal de mensajería elegido y de si estás ejecutando una prueba multivariante. Para ver los valores del conmutador de características asociados con cada variante, selecciona **Preview**.
+**Feature Flags Experiments Performance** muestra el rendimiento de tu mensaje en varias dimensiones. Las métricas específicas que veas variarán en función del canal de mensajería elegido y de si estás ejecutando una prueba multivariante. Para ver los valores del conmutador de características asociados con cada variante, selecciona **vista previa**.

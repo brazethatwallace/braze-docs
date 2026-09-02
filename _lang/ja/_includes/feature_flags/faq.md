@@ -10,7 +10,7 @@ Brazeは、iOS、Android、Webプラットフォームで以下のSDKバージ�
 
 {% sdk_min_versions swift:5.9.0 android:24.2.0 web:4.6.0 unity:4.1.0 cordova:5.0.0 reactnative:4.1.0 flutter:6.0.0 roku:1.0.0 %}
 
-他のプラットフォームでのサポートが必要ですか？チームまでメールでお問い合わせください：[feature-flags-feedback@braze.com](mailto:feature-flags-feedback@braze.com)。
+他のプラットフォームでのサポートが必要ですか？チームまでメールでお問い合わせください：[feature-flags-フィードバック@braze.com](mailto:feature-flags-feedback@braze.com)。
 
 ### フィーチャーフラグの実装にはどの程度の作業が必要ですか？ {#level-of-effort}
 
@@ -121,4 +121,4 @@ if (braze.getFeatureFlag("new_shopping_cart")?.enabled == true) {
 
 ## その他のご質問がある場合 {#additional-questions}
 
-ご質問やフィードバックがありましたら、チームまでメールでお問い合わせください：[feature-flags-feedback@braze.com](mailto:feature-flags-feedback@braze.com)
+ご質問やフィードバックがありましたら、チームまでメールでお問い合わせください：[feature-flags-フィードバック@braze.com](mailto:feature-flags-feedback@braze.com)

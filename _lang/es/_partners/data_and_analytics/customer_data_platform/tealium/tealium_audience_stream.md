@@ -15,7 +15,7 @@ search_tag: Partner
 La integración de Braze y Tealium aprovecha los perfiles de visitantes de AudienceStream. Los comportamientos compartidos segmentan estos perfiles para crear conjuntos de visitantes con rasgos comunes, conocidos como audiencias. Estas audiencias pueden ayudar a alimentar tu stack tecnológico de marketing en tiempo real mediante conectores.
 
 {% alert important %}
-Tealium AudienceStreams y EventStreams ofrecen acciones de conector por lotes y no por lotes. El conector no por lotes debe utilizarse cuando las solicitudes en tiempo real sean importantes para el caso de uso y no haya preocupación por alcanzar las especificaciones del límite de velocidad de la API de Braze. Ponte en contacto con el [soporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) de Braze o con tu administrador de éxito de cliente si tienes alguna pregunta.
+Tealium AudienceStreams y EventStreams ofrecen acciones de conector por lotes y no por lotes. El conector no por lotes debe utilizarse cuando las solicitudes en tiempo real sean importantes para el caso de uso y no haya preocupación por alcanzar las especificaciones del límite de velocidad de la API de Braze. Ponte en contacto con el [soporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) de Braze o con tu CSM si tienes alguna pregunta.
 {% endalert %}
 
 ## Requisitos previos {#prerequisites}

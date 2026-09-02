@@ -223,7 +223,7 @@ La siguiente tabla describe los beneficios y desventajas de estos dos enfoques p
 </table>
 
 {% alert note %}
-Para saber cómo difieren los MAU al ver todas las aplicaciones en comparación con una sola aplicación, consulta [Usuarios activos al mes]({{site.baseurl}}/user_guide/analytics/dashboards/home#monthly-active-users).
+Para saber cómo difieren los MAU al ver todas las aplicaciones en comparación con una sola aplicación, consulta [MAU]({{site.baseurl}}/user_guide/analytics/dashboards/home#monthly-active-users).
 {% endalert %}
 
 ## Buenas prácticas {#best-practices}

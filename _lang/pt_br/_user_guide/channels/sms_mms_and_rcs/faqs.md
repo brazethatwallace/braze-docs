@@ -78,9 +78,9 @@ MMS e SMS têm custos diferentes e são cobrados separadamente com base no volum
 
 Embora não possamos garantir que você não terá um excedente ocasionalmente, estas precauções podem diminuir as chances de ultrapassar seus limites contratados:
 
-- Preste atenção ao número de caracteres no seu SMS. Enviar mais de um segmento sem querer pode causar excedentes. Para mais detalhes, consulte nosso [detalhamento de segmentos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator).
+- Preste atenção ao número de caracteres no seu SMS. Enviar mais de um Segment sem querer pode causar excedentes. Para mais detalhes, consulte nosso [detalhamento de segmentos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator).
 - Calcule cuidadosamente os caracteres do seu SMS levando em conta Liquid ou Connected Content. O criador de SMS da Braze no dashboard não estima nem considera o uso de nenhum desses recursos.
-- Considere o tipo de codificação que sua mensagem utiliza. Se sua mensagem usa codificação GSM-7, geralmente é possível estimar 160 caracteres por segmento de mensagem (menos se você usar caracteres da tabela de extensão GSM-7). Se sua mensagem usa codificação [UCS-2](https://en.wikipedia.org/wiki/Universal_Coded_Character_Set), geralmente é possível estimar 67 caracteres por segmento de mensagem.
+- Considere o tipo de codificação que sua mensagem utiliza. Se sua mensagem usa codificação GSM-7, geralmente é possível estimar 160 caracteres por Segment de mensagem (menos se você usar caracteres da tabela de extensão GSM-7). Se sua mensagem usa codificação [UCS-2](https://en.wikipedia.org/wiki/Universal_Coded_Character_Set), geralmente é possível estimar 67 caracteres por Segment de mensagem.
 - Teste, teste e teste! Sempre teste suas mensagens SMS antes do envio, especialmente ao usar Liquid e Connected Content.
 
 ### Se uma mensagem for enviada para um telefone fixo, ela ainda contará no meu total de envios de SMS? {#if-a-message-is-sent-to-a-landline-will-the-message-still-count-toward-my-sms-send-count}
@@ -132,7 +132,7 @@ Emojis podem ser complicados, pois não existe uma contagem de caracteres padrã
 
 ### Como criar uma lógica para aceitações seletivas de SMS para que os usuários fiquem no grupo de inscrições correto? {#how-do-you-create-logic-for-selective-opt-ins-to-sms-so-users-are-in-the-right-subscription-group}
 
-Palavras-chave personalizadas seriam registradas como eventos personalizados, então você precisaria criar segmentos com base nas palavras-chave que os clientes podem enviar por mensagem de texto. Por exemplo, se um usuário aceita receber SMS para mensagens VIP, mas não para alertas, você pode criar um segmento VIP e um segmento de alertas e, em seguida, atribuir o usuário ao segmento apropriado.
+Palavras-chave personalizadas seriam registradas como eventos personalizados, então você precisaria criar segmentos com base nas palavras-chave que os clientes podem enviar por mensagem de texto. Por exemplo, se um usuário aceita receber SMS para mensagens VIP, mas não para alertas, você pode criar um Segment VIP e um Segment de alertas e, em seguida, atribuir o usuário ao Segment apropriado.
 
 ### Se um usuário enviar "Stop" para nosso short code, ele será desinscrito do grupo de inscrições? {#if-a-user-texts-stop-to-our-short-code-are-they-unsubscribed-from-the-subscription-group}
 

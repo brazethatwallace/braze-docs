@@ -13,7 +13,7 @@ search_rank: 3
 
 {% multi_lang_include alerts/important_alerts.md alert='Purchase event deprecation' %}
 
-Los eventos de compra son acciones de compra realizadas por tus usuarios, y se utilizan para registrar las compras dentro de la aplicación y establecer el valor de duración del ciclo de vida (LTV) para cada perfil de usuario. Estos eventos deben ser configurados por tu equipo. El registro de eventos de compra te permite añadir propiedades como la cantidad y el tipo, lo que te ayuda a segmentar aún más a tus usuarios en función de estas propiedades.
+Los eventos de compra son acciones de compra realizadas por tus usuarios, y se utilizan para registrar las compras dentro de la aplicación y establecer el LTV (LTV) para cada perfil de usuario. Estos eventos deben ser configurados por tu equipo. El registro de eventos de compra te permite añadir propiedades como la cantidad y el tipo, lo que te ayuda a segmentar aún más a tus usuarios en función de estas propiedades.
 
 ## Registrar eventos de compra {#log-purchase-events}
 
@@ -137,8 +137,8 @@ Puedes encontrar estos datos en la página de [Informe de ingresos]({{site.baseu
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Lifetime Revenue' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#lifetime-value-per-user">Lifetime Value Per User</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Lifetime Value Per User' %}</td>
+            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#lifetime-value-per-user">LTV Per User</a></td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='LTV Per User' %}</td>
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#average-daily-revenue">Average Daily Revenue</a></td>
@@ -161,7 +161,7 @@ Cuando los eventos de compra se registran en una moneda diferente a USD, Braze c
 
 #### Cálculo de ingresos de duración del ciclo de vida {#lifetime-revenue-calculation}
 
-Braze utiliza los eventos de compra para calcular los ingresos de duración del ciclo de vida (también llamados valor de duración del ciclo de vida o LTV) de un usuario, que es una predicción de la ganancia neta atribuida a toda la relación futura con un cliente. Esto puede ayudarte a tomar decisiones informadas sobre estrategias de adquisición y retención de clientes.
+Braze utiliza los eventos de compra para calcular los ingresos de duración del ciclo de vida (también llamados LTV o LTV) de un usuario, que es una predicción de la ganancia neta atribuida a toda la relación futura con un cliente. Esto puede ayudarte a tomar decisiones informadas sobre estrategias de adquisición y retención de clientes.
 
 $$\text{Average purchase value} = \frac{\text{Total spend in dollars}}{\text{Total number of purchase events}}$$
 
@@ -209,7 +209,7 @@ Estos filtros de segmentación incluyen:
 - Ha realizado cualquier compra con propiedad Y con valor V X veces en los últimos Y días
 - Añade segmentación de 1 a 30 días en todas las compras, eventos y propiedades dentro de compras y eventos
 
-A diferencia de las [extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension), los segmentos utilizados se actualizan en tiempo real, admiten una cantidad ilimitada de segmentos, ofrecen un historial retrospectivo de como máximo 30 días y generan puntos de datos. Debido al cargo adicional de puntos de datos, debes contactar a tu administrador de éxito de cliente de Braze para activar las propiedades de eventos en tus eventos personalizados.
+A diferencia de las [extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension), los segmentos utilizados se actualizan en tiempo real, admiten una cantidad ilimitada de segmentos, ofrecen un historial retrospectivo de como máximo 30 días y generan puntos de datos. Debido al cargo adicional de puntos de datos, debes contactar a tu CSM de Braze para activar las propiedades de eventos en tus eventos personalizados.
 
 Una vez aprobado, se pueden añadir propiedades adicionales en el panel en **Configuración de datos** > **Eventos personalizados** seleccionando **Administrar propiedades**. Luego puedes usar estas propiedades de eventos en el paso de segmentación del constructor de Campaigns o Canvas.
 

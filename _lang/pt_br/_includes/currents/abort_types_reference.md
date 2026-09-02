@@ -19,7 +19,7 @@ Esses tipos de interrupção podem ocorrer em qualquer canal de envio de mensage
 | `campaign_does_not_exist` | A Campaign associada a esta mensagem não existe mais. |
 | `campaign_action_does_not_exist` | A ação de Campaign associada a esta mensagem não existe mais. |
 | `message_variation_does_not_exist` | A variação de mensagem atribuída a este usuário não existe mais. |
-| `user_not_in_segment` | O usuário não está no segmento de destino, então a mensagem não foi enviada. |
+| `user_not_in_segment` | O usuário não está no Segment de destino, então a mensagem não foi enviada. |
 | `trigger_event_blacklisted` | O evento-gatilho está na lista de proibições, então a mensagem não foi enviada. |
 | `exhausted_retries` | A mensagem não pôde ser enviada após o número máximo de tentativas. |
 | `frequency_capped` | O usuário já recebeu o número máximo de mensagens permitido pelas regras de [limite de frequência]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting#about-frequency-capping) do seu espaço de trabalho. |

@@ -3,7 +3,7 @@ nav_title: Segment
 article_title: Segment
 page_order: 1
 alias: /partners/segment/
-description: "Este artigo de referência descreve a parceria entre a Braze e a Segment, uma plataforma de dados do cliente que coleta e encaminha informações entre fontes na sua stack de marketing."
+description: "Este artigo de referência descreve a parceria entre a Braze e a Segment, uma CDP que coleta e encaminha informações entre fontes na sua stack de marketing."
 page_type: partner
 search_tag: Partner
 
@@ -13,7 +13,7 @@ search_tag: Partner
 
 {% multi_lang_include video.html id="RfOHfZ34hYM" align="right" %}
 
-> A [Segment](https://segment.com) é uma plataforma de dados do cliente que ajuda você a coletar, limpar e ativar os dados dos seus clientes.
+> A [Segment](https://segment.com) é uma CDP que ajuda você a coletar, limpar e ativar os dados dos seus clientes.
 
 A integração da Braze com a Segment permite rastrear seus usuários e encaminhar dados para vários provedores de análise de dados de usuários. A Segment permite que você:
 

@@ -22,7 +22,7 @@ description: "Braze SDKでユーザー IDを設定する方法について説明
 ユーザーが識別される前にデータを収集しないユースケースの場合、ユーザーがログインして`external_id`が利用可能になるまで、Braze SDKの初期化を遅延させることができます。コード内にフラグを設定し、ユーザーがサインインしたときに`true`に切り替え、そのフラグが設定されている場合にのみSDKを初期化します。
 
 {% alert warning %}
-SDKの初期化を遅延させるのは、ユーザーがアプリを**初めて**ダウンロードしたとき（`external_id`が設定される前）のみにしてください。ユーザーがサインアウトしたり新しいセッションを開始したりするたびにSDKの初期化を妨げると、アプリ内メッセージやContent Cardアセットのプリフェッチに干渉し、それらのキャンペーンで配信エラーが発生する可能性があります。
+SDKの初期化を遅延させるのは、ユーザーがアプリを**初めて**ダウンロードしたとき（`external_id`が設定される前）のみにしてください。ユーザーがサインアウトしたり新しいセッションを開始したりするたびにSDKの初期化を妨げると、アプリ内メッセージやContent カードアセットのプリフェッチに干渉し、それらのキャンペーンで配信エラーが発生する可能性があります。
 {% endalert %}
 
 ## ユーザー IDを設定する {#setting-a-user-id}
@@ -39,7 +39,7 @@ SDKの初期化を遅延させるのは、ユーザーがアプリを**初めて
 braze.changeUser(YOUR_USER_ID_STRING);
 ```
 
-代わりにGoogle Tag Managerを使用する場合は、**Change User** タグタイプを使用して [`changeUser` メソッド](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser)を呼び出すことができます。ユーザーがログインするか、一意の `external_id` 識別子で識別されるたびに使用してください。
+代わりにGoogle Tag マネージャーを使用する場合は、**Change User** タグタイプを使用して [`changeUser` メソッド](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser)を呼び出すことができます。ユーザーがログインするか、一意の `external_id` 識別子で識別されるたびに使用してください。
 
 現在のユーザーの一意のIDを **External User ID** フィールドに入力してください。通常、Webサイトから送信されるデータレイヤー変数によって設定されます。
 

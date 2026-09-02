@@ -73,7 +73,7 @@ As mensagens no registro de atividade de mensagens podem vir de diversas fontes:
 
 Por exemplo, algumas possíveis mensagens de "Block", além da listada na tabela anterior, podem ser:
 
-- Unfortunately, messages from [_IP_ADDRESS_] weren't sent. Please contact your Internet Service provider since part of their network is on our block list.
+- Unfortunately, messages from [_IP_ADDRESS_] weren't sent. Please contact your ISP since part of their network is on our block list.
 - Message rejected due to local policy.
 - The message was blocked by the receiver as spam.
 - Service unavailable, Client host [_IP_ADDRESS_] blocked using Spamhaus.

@@ -196,7 +196,7 @@ Ersetzen Sie `NUM` durch die entsprechende Spaltennummer, bis zu maximal 4 Spalt
 {% tabs local %}
 {% tab Vorher %}
 
-| Event Name                                                       | Feed Type              | Description                                                  | Custom Attributes                                                             |
+| Event Name                                                       | Feed Type              | Description                                                  | angepasste Attribute                                                             |
 | ---------------------------------------------------------------- | ---------------------- | ------------------------------------------------------------ | ----------------------------------------------------------------------------- |
 | UNBROKENWORDTHATISVERYLONGUNBROKENWORDTHATISVERYLONG             | Unbound Feed           | Eine E-Mail wurde erfolgreich an den Mailserver einer Nutzer:in zugestellt. | `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`           |
 | `UNBROKENHIGHLIGHTTHATISVERYLONGUNBROKENHIGHLIGHTTHATISVERYLONG` | Unbound Feed           | Nutzer:in hat eine E-Mail geöffnet.                          | `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`           |
@@ -205,7 +205,7 @@ Ersetzen Sie `NUM` durch die entsprechende Spaltennummer, bis zu maximal 4 Spalt
 {% endtab %}
 {% tab Nachher %}
 
-| Event Name                                                       | Feed Type              | Description                                                  | Custom Attributes                                                             |
+| Event Name                                                       | Feed Type              | Description                                                  | angepasste Attribute                                                             |
 | ---------------------------------------------------------------- | ---------------------- | ------------------------------------------------------------ | ----------------------------------------------------------------------------- |
 | UNBROKENWORDTHATISVERYLONGUNBROKENWORDTHATISVERYLONG             | Unbound Feed           | Eine E-Mail wurde erfolgreich an den Mailserver einer Nutzer:in zugestellt. | `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`           |
 | `UNBROKENHIGHLIGHTTHATISVERYLONGUNBROKENHIGHLIGHTTHATISVERYLONG` | Unbound Feed           | Nutzer:in hat eine E-Mail geöffnet.                          | `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`           |

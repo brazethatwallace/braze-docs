@@ -39,11 +39,11 @@ Im Folgenden finden Sie einige Beispiele für häufig getriggerte E-Mail-Program
 
 Stylitics stellt für diese Integration die Bundle-Daten bereit. Ihr E-Mail-Anbieter kann das E-Mail-Template erstellen oder aktualisieren, um Stylitics-Bundles einzubinden. Stylitics kann das Layout oder Design der E-Mails nicht verändern.
 
-1. Integrieren Sie das Bundle in die E-Mail. Der ESP bestimmt die Position und Anpassung.
-2. Der ESP aktualisiert den Code der getriggerten E-Mail, um Stylitics-Inhalte einzubeziehen.
-3. Der ESP testet, zeigt eine Vorschau an und startet die aktualisierte getriggerte Serie.
+1. Integrieren Sie das Bundle in die E-Mail. Der E-Mail-Anbieter bestimmt die Position und Anpassung.
+2. Der E-Mail-Anbieter aktualisiert den Code der getriggerten E-Mail, um Stylitics-Inhalte einzubeziehen.
+3. Der E-Mail-Anbieter testet, zeigt eine Vorschau an und startet die aktualisierte getriggerte Serie.
 
-Stylitics stellt nur die Bundle-Daten für die Artikel bereit. Sie und Ihr ESP verfügen über die Nutzerdaten und können die Stylitics-Bundle-Daten einfügen, um sie an die Nutzer:innen zu senden.
+Stylitics stellt nur die Bundle-Daten für die Artikel bereit. Sie und Ihr E-Mail-Anbieter verfügen über die Nutzerdaten und können die Stylitics-Bundle-Daten einfügen, um sie an die Nutzer:innen zu senden.
 
 ## Datenaustausch {#data-exchange}
 
@@ -51,7 +51,7 @@ Die folgenden drei Ansätze erlauben es Ihnen, Stylitics-Bundles in Ihre getrigg
 
 ### 1. API-Ansatz (empfohlen) {#1-api-approach-recommended}
 
-Sie oder Ihr ESP können pro Artikel einen API-Aufruf tätigen, um die Bundle-Daten in Ihre E-Mail einzupflegen. Stylitics empfiehlt Ihnen, die Stylitics-API für API-Aufrufe zu verwenden, da sie sofort einsatzbereit ist.
+Sie oder Ihr E-Mail-Anbieter können pro Artikel einen API-Aufruf tätigen, um die Bundle-Daten in Ihre E-Mail einzupflegen. Stylitics empfiehlt Ihnen, die Stylitics-API für API-Aufrufe zu verwenden, da sie sofort einsatzbereit ist.
 
 {% alert note %}
 Wenn Sie einen von Stylitics durchgeführten A/B-Test nutzen, müssen die Parameter `styliticsCID` und `styliticsoverride` an die PDP-URLs der Stylitics-Artikel angehängt werden, auf die Nutzer:innen in der E-Mail klicken.
@@ -61,12 +61,12 @@ Zum Beispiel: {% raw %}`&styliticsoverride=001?styliticsCID=email[clientname]`{%
 
 ### 2. Flat-File-Ansatz {#2-flat-file-approach}
 
-Sie oder Ihr ESP können die Bundle-Daten eines Artikels in einer Flat File referenzieren, um Bundle-Daten in Ihre E-Mail einzufügen. Stylitics kann die Bundle-Daten in das CSV-, TXT- oder XML-Format umwandeln und Ihnen täglich zusenden. Stylitics kann auch dabei helfen, das Dateiformat an die Anforderungen Ihres ESP anzupassen. Beachten Sie, dass die Erstellung dieser Datei 2–3 Wochen dauert.
+Sie oder Ihr E-Mail-Anbieter können die Bundle-Daten eines Artikels in einer Flat File referenzieren, um Bundle-Daten in Ihre E-Mail einzufügen. Stylitics kann die Bundle-Daten in das CSV-, TXT- oder XML-Format umwandeln und Ihnen täglich zusenden. Stylitics kann auch dabei helfen, das Dateiformat an die Anforderungen Ihres E-Mail-Anbieter anzupassen. Beachten Sie, dass die Erstellung dieser Datei 2–3 Wochen dauert.
 
 #### Anforderungen: {#requirements}
 - **Speicherort**: Stylitics kann die Datei auf dem Stylitics-SFTP-Server ablegen, damit Sie sie täglich abholen können, oder Sie können Stylitics Ihre SFTP-Zugangsdaten senden, um die Datei dort abzulegen.
 - **Zeitpunkt**: Stylitics liefert die Datei täglich am Morgen. Teilen Sie Stylitics mit, falls Sie die Datei bis zu einem bestimmten Zeitpunkt benötigen.
-- **Datei-Schlüssel**: Sie und Stylitics müssen sich darauf einigen, welcher Artikeldaten-String als Schlüssel für die Datei verwendet wird, damit Ihr ESP die Daten referenzieren kann. SKU, `item_group_id` oder `item_number` werden häufig verwendet.
+- **Datei-Schlüssel**: Sie und Stylitics müssen sich darauf einigen, welcher Artikeldaten-String als Schlüssel für die Datei verwendet wird, damit Ihr E-Mail-Anbieter die Daten referenzieren kann. SKU, `item_group_id` oder `item_number` werden häufig verwendet.
 
 ### 3. Ansatz zur Website-Datenextraktion {#3-website-data-extraction-approach}
 
@@ -74,7 +74,7 @@ Anbieter können das Frontend Ihrer Website nach Stylitics-Inhalten durchsuchen 
 
 ## Best Practices für E-Mail-Templates {#email-template-best-practices}
 
-Sie und Ihr ESP erstellen ein HTML-E-Mail-Template, um Stylitics-Daten und -Bundles einzufügen. Hier finden Sie einige bewährte Verfahren und Empfehlungen.
+Sie und Ihr E-Mail-Anbieter erstellen ein HTML-E-Mail-Template, um Stylitics-Daten und -Bundles einzufügen. Hier finden Sie einige bewährte Verfahren und Empfehlungen.
 - Zeigen Sie 2–4 Bundles in der E-Mail für den teuersten Artikel oder den ersten Vollpreisartikel an, den Nutzer:innen gekauft oder mit dem sie interagiert haben
 - Rufen Sie mehrere `item_numbers` auf und zeigen Sie die ersten Bundle-Ergebnisse an
 - Halten Sie eine Fallback-Option bereit, falls für den Artikel keine Bundles verfügbar sind
@@ -88,7 +88,7 @@ Das Stylitics-Widget-JavaScript kann nicht in E-Mails eingefügt werden, da E-Ma
 
 ## Analytics
 
-Stylitics stellt die Bundle-Daten für diese Art von E-Mail-Programm bereit. Daher bitten wir um einen offenen Datenaustausch zwischen Ihnen, Ihrem ESP und Stylitics. Wenn möglich, hoffen wir, die folgenden Metriken von Ihnen zu erhalten, um die Wirkung zu verstehen und das Programm zu verbessern:
+Stylitics stellt die Bundle-Daten für diese Art von E-Mail-Programm bereit. Daher bitten wir um einen offenen Datenaustausch zwischen Ihnen, Ihrem E-Mail-Anbieter und Stylitics. Wenn möglich, hoffen wir, die folgenden Metriken von Ihnen zu erhalten, um die Wirkung zu verstehen und das Programm zu verbessern:
 - Versendete E-Mails
 - Geöffnete E-Mails
 - Aufrufe und Engagement
@@ -98,9 +98,9 @@ Stylitics stellt die Bundle-Daten für diese Art von E-Mail-Programm bereit. Dah
 
 ## Nächste Schritte {#next-steps}
 
-Wenden Sie sich an Ihren Stylitics Account Manager, um die nächsten Schritte und den Zeitplan für das E-Mail-Programm zu koordinieren. Einige nächste Schritte sind:
+Wenden Sie sich an Ihren Stylitics Account Manager:in, um die nächsten Schritte und den Zeitplan für das E-Mail-Programm zu koordinieren. Einige nächste Schritte sind:
 - Entscheiden Sie, welche E-Mails Sie verwenden möchten
-- Verbinden Sie Stylitics mit Ihrem ESP, um den Datenaustausch zu besprechen und zwischen der API-Option oder der Flat-File-Option zu entscheiden
-- Erstellen Sie Mockups mit Ihrem ESP
+- Verbinden Sie Stylitics mit Ihrem E-Mail-Anbieter, um den Datenaustausch zu besprechen und zwischen der API-Option oder der Flat-File-Option zu entscheiden
+- Erstellen Sie Mockups mit Ihrem E-Mail-Anbieter
 - Stimmen Sie sich zu Analytics ab
 - Stimmen Sie den Zeitplan für die Markteinführung ab

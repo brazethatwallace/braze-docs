@@ -30,7 +30,7 @@ channel:
 | 요구 사항 | 설명 |
 | --- | --- |
 | WhatsApp 비즈니스 계정 | WhatsApp 제품 메시지를 사용하려면 Braze에 연결된 WhatsApp 비즈니스 계정이 있어야 합니다. |
-| Meta 카탈로그 | Commerce Manager에서 Meta 카탈로그를 설정해야 합니다. |
+| Meta 카탈로그 | Commerce 매니저에서 Meta 카탈로그를 설정해야 합니다. |
 | 약관 준수 | [Meta Commerce 약관 및 정책](https://www.facebook.com/policies_center/commerce)을 준수해야 합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="요구 사항" }
 
@@ -75,12 +75,12 @@ ID를 사용하여 수동으로 제품을 선택하거나, [설정](#setting-up-
 
 ## 제품 메시지 설정 {#setting-up-product-messages}
 
-1. [Meta Commerce Manager](https://business.facebook.com/business/loginpage/?next=https%3A%2F%2Fbusiness.facebook.com%2Fcommerce_manager%2F#)에서 [Meta의 안내](https://www.facebook.com/business/help/1275400645914358?id=725943027795860&ref=search_new_1)를 따라 Meta 카탈로그를 생성합니다. Braze에 연결된 WhatsApp 비즈니스 계정이 있는 동일한 Meta 비즈니스 포트폴리오에 있는지 확인하세요.
-2. Meta의 안내를 따라 Meta Business Manager에서 "Manage Catalog" 권한을 할당하여 [Meta 카탈로그를 연결](https://www.facebook.com/business/help/1953352334878186?id=2042840805783715)합니다.
+1. [Meta Commerce 매니저](https://business.facebook.com/business/loginpage/?next=https%3A%2F%2Fbusiness.facebook.com%2Fcommerce_manager%2F#)에서 [Meta의 안내](https://www.facebook.com/business/help/1275400645914358?id=725943027795860&ref=search_new_1)를 따라 Meta 카탈로그를 생성합니다. Braze에 연결된 WhatsApp 비즈니스 계정이 있는 동일한 Meta 비즈니스 포트폴리오에 있는지 확인하세요.
+2. Meta의 안내를 따라 Meta Business 매니저에서 "Manage Catalog" 권한을 할당하여 [Meta 카탈로그를 연결](https://www.facebook.com/business/help/1953352334878186?id=2042840805783715)합니다.
 
 ![Meta "Catalogs" 페이지에서 "sweeney_catalog"이라는 카탈로그의 "Assign partner" 버튼을 가리키는 화살표가 있는 화면.]({% image_buster /assets/img/whatsapp/meta_catalog.png %}){: style="max-width:90%;"}
 
-파트너 비즈니스 ID로 Braze Business Manager ID `332231937299182`를 사용하세요.
+파트너 비즈니스 ID로 Braze Business 매니저 ID `332231937299182`를 사용하세요.
 
 ![파트너 비즈니스 ID를 입력하고 "Manage catalog" 권한을 할당하는 필드가 포함된 파트너와 카탈로그를 공유하는 창.]({% image_buster /assets/img/whatsapp/share_meta_catalog.png %}){: style="max-width:70%;"}
 
@@ -95,7 +95,7 @@ ID를 사용하여 수동으로 제품을 선택하거나, [설정](#setting-up-
 ![권한을 제공하기 위해 5개의 카탈로그가 선택된 창.]({% image_buster /assets/img/whatsapp/select_catalogs.png %}){: style="max-width:50%;"}
 
 {% alert tip %}
-Meta 카탈로그를 만들 때 따라야 할 모범 사례는 [Commerce Manager에서 고품질 카탈로그 구축을 위한 팁](https://www.facebook.com/business/help/2086567618225367?id=725943027795860)을 참조하세요.
+Meta 카탈로그를 만들 때 따라야 할 모범 사례는 [Commerce 매니저에서 고품질 카탈로그 구축을 위한 팁](https://www.facebook.com/business/help/2086567618225367?id=725943027795860)을 참조하세요.
 {% endalert %}
 
 ## 제품 메시지 작성 {#building-a-product-message}
@@ -105,13 +105,13 @@ WhatsApp 템플릿 메시지 또는 응답 메시지를 사용하여 제품 메�
 {% tabs local %}
 {% tab WhatsApp 메시지 템플릿 %}
 
-1. Meta Business Manager에서 **Message Templates**로 이동합니다.
+1. Meta Business 매니저에서 **Message Templates**로 이동합니다.
 2. 형식으로 **Catalog**를 선택한 다음, **Catalog message**(전체 카탈로그 표시)와 **Multi-product catalog message**(특정 항목 강조) 중에서 선택합니다.
 3. Braze에서 WhatsApp Campaign 또는 Canvas 메시지 단계를 생성합니다.
 4. 템플릿을 제출한 구독 그룹과 일치하는 구독 그룹을 선택합니다.
 5. **WhatsApp Template Message**를 선택합니다.
 6. 사용할 템플릿을 선택합니다.
-    - 다중 제품 템플릿을 선택한 경우, 강조할 제품의 섹션 제목과 콘텐츠 ID를 제공합니다. Meta Commerce Manager에서 직접 콘텐츠 ID를 복사하거나, 통합 제품 선택기에 대한 권한을 활성화한 경우 항목을 선택할 수 있습니다.
+    - 다중 제품 템플릿을 선택한 경우, 강조할 제품의 섹션 제목과 콘텐츠 ID를 제공합니다. Meta Commerce 매니저에서 직접 콘텐츠 ID를 복사하거나, 통합 제품 선택기에 대한 권한을 활성화한 경우 항목을 선택할 수 있습니다.
 
 ![섹션 제목과 콘텐츠 ID를 입력하는 필드가 있는 항목 목록.]({% image_buster /assets/img/whatsapp/multi_product_template.png %}){: style="max-width:60%;"}
 
@@ -145,9 +145,9 @@ WhatsApp 템플릿 메시지 또는 응답 메시지를 사용하여 제품 메�
 
 ## 제품 관리 {#managing-products}
 
-### Commerce Manager 접근 {#accessing-commerce-manager}
+### Commerce 매니저 접근 {#accessing-commerce-manager}
 
-Meta Business Manager에서 **Commerce Manager**로 이동하여 조직을 선택합니다. 여기에서 다음과 같은 카탈로그 자산을 관리할 수 있습니다:
+Meta Business 매니저에서 **Commerce 매니저**로 이동하여 조직을 선택합니다. 여기에서 다음과 같은 카탈로그 자산을 관리할 수 있습니다:
 - 새 카탈로그 생성
 - 기존 카탈로그에 제품 추가
 - 제품 정보 업데이트

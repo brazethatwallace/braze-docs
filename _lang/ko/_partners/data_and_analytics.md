@@ -3,7 +3,7 @@ nav_title: "데이터 및 분석"
 article_title: 데이터 및 분석 파트너
 page_order: 5
 page_type: landing
-description: "CDP, 데이터 웨어하우스, 분석, 프라이버시, 워크플로 도구 전반에서 데이터를 전송, 저장, 조정할 수 있도록 지원하는 Braze 기술 파트너를 살펴보세요."
+description: "고객 데이터 플랫폼, 데이터 웨어하우스, 분석, 프라이버시, 워크플로 도구 전반에서 데이터를 전송, 저장, 조정할 수 있도록 지원하는 Braze 기술 파트너를 살펴보세요."
 layout: dev_guide
 search_tag: Partner
 

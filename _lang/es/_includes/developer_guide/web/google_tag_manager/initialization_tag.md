@@ -1,10 +1,10 @@
 ### Requisitos previos {#prerequisites}
 
-Antes de poder utilizar este método de integración, deberás [crear una cuenta y un contenedor para Google Tag Manager](https://support.google.com/tagmanager/answer/14842164).
+Antes de poder utilizar este método de integración, deberás [crear una cuenta y un contenedor para Google Tag Administrador](https://support.google.com/tagmanager/answer/14842164).
 
 ### Paso 1: Abre la galería de plantillas de etiquetas {#step-1-open-the-tag-template-gallery}
 
-En [Google Tag Manager](https://tagmanager.google.com/), elige tu espacio de trabajo y, a continuación, selecciona **Templates**. En el panel **Tag Template**, selecciona **Search Gallery**.
+En [Google Tag Administrador](https://tagmanager.google.com/), elige tu espacio de trabajo y, a continuación, selecciona **Templates**. En el panel **Tag Template**, selecciona **Search Gallery**.
 
 ![La página de plantillas para un espacio de trabajo de ejemplo en Google Tag Manager.]({% image_buster /assets/img/web-gtm/search_tag_template_gallery.png %}){: style="max-width:95%;"}
 
@@ -64,7 +64,7 @@ La etiqueta de inicialización de Braze expone las siguientes opciones. La mayor
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paso 4: Elige las opciones de inicialización" }
 
 {% alert note %}
-Para habilitar los [mensajes HTML personalizados dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html) cuando utilices la etiqueta de inicialización de Braze de Google Tag Manager, selecciona **Allow HTML In-App Messages** en **Braze Initialization Options**. Esta casilla de verificación se mapea con la opción de inicialización `allowUserSuppliedJavascript` en `braze.initialize()` y la establece en `true`. La etiqueta de inicialización de Braze de Google Tag Manager utiliza esta etiqueta en lugar del nombre de la opción.
+Para habilitar los [mensajes HTML personalizados dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html) cuando utilices la etiqueta de inicialización de Braze de Google Tag Administrador, selecciona **Allow HTML In-App Messages** en **Braze Initialization Options**. Esta casilla de verificación se mapea con la opción de inicialización `allowUserSuppliedJavascript` en `braze.initialize()` y la establece en `true`. La etiqueta de inicialización de Braze de Google Tag Administrador utiliza esta etiqueta en lugar del nombre de la opción.
 {% endalert %}
 
 Para las opciones que no aparecen en la plantilla GTM (como `contentSecurityNonce`, `localization` o `devicePropertyAllowlist`), utiliza la [inicialización en tiempo de ejecución]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web).
@@ -81,5 +81,5 @@ La etiqueta de inicialización debe ejecutarse en todas las páginas de tu sitio
 
 Puedes verificar tu integración utilizando cualquiera de las siguientes opciones:
 
-- **Opción 1:** Con la [herramienta de depuración](https://support.google.com/tagmanager/answer/6107056?hl=en) de Google Tag Manager, puedes comprobar si la etiqueta de inicialización de Braze se desencadena correctamente en las páginas o eventos que has configurado.
+- **Opción 1:** Con la [herramienta de depuración](https://support.google.com/tagmanager/answer/6107056?hl=en) de Google Tag Administrador, puedes comprobar si la etiqueta de inicialización de Braze se desencadena correctamente en las páginas o eventos que has configurado.
 - **Opción 2:** Comprueba si hay solicitudes de red realizadas a Braze desde tu página web. Además, la biblioteca global `window.braze` debería estar definida.

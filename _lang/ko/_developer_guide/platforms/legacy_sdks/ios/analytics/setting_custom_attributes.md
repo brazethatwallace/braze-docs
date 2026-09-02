@@ -1,5 +1,5 @@
 ---
-nav_title: Set custom attributes
+nav_title: Set 커스텀 속성
 article_title: iOS용 커스텀 속성 설정
 platform: iOS
 page_order: 3

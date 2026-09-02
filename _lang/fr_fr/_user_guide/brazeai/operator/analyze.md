@@ -12,7 +12,7 @@ hidden: true
 > Operator Analyze répond à des questions de performance en langage naturel dans BrazeAI Operator<sup>TM</sup>. Les réponses incluent des graphiques, des comparaisons et de courtes informations exploitables. Vous n'avez pas besoin de créer un tableau de bord ni de générer un rapport complet au préalable.
 
 {% alert important %}
-Operator Analyze est actuellement en version bêta. Les fonctionnalités et les analyses prises en charge évoluent. Pour demander l'accès pour votre compte, contactez votre Customer Success Manager.
+Operator Analyze est actuellement en version bêta. Les fonctionnalités et les analyses prises en charge évoluent. Pour demander l'accès pour votre compte, contactez votre CSM.
 {% endalert %}
 
 ## Pourquoi utiliser Operator Analyze ? {#why-use-operator-analyze}
@@ -140,14 +140,14 @@ Si les résultats diffèrent de plus de 50 % d'une fenêtre à l'autre, Operator
 
 ## Fraîcheur des données {#data-freshness}
 
-Les données sont actualisées quotidiennement. L'activité du jour en cours apparaît après la prochaine actualisation. Chaque réponse indique la date la plus récente du jeu de données. Si cette date semble obsolète, contactez votre Customer Success Manager.
+Les données sont actualisées quotidiennement. L'activité du jour en cours apparaît après la prochaine actualisation. Chaque réponse indique la date la plus récente du jeu de données. Si cette date semble obsolète, contactez votre CSM.
 
 ## Ce qui est hors périmètre {#whats-out-of-scope}
 
-* **Analyses de performance au niveau produit.** Le *chiffre d'affaires attribué* et l'engagement sont agrégés au niveau de la Campaign, du Canvas, du canal ou du programme. Ils ne sont pas ventilés par produit ou par unité de gestion des stocks. Les questions au niveau produit ou unité de gestion des stocks ne sont pas prises en charge. Contactez votre Customer Success Manager pour ces analyses.
+* **Analyses de performance au niveau produit.** Le *chiffre d'affaires attribué* et l'engagement sont agrégés au niveau de la Campaign, du Canvas, du canal ou du programme. Ils ne sont pas ventilés par produit ou par unité de gestion des stocks. Les questions au niveau produit ou unité de gestion des stocks ne sont pas prises en charge. Contactez votre CSM pour ces analyses.
 * **Benchmarks du secteur pour WhatsApp et RCS.** Les indicateurs d'engagement pour ces deux canaux sont pris en charge. Les benchmarks ne sont pas encore disponibles.
 
-Les questions hors périmètre reçoivent une réponse directe, une alternative suggérée lorsque c'est possible, ou une orientation vers votre Customer Success Manager.
+Les questions hors périmètre reçoivent une réponse directe, une alternative suggérée lorsque c'est possible, ou une orientation vers votre CSM.
 
 ## Conseils pour de meilleurs résultats {#tips-for-better-results}
 

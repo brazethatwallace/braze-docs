@@ -31,7 +31,7 @@ Die folgenden Kundendaten-Assets helfen Agents, effektiver zu personalisieren:
 
 | Datentyp | Beschreibung | Beispiele |
 |-----------|-------------|----------|
-| **Kundenprofil** | Statische und sich langsam ändernde Attribute | Jahre als Kund:in, Geografie, Akquisitionskanal, Zufriedenheitsniveau, geschätzter Lifetime-Value |
+| **Kundenprofil** | Statische und sich langsam ändernde Attribute | Jahre als Kund:in, Geografie, Akquisitionskanal, Zufriedenheitsniveau, geschätzter LTV |
 | **Kundenverhalten** | Aktivitäts- und Engagement-Muster | Kontoanmeldungen, Gerätetyp, Kundenservice-Interaktionen, Produktnutzung |
 | **Transaktionsverlauf** | Kauf- und Konversionsdaten | Gekaufte Produkte, Transaktionsbeträge, Zahlungsmethoden, Kaufkanäle |
 | **Marketing-Engagement** | Reaktionen auf Kommunikation | E-Mail-Öffnungen/Klicks, SMS-Engagement, Web- und Mobile-Aktivität, Umfrageantworten |
@@ -50,21 +50,21 @@ Je mehr Informationen Agents über Ihre Kund:innen haben, desto besser werden si
 
 BrazeAI Decisioning Studio kann alle Daten nutzen, die Sie bereits an die Braze-Datenplattform senden.
 
-Für Kundendaten, die sich nicht im Nutzerprofil oder in angepassten Attributen befinden, gibt es zwei Möglichkeiten, sie mit [Braze Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion) einzubringen:
+Für Kundendaten, die sich nicht im Kundenprofil oder in angepassten Attributen befinden, gibt es zwei Möglichkeiten, sie mit [Braze Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion) einzubringen:
 
 - In die Braze-Datenplattform aufnehmen. Synchronisieren Sie Data-Warehouse-Daten in Braze-Nutzerprofile, angepasste Attribute oder Events. Wählen Sie diese Option, wenn Sie die Daten auch in Braze für Segmentierung und Messaging verfügbar haben möchten. Unterstützt werden Snowflake, Redshift, BigQuery, Databricks, Microsoft Fabric, AWS S3 und Google Cloud Storage.
-- Direkt an Decisioning Studio senden (Early Access). Synchronisieren Sie Data-Warehouse-Daten direkt mit Decisioning Studio, ohne sie dem Braze-Nutzerprofil oder angepassten Attributen hinzuzufügen. Wählen Sie diese Option für Daten, die Decisioning Studio verwenden soll, die Sie aber an anderer Stelle in Braze nicht benötigen. Diese Option befindet sich im Early Access – siehe [Cloud Data Ingestion: Decisioning-Studio-Daten synchronisieren]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/decisioning_studio), um sie einzurichten.
+- Direkt an Decisioning Studio senden (Early Access). Synchronisieren Sie Data-Warehouse-Daten direkt mit Decisioning Studio, ohne sie dem Braze-Kundenprofil oder angepassten Attributen hinzuzufügen. Wählen Sie diese Option für Daten, die Decisioning Studio verwenden soll, die Sie aber an anderer Stelle in Braze nicht benötigen. Diese Option befindet sich im Early Access – siehe [Cloud Data Ingestion: Decisioning-Studio-Daten synchronisieren]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/decisioning_studio), um sie einzurichten.
 
-Sobald Sie mit den Daten zufrieden sind, die Sie an die Braze-Datenplattform senden, wenden Sie sich an Ihr AI-Decisioning-Services-Team, um zu besprechen, welche Felder im Nutzerprofil oder welche angepassten Attribute für AI Decisioning verwendet werden sollen.
+Sobald Sie mit den Daten zufrieden sind, die Sie an die Braze-Datenplattform senden, wenden Sie sich an Ihr KI-Decisioning-Services-Team, um zu besprechen, welche Felder im Kundenprofil oder welche angepassten Attribute für KI Decisioning verwendet werden sollen.
 
-Um diesen Prozess zu vereinfachen, erstellen Sie eine Liste von Braze-Nutzerprofilattributen, die Ihrer Meinung nach das Kundenverhalten am besten abbilden und in Decisioning Studio verwendet werden sollten (siehe die [Liste der verfügbaren Felder]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment#fields-to-export)). Ihr Services-Team kann Ihnen auch dabei helfen, Discovery-Sitzungen durchzuführen, um zu entscheiden, welche Felder für AI Decisioning am besten geeignet sind.
+Um diesen Prozess zu vereinfachen, erstellen Sie eine Liste von Braze-Nutzerprofilattributen, die Ihrer Meinung nach das Kundenverhalten am besten abbilden und in Decisioning Studio verwendet werden sollten (siehe die [Liste der verfügbaren Felder]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment#fields-to-export)). Ihr Services-Team kann Ihnen auch dabei helfen, Discovery-Sitzungen durchzuführen, um zu entscheiden, welche Felder für KI Decisioning am besten geeignet sind.
 
 Weitere Optionen zum Senden von Daten sind:
 
 - Braze-angepasste Events über das SDK senden
 - Events über den REST-Endpunkt senden ([`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track))
 
-Diese Ansätze erfordern mehr Engineering-Aufwand, sind aber je nach Ihrer aktuellen Braze-Konfiguration manchmal vorzuziehen. Wenden Sie sich an das AI-Decisioning-Services-Team, um mehr zu erfahren.
+Diese Ansätze erfordern mehr Engineering-Aufwand, sind aber je nach Ihrer aktuellen Braze-Konfiguration manchmal vorzuziehen. Wenden Sie sich an das KI-Decisioning-Services-Team, um mehr zu erfahren.
 
 {% endtab %}
 {% tab SFMC %}
@@ -77,7 +77,7 @@ Für Salesforce-Marketing-Cloud-Integrationen:
 2. Richten Sie ein SFMC Installed Package für die API-Integration mit den von Decisioning Studio benötigten Berechtigungen ein.
 3. Stellen Sie sicher, dass die Data Extensions täglich aktualisiert werden, da Decisioning Studio die neuesten inkrementellen Daten abruft.
 
-Stellen Sie Ihrem AI-Decisioning-Services-Team die Extension-ID und den API-Schlüssel zur Verfügung. Das Team unterstützt Sie bei den nächsten Schritten zur Aufnahme der Kundendaten.
+Stellen Sie Ihrem KI-Decisioning-Services-Team die Extension-ID und den API-Schlüssel zur Verfügung. Das Team unterstützt Sie bei den nächsten Schritten zur Aufnahme der Kundendaten.
 
 {% endtab %}
 {% tab Klaviyo %}
@@ -88,7 +88,7 @@ Für Klaviyo-Integrationen:
 
 1. Bestätigen Sie, dass Kundenprofile in Klaviyo-Profilen verfügbar sind.
 2. Generieren Sie einen privaten API-Schlüssel mit Vollzugriff auf Profile.
-3. Stellen Sie Ihrem AI-Decisioning-Services-Team den API-Schlüssel zur Verfügung.
+3. Stellen Sie Ihrem KI-Decisioning-Services-Team den API-Schlüssel zur Verfügung.
 
 Weitere Informationen zur Einrichtung des API-Schlüssels finden Sie in der [Klaviyo-Dokumentation](https://help.klaviyo.com/hc/en-us/articles/115005237908).
 
@@ -121,7 +121,7 @@ Wenn dies machbar ist, können wir einen GCS-Bucket bereitstellen, in den Kunden
 
 ## Angepasste Integrationen {#custom-integrations}
 
-Andere Optionen oder vollständig angepasste Datenpipelines sind möglich. Diese erfordern möglicherweise zusätzliche Serviceleistungen oder Engineering-Arbeit von Ihrem Team. Um herauszufinden, was machbar und optimal ist, arbeiten Sie mit Ihrem AI Decisioning Services-Team zusammen.
+Andere Optionen oder vollständig angepasste Datenpipelines sind möglich. Diese erfordern möglicherweise zusätzliche Serviceleistungen oder Engineering-Arbeit von Ihrem Team. Um herauszufinden, was machbar und optimal ist, arbeiten Sie mit Ihrem KI Decisioning Services-Team zusammen.
 
 {% alert important %}
 Dieser Leitfaden erläutert die gängigsten Integrationsmuster. Die Informationssicherheit muss weiterhin alle Verbindungspunkte prüfen, und Solutions Consultants stehen zur Beratung bei der Implementierung zur Verfügung.

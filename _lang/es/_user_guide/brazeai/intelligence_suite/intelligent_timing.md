@@ -72,7 +72,7 @@ Para más información, consulta [Horas tranquilas]({{site.baseurl}}/user_guide/
 Para ver una estimación de cuántos usuarios recibirán el mensaje en cada hora del día, usa el gráfico de vista previa (solo para Campaigns).
 
 1. Añade Segments o filtros en el paso de públicos objetivo.
-2. En la sección **Preview Delivery Times for** (que aparece tanto en los pasos de públicos objetivo como de entrega programada), selecciona tu canal.
+2. En la sección **vista previa Delivery Times for** (que aparece tanto en los pasos de públicos objetivo como de entrega programada), selecciona tu canal.
 3. Haz clic en **Refresh Data**.
 
 ![Gráfico de vista previa de entrega para push en Android que muestra el pico de participación entre las 12 y las 2 PM, y la hora más popular de la aplicación siendo las 2 PM.]({% image_buster /assets/img/intel-timing-preview.png %})
@@ -129,7 +129,7 @@ Elige una hora alternativa para usar si el perfil de un usuario no tiene eventos
 Para ver una estimación de cuántos usuarios reciben el mensaje en cada hora del día, usa el gráfico de vista previa:
 
 1. Añade Segments o filtros en el paso de **Target Audiences**.
-2. En la sección **Preview Delivery Times for** (que aparece tanto en los pasos de **Target Audiences** como de **Schedule Delivery**), selecciona tu canal.
+2. En la sección **vista previa Delivery Times for** (que aparece tanto en los pasos de **Target Audiences** como de **Schedule Delivery**), selecciona tu canal.
 3. Selecciona **Refresh Data**.
 
 El gráfico de vista previa muestra cada hora del día usando tu hora local. Las etiquetas no están configuradas en una zona horaria global única.

@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Eagle Eye
 
-> [Eagle Eye](https://eagleeye.com/)는 리테일, 여행 및 호스피탈리티 브랜드가 실시간, 옴니채널, 개인화된 소비자 마케팅 활동을 대규모로 지원하여 최종 고객의 로열티를 확보할 수 있도록 하는 선도적인 SaaS 및 AI 기술 회사입니다.
+> [Eagle Eye](https://eagleeye.com/)는 리테일, 여행 및 호스피탈리티 브랜드가 실시간, 옴니채널, 개인화된 소비자 마케팅 활동을 대규모로 지원하여 최종 고객의 로열티를 확보할 수 있도록 하는 선도적인 SaaS(software-as-a-service) 및 AI 기술 회사입니다.
 
 _이 통합은 Eagle Eye에서 유지 관리합니다._
 

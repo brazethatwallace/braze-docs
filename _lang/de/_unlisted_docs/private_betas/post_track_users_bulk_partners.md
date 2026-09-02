@@ -50,7 +50,7 @@ Um Realtime-Interaktionen mit unserer API zu verbessern, verwenden Sie unsere [e
 
 Jede `/users/track/bulk`-Anfrage hat ein Payload-Limit von 2&nbsp;MB und kann bis zu 1.000 Event-, Attribut- oder Kauf-Objekte enthalten.
 
-Jedes Objekt (Event-, Attribut- und Kauf-Arrays) kann jeweils eine:n Nutzer:in aktualisieren, was bedeutet, dass maximal 1.000 verschiedene Nutzer:innen in einer einzelnen Anfrage aktualisiert werden können. Ein einzelnes Nutzerprofil kann maximal 100 Objekte in einer einzelnen Anfrage aktualisieren.
+Jedes Objekt (Event-, Attribut- und Kauf-Arrays) kann jeweils eine:n Nutzer:in aktualisieren, was bedeutet, dass maximal 1.000 verschiedene Nutzer:innen in einer einzelnen Anfrage aktualisiert werden können. Ein einzelnes Kundenprofil kann maximal 100 Objekte in einer einzelnen Anfrage aktualisieren.
 
 ## Anfragekörper {#request-body}
 
@@ -252,7 +252,7 @@ Wenn Sie den Fehler `provided external\_id is blacklisted and disallowed` erhalt
 
 Wir empfehlen, beide zu verwenden.
 
-- Für große Nutzerprofil-Backfills und -Synchronisierungen verwenden Sie den `/users/track/bulk`-Endpunkt.
+- Für große Kundenprofil-Backfills und -Synchronisierungen verwenden Sie den `/users/track/bulk`-Endpunkt.
 - Für Realtime-Anwendungsfälle verwenden Sie den `/users/track`-Endpunkt.
 
 {% alert note %}

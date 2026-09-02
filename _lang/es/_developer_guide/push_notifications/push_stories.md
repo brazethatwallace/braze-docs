@@ -19,7 +19,7 @@ channel:
 {% multi_lang_include developer_guide/cordova/push_notifications/push_stories.md %}
 {% endsdktab %}
 
-{% sdktab react native %}
+{% sdktab React Native %}
 {% multi_lang_include developer_guide/react_native/push_notifications/push_stories.md %}
 {% endsdktab %}
 {% endsdktabs %}

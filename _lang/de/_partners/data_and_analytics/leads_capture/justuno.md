@@ -28,7 +28,7 @@ Die Integration von Justuno und Braze bietet Ihnen das Beste aus beiden Welten. 
 
 ### 1. Schritt: Angepasste Attribute in Braze erstellen {#step-1-create-custom-attributes-in-braze}
 
-Um Nutzer:innen-Attribute von Justuno mit Braze zu synchronisieren, müssen Sie diese Attribute in Braze erstellen, falls Sie dies nicht bereits getan haben. Gehen Sie dazu zu **Data Settings** > **Custom Attributes** und erstellen Sie dann Ihre angepassten Attribute. Eine vollständige Anleitung finden Sie unter [Angepasste Attribute in Braze verwalten]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/).
+Um Nutzer:innen-Attribute von Justuno mit Braze zu synchronisieren, müssen Sie diese Attribute in Braze erstellen, falls Sie dies nicht bereits getan haben. Gehen Sie dazu zu **Data Settings** > **angepasste Attribute** und erstellen Sie dann Ihre angepassten Attribute. Eine vollständige Anleitung finden Sie unter [Angepasste Attribute in Braze verwalten]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/).
 
 ### 2. Schritt: Die Braze-App zu Justuno hinzufügen {#step-2-add-the-braze-app-to-justuno}
 

@@ -19,7 +19,7 @@ toc_headers: h2
 
 Braze는 수신자당 동일한 연결된 콘텐츠 API 호출을 두 번 이상 수행할 수 있습니다. 일반적인 이유는 다음과 같습니다.
 
-- **여러 파트가 있는 이메일:** 단일 이메일은 HTML 본문, 일반 텍스트 본문, 가속 모바일 페이지(AMP) 버전(있는 경우)에 대해 별도의 렌더링 패스를 트리거할 수 있습니다. 각 패스는 해당 파트에서 연결된 콘텐츠를 트리거할 수 있으므로, 한 명의 수신자가 여러 개의 동일하거나 유사한 호출을 생성할 수 있습니다.
+- **여러 파트가 있는 이메일:** 단일 이메일은 HTML 본문, 일반 텍스트 본문, 가속 모바일 페이지(가속 모바일 페이지) 버전(있는 경우)에 대해 별도의 렌더링 패스를 트리거할 수 있습니다. 각 패스는 해당 파트에서 연결된 콘텐츠를 트리거할 수 있으므로, 한 명의 수신자가 여러 개의 동일하거나 유사한 호출을 생성할 수 있습니다.
 - **유효성 검사 및 재시도:** 메시지 페이로드는 유효성 검사, 재시도 로직 또는 기타 내부 목적으로 수신자당 여러 번 렌더링될 수 있습니다.
 - **채널 동작:** 연결된 콘텐츠는 메시지가 렌더링될 때 실행됩니다. 인앱 메시지의 경우, 메시지는 노출 시점에 렌더링됩니다.
 
@@ -131,7 +131,7 @@ URL을 사용할 수 없어 404 페이지에 도달하면, Braze는 해당 위�
 
 다음은 서로 다른 메커니즘입니다.
 
-- **429 Too Many Requests:** 엔드포인트(또는 업스트림 서비스)가 이 응답을 반환합니다. 서버 또는 미들웨어가 자체적인 사용량 제한이 있어 트래픽을 거부하고 있다는 의미입니다. Braze는 연결된 콘텐츠에 별도의 사용량 제한을 적용하지 않습니다. 연결된 콘텐츠 요청 볼륨은 [메시지 전송 속도 사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting)에 따라 직접 조정됩니다. 메시지는 수신자당 여러 번 렌더링될 수 있으므로(예: 이메일 HTML, 일반 텍스트, AMP), 연결된 콘텐츠 요청 수가 해당 사용량 제한을 초과할 수 있습니다. 설정한 분당 메시지 수 이하일 것이라고 가정하지 마세요. 429 오류가 발생하면, 예상되는 요청 볼륨을 처리할 수 있도록 엔드포인트 또는 미들웨어를 확장하거나, Campaign 또는 Canvas [전송 속도 사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting)을 낮추어 분당 전송되는 메시지(및 연결된 콘텐츠 호출)를 줄이세요.
+- **429 Too Many Requests:** 엔드포인트(또는 업스트림 서비스)가 이 응답을 반환합니다. 서버 또는 미들웨어가 자체적인 사용량 제한이 있어 트래픽을 거부하고 있다는 의미입니다. Braze는 연결된 콘텐츠에 별도의 사용량 제한을 적용하지 않습니다. 연결된 콘텐츠 요청 볼륨은 [메시지 전송 속도 사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting)에 따라 직접 조정됩니다. 메시지는 수신자당 여러 번 렌더링될 수 있으므로(예: 이메일 HTML, 일반 텍스트, 가속 모바일 페이지), 연결된 콘텐츠 요청 수가 해당 사용량 제한을 초과할 수 있습니다. 설정한 분당 메시지 수 이하일 것이라고 가정하지 마세요. 429 오류가 발생하면, 예상되는 요청 볼륨을 처리할 수 있도록 엔드포인트 또는 미들웨어를 확장하거나, Campaign 또는 Canvas [전송 속도 사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting)을 낮추어 분당 전송되는 메시지(및 연결된 콘텐츠 호출)를 줄이세요.
 - **비정상 호스트 감지:** 1분 이내에 높은 비율과 볼륨의 *실패*가 발생한 후 트리거되는 Braze 측 안전장치입니다. 실패 수에는 `408`, `429`, `502`, `503`, `504`, `529` 상태 코드가 포함됩니다. 트리거되면 Braze는 해당 호스트에 대한 요청을 일시 중단하고 실패 응답을 시뮬레이션합니다. 이는 자체 사용량 제한과 독립적입니다. 감지 임곗값 및 자세한 내용은 [웹훅 및 연결된 콘텐츠 요청 문제 해결]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#unhealthy-host-detection)을 참조하세요. 비정상 호스트 감지를 방지하려면, [연결된 콘텐츠 호출 볼륨 이해](#understanding-connected-content-call-volume) 및 [대용량 엔드포인트를 위한 모범 사례](#best-practices-for-high-volume-endpoints)에 설명된 호출 볼륨을 엔드포인트가 처리할 수 있는지 확인하세요.
 
 ## 효율적인 성능을 위한 고려 사항 {#allowing-for-efficient-performance}
@@ -166,7 +166,7 @@ Braze는 매우 빠른 속도로 메시지를 전달하므로, 콘텐츠를 가�
 
 메시지에서 연결된 콘텐츠를 사용하면서 대량으로 발송하는 경우, 수신자 수나 발송 수보다 더 많은 요청이 발생할 수 있으므로 이를 대비해야 합니다.
 
-- **최대 부하 예측:** 엔드포인트 또는 미들웨어 규모를 산정할 때 보수적인 배수를 적용하세요. 연결된 콘텐츠 요청은 수신자 수나 발송된 메시지 수를 초과할 수 있습니다. 예를 들어 이메일의 경우 한 명의 수신자가 여러 호출을 생성할 수 있으며(HTML, 일반 텍스트, AMP), 수신자 × 2 또는 × 3이 보수적인 추정치로 자주 사용됩니다.
+- **최대 부하 예측:** 엔드포인트 또는 미들웨어 규모를 산정할 때 보수적인 배수를 적용하세요. 연결된 콘텐츠 요청은 수신자 수나 발송된 메시지 수를 초과할 수 있습니다. 예를 들어 이메일의 경우 한 명의 수신자가 여러 호출을 생성할 수 있으며(HTML, 일반 텍스트, 가속 모바일 페이지), 수신자 × 2 또는 × 3이 보수적인 추정치로 자주 사용됩니다.
 - **적절한 경우 캐싱 사용:** GET 요청은 기본적으로 캐싱됩니다. POST 요청의 경우, 일정 기간 동안 응답을 재사용할 수 있다면(예: 요청마다 변경되지 않는 토큰 또는 콘텐츠) `:cache_max_age`를 추가하세요. [응답 캐싱]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses) 및 다음 섹션의 [POST 캐싱 FAQ](#what-is-caching-behavior)를 참조하세요.
 - **메시지 사용량 제한 설정:** [워크스페이스 메시징 사용량 제한]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits) 및 Campaigns 또는 Canvases에 대한 [전달 속도 사용량 제한조치]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting)는 연결된 콘텐츠 요청량을 간접적으로 제한합니다. Braze는 연결된 콘텐츠 자체에 사용량 제한을 적용하지 않습니다. 연결된 콘텐츠 요청과 메시지는 1:1 관계가 아니므로 이러한 설정은 완벽한 제어 수단은 아닙니다. 이를 활용하여 메시지(그리고 이에 따른 연결된 콘텐츠) 볼륨을 엔드포인트가 처리할 수 있는 범위 내로 유지하세요.
 - **멱등성 및 재시도를 고려한 설계:** Braze는 수신자당 엔드포인트를 두 번 이상 호출할 수 있습니다. 엔드포인트가 중복 요청을 올바르지 않은 부작용 없이 처리할 수 있는지 확인하세요.

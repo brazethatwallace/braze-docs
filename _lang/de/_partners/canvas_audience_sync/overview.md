@@ -14,7 +14,7 @@ tool:
 
 ## Feature-Verfügbarkeit {#feature-availability}
 
-Alle Braze-Kund:innen haben sofort Zugang zu Audience Sync für Google und Facebook, aber Kund:innen mit Action Credits können auf alle Audience Sync-Partner zugreifen. Um zusätzliche Audience Sync-Ziele für Kund:innen ohne Action Credits freizuschalten, erwerben Sie Audience Sync Pro. Wenden Sie sich an Ihren Braze Account Manager für weitere Details.
+Alle Braze-Kund:innen haben sofort Zugang zu Audience Sync für Google und Facebook, aber Kund:innen mit Action Credits können auf alle Audience Sync-Partner zugreifen. Um zusätzliche Audience Sync-Ziele für Kund:innen ohne Action Credits freizuschalten, erwerben Sie Audience Sync Pro. Wenden Sie sich an Ihren Braze Account Manager:in für weitere Details.
 
 ## Anwendungsfälle {#use-cases}
 
@@ -101,7 +101,7 @@ Canvases mit hohem Volumen senden möglicherweise früher, da sich die Batches s
 
 Braze zeichnet Versandaktivitäten in internen Logs zur Überwachung und Fehlerbehebung auf, diese Zeitstempel sind jedoch nicht als abfragbare Felder verfügbar. Nachdem Braze einen Batch an die Partner-API gesendet hat, verarbeitet der Partner die Zielgruppenaktualisierung gemäß seinen eigenen Service Level Agreements – in der Regel 6–48 Stunden.
 
-Braze erhält keine Bestätigung von Partnern, dass einzelne Nutzer:innen abgeglichen oder synchronisiert wurden. Partnerantworten sind HTTP-Empfangsbestätigungen, keine Abgleichbestätigungen. Um zu überprüfen, ob eine Zielgruppe befüllt wurde, prüfen Sie die Werbeplattform des Partners (z.&#160;B. Google Ads Audience Manager oder Meta Business Manager).
+Braze erhält keine Bestätigung von Partnern, dass einzelne Nutzer:innen abgeglichen oder synchronisiert wurden. Partnerantworten sind HTTP-Empfangsbestätigungen, keine Abgleichbestätigungen. Um zu überprüfen, ob eine Zielgruppe befüllt wurde, prüfen Sie die Werbeplattform des Partners (z.&#160;B. Google Ads Audience Manager:in oder Meta Business Manager:in).
 
 ### Audience-Sync-Fehler-E-Mails {#audience-sync-error-emails}
 
@@ -109,7 +109,7 @@ Wenn der Fehler mit der allgemeinen Partnerintegration zusammenhängt (z.&#160;B
 
 Wenn der Fehler mit Problemen bei der Audience-Sync-Komponente zusammenhängt (z.&#160;B. „Zielgruppe existiert nicht“) in Canvas, wird eine E-Mail an die Person gesendet, die den Canvas eingerichtet hat. Wenn diese Person nicht mehr existiert, wird die E-Mail an die Unternehmensadministrator:innen weitergeleitet.
 
-Um zu konfigurieren, wer diese E-Mails erhält, wenden Sie sich an Ihren Customer-Success-Manager, um Empfänger:innen unter **Benachrichtigungseinstellungen** hinzuzufügen. Diese Einstellung deckt sowohl Integrationsfehler als auch Fehler der Audience-Sync-Komponente ab. Empfänger:innen, die Sie hinzufügen, erhalten diese E-Mails zusätzlich zu der Person, die mit dem Fehler verknüpft ist.
+Um zu konfigurieren, wer diese E-Mails erhält, wenden Sie sich an Ihren CSM, um Empfänger:innen unter **Benachrichtigungseinstellungen** hinzuzufügen. Diese Einstellung deckt sowohl Integrationsfehler als auch Fehler der Audience-Sync-Komponente ab. Empfänger:innen, die Sie hinzufügen, erhalten diese E-Mails zusätzlich zu der Person, die mit dem Fehler verknüpft ist.
 
 ## Datenschutzerwägungen {#data-privacy-considerations}
 

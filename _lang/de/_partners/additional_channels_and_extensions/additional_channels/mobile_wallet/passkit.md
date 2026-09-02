@@ -22,7 +22,7 @@ Die Integration von Braze und PassKit ermöglicht es Ihnen, das Engagement Ihrer
 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
-| PassKit-Konto | Sie müssen ein PassKit-Konto und einen PassKit Account Manager haben. |
+| PassKit-Konto | Sie müssen ein PassKit-Konto und einen PassKit Account Manager:in haben. |
 | `userDefinedID` | Um angepasste Events und angepasste Attribute für Ihre Nutzer:innen zwischen PassKit und Braze angemessen zu aktualisieren, müssen Sie die externe ID von Braze als `userDefinedID` festlegen. Diese `userDefinedID` wird verwendet, wenn Sie API-Aufrufe zu den PassKit-Endpunkten tätigen. |
 | Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
 | Braze REST-Endpunkt  | Ihre URL für den REST-Endpunkt. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/api/basics#endpoints) ab. |
@@ -92,7 +92,7 @@ Erstellen und benennen Sie einen neuen Content-Block, indem Sie im Braze-Dashboa
 
 Wählen Sie **Content-Block erstellen**, um loszulegen.
 
-Als Nächstes müssen Sie Ihren **Content Block Liquid Tag** definieren. Nachdem Sie diesen Content-Block gespeichert haben, können Sie beim Verfassen von Nachrichten auf diesen Liquid-Tag verweisen. In diesem Beispiel haben wir den Liquid-Tag als {% raw %}`{{content_blocks.${passKit_SmartPass_url}}}`{% endraw %} zugewiesen.
+Als Nächstes müssen Sie Ihren **Content Block Liquid-Tag** definieren. Nachdem Sie diesen Content-Block gespeichert haben, können Sie beim Verfassen von Nachrichten auf diesen Liquid-Tag verweisen. In diesem Beispiel haben wir den Liquid-Tag als {% raw %}`{{content_blocks.${passKit_SmartPass_url}}}`{% endraw %} zugewiesen.
 
 Innerhalb dieses Content-Blocks werden wir die Nutzdaten nicht direkt einbinden, sondern in einer {% raw %}`{{passData}}`{% endraw %}-Variablen referenzieren. Das erste Code-Snippet, das Sie zu Ihrem Content-Block hinzufügen müssen, erfasst eine Base64-Kodierung der Variablen {% raw %}`{{passData}}`{% endraw %}.
 {% raw %}

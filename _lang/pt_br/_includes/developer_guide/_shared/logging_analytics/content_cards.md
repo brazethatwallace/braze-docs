@@ -220,7 +220,7 @@ Para ler o estado em cache atual sem bloquear a thread de chamada, use os métod
 {% endsubtabs %}
 {% endtab %}
 
-{% tab react native %}
+{% tab React Native %}
 
 Para ouvir atualizações, inscreva-se nos eventos de atualização de Content Cards:
 
@@ -377,7 +377,7 @@ Para lidar com Content Cards de variante de controle na sua interface personaliz
 {% endalert %}
 {% endtab %}
 
-{% tab react native %}
+{% tab React Native %}
 
 Registre eventos de impressão quando os cartões são visualizados pelos usuários:
 

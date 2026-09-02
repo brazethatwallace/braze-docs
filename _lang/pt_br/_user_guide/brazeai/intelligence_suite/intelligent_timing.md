@@ -56,7 +56,7 @@ Use o horário de silêncio para evitar que mensagens sejam enviadas durante hor
 O horário de silêncio substituiu a configuração **Only send within specific hours**. Em vez de escolher quando as mensagens podem ser enviadas, agora você escolhe quando elas não devem ser enviadas. Por exemplo, para enviar mensagens entre 16h e 18h, defina o horário de silêncio das 18h às 16h do dia seguinte.
 {% endalert %}
 
-1. Selecione **Enable Quiet Hours**.
+1. Selecione **Enable horário de silêncio**.
 2. Selecione o horário de início e término em que as mensagens **não** devem ser enviadas.
 
 ![Alternância de horário de silêncio ativada com horário de início e término definido para bloquear a entrega de mensagens durante a noite]({% image_buster /assets/img/intelligent_timing/quiet_hours.png %})
@@ -72,7 +72,7 @@ Para saber mais, consulte [Horário de silêncio]({{site.baseurl}}/user_guide/me
 Para ver uma estimativa de quantos usuários receberão a mensagem em cada hora do dia, use o gráfico de prévia (somente para Campaigns).
 
 1. Adicione Segments ou filtros na etapa de públicos-alvo.
-2. Na seção **Preview Delivery Times for** (que aparece tanto na etapa de públicos-alvo quanto na etapa de agendamento de entrega), selecione seu canal.
+2. Na seção **prévia Delivery Times for** (que aparece tanto na etapa de públicos-alvo quanto na etapa de agendamento de entrega), selecione seu canal.
 3. Clique em **Refresh Data**.
 
 ![Gráfico de prévia de entrega para push no Android mostrando o pico de engajamento entre 12h e 14h, e o horário mais popular do app sendo 14h.]({% image_buster /assets/img/intel-timing-preview.png %})
@@ -113,7 +113,7 @@ O horário de silêncio funciona como uma janela de não envio. O Intelligent Ti
 
 Para configurar o horário de silêncio:
 
-1. Ao configurar o Intelligent Timing, selecione **Enable Quiet Hours**.
+1. Ao configurar o Intelligent Timing, selecione **Enable horário de silêncio**.
 2. Insira o horário de início e término da janela de silêncio.
 
 ### Etapa 4: Escolher um horário de fallback {#campaign-fallback}
@@ -129,7 +129,7 @@ Escolha um horário de fallback para usar caso o perfil do usuário não tenha e
 Para ver uma estimativa de quantos usuários receberão a mensagem em cada hora do dia, use o gráfico de prévia:
 
 1. Adicione Segments ou filtros na etapa **Target Audiences**.
-2. Na seção **Preview Delivery Times for** (que aparece tanto na etapa **Target Audiences** quanto na etapa **Schedule Delivery**), selecione seu canal.
+2. Na seção **prévia Delivery Times for** (que aparece tanto na etapa **Target Audiences** quanto na etapa **agendar/cronograma Delivery**), selecione seu canal.
 3. Selecione **Refresh Data**.
 
 O gráfico de prévia mostra cada hora do dia usando seu fuso local. Os rótulos não estão definidos em um fuso horário global único.
@@ -263,7 +263,7 @@ Deixe tempo suficiente para o teste A/B terminar e programe o envio otimizado pa
 
 ### Funcionalidade {#functionality}
 
-#### Quando a Braze verifica os critérios de elegibilidade para os filtros de segmento e público? {#when-does-braze-check-the-eligibility-criteria-for-segment-and-audience-filters}
+#### Quando a Braze verifica os critérios de elegibilidade para os filtros de Segment e público? {#when-does-braze-check-the-eligibility-criteria-for-segment-and-audience-filters}
 
 A Braze realiza duas verificações quando uma campanha é lançada:
 
@@ -288,9 +288,9 @@ Recomendamos usar o limite de frequência em uma campanha com Intelligent Timing
 
 #### Posso usar o Intelligent Timing durante o aquecimento de IP? {#can-i-use-intelligent-timing-while-ip-warming}
 
-A Braze não recomenda usar o Intelligent Timing quando os usuários estão começando o aquecimento de IP, pois alguns de seus comportamentos podem causar dificuldades em atingir os volumes diários necessários. Isso ocorre porque o Intelligent Timing avalia os segmentos de campanha duas vezes: uma vez quando a campanha é criada pela primeira vez, e uma segunda vez antes de enviar aos usuários para verificar se eles ainda devem estar nesse segmento.
+A Braze não recomenda usar o Intelligent Timing quando os usuários estão começando o aquecimento de IP, pois alguns de seus comportamentos podem causar dificuldades em atingir os volumes diários necessários. Isso ocorre porque o Intelligent Timing avalia os segmentos de campanha duas vezes: uma vez quando a campanha é criada pela primeira vez, e uma segunda vez antes de enviar aos usuários para verificar se eles ainda devem estar nesse Segment.
 
-Isso pode fazer com que os segmentos mudem, muitas vezes levando alguns usuários a saírem do segmento na segunda avaliação. Esses usuários não são substituídos, impactando o quão próximo do limite máximo de usuários você consegue alcançar.
+Isso pode fazer com que os segmentos mudem, muitas vezes levando alguns usuários a saírem do Segment na segunda avaliação. Esses usuários não são substituídos, impactando o quão próximo do limite máximo de usuários você consegue alcançar.
 
 #### Como é determinado o horário mais popular do app? {#how-is-the-most-popular-app-time-determined}
 

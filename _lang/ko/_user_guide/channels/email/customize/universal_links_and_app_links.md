@@ -246,7 +246,7 @@ SendGrid 클릭 추적 링크를 유니버설 링크로 처리하려면:
 2. 링크의 앵커 태그(`<a>`)에 `universal="true"` 속성을 추가하세요. 이렇게 하면 래핑된 링크의 URL 경로에 `/uni/`가 포함됩니다.
 
 {% alert note %}
-AMP 이메일의 경우 이 속성은 data-universal="true"여야 합니다.
+가속 모바일 페이지 이메일의 경우 이 속성은 data-universal="true"여야 합니다.
 {% endalert %}
 
 예시:

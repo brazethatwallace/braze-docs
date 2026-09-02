@@ -37,7 +37,7 @@ Les équipes de satisfaction client et de livrabilité de Braze peuvent vous aid
 
 ## Comment résoudre un blocage de domaine e-mail gratuit pour Microsoft {#how-to-resolve-a-free-email-domain-block-for-microsoft}
 
-Microsoft débloque rarement les expéditeurs qui rencontrent des difficultés de livraison vers les domaines e-mail gratuits (Hotmail, Live, MSN et Outlook). Réduisez plutôt votre volume d'envoi vers ces domaines de manière agressive et n'envoyez qu'aux contacts récemment engagés. Si vous ne parvenez pas à identifier un groupe principal de destinataires engagés, cessez complètement d'envoyer vers ces domaines.
+Microsoft débloque rarement les expéditeurs qui rencontrent des difficultés de livraison vers les domaines e-mail gratuits (Hotmail, en direct, MSN et Outlook). Réduisez plutôt votre volume d'envoi vers ces domaines de manière agressive et n'envoyez qu'aux contacts récemment engagés. Si vous ne parvenez pas à identifier un groupe principal de destinataires engagés, cessez complètement d'envoyer vers ces domaines.
 
 Voici un exemple de message de blocage de domaine e-mail gratuit :
 

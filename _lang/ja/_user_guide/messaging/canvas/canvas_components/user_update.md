@@ -54,7 +54,7 @@ tool: Canvas
 
 ### オブジェクト配列の更新 {#updating-an-array-of-objects}
 
-[オブジェクト配列]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects)は、ユーザーのプロファイルに保存されるデータが豊富なカスタム属性です。ユーザーとブランドとのインタラクション履歴を作成したり、購入履歴や生涯価値の合計などの計算フィールドに基づいてセグメントを作成したりできます。
+[オブジェクト配列]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects)は、ユーザーのプロファイルに保存されるデータが豊富なカスタム属性です。ユーザーとブランドとのインタラクション履歴を作成したり、購入履歴やLTVの合計などの計算フィールドに基づいてセグメントを作成したりできます。
 
 **Advanced JSON Editor** オプションを使用すると、JSONを挿入してこのオブジェクト配列にアイテムを追加したり、アイテムを削除したりできます。
 

@@ -1,29 +1,29 @@
 ---
-nav_title: Google tag manager
-article_title: Google Tag Manager with the Braze SDK
+nav_title: Google tag Administrador
+article_title: Google Tag Administrador with the Braze SDK
 platform:
   - Android
   - FireOS
   - Swift
 page_order: 1.1
-description: "Learn how to initialize the Braze SDK using methods like runtime initialization, delayed initialization, or Google Tag Manager."
+description: "Learn how to initialize the Braze SDK using methods like runtime initialization, delayed initialization, or Google Tag Administrador."
 
 ---
-## Acerca de Google Tag Manager para Web {#google-tag-manager}
+## Acerca de Google Tag Administrador para Web {#google-tag-manager}
 
-Google Tag Manager (GTM) te permite añadir, eliminar y editar etiquetas de forma remota en tu sitio web sin necesidad de liberar código de producción ni recursos de ingeniería. Braze ofrece las siguientes plantillas para el SDK Web:
+Google Tag Administrador (GTM) te permite añadir, eliminar y editar etiquetas de forma remota en tu sitio web sin necesidad de liberar código de producción ni recursos de ingeniería. Braze ofrece las siguientes plantillas para el SDK Web:
 
 | Tipo de etiqueta | Caso de uso |
 |--------|--------|
 | Etiqueta de inicialización | Esta etiqueta te permite [integrar el SDK Web de Braze]({{site.baseurl}}/developer_guide/sdk_integration/?tab=google%20tag%20manager&sdktab=web) sin necesidad de modificar el código de tu sitio. |
 | Etiqueta de acción | Esta etiqueta te permite [crear Content Cards]({{site.baseurl}}/developer_guide/content_cards/?sdktab=web#web_using-google-tag-manager), [establecer atributos de usuario]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?tab=google%20tag%20manager&sdktab=web) y [administrar la recopilación de datos]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?tab=google%20tag%20manager&sdktab=web). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Acerca de Google Tag Manager para Web" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Acerca de Google Tag Administrador para Web" }
 
 ## Secuenciación de etiquetas para las etiquetas de acción de Braze {#tag-sequencing-for-braze-action-tags}
 
 La etiqueta de inicialización de Braze debe activarse antes que cualquier etiqueta que llame a métodos del SDK de Braze (como `braze.getUser()`, `braze.logCustomEvent()` o `braze.logPurchase()`). Si estos métodos se activan antes de que el SDK esté inicializado, puedes encontrar errores como `Uncaught TypeError: Cannot read properties of undefined (reading 'getUser')`.
 
-Para configurar la secuenciación de etiquetas en Google Tag Manager:
+Para configurar la secuenciación de etiquetas en Google Tag Administrador:
 
 1. Abre la etiqueta que llama a métodos del SDK de Braze (como una etiqueta HTML personalizada o una etiqueta de acción de Braze).
 2. Ve a **Advanced Settings** > **Tag Sequencing**.

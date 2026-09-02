@@ -44,4 +44,4 @@ Para archivar un grupo de suscripción de WhatsApp, sigue estos pasos:
 ## Consideraciones {#considerations}
 
 - Si necesitas transferir el número de teléfono de WhatsApp de vuelta al espacio de trabajo original, repite los pasos. Archiva el grupo de suscripción en el espacio de trabajo de destino y luego intégralo en el espacio de trabajo original.
-- No necesitas eliminar el número de teléfono de WhatsApp de tu Meta Business Manager durante la transferencia.
+- No necesitas eliminar el número de teléfono de WhatsApp de tu Meta Business Administrador durante la transferencia.

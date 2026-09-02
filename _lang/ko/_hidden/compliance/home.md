@@ -153,7 +153,7 @@ LINE 조건에 상반되는 내용이 있더라도, 고객은 LINE 서비스 사
 
 ### 하위 처리자 또는 타사 제공자로서의 LLM 제공자 {#llm-providers-as-sub-processors-or-third-party-providers}
 
-고객이 Braze 서비스의 Braze Auto 옵션을 통해 Braze가 제공하는 대규모 언어 모델("Braze 제공 LLM")과의 통합을 사용하는 경우, 해당 Braze 제공 LLM의 제공자는 고객과 Braze 간의 데이터 처리 부록(DPA) 조건에 따라 Braze 하위 처리자로서 활동합니다.
+고객이 Braze 서비스의 Braze Auto 옵션을 통해 Braze가 제공하는 대규모 언어 모델("Braze 제공 LLM")과의 통합을 사용하는 경우, 해당 Braze 제공 LLM의 제공자는 고객과 Braze 간의 데이터 처리 부록(데이터 보호 어드바이저) 조건에 따라 Braze 하위 처리자로서 활동합니다.
 
 고객이 Braze AI 기능과 통합하기 위해 자체 API 키를 가져오는 경우, 고객 자체 LLM 구독의 제공자는 고객과 Braze 간의 계약에 정의된 바와 같이 타사 제공자로 간주됩니다.
 

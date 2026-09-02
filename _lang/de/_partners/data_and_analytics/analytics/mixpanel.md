@@ -30,7 +30,7 @@ Eine vollständige Liste der Events, die von Braze nach Mixpanel exportiert werd
 
 Sie können zwei Arten von Events nach Mixpanel exportieren: [Nachrichteninteraktions-Events](#supported-currents-events), die sich auf die Braze-Events beziehen, die direkt mit dem Nachrichtenversand zusammenhängen, und [Kundenverhalten-Events](#supported-currents-events), die andere App- oder Website-Aktivitäten wie Sitzungen, angepasste Events und über die Plattform erfasste Käufe umfassen. Alle angepassten Events erhalten das Präfix `[Braze Custom Event]`. Angepasste Event-Eigenschaften und Kauf-Event-Eigenschaften erhalten die Präfixe `[Custom event property]` bzw. `[Purchase property]`.
 
-Wenden Sie sich an Ihren Account Manager oder eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support), wenn Sie Zugang zu zusätzlichen Event-Berechtigungen benötigen.
+Wenden Sie sich an Ihren Account Manager:in oder eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support), wenn Sie Zugang zu zusätzlichen Event-Berechtigungen benötigen.
 
 ### Schritt 1: Mixpanel-Zugangsdaten abrufen {#step-1-get-mixpanel-credentials}
 

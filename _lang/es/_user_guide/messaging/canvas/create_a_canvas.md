@@ -9,7 +9,7 @@ search_rank: 1
 
 # Crear un Canvas {#create-a-canvas}
 
-> Este artículo de referencia cubre los pasos necesarios para crear, mantener y probar un Canvas. Sigue esta guía o consulta nuestro [curso de Braze Learning sobre Canvas](https://learning.braze.com/quick-overview-canvas-setup). También puedes empezar desde una [plantilla de Braze Canvas]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates) para acelerar tu configuración. Para más información, consulta [Plantillas de Canvas]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates). Para redactar un Canvas a partir de una descripción en lenguaje natural, consulta [Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#canvases).
+> Este artículo de referencia cubre los pasos necesarios para crear, mantener y probar un Canvas. Sigue esta guía o consulta nuestro [curso de Braze Learning sobre Canvas](https://learning.braze.com/quick-overview-canvas-setup). También puedes empezar desde una [plantilla de BRAZE CANVAS]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates) para acelerar tu configuración. Para más información, consulta [Plantillas de Canvas]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates). Para redactar un Canvas a partir de una descripción en lenguaje natural, consulta [Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#canvases).
 
 {% details Expande para ver los detalles del editor original de Canvas %}
 Ya no puedes crear ni duplicar Canvas usando la experiencia original de Canvas. Braze recomienda [clonar tus Canvas]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases) al editor más reciente.

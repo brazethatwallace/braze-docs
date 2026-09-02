@@ -230,7 +230,7 @@ Feld | Typ | Beschreibung
 `sf_created_at` | `timestamp`,&nbsp;`null` | Wann dieses Ereignis von der Snowpipe erfasst wurde
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="AGENTCONSOLETOOLINVOCATIONSHARED #AGENTCONSOLETOOLINVOCATIONSHARED" }
 
-## Nutzerprofil-Attributansichten {#user-profile-attribute-views}
+## Kundenprofil-Attributansichten {#user-profile-attribute-views}
 
 ### USER_CUSTOM_ATTRIBUTES_VIEW_SHARED {#USER_CUSTOM_ATTRIBUTES_VIEW_SHARED}
 
@@ -1437,7 +1437,7 @@ Feld | Typ | Beschreibung
 `sending_ip` | `null,`&nbsp;`string` | IP-Adresse, von der der E-Mail-Versand erfolgte
 `ip_pool` | `null,`&nbsp;`string` | IP-Pool, über den der E-Mail-Versand erfolgte
 `bounce_reason` | `null,`&nbsp;`string` | [PII] Der SMTP-Ursachencode und die benutzerfreundliche Nachricht, die für dieses Bounce-Ereignis empfangen wurden
-`esp` | `null,`&nbsp;`string` | ESP im Zusammenhang mit dem Ereignis (SparkPost, SendGrid oder Amazon SES)
+`esp` | `null,`&nbsp;`string` | E-Mail-Anbieter im Zusammenhang mit dem Ereignis (SparkPost, SendGrid oder Amazon SES)
 `from_domain` | `null,`&nbsp;`string` | Absende-Domain für die E-Mail
 `is_drop` | `null, boolean` | Gibt an, ob dieses Ereignis als Drop-Ereignis zählt
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese:r Nutzer:in gehört
@@ -1478,7 +1478,7 @@ Feld | Typ | Beschreibung
 `ip_pool` | `null,`&nbsp;`string` | IP-Pool, über den der E-Mail-Versand erfolgte
 `link_id` | `null,`&nbsp;`string` | Eindeutige ID für den geklickten Link, wie von Braze erstellt
 `link_alias` | `null,`&nbsp;`string` | Alias, der mit dieser Link-ID verknüpft ist
-`esp` | `null,`&nbsp;`string` | ESP im Zusammenhang mit dem Ereignis (SparkPost, SendGrid oder Amazon SES)
+`esp` | `null,`&nbsp;`string` | E-Mail-Anbieter im Zusammenhang mit dem Ereignis (SparkPost, SendGrid oder Amazon SES)
 `from_domain` | `null,`&nbsp;`string` | Absende-Domain für die E-Mail
 `is_amp` | `null, boolean` | Gibt an, ob es sich um ein AMP-Ereignis handelt
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese:r Nutzer:in gehört
@@ -1510,7 +1510,7 @@ Feld | Typ | Beschreibung
 `dispatch_id` | `null,`&nbsp;`string` | ID des Dispatch, zu dem diese Nachricht gehört
 `email_address` | `null,`&nbsp;`string` | [PII] E-Mail-Adresse der/des Nutzer:in
 `recipient_domain` | `null,`&nbsp;`string` | E-Mail-Domain der/des Empfänger:in
-`esp` | `null,`&nbsp;`string` | ESP im Zusammenhang mit dem Ereignis (Sparkpost, Sendgrid oder Amazon SES)
+`esp` | `null,`&nbsp;`string` | E-Mail-Anbieter im Zusammenhang mit dem Ereignis (Sparkpost, Sendgrid oder Amazon SES)
 `from_domain` | `null,`&nbsp;`string` | Absende-Domain für die E-Mail
 `ip_pool` | `null,`&nbsp;`string` | IP-Pool, über den der E-Mail-Versand erfolgte
 `sending_ip` | `null,`&nbsp;`string` | IP-Adresse, von der der E-Mail-Versand erfolgte
@@ -1547,7 +1547,7 @@ Feld | Typ | Beschreibung
 `email_address` | `string` | [PII] E-Mail-Adresse der/des Nutzer:in
 `sending_ip` | `null,`&nbsp;`string` | IP-Adresse, von der die E-Mail gesendet wurde
 `ip_pool` | `null,`&nbsp;`string` | IP-Pool, über den der E-Mail-Versand erfolgte
-`esp` | `null,`&nbsp;`string` | ESP im Zusammenhang mit dem Ereignis (SparkPost, SendGrid oder Amazon SES)
+`esp` | `null,`&nbsp;`string` | E-Mail-Anbieter im Zusammenhang mit dem Ereignis (SparkPost, SendGrid oder Amazon SES)
 `from_domain` | `null,`&nbsp;`string` | Absende-Domain für die E-Mail
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese:r Nutzer:in gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
@@ -1580,7 +1580,7 @@ Feld | Typ | Beschreibung
 `email_address` | `string` | [PII] E-Mail-Adresse der/des Nutzer:in
 `user_agent` | `null,`&nbsp;`string` | User-Agent, über den der Spam-Bericht erfolgte
 `ip_pool` | `null,`&nbsp;`string` | IP-Pool, über den der E-Mail-Versand erfolgte
-`esp` | `null,`&nbsp;`string` | ESP im Zusammenhang mit dem Ereignis (SparkPost, SendGrid oder Amazon SES)
+`esp` | `null,`&nbsp;`string` | E-Mail-Anbieter im Zusammenhang mit dem Ereignis (SparkPost, SendGrid oder Amazon SES)
 `from_domain` | `null,`&nbsp;`string` | Absende-Domain für die E-Mail
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese:r Nutzer:in gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
@@ -1614,7 +1614,7 @@ Feld | Typ | Beschreibung
 `user_agent` | `null,`&nbsp;`string` | User-Agent, über den die Öffnung erfolgte
 `ip_pool` | `null,`&nbsp;`string` | IP-Pool, über den der E-Mail-Versand erfolgte
 `machine_open` | `null,`&nbsp;`string` | Wird auf „true“ gesetzt, wenn das Öffnungs-Ereignis ohne Nutzerinteraktion ausgelöst wird, z. B. durch ein Apple-Gerät mit aktiviertem E-Mail-Datenschutz. Der Wert kann sich im Laufe der Zeit ändern, um mehr Granularität zu bieten.
-`esp` | `null,`&nbsp;`string` | ESP im Zusammenhang mit dem Ereignis (SparkPost, SendGrid oder Amazon SES)
+`esp` | `null,`&nbsp;`string` | E-Mail-Anbieter im Zusammenhang mit dem Ereignis (SparkPost, SendGrid oder Amazon SES)
 `from_domain` | `null,`&nbsp;`string` | Absende-Domain für die E-Mail
 `is_amp` | `null, boolean` | Gibt an, ob es sich um ein AMP-Ereignis handelt
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese:r Nutzer:in gehört
@@ -1648,7 +1648,7 @@ Feld | Typ | Beschreibung
 `email_address` | `string` | [PII] E-Mail-Adresse der/des Nutzer:in
 `ip_pool` | `null,`&nbsp;`string` | IP-Pool, über den der E-Mail-Versand erfolgte
 `message_extras` | `null,`&nbsp;`string` | [PII] Ein JSON-String der getaggten Schlüssel-Wert-Paare während des Liquid-Renderings
-`esp` | `null,`&nbsp;`string` | ESP im Zusammenhang mit dem Ereignis (SparkPost, SendGrid oder Amazon SES)
+`esp` | `null,`&nbsp;`string` | E-Mail-Anbieter im Zusammenhang mit dem Ereignis (SparkPost, SendGrid oder Amazon SES)
 `from_domain` | `null,`&nbsp;`string` | Absende-Domain für die E-Mail
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese:r Nutzer:in gehört
@@ -1682,7 +1682,7 @@ Feld | Typ | Beschreibung
 `sending_ip` | `null,`&nbsp;`string` | IP-Adresse, von der der E-Mail-Versand erfolgte
 `ip_pool` | `null,`&nbsp;`string` | IP-Pool, über den der E-Mail-Versand erfolgte
 `bounce_reason` | `null,`&nbsp;`string` | [PII] Der SMTP-Ursachencode und die benutzerfreundliche Nachricht, die für dieses Bounce-Ereignis empfangen wurden
-`esp` | `null,`&nbsp;`string` | ESP im Zusammenhang mit dem Ereignis (SparkPost, SendGrid oder Amazon SES)
+`esp` | `null,`&nbsp;`string` | E-Mail-Anbieter im Zusammenhang mit dem Ereignis (SparkPost, SendGrid oder Amazon SES)
 `from_domain` | `null,`&nbsp;`string` | Absende-Domain für die E-Mail
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese:r Nutzer:in gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
@@ -1690,7 +1690,7 @@ Feld | Typ | Beschreibung
 
 ### USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED {#USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED}
 
-Diese Tabelle protokolliert E-Mail-Abmeldungen auf Nachrichtenebene von Empfängerseite: Klick auf einen Abmelde-Link, die Ein-Klick-List-Unsubscribe-Funktion des E-Mail-Clients, Einreichungen über das Preference Center sowie vom ESP gemeldete Abmeldungen. Abmeldungen, die über die REST API vorgenommen werden, sind nicht enthalten; diese erzeugen stattdessen [`users.behaviors.subscriptiongroup.StateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#subscription-group-state-change-events)- oder [`users.behaviors.subscription.GlobalStateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#global-subscription-state-change-events)-Ereignisse.
+Diese Tabelle protokolliert E-Mail-Abmeldungen auf Nachrichtenebene von Empfängerseite: Klick auf einen Abmelde-Link, die Ein-Klick-List-Unsubscribe-Funktion des E-Mail-Clients, Einreichungen über das Preference Center sowie vom E-Mail-Anbieter gemeldete Abmeldungen. Abmeldungen, die über die REST API vorgenommen werden, sind nicht enthalten; diese erzeugen stattdessen [`users.behaviors.subscriptiongroup.StateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#subscription-group-state-change-events)- oder [`users.behaviors.subscription.GlobalStateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#global-subscription-state-change-events)-Ereignisse.
 
 Feld | Typ | Beschreibung
 ------|------|------------
@@ -2657,7 +2657,7 @@ Feld | Typ | Beschreibung
 ## SMS-Nachrichtenereignisse und gelöschte Nutzerprofile {#sms-message-events-and-deleted-user-profiles}
 
 {% alert note %}
-Für gemeinsam genutzte `USERS_MESSAGES_SMS_*`-Tabellen (einschließlich [`USERS_MESSAGES_SMS_REJECTION_SHARED`](#USERS_MESSAGES_SMS_REJECTION_SHARED), [`USERS_MESSAGES_SMS_DELIVERY_SHARED`](#USERS_MESSAGES_SMS_DELIVERY_SHARED) und [`USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED`](#USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED)) schreibt Braze nur dann eine Zeile, wenn das Braze-Nutzerprofil zum Zeitpunkt der Verarbeitung des Ereignisses für Snowflake Data Sharing und Currents noch im Workspace vorhanden ist. Falls die Nutzer:in vor Abschluss der Verarbeitung gelöscht wurde, erscheint das Ereignis weder in Snowflake noch in Ihrem Currents-Export, auch wenn die SMS-Workspace-Metriken im Dashboard weiterhin aggregierte Zahlen aus dem Braze-Reporting-Pfad widerspiegeln. Informationen zum entsprechenden Currents-Verhalten finden Sie unter [SMS-Rejection-Ereignisse]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-rejection-events) und verwandte SMS-Ereignistypen im selben Glossar.
+Für gemeinsam genutzte `USERS_MESSAGES_SMS_*`-Tabellen (einschließlich [`USERS_MESSAGES_SMS_REJECTION_SHARED`](#USERS_MESSAGES_SMS_REJECTION_SHARED), [`USERS_MESSAGES_SMS_DELIVERY_SHARED`](#USERS_MESSAGES_SMS_DELIVERY_SHARED) und [`USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED`](#USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED)) schreibt Braze nur dann eine Zeile, wenn das Braze-Kundenprofil zum Zeitpunkt der Verarbeitung des Ereignisses für Snowflake Data Sharing und Currents noch im Workspace vorhanden ist. Falls die Nutzer:in vor Abschluss der Verarbeitung gelöscht wurde, erscheint das Ereignis weder in Snowflake noch in Ihrem Currents-Export, auch wenn die SMS-Workspace-Metriken im Dashboard weiterhin aggregierte Zahlen aus dem Braze-Reporting-Pfad widerspiegeln. Informationen zum entsprechenden Currents-Verhalten finden Sie unter [SMS-Rejection-Ereignisse]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-rejection-events) und verwandte SMS-Ereignistypen im selben Glossar.
 {% endalert %}
 
 ### USERS_MESSAGES_SMS_ABORT_SHARED {#USERS_MESSAGES_SMS_ABORT_SHARED}
@@ -3145,8 +3145,8 @@ Feld | Typ | Beschreibung
 `dispatch_id` | `null,`&nbsp;`string` | ID des Dispatch, zu dem diese Nachricht gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
 `send_id` | `null,`&nbsp;`string` | Nachrichtenversand-ID, zu der diese Nachricht gehört
-`flow_id` | `null,`&nbsp;`string` | Die eindeutige ID des Flows im WhatsApp Manager. Vorhanden, wenn die Nutzer:in auf einen WhatsApp Flow antwortet.
-`template_name` | `null,`&nbsp;`string` | [PII] Name des Templates im WhatsApp Manager. Vorhanden, wenn eine Template-Nachricht gesendet wird
+`flow_id` | `null,`&nbsp;`string` | Die eindeutige ID des Flows im WhatsApp Manager:in. Vorhanden, wenn die Nutzer:in auf einen WhatsApp Flow antwortet.
+`template_name` | `null,`&nbsp;`string` | [PII] Name des Templates im WhatsApp Manager:in. Vorhanden, wenn eine Template-Nachricht gesendet wird
 `message_id` | `null,`&nbsp;`string` | Die von Meta generierte eindeutige ID für diese Nachricht
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWHATSAPPDELIVERYSHARED #USERSMESSAGESWHATSAPPDELIVERYSHARED" }
 
@@ -3179,8 +3179,8 @@ Feld | Typ | Beschreibung
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
 `send_id` | `null,`&nbsp;`string` | Nachrichtenversand-ID, zu der diese Nachricht gehört
 `message_id` | `null,`&nbsp;`string` | Die von Meta generierte eindeutige ID für diese Nachricht
-`template_name` | `null,`&nbsp;`string` | [PII] Name des Templates im WhatsApp Manager. Vorhanden, wenn eine Template-Nachricht gesendet wird
-`flow_id` | `null,`&nbsp;`string` | Die eindeutige ID des Flows im WhatsApp Manager. Vorhanden, wenn die Nutzer:in auf einen WhatsApp Flow antwortet.
+`template_name` | `null,`&nbsp;`string` | [PII] Name des Templates im WhatsApp Manager:in. Vorhanden, wenn eine Template-Nachricht gesendet wird
+`flow_id` | `null,`&nbsp;`string` | Die eindeutige ID des Flows im WhatsApp Manager:in. Vorhanden, wenn die Nutzer:in auf einen WhatsApp Flow antwortet.
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWHATSAPPFAILURESHARED #USERSMESSAGESWHATSAPPFAILURESHARED" }
 
 ### USERS_MESSAGES_WHATSAPP_INBOUNDRECEIVE_SHARED {#USERS_MESSAGES_WHATSAPP_INBOUNDRECEIVE_SHARED}
@@ -3213,7 +3213,7 @@ Feld | Typ | Beschreibung
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
 `catalog_id` | `null,`&nbsp;`string` | Katalog-ID eines Produkts, wenn ein Produkt in der eingehenden Nachricht referenziert wird. Andernfalls leer.
 `product_id` | `null,`&nbsp;`string` | ID des gekauften Produkts
-`flow_id` | `null,`&nbsp;`string` | Die eindeutige ID des Flows im WhatsApp Manager. Vorhanden, wenn die Nutzer:in auf einen WhatsApp Flow antwortet.
+`flow_id` | `null,`&nbsp;`string` | Die eindeutige ID des Flows im WhatsApp Manager:in. Vorhanden, wenn die Nutzer:in auf einen WhatsApp Flow antwortet.
 `flow_response_json` | `null,`&nbsp;`string` | [PII] Die Formularwerte, mit denen die Nutzer:in geantwortet hat. Vorhanden, wenn die Nutzer:in auf einen WhatsApp Flow antwortet.
 `message_id` | `null,`&nbsp;`string` | Die von Meta generierte eindeutige ID für diese Nachricht
 `in_reply_to` | `null,`&nbsp;`string` | Die message_id der Nachricht, auf die diese Nachricht geantwortet hat
@@ -3245,9 +3245,9 @@ Feld | Typ | Beschreibung
 `dispatch_id` | `null,`&nbsp;`string` | ID des Dispatch, zu dem diese Nachricht gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
 `send_id` | `null,`&nbsp;`string` | Nachrichtenversand-ID, zu der diese Nachricht gehört
-`template_name` | `null,`&nbsp;`string` | [PII] Name des Templates im WhatsApp Manager. Vorhanden, wenn eine Template-Nachricht gesendet wird
+`template_name` | `null,`&nbsp;`string` | [PII] Name des Templates im WhatsApp Manager:in. Vorhanden, wenn eine Template-Nachricht gesendet wird
 `message_id` | `null,`&nbsp;`string` | Die von Meta generierte eindeutige ID für diese Nachricht
-`flow_id` | `null,`&nbsp;`string` | Die eindeutige ID des Flows im WhatsApp Manager. Vorhanden, wenn die Nutzer:in auf einen WhatsApp Flow antwortet.
+`flow_id` | `null,`&nbsp;`string` | Die eindeutige ID des Flows im WhatsApp Manager:in. Vorhanden, wenn die Nutzer:in auf einen WhatsApp Flow antwortet.
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWHATSAPPREADSHARED #USERSMESSAGESWHATSAPPREADSHARED" }
 
 ### USERS_MESSAGES_WHATSAPP_SEND_SHARED {#USERS_MESSAGES_WHATSAPP_SEND_SHARED}
@@ -3277,8 +3277,8 @@ Feld | Typ | Beschreibung
 `message_extras` | `null,`&nbsp;`string` | [PII] Ein JSON-String der getaggten Schlüssel-Wert-Paare während des Liquid-Renderings
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
 `send_id` | `null,`&nbsp;`string` | Nachrichtenversand-ID, zu der diese Nachricht gehört
-`flow_id` | `null,`&nbsp;`string` | Die eindeutige ID des Flows im WhatsApp Manager. Vorhanden, wenn die Nutzer:in auf einen WhatsApp Flow antwortet.
-`template_name` | `null,`&nbsp;`string` | [PII] Name des Templates im WhatsApp Manager. Vorhanden, wenn eine Template-Nachricht gesendet wird
+`flow_id` | `null,`&nbsp;`string` | Die eindeutige ID des Flows im WhatsApp Manager:in. Vorhanden, wenn die Nutzer:in auf einen WhatsApp Flow antwortet.
+`template_name` | `null,`&nbsp;`string` | [PII] Name des Templates im WhatsApp Manager:in. Vorhanden, wenn eine Template-Nachricht gesendet wird
 `message_id` | `null,`&nbsp;`string` | Die von Meta generierte eindeutige ID für diese Nachricht
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWHATSAPPSENDSHARED #USERSMESSAGESWHATSAPPSENDSHARED" }
 

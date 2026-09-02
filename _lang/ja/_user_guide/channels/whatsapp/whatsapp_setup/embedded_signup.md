@@ -34,7 +34,7 @@ Metaの埋め込みサインアップフローは、どちらのエントリポ�
 
 開始する前に、以下を準備してください。
 
-- **Meta Business Managerへのアクセス：** ほとんどの企業では、Meta Business Managerを使用してFacebookページ、広告、および関連するビジネスアセットを管理しています。アクセス権がない場合は、管理者に権限の付与を依頼するか、サインアップ中にBusiness Managerアカウントを作成してください。
+- **Meta Business マネージャーへのアクセス：** ほとんどの企業では、Meta Business マネージャーを使用してFacebookページ、広告、および関連するビジネスアセットを管理しています。アクセス権がない場合は、管理者に権限の付与を依頼するか、サインアップ中にBusiness マネージャーアカウントを作成してください。
 - **電話番号：** [MetaのWhatsApp電話番号要件](https://developers.facebook.com/docs/whatsapp/phone-numbers)を満たす番号を使用してください。サインアップ中に、テキストメッセージまたは電話で1回限りの認証コードを受け取ります。
 
 {% alert important %}
@@ -43,7 +43,7 @@ Metaの埋め込みサインアップフローは、どちらのエントリポ�
 
 ## WhatsApp埋め込みサインアップワークフロー {#whatsapp-embedded-signup-workflow}
 
-BrazeがMetaの埋め込みサインアップを起動したら、自社のBusiness ManagerにアクセスできるMetaアカウントでサインインしてください。サインアップ画面はMetaがホストしており、Brazeはそのレイアウトやラベルを制御していません。
+BrazeがMetaの埋め込みサインアップを起動したら、自社のBusiness マネージャーにアクセスできるMetaアカウントでサインインしてください。サインアップ画面はMetaがホストしており、Brazeはそのレイアウトやラベルを制御していません。
 
 {% alert note %}
 Metaは予告なく埋め込みサインアップ画面を変更する場合があります。ワークフローがこの記事と異なる場合は、Metaのプロンプトに従い、[Metaの埋め込みサインアップドキュメント](https://developers.facebook.com/docs/whatsapp/embedded-signup/embed-the-flow)を参照してください。
@@ -52,7 +52,7 @@ Metaは予告なく埋め込みサインアップ画面を変更する場合が�
 一般的に、Metaは以下のステップを案内します。
 
 1. **サインインして権限を付与する。** Metaで認証し、BrazeがWhatsApp Businessアカウントに接続することを許可します。
-2. **ビジネスポートフォリオを選択する。** WhatsApp Businessアカウントを所有するBusiness Managerポートフォリオを接続します。期待するポートフォリオが表示されない場合は、Metaの権限を確認してください。
+2. **ビジネスポートフォリオを選択する。** WhatsApp Businessアカウントを所有するBusiness マネージャーポートフォリオを接続します。期待するポートフォリオが表示されない場合は、Metaの権限を確認してください。
 3. **WhatsApp Businessアカウントを接続または作成する。** プロンプトが表示されたら、新しいアカウントを作成するか、未使用のアカウントを選択します。別のメッセージングプロバイダーに現在接続されているWhatsApp Businessアカウントを選択しないでください。その接続はBrazeで成功しません。[別のプロバイダーから番号を移行する]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number)場合は、開始前にBrazeアカウントチームにお問い合わせください。
 4. **ビジネスおよび表示の詳細を入力する。** WhatsApp Businessアカウントに対してMetaが要求するアカウント名、表示名、カテゴリを入力します。
 5. **電話番号を確認する。** WhatsAppメッセージングに使用する番号を追加し、テキストメッセージまたは電話で確認を完了します。

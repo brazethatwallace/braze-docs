@@ -11,7 +11,7 @@ local_redirect:
 
 # IP-Warming {#ip-warming}
 
-> IP-Warming bedeutet, dass die Anbieter von E-Mail-Postfächern daran gewöhnt werden, Nachrichten von Ihren dedizierten IP-Adressen zu empfangen. Es ist ein äußerst wichtiger Bestandteil des E-Mail-Versands bei jedem E-Mail-Anbieter (ESP) und bei Braze Standardpraxis, um sicherzustellen, dass Ihre Nachrichten den Posteingang mit einer gleichbleibend hohen Rate erreichen. Wenn Sie [automatisiertes IP-Warming]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/automated_ip_warming) nutzen, lesen Sie die [FAQ zum automatisierten IP-Warming]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/faq).
+> IP-Warming bedeutet, dass die Anbieter von E-Mail-Postfächern daran gewöhnt werden, Nachrichten von Ihren dedizierten IP-Adressen zu empfangen. Es ist ein äußerst wichtiger Bestandteil des E-Mail-Versands bei jedem E-Mail-Anbieter (E-Mail-Anbieter) und bei Braze Standardpraxis, um sicherzustellen, dass Ihre Nachrichten den Posteingang mit einer gleichbleibend hohen Rate erreichen. Wenn Sie [automatisiertes IP-Warming]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/automated_ip_warming) nutzen, lesen Sie die [FAQ zum automatisierten IP-Warming]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/faq).
 
 IP-Warming soll Ihnen helfen, einen positiven Ruf bei Internet-Providern (ISPs) aufzubauen. Jedes Mal, wenn eine neue IP-Adresse zum Versenden einer E-Mail verwendet wird, überwachen ISPs diese E-Mails programmatisch, um sicherzustellen, dass sie nicht zum Versenden von Spam an Nutzer:innen verwendet wird. Stellen Sie sich Ihre IP- und Domain-Reputation wie einen Kredit-Score vor – ISPs nutzen diese Reputation, um zu entscheiden, ob Ihre E-Mail im Posteingang oder im Spam-Ordner landet. Ähnlich wie bei einem Kredit-Score braucht es Zeit, eine positive Reputation aufzubauen, und noch länger, eine schlechte wiederherzustellen.
 
@@ -44,7 +44,7 @@ Wenn Ihre Domain oder IP von einem ISP blockiert wird, enthalten die Nachrichten
 Wir empfehlen dringend, sich strikt an einen IP-Warming-Zeitplan zu halten, um die Zustellbarkeit zu unterstützen. Es ist außerdem wichtig, keine Tage auszulassen, da eine konsistente Skalierung die Zustellmetriken verbessert. Wählen Sie einen Zeitplan basierend auf Ihrem bestehenden E-Mail-Versandverlauf und Ihren Zustellbarkeitsmetriken.
 
 {% alert tip %}
-Wenn Sie an einer dedizierten Zustellbarkeitsressource als Teil Ihres Account-Teams interessiert sind, wenden Sie sich an Ihren Braze Account Manager für weitere Informationen.
+Wenn Sie an einer dedizierten Zustellbarkeitsressource als Teil Ihres Account-Teams interessiert sind, wenden Sie sich an Ihren Braze Account Manager:in für weitere Informationen.
 {% endalert %}
 
 {% tabs local %}

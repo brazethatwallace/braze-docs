@@ -65,7 +65,7 @@ Braze nutzt die Shopify-Integration zur Unterstützung mehrerer Bezeichner, die 
 | Warenkorb-Token-Nutzer-Alias | Ein Alias, den Braze erstellt, um Warenkorb-Aktualisierungsereignisse zu verfolgen. Dieses Token wird mithilfe des Shopify-Warenkorb-Tokens erstellt. |
 | Checkout-Token-Nutzer-Alias | Ein Alias, den Braze erstellt, wenn Nutzer:innen den Checkout-Prozess starten. Dieses Token wird mithilfe des Shopify-Checkout-Tokens erstellt.<br><br> Wenn Kund:innen Shop Pay als beschleunigten Checkout verwenden, kann Shopify bestimmte standardmäßige Checkout-Ereignisse überspringen und verhindern, dass Braze die für das Hinzufügen des Checkout-Token-Alias erforderlichen Daten erhält. |
 | Shopify-Kunden-ID-Alias | Die Shopify-Kunden-ID wird als Alias zugewiesen, wenn die externe ID bei der Kontoanmeldung oder bei einer Bestellung vergeben wird. |
-| Braze `external_id` | Ein eindeutiger Bezeichner, der dabei hilft, Kund:innen über Geräte und Plattformen hinweg zu verfolgen. Dies sorgt für ein konsistentes Nutzererlebnis und verbessert Analytics, indem mehrfache Profile verhindert werden, wenn Nutzer:innen Geräte wechseln oder die App neu installieren.<br><br>Die Shopify-Integration unterstützt die folgenden `external_id`-Typen: <br><br>{::nomarkdown}<ul><li>Shopify-Kunden-ID (Standard)</li><li>Angepasste externe ID</li><li>Gehashte E-Mail (SHA-256)</li><li>Gehashte E-Mail (SHA-1)</li><li>Gehashte E-Mail (MD5)</li><li>E-Mail</li></ul>{:/}Braze weist Ihren Nutzer:innen eine `external_id` zu, indem die changeUser-Methode innerhalb der SDKs aufgerufen wird, wenn: <br><br>{::nomarkdown}<ul><li>Nutzer:innen sich anmelden oder ein Konto erstellen</li><li>Eine Bestellung aufgegeben wird</li></ul>{:/}<br> Weitere Informationen dazu, was passiert, wenn Sie einem anonymen Profil eine `external_id` zuweisen, finden Sie unter [Nutzerprofil-Lebenszyklus]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#what-happens-when-you-identify-anonymous-users).<br><br>Braze nutzt die `external_id` außerdem, um nachgelagerte E-Commerce-Verhaltensdaten aus Shopify-Webhooks zuzuordnen.|
+| Braze `external_id` | Ein eindeutiger Bezeichner, der dabei hilft, Kund:innen über Geräte und Plattformen hinweg zu verfolgen. Dies sorgt für ein konsistentes Nutzererlebnis und verbessert Analytics, indem mehrfache Profile verhindert werden, wenn Nutzer:innen Geräte wechseln oder die App neu installieren.<br><br>Die Shopify-Integration unterstützt die folgenden `external_id`-Typen: <br><br>{::nomarkdown}<ul><li>Shopify-Kunden-ID (Standard)</li><li>Angepasste externe ID</li><li>Gehashte E-Mail (SHA-256)</li><li>Gehashte E-Mail (SHA-1)</li><li>Gehashte E-Mail (MD5)</li><li>E-Mail</li></ul>{:/}Braze weist Ihren Nutzer:innen eine `external_id` zu, indem die changeUser-Methode innerhalb der SDKs aufgerufen wird, wenn: <br><br>{::nomarkdown}<ul><li>Nutzer:innen sich anmelden oder ein Konto erstellen</li><li>Eine Bestellung aufgegeben wird</li></ul>{:/}<br> Weitere Informationen dazu, was passiert, wenn Sie einem anonymen Profil eine `external_id` zuweisen, finden Sie unter [Kundenprofil-Lebenszyklus]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#what-happens-when-you-identify-anonymous-users).<br><br>Braze nutzt die `external_id` außerdem, um nachgelagerte E-Commerce-Verhaltensdaten aus Shopify-Webhooks zuzuordnen.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Nutzer:innen- und Datensynchronisierung" }
 
 Die Integration erfordert, dass Braze SDKs und Shopify-Dienste zusammenarbeiten, um Shopify-Daten nahtlos den richtigen Nutzer:innen nahezu in Echtzeit zuzuordnen. Weitere Details zu den über die Integration getrackten Daten finden Sie unter [Shopify-Daten]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features).
@@ -109,7 +109,7 @@ Nutzer:innen, die ihre E-Mail-Adresse in die Shopify-Newsletter-Fußzeile eingeb
 ##### Nutzer:innen, die nicht in ihrem Konto angemeldet sind {#users-who-havent-logged-into-their-account}
 
 1. Braze empfängt einen eingehenden Shopify-Webhook, wenn Kund:innen erstellt oder aktualisiert werden.
-2. Braze erstellt ein Nutzerprofil mit der E-Mail-Adresse und dem Shopify-Kunden-ID-Alias, die mit diesen Nutzer:innen verknüpft sind.
+2. Braze erstellt ein Kundenprofil mit der E-Mail-Adresse und dem Shopify-Kunden-ID-Alias, die mit diesen Nutzer:innen verknüpft sind.
 3. Das Braze SDK aktualisiert das anonyme Profil mit der E-Mail-Adresse.
 
 {% alert note %}
@@ -118,7 +118,7 @@ Dies kann zu einem doppelten Profil führen, bis sich die Nutzer:innen identifiz
 
 ##### Nutzer:innen, die bereits in ihrem Konto angemeldet sind {#users-who-have-already-logged-into-their-account}
 
-Braze erstellt ein Nutzerprofil mit der E-Mail-Adresse und dem Shopify-Kunden-ID-Alias, die mit diesen Nutzer:innen verknüpft sind. Braze aktualisiert die E-Mail-Adresse der angemeldeten Nutzer:innen nicht, da wir davon ausgehen, dass Shopify diese Information bereits bereitgestellt hat.
+Braze erstellt ein Kundenprofil mit der E-Mail-Adresse und dem Shopify-Kunden-ID-Alias, die mit diesen Nutzer:innen verknüpft sind. Braze aktualisiert die E-Mail-Adresse der angemeldeten Nutzer:innen nicht, da wir davon ausgehen, dass Shopify diese Information bereits bereitgestellt hat.
 
 #### Braze-Registrierungsformulare {#braze-sign-up-forms}
 
@@ -126,7 +126,7 @@ Braze bietet zwei Arten von Registrierungsformular-Templates:
 - **[E-Mail-Registrierungsformulare]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/email_capture):** Erstellen Sie diese mit dem Drag-and-Drop-Editor.
 - **[E-Mail-Erfassungsformular im klassischen Editor]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/email_capture_form):** Ein einfacheres Formular zur Erfassung von E-Mail-Adressen.
 
-Wenn Sie diese Registrierungsformular-Templates verwenden, aktualisiert Braze automatisch den globalen E-Mail-Abo-Status im Nutzerprofil. Weitere Details zur Handhabung des globalen E-Mail-Abo-Status, einschließlich Informationen zur E-Mail-Validierung, finden Sie in der Dokumentation für den jeweiligen Formular-Template-Typ.
+Wenn Sie diese Registrierungsformular-Templates verwenden, aktualisiert Braze automatisch den globalen E-Mail-Abo-Status im Kundenprofil. Weitere Details zur Handhabung des globalen E-Mail-Abo-Status, einschließlich Informationen zur E-Mail-Validierung, finden Sie in der Dokumentation für den jeweiligen Formular-Template-Typ.
 
 {% alert note %}
 - Stellen Sie sicher, dass die Eintrittskriterien Ihrer Campaign oder Ihres Canvas sowohl den globalen E-Mail-Abo-Status als auch die Abo-Gruppe enthalten, die mit Ihrem Shopify-Shop verbunden sind. Dies hilft sicherzustellen, dass Sie die richtige Zielgruppe ansprechen.

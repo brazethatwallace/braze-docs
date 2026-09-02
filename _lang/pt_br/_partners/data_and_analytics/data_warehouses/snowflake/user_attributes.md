@@ -17,7 +17,7 @@ Em circunstâncias raras, os valores de atributos padrão e personalizados nas v
 
 Por exemplo, um atributo pode aparecer como `NULL` no Snowflake, enquanto o dashboard mostra um valor para esse usuário.
 
-Se você perceber discrepâncias generalizadas, entre em contato com seu gerente de sucesso do cliente ou com o suporte da Braze.
+Se você perceber discrepâncias generalizadas, entre em contato com seu CSM ou com o suporte da Braze.
 
 ## Visualizações disponíveis {#available-views}
 

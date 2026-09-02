@@ -9,7 +9,7 @@
 다음 방법을 사용하여 웹 Braze SDK를 통합할 수 있습니다. 추가 옵션은 [기타 통합 방법](#web_other-integration-methods)을 참조하세요.
 
 - **코드 기반 통합:** 선호하는 패키지 매니저 또는 Braze CDN을 사용하여 코드베이스에 웹 Braze SDK를 직접 통합합니다. 이 방법은 SDK 로드 및 설정 방식을 완전히 제어할 수 있습니다.
-- **Google Tag Manager:** 사이트 코드를 수정하지 않고 웹 Braze SDK를 통합할 수 있는 노코드 솔루션입니다. 자세한 내용은 [Google Tag Manager와 Braze SDK]({{site.baseurl}}/developer_guide/sdk_integration/google_tag_manager)를 참조하세요.
+- **Google Tag 매니저:** 사이트 코드를 수정하지 않고 웹 Braze SDK를 통합할 수 있는 노코드 솔루션입니다. 자세한 내용은 [Google Tag 매니저와 Braze SDK]({{site.baseurl}}/developer_guide/sdk_integration/google_tag_manager)를 참조하세요.
 
 {% alert important %}
 [NPM 통합 방법]({{site.baseurl}}/developer_guide/sdk_integration/?subtab=package%20manager&sdktab=web)을 사용하는 것을 권장합니다. 이 방법은 SDK 라이브러리를 웹사이트에 로컬로 저장하고, 광고 차단 확장 프로그램의 영향을 받지 않으며, 번들러 지원의 일환으로 더 빠른 로드 시간에 기여하는 등의 장점이 있습니다.
@@ -26,7 +26,7 @@
 {% endalert %}
 
 {% subtabs %}
-{% subtab package manager %}
+{% subtab package 매니저 %}
 사이트에서 NPM 또는 Yarn 패키지 매니저를 사용하는 경우, [Braze NPM 패키지](https://www.npmjs.com/package/@braze/web-sdk)를 종속성으로 추가할 수 있습니다.
 
 TypeScript 정의는 v3.0.0부터 포함되어 있습니다. 2.x에서 3.x로의 업그레이드 관련 참고 사항은 [체인지로그](https://github.com/braze-inc/braze-web-sdk/blob/master/UPGRADE_GUIDE.md)를 참조하세요.
@@ -112,7 +112,7 @@ braze.openSession();
 {% endalert %}
 {% endtab %}
 
-{% tab Google Tag Manager %}
+{% tab Google Tag 매니저 %}
 {% multi_lang_include developer_guide/web/google_tag_manager/initialization_tag.md %}
 {% endtab %}
 {% endtabs %}
@@ -253,9 +253,9 @@ Braze 웹 SDK를 콘텐츠 전송 네트워크(CDN)에서 참조하는 경우, �
 
 ## 기타 통합 방법 {#other-integration-methods}
 
-### 가속 모바일 페이지(AMP) {#accelerated-mobile-pages-amp}
+### 가속 모바일 페이지(가속 모바일 페이지) {#accelerated-mobile-pages-amp}
 {% details 자세히 보기 %}
-#### 1단계: AMP 웹 푸시 스크립트 포함 {#step-1-include-amp-web-push-script}
+#### 1단계: 가속 모바일 페이지 웹 푸시 스크립트 포함 {#step-1-include-amp-web-push-script}
 
 다음 비동기 스크립트 태그를 head에 추가합니다:
 
@@ -281,7 +281,7 @@ Braze 웹 SDK를 콘텐츠 전송 네트워크(CDN)에서 참조하는 경우, �
 
 #### 3단계: `helper-iframe` 및 `permission-dialog` 추가 {#step-3-add-helper-iframe-and-permission-dialog}
 
-AMP 웹 푸시 컴포넌트는 푸시 구독을 처리하기 위한 팝업을 생성하므로, 이 기능을 사용하려면 다음 헬퍼 파일을 프로젝트에 추가해야 합니다:
+가속 모바일 페이지 웹 푸시 컴포넌트는 푸시 구독을 처리하기 위한 팝업을 생성하므로, 이 기능을 사용하려면 다음 헬퍼 파일을 프로젝트에 추가해야 합니다:
 
 - [`helper-iframe.html`](https://cdn.ampproject.org/v0/amp-web-push-helper-frame.html)
 - [`permission-dialog.html`](https://cdn.ampproject.org/v0/amp-web-push-permission-dialog.html)
@@ -292,7 +292,7 @@ AMP 웹 푸시 컴포넌트는 푸시 구독을 처리하기 위한 팝업을 �
 
 <script src="{{site.baseurl}}/assets/js/embed.js?target=https://github.com/braze-inc/braze-web-sdk/blob/master/sample-builds/cdn/service-worker.js&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on&showCopy=on"></script>
 
-#### 5단계: AMP 웹 푸시 HTML 요소 구성 {#step-5-configure-the-amp-web-push-html-element}
+#### 5단계: 가속 모바일 페이지 웹 푸시 HTML 요소 구성 {#step-5-configure-the-amp-web-push-html-element}
 
 다음 `amp-web-push` HTML 요소를 HTML 본문에 추가합니다. [`apiKey` 및 `baseUrl`](https://documenter.getpostman.com/view/4689407/SVYrsdsG)을 쿼리 매개변수로 `service-worker-URL`에 추가해야 한다는 점에 유의하세요.
 

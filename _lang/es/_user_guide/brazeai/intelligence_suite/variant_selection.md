@@ -22,7 +22,7 @@ Para una Campaign de envío múltiple, también debes:
 
 ## Activar la optimización {#turn-on-optimization}
 
-En el paso **Target Audiences**, ve a **A/B Testing** y activa **Optimize with BrazeAI<sup>TM</sup>**.
+En el paso **Target Audiences**, ve a **Pruebas A/B** y activa **Optimize with BrazeAI<sup>TM</sup>**.
 
 ## Campaigns de envío único {#single-send-campaigns}
 

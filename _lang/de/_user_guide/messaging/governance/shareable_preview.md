@@ -26,7 +26,7 @@ Sie können einen teilbaren Vorschau-Link für die folgenden Kanäle und Inhalts
 - WhatsApp
 
 {% alert note %}
-Die teilbare Vorschau wird schrittweise eingeführt und ist möglicherweise noch nicht für jeden Kanal in Ihrem Workspace verfügbar. Wenden Sie sich an Ihren Braze Account Manager, wenn Sie die Option für einen in diesem Abschnitt aufgeführten Kanal nicht sehen.
+Die teilbare Vorschau wird schrittweise eingeführt und ist möglicherweise noch nicht für jeden Kanal in Ihrem Workspace verfügbar. Wenden Sie sich an Ihren Braze Account Manager:in, wenn Sie die Option für einen in diesem Abschnitt aufgeführten Kanal nicht sehen.
 {% endalert %}
 
 ## So funktioniert die teilbare Vorschau {#how-shareable-preview-works}
@@ -38,7 +38,7 @@ Das folgende Verhalten gilt einheitlich für alle unterstützten Kanäle.
 Wählen Sie beim Verfassen Ihrer Nachricht oder Ihres Inhalts **Copy preview link** aus, um einen teilbaren Link zu generieren. Braze kopiert den Link automatisch in Ihre Zwischenablage.
 
 - Der Link öffnet einen statischen, schreibgeschützten Snapshot Ihrer Nachricht, wie sie zum Zeitpunkt der Link-Generierung aussah. Er wird nicht automatisch aktualisiert, wenn Sie weiter bearbeiten. Generieren Sie einen neuen Link, um Ihre neuesten Änderungen zu erfassen.
-- Wenn Ihre Nachricht Personalisierung enthält – etwa Liquid oder Connected-Content, das gegen eine:n Testnutzer:in, ein angepasstes Nutzerprofil oder eine:n zufällige:n Nutzer:in aufgelöst wird –, spiegelt die Vorschau dieselbe Personalisierung wider und entspricht dem, was Sie unter **Preview and Test** sehen.
+- Wenn Ihre Nachricht Personalisierung enthält – etwa Liquid oder Connected-Content, das gegen eine:n Testnutzer:in, ein angepasstes Kundenprofil oder eine:n zufällige:n Nutzer:in aufgelöst wird –, spiegelt die Vorschau dieselbe Personalisierung wider und entspricht dem, was Sie unter **Preview and Test** sehen.
 - Durch Auswahl von **Regenerate link** wird ein neuer Snapshot mit einem eigenen neuen Ablaufdatum erstellt. Der vorherige Link wird dadurch nicht ungültig. Beide Links funktionieren unabhängig voneinander, bis sie jeweils ablaufen.
 
 ### Link anzeigen {#viewing-the-link}

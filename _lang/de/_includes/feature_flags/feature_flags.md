@@ -156,7 +156,7 @@ Verwenden Sie Feature-Flags, um die Funktionalität Ihrer App in der Produktion 
 
 Nehmen wir zum Beispiel an, unser Marketing-Team möchte unsere aktuellen Angebote und Aktionen in der Navigation unserer App auflisten. Normalerweise benötigen unsere Entwickler:innen eine Woche Vorlaufzeit für Änderungen und drei Tage für eine App-Store-Überprüfung. Aber mit Thanksgiving, Black Friday, Cyber Monday, Chanukka, Weihnachten und Neujahr innerhalb von zwei Monaten werden wir diese engen Fristen nicht einhalten können.
 
-Mit Feature-Flags können wir Braze den Inhalt des Navigationslinks unserer App steuern lassen, sodass unser Marketing-Manager Änderungen in Minuten statt in Tagen vornehmen kann.
+Mit Feature-Flags können wir Braze den Inhalt des Navigationslinks unserer App steuern lassen, sodass unser Marketing-Manager:in Änderungen in Minuten statt in Tagen vornehmen kann.
 
 Um dieses Feature per Fernzugriff zu konfigurieren, erstellen wir ein neues Feature-Flag namens `navigation_promo_link` und definieren die folgenden anfänglichen Eigenschaften:
 
@@ -374,5 +374,5 @@ Ein Feature-Flag gilt als aktiv und wird auf Ihr Limit angerechnet, wenn eine de
 Auch wenn dasselbe Feature-Flag mehrere Kriterien erfüllt – zum Beispiel wenn es in einem Canvas verwendet wird und der Rollout bei 50 % liegt –, wird es nur als 1 aktives Feature-Flag auf Ihr Limit angerechnet.
 
 {% alert note %}
-Um die kostenpflichtige Version der Feature-Flags zu erwerben, wenden Sie sich an Ihren Braze Account Manager oder fordern Sie ein Upgrade im Braze-Dashboard an.
+Um die kostenpflichtige Version der Feature-Flags zu erwerben, wenden Sie sich an Ihren Braze Account Manager:in oder fordern Sie ein Upgrade im Braze-Dashboard an.
 {% endalert %}

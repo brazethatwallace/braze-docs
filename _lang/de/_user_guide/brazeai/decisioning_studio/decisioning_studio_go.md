@@ -51,7 +51,7 @@ Decisioning Studio Pro bietet zusätzlich:
 - Anbindung an jede First-Party-Datenquelle
 - Multi-Channel-Decisioning
 - Erweiterte Orchestrierungsmuster
-- Dedizierte Unterstützung durch das Braze AI Decisioning Services-Team
+- Dedizierte Unterstützung durch das Braze KI Decisioning Services-Team
 
 ## Nächste Schritte {#next-steps}
 

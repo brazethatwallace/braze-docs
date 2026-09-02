@@ -167,4 +167,4 @@ Puedes segmentar en función de los valores de las propiedades del evento de dos
 1. **En los últimos 30 días:** Puedes usar la segmentación por propiedades del evento basándote en la frecuencia y la antigüedad de valores específicos de propiedades del evento dentro de Braze Segments. Esta opción afecta al uso de datos.<br><br>
 2. **Dentro y más allá de 30 días:** Para cubrir tanto la segmentación por propiedades del evento a corto como a largo plazo, puedes usar las [extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension). Esta característica segmenta a los usuarios en función de eventos personalizados y propiedades del evento registrados en los últimos dos años. Esta opción no afecta al uso de datos.
 
-Ponte en contacto con tu administrador de éxito de cliente de Braze para obtener recomendaciones sobre el mejor enfoque en función de tus necesidades específicas.
+Ponte en contacto con tu CSM de Braze para obtener recomendaciones sobre el mejor enfoque en función de tus necesidades específicas.

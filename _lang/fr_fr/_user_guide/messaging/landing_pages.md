@@ -47,9 +47,9 @@ Braze applique une limite de débit de 500 requêtes par trois secondes (environ
 
 Les consultations de pages de destination mises en cache ne sont pas comptabilisées dans cette limite. Pour savoir comment la mise en cache affecte le trafic, consultez [Les pages de destination peuvent-elles gérer des scénarios de fort trafic ?](#can-landing-pages-handle-high-traffic-scenarios).
 
-## Ajouter Google Tag Manager à une page de destination {#adding-google-tag-manager-to-a-landing-page}
+## Ajouter Google Tag gestionnaire à une page de destination {#adding-google-tag-manager-to-a-landing-page}
 
-Pour ajouter Google Tag Manager à vos pages de destination, ajoutez un bloc **Custom Code** à votre page de destination dans l'éditeur par glisser-déposer, puis insérez le code Tag Manager dans le bloc. Assurez-vous d'ajouter une couche de données avant le code Tag Manager, comme dans cet exemple :
+Pour ajouter Google Tag gestionnaire à vos pages de destination, ajoutez un bloc **Custom Code** à votre page de destination dans l'éditeur par glisser-déposer, puis insérez le code Tag gestionnaire dans le bloc. Assurez-vous d'ajouter une couche de données avant le code Tag gestionnaire, comme dans cet exemple :
 
 ```
 <script>
@@ -64,7 +64,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 ```
 
-Pour plus de détails sur l'implémentation de Google Tag Manager, consultez la [documentation de Google](https://developers.google.com/tag-platform/tag-manager/datalayer#installation).
+Pour plus de détails sur l'implémentation de Google Tag gestionnaire, consultez la [documentation de Google](https://developers.google.com/tag-platform/tag-manager/datalayer#installation).
 
 ## Questions fréquemment posées {#frequently-asked-questions}
 

@@ -60,7 +60,7 @@ Le tableau de bord d'informations e-mail suit où et quand vos clients interagis
 Le rapport **Engagement by Device** fournit une répartition des appareils que vos utilisateurs emploient pour interagir avec vos e-mails. Ces données suivent l'engagement e-mail sur mobile, ordinateur de bureau, tablette et autres types d'appareils. Ces données reposent sur la chaîne d'agent utilisateur transmise par les appareils de vos utilisateurs.
 
 {% alert note %}
-Si vous utilisez CloudFront comme CDN, assurez-vous que l'agent utilisateur de vos utilisateurs est bien transmis au fournisseur de services e-mail (ESP). Sinon, chaque agent utilisateur sera « Amazon Cloudfront ».
+Si vous utilisez CloudFront comme CDN, assurez-vous que l'agent utilisateur de vos utilisateurs est bien transmis au fournisseur de services e-mail (fournisseur de services d'e-mailing). Sinon, chaque agent utilisateur sera « Amazon Cloudfront ».
 {% endalert %}
 
 La catégorie « Other » inclut toute chaîne d'agent utilisateur qui ne peut être identifiée comme ordinateur de bureau, mobile ou tablette. Par exemple : télévision, voiture, console de jeux vidéo, OTT (over-the-top ou streaming), et similaires. Cette catégorie peut également inclure des valeurs nulles ou vides.
@@ -78,7 +78,7 @@ Pour les ouvertures d'e-mails, Braze distingue Google Image Proxy, Apple Image P
 
 #### Engagement par fournisseur de messagerie {#engagement-by-mailbox-provider}
 
-Le rapport **Engagement by Mailbox Provider** affiche les principaux fournisseurs de messagerie contribuant à vos clics ou ouvertures. Vous pouvez cliquer sur des fournisseurs de messagerie spécifiques pour accéder aux détails de domaines de réception spécifiques. Par exemple, si Microsoft figure dans ce rapport parmi vos principaux fournisseurs de messagerie, vous pouvez consulter les détails de leurs domaines de réception, tels que « outlook.com », « hotmail.com », « live.com », et bien d'autres.
+Le rapport **Engagement by Mailbox Provider** affiche les principaux fournisseurs de messagerie contribuant à vos clics ou ouvertures. Vous pouvez cliquer sur des fournisseurs de messagerie spécifiques pour accéder aux détails de domaines de réception spécifiques. Par exemple, si Microsoft figure dans ce rapport parmi vos principaux fournisseurs de messagerie, vous pouvez consulter les détails de leurs domaines de réception, tels que « outlook.com », « hotmail.com », « en direct.com », et bien d'autres.
 
 ![Exemple de rapport Engagement by Mailbox Provider avec Google, Apple iCloud, Yahoo, Microsoft et Mail.Ru Group et leur nombre de clics correspondant.]({% image_buster /assets/img_archive/mailbox_provider_time_engagement.png %}){: style="max-width:70%;"}
 

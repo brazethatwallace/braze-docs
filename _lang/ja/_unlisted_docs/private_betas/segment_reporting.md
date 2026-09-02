@@ -12,7 +12,7 @@ page_type: reference
 
 > この記事では、レポートビルダーでセグメントをレポートディメンションとして使用する方法について説明します。セグメントに関するレポート作成方法、セグメント別の分析、サポートされている組み合わせなどを取り上げます。
 
-{% multi_lang_include alerts/early_access_beta_alert.md feature='セグメント reporting' contact='customer success manager' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='セグメント reporting' contact='customer success マネージャー' %}
 
 レポートビルダーでは、行およびドリルダウンオプションとして**セグメント**がサポートされており、セグメントのパフォーマンスを確認したり、キャンペーンやキャンバスのパフォーマンスをセグメントメンバーシップ別に分析したりできます。**行**または**ドリルダウン**のドロップダウンに**セグメント**が表示されない場合、この機能はアカウントで有効になっていません。
 

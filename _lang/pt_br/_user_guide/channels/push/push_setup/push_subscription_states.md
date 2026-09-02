@@ -26,7 +26,7 @@ Você pode verificar o estado de inscrição de push, o registro e a ativação 
 
 No perfil de um usuário ([**Pesquisar usuários**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) > selecione o usuário > guia **Engagement**), **Contact Settings** lista o estado de inscrição de push, **Push Registered For** (quais apps e plataformas a Braze pode usar para enviar push em primeiro plano para aquele perfil) e o **Push Changelog** para movimentações de token, erros e atualizações de registro. Para saber como interpretar **Push Registered For** e a autorização de primeiro plano versus segundo plano, consulte [Verificando o status de registro de push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle#checking-push-registration-status).
 
-No iOS e Android, quando um dispositivo passa de autorização de push em primeiro plano para apenas segundo plano (por exemplo, depois que o usuário desativa notificações nas configurações do sistema e o SDK reporta a mudança), o changelog de push pode incluir uma entrada como "Push token was updated from foreground push enabled to foreground push disabled".
+No iOS e Android, quando um dispositivo passa de autorização de push em primeiro plano para apenas segundo plano (por exemplo, depois que o usuário desativa notificações nas configurações do sistema e o SDK reporta a mudança), o changelog de push pode incluir uma entrada como "token por push was updated from foreground push enabled to foreground push disabled".
 
 Depois de esperar novos dados do SDK (por exemplo, logo após uma sessão de teste), selecione **Refresh** no perfil do usuário se os valores parecerem desatualizados. Pode haver um pequeno atraso entre o envio dos dados pelo SDK e a atualização do perfil com o registro de push mais recente.
 
@@ -158,7 +158,7 @@ No dashboard, você pode encontrar informações sobre registro de push e change
 - **Analytics de Campaign** – Visualize estatísticas de push e feedback para uma única Campaign ou Canvas.
 - **Perfil do usuário (guia Engagement)** – Visualize **Contact Settings** e o changelog de push para um usuário específico.
 
-Ao revisar o estado de push ativado, **Push Registered for** indica para quais plataformas a Braze pode enviar push em primeiro plano para aquele usuário. No iOS e Android, se um usuário passou de push de primeiro plano ativado para push de segundo plano ativado (`remote_notification_enabled`), isso será documentado no changelog de push como "Push token was updated from foreground push enabled to foreground push disabled."
+Ao revisar o estado de push ativado, **Push Registered for** indica para quais plataformas a Braze pode enviar push em primeiro plano para aquele usuário. No iOS e Android, se um usuário passou de push de primeiro plano ativado para push de segundo plano ativado (`remote_notification_enabled`), isso será documentado no changelog de push como "token por push was updated from foreground push enabled to foreground push disabled."
 
 Se o usuário for adicionado como usuário teste, em **Console de desenvolvedor** > **Event User Log**, o perfil do usuário mostrará uma solicitação do SDK com `remote_notification_enabled` como `true` ou `false`. Pode ser necessário atualizar o perfil do usuário para visualizar as atualizações, pois há um pequeno atraso para que as atualizações do SDK cheguem ao perfil do usuário.
 

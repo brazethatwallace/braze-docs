@@ -289,7 +289,7 @@ Braze.configure(this, brazeConfig)
       <td>인라인 스타일(예: 색상, 배경)</td>
     </tr>
     <tr>
-      <td rowspan="4">단락 &amp; 블록</td>
+      <td rowspan="4">단락 &가속 모바일 페이지; 블록</td>
       <td><code>&lt;p&gt;</code>, <code>&lt;div&gt;</code></td>
       <td>블록 단위 섹션</td>
     </tr>
@@ -311,7 +311,7 @@ Braze.configure(this, brazeConfig)
       <td>제목(다양한 크기)</td>
     </tr>
     <tr>
-      <td rowspan="2">링크 &amp; 이미지</td>
+      <td rowspan="2">링크 &가속 모바일 페이지; 이미지</td>
       <td><code>&lt;a href="..."&gt;</code></td>
       <td>클릭 가능한 링크</td>
     </tr>

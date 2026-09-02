@@ -805,7 +805,7 @@ Shopify의 결제 완료 웹훅에는 제품 URL이나 이미지 URL이 포함�
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
-{% tab Shopify Custom Attributes %}
+{% tab Shopify 커스텀 속성 %}
 | 속성 이름 | 설명 |
 | --- | --- |
 | `shopify_total_spent` | 고객이 주문 내역 전체에서 지출한 총 금액입니다. |
@@ -827,7 +827,7 @@ Shopify에서 이 문제를 해결한 후 이 페이지가 업데이트될 예�
 
 ### Liquid 개인화 {#liquid-personalization}
 
-Shopify 커스텀 속성에 대한 Liquid 개인화를 추가하려면 **+ Personalization**을 선택합니다. 그런 다음 개인화 유형으로 **Custom Attributes**를 선택합니다.
+Shopify 커스텀 속성에 대한 Liquid 개인화를 추가하려면 **+ Personalization**을 선택합니다. 그런 다음 개인화 유형으로 **커스텀 속성**를 선택합니다.
 
 ![속성 드롭다운이 펼쳐진 개인화 추가 섹션.]({% image_buster /assets/img/shopify/add_personalization_2.png %}){: style="max-width:40%;"}
 

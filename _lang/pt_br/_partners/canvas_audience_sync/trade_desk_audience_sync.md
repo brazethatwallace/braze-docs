@@ -89,7 +89,7 @@ Não há tamanho mínimo de público para públicos de CRM no The Trade Desk.
 
 ### Como sei se os usuários foram correspondidos após enviar usuários ao The Trade Desk? {#how-do-i-know-if-users-have-matched-after-passing-users-to-the-trade-desk}
 
-No The Trade Desk, os IDs recebidos aparecem ao lado do segmento.
+No The Trade Desk, os IDs recebidos aparecem ao lado do Segment.
 
 - IDs recebidos são o número de IDs que recebemos nos últimos 30 dias.
 - IDs ativos são o número de IDs que vimos em lances nos últimos sete dias.

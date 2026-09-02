@@ -138,8 +138,8 @@ Push Stories通知は、通知がクリックされると<i>ボディクリッ�
 <i>生涯収益</i>は、開始以降に受け取った<code>PurchaseEvents</code>価格の合計値（USD）です。
 {% endif %}
 
-{% if include.metric == "Lifetime Value Per User" %}
-<i>ユーザーあたりの生涯価値</i>は、<i>生涯収益</i>を<i>総ユーザー数</i>（ホームページに記載）で割ったものです。
+{% if include.metric == "LTV Per User" %}
+<i>ユーザーあたりのLTV</i>は、<i>生涯収益</i>を<i>総ユーザー数</i>（ホームページに記載）で割ったものです。
 {% endif %}
 
 {% if include.metric == "Average Daily Revenue" %}
@@ -192,7 +192,7 @@ MPPが無効なユーザーの場合：
 <i>再試行保留中数</i>は、受信サーバーによって一時的に拒否されたが、メールサービスプロバイダー（ESP）によって再配信が試行されたリクエストの数です。ESPは、タイムアウト期間に達する（通常は72時間後）まで配信を再試行します。
 {% endif %}
 
-{% if include.metric == "Primary Conversions (A) or Primary Conversion Event" %}
+{% if include.metric == "Primary Conversions (A) or 1次コンバージョン Event" %}
 <i>1次コンバージョン（A）</i>または<i>1次コンバージョンイベント</i>は、Brazeキャンペーンから受信したメッセージの操作後または表示後に、定義されたイベントが発生した回数です。この定義されたイベントは、キャンペーンを作成するときに決定します。
 {% endif %}
 

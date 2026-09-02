@@ -10,7 +10,7 @@ Benutzerdefinierte Ereignisse werden protokolliert, wenn `actionType` auf `logEv
 
 Um zu beginnen, erstellen Sie einen Trigger, der nach dem "event name" namens `played song` sucht.
 
-![Ein angepasster Trigger im Google Tag Manager:in, der für einige Events triggert, wenn "Ereignisname" gleich "abgespielter Song" ist.]({% image_buster /assets/img/android_google_tag_manager/gtm_android_trigger.png %})
+![Ein angepasster Trigger im Google Tag Manager, der für einige Events triggert, wenn "Ereignisname" gleich "abgespielter Song" ist.]({% image_buster /assets/img/android_google_tag_manager/gtm_android_trigger.png %})
 
 Als Nächstes erstellen Sie ein neues Tag (auch als "Funktionsaufruf" bezeichnet) und geben den Klassenpfad Ihres [angepassten Tag-Anbieters](#adding-android-google-tag-provider) ein, der weiter unten in diesem Artikel beschrieben wird. Dieser Tag wird ausgelöst, wenn Sie das Ereignis `played song` protokollieren.
 
@@ -24,7 +24,7 @@ Wenn Sie ein angepasstes Event senden, stellen Sie sicher, dass `actionType` auf
 
 Sie können dem Tag auch zusätzliche Schlüssel-Wert-Paar-Argumente hinzufügen, die als Eigenschaften des angepassten Events an Braze gesendet werden. `eventName` und `actionType` werden für angepasste Event-Eigenschaften nicht ignoriert. Im folgenden Beispiel-Tag wird `genre` übergeben und über eine Tag-Variable im Google Tag Manager definiert, die aus dem angepassten Event stammt, das in der App protokolliert wird.
 
-Da Google Tag Manager für Android Firebase als Datenschicht verwendet, wird die Eigenschaft `genre` als "Firebase - Event Parameter" an Google Tag Manager:in gesendet.
+Da Google Tag Manager für Android Firebase als Datenschicht verwendet, wird die Eigenschaft `genre` als "Firebase - Event Parameter" an Google Tag Manager gesendet.
 
 ![Eine Variable im Google Tag Manager, bei der "genre" als Ereignisparameter für den Tag "Braze - Played Song Event" hinzugefügt wird.]({% image_buster /assets/img/android_google_tag_manager/gtm_android_eventname_variable.png %})
 
@@ -115,7 +115,7 @@ Achten Sie darauf, den "Klassenpfad" der Datei zu notieren. Diesen geben Sie ein
 
 Dieses Beispiel zeigt eine der vielen Möglichkeiten, wie Sie Ihren angepassten Tag-Anbieter strukturieren können. Insbesondere wird gezeigt, wie Sie anhand des vom GTM Tag gesendeten Schlüssel-Wert-Paares `actionType` ermitteln, welche Methode des Braze SDK aufgerufen werden soll.
 
-Die in diesem Beispiel gezeigten `actionType` sind `logEvent`, `customAttribute` und `changeUser`, aber Sie können es vorziehen, zu ändern, wie Ihr Tag-Anbieter Daten von Google Tag Manager:in behandelt.
+Die in diesem Beispiel gezeigten `actionType` sind `logEvent`, `customAttribute` und `changeUser`, aber Sie können es vorziehen, zu ändern, wie Ihr Tag-Anbieter Daten von Google Tag Manager behandelt.
 
 {% tabs %}
 {% tab JAVA %}

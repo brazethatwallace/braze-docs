@@ -48,7 +48,7 @@ Sie können bis zu 20 von jedem pro Konfiguration synchronisieren:
 
 ### Was passiert, wenn ein Produkt zu mehr als 250 Sammlungen gehört? {#what-if-a-product-belongs-to-more-than-250-collections}
 
-Shopify erlaubt es Produkten, zu mehr als 250 Sammlungen zu gehören, aber Braze kann nur die ersten 250 Sammlungszuordnungen pro Produkt abrufen. Wenn ein Produkt zu einer ausgewählten Sammlung gehört, die außerhalb der ersten 250 abgerufenen liegt, wird diese Zuordnung nicht in Ihrem Shopify-Katalog widergespiegelt. Wenn Ihnen fehlende Sammlungszuordnungen auffallen, wenden Sie sich an Ihren Customer-Success-Manager.
+Shopify erlaubt es Produkten, zu mehr als 250 Sammlungen zu gehören, aber Braze kann nur die ersten 250 Sammlungszuordnungen pro Produkt abrufen. Wenn ein Produkt zu einer ausgewählten Sammlung gehört, die außerhalb der ersten 250 abgerufenen liegt, wird diese Zuordnung nicht in Ihrem Shopify-Katalog widergespiegelt. Wenn Ihnen fehlende Sammlungszuordnungen auffallen, wenden Sie sich an Ihren CSM.
 
 ### Warum sehe ich nicht alle meine Sammlungen im Konfigurationsmodal? {#why-dont-i-see-all-my-collections-in-the-configuration-modal}
 
@@ -80,4 +80,4 @@ Tags werden direkt von Shopify abgerufen, wenn Sie das Konfigurationsmodal öffn
 
 ### Wirkt sich das Synchronisieren zusätzlicher Produktdaten auf meinen Katalogspeicher aus? {#will-syncing-additional-product-data-affect-my-catalog-storage}
 
-Ja. Das Synchronisieren von Tags, Metafeldern und Sammlungen erhöht die Nutzung Ihres Katalogspeichers. Die kostenlose Katalogstufe hat ein Speicherlimit von 100 MB. Wenn Ihre Synchronisierung Ihr Limit überschreitet, stoppt Braze die Synchronisierung und Produktaktualisierungen werden nicht mehr übernommen. Wenden Sie sich an Ihren Account Manager, um bei Bedarf ein Upgrade Ihrer Stufe durchzuführen.
+Ja. Das Synchronisieren von Tags, Metafeldern und Sammlungen erhöht die Nutzung Ihres Katalogspeichers. Die kostenlose Katalogstufe hat ein Speicherlimit von 100 MB. Wenn Ihre Synchronisierung Ihr Limit überschreitet, stoppt Braze die Synchronisierung und Produktaktualisierungen werden nicht mehr übernommen. Wenden Sie sich an Ihren Account Manager:in, um bei Bedarf ein Upgrade Ihrer Stufe durchzuführen.

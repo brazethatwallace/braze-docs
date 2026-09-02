@@ -79,7 +79,7 @@ A resposta de entrega e clique retornada pelo FCM segue a mesma convenção de u
 {% multi_lang_include developer_guide/huawei/push_notifications.md %}
 {% endsdktab %}
 
-{% sdktab react native %}
+{% sdktab React Native %}
 {% multi_lang_include developer_guide/react_native/push_notifications.md %}
 {% endsdktab %}
 

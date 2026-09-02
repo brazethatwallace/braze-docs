@@ -20,7 +20,7 @@ El panel está organizado en cuatro secciones de canal: **Email**, **Push Notifi
 
 | Sección              | Descripción                                                                                                                                             |
 |----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Tarjetas de KPI      | Muestran la tasa de tu espacio de trabajo para cada métrica clave, junto con la diferencia en comparación con la tasa del sector. Una flecha verde hacia arriba indica que tu espacio de trabajo está por encima de la tasa del sector; una flecha roja hacia abajo indica que está por debajo. |
+| Tarjetas de indicador clave de rendimiento      | Muestran la tasa de tu espacio de trabajo para cada métrica clave, junto con la diferencia en comparación con la tasa del sector. Una flecha verde hacia arriba indica que tu espacio de trabajo está por encima de la tasa del sector; una flecha roja hacia abajo indica que está por debajo. |
 | Gráfico de tendencia mensual | Representa la tasa de tu espacio de trabajo frente a la tasa del sector a lo largo del tiempo, para que puedas identificar estacionalidad y tendencias a largo plazo.                                   |
 | Desglose regional    | Desglosa la tasa de tu espacio de trabajo frente a la tasa del sector en distintas regiones, para que puedas detectar dónde el rendimiento regional difiere del sector.         |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Sección" }
