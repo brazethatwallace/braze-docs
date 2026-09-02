@@ -77,11 +77,11 @@ guide_menu_list4:
 
 ## Fonctionnement de nos endpoints de traduction {#how-our-translation-endpoints-work}
 
-Nos endpoints de traduction fonctionnent avec la [composition multilingue]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings), où un message peut avoir différentes versions pouvant être rendues en fonction de l'utilisateur qui reçoit le message.
+Nos endpoints de traduction fonctionnent avec la [composition multilingue]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings), où un message peut avoir différentes versions pouvant être rendues en fonction de l'utilisateur recevant le message.
 
-### Conditions préalables {#prerequisites}
+### Prérequis {#prerequisites}
 
-Avant d'utiliser ces endpoints, vous devez [ajouter vos locales]({{site.baseurl}}/user_guide/administrative/app_settings/multi_language_settings#add-a-locale).
+Avant d'utiliser ces endpoints, vous devez [ajouter vos locales]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings#add-a-locale).
 
 ### Comment tester vos traductions {#how-to-test-your-translations}
 
@@ -92,7 +92,7 @@ Il existe deux façons de valider la prise en charge des traductions en utilisan
 
 Avant de tester la mise à jour des traductions, vous devez :
 
-1. [Ajouter vos locales]({{site.baseurl}}/user_guide/administrative/app_settings/multi_language_settings#add-a-locale).
-2. Créer un message et utiliser les étiquettes de traduction le cas échéant.
+1. [Ajouter vos locales]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings#add-a-locale).
+2. Créer un message et utiliser les tags de traduction là où c'est approprié.
 3. Enregistrer le message.
 4. Sélectionner les locales à inclure.

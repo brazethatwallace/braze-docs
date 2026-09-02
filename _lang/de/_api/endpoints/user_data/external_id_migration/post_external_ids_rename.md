@@ -6,7 +6,6 @@ page_order: 1
 layout: api_page
 page_type: reference
 description: "Dieser Artikel beschreibt Details zum Endpunkt „Externe IDs umbenennen“."
-
 ---
 {% api %}
 # Externe ID umbenennen {#rename-external-id}
@@ -38,7 +37,7 @@ Der Endpunkt protokolliert keine Datenpunkte und hat keinen Einfluss auf MAU-Zä
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key) mit der Berechtigung `users.external_ids.rename`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics) mit der Berechtigung `users.external_ids.rename`.
 
 ## Rate-Limit
 

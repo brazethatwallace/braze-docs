@@ -119,7 +119,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/scim/v2/Users/dfa24
 | `department` | Chaîne de caractères | Le service de l'utilisateur, s'il est défini. |
 | `createdAt` | Chaîne de caractères | Date de création du compte utilisateur. Renvoie `N/A` si non défini ; sinon au format `YYYY Mon DD, H:MM AM/PM`. |
 | `lastSignInAt` | Chaîne de caractères | Date de la dernière connexion de l'utilisateur. Renvoie `N/A` si l'utilisateur ne s'est jamais connecté ; sinon au format `YYYY Mon DD, H:MM AM/PM`. |
-| `permissions` | Objet | Permissions de l'utilisateur au niveau de l'entreprise, de l'espace de travail, de l'équipe et du rôle. Consultez l'[objet permissions]({{site.baseurl}}/scim_api_appendix). |
+| `permissions` | Objet | Permissions de l'utilisateur au niveau de l'entreprise, de l'espace de travail, de l'équipe et du rôle. Consultez l'[objet permissions]({{site.baseurl}}/api/objects_filters/scim_api_appendix). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paramètres de réponse" }
 
 ### États d'erreur {#error-states}

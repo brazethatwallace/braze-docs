@@ -5,7 +5,6 @@ description: "Dieser Referenzartikel behandelt die Braze-Erweiterung zur Ereigni
 page_type: partner
 page_order: 2
 search_tag: Partner
-
 ---
 
 # Track Events API – Erweiterung der Ereignisweiterleitung {#track-events-api-event-forwarding-extension}
@@ -20,17 +19,17 @@ Die Verwendung von Adobe Event Forwarding kann Ihre Braze-Datenpunkt-Nutzung erh
 
 ## Anwendungsfälle {#use-cases}
 
-Diese Erweiterung sollte Daten aus dem Edge Network in Braze verwenden, um die Vorteile der Analytics- und Targeting-Funktionen für Kund:innen zu nutzen.
+Diese Erweiterung sollte Daten aus dem Edge Network in Braze nutzen, um dessen Kundenanalyse- und Targeting-Funktionen zu verwenden.
 
-Nehmen Sie zum Beispiel ein Einzelhandelsunternehmen mit einer Multichannel-Präsenz (Website und Mobile), das Transaktions- oder Konversationsdaten als Ereignisdaten von seiner Website und seinen mobilen Plattformen erfasst.
+Betrachten Sie zum Beispiel ein Einzelhandelsunternehmen mit einer Multichannel-Präsenz (Website und Mobilgeräte), das transaktionale oder konversationelle Eingaben als Event-Daten von seinen Website- und mobilen Plattformen erfasst.
 
-Mithilfe verschiedener [Tag](https://experienceleague.adobe.com/docs/experience-platform/tags/home.html?lang=en)-Regeln werden diese Daten in Realtime an das Edge Network gesendet. Von hier aus sendet die Braze-Erweiterung zur Ereignisweiterleitung automatisch relevante Ereignisse serverseitig an Braze.
+Mithilfe verschiedener [Tag](https://experienceleague.adobe.com/docs/experience-platform/tags/home.html?lang=en)-Regeln werden diese Daten in Realtime an das Edge Network gesendet. Von hier aus sendet die Braze-Event-Forwarding-Erweiterung automatisch relevante Events serverseitig an Braze.
 
 ## Rate-Limits
 
 | API | Rate-Limits |
 | --- | --- |
-| User Track | 50.000 Anfragen pro Minute.<br><br>Einzelheiten finden Sie in der [Dokumentation der User Track API]({{site.baseurl}}/api/endpoints/user_data/post_user_track#rate-limit).
+| User Track | 50.000 Anfragen pro Minute.<br><br>Weitere Informationen finden Sie in der [User Track API-Dokumentation]({{site.baseurl}}/api/endpoints/user_data/post_user_track#rate-limit).
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Rate-Limits" }
 
 ## Integration
@@ -66,7 +65,7 @@ Nachdem Sie die Erweiterung installiert haben, erstellen Sie eine neue [Regel](h
 
 | Eingabe | Beschreibung |
 | --- | --- |
-| Externe Nutzer-ID | Eine lange, zufällige und gut verteilte UUID oder GUID. Wenn Sie eine andere Methode zur Benennung Ihrer Nutzer-IDs wählen, müssen diese ebenfalls lang, zufällig und gut verteilt sein. Mehr erfahren über die [vorgeschlagene Namenskonvention für Nutzer-IDs]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_user_ids#suggested-user-id-naming-convention). |
+| Externe Nutzer-ID | Eine lange, zufällige und gut verteilte UUID oder GUID. Wenn Sie eine andere Methode zur Benennung Ihrer Nutzer-IDs wählen, müssen diese ebenfalls lang, zufällig und gut verteilt sein. Erfahren Sie mehr über die [vorgeschlagene Namenskonvention für Nutzer-IDs]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=web#naming-best-practices). |
 | Braze-Nutzer-ID | Braze-Nutzerbezeichner. |
 | Nutzer-Alias | Ein Alias dient als alternativer eindeutiger Bezeichner für Nutzer:innen. Verwenden Sie Aliase, um Nutzer:innen anhand anderer Dimensionen als Ihrer zentralen Nutzer-ID zu identifizieren.<br><br>Das Nutzer-Alias-Objekt besteht aus zwei Teilen: einem `alias_name` für den Bezeichner selbst und einem `alias_label`, der den Typ des Alias angibt. Nutzer:innen können mehrere Aliase mit unterschiedlichen Labels haben, aber nur einen `alias_name` pro `alias_label`. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 4: Eine Regel zum Senden von Ereignissen erstellen" }
@@ -129,7 +128,7 @@ Nachdem Sie die Erweiterung installiert haben, erstellen Sie eine neue [Regel](h
 
 | Eingabe | Beschreibung |
 | --- | --- |
-| Externe Nutzer-ID | Eine lange, zufällige und gut verteilte UUID oder GUID. Wenn Sie eine andere Methode zur Benennung Ihrer Nutzer-IDs wählen, müssen diese ebenfalls lang, zufällig und gut verteilt sein. Mehr erfahren über die [vorgeschlagene Namenskonvention für Nutzer-IDs]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_user_ids#suggested-user-id-naming-convention). |
+| Externe Nutzer-ID | Eine lange, zufällige und gut verteilte UUID oder GUID. Wenn Sie eine andere Methode zur Benennung Ihrer Nutzer-IDs wählen, müssen diese ebenfalls lang, zufällig und gut verteilt sein. Erfahren Sie mehr über die [vorgeschlagene Namenskonvention für Nutzer-IDs]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=web#naming-best-practices). |
 | Braze-Nutzer-ID | Braze-Nutzerbezeichner. |
 | Nutzer-Alias | Ein Alias dient als alternativer eindeutiger Bezeichner für Nutzer:innen. Verwenden Sie Aliase, um Nutzer:innen anhand anderer Dimensionen als Ihrer zentralen Nutzer-ID zu identifizieren.<br><br>Das Nutzer-Alias-Objekt besteht aus zwei Teilen: einem `alias_name` für den Bezeichner selbst und einem `alias_label`, der den Typ des Alias angibt. Nutzer:innen können mehrere Aliase mit unterschiedlichen Labels haben, aber nur einen `alias_name` pro `alias_label`. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 5: Eine Regel zum Senden eines Kauf-Events erstellen" }

@@ -1,6 +1,6 @@
 # Integração do BrazeAI Decisioning Studio™ {#integrating-brazeai-decisioning-studio}
 
-> Saiba como integrar o BrazeAI Decisioning Studio™ à Braze e faça parceria com a equipe de Serviços Especializados em IA para [criar agentes]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/building_agents/) que aplicam a IA para a tomada de decisões 1:1 a fim de melhorar suas principais métricas de negócios.
+> Saiba como integrar o BrazeAI Decisioning Studio™ à Braze e faça parceria com a equipe de Serviços Especializados em IA para [criar agentes]({{site.baseurl}}/developer_guide/decisioning_studio/building_agents) que aplicam a IA para a tomada de decisões 1:1 a fim de melhorar suas principais métricas de negócios.
 
 {% multi_lang_include decisioning_studio/alert_multi_platform_support.md %}
 
@@ -12,7 +12,7 @@ Antes de integrar, você precisará de uma licença ativa do BrazeAI Decisioning
 
 ### Etapa 1: Obtenha a URL do seu endpoint {#step-1-get-your-endpoint-url}
 
-Você precisará obter a URL do endpoint associada à sua instância específica da Braze. Para saber mais, consulte [Endpoints da API da Braze]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints).
+Obtenha a URL do endpoint associada à sua instância específica da Braze. Para saber mais, consulte [Endpoints da API da Braze]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints).
 
 ### Etapa 2: Crie uma chave de API {#step-2-create-an-api-key}
 
@@ -22,6 +22,6 @@ Na Braze, acesse **Configurações** > **Chaves de API** e crie uma nova chave c
 
 ### Etapa 3: Fale com o seu gerente de sucesso do cliente do BrazeAI Decisioning Studio™ {#step-3-contact-your-brazeai-decisioning-studio-customer-success-manager}
 
-Fale com o seu gerente de sucesso do cliente do BrazeAI Decisioning Studio™ e peça para ativar o BrazeAI Decisioning Studio™. A equipe usará sua chave de API da Braze e a URL do endpoint para finalizar a configuração da sua integração.
+Fale com o seu gerente de sucesso do cliente do BrazeAI Decisioning Studio™ e peça para ativar o BrazeAI Decisioning Studio™. A equipe usará sua chave de API da Braze e a URL do endpoint para concluir a configuração da sua integração.
 
-Quando a configuração estiver concluída, você trabalhará ao lado da equipe de Serviços Especializados em IA para [começar a criar agentes para o seu produto]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/building_agents/). Cada agente é feito sob medida para uma meta comercial específica, então vocês trabalharão juntos para projetar uma implementação adequada para você.
+Quando a configuração estiver concluída, você trabalhará em conjunto com a equipe de Serviços Especializados em IA para [começar a criar agentes para o seu produto]({{site.baseurl}}/developer_guide/decisioning_studio/building_agents). Cada agente é personalizado para uma meta comercial específica, então vocês trabalharão juntos para projetar uma implementação ideal para você.

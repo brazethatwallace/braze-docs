@@ -41,7 +41,7 @@ Les bonnes pratiques en matière de livrabilité dépassent souvent les exigence
 
 {% if include.section == "email validation" %}
 
-Si l'utilisateur saisit une adresse e-mail contenant des caractères spéciaux non acceptés, un indicateur d'erreur générique s'affichera et il ne pourra pas soumettre le formulaire. Ce message d'erreur n'est pas personnalisable. Vous pouvez visualiser le comportement de l'erreur dans l'onglet **Preview & Test** et sur votre appareil de test. Pour en savoir plus sur la manière dont Braze formate les adresses e-mail, consultez [Validation de l'e-mail]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/email_validation).
+Si l'utilisateur saisit une adresse e-mail contenant des caractères spéciaux non acceptés, un indicateur d'erreur générique s'affichera et il ne pourra pas soumettre le formulaire. Ce message d'erreur n'est pas personnalisable. Vous pouvez visualiser le comportement de l'erreur dans l'onglet **Preview & Test** et sur votre appareil de test. Pour en savoir plus sur la manière dont Braze formate les adresses e-mail, consultez [Validation de l'e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation).
 
 {% endif %}
 
@@ -53,7 +53,7 @@ Pour vous assurer que toute personne inscrite à votre liste souhaitait réellem
 
 L'un des moyens d'y parvenir est d'utiliser Canvas :
 
-1. Créez un Canvas basé sur l'action et configurez-le pour qu'il se déclenche lorsqu'un utilisateur ajoute une adresse e-mail à Braze. Assurez-vous de permettre le ciblage des utilisateurs qui découvrent la plateforme (par exemple, en utilisant un segment sans filtre dans le Canvas).
+1. Créez un Canvas basé sur l'action et configurez-le pour qu'il se déclenche lorsqu'un utilisateur ajoute une adresse e-mail à Braze. Assurez-vous de permettre le ciblage des utilisateurs qui découvrent la plateforme (par exemple, en utilisant un Segment sans filtre dans le Canvas).
 2. Créez une étape de message e-mail avec un CTA comportant un lien hypertexte vers l'étiquette Liquid {% raw %}`{{${set_user_to_opted_in_url}}}`{% endraw %}. L'état d'abonnement e-mail de l'utilisateur passera ainsi à `opted_in` lorsqu'il cliquera sur le bouton.
 3. Ajoutez une [étape de parcours d'action]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/action_paths#action-paths).
 4. Pour le premier parcours, déclenchez un e-mail lorsqu'un utilisateur modifie son statut d'abonnement e-mail sur `opted_in`. Cet e-mail doit informer les utilisateurs que leur adresse e-mail a été confirmée.
@@ -63,6 +63,6 @@ L'un des moyens d'y parvenir est d'utiliser Canvas :
 
 {% if include.section == "reporting" %}
 
-Une fois votre campagne lancée, vous pouvez analyser les résultats en temps réel pour savoir combien d'utilisateurs ont interagi avec votre campagne. Pour savoir combien d'utilisateurs se sont abonnés au groupe d'abonnement, vous pouvez [créer un segment]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment) d'utilisateurs abonnés au groupe d'abonnement en filtrant ceux qui ont reçu le message in-app et soumis le formulaire.
+Une fois votre campagne lancée, vous pouvez analyser les résultats en temps réel pour savoir combien d'utilisateurs ont interagi avec elle. Pour savoir combien d'utilisateurs se sont abonnés au groupe d'abonnement, vous pouvez [créer un Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) d'utilisateurs abonnés au groupe d'abonnement en filtrant ceux qui ont reçu le message in-app et soumis le formulaire.
 
 {% endif %}

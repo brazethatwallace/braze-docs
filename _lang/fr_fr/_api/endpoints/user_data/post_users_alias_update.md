@@ -27,7 +27,7 @@ Cet endpoint ne garantit pas l'ordre de mise à jour des objets `alias_updates`.
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/api_key) avec l'autorisation `users.alias.update`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics) avec l'autorisation `users.alias.update`.
 
 ## Limite de débit {#rate-limit}
 

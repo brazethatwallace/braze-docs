@@ -41,7 +41,7 @@ Best Practices für die Zustellbarkeit gehen oft über die gesetzlichen Anforder
 
 {% if include.section == "email validation" %}
 
-Wenn Nutzer:innen eine E-Mail-Adresse eingeben, die nicht akzeptierte Sonderzeichen enthält, wird eine allgemeine Fehleranzeige angezeigt und das Formular kann nicht abgeschickt werden. Diese Fehlermeldung ist nicht anpassbar. Sie können das Fehlerverhalten im Tab **Preview & Test** und auf Ihrem Testgerät ansehen. Erfahren Sie mehr darüber, wie Braze E-Mail-Adressen formatiert, unter [E-Mail-Validierung]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/email_validation).
+Wenn Nutzer:innen eine E-Mail-Adresse eingeben, die nicht akzeptierte Sonderzeichen enthält, wird eine allgemeine Fehleranzeige angezeigt und das Formular kann nicht abgeschickt werden. Diese Fehlermeldung ist nicht anpassbar. Sie können das Fehlerverhalten im Tab **Vorschau und Test** und auf Ihrem Testgerät ansehen. Erfahren Sie mehr darüber, wie Braze E-Mail-Adressen formatiert, unter [E-Mail-Validierung]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation).
 
 {% endif %}
 
@@ -63,6 +63,6 @@ Eine der Möglichkeiten, dies einzurichten, ist über Canvas:
 
 {% if include.section == "reporting" %}
 
-Nachdem Ihre Campaign gestartet ist, können Sie die Ergebnisse in Echtzeit analysieren, um zu sehen, wie viele Nutzer:innen mit Ihrer Campaign interagiert haben. Um zu sehen, wie viele Nutzer:innen sich für die Abo-Gruppe angemeldet haben, können Sie [ein Segment erstellen]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment), das Nutzer:innen enthält, die die Abo-Gruppe abonniert haben, indem Sie nach Nutzer:innen filtern, die die In-App-Nachricht erhalten und das Formular abgeschickt haben.
+Nachdem Ihre Campaign gestartet ist, können Sie die Ergebnisse in Echtzeit analysieren, um zu sehen, wie viele Nutzer:innen mit Ihrer Campaign interagiert haben. Um zu sehen, wie viele Nutzer:innen sich für die Abo-Gruppe angemeldet haben, können Sie [ein Segment erstellen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment), das Nutzer:innen enthält, die die Abo-Gruppe abonniert haben, indem Sie nach Nutzer:innen filtern, die die In-App-Nachricht erhalten und das Formular abgeschickt haben.
 
 {% endif %}

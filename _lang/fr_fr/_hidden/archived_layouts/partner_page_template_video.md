@@ -33,6 +33,7 @@ channel:
   - SMS
   - Webhooks
 
+
 noindex: true
 #ATTENTION: remove noindex and this alert from template
 
@@ -46,37 +47,37 @@ noindex: true
 
 Dans le second paragraphe, explorez et expliquez la relation entre Braze et ce partenaire. Ce paragraphe doit expliquer comment Braze et ce partenaire collaborent pour resserrer le lien entre l'utilisateur de Braze et son client. Expliquez la « valeur ajoutée » qui se produit lorsqu'un utilisateur de Braze intègre ou exploite ce partenaire et ses services.
 
-## Exigences ou conditions préalables {#requirements-or-prerequisites}
+## Conditions préalables {#requirements-or-prerequisites}
 
-Cette section détaille tout ce dont vous avez besoin pour intégrer ce partenaire et commencer à utiliser ses services. La meilleure façon de fournir ces informations est de rédiger un court paragraphe d'instructions décrivant tous les détails non techniques importants ou les informations à connaître, comme le fait de savoir si votre intégration sera soumise ou non à des contrôles de sécurité ou à des habilitations supplémentaires. Utilisez ensuite un tableau pour décrire les exigences techniques de l'intégration.
+Cette section présente tout ce dont vous avez besoin pour intégrer le partenaire et commencer à utiliser ses services. La meilleure façon de communiquer ces informations est d'utiliser un court paragraphe explicatif qui décrit les détails importants non techniques à connaître, comme le fait que votre intégration sera soumise ou non à des vérifications de sécurité ou des autorisations supplémentaires. Ensuite, vous devriez utiliser un tableau pour décrire les exigences techniques de l'intégration.
 
 {% alert important %}
-Les exigences suivantes sont des exigences types dont vous pourriez avoir besoin pour Braze. Nous vous recommandons d'utiliser le titrage, l'origine, les liens et le phrasé attribués dans le tableau suivant. Assurez-vous d'ajuster la description afin de savoir à quoi sert chacune de ces exigences.
+Les exigences suivantes sont des exigences typiques que vous pourriez rencontrer avec Braze. Nous vous recommandons d'utiliser les titres, origines, liens et formulations indiqués dans le tableau suivant. Veillez à ajuster la description afin de savoir à quoi chacune de ces exigences est utilisée.
 {% endalert %}
 
-| Condition | Origine | Accès | Description |
+| Exigence | Origine | Accès | Description |
 |---|---|---|---|
-| Clé API REST de l'espace de travail Braze | Plateforme Braze | Page **Settings** > **App Settings** | Cette description devrait vous indiquer comment procéder avec la clé API REST de l'espace de travail. |
-| Endpoint de l'API Braze | Plateforme Braze | Consultez la [liste de nos endpoints]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints) ou ouvrez un [ticket d'assistance]({{site.baseurl}}/braze_support/). | Description en attente. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Exigences ou conditions préalables" }
+| Clé API REST de l'espace de travail Braze | Plateforme Braze | Page **Paramètres** > **Paramètres de l'application** | Cette description devrait vous indiquer quoi faire avec la clé API REST de l'espace de travail. |
+| Endpoint API Braze | Plateforme Braze | Consultez nos [endpoints répertoriés]({{site.baseurl}}/api/basics#endpoints) ou ouvrez un [ticket d'assistance]({{site.baseurl}}/braze_support). | Description en attente. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Conditions préalables" }
 
-## Intégration [type d'intégration] {#type-of-integration-integration}
+## Intégration [Type d'intégration] {#type-of-integration-integration}
 
-C'est ici que vous décomposez l'intégration en étapes. N'écrivez pas de paragraphes interminables : il s'agit de documents techniques qui seront utilisés aussi bien par des marketeurs que par des développeurs pour mettre en place et faire fonctionner l'intégration. Votre seul objectif dans cette section est de rédiger une documentation descriptive qui aide l'utilisateur de Braze à accomplir sa tâche. Par « type d'intégration » dans le titre de la section, nous entendons indiquer s'il s'agit d'une intégration côte à côte, serveur à serveur ou par défaut. Cela vous permet d'avoir plusieurs sections d'intégration s'il existe plus d'une méthode d'intégration avec ce partenaire.
+C'est ici que vous décomposez l'intégration en étapes. N'écrivez pas simplement des paragraphes interminables : il s'agit de documents techniques qui seront utilisés aussi bien par les marketeurs que par les développeurs pour mettre en place l'intégration. Votre seul objectif pour cette section est de rédiger une documentation descriptive qui aide l'utilisateur de Braze à accomplir sa tâche. Par « Type d'intégration » dans le titre de la section, nous souhaitons indiquer s'il s'agit d'une intégration côte à côte, serveur à serveur ou par défaut. Cela vous permet d'avoir plusieurs sections d'intégration s'il existe plus d'une façon de s'intégrer avec ce partenaire.
 
-S'il s'agit d'une intégration Currents, cette page doit se trouver dans la section Currents et une page de navigation correspondante doit être créée pour rediriger vers cet emplacement dans Currents.
+S'il s'agit d'une intégration Currents, cette page doit se trouver dans la section Currents, et une page de navigation correspondante doit être créée pour rediriger vers cet emplacement dans Currents.
 
-### Étape 1 : brève description de la première étape {#step-1-this-is-a-short-description-of-step-one}
+### Étape 1 : Brève description de la première étape {#step-1-this-is-a-short-description-of-step-one}
 
-Décomposez simplement l'étape, en incluant du code si nécessaire. N'oubliez pas que vous pouvez proposer plusieurs jeux de code : rien ne vous oblige à ne proposer qu'un seul moyen d'intégration.
+Décomposez simplement le processus, en incluant tout le code nécessaire. N'oubliez pas que vous pouvez proposer plusieurs ensembles de code différents : il n'est pas nécessaire de n'offrir qu'une seule façon de s'intégrer.
 
-### Étape 2 : cette étape décrit les images {#step-2-this-step-will-describe-images}
+### Étape 2 : Cette étape décrit les images {#step-2-this-step-will-describe-images}
 
-Vous avez la possibilité d'ajouter des images dans votre documentation. Nous vous recommandons de le faire, et de le faire avec attention.
+Vous avez la possibilité d'inclure des images dans votre documentation, nous vous recommandons donc de le faire de manière réfléchie.
 
 ### Exemple de code {#code-sample}
 
-Si vous expliquez un concept technique, notez-le ici et présentez un exemple de code.
+Si vous expliquez un concept technique, notez-le ici et montrez un exemple de code.
 
 ```html
 <!DOCTYPE html>
@@ -93,34 +94,34 @@ Si vous expliquez un concept technique, notez-le ici et présentez un exemple de
 </html>
 ```
 
-Pensez à définir les paramètres ou éléments que les utilisateurs devront ajuster dans l'exemple de code. De nombreux utilisateurs se contenteront de le copier-coller.
+Assurez-vous de définir les paramètres ou les éléments que les utilisateurs pourraient avoir à ajuster dans l'exemple de code. De nombreux utilisateurs se contenteront de copier-coller.
 
 | Variable | Description |
 | -------- | ----------- |
-| Titre de la page | Choisissez le nom que vous voulez pour votre page. Ce champ est obligatoire. |
-| Mon premier titre | Nous recommandons de le mettre en majuscules. Ce champ est toutefois facultatif. |
+| Page Title | Vous pouvez donner n'importe quel titre à votre page. C'est obligatoire. |
+| My First Heading | Nous recommandons de le mettre en majuscules. C'est également facultatif. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Exemple de code" }
 
 
-### Étape 3 : combien d'étapes {#step-3-how-many-steps}
+### Étape 3 : Combien d'étapes {#step-3-how-many-steps}
 
-Décrivez l'utilisation de l'intégration, surtout si elle implique l'insertion de Liquid dans notre éditeur de messages.
+Décrivez l'utilisation de l'intégration, en particulier si cela implique d'insérer du Liquid dans notre composeur de messages.
 
 ## Personnalisation {#customization}
 
-Cette section est **facultative**. Vous pouvez y présenter des manières spécifiques de personnaliser votre intégration entre les deux partenaires.
+Il s'agit d'une section **facultative**. Ici, vous pouvez décrire les différentes façons de personnaliser votre intégration entre les deux partenaires.
 
-## Utiliser cette intégration {#using-this-integration}
+## Utilisation de cette intégration {#using-this-integration}
 
-Expliquez ici comment utiliser l'intégration en indiquant à vos lecteurs s'ils doivent cliquer sur quelques boutons ou s'ils n'ont rien à faire après l'intégration.
+Cette section décrit comment utiliser l'intégration. Indiquez à votre lecteur s'il doit appuyer sur quelques boutons ou s'il n'a rien à faire après l'intégration.
 
-### Étape 1 : brève description de la première étape
+### Étape 1 : Brève description de la première étape
 
-Décrivez simplement le processus étape par étape.
+Il s'agit d'un guide classique, étape par étape.
 
 ### Exemple de code
 
-Si vous expliquez un concept technique, notez-le ici et présentez un exemple de code.
+Si vous expliquez un concept technique, précisez-le ici et montrez un exemple de code.
 
 ```html
 <!DOCTYPE html>
@@ -137,15 +138,14 @@ Si vous expliquez un concept technique, notez-le ici et présentez un exemple de
 </html>
 ```
 
-Pensez à définir les paramètres ou éléments que les utilisateurs devront ajuster dans l'exemple de code. De nombreux utilisateurs se contenteront de le copier-coller.
+Veillez à définir les paramètres ou les éléments que les utilisateurs pourraient devoir adapter à partir de l'exemple de code. De nombreux utilisateurs se contenteront de copier-coller.
 
 | Variable | Description |
 | -------- | ----------- |
-| Titre de la page | Choisissez le nom que vous voulez pour votre page. Ce champ est obligatoire. |
-| Mon premier titre | Nous recommandons de le mettre en majuscules. Ce champ est toutefois facultatif. |
+| Page Title | Vous pouvez donner le titre de votre choix à votre page. Ce champ est obligatoire. |
+| My First Heading | Nous recommandons de l'écrire en majuscules. Ce champ est facultatif. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Exemple de code" }
 
+## Cas d'usages {#use-cases}
 
-## Cas d'utilisation {#use-cases}
-
-Il s'agit d'une partie essentielle de votre documentation. Bien que cette section soit facultative, c'est l'endroit idéal pour présenter les cas d'utilisation types ou même innovants de l'intégration. Cela peut servir à valoriser ou à proposer une montée en gamme de la relation : ces explications apportent du contexte, des idées et, surtout, un moyen de visualiser les capacités de l'intégration.
+Cela peut constituer une partie essentielle de votre documentation. Bien que cette section soit facultative, c'est un bon endroit pour présenter les cas d'usages typiques, voire inédits, de l'intégration. Cela peut servir à promouvoir ou à renforcer la relation partenaire : cette section fournit du contexte, des idées et, surtout, un moyen de visualiser les capacités de l'intégration.

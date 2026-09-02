@@ -9,7 +9,7 @@ Brazeのランディングページで購読を管理することもできます
 {% if include.alert == "Liquid email display name and reply-to address" %}
 
 {% alert tip %}
-**差出人表示名 + アドレス**と**返信先アドレス**のフィールドでは、[Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid)を使用して、カスタム属性に基づいてダイナミックなテンプレートを作成できます。これにより、単一のメールキャンペーンやキャンバスステップを使って、異なるブランド、地域、部門から送信できます。
+**差出人表示名 + アドレス**と**返信先アドレス**のフィールドでは、[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)を使用して、カスタム属性に基づいてダイナミックなテンプレートを作成できます。これにより、単一のメールキャンペーンやキャンバスステップを使って、異なるブランド、地域、部門から送信できます。
 {% endalert %}
 
 {% endif %}
@@ -17,7 +17,7 @@ Brazeのランディングページで購読を管理することもできます
 {% if include.alert == "Reference properties from triggering event" %}
 
 {% alert tip %}
-[オーディエンスパス]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/audience_paths)や[条件分岐]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/decision_split)ステップにおいて、トリガーイベントのプロパティを参照するためにコンテキストステップは必要ありません。**コンテキスト変数**フィルターを使えば、フィルターグループ内でプロパティを直接参照できます。正しいデータ型を選択するようにしてください。
+[オーディエンスパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths)や[条件分岐]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split)ステップにおいて、トリガーイベントのプロパティを参照するためにコンテキストステップは必要ありません。**コンテキスト変数**フィルターを使えば、フィルターグループ内でプロパティを直接参照できます。正しいデータ型を選択するようにしてください。
 {% endalert %}
 
 {% endif %}
@@ -33,7 +33,7 @@ Brazeのランディングページで購読を管理することもできます
 {% if include.alert == 'Export troubleshooting' %}
 
 {% alert tip %}
-CSVおよびAPIのエクスポートに関するヘルプについては、[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting)を参照してください。
+CSVおよびAPIのエクスポートに関するヘルプについては、[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)を参照してください。
 {% endalert %}
 
 {% endif %}

@@ -17,38 +17,38 @@ _이 통합은 Chord에서 유지 관리합니다._
 
 ## 통합 정보 {#about-the-integration}
 
-Chord는 스토어와 Braze 사이의 데이터 레이어 역할을 합니다. Chord CDP에서 Braze를 대상으로 연결하면, Chord는 추적 계획의 이벤트를 Braze에 매핑합니다. 이 데이터를 Segments, Canvases, 메시지 개인화에 활용하여 소비자가 사이트에서 수행하는 활동을 반영할 수 있습니다.
+Chord는 스토어와 Braze 간의 데이터 레이어 역할을 합니다. Chord CDP에서 Braze를 대상으로 연결하면, Chord는 추적 기술 계획의 이벤트를 Braze에 매핑합니다. 이 데이터를 Segments, Canvases 및 메시지 개인화에 활용하여 소비자가 사이트에서 수행하는 활동을 반영할 수 있습니다.
 
-## 사전 요구 사항 {#prerequisites}
+## 전제 조건 {#prerequisites}
 
-Chord와 Braze를 연결하기 전에 다음 사항을 확인하세요.
+Chord와 Braze를 연결하기 전에 다음 사항을 확인하세요:
 
 | 요구 사항 | 설명 |
 | ----------- | ----------- |
 | Chord 계정 | 이 통합을 사용하려면 Chord 계정이 필요합니다. |
-| Braze API 자격 증명 | 필요한 자격 증명은 [연결 모드](#connection-modes)에 따라 다릅니다. 클라우드 모드는 Braze REST API 키를 사용합니다. 기기 모드는 Braze SDK용 웹 채널 API 키를 사용하며, 이는 REST API 키와 별개입니다. |
-| Braze REST 엔드포인트 | Chord는 서버 측 데이터를 [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) 및 [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) 엔드포인트로 전송합니다. 기본 URL은 Braze 인스턴스에 따라 결정됩니다(예: `https://rest.iad-01.braze.com`). 자세한 내용은 [Braze REST API 엔드포인트]({{site.baseurl}}/api/basics#endpoints)를 참조하세요. |
+| Braze API 자격 증명 | 필요한 자격 증명은 [연결 모드](#connection-modes)에 따라 다릅니다. 클라우드 모드는 Braze REST API 키를 사용합니다. 기기 모드는 Braze SDK용 웹 채널 API 키를 사용하며, 이는 REST API 키와 별도입니다. |
+| Braze REST 엔드포인트 | Chord는 서버 사이드 데이터를 [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) 및 [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) 엔드포인트로 전송합니다. 기본 URL은 Braze 인스턴스에 따라 달라지며, 예를 들어 `https://rest.iad-01.braze.com`입니다. 자세한 내용은 [Braze REST API 엔드포인트]({{site.baseurl}}/api/basics#endpoints)를 참조하세요. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="요구 사항" }
 
 ## 연결 모드 {#connection-modes}
 
-Chord는 클라우드 모드(Braze REST API를 통한 서버 간 호출)와 디바이스 모드(Chord가 Braze 웹 SDK를 초기화하고 매핑된 호출을 전달)를 지원합니다. 전체 웹 SDK 기능(예: 인앱 메시지)이 필요한지 또는 서버 측 이벤트 전달만 필요한지에 따라 적합한 모드를 선택하세요.
+Chord는 클라우드 모드(Braze REST API를 통한 서버 간 호출)와 디바이스 모드(Chord가 Braze 웹 SDK를 초기화하고 매핑된 호출을 전달)를 지원합니다. 전체 웹 SDK 기능(예: 인앱 메시지)이 필요한지, 서버 측 이벤트 전달만 필요한지에 따라 적합한 모드를 선택하세요.
 
 ### 클라우드 모드 {#cloud-mode}
 
 1. Chord 데이터 플랫폼에서 CDP를 열고 **대상**으로 이동합니다.
-2. 대상 옆에 있는 **추가**를 선택하고, 카탈로그에서 **Braze**를 선택한 다음, 대상 이름과 Braze REST API 키를 입력합니다.
+2. 대상 옆의 **추가**를 선택하고, 카탈로그에서 **Braze**를 선택한 다음 대상 이름과 Braze REST API 키를 입력합니다.
 3. 대상을 생성하여 연결을 완료합니다.
 
-Braze 대시보드에서 **설정** > **API 키**로 이동하여 REST API 키를 생성합니다. 이전 탐색 메뉴를 사용하는 경우 **개발자 콘솔** > **API 설정**으로 이동합니다. Chord에서 워크스페이스에 대해 별도의 요구 사항을 문서화하지 않는 한, 해당 키에는 `users.track` 및 `users.identify` 권한이 필요합니다. 자세한 내용은 [API 키]({{site.baseurl}}/api/api_key)를 참조하세요.
+Braze 대시보드에서 **설정** > **API 키**로 이동하여 REST API 키를 생성합니다. 이전 내비게이션을 사용하는 경우 **개발자 콘솔** > **API 설정**으로 이동합니다. Chord에서 워크스페이스에 대해 별도의 요구 사항을 안내하지 않는 한, 해당 키에는 `users.track` 및 `users.identify` 권한이 필요합니다. 자세한 내용은 [API 키]({{site.baseurl}}/api/basics)를 참조하세요.
 
 ### 디바이스 모드 {#device-mode}
 
 1. Chord 데이터 플랫폼에서 CDP를 열고 **대상**으로 이동합니다.
-2. 대상 옆에 있는 **추가**를 선택하고, 카탈로그에서 **Braze (디바이스 모드)**를 선택한 다음, 대상 이름과 웹 채널 API 키를 입력합니다.
+2. 대상 옆의 **추가**를 선택하고, 카탈로그에서 **Braze (device mode)**를 선택한 다음 대상 이름과 웹 채널 API 키를 입력합니다.
 3. 대상을 생성하여 연결을 완료합니다.
 
-Braze 대시보드에서 **설정** > **앱 설정** > **웹** > **API 키**에 있는 웹 채널 API 키를 사용하세요. 디바이스 모드에는 REST API 키를 사용하지 마세요.
+Braze 대시보드에서 **설정** > **앱 설정** > **웹** > **API 키**로 이동하여 웹 채널 API 키를 사용합니다. 디바이스 모드에는 REST API 키를 사용하지 마세요.
 
 ### 디바이스 모드 구성 {#device-mode-configuration}
 
@@ -60,16 +60,16 @@ Chord 대상 설정에서 다음을 구성합니다:
 
 ## 이벤트 매핑 (디바이스 모드) {#event-mapping-device-mode}
 
-디바이스 모드를 사용할 때, Chord는 다음 표에 나와 있는 것처럼 이벤트를 Braze에 매핑합니다.
+디바이스 모드를 사용하면 Chord는 다음 표와 같이 이벤트를 Braze에 매핑합니다:
 
 | Chord | Braze |
 | ----- | ----- |
 | Order completed | `logPurchase` |
 | 기타 `track` 이벤트 | `logCustomEvent` |
-| Identify | 사용자 업데이트(예: SDK 사용자 객체를 통한 속성) |
+| Identify | 사용자 업데이트 (예: SDK 사용자 객체를 통한 속성) |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-Chord 추적 기술 계획에 포함되어 있고 Braze 대상으로 구성된 이벤트만 전달됩니다.
+Chord 추적 계획에 포함되고 Braze 대상으로 구성된 이벤트만 전달됩니다.
 
 ## 통합 사용하기 {#using-the-integration}
 
@@ -83,23 +83,23 @@ Chord 추적 기술 계획에 포함되어 있고 Braze 대상으로 구성된 �
 
 ## 사용 사례 {#use-cases}
 
-- **구매 후 메시징:** Chord에서 완료된 주문을 수신하면 확인, 교차 판매 또는 리뷰 요청을 트리거합니다.
-- **프로필 강화:** 더 깔끔한 세분화를 위해 Chord의 최신 소비자 프로필 데이터와 Braze 속성을 동기화된 상태로 유지합니다.
-- **행동 기반 리타겟팅:** Chord 행동 이벤트를 사용하여 최근 구매하지 않았거나 전환하지 않은 소비자에게 다시 참여를 유도합니다.
+- **구매 후 메시징:** Chord가 완료된 주문을 수신하면 확인, 교차 판매 또는 리뷰 요청을 트리거합니다.
+- **프로필 보강:** 보다 깔끔한 세분화를 위해 Chord의 최신 소비자 프로필 데이터와 Braze 속성을 동기화합니다.
+- **행동 기반 리타겟팅:** Chord 행동 이벤트를 활용하여 최근 구매하지 않았거나 전환하지 않은 소비자에게 다시 참여를 유도합니다.
 
 ## 고려 사항 {#considerations}
 
 {% alert important %}
-다른 도구가 이미 동일한 이벤트를 Braze로 전송하고 있는 경우, Chord CDP를 통해 Braze를 연결하기 전에 해당 통합의 담당자와 조율하세요. 병렬 대상을 실행하면 다운스트림에서 중복 이벤트가 발생할 수 있습니다.
+다른 도구가 이미 동일한 이벤트를 Braze로 전송하고 있는 경우, Chord CDP를 통해 Braze를 연결하기 전에 해당 통합의 담당자와 조율하세요. 병렬 대상을 동시에 실행하면 다운스트림에서 중복 이벤트가 발생할 수 있습니다.
 {% endalert %}
 
 ## 문제 해결 {#troubleshooting}
 
-Braze에서 이벤트가 나타나지 않는 경우:
+Braze에 이벤트가 표시되지 않는 경우:
 
 1. Chord CDP에서 소스로부터 실시간 이벤트가 도착하고 있는지 확인합니다.
-2. Braze 대상이 인스턴스에 맞는 올바른 API 키, SDK 버전(기기 모드), REST 또는 SDK 엔드포인트를 사용하는지 확인합니다.
-3. 대상이 Chord에서 예상된 소스에 연결되어 있는지 확인합니다.
-4. Chord에서 API 대상 또는 함수 로그를 검토하여 `/users/track` 및 `/users/identify`에 대한 성공적인 호출을 확인한 다음, Braze에서 다시 확인합니다.
+2. Braze 대상이 인스턴스에 맞는 올바른 API 키, SDK 버전(기기 모드) 및 REST 또는 SDK 엔드포인트를 사용하고 있는지 확인합니다.
+3. Chord에서 대상이 예상 소스에 연결되어 있는지 확인합니다.
+4. Chord에서 API 대상 또는 함수 로그를 검토하여 `/users/track` 및 `/users/identify`에 대한 호출이 성공했는지 확인한 다음, Braze에서 다시 확인합니다.
 
 Chord 관련 로그 위치 및 UI 단계에 대해서는 [Chord Braze 통합](https://docs.chord.co/braze#chord-x-braze-integration)을 참조하세요.

@@ -33,21 +33,21 @@ Vous ne savez pas si votre message in-app doit être envoyé via une Campaign ou
 
 {% details Plus d'informations sur les SDK minimaux %}
 
-Les messages créés à l'aide de l'éditeur par glisser-déposer ne peuvent être envoyés qu'aux utilisateurs disposant des versions minimales du SDK (voir le tableau dans la section précédente). Si un utilisateur n'a pas mis à jour son application (c'est-à-dire qu'il utilise une version plus ancienne du SDK), il ne recevra pas le message in-app.
+Les messages créés à l'aide de l'éditeur par glisser-déposer ne peuvent être envoyés qu'aux utilisateurs disposant des versions minimales du SDK (consultez le tableau dans la section précédente). Si un utilisateur n'a pas mis à jour son application (c'est-à-dire qu'il utilise une version plus ancienne du SDK), il ne recevra pas le message in-app.
 
 Pour profiter de toutes les fonctionnalités disponibles dans l'éditeur par glisser-déposer, mettez à jour vos SDK vers les versions recommandées. Cela vous permet de bénéficier des fonctionnalités supplémentaires suivantes :
 
-- Liens texte qui ne ferment pas le message
+- Liens textuels qui ne ferment pas le message
 - Action de bouton pour demander l'amorce de notification push
 
-Voici les exigences minimales individuelles du SDK pour ces fonctionnalités :
+Le tableau suivant indique les versions minimales du SDK requises pour chacune de ces fonctionnalités :
 
-| Liens texte*                                                         | Demande d'amorce de notification push                                                           |
+| Liens textuels*                                                         | Demande d'amorce de notification push                                                           |
 | ------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | {::nomarkdown}{% sdk_min_versions swift:6.2.0 android:26.0.0 %}{:/} | {::nomarkdown}{% sdk_min_versions web:4.8.1 swift:6.5.0 android:26.0.0 %}{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Exigences du SDK" }
 
-*Si vous incluez un lien dans votre message in-app qui redirige vers une URL et que l'utilisateur final ne dispose pas des versions minimales du SDK spécifiées, la sélection du lien fermera le message et l'utilisateur ne pourra pas revenir au message pour soumettre le formulaire.
+*Si vous incluez un lien dans votre message in-app qui redirige vers une URL et que l'utilisateur final ne dispose pas des versions minimales du SDK spécifiées, sélectionner le lien fermera le message et l'utilisateur ne pourra pas y retourner pour soumettre le formulaire.
 
 {% enddetails %}
 
@@ -62,15 +62,15 @@ Créez un nouveau message in-app ou une étape Canvas, puis sélectionnez **Édi
 
 ## Étape 2 : Sélectionner votre modèle {#step-2-select-your-template}
 
-Après avoir sélectionné l'éditeur par glisser-déposer comme expérience d'édition, vous pouvez choisir de :
+Après avoir sélectionné l'éditeur par glisser-déposer comme expérience de modification, vous pouvez choisir de :
 
-- Commencer avec un modèle de fenêtre modale vierge
+- Partir d'un modèle modal vierge
 - Utiliser un modèle de message in-app par glisser-déposer de Braze
 - Sélectionner un modèle de message in-app par glisser-déposer enregistré
 
 Sélectionnez **Créer le message** pour commencer à concevoir votre message in-app dans l'éditeur par glisser-déposer.
 
-![La section Modèles Braze où vous pouvez choisir un modèle basique, avec image d'arrière-plan, de capture de numéro de téléphone ou un modèle vierge.]({% image_buster /assets/img_archive/dnd_iam_select_template.png %})
+![La section Modèles de Braze où vous pouvez choisir un modèle basique, avec image d'arrière-plan, capture de numéro de téléphone ou vierge.]({% image_buster /assets/img_archive/dnd_iam_select_template.png %})
 
 Vous pouvez également accéder à tous les modèles depuis la section **Modèles** du tableau de bord.
 
@@ -132,17 +132,17 @@ Les utilisateurs peuvent sélectionner le bouton de fermeture X pour quitter le 
 
 ## Étape 4 : Créer et concevoir votre message in-app {#step-4-build-and-design-your-in-app-message}
 
-C'est ici que votre message peut défiler sur le podium, habillé du style signature de votre marque. En combinant les blocs éditeur et les paramètres de style, vous pouvez personnaliser et concevoir votre message in-app.
+C'est ici que votre message peut défiler sur le podium, habillé dans le style signature de votre marque. En utilisant une combinaison de blocs éditeur et de paramètres de style, vous pouvez personnaliser et concevoir votre message in-app.
 
-- Pour obtenir la liste des blocs éditeur disponibles et de leurs propriétés, consultez [Blocs éditeur]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages).
+- Pour une liste des blocs éditeur disponibles et de leurs propriétés, consultez [Blocs éditeur]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages).
 - Pour obtenir de l'aide sur la personnalisation de l'apparence de votre message, consultez [Paramètres de style]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings).
 - Pour les bonnes pratiques de création de messages de droite à gauche, consultez [Créer des messages de droite à gauche]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 
 ## Étape 5 : Tester votre message in-app {#step-5-test-your-in-app-message}
 
-La section **Aperçu et test** vous permet de prévisualiser vos messages in-app sur différents appareils et d'envoyer un message de test à votre appareil. Ici, vous pouvez vous assurer que les détails sont alignés sur toutes vos plateformes pour votre campagne de messages in-app par glisser-déposer.
+La section **Aperçu et test** vous permet de prévisualiser vos messages in-app sur différents appareils et d'envoyer un message test à votre appareil. Vous pouvez vous assurer que les détails sont alignés sur toutes vos plateformes pour votre campagne de messages in-app par glisser-déposer.
 
-Il est important de toujours tester vos messages in-app avant d'envoyer vos Campaigns pour vous aider à visualiser à quoi ressemblera votre message final du point de vue de votre utilisateur.
+Il est important de toujours tester vos messages in-app avant d'envoyer vos Campaigns afin de vous aider à visualiser à quoi ressemblera votre message final du point de vue de l'utilisateur.
 
 ### Prévisualiser le message en tant qu'utilisateur {#preview-message-as-a-user}
 
@@ -154,15 +154,15 @@ Vous pouvez prévisualiser les messages depuis l'onglet **Aperçu et test**, com
 
 - **Utilisateur aléatoire :** Braze sélectionnera aléatoirement un utilisateur dans la base de données et prévisualisera le message in-app en fonction de ses attributs ou de ses informations d'événement.
 - **Sélectionner un utilisateur :** Vous pouvez sélectionner un utilisateur spécifique en fonction de son adresse e-mail ou de son `external_id`. Le message in-app sera prévisualisé en fonction des attributs et des informations d'événement de cet utilisateur.
-- **Utilisateur personnalisé :** Vous pouvez personnaliser un utilisateur. Braze proposera des champs de saisie pour tous les attributs et événements disponibles. Saisissez les informations que vous souhaitez voir dans l'aperçu de l'e-mail.
+- **Utilisateur personnalisé :** Vous pouvez personnaliser un utilisateur. Braze proposera des champs de saisie pour tous les attributs et événements disponibles. Saisissez les informations que vous souhaitez voir dans l'e-mail de prévisualisation.
 
 ### Liste de vérification pour les tests {#test-checklist}
 
-Considérez les questions suivantes lorsque vous testez votre message in-app :
+Tenez compte des questions suivantes lorsque vous testez votre message in-app :
 
 - Avez-vous testé le message sur différents appareils ?
 - Les images et les médias s'affichent-ils et fonctionnent-ils comme prévu ?
-- Le Liquid fonctionne-t-il comme prévu ? Avez-vous prévu une valeur d'attribut par défaut dans le cas où le Liquid ne renverrait aucune information ?
+- Le Liquid fonctionne-t-il comme prévu ? Avez-vous prévu une valeur d'attribut par défaut dans le cas où le Liquid ne renvoie aucune information ?
 - Votre texte est-il clair, concis et correct ?
 - Vos boutons dirigent-ils l'utilisateur là où il doit aller ?
 
@@ -170,31 +170,31 @@ Considérez les questions suivantes lorsque vous testez votre message in-app :
 
 ### Pourquoi les clics sur le corps du message n'apparaissent-ils pas sur ma page d'analyse ? {#why-are-body-clicks-not-appearing-on-my-analytics-page}
 
-Les clics sur le corps du message ne sont pas automatiquement collectés pour les messages in-app créés avec l'éditeur par glisser-déposer. Pour plus de détails, consultez les journaux des modifications du SDK pour [iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/changelog/objc_changelog#3310) et [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/changelog#1100).
+Les clics sur le corps du message ne sont pas collectés automatiquement pour les messages in-app créés avec l'éditeur par glisser-déposer. Pour plus de détails, consultez les journaux des modifications du SDK pour [iOS]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/changelog/objc_changelog) et [Android]({{site.baseurl}}/developer_guide/changelogs?sdktab=android).
 
 ### Puis-je segmenter en fonction des clics sur les boutons ? {#can-i-segment-based-on-button-clicks}
 
-Oui, vous pouvez segmenter en fonction des clics sur les boutons pour un maximum de deux boutons dans votre message. Pour ce faire, définissez l'**Identifier for Reporting** de vos boutons sur « 0 » et « 1 », ce qui correspondra respectivement aux filtres de segmentation « Clicked in-app message button 1 » et « Clicked in-app message button 2 ».
+Oui, vous pouvez segmenter en fonction des clics sur les boutons pour un maximum de deux boutons dans votre message. Pour ce faire, définissez l'**Identifier for Reporting** de vos boutons sur « 0 » et « 1 », qui correspondent respectivement aux filtres de segmentation « Clicked in-app message button 1 » et « Clicked in-app message button 2 ».
 
 ![Le champ « Identifier for Reporting » avec la valeur « 0 ».]({% image_buster /assets/img/identifier_for_reporting.png %}){: style="max-width:50%;"}
 
-### Puis-je personnaliser mon message in-app avec du HTML ou du JavaScript personnalisé, ou transférer des messages HTML existants dans l'éditeur ? {#can-i-customize-my-in-app-message-using-custom-html-or-javascript-or-transfer-existing-html-messages-into-the-editor}
+### Puis-je personnaliser mon message in-app en utilisant du HTML ou du JavaScript personnalisé, ou transférer des messages HTML existants dans l'éditeur ? {#can-i-customize-my-in-app-message-using-custom-html-or-javascript-or-transfer-existing-html-messages-into-the-editor}
 
-Vous ne pouvez pas transférer directement des messages HTML existants dans l'éditeur, mais vous pouvez insérer du HTML brut, du CSS et du JavaScript dans un bloc **Code personnalisé**. Vous pouvez utiliser les blocs **Code personnalisé** pour intégrer des vidéos tierces et du Liquid avancé, comme le contenu connecté ou les instructions conditionnelles. Pour les méthodes JavaScript `brazeBridge` et les exemples de suivi des clics, consultez [Messages in-app en HTML personnalisé]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html).
+Vous ne pouvez pas transférer directement des messages HTML existants dans l'éditeur, mais vous pouvez insérer du HTML brut, du CSS et du JavaScript dans un bloc **Code personnalisé**. Vous pouvez utiliser les blocs **Code personnalisé** pour intégrer des vidéos tierces et du Liquid avancé, comme le contenu connecté ou les instructions conditionnelles. Pour les méthodes JavaScript `brazeBridge` et des exemples de suivi de clics, consultez [Messages in-app en HTML personnalisé]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html).
 
 ### Pourquoi la vue du compositeur de l'éditeur par glisser-déposer peut-elle être différente du message final ? {#why-might-the-drag-and-drop-editors-composer-view-look-different-from-the-final-message}
 
-L'éditeur par glisser-déposer affiche votre message dans un compositeur et applique des styles et des valeurs par défaut réservés à l'aperçu afin que vous puissiez construire et vérifier la mise en page. Ces traitements vous aident à visualiser la structure et le contenu de substitution pendant que vous éditez ; ils ne sont pas inclus dans le message que vos utilisateurs reçoivent.
+L'éditeur par glisser-déposer effectue le rendu de votre message dans un compositeur et applique des styles et des valeurs par défaut réservés à l'aperçu, afin que vous puissiez créer et vérifier la mise en page. Ces traitements vous aident à visualiser la structure et le contenu de substitution pendant que vous éditez ; ils ne sont pas inclus dans le message reçu par vos utilisateurs.
 
-Voici des exemples courants de comportements propres à l'éditeur :
+Voici quelques exemples courants de comportements propres à l'éditeur :
 
-- L'éditeur encapsule les blocs **Code personnalisé** dans un conteneur `bz-html-code-block` avec une `min-height` par défaut de `40px`, afin que les blocs vides ou courts restent visibles pendant l'édition.
-- Les images vides ou contenant du Liquid affichent un espace réservé dans l'éditeur.
+- L'éditeur encadre les blocs **Code personnalisé** dans un conteneur `bz-html-code-block` avec une `min-height` par défaut de `40px`, afin que les blocs vides ou courts restent visibles pendant l'édition.
+- Les images vides ou contenant du Liquid affichent une marque substitutive dans l'éditeur.
 - Les groupes de cases à cocher et les boutons radio présélectionnent la première option pour que vous puissiez prévisualiser l'état actif.
 
-Si quelque chose semble différent uniquement dans l'éditeur, il s'agit généralement d'un comportement d'aperçu. Lors du dépannage du message livré, examinez les styles et le balisage dans vos blocs de message, et non le cadre de l'éditeur ou les valeurs par défaut de l'aperçu.
+Si quelque chose semble différent uniquement dans l'éditeur, il s'agit généralement d'un comportement d'aperçu. Lors de la résolution des problèmes du message envoyé, examinez les styles et le balisage dans vos blocs de message, et non le cadre ou les valeurs par défaut de l'aperçu de l'éditeur.
 
-### Comment puis-je créer un message in-app contextuel ? {#how-can-i-create-a-slideup-in-app-message}
+### Comment créer un message in-app contextuel ? {#how-can-i-create-a-slideup-in-app-message}
 
 Actuellement, l'éditeur est limité aux messages modaux et plein écran uniquement. Vous pouvez basculer entre les types d'affichage dans la section **Message container** du panneau **Message styles**.
 
@@ -208,9 +208,9 @@ Vous pouvez également créer et enregistrer des modèles de messages in-app en 
 
 ### Pourquoi ma syntaxe Liquid apparaît-elle en texte brut dans mon message in-app paginé ? {#why-is-my-liquid-syntax-appearing-as-plain-text-in-my-paginated-in-app-message}
 
-Si vous voyez la syntaxe Liquid apparaître en texte brut lors du test d'un message in-app paginé (au lieu du contenu personnalisé), il peut y avoir une erreur de syntaxe Liquid sur l'une des pages. S'il y a une erreur de syntaxe sur une page, cela affecte le rendu du Liquid sur toutes les pages du message — les pages ne sont pas indépendantes.
+Si vous voyez la syntaxe Liquid apparaître en texte brut lors du test d'un message in-app paginé (au lieu du contenu personnalisé), il se peut qu'il y ait une erreur de syntaxe Liquid sur l'une des pages. S'il y a une erreur de syntaxe sur une page, cela affecte le rendu du Liquid sur toutes les pages du message — les pages ne sont pas indépendantes.
 
 Pour résoudre le problème :
 
-1. Vérifiez chaque page de votre message pour détecter les erreurs de syntaxe Liquid. Un aperçu défaillant sur une page ne signifie pas que l'erreur se trouve sur cette page — puisque les pages ne sont pas indépendantes, l'erreur de syntaxe peut se trouver n'importe où dans le message.
+1. Vérifiez chaque page de votre message à la recherche d'erreurs de syntaxe Liquid. Un aperçu cassé sur une page ne signifie pas que l'erreur se trouve sur cette page — puisque les pages ne sont pas indépendantes, l'erreur de syntaxe peut se trouver n'importe où dans le message.
 2. Vérifiez que toutes les balises Liquid sont correctement fermées et formatées.

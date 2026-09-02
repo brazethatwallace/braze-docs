@@ -8,7 +8,7 @@
 {% endtab %}
 
 {% tab custom %}
-カスタム統合は、Shopify Hydrogenを使用している場合やヘッドレスストアをサポートしている場合に、より柔軟で構成可能なソリューションを提供します。このオプションにより、Shopify環境に直接Braze SDKを実装して、より深い統合とカスタマイズされた機能を実現できます。独自のカスタマーエクスペリエンスを創出したい場合でも、特定のワークフローを最適化したい場合でも、カスタム統合はヘッドレス環境においてBrazeの機能を最大限に活用するために必要なツールを提供します。
+カスタム統合は、Shopify Hydrogenを使用している場合やヘッドレスストアをサポートしている場合に、より柔軟で構成可能なソリューションを提供します。このオプションにより、Shopify環境に直接Braze SDKを実装して、より深い統合とカスタマイズされた機能を実現できます。独自の顧客体験を創出したい場合でも、特定のワークフローを最適化したい場合でも、カスタム統合はヘッドレス環境においてBrazeの機能を最大限に活用するために必要なツールを提供します。
 
 カスタムのShopify統合を使用するには、[Shopifyカスタム統合の設定]({{site.baseurl}}/shopify_custom_integration)を参照してください。
 {% endtab %}
@@ -24,7 +24,7 @@
 
 {% if include.section == "Liquid promotion codes with Currents" %}
 
-[`message_extras`]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/advanced_filters/message_extras)と[プロモーションコード]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/promotion_codes)を組み合わせることで、プロモーションコード情報をCurrentsに送信できます。`capture`タグを使用してプロモーションコードを変数に保存し、その変数を`message_extras`で参照します。
+[`message_extras`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras)と[プロモーションコード]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes)を組み合わせることで、プロモーションコード情報をCurrentsに送信できます。`capture`タグを使用してプロモーションコードを変数に保存し、その変数を`message_extras`で参照します。
 
 {% raw %}
 ```liquid

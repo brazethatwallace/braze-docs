@@ -6,35 +6,35 @@
 
 ## Requisitos previos {#prerequisites}
 
-Antes de comenzar, asegúrate de tener lo siguiente:
+Antes de empezar, asegúrate de tener lo siguiente:
 
 | Requisito previo | Descripción |
 |--------------|-------------|
 | Cliente MCP compatible | Cualquier cliente que admita servidores MCP remotos con OAuth puede funcionar. Braze ha verificado Claude, ChatGPT, Cursor, OpenAI Codex, Claude Code y Visual Studio Code. |
 | Cuenta en el panel de Braze | Inicias sesión con tus credenciales normales de Braze, incluido SSO o SAML si tu empresa lo utiliza. No hay un inicio de sesión MCP independiente. |
-| Selección del endpoint del servidor | Elige `https://mcp.braze.com/mcp` (EE. UU.) o `https://mcp.braze.eu/mcp` (UE). Cualquiera de los dos endpoints puede conectarse a cualquier clúster de Braze. |
+| Selección de endpoint del servidor | Elige `https://mcp.braze.com/mcp` (EE. UU.) o `https://mcp.braze.eu/mcp` (UE). Cualquiera de los dos endpoints puede llegar a cualquier clúster de Braze. |
 | Sin lista de IP permitidas | Los clientes que utilizan la [lista de IP permitidas](https://www.braze.com/docs/user_guide/administer/global/admin_settings/security_settings#dashboard-ip-allowlisting) no pueden usar el servidor Braze MCP en este momento. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 {% alert note %}
-El acceso de tu agente refleja tus permisos del panel. Si tu acceso al panel está limitado a un equipo en lugar de un espacio de trabajo completo, es posible que algunas herramientas no funcionen.
+El acceso de tu agente refleja los permisos de tu panel. Si el acceso a tu panel está limitado a un equipo en lugar de a un espacio de trabajo completo, es posible que algunas herramientas no funcionen.
 {% endalert %}
 
 ## Gestión de acceso (para administradores) {#managing-access-for-admins}
 
 {% alert note %}
-Antes de que los usuarios puedan conectarse, un administrador de la empresa debe activar **Acceso OAuth para MCP** en **Configuración** > **Configuración de administrador** > **OAuth**. Para más información, consulta [Gestionar la configuración de OAuth]({{site.baseurl}}/user_guide/administer/global/admin_settings/oauth_admin).
+Antes de que los usuarios puedan conectarse, un administrador de la empresa debe activar **Acceso OAuth MCP** en **Configuración** > **Configuración de administrador** > **OAuth**. Para más información, consulta [Gestionar la configuración de OAuth]({{site.baseurl}}/user_guide/administer/global/admin_settings/oauth_admin).
 {% endalert %}
 
 ### Conceder acceso {#grant-access}
 
-Los administradores controlan el acceso al servidor MCP mediante el permiso "Use MCP Server". De forma predeterminada, los usuarios no tienen este permiso y debe concederse de forma explícita.
+Los administradores controlan el acceso al servidor MCP a través del permiso "Use MCP Server". De forma predeterminada, los usuarios no tienen este permiso y debe concederse de forma explícita.
 
 ### Revocar acceso {#revoke-access}
 
-Para revocar el acceso, elimina el permiso "Use MCP Server" del usuario. Al eliminar los permisos del panel de un usuario, también se eliminan esas capacidades de cualquier agente conectado en la siguiente solicitud.
+Para revocar el acceso, elimina el permiso "Use MCP Server" del usuario. Al eliminar los permisos del panel a un usuario, también se eliminan esas capacidades de cualquier agente conectado en la siguiente solicitud.
 
-### Auditar el uso {#audit-usage}
+### Auditar uso {#audit-usage}
 
 Cuando un usuario se conecta correctamente a través de OAuth, se registra un evento en el [informe de eventos de seguridad](https://www.braze.com/docs/user_guide/administer/global/admin_settings/security_settings#security-event-report).
 
@@ -47,17 +47,17 @@ Cuando un usuario se conecta correctamente a través de OAuth, se registra un ev
 
 ### Paso 2: Añade Braze como conector MCP remoto {#step-2-add-braze-as-a-remote-mcp-connector}
 
-En tu cliente MCP, añade un nuevo servidor remoto o conector personalizado e introduce tu URL de Braze MCP. Por ejemplo, en Claude puedes ir a **Settings** > **Connectors** > **Add custom connector** y pegar la URL.
+En tu cliente MCP, añade un nuevo servidor remoto o conector personalizado e introduce tu URL MCP de Braze. Por ejemplo, en Claude puedes ir a **Settings** > **Connectors** > **Add custom connector** y pegar la URL.
 
-No se requiere ID de cliente, secreto de cliente ni clave de API. Tu cliente se registra automáticamente con Braze.
+No se necesita ID de cliente, secreto de cliente ni clave de API. Tu cliente se registra con Braze automáticamente.
 
-Opciones de endpoint de Braze MCP:
+Opciones de endpoint MCP de Braze:
 
 - `https://mcp.braze.com/mcp` (US)
 - `https://mcp.braze.eu/mcp` (EU)
 
 {% alert tip %}
-Los clientes de la UE deben usar el endpoint de la UE. Los clientes fuera de la UE pueden usar cualquiera de los dos endpoints.
+Los clientes de la UE deben utilizar el endpoint de la UE. Los clientes de fuera de la UE pueden utilizar cualquiera de los dos endpoints.
 {% endalert %}
 
 Guías de configuración de clientes:
@@ -71,18 +71,18 @@ Guías de configuración de clientes:
 
 ### Paso 3: Inicia sesión en Braze a través de OAuth {#step-3-sign-in-to-braze-through-oauth}
 
-La primera vez que tu agente llame a una herramienta de Braze, tu cliente abrirá una ventana del navegador y te redirigirá a Braze para iniciar sesión.
+La primera vez que tu agente llame a una herramienta de Braze, tu cliente abrirá una ventana del navegador y te enviará a Braze para iniciar sesión.
 
 1. Inicia sesión en Braze como lo harías normalmente, incluyendo SSO si es necesario.
-2. Si tu inicio de sesión puede acceder a más de una empresa en el mismo clúster, selecciona la empresa que deseas usar.
+2. Si tu inicio de sesión puede acceder a más de una empresa en el mismo clúster, selecciona la empresa que deseas utilizar.
 3. En la pantalla de consentimiento, revisa el acceso que la aplicación está solicitando.
-4. Selecciona la casilla de verificación de aceptación para aceptar la Política de Privacidad de Braze, luego selecciona **Continue** para volver a tu cliente MCP.
+4. Selecciona la casilla de reconocimiento para aceptar la Política de Privacidad de Braze y luego selecciona **Continue** para volver a tu cliente MCP.
 
-![La pantalla de consentimiento de Braze mostrando que Claude Desktop solicita acceso a la información de la cuenta de Braze y acceso amplio a los datos de Braze, con una casilla de verificación de aceptación de la Política de Privacidad y los botones Cancelar y Continuar.]({% image_buster /assets/img/mcp_server/oauth_consent_screen.png %}){: style="max-width:65%;"}
+![La pantalla de consentimiento de Braze que muestra que Claude Desktop está solicitando acceso a la información de la cuenta de Braze y acceso amplio a los datos de Braze, con una casilla de reconocimiento de la Política de Privacidad y los botones Cancel y Continue.]({% image_buster /assets/img/mcp_server/oauth_consent_screen.png %}){: width="639" height="1024" style="max-width:65%;"}
 
-Tu sesión utiliza tokens de acceso de corta duración que se renuevan automáticamente. Es posible que ocasionalmente necesites volver a iniciar sesión.
+Tu sesión utiliza tokens de acceso de corta duración que se actualizan automáticamente. Es posible que ocasionalmente necesites iniciar sesión de nuevo.
 
-### Paso 4: Indica a tu agente qué espacio de trabajo usar {#step-4-tell-your-agent-which-workspace-to-use}
+### Paso 4: Indica a tu agente qué espacio de trabajo utilizar {#step-4-tell-your-agent-which-workspace-to-use}
 
 Si tu cuenta puede acceder a más de un espacio de trabajo, especifica el espacio de trabajo en tu prompt. Por ejemplo:
 
@@ -93,33 +93,33 @@ Si no especificas un espacio de trabajo, tu agente puede pedirte que lo aclares.
 
 ### Paso 5: Envía un prompt de prueba {#step-5-send-a-test-prompt}
 
-Después de la configuración, envía un prompt de validación rápido como:
+Después de la configuración, envía un prompt de validación rápido, como:
 
 - `List the Braze tools available in this workspace.`
 - `Show my recent Canvases from the Production workspace.`
 
 Para más ejemplos, consulta [Uso del servidor Braze MCP]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/usage/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/usage/){% endif %}.
 
-## Ejemplo: Conectar con Claude {#example-connect-with-claude}
+## Ejemplo: conectar con Claude {#example-connect-with-claude}
 
-Conectar un cliente solo requiere unos pocos pasos. El siguiente tutorial usa Claude, pero el flujo es similar para otros clientes compatibles.
+Conectar un cliente toma solo unos pasos. El siguiente tutorial usa Claude, pero el flujo es similar para otros clientes compatibles.
 
-1. En Claude, ve a **Settings** > **Connectors** > **Add custom connector**.
-2. Introduce un nombre, como `Braze`, y pega tu URL de Braze MCP: `https://mcp.braze.com/mcp` para US o `https://mcp.braze.eu/mcp` para EU. No necesitas un ID de cliente, un secreto de cliente ni una clave de API.
-3. Selecciona **Add** para guardar el conector. Claude se registra con Braze automáticamente.
-4. Selecciona **Connect** para iniciar la autenticación. Claude abre una ventana del navegador y te redirige a Braze para iniciar sesión.
+1. En Claude, ve a **Configuración** > **Conectores** > **Agregar conector personalizado**.
+2. Introduce un nombre, como `Braze`, y pega tu URL de Braze MCP: `https://mcp.braze.com/mcp` para US o `https://mcp.braze.eu/mcp` para EU. No necesitas un ID de cliente, secreto de cliente ni clave de API.
+3. Selecciona **Agregar** para guardar el conector. Claude se registra con Braze automáticamente.
+4. Selecciona **Conectar** para iniciar la autenticación. Claude abre una ventana del navegador y te dirige a Braze para iniciar sesión.
 5. Inicia sesión en Braze con tus credenciales habituales, incluido SSO si tu empresa lo utiliza. Si tu inicio de sesión puede acceder a más de una empresa en el mismo clúster, selecciona la empresa que quieras usar.
-6. En la pantalla de consentimiento, revisa el acceso solicitado, selecciona la casilla de verificación de aceptación y luego selecciona **Continue**. Claude vuelve a tu chat y tu agente ya puede usar las herramientas de Braze.
+6. En la pantalla de consentimiento, revisa el acceso solicitado, selecciona la casilla de reconocimiento y luego selecciona **Continuar**. Claude vuelve a tu chat, y tu agente ya puede usar las herramientas de Braze.
 
-Para confirmar la conexión, envía un prompt de prueba como `Show my recent Canvases from the Production workspace`.
+Para confirmar la conexión, envía un mensaje de prueba como `Show my recent Canvases from the Production workspace`.
 
 ## Migración desde el servidor beta local {#migrating-from-the-local-beta-server}
 
-Puedes ejecutar el servidor beta local y el servidor alojado de forma remota en paralelo durante la migración. Es posible que necesites indicar explícitamente a tu agente cuál utilizar.
+Puedes ejecutar el servidor beta local y el servidor alojado en remoto en paralelo durante la migración. Es posible que necesites indicar explícitamente a tu agente cuál usar.
 
-El servidor alojado de forma remota incluye nuevas herramientas que no existen en el servidor beta local. Si creaste habilidades para el servidor local, es posible que necesites actualizar esas habilidades para hacer referencia a los nuevos nombres y comportamientos de las herramientas.
+El servidor alojado en remoto incluye nuevas herramientas que no existen en el servidor beta local. Si creaste habilidades para el servidor local, es posible que necesites actualizar esas habilidades para hacer referencia a los nuevos nombres y comportamientos de las herramientas.
 
-Después de confirmar que tus flujos de trabajo y habilidades funcionan en el servidor remoto, desactiva el servidor alojado localmente.
+Después de confirmar que tus flujos de trabajo y habilidades funcionan en el servidor remoto, desactiva el servidor alojado en local.
 
 ## Solución de problemas {#troubleshooting}
 
@@ -139,20 +139,18 @@ Los clientes que se ejecutan localmente en tu máquina sin un esquema personaliz
 
 Si tu agente no puede listar las herramientas de Braze, espera unos minutos e inténtalo de nuevo. Estos problemas suelen ser temporales y se resuelven por sí solos.
 
-Si el problema continúa, graba un video y envíalo a [mcp-product@braze.com](mailto:mcp-product@braze.com) para que lo investiguen.
-
 ### El agente no puede acceder a las herramientas esperadas {#agent-cannot-access-expected-tools}
 
 1. Confirma que tu usuario del panel tiene los permisos necesarios. Tu agente solo puede usar herramientas que coincidan con tu propio acceso al panel.
 2. Confirma que seleccionaste el espacio de trabajo esperado en tu prompt.
-3. Pide a tu agente que llame a `get_workspaces` y verifica los ID de espacios de trabajo disponibles.
+3. Pide a tu agente que llame a `get_workspaces` y verifica los ID de espacio de trabajo disponibles.
 
-### El agente usa el espacio de trabajo incorrecto {#agent-uses-the-wrong-workspace}
+### El agente usa el espacio de trabajo equivocado {#agent-uses-the-wrong-workspace}
 
-Si tu cuenta puede acceder a más de un espacio de trabajo, indica el espacio de trabajo en tu prompt usando el nombre exacto que aparece en el panel de Braze. Si no especificas un espacio de trabajo, tu agente puede pedirte que lo aclares o usar uno inesperado.
+Si tu cuenta puede acceder a más de un espacio de trabajo, nombra el espacio de trabajo en tu prompt usando el nombre exacto que se muestra en el panel de Braze. Si no especificas un espacio de trabajo, tu agente puede pedirte que aclares o usar uno inesperado.
 
 {% alert important %}
-Antes de que tu agente comience a trabajar, confirma siempre qué espacio de trabajo está utilizando. En algunos casos, un agente puede seleccionar un espacio de trabajo diferente al que pretendías.
+Antes de que tu agente comience a trabajar, confirma siempre qué espacio de trabajo está usando. En algunos casos, un agente puede seleccionar un espacio de trabajo diferente al que pretendías.
 {% endalert %}
 
 ### Cambiar a una empresa diferente {#switching-to-a-different-company}

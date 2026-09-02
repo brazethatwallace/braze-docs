@@ -13,7 +13,7 @@ description: "Cet article présente en détail l'endpoint Braze Extraire les num
 /sms/invalid_phone_numbers
 {% endapimethod %}
 
-> Utilisez cet endpoint pour obtenir une liste des numéros de téléphone qui ont été marqués comme « invalides » dans un certain laps de temps. Pour plus d'informations, consultez la documentation sur la [gestion des numéros de téléphone non valides]({{site.baseurl}}/user_guide/message_building_by_channel/sms/phone_numbers/user_phone_numbers#handling-invalid-phone-numbers).
+> Utilisez cet endpoint pour obtenir une liste des numéros de téléphone qui ont été marqués comme « invalides » dans un certain laps de temps. Pour plus d'informations, consultez la documentation sur la [gestion des numéros de téléphone non valides]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#handling-invalid-phone-numbers).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#81ceae19-15d1-4ac1-ad22-a6b86a92456d {% endapiref %}
 

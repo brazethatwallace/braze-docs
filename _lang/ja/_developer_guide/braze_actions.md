@@ -14,13 +14,13 @@ hidden: true
 
 {% sdk_min_versions swift:5.4.0 android:21.0.0 web:4.0.3 %}
 
-`brazeActions://` ディープリンクスキームは、アプリ内メッセージやContent Cards内にディープリンクやリダイレクトオプションがあれば、どこでも使用できます。
+`brazeActions://` ディープリンクスキームは、アプリ内メッセージやContent Cards内でディープリンクまたはリダイレクトオプションが存在する場所であればどこでも使用できます。
 
-HTMLアプリ内メッセージの場合、HTMLメッセージタイプではディープリンクはサポートされていないため、代わりに[`Javascript Bridge`]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/customize#javascript-bridge)を使用してください。
+HTMLアプリ内メッセージの場合は、代わりに[`Javascript Bridge`]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#javascript-bridge)を使用してください。HTMLメッセージタイプではディープリンクはサポートされていません。
 
 ## スキーマ {#schema}
 
-複数のアクションの `steps` を `container` アクションタイプに含めることができます。`container` を含まない単一のステップも有効です。
+`container`アクションタイプ内に、複数のアクション`steps`を含めることができます。`container`なしの単一のステップも有効です。
 
 ```json
 {
@@ -29,7 +29,7 @@ HTMLアプリ内メッセージの場合、HTMLメッセージタイプではデ
 }
 ```
 
-個々の `step` には、アクションの `type` とオプションの `args` 配列が含まれます。
+個々の`step`には、アクション`type`とオプションの`args`配列が含まれます。
 
 ```json
 {
@@ -77,27 +77,27 @@ function encode(input) {
 }
 ```
 
-## 対応アクション {#supported-actions}
+## サポートされるアクション {#supported-actions}
 
-| タイプ | 引数 |
+|タイプ|引数|
 |--|--|
-| `container` | 実行する他のアクションの配列 |
-| `logCustomEvent` | 1. `event name`<br>2. `event properties JSON object`（オプション） |
-| `setEmailNotificationSubscriptionType` | `"opted_in" | "subscribed" | "unsubscribed"` |
-| `setPushNotificationSubscriptionType` | `"opted_in" | "subscribed" | "unsubscribed"` |
-| `setCustomUserAttribute` | 1. `attribute_name`<br>2. `attribute_value` |
-| `requestPushPermission` | 該当なし |
-| `openLink` | 1. `url`<br>2. `openInNewTab`（ブール値） |
-| `openLinkInWebview` | `url` |
-| `addToSubscriptionGroup` | `subscriptionGroupId` |
-| `removeFromSubscriptionGroup` | `subscriptionGroupId` |
-| `addToCustomAttributeArray` | 1. `attribute_name`<br>2. `attribute_value` |
-| `removeFromCustomAttributeArray` | 1. `attribute_name`<br>2. `attribute_value` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="対応アクション" }
+|`container`|実行する他のアクションの配列|
+|`logCustomEvent`|1. `event name`<br>2. `event properties JSON object`（オプション）|
+|`setEmailNotificationSubscriptionType`|`"opted_in" | "subscribed" | "unsubscribed"`|
+|`setPushNotificationSubscriptionType`|`"opted_in" | "subscribed" | "unsubscribed"`|
+|`setCustomUserAttribute`|1. `attribute_name`<br>2. `attribute_value`|
+|`requestPushPermission`| N/A |
+|`openLink`|1. `url`<br>2. `openInNewTab`（ブール値）|
+|`openLinkInWebview`| `url`|
+|`addToSubscriptionGroup`| `subscriptionGroupId`|
+|`removeFromSubscriptionGroup`| `subscriptionGroupId`|
+|`addToCustomAttributeArray`|1. `attribute_name`<br>2. `attribute_value`|
+|`removeFromCustomAttributeArray`|1. `attribute_name`<br>2. `attribute_value`|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="サポートされるアクション" }
 
 ## JSONエンコーダー {#json-encoder}
 
-JSON文字列を入力すると、結果の `brazeActions://` URIが表示されます。または、`brazeActions://` URIを入力してJSONをデコードできます。
+JSON文字列を入力すると、結果の `brazeActions://` URIが表示されます。または、`brazeActions://` URIを入力してJSONをデコードすることもできます。
 
 <div><h4>JSON入力</h4></div>
 <textarea id="braze-actions-input" rows="12"></textarea>

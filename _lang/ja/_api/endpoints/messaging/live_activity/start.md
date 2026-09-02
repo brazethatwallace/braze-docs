@@ -15,7 +15,7 @@ description: "この記事では、「ライブアクティビティを開始」
 /messages/live_activity/start
 {% endapimethod %}
 
-> このエンドポイントを使用して、iOSアプリに表示される[ライブアクティビティ]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?sdktab=swift)をリモートで開始します。このエンドポイントには追加の設定が必要です。
+> このエンドポイントを使用して、iOSアプリに表示される[ライブアクティビティ]({{site.baseurl}}/developer_guide/live_notifications?sdktab=swift)をリモートで開始します。このエンドポイントには追加の設定が必要です。
 
 ライブアクティビティを作成した後、セグメント、接続オーディエンス、または特定のユーザーをターゲットにするPOSTリクエストを送信します。特定のユーザーは、外部ユーザーID、ユーザーエイリアス、またはその両方で識別します。Appleのライブアクティビティの詳細については、[Starting and updating Live Activities with ActivityKit push notifications](https://developer.apple.com/documentation/activitykit/starting-and-updating-live-activities-with-activitykit-push-notifications)を参照してください。
 
@@ -25,9 +25,9 @@ description: "この記事では、「ライブアクティビティを開始」
 ライブアクティビティを終了するには、[`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update)エンドポイントで `end_activity` を `true` に設定して使用します。
 {% endalert %}
 
-## 自動非表示のスケジュール設定 {#arranging-automatic-dismissal}
+## 自動非表示の設定 {#arranging-automatic-dismissal}
 
-ライブアクティビティの開始後に自動非表示をスケジュールするには、バックエンドから更新エンドポイントへのフォローアップリクエストをスケジュールします。
+ライブアクティビティの開始後に自動非表示を設定するには、バックエンドから更新エンドポイントへのフォローアップリクエストをスケジュールします。
 
 1. 後で再利用できる `activity_id` を含む `/messages/live_activity/start` リクエストを送信します。
 2. その `activity_id` とターゲット終了時間をバックエンドスケジューラーに保存します。
@@ -42,7 +42,7 @@ description: "この記事では、「ライブアクティビティを開始」
 このエンドポイントを使用するには、以下の前提条件を満たしてください。
 
 - `messages.live_activity.start` 権限を持つAPIキーを生成します。
-- Braze Swift SDKを使用して[ライブアクティビティを作成]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?tab=local&sdktab=swift#swift_create-an-activity)します。
+- Braze Swift SDKを使用して[ライブアクティビティを作成]({{site.baseurl}}/developer_guide/live_notifications/live_activities?tab=local&sdktab=swift#create-an-activity)します。
 
 {% multi_lang_include api/payload_size_alert.md %}
 
@@ -93,7 +93,7 @@ description: "この記事では、「ライブアクティビティを開始」
 | `custom_audience` | `external_user_ids`、`user_aliases`、または `segment_id` が提供されている場合はオプション | 接続オーディエンスオブジェクト | [接続オーディエンス]({{site.baseurl}}/api/objects_filters/connected_audience)を参照してください。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="リクエストパラメーター" }
 
-同じリクエストに `external_user_ids` と `user_aliases` を含めることができます。結合された配列の長さは50を超えることができません。Brazeはいずれかのパラメーターに一致するユーザーをターゲットにし、複数の識別子が同じユーザーに解決される場合は1回だけ送信します。
+同じリクエストに `external_user_ids` と `user_aliases` を含めることができます。結合された配列の長さは50を超えることはできません。Brazeはいずれかのパラメーターに一致するユーザーをターゲットにし、複数の識別子が同じユーザーに解決される場合は1回だけ送信します。
 
 `external_user_ids` または `user_aliases` を `segment_id` や `custom_audience` と組み合わせないでください。このエンドポイントでは、`custom_audience` を使用して接続オーディエンスフィルターを渡します。
 

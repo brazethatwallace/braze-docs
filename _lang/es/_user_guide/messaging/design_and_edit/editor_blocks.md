@@ -515,7 +515,7 @@ Los usuarios eligen múltiples opciones; los valores se establecen o añaden a u
 
 ### Gestionar suscripciones {#manage-subscriptions}
 
-Añade una lista de verificación de [grupos de suscripción de correo electrónico]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups) para que los visitantes puedan optar por suscribirse o gestionar sus suscripciones cuando envíen el formulario. Configúralo después de añadir grupos de suscripción al bloque. Este bloque solo admite grupos de suscripción de correo electrónico; no admite grupos de suscripción de SMS, RCS ni WhatsApp.
+Añade una lista de verificación de grupos de suscripción de [correo electrónico]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups), [SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#sms-subscription-states) o [WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-subscription-states) para que los visitantes puedan optar por suscribirse o gestionar sus suscripciones cuando envíen el formulario. Cada bloque es para un canal. Configúralo después de añadir grupos de suscripción al bloque. Este bloque no incluye grupos de suscripción de RCS.
 
 Para usuarios identificados que abren la página a través de la [etiqueta de Liquid]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) de la página de destino, el bloque rellena previamente cada casilla de verificación con el estado de suscripción actual del usuario, por lo que también puede servir como página de gestión de preferencias.
 

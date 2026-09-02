@@ -5,8 +5,7 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Cet article présente en détail l'endpoint Braze Afficher les modèles d'e-mail."
-
+description: "Cet article présente en détail l'endpoint Braze Voir les informations sur les modèles d'e-mail."
 ---
 {% api %}
 # Voir les informations sur les modèles d'e-mail {#see-email-template-information}
@@ -23,20 +22,20 @@ Les modèles créés à l'aide de l'éditeur par glisser-déposer pour l'e-mail 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e98d2d5b-62fe-4358-b391-9fe9e460d0ac {% endapiref %}
 
 ## Conditions préalables {#prerequisites}
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/api_key) avec l'autorisation `templates.email.info`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics) avec l'autorisation `templates.email.info`.
 
 ## Limite de débit {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Paramètres de demande {#request-parameters}
+## Paramètres de requête {#request-parameters}
 
 | Paramètre | Requis | Type de données | Description |
 |---|---|---|---|
 | `email_template_id` | Requis | Chaîne de caractères | Voir l'[identifiant API du modèle d'e-mail]({{site.baseurl}}/api/identifier_types). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Paramètres de demande" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Paramètres de requête" }
 
-## Exemple de demande {#example-request}
+## Exemple de requête {#example-request}
 {% raw %}
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/templates/email/info?email_template_id={{email_template_id}}' \

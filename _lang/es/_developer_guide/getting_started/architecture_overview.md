@@ -61,7 +61,7 @@ Braze utiliza diferentes sistemas de almacenamiento de datos para diversas carac
 - [Extensiones de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments)
 - [Línea de productos de predicción]({{site.baseurl}}/user_guide/brazeai)
 - [Recomendaciones de artículos personalizadas mediante IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai)
-- [Tasa de apertura real estimada]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/email_reporting#estimated-real-open-rate) (no utiliza eventos personalizados)
+- [Tasa de apertura real estimada]({{site.baseurl}}/user_guide/channels/email/reporting#estimated-real-open-rate) (no utiliza eventos personalizados)
 
 {% alert important %}
 **Consideraciones sobre la eliminación de datos:** Los eventos personalizados se almacenan en MongoDB y están separados de los datos de Snowflake. Si necesitas eliminar datos de eventos personalizados erróneos, debes hacerlo en MongoDB. Las características basadas en Snowflake (como las extensiones de segmento SQL y otras características basadas en Snowflake) utilizan datos de Snowflake, que se gestionan por separado. Eliminar datos de un sistema no los elimina automáticamente del otro.
@@ -119,31 +119,31 @@ El [SDK de Braze]({{site.baseurl}}/user_guide/get_started/sdk_overview) potencia
 ![Diagrama de los canales de mensajería de Braze disponibles a través del SDK.]({% image_buster /assets/img/getting_started/channels.png %})
 
 ## Exportación de datos {#exporting-data}
-Es fundamental destacar que todas las interacciones del usuario final con Braze se rastrean para que puedas medir tu participación y alcance. Y después de que Braze haya agregado tus datos de todas estas fuentes, pueden exportarse de vuelta a tu stack tecnológico usando una variedad de herramientas, cerrando el ciclo.
+De manera fundamental, todas las interacciones de los usuarios finales con Braze se rastrean para que puedas medir tu participación y alcance. Y después de que Braze ha agregado tus datos de todas estas fuentes, se pueden exportar de vuelta a tu stack tecnológico utilizando una variedad de herramientas, cerrando el ciclo.
 
 ### Currents
-[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) es un complemento opcional de Braze que proporciona una exportación granular de datos de transmisión que alimenta continuamente otros destinos de tu stack. Currents es una fuente de datos sin procesar por usuario y por evento que exporta datos cada cinco minutos o cada 15.000 eventos, lo que ocurra primero. Algunos ejemplos de destinos posteriores para Currents serían Segment, S3, Redshift y Mixpanel, entre otros.
+[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) es un complemento opcional de Braze que proporciona una exportación granular de datos de transmisión que alimenta continuamente otros destinos de tu stack. Currents es una fuente de datos sin procesar por usuario y por evento que exporta datos cada cinco minutos, o cada 15.000 eventos, lo que ocurra primero. Algunos ejemplos de destinos posteriores para Currents serían Segment, S3, Redshift y Mixpanel, entre otros.
 
-### Uso compartido de datos con Snowflake {#snowflake-data-sharing}
-La funcionalidad de [uso compartido seguro de datos]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake) de Snowflake permite a Braze darte acceso seguro a los datos en nuestro portal de Snowflake sin preocuparte por fricciones en el flujo de trabajo, puntos de fallo y costes innecesarios que conllevan las relaciones típicas con proveedores de datos. Todo el intercambio se realiza a través de la capa de servicios exclusiva de Snowflake y su almacén de metadatos: no se copian ni se transfieren datos entre cuentas. Este es un concepto importante porque los datos compartidos no ocupan almacenamiento en la cuenta del consumidor y, por lo tanto, no contribuyen a tus cargos mensuales de almacenamiento de datos. Los únicos cargos para los consumidores son por los recursos de computación (es decir, almacenes virtuales) utilizados para consultar los datos compartidos.
+### Intercambio de datos con Snowflake {#snowflake-data-sharing}
+La funcionalidad de [intercambio seguro de datos]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake) de Snowflake permite a Braze darte acceso seguro a los datos en nuestro portal de Snowflake sin preocuparte por fricciones en el flujo de trabajo, puntos de fallo y costes innecesarios que conllevan las relaciones típicas con proveedores de datos. Todo el intercambio se realiza a través de la capa de servicios única de Snowflake y su almacén de metadatos: no se copian ni transfieren datos realmente entre cuentas. Este es un concepto importante porque los datos compartidos no ocupan almacenamiento en la cuenta de un consumidor y, por lo tanto, no contribuyen a tus cargos mensuales por almacenamiento de datos. Los únicos cargos para los consumidores son por los recursos informáticos (es decir, almacenes virtuales) utilizados para consultar los datos compartidos.
 
 ### API de exportación de Braze {#braze-export-apis}
-La API de Braze proporciona [endpoints]({{site.baseurl}}/api/endpoints/export) que te permiten exportar análisis agregados de forma programática, así como exportar datos de usuarios individuales. Estos datos pueden exportarse para audiencias y Segments de cualquier tamaño.
+La API de Braze proporciona [endpoints]({{site.baseurl}}/api/endpoints/export) que te permiten exportar de manera programática análisis agregados, así como exportar datos de usuarios individuales. Estos datos se pueden exportar para audiencias y Segments de cualquier tamaño.
 
 ### CSV {#csvs}
-Por último, existe la opción de descargar tus datos a nivel agregado directamente desde el panel como [CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data). La opción CSV permite fácilmente a los miembros de tu equipo exportar datos de Braze.
+Por último, existe la opción de descargar tus datos a nivel agregado directamente desde el panel como un [CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data). La opción de CSV permite fácilmente a los miembros de tu equipo exportar datos desde Braze.
 
 {% alert tip %}
-Aunque la exportación CSV tiene un límite base de 500.000 filas, las API no tienen límite en este aspecto.
+Si bien la exportación de CSV tiene un límite base de 500.000 filas, las API no tienen un límite en este aspecto.
 {% endalert %}
 
-## Todo junto {#putting-it-all-together}
-Una de tus usuarias, llamémosla Mel, acaba de recibir tu anuncio de producto. Entre bastidores, todas las capas de la plataforma Braze trabajaron juntas para asegurar que este proceso transcurriera sin problemas.
+## Uniendo todo {#putting-it-all-together}
+Una de tus usuarias, llamémosla Mel, acaba de recibir tu anuncio de producto. Detrás de escena, todas las capas de la plataforma Braze trabajaron juntas para asegurar que este proceso funcionara sin problemas.
 
-La información de Mel se incorporó a Braze desde tu plataforma de interacción con los clientes anterior mediante una importación CSV. Cada vez que Mel interactuaba con tu aplicación tras la integración, se añadían más datos a su perfil de cliente.
+La información de Mel fue importada a Braze desde tu plataforma de interacción con los clientes heredada a través de una importación CSV. Cada vez que Mel interactuó con tu aplicación después de la integración, se añadieron más datos a su perfil de cliente.
 
-Tu anuncio de producto se envió a todos los clientes a quienes les gustó un artículo similar en tu aplicación. Definiste estos datos como un evento personalizado. El SDK rastreó este evento y segmentó tu base de usuarios en consecuencia. Braze orquestó el mejor momento del día para enviar este anuncio, y lo personalizó llamando a Mel por su nombre preferido.
+Tu anuncio de producto se envió a todos los clientes que indicaron que les gustaba un artículo similar en tu aplicación. Definiste estos datos como un evento personalizado. El SDK rastreó este evento y segmentó tu base de usuarios en consecuencia. Braze orquestó el mejor momento del día para enviar este anuncio y lo personalizó llamando a Mel por su nombre preferido.
 
-Cuando Mel abre el anuncio, añade tu nuevo producto a su lista de deseos. Braze rastrea automáticamente que hizo clic en el correo electrónico. El SDK rastrea que ha añadido tu nuevo producto a su lista de deseos. Cada vez que interactúan con tu marca, tú y tus usuarios aprenden más unos de otros.
+Cuando Mel abre el anuncio, añade tu nuevo producto a su lista de deseos. Braze rastrea automáticamente que hizo clic en el correo electrónico. El SDK rastrea que añadió tu nuevo producto a su lista de deseos. Cada vez que interactúan con tu marca, tú y tus usuarios aprenden más unos de otros.
 
 ![Diagrama que muestra cómo Braze rastrea las acciones de los usuarios a través de los canales de mensajería.]({% image_buster /assets/img/getting-started/putting-it-all-together.png %})

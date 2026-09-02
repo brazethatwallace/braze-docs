@@ -166,7 +166,7 @@ table td {
 | テキスト仕様 | 推奨最大プロパティ |
 | --- | --- |
 | 件名の長さ | 35文字<br>6〜10ワード |
-| `"From: Name"` の長さ | 25文字 |
+| `"From: Name"`の長さ | 25文字 |
 | プレヘッダーの長さ | 85文字 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="テーブル" }
 
@@ -181,7 +181,7 @@ table td {
 | バナー    | 任意のアスペクト比 | 最小幅 600&nbsp;px |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="テーブル" }
 
-詳細については、[Content Cardsのクリエイティブ詳細]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details)を参照してください。
+詳細については、[Content Cardsのクリエイティブ詳細]({{site.baseurl}}/user_guide/channels/content_cards/creative_details)を参照してください。
 
 {% endif %}
 

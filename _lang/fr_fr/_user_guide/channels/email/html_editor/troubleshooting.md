@@ -16,31 +16,31 @@ Identifiez votre symptôme dans le tableau ci-dessous pour accéder à la sectio
 
 | Symptôme | Aller à |
 | --- | --- |
-| Le HTML de l'e-mail de test s'affiche incorrectement | [Le HTML s'affiche incorrectement dans les e-mails de test](#html-renders-incorrectly-in-test-emails) |
-| L'éditeur se comporte de manière inattendue dans Chrome | [Conflits d'extensions](#extension-conflicts) |
+| Le HTML de l'e-mail de test s'affiche mal | [Le HTML s'affiche incorrectement dans les e-mails de test](#html-renders-incorrectly-in-test-emails) |
+| L'éditeur se comporte de manière anormale dans Chrome | [Conflits d'extensions](#extension-conflicts) |
 | L'e-mail s'affiche différemment selon les clients de messagerie | [Rendu des e-mails](#email-rendering) |
 | L'e-mail affiche du code Liquid ou des liens cassés | [HTML déséquilibré dans les modèles Liquid](#unbalanced-html-in-liquid-templates) |
 | L'aperçu Inbox Vision ne correspond pas à l'e-mail envoyé | [Insertion CSS](#css-inlining) |
 | Espaces blancs ou lignes après les images dans les e-mails de test | [Espace blanc sous les images](#white-space-under-images) |
 | Les analyses de clics n'incluent pas les paramètres de requête | [Limitations de l'analyse des clics sur les liens](#link-click-analytics-limitations) |
 | Les exposants provoquent un espacement de ligne incohérent | [Problèmes de hauteur de ligne avec les exposants](#superscript-line-height-issues) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Symptôme d'e-mail HTML" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Symptômes liés aux e-mails HTML" }
 
 ## Parcours d'investigation standard {#standard-investigation-path}
 
-Utilisez ce flux de travail lorsque le rendu d'un e-mail HTML ou le comportement de l'éditeur ne correspond pas à vos attentes. Commencez à l'étape 1.
+Utilisez ce parcours lorsque le rendu d'un e-mail HTML ou le comportement de l'éditeur ne correspond pas à ce que vous attendez. Commencez à l'étape 1.
 
 1. Validez votre balisage HTML dans l'éditeur ou un validateur externe.
-2. Envoyez un [e-mail de test]({{site.baseurl}}/developer_guide/platform_wide/sending_test_messages#sending-a-test-push-notification-or-in-app-messages-a-classmargin-fix-namepush-inapp-testa) et notez quels clients de messagerie ou navigateurs présentent le problème.
+2. Envoyez un [e-mail de test]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages) et notez quels clients de messagerie ou navigateurs présentent le problème.
 3. Prévisualisez avec [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision) pour comparer le rendu entre les différents clients.
-4. Écartez les [conflits d'extensions de navigateur](#extension-conflicts) si l'éditeur lui-même présente un comportement inattendu.
-5. Si le problème persiste, ouvrez un [ticket d'assistance]({{site.baseurl}}/braze_support) avec des captures d'écran d'Inbox Vision et des clients concernés.
+4. Éliminez les [conflits d'extensions de navigateur](#extension-conflicts) si l'éditeur lui-même se comporte de manière inattendue.
+5. Si le problème persiste, ouvrez un [ticket d'assistance]({{site.baseurl}}/user_guide/administer/personal/braze_support) avec des captures d'écran d'Inbox Vision et des clients concernés.
 
 ## Le HTML s'affiche incorrectement dans les e-mails de test {#html-renders-incorrectly-in-test-emails}
 
 ### Symptôme {#symptom}
 
-Un [e-mail de test]({{site.baseurl}}/developer_guide/platform_wide/sending_test_messages#sending-a-test-push-notification-or-in-app-messages-a-classmargin-fix-namepush-inapp-testa) ne correspond pas à ce que vous attendez de l'éditeur.
+Un [e-mail de test]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages) ne correspond pas à ce que vous attendez de l'éditeur.
 
 Vérifiez d'abord votre configuration HTML, puis consultez les sections [Conflits d'extensions](#extension-conflicts), [Rendu des e-mails](#email-rendering), [Insertion CSS](#css-inlining) et [Espace blanc sous les images](#white-space-under-images).
 

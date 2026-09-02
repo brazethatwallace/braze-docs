@@ -8,7 +8,7 @@ guide_top_text: "마케팅은 예술적 감각과 전문 도구가 필요한 과
 search_rank: 3
 page_type: landing
 tool: Canvas
-description: "이 랜딩 페이지에는 Canvas 관련 문서가 모여 있습니다. 여기에서 Canvases 구축, Canvas 구성요소 사용, Canvases 관리 및 테스트, 다양한 아이디어와 전략 적용에 대한 리소스를 찾을 수 있습니다."
+description: "Canvases 구축, Canvas 구성요소 사용, Canvases 관리 및 테스트, 인게이지먼트 전략 적용에 대한 리소스입니다."
 
 guide_featured_title: "섹션"
 guide_featured_list:

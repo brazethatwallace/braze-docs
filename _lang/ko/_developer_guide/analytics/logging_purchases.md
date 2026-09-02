@@ -28,12 +28,12 @@ USD가 아닌 통화로 보고된 구매는 보고된 날짜의 환율을 기준
 braze.logPurchase(product_id, price, "USD", quantity);
 ```
 
-Google Tag Manager를 대신 사용하려면 **Purchase** 태그 유형을 사용하여 [`logPurchase` 메서드](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logpurchase)를 호출할 수 있습니다. 이 태그를 사용하여 Braze에 구매를 추적하고, 선택적으로 구매 속성정보를 포함할 수 있습니다. 이를 위해 다음을 수행합니다:
+Google Tag Manager를 대신 사용하려면 **Purchase** 태그 유형을 사용하여 [`logPurchase` 메서드](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logpurchase)를 호출할 수 있습니다. 이 태그를 사용하여 구매를 Braze에 추적하고, 선택적으로 구매 속성정보를 포함할 수 있습니다. 방법은 다음과 같습니다:
 
 1. **Product ID** 및 **Price** 필드는 필수입니다.
 2. **Add Row** 버튼을 사용하여 구매 속성정보를 추가합니다.
 
-![Braze 액션 태그 구성 설정을 보여주는 대화 상자. 포함된 설정은 '태그 유형', '외부 ID', '가격', '통화 코드', '수량', '구매 속성정보'입니다.]({% image_buster /assets/img/web-gtm/gtm-purchase.png %})
+![Braze 액션 태그 구성 설정을 보여주는 대화 상자. 설정에는 '태그 유형', '외부 ID', '가격', '통화 코드', '수량', '구매 속성정보'가 포함됩니다.]({% image_buster /assets/img/web-gtm/gtm-purchase.png %})
 {% endtab %}
 
 {% tab Android %}
@@ -130,12 +130,12 @@ AppboyBinding.LogPurchase("product_id", "currencyCode", price(decimal));
 {% endtabs %}
 
 {% alert warning %}
-`productID`는 최대 255자까지만 입력할 수 있습니다. 또한 제품 식별자가 비어 있으면 구매가 Braze에 기록되지 않습니다.
+`productID`는 최대 255자까지만 허용됩니다. 또한 제품 식별자가 비어 있으면 구매가 Braze에 기록되지 않습니다.
 {% endalert %}
 
 ### 속성정보 추가 {#adding-properties}
 
-`Int`, `Double`, `String`, `Bool` 또는 `Date` 값으로 채워진 사전(Dictionary)을 전달하여 구매에 대한 메타데이터를 추가할 수 있습니다.
+`Int`, `Double`, `String`, `Bool` 또는 `Date` 값으로 채워진 Dictionary를 전달하여 구매에 대한 메타데이터를 추가할 수 있습니다.
 
 {% tabs %}
 {% tab 웹 %}
@@ -145,11 +145,11 @@ AppboyBinding.LogPurchase("product_id", "currencyCode", price(decimal));
 braze.logPurchase(product_id, price, "USD", quantity, {key: "value"});
 ```
 
-사이트에서 표준 [이커머스 이벤트](https://developers.google.com/analytics/devguides/collection/ga4/ecommerce?client_type=gtm) 데이터 레이어 항목을 사용하여 Google Tag Manager에 구매를 기록하는 경우, **E-commerce Purchase** 태그 유형을 사용할 수 있습니다. 이 액션 유형은 `items` 목록에 전송된 각 항목에 대해 Braze에 별도의 "구매"를 기록합니다.
+사이트에서 Google Tag Manager에 표준 [이커머스 이벤트](https://developers.google.com/analytics/devguides/collection/ga4/ecommerce?client_type=gtm) 데이터 레이어 항목을 사용하여 구매를 기록하는 경우, **E-commerce Purchase** 태그 유형을 사용할 수 있습니다. 이 액션 유형은 `items` 목록에 전송된 각 항목에 대해 Braze에서 별도의 "purchase"를 기록합니다.
 
-구매 속성정보 목록에 키를 지정하여 구매 속성정보로 포함할 추가 속성정보 이름을 지정할 수도 있습니다. Braze는 목록에 추가한 구매 속성정보에 대해 기록 중인 개별 `item` 내에서 해당 속성정보를 찾습니다.
+구매 속성정보로 포함할 추가 속성정보 이름을 지정하려면 구매 속성정보 목록에 해당 키를 지정합니다. Braze는 목록에 추가한 구매 속성정보에 대해 기록 중인 개별 `item` 내에서 해당 값을 조회합니다.
 
-예를 들어, 다음과 같은 이커머스 페이로드가 있다고 가정합니다:
+예를 들어 다음과 같은 이커머스 페이로드가 있다고 가정합니다:
 
 ```
 items: [{
@@ -161,7 +161,7 @@ items: [{
 }]
 ```
 
-`item_brand`와 `item_name`만 구매 속성정보로 전달하려면 해당 두 필드만 구매 속성정보 테이블에 추가하면 됩니다. 속성정보를 제공하지 않으면 Braze에 대한 [`logPurchase`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logpurchase) 호출에서 구매 속성정보가 전송되지 않습니다.
+`item_brand`와 `item_name`만 구매 속성정보로 전달하려면 해당 두 필드만 구매 속성정보 테이블에 추가하면 됩니다. 속성정보를 제공하지 않으면 Braze에 대한 [`logPurchase`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logpurchase) 호출에 구매 속성정보가 전송되지 않습니다.
 {% endtab %}
 
 {% tab Android %}
@@ -264,7 +264,7 @@ AppboyBinding.LogPurchase("product_id", "currencyCode", price(decimal), purchase
 
 ### REST API 사용 {#using-the-rest-api}
 
-REST API를 사용하여 구매를 기록할 수도 있습니다. 자세한 내용은 [사용자 데이터 엔드포인트]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data)를 참조하세요.
+REST API를 사용하여 구매를 기록할 수도 있습니다. 자세한 내용은 [사용자 데이터 엔드포인트]({{site.baseurl}}/api/endpoints/user_data)를 참조하세요.
 
 ## 주문 기록 {#logging-orders}
 
@@ -281,9 +281,9 @@ REST API를 사용하여 구매를 기록할 수도 있습니다. 자세한 내�
 - `price`
 - `currency`
 
-## 지원되는 통화 {#supported-currencies}
+## 지원 통화 {#supported-currencies}
 
-Braze는 다음 통화 기호를 지원합니다. 여기에 나열되지 않은 통화 기호를 제공하면 경고가 기록되며, 해당 구매는 Braze에 기록되지 않습니다.
+Braze는 다음 통화 기호를 지원합니다. 지원되지 않는 다른 통화 기호를 제공하면 경고가 기록되며, 해당 구매는 Braze에 기록되지 않습니다.
 
 - `AED`, `AFN`, `ALL`, `AMD`, `ANG`, `AOA`, `ARS`, `AUD`, `AWG`, `AZN`
 - `BAM`, `BBD`, `BDT`, `BGN`, `BHD`, `BIF`, `BMD`, `BND`, `BOB`, `BRL`

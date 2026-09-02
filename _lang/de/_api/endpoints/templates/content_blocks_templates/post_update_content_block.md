@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "Dieser Artikel beschreibt Details zum Braze-Endpunkt „Content Blocks aktualisieren“."
-
 ---
 {% api %}
 # Content-Block aktualisieren {#update-content-block}
@@ -23,7 +22,8 @@ Sie können diesen Endpunkt auch über den [Braze MCP-Server]({{site.baseurl}}/u
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4782239a-cb60-4217-9de0-51411434d57d {% endapiref %}
 
 ## Voraussetzungen {#prerequisites}
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key) mit der Berechtigung `content_blocks.update`.
+
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics) mit der Berechtigung `content_blocks.update`.
 
 ## Rate-Limit
 
@@ -60,6 +60,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ## Beispielanfrage {#example-request}
+
 ```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/content_blocks/update' \
 --header 'Content-Type: application/json' \

@@ -6,7 +6,6 @@ page_type: reference
 channel: push
 platform: Android
 description: "Dieser Referenzartikel listet die verschiedenen Android-Objekte auf, die bei Braze verwendet werden, und erklärt sie."
-
 ---
 # Android-Objekt {#android-object}
 
@@ -14,7 +13,7 @@ description: "Dieser Referenzartikel listet die verschiedenen Android-Objekte au
 
 ## Android-Push-Objekt {#android-push-object}
 
-Sie müssen ein Android-Push-Objekt in `messages` einbinden, wenn Sie möchten, dass die von Ihnen angesprochenen Nutzer:innen einen Push auf ihren Android-Geräten erhalten. Die Gesamtzahl der Bytes in Ihrem `alert`-String und `extra`-Objekt sollte 4.000 nicht überschreiten. Die Messaging-API gibt einen Fehler zurück, wenn Sie die von Google zulässige Nachrichtengröße überschreiten.
+Sie müssen ein Android-Push-Objekt in `messages` einfügen, wenn die von Ihnen angesprochenen Nutzer:innen eine Push-Nachricht auf ihren Android-Geräten erhalten sollen. Die Gesamtanzahl der Bytes in Ihrem `alert`-String und dem `extra`-Objekt sollte 4.000 nicht überschreiten. Die Messaging-API gibt einen Fehler zurück, wenn Sie die von Google zulässige Nachrichtengröße überschreiten.
 
 ```json
 {
@@ -42,21 +41,21 @@ Sie müssen ein Android-Push-Objekt in `messages` einbinden, wenn Sie möchten, 
 }
 ```
 
-Sie können „Big Picture“-Benachrichtigungen senden, indem Sie den Schlüssel `appboy_image_url` im Objekt `extra` angeben. Der Wert für `appboy_image_url` sollte eine URL sein, die auf den Speicherort Ihres gehosteten Bildes verweist. Bilder müssen auf ein Seitenverhältnis von 2:1 zugeschnitten werden und sollten mindestens 600 x 300 px groß sein.
+Sie können „Big Picture“-Benachrichtigungen senden, indem Sie den Schlüssel `appboy_image_url` im `extra`-Objekt angeben. Der Wert für `appboy_image_url` sollte eine URL sein, die auf den Speicherort Ihres Bildes verweist. Bilder müssen auf ein Seitenverhältnis von 2:1 zugeschnitten werden und sollten mindestens 600 x 300 px groß sein.
 
 ### Zusätzliche Parameterdetails {#additional-parameter-details}
 
 | Parameter | Details |
 | --------- | ------- |
-| `priority` | Dieser Parameter akzeptiert Werte von `-2` bis `2`, wobei `-2` für die Priorität „MIN“ und `2` für „MAX“ steht. `0` ist der „DEFAULT“-Wert. <br> <br> Alle Werte, die außerhalb dieses Bereichs gesendet werden, werden standardmäßig auf 0 gesetzt. Weitere Informationen darüber, welche Prioritätsstufe Sie verwenden sollten, finden Sie unter [Android-Benachrichtigungspriorität]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/customization/advanced_settings#notification-priority). |
-| `android_priority` | Dieser Parameter akzeptiert die Werte `normal` oder `high`, um die FCM-Senderpriorität anzugeben. Standardmäßig werden Nachrichten mit der auf der Seite [Push-Einstellungen]({{site.baseurl}}/user_guide/administrative/app_settings/push_settings#default-fcm-priority-for-android-campaigns) konfigurierten Standard-FCM-Priorität gesendet.<br><br> Weitere Informationen darüber, wie sich unterschiedliche Werte auf die Zustellung auswirken, finden Sie unter [Android-Nachrichtenpriorität](https://firebase.google.com/docs/cloud-messaging/android/message-priority). |
-| `collapse_key` | FCM kann pro Gerät nur bis zu vier Collapse Keys gleichzeitig speichern. Wenn Sie mehr als vier Collapse Keys verwenden, übernimmt FCM keine Garantie dafür, welche Schlüssel erhalten bleiben. Braze verwendet standardmäßig einen dieser Schlüssel für Campaigns. Stellen Sie daher sicher, dass Sie nur bis zu drei zusätzliche Collapse Keys für Android-Nachrichten angeben. |
-| `push_icon_image_url` | Der Wert für den Parameter „Großes Symbol“ sollte eine URL sein, die auf den Speicherort Ihres gehosteten Bildes verweist. <br> <br> Bilder müssen auf ein Seitenverhältnis von 1:1 zugeschnitten werden und sollten mindestens 40x40 groß sein. |
-| `notification_channel` | Wenn dies nicht angegeben wird, versucht Braze, die Benachrichtigungs-Payload mit der [Dashboard-Fallback]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels#dashboard-fallback-channel)-Kanal-ID zu senden. Weitere Informationen finden Sie unter [Benachrichtigungskanäle]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/notification_channels) und in den Schritten zur [Definition von Benachrichtigungskanälen]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration#step-5-define-notification-channels) während der Integration. |
-| `send_to_sync` | Weitere Informationen zu `send_to_sync`-Nachrichten finden Sie unter [Stille Android-Benachrichtigungen]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/silent_push_notifications#silent-push-notifications). |
+| `priority` | Dieser Parameter akzeptiert Werte von `-2` bis `2`, wobei `-2` die Priorität „MIN“ und `2` die Priorität „MAX“ darstellt. `0` ist der Standardwert „DEFAULT“. <br> <br> Alle Werte, die außerhalb dieses Bereichs gesendet werden, werden standardmäßig auf 0 gesetzt. Weitere Informationen dazu, welche Prioritätsstufe Sie verwenden sollten, finden Sie unter [Android-Benachrichtigungspriorität]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=android#android_settings). |
+| `android_priority` | Dieser Parameter akzeptiert die Werte `normal` oder `high`, um die FCM-Senderpriorität festzulegen. Standardmäßig werden Nachrichten mit der auf der Seite [Push-Einstellungen]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings#default-fcm-priority-for-android-campaigns) konfigurierten Standard-FCM-Priorität gesendet.<br><br> Weitere Informationen dazu, wie sich verschiedene Werte auf die Zustellung auswirken, finden Sie unter [Android-Nachrichtenpriorität](https://firebase.google.com/docs/cloud-messaging/android/message-priority). |
+| `collapse_key` | FCM kann pro Gerät gleichzeitig nur bis zu vier Collapse-Keys speichern. Wenn Sie mehr als vier Collapse-Keys verwenden, gibt FCM keine Garantie dafür, welche Keys beibehalten werden. Braze verwendet standardmäßig einen davon für Campaigns. Stellen Sie daher sicher, dass Sie für Android-Nachrichten höchstens drei zusätzliche Collapse-Keys angeben. |
+| `push_icon_image_url` | Der Wert für den Parameter des großen Symbols sollte eine URL sein, die auf den Speicherort Ihres Bildes verweist. <br> <br> Bilder müssen auf ein Seitenverhältnis von 1:1 zugeschnitten werden und sollten mindestens 40 x 40 groß sein. |
+| `notification_channel` | Wenn dies nicht angegeben wird, versucht Braze, die Benachrichtigungs-Payload mit der [Dashboard-Fallback]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/notification_channels#dashboard-fallback-channel)-Kanal-ID zu senden. Weitere Informationen finden Sie unter [Benachrichtigungskanäle]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/notification_channels) und in den Schritten zum [Definieren von Benachrichtigungskanälen]({{site.baseurl}}/developer_guide/push_notifications?sdktab=android) während der Integration. |
+| `send_to_sync` | Weitere Informationen zu `send_to_sync`-Nachrichten finden Sie unter [Stille Android-Benachrichtigungen]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=android). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Zusätzliche Parameterdetails" }
 
-## Android-Push-Action-Button-Objekt {#android-push-action-button-object}
+## Objekt für Android-Push-Action-Buttons {#android-push-action-button-object}
 
 ```json
 {

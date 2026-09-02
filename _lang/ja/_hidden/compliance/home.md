@@ -11,36 +11,36 @@ noindex: true
 
 _改訂日：2026 年 3 月 30 日_
 
-## コンプライアンスドキュメントの内容 {#what-is-included-in-the-compliance-documentation}
+## コンプライアンスドキュメントに含まれる内容 {#what-is-included-in-the-compliance-documentation}
 
-以下のコンプライアンスドキュメントには、お客様が購入された製品、チャネル、機能、またはサービスに適用される特定の条件が定められています。
+以下のコンプライアンスドキュメントには、購入した製品、チャネル、機能、サービスに適用される具体的な条件が記載されています。
 
-- お客様がサードパーティプロバイダーの製品、Web サイト、アプリケーションまたはサービスを操作、統合、アクセスできるようにする Braze サービス機能の場合、コンプライアンスドキュメントには、当該機能の使用に適用されるサードパーティプロバイダーの条件が記載されています。
-- また、Braze のお客様がそのような Braze 製品、チャネル、機能、またはサービスを使用するために遵守する必要がある一般的な業界の慣行および基準がすべて記載されています。
+- サードパーティプロバイダーの製品、Webサイト、アプリケーション、またはサービスとの連携、統合、またはアクセスを可能にするBrazeサービスの機能について、コンプライアンスドキュメントには、当該機能の使用に適用されるサードパーティプロバイダーの条件が含まれています。
+- Brazeの製品、チャネル、機能、サービスの使用にあたり、Brazeの顧客が遵守すべき一般的な業界慣行および基準が含まれています。
 
 ## コンプライアンスドキュメントの更新 {#updates-to-the-compliance-documentation}
 
-[Braze の GitHub リポジトリ](https://github.com/braze-inc/release-notes)を通じて、ドキュメント（コンプライアンスドキュメントを含む）の更新通知を受け取ることができます。
+Brazeのドキュメント（コンプライアンスドキュメントを含む）の更新通知を、[BrazeのGitHubリポジトリ](https://github.com/braze-inc/release-notes)からサブスクライブして受け取ることができます。
 
-## 特定のチャネル、統合、および機能に関するコンプライアンスドキュメント {#compliance-documentation-for-specific-channels-integrations-and-features}
+## 特定のチャネル、インテグレーション、機能に関するコンプライアンスドキュメント {#compliance-documentation-for-specific-channels-integrations-and-features}
 
-以下は、該当するコンプライアンスドキュメントが存在する製品、チャネル、機能、およびサービスの一覧です。複数の製品をご利用の場合は、関連するすべてのコンプライアンスドキュメントが適用されます。
+以下は、該当するコンプライアンスドキュメントが存在する製品、チャネル、機能、サービスの一覧です。複数の製品をご利用の場合、関連するすべてのコンプライアンスドキュメントが適用されます。
 
 ### 一般条件 {#general-terms}
 
-契約に基づくお客様の義務を制限することなく、疑義を避けるために明記すると、お客様は、以下に記載されるチャネルおよび機能の使用に関連して、必要なすべての権利、同意、および許可を取得し、法的に適切なプライバシー通知を提供し、法的に必要なすべての同意および許可を取得する責任を単独で負うものとします。
+契約に基づくお客様の義務を制限することなく、また疑義を避けるために、お客様は、以下に記載されたチャネルおよび機能の使用に関連して、必要なすべての権利、同意、認可の取得、および法的に適切なプライバシー通知の提供について、ならびに使用に必要な法的に要求されるすべての同意および認可の取得について、単独で責任を負うものとします。
 
-## チャネルおよび機能 {#channels-and-features}
+## チャネルと機能 {#channels-and-features}
 
 1. [モバイルメッセージチャネル](#mobile-messages-channel)
-2. [Webhook チャネル](#webhooks-channel)
-3. [WhatsApp チャネルコンプライアンスドキュメント](#hatsapp-channel-compliance-documentation)
-4. [LINE チャネルコンプライアンスドキュメント](#line-channel-compliance-documentation)
-5. [Shopify 統合コンプライアンスドキュメント](#shopify-integration-compliance-documentation)
-6. [Audience Sync コンプライアンスドキュメント](#audience-sync-compliance-documentation)
-7. [メッセージのアーカイブおよびフィールドレベル暗号化コンプライアンスドキュメント](#message-archiving-and-field-level-encryption-compliance-documentation)
+2. [Webhookチャネル](#webhooks-channel)
+3. [WhatsAppチャネルコンプライアンスドキュメント](#hatsapp-channel-compliance-documentation)
+4. [LINEチャネルコンプライアンスドキュメント](#line-channel-compliance-documentation)
+5. [Shopify連携コンプライアンスドキュメント](#shopify-integration-compliance-documentation)
+6. [オーディエンス同期コンプライアンスドキュメント](#audience-sync-compliance-documentation)
+7. [メッセージアーカイブとフィールドレベル暗号化コンプライアンスドキュメント](#message-archiving-and-field-level-encryption-compliance-documentation)
 8. [エージェントコンソールコンプライアンスドキュメント](#agent-console-compliance-documentation)
-9. [KakaoTalk チャネルコンプライアンスドキュメント](#kakaotalk-channel-compliance-documentation)
+9. [KakaoTalkチャネルコンプライアンスドキュメント](#kakaotalk-channel-compliance-documentation)
 
 ## 1. モバイルメッセージチャネル {#mobile-messages-channel}
 
@@ -98,19 +98,19 @@ Braze は、Braze サービス外でメッセージの送信またはその他�
 
 ## 3. WhatsApp チャネルコンプライアンスドキュメント {#whatsapp-channel-compliance-documentation}
 
-以下の追加条件は、お客様による WhatsApp チャネルの使用に関連して適用されます。
+以下の追加条件は、お客様によるWhatsAppチャネルの使用に関連して適用されます。
 
 ### 適用されるサードパーティプロバイダーの条件 {#applicable-third-party-provider-terms}
 
-お客様は、Braze の [WhatsApp セットアップ]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/overview/)ページに記載されている、WhatsApp, LLC およびそのグループ関連会社が要求する条件を含む、WhatsApp チャネルに適用される前提条件、条件、およびポリシーに準拠する必要があります。
+お客様は、Brazeの[WhatsAppセットアップ]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup)ページに記載されている、WhatsApp, LLCおよびそのグループ関連会社が要求する条件を含む、WhatsAppチャネルに適用される前提条件、条件、およびポリシーに準拠する必要があります。
 
-### Webhook 使用例外条件
+### Webhook使用例外条件
 
-お客様は、カスタマーサポート目的（人間が支援するチャットのユースケースおよび/またはチャットボットのユースケースなど）でない限り、WhatsApp チャネルを通じてメッセージの送信をトリガーするためにwebhookを使用してはなりません。
+お客様は、カスタマーサポート目的（人間が支援するチャットのユースケースおよび/またはチャットボットのユースケースなど）でない限り、WhatsAppチャネルを通じてメッセージの送信をトリガーするためにwebhookを使用してはなりません。
 
 ### Bring Your Own (BYO) WhatsApp Connector
 
-お客様は、「BYO WhatsApp Connector」を使用して、直接の WhatsApp アカウントを Braze に接続できます。
+お客様は、「BYO WhatsApp Connector」を使用して、直接のWhatsAppアカウントをBrazeに接続できます。
 
 ## 4. LINE チャネルコンプライアンスドキュメント {#line-channel-compliance-documentation}
 
@@ -126,7 +126,6 @@ LINE チャネルを使用することにより、お客様は、LY Corporation 
 
 LINE 条件に反する定めがある場合でも、お客様は LINE サービスの使用について主たる責任を負います。
 
-
 ## 5. Shopify 統合コンプライアンスドキュメント {#shopify-integration-compliance-documentation}
 
 以下の追加条件は、Braze サービスに関連したお客様による Shopify 統合の使用（「**Shopify 統合**」）に関連して適用されます。
@@ -135,15 +134,15 @@ LINE 条件に反する定めがある場合でも、お客様は LINE サービ
 
 お客様は、Shopify がいつでもその独自の裁量により以下を行う場合があることを了承します：(i) Braze に対してお客様の Shopify 統合へのアクセスを無効化またはブロックすることを要求すること、または (ii) お客様の Shopify 統合へのアクセスの提供を停止、一時停止、または終了すること。Braze は、Shopify がお客様または Braze サービス全般を通じて Shopify 統合へのアクセスの提供を停止することに関して一切の責任を負いません。
 
-## 6. Audience Sync コンプライアンスドキュメント {#audience-sync-compliance-documentation}
+## 6. Audience Sync コンプライアンスドキュメント {audience-sync-compliance-documentation} {#6-audience-sync-compliance-documentation-audience-sync-compliance-documentation}
 
 以下の追加条件は、お客様による Audience Sync の使用に適用されます。
 
 ### 適用されるサードパーティプロバイダーの条件
 
-お客様は、Audience Sync 統合に関連してお客様が利用するサードパーティプロバイダーの該当する条件、ポリシー、ガイドライン、およびドキュメントに準拠し、拘束されることに同意します。
+お客様は、Audience Sync インテグレーションに関連して利用するサードパーティプロバイダーの適用される利用規約、ポリシー、ガイドライン、およびドキュメントを遵守し、それらに拘束されることに同意するものとします。
 
-お客様は、サードパーティプロバイダーがそのサービスに関連して使用されるデータ、広告、またはコンテンツを審査、スクリーニング、および/または削除する場合があることを了承します。
+お客様は、サードパーティプロバイダーが自社サービスに関連して使用されるデータ、広告、またはコンテンツを確認、審査、および/または削除する場合があることを了承するものとします。
 
 ## 7. メッセージのアーカイブおよびフィールドレベル暗号化コンプライアンスドキュメント {#message-archiving-and-field-level-encryption-compliance-documentation}
 

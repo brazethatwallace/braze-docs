@@ -14,12 +14,12 @@ page_order: 3
 
 ## 시작하기: 증상 매칭 {#start-here-match-your-symptom}
 
-예측을 구축할 때 표시되는 오류 메시지, 경고 또는 결과를 아래 표에서 찾아 해결 방법이 설명된 섹션으로 이동하세요.
+예측을 만들 때 표시되는 오류 메시지, 경고 또는 결과를 아래에서 찾아 해결 방법이 설명된 섹션으로 이동하세요.
 
 | 증상 | 이동 |
 | --- | --- |
-| "Not enough data to train" 오류 | [교육 데이터 부족](#not-enough-data-to-train) |
-| "Not enough past non-churners" 경고 | [예측 오디언스가 너무 작음](#problems-with-prediction-audience-size) |
+| "Not enough data to train" 오류 | [교육을 위한 데이터 부족](#not-enough-data-to-train) |
+| "Not enough past non-churners" 경고 | [예측 오디언스 크기 문제](#problems-with-prediction-audience-size) |
 | 예측 오디언스가 크기 제한을 초과함 | [예측 오디언스가 너무 큼](#prediction-audience-size-is-too-big) |
 | 예측 품질이 40% 미만 | [예측 품질이 낮음](#prediction-has-poor-quality) |
 | 데이터가 모델에 적합한지 확실하지 않음 | [데이터 고려 사항](#data-considerations) |
@@ -27,13 +27,13 @@ page_order: 3
 
 ## 표준 조사 경로 {#standard-investigation-path}
 
-예측 생성이 실패하거나 데이터 또는 오디언스 요구 사항으로 인해 차단된 경우 이 워크플로를 사용하세요. 1단계부터 시작하세요.
+예측 구축이 실패하거나 데이터 또는 오디언스 요구 사항으로 인해 차단된 경우 이 워크플로를 사용하세요. 1단계부터 시작하세요.
 
-1. 예측 이탈이 회사에 대해 활성화되어 있고 워크스페이스에 충분한 월간 활성 사용자(MAU)가 있는지 확인하세요—일반적으로 단일 워크스페이스에서 300,000 MAU가 필요합니다.
+1. 예측 이탈이 회사에 대해 활성화되어 있고, 워크스페이스에 충분한 월간 활성 사용자(MAU)가 있는지 확인하세요. 일반적으로 단일 워크스페이스에서 300,000 MAU가 필요합니다.
 2. 이탈 정의를 검토하세요. 지나치게 제한적인 필터는 교육에 사용할 수 있는 이탈 사용자 수를 줄입니다.
 3. 예측 오디언스 정의를 검토하세요. 과거 비이탈 사용자가 너무 적으면 모델 교육이 차단됩니다.
 4. 커스텀 이벤트(커스텀 속성만이 아닌)가 이탈 위험을 나타내는 고가치 행동을 캡처하는지 확인하세요.
-5. 정의를 확장한 후에도 오류가 지속되면 [Braze 고객지원]({{site.baseurl}}/braze_support)에 문의하세요.
+5. 정의를 확장한 후에도 오류가 지속되면 [Braze 고객지원]({{site.baseurl}}/user_guide/administer/personal/braze_support)에 문의하세요.
 
 ## 교육을 위한 데이터 부족 {#not-enough-data-to-train}
 

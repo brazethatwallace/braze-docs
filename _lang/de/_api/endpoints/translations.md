@@ -75,24 +75,24 @@ guide_menu_list4:
 
 {% multi_lang_include alerts/early_access_beta_alert.md feature='Access to the Braze translation endpoints' %}
 
-## So funktionieren unsere Übersetzungsendpunkte {#how-our-translation-endpoints-work}
+## Wie unsere Übersetzungsendpunkte funktionieren {#how-our-translation-endpoints-work}
 
-Unsere Übersetzungsendpunkte arbeiten mit der [mehrsprachigen Komposition]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings), bei der eine Nachricht verschiedene Versionen haben kann, die je nach empfangender Nutzer:in gerendert werden.
+Unsere Übersetzungsendpunkte arbeiten mit der [mehrsprachigen Komposition]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings), bei der eine Nachricht verschiedene Versionen haben kann, die je nach Nutzer:in, die/der die Nachricht empfängt, gerendert werden.
 
 ### Voraussetzungen {#prerequisites}
 
-Bevor Sie diese Endpunkte verwenden, müssen Sie [Ihre Locales hinzufügen]({{site.baseurl}}/user_guide/administrative/app_settings/multi_language_settings#add-a-locale).
+Bevor Sie diese Endpunkte verwenden, müssen Sie [Ihre Locales hinzufügen]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings#add-a-locale).
 
 ### So testen Sie Ihre Übersetzungen {#how-to-test-your-translations}
 
-Es gibt zwei Möglichkeiten, die Übersetzungsunterstützung über die API und das Braze-Dashboard für Campaigns, Canvases (einschließlich einzelner Schritte), Content Blocks, E-Mail-Templates und Webhook-Templates zu validieren:
+Es gibt zwei Möglichkeiten, die Übersetzungsunterstützung mithilfe der API und des Braze-Dashboards für Campaigns, Canvases (einschließlich einzelner Schritte), Content Blocks, E-Mail-Templates und Webhook-Templates zu validieren:
 
-- Während der Komposition (vor dem Start)
-- Nach dem Start (mithilfe von Post-Launch-Entwürfen)
+- Während der Erstellung (vor dem Start)
+- Nach dem Start (mithilfe von Entwürfen nach dem Start)
 
 Bevor Sie das Aktualisieren von Übersetzungen testen, müssen Sie:
 
-1. [Ihre Locales hinzufügen]({{site.baseurl}}/user_guide/administrative/app_settings/multi_language_settings#add-a-locale).
-2. Eine Nachricht erstellen und an geeigneten Stellen Übersetzungs-Tags verwenden.
+1. [Ihre Locales hinzufügen]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings#add-a-locale).
+2. Eine Nachricht erstellen und an den entsprechenden Stellen Übersetzungs-Tags verwenden.
 3. Die Nachricht speichern.
 4. Die einzubeziehenden Locales auswählen.

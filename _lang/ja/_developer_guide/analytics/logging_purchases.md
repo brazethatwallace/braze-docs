@@ -22,18 +22,18 @@ description: "Braze SDKを使用して購入を記録する方法について説
 
 {% tabs %}
 {% tab web %}
-標準的なWeb SDK実装の場合、以下のメソッドを使用できます。
+標準的なWeb SDKの実装では、以下のメソッドを使用できます。
 
 ```javascript
 braze.logPurchase(product_id, price, "USD", quantity);
 ```
 
-代わりにGoogle Tag Managerを使用する場合は、**Purchase**タグタイプを使用して[`logPurchase`メソッド](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logpurchase)を呼び出すことができます。このタグを使用して、購入をBrazeにトラッキングし、オプションで購入プロパティを含めることができます。手順は以下のとおりです。
+代わりにGoogle Tag Managerを使用する場合は、**Purchase**タグタイプを使用して[`logPurchase`メソッド](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logpurchase)を呼び出すことができます。このタグを使用して、Brazeへの購入をトラッキングし、オプションで購入プロパティを含めることもできます。設定方法は以下の通りです。
 
-1. **Product ID**と**Price**フィールドは必須です。
+1. **Product ID**フィールドと**Price**フィールドは必須です。
 2. **Add Row**ボタンを使用して購入プロパティを追加します。
 
-![Brazeアクションタグの設定を示すダイアログボックス。設定には「タグタイプ」、「external ID」、「価格」、「通貨コード」、「数量」、「購入プロパティ」が含まれています。]({% image_buster /assets/img/web-gtm/gtm-purchase.png %})
+![Brazeアクションタグの設定ダイアログボックス。設定には「tag type」「external ID」「price」「currency code」「quantity」「purchase properties」が含まれています。]({% image_buster /assets/img/web-gtm/gtm-purchase.png %})
 {% endtab %}
 
 {% tab android %}
@@ -135,19 +135,19 @@ AppboyBinding.LogPurchase("product_id", "currencyCode", price(decimal));
 
 ### プロパティの追加 {#adding-properties}
 
-購入に関するメタデータを追加するには、`Int`、`Double`、`String`、`Bool`、または`Date`の値が格納されたDictionaryを渡します。
+購入に関するメタデータを追加するには、`Int`、`Double`、`String`、`Bool`、または`Date`値を含むDictionaryを渡します。
 
 {% tabs %}
 {% tab web %}
-標準的なWeb SDK実装の場合、以下のメソッドを使用できます。
+標準的なWeb SDKの実装では、以下のメソッドを使用できます。
 
 ```javascript
 braze.logPurchase(product_id, price, "USD", quantity, {key: "value"});
 ```
 
-サイトがGoogle Tag Managerへの標準的な[eコマースイベント](https://developers.google.com/analytics/devguides/collection/ga4/ecommerce?client_type=gtm)データレイヤーアイテムを使用して購入を記録している場合、**E-commerce Purchase**タグタイプを使用できます。このアクションタイプは、`items`のリストで送信された各アイテムに対して、Brazeで個別の「購入」を記録します。
+サイトが標準的な[eコマースイベント](https://developers.google.com/analytics/devguides/collection/ga4/ecommerce?client_type=gtm)のデータレイヤーアイテムを使用してGoogle Tag Managerに購入を記録している場合、**E-commerce Purchase**タグタイプを使用できます。このアクションタイプは、`items`のリストで送信された各アイテムに対して、Brazeに個別の「購入」を記録します。
 
-購入プロパティとして含める追加のプロパティ名を、購入プロパティリストにキーを指定することで設定することもできます。Brazeは、リストに追加した購入プロパティについて、記録される個々の`item`内を検索します。
+購入プロパティリストにキーを指定することで、購入プロパティとして含めたい追加のプロパティ名を指定することもできます。Brazeは、リストに追加した購入プロパティについて、記録される個々の`item`内を検索します。
 
 たとえば、以下のeコマースペイロードがあるとします。
 
@@ -264,7 +264,7 @@ AppboyBinding.LogPurchase("product_id", "currencyCode", price(decimal), purchase
 
 ### REST APIの使用 {#using-the-rest-api}
 
-REST APIを使用して購入を記録することもできます。詳細については、[ユーザーデータエンドポイント]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data)を参照してください。
+REST APIを使用して購入を記録することもできます。詳細については、[ユーザーデータエンドポイント]({{site.baseurl}}/api/endpoints/user_data)を参照してください。
 
 ## 注文の記録 {#logging-orders}
 

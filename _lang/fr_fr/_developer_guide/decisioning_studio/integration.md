@@ -9,7 +9,7 @@ noindex: true
 
 # Intégrer BrazeAI Decisioning Studio™ {#integrating-brazeai-decisioning-studio}
 
-> Découvrez comment intégrer BrazeAI Decisioning Studio™ dans Braze et travaillez en partenariat avec l'équipe des services experts en intelligence artificielle pour [créer des agents]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/building_agents) qui appliquent l'IA à la prise de décisions individualisées afin d'améliorer vos indicateurs clés.
+> Découvrez comment intégrer BrazeAI Decisioning Studio™ dans Braze et travaillez en partenariat avec l'équipe des services experts en intelligence artificielle pour [créer des agents]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup) qui appliquent l'IA à la prise de décisions individualisées afin d'améliorer vos indicateurs clés.
 
 {% multi_lang_include decisioning_studio/alert_multi_platform_support.md %}
 
@@ -31,6 +31,6 @@ Dans Braze, accédez à **Paramètres** > **Clés API**, puis créez une nouvell
 
 ### Étape 3 : Contactez votre gestionnaire du succès des clients BrazeAI Decisioning Studio™ {#step-3-contact-your-brazeai-decisioning-studio-customer-success-manager}
 
-Contactez votre gestionnaire du succès des clients BrazeAI Decisioning Studio™ et demandez-lui d'activer BrazeAI Decisioning Studio™. Il utilisera votre clé API Braze et l'URL de votre endpoint pour finaliser la configuration de votre intégration.
+Contactez votre gestionnaire du succès des clients BrazeAI Decisioning Studio™ et demandez-lui d'activer BrazeAI Decisioning Studio™. Cette personne utilisera votre clé API Braze et l'URL de votre endpoint pour finaliser la configuration de votre intégration.
 
-Une fois l'intégration terminée, vous travaillerez aux côtés de l'équipe des services experts en IA pour [commencer à créer des agents pour votre produit]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/building_agents). Chaque agent est conçu sur mesure pour un objectif métier spécifique, vous collaborerez donc ensemble pour concevoir un déploiement adapté à vos besoins.
+Une fois l'opération terminée, vous travaillerez aux côtés de l'équipe des services experts en intelligence artificielle pour [commencer à créer des agents pour votre produit]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup). Chaque agent est conçu sur mesure pour un objectif métier spécifique. Vous collaborerez donc ensemble pour concevoir un déploiement adapté à vos besoins.

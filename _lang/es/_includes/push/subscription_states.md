@@ -14,7 +14,7 @@ De forma predeterminada, para que tu usuario pueda recibir tus mensajes a travé
 |---|---|
 | `Subscribed` | Estado predeterminado de la suscripción push cuando se crea un perfil de usuario en Braze. |
 | `Opted-In` | Un usuario ha expresado explícitamente su preferencia por recibir notificaciones push. Braze cambia automáticamente el estado de adhesión voluntaria de un usuario a `Opted-In` si este acepta un mensaje de push a nivel del sistema operativo.<br><br>Esto no se aplica a los usuarios de Android 12 o inferior. |
-| `Unsubscribed` | Un usuario se da de baja explícitamente de push a través de tu aplicación o de otros métodos que tu marca pone a disposición. De forma predeterminada, las Campaigns push de Braze se dirigen únicamente a los usuarios que están `Subscribed` u `Opted-in` para push. |
+| `Unsubscribed` | Un usuario cancela explícitamente su suscripción de push a través de tu aplicación o de otros métodos que tu marca pone a disposición. De forma predeterminada, las Campaigns push de Braze se dirigen únicamente a los usuarios que están `Subscribed` u `Opted-in` para push. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Estados de suscripción push" }
 
 {% alert important %}
@@ -92,5 +92,5 @@ Revisa **Configuración de contacto** en el perfil del usuario después de la im
 
 Puedes comprobar el estado de la suscripción push de un usuario con Braze de cualquiera de las siguientes maneras:
 
-* **Perfil del usuario:** Puedes acceder a los perfiles de usuario individuales a través del panel de Braze en la página **[Búsqueda de usuarios]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles)**. Después de encontrar el perfil de un usuario (a través de la dirección de correo electrónico, el número de teléfono o el ID de usuario externo), puedes seleccionar la pestaña **Engagement** para ver y ajustar manualmente el estado de suscripción de un usuario.
+* **Perfil del usuario:** Puedes acceder a los perfiles de usuario individuales a través del panel de Braze en la página **[Búsqueda de usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles)**. Después de encontrar el perfil de un usuario (a través de la dirección de correo electrónico, el número de teléfono o el ID de usuario externo), puedes seleccionar la pestaña **Engagement** para ver y ajustar manualmente el estado de suscripción de un usuario.
 * **Exportación de la REST API:** Puedes exportar perfiles de usuario individuales en formato JSON utilizando los endpoints [Usuarios por segmento]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) o [Usuarios por identificador]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier). Braze devuelve un objeto de tokens de notificaciones push que contiene información sobre la habilitación de push por dispositivo.

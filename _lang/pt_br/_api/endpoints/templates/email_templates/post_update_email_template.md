@@ -16,7 +16,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Atualiz
 
 > Use esse endpoint para atualizar modelos de e-mail no dashboard da Braze.
 
-É possível acessar o `email_template_id` de um modelo de e-mail navegando até ele na página **Modelos e mídia**. O [endpoint Criar modelo de e-mail]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template) também retornará uma referência `email_template_id`.
+É possível acessar o `email_template_id` de um modelo de e-mail navegando até ele na página **Modelos e mídias**. O [endpoint Criar modelo de e-mail]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template) também retornará uma referência `email_template_id`.
 
 Todos os campos, exceto o `email_template_id`, são opcionais, mas você precisa especificar pelo menos um campo para atualizar.
 
@@ -27,7 +27,7 @@ Você também pode chamar esse endpoint por meio do [servidor MCP da Braze]({{si
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#afb25494-3350-458d-932d-5bf4220049fa {% endapiref %}
 
 ## Pré-requisitos {#prerequisites}
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key) com a permissão `templates.email.update`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics) com a permissão `templates.email.update`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -55,16 +55,16 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-| `email_template_id` | Obrigatória | String | O [identificador de API do seu modelo de e-mail]({{site.baseurl}}/api/identifier_types). |
+| `email_template_id` | Obrigatório | String | O [identificador de API do seu modelo de e-mail]({{site.baseurl}}/api/identifier_types). |
 | `template_name` | Opcional | String | Nome do seu modelo de e-mail. |
 | `subject` | Opcional | String | Linha de assunto do modelo de e-mail. |
 | `body` | Opcional | String | Corpo do modelo de e-mail que pode incluir HTML. |
 | `plaintext_body` | Opcional | String | Uma versão em texto simples do corpo do modelo de e-mail. |
-| `preheader` | Opcional | String | Pré-cabeçalho de e-mail usado para gerar pré-visualizações em alguns clientes. |
+| `preheader` | Opcional | String | Pré-cabeçalho de e-mail usado para gerar prévias em alguns clientes. |
 | `tags` | Opcional | String | As [tags]({{site.baseurl}}/user_guide/messaging/governance/tags) já devem existir. |
-| `should_inline_css` | Opcional | booleano | Ativa ou desativa o recurso `inline_css` por modelo. Se não for fornecido, a Braze usará a configuração padrão para o grupo de apps. Espera-se `true` ou `false`. |
+| `should_inline_css` | Opcional | Boolean | Ativa ou desativa o recurso `inline_css` por modelo. Se não for fornecido, a Braze usará a configuração padrão para o grupo de apps. Espera-se `true` ou `false`. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}

@@ -13,7 +13,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Consult
 /sms/invalid_phone_numbers
 {% endapimethod %}
 
-> Use esse endpoint para obter uma lista de números de telefone que foram marcados como "inválidos" em um determinado período. Para saber mais, consulte a documentação sobre [tratamento de números de telefone inválidos]({{site.baseurl}}/user_guide/message_building_by_channel/sms/phone_numbers/user_phone_numbers#handling-invalid-phone-numbers).
+> Use esse endpoint para obter uma lista de números de telefone que foram marcados como "inválidos" em um determinado período. Para saber mais, consulte a documentação sobre [tratamento de números de telefone inválidos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#handling-invalid-phone-numbers).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#81ceae19-15d1-4ac1-ad22-a6b86a92456d {% endapiref %}
 

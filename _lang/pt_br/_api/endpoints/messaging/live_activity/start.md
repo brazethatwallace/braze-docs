@@ -15,7 +15,7 @@ description: "Este artigo descreve detalhes sobre o endpoint \"Iniciar atividade
 /messages/live_activity/start
 {% endapimethod %}
 
-> Use esse endpoint para iniciar remotamente [as Live Activities]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?sdktab=swift) exibidas no seu app para iOS. Esse endpoint requer configuração adicional.
+> Use esse endpoint para iniciar remotamente [as Live Activities]({{site.baseurl}}/developer_guide/live_notifications?sdktab=swift) exibidas no seu app para iOS. Esse endpoint requer configuração adicional.
 
 Depois de criar uma Live Activity, faça uma solicitação POST para direcionar um segmento, um público conectado ou usuários específicos. Identifique usuários específicos por ID de usuário externo, alias de usuário ou ambos. Para saber mais sobre as Live Activities da Apple, consulte [Como iniciar e atualizar Live Activities com notificações por push do ActivityKit](https://developer.apple.com/documentation/activitykit/starting-and-updating-live-activities-with-activitykit-push-notifications).
 
@@ -42,7 +42,7 @@ Para configurar o encerramento automático após o início de uma Live Activity,
 Para usar este endpoint, complete os seguintes pré-requisitos:
 
 - Gere uma chave de API com a permissão `messages.live_activity.start`.
-- [Crie uma Live Activity]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?tab=local&sdktab=swift#swift_create-an-activity) usando o SDK Swift da Braze.
+- [Crie uma Live Activity]({{site.baseurl}}/developer_guide/live_notifications/live_activities?tab=local&sdktab=swift#create-an-activity) usando o SDK Swift da Braze.
 
 {% multi_lang_include api/payload_size_alert.md %}
 

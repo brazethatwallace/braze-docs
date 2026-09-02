@@ -18,7 +18,7 @@ platform:
 
 ## Plattformen und Features {#platforms-and-features}
 
-Die folgende Tabelle fasst die Unterstützung von Messaging-Kanälen für gängige TV- und OTT-Plattformen zusammen. Alle Plattformen unterstützen außerdem Daten und Analytics, Canvas sowie Feature-Flags. Für Kindle Fire gelten dieselben Hinweise wie für Amazon Fire TV. Für Apple Vision Pro siehe [visionOS-Unterstützung]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/visionos).
+Die folgende Tabelle fasst die Unterstützung von Messaging-Kanälen für gängige TV- und OTT-Plattformen zusammen. Alle Plattformen unterstützen außerdem Daten und Analytics, Canvas sowie Feature-Flags. Für Kindle Fire gelten dieselben Hinweise wie für Amazon Fire TV. Für Apple Vision Pro siehe [visionOS-Unterstützung]({{site.baseurl}}/developer_guide/platforms/swift/visionos).
 
 <style>
 #tv-feature-table td,
@@ -85,25 +85,25 @@ Die folgende Tabelle fasst die Unterstützung von Messaging-Kanälen für gängi
             <td>Roku</td>
             <td><a href="https://github.com/braze-inc/braze-roku-sdk">Roku SDK</a></td>
             <td><span aria-hidden="true">🔧</span><span class="sr-only">Nur Headless</span></td>
-            <td><span aria-hidden="true">❌</span><span class="sr-only">Nicht von Braze unterstützt</span></td>
+            <td><span aria-hidden="true">❌</span><span class="sr-only">Von Braze nicht unterstützt</span></td>
             <td><span aria-hidden="true">➖</span><span class="sr-only">Von der OTT-Plattform nicht unterstützt</span></td>
-            <td><span aria-hidden="true">❌</span><span class="sr-only">Nicht von Braze unterstützt</span></td>
+            <td><span aria-hidden="true">❌</span><span class="sr-only">Von Braze nicht unterstützt</span></td>
         </tr>
         <tr>
             <td>Apple TV OS (tvOS)</td>
             <td><a href="https://github.com/braze-inc/braze-swift-sdk">Swift SDK</a></td>
             <td><span aria-hidden="true">🔧</span><span class="sr-only">Nur Headless</span></td>
             <td><span aria-hidden="true">🔧</span><span class="sr-only">Nur Headless</span></td>
-            <td><span aria-hidden="true">❌</span><span class="sr-only">Nicht von Braze unterstützt</span></td>
+            <td><span aria-hidden="true">❌</span><span class="sr-only">Von Braze nicht unterstützt</span></td>
             <td><span aria-hidden="true">🔧</span><span class="sr-only">Nur Headless</span></td>
         </tr>
     </tbody>
 </table>
 
 - <span aria-hidden="true">✅</span> = Unterstützt
-- <span aria-hidden="true">🔧</span> = Nur Headless (Sie müssen eine eigene UI erstellen)
+- <span aria-hidden="true">🔧</span> = Nur Headless (Sie müssen eine angepasste UI erstellen)
 - <span aria-hidden="true">➖</span> = Von der OTT-Plattform nicht unterstützt
-- <span aria-hidden="true">❌</span> = Nicht von Braze unterstützt
+- <span aria-hidden="true">❌</span> = Von Braze nicht unterstützt
 
 ## Integrationsleitfäden {#integration-guides}
 
@@ -111,27 +111,27 @@ Die folgende Tabelle fasst die Unterstützung von Messaging-Kanälen für gängi
 
 Verwenden Sie das Braze Fire OS SDK zur Integration mit Amazon Fire TV-Geräten.
 
-Zu den Features zählen:
+Zu den Features gehören:
 
-- Datenerfassung und Analytics für kanalübergreifendes Engagement
+- Daten- und Analytics-Erfassung für kanalübergreifendes Engagement
 - Push-Benachrichtigungen (bekannt als [„Heads Up Notifications“](https://developer.amazon.com/docs/fire-tv/notifications.html#headsup))
-  - Die Priorität muss auf „HIGH“ gesetzt sein, damit diese angezeigt werden. Alle Benachrichtigungen erscheinen im Fire TV-Einstellungsmenü.
+  - Die Priorität muss auf „HIGH“ gesetzt werden, damit diese angezeigt werden. Alle Benachrichtigungen erscheinen im Fire TV-Einstellungsmenü.
 - Content Cards
 - Feature-Flags
 - In-App-Nachrichten
-  - Um HTML-Nachrichten auf Nicht-Touch-Geräten wie TV-Geräten anzuzeigen, setzen Sie `com.braze.configuration.BrazeConfig.Builder.setIsTouchModeRequiredForHtmlInAppMessages` auf `false` (verfügbar ab [Android SDK v23.1.0](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#2310))
+  - Um HTML-Nachrichten in Umgebungen ohne Touchscreen wie Fernsehern anzuzeigen, setzen Sie `com.braze.configuration.BrazeConfig.Builder.setIsTouchModeRequiredForHtmlInAppMessages` auf `false` (verfügbar ab [Android SDK v23.1.0](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#2310))
 - Banner
   - Verwenden Sie [Banner-Platzierungen]({{site.baseurl}}/developer_guide/banners/placements), um Nachrichten direkt in Ihre Fire TV-App einzubetten.
 
-Weitere Informationen finden Sie in der [Anleitung zur Fire OS-Integration]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android).
+Weitere Informationen finden Sie im [Fire OS-Integrationsleitfaden]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android).
 
 ### Kindle Fire {#kindle-fire}
 
-Verwenden Sie das Braze Fire OS SDK für die Integration mit Amazon Kindle Fire-Geräten.
+Verwenden Sie das Braze Fire OS SDK zur Integration mit Amazon Kindle Fire-Geräten.
 
-Zu den Features zählen:
+Zu den Features gehören:
 
-- Datenerfassung und Analytics für kanalübergreifendes Engagement
+- Daten- und Analytics-Erfassung für kanalübergreifendes Engagement
 - Push-Benachrichtigungen
 - Content Cards
 - Feature-Flags
@@ -139,25 +139,25 @@ Zu den Features zählen:
 - Banner
   - Verwenden Sie [Banner-Platzierungen]({{site.baseurl}}/developer_guide/banners/placements), um Nachrichten direkt in Ihr Kindle Fire einzubetten.
 
-Weitere Informationen finden Sie in der [Anleitung zur Fire OS-Integration]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android).
+Weitere Informationen finden Sie im [Fire OS-Integrationsleitfaden]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android).
 
 ### Android TV {#android-tv}
 
 Verwenden Sie das Braze Android SDK zur Integration mit Android TV-Geräten.
 
-Zu den Features zählen:
+Zu den Features gehören:
 
-- Datenerfassung und Analytics für kanalübergreifendes Engagement
+- Daten- und Analytics-Erfassung für kanalübergreifendes Engagement
 - Content Cards
 - Feature-Flags
 - In-App-Nachrichten
-  - Um HTML-Nachrichten auf Nicht-Touch-Geräten wie TV-Geräten anzuzeigen, setzen Sie `com.braze.configuration.BrazeConfig.Builder.setIsTouchModeRequiredForHtmlInAppMessages` auf `false` (verfügbar ab [Android SDK v23.1.0](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#2310))
+  - Um HTML-Nachrichten in Umgebungen ohne Touchscreen wie Fernsehern anzuzeigen, setzen Sie `com.braze.configuration.BrazeConfig.Builder.setIsTouchModeRequiredForHtmlInAppMessages` auf `false` (verfügbar ab [Android SDK v23.1.0](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#2310))
 - &#42; Push-Benachrichtigungen (manuelle Integration erforderlich)
-  - Push-Benachrichtigungen werden auf Android TV nicht nativ unterstützt. Warum, erfahren Sie in den [Design-Richtlinien](https://designguidelines.withgoogle.com/android-tv/patterns/notifications.html) von Google. Sie können jedoch **eine manuelle Integration der Push-Benachrichtigungs-UI vornehmen, um dies zu erreichen**. Lesen Sie in unserer [Dokumentation]({{site.baseurl}}/developer_guide/push_notifications?sdktab=android%20tv) nach, wie Sie dies einrichten können.
+  - Push-Benachrichtigungen werden auf Android TV nicht nativ unterstützt. Warum das so ist, erfahren Sie in Googles [Design Guidelines](https://designguidelines.withgoogle.com/android-tv/patterns/notifications.html). Sie können jedoch **eine manuelle Integration der Push-Benachrichtigungs-UI vornehmen, um dies zu erreichen**. In unserer [Dokumentation]({{site.baseurl}}/developer_guide/push_notifications?sdktab=android%20tv) erfahren Sie, wie Sie dies einrichten.
 - Banner
   - Verwenden Sie [Banner-Platzierungen]({{site.baseurl}}/developer_guide/banners/placements), um Nachrichten direkt in Ihre Android TV-App einzubetten.
 
-Weitere Informationen finden Sie in der [Anleitung zur Android SDK-Integration]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android).
+Weitere Informationen finden Sie im [Android SDK-Integrationsleitfaden]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android).
 
 {% alert note %}
 Stellen Sie sicher, dass Sie im Dashboard eine neue Android-App für Ihre Android-OTT-Integration erstellen.
@@ -165,86 +165,86 @@ Stellen Sie sicher, dass Sie im Dashboard eine neue Android-App für Ihre Androi
 
 ### LG webOS {#lg-webos}
 
-Verwenden Sie das Braze Web SDK für die Integration mit [LG webOS-Fernsehern](https://webostv.developer.lge.com/discover).
+Verwenden Sie das Braze Web SDK zur Integration mit [LG webOS-Fernsehern](https://webostv.developer.lge.com/discover).
 
-Zu den Features zählen:
+Zu den Features gehören:
 
-- Datenerfassung und Analytics für kanalübergreifendes Engagement
+- Daten- und Analytics-Erfassung für kanalübergreifendes Engagement
 - Content Cards (über [Headless UI](#custom-ui))
 - Feature-Flags
 - In-App-Nachrichten (über [Headless UI](#custom-ui))
 - Banner
   - Verwenden Sie [Banner-Platzierungen]({{site.baseurl}}/developer_guide/banners/placements), um Nachrichten direkt in Ihre webOS-App einzubetten.
 
-Weitere Informationen finden Sie in der [Anleitung zur Smart-TV-Integration]({{site.baseurl}}/developer_guide/platforms/web/smart_tvs).
+Weitere Informationen finden Sie im [Web-Smart-TV-Integrationsleitfaden]({{site.baseurl}}/developer_guide/platforms/web/smart_tvs).
 
 ### Samsung Tizen {#tizen}
 
 Verwenden Sie das Braze Web SDK zur Integration mit [Samsung Tizen-Fernsehern](https://developer.samsung.com/smarttv/develop/specifications/tv-model-groups.html).
 
-Zu den Features zählen:
+Zu den Features gehören:
 
-- Datenerfassung und Analytics für kanalübergreifendes Engagement
+- Daten- und Analytics-Erfassung für kanalübergreifendes Engagement
 - Content Cards (über [Headless UI](#custom-ui))
 - Feature-Flags
 - In-App-Nachrichten (über [Headless UI](#custom-ui))
 - Banner
   - Verwenden Sie [Banner-Platzierungen]({{site.baseurl}}/developer_guide/banners/placements), um Nachrichten direkt in Ihre Tizen-App einzubetten.
 
-Weitere Informationen finden Sie in der [Anleitung zur Smart-TV-Integration]({{site.baseurl}}/developer_guide/platforms/web/smart_tvs).
+Weitere Informationen finden Sie im [Web-Smart-TV-Integrationsleitfaden]({{site.baseurl}}/developer_guide/platforms/web/smart_tvs).
 
 ### Roku {#roku}
 
 Verwenden Sie das Braze Roku SDK zur Integration mit [Roku-Fernsehern](https://developer.roku.com/docs/developer-program/getting-started/roku-dev-prog.md).
 
-Zu den Features zählen:
+Zu den Features gehören:
 
-- Datenerfassung und Analytics für kanalübergreifendes Engagement
+- Daten- und Analytics-Erfassung für kanalübergreifendes Engagement
 - In-App-Nachrichten (über [Headless UI](#custom-ui))
-  - Webviews werden von der Roku-Plattform nicht unterstützt, daher werden In-App-Nachrichten im HTML-Format nicht unterstützt.
+  - Webviews werden von der Roku-Plattform nicht unterstützt, daher werden HTML-In-App-Nachrichten ebenfalls nicht unterstützt.
 - Feature-Flags
 
-Weitere Informationen finden Sie in der [Anleitung zur Roku-Integration]({{site.baseurl}}/developer_guide/in_app_messages?sdktab=roku).
+Weitere Informationen finden Sie im [Roku-Integrationsleitfaden]({{site.baseurl}}/developer_guide/in_app_messages?sdktab=roku).
 
 ### Apple TV OS {#tvos}
 
-Verwenden Sie das Braze Swift SDK für die Integration mit tvOS. Beachten Sie, dass das Swift SDK keine Standard-UI oder -Ansichten für tvOS enthält, sodass Sie eigene implementieren müssen.
+Verwenden Sie das Braze Swift SDK zur Integration mit tvOS. Beachten Sie, dass das Swift SDK keine Standard-UI oder -Views für tvOS enthält, sodass Sie Ihre eigene Implementierung erstellen müssen.
 
-Zu den Features zählen:
+Zu den Features gehören:
 
-- Datenerfassung und Analytics für kanalübergreifendes Engagement
+- Daten- und Analytics-Erfassung für kanalübergreifendes Engagement
 - Content Cards (über [Headless UI](#custom-ui))
 - Feature-Flags
 - In-App-Nachrichten (über [Headless UI](#custom-ui))
-  - Webviews werden von der tvOS-Plattform nicht unterstützt, daher werden In-App-Nachrichten im HTML-Format nicht unterstützt.
-  - Sehen Sie sich unsere [Beispiel-App](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples#inappmessages-custom-ui) an, um mehr darüber zu erfahren, wie Sie eine Headless UI für angepasstes Messaging unter tvOS verwenden können.
-- Stille Push-Benachrichtigungen und Badge-Aktualisierungen
+  - Webviews werden von der tvOS-Plattform nicht unterstützt, daher werden HTML-In-App-Nachrichten ebenfalls nicht unterstützt.
+  - Sehen Sie sich unsere [Beispiel-App](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples#inappmessages-custom-ui) an, um mehr über die Verwendung einer Headless UI für angepasstes Messaging auf tvOS zu erfahren.
+- Stille Push-Benachrichtigungen und Badge-Aktualisierung
 - Banner
   - Verwenden Sie [Banner-Platzierungen]({{site.baseurl}}/developer_guide/banners/placements), um Nachrichten direkt in Ihre tvOS-App einzubetten.
 
-Weitere Informationen finden Sie in der [Anleitung zur iOS Swift SDK-Integration](https://github.com/braze-inc/braze-swift-sdk).
+Weitere Informationen finden Sie im [iOS Swift SDK-Integrationsleitfaden](https://github.com/braze-inc/braze-swift-sdk).
 
 {% alert note %}
-Um zu vermeiden, dass mobile In-App-Nachrichten Ihren TV-Nutzer:innen angezeigt werden, sollten Sie entweder [App-Targeting](#app-targeting) einrichten oder Schlüssel-Wert-Paare verwenden, um Nachrichten herauszufiltern. Zum Beispiel können tvOS-Nachrichten nur dann angezeigt werden, wenn sie ein spezielles Schlüssel-Wert-Paar `tv = true` enthalten.
+Um zu vermeiden, dass Ihren TV-Nutzer:innen mobile In-App-Nachrichten angezeigt werden, richten Sie entweder [App Targeting](#app-targeting) ein oder verwenden Sie Schlüssel-Wert-Paare, um Nachrichten herauszufiltern. Zeigen Sie beispielsweise tvOS-Nachrichten nur an, wenn sie ein spezielles Schlüssel-Wert-Paar `tv = true` enthalten.
 {% endalert %}
 
 ### Apple Vision Pro {#vision-pro}
 
-Verwenden Sie das Braze Swift SDK für die Integration mit visionOS. Die meisten Features, die unter iOS verfügbar sind, stehen auch unter visionOS zur Verfügung, darunter:
+Verwenden Sie das Braze Swift SDK zur Integration mit visionOS. Die meisten auf iOS verfügbaren Features sind auch auf visionOS verfügbar, darunter:
 
 - Analytics (Sitzungen, angepasste Events, Käufe usw.)
-- In-App Messaging (Datenmodelle und UI)
+- In-App-Nachrichten (Datenmodelle und UI)
 - Content Cards (Datenmodelle und UI)
-- Push-Benachrichtigungen (für Nutzer:innen sichtbar mit Aktions-Buttons und stillen Benachrichtigungen)
+- Push-Benachrichtigungen (für Nutzer:innen sichtbar mit Aktions-Buttons und stille Benachrichtigungen)
 - Feature-Flags
 - Standort-Analytics
 - Banner
   - Verwenden Sie [Banner-Platzierungen]({{site.baseurl}}/developer_guide/banners/placements), um Nachrichten direkt in Ihre visionOS-App einzubetten.
 
-Weitere Informationen finden Sie in der [Anleitung zur iOS Swift SDK-Integration](https://github.com/braze-inc/braze-swift-sdk).
+Weitere Informationen finden Sie im [iOS Swift SDK-Integrationsleitfaden](https://github.com/braze-inc/braze-swift-sdk).
 
 {% alert important %}
-Einige iOS-Features werden nur teilweise oder gar nicht unterstützt. Die vollständige Liste finden Sie unter [visionOS-Unterstützung]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/visionos).
+Einige iOS-Features werden nur teilweise oder gar nicht unterstützt. Die vollständige Liste finden Sie unter [visionOS-Unterstützung]({{site.baseurl}}/developer_guide/platforms/swift/visionos).
 {% endalert %}
 
 ## App-Targeting {#app-targeting}

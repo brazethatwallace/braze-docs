@@ -1,7 +1,7 @@
 ---
 nav_title: BrazeAI
 article_title: BrazeAI
-description: "BrazeAI<sup>TM</sup> bietet eine Sammlung von leicht zugänglichen, benutzerfreundlichen Tools, die die Einstiegshürden für Kreativität, Personalisierung und Optimierung Ihrer Engagement-Strategie senken."
+description: "BrazeAI-Tools für Kreativität, Personalisierung und Optimierung Ihrer Engagement-Strategie."
 page_order: 8
 layout: dev_guide
 search_rank: 12
@@ -55,10 +55,10 @@ guide_featured_list:
 | Ihr Ziel | Empfohlenes Feature |
 | --- | --- |
 | Nachrichtentexte pro Nutzer:in anhand ihres Kontexts personalisieren | [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents) ([Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step) oder [Katalog]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#use-catalog-agents)); für einmalige Textentwürfe: [Generative KI]({{site.baseurl}}/user_guide/brazeai/generative_ai) |
-| Optimieren, welcher Nachrichteninhalt (z. B. Betreffzeile oder CTA) im Laufe der Zeit am besten abschneidet | [Content Optimizer]({{site.baseurl}}/user_guide/brazeai/content_optimizer) (E-Mail, Push-Benachrichtigungen oder SMS/MMS/RCS) oder [Optimieren mit BrazeAI<sup>TM</sup>]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection) |
-| Eine geschäftliche Metrik (Umsatz, Conversions) mit 1:1-Entscheidungen über Angebote, Kanäle und Timing maximieren | [Decisioning Studio]({{site.baseurl}}/user_guide/brazeai/decisioning_studio) |
-| Nutzer:innen finden, die wahrscheinlich abwandern oder ein Ereignis ausführen werden | [Voraussichtliche Abwanderung]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) oder [Prognostizierte Ereignisse]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events) |
-| Bestimmte Produkte aus einem Katalog in Nachrichten empfehlen | [Artikelempfehlungen]({{site.baseurl}}/user_guide/brazeai/item_recommendations) |
+| Optimieren, welcher Nachrichteninhalt (z. B. Betreffzeile oder CTA) im Zeitverlauf am besten abschneidet | [Content Optimizer]({{site.baseurl}}/user_guide/brazeai/content_optimizer) (E-Mail, Push-Benachrichtigungen oder SMS/MMS/RCS) oder [Mit BrazeAI<sup>TM</sup> optimieren]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection) |
+| Eine Geschäftsmetrik (Umsatz, Konversionen) mit 1:1-Entscheidungen über Angebote, Kanäle und Timing hinweg maximieren | [Decisioning Studio]({{site.baseurl}}/user_guide/brazeai/decisioning_studio) |
+| Nutzer:innen finden, die wahrscheinlich abwandern oder ein bestimmtes Ereignis ausführen werden | [Voraussichtliche Abwanderung]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) oder [Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events) |
+| Bestimmte Produkte aus einem Katalog in Nachrichten empfehlen | [Produktempfehlungen]({{site.baseurl}}/user_guide/brazeai/item_recommendations) |
 | Zum besten Zeitpunkt oder über den besten Kanal pro Nutzer:in senden | [Intelligentes Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing), [Intelligenter Kanal]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel) |
 | Texte und Kreativinhalte direkt im Dashboard erstellen oder verfeinern | [Operator]({{site.baseurl}}/user_guide/brazeai/operator) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Feature-Übersicht" }
@@ -67,7 +67,7 @@ guide_featured_list:
 
 ### Was ist BrazeAI? {#what-is-brazeai}
 
-BrazeAI ist eine Sammlung KI-gestützter Tools in Braze für generative Texterstellung, Personalisierung, Prognosen, Empfehlungen und Entscheidungsfindung. Verwenden Sie die Feature-Links auf dieser Seite, um die Einrichtungsanleitungen für die einzelnen Funktionen zu öffnen.
+BrazeAI ist eine Reihe KI-gestützter Tools in Braze für generative Texterstellung, Personalisierung, Prognosen, Empfehlungen und Entscheidungsfindung. Nutzen Sie die Feature-Links auf dieser Seite, um Einrichtungsanleitungen für die einzelnen Funktionen zu öffnen.
 
 ### Welches BrazeAI-Feature sollte ich zuerst verwenden? {#which-brazeai-feature-should-i-use-first}
 

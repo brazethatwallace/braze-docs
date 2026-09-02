@@ -6,8 +6,8 @@
 
 |機能|説明|
 |-------|-----------|
-|Push Stories|Android Push StoriesはデフォルトでBraze Android SDKに組み込まれています。詳細については、[Push Stories]({{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories)を参照してください。|
-|プッシュプライマー|プッシュプライマーキャンペーンは、ユーザーにデバイスでアプリのプッシュ通知を有効にするよう促します。これは、SDKのカスタマイズなしで[ノーコードプッシュプライマー]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages)を使用して実現できます。|
+|Push Stories|Android Push StoriesはデフォルトでBraze Android SDKに組み込まれています。詳細については、[Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories)を参照してください。|
+|プッシュプライマー|プッシュプライマーキャンペーンは、ユーザーにデバイスでアプリのプッシュ通知を有効にするよう促します。これは、SDKのカスタマイズなしに、[ノーコードプッシュプライマー]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages)を使用して行うことができます。|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="組み込み機能" }
 
 ## プッシュ通知のライフサイクルについて {#push-notification-lifecycle}
@@ -182,26 +182,26 @@ class H1,H2,H3,I1,J1,J2,J3,K1,L1,L2,L3,note1 brazeClass
 ## プッシュ通知の設定 {#setting-up-push-notifications}
 
 {% alert tip %}
-Braze Android SDKでFCMを使用したサンプルアプリについては、[Braze: Firebase Push サンプルアプリ](https://github.com/braze-inc/braze-android-sdk/tree/master/samples/firebase-push)を参照してください。
+FCMをBraze Android SDKで使用するサンプルアプリについては、[Braze: Firebase Push Sample App](https://github.com/braze-inc/braze-android-sdk/tree/master/samples/firebase-push)を参照してください。
 {% endalert %}
 
 ### レート制限 {#rate-limits}
 
-Firebase Cloud Messaging（FCM）APIのデフォルトのレート制限は、1分あたり600,000リクエストです。この制限に達した場合、Brazeは数分後に自動的に再試行します。引き上げをリクエストするには、[Firebase サポート](https://firebase.google.com/support)にお問い合わせください。
+Firebase Cloud Messaging（FCM）APIのデフォルトのレート制限は、1分あたり600,000リクエストです。この制限に達した場合、Brazeは数分後に自動的に再試行します。引き上げをリクエストするには、[Firebaseサポート](https://firebase.google.com/support)にお問い合わせください。
 
-### ステップ1:Firebaseをプロジェクトに追加する {#step-1-add-firebase-to-your-project}
+### ステップ1:プロジェクトにFirebaseを追加する {#step-1-add-firebase-to-your-project}
 
-まず、FirebaseをAndroidプロジェクトに追加します。手順については、Googleの[Firebaseセットアップガイド](https://firebase.google.com/docs/android/setup)を参照してください。
+まず、AndroidプロジェクトにFirebaseを追加します。手順については、Googleの[Firebaseセットアップガイド](https://firebase.google.com/docs/android/setup)を参照してください。
 
-### ステップ2:Cloud Messagingを依存関係に追加する {#step-2-add-cloud-messaging-to-your-dependencies}
+### ステップ2:依存関係にCloud Messagingを追加する {#step-2-add-cloud-messaging-to-your-dependencies}
 
-次に、Cloud Messagingライブラリをプロジェクトの依存関係に追加します。Androidプロジェクトで`build.gradle`を開き、`dependencies`ブロックに以下の行を追加します。
+次に、プロジェクトの依存関係にCloud Messagingライブラリを追加します。Androidプロジェクトで`build.gradle`を開き、`dependencies`ブロックに以下の行を追加します。
 
 ```gradle
 implementation "google.firebase:firebase-messaging:+"
 ```
 
-依存関係は以下のようになります。
+依存関係は以下のようになります：
 
 ```gradle
 dependencies {
@@ -218,13 +218,13 @@ Google Cloudで、Androidアプリが使用しているプロジェクトを選�
 
 ### ステップ4:サービスアカウントを作成する {#service-account}
 
-次に、BrazeがFCMトークンの登録時に認可されたAPI呼び出しを行えるように、新しいサービスアカウントを作成します。Google Cloudで**Service Accounts**に移動し、プロジェクトを選択します。**Service Accounts**ページで**Create Service Account**を選択します。
+次に、BrazeがFCMトークン登録時に認可されたAPI呼び出しを行えるよう、新しいサービスアカウントを作成します。Google Cloudで**Service Accounts**に移動し、プロジェクトを選択します。**Service Accounts**ページで、**Create Service Account**を選択します。
 
 ![「Create Service Account」がハイライトされたプロジェクトのサービスアカウントホームページ]({% image_buster /assets/img/android/push_integration/create_a_service_account/select-create-service-account.png %})
 
 サービスアカウント名、ID、説明を入力し、**Create and continue**を選択します。
 
-**Role**フィールドで、ロールのリストから**Firebase Cloud Messaging API Admin**を見つけて選択します。より制限的なアクセスにするには、`cloudmessaging.messages.create`権限を持つ[カスタムロール](https://cloud.google.com/iam/docs/creating-custom-roles)を作成し、代わりにリストからそれを選択します。完了したら、**Done**を選択します。
+**Role**フィールドで、ロール一覧から**Firebase Cloud Messaging API Admin**を探して選択します。より制限されたアクセスにするには、`cloudmessaging.messages.create`権限を持つ[カスタムロール](https://cloud.google.com/iam/docs/creating-custom-roles)を作成し、代わりにそのロールを一覧から選択します。完了したら、**Done**を選択します。
 
 {% alert warning %}
 **Firebase Cloud Messaging Admin**ではなく、**Firebase Cloud Messaging _API_ Admin**を選択してください。
@@ -234,13 +234,13 @@ Google Cloudで、Androidアプリが使用しているプロジェクトを選�
 
 ### ステップ5:JSON認証情報を生成する {#json}
 
-次に、FCMサービスアカウントのJSON認証情報を生成します。Google Cloud IAM & Adminで**Service Accounts**に移動し、プロジェクトを選択します。[先ほど作成した](#android_service-account)FCMサービスアカウントを見つけ、<i class="fa-solid fa-ellipsis-vertical" aria-label="アクションメニュー"></i>&nbsp;**Actions** > **Manage Keys**を選択します。
+次に、FCMサービスアカウントのJSON認証情報を生成します。Google Cloud IAM & Adminで**Service Accounts**に移動し、プロジェクトを選択します。[先ほど作成した](#android_service-account)FCMサービスアカウントを見つけ、<i class="fa-solid fa-ellipsis-vertical" aria-label="アクションメニューを開く"></i>&nbsp;**Actions** > **Manage Keys**を選択します。
 
-![「Actions」メニューが開いたプロジェクトのサービスアカウントホームページ]({% image_buster /assets/img/android/push_integration/generate_json_credentials/select-manage-keys.png %})
+![「Actions」メニューが開かれたプロジェクトのサービスアカウントホームページ]({% image_buster /assets/img/android/push_integration/generate_json_credentials/select-manage-keys.png %})
 
 **Add Key** > **Create new key**を選択します。
 
-![「Add Key」メニューが開いた選択済みサービスアカウント]({% image_buster /assets/img/android/push_integration/generate_json_credentials/select-create-new-key.png %})
+![「Add Key」メニューが開かれた選択されたサービスアカウント]({% image_buster /assets/img/android/push_integration/generate_json_credentials/select-create-new-key.png %})
 
 **JSON**を選択し、**Create**を選択します。FCMプロジェクトIDとは異なるGoogle CloudプロジェクトIDを使用してサービスアカウントを作成した場合は、JSONファイル内の`project_id`に割り当てられた値を手動で更新する必要があります。
 
@@ -249,47 +249,47 @@ Google Cloudで、Androidアプリが使用しているプロジェクトを選�
 ![「JSON」が選択された秘密キー作成フォーム]({% image_buster /assets/img/android/push_integration/generate_json_credentials/select-create.png %}){: style="max-width:65%;"}
 
 {% alert warning %}
-秘密キーが漏洩した場合、セキュリティリスクとなる可能性があります。JSON認証情報は安全な場所に保管してください&#8212;Brazeにアップロードした後にキーを削除します。
+秘密キーは漏洩した場合にセキュリティリスクとなる可能性があります。JSON認証情報は安全な場所に保管してください&#8212;Brazeにアップロードした後にキーを削除します。
 {% endalert %}
 
 ### ステップ6:JSON認証情報をBrazeにアップロードする {#step-6-upload-your-json-credentials-to-braze}
 
 次に、JSON認証情報をBrazeダッシュボードにアップロードします。Brazeで<i class="fa-solid fa-gear" aria-label="設定"></i>&nbsp;**設定** > **アプリ設定**を選択します。
 
-![Brazeで「設定」メニューが開き、「アプリ設定」がハイライトされている画面]({% image_buster /assets/img/android/push_integration/upload_json_credentials/select-app-settings.png %})
+![Brazeの「設定」メニューが開かれ、「アプリ設定」がハイライトされている状態]({% image_buster /assets/img/android/push_integration/upload_json_credentials/select-app-settings.png %})
 
-Androidアプリの**Push Notification Settings**で**Firebase**を選択し、**Upload JSON File**を選択して[先ほど生成した](#android_json)認証情報をアップロードします。完了したら、**Save**を選択します。
+Androidアプリの**Push Notification Settings**で、**Firebase**を選択し、**Upload JSON File**を選択して[先ほど生成した](#android_json)認証情報をアップロードします。完了したら、**Save**を選択します。
 
-![プッシュプロバイダーとして「Firebase」が選択された「Push Notification Settings」フォーム]({% image_buster /assets/img/android/push_integration/upload_json_credentials/upload-json-file.png %})
+![「Firebase」がプッシュプロバイダーとして選択された「Push Notification Settings」フォーム]({% image_buster /assets/img/android/push_integration/upload_json_credentials/upload-json-file.png %})
 
 {% alert warning %}
-秘密キーが漏洩した場合、セキュリティリスクとなる可能性があります。キーがBrazeにアップロードされたので、[先ほど生成した](#android_json)ファイルを削除してください。
+秘密キーは漏洩した場合にセキュリティリスクとなる可能性があります。キーがBrazeにアップロードされたので、[先ほど生成した](#android_json)ファイルを削除してください。
 {% endalert %}
 
 ### ステップ7:自動トークン登録を設定する {#step-7-set-up-automatic-token-registration}
 
-ユーザーがプッシュ通知をオプトインすると、プッシュ通知を送信する前に、アプリがそのユーザーのデバイスでFCMトークンを生成する必要があります。Braze SDKを使用すると、プロジェクトのBraze設定ファイルで各ユーザーのデバイスに対するFCMトークンの自動登録を有効にできます。
+ユーザーがプッシュ通知をオプトインすると、プッシュ通知を送信する前に、アプリがそのユーザーのデバイスでFCMトークンを生成する必要があります。Braze SDKを使用すると、プロジェクトのBraze設定ファイルで各ユーザーのデバイスのFCMトークン自動登録を有効にできます。
 
-まず、Firebase Consoleに移動してプロジェクトを開き、<i class="fa-solid fa-gear" aria-label="設定"></i>&nbsp;**Settings** > **Project settings**を選択します。
+まず、Firebase Consoleに移動し、プロジェクトを開いて、<i class="fa-solid fa-gear" aria-label="設定"></i>&nbsp;**Settings** > **Project settings**を選択します。
 
-![「Settings」メニューが開いたFirebaseプロジェクト]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/select-project-settings.png %})
+![「Settings」メニューが開かれたFirebaseプロジェクト]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/select-project-settings.png %})
 
 **Cloud Messaging**を選択し、**Firebase Cloud Messaging API (V1)**の下にある**Sender ID**フィールドの番号をコピーします。
 
 ![「Sender ID」がハイライトされたFirebaseプロジェクトの「Cloud Messaging」ページ]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/copy-sender-id.png %})
 
-次に、Android Studioプロジェクトを開き、Firebase Sender IDを使用して`braze.xml`または`BrazeConfig`内でFCMトークンの自動登録を有効にします。
+次に、Android Studioプロジェクトを開き、Firebase Sender IDを使用して`braze.xml`または`BrazeConfig`でFCMトークンの自動登録を有効にします。
 
 {% tabs local %}
 {% tab Braze.XML %}
-FCMトークンの自動登録を設定するには、`braze.xml`ファイルに以下の行を追加します。
+FCMトークンの自動登録を設定するには、`braze.xml`ファイルに以下の行を追加します：
 
 ```xml
 <bool translatable="false" name="com_braze_firebase_cloud_messaging_registration_enabled">true</bool>
 <string translatable="false" name="com_braze_firebase_cloud_messaging_sender_id">FIREBASE_SENDER_ID</string>
 ```
 
-`FIREBASE_SENDER_ID`をFirebaseプロジェクト設定からコピーした値に置き換えます。`braze.xml`は以下のようになります。
+`FIREBASE_SENDER_ID`をFirebaseプロジェクト設定からコピーした値に置き換えます。`braze.xml`は以下のようになります：
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -302,7 +302,7 @@ FCMトークンの自動登録を設定するには、`braze.xml`ファイルに
 {% endtab %}
 
 {% tab BrazeConfig %}
-FCMトークンの自動登録を設定するには、`BrazeConfig`に以下の行を追加します。
+FCMトークンの自動登録を設定するには、`BrazeConfig`に以下の行を追加します：
 
 {% subtabs local %}
 {% subtab JAVA %}
@@ -319,7 +319,7 @@ FCMトークンの自動登録を設定するには、`BrazeConfig`に以下の�
 {% endsubtab %}
 {% endsubtabs %}
 
-`FIREBASE_SENDER_ID`をFirebaseプロジェクト設定からコピーした値に置き換えます。`BrazeConfig`は以下のようになります。
+`FIREBASE_SENDER_ID`をFirebaseプロジェクト設定からコピーした値に置き換えます。`BrazeConfig`は以下のようになります：
 
 {% subtabs local %}
 {% subtab JAVA %}
@@ -356,7 +356,7 @@ Braze.configure(this, brazeConfig)
 {% endtabs %}
 
 {% alert tip %}
-FCMトークンを手動で登録したい場合は、アプリの[`onCreate()`](https://developer.android.com/reference/android/app/Application.html#onCreate())メソッド内でBrazeインスタンスの[`registeredPushToken`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/registered-push-token.html)プロパティを設定します。
+FCMトークンを手動で登録する場合は、アプリの[`onCreate()`](https://developer.android.com/reference/android/app/Application.html#onCreate())メソッド内でBrazeインスタンスの[`registeredPushToken`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/registered-push-token.html)プロパティを設定します。
 
 ```kotlin
 // Kotlin
@@ -371,21 +371,21 @@ Braze.getInstance(context).setRegisteredPushToken("FCM_TOKEN");
 
 #### 複数のFirebaseプロジェクトを使用する {#multiple-firebase-projects}
 
-アプリが複数のFirebaseプロジェクトを使用している場合は、以下の手順に従ってください。
+アプリが複数のFirebaseプロジェクトを使用している場合は、以下の手順に従います：
 
-1. Brazeプッシュは、アプリの`google-services.json`から初期化されるデフォルトのFirebaseプロジェクトで維持します。
-2. カスタムFirebaseメッセージングサービスを使用している場合は、[カスタムFirebaseメッセージングサービスでインストールIDを登録する](#android_register-installation-id-custom-firebase-service)を完了してください。
-3. アプリが別の方法でプッシュトークンを取得する場合は、前述のヒントに示されているように`registeredPushToken`を手動で設定します。
+1. Brazeプッシュは、アプリの`google-services.json`から初期化されるデフォルトのFirebaseプロジェクトで使用します。
+2. カスタムのFirebaseメッセージングサービスを使用する場合は、[カスタムFirebaseメッセージングサービスでインストールIDを登録する](#android_register-installation-id-custom-firebase-service)を完了してください。
+3. アプリが別の方法でプッシュトークンを取得する場合は、前述のヒントに示すように手動で`registeredPushToken`を設定します。
 
 {% alert important %}
-Firebase Cloud Messagingには、手動で初期化した`FirebaseApp`からトークンを取得するためのサポートされたAPIはありません。`onNewToken`や`onRegistered`などの`FirebaseMessagingService`コールバックは、デフォルトプロジェクトに対してのみ発火します。詳細については、Firebaseドキュメントの[複数のプロジェクトを設定する](https://firebase.google.com/docs/projects/multiprojects)を参照してください。
+Firebase Cloud Messagingには、手動で初期化した`FirebaseApp`からトークンを取得するサポートされたAPIはありません。`onNewToken`や`onRegistered`などの`FirebaseMessagingService`コールバックは、デフォルトのプロジェクトに対してのみ発火します。詳細については、Firebaseドキュメントの[複数プロジェクトの設定](https://firebase.google.com/docs/projects/multiprojects)を参照してください。
 {% endalert %}
 
 バージョンの詳細については、[SDK変更ログ]({{site.baseurl}}/developer_guide/changelogs?sdktab=android)を参照してください。
 
-### ステップ8:アプリケーションクラスの自動リクエストを削除する {#step-8-remove-automatic-requests-in-your-application-class}
+### ステップ8:アプリケーションクラスでの自動リクエストを削除する {#step-8-remove-automatic-requests-in-your-application-class}
 
-サイレントプッシュ通知を送信するたびにBrazeが不要なネットワークリクエストをトリガーしないようにするには、`Application`クラスの`onCreate()`メソッドで設定されている自動ネットワークリクエストを削除します。詳細については、[Android Developer Reference: Application](https://developer.android.com/reference/android/app/Application)を参照してください。
+サイレントプッシュ通知を送信するたびにBrazeが不要なネットワークリクエストをトリガーしないよう、`Application`クラスの`onCreate()`メソッドで設定されている自動ネットワークリクエストを削除します。詳細については、[Android Developer Reference: Application](https://developer.android.com/reference/android/app/Application)を参照してください。
 
 ## 通知の表示 {#displaying-notifications}
 
@@ -393,7 +393,7 @@ Firebase Cloud Messagingには、手動で初期化した`FirebaseApp`からト�
 
 ### ステップ1:Braze Firebase Messaging Serviceを登録する {#register-braze-firebase-messaging-service}
 
-新規、既存、またはBraze以外のFirebase Messaging Serviceを作成できます。具体的なニーズに最も適したものを選択してください。
+新規、既存、またはBraze以外のFirebase Messaging Serviceを作成できます。特定のニーズに最適なものを選択してください。
 
 {% tabs local %}
 {% tab 新規 %}
@@ -408,21 +408,21 @@ Brazeには、プッシュの受信と開封インテントを処理するサー
 </service>
 ```
 
-通知コードも`BrazeFirebaseMessagingService`を使用して、開封およびクリックアクションのトラッキングを処理します。このサービスが正しく機能するには、`AndroidManifest.xml`に登録する必要があります。また、Brazeはシステムからの通知に一意のキーをプレフィックスとして付加し、Brazeシステムから送信された通知のみをレンダリングするようにしています。他のFCMサービスから送信された通知をレンダリングするために、追加のサービスを別途登録できます。Firebaseプッシュサンプルアプリの[`AndroidManifest.xml`](https://github.com/braze-inc/braze-android-sdk/blob/master/samples/firebase-push/src/main/AndroidManifest.xml)を参照してください。
+通知コードも`BrazeFirebaseMessagingService`を使用して、開封とクリックアクションのトラッキングを処理します。このサービスが正しく機能するためには、`AndroidManifest.xml`に登録する必要があります。また、Brazeはシステムからの通知に一意のキーをプレフィックスとして付加し、Brazeシステムから送信された通知のみをレンダリングします。他のFCMサービスから送信された通知をレンダリングするために、追加のサービスを個別に登録できます。Firebaseプッシュサンプルアプリの[`AndroidManifest.xml`](https://github.com/braze-inc/braze-android-sdk/blob/master/samples/firebase-push/src/main/AndroidManifest.xml)を参照してください。
 
 {% alert important %}
-Braze SDK 3.1.1より前は、FCMプッシュの処理に`AppboyFcmReceiver`が使用されていました。`AppboyFcmReceiver`クラスをマニフェストから削除し、上記の統合に置き換えてください。
+Braze SDK 3.1.1以前では、FCMプッシュの処理に`AppboyFcmReceiver`が使用されていました。`AppboyFcmReceiver`クラスをマニフェストから削除し、上記の統合に置き換える必要があります。
 {% endalert %}
 {% endtab %}
 
 {% tab 既存 %}
-すでにFirebase Messaging Serviceが登録されている場合は、[`BrazeFirebaseMessagingService.handleBrazeRemoteMessage()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.push/-braze-firebase-messaging-service/-companion/handle-braze-remote-message.html)を介して[`RemoteMessage`](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/RemoteMessage)オブジェクトをBrazeに渡すことができます。このメソッドは、[`RemoteMessage`](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/RemoteMessage)オブジェクトがBrazeから発信された場合にのみ通知を表示し、そうでない場合は安全に無視します。
+すでにFirebase Messaging Serviceが登録されている場合、[`BrazeFirebaseMessagingService.handleBrazeRemoteMessage()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.push/-braze-firebase-messaging-service/-companion/handle-braze-remote-message.html)を介して[`RemoteMessage`](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/RemoteMessage)オブジェクトをBrazeに渡すことができます。このメソッドは、[`RemoteMessage`](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/RemoteMessage)オブジェクトがBrazeから発信された場合にのみ通知を表示し、そうでない場合は安全に無視します。
 
 <a id="android_register-installation-id-custom-firebase-service"></a>
 
-#### カスタムFirebaseメッセージングサービスでインストールIDを登録する {#register-installation-id-custom-firebase-service}
+#### カスタムFirebase Messaging ServiceでインストールIDを登録する {#register-installation-id-custom-firebase-service}
 
-`firebase-messaging` v25.1.0以降を使用している場合、Firebase登録にはFirebaseインストールIDが使用されます。カスタムFirebaseメッセージングサービスで`onRegistered`をオーバーライドし、`registeredPushToken`を設定してください。
+`firebase-messaging` v25.1.0以降を使用している場合、Firebase登録にはFirebase Installation IDが使用されます。カスタムFirebase Messaging Serviceで`onRegistered`をオーバーライドし、`registeredPushToken`を設定します。
 
 {% subtabs %}
 {% subtab JAVA %}
@@ -477,16 +477,16 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 {% endtab %}
 
 {% tab Braze以外 %}
-使用したい別のFirebase Messaging Serviceがある場合、アプリケーションがBraze以外のプッシュを受信した際に呼び出されるフォールバックFirebase Messaging Serviceを指定することもできます。
+Brazeからのプッシュでない場合に呼び出されるフォールバックFirebase Messaging Serviceを指定することもできます。
 
-`braze.xml`で以下を指定します。
+`braze.xml`に以下を指定します。
 
 ```xml
 <bool name="com_braze_fallback_firebase_cloud_messaging_service_enabled">true</bool>
 <string name="com_braze_fallback_firebase_cloud_messaging_service_classpath">com.company.OurFirebaseMessagingService</string>
 ```
 
-または[ランタイム設定]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration)で設定します。
+または[ランタイム構成]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration)で設定します。
 
 {% subtabs %}
 {% subtab JAVA %}
@@ -515,42 +515,42 @@ Braze.configure(this, brazeConfig)
 {% endtab %}
 {% endtabs %}
 
-### ステップ2:小アイコンをデザインガイドラインに準拠させる {#step-2-conform-small-icons-to-design-guidelines}
+### ステップ2:小さいアイコンをデザインガイドラインに準拠させる {#step-2-conform-small-icons-to-design-guidelines}
 
 Androidの通知アイコンに関する一般的な情報については、[通知の概要](https://developer.android.com/guide/topics/ui/notifiers/notifications)を参照してください。
 
-Android N以降では、色を含む小さな通知アイコンアセットを更新または削除する必要があります。Androidシステム（Braze SDKではなく）は、アクションアイコンと通知の小アイコンにおいて、アルファチャネルと透明度チャネル以外のすべてを無視します。つまり、Androidは通知の小アイコンの透明な領域を除くすべての部分をモノクロに変換します。
+Android N以降では、色を含む小さい通知アイコンアセットを更新または削除する必要があります。Androidシステム（Braze SDKではなく）は、アクションアイコンと通知の小さいアイコンのアルファおよび透過チャネル以外のすべてを無視します。つまり、Androidは通知の小さいアイコンの透過領域を除くすべての部分をモノクロに変換します。
 
-通知の小アイコンアセットを適切に表示するには、以下の手順に従います。
+通知の小さいアイコンアセットを適切に作成するには：
 - 画像から白以外のすべての色を削除します。
-- アセットの白以外の領域はすべて透明にする必要があります。
+- アセットのその他の白以外の領域はすべて透過にする必要があります。
 
 {% alert note %}
-不適切なアセットの一般的な症状は、小さな通知アイコンが単色の四角形としてレンダリングされることです。これは、Androidシステムが通知の小アイコンアセット内に透明な領域を見つけられないことが原因です。
+不適切なアセットの一般的な症状は、小さい通知アイコンが単色の正方形としてレンダリングされることです。これは、Androidシステムが通知の小さいアイコンアセットで透過領域を見つけられないことが原因です。
 {% endalert %}
 
-以下に示す大アイコンと小アイコンは、適切にデザインされたアイコンの例です。
+以下の大きいアイコンと小さいアイコンは、適切にデザインされたアイコンの例です。
 
-![大アイコンの隅に小アイコンが表示され、その横に「Hey I'm on my way to the bar but..」というメッセージが表示されている例]({% image_buster /assets/img_archive/large_and_small_notification_icon.png %} "Large and Small Notification Icon")
+![大きいアイコンの右下隅に小さいアイコンが表示され、メッセージの横に表示されている例]({% image_buster /assets/img_archive/large_and_small_notification_icon.png %} "Large and Small Notification Icon")
 
 ### ステップ3:通知アイコンを設定する {#configure-icons}
 
 #### braze.xmlでアイコンを指定する {#specifying-icons-in-brazexml}
 
-Brazeでは、`braze.xml`でドローアブルリソースを指定して通知アイコンを設定できます。
+Brazeでは、`braze.xml`でドローアブルリソースを指定することで通知アイコンを設定できます。
 
 ```xml
 <drawable name="com_braze_push_small_notification_icon">REPLACE_WITH_YOUR_ICON</drawable>
 <drawable name="com_braze_push_large_notification_icon">REPLACE_WITH_YOUR_ICON</drawable>
 ```
 
-小さな通知アイコンの設定は必須です。**設定しない場合、Brazeはアプリケーションアイコンを小さな通知アイコンとしてデフォルトで使用しますが、最適な表示にならない場合があります。**
+小さい通知アイコンの設定は必須です。**設定しない場合、Brazeはアプリケーションアイコンを小さい通知アイコンとしてデフォルトで使用しますが、最適な表示にならない場合があります。**
 
-大きな通知アイコンの設定は任意ですが、推奨されます。
+大きい通知アイコンの設定は任意ですが、推奨されます。
 
 #### アイコンのアクセントカラーを指定する {#specifying-icon-accent-color}
 
-通知アイコンのアクセントカラーは`braze.xml`でオーバーライドできます。色が指定されていない場合、デフォルトの色はLollipopがシステム通知に使用するグレーと同じです。
+通知アイコンのアクセントカラーは`braze.xml`でオーバーライドできます。色が指定されていない場合、デフォルトの色はLollipopがシステム通知に使用するのと同じグレーです。
 
 ```xml
 <integer name="com_braze_default_notification_accent_color">0xFFf33e3e</integer>
@@ -564,7 +564,7 @@ Brazeでは、`braze.xml`でドローアブルリソースを指定して通知�
 
 ### ステップ4:ディープリンクを追加する {#step-4-add-deep-links}
 
-#### 自動ディープリンクの開封を有効にする {#enabling-automatic-deep-link-opening}
+#### 自動ディープリンクオープンを有効にする {#enabling-automatic-deep-link-opening}
 
 プッシュ通知がクリックされたときにBrazeが自動的にアプリとディープリンクを開くようにするには、`braze.xml`で`com_braze_handle_push_deep_links_automatically`を`true`に設定します。
 
@@ -572,7 +572,7 @@ Brazeでは、`braze.xml`でドローアブルリソースを指定して通知�
 <bool name="com_braze_handle_push_deep_links_automatically">true</bool>
 ```
 
-このフラグは[ランタイム設定]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration)でも設定できます。
+このフラグは[ランタイム構成]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration)でも設定できます。
 
 {% tabs %}
 {% tab JAVA %}
@@ -597,15 +597,15 @@ Braze.configure(this, brazeConfig)
 {% endtab %}
 {% endtabs %}
 
-ディープリンクをカスタム処理する場合は、Brazeからのプッシュ受信および開封インテントをリッスンするプッシュコールバックを作成する必要があります。詳細については、[プッシュイベントのコールバックを使用する]({{site.baseurl}}/developer_guide/push_notifications/customization#android_using-a-callback-for-push-events)を参照してください。
+ディープリンクをカスタムで処理する場合は、Brazeからのプッシュ受信および開封インテントをリッスンするプッシュコールバックを作成する必要があります。詳細については、[プッシュイベントのコールバックの使用]({{site.baseurl}}/developer_guide/push_notifications/customization#android_using-a-callback-for-push-events)を参照してください。
 
 ## フォアグラウンド通知の処理 {#handling-foreground-notifications}
 
-デフォルトでは、Androidでアプリがフォアグラウンドにある状態でプッシュ通知が届くと、システムが自動的に通知を表示します。Brazeにプッシュ通知ペイロードを処理させる（分析トラッキング、ディープリンク処理、カスタム処理など）には、`FirebaseMessagingService.onMessageReceived`メソッド内で受信したプッシュデータをBrazeにルーティングします。
+デフォルトでは、Androidでアプリがフォアグラウンドにある間にプッシュ通知が届くと、システムが自動的に表示します。Brazeにプッシュ通知ペイロードを処理させる（分析トラッキング、ディープリンク処理、カスタム処理のため）には、`FirebaseMessagingService.onMessageReceived`メソッド内で受信したプッシュデータをBrazeにルーティングします。
 
 ### 仕組み {#how-it-works}
 
-`BrazeFirebaseMessagingService.handleBrazeRemoteMessage`を呼び出すと、BrazeはペイロードがBrazeプッシュ通知かどうかを判定し、該当する場合は`NotificationManagerCompat`メソッドを使用して通知を作成・表示します。iOSとは異なり、Androidではアプリがフォアグラウンドかバックグラウンドかに関係なく通知が表示されます。
+`BrazeFirebaseMessagingService.handleBrazeRemoteMessage`を呼び出すと、Brazeはペイロードがbrazeプッシュ通知かどうかを判断し、そうであれば`NotificationManagerCompat`メソッドを使用して通知を作成および表示します。iOSとは異なり、Androidではアプリがフォアグラウンドかバックグラウンドかに関係なく通知が表示されます。
 
 {% tabs %}
 {% tab JAVA %}
@@ -660,16 +660,16 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
 ### フォアグラウンド動作のカスタマイズ {#customizing-foreground-behavior}
 
-システム通知を抑制したり、代わりにアプリ内UIを表示したりするなど、カスタムのフォアグラウンド動作が必要な場合は、以下の方法を使用できます。
+システム通知を抑制する、またはアプリ内UIを代わりに表示するなど、カスタムフォアグラウンド動作を実装する場合は、以下の方法を使用できます。
 
 - `subscribeToPushNotificationEvents`を使用してプッシュイベントに反応し、`BrazeNotificationUtils.routeUserWithNotificationOpenedIntent`メソッドでディープリンクを処理します。詳細については、[Firebaseプッシュサンプル](https://github.com/braze-inc/braze-android-sdk/blob/master/samples/firebase-push/src/main/java/com/braze/firebasepush/FirebaseApplication.kt)を参照してください。
-- カスタムの`IBrazeNotificationFactory`を使用して独自の通知を作成・投稿するか、処理パスで`notificationManager.notify`を呼び出さないことで通知を抑制します。
+- カスタム`IBrazeNotificationFactory`を使用して独自の通知を作成および投稿するか、処理パス内で`notificationManager.notify`を呼び出さないことで通知を抑制します。
 
 通知のカスタマイズの詳細については、[カスタム通知ファクトリー]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=android#custom-notification-factory)を参照してください。
 
 #### カスタムディープリンクの作成 {#creating-custom-deep-links}
 
-アプリにディープリンクをまだ追加していない場合は、ディープリンクに関する[Android開発者ドキュメント](http://developer.android.com/training/app-indexing/deep-linking.html)の手順に従ってください。ディープリンクの詳細については、[FAQの記事]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking)を参照してください。
+アプリにディープリンクをまだ追加していない場合は、[Android開発者ドキュメント](http://developer.android.com/training/app-indexing/deep-linking.html)のディープリンクに関する手順に従ってください。ディープリンクの詳細については、[FAQの記事]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking)を参照してください。
 
 #### ディープリンクの追加 {#adding-deep-links}
 
@@ -679,7 +679,7 @@ Brazeダッシュボードでは、プッシュ通知キャンペーンやキャ
 
 #### バックスタック動作のカスタマイズ {#customizing-back-stack-behavior}
 
-Android SDKはデフォルトで、プッシュディープリンクをたどる際にホストアプリのメインランチャーアクティビティをバックスタックに配置します。Brazeでは、メインランチャーアクティビティの代わりにバックスタックで開くカスタムアクティビティを設定したり、バックスタックを完全に無効にしたりできます。
+Android SDKはデフォルトで、プッシュディープリンクを辿る際にホストアプリのメインランチャーアクティビティをバックスタックに配置します。Brazeでは、メインランチャーアクティビティの代わりにバックスタックで開くカスタムアクティビティを設定したり、バックスタックを完全に無効にしたりできます。
 
 たとえば、[ランタイム設定]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration)を使用して`YourMainActivity`というアクティビティをバックスタックアクティビティとして設定するには、以下のようにします。
 
@@ -708,7 +708,7 @@ Braze.configure(this, brazeConfig)
 {% endtab %}
 {% endtabs %}
 
-`braze.xml`での同等の設定については以下を参照してください。クラス名は`Class.forName()`が返すものと同じである必要があります。
+`braze.xml`での同等の設定については、以下を参照してください。クラス名は`Class.forName()`が返すものと同じである必要があります。
 
 ```xml
 <bool name="com_braze_push_deep_link_back_stack_activity_enabled">true</bool>
@@ -717,17 +717,17 @@ Braze.configure(this, brazeConfig)
 
 ### ステップ5:通知チャネルを定義する {#step-5-define-notification-channels}
 
-Braze Android SDKは[Android通知チャネル](https://developer.android.com/preview/features/notification-channels.html)をサポートしています。Braze通知に通知チャネルのIDが含まれていない場合、または無効なチャネルIDが含まれている場合、BrazeはSDKで定義されたデフォルトの通知チャネルで通知を表示します。ユーザーはプラットフォーム内で[Android通知チャネル]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels)を使用して通知をグループ化します。
+Braze Android SDKは[Android通知チャネル](https://developer.android.com/preview/features/notification-channels.html)をサポートしています。Braze通知に通知チャネルのIDが含まれていない場合、またはBraze通知に無効なチャネルIDが含まれている場合、BrazeはSDKで定義されたデフォルトの通知チャネルで通知を表示します。ユーザーは、プラットフォーム内の[Android通知チャネル]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/notification_channels)を使用して通知をグループ化します。
 
-デフォルトのBraze通知チャネルのユーザー向け名前を設定するには、[`BrazeConfig.setDefaultNotificationChannelName()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-default-notification-channel-name.html)を使用します。
+デフォルトのBraze通知チャネルのユーザー向け名称を設定するには、[`BrazeConfig.setDefaultNotificationChannelName()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-default-notification-channel-name.html)を使用します。
 
 デフォルトのBraze通知チャネルのユーザー向け説明を設定するには、[`BrazeConfig.setDefaultNotificationChannelDescription()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-default-notification-channel-description.html)を使用します。
 
-[Androidプッシュオブジェクト]({{site.baseurl}}/api/objects_filters/messaging/android_object)パラメーターに`notification_channel`フィールドを含めるように、APIキャンペーンを更新してください。このフィールドが指定されていない場合、Brazeは[ダッシュボードのフォールバック]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels#dashboard-fallback-channel)チャネルIDで通知ペイロードを送信します。
+[Androidプッシュオブジェクト]({{site.baseurl}}/api/objects_filters/messaging/android_object)パラメーターに`notification_channel`フィールドを含めるように、すべてのAPIキャンペーンを更新してください。このフィールドが指定されていない場合、Brazeは[ダッシュボードのフォールバック]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels#dashboard-fallback-channel)チャネルIDで通知ペイロードを送信します。
 
-デフォルトの通知チャネル以外に、Brazeはチャネルを作成しません。その他のチャネルはすべてホストアプリでプログラム的に定義し、Brazeダッシュボードに入力する必要があります。
+デフォルトの通知チャネル以外に、Brazeはチャネルを作成しません。その他のすべてのチャネルは、ホストアプリによってプログラムで定義し、Brazeダッシュボードに入力する必要があります。
 
-デフォルトのチャネル名と説明は`braze.xml`でも設定できます。
+デフォルトのチャネル名と説明は、`braze.xml`でも設定できます。
 
 ```xml
 <string name="com_braze_default_notification_channel_name">Your channel name</string>
@@ -738,21 +738,21 @@ Braze Android SDKは[Android通知チャネル](https://developer.android.com/pr
 
 #### 表示のテスト {#testing-display}
 
-この時点で、Brazeから送信された通知を確認できるはずです。テストするには、Brazeダッシュボードの**キャンペーン**ページに移動し、**プッシュ通知**キャンペーンを作成します。**Androidプッシュ**を選択してメッセージをデザインします。次に、コンポーザーの目のアイコンをクリックしてテスト送信者を表示します。現在のユーザーのユーザーIDまたはメールアドレスを入力し、**テストを送信**をクリックします。デバイスにプッシュ通知が表示されるはずです。
+この時点で、Brazeから送信された通知を確認できるはずです。テストするには、Brazeダッシュボードの**キャンペーン**ページに移動し、**プッシュ通知**キャンペーンを作成します。**Androidプッシュ**を選択し、メッセージをデザインします。次に、コンポーザーの目のアイコンをクリックしてテスト送信画面を開きます。現在のユーザーのユーザーIDまたはメールアドレスを入力し、**テスト送信**をクリックします。デバイスにプッシュ通知が表示されるはずです。
 
 ![Brazeダッシュボードのプッシュ通知キャンペーンの「テスト」タブ]({% image_buster /assets/img_archive/android_push_test.png %} "Android Push Test")
 
-プッシュ通知の表示に関する問題については、[トラブルシューティングガイド]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=android)を参照してください。
+プッシュ表示に関する問題については、[トラブルシューティングガイド]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=android)を参照してください。
 
 #### 分析のテスト {#testing-analytics}
 
-この時点で、プッシュ通知の開封に関する分析ログも記録されているはずです。通知が届いたときにクリックすると、キャンペーン結果ページの**直接開封数**が1増加するはずです。プッシュ分析の詳細については、[プッシュレポート]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_reporting)の記事を参照してください。
+この時点で、プッシュ通知開封の分析ログも取得できるはずです。通知が届いたときにクリックすると、キャンペーン結果ページの**直接開封**が1増加するはずです。プッシュ分析の詳細については、[プッシュレポート]({{site.baseurl}}/user_guide/channels/push/reporting)の記事を参照してください。
 
 プッシュ分析に関する問題については、[トラブルシューティングガイド]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=android)を参照してください。
 
 #### コマンドラインからのテスト {#testing-from-command-line}
 
-コマンドラインインターフェイスを使用してアプリ内通知やプッシュ通知をテストしたい場合は、cURLと[メッセージングAPI]({{site.baseurl}}/api/endpoints/messaging)を使用してターミナルから単一の通知を送信できます。テストケースに合わせて、以下のフィールドを正しい値に置き換える必要があります。
+コマンドラインインターフェイスからアプリ内通知やプッシュ通知をテストする場合は、cURLと[メッセージングAPI]({{site.baseurl}}/api/endpoints/messaging)を使用してターミナルから単一の通知を送信できます。テストケースに合わせて以下のフィールドを正しい値に置き換える必要があります。
 
 - `YOUR_API_KEY`（**設定** > **APIキー**に移動します。）
 - `YOUR_EXTERNAL_USER_ID`（**ユーザー検索**ページでプロファイルを検索します。）
@@ -778,22 +778,22 @@ curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer {YOUR
 
 ## 会話プッシュ通知 {#conversation-push-notifications}
 
-![Android通知シェードに表示された「会話」セクション。異なる連絡先からの3つのグループ化された会話通知が表示されています。]({% image_buster /assets/img/android/push/conversations_android.png %}){: style="float:right;max-width:35%;margin-left:15px;border: 0;"}
+![Android通知シェードに表示されている会話セクション。異なる連絡先から3つのグループ化された会話通知が表示されています。]({% image_buster /assets/img/android/push/conversations_android.png %}){: style="float:right;max-width:35%;margin-left:15px;border: 0;"}
 
-[ピープルと会話イニシアチブ](https://developer.android.com/guide/topics/ui/conversations)は、スマートフォンのシステムサーフェスにおいて人と会話を優先的に表示することを目的とした、複数年にわたるAndroidイニシアチブです。この優先順位は、他の人とのコミュニケーションやインタラクションが、あらゆる層のAndroidユーザーにとって最も重要で価値のある機能領域であるという事実に基づいています。
+[ピープル＆カンバセーションイニシアチブ](https://developer.android.com/guide/topics/ui/conversations)は、Androidの複数年にわたる取り組みで、電話のシステムサーフェスにおいて人や会話を優先的に表示することを目的としています。この優先順位は、他の人とのコミュニケーションやインタラクションが、あらゆる層のAndroidユーザーにとって依然として最も価値があり重要な機能領域であるという事実に基づいています。
 
 ### 使用要件 {#usage-requirements}
 
-- この通知タイプには、Braze Android SDK v15.0.0以降およびAndroid 11以降のデバイスが必要です。
+- この通知タイプには、Braze Android SDK v15.0.0以降とAndroid 11以降のデバイスが必要です。
 - サポートされていないデバイスまたはSDKでは、標準のプッシュ通知にフォールバックされます。
 
-この機能はBraze REST APIを通じてのみ利用可能です。詳細については、[Androidプッシュオブジェクト]({{site.baseurl}}/api/objects_filters/messaging/android_object#android-conversation-push-object)を参照してください。
+この機能はBraze REST APIを通じてのみ利用できます。詳細については、[Androidプッシュオブジェクト]({{site.baseurl}}/api/objects_filters/messaging/android_object#android-conversation-push-object)を参照してください。
 
 ## FCMクォータ超過エラー {#fcm-quota-exceeded-errors}
 
-Firebase Cloud Messaging（FCM）の制限を超えると、Googleは「クォータ超過」エラーを返します。FCMのデフォルト制限は、1分あたり600,000リクエストです。Brazeは、Googleが推奨するベストプラクティスに従って送信を再試行します。ただし、これらのエラーが大量に発生すると、送信時間が数分延長される可能性があります。潜在的な影響を軽減するために、Brazeはレート制限が超過されていることと、エラーを防ぐために実行できるステップを通知するアラートを送信します。
+Firebase Cloud Messaging（FCM）の制限を超えると、Googleは「クォータ超過」エラーを返します。FCMのデフォルト制限は、1分あたり600,000リクエストです。BrazeはGoogleの推奨ベストプラクティスに従って送信をリトライします。ただし、これらのエラーが大量に発生すると、送信時間が数分間延長される可能性があります。潜在的な影響を軽減するため、Brazeはレート制限が超過していることを示すアラートと、エラーを防ぐために実行できる手順を通知します。
 
-現在の制限を確認するには、**Google Cloud Console** > **APIs & Services** > **Firebase Cloud Messaging API** > **Quotas & System Limits** に移動するか、[FCM APIクォータページ](https://console.cloud.google.com/apis/api/fcm.googleapis.com/quotas)にアクセスしてください。
+現在の制限を確認するには、**Google Cloud Console** > **APIs & Services** > **Firebase Cloud Messaging API** > **Quotas & System Limits** にアクセスするか、[FCM APIクォータページ](https://console.cloud.google.com/apis/api/fcm.googleapis.com/quotas)にアクセスしてください。
 
 ### ベストプラクティス {#best-practices}
 
@@ -801,13 +801,13 @@ Firebase Cloud Messaging（FCM）の制限を超えると、Googleは「クォ�
 
 #### FCMにレート制限の引き上げをリクエストする {#request-a-rate-limit-increase-from-fcm}
 
-FCMにレート制限の引き上げをリクエストするには、[Firebaseサポート](https://firebase.google.com/support)に直接連絡するか、以下の手順を実行してください。
+FCMにレート制限の引き上げをリクエストするには、[Firebaseサポート](https://firebase.google.com/support)に直接連絡するか、以下の手順を実行します。
 
-1. [FCM APIクォータページ](https://console.cloud.google.com/apis/api/fcm.googleapis.com/quotas)に移動します。
-2. **Send requests per minute** クォータを見つけます。
+1. [FCM APIクォータページ](https://console.cloud.google.com/apis/api/fcm.googleapis.com/quotas)にアクセスします。
+2. **Send requests per minute** クォータを探します。
 3. **Edit Quota** を選択します。
-4. 新しい値を入力し、リクエストを送信します。
+4. 新しい値を入力してリクエストを送信します。
 
 #### ワークスペースのレート制限を適用する {#apply-a-workspace-rate-limit}
 
-Androidプッシュ通知にワークスペースのレート制限を適用できます。これにより、送信メッセージの配信レートを調整できます。詳細については、[ワークスペースのメッセージングレート制限]({{site.baseurl}}/user_guide/administrative/app_settings/messaging_rate_limits)を参照してください。
+Androidプッシュ通知にワークスペースのレート制限を適用できます。これにより、送信メッセージの配信レートを調整できます。詳細については、[ワークスペースのメッセージングレート制限]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits)を参照してください。

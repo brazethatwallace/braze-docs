@@ -11,36 +11,36 @@ noindex: true
 
 _개정 날짜: 2026년 3월 30일_
 
-## 규정 준수 설명서에 포함된 내용은 무엇인가요? {#what-is-included-in-the-compliance-documentation}
+## 컴플라이언스 문서에는 무엇이 포함되어 있나요? {#what-is-included-in-the-compliance-documentation}
 
-아래의 규정 준수 설명서는 귀하가 구매한 제품, 채널, 기능, 기능성 또는 서비스에 적용되는 특정 조건을 명시합니다:
+아래의 컴플라이언스 문서는 구매한 제품, 채널, 기능, 기능성 또는 서비스에 적용되는 특정 조건을 명시합니다:
 
-- 고객이 타사 제공자의 제품, 웹사이트, 애플리케이션 또는 서비스와 상호 작용하거나 통합하거나 액세스할 수 있도록 하는 Braze 서비스 기능의 경우, 규정 준수 설명서에는 해당 기능 사용에 적용되는 타사 제공자 조건이 포함되어 있습니다.
-- Braze 제품, 채널, 기능, 기능성 또는 서비스 사용을 위해 Braze 고객이 준수해야 하는 일반 산업 관행 및 표준.
+- 고객이 타사 공급자의 제품, 웹사이트, 앱 또는 서비스와 상호작용하거나 통합하거나 접근할 수 있도록 하는 Braze 서비스 기능의 경우, 컴플라이언스 문서에는 해당 기능의 사용에 적용되는 타사 공급자 약관이 포함됩니다.
+- Braze 고객이 해당 Braze 제품, 채널, 기능, 기능성 또는 서비스를 사용하기 위해 준수해야 하는 일반적인 업계 관행 및 표준이 포함됩니다.
 
-## 규정 준수 설명서 업데이트 {#updates-to-the-compliance-documentation}
+## 규정 준수 문서 업데이트 {#updates-to-the-compliance-documentation}
 
-[Braze의 GitHub 리포지토리](https://github.com/braze-inc/release-notes)를 통해 설명서(규정 준수 설명서 포함) 업데이트를 구독하여 받아볼 수 있습니다.
+[Braze의 GitHub 리포지토리](https://github.com/braze-inc/release-notes)를 통해 규정 준수 문서를 포함한 설명서 업데이트를 구독하여 받아보실 수 있습니다.
 
-## 특정 채널, 통합 및 기능에 대한 규정 준수 설명서 {#compliance-documentation-for-specific-channels-integrations-and-features}
+## 특정 채널, 통합 및 기능에 대한 컴플라이언스 문서 {#compliance-documentation-for-specific-channels-integrations-and-features}
 
-아래는 해당 규정 준수 설명서가 적용되는 제품, 채널, 기능, 기능성 및 서비스 목록입니다. 여러 제품을 사용하는 경우 관련된 모든 규정 준수 설명서가 적용됩니다.
+아래는 해당 컴플라이언스 문서가 적용되는 제품, 채널, 기능 및 서비스 목록입니다. 여러 제품을 사용하는 경우 관련된 모든 컴플라이언스 문서가 적용됩니다.
 
-### 일반 조건 {#general-terms}
+### 일반 약관 {#general-terms}
 
-계약에 따른 고객의 의무를 제한하지 않으며, 의심의 여지를 없애기 위해, 고객은 아래 나열된 채널 및 기능의 사용과 관련하여 필요한 모든 권리, 동의 및 승인을 획득하고 법적으로 적절한 개인정보 보호 고지를 제공하며, 법적으로 요구되는 모든 동의 및 승인을 획득할 전적인 책임이 있습니다.
+계약에 따른 고객의 의무를 제한하지 않으며, 의심의 여지를 없애기 위해 명시하면, 고객은 아래 나열된 채널 및 기능의 사용과 관련하여 필요한 모든 권리, 동의 및 승인을 획득하고, 법적으로 적절한 개인정보 보호 고지를 제공하며, 법적으로 요구되는 모든 동의 및 승인을 획득하는 데 대해 전적으로 책임을 집니다.
 
 ## 채널 및 기능 {#channels-and-features}
 
 1. [모바일 메시지 채널](#mobile-messages-channel)
 2. [웹훅 채널](#webhooks-channel)
-3. [WhatsApp 채널 규정 준수 설명서](#hatsapp-channel-compliance-documentation)
-4. [LINE 채널 규정 준수 설명서](#line-channel-compliance-documentation)
-5. [Shopify 통합 규정 준수 설명서](#shopify-integration-compliance-documentation)
-6. [오디언스 동기화 규정 준수 설명서](#audience-sync-compliance-documentation)
-7. [메시지 아카이브 및 필드 수준 암호화 규정 준수 설명서](#message-archiving-and-field-level-encryption-compliance-documentation)
-8. [에이전트 콘솔 규정 준수 설명서](#agent-console-compliance-documentation)
-9. [KakaoTalk 채널 규정 준수 설명서](#kakaotalk-channel-compliance-documentation)
+3. [WhatsApp 채널 규정 준수 문서](#hatsapp-channel-compliance-documentation)
+4. [LINE 채널 규정 준수 문서](#line-channel-compliance-documentation)
+5. [Shopify 통합 규정 준수 문서](#shopify-integration-compliance-documentation)
+6. [오디언스 동기화 규정 준수 문서](#audience-sync-compliance-documentation)
+7. [메시지 보관 및 필드 수준 암호화 규정 준수 문서](#message-archiving-and-field-level-encryption-compliance-documentation)
+8. [에이전트 콘솔 규정 준수 문서](#agent-console-compliance-documentation)
+9. [KakaoTalk 채널 규정 준수 문서](#kakaotalk-channel-compliance-documentation)
 
 ## 1. 모바일 메시지 채널 {#mobile-messages-channel}
 
@@ -102,7 +102,7 @@ Braze는 Braze 서비스 외부에서 메시지 발송 또는 기타 동작을 �
 
 ### 적용 가능한 타사 제공자 조건 {#applicable-third-party-provider-terms}
 
-고객은 Braze [WhatsApp 설정]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/overview/) 페이지에 설명된 바와 같이, WhatsApp, LLC 및 그 계열사가 요구하는 조건을 포함하여 WhatsApp 채널에 적용되는 모든 필수 조건, 조건 및 정책을 준수해야 합니다.
+고객은 Braze [WhatsApp 설정]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup) 페이지에 설명된 바와 같이, WhatsApp, LLC 및 그 계열사가 요구하는 조건을 포함하여 WhatsApp 채널에 적용되는 모든 필수 조건, 약관 및 정책을 준수해야 합니다.
 
 ### 웹훅 사용 예외 조건
 
@@ -126,7 +126,6 @@ LINE 채널을 사용함으로써, 고객은 LY Corporation 및 그 계열사(�
 
 LINE 조건에 상반되는 내용이 있더라도, 고객은 LINE 서비스 사용에 대해 일차적으로 책임을 집니다.
 
-
 ## 5. Shopify 통합 규정 준수 설명서 {#shopify-integration-compliance-documentation}
 
 다음 추가 조건은 Braze 서비스와 관련하여 고객의 Shopify 통합 사용("**Shopify 통합**")에 적용됩니다:
@@ -135,15 +134,15 @@ LINE 조건에 상반되는 내용이 있더라도, 고객은 LINE 서비스 사
 
 고객은 Shopify가 언제든지 자체 재량에 따라 다음을 수행할 수 있음을 인정합니다: (i) Braze가 고객의 Shopify 통합 액세스를 비활성화하거나 차단하도록 요구하는 것, 또는 (ii) 고객의 Shopify 통합 액세스 제공을 중단, 일시 중지 또는 종료하는 것. Braze는 Shopify가 고객 또는 Braze 서비스 전반을 통해 Shopify 통합에 대한 액세스 제공을 중단하는 것과 관련하여 어떠한 책임도 지지 않습니다.
 
-## 6. 오디언스 동기화 규정 준수 설명서 {audience-sync-compliance-documentation} {#6-audience-sync-compliance-documentation-audience-sync-compliance-documentation}
+## 6. 오디언스 Sync 규정 준수 문서 {audience-sync-compliance-documentation} {#6-audience-sync-compliance-documentation-audience-sync-compliance-documentation}
 
-다음 추가 조건은 고객의 오디언스 동기화 사용에 적용됩니다.
+다음 추가 약관은 고객의 오디언스 Sync 사용에 적용됩니다.
 
-### 적용 가능한 타사 제공자 조건
+### 해당 서드파티 공급자 약관
 
-고객은 오디언스 동기화 통합과 관련하여 고객이 활용하는 타사 제공자의 해당 조건, 정책, 가이드라인 및 설명서를 준수하고 이에 구속되는 것에 동의합니다.
+고객은 오디언스 Sync 통합과 관련하여 고객이 이용하는 서드파티 공급자의 해당 약관, 정책, 가이드라인 및 설명서를 준수하고 이에 구속되는 데 동의합니다.
 
-고객은 타사 제공자가 자사 서비스와 관련하여 사용되는 모든 데이터, 광고 또는 콘텐츠를 검토, 심사 및/또는 제거할 수 있음을 인정합니다.
+고객은 서드파티 공급자가 자사 서비스와 관련하여 사용되는 데이터, 광고 또는 콘텐츠를 검토, 심사 및/또는 삭제할 수 있음을 인정합니다.
 
 ## 7. 메시지 아카이브 및 필드 수준 암호화 규정 준수 설명서 {#message-archiving-and-field-level-encryption-compliance-documentation}
 

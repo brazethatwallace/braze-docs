@@ -14,26 +14,26 @@ Predictive Churn (und jedes Modell des maschinellen Lernens) ist nur so gut wie 
 
 ## Hier starten: Symptom zuordnen {#start-here-match-your-symptom}
 
-Ordnen Sie die Fehlermeldung, Warnung oder das Ergebnis, das Sie beim Erstellen einer Prognose sehen, dem Abschnitt zu, der die Lösung beschreibt.
+Ordnen Sie die Fehlermeldung, Warnung oder das Ergebnis, das Sie beim Erstellen einer Prognose sehen, dem Abschnitt zu, der erklärt, wie Sie das Problem beheben können.
 
 | Symptom | Gehe zu |
 | --- | --- |
 | Fehler „Nicht genügend Daten zum Trainieren“ | [Nicht genügend Daten zum Trainieren](#not-enough-data-to-train) |
 | Warnung „Nicht genügend vergangene Nicht-Abgewanderte“ | [Prognosezielgruppe zu klein](#problems-with-prediction-audience-size) |
-| Prognosezielgruppe überschreitet Größenlimit | [Prognosezielgruppe zu groß](#prediction-audience-size-is-too-big) |
-| Prognosequalität unter 40 % | [Prognose hat schlechte Qualität](#prediction-has-poor-quality) |
-| Unsicher, ob Ihre Daten zum Modell passen | [Überlegungen zu Daten](#data-considerations) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Symptome für voraussichtliche Abwanderung" }
+| Prognosezielgruppe überschreitet das Größenlimit | [Prognosezielgruppe zu groß](#prediction-audience-size-is-too-big) |
+| Prognosequalität unter 40 % | [Prognose hat eine schlechte Qualität](#prediction-has-poor-quality) |
+| Unsicher, ob Ihre Daten zum Modell passen | [Überlegungen zu den Daten](#data-considerations) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Symptome bei voraussichtlicher Abwanderung" }
 
 ## Standardmäßiger Untersuchungspfad {#standard-investigation-path}
 
 Verwenden Sie diesen Workflow, wenn das Erstellen einer Prognose fehlschlägt oder Sie durch Daten- oder Zielgruppenanforderungen blockiert werden. Beginnen Sie bei Schritt 1.
 
-1. Bestätigen Sie, dass die voraussichtliche Abwanderung für Ihr Unternehmen aktiviert ist und der Workspace über ausreichend monatlich aktive Nutzer:innen (MAU) verfügt – in der Regel 300.000 MAU in einem einzelnen Workspace.
+1. Bestätigen Sie, dass voraussichtliche Abwanderung für Ihr Unternehmen aktiviert ist und der Workspace über ausreichend monatlich aktive Nutzer:innen (MAU) verfügt – in der Regel 300.000 MAU in einem einzelnen Workspace.
 2. Überprüfen Sie Ihre Churn-Definition. Zu restriktive Filter reduzieren die Anzahl der abgewanderten Nutzer:innen, die für das Training verfügbar sind.
-3. Überprüfen Sie die Definition Ihrer Prognose-Zielgruppe. Zu wenige historische nicht abgewanderte Nutzer:innen blockieren das Modelltraining.
-4. Bestätigen Sie, dass angepasste Events (nicht nur angepasste Attribute) die hochwertigen Aktionen erfassen, die auf ein Churn-Risiko hinweisen.
-5. Wenn nach dem Erweitern der Definitionen weiterhin Fehler auftreten, kontaktieren Sie den [Braze-Support]({{site.baseurl}}/braze_support).
+3. Überprüfen Sie Ihre Definition der Prognosezielgruppe. Zu wenige historische nicht abgewanderte Nutzer:innen blockieren das Modelltraining.
+4. Bestätigen Sie, dass angepasste Events (nicht allein angepasste Attribute) die hochwertigen Aktionen erfassen, die auf ein Churn-Risiko hinweisen.
+5. Wenn nach dem Erweitern der Definitionen weiterhin Fehler auftreten, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
 ## Nicht genügend Daten zum Trainieren {#not-enough-data-to-train}
 

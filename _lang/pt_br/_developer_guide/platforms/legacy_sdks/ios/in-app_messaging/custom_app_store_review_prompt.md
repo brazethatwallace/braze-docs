@@ -15,7 +15,7 @@ noindex: true
 # Prompt de avaliação personalizado da App Store {#custom-app-store-review-prompt}
 
 {% alert note %}
-Depois de implementar esse prompt, a Braze deixará de rastrear automaticamente as impressões e você deverá registrar sua própria [análise de dados]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/customization/handing_in_app_display#logging-impressions-and-clicks).
+Depois de implementar esse prompt, a Braze deixará de rastrear automaticamente as impressões e você deverá registrar sua própria [análise de dados]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/customization/handling_in_app_display#logging-impressions-and-clicks).
 {% endalert %}
 
 Criar uma campanha para pedir aos usuários uma avaliação da App Store é um uso popular de mensagens no app.

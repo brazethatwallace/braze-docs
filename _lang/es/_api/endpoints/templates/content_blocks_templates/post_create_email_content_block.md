@@ -5,8 +5,7 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Crear Content Blocks de Braze."
-
+description: "En este artículo se describen los detalles del endpoint Crear Content Blocks de Braze."
 ---
 {% api %}
 # Crear bloque de contenido {#create-content-block}
@@ -14,16 +13,16 @@ description: "En este artículo se describen los detalles del punto de conexión
 /content_blocks/create
 {% endapimethod %}
 
-> Utiliza este punto de conexión para crear un [bloque de contenido]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks).
+> Utiliza este endpoint para crear un [bloque de contenido]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks).
 
 {% alert tip %}
-También puedes llamar a este punto de conexión a través del [servidor MCP de Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server) utilizando la función [`create_content_block`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#content-blocks). Esto permite que herramientas de IA como Claude y Cursor creen bloques de contenido mediante indicaciones en lenguaje natural.
+También puedes llamar a este endpoint a través del [servidor MCP de Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server) utilizando la función [`create_content_block`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#content-blocks). Esto permite que herramientas de IA como Claude y Cursor creen bloques de contenido mediante indicaciones en lenguaje natural.
 {% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#f1cefa8b-7a28-4e64-b579-198a4610d0a5 {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/api_key) con el permiso `content_blocks.create`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics) con el permiso `content_blocks.create`.
 
 ## Límite de velocidad {#rate-limit}
 

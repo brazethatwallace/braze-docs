@@ -7,7 +7,6 @@ page_order: 1
 layout: api_page
 page_type: reference
 description: "Dieser Artikel beschreibt Details zum Endpunkt „Live-Aktivität aktualisieren“."
-
 ---
 {% api %}
 # Live-Aktivität aktualisieren {#update-live-activity}
@@ -15,7 +14,7 @@ description: "Dieser Artikel beschreibt Details zum Endpunkt „Live-Aktivität 
 /messages/live_activity/update
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um die von Ihrer iOS-App angezeigten [Live-Aktivitäten]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?sdktab=swift) zu aktualisieren und zu beenden. Dieser Endpunkt erfordert eine zusätzliche Einrichtung.
+> Verwenden Sie diesen Endpunkt, um die von Ihrer iOS-App angezeigten [Live-Aktivitäten]({{site.baseurl}}/developer_guide/live_notifications?sdktab=swift) zu aktualisieren und zu beenden. Dieser Endpunkt erfordert eine zusätzliche Einrichtung.
 
 Nachdem Sie eine Live-Aktivität registriert haben, können Sie eine JSON-Nutzlast übergeben, um Ihren Apple-Push-Benachrichtigungsdienst (APNs) zu aktualisieren. Weitere Informationen finden Sie in der Apple-Dokumentation zum [Aktualisieren Ihrer Live-Aktivität mit Push-Benachrichtigungs-Nutzlasten](https://developer.apple.com/documentation/activitykit/updating-and-ending-your-live-activity-with-activitykit-push-notifications).
 
@@ -28,7 +27,7 @@ Wenn `content-available` nicht gesetzt ist, beträgt die Standardpriorität des 
 Um diesen Endpunkt zu verwenden, müssen Sie Folgendes tun:
 
 - Generieren Sie einen API-Schlüssel mit der Berechtigung `messages.live_activity.update`.
-- Registrieren Sie eine Live-Aktivität [remote]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?tab=remote&sdktab=swift) oder [lokal]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?tab=local&sdktab=swift) mit dem Braze Swift SDK.
+- Registrieren Sie eine Live-Aktivität [remote]({{site.baseurl}}/developer_guide/live_notifications?tab=remote&sdktab=swift) oder [lokal]({{site.baseurl}}/developer_guide/live_notifications?tab=local&sdktab=swift) mit dem Braze Swift SDK.
 
 {% multi_lang_include api/payload_size_alert.md %}
 

@@ -8,7 +8,7 @@ guide_top_text: "マーケティングは、アーティストのセンスと専
 search_rank: 3
 page_type: landing
 tool: Canvas
-description: "このランディングページにはキャンバスに関する記事がまとめられています。キャンバスの構築、キャンバスコンポーネントの使用、キャンバスの管理とテスト、さまざまなアイデアや戦略の適用に関するリソースをご覧いただけます。"
+description: "キャンバスの構築、キャンバスコンポーネントの使用、キャンバスの管理とテスト、エンゲージメント戦略の適用に関するリソースです。"
 
 guide_featured_title: "セクション"
 guide_featured_list:

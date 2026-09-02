@@ -25,18 +25,18 @@ Está procurando o guia básico de integração de Content Cards para desenvolve
 
 ### Content Cards como objetos personalizados {#content-cards-as-custom-objects}
 
-Assim como um foguete que adiciona um propulsor, seus próprios objetos personalizados podem ser estendidos para funcionar como Content Cards. Superfícies de API limitadas como essa oferecem flexibilidade para trabalhar com diferentes backends de dados de forma intercambiável. Isso pode ser feito em conformidade com o protocolo `ContentCardable` e implementando o inicializador (como visto nos trechos de código a seguir) e, por meio do uso da struct `ContentCardData`, permite acessar os dados `ABKContentCard`. A carga útil `ABKContentCard` será usada para inicializar a struct `ContentCardData` e o próprio objeto personalizado, tudo a partir de um tipo `Dictionary` por meio do inicializador fornecido com o protocolo.
+Assim como um foguete que adiciona um propulsor, seus próprios objetos personalizados podem ser estendidos para funcionar como Content Cards. Superfícies de API limitadas como essa proporcionam flexibilidade para trabalhar com diferentes backends de dados de forma intercambiável. Isso pode ser feito conformando-se ao protocolo `ContentCardable` e implementando o inicializador (como visto nos trechos de código a seguir) e, por meio do uso do struct `ContentCardData`, permite que você acesse os dados do `ABKContentCard`. A carga útil do `ABKContentCard` será usada para inicializar o struct `ContentCardData` e o próprio objeto personalizado, tudo a partir de um tipo `Dictionary` por meio do inicializador que vem com o protocolo.
 
-O inicializador também inclui um enum `ContentCardClassType`. Esse enum é usado para decidir qual objeto será inicializado. Por meio do uso de pares chave-valor no dashboard da Braze, você pode definir uma chave `class_type` explícita que será usada para determinar qual objeto inicializar. Esses pares chave-valor para Content Cards são exibidos na variável `extras` do `ABKContentCard`. Outro componente central do inicializador é o parâmetro de dicionário `metaData`. O `metaData` inclui tudo do `ABKContentCard` analisado em uma série de chaves e valores. Depois que os cartões relevantes forem analisados e convertidos em seus objetos personalizados, o app estará pronto para começar a trabalhar com eles como se tivessem sido instanciados a partir de JSON ou de qualquer outra fonte.
+O inicializador também inclui um enum `ContentCardClassType`. Esse enum é usado para decidir qual objeto inicializar. Por meio do uso de pares chave-valor no dashboard da Braze, você pode definir uma chave `class_type` explícita que será usada para determinar qual objeto inicializar. Esses pares chave-valor para Content Cards estão disponíveis na variável `extras` do `ABKContentCard`. Outro componente central do inicializador é o parâmetro de dicionário `metaData`. O `metaData` inclui tudo do `ABKContentCard`, analisado em uma série de chaves e valores. Depois que os cartões relevantes são analisados e convertidos em seus objetos personalizados, o app está pronto para começar a trabalhar com eles como se tivessem sido instanciados a partir de JSON ou qualquer outra fonte.
 
-Depois de entender bem essas considerações de código, confira nossos [casos de uso](#sample-use-cases) para começar a implementar seus objetos personalizados.
+Depois de ter uma compreensão sólida dessas considerações sobre o código, confira nossos [casos de uso](#sample-use-cases) para começar a implementar seus objetos personalizados.
 
 {% tabs local %}
 {% tab ContentCardable %}
 {% subtabs global %}
 {% subtab Swift %}
 **Protocolo ContentCardable**<br>
-Um objeto `ContentCardData` que representa os dados `ABKContentCard` junto com um enum `ContentCardClassType`. Um inicializador usado para instanciar objetos personalizados com metadados do `ABKContentCard`.
+Um objeto `ContentCardData` que representa os dados do `ABKContentCard` junto com um enum `ContentCardClassType`. Um inicializador usado para instanciar objetos personalizados com metadados do `ABKContentCard`.
 ```swift
 protocol ContentCardable {
   var contentCardData: ContentCardData? { get }
@@ -61,7 +61,7 @@ extension ContentCardable {
   }
 }
 ```
-**Struct de dados do Content Card**<br>
+**Struct de dados de Content Card**<br>
 `ContentCardData` representa os valores analisados de um `ABKContentCard`.
 
 ```swift
@@ -83,7 +83,7 @@ extension ContentCardData: Equatable {
 {% endsubtab %}
 {% subtab Objective-C %}
 **Protocolo ContentCardable**<br>
-Um objeto `ContentCardData` que representa os dados `ABKContentCard` juntamente com um enum `ContentCardClassType`, um inicializador usado para instanciar objetos personalizados com metadados do `ABKContentCard`.
+Um objeto `ContentCardData` que representa os dados do `ABKContentCard` junto com um enum `ContentCardClassType`, um inicializador usado para instanciar objetos personalizados com metadados do `ABKContentCard`.
 ```objc
 @protocol ContentCardable <NSObject>
 
@@ -98,7 +98,7 @@ Um objeto `ContentCardData` que representa os dados `ABKContentCard` juntamente 
 
 @end
 ```
-**Struct de dados do Content Card**<br>
+**Struct de dados de Content Card**<br>
 `ContentCardData` representa os valores analisados de um `ABKContentCard`.
 
 ```objc
@@ -145,8 +145,8 @@ extension CustomObject: ContentCardable {
 }
 ```
 
-**Identificação de tipos**<br>
-O enum `ContentCardClassType` representa o valor `class_type` no dashboard da Braze. Esse valor também é usado como um identificador de filtro para exibir Content Cards em diferentes lugares.
+**Identificando tipos**<br>
+O enum `ContentCardClassType` representa o valor de `class_type` no dashboard da Braze. Esse valor também é usado como identificador de filtro para exibir Content Cards em diferentes locais.
 
 ```swift
 enum ContentCardClassType: Hashable {
@@ -196,8 +196,8 @@ Os metadados de um `ABKContentCard` são usados para preencher as variáveis do 
 }
 ```
 
-**Identificação de tipos**<br>
-O enum `ContentCardClassType` representa o valor `class_type` no dashboard da Braze. Esse valor também é usado como um identificador de filtro para exibir Content Cards em diferentes lugares.
+**Identificando tipos**<br>
+O enum `ContentCardClassType` representa o valor de `class_type` no dashboard da Braze. Esse valor também é usado como identificador de filtro para exibir Content Cards em diferentes locais.
 
 ```objc
 typedef NS_ENUM(NSInteger, ContentCardClassType) {
@@ -227,8 +227,8 @@ typedef NS_ENUM(NSInteger, ContentCardClassType) {
 {% tab Handling Content Cards %}
 {% subtabs global %}
 {% subtab Swift %}
-**Solicitação de Content Cards**<br>
-Desde que o observador ainda esteja retido na memória, o retorno de chamada de notificação do SDK da Braze pode ser esperado.
+**Solicitando Content Cards**<br>
+Enquanto o observador ainda estiver retido na memória, o retorno de chamada de notificação do SDK da Braze pode ser esperado.
 
 ```swift
 func loadContentCards() {
@@ -237,8 +237,8 @@ func loadContentCards() {
 }
 ```
 
-**Manipulação do retorno de chamada do SDK de Content Cards**<br>
-Encaminhe o retorno de chamada da notificação para o arquivo auxiliar para analisar os dados de carga útil do(s) seu(s) objeto(s) personalizado(s).
+**Tratando o retorno de chamada do SDK de Content Cards**<br>
+Encaminhe o retorno de chamada de notificação para o arquivo auxiliar para analisar os dados da carga útil para seu(s) objeto(s) personalizado(s).
 ```swift
 @objc func contentCardsUpdated(_ notification: Notification) {
   guard let contentCards = BrazeManager.shared.handleContentCardsUpdated(notification, for: [.yourValue]) as? [CustomObject],!contentCards.isEmpty else { return }
@@ -248,7 +248,7 @@ Encaminhe o retorno de chamada da notificação para o arquivo auxiliar para ana
 ```
 
 **Trabalhando com Content Cards**<br>
-O `class_type` é passado como um filtro para retornar apenas Content Cards que tenham um `class_type` correspondente.
+O `class_type` é passado como filtro para retornar apenas Content Cards que tenham um `class_type` correspondente.
 
 ```swift
 func handleContentCardsUpdated(_ notification: Notification, for classTypes: [ContentCardClassType]) -> [ContentCardable] {
@@ -259,8 +259,8 @@ func handleContentCardsUpdated(_ notification: Notification, for classTypes: [Co
 ```
 {% endsubtab %}
 {% subtab Objective-C %}
-**Solicitação de Content Cards**<br>
-Desde que o observador ainda esteja retido na memória, o retorno de chamada de notificação do SDK da Braze pode ser esperado.
+**Solicitando Content Cards**<br>
+Enquanto o observador ainda estiver retido na memória, o retorno de chamada de notificação do SDK da Braze pode ser esperado.
 
 ```objc
 - (void)loadContentCards {
@@ -269,8 +269,8 @@ Desde que o observador ainda esteja retido na memória, o retorno de chamada de 
 }
 ```
 
-**Manipulação do retorno de chamada do SDK de Content Cards**<br>
-Encaminhe o retorno de chamada da notificação para o arquivo auxiliar para analisar os dados de carga útil do(s) seu(s) objeto(s) personalizado(s).
+**Tratando o retorno de chamada do SDK de Content Cards**<br>
+Encaminhe o retorno de chamada de notificação para o arquivo auxiliar para analisar os dados da carga útil para seu(s) objeto(s) personalizado(s).
 ```objc
 - (void)contentCardsUpdated:(NSNotification *)notification {
   NSArray *classTypes = @[@(ContentCardClassTypeYourValue)];
@@ -281,7 +281,7 @@ Encaminhe o retorno de chamada da notificação para o arquivo auxiliar para ana
 ```
 
 **Trabalhando com Content Cards**<br>
-O `class_type` é passado como um filtro para retornar apenas Content Cards que tenham um `class_type` correspondente.
+O `class_type` é passado como filtro para retornar apenas Content Cards que tenham um `class_type` correspondente.
 
 ```objc
 - (NSArray *)handleContentCardsUpdated:(NSNotification *)notification forClassType:(ContentCardClassType)classType {
@@ -300,7 +300,7 @@ O `class_type` é passado como um filtro para retornar apenas Content Cards que 
 {% tab Working with Payload Data %}
 {% subtabs global %}
 {% subtab Swift %}
-**Trabalhando com dados de carga útil**<br>
+**Trabalhando com dados da carga útil**<br>
 Percorre o array de Content Cards e analisa apenas os cartões com um `class_type` correspondente. A carga útil de um ABKContentCard é analisada em um `Dictionary`.
 
 ```swift
@@ -343,8 +343,8 @@ func convertContentCards(_ cards: [ABKContentCard], for classTypes: [ContentCard
 }
 ```
 
-**Inicializando seus objetos personalizados a partir dos dados de carga útil do Content Card**<br>
-O `class_type` é usado para determinar quais dos seus objetos personalizados serão inicializados a partir dos dados de carga útil.
+**Inicializando seus objetos personalizados a partir dos dados da carga útil de Content Card**<br>
+O `class_type` é usado para determinar qual dos seus objetos personalizados será inicializado a partir dos dados da carga útil.
 
 ```swift
 func contentCardable(with metaData: [ContentCardKey: Any], for classType: ContentCardClassType) -> ContentCardable? {
@@ -361,7 +361,7 @@ func contentCardable(with metaData: [ContentCardKey: Any], for classType: Conten
 ```
 {% endsubtab %}
 {% subtab Objective-C %}
-**Trabalhando com dados de carga útil**<br>
+**Trabalhando com dados da carga útil**<br>
 Percorre o array de Content Cards e analisa apenas os cartões com um `class_type` correspondente. A carga útil de um ABKContentCard é analisada em um `Dictionary`.
 
 ```objc
@@ -404,8 +404,8 @@ Percorre o array de Content Cards e analisa apenas os cartões com um `class_typ
 }
 ```
 
-**Inicializando seus objetos personalizados a partir dos dados de carga útil do Content Card**<br>
-O `class_type` é usado para determinar quais dos seus objetos personalizados serão inicializados a partir dos dados de carga útil.
+**Inicializando seus objetos personalizados a partir dos dados da carga útil de Content Card**<br>
+O `class_type` é usado para determinar qual dos seus objetos personalizados será inicializado a partir dos dados da carga útil.
 
 ```obj-c
 - (id<ContentCardable>)contentCardableWithMetaData:(NSDictionary *)metaData forClassType:(ContentCardClassType)classType {
@@ -425,44 +425,44 @@ O `class_type` é usado para determinar quais dos seus objetos personalizados se
 {% endtab %}
 {% endtabs %}
 
-## Casos de uso {#sample-use-cases}
+## Casos de uso {#use-cases}
 
-Fornecemos três casos de uso na seção a seguir. Cada caso de uso oferece uma explicação detalhada, trechos de código relevantes e uma visão de como as variáveis do Content Card podem parecer e ser usadas no dashboard da Braze:
+Fornecemos três casos de uso na seção a seguir. Cada caso de uso oferece uma explicação detalhada, trechos de código relevantes e uma visão de como as variáveis de Content Cards podem parecer e ser usadas no dashboard da Braze:
 - [Content Cards como conteúdo suplementar](#content-cards-as-supplemental-content)
 - [Content Cards em um centro de mensagens](#content-cards-in-a-message-center)
 - [Content Cards interativos](#interactive-content-cards)
 
 ### Content Cards como conteúdo suplementar {#content-cards-as-supplemental-content}
 
-![Feed com uma lista híbrida que combina dados locais e Content Cards da Braze.]({% image_buster /assets/img/cc_implementation/supplementary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0;"}
+![Feed com uma lista híbrida combinando dados locais e Content Cards da Braze.]({% image_buster /assets/img/cc_implementation/supplementary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0;"}
 
-Você pode combinar perfeitamente Content Cards em um feed existente, permitindo que os dados de vários feeds sejam carregados simultaneamente. Isso cria uma experiência coesa e harmoniosa com Content Cards da Braze e o conteúdo de feed existente.
+Você pode combinar Content Cards em um feed existente de forma integrada, permitindo que dados de múltiplos feeds sejam carregados simultaneamente. Isso cria uma experiência coesa e harmoniosa com Content Cards da Braze e conteúdo de feed existente.
 
-O exemplo à direita mostra uma `UICollectionView` com uma lista híbrida de itens que são preenchidos por meio de dados locais e Content Cards fornecidos pela Braze. Com isso, os Content Cards podem ser indistinguíveis do conteúdo existente.
+O exemplo a seguir mostra uma `UICollectionView` com uma lista híbrida de itens que são preenchidos por dados locais e Content Cards fornecidos pela Braze. Com isso, os Content Cards podem ser indistinguíveis em relação ao conteúdo existente.
 
 #### Configuração do dashboard {#dashboard-configuration}
 
-Esse Content Card é entregue por uma Campaign disparada por API com pares chave-valor disparados por API. Isso é ideal para Campaigns em que os valores do cartão dependem de fatores externos para determinar o conteúdo a ser exibido ao usuário. Note que `class_type` deve ser conhecido no momento da configuração.
+Este Content Card é entregue por uma campanha disparada por API com pares chave-valor disparados por API. Isso é ideal para campanhas em que os valores do cartão dependem de fatores externos para determinar qual conteúdo exibir ao usuário. Observe que `class_type` deve ser conhecido no momento da configuração.
 
 ![Os pares chave-valor para o caso de uso de Content Cards suplementares. Neste exemplo, diferentes aspectos do cartão, como "tile_id", "tile_deeplink" e "tile_title", são definidos usando Liquid.]({% image_buster /assets/img/cc_implementation/supplementary_content.png %}){: style="max-width:60%;"}
 
-##### Pronto para registrar a análise de dados? {#ready-to-log-analytics}
-Visite a [seção a seguir](#logging-impressions-clicks-and-dismissals) para entender melhor como deve ser o fluxo de dados.
+##### Pronto para registrar análise de dados? {#ready-to-log-analytics}
+Acesse a [seção a seguir](#logging-impressions-clicks-and-dismissals) para entender melhor como o fluxo de dados deve funcionar.
 
 ### Content Cards em um centro de mensagens {#content-cards-in-a-message-center}
 <br>
-Content Cards podem ser usados em um formato de centro de mensagens em que cada mensagem é seu próprio cartão. Cada mensagem no centro de mensagens é preenchida por meio de uma carga útil de Content Card, e cada cartão contém pares chave-valor adicionais que potencializam a UI/UX ao clicar. No exemplo a seguir, uma mensagem direciona você para uma visualização personalizada arbitrária, enquanto outra abre uma webview que exibe HTML personalizado.
+Content Cards podem ser usados em formato de centro de mensagens, onde cada mensagem é seu próprio cartão. Cada mensagem no centro de mensagens é preenchida por uma carga útil de Content Card, e cada cartão contém pares chave-valor adicionais que controlam a UI/UX ao clicar. No exemplo a seguir, uma mensagem direciona você para uma visualização personalizada arbitrária, enquanto outra abre uma webview que exibe HTML personalizado.
 
-![Centro de mensagens com Content Cards exibindo cartões de mensagens individuais.]({% image_buster /assets/img/cc_implementation/message_center.png %}){: style="border:0;"}{: style="max-width:80%;border:0"}
+![Centro de mensagens com Content Cards e cartões de mensagem individuais.]({% image_buster /assets/img/cc_implementation/message_center.png %}){: style="border:0;"}{: style="max-width:80%;border:0"}
 
 #### Configuração do dashboard
 
-Para os seguintes tipos de mensagens, o par chave-valor `class_type` deve ser adicionado à configuração do seu dashboard. Os valores atribuídos aqui são arbitrários, mas devem ser distinguíveis entre os tipos de classe. Esses pares chave-valor são os identificadores-chave que o aplicativo examina ao decidir para onde ir quando o usuário clica em uma mensagem resumida da caixa de entrada.
+Para os tipos de mensagem a seguir, o par chave-valor `class_type` deve ser adicionado à configuração do seu dashboard. Os valores atribuídos aqui são arbitrários, mas devem ser distinguíveis entre os tipos de classe. Esses pares chave-valor são os identificadores-chave que o aplicativo analisa ao decidir para onde ir quando o usuário clica em uma mensagem resumida da caixa de entrada.
 
 {% tabs local %}
-{% tab Arbitrary custom view message - full page %}
+{% tab Mensagem de visualização personalizada arbitrária - página inteira %}
 
-Os pares chave-valor para esse caso de uso incluem:
+Os pares chave-valor para este caso de uso incluem:
 
 - `message_header` definido como `Full Page`
 - `class_type` definido como `message_full_page`
@@ -470,15 +470,15 @@ Os pares chave-valor para esse caso de uso incluem:
 ![Exemplo de mensagem de Content Card em página inteira.]({% image_buster /assets/img/cc_implementation/full_page.png %}){: style="max-width:60%;"}
 
 {% endtab %}
-{% tab Webview message - HTML %}
+{% tab Mensagem de webview - HTML %}
 
-Os pares chave-valor para esse caso de uso incluem:
+Os pares chave-valor para este caso de uso incluem:
 
 - `message_header` definido como `HTML`
 - `class_type` definido como `message_webview`
 - `message_title`
 
-Essa mensagem também procura um par chave-valor HTML, mas se você estiver trabalhando com um domínio web, um par chave-valor de URL também é válido.
+Esta mensagem também procura um par chave-valor HTML, mas se você estiver trabalhando com um domínio web, um par chave-valor de URL também é válido.
 
 ![Content Card abrindo uma webview HTML a partir de um par chave-valor.]({% image_buster /assets/img/cc_implementation/html_webview.png %}){: style="max-width:60%;"}
 
@@ -487,7 +487,7 @@ Essa mensagem também procura um par chave-valor HTML, mas se você estiver trab
 
 #### Explicação adicional {#further-explanation}
 
-A lógica do centro de mensagens é orientada pelo `contentCardClassType`, que é fornecido pelos pares chave-valor da Braze. Usando o método `addContentCardToView`, você pode filtrar e identificar esses tipos de classe.
+A lógica do centro de mensagens é orientada pelo `contentCardClassType` que é fornecido pelos pares chave-valor da Braze. Usando o método `addContentCardToView`, você pode tanto filtrar quanto identificar esses tipos de classe.
 
 {% tabs %}
 {% tab Swift %}
@@ -526,42 +526,42 @@ Quando uma mensagem é clicada, o `ContentCardClassType` determina como a próxi
 {% endtab %}
 {% endtabs %}
 
-##### Pronto para registrar a análise de dados?
-Visite a [seção a seguir](#logging-impressions-clicks-and-dismissals) para entender melhor como deve ser o fluxo de dados.
+##### Pronto para registrar análise de dados?
+Acesse a [seção a seguir](#logging-impressions-clicks-and-dismissals) para entender melhor como o fluxo de dados deve funcionar.
 
-![Um Content Card interativo mostrando uma promoção de 50% aparece no canto inferior esquerdo da tela. Depois de clicado, uma promoção será aplicada ao carrinho.]({% image_buster /assets/img/cc_implementation/discount2.png %}){: style="border:0;"}{: style="float:right;max-width:45%;border:0;margin-left:15px;"}
+![Um Content Card interativo mostrando uma promoção de 50% aparecendo no canto inferior esquerdo da tela. Após ser clicado, uma promoção será aplicada ao carrinho.]({% image_buster /assets/img/cc_implementation/discount2.png %}){: style="border:0;"}{: style="float:right;max-width:45%;border:0;margin-left:15px;"}
 
 ### Content Cards interativos {#interactive-content-cards}
 <br>
-Content Cards podem ser aproveitados para criar experiências dinâmicas e interativas para seus usuários. No exemplo à direita, temos um pop-up de Content Card que aparece no checkout, oferecendo aos usuários promoções de última hora.
+Content Cards podem ser usados para criar experiências dinâmicas e interativas para seus usuários. No exemplo a seguir, um pop-up de Content Card aparece no checkout para oferecer aos usuários promoções de última hora.
 
-Cartões bem posicionados como esse são uma ótima maneira de dar aos usuários um "empurrãozinho" em direção a ações específicas.
+Cartões bem posicionados como este são uma ótima maneira de dar aos usuários um "empurrãozinho" em direção a ações específicas.
 <br><br><br>
 #### Configuração do dashboard
 
-A configuração do dashboard para Content Cards interativos é simples. Os pares chave-valor para esse caso de uso incluem `discount_percentage` definido como o valor do desconto desejado e `class_type` definido como `coupon_code`. Esses pares chave-valor são como os Content Cards específicos por tipo são filtrados e exibidos na tela de checkout.
+A configuração do dashboard para Content Cards interativos é simples. Os pares chave-valor para este caso de uso incluem um `discount_percentage` definido como o valor de desconto desejado e `class_type` definido como `coupon_code`. Esses pares chave-valor são como Content Cards de tipos específicos são filtrados e exibidos na tela de checkout.
 
-![Content Card interativo mostrando uma promoção no checkout.]({% image_buster /assets/img/cc_implementation/discount.png %}){: style="max-width:70%;"}
+![Content Card interativo mostrando uma promoção de checkout.]({% image_buster /assets/img/cc_implementation/discount.png %}){: style="max-width:70%;"}
 
-##### Pronto para registrar a análise de dados?
-Visite a [seção a seguir](#logging-impressions-clicks-and-dismissals) para entender melhor como deve ser o fluxo de dados.
+##### Pronto para registrar análise de dados?
+Acesse a [seção a seguir](#logging-impressions-clicks-and-dismissals) para entender melhor como o fluxo de dados deve funcionar.
 
 ## Personalização do modo escuro {#dark-mode-customization}
 
 Por padrão, as visualizações de Content Cards responderão automaticamente às alterações do modo escuro no dispositivo com um conjunto de cores temáticas.
 
-Esse comportamento pode ser substituído conforme detalhado em nosso [guia de estilo personalizado]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/content_cards/customization/custom_styling#disabling-dark-mode).
+Esse comportamento pode ser substituído conforme detalhado em nosso [guia de estilização personalizada]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/content_cards/customization/custom_styling#disabling-dark-mode).
 
-## Registro de impressões, cliques e descartes {#logging-impressions-clicks-and-dismissals}
+## Registro de impressões, cliques e dispensas {#logging-impressions-clicks-and-dismissals}
 
-Depois de estender seus objetos personalizados para funcionarem como Content Cards, o registro de métricas valiosas como impressões, cliques e descartes é rápido. Isso pode ser feito usando um protocolo `ContentCardable` que faz referência e fornece dados a um arquivo auxiliar para ser registrado pelo SDK da Braze.
+Após estender seus objetos personalizados para funcionar como Content Cards, registrar métricas valiosas como impressões, cliques e dispensas é rápido. Isso pode ser feito usando um protocolo `ContentCardable` que referencia e fornece dados a um arquivo auxiliar para ser registrado pelo SDK da Braze.
 
 ### Componentes de implementação<br><br> {#implementation-components}
 
 {% tabs %}
 {% tab Swift %}
-**Registrando análise de dados**<br>
-Os métodos de registro podem ser chamados diretamente de objetos em conformidade com o protocolo `ContentCardable`.
+**Registro de análise de dados**<br>
+Os métodos de registro podem ser chamados diretamente a partir de objetos que estejam em conformidade com o protocolo `ContentCardable`.
 ```swift
 customObject.logContentCardImpression()
 customObject.logContentCardClicked()
@@ -569,7 +569,7 @@ customObject.logContentCardDismissed()
 ```
 
 **Recuperando o `ABKContentCard`**<br>
-O `idString` passado do seu objeto personalizado é usado para identificar o Content Card associado para registrar a análise de dados.
+O `idString` passado pelo seu objeto personalizado é usado para identificar o Content Card associado para registrar análise de dados.
 
 ```swift
 extension BrazeManager {
@@ -586,8 +586,8 @@ extension BrazeManager {
 ```
 {% endtab %}
 {% tab Objective-C %}
-**Registrando análise de dados**<br>
-Os métodos de registro podem ser chamados diretamente de objetos em conformidade com o protocolo `ContentCardable`.
+**Registro de análise de dados**<br>
+Os métodos de registro podem ser chamados diretamente a partir de objetos que estejam em conformidade com o protocolo `ContentCardable`.
 ```objc
 [customObject logContentCardImpression];
 [customObject logContentCardClicked];
@@ -595,7 +595,7 @@ Os métodos de registro podem ser chamados diretamente de objetos em conformidad
 ```
 
 **Recuperando o `ABKContentCard`**<br>
-O `idString` passado do seu objeto personalizado é usado para identificar o Content Card associado para registrar a análise de dados.
+O `idString` passado pelo seu objeto personalizado é usado para identificar o Content Card associado para registrar análise de dados.
 
 ```objc
 - (void)logContentCardImpression:(NSString *)idString {
@@ -614,7 +614,7 @@ O `idString` passado do seu objeto personalizado é usado para identificar o Con
 {% endtabs %}
 
 {% alert important %}
-Para uma variante de controle de Content Card, um objeto personalizado ainda deve ser instanciado, e a lógica da interface do usuário deve definir a visualização correspondente do objeto como oculta. O objeto pode então registrar uma impressão para informar nossa análise de dados sobre quando um usuário teria visto o cartão de controle.
+Para um Content Card de variante de controle, um objeto personalizado ainda deve ser instanciado, e a lógica de UI deve definir a visualização correspondente do objeto como oculta. O objeto pode então registrar uma impressão para informar nossa análise de dados sobre quando um usuário teria visto o cartão de controle.
 {% endalert %}
 
 ## Arquivos auxiliares {#helper-files}

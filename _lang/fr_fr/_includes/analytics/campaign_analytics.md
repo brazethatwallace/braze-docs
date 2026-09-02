@@ -1,17 +1,17 @@
 ## Visualisation de l'analytique {#viewing-analytics}
 
-Une fois que vous avez lancé votre campagne, vous pouvez revenir à la page des détails de cette campagne pour afficher les indicateurs clés. Accédez à la page **Campaigns** et sélectionnez votre campagne pour ouvrir la page des détails.{% if include.channel != "banner" %} Pour les {% if include.channel == "Content Card" %}Content Cards {% elsif include.channel == "banner" %}bannières {% elsif include.channel == "email" %}e-mails {% elsif include.channel == "in-app message" %}messages in-app {% elsif include.channel == "KakaoTalk" %}messages KakaoTalk {% elsif include.channel == "push" %}messages push {% elsif include.channel == "SMS" %}SMS {% elsif include.channel == "whatsapp" %}messages WhatsApp {% elsif include.channel == "webhook" %}webhooks {% endif %}envoyés dans Canvas, reportez-vous à [Canvas analytics]({{site.baseurl}}/user_guide/engagement_tools/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics).{% endif %}
+Une fois que vous avez lancé votre campagne, vous pouvez revenir à la page des détails de cette campagne pour afficher les indicateurs clés. Accédez à la page **Campaigns** et sélectionnez votre campagne pour ouvrir la page des détails.{% if include.channel != "banner" %} Pour les {% if include.channel == "Content Card" %}Content Cards {% elsif include.channel == "banner" %}bannières {% elsif include.channel == "email" %}e-mails {% elsif include.channel == "in-app message" %}messages in-app {% elsif include.channel == "KakaoTalk" %}messages KakaoTalk {% elsif include.channel == "push" %}messages push {% elsif include.channel == "SMS" %}SMS {% elsif include.channel == "whatsapp" %}messages WhatsApp {% elsif include.channel == "webhook" %}webhooks {% endif %}envoyés dans Canvas, reportez-vous à [l'analytique Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics).{% endif %}
 
 {% alert tip %}
 Vous recherchez des définitions pour les termes et les indicateurs répertoriés dans votre rapport ? Consultez notre
-  {% if include.channel == "email" %}[Glossaire analytique pour l'e-mail]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/analytics_glossary)
-  {% elsif include.channel == "banner" %}[Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/data/report_metrics) et filtrez par bannières.
-  {% elsif include.channel == "Content Card" %}[Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/data/report_metrics) et filtrez par Content Cards.
-  {% elsif include.channel == "in-app message" %}[Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/data/report_metrics) et filtrez par message in-app.
-  {% elsif include.channel == "push" %}[Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/data/report_metrics) et filtrez par Push.
-  {% elsif include.channel == "SMS" %}[Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/data/report_metrics) et filtrez par SMS/MMS et RCS.
-  {% elsif include.channel == "whatsapp" %}[Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/data/report_metrics) et filtrez par WhatsApp.
-  {% elsif include.channel == "webhook" %}[Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/data/report_metrics) et filtrez par webhook.{% endif %}
+  {% if include.channel == "email" %}[Glossaire analytique pour l'e-mail]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary)
+  {% elsif include.channel == "banner" %}[Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/analytics/metrics_glossary) et filtrez par bannières.
+  {% elsif include.channel == "Content Card" %}[Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/analytics/metrics_glossary) et filtrez par Content Cards.
+  {% elsif include.channel == "in-app message" %}[Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/analytics/metrics_glossary) et filtrez par message in-app.
+  {% elsif include.channel == "push" %}[Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/analytics/metrics_glossary) et filtrez par Push.
+  {% elsif include.channel == "SMS" %}[Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/analytics/metrics_glossary) et filtrez par SMS/MMS et RCS.
+  {% elsif include.channel == "whatsapp" %}[Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/analytics/metrics_glossary) et filtrez par WhatsApp.
+  {% elsif include.channel == "webhook" %}[Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/analytics/metrics_glossary) et filtrez par webhook.{% endif %}
 {% endalert %}
 
 À partir de l'onglet **Campaign Analytics**, vous pouvez consulter vos rapports dans une série de panneaux. Vous pouvez en voir plus ou moins que ceux énumérés dans les sections ci-dessous, mais chacun a son utilité propre.
@@ -244,7 +244,7 @@ Si des images sont manquantes dans une exportation, travaillez avec vos dévelop
 
 #### Indicateurs des Content Cards {#content-card-metrics}
 
-Voici une description de certains indicateurs clés que vous pouvez voir lors de l'examen des performances de vos messages. Pour obtenir les définitions complètes de tous les indicateurs des Content Cards, reportez-vous au [Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics) et filtrez par Content Cards.
+Voici une description de certains indicateurs clés que vous pouvez voir lors de l'examen des performances de vos messages. Pour obtenir les définitions complètes de tous les indicateurs des Content Cards, reportez-vous au [Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/analytics/metrics_glossary) et filtrez par Content Cards.
 
 <style>
     .no-split {
@@ -305,7 +305,7 @@ Plusieurs indicateurs sont disponibles pour couvrir la visibilité de votre mess
 
 Supposons que vous visualisiez une Content Card aujourd'hui, puis que vous receviez une nouvelle carte de la même campagne demain, et encore après-demain — vous serez comptabilisé trois fois comme _impression quotidienne unique_. En revanche, vous ne serez comptabilisé que pour une seule _impression unique_. Vous serez également inclus dans le nombre de _messages envoyés_, car la carte était disponible sur votre appareil.
 
-Autre exemple : supposons que vous observiez cinq _impressions uniques_ sur une campagne de Content Cards affichant 150 000 _messages envoyés_. Cela signifie que la carte a été mise à disposition (côté serveur) pour une audience de 150 000 utilisateurs, mais que seuls cinq appareils d'utilisateurs ont effectué toutes les étapes suivantes après l'envoi :
+Autre exemple : supposons que vous observiez cinq _impressions uniques_ sur une campagne de Content Cards affichant 150 000 _messages envoyés_. Cela signifie que la carte a été mise à disposition (côté serveur) pour une audience de 150 000 utilisateurs, mais que seuls les appareils de cinq utilisateurs ont effectué toutes les étapes suivantes après l'envoi :
 
 1. Ont démarré une session ou l'application a explicitement demandé une synchronisation des Content Cards (ou les deux)
 2. Ont navigué vers la vue des Content Cards
@@ -319,7 +319,7 @@ Les _messages envoyés_ correspondent aux Content Cards disponibles pour être v
 
 Voici les indicateurs clés à suivre lors de l'évaluation des performances de votre campagne de bannières. Les clics et les impressions pour les bannières sont suivis automatiquement par le SDK.
 
-Pour obtenir les définitions complètes de tous les indicateurs relatifs aux bannières, reportez-vous au [Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics) et filtrez par bannières.
+Pour obtenir les définitions complètes de tous les indicateurs relatifs aux bannières, reportez-vous au [Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/analytics/metrics_glossary) et filtrez par bannières.
 
 <style>
     .no-split {
@@ -399,7 +399,7 @@ Les impressions de contrôle et de variante nécessitent toutes deux que l'empla
 
 #### Indicateurs des e-mails {#email-metrics}
 
-Voici quelques indicateurs clés spécifiques aux e-mails que vous ne retrouverez pas dans d'autres canaux. Pour voir les définitions complètes de tous les indicateurs e-mail utilisés dans Braze, reportez-vous à notre [Glossaire analytique pour l'e-mail]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/analytics_glossary).
+Voici quelques indicateurs clés spécifiques aux e-mails que vous ne retrouverez pas dans d'autres canaux. Pour voir les définitions complètes de tous les indicateurs e-mail utilisés dans Braze, reportez-vous à notre [Glossaire analytique pour l'e-mail]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary).
 
 <style>
     .no-split {
@@ -551,9 +551,9 @@ De plus, l'utilisation d'outils d'analyse de sécurité peut gonfler les taux d'
 En fin de compte, une fois qu'un e-mail quitte nos serveurs, nous avons une visibilité limitée sur ce qui se passe ensuite. Voici quelques recommandations pour gérer les NHI qui affectent vos résultats :
 
 1. Gardez à l'esprit que cela peut arriver à n'importe quel expéditeur et à presque n'importe quel destinataire. Les clics, comme les ouvertures, ne sont pas des indicateurs entièrement fiables de l'interaction humaine avec vos messages, ce qui signifie que les NHI ne sont pas évitables.
-2. Un engagement positif plus élevé tend à être corrélé à un NHI plus faible, il est donc important de respecter les [bonnes pratiques]({{site.baseurl}}/user_guide/message_building_by_channel/email/best_practices) en matière d'envoi d'e-mails. Cela inclut l'obtention de la permission explicite de vos utilisateurs pour envoyer des e-mails et la temporisation régulière des abonnés non engagés.
+2. Un engagement positif plus élevé tend à être corrélé à un NHI plus faible, il est donc important de respecter les [bonnes pratiques]({{site.baseurl}}/user_guide/channels/email/best_practices) en matière d'envoi d'e-mails. Cela inclut l'obtention de la permission explicite de vos utilisateurs pour envoyer des e-mails et la temporisation régulière des abonnés non engagés.
 3. Utilisez des liens HTTPS dans vos e-mails lorsque cela est possible. Les NHI sont moins fréquentes pour les expéditeurs utilisant des liens sécurisés.
-4. Si vous utilisez un processus de désabonnement en un seul clic, envisagez de créer un [centre de préférences]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview) qui redirige les utilisateurs vers une page leur permettant de modifier et de gérer leurs préférences de notification. Cela peut être utile car les NHI peuvent désabonner des utilisateurs par inadvertance.
+4. Si vous utilisez un processus de désabonnement en un seul clic, envisagez de créer un [centre de préférences]({{site.baseurl}}/user_guide/channels/email/subscriptions) qui redirige les utilisateurs vers une page leur permettant de modifier et de gérer leurs préférences de notification. Cela peut être utile car les NHI peuvent désabonner des utilisateurs par inadvertance.
 5. Envisagez d'utiliser [d'autres indicateurs]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/email_reporting#email-performance) pour évaluer le succès de votre marketing par e-mail, tels que les conversions, les sessions d'application ou les visites de site.
 6. Ajoutez un lien caché dans vos campagnes e-mail. Ce lien serait quelque chose qu'un humain ne remarquerait pas, comme un texte blanc sur blanc ou un signe de ponctuation. Les bots ont tendance à cliquer sur tous les liens. Vous pouvez donc en conclure que les utilisateurs qui génèrent des événements de clic sur le lien invisible sont en réalité le résultat de NHI, et que l'ouverture ou le clic n'indique donc pas nécessairement un engagement positif.
 
@@ -561,7 +561,7 @@ En fin de compte, une fois qu'un e-mail quitte nos serveurs, nous avons une visi
 
 #### Indicateurs des messages in-app {#in-app-message-metrics}
 
-Voici quelques indicateurs clés des messages in-app que vous pouvez voir dans vos analyses. Pour consulter les définitions complètes de tous les indicateurs des messages in-app utilisés dans Braze, reportez-vous à notre [Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics).
+Voici quelques indicateurs clés des messages in-app que vous pouvez voir dans vos analyses. Pour consulter les définitions complètes de tous les indicateurs des messages in-app utilisés dans Braze, reportez-vous à notre [Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
 {% alert note %}
 Les rapports pour les _clics sur le bouton 1_ et les _clics sur le bouton 2_ ne fonctionnent que si vous spécifiez l'**Identifier for Reporting** comme étant respectivement « 0 » et « 1 » dans le message in-app.
@@ -633,7 +633,7 @@ La répartition entre les groupes de contrôle et les variantes est censée êtr
 
 ### Indicateurs KakaoTalk {#kakaotalk-metrics}
 
-Voici quelques indicateurs clés de KakaoTalk que vous pouvez voir dans vos analyses. Pour plus de détails, consultez le [Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/data/report_metrics).
+Voici quelques indicateurs clés de KakaoTalk que vous pouvez voir dans vos analyses. Pour plus de détails, consultez le [Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
 {% alert note %}
 Actuellement, les statistiques d'audience estimées ou exactes ne sont pas disponibles pour les campagnes KakaoTalk.
@@ -654,7 +654,7 @@ Actuellement, les statistiques d'audience estimées ou exactes ne sont pas dispo
 
 #### Indicateurs des notifications push {#push-metrics}
 
-Voici une description de certains indicateurs clés que vous pouvez voir lors de l'examen des performances de vos messages. Pour obtenir les définitions complètes de tous les indicateurs push, consultez le [Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics) et filtrez par push.
+Voici une description de certains indicateurs clés que vous pouvez voir lors de l'examen des performances de vos messages. Pour obtenir les définitions complètes de tous les indicateurs push, consultez le [Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/analytics/metrics_glossary) et filtrez par push.
 
 <style>
     .no-split {
@@ -773,7 +773,7 @@ Les rebonds Firebase Cloud Messaging (FCM) peuvent se produire dans trois cas :
 
 #### Indicateurs SMS, MMS et RCS {#sms-mms-and-rcs-metrics}
 
-Voici une description de certains indicateurs clés que vous pouvez voir lors de l'examen des performances de vos messages. Pour obtenir les définitions complètes de tous les indicateurs SMS, MMS et RCS, consultez le [Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics) et filtrez par SMS/MMS et RCS.
+Voici une description de certains indicateurs clés que vous pouvez voir lors de l'examen des performances de vos messages. Pour obtenir les définitions complètes de tous les indicateurs SMS, MMS et RCS, consultez le [Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/analytics/metrics_glossary) et filtrez par SMS/MMS et RCS.
 
 <style>
     .no-split {
@@ -825,7 +825,7 @@ Voici une description de certains indicateurs clés que vous pouvez voir lors de
 
 #### Indicateurs des webhooks {#webhook-metrics}
 
-Voici quelques indicateurs clés des webhooks qui peuvent apparaître dans vos analyses. Pour voir les définitions complètes de tous les indicateurs webhook utilisés dans Braze, reportez-vous à notre [Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics).
+Voici quelques indicateurs clés des webhooks qui peuvent apparaître dans vos analyses. Pour voir les définitions complètes de tous les indicateurs webhook utilisés dans Braze, reportez-vous à notre [Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
 <style>
     .no-split {
@@ -861,7 +861,7 @@ Voici quelques indicateurs clés des webhooks qui peuvent apparaître dans vos a
 
 #### Indicateurs WhatsApp {#whatsapp-metrics}
 
-Voici quelques indicateurs clés de WhatsApp qui peuvent apparaître dans vos analyses. Pour voir les définitions complètes de tous les indicateurs WhatsApp utilisés dans Braze, reportez-vous à notre [Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics).
+Voici quelques indicateurs clés de WhatsApp qui peuvent apparaître dans vos analyses. Pour voir les définitions complètes de tous les indicateurs WhatsApp utilisés dans Braze, reportez-vous à notre [Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
 <style>
     .no-split {
@@ -929,9 +929,9 @@ Le panneau **Keyword Responses** vous montre une chronologie des mots-clés entr
 
 ![Panneau Réponses aux mots-clés SMS/MMS/RCS au niveau de la campagne comprenant un graphique linéaire représentant la répartition des mots-clés dans le temps, ainsi qu'une section Catégories de mots-clés avec des cases à cocher pour Opt-In, Opt-Out, Help, Other, More et Coaching.]({% image_buster /assets/img/sms/keyword_responses.png %})
 
-Ici, vous pouvez également consulter la répartition des réponses pour chaque catégorie de mots-clés afin de déterminer les prochaines étapes de [reciblage]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/retargeting_campaigns) et de [création de segment]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment) de manière pratique.
+Ici, vous pouvez également consulter la répartition des réponses pour chaque catégorie de mots-clés afin de déterminer les prochaines étapes de [reciblage]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns) et de [création de segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) de manière pratique.
 
-![Le tableau situé sous le graphique linéaire comporte des colonnes pour la catégorie de mots-clés, la répartition des réponses et le reciblage, où vous avez la possibilité de créer un segment avec la catégorie de mots-clés.]({% image_buster /assets/img/sms/keyword_segments.png %})
+![Tableau avec des colonnes pour la catégorie de mots-clés, la répartition des réponses et le reciblage, où vous avez la possibilité de créer un segment avec la catégorie de mots-clés.]({% image_buster /assets/img/sms/keyword_segments.png %})
 
 {% endif %}
 
@@ -943,7 +943,7 @@ Le panneau **Conversion Event Details** vous indique les performances de vos év
 
 ### Corrélation de conversion {#conversion-correlation}
 
-Le panneau **Conversion Correlation** vous donne des informations sur les attributs et les comportements des utilisateurs qui favorisent ou entravent les résultats que vous avez définis pour les campagnes. Pour plus d'informations, consultez la section [Corrélation de conversion]({{site.baseurl}}/user_guide/engagement_tools/testing/conversion_correlation).
+Le panneau **Conversion Correlation** vous donne des informations sur les attributs et les comportements des utilisateurs qui favorisent ou entravent les résultats que vous avez définis pour les campagnes. Pour plus d'informations, consultez la section [Corrélation de conversion]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/conversion_correlation).
 
 ![Le panneau Corrélation de conversion avec une analyse des attributs et du comportement des utilisateurs à partir de l'événement de conversion principal - A.]({% image_buster /assets/img/convcorr.png %})
 
@@ -951,7 +951,7 @@ Le panneau **Conversion Correlation** vous donne des informations sur les attrib
 
 ## Générateur de rapports {#report-builder}
 
-Vous pouvez également utiliser le [Générateur de rapports]({{site.baseurl}}/user_guide/analytics/reporting/report_builder) pour créer des rapports personnalisés pour vos campagnes KakaoTalk. Lors de la création d'un rapport, vous pouvez filtrer pour n'inclure que les campagnes KakaoTalk en sélectionnant **KakaoTalk** sous **Channels**, ou en filtrant par les étiquettes que vous avez appliquées à vos campagnes KakaoTalk.
+Vous pouvez également utiliser le [générateur de rapports]({{site.baseurl}}/user_guide/analytics/reports/report_builder) pour créer des rapports personnalisés pour vos campagnes KakaoTalk. Lors de la création d'un rapport, vous pouvez filtrer pour n'inclure que les campagnes KakaoTalk en sélectionnant **KakaoTalk** sous **Channels**, ou en filtrant par les étiquettes que vous avez appliquées à vos campagnes KakaoTalk.
 
 {% endif %}
 
@@ -979,12 +979,12 @@ Les messages entrants sont tronqués au-delà de 1 600 caractères.
 
 ## Rapport de rétention {#retention-report}
 
-Les rapports de rétention vous indiquent les taux auxquels vos utilisateurs ont effectué un événement de rétention sélectionné sur des périodes de temps dans une campagne spécifique{% if include.channel != "banner" %} ou Canvas{% endif %}. Pour plus d'informations, reportez-vous aux [rapports de rétention]({{site.baseurl}}/user_guide/analytics/reporting/retention_reports).
+Les rapports de rétention vous indiquent les taux auxquels vos utilisateurs ont effectué un événement de rétention sélectionné sur des périodes de temps dans une campagne spécifique{% if include.channel != "banner" %} ou Canvas{% endif %}. Pour plus d'informations, reportez-vous aux [rapports de rétention]({{site.baseurl}}/user_guide/analytics/reports/retention_reports).
 
 ## Rapport d'entonnoir {#funnel-report}
 
 Le rapport d'entonnoir offre un rapport visuel qui vous permet d'analyser les parcours de vos clients après avoir reçu une campagne{% if include.channel != "banner" %} ou Canvas{% endif %}. Si votre campagne {% if include.channel != "banner" %}ou Canvas {% endif %}utilise un groupe de contrôle ou plusieurs variantes, vous pourrez comprendre l'impact des différentes variantes sur le tunnel de conversion à un niveau plus granulaire et optimiser en fonction de ces données.
 
-Pour plus d'informations, reportez-vous aux [rapports d'entonnoir]({{site.baseurl}}/user_guide/analytics/reporting/funnel_reports).
+Pour plus d'informations, reportez-vous aux [rapports d'entonnoir]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports).
 
 {% endif %}

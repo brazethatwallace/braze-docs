@@ -25,9 +25,9 @@ Una vez que tu aplicación sea compatible con Catalyst, sigue [estas instruccion
 
 ## Características compatibles {#supported-features}
 
-Braze es compatible con [notificaciones push]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift), [Content Cards]({{site.baseurl}}/developer_guide/platforms/swift/content_cards#content-cards-data-model), [mensajes dentro de la aplicación]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=swift) y [recopilación automática de ubicaciones]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=swift) cuando se ejecuta en Mac Catalyst.
+Braze es compatible con [notificaciones push]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift), [Content Cards]({{site.baseurl}}/developer_guide/content_cards?sdktab=swift), [mensajes dentro de la aplicación]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=swift) y [recopilación automática de ubicación]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=swift) cuando se ejecuta en Mac Catalyst.
 
-Ten en cuenta que Push Stories, las notificaciones push enriquecidas y las geovallas no son compatibles con macOS.
+Ten en cuenta que Push Stories, las notificaciones push enriquecidas y las geovallas no son compatibles en macOS.
 
 [1]:https://github.com/Appboy/appboy-ios-sdk/releases/tag/3.32.0
 [2]:https://developer.apple.com/mac-catalyst/

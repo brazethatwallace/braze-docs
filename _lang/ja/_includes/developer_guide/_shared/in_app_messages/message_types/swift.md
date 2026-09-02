@@ -42,7 +42,7 @@
 {% endsubtab %}
 {% subtab Custom HTML %}
 
-[`HTML`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/inappmessage/html-swift.struct)アプリ内メッセージは、完全にカスタマイズされたユーザーコンテンツを作成するのに便利です。ユーザー定義のHTMLフルアプリ内メッセージコンテンツは`WKWebView`に表示され、必要に応じて画像やフォントなどの他のリッチコンテンツを含めることができます。これにより、メッセージの外観と機能を完全にコントロールできます。<br><br>iOSアプリ内メッセージは、HTML内からBraze Web SDKのメソッドを呼び出すためのJavaScript `brazeBridge`インターフェイスをサポートしています。詳細については、[ベストプラクティス]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/best_practices)を参照してください。
+[`HTML`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/inappmessage/html-swift.struct)アプリ内メッセージは、完全にカスタマイズされたユーザーコンテンツを作成するのに便利です。ユーザー定義のHTMLフルアプリ内メッセージコンテンツは`WKWebView`に表示され、必要に応じて画像やフォントなどの他のリッチコンテンツを含めることができます。これにより、メッセージの外観と機能を完全にコントロールできます。<br><br>iOSアプリ内メッセージは、HTML内からBraze Web SDKのメソッドを呼び出すためのJavaScript `brazeBridge`インターフェイスをサポートしています。詳細については、[ベストプラクティス]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices)を参照してください。
 
 次の例は、ページ分割されたHTMLフルアプリ内メッセージを示しています。
 

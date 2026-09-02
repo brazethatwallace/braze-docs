@@ -20,26 +20,26 @@ Esto generalmente es un problema de configuración de red o de confianza de cert
 ## Causas comunes {#common-causes}
 
 - Un proxy corporativo, firewall o herramienta de inspección de tráfico está interceptando el tráfico HTTPS con un certificado en el que tu entorno de ejecución no confía.
-- Un certificado raíz o intermedio requerido no se encuentra en el almacén de confianza del dispositivo, simulador, navegador o servidor.
-- La configuración de seguridad local bloquea las conexiones HTTPS salientes hacia los endpoints de Braze.
-- La configuración de certificados o seguridad de transporte a nivel de aplicación bloquea la conexión.
+- Falta un certificado raíz o intermedio requerido en el almacén de confianza del dispositivo, simulador, navegador o servidor.
+- La configuración de seguridad local bloquea el tráfico HTTPS saliente hacia los endpoints de Braze.
+- La configuración de certificados o de seguridad de transporte a nivel de la aplicación bloquea la conexión.
 
-## Pasos para la solución de problemas {#troubleshooting-steps}
+## Pasos de solución de problemas {#troubleshooting-steps}
 
-1. Confirma tu punto final de SDK y el acceso a la red.
-   - Verifica que estás usando el [punto final de SDK]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints) correcto para tu espacio de trabajo.
-   - Verifica que tu entorno puede alcanzar ese endpoint a través de HTTPS.
+1. Confirma tu endpoint de SDK y el acceso a la red.
+   - Verifica que estés usando el [endpoint de SDK]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) correcto para tu espacio de trabajo.
+   - Verifica que tu entorno pueda alcanzar ese endpoint a través de HTTPS.
 2. Compara el comportamiento en diferentes redes.
    - Prueba en una red diferente (por ejemplo, datos móviles en lugar de Wi-Fi corporativo).
-   - Si el problema solo ocurre en una red, la causa raíz probablemente sea la configuración del proxy o firewall.
+   - Si el problema solo ocurre en una red, la causa raíz probablemente sea la configuración del proxy o del firewall.
 3. Valida tu configuración de confianza.
-   - Confirma que los certificados raíz e intermedios requeridos están instalados y son de confianza en el entorno de ejecución donde se ejecuta el SDK.
-   - Si tu entorno usa autoridades de certificación personalizadas, confirma que esos certificados están distribuidos correctamente.
+   - Confirma que los certificados raíz e intermedios necesarios estén instalados y sean de confianza en el entorno de ejecución donde se ejecuta el SDK.
+   - Si tu entorno utiliza autoridades de certificación personalizadas, confirma que esos certificados se distribuyan correctamente.
 4. Revisa la configuración de seguridad de la plataforma.
-   - Si tu aplicación o entorno tiene reglas explícitas de transporte o certificados, confirma que esa configuración permite solicitudes HTTPS a los endpoints de Braze.
+   - Si tu aplicación o entorno tiene reglas explícitas de transporte o certificados, confirma que esa configuración permita solicitudes HTTPS a los endpoints de Braze.
 5. Trabaja con tu equipo de red o seguridad.
    - Comparte el error completo y la marca de tiempo para que puedan verificar las cadenas de certificados, la configuración de inspección TLS y las reglas de lista de permitidos.
 
 {% alert note %}
-Dado que el tráfico del SDK de Braze usa HTTPS, los fallos de confianza de certificados pueden afectar a cualquier SDK de Braze (incluyendo Android, Swift, Web, React Native, Flutter, Unity y Cordova) en entornos con políticas de red restrictivas.
+Debido a que el tráfico del SDK de Braze usa HTTPS, los fallos de confianza en certificados pueden afectar a cualquier SDK de Braze (incluidos Android, SWIFT, Web, React Native, Flutter, Unity y Cordova) en entornos con políticas de red restrictivas.
 {% endalert %}

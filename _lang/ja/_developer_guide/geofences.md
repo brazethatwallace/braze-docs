@@ -15,7 +15,7 @@ tool:
 
 # ジオフェンス {#geofences}
 
-> Braze SDKのジオフェンスの設定方法について説明します。[ジオフェンス]({{site.baseurl}}/user_guide/engagement_tools/locations_and_geofences/#about-locations-and-geofences)とは、特定のグローバルな位置を中心に円を形成する仮想的な地理的領域のことで、緯度、経度、半径を組み合わせて表されます。
+> Braze SDKのジオフェンスの設定方法について説明します。[ジオフェンス]({{site.baseurl}}/user_guide/audience/locations_and_geofences)とは、特定のグローバルな位置を中心に円を形成する仮想的な地理的領域のことで、緯度、経度、半径を組み合わせて表されます。
 
 {% sdktabs %}
 {% sdktab android %}

@@ -4,7 +4,7 @@
 
 ### Vordefinierte Methoden {#predefined-methods}
 
-Braze stellt vordefinierte Methoden zum Festlegen der folgenden Nutzerattribute in der [Klasse `User`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html) bereit:
+Braze bietet vordefinierte Methoden zum Festlegen der folgenden Nutzer:innen-Attribute innerhalb der [`User`-Klasse](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html):
 
 - Vorname
 - Nachname
@@ -19,21 +19,21 @@ Braze stellt vordefinierte Methoden zum Festlegen der folgenden Nutzerattribute 
 ### Standardattribute festlegen {#setting-default-attributes}
 
 {% tabs %}
-{% tab using methods %}
-Um ein Standardattribut für eine:n Nutzer:in festzulegen, rufen Sie die Methode `getUser()` auf Ihrer Braze-Instanz auf, um eine Referenz auf die aktuelle Nutzer:in Ihrer App zu erhalten. Anschließend können Sie Methoden aufrufen, um ein Nutzerattribut zu setzen.
+{% tab Methoden verwenden %}
+Um ein Standardattribut für eine:n Nutzer:in festzulegen, rufen Sie die Methode `getUser()` auf Ihrer Braze-Instanz auf, um eine Referenz auf die:den aktuelle:n Nutzer:in Ihrer App zu erhalten. Anschließend können Sie Methoden aufrufen, um ein Nutzerattribut festzulegen.
 
 {% subtabs local %}
-{% subtab First name %}
+{% subtab Vorname %}
 ```javascript
 braze.getUser().setFirstName("SomeFirstName");
 ```
 {% endsubtab %}
-{% subtab Gender %}
+{% subtab Geschlecht %}
 ```javascript
 braze.getUser().setGender(braze.User.Genders.FEMALE);
 ```
 {% endsubtab %}
-{% subtab Date of birth %}
+{% subtab Geburtsdatum %}
 ```javascript
 braze.getUser().setDateOfBirth(2000, 12, 25);
 ```
@@ -41,10 +41,10 @@ braze.getUser().setDateOfBirth(2000, 12, 25);
 {% endsubtabs %}
 {% endtab %}
 
-{% tab google tag manager %}
-Mit Google Tag Manager sollten Standard-Nutzerattribute (wie z. B. der Vorname) auf dieselbe Weise wie angepasste Nutzerattribute protokolliert werden. Stellen Sie sicher, dass die Werte, die Sie für Standardattribute übergeben, dem erwarteten Format entsprechen, das in der Dokumentation der [Klasse User](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html) angegeben ist.
+{% tab Google Tag Manager %}
+Bei Verwendung von Google Tag Manager sollten Standard-Nutzerattribute (z. B. der Vorname) auf die gleiche Weise protokolliert werden wie angepasste Nutzerattribute. Stellen Sie sicher, dass die übergebenen Werte für Standardattribute dem erwarteten Format entsprechen, das in der Dokumentation der [`User`-Klasse](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html) angegeben ist.
 
-Das Attribut „Geschlecht“ kann zum Beispiel folgende Werte annehmen: `"m" | "f" | "o" | "u" | "n" | "p"`. Um also das Geschlecht als weiblich festzulegen, erstellen Sie ein angepasstes HTML-Tag mit folgendem Inhalt:
+Beispielsweise kann das Geschlechtsattribut einen der folgenden Werte annehmen: `"m" | "f" | "o" | "u" | "n" | "p"`. Um das Geschlecht einer:eines Nutzer:in als weiblich festzulegen, erstellen Sie ein Custom-HTML-Tag mit folgendem Inhalt:
 
 ```html
 <script>
@@ -56,22 +56,22 @@ window.braze.getUser().setGender("f")
 
 ### Standardattribute zurücksetzen {#unsetting-default-attributes}
 
-Sie können ein Nutzerattribut über Ihren App-Code, eine REST-API-Anfrage oder einen [Nutzeraktualisierung]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/)-Canvas-Schritt entfernen oder zurücksetzen. Für Array- und boolesche Attribute verwenden Sie `null`. Für andere Datentypen verwenden Sie einen leeren String (`""`).
+Sie können ein Nutzerattribut über Ihren App-Code, eine REST-API-Anfrage oder einen [User Update]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)-Canvas-Schritt entfernen oder zurücksetzen. Verwenden Sie für Array- und boolesche Attribute `null`. Für andere Datentypen verwenden Sie einen leeren String (`""`).
 
-Um ein Standardattribut mit dem Web SDK zurückzusetzen, übergeben Sie `null` an die entsprechende Methode. Zum Beispiel:
+Um ein Standard-Nutzerattribut mit dem Web SDK zurückzusetzen, übergeben Sie `null` an die entsprechende Methode. Zum Beispiel:
 
 {% tabs local %}
-{% tab First name %}
+{% tab Vorname %}
 ```javascript
 braze.getUser().setFirstName(null);
 ```
 {% endtab %}
-{% tab Gender %}
+{% tab Geschlecht %}
 ```javascript
 braze.getUser().setGender(null);
 ```
 {% endtab %}
-{% tab Date of birth %}
+{% tab Geburtsdatum %}
 ```javascript
 braze.getUser().setDateOfBirth(null, null, null);
 ```
@@ -84,7 +84,7 @@ braze.getUser().setDateOfBirth(null, null, null);
 
 {% tabs %}
 {% tab using methods %}
-Zusätzlich zu den Standardmethoden für Nutzerattribute können Sie auch [angepasste Attribute]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#custom-attribute-data-types) für Ihre Nutzer:innen festlegen. Die vollständigen Methodenspezifikationen finden Sie in [unseren JSDocs](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html).
+Zusätzlich zu den Standard-Nutzerattribut-Methoden können Sie auch [angepasste Attribute]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes#custom-attribute-data-types) für Ihre Nutzer:innen festlegen. Die vollständigen Methodenspezifikationen finden Sie in [unseren JSDocs](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html).
 
 {% subtabs local %}
 {% subtab String %}
@@ -140,7 +140,7 @@ braze.getUser().setCustomUserAttribute(
 {% endsubtab %}
 {% subtab Array %}
 
-Die Standard- und Höchstzahl an Elementen in einem Array beträgt 500. Sie können die Höchstzahl an Elementen im Braze-Dashboard unter **Dateneinstellungen** > **Angepasste Attribute** aktualisieren. Arrays, die die Höchstzahl an Elementen überschreiten, werden auf die Höchstzahl an Elementen gekürzt.
+Die standardmäßige und maximale Höchstzahl an Elementen in einem Array beträgt 500. Sie können die Höchstzahl an Elementen im Braze-Dashboard unter **Data Settings** > **Custom Attributes** aktualisieren. Arrays, die die Höchstzahl an Elementen überschreiten, werden auf die Höchstzahl an Elementen gekürzt.
 
 
 So legen Sie ein angepasstes Attribut mit einem `array`-Wert fest:
@@ -156,18 +156,18 @@ braze.getUser().removeFromCustomAttributeArray(YOUR_ATTRIBUTE_KEY_STRING, "value
 ```
 
 {% alert important %}
-Datumsangaben, die mit dieser Methode an Braze übergeben werden, müssen JavaScript-Date-Objekte sein.
+An Braze übergebene Datumsangaben müssen JavaScript-Date-Objekte sein.
 {% endalert %}
 {% endsubtab %}
 {% endsubtabs %}
 
 {% alert important %}
-Schlüssel und Werte angepasster Attribute dürfen maximal 255 Zeichen umfassen. Weitere Informationen zu gültigen Werten angepasster Attribute finden Sie in der [Referenzdokumentation](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html).
+Schlüssel und Werte angepasster Attribute dürfen maximal 255 Zeichen lang sein. Weitere Informationen zu gültigen Werten für angepasste Attribute finden Sie in der [Referenzdokumentation](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html).
 {% endalert %}
 {% endtab %}
 
 {% tab google tag manager %}
-Angepasste Nutzerattribute sind aufgrund einer Einschränkung in der Skriptsprache von Google Tag Manager nicht verfügbar. Um angepasste Attribute zu protokollieren, erstellen Sie ein angepasstes HTML-Tag mit folgendem Inhalt:
+Angepasste Nutzerattribute sind aufgrund einer Einschränkung in der Skriptsprache von Google Tag Manager nicht verfügbar. Um angepasste Attribute zu protokollieren, erstellen Sie ein Custom-HTML-Tag mit dem folgenden Inhalt:
 
 ```html
 <script>
@@ -178,14 +178,14 @@ window.braze.getUser().setCustomUserAttribute("attribute name", "attribute value
 ```
 
 {% alert important %}
-Das GTM-Template unterstützt keine verschachtelten Eigenschaften für Ereignisse oder Käufe. Mit dem vorstehenden HTML-Code können Sie alle Ereignisse oder Käufe protokollieren, die verschachtelte Eigenschaften erfordern.
+Das GTM-Template unterstützt keine verschachtelten Eigenschaften bei Ereignissen oder Käufen. Sie können das obige HTML verwenden, um Ereignisse oder Käufe zu protokollieren, die verschachtelte Eigenschaften erfordern.
 {% endalert %}
 {% endtab %}
 {% endtabs %}
 
 ### Angepasste Attribute zurücksetzen {#unsetting-custom-attributes}
 
-Um ein angepasstes Attribut zurückzusetzen, übergeben Sie `null` an die entsprechende Methode.
+Um ein angepasstes Attribut zurückzusetzen, übergeben Sie `null` an die zugehörige Methode.
 
 ```javascript
 braze.getUser().setCustomUserAttribute(YOUR_ATTRIBUTE_KEY_STRING, null);
@@ -193,7 +193,7 @@ braze.getUser().setCustomUserAttribute(YOUR_ATTRIBUTE_KEY_STRING, null);
 
 ### Verschachtelte angepasste Attribute {#nesting-custom-attributes}
 
-Sie können Eigenschaften auch in angepassten Attributen verschachteln. Im folgenden Beispiel wird ein `favorite_book`-Objekt mit verschachtelten Eigenschaften als angepasstes Attribut im Nutzerprofil festgelegt. Weitere Informationen finden Sie unter [Verschachtelte angepasste Attribute]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/).
+Sie können auch Eigenschaften innerhalb angepasster Attribute verschachteln. Im folgenden Beispiel wird ein `favorite_book`-Objekt mit verschachtelten Eigenschaften als angepasstes Attribut im Nutzerprofil festgelegt. Weitere Details finden Sie unter [Verschachtelte angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
 
 ```javascript
 import * as braze from "@braze/web-sdk";
@@ -207,32 +207,32 @@ const favoriteBook = {
 braze.getUser().setCustomUserAttribute("favorite_book", favoriteBook);
 ```
 
-### Verwendung der REST API {#using-the-rest-api}
+### REST API verwenden {#using-the-rest-api}
 
-Sie können auch unsere REST API verwenden, um Nutzerattribute zu setzen oder zurückzusetzen. Weitere Informationen finden Sie unter [Endpunkte für Nutzerdaten]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data).
+Sie können auch unsere REST API verwenden, um Nutzerattribute festzulegen oder zurückzusetzen. Weitere Informationen finden Sie unter [Nutzerdaten-Endpunkte]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data).
 
-## Nutzer-Abos einrichten {#setting-user-subscriptions}
+## Nutzer:innen-Abos festlegen {#setting-user-subscriptions}
 
-Um ein Abo für Ihre Nutzer:innen einzurichten (entweder per E-Mail oder per Push), rufen Sie die Funktionen `setEmailNotificationSubscriptionType()` bzw. `setPushNotificationSubscriptionType()` auf. Beide Funktionen verwenden den `enum`-Typ `braze.User.NotificationSubscriptionTypes` als Argumente. Dieser Typ hat drei verschiedene Zustände:
+Um ein Abo für Ihre Nutzer:innen einzurichten (entweder E-Mail oder Push), rufen Sie die Funktionen `setEmailNotificationSubscriptionType()` bzw. `setPushNotificationSubscriptionType()` auf. Beide Funktionen nehmen den `enum`-Typ `braze.User.NotificationSubscriptionTypes` als Argumente entgegen. Dieser Typ hat drei verschiedene Zustände:
 
-| Abostatus | Definition |
+| Abo-Status | Definition |
 | ------------------- | ---------- |
-| `braze.User.NotificationSubscriptionTypes.OPTED_IN` | Abonniert und ausdrücklich angemeldet |
-| `braze.User.NotificationSubscriptionTypes.SUBSCRIBED` | Abonniert, aber nicht ausdrücklich angemeldet |
-| `braze.User.NotificationSubscriptionTypes.UNSUBSCRIBED` | Abbestellt und/oder ausdrücklich abgemeldet |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Nutzer-Abos einrichten" }
+| `braze.User.NotificationSubscriptionTypes.OPTED_IN` | Abonniert und explizites Opt-in |
+| `braze.User.NotificationSubscriptionTypes.SUBSCRIBED` | Abonniert, aber kein explizites Opt-in |
+| `braze.User.NotificationSubscriptionTypes.UNSUBSCRIBED` | Abgemeldet und/oder explizites Opt-out |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Nutzer:innen-Abos festlegen" }
 
-Wenn sich Nutzer:innen für Push registrieren, fordert der Browser sie auf, Benachrichtigungen zuzulassen oder zu blockieren. Wenn sie Push zulassen, wird standardmäßig `OPTED_IN` gesetzt.
+Wenn sich Nutzer:innen für Push registrieren, fordert der Browser sie auf, Benachrichtigungen zuzulassen oder zu blockieren. Wenn sie Push zulassen, werden sie standardmäßig auf `OPTED_IN` gesetzt.
 
-Weitere Informationen zur Implementierung von Abos und expliziten Opt-ins finden Sie unter [Verwaltung von Nutzer-Abos]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#managing-user-subscriptions).
+Weitere Informationen zur Implementierung von Abos und expliziten Opt-ins finden Sie unter [Nutzer:innen-Abos verwalten]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions#managing-user-subscriptions).
 
-### Nutzer:in von E-Mails abmelden {#unsubscribing-a-user-from-email}
+### Nutzer:in von E-Mail abmelden {#unsubscribing-a-user-from-email}
 
 ```javascript
 braze.getUser().setEmailNotificationSubscriptionType(braze.User.NotificationSubscriptionTypes.UNSUBSCRIBED);
 ```
 
-### Nutzer:in von Push-Benachrichtigungen abmelden {#unsubscribing-a-user-from-push}
+### Nutzer:in von Push abmelden {#unsubscribing-a-user-from-push}
 
 ```java
 braze.getUser().setPushNotificationSubscriptionType(braze.User.NotificationSubscriptionTypes.UNSUBSCRIBED);

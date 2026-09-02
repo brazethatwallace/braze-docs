@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Content-Block erstellen“."
-
 ---
 {% api %}
 # Content-Block erstellen {#create-content-block}
@@ -24,7 +23,7 @@ Sie können diesen Endpunkt auch über den [Braze MCP-Server]({{site.baseurl}}/u
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key) mit der Berechtigung `content_blocks.create`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics) mit der Berechtigung `content_blocks.create`.
 
 ## Rate-Limit
 
@@ -93,7 +92,7 @@ In der folgenden Tabelle finden Sie eine Liste möglicher zurückgegebener Fehle
 | `Content cannot be blank` | |
 | `Content must be a string` | Achten Sie darauf, dass Ihr Inhalt in Anführungszeichen (`""`) eingeschlossen ist. |
 | `Content must be smaller than 50kb` | Der Inhalt Ihres Content-Blocks muss insgesamt weniger als 50 KB groß sein. |
-| `Content contains malformed liquid` | Das angegebene Liquid ist ungültig oder nicht parsbar. Bitte versuchen Sie es erneut mit gültigem Liquid oder wenden Sie sich an den Support. |
+| `Content contains malformed liquid` | Das angegebene Liquid ist ungültig oder nicht parsbar. Versuchen Sie es erneut mit gültigem Liquid oder wenden Sie sich an den Support. |
 | `Content Block cannot be referenced within itself` | |
 | `Content Block description cannot be blank` | |
 | `Content Block description must be a string` | Achten Sie darauf, dass die Beschreibung Ihres Content-Blocks in Anführungszeichen (`""`) eingeschlossen ist. |

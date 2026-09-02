@@ -13,11 +13,11 @@ Braze는 [`BrazeUser`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-
 - 생년월일
 - 이메일
 - 성별
-- 거주 도시
+- 출생지
 - 전화번호
 
 {% alert note %}
-이름, 성, 국가, 거주 도시와 같은 모든 문자열 값은 255자로 제한됩니다.
+이름과 성, 국가, 출생지와 같은 모든 문자열 값은 255자로 제한됩니다.
 {% endalert %}
 
 ### 기본 속성 설정 {#setting-default-attributes}
@@ -78,7 +78,7 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 
 ## 커스텀 사용자 속성 {#custom-user-attributes}
 
-기본 사용자 속성 외에도 Braze는 여러 다른 데이터 유형을 사용하여 커스텀 속성을 정의할 수 있도록 지원합니다. 각 속성의 세분화 옵션에 대한 자세한 내용은 [사용자 데이터 수집]({{site.baseurl}}/developer_guide/analytics/)을 참조하세요.
+기본 사용자 속성 외에도 Braze에서는 여러 가지 데이터 유형을 사용하여 커스텀 속성을 정의할 수 있습니다. 각 속성의 세분화 옵션에 대한 자세한 내용은 [사용자 데이터 수집]({{site.baseurl}}/developer_guide/analytics)을 참조하세요.
 
 ### 커스텀 속성 설정 {#setting-custom-attributes}
 
@@ -285,13 +285,13 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% endsubtabs %}
 
 {% alert warning %}
-이 메서드를 통해 Braze에 전달되는 날짜는 [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) 형식(예: `2013-07-16T19:20:30+01:00`) 또는 `yyyy-MM-dd'T'HH:mm:ss:SSSZ` 형식(예: `2016-12-14T13:32:31.601-0800`)이어야 합니다.
+이 메서드로 Braze에 전달되는 날짜는 [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) 형식(예: `2013-07-16T19:20:30+01:00`) 또는 `yyyy-MM-dd'T'HH:mm:ss:SSSZ` 형식(예: `2016-12-14T13:32:31.601-0800`)이어야 합니다.
 {% endalert %}
 
 {% endtab %}
 {% tab Array %}
 
-배열의 기본값 및 최대 요소 개수는 500개입니다. Braze 대시보드의 **데이터 설정** > **커스텀 속성**에서 최대 배열 개수를 업데이트할 수 있습니다. 최대 요소 개수를 초과하는 배열은 최대 요소 개수만큼 잘립니다. 커스텀 속성 배열 및 그 동작에 대한 자세한 내용은 [배열]({{site.baseurl}}/developer_guide/analytics/#arrays)을 참조하세요.
+배열의 기본 및 최대 요소 개수는 500개입니다. Braze 대시보드의 **데이터 설정** > **커스텀 속성**에서 배열의 최대 개수를 업데이트할 수 있습니다. 최대 요소 개수를 초과하는 배열은 최대 요소 개수로 잘립니다. 커스텀 속성 배열 및 동작에 대한 자세한 내용은 [배열]({{site.baseurl}}/developer_guide/analytics#arrays)을 참조하세요.
 
 {% subtabs global %}
 {% subtab JAVA %}
@@ -330,7 +330,7 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 
 ### 커스텀 속성 해제 {#unsetting-custom-attributes}
 
-커스텀 속성을 해제하려면 관련 속성 키를 `unsetCustomUserAttribute` 메서드에 전달하세요.
+커스텀 속성을 해제하려면 해당 속성 키를 `unsetCustomUserAttribute` 메서드에 전달합니다.
 
 {% tabs %}
 {% tab JAVA %}
@@ -356,9 +356,9 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% endtab %}
 {% endtabs %}
 
-### 커스텀 속성 중첩 {#nesting-custom-attributes}
+### 중첩 커스텀 속성 {#nesting-custom-attributes}
 
-커스텀 속성 내에 등록정보를 중첩할 수도 있습니다. 다음 예제에서는 중첩 등록정보가 있는 `favorite_book` 오브젝트가 고객 프로필의 커스텀 속성으로 설정됩니다. 자세한 내용은 [중첩 고객 속성]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/)을 참조하세요.
+커스텀 속성 내에 프로퍼티를 중첩할 수도 있습니다. 다음 예제에서는 중첩 프로퍼티가 있는 `favorite_book` 오브젝트를 고객 프로필에 커스텀 속성으로 설정합니다. 자세한 내용은 [중첩 커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support)을 참조하세요.
 
 {% tabs %}
 {% tab JAVA %}
@@ -395,24 +395,24 @@ braze.getCurrentUser { user ->
 
 ### REST API 사용 {#using-the-rest-api}
 
-REST API를 사용하여 사용자 속성을 설정하거나 해제할 수도 있습니다. 자세한 내용은 [사용자 데이터 엔드포인트]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data)를 참조하세요.
+REST API를 사용하여 사용자 속성을 설정하거나 해제할 수도 있습니다. 자세한 내용은 [사용자 데이터 엔드포인트]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data)를 참조하세요.
 
-## 사용자 구독 설정 {#setting-user-subscriptions}
+## 사용자 가입 설정 {#setting-user-subscriptions}
 
-사용자에 대한 구독(이메일 또는 푸시)을 설정하려면 각각 `setEmailNotificationSubscriptionType()` 또는 `setPushNotificationSubscriptionType()` 함수를 호출합니다. 이 두 함수 모두 열거형 `NotificationSubscriptionType`을 인수로 받습니다. 이 유형에는 세 가지 상태가 있습니다.
+사용자의 가입(이메일 또는 푸시)을 설정하려면 각각 `setEmailNotificationSubscriptionType()` 또는 `setPushNotificationSubscriptionType()` 함수를 호출합니다. 이 두 함수는 모두 열거형 타입 `NotificationSubscriptionType`을 인수로 받습니다. 이 타입에는 세 가지 상태가 있습니다:
 
-| 구독 상태 | 정의 |
+| 가입 상태 | 정의 |
 | ------------------- | ---------- |
-| `OPTED_IN` | 구독하고 명시적으로 옵트인한 경우 |
-| `SUBSCRIBED` | 구독 중이지만 명시적으로 옵트인하지 않은 경우 |
-| `UNSUBSCRIBED` | 구독 취소 및/또는 명시적으로 수신 거부한 경우 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `OPTED_IN` | 가입 및 명시적으로 옵트인함 |
+| `SUBSCRIBED` | 가입했지만 명시적으로 옵트인하지 않음 |
+| `UNSUBSCRIBED` | 탈퇴 및/또는 명시적으로 옵트아웃함 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="사용자 가입 설정" }
 
 {% alert important %}
-Android에서는 사용자에게 푸시 알림을 보내기 위해 명시적인 옵트인이 필요하지 않습니다. 사용자가 푸시에 등록되면 기본적으로 `OPTED_IN`이 아닌 `SUBSCRIBED`로 설정됩니다. 구독 및 명시적 옵트인 구현에 대한 자세한 내용은 [사용자 구독 관리]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#managing-user-subscriptions)를 참조하세요.
+Android에서는 사용자에게 푸시 알림을 보내기 위해 명시적 옵트인이 필요하지 않습니다. 사용자가 푸시에 등록되면 기본적으로 `OPTED_IN`이 아닌 `SUBSCRIBED`로 설정됩니다. 가입 및 명시적 옵트인 구현에 대한 자세한 내용은 [사용자 가입 관리]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions#managing-user-subscriptions)를 참조하세요.
 {% endalert %}
 
-### 이메일 구독 설정 {#setting-email-subscriptions}
+### 이메일 가입 설정 {#setting-email-subscriptions}
 
 {% tabs %}
 {% tab JAVA %}
@@ -438,7 +438,7 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% endtab %}
 {% endtabs %}
 
-### 푸시 알림 구독 설정 {#setting-push-notification-subscription}
+### 푸시 알림 가입 설정 {#setting-push-notification-subscription}
 
 {% tabs %}
 {% tab JAVA %}

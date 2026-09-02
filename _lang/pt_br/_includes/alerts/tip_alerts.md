@@ -9,7 +9,7 @@ Você também pode gerenciar inscrições em uma landing page da Braze. Adicione
 {% if include.alert == "Liquid email display name and reply-to address" %}
 
 {% alert tip %}
-Você pode usar [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid) nos campos **Nome de exibição + Endereço do remetente** e **Endereço de resposta** para criar modelos dinâmicos com base em atributos personalizados. Isso permite que você envie de diferentes marcas, regiões ou departamentos usando uma única campanha de e-mail ou etapa do Canvas.
+Você pode usar [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) nos campos **Nome de exibição + Endereço do remetente** e **Endereço de resposta** para criar modelos dinâmicos com base em atributos personalizados. Isso permite que você envie de diferentes marcas, regiões ou departamentos usando uma única campanha de e-mail ou etapa do Canvas.
 {% endalert %}
 
 {% endif %}
@@ -17,7 +17,7 @@ Você pode usar [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic
 {% if include.alert == "Reference properties from triggering event" %}
 
 {% alert tip %}
-Você não precisa de uma etapa de Contexto para referenciar propriedades do evento disparador nas etapas [Jornadas do público]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/audience_paths) ou [Divisão de decisão]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/decision_split). Você pode referenciar as propriedades diretamente nos grupos de filtro com o filtro **Variável de Contexto**. Certifique-se de selecionar o tipo de dado correto.
+Você não precisa de uma etapa de Contexto para referenciar propriedades do evento disparador nas etapas [Jornadas do público]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) ou [Divisão de decisão]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split). Você pode referenciar as propriedades diretamente nos grupos de filtro com o filtro **Variável de contexto**. Certifique-se de selecionar o tipo de dado correto.
 {% endalert %}
 
 {% endif %}
@@ -33,7 +33,7 @@ Para puxar imagens para itens de disparo de catálogo, seu catálogo deve inclui
 {% if include.alert == 'Export troubleshooting' %}
 
 {% alert tip %}
-Para obter ajuda com exportações de CSV e API, acesse [Resolução de problemas de exportação]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting).
+Para obter ajuda com exportações de CSV e API, acesse [Resolução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endif %}

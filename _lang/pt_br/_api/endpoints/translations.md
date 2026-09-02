@@ -77,11 +77,11 @@ guide_menu_list4:
 
 ## Como nossos endpoints de tradução funcionam {#how-our-translation-endpoints-work}
 
-Nossos endpoints de tradução funcionam com a [composição multilíngue]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings), onde uma mensagem pode ter diferentes versões que podem ser renderizadas dependendo do usuário que recebe a mensagem.
+Nossos endpoints de tradução funcionam com a [composição multilíngue]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings), em que uma mensagem pode ter versões diferentes que podem ser renderizadas dependendo do usuário que recebe a mensagem.
 
 ### Pré-requisitos {#prerequisites}
 
-Antes de usar esses endpoints, você deve [adicionar seus locais]({{site.baseurl}}/user_guide/administrative/app_settings/multi_language_settings#add-a-locale).
+Antes de usar esses endpoints, você deve [adicionar seus locais]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings#add-a-locale).
 
 ### Como testar suas traduções {#how-to-test-your-translations}
 
@@ -92,7 +92,7 @@ Existem duas maneiras de validar o suporte a traduções usando a API e o dashbo
 
 Antes de testar a atualização de traduções, você deve:
 
-1. [Adicionar seus locais]({{site.baseurl}}/user_guide/administrative/app_settings/multi_language_settings#add-a-locale).
-2. Criar uma mensagem e usar tags de tradução onde for apropriado.
+1. [Adicionar seus locais]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings#add-a-locale).
+2. Criar uma mensagem e usar tags de tradução quando apropriado.
 3. Salvar a mensagem.
 4. Selecionar os locais a serem incluídos.

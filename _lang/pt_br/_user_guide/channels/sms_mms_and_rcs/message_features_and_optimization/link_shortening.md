@@ -46,11 +46,11 @@ Os links encurtados da Braze sempre incluem o protocolo `https://` e não podem 
 
 Para usar o encurtamento de links, verifique se o botão de encurtamento de links no criador de mensagem está ativado. Em seguida, escolha usar rastreamento básico ou avançado.
 
-![Criador de mensagem com um botão de alternância para encurtamento de links.]({% image_buster /assets/img/link_shortening/legacy/temp_shortening1.png %})
+![Criador de mensagem com um botão de alternância para encurtamento de links.]({% image_buster /assets/img/link_shortening/legacy/temp_shortening1.png %}){: width="1614" height="994"}
 
 A Braze reconhece apenas URLs que começam com `http://` ou `https://`. Quando uma URL é reconhecida, a seção **Prévia** é atualizada com uma URL de espaço reservado. A Braze estima o comprimento da URL após o encurtamento, mas um aviso solicita que você selecione um usuário teste e salve a mensagem como rascunho para uma estimativa mais precisa.
 
-![Criador de mensagem com uma URL longa na caixa "Mensagem" e um link encurtado gerado na prévia.]({% image_buster /assets/img/link_shortening/legacy/temp_shortening3.png %})
+![Criador de mensagem com uma URL longa na caixa "Mensagem" e um link encurtado gerado na prévia.]({% image_buster /assets/img/link_shortening/legacy/temp_shortening3.png %}){: width="1569" height="516"}
 
 {% alert note %}
 Se você planeja usar o [filtro de canal inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel) do BrazeAI<sup>TM</sup> e deseja que os canais SMS e RCS sejam selecionáveis, ative o encurtamento de links com rastreamento avançado.
@@ -117,7 +117,7 @@ Para que os Canvas apareçam no filtro "Clicou no link encurtado de SMS", a etap
 Se um rascunho for criado dentro de um Canvas ativo, uma URL encurtada não será gerada. A URL encurtada real é gerada quando o rascunho do Canvas é ativado.
 {% endalert %}
 
-![Guia "Teste" da mensagem com campos para selecionar destinatários de teste.]({% image_buster /assets/img/link_shortening/legacy/temp_shortening2.png %})
+![Guia "Teste" da mensagem com campos para selecionar destinatários de teste.]({% image_buster /assets/img/link_shortening/legacy/temp_shortening2.png %}){: width="1569" height="947"}
 
 {% alert note %}
 A personalização Liquid e as URLs encurtadas são modeladas na guia **Teste** após a seleção de um usuário. Certifique-se de que um usuário esteja selecionado para receber uma contagem precisa de caracteres.
@@ -127,7 +127,7 @@ A personalização Liquid e as URLs encurtadas são modeladas na guia **Teste** 
 
 Quando o encurtamento de links está ativado, a tabela **Desempenho de SMS/MMS/RCS** inclui uma coluna intitulada **Total de cliques** que mostra uma contagem de eventos de clique por variante e uma taxa de cliques associada. **Total de cliques** exclui cliques suspeitos de bots das contagens do dashboard. Para saber mais sobre métricas, consulte [Desempenho da mensagem]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting) e [Filtragem de cliques de bots]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/bot_click_filtering).
 
-![Tabela de métricas de desempenho de SMS e MMS.]({% image_buster /assets/img/link_shortening/shortening4.png %})
+![Tabela de métricas de desempenho de SMS e MMS.]({% image_buster /assets/img/link_shortening/shortening4.png %}){: width="1586" height="191"}
 
 As tabelas **Desempenho histórico** e **Desempenho de SMS/MMS/RCS** também incluem uma opção para **Total de cliques** e mostram uma série temporal diária de eventos de clique. Os cliques são incrementados no redirecionamento (como quando um usuário visita um link) e podem ser incrementados mais de uma vez por usuário.
 

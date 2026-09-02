@@ -4,7 +4,7 @@ nav_title: Home
 article_title: Technologie-Partner
 alias: /partners/partners/
 search_tag: Partner
-description: "Durchsuchen Sie Braze-Technologie-Partner (Alloys) alphabetisch. Finden Sie Integrationsdokumentation für Personalisierung, Orchestrierung, Daten, E-Commerce, Audience Sync und mehr."
+description: "Durchsuchen Sie Braze-Technologie-Partner (Alloys) und Integrationsdokumentation für Personalisierung, Daten, E-Commerce und Audience Sync."
 ---
 
 # Technologie-Partner {#technology-partners}
@@ -15,7 +15,7 @@ description: "Durchsuchen Sie Braze-Technologie-Partner (Alloys) alphabetisch. F
 
 ### Wie finde ich eine Braze-Technologie-Partnerintegration? {#how-do-i-find-a-braze-technology-partner-integration}
 
-Durchsuchen Sie die alphabetische Liste auf dieser Seite oder springen Sie zu einer Buchstabenüberschrift, um einen Partner nach Namen zu finden. Jeder Eintrag verlinkt auf den Braze-Integrationsartikel des jeweiligen Partners.
+Durchsuchen Sie die alphabetische Liste auf dieser Seite oder springen Sie zu einer Buchstabenüberschrift, um einen Partner nach Namen zu finden. Jeder Eintrag verlinkt zum jeweiligen Braze-Integrationsartikel des Partners.
 
 ### Was ist Braze Alloys? {#what-is-braze-alloys}
 
@@ -413,9 +413,9 @@ Eine vollständige, durchsuchbare und filterbare Liste aller Braze-Technologie-P
 Wenn die Integration eine Einrichtung auf der Braze-Seite erfordert, melden Sie sich in Ihrem Braze-Dashboard an und navigieren Sie zu **Partnerintegrationen** > **Technologie-Partner**.
 
 {% alert note %}
-Vollständig vom Partner verwaltete Integrationen sind hier möglicherweise nicht aufgeführt. Lesen Sie die partnerspezifische Dokumentation, um die Zuständigkeit für die Integration und die Konfigurationsschritte zu überprüfen.
+Vollständig partnereigene Integrationen sind hier möglicherweise nicht aufgeführt. Lesen Sie die partnerspezifische Dokumentation, um die Zuständigkeit für die Integration und die Konfigurationsschritte zu überprüfen.
 {% endalert %}
 
 Wenn Sie für einen Partner in Braze **Ungültige Zugangsdaten** sehen, die Integration im Dashboard des Partners aber korrekt aussieht, trennen Sie die Integration auf der Technologie-Partnerseite und verbinden Sie sie erneut. Bestätigen Sie API-Schlüssel, OAuth-Token und Berechtigungen auf der Partnerseite.
 
-Einige externe Dashboards (z. B. Tools für Zustellbarkeit oder Posteingangs-Monitoring) können einen anderen Verbindungs- oder Verifizierungsstatus anzeigen als die Braze-Technologie-Partnerseite. Verwenden Sie die Partner-Kachel in Braze für den Verbindungsstatus, auf den sich Braze für Synchronisierung und Versand stützt.
+Einige externe Dashboards (z. B. Tools zur Zustellbarkeits- oder Posteingangsüberwachung) können einen anderen Verbindungs- oder Verifizierungsstatus anzeigen als die Braze-Technologie-Partnerseite. Verwenden Sie die Partner-Kachel in Braze für den Verbindungsstatus, auf den sich Braze für Synchronisierung und Versand stützt.

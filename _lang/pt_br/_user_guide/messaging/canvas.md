@@ -8,7 +8,7 @@ guide_top_text: "Marketing é uma ciência que precisa de um toque artístico e 
 search_rank: 3
 page_type: landing
 tool: Canvas
-description: "Esta landing page reúne artigos sobre o Canvas. Aqui, você encontrará recursos sobre como criar Canvas, usar componentes do Canvas, gerenciar e testar Canvas e aplicar diversas ideias e estratégias."
+description: "Recursos para criar Canvas, usar componentes do Canvas, gerenciar e testar Canvas e aplicar estratégias de engajamento."
 
 guide_featured_title: "Seções"
 guide_featured_list:

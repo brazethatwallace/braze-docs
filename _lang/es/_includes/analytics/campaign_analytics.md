@@ -1,17 +1,17 @@
 ## Ver análisis {#viewing-analytics}
 
-Una vez que hayas lanzado tu campaña, puedes volver a la página de detalles de esa campaña para ver las métricas clave. Ve a la página **Campaigns** y selecciona tu campaña para abrir la página de detalles.{% if include.channel != "banner" %} Para {% if include.channel == "Content Card" %}Content Cards {% elsif include.channel == "banner" %}banners {% elsif include.channel == "email" %}correos electrónicos {% elsif include.channel == "in-app message" %}mensajes dentro de la aplicación {% elsif include.channel == "KakaoTalk" %}mensajes de KakaoTalk {% elsif include.channel == "push" %}mensajes push {% elsif include.channel == "SMS" %}mensajes SMS {% elsif include.channel == "whatsapp" %}mensajes de WhatsApp {% elsif include.channel == "webhook" %}webhooks {% endif %}enviados en Canvas, consulta [Análisis de Canvas]({{site.baseurl}}/user_guide/engagement_tools/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics).{% endif %}
+Una vez que hayas lanzado tu campaña, puedes volver a la página de detalles de esa campaña para ver las métricas clave. Ve a la página **Campaigns** y selecciona tu campaña para abrir la página de detalles.{% if include.channel != "banner" %} Para {% if include.channel == "Content Card" %}Content Cards {% elsif include.channel == "banner" %}banners {% elsif include.channel == "email" %}correos electrónicos {% elsif include.channel == "in-app message" %}mensajes dentro de la aplicación {% elsif include.channel == "KakaoTalk" %}mensajes de KakaoTalk {% elsif include.channel == "push" %}mensajes push {% elsif include.channel == "SMS" %}mensajes SMS {% elsif include.channel == "whatsapp" %}mensajes de WhatsApp {% elsif include.channel == "webhook" %}webhooks {% endif %}enviados en Canvas, consulta [Análisis de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics).{% endif %}
 
 {% alert tip %}
 ¿Buscas definiciones de los términos y métricas que aparecen en tu informe? Consulta nuestro
-  {% if include.channel == "email" %}[Glosario de análisis de correo electrónico]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/analytics_glossary)
-  {% elsif include.channel == "banner" %}[Glosario de métricas de informes]({{site.baseurl}}/user_guide/data/report_metrics) y filtra por Banners.
-  {% elsif include.channel == "Content Card" %}[Glosario de métricas de informes]({{site.baseurl}}/user_guide/data/report_metrics) y filtra por Content Cards.
-  {% elsif include.channel == "in-app message" %}[Glosario de métricas de informes]({{site.baseurl}}/user_guide/data/report_metrics) y filtra por mensaje dentro de la aplicación.
-  {% elsif include.channel == "push" %}[Glosario de métricas de informes]({{site.baseurl}}/user_guide/data/report_metrics) y filtra por Push.
-  {% elsif include.channel == "SMS" %}[Glosario de métricas de informes]({{site.baseurl}}/user_guide/data/report_metrics) y filtra por SMS/MMS y RCS.
-  {% elsif include.channel == "whatsapp" %}[Glosario de métricas de informes]({{site.baseurl}}/user_guide/data/report_metrics) y filtra por WhatsApp.
-  {% elsif include.channel == "webhook" %}[Glosario de métricas de informes]({{site.baseurl}}/user_guide/data/report_metrics) y filtra por Webhook.{% endif %}
+  {% if include.channel == "email" %}[Glosario de análisis de correo electrónico]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary)
+  {% elsif include.channel == "banner" %}[Glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary) y filtra por Banners.
+  {% elsif include.channel == "Content Card" %}[Glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary) y filtra por Content Cards.
+  {% elsif include.channel == "in-app message" %}[Glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary) y filtra por mensaje dentro de la aplicación.
+  {% elsif include.channel == "push" %}[Glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary) y filtra por Push.
+  {% elsif include.channel == "SMS" %}[Glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary) y filtra por SMS/MMS y RCS.
+  {% elsif include.channel == "whatsapp" %}[Glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary) y filtra por WhatsApp.
+  {% elsif include.channel == "webhook" %}[Glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary) y filtra por Webhook.{% endif %}
 {% endalert %}
 
 Desde la pestaña **Campaign Analytics**, puedes ver tus informes en una serie de paneles. Puede que veas más o menos de los que se enumeran en las secciones siguientes, pero cada uno tiene su propia utilidad.
@@ -244,7 +244,7 @@ Si faltan imágenes en una exportación, trabaja con tus desarrolladores para qu
 
 #### Métricas de la tarjeta de contenido {#content-card-metrics}
 
-Aquí tienes un desglose de algunas métricas clave que puedes ver al revisar el rendimiento de tus mensajes. Para ver las definiciones completas de todas las métricas de Content Cards, consulta el [Glosario de métricas de informes]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics) y filtra por Content Cards.
+Aquí tienes un desglose de algunas métricas clave que puedes ver al revisar el rendimiento de tus mensajes. Para ver las definiciones completas de todas las métricas de Content Cards, consulta el [Glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary) y filtra por Content Cards.
 
 <style>
     .no-split {
@@ -319,7 +319,7 @@ Tus _Messages Sent_ se refieren a las Content Cards disponibles para ser vistas,
 
 Estas son las métricas clave de seguimiento al revisar el rendimiento de tu campaña de banner. Los clics y las impresiones de los banners se registran automáticamente con el SDK.
 
-Para obtener las definiciones completas de todas las métricas de banners, consulta el [Glosario de métricas de informes]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics) y filtra por Banners.
+Para obtener las definiciones completas de todas las métricas de banners, consulta el [Glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary) y filtra por Banners.
 
 <style>
     .no-split {
@@ -399,7 +399,7 @@ Tanto las impresiones de control como las de variante requieren que la ubicació
 
 #### Métricas de correo electrónico {#email-metrics}
 
-Aquí tienes algunas métricas clave específicas del correo electrónico que no verás en otros canales. Para ver las definiciones completas de todas las métricas de correo electrónico utilizadas en Braze, consulta nuestro [Glosario de análisis de correo electrónico]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/analytics_glossary).
+Aquí tienes algunas métricas clave específicas del correo electrónico que no verás en otros canales. Para ver las definiciones completas de todas las métricas de correo electrónico utilizadas en Braze, consulta nuestro [Glosario de análisis de correo electrónico]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary).
 
 <style>
     .no-split {
@@ -522,7 +522,7 @@ Algunos productos de seguridad de correo electrónico siguen los enlaces para bu
 
 ##### Aplazamientos {#deferrals}
 
-Diferido o aplazamiento es cuando un correo electrónico no se entregó inmediatamente, pero Braze reintenta el correo electrónico a través de tu ESP después de este fallo de entrega temporal para maximizar las posibilidades de entrega exitosa antes de que se detengan los intentos para esa campaña específica. SendGrid y SparkPost reintentan durante un máximo de 72 horas; Amazon SES reintenta durante un máximo de 14 horas. Las razones típicas de los aplazamientos incluyen la limitación de la tasa de volumen de correo electrónico basada en la reputación por parte del proveedor de correo, problemas temporales de conectividad o errores de DNS.
+Un aplazamiento se produce cuando un correo electrónico no se entrega inmediatamente, pero Braze reintenta el envío a través de tu ESP después de este fallo de entrega temporal para maximizar las posibilidades de entrega exitosa antes de que se detengan los intentos para esa campaña específica. SendGrid y SparkPost reintentan durante un máximo de 72 horas; Amazon SES reintenta durante un máximo de 14 horas. Las razones típicas de los aplazamientos incluyen la limitación de la tasa de volumen de correo electrónico basada en la reputación por parte del proveedor del buzón, problemas temporales de conectividad o errores de DNS.
 
 Los _aplazamientos_ difieren de los _rebotes blandos_. Si no se entregó correctamente ningún correo electrónico durante este periodo de reintento, Braze enviará un evento de rebote blando por cada intento de envío de campaña. Antes del 25 de febrero de 2025, estos reintentos se contabilizaban como múltiples rebotes blandos para 1 envío de campaña.
 
@@ -551,9 +551,9 @@ Además, el uso de herramientas de escaneo de seguridad puede inflar las tasas d
 En última instancia, una vez que un correo electrónico sale de nuestros servidores, tenemos una visibilidad limitada de lo que ocurre a continuación, pero aquí tienes algunas recomendaciones para gestionar la INH que afecta a tus resultados:
 
 1. Ten en cuenta que esto puede ocurrirle a cualquier remitente y a casi cualquier destinatario. Los clics, al igual que las aperturas, no son indicadores del todo fiables de la interacción humana con tus mensajes, lo que significa que la INH no se puede prevenir.
-2. Una mayor interacción positiva tiende a correlacionarse con una INH más baja, por lo que es importante seguir las [mejores prácticas]({{site.baseurl}}/user_guide/message_building_by_channel/email/best_practices) de mensajería por correo electrónico. Esto incluye obtener el permiso explícito de tus usuarios para enviar correos electrónicos y dar de baja a los suscriptores no comprometidos con una cadencia regular.
+2. Una mayor interacción positiva tiende a correlacionarse con una INH más baja, por lo que es importante seguir las [mejores prácticas]({{site.baseurl}}/user_guide/channels/email/best_practices) de mensajería por correo electrónico. Esto incluye obtener el permiso explícito de tus usuarios para enviar correos electrónicos y dar de baja a los suscriptores no comprometidos con una cadencia regular.
 3. Utiliza enlaces HTTPS en tus correos electrónicos siempre que sea posible. La INH es menos frecuente para los remitentes que utilizan enlaces seguros.
-4. Si utilizas un proceso para cancelar la suscripción con un solo clic, considera la posibilidad de crear un [centro de preferencias]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview) que dirija a los usuarios a una página para editar y administrar sus preferencias de notificación. Esto puede ser útil porque la INH puede cancelar suscripciones de usuarios inadvertidamente.
+4. Si utilizas un proceso para cancelar la suscripción con un solo clic, considera la posibilidad de crear un [centro de preferencias]({{site.baseurl}}/user_guide/channels/email/subscriptions) que dirija a los usuarios a una página para editar y administrar sus preferencias de notificación. Esto puede ser útil porque la INH puede cancelar suscripciones de usuarios inadvertidamente.
 5. Considera la posibilidad de utilizar [otras métricas]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/email_reporting#email-performance) para medir el éxito de tu marketing por correo electrónico, como las conversiones, las sesiones de la aplicación o las visitas al sitio web.
 6. Añade un enlace oculto en tus campañas de correo electrónico. Este enlace sería algo que un humano no notaría, como texto blanco sobre blanco o un signo de puntuación. Los bots tienden a hacer clic en todos los enlaces, por lo que puedes concluir que los usuarios que generan eventos de clic en el enlace invisible son en realidad el resultado de INH, por lo que la apertura o el clic no indican necesariamente una interacción positiva.
 
@@ -561,7 +561,7 @@ En última instancia, una vez que un correo electrónico sale de nuestros servid
 
 #### Métricas de mensajes dentro de la aplicación {#in-app-message-metrics}
 
-Aquí tienes algunas métricas clave de los mensajes dentro de la aplicación que puedes ver en tus análisis. Para ver las definiciones completas de todas las métricas de mensajes dentro de la aplicación utilizadas en Braze, consulta nuestro [Glosario de métricas de informes]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics).
+Aquí tienes algunas métricas clave de los mensajes dentro de la aplicación que puedes ver en tus análisis. Para ver las definiciones completas de todas las métricas de mensajes dentro de la aplicación utilizadas en Braze, consulta nuestro [Glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
 {% alert note %}
 Los informes sobre _Button 1 Clicks_ y _Button 2 Clicks_ solo funcionan cuando especificas el **Identifier for Reporting** como "0" y "1" respectivamente en el mensaje dentro de la aplicación.
@@ -633,7 +633,7 @@ La distribución entre los grupos de control y variante está pensada para ser a
 
 ### Métricas de KakaoTalk {#kakaotalk-metrics}
 
-Aquí tienes algunas métricas clave de KakaoTalk que puedes ver en tus análisis. Para más detalles, consulta el [Glosario de métricas de informes]({{site.baseurl}}/user_guide/data/report_metrics).
+Aquí tienes algunas métricas clave de KakaoTalk que puedes ver en tus análisis. Para más detalles, consulta el [Glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
 {% alert note %}
 Actualmente, las estadísticas de audiencia estimada o exacta no están disponibles para las campañas de KakaoTalk.
@@ -654,7 +654,7 @@ Actualmente, las estadísticas de audiencia estimada o exacta no están disponib
 
 #### Métricas push {#push-metrics}
 
-Aquí tienes un desglose de algunas métricas clave que puedes ver al revisar el rendimiento de tus mensajes. Para ver las definiciones completas de todas las métricas push, consulta el [Glosario de métricas de informes]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics) y filtra por push.
+Aquí tienes un desglose de algunas métricas clave que puedes ver al revisar el rendimiento de tus mensajes. Para ver las definiciones completas de todas las métricas push, consulta el [Glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary) y filtra por push.
 
 <style>
     .no-split {
@@ -773,7 +773,7 @@ Firebase Cloud Messaging (FCM) puede rebotar en tres casos:
 
 #### Métricas de SMS, MMS y RCS {#sms-mms-and-rcs-metrics}
 
-Aquí tienes un desglose de algunas métricas clave que puedes ver al revisar el rendimiento de tus mensajes. Para obtener las definiciones completas de todas las métricas de SMS, MMS y RCS, consulta el [Glosario de métricas de informes]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics) y filtra por SMS/MMS y RCS.
+Aquí tienes un desglose de algunas métricas clave que puedes ver al revisar el rendimiento de tus mensajes. Para obtener las definiciones completas de todas las métricas de SMS, MMS y RCS, consulta el [Glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary) y filtra por SMS/MMS y RCS.
 
 <style>
     .no-split {
@@ -825,7 +825,7 @@ Aquí tienes un desglose de algunas métricas clave que puedes ver al revisar el
 
 #### Métricas del webhook {#webhook-metrics}
 
-Aquí tienes algunas métricas clave de webhook que puedes ver en tus análisis. Para ver las definiciones completas de todas las métricas de webhook utilizadas en Braze, consulta nuestro [Glosario de métricas de informes]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics).
+Aquí tienes algunas métricas clave de webhook que puedes ver en tus análisis. Para ver las definiciones completas de todas las métricas de webhook utilizadas en Braze, consulta nuestro [Glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
 <style>
     .no-split {
@@ -861,7 +861,7 @@ Aquí tienes algunas métricas clave de webhook que puedes ver en tus análisis.
 
 #### Métricas de WhatsApp {#whatsapp-metrics}
 
-Aquí tienes algunas métricas clave de WhatsApp que puedes ver en tus análisis. Para ver las definiciones completas de todas las métricas de WhatsApp utilizadas en Braze, consulta nuestro [Glosario de métricas de informes]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics).
+Aquí tienes algunas métricas clave de WhatsApp que puedes ver en tus análisis. Para ver las definiciones completas de todas las métricas de WhatsApp utilizadas en Braze, consulta nuestro [Glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
 <style>
     .no-split {
@@ -929,7 +929,7 @@ El panel **Keyword Responses** te muestra una cronología de las palabras clave 
 
 ![Panel de respuestas a palabras clave SMS/MMS/RCS a nivel de campaña que incluye un gráfico lineal de la distribución de palabras clave a lo largo del tiempo y una sección de categorías de palabras clave con casillas de verificación seleccionadas para adhesión voluntaria, cancelación de suscripción, ayuda, otros, más y asesoramiento.]({% image_buster /assets/img/sms/keyword_responses.png %})
 
-Aquí también puedes ver la distribución de la respuesta de cada categoría de palabras clave para determinar los próximos pasos para [reorientar]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/retargeting_campaigns) y [crear un segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment) cómodamente.
+Aquí también puedes ver la distribución de la respuesta de cada categoría de palabras clave para determinar los próximos pasos para [reorientar]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns) y [crear un segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) cómodamente.
 
 ![Una tabla con columnas para categoría de palabras clave, distribución de respuestas y reorientación, donde se te ofrece la opción de crear un segmento con la categoría de palabras clave.]({% image_buster /assets/img/sms/keyword_segments.png %})
 
@@ -943,7 +943,7 @@ El panel **Conversion Event Details** te muestra el rendimiento de los eventos d
 
 ### Correlación de conversión {#conversion-correlation}
 
-El panel **Conversion Correlation** te da información sobre qué atributos y comportamientos de los usuarios ayudan o perjudican los resultados que estableces para las campañas. Para más información, consulta [Correlación de conversión]({{site.baseurl}}/user_guide/engagement_tools/testing/conversion_correlation).
+El panel **Conversion Correlation** te da información sobre qué atributos y comportamientos de los usuarios ayudan o perjudican los resultados que estableces para las campañas. Para más información, consulta [Correlación de conversión]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/conversion_correlation).
 
 ![El panel Conversion Correlation con un análisis de los atributos y el comportamiento de los usuarios a partir del evento de conversión primaria - A.]({% image_buster /assets/img/convcorr.png %})
 
@@ -951,7 +951,7 @@ El panel **Conversion Correlation** te da información sobre qué atributos y co
 
 ## Generador de informes {#report-builder}
 
-También puedes usar el [Generador de informes]({{site.baseurl}}/user_guide/analytics/reporting/report_builder) para crear informes personalizados para tus campañas de KakaoTalk. Al crear un informe, puedes filtrar para incluir solo campañas de KakaoTalk seleccionando **KakaoTalk** en **Channels**, o filtrando por cualquier etiqueta que hayas aplicado a tus campañas de KakaoTalk.
+También puedes usar el [generador de informes]({{site.baseurl}}/user_guide/analytics/reports/report_builder) para crear informes personalizados para tus campañas de KakaoTalk. Al crear un informe, puedes filtrar para incluir solo campañas de KakaoTalk seleccionando **KakaoTalk** en **Channels**, o filtrando por cualquier etiqueta que hayas aplicado a tus campañas de KakaoTalk.
 
 {% endif %}
 
@@ -959,7 +959,7 @@ También puedes usar el [Generador de informes]({{site.baseurl}}/user_guide/anal
 
 ### Análisis de Meta {#meta-analytics}
 
-Además de los análisis de Braze, se puede acceder a los análisis a nivel de plantilla en el administrador de WhatsApp Business. Para más información, consulta [la documentación de Meta](https://www.facebook.com/business/help/218116047387456).
+Además de los análisis de Braze, se puede acceder a los análisis a nivel de plantilla en el administrador de WhatsApp Business. Para más información, consulta la [documentación de Meta](https://www.facebook.com/business/help/218116047387456).
 
 {% endif %}
 
@@ -979,12 +979,12 @@ Los mensajes entrantes se truncan a partir de 1600 caracteres.
 
 ## Informe de retención {#retention-report}
 
-Los informes de retención muestran las tasas a las que tus usuarios han realizado un evento de retención seleccionado a lo largo de períodos de tiempo en una campaña específica{% if include.channel != "banner" %} o Canvas{% endif %}. Para más información, consulta [Informes de retención]({{site.baseurl}}/user_guide/analytics/reporting/retention_reports).
+Los informes de retención muestran las tasas a las que tus usuarios han realizado un evento de retención seleccionado a lo largo de períodos de tiempo en una campaña específica{% if include.channel != "banner" %} o Canvas{% endif %}. Para más información, consulta [Informes de retención]({{site.baseurl}}/user_guide/analytics/reports/retention_reports).
 
 ## Informe de embudo {#funnel-report}
 
 Los informes de embudo ofrecen un informe visual que te permite analizar los recorridos que realizan tus clientes después de recibir una campaña{% if include.channel != "banner" %} o Canvas{% endif %}. Si tu campaña {% if include.channel != "banner" %}o Canvas {% endif %}utiliza un grupo de control o varias variantes, podrás comprender cómo las diferentes variantes han influido en el embudo de conversión a un nivel más detallado y optimizar en función de estos datos.
 
-Para más información, consulta [Informes de embudo]({{site.baseurl}}/user_guide/analytics/reporting/funnel_reports).
+Para más información, consulta [Informes de embudo]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports).
 
 {% endif %}

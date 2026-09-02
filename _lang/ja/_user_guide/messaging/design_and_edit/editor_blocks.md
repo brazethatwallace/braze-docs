@@ -515,7 +515,7 @@ After you add a **Countdown timer** block, use the properties panel to set the t
 
 ### 購読管理 {#manage-subscriptions}
 
-訪問者がフォーム送信時に購読のオプトインや管理ができるよう、[メール購読グループ]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups)のチェックリストを追加します。ブロックに購読グループを追加した後に設定します。このブロックはメール購読グループのみをサポートしており、SMS、RCS、またはWhatsApp購読グループはサポートしていません。
+訪問者がフォーム送信時に購読のオプトインや管理ができるよう、[メール]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups)、[SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#sms-subscription-states)、または[WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-subscription-states)購読グループのチェックリストを追加します。各ブロックは1つのチャネル用です。ブロックに購読グループを追加した後に設定してください。このブロックはRCS購読グループをリストしません。
 
 ランディングページの[Liquidタグ]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users)を通じてページを開いた識別済みユーザーの場合、ブロックは各チェックボックスにユーザーの現在の購読状態を事前入力するため、ユーザー設定管理ページとしても機能します。
 

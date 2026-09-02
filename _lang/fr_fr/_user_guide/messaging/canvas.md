@@ -4,11 +4,11 @@ article_title: Canvas
 layout: dev_guide
 page_order: 3
 guide_top_header: "Canvas"
-guide_top_text: "Le marketing est une science qui nécessite une touche artistique et des outils spécialisés. Avec Canvas, vous pouvez allier rigueur et créativité pour concevoir des expériences pertinentes et engageantes pour chaque client. Canvas est une interface unifiée où les marketeurs créent des Campaigns comportant plusieurs messages — un générateur de parcours visuel qui connecte les étapes en un flux utilisateur cohérent. Les articles de cette section vous guideront dans la création, la construction, le test et l'optimisation de vos Canvas. Vous pouvez également consulter notre <a href='https://learning.braze.com/canvas-course'>cours d'apprentissage Canvas sur Braze</a> !"
+guide_top_text: "Le marketing est une science qui nécessite une touche artistique et des outils spécialisés. Avec Canvas, vous pouvez allier rigueur et créativité pour concevoir des expériences pertinentes et engageantes pour chaque client. Canvas est une interface unifiée où les marketeurs créent des Campaigns comportant plusieurs messages — un générateur de parcours visuel qui connecte les étapes en un flux utilisateur cohérent. Les articles de cette section vous guideront dans la création, la construction, le test et l'optimisation de vos Canvas. Vous pouvez également consulter notre <a href='https://learning.braze.com/canvas-course'>cours d'apprentissage Canvas sur Braze Learning</a> !"
 search_rank: 3
 page_type: landing
 tool: Canvas
-description: "Cette page d'accueil regroupe les articles consacrés à Canvas. Vous y trouverez des ressources pour créer des Canvas, utiliser les composants Canvas, gérer et tester vos Canvas, et mettre en œuvre différentes idées et stratégies."
+description: "Ressources pour créer des Canvas, utiliser les composants Canvas, gérer et tester vos Canvas, et mettre en œuvre des stratégies d'engagement."
 
 guide_featured_title: "Sections"
 guide_featured_list:

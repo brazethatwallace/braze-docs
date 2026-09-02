@@ -44,7 +44,7 @@ Pour utiliser cet endpoint, vous aurez besoin d'un jeton SCIM. Vous utiliserez l
 Braze ne prend en charge que les filtres de correspondance exacte sur `userName` avec l'opérateur `eq`. Les autres champs ou opérateurs de filtre SCIM renvoient une réponse `400`.
 {% endalert %}
 
-## Paramètres de la requête {#request-parameters}
+## En-têtes de la requête {#request-parameters}
 
 ```http
 Content-Type: application/json
@@ -53,7 +53,7 @@ Authorization: Bearer YOUR-SCIM-TOKEN-HERE
 ```
 
 {% alert note %}
-Si vous recevez une réponse `401`, vérifiez que vous utilisez un jeton SCIM (et non une clé API REST), que `X-Request-Origin` correspond à l'origine de votre service et que votre adresse IP figure sur la liste d'autorisation SCIM. Pour plus de détails, consultez la section [Provisionnement automatisé des utilisateurs]({{site.baseurl}}/scim/automated_user_provisioning).
+Si vous recevez une réponse `401`, vérifiez que vous utilisez un jeton SCIM (et non une clé REST API), que `X-Request-Origin` correspond à l'origine de votre service et que votre adresse IP figure sur la liste d'autorisation SCIM. Pour plus de détails, consultez la section [Provisionnement automatisé des utilisateurs]({{site.baseurl}}/scim/automated_user_provisioning).
 {% endalert %}
 
 ## Exemple de requête {#example-request}
@@ -121,7 +121,7 @@ curl --location --request GET \ 'https://rest.iad-01.braze.com/scim/v2/Users?fil
 | `department` | Chaîne de caractères | Le département de l'utilisateur, s'il est défini. |
 | `createdAt` | Chaîne de caractères | Date de création du compte utilisateur. Renvoie `N/A` si non définie ; sinon formatée comme `YYYY Mon DD, H:MM AM/PM`. |
 | `lastSignInAt` | Chaîne de caractères | Date de la dernière connexion de l'utilisateur. Renvoie `N/A` si l'utilisateur ne s'est jamais connecté ; sinon formatée comme `YYYY Mon DD, H:MM AM/PM`. |
-| `permissions` | Objet | Autorisations de l'entreprise, de l'espace de travail, de l'équipe et des rôles. Consultez l'[objet des autorisations]({{site.baseurl}}/scim_api_appendix). |
+| `permissions` | Objet | Autorisations de l'entreprise, de l'espace de travail, de l'équipe et des rôles. Consultez l'[objet des autorisations]({{site.baseurl}}/api/objects_filters/scim_api_appendix). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Champs de l'objet utilisateur" }
 
 ### États d'erreur {#error-states}

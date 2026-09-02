@@ -11,35 +11,35 @@ noindex: true
 
 _Data de revisão: 30 de março de 2026_
 
-## O que está incluído na documentação de conformidade? {#what-is-included-in-the-compliance-documentation}
+## O que está incluído na Documentação de Conformidade? {#what-is-included-in-the-compliance-documentation}
 
-A documentação de conformidade abaixo estabelece os termos específicos aplicáveis ao produto, canal, recurso, funcionalidade ou serviço adquirido:
+A Documentação de Conformidade abaixo estabelece termos específicos aplicáveis ao produto, canal, recurso, funcionalidade ou serviço adquirido:
 
-- Para a funcionalidade dos Serviços da Braze que permite que os clientes interajam, se integrem ou acessem o produto, site, aplicativo ou serviço de um Prestador de Serviços Terceirizado, a documentação de conformidade contém os termos do Prestador de Serviços Terceirizado aplicáveis ao seu uso de tal funcionalidade; e
+- Para funcionalidades dos Serviços da Braze que permitem aos clientes interagir, integrar ou acessar o produto, site, aplicativo ou serviço de um Provedor Terceiro, a Documentação de Conformidade contém os termos do Provedor Terceiro aplicáveis ao uso dessa funcionalidade; e
 - Quaisquer práticas e padrões gerais do setor que os clientes da Braze devem cumprir para o uso de tal produto, canal, recurso, funcionalidade ou serviço da Braze.
 
 ## Atualizações na documentação de conformidade {#updates-to-the-compliance-documentation}
 
-Você pode se inscrever para receber atualizações da nossa documentação (incluindo a documentação de conformidade) através do [repositório GitHub da Braze](https://github.com/braze-inc/release-notes).
+Você pode se inscrever para receber atualizações da nossa documentação (incluindo a documentação de conformidade) por meio do [repositório GitHub da Braze](https://github.com/braze-inc/release-notes).
 
 ## Documentação de conformidade para canais, integrações e recursos específicos {#compliance-documentation-for-specific-channels-integrations-and-features}
 
-Abaixo está a lista dos nossos produtos, canais, recursos, funcionalidades e serviços que possuem documentação de conformidade aplicável. Se você estiver usando múltiplos produtos, toda a documentação de conformidade relevante se aplica.
+Abaixo está a lista dos nossos produtos, canais, recursos, funcionalidades e serviços que possuem documentação de conformidade aplicável. Se você estiver usando vários produtos, toda a documentação de conformidade relevante se aplica.
 
 ### Termos gerais {#general-terms}
 
-Sem limitar quaisquer obrigações do Cliente nos termos do Contrato, e para evitar dúvidas, o Cliente será o único responsável por obter todos os direitos, consentimentos e autorizações necessários e por fornecer avisos de privacidade legalmente adequados em conexão com seu uso, bem como por obter todos os consentimentos e autorizações legalmente exigidos para o uso dos Canais e Recursos listados abaixo.
+Sem limitar quaisquer obrigações do Cliente nos termos do Contrato, e para fins de clareza, o Cliente será o único responsável por obter todos os direitos, consentimentos e autorizações necessários e por fornecer avisos de privacidade legalmente adequados em relação ao seu uso, além de obter todos os consentimentos e autorizações legalmente exigidos para o uso dos canais e recursos listados abaixo.
 
 ## Canais e recursos {#channels-and-features}
 
-1. [Canal de mensagens para celular](#mobile-messages-channel)
+1. [Canal de mensagens mobile](#mobile-messages-channel)
 2. [Canal de webhooks](#webhooks-channel)
-3. [Documentação de conformidade do canal do WhatsApp](#hatsapp-channel-compliance-documentation)
+3. [Documentação de conformidade do canal WhatsApp](#hatsapp-channel-compliance-documentation)
 4. [Documentação de conformidade do canal LINE](#line-channel-compliance-documentation)
-5. [Documentação de conformidade da integração Shopify](#shopify-integration-compliance-documentation)
+5. [Documentação de conformidade da integração com Shopify](#shopify-integration-compliance-documentation)
 6. [Documentação de conformidade do Audience Sync](#audience-sync-compliance-documentation)
 7. [Documentação de conformidade de arquivamento de mensagens e criptografia em nível de campo](#message-archiving-and-field-level-encryption-compliance-documentation)
-8. [Documentação de conformidade do Console do agente](#agent-console-compliance-documentation)
+8. [Documentação de conformidade do Agent Console](#agent-console-compliance-documentation)
 9. [Documentação de conformidade do canal KakaoTalk](#kakaotalk-channel-compliance-documentation)
 
 ## 1. Canal de mensagens para celular {#mobile-messages-channel}
@@ -98,19 +98,19 @@ A Braze se isenta de toda responsabilidade com relação ao uso de webhooks pelo
 
 ## 3. Documentação de conformidade do canal do WhatsApp {#whatsapp-channel-compliance-documentation}
 
-Os seguintes termos adicionais se aplicam em relação ao uso do Canal do WhatsApp pelo Cliente:
+Os seguintes termos adicionais se aplicam em relação ao uso do canal do WhatsApp pelo cliente:
 
 ### Termos aplicáveis do prestador de serviços terceirizado {#applicable-third-party-provider-terms}
 
-O Cliente deve cumprir quaisquer pré-requisitos, termos e políticas aplicáveis ao Canal do WhatsApp, incluindo quaisquer termos exigidos pelo WhatsApp, LLC e suas afiliadas do grupo, conforme descrito na página de [configuração do WhatsApp]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/overview/) da Braze.
+O cliente deve cumprir quaisquer pré-requisitos, termos e políticas aplicáveis ao canal do WhatsApp, incluindo quaisquer termos exigidos pelo WhatsApp, LLC e suas afiliadas do grupo, conforme descrito na página de [configuração do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup) da Braze.
 
 ### Termos de exceção para uso de webhooks
 
-O Cliente não pode usar webhooks para acionar o envio de mensagens pelo Canal do WhatsApp, a menos que seja para fins de suporte ao cliente, como casos de uso de chat assistido por humanos e/ou casos de uso de chatbot.
+O cliente não pode usar webhooks para disparar o envio de mensagens pelo canal do WhatsApp, a menos que seja para fins de suporte ao cliente, como casos de uso de chat assistido por humanos e/ou casos de uso de chatbot.
 
 ### Bring Your Own (BYO) WhatsApp Connector
 
-Os Clientes podem conectar suas contas diretas do WhatsApp com a Braze usando o "BYO WhatsApp Connector".
+Os clientes podem conectar suas contas diretas do WhatsApp com a Braze usando o "BYO WhatsApp Connector".
 
 ## 4. Documentação de conformidade do canal LINE {#line-channel-compliance-documentation}
 
@@ -126,7 +126,6 @@ Ao usar o Canal LINE, o Cliente concorda em cumprir e estar vinculado, conforme 
 
 Não obstante qualquer disposição em contrário nos Termos do LINE, o Cliente permanece primariamente responsável pelo seu uso dos serviços LINE.
 
-
 ## 5. Documentação de conformidade da integração Shopify {#shopify-integration-compliance-documentation}
 
 Os seguintes termos adicionais se aplicam em relação ao uso da integração Shopify pelo Cliente em conexão com os Serviços da Braze ("**Integração Shopify**"):
@@ -135,15 +134,15 @@ O Cliente concorda em cumprir e estar vinculado a quaisquer termos e condições
 
 O Cliente reconhece que a Shopify pode, a qualquer momento e a seu exclusivo critério: (i) exigir que a Braze desabilite ou bloqueie o acesso do Cliente à Integração Shopify; ou (ii) deixar de fornecer, suspender ou encerrar o acesso do Cliente à Integração Shopify. A Braze não terá responsabilidade com relação à Shopify deixar de fornecer acesso à Integração Shopify ao Cliente ou por meio dos Serviços da Braze de forma geral.
 
-## 6. Documentação de conformidade do Audience Sync {#audience-sync-compliance-documentation}
+## 6. Documentação de conformidade do Audience Sync {audience-sync-compliance-documentation} {#6-audience-sync-compliance-documentation-audience-sync-compliance-documentation}
 
 Os seguintes termos adicionais se aplicam ao uso do Audience Sync pelo Cliente.
 
-### Termos aplicáveis do prestador de serviços terceirizado
+### Termos aplicáveis de provedores terceiros
 
-O Cliente concorda em cumprir e estar vinculado a quaisquer termos e condições, políticas, diretrizes e documentação aplicáveis dos Prestadores de Serviços Terceirizados que o Cliente utiliza em conexão com quaisquer integrações do Audience Sync.
+O Cliente concorda em cumprir e estar vinculado a quaisquer termos e condições, políticas, diretrizes e documentação aplicáveis dos provedores terceiros que o Cliente utiliza em conexão com quaisquer integrações do Audience Sync.
 
-O Cliente reconhece que os Prestadores de Serviços Terceirizados podem revisar, examinar e/ou remover quaisquer dados, anúncios ou conteúdo utilizados em conexão com seus serviços.
+O Cliente reconhece que os provedores terceiros podem revisar, filtrar e/ou remover quaisquer dados, anúncios ou conteúdos utilizados em conexão com seus serviços.
 
 ## 7. Documentação de conformidade de arquivamento de mensagens e criptografia em nível de campo {#message-archiving-and-field-level-encryption-compliance-documentation}
 

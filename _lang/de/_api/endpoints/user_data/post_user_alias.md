@@ -6,7 +6,6 @@ page_order: 1
 layout: api_page
 page_type: reference
 description: "Dieser Artikel beschreibt Details zum Braze-Endpunkt „Neuen Nutzer-Alias erstellen“."
-
 ---
 {% api %}
 # Neuen Nutzer-Alias erstellen {#create-new-user-alias}
@@ -34,7 +33,7 @@ Wenn Sie eine Anfrage senden, bei der das Paar aus `alias_label` und `alias_name
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key) mit der Berechtigung `users.alias.new`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics) mit der Berechtigung `users.alias.new`.
 
 ## Rate-Limit
 

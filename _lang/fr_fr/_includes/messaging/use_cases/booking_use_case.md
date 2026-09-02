@@ -17,7 +17,7 @@ Suivez ces étapes pour mettre en œuvre ce cas d'usage :
 
 ## Étape 1 : Écrire les données de réservation à venir dans un profil utilisateur Braze {#step-1}
 
-Utilisez l'endpoint Braze [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) pour écrire un [attribut personnalisé imbriqué]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support) dans le profil d'un utilisateur à chaque réservation. Assurez-vous que l'attribut personnalisé imbriqué contient toutes les informations nécessaires pour envoyer et personnaliser le message de rappel. Dans ce cas d'usage, nous nommerons l'attribut personnalisé imbriqué « trips ».
+Utilisez l'endpoint Braze [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) pour écrire un [attribut personnalisé imbriqué]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support) dans le profil d'un utilisateur à chaque réservation. Assurez-vous que l'attribut personnalisé imbriqué contient toutes les informations nécessaires pour envoyer et personnaliser le message de rappel. Dans ce cas d'usage, nous nommerons l'attribut personnalisé imbriqué « trips ».
 
 ### Ajouter une réservation {#add-booking}
 
@@ -136,7 +136,7 @@ Créez une audience cible pour recevoir les rappels à l'aide d'une segmentation
 
 ### Étape 2b : Créer votre message {#step-2b-create-your-message}
 
-Créez le message de rappel par e-mail en suivant les étapes décrites dans [Création d'un e-mail avec HTML personnalisé]({{site.baseurl}}/user_guide/message_building_by_channel/email/html_editor). Utilisez Liquid pour personnaliser le message avec les données de l'attribut personnalisé que vous avez créé (« trips »), comme dans cet exemple.
+Créez le message de rappel par e-mail en suivant les étapes décrites dans [Création d'un e-mail avec HTML personnalisé]({{site.baseurl}}/user_guide/channels/email/html_editor). Utilisez Liquid pour personnaliser le message avec les données de l'attribut personnalisé que vous avez créé (« trips »), comme dans cet exemple.
 
 {% raw %}
 ```liquid
@@ -212,7 +212,7 @@ braze.logCustomEvent("trip_updated", {
 
 ### Étape 3b : Créer un message pour confirmer la mise à jour {#step-3b-create-a-message-to-confirm-the-update}
 
-Créez une [Campaign basée sur des actions]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery) pour envoyer à l'utilisateur une confirmation de sa réservation mise à jour. Vous pouvez [utiliser Liquid pour intégrer les propriétés d'événement]({{site.baseurl}}/user_guide/data/custom_data/custom_events) qui reflètent le nom, l'ancienne date et la nouvelle date de la réservation (ou uniquement le nom en cas d'annulation) directement dans le message.
+Créez une [Campaign basée sur des actions]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) pour envoyer à l'utilisateur une confirmation de sa réservation mise à jour. Vous pouvez [utiliser Liquid pour intégrer les propriétés d'événement]({{site.baseurl}}/user_guide/data/activation/events/custom_events) qui reflètent le nom, l'ancienne date et la nouvelle date de la réservation (ou uniquement le nom en cas d'annulation) directement dans le message.
 
 Par exemple, vous pouvez rédiger le message suivant :
 

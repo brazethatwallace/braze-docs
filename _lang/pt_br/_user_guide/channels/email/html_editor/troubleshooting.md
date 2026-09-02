@@ -12,16 +12,16 @@ channel: email
 
 ## Comece aqui: identifique seu sintoma {#start-here-match-your-symptom}
 
-Encontre seu sintoma na tabela abaixo para ir à seção correspondente.
+Identifique seu sintoma na tabela para acessar a seção relevante.
 
 | Sintoma | Acesse |
 | --- | --- |
-| O HTML do e-mail de teste está incorreto | [HTML renderizado incorretamente em e-mails de teste](#html-renders-incorrectly-in-test-emails) |
+| O HTML do e-mail de teste parece errado | [HTML renderiza incorretamente em e-mails de teste](#html-renders-incorrectly-in-test-emails) |
 | O editor se comporta de forma estranha no Chrome | [Conflitos de extensão](#extension-conflicts) |
-| O e-mail aparece diferente em cada cliente | [Renderização de e-mail](#email-rendering) |
+| O e-mail aparece diferente em diferentes clientes | [Renderização de e-mail](#email-rendering) |
 | O e-mail exibe código Liquid ou links quebrados | [HTML desbalanceado em modelos Liquid](#unbalanced-html-in-liquid-templates) |
 | A prévia do Inbox Vision não corresponde ao e-mail enviado | [CSS inline](#css-inlining) |
-| Espaço em branco ou linhas após imagens em e-mails de teste | [Espaço em branco abaixo de imagens](#white-space-under-images) |
+| Espaços em branco ou linhas após imagens em e-mails de teste | [Espaço em branco abaixo de imagens](#white-space-under-images) |
 | A análise de dados de cliques não inclui parâmetros de consulta | [Limitações da análise de dados de cliques em links](#link-click-analytics-limitations) |
 | Sobrescritos causam espaçamento de linha inconsistente | [Problemas de altura de linha com sobrescrito](#superscript-line-height-issues) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Sintoma de e-mail HTML" }
@@ -31,16 +31,16 @@ Encontre seu sintoma na tabela abaixo para ir à seção correspondente.
 Use este fluxo de trabalho quando a renderização de e-mail HTML ou o comportamento do editor não corresponder ao esperado. Comece pela etapa 1.
 
 1. Valide sua marcação HTML no editor ou em um validador externo.
-2. Envie um [e-mail de teste]({{site.baseurl}}/developer_guide/platform_wide/sending_test_messages#sending-a-test-push-notification-or-in-app-messages-a-classmargin-fix-namepush-inapp-testa) e observe quais clientes de e-mail ou navegadores apresentam o problema.
-3. Visualize com o [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision) para comparar a renderização entre diferentes clientes.
-4. Descarte [conflitos com extensões do navegador](#extension-conflicts) se o próprio editor apresentar comportamento inesperado.
-5. Se o problema persistir, abra um [ticket de suporte]({{site.baseurl}}/braze_support) com capturas de tela do Inbox Vision e dos clientes afetados.
+2. Envie um [e-mail de teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages) e observe quais clientes de e-mail ou navegadores apresentam o problema.
+3. Visualize com o [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision) para comparar a renderização em diferentes clientes.
+4. Descarte [conflitos com extensões de navegador](#extension-conflicts) caso o próprio editor apresente comportamento inesperado.
+5. Se o problema persistir, abra um [ticket de suporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) com capturas de tela do Inbox Vision e dos clientes afetados.
 
 ## HTML renderiza incorretamente em e-mails de teste {#html-renders-incorrectly-in-test-emails}
 
 ### Sintoma {#symptom}
 
-Um [e-mail de teste]({{site.baseurl}}/developer_guide/platform_wide/sending_test_messages#sending-a-test-push-notification-or-in-app-messages-a-classmargin-fix-namepush-inapp-testa) não corresponde ao que você espera do editor.
+Um [e-mail de teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages) não corresponde ao que você espera do editor.
 
 Verifique primeiro a configuração do seu HTML e, em seguida, revise [conflitos de extensões](#extension-conflicts), [renderização de e-mail](#email-rendering), [inlining de CSS](#css-inlining) e [espaço em branco abaixo das imagens](#white-space-under-images).
 

@@ -18,7 +18,7 @@ Los siguientes atributos deben establecerse en el objeto `Braze.User`:
 
 ### Configuración de atributos predeterminados {#setting-default-attributes}
 
-Para establecer un atributo de usuario predeterminado, configura el campo adecuado en el objeto `Braze.User` compartido. A continuación se muestra un ejemplo de configuración del atributo nombre:
+Para establecer un atributo predeterminado del usuario, configura el campo correspondiente en el objeto compartido `Braze.User`. A continuación se muestra un ejemplo de cómo establecer el atributo de nombre:
 
 {% tabs %}
 {% tab swift %}
@@ -37,9 +37,9 @@ AppDelegate.braze?.user.set(firstName: "Alex")
 {% endtab %}
 {% endtabs %}
 
-### Eliminar atributos predeterminados {#unsetting-default-attributes}
+### Desactivar atributos predeterminados {#unsetting-default-attributes}
 
-Para eliminar un atributo de usuario predeterminado, pasa `nil` al método correspondiente.
+Para desactivar un atributo predeterminado del usuario, pasa `nil` al método correspondiente.
 
 {% tabs %}
 {% tab swift %}
@@ -60,13 +60,13 @@ AppDelegate.braze?.user.set(firstName: nil)
 
 ## Atributos personalizados del usuario {#custom-user-attributes}
 
-Además de los atributos de usuario predeterminados, Braze también te permite definir atributos personalizados utilizando varios tipos de datos diferentes. Para obtener más información sobre la opción de segmentación de cada atributo, consulta [Recopilación de datos de usuario]({{site.baseurl}}/developer_guide/analytics/).
+Además de los atributos predeterminados del usuario, Braze también te permite definir atributos personalizados utilizando distintos tipos de datos. Para más información sobre las opciones de segmentación de cada atributo, consulta [Recopilación de datos de usuario]({{site.baseurl}}/developer_guide/analytics).
 
 {% alert important %}
-Los valores de atributos personalizados tienen una longitud máxima de 255 caracteres; los valores más largos se truncarán. Para obtener más información, consulta [`Braze.User`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class).
+Los valores de los atributos personalizados tienen una longitud máxima de 255 caracteres; los valores más largos se truncarán. Para más información, consulta [`Braze.User`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class).
 {% endalert %}
 
-### Establecer atributos personalizados {#setting-custom-attributes}
+### Configuración de atributos personalizados {#setting-custom-attributes}
 
 {% tabs local %}
 {% tab string %}
@@ -106,7 +106,7 @@ AppDelegate.braze?.user.setCustomAttribute(key: "your_attribute_key", value: you
 {% endtab %}
 
 {% tab floating-points %}
-Braze trata de la misma manera los valores `float` y `double` dentro de nuestra base de datos. Para establecer un atributo personalizado con un valor double:
+Braze trata los valores `float` y `double` de la misma manera en nuestra base de datos. Para establecer un atributo personalizado con un valor double:
 
 {% subtabs %}
 {% subtab swift %}
@@ -160,7 +160,7 @@ AppDelegate.braze?.user.setCustomAttribute("your_attribute_key", dateValue:yourD
 {% endtab %}
 
 {% tab array %}
-La cantidad predeterminada y máxima de elementos en un array es 500. Puedes actualizar la cantidad máxima de arrays en el panel de Braze, en **Configuración de datos** > **Atributos personalizados**. Los arrays que superen la cantidad máxima de elementos se truncarán para contener la cantidad máxima de elementos.
+La cantidad predeterminada y máxima de elementos en un array es de 500. Puedes actualizar la cantidad máxima de arrays en el panel de Braze, en **Data Settings** > **Custom Attributes**. Los arrays que superen la cantidad máxima de elementos se truncarán para contener la cantidad máxima de elementos.
 
 Para establecer un atributo personalizado con un valor `array`:
 
@@ -213,11 +213,11 @@ AppDelegate.braze?.user.incrementCustomUserAttribute(key: "your_attribute_key", 
 {% endtab %}
 {% endtabs %}
 
-### Eliminar atributos personalizados {#unsetting-custom-attributes}
+### Desactivar atributos personalizados {#unsetting-custom-attributes}
 
 {% tabs %}
 {% tab swift %}
-Para eliminar un atributo personalizado, pasa la clave del atributo correspondiente al método `unsetCustomAttribute`.
+Para desactivar un atributo personalizado, pasa la clave del atributo correspondiente al método `unsetCustomAttribute`.
 
 ```swift
 AppDelegate.braze?.user.unsetCustomAttribute(key: "your_attribute_key")
@@ -225,7 +225,7 @@ AppDelegate.braze?.user.unsetCustomAttribute(key: "your_attribute_key")
 
 {% endtab %}
 {% tab objective-c %}
-Para eliminar un atributo personalizado, pasa la clave del atributo correspondiente al método `unsetCustomAttributeWithKey`.
+Para desactivar un atributo personalizado, pasa la clave del atributo correspondiente al método `unsetCustomAttributeWithKey`.
 
 ```objc
 [AppDelegate.braze.user unsetCustomAttributeWithKey:@"your_attribute_key"];
@@ -234,9 +234,9 @@ Para eliminar un atributo personalizado, pasa la clave del atributo correspondie
 {% endtab %}
 {% endtabs %}
 
-### Atributos personalizados anidados {#nesting-custom-attributes}
+### Anidar atributos personalizados {#nesting-custom-attributes}
 
-También puedes anidar propiedades dentro de atributos personalizados. En el siguiente ejemplo, un objeto `favorite_book` con propiedades anidadas se establece como un atributo personalizado en el perfil de usuario. Para obtener más información, consulta [Atributos personalizados anidados]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/).
+También puedes anidar propiedades dentro de los atributos personalizados. En el siguiente ejemplo, se establece un objeto `favorite_book` con propiedades anidadas como atributo personalizado en el perfil de usuario. Para más detalles, consulta [Atributos personalizados anidados]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
 
 {% tabs %}
 {% tab swift %}
@@ -266,24 +266,24 @@ NSDictionary *favoriteBook = @{
 
 ### Uso de la REST API {#using-the-rest-api}
 
-También puedes utilizar nuestra REST API para establecer o eliminar atributos de usuario. Para obtener más información, consulta [Puntos finales de datos de usuario]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data).
+También puedes utilizar nuestra REST API para establecer o desactivar atributos de usuario. Para más información, consulta [Endpoints de datos de usuario]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data).
 
-## Configuración de suscripciones de usuarios {#setting-user-subscriptions}
+## Configuración de suscripciones de usuario {#setting-user-subscriptions}
 
-Para configurar una suscripción para tus usuarios (por correo electrónico o push), llama a las funciones `set(emailSubscriptionState:)` o `set(pushNotificationSubscriptionState:)`, respectivamente. Estas dos funciones toman como argumento el tipo de enumeración `Braze.User.SubscriptionState`. Este tipo tiene tres estados diferentes:
+Para configurar una suscripción para tus usuarios (ya sea correo electrónico o push), llama a las funciones `set(emailSubscriptionState:)` o `set(pushNotificationSubscriptionState:)`, respectivamente. Ambas funciones toman el tipo enumeración `Braze.User.SubscriptionState` como argumento. Este tipo tiene tres estados diferentes:
 
-| Estado de la suscripción | Definición |
+| Estado de suscripción | Definición |
 | ------------------- | ---------- |
 | `optedIn` | Suscrito y con adhesión voluntaria explícita |
 | `subscribed` | Suscrito, pero sin adhesión voluntaria explícita |
-| `unsubscribed` | No suscrito y/o con exclusión voluntaria explícita |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Setting user subscriptions" }
+| `unsubscribed` | Dado de baja o con exclusión voluntaria explícita |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configuración de suscripciones de usuario" }
 
-Los usuarios que conceden permiso para que una aplicación les envíe notificaciones push tienen de forma predeterminada el estado `optedIn`, ya que iOS requiere una adhesión voluntaria explícita.
+Los usuarios que otorgan permiso a una aplicación para enviarles notificaciones push tienen de forma predeterminada el estado `optedIn`, ya que iOS requiere una adhesión voluntaria explícita.
 
-Los usuarios se configurarán en `subscribed` automáticamente al recibir una dirección de correo electrónico válida; sin embargo, te sugerimos que establezcas un proceso de adhesión voluntaria explícito y configures este valor en `optedIn` al recibir el consentimiento explícito de tu usuario. Consulta [Gestión de las suscripciones de los usuarios]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/) para obtener más detalles.
+Los usuarios se establecerán en `subscribed` automáticamente cuando se reciba una dirección de correo electrónico válida; sin embargo, te sugerimos que establezcas un proceso de adhesión voluntaria explícito y configures este valor en `optedIn` cuando recibas el consentimiento explícito de tu usuario. Consulta [Gestionar suscripciones de usuario]({{site.baseurl}}/user_guide/channels/email/subscriptions) para más detalles.
 
-### Configuración de las suscripciones por correo electrónico {#setting-email-subscriptions}
+### Configuración de suscripciones de correo electrónico {#setting-email-subscriptions}
 
 {% tabs %}
 {% tab swift %}
@@ -302,7 +302,7 @@ AppDelegate.braze?.user.set(emailSubscriptionState: Braze.User.SubscriptionState
 {% endtab %}
 {% endtabs %}
 
-### Configuración de suscripciones a notificaciones push {#setting-push-notification-subscriptions}
+### Configuración de suscripciones de notificaciones push {#setting-push-notification-subscriptions}
 
 {% tabs %}
 {% tab swift %}
@@ -321,4 +321,4 @@ AppDelegate.braze?.user.set(pushNotificationSubscriptionState: Braze.User.Subscr
 {% endtab %}
 {% endtabs %}
 
-Consulta [Gestión de las suscripciones de los usuarios]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/) para obtener más detalles.
+Consulta [Gestionar suscripciones de usuario]({{site.baseurl}}/user_guide/channels/email/subscriptions) para más detalles.

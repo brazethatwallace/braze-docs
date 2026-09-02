@@ -27,7 +27,7 @@ Esse endpoint não garante a sequência de objetos `alias_updates` que estão se
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key) com a permissão `users.alias.update`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics) com a permissão `users.alias.update`.
 
 ## Limite de frequência {#rate-limit}
 

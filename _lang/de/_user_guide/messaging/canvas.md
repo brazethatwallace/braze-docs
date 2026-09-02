@@ -8,7 +8,7 @@ guide_top_text: "Marketing ist eine Wissenschaft, die künstlerisches Geschick u
 search_rank: 3
 page_type: landing
 tool: Canvas
-description: "Diese Landing-Page enthält alle Canvas-Artikel. Hier finden Sie Ressourcen zum Erstellen von Canvases, zur Verwendung von Canvas-Komponenten, zum Verwalten und Testen von Canvases sowie zur Anwendung verschiedener Ideen und Strategien."
+description: "Ressourcen zum Erstellen von Canvases, zur Verwendung von Canvas-Komponenten, zum Verwalten und Testen von Canvases sowie zur Anwendung von Engagement-Strategien."
 
 guide_featured_title: "Abschnitte"
 guide_featured_list:

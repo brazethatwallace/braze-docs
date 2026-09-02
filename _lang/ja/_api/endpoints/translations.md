@@ -77,22 +77,22 @@ guide_menu_list4:
 
 ## 翻訳エンドポイントの仕組み {#how-our-translation-endpoints-work}
 
-翻訳エンドポイントは[多言語コンポジション]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings)と連携して動作します。メッセージは、受信するユーザーに応じてレンダリングされる異なるバージョンを持つことができます。
+翻訳エンドポイントは[多言語コンポジション]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings)と連携しており、メッセージを受信するユーザーに応じて異なるバージョンのメッセージをレンダリングできます。
 
 ### 前提条件 {#prerequisites}
 
-これらのエンドポイントを使用する前に、[ロケールを追加]({{site.baseurl}}/user_guide/administrative/app_settings/multi_language_settings#add-a-locale)する必要があります。
+これらのエンドポイントを使用する前に、[ロケールを追加]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings#add-a-locale)する必要があります。
 
 ### 翻訳のテスト方法 {#how-to-test-your-translations}
 
-APIとBrazeダッシュボードを使用して、キャンペーン、キャンバス（個々のステップを含む）、Content Blocks、メールテンプレート、Webhookテンプレート全体で翻訳サポートを検証する方法は2つあります。
+APIとBrazeダッシュボードを使用して、キャンペーン、キャンバス（個々のステップを含む）、Content Blocks、メールテンプレート、Webhookテンプレートにわたる翻訳サポートを検証する方法は2つあります。
 
-- コンポジション中（公開前）
-- 公開後（公開後の下書きを使用）
+- コンポジション中（ローンチ前）
+- ローンチ後（ローンチ後の下書きを使用）
 
-翻訳の更新をテストする前に、以下の手順を完了する必要があります。
+翻訳の更新をテストする前に、以下を行う必要があります。
 
-1. [ロケールを追加]({{site.baseurl}}/user_guide/administrative/app_settings/multi_language_settings#add-a-locale)します。
-2. メッセージを作成し、適切な箇所で翻訳タグを使用します。
+1. [ロケールを追加]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings#add-a-locale)します。
+2. メッセージを作成し、適切な場所に翻訳タグを使用します。
 3. メッセージを保存します。
 4. 含めるロケールを選択します。

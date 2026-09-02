@@ -119,7 +119,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/scim/v2/Users/dfa24
 | `department` | String | Die Abteilung der Nutzer:in, falls festgelegt. |
 | `createdAt` | String | Zeitpunkt der Erstellung des Nutzer:innenkontos. Gibt `N/A` zurück, wenn nicht festgelegt; andernfalls im Format `YYYY Mon DD, H:MM AM/PM`. |
 | `lastSignInAt` | String | Zeitpunkt der letzten Anmeldung der Nutzer:in. Gibt `N/A` zurück, wenn sich die Nutzer:in noch nicht angemeldet hat; andernfalls im Format `YYYY Mon DD, H:MM AM/PM`. |
-| `permissions` | Objekt | Unternehmens-, Workspace-, Team- und Rollenberechtigungen der Nutzer:in. Siehe das [Berechtigungsobjekt]({{site.baseurl}}/scim_api_appendix). |
+| `permissions` | Objekt | Unternehmens-, Workspace-, Team- und Rollenberechtigungen der Nutzer:in. Siehe das [Berechtigungsobjekt]({{site.baseurl}}/api/objects_filters/scim_api_appendix). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Antwort-Parameter" }
 
 ### Fehlerzustände {#error-states}

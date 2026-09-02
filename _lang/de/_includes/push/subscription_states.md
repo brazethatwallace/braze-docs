@@ -27,7 +27,7 @@ Der Push-Abo-Status spiegelt die Präferenz einer Nutzer:in wider, aber ob sie i
 
 - **Push-Campaigns und Canvases:** Nutzer:innen, die nicht für Push registriert sind, werden in den Zielgruppenstatistiken nicht unter **Erreichbare Nutzer:innen** für Android-Push oder iOS-Push aufgeführt, selbst wenn ihr Push-Abo-Status `Subscribed` oder `Opted-In` ist.
 - **Andere Kanäle:** Dieselben Nutzer:innen können weiterhin als erreichbar für andere Kanäle gezählt werden, für die sie qualifiziert sind (zum Beispiel E-Mail oder In-App-Nachrichten).
-- **Segmente:** Die Segment-Zugehörigkeit richtet sich nach Ihren Filtern. Nutzer:innen ohne Push-Registrierung bleiben im Segment, es sei denn, ein Filter schließt sie aus (zum Beispiel **Foreground Push Enabled**). Die Gesamtzahl der Segment-Mitglieder kann höher sein als die Summe der Nutzer:innen, die in den Push-spezifischen Zeilen **Erreichbare Nutzer:innen** angezeigt werden.
+- **Segments:** Die Segment-Zugehörigkeit richtet sich nach Ihren Filtern. Nutzer:innen ohne Push-Registrierung bleiben im Segment, es sei denn, ein Filter schließt sie aus (zum Beispiel **Foreground Push Enabled**). Die Gesamtzahl der Segment-Mitglieder kann höher sein als die Summe der Nutzer:innen, die in den Push-spezifischen Zeilen **Erreichbare Nutzer:innen** angezeigt werden.
 
 Ein Nutzerprofil kann den Push-Abo-Status `Subscribed` anzeigen, obwohl kein Push-Token zugewiesen ist. Diese Nutzer:innen werden erst dann unter **Erreichbare Nutzer:innen** für Android-Push oder iOS-Push gezählt, wenn Braze ein gültiges Token erfasst.
 
@@ -92,5 +92,5 @@ Wenn Sie [iOS-Push-Token importieren]({{site.baseurl}}/api/objects_filters/user_
 
 Sie können den Push-Abo-Status einer Nutzer:in mit Braze auf eine der folgenden Arten überprüfen:
 
-* **Nutzerprofil:** Sie können über das Braze-Dashboard auf der Seite **[Nutzersuche]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles)** auf einzelne Nutzerprofile zugreifen. Nachdem Sie das Profil einer Nutzer:in gefunden haben (über E-Mail-Adresse, Telefonnummer oder externe Nutzer-ID), können Sie den Tab **Engagement** auswählen, um den Abo-Status der Nutzer:in anzuzeigen und manuell anzupassen.
+* **Nutzerprofil:** Sie können über das Braze-Dashboard auf der Seite **[Nutzersuche]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles)** auf einzelne Nutzerprofile zugreifen. Nachdem Sie das Profil einer Nutzer:in gefunden haben (über E-Mail-Adresse, Telefonnummer oder externe Nutzer-ID), können Sie den Tab **Engagement** auswählen, um den Abo-Status der Nutzer:in anzuzeigen und manuell anzupassen.
 * **REST-API-Export:** Mit den Endpunkten [Nutzer:innen nach Segment]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) oder [Nutzer:innen nach Bezeichner]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) können Sie einzelne Nutzerprofile im JSON-Format exportieren. Braze gibt ein Push-Token-Objekt zurück, das Push-Enablement-Informationen pro Gerät enthält.

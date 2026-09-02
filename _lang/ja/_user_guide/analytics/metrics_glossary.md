@@ -146,7 +146,7 @@ In-App Message
 Feature Flags
 {% endapitags %}
 
-さまざまなチャネルにおけるメッセージのパフォーマンスです。表示される指標は、選択したメッセージングチャネルと、[フィーチャーフラグ実験]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/experiments#campaign-analytics)が多変量テストかどうかによって異なります。
+さまざまなチャネルにおけるメッセージのパフォーマンスです。表示される指標は、選択したメッセージングチャネルと、[フィーチャーフラグ実験]({{site.baseurl}}/developer_guide/feature_flags/experiments#campaign-analytics)が多変量テストかどうかによって異なります。
 
 {% endapi %}
 

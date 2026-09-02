@@ -1,3 +1,3 @@
 {% alert tip %}
-¿Utilizar tarjetas de contenido para mensajes tipo banner? Prueba [los banners:]({{site.baseurl}}/user_guide/message_building_by_channel/banners/)perfectos para mensajes en línea, persistentes dentro de la aplicación y en la Web.
+¿Usas Content Cards para mensajes de tipo banner? Prueba los [Banners]({{site.baseurl}}/user_guide/channels/banners)&#8212; perfectos para mensajes en línea y persistentes dentro de la aplicación y la Web.
 {% endalert %}

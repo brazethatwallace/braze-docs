@@ -77,11 +77,11 @@ guide_menu_list4:
 
 ## 번역 엔드포인트 작동 방식 {#how-our-translation-endpoints-work}
 
-번역 엔드포인트는 [다국어 작성]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings)과 함께 작동하며, 메시지를 수신하는 사용자에 따라 다른 버전으로 렌더링할 수 있는 메시지를 생성할 수 있습니다.
+번역 엔드포인트는 [다국어 작성]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings)과 함께 작동하며, 메시지를 수신하는 사용자에 따라 다른 버전으로 렌더링할 수 있는 메시지를 작성할 수 있습니다.
 
-### 필수 조건 {#prerequisites}
+### 전제 조건 {#prerequisites}
 
-이 엔드포인트를 사용하기 전에 [로케일을 추가]({{site.baseurl}}/user_guide/administrative/app_settings/multi_language_settings#add-a-locale)해야 합니다.
+이 엔드포인트를 사용하기 전에 [로케일을 추가]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings#add-a-locale)해야 합니다.
 
 ### 번역 테스트 방법 {#how-to-test-your-translations}
 
@@ -92,7 +92,7 @@ API와 Braze 대시보드를 사용하여 Campaigns, Canvases(개별 단계 포�
 
 번역 업데이트를 테스트하기 전에 다음을 수행해야 합니다.
 
-1. [로케일을 추가]({{site.baseurl}}/user_guide/administrative/app_settings/multi_language_settings#add-a-locale)합니다.
-2. 메시지를 작성하고 적절한 위치에 번역 태그를 사용합니다.
+1. [로케일을 추가합니다]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings#add-a-locale).
+2. 메시지를 작성하고 적절한 곳에 번역 태그를 사용합니다.
 3. 메시지를 저장합니다.
 4. 포함할 로케일을 선택합니다.

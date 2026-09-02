@@ -4,22 +4,22 @@ nav_title: Início
 article_title: Parceiros de tecnologia
 alias: /partners/partners/
 search_tag: Partner
-description: "Navegue pelos parceiros de tecnologia da Braze (Alloys) em ordem alfabética. Encontre documentação de integração para personalização, orquestração, dados, eCommerce, Audience Sync e muito mais."
+description: "Navegue pelos parceiros de tecnologia Braze Alloys e pela documentação de integração para personalização, dados, eCommerce e Audience Sync."
 ---
 
 # Parceiros de tecnologia {#technology-partners}
 
-> Os parceiros de tecnologia Braze Alloys ampliam a Braze com ferramentas de personalização, infraestrutura de dados, atribuição, eCommerce, sincronização de público e fluxos de trabalho. Este hub de documentação lista os parceiros em ordem alfabética e direciona para guias de integração de cada conexão. Use esses artigos para revisar pré-requisitos, etapas de configuração e recursos da Braze compatíveis antes de ativar um parceiro no seu espaço de trabalho. Pesquise na lista alfabética de parceiros ou vá direto a uma letra para encontrar uma integração específica. Em seguida, abra o artigo do parceiro para ver os detalhes de configuração. Para categorias de parceiros e casos de uso, consulte as seções a seguir.
+> Os parceiros de tecnologia Braze Alloys ampliam a Braze com ferramentas de personalização, infraestrutura de dados, atribuição, eCommerce, sincronização de público e fluxos de trabalho. Este hub de documentação lista os parceiros em ordem alfabética e direciona para guias de integração de cada conexão. Use esses artigos para revisar pré-requisitos, etapas de configuração e recursos compatíveis da Braze antes de ativar um parceiro no seu espaço de trabalho. Pesquise na lista alfabética de parceiros ou vá direto a uma letra para encontrar uma integração específica. Em seguida, abra o artigo do parceiro para ver os detalhes de configuração. Para categorias de parceiros e casos de uso, consulte as seções a seguir.
 
 ## Perguntas frequentes {#frequently-asked-questions}
 
-### Como encontro a integração de um parceiro de tecnologia da Braze? {#how-do-i-find-a-braze-technology-partner-integration}
+### Como encontro uma integração com parceiros de tecnologia da Braze? {#how-do-i-find-a-braze-technology-partner-integration}
 
-Navegue pela lista em ordem alfabética nesta página ou vá diretamente a uma letra para localizar um parceiro pelo nome. Cada entrada contém um link para o artigo de integração desse parceiro com a Braze.
+Navegue pela lista alfabética nesta página ou vá até uma letra específica para localizar um parceiro pelo nome. Cada entrada possui um link para o artigo de integração desse parceiro com a Braze.
 
 ### O que é o Braze Alloys? {#what-is-braze-alloys}
 
-Braze Alloys é o programa de parceiros de tecnologia da Braze. Os parceiros estendem a plataforma da Braze com recursos complementares de dados, conteúdo, atribuição e orquestração documentados neste hub.
+Braze Alloys é o programa de parceiros de tecnologia da Braze. Os parceiros ampliam a plataforma Braze com recursos complementares de dados, conteúdo, atribuição e orquestração documentados neste hub.
 
 <div class="partners-az-list" markdown="1">
 
@@ -408,14 +408,14 @@ Braze Alloys é o programa de parceiros de tecnologia da Braze. Os parceiros est
 <br>
 Para uma lista completa, pesquisável e filtrável de todos os parceiros de tecnologia da Braze, visite o [Braze Marketplace](https://marketplace.braze.com/t/type/technology-partner). Quer fazer parte da nossa comunidade de quem usa a Braze para modernizar a experiência do cliente? Conheça nosso [Customer Champions Program](https://brazefirebrands.splashthat.com/).
 
-## Solução de problemas em conexões com parceiros {#troubleshooting-partner-connections}
+## Solução de problemas com conexões de parceiros {#troubleshooting-partner-connections}
 
-Se a integração exigir configuração no lado da Braze, faça login no seu dashboard da Braze e navegue até **Partner Integrations** > **Technology Partners**.
+Se a integração requer configuração no lado da Braze, faça login no seu dashboard da Braze e navegue até **Integrações de parceiros** > **Parceiros de tecnologia**.
 
 {% alert note %}
 Integrações totalmente gerenciadas pelo parceiro podem não estar listadas aqui. Consulte a documentação específica do parceiro para verificar a propriedade da integração e as etapas de configuração.
 {% endalert %}
 
-Se você vir **Invalid credentials** para um parceiro na Braze, mas a integração parecer correta no dashboard desse parceiro, desconecte e reconecte a integração na página Technology Partners e confirme as chaves de API, tokens OAuth e permissões no lado do parceiro.
+Se você vir **Credenciais inválidas** para um parceiro na Braze, mas a integração parecer correta no dashboard desse parceiro, desconecte e reconecte a integração na página de Parceiros de tecnologia e confirme as chaves de API, tokens OAuth e permissões no lado do parceiro.
 
-Alguns dashboards externos (por exemplo, ferramentas de entregabilidade ou monitoramento de caixa de entrada) podem mostrar um status de conexão ou verificação diferente da página Technology Partners da Braze. Use o bloco do parceiro na Braze para verificar o estado de conexão no qual a Braze se baseia para sincronização e envio.
+Alguns dashboards externos (por exemplo, ferramentas de entregabilidade ou monitoramento de caixa de entrada) podem mostrar um status de conexão ou verificação diferente da página de Parceiros de tecnologia da Braze. Use o bloco do parceiro na Braze para verificar o estado de conexão que a Braze utiliza para sincronização e envio.

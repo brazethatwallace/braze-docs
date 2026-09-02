@@ -121,7 +121,7 @@ curl --location --request GET \ 'https://rest.iad-01.braze.com/scim/v2/Users?fil
 | `department` | 문자열 | 설정된 경우 사용자의 부서입니다. |
 | `createdAt` | 문자열 | 사용자 계정이 생성된 시점입니다. 설정되지 않은 경우 `N/A`를 반환하며, 그렇지 않으면 `YYYY Mon DD, H:MM AM/PM` 형식으로 표시됩니다. |
 | `lastSignInAt` | 문자열 | 사용자가 마지막으로 로그인한 시점입니다. 사용자가 로그인한 적이 없으면 `N/A`를 반환하며, 그렇지 않으면 `YYYY Mon DD, H:MM AM/PM` 형식으로 표시됩니다. |
-| `permissions` | 객체 | 회사, 워크스페이스, 팀 및 역할 권한입니다. [권한 객체]({{site.baseurl}}/scim_api_appendix)를 참조하세요. |
+| `permissions` | 객체 | 회사, 워크스페이스, 팀 및 역할 권한입니다. [권한 객체]({{site.baseurl}}/api/objects_filters/scim_api_appendix)를 참조하세요. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="사용자 객체 필드" }
 
 ### 오류 상태 {#error-states}

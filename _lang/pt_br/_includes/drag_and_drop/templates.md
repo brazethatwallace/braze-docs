@@ -41,7 +41,7 @@ As práticas recomendadas de entregabilidade geralmente excedem os requisitos le
 
 {% if include.section == "email validation" %}
 
-Se o usuário inserir um endereço de e-mail que inclua caracteres especiais não aceitos, ele verá um indicador de erro genérico e não poderá enviar o formulário. Essa mensagem de erro não é personalizável. É possível visualizar o comportamento do erro na guia **Preview & Test** e em seu dispositivo de teste. Saiba mais sobre como a Braze formata endereços de e-mail em [Validação de e-mail]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/email_validation).
+Se o usuário inserir um endereço de e-mail que inclua caracteres especiais não aceitos, ele verá um indicador de erro genérico e não poderá enviar o formulário. Essa mensagem de erro não é personalizável. É possível visualizar o comportamento do erro na guia **Preview & Test** e em seu dispositivo de teste. Saiba mais sobre como a Braze formata endereços de e-mail em [Validação de e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation).
 
 {% endif %}
 
@@ -63,6 +63,6 @@ Uma das maneiras de configurar isso é por meio do Canvas:
 
 {% if include.section == "reporting" %}
 
-Após o lançamento da sua Campaign, é possível analisar os resultados em tempo real para ver quantos usuários se engajaram com ela. Para ver quantos usuários aceitaram o grupo de inscrições, é possível [criar um segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment) de usuários que se inscreveram no grupo de inscrições filtrando os usuários que receberam a mensagem no app e enviaram o formulário.
+Após o lançamento da sua Campaign, é possível analisar os resultados em tempo real para ver quantos usuários se engajaram com ela. Para ver quantos usuários aceitaram o grupo de inscrições, é possível [criar um segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) de usuários que se inscreveram no grupo de inscrições filtrando os usuários que receberam a mensagem no app e enviaram o formulário.
 
 {% endif %}

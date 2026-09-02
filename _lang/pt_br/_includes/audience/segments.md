@@ -75,3 +75,13 @@ Quando estiver pronto para usar uma extensão de segmento obsoleta, revise as co
 Quando uma mensagem é recebida, aberta ou clicada, a Braze atualiza os dados de todos os perfis que compartilham o mesmo identificador de canal que o perfil que registrou a interação (por exemplo, o mesmo endereço de e-mail para e-mail, ou o mesmo número de telefone para SMS ou WhatsApp). Usuários que compartilham um identificador com alguém que recebeu, abriu ou clicou na mensagem podem corresponder a esse filtro mesmo que não estivessem originalmente na Campaign ou não tenham recebido a mensagem diretamente.
 
 {% endif %}
+
+{% if include.section == "Canvas variant archived segment" %}
+
+### Não é possível excluir uma variante de Canvas por causa de um segmento arquivado {#cant-delete-a-canvas-variant-because-of-an-archived-segment}
+
+Se a Braze bloquear a exclusão de uma variante de Canvas porque um filtro de segmento ainda faz referência a essa variante, abra o segmento que usa a referência — incluindo segmentos arquivados — e remova a variante dos filtros. Depois de salvar o segmento, volte ao Canvas e tente excluir a variante novamente.
+
+Para descobrir quais segmentos fazem referência a um Canvas, abra o Canvas e revise os filtros de público, ou verifique a seção [Uso em envio de mensagens]({{site.baseurl}}/user_guide/audience/segments/managing_segments#messaging-use) de cada segmento para identificar Canvas vinculados.
+
+{% endif %}

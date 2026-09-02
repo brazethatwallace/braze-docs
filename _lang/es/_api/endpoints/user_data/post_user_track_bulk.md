@@ -8,7 +8,7 @@ page_type: reference
 alias:
   - /unlisted_docs/track_users_bulk_partners/
   - /api/endpoints/user_data/post_user_track_bulk_partners/
-description: "Este artículo describe los detalles del punto de conexión masivo de seguimiento de usuarios."
+description: "Este artículo describe los detalles del endpoint masivo de seguimiento de usuarios."
 ---
 {% api %}
 # Crear y actualizar usuarios (masivo) {#create-and-update-users-bulk}
@@ -16,36 +16,36 @@ description: "Este artículo describe los detalles del punto de conexión masivo
 /users/track/bulk
 {% endapimethod %}
 
-Utiliza este punto de conexión para registrar eventos personalizados y compras, y actualizar atributos de perfiles de usuario de forma masiva.
+Utiliza este endpoint para registrar eventos personalizados y compras, y actualizar atributos de perfiles de usuario de forma masiva.
 
 {% alert important %}
-Este punto de conexión se encuentra actualmente en **beta limitada**. Aunque no estamos añadiendo nuevos clientes a la beta en este momento, comunícale a tu director de cuentas de Braze si crees que esta característica podría ser útil para tu integración con Braze.
+Este endpoint se encuentra actualmente en **beta limitada**. Aunque no estamos añadiendo nuevos clientes a la beta en este momento, comunícale a tu director de cuentas de Braze si crees que esta característica podría ser útil para tu integración con Braze.
 {% endalert %}
 
-## Cuándo usar este punto de conexión {#when-to-use-this-endpoint}
+## Cuándo usar este endpoint {#when-to-use-this-endpoint}
 
-Al igual que el [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), puedes usar este punto de conexión para actualizar perfiles de usuario. Este punto de conexión es más adecuado para actualizaciones masivas:
+Al igual que el [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), puedes usar este endpoint para actualizar perfiles de usuario. Este endpoint es más adecuado para actualizaciones masivas:
 
 - **Solicitudes más grandes:** Envía hasta 1000 usuarios por solicitud, de modo que puedas hacer menos solicitudes para grandes rellenos de datos y sincronizaciones.
 - **Priorización:** Durante condiciones de tráfico pico, las solicitudes a `/users/track` tienen prioridad sobre las solicitudes a `/users/track/bulk`.
 
-Usa este punto de conexión cuando estés rellenando muchos perfiles de usuario durante la incorporación, o sincronizando grandes volúmenes de perfiles como parte de una sincronización diaria.
+Usa este endpoint cuando estés rellenando muchos perfiles de usuario durante la incorporación, o sincronizando grandes volúmenes de perfiles como parte de una sincronización diaria.
 
 {% alert note %}
-Los límites del objeto de solicitud del punto de conexión `/users/track` varían según el modelo de precios y la configuración. Usa `/users/track/bulk` para la ingesta masiva.
+Los límites del objeto de solicitud del endpoint `/users/track` varían según el modelo de precios y la configuración. Usa `/users/track/bulk` para la ingesta masiva.
 {% endalert %}
 
 ## Requisitos previos {#prerequisites}
 
-Para usar este punto de conexión, necesitas una [clave de API]({{site.baseurl}}/api/api_key) con el permiso `users.track.bulk`.
+Para usar este endpoint, necesitas una [clave de API]({{site.baseurl}}/api/basics) con el permiso `users.track.bulk`.
 
-Si estás realizando llamadas de servidor a servidor detrás de un firewall, es posible que necesites incluir en la lista de permitidos tu punto de conexión REST de Braze (por ejemplo, `rest.iad-01.braze.com`). Para más información, consulta [Puntos de conexión de API]({{site.baseurl}}/api/basics#api-definitions).
+Si estás realizando llamadas de servidor a servidor detrás de un firewall, es posible que necesites incluir en la lista de permitidos tu endpoint REST de Braze (por ejemplo, `rest.iad-01.braze.com`). Para más información, consulta [Endpoints de API]({{site.baseurl}}/api/basics#api-definitions).
 
 ## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include api/user_track_custom_attributes_data_points.md endpoint="/users/track/bulk" %}
 
-Para la mayoría de los clientes, este punto de conexión tiene un límite de velocidad base de 50 solicitudes por segundo.
+Para la mayoría de los clientes, este endpoint tiene un límite de velocidad base de 50 solicitudes por segundo.
 
 Los clientes con contratos más recientes pueden tener en su lugar límites de ráfaga (por segundo) y estables (por hora) basados en los usuarios activos al mes contratados.
 
@@ -216,9 +216,9 @@ Si recibes el error "provided external_id is blacklisted and disallowed", tu sol
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 
-### ¿Debo usar este punto de conexión o `/users/track`? {#should-i-use-this-endpoint-or-userstrack}
+### ¿Debo usar este endpoint o `/users/track`? {#should-i-use-this-endpoint-or-userstrack}
 
-Usa ambos puntos de conexión según tu caso de uso:
+Usa ambos endpoints según tu caso de uso:
 
 - Para grandes rellenos de datos y sincronizaciones, usa `/users/track/bulk`.
 - Para casos de uso en tiempo real, usa `/users/track`.

@@ -25,9 +25,9 @@ Mac Catalystでアプリを構築するには、<a href="https://developer.apple
 
 ## サポートされている機能 {#supported-features}
 
-Brazeは、Mac Catalyst上で実行している場合、[プッシュ通知]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift)、[Content Cards]({{site.baseurl}}/developer_guide/platforms/swift/content_cards#content-cards-data-model)、[アプリ内メッセージ]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=swift)、および[自動ロケーション収集]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=swift)をサポートしています。
+Brazeは、Mac Catalyst上で実行する場合、[プッシュ通知]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift)、[Content Cards]({{site.baseurl}}/developer_guide/content_cards?sdktab=swift)、[アプリ内メッセージ]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=swift)、および[自動位置情報収集]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=swift)をサポートしています。
 
-Push Stories、リッチプッシュ、ジオフェンスはmacOSではサポートされていません。
+Push Stories、リッチプッシュ、およびジオフェンスはmacOSではサポートされていません。
 
 [1]:https://github.com/Appboy/appboy-ios-sdk/releases/tag/3.32.0
 [2]:https://developer.apple.com/mac-catalyst/

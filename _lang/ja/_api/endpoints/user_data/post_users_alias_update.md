@@ -27,7 +27,7 @@ description: "この記事では、「ユーザーエイリアスの更新」Bra
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`users.alias.update`権限を持つ[APIキー]({{site.baseurl}}/api/api_key)が必要です。
+このエンドポイントを使用するには、`users.alias.update`権限を持つ[APIキー]({{site.baseurl}}/api/basics)が必要です。
 
 ## レート制限 {#rate-limit}
 

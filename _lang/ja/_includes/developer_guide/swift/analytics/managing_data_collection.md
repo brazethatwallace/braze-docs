@@ -17,7 +17,7 @@ iOS 17.2以降、Appleはエンドユーザーが[Ad Tracking Transparency (ATT)
 ## Brazeトラッキングデータの宣言 {#declaring-braze-tracking-data}
 
 {% alert tip %}
-完全なウォークスルーについては、[プライバシートラッキングデータチュートリアル](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/e1-privacy-tracking/)を参照してください。
+詳しいウォークスルーについては、[プライバシートラッキングデータチュートリアル](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/e1-privacy-tracking/)を参照してください。
 {% endalert %}
 
 ### 前提条件 {#prerequisites}
@@ -28,15 +28,15 @@ iOS 17.2以降、Appleはエンドユーザーが[Ad Tracking Transparency (ATT)
 
 ### ステップ1：現在のポリシーを確認する {#step-1-review-your-current-policies}
 
-法務チームと共にBraze SDKの現在のデータ収集ポリシーを確認し、アプリが[Appleの定義に基づく](#what-is-tracking-data)トラッキングデータを収集しているかどうかを判断してください。トラッキングデータを収集していない場合、現時点ではBraze SDKのプライバシーマニフェストをカスタマイズする必要はありません。Braze SDKのデータ収集ポリシーについて詳しくは、[SDKデータ収集]({{site.baseurl}}/user_guide/data/user_data_collection/sdk_data_collection)を参照してください。
+法務チームと一緒にBraze SDKの現在のデータ収集ポリシーを確認し、アプリが[Appleの定義](#what-is-tracking-data)するトラッキングデータを収集しているかどうかを判断します。トラッキングデータを収集していない場合は、現時点ではBraze SDKのプライバシーマニフェストをカスタマイズする必要はありません。Braze SDKのデータ収集ポリシーについて詳しくは、[SDKデータ収集]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection)を参照してください。
 
 {% alert important %}
-Braze以外のSDKがトラッキングデータを収集している場合は、それらのポリシーを別途確認する必要があります。
+Braze以外のSDKがトラッキングデータを収集している場合は、それらのポリシーを個別に確認する必要があります。
 {% endalert %}
 
 ### ステップ2：プライバシーマニフェストを作成する {#step-2-create-a-privacy-manifest}
 
-まず、Xcodeプロジェクトで`PrivacyInfo.xcprivacy`ファイルを検索して、プライバシーマニフェストが既に存在するかどうかを確認してください。このファイルが既にある場合は、次のステップに進めます。ない場合は、[Apple：プライバシーマニフェストの作成](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files)を参照してください。
+まず、Xcodeプロジェクトで`PrivacyInfo.xcprivacy`ファイルを検索して、プライバシーマニフェストが既に存在するかどうかを確認します。このファイルが既にある場合は、次のステップに進んでください。ない場合は、[Apple：プライバシーマニフェストの作成](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files)を参照してください。
 
 ### ステップ3：プライバシーマニフェストにエンドポイントを追加する {#step-3-add-your-endpoint-to-the-privacy-manifest}
 
@@ -46,19 +46,19 @@ Xcodeプロジェクトで、アプリの`PrivacyInfo.xcprivacy`ファイルを�
 
 {% endalert %}
 
-![コンテキストメニューが開かれ、「Raw Keys and Values」がハイライトされているXcodeプロジェクト。]({% image_buster /assets/img/apple/privacy_manifest/check_raw_keys_and_values.png %})
+![コンテキストメニューが開き、「Raw Keys and Values」がハイライトされているXcodeプロジェクト。]({% image_buster /assets/img/apple/privacy_manifest/check_raw_keys_and_values.png %})
 
-**App Privacy Configuration**で、**NSPrivacyTracking**を選択し、値を**YES**に設定します。
+**App Privacy Configuration**の下で、**NSPrivacyTracking**を選択し、その値を**YES**に設定します。
 
 ![「NSPrivacyTracking」が「YES」に設定された「PrivacyInfo.xcprivacy」ファイル。]({% image_buster /assets/img/apple/privacy_manifest/add_nsprivacytracking.png %})
 
-**App Privacy Configuration**で、**NSPrivacyTrackingDomains**を選択します。ドメイン配列に新しい要素を追加し、[以前`AppDelegate`に追加した]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/completing_integration#update-your-app-delegate)エンドポイントに`sdk-tracking`プレフィックスを付けた値を設定します。
+**App Privacy Configuration**の下で、**NSPrivacyTrackingDomains**を選択します。ドメイン配列に新しい要素を追加し、[以前に`AppDelegate`に追加した]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/completing_integration#update-your-app-delegate)エンドポイントの先頭に`sdk-tracking`を付けた値を設定します。
 
-![「NSPrivacyTrackingDomains」の下にBrazeトラッキングエンドポイントが表示された「PrivacyInfo.xcprivacy」ファイル。]({% image_buster /assets/img/apple/privacy_manifest/add_nsprivacytrackingdomains.png %})
+![「NSPrivacyTrackingDomains」の下にBrazeトラッキングエンドポイントが一覧表示された「PrivacyInfo.xcprivacy」ファイル。]({% image_buster /assets/img/apple/privacy_manifest/add_nsprivacytrackingdomains.png %})
 
 ### ステップ4：トラッキングデータを宣言する {#step-4-declare-your-tracking-data}
 
-次に、`AppDelegate.swift`を開き、静的または動的なトラッキングリストを作成して、宣言する各[トラッキングプロパティ](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/trackingproperty/)をリストアップします。Appleはエンドユーザーがリクエストに同意するまでこれらのプロパティをブロックするため、あなたと法務チームがトラッキングと見なすプロパティのみをリストアップしてください。例えば：
+次に、`AppDelegate.swift`を開き、静的または動的なトラッキングリストを作成して、宣言する各[トラッキングプロパティ](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/trackingproperty/)をリストします。Appleはエンドユーザーが ATTプロンプトを承認するまでこれらのプロパティをブロックするため、あなたと法務チームがトラッキングとみなすプロパティのみをリストしてください。例：
 
 {% tabs %}
 {% tab 静的な例 %}
@@ -93,7 +93,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 {% endtab %}
 
 {% tab 動的な例 %}
-以下の例では、エンドユーザーが[App Tracking Transparency（ATT）プロンプト](https://developer.apple.com/documentation/apptrackingtransparency/attrackingmanager/requesttrackingauthorization(completionhandler:))に同意した後、トラッキングリストが自動的に更新されます。アプリのアクティベーション時に認証をリクエストすることはシーンごとのイベントであるため、このコードは`AppDelegate.swift`の`applicationDidBecomeActive(_:)`ではなく、`SceneDelegate.swift`ファイルの`sceneDidBecomeActive(_:)`メソッドに記述する必要があります（[`UIScene`ライフサイクル](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle)を採用しているアプリの場合に必要です）。Brazeインスタンスは、ステップ1で設定した`AppDelegate.braze`静的プロパティを通じて`SceneDelegate`からアクセスできます。
+以下の例では、エンドユーザーが[App Tracking Transparency（ATT）プロンプト](https://developer.apple.com/documentation/apptrackingtransparency/attrackingmanager/requesttrackingauthorization(completionhandler:))を承認した後、トラッキングリストが自動的に更新されます。アプリのアクティベーション時に認証をリクエストするのはシーンごとのイベントであるため、このコードは`AppDelegate.swift`の`applicationDidBecomeActive(_:)`ではなく、`SceneDelegate.swift`ファイルの`sceneDidBecomeActive(_:)`メソッドに配置する必要があります（[`UIScene`ライフサイクル](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle)を採用したアプリの場合に必要です）。Brazeインスタンスは、ステップ1で設定した`AppDelegate.braze`静的プロパティを通じて`SceneDelegate`からアクセスできます。
 
 ```swift
 func sceneDidBecomeActive(_ scene: UIScene) {
@@ -114,7 +114,7 @@ func sceneDidBecomeActive(_ scene: UIScene) {
 {% endtab %}
 {% endtabs %}
 
-### ステップ5：無限リトライループを防止する {#step-5-prevent-infinite-retry-loops}
+### ステップ5：無限リトライループを防ぐ {#step-5-prevent-infinite-retry-loops}
 
 SDKが無限リトライループに入るのを防ぐには、`set(adTrackingEnabled: enableAdTracking)`メソッドを使用してATT権限を処理します。`SceneDelegate.swift`メソッドの`adTrackingEnabled`プロパティは、以下のように処理する必要があります。
 
@@ -131,36 +131,36 @@ func sceneDidBecomeActive(_ scene: UIScene) {
 
 ## データトラッキングを無効にする {#disabling-data-tracking}
 
-Swift SDKのデータトラッキングアクティビティを無効にするには、Brazeインスタンスの[`enabled`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/enabled)プロパティを`false`に設定します。`enabled`が`false`に設定されると、Braze SDKはパブリックAPIへのすべての呼び出しを無視します。また、SDKはネットワークリクエスト、イベント処理など、進行中のすべてのアクションもキャンセルします。
+Swift SDKのデータトラッキングアクティビティを無効にするには、Brazeインスタンスの[`enabled`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/enabled)プロパティを`false`に設定します。`enabled`が`false`に設定されると、Braze SDKはパブリックAPIへのすべての呼び出しを無視します。SDKは、ネットワークリクエストやイベント処理など、進行中のすべてのアクションもキャンセルします。
 
 ## 以前に保存されたデータを消去する {#wiping-previously-stored-data}
 
 [`wipeData()`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/wipedata())メソッドを使用して、ユーザーのデバイスにローカルに保存されたSDKデータを完全に消去できます。
 
-Braze Swiftバージョン7.0.0以降では、SDKと`wipeData()`メソッドはデバイスIDとしてUUIDをランダムに生成します。ただし、`useUUIDAsDeviceId`が`false`に設定されている場合、_または_ Swift SDKバージョン5.7.0以前を使用している場合は、Identifier for Vendors（IDFV）がそのユーザーのデバイスIDとして自動的に使用されるため、[`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete)へのポストリクエストも行う必要があります。
+Braze Swiftバージョン7.0.0以降では、SDKと`wipeData()`メソッドはデバイスIDとしてUUIDをランダムに生成します。ただし、`useUUIDAsDeviceId`が`false`に設定されている場合、_または_ Swift SDKバージョン5.7.0以前を使用している場合は、Identifier for Vendors（IDFV）がそのユーザーのデバイスIDとして自動的に使用されるため、[`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete)へのPOSTリクエストも行う必要があります。
 
-手動プッシュ連携を使用している場合で、アプリが`wipeData()`を呼び出した後、同じアプリの実行中にSDKを再度有効にする場合は、Brazeが更新されたデバイストークンを受信できるように`registerForRemoteNotifications()`を再度呼び出してください。詳細については、[プッシュ通知の設定]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift)を参照してください。
+手動プッシュ連携を使用しており、アプリが`wipeData()`を呼び出した後、同じアプリ実行中にSDKを再度有効にする場合は、Brazeが更新されたデバイストークンを受信できるように`registerForRemoteNotifications()`を再度呼び出してください。詳細については、[プッシュ通知の設定]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift)を参照してください。
 
 ## データトラッキングを再開する {#resuming-data-tracking}
 
-データ収集を再開するには、[`enabled`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/enabled/)を`true`に設定します。これにより、以前に消去されたデータは復元されないことに注意してください。
+データ収集を再開するには、[`enabled`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/enabled/)を`true`に設定します。ただし、以前消去されたデータは復元されません。
 
 ## ログアウトとプッシュ登録解除 {#logout-and-unregister-push}
 
-Braze SDKは、ユーザーがプッシュ通知の登録を解除したりログアウトしたりする際に、デバイスへのターゲティングを停止するメソッドを提供します。これらのメソッドは、BrazeサーバーおよびSDK上の現在のユーザーからプッシュ登録データを削除するため、Brazeはそのユーザーに今後のプッシュ通知キャンペーンを送信しなくなります。
+Braze SDKは、ユーザーがプッシュ通知の登録を解除したりログアウトしたりする際に、デバイスへのターゲティングを停止するメソッドを提供します。これらのメソッドは、Brazeサーバーおよびsdkから現在のユーザーのプッシュ登録データを削除するため、Brazeはそのユーザーに今後のプッシュ通知キャンペーンを送信しなくなります。
 
 ### ログアウト {#logout}
 
-ユーザーがアプリケーションからログアウトする際に、SDKの`logout`メソッドを呼び出して、現在のユーザーからデバイスのプッシュ登録を削除し、SDKのクリーンアップアクションを自動的に実行します。`logout`メソッドは以下を実行します。
+ユーザーがアプリケーションからログアウトする際に、SDKの`logout`メソッドを呼び出して、現在のユーザーからデバイスのプッシュ登録を削除し、SDK上のクリーンアップアクションを自動的に実行します。`logout`メソッドは以下を実行します。
 
-- BrazeサーバーでデバイスのプッシュトークンおよびすべてのLive Activitiesのpush-to-startトークンを現在のユーザーから登録解除します。
+- Brazeサーバー上の現在のユーザーから、デバイスのプッシュトークンおよびすべてのLive Activitiesのpush-to-startトークンの登録を解除します。
 - 登録解除の呼び出しが成功した場合、SDKはローカルに保存されたSDKデータを消去し、SDKを無効にします。
-- 失敗した場合、エラーと`isRetriable`フラグを発生させ、インテグレーターがアクションを取れるようにします。
+- 失敗した場合、エラーと`isRetriable`フラグを発生させ、インテグレーターがアクションを実行できるようにします。
 
 {% subtabs local %}
 {% subtab Swift %}
 
-以下の完了ハンドラーの例は、`logout`の成功と失敗の処理を示しています。コールバックベースのフローに使用し、ログ出力をアプリのリトライまたは再認証ロジックに置き換えてください。
+以下のコンプリーションハンドラーの例は、`logout`の成功と失敗の処理を示しています。コールバックベースのフローに使用し、ログ出力をアプリのリトライまたは再認証ロジックに置き換えてください。
 
 ```swift
 // Completion handler
@@ -174,7 +174,7 @@ AppDelegate.braze?.logout { result in
 }
 ```
 
-以下の非同期の例は、サスペンド対応の`logout` APIを示しています。非同期ワークフローに使用し、成功と失敗のブランチをアプリに合わせてカスタマイズしてください。
+以下のasyncの例は、サスペンディング`logout` APIを示しています。非同期ワークフローに使用し、アプリに合わせて成功と失敗のブランチをカスタマイズしてください。
 
 ```swift
 // Async/await
@@ -189,7 +189,7 @@ do {
 {% endsubtab %}
 {% subtab OBJECTIVE-C %}
 
-このObjective-Cの例は、完了ベースの`logout`処理を示しています。Objective-Cのインテグレーションで使用し、ログ出力をアプリのフローに置き換えてください。
+このObjective-Cの例は、コンプリーションベースの`logout`処理を示しています。Objective-Cインテグレーションで使用し、ログ出力をアプリのフローに置き換えてください。
 
 ```objc
 [AppDelegate.braze logoutWithCompletion:^(NSError * _Nullable error) {
@@ -209,20 +209,20 @@ do {
 
 #### `logout`後のトラッキングとプッシュの再有効化 {#re-enable-tracking-and-push-after-logout}
 
-`logout`が成功した後、[`enabled`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/enabled/)を`true`に戻し、[Swiftプッシュ設定]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift)に従ってオペレーティングシステム（OS）またはプッシュプロバイダーで通知を再登録してください。
+`logout`が成功した後、[`enabled`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/enabled/)を`true`に戻し、[Swiftプッシュ設定]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift)に従ってオペレーティングシステム（OS）またはプッシュプロバイダーで通知に再登録してください。
 
 #### 即時の登録解除呼び出しを避ける {#avoid-immediate-unregister-calls}
 
-OSまたはプッシュプロバイダーでプッシュ通知を登録した直後に`logout`または`unregisterPush`を呼び出すことは避けてください。非同期のサーバー処理により、まれにプッシュトークンがBrazeユーザーに再追加される可能性があります。
+OSまたはプッシュプロバイダーでプッシュ通知に登録した直後に`logout`または`unregisterPush`を呼び出さないでください。非同期のサーバー処理により、まれにプッシュトークンがBrazeユーザーに再追加される場合があります。
 
-### プッシュの登録解除 {#unregister-push}
+### プッシュ登録解除 {#unregister-push}
 
 追加の自動クリーンアップなしにデバイスへのプッシュ送信を停止するには、`unregisterPush`メソッドを使用します。これにより、Brazeサーバー上の現在のユーザーからデバイスのプッシュトークンが削除され、ローカルに保存されたトークンがクリアされます。
 
 {% subtabs local %}
 {% subtab Swift %}
 
-以下の完了ハンドラーの例は、`unregisterPush`の成功と失敗の処理を示しています。コールバックベースのフローに使用し、ログ出力を独自のリトライロジックに置き換えてください。
+以下のコンプリーションハンドラーの例は、`unregisterPush`の成功と失敗の処理を示しています。コールバックベースのフローに使用し、ログ出力を独自のリトライロジックに置き換えてください。
 
 ```swift
 // Completion handler
@@ -236,7 +236,7 @@ AppDelegate.braze?.notifications.unregisterPush { result in
 }
 ```
 
-以下の非同期の例は、サスペンド対応の`unregisterPush` APIを示しています。非同期ワークフローに使用し、成功と失敗のブランチをアプリに合わせてカスタマイズしてください。
+以下のasyncの例は、サスペンディング`unregisterPush` APIを示しています。非同期ワークフローに使用し、アプリに合わせて成功と失敗のブランチをカスタマイズしてください。
 
 ```swift
 // Async/await
@@ -251,7 +251,7 @@ do {
 {% endsubtab %}
 {% subtab OBJECTIVE-C %}
 
-このObjective-Cの例は、完了ベースの`unregisterPush`処理を示しています。Objective-Cのインテグレーションで使用し、ログ出力をアプリのフローに置き換えてください。
+このObjective-Cの例は、コンプリーションベースの`unregisterPush`処理を示しています。Objective-Cインテグレーションで使用し、ログ出力をアプリのフローに置き換えてください。
 
 ```objc
 [AppDelegate.braze.notifications unregisterPushWithCompletion:^(NSError * _Nullable error) {
@@ -269,27 +269,27 @@ do {
 
 #### `unregisterPush`後のプッシュ再登録 {#re-register-push-after-unregisterpush}
 
-`unregisterPush`を呼び出した後、Brazeプッシュ通知を再度送信する前に、[Swiftプッシュ設定]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift)に従ってOSまたはプッシュプロバイダーで通知を再登録してください。
+`unregisterPush`を呼び出した後、Brazeプッシュ通知を再度送信する前に、[Swiftプッシュ設定]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift)に従ってOSまたはプッシュプロバイダーで通知に再登録してください。
 
 #### 即時の登録解除呼び出しを避ける
 
-OSまたはプッシュプロバイダーでプッシュ通知を登録した直後に`logout`または`unregisterPush`を呼び出すことは避けてください。非同期のサーバー処理により、まれにプッシュトークンがBrazeユーザーに再追加される可能性があります。
+OSまたはプッシュプロバイダーでプッシュ通知に登録した直後に`logout`または`unregisterPush`を呼び出さないでください。非同期のサーバー処理により、まれにプッシュトークンがBrazeユーザーに再追加される場合があります。
 
 ### Live Activitiesのpush-to-startトークンの登録解除 {#unregister-push-to-start}
 
-Live Activitiesは、push-to-startトークンを使用してリモートで開始できます。BrazeがデバイスでLive Activitiesをリモートで開始しないようにするには、`unregisterPushToStart`メソッドを呼び出して、現在登録されているすべてのタイプ（デフォルト）または指定されたActivityタイプのリストを登録解除します。
+Live Activitiesは、push-to-startトークンを使用してリモートで開始できます。BrazeがデバイスでLive Activitiesをリモートで開始するのを停止するには、`unregisterPushToStart`メソッドを呼び出して、現在登録されているすべてのタイプ（デフォルト）または指定されたActivityタイプのリストの登録を解除します。
 
-現在実行中のLive Activitiesは引き続き更新を受信し、このメソッドはリモートで新しいアクティビティを開始する機能のみを削除します。Live Activitiesの詳細については、[Live Activities]({{site.baseurl}}/developer_guide/live_notifications/live_activities)を参照してください。
+現在実行中のLive Activitiesは引き続き更新を受信し、このメソッドは新しいアクティビティをリモートで開始する機能のみを削除することに注意してください。Live Activitiesの詳細については、[Live Activities]({{site.baseurl}}/developer_guide/live_notifications/live_activities)を参照してください。
 
 #### 実行中のLive Activitiesを終了する {#end-any-running-live-activities}
 
 `unregisterPushToStart`は現在実行中のLive Activitiesを終了しません。成功コールバック内で、ActivityKitの[`end(_:dismissalPolicy:)`](https://developer.apple.com/documentation/activitykit/activity/end(_:dismissalpolicy:))メソッドを使用して、実行中のLive Activitiesを手動で終了してください。
 
 {% alert note %}
-Live Activityの`registerPushToStart`を呼び出した直後に`logout`または`unregisterPushToStart`を呼び出すことは避けてください。非同期のサーバー処理の性質上、まれにpush-to-startトークンがBrazeユーザーに再追加される可能性があります。
+Live Activityに対して`registerPushToStart`を呼び出した直後に`logout`または`unregisterPushToStart`を呼び出さないでください。非同期のサーバー処理の性質により、まれにpush-to-startトークンがBrazeユーザーに再追加される場合があります。
 {% endalert %}
 
-以下の例は、すべてのpush-to-startアクティビティタイプを登録解除する方法を示しています。サインアウトしたユーザーがリモートで開始される新しいLive Activitiesを受信しなくなるようにする場合に使用してください。
+以下の例は、すべてのpush-to-startアクティビティタイプの登録を解除する方法を示しています。サインアウトしたユーザーがリモートで開始される新しいLive Activitiesを受信すべきでない場合に使用してください。
 
 ```swift
 // Unregister all currently-registered activity types
@@ -312,7 +312,7 @@ do {
 }
 ```
 
-以下の例は、特定のアクティビティタイプを登録解除する方法を示しています。選択したLive Activitiesのみリモート開始を停止する場合に使用してください。
+以下の例は、特定のアクティビティタイプの登録を解除する方法を示しています。選択したLive Activitiesのみリモート開始を停止する場合に使用してください。
 
 ```swift
 // Unregister specific activity types
@@ -327,23 +327,23 @@ AppDelegate.braze?.liveActivities.unregisterPushToStart(types: ["ActivityType1",
 ```
 
 {% alert note %}
-`unregisterPushToStart`にはObjective-C APIがありません。Live ActivitiesはSwift専用の型に依存しているためです。
+`unregisterPushToStart`はObjective-C APIを持ちません。Live ActivitiesはSwift専用の型に依存しているためです。
 {% endalert %}
 
 ## IDFVの収集 {#idfv-collection}
 
-以前のバージョンのBraze iOS SDKでは、IDFV（Identifier for Vendor）フィールドはユーザーのデバイスIDとして自動的に収集されていました。Swift SDK `v5.7.0`以降、IDFVフィールドはオプションで無効にすることが可能になり、代わりにBrazeがランダムなUUIDをデバイスIDとして設定するようになりました。Swift SDK `v7.0.0`以降、IDFVフィールドはデフォルトでは収集されず、代わりにUUIDがデバイスIDとして設定されます。
+以前のバージョンのBraze iOS SDKでは、IDFV（Identifier for Vendor）フィールドはユーザーのデバイスIDとして自動的に収集されていました。Swift SDK `v5.7.0`以降、IDFVフィールドはオプションで無効にできるようになり、代わりにBrazeがランダムなUUIDをデバイスIDとして設定するようになりました。Swift SDK `v7.0.0`以降、IDFVフィールドはデフォルトでは収集されず、代わりにUUIDがデバイスIDとして設定されます。
 
-`useUUIDAsDeviceId`機能は、[Swift SDK](https://github.com/braze-inc/braze-swift-sdk)がデバイスIDをUUIDとして設定するように構成します。従来、iOS SDKはAppleが生成したIDFV値と同じデバイスIDを割り当てていました。この機能がiOSアプリでデフォルトで有効になると、SDKを通じて作成されたすべての新規ユーザーには、UUIDと同じデバイスIDが割り当てられます。
+`useUUIDAsDeviceId`機能は、[Swift SDK](https://github.com/braze-inc/braze-swift-sdk)がデバイスIDをUUIDとして設定するように構成します。従来、iOS SDKはAppleが生成したIDFV値と同じデバイスIDを割り当てていました。この機能がiOSアプリでデフォルトで有効になっている場合、SDKを通じて作成されたすべての新規ユーザーには、UUIDと同じデバイスIDが割り当てられます。
 
-IDFVを別途収集したい場合は、[`set(identifierforvendor:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(identifierforvendor:))を使用できます。
+IDFVを個別に収集したい場合は、[`set(identifierforvendor:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(identifierforvendor:))を使用できます。
 
 {% alert note %}
-IDFVの作成はAppleが行っており、IDFVはAppleによって管理されています。BrazeはIDFVを変換したり変更したりすることはなく、Appleは大文字小文字やフォーマットについて保証していません。
+IDFVの作成はAppleが担当しており、IDFVはAppleが管理しています。BrazeはIDFVを変換したり変更したりしません。また、Appleは大文字小文字やフォーマットについて保証していません。
 {% endalert %}
 
 {% alert note %}
-`braze.deviceId`の読み取りは、SDKが初期化後の処理を完了するまで呼び出しスレッドをブロックします。メインスレッドやレイテンシーに敏感なコンテキストでは、代わりにノンブロッキングの代替手段を使用してください。
+`braze.deviceId`の読み取りは、SDKが初期化後の処理を完了するまで呼び出しスレッドをブロックします。メインスレッドやレイテンシに敏感なコンテキストでは、代わりにノンブロッキングの代替手段を使用してください。
 
 {% subtabs local %}
 {% subtab Swift %}
@@ -372,26 +372,26 @@ let deviceId = await AppDelegate.braze?.getDeviceId()
 
 #### SDKバージョン {#sdk-version}
 
-Swift SDK `v7.0.0+`で`useUUIDAsDeviceId`が有効（デフォルト）の場合、作成されたすべての新規ユーザーにはランダムなデバイスIDが割り当てられます。既存のすべてのユーザーは、IDFVであった可能性のある同じデバイスID値を保持します。
+Swift SDK `v7.0.0+`で`useUUIDAsDeviceId`が有効になっている場合（デフォルト）、新規作成されたすべてのユーザーにランダムなデバイスIDが割り当てられます。既存のすべてのユーザーは、IDFV であった可能性のある同じデバイスID値を保持します。
 
-この機能が有効でない場合、デバイスには作成時にIDFVが引き続き割り当てられます。
+この機能が有効でない場合、デバイスには引き続き作成時にIDFVが割り当てられます。
 
 #### ダウンストリーム {#downstream}
 
-**テクノロジーパートナー**：この機能が有効になっている場合、BrazeのデバイスIDからIDFV値を取得しているテクノロジーパートナーは、このデータにアクセスできなくなります。パートナー連携にデバイスから取得したIDFV値が必要な場合は、この機能を`false`に設定することをお勧めします。
+**テクノロジーパートナー**: この機能が有効になっている場合、BrazeデバイスIDからIDFV値を取得していたテクノロジーパートナーは、このデータにアクセスできなくなります。パートナー連携にデバイスから取得したIDFV値が必要な場合は、この機能を`false`に設定することをお勧めします。
 
-**Currents**：`useUUIDAsDeviceId`をtrueに設定すると、Currentsで送信されるデバイスIDはIDFV値と一致しなくなります。
+**Currents**: `useUUIDAsDeviceId`をtrueに設定すると、Currentsで送信されるデバイスIDはIDFV値と一致しなくなります。
 
 ### よくある質問 {#frequently-asked-questions}
 
-#### Braze内の既存ユーザーに影響はありますか？ {#will-this-change-impact-my-existing-users-in-braze}
+#### この変更はBrazeの既存ユーザーに影響しますか？ {#will-this-change-impact-my-existing-users-in-braze}
 
-いいえ。有効にした場合でも、この機能はBraze内のユーザーデータを上書きしません。新しいUUIDデバイスIDは、新しいデバイスまたは`wipedata()`が呼び出された場合にのみ作成されます。
+いいえ。この機能を有効にしても、Brazeのユーザーデータは上書きされません。新しいUUIDデバイスIDは、新しいデバイスまたは`wipedata()`が呼び出された場合にのみ作成されます。
 
-#### 有効にした後にこの機能をオフにできますか？ {#can-i-turn-this-feature-off-after-turning-it-on}
+#### この機能を有効にした後で無効にできますか？ {#can-i-turn-this-feature-off-after-turning-it-on}
 
-はい、この機能はお客様の判断でいつでもオンとオフを切り替えることができます。以前に保存されたデバイスIDが上書きされることはありません。
+はい、この機能はいつでも自由にオン・オフを切り替えることができます。以前に保存されたデバイスIDが上書きされることはありません。
 
-#### Brazeの別の場所でIDFV値を取得することはできますか？ {#can-i-still-capture-the-idfv-value-through-braze-elsewhere}
+#### Brazeの他の場所でIDFV値を取得できますか？ {#can-i-still-capture-the-idfv-value-through-braze-elsewhere}
 
-はい、Swift SDKを通じてオプションでIDFVを収集することが可能です（デフォルトでは収集は無効になっています）。
+はい、Swift SDKを通じてIDFVをオプションで収集することができます（デフォルトでは収集は無効になっています）。

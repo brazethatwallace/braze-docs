@@ -121,7 +121,7 @@ curl --location --request GET \ 'https://rest.iad-01.braze.com/scim/v2/Users?fil
 | `department` | 文字列 | ユーザーの部署（設定されている場合）。 |
 | `createdAt` | 文字列 | ユーザーアカウントが作成された日時。未設定の場合は `N/A` を返します。それ以外は `YYYY Mon DD, H:MM AM/PM` の形式です。 |
 | `lastSignInAt` | 文字列 | ユーザーが最後にサインインした日時。ユーザーがサインインしたことがない場合は `N/A` を返します。それ以外は `YYYY Mon DD, H:MM AM/PM` の形式です。 |
-| `permissions` | オブジェクト | 会社、ワークスペース、チーム、およびロールの権限。[権限オブジェクト]({{site.baseurl}}/scim_api_appendix)を参照してください。 |
+| `permissions` | オブジェクト | 会社、ワークスペース、チーム、およびロールの権限。[権限オブジェクト]({{site.baseurl}}/api/objects_filters/scim_api_appendix)を参照してください。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ユーザーオブジェクトフィールド" }
 
 ### エラーステータス {#error-states}

@@ -17,7 +17,7 @@ channel: email
 | --- | --- |
 | E-Mail-Öffnungsraten sind plötzlich gesunken | [Niedrige E-Mail-Öffnungsraten](#low-email-open-rates) |
 | Getrackte Links geben HTTP 403 zurück | [HTTP 403 bei Weiterleitungslinks](#http-403-on-redirect-links) |
-| DNS oder CNAME verweist auf ESP statt auf CDN | [Probleme mit der Domain-Registrierung](#domain-registry-issues) |
+| DNS oder CNAME verweist auf den ESP statt auf das CDN | [Probleme mit der Domain-Registrierung](#domain-registry-issues) |
 | „Verbindung ist nicht privat“ oder Links funktionieren während der Einrichtung nicht | [CDN-Probleme](#cdn-issues) |
 | SSL-Einrichtung abgeschlossen, aber Links zeigen weiterhin HTTP | [SSL-Aktivierungsstatus](#ssl-enablement-status) |
 | Getrackte URL schlägt fehl, aber ungetrackte URL funktioniert | [Probleme mit dem Klick-Tracking](#click-tracking-issues) |
@@ -26,19 +26,19 @@ channel: email
 
 ## Standardmäßiger Untersuchungspfad {#standard-investigation-path}
 
-1. Bestätigen Sie, dass Ihre Klick-Tracking-Subdomain auf Ihr [Content Delivery Network (CDN)]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#what-is-a-cdn-and-why-do-i-need-it) verweist – nicht direkt auf Ihren E-Mail-Anbieter (SendGrid, SparkPost oder Amazon SES). Bitten Sie Ihr IT- oder Web-Team zu überprüfen, ob Ihre Domain-Einstellungen mit Ihrem Braze-Setup übereinstimmen. Informationen zu den Braze-Anforderungen finden Sie unter [SSL-Zertifikat erwerben]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate).
-2. Bestätigen Sie, dass Ihr SSL-Zertifikat für die Tracking-Domain aktiv ist. Bitten Sie Ihr IT- oder Web-Team zu bestätigen, dass das Zertifikat aktuell ist und Ihre Klick-Tracking-Subdomain abdeckt. Informationen zu Einrichtungsschritten und CDN-spezifischen Anleitungen finden Sie unter [SSL-Zertifikat erwerben]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate) und [Zusätzliche Ressourcen]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#additional-resources).
-3. Senden Sie eine Test-E-Mail mit dem [Template zur Fehlerbehebung für Klick-Tracking](#click-tracking-issues). Vergleichen Sie getrackte und nicht getrackte URLs.
-4. Wenn getrackte Links mit einem 403-Fehler fehlschlagen, überprüfen Sie die CDN- und WAF-Regeln (User Agents, Query-Strings, Weiterleitungsmuster).
-5. Wenn die Einrichtung abgeschlossen ist, Links aber weiterhin über HTTP geladen werden, wenden Sie sich an Ihren Braze-Customer-Success-Manager, um zu bestätigen, dass Braze SSL aktiviert hat.
-6. Bei anhaltenden Problemen koordinieren Sie sich mit Ihrem CDN- oder IT-Team und kontaktieren Sie den [Braze-Support]({{site.baseurl}}/braze_support) mit Fehlercodes und allen Details Ihres CDN- oder Domain-Anbieters.
+1. Vergewissern Sie sich, dass Ihre Klick-Tracking-Subdomain auf Ihr [Content Delivery Network (CDN)]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#what-is-a-cdn-and-why-do-i-need-it) verweist – nicht direkt auf Ihren E-Mail-Anbieter (SendGrid, SparkPost oder Amazon SES). Bitten Sie Ihr IT- oder Web-Team zu überprüfen, ob Ihre Domain-Einstellungen mit Ihrem Braze-Setup übereinstimmen. Informationen zu den Braze-Anforderungen finden Sie unter [SSL-Zertifikat erwerben]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate).
+2. Vergewissern Sie sich, dass Ihr SSL-Zertifikat für die Tracking-Domain aktiv ist. Bitten Sie Ihr IT- oder Web-Team zu bestätigen, dass das Zertifikat aktuell ist und Ihre Klick-Tracking-Subdomain abdeckt. Informationen zu den Einrichtungsschritten und CDN-spezifischen Anleitungen finden Sie unter [SSL-Zertifikat erwerben]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate) und [Zusätzliche Ressourcen]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#additional-resources).
+3. Senden Sie eine Test-E-Mail mit dem [Template zur Fehlerbehebung bei Klick-Tracking](#click-tracking-issues). Vergleichen Sie getrackte und nicht getrackte URLs.
+4. Wenn getrackte Links mit einem 403-Fehler fehlschlagen, überprüfen Sie die CDN- und WAF-Regeln (User-Agents, Query-Strings, Redirect-Muster).
+5. Wenn die Einrichtung abgeschlossen ist, Links aber weiterhin HTTP verwenden, kontaktieren Sie Ihren Braze-Customer-Success-Manager, um zu bestätigen, dass Braze SSL aktiviert hat.
+6. Koordinieren Sie sich bei anhaltenden Problemen mit Ihrem CDN- oder IT-Team und kontaktieren Sie den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) mit Fehlercodes und allen Details von Ihrem CDN- oder Domain-Anbieter.
 
 ## Schlüsselkonzepte {#key-concepts}
 
-- **Klick-Tracking-Domain (CTD):** Die gebrandete Subdomain, die Braze zum Wrappen von Links für das Klick-Tracking verwendet (zum Beispiel `clicks.mail.yourbrand.com`).
-- **Getrackte URL:** Umschließt den ursprünglichen HTTPS-Link mit Ihrer Tracking-Domain. Wenn Nutzer:innen darauf klicken, löst die Tracking-Domain die Anfrage auf und leitet zum endgültigen Ziel weiter. Ein CDN ermöglicht es Ihnen, sichere (HTTPS) URLs zu tracken. Ohne CDN kann bei Nutzer:innen ein Datenschutzfehler mit dem Hinweis „Verbindung ist nicht sicher“ auftreten.
+- **Click-Tracking-Domain (CTD):** Die gebrandete Subdomain, die Braze zum Umschließen von Links für das Klick-Tracking verwendet (zum Beispiel `clicks.mail.yourbrand.com`).
+- **Getrackte URL:** Umschließt den ursprünglichen HTTPS-Link in Ihrer Tracking-Domain. Wenn eine:r Nutzer:in darauf klickt, löst die Tracking-Domain die Anfrage auf und leitet zum endgültigen Ziel weiter. Ein CDN ermöglicht es Ihnen, sichere (HTTPS) URLs zu tracken. Ohne CDN kann es vorkommen, dass Nutzer:innen die Datenschutzwarnung „Verbindung ist nicht sicher“ sehen.
 - **Ungetrackte URL:** Behält die ursprüngliche URL unverändert bei und umgeht das CDN, um als Kontrollumgebung zu dienen.
-- **Phase-1- und Phase-2-Routing:** Phase 1 verweist den CNAME Ihrer Klick-Tracking-Domain direkt auf Ihren E-Mail-Anbieter (ESP) zur initialen HTTP-Verifizierung. Phase 2 verweist den CNAME auf Ihr CDN oder Ihre Web Application Firewall (WAF), die SSL terminiert und Anfragen mit den erforderlichen Headern an den ESP weiterleitet. Informationen zu ESP-spezifischen CNAME-Zielen finden Sie unter [ESP-Phase-1- und Phase-2-Routing](#esp-phase-1-and-phase-2-routing).
+- **Phase-1- und Phase-2-Routing:** Phase 1 verweist den CNAME Ihrer Click-Tracking-Domain direkt auf Ihren E-Mail-Anbieter (ESP) für die anfängliche HTTP-Verifizierung. Phase 2 verweist den CNAME auf Ihr CDN oder Ihre Web Application Firewall (WAF), die SSL terminiert und Anfragen mit den erforderlichen Headern an den ESP weiterleitet. Informationen zu ESP-spezifischen CNAME-Zielen finden Sie unter [ESP Phase-1- und Phase-2-Routing](#esp-phase-1-and-phase-2-routing).
 
 ## Klick-Tracking-Domains und DNS-Phasen {#click-tracking-domains-and-dns-phases}
 

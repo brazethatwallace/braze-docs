@@ -28,7 +28,7 @@ Les messages in-app de type [`Modal Image`](https://braze-inc.github.io/braze-sw
 {% endsubtab %}
 {% subtab Fullscreen %}
 
-Les messages in-app [`Full`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/inappmessage/full-swift.struct) sont utiles pour maximiser le contenu et l'impact de votre communication avec les utilisateurs. La moitié supérieure d'un message in-app `Full` contient une image, et la moitié inférieure affiche du texte et jusqu'à deux boutons permettant l'analyse.
+Les messages in-app [`Full`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/inappmessage/full-swift.struct) sont utiles pour maximiser le contenu et l'impact de votre communication avec les utilisateurs. La moitié supérieure d'un message in-app `Full` contient une image, et la moitié inférieure affiche du texte et jusqu'à deux boutons compatibles avec l'analyse.
 
 ![Un message in-app en plein écran affiché sur tout l'écran du téléphone.]({% image_buster /assets/img/full-screen-header-text.png %}){: style="max-width:35%;border:none;"}
 
@@ -42,7 +42,7 @@ Les messages in-app [`Full Image`](https://braze-inc.github.io/braze-swift-sdk/d
 {% endsubtab %}
 {% subtab Custom HTML %}
 
-Les messages in-app [`HTML`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/inappmessage/html-swift.struct) sont utiles pour créer un contenu utilisateur entièrement personnalisé. Le contenu des messages in-app HTML complet défini par l'utilisateur est affiché dans un `WKWebView` et peut éventuellement contenir d'autres contenus enrichis, tels que des images et des polices, permettant un contrôle total de l'apparence et de la fonctionnalité du message. <br><br>Les messages in-app iOS prennent en charge une interface JavaScript `brazeBridge` pour appeler des méthodes sur le SDK Braze pour le Web depuis votre HTML. Pour plus d'informations, consultez nos [meilleures pratiques]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/best_practices).
+Les messages in-app [`HTML`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/inappmessage/html-swift.struct) sont utiles pour créer un contenu utilisateur entièrement personnalisé. Le contenu des messages in-app HTML complet défini par l'utilisateur est affiché dans un `WKWebView` et peut éventuellement contenir d'autres contenus enrichis, tels que des images et des polices, permettant un contrôle total de l'apparence et de la fonctionnalité du message. <br><br>Les messages in-app iOS prennent en charge une interface JavaScript `brazeBridge` pour appeler des méthodes sur le SDK Braze pour le Web depuis votre HTML. Pour plus d'informations, consultez nos [meilleures pratiques]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices).
 
 L'exemple suivant montre un message in-app HTML complet paginé :
 

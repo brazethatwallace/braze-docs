@@ -6,10 +6,10 @@ page_order: 2
 layout: api_page
 page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint Remover IDs externos."
-
 ---
 {% api %}
 # Remover ID externo {#remove-external-id}
+
 {% apimethod post %}
 /users/external_ids/remove
 {% endapimethod %}
@@ -26,9 +26,9 @@ Este endpoint remove completamente o ID obsoleto e a ação não pode ser desfei
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key) com a permissão `users.external_ids.remove`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics) com a permissão `users.external_ids.remove`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='external id migration' %}
 
@@ -47,9 +47,9 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ### Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-| `external_ids` | Obrigatória | Array de strings | Identificadores externos dos usuários a serem removidos. |
+| `external_ids` | Obrigatório | Array de strings | Identificadores externos dos usuários a serem removidos. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#request-example}
@@ -86,6 +86,6 @@ O campo `message` retornará `success` para qualquer solicitação válida. Erro
 - Chave de API inválida
 - Array `external_ids` vazio
 - Array `external_ids` com mais de 50 itens
-- Limite de taxa atingido (mais de 1.000 solicitações/minuto)
+- Limite de frequência atingido (mais de 1.000 solicitações/minuto)
 
 {% endapi %}

@@ -17,20 +17,20 @@ search_rank: 3
 
 ## 購入イベントの記録 {#log-purchase-events}
 
-[購入オブジェクト]({{site.baseurl}}/api/objects_filters/purchase_object)を[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)に渡すか、以下のセクションに記載されているSDKライブラリのいずれかを使用して、購入を記録できます。
+[購入オブジェクト]({{site.baseurl}}/api/objects_filters/purchase_object)を[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)に渡すか、次のセクションに記載されているSDKライブラリのいずれかを使用して、購入を記録できます。
 
 {% alert note %}
 購入イベントプロパティは、[カスタムイベントプロパティ]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties#expected-format)と同じデータ型を使用します。
 {% endalert %}
 
-以下は、さまざまなプラットフォームで購入を記録するために使用されるメソッドの一覧です。これらのページでは、購入イベントにプロパティや数量を追加する方法についてのドキュメントもご覧いただけます。これらのプロパティに基づいてユーザーをさらに絞り込むことができます。
+以下は、さまざまなプラットフォームで購入を記録するために使用されるメソッドの一覧です。これらのページでは、購入イベントにプロパティや数量を追加する方法についてのドキュメントも確認できます。これらのプロパティに基づいて、ユーザーをさらにターゲティングできます。
 
 - [Android および FireOS]({{site.baseurl}}/developer_guide/analytics/logging_purchases?tab=android)
 - [iOS]({{site.baseurl}}/developer_guide/analytics/logging_purchases?tab=swift)
 - [Web]({{site.baseurl}}/developer_guide/analytics/logging_purchases?tab=web)
-- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics#logging-purchases)
+- [React Native]({{site.baseurl}}/developer_guide/analytics#purchase-events--revenue-tracking)
 - [Unity]({{site.baseurl}}/developer_guide/analytics/logging_purchases?tab=unity)
-- [.NET MAUI（旧 Xamarin）]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics#logging-purchases)
+- [.NET MAUI（旧 Xamarin）]({{site.baseurl}}/developer_guide/analytics?sdktab=xamarin#purchase-events--revenue-tracking)
 - [Roku]({{site.baseurl}}/developer_guide/analytics/logging_purchases?tab=roku)
 
 ## 購入データの表示 {#view-purchase-data}
@@ -39,18 +39,18 @@ search_rank: 3
 
 ## 購入データの使用 {#use-purchase-data}
 
-Brazeでは購入データをいくつかの方法で活用できます。
+Brazeでは、購入データをいくつかの方法で活用できます。
 
-- **[セグメンテーション](#purchase-event-segmentation):** 購入データを使用して、購入行動に基づいたユーザーセグメントを作成します。
-- **[パーソナライゼーション](#personalization):** 購入データを使用して、ユーザーへのメッセージをパーソナライズします。
-- **[トリガーメッセージ](#trigger-messages):** 購入イベントに基づいてメッセージをトリガーするよう設定します。
-- **[分析](#analytics):** 購入データを分析して、ユーザーの行動やマーケティングキャンペーンの効果に関するインサイトを得ます。
+- **[セグメンテーション](#purchase-event-segmentation):** 購入データを使用して、購買行動に基づいたユーザーのセグメントを作成できます。
+- **[パーソナライゼーション](#personalization):** 購入データを使用して、ユーザーへのメッセージをパーソナライズできます。
+- **[メッセージのトリガー](#trigger-messages):** 購入イベントに基づいてメッセージをトリガーするよう設定できます。
+- **[分析](#analytics):** 購入データを分析して、ユーザーの行動やマーケティングキャンペーンの効果に関するインサイトを得ることができます。
 
 ### セグメンテーション {#purchase-event-segmentation}
 
-記録された購入イベントに基づいて、任意の数やタイプのフォローアップキャンペーンをトリガーできます。たとえば、過去30日間に購入を行ったユーザーのセグメントや、一定金額以上を支出したユーザーのセグメントを作成できます。
+記録された購入イベントに基づいて、あらゆる数やタイプのフォローアップキャンペーンをトリガーできます。たとえば、過去30日間に購入を行ったユーザーのセグメントや、一定額以上を支出したユーザーのセグメントを作成できます。
 
-ユーザーのターゲティング時には、以下のセグメンテーションフィルターが利用できます。
+ユーザーをターゲティングする際、以下のセグメンテーションフィルターが利用可能です。
 
 - First Made Purchase
 - First Purchase For App
@@ -63,19 +63,19 @@ Brazeでは購入データをいくつかの方法で活用できます。
 - X Purchase Property in Y Days
 - X Purchases in Last Y Days
 
-各フィルターの詳細については、[セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)の用語集を参照し、「Purchase behavior」でフィルタリングしてください。
+各フィルターの詳細については、[セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)用語集を参照し、「Purchase behavior」でフィルターしてください。
 
 ![ちょうど3回購入したユーザーをフィルタリングする例]({% image_buster /assets/img/purchase_filter_example.gif %}){: style="max-width:80%;"}
 
 {% alert tip %}
-特定の購入が発生した回数でセグメンテーションするには、その購入を[増分カスタム属性]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview#custom-attribute-storage)として個別に記録してください。
+特定の購入が発生した回数でセグメントを作成するには、その購入を[インクリメントするカスタム属性]({{site.baseurl}}/developer_guide/analytics#custom-attribute-storage)として個別に記録してください。
 {% endalert %}
 
 ### パーソナライゼーション {#personalization}
 
-ユーザーから収集する他のタイプのデータと同様に、購入データを使用してLiquidを通じてメッセージングをパーソナライズできます。たとえば、ユーザーが購入した商品に類似した商品を推薦するパーソナライズされたメールを送信できます。
+ユーザーから収集する他のタイプのデータと同様に、購入データを使用してLiquidを通じたメッセージングをパーソナライズできます。たとえば、ユーザーが購入した商品に類似した商品をおすすめするパーソナライズされたメールを送信できます。
 
-ユーザーが最後に購入した商品名を保存する `last_purchased_product` という購入イベントプロパティがあるとします。このプロパティを使用して、次のようにメールメッセージをパーソナライズできます。
+`last_purchased_product` という購入イベントプロパティがあり、ユーザーが最後に購入した商品の名前が格納されているとします。このプロパティを使用して、次のようにメールメッセージをパーソナライズできます。
 
 {% raw %}
 
@@ -91,15 +91,15 @@ Brazeでは購入データをいくつかの方法で活用できます。
 
 {% endraw %}
 
-この例では、`last_purchased_product` プロパティに基づいてメッセージがパーソナライズされています。ユーザーが最後に購入した商品が「Running Shoes」の場合、ランニングショーツやウォーターボトルを推薦するメッセージが届きます。最後の商品が「Yoga Mat」の場合は、ヨガブロックやストラップを推薦するメッセージが届きます。`last_purchased_product` がそれ以外の場合は、汎用的なお礼メッセージが届きます。
+この例では、メッセージが `last_purchased_product` プロパティに基づいてパーソナライズされています。ユーザーが最後に購入した商品が「Running Shoes」であれば、ランニングショーツやウォーターボトルをおすすめするメッセージが届きます。最後の商品が「Yoga Mat」であれば、ヨガブロックやストラップをおすすめするメッセージが届きます。`last_purchased_product` がそれ以外の場合は、汎用的な感謝メッセージが届きます。
 
-### トリガーメッセージ {#trigger-messages}
+### メッセージのトリガー {#trigger-messages}
 
-一般的なユースケースとして、ユーザーが購入した際にメールなどのメッセージを自動的に送信する方法があります。たとえば、お礼メッセージや次回購入時の割引コードを送信できます。
+一般的なユースケースとして、ユーザーが購入した際にメールなどのメッセージを自動的に送信することがあります。たとえば、お礼のメッセージや今後の購入に使える割引コードを送信できます。
 
-これを行うには、アクションベースのキャンペーンまたはキャンバスを作成し、トリガーアクションを**購入**に設定します。購入した商品や購入金額など、トリガーの追加条件を指定することもできます。
+そのためには、アクションベースのキャンペーンまたはキャンバスを作成し、トリガーアクションを**購入する**に設定します。購入した商品や購入金額など、トリガーの追加条件も指定できます。
 
-トリガーメッセージをLiquidでパーソナライズすることもできます。以下の例では、`${purchase_product_name}` はカスタム属性であり、Brazeの設定で購入商品名を保存する実際の属性名に置き換える必要があります。
+トリガーメッセージをLiquidでパーソナライズすることもできます。以下の例では、`${purchase_product_name}` は、Brazeの設定で購入した商品名を格納する実際の属性名に置き換えるカスタム属性です。
 
 {% raw %}
 
@@ -111,7 +111,7 @@ Thank you for your purchase of ${purchase_product_name}! As a token of our appre
 
 ### 分析 {#analytics}
 
-Brazeはセグメンテーション用の購入指標のトラッキングに加えて、各商品の購入数や期間ごとの収益も記録します。これにより、最も人気のある商品を特定したり、プロモーションキャンペーンが売上に与える影響を測定したりするのに役立ちます。
+セグメンテーションのための購入指標のトラッキングに加えて、Brazeでは各商品の購入数や経時的な収益も記録されます。これにより、最も人気のある商品を特定したり、プロモーションキャンペーンが売上に与える影響を測定したりできます。
 
 このデータは[収益レポート]({{site.baseurl}}/user_guide/analytics/reports/revenue_report#exporting-revenue-data)ページで確認できます。
 
@@ -157,7 +157,7 @@ Brazeはセグメンテーション用の購入指標のトラッキングに加
 
 #### 通貨換算 {#currency-conversion}
 
-購入イベントがUSD以外の通貨で記録された場合、Brazeは[Open Exchange Rates](http://openexchangerates.org)の為替レートを使用して金額をUSDに換算します。これらのレートは24時間ごと（東部標準時の午前4時頃）に更新されます。為替レートはキャッシュされるため、特に急激な変動が起きている通貨では、リアルタイムの市場レートとわずかな差異が生じる場合があります。
+購入イベントがUSD以外の通貨で記録された場合、Brazeは[Open Exchange Rates](http://openexchangerates.org)の為替レートを使用して金額をUSDに換算します。これらのレートは24時間ごと（東部時間の午前4時頃）に更新されます。為替レートはキャッシュされるため、特に急激な変動がある通貨では、リアルタイムの市場レートとわずかな差異が生じる場合があります。
 
 #### 生涯収益の計算 {#lifetime-revenue-calculation}
 
@@ -165,22 +165,22 @@ Brazeは購入イベントを使用して、ユーザーの生涯収益（生涯
 
 $$\text{Average purchase value} = \frac{\text{Total spend in dollars}}{\text{Total number of purchase events}}$$
 
-Brazeでは、ユーザーのLTVを理解するために参照できる主な場所が2つあります。
+BrazeでユーザーのLTVを把握するための主な場所が2つあります。
 
-- 各アプリやサイトの*生涯収益*や*ユーザーあたりの生涯価値*などの全体指標については、[収益レポート]({{site.baseurl}}/user_guide/analytics/reports/revenue_report#exporting-revenue-data)を参照してください。
+- 各アプリやサイトの*生涯収益*や*ユーザーあたりの生涯価値*などの全体的な指標については、[収益レポート]({{site.baseurl}}/user_guide/analytics/reports/revenue_report#exporting-revenue-data)を参照してください。
 - 特定のユーザーの生涯収益を確認するには、そのユーザーの[ユーザープロファイル]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#overview-tab)を参照してください。
 
 ##### 返金が生涯収益に与える影響 {#impact-of-refunds-on-lifetime-revenue}
 
-購入イベントを使用して購入データをトラッキングする場合、返金は負の `price` プロパティを持つBraze購入イベントを記録することでトラッキングする必要があります。このアプローチにより、生涯収益の正確な合計が維持されます。
+購入イベントを使用して購入データをトラッキングする場合、返金はBrazeの購入イベントで負の `price` プロパティを記録することでトラッキングしてください。このアプローチにより、生涯収益の合計が正確に維持されます。
 
-ただし、返金は追加の購入イベントとしてカウントされることに注意してください。次の例を考えてみましょう。Samが最初の購入として12ドルの商品を購入しましたが、一部を返品して5ドルの返金を受けました。Samのプロファイルには次のように記録されます。
+ただし、返金は追加の購入イベントとしてカウントされる点に注意してください。以下の例を考えてみましょう。Samが最初に12ドルで購入しましたが、購入の一部を返品して5ドルの返金を受けました。Samのプロファイルには以下が記録されます。
 
 - 12ドルの購入1件
 - -5ドルの購入1件
 - 生涯収益7ドル
 
-Samのプロファイルには2件の購入イベントが記録されますが、実際に行われた購入は1件のみです。ユーザーの購入回数に基づくセグメントやユースケースがある場合、これは重要な考慮事項です。継続的な返金はユーザープロファイルの購入回数を水増しします。
+Samのプロファイルには2つの購入イベントが記録されていますが、実際の購入は1回のみです。ユーザーの購入回数に基づくセグメントやユースケースがある場合、この点を考慮することが重要です。頻繁な返金は、ユーザーのプロファイルの購入数を膨らませることになります。
 
 ## 購入イベントプロパティ {#purchase-properties}
 
@@ -229,8 +229,8 @@ Brazeでは、購入オブジェクトの `product_id` に関する一般的な�
 
 これにより、セグメンテーションやトリガーで製品を簡単に識別できるようになります。
 
-## 購入イベントのブロックリスト {#blocklist-purchase-events}
+## 購入イベントのブロックリスト登録 {#blocklist-purchase-events}
 
-データポイントのログが過剰に記録される購入イベント、マーケティング戦略にとって不要になった購入イベント、または誤って記録された購入イベントが見つかることがあります。このデータがBrazeに送信されないようにするには、開発チームがアプリやWebサイトのバックエンドから該当データを削除する作業を進めている間、カスタムデータオブジェクトをブロックリストに追加できます。
+データポイントの記録が多すぎる、マーケティング戦略に不要になった、または誤って記録されたなどの理由で、購入イベントを特定することがあります。このデータが Braze に送信されないようにするには、開発チームがアプリや Web サイトのバックエンドから該当データを削除する作業を進めている間に、カスタムデータオブジェクトをブロックリストに登録できます。
 
-Brazeダッシュボードでは、**データ設定** > **製品**からブロックリストを管理できます。詳細については、[カスタムデータの管理]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data)を参照してください。
+Braze ダッシュボードでは、**[データ設定]** > **[製品]** からブロックリストを管理できます。詳しくは[カスタムデータの管理]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data)をご覧ください。

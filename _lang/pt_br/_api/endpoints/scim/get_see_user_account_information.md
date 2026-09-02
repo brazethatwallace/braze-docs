@@ -33,8 +33,8 @@ Para usar esse endpoint, você precisará de um token SCIM. Você usará a Origi
 
 | Parâmetro | Obrigatório | Tipo de dados | Descrição |
 |---|---|---|---|
-| `id` | Obrigatório | String | O ID do recurso do usuário. Esse parâmetro é retornado pelos métodos `POST` `/scim/v2/Users/` ou `GET` `/scim/v2/Users?filter=userName eq "user@example.com"`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+| `id` | Obrigatório | String | O ID do recurso do usuário. Esse parâmetro é retornado pelos métodos `POST` `/scim/v2/Users/` ou `GET`  `/scim/v2/Users?filter=userName eq "user@example.com"`. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de caminho" }
 
 ## Parâmetros de solicitação {#request-parameters}
 
@@ -119,8 +119,8 @@ curl --location --request GET 'https://rest.iad-01.braze.com/scim/v2/Users/dfa24
 | `department` | String | O departamento do usuário, se definido. |
 | `createdAt` | String | Quando a conta do usuário foi criada. Retorna `N/A` quando não definido; caso contrário, formatado como `YYYY Mon DD, H:MM AM/PM`. |
 | `lastSignInAt` | String | Quando o usuário fez login pela última vez. Retorna `N/A` se o usuário nunca fez login; caso contrário, formatado como `YYYY Mon DD, H:MM AM/PM`. |
-| `permissions` | Objeto | Permissões de empresa, espaço de trabalho, equipe e função do usuário. Consulte o [objeto de permissões]({{site.baseurl}}/scim_api_appendix). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Response parameters" }
+| `permissions` | Objeto | Permissões de empresa, espaço de trabalho, equipe e função do usuário. Consulte o [objeto de permissões]({{site.baseurl}}/api/objects_filters/scim_api_appendix). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Parâmetros de resposta" }
 
 ### Estados de erro {#error-states}
 

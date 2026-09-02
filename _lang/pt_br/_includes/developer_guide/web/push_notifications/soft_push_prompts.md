@@ -4,34 +4,34 @@ Se você estiver integrando a Braze por meio do kit incorporado da mParticle na 
 
 ## Sobre prompts de soft push {#about-soft-push-prompts}
 
-Muitas vezes, é uma boa ideia que os sites implementem um prompt de push "suave", no qual você "prepara" o usuário e defende o envio de notificações por push antes de solicitar a permissão de push. Isso é útil porque o navegador limita a frequência com que você pode solicitar diretamente ao usuário e, se o usuário negar a permissão, você nunca mais poderá solicitá-la novamente.
+Geralmente é uma boa ideia implementar um prompt de push "suave" no seu site, no qual você prepara o usuário e apresenta seus argumentos para o envio de notificações por push antes de solicitar a permissão de push. Isso é útil porque o navegador limita a frequência com que você pode solicitar permissão diretamente ao usuário e, se o usuário negar a permissão, você não poderá perguntar novamente.
 
-Alternativamente, se você quiser incluir um tratamento personalizado especial, em vez de chamar `requestPushPermission()` diretamente como descrito na integração padrão de [push para a web]({{site.baseurl}}/developer_guide/platform_integration_guides/web/push_notifications/integration/#step-2-browser-registration), use nossas [mensagens no app disparadas]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages/?tab=web).
+Como alternativa, se você quiser incluir um tratamento personalizado especial, em vez de chamar `requestPushPermission()` diretamente, conforme descrito na [integração padrão de web push]({{site.baseurl}}/developer_guide/platform_integration_guides/web/push_notifications/integration#step-2-browser-registration), use nossas [mensagens no app disparadas]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages/?tab=web).
 
 {% alert tip %}
-Isso pode ser feito sem a personalização do SDK usando nosso novo [push primer sem código]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages/).
+Isso pode ser feito sem personalização do SDK usando nosso novo [push primer sem código]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages).
 {% endalert %}
 
 ## Configurando prompts de soft push {#setting-up-soft-push-prompts}
 
 {% multi_lang_include archive/web-v4-rename.md %}
 
-### Etapa 1: Crie uma campanha de push primer {#step-1-create-a-push-primer-campaign}
+### Etapa 1: Criar uma campanha de push primer {#step-1-create-a-push-primer-campaign}
 
 Primeiro, você deve criar uma campanha de mensagens no app "Prime for Push" no dashboard da Braze:
 
-1. Crie uma mensagem **Modal** no app com o texto e o estilo que desejar.
+1. Crie uma mensagem no app **Modal** com o texto e o estilo que desejar.
 2. Em seguida, defina o comportamento ao clicar como **Fechar mensagem**. Esse comportamento será personalizado posteriormente.
 3. Adicione um par chave-valor à mensagem em que a chave é `msg-id` e o valor é `push-primer`.
-4. Atribua uma ação-gatilho de evento personalizado (como "prime-for-push") à mensagem. Você pode criar o evento personalizado manualmente no dashboard, se necessário.
+4. Atribua uma ação-gatilho de evento personalizado (como "prime-for-push") à mensagem. Você pode criar o evento personalizado manualmente pelo dashboard, se necessário.
 
 ### Etapa 2: Remover chamadas {#step-2-remove-calls}
 
-Na sua integração do SDK da Braze, localize e remova todas as chamadas para `automaticallyShowInAppMessages()` do seu snippet de carregamento.
+Na sua integração SDK da Braze, encontre e remova todas as chamadas para `automaticallyShowInAppMessages()` do seu snippet de carregamento.
 
 ### Etapa 3: Atualizar a integração {#step-3-update-integration}
 
-Por fim, substitua a chamada removida pelo trecho a seguir. Chame `subscribeToInAppMessage()` antes de chamar `openSession()`. Isso garante que seu ouvinte de mensagem no app esteja registrado a tempo de receber a mensagem de push primer.
+Por fim, substitua a chamada removida pelo snippet a seguir. Chame `subscribeToInAppMessage()` antes de chamar `openSession()`. Isso garante que o listener de mensagens no app seja registrado a tempo de receber a mensagem de push primer.
 
 ```javascript
 import * as braze from "@braze/web-sdk";
@@ -77,4 +77,4 @@ braze.subscribeToInAppMessage(function(inAppMessage) {
 });
 ```
 
-Quando desejar exibir o prompt de soft push para o usuário, faça uma chamada para `braze.logCustomEvent` com o nome do evento que dispara essa mensagem no app.
+Quando quiser exibir o prompt de soft push para o usuário, chame `braze.logCustomEvent` com o nome de evento que dispara essa mensagem no app.

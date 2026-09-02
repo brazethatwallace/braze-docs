@@ -17,20 +17,20 @@ Pour envoyer des e-mails au relais d'e-mail privé d'Apple, enregistrez vos doma
 
 Si un utilisateur décide de désactiver le transfert d'e-mails vers l'adresse relais de votre application, Braze recevra les informations de rebond comme d'habitude. Ces utilisateurs peuvent gérer les applications qui utilisent la connexion avec Apple depuis leur page de paramètres Apple ID (voir la [documentation d'Apple](https://support.apple.com/en-us/HT210426)).
 
-## Configurer votre fournisseur d'e-mail {#configure-your-email-provider}
+## Configurez votre fournisseur d'e-mail {#configure-your-email-provider}
 
 {% tabs %}
 {% tab SendGrid %}
 
-Si vous utilisez SendGrid comme fournisseur d'e-mail, vous pouvez envoyer des e-mails à Apple sans effectuer de modifications DNS.
+Si vous utilisez SendGrid comme fournisseur d'e-mail, vous pouvez envoyer des e-mails à Apple sans modifier le DNS.
 
-1. Connectez-vous au [portail des développeurs Apple](https://developer.apple.com/).
+1. Connectez-vous au [portail développeur Apple](https://developer.apple.com/).
 2. Accédez à la page **Certificates, Identifiers & Profiles**.
 3. Sélectionnez **Services** > **Sign in with Apple for Email Communication**.
 4. Dans la section **Email Sources**, ajoutez les domaines et sous-domaines.
-- L'adresse doit être formatée comme suit : `bounces+<YOUR_UID>@<YOUR_WHITELABELED_SUBDOMAIN_AND_DOMAIN>` (par exemple : `bounces+1234567@braze.online.docs.com`).
+- L'adresse doit être formatée ainsi : `bounces+<YOUR_UID>@<YOUR_WHITELABELED_SUBDOMAIN_AND_DOMAIN>` (par exemple : `bounces+1234567@braze.online.docs.com`).
 
-Si l'adresse « From » souhaitée est une adresse `abmail`, incluez-la dans votre sous-domaine. Par exemple, utilisez `abmail.docs.braze.com` au lieu de `docs.braze.com`.
+Si l'adresse d'expédition souhaitée est une adresse `abmail`, incluez-la dans votre sous-domaine. Par exemple, utilisez `abmail.docs.braze.com` au lieu de `docs.braze.com`.
 
 {% endtab %}
 {% tab SparkPost %}
@@ -47,10 +47,10 @@ Si un domaine d'envoi est également utilisé comme domaine de rebond, vous ne p
 
 1. Si le domaine a déjà été vérifié sur SparkPost, vous **devez** créer des enregistrements MX et TXT :
 
-| Instance | Enregistrement MX | Enregistrement TXT |
-|----------|-----------------------------|-----------------------------------------------|
-| US       | `smtp.sparkpostmail.com`    | `"v=spf1 redirect=_spf.sparkpostmail.com"`    |
-| EU       | `smtp.eu.sparkpostmail.com` | `"v=spf1 redirect=_spf.eu.sparkpostmail.com"` |
+| Instance | Enregistrement MX            | Enregistrement TXT                             |
+|----------|------------------------------|-------------------------------------------------|
+| US       | `smtp.sparkpostmail.com`     | `"v=spf1 redirect=_spf.sparkpostmail.com"`      |
+| EU       | `smtp.eu.sparkpostmail.com`  | `"v=spf1 redirect=_spf.eu.sparkpostmail.com"`   |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Lorsque le domaine d'envoi est aussi le domaine de rebond" }
 
 {% alert important %}
@@ -60,18 +60,18 @@ Pour éviter les échecs SPF, vous devez créer les enregistrements MX et TXT et
 {:start="2"}
 2. Supprimez l'enregistrement CNAME.
 3. Remplacez-le par les enregistrements MX et TXT pour un routage correct.
-4. Créez votre enregistrement A pour pointer vers votre réseau de diffusion de contenu ou votre hébergement de fichiers.
+4. Créez votre enregistrement A pour pointer vers votre CDN ou votre hébergement de fichiers.
 
 {% endtab %}
 {% tab Amazon SES %}
 
-Pour configurer Apple Private Relay, il est recommandé d'avoir au préalable un domaine MAIL FROM personnalisé.
+Pour configurer Apple Private Relay, l'idéal est d'avoir un domaine MAIL FROM personnalisé.
 
 1. Connectez-vous avec Apple.
 2. Suivez la [documentation d'Apple](https://developer.apple.com/help/account/capabilities/configure-private-email-relay-service) pour enregistrer les domaines d'e-mail.
 
 {% alert important %}
-Confirmez que vos enregistrements DKIM/SPF correspondent à ce que vous avez enregistré conformément aux instructions indiquées.
+Vérifiez que votre DKIM/SPF correspond à ce que vous enregistrez selon les instructions indiquées.
 {% endalert %}
 
 {:start="3"}
@@ -80,4 +80,4 @@ Confirmez que vos enregistrements DKIM/SPF correspondent à ce que vous avez enr
 {% endtab %}
 {% endtabs %}
 
-Si vous avez d'autres questions, ouvrez un [ticket d'assistance]({{site.baseurl}}/braze_support).
+Si vous avez d'autres questions, ouvrez un [ticket d'assistance]({{site.baseurl}}/user_guide/administer/personal/braze_support).

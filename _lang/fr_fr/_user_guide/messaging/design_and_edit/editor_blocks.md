@@ -515,7 +515,7 @@ Les utilisateurs choisissent plusieurs options ; les valeurs sont définies ou a
 
 ### Gestion des abonnements {#manage-subscriptions}
 
-Ajoute une liste de [groupes d'abonnement e-mail]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups) afin que les visiteurs puissent s'abonner ou gérer leurs abonnements lors de la soumission du formulaire. Configurez-le après avoir ajouté des groupes d'abonnement au bloc. Ce bloc ne prend en charge que les groupes d'abonnement e-mail ; il ne prend pas en charge les groupes d'abonnement SMS, RCS ou WhatsApp.
+Ajoute une liste de groupes d'abonnement [e-mail]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups), [SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#sms-subscription-states) ou [WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-subscription-states) afin que les visiteurs puissent s'abonner ou gérer leurs abonnements lors de la soumission du formulaire. Chaque bloc est dédié à un canal. Configurez-le après avoir ajouté des groupes d'abonnement au bloc. Ce bloc ne répertorie pas les groupes d'abonnement RCS.
 
 Pour les utilisateurs identifiés qui ouvrent la page via l'[étiquette Liquid]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) de la page de destination, le bloc pré-remplit chaque case à cocher avec l'état d'abonnement actuel de l'utilisateur, ce qui permet également de l'utiliser comme page de gestion des préférences.
 

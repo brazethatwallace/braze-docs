@@ -4,7 +4,7 @@ nav_title: Inicio
 article_title: Partners tecnológicos
 alias: /partners/partners/
 search_tag: Partner
-description: "Explora los partners tecnológicos de Braze (Alloys) en orden alfabético. Encuentra documentación de integración para personalización, orquestación, datos, eCommerce, Audience Sync y más."
+description: "Explora los partners tecnológicos de Braze Alloys y la documentación de integración para personalización, datos, eCommerce y Audience Sync."
 ---
 
 # Partners tecnológicos {#technology-partners}
@@ -15,7 +15,7 @@ description: "Explora los partners tecnológicos de Braze (Alloys) en orden alfa
 
 ### ¿Cómo encuentro una integración de un partner tecnológico de Braze? {#how-do-i-find-a-braze-technology-partner-integration}
 
-Explora la lista alfabética en esta página o salta a un encabezado de letra para localizar un partner por nombre. Cada entrada enlaza al artículo de integración de Braze de ese partner.
+Explora la lista alfabética en esta página o ve directamente a una letra para localizar un partner por nombre. Cada entrada enlaza al artículo de integración de ese partner con Braze.
 
 ### ¿Qué es Braze Alloys? {#what-is-braze-alloys}
 
@@ -408,12 +408,12 @@ Braze Alloys es el programa de partners tecnológicos de Braze. Los partners amp
 <br>
 Para obtener una lista completa, con búsqueda y filtros, de todos los partners tecnológicos de Braze, visita [Braze Marketplace](https://marketplace.braze.com/t/type/technology-partner). ¿Quieres unirte a nuestra comunidad de quienes usan Braze para modernizar su experiencia del cliente? Consulta nuestro [Customer Champions Program](https://brazefirebrands.splashthat.com/).
 
-## Solución de problemas de conexiones con partners {#troubleshooting-partner-connections}
+## Solución de problemas en las conexiones de partners {#troubleshooting-partner-connections}
 
-Si la integración requiere configuración del lado de Braze, inicia sesión en tu panel de Braze y navega a **Integraciones de partners** > **Partners tecnológicos**.
+Si la integración requiere configuración del lado de Braze, inicia sesión en tu panel de Braze y ve a **Integraciones de partners** > **Partners tecnológicos**.
 
 {% alert note %}
-Es posible que las integraciones completamente gestionadas por el partner no aparezcan aquí. Consulta la documentación específica del partner para verificar la titularidad de la integración y los pasos de configuración.
+Es posible que las integraciones completamente gestionadas por el partner no aparezcan aquí. Consulta la documentación específica del partner para verificar la propiedad de la integración y los pasos de configuración.
 {% endalert %}
 
 Si ves **Credenciales no válidas** para un partner en Braze, pero la integración parece correcta en el panel de ese partner, desconecta y vuelve a conectar la integración en la página de Partners tecnológicos y confirma las claves de API, los tokens de OAuth y los permisos del lado del partner.

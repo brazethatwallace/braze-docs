@@ -10,31 +10,31 @@ description: "증상 색인, 표준 조사 경로, 스토리지별 오류 안내
 
 > 이 페이지에서는 대시보드 및 Export API에서 발생하는 CSV 및 API 내보내기 문제를 진단하는 방법을 안내합니다. 내보내기 워크플로우 및 제한 사항은 [Segment 데이터를 CSV로 내보내기]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv) 및 [Export API]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_apis)를 참조하세요.
 
-## 시작하기: 증상 확인 {#start-here-match-your-symptom}
+## 여기서 시작하세요: 증상 매칭 {#start-here-match-your-symptom}
 
-아래 표에서 현재 겪고 있는 동작을 찾은 다음, 해당 섹션으로 이동하여 맞춤 점검을 수행하세요.
+아래 표에서 현재 겪고 있는 동작을 찾은 후 해당 섹션으로 이동하여 맞춤 점검을 진행하세요.
 
 | 증상 | 이동 |
 | --- | --- |
-| CSV 다운로드 링크가 `AccessDenied`, `ExpiredToken` 또는 "file doesn't exist"를 반환함 | [기본 내보내기: CSV 오류](#defaultexport_csv-exports) 또는 [클라우드 스토리지: CSV 오류](#csv-exports-1) |
-| API 내보내기 다운로드 URL이 `403 Forbidden`을 반환함 | [내보낸 Segment ZIP을 다운로드할 수 없는 경우](#cant-download-an-exported-segment-zip-from-a-braze-url) |
-| Segment 내보내기가 실패하거나 Segment가 너무 크다고 표시됨 | [Segment가 너무 큰 경우](#segment-is-too-large-or-export-fails-when-my-segment-looks-under-500000-users) |
-| Segment 내보내기 이메일을 받지 못함 | [Segment 내보내기 이메일 미수신](#not-receiving-segment-export-emails) |
-| CSV 행 수가 Campaign 분석과 일치하지 않음 | [Campaign 및 Canvas 분석 불일치](#number-of-users-in-csv-export-doesnt-match-messages-sent-or-unique-recipients) |
-| 내보내기 파일에서 예상 열이 누락됨 | [누락된 열](#expected-columns-are-missing-from-a-segment-export-file) |
-| 클라우드 스토리지 내보내기에서 `AccessDenied` 또는 `ExpiredToken`이 표시됨 | [클라우드 스토리지 연결: API 오류](#common-errors-1) |
+| CSV 다운로드 링크가 `AccessDenied`, `ExpiredToken` 또는 "file doesn't exist"를 반환하는 경우 | [기본 내보내기: CSV 오류](#defaultexport_csv-exports) 또는 [클라우드 스토리지: CSV 오류](#csv-exports-1) |
+| API 내보내기 다운로드 URL이 `403 Forbidden`을 반환하는 경우 | [내보낸 Segment ZIP을 다운로드할 수 없음](#cant-download-an-exported-segment-zip-from-a-braze-url) |
+| Segment 내보내기가 실패하거나 Segment가 너무 크다는 메시지가 표시되는 경우 | [Segment가 너무 큼](#segment-is-too-large-or-export-fails-when-my-segment-looks-under-500000-users) |
+| Segment 내보내기 이메일을 받지 못한 경우 | [Segment 내보내기 이메일 미수신](#not-receiving-segment-export-emails) |
+| CSV 행 수가 Campaign 분석과 일치하지 않는 경우 | [Campaign 및 Canvas 분석 불일치](#number-of-users-in-csv-export-doesnt-match-messages-sent-or-unique-recipients) |
+| 내보내기 파일에서 예상 열이 누락된 경우 | [누락된 열](#expected-columns-are-missing-from-a-segment-export-file) |
+| 클라우드 스토리지 내보내기에서 `AccessDenied` 또는 `ExpiredToken`이 표시되는 경우 | [클라우드 스토리지 연결: API 오류](#common-errors-1) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="내보내기 증상" }
 
 ## 표준 조사 경로 {#standard-investigation-path}
 
-모든 내보내기 문제에 대해 이 워크플로우를 사용하세요. 1단계부터 시작합니다.
+모든 내보내기 문제에 대해 이 워크플로를 사용하세요. 1단계부터 시작합니다.
 
-1. 기본 Braze S3 버킷으로 내보내는지, 연결된 클라우드 스토리지 파트너로 내보내는지 확인합니다. 링크 만료 및 재시도 동작이 두 방식 간에 다릅니다.
-2. 대시보드 CSV 내보내기의 경우, 다운로드 링크를 열 때 Braze에 로그인되어 있는지 확인합니다. 기본 버킷 링크는 활성 대시보드 세션이 필요합니다.
-3. 내보내기가 완료된 후 얼마나 시간이 경과했는지 확인합니다. 이메일로 전송된 대시보드 다운로드 링크는 기본 Braze 버킷을 사용하든 연결된 스토리지 파트너를 사용하든 4시간 후에 만료됩니다. 스토리지 파트너가 연결된 경우, Braze는 버킷에도 사본을 전달합니다. 해당 사본은 보존 정책을 따르며 이메일 링크가 만료된 후에도 사용 가능할 수 있습니다.
-4. 대규모 Segment 내보내기의 경우, 오디언스가 500,000명 사용자 대시보드 CSV 내보내기 제한 이내인지 확인합니다. Segment 빌더 추정치는 내보내기 파이프라인 평가와 다를 수 있습니다.
-5. API 내보내기의 경우, 다운로드하기 전에 처리가 완료될 때까지 기다립니다. URL을 즉시 요청하는 대신 [`/users/export/segment`]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#exporting-large-segments)에서 `callback_endpoint`를 사용하거나 지수 백오프로 폴링합니다.
-6. 여전히 문제가 해결되지 않으면, 내보내기 유형(CSV 또는 API), Segment 또는 Campaign ID, 타임스탬프(시간대 포함), 정확한 오류 메시지를 포함하여 [Braze 고객지원](#standard-investigation-path)에 문의하세요.
+1. 기본 Braze S3 버킷으로 내보내기를 하는지, 아니면 연결된 클라우드 스토리지 파트너로 내보내기를 하는지 확인하세요. 링크 만료 및 재시도 동작은 두 가지 방식 간에 다릅니다.
+2. 대시보드 CSV 내보내기의 경우, 다운로드 링크를 열 때 Braze에 로그인되어 있는지 확인하세요. 기본 버킷 링크는 활성 대시보드 세션이 필요합니다.
+3. 내보내기가 완료된 후 얼마나 시간이 지났는지 확인하세요. 이메일로 전송된 대시보드 다운로드 링크는 기본 Braze 버킷을 사용하든 연결된 스토리지 파트너를 사용하든 4시간 후에 만료됩니다. 스토리지 파트너가 연결된 경우 Braze는 해당 버킷에도 사본을 전달합니다. 이 사본은 보존 정책에 따르며, 이메일 링크가 만료된 후에도 계속 사용할 수 있습니다.
+4. 대규모 Segment 내보내기의 경우, 오디언스가 대시보드 CSV 내보내기 제한인 500,000명 이하인지 확인하세요. Segment 빌더 추정치는 내보내기 파이프라인 평가와 다를 수 있습니다.
+5. API 내보내기의 경우, 다운로드하기 전에 처리가 완료될 때까지 기다리세요. URL을 즉시 요청하는 대신 [`/users/export/segment`]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#exporting-large-segments)에서 `callback_endpoint`를 사용하거나 지수 백오프로 폴링하세요.
+6. 여전히 문제가 해결되지 않는 경우, 내보내기 유형(CSV 또는 API), Segment 또는 Campaign ID, 타임스탬프(시간대 포함), 정확한 오류 메시지를 포함하여 [Braze 지원팀](#standard-investigation-path)에 문의하세요.
 
 ## 스토리지 대상 {#cloud-storage-connected}
 
@@ -118,68 +118,68 @@ CSV 내보내기 시, Braze에서 다운로드 링크를 이메일로 발송합�
 
 ## Campaign 및 Canvas 분석 {#campaign-and-canvas-analytics}
 
-### CSV 내보내기의 사용자 수가 *발송된 메시지* 또는 *고유 수신자*와 일치하지 않는 경우 {#number-of-users-in-csv-export-doesnt-match-messages-sent-or-unique-recipients}
+### CSV 내보내기의 사용자 수가 *보낸 메시지* 또는 *고유 수신자*와 일치하지 않는 경우 {#number-of-users-in-csv-export-doesnt-match-messages-sent-or-unique-recipients}
 
-증상: Campaign의 CSV 내보내기에서 분석 페이지의 *발송된 메시지* 또는 *고유 수신자*와 다른 사용자 수가 표시되는 경우.
+증상: Campaign의 CSV 내보내기에서 분석 페이지의 *보낸 메시지* 또는 *고유 수신자*와 다른 사용자 수가 표시됩니다.
 
 
-Campaign의 CSV 내보내기에서 *발송된 메시지* 및 *고유 수신자*와 다른 사용자 수가 표시될 수 있는 이유는 다음과 같습니다.
+Campaign의 CSV 내보내기는 다음과 같은 이유로 *보낸 메시지* 및 *고유 수신자*와 다른 사용자 수를 표시할 수 있습니다.
 
-#### 재자격이 활성화된 경우 {#re-eligibility-is-turned-on}
+#### 재자격이 켜져 있는 경우 {#re-eligibility-is-turned-on}
 
-사용자가 Campaign을 두 번 이상 수신할 수 있는 경우(또는 과거에 가능했던 경우), Campaign 분석 수치와 사용자 데이터 내보내기의 행 수가 일치하지 않습니다. *발송된 메시지*는 동일한 사용자에게 두 번 이상 메시지를 보낸 경우를 포함하여 모든 발송을 집계합니다. **CSV 내보내기 사용자 데이터** 다운로드는 고유 사용자를 나열합니다. 즉, Campaign을 수신한 프로필당 한 행이며, 발송당 한 행이 아닙니다. 예를 들어, *발송된 메시지*가 12이고 CSV에 10개의 행이 있다면, 12건의 발송이 10명의 고유 사용자에게 전달된 것입니다(일부 사용자가 Campaign을 두 번 이상 수신한 것입니다).
+사용자가 Campaign을 두 번 이상 수신할 수 있는 경우(또는 한때 그런 적이 있는 경우), Campaign 분석 수치와 사용자 데이터 내보내기의 행 수가 일치하지 않습니다. *보낸 메시지*는 동일한 사용자에게 두 번 이상 메시지를 보낸 경우를 포함하여 모든 발송을 집계합니다. **CSV 사용자 데이터 내보내기** 다운로드는 고유 사용자만 나열합니다. 즉, 발송당 한 행이 아니라 Campaign을 수신한 프로필당 한 행입니다. 예를 들어, *보낸 메시지*가 12이고 CSV에 10개의 행이 있다면, 해당 12건의 발송은 10명의 고유 사용자에게 전달된 것입니다(일부 사용자에게 Campaign이 두 번 이상 발송됨).
 
 #### Campaign 또는 Canvas 발송 이후 사용자가 삭제되거나 병합된 경우 {#users-were-deleted-or-merged-since-the-campaign-or-canvas-sent}
 
-CSV 내보내기는 특정 Campaign 또는 Canvas를 수신한 기존 사용자의 스냅샷을 제공합니다. 사용자가 삭제되거나 병합될 수 있으므로, CSV 내보내기 수가 고유 수신자 수보다 적을 수 있습니다. 예를 들어, 1,000명의 사용자가 Campaign을 수신하면 Campaign에는 1,000명의 고유 수신자가 표시되고, 같은 날 CSV 내보내기에도 1,000명의 사용자가 표시됩니다. 한 달 후 해당 1,000명 중 50명이 삭제되면, CSV 내보내기에는 950명의 사용자가 포함되지만 누적된 고유 수신자 수는 여전히 1,000명입니다.
+CSV 내보내기는 특정 Campaign 또는 Canvas를 수신한 기존 사용자의 스냅샷을 제공합니다. 사용자가 삭제되거나 병합될 수 있으므로, CSV 내보내기 수가 고유 수신자 수보다 적을 수 있습니다. 예를 들어, 1,000명의 사용자가 Campaign을 수신하면 Campaign에는 1,000명의 고유 수신자가 표시되고, 같은 날 CSV 내보내기에도 1,000명의 사용자가 표시됩니다. 한 달 후 해당 1,000명 중 50명이 삭제되면, CSV 내보내기에는 950명의 사용자가 포함되지만 누적된 고유 수신자 수는 여전히 1,000입니다.
 
 ## 대시보드 Segment 내보내기 이메일 {#dashboard-segment-export-emails}
 
-### Segment가 너무 크거나 500,000명 미만으로 보이는데 내보내기가 실패하는 경우 {#segment-is-too-large-or-export-fails-when-my-segment-looks-under-500000-users}
+### Segment가 너무 크거나 50만 명 미만인 것처럼 보이는데 내보내기가 실패합니다 {#segment-is-too-large-or-export-fails-when-my-segment-looks-under-500000-users}
 
-증상: 대시보드 Segment 내보내기가 실패하거나 Segment 추정치가 적절해 보이는데도 크기 오류가 표시되는 경우.
-
-
-대시보드 Segment **크기는 추정치입니다**. CSV 내보내기는 해당 추정치를 사용하여 [500,000명 사용자 내보내기 제한]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#segment-csv-export-details)을 적용하며, 내보내기 파이프라인은 Segment 빌더 UI와 다르게 크기를 평가할 수도 있습니다. 해당 임계값 근처의 Segment에서 내보내기가 실패하면, [무작위 버킷 번호]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers)를 사용하거나 오디언스를 더 작은 Segments로 분할하거나, [대규모 Segments 내보내기]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment)에 설명된 대로 [`/users/export/segment` 엔드포인트]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment)를 사용하세요.
-
-### Segment 내보내기 이메일을 받지 못하는 이유 {#not-receiving-segment-export-emails}
-
-증상: Segment CSV 내보내기를 트리거했지만 이메일이 도착하지 않는 경우.
+증상: 대시보드 Segment 내보내기가 실패하거나, Segment 추정치가 적절해 보임에도 크기 오류가 표시됩니다.
 
 
-먼저 스팸 폴더에서 `no-reply@alerts.braze.com`으로부터 온 이메일을 확인하세요. 해당 이메일이 스팸 폴더에 있다면, 향후 내보내기 메시지가 필터링되지 않도록 해당 주소를 안전한 발신자 목록에 추가하세요.
+대시보드 Segment **크기는 추정치입니다**. CSV 내보내기는 이 추정치를 사용하여 [50만 명 사용자 내보내기 제한]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#segment-csv-export-details)을 적용하며, 내보내기 파이프라인은 Segment 빌더 UI와 다르게 크기를 평가할 수 있습니다. 해당 임계값 근처의 Segment에서 내보내기가 실패하는 경우, [무작위 버킷 번호]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers)를 사용하거나 오디언스를 더 작은 Segment로 분할하세요. 또는 [대용량 Segment 내보내기]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment)에 설명된 대로 [`/users/export/segment` 엔드포인트]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment)를 사용하세요.
 
-이메일이 스팸 폴더에도 없다면, 팀의 다른 구성원이 내보내기를 수신할 수 있는지 확인하세요. 다른 구성원도 수신할 수 없다면, 내보내기 크기를 고려해 보세요. 전달 시간은 내보내기 크기에 따라 달라지지만, 1시간이 지나도 이메일이 도착하지 않으면 [고객지원]({{site.baseurl}}/braze_support)에 문의하세요.
+### Segment 내보내기 이메일이 수신되지 않는 이유는 무엇인가요? {#not-receiving-segment-export-emails}
+
+증상: Segment CSV 내보내기가 트리거되었지만 이메일이 도착하지 않습니다.
+
+
+먼저 스팸 폴더에서 `no-reply@alerts.braze.com`으로부터 온 이메일이 있는지 확인하세요. 해당 이메일이 스팸 폴더에 있다면, 이후 내보내기 메시지가 필터링되지 않도록 해당 주소를 수신 허용 목록에 추가하세요.
+
+스팸 폴더에도 이메일이 없다면, 팀의 다른 구성원이 내보내기 이메일을 수신할 수 있는지 확인하세요. 다른 구성원도 수신할 수 없다면, 내보내기 크기를 확인해 보세요. 배달 시간은 내보내기 크기에 따라 달라지지만, 1시간이 지나도 이메일이 도착하지 않으면 [지원팀]({{site.baseurl}}/user_guide/administer/personal/braze_support)에 문의하세요.
 
 ## Segment 내보내기 API 다운로드 {#segment-export-api-downloads}
 
-### Braze URL에서 내보낸 Segment ZIP을 다운로드할 수 없는 경우 {#cant-download-an-exported-segment-zip-from-a-braze-url}
+### Braze URL에서 내보낸 Segment ZIP을 다운로드할 수 없음 {#cant-download-an-exported-segment-zip-from-a-braze-url}
 
-증상: `/users/export/segment` 응답 URL에서 다운로드 시 `403 Forbidden` 오류가 발생하는 경우.
+증상: `/users/export/segment` 응답 URL에서 다운로드할 때 `403 Forbidden` 오류가 발생합니다.
 
 
-[`/users/export/segment` 엔드포인트]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment)를 사용할 때 `403 Forbidden` 오류가 발생하면, 파일이 아직 준비되지 않았을 수 있습니다. 대규모 내보내기는 처리하는 데 시간이 걸릴 수 있습니다. 다시 다운로드하기 전에 최대 1시간까지 기다려 보세요.
+[`/users/export/segment` 엔드포인트]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment)를 사용할 때 `403 Forbidden` 오류가 발생하면, 파일이 아직 준비되지 않았을 수 있습니다. 대용량 내보내기는 처리에 시간이 걸릴 수 있습니다. 최대 1시간 정도 기다린 후 다시 다운로드해 보세요.
 
-자동화된 스크립트를 사용하여 파일을 가져오는 경우에도, URL을 너무 빨리 요청하면 `403 Forbidden` 오류가 발생할 수 있습니다. Segment 데이터를 정기적으로 내보내는 경우, 자체 S3 버킷 통합을 연결하고 파일을 자체 ETL 파이프라인으로 전달하는 것을 고려해 보세요.
+자동화된 스크립트를 사용하여 파일을 가져오는 경우, URL을 너무 빨리 요청하면 `403 Forbidden` 오류가 발생할 수도 있습니다. Segment 데이터를 정기적으로 내보내는 경우, 자체 S3 버킷 통합을 연결하고 파일을 자체 ETL(추출, 변환, 로드) 파이프라인으로 전달하는 것을 고려해 보세요.
 
-내보내기는 완료되기까지 시간이 걸리므로, 스크립트에서 즉시 접근하면 실패하는 경우가 많습니다. 다음과 같은 방법을 사용할 수 있습니다.
+내보내기는 완료까지 시간이 걸리므로, 스크립트에서 즉시 액세스하면 실패하는 경우가 많습니다. 다음 방법을 사용할 수 있습니다:
 
 - 지수 백오프를 적용하여 다운로드 URL을 폴링하거나,
-- [`callback_endpoint` 파라미터]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment#request-parameters)를 사용하여 내보내기가 준비되었을 때 스크립트를 실행하는 서비스를 지정할 수 있습니다.
+- [`callback_endpoint` 파라미터]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment#request-parameters)를 사용하여 내보내기가 준비되면 스크립트를 실행하는 서비스를 지정합니다.
 
 ## Segment 및 사용자 내보내기 API 필드 {#segment-and-user-export-api-fields}
 
-### Segment 내보내기 파일에서 예상 열이 누락된 경우 {#expected-columns-are-missing-from-a-segment-export-file}
+### Segment 내보내기 파일에서 예상 열이 누락됨 {#expected-columns-are-missing-from-a-segment-export-file}
 
-증상: API 또는 대시보드 내보내기에서 예상했던 필드가 누락된 경우.
+증상: API 또는 대시보드 내보내기에서 예상했던 필드가 누락되어 있습니다.
 
 
-대시보드의 Segment에서 **CSV 내보내기 사용자 데이터**는 고정된 열 집합을 사용합니다([Segment 데이터를 CSV로 내보내기]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#data-included-in-export) 참조). 여기에는 `fields_to_export` 열이나 파라미터가 포함되지 않습니다.
+대시보드에서 Segment의 **CSV Export User Data**는 고정된 열 집합을 사용합니다([CSV로 Segment 데이터 내보내기]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#data-included-in-export) 참조). 여기에는 `fields_to_export` 열이나 파라미터가 포함되지 않습니다.
 
 API Segment 내보내기의 경우, 요청 본문에 `fields_to_export`를 전달해야 합니다. 일부 필드는 관련 데이터를 자동으로 가져옵니다. 예를 들어, `canvases_received`를 요청하면 고객 프로필에 여정 요약 데이터도 필요합니다. 유효한 필드 이름과 요구 사항은 [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) 엔드포인트 참조를 확인하세요.
 
-API 내보내기 ZIP에서 열이 누락된 경우, 요청의 `fields_to_export` 배열에 필요한 모든 필드가 포함되어 있는지, 그리고 워크스페이스에서 필요한 내보내기 권한을 사용하고 있는지 확인하세요.
+API 내보내기 ZIP에서 열이 누락된 경우, 요청의 `fields_to_export` 배열에 필요한 모든 필드가 포함되어 있는지, 워크스페이스에 필수 내보내기 권한이 설정되어 있는지 확인하세요.
 
-## 고객지원에 문의해야 하는 경우 {#when-to-contact-support}
+## 지원팀에 문의해야 하는 경우 {#when-to-contact-support}
 
-[표준 조사 경로]({{site.baseurl}}/braze_support)를 완료한 후에도 도움이 필요하면 [Braze 고객지원]({{site.baseurl}}/braze_support)에 문의하세요. 내보내기 유형, Segment 또는 Campaign ID, 타임스탬프(시간대 포함), 정확한 오류 메시지 또는 HTTP 상태 코드를 포함해 주세요.
+[표준 조사 경로]({{site.baseurl}}/user_guide/administer/personal/braze_support)를 완료했지만 여전히 도움이 필요한 경우 [Braze 지원팀]({{site.baseurl}}/user_guide/administer/personal/braze_support)에 문의하세요. 내보내기 유형, Segment 또는 Campaign ID, 타임스탬프(시간대 포함), 정확한 오류 메시지 또는 HTTP 상태 코드를 포함해 주세요.

@@ -5,7 +5,6 @@ alias: /partners/foursquare/
 description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Foursquare, einer Plattform für Standortdaten, die das Triggern von Events in Realtime auf der Grundlage des Standorts ermöglicht."
 page_type: partner
 search_tag: Partner
-
 ---
 
 # Foursquare
@@ -20,9 +19,9 @@ _Diese Integration wird von Foursquare gepflegt._
 
 | Anforderung | Beschreibung |
 |---|---|
-| Foursquare-Konto | Ein Foursquare-Konto ist erforderlich, um diese Partnerschaft nutzen zu können. |
+| Foursquare-Konto | Ein Foursquare-Konto ist erforderlich, um diese Partnerschaft zu nutzen. |
 | Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze-Workspace- und App-IDs | Die Braze-Workspace- und App-IDs finden Sie in der [Entwicklungskonsole]({{site.baseurl}}/api/api_key). |
+| Braze-Workspace- und App-IDs | Die Braze-Workspace- und App-IDs finden Sie in der [Entwicklungskonsole]({{site.baseurl}}/api/basics). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
@@ -46,13 +45,13 @@ Das Pilgrim SDK setzt voraus, dass Sie die Standortdienste aktivieren.
 
 ## Nachrichten triggern {#triggering-messages}
 
-Sobald die Integration eingerichtet ist, können Sie eine Campaign oder ein Canvas erstellen, die bzw. das auf Standort-Events reagiert, die vom Pilgrim SDK generiert werden. Dieser Integrationsweg ist ideal für Realtime-Messaging direkt nachdem Nutzer:innen einen relevanten Ort betreten haben, oder für eine verzögerte Folgekommunikation nachdem sie den Ort verlassen haben – zum Beispiel eine Dankesnachricht oder eine Erinnerung.
+Sobald die Integration eingerichtet ist, können Sie eine Campaign oder ein Canvas erstellen, das auf Standort-Events reagiert, die vom Pilgrim SDK generiert werden. Dieser Integrationsweg ist ideal für Realtime-Messaging direkt nachdem Nutzer:innen einen relevanten Ort betreten haben, oder für eine verzögerte Folgekommunikation nach dem Verlassen – wie eine Dankesnachricht oder eine Erinnerung.
 
-So senden Sie eine Campaign, die Nachrichten basierend auf einem festgelegten Standort versendet:
+So senden Sie eine Campaign, die Nachrichten basierend auf einem bestimmten Standort auslöst:
 - Erstellen Sie eine Braze-Campaign oder ein Canvas mit **aktionsbasierter Zustellung**
-- Verwenden Sie als Trigger ein angepasstes Event namens `arrival` mit einem Event-Eigenschaftsfilter für `locationType`, wie im folgenden Screenshot dargestellt.
+- Verwenden Sie als Trigger ein angepasstes Event `arrival` mit einem Event-Eigenschaftsfilter für `locationType`, wie im folgenden Screenshot dargestellt.
 
-![Eine aktionsbasierte Campaign im Zustellungsschritt, bei der „arrival“ als Option für „angepasstes Event ausführen“ ausgewählt ist und „locationType“ gleich „home“ ist.]({% image_buster /assets/img_archive/action-based-campaign.png %})
+![Eine aktionsbasierte Campaign im Zustellungsschritt, in der „arrival“ als Option für „angepasstes Event ausführen“ ausgewählt ist und „locationType“ gleich „home“ ist.]({% image_buster /assets/img_archive/action-based-campaign.png %})
 
 ## Retargeting
 

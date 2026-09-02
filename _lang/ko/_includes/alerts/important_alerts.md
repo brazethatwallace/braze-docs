@@ -53,7 +53,7 @@ Campaign 또는 Canvas에 BCC 주소를 추가하면 Braze가 사용자에게 �
 {% if include.alert == 'Purchase event deprecation' %}
 
 {% alert important %}
-레거시 구매 이벤트는 유지보수 모드로 전환됩니다. 기존 Braze 고객은 레거시 구매 이벤트를 계속 사용할 수 있습니다. 기존 구매 이벤트는 계속 정상적으로 작동하지만, 향후 새로운 기능은 이커머스 추천 이벤트를 기반으로 구축됩니다. Braze는 서비스 종료일이 설정되기 전에 충분한 사전 공지를 제공합니다. 신규 Braze 고객은 레거시 구매 이벤트를 사용할 수 없으므로 [이커머스 추천 이벤트]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events)를 사용해야 합니다.
+레거시 구매 이벤트는 유지보수 모드로 전환됩니다. 기존 Braze 고객은 레거시 구매 이벤트를 계속 사용할 수 있습니다. 기존 구매 이벤트는 계속 정상적으로 작동하지만, 향후 새로운 기능은 이커머스 추천 이벤트를 기반으로 구축됩니다. Braze는 서비스 종료일이 설정되기 전에 충분한 사전 공지를 제공합니다. 신규 Braze 고객은 레거시 구매 이벤트를 사용할 수 없으므로 [이커머스 추천 이벤트]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events)를 사용해야 합니다.
 {% endalert %}
 
 {% endif %}
@@ -61,7 +61,7 @@ Campaign 또는 Canvas에 BCC 주소를 추가하면 Braze가 사용자에게 �
 {% if include.alert == 'Purchase event deprecation for eCommerce filters' %}
 
 {% alert important %}
-레거시 구매 이벤트는 지원 중단 상태(유지보수 모드)로 전환됩니다. 구매 이벤트는 계속 정상적으로 작동하지만, [이커머스 추천 이벤트]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events)를 우선하여 구매 이벤트 위에 순수하게 새로운 기능이 추가되지 않습니다. 이 변경이 적용되면 Segment 필터가 더 이상 구매 동작 아래에 표시되지 않습니다.<br><br> 현재 구매 이벤트를 사용 중인 경우 단계적 중단 계획에 대한 사전 공지를 받게 됩니다. 지금은 공식 지원 중단일까지 구매 이벤트를 계속 사용할 수 있습니다. 자세한 내용은 [추천 이벤트 개요]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events)를 참조하세요.
+레거시 구매 이벤트는 지원 중단 상태(유지보수 모드)로 전환됩니다. 구매 이벤트는 계속 정상적으로 작동하지만, [이커머스 추천 이벤트]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events)를 우선하여 구매 이벤트 위에 순수하게 새로운 기능이 추가되지 않습니다. 이 변경이 적용되면 Segment 필터가 더 이상 구매 동작 아래에 표시되지 않습니다.<br><br> 현재 구매 이벤트를 사용 중인 경우 단계적 중단 계획에 대한 사전 공지를 받게 됩니다. 지금은 공식 지원 중단일까지 구매 이벤트를 계속 사용할 수 있습니다. 자세한 내용은 [추천 이벤트 개요]({{site.baseurl}}/user_guide/data/activation/events/recommended_events)를 참조하세요.
 {% endalert %}
 
 {% endif %}

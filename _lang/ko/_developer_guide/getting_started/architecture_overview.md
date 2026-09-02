@@ -43,7 +43,7 @@ Braze는 사용자가 익명 상태일 때부터 앱에 로그인하여 알려�
 ![Braze는 API에서 백엔드 데이터 소스를, SDK에서 프론트엔드 데이터 소스를, Braze 클라우드 데이터 수집에서 데이터 웨어하우스 데이터를, 파트너 통합에서 데이터를 가져옵니다. 이 데이터는 Braze API를 통해 내보내집니다.]({% image_buster /assets/img/getting-started/import-export.png %}){: style="display:block;margin:auto;" }
 
 {% alert note %}
-이 사람 중심의 고객 프로필 데이터베이스는 실시간 대화형 속도를 지원합니다. Braze는 데이터가 도착하면 값을 미리 계산하고 빠른 검색을 위해 경량 문서 형식으로 결과를 저장합니다. 플랫폼이 처음부터 이러한 방식으로 설계되었기 때문에 대부분의 메시징 사용 사례에 적합합니다. 특히 연결된 콘텐츠, 제품 카탈로그 및 중첩된 속성과 같은 다른 데이터 개념과 결합할 때 더욱 그렇습니다.
+이 사람 중심의 고객 프로필 데이터베이스는 실시간 인터랙티브 속도를 지원합니다. Braze는 데이터가 도착하면 값을 미리 계산하고 빠른 검색을 위해 경량 문서 형식으로 결과를 저장합니다. 플랫폼이 처음부터 이러한 방식으로 설계되었기 때문에 대부분의 메시징 사용 사례에 적합합니다. 특히 연결된 콘텐츠, 제품 카탈로그 및 중첩된 속성과 같은 다른 데이터 개념과 결합할 때 더욱 그렇습니다.
 {% endalert %}
 
 ### 데이터 소스 분석 {#data-source-breakdown}
@@ -61,7 +61,7 @@ Braze는 다양한 기능을 위해 서로 다른 데이터 저장 시스템을 
 - [SQL 세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments)
 - [예측 스위트]({{site.baseurl}}/user_guide/brazeai)
 - [AI 개인화된 아이템 추천]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai)
-- [추정 실제 열람률]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/email_reporting#estimated-real-open-rate)(커스텀 이벤트를 사용하지 않음)
+- [추정 실제 열람율]({{site.baseurl}}/user_guide/channels/email/reporting#estimated-real-open-rate)(커스텀 이벤트를 사용하지 않음)
 
 {% alert important %}
 **데이터 제거 고려사항:** 커스텀 이벤트는 MongoDB에 저장되며 Snowflake 데이터와는 별개입니다. 잘못된 커스텀 이벤트 데이터를 제거해야 하는 경우 MongoDB에서 처리해야 합니다. Snowflake 기반 기능(예: SQL 세그먼트 확장 및 기타 Snowflake 기반 기능)은 Snowflake의 데이터를 사용하며, 이는 별도로 처리됩니다. 한 시스템에서 데이터를 제거한다고 해서 다른 시스템에서 자동으로 제거되는 것은 아닙니다.
@@ -119,31 +119,31 @@ Braze는 채널에 구애받지 않는 사용자 중심의 데이터 모델을 �
 ![SDK를 통해 사용할 수 있는 Braze 메시징 채널 다이어그램]({% image_buster /assets/img/getting_started/channels.png %})
 
 ## 데이터 내보내기 {#exporting-data}
-중요한 점은 Braze와의 모든 최종 사용자 상호작용이 추적되므로 인게이지먼트와 도달 범위를 측정할 수 있다는 것입니다. Braze가 이러한 모든 소스에서 데이터를 집계한 후에는 다양한 도구를 사용하여 기술 스택으로 다시 내보낼 수 있어, 데이터 순환 루프를 완성할 수 있습니다.
+결정적으로, Braze에서의 모든 최종 사용자 인터랙션은 추적되므로 인게이지먼트와 도달을 측정할 수 있습니다. 그리고 Braze가 이러한 모든 소스에서 데이터를 집계한 후, 다양한 도구를 사용하여 기술 스택으로 다시 내보내 데이터 순환을 완성할 수 있습니다.
 
 ### Currents
-[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)는 다른 스택 대상에 지속적으로 데이터를 전달하는 세분화된 스트리밍 내보내기를 제공하는 Braze의 선택적 애드온입니다. Currents는 사용자별, 이벤트별 원시 데이터 피드로서 5분마다 또는 15,000개의 이벤트마다(둘 중 먼저 도달하는 기준에 따라) 데이터를 내보냅니다. Currents의 다운스트림 대상 예시로는 Segment, S3, Redshift, Mixpanel 등이 있습니다.
+[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)는 Braze의 옵션 애드온으로, 스택의 다른 대상에 지속적으로 데이터를 공급하는 세분화된 스트리밍 내보내기를 제공합니다. Currents는 사용자별, 이벤트별 원시 데이터 피드로, 5분마다 또는 15,000개의 이벤트마다(둘 중 먼저 도달하는 기준) 데이터를 내보냅니다. Currents의 다운스트림 대상 예로는 Segment, S3, Redshift, Mixpanel 등이 있습니다.
 
 ### Snowflake 데이터 공유 {#snowflake-data-sharing}
-Snowflake의 [보안 데이터 공유]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake) 기능을 통해 Braze는 일반적인 데이터 공급자 관계에서 발생하는 워크플로 마찰, 장애 지점 및 불필요한 비용 걱정 없이 Snowflake 포털의 데이터에 안전하게 접근할 수 있도록 합니다. 모든 공유는 Snowflake의 고유한 서비스 레이어와 메타데이터 저장소를 통해 이루어지며, 계정 간에 실제로 데이터가 복사되거나 전송되지 않습니다. 공유 데이터는 소비자 계정의 스토리지를 차지하지 않으므로 월별 데이터 스토리지 요금에 영향을 미치지 않는다는 점이 중요한 개념입니다. 소비자에게 부과되는 유일한 비용은 공유 데이터를 쿼리하는 데 사용되는 컴퓨팅 리소스(즉, 가상 웨어하우스)에 대한 것입니다.
+Snowflake의 [보안 데이터 공유]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake) 기능을 통해 Braze는 일반적인 데이터 공급자 관계에서 발생하는 워크플로 마찰, 장애 지점 및 불필요한 비용 걱정 없이 Snowflake 포털의 데이터에 대한 안전한 액세스를 제공할 수 있습니다. 모든 공유는 Snowflake의 고유한 서비스 레이어와 메타데이터 스토어를 통해 이루어지며, 계정 간에 실제로 데이터가 복사되거나 전송되지 않습니다. 이는 공유 데이터가 소비자 계정에서 스토리지를 차지하지 않으며, 따라서 월별 데이터 스토리지 요금에 기여하지 않기 때문에 중요한 개념입니다. 소비자에게 부과되는 유일한 비용은 공유 데이터를 쿼리하는 데 사용되는 컴퓨팅 리소스(즉, 가상 웨어하우스)에 대한 비용입니다.
 
 ### Braze 내보내기 API {#braze-export-apis}
-Braze API는 집계 분석 데이터를 프로그래밍 방식으로 내보내거나 개별 사용자 데이터를 내보낼 수 있는 [엔드포인트]({{site.baseurl}}/api/endpoints/export)를 제공합니다. 이 데이터는 모든 크기의 오디언스 및 Segments에 대해 내보낼 수 있습니다.
+Braze API는 집계 분석 데이터를 프로그래밍 방식으로 내보내고, 개별 사용자 데이터를 내보낼 수 있는 [엔드포인트]({{site.baseurl}}/api/endpoints/export)를 제공합니다. 이 데이터는 모든 크기의 오디언스 및 Segments에 대해 내보낼 수 있습니다.
 
 ### CSV {#csvs}
-마지막으로, 대시보드에서 직접 집계 수준 데이터를 [CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data)로 다운로드하는 옵션이 있습니다. CSV 옵션을 통해 팀원들이 Braze에서 쉽게 데이터를 내보낼 수 있습니다.
+마지막으로, 대시보드에서 직접 집계 수준 데이터를 [CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data)로 다운로드하는 옵션이 있습니다. CSV 옵션을 사용하면 팀원들이 Braze에서 데이터를 쉽게 내보낼 수 있습니다.
 
 {% alert tip %}
-CSV 내보내기는 기본 제한이 500,000행이지만, API에는 이와 관련한 제한이 없습니다.
+CSV 내보내기에는 기본 한도가 500,000행이지만, API에는 이러한 제한이 없습니다.
 {% endalert %}
 
-## 모두 합치기 {#putting-it-all-together}
-사용자 중 한 명을 멜(Mel)이라고 부르겠습니다. 멜은 방금 여러분의 제품 공지를 받았습니다. 이 과정이 원활하게 진행되도록 Braze 플랫폼의 모든 레이어가 함께 작동했습니다.
+## 모든 것을 하나로 합치기 {#putting-it-all-together}
+사용자 중 한 명인 Mel이 방금 제품 공지를 받았다고 가정해 보겠습니다. 이면에서 Braze 플랫폼의 모든 계층이 함께 작동하여 이 과정이 원활하게 진행되었습니다.
 
-멜의 정보는 CSV 가져오기를 통해 기존 고객 인게이지먼트 플랫폼에서 Braze로 가져왔습니다. 통합 후 멜이 앱과 상호작용할 때마다 고객 프로필에 더 많은 데이터가 추가되었습니다.
+Mel의 정보는 CSV 가져오기를 통해 기존 고객 인게이지먼트 플랫폼에서 Braze로 가져왔습니다. 통합 후 Mel이 앱과 상호작용할 때마다 고객 프로필에 더 많은 데이터가 추가되었습니다.
 
-제품 공지는 앱에서 유사한 항목을 좋아한 모든 고객에게 전송되었습니다. 이 데이터를 커스텀 이벤트로 정의했습니다. SDK가 이 이벤트를 추적하고 그에 따라 사용자 기반을 세분화했습니다. Braze는 이 공지를 보낼 최적의 시간을 오케스트레이션하고, 멜이 선호하는 이름으로 불러 공지를 개인화했습니다.
+제품 공지는 앱에서 유사한 항목을 좋아한 모든 고객에게 전송되었습니다. 이 데이터를 커스텀 이벤트로 정의했습니다. SDK가 이 이벤트를 추적하고 그에 따라 사용자 기반을 세분화했습니다. Braze는 이 공지를 보내기에 가장 적합한 시간대를 오케스트레이션하고, Mel의 선호 이름으로 불러 공지를 개인화했습니다.
 
-멜이 공지를 열면 새 제품을 위시리스트에 추가합니다. Braze는 멜이 이메일을 클릭한 것을 자동으로 추적합니다. SDK는 멜이 새 제품을 위시리스트에 추가한 것을 추적합니다. 사용자가 브랜드와 상호작용할 때마다 여러분과 사용자는 서로에 대해 더 많이 알아가게 됩니다.
+Mel이 공지를 열면 새 제품을 위시리스트에 추가합니다. Braze는 이메일 클릭을 자동으로 추적합니다. SDK는 새 제품을 위시리스트에 추가한 것을 추적합니다. 사용자가 브랜드와 상호작용할 때마다, 여러분과 사용자는 서로에 대해 더 많이 알게 됩니다.
 
-![Braze가 메시징 채널 전반에서 사용자 행동을 추적하는 방법을 보여주는 다이어그램]({% image_buster /assets/img/getting-started/putting-it-all-together.png %})
+![Braze가 메시징 채널 전반에서 사용자 행동을 추적하는 방법을 보여주는 다이어그램.]({% image_buster /assets/img/getting-started/putting-it-all-together.png %})

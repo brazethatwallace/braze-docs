@@ -12,12 +12,11 @@ noindex: true
 
 > このガイドでは、iOS 15 (WWDC21) で導入された変更点と、Braze iOS SDK統合に必要なアップグレードステップについて説明します。iOS 15の新しい更新の完全なリストについては、Appleの[iOS 15 リリースノート](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-15-release-notes)を参照してください。
 
+## UIナビゲーションの透明度に関する変更 {#transparency-changes-to-ui-navigations}
 
-## UIナビゲーションの透明性に関する変更 {#transparency-changes-to-ui-navigations}
+iOSベータ版の年次テストの一環として、Appleによる変更が確認されました。この変更により、特定のUIナビゲーションバーが不透明ではなく透明に表示されるようになります。これは、iOS 15でBrazeのデフォルトUIのContent Cardsを使用している場合や、Webディープリンクが別のブラウザアプリではなくアプリ内で開かれる場合に影響があります。
 
-iOSベータ版の年次テストの一環として、特定のUIナビゲーションバーが不透明ではなく透明に表示されるAppleによる変更を確認しました。これは、Content Cards用のBrazeデフォルトUIを使用している場合、またはWebディープリンクが別のブラウザアプリではなくアプリ内で開かれている場合に、iOS 15で表示されます。
-
-iOS 15でのこの視覚的な変更を回避するために、ユーザーが新しいiOS 15オペレーティングシステムにアップグレードを開始する前に、できるだけ早く[Braze iOS SDK v4.3.2](https://github.com/Appboy/appboy-ios-sdk/releases/tag/4.3.2)にアップグレードすることを強くお勧めします。
+iOS 15でのこの表示上の変更を回避するために、ユーザーが新しいiOS 15オペレーティングシステムにアップグレードする前に、できるだけ早く[Braze iOS SDK v4.3.2](https://github.com/Appboy/appboy-ios-sdk/releases/tag/4.3.2)にアップグレードすることを強くお勧めします。
 
 ## 新しい通知設定 {#notification-settings}
 
@@ -38,17 +37,17 @@ iOS 15では、プッシュ通知は次の4つの割り込みレベルのいず�
 * **時間的制約**（新規）- サウンド、バイブレーション、画面のスリープ解除を許可し、許可されている場合はシステムコントロールを突破できます。
 * **重大** - サウンド、バイブレーション、画面のスリープ解除を許可し、システムコントロールを突破し、サイレントスイッチをバイパスできます。
 
-iOSプッシュでこのオプションを設定する方法の詳細については、[iOS通知オプション]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options#interruption-level)を参照してください。
+iOSプッシュでこのオプションを設定する方法の詳細については、[iOS通知オプション]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#interruption-level)を参照してください。
 
 ### 通知サマリー {#notification-summary}
 
-![通知サマリーに関するスクリーンショット。]({% image_buster /assets/img/ios/ios15-notification-summary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0"}
+![通知サマリーに関するスクリーンショット]({% image_buster /assets/img/ios/ios15-notification-summary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0"}
 
 iOS 15では、ユーザーは（オプションで）1日の中で特定の時間を選択して、通知のサマリーを受け取ることができます。即時の注意を必要としない通知（「パッシブ」として送信されたものや、ユーザーがフォーカスモード中のものなど）は、1日を通じて絶えず中断されないようにグループ化されます。
 
 送信する通知ごとに、「関連性スコア」を指定して、どの通知をサマリーの先頭に表示するかをコントロールできるようになります。
 
-通知の「関連性スコア」の設定方法については、[iOS通知オプション]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options#relevance-score)を参照してください。
+通知の「関連性スコア」の設定方法については、[iOS通知オプション]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#relevance-score)を参照してください。
 
 ## 位置情報ボタン {#location-buttons}
 
@@ -74,4 +73,4 @@ Appleによると、すでにバックグラウンドでの位置情報へのア
 
 ## SafariのIPアドレスによる位置情報 {#safari-ip-address-location}
 
-iOS 15では、ユーザーはIPアドレスから特定された位置情報を匿名化または一般化するようにSafariを設定できます。ロケーションベースのターゲティングまたはセグメンテーションを使用する場合は、このことに留意してください。
+iOS 15では、ユーザーはSafariの設定で、IPアドレスから判定される位置情報を匿名化または一般化できるようになります。位置情報に基づくターゲティングやセグメンテーションを使用する際には、この点に留意してください。

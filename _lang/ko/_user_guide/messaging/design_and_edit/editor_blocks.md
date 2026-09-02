@@ -10,7 +10,7 @@ channel:
 - preference center
 page_order: 3
 page_type: reference
-description: "이 참조 문서에서는 이메일, 인앱 메시지, 랜딩 페이지, 배너, 드래그 앤 드롭 이메일 환경설정 센터용 드래그 앤 드롭 편집기의 편집기 블록을 다룹니다."
+description: "이 참조 문서에서는 이메일, In-App Messages, 랜딩 페이지, 배너, 드래그 앤 드롭 이메일 환경설정 센터용 드래그 앤 드롭 편집기의 편집기 블록을 다룹니다."
 tool: Media
 ---
 
@@ -423,7 +423,7 @@ Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved
 {% multi_lang_include drag_and_drop/editor_block_properties/button_actions.md %}
 
 {% alert important %}
-**버튼 클릭 시 양식 제출**로 버튼을 구성하고 새 탭에서 웹 URL을 열면 iOS Safari가 탐색을 차단할 수 있습니다. 양식을 제출할 때는 같은 탭에서 제출 후 URL을 여세요. 자세한 내용은 [랜딩 페이지 만들기]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages)를 참조하세요.
+**버튼 클릭 시 양식 제출**로 버튼을 구성하고 새 탭에서 웹 URL을 열면 iOS Safari가 내비게이션을 차단할 수 있습니다. 양식을 제출할 때는 같은 탭에서 제출 후 URL을 여세요. 자세한 내용은 [랜딩 페이지 만들기]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages)를 참조하세요.
 {% endalert %}
 
 ### 라디오 버튼
@@ -515,7 +515,7 @@ After you add a **Countdown timer** block, use the properties panel to set the t
 
 ### 구독 관리 {#manage-subscriptions}
 
-방문자가 양식을 제출할 때 [이메일 구독 그룹]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups)에 옵트인하거나 구독을 관리할 수 있는 체크리스트를 추가합니다. 블록에 구독 그룹을 추가한 후 구성합니다. 이 블록은 이메일 구독 그룹만 지원하며, SMS, RCS 또는 WhatsApp 구독 그룹은 지원하지 않습니다.
+방문자가 양식을 제출할 때 [이메일]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups), [SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#sms-subscription-states) 또는 [WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-subscription-states) 구독 그룹에 옵트인하거나 구독을 관리할 수 있는 체크리스트를 추가합니다. 각 블록은 하나의 채널용입니다. 블록에 구독 그룹을 추가한 후 구성합니다. 이 블록은 RCS 구독 그룹을 나열하지 않습니다.
 
 랜딩 페이지의 [Liquid 태그]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users)를 통해 페이지를 여는 식별된 사용자의 경우, 블록이 각 체크박스에 사용자의 현재 구독 상태를 미리 채우므로 환경설정 관리 페이지로도 활용할 수 있습니다.
 
@@ -663,7 +663,7 @@ Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved
 
 ### 버튼
 
-클릭 가능한 버튼(예: **저장** 또는 탐색)을 추가합니다.
+클릭 가능한 버튼(예: **저장** 또는 내비게이션)을 추가합니다.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/button_properties.md %}
 

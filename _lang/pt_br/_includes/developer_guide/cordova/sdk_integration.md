@@ -7,10 +7,10 @@ Antes de começar, verifique se o seu ambiente é compatível com a [versão mai
 ### Etapa 1: Adicione o SDK ao seu projeto {#step-1-add-the-sdk-to-your-project}
 
 {% alert warning %}
-Adicione o SDK Cordova da Braze apenas usando os métodos a seguir. Não tente instalar usando outros métodos, pois isso pode causar uma falha de segurança.
+Adicione o SDK Cordova da Braze apenas utilizando os métodos a seguir. Não tente instalar por outros métodos, pois isso pode resultar em uma falha de segurança.
 {% endalert %}
 
-Se você estiver usando o Cordova 6 ou posterior, pode adicionar o SDK diretamente do GitHub. Alternativamente, você pode baixar um ZIP do [repositório do GitHub](https://github.com/braze-inc/braze-cordova-sdk) e adicionar o SDK manualmente.
+Se você está no Cordova 6 ou posterior, pode adicionar o SDK diretamente do GitHub. Alternativamente, você pode baixar um ZIP do [repositório no GitHub](https://github.com/braze-inc/braze-cordova-sdk) e adicionar o SDK manualmente.
 
 {% tabs local %}
 {% tab geofence desativado %}
@@ -56,9 +56,9 @@ Em seguida, adicione as seguintes preferências ao elemento `platform` no arquiv
 
 Substitua os seguintes valores:
 
-| Valor                 | Descrição                                                                                                                        |
-| --------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `BRAZE_API_KEY`       | Sua [chave da API REST da Braze]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab#rest-api-keys).       |
+| Valor                 | Descrição                                                                                                                                  |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| `BRAZE_API_KEY`       | Sua [chave da API REST da Braze]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab#rest-api-keys).                 |
 | `CUSTOM_API_ENDPOINT` | Um endpoint de API personalizado. Esse endpoint é usado para direcionar os dados da sua instância da Braze para o grupo de apps correto no seu dashboard da Braze. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 2: Configure seu projeto" }
 
@@ -84,9 +84,9 @@ O elemento `platform` no seu arquivo `config.xml` deve ser semelhante ao seguint
 {% endtab %}
 {% endtabs %}
 
-## Sintaxe específica da plataforma {#platform-specific-syntax}
+## Sintaxe específica por plataforma {#platform-specific-syntax}
 
-A seção a seguir aborda a sintaxe específica da plataforma ao usar Cordova com iOS ou Android.
+A seção a seguir aborda a sintaxe específica por plataforma ao usar o Cordova com iOS ou Android.
 
 ### Inteiros {#integers}
 
@@ -103,7 +103,7 @@ As preferências de inteiros são lidas como representações de string, como no
 {% endtab %}
 
 {% tab android %}
-Devido à forma como o framework do Cordova 8.0.0+ lida com preferências, as preferências exclusivamente numéricas (como IDs de remetente) devem ser definidas como strings com o prefixo `str_`, como no exemplo a seguir:
+Devido à forma como o framework Cordova 8.0.0+ lida com preferências, as preferências exclusivamente inteiras (como IDs de remetente) devem ser definidas como strings com o prefixo `str_`, como no exemplo a seguir:
 
 ```xml
 <platform name="android">
@@ -118,7 +118,7 @@ Devido à forma como o framework do Cordova 8.0.0+ lida com preferências, as pr
 
 {% tabs %}
 {% tab ios %}
-As preferências booleanas são lidas pelo SDK usando as palavras-chave `YES` e `NO` como representação de string, como no exemplo a seguir:
+As preferências booleanas são lidas pelo SDK usando as palavras-chave `YES` e `NO` como representações de string, como no exemplo a seguir:
 
 ```xml
 <platform name="ios">
@@ -129,7 +129,7 @@ As preferências booleanas são lidas pelo SDK usando as palavras-chave `YES` e 
 {% endtab %}
 
 {% tab android %}
-As preferências booleanas são lidas pelo SDK usando as palavras-chave `true` e `false` como representação de string, como no exemplo a seguir:
+As preferências booleanas são lidas pelo SDK usando as palavras-chave `true` e `false` como representações de string, como no exemplo a seguir:
 
 ```xml
 <platform name="android">
@@ -284,13 +284,13 @@ Para começar a rastrear as sessões novamente, chame `BrazePlugin.startSessionT
 
 ## Configurando canais de notificação para notificações heads-up (somente Android) {#configuring-notification-channels-for-heads-up-notifications-android-only}
 
-No Android 8.0 (API nível 26) e versões posteriores, o comportamento das notificações é controlado por meio de canais de notificação. Para exibir notificações heads-up — alertas que aparecem brevemente no topo da tela enquanto o usuário está usando o dispositivo — você deve criar um canal de notificação com `NotificationManager.IMPORTANCE_HIGH` no código da sua aplicação Android.
+No Android 8.0 (nível de API 26) e versões posteriores, o comportamento das notificações é controlado por meio de canais de notificação. Para exibir notificações heads-up — alertas que aparecem brevemente no topo da tela enquanto o usuário está usando o dispositivo — você deve criar um canal de notificação com `NotificationManager.IMPORTANCE_HIGH` no código do seu aplicativo Android.
 
-Embora o SDK do Cordova permita definir o nome e a descrição padrão do canal de notificação por meio de preferências no `config.xml` (`default_notification_channel_name` e `default_notification_channel_description`), o nível de importância deve ser configurado programaticamente no seu código nativo Android.
+Embora o SDK do Cordova permita definir o nome e a descrição padrão do canal de notificação por meio das preferências do `config.xml` (`default_notification_channel_name` e `default_notification_channel_description`), o nível de importância deve ser configurado programaticamente no seu código nativo Android.
 
 ### Exemplo: Criando um canal de notificação de alta importância {#example-creating-a-high-importance-notification-channel}
 
-Adicione o código a seguir ao método `onCreate()` da classe `Application` da sua aplicação Android:
+Adicione o seguinte código ao método `onCreate()` da classe `Application` do seu aplicativo Android:
 
 {% subtabs local %}
 {% subtab Kotlin %}
@@ -346,8 +346,8 @@ public void onCreate() {
 {% endsubtab %}
 {% endsubtabs %}
 
-Após criar o canal no seu código Android, use o ID do canal ao enviar notificações por push pelo dashboard da Braze. Para saber mais sobre canais de notificação, consulte [Canais de notificação do Android]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels).
+Após criar o canal no seu código Android, use o ID do canal ao enviar notificações por push pelo dashboard da Braze. Para saber mais sobre canais de notificação, consulte [Canais de notificação do Android]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/notification_channels).
 
-## Solução de problemas em builds iOS após a atualização do plugin {#troubleshooting-ios-builds-after-upgrading-the-plugin}
+## Solução de problemas em builds iOS após o upgrade do plugin {#troubleshooting-ios-builds-after-upgrading-the-plugin}
 
-O SDK da Braze para Cordova 9.0.0 e versões posteriores utiliza o Swift SDK 9.0.0 ou posterior. A partir do Swift SDK 8.0.0, esse SDK nativo é compilado com o **Xcode 15.2**. Se o seu build iOS falhar após a atualização do plugin Cordova para 9.0.0 ou posterior, atualize o Xcode para a versão 15.2 ou mais recente e confirme se ele corresponde ao [changelog do Swift SDK]({{site.baseurl}}/developer_guide/changelogs/?sdktab=swift) para a versão nativa do iOS que seu plugin utiliza.
+O SDK da Braze para Cordova 9.0.0 e posteriores utilizam o Swift SDK 9.0.0 ou posterior. A partir do Swift SDK 8.0.0, esse SDK nativo é compilado com **Xcode 15.2**. Se o build do iOS falhar após o upgrade do plugin Cordova para 9.0.0 ou posterior, atualize o Xcode para a versão 15.2 ou mais recente e confirme que ele corresponde ao [changelog do Swift SDK]({{site.baseurl}}/developer_guide/changelogs/?sdktab=swift) para a versão nativa do iOS que seu plugin utiliza.

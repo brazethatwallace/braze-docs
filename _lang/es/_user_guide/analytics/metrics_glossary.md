@@ -146,7 +146,7 @@ In-App Message
 Feature Flags
 {% endapitags %}
 
-El rendimiento del mensaje a través de varios canales. Las métricas mostradas dependen del canal de mensajería seleccionado y de si el [experimento de conmutador de características]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/experiments#campaign-analytics) es una prueba multivariante.
+El rendimiento del mensaje a través de varios canales. Las métricas mostradas dependen del canal de mensajería seleccionado y de si el [experimento de conmutador de características]({{site.baseurl}}/developer_guide/feature_flags/experiments#campaign-analytics) es una prueba multivariante.
 
 {% endapi %}
 

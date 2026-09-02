@@ -27,7 +27,7 @@ Dieser Endpunkt garantiert nicht die Reihenfolge, in der die `alias_updates`-Obj
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key) mit der Berechtigung `users.alias.update`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics) mit der Berechtigung `users.alias.update`.
 
 ## Rate-Limit
 

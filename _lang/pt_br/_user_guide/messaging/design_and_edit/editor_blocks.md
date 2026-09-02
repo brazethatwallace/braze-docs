@@ -515,7 +515,7 @@ Os usuários escolhem várias opções; os valores são definidos ou adicionados
 
 ### Gerenciar inscrições {#manage-subscriptions}
 
-Adiciona uma lista de verificação de [grupos de inscrições de e-mail]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups) para que os visitantes possam optar por participar ou gerenciar suas inscrições ao enviar o formulário. Configure-o depois de adicionar grupos de inscrições ao bloco. Este bloco aceita apenas grupos de inscrições de e-mail; ele não aceita grupos de inscrições de SMS, RCS ou WhatsApp.
+Adiciona uma lista de verificação de grupos de inscrições de [e-mail]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups), [SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#sms-subscription-states) ou [WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-subscription-states) para que os visitantes possam optar por participar ou gerenciar suas inscrições ao enviar o formulário. Cada bloco é para um canal. Configure-o depois de adicionar grupos de inscrições ao bloco. Este bloco não lista grupos de inscrições de RCS.
 
 Para usuários identificados que abrem a página por meio da [Liquid tag]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) da landing page, o bloco preenche previamente cada caixa de seleção com o estado de inscrição atual do usuário, podendo também servir como uma página de gerenciamento de preferências.
 

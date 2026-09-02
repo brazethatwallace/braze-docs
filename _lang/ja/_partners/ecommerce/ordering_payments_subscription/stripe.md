@@ -22,53 +22,53 @@ BrazeとStripeを統合することで、以下のことが可能になります
 | 要件 | 説明 |
 | ----------- | ----------- |
 | Stripeアカウント | このパートナーシップを利用するには、webhookにアクセスできるStripeアカウントが必要です。 |
-| Brazeデータ変換 | Stripeからデータを受信するには、[データ変換URL]({{site.baseurl}}/data_transformation)が必要です。 |
+| Brazeデータ変換 | Stripeからデータを受信するには、[データ変換URL]({{site.baseurl}}/user_guide/data/unification/data_transformation)が必要です。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
-## インテグレーション {#integration}
+## 連携 {#integration}
 
-### ステップ1：StripeのwebhookをBrazeのデータ変換で受信できるように設定する {#step-1}
+### ステップ1：StripeのWebhookを受信するためのBrazeデータ変換を設定する {#step-1}
 
 {% multi_lang_include data_activation/create_transformation.md %}
 
-### ステップ2：Stripe webhookを設定する {#step-2-set-up-stripe-webhooks}
+### ステップ2：Stripe Webhookを設定する {#step-2-set-up-stripe-webhooks}
 
-[Stripeのwebhookドキュメント](https://docs.stripe.com/development/dashboard/webhooks)の手順に従って、webhookを設定します。
+[StripeのWebhookドキュメント](https://docs.stripe.com/development/dashboard/webhooks)の手順に従ってWebhookを設定します。
 
-データ変換のwebhook URLを**宛先URL**として追加し、Brazeに送信するイベントタイプを選択します。イベントタイプの完全なリストについては、[Stripeのドキュメント](https://docs.stripe.com/api/events/types)を参照してください。
+データ変換のWebhook URLを**送信先URL**として追加し、Brazeに送信したいイベントタイプを選択します。イベントタイプの全リストについては、[Stripeのドキュメント](https://docs.stripe.com/api/events/types)を参照してください。
 
-![Stripe webhookの設定例。]({% image_buster /assets/img/stripe/stripe_webhook_configuration.png %}){: style="max-width:80%;"}
+![Stripe Webhook設定の例。]({% image_buster /assets/img/stripe/stripe_webhook_configuration.png %}){: style="max-width:80%;"}
 
-次に、テストイベントをデータ変換に送信します。
+その後、データ変換にテストイベントを送信します。
 
-### ステップ3：選択したStripeイベントを受信するための変換コードを記述する {#step-3-write-transformation-code-to-accept-your-chosen-stripe-events}
+### ステップ3：選択したStripeイベントを受け入れるための変換コードを作成する {#step-3-write-transformation-code-to-accept-your-chosen-stripe-events}
 
-次に、Stripeから送信されるwebhookペイロードをJavaScriptオブジェクトの戻り値に変換します。
+次に、Stripeから送信されるWebhookペイロードをJavaScriptオブジェクトの戻り値に変換します。
 
-1. データ変換を更新し、**Webhookの詳細**セクションにStripeのテストペイロードが表示されていることを確認します。
+1. データ変換を更新し、**Webhookの詳細**セクションでStripeのテストペイロードが表示されることを確認します。
 2. 選択したStripeイベントをサポートするようにデータ変換コードを更新します。
-3. **検証**を選択して、コード出力のプレビューを返し、それが有効な`/users/track`リクエストであるかどうかを確認します。
+3. **検証**を選択して、コード出力のプレビューを確認し、それが有効な`/users/track`リクエストであるかを確認します。
 4. データ変換を保存して有効化します。
 
 ![Webhookの詳細と変換コードの例。]({% image_buster /assets/img/stripe/stripe_data_transformation.png %})
 
-#### リクエストボディ形式 {#request-body-format}
+#### リクエストボディの形式 {#request-body-format}
 
 この戻り値は`/users/track`エンドポイントのリクエストボディ形式に準拠する必要があります：
 
-- 変換コードはJavaScriptプログラミング言語で受け付けられます。if/elseロジックなど、標準的なJavaScript制御フローがすべてサポートされています。
-- 変換コードはpayload変数を使用してwebhookリクエストボディにアクセスします。この変数は、リクエストボディのJSONを解析して生成されたオブジェクトです。
+- 変換コードはJavaScriptプログラミング言語で記述します。if/elseロジックなど、標準的なJavaScript制御フローがサポートされています。
+- 変換コードはpayload変数を使用してWebhookリクエストボディにアクセスします。この変数はリクエストボディのJSONを解析して生成されるオブジェクトです。
 - `/users/track`エンドポイントでサポートされているすべての機能がサポートされています。これには以下が含まれます：
     - ユーザー属性オブジェクト、イベントオブジェクト、購入オブジェクト
     - ネストされた属性およびネストされたカスタムイベントプロパティ
     - 購読グループの更新
     - 識別子としてのメールアドレス
 
-### ステップ4：Stripe webhookを公開する {#step-4-publish-your-stripe-webhook}
+### ステップ4：Stripe Webhookを公開する {#step-4-publish-your-stripe-webhook}
 
-データ変換の記述が完了したら、**検証**を選択してデータ変換コードが正しくフォーマットされており、期待どおりに動作することを確認します。その後、データ変換を保存して有効化します。有効化すると、ユーザーがイベントを完了した際に、カスタムイベントデータがそのユーザーのプロファイルに記録されます。
+データ変換のコードを記述したら、**検証**を選択して、データ変換コードが正しくフォーマットされており、期待どおりに動作するかを確認します。その後、データ変換を保存して有効化します。有効化すると、ユーザーがイベントを完了した際に、カスタムイベントデータがそのユーザーのプロファイルに記録されます。
 
-![Brazeユーザープロファイルに表示されたStripeカスタムイベント「Charge Succeeded」。]({% image_buster /assets/img/stripe/stripe_braze_profile_event.png %}){: style="max-width:80%;"}
+![BrazeユーザープロファイルのStripeカスタムイベント「Charge Succeeded」。]({% image_buster /assets/img/stripe/stripe_braze_profile_event.png %}){: style="max-width:80%;"}
 
 ## Stripe webhookペイロードのサンプル {#example}
 
@@ -233,18 +233,18 @@ BrazeとStripeを統合することで、以下のことが可能になります
 }
 ```
 
-## Data Transformationのユースケース {#data-transformation-use-cases}
+## データ変換のユースケース {#data-transformation-use-cases}
 
 以下は、[Stripe webhookペイロードの例](#example)を使用して構築されたテンプレートの例です。これらのテンプレートは出発点として使用できます。ゼロから始めることも、必要に応じて特定のコンポーネントを削除することもできます。
 
-このテンプレート例では、Brazeプロファイルにカスタムイベントを記録しています。イベントタイプがカスタムイベント名として送信され、データオブジェクトがイベントプロパティとして渡されます。
+このテンプレート例では、Brazeプロファイルにカスタムイベントを記録します。イベントタイプはカスタムイベント名として送信され、データオブジェクトはイベントプロパティとして渡されます。
 
-### ユースケース：顧客を識別子として使用する {#use-case-customer-as-an-identifier}
+### ユースケース：識別子としてのcustomer {#use-case-customer-as-an-identifier}
 
-このテンプレート例では、顧客フィールドを識別子として使用しています。
+このテンプレート例では、customerフィールドを識別子として使用しています。
 
 {% tabs local %}
-{% tab Input %}
+{% tab 入力 %}
 
 ```javascript
 
@@ -283,7 +283,7 @@ return brazecall;
 ```
 
 {% endtab %}
-{% tab Output %}
+{% tab 出力 %}
 
 ```json
 {
@@ -307,4 +307,4 @@ return brazecall;
 
 ## 監視とトラブルシューティング {#monitoring-and-troubleshooting}
 
-トランスフォーメーションの監視とトラブルシューティングの詳細については、[トランスフォーメーションを監視する]({{site.baseurl}}/user_guide/data_and_analytics/data_transformation/creating_a_transformation#step-5-monitor-your-transformation)を参照してください。
+変換の監視とトラブルシューティングの詳細については、[変換を監視する]({{site.baseurl}}/user_guide/data_and_analytics/data_transformation/creating_a_transformation#step-5-monitor-your-transformation)を参照してください。

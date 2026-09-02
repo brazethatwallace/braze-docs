@@ -20,7 +20,7 @@ platform:
 `MismatchSenderId` indica un fallo de autenticación. Firebase Cloud Messaging (FCM) se autentica con un par de datos clave: senderID y clave de API de FCM. Ambos deben validarse para verificar su exactitud. Para más información, consulta la [documentación de Android](https://firebase.google.com/docs/cloud-messaging/http-server-ref#error-codes) sobre este problema.
 
 Los fallos comunes pueden incluir:
-- [senderID]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration#step-1-enable-firebase) incorrecto
+- [senderID]({{site.baseurl}}/developer_guide/push_notifications?sdktab=android) incorrecto
 - Registro múltiple si se registran con otro servicio push con un senderID diferente
 
 ### Push rebotado: InvalidRegistration {#push-bounced-invalidregistration}
@@ -43,7 +43,7 @@ Esto generalmente ocurre por una de las siguientes razones:
 - Una lógica personalizada está cancelando el registro de los usuarios de push. Esto es poco frecuente, pero es técnicamente posible cancelar programáticamente el registro de un dispositivo de push usando el [SDK de Firebase/Android](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/FirebaseMessaging#deleteToken()).
 
 {% alert note %}
-Este error no significa que el usuario tenga push deshabilitado, solo que un token específico fue eliminado de su perfil. Esto es común en usuarios que están probando funcionalidades e instalando y desinstalando la aplicación con frecuencia. Para verificar si el usuario aún tiene tokens válidos, ve a **Búsqueda de usuarios** y revisa la sección **Configuración de contacto** en la pestaña **Engagement**.
+Este error no significa que el usuario tenga push deshabilitado, solo que un token específico fue eliminado de su perfil. Esto es común en usuarios que están probando funcionalidades e instalando y desinstalando la aplicación con frecuencia. Para verificar si el usuario aún tiene tokens válidos, ve a **Búsqueda de usuarios** y revisa la sección **Configuración de contacto** en la pestaña **Participación**.
 {% endalert %}
 
 ### La entidad solicitada no fue encontrada {#requested-entity-was-not-found}
@@ -61,12 +61,12 @@ Para más información, consulta la [documentación de Google](https://firebase.
 
 ### Error al enviar push porque la carga útil no era válida {#error-sending-push-because-the-payload-was-invalid}
 
-Este mensaje puede aparecer en la pestaña **Engagement** del perfil de usuario en **Configuración de contacto** > **Registro de cambios de push** cuando el servicio de notificaciones push de Apple (APNs) rechaza la solicitud push debido a una carga útil no válida.
+Este mensaje puede aparecer en la pestaña **Participación** del perfil de usuario en **Configuración de contacto** > **Registro de cambios de push** cuando el servicio de notificaciones push de Apple (APN) rechaza la solicitud push debido a una carga útil no válida.
 
-En Braze, este mensaje del dashboard puede corresponder a una de las siguientes razones de error de APNs:
+En Braze, este mensaje del panel puede corresponder a una de las siguientes razones de error de APN:
 
 - `PayloadEmpty`: la carga útil no contenía el contenido requerido para el tipo de push que se estaba enviando.
-- `PayloadTooLarge`: la carga útil excedió el tamaño máximo de carga útil de APNs.
+- `PayloadTooLarge`: la carga útil excedió el tamaño máximo de carga útil de APN.
 
 Las causas comunes incluyen:
 
@@ -94,10 +94,10 @@ El error `BadToken` puede ocurrir por varias razones:
 
 ### ID de paquete no permitido {#bundle-id-not-allowed}
 
-El error `TopicDisallowed` significa que APNs rechazó el push porque el tema (ID de paquete) en la solicitud no está permitido para las credenciales de autenticación que se están usando. Para resolver esto:
+El error `TopicDisallowed` significa que APN rechazó el push porque el tema (ID de paquete) en la solicitud no está permitido para las credenciales de autenticación que se están usando. Para resolver esto:
 
 1. **Verifica el ID de paquete.** Confirma que el ID de paquete configurado en la configuración de tu aplicación en Braze coincida exactamente con el ID de paquete de tu aplicación. Esto incluye cualquier variación de sufijo (por ejemplo, `.debug`, `.staging`).
-2. **Verifica tu configuración de autenticación de APNs.** Confirma que tu aplicación esté configurada con la clave `.p8` de APNs correcta y que la clave esté asociada con el mismo equipo de Apple Developer que la aplicación a la que estás enviando.
+2. **Verifica tu configuración de autenticación de APN.** Confirma que tu aplicación esté configurada con la clave `.p8` de APN correcta y que la clave esté asociada con el mismo equipo de Apple Developer que la aplicación a la que estás enviando.
 3. **Confirma el entorno de la aplicación.** Si tienes IDs de aplicación separados en Braze para compilaciones de desarrollo y producción, verifica que cada uno esté configurado con las credenciales push y el entorno correctos.
 
 ### Unregistered {#ios-unregistered}
@@ -109,25 +109,25 @@ Este error aparece en el Registro de actividad de mensajes como:
 Este es el equivalente en iOS del error [DEVICE_UNREGISTERED](#device-unregistered) de Android. Generalmente ocurre por una de las siguientes razones:
 
 - El usuario desinstaló la aplicación. Esta es la causa más común.
-- Los certificados push se actualizaron. Si tu equipo cambió o renovó los certificados de APNs, los usuarios que se registraron con los certificados anteriores pueden tener tokens inválidos hasta que la aplicación los vuelva a registrar.
+- Los certificados push se actualizaron. Si tu equipo cambió o renovó los certificados de APN, los usuarios que se registraron con los certificados anteriores pueden tener tokens inválidos hasta que la aplicación los vuelva a registrar.
 - Una lógica personalizada está cancelando el registro de los usuarios de push. Esto es poco frecuente, pero es técnicamente posible cancelar programáticamente el registro de notificaciones remotas usando el SDK de iOS.
 
 {% alert note %}
-Este error no significa que el usuario tenga push deshabilitado, solo que un token específico fue eliminado de su perfil. Para verificar si el usuario aún tiene tokens válidos, ve a **Búsqueda de usuarios** y revisa la sección **Configuración de contacto** en la pestaña **Engagement**.
+Este error no significa que el usuario tenga push deshabilitado, solo que un token específico fue eliminado de su perfil. Para verificar si el usuario aún tiene tokens válidos, ve a **Búsqueda de usuarios** y revisa la sección **Configuración de contacto** en la pestaña **Participación**.
 {% endalert %}
 
 ### InvalidProviderToken
 
-El error `InvalidProviderToken` significa que APNs rechazó la solicitud porque el token de autenticación (de una clave `.p8`) o el certificado push (`.p12`) no coincide con el ID de paquete o el Team ID de la aplicación. Para resolver esto:
+El error `InvalidProviderToken` significa que APN rechazó la solicitud porque el token de autenticación (de una clave `.p8`) o el certificado push (`.p12`) no coincide con el ID de paquete o el Team ID de la aplicación. Para resolver esto:
 
 1. **Verifica tu Team ID y Key ID:** si estás usando una clave de autenticación `.p8`, confirma que el **Team ID** y el **Key ID** configurados en el panel de Braze (**Configuración** > **Configuración de la aplicación** > selecciona tu aplicación iOS) coincidan con los valores en tu cuenta de Apple Developer.
 2. **Verifica el ID de paquete:** asegúrate de que el ID de paquete registrado en Braze coincida con el ID de paquete de tu aplicación. Una discrepancia, como una diferencia en mayúsculas o un sufijo `.debug`, causa este error.
 3. **Vuelve a cargar la clave o el certificado:** si la clave `.p8` o el certificado `.p12` se regeneró o revocó recientemente, carga la nueva clave en Braze y elimina la anterior.
-4. **Confirma el entorno de APNs:** si estás usando un certificado `.p12`, verifica que seleccionaste el entorno correcto (desarrollo versus producción) al cargarlo. Para las claves `.p8`, esto se maneja automáticamente.
+4. **Confirma el entorno de APN:** si estás usando un certificado `.p12`, verifica que seleccionaste el entorno correcto (desarrollo versus producción) al cargarlo. Para las claves `.p8`, esto se maneja automáticamente.
 
 ### Push rebotado: el servicio de retroalimentación de APNS lo eliminó {#push-bounced-apns-feedback-service-removed}
 
-Esto generalmente ocurre cuando alguien desinstala la aplicación. Braze consulta el servicio de retroalimentación de APNS cada noche para obtener una lista de tokens inválidos. Para más información, consulta la documentación de Apple sobre [Comunicación con APNs](https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CommunicatingwithAPNs.html).
+Esto generalmente ocurre cuando alguien desinstala la aplicación. Braze consulta el servicio de retroalimentación de APNS cada noche para obtener una lista de tokens inválidos. Para más información, consulta la documentación de Apple sobre [Comunicación con APN](https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CommunicatingwithAPNs.html).
 
 {% endtab %}
 {% endtabs %}

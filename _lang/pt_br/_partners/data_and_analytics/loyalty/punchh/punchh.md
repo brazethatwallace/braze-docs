@@ -5,7 +5,6 @@ page_order: 1
 description: "Este artigo de referência descreve a parceria entre a Braze e a Punchh, uma plataforma de fidelidade e engajamento. Com ela, você pode sincronizar dados entre as duas plataformas. Os dados publicados na Braze estarão disponíveis para segmentação e poderão sincronizar os dados de usuários de volta à Punchh por meio de modelos de webhook configurados na Braze."
 page_type: partner
 search_tag: Partner
-
 ---
 
 # Punchh
@@ -16,64 +15,64 @@ _Essa integração é mantida pela Punchh._
 
 ## Sobre a integração {#about-the-integration}
 
-A integração da Braze com a Punchh permite que você sincronize dados para fins de presentes e fidelidade nas duas plataformas. Os dados publicados na Braze estarão disponíveis para segmentação e poderão sincronizar os dados de usuários de volta à Punchh por meio de webhooks da Braze.
+A integração entre a Braze e a Punchh permite sincronizar dados para fins de presentes e fidelidade entre as duas plataformas. Os dados publicados na Braze estarão disponíveis para segmentação e podem sincronizar dados de usuários de volta para a Punchh por meio de webhooks da Braze.
 
 ## Quais são os benefícios? {#what-are-the-benefits}
 
-- Ingerir dados de fidelidade da Punchh para a Braze em tempo real.
-- Usar e estratificar os poderosos dados de público da Braze para oferecer experiências significativas e dinâmicas em vários canais (app, celular, web, e-mail e SMS).
+- Ingira dados de fidelidade da Punchh para a Braze em tempo real.
+- Aproveite e combine dados avançados de público da Braze para oferecer experiências dinâmicas e significativas entre canais (app, dispositivo móvel, web, e-mail e SMS)
   - Os clientes abriram os e-mails? Os clientes abriram o app perto de uma loja?
-- Padronizar a aparência dos e-mails de transação enviados pela Braze.
-- Criar jornadas que permitam testes A/B e otimização à medida que você avança.
+- Padronize a aparência dos e-mails de transação enviados pela Braze.
+- Crie jornadas que permitam testes A/B e otimização contínua.
 
 ## Pré-requisitos {#prerequisites}
 
 | Requisito | Descrição |
 |---|---|
-| Conta Punchh | Você precisa ter uma conta ativa na Punchh para aproveitar essa parceria. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| Endpoint REST da Braze | [Sua URL de endpoint REST]({{site.baseurl}}/api/basics#endpoints). Seu endpoint depende da URL da Braze para sua instância. |
+| Conta Punchh | Você precisa de uma conta Punchh ativa para aproveitar essa parceria. |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. <br><br> Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Endpoint REST da Braze | [URL do seu endpoint REST]({{site.baseurl}}/api/basics#endpoints). Seu endpoint depende da URL da Braze para a sua instância. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
-## O que mais devo saber? {#what-else-should-i-know}
+## O que mais preciso saber? {#what-else-should-i-know}
 
-#### Antes de integrar {#before-integrating}
+### Antes de integrar {#before-integrating}
 
-- Ao utilizar a integração da Braze, serão necessárias duas campanhas, uma na Punchh e a segunda na Braze. Por exemplo, se você enviar uma campanha com uma oferta anexada, a campanha de presentes será configurada na Punchh, e a notificação poderá ser enviada pela Braze.
-- Os convidados já devem existir na Punchh e na Braze. A Punchh filtrará qualquer cliente que ainda não seja um cliente de fidelidade.
+- Ao utilizar a integração com a Braze, duas campanhas serão necessárias, uma na Punchh e a segunda na Braze. Por exemplo, se você enviar uma campanha com uma oferta anexada, a campanha de presente será configurada dentro da Punchh, e a notificação pode ser enviada a partir da Braze.
+- Os convidados já devem existir na Punchh e na Braze. A Punchh filtrará qualquer cliente que ainda não seja um convidado do programa de fidelidade.
 
-#### Pontos importantes a serem notados {#important-things-to-note}
+### Pontos importantes a observar {#important-things-to-note}
 
-- A Punchh adicionou a capacidade de desativar o envio de atributos padrão de usuários para a Braze, para que o cliente não incorra em excedentes de pontos de dados. Isso é configurado durante a configuração do adaptador.
-- Se estiver usando segmentos personalizados em campanhas recorrentes, o nome da campanha deve ser usado em vez do ID da campanha, pois os IDs mudam a cada vez que a campanha é executada.
-- Os canais de comunicação disponíveis em cada campanha de presentes da Punchh incluem mensagens ricas, notificações por push, SMS e e-mail.
-- Depois que os usuários forem enviados para um segmento personalizado da Punchh a partir da Braze, eles não poderão ser removidos. Somente novos convidados podem ser adicionados a um segmento personalizado existente. Se os convidados precisarem ser removidos de um segmento personalizado da Punchh existente, será necessário criar uma nova campanha de webhook na Braze para enviar os usuários a um novo segmento personalizado da Punchh.
+- A Punchh adicionou a capacidade de desativar o envio de atributos de usuário padrão para a Braze, para que o cliente não incorra em excedentes de pontos de dados. Isso é configurado durante a configuração do adaptador.
+- Se estiver usando segmentos personalizados em campanhas recorrentes, o nome da campanha deve ser usado em vez do ID da campanha, pois os IDs mudam cada vez que a campanha é executada.
+- Os canais de comunicação disponíveis em cada campanha de presente da Punchh incluem mensagens ricas, notificações por push, SMS e e-mail.
+- Depois que os usuários forem enviados para um segmento personalizado da Punchh a partir da Braze, eles não poderão ser removidos. Apenas novos convidados podem ser adicionados a um segmento personalizado existente. Se for necessário remover convidados de um segmento personalizado existente da Punchh, uma nova campanha de webhook precisará ser criada na Braze para enviar usuários a um novo segmento personalizado da Punchh.
 
 ## Integração {#integration}
 
-A Punchh oferece vários endpoints disponíveis aos clientes da Braze para ajudar a adicionar IDs externos à plataforma Punchh usando os seguintes endpoints da API da Punchh. Depois que os IDs externos forem adicionados, crie um adaptador na Punchh, forneça suas credenciais da Braze e selecione os eventos que deseja sincronizar. Em seguida, você pode pegar o ID do segmento da Punchh e usá-lo para criar um webhook da Punchh para disparar a sincronização do cliente em uma jornada do Canvas.
+A Punchh oferece vários endpoints disponíveis para clientes da Braze para ajudar a adicionar IDs externos à plataforma Punchh usando os seguintes endpoints de API da Punchh. Depois que os IDs externos forem adicionados, crie um adaptador na Punchh, forneça suas credenciais da Braze e selecione quais eventos você gostaria de sincronizar. Em seguida, você pode pegar o ID do segmento da Punchh e usá-lo para construir um webhook Punchh para disparar a sincronização de clientes em uma jornada Canvas.
 
-Observe que o `user_id` da Punchh e o `external_id` da Braze precisam estar disponíveis em qualquer uma das plataformas para que a integração seja sincronizada corretamente.
-- Os eventos enviados da Punchh para a Braze incluirão o `external_id` da Braze como identificador. Se a Punchh estiver configurada para usar o `external_source_id`, esse valor será definido como o `external_id` da Braze. Caso contrário, a integração terá como padrão a configuração do `user_id` da Punchh como `external_id` da Braze.
-- Para enviar webhooks da Braze para a Punchh, o `user_id` da Punchh deve estar disponível no perfil do usuário da Braze. Se o `user_id` da Punchh não for usado como `external_id` da Braze, ele deverá ser definido como um atributo personalizado "punchh_user_id".
+Observe que o `user_id` da Punchh e o `external_id` da Braze precisam estar disponíveis em ambas as plataformas para que a integração sincronize corretamente.
+- Os eventos enviados da Punchh para a Braze incluirão o `external_id` da Braze como identificador. Se a Punchh estiver configurada para usar o `external_source_id`, esse valor será definido como o `external_id` da Braze. Caso contrário, a integração usará por padrão o `user_id` da Punchh como o `external_id` da Braze.
+- Para enviar webhooks da Braze para a Punchh, o `user_id` da Punchh deve estar disponível no perfil de usuário da Braze. Se o `user_id` da Punchh não for usado como o `external_id` da Braze, ele deve ser definido como um atributo personalizado "punchh_user_id".
 
 ### Etapa 1: Configurar endpoints de ingestão de ID externo (opcional) {#step-1-set-up-external-id-ingestion-endpoints-optional}
 
-Os IDs externos da Braze podem ser adicionados usando os seguintes endpoints para usuários novos e existentes da Punchh.
+IDs externos da Braze podem ser adicionados usando os seguintes endpoints para usuários novos e existentes da Punchh.
 
 {% alert important %}
-Os valores dos campos `external_source` e `external_source_id` devem ser exclusivos da Punchh e não devem estar associados a perfis existentes.
+Os valores dos campos `external_source` e `external_source_id` devem ser exclusivos na Punchh e não estar associados a perfis existentes.
 {% endalert %}
 
-1. Novos usuários da Punchh<br>
+1. Novos usuários Punchh<br>
 Crie novos usuários na Punchh com um endpoint de inscrição da Punchh usando os campos `external_source` e `external_source_id`. A Punchh permite que identificadores externos sejam enviados com um perfil de usuário por meio de um dos seguintes endpoints de inscrição:
-- [API de inscrição móvel](https://developers.punchh.com/docs/dev-portal-mobile/2e67abf6f8e12-sign-up-register)
-- [API de inscrição por SSO](https://developers.punchh.com/docs/dev-portal-online-ordering/58f18dfdd2a3d-signup-with-email-and-password)<br><br>
-2. Usuários existentes da Punchh <br>
-Atualize o `external_source_id` para os usuários existentes da Punchh. A Punchh permite que identificadores externos sejam adicionados a um perfil por meio de um endpoint de atualização da API do usuário:
-- [Atualização do usuário móvel](https://developers.punchh.com/docs/dev-portal-mobile/c9b928e35a6f3-update-user-profile)
-- [Atualização do usuário SSO](https://developers.punchh.com/docs/dev-portal-online-ordering/eef4eef6c97a0-update-user-information)
-- [Atualização do usuário do dashboard](https://developers.punchh.com/docs/dev-portal-platform-functions/6351feaf591aa-update-a-user)
+- [API de inscrição mobile](https://developers.punchh.com/docs/dev-portal-mobile/2e67abf6f8e12-sign-up-register)
+- [API de inscrição SSO](https://developers.punchh.com/docs/dev-portal-online-ordering/58f18dfdd2a3d-signup-with-email-and-password)<br><br>
+2. Usuários Punchh existentes <br>
+Atualize o `external_source_id` para usuários Punchh existentes. A Punchh permite que identificadores externos sejam adicionados a um perfil por meio de um endpoint de atualização de API de usuário:
+- [Atualização de usuário mobile](https://developers.punchh.com/docs/dev-portal-mobile/c9b928e35a6f3-update-user-profile)
+- [Atualização de usuário SSO](https://developers.punchh.com/docs/dev-portal-online-ordering/eef4eef6c97a0-update-user-information)
+- [Atualização de usuário no dashboard](https://developers.punchh.com/docs/dev-portal-platform-functions/6351feaf591aa-update-a-user)
 <br><br>
 {% tabs local %}
 {% tab User sign-up API example %}
@@ -104,7 +103,7 @@ curl --location --request POST 'https://server_name_goes_here.punchh.com/api2/mo
 ```
 {% endtab %}
 {% tab User update API example %}
-Este exemplo permite que você atualize identificadores externos com um perfil de usuário. Isso é feito enviando `external_source` como "customer_id" e `external_source_id` como "111111111111111111" como um tipo de dados string.
+Este exemplo permite atualizar identificadores externos com um perfil de usuário. Isso é feito enviando `external_source` como "customer_id" e `external_source_id` como "111111111111111111" como um tipo de dados string.
 
 ```bash
 curl --location --request PUT 'https://server_name_goes_here.punchh.com/api2/mobile/users' \
@@ -125,50 +124,50 @@ curl --location --request PUT 'https://server_name_goes_here.punchh.com/api2/mob
 {% endtabs %}
 
 {% alert note %}
-**Configuração da plataforma:** Para ativar os identificadores externos na Punchh, no dashboard da Punchh, navegue até **Cockpit** > **Dashboard** > **External User Identifier**.
+**Configuração da plataforma:** Para ativar identificadores externos na Punchh, no dashboard da Punchh, navegue até **Cockpit** > **Dashboard** > **External User Identifier**.
 {% endalert %}
 
-### Etapa 2: Configuração do adaptador da Braze na Punchh {#step-2-braze-adapter-setup-in-punchh}
+### Etapa 2: Configuração do adaptador Braze na Punchh {#step-2-braze-adapter-setup-in-punchh}
 
 #### Eventos disponíveis para sincronização {#available-events-to-sync}
 
-1. **Convidado:** Disparado em qualquer inscrição, atualização do perfil do convidado, desativação ou exclusão
-2. **Check-in de fidelidade:** Disparado para transações de fidelidade ou ganhos por meio da leitura do código de barras do recibo
-3. **Check-in de presentes:** Disparado para pontos concedidos em uma campanha
-4. **Resgate:** Disparado no caso de qualquer resgate de recompensas, excluindo os cupons da Punchh, pois eles seriam enviados separadamente como eventos de cupom, incluindo a emissão e o resgate
-5. **Recompensas:** Disparado a partir de recompensas oferecidas por campanhas, atividades, conversão de pontos em recompensas ou ofertas de administradores
-6. **Notificações de transação:** Disparado após a atividade transacional de um usuário no sistema Punchh (por exemplo, expiração de pontos)
-7. **Notificações de marketing:** Disparado com base em diferentes configurações de campanha na Punchh para um segmento associado de usuários
+1. **Guest:** Disparado em qualquer inscrição, atualização do perfil do convidado, desativação ou exclusão
+2. **Loyalty Check-in:** Disparado para transações de fidelidade ou pontuação ao escanear código de barras do recibo
+3. **Gift Check-in:** Disparado para pontos presenteados por uma campanha
+4. **Redemption:** Disparado em caso de qualquer resgate de recompensa, excluindo cupons Punchh, pois esses seriam enviados separadamente como eventos de cupom, incluindo emissão e resgate
+5. **Rewards:** Disparado a partir de recompensas presenteadas por campanhas, atividade, conversão de pontos em recompensas ou presenteamento pelo administrador
+6. **Transaction Notifications:** Disparado mediante atividade transacional para um usuário dentro do sistema Punchh (por exemplo, expiração de pontos)
+7. **Marketing Notifications:** Disparado com base em diferentes configurações de campanha na Punchh para um segmento associado de usuários
 
 {% alert note %}
-Consulte a documentação da Punchh para saber como podem ser as cargas úteis de exemplo desses eventos disponíveis.
+Consulte a documentação da Punchh para ver exemplos de cargas úteis para esses eventos disponíveis.
 {% endalert %}
 
 Trabalhe com seu gerente de implementação da Punchh para configurar esse adaptador.
 
-Para configurar a integração da Braze com a Punchh, faça o seguinte:
+Para configurar a integração entre Braze e Punchh, faça o seguinte:
 
-1. No dashboard da Punchh, navegue até **Cockpit** > **Dashboard** > **Major Features** > **Enable Webhook Management** e ative a opção **Enable Webhook Management**.<br><br>
+1. No dashboard da Punchh, navegue até **Cockpit** > **Dashboard** > **Major Features** > **Enable Webhook Management** e ative **Enable Webhook Management**.<br><br>
 2. Em seguida, ative os adaptadores navegando até **Settings** > **Webhooks Manager** > **Configurations** > **Show Adapters Tab** e ative **Show Adapters Tab**.<br><br>
-3. Navegue até **Webhooks Manager** na guia **Settings**, selecione a guia **Adapters** e clique em **Create Adapter**. <br><br>![Guia Adapters do Webhooks Manager da Punchh com a opção Create Adapter selecionada.]({% image_buster /assets/img/punchh/punchh1.png %})<br><br>
-4. Preencha o nome do adaptador, a descrição e o e-mail do administrador. Selecione **Braze** como seu adaptador e forneça seu endpoint da REST API da Braze e a chave de API da Braze.<br><br>
-5. Em seguida, selecione os eventos disponíveis que gostaria de ativar. Uma lista desses eventos pode ser encontrada em [Eventos disponíveis para sincronização](#available-events-to-sync).<br><br>![Configurações do adaptador da Punchh mostrando os eventos selecionáveis para sincronização com a Braze.]({% image_buster /assets/img/punchh/punchh3.png %})<br><br>
+3. Navegue até **Webhooks Manager** na guia **Settings**, selecione a guia **Adapters** e clique em **Create Adapter**. <br><br>![Guia de adaptadores do gerenciador de webhooks da Punchh com a opção Create Adapter selecionada.]({% image_buster /assets/img/punchh/punchh1.png %})<br><br>
+4. Preencha o nome do adaptador, a descrição e o e-mail do administrador. Selecione **Braze** como seu adaptador e forneça seu endpoint da REST API da Braze e sua chave de API da Braze.<br><br>
+5. Em seguida, selecione os eventos disponíveis que você deseja ativar. Uma lista desses eventos pode ser encontrada em [Eventos disponíveis para sincronização](#available-events-to-sync).<br><br>![Configurações do adaptador Punchh mostrando eventos selecionáveis para sincronização com a Braze.]({% image_buster /assets/img/punchh/punchh3.png %})<br><br>
 6. Clique em **Submit** para ativar o webhook.
 
-## Criar webhook da Punchh na Braze {#create-punchh-webhook-in-braze}
+## Criar webhook Punchh na Braze {#create-punchh-webhook-in-braze}
 
-A Braze pode adicionar usuários a um segmento da Punchh por meio de webhooks que utilizam os segmentos personalizados da Punchh.
+A Braze pode adicionar usuários a um Segment Punchh por meio de webhooks que utilizam Segments personalizados da Punchh.
 
-1. Crie um segmento personalizado na Punchh e anote o `custom_segment_id` presente na URL do dashboard do segmento da Punchh, conforme mostrado no exemplo a seguir. Podem ser usados os criadores de segmentos clássicos ou beta. No entanto, a versão beta é recomendada, pois a versão clássica acabará sendo descontinuada.<br><br>Na plataforma Punchh, navegue até **Guest** > **Segment** > **Custom List** > **New Custom List**.<br><br>![Dashboard de segmento personalizado da Punchh mostrando o ID do segmento personalizado na URL.]({% image_buster /assets/img/punchh/update1.png %})<br><br>
+1. Crie um Segment personalizado na Punchh e anote o `custom_segment_id` presente na URL do dashboard de Segments da Punchh, conforme mostrado no exemplo a seguir. Tanto o criador de segmentos clássico quanto o beta podem ser usados. No entanto, o beta é recomendado, pois o clássico será descontinuado eventualmente.<br><br>Na plataforma Punchh, acesse **Guest** > **Segment** > **Custom List** > **New Custom List**.<br><br>![Dashboard de Segment personalizado da Punchh mostrando o ID do Segment personalizado na URL.]({% image_buster /assets/img/punchh/update1.png %})<br><br>
 
-2. Crie uma campanha de webhook na Braze usando o endpoint da Punchh para adicionar um usuário a um segmento personalizado como a URL do webhook. Aqui você pode fornecer o `custom_segment_id` extraído da URL e o `user_id` como pares de valores-chave.<br><br>![Criador de webhook da Braze com o endpoint da Punchh e campos de carga útil de valores-chave.]({% image_buster /assets/img/punchh/punchh4.png %})<br><br>
+2. Crie uma campanha de webhook na Braze usando o endpoint da Punchh para adicionar um usuário a um Segment personalizado como a URL do webhook. Aqui, você pode fornecer o `custom_segment_id` extraído da URL e o `user_id` como pares chave-valor.<br><br>![Criador de webhook da Braze com endpoint da Punchh e campos de carga útil com pares chave-valor.]({% image_buster /assets/img/punchh/punchh4.png %})<br><br>
 
-3. Esse webhook pode ser configurado como uma campanha singular ou como uma etapa de um Canvas. Como alternativa, se o webhook que adiciona usuários a esse segmento específico da Punchh for usado em várias Campaigns ou Canvas, ele poderá ser configurado como um [modelo]({{site.baseurl}}/user_guide/messaging/templates/webhook_templates).<br><br>
-A chave `user_id` no webhook mapeia o ID de usuário da Punchh. Esse identificador precisará ser adicionado a todos os webhooks criados na Braze para adicionar usuários a um segmento personalizado da Punchh. O atributo personalizado `punchh_user_id` pode ser preenchido dinamicamente como o valor da chave `user_id` usando o [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid#pre-formatted-variables). Você pode inserir a variável de atributo personalizado `punchh_user_id` usando o ícone azul de "mais" na barra de ferramentas do campo de texto de modelo.<br><br>![Campo de carga útil do webhook da Braze com a variável Liquid do ID de usuário da Punchh inserida.]({% image_buster /assets/img/punchh/update3.png %}){: style="max-width:65%;"}<br><br>![Seletor de personalização da Braze mostrando o atributo personalizado punchh_user_id.]({% image_buster /assets/img/punchh/update4.png %}){: style="max-width:65%;"}<br><br>
+3. Esse webhook pode ser configurado como uma Campaign singular ou como uma etapa dentro de um Canvas. Alternativamente, se o webhook que adiciona usuários a esse Segment Punchh específico for usado em múltiplas Campaigns ou Canvas, ele pode ser configurado como um [modelo]({{site.baseurl}}/user_guide/messaging/templates/webhook_templates).<br><br>
+A chave `user_id` dentro do webhook é mapeada para o ID de usuário da Punchh. Esse identificador precisará ser adicionado a todos os webhooks criados na Braze para adicionar usuários a um Segment personalizado da Punchh. O atributo personalizado `punch_user_id` pode ser preenchido dinamicamente como o valor da chave `user_id` usando [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid#pre-formatted-variables). Você pode inserir a variável do atributo personalizado `punchh_user_id` usando o ícone azul de "mais" na barra de ferramentas do campo de texto com modelo.<br><br>![Campo de carga útil do webhook da Braze com variável Liquid do ID de usuário da Punchh inserida.]({% image_buster /assets/img/punchh/update3.png %}){: style="max-width:65%;"}<br><br>![Seletor de personalização da Braze mostrando o atributo personalizado punchh_user_id.]({% image_buster /assets/img/punchh/update4.png %}){: style="max-width:65%;"}<br><br>
 
-4. Depois que o webhook é salvo, ele pode ser usado para sincronizar usuários. Por exemplo, 136 convidados seriam adicionados ao segmento personalizado da Punchh quando essa campanha de webhook da Braze fosse lançada.<br><br>![Um exemplo de sincronização de usuários usando o webhook salvo devido à integração da Braze com a Punchh.]({% image_buster /assets/img/punchh/punchh6.png %})
+4. Depois que o webhook for salvo, ele poderá ser usado para sincronizar usuários. Por exemplo, 136 convidados seriam adicionados ao Segment personalizado da Punchh quando essa campanha de webhook da Braze for lançada.<br><br>![Exemplo de sincronização de usuários usando o webhook salvo por meio da integração entre Braze e Punchh.]({% image_buster /assets/img/punchh/punchh6.png %})
 
-Para saber mais sobre como os webhooks são usados na Braze, consulte [Criar um webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook).
+Para saber mais sobre como webhooks são usados na Braze, confira [Criar um webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook).
 
 ## Campanhas de casos de uso {#use-case-campaigns}
 
@@ -176,157 +175,157 @@ Para saber mais sobre como os webhooks são usados na Braze, consulte [Criar um 
 
 #### Disparo {#triggering}
 
-Os casos de uso para envio de mensagens da Braze acionados por eventos da Punchh enviados à Braze, como eventos de recompensas ou eventos de convidados, podem ser criados como [Campaigns baseadas em ações]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery#action-based-delivery) ou Canvas disparados pelo evento relevante da Punchh.
+Casos de uso para envio de mensagens da Braze disparados por eventos da Punchh enviados à Braze, como eventos de recompensa ou eventos de convidados, podem ser criados como [Campaigns baseadas em ações]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) ou Canvas disparados pelo evento relevante da Punchh.
 
-A adição de um gatilho abre a lista de eventos criados na Braze. Escolha o evento que deve disparar sua Campaign ou Canvas a ser enviado ao usuário que registrou o evento.
+Adicionar um disparo exibirá a lista de eventos criados na Braze. Escolha o evento que deve disparar sua Campaign ou Canvas para ser enviado ao usuário que registrou o evento.
 
-![Configuração de gatilho da Braze mostrando um evento da Punchh selecionado para uma Campaign baseada em ação.]({% image_buster /assets/img/punchh/update5.png %})
+![Configuração de disparo da Braze mostrando um evento Punchh selecionado para uma Campaign baseada em ação.]({% image_buster /assets/img/punchh/update5.png %})
 
-Filtros de propriedade podem ser adicionados para filtrar ainda mais o evento de disparo. Por exemplo, a mensagem só deve ser disparada quando um cliente acionar o evento "checkins_gift" em que a propriedade do evento aprovado for `true`. Esse é um recurso opcional que pode não ser aplicável a todos os casos de uso.
+Filtros de propriedade podem ser adicionados para refinar ainda mais o evento de disparo. Por exemplo, a mensagem só deve ser disparada quando um cliente acionar o evento "checkins_gift" em que a propriedade de evento aprovada é `true`. Este é um recurso opcional que pode não ser aplicável a todos os casos de uso.
 
 #### Segmentação {#segmentation}
 
-Em muitos casos, as Campaigns e Canvas da Braze acionados por eventos da Punchh podem ser definidos para um público de "Todos os usuários" porque a segmentação dos usuários que disparam esses eventos é determinada na Punchh. No entanto, os clientes que desejam refinar ainda mais o público de usuários que receberão o envio de mensagens da Braze disparado pelo evento podem fazê-lo adicionando filtros e segmentos adicionais na seção **Target Audiences** do criador da Campaign ou no **Entry Audience** do criador do Canvas.
+Em muitos casos, Campaigns e Canvas da Braze disparados por eventos da Punchh podem ser definidos para um público "Todos os usuários", já que a segmentação dos usuários que disparam esses eventos é determinada dentro da Punchh. No entanto, clientes que desejam refinar ainda mais o público de usuários que receberão as mensagens da Braze disparadas pelo evento podem fazer isso adicionando filtros e Segments adicionais na seção **Públicos-alvo** do criador de Campaign ou no **Público de entrada** do criador de Canvas.
 
 ### Casos de uso {#use-cases}
 
 {% tabs local %}
-{% tab Signup %}
+{% tab Inscrição %}
 #### Campanha de inscrição {#sign-up-campaign}
 
-Ao utilizar a configuração da Braze para uma campanha de inscrição com uma oferta anexada, será necessário configurar uma campanha de presentes de inscrição na Punchh e uma mensagem de boas-vindas na Braze.
+Ao utilizar a configuração da Braze para uma campanha de inscrição com uma oferta associada, uma campanha de presente de inscrição precisará ser configurada dentro da Punchh e uma mensagem de boas-vindas na Braze.
 
-A Punchh recomenda que um delay de execução seja adicionado à campanha de inscrição, para que a Braze possa disparar primeiro a mensagem de boas-vindas com base no evento do convidado. Se quiser enviar uma mensagem de acompanhamento informando ao usuário que ele foi presenteado, poderá disparar essa mensagem com base no evento de recompensas.
+A Punchh recomenda que um atraso de execução seja adicionado à campanha de inscrição, para que a Braze possa primeiro disparar a mensagem de boas-vindas com base no evento de convidado. Se você quiser enviar uma mensagem de acompanhamento informando ao usuário que ele recebeu um presente, você pode disparar isso com base no evento de recompensa.
 
-No caso de uma campanha de inscrição, todas as pessoas que se inscreveram podem ser usadas para o segmento; portanto, não será necessário um segmento personalizado da Braze.
+No caso de uma campanha de inscrição, "todos inscritos" pode ser usado para o Segment; portanto, um Segment personalizado da Braze não será necessário.
 
-Configurações da Punchh necessárias:
-- Campanha: inscrição
-- Segmento: Todos inscritos
+Configurações Punchh necessárias:
+- Campanha: Inscrição
+- Segment: Todos inscritos
 - Recompensa: Escolha do cliente
 Eventos necessários:
 - Evento de recompensa
 - Evento de convidado
 Considerações:
-- Delay de execução; recomendamos que o convidado adicione um delay de 5 a 10 minutos
+- Atraso de execução, recomenda-se que o convidado adicione um atraso de 5 a 10 minutos
 
-![Um segmento de usuário é configurado na Punchh, e os convidados se inscrevem em um programa de fidelidade. Depois disso, o evento do convidado, se disparado, e a campanha de mensagens da Braze é disparada. Em seguida, a campanha de presentes de inscrição da Punchh é acionada após 10 minutos, disparando o evento de recompensas e a mensagem opcional de acompanhamento.]({% image_buster /assets/img/punchh/usecase3.png %})
+![Um Segment de usuário é configurado na Punchh, e os convidados se inscrevem em um programa de fidelidade. Depois disso, o evento de convidado, se disparado, e a campanha de mensagens da Braze é disparada. Em seguida, a campanha de presente de inscrição da Punchh é disparada após 10 minutos, disparando o evento de recompensa e a mensagem de acompanhamento opcional.]({% image_buster /assets/img/punchh/usecase3.png %})
 {% endtab %}
 
-{% tab Braze welcome %}
+{% tab Boas-vindas da Braze %}
 #### Campanha de boas-vindas da Braze {#braze-welcome-campaign}
 
-Quando um novo usuário se inscreve, a Punchh envia à Braze um evento Guest que cria o usuário e envia um atributo personalizado `signup_channel`, que pode ser usado para disparar a campanha de boas-vindas da Braze.
+Quando um novo usuário se inscreve, a Punchh envia à Braze um evento de convidado que cria o usuário e envia um atributo personalizado `signup_channel`, que você pode usar para disparar a campanha de boas-vindas da Braze.
 
 Para configurar a campanha de boas-vindas da Braze, siga estas etapas:
 
-1. Na Braze, crie uma Campaign baseada em ações.
-2. Para o disparo, selecione **Change Custom Attribute Value** com o atributo personalizado `signup_channel` definido como **Any new value**.
-3. Continue criando sua Campaign e envie-a quando estiver pronta!
+1. Na Braze, crie uma Campaign baseada em ação.
+2. Para o disparo, selecione **Alterar valor de atributo personalizado** com o atributo personalizado `signup_channel` definido como **Qualquer novo valor**.
+3. Continue criando sua Campaign e depois envie quando estiver pronto!
 
 {% endtab %}
-{% tab Mass offer %}
+{% tab Oferta em massa %}
 #### Campanha de oferta em massa {#mass-offer-campaign}
 
-Ao utilizar uma campanha de oferta em massa para presentear, uma campanha de oferta em massa precisará ser configurada na Punchh e uma campanha de mensagens na Braze.
+Ao utilizar uma campanha de oferta em massa para presentes, uma campanha de oferta em massa precisará ser configurada dentro da Punchh e uma campanha de mensagens na Braze.
 
-Se você quiser utilizar um segmento da Braze para sua campanha ou enviar uma comunicação da Braze antes de presentear os convidados na plataforma Punchh, será necessário um [segmento personalizado da Punchh]({{site.baseurl}}/partners/message_orchestration/channel_extensions/loyalty/punchh#step-3-create-punchh-webhook-in-braze) para a campanha de presentes da Punchh.
+Se você quiser usar um Segment da Braze para sua campanha ou enviar comunicação da Braze antes de presentear os convidados na plataforma Punchh, então um [Segment personalizado da Punchh]({{site.baseurl}}/partners/message_orchestration/channel_extensions/loyalty/punchh#step-3-create-punchh-webhook-in-braze) será necessário para a campanha de presentes da Punchh.
 
-A criação do segmento de usuários para receber essa oferta na Braze só é recomendada quando se usam atributos indisponíveis na Punchh. Caso contrário, a segmentação da Punchh poderá ser usada, e a campanha de mensagens da Braze será criada como uma Campaign baseada em ação, disparada pelos usuários que receberem suas recompensas (o evento de recompensa disparado pela Punchh).
+Criar o Segment de usuários para receber essa oferta na Braze só é recomendado ao utilizar atributos indisponíveis dentro da Punchh. Caso contrário, a segmentação da Punchh pode ser usada, e a campanha de mensagens da Braze será criada como uma Campaign baseada em ação disparada pelos usuários que receberam sua recompensa (o evento de recompensa disparado pela Punchh).
 
-Configurações da Punchh necessárias:
+Configurações Punchh necessárias:
 - Campanha: Oferta em massa
-- Segmento: Lista personalizada ou escolha do cliente
+- Segment: Lista personalizada ou escolha do cliente
 - Recompensa: Escolha do cliente
 
-**Usando a Punchh para segmentação e oferta de presentes e a Braze para envio de mensagens:**<br>
-Por exemplo, uma recompensa de US$ 2 de desconto é enviada a um segmento configurável na Punchh com envio de mensagens pela Braze.<br>
-![Um segmento de usuário pode ser configurado na Punchh, e os usuários recebem um presente por meio de uma campanha de oferta em massa da Punchh. Em seguida, um evento de recompensa é disparado e a campanha de mensagens da Braze é disparada.]({% image_buster /assets/img/punchh/usecase6.png %}){: style="max-width:80%;"}
+**Usando Punchh para segmentação e presentes, e Braze para envio de mensagens:**<br>
+Por exemplo, uma recompensa de $2 de desconto é enviada a um Segment configurável dentro da Punchh com mensagens enviadas pela Braze.<br>
+![Um Segment de usuário pode ser configurado na Punchh, e os usuários recebem um presente por meio de uma campanha de oferta em massa da Punchh. Em seguida, um evento de recompensa é disparado, e então a campanha de mensagens da Braze é disparada.]({% image_buster /assets/img/punchh/usecase6.png %}){: style="max-width:80%;"}
 
-**Usando a segmentação e o envio de mensagens da Braze e a Punchh para presentear:**<br>
-Por exemplo, uma recompensa de US$ 2 de desconto e o envio de mensagens para um segmento com atributos não disponíveis na Punchh.<br>
-![Um segmento de usuário pode ser configurado na Braze e, em seguida, uma mensagem pode ser enviada de um segmento da Braze para a Braze. Em seguida, os usuários são enviados para o segmento personalizado da Punchh por meio de um webhook da Braze com o segmento e o ID do usuário. Depois disso, o usuário recebe um presente por meio da campanha de oferta em massa da Punchh com um segmento personalizado. Depois disso, o evento de recompensa é disparado.]({% image_buster /assets/img/punchh/usecase5.png %}){: style="max-width:80%;"}
+**Usando segmentação e envio de mensagens da Braze, e Punchh para presentes:**<br>
+Por exemplo, uma recompensa de $2 de desconto e mensagens enviadas a um Segment com atributos não disponíveis na Punchh.<br>
+![Um Segment de usuário pode ser configurado na Braze, e então uma mensagem pode ser enviada de um Segment Braze para Braze. Em seguida, os usuários são enviados ao Segment personalizado da Punchh por meio de um webhook da Braze com ID de Segment e ID de usuário. Depois disso, o usuário recebe um presente por meio da campanha de oferta em massa da Punchh com Segment personalizado. Após isso, o evento de recompensa é disparado.]({% image_buster /assets/img/punchh/usecase5.png %}){: style="max-width:80%;"}
 
-**Usando a segmentação da Braze e a Punchh para presentes ou envio de mensagens, ou ambos:**<br>
-Por exemplo, uma recompensa de US$ 2 de desconto é enviada a um segmento com atributos não disponíveis na Punchh, mas não é necessário o envio de mensagens, ou as mensagens podem ser enviadas por meio da Punchh (note que todos os convidados devem estar presentes na Punchh).<br>
-![Um segmento de usuário pode ser configurado na Braze, e os usuários são enviados ao segmento personalizado da Punchh por meio de um webhook da Braze com o segmento e o ID do usuário. Depois disso, o usuário recebe um presente por meio da campanha de oferta em massa da Punchh com um segmento personalizado. Depois disso, o evento de recompensa é disparado.]({% image_buster /assets/img/punchh/usecase4.png %})
+**Usando segmentação da Braze e Punchh para presentes ou envio de mensagens, ou ambos:**<br>
+Por exemplo, uma recompensa de $2 de desconto é enviada a um Segment com atributos não disponíveis na Punchh, mas nenhum envio de mensagem é necessário, ou o envio de mensagens pode ser feito pela Punchh (observe que todos os convidados devem estar presentes na Punchh).<br>
+![Um Segment de usuário pode ser configurado na Braze, e os usuários são enviados ao Segment personalizado da Punchh por meio de um webhook da Braze com ID de Segment e ID de usuário. Depois disso, o usuário recebe um presente por meio da campanha de oferta em massa da Punchh com Segment personalizado. Após isso, o evento de recompensa é disparado.]({% image_buster /assets/img/punchh/usecase4.png %})
 
 {% endtab %}
-{% tab Recurring mass offer %}
+{% tab Oferta em massa recorrente %}
 #### Campanha de oferta em massa recorrente {#recurring-mass-offer-campaign}
 
-Ao utilizar uma campanha de oferta em massa recorrente para presentear, será necessário configurar uma campanha de oferta em massa na Punchh e uma campanha de mensagens na Braze. Um segmento personalizado da Punchh será necessário se o cliente quiser usar a segmentação da Braze (recomendado somente se estiver utilizando atributos indisponíveis na Punchh). Caso contrário, a segmentação da Punchh pode ser usada, e a campanha de mensagens da Braze será disparada com base no evento de recompensas.
+Ao utilizar uma campanha de oferta em massa recorrente para presentes, uma campanha de oferta em massa precisará ser configurada dentro da Punchh e uma campanha de mensagens configurada na Braze. Um Segment personalizado da Punchh será necessário se o cliente quiser usar a segmentação da Braze (recomendado apenas se utilizar atributos indisponíveis dentro da Punchh). Caso contrário, a segmentação da Punchh pode ser usada, e a campanha de mensagens da Braze será disparada com base no evento de recompensa.
 
-Configurações da Punchh necessárias:
+Configurações Punchh necessárias:
 - Campanha: Oferta em massa recorrente
-- Segmento: Lista personalizada ou escolha do cliente
+- Segment: Lista personalizada ou escolha do cliente
 - Recompensa: Escolha do cliente
 Considerações:
-- Os IDs e os nomes das campanhas são enviados à Braze como uma propriedade do evento. Se você quiser usar um identificador de campanha da Punchh na Braze para filtrar ainda mais o público que recebe a campanha, deverá usar o nome da campanha, pois os IDs de campanha mudam diariamente.
+- Os IDs de Campaign e os nomes de Campaign são enviados à Braze como uma propriedade de evento no evento. Se você quiser usar um identificador de campanha Punchh na Braze para filtrar ainda mais o público que recebe a campanha, você deve usar o nome da campanha, pois os IDs de Campaign mudam diariamente.
 
 {% endtab %}
-{% tab Post check-in offer with notification %}
+{% tab Oferta pós-check-in com notificação %}
 #### Campanha de oferta pós-check-in com notificação {#post-check-in-offer-campaign-with-notification}
 
-Ao utilizar uma campanha de oferta pós-check-in, a Braze enviará a notificação sobre o presente e, quando o convidado fizer um check-in, ele será presenteado pela campanha pós-check-in da Punchh. Portanto, uma campanha de oferta pós-check-in precisará ser configurada na Punchh e uma campanha de mensagens na Braze (para notificar os clientes sobre a campanha).
+Ao utilizar uma campanha de oferta pós-check-in, a Braze enviará a notificação sobre o presente, e quando o convidado fizer um check-in, ele será presenteado pela campanha de pós-check-in da Punchh. Portanto, uma campanha de oferta pós-check-in precisará ser configurada dentro da Punchh e uma campanha de mensagens na Braze (se for notificar os clientes sobre a campanha).
 
-Configurações da Punchh necessárias:
+Configurações Punchh necessárias:
 - Campanha: Oferta pós-check-in
-- Segmento: Lista personalizada
+- Segment: Lista personalizada
 - Recompensa: Escolha do cliente
 
-Por exemplo, um e-mail notificando os convidados a visitarem o local neste fim de semana para ganhar pontos em dobro em um segmento com atributos não disponíveis na Punchh. A Punchh presenteará esse segmento com pontos após um check-in qualificado e envio opcional de mensagens da Braze.
+Por exemplo, um e-mail notificando os convidados para visitar neste fim de semana para pontos em dobro a um Segment com atributos não disponíveis na Punchh. A Punchh presenteará esse Segment com pontos após um check-in qualificado e envio de mensagens opcional da Braze.
 
-![Um segmento de usuário é configurado na Braze, e as mensagens são enviadas da Braze na campanha pós-check-in. Em seguida, os usuários qualificados são enviados para o segmento personalizado da Punchh por meio do webhook da Braze com o segmento e o ID do usuário. Por fim, o usuário qualificado no segmento personalizado faz o check-in e recebe o presente e a mensagem opcional por meio da campanha pós-check-in.]({% image_buster /assets/img/punchh/update7.png %})
+![Um Segment de usuário é configurado na Braze, e mensagens são enviadas da campanha de pós-check-in da Braze. Em seguida, os usuários qualificados são enviados ao Segment personalizado da Punchh por meio de webhook da Braze com ID de Segment e ID de usuário. Por último, o usuário qualificado no Segment personalizado faz o check-in e recebe o presente e mensagem opcional por meio da campanha de pós-check-in.]({% image_buster /assets/img/punchh/update7.png %})
 
 {% endtab %}
-{% tab Post check-in offer without notification %}
+{% tab Oferta pós-check-in sem notificação %}
 #### Campanha de oferta pós-check-in sem notificação {#post-check-in-offer-campaign-without-notification}
 
-Ao utilizar uma campanha de oferta pós-check-in que não notifique previamente os clientes, a campanha oferecerá (envio de mensagens opcional) e disparará qualquer notificação na Braze. Portanto, uma campanha de oferta pós-check-in deve ser configurada na Punchh; no entanto, não é necessário ter uma lista personalizada. Em vez disso, você pode escolher o segmento que deseja na Punchh.
+Ao utilizar uma campanha de oferta pós-check-in que não notifica os clientes previamente, a campanha presenteará (envio de mensagens opcional) e disparará qualquer notificação dentro da Braze. Portanto, uma campanha de oferta pós-check-in deve ser configurada dentro da Punchh; no entanto, uma lista personalizada não é necessária. Em vez disso, você pode escolher o Segment desejado dentro da Punchh.
 
-Configurações da Punchh necessárias:
+Configurações Punchh necessárias:
 - Campanha: Oferta pós-check-in
-- Segmento: Escolha do cliente
+- Segment: Escolha do cliente
 - Recompensa: Escolha do cliente
 
-Por exemplo, uma campanha de surpresa e encantamento da Braze é enviada a um segmento disponível na Punchh, agradecendo aos convidados pela visita e recompensando-os com US$ 2 de desconto em sua próxima visita.
+Por exemplo, uma Campaign de surpresa e encantamento da Braze é enviada a um Segment disponível na Punchh, agradecendo os convidados pela visita e recompensando-os com $2 de desconto na próxima visita.
 
-![Um segmento de usuário qualificado pode ser configurado na Punchh, e um usuário qualificado faz o check-in e recebe um presente por meio de uma campanha pós-check-in da Punchh. Depois disso, um evento de recompensa é disparado e a mensagem de recall é enviada notificando os convidados sobre a recompensa enviada pela Braze.]({% image_buster /assets/img/punchh/usecase2.png %})
+![Um Segment de usuário qualificado pode ser configurado dentro da Punchh, e um usuário qualificado faz o check-in e recebe um presente por meio de uma campanha de pós-check-in da Punchh. Após isso, um evento de recompensa é disparado e a mensagem de recuperação é enviada notificando os convidados sobre a recompensa enviada pela Braze.]({% image_buster /assets/img/punchh/usecase2.png %})
 
 {% endtab %}
-{% tab Anniversary %}
+{% tab Aniversário %}
 #### Campanha de aniversário {#anniversary-campaign}
 
-Ao utilizar uma campanha de aniversário, o usuário receberá primeiro o presente de aniversário da campanha da Punchh. Esse presente (evento de recompensa) dispara a campanha de mensagens na Braze que notifica o usuário sobre o presente. Portanto, não é necessária uma lista personalizada. Em vez disso, você pode escolher o segmento e a configuração de aniversário na Punchh.
+Ao utilizar uma campanha de aniversário, um usuário será primeiro presenteado pelo seu aniversário pela campanha da Punchh. Esse presente (evento de recompensa) disparará a campanha de mensagens dentro da Braze que notifica o usuário sobre o presente. Portanto, uma lista personalizada não é necessária. Em vez disso, você pode escolher o Segment e a configuração de aniversário dentro da Punchh.
 
-Configurações da Punchh necessárias:
+Configurações Punchh necessárias:
 - Campanha: Campanha de aniversário
-- Segmento: Escolha do cliente
+- Segment: Escolha do cliente
 - Recompensa: Escolha do cliente
 Considerações:
-- Presentear no mês de inscrição
-- Duração da vida útil (por quanto tempo a recompensa de aniversário é válida?)
-- Campanhas recorrentes, programação necessária
+- Mês de inscrição para presente
+- Duração do prazo (Por quanto tempo a recompensa de aniversário é válida?)
+- Campanhas recorrentes, agendamento necessário
 
-![Um segmento opcional pode ser criado na Punchh, e um usuário qualificado recebe recompensas por meio de uma campanha de aniversário da Punchh. Depois disso, um evento de recompensa é disparado e a mensagem de recall é enviada notificando os convidados sobre a recompensa enviada pela Braze.]({% image_buster /assets/img/punchh/usecase1.png %})
+![Um Segment opcional pode ser criado dentro da Punchh, e um usuário qualificado recebe uma recompensa por meio de uma campanha de aniversário da Punchh. Após isso, um evento de recompensa é disparado e a mensagem de recuperação é enviada notificando os convidados sobre a recompensa enviada pela Braze.]({% image_buster /assets/img/punchh/usecase1.png %})
 
 {% endtab %}
-{% tab Recall %}
-#### Campanha de recall {#recall-campaign}
+{% tab Recuperação %}
+#### Campanha de recuperação {#recall-campaign}
 
-Ao direcionar os usuários com base na inatividade, uma campanha de recall pode ser usada. O cliente pode criar o segmento e a campanha na Punchh, mas utilizar a Braze para o envio de mensagens.
+Ao direcionar usuários com base em inatividade, uma campanha de recuperação pode ser usada. O cliente pode criar o Segment e a campanha dentro da Punchh, mas usar a Braze para envio de mensagens.
 
-Se você quiser usar a segmentação criada na Braze, um [segmento personalizado da Punchh]({{site.baseurl}}/partners/message_orchestration/channel_extensions/loyalty/punchh#step-3-create-punchh-webhook-in-braze) baseado em inatividade poderá ser anexado a uma campanha de oferta em massa recorrente.
+Se você quiser usar a segmentação criada na Braze, um [Segment personalizado da Punchh]({{site.baseurl}}/partners/message_orchestration/channel_extensions/loyalty/punchh#step-3-create-punchh-webhook-in-braze) baseado em inatividade pode ser associado a uma campanha de oferta em massa recorrente.
 
-Configurações da Punchh necessárias:
-- Campanha: Campanha de recall
-- Segmento: Escolha do cliente
+Configurações Punchh necessárias:
+- Campanha: Campanha de recuperação
+- Segment: Escolha do cliente
 - Recompensa: Escolha do cliente
 Considerações:
 - A campanha é executada em um cronograma
 
-![Um segmento opcional pode ser criado na Punchh, e um usuário qualificado recebe recompensas por meio de uma campanha de recall da Punchh. Depois disso, um evento de recompensa é disparado, e a mensagem de recall é enviada notificando os convidados sobre a recompensa enviada pela Braze.]({% image_buster /assets/img/punchh/usecase.png %})
+![Um Segment opcional pode ser criado dentro da Punchh, e um usuário qualificado recebe uma recompensa por meio de uma campanha de recuperação da Punchh. Após isso, um evento de recompensa é disparado, e a mensagem de recuperação é enviada notificando os convidados sobre a recompensa enviada pela Braze.]({% image_buster /assets/img/punchh/usecase.png %})
 
 {% endtab %}
 {% endtabs %}

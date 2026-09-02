@@ -27,7 +27,7 @@ Este endpoint no garantiza la secuencia de actualización de los objetos de `ali
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/api_key) con el permiso `users.alias.update`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics) con el permiso `users.alias.update`.
 
 ## Límite de velocidad {#rate-limit}
 

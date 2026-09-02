@@ -23,20 +23,20 @@ noindex: true
 
 ## コードに関する考慮事項 {#code-considerations}
 
-### カスタムオブジェクトとしてのContent Cards {#content-cards-as-custom-objects}
+### Content Cardsをカスタムオブジェクトとして使用する {#content-cards-as-custom-objects}
 
-ブースターを追加するロケット船のように、独自のカスタムオブジェクトを拡張してContent Cardsとして機能させることができます。このような限定されたAPIサーフェスは、異なるデータバックエンドとの互換性を保つ柔軟性を提供します。これは、`ContentCardable` プロトコルに準拠し、（次のコードスニペットに示すように）イニシャライザを実装することで実行できます。また、`ContentCardData` 構造体を使用することで、`ABKContentCard` データにアクセスできます。`ABKContentCard` ペイロードは、すべてプロトコルに付属のイニシャライザを使用して `Dictionary` 型から `ContentCardData` 構造体とカスタムオブジェクト自体を初期化するために使用されます。
+ロケットにブースターを追加するように、独自のカスタムオブジェクトを拡張してContent Cardsとして機能させることができます。このような限定的なAPIサーフェスは、異なるデータバックエンドを交換して使用できる柔軟性を提供します。これは、`ContentCardable`プロトコルに準拠し、イニシャライザを実装することで実現できます（以下のコードスニペットを参照）。`ContentCardData`構造体を使用することで、`ABKContentCard`データにアクセスできるようになります。`ABKContentCard`ペイロードは、`ContentCardData`構造体とカスタムオブジェクト自体の初期化に使用され、すべてプロトコルが提供するイニシャライザを介して`Dictionary`型から初期化されます。
 
-イニシャライザには `ContentCardClassType` enumも含まれます。このenumは、初期化するオブジェクトを決定するために使用されます。Brazeダッシュボード内のキーと値のペアを使用して、初期化するオブジェクトを決定するために使用する明示的な `class_type` キーを設定できます。Content Cardsのこれらのキーと値のペアは、`ABKContentCard` の `extras` 変数に格納されます。イニシャライザのもう1つのコアコンポーネントは、`metaData` ディクショナリパラメータです。`metaData` には解析された `ABKContentCard` から一連のキーと値までのすべてが含まれます。関連するカードが解析され、カスタムオブジェクトに変換された後、アプリはJSONまたはその他のソースからインスタンス化されたかのように、それらのカードで作業を開始する準備ができています。
+イニシャライザには`ContentCardClassType`列挙型も含まれています。この列挙型は、どのオブジェクトを初期化するかを決定するために使用されます。Brazeダッシュボード内のキーと値のペアを使用して、初期化するオブジェクトを決定するための明示的な`class_type`キーを設定できます。Content Cardsのこれらのキーと値のペアは、`ABKContentCard`の`extras`変数を通じて渡されます。イニシャライザのもう1つの主要コンポーネントは、`metaData`ディクショナリパラメーターです。`metaData`には、`ABKContentCard`からパースされたすべてのデータが一連のキーと値として含まれています。関連するカードがパースされてカスタムオブジェクトに変換されると、アプリはJSONやその他のソースからインスタンス化されたかのようにそれらを操作できる状態になります。
 
-これらのコードに関する考慮事項をしっかりと理解したら、[ユースケース](#sample-use-cases)をチェックして、カスタムオブジェクトの実装を開始してください。
+これらのコードに関する考慮事項をしっかりと理解したら、[ユースケース](#sample-use-cases)を確認してカスタムオブジェクトの実装を開始してください。
 
 {% tabs local %}
 {% tab ContentCardable %}
 {% subtabs global %}
 {% subtab Swift %}
-**ContentCardableプロトコル**<br>
-`ABKContentCard` データと `ContentCardClassType` enumを表す `ContentCardData` オブジェクトです。`ABKContentCard` メタデータを使用してカスタムオブジェクトをインスタンス化するために使用されるイニシャライザです。
+**ContentCardable プロトコル**<br>
+`ABKContentCard`データを表す`ContentCardData`オブジェクトと`ContentCardClassType`列挙型です。`ABKContentCard`メタデータを使用してカスタムオブジェクトをインスタンス化するためのイニシャライザです。
 ```swift
 protocol ContentCardable {
   var contentCardData: ContentCardData? { get }
@@ -61,8 +61,8 @@ extension ContentCardable {
   }
 }
 ```
-**Content Cardsデータ構造体**<br>
-`ContentCardData` は、`ABKContentCard` の解析された値を表します。
+**Content Card データ構造体**<br>
+`ContentCardData`は`ABKContentCard`のパースされた値を表します。
 
 ```swift
 struct ContentCardData: Hashable {
@@ -82,8 +82,8 @@ extension ContentCardData: Equatable {
 ```
 {% endsubtab %}
 {% subtab Objective-C %}
-**ContentCardableプロトコル**<br>
-`ABKContentCard` データを `ContentCardClassType` enumと共に表す `ContentCardData` オブジェクトです。`ABKContentCard` メタデータを使用してカスタムオブジェクトをインスタンス化するために使用されるイニシャライザです。
+**ContentCardable プロトコル**<br>
+`ABKContentCard`データを表す`ContentCardData`オブジェクトと`ContentCardClassType`列挙型、`ABKContentCard`メタデータを使用してカスタムオブジェクトをインスタンス化するためのイニシャライザです。
 ```objc
 @protocol ContentCardable <NSObject>
 
@@ -98,8 +98,8 @@ extension ContentCardData: Equatable {
 
 @end
 ```
-**Content Cardsデータ構造体**<br>
-`ContentCardData` は、`ABKContentCard` の解析された値を表します。
+**Content Card データ構造体**<br>
+`ContentCardData`は`ABKContentCard`のパースされた値を表します。
 
 ```objc
 @interface ContentCardData : NSObject
@@ -125,8 +125,8 @@ extension ContentCardData: Equatable {
 {% tab Custom Objects %}
 {% subtabs global %}
 {% subtab Swift %}
-**カスタムオブジェクトイニシャライザ**<br>
-`ABKContentCard` からのメタデータは、オブジェクトの変数を設定するために使用されます。Brazeダッシュボードで設定されたキーと値のペアは、「extras」ディクショナリに格納されます。
+**カスタムオブジェクトのイニシャライザ**<br>
+`ABKContentCard`からのメタデータは、オブジェクトの変数を設定するために使用されます。Brazeダッシュボードで設定されたキーと値のペアは「extras」ディクショナリで表されます。
 
 ```swift
 extension CustomObject: ContentCardable {
@@ -145,8 +145,8 @@ extension CustomObject: ContentCardable {
 }
 ```
 
-**タイプの識別**<br>
-`ContentCardClassType` enumは、Brazeダッシュボードの `class_type` 値を表します。この値は、Content Cardsを異なる場所に表示するためのフィルター識別子としても使用されます。
+**型の識別**<br>
+`ContentCardClassType`列挙型は、Brazeダッシュボードの`class_type`値を表します。この値は、異なる場所にContent Cardsを表示するためのフィルター識別子としても使用されます。
 
 ```swift
 enum ContentCardClassType: Hashable {
@@ -170,8 +170,8 @@ enum ContentCardClassType: Hashable {
 ```
 {% endsubtab %}
 {% subtab Objective-C %}
-**カスタムオブジェクトイニシャライザ**<br>
-`ABKContentCard` からのメタデータは、オブジェクトの変数を設定するために使用されます。Brazeダッシュボードで設定されたキーと値のペアは、「extras」ディクショナリに格納されます。
+**カスタムオブジェクトのイニシャライザ**<br>
+`ABKContentCard`からのメタデータは、オブジェクトの変数を設定するために使用されます。Brazeダッシュボードで設定されたキーと値のペアは「extras」ディクショナリで表されます。
 
 
 ```objc
@@ -196,8 +196,8 @@ enum ContentCardClassType: Hashable {
 }
 ```
 
-**タイプの識別**<br>
-`ContentCardClassType` enumは、Brazeダッシュボードの `class_type` 値を表します。この値は、Content Cardsを異なる場所に表示するためのフィルター識別子としても使用されます。
+**型の識別**<br>
+`ContentCardClassType`列挙型は、Brazeダッシュボードの`class_type`値を表します。この値は、異なる場所にContent Cardsを表示するためのフィルター識別子としても使用されます。
 
 ```objc
 typedef NS_ENUM(NSInteger, ContentCardClassType) {
@@ -228,7 +228,7 @@ typedef NS_ENUM(NSInteger, ContentCardClassType) {
 {% subtabs global %}
 {% subtab Swift %}
 **Content Cardsのリクエスト**<br>
-オブザーバがまだメモリ内に保持されている限り、Braze SDKからの通知コールバックが期待できます。
+オブザーバーがメモリに保持されている限り、Braze SDKからの通知コールバックを受け取ることができます。
 
 ```swift
 func loadContentCards() {
@@ -238,7 +238,7 @@ func loadContentCards() {
 ```
 
 **Content Cards SDKコールバックの処理**<br>
-通知コールバックをヘルパーファイルに転送して、カスタムオブジェクトのペイロードデータを解析します。
+通知コールバックをヘルパーファイルに転送して、カスタムオブジェクトのペイロードデータをパースします。
 ```swift
 @objc func contentCardsUpdated(_ notification: Notification) {
   guard let contentCards = BrazeManager.shared.handleContentCardsUpdated(notification, for: [.yourValue]) as? [CustomObject],!contentCards.isEmpty else { return }
@@ -248,7 +248,7 @@ func loadContentCards() {
 ```
 
 **Content Cardsの操作**<br>
-`class_type` はフィルターとして渡され、一致する `class_type` を持つContent Cardsのみを返します。
+`class_type`はフィルターとして渡され、一致する`class_type`を持つContent Cardsのみを返します。
 
 ```swift
 func handleContentCardsUpdated(_ notification: Notification, for classTypes: [ContentCardClassType]) -> [ContentCardable] {
@@ -260,7 +260,7 @@ func handleContentCardsUpdated(_ notification: Notification, for classTypes: [Co
 {% endsubtab %}
 {% subtab Objective-C %}
 **Content Cardsのリクエスト**<br>
-オブザーバがまだメモリ内に保持されている限り、Braze SDKからの通知コールバックが期待できます。
+オブザーバーがメモリに保持されている限り、Braze SDKからの通知コールバックを受け取ることができます。
 
 ```objc
 - (void)loadContentCards {
@@ -270,7 +270,7 @@ func handleContentCardsUpdated(_ notification: Notification, for classTypes: [Co
 ```
 
 **Content Cards SDKコールバックの処理**<br>
-通知コールバックをヘルパーファイルに転送して、カスタムオブジェクトのペイロードデータを解析します。
+通知コールバックをヘルパーファイルに転送して、カスタムオブジェクトのペイロードデータをパースします。
 ```objc
 - (void)contentCardsUpdated:(NSNotification *)notification {
   NSArray *classTypes = @[@(ContentCardClassTypeYourValue)];
@@ -281,7 +281,7 @@ func handleContentCardsUpdated(_ notification: Notification, for classTypes: [Co
 ```
 
 **Content Cardsの操作**<br>
-`class_type` はフィルターとして渡され、一致する `class_type` を持つContent Cardsのみを返します。
+`class_type`はフィルターとして渡され、一致する`class_type`を持つContent Cardsのみを返します。
 
 ```objc
 - (NSArray *)handleContentCardsUpdated:(NSNotification *)notification forClassType:(ContentCardClassType)classType {
@@ -301,7 +301,7 @@ func handleContentCardsUpdated(_ notification: Notification, for classTypes: [Co
 {% subtabs global %}
 {% subtab Swift %}
 **ペイロードデータの操作**<br>
-Content Cardsの配列をループし、一致する `class_type` を持つカードのみを解析します。ABKContentCardからのペイロードは `Dictionary` に解析されます。
+Content Cardsの配列をループし、一致する`class_type`を持つカードのみをパースします。ABKContentCardからのペイロードは`Dictionary`にパースされます。
 
 ```swift
 func convertContentCards(_ cards: [ABKContentCard], for classTypes: [ContentCardClassType]) -> [ContentCardable] {
@@ -343,8 +343,8 @@ func convertContentCards(_ cards: [ABKContentCard], for classTypes: [ContentCard
 }
 ```
 
-**Content Cardsペイロードデータからのカスタムオブジェクトの初期化**<br>
-`class_type` は、ペイロードデータから初期化されるカスタムオブジェクトを決定するために使用されます。
+**Content Cardsのペイロードデータからカスタムオブジェクトを初期化する**<br>
+`class_type`は、ペイロードデータからどのカスタムオブジェクトを初期化するかを決定するために使用されます。
 
 ```swift
 func contentCardable(with metaData: [ContentCardKey: Any], for classType: ContentCardClassType) -> ContentCardable? {
@@ -362,7 +362,7 @@ func contentCardable(with metaData: [ContentCardKey: Any], for classType: Conten
 {% endsubtab %}
 {% subtab Objective-C %}
 **ペイロードデータの操作**<br>
-Content Cardsの配列をループし、一致する `class_type` を持つカードのみを解析します。ABKContentCardからのペイロードは `Dictionary` に解析されます。
+Content Cardsの配列をループし、一致する`class_type`を持つカードのみをパースします。ABKContentCardからのペイロードは`Dictionary`にパースされます。
 
 ```objc
 - (NSArray *)convertContentCards:(NSArray<ABKContentCard*> *)cards forClassType:(ContentCardClassType)classType {
@@ -404,8 +404,8 @@ Content Cardsの配列をループし、一致する `class_type` を持つカ�
 }
 ```
 
-**Content Cardsペイロードデータからのカスタムオブジェクトの初期化**<br>
-`class_type` は、ペイロードデータから初期化されるカスタムオブジェクトを決定するために使用されます。
+**Content Cardsのペイロードデータからカスタムオブジェクトを初期化する**<br>
+`class_type`は、ペイロードデータからどのカスタムオブジェクトを初期化するかを決定するために使用されます。
 
 ```obj-c
 - (id<ContentCardable>)contentCardableWithMetaData:(NSDictionary *)metaData forClassType:(ContentCardClassType)classType {
@@ -427,42 +427,42 @@ Content Cardsの配列をループし、一致する `class_type` を持つカ�
 
 ## ユースケース {#use-cases}
 
-以下に3つのユースケースを紹介します。各ユースケースでは、詳細な説明、関連するコードスニペット、およびContent Cardsの変数がBrazeダッシュボードでどのように表示され、どのように使用されるかを確認できます。
+以下のセクションでは、3つのユースケースを紹介します。各ユースケースでは、詳細な説明、関連するコードスニペット、Content Cardsの変数がBrazeダッシュボードでどのように表示および使用されるかについて説明します。
 - [補足コンテンツとしてのContent Cards](#content-cards-as-supplemental-content)
-- [メッセージセンターのContent Cards](#content-cards-in-a-message-center)
-- [インタラクティブContent Cards](#interactive-content-cards)
+- [メッセージセンター内のContent Cards](#content-cards-in-a-message-center)
+- [インタラクティブなContent Cards](#interactive-content-cards)
 
 ### 補足コンテンツとしてのContent Cards {#content-cards-as-supplemental-content}
 
 ![ローカルデータとBraze Content Cardsを組み合わせたハイブリッドリストを含むフィード。]({% image_buster /assets/img/cc_implementation/supplementary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0;"}
 
-Content Cardsを既存のフィードにシームレスにブレンドし、複数のフィードからのデータを同時に読み込むことができます。これにより、Braze Content Cardsと既存のフィードコンテンツとの一体感のある、調和のとれた体験が生まれます。
+Content Cardsを既存のフィードにシームレスに組み込み、複数のフィードからのデータを同時に読み込むことができます。これにより、Braze Content Cardsと既存のフィードコンテンツが一体化した、調和のとれた体験が実現します。
 
-右の例は、ローカルデータとBrazeを使用したContent Cardsによって設定された項目のハイブリッドリストを含む `UICollectionView` を示しています。これにより、既存のコンテンツとContent Cardsを区別できなくなります。
+付随する例では、ローカルデータとBrazeによるContent Cardsから構成されるハイブリッドリストを持つ `UICollectionView` を示しています。これにより、Content Cardsを既存のコンテンツと区別できないほど自然に表示できます。
 
 #### ダッシュボード設定 {#dashboard-configuration}
 
-このContent Cardsは、APIトリガーのキーと値のペアを持つAPIトリガーキャンペーンによって提供されます。これは、カードの値が外部要因に依存して、ユーザーに表示するコンテンツを決定するキャンペーンに最適です。なお、`class_type` はセットアップ時に把握しておく必要があります。
+このContent Cardsは、APIトリガーのキーと値のペアを持つAPIトリガーキャンペーンによって配信されます。これは、カードの値がユーザーに表示するコンテンツを決定する外部要因に依存するキャンペーンに最適です。`class_type` はセットアップ時に既知である必要があることに注意してください。
 
-![補足Content Cardsのユースケースのキーと値のペア。この例では、カードの各要素（「tile_id」、「tile_deeplink」、「tile_title」など）がLiquidを使って設定されています。]({% image_buster /assets/img/cc_implementation/supplementary_content.png %}){: style="max-width:60%;"}
+![補足Content Cardsのユースケースのキーと値のペア。この例では、「tile_id」、「tile_deeplink」、「tile_title」など、カードのさまざまな要素がLiquidを使用して設定されています。]({% image_buster /assets/img/cc_implementation/supplementary_content.png %}){: style="max-width:60%;"}
 
-##### 分析をログに記録する準備はできましたか？ {#ready-to-log-analytics}
-データフローの外観について理解を深めるには、[以下のセクション](#logging-impressions-clicks-and-dismissals)を参照してください。
+##### 分析のロギングの準備はできましたか？ {#ready-to-log-analytics}
+データのフローがどのように見えるべきかをより深く理解するには、[次のセクション](#logging-impressions-clicks-and-dismissals)をご覧ください。
 
-### メッセージセンターのContent Cards {#content-cards-in-a-message-center}
+### メッセージセンター内のContent Cards {#content-cards-in-a-message-center}
 <br>
-Content Cardsは、各メッセージが独自のカードであるメッセージセンター形式で使用できます。メッセージセンター内の各メッセージは、Content Cardsペイロードを介して設定され、各カードには、クリック時のUI/UXを起動する追加のキーと値のペアが含まれています。次の例では、1つのメッセージによって任意のカスタムビューが表示され、別のメッセージによってカスタムHTMLを表示するWebビューが開きます。
+Content Cardsは、各メッセージが独自のカードとなるメッセージセンター形式で使用できます。メッセージセンターの各メッセージはContent Cardsのペイロードを介して入力され、各カードにはクリック時のUI/UXを制御する追加のキーと値のペアが含まれています。次の例では、1つのメッセージが任意のカスタムビューに誘導し、もう1つはカスタムHTMLを表示するWebビューを開きます。
 
 ![個別のメッセージカードを含むContent Cardsメッセージセンター。]({% image_buster /assets/img/cc_implementation/message_center.png %}){: style="border:0;"}{: style="max-width:80%;border:0"}
 
 #### ダッシュボード設定
 
-次のメッセージタイプでは、キーと値のペア `class_type` をダッシュボード設定に追加する必要があります。ここで割り当てる値は任意ですが、クラス型を区別できるようにする必要があります。これらのキーと値のペアは、ユーザーが簡略化された受信トレイメッセージをクリックした際に行き先を決定するときにアプリケーションが参照するキー識別子です。
+以下のメッセージタイプでは、キーと値のペア `class_type` をダッシュボード設定に追加する必要があります。ここで割り当てる値は任意ですが、クラスタイプ間で区別可能である必要があります。これらのキーと値のペアは、ユーザーが省略された受信トレイメッセージをクリックした際にどこに移動するかをアプリケーションが判断するための重要な識別子です。
 
 {% tabs local %}
 {% tab 任意のカスタムビューメッセージ - フルページ %}
 
-このユースケースのキーと値のペアは、次のとおりです。
+このユースケースのキーと値のペアには以下が含まれます：
 
 - `message_header` を `Full Page` に設定
 - `class_type` を `message_full_page` に設定
@@ -472,27 +472,27 @@ Content Cardsは、各メッセージが独自のカードであるメッセー�
 {% endtab %}
 {% tab Webビューメッセージ - HTML %}
 
-このユースケースのキーと値のペアは、次のとおりです。
+このユースケースのキーと値のペアには以下が含まれます：
 
 - `message_header` を `HTML` に設定
 - `class_type` を `message_webview` に設定
 - `message_title`
 
-このメッセージはHTMLキーと値のペアも検索しますが、Webドメインで作業している場合は、URLキーと値のペアも有効です。
+このメッセージはHTMLのキーと値のペアも参照しますが、Webドメインを使用している場合は、URLのキーと値のペアも有効です。
 
-![キーと値のペアからHTML Webビューを開くContent Card。]({% image_buster /assets/img/cc_implementation/html_webview.png %}){: style="max-width:60%;"}
+![キーと値のペアからHTML Webビューを開くContent Cards。]({% image_buster /assets/img/cc_implementation/html_webview.png %}){: style="max-width:60%;"}
 
 {% endtab %}
 {% endtabs %}
 
-#### 詳細説明 {#further-explanation}
+#### 詳細な説明 {#further-explanation}
 
-メッセージセンターのロジックは、Brazeのキーと値のペアによって提供される `contentCardClassType` によって駆動されます。`addContentCardToView` メソッドを使用すると、これらのクラス型をフィルタリングして識別することができます。
+メッセージセンターのロジックは、Brazeのキーと値のペアから提供される `contentCardClassType` によって駆動されます。`addContentCardToView` メソッドを使用して、これらのクラスタイプをフィルターおよび識別できます。
 
 {% tabs %}
 {% tab Swift %}
 **クリック時の動作に `class_type` を使用する**<br>
-メッセージをクリックすると、`ContentCardClassType` が次の画面の表示方法を制御します。
+メッセージがクリックされると、`ContentCardClassType` が次の画面をどのように表示するかを処理します。
 ```swift
 func addContentCardToView(with message: Message) {
     switch message.contentCardData?.contentCardClassType {
@@ -508,7 +508,7 @@ func addContentCardToView(with message: Message) {
 {% endtab %}
 {% tab Objective-C %}
 **クリック時の動作に `class_type` を使用する**<br>
-メッセージをクリックすると、`ContentCardClassType` が次の画面の表示方法を制御します。
+メッセージがクリックされると、`ContentCardClassType` が次の画面をどのように表示するかを処理します。
 ```objc
 - (void)addContentCardToView:(Message *)message {
   switch (message.contentCardData.classType) {
@@ -526,35 +526,35 @@ func addContentCardToView(with message: Message) {
 {% endtab %}
 {% endtabs %}
 
-##### 分析をログに記録する準備はできましたか？
-データフローの外観について理解を深めるには、[以下のセクション](#logging-impressions-clicks-and-dismissals)を参照してください。
+##### 分析のロギングの準備はできましたか？
+データのフローがどのように見えるべきかをより深く理解するには、[次のセクション](#logging-impressions-clicks-and-dismissals)をご覧ください。
 
-![画面左下に50%のプロモーションを示すインタラクティブなContent Cardが表示されている。クリックすると、カートにプロモーションが適用されます。]({% image_buster /assets/img/cc_implementation/discount2.png %}){: style="border:0;"}{: style="float:right;max-width:45%;border:0;margin-left:15px;"}
+![50%のプロモーションを表示するインタラクティブなContent Cardsが画面の左下隅に表示されます。クリックすると、プロモーションがカートに適用されます。]({% image_buster /assets/img/cc_implementation/discount2.png %}){: style="border:0;"}{: style="float:right;max-width:45%;border:0;margin-left:15px;"}
 
-### インタラクティブContent Cards {#interactive-content-cards}
+### インタラクティブなContent Cards {#interactive-content-cards}
 <br>
-Content Cardsを活用して、ユーザーのためのダイナミックでインタラクティブな体験を作成できます。右の例では、Content Cardsのポップアップがチェックアウト時に表示され、ユーザーに最新のプロモーションを提供しています。
+Content Cardsを使用して、ユーザーにダイナミックでインタラクティブな体験を提供できます。付随する例では、チェックアウト時にContent Cardsのポップアップが表示され、ユーザーに直前のプロモーションを提供します。
 
-このように適切に配置されたカードは、ユーザーが特定のアクションを実行するように「後押し」する優れた方法です。
+このように適切に配置されたカードは、特定のユーザーアクションに向けてユーザーに「後押し」を与える優れた方法です。
 <br><br><br>
 #### ダッシュボード設定
 
-インタラクティブContent Cardsのダッシュボード設定は簡単です。このユースケースのキーと値のペアには、希望する割引額として設定された `discount_percentage` と、`coupon_code` として設定された `class_type` があります。これらのキーと値のペアは、タイプ固有のContent Cardsがどのようにフィルタリングされ、チェックアウト画面に表示されるかを決定します。
+インタラクティブなContent Cardsのダッシュボード設定は簡単です。このユースケースのキーと値のペアには、希望する割引額として設定された `discount_percentage` と、`coupon_code` として設定された `class_type` が含まれます。これらのキーと値のペアは、タイプ固有のContent Cardsがフィルターされ、チェックアウト画面に表示される仕組みです。
 
-![チェックアウトプロモーションを表示するインタラクティブContent Card。]({% image_buster /assets/img/cc_implementation/discount.png %}){: style="max-width:70%;"}
+![チェックアウトプロモーションを表示するインタラクティブなContent Cards。]({% image_buster /assets/img/cc_implementation/discount.png %}){: style="max-width:70%;"}
 
-##### 分析をログに記録する準備はできましたか？
-データフローの外観について理解を深めるには、[以下のセクション](#logging-impressions-clicks-and-dismissals)を参照してください。
+##### 分析のロギングの準備はできましたか？
+データのフローがどのように見えるべきかをより深く理解するには、[次のセクション](#logging-impressions-clicks-and-dismissals)をご覧ください。
 
 ## ダークモードのカスタマイズ {#dark-mode-customization}
 
-デフォルトでは、Content Cardsビューは、テーマカラーのセットでデバイスのダークモードの変更に自動的に応答します。
+デフォルトでは、Content Cardsビューはデバイスのダークモード変更に自動的に応答し、テーマに沿ったカラーセットを使用します。
 
-この動作は、[カスタムスタイルガイド]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/content_cards/customization/custom_styling#disabling-dark-mode)で詳細に説明されているようにオーバーライドできます。
+この動作は、[カスタムスタイリングガイド]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/content_cards/customization/custom_styling#disabling-dark-mode)で詳しく説明されているようにオーバーライドできます。
 
 ## インプレッション、クリック、却下のロギング {#logging-impressions-clicks-and-dismissals}
 
-カスタムオブジェクトをContent Cardsとして機能するように拡張した後は、インプレッション、クリック、却下などの貴重な指標のロギングを迅速に行えます。これは、`ContentCardable` プロトコルを使用して実行できます。このプロトコルは、Braze SDKによってロギングされるヘルパーファイルを参照し、データを提供します。
+カスタムオブジェクトを Content Cardsとして機能するように拡張した後、インプレッション、クリック、却下などの貴重な指標のロギングを素早く行えます。これは、`ContentCardable` プロトコルを使用して、Braze SDKによってロギングされるヘルパーファイルにデータを参照・提供することで実現できます。
 
 ### 実装コンポーネント<br><br> {#implementation-components}
 
@@ -569,7 +569,7 @@ customObject.logContentCardDismissed()
 ```
 
 **`ABKContentCard` の取得**<br>
-カスタムオブジェクトから渡された `idString` は、関連付けられたContent Cardを識別して分析をログに記録するために使用されます。
+カスタムオブジェクトから渡された `idString` は、分析をロギングするための関連する Content Card を識別するために使用されます。
 
 ```swift
 extension BrazeManager {
@@ -595,7 +595,7 @@ extension BrazeManager {
 ```
 
 **`ABKContentCard` の取得**<br>
-カスタムオブジェクトから渡された `idString` は、関連付けられたContent Cardを識別して分析をログに記録するために使用されます。
+カスタムオブジェクトから渡された `idString` は、分析をロギングするための関連する Content Card を識別するために使用されます。
 
 ```objc
 - (void)logContentCardImpression:(NSString *)idString {
@@ -614,12 +614,12 @@ extension BrazeManager {
 {% endtabs %}
 
 {% alert important %}
-コントロールバリアントのContent Cardの場合、カスタムオブジェクトは引き続きインスタンス化し、UIロジックでオブジェクトの対応するビューを非表示に設定する必要があります。その後、オブジェクトはインプレッションをログに記録して、ユーザーがいつコントロールカードを表示したかを分析に知らせることができます。
+コントロールバリアントの Content Card の場合でも、カスタムオブジェクトをインスタンス化し、UIロジックでそのオブジェクトに対応するビューを非表示に設定する必要があります。その後、オブジェクトはインプレッションをロギングして、ユーザーがコントロールカードを見たであろうタイミングを分析に通知できます。
 {% endalert %}
 
 ## ヘルパーファイル {#helper-files}
 
-{% details ContentCardKeyヘルパーファイル %}
+{% details ContentCardKey ヘルパーファイル %}
 {% tabs %}
 {% tab Swift %}
 ```swift

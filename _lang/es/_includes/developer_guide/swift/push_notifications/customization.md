@@ -131,7 +131,7 @@ Después de registrar una categoría, utiliza el panel de Braze para enviar noti
 Solo necesitas definir botones de acción en el panel de Braze para comportamientos que no se pueden crear localmente en tu código Swift, como vínculos en profundidad a tu aplicación o redireccionamientos a una URL web. Estas acciones deben configurarse en el panel para que puedan definir qué URL o vínculo profundo abrir. En el caso de los botones de acción que simplemente descartan la notificación sin abrir la aplicación, no es necesario configurarlos en el panel, ya que iOS gestiona automáticamente el comportamiento de descarte. Solo tienes que registrar tu categoría personalizada y sus acciones en el código de tu aplicación y, a continuación, introducir el nombre de la categoría correspondiente en el panel.
 {% endalert %}
 
-1. En el panel de Braze, selecciona **Mensajería** > **Notificaciones push** y, a continuación, elige tu [campaña push]({{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message) de iOS.
+1. En el panel de Braze, selecciona **Mensajería** > **Notificaciones push** y, a continuación, elige tu [Campaign push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message) de iOS.
 2. En **Redactar notificación push**, activa **Botones de acción**.
 3. En el desplegable **Categoría de notificación de iOS**, selecciona **Introducir categoría personalizada de iOS previamente registrada**.
 4. Por último, introduce una de las categorías que creaste anteriormente. El siguiente ejemplo utiliza la categoría personalizada: `LIKE_CATEGORY`.
@@ -165,13 +165,13 @@ UNUserNotificationCenter.current().setNotificationCategories(Braze.Notifications
 
 Dado que `MANAGE_IDENTIFIER` establece un vínculo profundo a la aplicación, deberías configurar ese botón de acción en el panel de Braze con la URL del vínculo profundo asociado. Sin embargo, no es necesario definir un botón en el panel para `KEEP_IDENTIFIER`, ya que solo descarta la notificación. En el panel, solo tienes que introducir el nombre de la categoría (por ejemplo, `YOUR_CATEGORY`) que coincida con el que registraste en el código de tu aplicación.
 
-## Personalización de señales {#customizing-badges}
+## Personalizar señales {#customizing-badges}
 
-Las señales son pequeños iconos ideales para llamar la atención del usuario. Puedes especificar un recuento de señales en la pestaña [**Configuración**]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=swift#swift_settings) cuando redactes una notificación push utilizando el panel de Braze. También puedes actualizar manualmente el recuento de señales a través de la propiedad [`applicationIconBadgeNumber`](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplication_Class/index.html#//apple_ref/occ/instp/UIApplication/applicationIconBadgeNumber) de tu aplicación o la [carga útil de notificación remota](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CreatingtheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH10-SW1).
+Las señales son pequeños iconos ideales para captar la atención del usuario. Puedes especificar un conteo de señales en la pestaña [**Configuración**]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=swift#swift_settings) cuando redactas una notificación push en el panel de Braze. También puedes actualizar manualmente el conteo de señales a través de la propiedad [`applicationIconBadgeNumber`](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplication_Class/index.html#//apple_ref/occ/instp/UIApplication/applicationIconBadgeNumber) de tu aplicación o la [carga útil de la notificación remota](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CreatingtheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH10-SW1).
 
-Braze borrará automáticamente el recuento de señales cuando se reciba una notificación de Braze mientras la aplicación esté en primer plano. Si estableces manualmente el número de la señal en 0, también se borrarán las notificaciones del centro de notificaciones.
+Braze borrará automáticamente el conteo de señales cuando se reciba una notificación de Braze mientras la aplicación está en primer plano. Establecer manualmente el número de señales en 0 también borrará las notificaciones del centro de notificaciones.
 
-Si no tienes un plan para borrar las señales como parte del funcionamiento normal de la aplicación o mediante el envío de push que borren la señal, debes borrar la señal cuando la aplicación se active añadiendo el siguiente código al método `sceneDidBecomeActive(_:)` del archivo `SceneDelegate.swift` de tu aplicación (o al método delegado `applicationDidBecomeActive:` de tu aplicación, si tu aplicación aún no ha adoptado el [ciclo de vida de `UIScene`](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle)):
+Si no tienes un plan para borrar las señales como parte del funcionamiento normal de la aplicación o enviando notificaciones push que borren la señal, deberías borrar la señal cuando la aplicación se active añadiendo el siguiente código al método `sceneDidBecomeActive(_:)` del archivo `SceneDelegate.swift` (o al método delegado `applicationDidBecomeActive:` de tu aplicación, si tu aplicación aún no ha adoptado el [ciclo de vida `UIScene`](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle)):
 
 {% tabs %}
 {% tab swift %}
@@ -208,13 +208,13 @@ UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotification
 {% endtab %}
 {% endtabs %}
 
-## Personalización de sonidos {#customizing-sounds}
+## Personalizar sonidos {#customizing-sounds}
 
 ### Paso 1: Aloja el sonido en tu aplicación {#step-1-host-the-sound-in-your-app}
 
 Los sonidos de notificación push personalizados deben alojarse localmente dentro del paquete principal de tu aplicación. Se aceptan los siguientes formatos de datos de audio:
 
-- PCM lineal
+- Linear PCM
 - MA4
 - µLaw
 - aLaw
@@ -222,60 +222,60 @@ Los sonidos de notificación push personalizados deben alojarse localmente dentr
 Puedes empaquetar los datos de audio en un archivo AIFF, WAV o CAF. En Xcode, añade el archivo de sonido a tu proyecto como un recurso no localizado del paquete de la aplicación.
 
 {% alert note %}
-Los sonidos personalizados deben durar menos de 30 segundos cuando se reproducen. Si un sonido personalizado supera ese límite, se reproduce en su lugar el sonido predeterminado del sistema.
+Los sonidos personalizados deben durar menos de 30 segundos al reproducirse. Si un sonido personalizado supera ese límite, se reproduce en su lugar el sonido predeterminado del sistema.
 {% endalert %}
 
 #### Convertir archivos de sonido {#converting-sound-files}
 
-Puedes utilizar la herramienta afconvert para convertir sonidos. Por ejemplo, para convertir el sonido del sistema PCM lineal de 16 bits Submarine.aiff a audio IMA4 en un archivo CAF, utiliza el siguiente comando en el terminal:
+Puedes utilizar la herramienta afconvert para convertir sonidos. Por ejemplo, para convertir el sonido del sistema Linear PCM de 16 bits Submarine.aiff a audio IMA4 en un archivo CAF, utiliza el siguiente comando en la terminal:
 
 ```bash
 afconvert /System/Library/Sounds/Submarine.aiff ~/Desktop/sub.caf -d ima4 -f caff -v
 ```
 
 {% alert tip %}
-Puedes inspeccionar un sonido para determinar su formato de datos abriéndolo en QuickTime Player y eligiendo **Show Movie Inspector** en el menú **Movie**.
+Puedes inspeccionar un sonido para determinar su formato de datos abriéndolo en QuickTime Player y seleccionando **Mostrar inspector de película** en el menú **Película**.
 {% endalert %}
 
 ### Paso 2: Proporciona una URL de protocolo para el sonido {#step-2-provide-a-protocol-url-for-the-sound}
 
-Debes especificar una URL de protocolo que dirija a la ubicación del archivo de sonido en tu aplicación. Hay dos métodos para hacerlo:
+Debes especificar una URL de protocolo que apunte a la ubicación del archivo de sonido en tu aplicación. Existen dos métodos para hacerlo:
 
-* Utiliza el parámetro `sound` del [objeto push de Apple]({{site.baseurl}}/api/objects_filters/messaging/apple_object) para pasar la URL a Braze.
-* Especifica la URL en el panel. En el [creador push]({{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message#step-3-select-notification-type-ios-and-android), selecciona **Configuración** e introduce la URL del protocolo en el campo **Sonido**.
+* Usa el parámetro `sound` del [objeto push de Apple]({{site.baseurl}}/api/objects_filters/messaging/apple_object) para pasar la URL a Braze.
+* Especifica la URL en el panel. En el [creador de push]({{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message#step-3-select-notification-type-ios-and-android), selecciona **Configuración** e introduce la URL de protocolo en el campo **Sonido**.
 
-![El creador push en el panel de Braze]({% image_buster /assets/img_archive/sound_push_ios.png %})
+![El creador de push en el panel de Braze]({% image_buster /assets/img_archive/sound_push_ios.png %})
 
-Si el archivo de sonido especificado no existe o se introduce la palabra clave "default", Braze utilizará el sonido de alerta predeterminado del dispositivo. Además de nuestro panel, el sonido también se puede configurar a través de nuestra [API de mensajería][12].
+Si el archivo de sonido especificado no existe o se introduce la palabra clave "default", Braze utilizará el sonido de alerta predeterminado del dispositivo. Además del panel, el sonido también puede configurarse a través de nuestra [API de mensajería][12].
 
-Consulta la documentación para desarrolladores de Apple relativa a la [preparación de sonidos de alerta personalizados](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/SupportingNotificationsinYourApp.html) para obtener información adicional.
+Consulta la documentación de Apple Developer sobre [preparar sonidos de alerta personalizados](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/SupportingNotificationsinYourApp.html) para obtener información adicional.
 
 ## Configuración {#settings}
 
-Al crear una campaña push a través del panel, haz clic en la pestaña **Configuración** del paso **Redactar** para ver la configuración avanzada disponible.
+Al crear una campaña push a través del panel, haz clic en la pestaña **Configuración** en el paso **Crear** para ver la configuración avanzada disponible.
 
-![Pestaña de configuración avanzada del creador de campaña push de Braze para iOS.]({% image_buster /assets/img_archive/ios_advanced_settings.png %})
+![Pestaña de configuración avanzada de una campaña push de iOS en Braze con opciones avanzadas.]({% image_buster /assets/img_archive/ios_advanced_settings.png %})
 
 ### Pares clave-valor {#key-value-pairs}
 
-Braze te permite enviar pares clave-valor de cadena definidos a medida, conocidos como `extras`, junto con una notificación push a tu aplicación. Los extras pueden definirse a través del panel o de la API y estarán disponibles como pares clave-valor dentro del diccionario `notification` pasado a tus implementaciones de delegados push.
+Braze te permite enviar pares clave-valor de cadena definidos de forma personalizada, conocidos como `extras`, junto con una notificación push a tu aplicación. Los extras pueden definirse a través del panel o la API y estarán disponibles como pares clave-valor dentro del diccionario `notification` pasado a tus implementaciones del delegado de push.
 
 ### Opciones de alerta {#alert-options}
 
-Selecciona la casilla **Opciones de alerta** para ver un desplegable de valores clave disponibles para ajustar cómo aparece la notificación en los dispositivos.
+Selecciona la casilla **Alert Options** para ver un menú desplegable de pares clave-valor disponibles para ajustar cómo aparece la notificación en los dispositivos.
 
-### Añadir el indicador de contenido disponible {#adding-content-available-flag}
+### Añadir la indicación de contenido disponible {#adding-content-available-flag}
 
-Marca la casilla **Añadir indicador de contenido disponible** para indicar a los dispositivos que descarguen nuevos contenidos en segundo plano. Lo más habitual es marcar esta opción si te interesa enviar [notificaciones silenciosas]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift).
+Marca la casilla **Add Content-Available Flag** para indicar a los dispositivos que descarguen contenido nuevo en segundo plano. Generalmente, puedes marcar esta opción si te interesa enviar [notificaciones silenciosas]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift).
 
-### Añadir el indicador de contenido mutable {#adding-mutable-content-flag}
+### Añadir la indicación de contenido mutable {#adding-mutable-content-flag}
 
-Marca la casilla **Añadir indicador de contenido mutable** para habilitar la personalización avanzada del receptor. Este indicador se enviará automáticamente al componer una [notificación enriquecida]({{site.baseurl}}/developer_guide/push_notifications/rich/?sdktab=swift), independientemente del valor de esta casilla.
+Marca la casilla **Add Mutable-Content Flag** para habilitar la personalización avanzada del receptor. Esta indicación se enviará automáticamente al crear una [notificación enriquecida]({{site.baseurl}}/developer_guide/push_notifications/rich/?sdktab=swift), independientemente del valor de esta casilla.
 
-### ID de contracción {#collapse-id}
+### ID de agrupación {#collapse-id}
 
-Especifica un ID de contracción para agrupar notificaciones similares. Si envías varias notificaciones con el mismo ID de contracción, el dispositivo solo mostrará la notificación recibida más recientemente. Consulta la documentación de Apple sobre [notificaciones agrupadas](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1).
+Especifica un ID de agrupación para consolidar notificaciones similares. Si envías varias notificaciones con el mismo ID de agrupación, el dispositivo solo mostrará la notificación recibida más recientemente. Consulta la documentación de Apple sobre [notificaciones agrupadas](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1).
 
 ### Caducidad {#expiry}
 
-Si marcas la casilla **Caducidad**, podrás establecer un tiempo de caducidad para tu mensaje. Si el dispositivo de un usuario pierde la conectividad, Braze seguirá intentando enviar el mensaje hasta la hora especificada. Si no se configura, la plataforma tendrá una caducidad predeterminada de 30 días. Ten en cuenta que las notificaciones push que caducan antes de la entrega no se consideran fallidas y no se registrarán como rebotadas.
+Marcar la casilla **Expiry** te permitirá establecer un tiempo de caducidad para tu mensaje. Si el dispositivo de un usuario pierde la conectividad, Braze seguirá intentando enviar el mensaje hasta el tiempo especificado. Si no se establece, la plataforma utilizará de forma predeterminada una caducidad de 30 días. Ten en cuenta que las notificaciones push que caducan antes de la entrega no se consideran fallidas y no se registrarán como rebote.

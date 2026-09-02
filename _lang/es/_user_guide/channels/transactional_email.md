@@ -15,11 +15,11 @@ description: "Envía correos electrónicos transaccionales para notificaciones c
 
 ## Requisitos previos {#prerequisites}
 
-El correo electrónico transaccional solo está disponible como parte de paquetes selectos de Braze. Ponte en contacto con tu administrador de éxito de cliente de Braze o abre un [ticket de soporte]({{site.baseurl}}/braze_support) para más detalles.
+El correo electrónico transaccional solo está disponible como parte de paquetes selectos de Braze. Ponte en contacto con tu administrador de éxito de cliente de Braze o abre un [ticket de soporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) para más detalles.
 
 Antes de empezar, asegúrate de tener lo siguiente:
 
-- [Configuración de correo electrónico]({{site.baseurl}}/user_guide/channels/email/email_setup) completada, incluida la configuración de IP y dominio, la autenticación y el calentamiento de IP
+- [Configuración de correo electrónico]({{site.baseurl}}/user_guide/channels/email/email_setup) completada, incluyendo la configuración de IP y dominio, autenticación y calentamiento de IP
 - Una **clave de API REST de Braze** con el permiso `transactional.send`
 
 ## Ejemplos {#use-cases}
@@ -28,19 +28,19 @@ El correo electrónico transaccional está diseñado para enviar mensajes no pro
 
 | Ejemplo | Explicación |
 | --- | --- |
-| Confirmaciones de pedido | Confirmar que la compra de un cliente se ha recibido y está siendo procesada. |
-| Restablecimiento de contraseñas | Entregar enlaces seguros y con plazo limitado para que los clientes restablezcan las credenciales de su cuenta. |
+| Confirmaciones de pedidos | Confirmar que la compra de un cliente se ha recibido y está siendo procesada. |
+| Restablecimiento de contraseñas | Entregar enlaces seguros y sensibles al tiempo para que los clientes restablezcan las credenciales de su cuenta. |
 | Notificaciones de envío | Notificar a los clientes cuando su pedido ha sido enviado, incluyendo información de seguimiento y fechas de entrega estimadas. |
-| Alertas de cuenta | Enviar notificaciones críticas relacionadas con la cuenta, como fallos de pago, cambios de suscripción o alertas de seguridad. |
+| Alertas de cuenta | Enviar notificaciones críticas relacionadas con la cuenta, como fallos en pagos, cambios de suscripción o alertas de seguridad. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Ejemplos" }
 
-## Diferencias entre el correo transaccional y el correo de marketing {#how-transactional-email-differs-from-marketing-email}
+## Diferencias entre correo electrónico transaccional y correo electrónico de marketing {#how-transactional-email-differs-from-marketing-email}
 
-Los correos electrónicos transaccionales se envían a través de una [API HTTP transaccional]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email) dedicada de Braze, que está optimizada para la velocidad y la fiabilidad. A diferencia de los correos electrónicos de marketing, los correos transaccionales:
+Los correos electrónicos transaccionales se envían a través de una [API HTTP transaccional]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email) dedicada de Braze, que está optimizada para velocidad y fiabilidad. A diferencia de los correos electrónicos de marketing, los correos electrónicos transaccionales:
 
-- No requieren que el usuario haya optado por recibir comunicaciones de marketing
-- Se desencadenan mediante llamadas a la API en lugar de desencadenantes programados o basados en acciones
-- Admiten la entrega casi en tiempo real para contenido urgente
+- No requieren que el usuario haya dado su consentimiento para recibir comunicaciones de marketing
+- Se desencadenan mediante llamadas a la API en lugar de desencadenadores programados o basados en acciones
+- Admiten entrega casi en tiempo real para contenido urgente
 
 ## Próximos pasos {#next-steps}
 

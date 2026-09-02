@@ -18,31 +18,31 @@ Para más información sobre cómo segmentar usuarios, consulta nuestro [curso d
 
 ## Paso 1: Segmentar usuarios {#step-1-segment-users}
 
-Primero, crearemos un segmento para dirigirnos a los usuarios que no han utilizado tu aplicación en las últimas dos semanas, usando los siguientes filtros:
+Primero, crearemos un Segment para dirigirnos a los usuarios que no han utilizado tu aplicación en las últimas dos semanas, usando los siguientes filtros:
 
-- **Última vez que usó la aplicación** hace más de 2 semanas
-- **Última vez que usó la aplicación** hace menos de 3 semanas
+- **Last Used App** hace más de 2 semanas
+- **Last Used App** hace menos de 3 semanas
 
 ![Captura de pantalla relacionada con el paso 1: segmentar usuarios.]({% image_buster /assets/img_archive/2weeklapse1.png %}){: style="max-width:70%;"}
 
-Ponle al segmento un nombre fácil de recordar, como "Usuarios inactivos – 2 semanas". Como vamos a configurar la campaña para que se repita semanalmente, queremos asegurarnos de que haya al menos una semana de usuarios captados en el segmento. Por eso hemos seleccionado usuarios que usaron la aplicación por última vez entre dos y tres semanas atrás.
+Asigna al Segment un nombre fácil de recordar, como "Lapsed Users – 2 Weeks". Como estamos configurando la Campaign para que se repita semanalmente, queremos asegurarnos de que haya al menos una semana de usuarios capturados en el Segment. Por eso hemos seleccionado usuarios que usaron la aplicación por última vez entre dos y tres semanas atrás.
 
-## Paso 2: Crear una campaña {#step-2-create-a-campaign}
+## Paso 2: Crea una Campaign {#step-2-create-a-campaign}
 
-A continuación, haz clic en **Crear campaña** y elige el tipo de campaña que enviaremos a este segmento. En este ejemplo, crearemos una nueva [campaña push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message).
+A continuación, haz clic en **Create Campaign** y elige el tipo de Campaign que enviaremos a este Segment. En este ejemplo, crearemos una nueva [Campaign push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message).
 
-![A continuación, haz clic en Crear campaña y elige el tipo de campaña que enviaremos a este segmento. En este ejemplo, crearemos una nueva campaña push.]({% image_buster /assets/img_archive/2weeklapse2.png %}){: style="max-width:70%;"}
+![A continuación, haz clic en Create Campaign y elige el tipo de Campaign que enviaremos a este Segment. En este ejemplo, crearemos una nueva Campaign push.]({% image_buster /assets/img_archive/2weeklapse2.png %}){: style="max-width:70%;"}
 
-Nombraremos la campaña "Mensaje a usuarios inactivos - 2 semanas" y luego crearemos el contenido de nuestro mensaje. En este ejemplo, solo nos dirigiremos a usuarios de iOS, pero puedes usar Braze para notificaciones push tanto en Android como en iOS.
+Nombraremos la Campaign "Message to Lapsed Users - 2 Weeks" y luego crearemos el contenido de nuestro mensaje. En este ejemplo, solo nos dirigiremos a usuarios de iOS, pero puedes usar Braze para notificaciones push en Android e iOS.
 
-Cuanto más reciente sea la última vez que un usuario estuvo en la aplicación, más importante es que el contenido sea oportuno y relevante. Al enviar un mensaje a un usuario después de dos semanas sin usar la aplicación, es importante mostrar contenido relevante y destacar los beneficios de usarla.
+Cuanto más cercano sea el último momento en que un usuario estuvo en la aplicación, más importante es ser oportuno y relevante. Al enviar un mensaje a un usuario después de dos semanas sin usar la aplicación, es importante mostrar contenido relevante y destacar los beneficios de usar la aplicación.
 
-![Captura de pantalla relacionada con el paso 2: crear una campaña.]({% image_buster /assets/img_archive/2weeklapse3.png %}){: style="max-width:70%;"}
+![Captura de pantalla relacionada con el paso 2: crea una Campaign.]({% image_buster /assets/img_archive/2weeklapse3.png %}){: style="max-width:70%;"}
 
-A continuación, crearemos una planificación recurrente para enviar nuestro mensaje semanal los jueves a las 5:45 pm usando la [entrega en zona horaria local]({{site.baseurl}}/help/faqs#what-does-local-time-zone-delivery-offer) en **Opciones de planificación por tiempo**. Te recomendamos que revises tu gráfico de sesiones para dirigirte a los usuarios justo antes de los periodos de mayor uso. Esto asegura que intentes reactivar la interacción con las personas cuando es más probable que usen la aplicación. Puedes cambiar esto más adelante y probar tu hipótesis inicial.
+A continuación, crearemos un horario recurrente para enviar nuestro mensaje semanal los jueves a las 5:45 p. m. usando la [entrega en zona horaria local]({{site.baseurl}}/user_guide/messaging/campaigns/faq#what-does-local-time-zone-delivery-offer) en **Time-Based Scheduling Options**. Recomendamos que revises tu gráfico de sesiones para dirigirte a los usuarios justo antes de los períodos de mayor uso. Esto garantiza que intentes reactivar a las personas cuando es más probable que usen la aplicación. Puedes cambiar esto más adelante y probar tu hipótesis inicial.
 
-![A continuación, crearemos una planificación recurrente para enviar nuestro mensaje semanal los jueves a las 5:45 pm usando la entrega en zona horaria local en Opciones de planificación por tiempo. Te recomendamos que revises tu gráfico de sesiones para dirigirte a los usuarios justo antes de los periodos de mayor uso. Esto asegura que intentes reactivar la interacción con las personas cuando es más probable que usen la aplicación. Puedes cambiar esto más adelante y probar tu hipótesis inicial.]({% image_buster /assets/img_archive/2weeklapse4.png %}){: style="max-width:70%;"}
+![A continuación, crearemos un horario recurrente para enviar nuestro mensaje semanal los jueves a las 5:45 p. m. usando la entrega en zona horaria local en Time-Based Scheduling Options. Recomendamos que revises tu gráfico de sesiones para dirigirte a los usuarios justo antes de los períodos de mayor uso. Esto garantiza que intentes reactivar a las personas cuando es más probable que usen la aplicación. Puedes cambiar esto más adelante y probar tu hipótesis inicial.]({% image_buster /assets/img_archive/2weeklapse4.png %}){: style="max-width:70%;"}
 
-## Paso 3: Lanzar la campaña {#step-3-launch-the-campaign}
+## Paso 3: Lanza la campaign {#step-3-launch-the-campaign}
 
-Ahora estás listo para enviar la campaña. Confirma la configuración en la última página del compositor y haz clic en **Lanzar campaña**.
+Ahora estás listo para enviar la campaign. Confirma la configuración en la última página del creador y haz clic en **Launch Campaign**.

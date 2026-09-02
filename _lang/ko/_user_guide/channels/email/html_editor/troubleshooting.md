@@ -16,14 +16,14 @@ channel: email
 
 | 증상 | 이동 |
 | --- | --- |
-| 테스트 이메일 HTML이 올바르게 표시되지 않음 | [테스트 이메일에서 HTML이 올바르게 렌더링되지 않음](#html-renders-incorrectly-in-test-emails) |
+| 테스트 이메일 HTML이 잘못 표시됨 | [테스트 이메일에서 HTML이 올바르게 렌더링되지 않음](#html-renders-incorrectly-in-test-emails) |
 | Chrome에서 편집기가 비정상적으로 동작함 | [확장 프로그램 충돌](#extension-conflicts) |
-| 이메일 클라이언트마다 이메일이 다르게 보임 | [이메일 렌더링](#email-rendering) |
+| 이메일이 클라이언트마다 다르게 표시됨 | [이메일 렌더링](#email-rendering) |
 | 이메일에 Liquid 코드 또는 깨진 링크가 표시됨 | [Liquid 템플릿의 불균형 HTML](#unbalanced-html-in-liquid-templates) |
-| Inbox Vision 미리보기가 실제 발송된 이메일과 일치하지 않음 | [CSS 인라이닝](#css-inlining) |
-| 테스트 이메일에서 이미지 뒤에 공백이나 줄이 표시됨 | [이미지 하단 공백](#white-space-under-images) |
+| Inbox Vision 미리보기가 발송된 이메일과 일치하지 않음 | [CSS 인라이닝](#css-inlining) |
+| 테스트 이메일에서 이미지 아래에 여백이나 줄이 표시됨 | [이미지 아래 여백](#white-space-under-images) |
 | 클릭 분석에 쿼리 파라미터가 포함되지 않음 | [링크 클릭 분석 제한 사항](#link-click-analytics-limitations) |
-| 위첨자로 인해 줄 간격이 일정하지 않음 | [위첨자 줄 높이 문제](#superscript-line-height-issues) |
+| 위 첨자로 인해 줄 간격이 일정하지 않음 | [위 첨자 줄 높이 문제](#superscript-line-height-issues) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="HTML 이메일 증상" }
 
 ## 표준 조사 경로 {#standard-investigation-path}
@@ -31,16 +31,16 @@ channel: email
 HTML 이메일 렌더링 또는 편집기 동작이 예상과 다를 때 이 워크플로를 사용하세요. 1단계부터 시작하세요.
 
 1. 편집기 또는 외부 유효성 검사 도구에서 HTML 마크업을 검증하세요.
-2. [테스트 이메일]({{site.baseurl}}/developer_guide/platform_wide/sending_test_messages#sending-a-test-push-notification-or-in-app-messages-a-classmargin-fix-namepush-inapp-testa)을 발송하고 어떤 이메일 클라이언트 또는 브라우저에서 문제가 나타나는지 확인하세요.
+2. [테스트 이메일]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages)을 발송하고, 어떤 이메일 클라이언트 또는 브라우저에서 문제가 나타나는지 확인하세요.
 3. [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision)으로 미리보기하여 클라이언트 간 렌더링을 비교하세요.
-4. 편집기 자체가 정상적으로 작동하지 않는 경우 [브라우저 확장 프로그램 충돌](#extension-conflicts)을 배제하세요.
-5. 문제가 지속되면 Inbox Vision 스크린샷과 영향을 받는 클라이언트 정보를 첨부하여 [고객지원 티켓]({{site.baseurl}}/braze_support)을 제출하세요.
+4. 편집기 자체가 오작동하는 경우 [브라우저 확장 프로그램 충돌](#extension-conflicts)을 배제하세요.
+5. 문제가 지속되면 Inbox Vision 스크린샷과 영향을 받는 클라이언트 정보를 포함하여 [고객지원 티켓]({{site.baseurl}}/user_guide/administer/personal/braze_support)을 제출하세요.
 
 ## 테스트 이메일에서 HTML이 올바르게 렌더링되지 않음 {#html-renders-incorrectly-in-test-emails}
 
 ### 증상 {#symptom}
 
-[테스트 이메일]({{site.baseurl}}/developer_guide/platform_wide/sending_test_messages#sending-a-test-push-notification-or-in-app-messages-a-classmargin-fix-namepush-inapp-testa)이 편집기에서 예상한 것과 일치하지 않습니다.
+[테스트 이메일]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages)이 편집기에서 예상한 것과 일치하지 않습니다.
 
 먼저 HTML 설정을 확인한 다음 [확장 프로그램 충돌](#extension-conflicts), [이메일 렌더링](#email-rendering), [CSS 인라이닝](#css-inlining), [이미지 아래 여백](#white-space-under-images)을 검토하세요.
 

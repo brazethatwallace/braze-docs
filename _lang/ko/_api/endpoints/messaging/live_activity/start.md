@@ -7,7 +7,6 @@ page_order: 1
 layout: api_page
 page_type: reference
 description: "이 문서에서는 라이브 활동 시작 엔드포인트에 대한 자세한 내용을 설명합니다."
-
 ---
 {% api %}
 # 라이브 활동 시작 {#start-live-activity}
@@ -15,7 +14,7 @@ description: "이 문서에서는 라이브 활동 시작 엔드포인트에 대
 /messages/live_activity/start
 {% endapimethod %}
 
-> 이 엔드포인트를 사용하여 iOS 앱에 표시되는 [라이브 활동]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?sdktab=swift)을 원격으로 시작할 수 있습니다. 이 엔드포인트에는 추가 설정이 필요합니다.
+> 이 엔드포인트를 사용하여 iOS 앱에 표시되는 [라이브 활동]({{site.baseurl}}/developer_guide/live_notifications?sdktab=swift)을 원격으로 시작할 수 있습니다. 이 엔드포인트에는 추가 설정이 필요합니다.
 
 라이브 활동을 생성한 후에는 세그먼트, 연결된 오디언스 또는 특정 사용자를 타겟팅하도록 POST 요청을 수행합니다. 외부 사용자 ID, 사용자 별칭 또는 두 가지 모두를 사용하여 특정 사용자를 식별합니다. Apple의 라이브 활동에 대한 자세한 내용은 [ActivityKit 푸시 알림으로 라이브 활동 시작 및 업데이트](https://developer.apple.com/documentation/activitykit/starting-and-updating-live-activities-with-activitykit-push-notifications)를 참조하세요.
 
@@ -42,7 +41,7 @@ description: "이 문서에서는 라이브 활동 시작 엔드포인트에 대
 이 엔드포인트를 사용하려면 다음을 완료해야 합니다:
 
 - `messages.live_activity.start` 권한으로 API 키를 생성합니다.
-- Braze Swift SDK를 사용하여 [라이브 활동을 생성합니다]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?tab=local&sdktab=swift#swift_create-an-activity).
+- Braze Swift SDK를 사용하여 [라이브 활동을 생성합니다]({{site.baseurl}}/developer_guide/live_notifications/live_activities?tab=local&sdktab=swift#create-an-activity).
 
 {% multi_lang_include api/payload_size_alert.md %}
 

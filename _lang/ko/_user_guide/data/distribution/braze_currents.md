@@ -6,18 +6,18 @@ article_title: 커런츠
 layout: dev_guide
 
 page_type: landing
-description: "이 랜딩 페이지에서는 커런츠라고 불리는 Braze 데이터 제품에 대한 문서를 나열합니다. 여기에서 커런츠 설정 방법, 사용 가능한 파트너, 전달 의미론, 이벤트 용어집 등을 확인할 수 있습니다."
+description: "Braze Currents를 설정하는 방법, 데이터 파트너, 전달 의미론, 인게이지먼트 데이터 내보내기를 위한 이벤트 용어집을 알아보세요."
 tool: currents
 search_rank: 9
 guide_top_header: "Braze 커런츠"
-guide_top_text: "참여 전략의 영향을 이해하는 것은 사용자와의 커뮤니케이션을 반복하고 최적화하는 데 중요한 정보를 제공합니다. 이 귀중한 참여 데이터를 운영의 나머지 부분과 긴밀하게 통합하고 데이터 과학에 대한 투자를 확대할 수 있도록 Braze 플랫폼은 통합에서 얻은 다양한 이벤트 데이터를 추적하여 분석, 리타겟팅 및 자체 시스템 내 기타 사용 사례를 지원합니다. <br> <br>커런츠 도구는 Braze 플랫폼에서 가장 강력하면서도 세분화된 참여 이벤트의 실시간 데이터 스트림입니다. 여러 <a href='/docs/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners'>데이터 파트너</a> 중 한 곳에 Avro 파일 형식의 데이터를 제공하여 Braze가 생성하는 고유하고 가치 있는 데이터를 다른 동급 최고의 플랫폼에서 비즈니스 인텔리전스(BI) 및 분석 작업을 강화하는 데 사용할 수 있도록 지원합니다."
+guide_top_text: "인게이지먼트 전략의 영향을 이해하는 것은 사용자와의 커뮤니케이션을 반복하고 최적화하는 데 중요한 정보를 제공합니다. 이 귀중한 인게이지먼트 데이터를 운영의 나머지 부분과 긴밀하게 통합하고 데이터 과학에 대한 투자를 확대할 수 있도록, Braze 플랫폼은 통합에서 얻은 다양한 이벤트 데이터를 추적하여 분석, 리타겟팅 및 자체 시스템 내 기타 사용 사례를 지원합니다. <br> <br>Currents 도구는 Braze 플랫폼에서 가장 강력하면서도 세분화된 인게이지먼트 이벤트의 실시간 데이터 스트림입니다. 여러 <a href='/docs/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners'>데이터 파트너</a> 중 한 곳에 Avro 파일 형식의 데이터를 제공하여, Braze가 생성하는 고유하고 가치 있는 데이터를 다른 동급 최고의 플랫폼에서 비즈니스 인텔리전스(BI) 및 분석 작업을 강화하는 데 사용할 수 있도록 지원합니다."
 
 guide_featured_title: "섹션 문서"
 guide_featured_list:
   - name: 커런츠 설정
     link: /docs/user_guide/data/distribution/braze_currents/setting_up_currents
     image: /assets/img/braze_icons/building-01.svg
-  - name: 커런츠 이벤트 용어집
+  - name: Currents 이벤트 용어집
     link: /docs/user_guide/data/distribution/braze_currents/event_glossary
     image: /assets/img/braze_icons/data.svg
   - name: 사용 사례
@@ -31,26 +31,26 @@ guide_featured_list:
 ## Currents 기능 {#currents-capabilities}
 
 Currents를 사용하면 다음과 같은 작업을 수행할 수 있습니다:
-* Braze 이벤트 데이터를 데이터 웨어하우스 또는 [분석 파트너]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) 중 하나로 스트리밍하여 상세한 분석을 수행할 수 있습니다.
+* Braze 이벤트 데이터를 데이터 웨어하우스 또는 [분석 파트너]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) 중 하나로 스트리밍하여 상세 분석을 수행할 수 있습니다.
 * Braze 이벤트 데이터를 지속적으로 스트리밍하여 비즈니스 인텔리전스 도구, 머신 러닝 알고리즘 등을 구동할 수 있습니다.
 * [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium), [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment) 또는 [mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle_for_currents)을 사용하여 Braze 이벤트 데이터를 다양한 다른 시스템으로 라우팅할 수 있습니다.
 
-Currents를 통해 액세스하는 이벤트 데이터로 할 수 있는 일은 훨씬 더 많습니다. [Braze도 Currents를 사용합니다]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents)!
+Currents를 통해 접근할 수 있는 이벤트 데이터로 할 수 있는 일이 훨씬 더 많습니다. [Braze도 Currents를 사용합니다]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents)!
 
 ## Currents 데이터 배포 모델 {#currents-data-distribution-model}
 
-Currents는 사용 권한 풀을 사용하여 커넥터 생성과 선택적 이벤트 추적을 제어합니다.
+Currents는 이용 권한 풀을 사용하여 커넥터 생성 및 선택적 이벤트 추적을 제어합니다.
 
-- **인게이지먼트 이벤트 사용 권한**은 표준 Currents 커넥터를 생성할 때마다 필요합니다.
-- **고객 행동 이벤트 사용 권한**은 커넥터에서 **고객 행동 및 사용자 이벤트 추적**을 활성화할 때 필요합니다.
-- **고객 프로필 및 속성 사용 권한**은 커넥터에서 **고객 프로필 및 속성 추적**을 활성화할 때 필요합니다.
+- **인게이지먼트 이벤트 이용 권한**은 표준 Currents 커넥터를 생성할 때마다 필요합니다.
+- **고객 행동 이벤트 이용 권한**은 커넥터에서 **Track Customer Behavior and User Events**를 활성화할 때 필요합니다.
+- **User Profiles and Attributes 이용 권한**은 커넥터에서 **Track user profiles and attributes**를 활성화할 때 필요합니다.
 
-테스트 Currents 커넥터는 별도의 테스트 한도를 사용하며 표준 커넥터 사용 권한을 소비하지 않습니다.
+테스트 Currents 커넥터는 별도의 테스트 한도를 사용하며 표준 커넥터 이용 권한을 소비하지 않습니다.
 
-사용 권한 한도에 도달한 경우, [커런츠 설정 문제 해결]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents#troubleshooting) 및 [커런츠 FAQ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/faq)를 참조하거나, Braze 계정 매니저에게 문의하세요.
+이용 권한 한도에 도달한 경우 [커런츠 설정 문제 해결]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents#troubleshooting) 및 [커런츠 FAQ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/faq)를 참조하거나 계정 매니저에게 문의하세요.
 
-## Currents 접근 방법 {#how-to-access-currents}
+## Currents에 접근하는 방법 {#how-to-access-currents}
 
-Currents 커넥터는 이미 많은 프로 및 엔터프라이즈급 패키지에 포함되어 있습니다. Currents 사용에 관심이 있으시면 계정 매니저에게 문의하세요. 계정 매니저와 데이터 전문가가 [커런츠 설정 및 통합]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents)을 지원해 드립니다.
+Currents 커넥터는 이미 많은 프로 및 엔터프라이즈 레벨 패키지에 포함되어 있습니다. Currents 사용에 관심이 있으시면 계정 매니저에게 문의하세요. 계정 매니저와 데이터 전문가가 [커런츠 설정 및 통합]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents)을 도와드립니다.
 
 <br><br>

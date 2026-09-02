@@ -53,7 +53,7 @@ Certains navigateurs, comme les applications Naver Android et iOS, ne prennent p
 {% if include.alert == 'Purchase event deprecation' %}
 
 {% alert important %}
-L'ancien événement d'achat passe en mode maintenance. Les clients Braze existants peuvent continuer à utiliser les anciens événements d'achat. Ils continueront de fonctionner normalement, mais les nouvelles fonctionnalités seront désormais développées sur la base des événements recommandés pour le commerce électronique. Braze vous informera bien à l'avance avant qu'une date de fin de vie ne soit fixée. Les nouveaux clients Braze doivent utiliser les [événements recommandés pour le commerce électronique]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events), car les anciens événements d'achat ne seront pas disponibles.
+L'ancien événement d'achat passe en mode maintenance. Les clients Braze existants peuvent continuer à utiliser les anciens événements d'achat. Ils continueront de fonctionner normalement, mais les nouvelles fonctionnalités seront désormais développées sur la base des événements recommandés pour le commerce électronique. Braze vous informera bien à l'avance avant qu'une date de fin de vie ne soit fixée. Les nouveaux clients Braze doivent utiliser les [événements recommandés pour le commerce électronique]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events), car les anciens événements d'achat ne seront pas disponibles.
 {% endalert %}
 
 {% endif %}
@@ -61,7 +61,7 @@ L'ancien événement d'achat passe en mode maintenance. Les clients Braze exista
 {% if include.alert == 'Purchase event deprecation for eCommerce filters' %}
 
 {% alert important %}
-L'ancien événement d'achat passera en état obsolète (mode maintenance). Les événements d'achat continueront de fonctionner normalement, mais aucune nouvelle fonctionnalité ne sera développée sur cette base, au profit des [événements recommandés pour le commerce électronique]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events). Lorsque ce sera le cas, les filtres de Segment ne s'afficheront plus sous le comportement d'achat.<br><br> Si vous utilisez actuellement les événements d'achat, vous recevrez un préavis concernant les plans de suppression progressive. Pour l'instant, vous pouvez continuer à utiliser les événements d'achat jusqu'à la date officielle de dépréciation. Pour en savoir plus, consultez l'[aperçu des événements recommandés]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events).
+L'ancien événement d'achat passera en état obsolète (mode maintenance). Les événements d'achat continueront de fonctionner normalement, mais aucune nouvelle fonctionnalité ne sera développée sur cette base, au profit des [événements recommandés pour le commerce électronique]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events). Lorsque ce sera le cas, les filtres de segment ne s'afficheront plus sous le comportement d'achat.<br><br> Si vous utilisez actuellement les événements d'achat, vous recevrez un préavis concernant les plans de suppression progressive. Pour l'instant, vous pouvez continuer à utiliser les événements d'achat jusqu'à la date officielle de dépréciation. Pour en savoir plus, consultez l'[aperçu des événements recommandés]({{site.baseurl}}/user_guide/data/activation/events/recommended_events).
 {% endalert %}
 
 {% endif %}

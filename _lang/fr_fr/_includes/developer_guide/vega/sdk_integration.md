@@ -40,10 +40,10 @@ import { initialize, changeUser, openSession } from "@braze/vega-sdk";
 
 ### Étape 2 : Initialiser le SDK {#step-2-initialize-the-sdk}
 
-Une fois le SDK Braze Vega ajouté à votre projet, initialisez la bibliothèque avec la clé API et [l'URL de l'endpoint SDK]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints/) disponibles dans **Paramètres** > **Paramètres des applications** dans votre tableau de bord de Braze.
+Une fois le SDK Braze Vega ajouté à votre projet, initialisez la bibliothèque avec la clé API et l'[URL de l'endpoint du SDK]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) disponibles dans **Paramètres** > **Paramètres de l'application** au sein de votre tableau de bord de Braze.
 
 {% alert important %}
-Vous devez attendre ou résoudre la promesse `changeUser` avant d'appeler d'autres méthodes Braze, sinon les événements et attributs risquent d'être définis sur le mauvais utilisateur.
+Vous devez attendre ou résoudre la promesse `changeUser` avant d'appeler d'autres méthodes Braze, sinon les événements et attributs pourraient être associés à un utilisateur incorrect.
 {% endalert %}
 
 ```javascript
@@ -89,10 +89,10 @@ const App = () => {
 ```
 
 {% alert important %}
-Les utilisateurs anonymes peuvent être comptabilisés dans votre [MAU]({{site.baseurl}}/user_guide/data_and_analytics/reporting/understanding_your_app_usage_data/#monthly-active-users). Par conséquent, vous pouvez charger ou initialiser le SDK de manière conditionnelle afin d'exclure ces utilisateurs de votre décompte de MAU.
+Les utilisateurs anonymes peuvent être comptabilisés dans vos [MAU]({{site.baseurl}}/user_guide/data_and_analytics/reporting/understanding_your_app_usage_data#monthly-active-users). Par conséquent, vous pouvez envisager de charger ou d'initialiser le SDK de manière conditionnelle afin d'exclure ces utilisateurs de votre décompte de MAU.
 {% endalert %}
 
-## Configurations facultatives {#optional-configurations}
+## Configurations optionnelles {#optional-configurations}
 
 ### Journalisation {#logging}
 
@@ -125,7 +125,7 @@ toggleLogging();
 
 #### Journalisation personnalisée {#custom-logging}
 
-Utilisez `setLogger()` pour fournir une fonction de journalisation personnalisée et mieux contrôler la manière dont les journaux du SDK sont gérés :
+Utilisez `setLogger()` pour fournir une fonction de journalisation personnalisée et contrôler plus finement la gestion des journaux du SDK :
 
 ```javascript
 import { setLogger } from "@braze/vega-sdk";
@@ -138,7 +138,7 @@ setLogger((message) => {
 
 ### Options de configuration {#configuration-options}
 
-Vous pouvez transmettre des options de configuration supplémentaires à `initialize()` pour personnaliser le comportement du SDK :
+Vous pouvez passer des options de configuration supplémentaires à `initialize()` pour personnaliser le comportement du SDK :
 
 ```javascript
 await initialize("YOUR-API-KEY", "YOUR-SDK-ENDPOINT", {
@@ -150,7 +150,7 @@ await initialize("YOUR-API-KEY", "YOUR-SDK-ENDPOINT", {
 
 ## Mise à niveau du SDK {#upgrading-the-sdk}
 
-Lorsque vous référencez le SDK Braze Vega depuis NPM ou Yarn, vous pouvez passer à la dernière version en mettant à jour la dépendance de votre package :
+Lorsque vous référencez le SDK Braze Vega depuis NPM ou Yarn, vous pouvez effectuer la mise à niveau vers la dernière version en mettant à jour la dépendance de votre package :
 
 ```bash
 npm update @braze/vega-sdk
@@ -158,12 +158,12 @@ npm update @braze/vega-sdk
 yarn upgrade @braze/vega-sdk
 ```
 
-## Vérification de votre intégration {#testing-your-integration}
+## Tester votre intégration {#testing-your-integration}
 
-Pour vérifier que l'intégration du SDK fonctionne correctement :
+Pour vérifier que l'intégration de votre SDK fonctionne correctement :
 
-1. Initialisez le SDK avec `enableLogging: true` pour afficher les messages de débogage dans la console.
+1. Initialisez le SDK avec `enableLogging: true` pour voir les messages de débogage dans la console.
 2. Assurez-vous d'utiliser `await changeUser()` avant d'appeler d'autres méthodes du SDK.
 3. Appelez `await openSession()` pour démarrer une session.
-4. Vérifiez dans votre tableau de bord de Braze, sous **Overview**, que les données de session sont bien enregistrées.
-5. Enregistrez un événement personnalisé et vérifiez qu'il apparaît dans votre tableau de bord.
+4. Vérifiez dans votre tableau de bord de Braze, sous **Aperçu**, que les données de session sont bien enregistrées.
+5. Testez la journalisation d'un événement personnalisé et vérifiez qu'il apparaît dans votre tableau de bord.

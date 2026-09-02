@@ -19,7 +19,7 @@ Einige häufige Anwendungsfälle für angepasste Events sind:
 
 {% multi_lang_include data_activation/custom_event_use_cases.md %}
 
-## Angepasste Events verwalten {#managing-custom-events}
+## Verwalten angepasster Events {#managing-custom-events}
 
 Sie können angepasste Events im Dashboard verwalten, erstellen oder auf die Blockliste setzen, indem Sie zu **Dateneinstellungen** > **Angepasste Events** navigieren.
 
@@ -27,7 +27,7 @@ Sie können angepasste Events im Dashboard verwalten, erstellen oder auf die Blo
 
 {% multi_lang_include data_activation/troubleshooting_duplicate_custom_data_entries.md %}
 
-Wählen Sie das Menü neben einem angepassten Event für die folgenden Aktionen aus:
+Wählen Sie das Menü neben einem angepassten Event aus, um die folgenden Aktionen auszuführen:
 
 ### Auf die Blockliste setzen {#blocklisting}
 
@@ -37,13 +37,13 @@ Wenn Sie ein angepasstes Event blockieren:
 
 {% multi_lang_include data_activation/custom_event_block_effects.md %}
 
-Wenn ein blockiertes angepasstes Event derzeit von Filtern oder Triggern in anderen Bereichen von Braze referenziert wird, erscheint zusätzlich ein Warnhinweis, der erklärt, dass alle Instanzen der Filter oder Trigger, die darauf verweisen, entfernt und archiviert werden.
+Wenn ein blockiertes angepasstes Event derzeit von Filtern oder Triggern in anderen Bereichen von Braze referenziert wird, erscheint zusätzlich ein Warndialog, der erklärt, dass alle Instanzen der Filter oder Trigger, die darauf verweisen, entfernt und archiviert werden.
 
-Weitere Informationen zum Blockieren und Löschen angepasster Daten finden Sie unter [Angepasste Daten auf die Blockliste setzen]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data).
+Weitere Details zum Blocklisting und Löschen angepasster Daten finden Sie unter [Angepasste Daten auf die Blockliste setzen]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data).
 
 ### Beschreibungen hinzufügen {#adding-descriptions}
 
-Sie können einem angepassten Event nach der Erstellung eine Beschreibung hinzufügen, wenn Sie über die [Nutzerberechtigung]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) `Manage Events, Attributes, Purchases` verfügen. Wählen Sie **Beschreibung bearbeiten** für das angepasste Event aus und geben Sie einen beliebigen Text ein, z. B. eine Notiz für Ihr Team.
+Sie können einem angepassten Event nach der Erstellung eine Beschreibung hinzufügen, wenn Sie über die [Nutzerberechtigung]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) `Manage Events, Attributes, Purchases` verfügen. Wählen Sie **Beschreibung bearbeiten** für das angepasste Event aus und geben Sie einen beliebigen Text ein, zum Beispiel eine Notiz für Ihr Team.
 
 ### Tags hinzufügen {#adding-tags}
 
@@ -54,27 +54,27 @@ Sie können einem angepassten Event nach der Erstellung Tags hinzufügen, wenn S
 Um die Liste der angepassten Events als CSV-Datei zu exportieren, wählen Sie oben auf der Seite **Alle exportieren** aus. Die CSV-Datei wird generiert, und ein Download-Link wird Ihnen per E-Mail zugesendet.
 
 {% alert note %}
-Es gibt keine feste Dashboard-Obergrenze für die Anzahl unterschiedlicher **angepasster Events** oder **angepasster Attribute**, die Sie in einem Profil definieren oder speichern können. Die praktischen Grenzen hängen von der Datenstruktur, dem Aufnahmevolumen und der Workspace-Performance ab. Wenn Sie einen sehr großen Katalog von Events oder Attributen tracken möchten, arbeiten Sie mit Ihrem Braze-Account-Team an der Modellierung und Datenhygiene (z. B. [Blockieren]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data) ungenutzter Daten).
+Es gibt keine feste Dashboard-Obergrenze für die Anzahl unterschiedlicher **angepasster Events** oder **angepasster Attribute**, die Sie in einem Profil definieren oder speichern können. Die praktischen Grenzen hängen von der Datenstruktur, dem Ingestion-Volumen und der Workspace-Performance ab. Wenn Sie einen sehr großen Katalog von Events oder Attributen tracken möchten, arbeiten Sie mit Ihrem Braze-Account-Team an Modellierung und Datenpflege (zum Beispiel [Blocklisting]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data) ungenutzter Daten).
 {% endalert %}
 
-## Anzeigen von Nutzungsberichten {#viewing-usage-reports}
+## Nutzungsberichte anzeigen {#viewing-usage-reports}
 
 Der Nutzungsbericht listet alle Canvases, Campaigns und Segments auf, die ein bestimmtes angepasstes Event verwenden. Diese Liste enthält keine Verwendungen von Liquid.
 
-Sie können bis zu 100 Nutzungsberichte gleichzeitig anzeigen, indem Sie die Kontrollkästchen neben den jeweiligen angepassten Events aktivieren und dann **Nutzungsbericht anzeigen** auswählen.
+Sie können bis zu 100 Nutzungsberichte gleichzeitig anzeigen, indem Sie die Kontrollkästchen neben den entsprechenden angepassten Events aktivieren und dann **Nutzungsbericht anzeigen** auswählen.
 
 ## Angepasste Events protokollieren {#logging-custom-events}
 
-Angepasste Events erfordern eine zusätzliche Einrichtung. In der folgenden Plattform-Dokumentation finden Sie die Methoden zum Protokollieren angepasster Events sowie Informationen dazu, wie Sie Eigenschaften und Mengen zu Ihren angepassten Events hinzufügen können.
+Angepasste Events erfordern eine zusätzliche Einrichtung. In der folgenden Plattform-Dokumentation finden Sie die Methoden zur Protokollierung angepasster Events und erfahren, wie Sie Ihren angepassten Events Eigenschaften und Mengen hinzufügen können.
 
 {% details Dokumentation nach Plattform anzeigen %}
 
 - [Android und FireOS]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=android)
 - [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=swift)
 - [Internet]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=web)
-- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics#logging-custom-events)
+- [React Native]({{site.baseurl}}/developer_guide/analytics#custom-events)
 - [Unity]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=unity)
-- [.NET MAUI (ehemals Xamarin)]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics#tracking-custom-events)
+- [.NET MAUI (ehemals Xamarin)]({{site.baseurl}}/developer_guide/analytics?sdktab=xamarin#custom-events)
 - [Roku]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=roku)
 
 {% enddetails %}
@@ -98,35 +98,35 @@ Jedes Event enthält:
 
 - **Event-Typ:** Ob es sich um ein angepasstes Event oder einen Kauf handelt.
 - **Event-Name:** Der Event-Name, wie er protokolliert wurde.
-- **Zeitpunkt:** Wann das Event aufgetreten ist.
+- **Zeit:** Wann das Event aufgetreten ist.
 - **Eigenschaften:** Die vollständigen Event-Eigenschaften für dieses Vorkommen, dargestellt als JSON.
 
 Häufige Anwendungsfälle sind:
 
-- Überprüfen, ob Ihre SDK- oder API-Integration Events wie erwartet sendet – während der Entwicklung oder nach einem Release.
+- Überprüfen, ob Ihre SDK- oder API-Integration während der Entwicklung oder nach einem Release Events wie erwartet sendet.
 - Fehlerbehebung, warum Nutzer:innen eine event-getriggerte Campaign oder ein Canvas betreten haben oder nicht.
-- Untersuchung eines Support-Falls für bestimmte Nutzer:innen, ohne einen Datenexport einrichten zu müssen.
+- Untersuchung eines Support-Problems für bestimmte Nutzer:innen, ohne einen Datenexport einrichten zu müssen.
 
 {% alert note %}
-Zum Anzeigen des Tabs **Event-Verlauf** sind die Nutzerberechtigungen **Nutzer:innen suchen**, **PII anzeigen** und **Event-Eigenschaften von Nutzer:innen anzeigen** erforderlich, da Event-Eigenschaften personenbezogene Daten enthalten können. Weitere Informationen finden Sie unter [Nutzerberechtigungen im Unternehmen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
+Das Anzeigen des Tabs **Event-Verlauf** erfordert die Nutzerberechtigungen **Nutzer:innen suchen**, **PII anzeigen** und **Event-Eigenschaften von Nutzer:innen anzeigen**, da Event-Eigenschaften personenbezogene Daten enthalten können. Weitere Informationen finden Sie unter [Nutzerberechtigungen im Unternehmen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 {% endalert %}
 
 ## Segmentierungsfilter {#segmentation-filters}
 
-Die folgende Tabelle zeigt die verfügbaren Filter für die Segmentierung von Nutzer:innen nach angepassten Events.
+Die folgende Tabelle zeigt die Filter, die für die Segmentierung von Nutzer:innen nach angepassten Events verfügbar sind.
 
 | Segmentierungsoptionen | Dropdown-Filter | Eingabeoptionen |
 | ---------------------| --------------- | ------------- |
-| Prüfen, ob das angepasste Event **mehr als X Mal** aufgetreten ist | **MORE THAN** | **NUMBER** |
-| Prüfen, ob das angepasste Event **weniger als X Mal** aufgetreten ist | **LESS THAN** | **NUMBER** |
-| Prüfen, ob das angepasste Event **genau X Mal** aufgetreten ist | **EXACTLY** | **NUMBER** |
-| Prüfen, ob das angepasste Event zuletzt **nach dem Datum X** aufgetreten ist | **AFTER** | **TIME** |
-| Prüfen, ob das angepasste Event zuletzt **vor dem Datum X** aufgetreten ist | **BEFORE** | **TIME** |
-| Prüfen, ob das angepasste Event zuletzt **vor mehr als X Tagen** aufgetreten ist | **MORE THAN** | **NUMBER OF DAYS AGO** (positive Zahl) |
-| Prüfen, ob das angepasste Event zuletzt **vor weniger als X Tagen** aufgetreten ist | **LESS THAN** | **NUMBER OF DAYS AGO** (positive Zahl) |
-| Prüfen, ob das angepasste Event **mehr als X Mal (Max = 50)** aufgetreten ist | **MORE THAN** | in den letzten **Y Tagen (Y = 1,3,7,14,21,30)** |
-| Prüfen, ob das angepasste Event **weniger als X Mal (Max = 50)** aufgetreten ist | **LESS THAN** | in den letzten **Y Tagen (Y = 1,3,7,14,21,30)** |
-| Prüfen, ob das angepasste Event **genau X Mal (Max = 50)** aufgetreten ist | **EXACTLY** | in den letzten **Y Tagen (Y = 1,3,7,14,21,30)** |
+| Prüfen, ob das angepasste Event **mehr als X-mal** aufgetreten ist | **MEHR ALS** | **ANZAHL** |
+| Prüfen, ob das angepasste Event **weniger als X-mal** aufgetreten ist | **WENIGER ALS** | **ANZAHL** |
+| Prüfen, ob das angepasste Event **genau X-mal** aufgetreten ist | **GENAU** | **ANZAHL** |
+| Prüfen, ob das angepasste Event zuletzt **nach dem Datum X** aufgetreten ist | **NACH** | **ZEIT** |
+| Prüfen, ob das angepasste Event zuletzt **vor dem Datum X** aufgetreten ist | **VOR** | **ZEIT** |
+| Prüfen, ob das angepasste Event zuletzt **vor mehr als X Tagen** aufgetreten ist | **MEHR ALS** | **ANZAHL DER TAGE HER** (positive Zahl) |
+| Prüfen, ob das angepasste Event zuletzt **vor weniger als X Tagen** aufgetreten ist | **WENIGER ALS** | **ANZAHL DER TAGE HER** (positive Zahl) |
+| Prüfen, ob das angepasste Event **mehr als X-mal (Max = 50)** aufgetreten ist | **MEHR ALS** | in den letzten **Y Tagen (Y = 1,3,7,14,21,30)** |
+| Prüfen, ob das angepasste Event **weniger als X-mal (Max = 50)** aufgetreten ist | **WENIGER ALS** | in den letzten **Y Tagen (Y = 1,3,7,14,21,30)** |
+| Prüfen, ob das angepasste Event **genau X-mal (Max = 50)** aufgetreten ist | **GENAU** | in den letzten **Y Tagen (Y = 1,3,7,14,21,30)** |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Segmentierungsfilter" }
 
 ## Analytics

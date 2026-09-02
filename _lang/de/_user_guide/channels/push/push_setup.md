@@ -21,12 +21,12 @@ guide_featured_list:
 
 ## Voraussetzungen {#prerequisites}
 
-Bevor Sie Push-Nachrichten mit Braze erstellen und versenden können, müssen Sie mit Ihren Entwickler:innen zusammenarbeiten, um Push in Ihre Website oder App zu integrieren. Detaillierte Schritte finden Sie in unseren Integrationsleitfäden für die jeweilige Plattform:
+Bevor Sie Push-Nachrichten mit Braze erstellen und senden können, müssen Sie mit Ihren Entwickler:innen zusammenarbeiten, um Push in Ihre Website oder App zu integrieren. Detaillierte Schritte finden Sie in unseren Integrationsleitfäden für jede Plattform:
 
 - [iOS]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift)
-- [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications?tab=android)
-- [Web]({{site.baseurl}}/developer_guide/push_notifications?sdktab=web)
+- [Android]({{site.baseurl}}/developer_guide/push_notifications?sdktab=android)
+- [Internet]({{site.baseurl}}/developer_guide/push_notifications?sdktab=web)
 
 ## Push-Priming {#push-priming}
 
-Beachten Sie, dass Nutzer:innen dem Empfang von Push-Benachrichtigungen zustimmen müssen (Opt-in), um Ihre Nachrichten zu erhalten. Daher ist es sinnvoll, In-App-Nachrichten zu verwenden, um Ihren Kund:innen zu erklären, warum Sie ihnen Push-Benachrichtigungen senden möchten und welche Vorteile die Aktivierung von Push für sie hat. Dieser Prozess wird als [Push-Priming]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) bezeichnet.
+Beachten Sie, dass Nutzer:innen Push aktivieren müssen, um Ihre Nachrichten zu empfangen. Daher ist es sinnvoll, In-App-Nachrichten zu verwenden, um Ihren Kund:innen zu erklären, warum Sie ihnen Push-Benachrichtigungen senden möchten und wie die Aktivierung von Push ihnen nützt. Dieser Prozess wird als [Push-Priming]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) bezeichnet.

@@ -146,7 +146,7 @@ In-App Message
 Feature Flags
 {% endapitags %}
 
-La performance du message à travers les différents canaux. Les indicateurs affichés dépendent du canal de communication sélectionné et du fait que l'[expérience d'indicateur de fonctionnalité]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/experiments#campaign-analytics) est un test multivarié ou non.
+La performance du message à travers les différents canaux. Les indicateurs affichés dépendent du canal de communication sélectionné et du fait que l'[expérience d'indicateur de fonctionnalité]({{site.baseurl}}/developer_guide/feature_flags/experiments#campaign-analytics) est un test multivarié ou non.
 
 {% endapi %}
 

@@ -6,7 +6,6 @@ layout: api_page
 page_order: 4.5
 page_type: reference
 description: "이 문서에서는 동기식 사용자 추적 Braze 엔드포인트에 대한 자세한 내용을 설명합니다."
-
 ---
 {% api %}
 # 사용자 생성 및 업데이트 (동기) {#create-and-update-users-synchronous}
@@ -32,7 +31,7 @@ description: "이 문서에서는 동기식 사용자 추적 Braze 엔드포인�
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `users.track.sync` 권한이 있는 [API 키]({{site.baseurl}}/api/api_key)가 필요합니다.
+이 엔드포인트를 사용하려면 `users.track.sync` 권한이 있는 [API 키]({{site.baseurl}}/api/basics)가 필요합니다.
 
 서버 간 호출에 API를 사용하는 고객이 방화벽 뒤에 있는 경우 `rest.iad-01.braze.com`을 허용 목록에 추가해야 할 수 있습니다.
 

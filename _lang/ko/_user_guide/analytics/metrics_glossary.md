@@ -146,7 +146,7 @@ In-App Message
 Feature Flags
 {% endapitags %}
 
-다양한 채널에 걸친 메시지의 성능입니다. 표시되는 측정기준은 선택한 메시징 채널과 [피처 플래그 실험]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/experiments#campaign-analytics)이 다변량 테스트인지 여부에 따라 달라집니다.
+다양한 채널에 걸친 메시지의 성능입니다. 표시되는 측정기준은 선택한 메시징 채널과 [피처 플래그 실험]({{site.baseurl}}/developer_guide/feature_flags/experiments#campaign-analytics)이 다변량 테스트인지 여부에 따라 달라집니다.
 
 {% endapi %}
 

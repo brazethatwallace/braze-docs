@@ -6,7 +6,6 @@ page_order: 1
 layout: api_page
 page_type: reference
 description: "이 문서에서는 새 사용자 별칭 만들기 Braze 엔드포인트에 대한 자세한 내용을 설명합니다."
-
 ---
 {% api %}
 # 새 사용자 별칭 만들기 {#create-new-user-alias}
@@ -22,7 +21,7 @@ description: "이 문서에서는 새 사용자 별칭 만들기 Braze 엔드포
 
 **별칭 전용 사용자를 새로 만들려면** 새 사용자 별칭 오브젝트에서 `external_id`를 생략해야 합니다. 사용자가 생성된 후 `/users/track` 엔드포인트를 사용하여 별칭 전용 사용자를 속성, 이벤트 및 구매와 연결하고, `/users/identify` 엔드포인트를 사용하여 `external_id`로 사용자를 식별합니다.
 
-`user_alias`를 사용하여 [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) 엔드포인트를 통해 API 트리거 캠페인(Campaign)을 사용자에게 보낼 수 있습니다.
+`user_alias`를 사용하여 [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) 엔드포인트를 통해 API 트리거 Campaign(캠페인)을 사용자에게 보낼 수 있습니다.
 
 ## `alias_label`과 `alias_name`이 이미 존재하는 경우 {#when-alias_label-and-alias_name-already-exist}
 
@@ -34,7 +33,7 @@ description: "이 문서에서는 새 사용자 별칭 만들기 Braze 엔드포
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `users.alias.new` 권한이 있는 [API 키]({{site.baseurl}}/api/api_key)가 필요합니다.
+이 엔드포인트를 사용하려면 `users.alias.new` 권한이 있는 [API 키]({{site.baseurl}}/api/basics)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 

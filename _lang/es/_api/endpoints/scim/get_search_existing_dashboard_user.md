@@ -121,7 +121,7 @@ curl --location --request GET \ 'https://rest.iad-01.braze.com/scim/v2/Users?fil
 | `department` | Cadena | El departamento del usuario, si está configurado. |
 | `createdAt` | Cadena | Fecha en la que se creó la cuenta de usuario. Devuelve `N/A` cuando no está configurado; de lo contrario, tiene el formato `YYYY Mon DD, H:MM AM/PM`. |
 | `lastSignInAt` | Cadena | Fecha en la que el usuario inició sesión por última vez. Devuelve `N/A` si el usuario no ha iniciado sesión; de lo contrario, tiene el formato `YYYY Mon DD, H:MM AM/PM`. |
-| `permissions` | Objeto | Permisos de empresa, espacio de trabajo, equipo y rol. Consulta el [objeto de permisos]({{site.baseurl}}/scim_api_appendix). |
+| `permissions` | Objeto | Permisos de empresa, espacio de trabajo, equipo y rol. Consulta el [objeto de permisos]({{site.baseurl}}/api/objects_filters/scim_api_appendix). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Campos del objeto de usuario" }
 
 ### Estados de error {#error-states}

@@ -2,19 +2,19 @@
 
 ### 사전 요구 사항 {#prerequisites}
 
-시작하기 전에 사용 환경이 [최신 Braze Cordova SDK 버전](https://github.com/braze-inc/braze-cordova-sdk?tab=readme-ov-file#minimum-version-requirements)에서 지원되는지 확인하세요.
+시작하기 전에, [최신 Braze Cordova SDK 버전](https://github.com/braze-inc/braze-cordova-sdk?tab=readme-ov-file#minimum-version-requirements)에서 사용 중인 환경이 지원되는지 확인하세요.
 
 ### 1단계: 프로젝트에 SDK 추가하기 {#step-1-add-the-sdk-to-your-project}
 
 {% alert warning %}
-Braze Cordova SDK는 아래 방법으로만 추가하세요. 다른 방법으로 설치를 시도하면 보안 침해가 발생할 수 있습니다.
+Braze Cordova SDK는 반드시 다음 방법을 사용하여 추가하세요. 다른 방법으로 설치를 시도하면 보안 침해가 발생할 수 있습니다.
 {% endalert %}
 
-Cordova 6 이상을 사용하는 경우 GitHub에서 직접 SDK를 추가할 수 있습니다. 또는 [GitHub 리포지토리](https://github.com/braze-inc/braze-cordova-sdk)에서 ZIP 파일을 다운로드하여 수동으로 SDK를 추가할 수도 있습니다.
+Cordova 6 이상을 사용하는 경우, GitHub에서 직접 SDK를 추가할 수 있습니다. 또는 [GitHub 리포지토리](https://github.com/braze-inc/braze-cordova-sdk)의 ZIP 파일을 다운로드하여 수동으로 SDK를 추가할 수도 있습니다.
 
 {% tabs local %}
 {% tab 지오펜스 비활성화 %}
-위치 수집 및 지오펜스를 사용할 계획이 없는 경우, GitHub에서 `master` 브랜치를 사용하세요.
+위치 수집 및 지오펜스를 사용할 계획이 없는 경우, GitHub의 `master` 브랜치를 사용하세요.
 
 ```bash
 cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#master
@@ -22,7 +22,7 @@ cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#master
 {% endtab %}
 
 {% tab 지오펜스 활성화 %}
-위치 수집 및 지오펜스를 사용할 계획인 경우, GitHub에서 `geofence-branch`를 사용하세요.
+위치 수집 및 지오펜스를 사용할 계획인 경우, GitHub의 `geofence-branch`를 사용하세요.
 
 ```bash
 cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#geofence-branch
@@ -36,7 +36,7 @@ cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#geofence-branc
 
 ### 2단계: 프로젝트 구성하기 {#step-2-configure-your-project}
 
-다음으로, 프로젝트의 `config.xml` 파일에 있는 `platform` 요소에 다음 환경설정을 추가합니다.
+다음으로, 프로젝트의 `config.xml` 파일에서 `platform` 요소에 다음 환경 설정을 추가합니다.
 
 {% tabs %}
 {% tab ios %}
@@ -54,12 +54,12 @@ cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#geofence-branc
 {% endtab %}
 {% endtabs %}
 
-다음 값을 교체하세요:
+다음 값을 교체합니다:
 
 | 값                    | 설명                                                                                                                             |
 | --------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | `BRAZE_API_KEY`       | [Braze REST API 키]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab#rest-api-keys).                    |
-| `CUSTOM_API_ENDPOINT` | 커스텀 API 엔드포인트. 이 엔드포인트는 Braze 인스턴스 데이터를 Braze 대시보드의 올바른 앱 그룹으로 라우팅하는 데 사용됩니다. |
+| `CUSTOM_API_ENDPOINT` | 커스텀 API 엔드포인트. 이 엔드포인트는 Braze 인스턴스 데이터를 Braze 대시보드의 올바른 앱 그룹으로 라우팅하는 데 사용됩니다.     |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="2단계: 프로젝트 구성하기" }
 
 `config.xml` 파일의 `platform` 요소는 다음과 유사해야 합니다:
@@ -92,7 +92,7 @@ cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#geofence-branc
 
 {% tabs %}
 {% tab ios %}
-정수 환경 설정은 다음 예시와 같이 문자열 표현으로 읽힙니다:
+정수 환경설정은 다음 예제와 같이 문자열 표현으로 읽힙니다:
 
 ```xml
 <platform name="ios">
@@ -103,7 +103,7 @@ cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#geofence-branc
 {% endtab %}
 
 {% tab android %}
-Cordova 8.0.0+ 프레임워크가 환경 설정을 처리하는 방식으로 인해, 정수 전용 환경 설정(예: 발신자 ID)은 다음 예시와 같이 `str_`를 앞에 붙인 문자열로 설정해야 합니다:
+Cordova 8.0.0+ 프레임워크가 환경설정을 처리하는 방식으로 인해, 정수 전용 환경설정(예: 발신자 ID)은 다음 예제와 같이 `str_`을 앞에 붙인 문자열로 설정해야 합니다:
 
 ```xml
 <platform name="android">
@@ -118,7 +118,7 @@ Cordova 8.0.0+ 프레임워크가 환경 설정을 처리하는 방식으로 인
 
 {% tabs %}
 {% tab ios %}
-불리언 환경 설정은 다음 예시와 같이 `YES` 및 `NO` 키워드를 문자열 표현으로 사용하여 SDK에서 읽힙니다:
+불리언 환경설정은 다음 예제와 같이 SDK에서 `YES` 및 `NO` 키워드를 문자열 표현으로 사용하여 읽습니다:
 
 ```xml
 <platform name="ios">
@@ -129,7 +129,7 @@ Cordova 8.0.0+ 프레임워크가 환경 설정을 처리하는 방식으로 인
 {% endtab %}
 
 {% tab android %}
-불리언 환경 설정은 다음 예시와 같이 `true` 및 `false` 키워드를 문자열 표현으로 사용하여 SDK에서 읽힙니다:
+불리언 환경설정은 다음 예제와 같이 SDK에서 `true` 및 `false` 키워드를 문자열 표현으로 사용하여 읽습니다:
 
 ```xml
 <platform name="android">
@@ -282,15 +282,15 @@ Cordova 8.0.0+ 프레임워크가 환경 설정을 처리하는 방식으로 인
 
 세션 추적을 다시 시작하려면 `BrazePlugin.startSessionTracking()`을 호출하세요. 다음 `Activity.onStart()` 이후에 시작된 세션만 추적된다는 점에 유의하세요.
 
-## 헤드업 알림을 위한 알림 채널 구성 (Android 전용) {#configuring-notification-channels-for-heads-up-notifications-android-only}
+## 헤즈업 알림을 위한 알림 채널 구성 (Android 전용) {#configuring-notification-channels-for-heads-up-notifications-android-only}
 
-Android 8.0(API 레벨 26) 이상에서는 알림 동작이 알림 채널을 통해 제어됩니다. 헤드업 알림(사용자가 기기를 사용하는 동안 화면 상단에 잠시 나타나는 알림)을 표시하려면, Android 애플리케이션 코드에서 `NotificationManager.IMPORTANCE_HIGH`로 알림 채널을 생성해야 합니다.
+Android 8.0(API 레벨 26) 이상에서는 알림 동작이 알림 채널을 통해 제어됩니다. 사용자가 기기를 사용하는 동안 화면 상단에 잠시 나타나는 헤즈업 알림을 표시하려면, Android 애플리케이션 코드에서 `NotificationManager.IMPORTANCE_HIGH`로 알림 채널을 생성해야 합니다.
 
-Cordova SDK에서는 `config.xml` 환경설정(`default_notification_channel_name` 및 `default_notification_channel_description`)을 통해 기본 알림 채널 이름과 설명을 설정할 수 있지만, 중요도 수준은 네이티브 Android 코드에서 프로그래밍 방식으로 구성해야 합니다.
+Cordova SDK는 `config.xml` 환경설정(`default_notification_channel_name` 및 `default_notification_channel_description`)을 통해 기본 알림 채널 이름과 설명을 설정할 수 있지만, 중요도 수준은 네이티브 Android 코드에서 프로그래밍 방식으로 구성해야 합니다.
 
-### 예시: 높은 중요도 알림 채널 생성 {#example-creating-a-high-importance-notification-channel}
+### 예시: 높은 중요도의 알림 채널 생성 {#example-creating-a-high-importance-notification-channel}
 
-다음 코드를 Android 애플리케이션의 `Application` 클래스 `onCreate()` 메서드에 추가하세요:
+다음 코드를 Android 애플리케이션의 `Application` 클래스 `onCreate()` 메서드에 추가합니다:
 
 {% subtabs local %}
 {% subtab Kotlin %}
@@ -346,8 +346,8 @@ public void onCreate() {
 {% endsubtab %}
 {% endsubtabs %}
 
-Android 코드에서 채널을 생성한 후, Braze 대시보드에서 푸시 알림을 보낼 때 해당 채널 ID를 사용하세요. 알림 채널에 대한 자세한 내용은 [Android 알림 채널]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels)을 참조하세요.
+Android 코드에서 채널을 생성한 후, Braze 대시보드에서 푸시 알림을 보낼 때 해당 채널 ID를 사용합니다. 알림 채널에 대한 자세한 내용은 [Android 알림 채널]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/notification_channels)을 참조하세요.
 
 ## 플러그인 업그레이드 후 iOS 빌드 문제 해결 {#troubleshooting-ios-builds-after-upgrading-the-plugin}
 
-Cordova Braze SDK 9.0.0 이상은 Swift SDK 9.0.0 이상을 사용합니다. Swift SDK 8.0.0부터 해당 네이티브 SDK는 **Xcode 15.2**로 컴파일됩니다. Cordova 플러그인을 9.0.0 이상으로 업그레이드한 후 iOS 빌드가 실패하는 경우, Xcode를 15.2 이상으로 업데이트하고 플러그인이 사용하는 네이티브 iOS 버전에 대한 [Swift SDK 체인지로그]({{site.baseurl}}/developer_guide/changelogs/?sdktab=swift)와 일치하는지 확인하세요.
+Cordova Braze SDK 9.0.0 이상에서는 Swift SDK 9.0.0 이상을 사용합니다. Swift SDK 8.0.0부터 해당 네이티브 SDK는 **Xcode 15.2**로 컴파일됩니다. Cordova 플러그인을 9.0.0 이상으로 업그레이드한 후 iOS 빌드가 실패하면, Xcode를 15.2 이상으로 업데이트하고 플러그인이 사용하는 네이티브 iOS 버전에 해당하는 [Swift SDK 체인지로그]({{site.baseurl}}/developer_guide/changelogs/?sdktab=swift)와 일치하는지 확인하세요.

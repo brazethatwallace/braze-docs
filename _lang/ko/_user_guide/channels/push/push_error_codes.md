@@ -20,7 +20,7 @@ platform:
 `MismatchSenderId`는 인증 실패를 나타냅니다. Firebase Cloud Messaging(FCM)은 senderID와 FCM API 키라는 두 가지 핵심 데이터로 인증합니다. 두 가지 모두 정확성을 검증해야 합니다. 이 문제에 대한 자세한 내용은 [Android 설명서](https://firebase.google.com/docs/cloud-messaging/http-server-ref#error-codes)를 참조하세요.
 
 일반적인 실패 원인은 다음과 같습니다:
-- 잘못된 [senderID]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration#step-1-enable-firebase)
+- 잘못된 [senderID]({{site.baseurl}}/developer_guide/push_notifications?sdktab=android)
 - 다른 senderID를 사용하는 다른 푸시 서비스에 등록한 경우 다중 등록
 
 ### 푸시 반송: InvalidRegistration {#push-bounced-invalidregistration}
@@ -43,14 +43,14 @@ platform:
 - 커스텀 로직이 사용자를 푸시에서 등록 해제하는 경우. 드문 경우이지만, [Firebase/Android SDK](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/FirebaseMessaging#deleteToken())를 사용하여 프로그래밍 방식으로 기기의 푸시 등록을 해제하는 것이 기술적으로 가능합니다.
 
 {% alert note %}
-이 오류는 사용자가 푸시 비활성화 상태라는 의미가 아니라, 특정 토큰이 프로필에서 제거되었다는 의미입니다. 이는 기능을 테스트하면서 앱을 자주 설치하고 삭제하는 사용자에게 흔히 발생합니다. 사용자에게 여전히 유효한 토큰이 있는지 확인하려면 **사용자 검색**으로 이동하여 **참여** 탭의 **연락처 설정** 섹션을 확인하세요.
+이 오류는 사용자가 푸시 비활성화 상태라는 의미가 아니라, 특정 토큰이 프로필에서 제거되었다는 의미입니다. 이는 기능을 테스트하면서 앱을 자주 설치하고 삭제하는 사용자에게 흔히 발생합니다. 사용자에게 여전히 유효한 토큰이 있는지 확인하려면 **사용자 검색**으로 이동하여 **인게이지먼트** 탭의 **연락처 설정** 섹션을 확인하세요.
 {% endalert %}
 
 ### 요청한 엔터티를 찾을 수 없음 {#requested-entity-was-not-found}
 
 이 오류는 다음과 같은 이유로 발생할 수 있습니다:
 
-- 최종 사용자가 앱을 삭제한 경우. 고객 프로필을 확인하여 해당 여부를 확인할 수 있습니다.
+- 최종사용자가 앱을 삭제한 경우. 고객 프로필을 확인하여 해당 여부를 확인할 수 있습니다.
 - 유효하지 않은 알림 채널이 있는 경우. 통합 방식에 따라 기기에 특정 알림 채널에서만 유효한 푸시 토큰이 있을 수 있습니다. 유효하지 않은 채널로 전송하면 메시지가 반송됩니다.
 - 페이로드 크기가 너무 큰 경우.
 
@@ -61,7 +61,7 @@ platform:
 
 ### 페이로드가 유효하지 않아 푸시 전송 오류 발생 {#error-sending-push-because-the-payload-was-invalid}
 
-이 메시지는 Apple Push Notification service(APNs)가 유효하지 않은 페이로드로 인해 푸시 요청을 거부할 때 사용자 프로필 **참여** 탭의 **연락처 설정** > **푸시 체인지로그**에 표시될 수 있습니다.
+이 메시지는 Apple Push Notification service(APNs)가 유효하지 않은 페이로드로 인해 푸시 요청을 거부할 때 사용자 프로필 **인게이지먼트** 탭의 **연락처 설정** > **푸시 체인지로그**에 표시될 수 있습니다.
 
 Braze에서 이 대시보드 메시지는 다음 APNs 오류 원인 중 하나에 매핑될 수 있습니다:
 
@@ -113,7 +113,7 @@ Braze에서 이 대시보드 메시지는 다음 APNs 오류 원인 중 하나�
 - 커스텀 로직이 사용자를 푸시에서 등록 해제하는 경우. 드문 경우이지만, iOS SDK를 사용하여 프로그래밍 방식으로 원격 알림 등록을 해제하는 것이 기술적으로 가능합니다.
 
 {% alert note %}
-이 오류는 사용자가 푸시 비활성화 상태라는 의미가 아니라, 특정 토큰이 프로필에서 제거되었다는 의미입니다. 사용자에게 여전히 유효한 토큰이 있는지 확인하려면 **사용자 검색**으로 이동하여 **참여** 탭의 **연락처 설정** 섹션을 확인하세요.
+이 오류는 사용자가 푸시 비활성화 상태라는 의미가 아니라, 특정 토큰이 프로필에서 제거되었다는 의미입니다. 사용자에게 여전히 유효한 토큰이 있는지 확인하려면 **사용자 검색**으로 이동하여 **인게이지먼트** 탭의 **연락처 설정** 섹션을 확인하세요.
 {% endalert %}
 
 ### InvalidProviderToken

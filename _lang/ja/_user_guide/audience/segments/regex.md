@@ -7,6 +7,7 @@ page_type: reference
 tool:
   - Testing Tools
 
+
 ---
 
 # [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/regular-expression-basics-for-braze){: style="float:right;width:120px;border:0;" class="noimgborder"} 正規表現 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomregular-expression-basics-for-braze-stylefloatrightwidth120pxborder0-classnoimgborder-regular-expressions}
@@ -19,24 +20,24 @@ tool:
 
 ## リソース {#resources}
 
-- [正規表現の基礎](https://learning.braze.com/regular-expression-basics-for-braze) Brazeラーニングコース
-- [Regexチートシート]({{site.baseurl}}/regex_cheat_sheet)
-- [サンプルデータRTF]({% image_buster /assets/download_file/regex-dummy-data.rtf %})
+- [正規表現の基礎](https://learning.braze.com/regular-expression-basics-for-braze) Braze Learningコース
+- [正規表現チートシート]({{site.baseurl}}/regex_cheat_sheet)
+- [サンプルデータ RTF]({% image_buster /assets/download_file/regex-dummy-data.rtf %})
 
-## Regexデバッガー {#regex-debugger}
+## 正規表現デバッガー {#regex-debugger}
 
 {% alert important %}
-このツールはあくまで参考用であり、Brazeプラットフォームでのregexマッチが100%一致することを保証するものではありません。Brazeのセグメンテーションおよびフィルターにおける正規表現は、自動的に`/gi`修飾子を追加します。[gi修飾子](https://w3schools.sinsixx.com/jsref/jsref_regexp_modifier_gi.asp.htm)は、文字列内の正規表現のすべての出現箇所を大文字小文字を区別せずに検索するために使用されます。
+このツールはあくまで参考用であり、Brazeプラットフォームでの正規表現の一致を100%保証するものではありません。Brazeでのセグメンテーションおよびフィルター用の正規表現には、自動的に`/gi`修飾子が付加されます。[gi修飾子](https://w3schools.sinsixx.com/jsref/jsref_regexp_modifier_gi.asp.htm)は、文字列内の正規表現に一致するすべての箇所を大文字・小文字を区別せずに検索するために使用されます。
 <br>
-カスタムイベントのトリガープロパティおよびトリガーフィルターの正規表現は、`/g`修飾子（大文字小文字を区別、[g修飾子](https://www.w3schools.com/jsref/jsref_regexp_g.asp)を参照）を使用し、`/i`修飾子は使用しません。カスタムイベントのトリガープロパティおよびトリガーフィルターで大文字小文字を区別しない場合は、代わりに`(?i)`を使用してください。例えば、`Matches regex (?i)STOP(?-i)`は、「STOP」のあらゆる大文字小文字の組み合わせ（「stop」、「please stop」、「never stop sending me messages」など）をキャッチします。
+カスタムイベントのトリガープロパティおよびトリガーフィルター用の正規表現では、`/g`修飾子（大文字・小文字を区別、[g修飾子](https://www.w3schools.com/jsref/jsref_regexp_g.asp)を参照）を使用し、`/i`修飾子は使用しません。カスタムイベントのトリガープロパティおよびトリガーフィルターで大文字・小文字を区別しない検索を行うには、代わりに`(?i)`を使用してください。例えば、`Matches regex (?i)STOP(?-i)`は、あらゆる大文字・小文字の組み合わせでの「STOP」の使用（「stop」、「please stop」、「never stop sending me messages」など）に一致します。
 {% endalert %}
 
 {% tabs %}
-{% tab Regex Debugger %}
+{% tab 正規表現デバッガー %}
 <div>
 このフォームでは、正規表現の基本的な検証とテストを行うことができます。
 ​
-Regex:
+正規表現:
 ​
 <div class="input-group">
   <div class="input-group-prepend"><span class="input-group-text">/</span>
@@ -48,7 +49,7 @@ Regex:
 <br />
 チェック値: <textarea style="" placeholder="match string" id="regex_text"></textarea><br /><br />
 ​
-マッチ結果<span id="reg_count"></span>: <div id="regex_results"></div>
+一致結果<span id="reg_count"></span>: <div id="regex_results"></div>
 </div>
 <style type="text/css">
 #regex_text {
@@ -138,85 +139,93 @@ $( document ).ready(function() {
 
 ## よくある質問 {#frequently-asked-questions}
 
-### `does not match regex`フィルターには空白の値が含まれますか？ {#does-the-does-not-match-regex-filter-include-blank-values}
+### `does not match regex` フィルターには空白値が含まれますか？ {#does-the-does-not-match-regex-filter-include-blank-values}
 
-いいえ。値が空白の場合、そのユーザーは`does not match regex`フィルターに含まれません。
+いいえ。値が空白の場合、そのユーザーは `does not match regex` フィルターに含まれません。
 
-### 文字列カスタム属性に対して複数の正確な値のいずれかにマッチさせるにはどうすればよいですか（OR論理）？ {#how-do-i-match-any-of-several-exact-values-or-logic-for-a-string-custom-attribute}
+### 文字列カスタム属性に対して、複数の正確な値のいずれかに一致させる（OR ロジック）にはどうすればよいですか？ {#how-do-i-match-any-of-several-exact-values-or-logic-for-a-string-custom-attribute}
 
-交互パターンと開始・終了アンカーを使用して、各値が正確にマッチし、部分一致を拾わないようにします。例えば、`gold`、`silver`、または`bronze`に正確にマッチさせるには：
+先頭アンカーと末尾アンカーを使った交互パターンを使用して、各値が正確に一致し、部分一致が発生しないようにします。たとえば、`gold`、`silver`、または `bronze` に正確に一致させるには次のようにします。
 
 ```
 (^gold$)|(^silver$)|(^bronze$)
 ```
 
-### セグメンテーション時に受信トレイ固有のメールアドレスをフィルタリングするにはどうすればよいですか？ {#how-do-i-filter-for-inbox-specific-email-addresses-when-segmenting}
+### セグメンテーション時に、受信トレイ固有のメールアドレスをフィルタリングするにはどうすればよいですか？ {#how-do-i-filter-for-inbox-specific-email-addresses-when-segmenting}
 
 {% raw %}
-メールアドレスフィルターを使用し、`matches regex`に設定します。次に、メールアドレス用のregexを参照してください：
+メールアドレスフィルターを使用し、`matches regex` に設定します。次に、メールアドレス用の正規表現を参照します。
 
 ```
 [a-zA-Z0-9.+_-]+@[a-zA-Z0-9.-]+\.[a-zA-Z.-]+
 ```
 
-このregexは以下の3つの部分に分解できます：
+この正規表現は次の3つの部分に分けることができます。
 
-- `[a-zA-Z0-9.+_-]+`は、`@`文字の前のメールアドレスの先頭部分です。つまり、「name@example.com」の「name」の部分です。
-- `[a-zA-Z0-9.-]+`は、ドメインの最初の部分です。つまり、「name@example.com」の「example」の部分です。
-- `[a-zA-Z.-]+`は、ドメインの最後の部分です。つまり、「name@example.com」の「com」の部分です。
+- `[a-zA-Z0-9.+_-]+` は `@` 文字の前のメールアドレスの先頭部分です。「name@example.com」の「name」にあたります。
+- `[a-zA-Z0-9.-]+` はドメインの最初の部分です。「name@example.com」の「example」にあたります。
+- `[a-zA-Z.-]+` はドメインの最後の部分です。「name@example.com」の「com」にあたります。
 
 {% endraw %}
 
 ### 特定のドメインに関連付けられたメールアドレスをフィルタリングするにはどうすればよいですか？ {#how-do-i-filter-for-email-addresses-associated-to-a-specific-domain}
 
-例えば、「@braze.com」で終わるメールをフィルタリングしたい場合、メールアドレスフィルターを使用し、`matches regex`に設定して、regexフィールドに「@braze.com」と入力します。他のメールドメインについても同様です。
+たとえば、「@braze.com」で終わるメールをフィルタリングしたいとします。メールアドレスフィルターを使用し、`matches regex` に設定して、正規表現フィールドに「@braze.com」と入力します。他のメールドメインにも同様に適用できます。
 
-![「@braze.com」のregexに一致するメールアドレスのフィルター]({% image_buster /assets/img/regex/regeximg1.png %})
+![「@braze.com」の正規表現に一致するメールアドレスのフィルター。]({% image_buster /assets/img/regex/regeximg1.png %})
 
-### 値が≥ xまたは≤ xの数値文字列をフィルタリングするにはどうすればよいですか？ {#how-can-i-use-filter-number-strings-for-values-x-or-x}
+### x 以上 (≥) または x 以下 (≤) の値で数値文字列をフィルタリングするにはどうすればよいですか？ {#how-can-i-use-filter-number-strings-for-values-x-or-x}
 
-x以上（≥）の値を検索する場合は、以下のregexを使用します：
+x 以上 (≥) の値を検索する場合は、次の正規表現を使用します。
 
 ```
 ^([x-y]|\d{z,})$
 ```
 
-ここで、`x-y`は最初の桁の数値範囲（0-9）、`z`はxの桁数より1つ多い数です。例えば、50以上の値の場合、regexは`^([5-9][0-9]|\d{3,})$`となります。
+ここで `x-y` は最初の桁の数値範囲（0-9）、`z` は x の桁数より1つ多い数です。たとえば、50以上の値に対する正規表現は `^([5-9][0-9]|\d{3,})$` となります。
 
-x以下（≤）の値を検索する場合は、以下のregexを使用します：
+x 以下 (≤) の値を検索する場合は、次の正規表現を使用します。
 
 ```
 ^([x-y]|[a-b])$
 ```
 
-ここで、`x-y`は最初の桁の数値範囲（0-9）、`a-b`はxの下限範囲です。例えば、50以下の値の場合、regexは`^([5-9][0-9]|[0-4][0-9])$`となります。
+ここで `x-y` は最初の桁の数値範囲（0-9）、`a-b` は x の下限範囲です。たとえば、50以下の値に対する正規表現は `^([5-9][0-9]|[0-4][0-9])$` となります。
 
 ### 特定の文字列で始まるカスタム属性をフィルタリングするにはどうすればよいですか？ {#how-do-i-filter-custom-attributes-that-start-with-a-specific-string}
 
 キャレット記号（`^`）を使用して文字列の先頭を示し、指定したいカスタム属性の名前を入力します。
 
-例えば、「San」で始まる都市に住むユーザーをターゲットにしたい場合、regexは`^San \w`となります。このregexを使用すると、San Francisco、San Diego、San Joseなどの都市のユーザーを正常にターゲットにできます。
+たとえば、「San」で始まる都市に住むユーザーをターゲットにしたい場合、正規表現は `^San \w` になります。この正規表現を使用すると、San Francisco、San Diego、San Jose などの都市のユーザーを正常にターゲットにできます。
 
-![「^San \w」のregexに一致する市区町村のフィルター]({% image_buster /assets/img/regex/regeximg2.png %})
+![「^San \w」の正規表現に一致する市区町村のフィルター。]({% image_buster /assets/img/regex/regeximg2.png %})
 
 ### 特定の電話番号をフィルタリングするにはどうすればよいですか？ {#how-do-i-filter-for-specific-phone-numbers}
 
-regexを使用して電話番号をフィルタリングする前に、ユーザープロファイルに記録される番号は、[ユーザーの電話番号]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers)で指定されている[E.164](https://en.wikipedia.org/wiki/E.164)形式である必要があることを覚えておいてください。
+正規表現を使用して電話番号をフィルタリングする前に、ユーザープロファイルに記録されている番号は、[ユーザーの電話番号]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers)で指定されているとおり、[E.164](https://en.wikipedia.org/wiki/E.164) 形式である必要があることを覚えておいてください。
 
-米国の電話番号を検索する場合、regex形式は`1?\d\d\d\d\d\d\d\d\d\d`を使用します。ここで、`\d`の各繰り返しは指定したい桁を表します。最初の3桁は市外局番です。
+米国の電話番号を検索する場合は、正規表現形式 `1?\d\d\d\d\d\d\d\d\d\d` を使用します。各 `\d` の繰り返しは指定したい数字です。最初の3桁は市外局番です。
 
-同様に、英国の電話番号の形式は`^\+4\d\d\d\d\d\d\d\d\d\d\d`です。他の国の場合は、それぞれの国番号の後に、残りの各桁に必要な数の`\d`の繰り返しを続けます。例えば、国番号が「3」のリトアニアの場合、regexは`^\+3\d\d\d\d\d\d\d\d\d\d`となります。
+同様に、英国の電話番号の形式は `^\+4\d\d\d\d\d\d\d\d\d\d\d` です。他の国の場合は、それぞれの国番号に続いて、残りの各桁に必要な数の `\d` を繰り返します。リトアニアの場合、国番号は「3」なので、正規表現は `^\+3\d\d\d\d\d\d\d\d\d\d` となります。
 
-英国のモバイル番号が先頭の`+`なしで`447`から始まる一般的な形式（例：`447123456789`）で保存されている場合、以下でマッチさせることができます：
+英国の携帯電話番号が先頭に `+` なしで `447` から始まる一般的な形式（たとえば `447123456789`）で保存されている場合は、次のように一致させることができます。
 
 ```
 ^447\d{9}$
 ```
 
-例えば、特定の市外局番「718」で電話番号をフィルタリングしたい場合、電話番号フィルターを使用し、`matches regex`に設定して、以下のregexを入力します：
+たとえば、特定の市外局番「718」で電話番号をフィルタリングしたいとします。電話番号フィルターを使用し、`matches regex` に設定して、次の正規表現を入力します。
 
 ```
 ^1?718\d\d\d\d\d\d\d
 ```
 
-![「^1?718\d\d\d\d\d\d\d」のregexに一致する電話番号のフィルター]({% image_buster /assets/img/regex/regeximg3.png %})
+![「^1?718\d\d\d\d\d\d\d」の正規表現に一致する電話番号のフィルター。]({% image_buster /assets/img/regex/regeximg3.png %})
+
+### セグメントとカスタムイベントトリガープロパティでは、正規表現のマッチングはどのように異なりますか？ {#how-does-regex-matching-differ-between-segments-and-custom-event-trigger-properties}
+
+セグメントフィルターは大文字小文字を区別しないマッチング（`/gi` 修飾子に相当）を自動的に適用します。カスタムイベントトリガープロパティとトリガーフィルターは大文字小文字を区別するマッチング（`/g` のみに相当）を使用します。
+
+トリガープロパティで大文字小文字を区別しないマッチングが必要な場合は、パターンでインラインフラグを使用します。たとえば、`(?i)STOP(?-i)` を使用すると、`stop`、`STOP`、または `Stop` に一致させることができます。
+
+その他の例については、[正規表現デバッガー](#regex-debugger)セクションのメモを参照してください。

@@ -6,7 +6,6 @@ page_order: 1
 layout: api_page
 page_type: reference
 description: "Cet article présente en détail l'endpoint Braze Créer un nouvel alias utilisateur."
-
 ---
 {% api %}
 # Créer un nouvel alias utilisateur {#create-new-user-alias}
@@ -34,7 +33,7 @@ Si vous envoyez une requête dans laquelle la paire `alias_label` et `alias_name
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/api_key) avec l'autorisation `users.alias.new`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics) avec l'autorisation `users.alias.new`.
 
 ## Limite de débit {#rate-limit}
 

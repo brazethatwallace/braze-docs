@@ -15,12 +15,12 @@ channel: push
 
 | 증상 | 이동 |
 | --- | --- |
-| 사용자가 푸시 알림을 받지 못함 | [누락된 푸시 알림](#missing-push-notifications) |
-| 푸시 알림이 늦게 도착함 | [지연된 푸시 알림](#delayed-push-notifications) |
+| 사용자가 푸시 알림을 받지 못함 | [푸시 알림 누락](#missing-push-notifications) |
+| 푸시 알림이 늦게 도착함 | [푸시 알림 지연](#delayed-push-notifications) |
 | 푸시 발송이 예상보다 느림 | [푸시 알림이 예상보다 느리게 발송됨](#push-notifications-are-sending-slower-than-expected) |
 | `MismatchSenderID` 오류 (Android) | [오류: MismatchSenderID](#error-mismatch-sender-id) |
 | 푸시를 탭해도 앱이 열리지 않음 | [푸시 알림을 클릭해도 앱이 열리지 않음](#clicking-a-push-notification-does-not-open-the-app) |
-| 푸시 링크가 브라우저 대신 앱에서 열림 | [푸시 클릭이 예기치 않게 앱에서 열림](#push-clicks-unexpectedly-open-in-app) |
+| 푸시 링크가 브라우저 대신 앱에서 열림 | [푸시 클릭 시 예기치 않게 앱에서 열림](#push-clicks-unexpectedly-open-in-app) |
 | 웹 푸시 권한 또는 전달 문제 | [웹 푸시 알림이 예상대로 동작하지 않음](#web-push-notifications-are-not-behaving-as-expected) |
 | `.p12`에서 `.p8`로 마이그레이션 필요 (iOS) | [.p8 인증 키로 마이그레이션](#migrate-to-a-p8-authentication-key) |
 | 로그에 특정 푸시 오류 코드가 표시됨 | [푸시 오류 메시지](#push-error-messages) |
@@ -28,14 +28,14 @@ channel: push
 
 ## 표준 조사 경로 {#standard-investigation-path}
 
-사용자 또는 테스트 기기가 푸시를 받지 못한 경우 이 워크플로를 사용하세요. 1단계부터 시작하세요.
+사용자 또는 테스트 기기가 푸시를 수신하지 못한 경우 이 워크플로를 사용하세요. 1단계부터 시작하세요.
 
-1. 사용자가 푸시에 가입 또는 옵트인되어 있고, 프로필의 **인게이지먼트** 탭에 유효한 푸시 토큰이 있는지 확인하세요.
+1. 사용자가 푸시를 구독했거나 수신 동의했으며, 프로필의 **Engagement** 탭에 유효한 푸시 토큰이 있는지 확인하세요.
 2. 발송 시점에 사용자가 Campaign 또는 Canvas 타겟 오디언스에 포함되어 있는지 확인하세요(Segments는 실시간으로 업데이트됩니다).
-3. Campaign 또는 Canvas에 대한 글로벌 최대 게재빈도 설정, 사용량 제한, 대조군 할당을 확인하세요.
+3. Campaign 또는 Canvas에 대한 글로벌 최대 게재빈도 설정, 사용량 제한, 대조군 배정을 확인하세요.
 4. 기기에 맞는 올바른 푸시 유형을 사용하고 있는지 확인하세요(예: Android, iOS 또는 Kindle).
 5. 내부 테스트의 경우, 테스터가 기기에서 올바른 앱에 로그인되어 있는지 확인하세요.
-6. 그래도 전달에 실패하면, [일반적인 푸시 오류 메시지]({{site.baseurl}}/user_guide/channels/push/push_error_codes)를 검토하거나 Campaign 또는 Canvas ID, 사용자 ID, 타임존이 포함된 타임스탬프와 함께 [Braze 고객지원]({{site.baseurl}}/braze_support)에 문의하세요.
+6. 그래도 전달에 실패하면 [일반적인 푸시 오류 메시지]({{site.baseurl}}/user_guide/channels/push/push_error_codes)를 검토하거나, Campaign 또는 Canvas ID, 사용자 ID, 타임존이 포함된 타임스탬프를 준비하여 [Braze 고객지원]({{site.baseurl}}/user_guide/administer/personal/braze_support)에 문의하세요.
 
 ## 푸시 알림 누락 {#missing-push-notifications}
 
@@ -140,27 +140,27 @@ Braze 대시보드에서 발신자 ID를 변경하지 마세요. 변경하면 �
 
 ## 문제 해결 시나리오 {#troubleshooting-scenarios}
 
-### 푸시 알림 지연 {#delayed-push-notifications}
+### 지연된 푸시 알림 {#delayed-push-notifications}
 
 **증상:** 푸시 알림이 예상보다 늦게 도착합니다.
 
-다음과 같은 이유로 푸시 알림이 지연될 수 있습니다:
+다음과 같은 이유로 푸시 알림이 지연될 수 있습니다.
 
-- 기기의 데이터 연결이 약한 경우
-- 앱 내 커스텀 코드가 Braze 푸시 알림을 억제하는 경우
-- 기기 설정에서 사용자가 푸시 알림 환경설정을 변경한 경우
-- Campaign 또는 Canvas에서 푸시를 생성할 때 설정한 메시지 우선순위
-- 푸시 서비스 제공업체(FCM 및 APN)의 트래픽 지연 또는 문제
+- 기기의 약한 데이터 연결
+- 앱 내에서 Braze 푸시 알림을 억제할 수 있는 커스텀 코드
+- 기기 설정에서 푸시 알림에 대한 사용자 기본 설정
+- Campaign 또는 Canvas에서 생성할 때 설정한 푸시 메시지 우선순위
+- 푸시 서비스 제공업체(FCM 및 APNs)의 트래픽 지연 또는 문제
 
-### 푸시 알림 발송 속도가 예상보다 느림 {#push-notifications-are-sending-slower-than-expected}
+### 푸시 알림 발송이 예상보다 느림 {#push-notifications-are-sending-slower-than-expected}
 
-**증상:** Campaign 또는 Canvas 푸시 발송이 예상보다 완료되는 데 오래 걸립니다.
+**증상:** Campaign 또는 Canvas 푸시 발송이 예상보다 완료하는 데 오래 걸립니다.
 
-푸시 알림 설정이 다음 모범 사례를 따르고 있는지 확인하세요:
+푸시 알림 설정이 다음 모범 사례를 따르고 있는지 확인하세요.
 
-- 푸시 활성화 상태를 고려하지 않고 대규모 오디언스에 발송하면 발송 속도가 느려질 수 있습니다. 대신 오디언스 규모를 줄이기 위해 푸시가 활성화된 사용자에게만 발송하는 것을 고려하세요.
+- 푸시 활성화 상태를 고려하지 않고 대규모 오디언스에게 발송하는 경우 발송 속도가 느려질 수 있습니다. 대신 푸시 활성화된 사용자에게만 발송하여 오디언스 크기를 줄이는 것을 고려하세요.
 - 가능하다면 즉시 발송하는 대신 Campaign을 미리 스케줄하세요.
-- Canvas에서 더 많은 사용자에게 푸시 알림을 타겟팅하는 경우, Canvas의 후속 메시지 단계가 사용자에게 즉시 발송하는 Campaign과는 다른 처리 시간이 필요할 수 있습니다. 이 경우 Campaign이 일반적으로 Canvas보다 먼저 발송을 완료합니다. Canvas의 첫 번째 "단계"는 사용자가 특정 사용자 여정에 적합한지 확인하는 것이기 때문입니다.
+- Canvas에서 더 많은 수의 사용자에게 푸시 알림을 타겟팅하는 경우, Canvas의 후속 메시지 단계가 사용자에게 즉시 발송하는 Campaign과 다른 처리 시간이 필요할 수 있습니다. 이 경우 Canvas의 첫 번째 "단계"는 사용자가 특정 사용자 여정에 적합한지 확인하는 것이므로, 일반적으로 Campaign이 Canvas보다 먼저 발송을 완료합니다.
 
 ## 푸시 알림을 클릭해도 앱이 열리지 않음 {#clicking-a-push-notification-does-not-open-the-app}
 
@@ -202,7 +202,7 @@ Campaign 또는 캔버스 단계에서 **Open web URL inside mobile app**이 선
 
 1. **푸시 델리게이트 구현 검토:** Braze 푸시 델리게이트가 올바르게 구현되어 있는지 확인하세요. 자세한 지침은 해당 [플랫폼]({{site.baseurl}}/developer_guide/home)의 푸시 알림 통합 가이드를 참조하세요.
 2. **커스텀 링크 처리 검사:** 앱에 모든 `https://` 링크에 대한 커스텀 처리가 포함되어 있는지 확인하세요. 커스텀 구성이 기본 동작을 재정의할 수 있습니다. 개발팀과 협력하여 필요한 경우 이러한 설정을 검토하고 조정하세요.
-3. **iOS 푸시 등록 확인:** iOS의 경우, [APNs에 푸시 알림 등록]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#step-1-register-for-push-notifications-with-apns)에 대한 푸시 통합 가이드의 1단계를 다시 확인하세요. 앱이 실행을 완료하기 전에 델리게이트 오브젝트가 동기적으로 할당되어야 합니다. 이 단계는 `application:didFinishLaunchingWithOptions:` 메서드에서 완료해야 합니다.
+3. **iOS 푸시 등록 확인:** iOS의 경우, [APNs에 푸시 알림 등록]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift)에 대한 푸시 통합 가이드의 1단계를 다시 확인하세요. 앱이 실행을 완료하기 전에 델리게이트 오브젝트가 동기적으로 할당되어야 합니다. 이 단계는 `application:didFinishLaunchingWithOptions:` 메서드에서 완료해야 합니다.
 4. **통합 테스트:** 조정을 완료한 후, iOS 및 Android 기기 모두에서 푸시 알림 동작을 테스트하여 문제가 해결되었는지 확인하세요.
 
 ### 앱이 백그라운드에서 실행 중일 때 딥링크가 작동하지 않는 경우(iOS) {#deep-links-with-app-still-running-in-the-background-ios}
@@ -327,9 +327,9 @@ Android에서 푸시 권한을 재설정하려면 Mozilla 지원의 [검색 기�
 
 ## 푸시 열람 측정기준 {#push-open-metrics}
 
-Braze는 사용자가 알림을 탭하고 앱이 세션을 시작할 때 직접 열람을 기록합니다. 앱을 열지 않고 리치 푸시 알림을 확장하는 것만으로는 직접 열람이 기록되지 않습니다.
+Braze는 사용자가 알림을 탭하고 앱이 세션을 시작할 때 직접 열람(Direct Open)을 기록합니다. 앱을 열지 않고 리치 푸시 알림을 확장하는 것만으로는 직접 열람이 기록되지 않습니다.
 
-사용자가 푸시를 수신한 후 알림을 탭하지 않고 앱을 여는 경우, Braze는 대신 영향받은 열람을 기록할 수 있습니다. 정의 및 리포팅에 대해서는 [영향받은 열람]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens)을 참조하세요.
+사용자가 푸시를 수신한 후 알림을 탭하지 않고 앱을 열면, Braze는 대신 영향받은 열람(Influenced Open)을 기록할 수 있습니다. 정의 및 리포팅에 대해서는 [영향받은 열람]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens)을 참조하세요.
 
 ## 푸시 오류 메시지 {#push-error-messages}
 

@@ -1,6 +1,6 @@
 {% if include.content == "Differences" %}
 
-Você pode usar [Equipes]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/teams), [conjuntos de permissões]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#creating-a-permission-set) e [papéis de usuário]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#creating-a-role) para gerenciar o acesso e as responsabilidades dos usuários da empresa na Braze. Cada recurso engloba um conjunto diferente de permissões e controles de acesso.
+Você pode usar [Equipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams), [conjuntos de permissões]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#creating-a-permission-set) e [papéis de usuário]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#creating-a-role) para gerenciar o acesso e as responsabilidades dos usuários da empresa na Braze. Cada recurso engloba um conjunto diferente de permissões e controles de acesso.
 
 ### Principais diferenças {#key-differences}
 

@@ -20,7 +20,7 @@ platform:
 `MismatchSenderId` weist auf einen Authentifizierungsfehler hin. Firebase Cloud Messaging (FCM) authentifiziert sich mit einigen wichtigen Daten: senderID und FCM-API-Schlüssel. Beide sollten auf Richtigkeit überprüft werden. Weitere Informationen finden Sie in der [Android-Dokumentation](https://firebase.google.com/docs/cloud-messaging/http-server-ref#error-codes) zu diesem Thema.
 
 Häufige Fehlerursachen können sein:
-- Falsche [senderID]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration#step-1-enable-firebase)
+- Falsche [senderID]({{site.baseurl}}/developer_guide/push_notifications?sdktab=android)
 - Mehrfachregistrierung, wenn sich Nutzer:innen bei einem anderen Push-Dienst mit einer anderen senderID registrieren
 
 ### Push-Bounce: InvalidRegistration {#push-bounced-invalidregistration}
@@ -120,7 +120,7 @@ Dieser Fehler bedeutet nicht, dass Push für die Nutzer:innen deaktiviert ist �
 
 Der `InvalidProviderToken`-Fehler bedeutet, dass APNs die Anfrage abgelehnt hat, weil das Authentifizierungstoken (von einem `.p8`-Schlüssel) oder das Push-Zertifikat (`.p12`) nicht mit der Bundle-ID oder Team-ID der App übereinstimmt. Um dies zu beheben:
 
-1. **Überprüfen Sie Ihre Team-ID und Key-ID:** Wenn Sie einen `.p8`-Authentifizierungsschlüssel verwenden, bestätigen Sie, dass die im Braze-Dashboard konfigurierte **Team-ID** und **Key-ID** (**Einstellungen** > **App Settings** > wählen Sie Ihre iOS-App) mit den Werten in Ihrem Apple Developer Account übereinstimmen.
+1. **Überprüfen Sie Ihre Team-ID und Key-ID:** Wenn Sie einen `.p8`-Authentifizierungsschlüssel verwenden, bestätigen Sie, dass die im Braze-Dashboard konfigurierte **Team-ID** und **Key-ID** (**Einstellungen** > **App-Einstellungen** > wählen Sie Ihre iOS-App aus) mit den Werten in Ihrem Apple Developer Account übereinstimmen.
 2. **Überprüfen Sie die Bundle-ID:** Stellen Sie sicher, dass die in Braze registrierte Bundle-ID mit der Bundle-ID Ihrer App übereinstimmt. Eine Abweichung, wie z. B. eine andere Groß-/Kleinschreibung oder ein `.debug`-Suffix, verursacht diesen Fehler.
 3. **Laden Sie den Schlüssel oder das Zertifikat erneut hoch:** Wenn der `.p8`-Schlüssel oder das `.p12`-Zertifikat kürzlich neu generiert oder widerrufen wurde, laden Sie den neuen Schlüssel in Braze hoch und entfernen Sie den alten.
 4. **Bestätigen Sie die APNs-Umgebung:** Wenn Sie ein `.p12`-Zertifikat verwenden, überprüfen Sie, ob Sie beim Hochladen die richtige Umgebung (Entwicklung versus Produktion) ausgewählt haben. Für `.p8`-Schlüssel wird dies automatisch gehandhabt.

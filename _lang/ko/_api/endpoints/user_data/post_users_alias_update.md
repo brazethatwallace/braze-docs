@@ -27,7 +27,7 @@ description: "이 문서에서는 사용자 별칭 업데이트 Braze 엔드포�
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `users.alias.update` 권한이 있는 [API 키]({{site.baseurl}}/api/api_key)가 필요합니다.
+이 엔드포인트를 사용하려면 `users.alias.update` 권한이 있는 [API 키]({{site.baseurl}}/api/basics)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 

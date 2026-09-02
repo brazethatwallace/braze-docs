@@ -140,13 +140,13 @@ In-App Message
 
 {% api %}
 
-## Campaign analytics {#campaign-analytics}
+## Análise de dados da campanha {#campaign-analytics}
 
 {% apitags %}
 Feature Flags
 {% endapitags %}
 
-O desempenho da mensagem em vários canais. As métricas exibidas dependem do canal de envio de mensagens selecionado e se o [experimento de Feature Flag]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/experiments#campaign-analytics) é um teste multivariante.
+O desempenho da mensagem em vários canais. As métricas exibidas dependem do canal de envio de mensagens selecionado e se o [experimento de Feature Flag]({{site.baseurl}}/developer_guide/feature_flags/experiments#campaign-analytics) é um teste multivariante.
 
 {% endapi %}
 

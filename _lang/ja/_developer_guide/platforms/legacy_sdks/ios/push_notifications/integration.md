@@ -30,36 +30,36 @@ noindex: true
 
 # プッシュ統合 {#push-integration}
 
-## ステップ 1:APNsトークンをアップロードする {#step-1-upload-your-apns-token}
+## ステップ 1:APNsトークンのアップロード {#step-1-upload-your-apns-token}
 
 {% multi_lang_include developer_guide/swift/apns_token.md %}
 
-## ステップ 2:プッシュ機能を有効にする {#step-2-enable-push-capabilities}
+## ステップ 2:プッシュ機能の有効化 {#step-2-enable-push-capabilities}
 
-プロジェクト設定で、**Capabilities** タブの **Push Notifications** 機能がオンになっていることを確認します。
+プロジェクト設定で、**Capabilities**タブの**Push Notifications**機能がオンになっていることを確認します。
 
-![プロジェクト設定で、Capabilities タブの Push Notifications 機能がオンになっていることを確認します。]({% image_buster /assets/img_archive/Enable_push_capabilities.png %})
+![プロジェクト設定で、CapabilitiesタブのPush Notifications機能がオンになっていることを確認します。]({% image_buster /assets/img_archive/Enable_push_capabilities.png %})
 
-開発用と本番用のプッシュ証明書が別々にある場合は、**General** タブの **Automatically manage signing** チェックボックスをオフにしてください。これにより、Xcodeの自動コード署名機能は開発署名のみを行うため、ビルド構成ごとに異なるプロビジョニングプロファイルを選択できるようになります。
+開発用と本番用で別々のプッシュ証明書を使用している場合は、**General**タブの**Automatically manage signing**チェックボックスをオフにしてください。これにより、ビルド構成ごとに異なるプロビジョニングプロファイルを選択できるようになります。Xcodeの自動コード署名機能は開発用の署名のみを行うためです。
 
-![「General」タブが表示されている Xcode プロジェクトの設定。このタブでは、「Automatically manage signing」オプションがオフになっています。]({% image_buster /assets/img_archive/xcode8_auto_signing.png %})
+![Xcodeプロジェクト設定のGeneralタブ。このタブで「Automatically manage signing」オプションがオフになっています。]({% image_buster /assets/img_archive/xcode8_auto_signing.png %})
 
-## ステップ 3:プッシュ通知に登録する {#step-3-register-for-push-notifications}
+## ステップ 3:プッシュ通知の登録 {#step-3-register-for-push-notifications}
 
-ユーザーのデバイスをAPNsに登録するには、アプリの `application:didFinishLaunchingWithOptions:` デリゲートメソッド内に適切なコードサンプルを含める必要があります。アプリケーションのメインスレッドですべてのプッシュ統合コードを呼び出すようにしてください。
+ユーザーのデバイスがAPNsに登録するために、適切なコードサンプルをアプリの`application:didFinishLaunchingWithOptions:`デリゲートメソッドに含める必要があります。すべてのプッシュ統合コードをアプリケーションのメインスレッドで呼び出すようにしてください。
 
-Brazeには、プッシュアクションボタンをサポートするデフォルトのプッシュカテゴリーも用意されており、プッシュ登録コードに手動で追加する必要があります。その他の統合ステップについては、[プッシュアクションボタン]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/action_buttons)を参照してください。
+Brazeは、プッシュアクションボタンをサポートするためのデフォルトのプッシュカテゴリも提供しており、プッシュ登録コードに手動で追加する必要があります。追加の統合ステップについては、[プッシュアクションボタン]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/action_buttons)を参照してください。
 
 {% alert warning %}
-[プッシュ通知のベストプラクティス]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/troubleshooting)の説明に従ってカスタムプッシュプロンプトを実装している場合は、アプリにプッシュ権限を付与した後、**アプリが実行されるたびに**次のコードを呼び出すようにしてください。**[デバイストークンは任意に変更される可能性がある](https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/BackgroundExecution/BackgroundExecution.html)ため、アプリはAPNsに再登録する必要があります。**
+[プッシュのベストプラクティス]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/troubleshooting)に記載されているカスタムプッシュプロンプトを実装している場合は、ユーザーがアプリにプッシュ権限を付与した後、**アプリが実行されるたびに**以下のコードを呼び出すようにしてください。**[デバイストークンは任意に変更される可能性がある](https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/BackgroundExecution/BackgroundExecution.html)ため、アプリはAPNsに再登録する必要があります。**
 {% endalert %}
 
-### UserNotification フレームワークの使用（iOS 10以降） {#using-usernotification-framework-ios-10}
+### UserNotificationフレームワークの使用（iOS 10以降） {#using-usernotification-framework-ios-10}
 
-iOS 10で導入された `UserNotifications` フレームワーク（推奨）を使用している場合は、アプリデリゲートの `application:didFinishLaunchingWithOptions:` メソッドに以下のコードを追加します。
+iOS 10で導入された`UserNotifications`フレームワーク（推奨）を使用している場合は、アプリデリゲートの`application:didFinishLaunchingWithOptions:`メソッドに以下のコードを追加してください。
 
 {% alert important %}
-次のコードサンプルには、仮のプッシュ認証の統合が含まれています（5行目と6行目）。アプリで仮認証を使用する予定がない場合は、`requestAuthorization` オプションに `UNAuthorizationOptionProvisional` を追加するコード行を削除できます。<br>プッシュ仮認証の詳細については、[iOS 通知オプション]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options)をご覧ください。
+以下のコードサンプルには、仮プッシュ認証の統合が含まれています（5行目と6行目）。アプリで仮認証を使用する予定がない場合は、`requestAuthorization`オプションに`UNAuthorizationOptionProvisional`を追加するコード行を削除できます。<br>プッシュの仮認証について詳しくは、[iOS通知オプション]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options)を参照してください。
 {% endalert %}
 
 {% tabs %}
@@ -113,12 +113,12 @@ if #available(iOS 10, *) {
 
 
 {% alert warning %}
-アプリの起動が完了する前に、`center.delegate = self` を使用してデリゲートオブジェクトを同期的に割り当てる必要があります（可能であれば `application:didFinishLaunchingWithOptions:` で）。そうしないと、アプリが受信プッシュ通知を受け取れなくなる可能性があります。詳細については、Appleの [`UNUserNotificationCenterDelegate`](https://developer.apple.com/documentation/usernotifications/unusernotificationcenterdelegate) ドキュメントを参照してください。
+デリゲートオブジェクトは、アプリの起動が完了する前に`center.delegate = self`を使用して同期的に割り当てる必要があります。できれば`application:didFinishLaunchingWithOptions:`内で行ってください。これを行わないと、アプリが受信プッシュ通知を受け取れない場合があります。詳しくは、Appleの[`UNUserNotificationCenterDelegate`](https://developer.apple.com/documentation/usernotifications/unusernotificationcenterdelegate)ドキュメントを参照してください。
 {% endalert %}
 
-### UserNotification フレームワークを使用しない場合 {#without-usernotifications-framework}
+### UserNotificationsフレームワークを使用しない場合 {#without-usernotifications-framework}
 
-`UserNotifications` フレームワークを使用していない場合は、アプリデリゲートの `application:didFinishLaunchingWithOptions:` メソッドに次のコードを追加します。
+`UserNotifications`フレームワークを使用していない場合は、アプリデリゲートの`application:didFinishLaunchingWithOptions:`メソッドに以下のコードを追加してください。
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -142,15 +142,14 @@ UIApplication.shared.registerForRemoteNotifications()
 {% endtab %}
 {% endtabs %}
 
-
 ## ステップ 4:Brazeにプッシュトークンを登録する {#step-4-register-push-tokens-with-braze}
 
-APNsの登録が完了したら、次のメソッドを変更して結果の `deviceToken` をBrazeに渡し、ユーザーがプッシュ通知を受信できるようにする必要があります。
+APNs登録が完了したら、以下のメソッドを変更して、結果の`deviceToken`をBrazeに渡し、ユーザーがプッシュ通知を受信できるようにする必要があります。
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-`application:didRegisterForRemoteNotificationsWithDeviceToken:` メソッドに次のコードを追加します。
+`application:didRegisterForRemoteNotificationsWithDeviceToken:`メソッドに以下のコードを追加します。
 
 ```objc
 [[Appboy sharedInstance] registerDeviceToken:deviceToken];
@@ -159,7 +158,7 @@ APNsの登録が完了したら、次のメソッドを変更して結果の `de
 {% endtab %}
 {% tab swift %}
 
-アプリの `application(_:didRegisterForRemoteNotificationsWithDeviceToken:)` メソッドに次のコードを追加します。
+アプリの`application(_:didRegisterForRemoteNotificationsWithDeviceToken:)`メソッドに以下のコードを追加します。
 
 ```swift
 Appboy.sharedInstance()?.registerDeviceToken(deviceToken)
@@ -169,21 +168,21 @@ Appboy.sharedInstance()?.registerDeviceToken(deviceToken)
 {% endtabs %}
 
 {% alert important %}
-`application:didRegisterForRemoteNotificationsWithDeviceToken:` デリゲートメソッドは、`[[UIApplication sharedApplication] registerForRemoteNotifications]` の呼び出し後に毎回呼び出されます。他のプッシュサービスからBrazeに移行する場合、ユーザーのデバイスがすでにAPNsに登録されていれば、このメソッドは次回呼び出されたときに既存の登録からトークンを収集するため、ユーザーがプッシュに再オプトインする必要はありません。
+`application:didRegisterForRemoteNotificationsWithDeviceToken:`デリゲートメソッドは、`[[UIApplication sharedApplication] registerForRemoteNotifications]`が呼び出されるたびに呼び出されます。他のプッシュサービスからBrazeに移行する場合で、ユーザーのデバイスがすでにAPNsに登録されている場合、このメソッドは次回呼び出された際に既存の登録からトークンを収集するため、ユーザーがプッシュ通知に再度オプトインする必要はありません。
 {% endalert %}
 
-## ステップ 5:プッシュ処理を有効にする {#step-5-enable-push-handling}
+## ステップ 5:プッシュ処理の有効化 {#step-5-enable-push-handling}
 
-以下のコードは受信したプッシュ通知をBrazeに渡すもので、プッシュ分析とリンク処理のログ記録に必要です。アプリケーションのメインスレッドですべてのプッシュ統合コードを呼び出すようにしてください。
+以下のコードは、受信したプッシュ通知をBrazeに渡すもので、プッシュ分析とリンク処理のログ記録に必要です。すべてのプッシュ統合コードをアプリケーションのメインスレッドで呼び出すようにしてください。
 
 ### iOS 10以降
 
-iOS 10以降に対してビルドする場合は、`UserNotifications` フレームワークを統合し、以下の手順を実行することをお勧めします。
+iOS 10以降に対応してビルドする場合は、`UserNotifications`フレームワークを統合し、以下の手順を実行することをお勧めします。
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-アプリケーションの `application:didReceiveRemoteNotification:fetchCompletionHandler:` メソッドに次のコードを追加します。
+アプリケーションの`application:didReceiveRemoteNotification:fetchCompletionHandler:`メソッドに以下のコードを追加します。
 
 ```objc
 [[Appboy sharedInstance] registerApplication:application
@@ -191,7 +190,7 @@ iOS 10以降に対してビルドする場合は、`UserNotifications` フレー
                       fetchCompletionHandler:completionHandler];
 ```
 
-次に、アプリの `(void)userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:` メソッドに次のコードを追加します。
+次に、アプリの`(void)userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:`メソッドに以下のコードを追加します。
 
 ```objc
 [[Appboy sharedInstance] userNotificationCenter:center
@@ -199,9 +198,9 @@ iOS 10以降に対してビルドする場合は、`UserNotifications` フレー
                           withCompletionHandler:completionHandler];
 ```
 
-**フォアグラウンドでのプッシュ通知処理**
+**フォアグラウンドプッシュの処理**
 
-アプリがフォアグラウンドにある間にプッシュ通知を表示するには、`userNotificationCenter:willPresentNotification:withCompletionHandler:` を実装します。
+アプリがフォアグラウンドにある状態でプッシュ通知を表示するには、`userNotificationCenter:willPresentNotification:withCompletionHandler:`を実装します。
 
 ```objc
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center
@@ -215,12 +214,12 @@ iOS 10以降に対してビルドする場合は、`UserNotifications` フレー
 }
 ```
 
-フォアグラウンド通知がクリックされると、iOS 10のプッシュデリゲート `userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:` が呼び出され、Brazeはプッシュクリックイベントをログに記録します。
+フォアグラウンド通知がクリックされると、iOS 10のプッシュデリゲート`userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:`が呼び出され、Brazeがプッシュクリックイベントを記録します。
 
 {% endtab %}
 {% tab swift %}
 
-アプリの `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)` メソッドに次のコードを追加します。
+アプリの`application(_:didReceiveRemoteNotification:fetchCompletionHandler:)`メソッドに以下のコードを追加します。
 
 ```swift
 Appboy.sharedInstance()?.register(application,
@@ -228,7 +227,7 @@ Appboy.sharedInstance()?.register(application,
                                             fetchCompletionHandler: completionHandler)
 ```
 
-次に、アプリの `userNotificationCenter(_:didReceive:withCompletionHandler:)` メソッドに次のコードを追加します。
+次に、アプリの`userNotificationCenter(_:didReceive:withCompletionHandler:)`メソッドに以下のコードを追加します。
 
 ```swift
 Appboy.sharedInstance()?.userNotificationCenter(center,
@@ -236,9 +235,9 @@ Appboy.sharedInstance()?.userNotificationCenter(center,
                                                withCompletionHandler: completionHandler)
 ```
 
-**フォアグラウンドでのプッシュ通知処理**
+**フォアグラウンドプッシュの処理**
 
-アプリがフォアグラウンドにある間にプッシュ通知を表示するには、`userNotificationCenter(_:willPresent:withCompletionHandler:)` を実装します。
+アプリがフォアグラウンドにある状態でプッシュ通知を表示するには、`userNotificationCenter(_:willPresent:withCompletionHandler:)`を実装します。
 
 ```swift
 func userNotificationCenter(_ center: UNUserNotificationCenter,
@@ -252,21 +251,21 @@ func userNotificationCenter(_ center: UNUserNotificationCenter,
 }
 ```
 
-フォアグラウンド通知がクリックされると、iOS 10のプッシュデリゲート `userNotificationCenter(_:didReceive:withCompletionHandler:)` が呼び出され、Brazeはプッシュクリックイベントをログに記録します。
+フォアグラウンド通知がクリックされると、iOS 10のプッシュデリゲート`userNotificationCenter(_:didReceive:withCompletionHandler:)`が呼び出され、Brazeがプッシュクリックイベントを記録します。
 
 {% endtab %}
 {% endtabs %}
 
-### iOS 10より前のバージョン {#pre-ios-10}
+### iOS 10より前 {#pre-ios-10}
 
-iOS 10では、プッシュがクリックされたときに `application:didReceiveRemoteNotification:fetchCompletionHandler:` を呼び出さないように動作が更新されました。そのため、iOS 10以降に対応するビルドに更新せず `UserNotifications` フレームワークを使用しない場合、古いスタイルの両方のデリゲートからBrazeを呼び出す必要があり、以前の統合とは異なります。
+iOS 10では動作が更新され、プッシュがクリックされたときに`application:didReceiveRemoteNotification:fetchCompletionHandler:`が呼び出されなくなりました。このため、iOS 10以降向けのビルドに更新せず`UserNotifications`フレームワークを使用しない場合は、以前の統合方式とは異なり、古いスタイルの両方のデリゲートからBrazeを呼び出す必要があります。
 
-SDK < iOS 10に対してビルドするアプリについては、以下の手順を使用してください。
+SDK < iOS 10向けにビルドするアプリの場合は、以下の手順に従ってください。
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-プッシュ通知でオープントラッキングを有効にするには、アプリの `application:didReceiveRemoteNotification:fetchCompletionHandler:` メソッドに次のコードを追加します。
+プッシュ通知の開封トラッキングを有効にするには、アプリの`application:didReceiveRemoteNotification:fetchCompletionHandler:`メソッドに以下のコードを追加します。
 
 ```objc
 [[Appboy sharedInstance] registerApplication:application
@@ -274,7 +273,7 @@ SDK < iOS 10に対してビルドするアプリについては、以下の手�
                       fetchCompletionHandler:completionHandler];
 ```
 
-iOS 10でプッシュ分析をサポートするには、アプリの `application:didReceiveRemoteNotification:` デリゲートメソッドに次のコードも追加する必要があります。
+iOS 10でのプッシュ分析をサポートするには、アプリの`application:didReceiveRemoteNotification:`デリゲートメソッドにも以下のコードを追加する必要があります。
 
 ```objc
 [[Appboy sharedInstance] registerApplication:application
@@ -284,7 +283,7 @@ iOS 10でプッシュ分析をサポートするには、アプリの `applicati
 {% endtab %}
 {% tab swift %}
 
-プッシュ通知でオープントラッキングを有効にするには、アプリの `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)` メソッドに次のコードを追加します。
+プッシュ通知の開封トラッキングを有効にするには、アプリの`application(_:didReceiveRemoteNotification:fetchCompletionHandler:)`メソッドに以下のコードを追加します。
 
 ```swift
 Appboy.sharedInstance()?.register(application,
@@ -292,7 +291,7 @@ Appboy.sharedInstance()?.register(application,
   fetchCompletionHandler: completionHandler)
 ```
 
-iOS 10でプッシュ分析をサポートするには、アプリの `application(_:didReceiveRemoteNotification:)` デリゲートメソッドに次のコードも追加する必要があります。
+iOS 10でのプッシュ分析をサポートするには、アプリの`application(_:didReceiveRemoteNotification:)`デリゲートメソッドにも以下のコードを追加する必要があります。
 
 ```swift
 Appboy.sharedInstance()?.register(application,
@@ -302,10 +301,10 @@ Appboy.sharedInstance()?.register(application,
 {% endtab %}
 {% endtabs %}
 
-## ステップ 6:ディープリンク {#step-6-deep-linking}
+## ステップ 6: ディープリンク {#step-6-deep-linking}
 
-プッシュからアプリへのディープリンクは、標準のプッシュ統合ドキュメントを介して自動的に処理されます。アプリ内の特定の場所にディープリンクを追加する方法について詳しくは、[高度なユースケース]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/advanced_use_cases/linking#linking-implementation)を参照してください。
+プッシュからアプリへのディープリンクは、標準のプッシュ統合ドキュメントを通じて自動的に処理されます。アプリ内の特定の場所にディープリンクを追加する方法について詳しくは、[高度なユースケース]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/advanced_use_cases/linking#linking-handling-customization)を参照してください。
 
-## ステップ 7:単体テスト（オプション） {#step-7-unit-tests-optional}
+## ステップ 7:ユニットテスト（オプション） {#step-7-unit-tests-optional}
 
-ここまでの統合手順のテストカバレッジを追加するには、[プッシュ単体テスト]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/unit_tests)を実装します。
+ここまでの統合ステップにテストカバレッジを追加するには、[プッシュユニットテスト]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/unit_tests)を実装してください。

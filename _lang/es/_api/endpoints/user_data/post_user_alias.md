@@ -34,7 +34,7 @@ Si envías una solicitud en la que el par `alias_label` y `alias_name` ya existe
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/api_key) con el permiso `users.alias.new`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics) con el permiso `users.alias.new`.
 
 ## Límite de velocidad {#rate-limit}
 

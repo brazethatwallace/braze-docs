@@ -12,69 +12,69 @@ tool: Canvas
 
 실험 경로 단계에서 위닝 경로를 활성화하면, 지정된 기간이 지난 후 모든 후속 사용자가 전환율이 가장 높은 경로로 전송됩니다.
 
-## 위닝 경로 사용하기 {#using-winning-path}
+## Winning Path 사용하기 {#using-winning-path}
 
 ### 1단계: 실험 경로 단계 추가 {#step-1-add-an-experiment-path-step}
 
-Canvas에 [실험 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step)를 추가한 다음, **위닝 경로**를 켜세요.
+Canvas에 [실험 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step)를 추가한 다음, **Winning Path**를 켭니다.
 
-!["후속 사용자를 위닝 경로로 배분"이라는 제목의 실험 경로 설정. 이 섹션에는 위닝 경로 토글과 전환 이벤트 및 실험 기간을 구성하는 옵션이 포함되어 있습니다.]({% image_buster /assets/img/experiment_step/experiment_winning_path_recurring.png %})
+!["후속 사용자를 Winning Path로 분배"라는 제목의 실험 경로 설정. 이 섹션에는 Winning Path 토글과 전환 이벤트 및 실험 기간을 구성하는 옵션이 포함되어 있습니다.]({% image_buster /assets/img/experiment_step/experiment_winning_path_recurring.png %})
 
-### 2단계: 위닝 경로 설정 구성 {#step-2-configure-winning-path-settings}
+### 2단계: Winning Path 설정 구성 {#step-2-configure-winning-path-settings}
 
-승자를 결정할 전환 이벤트를 지정하세요. 사용 가능한 전환 이벤트가 없는 경우 Canvas 설정의 첫 번째 단계로 돌아가 [전환 이벤트를 할당]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#choose-conversion-events)하세요.
+우승자를 결정할 전환 이벤트를 지정합니다. 사용 가능한 전환 이벤트가 없는 경우, Canvas 설정의 첫 번째 단계로 돌아가 [전환 이벤트를 할당]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#choose-conversion-events)합니다.
 
-전환 이벤트로 열람 또는 클릭을 선택한 경우, 경로의 첫 번째 단계가 [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)인지 확인하세요. Braze는 각 경로에서 첫 번째 메시지 단계의 인게이지먼트만 집계합니다. 경로가 다른 단계(예: 지연 또는 오디언스 경로 단계)로 시작되고 메시지가 나중에 오는 경우, 해당 메시지는 성능 평가 시 포함되지 않습니다.
+전환 이벤트로 열람 또는 클릭을 선택하는 경우, 경로의 첫 번째 단계가 [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)인지 확인하세요. Braze는 각 경로의 첫 번째 메시지 단계에서 발생한 인게이지먼트만 집계합니다. 경로가 다른 단계(예: 지연 또는 오디언스 경로 단계)로 시작하고 메시지가 나중에 오는 경우, 해당 메시지는 성능 평가 시 포함되지 않습니다.
 
-다음으로, **실험 기간**을 설정하세요. **실험 기간**은 위닝 경로가 결정되고 이후 모든 사용자가 해당 경로로 전송되기 전까지 실험이 실행되는 기간을 지정합니다. 이 기간은 첫 번째 사용자가 해당 단계에 진입할 때 시작됩니다.
+다음으로, **실험 기간**을 설정합니다. **실험 기간**은 Winning Path가 결정되고 이후 모든 사용자가 해당 경로로 전송되기 전까지 실험이 실행되는 기간을 지정합니다. 이 기간은 첫 번째 사용자가 해당 단계에 진입할 때 시작됩니다.
 
-![전환 이벤트로 "클릭"이 선택되고 실험 기간이 12시간으로 설정된 위닝 경로 설정.]({% image_buster /assets/img/experiment_step/experiment_winning_settings.png %})
+![전환 이벤트로 "클릭"이 선택되고 실험 기간이 12시간으로 설정된 Winning Path 설정.]({% image_buster /assets/img/experiment_step/experiment_winning_settings.png %})
 
-### 3단계: 대체 결정하기 {#statistical-significance}
+### 3단계: 대체 방법 결정 {#statistical-significance}
 
-기본적으로, 테스트 결과가 통계적으로 유의미한 승자를 결정하기에 충분하지 않은 경우, 이후 모든 사용자는 가장 성능이 좋은 경로로 전송됩니다. 또는 **이후 모든 사용자에게 경로 혼합을 계속 전송**을 선택할 수 있습니다. 이 옵션은 실험 경로 배분에 지정된 비율에 따라 이후 사용자에게 경로 혼합을 전송합니다.
+기본적으로, 테스트 결과가 통계적으로 유의미한 우승자를 결정하기에 충분하지 않은 경우, 모든 향후 사용자는 가장 성능이 좋은 경로로 전송됩니다. 또는, **모든 향후 사용자에게 경로 조합을 계속 전송**을 선택할 수 있습니다. 이 옵션은 실험 경로 분배에서 지정된 비율에 따라 향후 사용자를 경로 조합으로 전송합니다.
 
 동점인 경우, Braze는 먼저 나타나는 경로를 선택합니다.
 
-![테스트 결과가 통계적으로 유의미하지 않은 경우 사용자에게 일어나는 일로 "이후 모든 사용자에게 경로 혼합을 계속 전송"이 선택된 화면.]({% image_buster /assets/img/experiment_step/experiment_winning_statistical.png %})
+![테스트 결과가 통계적으로 유의미하지 않을 때 사용자에게 적용할 조치로 "모든 향후 사용자에게 경로 조합을 계속 전송"이 선택된 화면.]({% image_buster /assets/img/experiment_step/experiment_winning_statistical.png %})
 
 {% alert note %}
-지연 그룹은 Canvas가 일회성 진입으로 설정되어 있고 실험 단계에 세 개 이하의 경로가 있는 경우에만 경로 배분에 나타납니다. 반복 및 트리거 Canvases에서는 위닝 경로가 켜져 있을 때 지연 그룹이 없습니다.
+지연 그룹은 Canvas가 일회성 진입으로 설정되어 있고 실험 단계에 경로가 세 개 이하인 경우에만 경로 분배에 나타납니다. 반복 및 트리거 Canvases에서는 Winning Path가 켜져 있을 때 지연 그룹이 없습니다.
 {% endalert %}
 
 ### 4단계: 경로 추가 및 Canvas 시작 {#step-4-add-your-paths-and-launch-the-canvas}
 
-하나의 실험 경로 컴포넌트에는 최대 네 개의 경로를 포함할 수 있습니다. 그러나 Canvas가 [일회성 진입](#one-time-entry)으로 설정된 경우, 위닝 경로가 켜질 때 Braze가 자동으로 추가하는 지연 그룹을 위해 하나의 경로가 예약되어야 합니다. 즉, 일회성 진입 Canvases의 경우 실험에 최대 세 개의 경로를 추가할 수 있습니다.
+하나의 실험 경로 구성 요소에는 최대 네 개의 경로를 포함할 수 있습니다. 그러나 Canvas가 [일회성 진입](#one-time-entry)으로 설정된 경우, Winning Path가 켜질 때 Braze가 자동으로 추가하는 지연 그룹을 위해 하나의 경로가 예약되어야 합니다. 즉, 일회성 진입 Canvases의 경우 실험에 최대 세 개의 경로를 추가할 수 있습니다.
 
-필요에 따라 Canvas 설정을 완료한 다음 시작하세요. 첫 번째 사용자가 실험에 진입하면, Canvas를 확인하여 분석 결과가 들어오는 것을 확인하고 [실험 성능을 추적]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#tracking-performance)할 수 있습니다.
+필요에 따라 Canvas 설정을 완료한 후 시작합니다. 첫 번째 사용자가 실험에 진입하면, Canvas를 확인하여 분석 데이터가 들어오는 것을 보고 [실험의 성능을 추적]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#tracking-performance)할 수 있습니다.
 
-위닝 경로가 결정된 후, Canvas에 진입하는 모든 후속 사용자는 위닝 경로로 이동합니다. 여기에는 재진입한 사용자와 이전에 실험 경로 단계의 대조군에 있었던 사용자도 포함됩니다.
+Winning Path가 종료된 후, Canvas에 진입하는 모든 후속 사용자는 Winning Path로 이동하며, 여기에는 재진입한 사용자와 이전에 실험 경로 단계의 대조군에 있었던 사용자도 포함됩니다.
 
 ## 분석 {#analytics}
 
 위닝 경로가 활성화된 경우, 분석 보기는 **초기 실험**과 **위닝 경로** 두 개의 탭으로 구분됩니다.
 
-- **초기 실험:** 실험 기간 동안 각 경로의 측정기준, 우승자로 선택된 경로, Canvas 전환 측정기준을 표시합니다. 위닝 경로 설정에서 구성된 우승자 선택에 사용된 전환 이벤트는 Canvas 분석에서 강조 표시된 전환 측정기준과 다를 수 있습니다. 실험 경로 분석이 Canvas 전환 이벤트 및 우승 측정기준과 어떻게 관련되는지에 대한 자세한 내용은 [실험 경로]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/experiment_step#winning-path-and-personalized-paths-performance)를 참조하세요.
+- **초기 실험:** 실험 기간 동안 각 경로의 측정기준, 우승자로 선택된 경로, Canvas 전환 측정기준을 표시합니다. 위닝 경로 설정에서 구성된 우승자 선택에 사용된 전환 이벤트는 Canvas 분석에서 강조 표시된 전환 측정기준과 다를 수 있습니다. 실험 경로 분석이 Canvas 전환 이벤트 및 우승 측정기준과 어떻게 관련되는지에 대한 자세한 내용은 [실험 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#winning-path-performance)를 참조하세요.
 - **위닝 경로:** 초기 실험이 완료된 시점부터 위닝 경로에 대한 측정기준만 표시합니다.
 
 ## 알아두어야 할 사항 {#things-to-know}
 
 ### 1회 진입 {#one-time-entry}
 
-사용자가 한 번만 진입할 수 있는 Canvas에서 Winning Paths를 사용하는 경우, 지연 그룹이 자동으로 포함됩니다. 실험 기간 동안 일정 비율의 사용자는 지연 그룹에 보류되고, 나머지 사용자는 실험 경로로 진입합니다.
+사용자가 한 번만 진입할 수 있는 Canvas에서 위닝 경로를 사용하면 지연 그룹이 자동으로 포함됩니다. 실험 기간 동안 일정 비율의 사용자는 지연 그룹에 보류되고, 나머지 사용자는 실험 경로에 진입합니다.
 
-![Winning Path에 대한 지연 그룹이 포함된 실험 단계]({% image_buster /assets/img/experiment_step/experiment_one_time.png %}){: style="max-width:75%"}
+![위닝 경로를 위한 지연 그룹이 포함된 실험 단계]({% image_buster /assets/img/experiment_step/experiment_one_time.png %}){: style="max-width:75%"}
 
-테스트가 완료되고 Winning Path가 결정되면, 지연 그룹에 배정된 사용자는 선택된 경로로 안내되어 Canvas를 계속 진행합니다.
+테스트가 완료되고 위닝 경로가 결정되면, 지연 그룹에 배정된 사용자는 선택된 경로로 이동하여 Canvas를 계속 진행합니다.
 
-![지연 그룹이 Winning Path로 전송된 실험 단계]({% image_buster /assets/img/experiment_step/experiment_one_time_results.png %}){: style="max-width:75%"}
+![지연 그룹이 위닝 경로로 전달된 실험 단계]({% image_buster /assets/img/experiment_step/experiment_one_time_results.png %}){: style="max-width:75%"}
 
 ### 현지 시간 전달 {#local-time-delivery}
 
-Winning Paths가 포함된 Canvases에서는 현지 시간 전달을 사용하지 않는 것을 권장합니다. 실험 기간은 첫 번째 사용자가 통과할 때 시작되기 때문입니다. 매우 이른 시간대에 있는 사용자가 단계에 진입하여 예상보다 훨씬 일찍 실험 기간이 시작될 수 있으며, 이로 인해 일반적인 시간대에 있는 대다수 사용자가 Canvas에 진입하거나 전환할 충분한 시간을 갖기 전에 실험이 종료될 수 있습니다.
+위닝 경로가 포함된 Canvases에서는 현지 시간 전달을 사용하지 않는 것을 권장합니다. 실험 기간은 첫 번째 사용자가 통과할 때 시작되기 때문입니다. 매우 이른 시간대에 있는 사용자가 단계에 진입하여 실험 기간의 시작을 예상보다 훨씬 일찍 트리거할 수 있으며, 그 결과 일반적인 시간대에 있는 대부분의 사용자가 Canvas에 진입하거나 전환할 충분한 시간을 갖기 전에 실험이 종료될 수 있습니다.
 
-대안으로 현지 시간 전달을 사용하려면 24~48시간 이상의 실험 기간을 설정하세요. 이렇게 하면 이른 시간대의 사용자가 Canvas에 진입하여 실험이 시작되더라도, 실험 기간에 충분한 시간이 남습니다. 늦은 시간대의 사용자도 Canvas 및 Winning Paths가 포함된 실험 단계에 진입하고, 실험 기간이 만료되기 전에 전환할 충분한 시간을 확보할 수 있습니다.
+대안으로, 현지 시간 전달을 사용하려면 24~48시간 이상의 실험 기간을 설정하세요. 이렇게 하면 이른 시간대의 사용자가 Canvas에 진입하여 실험을 시작하더라도 실험 기간이 충분히 남아 있습니다. 늦은 시간대의 사용자도 실험 기간이 만료되기 전에 Canvas와 위닝 경로가 포함된 실험 단계에 진입하고 전환할 충분한 시간을 확보할 수 있습니다.
 
 ### 클릭 기반 배리언트 {#variants-based-on-clicks}
 
-클릭을 기준으로 Winning Path 배리언트를 설정하는 경우, 열람과 클릭의 정의가 채널마다 다르다는 점에 유의하세요. 채널별 구체적인 측정기준 및 정의는 [리포트 측정기준 용어집]({{site.baseurl}}/user_guide/analytics/metrics_glossary) 및 [이메일 리포트 측정기준 용어집]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary)을 참조하세요.
+클릭을 기준으로 위닝 경로 배리언트를 설정하는 경우, 열람과 클릭의 정의는 채널마다 다르다는 점에 유의하세요. 채널별 구체적인 측정기준과 정의는 [리포트 측정기준 용어집]({{site.baseurl}}/user_guide/analytics/metrics_glossary) 및 [이메일 리포트 측정기준 용어집]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary)을 참조하세요.

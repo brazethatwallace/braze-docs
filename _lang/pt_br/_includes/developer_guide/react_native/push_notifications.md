@@ -467,13 +467,13 @@ A partir do macOS 13, em determinados dispositivos, você pode testar as notific
 
 ![Uma Campaign push da Braze mostrando que você pode adicionar seu próprio ID de usuário como destinatário de teste para testar sua notificação por push.]({% image_buster /assets/img/react-native/push-notification-test.png %} "Push Campaign Test")
 
-## Usando o plugin do Expo {#using-the-expo-plugin}
+## Usando o plugin Expo {#using-the-expo-plugin}
 
-Depois de [configurar notificações por push para o Expo](#reactnative_setting-up-push-notifications), você pode usá-lo para lidar com os seguintes comportamentos de notificações por push&#8212;sem precisar escrever nenhum código nas camadas nativas do Android ou iOS.
+Depois de [configurar as notificações por push para o Expo](#reactnative_setting-up-push-notifications), você pode usá-lo para lidar com os seguintes comportamentos de notificações por push&#8212;sem precisar escrever nenhum código nas camadas nativas do Android ou iOS.
 
-### Encaminhamento de push do Android para FMS adicionais {#forwarding-android-push-to-additional-fms}
+### Encaminhando push do Android para FMS adicionais {#forwarding-android-push-to-additional-fms}
 
-Se quiser usar um Firebase Messaging Service (FMS) adicional, você pode especificar um FMS de fallback para chamar se o aplicativo receber um push que não seja da Braze. Por exemplo:
+Se você deseja usar um Firebase Messaging Service (FMS) adicional, pode especificar um FMS de fallback para ser chamado quando seu aplicativo receber um push que não é da Braze. Por exemplo:
 
 ```json
 {
@@ -492,42 +492,42 @@ Se quiser usar um Firebase Messaging Service (FMS) adicional, você pode especif
 }
 ```
 
-### Uso de extensões de app com o Expo Application Services {#app-extensions}
+### Usando extensões de app com Expo Application Services {#app-extensions}
 
-Se estiver usando o Expo Application Services (EAS) e tiver ativado `enableBrazeIosRichPush` ou `enableBrazeIosPushStories`, será necessário declarar os identificadores de pacote correspondentes para cada extensão de app no seu projeto. Há várias maneiras de abordar essa etapa, dependendo de como seu projeto está configurado para gerenciar a assinatura de código com o EAS.
+Se você está usando Expo Application Services (EAS) e ativou `enableBrazeIosRichPush` ou `enableBrazeIosPushStories`, será necessário declarar os identificadores de bundle correspondentes para cada extensão de app no seu projeto. Existem várias maneiras de abordar essa etapa, dependendo de como seu projeto está configurado para gerenciar a assinatura de código com o EAS.
 
-Uma abordagem é usar a configuração `appExtensions` no seu arquivo `app.json` seguindo a [documentação de extensões de app](https://docs.expo.dev/build-reference/app-extensions/) da Expo. Como alternativa, você pode definir a configuração `multitarget` no seu arquivo `credentials.json` seguindo a [documentação sobre credenciais locais](https://docs.expo.dev/app-signing/local-credentials/#multi-target-project) da Expo.
+Uma abordagem é usar a configuração `appExtensions` no arquivo `app.json`, seguindo a [documentação de extensões de app](https://docs.expo.dev/build-reference/app-extensions/) do Expo. Alternativamente, você pode configurar a opção `multitarget` no arquivo `credentials.json`, seguindo a [documentação de credenciais locais](https://docs.expo.dev/app-signing/local-credentials/#multi-target-project) do Expo.
 
 ### Solução de problemas {#troubleshooting}
 
-Estas são etapas comuns de solução de problemas para integrações de notificações por push com o SDK Braze React Native e o plugin do Expo.
+Estas são etapas comuns de solução de problemas para integrações de notificação por push com o SDK React Native da Braze e o plugin Expo.
 
 #### As notificações por push pararam de funcionar {#troubleshooting-stopped-working}
 
-Se as notificações por push pelo plugin do Expo pararam de funcionar:
+Se as notificações por push pelo plugin Expo pararam de funcionar:
 
 1. Verifique se o SDK da Braze ainda está rastreando sessões.
-2. Verifique se o SDK não foi desativado por uma chamada explícita ou implícita para `wipeData`.
+2. Verifique se o SDK não foi desativado por uma chamada explícita ou implícita a `wipeData`.
 3. Revise quaisquer atualizações recentes do Expo ou de suas bibliotecas relacionadas, pois pode haver conflitos com sua configuração da Braze.
-4. Revise as dependências do projeto adicionadas recentemente e verifique se elas estão substituindo manualmente seus métodos de delegado de notificação por push existentes.
+4. Revise as dependências de projeto adicionadas recentemente e verifique se elas estão substituindo manualmente seus métodos delegados de notificação por push existentes.
 
 {% alert tip %}
-Para integrações iOS, você também pode consultar nosso [tutorial de configuração de notificação por push](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/b1-standard-push-notifications) para ajudar a identificar possíveis conflitos com as dependências do seu projeto.
+Para integrações iOS, você também pode consultar nosso [tutorial de configuração de notificações por push](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/b1-standard-push-notifications) para ajudar a identificar possíveis conflitos com as dependências do seu projeto.
 {% endalert %}
 
 #### O token do dispositivo não registra na Braze {#troubleshooting-token-registration}
 
-Se o token do seu dispositivo não estiver sendo registrado na Braze, primeiro revise [As notificações por push pararam de funcionar](#troubleshooting-stopped-working).
+Se o token do dispositivo não registra na Braze, primeiro revise [As notificações por push pararam de funcionar](#troubleshooting-stopped-working).
 
-Se o problema persistir, pode haver uma dependência separada interferindo na configuração de notificação por push da Braze. Você pode tentar removê-la ou chamar `Braze.registerPushToken` manualmente.
+Se o problema persistir, pode haver uma dependência separada interferindo na configuração de notificação por push da Braze. Você pode tentar removê-la ou chamar manualmente `Braze.registerPushToken`.
 
 #### Deep links de notificações por push não abrem {#troubleshooting-deep-links}
 
 Se os deep links de notificações por push pararam de abrir após uma migração, verifique o seguinte:
 
-1. Confirme que a configuração do [React Native Linking](https://reactnative.dev/docs/linking) ainda é válida no seu app atualizado.
-2. Para integrações nativas do iOS, confirme que você implementou `populateInitialPayloadFromLaunchOptions` e `Braze.getInitialPushPayload` para que, quando o app for iniciado a partir de um estado encerrado, ele consiga recuperar a carga útil de push inicial e passar a `url` para o seu manipulador de deep link.
-3. Se estiver usando o plugin Braze Expo, verifique se `androidHandlePushDeepLinksAutomatically` está configurado corretamente para sua implementação.
-4. Revise as dependências adicionadas recentemente em busca de substituições no tratamento de notificações ou no comportamento do app delegate.
+1. Confirme que a configuração do [React Native Linking](https://reactnative.dev/docs/linking) ainda é válida no app atualizado.
+2. Para integrações nativas iOS, confirme que você implementou `populateInitialPayloadFromLaunchOptions` e `Braze.getInitialPushPayload` para que, quando o app for iniciado a partir de um estado encerrado, ele possa recuperar a carga útil inicial do push e passar sua `url` para o manipulador de deep links.
+3. Se você está usando o plugin Expo da Braze, verifique se `androidHandlePushDeepLinksAutomatically` está configurado corretamente para a sua implementação.
+4. Revise as dependências adicionadas recentemente para verificar se há substituições no tratamento de notificações ou no comportamento do app delegate.
 
-Se você concluiu essas verificações e o problema persiste, [abra um ticket de suporte]({{site.baseurl}}/user_guide/administrative/access_braze/support) e inclua os logs do SDK e os passos para reprodução.
+Se você concluiu essas verificações e o problema persistir, [abra um ticket de suporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) e inclua os logs do SDK e as etapas de reprodução.

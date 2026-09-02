@@ -7,7 +7,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "En este artículo se describen los detalles del endpoint de Braze Crear nueva cuenta de usuario en el panel."
-
 ---
 
 {% api %}
@@ -86,8 +85,8 @@ Authorization: Bearer YOUR-SCIM-TOKEN-KEY
 | `schemas` | Obligatorio | Matriz de cadenas | Nombre del esquema SCIM 2.0 esperado para el objeto de usuario. |
 | `userName` | Obligatorio | Cadena | La dirección de correo electrónico del usuario. |
 | `name` | Obligatorio | Objeto JSON | Este objeto contiene el nombre y los apellidos del usuario. |
-| `department` | Obligatorio | Cadena | Cadena de departamento válida de la [documentación de cadenas de departamento]({{site.baseurl}}/scim_api_appendix#department-strings). |
-| `permissions` | Opcional | Objeto JSON | Objeto de permisos tal y como se describe en la [documentación del objeto de permisos]({{site.baseurl}}/scim_api_appendix#permissions-object). |
+| `department` | Obligatorio | Cadena | Cadena de departamento válida de la [documentación de cadenas de departamento]({{site.baseurl}}/api/objects_filters/scim_api_appendix). |
+| `permissions` | Opcional | Objeto JSON | Objeto de permisos tal y como se describe en la [documentación del objeto de permisos]({{site.baseurl}}/api/objects_filters/scim_api_appendix). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplo de solicitud {#example-request}
@@ -214,8 +213,8 @@ curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
 | `schemas` | Matriz de cadenas | Nombre del esquema SCIM 2.0 esperado para el objeto de usuario. |
 | `userName` | Cadena | La dirección de correo electrónico del usuario. |
 | `name` | Objeto JSON | Este objeto contiene el nombre y los apellidos del usuario. |
-| `department` | Cadena | Cadena de departamento válida de la [documentación de cadenas de departamento]({{site.baseurl}}/scim_api_appendix#department-strings). |
-| `permissions` | Objeto JSON | Objeto de permisos tal y como se describe en la [documentación del objeto de permisos]({{site.baseurl}}/scim_api_appendix#permissions-object). |
+| `department` | Cadena | Cadena de departamento válida de la [documentación de cadenas de departamento]({{site.baseurl}}/api/objects_filters/scim_api_appendix). |
+| `permissions` | Objeto JSON | Objeto de permisos tal y como se describe en la [documentación del objeto de permisos]({{site.baseurl}}/api/objects_filters/scim_api_appendix). |
 | `id` | Cadena | ID generado por Braze que se utiliza para buscar y administrar cuentas de usuario. |
 | `lastSignInAt` | Cadena | Fecha del último inicio de sesión correcto en hora UTC. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Parámetros de respuesta" }

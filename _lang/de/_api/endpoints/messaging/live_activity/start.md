@@ -7,7 +7,6 @@ page_order: 1
 layout: api_page
 page_type: reference
 description: "Dieser Artikel enthält Einzelheiten zum Endpunkt „Live-Aktivität starten“."
-
 ---
 {% api %}
 # Live-Aktivität starten {#start-live-activity}
@@ -15,7 +14,7 @@ description: "Dieser Artikel enthält Einzelheiten zum Endpunkt „Live-Aktivit�
 /messages/live_activity/start
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um [Live-Aktivitäten]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?sdktab=swift), die in Ihrer iOS-App angezeigt werden, aus der Ferne zu starten. Dieser Endpunkt erfordert eine zusätzliche Einrichtung.
+> Verwenden Sie diesen Endpunkt, um [Live-Aktivitäten]({{site.baseurl}}/developer_guide/live_notifications?sdktab=swift), die in Ihrer iOS-App angezeigt werden, aus der Ferne zu starten. Dieser Endpunkt erfordert eine zusätzliche Einrichtung.
 
 Nachdem Sie eine Live-Aktivität erstellt haben, senden Sie eine POST-Anfrage, um ein Segment, eine verbundene Zielgruppe oder bestimmte Nutzer:innen anzusprechen. Identifizieren Sie bestimmte Nutzer:innen anhand der externen Nutzer-ID, des Nutzer-Alias oder beidem. Weitere Informationen über die Live-Aktivitäten von Apple finden Sie unter [Starten und Aktualisieren von Live-Aktivitäten mit Push-Benachrichtigungen von ActivityKit](https://developer.apple.com/documentation/activitykit/starting-and-updating-live-activities-with-activitykit-push-notifications).
 
@@ -42,7 +41,7 @@ Um das automatische Entfernen nach dem Start einer Live-Aktivität einzurichten,
 Um diesen Endpunkt zu verwenden, müssen Sie Folgendes tun:
 
 - Generieren Sie einen API-Schlüssel mit der Berechtigung `messages.live_activity.start`.
-- [Erstellen Sie eine Live-Aktivität]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?tab=local&sdktab=swift#swift_create-an-activity) mit dem Braze Swift SDK.
+- [Erstellen Sie eine Live-Aktivität]({{site.baseurl}}/developer_guide/live_notifications/live_activities?tab=local&sdktab=swift#create-an-activity) mit dem Braze Swift SDK.
 
 {% multi_lang_include api/payload_size_alert.md %}
 

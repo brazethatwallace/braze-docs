@@ -11,36 +11,36 @@ noindex: true
 
 _Änderungsdatum: 30. März 2026_
 
-## Was ist in der Compliance-Dokumentation enthalten? {#what-is-included-in-the-compliance-documentation}
+## Was enthält die Compliance-Dokumentation? {#what-is-included-in-the-compliance-documentation}
 
-Die nachstehende Compliance-Dokumentation enthält die spezifischen Bedingungen, die für das von Ihnen erworbene Produkt, den Kanal, das Feature, die Funktionalität oder den Dienst gelten:
+Die nachstehende Compliance-Dokumentation legt spezifische Bedingungen fest, die für Ihr erworbenes Produkt, Ihren Kanal, Ihr Feature, Ihre Funktionalität oder Ihren Dienst gelten:
 
-- Für Funktionalitäten der Braze-Dienste, die es Kund:innen ermöglichen, mit dem Produkt, der Website, der Anwendung oder dem Dienst eines Drittanbieters zu interagieren, sich in diesen zu integrieren oder auf diesen zuzugreifen, enthält die Compliance-Dokumentation die Bedingungen des Drittanbieters, die für Ihre Nutzung dieser Funktionalität gelten; und
-- alle allgemeinen Branchenpraktiken und -standards, die Braze-Kund:innen für die Nutzung eines solchen Produkts, Kanals, Features, einer Funktionalität oder eines Dienstes von Braze einhalten müssen.
+- Für Funktionen der Braze-Dienste, die es Kund:innen ermöglichen, mit dem Produkt, der Website, der Anwendung oder dem Dienst eines Drittanbieters zu interagieren, sich damit zu integrieren oder darauf zuzugreifen, enthält die Compliance-Dokumentation die für Ihre Nutzung dieser Funktionalität geltenden Bedingungen des Drittanbieters; und
+- Alle allgemeinen Branchenpraktiken und Standards, die Braze-Kund:innen für die Nutzung des jeweiligen Braze-Produkts, -Kanals, -Features, der Funktionalität oder des Dienstes einhalten müssen.
 
-## Updates der Compliance-Dokumentation {#updates-to-the-compliance-documentation}
+## Aktualisierungen der Compliance-Dokumentation {#updates-to-the-compliance-documentation}
 
-Sie können Updates unserer Dokumentation (einschließlich der Compliance-Dokumentation) über das [GitHub-Repository von Braze](https://github.com/braze-inc/release-notes) abonnieren.
+Sie können Aktualisierungen unserer Dokumentation (einschließlich der Compliance-Dokumentation) abonnieren – über das [GitHub-Repository von Braze](https://github.com/braze-inc/release-notes).
 
 ## Compliance-Dokumentation für bestimmte Kanäle, Integrationen und Features {#compliance-documentation-for-specific-channels-integrations-and-features}
 
-Nachfolgend finden Sie die Liste unserer Produkte, Kanäle, Features, Funktionalitäten und Dienste, für die eine Compliance-Dokumentation gilt. Wenn Sie mehrere Produkte nutzen, gilt die gesamte relevante Compliance-Dokumentation.
+Nachfolgend finden Sie die Liste unserer Produkte, Kanäle, Features, Funktionalitäten und Dienste, für die eine entsprechende Compliance-Dokumentation vorliegt. Wenn Sie mehrere Produkte nutzen, gilt die gesamte relevante Compliance-Dokumentation.
 
 ### Allgemeine Bedingungen {#general-terms}
 
-Unbeschadet der Verpflichtungen der Kund:innen aus dem Vertrag und zur Klarstellung: Die Kund:innen sind allein dafür verantwortlich, alle erforderlichen Rechte, Einwilligungen und Genehmigungen einzuholen und rechtlich angemessene Datenschutzhinweise im Zusammenhang mit ihrer Nutzung bereitzustellen sowie alle gesetzlich vorgeschriebenen Einwilligungen und Genehmigungen für die Nutzung der nachstehend aufgeführten Kanäle und Features einzuholen.
+Unbeschadet etwaiger Verpflichtungen der Kund:in aus dem Vertrag und zur Klarstellung ist die Kund:in allein dafür verantwortlich, alle erforderlichen Rechte, Einwilligungen und Genehmigungen einzuholen und rechtlich angemessene Datenschutzhinweise im Zusammenhang mit der Nutzung bereitzustellen sowie alle gesetzlich vorgeschriebenen Einwilligungen und Genehmigungen für die Nutzung der nachfolgend aufgeführten Kanäle und Features einzuholen.
 
 ## Kanäle und Features {#channels-and-features}
 
 1. [Kanal für mobile Nachrichten](#mobile-messages-channel)
 2. [Webhooks-Kanal](#webhooks-channel)
-3. [WhatsApp-Kanal – Compliance-Dokumentation](#hatsapp-channel-compliance-documentation)
-4. [LINE-Kanal – Compliance-Dokumentation](#line-channel-compliance-documentation)
-5. [Shopify-Integration – Compliance-Dokumentation](#shopify-integration-compliance-documentation)
-6. [Audience Sync – Compliance-Dokumentation](#audience-sync-compliance-documentation)
-7. [Nachrichtenarchivierung und Verschlüsselung auf Feldebene – Compliance-Dokumentation](#message-archiving-and-field-level-encryption-compliance-documentation)
-8. [Agentenkonsole – Compliance-Dokumentation](#agent-console-compliance-documentation)
-9. [KakaoTalk-Kanal – Compliance-Dokumentation](#kakaotalk-channel-compliance-documentation)
+3. [Compliance-Dokumentation für den WhatsApp-Kanal](#hatsapp-channel-compliance-documentation)
+4. [Compliance-Dokumentation für den LINE-Kanal](#line-channel-compliance-documentation)
+5. [Compliance-Dokumentation für die Shopify-Integration](#shopify-integration-compliance-documentation)
+6. [Compliance-Dokumentation für Audience Sync](#audience-sync-compliance-documentation)
+7. [Compliance-Dokumentation für Nachrichtenarchivierung und Verschlüsselung auf Feldebene](#message-archiving-and-field-level-encryption-compliance-documentation)
+8. [Compliance-Dokumentation für die Agent Console](#agent-console-compliance-documentation)
+9. [Compliance-Dokumentation für den KakaoTalk-Kanal](#kakaotalk-channel-compliance-documentation)
 
 ## 1. Kanal für mobile Nachrichten {#mobile-messages-channel}
 
@@ -102,7 +102,7 @@ Die folgenden zusätzlichen Bedingungen gelten für die Nutzung des WhatsApp-Kan
 
 ### Geltende Drittanbieter-Bedingungen {#applicable-third-party-provider-terms}
 
-Die Kund:innen müssen alle Voraussetzungen, Bedingungen und Richtlinien einhalten, die für den WhatsApp-Kanal gelten, einschließlich aller von WhatsApp, LLC und den mit ihr verbundenen Unternehmen geforderten Bedingungen, wie auf der Braze-Seite zur [WhatsApp-Einrichtung]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/overview/) beschrieben.
+Die Kund:innen müssen alle Voraussetzungen, Bedingungen und Richtlinien einhalten, die für den WhatsApp-Kanal gelten, einschließlich aller von WhatsApp, LLC und den mit ihr verbundenen Unternehmen geforderten Bedingungen, wie auf der Braze-Seite zur [WhatsApp-Einrichtung]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup) beschrieben.
 
 ### Ausnahme für die Webhook-Nutzung
 
@@ -134,15 +134,15 @@ Die Kund:innen erklären sich damit einverstanden, alle geltenden Geschäftsbedi
 
 Die Kund:innen erkennen an, dass Shopify jederzeit und nach eigenem Ermessen: (i) verlangen kann, dass Braze den Zugang der Kund:innen zur Shopify-Integration deaktiviert oder sperrt; oder (ii) die Bereitstellung des Zugangs der Kund:innen zur Shopify-Integration einstellen, aussetzen oder beenden kann. Braze übernimmt keine Verantwortung dafür, dass Shopify den Zugang zur Shopify-Integration für die Kund:innen oder über die Braze-Dienste im Allgemeinen einstellt.
 
-## 6. Audience Sync – Compliance-Dokumentation {#audience-sync-compliance-documentation}
+## 6. Dokumentation zur Audience Sync-Compliance {audience-sync-compliance-documentation} {#6-audience-sync-compliance-documentation-audience-sync-compliance-documentation}
 
-Die folgenden zusätzlichen Bedingungen gelten für die Nutzung von Audience Sync durch die Kund:innen.
+Die folgenden zusätzlichen Bedingungen gelten für die Nutzung von Audience Sync durch Kund:innen.
 
-### Geltende Drittanbieter-Bedingungen
+### Geltende Bedingungen von Drittanbietern
 
-Die Kund:innen erklären sich damit einverstanden, alle geltenden Geschäftsbedingungen, Richtlinien, Leitlinien und Dokumentationen der Drittanbieter einzuhalten und an diese gebunden zu sein, die die Kund:innen im Zusammenhang mit Audience Sync-Integrationen nutzen.
+Kund:innen verpflichten sich, alle geltenden Geschäftsbedingungen, Richtlinien, Leitlinien und Dokumentationen der Drittanbieter einzuhalten, die sie im Zusammenhang mit Audience Sync-Integrationen nutzen.
 
-Die Kund:innen erkennen an, dass Drittanbieter alle Daten, Anzeigen oder Inhalte, die im Zusammenhang mit ihren Diensten verwendet werden, überprüfen, prüfen und/oder entfernen können.
+Kund:innen erkennen an, dass Drittanbieter Daten, Anzeigen oder Inhalte, die im Zusammenhang mit ihren Diensten verwendet werden, überprüfen, prüfen und/oder entfernen können.
 
 ## 7. Nachrichtenarchivierung und Verschlüsselung auf Feldebene – Compliance-Dokumentation {#message-archiving-and-field-level-encryption-compliance-documentation}
 

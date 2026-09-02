@@ -17,11 +17,11 @@ Sigue estos pasos para lograr este caso de uso:
 
 ## Paso 1: Escribe los datos de la próxima reserva en un perfil de usuario de Braze {#step-1}
 
-Utiliza el [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) de Braze para escribir un [atributo personalizado anidado]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support) en un perfil de usuario cada vez que se realice una reserva. Asegúrate de que el atributo personalizado anidado contenga toda la información que necesitas para enviar y personalizar el mensaje recordatorio. En este caso de uso, llamaremos al atributo personalizado anidado "trips".
+Utiliza el endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) de Braze para escribir un [atributo personalizado anidado]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support) en un perfil de usuario cada vez que se realice una reserva. Asegúrate de que el atributo personalizado anidado contenga toda la información que necesitas para enviar y personalizar el mensaje recordatorio. En este caso de uso, llamaremos al atributo personalizado anidado "trips".
 
 ### Añadir reserva {#add-booking}
 
-Cuando un usuario crea una reserva, utiliza la siguiente estructura para la matriz de objetos con el fin de enviar los datos a Braze a través del punto de conexión `/users/track`.
+Cuando un usuario crea una reserva, utiliza la siguiente estructura para la matriz de objetos con el fin de enviar los datos a Braze a través del endpoint `/users/track`.
 
 {% raw %}
 ```json
@@ -45,7 +45,8 @@ El atributo personalizado anidado "trips" se mostrará en el perfil de usuario d
 ![Dos atributos personalizados anidados para un viaje a Londres y un viaje a Sídney.]({% image_buster /assets/img/use_cases/2_nested_attributes.png %}){: style="max-width:70%;"}
 
 ### Actualizar reserva {#update-booking}
-Cuando un usuario actualiza una reserva, utiliza la siguiente estructura para la matriz de objetos con el fin de enviar los datos a Braze a través del punto de conexión `/users/track`.
+
+Cuando un usuario actualiza una reserva, utiliza la siguiente estructura para la matriz de objetos con el fin de enviar los datos a Braze a través del endpoint `/users/track`.
 
 {% raw %}
 ```json
@@ -72,9 +73,10 @@ Cuando un usuario actualiza una reserva, utiliza la siguiente estructura para la
 ### Eliminar reserva {#remove-booking}
 
 {% tabs %}
-{% tab Punto de conexión /users/track %}
-#### Enviar datos a través del punto de conexión `/users/track` {#send-data-through-the-userstrack-endpoint}
-Cuando un usuario elimina una reserva, utiliza la siguiente estructura para la matriz de objetos con el fin de enviar los datos a Braze a través del punto de conexión `/users/track`.
+{% tab Endpoint /users/track %}
+#### Enviar datos a través del endpoint `/users/track` {#send-data-through-the-userstrack-endpoint}
+
+Cuando un usuario elimina una reserva, utiliza la siguiente estructura para la matriz de objetos con el fin de enviar los datos a Braze a través del endpoint `/users/track`.
 
 {% raw %}
 ```json
@@ -136,7 +138,7 @@ Crea un público objetivo para recibir recordatorios utilizando la segmentación
 
 ### Paso 2b: Crea tu mensaje {#step-2b-create-your-message}
 
-Crea el mensaje de correo electrónico de recordatorio siguiendo los pasos descritos en [Crear un correo electrónico con HTML personalizado]({{site.baseurl}}/user_guide/message_building_by_channel/email/html_editor). Utiliza Liquid para personalizar el mensaje con datos del atributo personalizado de cliente que creaste ("trips"), como en este ejemplo.
+Crea el mensaje de correo electrónico de recordatorio siguiendo los pasos descritos en [Crear un correo electrónico con HTML personalizado]({{site.baseurl}}/user_guide/channels/email/html_editor). Utiliza Liquid para personalizar el mensaje con datos del atributo personalizado de cliente que creaste ("trips"), como en este ejemplo.
 
 {% raw %}
 ```liquid
@@ -153,9 +155,9 @@ You have the following booked in 2 days! Check the information below:
 ```
 {% endraw %}
 
-### Paso 2c: Lanza tu campaña {#step-2c-launch-your-campaign}
+### Paso 2c: Lanza tu Campaign {#step-2c-launch-your-campaign}
 
-Lanza la campaña para el mensaje de correo electrónico recordatorio. Ahora, cada vez que Braze reciba el atributo personalizado "trips", programará un mensaje según los datos incluidos en el objeto de la reserva correspondiente.
+Lanza la Campaign para el mensaje de correo electrónico recordatorio. Ahora, cada vez que Braze reciba el atributo personalizado "trips", Braze programará un mensaje según los datos incluidos en el objeto de la reserva correspondiente.
 
 ## Paso 3: Gestiona las actualizaciones y cancelaciones de reservas {#step-3}
 
@@ -166,8 +168,8 @@ Ahora que estás enviando mensajes recordatorios, puedes configurar mensajes de 
 {% tabs %}
 {% tab /users/track %}
 
-#### Enviar datos a través del punto de conexión `/users/track`
-Utiliza el [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) de Braze para enviar un evento personalizado cuando un usuario actualice o cancele una reserva. En ese evento, introduce los datos necesarios en las propiedades del evento que confirmarán el cambio.
+#### Enviar datos a través del endpoint `/users/track`
+Utiliza el endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) de Braze para enviar un evento personalizado cuando un usuario actualice o cancele una reserva. En ese evento, introduce los datos necesarios en las propiedades del evento que confirmarán el cambio.
 
 Supongamos que, en este caso de uso, un usuario ha actualizado la fecha de su viaje a Sídney. El evento sería así:
 
@@ -212,7 +214,7 @@ braze.logCustomEvent("trip_updated", {
 
 ### Paso 3b: Crea un mensaje para confirmar la actualización {#step-3b-create-a-message-to-confirm-the-update}
 
-Crea una [campaña basada en acciones]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery) para enviar al usuario una confirmación de su reserva actualizada. Puedes [utilizar Liquid para crear plantillas con las propiedades del evento]({{site.baseurl}}/user_guide/data/custom_data/custom_events) que reflejen el nombre, la hora anterior y la nueva hora de la reserva (o solo el nombre si se trata de una cancelación) en el propio mensaje.
+Crea una [Campaign basada en acciones]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) para enviar al usuario una confirmación de su reserva actualizada. Puedes [utilizar Liquid para crear plantillas con las propiedades del evento]({{site.baseurl}}/user_guide/data/activation/events/custom_events) que reflejen el nombre, la hora anterior y la nueva hora de la reserva (o solo el nombre si se trata de una cancelación) en el propio mensaje.
 
 Por ejemplo, podrías redactar el siguiente mensaje:
 
@@ -228,7 +230,7 @@ Por último, para enviar los recordatorios de reserva de los pasos 1 y 2 basados
 
 #### Reserva actualizada {#updated-booking}
 
-Si el usuario de este caso de uso actualizara su viaje a Sídney, utilizarías el punto de conexión `/users/track` para cambiar la fecha con una llamada como esta:
+Si el usuario de este caso de uso actualizara su viaje a Sídney, utilizarías el endpoint `/users/track` para cambiar la fecha con una llamada como esta:
 
 {% raw %}
 ```json
@@ -256,7 +258,7 @@ Si el usuario de este caso de uso actualizara su viaje a Sídney, utilizarías e
 
 #### Reserva cancelada {#cancelled-booking}
 
-Si el usuario de este caso de uso cancelara su viaje a Sídney, enviarías la siguiente llamada al punto de conexión `/users/track`:
+Si el usuario de este caso de uso cancelara su viaje a Sídney, enviarías la siguiente llamada al endpoint `/users/track`:
 
 {% raw %}
 ```json

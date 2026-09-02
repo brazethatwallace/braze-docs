@@ -6,7 +6,7 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Este artigo traz informações sobre o endpoint da Braze \"Atualizar a conta de usuário do dashboard\"."
+description: "Este artigo traz informações sobre o endpoint da Braze \"Atualizar a conta de usuário existente do dashboard\"."
 ---
 
 {% api %}
@@ -37,7 +37,7 @@ Para usar esse endpoint, você precisará de um token SCIM. Você usará a orige
 
 | Parâmetro | Obrigatório | Tipo de dados | Descrição |
 |---|---|---|---|
-| `id` | Obrigatório | String | A ID do recurso do usuário. Este parâmetro é retornado pelos métodos `POST` `/scim/v2/Users/` ou `GET` `/scim/v2/Users?filter=userName eq "user@example.com"`. |
+| `id` | Obrigatório | String | A ID do recurso do usuário. Esse parâmetro é retornado pelos métodos `POST` `/scim/v2/Users/` ou `GET` `/scim/v2/Users?filter=userName eq "user@example.com"`. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de caminho" }
 
 ## Corpo da solicitação {#request-body}
@@ -94,8 +94,8 @@ Authorization: Bearer YOUR-SCIM-TOKEN-KEY
 | --------- | -------- | --------- | ----------- |
 | `schemas` | Obrigatório | Matriz de strings | Nome do esquema SCIM 2.0 esperado para o objeto do usuário. |
 | `name` | Obrigatório | Objeto JSON | Esse objeto contém o nome e o sobrenome do usuário. |
-| `department` | Obrigatório | String | String de departamento válida da [documentação de string de departamento]({{site.baseurl}}/scim_api_appendix#department-strings). |
-| `permissions` | Obrigatório | Objeto JSON | Objeto de permissões, conforme descrito na [documentação do objeto de permissões]({{site.baseurl}}/scim_api_appendix#permissions-object). |
+| `department` | Obrigatório | String | String de departamento válida da [documentação de string de departamento]({{site.baseurl}}/api/objects_filters/scim_api_appendix). |
+| `permissions` | Obrigatório | Objeto JSON | Objeto de permissões, conforme descrito na [documentação do objeto de permissões]({{site.baseurl}}/api/objects_filters/scim_api_appendix). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 

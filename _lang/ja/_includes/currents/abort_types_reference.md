@@ -12,9 +12,9 @@
 
 | `abort_type` の値 | 説明 |
 | --- | --- |
-| `liquid_abort_message` | [abort_message]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/aborting_messages) Liquidタグが呼び出されたため、送信がキャンセルされました。 |
+| `liquid_abort_message` | [abort_message]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) Liquidタグが呼び出されたため、送信がキャンセルされました。 |
 | `template_parse_error` | 構文またはレンダリングエラーによりメッセージテンプレートを解析できなかったため、送信がキャンセルされました。 |
-| `rate_limit` | 設定された[レート制限]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting)を超えたため、メッセージが中止されました。 |
+| `rate_limit` | 設定された[レート制限]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping)を超えたため、メッセージが中止されました。 |
 | `campaign_disabled` | メッセージが送信される前にキャンペーンが無効化されました。 |
 | `campaign_does_not_exist` | このメッセージに関連付けられたキャンペーンが存在しなくなりました。 |
 | `campaign_action_does_not_exist` | このメッセージに関連付けられたキャンペーンアクションが存在しなくなりました。 |
@@ -34,7 +34,7 @@
 | `abort_type` の値 | 説明 |
 | --- | --- |
 | `exhausted_cc_retries` | コネクテッドコンテンツが最大リトライ回数を超えて失敗したため、メッセージが中止されました。 |
-| `connected_content_not_supported` | このコンテキストでは[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content)がサポートされていないため、メッセージが中止されました。 |
+| `connected_content_not_supported` | このコンテキストでは[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)がサポートされていないため、メッセージが中止されました。 |
 | `promo_codes_not_supported` | このコンテキストではプロモーションコードがサポートされていないため、メッセージが中止されました。 |
 | `catalog_items_rerender_not_supported` | このコンテキストではカタログアイテムの再レンダリングがサポートされていないため、メッセージが中止されました。 |
 | `blacklisted_media_url` | メディアURLがブロックリストに登録されており、メッセージで使用できません。 |
@@ -51,7 +51,7 @@
 | `abort_type` の値 | 説明 |
 | --- | --- |
 | `exhausted_cc_retries` | コネクテッドコンテンツが最大リトライ回数を超えて失敗したため、メッセージが中止されました。 |
-| `connected_content_not_supported` | このコンテキストでは[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content)がサポートされていないため、メッセージが中止されました。 |
+| `connected_content_not_supported` | このコンテキストでは[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)がサポートされていないため、メッセージが中止されました。 |
 | `promo_codes_not_supported` | このコンテキストではプロモーションコードがサポートされていないため、メッセージが中止されました。 |
 | `catalog_items_rerender_not_supported` | このコンテキストではカタログアイテムの再レンダリングがサポートされていないため、メッセージが中止されました。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="コンテンツとレンダリング" }
@@ -64,7 +64,7 @@
 | `abort_type` の値 | 説明 |
 | --- | --- |
 | `exhausted_cc_retries` | コネクテッドコンテンツが最大リトライ回数を超えて失敗したため、メッセージが中止されました。 |
-| `connected_content_not_supported` | このコンテキストでは[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content)がサポートされていないため、メッセージが中止されました。 |
+| `connected_content_not_supported` | このコンテキストでは[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)がサポートされていないため、メッセージが中止されました。 |
 | `promo_codes_not_supported` | このコンテキストではプロモーションコードがサポートされていないため、メッセージが中止されました。 |
 | `catalog_items_rerender_not_supported` | このコンテキストではカタログアイテムの再レンダリングがサポートされていないため、メッセージが中止されました。 |
 | `blacklisted_media_url` | メディアURLがブロックリストに登録されており、メッセージで使用できません。 |
@@ -81,7 +81,7 @@
 | `abort_type` の値 | 説明 |
 | --- | --- |
 | `exhausted_cc_retries` | コネクテッドコンテンツが最大リトライ回数を超えて失敗したため、メッセージが中止されました。 |
-| `connected_content_not_supported` | このコンテキストでは[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content)がサポートされていないため、メッセージが中止されました。 |
+| `connected_content_not_supported` | このコンテキストでは[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)がサポートされていないため、メッセージが中止されました。 |
 | `promo_codes_not_supported` | このコンテキストではプロモーションコードがサポートされていないため、メッセージが中止されました。 |
 | `catalog_items_rerender_not_supported` | このコンテキストではカタログアイテムの再レンダリングがサポートされていないため、メッセージが中止されました。 |
 | `ssl_error` | リクエスト中にSSLエラーが発生しました。 |
@@ -102,7 +102,7 @@
 | `abort_type` の値 | 説明 |
 | --- | --- |
 | `exhausted_link_shortening_retries` | リンク短縮が最大リトライ回数を超えて失敗しました。 |
-| `missing_email` | ユーザーのプロファイルにメールアドレスがありません。 |
+| `missing_email` | ユーザーのプロフィールにメールアドレスがありません。 |
 | `invalid_domain` | メールアドレスのドメインが無効です。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="メール" }
 
@@ -128,12 +128,12 @@
 | --- | --- |
 | `exhausted_link_shortening_retries` | リンク短縮が最大リトライ回数を超えて失敗しました。 |
 | `sms_empty_payload` | SMSメッセージの本文が空です。 |
-| `sms_no_sending_numbers` | このサブスクリプショングループで利用可能な送信用電話番号がありません。 |
+| `sms_no_sending_numbers` | この購読グループで利用可能な送信用電話番号がありません。 |
 | `sms_fatal_provider_error` | SMSプロバイダーで致命的なエラーが発生し、メッセージを配信できませんでした。 |
 | `sms_gateway_domain_not_allowed` | SMSゲートウェイドメインが許可リストに含まれていません。 |
 | `blocked_recipient_country` | 受信者の電話番号が[地理的権限]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions)によりブロックされている国のものです。 |
 | `mms_not_supported` | この受信者または送信番号ではMMSがサポートされていません。 |
-| `no_current_messaging_service` | このサブスクリプショングループにアクティブなメッセージングサービスが設定されていません。 |
+| `no_current_messaging_service` | この購読グループにアクティブなメッセージングサービスが設定されていません。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="SMS/MMS" }
 
 {% endif %}
@@ -144,7 +144,7 @@
 
 | `abort_type` の値 | 説明 |
 | --- | --- |
-| `whats_app_no_sending_numbers` | このWhatsAppサブスクリプショングループで利用可能な送信用電話番号がありません。 |
+| `whats_app_no_sending_numbers` | このWhatsApp購読グループで利用可能な送信用電話番号がありません。 |
 | `whats_app_invalid_template_message` | WhatsAppテンプレートメッセージが無効であるか、承認されていません。 |
 | `whats_app_invalid_response_message` | WhatsApp応答メッセージが無効です。 |
 | `whats_app_fatal_provider_error` | WhatsAppプロバイダーで致命的なエラーが発生し、メッセージを配信できませんでした。 |
@@ -180,10 +180,10 @@
 
 | `abort_type` の値 | 説明 |
 | --- | --- |
-| `content_card_size_exceeded` | コンテンツカードのペイロードが最大サイズ制限（2 KB）を超えています。 |
-| `content_card_content_invalid` | コンテンツカードのコンテンツが無効であるか、サポートされていない文字が含まれています。 |
-| `content_card_expiration_invalid` | コンテンツカードの有効期限が無効です。 |
-| `content_card_general` | 一般的なエラーによりコンテンツカードを作成できませんでした。 |
+| `content_card_size_exceeded` | Content Cardsのペイロードが最大サイズ制限（2 KB）を超えています。 |
+| `content_card_content_invalid` | Content Cardsのコンテンツが無効であるか、サポートされていない文字が含まれています。 |
+| `content_card_expiration_invalid` | Content Cardsの有効期限が無効です。 |
+| `content_card_general` | 一般的なエラーによりContent Cardsを作成できませんでした。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Content Cards" }
 
 {% endif %}

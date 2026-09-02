@@ -5,7 +5,6 @@ description: "Este artículo describe la asociación entre Braze y Oracle Crowdt
 alias: /partners/crowdtwist/
 page_type: partner
 search_tag: Partner
-
 ---
 
 # Oracle Crowdtwist
@@ -31,39 +30,39 @@ Por ejemplo, utiliza un Data Push para pasar eventos personalizados y atributos 
 
 | Requisito | Descripción |
 | --- | --- |
-| Cuenta de Oracle Crowdtwist | Se necesita una [cuenta de Oracle Crowdtwist](https://www.oracle.com/uk/cx/marketing/customer-loyalty/) para aprovechar esta asociación. |
-| Endpoint de Transformación de datos de Braze | Esta integración se basa en la [herramienta de Transformación de datos]({{site.baseurl}}/user_guide/data/unification/data_transformation) de Braze. Cuando creas una Transformación de datos, Braze genera un endpoint único que puedes añadir como destino para el Data Push de Crowdtwist. |
+| Cuenta de Oracle Crowdtwist | Se requiere una [cuenta de Oracle Crowdtwist](https://www.oracle.com/uk/cx/marketing/customer-loyalty/) para aprovechar esta integración. |
+| Endpoint de transformación de datos de Braze | Esta integración se basa en la [herramienta de transformación de datos]({{site.baseurl}}/user_guide/data/unification/data_transformation) de Braze. Cuando creas una transformación de datos, Braze genera un endpoint único que puedes agregar como destino para el Data Push de Crowdtwist. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 
-Braze y Oracle Crowdtwist han creado [plantillas de Transformación de datos]({{site.baseurl}}/user_guide/data/data_transformation/creating_a_transformation?redirected=1#step-2-create-a-transformation) para ayudar a nuestros clientes a desarrollar sus propias Transformaciones de datos que aprovechen los eventos de perfil de usuario, canje de usuario y actividad de usuario.
+Braze y Oracle Crowdtwist han creado [plantillas de Transformación de datos]({{site.baseurl}}/user_guide/data/unification/data_transformation/creating_a_transformation?redirected=1#step-2-create-a-transformation) para ayudar a nuestros clientes a desarrollar sus propias Transformaciones de datos que aprovechan los eventos de perfil de usuario, canje de usuario y actividad de usuario.
 
-## Paso 1: Crear una Transformación de datos a partir de la plantilla de Oracle Crowdtwist {#step-1-create-data-transformation-from-oracle-crowdtwist-template}
+## Paso 1: Crear una transformación de datos a partir de la plantilla de Oracle Crowdtwist {#step-1-create-data-transformation-from-oracle-crowdtwist-template}
 
-Ve a **Configuración de datos > Transformación de datos > Crear transformaciones > Usar una plantilla** y selecciona la plantilla "BRAZE <> CROWDTWIST" que prefieras.
+Navega a **Configuración de datos > Transformación de datos > Crear transformaciones > Usar una plantilla** > y selecciona la plantilla "BRAZE <> CROWDTWIST" de tu preferencia.
 
-Encontrarás cuatro plantillas: una para transformar los eventos de perfil de usuario, actividad de usuario y canje de usuario, y una plantilla maestra que utiliza lógica condicional para aplicarla a varios eventos de Data Push.
+Encontrarás cuatro plantillas: una para transformar eventos de perfil de usuario, actividad de usuario y canje de usuario, respectivamente, y una plantilla maestra que utiliza lógica condicional para aplicarse a varios eventos de Data Push.
 
-Como se muestra en [la documentación de Oracle Crowdtwist sobre Data Push](https://docs.oracle.com/en/cloud/saas/marketing/crowdtwist-develop/Developers/DataPush.html), los objetos Data Push contienen metadatos diferentes, por lo que cada uno requiere su propio código de transformación para crear los objetos Braze adecuados. La plantilla maestra ilustra cómo configurar una única Transformación de datos para que acepte cada uno de los tres tipos de objetos y cree una salida adecuada con valores de cada objeto.
+Como se muestra en la [documentación de Data Push de Oracle Crowdtwist](https://docs.oracle.com/en/cloud/saas/marketing/crowdtwist-develop/Developers/DataPush.html), los objetos de Data Push contienen diferentes metadatos, por lo que cada uno requiere su propio código de transformación para crear los objetos de Braze adecuados. La plantilla maestra ilustra cómo configurar una única transformación de datos para aceptar cada uno de los tres tipos de objetos y crea una salida apropiada con los valores de cada objeto.
 
 ## Paso 2: Actualizar y probar la plantilla {#step-2-update-and-test-template}
 
-En esta sección, verás las plantillas anotadas. El cuerpo de estas plantillas está diseñado para aplicarse al destino `/users/track`. Las anotaciones están marcadas con el inicio de línea `//` y texto verde, y puedes eliminarlas sin que ello afecte al funcionamiento del código de transformación.
+En esta sección, verás las plantillas anotadas. El cuerpo de estas plantillas está diseñado para aplicarse al destino `/users/track`. Las anotaciones están marcadas por `//` al inicio de línea y texto en verde, y puedes eliminarlas sin afectar el funcionamiento del código de transformación.
 
-La transformación utiliza JavaScript, que construye un objeto llamado "brazecall". En este objeto se crea el cuerpo de la solicitud que se envía a un endpoint de la REST API de Braze. Para orientarte sobre las estructuras requeridas de las solicitudes a estos destinos, consulta los enlaces de la sección "destinos".
+La transformación utiliza JavaScript, que construye un objeto llamado "brazecall". Este objeto es donde creas el cuerpo de la solicitud que se envía a un endpoint de la REST API de Braze. Para obtener orientación sobre las estructuras requeridas de las solicitudes a estos destinos, consulta los enlaces en la sección "destinos".
 
 {% alert note %}
-Observa que los "valores" de cada "clave" empiezan por `payload.`. La carga útil representa el objeto de datos recibido de Oracle Crowdtwist. Utiliza la notación de puntos de JavaScript para elegir qué datos quieres que rellenen los elementos de tu objeto Braze. Por ejemplo, cuando veas `external_id: payload.thirdPartyId`, significa que el ID externo de Braze está establecido por el valor `third_party_id` almacenado en Oracle Crowdtwist. Para más información sobre el esquema o la composición de los objetos procedentes de Oracle Crowdtwist, consulta [la documentación de Oracle](https://docs.oracle.com/en/cloud/saas/marketing/crowdtwist-develop/Developers/LivePushUserActivity.html).
+Observa que los "valores" de cada "clave" comienzan con `payload.`. El payload representa el objeto de datos recibido de Oracle Crowdtwist. Utiliza la notación de puntos de JavaScript para elegir qué dato deseas usar para completar los elementos de tu objeto de Braze. Por ejemplo, cuando ves `external_id: payload.thirdPartyId`, esto significa que el ID externo de Braze se establece mediante el valor `third_party_id` almacenado en Oracle Crowdtwist. Para obtener más información sobre el esquema o la composición de los objetos procedentes de Oracle Crowdtwist, consulta la [documentación de Oracle](https://docs.oracle.com/en/cloud/saas/marketing/crowdtwist-develop/Developers/LivePushUserActivity.html).
 {% endalert %}
 
 {% alert important %}
- Utiliza los objetos enviados desde Oracle Crowdtwist para crear usuarios en Braze. Al incluir la clave `update_existing_only` con el valor `false`, si un objeto de atributo o evento incluye un identificador que no existe en Braze, Braze crea un perfil de usuario con los atributos incluidos en el objeto de evento o atributo. Si prefieres que Oracle Crowdtwist actualice solo los perfiles que ya existen en Braze, establece este atributo en `true` en cada objeto de atributo o evento.
+Utiliza los objetos enviados desde Oracle Crowdtwist para crear usuarios en Braze. Al incluir la clave `update_existing_only` con el valor `false`, si un objeto de atributo o evento incluye un identificador que no existe en Braze, Braze crea un perfil de usuario con los atributos incluidos en el objeto de evento o atributo. Si prefieres que Oracle Crowdtwist solo actualice perfiles que ya existen en Braze, establece este atributo en `true` en cada objeto de atributo o evento.
 {% endalert %}
 
-### Plantillas de Transformación de datos {#data-transformation-templates}
+### Plantillas de transformación de datos {#data-transformation-templates}
 {% tabs %}
-{% tab User Profile Event Template%}
+{% tab Plantilla de evento de perfil de usuario%}
 ```javascript
 let brazecall = {
  "attributes": [
@@ -113,7 +112,7 @@ return brazecall;
 ```
 
 {% endtab %}
-{% tab User Activity Event Template %}
+{% tab Plantilla de evento de actividad de usuario %}
 ```javascript
 let brazecall = {
 "events": [
@@ -133,7 +132,7 @@ let brazecall = {
 return brazecall;
 ```
 {% endtab %}
-{% tab Redemption Event Template %}
+{% tab Plantilla de evento de canje %}
 ```javascript
 let brazecall = {
  "attributes": [
@@ -151,7 +150,7 @@ return brazecall;
 
 ```
 {%endtab%}
-{% tab Master Template %}
+{% tab Plantilla maestra %}
 ```javascript
 //The master template uses JavaScript's conditional operators to determine the output of the Data Transformation. This example shows how to apply JavaScript to your transformation to allow for a dynamic range of sources or inputs.
 
@@ -237,18 +236,18 @@ return brazecall;
 
 ### Destinos {#destinations}
 
-Las plantillas de esta guía se han creado para entregar al destino "Track Users", pero puedes diseñar tu plantilla para enviar a cualquiera de los endpoints enumerados en [la guía de Transformación de datos de Braze]({{site.baseurl}}/user_guide/data/data_transformation/creating_a_transformation#step-2-create-a-transformation), con el apoyo de la [documentación de la REST API]({{site.baseurl}}/api/home) asociada.
+Las plantillas de esta guía están creadas para entregar al destino "Track Users", pero puedes diseñar tu plantilla para enviar a cualquiera de los endpoints listados en la [guía de transformación de datos de Braze]({{site.baseurl}}/user_guide/data/data_transformation/creating_a_transformation#step-2-create-a-transformation), con el apoyo de la [documentación de la REST API]({{site.baseurl}}/api/home) asociada.
 
 ### Pruebas {#testing}
 
-Después de modificar la plantilla a tu gusto, debes validar que funciona correctamente. En el editor de transformación, selecciona **Validar** para generar una vista previa en la sección **Salida** y confirmar que Braze acepta la solicitud asignada para el destino elegido.
+Después de modificar la plantilla a tu gusto, debes validar que funciona correctamente. En el editor de transformación, selecciona **Validate** para generar una vista previa en la sección **Output** y confirmar que Braze acepta la solicitud mapeada para el destino elegido.
 
-Cuando estés satisfecho con el objeto que ves en el campo **Salida**, selecciona **Activar** para que el endpoint de Transformación de datos esté listo para aceptar datos.
+Cuando estés satisfecho con el objeto que ves en el campo **Output**, selecciona **Activate** para que el endpoint de transformación de datos esté listo para recibir datos.
 
-Encontrarás la URL del webhook de tu Transformación de datos en el panel de detalles de la transformación. Cópiala y utilízala para la configuración dentro del Integration Hub de Oracle Crowdtwist.
+Encontrarás la URL del webhook de tu transformación de datos en el panel de detalles de la transformación. Cópiala y úsala para la configuración dentro del Integration Hub de Oracle Crowdtwist.
 
 {% alert important %}
-Los endpoints de Transformación de datos de Braze tienen un límite de velocidad de 1000 solicitudes por minuto. Considera la velocidad a la que quieres que estos datos estén disponibles en Braze y habla con tu director de cuentas de Braze si necesitas un límite de velocidad de Transformación de datos más alto.
+Los endpoints de transformación de datos de Braze tienen un límite de velocidad de 1000 solicitudes por minuto. Considera la velocidad a la que deseas que estos datos estén disponibles en Braze y habla con tu director de cuentas de Braze si necesitas un límite de velocidad más alto para la transformación de datos.
 {% endalert %}
 
-Las Transformaciones de datos son una herramienta muy dinámica y puedes diseñarlas para fines que vayan más allá de lo expuesto en este documento con conocimientos de JavaScript y con la orientación de nuestra documentación de la REST API. Para obtener ayuda o solución de problemas sobre cambios complejos en tus plantillas de Transformación de datos, habla con tu administrador de éxito de cliente para conocer la orientación que tienes a tu disposición.
+Las transformaciones de datos son una herramienta muy dinámica y puedes diseñarlas para fines que van más allá de lo descrito en este documento con conocimientos de JavaScript y con la guía de nuestra documentación de la REST API. Para obtener soporte o solución de problemas en cambios complejos a tus plantillas de transformación de datos, habla con tu administrador de éxito de cliente para conocer la orientación disponible para ti.

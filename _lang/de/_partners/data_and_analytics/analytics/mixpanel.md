@@ -6,7 +6,6 @@ description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze
 page_type: partner
 search_tag: Partner
 tool: Currents
-
 ---
 
 # [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/mixpanel-integration-with-braze/339085/scorm/2u7y2e6qrldh2){: style="float:right;width:120px;border:0;" class="noimgborder"}Mixpanel {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecommixpanel-integration-with-braze339085scorm2u7y2e6qrldh2-stylefloatrightwidth120pxborder0-classnoimgbordermixpanel}
@@ -25,57 +24,57 @@ Sie können Braze-Currents auch nutzen, um [Ihre Braze-Events nach Mixpanel zu e
 | Currents | Um Daten zurück nach Mixpanel zu exportieren, müssen Sie [Braze-Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents#access-currents) für Ihr Konto eingerichtet haben. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
-## Integration von Datenexporten {#data-export-integration}
+## Integration des Datenexports {#data-export-integration}
 
 Eine vollständige Liste der Events, die von Braze nach Mixpanel exportiert werden können, finden Sie in diesem Abschnitt. Alle an Mixpanel gesendeten Events enthalten die `external_user_id` der Nutzer:innen als Mixpanel Distinct ID. Derzeit sendet Braze keine Event-Daten für Nutzer:innen, deren `external_user_id` nicht festgelegt ist.
 
-Sie können zwei Arten von Events nach Mixpanel exportieren: [Nachrichten-Engagement-Events](#supported-currents-events), die die direkt mit dem Nachrichtenversand verbundenen Braze-Events umfassen, und [Kundenverhalten-Events](#supported-currents-events), die andere App- oder Website-Aktivitäten wie Sitzungen, angepasste Events und über die Plattform erfasste Käufe beinhalten. Allen angepassten Events wird `[Braze Custom Event]` vorangestellt. Angepassten Event-Eigenschaften und Kauf-Event-Eigenschaften wird `[Custom event property]` bzw. `[Purchase property]` vorangestellt.
+Sie können zwei Arten von Events nach Mixpanel exportieren: [Nachrichteninteraktions-Events](#supported-currents-events), die sich auf die Braze-Events beziehen, die direkt mit dem Nachrichtenversand zusammenhängen, und [Kundenverhalten-Events](#supported-currents-events), die andere App- oder Website-Aktivitäten wie Sitzungen, angepasste Events und über die Plattform erfasste Käufe umfassen. Alle angepassten Events erhalten das Präfix `[Braze Custom Event]`. Angepasste Event-Eigenschaften und Kauf-Event-Eigenschaften erhalten die Präfixe `[Custom event property]` bzw. `[Purchase property]`.
 
-Wenden Sie sich an Ihren Account Manager oder eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support), wenn Sie Zugang zu zusätzlichen Event-Berechtigungen benötigen.
+Wenden Sie sich an Ihren Account Manager oder eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support), wenn Sie Zugang zu zusätzlichen Event-Berechtigungen benötigen.
 
 ### Schritt 1: Mixpanel-Zugangsdaten abrufen {#step-1-get-mixpanel-credentials}
 
-Klicken Sie in Ihrem Mixpanel-Dashboard in einem neuen oder bestehenden Projekt auf **Project Settings**. Dort finden Sie das Mixpanel-API-Secret und das Mixpanel-Token. Diese Zugangsdaten werden im nächsten Schritt verwendet, um Ihre Currents-Verbindung zu erstellen.
+Klicken Sie in Ihrem Mixpanel-Dashboard unter einem neuen oder bestehenden Projekt auf **Project Settings**. Dort finden Sie das Mixpanel-API-Secret und das Mixpanel-Token. Diese Zugangsdaten werden im nächsten Schritt zum Erstellen Ihrer Currents-Verbindung verwendet.
 
 ### Schritt 2: Braze-Current erstellen {#step-2-create-braze-current}
 
 1. Gehen Sie in Braze zu **Currents** > **+ Create Current** > **Create Mixpanel Export**.
-2. Geben Sie einen Integrationsnamen, eine Kontakt-E-Mail-Adresse, das Mixpanel-API-Secret und das Mixpanel-Token in die entsprechenden Felder ein.
+2. Geben Sie einen Integrationsnamen, eine Kontakt-E-Mail, das Mixpanel-API-Secret und das Mixpanel-Token in die entsprechenden Felder ein.
 3. Wählen Sie die Events aus, die Sie verfolgen möchten; eine Liste der verfügbaren Events wird bereitgestellt.
 4. Wählen Sie **Launch Current**.
 
-![Die Braze-Mixpanel-Currents-Seite. Diese Seite enthält Felder für den Integrationsnamen, die Kontakt-E-Mail, das API-Secret und das Mixpanel-Export-Token. Die untere Hälfte der Currents-Seite listet die verfügbaren Currents-Events auf, die Sie senden können.]({% image_buster /assets/img_archive/mixpanel4.png %}){: style="max-width:80%;"}
+![Die Braze-Mixpanel-Currents-Seite. Diese Seite enthält Felder für den Integrationsnamen, die Kontakt-E-Mail, das API-Secret und das Mixpanel-Export-Token. Die untere Hälfte der Currents-Seite zeigt die verfügbaren Currents-Events, die Sie senden können.]({% image_buster /assets/img_archive/mixpanel4.png %}){: style="max-width:80%;"}
 
 {% tab note %}
 Weitere Informationen finden Sie in der [Integrationsdokumentation](https://help.mixpanel.com/hc/en-us/articles/360001243663) von Mixpanel.
 {% endtab %}
 
-## Unterstützte Currents-Ereignisse {#supported-currents-events}
+## Unterstützte Currents-Events {#supported-currents-events}
 
-Braze unterstützt den Export der folgenden Ereignisse nach Mixpanel:
+Braze unterstützt den Export der folgenden Events nach Mixpanel:
 
-- [Nachrichteninteraktions-Ereignisse]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)
-- [Kundenverhalten-Ereignisse]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)
+- [Nachricht-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)
+- [Kundenverhalten-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)
 
-Für die Payload-Struktur jedes Ereignisses wählen Sie den Tab **Mixpanel** im [Glossar der Nachrichteninteraktions-Ereignisse]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) und im [Glossar der Kundenverhalten-Ereignisse]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) aus.
+Für die Payload-Struktur jedes Events wählen Sie den Tab **Mixpanel** im [Glossar der Nachricht-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) und im [Glossar der Kundenverhalten-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) aus.
 
 ## Fehlerbehebung {#troubleshooting}
 
 ### Mixpanel-API-Schlüssel und externe Braze-ID überprüfen {#verify-mixpanel-api-key-and-braze-external-id}
 
-Stellen Sie sicher, dass Ihr Mixpanel-API-Schlüssel und Ihre `braze_external_id`-Werte mit dem übereinstimmen, was Sie in Braze und Mixpanel erwarten. Die Kohortensynchronisierungs-API teilt Nutzer:innengruppen zwischen Produkten, und die Synchronisierung funktioniert nicht korrekt, wenn die `external_id` in Braze und der Bezeichner, den Mixpanel sendet, nicht übereinstimmen. Kohortensynchronisierungen von Mixpanel laufen nach dem Zeitplan von Mixpanel – zum Beispiel einmal oder ungefähr alle zwei Stunden – lassen Sie daher zwischen den Überprüfungen etwas Zeit.
+Vergewissern Sie sich, dass Ihr Mixpanel-API-Schlüssel und die `braze_external_id`-Werte in Braze und Mixpanel übereinstimmen. Die Kohortensynchronisierungs-API teilt Nutzer:innengruppen zwischen den Produkten, und die Synchronisierung funktioniert nicht korrekt, wenn die `external_id` in Braze und der von Mixpanel gesendete Bezeichner nicht übereinstimmen. Kohortensynchronisierungen von Mixpanel laufen nach dem Zeitplan von Mixpanel – zum Beispiel einmal oder etwa alle zwei Stunden – planen Sie daher zwischen den Überprüfungen ausreichend Zeit ein.
 
-### Implementierungsstatus überprüfen {#check-implementation-status}
+### Implementierungsstatus prüfen {#check-implementation-status}
 
-Stellen Sie sicher, dass `braze_external_id` in Mixpanel implementiert ist.
+Bestätigen Sie, dass `braze_external_id` in Mixpanel implementiert ist.
 
-### Nutzer:inneneigenschaft direkt setzen {#set-the-user-property-directly}
+### Nutzer:inneneigenschaft direkt festlegen {#set-the-user-property-directly}
 
-Um Unklarheiten zu vermeiden, setzen Sie `braze_external_id` direkt in Mixpanel.
+Um Mehrdeutigkeiten zu vermeiden, setzen Sie `braze_external_id` direkt in Mixpanel.
 
 ### Automatische Eigenschaftszuweisung (SDKs) {#automatic-property-setting-sdks}
 
-Das Mixpanel-SDK kann `braze_external_id` automatisch setzen, wenn das Braze-SDK in derselben App integriert ist. Wenn Sie sowohl Mixpanel als auch Braze zusammen implementieren, ist in der Regel keine zusätzliche Konfiguration über die Installation beider SDKs hinaus erforderlich.
+Das Mixpanel-SDK kann `braze_external_id` automatisch setzen, wenn das Braze-SDK in derselben App integriert ist. Wenn Sie sowohl Mixpanel als auch Braze gemeinsam implementieren, ist in der Regel keine zusätzliche Konfiguration über die Installation beider SDKs hinaus erforderlich.
 
 {% alert note %}
 `braze_external_id` wird nicht gesetzt, wenn `changeUser()` in Braze aufgerufen wird; es wird gesetzt, wenn Mixpanel initialisiert oder eine Sitzung startet (während „init“ oder „start session“).

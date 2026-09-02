@@ -77,11 +77,11 @@ guide_menu_list4:
 
 ## Cómo funcionan nuestros endpoints de traducción {#how-our-translation-endpoints-work}
 
-Nuestros endpoints de traducción funcionan con la [composición multilingüe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings), donde un mensaje puede tener diferentes versiones que se pueden renderizar dependiendo del usuario que recibe el mensaje.
+Nuestros endpoints de traducción funcionan con la [composición multilingüe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings), donde un mensaje puede tener diferentes versiones que se pueden renderizar según el usuario que recibe el mensaje.
 
 ### Requisitos previos {#prerequisites}
 
-Antes de usar estos endpoints, debes [añadir tus locales]({{site.baseurl}}/user_guide/administrative/app_settings/multi_language_settings#add-a-locale).
+Antes de usar estos endpoints, debes [agregar tus configuraciones regionales]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings#add-a-locale).
 
 ### Cómo probar tus traducciones {#how-to-test-your-translations}
 
@@ -92,7 +92,7 @@ Hay dos formas de validar la compatibilidad con traducciones usando la API y el 
 
 Antes de probar la actualización de traducciones, debes:
 
-1. [Añadir tus locales]({{site.baseurl}}/user_guide/administrative/app_settings/multi_language_settings#add-a-locale).
-2. Crear un mensaje y usar etiquetas de traducción donde sea apropiado.
+1. [Agregar tus configuraciones regionales]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings#add-a-locale).
+2. Crear un mensaje y usar etiquetas de traducción donde corresponda.
 3. Guardar el mensaje.
-4. Seleccionar los locales que se incluirán.
+4. Seleccionar las configuraciones regionales que se incluirán.

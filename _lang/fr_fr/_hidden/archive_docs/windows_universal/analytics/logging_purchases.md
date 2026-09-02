@@ -14,7 +14,7 @@ Enregistrez les achats in-app afin de pouvoir suivre vos chiffres d'affaires au 
 
 Braze prend en charge les achats dans plusieurs devises. Les achats que vous effectuez dans une devise autre qu'USD seront affichés dans le tableau de bord en USD en fonction du taux de change à la date à laquelle ils ont été enregistrés.
 
-Avant la mise en œuvre, assurez-vous de consulter des exemples des options de segmentation offertes par les événements personnalisés, les attributs personnalisés et les événements d'achat dans notre article sur les [meilleures pratiques]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview#user-data-collection). Nous vous recommandons également de vous familiariser avec nos [conventions de nommage des événements]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions).
+Avant le déploiement, assurez-vous de consulter des exemples des options de segmentation offertes par les événements personnalisés, les attributs personnalisés et les événements d'achat dans notre article sur les [meilleures pratiques]({{site.baseurl}}/developer_guide/analytics#best-practices). Nous vous recommandons également de vous familiariser avec nos [conventions de nommage des événements]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions).
 
 Pour utiliser cette fonctionnalité, ajoutez cet appel de méthode après un achat réussi dans votre application :
 
@@ -25,8 +25,8 @@ bool LogPurchase(string productId, string currencyCode, decimal price)
 ```
 
 ## Enregistrer les achats au niveau de la commande {#log-purchases-at-the-order-level}
-Si vous souhaitez enregistrer les achats au niveau de la commande plutôt qu'au niveau du produit, vous pouvez utiliser le nom de la commande ou la catégorie de commande comme `product_id`. Pour en savoir plus, reportez-vous aux [spécifications de l'objet d'achat]({{site.baseurl}}/api/objects_filters/purchase_object#naming-conventions).
+Si vous souhaitez enregistrer les achats au niveau de la commande plutôt qu'au niveau du produit, vous pouvez utiliser le nom de la commande ou la catégorie de la commande comme `product_id`. Consultez notre [spécification de l'objet achat]({{site.baseurl}}/api/objects_filters/purchase_object#naming-conventions) pour en savoir plus.
 
 ## REST API
 
-Vous pouvez également utiliser notre REST API pour enregistrer les achats. Reportez-vous à la documentation de l'[API des utilisateurs]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data) pour plus de détails.
+Vous pouvez également utiliser notre REST API pour enregistrer les achats. Reportez-vous à la documentation de l'[API des utilisateurs]({{site.baseurl}}/api/endpoints/user_data) pour plus de détails.

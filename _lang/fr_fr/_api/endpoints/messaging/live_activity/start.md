@@ -15,7 +15,7 @@ description: "Cet article présente les détails de l'endpoint Démarrer une act
 /messages/live_activity/start
 {% endapimethod %}
 
-> Utilisez cet endpoint pour démarrer à distance les [activités en direct]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?sdktab=swift) affichées dans votre application iOS. Cet endpoint nécessite une configuration supplémentaire.
+> Utilisez cet endpoint pour démarrer à distance les [activités en direct]({{site.baseurl}}/developer_guide/live_notifications?sdktab=swift) affichées dans votre application iOS. Cet endpoint nécessite une configuration supplémentaire.
 
 Après avoir créé une activité en direct, effectuez une requête POST pour cibler un segment, une audience connectée ou des utilisateurs spécifiques. Identifiez les utilisateurs spécifiques par leur ID utilisateur externe, leur alias d'utilisateur, ou les deux. Pour en savoir plus sur les activités en direct d'Apple, consultez [Starting and updating Live Activities with ActivityKit push notifications](https://developer.apple.com/documentation/activitykit/starting-and-updating-live-activities-with-activitykit-push-notifications).
 
@@ -42,7 +42,7 @@ Pour planifier la suppression automatique après le démarrage d'une activité e
 Pour utiliser cet endpoint, vous devrez effectuer les opérations suivantes :
 
 - Générer une clé API avec l'autorisation `messages.live_activity.start`.
-- [Créer une activité en direct]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?tab=local&sdktab=swift#swift_create-an-activity) à l'aide du SDK Braze Swift.
+- [Créer une activité en direct]({{site.baseurl}}/developer_guide/live_notifications/live_activities?tab=local&sdktab=swift#create-an-activity) à l'aide du SDK Braze Swift.
 
 {% multi_lang_include api/payload_size_alert.md %}
 
@@ -148,7 +148,7 @@ Un code de statut `201` est renvoyé si la requête est correctement formatée e
 
 ### Exemple de réponse en erreur {#example-error-response}
 
-La classe de code de statut `4XX` indique une erreur côté client. Consultez l'article [Erreurs et réponses de l'API]({{site.baseurl}}/api/errors) pour plus d'informations sur les erreurs que vous pouvez rencontrer.
+La classe de codes de statut `4XX` indique une erreur côté client. Consultez l'article [Erreurs et réponses de l'API]({{site.baseurl}}/api/errors) pour plus d'informations sur les erreurs que vous pouvez rencontrer.
 
 Le code de statut `400` pourrait renvoyer le corps de réponse suivant.
 

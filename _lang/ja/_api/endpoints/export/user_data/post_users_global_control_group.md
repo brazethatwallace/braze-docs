@@ -6,7 +6,6 @@ page_order: 6
 layout: api_page
 page_type: reference
 description: "この記事では、「グローバルコントロールグループでのユーザーのエクスポート」Brazeエンドポイントについて詳しく説明します。"
-
 ---
 {% api %}
 # グローバルコントロールグループ別にユーザープロファイルをエクスポートする {#export-user-profile-by-global-control-group}
@@ -52,7 +51,7 @@ description: "この記事では、「グローバルコントロールグルー
 | `RANDOM_UUID` | リクエスト時にBrazeによって生成されるランダムUUID。 | `d9696570-dfb7-45ae-baa2-25e302r2da27` |
 | `TIMESTAMP_WHEN_EXPORT_STARTED` | UTCでエクスポートが要求されたUnix時間（2017-01-01:00:00:00Zからの秒数）。 | `1556044807` |
 | `filename` | ファイルごとにランダム。 | `114f0226319130e1a4770f2602b5639a` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Credentials-based response details" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="認証情報ベースのレスポンスの詳細" }
 
 {% enddetails %}
 
@@ -94,7 +93,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `callback_endpoint` | オプション | 文字列 | エクスポートが利用可能になったときにダウンロードURLをPOSTするエンドポイント。 |
 | `fields_to_export` | 必須* | 文字列の配列 | エクスポートするユーザーデータフィールドの名前。カスタム属性もエクスポートできます。<br><br>*2021年4月以降、新しいアカウントではエクスポートする特定のフィールドを指定する必要があります。 |
 | `output_format` | オプション | 文字列 | 独自のS3バケットを使用する場合、ファイル形式を `zip` または `gzip` に指定できます。デフォルトはZIPファイル形式です。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
 ```
@@ -136,12 +135,12 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/globa
 | `last_name` | 文字列 | ユーザーの姓。 |
 | `phone` | 文字列 | E.164形式のユーザーの電話番号。 |
 | `purchase`s | 配列 | このユーザーが過去90日間に行った購入。 |
-| `random_bucket` | 整数 | ユーザーの[ランダムバケット番号]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events#random-bucket-number-event)。ランダムユーザーの均一分布セグメントを作成するために使用されます。 |
+| `random_bucket` | 整数 | ユーザーの[ランダムバケット番号]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events#random-bucket-number-update-events)。ランダムユーザーの均一分布セグメントを作成するために使用されます。 |
 | `time_zone` | 文字列 | IANAタイムゾーンデータベースと同じ形式のユーザーのタイムゾーン。 |
 | `total_revenue` | 浮動小数点 | このユーザーに帰属する総収益。総収益は、ユーザーが受信したキャンペーンおよびキャンバスのコンバージョン期間中に行った購入に基づいて計算されます。 |
 | `uninstalled_at` | タイムスタンプ | ユーザーがアプリをアンインストールした日時。アプリがアンインストールされていない場合は省略されます。 |
 | `user_aliases` | オブジェクト | `alias_name` および `alias_label` を含む[ユーザーエイリアスオブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object)（存在する場合）。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fields to export" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="エクスポートするフィールド" }
 
 ## レスポンス {#response}
 

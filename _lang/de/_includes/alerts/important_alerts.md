@@ -53,7 +53,7 @@ Es gibt bestimmte Browser, wie die Naver Android- und iOS-Apps, die das Braze-Pr
 {% if include.alert == 'Purchase event deprecation' %}
 
 {% alert important %}
-Das bisherige Kauf-Event befindet sich im Wartungsmodus. Bestehende Braze-Kund:innen können bisherige Kauf-Events weiterhin verwenden. Sie funktionieren weiterhin wie erwartet, aber neue Funktionen werden künftig auf Basis der empfohlenen E-Commerce-Events entwickelt. Braze wird Sie rechtzeitig informieren, bevor ein Einstellungsdatum festgelegt wird. Neue Braze-Kund:innen sollten [empfohlene E-Commerce-Events]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events) verwenden, da bisherige Kauf-Events nicht mehr verfügbar sein werden.
+Das bisherige Kauf-Event befindet sich im Wartungsmodus. Bestehende Braze-Kund:innen können bisherige Kauf-Events weiterhin verwenden. Sie funktionieren weiterhin wie erwartet, aber neue Funktionen werden künftig auf Basis der empfohlenen E-Commerce-Events entwickelt. Braze wird Sie rechtzeitig informieren, bevor ein Einstellungsdatum festgelegt wird. Neue Braze-Kund:innen sollten [empfohlene E-Commerce-Events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events) verwenden, da bisherige Kauf-Events nicht mehr verfügbar sein werden.
 {% endalert %}
 
 {% endif %}
@@ -61,7 +61,7 @@ Das bisherige Kauf-Event befindet sich im Wartungsmodus. Bestehende Braze-Kund:i
 {% if include.alert == 'Purchase event deprecation for eCommerce filters' %}
 
 {% alert important %}
-Das bisherige Kauf-Event wird in einen veralteten Zustand (Wartungsmodus) übergehen. Kauf-Events funktionieren weiterhin wie erwartet, aber es werden keine neuen Funktionen mehr darauf aufgebaut – zugunsten der [empfohlenen E-Commerce-Events]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events). Wenn dies geschieht, werden die Segment-Filter nicht mehr unter dem Kaufverhalten angezeigt.<br><br> Wenn Sie derzeit Kauf-Events verwenden, werden Sie rechtzeitig über die Pläne zur schrittweisen Einstellung informiert. Vorerst können Sie Kauf-Events bis zum offiziellen Einstellungsdatum weiter verwenden. Weitere Informationen finden Sie in der [Übersicht zu empfohlenen Events]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events).
+Das bisherige Kauf-Event wird in einen veralteten Zustand (Wartungsmodus) übergehen. Kauf-Events funktionieren weiterhin wie erwartet, aber es werden keine neuen Funktionen mehr darauf aufgebaut – zugunsten der [empfohlenen E-Commerce-Events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events). Wenn dies geschieht, werden die Segment-Filter nicht mehr unter dem Kaufverhalten angezeigt.<br><br> Wenn Sie derzeit Kauf-Events verwenden, werden Sie rechtzeitig über die Pläne zur schrittweisen Einstellung informiert. Vorerst können Sie Kauf-Events bis zum offiziellen Einstellungsdatum weiter verwenden. Weitere Informationen finden Sie in der [Übersicht zu empfohlenen Events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events).
 {% endalert %}
 
 {% endif %}
@@ -122,7 +122,7 @@ Granulare Berechtigungen befinden sich derzeit in der Early-Access-Phase. Wenn f
 {% if include.alert == 'WhatsApp audio and documents' %}
 
 {% alert note %}
-Die [Braze-Medienbibliothek]({{site.baseurl}}/media_library) unterstützt nur Bilder und Video. Audio-Dateien und Dokumente müssen über eine gehostete URL referenziert werden.
+Die [Braze-Medienbibliothek]({{site.baseurl}}/media_library) unterstützt nur Bilder und Videos. Audio-Dateien und Dokumente müssen über eine gehostete URL referenziert werden.
 {% endalert %}
 
 {% endif %}

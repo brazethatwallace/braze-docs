@@ -15,22 +15,22 @@ search_tag: Partner
 
 ## Sobre esta integração {#about-this-integration}
 
-A integração entre a Braze e a DailyPlay permite implantar e acompanhar jogos e o desempenho de recompensas em diferentes Segments de público. Os jogos e sistemas de recompensas da DailyPlay funcionam com o motor de orquestração da Braze para que você possa transformar públicos passivos em participantes ativos.
+A integração entre a Braze e a DailyPlay permite implantar e acompanhar o desempenho de jogos e recompensas em diferentes Segments de público. Os jogos e sistemas de recompensas da DailyPlay funcionam com o motor de orquestração da Braze para que você possa transformar públicos passivos em participantes ativos.
 
-Você pode enviar marcos de jogabilidade, resgates de recompensas e métricas de engajamento para a Braze para criar Segments de público e disparar mensagens automatizadas e integradas entre canais com base no comportamento dentro do jogo. Com esta integração, você pode:
+Você pode enviar marcos de jogabilidade, resgates de recompensas e métricas de engajamento para a Braze para criar Segments de público e disparar envio de mensagens automatizado e integrado entre canais com base no comportamento dentro do jogo. Com esta integração, você pode:
 
 - **Enriquecer perfis de usuário:** Enviar métricas de jogabilidade, pontuações e status de recompensas para perfis de usuário na Braze.
-- **Desbloquear segmentação avançada:** Criar Segments de público com base no comportamento dentro do jogo, como melhores pontuadores, vencedores recentes ou usuários próximos de desbloquear uma recompensa.
-- **Automatizar campanhas em tempo real:** Disparar mensagens personalizadas e integradas entre canais (push, e-mail, in-app) com base nas interações do jogo para impulsionar jogadas repetidas, fidelidade à marca e maior valor do tempo de vida.
+- **Desbloquear segmentação avançada:** Criar Segments de público com base no comportamento dentro do jogo, como melhores pontuadores, vencedores recentes ou usuários prestes a desbloquear uma recompensa.
+- **Automatizar campanhas em tempo real:** Disparar mensagens personalizadas integradas entre canais (push, e-mail, mensagens no app) com base em interações no jogo para impulsionar jogabilidade recorrente, fidelidade à marca e maior valor do tempo de vida.
 
 ## Casos de uso {#use-cases}
 
 - **Reengajar clientes inativos:** Envie um link para um jogo com chance de ganhar um desconto como recompensa para clientes inativos.
-- **Atividade em torno de produtos e tendências:** Crie jogos personalizados que destaquem um novo produto, uma temporada de feriados, tendência ou evento.
-- **Implementar jogos direcionados:** Combine a segmentação e o direcionamento da Braze com a personalização do DailyPlay para criar conteúdo de jogos envolvente para diferentes objetivos e resultados.
-- **Integração e ativação:** Incorpore um link de jogo raspadinha ou revelação instantânea do DailyPlay na sua série de boas-vindas da Braze para incentivar uma primeira compra ou o preenchimento do perfil.
-- **Retenção e fidelidade:** Quando um consumidor alcança um marco de fidelidade ou realiza uma ação-chave rastreada na Braze, dispare um jogo personalizado do DailyPlay que celebre sua conquista e desbloqueie recompensas específicas do nível.
-- **Prevenção de churn e recuperação:** Identifique usuários que estão se afastando na Braze e entregue um jogo do DailyPlay de baixa fricção para recapturar a atenção deles e trazê-los de volta ao seu app ou site.
+- **Atividade em torno de produtos e tendências:** Crie jogos personalizados que destaquem um novo produto ou uma temporada de festas, tendência ou evento.
+- **Implementar jogos direcionados:** Combine a segmentação e o direcionamento da Braze com a personalização do DailyPlay para criar conteúdo de jogo envolvente para diferentes objetivos e resultados.
+- **Integração e ativação:** Incorpore um link de jogo DailyPlay do tipo raspadinha ou revelação instantânea na sua série de boas-vindas da Braze para incentivar uma primeira compra ou o preenchimento do perfil.
+- **Retenção e fidelidade:** Quando um consumidor atinge um marco de fidelidade ou realiza uma ação-chave rastreada na Braze, dispare um jogo DailyPlay personalizado que celebre sua conquista e desbloqueie recompensas específicas do nível.
+- **Prevenção de churn e recuperação:** Identifique usuários que estão se afastando na Braze e, em seguida, entregue um jogo DailyPlay de baixo atrito para recapturar a atenção deles e trazê-los de volta ao seu app ou site.
 
 ## Pré-requisitos {#prerequisites}
 
@@ -38,7 +38,7 @@ Você pode enviar marcos de jogabilidade, resgates de recompensas e métricas de
 | Requisito | Descrição |
 | --- | --- |
 | Conta DailyPlay | Uma conta DailyPlay é necessária para usar esta integração. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões de `users.track`. Crie essa chave na Braze em **Configurações** > **APIs e Identificadores** > **Chaves de API**. Para saber mais, consulte [Chaves de API]({{site.baseurl}}/api/api_key). |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões de `users.track`. Crie essa chave na Braze em **Configurações** > **APIs e identificadores** > **Chaves de API**. Para saber mais, consulte [Chaves de API]({{site.baseurl}}/api/basics). |
 | Endpoint REST da Braze | A URL do endpoint REST para [sua instância da Braze]({{site.baseurl}}/api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
@@ -48,10 +48,10 @@ Você pode enviar marcos de jogabilidade, resgates de recompensas e métricas de
 
 1. No [dashboard do DailyPlay](https://app.dailyplay.ai/connections), acesse a página **Connections** e selecione **Add Connection**.
 
-![Página de conexões do DailyPlay listando conexões ativas da Braze e estatísticas de gatilhos.]({% image_buster /assets/img/dailyplay/connections_page.png %}){: style="max-width:70%;"}
+![Página de conexões do DailyPlay listando conexões ativas da Braze e estatísticas de disparos.]({% image_buster /assets/img/dailyplay/connections_page.png %}){: style="max-width:70%;"}
 
 {: start="2"}
-2. Em **Provider**, escolha **Braze**. Insira um nome, sua chave da API REST da Braze, o App ID e o REST endpoint, depois selecione **Create Connection**.
+2. Em **Provider**, escolha **Braze**. Insira um nome, sua chave da API REST da Braze, o App ID e o REST endpoint. Em seguida, selecione **Create Connection**.
 
 ![Modal de adição de conexão do DailyPlay com Braze selecionado e campos de credenciais para chave de API, App ID e REST endpoint.]({% image_buster /assets/img/dailyplay/add_connection.png %}){: style="max-width:60%;"}
 
@@ -66,31 +66,31 @@ Acesse a página **Streams** e crie um novo stream.
 
 ![Modal de gerenciamento de conexões do DailyPlay mostrando eventos-gatilho da Braze e o código de incorporação para modelos de e-mail da Braze.]({% image_buster /assets/img/dailyplay/manage_connections.png %}){: style="max-width:70%;"}
 
-### Etapa 3: Criar uma campaign na Braze {#step-3-create-a-campaign-in-braze}
+### Etapa 3: Criar uma campanha na Braze {#step-3-create-a-campaign-in-braze}
 
-Cole o código da etapa 2 na sua campaign na Braze.
+Cole o código da etapa 2 na sua campanha na Braze.
 
-Quando os usuários jogam no stream, o DailyPlay dispara um evento e o envia para a Braze por meio do seu REST endpoint da Braze.
+Quando os usuários jogam nos streams, o DailyPlay dispara um evento e o envia para a Braze por meio do seu REST endpoint da Braze.
 
 ### Etapa 4: Inspecionar ações e expandir seu funil {#step-4-inspect-actions-and-expand-your-funnel}
 
-Usuários que completam ações nos streams do DailyPlay recebem atributos personalizados e eventos personalizados no perfil da Braze.
+Os usuários que completam ações nos streams do DailyPlay recebem atributos personalizados e eventos personalizados em seu perfil na Braze.
 
-Crie uma [campaign]({{site.baseurl}}/user_guide/messaging/campaigns) ou [Canvas]({{site.baseurl}}/user_guide/messaging/canvas) com um gatilho [baseado em ação]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) que utilize os eventos personalizados ou atributos personalizados do DailyPlay necessários para o seu caso de uso.
+Crie uma [Campaign]({{site.baseurl}}/user_guide/messaging/campaigns) ou um [Canvas]({{site.baseurl}}/user_guide/messaging/canvas) com um disparo [baseado em ação]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) que utilize os eventos personalizados ou atributos personalizados do DailyPlay necessários para o seu caso de uso.
 
-## Usar o DailyPlay com a Braze {#use-dailyplay-with-braze}
+## Use a DailyPlay com a Braze {#use-dailyplay-with-braze}
 
 Para engajar um segmento específico de clientes, siga estas etapas após concluir a configuração da integração.
 
-### Etapa 1: Configurar o DailyPlay {#step-1-set-up-your-dailyplay-configuration}
+### Etapa 1: Configurar a DailyPlay {#step-1-set-up-your-dailyplay-configuration}
 
-Siga as etapas de integração nesta seção para configurar sua conexão com a Braze e o stream do DailyPlay. Copie o código de integração.
+Siga as etapas de integração nesta seção para configurar a conexão com a Braze e o stream da DailyPlay. Copie o código de integração.
 
 ### Etapa 2: Criar uma Campaign ou Canvas na Braze {#step-2-create-a-braze-campaign-or-canvas}
 
-Crie uma Campaign ou Canvas usando um disparador baseado em ação. Selecione os eventos personalizados ou atributos personalizados do DailyPlay necessários para o seu caso de uso.
+Crie uma Campaign ou Canvas usando um disparo baseado em ação. Selecione os eventos personalizados ou atributos personalizados da DailyPlay necessários para o seu caso de uso.
 
-Você pode usar o [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) para referenciar propriedades que o DailyPlay envia no texto da sua mensagem.
+Você pode usar [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) para referenciar propriedades que a DailyPlay envia no texto da sua mensagem.
 
 **Exemplo de atributo personalizado:**
 

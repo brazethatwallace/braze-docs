@@ -26,7 +26,7 @@ tool:
 
 ## GIF {#gifs}
 
-GIFは、iOSプッシュ、アプリ内メッセージ、メール、Content Cards、MMSまたはRCSメッセージでサポートされています。極端に細長い形状のGIF（例：3000 x 2ピクセル）や、300フレーム以上のGIFは、合計ファイルサイズが小さくてもアップロードに失敗する場合があります。
+GIFはiOSプッシュ、アプリ内メッセージ、メール、Content Cards、MMSまたはRCSメッセージでサポートされています。非常に縦長または横長の形状（例：3000 x 2ピクセル）や300フレーム以上のGIFは、合計ファイルサイズが小さくてもアップロードに失敗する場合があります。iOSでのRCS固有のGIF動作については、[RCS](#rcs)を参照してください。
 
 {% multi_lang_include alerts/note_alerts.md alert='GIF platform support' %}
 
@@ -44,7 +44,7 @@ GIFは、iOSプッシュ、アプリ内メッセージ、メール、Content Car
 
 {% multi_lang_include channels/image_specs.md variable_name='in-app messages' %}
 
-{% alert tip %}自信を持ってアセットを作成しましょう！アプリ内メッセージの画像テンプレートとセーフゾーンオーバーレイは、あらゆるサイズのデバイスに対応するように設計されています。[デザインテンプレート ZIP をダウンロード]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %})。{% endalert %}
+{% alert tip %} 自信を持ってアセットを作成しましょう！アプリ内メッセージの画像テンプレートとセーフゾーンオーバーレイは、あらゆるサイズのデバイスに対応するよう設計されています。[デザインテンプレート ZIP をダウンロード]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %})。{% endalert %}
 
 詳細については、[アプリ内メッセージのクリエイティブの詳細]({{site.baseurl}}/user_guide/channels/in_app_messages/customize)を参照してください。
 
@@ -58,18 +58,18 @@ Brazeは、モーダルアプリ内メッセージアイコンに [Font Awesome 
 
 {% multi_lang_include channels/image_specs.md variable_name='push notifications' %}
 
-#### 推奨メッセージ長 {#recommended-message-lengths}
+#### 推奨メッセージ文字数 {#recommended-message-lengths}
 
-最良の結果を得るために、プッシュメッセージを作成する際は以下のメッセージ長ガイドラインを参照してください。画像の有無、通知の状態（iOS）、ユーザーのデバイスの表示設定、デバイスのサイズによって多少の差異が生じる場合があります。
+最良の結果を得るには、プッシュメッセージの作成時に以下のメッセージ文字数ガイドラインを参考にしてください。画像の有無、通知の状態（iOS）、ユーザーのデバイスの表示設定、デバイスのサイズなどによって多少の差異が生じる場合があります。
 
-| メッセージタイプ | 推奨長（テキストのみ） | 推奨長（リッチ） |
+| メッセージタイプ | 推奨文字数（テキストのみ） | 推奨文字数（リッチ） |
 | --- | --- | --- |
 | iOS ロック画面 | 160文字 | 130文字 |
 | iOS 通知センター | 160文字 | 130文字 |
 | iOS バナーアラート | 80文字 | 65文字 |
 | Android ロック画面 | 49文字 | N/A |
 | Android 通知ドロワー | 597文字 | N/A |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="推奨メッセージ長" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="推奨メッセージ文字数" }
 
 iOSの文字数の詳細については、[iOS文字数ガイドライン]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications#character-count)を参照してください。
 
@@ -103,7 +103,7 @@ iOSの文字数の詳細については、[iOS文字数ガイドライン]({{sit
 {% endtab %}
 {% tab テキスト %}
 
-| ブラウザ | プラットフォーム | 最大タイトル長 | 最大本文長 |
+| ブラウザ | プラットフォーム | 最大タイトル文字数 | 最大本文文字数 |
 | --- | --- | --- | --- |
 | Chrome | Android | 35 | 50 |
 | Firefox | Android | 35 | 50 |
@@ -125,8 +125,8 @@ iOSの文字数の詳細については、[iOS文字数ガイドライン]({{sit
 {% tabs %}
 {% tab iOS %}
 
-![「Hi! This is an iOS Push with an image」というテキストと絵文字が表示されたiOSプッシュ通知。テキストの横に小さな画像があります。]({% image_buster /assets/img_archive/braze_richpush1.png %}){: style="max-width:50%;"}
-![ハードプッシュでのiOSプッシュ通知。前のメッセージと同じテキストで、テキストの前に拡大された画像が表示されています。]({% image_buster /assets/img_archive/braze_richpush2.png %}){: style="max-width:50%;"}
+![「Hi! This is an iOS Push with an image」というテキストと絵文字を含むiOSプッシュ通知。テキストの横に小さい画像があります。]({% image_buster /assets/img_archive/braze_richpush1.png %}){: style="max-width:50%;"}
+![強調プッシュでのiOSプッシュ通知。前のメッセージと同じテキストで、テキストの前に拡大画像が表示されています。]({% image_buster /assets/img_archive/braze_richpush2.png %}){: style="max-width:50%;"}
 
 {% endtab %}
 {% tab Android %}
@@ -134,16 +134,22 @@ iOSの文字数の詳細については、[iOS文字数ガイドライン]({{sit
 ![メッセージテキストの下に大きな画像が表示されたAndroidプッシュ通知。]({% image_buster /assets/img_archive/android_push_img2.png %})
 
 {% alert note %}
-大きな画像の通知は、600 x 300ピクセル以上の画像を使用すると最適に表示されます。
+大きな画像通知は、600 x 300ピクセル以上の画像を使用すると最適に表示されます。
 {% endalert %}
 
 {% endtab %}
 {% endtabs %}
 
-その他のリソースについては、[プッシュの画像とテキストの仕様]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats)を参照してください。
+その他のリソースについては、[プッシュ画像とテキストの仕様]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats)を参照してください。
 
 ### SMSとMMS {#sms-and-mms}
 
 {% multi_lang_include channels/image_specs.md variable_name='sms and mms' %}
 
 MMSメッセージの作成については、[SMS、MMS、またはRCSメッセージの作成]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create)を参照してください。
+
+### RCS {#rcs}
+
+RCSメディアメッセージはJPG、JPEG、GIF画像をサポートしています。ファイルサイズとフォーマットの詳細については、[SMS、MMS、またはRCSメッセージの作成]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create)を参照してください。
+
+iOSでは、RCSリッチカード内のGIFは静止画像として表示されます。Androidでは、期待どおりにアニメーションが再生されます。詳細については、[RCSリッチカード内のGIFがiOSで静止画像として表示されるのはなぜですか？]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs#why-do-gifs-in-rcs-rich-cards-appear-static-on-ios)を参照してください。

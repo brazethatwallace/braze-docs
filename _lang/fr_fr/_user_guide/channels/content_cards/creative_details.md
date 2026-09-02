@@ -20,42 +20,42 @@ tool: Media
 
 La carte classique est idéale pour les messages et notifications standard, ou même pour catégoriser visuellement les messages à l'aide d'icônes. L'image est facultative, mais elle doit respecter un rapport hauteur/largeur de 1:1.
 
-![Image d'une carte classique avec les détails recommandés et un exemple de carte classique]({% image_buster /assets/img/content_card_classic.png %}){: style="max-width:45%;border:0;"}
+![Image d'une carte classique avec les détails recommandés et un exemple de carte classique]({% image_buster /assets/img/content_card_classic.png %}){: width="1358" height="2871" style="max-width:45%;border:0;"}
 
 | Fonctionnalité de la carte | Détails |
 | --- | ---|
-| Texte d'en-tête | 18 px ; Gras <br> Une seule ligne de texte est idéale. <br> Vous pouvez utiliser Liquid ici pour personnaliser votre message. |
-| Texte du message | 13 px ; Épaisseur normale <br> Deux à quatre lignes de texte sont idéales. <br> Vous pouvez utiliser Liquid ici pour personnaliser votre message. |
-| Texte du lien | Facultatif. <br> 13&nbsp;px <br> Lien vers une page web ou lien profond vers votre application. |
-| Image | Facultatif. <br> Le rapport doit être de 1:1. <br> Nous recommandons une qualité d'image de 60 x 60&nbsp;px. |
+| Texte de l'en-tête | 18 px ; Gras <br> Une seule ligne de texte est idéale. <br> Vous pouvez utiliser Liquid ici pour personnaliser votre message. |
+| Texte du message | 13 px ; Poids normal <br> Deux à quatre lignes de texte est idéal. <br> Vous pouvez utiliser Liquid ici pour personnaliser votre message. |
+| Texte du lien | Facultatif. <br> 13&nbsp;px <br> Lien vers une page web ou deep link vers l'intérieur de votre application. |
+| Image | Facultative. <br> Le rapport doit être de 1:1. <br> Nous recommandons une qualité d'image de 60 x 60&nbsp;px. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Types de Content Cards" }
 
 {% endtab %}
-{% tab Image légendée %}
+{% tab Image avec légende %}
 
-La carte avec image légendée est un excellent moyen de mettre en valeur et d'attirer l'attention sur du contenu important, comme une grande promotion ou une nouvelle fonctionnalité de l'application.
+La carte Image avec légende est un excellent moyen de mettre en valeur et d'attirer l'attention sur du contenu important, comme une grande promotion ou une nouvelle fonctionnalité de l'application.
 
-![Image d'une carte avec image légendée avec les détails recommandés et un exemple de carte avec image légendée]({% image_buster /assets/img/content_card_captioned.png %}){: style="max-width:90%;border:0;"}
+![Image d'une carte Image avec légende avec les détails recommandés et un exemple de carte Image avec légende]({% image_buster /assets/img/content_card_captioned.png %}){: width="2880" height="2877" style="max-width:90%;border:0;"}
 
 | Fonctionnalité de la carte | Détails |
 | --- | ---|
-| Texte d'en-tête | 18 px ; Gras <br> Une seule ligne de texte est idéale. <br> Vous pouvez utiliser Liquid ici pour personnaliser votre message. |
-| Texte du message | 13 px ; Épaisseur normale <br> Deux à quatre lignes de texte sont idéales. <br> Vous pouvez utiliser Liquid ici pour personnaliser votre message. |
-| Texte du lien | Facultatif. <br> 13&nbsp;px <br> Lien vers une page web ou lien profond vers votre application. |
-| Image | Rapport 4:3 suggéré. <br> Largeur minimale de 600&nbsp;px.  <br> Prend en charge les formats PNG, JPEG et GIF haute résolution. |
+| Texte de l'en-tête | 18 px ; Gras <br> Une seule ligne de texte est idéale. <br> Vous pouvez utiliser Liquid ici pour personnaliser votre message. |
+| Texte du message | 13 px ; Poids normal <br> Deux à quatre lignes de texte est idéal. <br> Vous pouvez utiliser Liquid ici pour personnaliser votre message. |
+| Texte du lien | Facultatif. <br> 13&nbsp;px <br> Lien vers une page web ou deep link vers l'intérieur de votre application. |
+| Image | Rapport 4:3 suggéré. <br> 600&nbsp;px de largeur minimum.  <br> Prend en charge les formats PNG, JPEG et GIF haute résolution. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Types de Content Cards" }
 
 {% endtab %}
 {% tab Image uniquement %}
 
-Si vous souhaitez davantage de liberté créative, la carte image uniquement est faite pour vous. Créez votre image avec l'outil de votre choix et importez-la dans ce type de carte.
+Si vous souhaitez davantage de contrôle créatif, la carte image uniquement est faite pour vous. Créez votre image avec l'outil de votre choix et téléversez-la dans ce type de carte.
 
-![Image d'une Content Card image uniquement avec les détails recommandés et un exemple d'image uniquement]({% image_buster /assets/img/content_card_banner.png %}){: style="max-width:45%;border:0;"}
+![Image d'une Content Card image uniquement avec les détails recommandés et un exemple d'image uniquement]({% image_buster /assets/img/content_card_banner.png %}){: width="1358" height="2871" style="max-width:45%;border:0;"}
 
 | Fonctionnalité de la carte | Détails |
 | --- | ---|
-| Carte avec lien | Facultatif. <br> 13&nbsp;px <br> Le comportement au clic renvoie vers une page web ou un lien profond vers votre application. |
-| Image | Tout rapport hauteur/largeur est pris en charge. <br> Largeur minimale de 600&nbsp;px.  <br> Prend en charge les formats PNG, JPEG et GIF haute résolution. |
+| Carte avec lien | Facultatif. <br> 13&nbsp;px <br> Le comportement au clic renvoie vers une page web ou un deep link vers l'intérieur de votre application. |
+| Image | Tout rapport hauteur/largeur pris en charge. <br> 600&nbsp;px de largeur minimum.  <br> Prend en charge les formats PNG, JPEG et GIF haute résolution. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Types de Content Cards" }
 
 {% endtab %}
@@ -69,11 +69,11 @@ Les Content Cards prennent en charge le texte et les images, y compris les GIF, 
 
 Pour fermer une carte, l'utilisateur peut soit la faire glisser sur mobile, soit utiliser la fonction `close X`, comme illustré dans la capture d'écran suivante. Le `x` n'apparaît au survol que pour le SDK Web.
 
-![Image montrant les comportements de fermeture par glissement ou par bouton de fermeture pour une carte]({% image_buster /assets/img/dismissal-cc.png %})
+![Image montrant les comportements de fermeture par glissement ou par bouton de fermeture pour une carte]({% image_buster /assets/img/dismissal-cc.png %}){: width="1800" height="504"}
 
 Si un utilisateur a fermé toutes ses cartes ou si vous n'avez pas envoyé de nouvelles mises à jour, le flux de l'utilisateur ressemblera généralement à ceci :
 
-![Image d'un flux de Content Cards vide]({% image_buster /assets/img/empty-cc.png %}){: style="max-width:45%"}
+![Image d'un flux de Content Cards vide]({% image_buster /assets/img/empty-cc.png %}){: width="832" height="1478" style="max-width:45%"}
 
 {% alert tip %}
 Gardez vos Content Cards pertinentes en les configurant pour qu'elles se ferment lorsque l'utilisateur effectue une action pertinente. Par exemple, configurez les Content Cards promotionnelles pour qu'elles se ferment dès que l'utilisateur effectue un achat, afin qu'il ne continue pas à voir une offre pour un produit qu'il a déjà acheté.

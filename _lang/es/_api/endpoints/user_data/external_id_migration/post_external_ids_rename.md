@@ -6,7 +6,6 @@ page_order: 1
 layout: api_page
 page_type: reference
 description: "En este artículo se describen los detalles del endpoint Renombrar ID externos."
-
 ---
 {% api %}
 # Renombrar ID externo {#rename-external-id}
@@ -38,7 +37,7 @@ El endpoint no registra puntos de datos y no afecta a los recuentos de MAU. Todo
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/api_key) con el permiso `users.external_ids.rename`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics) con el permiso `users.external_ids.rename`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -100,7 +99,7 @@ La respuesta confirmará todos los renombramientos realizados con éxito, así c
 El campo `message` devolverá `success` para cualquier solicitud válida. Los errores más específicos se recogen en la matriz `rename_errors`. El campo `message` devuelve un error en caso de:
 
 - Clave de API no válida
-- Matriz vacía `external_id_renames`
+- Matriz `external_id_renames` vacía
 - Matriz `external_id_renames` con más de 50 objetos
 - Límite de velocidad alcanzado (más de 1000 solicitudes por minuto)
 

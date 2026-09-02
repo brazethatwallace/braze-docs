@@ -28,12 +28,12 @@ Pour un déploiement standard du SDK Web, vous pouvez utiliser la méthode suiva
 braze.logPurchase(product_id, price, "USD", quantity);
 ```
 
-Si vous préférez utiliser Google Tag Manager, vous pouvez utiliser le type d'étiquette **Purchase** pour appeler la [méthode `logPurchase`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logpurchase). Utilisez cette étiquette pour suivre les achats dans Braze, en incluant éventuellement des propriétés d'achat. Pour ce faire :
+Si vous préférez utiliser Google Tag Manager à la place, vous pouvez utiliser le type d'étiquette **Purchase** pour appeler la [méthode `logPurchase`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logpurchase). Utilisez cette étiquette pour suivre les achats dans Braze, avec la possibilité d'inclure des propriétés d'achat. Pour ce faire :
 
 1. Les champs **Product ID** et **Price** sont obligatoires.
 2. Utilisez le bouton **Add Row** pour ajouter des propriétés d'achat.
 
-![Une boîte de dialogue affichant les paramètres de configuration de l'étiquette d'action Braze. Les paramètres incluent « tag type », « external ID », « price », « currency code », « quantity » et « purchase properties ».]({% image_buster /assets/img/web-gtm/gtm-purchase.png %})
+![Boîte de dialogue affichant les paramètres de configuration de l'étiquette d'action Braze. Les paramètres présentés sont « tag type », « external ID », « price », « currency code », « quantity » et « purchase properties ».]({% image_buster /assets/img/web-gtm/gtm-purchase.png %})
 {% endtab %}
 
 {% tab android %}
@@ -135,7 +135,7 @@ AppboyBinding.LogPurchase("product_id", "currencyCode", price(decimal));
 
 ### Ajouter des propriétés {#adding-properties}
 
-Vous pouvez ajouter des métadonnées sur les achats en transmettant un dictionnaire contenant des valeurs `Int`, `Double`, `String`, `Bool` ou `Date`.
+Vous pouvez ajouter des métadonnées aux achats en passant un dictionnaire contenant des valeurs `Int`, `Double`, `String`, `Bool` ou `Date`.
 
 {% tabs %}
 {% tab web %}
@@ -145,9 +145,9 @@ Pour un déploiement standard du SDK Web, vous pouvez utiliser la méthode suiva
 braze.logPurchase(product_id, price, "USD", quantity, {key: "value"});
 ```
 
-Si votre site enregistre les achats en utilisant l'élément de couche de données d'[événement eCommerce](https://developers.google.com/analytics/devguides/collection/ga4/ecommerce?client_type=gtm) standard vers Google Tag Manager, vous pouvez utiliser le type d'étiquette **E-commerce Purchase**. Ce type d'action enregistrera un « achat » distinct dans Braze pour chaque article envoyé dans la liste `items`.
+Si votre site enregistre les achats en utilisant l'élément de couche de données de l'[événement eCommerce](https://developers.google.com/analytics/devguides/collection/ga4/ecommerce?client_type=gtm) standard vers Google Tag Manager, vous pouvez utiliser le type d'étiquette **E-commerce Purchase**. Ce type d'action enregistrera un « achat » séparé dans Braze pour chaque article envoyé dans la liste `items`.
 
-Vous pouvez également spécifier des noms de propriétés supplémentaires à inclure en tant que propriétés d'achat en indiquant leurs clés dans la liste des propriétés d'achat. Notez que Braze recherchera dans l'`item` individuel en cours d'enregistrement toutes les propriétés d'achat que vous avez ajoutées à la liste.
+Vous pouvez également spécifier des noms de propriétés supplémentaires que vous souhaitez inclure en tant que propriétés d'achat en indiquant leurs clés dans la liste des propriétés d'achat. Notez que Braze recherchera dans l'`item` individuel en cours d'enregistrement toute propriété d'achat que vous avez ajoutée à la liste.
 
 Par exemple, avec le payload eCommerce suivant :
 
@@ -161,7 +161,7 @@ items: [{
 }]
 ```
 
-Si vous souhaitez uniquement transmettre `item_brand` et `item_name` en tant que propriétés d'achat, ajoutez simplement ces deux champs au tableau des propriétés d'achat. Si vous ne fournissez aucune propriété, aucune propriété d'achat ne sera envoyée dans l'appel [`logPurchase`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logpurchase) à Braze.
+Si vous souhaitez uniquement que `item_brand` et `item_name` soient transmis en tant que propriétés d'achat, ajoutez simplement ces deux champs au tableau des propriétés d'achat. Si vous ne fournissez aucune propriété, aucune propriété d'achat ne sera envoyée dans l'appel [`logPurchase`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logpurchase) à Braze.
 {% endtab %}
 
 {% tab android %}
@@ -260,11 +260,11 @@ AppboyBinding.LogPurchase("product_id", "currencyCode", price(decimal), purchase
 
 ### Ajouter une quantité {#adding-quantity}
 
-Par défaut, `quantity` est défini sur `1`. Cependant, vous pouvez ajouter une quantité à vos achats si les clients effectuent le même achat plusieurs fois lors d'un même passage en caisse. Pour ajouter une quantité, transmettez une valeur `Int` à `quantity`.
+Par défaut, `quantity` est défini sur `1`. Cependant, vous pouvez ajouter une quantité à vos achats si les clients effectuent le même achat plusieurs fois lors d'un seul passage en caisse. Pour ajouter une quantité, passez une valeur `Int` au paramètre `quantity`.
 
 ### Utiliser la REST API {#using-the-rest-api}
 
-Vous pouvez également utiliser notre REST API pour enregistrer des achats. Pour plus d'informations, consultez les [endpoints de données utilisateur]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data).
+Vous pouvez également utiliser notre REST API pour enregistrer des achats. Pour plus d'informations, consultez la section [Endpoints de données utilisateur]({{site.baseurl}}/api/endpoints/user_data).
 
 ## Enregistrer les commandes {#logging-orders}
 
@@ -283,7 +283,7 @@ Les clés suivantes sont réservées et ne peuvent pas être utilisées comme pr
 
 ## Devises prises en charge {#supported-currencies}
 
-Braze prend en charge les symboles de devises suivants. Tout autre symbole de devise que vous fournissez enregistre un avertissement et l'achat n'est pas enregistré dans Braze.
+Braze prend en charge les symboles de devises suivants. Tout autre symbole de devise que vous fournissez déclenche un avertissement et l'achat n'est pas enregistré dans Braze.
 
 - `AED`, `AFN`, `ALL`, `AMD`, `ANG`, `AOA`, `ARS`, `AUD`, `AWG`, `AZN`
 - `BAM`, `BBD`, `BDT`, `BGN`, `BHD`, `BIF`, `BMD`, `BND`, `BOB`, `BRL`

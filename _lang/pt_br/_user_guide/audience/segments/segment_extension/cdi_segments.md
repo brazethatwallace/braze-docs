@@ -30,42 +30,43 @@ Antes de criar sua primeira extensão de segmento CDI, configure uma nova fonte 
 
 ### Etapa 2: Crie um segmento {#step-2-create-a-segment}
 
-Primeiro, crie uma nova [extensão de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension) e selecione **Full refresh**.
+1. Acesse **Público** > **Extensões de Segmento** e selecione **Criar Nova Extensão**.
+2. No menu **Selecione sua experiência de criação de extensão de segmento**, selecione **Atualização completa (incluindo Segments CDI)**.
 
-![Exemplo de modal de extensão de segmento.]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:60%;"}
+![O menu "Selecione sua experiência de criação de extensão de segmento" com as opções de criação.]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:60%;"}
 
-Para a fonte de dados, escolha **CDI Data Tables**.
+{: start="3"}
+3. No menu **Selecione a fonte de dados para esta extensão de segmento**, escolha **Tabelas de Dados CDI**. Esse menu aparece somente depois que você configura pelo menos uma [fonte conectada]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources).
 
-![Captura de tela relacionada à etapa 2: criar um segmento.]({% image_buster /assets/img/segment/cdi_data_tables.png %}){: style="max-width:60%;"}
+![O menu "Selecione a fonte de dados para esta extensão de segmento" com a opção Tabelas de Dados CDI.]({% image_buster /assets/img/segment/cdi_data_tables.png %}){: style="max-width:60%;"}
 
-Como parte da configuração do CDI, você pode selecionar diferentes conexões para usar nas extensões de segmento CDI. Cada conexão possui um conjunto específico de tabelas de dados. Sua equipe de desenvolvimento pode configurar suas conexões e tabelas de dados durante a configuração do CDI.
+{: start="4"}
+4. Selecione uma conexão para usar e escreva sua consulta. Cada conexão tem um conjunto específico de tabelas de dados. Sua equipe de desenvolvimento pode configurar suas conexões e tabelas de dados durante a configuração do CDI.
+5. Visualize as tabelas de dados disponíveis, incluindo seus esquemas e descrições disponíveis, selecionando **Explorador de Fontes**.
 
-Para visualizar as tabelas de dados disponíveis, incluindo seus esquemas e quaisquer descrições disponíveis, selecione **Reference**. Quando estiver pronto, selecione uma conexão.
+![O Explorador de Fontes mostrando as tabelas de dados disponíveis, incluindo seus esquemas e descrições disponíveis.]({% image_buster /assets/img/segment/connection_schema_with_descriptions.png %}){: style="max-width:100%;"}
 
-![Para visualizar as tabelas de dados disponíveis, incluindo seus esquemas e quaisquer descrições disponíveis, selecione Reference. Quando estiver pronto, selecione uma conexão.]({% image_buster /assets/img/segment/connection_schema_with_descriptions.png %}){: style="max-width:100%;"}
-
-Em seguida, escreva o SQL para o seu segmento usando [a sintaxe SQL da Braze]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#step-2-write-your-sql).
-
-Lembre-se de que todas as extensões de segmento CDI devem usar `external_user_id` como a coluna selecionada, e seu `external_user_id` deve corresponder ao definido na Braze para os usuários.
-
-{% alert important %}
-`external_user_id` deve ser um valor do tipo **string**. Se o ID de origem estiver armazenado como número (por exemplo, `client_id` como inteiro), [converta-o para string no seu SQL](https://www.w3schools.com/sql/func_sqlserver_cast.asp) para que corresponda ao tipo `external_id` na Braze.
-{% endalert %}
-
+{: start="6"}
+6. Escreva o SQL para seu segmento usando [a sintaxe SQL da Braze]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#step-2-write-your-sql). Lembre-se de que todas as extensões de segmento CDI devem usar `external_user_id` como a coluna selecionada, e seu `external_user_id` deve corresponder ao definido na Braze para os usuários.<br><br>
 Se os resultados da sua consulta incluírem usuários que não existem na Braze, esses usuários serão ignorados. A Braze não cria novos usuários com base na saída da sua extensão de segmento CDI.
 
-{% alert tip %}
-Para saber como pré-visualizar suas extensões de segmento, gerenciá-las e executar atualizações automáticas de membros, consulte [Extensões de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments).
+{% alert important %}
+`external_user_id` deve ser um valor da string. Se o ID da sua fonte estiver armazenado como número (por exemplo, `client_id` como um inteiro), [converta-o para string no seu SQL](https://www.w3schools.com/sql/func_sqlserver_cast.asp) para que corresponda ao tipo `external_id` na Braze.
 {% endalert %}
 
-Por fim, você pode [usar essa extensão de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension#step-6-use-your-extension-in-a-segment) dentro de um segmento da Braze para enviar uma Campaign ou Canvas para esse público.
+{: start="7"}
+7. [Use esta extensão de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension#step-6-use-your-extension-in-a-segment) dentro de um Segment da Braze para enviar uma Campaign ou Canvas para esse público.
+
+{% alert tip %}
+Para saber como você pode pré-visualizar suas extensões de segmento, gerenciá-las e executar atualizações automáticas de participação, consulte [Extensões de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments).
+{% endalert %}
 
 ## Considerações {#considerations}
 
 - Uma extensão de segmento pode referenciar dados de apenas uma conexão, não de várias.
-- Uma extensão de segmento pode usar uma das seguintes opções como fonte de dados: dados CDI ou dados Braze Snowflake (Currents). Não é possível misturar fontes de dados dentro de uma extensão de segmento, mas você pode criar várias extensões de segmento para referenciar juntas dentro de um segmento.
+- Uma extensão de segmento pode usar uma das seguintes opções como fonte de dados: dados de CDI ou dados da Braze Snowflake (Currents). Não é possível misturar fontes de dados dentro de uma extensão de segmento, mas você pode criar várias extensões de segmento para referenciar juntas dentro de um Segment.
 
 ## Solução de problemas {#troubleshooting}
 
 - Sua consulta pode expirar ao atingir o tempo máximo de execução, que é configurado para cada sincronização de conexão na página **Cloud Data Ingestion**. O tempo máximo de execução permitido é de 60 minutos.
-- Certifique-se de que seu SQL esteja escrito usando a sintaxe apropriada para o seu data warehouse.
+- Verifique se o SQL está escrito usando a sintaxe apropriada para o seu data warehouse.

@@ -17,7 +17,7 @@ noindex: true
 Pour prendre en charge les géorepérages pour iOS :
 
 1. Votre intégration doit prendre en charge les notifications push en arrière-plan.
-2. Les géorepérages Braze [doivent être activés]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/location_tracking#enabling-automatic-location-tracking) via le SDK, soit implicitement en activant la collecte des données de localisation, soit explicitement en activant la collecte des géorepérages. Ils ne sont pas activés par défaut.
+2. Les géorepérages Braze [doivent être activés]({{site.baseurl}}/developer_guide/geofences?sdktab=swift) via le SDK, soit implicitement en activant la collecte des données de localisation, soit explicitement en activant la collecte des géorepérages. Ils ne sont pas activés par défaut.
 
 {% alert important %}
 Depuis iOS 14, les géorepérages ne fonctionnent pas de manière fiable pour les utilisateurs qui choisissent de donner leur autorisation de localisation approximative.
@@ -25,13 +25,13 @@ Depuis iOS 14, les géorepérages ne fonctionnent pas de manière fiable pour le
 
 ## Étape 1 : Activer les notifications push en arrière-plan {#step-1-enable-background-push}
 
-Pour exploiter pleinement notre stratégie de synchronisation par géorepérage, vous devez activer les [notifications push en arrière-plan]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/push_notifications/silent_push_notifications#use-silent-remote-notifications-to-trigger-background-work) en plus de réaliser l'intégration push standard.
+Pour exploiter pleinement notre stratégie de synchronisation des géorepérages, vous devez activer les [notifications push en arrière-plan]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/silent_push_notifications#use-silent-push-notifications-to-trigger-background-work) en plus de compléter l'intégration push standard.
 
 ## Étape 2 : Activer les géorepérages {#step-2-enable-geofences}
 
-Par défaut, les géorepérages sont activés en fonction de l'activation ou non de la collecte automatique des emplacements. Vous pouvez activer les géorepérages à l'aide du fichier `Info.plist`. Ajoutez le dictionnaire `Braze` à votre fichier `Info.plist`. À l'intérieur du dictionnaire `Braze`, ajoutez la sous-entrée de valeur booléenne `EnableGeofences` et définissez la valeur sur `YES`. Notez qu'avant la version v4.0.2 du SDK Braze pour iOS, la clé de dictionnaire `Appboy` doit être utilisée à la place de `Braze`.
+Par défaut, les géorepérages sont activés en fonction de l'activation ou non de la collecte automatique de localisation. Vous pouvez activer les géorepérages à l'aide du fichier `Info.plist`. Ajoutez le dictionnaire `Braze` à votre fichier `Info.plist`. À l'intérieur du dictionnaire `Braze`, ajoutez la sous-entrée booléenne `EnableGeofences` et définissez la valeur sur `YES`. Notez qu'avant la version v4.0.2 du SDK iOS de Braze, la clé de dictionnaire `Appboy` doit être utilisée à la place de `Braze`.
 
-Vous pouvez également activer les géorepérages au démarrage de l'application à l'aide de la méthode [`startWithApiKey:inApplication:withLaunchOptions:withAppboyOptions`](https://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#aa9f1bd9e4a5c082133dd9cc344108b24). Dans le dictionnaire `appboyOptions`, définissez `ABKEnableGeofencesKey` sur `YES`. Par exemple :
+Vous pouvez également activer les géorepérages au démarrage de l'application en utilisant la méthode [`startWithApiKey:inApplication:withLaunchOptions:withAppboyOptions`](https://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#aa9f1bd9e4a5c082133dd9cc344108b24). Dans le dictionnaire `appboyOptions`, définissez `ABKEnableGeofencesKey` sur `YES`. Par exemple :
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -58,12 +58,12 @@ Appboy.start(withApiKey: "YOUR-API-KEY",
 
 ## Étape 3 : Vérifier les notifications push en arrière-plan de Braze {#step-3-check-for-braze-background-push}
 
-Braze synchronise les géorepérages vers les appareils à l'aide de notifications push en arrière-plan. Suivez l'article de [personnalisation iOS]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/ignoring_internal_push) pour vous assurer que votre application n'effectue aucune action indésirable lors de la réception des notifications de synchronisation de géorepérage de Braze.
+Braze synchronise les géorepérages sur les appareils à l'aide de notifications push en arrière-plan. Consultez l'article sur la [personnalisation iOS]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/ignoring_internal_push) pour vous assurer que votre application n'effectue aucune action indésirable lors de la réception des notifications de synchronisation des géorepérages de Braze.
 
 ## Étape 4 : Ajouter NSLocationAlwaysUsageDescription à votre Info.plist {#step-4-add-nslocationalwaysusagedescription-to-your-infoplist}
 
-Ajoutez les clés `NSLocationAlwaysUsageDescription` et `NSLocationAlwaysAndWhenInUseUsageDescription` à votre `info.plist` avec une valeur de type `String` contenant une description de la raison pour laquelle votre application doit suivre la localisation. Les deux clés sont requises à partir d'iOS 11.
-Cette description s'affichera lorsque l'invite de localisation du système demandera l'autorisation. Elle devrait expliquer clairement à vos utilisateurs les avantages du suivi de la localisation.
+Ajoutez les clés `NSLocationAlwaysUsageDescription` et `NSLocationAlwaysAndWhenInUseUsageDescription` à votre fichier `info.plist` avec une valeur de type `String` contenant une description expliquant pourquoi votre application a besoin de suivre la localisation. Ces deux clés sont requises par iOS 11 ou version ultérieure.
+Cette description s'affichera lorsque l'invite système de localisation demandera l'autorisation, et elle devrait expliquer clairement les avantages du suivi de localisation à vos utilisateurs.
 
 ## Étape 5 : Demander l'autorisation de l'utilisateur {#step-5-request-authorization-from-the-user}
 
@@ -92,23 +92,23 @@ locationManager.requestAlwaysAuthorization()
 
 ## Étape 6 : Activer les géorepérages sur le tableau de bord {#step-6-enable-geofences-on-the-dashboard}
 
-iOS autorise le stockage de 20 géorepérages au maximum pour une application donnée. L'utilisation des emplacements occupera une partie de ces 20 emplacements de géorepérage disponibles. Pour éviter toute perturbation accidentelle ou indésirable d'autres fonctionnalités liées au géorepérage dans votre application, les géorepérages de localisation doivent être activés pour chaque application individuellement sur le tableau de bord.
+iOS n'autorise le stockage que de 20 géorepérages maximum pour une application donnée. L'utilisation des emplacements consommera une partie de ces 20 emplacements de géorepérage disponibles. Pour éviter toute perturbation accidentelle ou indésirable d'autres fonctionnalités liées au géorepérage dans votre application, les géorepérages de localisation doivent être activés individuellement pour chaque application sur le tableau de bord.
 
 Pour que les emplacements fonctionnent correctement, vous devez également vérifier que votre application n'utilise pas tous les emplacements de géorepérage disponibles.
 
-### Activer les géorepérages depuis la page des emplacements {#enable-geofences-from-the-locations-page}
+### Activer les géorepérages depuis la page des emplacements : {#enable-geofences-from-the-locations-page}
 
-![Les options de géorepérage sur la page des emplacements Braze.]({% image_buster /assets/img_archive/enable-geofences-locations-page.png %})
+![Les options de géorepérage sur la page des emplacements de Braze.]({% image_buster /assets/img_archive/enable-geofences-locations-page.png %})
 
-### Activer les géorepérages depuis la page des paramètres {#enable-geofences-from-the-settings-page}
+### Activer les géorepérages depuis la page des paramètres : {#enable-geofences-from-the-settings-page}
 
-![La case à cocher de géorepérage située sur les pages de paramètres Braze.]({% image_buster /assets/img_archive/enable-geofences-app-settings-page.png %})
+![La case à cocher de géorepérage sur les pages de paramètres de Braze.]({% image_buster /assets/img_archive/enable-geofences-app-settings-page.png %})
 
-## Désactiver les requêtes de géorepérage automatiques {#disabling-automatic-geofence-requests}
+## Désactiver les requêtes automatiques de géorepérage {#disabling-automatic-geofence-requests}
 
-À partir de la version 3.21.3 du SDK iOS, vous pouvez désactiver les demandes automatiques de géorepérage. Pour cela, utilisez le fichier `Info.plist`. Ajoutez le dictionnaire `Braze` à votre fichier `Info.plist`. À l'intérieur du dictionnaire `Braze`, ajoutez la sous-entrée de valeur booléenne `DisableAutomaticGeofenceRequests` et définissez la valeur sur `YES`.
+À partir de la version 3.21.3 du SDK iOS, vous pouvez désactiver la demande automatique de géorepérages. Pour ce faire, utilisez le fichier `Info.plist`. Ajoutez le dictionnaire `Braze` à votre fichier `Info.plist`. À l'intérieur du dictionnaire `Braze`, ajoutez la sous-entrée booléenne `DisableAutomaticGeofenceRequests` et définissez la valeur sur `YES`.
 
-Vous pouvez également désactiver les demandes automatiques de géorepérage au démarrage de l'application via la méthode [`startWithApiKey:inApplication:withLaunchOptions:withAppboyOptions`](https://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#aa9f1bd9e4a5c082133dd9cc344108b24). Dans le dictionnaire `appboyOptions`, définissez `ABKDisableAutomaticGeofenceRequestsKey` sur `YES`. Par exemple :
+Vous pouvez également désactiver les requêtes automatiques de géorepérage au démarrage de l'application via la méthode [`startWithApiKey:inApplication:withLaunchOptions:withAppboyOptions`](https://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#aa9f1bd9e4a5c082133dd9cc344108b24). Dans le dictionnaire `appboyOptions`, définissez `ABKDisableAutomaticGeofenceRequestsKey` sur `YES`. Par exemple :
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -133,13 +133,13 @@ Appboy.start(withApiKey: "YOUR-API-KEY",
 {% endtab %}
 {% endtabs %}
 
-Si vous choisissez d'utiliser cette option, vous devrez demander manuellement les géorepérages pour que la fonctionnalité soit opérationnelle.
+Si vous choisissez d'utiliser cette option, vous devrez demander manuellement les géorepérages pour que la fonctionnalité fonctionne.
 
 ## Demander manuellement des géorepérages {#manually-requesting-geofences}
 
-Lorsque le SDK Braze demande au backend les géorepérages à surveiller, il transmet la localisation actuelle de l'utilisateur et reçoit les géorepérages jugés les plus pertinents en fonction de la localisation signalée. Il y a une limite de débit d'une actualisation de géorepérage par session.
+Lorsque le SDK Braze demande au backend les géorepérages à surveiller, il transmet la localisation actuelle de l'utilisateur et reçoit les géorepérages considérés comme les plus pertinents en fonction de la localisation transmise. Il existe une limite de débit d'une actualisation de géorepérage par session.
 
-Pour contrôler la localisation transmise par le SDK afin de recevoir les géorepérages les plus pertinents, à partir de la version 3.21.3 du SDK iOS, vous pouvez demander manuellement des géorepérages en fournissant la latitude et la longitude d'un emplacement. Il est recommandé de désactiver les demandes automatiques de géorepérage lors de l'utilisation de cette méthode. Pour ce faire, utilisez le code suivant :
+Pour contrôler la localisation que le SDK transmet afin de recevoir les géorepérages les plus pertinents, à partir de la version 3.21.3 du SDK iOS, vous pouvez demander manuellement des géorepérages en fournissant la latitude et la longitude d'un emplacement. Il est recommandé de désactiver les demandes automatiques de géorepérage lorsque vous utilisez cette méthode. Pour ce faire, utilisez le code suivant :
 
 {% tabs %}
 {% tab OBJECTIVE-C %}

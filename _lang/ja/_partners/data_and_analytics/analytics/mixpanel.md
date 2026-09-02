@@ -6,7 +6,6 @@ description: "このリファレンス記事では、BrazeとMixpanelのパー�
 page_type: partner
 search_tag: Partner
 tool: Currents
-
 ---
 
 # [![Braze Learningコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/mixpanel-integration-with-braze/339085/scorm/2u7y2e6qrldh2){: style="float:right;width:120px;border:0;" class="noimgborder"}Mixpanel {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecommixpanel-integration-with-braze339085scorm2u7y2e6qrldh2-stylefloatrightwidth120pxborder0-classnoimgbordermixpanel}
@@ -22,16 +21,16 @@ Braze Currentsを利用して[BrazeイベントをMixpanelにエクスポート]
 | 要件 | 説明 |
 |---|---|
 | Mixpanel アカウント | このパートナーシップを利用するには、[Mixpanel アカウント](https://mixpanel.com/)が必要です。 |
-| Currents | Mixpanel にデータをエクスポートするには、アカウントに [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents#access-currents) を設定する必要があります。 |
+| Currents | Mixpanel にデータをエクスポートするには、アカウントに [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents#access-currents) が設定されている必要があります。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## データエクスポート統合 {#data-export-integration}
 
 BrazeからMixpanelにエクスポートできるイベントの完全なリストは、このセクションに記載されています。Mixpanelに送信されるすべてのイベントには、ユーザーの`external_user_id`がMixpanel Distinct IDとして含まれます。現時点では、Brazeは`external_user_id`が設定されていないユーザーのイベントデータは送信しません。
 
-Mixpanelには2種類のイベントをエクスポートできます。メッセージ送信に直接関連するBrazeイベントで構成される[メッセージエンゲージメントイベント](#supported-currents-events)と、セッション、カスタムイベント、プラットフォームを通じてトラッキングされた購入などのその他のアプリやWebサイトのアクティビティを含む[顧客行動イベント](#supported-currents-events)です。すべてのカスタムイベントには`[Braze Custom Event]`というプレフィックスが付きます。カスタムイベントプロパティと購入イベントプロパティには、それぞれ`[Custom event property]`と`[Purchase property]`というプレフィックスが付きます。
+Mixpanelには2種類のイベントをエクスポートできます。メッセージ送信に直接関連するBrazeイベントで構成される[メッセージエンゲージメントイベント](#supported-currents-events)と、セッション、カスタムイベント、プラットフォームを通じて追跡された購入などのアプリやWebサイトのアクティビティを含む[顧客行動イベント](#supported-currents-events)です。すべてのカスタムイベントには`[Braze Custom Event]`というプレフィックスが付きます。カスタムイベントプロパティと購入イベントプロパティには、それぞれ`[Custom event property]`と`[Purchase property]`というプレフィックスが付きます。
 
-追加のイベントエンタイトルメントへのアクセスが必要な場合は、アカウントマネージャーに連絡するか、[サポートチケット]({{site.baseurl}}/braze_support)を開いてください。
+追加のイベントエンタイトルメントへのアクセスが必要な場合は、アカウントマネージャーに連絡するか、[サポートチケット]({{site.baseurl}}/user_guide/administer/personal/braze_support)を開いてください。
 
 ### ステップ1:Mixpanelの認証情報を取得する {#step-1-get-mixpanel-credentials}
 
@@ -39,20 +38,20 @@ Mixpanelのダッシュボードで、新規または既存のプロジェクト
 
 ### ステップ2:Braze Currentを作成する {#step-2-create-braze-current}
 
-1. Brazeで**Currents** > **+ Create Current** > **Create Mixpanel Export**に移動します。
-2. 表示されたフィールドに統合名、連絡先メールアドレス、Mixpanel APIシークレット、Mixpanelトークンを入力します。
-3. トラッキングするイベントを選択します。利用可能なイベントのリストが提供されます。
+1. Brazeで、**Currents** > **+ Create Current** > **Create Mixpanel Export**に移動します。
+2. 表示されたフィールドに、統合名、連絡先メールアドレス、Mixpanel APIシークレット、およびMixpanelトークンを入力します。
+3. 追跡するイベントを選択します。利用可能なイベントのリストが表示されます。
 4. **Launch Current**を選択します。
 
-![Braze Mixpanel Currentsページ。このページには、統合名、連絡先メールアドレス、APIシークレット、Mixpanelエクスポートトークンのフィールドがあります。Currentsページの下半分には、送信可能なCurrentsイベントのリストが表示されます。]({% image_buster /assets/img_archive/mixpanel4.png %}){: style="max-width:80%;"}
+![Braze Mixpanel Currentsページ。このページには、統合名、連絡先メールアドレス、APIシークレット、およびMixpanelエクスポートトークンのフィールドがあります。ページの下半分には、送信可能なCurrentsイベントが一覧表示されています。]({% image_buster /assets/img_archive/mixpanel4.png %}){: style="max-width:80%;"}
 
 {% tab note %}
-詳しくはMixpanelの[統合ドキュメント](https://help.mixpanel.com/hc/en-us/articles/360001243663)をご覧ください。
+詳しくは、Mixpanelの[統合ドキュメント](https://help.mixpanel.com/hc/en-us/articles/360001243663)をご覧ください。
 {% endtab %}
 
-## サポートされているCurrentsイベント {#supported-currents-events}
+## サポートされるCurrentsイベント {#supported-currents-events}
 
-Brazeは以下のイベントをMixpanelにエクスポートすることをサポートしています。
+Brazeは、以下のイベントのMixpanelへのエクスポートをサポートしています。
 
 - [メッセージエンゲージメントイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)
 - [顧客行動イベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)
@@ -63,20 +62,20 @@ Brazeは以下のイベントをMixpanelにエクスポートすることをサ�
 
 ### Mixpanel APIキーとBraze external IDの確認 {#verify-mixpanel-api-key-and-braze-external-id}
 
-Mixpanel APIキーと`braze_external_id`の値が、BrazeとMixpanelの両方で想定どおりに一致していることを確認してください。コホート同期APIはプロダクト間でユーザーグループを共有するため、Brazeの`external_id`とMixpanelが送信する識別子が一致していない場合、同期が正しく動作しません。Mixpanelからのコホート同期はMixpanelのスケジュールに基づいて実行されます（例：1回、またはおよそ2時間ごと）。そのため、確認の間に時間を置いてください。
+Mixpanel APIキーと`braze_external_id`の値が、BrazeとMixpanelの両方で期待通りに一致していることを確認してください。コホート同期APIは製品間でユーザーグループを共有するため、Brazeの`external_id`とMixpanelが送信する識別子が一致していない場合、同期は正しく動作しません。Mixpanelからのコホート同期はMixpanelのスケジュールに従って実行されます（例：1回または約2時間ごと）。そのため、確認の間に時間をおいてください。
 
 ### 実装ステータスの確認 {#check-implementation-status}
 
-`braze_external_id`がMixpanelに実装されていることを確認してください。
+`braze_external_id`がMixpanelで実装されていることを確認してください。
 
 ### ユーザープロパティを直接設定する {#set-the-user-property-directly}
 
-あいまいさを減らすため、Mixpanelで`braze_external_id`を直接設定してください。
+あいまいさを減らすために、Mixpanelで`braze_external_id`を直接設定してください。
 
-### プロパティの自動設定（SDK） {#automatic-property-setting-sdks}
+### 自動プロパティ設定（SDK） {#automatic-property-setting-sdks}
 
 Mixpanel SDKは、同じアプリケーションにBraze SDKが統合されている場合、`braze_external_id`を自動的に設定できます。MixpanelとBrazeの両方を一緒に実装する場合、通常は両方のSDKをインストールする以外に追加の設定は必要ありません。
 
 {% alert note %}
-`braze_external_id`は、Brazeで`changeUser()`が呼び出されたときには設定されません。Mixpanelが初期化されるか、セッションを開始するとき（「init」または「start session」時）に設定されます。
+`braze_external_id`は、Brazeで`changeUser()`が呼び出されたときには設定されません。Mixpanelが初期化されるとき、またはセッションを開始するとき（「init」または「start session」時）に設定されます。
 {% endalert %}

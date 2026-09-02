@@ -6,7 +6,6 @@ page_order: 1
 layout: api_page
 page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint Renomear IDs externos."
-
 ---
 {% api %}
 # Renomear ID externo {#rename-external-id}
@@ -38,7 +37,7 @@ O endpoint não registra pontos de dados e não afeta as contagens de MAU. Todos
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key) com a permissão `users.external_ids.rename`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics) com a permissão `users.external_ids.rename`.
 
 ## Limite de frequência {#rate-limit}
 

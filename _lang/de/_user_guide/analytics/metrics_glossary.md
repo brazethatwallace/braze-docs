@@ -146,7 +146,7 @@ In-App Message
 Feature Flags
 {% endapitags %}
 
-Die Performance der Nachricht über verschiedene Kanäle hinweg. Die angezeigten Metriken hängen vom ausgewählten Messaging-Kanal ab und davon, ob das [Feature-Flag-Experiment]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/experiments#campaign-analytics) ein multivariater Test ist.
+Die Performance der Nachricht über verschiedene Kanäle hinweg. Die angezeigten Metriken hängen vom ausgewählten Messaging-Kanal ab und davon, ob das [Feature-Flag-Experiment]({{site.baseurl}}/developer_guide/feature_flags/experiments#campaign-analytics) ein multivariater Test ist.
 
 {% endapi %}
 
@@ -357,7 +357,7 @@ SMS/MMS
 
 {% multi_lang_include analytics/metrics.md metric='Delivery Failures' %}
 
-Kontaktieren Sie den <a href="/docs/braze_support/">Braze-Support</a>, um Unterstützung beim Verständnis der Gründe für Zustellungsfehler zu erhalten.
+Kontaktieren Sie den <a href="/docs/braze_support">Braze-Support</a>, um Unterstützung beim Verständnis der Gründe für Zustellungsfehler zu erhalten.
 
 <span class="calculation-line">Berechnung: (Sends) - (Sends to Carrier)</span>
 
@@ -373,7 +373,7 @@ RCS
 
 {% multi_lang_include analytics/metrics.md metric='Delivery Failures RCS' %}
 
-Kontaktieren Sie den <a href="/docs/braze_support/">Braze-Support</a>, um Unterstützung beim Verständnis der Gründe für Zustellungsfehler zu erhalten.
+Kontaktieren Sie den <a href="/docs/braze_support">Braze-Support</a>, um Unterstützung beim Verständnis der Gründe für Zustellungsfehler zu erhalten.
 
 <span class="calculation-line">Berechnung: (Sends) - (Sends to Carrier)</span>
 
@@ -389,7 +389,7 @@ SMS/MMS
 
 {% multi_lang_include analytics/metrics.md metric='Failed Delivery Rate' %}
 
-Kontaktieren Sie den <a href="/docs/braze_support/">Braze-Support</a>, um Unterstützung beim Verständnis der Gründe für Zustellungsfehler zu erhalten.
+Kontaktieren Sie den <a href="/docs/braze_support">Braze-Support</a>, um Unterstützung beim Verständnis der Gründe für Zustellungsfehler zu erhalten.
 
 <span class="calculation-line">Berechnung: (Zustellungsfehler) / (Sends)</span>
 

@@ -1,17 +1,17 @@
 ## Analytics anzeigen {#viewing-analytics}
 
-Sobald Sie Ihre Kampagne gestartet haben, können Sie zur Detailseite dieser Kampagne zurückkehren, um die wichtigsten Kennzahlen einzusehen. Navigieren Sie zur Seite **Campaigns** und wählen Sie Ihre Kampagne aus, um die Detailseite zu öffnen.{% if include.channel != "banner" %} Für {% if include.channel == "Content Card" %}Content Cards {% elsif include.channel == "banner" %}Banner {% elsif include.channel == "email" %}E-Mails {% elsif include.channel == "in-app message" %}In-App-Nachrichten {% elsif include.channel == "KakaoTalk" %}KakaoTalk-Nachrichten {% elsif include.channel == "push" %}Push-Nachrichten {% elsif include.channel == "SMS" %}SMS-Nachrichten {% elsif include.channel == "whatsapp" %}WhatsApp-Nachrichten {% elsif include.channel == "webhook" %}Webhooks {% endif %}, die in Canvas gesendet werden, lesen Sie den Abschnitt [Canvas-Analytics]({{site.baseurl}}/user_guide/engagement_tools/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics).{% endif %}
+Sobald Sie Ihre Kampagne gestartet haben, können Sie zur Detailseite dieser Kampagne zurückkehren, um die wichtigsten Kennzahlen einzusehen. Navigieren Sie zur Seite **Campaigns** und wählen Sie Ihre Kampagne aus, um die Detailseite zu öffnen.{% if include.channel != "banner" %} Für {% if include.channel == "Content Card" %}Content Cards {% elsif include.channel == "banner" %}Banner {% elsif include.channel == "email" %}E-Mails {% elsif include.channel == "in-app message" %}In-App-Nachrichten {% elsif include.channel == "KakaoTalk" %}KakaoTalk-Nachrichten {% elsif include.channel == "push" %}Push-Nachrichten {% elsif include.channel == "SMS" %}SMS-Nachrichten {% elsif include.channel == "whatsapp" %}WhatsApp-Nachrichten {% elsif include.channel == "webhook" %}Webhooks {% endif %}, die in Canvas gesendet werden, lesen Sie den Abschnitt [Canvas-Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics).{% endif %}
 
 {% alert tip %}
 Suchen Sie nach Definitionen für die in Ihrem Bericht aufgeführten Begriffe und Metriken? Sehen Sie sich unser
-  {% if include.channel == "email" %}[E-Mail-Analytics-Glossar]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/analytics_glossary) an.
-  {% elsif include.channel == "banner" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics) an und filtern Sie nach Banner.
-  {% elsif include.channel == "Content Card" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics) an und filtern Sie nach Content Cards.
-  {% elsif include.channel == "in-app message" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics) an und filtern Sie nach In-App-Nachrichten.
-  {% elsif include.channel == "push" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics) an und filtern Sie nach Push.
-  {% elsif include.channel == "SMS" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics) an und filtern Sie nach SMS/MMS und RCS.
-  {% elsif include.channel == "whatsapp" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics) an und filtern Sie nach WhatsApp.
-  {% elsif include.channel == "webhook" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics) an und filtern Sie nach Webhook.{% endif %}
+  {% if include.channel == "email" %}[E-Mail-Analytics-Glossar]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary) an.
+  {% elsif include.channel == "banner" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary) an und filtern Sie nach Banner.
+  {% elsif include.channel == "Content Card" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary) an und filtern Sie nach Content Cards.
+  {% elsif include.channel == "in-app message" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary) an und filtern Sie nach In-App-Nachrichten.
+  {% elsif include.channel == "push" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary) an und filtern Sie nach Push.
+  {% elsif include.channel == "SMS" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary) an und filtern Sie nach SMS/MMS und RCS.
+  {% elsif include.channel == "whatsapp" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary) an und filtern Sie nach WhatsApp.
+  {% elsif include.channel == "webhook" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary) an und filtern Sie nach Webhook.{% endif %}
 {% endalert %}
 
 Auf dem Tab **Kampagnen-Analytics** können Sie Ihre Berichte in einer Reihe von Panels einsehen. Möglicherweise sehen Sie mehr oder weniger als die in den folgenden Abschnitten aufgelisteten, aber jedes hat seinen eigenen nützlichen Zweck.
@@ -85,7 +85,7 @@ Die folgende Tabelle erklärt, was die jeweilige Bezeichnung bedeutet.
 | Bezeichnung in der Fußzeile | Wann sie verwendet wird |
 | --- | --- |
 | **Current Audience** | Der Workspace hat 50.000 Nutzer:innen oder weniger. Braze führt einen vollständigen Scan der Workspace-Profile für die Standardstatistik durch, sodass die angezeigte Zielgruppengröße ein aktueller, nicht auf Stichproben basierender Wert ist (der dennoch von Kanal-Erreichbarkeit, Abo-Regeln und anderen Targeting-Optionen abhängt). |
-| **Estimated Audience** | Der Workspace hat mehr als 50.000 Nutzer:innen. Braze führt standardmäßig keine vollständige Datenbankzählung durch. Die Zielgruppengröße wird anhand einer Stichprobe geschätzt und hochgerechnet, ähnlich wie der Bereich **Erreichbare Nutzer:innen** im Segment Builder. Abweichungen sind zu erwarten, insbesondere bei kleinen Segmenten im Verhältnis zum Workspace. |
+| **Estimated Audience** | Der Workspace hat mehr als 50.000 Nutzer:innen. Braze führt standardmäßig keine vollständige Datenbankzählung durch. Die Zielgruppengröße wird anhand einer Stichprobe geschätzt und hochgerechnet, ähnlich wie der Bereich **Reachable users** im Segment Builder. Abweichungen sind zu erwarten, insbesondere bei kleinen Segmenten im Verhältnis zum Workspace. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Estimated Audience und Current Audience" }
 
 Weitere Informationen zum Stichprobenverhalten, zu **Calculate exact statistics** und zur Segmentierung **erreichbarer Nutzer:innen** finden Sie unter [Segmentgröße messen]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size).
@@ -186,7 +186,7 @@ Das Panel **WhatsApp Performance** zeigt Ihnen, wie gut Ihre Nachricht in versch
 
 ![WhatsApp-Performance-Panel mit einer Tabelle mit Metriken für Variante 1.]({% image_buster /assets/img/whatsapp_message_performance.png %})
 
-#### Credits versus Sendezähler {#credits-versus-send-counts}
+#### Credits und Sendezähler {#credits-versus-send-counts}
 
 Die WhatsApp-Sendezähler in den Kampagnen-Analytics spiegeln Zustellversuche wider. Die verbrauchten Credits können abweichen, wenn Meta nach Nachrichtenkategorie (Marketing, Utility, Authentifizierung, Service) abrechnet.
 
@@ -244,7 +244,7 @@ Wenn Bilder in einem Export fehlen, arbeiten Sie mit Ihren Entwickler:innen zusa
 
 #### Content-Card-Metriken {#content-card-metrics}
 
-Im Folgenden finden Sie eine Aufschlüsselung einiger wichtiger Metriken, die Sie bei der Überprüfung Ihrer Nachrichten-Performance sehen können. Die vollständigen Definitionen aller Content-Cards-Metriken finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics). Filtern Sie dort nach Content Cards.
+Im Folgenden finden Sie eine Aufschlüsselung einiger wichtiger Metriken, die Sie bei der Überprüfung Ihrer Nachrichten-Performance sehen können. Die vollständigen Definitionen aller Content-Cards-Metriken finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary). Filtern Sie dort nach Content Cards.
 
 <style>
     .no-split {
@@ -319,7 +319,7 @@ _Messages Sent_ bezieht sich auf Content Cards, die zum Ansehen verfügbar sind,
 
 Dies sind die wichtigsten Metriken, die Sie bei der Überprüfung der Performance Ihrer Banner-Kampagne im Blick behalten sollten. Klicks und Impressionen für Banner werden automatisch über das SDK getrackt.
 
-Die vollständigen Definitionen aller Banner-Metriken finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics). Filtern Sie dort nach Banner.
+Die vollständigen Definitionen aller Banner-Metriken finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary). Filtern Sie dort nach Banner.
 
 <style>
     .no-split {
@@ -399,7 +399,7 @@ Sowohl Kontroll- als auch Varianten-Impressionen erfordern, dass die Banner-Plat
 
 #### E-Mail-Metriken {#email-metrics}
 
-Im Folgenden finden Sie einige wichtige E-Mail-spezifische Metriken, die in anderen Kanälen nicht verfügbar sind. Die vollständigen Definitionen aller in Braze verwendeten E-Mail-Metriken finden Sie in unserem [E-Mail-Analytics-Glossar]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/analytics_glossary).
+Im Folgenden finden Sie einige wichtige E-Mail-spezifische Metriken, die in anderen Kanälen nicht verfügbar sind. Die vollständigen Definitionen aller in Braze verwendeten E-Mail-Metriken finden Sie in unserem [E-Mail-Analytics-Glossar]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary).
 
 <style>
     .no-split {
@@ -551,9 +551,9 @@ Darüber hinaus kann die Verwendung von Sicherheitsscannern die Öffnungsraten i
 Nachdem eine E-Mail unsere Server verlassen hat, haben wir nur begrenzte Einblicke in den weiteren Verlauf. Hier sind einige Empfehlungen zum Umgang mit NHI, die sich auf Ihre Ergebnisse auswirken können:
 
 1. Seien Sie sich bewusst, dass dies bei jedem Absender und fast jeder Empfänger:in passieren kann. Klicks sind ebenso wie Öffnungen kein vollständig zuverlässiger Indikator für die menschliche Interaktion mit Ihren Nachrichten – NHI lässt sich nicht verhindern.
-2. Ein höheres positives Engagement korreliert in der Regel mit niedrigerer NHI. Daher ist es wichtig, die [Best Practices]({{site.baseurl}}/user_guide/message_building_by_channel/email/best_practices) für E-Mail-Messaging zu befolgen. Dazu gehört, die ausdrückliche Erlaubnis Ihrer Nutzer:innen für den E-Mail-Versand einzuholen und nicht engagierte Abonnent:innen regelmäßig per Sunsetting zu entfernen.
+2. Ein höheres positives Engagement korreliert in der Regel mit niedrigerer NHI. Daher ist es wichtig, die [Best Practices]({{site.baseurl}}/user_guide/channels/email/best_practices) für E-Mail-Messaging zu befolgen. Dazu gehört, die ausdrückliche Erlaubnis Ihrer Nutzer:innen für den E-Mail-Versand einzuholen und nicht engagierte Abonnent:innen regelmäßig per Sunsetting zu entfernen.
 3. Verwenden Sie wenn möglich HTTPS-Links in Ihren E-Mails. NHI ist bei Absendern, die sichere Links verwenden, weniger verbreitet.
-4. Wenn Sie einen Ein-Klick-Abmeldeprozess verwenden, sollten Sie die Einrichtung eines [Präferenzzentrums]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview) in Betracht ziehen, das die Nutzer:innen zu einer Seite weiterleitet, auf der sie ihre Benachrichtigungseinstellungen bearbeiten und verwalten können. Dies kann hilfreich sein, da NHI Nutzer:innen versehentlich abmelden kann.
+4. Wenn Sie einen Ein-Klick-Abmeldeprozess verwenden, sollten Sie die Einrichtung eines [Präferenzzentrums]({{site.baseurl}}/user_guide/channels/email/subscriptions) in Betracht ziehen, das die Nutzer:innen zu einer Seite weiterleitet, auf der sie ihre Benachrichtigungseinstellungen bearbeiten und verwalten können. Dies kann hilfreich sein, da NHI Nutzer:innen versehentlich abmelden kann.
 5. Ziehen Sie [andere Metriken]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/email_reporting#email-performance) in Betracht, um den Erfolg Ihres E-Mail-Marketings zu messen, z. B. Konversionen, App-Sitzungen oder Website-Besuche.
 6. Fügen Sie einen versteckten Link in Ihre E-Mail-Kampagnen ein. Dieser Link sollte für Menschen nicht sichtbar sein, z. B. weißer Text auf weißem Hintergrund oder ein Interpunktionszeichen. Bots neigen dazu, alle Links anzuklicken. Daher können Sie davon ausgehen, dass Nutzer:innen, die Klick-Events auf dem unsichtbaren Link generieren, tatsächlich das Ergebnis von NHI sind – die Öffnung oder der Klick deutet also nicht unbedingt auf positives Engagement hin.
 
@@ -561,7 +561,7 @@ Nachdem eine E-Mail unsere Server verlassen hat, haben wir nur begrenzte Einblic
 
 #### Metriken für In-App-Nachrichten {#in-app-message-metrics}
 
-Im Folgenden finden Sie einige wichtige Metriken für In-App-Nachrichten, die Sie in Ihren Analytics sehen können. Die vollständigen Definitionen aller in Braze verwendeten Metriken für In-App-Nachrichten finden Sie in unserem [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics).
+Im Folgenden finden Sie einige wichtige Metriken für In-App-Nachrichten, die Sie in Ihren Analytics sehen können. Die vollständigen Definitionen aller in Braze verwendeten Metriken für In-App-Nachrichten finden Sie in unserem [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
 {% alert note %}
 Die Berichterstattung für _Button 1 Clicks_ und _Button 2 Clicks_ funktioniert nur, wenn Sie in der In-App-Nachricht den **Identifier for Reporting** auf „0“ bzw. „1“ setzen.
@@ -633,7 +633,7 @@ Die Verteilung zwischen Kontroll- und Variantengruppen ist grundsätzlich annäh
 
 ### KakaoTalk-Metriken {#kakaotalk-metrics}
 
-Im Folgenden finden Sie einige wichtige KakaoTalk-Metriken, die Sie in Ihren Analytics sehen können. Weitere Details finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics).
+Im Folgenden finden Sie einige wichtige KakaoTalk-Metriken, die Sie in Ihren Analytics sehen können. Weitere Details finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
 {% alert note %}
 Derzeit sind für KakaoTalk-Kampagnen keine geschätzten oder exakten Zielgruppenstatistiken verfügbar.
@@ -647,14 +647,14 @@ Derzeit sind für KakaoTalk-Kampagnen keine geschätzten oder exakten Zielgruppe
 | Klicks gesamt | Die Gesamtzahl der Male, die die gesendeten KakaoTalk-Nachrichten von Nutzer:innen angeklickt wurden. |
 | Fehler | _Fehler_ ist die Anzahl der vom KakaoTalk-Anbieter zurückgegebenen Fehler (wird während des Sendevorgangs erhöht). |
 | Umsatz | _Umsatz_ ist der Umsatz in Dollar von Kampagnenempfänger:innen innerhalb des festgelegten primären Konversionsfensters. |
-| Primäre Konversionen | _Primäre Konversionen_ ist die Anzahl der Male, die ein definiertes Event nach der Interaktion mit oder dem Anzeigen einer empfangenen Nachricht aus einer Braze-Kampagne aufgetreten ist. Dieses definierte Event wird von Ihnen beim Erstellen der Kampagne festgelegt. |
+| Primäre Konversionen | _Primäre Konversionen_ ist die Anzahl der Male, die ein definiertes Ereignis nach der Interaktion mit oder dem Anzeigen einer empfangenen Nachricht aus einer Braze-Kampagne aufgetreten ist. Dieses definierte Ereignis wird von Ihnen beim Erstellen der Kampagne festgelegt. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="KakaoTalk-Metriken" }
 
 {% elsif include.channel == "push" %}
 
 #### Push-Metriken {#push-metrics}
 
-Im Folgenden finden Sie eine Aufschlüsselung einiger wichtiger Metriken, die Sie bei der Überprüfung Ihrer Nachrichten-Performance sehen können. Die vollständigen Definitionen aller Push-Metriken finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics). Filtern Sie dort nach Push.
+Im Folgenden finden Sie eine Aufschlüsselung einiger wichtiger Metriken, die Sie bei der Überprüfung Ihrer Nachrichten-Performance sehen können. Die vollständigen Definitionen aller Push-Metriken finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary). Filtern Sie dort nach Push.
 
 <style>
     .no-split {
@@ -773,7 +773,7 @@ Firebase Cloud Messaging (FCM) Bounces können in drei Fällen auftreten:
 
 #### SMS-, MMS- und RCS-Metriken {#sms-mms-and-rcs-metrics}
 
-Im Folgenden finden Sie eine Aufschlüsselung einiger wichtiger Metriken, die Sie bei der Überprüfung Ihrer Nachrichten-Performance sehen können. Die vollständigen Definitionen aller SMS-, MMS- und RCS-Metriken finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics). Filtern Sie dort nach SMS/MMS und RCS.
+Im Folgenden finden Sie eine Aufschlüsselung einiger wichtiger Metriken, die Sie bei der Überprüfung Ihrer Nachrichten-Performance sehen können. Die vollständigen Definitionen aller SMS-, MMS- und RCS-Metriken finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary). Filtern Sie dort nach SMS/MMS und RCS.
 
 <style>
     .no-split {
@@ -825,7 +825,7 @@ Im Folgenden finden Sie eine Aufschlüsselung einiger wichtiger Metriken, die Si
 
 #### Webhook-Metriken {#webhook-metrics}
 
-Hier sind einige wichtige Webhook-Metriken, die Sie in Ihren Analytics sehen können. Die vollständigen Definitionen aller in Braze verwendeten Webhook-Metriken finden Sie in unserem [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics).
+Hier sind einige wichtige Webhook-Metriken, die Sie in Ihren Analytics sehen können. Die vollständigen Definitionen aller in Braze verwendeten Webhook-Metriken finden Sie in unserem [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
 <style>
     .no-split {
@@ -861,7 +861,7 @@ Hier sind einige wichtige Webhook-Metriken, die Sie in Ihren Analytics sehen kö
 
 #### WhatsApp-Metriken {#whatsapp-metrics}
 
-Hier sind einige wichtige WhatsApp-Metriken, die Sie in Ihren Analytics sehen können. Die vollständigen Definitionen aller in Braze verwendeten WhatsApp-Metriken finden Sie in unserem [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics).
+Hier sind einige wichtige WhatsApp-Metriken, die Sie in Ihren Analytics sehen können. Die vollständigen Definitionen aller in Braze verwendeten WhatsApp-Metriken finden Sie in unserem [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
 <style>
     .no-split {
@@ -929,7 +929,7 @@ Das Panel **Keyword Responses** zeigt Ihnen eine Zeitleiste der eingehenden Schl
 
 ![Das Panel „Kampagnenebene – SMS/MMS/RCS Keyword Responses“ mit einem Liniendiagramm zur Verteilung der Schlüsselwörter im Zeitverlauf und einem Abschnitt „Keyword Categories“ mit ausgewählten Kontrollkästchen für Opt-In, Opt-Out, Help, Other, More und Coaching.]({% image_buster /assets/img/sms/keyword_responses.png %})
 
-Hier können Sie auch die Antwortverteilung für jede Schlüsselwort-Kategorie einsehen, um die nächsten Schritte für das [Retargeting]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/retargeting_campaigns) festzulegen und bequem [ein Segment zu erstellen]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment).
+Hier können Sie auch die Antwortverteilung für jede Schlüsselwort-Kategorie einsehen, um die nächsten Schritte für das [Retargeting]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns) festzulegen und bequem [ein Segment zu erstellen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment).
 
 ![Eine Tabelle mit Spalten für Keyword Category, Response Distribution und Retargeting, wobei Sie die Möglichkeit haben, ein Segment mit der Schlüsselwort-Kategorie zu erstellen.]({% image_buster /assets/img/sms/keyword_segments.png %})
 
@@ -943,7 +943,7 @@ Das Panel **Conversion Event Details** zeigt Ihnen die Performance Ihrer Konvers
 
 ### Konversionskorrelation {#conversion-correlation}
 
-Das Panel **Conversion Correlation** gibt Ihnen Aufschluss darüber, welche Nutzerattribute und Verhaltensweisen die von Ihnen für Kampagnen festgelegten Ergebnisse fördern oder beeinträchtigen. Weitere Informationen finden Sie unter [Konversionskorrelation]({{site.baseurl}}/user_guide/engagement_tools/testing/conversion_correlation).
+Das Panel **Conversion Correlation** gibt Ihnen Aufschluss darüber, welche Nutzerattribute und Verhaltensweisen die von Ihnen für Kampagnen festgelegten Ergebnisse fördern oder beeinträchtigen. Weitere Informationen finden Sie unter [Konversionskorrelation]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/conversion_correlation).
 
 ![Das Panel „Conversion Correlation“ mit einer Analyse der Nutzerattribute und des Verhaltens aus dem primären Konversions-Event – A.]({% image_buster /assets/img/convcorr.png %})
 
@@ -951,7 +951,7 @@ Das Panel **Conversion Correlation** gibt Ihnen Aufschluss darüber, welche Nutz
 
 ## Berichts-Builder {#report-builder}
 
-Sie können auch den [Berichts-Builder]({{site.baseurl}}/user_guide/analytics/reporting/report_builder) verwenden, um benutzerdefinierte Berichte für Ihre KakaoTalk-Kampagnen zu erstellen. Beim Erstellen eines Berichts können Sie filtern, um nur KakaoTalk-Kampagnen einzubeziehen, indem Sie unter **Channels** die Option **KakaoTalk** auswählen oder nach Tags filtern, die Sie Ihren KakaoTalk-Kampagnen zugewiesen haben.
+Sie können auch den [Berichts-Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder) verwenden, um benutzerdefinierte Berichte für Ihre KakaoTalk-Kampagnen zu erstellen. Beim Erstellen eines Berichts können Sie filtern, um nur KakaoTalk-Kampagnen einzubeziehen, indem Sie unter **Channels** die Option **KakaoTalk** auswählen oder nach Tags filtern, die Sie Ihren KakaoTalk-Kampagnen zugewiesen haben.
 
 {% endif %}
 
@@ -967,7 +967,7 @@ Zusätzlich zu den Braze-Analytics können Sie im WhatsApp Business Manager auf 
 
 ### SMS-Currents-Events
 
-Wie bei E-Mails empfängt Braze Events auf Nutzerebene im Zusammenhang mit einer SMS-Nachricht auf ihrem Weg zur Nutzer:in. Alle eingehenden SMS-Events werden auch als Currents-Event über das Event [SMS InboundReceived]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events) gesendet. So können Sie zusätzliche Aktionen durchführen oder Berichte zu den Nachrichten erstellen, die Ihre Nutzer:innen außerhalb der Braze-Plattform senden.
+Wie bei E-Mails empfängt Braze Ereignisse auf Nutzerebene im Zusammenhang mit einer SMS-Nachricht auf ihrem Weg zur Nutzer:in. Alle eingehenden SMS-Ereignisse werden auch als Currents-Event über das Ereignis [SMS InboundReceived]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events) gesendet. So können Sie zusätzliche Aktionen durchführen oder Berichte zu den Nachrichten erstellen, die Ihre Nutzer:innen außerhalb der Braze-Plattform senden.
 
 {% alert note %}
 Eingehende Nachrichten werden nach 1.600 Zeichen abgeschnitten.
@@ -979,12 +979,12 @@ Eingehende Nachrichten werden nach 1.600 Zeichen abgeschnitten.
 
 ## Bindungsbericht {#retention-report}
 
-Bindungsberichte zeigen Ihnen die Raten, mit denen Ihre Nutzer:innen ein ausgewähltes Bindungs-Event über Zeiträume in einer bestimmten Kampagne{% if include.channel != "banner" %} oder Canvas{% endif %} durchgeführt haben. Weitere Informationen finden Sie unter [Bindungsberichte]({{site.baseurl}}/user_guide/analytics/reporting/retention_reports).
+Bindungsberichte zeigen Ihnen die Raten, mit denen Ihre Nutzer:innen ein ausgewähltes Bindungs-Ereignis über Zeiträume in einer bestimmten Kampagne{% if include.channel != "banner" %} oder Canvas{% endif %} durchgeführt haben. Weitere Informationen finden Sie unter [Bindungsberichte]({{site.baseurl}}/user_guide/analytics/reports/retention_reports).
 
 ## Funnel-Bericht {#funnel-report}
 
 Funnel-Berichte bieten einen visuellen Bericht, mit dem Sie die Journeys Ihrer Kund:innen nach dem Erhalt einer Kampagne{% if include.channel != "banner" %} oder Canvas{% endif %} analysieren können. Wenn Ihre Kampagne {% if include.channel != "banner" %}oder Canvas {% endif %}eine Kontrollgruppe oder mehrere Varianten verwendet, können Sie nachvollziehen, wie sich die verschiedenen Varianten auf den Konversions-Funnel ausgewirkt haben, und auf Grundlage dieser Daten optimieren.
 
-Weitere Informationen finden Sie unter [Funnel-Berichte]({{site.baseurl}}/user_guide/analytics/reporting/funnel_reports).
+Weitere Informationen finden Sie unter [Funnel-Berichte]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports).
 
 {% endif %}

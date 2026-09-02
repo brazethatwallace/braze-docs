@@ -20,9 +20,9 @@ Le SDK Braze pour iOS prend en charge les catégories de notifications push par 
 
 Pour enregistrer nos catégories push par défaut, suivez les instructions d'intégration :
 
-## Étape 1 : Ajouter les catégories de notifications push par défaut de Braze {#step-1-adding-braze-default-push-categories}
+## Étape 1 : Ajout des catégories push par défaut de Braze {#step-1-adding-braze-default-push-categories}
 
-Utilisez le code suivant pour vous inscrire à nos catégories push par défaut lorsque vous [vous inscrivez aux notifications push]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/push_notifications/integration#step-4-register-push-tokens-with-braze) :
+Utilisez le code suivant pour enregistrer nos catégories push par défaut lorsque vous [vous inscrivez aux notifications push]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration#step-4-register-push-tokens-with-braze) :
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -56,15 +56,15 @@ UIApplication.shared.registerUserNotificationSettings(settings)
 {% endtab %}
 {% endtabs %}
 
-Cliquer sur les boutons d'action push avec le mode d'activation en arrière-plan ne fera que fermer la notification sans ouvrir l'application. Lors de la prochaine ouverture de l'application par l'utilisateur, les données analytiques de clics sur les boutons pour ces actions seront transmises au serveur.
+Appuyer sur les boutons d'action push avec le mode d'activation en arrière-plan ne fait que fermer la notification sans ouvrir l'application. La prochaine fois que l'utilisateur ouvre l'application, les données analytiques de clic sur le bouton pour ces actions seront envoyées au serveur.
 
-Si vous souhaitez créer vos propres catégories de notifications personnalisées, consultez la [personnalisation des boutons d'action]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/push_notifications/customization/action_buttons#push-category-customization).
+Si vous souhaitez créer vos propres catégories de notification personnalisées, consultez la section [personnalisation des boutons d'action]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/action_buttons#push-category-customization).
 
 ## Étape 2 : Activer la gestion interactive des notifications push {#step-2-enable-interactive-push-handling}
 
-Si vous utilisez le framework `UNNotification` et que vous avez implémenté les [délégués]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/push_notifications/integration#step-5-enable-push-handling) Braze, cette méthode devrait déjà être intégrée.
+Si vous utilisez le framework `UNNotification` et que vous avez implémenté les [délégués]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration#step-5-enable-push-handling) Braze, cette méthode devrait déjà être intégrée.
 
-Pour activer la gestion de nos boutons d'action push, y compris l'analyse des clics et le routage des URL, ajoutez le code suivant à la méthode déléguée `(void)userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:` de votre application :
+Pour activer la gestion des boutons d'action push, y compris l'analyse des clics et le routage des URL, ajoutez le code suivant à la méthode déléguée `(void)userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:` de votre application :
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -87,7 +87,7 @@ Appboy.sharedInstance()?.userNotificationCenter(center,
 {% endtab %}
 {% endtabs %}
 
-Si vous n'utilisez pas le framework UNNotification, vous devrez ajouter le code suivant à la méthode `application:handleActionWithIdentifier:forRemoteNotification:completionHandler:` de votre application pour activer la gestion de nos boutons d'action push :
+Si vous n'utilisez pas le framework UNNotification, vous devrez ajouter le code suivant à la méthode `application:handleActionWithIdentifier:forRemoteNotification:completionHandler:` de votre application pour activer la gestion des boutons d'action push :
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -111,15 +111,15 @@ Appboy.sharedInstance()?.getActionWithIdentifier(identifier,
 {% endtabs %}
 
 {% alert important %}
-Nous recommandons fortement aux personnes utilisant `handleActionWithIdentifier` de commencer à utiliser le framework `UNNotification`. Nous le recommandons en raison de la dépréciation de [`handleActionWithIdentifier`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623068-application?language=objc).
+Nous recommandons fortement aux utilisateurs de `handleActionWithIdentifier` de commencer à utiliser le framework `UNNotification`. Cette recommandation est liée à la dépréciation de [`handleActionWithIdentifier`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623068-application?language=objc).
 {% endalert %}
 
-## Personnalisation de la catégorie de notifications push {#push-category-customization}
+## Personnalisation des catégories de notifications push {#push-category-customization}
 
-En plus de fournir un ensemble de [catégories push par défaut]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/action_buttons), Braze prend en charge les catégories et actions de notification personnalisées. Après avoir enregistré des catégories dans votre application, vous pouvez utiliser le tableau de bord de Braze pour envoyer des catégories de notification à vos utilisateurs.
+En plus de fournir un ensemble de [catégories de notifications push par défaut]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/action_buttons), Braze prend en charge les catégories et actions de notification personnalisées. Après avoir enregistré des catégories dans votre application, vous pouvez utiliser le tableau de bord de Braze pour envoyer des catégories de notification à vos utilisateurs.
 
 Si vous n'utilisez pas le framework `UserNotifications`, consultez la documentation sur les [catégories alternatives](https://developer.apple.com/documentation/usernotifications/unnotificationcategory).
 
-Ces catégories peuvent ensuite être affectées aux notifications push via notre tableau de bord pour déclencher les configurations des boutons d'action de votre conception. Voici un exemple qui tire parti du `LIKE_CATEGORY` affiché sur l'appareil :
+Ces catégories peuvent ensuite être attribuées aux notifications push via notre tableau de bord pour déclencher les configurations de boutons d'action de votre conception. Voici un exemple qui tire parti de la catégorie `LIKE_CATEGORY` affichée sur l'appareil :
 
-![Une notification push affichant deux boutons d'action push « unlike » (je n'aime plus) et « like » (j'aime).]({% image_buster /assets/img_archive/push_example_category.png %})
+![Un message de notification push affichant deux boutons d'action push « unlike » et « like ».]({% image_buster /assets/img_archive/push_example_category.png %})
