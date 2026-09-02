@@ -5,7 +5,6 @@ page_order: 2
 toc_headers: h2
 page_type: reference
 description: "This reference article covers generic cross-company security settings, including authentication rules, IP allowlisting, PII, and two-factor authentication (2FA)."
-
 ---
 
 # Security settings
@@ -342,7 +341,7 @@ If you find yourself caught in a loop after successfully entering your phone num
 3. Restart your PC or laptop.
 4. Attempt to set up 2FA again.
 
-If the problem persists after these steps, contact [Support]({{site.baseurl}}/braze_support) for assistance.
+If the problem persists after these steps, contact [Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) for assistance.
 
 ### Can't enable two-factor authentication (2FA)
 

@@ -249,6 +249,10 @@ image_buster:
     - "/assets/img/*.*"
     - "/assets/unlisted_docs/img/*.*" # assets for the unlisted_docs collection (migrated from braze-docs-hidden)
 
+# Auto-inject width/height on local raster images at build time (CLS).
+image_dimensions:
+  enabled: true
+
 # Image asset pipeline setting for japr
 asset_pipeline:
   bundle: true

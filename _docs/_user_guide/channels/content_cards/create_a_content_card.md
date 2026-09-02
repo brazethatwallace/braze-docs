@@ -72,7 +72,7 @@ The content here varies based on the **Card Type** chosen in the previous step, 
 
 ### Language
 
-Select **Add Languages** to add your desired languages from the provided list. This inserts [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#conditional-logic) into your message. We recommend selecting your languages before writing your content so you can fill in your text where it belongs in the Liquid. For our full list of available languages you can use, see [Languages supported]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization#languages-supported).
+Select **Add Languages** to add your desired languages from the provided list. This inserts [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#conditional-logic) into your message. We recommend selecting your languages before writing your content so you can fill in your text where it belongs in the Liquid. For our full list of available languages you can use, see [Languages supported]({{site.baseurl}}/developer_guide/localization?tab=android).
 
 ![A window with English, Spanish, and French selected for the languages, and title, description, and link text selected for fields to internationalize.]({% image_buster /assets/img/add_languages.png %}){: style="max-width:70%;"}
 
@@ -118,7 +118,7 @@ The **Log Custom Event** and **Log Custom Attribute** options require the follow
 
 ## Step 4: Configure additional settings (optional)
 
-You can use [key-value pairs]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs) to create categories for your Cards, create [multiple Content Card feeds]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed#multiple-feeds), and customize how cards are sorted.
+You can use [key-value pairs]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs) to create categories for your Cards, create [multiple Content Card feeds]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed#implementing-multiple-feeds), and customize how cards are sorted.
 
 To add key-value pairs to your message, go to the **Settings** tab and select **Add New Pair**.
 
@@ -148,7 +148,7 @@ For action-based delivery, there is an expected short delay before the Content C
 
 #### Scheduled delivery
 
-For Content Card campaigns with scheduled delivery, you can choose when Braze evaluates audience eligibility and personalization for new Content Card campaigns by specifying when the card is created. For more, see [card creation]({{site.baseurl}}/card_creation).
+For Content Card campaigns with scheduled delivery, you can choose when Braze evaluates audience eligibility and personalization for new Content Card campaigns by specifying when the card is created. For more, see [card creation]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation).
 
 #### Choose users to target
 

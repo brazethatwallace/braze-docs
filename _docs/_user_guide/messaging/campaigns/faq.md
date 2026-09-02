@@ -5,7 +5,6 @@ page_order: 10
 page_type: FAQ
 description: "This page provides answers to frequently asked questions about campaigns."
 tool: Campaigns
-
 ---
 
 # Frequently asked questions
@@ -170,7 +169,7 @@ For further assistance with campaign troubleshooting, be sure to contact Braze S
 
 ### Why did users receive my campaign twice after I edited it?
 
-If you edit a live campaign without stopping it first, users may receive the message twice. This happens because editing a live campaign re-enqueues users for the updated version while the original queue is still being processed. Users who haven't received the original message yet can end up in both queues. To prevent this, always [stop the campaign]({{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/change_your_campaign_after_launch#stopping-your-campaign) before making changes.
+If you edit a live campaign without stopping it first, users may receive the message twice. This happens because editing a live campaign re-enqueues users for the updated version while the original queue is still being processed. Users who haven't received the original message yet can end up in both queues. To prevent this, always [stop the campaign]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/change_your_campaign_after_launch#stopping-your-campaign) before making changes.
 
 ### What is the difference between the CSV Export User Data and CSV Export Email Address options on my campaign analytics page?
 
@@ -233,7 +232,7 @@ API-triggered and server-triggered campaigns are ideal for handling more advance
 
 ### What should I include when submitting a support ticket for a "Request Timed Out" error?
 
-If you encounter a "Request Timed Out" error while creating or editing a campaign or Canvas and need to contact [Braze Support]({{site.baseurl}}/braze_support), include the following information to help speed up resolution:
+If you encounter a "Request Timed Out" error while creating or editing a campaign or Canvas and need to contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support), include the following information to help speed up resolution:
 
 {% multi_lang_include messaging/support_ticket_request_timed_out_details.md context='campaign' %}
 

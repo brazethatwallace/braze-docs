@@ -35,7 +35,7 @@ Ten en cuenta que el "ratio de créditos" referenciado en esta página se define
 
 ## Detalles del canal de correo electrónico {#email-channel-details}
 
-Las proporciones de créditos de correo electrónico se expresan en incrementos de mil correos electrónicos enviados (CPM) desde la plataforma Braze.
+Las tasas de créditos de correo electrónico se denominan en incrementos de mil correos electrónicos enviados (CPM) desde la plataforma Braze.
 
 {% alert note %}
 Consulta nuestra [documentación de correo electrónico]({{site.baseurl}}/user_guide/channels/email) para obtener más información sobre nuestro canal de correo electrónico.
@@ -43,10 +43,10 @@ Consulta nuestra [documentación de correo electrónico]({{site.baseurl}}/user_g
 
 ## Detalles del canal SMS, MMS y RCS {#sms-mms-and-rcs-channel-details}
 
-Las proporciones de créditos de SMS y MMS se denominan en incrementos de segmentos enviados desde la plataforma Braze. Las proporciones de créditos de RCS se denominan en incrementos de tipos Básico y Multimedia Enriquecido, o tipos Único y Multimedia Enriquecido entregados desde la plataforma Braze. Tanto los tipos entrantes como salientes se facturan.
+Las proporciones de créditos de SMS y MMS se calculan en incrementos de segmentos enviados desde la plataforma Braze. Las proporciones de créditos de RCS se calculan en incrementos de tipos Basic y Rich Media, o tipos Single y Rich Media entregados desde la plataforma Braze. Tanto los tipos entrantes como los salientes se facturan.
 
 {% alert note %}
-Cuando corresponda para estos canales, las tarifas del operador se facturan por separado (a período vencido) y no se consideran parte de los Créditos de Acción.
+Cuando corresponda para estos canales, las tarifas del operador se facturan por separado (a posteriori) y no se consideran parte de los Action Credits.
 {% endalert %}
 
 ### Segmentos de SMS {#sms-segments}
@@ -55,7 +55,7 @@ La industria de SMS cuenta los mensajes en segmentos del mensaje SMS. Un segment
 
 ### Mensajes MMS {#mms-messages}
 
-Para MMS, el límite del mensaje es de 5 MB (esto incluye el activo multimedia y el tamaño del cuerpo del mensaje). Para mayor seguridad, Braze recomienda no exceder 600 KB para tu activo multimedia e incluir también un cuerpo de mensaje.
+Para MMS, el límite del mensaje es de 5 MB (esto incluye el activo multimedia y el tamaño del cuerpo del mensaje). Para mayor seguridad, Braze recomienda no exceder los 600 KB para tu activo multimedia e incluir también un cuerpo de mensaje.
 
 ### Tipos de RCS {#rcs-types}
 
@@ -79,7 +79,7 @@ Estados Unidos, Canadá
 
 ### Resto de África {#rest-of-africa}
 
-Argelia, Angola, Benín, Botsuana, Burkina Faso, Burundi, Camerún, Chad, Congo, Eritrea, Etiopía, Gabón, Gambia, Ghana, Guinea-Bisáu, Costa de Marfil, Kenia, Lesoto, Liberia, Libia, Madagascar, Malaui, Malí, Mauritania, Marruecos, Mozambique, Namibia, Níger, Ruanda, Senegal, Sierra Leona, Somalia, Sudán del Sur, Sudán, Suazilandia, Tanzania, Togo, Túnez, Uganda, Zambia
+Argelia, Angola, Benín, Botsuana, Burkina Faso, Burundi, Camerún, Chad, Congo, Eritrea, Etiopía, Gabón, Gambia, Ghana, Guinea-Bisáu, Costa de Marfil, Kenia, Lesoto, Liberia, Libia, Madagascar, Malaui, Mali, Mauritania, Marruecos, Mozambique, Namibia, Níger, Ruanda, Senegal, Sierra Leona, Somalia, Sudán del Sur, Sudán, Suazilandia, Tanzania, Togo, Túnez, Uganda, Zambia
 
 ### Resto de Asia-Pacífico {#rest-of-asia-pacific}
 
@@ -107,17 +107,17 @@ Consulta nuestra [documentación de WhatsApp]({{site.baseurl}}/user_guide/channe
 
 ## Detalles de Agent Console {#agent-console-details}
 
-Las proporciones de créditos de Agent Console se expresan en incrementos de mil (1,000) invocaciones realizadas desde la plataforma Braze. Se registra una invocación cuando un agente inicia una llamada a un LLM. De forma predeterminada, tu contrato incluye una asignación de invocaciones según lo especificado por tu Platform Edition para cada período de tu plazo de suscripción. Las invocaciones adicionales se cobrarán según tu formulario de pedido.
+Las tasas de crédito de Agent Console se expresan en incrementos de mil (1000) invocaciones realizadas desde la plataforma Braze. Se registra una invocación cuando un agente inicia una llamada a un LLM. De forma predeterminada, tu contrato incluye una asignación de invocaciones según lo especificado por tu edición de plataforma para cada período de tu plazo de suscripción. Las invocaciones adicionales se cobrarán según tu formulario de pedido.
 
 {% alert note %}
 Consulta nuestra [documentación de Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents) para obtener más información sobre Agent Console.
 {% endalert %}
 
-## Detalles adicionales del canal {#additional-channel-details}
+## Detalles adicionales por canal {#additional-channel-details}
 
 ### LINE {#line}
 
-Las tasas de crédito de LINE se expresan en incrementos de mensajes LINE enviados desde la plataforma Braze.
+Las proporciones de créditos de LINE se denominan en incrementos de mensajes LINE enviados desde la plataforma Braze.
 
 {% alert note %}
 Consulta nuestra [documentación de LINE]({{site.baseurl}}/user_guide/channels/line) para obtener más información sobre el uso de LINE con Braze.
@@ -125,7 +125,7 @@ Consulta nuestra [documentación de LINE]({{site.baseurl}}/user_guide/channels/l
 
 ### KakaoTalk {#kakaotalk}
 
-Las tasas de crédito de KakaoTalk se expresan en incrementos de mensajes KakaoTalk enviados desde la plataforma Braze.
+Las proporciones de créditos de KakaoTalk se denominan en incrementos de mensajes KakaoTalk enviados desde la plataforma Braze.
 
 {% alert note %}
 Consulta nuestra [documentación de KakaoTalk]({{site.baseurl}}/kakaotalk) para obtener más información sobre el uso de KakaoTalk con Braze.
@@ -133,10 +133,10 @@ Consulta nuestra [documentación de KakaoTalk]({{site.baseurl}}/kakaotalk) para 
 
 ### Content Cards {#content-cards}
 
-Las tasas de crédito de Content Cards se expresan en incrementos de mil impresiones únicas diarias.
+Las proporciones de créditos de Content Cards se denominan en incrementos de mil impresiones únicas diarias.
 
-Braze se reserva el derecho de cobrar créditos por Content Cards en función del número de Content Cards enviadas si el cliente no configura Content Cards para registrar impresiones únicas de acuerdo con las indicaciones de Braze. Esto se considerará aplicable si, dentro de los seis (6) meses posteriores al primer envío de Content Cards, el cliente ha:
-- Enviado más de cinco millones (5.000.000) de Content Cards, Y ADEMÁS
+Braze se reserva el derecho de cobrar créditos por Content Cards basándose en la cantidad de Content Cards enviadas si el cliente no configura Content Cards para registrar impresiones únicas de acuerdo con las directrices de Braze. Esto se considerará aplicable si, dentro de los seis (6) meses posteriores al primer envío de Content Cards, el cliente ha:
+- Enviado más de cinco millones (5 000 000) de Content Cards, Y ADEMÁS
     - Cero (0) impresiones registradas
     - Una proporción de envíos a impresiones únicas diarias superior a cien (100)
 
@@ -146,15 +146,15 @@ Consulta nuestra [documentación de Content Cards]({{site.baseurl}}/user_guide/c
 
 ### Banners {#banners}
 
-Las tasas de crédito de Banners se expresan en incrementos de mil impresiones únicas diarias.
+Las proporciones de créditos de Banners se denominan en incrementos de mil impresiones únicas diarias.
 
 {% alert note %}
-Consulta nuestra [documentación de Banner]({{site.baseurl}}/developer_guide/banners) para obtener más información sobre los Banners de Braze.
+Consulta nuestra [documentación de Banners]({{site.baseurl}}/developer_guide/banners) para obtener más información sobre Banners de Braze.
 {% endalert %}
 
 ### Audience Sync {#audience-sync}
 
-Las tasas de crédito de Audience Sync se expresan en incrementos de mil sincronizaciones totales de usuarios. De forma predeterminada, tu contrato incluye cinco millones de sincronizaciones de usuarios por cada período de tu plazo de suscripción. Las sincronizaciones de usuarios adicionales se cobrarán según lo establecido en tu formulario de pedido.
+Las proporciones de créditos de Audience Sync se denominan en incrementos de mil sincronizaciones totales de usuarios. De forma predeterminada, tu contrato incluye cinco millones de sincronizaciones de usuarios por cada periodo de tu plazo de suscripción. Las sincronizaciones de usuarios adicionales se cobrarán según tu formulario de pedido.
 
 {% alert note %}
 Consulta nuestra [documentación de Canvas]({{site.baseurl}}/partners/canvas_audience_sync) para obtener más información sobre Canvas Audience Sync y los partners disponibles.
@@ -162,18 +162,18 @@ Consulta nuestra [documentación de Canvas]({{site.baseurl}}/partners/canvas_aud
 
 ### Archivado de mensajes {#message-archiving}
 
-Las tasas de crédito de archivado de mensajes se expresan en incrementos de mil mensajes archivados en los canales push, correo electrónico y SMS/MMS.
+Las proporciones de créditos de archivado de mensajes se denominan en incrementos de mil mensajes archivados en los canales push, correo electrónico y SMS/MMS.
 
 {% alert note %}
-Consulta nuestra [documentación de archivado de mensajes]({{site.baseurl}}/user_guide/data/export_braze_data/message_archiving#message-archiving) para obtener más información sobre el archivado de mensajes.
+Consulta nuestra [documentación de archivado de mensajes]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/message_archiving) para obtener más información sobre el archivado de mensajes.
 {% endalert %}
 
 ### Webhooks {#webhooks}
 
-Las tasas de crédito de webhooks se expresan en incrementos de mil webhooks enviados correctamente desde la plataforma Braze. De forma predeterminada, tu contrato incluye cien mil webhooks por cada período de tu plazo de suscripción. Los webhooks adicionales se cobrarán según lo establecido en tu formulario de pedido.
+Las proporciones de créditos de webhooks se denominan en incrementos de mil webhooks enviados correctamente desde la plataforma Braze. De forma predeterminada, tu contrato incluye cien mil webhooks por cada periodo de tu plazo de suscripción. Los webhooks adicionales se cobrarán según tu formulario de pedido.
 
 {% multi_lang_include pricing/webhook_failed_requests_billing.md credit_name='Action Credits' %}
 
 {% alert note %}
-Consulta nuestra [documentación de webhooks]({{site.baseurl}}/user_guide/channels/webhooks) para obtener más información sobre los webhooks de Braze.
+Consulta nuestra [documentación de webhooks]({{site.baseurl}}/user_guide/channels/webhooks) para obtener más información sobre webhooks de Braze.
 {% endalert %}

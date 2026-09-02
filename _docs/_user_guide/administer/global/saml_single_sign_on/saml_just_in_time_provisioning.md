@@ -4,7 +4,6 @@ article_title: SAML Just-in-Time Provisioning
 page_order: 1
 page_type: tutorial
 description: "This article will walk you through how to configure SAML just-in-time provisioning to allow new company users to create a Braze account on their first sign in." 
-
 ---
 
 # SAML just-in-time provisioning 
@@ -15,7 +14,7 @@ As a security measure, SAML just-in-time provisioning (JITP) only works for user
 
 For example, let's say the account ```jon.smith@decorumsoft.com``` can use JITP to log into Decorumsoft. The account ```jane.smith@decorumsoft.com``` has the same domain and can also be allowed provisioning. However, if you try to use JITP with ```jon.smith@decorumsoft.eu```, provisioning won't be allowed because there isn't a ```decorumsoft.eu``` account within the Decorumsoft Braze dashboard. 
 
-To make an exception for a company, contact [Support]({{site.baseurl}}/braze_support).
+To make an exception for a company, contact [Support]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
 ## Prerequisites
 
@@ -30,7 +29,7 @@ SAML JITP requires that SAML SSO is set up and integrated. It is not compatible 
 {: .reset-td-br-1 .reset-td-br-2 aria-label="JITP prerequisites" }
 
 {% alert important %}
-SAML just-in-time provisioning must be enabled for your company by Braze. Contact your account manager or [Braze Support]({{site.baseurl}}/braze_support) if the **Automatic user provisioning** toggle isn't available.
+SAML just-in-time provisioning must be enabled for your company by Braze. Contact your account manager or [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) if the **Automatic user provisioning** toggle isn't available.
 {% endalert %}
 
 ## How JITP works
@@ -65,7 +64,7 @@ If your company uses granular permissions, review the default permission set aft
 
 ### How do I disable SAML JITP?
 
-After setting up JITP, you must [contact Support]({{site.baseurl}}/braze_support) to have it turned off.
+After setting up JITP, you must [contact Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) to have it turned off.
 
 ### Can JITP assign different permissions per user?
 

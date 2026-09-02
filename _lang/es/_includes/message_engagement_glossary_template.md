@@ -34,7 +34,7 @@ Ponte en contacto con tu director de cuentas o abre un [ticket de soporte]({{sit
 
 Este desglose de eventos muestra qué tipo de información se incluye generalmente en un evento de interacción con mensajes. Con una comprensión sólida de sus componentes, tus desarrolladores y tu equipo de estrategia de inteligencia empresarial pueden utilizar los datos de eventos entrantes de Currents para crear informes y gráficos basados en datos, y aprovechar otras métricas de datos valiosas.
 
-![Desglose de un evento de interacción con mensajes que muestra un evento de cancelación de suscripción de correo electrónico con las propiedades enumeradas agrupadas por propiedades específicas del usuario, propiedades de seguimiento de Campaign o Canvas, y propiedades específicas del evento]({% image_buster /assets/img/message_engagement_event.png %})
+![Desglose de un evento de interacción con mensajes que muestra un evento de cancelación de suscripción de correo electrónico con las propiedades enumeradas agrupadas por propiedades específicas del usuario, propiedades de seguimiento de Campaign o Canvas, y propiedades específicas del evento]({% image_buster /assets/img/message_engagement_event.png %}){: width="2300" height="770" style="max-width:100%;height:auto;"}
 
 Los eventos de interacción con mensajes se componen de propiedades **específicas del usuario**, propiedades de **seguimiento de Campaign/Canvas** y propiedades **específicas del evento**.
 
@@ -70,7 +70,7 @@ Ciertos eventos devuelven un valor `platform` que especifica la plataforma del d
 
 - Currents descarta los eventos con cargas útiles superiores a 900&nbsp;KB.
 - Los objetos relacionados con Canvas Flow tienen ID que puedes usar para agrupar y traducir a nombres legibles a través del [endpoint Exportar detalles de Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details).
-- Es posible que ciertos campos no muestren su estado más reciente inmediatamente después de actualizar una campaña o un Canvas:
+- Es posible que ciertos campos no muestren su estado más reciente inmediatamente después de actualizar una Campaign o un Canvas:
   - `campaign_name`
   - `canvas_name`
   - `canvas_step_name`

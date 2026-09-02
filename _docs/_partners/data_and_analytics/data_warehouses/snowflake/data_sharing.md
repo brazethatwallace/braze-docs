@@ -85,6 +85,10 @@ Similar to Currents, you can use your Snowflake Secure Data Sharing to:
 
 [Download the raw table schemas.](/docs/assets/download_file/data-sharing-raw-table-schemas.txt)
 
+{% alert note %}
+The raw schema download does not include user profile attribute views. For the complete schemas and usage guidance for `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED`, `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED`, and related user attribute views, see [User profile attributes]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/user_attributes).
+{% endalert %}
+
 ### User ID schema
 
 Note the following differences between Braze and Snowflake naming conventions for user IDs.

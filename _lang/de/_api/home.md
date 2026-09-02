@@ -40,7 +40,7 @@ glossary_tags:
   - name: Catalogs
   - name: Content Blocks
   - name: Custom Events
-  - name: Custom Objects
+  - name: Data Objects
   - name: Email List
   - name: Email Templates
   - name: Webhook Templates
@@ -109,46 +109,46 @@ glossaries:
     description: Ein Nutzerprofil mit einem anderen zusammenführen.
     tags:
       - User Data
-  - name: <a href='/docs/api/endpoints/custom_objects'>/custom_objects/*</a>
-    description: Die vollständige Endpunktreferenz für angepasste Objekte anzeigen, einschließlich Objekttypen, Objekten und Beziehungsendpunkten.
+  - name: <a href='/docs/api/endpoints/data_objects'>/data_objects/*</a>
+    description: Die vollständige Endpunktreferenz für Data Objects anzeigen, einschließlich Objekttypen, Objekten und Beziehungsendpunkten.
     tags:
-      - Custom Objects
-  - name: <a href='/docs/api/endpoints/custom_objects/types/get_list_custom_object_types'>/custom_objects/types</a>
-    description: Angepasste Objekttypen im Workspace auflisten.
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/types/get_list_data_object_types'>/data_objects/types</a>
+    description: Data-Object-Typen im Workspace auflisten.
     tags:
-      - Custom Objects
-  - name: <a href='/docs/api/endpoints/custom_objects/types/get_custom_object_type'>/custom_objects/types/{type_name}</a>
-    description: Einen angepassten Objekttyp und seine Schema-Definition abrufen.
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/types/get_data_object_type'>/data_objects/types/{type_name}</a>
+    description: Einen Data-Object-Typ und seine Schema-Definition abrufen.
     tags:
-      - Custom Objects
-  - name: <a href='/docs/api/endpoints/custom_objects/types/get_list_user_relationship_types'>/custom_objects/types/{type_name}/user_relationship_types</a>
-    description: Nutzer-Beziehungsarten für einen angepassten Objekttyp auflisten.
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/types/get_list_user_relationship_types'>/data_objects/types/{type_name}/user_relationship_types</a>
+    description: Nutzer-Beziehungsarten für einen Data-Object-Typ auflisten.
     tags:
-      - Custom Objects
-  - name: <a href='/docs/api/endpoints/custom_objects/types/get_list_object_relationship_types'>/custom_objects/types/{type_name}/object_relationship_types</a>
-    description: Objekt-Beziehungsarten für einen angepassten Objekttyp auflisten.
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/types/get_list_object_relationship_types'>/data_objects/types/{type_name}/object_relationship_types</a>
+    description: Objekt-Beziehungsarten für einen Data-Object-Typ auflisten.
     tags:
-      - Custom Objects
-  - name: <a href='/docs/api/endpoints/custom_objects/objects/get_list_custom_objects'>/custom_objects/objects/{type_name}</a>
-    description: Angepasste Objekte für einen Typ auflisten.
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/objects/get_list_data_objects'>/data_objects/objects/{type_name}</a>
+    description: Data Objects für einen Typ auflisten.
     tags:
-      - Custom Objects
-  - name: <a href='/docs/api/endpoints/custom_objects/objects/get_custom_object'>/custom_objects/objects/{type_name}/{external_id}</a>
-    description: Ein angepasstes Objekt abrufen oder es ersetzen, aktualisieren und löschen.
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/objects/get_data_object'>/data_objects/objects/{type_name}/{external_id}</a>
+    description: Ein Data Object abrufen oder es ersetzen, aktualisieren und löschen.
     tags:
-      - Custom Objects
-  - name: <a href='/docs/api/endpoints/custom_objects/object_relationships/get_list_object_relationships'>/custom_objects/objects/{type_name}/{external_id}/object_relationships</a>
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/object_relationships/get_list_object_relationships'>/data_objects/objects/{type_name}/{external_id}/object_relationships</a>
     description: Objekt-zu-Objekt-Beziehungen auflisten, erstellen, ersetzen, aktualisieren und löschen.
     tags:
-      - Custom Objects
-  - name: <a href='/docs/api/endpoints/custom_objects/user_relationships/get_list_user_relationships'>/custom_objects/objects/{type_name}/{external_id}/user_relationships</a>
-    description: Nutzer-Beziehungen für ein angepasstes Objekt auflisten.
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/user_relationships/get_list_user_relationships'>/data_objects/objects/{type_name}/{external_id}/user_relationships</a>
+    description: Nutzer-Beziehungen für ein Data Object auflisten.
     tags:
-      - Custom Objects
-  - name: <a href='/docs/api/endpoints/custom_objects/user_relationships/post_create_user_relationship'>/custom_objects/objects/{type_name}/{external_id}/users</a>
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/user_relationships/post_create_user_relationship'>/data_objects/objects/{type_name}/{external_id}/users</a>
     description: Nutzer-zu-Objekt-Beziehungen erstellen, ersetzen, aktualisieren und löschen.
     tags:
-      - Custom Objects
+      - Data Objects
   - name: <a href='/docs/api/endpoints/messaging/send_messages/post_send_triggered_campaigns'>/campaigns/trigger/send</a>
     description: Sofortige, einmalige Nachrichten an bestimmte Nutzer:innen über API-getriggerte Zustellung senden.
     tags:

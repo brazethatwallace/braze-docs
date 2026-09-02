@@ -5,9 +5,52 @@ require_relative "../../scripts/doc_anchor_links"
 
 RSpec.describe "anchor drift detection in validate_doc_redirects.rb" do
   let(:link) do
-    ->(source, target, anchor, kind: :md) do
+    ->(source, target, anchor, kind: :md, url: nil) do
       DocAnchorLinks::Link.new(source_file: source, kind: kind, raw_url: "n/a",
-                                target_path: target, anchor: anchor)
+                                target_path: target, target_url: url, anchor: anchor)
+    end
+  end
+
+  describe "#resolve_links_with_url_map" do
+    # Guessed path is what DocAnchorLinks.resolve_doc_path would produce from
+    # a one-segment URL; real path is wherever the file actually lives when
+    # `permalink` does not match that convention (unlisted, hidden, etc.).
+    let(:guessed_path) { "_docs/short_url.md" }
+    let(:real_path) { "_docs/_unlisted_docs/private_betas/permalinked.md" }
+    let(:conventional_path) { "_docs/_api/basics.md" }
+    let(:url_map) do
+      {
+        real_path => "/docs/short_url/",
+        conventional_path => "/docs/api/basics/"
+      }
+    end
+
+    it "repoints a link at the file Jekyll serves for that URL" do
+      l = link.call("_docs/b.md", guessed_path, "a-heading", url: "/short_url/")
+
+      resolved = resolve_links_with_url_map([l], url_map)
+
+      expect(resolved.first.target_path).to eq(real_path)
+      expect(resolved.first.anchor).to eq("a-heading")
+    end
+
+    it "leaves a conventional path untouched" do
+      l = link.call("_docs/b.md", conventional_path, "a-heading", url: "/api/basics")
+
+      expect(resolve_links_with_url_map([l], url_map).first.target_path).to eq(conventional_path)
+    end
+
+    it "keeps the guessed path when no page serves that URL" do
+      missing = "_docs/_api/gone.md"
+      l = link.call("_docs/b.md", missing, "foo", url: "/api/gone")
+
+      expect(resolve_links_with_url_map([l], url_map).first.target_path).to eq(missing)
+    end
+
+    it "leaves same-page links alone" do
+      l = link.call(conventional_path, conventional_path, "foo")
+
+      expect(resolve_links_with_url_map([l], url_map).first.target_path).to eq(conventional_path)
     end
   end
 

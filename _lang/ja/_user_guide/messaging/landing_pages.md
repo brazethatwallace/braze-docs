@@ -21,7 +21,7 @@ alias: /landing_pages/
 
 ## 前提条件 {#prerequisites}
 
-ランディングページにアクセス、作成、公開するには、管理者の[権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions)、または以下のすべての権限が必要です。
+ランディングページにアクセスし、作成、公開するには、管理者[権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions)、または以下のすべての権限が必要です。
 
 - View Landing Pages
 - Edit Landing Page Drafts
@@ -31,7 +31,7 @@ alias: /landing_pages/
 
 ## プランティア {#plan-tiers}
 
-公開できるランディングページの数、カスタムドメインの数、および使用できる機能は、プランタイプ（無料またはPro（増分））によって異なります。
+公開できるランディングページ数、カスタムドメイン数、使用できる機能は、プランの種類（無料またはPro（増分））によって異なります。
 
 | 機能                                                                                                   | 無料ティア     | Proティア（増分）     |
 | :---------------------------------------------------------------------------------------------------------------- | :--------------- | ----------------- |
@@ -41,9 +41,15 @@ alias: /landing_pages/
 | 事前入力フォームフィールド | 利用不可 | 利用可能 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="プランティア" }
 
+## レート制限 {#rate-limits}
+
+Brazeは、キャッシュされていないランディングページに対して、ワークスペースごとに3秒あたり500リクエスト（約167リクエスト/秒）のレート制限を適用します。この制限は、高トラフィック時のシステムパフォーマンスと信頼性を維持するのに役立ちます。
+
+キャッシュされたランディングページのビューは、この制限にカウントされません。キャッシュがトラフィックに与える影響については、[ランディングページは高トラフィックのシナリオに対応できますか？](#can-landing-pages-handle-high-traffic-scenarios)を参照してください。
+
 ## ランディングページへのGoogle Tag Managerの追加 {#adding-google-tag-manager-to-a-landing-page}
 
-ランディングページにGoogle Tag Managerを追加するには、ドラッグ＆ドロップエディターでランディングページに**カスタムコード**ブロックを追加し、そのブロックにTag Managerのコードを挿入します。以下の例のように、Tag Managerのコードの前にデータレイヤーを追加してください。
+ランディングページにGoogle Tag Managerを追加するには、ドラッグ＆ドロップエディターでランディングページに**カスタムコード**ブロックを追加し、Tag Managerのコードをブロックに挿入します。以下の例のように、Tag Managerのコードの前にデータレイヤーを必ず追加してください。
 
 ```
 <script>
@@ -62,15 +68,17 @@ Google Tag Managerの実装の詳細については、[Googleのドキュメン�
 
 ## よくある質問 {#frequently-asked-questions}
 
-### ランディングページの最大サイズはどのくらいですか？ {#whats-the-maximum-size-for-landing-pages}
+### ランディングページの最大サイズは？ {#whats-the-maximum-size-for-landing-pages}
 
 ランディングページのボディサイズは最大500 KBです。
 
 ### ランディングページは高トラフィックのシナリオに対応できますか？ {#can-landing-pages-handle-high-traffic-scenarios}
 
-はい、パーソナライズされていないランディングページは高トラフィックのシナリオに効果的に対応できます。パーソナライズされていないランディングページが最初にリクエストされると、BrazeはCloudflareを通じてキャッシュします。つまり、同じリンクへの後続のリクエストはすべてキャッシュから提供されるため、大量のリクエストでもパフォーマンスが低下しません。このキャッシュは24時間持続し、キャッシュされたページビューはレート制限にカウントされません。
+はい。パーソナライズされていないランディングページは、高トラフィックのシナリオに効果的に対応します。ランディングページが最初にリクエストされると、BrazeはCloudflareを通じてキャッシュします。同じリンクへの後続のリクエストはキャッシュから配信されるため、高トラフィック時に役立ちます。このキャッシュは24時間持続し、キャッシュされたページビューは[レート制限](#rate-limits)にカウントされません。
 
-パーソナライズされたランディングページ（Liquidパーソナライゼーションを使用）の場合、キャッシュされていないリクエストにレート制限が適用されます。最適なパフォーマンスを維持するには、[パーソナライゼーションに関する考慮事項]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages#personalization-considerations)を参照してください。
+パーソナライズされたランディングページは、Cloudflareキャッシュの有効期間が短く、Brazeへの未キャッシュリクエストがより多く発生します。これらの未キャッシュリクエストは、[レート制限](#rate-limits)で説明されているワークスペースごとのレート制限の対象となります。
+
+パーソナライズされたページのサイズ制限やその他のパフォーマンスガイダンスについては、[パーソナライゼーションに関する考慮事項]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages#personalization-considerations)を参照してください。
 
 ### ランディングページを公開するための技術的な要件はありますか？ {#are-there-any-technical-requirements-to-publish-a-landing-page}
 
@@ -84,15 +92,15 @@ Google Tag Managerの実装の詳細については、[Googleのドキュメン�
 
 はい。ドラッグ＆ドロップエディターで**カスタムコード**ブロックを追加し、埋め込みたいコンテンツのURLを含むiframe要素を追加してください。
 
-埋め込み先のWebサイトがContent Security Policy（CSP）の`frame-ancestors`や`X-Frame-Options`によってフレーミングを制限している場合、iframe内でページが読み込まれないことがあります。Brazeはこれらの設定を上書きできません。埋め込み先のサイトがランディングページのドメインを許可するように設定されている必要があります。
+埋め込み先のWebサイトがContent Security Policy（CSP）の`frame-ancestors`や`X-Frame-Options`によってフレーミングを制限している場合、ページがiframe内で読み込まれない場合があります。Brazeはこれらの設定を上書きすることはできません。埋め込み先のサイトがランディングページのドメインを許可するよう設定されている必要があります。
 
 ### ランディングページ内にWebhookを作成できますか？ {#can-i-create-a-webhook-inside-a-landing-page}
 
-いいえ。ただし、**Submitted a Landing Page form**イベントは、キャンバスやWebhookキャンペーンのトリガーとして機能できます。
+いいえ。ただし、**ランディングページフォームを送信**イベントは、キャンバスやWebhookキャンペーンのトリガーとして機能できます。
 
-- **キャンバス：** **Submitted a Landing Page form**イベントをキャンバスのエントリトリガーとして使用し、Webhookステップを追加します。
-- **キャンペーン：** **Submitted a Landing Page form**イベントを使用して、フォーム送信に基づいてトリガーします。
+- **キャンバス：** **ランディングページフォームを送信**イベントをキャンバスのエントリトリガーとして使用し、Webhookステップを追加します。
+- **キャンペーン：** **ランディングページフォームを送信**イベントを使用して、フォーム送信に基づいてトリガーします。
 
-ページがBrazeチャネルを通じて送信されていない場合（Webサイトや広告経由など）、送信時に新しいユーザープロファイルが作成される可能性があります。そのユーザーがすでにBrazeに存在している場合でも同様です。これに対処するには、**Submitted a Landing Page form**でトリガーされるキャンバスを設定し、[`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge)エンドポイントを呼び出すBraze-to-Braze Webhookステップを追加して、新しいプロファイルを既存のプロファイルに統合します。
+ページがBrazeチャネル（Webサイトや広告など）を通じて送信されていない場合、その人物がすでにBrazeに存在していても、送信時に新しいユーザープロファイルが作成される場合があります。これに対処するには、**ランディングページフォームを送信**でトリガーされるキャンバスを設定し、[`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge)エンドポイントを呼び出すBraze-to-Braze Webhookステップを追加して、新しいプロファイルを既存のプロファイルに統合します。
 
-`landing_page_url` Liquidタグを使用してページを共有する場合、フォーム送信は自動的に既存のユーザープロファイルに紐づけられます。その後、ランディングページで送信されたユーザー属性をLiquidを通じて参照し、後続のテンプレーティングに使用できます。
+`landing_page_url` Liquidタグを使用してページを共有する場合、フォーム送信は既存のユーザープロファイルに自動的に紐づけられます。その後、ランディングページで送信されたユーザー属性をLiquidで参照し、後続のテンプレーティングに使用できます。

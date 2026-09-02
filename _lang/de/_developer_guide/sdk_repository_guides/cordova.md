@@ -10,7 +10,7 @@ description: "Braze Cordova SDK README-Referenz, gespiegelt von GitHub."
 
 ## Über das Braze Cordova SDK {#about-the-braze-cordova-sdk}
 
-Das Braze Cordova SDK hilft Ihnen, Braze Messaging, Analytics und Funktionen für Nutzer:innen-Engagement in Ihre App zu integrieren.
+Das Braze Cordova SDK hilft Ihnen, Braze Messaging, Analytics und Nutzer:innen-Engagement-Funktionen in Ihre App zu integrieren.
 
 Für den Einstieg stehen Ihnen die folgenden Ressourcen zur Verfügung:
 
@@ -25,7 +25,7 @@ Für den Einstieg stehen Ihnen die folgenden Ressourcen zur Verfügung:
 | 2.31.0+      | >= 12.0.0       | >= 5.0.0    |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Mindestanforderungen an die Version" }
 
-Dieses SDK übernimmt zusätzlich die Anforderungen der zugrunde liegenden nativen Braze SDKs. Stellen Sie sicher, dass Sie auch die folgenden Listen beachten:
+Dieses SDK übernimmt zusätzlich die Anforderungen der zugrunde liegenden nativen Braze SDKs. Achten Sie darauf, auch die verlinkten Anforderungslisten für das Android und Swift SDK zu berücksichtigen:
 * [Anforderungen des Android SDK](https://github.com/braze-inc/braze-android-sdk?tab=readme-ov-file#version-information)
 * [Anforderungen des Swift SDK](https://github.com/braze-inc/braze-swift-sdk?tab=readme-ov-file#version-information)
 

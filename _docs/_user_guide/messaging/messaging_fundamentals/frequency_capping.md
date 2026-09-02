@@ -5,7 +5,6 @@ page_order: 6
 tool: Campaigns
 page_type: reference
 description: "This reference article discusses the concept of rate limiting and frequency capping in campaigns, and how you can manage marketing pressure to improve user experience."
-
 ---
 
 # Rate limiting and frequency capping
@@ -241,7 +240,7 @@ If you want a particular campaign to override frequency capping rules, you can s
 
 After this, you will be asked if you still want this campaign to count toward your frequency cap. Messages that count toward frequency capping are included in calculations for the Intelligent Channel filter. 
 
-When sending [API campaigns]({{site.baseurl}}/developer_guide/rest_api/messaging#messaging), which are often transactional, you'll have the ability to specify that a campaign should ignore frequency capping rules by setting `override_frequency_capping` to `true` in the API request.
+When sending [API campaigns]({{site.baseurl}}/api/endpoints/messaging), which are often transactional, you'll have the ability to specify that a campaign should ignore frequency capping rules by setting `override_frequency_capping` to `true` in the API request.
 
 By default, new campaigns and Canvases that do not obey frequency caps will also not count toward them. This is configurable for each campaign and Canvas.
 

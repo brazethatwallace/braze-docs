@@ -199,7 +199,9 @@ Use the [SMS segment calculator]({{site.baseurl}}/user_guide/channels/sms_mms_an
 
 For MMS, the receiving phone determines whether the media appears before or after the message body.
 
-For RCS, the operating system, device manufacturer, carrier, and messaging app control rendering. Test on real devices because the Braze preview may differ from the received message. For more information, see [Why doesn't my RCS message render accurately on iOS devices?]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs#why-doesnt-my-rcs-message-render-accurately-on-ios-devices).
+{% alert note %}
+Because RCS rendering is controlled by the user's operating system, device manufacturer, carrier, and messaging app (for example, Google Messages vs. Apple Messages), message appearance can vary. The preview shown in Braze may not exactly match what an end user receives. Validate the final rendering on real devices whenever possible. For details about RCS rendering on iOS devices, see [Why doesn't my RCS message render accurately on iOS devices?]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs#why-doesnt-my-rcs-message-render-accurately-on-ios-devices). For GIFs in rich cards, see [Why do GIFs in RCS rich cards appear static on iOS?]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs#why-do-gifs-in-rcs-rich-cards-appear-static-on-ios).
+{% endalert %}
 
 For more information, see [Send test messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=sms%2Fmms%20and%20rcs).
 

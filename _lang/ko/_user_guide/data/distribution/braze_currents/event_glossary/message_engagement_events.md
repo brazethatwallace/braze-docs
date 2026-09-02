@@ -15,13 +15,13 @@ lazy_partner_tabs: true
 
 {% details 스키마 범위 및 관련 리소스 %}
 
-스토리지 스키마는 데이터 웨어하우스 스토리지 파트너(Google Cloud Storage, Amazon S3, Microsoft Azure Blob Storage)에 전송하는 플랫 파일 이벤트 데이터에 적용됩니다. 다른 파트너에 적용되는 스키마는 [사용 가능한 파트너]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) 목록을 참조하고 각 파트너의 해당 페이지를 확인하세요.
+스토리지 스키마는 데이터 웨어하우스 스토리지 파트너(Google Cloud Storage, Amazon S3, Microsoft Azure Blob Storage)에 전송하는 플랫 파일 이벤트 데이터에 적용됩니다. 다른 파트너에 적용되는 스키마에 대해서는 [사용 가능한 파트너]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) 목록을 참조하고 각 해당 페이지를 확인하세요.
 
 {% alert tip %}
-이러한 이벤트는 [쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder), [SQL 세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments), [Snowflake 데이터 공유]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)에서 SQL 테이블로도 사용할 수 있습니다. SQL 테이블 스키마 및 열 세부사항은 [SQL 테이블 참조]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables)를 참조하세요.
+이 이벤트들은 [쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder), [SQL 세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments), [Snowflake 데이터 공유]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)에서 SQL 테이블로도 사용할 수 있습니다. SQL 테이블 스키마 및 컬럼 세부정보는 [SQL 테이블 참조]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables)를 참조하세요.
 {% endalert %}
 
-추가 이벤트 권한에 대한 액세스가 필요한 경우 계정 매니저에게 문의하거나 [지원 티켓]({{site.baseurl}}/user_guide/administer/personal/braze_support)을 개설하세요. 이 문서에서 필요한 내용을 찾지 못한 경우 [고객 행동 이벤트 라이브러리]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) 또는 [Currents 샘플 데이터 예시](https://github.com/Appboy/currents-examples/tree/master/sample-data)를 확인하세요.
+추가 이벤트 권한에 대한 액세스가 필요한 경우 계정 매니저에게 문의하거나 [지원 티켓]({{site.baseurl}}/user_guide/administer/personal/braze_support)을 열어주세요. 이 문서에서 필요한 내용을 찾지 못한 경우 [고객 행동 이벤트 라이브러리]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) 또는 [Currents 샘플 데이터 예제](https://github.com/Appboy/currents-examples/tree/master/sample-data)를 확인하세요.
 
 {% enddetails %}
 
@@ -29,26 +29,26 @@ lazy_partner_tabs: true
 
 ## 이벤트 구조 {#event-structure}
 
-이 이벤트 분석은 메시지 인게이지먼트 이벤트에 일반적으로 포함되는 정보 유형을 보여줍니다. 구성 요소를 확실히 이해하면 개발자와 비즈니스 인텔리전스 전략 팀이 수신되는 Currents 이벤트 데이터를 사용하여 데이터 중심 보고서와 차트를 작성하고, 기타 유용한 데이터 측정기준을 활용할 수 있습니다.
+이 이벤트 분석은 메시지 인게이지먼트 이벤트에 일반적으로 포함되는 정보 유형을 보여줍니다. 구성 요소를 잘 이해하면 개발자와 비즈니스 인텔리전스 전략 팀이 수신되는 Currents 이벤트 데이터를 활용하여 데이터 중심 보고서와 차트를 작성하고 기타 유용한 데이터 측정기준을 활용할 수 있습니다.
 
-![사용자별 속성, 캠페인 또는 Canvas 추적 속성, 이벤트별 속성으로 그룹화된 속성이 나열된 이메일 구독 취소 이벤트를 보여주는 메시지 인게이지먼트 이벤트 분석]({% image_buster /assets/img/message_engagement_event.png %})
+![나열된 속성이 사용자별 속성, Campaign 또는 Canvas 추적 속성, 이벤트별 속성으로 그룹화된 이메일 구독 취소 이벤트를 보여주는 메시지 인게이지먼트 이벤트 분석]({% image_buster /assets/img/message_engagement_event.png %}){: width="2300" height="770" style="max-width:100%;height:auto;"}
 
-메시지 인게이지먼트 이벤트는 **사용자별** 속성, **캠페인/캔버스 추적** 속성, **이벤트별** 속성으로 구성됩니다.
+메시지 인게이지먼트 이벤트는 **사용자별** 속성, **Campaign/Canvas 추적** 속성, **이벤트별** 속성으로 구성됩니다.
 
 ### 사용자 ID 스키마 {#user-id-schema}
 
-사용자 ID의 명명 규칙에 유의하세요.
+사용자 ID의 명명 규칙을 확인하세요.
 
 | Braze 스키마 | Currents 스키마 | 설명 |
 | ----------- | ----------- | ----------- |
-| `braze_id` | `"USER_ID"` | Braze가 자동으로 할당하는 고유 식별자입니다. |
+| `braze_id` | `"USER_ID"` | Braze에서 자동으로 할당하는 고유 식별자입니다. |
 | `external_id` | `"EXTERNAL_USER_ID"` | 고객이 설정한 사용자 프로필의 고유 식별자입니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="사용자 ID 스키마" }
 
 ### 플랫폼 값 {#platform-values}
 
 특정 이벤트는 사용자 기기의 플랫폼을 지정하는 `platform` 값을 반환합니다.
-<br>다음 표에서 반환될 수 있는 값을 자세히 설명합니다.
+<br>다음 표에 반환 가능한 값이 나와 있습니다.
 
 | 사용자 기기 | 플랫폼 값 |
 | --- | --- |
@@ -63,11 +63,11 @@ lazy_partner_tabs: true
 
 {% enddetails %}
 
-{% details 메시지 인게이지먼트 이벤트 관련 고려사항 %}
+{% details 메시지 인게이지먼트 이벤트 관련 주의사항 %}
 
-- Currents는 페이로드가 900&nbsp;KB보다 큰 이벤트를 삭제합니다.
-- Canvas Flow와 관련된 객체에는 그룹화에 사용하고 [Canvas 세부정보 내보내기 엔드포인트]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details)를 통해 사람이 읽을 수 있는 이름으로 변환할 수 있는 ID가 있습니다.
-- 캠페인 또는 Canvas를 업데이트한 직후에는 특정 필드가 가장 최신 상태를 표시하지 않을 수 있습니다:
+- Currents는 페이로드가 900&nbsp;KB를 초과하는 이벤트를 삭제합니다.
+- Canvas Flow 관련 객체에는 그룹화에 사용할 수 있는 ID가 있으며, [Canvas 세부정보 내보내기 엔드포인트]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details)를 통해 사람이 읽을 수 있는 이름으로 변환할 수 있습니다.
+- Campaign 또는 Canvas를 업데이트한 직후에는 특정 필드가 최신 상태를 즉시 표시하지 않을 수 있습니다.
   - `campaign_name`
   - `canvas_name`
   - `canvas_step_name`
@@ -75,7 +75,7 @@ lazy_partner_tabs: true
   - `canvas_variation_name`
   - `experiment_split_name`
   - `message_variation_name`
-- 이러한 필드의 완전한 일관성이 필요한 경우, 마지막 업데이트 후 1시간을 기다린 다음 사용자에게 메시지를 전송하세요.
+- 이러한 필드에 대해 완전한 일관성이 필요한 경우 마지막 업데이트 이후 1시간을 기다린 후 사용자에게 메시지를 보내세요.
 
 {% enddetails %}
 
@@ -1437,7 +1437,7 @@ Canvas, Conversion
 {% endalert %}
 
 {% alert note %}
-`message_extras` 필드는 발송 이벤트(예: 이메일 발송, 푸시 발송)에서만 사용할 수 있으며, 전환 이벤트에는 포함되지 않습니다. `message_extras` 데이터를 다운스트림 인게이지먼트와 연결하려면 `send_id`를 사용하여 데이터 웨어하우스에서 발송 이벤트와 전환 이벤트를 조인하세요. 전환율별 문구 효과를 평가하려면 [Canvas 배리언트]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#creating-tests) 사용을 고려하세요.
+`message_extras` 필드는 발송 이벤트(예: 이메일 발송, 푸시 발송)에서만 사용할 수 있으며, 전환 이벤트에는 포함되지 않습니다. `message_extras` 데이터를 다운스트림 인게이지먼트와 연결하려면 `send_id`를 사용하여 데이터 웨어하우스에서 발송 이벤트와 전환 이벤트를 조인하세요. 전환율별 문구 효과를 평가하려면 [Canvas 배리언트]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests) 사용을 고려하세요.
 {% endalert %}
 
 {% tabs %}
@@ -6414,7 +6414,7 @@ Email, Clicks
 Email, Deferral
 {% endapitags %}
 
-이 이벤트는 인터넷 서비스 공급자가 하드바운스되지 않은 이메일 주소로 이메일을 즉시 전달하지 않고 Braze가 최대 72시간 동안 이메일을 재시도할 때 발생합니다. 일반적인 지연 사유로는 받은편지함 공급자의 평판 기반 이메일 발송량 속도 제한, 일시적인 연결 문제, 수신자의 사서함이 꽉 찬 경우, DNS 오류 등이 있습니다.
+이 이벤트는 인터넷 서비스 공급자가 하드 바운스되지 않은 이메일 주소로 이메일을 즉시 전달하지 않고 Braze가 최대 72시간 동안 이메일을 재시도할 때 발생합니다. 일반적인 지연 사유로는 받은편지함 공급자의 평판 기반 이메일 발송량 속도 제한, 일시적인 연결 문제, 수신자의 사서함이 꽉 찬 경우, DNS 오류 등이 있습니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -6921,7 +6921,7 @@ Email, Delivery
 Email, Spam
 {% endapitags %}
 
-이 이벤트는 최종 사용자가 이메일의 "스팸" 버튼을 눌렀을 때 발생합니다. Braze는 이메일이 스팸 폴더로 이동했는지 여부를 추적하지 않으므로, 이 이벤트가 스팸 폴더 이동을 나타내는 것은 아닙니다.
+이 이벤트는 최종 사용자가 이메일에서 "스팸" 버튼을 눌렀을 때 발생합니다. Braze는 이메일이 스팸 폴더로 이동했는지 여부를 추적하지 않으므로, 이 이벤트가 스팸 폴더 이동을 나타내는 것은 아닙니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -7735,7 +7735,7 @@ Email, Retry
 Email, Sends
 {% endapitags %}
 
-이 이벤트는 이메일 전송 요청이 Braze와 SendGrid 간에 성공적으로 전달되었을 때 발생합니다. 그러나 이것이 이메일이 사용자의 받은편지함에 수신되었다는 것을 의미하지는 않습니다. Braze는 이벤트가 이메일 이벤트와 관련된 이메일 및 사용자 ID 모두에 일치하지 않는 경우 사용자 프로필이나 Currents 대상(예: Snowflake)에 이벤트를 기록하지 않습니다.
+이 이벤트는 이메일 전송 요청이 Braze와 SendGrid 간에 성공적으로 전달되었을 때 발생합니다. 그러나 이것이 이메일이 사용자의 받은편지함에 수신되었다는 것을 의미하지는 않습니다. Braze는 이벤트가 이메일 이벤트와 연관된 이메일 및 사용자 ID 모두에 일치하지 않는 경우 사용자 프로필이나 Currents 대상(예: Snowflake)에 이벤트를 기록하지 않습니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -11850,7 +11850,7 @@ Abort, Push
 
 ### 속성 세부 정보
 
-- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열람)를 그룹화하고 상관관계를 파악할 수 있습니다.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 수명 주기(예: 전송, 반송, 열람)를 그룹화하고 상관관계를 파악할 수 있습니다.
 - `abort_type` 필드는 메시지가 중단된 이유를 설명합니다. 전체 값 목록은 [중단 유형]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types)을 참조하세요.
 - 글로벌 빈도 제한 규칙으로 인해 메시지가 중단된 경우 `abort_type`은 `frequency_capped`가 됩니다.
 - `abort_log`에는 중단을 트리거한 특정 규칙에 대한 정보가 포함됩니다. 예시: `Frequency cap rule: 5 push messages every 1 week`
@@ -12115,7 +12115,7 @@ Push, Bounce
 ### 속성 세부 정보
 
 - Kafka를 사용하여 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) 데이터를 수집하는 경우, 고객 성공 매니저 또는 계정 매니저에게 연락하여 `ad_id` 전송을 위한 기능 플리퍼를 활성화하세요.
-- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열람)를 그룹화하고 상관관계를 파악할 수 있습니다.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 수명 주기(예: 전송, 반송, 열람)를 그룹화하고 상관관계를 파악할 수 있습니다.
 
 {% endapi %}
 
@@ -12326,7 +12326,7 @@ Push, iOS, Opens
 
 - `ad_id`, `ad_id_type`, `ad_tracking_enabled`의 경우 네이티브 SDK를 통해 iOS IDFA 및 Android Google 광고 ID를 명시적으로 수집해야 합니다. [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) 및 [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id)에서 이 설정에 대해 자세히 알아보세요.
 - Kafka를 사용하여 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) 데이터를 수집하는 경우, 고객 성공 매니저에게 연락하여 `ad_id` 전송을 활성화하세요.
-- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열람)를 그룹화하고 상관관계를 파악할 수 있습니다.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 수명 주기(예: 전송, 반송, 열람)를 그룹화하고 상관관계를 파악할 수 있습니다.
 
 {% endapi %}
 
@@ -12340,7 +12340,7 @@ Push, Opens
 이 이벤트는 사용자가 푸시 알림을 직접 클릭하여 애플리케이션을 열 때 발생합니다. 현재 푸시 열기 이벤트는 "총 열기"가 아닌 "직접 열기"를 구체적으로 지칭합니다. 여기에는 사용자 수준에서 기여도가 부여되지 않는 "영향받은 열기"의 Campaign 수준 통계는 포함되지 않습니다.
 
 {% alert note %}
-드물게, Currents 데이터에서 푸시 열기가 해당 푸시 전송 이벤트보다 먼저 나타날 수 있습니다. 그 이유는 다음과 같습니다.
+드물게, 다음과 같은 이유로 Currents 데이터에서 푸시 열기가 해당 푸시 전송 이벤트보다 먼저 나타날 수 있습니다.
 - SDK의 시계가 정확하지 않습니다.
 - 높은 배치 쓰기 지연 시간. 기록된 전송 시간이 조기 전달에 비해 지연될 수 있으므로, 매우 빠른 열기가 배치의 최종 전송 타임스탬프가 기록되기 전에 로깅될 수 있습니다. 대량 전송은 배치로 발송되고 기록됩니다.
 {% endalert %}
@@ -14806,7 +14806,7 @@ RCS, Sends
 Abort, SMS
 {% endapitags %}
 
-이 이벤트는 Liquid 중단 등에 따라 SMS 메시지가 중단된 경우에 발생합니다.
+이 이벤트는 Liquid 중단 등의 이유로 SMS 메시지가 중단된 경우에 발생합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}

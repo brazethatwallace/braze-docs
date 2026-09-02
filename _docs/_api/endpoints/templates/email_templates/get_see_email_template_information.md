@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "This article outlines details about the See email template Braze endpoint."
-
 ---
 {% api %}
 # See email template information
@@ -23,7 +22,7 @@ Templates built using the drag-and-drop editor for email are not accepted.
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e98d2d5b-62fe-4358-b391-9fe9e460d0ac {% endapiref %}
 
 ## Prerequisites
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key) with the `templates.email.info` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics) with the `templates.email.info` permission.
 
 ## Rate limit
 

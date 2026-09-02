@@ -246,7 +246,7 @@ Before send, the editor flags common issues:
 - Liquid syntax errors
 - Content Blocks that include a full `<!DOCTYPE html>`
 - Email body is over 400&nbsp;KB
-  - Aim for [less than 102&nbsp;KB]({{site.baseurl}}/user_guide/message_building_by_channel/email/best_practices/guidelines_and_tips#email-size) to avoid clipping.
+  - Aim for [less than 102&nbsp;KB]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling#email-size) to avoid clipping.
 - Blank body or subject
 - Missing unsubscribe link
 - From domain not allowlisted (sends heavily throttled)

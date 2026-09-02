@@ -18,7 +18,7 @@ platform: API
 Setting up an API-triggered campaign takes a few steps. First, create a new multichannel or single-channel campaign (with multivariate testing).
 
 {% alert note %}
-An API-triggered campaign is different from an [API campaign]({{site.baseurl}}/developer_guide/rest_api/api_campaigns#api-campaigns).
+An API-triggered campaign is different from an [API campaign]({{site.baseurl}}/api/api_campaigns).
 {% endalert %}
 
 Next, configure your copy and notifications the same way as you would normally for scheduled notifications and select **API-Triggered Delivery**. For more information on the triggering of these campaigns from your server, check out this [API-triggered campaign sending]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) article.

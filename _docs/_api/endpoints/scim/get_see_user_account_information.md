@@ -119,7 +119,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/scim/v2/Users/dfa24
 | `department` | String | The user's department, if set. |
 | `createdAt` | String | When the user account was created. Returns `N/A` when unset; otherwise formatted as `YYYY Mon DD, H:MM AM/PM`. |
 | `lastSignInAt` | String | When the user last signed in. Returns `N/A` if the user has not signed in; otherwise formatted as `YYYY Mon DD, H:MM AM/PM`. |
-| `permissions` | Object | Company, workspace, team, and role permissions for the user. See the [permissions object]({{site.baseurl}}/scim_api_appendix). |
+| `permissions` | Object | Company, workspace, team, and role permissions for the user. See the [permissions object]({{site.baseurl}}/api/objects_filters/scim_api_appendix). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Response parameters" }
 
 ### Error states

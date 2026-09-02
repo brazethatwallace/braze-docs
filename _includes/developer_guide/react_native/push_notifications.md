@@ -530,4 +530,4 @@ If deep links from push notifications stop opening after a migration, check the 
 3. If you're using the Braze Expo plugin, verify `androidHandlePushDeepLinksAutomatically` is set correctly for your implementation.
 4. Review recently added dependencies for overrides to notification handling or app delegate behavior.
 
-If you've completed these checks and the issue persists, [open a support ticket]({{site.baseurl}}/user_guide/administrative/access_braze/support/) and include SDK logs plus reproduction steps.
+If you've completed these checks and the issue persists, [open a support ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support/) and include SDK logs plus reproduction steps.

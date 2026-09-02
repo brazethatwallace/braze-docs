@@ -17,6 +17,7 @@ channel:
 {% multi_lang_include alerts/note_alerts.md alert='subscription group limit' %}
 
 ## WhatsApp subscription states
+{: #whatsapp-subscription-states}
 
 For WhatsApp subscription state definitions and how they relate to Meta opt-in requirements, see [Subscription status]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_status#whatsapp).
 

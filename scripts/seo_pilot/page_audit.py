@@ -14,13 +14,15 @@ import re
 import sys
 from pathlib import Path
 
+from meta_exempt import parse_frontmatter, skip_meta_reason, skips_seo_audit, skips_seo_meta
+
 REPO_ROOT = Path(__file__).resolve().parents[2]
 
 FRONTMATTER_RE = re.compile(r"^---\s*\n(.*?)\n---\s*\n", re.DOTALL)
 H1_RE = re.compile(r"^#\s+(.+)$", re.MULTILINE)
 H2_RE = re.compile(r"^##\s+(.+)$", re.MULTILINE)
-FAQ_HEADING_RE = re.compile(r"faq|frequently asked", re.I)
-HEADING_LEVEL_RE = re.compile(r"^(#{1,6})\s+")
+FAQ_HEADING_RE = re.compile(r"^#{1,6}\s+.*(faq|frequently asked)", re.I | re.MULTILINE)
+HEADING_LEVEL_RE = re.compile(r"^(#{1,6})\s+", re.MULTILINE)
 
 
 def parse_frontmatter(text: str) -> dict[str, str]:
@@ -65,12 +67,44 @@ def intro_word_count(body: str, fm: dict[str, str]) -> int:
     return max(word_count(body_intro_text(body)), frontmatter_intro_words(fm))
 
 
+# Nav breadcrumb label: **Bold** or a short Title Case phrase (not prose).
+NAV_LABEL = r"(?:\*\*[^*]+\*\*|[A-Z][\w'-]*(?:\s+[A-Z][\w'-]*){0,3})"
+NAV_BREADCRUMB_PREFIX_RE = re.compile(rf"^(?:{NAV_LABEL}\s*>\s*)+")
+UI_PATH_LINE_RE = re.compile(rf"^(?:{NAV_LABEL}\s*>\s*)*{NAV_LABEL}\s*\.?$")
+
+
+def strip_nav_breadcrumb_prefix(line: str) -> str:
+    """Remove leading nav_title-style breadcrumb segments only."""
+    while True:
+        match = NAV_BREADCRUMB_PREFIX_RE.match(line)
+        if not match:
+            break
+        line = line[match.end() :]
+    return line
+
+
+def strip_intro_noise(text: str) -> str:
+    parts: list[str] = []
+    for line in text.splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        if re.match(r"^#{1,6}\s", line):
+            continue
+        if line.startswith(">"):
+            line = line.lstrip(">").strip()
+        line = re.sub(r"\{%[^%]+%\}", "", line)
+        line = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", line)
+        if UI_PATH_LINE_RE.match(line):
+            continue
+        line = strip_nav_breadcrumb_prefix(line)
+        if line:
+            parts.append(line)
+    return re.sub(r"\s+", " ", " ".join(parts)).strip()
+
+
 def suggest_description(article_title: str, h1: str, intro: str) -> str:
-    raw = intro.strip()
-    raw = re.sub(r"\{%[^%]+%\}", "", raw)
-    raw = re.sub(r"^#+\s*", "", raw)
-    raw = re.sub(r"^>\s*", "", raw)
-    raw = re.sub(r"\s+", " ", raw).strip()
+    raw = strip_intro_noise(intro)
     if not raw or len(raw) < 20:
         topic = h1 or article_title or "this topic"
         raw = f"Learn about {topic} in Braze."
@@ -92,7 +126,6 @@ def audit_page(md_path: Path, link_rows: list[dict]) -> str:
     article_title = fm.get("article_title", "")
     description = fm.get("description", "")
 
-    first_h2 = re.search(r"^##\s+", body, re.MULTILINE)
     intro = body_intro_text(body)
     intro_words = intro_word_count(body, fm)
 
@@ -107,6 +140,8 @@ def audit_page(md_path: Path, link_rows: list[dict]) -> str:
 
     has_faq = bool(FAQ_HEADING_RE.search(body)) or fm.get("page_type", "").upper() == "FAQ"
     page_links = [r for r in link_rows if r.get("source_file") == str(rel)]
+    meta_exempt = skips_seo_meta(fm)
+    meta_exempt_reason = skip_meta_reason(fm)
 
     lines = [
         f"# SEO/AEO recommendation: {article_title or h1}",
@@ -120,18 +155,23 @@ def audit_page(md_path: Path, link_rows: list[dict]) -> str:
         "|-------|---------|-------------|-----------|",
     ]
 
-    if not description:
-        rec = suggest_description(article_title, h1, intro)
-        lines.append(f"| `description` | *(missing)* | `{rec}` | Required for search snippets |")
-    elif len(description) > 150:
-        rec = description[:147].rsplit(" ", 1)[0] + "."
-        lines.append(f"| `description` | `{description[:60]}...` ({len(description)} chars) | `{rec}` | Over 150-character limit |")
+    if meta_exempt:
+        lines.append(f"| Meta | *(exempt)* | — | {meta_exempt_reason} |")
+    else:
+        if not description:
+            rec = suggest_description(article_title, h1, intro)
+            lines.append(f"| `description` | *(missing)* | `{rec}` | Required for search snippets |")
+        elif len(description) > 150:
+            rec = description[:147].rsplit(" ", 1)[0] + "."
+            lines.append(
+                f"| `description` | `{description[:60]}...` ({len(description)} chars) | `{rec}` | Over 150-character limit |"
+            )
 
-    if article_title and h1 and article_title.lower() != h1.lower():
-        rec_title = h1 if len(h1) <= 70 else article_title
-        lines.append(
-            f"| `article_title` | `{article_title}` | `{rec_title}` | Align title tag with H1 intent |"
-        )
+        if article_title and h1 and article_title.lower() != h1.lower():
+            rec_title = h1 if len(h1) <= 70 else article_title
+            lines.append(
+                f"| `article_title` | `{article_title}` | `{rec_title}` | Align title tag with H1 intent |"
+            )
 
     if not has_faq and "faq" not in str(rel).lower():
         lines.append("| `page_type` | *(unset or not FAQ)* | — | No change unless promoting to FAQ hub |")
@@ -208,12 +248,13 @@ def audit_page(md_path: Path, link_rows: list[dict]) -> str:
     return "\n".join(lines)
 
 
+
 def slugify(path: Path) -> str:
     name = path.stem
     parent = path.parent.name
     if parent.startswith("_"):
         parent = parent[1:]
-    return f"{parent}-{name}" if parent not in ("_user_guide", "_api", "_developer_guide", "_partners") else name
+    return f"{parent}-{name}"
 
 
 def main() -> int:
@@ -242,6 +283,15 @@ def main() -> int:
         md_path = REPO_ROOT / page
         if not md_path.is_file():
             print(f"Skip missing: {page}", file=sys.stderr)
+            continue
+        if skips_seo_audit(page):
+            print(f"Skip archived (unpublished): {page}", file=sys.stderr)
+            continue
+        text = md_path.read_text(encoding="utf-8", errors="replace")
+        fm = parse_frontmatter(text)
+        page_links = [r for r in link_rows if r.get("source_file") == page]
+        if skips_seo_meta(fm) and not page_links:
+            print(f"Skip meta-exempt (no links): {page}", file=sys.stderr)
             continue
         content = audit_page(md_path, link_rows)
         out_name = slugify(md_path) + ".md"

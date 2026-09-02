@@ -39,7 +39,7 @@ Next, within your `AppDelegate.m` file, add the following snippet within your `a
       withLaunchOptions:launchOptions];
 ```
 
-Update `YOUR-APP-IDENTIFIER-API-KEY` with the correct value from your **Manage Settings** page. Check out our [API documentation]({{site.baseurl}}/api/api_key#the-app-identifier-api-key) for more information on where to find your app identifier API key.
+Update `YOUR-APP-IDENTIFIER-API-KEY` with the correct value from your **Manage Settings** page. Check out our [API documentation]({{site.baseurl}}/api/identifier_types#app-identifier) for more information on where to find your app identifier API key.
 
 {% endtab %}
 {% tab swift %}
@@ -63,7 +63,7 @@ Next, in `AppDelegate.swift`, add following snippet to your `application(applica
 Appboy.start(withApiKey: "YOUR-APP-IDENTIFIER-API-KEY", in:application, withLaunchOptions:launchOptions)
 ```
 
-Update `YOUR-APP-IDENTIFIER-API-KEY` with the correct value from your **Manage Settings** page. Check out our [API documentation]({{site.baseurl}}/api/api_key#the-app-identifier-api-key) for more information on where to find your app identifier API key.
+Update `YOUR-APP-IDENTIFIER-API-KEY` with the correct value from your **Manage Settings** page. Check out our [API documentation]({{site.baseurl}}/api/identifier_types#app-identifier) for more information on where to find your app identifier API key.
 
 {% endtab %}
 {% endtabs %}
@@ -135,7 +135,7 @@ Note that this method would replace the `startWithApiKey:inApplication:withLaunc
 
 This method is called with the following parameters:
 
-- `YOUR-APP-IDENTIFIER-API-KEY` – Your [app identifier]({{site.baseurl}}/api/api_key#the-app-identifier-api-key) API key from the Braze dashboard.
+- `YOUR-APP-IDENTIFIER-API-KEY` – Your [app identifier]({{site.baseurl}}/api/identifier_types#app-identifier) API key from the Braze dashboard.
 - `application` – The current app.
 - `launchOptions` – The options `NSDictionary` that you get from `application:didFinishLaunchingWithOptions:`.
 - `appboyOptions` – An optional `NSDictionary` with startup configuration values for Braze.

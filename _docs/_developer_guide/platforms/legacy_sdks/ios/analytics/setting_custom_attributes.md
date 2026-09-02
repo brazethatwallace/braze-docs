@@ -14,7 +14,7 @@ noindex: true
 
 Braze provides methods for assigning attributes to users. You'll be able to filter and segment your users according to these attributes on the dashboard.
 
-Before implementation, be sure to review examples of the segmentation options afforded by custom events, custom attributes, and purchase events in our [best practices]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview#user-data-collection), as well as our notes on [event naming conventions]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions).
+Before implementation, be sure to review examples of the segmentation options afforded by custom events, custom attributes, and purchase events in our [best practices]({{site.baseurl}}/developer_guide/analytics), as well as our notes on [event naming conventions]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions).
 
 ## Assigning default user attributes
 
@@ -233,7 +233,7 @@ Appboy.sharedInstance()?.user.incrementCustomUserAttribute("your_attribute_key",
 
 ### Setting a custom attribute via the REST API
 
-You can also use our REST API to set user attributes. Refer to the [User API documentation]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data) for details.
+You can also use our REST API to set user attributes. Refer to the [User API documentation]({{site.baseurl}}/api/endpoints/user_data) for details.
 
 ### Custom attribute value limits
 

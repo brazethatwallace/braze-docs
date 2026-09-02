@@ -39,7 +39,7 @@ Use this workflow for every deep linking incident. Start at step 1.
 3. For universal links, validate your AASA file and Associated Domains entitlement.
 4. For email links, confirm the click-tracking domain hosts a valid AASA file.
 5. If you implement `BrazeDelegate.braze(_:shouldOpenURL:)`, verify it handles links consistently across channels.
-6. If the issue persists, contact [Braze Support]({{site.baseurl}}/braze_support) with verbose logs and the link URL.
+6. If the issue persists, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) with verbose logs and the link URL.
 
 ## Custom scheme deep link doesn't open the correct view {#custom-scheme-deep-link-does-not-open-the-correct-view}
 

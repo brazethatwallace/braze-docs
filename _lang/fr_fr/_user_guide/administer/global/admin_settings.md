@@ -4,10 +4,10 @@ article_title: Paramètres d'administration
 page_order: 3
 layout: dev_guide
 guide_top_header: "Paramètres d'administration"
-guide_top_text: "Les paramètres d'administration s'appliquent à l'ensemble de votre société et affectent tous les espaces de travail et utilisateurs. Utilisez ces paramètres pour gérer les coordonnées de la société, configurer les préférences de notification et appliquer des politiques de sécurité telles que les règles d'authentification et les listes d'adresses IP autorisées.<br><br>Pour gérer ces paramètres, accédez à <b>Paramètres</b> > <b>Paramètres d'administration</b>. La plupart des fonctionnalités ne sont accessibles qu'aux administrateurs de compte Braze. Pour la configuration spécifique à un espace de travail, consultez <a href='/docs/user_guide/administer/global/workspace_settings'>Paramètres de l'espace de travail</a>."
+guide_top_text: "Les paramètres d'administration s'appliquent à l'ensemble de votre société et affectent tous les espaces de travail et utilisateurs. Utilisez ces paramètres pour gérer les coordonnées de la société, configurer les préférences de notification, appliquer des politiques de sécurité telles que les règles d'authentification et les listes d'adresses IP autorisées, et contrôler l'accès OAuth pour le serveur MCP de Braze.<br><br>Pour gérer ces paramètres, accédez à <b>Paramètres</b> > <b>Paramètres d'administration</b>. La plupart des fonctionnalités ne sont accessibles qu'aux administrateurs de compte Braze. Pour la configuration spécifique à un espace de travail, consultez <a href='/docs/user_guide/administer/global/workspace_settings'>Paramètres de l'espace de travail</a>."
 
 page_type: landing
-description: "Gérez les paramètres d'administration à l'échelle de la société qui s'appliquent à tous les espaces de travail, y compris les coordonnées, les préférences de notification et les politiques de sécurité."
+description: "Gérez les paramètres d'administration à l'échelle de la société qui s'appliquent à tous les espaces de travail, y compris les coordonnées, les préférences de notification, les politiques de sécurité et l'accès OAuth."
 
 guide_featured_title: "Rubriques"
 guide_featured_list:
@@ -23,6 +23,9 @@ guide_featured_list:
 - name: Fuseaux horaires de l'espace de travail
   link: /docs/user_guide/administer/global/admin_settings/workspace_time_zone
   image: /assets/img/braze_icons/user-circle.svg
+- name: Paramètres OAuth
+  link: /docs/user_guide/administer/global/admin_settings/oauth_admin
+  image: /assets/img/braze_icons/lock-04.svg
 - name: Provisionnement SCIM
   link: /docs/user_guide/administer/global/user_management/automated_user_provisioning
   image: /assets/img/braze_icons/users-01.svg

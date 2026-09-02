@@ -40,7 +40,7 @@ glossary_tags:
   - name: Catalogs
   - name: Content Blocks
   - name: Custom Events
-  - name: Custom Objects
+  - name: Data Objects
   - name: Email List
   - name: Email Templates
   - name: Webhook Templates
@@ -109,46 +109,46 @@ glossaries:
     description: Fusionner un profil utilisateur avec un autre.
     tags:
       - User Data
-  - name: <a href='/docs/api/endpoints/custom_objects'>/custom_objects/*</a>
-    description: Consulter la référence complète des endpoints d'objets personnalisés, y compris les types d'objets, les objets et les endpoints de relations.
+  - name: <a href='/docs/api/endpoints/data_objects'>/data_objects/*</a>
+    description: Consulter la référence complète des endpoints d'objets de données, y compris les types d'objets, les objets et les endpoints de relations.
     tags:
-      - Custom Objects
-  - name: <a href='/docs/api/endpoints/custom_objects/types/get_list_custom_object_types'>/custom_objects/types</a>
-    description: Lister les types d'objets personnalisés dans l'espace de travail.
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/types/get_list_data_object_types'>/data_objects/types</a>
+    description: Lister les types d'objets de données dans l'espace de travail.
     tags:
-      - Custom Objects
-  - name: <a href='/docs/api/endpoints/custom_objects/types/get_custom_object_type'>/custom_objects/types/{type_name}</a>
-    description: Obtenir un type d'objet personnalisé et sa définition de schéma.
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/types/get_data_object_type'>/data_objects/types/{type_name}</a>
+    description: Obtenir un type d'objet de données et sa définition de schéma.
     tags:
-      - Custom Objects
-  - name: <a href='/docs/api/endpoints/custom_objects/types/get_list_user_relationship_types'>/custom_objects/types/{type_name}/user_relationship_types</a>
-    description: Lister les types de relations utilisateur pour un type d'objet personnalisé.
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/types/get_list_user_relationship_types'>/data_objects/types/{type_name}/user_relationship_types</a>
+    description: Lister les types de relations utilisateur pour un type d'objet de données.
     tags:
-      - Custom Objects
-  - name: <a href='/docs/api/endpoints/custom_objects/types/get_list_object_relationship_types'>/custom_objects/types/{type_name}/object_relationship_types</a>
-    description: Lister les types de relations d'objet pour un type d'objet personnalisé.
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/types/get_list_object_relationship_types'>/data_objects/types/{type_name}/object_relationship_types</a>
+    description: Lister les types de relations d'objet pour un type d'objet de données.
     tags:
-      - Custom Objects
-  - name: <a href='/docs/api/endpoints/custom_objects/objects/get_list_custom_objects'>/custom_objects/objects/{type_name}</a>
-    description: Lister les objets personnalisés pour un type.
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/objects/get_list_data_objects'>/data_objects/objects/{type_name}</a>
+    description: Lister les objets de données pour un type.
     tags:
-      - Custom Objects
-  - name: <a href='/docs/api/endpoints/custom_objects/objects/get_custom_object'>/custom_objects/objects/{type_name}/{external_id}</a>
-    description: "Obtenir un objet personnalisé, ou le remplacer, le mettre à jour et le supprimer."
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/objects/get_data_object'>/data_objects/objects/{type_name}/{external_id}</a>
+    description: "Obtenir un objet de données, ou le remplacer, le mettre à jour et le supprimer."
     tags:
-      - Custom Objects
-  - name: <a href='/docs/api/endpoints/custom_objects/object_relationships/get_list_object_relationships'>/custom_objects/objects/{type_name}/{external_id}/object_relationships</a>
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/object_relationships/get_list_object_relationships'>/data_objects/objects/{type_name}/{external_id}/object_relationships</a>
     description: "Lister, créer, remplacer, mettre à jour et supprimer des relations objet-objet."
     tags:
-      - Custom Objects
-  - name: <a href='/docs/api/endpoints/custom_objects/user_relationships/get_list_user_relationships'>/custom_objects/objects/{type_name}/{external_id}/user_relationships</a>
-    description: Lister les relations utilisateur pour un objet personnalisé.
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/user_relationships/get_list_user_relationships'>/data_objects/objects/{type_name}/{external_id}/user_relationships</a>
+    description: Lister les relations utilisateur pour un objet de données.
     tags:
-      - Custom Objects
-  - name: <a href='/docs/api/endpoints/custom_objects/user_relationships/post_create_user_relationship'>/custom_objects/objects/{type_name}/{external_id}/users</a>
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/user_relationships/post_create_user_relationship'>/data_objects/objects/{type_name}/{external_id}/users</a>
     description: "Créer, remplacer, mettre à jour et supprimer des relations utilisateur-objet."
     tags:
-      - Custom Objects
+      - Data Objects
   - name: <a href='/docs/api/endpoints/messaging/send_messages/post_send_triggered_campaigns'>/campaigns/trigger/send</a>
     description: Envoyer des messages immédiats et ponctuels à des utilisateurs désignés via la distribution déclenchée par l'API.
     tags:
@@ -390,7 +390,7 @@ glossaries:
     tags:
       - KPI
   - name: <a href='/docs/api/endpoints/sms/post_remove_invalid_numbers'>/sms/invalid_phone_numbers/remove</a>
-    description: "Supprimer les numéros de téléphone « non valides » de la liste des numéros non valides dans Braze. Utilisez cette fonctionnalité pour revalider les numéros de téléphone après que Braze les a marqués comme non valides."
+    description: "Supprimer les numéros de téléphone « non valides » de la liste des numéros non valides dans Braze. Utilisez cet endpoint pour revalider les numéros de téléphone après que Braze les a marqués comme non valides."
     tags:
       - SMS
   - name: <a href='/docs/api/endpoints/sms/get_query_invalid_numbers'>/sms/invalid_phone_numbers</a>

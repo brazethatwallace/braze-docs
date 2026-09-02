@@ -6,7 +6,6 @@ page_order: 1
 layout: api_page
 page_type: reference
 description: "This article outlines details about the Create new user alias Braze endpoint."
-
 ---
 {% api %}
 # Create new user alias
@@ -34,7 +33,7 @@ If you send a request where the `alias_label` and `alias_name` pair already exis
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key) with the `users.alias.new` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics) with the `users.alias.new` permission.
 
 ## Rate limit
 

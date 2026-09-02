@@ -25,13 +25,13 @@ Pour commencer, consultez les ressources suivantes :
 | 2.31.0+      | >= 12.0.0       | >= 5.0.0    |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Exigences de version minimale" }
 
-Ce SDK hérite également des exigences de ses SDK natifs Braze sous-jacents. Veillez à respecter également ces listes :
+Ce SDK hérite également des exigences de ses SDK natifs Braze sous-jacents. Veillez à respecter également les listes d'exigences des SDK Android et Swift disponibles aux liens suivants :
 * [Exigences du SDK Android](https://github.com/braze-inc/braze-android-sdk?tab=readme-ov-file#version-information)
 * [Exigences du SDK Swift](https://github.com/braze-inc/braze-swift-sdk?tab=readme-ov-file#version-information)
 
 ## Installation du SDK {#installing-the-sdk}
 {% alert warning %}
-Ajoutez le SDK Braze Cordova uniquement en utilisant les méthodes ci-dessous. N'essayez pas de l'installer par d'autres méthodes, car cela pourrait entraîner une faille de sécurité.
+Ajoutez le SDK Braze Cordova uniquement en utilisant les méthodes ci-dessous. N'essayez pas de l'installer par d'autres moyens, car cela pourrait entraîner une faille de sécurité.
 {% endalert %}
 ``` text
 # To use the base SDK functionality, install using the `master` branch.
@@ -42,7 +42,7 @@ cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#master
 cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#geofence-branch
 ```
 
-## Exécution de l'application exemple {#running-the-sample-application}
+## Exécution de l'application d'exemple {#running-the-sample-application}
 ``` text
 cordova plugin remove cordova-plugin-braze
 cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#master
@@ -55,4 +55,4 @@ cordova run ios
 ```
 <!-- END GENERATED README CONTENT -->
 
-Pour les détails du dépôt et les projets exemples, consultez [https://github.com/braze-inc/braze-cordova-sdk](https://github.com/braze-inc/braze-cordova-sdk).
+Pour les détails du dépôt et les projets d'exemple, consultez [https://github.com/braze-inc/braze-cordova-sdk](https://github.com/braze-inc/braze-cordova-sdk).

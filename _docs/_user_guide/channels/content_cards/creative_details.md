@@ -20,7 +20,7 @@ tool: Media
 
 The classic card is great for standard messaging and notifications or even visually categorizing messages with icons. The image is optional, but it must be at a 1:1 ratio.
 
-![Image of a classic card with recommended details and a classic card example]({% image_buster /assets/img/content_card_classic.png %}){: style="max-width:45%;border:0;"}
+![Image of a classic card with recommended details and a classic card example]({% image_buster /assets/img/content_card_classic.png %}){: width="1358" height="2871" style="max-width:45%;border:0;"}
 
 | Card Capability | Details |
 | --- | ---|
@@ -35,7 +35,7 @@ The classic card is great for standard messaging and notifications or even visua
 
 The Captioned Image card is a great way to show off and attract attention to important content, like a big sale or a new app feature.
 
-![Image of a Captioned Image card with recommended details and a Captioned Image card example]({% image_buster /assets/img/content_card_captioned.png %}){: style="max-width:90%;border:0;"}
+![Image of a Captioned Image card with recommended details and a Captioned Image card example]({% image_buster /assets/img/content_card_captioned.png %}){: width="2880" height="2877" style="max-width:90%;border:0;"}
 
 | Card Capability | Details |
 | --- | ---|
@@ -50,7 +50,7 @@ The Captioned Image card is a great way to show off and attract attention to imp
 
 If you want more creative control, the image-only card is for you. Create your image using any tooling you like and upload the image to this card type.
 
-![Image of an image-only Content Card with recommended details and an image-only example]({% image_buster /assets/img/content_card_banner.png %}){: style="max-width:45%;border:0;"}
+![Image of an image-only Content Card with recommended details and an image-only example]({% image_buster /assets/img/content_card_banner.png %}){: width="1358" height="2871" style="max-width:45%;border:0;"}
 
 | Card Capability | Details |
 | --- | ---|
@@ -69,11 +69,11 @@ Content Cards support text and images, including GIFs, out of the box. At this t
 
 For a user to dismiss a card, they can either swipe it away on mobile, or use a `close X` function, as shown in the following screenshot. The `x` will appear on hover for the Web SDK only.
 
-![Image that shows swipe or close dismissal behaviors for a card]({% image_buster /assets/img/dismissal-cc.png %})
+![Image that shows swipe or close dismissal behaviors for a card]({% image_buster /assets/img/dismissal-cc.png %}){: width="1800" height="504"}
 
 If a user has dismissed all of their cards or you haven't pushed out any new updates, the user's feed will usually look something like this:
 
-![Image of an empty Content Card feed]({% image_buster /assets/img/empty-cc.png %}){: style="max-width:45%"}
+![Image of an empty Content Card feed]({% image_buster /assets/img/empty-cc.png %}){: width="832" height="1478" style="max-width:45%"}
 
 {% alert tip %}
 Keep Content Cards relevant by setting them to dismiss when a user takes relevant actions. For example, set promotional Content Cards to be dismissed as soon as users make a purchase so they don't continue to see an offer for something they already bought.

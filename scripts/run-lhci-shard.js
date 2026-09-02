@@ -63,6 +63,7 @@ function readUrls(inputPath) {
 }
 
 function writeFailuresLog(failuresLog, failures) {
+  fs.mkdirSync(path.dirname(failuresLog), { recursive: true });
   const lines = failures.map(({ url, status }) => `${url}\texit=${status}`).join('\n');
   fs.writeFileSync(failuresLog, `${lines}\n`, 'utf8');
 }

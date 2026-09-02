@@ -4,10 +4,10 @@ article_title: Admin-Einstellungen
 page_order: 3
 layout: dev_guide
 guide_top_header: "Admin-Einstellungen"
-guide_top_text: "Admin-Einstellungen gelten für Ihr gesamtes Unternehmen und betreffen alle Workspaces und Nutzer:innen. Verwenden Sie diese Einstellungen, um Kontaktinformationen des Unternehmens zu verwalten, Präferenzen für Benachrichtigungen zu konfigurieren und Sicherheitsrichtlinien wie Authentifizierungsregeln und IP-Allowlisting durchzusetzen.<br><br>Um diese Einstellungen zu verwalten, gehen Sie zu <b>Einstellungen</b> > <b>Admin-Einstellungen</b>. Die meisten Features sind nur für Braze-Konto-Administratoren verfügbar. Informationen zur Workspace-spezifischen Konfiguration finden Sie unter <a href='/docs/user_guide/administer/global/workspace_settings'>Workspace-Einstellungen</a>."
+guide_top_text: "Admin-Einstellungen gelten für Ihr gesamtes Unternehmen und betreffen alle Workspaces und Nutzer:innen. Verwenden Sie diese Einstellungen, um Kontaktinformationen des Unternehmens zu verwalten, Präferenzen für Benachrichtigungen zu konfigurieren, Sicherheitsrichtlinien wie Authentifizierungsregeln und IP-Zulassungslisten durchzusetzen und den OAuth-Zugriff für den Braze-MCP-Server zu steuern.<br><br>Um diese Einstellungen zu verwalten, gehen Sie zu <b>Einstellungen</b> > <b>Admin-Einstellungen</b>. Die meisten Features sind nur für Braze-Konto-Administratoren verfügbar. Informationen zur Workspace-spezifischen Konfiguration finden Sie unter <a href='/docs/user_guide/administer/global/workspace_settings'>Workspace-Einstellungen</a>."
 
 page_type: landing
-description: "Verwalten Sie unternehmensweite Admin-Einstellungen, die für alle Workspaces gelten, einschließlich Kontaktinformationen, Präferenzen für Benachrichtigungen und Sicherheitsrichtlinien."
+description: "Verwalten Sie unternehmensweite Admin-Einstellungen, die für alle Workspaces gelten, einschließlich Kontaktinformationen, Präferenzen für Benachrichtigungen, Sicherheitsrichtlinien und OAuth-Zugriff."
 
 guide_featured_title: "Themen"
 guide_featured_list:
@@ -23,6 +23,9 @@ guide_featured_list:
 - name: Workspace-Zeitzonen
   link: /docs/user_guide/administer/global/admin_settings/workspace_time_zone
   image: /assets/img/braze_icons/user-circle.svg
+- name: OAuth-Einstellungen
+  link: /docs/user_guide/administer/global/admin_settings/oauth_admin
+  image: /assets/img/braze_icons/lock-04.svg
 - name: SCIM-Bereitstellung
   link: /docs/user_guide/administer/global/user_management/automated_user_provisioning
   image: /assets/img/braze_icons/users-01.svg

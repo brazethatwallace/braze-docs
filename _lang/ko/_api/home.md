@@ -40,7 +40,7 @@ glossary_tags:
   - name: Catalogs
   - name: Content Blocks
   - name: Custom Events
-  - name: Custom Objects
+  - name: Data Objects
   - name: Email List
   - name: Email Templates
   - name: Webhook Templates
@@ -109,46 +109,46 @@ glossaries:
     description: 사용자 프로필을 다른 사용자와 병합합니다.
     tags:
       - User Data
-  - name: <a href='/docs/api/endpoints/custom_objects'>/custom_objects/*</a>
-    description: 오브젝트 유형, 오브젝트, 관계 엔드포인트를 포함한 전체 커스텀 오브젝트 엔드포인트 참조를 확인합니다.
+  - name: <a href='/docs/api/endpoints/data_objects'>/data_objects/*</a>
+    description: 오브젝트 유형, 오브젝트, 관계 엔드포인트를 포함한 전체 데이터 오브젝트 엔드포인트 참조를 확인합니다.
     tags:
-      - Custom Objects
-  - name: <a href='/docs/api/endpoints/custom_objects/types/get_list_custom_object_types'>/custom_objects/types</a>
-    description: 워크스페이스의 커스텀 오브젝트 유형을 나열합니다.
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/types/get_list_data_object_types'>/data_objects/types</a>
+    description: 워크스페이스의 데이터 오브젝트 유형을 나열합니다.
     tags:
-      - Custom Objects
-  - name: <a href='/docs/api/endpoints/custom_objects/types/get_custom_object_type'>/custom_objects/types/{type_name}</a>
-    description: 하나의 커스텀 오브젝트 유형과 해당 스키마 정의를 가져옵니다.
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/types/get_data_object_type'>/data_objects/types/{type_name}</a>
+    description: 하나의 데이터 오브젝트 유형과 해당 스키마 정의를 가져옵니다.
     tags:
-      - Custom Objects
-  - name: <a href='/docs/api/endpoints/custom_objects/types/get_list_user_relationship_types'>/custom_objects/types/{type_name}/user_relationship_types</a>
-    description: 커스텀 오브젝트 유형에 대한 사용자 관계 종류를 나열합니다.
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/types/get_list_user_relationship_types'>/data_objects/types/{type_name}/user_relationship_types</a>
+    description: 데이터 오브젝트 유형에 대한 사용자 관계 종류를 나열합니다.
     tags:
-      - Custom Objects
-  - name: <a href='/docs/api/endpoints/custom_objects/types/get_list_object_relationship_types'>/custom_objects/types/{type_name}/object_relationship_types</a>
-    description: 커스텀 오브젝트 유형에 대한 오브젝트 관계 종류를 나열합니다.
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/types/get_list_object_relationship_types'>/data_objects/types/{type_name}/object_relationship_types</a>
+    description: 데이터 오브젝트 유형에 대한 오브젝트 관계 종류를 나열합니다.
     tags:
-      - Custom Objects
-  - name: <a href='/docs/api/endpoints/custom_objects/objects/get_list_custom_objects'>/custom_objects/objects/{type_name}</a>
-    description: 특정 유형의 커스텀 오브젝트를 나열합니다.
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/objects/get_list_data_objects'>/data_objects/objects/{type_name}</a>
+    description: 특정 유형의 데이터 오브젝트를 나열합니다.
     tags:
-      - Custom Objects
-  - name: <a href='/docs/api/endpoints/custom_objects/objects/get_custom_object'>/custom_objects/objects/{type_name}/{external_id}</a>
-    description: 하나의 커스텀 오브젝트를 가져오거나, 교체, 업데이트, 삭제합니다.
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/objects/get_data_object'>/data_objects/objects/{type_name}/{external_id}</a>
+    description: 하나의 데이터 오브젝트를 가져오거나, 교체, 업데이트, 삭제합니다.
     tags:
-      - Custom Objects
-  - name: <a href='/docs/api/endpoints/custom_objects/object_relationships/get_list_object_relationships'>/custom_objects/objects/{type_name}/{external_id}/object_relationships</a>
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/object_relationships/get_list_object_relationships'>/data_objects/objects/{type_name}/{external_id}/object_relationships</a>
     description: 오브젝트 간 관계를 나열, 생성, 교체, 업데이트, 삭제합니다.
     tags:
-      - Custom Objects
-  - name: <a href='/docs/api/endpoints/custom_objects/user_relationships/get_list_user_relationships'>/custom_objects/objects/{type_name}/{external_id}/user_relationships</a>
-    description: 커스텀 오브젝트에 대한 사용자 관계를 나열합니다.
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/user_relationships/get_list_user_relationships'>/data_objects/objects/{type_name}/{external_id}/user_relationships</a>
+    description: 데이터 오브젝트에 대한 사용자 관계를 나열합니다.
     tags:
-      - Custom Objects
-  - name: <a href='/docs/api/endpoints/custom_objects/user_relationships/post_create_user_relationship'>/custom_objects/objects/{type_name}/{external_id}/users</a>
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/user_relationships/post_create_user_relationship'>/data_objects/objects/{type_name}/{external_id}/users</a>
     description: 사용자-오브젝트 관계를 생성, 교체, 업데이트, 삭제합니다.
     tags:
-      - Custom Objects
+      - Data Objects
   - name: <a href='/docs/api/endpoints/messaging/send_messages/post_send_triggered_campaigns'>/campaigns/trigger/send</a>
     description: API 트리거 전달을 통해 지정된 사용자에게 즉시 일회성 메시지를 발송합니다.
     tags:

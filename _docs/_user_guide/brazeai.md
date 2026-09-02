@@ -1,7 +1,7 @@
 ---
 nav_title: BrazeAI
 article_title: BrazeAI
-description: "BrazeAI<sup>TM</sup> powers a collection of accessible, easy-to-use tools that lower the barriers to entry for creativity, personalization and optimization for your engagement strategy."
+description: "BrazeAI tools for creativity, personalization, and optimization across your customer engagement strategy."
 page_order: 8
 layout: dev_guide
 search_rank: 12

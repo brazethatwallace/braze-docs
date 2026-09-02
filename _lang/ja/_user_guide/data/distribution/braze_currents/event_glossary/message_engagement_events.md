@@ -5,7 +5,7 @@ alias: /message_events_glossary/
 page_order: 5
 excerpt_separator: ""
 page_type: glossary
-description: "この用語集では、Brazeがトラッキングし、Currentsを使用して選択したデータウェアハウスに送信できるさまざまなメッセージエンゲージメントイベントを一覧にしています。"
+description: "この用語集では、Brazeがトラッキングし、Currentsを使用して選択したデータウェアハウスに送信できるさまざまなメッセージエンゲージメントイベントを一覧で紹介します。"
 tool: Currents
 search_rank: 6
 lazy_partner_tabs: true
@@ -13,15 +13,15 @@ lazy_partner_tabs: true
 
 <div class="api-glossary-preamble" markdown="1">
 
-{% details スキーマの適用範囲と関連リソース %}
+{% details スキーマの範囲と関連リソース %}
 
-ストレージスキーマは、データウェアハウスストレージパートナー（Google Cloud Storage、Amazon S3、Microsoft Azure Blob Storage）に送信するフラットファイルイベントデータに適用されます。その他のパートナーに適用されるスキーマについては、[利用可能なパートナー]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners)の一覧を参照し、各パートナーのページをご確認ください。
+ストレージスキーマは、データウェアハウスストレージパートナー（Google Cloud Storage、Amazon S3、Microsoft Azure Blob Storage）に送信するフラットファイルイベントデータに適用されます。その他のパートナーに適用されるスキーマについては、[利用可能なパートナー]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners)の一覧を参照し、それぞれのページをご確認ください。
 
 {% alert tip %}
-これらのイベントは、[クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder)、[SQLセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments)、および[Snowflakeデータシェアリング]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)でSQLテーブルとしても利用できます。SQLテーブルスキーマとカラムの詳細については、[SQLテーブルリファレンス]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables)を参照してください。
+これらのイベントは、[クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder)、[SQLセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments)、および[Snowflakeデータ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)でもSQLテーブルとして利用できます。SQLテーブルスキーマとカラムの詳細については、[SQLテーブルリファレンス]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables)を参照してください。
 {% endalert %}
 
-追加のイベントエンタイトルメントへのアクセスが必要な場合は、アカウントマネージャーに連絡するか、[サポートチケット]({{site.baseurl}}/user_guide/administer/personal/braze_support)を開いてください。この記事で必要な情報が見つからない場合は、[顧客行動イベントライブラリ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)または[Currentsサンプルデータ例](https://github.com/Appboy/currents-examples/tree/master/sample-data)をご覧ください。
+追加のイベントエンタイトルメントへのアクセスが必要な場合は、アカウントマネージャーに連絡するか、[サポートチケット]({{site.baseurl}}/user_guide/administer/personal/braze_support)を作成してください。この記事で必要な情報が見つからない場合は、[顧客行動イベントライブラリ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)または[Currentsサンプルデータの例](https://github.com/Appboy/currents-examples/tree/master/sample-data)をご確認ください。
 
 {% enddetails %}
 
@@ -29,15 +29,15 @@ lazy_partner_tabs: true
 
 ## イベント構造 {#event-structure}
 
-このイベントの内訳は、メッセージエンゲージメントイベントに一般的に含まれる情報の種類を示しています。コンポーネントをしっかり理解することで、開発者やビジネスインテリジェンス戦略チームは受信するCurrentsイベントデータを使用してデータドリブン型のレポートやチャートを作成し、その他の貴重なデータ指標を活用できます。
+このイベントの内訳は、メッセージエンゲージメントイベントに一般的に含まれる情報の種類を示しています。そのコンポーネントをしっかり理解することで、開発者やビジネスインテリジェンス戦略チームは、受信するCurrentsイベントデータを使用してデータドリブン型のレポートやチャートを作成し、その他の貴重なデータ指標を活用できます。
 
-![メッセージエンゲージメントイベントの内訳（メール購読解除イベントを例示し、ユーザー固有のプロパティ、キャンペーンまたはキャンバスのトラッキングプロパティ、イベント固有のプロパティにグループ化されたプロパティ一覧を表示）]({% image_buster /assets/img/message_engagement_event.png %})
+![メッセージエンゲージメントイベントの内訳。メール購読解除イベントを示しており、記載されたプロパティがユーザー固有のプロパティ、キャンペーンまたはキャンバスのトラッキングプロパティ、イベント固有のプロパティにグループ化されています]({% image_buster /assets/img/message_engagement_event.png %}){: width="2300" height="770" style="max-width:100%;height:auto;"}
 
-メッセージエンゲージメントイベントは、**ユーザー固有**のプロパティ、**キャンペーン/キャンバスのトラッキング**プロパティ、および**イベント固有**のプロパティで構成されています。
+メッセージエンゲージメントイベントは、**ユーザー固有**のプロパティ、**キャンペーン／キャンバスのトラッキング**プロパティ、および**イベント固有**のプロパティで構成されています。
 
 ### ユーザーIDスキーマ {#user-id-schema}
 
-ユーザーIDの命名規則に注意してください。
+ユーザーIDの命名規則にご注意ください。
 
 | Brazeスキーマ | Currentsスキーマ | 説明 |
 | ----------- | ----------- | ----------- |
@@ -48,7 +48,7 @@ lazy_partner_tabs: true
 ### プラットフォーム値 {#platform-values}
 
 一部のイベントは、ユーザーのデバイスのプラットフォームを指定する`platform`値を返します。
-<br>以下の表は、返される可能性のある値の詳細を示しています。
+<br>以下の表は、返される可能性のある値の詳細です。
 
 | ユーザーデバイス | プラットフォーム値 |
 | --- | --- |
@@ -65,9 +65,9 @@ lazy_partner_tabs: true
 
 {% details メッセージエンゲージメントイベントに関する注意事項 %}
 
-- Currentsは、ペイロードが900&nbsp;KBを超えるイベントを破棄します。
-- キャンバスフローに関連するオブジェクトには、グループ化に使用できるIDがあり、[キャンバス詳細エクスポートエンドポイント]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details)を通じて人間が読める名前に変換できます。
-- キャンペーンやキャンバスを更新した直後に、一部のフィールドが最新の状態を表示しない場合があります:
+- Currentsは、ペイロードが900&nbsp;KBを超えるイベントをドロップします。
+- キャンバスフローに関連するオブジェクトには、グループ化に使用できるIDがあり、[キャンバスの詳細をエクスポートするエンドポイント]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details)を使用して人間が読める名前に変換できます。
+- キャンペーンまたはキャンバスを更新した直後には、一部のフィールドで最新の状態が表示されない場合があります。
   - `campaign_name`
   - `canvas_name`
   - `canvas_step_name`
@@ -75,7 +75,7 @@ lazy_partner_tabs: true
   - `canvas_variation_name`
   - `experiment_split_name`
   - `message_variation_name`
-- これらのフィールドで完全な一貫性が必要な場合は、最後の更新から1時間待ってからユーザーにメッセージを送信してください。
+- これらのフィールドの完全な一貫性が必要な場合は、最後の更新から1時間待ってからユーザーにメッセージを送信してください。
 
 {% enddetails %}
 
@@ -1047,7 +1047,7 @@ Campaign, Conversion
 このイベントは、キャンペーンでコンバージョンイベントとして設定されたアクションをユーザーが実行したときに発生します。
 
 {% alert important %}
-コンバージョンイベントは`conversion_behavior`フィールドにエンコードされ、コンバージョンイベントのタイプ、ウィンドウ（期間）、およびコンバージョンイベントのタイプに応じた追加情報が含まれます。`conversion_behavior_index`フィールドは、0 = A、1 = B、2 = C、3 = D のように、どのコンバージョンイベントかを表します。
+コンバージョンイベントは`conversion_behavior`フィールドにエンコードされ、コンバージョンイベントのタイプ、ウィンドウ（期間）、およびコンバージョンイベントのタイプに応じた追加情報が含まれます。`conversion_behavior_index`フィールドは、0 = A、1 = B、2 = C、3 = Dのように、どのコンバージョンイベントかを表します。
 {% endalert %}
 
 {% alert note %}
@@ -1433,11 +1433,11 @@ Canvas, Conversion
 このイベントは、キャンバスでコンバージョンイベントとして設定されたアクションをユーザーが実行したときに発生します。
 
 {% alert important %}
-コンバージョンイベントは`conversion_behavior`フィールドにエンコードされ、コンバージョンイベントのタイプ、ウィンドウ（期間）、およびコンバージョンイベントのタイプに応じた追加情報が含まれます。`conversion_behavior_index`フィールドは、0 = A、1 = B、2 = C、3 = D のように、どのコンバージョンイベントかを表します。
+コンバージョンイベントは`conversion_behavior`フィールドにエンコードされ、コンバージョンイベントのタイプ、ウィンドウ（期間）、およびコンバージョンイベントのタイプに応じた追加情報が含まれます。`conversion_behavior_index`フィールドは、0 = A、1 = B、2 = C、3 = Dのように、どのコンバージョンイベントかを表します。
 {% endalert %}
 
 {% alert note %}
-`message_extras`フィールドは送信イベント（メール送信、プッシュ送信など）でのみ利用可能です。コンバージョンイベントには含まれません。`message_extras`データをダウンストリームのエンゲージメントと関連付けるには、`send_id`を使用して、データウェアハウスで送信イベントとコンバージョンイベントを結合してください。コピーの効果をコンバージョン率で評価するには、代わりに[キャンバスバリアント]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#creating-tests)の使用を検討してください。
+`message_extras`フィールドは送信イベント（メール送信、プッシュ送信など）でのみ利用可能です。コンバージョンイベントには含まれません。`message_extras`データをダウンストリームのエンゲージメントと関連付けるには、`send_id`を使用して、データウェアハウスで送信イベントとコンバージョンイベントを結合してください。コピーの効果をコンバージョン率で評価するには、代わりに[キャンバスバリアント]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests)の使用を検討してください。
 {% endalert %}
 
 {% tabs %}
@@ -11259,7 +11259,7 @@ LINE, Sends
 
 ### プロパティの詳細
 
-- `dispatch_id`は、キャンペーン送信などの特定のメッセージディスパッチの ID です。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id`は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
@@ -11270,7 +11270,7 @@ LINE, Sends
 Live Activity, Outcome
 {% endapitags %}
 
-このイベントは、ライブアクティビティの送信後に Braze がサードパーティプロバイダー（APNs など）からレスポンスを受信したときに発生します。
+このイベントは、ライブアクティビティの送信後にBrazeがサードパーティプロバイダー（APNsなど）からレスポンスを受信したときに発生します。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -11446,7 +11446,7 @@ Live Activity, Outcome
 Live Activity, Sends
 {% endapitags %}
 
-このイベントは、Braze システムがライブアクティビティに関してプロバイダーにリクエストを送信したときに発生します。
+このイベントは、Brazeシステムがライブアクティビティに関してプロバイダーにリクエストを送信したときに発生します。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -12325,7 +12325,7 @@ Push, iOS, Opens
 ### プロパティの詳細
 
 - `ad_id`、`ad_id_type`、および`ad_tracking_enabled`については、ネイティブSDKを通じてiOS IDFAとAndroid Google広告IDを明示的に収集する必要があります。この設定の詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift)および[Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id)を参照してください。
-- Kafkaを使用して[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)データを取り込んでいる場合は、`ad_id`の送信を有効にするフィーチャーフリッパーについて、カスタマーサクセスマネージャーにお問い合わせください。
+- Kafkaを使用して[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)データを取り込んでいる場合は、`ad_id`の送信を有効にするために、カスタマーサクセスマネージャーにお問い合わせください。
 - `dispatch_id`は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
@@ -13122,7 +13122,7 @@ Push, Sends
 
 - `ad_id`、`ad_id_type`、および`ad_tracking_enabled`については、ネイティブSDKを通じてiOS IDFAとAndroid Google広告IDを明示的に収集する必要があります。この設定の詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift)および[Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id)を参照してください。
 - Kafkaを使用して[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)データを取り込んでいる場合は、カスタマーサクセスマネージャーに連絡して`ad_id`の送信を有効にしてください。
-- `message_extras`を使用すると、Connected Contentからのダイナミックなデータ、カスタム属性（言語、国など）、およびキャンバスエントリのプロパティを使用して、送信イベントに注釈を付けることができます。詳細については、[メッセージエクストラ]({{site.baseurl}}/message_extras_tag)を参照してください。
+- `message_extras`を使用すると、Connected Contentからのダイナミックなデータ、カスタム属性（言語、国など）、およびキャンバスエントリプロパティを使用して、送信イベントに注釈を付けることができます。詳細については、[メッセージエクストラ]({{site.baseurl}}/message_extras_tag)を参照してください。
 - `dispatch_id`は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
@@ -14099,7 +14099,7 @@ RCS, Inbound Received
 RCS, Read
 {% endapitags %}
 
-このイベントは、ユーザーがデバイス上でRCSメッセージを開封した際に生成されます。これはユーザーがメッセージのコンテンツを確認または閲覧したことを示します。
+このイベントは、ユーザーがデバイス上でRCSメッセージを開封した際に生成されます。これはユーザーがメッセージの内容を確認または閲覧したことを示します。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -19097,7 +19097,7 @@ WhatsApp, Delivery
 WhatsApp, Failure
 {% endapitags %}
 
-このイベントは、WhatsAppがユーザーにメッセージを配信できないときに発生します。ハードバウンスは、永続的な配信の失敗を意味します。
+このイベントは、WhatsAppがユーザーにメッセージを配信できないときに発生します。ハードバウンスは、永続的な配信失敗を意味します。
 
 {% tabs %}
 {% tab Cloud Storage %}
