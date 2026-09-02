@@ -105,6 +105,14 @@ You can also use predictive Liquid for custom attributes, attribute names, and m
 
 ## Next steps
 
-- [Using Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid) — syntax, `assign`, conditionals, and filters in Braze
-- [Setting default values]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values) — defaults in Liquid beyond the modal
-- [Filters]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters) — format dates, math, strings, and more
+{% article_tiles %}
+- name: Using Liquid
+  link: /docs/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid
+  description: Syntax, assign tags, conditionals, and filters in Braze.
+- name: Setting default values
+  link: /docs/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values
+  description: Set defaults in Liquid beyond the Add Personalization modal.
+- name: Filters
+  link: /docs/user_guide/messaging/design_and_edit/personalize/liquid/filters
+  description: Format dates, math, strings, and more.
+{% endarticle_tiles %}

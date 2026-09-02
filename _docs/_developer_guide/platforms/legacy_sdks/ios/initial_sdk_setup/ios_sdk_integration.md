@@ -731,7 +731,16 @@ Proceed to compile your code and run your application.<br><br>Try displaying the
 Congratulations! You've completed this best practice integration guide! An example `BrazeManager` helper file can be found on [GitHub](https://github.com/braze-inc/braze-growth-shares-ios-demo-app/blob/master/Braze-Demo/BrazeManager.swift).
 
 Now that you have decoupled any dependencies on the Braze iOS SDK from the rest of your production code, check out some of our optional advanced implementation guides:
-- [Advanced push notification implementation guide]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/implementation_guide)
-- [Advanced in-app messages implementation guide]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/implementation_guide)
-- [Advanced Content Card implementation guide]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/content_cards/implementation_guide)
+
+{% article_tiles %}
+- name: Advanced push notification implementation guide
+  link: /docs/developer_guide/platforms/legacy_sdks/ios/push_notifications/implementation_guide
+  description: Optional advanced patterns for customizing push notification behavior in your iOS app.
+- name: Advanced in-app messages implementation guide
+  link: /docs/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/implementation_guide
+  description: Optional advanced patterns for customizing in-app message delivery and display.
+- name: Advanced Content Card implementation guide
+  link: /docs/developer_guide/platforms/legacy_sdks/ios/content_cards/implementation_guide
+  description: Optional advanced patterns for customizing Content Card feeds and UI.
+{% endarticle_tiles %}
 

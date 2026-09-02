@@ -76,7 +76,11 @@ For how templated delivery at display time affects **abort** logging, see [In-Ap
 
 ## Next steps
 
-- [Create an in-app message with the drag-and-drop editor]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)
-- [Create an in-app message with the traditional editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional)
+{% article_tiles %}
+- name: Create an in-app message with the drag-and-drop editor
+  link: /docs/user_guide/channels/in_app_messages/drag_and_drop
+- name: Create an in-app message with the traditional editor
+  link: /docs/user_guide/channels/in_app_messages/traditional
+{% endarticle_tiles %}
 
 {% multi_lang_include alerts/important_alerts.md alert='network dependency' %}

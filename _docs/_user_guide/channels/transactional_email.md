@@ -44,5 +44,9 @@ Transactional emails are sent through a dedicated Braze [transactional HTTP API]
 
 ## Next steps
 
-- [Create a transactional email]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email)
-- [Tracking]({{site.baseurl}}/user_guide/channels/transactional_email/tracking)
+{% article_tiles %}
+- name: Create a transactional email
+  link: /docs/user_guide/channels/transactional_email/create_a_transactional_email
+- name: Tracking
+  link: /docs/user_guide/channels/transactional_email/tracking
+{% endarticle_tiles %}

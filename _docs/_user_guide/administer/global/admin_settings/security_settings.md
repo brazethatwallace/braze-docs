@@ -365,5 +365,9 @@ If issues persist, delete the old profile in the Authy app and scan the QR code 
 
 For more information about authentication and access, see:
 
-- [SAML & single sign-on]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on) to set up SSO with your identity provider.
-- [Permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) to control what actions users can perform in the dashboard.
+{% article_tiles %}
+- name: SAML & single sign-on
+  link: /docs/user_guide/administer/global/saml_single_sign_on
+- name: Permissions
+  link: /docs/user_guide/administer/global/user_management/permissions
+{% endarticle_tiles %}

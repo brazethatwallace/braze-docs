@@ -106,5 +106,11 @@ If you don't receive the message activation in your inbox when using `testing+01
 
 After adding users, manage their access:
 
-- [Permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) to configure what each user can do in the dashboard.
-- [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams) to organize users into groups with shared access to specific dashboard objects.
+{% article_tiles %}
+- name: Permissions
+  link: /docs/user_guide/administer/global/user_management/permissions
+  description: Configure what each user can do in the dashboard.
+- name: Teams
+  link: /docs/user_guide/administer/global/user_management/teams
+  description: Organize users into groups with shared access to specific dashboard objects.
+{% endarticle_tiles %}

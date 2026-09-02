@@ -144,9 +144,17 @@ BrazeAI Operator<sup>TM</sup> integrates with OpenAI, which acts as a Braze sub-
 
 ## Next steps
 
-- [What you can do with Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities): Browse Operator's capabilities across the dashboard
-- [Prompt library]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library): Browse example prompts organized by dashboard page
-- [Review actions]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions): Learn how to review and approve Operator's proposed changes
-- [File support tickets]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets): File support tickets directly from Operator
-- [Troubleshooting]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting): Reference common issues and solutions
-- [Data privacy and security]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security): Review HIPAA compliance, data retention, and PII-minimization guidance
+{% article_tiles %}
+- name: What you can do with Operator
+  link: /docs/user_guide/brazeai/operator/capabilities
+- name: Prompt library
+  link: /docs/user_guide/brazeai/operator/prompt_library
+- name: Review actions
+  link: /docs/user_guide/brazeai/operator/reviewing_actions
+- name: File support tickets
+  link: /docs/user_guide/brazeai/operator/support_tickets
+- name: Troubleshooting
+  link: /docs/user_guide/brazeai/operator/troubleshooting
+- name: Data privacy and security
+  link: /docs/user_guide/brazeai/operator/data_privacy_security
+{% endarticle_tiles %}

@@ -78,6 +78,21 @@ Content for this tab.
 
 Use `{% tabs local %}` for tabs that do not sync across the page. Subtabs: `{% subtabs %}` / `{% subtab Name %}`.
 
+### Article tiles
+
+Place tiles next to the heading they belong to. Each entry needs `name` and `link`. Prefer title-only tiles. Add `description` only when the name alone is not clear enough.
+
+```liquid
+{% article_tiles %}
+- name: Email setup
+  link: /docs/user_guide/channels/email/email_setup
+- name: Tracking
+  link: /docs/user_guide/channels/transactional_email/tracking
+{% endarticle_tiles %}
+```
+
+Write internal `link` values as `/docs/...` paths. `description` is plain text, not Markdown.
+
 ### Images
 
 ```markdown

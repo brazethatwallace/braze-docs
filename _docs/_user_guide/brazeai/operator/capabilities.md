@@ -285,8 +285,18 @@ Operator integrates with OpenAI to generate output. For more information about w
 
 ## Next steps {#next-steps}
 
-- [Get started with Operator]({{site.baseurl}}/user_guide/brazeai/operator): Access and use Operator
-- [Prompt library]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library): Browse ready-to-use example prompts
-- [Review actions]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions): Review and approve Operator's proposed changes
-- [Troubleshooting]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting): Reference common issues and solutions
+{% article_tiles %}
+- name: Get started with Operator
+  link: /docs/user_guide/brazeai/operator
+  description: Access and use Operator in the Braze dashboard.
+- name: Prompt library
+  link: /docs/user_guide/brazeai/operator/prompt_library
+  description: Browse ready-to-use example prompts.
+- name: Review actions
+  link: /docs/user_guide/brazeai/operator/reviewing_actions
+  description: Review and approve Operator's proposed changes.
+- name: Troubleshooting
+  link: /docs/user_guide/brazeai/operator/troubleshooting
+  description: Reference common issues and solutions.
+{% endarticle_tiles %}
 
