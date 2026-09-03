@@ -673,7 +673,6 @@ Remerge
 removecustomattribute
 removeleadingslash
 repoint
-repoints
 resends
 resulttemplate
 retarget
