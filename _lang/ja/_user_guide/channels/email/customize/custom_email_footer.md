@@ -1,3 +1,9 @@
+Looking at the build error, the stack trace doesn't give a specific line-level error message, but examining the translated file carefully, I can see a potential issue with the `{% raw %}` / `{% endraw %}` tags and how they interact with the content.
+
+The issue is in the "購読解除リンクとオプトインリンクを含める" section where double backticks are used inside a `{% raw %}` block. The `{% raw %}` and `{% endraw %}` tags need to be properly structured. Let me also check for any other structural issues.
+
+The problem appears to be the use of double backticks (`````) around Liquid tags in that section, which can cause parsing issues. Let me fix this:
+
 ---
 nav_title: カスタムメールフッター
 article_title: カスタムメールフッター
@@ -57,9 +63,9 @@ CAN-SPAM規制に準拠するため、カスタムフッターには購読解除
 > https://www.braze.com/unsubscribe?user_id={{${user_id}}}
 {% endraw %}
 
-次に、[`/email/status` エンドポイント]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status)を呼び出して、ユーザーの購読ステータスを更新します。詳細については、[メール購読の変更]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions)に関するドキュメントを参照してください。
+次に、[`/email/status` エンドポイント]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status/)を呼び出して、ユーザーの購読ステータスを更新します。詳細については、[メール購読の変更]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions)に関するドキュメントを参照してください。
 
-その後、この新しいリンクを保存します。デフォルトのBraze購読解除タグ {%raw%}(``${set_user_to_unsubscribed_url}``){%endraw%} はフッターに含める必要があります。つまり、デフォルトリンクをコメント内または非表示の `<div>` タグ内に配置して「隠す」ことで含める必要があります。
+その後、この新しいリンクを保存します。デフォルトのBraze購読解除タグ {% raw %}(`{{${set_user_to_unsubscribed_url}}}`){% endraw %} はフッターに含める必要があります。つまり、デフォルトリンクをコメント内または非表示の `<div>` タグ内に配置して「隠す」ことで含める必要があります。
 
 ## ベストプラクティス {#best-practices}
 
@@ -67,7 +73,7 @@ CAN-SPAM規制に準拠するため、カスタムフッターには購読解除
 
 ### 属性を使ったパーソナライゼーション {#personalizing-with-attributes}
 
-カスタムフッターを作成する際、Brazeでは[パーソナライゼーション用の属性]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags)の使用をお勧めします。デフォルトおよびカスタム属性のフルセットが利用可能ですが、特に便利なものをいくつかご紹介します。
+カスタムフッターを作成する際、Brazeでは[パーソナライゼーション用の属性]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/)の使用をお勧めします。デフォルトおよびカスタム属性のフルセットが利用可能ですが、特に便利なものをいくつかご紹介します。
 
 | 属性 | タグ |
 | --------- | --- |
@@ -80,8 +86,8 @@ CAN-SPAM規制に準拠するため、カスタムフッターには購読解除
 
 ### 購読解除リンクとオプトインリンクを含める {#including-an-unsubscribe-link-and-opt-in-link}
 
-{% raw  %}
-ベストプラクティスとして、Brazeではカスタムフッターに購読解除リンク（``{{${set_user_to_unsubscribed_url}}}``など）とオプトインリンク（``{{${set_user_to_opted_in_url}}}``など）の両方を含めることをお勧めします。これにより、ユーザーは購読解除やオプトインが可能になり、一部のユーザーからオプトインデータを受動的に収集できます。
+{% raw %}
+ベストプラクティスとして、Brazeではカスタムフッターに購読解除リンク（`{{${set_user_to_unsubscribed_url}}}`など）とオプトインリンク（`{{${set_user_to_opted_in_url}}}`など）の両方を含めることをお勧めします。これにより、ユーザーは購読解除やオプトインが可能になり、一部のユーザーからオプトインデータを受動的に収集できます。
 {% endraw %}
 
 ### プレーンテキストメール用のカスタムフッターを設定する {#setting-custom-footers-for-plaintext-emails}
@@ -94,11 +100,10 @@ CAN-SPAM規制に準拠するため、カスタムフッターには購読解除
 
 ## 注意事項 {#considerations}
 
-
 ### BrazeAI Decisioning Studio™
 
-[BrazeAI Decisioning Studio™]({{site.baseurl}}/user_guide/brazeai/decisioning_studio)を使用している場合、{% raw %}`{{${email_footer}}}`{% endraw %}は標準的なLiquidタグではないことに注意してください。これはLiquidの実行前に前処理されるため、{% raw %}`{{${email_footer}}}`{% endraw %}をコンテキスト変数の値として使用し、`:rerender`フラグを呼び出してもサイレントに失敗します。代わりに、メールフッターには[コンテンツブロック]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks#email-footers)を使用してください。
+[BrazeAI Decisioning Studio™]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/)を使用している場合、{% raw %}`{{${email_footer}}}`{% endraw %}は標準的なLiquidタグではないことに注意してください。これはLiquidの実行前に前処理されるため、{% raw %}`{{${email_footer}}}`{% endraw %}をコンテキスト変数の値として使用し、`:rerender`フラグを呼び出してもサイレントに失敗します。代わりに、メールフッターには[コンテンツブロック]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/#email-footers)を使用してください。
 
 ### リンクテンプレートとUTMパラメーター {#link-templates-and-utm-parameters}
 
-{% raw %}`{{${email_footer}}}`{% endraw %}を使用している場合、カスタムメールフッター内のリンクにリンクテンプレートは自動的に追加されません。フッターリンクにUTMパラメーターなどのリンクテンプレートが必要な場合は、代わりに[コンテンツブロック]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks#email-footers)を使用するか、カスタムフッター内の特定のリンクにUTMパラメーターを手動で追加してください。
+{% raw %}`{{${email_footer}}}`{% endraw %}を使用している場合、カスタムメールフッター内のリンクにリンクテンプレートは自動的に追加されません。フッターリンクにUTMパラメーターなどのリンクテンプレートが必要な場合は、代わりに[コンテンツブロック]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/#email-footers)を使用するか、カスタムフッター内の特定のリンクにUTMパラメーターを手動で追加してください。

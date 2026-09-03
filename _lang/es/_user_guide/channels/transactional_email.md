@@ -28,21 +28,25 @@ El correo electrónico transaccional está diseñado para enviar mensajes no pro
 
 | Ejemplo | Explicación |
 | --- | --- |
-| Confirmaciones de pedidos | Confirmar que la compra de un cliente se ha recibido y está siendo procesada. |
-| Restablecimiento de contraseñas | Entregar enlaces seguros y sensibles al tiempo para que los clientes restablezcan las credenciales de su cuenta. |
-| Notificaciones de envío | Notificar a los clientes cuando su pedido ha sido enviado, incluyendo información de seguimiento y fechas de entrega estimadas. |
+| Confirmaciones de pedidos | Confirmar que la compra de un cliente se ha recibido y se está procesando. |
+| Restablecimiento de contraseñas | Entregar enlaces seguros y de tiempo limitado para que los clientes restablezcan las credenciales de su cuenta. |
+| Notificaciones de envío | Notificar a los clientes cuando su pedido ha sido enviado, incluyendo información de seguimiento y fechas estimadas de entrega. |
 | Alertas de cuenta | Enviar notificaciones críticas relacionadas con la cuenta, como fallos en pagos, cambios de suscripción o alertas de seguridad. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Ejemplos" }
 
-## Diferencias entre correo electrónico transaccional y correo electrónico de marketing {#how-transactional-email-differs-from-marketing-email}
+## Diferencias entre el correo electrónico transaccional y el correo electrónico de marketing {#how-transactional-email-differs-from-marketing-email}
 
-Los correos electrónicos transaccionales se envían a través de una [API HTTP transaccional]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email) dedicada de Braze, que está optimizada para velocidad y fiabilidad. A diferencia de los correos electrónicos de marketing, los correos electrónicos transaccionales:
+Los correos electrónicos transaccionales se envían a través de una [API HTTP transaccional]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email) dedicada de Braze, que está optimizada para la velocidad y la fiabilidad. A diferencia de los correos electrónicos de marketing, los correos electrónicos transaccionales:
 
 - No requieren que el usuario haya dado su consentimiento para recibir comunicaciones de marketing
-- Se desencadenan mediante llamadas a la API en lugar de desencadenadores programados o basados en acciones
-- Admiten entrega casi en tiempo real para contenido urgente
+- Se desencadenan mediante llamadas a la API en lugar de desencadenantes programados o basados en acciones
+- Admiten la entrega casi en tiempo real para contenido con plazos críticos
 
 ## Próximos pasos {#next-steps}
 
-- [Crear un correo electrónico transaccional]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email)
-- [Seguimiento]({{site.baseurl}}/user_guide/channels/transactional_email/tracking)
+{% article_tiles %}
+- name: Crear un correo electrónico transaccional
+  link: /docs/user_guide/channels/transactional_email/create_a_transactional_email
+- name: Seguimiento
+  link: /docs/user_guide/channels/transactional_email/tracking
+{% endarticle_tiles %}

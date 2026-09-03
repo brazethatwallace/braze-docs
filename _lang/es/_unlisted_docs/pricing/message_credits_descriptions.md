@@ -35,31 +35,31 @@ Ten en cuenta que el "ratio de créditos" referenciado en esta página se define
 
 ## Detalles del canal de correo electrónico {#email-channel-details}
 
-Las tasas de créditos de correo electrónico se denominan en incrementos de mil correos electrónicos enviados (CPM) desde la plataforma Braze.
+Las proporciones de créditos de correo electrónico se denominan en incrementos de mil correos electrónicos enviados (CPM) desde la plataforma Braze.
 
 {% alert note %}
 Consulta nuestra [documentación de correo electrónico]({{site.baseurl}}/user_guide/channels/email) para obtener más información sobre nuestro canal de correo electrónico.
 {% endalert %}
 
-## Detalles del canal SMS, MMS y RCS {#sms-mms-and-rcs-channel-details}
+## Detalles del canal de SMS, MMS y RCS {#sms-mms-and-rcs-channel-details}
 
-Las proporciones de créditos de SMS y MMS se calculan en incrementos de segmentos enviados desde la plataforma Braze. Las proporciones de créditos de RCS se calculan en incrementos de tipos Basic y Rich Media, o tipos Single y Rich Media entregados desde la plataforma Braze. Tanto los tipos entrantes como los salientes se facturan.
+Las proporciones de créditos de SMS y MMS se denominan en incrementos de segmentos enviados desde la plataforma Braze. Las proporciones de créditos de RCS se denominan en incrementos de tipos Básico y Multimedia enriquecida, o tipos Único y Multimedia enriquecida entregados desde la plataforma Braze. Tanto los tipos entrantes como los salientes se facturan.
 
 {% alert note %}
-Cuando corresponda para estos canales, las tarifas del operador se facturan por separado (a posteriori) y no se consideran parte de los Action Credits.
+Cuando corresponda para estos canales, las tarifas de operador se facturan por separado (a mes vencido) y no se consideran parte de los Créditos de acción.
 {% endalert %}
 
 ### Segmentos de SMS {#sms-segments}
 
-La industria de SMS cuenta los mensajes en segmentos del mensaje SMS. Un segmento del mensaje es una agrupación de hasta un número definido de caracteres (160 para codificación GSM-7; 67 para codificación UCS-2) que se enviarán en un único despacho de SMS. Si envías un SMS con 161 caracteres usando codificación GSM-7, se enviarán dos (2) segmentos del mensaje. Enviar múltiples segmentos del mensaje generará cargos adicionales.
+La industria de SMS cuenta los mensajes en segmentos del mensaje de SMS. Un segmento del mensaje es una agrupación de hasta un número definido de caracteres (160 para codificación GSM-7; 67 para codificación UCS-2) que se enviará en un solo despacho de SMS. Si despachas un SMS con 161 caracteres usando codificación GSM-7, se enviarán dos (2) segmentos del mensaje. El envío de múltiples segmentos del mensaje generará cargos adicionales.
 
 ### Mensajes MMS {#mms-messages}
 
-Para MMS, el límite del mensaje es de 5 MB (esto incluye el activo multimedia y el tamaño del cuerpo del mensaje). Para mayor seguridad, Braze recomienda no exceder los 600 KB para tu activo multimedia e incluir también un cuerpo de mensaje.
+Para MMS, el límite del mensaje es de 5 MB (esto incluye el activo multimedia y el tamaño del cuerpo del mensaje). Para mayor seguridad, Braze recomienda no superar los 600 KB para tu activo multimedia e incluir también un cuerpo de mensaje.
 
 ### Tipos de RCS {#rcs-types}
 
-RCS es la próxima generación de SMS y MMS. Ofrece los beneficios de un canal directo y de alta participación como SMS, con capacidades más ricas que los consumidores modernos esperan, como contenido enriquecido (imágenes, videos, documentos), envío verificado y con marca, características interactivas como respuestas y acciones sugeridas, y más.
+RCS es la próxima generación de SMS y MMS. Ofrece los beneficios de un canal directo y de alta participación como el SMS, con capacidades más avanzadas que los consumidores modernos esperan, como contenido enriquecido (imágenes, videos, documentos), envío verificado y con marca, características interactivas como respuestas y acciones sugeridas, y más.
 
 {% multi_lang_include pricing/rcs_billing_message_types.md %}
 
@@ -73,19 +73,19 @@ Consulta nuestra [documentación de SMS y MMS]({{site.baseurl}}/user_guide/chann
 
 ## Desglose por región de facturación {#billing-region-breakdown}
 
-### América del Norte {#north-america}
+### Norteamérica {#north-america}
 
 Estados Unidos, Canadá
 
 ### Resto de África {#rest-of-africa}
 
-Argelia, Angola, Benín, Botsuana, Burkina Faso, Burundi, Camerún, Chad, Congo, Eritrea, Etiopía, Gabón, Gambia, Ghana, Guinea-Bisáu, Costa de Marfil, Kenia, Lesoto, Liberia, Libia, Madagascar, Malaui, Mali, Mauritania, Marruecos, Mozambique, Namibia, Níger, Ruanda, Senegal, Sierra Leona, Somalia, Sudán del Sur, Sudán, Suazilandia, Tanzania, Togo, Túnez, Uganda, Zambia
+Argelia, Angola, Benín, Botsuana, Burkina Faso, Burundi, Camerún, Chad, Congo, Eritrea, Etiopía, Gabón, Gambia, Ghana, Guinea-Bisáu, Costa de Marfil, Kenia, Lesoto, Liberia, Libia, Madagascar, Malaui, Malí, Mauritania, Marruecos, Mozambique, Namibia, Níger, Ruanda, Senegal, Sierra Leona, Somalia, Sudán del Sur, Sudán, Suazilandia, Tanzania, Togo, Túnez, Uganda, Zambia
 
 ### Resto de Asia-Pacífico {#rest-of-asia-pacific}
 
 Afganistán, Australia, Bangladés, Camboya, China, Japón, Laos, Mongolia, Nepal, Nueva Zelanda, Papúa Nueva Guinea, Filipinas, Sri Lanka, Taiwán, Tayikistán, Tailandia, Turkmenistán, Uzbekistán, Vietnam
 
-### Resto de Europa Central y Oriental {#rest-of-central-eastern-europe}
+### Resto de Europa Central y del Este {#rest-of-central-eastern-europe}
 
 Albania, Armenia, Azerbaiyán, Bielorrusia, Bulgaria, Croacia, República Checa, Georgia, Grecia, Letonia, Lituania, Macedonia, Moldavia, Serbia, Eslovaquia, Eslovenia, Ucrania
 
@@ -107,7 +107,7 @@ Consulta nuestra [documentación de WhatsApp]({{site.baseurl}}/user_guide/channe
 
 ## Detalles de Agent Console {#agent-console-details}
 
-Las tasas de crédito de Agent Console se expresan en incrementos de mil (1000) invocaciones realizadas desde la plataforma Braze. Se registra una invocación cuando un agente inicia una llamada a un LLM. De forma predeterminada, tu contrato incluye una asignación de invocaciones según lo especificado por tu edición de plataforma para cada período de tu plazo de suscripción. Las invocaciones adicionales se cobrarán según tu formulario de pedido.
+Las proporciones de créditos de Agent Console se calculan en incrementos de mil (1000) invocaciones realizadas desde la plataforma Braze. Una invocación se registra cuando un agente inicia una llamada a un LLM. De forma predeterminada, tu contrato incluye una asignación de invocaciones según lo especificado por tu edición de plataforma para cada período de tu plazo de suscripción. Las invocaciones adicionales se cobrarán según tu formulario de pedido.
 
 {% alert note %}
 Consulta nuestra [documentación de Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents) para obtener más información sobre Agent Console.
@@ -117,7 +117,7 @@ Consulta nuestra [documentación de Braze Agents]({{site.baseurl}}/user_guide/br
 
 ### LINE {#line}
 
-Las proporciones de créditos de LINE se denominan en incrementos de mensajes LINE enviados desde la plataforma Braze.
+Las tasas de créditos de LINE se calculan en incrementos de mensajes de LINE enviados desde la plataforma Braze.
 
 {% alert note %}
 Consulta nuestra [documentación de LINE]({{site.baseurl}}/user_guide/channels/line) para obtener más información sobre el uso de LINE con Braze.
@@ -125,7 +125,7 @@ Consulta nuestra [documentación de LINE]({{site.baseurl}}/user_guide/channels/l
 
 ### KakaoTalk {#kakaotalk}
 
-Las proporciones de créditos de KakaoTalk se denominan en incrementos de mensajes KakaoTalk enviados desde la plataforma Braze.
+Las tasas de créditos de KakaoTalk se calculan en incrementos de mensajes de KakaoTalk enviados desde la plataforma Braze.
 
 {% alert note %}
 Consulta nuestra [documentación de KakaoTalk]({{site.baseurl}}/kakaotalk) para obtener más información sobre el uso de KakaoTalk con Braze.
@@ -133,11 +133,11 @@ Consulta nuestra [documentación de KakaoTalk]({{site.baseurl}}/kakaotalk) para 
 
 ### Content Cards {#content-cards}
 
-Las proporciones de créditos de Content Cards se denominan en incrementos de mil impresiones únicas diarias.
+Las tasas de créditos de Content Cards se calculan en incrementos de mil impresiones únicas diarias.
 
-Braze se reserva el derecho de cobrar créditos por Content Cards basándose en la cantidad de Content Cards enviadas si el cliente no configura Content Cards para registrar impresiones únicas de acuerdo con las directrices de Braze. Esto se considerará aplicable si, dentro de los seis (6) meses posteriores al primer envío de Content Cards, el cliente ha:
-- Enviado más de cinco millones (5 000 000) de Content Cards, Y ADEMÁS
-    - Cero (0) impresiones registradas
+Braze se reserva el derecho de cobrar créditos por Content Cards en función del número de Content Cards enviadas si el cliente no configura Content Cards para registrar impresiones únicas según las directrices de Braze. Esto se considerará aplicable si, dentro de los seis (6) meses posteriores al primer envío de Content Cards, el cliente ha:
+- Enviado más de cinco millones (5.000.000) de Content Cards, Y ADEMÁS
+    - Registrado cero (0) impresiones
     - Una proporción de envíos a impresiones únicas diarias superior a cien (100)
 
 {% alert note %}
@@ -146,15 +146,15 @@ Consulta nuestra [documentación de Content Cards]({{site.baseurl}}/user_guide/c
 
 ### Banners {#banners}
 
-Las proporciones de créditos de Banners se denominan en incrementos de mil impresiones únicas diarias.
+Las tasas de créditos de Banners se calculan en incrementos de mil impresiones únicas diarias.
 
 {% alert note %}
-Consulta nuestra [documentación de Banners]({{site.baseurl}}/developer_guide/banners) para obtener más información sobre Banners de Braze.
+Consulta nuestra [documentación de Banner]({{site.baseurl}}/developer_guide/banners) para obtener más información sobre los Banners de Braze.
 {% endalert %}
 
 ### Audience Sync {#audience-sync}
 
-Las proporciones de créditos de Audience Sync se denominan en incrementos de mil sincronizaciones totales de usuarios. De forma predeterminada, tu contrato incluye cinco millones de sincronizaciones de usuarios por cada periodo de tu plazo de suscripción. Las sincronizaciones de usuarios adicionales se cobrarán según tu formulario de pedido.
+Las tasas de créditos de Audience Sync se calculan en incrementos de mil sincronizaciones totales de usuarios. De forma predeterminada, tu contrato incluye cinco millones de sincronizaciones de usuarios por cada período de tu plazo de suscripción. Las sincronizaciones de usuarios adicionales se cobrarán según tu formulario de pedido.
 
 {% alert note %}
 Consulta nuestra [documentación de Canvas]({{site.baseurl}}/partners/canvas_audience_sync) para obtener más información sobre Canvas Audience Sync y los partners disponibles.
@@ -162,7 +162,11 @@ Consulta nuestra [documentación de Canvas]({{site.baseurl}}/partners/canvas_aud
 
 ### Archivado de mensajes {#message-archiving}
 
-Las proporciones de créditos de archivado de mensajes se denominan en incrementos de mil mensajes archivados en los canales push, correo electrónico y SMS/MMS.
+Las tasas de créditos de archivado de mensajes se calculan en incrementos de mil mensajes archivados correctamente a través de los canales de push, correo electrónico, SMS/MMS y mensajes dentro de la aplicación.
+
+{% alert note %}
+A partir del 2 de septiembre de 2026, los intentos de archivado fallidos se excluyen de la facturación de uso; solo los archivos correctos utilizan créditos de acción. Este cambio no afecta al uso facturado antes del 2 de septiembre de 2026.
+{% endalert %}
 
 {% alert note %}
 Consulta nuestra [documentación de archivado de mensajes]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/message_archiving) para obtener más información sobre el archivado de mensajes.
@@ -170,10 +174,10 @@ Consulta nuestra [documentación de archivado de mensajes]({{site.baseurl}}/user
 
 ### Webhooks {#webhooks}
 
-Las proporciones de créditos de webhooks se denominan en incrementos de mil webhooks enviados correctamente desde la plataforma Braze. De forma predeterminada, tu contrato incluye cien mil webhooks por cada periodo de tu plazo de suscripción. Los webhooks adicionales se cobrarán según tu formulario de pedido.
+Las tasas de créditos de webhooks se calculan en incrementos de mil webhooks enviados correctamente desde la plataforma Braze. De forma predeterminada, tu contrato incluye cien mil webhooks por cada período de tu plazo de suscripción. Los webhooks adicionales se cobrarán según tu formulario de pedido.
 
 {% multi_lang_include pricing/webhook_failed_requests_billing.md credit_name='Action Credits' %}
 
 {% alert note %}
-Consulta nuestra [documentación de webhooks]({{site.baseurl}}/user_guide/channels/webhooks) para obtener más información sobre webhooks de Braze.
+Consulta nuestra [documentación de webhooks]({{site.baseurl}}/user_guide/channels/webhooks) para obtener más información sobre los webhooks de Braze.
 {% endalert %}

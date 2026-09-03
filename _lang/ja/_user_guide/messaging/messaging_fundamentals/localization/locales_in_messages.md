@@ -23,7 +23,7 @@ description: "この記事では、メッセージでロケールを使用する
 
 | 機能 | 必要なユーザー権限 |
 | --- | --- |
-| メッセージ&nbsp;タイプ | キャンペーンやキャンバスにロケールと翻訳を追加するには、以下の権限が必要です。<br><br> {::nomarkdown} <ul><li>Edit キャンペーン</li><li>Edit キャンバス</li></ul>{:/} |
+| メッセージタイプ | キャンペーンやキャンバスにロケールと翻訳を追加するには、以下の権限が必要です。<br><br> {::nomarkdown} <ul><li>Edit キャンペーン</li><li>Edit キャンバス</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件"}
 
 {% endtab %}
@@ -31,43 +31,43 @@ description: "この記事では、メッセージでロケールを使用する
 
 | 機能 | 必要なユーザー権限 |
 | --- | --- |
-| テンプレート | ロケールと翻訳を追加したいテンプレートタイプに応じて、以下の権限が必要です。<br><br> {::nomarkdown} <ul><li>Edit Email Templates</li><li>Edit IAM Templates</li><li>Edit Webhook Templates</li><li>Edit Content Block Templates</li></ul>{:/} |
+| テンプレート | ロケールと翻訳を追加するテンプレートタイプに応じて、以下の権限が必要です。<br><br> {::nomarkdown} <ul><li>Edit Email Templates</li><li>Edit IAM Templates</li><li>Edit Webhook Templates</li><li>Edit Content Block Templates</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 {% endtab %}
 {% endtabs %}
 
-## ロケールの使用 {#use-locales}
+## ロケールを使用する {#use-locales}
 
 ### ステップ1：ロケールを設定する {#step-1-set-up-locales}
 
-メッセージに翻訳を追加する前に、まず[サポートしたいロケールを作成]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings)する必要があります。ロケールは、メッセージングに使用できる言語（およびオプションで地域）のバリアントを定義します。
+メッセージに翻訳を追加する前に、まず[サポートしたいロケールを作成する]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings)必要があります。ロケールは、メッセージングで利用可能な言語（およびオプションで地域）のバリアントを定義します。
 
-### ステップ2：翻訳対象のコンテンツをマークする {#step-2-mark-content-for-translation}
+### ステップ2：翻訳するコンテンツをマークする {#step-2-mark-content-for-translation}
 
-翻訳したいテキストをLiquid翻訳タグ{% raw %}`{% translation your_id_here %}`と`{% endtranslation %}`{% endraw %}で囲み、タグIDを割り当てます。翻訳タグIDはメッセージ内で一意である必要があります。テキストをわかりやすく説明するセマンティックなID名の使用を検討してください（{% raw %}`{% translation header %}`{% endraw %}など）。
+翻訳したいテキストを Liquid 翻訳タグ {% raw %}`{% translation your_id_here %}` と `{% endtranslation %}`{% endraw %} で囲み、タグ ID を割り当てます。翻訳タグ ID はメッセージ内で一意である必要があります。テキストを明確に説明するセマンティックな ID 名（{% raw %}`{% translation header %}`{% endraw %} など）の使用を検討してください。メッセージに Content Blocks が含まれている場合は、一意性の適用方法について[翻訳を含む Content Blocks](#content-blocks-containing-translation) を参照してください。
 
-翻訳用にマークされたメッセージの例：{% raw %}`{% translation greeting %}Hello!{% endtranslation %}`{% endraw %}
+翻訳用にマークされたメッセージの例は次のとおりです：{% raw %}`{% translation greeting %}Hello!{% endtranslation %}`{% endraw %}
 
 {% alert tip %}
-翻訳したいテキストをハイライトし、キーボードショートカット**Cmd + Alt + L**（macOS）または**Ctrl + Alt + L**（Windows）を使用して翻訳タグで囲みます。<br><br>このショートカットは、メールおよびContent Blocksのドラッグ＆ドロップエディターを除く、多言語メッセージングをサポートするすべてのチャネルで機能します。これらのエディターでは、**パーソナライゼーションを追加**ボタンを使用して翻訳タグを追加してください。
+翻訳したいテキストをハイライトし、キーボードショートカット **Cmd + Alt + L**（macOS）または **Ctrl + Alt + L**（Windows）を使用して翻訳タグで囲みます。<br><br>このショートカットは、メールおよび Content Blocks のドラッグ＆ドロップエディターを除く、多言語メッセージングをサポートするすべてのチャネルで機能します。これらのエディターでは、**パーソナライゼーションを追加**ボタンを使用して翻訳タグを追加してください。
 {% endalert %}
 
-#### URLのローカライズ {#localize-urls}
+#### URL をローカライズする {#localize-urls}
 
-コンテンツを翻訳する際、URLはリンク切れを防ぐために特別な処理が必要です。
+コンテンツを翻訳する際、URL はリンク切れを防ぐために特別な処理が必要です。
 
 ##### 標準（静的）URL {#standard-static-urls}
 
-静的URLはエディターに手動で入力します（例：`https://example.com`）。以下の点も推奨されます。
+静的 URL はエディターで手動入力します（例：`https://example.com`）。以下も推奨します：
 
 | 推奨事項 | 理由 |
 | --- | --- |
-| プロトコル（`https://`）は翻訳タグの外に保持してください。ドメインとパスのみを囲みます（例：`example.com/en`）。 | 翻訳者が誤って特殊文字を変更または削除し、リンク切れが発生する可能性があります。 |
-| クエリパラメーター（例：`?utm_source=promo`）は翻訳タグの中に含めないでください。 | 翻訳者が誤って特殊文字を変更または削除し、リンク切れが発生する可能性があります。 |
+| プロトコル（`https://`）は翻訳タグの外に置きます。ドメインとパスのみ（例：`example.com/en`）を囲みます。 | 翻訳者が特殊文字を誤って変更または削除し、リンク切れが発生する可能性があります。 |
+| クエリパラメーター（例：`?utm_source=promo`）を翻訳タグ内に含めないでください。 | 翻訳者が特殊文字を誤って変更または削除し、リンク切れが発生する可能性があります。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="標準（静的）URL" }
 
-両方の推奨事項に従った標準URLの例：
+両方の推奨事項に従った標準 URL は次のとおりです：
 
 {% raw %}
 ```
@@ -75,17 +75,17 @@ description: "この記事では、メッセージでロケールを使用する
 ```
 {% endraw %}
 
-##### Liquid生成URL {#liquid-generated-urls}
+##### Liquid 生成 URL {#liquid-generated-urls}
 
-URLがLiquidで生成される場合（例：{% raw %}`{% landing_page_url %}`{% endraw %}）、以下の点を推奨します。
+URL が Liquid で生成される場合（例：{% raw %}`{% landing_page_url %}`{% endraw %}）、以下を推奨します：
 
 | 推奨事項 | 理由 |
 | --- | --- |
-| Liquid生成URLは、ローカライズが必要な場合にのみ翻訳タグで囲んでください。 | Liquid構文は正しくレンダリングするために慎重に保持する必要があります。 |
-| クエリパラメーター（例：`?utm_source=promo`）は翻訳タグの中に含めないでください。 | 翻訳者が誤って特殊文字を変更または削除し、リンク切れが発生する可能性があります。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Liquid生成URL" }
+| Liquid 生成 URL を翻訳タグで囲むのは、ローカライズが必要な場合のみにしてください。 | Liquid 構文が正しくレンダリングされるようにするには、慎重に保持する必要があります。 |
+| クエリパラメーター（例：`?utm_source=promo`）を翻訳タグ内に含めないでください。 | 翻訳者が特殊文字を誤って変更または削除し、リンク切れが発生する可能性があります。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Liquid 生成 URL" }
 
-両方の推奨事項に従ったLiquid生成URLの例：
+両方の推奨事項に従った Liquid 生成 URL は次のとおりです：
 
 {% raw %}
 ```
@@ -94,14 +94,14 @@ URLがLiquidで生成される場合（例：{% raw %}`{% landing_page_url %}`{%
 {% endraw %}
 
 {% alert important %}
-[メールリンクトラッキング](#email-link-tracking)（リンクエイリアスまたはリンクテンプレート）を使用している場合、URLが翻訳タグで囲まれているときは追加の設定が必要です。
+[メールリンクトラッキング](#email-link-tracking)（リンクエイリアスまたはリンクテンプレート）を使用している場合、URL を翻訳タグで囲む際に追加の設定が必要です。
 {% endalert %}
 
-#### HTML属性と構造 {#html-attributes-and-structure}
+#### HTML 属性と構造 {#html-attributes-and-structure}
 
-翻訳タグで囲むのは、人間が読めるテキストのみにしてください。HTML属性（`class`、`style`、`id`など）やその他の構造コードは囲まないようにしてください。HTML属性はレイアウト、スタイリング、機能を制御します。翻訳タグで囲むと、メッセージのローカライズ版でフォーマットやスタイルが壊れる可能性があります。
+翻訳タグで囲むのは、人間が読むテキストのみにしてください。HTML 属性（`class`、`style`、`id` など）やその他の構造コードは囲まないでください。HTML 属性はレイアウト、スタイリング、機能を制御します。翻訳タグで囲むと、ローカライズされたバージョンのメッセージでフォーマットやスタイルが崩れる可能性があります。
 
-正しく囲まれたテキスト：
+以下は正しく囲まれたテキストです：
 
 {% raw %}
 ```
@@ -111,9 +111,9 @@ URLがLiquidで生成される場合（例：{% raw %}`{% landing_page_url %}`{%
 ```
 {% endraw %}
 
-{% details 誤って囲まれたテキスト %}
+{% details 正しく囲まれていないテキスト %}
 
-このテキストは**誤って**囲まれています：
+以下のテキストは**正しく囲まれていません**：
 
 {% raw %}
 ```
@@ -129,38 +129,54 @@ URLがLiquidで生成される場合（例：{% raw %}`{% landing_page_url %}`{%
 
 ### ステップ3：メッセージにロケールを追加する {#step-3-add-locales-to-your-message}
 
-メッセージに翻訳タグを追加した後、エディターで**言語を管理**を選択し（メールおよびContent Blocksのドラッグ＆ドロップエディターでは**言語**）、翻訳を追加するロケールを少なくとも1つ選択します。
+メッセージに翻訳タグを追加した後、エディターで**言語を管理**を選択し（メールおよび Content Blocks のドラッグ＆ドロップエディターでは**言語**）、翻訳を追加する少なくとも1つのロケールを選択します。
 
-![デフォルトロケールまたはカスタム属性を選択するオプションがあるロケール追加のドロップダウン。]({% image_buster /assets/img/multi-language_support/select_locale_type.png %}){: style="max-width:70%;"}
+![デフォルトのロケールまたはカスタム属性を選択するオプションを含むロケール追加ドロップダウン。]({% image_buster /assets/img/multi-language_support/select_locale_type.png %}){: style="max-width:70%;"}
 
-#### 翻訳を含むContent Blocks {#content-blocks-containing-translation}
+#### 翻訳を含む Content Blocks {#content-blocks-containing-translation}
 
-メッセージに既に翻訳が保存されたContent Blocksが含まれている場合、それらの翻訳を再アップロードする必要はありません。保存された翻訳は、Content Blocksがメッセージに追加されると自動的に適用されます。
+翻訳タグを持つ Content Blocks は、ブロックに独自の保存済み翻訳があるかどうかによって動作が異なります：
 
-**言語を管理**モーダルでは、保存された翻訳を持つContent Blocksが、サポートするロケールとともにリストに表示されます。これにより、新しい翻訳を追加する前に、メッセージのどの部分が既にローカライズされているかを確認できます。
+| Content Block の状態 | 翻訳の管理場所 |
+| --- | --- |
+| 翻訳タグはあるが、ロケールや保存済み翻訳がない | 親メッセージの**言語を管理** CSV |
+| ロケールと保存済み翻訳を含む翻訳タグ | Content Block 独自の CSV または翻訳 API |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content Block の翻訳状態" }
 
-![保存された翻訳を持つContent Blocksのリストが表示された「言語を管理」セクション。]({% image_buster /assets/img/multi-language_support/content_blocks_translations.png %}){: style="max-width:70%;"}
+##### 保存済み翻訳を持つ Content Blocks {#content-blocks-with-saved-translations}
+
+メッセージに翻訳が既に保存されている Content Blocks が含まれている場合、それらの翻訳を再アップロードする必要はありません。保存済みの翻訳は、Content Block がメッセージに追加される際に自動的に適用されます。これらのブロックは独自のタグ ID を保持し、親メッセージに対して一意である必要はありません。ブロック自体に翻訳を保存する方法については、[Content Blocks に翻訳を保存する](#save-translations-in-content-blocks)を参照してください。
+
+**言語を管理**モーダルでは、保存済みの翻訳を持つ Content Blocks がサポートするロケールとともにリストに表示されます。これにより、新しい翻訳を追加する前に、メッセージのどの部分が既にローカライズされているかを確認できます。
+
+![保存済み翻訳を持つ Content Blocks のリストを含む言語を管理セクション。]({% image_buster /assets/img/multi-language_support/content_blocks_translations.png %}){: style="max-width:70%;"}
 
 {% alert important %}
-各Content Blocksに、メッセージに追加されたすべてのロケールの翻訳が含まれていることを確認してください。Content Blocksに追加したロケールの翻訳がない場合、そのロケールのユーザーには元の言語で表示されます。
+各 Content Block に、メッセージに追加されたすべてのロケールの翻訳が含まれていることを確認してください。追加したロケールのいずれかの翻訳が Content Block に欠けている場合、そのロケールのユーザーには元の言語で表示されます。
 {% endalert %}
+
+##### 翻訳タグのみを持つ Content Blocks {#content-blocks-with-translation-tags-only}
+
+Content Block に翻訳タグはあるがロケールや保存済みの翻訳がない場合、そのタグは親メッセージ内で未翻訳のソースコンテンツとして扱われます。親の**言語を管理**エクスポートにはそれらのタグが含まれ、親の CSV でその翻訳を提供する必要があります。それらのタグは、親メッセージ内の他のタグに対して一意である必要があります。
+
+未翻訳の Content Block を別のメッセージで再利用する場合、その2番目のメッセージでもブロックのタグの翻訳を提供する必要があります。Content Block を使用するすべてのメッセージで翻訳を提供する手間を省くには、Content Block 自体にロケールと翻訳を直接追加してください。
 
 ### ステップ4：翻訳を追加する {#step-4-add-translations}
 
-ロケールを選択した後、以下のいずれかの方法でメッセージに翻訳を追加します。
+ロケールを選択した後、以下のいずれかの方法でメッセージに翻訳を追加します：
 
-![CSVによるアップロードまたは翻訳パートナーへの接続で翻訳を追加するオプションがある「翻訳を追加」タブ。]({% image_buster /assets/img/multi-language_support/add_translations.png %}){: style="max-width:70%;"}
+![CSV でアップロードするか翻訳パートナーに接続するオプションを含む翻訳追加タブ。]({% image_buster /assets/img/multi-language_support/add_translations.png %}){: style="max-width:70%;"}
 
 {% tabs %}
-{% tab CSVテンプレートのアップロード %}
+{% tab CSV テンプレートをアップロード %}
 
-**テンプレートをダウンロード**を選択して、選択した翻訳IDとロケールのマトリックスを含むCSVをダウンロードします。
+**テンプレートをダウンロード**を選択して、選択した翻訳 ID とロケールのマトリクスを含む CSV をダウンロードします。
 
 {% alert important %}
-英語以外の文字の表示の問題を防ぐため、翻訳CSVにExcelを使用しないでください。
+英語以外の文字の表示問題を防ぐため、翻訳 CSV に Excel を使用しないでください。
 {% endalert %}
 
-テンプレートに記入する際は、各ロケールのテキストコンテンツのみを翻訳してください。ダウンロードしたテンプレートにHTMLタグが含まれている場合は、それらを変更せず、タグ内のテキストのみを翻訳してください。
+テンプレートに入力する際は、各ロケールのテキストコンテンツのみを翻訳してください。ダウンロードしたテンプレートに HTML タグが含まれている場合は、それらを変更せず、タグ内のテキストのみを翻訳してください。
 
 例えば、テンプレートに以下が含まれている場合：
 
@@ -168,16 +184,16 @@ URLがLiquidで生成される場合（例：{% raw %}`{% landing_page_url %}`{%
 <p style="margin:0;margin-bottom:0">A charming bakery dedicated to crafting artisanal breads.</p>
 ```
 
-テキスト`A charming bakery dedicated to crafting artisanal breads.`のみを翻訳し、HTMLタグ`<p style="margin:0;margin-bottom:0">`と`</p>`はそのままにしてください。
+テキスト `A charming bakery dedicated to crafting artisanal breads.` のみを翻訳し、HTML タグ `<p style="margin:0;margin-bottom:0">` と `</p>` はそのままにしてください。
 
 その後、完成したファイルをアップロードすると、翻訳がメッセージに適用されます。
 
-![タイトル、オファーテキスト、オファー金額、CTAの翻訳タグを含むCSV。]({% image_buster /assets/img/multi-language_support/csv_template_example.png %}){: style="max-width:50%;"}
+![タイトル、オファーテキスト、オファー金額、CTA の翻訳タグを含む CSV。]({% image_buster /assets/img/multi-language_support/csv_template_example.png %}){: style="max-width:50%;"}
 
 {% endtab %}
-{% tab 翻訳APIの使用 %}
+{% tab 翻訳 API を使用 %}
 
-パートナー翻訳APIを使用して、キャンペーン、キャンバス、Content Blocks、メールテンプレート、Webhookテンプレートの翻訳を管理・更新できます。これは、外部システムでローカライゼーションを行っている場合や、翻訳パートナーと直接接続したい場合に便利です。
+パートナー翻訳 API を使用して、キャンペーン、キャンバス、Content Blocks、メールテンプレート、Webhook テンプレートの翻訳を管理および更新します。これは、ローカライゼーションに外部システムを使用している場合や、翻訳パートナーと直接接続したい場合に便利です。
 
 キャンバスで翻訳エンドポイントを使用するには、以下のパラメーターを含めてください：
   - `workflow_id`
@@ -185,7 +201,7 @@ URLがLiquidで生成される場合（例：{% raw %}`{% landing_page_url %}`{%
   - `message_variation_id`
 
 {% alert note %}
-キャンバスの起動後に作成されたキャンバスステップで翻訳APIを使用する場合、APIに渡す`message_variation_id`は空またはブランクになります。
+キャンバスのローンチ後に作成されたキャンバスステップで翻訳 API を使用する場合、API に渡す `message_variation_id` は空またはブランクになります。
 {% endalert %}
 
 {% endtab %}
@@ -201,17 +217,17 @@ URLがLiquidで生成される場合（例：{% raw %}`{% landing_page_url %}`{%
 
 ### キャンバスステップまたはキャンペーンの複製と翻訳 {#duplicate-canvas-steps-or-campaigns-and-translations}
 
-キャンバスステップ、キャンペーン、またはバリアントを複製すると、翻訳も含まれます。ワークスペース間のコピーでも同様ですが、コピー先のワークスペースでロケールが定義されている必要があります。キャンバスやキャンペーンを変更する際は、翻訳を確認し、必要に応じて更新してください。
+キャンバスステップ、キャンペーン、またはバリアントを複製すると、翻訳も含まれます。ワークスペース間のコピーでも同様で、コピー先のワークスペースにロケールが定義されている場合に限ります。キャンバスやキャンペーンに変更を加える際は、翻訳を確認して適宜更新してください。
 
 ### Content Blocksに翻訳を保存する {#save-translations-in-content-blocks}
 
-Content Blocksはメッセージと同じ方法で多言語をサポートしています。Content Blocksを作成または編集する際、翻訳対象のコンテンツにタグを付け、ロケールを追加し、CSVまたは[翻訳API]({{site.baseurl}}/api/endpoints/translations)を使用して翻訳をアップロードできます。
+Content Blocksは、メッセージと同様に多言語対応をサポートしています。Content Blocksを作成または編集する際に、翻訳用のコンテンツにタグを付けたり、ロケールを追加したり、CSVまたは[翻訳API]({{site.baseurl}}/api/endpoints/translations)を使用して翻訳をアップロードしたりできます。
 
-保存された翻訳はContent Blocksに関連付けられたままになります。ブロックがメッセージに追加されると、その翻訳も自動的に含まれます。
+保存された翻訳はContent Blocksに関連付けられたままになります。ブロックをメッセージに追加すると、その翻訳も自動的に含まれます。
 
 ### 右から左に書く言語のメッセージ {#right-to-left-messages}
 
-右から左に書く言語（アラビア語など）の翻訳ファイルを入力する際は、翻訳を`span`で囲み、適切にフォーマットされるようにしてください。
+右から左に書く言語（アラビア語など）の翻訳ファイルに入力する際は、正しくフォーマットされるように翻訳を`span`で囲みます。
 
 {% raw %}
 ```
@@ -221,27 +237,27 @@ Content Blocksはメッセージと同じ方法で多言語をサポートして
 
 ### メールのリンクトラッキング {#email-link-tracking}
 
-メールキャンペーンでは、Brazeは各URLにトラッキング情報（クエリパラメーター）を追加してリンクをトラッキングします。この動作は[リンクエイリアス]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing)と[リンクテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template)の両方をサポートしています。
+メールキャンペーンでは、Brazeは各URLにトラッキング情報（クエリパラメーター）を追加することでリンクを追跡します。この動作は、[リンクエイリアス]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing)と[リンクテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template)の両方をサポートしています。
 
-URLが翻訳タグで囲まれている場合、Brazeはトラッキング情報を追加する場所を判断できないことがあります。これが正しく動作するようにするには、トラッキングを追加すべき場所を示す特殊文字をURLの末尾に含める必要があります。
+URLが翻訳タグで囲まれている場合、Brazeはこのトラッキング情報を追加する場所を特定できないことがあります。これが正しく機能するようにするには、URLの末尾にトラッキングの追加場所を示す特殊文字を含める必要があります。
 
-URLでは、この動作を制御するために2つの特殊文字を使用します。
+URLは、この動作を制御するために2つの特殊文字を使用します。
   - `?` はまだトラッキングがないURLにトラッキングを追加します。
-  - `&` はURLにすでに`?`が含まれている場合に追加のトラッキングを追加します。URLに含めることができる`?`は1つだけです。
+  - `&` はURLに既に`?`がある場合に追加のトラッキングを加えます。URLに含められる`?`は1つだけです。
 
-| URL | `?`を含む&nbsp; | 説明 | 例 |
+| URL | `?`を含む&nbsp;か | 説明 | 例 |
 | --- | --- | --- | --- |
-| 標準URL | いいえ | URLにまだ`?`が含まれていない場合は、閉じ翻訳タグの後に`?`を追加します。 | {% raw %}```<a href="https://{% translation id_1 %}example.com{% endtranslation %}?">Shop Now</a>```{% endraw %} |
-| 標準URL | はい | URLにすでに`?`が含まれている場合は、URLの末尾（閉じ翻訳タグの後）に`&`を使用します。 | {% raw %}```<a href="https://{% translation id_1 %}example.com{% endtranslation %}?ref=4&">Shop Now</a>```{% endraw %} |
-| Liquid生成 | いいえ | 生成されたURLにまだ`?`が含まれていない場合は、閉じ翻訳タグの後に`?`を使用します。 | {% raw %}```<a href="{% translation id_1 %}{{ product_url }}{% endtranslation %}?">Shop Now</a>``` {% endraw %} |
-| Liquid生成 | はい | 生成されたURLにすでに`?`が含まれている場合は、閉じ翻訳タグの後に`&`を使用します。 | {% raw %}```<a href="{% translation id_1 %}{% landing_page_url xyz %}{% endtranslation %}&">Shop Now</a>```{% endraw %} |
+| 標準URL | いいえ | URLにまだ`?`が含まれていない場合、閉じ翻訳タグの後に`?`を追加します。 | {% raw %}```<a href="https://{% translation id_1 %}example.com{% endtranslation %}?">Shop Now</a>```{% endraw %} |
+| 標準URL | はい | URLに既に`?`が含まれている場合、URLの末尾（閉じ翻訳タグの後）に`&`を使用します。 | {% raw %}```<a href="https://{% translation id_1 %}example.com{% endtranslation %}?ref=4&">Shop Now</a>```{% endraw %} |
+| Liquid生成 | いいえ | 生成されたURLにまだ`?`が含まれていない場合、閉じ翻訳タグの後に`?`を使用します。 | {% raw %}```<a href="{% translation id_1 %}{{ product_url }}{% endtranslation %}?">Shop Now</a>``` {% endraw %} |
+| Liquid生成 | はい | 生成されたURLに既に`?`が含まれている場合、閉じ翻訳タグの後に`&`を使用します。 | {% raw %}```<a href="{% translation id_1 %}{% landing_page_url xyz %}{% endtranslation %}&">Shop Now</a>```{% endraw %} |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="メールのリンクトラッキング" }
 
 ### 言語設定とアクセシビリティ {#language-settings-and-accessibility}
 
 WCAGのコンテキスト、チャネルとエディターの動作（ランディングページを含む）、およびメッセージレベルの**アクセシビリティ**設定については、[アクセシビリティ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility)の[アクセシビリティ言語]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language)から始めてください。
 
-**多言語メッセージ**を使用する場合は、ローカライズされた送信が適切な言語を宣言するように、アクセシビリティ言語を各ロケールに合わせてください。
+**多言語メッセージ**を使用する場合は、ローカライズされた送信で適切な言語が宣言されるよう、アクセシビリティ言語を各ロケールに合わせてください。
 
 #### アクセシビリティ言語の設定 {#configuring-the-accessibility-language}
 
@@ -253,21 +269,21 @@ WCAGのコンテキスト、チャネルとエディターの動作（ランデ�
 
 ##### ロケールレベル {#locale-level}
 
-多言語メッセージの場合、**ローカライゼーション設定**で各ロケールのアクセシビリティ言語を設定します。**アクセシビリティ**セクションで {% raw %}`{{accessibility_language}}`{% endraw %} を使用すると、ドキュメントまたはカードの言語がそれらのロケール値にマッピングされます。
+多言語メッセージの場合、**ローカライゼーション設定**で各ロケールのアクセシビリティ言語を設定します。**アクセシビリティ**セクションで{% raw %}`{{accessibility_language}}`{% endraw %}を使用すると、ドキュメントやカードの言語がこれらのロケール値にマッピングされます。
 
-新しいメッセージでそのトークンがデフォルトで表示されるかどうかは、チャネルとエディターによって異なります。たとえば、アプリ内メッセージやバナーは、ランディングページやドラッグ＆ドロップメールとは動作が異なります。詳細については、[アクセシビリティ言語]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language)を参照してください。
+このトークンが新しいメッセージでデフォルトで表示されるかどうかは、チャネルとエディターによって異なります。たとえば、アプリ内メッセージやバナーはランディングページやドラッグ＆ドロップメールとは異なる動作をします。詳細については、[アクセシビリティ言語]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language)を参照してください。
 
 ## よくある質問 {#frequently-asked-questions}
 
-### 翻訳タグの制限は何ですか？ {#what-are-the-limits-for-translation-tags}
+### 翻訳タグの制限はどのようなものですか？ {#what-are-the-limits-for-translation-tags}
 
 翻訳タグを使用する場合、以下の制限が適用されます。
 
-- 各メッセージには最大200個の翻訳タグを含めることができます。
+- 各メッセージには最大200個の翻訳タグを設定できます。
 - 各デフォルトテキスト（翻訳タグ間のコンテンツ）は最大2,000文字です。
 - ロケールごとの翻訳は最大409,600バイト（約409.6&nbsp;KB）です。
 
-### 多言語メールテンプレートのダウンロード時にエラーが発生するのはなぜですか？ {#why-am-i-receiving-an-error-when-downloading-multi-language-email-templates}
+### 多言語メールテンプレートをダウンロードするときにエラーが発生するのはなぜですか？ {#why-am-i-receiving-an-error-when-downloading-multi-language-email-templates}
 
 多言語メールテンプレートのダウンロード時にエラーが発生する場合、翻訳タグがHTML属性やCSSスタイリングをラップしており、Brazeがメール本文を処理する方法と競合している可能性があります。
 
@@ -275,14 +291,14 @@ BrazeはHTML本文とプレーンテキスト本文を同じメッセージの�
 
 これを解決するには：
 - `href`参照やCSSスタイリングを翻訳タグから除外してください。
-- [HTML属性と構造](#html-attributes-and-structure)で説明されているように、人が読めるテキストコンテンツのみを翻訳タグでラップしてください。
+- [HTML属性と構造](#html-attributes-and-structure)で説明されているように、人間が読めるテキストコンテンツのみを翻訳タグでラップしてください。
 - URLについては、[URLのローカライズ](#localize-urls)のガイダンスに従ってください。
 
 #### ロケールの1つで翻訳済みコピーを変更できますか？ {#can-i-make-a-change-to-the-translated-copy-in-one-of-my-locales}
 
 はい。まずCSVで編集を行い、その後ファイルを再度アップロードして翻訳済みコピーを変更してください。
 
-### Brazeは翻訳を提供していますか？ {#does-braze-provide-translations}
+### Brazeは翻訳を提供しますか？ {#does-braze-provide-translations}
 
 いいえ。CSVをアップロードするか、翻訳APIを使用して、[独自の翻訳を提供する](#step-4-add-translations)必要があります。
 
@@ -292,9 +308,9 @@ BrazeはHTML本文とプレーンテキスト本文を同じメッセージの�
 
 #### HTMLメッセージ全体を翻訳タグでラップできますか？ {#can-i-wrap-entire-html-messages-in-a-translation-tag}
 
-いいえ。ベストプラクティスとして、人が読めるテキストやローカライズが必要なコンテンツのみをラップしてください。これにより、フォーマットの崩れ、リンクの破損、その他のテキスト以外の要素の問題を防ぐことができます。
+いいえ。ベストプラクティスとして、人間が読めるテキストやローカライズが必要なコンテンツのみをラップしてください。これにより、壊れたフォーマット、リンク、またはその他の非テキスト要素を防ぐことができます。
 
-さらに、正確な翻訳を作成し、パフォーマンスやサイズの制限を回避するために、意味的に関連する小さなテキストの単位でラップすることを検討してください。
+さらに、正確な翻訳を作成し、パフォーマンスやサイズの制限を回避するために、意味的に関連するより小さなテキスト単位でラップすることを検討してください。
 
 #### ロケールの1つで翻訳済みコピーを変更できますか？
 
@@ -304,15 +320,15 @@ BrazeはHTML本文とプレーンテキスト本文を同じメッセージの�
 
 | シナリオ | Brazeでのバリデーション |
 | --- | --- |
-| メッセージに、異なるテキストにマッピングされる2つ以上の一致する翻訳IDが含まれている。 | この翻訳ファイルはダウンロードされません。 |
-| 翻訳ファイルに1つ以上の翻訳タグIDが不足している。 | この翻訳ファイルはアップロードされません。 |
+| メッセージに、異なるテキストにマッピングされた2つ以上の一致する翻訳IDが含まれている。 | この翻訳ファイルはダウンロードされません。 |
+| 翻訳ファイルに1つ以上の翻訳タグIDが欠落している。 | この翻訳ファイルはアップロードされません。 |
 | 翻訳ファイルにメッセージに存在しないロケールが含まれている。 | この翻訳ファイルはアップロードされません。 |
 | 翻訳テンプレートをダウンロードする前に、翻訳タグをメッセージに追加する必要がある。 | この翻訳ファイルはダウンロードされません。 |
 | アップロードしたファイルに含まれる翻訳タグがメッセージに存在しない。 | 余分な翻訳はメッセージに保存されません。 |
 | {% raw %}メッセージに1つ以上の壊れたLiquidタグが含まれている。開始タグには`{% translation your_id_here %}`を使用し、翻訳タグは`{% endtranslation %}`で閉じてください。{% endraw %} | この翻訳ファイルはダウンロードされません。 |
 | 翻訳ファイルにメッセージ内のテキストと一致しないデフォルトテキストが含まれている。 | 翻訳は追加されますが、元のメッセージテキストは更新されません。 |
-| メッセージ内の1つ以上のロケールが設定から削除され、存在しなくなっている。 | 既に追加された翻訳はメッセージ内に存在し続けます。メッセージから削除された場合、翻訳は失われます。 |
-| 翻訳タグに完全なURLまたはLiquidで生成されたURLが含まれている。 | リンク切れやリンクトラッキングの問題が発生する可能性があるため、URLを含む翻訳タグが検出されます。 |
-| 翻訳タグにクエリパラメーターが含まれている。 | リンク切れやリンクトラッキングの問題が発生する可能性があるため、クエリパラメーターを含む翻訳タグが検出されます。 |
-| 翻訳タグにHTML属性や構造が含まれている。 | スタイルやフォーマットの問題が発生する可能性があるため、HTML属性や構造を含む翻訳タグが検出されます。 |
+| メッセージ内の1つ以上のロケールが設定で削除され、存在しなくなった。 | すでに追加された翻訳はメッセージ内に存在し続けます。メッセージから削除された場合、翻訳は失われます。 |
+| 翻訳タグに完全なURLまたはLiquidで生成されたURLが含まれている。 | URLを含む翻訳タグは、リンク切れやリンクトラッキングの問題が発生した場合に備えて識別されます。 |
+| 翻訳タグにクエリパラメーターが含まれている。 | クエリパラメーターを含む翻訳タグは、リンク切れやリンクトラッキングの問題が発生した場合に備えて識別されます。 |
+| 翻訳タグにHTML属性や構造が含まれている。 | HTML属性や構造を含む翻訳タグは、スタイルやフォーマットの問題が発生した場合に備えて識別されます。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Brazeはどのようなバリデーションや追加チェックを行いますか？" }

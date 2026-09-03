@@ -17,11 +17,11 @@ Para acessar essa página, acesse **Configurações** > **Configurações da emp
 
 ### Comprimento da senha {#password-length}
 
-Use este campo para alterar o comprimento mínimo exigido para senhas. O mínimo padrão é de oito caracteres.
+Use este campo para alterar o comprimento mínimo exigido para a senha. O mínimo padrão é de oito caracteres.
 
 ### Complexidade da senha {#password-complexity}
 
-Selecione **Exigir senhas complexas** para exigir que as senhas incluam pelo menos um de cada um dos seguintes:
+Selecione **Impor senhas complexas** para exigir que as senhas incluam pelo menos um de cada um dos seguintes:
 - Letra maiúscula
 - Letra minúscula
 - Número
@@ -37,13 +37,13 @@ Use este campo para definir quando você deseja que os usuários da sua conta Br
 
 ### Regras de duração da sessão {#session-duration-rules}
 
-Use este campo para definir por quanto tempo a Braze manterá sua sessão ativa. Depois que a Braze considerar sua sessão inativa (sem atividade pelo número definido de minutos), a Braze fará o logout do usuário. O número máximo de minutos que você pode inserir é 10.080 (equivalente a uma semana) se a autenticação de dois fatores estiver ativada para a sua empresa; caso contrário, a duração máxima da sessão é de 1.440 minutos (equivalente a 24 horas).
+Use este campo para definir por quanto tempo a Braze manterá sua sessão ativa. Depois que a Braze considerar sua sessão inativa (sem atividade pelo número definido de minutos), a Braze desconecta o usuário. O número máximo de minutos que você pode inserir é 10.080 (equivalente a uma semana) se a autenticação de dois fatores estiver ativada para sua empresa. Caso contrário, a duração máxima da sessão é de 1.440 minutos (equivalente a 24 horas).
 
-### Autenticação por login único (SSO) {#single-sign-on-sso-authentication}
+### Autenticação de logon único (SSO) {#single-sign-on-sso-authentication}
 
 Você pode restringir seus usuários a fazer login usando uma senha ou SSO.
 
-Para [SSO SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on), os clientes precisam definir suas configurações SAML antes de aplicar a restrição. Se os clientes usam SSO do Google, eles só precisam aplicar a página de configurações de segurança sem nenhum esforço adicional.
+Para [SSO SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on), os clientes precisam definir suas configurações de SAML antes de aplicar. Se os clientes usam SSO do Google, eles só precisam aplicar a página de configurações de segurança sem nenhum esforço adicional.
 
 ## Lista de permissões de IP do dashboard {#dashboard-ip-allowlisting}
 
@@ -51,14 +51,14 @@ Use o campo exibido para adicionar à lista de permissões endereços IP e sub-r
 
 ## Autenticação de dois fatores (2FA) {#two-factor-authentication-2fa}
 
-A autenticação de dois fatores é obrigatória para todos os usuários da empresa. Ela adiciona um segundo nível de verificação de identidade ao login de uma conta, tornando-o mais seguro do que apenas um nome de usuário e uma senha. Se o seu dashboard não oferecer suporte à autenticação de dois fatores, entre em contato com o seu CSM.
+A autenticação de dois fatores é obrigatória para todos os usuários da empresa. Ela adiciona um segundo nível de verificação de identidade ao login de uma conta, tornando-o mais seguro do que apenas um nome de usuário e senha. Se o seu dashboard não puder suportar a autenticação de dois fatores, entre em contato com o seu gerente de sucesso do cliente.
 
 Quando a autenticação de dois fatores está ativada:
 
-- Além de inserir uma senha, os usuários precisam inserir um código de verificação ao fazer login na conta da Braze. O código pode ser enviado por um app autenticador, e-mail ou SMS.
+- Além de inserir uma senha, os usuários precisam inserir um código de verificação ao fazer login na conta da Braze. O código pode ser enviado por meio de um app autenticador, e-mail ou SMS.
 - A caixa de seleção **Lembrar desta conta por 30 dias** fica disponível para os usuários.
 
-A Braze bloqueia o acesso de usuários que não configurarem a autenticação de dois fatores na conta da Braze. Os usuários da conta da Braze também podem configurar a autenticação de dois fatores por conta própria em **Configurações da conta**, mesmo que não seja exigido pelo administrador.
+A Braze bloqueia os usuários que não configurarem a autenticação de dois fatores em suas contas da Braze. Os usuários também podem configurar a autenticação de dois fatores por conta própria em **Configurações da conta**, mesmo que não seja exigido pelo administrador.
 
 Não se esqueça de salvar suas alterações antes de sair da página!
 
@@ -70,32 +70,32 @@ Ao selecionar **Lembrar desta conta por 30 dias**, um cookie é armazenado no se
 
 ![Caixa de seleção Lembrar desta conta por 30 dias]({% image_buster /assets/img/remember_me.png %}){: style="float:right;max-width:50%;margin-left:15px;"}
 
-Clientes com várias contas em uma mesma empresa no dashboard podem ter problemas ao usar esse recurso, pois o cookie está vinculado a um dispositivo específico. Se os usuários usarem o mesmo dispositivo para fazer login em várias contas, o cookie será substituído para as contas previamente autorizadas naquele dispositivo. A Braze espera que apenas um dispositivo esteja associado a uma conta, e não um dispositivo para várias contas.
+Clientes com várias contas em uma empresa do dashboard podem ter problemas ao usar esse recurso, pois o cookie está vinculado a um dispositivo específico. Se os usuários usarem o mesmo dispositivo para fazer login em várias contas, o cookie será substituído para as contas previamente autorizadas nesse dispositivo. A Braze espera que apenas um dispositivo esteja associado a uma conta, e não um dispositivo para várias contas.
 
-### Redefinição da autenticação do usuário {#resetting-user-authentication}
+### Redefinindo a autenticação do usuário {#resetting-user-authentication}
 
-Se você estiver com dificuldades para fazer login com a autenticação de dois fatores, entre em contato com os administradores da sua empresa para redefinir sua autenticação de dois fatores. Os administradores podem realizar as seguintes etapas:
+Se você estiver com problemas para fazer login com autenticação de dois fatores, entre em contato com os administradores da sua empresa para redefinir sua autenticação de dois fatores. Os administradores podem executar as seguintes etapas:
 
-1. Acessar **Configurações** > **Configurações da empresa** > **Gerenciamento de usuários** > **Usuários da empresa**.
-2. Selecionar o usuário na lista fornecida.
-3. Selecionar **Redefinir** em **Autenticação de dois fatores**.
+1. Acesse **Configurações** > **Configurações da empresa** > **Gerenciamento de usuários** > **Usuários da empresa**.
+2. Selecione o usuário na lista fornecida.
+3. Selecione **Redefinir** em **Autenticação de dois fatores**.
 
-Uma redefinição pode resolver problemas comuns de autenticação, como dificuldades com apps autenticadores, e-mail de verificação que não é enviado, falha no login devido a interrupções de SMS ou erro do usuário, entre outros.
+Uma redefinição pode resolver problemas comuns de autenticação, como dificuldades com apps autenticadores, e-mails de verificação não enviados, falhas de login devido a interrupções de SMS ou erro do usuário, entre outros.
 
 ### Requisitos para 2FA no nível da empresa {#requirements-for-2fa-at-the-company-level}
 
-Primeiro, verifique se a 2FA está ativada no seu dashboard acessando **Configurações** > **Configurações da empresa** > **Configurações de administrador** > **Configurações de segurança** > **Autenticação de dois fatores**. Se o botão de alternância estiver cinza, a 2FA não foi ativada para a sua empresa e não é obrigatória para todos os usuários da empresa.
+Primeiro, verifique se a 2FA está ativada para o seu dashboard acessando **Configurações** > **Configurações da empresa** > **Configurações de administrador** > **Configurações de segurança** > **Autenticação de dois fatores**. Se o botão de alternância estiver cinza, a 2FA não foi ativada para a sua empresa e não é obrigatória para todos os usuários da empresa.
 
 #### Opções do usuário quando a 2FA não é obrigatória {#user-options-when-2fa-isnt-mandatory}
 
-Se a 2FA não for obrigatória no nível da empresa, os usuários individuais podem configurar a 2FA por conta própria na página de configurações da conta. Nesse caso, os usuários não serão bloqueados de suas contas se não configurarem. Você pode identificar quais usuários optaram por ativar a 2FA verificando a lista de **Usuários da empresa**.
+Se a 2FA não for obrigatória no nível da empresa, usuários individuais podem configurar a 2FA por conta própria na página de configurações da conta. Nesse caso, os usuários não serão bloqueados de suas contas se não a configurarem. Você pode identificar quais usuários optaram por ativar a 2FA verificando a lista de **Usuários da empresa**.
 
 #### Requisitos quando a 2FA é obrigatória {#requirements-when-2fa-is-mandatory}
 
-Se a 2FA for obrigatória no nível da empresa, os usuários que não a configurarem em suas próprias contas ao fazer login serão bloqueados do dashboard. Os usuários devem concluir a configuração da 2FA para manter o acesso.
+Se a 2FA for obrigatória no nível da empresa, os usuários que não a configurarem em suas próprias contas ao fazer login serão bloqueados do dashboard. Os usuários precisam concluir a configuração da 2FA para manter o acesso.
 
 {% alert important %}
-A 2FA é obrigatória para todos os usuários da empresa somente se o Single Sign-On (SSO) não estiver ativado. Se o SSO estiver em uso, a 2FA não precisa ser obrigatória no nível da empresa.
+A 2FA é obrigatória para todos os usuários da empresa somente se o Single Sign-On (SSO) não estiver ativado. Se o SSO estiver em uso, a 2FA não precisa ser aplicada no nível da empresa.
 {% endalert %}
 
 ## Configurar a 2FA manualmente {#manually-set-up-2fa}
@@ -105,14 +105,14 @@ Para ativar manualmente a autenticação de dois fatores (2FA) na sua conta da B
 1. Na Braze, selecione o ícone do seu perfil no cabeçalho global e, em seguida, selecione **Gerenciar sua conta**. Role até a seção **Two-Factor Authentication** e selecione **Start Setup**.
 2. Insira sua senha no modal de login e selecione **Check Password**.
 3. No modal **Two-Factor Authentication Setup**, insira seu número de telefone e selecione **Enable**.
-4. Copie o código de sete dígitos gerado no seu e-mail ou mensagem SMS, volte à Braze e cole-o no modal **Two-Factor Authentication Setup**. Selecione **Verify**.
-5. (Opcional) Para não precisar inserir a 2FA pelos próximos 30 dias, ative a opção **Remember this account for 30 days**.
+4. Copie o código de sete dígitos gerado a partir do seu e-mail ou mensagem SMS, volte à Braze e cole-o no modal **Two-Factor Authentication Setup**. Selecione **Verify**.
+5. (Opcional) Para evitar inserir a 2FA nos próximos 30 dias, ative a opção **Remember this account for 30 days**.
 
 ## Acesso elevado {#elevated-access}
 
-O Acesso elevado adiciona uma camada extra de segurança para ações sensíveis no dashboard da Braze. Quando ativo, os usuários precisam verificar novamente a conta antes de exportar um Segment ou visualizar uma chave de API. Para usar o Acesso elevado, acesse **Configuração** > **Configurações da empresa** > **Configuração de administrador** > **Configurações de segurança** e ative a opção.
+O Acesso elevado adiciona uma camada extra de segurança para ações sensíveis no dashboard da Braze. Quando ativo, os usuários precisam verificar novamente a conta antes de exportar um Segment ou visualizar uma chave de API. Para usar o Acesso elevado, acesse **Configurações** > **Configurações da empresa** > **Configurações de administrador** > **Configurações de segurança** e ative a opção.
 
-Se um usuário não conseguir fazer a reverificação, ele será redirecionado para onde estava e não poderá continuar com a ação sensível. Após a reverificação bem-sucedida, não será necessário repetir o processo na próxima hora, a menos que ele faça logout primeiro.
+Se um usuário não conseguir verificar novamente, ele será redirecionado para onde estava e não poderá prosseguir com a ação sensível. Após a verificação bem-sucedida, ele não precisará fazê-la novamente durante a próxima hora, a menos que saia da conta primeiro.
 
 ## Download de relatório de eventos de segurança {#security-event-report}
 
@@ -303,11 +303,11 @@ Ao pré-visualizar uma mensagem, a permissão **Visualizar IPI** não é aplicad
 
 ## Preferências de exclusão de dados {#data-deletion-preferences}
 
-Você pode usar esta configuração para definir preferências sobre se a Braze deve excluir determinados campos durante o processo de exclusão de usuários para eventos. Essas preferências afetam apenas os dados de usuários que a Braze excluiu.
+Você pode usar essa configuração para definir preferências sobre se a Braze deve excluir determinados campos durante o processo de exclusão de usuários para eventos. Essas preferências afetam apenas dados de usuários que a Braze já excluiu.
 
-Quando um usuário é excluído, a Braze remove todas as IPI dos dados de eventos, mas retém os dados anonimizados para fins de análise de dados. Alguns campos definidos pelo usuário podem conter IPI se você enviar informações do usuário final para a Braze. Se esses campos contiverem IPI, você pode optar por excluir os dados quando a Braze anonimizar os dados de eventos de usuários excluídos; se os campos não contiverem IPI, você pode mantê-los para análise de dados.
+Quando um usuário é excluído, a Braze remove todas as IPI dos dados de eventos, mas retém os dados anonimizados para fins de análise de dados. Alguns campos definidos pelo usuário podem conter IPI se você enviar informações de usuários finais para a Braze. Se esses campos contiverem IPI, você pode optar por excluir os dados quando a Braze anonimizar os dados de eventos para usuários excluídos; se os campos não contiverem IPI, você pode retê-los para análise de dados.
 
-Você é responsável por determinar as preferências corretas para o seu espaço de trabalho. A melhor maneira de determinar as configurações apropriadas é revisar com as equipes internas que enviam dados de eventos para a Braze e com as equipes que usam extras de mensagens na Braze para confirmar se os campos podem conter IPI.
+Você é responsável por determinar as preferências corretas para o seu espaço de trabalho. A melhor forma de determinar as configurações apropriadas é revisá-las com as equipes internas que enviam dados de eventos para a Braze e com as equipes que usam extras de mensagem na Braze para confirmar se os campos podem conter IPI.
 
 ### Campos relevantes {#relevant-fields}
 
@@ -319,51 +319,55 @@ Você é responsável por determinar as preferências corretas para o seu espaç
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Campos relevantes" }
 
 {% alert warning %}
-**A exclusão é permanente!** Se você optar por remover quaisquer campos do Snowflake para usuários excluídos, a configuração se aplica a todos os dados históricos nos seus espaços de trabalho e a quaisquer eventos de usuários excluídos no futuro. Depois que a Braze executar o processo para aplicar as configurações aos dados históricos de eventos de usuários excluídos, você **não poderá recuperar** os dados.
+**A exclusão é permanente!** Se você optar por remover quaisquer campos do Snowflake para usuários excluídos, a configuração se aplica a todos os dados históricos nos seus espaços de trabalho e a quaisquer eventos de usuários excluídos no futuro. Após a Braze executar o processo para aplicar as configurações aos dados históricos de eventos de usuários excluídos, você **não poderá restaurar** os dados.
 {% endalert %}
 
 ### Configurar preferências {#configure-preferences}
 
-Defina as preferências padrão marcando as caixas de seleção de quaisquer campos que a Braze deve remover caso um usuário seja excluído. Selecione quaisquer campos que contenham IPI. Essa preferência se aplica a todos os espaços de trabalho atuais e futuros, a menos que espaços de trabalho sejam adicionados explicitamente a um grupo de preferências.
+Defina as preferências padrão marcando as caixas de seleção dos campos que a Braze deve remover se um usuário for excluído. Selecione os campos que contêm IPI. Essa preferência se aplica a todos os espaços de trabalho atuais e futuros, a menos que os espaços de trabalho sejam adicionados explicitamente a um grupo de preferências.
 
-Para personalizar preferências por espaço de trabalho, você pode adicionar grupos de preferências com configurações diferentes do padrão. As configurações padrão são aplicadas a quaisquer espaços de trabalho que não foram adicionados a um grupo de preferências adicional, incluindo espaços de trabalho criados no futuro.
+Para personalizar as preferências por espaço de trabalho, você pode adicionar grupos de preferências com configurações diferentes do padrão. As configurações padrão são aplicadas a qualquer espaço de trabalho não adicionado a um grupo de preferências adicional, incluindo espaços de trabalho criados no futuro.
 
-![Seção de Preferências de exclusão de dados com o botão de alternância ativado para personalizar preferências de exclusão de dados por espaço de trabalho.]({% image_buster /assets/img/deletion_preferences_1.png %})
+![Seção de Preferências de exclusão de dados com o toggle ativado para personalizar preferências de exclusão de dados por espaço de trabalho.]({% image_buster /assets/img/deletion_preferences_1.png %})
 
 ## Solução de problemas {#troubleshooting}
 
 ### Problemas de loop na configuração da autenticação de dois fatores (2FA) {#two-factor-authentication-2fa-setup-loop-issues}
 
-Se você ficar preso em um loop após inserir seu número de telefone para 2FA e for redirecionado de volta à página de login, isso provavelmente se deve a uma falha na verificação na primeira tentativa. Para resolver esse problema, siga estas etapas:
+Se você ficar preso em um loop após inserir seu número de telefone para 2FA e for redirecionado de volta à página de login, isso provavelmente ocorre porque a verificação falhou na primeira tentativa. Para resolver esse problema, siga estas etapas:
 
-1. Desative bloqueadores de anúncios.
-2. Ative os cookies nas configurações do navegador.
-3. Reinicie seu PC ou notebook.
+1. Desative todos os bloqueadores de anúncios.
+2. Ative os cookies nas configurações do seu navegador.
+3. Reinicie seu PC ou laptop.
 4. Tente configurar a 2FA novamente.
 
-Se o problema persistir após essas etapas, entre em contato com o [Suporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) para obter assistência.
+Se o problema persistir após essas etapas, entre em contato com o [Suporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) para obter ajuda.
 
 ### Não é possível ativar a autenticação de dois fatores (2FA) {#cant-enable-two-factor-authentication-2fa}
 
-Se a 2FA estiver ativada, mas nada acontecer ao selecionar o botão **Enable**, isso pode ser porque seu navegador está bloqueando o redirecionamento necessário para enviar o código de verificação por SMS. Veja as etapas para solucionar esse problema:
+Se a 2FA estiver ativada, mas nada acontecer quando você selecionar o botão **Ativar**, pode ser que seu navegador esteja bloqueando o redirecionamento necessário para enviar o código de verificação via SMS. Veja as etapas para solucionar esse problema:
 
-1. Suspenda temporariamente os bloqueadores de anúncios que estiverem ativados no navegador.
-2. Confirme que você ativou os cookies de terceiros nas configurações do navegador.
+1. Suspenda temporariamente todos os bloqueadores de anúncios ativados no seu navegador.
+2. Confirme que você ativou cookies de terceiros nas configurações do seu navegador.
 3. Tente configurar a 2FA.
 
 ### O código de verificação não é enviado {#verification-code-doesnt-send}
 
 Se você tiver problemas ao inserir seu número de telefone na página do Authy e não receber um SMS, siga estas etapas:
 
-1. Instale o app Authy no seu celular e faça login no autenticador Authy.
-2. Insira seu número de telefone e verifique o app Authy em busca de alterações ou notificações por SMS.
-3. Se ainda não receber o SMS, tente usar uma conexão de rede diferente, como sua rede doméstica ou uma rede Wi-Fi não corporativa. Redes corporativas podem ter políticas de segurança que interferem na entrega de SMS.
+1. Instale o app Authy no seu telefone e faça login no autenticador Authy.
+2. Insira seu número de telefone e verifique se há alterações ou notificações por SMS no app Authy.
+3. Se você ainda não receber o SMS, tente usar uma conexão de rede diferente, como sua rede doméstica ou um Wi-Fi não corporativo. Redes corporativas podem ter políticas de segurança que interferem na entrega de SMS.
 
-Se os problemas persistirem, exclua o perfil antigo no app Authy e escaneie o código QR novamente para configurar a 2FA. Certifique-se de que você desativou os bloqueadores de anúncios, ativou os cookies de terceiros ou usou um navegador diferente antes de tentar a configuração novamente.
+Se os problemas persistirem, exclua o perfil antigo no app Authy e escaneie o QR code novamente para configurar a 2FA. Certifique-se de ter desativado todos os bloqueadores de anúncios, ativado cookies de terceiros ou usado um navegador diferente antes de tentar a configuração novamente.
 
-## Próximos passos {#next-steps}
+## Próximas etapas {#next-steps}
 
 Para saber mais sobre autenticação e acesso, consulte:
 
-- [SAML e login único]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on) para configurar o SSO com seu provedor de identidade.
-- [Permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) para controlar quais ações os usuários podem realizar no dashboard.
+{% article_tiles %}
+- name: SAML e login único
+  link: /docs/user_guide/administer/global/saml_single_sign_on
+- name: Permissões
+  link: /docs/user_guide/administer/global/user_management/permissions
+{% endarticle_tiles %}

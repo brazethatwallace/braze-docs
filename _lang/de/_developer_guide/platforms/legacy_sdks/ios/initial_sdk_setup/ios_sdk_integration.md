@@ -19,14 +19,14 @@ noindex: true
 Diese Anleitung geht davon aus, dass Sie das [SDK bereits zu Ihrem Xcode-Projekt hinzugefügt]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview) haben.
 {% endalert %}
 
-## Überblick über die Integration {#integration-overview}
+## Integrationsübersicht {#integration-overview}
 
-Die folgenden Schritte helfen Ihnen beim Aufbau einer `BrazeManager`-Hilfsdatei, die von Ihrem Produktionscode aufgerufen wird. Diese Hilfsdatei übernimmt alle Braze-bezogenen Abhängigkeiten, indem sie verschiedene Extensions für die folgenden Integrationsthemen hinzufügt. Jedes Thema enthält horizontale Tab-Schritte und Code-Snippets in sowohl Swift als auch Objective-C. Beachten Sie, dass die Content-Card- und In-App-Nachrichten-Schritte für die Integration nicht erforderlich sind, wenn Sie diese Kanäle in Ihrer Anwendung nicht nutzen möchten.
+Die folgenden Schritte helfen Ihnen, eine `BrazeManager`-Hilfsdatei zu erstellen, die Ihr Produktionscode aufruft. Diese Hilfsdatei behandelt alle Braze-bezogenen Abhängigkeiten, indem sie verschiedene Erweiterungen für die folgenden aufgelisteten Integrationsthemen hinzufügt. Jedes Thema enthält horizontale Tab-Schritte und Code-Snippets sowohl in Swift als auch in Objective-C. Beachten Sie, dass die Schritte für Content Cards und In-App-Nachrichten für die Integration nicht erforderlich sind, wenn Sie diese Kanäle in Ihrer Anwendung nicht nutzen möchten.
 
 - [BrazeManager.swift erstellen](#create-brazemanagerswift)
 - [SDK initialisieren](#initialize-the-sdk)
 - [Push-Benachrichtigungen](#push-notifications)
-- [Auf Nutzer:innen-Variablen und -Methoden zugreifen](#access-user-variables-and-methods)
+- [Auf Nutzervariablen und -methoden zugreifen](#access-user-variables-and-methods)
 - [Analytics protokollieren](#log-analytics)
 - [In-App-Nachrichten (optional)](#in-app-messages)
 - [Content Cards (optional)](#content-cards)
@@ -38,16 +38,16 @@ Die folgenden Schritte helfen Ihnen beim Aufbau einer `BrazeManager`-Hilfsdatei,
 {% tab Create BrazeManager swift %}
 
 #### BrazeManager.swift erstellen
-Um Ihre `BrazeManager.swift`-Datei aufzubauen, erstellen Sie eine neue Swift-Datei namens _BrazeManager_ und fügen Sie sie an der gewünschten Stelle in Ihr Projekt ein. Ersetzen Sie anschließend `import Foundation` durch `import AppboyUI` für SPM (`import Appboy_iOS_SDK` für CocoaPods) und erstellen Sie dann eine `BrazeManager`-Klasse, die alle Braze-bezogenen Methoden und Variablen beherbergen wird. `Appboy_iOS_SDK`
+Um Ihre `BrazeManager.swift`-Datei aufzubauen, erstellen Sie eine neue Swift-Datei namens _BrazeManager_, die Sie an der gewünschten Stelle zu Ihrem Projekt hinzufügen. Ersetzen Sie anschließend `import Foundation` durch `import AppboyUI` für SPM (`import Appboy_iOS_SDK` für CocoaPods) und erstellen Sie dann eine `BrazeManager`-Klasse, die alle Braze-bezogenen Methoden und Variablen beherbergt. `Appboy_iOS_SDK`
 
 {% alert note %}
 - `BrazeManager` ist eine `NSObject`-Klasse und kein Struct, damit sie ABK-Delegates wie dem `ABKInAppMessageUIDelegate` entsprechen kann.
-- Die `BrazeManager`-Klasse ist als Singleton konzipiert, sodass nur eine Instanz dieser Klasse verwendet wird. Dies dient dazu, einen einheitlichen Zugriffspunkt auf das Objekt bereitzustellen.
+- `BrazeManager` ist designbedingt eine Singleton-Klasse, sodass nur eine Instanz dieser Klasse verwendet wird. Dies bietet einen einheitlichen Zugriffspunkt auf das Objekt.
 {% endalert %}
 
-1. Fügen Sie eine statische Variable namens _shared_ hinzu, die die `BrazeManager`-Klasse initialisiert. Es ist garantiert, dass diese nur einmal verzögert initialisiert wird.
-2. Fügen Sie als Nächstes eine private Konstantenvariable namens _apiKey_ hinzu und setzen Sie sie auf den API-Schlüssel-Wert aus Ihrem Workspace im Braze-Dashboard.
-3. Fügen Sie eine private berechnete Variable namens _appboyOptions_ hinzu, die Konfigurationswerte für das SDK speichern wird. Sie wird vorerst leer sein.
+1. Fügen Sie eine statische Variable namens _shared_ hinzu, die die `BrazeManager`-Klasse initialisiert. Es ist garantiert, dass diese nur einmal lazily initialisiert wird.
+2. Fügen Sie als Nächstes eine private Konstantenvariable namens _apiKey_ hinzu und setzen Sie sie als API-Schlüsselwert aus Ihrem Workspace im Braze-Dashboard.
+3. Fügen Sie eine private berechnete Variable namens _appboyOptions_ hinzu, die Konfigurationswerte für das SDK speichert. Sie wird vorerst leer sein.
 
 {% subtabs global %}
 {% subtab Swift %}
@@ -103,14 +103,14 @@ class BrazeManager: NSObject {
 {% tab Step 1: Initialize SDK from BrazeManager swift %}
 
 #### SDK über BrazeManager.swift initialisieren {#initialize-sdk-from-brazemanagerswift}
-Als Nächstes müssen Sie das SDK initialisieren. Dieses Handbuch setzt voraus, dass Sie das [SDK bereits hinzugefügt]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview) haben. Außerdem müssen Ihr [Workspace-SDK-Endpunkt]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/completing_integration#step-2-specify-your-data-cluster) und [`LogLevel`]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations#braze-log-level) in Ihrer `Info.plist`-Datei oder in `appboyOptions` festgelegt sein.
+Als Nächstes müssen Sie das SDK initialisieren. Dieser Leitfaden geht davon aus, dass Sie das [SDK bereits hinzugefügt]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview) haben. Außerdem müssen Sie Ihren [Workspace-SDK-Endpunkt]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/completing_integration#step-2-specify-your-data-cluster) und das [`LogLevel`]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations#braze-log-level) in Ihrer `Info.plist`-Datei oder in `appboyOptions` festgelegt haben.
 
-Fügen Sie die Methode `didFinishLaunchingWithOptions` aus der `AppDelegate.swift`-Datei ohne Rückgabetyp in Ihre `BrazeManager.swift`-Datei ein. Durch das Erstellen einer ähnlichen Methode in der `BrazeManager.swift`-Datei wird keine `import AppboyUI`-Anweisung in Ihrer `AppDelegate.swift`-Datei benötigt.
+Fügen Sie die Methode `didFinishLaunchingWithOptions` aus der `AppDelegate.swift`-Datei ohne Rückgabetyp in Ihre `BrazeManager.swift`-Datei ein. Durch das Erstellen einer ähnlichen Methode in der `BrazeManager.swift`-Datei wird kein `import AppboyUI`-Statement in Ihrer `AppDelegate.swift`-Datei benötigt.
 
-Initialisieren Sie anschließend das SDK mit Ihren neu deklarierten Variablen `apiKey` und `appboyOptions`.
+Initialisieren Sie als Nächstes das SDK mit Ihren neu deklarierten Variablen `apiKey` und `appboyOptions`.
 
 {% alert important %}
-Die Initialisierung sollte im Hauptthread durchgeführt werden.
+Die Initialisierung sollte im Haupt-Thread erfolgen.
 {% endalert %}
 
 {% subtabs global %}
@@ -133,8 +133,8 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 {% endtab %}
 {% tab Step 2: Handle Appboy Initialization %}
 
-##### Appboy-Initialisierung in der AppDelegate.swift behandeln {#handle-appboy-initialization-in-the-appdelegateswift}
-Navigieren Sie als Nächstes zurück zur `AppDelegate.swift`-Datei und fügen Sie das folgende Code-Snippet in die `didFinishLaunchingWithOptions`-Methode des AppDelegates ein, um die Appboy-Initialisierung aus der `BrazeManager.swift`-Hilfsdatei zu behandeln. Denken Sie daran, dass keine `import AppboyUI`-Anweisung in der `AppDelegate.swift` hinzugefügt werden muss.
+##### Appboy-Initialisierung in AppDelegate.swift handhaben {#handle-appboy-initialization-in-the-appdelegateswift}
+Navigieren Sie als Nächstes zurück zur `AppDelegate.swift`-Datei und fügen Sie das folgende Code-Snippet in die `didFinishLaunchingWithOptions`-Methode des AppDelegate ein, um die Appboy-Initialisierung aus der `BrazeManager.swift`-Hilfsdatei zu handhaben. Denken Sie daran, dass kein `import AppboyUI`-Statement in der `AppDelegate.swift` erforderlich ist.
 
 {% subtabs global %}
 {% subtab Swift %}
@@ -168,7 +168,7 @@ func application(
 {% endtabs %}
 
 {% alert checkpoint %}
-Kompilieren Sie Ihren Code und starten Sie Ihre Anwendung.<br><br>Zu diesem Zeitpunkt sollte das SDK betriebsbereit sein. Überprüfen Sie in Ihrem Dashboard, ob Sitzungen protokolliert werden, bevor Sie fortfahren.
+Fahren Sie mit dem Kompilieren Ihres Codes fort und starten Sie Ihre Anwendung.<br><br>An diesem Punkt sollte das SDK laufen. Überprüfen Sie in Ihrem Dashboard, dass Sitzungen protokolliert werden, bevor Sie fortfahren.
 {% endalert %}
 
 ### Push-Benachrichtigungen {#push-notifications}
@@ -186,19 +186,19 @@ Navigieren Sie zu Ihrem bestehenden Workspace im Braze-Dashboard. Laden Sie unte
 {% tab Step 2: Register for Notifications %}
 
 {% alert important %}
-Verpassen Sie nicht den speziellen Checkpoint am Ende dieses Schritts!
+Überspringen Sie nicht den dedizierten Checkpoint am Ende dieses Schritts!
 {% endalert %}
 
 ##### Für Push-Benachrichtigungen registrieren {#register-for-push-notifications}
 
-Registrieren Sie sich als Nächstes für Push-Benachrichtigungen. Dieses Handbuch setzt voraus, dass Sie Ihre [Push-Zugangsdaten korrekt eingerichtet]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration) haben – sowohl in Ihrem Apple Developer Portal als auch in Ihrem Xcode-Projekt.
+Registrieren Sie sich als Nächstes für Push-Benachrichtigungen. Dieser Leitfaden geht davon aus, dass Sie Ihre [Push-Zugangsdaten korrekt eingerichtet]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration) haben — sowohl in Ihrem Apple Developer Portal als auch in Ihrem Xcode-Projekt.
 
-Der Code zur Registrierung von Push-Benachrichtigungen wird in der Methode `didFinishLaunching...` in der `BrazeManager.swift`-Datei hinzugefügt. Ihr Initialisierungscode sollte am Ende so aussehen:
+Der Code zur Registrierung von Push-Benachrichtigungen wird in der Methode `didFinishLaunching...` in der `BrazeManager.swift`-Datei hinzugefügt. Ihr Initialisierungscode sollte am Ende wie folgt aussehen:
 
-1. Konfigurieren Sie die Inhalte für die Anfrage der Autorisierung zur Interaktion mit den Nutzer:innen. Diese Optionen sind als Beispiel aufgeführt.
-2. Fordern Sie die Autorisierung an, um Ihren Nutzer:innen Push-Benachrichtigungen zu senden. Die Antwort der Nutzer:innen, Push-Benachrichtigungen zuzulassen oder abzulehnen, wird in der Variable `granted` nachverfolgt.
-3. Leiten Sie die Push-Autorisierungsergebnisse an Braze weiter, nachdem die Nutzer:innen mit der Benachrichtigungsaufforderung interagiert haben.
-4. Starten Sie den Registrierungsprozess bei APNs; dies sollte im Hauptthread erfolgen. Wenn die Registrierung erfolgreich ist, ruft die App die Methode `didRegisterForRemoteNotificationsWithDeviceToken` Ihres `AppDelegate`-Objekts auf.
+1. Konfigurieren Sie die Inhalte für die Anfrage zur Autorisierung der Interaktion mit Nutzer:innen. Diese Optionen sind als Beispiel aufgeführt.
+2. Fordern Sie die Autorisierung an, um Ihren Nutzer:innen Push-Benachrichtigungen zu senden. Die Antwort der Nutzer:innen, Push-Benachrichtigungen zuzulassen oder abzulehnen, wird in der Variable `granted` gespeichert.
+3. Leiten Sie die Push-Autorisierungsergebnisse an Braze weiter, nachdem Nutzer:innen mit der Benachrichtigungsaufforderung interagiert haben.
+4. Starten Sie den Registrierungsprozess bei APNs; dies sollte im Haupt-Thread erfolgen. Bei erfolgreicher Registrierung ruft die App die Methode `didRegisterForRemoteNotificationsWithDeviceToken` Ihres `AppDelegate`-Objekts auf.
 
 {% subtabs global %}
 {% subtab Swift %}
@@ -240,11 +240,11 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 {% endsubtabs %}
 
 {% alert checkpoint %}
-Kompilieren Sie Ihren Code und starten Sie Ihre Anwendung.
-- Bestätigen Sie in Ihrer App, dass Sie zur Zulassung von Push-Benachrichtigungen aufgefordert werden, bevor Sie fortfahren.
-- Falls Sie nicht aufgefordert werden, versuchen Sie die App zu löschen und neu zu installieren, um sicherzustellen, dass die Push-Benachrichtigungsaufforderung nicht bereits zuvor angezeigt wurde.
+Fahren Sie mit dem Kompilieren Ihres Codes fort und starten Sie Ihre Anwendung.
+- Bestätigen Sie in Ihrer App, dass Sie zur Erlaubnis von Push-Benachrichtigungen aufgefordert werden, bevor Sie fortfahren.
+- Wenn Sie nicht aufgefordert werden, versuchen Sie, die App zu löschen und neu zu installieren, um sicherzustellen, dass die Push-Benachrichtigungsaufforderung nicht bereits zuvor angezeigt wurde.
 
-Vergewissern Sie sich, dass Sie zur Zulassung von Push-Benachrichtigungen aufgefordert werden, bevor Sie fortfahren.
+Stellen Sie sicher, dass Sie zur Erlaubnis von Push-Benachrichtigungen aufgefordert werden, bevor Sie fortfahren.
 {% endalert %}
 
 {% endtab %}
@@ -254,12 +254,12 @@ Vergewissern Sie sich, dass Sie zur Zulassung von Push-Benachrichtigungen aufgef
 
 Leiten Sie als Nächstes die System-Push-Benachrichtigungsmethoden von `AppDelegate.swift` an `BrazeManager.swift` weiter, damit sie vom Braze iOS SDK verarbeitet werden.
 
-###### Schritt 1: Extension für Push-Benachrichtigungscode erstellen {#step-1-create-extension-for-push-notification-code}
+###### Schritt 1: Erweiterung für Push-Benachrichtigungscode erstellen {#step-1-create-extension-for-push-notification-code}
 
-Erstellen Sie eine Extension für Ihren Push-Benachrichtigungscode in Ihrer `BrazeManager.swift`-Datei, damit die Datei übersichtlicher lesbar ist und der Zweck in der Hilfsdatei deutlich wird, wie folgt:
+Erstellen Sie eine Erweiterung für Ihren Push-Benachrichtigungscode in Ihrer `BrazeManager.swift`-Datei, damit er übersichtlicher lesbar ist und der Zweck in der Hilfsdatei klar erkennbar wird:
 
-1. Dem Muster folgend, keine `import AppboyUI`-Anweisung in Ihrem `AppDelegate` einzubinden, werden wir die Push-Benachrichtigungsmethoden in der `BrazeManager.swift`-Datei behandeln. Die Geräte-Token der Nutzer:innen müssen aus der Methode `didRegisterForRemote...` an Braze übergeben werden. Diese Methode ist erforderlich, um stille Push-Benachrichtigungen zu implementieren. Fügen Sie als Nächstes dieselbe Methode aus dem `AppDelegate` in Ihre `BrazeManager`-Klasse ein.
-2. Fügen Sie die folgende Zeile innerhalb der Methode hinzu, um das Geräte-Token bei Braze zu registrieren. Dies ist notwendig, damit Braze das Token mit dem aktuellen Gerät verknüpfen kann.
+1. Nach dem Muster, kein `import AppboyUI`-Statement in Ihrem `AppDelegate` einzufügen, werden die Push-Benachrichtigungsmethoden in der `BrazeManager.swift`-Datei behandelt. Die Device-Tokens der Nutzer:innen müssen über die Methode `didRegisterForRemote...` an Braze übergeben werden. Diese Methode wird benötigt, um Silent-Push-Benachrichtigungen zu implementieren. Fügen Sie anschließend dieselbe Methode aus dem `AppDelegate` in Ihre `BrazeManager`-Klasse ein.
+2. Fügen Sie die folgende Zeile innerhalb der Methode hinzu, um das Device-Token bei Braze zu registrieren. Dies ist notwendig, damit Braze das Token mit dem aktuellen Gerät verknüpfen kann.
 
 {% subtabs global %}
 {% subtab Swift %}
@@ -291,10 +291,10 @@ extension BrazeManager {
 {% endsubtabs %}
 
 ###### Schritt 2: Remote-Benachrichtigungen unterstützen {#step-2-support-remote-notifications}
-Fügen Sie im Tab **Signing & Capabilities** die Unterstützung für **Background Modes** hinzu und wählen Sie **Remote notifications** aus, um mit der Unterstützung von Remote-Push-Benachrichtigungen von Braze zu beginnen.<br><br>![Signing & Capabilities]({% image_buster /assets/img/ios_sdk/ios_sdk3.png %})
+Fügen Sie im Tab **Signing & Capabilities** die Unterstützung für **Background Modes** hinzu und wählen Sie **Remote notifications**, um mit der Unterstützung von Remote-Push-Benachrichtigungen zu beginnen, die von Braze stammen.<br><br>![Signing & Capabilities]({% image_buster /assets/img/ios_sdk/ios_sdk3.png %})
 
-###### Schritt 3: Remote-Benachrichtigungen verarbeiten {#step-3-remote-notification-handling}
-Das Braze SDK kann Remote-Push-Benachrichtigungen verarbeiten, die von Braze stammen. Leiten Sie Remote-Benachrichtigungen an Braze weiter; das SDK ignoriert automatisch Push-Benachrichtigungen, die nicht von Braze stammen. Fügen Sie die folgende Methode zu Ihrer `BrazeManager.swift`-Datei in der Push-Benachrichtigungs-Extension hinzu.
+###### Schritt 3: Remote-Benachrichtigungsbehandlung {#step-3-remote-notification-handling}
+Das Braze SDK kann Remote-Push-Benachrichtigungen verarbeiten, die von Braze stammen. Leiten Sie Remote-Benachrichtigungen an Braze weiter; das SDK ignoriert automatisch Push-Benachrichtigungen, die nicht von Braze stammen. Fügen Sie die folgende Methode in Ihrer `BrazeManager.swift`-Datei in der Push-Benachrichtigungserweiterung hinzu.
 
 {% subtabs global %}
 {% subtab Swift %}
@@ -323,7 +323,7 @@ func application(
 
 ###### Schritt 4: Benachrichtigungsantworten weiterleiten {#step-4-forward-notification-responses}
 
-Das Braze SDK kann die Antwort auf Push-Benachrichtigungen verarbeiten, die von Braze stammen. Leiten Sie die Antwort auf die Benachrichtigungen an Braze weiter; das SDK ignoriert automatisch Antworten auf Push-Benachrichtigungen, die nicht von Braze stammen. Fügen Sie die folgende Methode zu Ihrer `BrazeManager.swift`-Datei hinzu:
+Das Braze SDK kann die Antwort auf Push-Benachrichtigungen verarbeiten, die von Braze stammen. Leiten Sie die Antwort der Benachrichtigungen an Braze weiter; das SDK ignoriert automatisch Antworten auf Push-Benachrichtigungen, die nicht von Braze stammen. Fügen Sie die folgende Methode in Ihrer `BrazeManager.swift`-Datei hinzu:
 
 {% subtabs global %}
 {% subtab Swift %}
@@ -358,21 +358,21 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 {% endtabs %}
 
 {% alert checkpoint %}
-Kompilieren Sie Ihren Code und starten Sie Ihre Anwendung. <br><br>Versuchen Sie, sich selbst eine Push-Benachrichtigung über das Braze-Dashboard zu senden, und vergewissern Sie sich, dass Analytics von Push-Benachrichtigungen protokolliert werden, bevor Sie fortfahren.
+Fahren Sie mit dem Kompilieren Ihres Codes fort und starten Sie Ihre Anwendung. <br><br>Versuchen Sie, sich selbst eine Push-Benachrichtigung über das Braze-Dashboard zu senden, und stellen Sie sicher, dass Analytics aus Push-Benachrichtigungen protokolliert werden, bevor Sie fortfahren.
 {% endalert %}
 
-### Auf Nutzer:innen-Variablen und -Methoden zugreifen {#access-user-variables-and-methods}
+### Auf Nutzervariablen und -methoden zugreifen {#access-user-variables-and-methods}
 
 {% tabs local %}
 {% tab Create User Variables and Methods %}
 
-#### Nutzer:innen-Variablen und -Methoden erstellen {#create-user-variables-and-methods}
+#### Nutzervariablen und -methoden erstellen {#create-user-variables-and-methods}
 
-Als Nächstes möchten Sie einfachen Zugriff auf die `ABKUser`-Variablen und -Methoden haben. Erstellen Sie eine Extension für Ihren Nutzer:innen-Code in der `BrazeManager.swift`-Datei, damit die Datei übersichtlicher lesbar ist und der Zweck in der Hilfsdatei deutlich wird, wie folgt:
+Als Nächstes möchten Sie einen einfachen Zugriff auf die `ABKUser`-Variablen und -Methoden. Erstellen Sie eine Erweiterung für Ihren Nutzercode in der `BrazeManager.swift`-Datei, damit er übersichtlicher lesbar ist und der Zweck in der Hilfsdatei klar erkennbar wird:
 
-1. Ein `ABKUser`-Objekt repräsentiert bekannte oder anonyme Nutzer:innen in Ihrer iOS-Anwendung. Fügen Sie eine berechnete Variable hinzu, um das `ABKUser`-Objekt abzurufen; diese Variable wird wiederverwendet, um Variablen über die Nutzer:innen abzurufen.
-2. Fragen Sie die Nutzer:innen-Variable ab, um einfach auf die `userId` zuzugreifen. Neben anderen Variablen ist das `ABKUser`-Objekt zuständig für (`firstName`, `lastName`, `phone`, `homeCity` usw.)
-3. Setzen Sie die Nutzer:innen, indem Sie `changeUser()` mit einer entsprechenden `userId` aufrufen.
+1. Ein `ABKUser`-Objekt repräsentiert eine:n bekannte:n oder anonyme:n Nutzer:in in Ihrer iOS-Anwendung. Fügen Sie eine berechnete Variable hinzu, um das `ABKUser`-Objekt abzurufen; diese Variable wird wiederverwendet, um Variablen über die:den Nutzer:in abzurufen.
+2. Fragen Sie die Nutzervariable ab, um einfach auf die `userId` zuzugreifen. Neben den anderen Variablen ist das `ABKUser`-Objekt verantwortlich für (`firstName`, `lastName`, `phone`, `homeCity` usw.)
+3. Setzen Sie die:den Nutzer:in, indem Sie `changeUser()` mit einer entsprechenden `userId` aufrufen.
 
 {% subtabs global %}
 {% subtab Swift %}
@@ -421,7 +421,7 @@ extension BrazeManager {
 {% endtabs %}
 
 {% alert checkpoint %}
-Kompilieren Sie Ihren Code und starten Sie Ihre Anwendung.<br><br>Versuchen Sie, Nutzer:innen nach einer erfolgreichen Anmeldung/Registrierung zu identifizieren. Stellen Sie sicher, dass Sie ein solides Verständnis davon haben, was ein geeigneter Nutzer:innen-Bezeichner ist und was nicht. <br><br>Überprüfen Sie in Ihrem Dashboard, ob der Nutzer:innen-Bezeichner protokolliert wird, bevor Sie fortfahren.
+Fahren Sie mit dem Kompilieren Ihres Codes fort und starten Sie Ihre Anwendung.<br><br>Versuchen Sie, Nutzer:innen über einen erfolgreichen Anmelde-/Registrierungsvorgang zu identifizieren. Stellen Sie sicher, dass Sie ein solides Verständnis davon haben, was ein geeigneter Nutzerbezeichner ist und was nicht. <br><br>Überprüfen Sie in Ihrem Dashboard, dass der Nutzerbezeichner protokolliert wird, bevor Sie fortfahren.
 {% endalert %}
 
 ### Analytics protokollieren {#log-analytics}
@@ -431,17 +431,17 @@ Kompilieren Sie Ihren Code und starten Sie Ihre Anwendung.<br><br>Versuchen Sie,
 
 #### Methode zum Protokollieren angepasster Events erstellen {#create-log-custom-event-method}
 
-Erstellen Sie auf Basis der folgenden Braze-SDK-Methode `logCustomEvent` eine entsprechende Methode.
+Erstellen Sie basierend auf der folgenden Braze SDK-Methode `logCustomEvent` eine entsprechende Methode.
 
-**Braze-`logCustomEvent`-Referenzmethode**<br>
-Dies ist beabsichtigt, da nur die `BrazeManager.swift`-Datei direkt auf die Methoden des Braze iOS SDK zugreifen kann. Durch das Erstellen einer entsprechenden Methode wird das gleiche Ergebnis erzielt – ohne direkte Abhängigkeiten vom Braze iOS SDK in Ihrem Produktionscode.
+**Braze `logCustomEvent`-Referenzmethode**<br>
+Dies ist designbedingt so, da nur die `BrazeManager.swift`-Datei direkt auf die Methoden des Braze iOS SDK zugreifen kann. Durch das Erstellen einer entsprechenden Methode ist das Ergebnis dasselbe und es werden keine direkten Abhängigkeiten zum Braze iOS SDK in Ihrem Produktionscode benötigt.
 
 ```
 open func logCustomEvent(_ eventName: String, withProperties properties: [AnyHashable : Any]?)
 ```
 
 **Entsprechende Methode**<br>
-Protokollieren Sie angepasste Events über das `Appboy`-Objekt an Braze. `Properties` ist ein optionaler Parameter mit einem Standardwert von nil. Angepasste Events benötigen nicht zwingend Properties, müssen aber einen Namen haben.
+Protokollieren Sie angepasste Events vom `Appboy`-Objekt zu Braze. `Properties` ist ein optionaler Parameter mit dem Standardwert nil. Angepasste Events benötigen nicht zwingend Properties, müssen aber einen Namen haben.
 
 {% subtabs global %}
 {% subtab Swift %}
@@ -464,7 +464,7 @@ func logCustomEvent(_ eventName: String, withProperties properties: [AnyHashable
 
 ##### Methode zum Protokollieren angepasster Attribute erstellen {#create-log-custom-attributes-method}
 
-Das SDK kann zahlreiche Typen als angepasste Attribute protokollieren. Es ist nicht nötig, Hilfsmethoden für jeden Werttyp zu erstellen, der gesetzt werden kann. Stattdessen genügt es, eine Methode bereitzustellen, die zum passenden Wert filtern kann.
+Das SDK kann zahlreiche Typen als angepasste Attribute protokollieren. Es ist nicht notwendig, Hilfsmethoden für jeden Wertetyp zu erstellen, der gesetzt werden kann. Stattdessen wird nur eine Methode bereitgestellt, die zum passenden Wert filtern kann.
 
 ```
 - (BOOL)setCustomAttributeWithKey:(NSString *)key andBOOLValue:(BOOL)value;
@@ -476,10 +476,10 @@ Das SDK kann zahlreiche Typen als angepasste Attribute protokollieren. Es ist ni
 
 Angepasste Attribute werden über das `ABKUser`-Objekt protokolliert.
 
-Erstellen Sie **eine Methode**, die alle verfügbaren Typen abdeckt, die für ein Attribut gesetzt werden können. Fügen Sie diese Methode in Ihrer `BrazeManager.swift`-Datei in der Analytics-Extension hinzu. Dies geschieht, indem die gültigen Typen für angepasste Attribute gefiltert und die Methode aufgerufen wird, die dem passenden Typ zugeordnet ist.
+Erstellen Sie **eine Methode**, die alle verfügbaren Typen abdecken kann, die für ein Attribut gesetzt werden können. Fügen Sie diese Methode in Ihrer `BrazeManager.swift`-Datei in der Analytics-Erweiterung hinzu. Dies kann durch Filtern der gültigen angepassten Attributtypen und Aufrufen der Methode erreicht werden, die dem passenden Typ zugeordnet ist.
 
-- Der Parameter `value` ist ein generischer Typ, der dem `Equatable`-Protokoll entspricht. Dies ist explizit so umgesetzt, damit bei einem Typ, den das Braze iOS SDK nicht erwartet, ein Kompilierungsfehler auftritt.
-- Die Parameter `key` und `value` sind optionale Parameter, die innerhalb der Methode bedingt entpackt werden. Dies ist nur eine Möglichkeit sicherzustellen, dass keine nil-Werte an das Braze iOS SDK übergeben werden.
+- Der Parameter `value` ist ein generischer Typ, der dem `Equatable`-Protokoll entspricht. Dies ist explizit so gemacht, damit bei einem Typ, der nicht dem entspricht, was das Braze iOS SDK erwartet, ein Kompilierungsfehler auftritt.
+- Die Parameter `key` und `value` sind optionale Parameter, die innerhalb der Methode bedingt entpackt werden. Dies ist nur eine Möglichkeit, sicherzustellen, dass keine nil-Werte an das Braze iOS SDK übergeben werden.
 
 {% subtabs global %}
 {% subtab Swift %}
@@ -529,16 +529,16 @@ func setCustomAttributeWithKey<T: Equatable>(_ key: String?, andValue value: T?)
 
 ##### Methode zum Protokollieren von Käufen erstellen {#create-log-purchase-method}
 
-Erstellen Sie als Nächstes auf Basis der folgenden Braze-SDK-Methode `logPurchase` eine entsprechende Methode.
+Erstellen Sie als Nächstes basierend auf der folgenden Braze SDK-Methode `logPurchase` eine entsprechende Methode.
 
-**Braze-`logPurchase`-Referenzmethode**<br>
-Dies ist beabsichtigt, da nur die `BrazeManager.swift`-Datei direkt auf die Methoden des Braze iOS SDK zugreifen kann. Durch das Erstellen einer entsprechenden Methode wird das gleiche Ergebnis erzielt – ohne direkte Abhängigkeiten vom Braze iOS SDK in Ihrem Produktionscode.
+**Braze `logPurchase`-Referenzmethode**<br>
+Dies ist designbedingt so, da nur die `BrazeManager.swift`-Datei direkt auf die Methoden des Braze iOS SDK zugreifen kann. Durch das Erstellen einer entsprechenden Methode ist das Ergebnis dasselbe und es werden keine direkten Abhängigkeiten zum Braze iOS SDK in Ihrem Produktionscode benötigt.
 
 ```
 open func logPurchase(_ productIdentifier: String, inCurrency currency: String, atPrice price: NSDecimalNumber, withoutQuantity quantity: UInt)
 ```
 **Entsprechende Methode**<br>
-Protokollieren Sie Käufe über das `Appboy`-Objekt an Braze. Das SDK bietet mehrere Methoden zum Protokollieren von Käufen, und dies ist nur ein Beispiel. Diese Methode behandelt auch das Erstellen der `NSDecimal`- und `UInt`-Objekte. Wie Sie diesen Teil handhaben, liegt bei Ihnen; hier wird nur ein Beispiel bereitgestellt.
+Protokollieren Sie Käufe vom `Appboy`-Objekt zu Braze. Das SDK bietet mehrere Methoden zum Protokollieren von Käufen, und dies ist nur ein Beispiel. Diese Methode übernimmt auch das Erstellen der `NSDecimal`- und `UInt`-Objekte. Wie Sie diesen Teil handhaben möchten, bleibt Ihnen überlassen; hier wird nur ein Beispiel gezeigt.
 
 {% subtabs global %}
 {% subtab Swift %}
@@ -564,7 +564,7 @@ String, withQuantity quantity: Int) {
 {% endtabs %}
 
 {% alert checkpoint %}
-Kompilieren Sie Ihren Code und starten Sie Ihre Anwendung. <br><br>Versuchen Sie, angepasste Events zu protokollieren.<br><br>Überprüfen Sie in Ihrem Dashboard, ob die angepassten Events protokolliert werden, bevor Sie fortfahren.
+Fahren Sie mit dem Kompilieren Ihres Codes fort und starten Sie Ihre Anwendung. <br><br>Versuchen Sie, angepasste Events zu protokollieren.<br><br>Überprüfen Sie in Ihrem Dashboard, dass die angepassten Events protokolliert werden, bevor Sie fortfahren.
 {% endalert %}
 
 ### In-App-Nachrichten {#in-app-messages}
@@ -580,7 +580,7 @@ Der folgende Abschnitt zu In-App-Nachrichten ist für die Integration nicht erfo
 
 Aktivieren Sie als Nächstes Ihren `BrazeManager.swift`-Dateicode, damit er dem `ABKInAppMessageUIDelegate` entspricht und die zugehörigen Methoden direkt verarbeiten kann.
 
-Der Code zur Entsprechung des Delegates wird in den Methoden `didFinishLaunching...` in der `BrazeManager.swift`-Datei hinzugefügt. Ihr Initialisierungscode sollte am Ende so aussehen:
+Der Code für die Delegate-Konformität wird in den `didFinishLaunching...`-Methoden in der `BrazeManager.swift`-Datei hinzugefügt. Ihr Initialisierungscode sollte am Ende wie folgt aussehen:
 
 {% subtabs global %}
 {% subtab swift %}
@@ -618,12 +618,12 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 {% tab Step 2: Add Delegate Methods %}
 
 ##### Delegate-Methoden hinzufügen {#add-delegate-methods}
-Erstellen Sie als Nächstes eine Extension, die dem `ABKInAppMessageUIDelegate` entspricht.
+Erstellen Sie als Nächstes eine Erweiterung, die dem `ABKInAppMessageUIDelegate` entspricht.
 
-Fügen Sie das folgende Snippet im Analytics-Abschnitt hinzu. Beachten Sie, dass das `BrazeManager.swift`-Objekt als Delegate gesetzt ist; dies ist die Stelle, an der die `BrazeManager.swift`-Datei alle `ABKInAppMessageUIDelegate`-Methoden verarbeitet.
+Fügen Sie das folgende Snippet im Analytics-Abschnitt hinzu. Beachten Sie, dass das `BrazeManager.swift`-Objekt als Delegate gesetzt ist; hier werden alle `ABKInAppMessageUIDelegate`-Methoden von der `BrazeManager.swift`-Datei verarbeitet.
 
 {% alert important %}
-Der `ABKInAppMessageUIDelegate` enthält keine verpflichtenden Methoden, aber das Folgende ist ein Beispiel für eine.
+Der `ABKInAppMessageUIDelegate` enthält keine Pflichtmethoden, aber das Folgende ist ein Beispiel für eine solche.
 {% endalert %}
 
 {% subtabs global %}
@@ -668,7 +668,7 @@ extension AppboyManager: ABKInAppMessageUIDelegate{
 {% endtabs %}
 
 {% alert checkpoint %}
-Kompilieren Sie Ihren Code und starten Sie Ihre Anwendung. <br><br>Versuchen Sie, sich selbst eine In-App-Nachricht zu senden. <br><br>Setzen Sie in der `BrazeManager.swift`-Datei einen Breakpoint am Einstiegspunkt der Beispiel-`ABKInAppMessageUIDelegate`-Methode. Senden Sie sich selbst eine In-App-Nachricht und bestätigen Sie, dass der Breakpoint ausgelöst wird, bevor Sie fortfahren.
+Fahren Sie mit dem Kompilieren Ihres Codes fort und starten Sie Ihre Anwendung. <br><br>Versuchen Sie, sich selbst eine In-App-Nachricht zu senden. <br><br>Setzen Sie in der `BrazeManager.swift`-Datei einen Breakpoint am Einstiegspunkt der `ABKInAppMessageUIDelegate`-Beispielmethode. Senden Sie sich selbst eine In-App-Nachricht und bestätigen Sie, dass der Breakpoint erreicht wird, bevor Sie fortfahren.
 {% endalert %}
 
 ### Content Cards {#content-cards}
@@ -677,17 +677,17 @@ Kompilieren Sie Ihren Code und starten Sie Ihre Anwendung. <br><br>Versuchen Sie
 {% tab Create Content Card Variables and Methods %}
 
 {% alert important %}
-Der folgende Content-Cards-Abschnitt ist für die Integration nicht erforderlich, wenn Sie diesen Kanal in Ihrer Anwendung nicht nutzen möchten.
+Der folgende Abschnitt zu Content Cards ist für die Integration nicht erforderlich, wenn Sie diesen Kanal in Ihrer Anwendung nicht nutzen möchten.
 {% endalert %}
 
 #### Content-Card-Variablen und -Methoden erstellen {#create-content-card-variables-and-methods}
 
-Ermöglichen Sie es Ihrem Produktionscode, den Content-Cards-View-Controller anzuzeigen, ohne unnötige `import AppboyUI`-Anweisungen.
+Ermöglichen Sie es Ihrem Produktionscode, den Content-Cards-View-Controller ohne unnötige `import AppboyUI`-Statements anzuzeigen.
 
-Erstellen Sie eine Extension für Ihren Content-Cards-Code in Ihrer `BrazeManager.swift`-Datei, damit die Datei übersichtlicher lesbar ist und der Zweck in der Hilfsdatei deutlich wird, wie folgt:
+Erstellen Sie eine Erweiterung für Ihren Content-Cards-Code in Ihrer `BrazeManager.swift`-Datei, damit er übersichtlicher lesbar ist und der Zweck in der Hilfsdatei klar erkennbar wird:
 
-1. Zeigen Sie den `ABKContentCardsTableViewController` an. Ein optionaler `navigationController` ist der einzige Parameter, der zum Anzeigen oder Pushen unseres View-Controllers benötigt wird.
-2. Initialisieren Sie ein `ABKContentCardsTableViewController`-Objekt und ändern Sie optional den Titel. Sie müssen außerdem den initialisierten View-Controller zum Navigations-Stack hinzufügen.
+1. Zeigen Sie den `ABKContentCardsTableViewController` an. Ein optionaler `navigationController` ist der einzige benötigte Parameter, um unseren View-Controller zu präsentieren oder zu pushen.
+2. Initialisieren Sie ein `ABKContentCardsTableViewController`-Objekt und ändern Sie optional den Titel. Sie müssen außerdem den initialisierten View-Controller zum Navigation-Stack hinzufügen.
 
 {% subtabs global %}
 {% subtab Swift %}
@@ -723,14 +723,23 @@ extension BrazeManager {
 {% endtabs %}
 
 {% alert checkpoint %}
-Kompilieren Sie Ihren Code und starten Sie Ihre Anwendung.<br><br>Versuchen Sie, den `ABKContentCardsTableViewController` in Ihrer Anwendung anzuzeigen, bevor Sie fortfahren.
+Fahren Sie mit dem Kompilieren Ihres Codes fort und starten Sie Ihre Anwendung.<br><br>Versuchen Sie, den `ABKContentCardsTableViewController` in Ihrer Anwendung anzuzeigen, bevor Sie fortfahren.
 {% endalert %}
 
 ## Nächste Schritte {#next-steps}
 
-Herzlichen Glückwunsch! Sie haben diesen Best-Practice-Integrationsleitfaden abgeschlossen! Eine beispielhafte `BrazeManager`-Hilfsdatei finden Sie auf [GitHub](https://github.com/braze-inc/braze-growth-shares-ios-demo-app/blob/master/Braze-Demo/BrazeManager.swift).
+Herzlichen Glückwunsch! Sie haben diesen Leitfaden zur Best-Practice-Integration abgeschlossen! Eine Beispieldatei für den `BrazeManager`-Helper finden Sie auf [GitHub](https://github.com/braze-inc/braze-growth-shares-ios-demo-app/blob/master/Braze-Demo/BrazeManager.swift).
 
-Da Sie nun alle Abhängigkeiten vom Braze iOS SDK vom Rest Ihres Produktionscodes entkoppelt haben, werfen Sie einen Blick auf einige unserer optionalen erweiterten Implementierungsleitfäden:
-- [Erweiterter Implementierungsleitfaden für Push-Benachrichtigungen]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/implementation_guide)
-- [Erweiterter Implementierungsleitfaden für In-App-Nachrichten]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/implementation_guide)
-- [Erweiterter Implementierungsleitfaden für Content Cards]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/content_cards/implementation_guide)
+Nachdem Sie alle Abhängigkeiten vom Braze iOS SDK vom Rest Ihres Produktionscodes entkoppelt haben, sehen Sie sich einige unserer optionalen erweiterten Implementierungsleitfäden an:
+
+{% article_tiles %}
+- name: Erweiterter Implementierungsleitfaden für Push-Benachrichtigungen
+  link: /docs/developer_guide/platforms/legacy_sdks/ios/push_notifications/implementation_guide
+  description: Optionale erweiterte Muster zur Anpassung des Verhaltens von Push-Benachrichtigungen in Ihrer iOS-App.
+- name: Erweiterter Implementierungsleitfaden für In-App-Nachrichten
+  link: /docs/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/implementation_guide
+  description: Optionale erweiterte Muster zur Anpassung der Zustellung und Anzeige von In-App-Nachrichten.
+- name: Erweiterter Implementierungsleitfaden für Content Cards
+  link: /docs/developer_guide/platforms/legacy_sdks/ios/content_cards/implementation_guide
+  description: Optionale erweiterte Muster zur Anpassung von Content-Card-Feeds und der UI.
+{% endarticle_tiles %}

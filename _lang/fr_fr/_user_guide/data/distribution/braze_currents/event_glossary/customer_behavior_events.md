@@ -1,4 +1,7 @@
 ---
+# This file is a template consumed by the external `braze-currents-generate-docs` tool
+# (braze-agent-plugins / braze-currents plugin) to generate the Currents event glossary
+# docs. It is not referenced from within braze-docs, so do not delete it as "unused".
 nav_title: Comportement des clients et événements utilisateurs
 article_title: Comportement des clients et événements utilisateurs
 layout: customer_behavior_events_glossary
@@ -63,6 +66,7 @@ Certains événements renvoient une valeur `platform` qui spécifie la plateform
 
 <!--overview-end-->
 
+
 {% api %}
 ## Événements de mise à jour du numéro de compartiment aléatoire {#random-bucket-number-update-events}
 
@@ -70,7 +74,7 @@ Certains événements renvoient une valeur `platform` qui spécifie la plateform
 Random Bucket Number
 {% endapitags %}
 
-Cet événement utilisateur se produit chaque fois qu'un nouvel utilisateur est créé dans son espace de travail. Au cours de cet événement, chaque nouvel utilisateur se voit attribuer un numéro de compartiment aléatoire que vous pouvez ensuite utiliser pour créer des segments d'utilisateurs aléatoires uniformément répartis. Utilisez cette fonctionnalité pour regrouper une série de numéros de compartiment aléatoires et comparer les performances de vos campagnes et de leurs variantes.
+Cet événement utilisateur se produit chaque fois qu'un nouvel utilisateur est créé dans son espace de travail. Au cours de cet événement, chaque nouvel utilisateur se voit attribuer un numéro de compartiment aléatoire que vous pouvez ensuite utiliser pour créer des segments d'utilisateurs aléatoires uniformément répartis. Utilisez cette fonctionnalité pour regrouper une série de numéros de compartiment aléatoires et comparer les performances de vos Campaigns et de leurs variantes.
 
 {% alert important %}
 Cet événement Currents n'est disponible que pour les clients qui ont acheté un « connecteur tous événements » et n'est disponible que pour les connecteurs d'événements de stockage (tels que Amazon S3, Microsoft Azure et Google Cloud Storage).
@@ -248,7 +252,7 @@ Cet événement se produit lorsqu'un événement personnalisé spécifique est d
 
 ### Détails des propriétés {#property-details}
 
-- Pour les événements personnalisés, le payload sera également rempli avec toutes les [propriétés d'événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties) associées à l'événement.
+- Pour les événements personnalisés, le payload sera également rempli avec toutes les [propriétés d'événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties#custom-event-properties) associées à l'événement.
 - Pour `ad_id`, `ad_id_type` et `ad_tracking_enabled`, vous devez collecter explicitement l'IDFA iOS et l'identifiant publicitaire Google Android via les SDK natifs. Pour en savoir plus : [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
 - Si vous utilisez Kafka pour ingérer des données [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), contactez votre gestionnaire de la satisfaction client ou votre gestionnaire de compte afin d'activer la fonctionnalité permettant l'envoi de `ad_id`.
 
@@ -1131,13 +1135,13 @@ Lorsqu'un utilisateur démarre sa première session, un événement `FirstSessio
 {% endapi %}
 
 {% api %}
-## Événements de changement de jeton Push To Start pour les en direct Activity {#live-activity-push-to-start-token-change-events}
+## Événements de changement de jeton Push To Start de Live Activity {#live-activity-push-to-start-token-change-events}
 
 {% apitags %}
-en direct Activity, Push To Start Token
+Live Activity, Push To Start Token
 {% endapitags %}
 
-Cet événement se produit lorsque Braze synchronise le jeton Push To Start de la en direct Activity avec l'utilisateur.
+Cet événement se produit lorsque Braze synchronise le jeton Push To Start de la Live Activity avec l'utilisateur.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -1264,18 +1268,18 @@ Cet événement se produit lorsque Braze synchronise le jeton Push To Start de l
 
 ### Détails des propriétés
 
-- Braze émet un événement « update » avec `push_token_state_change_type` défini sur `"update"` lorsqu'un utilisateur anonyme est identifié sur le même profil et que les jetons Push To Start de en direct Activity iOS existants restent sur ce profil. Dans ce cas, `user_id` ne change pas et `external_user_id` est défini sur l'ID externe de l'utilisateur identifié. Cela inclut l'identification via l'endpoint [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) et le `changeUser` du SDK lorsqu'il attribue un ID externe au profil anonyme sur l'appareil.
+- Braze émet un événement « update » avec `push_token_state_change_type` défini sur `"update"` lorsqu'un utilisateur anonyme est identifié sur le même profil et que les jetons Push To Start de Live Activity iOS existants restent sur ce profil. Dans ce cas, `user_id` ne change pas et `external_user_id` est défini sur l'ID externe de l'utilisateur identifié. Cela inclut l'identification via l'endpoint [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) et le `changeUser` du SDK lorsqu'il attribue un ID externe au profil anonyme sur l'appareil.
 
 {% endapi %}
 
 {% api %}
-## Événements de changement de jeton de mise à jour des en direct Activity {#live-activity-update-token-change-events}
+## Événements de changement de jeton de mise à jour de Live Activity {#live-activity-update-token-change-events}
 
 {% apitags %}
-en direct Activity, Update Token
+Live Activity, Update Token
 {% endapitags %}
 
-Cet événement se produit lorsque Braze synchronise le jeton de mise à jour de la en direct Activity avec l'utilisateur.
+Cet événement se produit lorsque Braze synchronise le jeton de mise à jour de la Live Activity avec l'utilisateur.
 
 {% tabs %}
 {% tab Cloud Storage %}

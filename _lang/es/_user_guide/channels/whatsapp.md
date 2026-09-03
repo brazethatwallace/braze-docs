@@ -16,23 +16,23 @@ alias: /whatsapp/
 
 ## Requisitos previos {#prerequisites}
 
-La disponibilidad de WhatsApp depende de tu paquete de Braze. Ponte en contacto con tu director de cuentas o CSM para empezar.
+La disponibilidad de WhatsApp depende de tu paquete de Braze. Ponte en contacto con tu director de cuentas o administrador de éxito de cliente para comenzar.
 
 Antes de empezar, asegúrate de tener lo siguiente:
 
 - Una cuenta de Meta Business Administrador y una cuenta de WhatsApp Business
-- Un número de teléfono de WhatsApp que cumpla los requisitos de [Cloud API](https://developers.facebook.com/docs/whatsapp/cloud-api/phone-numbers)
+- Un número de teléfono de WhatsApp que cumpla con los requisitos de la [API en la nube](https://developers.facebook.com/docs/whatsapp/cloud-api/phone-numbers)
 
-Para un recorrido completo, consulta [Configuración de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup).
+Para una guía completa, consulta [Configuración de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup).
 
 ## Ejemplos {#use-cases}
 
 | Ejemplo | Explicación |
 | --- | --- |
-| Atención al cliente | Habilita conversaciones bidireccionales en tiempo real para gestionar consultas, resolver problemas y proporcionar asistencia personalizada. |
+| Atención al cliente | Habilita conversaciones bidireccionales en tiempo real para gestionar consultas, solucionar problemas y proporcionar asistencia personalizada. |
 | Notificaciones de pedidos | Envía confirmaciones de pedidos, actualizaciones de envío y notificaciones de entrega directamente a los clientes en WhatsApp. |
 | Recordatorios de citas | Reduce las ausencias con recordatorios oportunos de citas y permite a los clientes confirmar o reprogramar. |
-| Campaigns promocionales | Llega a los clientes con promociones dirigidas, lanzamientos de productos y ofertas personalizadas a través de mensajes con contenido enriquecido. |
+| Campaigns promocionales | Llega a los clientes con promociones segmentadas, lanzamientos de productos y ofertas personalizadas a través de mensajes con contenido enriquecido. |
 | Conversaciones bidireccionales | Construye relaciones más profundas con mensajería interactiva que permite a los clientes responder, hacer preguntas y proporcionar comentarios. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Ejemplos" }
 
@@ -40,17 +40,21 @@ Para un recorrido completo, consulta [Configuración de WhatsApp]({{site.baseurl
 
 ### ¿Cómo conecto WhatsApp a Braze? {#how-do-i-connect-whatsapp-to-braze}
 
-Crea una cuenta de Meta Business Administrador y una cuenta de WhatsApp Business, luego completa los pasos en [Configuración de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup).
+Crea una cuenta de Meta Business Manager y una cuenta de WhatsApp Business, y luego completa los pasos en [Configuración de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup).
 
 ### ¿Qué tipos de mensajes puedo enviar en WhatsApp? {#what-message-types-can-i-send-on-whatsapp}
 
 Usa plantillas aprobadas para mensajes salientes y mensajes de sesión compatibles para conversaciones bidireccionales. Consulta [Crear un mensaje de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message) para ver los tipos de mensajes compatibles.
 
-### ¿Los usuarios necesitan dar su adhesión voluntaria a los mensajes de WhatsApp? {#do-users-need-to-opt-in-to-whatsapp-messages}
+### ¿Los usuarios necesitan dar su adhesión voluntaria para recibir mensajes de WhatsApp? {#do-users-need-to-opt-in-to-whatsapp-messages}
 
-Sí. Los usuarios deben dar su adhesión voluntaria antes de que envíes mensajes de WhatsApp promocionales o recurrentes. Consulta [Adhesiones voluntarias y cancelaciones]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs) para la gestión de suscripciones.
+Sí. Los usuarios deben dar su adhesión voluntaria antes de que envíes mensajes promocionales o recurrentes de WhatsApp. Consulta [Adhesión voluntaria y cancelación de suscripción]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs) para la gestión de suscripciones.
 
 ## Próximos pasos {#next-steps}
 
-- [Configuración de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup)
-- [Crear un mensaje de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message)
+{% article_tiles %}
+- name: Configuración de WhatsApp
+  link: /docs/user_guide/channels/whatsapp/whatsapp_setup
+- name: Crear un mensaje de WhatsApp
+  link: /docs/user_guide/channels/whatsapp/create_a_whatsapp_message
+{% endarticle_tiles %}

@@ -1,11 +1,14 @@
 ---
+# This file is a template consumed by the external `braze-currents-generate-docs` tool
+# (braze-agent-plugins / braze-currents plugin) to generate the Currents event glossary
+# docs. It is not referenced from within braze-docs, so do not delete it as "unused".
 nav_title: メッセージエンゲージメントイベント
 layout: message_engagement_events_glossary
 alias: /message_events_glossary/
 page_order: 5
 excerpt_separator: ""
 page_type: glossary
-description: "この用語集では、Brazeがトラッキングし、Currentsを使用して選択したデータウェアハウスに送信できるさまざまなメッセージエンゲージメントイベントを一覧で紹介します。"
+description: "この用語集では、Brazeがトラッキングし、Currentsを使用して選択したデータウェアハウスに送信できるさまざまなメッセージエンゲージメントイベントの一覧を掲載しています。"
 tool: Currents
 search_rank: 6
 lazy_partner_tabs: true
@@ -18,10 +21,10 @@ lazy_partner_tabs: true
 ストレージスキーマは、データウェアハウスストレージパートナー（Google Cloud Storage、Amazon S3、Microsoft Azure Blob Storage）に送信するフラットファイルイベントデータに適用されます。その他のパートナーに適用されるスキーマについては、[利用可能なパートナー]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners)の一覧を参照し、それぞれのページをご確認ください。
 
 {% alert tip %}
-これらのイベントは、[クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder)、[SQLセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments)、および[Snowflakeデータ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)でもSQLテーブルとして利用できます。SQLテーブルスキーマとカラムの詳細については、[SQLテーブルリファレンス]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables)を参照してください。
+これらのイベントは、[クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder)、[SQLセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments)、および[Snowflakeデータシェアリング]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)でSQLテーブルとしても利用できます。SQLテーブルスキーマとカラムの詳細については、[SQLテーブルリファレンス]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables)を参照してください。
 {% endalert %}
 
-追加のイベントエンタイトルメントへのアクセスが必要な場合は、アカウントマネージャーに連絡するか、[サポートチケット]({{site.baseurl}}/user_guide/administer/personal/braze_support)を作成してください。この記事で必要な情報が見つからない場合は、[顧客行動イベントライブラリ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)または[Currentsサンプルデータの例](https://github.com/Appboy/currents-examples/tree/master/sample-data)をご確認ください。
+追加のイベントエンタイトルメントへのアクセスが必要な場合は、アカウントマネージャーに連絡するか、[サポートチケット]({{site.baseurl}}/user_guide/administer/personal/braze_support)を開いてください。この記事に必要な情報が見つからない場合は、[顧客行動イベントライブラリ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)または[Currentsサンプルデータの例](https://github.com/Appboy/currents-examples/tree/master/sample-data)をご確認ください。
 
 {% enddetails %}
 
@@ -29,20 +32,20 @@ lazy_partner_tabs: true
 
 ## イベント構造 {#event-structure}
 
-このイベントの内訳は、メッセージエンゲージメントイベントに一般的に含まれる情報の種類を示しています。そのコンポーネントをしっかり理解することで、開発者やビジネスインテリジェンス戦略チームは、受信するCurrentsイベントデータを使用してデータドリブン型のレポートやチャートを作成し、その他の貴重なデータ指標を活用できます。
+このイベントの内訳は、メッセージエンゲージメントイベントに一般的に含まれる情報の種類を示しています。コンポーネントをしっかりと理解することで、開発者やビジネスインテリジェンス戦略チームは、受信したCurrentsイベントデータを活用してデータドリブン型のレポートやチャートを作成し、その他の貴重なデータ指標を活用できます。
 
-![メッセージエンゲージメントイベントの内訳。メール購読解除イベントを示しており、記載されたプロパティがユーザー固有のプロパティ、キャンペーンまたはキャンバスのトラッキングプロパティ、イベント固有のプロパティにグループ化されています]({% image_buster /assets/img/message_engagement_event.png %}){: width="2300" height="770" style="max-width:100%;height:auto;"}
+![メッセージエンゲージメントイベントの内訳。ユーザー固有のプロパティ、キャンペーンまたはキャンバスのトラッキングプロパティ、イベント固有のプロパティごとにグループ化されたプロパティ一覧を含む、メール購読解除イベントの例を示しています]({% image_buster /assets/img/message_engagement_event.png %}){: width="2300" height="770" style="max-width:100%;height:auto;"}
 
-メッセージエンゲージメントイベントは、**ユーザー固有**のプロパティ、**キャンペーン／キャンバスのトラッキング**プロパティ、および**イベント固有**のプロパティで構成されています。
+メッセージエンゲージメントイベントは、**ユーザー固有**のプロパティ、**キャンペーン/キャンバスのトラッキング**プロパティ、**イベント固有**のプロパティで構成されています。
 
 ### ユーザーIDスキーマ {#user-id-schema}
 
-ユーザーIDの命名規則にご注意ください。
+ユーザーIDの命名規則に注意してください。
 
 | Brazeスキーマ | Currentsスキーマ | 説明 |
 | ----------- | ----------- | ----------- |
 | `braze_id` | `"USER_ID"` | Brazeによって自動的に割り当てられる一意の識別子です。 |
-| `external_id` | `"EXTERNAL_USER_ID"` | 顧客によって設定されるユーザープロファイルの一意の識別子です。 |
+| `external_id` | `"EXTERNAL_USER_ID"` | 顧客が設定するユーザープロファイルの一意の識別子です。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="ユーザーIDスキーマ" }
 
 ### プラットフォーム値 {#platform-values}
@@ -65,9 +68,9 @@ lazy_partner_tabs: true
 
 {% details メッセージエンゲージメントイベントに関する注意事項 %}
 
-- Currentsは、ペイロードが900&nbsp;KBを超えるイベントをドロップします。
-- キャンバスフローに関連するオブジェクトには、グループ化に使用できるIDがあり、[キャンバスの詳細をエクスポートするエンドポイント]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details)を使用して人間が読める名前に変換できます。
-- キャンペーンまたはキャンバスを更新した直後には、一部のフィールドで最新の状態が表示されない場合があります。
+- Currentsは、900&nbsp;KBを超えるペイロードを持つイベントを破棄します。
+- キャンバスフローに関連するオブジェクトには、グループ化や[キャンバス詳細エクスポートエンドポイント]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details)を使用した人間が読める名前への変換に使用できるIDがあります。
+- キャンペーンまたはキャンバスを更新した直後には、特定のフィールドに最新の状態がすぐに表示されない場合があります。
   - `campaign_name`
   - `canvas_name`
   - `canvas_step_name`
@@ -82,6 +85,7 @@ lazy_partner_tabs: true
 </div>
 
 <!--overview-end-->
+
 
 {% api %}
 ## エージェント実行イベント {#agent-executed-events}
@@ -1011,28 +1015,7 @@ Subscription
 {% endtabs %}
 
 ### プロパティの詳細
-<ul>
-<li><code>dispatch_id</code>は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生したすべてのプッシュイベントには同じ<code>dispatch_id</code>が含まれます。<code>dispatch_id</code>を使用して、同じディスパッチに属するイベントをグループ化し、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化して相関させることができます。</li>
-<li><code>state_change_source</code>は、完全なソース名の文字列を返します。例えば、ソースがCSVインポートの場合、文字列<code>CSV import</code>が返されます。利用可能なソースを以下に示します。</li>
-</ul>
-<table class="reset-td-br-1 reset-td-br-2" role="presentation">
-<thead>
-<tr><th>ソース</th><th>説明</th></tr>
-</thead>
-<tbody>
-<tr><td>SDK</td><td>SDKエンドポイント</td></tr>
-<tr><td>ダッシュボード</td><td>ユーザーの購読状態がダッシュボードのユーザープロファイルページから更新された場合</td></tr>
-<tr><td>購読ページ</td><td>ユーザー設定センター以外のメールリンクを介してユーザーが購読解除した場合</td></tr>
-<tr><td>REST API</td><td>REST APIエンドポイント</td></tr>
-<tr><td>CSVインポート</td><td>CSVユーザーインポート</td></tr>
-<tr><td>ユーザー設定センター</td><td>ユーザー設定センターからユーザーが更新された場合</td></tr>
-<tr><td>受信メッセージ</td><td>SMSなどのチャネルを経由するエンドユーザーからのインバウンドメッセージによってユーザーが更新された場合</td></tr>
-<tr><td>移行</td><td>内部移行または保守スクリプトによってユーザーが更新された場合</td></tr>
-<tr><td>ユーザーマージ</td><td>ユーザーマージプロセスによってユーザーが更新された場合</td></tr>
-<tr><td>キャンバスユーザー更新ステップ</td><td>キャンバスユーザー更新ステップによってユーザーが更新された場合</td></tr>
-</tbody>
-</table>
-
+{% multi_lang_include currents/property_details_dispatch_state_source.md %}
 
 
 {% endapi %}
@@ -1046,12 +1029,12 @@ Campaign, Conversion
 
 このイベントは、キャンペーンでコンバージョンイベントとして設定されたアクションをユーザーが実行したときに発生します。
 
-{% alert important %}
-コンバージョンイベントは`conversion_behavior`フィールドにエンコードされ、コンバージョンイベントのタイプ、ウィンドウ（期間）、およびコンバージョンイベントのタイプに応じた追加情報が含まれます。`conversion_behavior_index`フィールドは、0 = A、1 = B、2 = C、3 = Dのように、どのコンバージョンイベントかを表します。
-{% endalert %}
-
 {% alert note %}
 `message_extras`フィールドは送信イベント（メール送信、プッシュ送信など）でのみ利用可能です。コンバージョンイベントには含まれません。`message_extras`データをダウンストリームのエンゲージメントと関連付けるには、`dispatch_id`または`send_id`を使用して、データウェアハウスで送信イベントとコンバージョンイベントを結合してください。コピーの効果をコンバージョン率で評価するには、代わりに[キャンペーンバリアント]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/create_multivariate_campaign)の使用を検討してください。
+{% endalert %}
+
+{% alert important %}
+コンバージョンイベントは`conversion_behavior`フィールドにエンコードされ、コンバージョンイベントのタイプ、ウィンドウ（期間）、およびコンバージョンイベントのタイプに応じた追加情報が含まれます。`conversion_behavior_index`フィールドは、0 = A、1 = B、2 = C、3 = Dのように、どのコンバージョンイベントかを表します。
 {% endalert %}
 
 {% tabs %}
@@ -1244,7 +1227,7 @@ Campaign, Conversion
 ## キャンペーンコントロールグループの登録イベント {#campaign-control-group-enrollment-events}
 
 {% apitags %}
-Campaign, エントリ
+Campaign, Entry
 {% endapitags %}
 
 このイベントは、複数のバリアントを持つキャンペーンに設定されたコントロールバリアントにユーザーが登録されたときに発生します。このイベントは、このユーザーに対するチャネル送信イベントが発生しないために生成されます。
@@ -1432,12 +1415,12 @@ Canvas, Conversion
 
 このイベントは、キャンバスでコンバージョンイベントとして設定されたアクションをユーザーが実行したときに発生します。
 
-{% alert important %}
-コンバージョンイベントは`conversion_behavior`フィールドにエンコードされ、コンバージョンイベントのタイプ、ウィンドウ（期間）、およびコンバージョンイベントのタイプに応じた追加情報が含まれます。`conversion_behavior_index`フィールドは、0 = A、1 = B、2 = C、3 = Dのように、どのコンバージョンイベントかを表します。
-{% endalert %}
-
 {% alert note %}
 `message_extras`フィールドは送信イベント（メール送信、プッシュ送信など）でのみ利用可能です。コンバージョンイベントには含まれません。`message_extras`データをダウンストリームのエンゲージメントと関連付けるには、`send_id`を使用して、データウェアハウスで送信イベントとコンバージョンイベントを結合してください。コピーの効果をコンバージョン率で評価するには、代わりに[キャンバスバリアント]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests)の使用を検討してください。
+{% endalert %}
+
+{% alert important %}
+コンバージョンイベントは`conversion_behavior`フィールドにエンコードされ、コンバージョンイベントのタイプ、ウィンドウ（期間）、およびコンバージョンイベントのタイプに応じた追加情報が含まれます。`conversion_behavior_index`フィールドは、0 = A、1 = B、2 = C、3 = Dのように、どのコンバージョンイベントかを表します。
 {% endalert %}
 
 {% tabs %}
@@ -1631,7 +1614,7 @@ Canvas, Conversion
 ## キャンバスエントリイベント {#canvas-entry-events}
 
 {% apitags %}
-Canvas, エントリ
+Canvas, Entry
 {% endapitags %}
 
 このイベントは、ユーザーがキャンバスに入ったときに発生します。このイベントは、ユーザーがどのバリアントに入ったかを示します。
@@ -1813,13 +1796,13 @@ Canvas, エントリ
 {% endapi %}
 
 {% api %}
-## キャンバス Content Optimizer ステップコンバージョンイベント {#canvas-content-optimizer-step-conversion-events}
+## キャンバスContent Optimizerステップコンバージョンイベント {#canvas-content-optimizer-step-conversion-events}
 
 {% apitags %}
 Canvas, Content Optimizer, Conversion
 {% endapitags %}
 
-Content Optimizer キャンバスステップのコンバージョンイベントです。
+Content Optimizerキャンバスステップのコンバージョンイベントです。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -1974,13 +1957,13 @@ Content Optimizer キャンバスステップのコンバージョンイベン�
 {% endapi %}
 
 {% api %}
-## キャンバス Content Optimizer ステップ送信イベント {#canvas-content-optimizer-step-send-events}
+## キャンバスContent Optimizerステップ送信イベント {#canvas-content-optimizer-step-send-events}
 
 {% apitags %}
 Canvas, Content Optimizer, Sends
 {% endapitags %}
 
-Content Optimizer キャンバスステップのキャンバス送信です。
+Content Optimizerキャンバスステップのキャンバス送信です。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -2691,7 +2674,7 @@ Canvas, Conversion
 ## 実験分割エントリイベント {#experiment-split-entry-events}
 
 {% apitags %}
-Canvas, エントリ
+Canvas, Entry
 {% endapitags %}
 
 このイベントは、ユーザーがキャンバスの実験ステップパスに入ったときに発生します。
@@ -5593,6 +5576,7 @@ Abort, Email
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "id" : "(required, string) Globally unique ID for this event",
   "ip_pool" : "(optional, string) IP pool from which the email send was made",
+  "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
   "message_variation_id" : "(optional, string) API ID of the message variation this user received",
   "message_variation_name" : "(optional, string) Name of the message variation",
   "send_id" : "(optional, string) Message send ID this message belongs to",
@@ -5624,6 +5608,7 @@ Abort, Email
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "email_address" : "(required, string) [PII] Email address of the user",
     "ip_pool" : "(optional, string) IP pool from which the email send was made",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to"
@@ -5659,6 +5644,7 @@ Abort, Email
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "email_address" : "(required, string) [PII] Email address of the user",
     "ip_pool" : "(optional, string) IP pool from which the email send was made",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to"
@@ -5699,6 +5685,7 @@ Abort, Email
     "email_address" : "(required, string) [PII] Email address of the user",
     "$insert_id" : "(required, string) Globally unique ID for this event",
     "ip_pool" : "(optional, string) IP pool from which the email send was made",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to",
@@ -5736,6 +5723,7 @@ Abort, Email
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "ip_pool" : "(optional, string) IP pool from which the email send was made",
+          "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
           "send_id" : "(optional, string) Message send ID this message belongs to",
@@ -5788,6 +5776,7 @@ Abort, Email
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "ip_pool" : "(optional, string) IP pool from which the email send was made",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to"
@@ -5846,6 +5835,7 @@ Email, Bounce
   "message_variation_id" : "(optional, string) API ID of the message variation this user received",
   "message_variation_name" : "(optional, string) Name of the message variation",
   "send_id" : "(optional, string) Message send ID this message belongs to",
+  "send_time" : "(optional, int) Time of the corresponding Send Event",
   "sending_ip" : "(optional, string) IP address from which the email send was made",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
@@ -5879,7 +5869,8 @@ Email, Bounce
     "is_drop" : "(optional, boolean) Indicates that this event counts as a drop event",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
-    "send_id" : "(optional, string) Message send ID this message belongs to"
+    "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event"
   },
   "event_type" : "(required, string) The event type name, as it is exported to Amplitude",
   "insert_id" : "(required, string) Globally unique ID for this event",
@@ -5917,6 +5908,7 @@ Email, Bounce
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event",
     "sending_ip" : "(optional, string) IP address from which the email send was made"
   },
   "time" : "(required, int) UNIX timestamp at which the event happened",
@@ -5960,6 +5952,7 @@ Email, Bounce
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event",
     "time" : "(required, int) UNIX timestamp at which the event happened",
     "token" : "(required, string) The Mixpanel API token"
   }
@@ -5999,6 +5992,7 @@ Email, Bounce
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
           "send_id" : "(optional, string) Message send ID this message belongs to",
+          "send_time" : "(optional, int) Time of the corresponding Send Event",
           "source_request_id" : "(required, string) Globally unique ID for this event"
         },
         "custom_event_type" : "(required, string) The mParticle custom event type if the event_type is 'custom_event' (always 'other')",
@@ -6052,7 +6046,8 @@ Email, Bounce
     "is_drop" : "(optional, boolean) Indicates that this event counts as a drop event",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
-    "send_id" : "(optional, string) Message send ID this message belongs to"
+    "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event"
   },
   "timestamp" : "(required, int) UNIX timestamp at which the event happened",
   "type" : "track",
@@ -6102,16 +6097,19 @@ Email, Clicks
   "esp" : "(optional, string) ESP related to the event (SparkPost, SendGrid, or Amazon SES)",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "from_domain" : "(optional, string) Sending domain for the email",
+  "has_url_parameters" : "(optional, boolean) Whether the clicked URL contained query parameters",
   "id" : "(required, string) Globally unique ID for this event",
   "ip_pool" : "(optional, string) IP pool from which the email send was made",
   "is_amp" : "(optional, boolean) Indicates that this is an AMP event",
   "is_suspected_bot_click" : "(optional, boolean) Indicates that this is a suspected bot click. Will only populate when Bot Filtering setting is enabled",
   "link_alias" : "(optional, string) Alias associated with this link ID",
+  "link_aliasing_enabled" : "(optional, boolean) Whether link aliasing was enabled for the workspace when this click was processed",
   "link_id" : "(optional, string) Unique ID for the link which was clicked, as created by Braze",
   "mailbox_provider" : "(optional, string) Mailbox provider value returned by the esp for this event",
   "message_variation_id" : "(optional, string) API ID of the message variation this user received",
   "message_variation_name" : "(optional, string) Name of the message variation",
   "send_id" : "(optional, string) Message send ID this message belongs to",
+  "send_time" : "(optional, int) Time in seconds of the corresponding Send Event",
   "suspected_bot_click_reason" : "(optional, array of string) Reason(s) why this is a suspected bot click. Will always populate even if Bot Filtering setting is disabled.",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
@@ -6146,15 +6144,18 @@ Email, Clicks
     "email_address" : "(required, string) [PII] Email address of the user",
     "esp" : "(optional, string) ESP related to the event (SparkPost, SendGrid, or Amazon SES)",
     "from_domain" : "(optional, string) Sending domain for the email",
+    "has_url_parameters" : "(optional, boolean) Whether the clicked URL contained query parameters",
     "ip_pool" : "(optional, string) IP pool from which the email send was made",
     "is_amp" : "(optional, boolean) Indicates that this is an AMP event",
     "is_suspected_bot_click" : "(optional, boolean) Indicates that this is a suspected bot click. Will only populate when Bot Filtering setting is enabled",
     "link_alias" : "(optional, string) Alias associated with this link ID",
+    "link_aliasing_enabled" : "(optional, boolean) Whether link aliasing was enabled for the workspace when this click was processed",
     "link_id" : "(optional, string) Unique ID for the link which was clicked, as created by Braze",
     "mailbox_provider" : "(optional, string) Mailbox provider value returned by the esp for this event",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time in seconds of the corresponding Send Event",
     "suspected_bot_click_reason" : "(optional, array of string) Reason(s) why this is a suspected bot click. Will always populate even if Bot Filtering setting is disabled.",
     "url" : "(optional, string) URL that the user clicked on",
     "user_agent" : "(optional, string) User agent on which the click occurred"
@@ -6193,15 +6194,18 @@ Email, Clicks
     "email_address" : "(required, string) [PII] Email address of the user",
     "esp" : "(optional, string) ESP related to the event (SparkPost, SendGrid, or Amazon SES)",
     "from_domain" : "(optional, string) Sending domain for the email",
+    "has_url_parameters" : "(optional, boolean) Whether the clicked URL contained query parameters",
     "ip_pool" : "(optional, string) IP pool from which the email send was made",
     "is_amp" : "(optional, boolean) Indicates that this is an AMP event",
     "is_suspected_bot_click" : "(optional, boolean) Indicates that this is a suspected bot click. Will only populate when Bot Filtering setting is enabled",
     "link_alias" : "(optional, string) Alias associated with this link ID",
+    "link_aliasing_enabled" : "(optional, boolean) Whether link aliasing was enabled for the workspace when this click was processed",
     "link_id" : "(optional, string) Unique ID for the link which was clicked, as created by Braze",
     "mailbox_provider" : "(optional, string) Mailbox provider value returned by the esp for this event",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time in seconds of the corresponding Send Event",
     "suspected_bot_click_reason" : "(optional, array of string) Reason(s) why this is a suspected bot click. Will always populate even if Bot Filtering setting is disabled.",
     "url" : "(optional, string) URL that the user clicked on",
     "user_agent" : "(optional, string) User agent on which the click occurred"
@@ -6244,16 +6248,19 @@ Email, Clicks
     "email_address" : "(required, string) [PII] Email address of the user",
     "esp" : "(optional, string) ESP related to the event (SparkPost, SendGrid, or Amazon SES)",
     "from_domain" : "(optional, string) Sending domain for the email",
+    "has_url_parameters" : "(optional, boolean) Whether the clicked URL contained query parameters",
     "$insert_id" : "(required, string) Globally unique ID for this event",
     "ip_pool" : "(optional, string) IP pool from which the email send was made",
     "is_amp" : "(optional, boolean) Indicates that this is an AMP event",
     "is_suspected_bot_click" : "(optional, boolean) Indicates that this is a suspected bot click. Will only populate when Bot Filtering setting is enabled",
     "link_alias" : "(optional, string) Alias associated with this link ID",
+    "link_aliasing_enabled" : "(optional, boolean) Whether link aliasing was enabled for the workspace when this click was processed",
     "link_id" : "(optional, string) Unique ID for the link which was clicked, as created by Braze",
     "mailbox_provider" : "(optional, string) Mailbox provider value returned by the esp for this event",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time in seconds of the corresponding Send Event",
     "suspected_bot_click_reason" : "(optional, array of string) Reason(s) why this is a suspected bot click. Will always populate even if Bot Filtering setting is disabled.",
     "time" : "(required, int) UNIX timestamp at which the event happened",
     "token" : "(required, string) The Mixpanel API token",
@@ -6294,15 +6301,18 @@ Email, Clicks
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "esp" : "(optional, string) ESP related to the event (SparkPost, SendGrid, or Amazon SES)",
           "from_domain" : "(optional, string) Sending domain for the email",
+          "has_url_parameters" : "(optional, boolean) Whether the clicked URL contained query parameters",
           "ip_pool" : "(optional, string) IP pool from which the email send was made",
           "is_amp" : "(optional, boolean) Indicates that this is an AMP event",
           "is_suspected_bot_click" : "(optional, boolean) Indicates that this is a suspected bot click. Will only populate when Bot Filtering setting is enabled",
           "link_alias" : "(optional, string) Alias associated with this link ID",
+          "link_aliasing_enabled" : "(optional, boolean) Whether link aliasing was enabled for the workspace when this click was processed",
           "link_id" : "(optional, string) Unique ID for the link which was clicked, as created by Braze",
           "mailbox_provider" : "(optional, string) Mailbox provider value returned by the esp for this event",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
           "send_id" : "(optional, string) Message send ID this message belongs to",
+          "send_time" : "(optional, int) Time in seconds of the corresponding Send Event",
           "source_request_id" : "(required, string) Globally unique ID for this event",
           "url" : "(optional, string) URL that the user clicked on",
           "user_agent" : "(optional, string) User agent on which the click occurred"
@@ -6358,16 +6368,19 @@ Email, Clicks
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "esp" : "(optional, string) ESP related to the event (SparkPost, SendGrid, or Amazon SES)",
     "from_domain" : "(optional, string) Sending domain for the email",
+    "has_url_parameters" : "(optional, boolean) Whether the clicked URL contained query parameters",
     "ip_pool" : "(optional, string) IP pool from which the email send was made",
     "is_amp" : "(optional, boolean) Indicates that this is an AMP event",
     "is_suspected_bot_click" : "(optional, boolean) Indicates that this is a suspected bot click. Will only populate when Bot Filtering setting is enabled",
     "link_alias" : "(optional, string) Alias associated with this link ID",
+    "link_aliasing_enabled" : "(optional, boolean) Whether link aliasing was enabled for the workspace when this click was processed",
     "link_id" : "(optional, string) Unique ID for the link which was clicked, as created by Braze",
     "link_url" : "(optional, string) URL that the user clicked on",
     "mailbox_provider" : "(optional, string) Mailbox provider value returned by the esp for this event",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time in seconds of the corresponding Send Event",
     "suspected_bot_click_reason" : "(optional, array of string) Reason(s) why this is a suspected bot click. Will always populate even if Bot Filtering setting is disabled.",
     "user_agent" : "(optional, string) User agent on which the click occurred"
   },
@@ -6394,7 +6407,10 @@ Email, Clicks
   "event_id" : "(required, string) Globally unique ID for this event",
   "event_time" : "(required, int) UNIX timestamp at which the event happened",
   "event_type" : "(required, string) The Shopify event type name (e.g. email_sent, sms_sent)",
-  "external_user_id" : "(optional, string) [PII] External ID of the user"
+  "external_user_id" : "(optional, string) [PII] External ID of the user",
+  "has_url_parameters" : "(optional, boolean) Whether the clicked URL contained query parameters",
+  "link_aliasing_enabled" : "(optional, boolean) Whether link aliasing was enabled for the workspace when this click was processed",
+  "send_time" : "(optional, int) Time in seconds of the corresponding Send Event"
 }
 ```
 {% endtab %}
@@ -6445,6 +6461,7 @@ Email, Deferral
   "message_variation_name" : "(optional, string) Name of the message variation",
   "recipient_domain" : "(optional, string) Recipient's email domain",
   "send_id" : "(optional, string) Message send ID this message belongs to",
+  "send_time" : "(optional, int) Time of the corresponding Send Event",
   "sending_ip" : "(optional, string) IP address from which the email send was made",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
@@ -6479,6 +6496,7 @@ Email, Deferral
     "message_variation_name" : "(optional, string) Name of the message variation",
     "recipient_domain" : "(optional, string) Recipient's email domain",
     "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event",
     "timezone" : "(optional, string) Time zone of the user"
   },
   "event_type" : "(required, string) The event type name, as it is exported to Amplitude",
@@ -6518,6 +6536,7 @@ Email, Deferral
     "message_variation_name" : "(optional, string) Name of the message variation",
     "recipient_domain" : "(optional, string) Recipient's email domain",
     "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event",
     "sending_ip" : "(optional, string) IP address from which the email send was made"
   },
   "time" : "(required, int) UNIX timestamp at which the event happened",
@@ -6560,6 +6579,7 @@ Email, Deferral
     "message_variation_name" : "(optional, string) Name of the message variation",
     "recipient_domain" : "(optional, string) Recipient's email domain",
     "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event",
     "time" : "(required, int) UNIX timestamp at which the event happened",
     "token" : "(required, string) The Mixpanel API token"
   }
@@ -6597,6 +6617,7 @@ Email, Deferral
           "message_variation_name" : "(optional, string) Name of the message variation",
           "recipient_domain" : "(optional, string) Recipient's email domain",
           "send_id" : "(optional, string) Message send ID this message belongs to",
+          "send_time" : "(optional, int) Time of the corresponding Send Event",
           "source_request_id" : "(required, string) Globally unique ID for this event"
         },
         "custom_event_type" : "(required, string) The mParticle custom event type if the event_type is 'custom_event' (always 'other')",
@@ -6650,7 +6671,8 @@ Email, Deferral
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "recipient_domain" : "(optional, string) Recipient's email domain",
-    "send_id" : "(optional, string) Message send ID this message belongs to"
+    "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event"
   },
   "timestamp" : "(required, int) UNIX timestamp at which the event happened",
   "type" : "track",
@@ -6663,7 +6685,7 @@ Email, Deferral
 ### プロパティの詳細
 
 - `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
-  - `dispatch_id` の動作はキャンバスとキャンペーンで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。
+  - `dispatch_id` の動作はキャンバスとキャンペーンで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーされたイベントとして扱うためです。
 
 {% endapi %}
 
@@ -6701,6 +6723,7 @@ Email, Delivery
   "message_variation_id" : "(optional, string) API ID of the message variation this user received",
   "message_variation_name" : "(optional, string) Name of the message variation",
   "send_id" : "(optional, string) Message send ID this message belongs to",
+  "send_time" : "(optional, int) Time of the corresponding Send Event",
   "sending_ip" : "(optional, string) IP address from which the email send was made",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
@@ -6732,7 +6755,8 @@ Email, Delivery
     "ip_pool" : "(optional, string) IP pool from which the email send was made",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
-    "send_id" : "(optional, string) Message send ID this message belongs to"
+    "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event"
   },
   "event_type" : "(required, string) The event type name, as it is exported to Amplitude",
   "insert_id" : "(required, string) Globally unique ID for this event",
@@ -6768,6 +6792,7 @@ Email, Delivery
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event",
     "sending_ip" : "(optional, string) IP address from which the email send was made"
   },
   "time" : "(required, int) UNIX timestamp at which the event happened",
@@ -6809,6 +6834,7 @@ Email, Delivery
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event",
     "time" : "(required, int) UNIX timestamp at which the event happened",
     "token" : "(required, string) The Mixpanel API token"
   }
@@ -6846,6 +6872,7 @@ Email, Delivery
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
           "send_id" : "(optional, string) Message send ID this message belongs to",
+          "send_time" : "(optional, int) Time of the corresponding Send Event",
           "source_request_id" : "(required, string) Globally unique ID for this event"
         },
         "custom_event_type" : "(required, string) The mParticle custom event type if the event_type is 'custom_event' (always 'other')",
@@ -6897,7 +6924,8 @@ Email, Delivery
     "ip_pool" : "(optional, string) IP pool from which the email send was made",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
-    "send_id" : "(optional, string) Message send ID this message belongs to"
+    "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event"
   },
   "timestamp" : "(required, int) UNIX timestamp at which the event happened",
   "type" : "track",
@@ -6948,6 +6976,7 @@ Email, Spam
   "message_variation_id" : "(optional, string) API ID of the message variation this user received",
   "message_variation_name" : "(optional, string) Name of the message variation",
   "send_id" : "(optional, string) Message send ID this message belongs to",
+  "send_time" : "(optional, int) Time of the corresponding Send Event",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
   "user_agent" : "(optional, string) User agent on which the spam report occurred",
@@ -6980,6 +7009,7 @@ Email, Spam
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event",
     "user_agent" : "(optional, string) User agent on which the spam report occurred"
   },
   "event_type" : "(required, string) The event type name, as it is exported to Amplitude",
@@ -7016,6 +7046,7 @@ Email, Spam
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event",
     "user_agent" : "(optional, string) User agent on which the spam report occurred"
   },
   "time" : "(required, int) UNIX timestamp at which the event happened",
@@ -7057,6 +7088,7 @@ Email, Spam
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event",
     "time" : "(required, int) UNIX timestamp at which the event happened",
     "token" : "(required, string) The Mixpanel API token",
     "user_agent" : "(optional, string) User agent on which the spam report occurred"
@@ -7095,6 +7127,7 @@ Email, Spam
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
           "send_id" : "(optional, string) Message send ID this message belongs to",
+          "send_time" : "(optional, int) Time of the corresponding Send Event",
           "source_request_id" : "(required, string) Globally unique ID for this event",
           "user_agent" : "(optional, string) User agent on which the spam report occurred"
         },
@@ -7148,6 +7181,7 @@ Email, Spam
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event",
     "user_agent" : "(optional, string) User agent on which the spam report occurred"
   },
   "timestamp" : "(required, int) UNIX timestamp at which the event happened",
@@ -7210,6 +7244,7 @@ Email, Opens
   "message_variation_id" : "(optional, string) API ID of the message variation this user received",
   "message_variation_name" : "(optional, string) Name of the message variation",
   "send_id" : "(optional, string) Message send ID this message belongs to",
+  "send_time" : "(optional, int) Time of the corresponding Send Event",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
   "user_agent" : "(optional, string) User agent on which the open occurred",
@@ -7249,6 +7284,7 @@ Email, Opens
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event",
     "user_agent" : "(optional, string) User agent on which the open occurred"
   },
   "event_type" : "(required, string) The event type name, as it is exported to Amplitude",
@@ -7292,6 +7328,7 @@ Email, Opens
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event",
     "user_agent" : "(optional, string) User agent on which the open occurred"
   },
   "time" : "(required, int) UNIX timestamp at which the event happened",
@@ -7340,6 +7377,7 @@ Email, Opens
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event",
     "time" : "(required, int) UNIX timestamp at which the event happened",
     "token" : "(required, string) The Mixpanel API token",
     "user_agent" : "(optional, string) User agent on which the open occurred"
@@ -7385,6 +7423,7 @@ Email, Opens
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
           "send_id" : "(optional, string) Message send ID this message belongs to",
+          "send_time" : "(optional, int) Time of the corresponding Send Event",
           "source_request_id" : "(required, string) Globally unique ID for this event",
           "user_agent" : "(optional, string) User agent on which the open occurred"
         },
@@ -7446,6 +7485,7 @@ Email, Opens
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event",
     "user_agent" : "(optional, string) User agent on which the open occurred"
   },
   "timestamp" : "(required, int) UNIX timestamp at which the event happened",
@@ -7469,7 +7509,8 @@ Email, Opens
   "event_id" : "(required, string) Globally unique ID for this event",
   "event_time" : "(required, int) UNIX timestamp at which the event happened",
   "event_type" : "(required, string) The Shopify event type name (e.g. email_sent, sms_sent)",
-  "external_user_id" : "(optional, string) [PII] External ID of the user"
+  "external_user_id" : "(optional, string) [PII] External ID of the user",
+  "send_time" : "(optional, int) Time of the corresponding Send Event"
 }
 ```
 {% endtab %}
@@ -8027,6 +8068,7 @@ Email, Bounce
   "message_variation_id" : "(optional, string) API ID of the message variation this user received",
   "message_variation_name" : "(optional, string) Name of the message variation",
   "send_id" : "(optional, string) Message send ID this message belongs to",
+  "send_time" : "(optional, int) Time of the corresponding Send Event",
   "sending_ip" : "(optional, string) IP address from which the email send was made",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
@@ -8059,7 +8101,8 @@ Email, Bounce
     "ip_pool" : "(optional, string) IP pool from which the email send was made",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
-    "send_id" : "(optional, string) Message send ID this message belongs to"
+    "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event"
   },
   "event_type" : "(required, string) The event type name, as it is exported to Amplitude",
   "insert_id" : "(required, string) Globally unique ID for this event",
@@ -8096,6 +8139,7 @@ Email, Bounce
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event",
     "sending_ip" : "(optional, string) IP address from which the email send was made"
   },
   "time" : "(required, int) UNIX timestamp at which the event happened",
@@ -8138,6 +8182,7 @@ Email, Bounce
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event",
     "time" : "(required, int) UNIX timestamp at which the event happened",
     "token" : "(required, string) The Mixpanel API token"
   }
@@ -8176,6 +8221,7 @@ Email, Bounce
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
           "send_id" : "(optional, string) Message send ID this message belongs to",
+          "send_time" : "(optional, int) Time of the corresponding Send Event",
           "source_request_id" : "(required, string) Globally unique ID for this event"
         },
         "custom_event_type" : "(required, string) The mParticle custom event type if the event_type is 'custom_event' (always 'other')",
@@ -8228,7 +8274,8 @@ Email, Bounce
     "ip_pool" : "(optional, string) IP pool from which the email send was made",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
-    "send_id" : "(optional, string) Message send ID this message belongs to"
+    "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event"
   },
   "timestamp" : "(required, int) UNIX timestamp at which the event happened",
   "type" : "track",
@@ -10089,6 +10136,7 @@ LINE, Abort
   "id" : "(required, string) Globally unique ID for this event",
   "line_channel_id" : "(required, string) The LINE Channel ID the message was sent to or received from",
   "line_channel_name" : "(required, string) The LINE Channel Name the message was sent to or received from",
+  "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
   "message_variation_id" : "(optional, string) API ID of the message variation this user received",
   "native_line_id" : "(required, string) [PII] The user's Line ID from which the message was sent to or received from",
   "send_id" : "(optional, string) Message send ID this message belongs to",
@@ -10119,6 +10167,7 @@ LINE, Abort
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "line_channel_id" : "(required, string) The LINE Channel ID the message was sent to or received from",
     "line_channel_name" : "(required, string) The LINE Channel Name the message was sent to or received from",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "native_line_id" : "(required, string) [PII] The user's Line ID from which the message was sent to or received from",
     "send_id" : "(optional, string) Message send ID this message belongs to",
@@ -10154,6 +10203,7 @@ LINE, Abort
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "line_channel_id" : "(required, string) The LINE Channel ID the message was sent to or received from",
     "line_channel_name" : "(required, string) The LINE Channel Name the message was sent to or received from",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "native_line_id" : "(required, string) [PII] The user's Line ID from which the message was sent to or received from",
     "send_id" : "(optional, string) Message send ID this message belongs to",
@@ -10193,6 +10243,7 @@ LINE, Abort
     "$insert_id" : "(required, string) Globally unique ID for this event",
     "line_channel_id" : "(required, string) The LINE Channel ID the message was sent to or received from",
     "line_channel_name" : "(required, string) The LINE Channel Name the message was sent to or received from",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "native_line_id" : "(required, string) [PII] The user's Line ID from which the message was sent to or received from",
     "send_id" : "(optional, string) Message send ID this message belongs to",
@@ -10230,6 +10281,7 @@ LINE, Abort
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "line_channel_id" : "(required, string) The LINE Channel ID the message was sent to or received from",
           "line_channel_name" : "(required, string) The LINE Channel Name the message was sent to or received from",
+          "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "native_line_id" : "(required, string) [PII] The user's Line ID from which the message was sent to or received from",
           "send_id" : "(optional, string) Message send ID this message belongs to",
@@ -10279,6 +10331,7 @@ LINE, Abort
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "line_channel_id" : "(required, string) The LINE Channel ID the message was sent to or received from",
     "line_channel_name" : "(required, string) The LINE Channel Name the message was sent to or received from",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "native_line_id" : "(required, string) [PII] The user's Line ID from which the message was sent to or received from",
     "send_id" : "(optional, string) Message send ID this message belongs to",
@@ -11641,6 +11694,7 @@ Abort, Push
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "id" : "(required, string) Globally unique ID for this event",
+  "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
   "message_variation_id" : "(optional, string) API ID of the message variation this user received",
   "message_variation_name" : "(optional, string) Name of the message variation",
   "platform" : "(required, string) Platform of the device",
@@ -11672,6 +11726,7 @@ Abort, Push
     "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "platform" : "(optional, string) Platform of the device",
@@ -11707,6 +11762,7 @@ Abort, Push
     "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "platform" : "(optional, string) Platform of the device",
@@ -11747,6 +11803,7 @@ Abort, Push
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
     "$insert_id" : "(required, string) Globally unique ID for this event",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "platform" : "(optional, string) Platform of the device",
@@ -11786,6 +11843,7 @@ Abort, Push
           "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+          "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
           "send_id" : "(optional, string) Message send ID this message belongs to",
@@ -11835,6 +11893,7 @@ Abort, Push
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "platform" : "(required, string) Platform of the device",
@@ -12126,7 +12185,7 @@ Push, Bounce
 Push, iOS, Opens
 {% endapitags %}
 
-このイベントは[Swift SDK](https://github.com/braze-inc/braze-swift-sdk)ではサポートされておらず、[Obj-C SDK](https://github.com/Appboy/appboy-ios-sdk)では非推奨になりました。
+このイベントは[Swift SDK](https://github.com/braze-inc/braze-swift-sdk)ではサポートされておらず、[Obj-C SDK](https://github.com/Appboy/appboy-ios-sdk)では現在非推奨となっています。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -13156,6 +13215,7 @@ RCS, Abort
   "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "id" : "(required, string) Globally unique ID for this event",
+  "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
   "message_variation_id" : "(optional, string) API ID of the message variation this user received",
   "message_variation_name" : "(optional, string) Name of the message variation",
   "subscription_group_id" : "(optional, string) Subscription group API ID",
@@ -13182,6 +13242,7 @@ RCS, Abort
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
     "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "subscription_group_id" : "(optional, string) Subscription group API ID"
@@ -13214,6 +13275,7 @@ RCS, Abort
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
     "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "subscription_group_id" : "(optional, string) Subscription group API ID"
@@ -13248,6 +13310,7 @@ RCS, Abort
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "distinct_id" : "(required, string) [PII] External ID of the user",
     "$insert_id" : "(required, string) Globally unique ID for this event",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "subscription_group_id" : "(optional, string) Subscription group API ID",
@@ -13280,6 +13343,7 @@ RCS, Abort
           "canvas_step_name" : "(optional, string) Name of the Canvas step",
           "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
           "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
           "source_request_id" : "(required, string) Globally unique ID for this event",
@@ -13326,6 +13390,7 @@ RCS, Abort
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
     "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "subscription_group_id" : "(optional, string) Subscription group API ID"
@@ -14828,6 +14893,7 @@ Abort, SMS
   "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "id" : "(required, string) Globally unique ID for this event",
+  "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
   "message_variation_id" : "(optional, string) API ID of the message variation this user received",
   "message_variation_name" : "(optional, string) Name of the message variation",
   "subscription_group_id" : "(optional, string) Subscription group API ID",
@@ -14854,6 +14920,7 @@ Abort, SMS
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
     "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "subscription_group_id" : "(optional, string) Subscription group API ID"
@@ -14886,6 +14953,7 @@ Abort, SMS
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
     "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "subscription_group_id" : "(optional, string) Subscription group API ID"
@@ -14920,6 +14988,7 @@ Abort, SMS
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "distinct_id" : "(required, string) [PII] External ID of the user",
     "$insert_id" : "(required, string) Globally unique ID for this event",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "subscription_group_id" : "(optional, string) Subscription group API ID",
@@ -14952,6 +15021,7 @@ Abort, SMS
           "canvas_step_name" : "(optional, string) Name of the Canvas step",
           "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
           "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
           "source_request_id" : "(required, string) Globally unique ID for this event",
@@ -14998,6 +15068,7 @@ Abort, SMS
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
     "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "subscription_group_id" : "(optional, string) Subscription group API ID"
@@ -15769,7 +15840,7 @@ SMS, Inbound Received
 
 BrazeがインバウンドSMSを受信すると、その電話番号を共有するすべてのユーザーにインバウンドメッセージを帰属させます。その結果、Brazeインスタンス内の複数のユーザーが同じ電話番号を共有している場合、インバウンドメッセージごとに複数のイベントを受信する可能性があります。以前にそのユーザーに送信されたメッセージに基づいて特定のユーザーIDへのアトリビューションが必要な場合は、SMS配信イベントを使用して、Brazeの番号から最後にメッセージを受信したユーザーIDにインバウンド受信イベントを帰属させることができます。
 
-BrazeがこのインバウンドメッセージがBrazeから送信されたアウトバウンドのキャンペーンまたはキャンバスコンポーネントへの返信であることを検出した場合、キャンペーンまたはキャンバスのメタデータもイベントに含まれます。Brazeは、インバウンドメッセージをアウトバウンドメッセージから4時間以内に届いた返信として定義します。ただし、最後のアウトバウンドSMSの帰属キャンペーン情報には1分間のキャッシュがあります。
+このインバウンドメッセージがBrazeから送信されたアウトバウンドのキャンペーンまたはキャンバスコンポーネントへの返信であることが検出された場合、キャンペーンまたはキャンバスのメタデータもイベントに含まれます。Brazeは、インバウンドメッセージをアウトバウンドメッセージから4時間以内に届いた返信として定義します。ただし、最後のアウトバウンドSMSの帰属キャンペーン情報には1分間のキャッシュがあります。
 
 
 {% tabs %}
@@ -17407,6 +17478,7 @@ Abort, Webhooks
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "id" : "(required, string) Globally unique ID for this event",
+  "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
   "message_variation_id" : "(optional, string) API ID of the message variation this user received",
   "message_variation_name" : "(optional, string) Name of the message variation",
   "send_id" : "(optional, string) Message send ID this message belongs to",
@@ -17436,6 +17508,7 @@ Abort, Webhooks
     "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to"
@@ -17469,6 +17542,7 @@ Abort, Webhooks
     "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to"
@@ -17507,6 +17581,7 @@ Abort, Webhooks
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
     "$insert_id" : "(required, string) Globally unique ID for this event",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to",
@@ -17543,6 +17618,7 @@ Abort, Webhooks
           "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+          "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
           "send_id" : "(optional, string) Message send ID this message belongs to",
@@ -17591,6 +17667,7 @@ Abort, Webhooks
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to"
@@ -18375,6 +18452,7 @@ WhatsApp, Abort
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "id" : "(required, string) Globally unique ID for this event",
+  "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
   "message_variation_id" : "(optional, string) API ID of the message variation this user received",
   "message_variation_name" : "(optional, string) Name of the message variation",
   "subscription_group_id" : "(optional, string) Subscription group API ID",
@@ -18406,6 +18484,7 @@ WhatsApp, Abort
     "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "subscription_group_id" : "(optional, string) Subscription group API ID",
@@ -18441,6 +18520,7 @@ WhatsApp, Abort
     "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "subscription_group_id" : "(optional, string) Subscription group API ID",
@@ -18481,6 +18561,7 @@ WhatsApp, Abort
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
     "$insert_id" : "(required, string) Globally unique ID for this event",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "subscription_group_id" : "(optional, string) Subscription group API ID",
@@ -18519,6 +18600,7 @@ WhatsApp, Abort
           "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+          "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
           "source_request_id" : "(required, string) Globally unique ID for this event",
@@ -18572,6 +18654,7 @@ WhatsApp, Abort
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "subscription_group_id" : "(optional, string) Subscription group API ID"
@@ -19097,7 +19180,7 @@ WhatsApp, Delivery
 WhatsApp, Failure
 {% endapitags %}
 
-このイベントは、WhatsAppがユーザーにメッセージを配信できないときに発生します。ハードバウンスは、永続的な配信失敗を意味します。
+このイベントは、WhatsAppがユーザーにメッセージを配信できないときに発生します。ハードバウンスは、永続的な配信到達性の失敗を意味します。
 
 {% tabs %}
 {% tab Cloud Storage %}

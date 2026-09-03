@@ -19,28 +19,28 @@ Antes de enviar e-mails com a Braze, você precisa configurar seus IPs dedicados
 
 ## Personalize seus e-mails {#customize-your-emails}
 
-Você pode personalizar o envio de mensagens de e-mail de várias formas, incluindo:
+Você pode personalizar o envio de mensagens por e-mail de diversas maneiras, incluindo:
 
 - [Modelos de e-mail da Braze]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template)
-- [Modelos HTML personalizados]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template)
+- [Modelos de HTML personalizados]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template)
 - [Blocos do editor (e-mail)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=email)
 - [Inscrições de usuários]({{site.baseurl}}/user_guide/channels/email/subscriptions)
 - [Grupos de inscrições]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups)
 
 ## Teste seus e-mails {#test-your-emails}
 
-[Grupos de teste]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups) enviam automaticamente cópias das suas Campaigns de e-mail para usuários internos para fins de controle de qualidade. Os e-mails de teste incluem `[SEED]` no início da linha de assunto para ajudar a identificá-los.
+[Grupos de teste]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups) enviam automaticamente cópias das suas Campaigns de e-mail para usuários internos, permitindo realizar verificações de controle de qualidade. Os e-mails de teste incluem `[SEED]` no início da linha de assunto para facilitar a identificação.
 
 ## Casos de uso {#use-cases}
 
 | Caso de uso | Explicação |
 | --- | --- |
 | Reengajamento | Alcance usuários fora do seu app, incluindo aqueles que não instalaram o app. |
-| Integração | Integre e incentive novos usuários a ativar notificações por push ou compartilhar o app nas redes sociais. |
+| Integração | Integre e incentive novos usuários a ativar notificações por push ou compartilhar o app em redes sociais. |
 | Mensagens ricas | Permita mensagens HTML ricas e dinâmicas. |
 | Conteúdo multimídia | Facilidade na inserção de conteúdo multimídia que engaja os usuários, como vídeos e imagens. |
 | Newsletters | Envie newsletters mensais ou semanais de forma prática para manter o engajamento dos usuários. |
-| Transações | Notifique os usuários sobre compras recentes e forneça informações importantes sobre produtos e envio com [e-mails de transação]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email).
+| Transações | Notifique os usuários sobre compras recentes e entregue informações importantes sobre produtos e envio com [e-mails de transação]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email).
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Casos de uso" }
 
 ## Serviços de e-mail {#email-services}
@@ -67,18 +67,23 @@ Esses serviços podem incluir:
 
 ### Como configuro o envio de e-mail na Braze? {#how-do-i-set-up-email-sending-in-braze}
 
-Configure IPs dedicados, domínios, autenticação e aquecimento de IP antes do seu primeiro envio. Consulte [Configuração de e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup) para ver o checklist completo.
+Configure IPs dedicados, domínios, autenticação e aquecimento de IP antes do seu primeiro envio. Consulte [Configuração de e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup) para ver a lista completa.
 
-### Qual é a diferença entre inscrições de usuários e grupos de inscrições? {#what-is-the-difference-between-user-subscriptions-and-subscription-groups}
+### Qual é a diferença entre inscrições de usuário e grupos de inscrições? {#what-is-the-difference-between-user-subscriptions-and-subscription-groups}
 
-As inscrições de usuários controlam o status global de aceitação de um canal (por exemplo, inscrito ou com inscrição cancelada para e-mail). Os grupos de inscrições permitem que os usuários escolham categorias específicas de mensagens dentro desse canal. Consulte [Inscrições de usuários]({{site.baseurl}}/user_guide/channels/email/subscriptions) e [Grupos de inscrições]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups).
+As inscrições de usuário controlam o status global de aceitação para um canal (por exemplo, inscrito ou cancelou inscrição de e-mail). Os grupos de inscrições permitem que os usuários escolham categorias específicas de mensagens dentro desse canal. Consulte [Inscrições de usuário]({{site.baseurl}}/user_guide/channels/email/subscriptions) e [Grupos de inscrições]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups).
 
-### Como posso testar um e-mail antes de enviar uma Campaign? {#how-can-i-test-an-email-before-i-send-a-campaign}
+### Como posso testar um e-mail antes de enviar uma campanha? {#how-can-i-test-an-email-before-i-send-a-campaign}
 
-Use [grupos de teste]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups) para enviar cópias de prévia aos revisores internos e confirmar a renderização em diferentes clientes de e-mail.
+Use [grupos de teste]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups) para enviar cópias de prévia a revisores internos e confirmar a renderização em diferentes clientes de e-mail.
 
 ## Próximas etapas {#next-steps}
 
-- [Configuração de e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup)
-- [Criar um e-mail com o editor de arrastar e soltar]({{site.baseurl}}/user_guide/channels/email/drag_and_drop)
-- [Criar um e-mail com o editor de HTML]({{site.baseurl}}/user_guide/channels/email/html_editor)
+{% article_tiles %}
+- name: Configuração de e-mail
+  link: /docs/user_guide/channels/email/email_setup
+- name: Criar um e-mail com o editor de arrastar e soltar
+  link: /docs/user_guide/channels/email/drag_and_drop
+- name: Criar um e-mail com o editor de HTML
+  link: /docs/user_guide/channels/email/html_editor
+{% endarticle_tiles %}

@@ -18,13 +18,13 @@ search_rank: 1
 
 ## 사전 요구 사항 {#prerequisites}
 
-시작하기 전에 다음 사항을 준비하세요:
+시작하기 전에 다음 사항을 준비해 주세요:
 
 | 요구 사항 | 설명 |
 | --- | --- |
 | Campaign 또는 Canvas | WhatsApp 메시지를 작성하기 전에 [Campaign]({{site.baseurl}}/user_guide/messaging/campaigns) 또는 [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)를 설정하세요. |
-| WhatsApp 채널 설정 | [WhatsApp 설정 플로우]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup)를 완료하세요: 정책을 확인하고, 연결을 설정하고, 발송 인프라를 구성합니다. |
-| 승인된 템플릿 | 비즈니스에서 시작하는 발송의 경우 Meta에서 템플릿을 만들고 승인받으세요. 자세한 내용은 [WhatsApp 설정의 3단계]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup#step-3-create-whatsapp-templates)를 참조하세요. |
+| WhatsApp 채널 설정 | [WhatsApp 설정 흐름]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup)을 완료하세요: 정책 확인, 연결 설정, 발송 인프라 구성을 포함합니다. |
+| 승인된 템플릿 | 비즈니스에서 시작하는 발송의 경우, Meta에서 템플릿을 생성하고 승인을 받으세요. 자세한 내용은 [WhatsApp 설정의 3단계]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup#step-3-create-whatsapp-templates)를 참조하세요. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="WhatsApp 메시지 사전 요구 사항" }
 
 ## 메시지 유형 {#message-type}
@@ -36,13 +36,13 @@ WhatsApp은 Braze에서 두 가지 메시지 유형을 지원합니다:
 
 ## 구독 그룹 {#subscription-group}
 
-각 메시지 배리언트 또는 Canvas 메시지 단계에 대해 WhatsApp 구독 그룹을 선택합니다. 구독 그룹은 어떤 발신자 구성이 사용되는지, 어떤 사용자가 메시지를 수신할 자격이 있는지를 결정합니다.
+각 메시지 배리언트 또는 Canvas 메시지 단계에 대해 WhatsApp 구독 그룹을 선택합니다. 구독 그룹은 사용할 발신자 구성과 메시지를 수신할 수 있는 사용자를 결정합니다.
 
-## 템플릿 메시지 언어 {#languages-for-template-messages}
+## 템플릿 메시지의 언어 {#languages-for-template-messages}
 
 승인된 각 템플릿은 특정 언어에 연결되어 있습니다. 여러 템플릿 언어를 지원해야 하는 경우 별도의 배리언트 또는 캔버스 단계를 구성하세요.
 
-오른쪽에서 왼쪽으로 쓰는 언어로 문구를 추가하는 경우 [오른쪽에서 왼쪽으로 쓰는 메시지 만들기]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages)를 참조하세요.
+오른쪽에서 왼쪽으로 읽는 언어로 내용을 추가하는 경우 [오른쪽에서 왼쪽으로 읽는 메시지 만들기]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages)를 참조하세요.
 
 ## 작성 {#step-2-compose-your-whatsapp-message}
 
@@ -198,9 +198,19 @@ Braze를 통해 발송하는 WhatsApp 메시지에서 다음 콜투액션 유형
 
 ## 다음 단계 {#next-steps}
 
-WhatsApp 메시지를 작성한 후, 발송을 계속 구성하고 검증하세요:
+WhatsApp 메시지를 작성한 후, 발송을 계속 구축하고 검증하세요:
 
-- [Campaign 스케줄 설정]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign) 또는 [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) 구성 계속하기
-- [사용자 타겟팅]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) 및 [전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) 설정
-- [테스트 메시지 보내기]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=whatsapp)
-- [WhatsApp 리포팅]({{site.baseurl}}/user_guide/channels/whatsapp/reporting) 검토
+{% article_tiles %}
+- name: Canvas 만들기
+  link: /docs/user_guide/messaging/canvas/create_a_canvas
+- name: Campaign 스케줄 설정
+  link: /docs/user_guide/messaging/campaigns/schedule_your_campaign
+- name: 사용자 타겟팅
+  link: /docs/user_guide/messaging/messaging_fundamentals/target_users
+- name: 전환 이벤트
+  link: /docs/user_guide/messaging/messaging_fundamentals/conversion_events
+- name: 테스트 메시지 보내기
+  link: /docs/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=whatsapp
+- name: WhatsApp 리포트
+  link: /docs/user_guide/channels/whatsapp/reporting
+{% endarticle_tiles %}

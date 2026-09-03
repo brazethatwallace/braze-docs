@@ -16,30 +16,34 @@ alias: /line/
 
 ## Requisitos previos {#prerequisites}
 
-La disponibilidad de LINE depende de tu paquete de Braze. Ponte en contacto con tu director de cuentas o administrador del éxito del cliente para empezar.
+La disponibilidad de LINE depende de tu paquete de Braze. Contacta a tu director de cuentas o administrador de éxito de cliente para empezar.
 
 Antes de empezar, asegúrate de tener lo siguiente:
 
-- [Cuenta empresarial de LINE](https://www.linebiz.com/jp-en/manual/OfficialAccountManager/tutorial-steps/?list=7171) con estado premium o verificado
+- [Cuenta empresarial de LINE](https://www.linebiz.com/jp-en/manual/OfficialAccountManager/tutorial-steps/?list=7171) con estado premium o verificada
 - [Cuenta de desarrollador de LINE](https://developers.line.biz/en/docs/line-developers-console/login-account/)
 - [Canal de API de mensajería de LINE](https://developers.line.biz/en/docs/line-developers-console/overview/#channel)
 
 Para un recorrido completo, consulta [Configuración de LINE]({{site.baseurl}}/user_guide/channels/line/line_setup).
 
-## Casos de uso {#use-cases}
+## Ejemplos {#use-cases}
 
-| Caso de uso | Explicación |
+| Ejemplo | Explicación |
 | --- | --- |
-| Promociones y ofertas | Envía mensajes promocionales dirigidos, cupones y ofertas por tiempo limitado directamente a los clientes en su plataforma de mensajería preferida. |
-| Programas de fidelización | Interactúa con clientes fieles mediante recompensas personalizadas, actualizaciones de saldo de puntos y beneficios exclusivos para miembros. |
-| Soporte al cliente | Habilita conversaciones bidireccionales para gestionar consultas, proporcionar información sobre productos y resolver problemas. |
+| Promociones y ofertas | Envía mensajes promocionales segmentados, cupones y ofertas por tiempo limitado directamente a los clientes en su plataforma de mensajería preferida. |
+| Programas de fidelización | Involucra a los clientes fieles con recompensas personalizadas, actualizaciones de saldo de puntos y beneficios exclusivos para miembros. |
+| Atención al cliente | Habilita conversaciones bidireccionales para gestionar consultas, proporcionar información sobre productos y resolver problemas. |
 | Notificaciones de pedidos | Mantén a los clientes informados con confirmaciones de pedidos, actualizaciones de envío y notificaciones de entrega. |
-| Interacción con eventos | Impulsa la asistencia y la interacción en eventos con invitaciones, recordatorios y mensajes de seguimiento. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Casos de uso" }
+| Participación en eventos | Impulsa la asistencia y la participación en eventos con invitaciones, recordatorios y mensajes de seguimiento. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Ejemplos" }
 
 {% multi_lang_include drag_and_drop/drag_and_drop_access.md variable_name='dnd editors' %}
 
 ## Próximos pasos {#next-steps}
 
-- [Configuración de LINE]({{site.baseurl}}/user_guide/channels/line/line_setup)
-- [Crear un mensaje LINE]({{site.baseurl}}/user_guide/channels/line/create_a_line_message)
+{% article_tiles %}
+- name: Configuración de LINE
+  link: /docs/user_guide/channels/line/line_setup
+- name: Crear un mensaje LINE
+  link: /docs/user_guide/channels/line/create_a_line_message
+{% endarticle_tiles %}

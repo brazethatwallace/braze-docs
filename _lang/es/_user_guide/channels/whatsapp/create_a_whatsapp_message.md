@@ -25,7 +25,7 @@ Antes de empezar, asegúrate de tener lo siguiente:
 | Campaign o Canvas | Configura una [Campaign]({{site.baseurl}}/user_guide/messaging/campaigns) o un [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) antes de redactar tu mensaje de WhatsApp. |
 | Configuración del canal de WhatsApp | Completa el [flujo de configuración de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup): acepta las políticas, configura tu conexión y establece la infraestructura de envío. |
 | Plantillas aprobadas | Para envíos iniciados por la empresa, crea y aprueba plantillas en Meta. Para más detalles, consulta el [paso 3 de la configuración de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup#step-3-create-whatsapp-templates). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos de mensajes de WhatsApp" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos para mensajes de WhatsApp" }
 
 ## Tipo de mensaje {#message-type}
 
@@ -36,7 +36,7 @@ WhatsApp admite dos tipos de mensajes en Braze:
 
 ## Grupo de suscripción {#subscription-group}
 
-Selecciona un grupo de suscripción de WhatsApp para cada variante de mensaje o paso en Canvas de tipo Mensaje. El grupo de suscripción determina qué configuración de remitente se utiliza y qué usuarios son elegibles para recibir el mensaje.
+Selecciona un grupo de suscripción de WhatsApp para cada variante de mensaje o paso en Canvas de mensaje. El grupo de suscripción determina qué configuración de remitente se utiliza y qué usuarios son elegibles para recibir el mensaje.
 
 ## Idiomas para mensajes de plantilla {#languages-for-template-messages}
 
@@ -200,7 +200,17 @@ Los siguientes tipos de llamada a la acción son compatibles con los mensajes de
 
 Después de redactar tu mensaje de WhatsApp, continúa creando y validando tu envío:
 
-- [Programa tu campaña]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign) o continúa configurando [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)
-- [Segmenta usuarios]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) y configura [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)
-- [Envía mensajes de prueba]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=whatsapp)
-- Consulta los [informes de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/reporting)
+{% article_tiles %}
+- name: Crear un Canvas
+  link: /docs/user_guide/messaging/canvas/create_a_canvas
+- name: Programar tu Campaign
+  link: /docs/user_guide/messaging/campaigns/schedule_your_campaign
+- name: Dirigirse a los usuarios
+  link: /docs/user_guide/messaging/messaging_fundamentals/target_users
+- name: Eventos de conversión
+  link: /docs/user_guide/messaging/messaging_fundamentals/conversion_events
+- name: Enviar mensajes de prueba
+  link: /docs/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=whatsapp
+- name: Informes de WhatsApp
+  link: /docs/user_guide/channels/whatsapp/reporting
+{% endarticle_tiles %}

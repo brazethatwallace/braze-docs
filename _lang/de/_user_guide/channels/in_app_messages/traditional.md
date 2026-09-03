@@ -47,26 +47,26 @@ Weitere Canvas-spezifische Informationen finden Sie unter [In-App-Nachrichten in
 {% endtab %}
 {% endtabs %}
 
-## Schritt 2: Zustellungsplattformen festlegen {#step-2-specify-delivery-platforms}
+## Schritt 2: Zustellplattformen festlegen {#step-2-specify-delivery-platforms}
 
-Wählen Sie zunächst aus, welche Plattformen die Nachricht erhalten sollen. Verwenden Sie diese Auswahl, um die Zustellung einer Campaign auf eine bestimmte Gruppe von Apps zu beschränken. Beispielsweise könnten Sie **Webbrowser** für eine In-Browser-Nachricht wählen, die Nutzer:innen dazu ermutigt, Ihre mobile App herunterzuladen, um sicherzustellen, dass sie die Nachricht nicht erhalten, nachdem sie Ihre App bereits installiert haben. Da die Plattformauswahl für jede Variante spezifisch ist, können Sie das Nachrichten-Engagement pro Plattform testen.
+Wählen Sie zunächst aus, welche Plattformen die Nachricht erhalten sollen. Verwenden Sie diese Auswahl, um die Zustellung einer Campaign auf eine bestimmte Gruppe von Apps zu beschränken. Zum Beispiel könnten Sie **Webbrowser** für eine In-Browser-Nachricht auswählen, die Nutzer:innen dazu ermutigt, Ihre mobile App herunterzuladen, um sicherzustellen, dass sie die Nachricht nicht erhalten, nachdem sie Ihre App bereits installiert haben. Da die Plattformauswahl für jede Variante spezifisch ist, können Sie das Nachrichten-Engagement pro Plattform testen.
 
-| Plattform                        | Nachrichtenzustellung             |
-|----------------------------------|-----------------------------------|
-| Mobile Apps                      | iOS-, Android- und Vega-SDKs      |
-| Webbrowser                       | Web-SDK                           |
-| Sowohl mobile Apps als auch Webbrowser | iOS-, Android-, Vega- und Web-SDKs |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 2: Zustellungsplattformen festlegen" }
+| Plattform                          | Nachrichtenzustellung             |
+|------------------------------------|-----------------------------------|
+| Mobile Apps                        | iOS-, Android- und Vega-SDKs      |
+| Webbrowser                         | Web-SDK                           |
+| Sowohl Mobile Apps als auch Webbrowser | iOS-, Android-, Vega- und Web-SDKs |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 2: Zustellplattformen festlegen" }
 
 ## Schritt 3: Nachrichtentypen festlegen {#step-3-specify-your-message-types}
 
-Nachdem Sie eine Sendeplattform ausgewählt haben, können Sie die verfügbaren Nachrichtentypen, Layouts und weiteren Optionen durchsuchen. Erfahren Sie mehr über das erwartete Verhalten und Erscheinungsbild der einzelnen Nachrichten auf unserer Seite [Nachrichtentypen]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types) oder indem Sie auf die verlinkten Nachrichtentypen in den folgenden Tabellen klicken.
+Nachdem Sie eine Sendeplattform ausgewählt haben, können Sie die verfügbaren Nachrichtentypen, Layouts und weitere Optionen durchsehen. Erfahren Sie mehr über das erwartete Verhalten und das Erscheinungsbild jeder dieser Nachrichten auf unserer Seite [Nachrichtentypen]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types) oder indem Sie in den folgenden Tabellen auf die verlinkten Nachrichtentypen klicken.
 
-Berücksichtigen Sie bei der Wahl des Nachrichtentyps, wie viel Platz Ihre Nachricht einnimmt und wie störend sie für die Nutzererfahrung sein könnte.
+Berücksichtigen Sie bei der Auswahl eines Nachrichtentyps, wie viel Platz Ihre Nachricht einnehmen wird und wie störend sie für die Nutzererfahrung sein könnte.
 
-- **Slideup**-Nachrichten sind am wenigsten aufdringlich und erscheinen dezent, ohne Inhalte zu überdecken.
-- **Modal**-Nachrichten liegen in der Mitte – auffällig genug, um Aufmerksamkeit zu erregen, ohne den gesamten Bildschirm zu übernehmen.
-- **Vollbild**-Nachrichten erregen die meiste Aufmerksamkeit und eignen sich am besten für wichtige Ankündigungen oder Aktionen.
+- **Slideup**-Nachrichten sind am wenigsten aufdringlich und erscheinen dezent, ohne Inhalte zu verdecken.
+- **Modal**-Nachrichten liegen in der Mitte – auffällig genug, um Aufmerksamkeit zu erregen, ohne den Bildschirm vollständig zu übernehmen.
+- **Vollbild**-Nachrichten sind am aufmerksamkeitsstärksten und eignen sich am besten für wichtige Ankündigungen oder Aktionen.
 
 Je komplexer Ihr Inhalt ist, desto mehr Platz benötigen Sie – und desto wahrscheinlicher wird Ihre Nachricht den Ablauf der Nutzer:innen unterbrechen.
 
@@ -84,7 +84,7 @@ Diese In-App-Nachrichten werden sowohl von mobilen Apps als auch von Webanwendun
 <thead>
   <tr>
     <th>Nachrichtentyp</th>
-    <th>Beschreibung</th>
+    <th>Beschreibung des Typs</th>
     <th>Verfügbare Layouts</th>
     <th>Weitere Optionen</th>
     <th>Empfohlene Verwendung</th>
@@ -96,12 +96,12 @@ Diese In-App-Nachrichten werden sowohl von mobilen Apps als auch von Webanwendun
     <td>Nachrichten, die den gesamten Bildschirm mit einem Nachrichtenblock abdecken.</td>
     <td>
       <ul>
-      <li>Bild & Text</li>
+      <li>Bild und Text</li>
       <li>Nur Bild</li>
       </ul>
     </td>
     <td>Erzwungene Geräteausrichtung (Hochformat oder Querformat)</td>
-    <td>Groß und auffällig! Verwenden Sie diesen Typ, wenn Sie sicherstellen möchten, dass Nutzer:innen Ihren Inhalt sehen – zum Beispiel bei Ihren wichtigsten Campaigns, bedeutenden Benachrichtigungen oder großen Aktionen.<br><br>Beachten Sie, dass Nachrichten im Hoch- oder Querformat auf Mobilgeräten nicht angezeigt werden, wenn die Ausrichtung des Geräts nicht mit der Ausrichtung der Nachricht übereinstimmt.</td>
+    <td>Groß und auffällig! Verwenden Sie diesen Typ, wenn Sie sicherstellen möchten, dass Nutzer:innen Ihren Inhalt sehen – beispielsweise bei Ihren wichtigsten Campaigns, bedeutenden Benachrichtigungen oder großen Aktionen.<br><br>Beachten Sie, dass Hoch- und Querformatnachrichten auf mobilen Geräten nicht angezeigt werden, wenn die Ausrichtung des Geräts nicht mit der Ausrichtung der Nachricht übereinstimmt.</td>
   </tr>
   <tr>
     <td><a href='/docs/user_guide/channels/in_app_messages/message_types/modal'>Modal</a></td>
@@ -112,29 +112,29 @@ Diese In-App-Nachrichten werden sowohl von mobilen Apps als auch von Webanwendun
       <li>Nur Bild</li>
       </ul>
     </td>
-    <td>Nicht zutreffend</td>
-    <td>Ein guter Mittelweg. Verwenden Sie diesen Typ, wenn Sie die Aufmerksamkeit Ihrer Nutzer:innen gezielt auf sich ziehen möchten – zum Beispiel um sie zu ermutigen, ein neues Feature auszuprobieren oder eine Aktion zu nutzen.</td>
+    <td>Nicht verfügbar</td>
+    <td>Ein guter Mittelweg. Verwenden Sie diesen Typ, wenn Sie die Aufmerksamkeit Ihrer Nutzer:innen deutlich erregen möchten – beispielsweise um Nutzer:innen zu ermutigen, ein neues Feature auszuprobieren oder eine Aktion zu nutzen.</td>
   </tr>
   <tr>
     <td><a href='/docs/user_guide/channels/in_app_messages/message_types/slideup'>Slideup</a></td>
-    <td>Nachrichten, die an einer bestimmten Stelle ins Sichtfeld gleiten, ohne den Rest des Bildschirms zu blockieren.</td>
-    <td>Nicht zutreffend</td>
-    <td>Nicht zutreffend</td>
-    <td>Unauffällig – beansprucht den geringsten Platz auf dem Bildschirm. Verwenden Sie diesen Typ, um Nutzer:innen auf kurze Informationen aufmerksam zu machen, z. B. neue Features, Ankündigungen, die Verwendung von Cookies usw.<br></td>
+    <td>Nachrichten, die an einer bestimmten Stelle eingeblendet werden, ohne den Rest des Bildschirms zu verdecken.</td>
+    <td>Nicht verfügbar</td>
+    <td>Nicht verfügbar</td>
+    <td>Unauffällig – nimmt am wenigsten Platz auf dem Bildschirm ein. Verwenden Sie diesen Typ, um Nutzer:innen über kurze Informationen zu benachrichtigen, wie z. B. neue Features, Ankündigungen, Cookie-Nutzung usw.<br></td>
   </tr>
 </tbody>
 </table>
 
 ### Erweiterte Nachrichtentypen {#advanced-message-types}
 
-Diese In-App-Nachrichten können an Ihre Anforderungen angepasst werden.
+Diese In-App-Nachrichten sind an Ihre Bedürfnisse anpassbar.
 
 <table aria-label="Erweiterte Nachrichtentypen" class="tg">
   <caption>Erweiterte Nachrichtentypen</caption>
 <thead>
   <tr>
     <th>Nachrichtentyp</th>
-    <th>Beschreibung</th>
+    <th>Beschreibung des Typs</th>
     <th>Verfügbare Layouts</th>
     <th>Voraussetzungen</th>
     <th>Empfohlene Verwendung</th>
@@ -143,86 +143,86 @@ Diese In-App-Nachrichten können an Ihre Anforderungen angepasst werden.
 <tbody>
   <tr>
     <td><a href='/docs/user_guide/channels/in_app_messages/message_types/custom_html'>Angepasste HTML-Nachricht</a></td>
-    <td>Angepasste Nachrichten, die gemäß Ihrem eigenen Code (HTML, CSS und/oder JavaScript) funktionieren.</td>
-    <td>Nicht zutreffend</td>
+    <td>Angepasste Nachrichten, die gemäß Ihrem angepassten Code (HTML, CSS und/oder JavaScript) funktionieren.</td>
+    <td>Nicht verfügbar</td>
     <td>Die Initialisierungsoption <span style="white-space: nowrap"><code>allowUserSuppliedJavascript</code></span> muss auf <code>true</code> gesetzt sein, damit Ihre In-App-Nachricht funktioniert.</td>
-    <td>Dies ist eine gute Option, wenn Sie alle Vorteile von In-App-Nachrichten nutzen, aber zusätzliche Funktionalität benötigen oder das Erscheinungsbild markenkonform bleiben soll. Sie können jedes Detail der Nachricht anpassen – Schriftart, Farbe, Form, Größe, Buttons usw. <br><br>Beispielhafte Anwendungsfälle sind App-Feedback-Abfragen, E-Mail-Erfassungsformulare oder mehrseitige Nachrichten.</td>
+    <td>Dies ist eine gute Option, wenn Sie alle Vorteile von IAMs nutzen, aber zusätzliche Funktionalität benötigen oder das Erscheinungsbild „markenkonform“ halten möchten. Sie können jedes Detail der Nachricht anpassen – Schriftart, Farbe, Form, Größe, Buttons usw. <br><br>Beispielhafte Anwendungsfälle sind das Einholen von App-Feedback, E-Mail-Erfassungsformulare oder paginierte Nachrichten.</td>
   </tr>
   <tr>
     <td><a href='/docs/user_guide/channels/in_app_messages/message_types/email_capture_form'>E-Mail-Erfassungsformular</a></td>
-    <td>Wird in der Regel verwendet, um die E-Mail-Adresse der Betrachter:innen zu erfassen.</td>
-    <td>Nicht zutreffend</td>
+    <td>Wird typischerweise verwendet, um die E-Mail-Adresse der Betrachter:innen zu erfassen.</td>
+    <td>Nicht verfügbar</td>
     <td>Die Initialisierungsoption <span style="white-space: nowrap"><code>allowUserSuppliedJavascript</code></span> muss auf <code>true</code> gesetzt sein, damit Ihre In-App-Nachricht funktioniert.</td>
-    <td>Wenn Sie Nutzer:innen auffordern möchten, ihre E-Mail-Adresse einzugeben.</td>
+    <td>Wenn Sie Nutzer:innen auffordern möchten, ihre E-Mail-Adresse anzugeben.</td>
   </tr>
   <tr>
     <td><a href='/docs/user_guide/channels/in_app_messages/customize#web-modal-css'>Web-Modal mit CSS</a></td>
-    <td>Modal-Nachrichten für das Web mit anpassbarem CSS.</td>
+    <td>Modal-Nachrichten für das Internet mit anpassbarem CSS.</td>
     <td>
       <ul>
       <li>Text (mit optionalem Bild)</li>
       <li>Nur Bild</li>
       </ul>
     </td>
-    <td>Web-Modal mit CSS ist exklusiv für das Web-SDK und kann nur nach Auswahl von <b>Web Browsers</b> verwendet werden.</td>
-    <td>Wenn Sie eigenes CSS hochladen oder schreiben möchten, um ansprechende, individuell gestaltete Nachrichten zu erstellen.</td>
+    <td>Web-Modal mit CSS ist eine Besonderheit des Web-SDK und kann nur nach Auswahl von <b>Web Browsers</b> verwendet werden.</td>
+    <td>Wenn Sie angepasstes CSS hochladen oder schreiben möchten, um ansprechende, individuell gestaltete Nachrichten zu erstellen.</td>
   </tr>
 </tbody>
 </table>
 
 {% alert important %}
-Wenn Braze erkennt, dass in Ihrem Code kein Schließen- oder Dismiss-Button enthalten ist, werden wir Sie auffordern, einen hinzuzufügen. Zur Vereinfachung haben wir ein Snippet bereitgestellt, das Sie kopieren und in Ihren Code einfügen können: <br><br>`<a href= "appboy://close">X</a>`.
+Wenn Braze erkennt, dass Ihr Code keinen Schließen- oder Ablehnen-Button enthält, werden wir Sie auffordern, einen hinzuzufügen. Zu Ihrer Bequemlichkeit haben wir ein Snippet bereitgestellt, das Sie kopieren und in Ihren Code einfügen können: <br><br>`<a href= "appboy://close">X</a>`.
 {% endalert %}
 
 ## Schritt 4: In-App-Nachricht verfassen {#step-4-compose-your-in-app-message}
 
-Der Tab **Verfassen** ermöglicht es Ihnen, alle Aspekte des Inhalts und Verhaltens Ihrer Nachricht zu bearbeiten.
+Im Tab **Verfassen** können Sie alle Aspekte des Inhalts und Verhaltens Ihrer Nachricht bearbeiten.
 
-![Beispiel einer In-App-Nachricht einer Marke, die neue Kund:innen begrüßt und sie auffordert, ein Kundenprofil einzurichten.]({% image_buster /assets/img_archive/iam_compose.png %}){: style="max-width:85%" }
+![Eine beispielhafte In-App-Nachricht einer Marke, die neue Kund:innen begrüßt und sie auffordert, ein Nutzerprofil einzurichten.]({% image_buster /assets/img_archive/iam_compose.png %}){: style="max-width:85%" }
 
-Der Inhalt des Tabs **Verfassen** variiert je nach den im vorherigen Schritt gewählten Nachrichtenoptionen, kann aber eine der folgenden Optionen umfassen:
+Der Inhalt des Tabs **Verfassen** variiert je nach den gewählten Nachrichtenoptionen im vorherigen Schritt, kann aber eine der folgenden Optionen umfassen:
 
 ### Sprache {#language}
 
-Wählen Sie **Sprachen hinzufügen** und wählen Sie die gewünschten Sprachen aus der bereitgestellten Liste aus. Dadurch wird [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#conditional-logic) in Ihre Nachricht eingefügt. Wir empfehlen, Ihre Sprachen auszuwählen, bevor Sie Ihren Inhalt verfassen, damit Sie Ihren Text an der richtigen Stelle im Liquid einfügen können. Sehen Sie sich unsere [vollständige Liste der verfügbaren Sprachen]({{site.baseurl}}/developer_guide/localization?tab=android) an.
+Wählen Sie **Sprachen hinzufügen** und wählen Sie die gewünschten Sprachen aus der bereitgestellten Liste aus. Dadurch wird [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#conditional-logic) in Ihre Nachricht eingefügt. Wir empfehlen, Ihre Sprachen auszuwählen, bevor Sie Ihren Inhalt verfassen, damit Sie Ihren Text an der richtigen Stelle im Liquid einfügen können. Sehen Sie unsere [vollständige Liste der verfügbaren Sprachen]({{site.baseurl}}/developer_guide/localization?tab=android).
 
 ### Bild {#image}
 
-Je nach Nachrichtentyp können Sie ein **Bild hochladen**, ein **Badge auswählen** oder **Font Awesome** verwenden. Um ein Bild hochzuladen, wählen Sie **Bild hinzufügen** oder geben Sie eine Bild-URL an. Durch Auswahl von **Bild hinzufügen** wird die **Medienbibliothek** geöffnet, in der Sie ein zuvor hochgeladenes Bild auswählen oder ein neues hinzufügen können. Jeder Nachrichtentyp und jede Plattform kann eigene empfohlene Proportionen und Anforderungen haben – überprüfen Sie diese unbedingt, bevor Sie ein Bild in Auftrag geben oder von Grund auf erstellen.
+Je nach Nachrichtentyp können Sie ein **Bild hochladen**, ein **Badge auswählen** oder **Font Awesome** verwenden. Um ein Bild hochzuladen, wählen Sie **Bild hinzufügen** oder geben Sie eine Bild-URL an. Wenn Sie **Bild hinzufügen** auswählen, wird die **Medienbibliothek** geöffnet, in der Sie ein zuvor hochgeladenes Bild auswählen oder ein neues hinzufügen können. Jeder Nachrichtentyp und jede Plattform kann eigene empfohlene Proportionen und Anforderungen haben – stellen Sie sicher, dass Sie diese prüfen, bevor Sie ein Bild in Auftrag geben oder von Grund auf erstellen.
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
-### Kopfzeile und Text {#header-and-body}
+### Überschrift und Text {#header-and-body}
 
-Schreiben Sie, was immer Sie möchten! Fügen Sie vollständig angepasste Texte (oft mit angepassten HTML-Funktionen) mit den Optionen ein, [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid) und andere Arten der Personalisierung einzubinden. Je schneller Sie Ihre Botschaft vermitteln und Ihre Kund:innen zum Klicken bringen – desto besser! Wir empfehlen klare und prägnante Kopfzeilen und Nachrichteninhalte.
+Schreiben Sie, was Sie möchten! Verwenden Sie vollständig angepasste Texte (oft mit angepassten HTML-Funktionen) mit der Möglichkeit, [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid) und andere Arten der Personalisierung einzubinden. Je schneller Sie Ihre Botschaft vermitteln und Ihre Kund:innen zum Klicken bringen können, desto besser! Wir empfehlen klare und prägnante Überschriften und Nachrichteninhalte.
 
-Einige Nachrichtentypen benötigen keine Kopfzeilen und fragen daher auch nicht danach.
+Einige Nachrichtentypen benötigen keine Überschriften und fragen daher auch nicht danach.
 
 #### Tipps {#tips}
 
-##### KI-Texte generieren {#generating-ai-copy}
+##### KI-generierte Texte erstellen {#generating-ai-copy}
 
-Brauchen Sie Hilfe beim Erstellen großartiger Texte? Probieren Sie den [KI-Textassistenten]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy) aus. Geben Sie einen Produktnamen oder eine Beschreibung ein, und die KI generiert menschenähnliche Marketing-Texte zur Verwendung in Ihren Nachrichten.
+Brauchen Sie Hilfe bei der Erstellung großartiger Texte? Probieren Sie den [KI-Texterstellungsassistenten]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy) aus. Geben Sie einen Produktnamen oder eine Beschreibung ein und die KI generiert menschenähnliche Marketingtexte zur Verwendung in Ihrem Messaging.
 
-![Button „KI-Textassistent starten“ im Nachrichtenfeld des In-App-Nachrichten-Editors.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_iam.png %}){: style="max-width:60%"}
+![Button „KI-Texter starten“ im Nachrichtenfeld des In-App-Nachrichten-Editors.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_iam.png %}){: style="max-width:60%"}
 
-##### Rechts-nach-links-Nachrichten erstellen {#creating-right-to-left-messages}
+##### Nachrichten mit Rechts-nach-links-Schrift erstellen {#creating-right-to-left-messages}
 
-Brauchen Sie Hilfe beim Erstellen von Rechts-nach-links-Nachrichten für Sprachen wie Arabisch und Hebräisch? Lesen Sie [Rechts-nach-links-Nachrichten erstellen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages) für Best Practices.
+Brauchen Sie Hilfe bei der Erstellung von Nachrichten mit Rechts-nach-links-Schrift für Sprachen wie Arabisch und Hebräisch? Lesen Sie [Nachrichten mit Rechts-nach-links-Schrift erstellen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages) für Best Practices.
 
 ### Button-Text {#buttons}
 
-Wenn für Ihren Nachrichtentyp verfügbar, können bis zu zwei Buttons unter Ihrem Textbereich erscheinen. Sie können angepassten Button-Text und -Farben erstellen und bearbeiten. Sie können auch einen Link zu den Nutzungsbedingungen in E-Mail-Erfassungsformularen hinzufügen.
+Wenn für Ihren Nachrichtentyp verfügbar, können bis zu zwei Buttons unter Ihrem Textkörper angezeigt werden. Sie können angepassten Button-Text und angepasste Farben erstellen und bearbeiten. Sie können auch einen Link zu den Nutzungsbedingungen innerhalb von E-Mail-Erfassungsformularen hinzufügen.
 
-Wenn Sie sich dafür entscheiden, nur einen Button zu verwenden, wird dieser automatisch angepasst und nimmt den verfügbaren Platz am unteren Rand Ihrer Nachricht ein, anstatt Platz für einen zusätzlichen Button zu lassen.
+Wenn Sie sich für nur einen Button entscheiden, passt sich dieser automatisch an, um den verfügbaren Platz am unteren Rand Ihrer Nachricht einzunehmen, anstatt Platz für einen zusätzlichen Button freizulassen.
 
 #### Einen primären Button auswählen {#choosing-a-primary-button}
 
-Wenn Sie diese Buttons mit Ihren eigenen Farben formatieren möchten, empfehlen wir, Button 2 für Ihr bevorzugtes Ergebnis zu verwenden.
+Wenn Sie diese Buttons mit Ihren eigenen Farben gestalten, empfehlen wir, Button 2 für Ihr bevorzugtes Ergebnis zu verwenden.
 
-Mit anderen Worten: Wenn Sie möchten, dass Ihre Nutzer:innen eher auf einen bestimmten Button klicken, sollte dieser der sekundäre Button sein. Der sekundäre Button hat oft ein besseres Potenzial gezeigt, angeklickt zu werden, insbesondere wenn er eine etwas kontrastierende oder anderweitig auffällige Farbe im Vergleich zum Rest der Nachricht hat. Dies wird besonders deutlich, wenn der primäre Button visuell stärker mit der Nachricht verschmilzt.
+Mit anderen Worten: Wenn Sie möchten, dass Ihre Nutzer:innen eher auf einen Button als auf den anderen klicken, stellen Sie sicher, dass es der sekundäre Button ist. Der sekundäre Button hat oft ein besseres Potenzial gezeigt, angeklickt zu werden, insbesondere wenn er eine etwas kontrastreiche oder anderweitig auffällige Farbe im Vergleich zum Rest der Nachricht hat. Dies wird nur verstärkt, wenn der primäre Button visuell stärker mit der Nachricht verschmilzt.
 
-![Primäre und sekundäre Buttons in einer In-App-Nachricht]({% image_buster /assets/img/primary-secondary-buttons.png %})
+![Primärer und sekundärer Button in einer In-App-Nachricht]({% image_buster /assets/img/primary-secondary-buttons.png %})
 
 ### Klickverhalten {#button-actions}
 
@@ -231,18 +231,18 @@ Wenn Ihre Kund:innen auf einen Button in Ihrer In-App-Nachricht klicken, stehen 
 | Aktion | Beschreibung |
 |---|---|
 | Weiterleitung zu Web-URL | Öffnet eine nicht-native Webseite. |
-| [Deeplink in App]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#deep-link-to-in-app-content) | Deeplink zu einem vorhandenen Bildschirm in Ihrer App. |
+| [Deeplink in die App]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#deep-link-to-in-app-content) | Deeplink zu einem bestehenden Bildschirm in Ihrer App. |
 | Nachricht schließen | Schließt die aktuell aktive Nachricht. |
 | Angepasstes Event protokollieren | Wählen Sie ein [angepasstes Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events) zum Auslösen. Kann verwendet werden, um eine weitere In-App-Nachricht anzuzeigen oder zusätzliches Messaging auszulösen. |
-| Angepasstes Attribut protokollieren | Wählen Sie ein [angepasstes Attribut]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), das für die/den aktuelle:n Nutzer:in festgelegt werden soll. |
-| Push-Berechtigung anfordern | Zeigt die native Push-Berechtigungsabfrage an. Lesen Sie mehr über [Push-Priming]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) sowie [Best Practices]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#best-practices) zur Vorbereitung von Nutzer:innen auf Push. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Klickverhalten #button-actions" }
+| Angepasstes Attribut protokollieren | Wählen Sie ein [angepasstes Attribut]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), das für die aktuelle Nutzer:in gesetzt werden soll. |
+| Push-Berechtigung anfordern | Zeigt die native Push-Berechtigungsabfrage an. Erfahren Sie mehr über [Push-Priming]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) sowie [Best Practices]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#best-practices) für die Vorbereitung von Nutzer:innen auf Push. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Klickverhalten" }
 
 Hinweis: Die Optionen __Push-Berechtigung anfordern__, __Angepasstes Event protokollieren__ und __Angepasstes Attribut protokollieren__ erfordern die folgenden SDK-Mindestversionen:
 
 {% sdk_min_versions swift:5.4.0 android:21.0.0 web:4.0.3 %}
 
-Um mehrere Aktionen zu kombinieren oder zusätzliche SDK-Aktionen durchzuführen, die im Dashboard nicht verfügbar sind (wie das Hinzufügen zu einer Abo-Gruppe oder das Festlegen eines E-Mail-Abo-Typs), können Sie [Braze Actions-Deeplinks]({{site.baseurl}}/developer_guide/braze_actions) verwenden.
+Um mehrere Aktionen zu kombinieren oder zusätzliche SDK-Aktionen auszuführen, die im Dashboard nicht verfügbar sind (z. B. das Hinzufügen zu einer Abo-Gruppe oder das Festlegen eines E-Mail-Abo-Typs), können Sie [Braze Actions-Deeplinks]({{site.baseurl}}/developer_guide/braze_actions) verwenden.
 
 ### iOS-Geräteoptionen {#ios-device-options}
 
@@ -252,22 +252,22 @@ Falls gewünscht, können Sie Ihre In-App-Nachricht so einschränken, dass sie n
 
 Wählen Sie zwischen den folgenden Optionen:
 
-- **Automatisch schließen:** Wählen Sie, wie viele Sekunden die Nachricht auf dem Bildschirm angezeigt werden soll.
-- **Auf Wischen oder Tippen warten:** Erfordert eine Schließ-Option.
+- **Automatisch ausblenden:** Wählen Sie, wie viele Sekunden die Nachricht auf dem Bildschirm angezeigt wird.
+- **Auf Wischen oder Tippen des Nutzers warten:** Erfordert eine Option zum Ausblenden oder Schließen.
 
-Das Schließen einer Nachricht protokolliert eine Impression, aber keinen Klick. Informationen zur Nachverfolgung von Klicks nach Nutzeraktion finden Sie unter [Klick-Tracking]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting#click-tracking).
+Beim Ausblenden einer Nachricht wird eine Impression protokolliert, aber kein Klick. Informationen zur Nachverfolgung von Klicks nach Nutzeraktion finden Sie unter [Klick-Tracking]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting#click-tracking).
 
 ### Slideup-Position {#slide-up-position}
 
-Diese Einstellung gilt nur für den Nachrichtentyp Slideup. Wählen Sie, ob Ihr Slideup **vom unteren Bildschirmrand** oder **vom oberen Bildschirmrand** erscheinen soll.
+Diese Einstellung gilt nur für den Nachrichtentyp Slideup. Wählen Sie, ob Ihr Slideup **Vom unteren Bildschirmrand der App** oder **Vom oberen Bildschirmrand der App** erscheinen soll.
 
 ### HTML und Assets {#html-and-assets}
 
 Diese Einstellung gilt nur für den Nachrichtentyp „Angepasster Code“. Kopieren Sie HTML in den verfügbaren Bereich und laden Sie Ihre Assets mithilfe einer [ZIP-Datei]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#zip-file-uploads) hoch.
 
-### E-Mail-Erfassung – Platzhaltertext {#email-capture-input-placeholder}
+### Platzhalter für E-Mail-Erfassungsfeld {#email-capture-input-placeholder}
 
-Diese Einstellung gilt nur für den Nachrichtentyp E-Mail-Erfassungsformular. Geben Sie einen angepassten Text ein, der als Platzhaltertext im E-Mail-Eingabefeld erscheint. Standardmäßig lautet dieser „Enter your email address“.
+Diese Einstellung gilt nur für den Nachrichtentyp „E-Mail-Erfassungsformular“. Geben Sie angepassten Text ein, der als Platzhaltertext für das E-Mail-Eingabefeld angezeigt wird. Standardmäßig wird „Geben Sie Ihre E-Mail-Adresse ein“ angezeigt.
 
 ## Schritt 5: Ihre In-App-Nachricht gestalten {#step-5-style-your-in-app-message}
 
@@ -300,33 +300,37 @@ Einige In-App-Nachrichtentypen bieten keine Gestaltungsoptionen über das Hochla
 
 Sie können [Schlüssel-Wert-Paare]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs) hinzufügen, um zusätzliche angepasste Felder an die Geräte der Nutzer:innen zu senden.
 
+1. Wählen Sie im Nachrichten-Editor den Tab **Einstellungen** aus.
+2. Wählen Sie unter **Schlüssel-Wert-Paare** die Option **Neues Paar hinzufügen** aus.
+3. Geben Sie einen Schlüssel und einen Wert für jedes Paar ein. Um ein weiteres Paar hinzuzufügen, wählen Sie erneut **Neues Paar hinzufügen** aus.
+
 ## Schritt 7: Erstellen Sie den Rest Ihrer Campaign oder Ihres Canvas {#step-7-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
 {% tab Campaign %}
 
-Erstellen Sie den Rest Ihrer Campaign. In den folgenden Abschnitten finden Sie weitere Hinweise zur optimalen Nutzung unserer Tools zum Erstellen von In-App-Nachrichten.
+Erstellen Sie den Rest Ihrer Campaign. In den folgenden Abschnitten finden Sie weitere Anleitungen, wie Sie unsere Tools am besten nutzen, um In-App-Nachrichten zu erstellen.
 
 ### Trigger auswählen {#choose-a-trigger}
 
-Wählen Sie die Aktion aus, die Ihre Nachricht auslösen soll, sowie die Start- und Endzeiten für Ihre Campaign oder Ihren Canvas.
+Wählen Sie die Aktion aus, die Ihre Nachricht auslösen soll, sowie die Start- und Endzeiten für Ihre Campaign oder Ihr Canvas.
 
 {% alert important %}
-Wenn Sie Ihre In-App-Nachricht auf Basis eines angepassten Events triggern möchten, muss dieses angepasste Event über das SDK gesendet werden.
+Beachten Sie: Wenn Sie Ihre In-App-Nachricht basierend auf einem angepassten Event triggern möchten, muss dieses angepasste Event über das SDK gesendet werden.
 {% endalert %}
 
 ![Aktionsbasierte Campaign mit der Trigger-Aktion „Sitzung starten“.]({% image_buster /assets/img_archive/in_app_schedule.png %}){: style="max-width:80%"}
 
-Die Zustellung von In-App-Nachrichten basiert vollständig auf den folgenden Aktions-Triggern:
+Die Zustellung von In-App-Nachrichten basiert vollständig auf den folgenden Trigger-Aktionen:
 
-- Bestellung aufgeben
-- App oder Webseite öffnen
-- Angepasstes Event ausführen (funktioniert nur mit Events, die über das SDK gesendet werden)
-- Bestimmte Push-Nachricht öffnen
-- Campaigns können automatisch so geplant werden, dass sie zu einer bestimmten Zeit in der jeweiligen Ortszeit Ihrer Nutzer:innen gesendet werden.
+- Eine Bestellung aufgeben
+- Die App oder Webseite öffnen
+- Ein angepasstes Event ausführen (funktioniert nur mit Events, die über das SDK gesendet werden)
+- Eine bestimmte Push-Nachricht öffnen
+- Campaigns automatisch so planen, dass sie zu einer bestimmten Zeit in Bezug auf die Ortszeit jedes Ihrer Nutzer:innen gesendet werden.
 - Nachrichten können auch so konfiguriert werden, dass sie täglich, wöchentlich (optional an bestimmten Tagen) oder monatlich wiederholt werden.
 
-Ein Startdatum und eine Startzeit müssen ausgewählt werden; ein Enddatum ist jedoch optional. Ein Enddatum verhindert, dass diese bestimmte In-App-Nachricht nach dem angegebenen Datum/Zeitpunkt auf Geräten angezeigt wird.
+Ein Startdatum und eine Startzeit müssen ausgewählt werden; ein Enddatum ist jedoch optional. Ein Enddatum verhindert, dass diese bestimmte In-App-Nachricht nach dem angegebenen Datum/der angegebenen Uhrzeit auf Geräten angezeigt wird.
 
 Weitere Informationen finden Sie in unserer Entwicklerdokumentation zum [serverseitigen Event-Triggering]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages?tab=web) und zur [lokalen Zustellung von In-App-Nachrichten]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages?tab=web).
 
@@ -338,9 +342,9 @@ In-App-Nachrichten funktionieren, indem die Nachricht und die Trigger an das Ger
 Sobald eine In-App-Nachricht gestoppt wurde, kann es vorkommen, dass einige Nutzer:innen die Nachricht weiterhin sehen, wenn sie eine Sitzung gestartet haben, bevor die Nachricht gestoppt wurde, und anschließend das Trigger-Event ausführen. Diese Nutzer:innen werden als eindeutige Impression gezählt, auch nachdem die Campaign gestoppt wurde.
 {% endalert %}
 
-### Priorität auswählen {#choose-a-priority}
+### Priorität festlegen {#choose-a-priority}
 
-Nachdem Sie die Aktion ausgewählt haben, die die In-App-Nachricht triggern soll, sollten Sie auch eine Priorität festlegen. Wenn zwei Nachrichten durch dieselbe Aktion getriggert werden, werden Nachrichten mit hoher Priorität vor Nachrichten mit niedrigerer Priorität auf den Geräten der Nutzer:innen angezeigt.
+Nachdem Sie die Aktion ausgewählt haben, die die In-App-Nachricht triggert, sollten Sie auch eine Priorität festlegen. Wenn zwei Nachrichten durch dieselbe Aktion getriggert werden, werden Nachrichten mit hoher Priorität vor Nachrichten mit niedrigerer Priorität auf den Geräten der Nutzer:innen angezeigt.
 
 Sie können zwischen den folgenden Nachrichtenprioritäten wählen:
 
@@ -348,18 +352,18 @@ Sie können zwischen den folgenden Nachrichtenprioritäten wählen:
 - Mittlere Priorität (Standard)
 - Niedrige Priorität (wird nach anderen Nachrichten angezeigt)
 
-Die Optionen „Hoch“, „Mittel“ und „Niedrig“ für getriggerte Nachrichtenprioritäten sind Buckets. Daher können mehrere Nachrichten dieselbe ausgewählte Priorität haben. Wenn mehrere Nachrichten dieselbe Priorität teilen, hat die zuletzt erstellte oder zugewiesene Nachricht Vorrang und wird zuerst angezeigt:
+Die Optionen „Hoch“, „Mittel“ und „Niedrig“ für getriggerte Nachrichtenprioritäten sind Buckets, und daher können mehrere Nachrichten dieselbe ausgewählte Priorität haben. Wenn mehrere Nachrichten dieselbe Priorität haben, hat die zuletzt erstellte oder zugewiesene Nachricht Vorrang und wird zuerst angezeigt:
 
-- **Standard-Prioritäts-Bucket:** Wenn zwei Campaigns denselben Trigger und die Standard-Priorität (Mittel) verwenden, erhält die zuletzt erstellte Campaign den Trigger.
-- **Spezifischer Prioritäts-Bucket:** Wenn mehrere Campaigns denselben Trigger haben und einem bestimmten Prioritäts-Bucket zugewiesen sind, erhält die zuletzt diesem Bucket zugewiesene Campaign den Trigger.
+- **Standard-Prioritäts-Bucket:** Wenn zwei Campaigns denselben Trigger haben und die Standard-Priorität (Mittel) verwenden, erhält die zuletzt erstellte Campaign den Trigger.
+- **Spezifischer Prioritäts-Bucket:** Wenn mehrere Campaigns denselben Trigger haben und einem bestimmten Prioritäts-Bucket zugewiesen sind, erhält die Campaign, die dem Bucket zuletzt zugewiesen wurde, den Trigger.
 
 Um Prioritäten innerhalb dieser Buckets festzulegen, klicken Sie auf **Set exact priority**, und Sie können Campaigns per Drag-and-Drop in die richtige Reihenfolge bringen.
 
-![Ein Beispiel dafür, wie die Priorität für eine In-App-Nachrichten-Campaign und einen Canvas festgelegt wird.]({% image_buster /assets/img_archive/bucket_prioritization.png %}){: style="max-width:70%"}
+![Ein Beispiel dafür, wie die Priorität für eine In-App-Nachrichten-Campaign und ein Canvas festgelegt wird.]({% image_buster /assets/img_archive/bucket_prioritization.png %}){: style="max-width:70%"}
 
 ### Zielgruppe zusammenstellen {#choose-users-to-target}
 
-Als Nächstes müssen Sie [Ihre Zielgruppe zusammenstellen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users), indem Sie Segmente oder Filter auswählen, um Ihre Zielgruppe einzugrenzen. Sie erhalten automatisch eine Momentaufnahme der ungefähren Größe dieser Segment-Population. Beachten Sie, dass die genaue Segment-Zugehörigkeit immer berechnet wird, bevor die Nachricht gesendet wird.
+Als Nächstes müssen Sie [Zielgruppen zusammenstellen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users), indem Sie Segments oder Filter auswählen, um Ihre Zielgruppe einzugrenzen. Sie erhalten automatisch eine Übersicht darüber, wie groß diese ungefähre Segment-Population ist. Beachten Sie, dass die genaue Segment-Zugehörigkeit immer berechnet wird, bevor die Nachricht gesendet wird.
 
 {% alert note %}
 Wenn es eine Verzögerung beim In-App-Nachrichten-Schritt gibt, wird die Segment-Zugehörigkeit nach der Verzögerung ausgewertet. Wenn die Nutzer:innen berechtigt sind, wird die In-App-Nachricht bei der nächsten verfügbaren Sitzung synchronisiert.
@@ -369,32 +373,32 @@ Wenn es eine Verzögerung beim In-App-Nachrichten-Schritt gibt, wird die Segment
 
 In einigen Szenarien möchten Sie möglicherweise die Berechtigung von Nutzer:innen erneut auswerten, wenn sie eine In-App-Nachricht zur Anzeige triggern. Beispiele hierfür sind Campaigns, die auf ein angepasstes Attribut abzielen, das sich häufig ändert, oder Nachrichten, die kurzfristige Profiländerungen widerspiegeln sollen.
 
-![Kontrollkästchen „Campaign-Berechtigung vor der Anzeige erneut auswerten“ ausgewählt.]({% image_buster /assets/img_archive/re-evaluate-iam-membership.png %}){:style="max-width:60%"}
+![Kontrollkästchen „Campaign-Berechtigung vor der Anzeige erneut auswerten“ ist ausgewählt.]({% image_buster /assets/img_archive/re-evaluate-iam-membership.png %}){:style="max-width:60%"}
 
-Wenn Sie **Re-evaluate campaign eligibility before displaying** auswählen, wird eine zusätzliche Anfrage an Braze gesendet, um zu bestätigen, dass die Nutzer:innen weiterhin für diese Nachricht berechtigt sind, bevor sie gesendet wird. Darüber hinaus werden alle [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)-Variablen oder [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)-Inhalte in diesem Moment erstellt, bevor die Nachricht angezeigt wird.
+Wenn Sie **Re-evaluate campaign eligibility before displaying** auswählen, wird eine zusätzliche Anfrage an Braze gesendet, um zu bestätigen, dass die Nutzer:innen weiterhin für diese Nachricht berechtigt sind, bevor sie gesendet wird. Darüber hinaus werden alle [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)-Variablen oder [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)-Inhalte zu diesem Zeitpunkt als Template verarbeitet, bevor die Nachricht angezeigt wird.
 
-Dies verhindert, dass In-App-Nachrichten an Nutzer:innen innerhalb abgelaufener oder archivierter Campaigns gesendet werden. Wenn Sie die Berechtigung von Nutzer:innen nicht erneut auswerten, erhalten sie die In-App-Nachricht auch nach Ablauf oder Archivierung der Campaign, da die Nachricht sich in Ihrem SDK befindet und darauf wartet, dass Nutzer:innen sie triggern.
+Dies verhindert, dass In-App-Nachrichten an Nutzer:innen innerhalb abgelaufener oder archivierter Campaigns gesendet werden. Wenn Sie die Berechtigung von Nutzer:innen nicht erneut auswerten, erhalten sie die In-App-Nachricht auch dann, wenn die Campaign abgelaufen oder archiviert ist, da die Nachricht sich in Ihrem SDK befindet und darauf wartet, dass Nutzer:innen sie triggern.
 
 {% alert note %}
-Die Aktivierung dieser Option führt zu einer geringfügigen Verzögerung (< 100 ms) zwischen dem Zeitpunkt, zu dem Nutzer:innen eine In-App-Nachricht triggern, und dem Zeitpunkt, zu dem die Nachricht angezeigt wird – aufgrund der zusätzlichen Berechtigungs- und Template-Anfrage.
+Wenn Sie diese Option aktivieren, entsteht eine leichte Verzögerung (< 100 ms) zwischen dem Zeitpunkt, zu dem Nutzer:innen eine In-App-Nachricht triggern, und dem Zeitpunkt, zu dem die Nachricht angezeigt wird, aufgrund der zusätzlichen Berechtigungs- und Template-Anfrage.
 <br><br>
-Verwenden Sie diese Option nicht für Nachrichten, die getriggert werden können, während Nutzer:innen offline sind, oder wenn eine erneute Auswertung der Berechtigung und von Liquid nicht erforderlich ist.
+Verwenden Sie diese Option nicht für Nachrichten, die getriggert werden können, wenn Nutzer:innen offline sind, oder wenn eine erneute Auswertung von Berechtigung und Liquid nicht erforderlich ist.
 {% endalert %}
 
-#### Per REST API hinzugefügte Daten in einer Nachricht verwenden {#use-data-added-by-rest-api-in-a-message}
+#### Von der REST API hinzugefügte Daten in einer Nachricht verwenden {#use-data-added-by-rest-api-in-a-message}
 
-Nutzerdaten, die der [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) in derselben Sitzung hinzufügt, können manchmal in der In-App-Nachricht dieser Nutzer:innen verwendet werden. Wenn Nutzer:innen beispielsweise zur Zielgruppe einer In-App-Nachricht gehören, die auf einen Trigger wartet, eine Sitzung starten und in derselben Sitzung die REST API ihr Profil aktualisiert, können diese neuen Daten in der In-App-Nachricht erscheinen, wenn **Re-evaluate campaign eligibility before displaying** ausgewählt ist. Braze erstellt das Template der In-App-Nachricht erst, wenn es Zeit ist, sie zu rendern.
+Nutzerdaten, die der [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) in derselben Sitzung hinzufügt, können manchmal in der In-App-Nachricht dieser Nutzer:innen verwendet werden. Wenn Nutzer:innen beispielsweise zur Zielgruppe einer In-App-Nachricht gehören, die auf einen Trigger wartet, eine Sitzung starten und in derselben Sitzung die REST API ihr Profil aktualisiert, können diese neuen Daten in der In-App-Nachricht erscheinen, wenn **Re-evaluate campaign eligibility before displaying** ausgewählt ist. Braze verarbeitet die In-App-Nachricht erst als Template, wenn sie gerendert werden soll.
 
-Wenn ein Trigger sowohl Daten an Braze sendet als auch die In-App-Nachricht auslöst, kann die Nachricht diese neu aktualisierten Profildaten nicht verwenden, selbst mit einer geplanten Verzögerung. Verwenden Sie stattdessen zwei separate Trigger: einen zum Senden der Daten und einen zum Triggern der In-App-Nachricht.
+Wenn ein Trigger sowohl Daten an Braze sendet als auch die In-App-Nachricht auslöst, kann die Nachricht diese neu aktualisierten Profildaten nicht verwenden, auch nicht mit einer geplanten Verzögerung. Verwenden Sie stattdessen zwei separate Trigger: einen zum Senden der Daten und einen zum Triggern der In-App-Nachricht.
 
 ### Konversions-Events auswählen {#choose-conversion-events}
 
-Braze ermöglicht es Ihnen zu verfolgen, wie oft Nutzer:innen bestimmte Aktionen, sogenannte [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), nach dem Empfang einer Campaign ausführen. Sie haben die Möglichkeit, ein Zeitfenster von bis zu 30 Tagen festzulegen, in dem eine Konversion gezählt wird, wenn die Nutzer:innen die angegebene Aktion ausführen.
+Braze ermöglicht es Ihnen zu verfolgen, wie oft Nutzer:innen bestimmte Aktionen, [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), nach Erhalt einer Campaign durchführen. Sie haben die Möglichkeit, ein Fenster von bis zu 30 Tagen festzulegen, in dem eine Konversion gezählt wird, wenn die Nutzer:innen die angegebene Aktion ausführen.
 
 {% endtab %}
 {% tab Canvas %}
 
-Falls noch nicht geschehen, vervollständigen Sie die verbleibenden Abschnitte Ihrer Canvas-Komponente. Weitere Informationen zum Aufbau des restlichen Canvas, einschließlich multivariater Tests und [Optimierung mit BrazeAI<sup>TM</sup>]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#optimize-canvas-variants-with-brazeai), finden Sie unter [Canvas erstellen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas).
+Wenn Sie es noch nicht getan haben, vervollständigen Sie die verbleibenden Abschnitte Ihrer Canvas-Komponente. Weitere Informationen zum Aufbau des restlichen Canvas, einschließlich multivariater Tests und [Mit BrazeAI<sup>TM</sup> optimieren]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#optimize-canvas-variants-with-brazeai), finden Sie unter [Canvas erstellen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas).
 
 Informationen zu Canvas-spezifischen Optionen für In-App-Nachrichten finden Sie unter [In-App-Nachrichten in Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#messages-in-canvas).
 
@@ -403,35 +407,35 @@ Informationen zu Canvas-spezifischen Optionen für In-App-Nachrichten finden Sie
 
 ## Schritt 8: Überprüfen und bereitstellen {#step-8-review-and-deploy}
 
-Nachdem Sie den letzten Teil Ihrer Campaign oder Ihres Canvas fertig erstellt haben, überprüfen Sie die Details, [testen Sie sie]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message) und senden Sie sie ab!
+Nachdem Sie den letzten Teil Ihrer Campaign oder Ihres Canvas fertiggestellt haben, überprüfen Sie die Details, [testen Sie sie]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message) und senden Sie sie ab!
 
-Sehen Sie sich als Nächstes den Artikel [In-App-Nachricht-Reporting]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting) an, um zu erfahren, wie Sie auf die Ergebnisse Ihrer Messaging-Kampagnen zugreifen können.
+Lesen Sie als Nächstes den Artikel [In-App-Nachricht-Reporting]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting), um zu erfahren, wie Sie auf die Ergebnisse Ihrer Messaging-Kampagnen zugreifen können.
 
 ## Wissenswertes {#things-to-know}
 
-### Limits für aktive In-App-Nachrichten-Campaigns {#active-in-app-message-campaign-limits}
+### Limits für aktive In-App-Nachricht-Campaigns {#active-in-app-message-campaign-limits}
 
-Braze legt Wert auf Zuverlässigkeit und Geschwindigkeit. Wir empfehlen, nur die Daten an Braze zu senden, die Sie benötigen, und alle Campaigns zu deaktivieren, die Ihrer Marke keinen Mehrwert mehr bieten.
+Braze legt großen Wert auf Zuverlässigkeit und Geschwindigkeit. Wir empfehlen, nur die Daten an Braze zu senden, die Sie benötigen, und alle Campaigns zu deaktivieren, die keinen Mehrwert mehr für Ihre Marke bieten.
 
-Die Verarbeitung von aktionsbasierten In-App-Nachrichten-Campaigns, die sich noch im aktiven Status befinden, aber keine Nachrichten mehr senden oder nicht mehr benötigt werden, verlangsamt die Gesamtperformance der Braze-Dienste für Sie und andere Kund:innen. Die zusätzliche Zeit, die für die Verarbeitung dieser großen Anzahl inaktiver Campaigns benötigt wird, führt dazu, dass In-App-Nachrichten länger brauchen, um auf den Geräten der Endnutzer:innen zu erscheinen, was sich auf deren Erlebnis auswirkt.
+Die Verarbeitung aktionsbasierter In-App-Nachricht-Campaigns, die sich noch im aktiven Status befinden, aber keine Nachrichten mehr senden oder nicht mehr benötigt werden, verlangsamt die Gesamtleistung der Braze-Dienste für Sie und andere Kund:innen. Die zusätzliche Zeit, die für die Verarbeitung dieser großen Anzahl inaktiver Campaigns benötigt wird, führt dazu, dass In-App-Nachrichten länger brauchen, um auf den Geräten der Endnutzer:innen zu erscheinen, was deren Erlebnis beeinträchtigt.
 
 {% alert important %}
-Sie können bis zu 200 aktive, aktionsbasierte In-App-Nachrichten-Campaigns pro Workspace haben, um die Geschwindigkeit der Nachrichtenzustellung zu optimieren und Timeouts zu vermeiden. Dies gilt nicht für Canvases.
+Sie können bis zu 200 aktive, aktionsbasierte In-App-Nachricht-Campaigns pro Workspace haben, um die Geschwindigkeit der Nachrichtenzustellung zu optimieren und Timeouts zu vermeiden. Dies gilt nicht für Canvases.
 {% endalert %}
 
-Die Obergrenze von 200 umfasst aktive In-App-Nachrichten-Campaigns, deren Endzeit noch nicht erreicht wurde, sowie solche ohne Endzeit. Aktive In-App-Nachrichten-Campaigns, deren Endzeit überschritten wurde, werden nicht mitgezählt. Durchschnittlich hat ein:e Braze-Kund:in insgesamt 26 gleichzeitig aktive Campaigns – es ist daher unwahrscheinlich, dass diese Einschränkung Sie betrifft.
+Die Grenze von 200 umfasst aktive In-App-Nachricht-Campaigns, deren Endzeit noch nicht erreicht wurde, sowie solche ohne festgelegte Endzeit. Aktive In-App-Nachricht-Campaigns, deren Endzeit überschritten wurde, werden nicht mitgezählt. Durchschnittlich hat ein Braze-Kunde insgesamt 26 gleichzeitig aktive Campaigns – es ist daher unwahrscheinlich, dass diese Einschränkung Sie betrifft.
 
-### Evaluierung der Zustellung zur Ortszeit {#local-time-delivery-evaluation}
+### Auswertung der Zustellung zur Ortszeit {#local-time-delivery-evaluation}
 
-Wenn eine In-App-Nachrichten-Campaign mit der Ortszeit der Nutzer:innen geplant wird, wird die Evaluierung der Start- und Endzeit der Campaign auf dem Gerät selbst durchgeführt.
+Wenn eine In-App-Nachricht-Campaign mit der Ortszeit der Nutzer:innen geplant wird, erfolgt die Auswertung der Start- und Endzeit der Campaign auf dem Gerät selbst.
 
-In-App-Nachrichten-Campaigns werden in der Regel an das Gerät der Nutzer:innen übermittelt, wenn eine App-Sitzung startet oder aktualisiert wird. In diesem Moment:
+In-App-Nachricht-Campaigns werden in der Regel auf das Gerät der Nutzer:innen übertragen, wenn die App-Sitzung beginnt oder aktualisiert wird. In diesem Moment:
 
-1. Das SDK prüft, ob die Nutzer:innen für triggerbasierte In-App-Nachrichten qualifiziert sind.
-2. Das Gerät überprüft, ob das Trigger-Event der Nutzer:innen innerhalb der Start- und Endzeit der Campaign liegt (definiert durch die Ortszeit der Nutzer:innen).
+1. Das SDK wertet aus, ob die Nutzer:innen für triggerbasierte In-App-Nachrichten qualifiziert sind.
+2. Das Gerät prüft, ob das Trigger-Event der Nutzer:innen innerhalb der Start- und Endzeit der Campaign liegt (gemäß der Ortszeit der Nutzer:innen).
 3. Wenn beide Bedingungen erfüllt sind, ist die In-App-Nachricht zur Anzeige berechtigt.
 
 #### Hinweise {#considerations}
 
-- Wenn Nutzer:innen ein Event auslösen (z. B. durch Tippen auf einen Button), kurz nachdem die In-App-Nachricht zugestellt wurde, erscheint die Nachricht möglicherweise erst bei der nächsten Sitzungsaktualisierung – vorausgesetzt, alle Berechtigungskriterien sind weiterhin erfüllt.
-- Ähnlich wie bei anderen Kanaltypen sollten In-App-Nachrichten-Campaigns idealerweise 24–48 Stunden im Voraus gestartet werden. Dieser Puffer gibt den Nutzer:innen ausreichend Zeit, die Berechtigungskriterien zu erfüllen und eine Sitzung zu initiieren, damit die Nachricht evaluiert und angezeigt werden kann.
+- Wenn Nutzer:innen kurz nach der Zustellung der In-App-Nachricht ein Event auslösen (z. B. einen Button-Tap), wird die Nachricht möglicherweise erst beim nächsten Sitzungs-Refresh angezeigt – vorausgesetzt, alle Berechtigungskriterien sind weiterhin erfüllt.
+- Ähnlich wie bei anderen Kanaltypen sollten In-App-Nachricht-Campaigns idealerweise 24–48 Stunden im Voraus gestartet werden. Dieser Puffer gibt den Nutzer:innen ausreichend Zeit, die Berechtigungskriterien zu erfüllen und eine Sitzung zu starten, damit die Nachricht ausgewertet und angezeigt werden kann.

@@ -29,7 +29,7 @@ Sie können Ihr E-Mail-Messaging auf verschiedene Arten anpassen, unter anderem 
 
 ## Testen Sie Ihre E-Mails {#test-your-emails}
 
-[Seed-Gruppen]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups) senden automatisch Kopien Ihrer E-Mail-Campaigns an interne Nutzer:innen, um die Qualitätssicherung durchzuführen. Seed-E-Mails enthalten `[SEED]` vor der Betreffzeile, damit Sie sie leicht identifizieren können.
+[Seed-Gruppen]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups) senden automatisch Kopien Ihrer E-Mail-Campaigns an interne Nutzer:innen, um eine Qualitätssicherung durchzuführen. Seed-E-Mails enthalten `[SEED]` vor der Betreffzeile, damit Sie sie leicht identifizieren können.
 
 ## Anwendungsfälle {#use-cases}
 
@@ -39,8 +39,8 @@ Sie können Ihr E-Mail-Messaging auf verschiedene Arten anpassen, unter anderem 
 | Onboarding | Begrüßen Sie neue Nutzer:innen und ermutigen Sie sie, Push-Benachrichtigungen zu aktivieren oder die App in sozialen Netzwerken zu teilen. |
 | Rich Messages | Ermöglichen Sie reichhaltige und dynamische HTML-Nachrichten. |
 | Multimedia-Inhalte | Einfache Einbindung von Multimedia-Inhalten wie Videos und Bildern, die Nutzer:innen ansprechen. |
-| Newsletter | Versenden Sie bequem monatliche oder wöchentliche Newsletter, um das Nutzer-Engagement aufrechtzuerhalten. |
-| Transaktionen | Benachrichtigen Sie Nutzer:innen über aktuelle Käufe und liefern Sie wichtige Produkt- und Versandinformationen mit [Transaktions-E-Mails]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email).
+| Newsletter | Versenden Sie bequem monatliche oder wöchentliche Newsletter, um das Engagement der Nutzer:innen aufrechtzuerhalten. |
+| Transaktionen | Benachrichtigen Sie Nutzer:innen über kürzlich getätigte Käufe und übermitteln Sie wichtige Produkt- und Versandinformationen mit [Transaktions-E-Mails]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email).
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Anwendungsfälle" }
 
 ## E-Mail-Dienste {#email-services}
@@ -67,11 +67,11 @@ Diese Dienste können Folgendes umfassen:
 
 ### Wie richte ich den E-Mail-Versand in Braze ein? {#how-do-i-set-up-email-sending-in-braze}
 
-Konfigurieren Sie dedizierte IPs, Domains, Authentifizierung und IP-Warming vor Ihrem ersten Versand. Die vollständige Checkliste finden Sie unter [E-Mail-Einrichtung]({{site.baseurl}}/user_guide/channels/email/email_setup).
+Konfigurieren Sie dedizierte IPs, Domains, Authentifizierung und IP-Warming, bevor Sie Ihre erste E-Mail versenden. Die vollständige Checkliste finden Sie unter [E-Mail-Einrichtung]({{site.baseurl}}/user_guide/channels/email/email_setup).
 
 ### Was ist der Unterschied zwischen Nutzer:innen-Abos und Abo-Gruppen? {#what-is-the-difference-between-user-subscriptions-and-subscription-groups}
 
-Nutzer:innen-Abos steuern den globalen Opt-in-Status für einen Kanal (z. B. abonniert oder abgemeldet für E-Mail). Abo-Gruppen ermöglichen es Nutzer:innen, bestimmte Nachrichtenkategorien innerhalb dieses Kanals auszuwählen. Weitere Informationen finden Sie unter [Nutzer:innen-Abos]({{site.baseurl}}/user_guide/channels/email/subscriptions) und [Abo-Gruppen]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups).
+Nutzer:innen-Abos steuern den globalen Opt-in-Status für einen Kanal (z. B. für E-Mail angemeldet oder abgemeldet). Abo-Gruppen ermöglichen es Nutzer:innen, bestimmte Nachrichtenkategorien innerhalb dieses Kanals auszuwählen. Weitere Informationen finden Sie unter [Nutzer:innen-Abos]({{site.baseurl}}/user_guide/channels/email/subscriptions) und [Abo-Gruppen]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups).
 
 ### Wie kann ich eine E-Mail testen, bevor ich eine Campaign sende? {#how-can-i-test-an-email-before-i-send-a-campaign}
 
@@ -79,6 +79,11 @@ Verwenden Sie [Seed-Gruppen]({{site.baseurl}}/user_guide/administer/global/user_
 
 ## Nächste Schritte {#next-steps}
 
-- [E-Mail-Einrichtung]({{site.baseurl}}/user_guide/channels/email/email_setup)
-- [E-Mail mit dem Drag-and-Drop-Editor erstellen]({{site.baseurl}}/user_guide/channels/email/drag_and_drop)
-- [E-Mail mit dem HTML-Editor erstellen]({{site.baseurl}}/user_guide/channels/email/html_editor)
+{% article_tiles %}
+- name: E-Mail-Einrichtung
+  link: /docs/user_guide/channels/email/email_setup
+- name: Eine E-Mail mit dem Drag-and-Drop-Editor erstellen
+  link: /docs/user_guide/channels/email/drag_and_drop
+- name: Eine E-Mail mit dem HTML-Editor erstellen
+  link: /docs/user_guide/channels/email/html_editor
+{% endarticle_tiles %}

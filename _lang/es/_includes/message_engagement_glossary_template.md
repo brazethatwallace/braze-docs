@@ -24,7 +24,7 @@ Los esquemas de almacenamiento se aplican a los datos de eventos en archivos pla
 Estos eventos también están disponibles como tablas SQL en el [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder), las [extensiones de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) y [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Para los esquemas de tablas SQL y detalles de columnas, consulta la [referencia de tablas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
 {% endalert %}
 
-Ponte en contacto con tu director de cuentas o abre un [ticket de soporte]({{site.baseurl}}/braze_support) si necesitas acceso a derechos de eventos adicionales. Si no encuentras lo que necesitas en este artículo, consulta nuestra [biblioteca de eventos de comportamiento del cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) o nuestros [ejemplos de datos de muestra de Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
+Ponte en contacto con tu director de cuentas o abre un [ticket de soporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) si necesitas acceso a derechos de eventos adicionales. Si no encuentras lo que necesitas en este artículo, consulta nuestra [biblioteca de eventos de comportamiento del cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) o nuestros [ejemplos de datos de muestra de Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
 
 {% enddetails %}
 
@@ -70,7 +70,7 @@ Ciertos eventos devuelven un valor `platform` que especifica la plataforma del d
 
 - Currents descarta los eventos con cargas útiles superiores a 900&nbsp;KB.
 - Los objetos relacionados con Canvas Flow tienen ID que puedes usar para agrupar y traducir a nombres legibles a través del [endpoint Exportar detalles de Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details).
-- Es posible que ciertos campos no muestren su estado más reciente inmediatamente después de actualizar una Campaign o un Canvas:
+- Es posible que ciertos campos no muestren su estado más reciente inmediatamente después de actualizar una campaña o un Canvas:
   - `campaign_name`
   - `canvas_name`
   - `canvas_step_name`

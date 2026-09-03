@@ -17,7 +17,7 @@ Operator는 워크스페이스(커스텀 속성, 연결된 콘텐츠, 현재 작
 
 ## 전제 조건 {#prerequisites}
 
-Operator는 사용자와 동일한 권한을 가지고 있으므로 특정 작업을 수행하려면 해당 영역에 대한 관련 권한이 필요합니다. 예를 들어, 이미지를 생성하려면 *미디어 라이브러리 자산 편집* 권한이 필요합니다. 진입점이 보이지 않는 경우, 관리자에게 권한을 확인하세요. 자세한 내용은 [권한 목록]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions)을 참조하세요.
+Operator는 사용자와 동일한 권한을 가지므로, 특정 작업에는 해당 영역에 대한 관련 권한이 필요합니다. 예를 들어, 이미지를 생성하려면 *미디어 라이브러리 자산 편집* 권한이 필요합니다. 진입점이 보이지 않는 경우 관리자에게 권한을 확인하세요. 자세한 내용은 [권한 목록]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions)을 참조하세요.
 
 ## 대시보드 탐색 {#navigate-the-dashboard}
 
@@ -285,7 +285,17 @@ Operator는 OpenAI와 통합하여 출력을 생성합니다. Braze가 OpenAI에
 
 ## 다음 단계 {#next-steps}
 
-- [Operator 시작하기]({{site.baseurl}}/user_guide/brazeai/operator): Operator에 접근하고 사용하기
-- [프롬프트 라이브러리]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library): 바로 사용할 수 있는 예시 프롬프트 둘러보기
-- [액션 검토]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions): Operator가 제안한 변경 사항을 검토하고 승인하기
-- [문제 해결]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting): 일반적인 문제와 해결 방법 참조
+{% article_tiles %}
+- name: Operator 시작하기
+  link: /docs/user_guide/brazeai/operator
+  description: Braze 대시보드에서 Operator에 접근하고 사용합니다.
+- name: 프롬프트 라이브러리
+  link: /docs/user_guide/brazeai/operator/prompt_library
+  description: 바로 사용할 수 있는 예시 프롬프트를 둘러봅니다.
+- name: 액션 검토
+  link: /docs/user_guide/brazeai/operator/reviewing_actions
+  description: Operator가 제안한 변경 사항을 검토하고 승인합니다.
+- name: 문제 해결
+  link: /docs/user_guide/brazeai/operator/troubleshooting
+  description: 일반적인 문제와 솔루션을 참조합니다.
+{% endarticle_tiles %}

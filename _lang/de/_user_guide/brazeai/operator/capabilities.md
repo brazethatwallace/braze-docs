@@ -17,7 +17,7 @@ Sie können das Gespräch mit Folgefragen fortsetzen. Operator merkt sich frühe
 
 ## Voraussetzungen {#prerequisites}
 
-Der Operator verfügt über dieselben Berechtigungen wie Sie, sodass bestimmte Aktionen die entsprechende Berechtigung für die jeweilige Oberfläche erfordern. Zum Beispiel erfordert das Generieren eines Bildes die Berechtigung *Medienbibliothek-Assets bearbeiten*. Wenn Sie keinen Einstiegspunkt sehen, überprüfen Sie Ihre Berechtigungen bei Ihrem Admin. Weitere Informationen finden Sie unter [Liste der Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
+Operator verfügt über dieselben Berechtigungen wie Sie, sodass bestimmte Aktionen die entsprechende Berechtigung für die jeweilige Oberfläche erfordern. Zum Beispiel erfordert das Generieren eines Bildes die Berechtigung *Medienbibliothek-Assets bearbeiten*. Wenn Sie keinen Einstiegspunkt sehen, überprüfen Sie Ihre Berechtigungen bei Ihrem Admin. Weitere Informationen finden Sie unter [Liste der Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
 
 ## Im Dashboard navigieren {#navigate-the-dashboard}
 
@@ -285,7 +285,17 @@ Operator integriert sich mit OpenAI, um Ausgaben zu generieren. Weitere Informat
 
 ## Nächste Schritte {#next-steps}
 
-- [Erste Schritte mit Operator]({{site.baseurl}}/user_guide/brazeai/operator): Zugriff auf und Nutzung von Operator
-- [Prompt-Bibliothek]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library): Fertige Beispiel-Prompts durchstöbern
-- [Aktionen überprüfen]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions): Vorgeschlagene Änderungen von Operator überprüfen und genehmigen
-- [Fehlerbehebung]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting): Häufige Probleme und Lösungen nachschlagen
+{% article_tiles %}
+- name: Erste Schritte mit Operator
+  link: /docs/user_guide/brazeai/operator
+  description: Zugriff auf und Nutzung von Operator im Braze-Dashboard.
+- name: Prompt-Bibliothek
+  link: /docs/user_guide/brazeai/operator/prompt_library
+  description: Fertige Beispiel-Prompts durchstöbern.
+- name: Aktionen überprüfen
+  link: /docs/user_guide/brazeai/operator/reviewing_actions
+  description: Vorgeschlagene Änderungen von Operator überprüfen und genehmigen.
+- name: Fehlerbehebung
+  link: /docs/user_guide/brazeai/operator/troubleshooting
+  description: Häufige Probleme und Lösungen nachschlagen.
+{% endarticle_tiles %}
